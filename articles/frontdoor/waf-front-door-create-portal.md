@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/8/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 26db3a67c3efbd0ba2a5c58facd0c07175f7ed12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460260"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479079"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure ön kapısı WAF ilkesi oluşturma
 
@@ -48,7 +48,7 @@ Açıklanan yönergeleri izleyerek bir ön kapısı profili oluşturma [hızlı 
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
     | Ön kapısı              | Ön kapısı profil adınızı seçin.|
-    | Ön uç konak           | Ön kapısı ana bilgisayarınızın adını seçin ve ardından **Ekle**.|
+    | Frontend ana bilgisayar           | Ön kapısı ana bilgisayarınızın adını seçin ve ardından **Ekle**.|
     
     > [!NOTE]
     > Frontend ana bilgisayar bir WAF ilkesiyle ilişkilendirilmiş ise gri olarak gösterilir. Frontend ana bilgisayar ilişkili ilkeyi silmeniz ve ardından yeni bir WAF ilke ön uç konağı yeniden ilişkilendirin.
@@ -56,24 +56,26 @@ Açıklanan yönergeleri izleyerek bir ön kapısı profili oluşturma [hızlı 
 
 ## <a name="configure-waf-rules-optional"></a>(İsteğe bağlı) WAF kurallarını yapılandırma
 
-### <a name="change-mode"></a>Modu değiştir
+### <a name="change-mode"></a>Modu Değiştir
 
 Bir WAF ilkesi oluşturduğunuzda, varsayılan WAF tarafından ilke bulunduğu **algılama** modu. İçinde **algılama** modu, WAF, tüm istekleri engellemez, bunun yerine, WAF kurallarını eşleşen istekler WAF günlüklerine kaydedilir.
 WAF nasıl çalıştığını görmek için mod ayarlarından değiştirebilirsiniz **algılama** için **önleme**. İçinde **önleme** modu, varsayılan kuralı ayarlayın (de DRS) tanımlanan eşleştirme kuralları engellenmediğinden ve WAF günlüklerine oturum ister.
 
  ![Değişiklik WAF ilke modu](./media/waf-front-door-create-portal/policy.png)
 
+### <a name="custom-rules"></a>Özel kurallar
+
+Seçerek özel bir kural oluşturabilirsiniz **Ekle özel kural** altında **özel kurallar** bölümü. Bu, özel kural yapılandırma sayfasında çalıştırır. İstek sorgu dizesini içeriyorsa engellemek için özel bir kural yapılandırma örneği aşağıdadır **blockme**.
+
+![Değişiklik WAF ilke modu](./media/waf-front-door-create-portal/customquerystring2.png)
+
 ### <a name="default-rule-set-drs"></a>Varsayılan kural kümesi (DRS)
 
 Azure tarafından yönetilen varsayılan kural kümesi, varsayılan olarak etkindir. Bir kural grubu içindeki tek bir kuralı devre dışı bırakmak için bu kural grubu, select kuralların genişletin **onay kutusunu** kural sayısı ve select önünde **devre dışı** yukarıdaki sekmesinde. Kural içinde bireysel kuralları ayarlamak, kural numarası önünde onay kutusunu işaretleyin ve ardından Eylemler türleri değiştirmek için **değiştirme eylemi** yukarıdaki sekmesi.
 
- ![Değişiklik WAF kural kümesi](./media/waf-front-door-create-portal/managed.png)
+ ![Değişiklik WAF kural kümesi](./media/waf-front-door-create-portal/managed2.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Hakkında bilgi edinin [Azure web uygulaması güvenlik duvarı](waf-overview.md).
 - Daha fazla bilgi edinin [Azure ön kapısı](front-door-overview.md).
-
-
-
-

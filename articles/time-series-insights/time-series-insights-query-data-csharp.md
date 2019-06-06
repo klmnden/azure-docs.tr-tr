@@ -10,18 +10,18 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e91c6fb4949a4902194bb95f98e49327434cdbfd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244106"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728958"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Azure zaman serisi öngörüleri GA ortamı kullanarak verileri SorgulamaC#
 
-Bu C# örnek, Azure zaman serisi öngörüleri GA ortamından veri sorgulama işlemini göstermektedir. 
+Bu C# örnek, Azure zaman serisi öngörüleri GA ortamından veri sorgulama işlemini göstermektedir.
 
 Örnek, Sorgu API’si kullanımının birkaç temel örneğini gösterir:
 
@@ -31,7 +31,7 @@ Bu C# örnek, Azure zaman serisi öngörüleri GA ortamından veri sorgulama iş
 1. Web yuvası isteğinin bir örneği olarak, ilgilenilen ortam için toplam olay verileri istenir. Veriler kullanılabilir oldukları tüm zaman aralığı için istenir.
 
 > [!NOTE]
-> Örnek kod kullanılabilir [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
+> Örnek kod kullanılabilir [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Proje bağımlılıkları
 

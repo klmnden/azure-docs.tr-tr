@@ -1,24 +1,24 @@
 ---
-title: "Hızlı Başlangıç: Azure Veri Gezgini ile Azure BLOB'ları alma"
-description: Bu hızlı başlangıçta, Azure veri Gezgini'ne Event Grid aboneliği kullanarak depolama hesabı veri gönderme konusunda bilgi edinin.
+title: Azure Veri Gezgini ile Azure BLOB'ları alma
+description: Bu makalede, Azure veri Gezgini'ne Event Grid aboneliği kullanarak depolama hesabı veri gönderme konusunda bilgi edinin.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/30/2019
-ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446457"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494740"
 ---
-# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Hızlı Başlangıç: Event Grid Bildirimlere abone olarak, Azure veri Gezgini'ne BLOB'ları alma
+# <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Event Grid Bildirimlere abone olarak, Azure veri Gezgini'ne BLOB'ları alma
 
 Azure Veri Gezgini, günlük ve telemetri verilerini için hızlı ve ölçeklenebilir bir veri araştırma hizmetidir. Bu, blob kapsayıcıları yazılan bloblarından sürekli alma (veriler yükleniyor) olanağı sağlar. 
 
-Bu hızlı başlangıçta nasıl kuracağınızı öğrenin bir [Azure Event Grid](/azure/event-grid/overview) aboneliği ve Azure Veri Gezgini rota olaylara bir event hub'ı aracılığıyla. Başlamak için Azure Event Hubs'a bildirimleri gönderen bir event grid aboneliği olan bir depolama hesabı olmalıdır. Bir Event Grid veri bağlantısı oluşturacak ve verileri sonra Sistem genelindeki akış.
+Bu makalede, nasıl ayarlanacağını öğreneceksiniz bir [Azure Event Grid](/azure/event-grid/overview) aboneliği ve Azure Veri Gezgini rota olaylara bir event hub'ı aracılığıyla. Başlamak için Azure Event Hubs'a bildirimleri gönderen bir event grid aboneliği olan bir depolama hesabı olmalıdır. Bir Event Grid veri bağlantısı oluşturacak ve verileri sonra Sistem genelindeki akış.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -39,18 +39,18 @@ Bu hızlı başlangıçta nasıl kuracağınızı öğrenin bir [Azure Event Gri
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
     | Ad | *Test-grid-bağlantı* | Oluşturmak istediğiniz olay Kılavuzu adı.|
-    | Olay Şeması | *Olay ızgarası şeması* | Event grid için kullanılan şema. |
-    | Konu Başlığı Türü | *Depolama hesabı* | Olay Kılavuzu konu başlığı türü. |
-    | Konu Kaynağı | *gridteststorage* | Depolama hesabınızın adı. |
+    | Olay şeması | *Olay ızgarası şeması* | Event grid için kullanılan şema. |
+    | Konu Türü | *Depolama hesabı* | Olay Kılavuzu konu başlığı türü. |
+    | Konu kaynak | *gridteststorage* | Depolama hesabınızın adı. |
     | Tüm olay türlerine abone ol | *Temizle* | Tüm olaylar hakkında size bir bildirim yapılmaz. |
-    | Tanımlanan Olay Türleri | *Oluşturulan blob* | İçin bildirim almak için hangi belirli olayları. |
-    | Uç Nokta Türü | *Olay hub'ları* | Olayları göndermek uç noktası türü. |
+    | Tanımlı olay türleri | *Oluşturulan blob* | İçin bildirim almak için hangi belirli olayları. |
+    | Uç noktası türü | *Olay hub'ları* | Olayları göndermek uç noktası türü. |
     | Uç Nokta | *test-hub* | Oluşturduğunuz olay hub'ı. |
     | | |
 
 1. Seçin **ek özellikler** belirli bir kapsayıcıdan dosyaları izlemek istiyorsanız sekmesi. Bildirimler için filtreleri aşağıdaki gibi ayarlayın:
     * **Konu ile başlar** alandır *değişmez değer* blob kapsayıcısının öneki. Uygulanan deseni olarak *startswith*, birden çok kapsayıcı yayılabilir. Hiçbir joker karakterlere izin verilir.
-     Bunu *gerekir* ayarlanması şu şekilde: *`/blobServices/default/containers/`*[kapsayıcı ön ek]
+     Bunu *gerekir* ayarlanması şu şekilde: *`/blobServices/default/containers/`* [kapsayıcı ön ek]
     * **Konu sona erer ile** alandır *değişmez değer* BLOB soneki. Hiçbir joker karakterlere izin verilir.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Azure Veri Gezgini'nde hedef tablo oluşturma
@@ -157,7 +157,7 @@ Verileri bir dosyaya kaydedin ve bu betik ile yükleyin:
 > [!NOTE]
 > Azure Veri Gezgini, bir toplama (toplu) ilke alma işlemi optimize etmek için tasarlanan veri alımı için vardır.
 Varsayılan olarak, ilkeyi 5 dakika ile yapılandırılır.
-Gerekirse daha sonra ilkeyi değiştirmek mümkün olacaktır. Bu hızlı başlangıçta bir gecikme birkaç dakika sürmesini bekleyebilirsiniz.
+Gerekirse daha sonra ilkeyi değiştirmek mümkün olacaktır. Bu makalede bir gecikme birkaç dakika sürmesini bekleyebilirsiniz.
 
 1. Uygulama çalışırken Azure Portalı'nda, event grid altında ani etkinlik görürsünüz.
 
@@ -196,5 +196,4 @@ Yeniden, event grid'i kullanmayı planlamıyorsanız, temizleme **test-hub-rg**y
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure veri Gezgini'nde verileri Sorgulama](web-query-data.md)
+* [Azure veri Gezgini'nde verileri Sorgulama](web-query-data.md)

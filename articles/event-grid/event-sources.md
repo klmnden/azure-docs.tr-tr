@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257945"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735015"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid olay kaynakları
 
@@ -140,6 +140,15 @@ Azure haritalar olayları döndürürüz olaylara yanıt vermek için abone olun
 | [Event Grid kullanarak Azure haritalar olaylarına tepki verme](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure haritalar'ı Event Grid ile tümleştirme genel bakış. |
 | [Öğretici: Bir bölge sınırının ayarlayın](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Bu öğreticide Azure haritalar'ı kullanarak döndürürüz ayarlamak için temel adımlarında size kılavuzluk eder. Azure Event Grid döndürürüz sonuçları akış ve bölge sınırının sonuçlarına dayalı bir bildirim ayarlamak için kullanın. |
 | [Olay şeması](event-schema-azure-maps.md) | Azure haritalar olayları alanları gösterir. |
+
+## <a name="app-configuration"></a>Uygulama Yapılandırması
+Azure uygulama yapılandırma olayları, anahtar-değer değişikliği olaylara yanıt vermek için abone olun.
+
+|Unvan | Açıklama |
+|---------|---------|
+| [Event Grid kullanarak Azure uygulama yapılandırma olaylarına tepki verme](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Uygulama yapılandırması Azure Event Grid ile tümleştirme genel bakış. |
+| [Hızlı Başlangıç: Azure CLI ile bir özel web uç noktası için Azure uygulama yapılandırma olaylarını yönlendirme](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Bir Web kancası için Azure uygulama yapılandırması olayları göndermek için Azure CLI kullanma işlemi gösterilmektedir. |
+| [Olay şeması](event-schema-app-configuration.md) | Alanları, Azure uygulama yapılandırması olayları gösterir. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

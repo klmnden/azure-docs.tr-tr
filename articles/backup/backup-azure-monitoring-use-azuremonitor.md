@@ -7,15 +7,15 @@ manager: shivamg
 keywords: Log Analytics; Azure yedekleme; Uyarıları; Tanılama ayarları; Eylem grupları
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190513"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734849"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Uygun ölçekte Azure İzleyicisi'ni kullanarak izleme
 
@@ -46,7 +46,7 @@ Hedef olarak başka bir Abonelikteki bir LA çalışma alanını seçebilirsiniz
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Log Analytics çalışma alanına çözümü dağıtma
 
-Veriler LA çalışma içinde olduğunda [github şablon dağıtma](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) verileri görselleştirmek için on oturum. Aynı kaynak grubunu, çalışma alanı adı ve çalışma alanı konumu düzgün çalışma belirlemek ve bu şablonu üzerinde yüklemeyi size emin olun.
+Veriler LA çalışma içinde olduğunda [GitHub şablon dağıtma](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) verileri görselleştirmek için on oturum. Aynı kaynak grubunu, çalışma alanı adı ve çalışma alanı konumu düzgün çalışma belirlemek ve bu şablonu üzerinde yüklemeyi size emin olun.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Log Analytics (on) kullanarak Azure Backup verileri görüntüleme
 
@@ -242,13 +242,13 @@ Başarılı yedeklemeler için etkinlik günlüklerini alma doğrulamak için a�
 
 ![Azure VM yedeklemeleri için etkinlik günlükleri](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-Daha fazla bilgi almak ve kopyalama, bir metin düzenleyicisi yapıştırma göre görüntülemek için "JSON" segment tıklayabilirsiniz. Kasa ayrıntıları görüntülenmelidir ve etkinlik tetiklenen öğesi oturum başka bir deyişle, yedekleme öğesi.
+' A tıklayın işlem adına göre işlemi ve ilgili ayrıntılar görüntülenir.
 
-"Etkinlik günlüğü uyarısı Ekle" ı tüm günlükler için uyarılar oluşturulacak.
+![Yeni uyarı kuralı](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-"Ekle etkinlik günlüğü uyarısı yukarıda gösterilen" tıklayabilirsiniz ve uyarı oluşturma ekranı ile benzerdir uyarı oluşturma ekran açılır [yukarıda açıklanan şekilde](#create-alerts-using-log-analytics).
+Tıklayın **yeni uyarı kuralı** açmak için **oluşturma kuralı** ekran, burada oluşturabilirsiniz açıklanan adımları kullanarak uyarı [makale](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-RS kasa burada kaynaktır ve bu nedenle etkinlik günlükleri aracılığıyla bildirim istediğiniz tüm kasaları için aynı eylemi yineleyin gerekir. Bu olay-tabanlı uyarı olduğundan koşul sıklığı, süresi, eşiği olmaz. İlgili etkinlik günlüğü oluşturulur hemen sonra uyarı tetiklenir.
+Kurtarma Hizmetleri kasası burada kaynaktır ve bu nedenle etkinlik günlükleri aracılığıyla bildirim istediğiniz tüm kasaları için aynı eylemi yineleyin gerekir. Bu olay-tabanlı uyarı olduğundan koşul sıklığı, süresi, eşiği olmaz. İlgili etkinlik günlüğü oluşturulur hemen sonra uyarı tetiklenir.
 
 ## <a name="recommendation"></a>Öneri
 

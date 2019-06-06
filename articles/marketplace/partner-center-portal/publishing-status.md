@@ -7,22 +7,34 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 461c9f3f3725ba27410088ca19f1ec050375adf2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806154"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474513"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Kendi ticari Market teklifi Yayımlama durumunu denetleyin
 
 Geçerli görüntüleyebileceğiniz **yayımlama durumu** üzerinde **genel bakış sunan** sekmesinde [ticari Marketi portalı](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) iş ortağı Merkezi'nde.
 
+Aşağıdaki durum göstergeleri biri, her bir teklifin görüntülenmelidir.
+
+| **Durumu**    | **Açıklama**  |
+| :---------- | :-------------------|
+| **Taslak** | Teklif oluşturuldu ancak yayımlanmakta değil. |
+| **Yayımlama devam ediyor** | Teklif/Plan, yayımlama işleminin adımlarını yolu çalışmaktadır. |
+| **Dikkat edilmesi gereken** | Kritik bir sorunu, Microsoft veya yayımlama adımları sırasında sertifika bulundu. |
+| **Önizleme** | Teklif Microsoft onaylı ve artık yayımcı tarafından son bir doğrulama bekler. Select Git teklif yapma, Canlı Canlı. |
+| **Canlı** | Teklif marketinde Canlı olur ve görülebilir ve müşteriler tarafından alındı. |
+| **Bekleyen durdurma satış** | Yayımcı "satış Durdur" Teklif veya planı seçildi, ancak işlem henüz tamamlanmadı. |
+| **Market'te kullanılabilir değil** | Market'te önceden yayımlanmış bir teklif/planı kaldırıldı. |
+
 ## <a name="automated-validation"></a>Otomatik doğrulama
 
 Yayımlama sürecinde ilk adım, otomatik doğrulamaları kümesidir. Her doğrulama adımının teklifinizi oluşturulmasında etkinleştirmek için seçtiğiniz bir özelliğe karşılık gelir. Bu özellik etkinleştirilmediyse doğrulama yayımlama sonraki adıma devam atlar. Her doğrulama denetimi, yayımlama durumu onaylanmadan önce tamamlanmış olması gerekir.
 
-- **Satın alma akış Kurulum sunar (> 10 dakika)**
+- **Satın alma akış Kurulum sunar (< 10 dakika)**
 
 Bu adımda, teklifinizi müşterilerin Azure Portalı aracılığıyla satın alımlarda olarak getirilmesi emin olun. Bu adım, yalnızca Microsoft satılan teklifler için geçerlidir.
 
@@ -34,7 +46,7 @@ Bu adımda, biz test sürüşü teklif teknik yapılandırma bölümünde sağla
 
 Veri ve önceki adımda, test sürüşünüz işlevselliğini doğrulama sonra bu adımda dağıtmak ve test sürüşünüz örneklerini çoğaltmak, böylece bunlar müşterinin kullanıma hazır olur.  Bu adım yalnızca etkin bir test sürüşüne ile teklifler için geçerlidir.
 
-- **Yönetim doğrulama ve kayıt sağlama (> 15 dakika)**
+- **Yönetim doğrulama ve kayıt sağlama (< 15 dk)**
 
 Bu adımda, müşteri adayı Yönetimi sisteminizde müşteri adayları teklif kurulumunda sağlanan Ayrıntılar temel alabilir onaylayın. Bu adım yalnızca sağlama yönetimi etkin teklifler için geçerlidir.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978890"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475229"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service için bir özel etki alanı adı satın alma
 
@@ -41,7 +41,7 @@ Bu öğreticiyi tamamlamak için:
 
 Azure App Service'in, uygulamanızın özel etki alanlarında kullanılacak [App Service planı](https://azure.microsoft.com/pricing/details/app-service/) Ücretli katmanı olmalıdır (**paylaşılan**, **temel**, **standart**, veya  **Premium**). Bu adımda, uygulamayı desteklenen bir fiyatlandırma katmanında olduğundan emin olun.
 
-### <a name="sign-in-to-azure"></a>Oturum açın: Azure
+### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 [Azure Portal](https://portal.azure.com)'ı açın ve Azure hesabınızla oturum açın.
 
@@ -79,10 +79,10 @@ Aşağıdaki bildirimi gördüğünüzde, ölçeklendirme işlemi tamamlanmışt
 
 ## <a name="buy-the-domain"></a>Etki alanı satın alma
 
-### <a name="pricing-information"></a>Fiyatlandırma Bilgileri
+### <a name="pricing-information"></a>Fiyatlandırma bilgileri
 Azure App Service etki alanları hakkında bilgi fiyatlandırma sayfasını ziyaret edin [App Service Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/app-service/windows/) ve App Service etki alanı kaydırın.
 
-### <a name="sign-in-to-azure"></a>Oturum açın: Azure
+### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 [Azure Portal](https://portal.azure.com/)'ı açın ve Azure hesabınızla oturum açın.
 
 ### <a name="launch-buy-domains"></a>Satın alma etki alanları'nı başlatın
@@ -118,7 +118,7 @@ Ardından, etki alanınız için istenen seçenekleri belirleyin. Açıklamalar 
 
 | Ayar | Önerilen Değer | Açıklama |
 |-|-|-|
-|Gizlilik koruması | Etkinleştirme | "Satın alma fiyatına dahil edilen gizlilik korumasını" kabul etmek _ücretsiz_. Bazı üst düzey etki alanlarında gizlilik korumasını desteklemeyen kaydedicilerin tarafından yönetilir ve üzerinde listelenen **Gizlilik Koruması** sayfası. |
+|Gizlilik Koruması | Etkinleştirme | "Satın alma fiyatına dahil edilen gizlilik korumasını" kabul etmek _ücretsiz_. Bazı üst düzey etki alanlarında gizlilik korumasını desteklemeyen kaydedicilerin tarafından yönetilir ve üzerinde listelenen **Gizlilik Koruması** sayfası. |
 | Varsayılan konak adları atayın | **www** ve **\@** | İstenen konak adı bağlamaları isterseniz seçin. Etki alanı satın alma işlemi tamamlandığında, seçili ana bilgisayar adları, uygulamanızı erişilebilir. Uygulama arkasında ise [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), kök etki alanının atama seçeneğini görmüyorum. (@), Traffic Manager desteği A kayıtlarını yaptığından. Etki alanı satın alma işlemini tamamladıktan sonra ana bilgisayar adı atamaları değişiklik yapabilirsiniz. |
 
 ### <a name="accept-terms-and-purchase"></a>Koşulları kabul edin ve satın alın
@@ -138,13 +138,17 @@ Geri **App Service etki alanı** sayfasında **Tamam**. İşlem devam ederken, a
 
 ### <a name="test-the-hostnames"></a>Test ana bilgisayar adları
 
-Uygulamanıza varsayılan konak adları atadıysanız, seçilen her bir ana bilgisayar için bir başarı bildirimi de görebilirsiniz. 
+Uygulamanıza varsayılan konak adları atadıysanız, seçilen her bir ana bilgisayar için bir başarı bildirimi de görebilirsiniz.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-Seçili konak adı aynı zamanda gördüğünüz **özel etki alanları** sayfasında **özel ana bilgisayar adları** bölümü. 
+Seçili konak adı aynı zamanda gördüğünüz **özel etki alanları** sayfasında **özel ana bilgisayar adları** bölümü.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+
+> [!NOTE]
+> A **Not güvenli** henüz bir SSL sertifikasına bağlıdır ve herhangi bir tarayıcıdan HTTPS isteğini özel etki alanınıza alacak özel etki alanı anlamına gelir ve hata veya uyarı, tarayıcıya bağlı olarak etiket. SSL bağlaması yapılandırmak için bkz [satın alma ve Azure App Service için SSL sertifikası yapılandırma](web-sites-purchase-ssl-web-site.md).
+>
 
 Ana bilgisayar adları test etmek için tarayıcıda listelenen ana bilgisayar adları gidin. Önceki ekran görüntüsünde örnekte giderek deneyin _kontoso.net_ ve _www\.kontoso.net_.
 
@@ -267,7 +271,7 @@ Azure portalında, sol menüden seçin **tüm hizmetleri** > **App Service etki 
 
 Etki alanına iptal etmek veya silmek istediğiniz seçin. 
 
-### <a name="delete-hostname-bindings"></a>Ana bilgisayar adı bağlamalarını sil
+### <a name="delete-hostname-bindings"></a>Konak adı bağlamaları Sil
 
 Etki alanının sol menüde **konak adı bağlamaları**. Tüm Azure hizmetlerinden gelen konak adı bağlamaları burada listelenir.
 

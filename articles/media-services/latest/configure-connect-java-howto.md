@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: juliako
-ms.openlocfilehash: 68e09ec6ce4aeb91e00c2a15caa8ec81f40064c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7ee54c852ce3332415b69ca6105b472dab0ab8a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733921"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480263"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Media Services v3 API'sine - Java bağlanma
 
@@ -74,7 +74,7 @@ Komutu çalıştırdığınızda `pom.xml`, `App.java`, ve diğer dosyalar oluş
      <artifactId>azure-client-authentication</artifactId>
      <version>1.6.6</version>
    </dependency>
-```
+    ```
 
 ## <a name="connect-to-the-java-client"></a>Bağlanmak için Java istemcisi
 

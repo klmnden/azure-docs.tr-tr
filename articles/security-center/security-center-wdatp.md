@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 15232c92e60d21d759bec59597cb161480b8c2ea
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258459"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743223"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Gelişmiş tehdit koruması ile Azure Güvenlik Merkezi
 
@@ -44,10 +44,6 @@ Bu özellikler Azure Güvenlik Merkezi'nde kullanıma sunulmuştur:
 - **Ayrıntılı makine araştırma**: Azure Güvenlik Merkezi müşteriler, Windows Defender ATP konsolu bir ihlal kapsamına ortaya çıkarmak için bir ayrıntılı araştırma gerçekleştirmenizi erişebilir.
 
 ![Azure Güvenlik Merkezi, uyarılar ve her uyarı hakkında genel bilgi listesini görüntüleme](media/security-center-wdatp/image1.png)
-
-Yapabilecekleriniz [uyarıyı araştırmanıza](security-center-investigation.md) Azure Güvenlik Merkezi'nde:
-
-![Azure Güvenlik Merkezi'nde uyarı araştırma Panosu](media/security-center-wdatp/image2.png)
 
 Uyarı Windows Defender ATP'ye özetleme tarafından daha fazla araştırabilirsiniz. Burada, uyarı işlem ağacını ve olay grafik gibi ek bilgileri görebilirsiniz. Bir geçmiş en fazla altı ay boyunca her davranışını gösteren ayrıntılı makine zaman çizelgesi de görebilirsiniz.
 

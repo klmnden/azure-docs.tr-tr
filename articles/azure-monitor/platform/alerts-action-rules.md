@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620005"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734906"
 ---
 # <a name="action-rules-preview"></a>Eylem kuralları (Önizleme)
 
@@ -33,7 +33,7 @@ Uyarı kuralları bir uyarı oluşturulduğunda tetikleyen bir eylem grubu tanı
 
 ## <a name="configuring-an-action-rule"></a>Bir eylem kuralı yapılandırma
 
-Özellik seçerek erişebilirsiniz **işlemleri yönetmenizi** Azure İzleyici'de giriş sayfası uyarılar. Ardından **eylem kuralları (Önizleme)**. Seçerek erişebilirsiniz **eylem kuralları (Önizleme)** uyarılar için giriş sayfasının panosundan.
+Özellik seçerek erişebilirsiniz **işlemleri yönetmenizi** Azure İzleyici'de giriş sayfası uyarılar. Ardından **eylem kuralları (Önizleme)** . Seçerek erişebilirsiniz **eylem kuralları (Önizleme)** uyarılar için giriş sayfasının panosundan.
 
 ![Azure İzleyici giriş sayfasından eylemi kuralları](media/alerts-action-rules/action-rules-landing-page.png)
 
@@ -67,7 +67,7 @@ Kullanılabilir filtreleri şunlardır:
 * **Uyarı kuralı kimliği**: Uyarı kuralı Resource Manager Kimliğini kullanarak özel uyarı kuralları için filtrelemenize olanak tanır.
 * **İzleme koşulu**: "Fired" veya "Çözüldü" uyarı örneği için izleme koşulu filtreleyin.
 * **Açıklama**: Uyarı kuralının bir parçası tanımlanan açıklama içinde eşleşen normal ifade.
-* **Uyarı bağlamı (yükü)**: Normal ifade içinde eşleşen [uyarı bağlamı](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) uyarı örneği alanları.
+* **Uyarı bağlamı (yükü)** : Normal ifade içinde eşleşen [uyarı bağlamı](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) uyarı örneği alanları.
 
 Bu filtreler birlikte bir başkasına uygulanır. Örneğin, 'Kaynak türü' ayarlarım, 'Sanal makineleri' ve 'Önem' = 'Sev0' tüm 'Sev0' uyarılar için yalnızca my Vm'lerde filtreledi sonra =. 
 
@@ -80,13 +80,13 @@ Sonraki eylem kural uyarı gizleme veya eylem grubu desteği için yapılandır�
 #### <a name="suppression"></a>Gizleme
 
 Seçerseniz **gizleme**, Eylemler ve bildirimleri bastırma süresince yapılandırın. Aşağıdakilerden birini seçin:
-* **Bugünden itibaren (her zaman)**: Süresiz olarak tüm bildirimleri engeller.
+* **Bugünden itibaren (her zaman)** : Süresiz olarak tüm bildirimleri engeller.
 * **Zamanlanan tarihte**: Sınırlı bir süre içinde bildirimlerini bastır.
 * **Bir yineleme ile**: Günlük, haftalık veya Aylık yinelenme zamanlamasına göre gizle.
 
 ![Eylem kural gizleme](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
-#### <a name="action-group"></a>Eylem grubu
+#### <a name="action-group"></a>eylem grubu
 
 Seçerseniz **eylem grubu** geçiş ya da var olan bir eylem grubu ekleyin veya yeni bir tane oluşturun. 
 
@@ -128,12 +128,15 @@ Contoso isteyen tüm günlük 'İçin bilgisayar-01' oluşturulan uyarılar içi
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Senaryo 3: Bir kaynak grubu tanımlanan eylem grubu
 
-Contoso tanımlanmış [abonelik düzeyinde ölçüm Uyarısı](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), ancak bunların 'ContosoRG' kaynak grubu için ayrı ayrı uyarılar için tetikleme eylemleri tanımlamak ister.
+Contoso tanımlanmış [abonelik düzeyinde ölçüm Uyarısı](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), ancak özellikle kendi kaynak grubundan 'ContosoRG' oluşturulan uyarılar için tetikleme eylemleri tanımlamak ister.
 
 **Çözüm:** Bir eylem kuralı oluşturun
 * Scope = 'ContosoRG'
 * Filtre
 * 'ContosoActionGroup için' eylem grubu ayarlayın
+
+> [!NOTE]
+> **Eylem grupları tanımlanan eylem kuralların ve uyarı kuralları işletmek bağımsız olarak, hiçbir yinelenenleri kaldırma ile**. Bir eylem grubu varsa, yukarıda açıklanan senaryoda uyarı kuralı için tanımlanmış, eylem kuralda tanımlanan eylem grubu ile birlikte tetikler. 
 
 ## <a name="managing-your-action-rules"></a>Eylem kurallarınızı yönetme
 
@@ -143,7 +146,7 @@ Görüntüleyebilir ve aşağıda gösterildiği liste görünümü, eylem kural
 
 Buradan, bunların yanındaki onay kutusunu seçerek etkinleştir/devre dışı bırakma/silme eylemi kurallarına uygun ölçekte kullanabilirsiniz. Herhangi bir eylem kural'ı tıklatarak, böylece tanımını güncelleştirin ve bu etkinleştir/devre kendi yapılandırma sayfası açılır.
 
-## <a name="best-practices"></a>En iyi yöntemler
+## <a name="best-practices"></a>En iyi uygulamalar
 
 Günlük uyarıları ile oluşturulan ['sonuç sayısı'](alerts-unified-log.md) oluşturma seçeneği **tek bir uyarı örneği** kullanarak (örneğin, birden fazla bilgisayara olabilir) tüm arama sonuç. Bir eylem Kuralı 'Uyarı bağlamı (yükü)' filtresi kullanıyorsa bir eşleşme var olduğu sürece bu senaryoda, uyarı örneğinde davranır. Senaryo 2 'Bilgisayar-01' hem 'Bilgisayar-02' oluşturulan günlüğü uyarısı için arama sonuçlarını içeriyorsa, daha önce anlatıldığı gibi tüm bildirim bastırılır (diğer bir deyişle, 'Bilgisayar-02' için hiç oluşturulan bildirim yoktur).
 

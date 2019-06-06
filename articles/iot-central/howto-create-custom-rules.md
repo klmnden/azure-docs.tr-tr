@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 6140a8aea3fe0fe0a8f1c01cd1c97404c41f7a69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805989"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742408"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>Azure IOT Central bildirim gönderen özel kurallar ile genişletme
 
@@ -41,9 +41,9 @@ Bir IOT Central uygulamasından oluşturma [Azure IOT Central - uygulamalarım](
 | Ayar | Değer |
 | ------- | ----- |
 | Ödeme planı | Kullandıkça Öde |
-| Uygulama şablonu | Örnek Contoso |
+| Uygulama şablonu | Contoso Örneği |
 | Uygulama adı | Varsayılan değeri kabul edin veya kendi ad seçin |
-| URL | Varsayılan değeri kabul edin veya kendi benzersiz URL ön eki seçin |
+| URL'si | Varsayılan değeri kabul edin veya kendi benzersiz URL ön eki seçin |
 | Dizin | Azure Active Directory kiracınızın |
 | Azure aboneliği | Azure aboneliğiniz |
 | Bölge | Doğu ABD |
@@ -67,7 +67,7 @@ Kullanım [bir Event Hubs ad alanı oluşturmak için Azure portalını](https:/
 | Location | Doğu ABD |
 | İşleme Birimleri | 1 |
 
-### <a name="stream-analytics-job"></a>Akış Analizi işi
+### <a name="stream-analytics-job"></a>Stream Analytics işi
 
 Kullanım [bir Stream Analytics işi oluşturmak için Azure portalını](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) aşağıdaki ayarlara sahip:
 
@@ -90,9 +90,9 @@ Kullanım [bir işlev uygulaması oluşturmak için Azure portalını](https://p
 | Abonelik | Aboneliğiniz |
 | Kaynak grubu | DetectStoppedDevices |
 | İşletim Sistemi | Windows |
-| Barındırma Planı | Tüketim Planı |
+| Barındırma planı | Tüketim Planı |
 | Location | Doğu ABD |
-| Çalışma Zamanı Yığını | .NET |
+| Çalışma zamanı yığını | .NET |
 | Depolama | Yeni oluştur |
 
 ### <a name="sendgrid-account"></a>SendGrid hesabı
@@ -102,7 +102,7 @@ Kullanım [SendGrid hesabı oluşturmak için Azure portalını](https://portal.
 | Ayar | Değer |
 | ------- | ----- |
 | Ad    | SendGrid hesabınızın adını seçin |
-| Parola | Parola oluşturma |
+| Parola | Bir parola oluşturun |
 | Abonelik | Aboneliğiniz |
 | Kaynak grubu | DetectStoppedDevices |
 | Fiyatlandırma katmanı | F1 Ücretsiz |
@@ -242,9 +242,9 @@ Bu çözüm, 120 saniye boyunca telemetri gönderen bir cihaza durduğunda algı
 
     | Ayar | Değer |
     | ------- | ----- |
-    | Giriş diğer adı | centraltelemetry |
+    | Girdi diğer adı | centraltelemetry |
     | Abonelik | Aboneliğiniz |
-    | Olay Hub'ı ad alanı | Olay hub'ı ad alanı |
+    | Olay hub'ı ad alanı | Olay hub'ı ad alanı |
     | Olay Hub'ı adı | Var olanı - kullan **centralexport** |
 
 1. Altında **işleri topolojisi**seçin **çıkışları**, seçin **+ Ekle**ve ardından **Azure işlevi**.
@@ -252,7 +252,7 @@ Bu çözüm, 120 saniye boyunca telemetri gönderen bir cihaza durduğunda algı
 
     | Ayar | Değer |
     | ------- | ----- |
-    | Çıkış diğer adı | EmailNotification |
+    | Çıktı diğer adı | EmailNotification |
     | Abonelik | Aboneliğiniz |
     | İşlev uygulaması | İşlev uygulamanızı |
     | İşlev  | HttpTrigger1 |
@@ -318,13 +318,13 @@ Gidin [IOT Central uygulamasına](https://aka.ms/iotcentral) Contoso şablondan 
     | Olay hub'ı | centralexport |
     | Ölçümler | Açık |
     | Cihazlar | Kapalı |
-    | Cihaz Şablonları | Kapalı |
+    | Cihaz şablonları | Kapalı |
 
 ![Verileri sürekli dışarı aktarma yapılandırması](media/howto-create-custom-rules/cde-configuration.png)
 
 Dışarı aktarma durumunu tamamlanana kadar bekleyin **çalıştıran** devam etmeden önce.
 
-## <a name="test"></a>Sına
+## <a name="test"></a>Test etme
 
 Çözümü test etmek için IOT Central'ndan verileri sürekli dışarı aktarma durdurulmuş sanal cihazlar için devre dışı bırakabilirsiniz:
 
@@ -353,4 +353,4 @@ Bu nasıl yapılır kılavuzunda öğrendiğiniz nasıl yapılır:
 * Veri gönderen bir cihaza durdurduğunda algılar bir Stream Analytics sorgu oluşturun.
 * SendGrid Hizmetleri ve Azure işlevleri'ni kullanarak bir e-posta bildirimi gönderin.
 
-Özel kurallar ve bildirimleri oluşturmak nasıl artık bildiğinize göre önerilen sonraki adıma öğrenmektir nasıl [Görselleştir ve Azure IOT Central bir Power BI panosunda çözümlemek](howto-connect-powerbi.md).
+Özel kurallar ve bildirimleri oluşturmak nasıl artık bildiğinize göre önerilen sonraki adıma öğrenmektir nasıl [genişletmek Azure IOT Central özel analizlerle](howto-create-custom-analytics.md).

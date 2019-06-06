@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: a9f8066896134072665c3f5b325e033b638bf094
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 5ef051f42f3d092cc1d88008eaa8af981684ac6c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001006"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730050"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Azure - PowerShell (Önizleme) IPv6 ikili yığını uygulama dağıtma
 
@@ -27,7 +27,7 @@ Bu makalede, azure'da çift yığın sanal ağ ve alt ağ, bir yük dengeleyici 
 > [!Important]
 > Azure sanal ağ için IPv6 desteği şu anda genel Önizleme aşamasındadır. Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu makale Azure PowerShell modülü sürüm 6.9.0 gerekir veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-Az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 
@@ -48,7 +48,7 @@ Kayıt tamamlandıktan sonra aşağıdaki komutu çalıştırın:
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 İkili yığın sanal ağ oluşturabilmeniz için önce bir kaynak grubu oluşturmanız gerekir [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myRGDualStack* içinde *Doğu ABD* konumu:
 
@@ -149,7 +149,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendPort 80
 ```
 
-### <a name="create-load-balancer"></a>Yük dengeleyici oluştur
+### <a name="create-load-balancer"></a>Yük dengeleyici oluşturma
 
 Basic Load Balancer ile oluşturma [AzLoadBalancer yeni](/powershell/module/az.network/new-azloadbalancer). Aşağıdaki örnek, genel bir temel yük adlı dengeleyici oluşturur *myLoadBalancer* kullanarak IPv4 ve IPv6 ön uç IP yapılandırmaları, arka uç havuzları ve önceki adımlarda oluşturulan Yük Dengeleme kuralları:
 
@@ -167,7 +167,7 @@ $lb = New-AzLoadBalancer `
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 Vm'leri dağıtmadan ve dengeleyicinizi test edebilirsiniz önce destekleyici ağ kaynakları - oluşturmalısınız kullanılabilirlik kümesi, ağ güvenlik grubu, sanal ağ ve sanal NIC. 
-### <a name="create-an-availability-set"></a>Kullanılabilirlik kümesi oluştur
+### <a name="create-an-availability-set"></a>Kullanılabilirlik kümesi oluşturma
 Uygulamanızın yüksek oranda kullanılabilir olmasını sağlamak için VM’lerinizi bir kullanılabilirlik kümesine yerleştirin.
 
 Bir kullanılabilirlik kümesi oluşturma [yeni AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). Aşağıdaki örnek *myAvailabilitySet* adında bir kullanılabilirlik kümesi oluşturur:
@@ -182,7 +182,7 @@ $avset = New-AzAvailabilitySet `
   -Sku aligned
 ```
 
-### <a name="create-network-security-group"></a>Ağ güvenlik grubu oluştur
+### <a name="create-network-security-group"></a>Ağ güvenlik grubu oluşturma
 
 Sanal ağınızdaki gelen ve giden iletişimi yöneten kurallar için ağ güvenlik grubu oluşturun.
 
@@ -231,7 +231,7 @@ $nsg = New-AzNetworkSecurityGroup `
 -Name "dsNSG1"  `
 -SecurityRules $rule1,$rule2
 ```
-### <a name="create-a-virtual-network"></a>Sanal ağ oluştur
+### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
 İle sanal ağ oluşturma [yeni AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Aşağıdaki örnek *mySubnet* alt ağına sahip *myVnet* adında bir sanal ağ oluşturur:
 

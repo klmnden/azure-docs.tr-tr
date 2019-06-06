@@ -2,20 +2,20 @@
 title: Öğretici - Azure Active Directory B2C kiracısı oluştur | Microsoft Docs
 description: Azure portalını kullanarak bir Azure Active Directory B2C kiracısı oluşturarak, uygulamalarınızı kaydetmek için hazırlamayı öğrenin.
 services: B2C
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6bcb8e8d5b8b6ef1ebac8141dd13964ecf62af6f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: e2568bca8f8ecf170c82c5388823193b8b0457cf
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601696"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734459"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Öğretici: Azure Active Directory B2C kiracısı oluşturma
 
@@ -24,17 +24,17 @@ Uygulamalarınızı Azure Active Directory (Azure AD) B2C ile etkileşim kurabil
 Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Azure AD B2C kiracısı oluşturun
+> * Azure AD B2C kiracısı oluşturma
 > * Kiracı aboneliğinize bağlayın
 
 Sonraki öğreticide bir uygulamayı kaydetme öğrenin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="create-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı oluşturun
+## <a name="create-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı oluşturma
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Tıklayarak aboneliğinizi içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve onu içeren dizine seçme. Bu dizin, Azure AD B2C kiracınızı içerecek hesaptan farklıdır.
+2. Tıklayarak aboneliğinizi içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve onu içeren dizine seçme. Bu Azure AD B2C kiracınızı içerecek farklı dizindir.
 
     ![Abonelik dizinine geçin](./media/tutorial-create-tenant/switch-directory-subscription.png)
 
@@ -57,7 +57,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Bu makalede, öğrendiğiniz nasıl yapılır:
 
 > [!div class="checklist"]
-> * Azure AD B2C kiracısı oluşturun
+> * Azure AD B2C kiracısı oluşturma
 > * Kiracı aboneliğinize bağlayın
 
 > [!div class="nextstepaction"]

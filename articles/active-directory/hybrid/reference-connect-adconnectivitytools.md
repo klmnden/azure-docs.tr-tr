@@ -5,17 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318f21beffb401053c56576ccd9e641dc89cf559
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298812"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473792"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  ADConnectivityTools PowerShell başvurusu
 
@@ -35,7 +35,8 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### <a name="description"></a>AÇIKLAMA
 
-Yerel Dns bağlantı testleri çalıştırır. Active Directory Bağlayıcısı'nı yapılandırmak için kullanıcının her iki ad çözümlemesi orman için de bu ormana ilişkili etki alanı denetleyicileri gibi bağlanmaya çalıştığınız olması gerekir.
+Yerel Dns bağlantı testleri çalıştırır.
+Active Directory Bağlayıcısı'nı yapılandırmak için kullanıcı bunlar bağlanmaya de etki alanı denetleyicileri bu ormana ilişkili olduğu gibi bir orman için her iki ad ÇözümlemesiEş olması gerekir.
 
 ### <a name="examples"></a>ÖRNEKLER
 
@@ -308,7 +309,7 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Kullanıcı AD Site tarafından sağlanan DNS hizmetleri kullanmıyorsa / denetimi bağlantı noktası 53 atlamak oturum açma DC sonra isteyebilirsiniz.
+Kullanıcının AD Site tarafından sağlanan DNS hizmetleri kullanmıyorsa / denetimi bağlantı noktası 53 atlamak oturum açma DC sonra isteyebilirsiniz.
 Kullanıcı hala _.ldap._tcp çözümleyebilmesi gerekir. \<forestfqdn\> sırada başarılı olması Active Directory Bağlayıcısı yapılandırması.
 
 ```yml

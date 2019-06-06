@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463624"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430784"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınız için Azure aboneliği ekleme veya ilişkilendirme
 
@@ -42,6 +42,7 @@ Tüm kullanıcılarınızın sahip tek bir *giriş* kimlik doğrulaması için d
     - RBAC kullanarak rolleri atanmış kullanıcılar erişimlerini kaybedeceklerdir
     - Hizmet Yöneticisi ve ortak yöneticilerin erişimi kaybedersiniz.
     - Tüm anahtar kasalarını varsa, bunlar erişilemez olacaktır ve bunları ilişkilendirmeden sonra düzeltmek zorunda kalırsınız
+    - Sanal makineleri veya Logic Apps gibi kaynakları için yönetilen tüm kimlikleri varsa, yeniden etkinleştirmeniz veya ilişkilendirmeden sonra bunları yeniden oluşturmanız gerekir
     - Kayıtlı bir Azure Stack varsa ilişkilendirmeden sonra yeniden kaydetmeniz gerekir
 
 1. Bir hesap kullanarak oturum açın:
@@ -76,7 +77,9 @@ Abonelik farklı bir dizine ilişkilendirdikten sonra işlemlerini sürdürmek i
 
 1. Tüm anahtar kasalarını varsa, anahtar kasası Kiracı kimliğini değiştirme Daha fazla bilgi için [abonelik taşıma işlemi sonrasında anahtar kasası Kiracı Kimliğini değiştirme](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Bu aboneliği kullanarak bir Azure Stack kayıtlıysanız, yeniden kaydetmeniz gerekir. Daha fazla bilgi için [kaydetme Azure Stack Azure ile](/azure-stack/operator/azure-stack-registration).
+2. Kaynaklar için sistem tarafından atanan yönetilen kimlikleri kullandıysanız, bu yeniden etkinleştirmeniz gerekir. Yönetilen kullanıcı tarafından atanan kimlikleri kullanıyorsanız, bunları yeniden oluşturmanız gerekir. Yeniden etkinleştirmeyi veya yönetilen kimlikleri yeniden sonra bu kimlikler için atanan izinler yeniden oluşturmanız gerekir. Daha fazla bilgi için [Azure kaynakları için yönetilen kimlikleri nedir?](../managed-identities-azure-resources/overview.md).
+
+3. Bu aboneliği kullanarak bir Azure Stack kayıtlıysanız, yeniden kaydetmeniz gerekir. Daha fazla bilgi için [kaydetme Azure Stack Azure ile](/azure-stack/operator/azure-stack-registration).
 
 
 

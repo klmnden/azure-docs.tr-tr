@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: ae477068e2413678d5dd755cb5a7334f85655c74
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 1aba0ab7083c437210166d2d5a2d77e7a657afe9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259262"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474593"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS yerine getirme API sürüm 2 
 
@@ -774,26 +774,35 @@ Yayımcı, Web kancası proaktif olarak kendi hizmetindeki değişiklikler kulla
 
 ```json
 {
-    "operationId": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "offer1",
-    "publisherId": "contoso",
-    "planId": "silver",
-    "quantity": "20"  ,
-    "action": "Subscribe",
-    "timeStamp": "2018-12-01T00:00:00"
+  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
+  "activityId": "<this is a Guid correlation id>",
+  "subscriptionId": "<Guid to uniquely identify this resource>",
+  "publisherId": "<this is the publisher’s name>",
+  "offerId": "<this is the offer name>",
+  "planId": "<this is the plan id>",
+  "quantity": "<the number of seats, will be null if not per-seat saas offer>",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Unsubscribe",
+  "status": "NotStarted"  
+
 }
 ```
+Burada eylem bunlardan biri olabilir: 
+- `Subscribe`, (Ne zaman kaynak etkinleştirildi)
+- `Unsubscribe`, (Ne zaman kaynağı silinmiş)
+- `ChangePlan`, (Ne zaman değişiklik planı işlemi tamamlandı)
+- `ChangeQuantity`, (Değişiklik miktar işlemi tamamlandığında),
+- `Suspend`, (Ne zaman kaynak askıya alındı)
+- `Reinstate`, (Ne zaman kaynak uzatılamaz sonra askıya alma)
 
-Burada eylem aşağıdakilerden biri olabilir: 
-- `Subscribe`  (Kaynak ne zaman etkinleştirildi)
-- `Unsubscribe` (Kaynak ne zaman silinmiş)
-- `ChangePlan` (Değişiklik planı işlemi tamamlandığında)
-- `ChangeQuantity` (Değişiklik miktar işlemi tamamlandığında)
-- `Suspend` (Zaman kaynak askıya alındı)
-- `Reinstate` (Zaman kaynak sonra askıya alma uzatılamaz)
+Burada durumu bunlardan biri olabilir: <br>
+        -NotStarted, <br>
+        -Devam ediyor, <br>
+        -Başarılı oldu, <br>
+        -Başarısız <br>
+        -Çakışması <br>
 
+Eyleme dönüştürülebilir durumlar başarılı ve başarısız bir Web kancası bildiriminde şunlardır. Bir işlemin yaşam döngüsü başarılı/başarısız/çakışma gibi bir terminal durumuna NotStarted sağlamaktır. Devam eden veya başlatılmamış alırsanız, Lütfen işlemi herhangi bir işlem yapmadan önce bir terminal durumuna ulaşana kadar durum alma işlemi API aracılığıyla istemek devam edin. 
 
 ## <a name="mock-api"></a>Sahte API
 

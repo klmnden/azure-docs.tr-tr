@@ -11,19 +11,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c7415bfeadc978fe7b3b6a03265c0643b129afbf
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: fd581d1dfea850e925909df59f2d4fdd421053fb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000164"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494365"
 ---
 # <a name="creating-filters-with-cli"></a>CLI ile filtre oluşturma 
 
-İçeriğinizi müşterilere (Canlı etkinlik veya isteğe bağlı Video akışı) sunarken istemcinizi varsayılan varlığın bildirim dosyasında tanımlanan değerinden daha fazla esneklik gerekebilir. Azure Media Services hesap filtreleri ve içeriğiniz için varlık filtrelerini tanımlamanızı sağlar. Daha fazla bilgi için [filtreleri](filters-concept.md) ve [dinamik bildirimlerini](filters-dynamic-manifest-overview.md).
+İçeriğinizi müşterilere (Canlı etkinlik veya isteğe bağlı Video akışı) sunarken istemcinizi varsayılan varlığın bildirim dosyasında tanımlanan değerinden daha fazla esneklik gerekebilir. Azure Media Services hesap filtreleri ve içeriğiniz için varlık filtrelerini tanımlamanızı sağlar. 
+
+Bu özellik ve onu kullanıldığı senaryoların ayrıntılı açıklaması için bkz [dinamik bildirimlerini](filters-dynamic-manifest-overview.md) ve [filtreleri](filters-concept.md).
 
 Bu konuda bir Video isteğe bağlı varlık için bir filtre yapılandırın ve oluşturmak için Media Services v3 için CLI'yi kullanma işlemi gösterilmektedir [hesap filtreleri](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) ve [varlık filtreleri](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 

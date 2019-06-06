@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/13/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2f55891ddd383ea15da499495909b56ffb0e06d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786144"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427492"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure automation'da Azure PowerShell modüllerini güncelleştirme
 
-Otomasyon hesabınızdaki kullanması gereken Azure modüllerini güncelleştirmek için [güncelleştirme Azure modülleri runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), açık kaynak kullanılabilen. Kullanmaya başlamak için **güncelleştirme AutomationAzureModulesForAccount** runbook, Azure modüllerini güncelleştirmek için buradan indirin [güncelleştirme Azure modülleri runbook depo](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) GitHub üzerinde. Ardından, Otomasyon hesabına aktarın veya bir betik olarak çalıştırmak. Bunu yapmak yönergeler bulunabilir [güncelleştirme Azure modülleri runbook depo](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).
+Otomasyon hesabınızdaki kullanması gereken Azure modüllerini güncelleştirmek için [güncelleştirme Azure modülleri runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), açık kaynak kullanılabilen. Kullanmaya başlamak için **güncelleştirme AutomationAzureModulesForAccount** runbook, Azure modüllerini güncelleştirmek için buradan indirin [güncelleştirme Azure modülleri runbook depo](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) GitHub üzerinde. Ardından, Otomasyon hesabına aktarın veya bir betik olarak çalıştırmak. Otomasyon hesabınızdaki bir runbook'u içeri öğrenmek için bkz. [bir runbook'u içeri aktar](manage-runbooks.md#import-a-runbook).
 
 En yaygın AzureRM PowerShell modüllerine her Otomasyon hesabında varsayılan olarak sağlanır. Azure ekibi Azure modüllerini düzenli olarak güncelleştirir, bu nedenle güncel tutmak için kullanmak istediğiniz [güncelleştirme AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) runbook Otomasyon hesaplarınız modülleri güncelleştirilecek.
 

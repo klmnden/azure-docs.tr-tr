@@ -1,24 +1,24 @@
 ---
-title: 'Hızlı Başlangıç: Azure Veri Gezgini Python kitaplığı kullanarak veri alma'
-description: Bu hızlı başlangıçta Python kullanarak verileri Azure Veri Gezgini'ne almayı (yüklemeyi) öğreneceksiniz.
+title: Azure Veri Gezgini Python kitaplığı kullanarak veri alma
+description: Bu makalede, Python kullanarak Azure Veri Gezgini içinde (yükle) alabilen öğrenin.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
-ms.openlocfilehash: fdeae2c6b598feee0abc57c80ea32f2108504330
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: da23ec91891776e9a459b04c5718147427843991
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827179"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496915"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Hızlı Başlangıç: Azure Veri Gezgini Python kitaplığı kullanarak veri alma
+# <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Azure Veri Gezgini Python kitaplığı kullanarak veri alma
 
-Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini Python için iki istemci kitaplığı sağlar: [alma kitaplığı](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) ve [veri kitaplığı](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Bu kitaplıklar verileri bir kümeye almanıza (yüklemenize ve kodunuzdan verileri sorgulamanıza olanak tanır. Bu hızlı başlangıçta, ilk tablo ve kümedeki veri eşlemesi oluşturun. Ardından veri alımını kümenin kuyruğuna ekler ve sonuçları doğrularsınız.
+Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini Python için iki istemci kitaplığı sağlar: [alma kitaplığı](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) ve [veri kitaplığı](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Bu kitaplıklar verileri bir kümeye almanıza (yüklemenize ve kodunuzdan verileri sorgulamanıza olanak tanır. Bu makalede, ilk tablo ve kümedeki veri eşlemesi oluşturun. Ardından veri alımını kümenin kuyruğuna ekler ve sonuçları doğrularsınız.
 
-Bu hızlı başlangıç bir [Azure Not Defteri](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb) olarak da sağlanır.
+Bu makalede olarak da kullanılabilir bir [Azure not defteri](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -170,7 +170,7 @@ Son dört saatteki tüm veri alım işlemlerinin durumunu görüntülemek için 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Diğer hızlı başlangıçlarımızı ve öğreticilerimizi izlemeyi planlıyorsanız, oluşturduğunuz kaynakları tutun. Aksi takdirde, veritabanınızda aşağıdaki komutu çalıştırarak StormEvents tablosunu temizleyin.
+Diğer makalelerimize takip etmeyi planlıyorsanız, oluşturduğunuz kaynakları tutun. Aksi takdirde, veritabanınızda aşağıdaki komutu çalıştırarak StormEvents tablosunu temizleyin.
 
 ```Kusto
 .drop table StormEvents
@@ -178,5 +178,4 @@ Diğer hızlı başlangıçlarımızı ve öğreticilerimizi izlemeyi planlıyor
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Python kullanarak verileri Sorgulama](python-query-data.md)
+* [Python kullanarak verileri Sorgulama](python-query-data.md)

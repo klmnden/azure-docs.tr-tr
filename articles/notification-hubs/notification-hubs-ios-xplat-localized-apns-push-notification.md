@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 527e9979b624970dd55b4300fe63c27386640ac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a293f0b656c075ae3b21ccf98e602e43ed761958
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560511"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428447"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs'ı kullanarak iOS cihazlarını yerelleştirilmiş anında iletme bildirimleri
 
@@ -49,7 +49,7 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 > [!NOTE]
 > Yerelleştirilmiş bildirimler gönderme yollarından biri, her bir etiketin birden çok sürümünü oluşturmaktır. Örneğin, İngilizce, Fransızca ve Mandarin desteklemek için üç farklı etiketler dünya Haberleri için gerekir: "world_en", "world_fr" ve "world_ch". Ardından, dünya haberleri yerelleştirilmiş bir sürümünü her etiketlerin göndermek gerekir. Bu konu başlığında, işyerinde etiketleri ve birden çok ileti gönderme gereksinimi önlemek için şablonları kullanın.
 
-Yüksek düzeyde, belirli bir cihaza bir bildirim nasıl alacağını belirtmek için bir yol şablonlardır. Şablon, uygulama arka ucunuz tarafından gönderilen iletinin parçası olan özelliklere başvurarak tam yük biçimini belirtir. Sizin durumunuzda, desteklenen tüm dilleri içeren bir yerel ayardan bağımsız mesaj gönder:
+Şablonları, belirli bir cihaza bir bildirim nasıl alacağını belirtmek için kullanılan bir yoludur. Şablon, uygulama arka ucunuz tarafından gönderilen iletinin parçası olan özelliklere başvurarak tam yük biçimini belirtir. Sizin durumunuzda, desteklenen tüm dilleri içeren bir yerel ayardan bağımsız mesaj gönder:
 
 ```json
 {
@@ -74,7 +74,7 @@ Ardından cihazların doğru özelliğine başvuran bir şablon ile kayıt olun.
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Tamamlamak [anında iletme bildirimleri belirli iOS cihazlarına](notification-hubs-ios-xplat-segmented-apns-push-notification.md) öğretici ve bu Öğreticide bu kodu doğrudan oluşturur çünkü kullanılabilir koda sahip.
-* Visual Studio 2017 isteğe bağlıdır.
+* Visual Studio 2019 isteğe bağlıdır.
 
 ## <a name="update-the-app-user-interface"></a>Uygulama kullanıcı arabirimini güncelleştirme
 
@@ -90,7 +90,7 @@ Ardından aşağıdaki görüntüde gösterildiği gibi ViewController.h içinde
 
 ## <a name="build-the-ios-app"></a>İOS uygulaması oluşturma
 
-1. İçinde `Notification.h` ekleme `retrieveLocale` yöntemi, deponun değiştirin ve aşağıdaki kodda gösterildiği gibi abone olma yöntemlerini:
+1. İçinde `Notification.h`, ekleme `retrieveLocale` yöntemi, deponun değiştirin ve aşağıdaki kodda gösterildiği gibi abone olma yöntemlerini:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

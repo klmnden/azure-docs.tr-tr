@@ -5,24 +5,24 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 06/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359208"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496756"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
 
-Bu makale, Azure portalında çok faktörlü kimlik doğrulaması ayarlarını yönetmek için yardımcı olur. En iyi Azure multi-Factor Authentication dışında almaya yardımcı olan çeşitli konuları kapsar. Tüm özellikler kullanılabilir her [Azure multi-Factor Authentication sürümü](concept-mfa-whichversion.md#what-features-do-i-need).
+Bu makale, Azure portalında çok faktörlü kimlik doğrulaması ayarlarını yönetmek için yardımcı olur. En iyi Azure multi-Factor Authentication dışında almaya yardımcı olan çeşitli konuları kapsar. Azure multi-Factor Authentication'ın her sürümünde kullanılabilir olan tüm özellikleri.
 
-Multi-Factor Authentication göz atarak Azure portalından ilgili ayarlarına erişebilirsiniz **Azure Active Directory** > **MFA**.
+Göz atarak Azure portalından Azure multi-Factor Authentication için ilgili ayarlar erişebileceğiniz **Azure Active Directory** > **MFA**.
 
 ![Azure portal - Azure AD çok faktörlü kimlik doğrulama ayarları](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -33,14 +33,14 @@ Bu ayarlardan bazıları, MFA sunucusu, Azure mfa'yı veya her ikisi de uygulan�
 | Özellik | Açıklama |
 | ------- | ----------- |
 | Hesap kilitleme | Geçici olarak kilitleme hesaplar çok faktörlü kimlik doğrulaması hizmeti varsa çok fazla satırda kimlik doğrulama girişimlerini reddedildi. Bu özellik, yalnızca kimlik doğrulaması için PIN giren kullanıcılar için geçerlidir. (MFA sunucusu) |
-| [Kullanıcı engelle/engelini kaldır](#block-and-unblock-users) | MFA sunucusu (şirket içi) belirli kullanıcılar multi-Factor Authentication istekleri almak mümkün olmasını engellemek için kullanılır. Engellenen kullanıcılar için kimlik doğrulama girişimleri otomatik olarak reddedilir. Kullanıcı engellendikten andan itibaren 90 gün boyunca engellenmiş kalır. |
+| [Kullanıcı engelle/engelini kaldır](#block-and-unblock-users) | Çok faktörlü kimlik doğrulaması isteklerini almak için belirli kullanıcıların engellemek için kullanılır. Engellenen kullanıcılar için kimlik doğrulama girişimleri otomatik olarak reddedilir. Kullanıcı engellendikten andan itibaren 90 gün boyunca engellenmiş kalır. |
 | [Sahtekarlık Uyarısı](#fraud-alert) | Doğrulama istekleri raporlamak için kullanıcıların özelliğiyle ilgili ayarları yapılandırın |
 | Bildirimler | MFA sunucusu olay bildirimlerini etkinleştirin. |
 | [OATH belirteçleri](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Bulut tabanlı Azure mfa'yı ortamlarında, kullanıcıların OATH belirteçlerini yönetmek için kullanılır. |
 | [Telefon araması ayarları](#phone-call-settings) | Telefon aramaları ve Bulut ve şirket içi ortamlar için tebrikler ilgili ayarları yapılandırın. |
 | Sağlayıcılar | Hesabınızla ilişkili bu var olan tüm kimlik doğrulama sağlayıcılarını gösterir. 1 Eylül 2018'den itibaren yeni kimlik doğrulama sağlayıcıları oluşturulmayabilir |
 
-## <a name="manage-mfa-server"></a>MFA Sunucusunu yönet
+## <a name="manage-mfa-server"></a>MFA sunucusunu yönetme
 
 Bu bölümde MFA sunucusu için yalnızca ayarlarıdır.
 
@@ -51,7 +51,7 @@ Bu bölümde MFA sunucusu için yalnızca ayarlarıdır.
 | [Önbelleğe alma kuralları](#caching-rules) |  Önbelleğe alma, öncelikli olarak VPN gibi şirket içi sistemler, ilk isteği hala devam ederken birden fazla doğrulama isteği gönderdiğinizde kullanılır. Bu özellik, kullanıcı ilk doğrulama devam ediyor başarılı olduktan sonra otomatik olarak başarılı olması sonraki istekleri sağlar. |
 | Sunucu durumu | Sürüm, durum, IP ve son iletişim saat ve tarih dahil olmak üzere şirket içi MFA sunucularınızın durumunu görürsünüz. |
 
-## <a name="activity-report"></a>Etkinlik raporu
+## <a name="activity-report"></a>Etkinlik Raporu
 
 Burada kullanılabilen raporlama, MFA sunucusu (şirket içi) için özeldir. Azure MFA (bulut) için Azure AD'de oturum açma işlemleri raporu rapor bakın.
 
@@ -89,7 +89,7 @@ Yapılandırma _sahtekarlık Uyarısı_ böylece kullanıcılarınız, kullanıc
 ### <a name="configuration-options"></a>Yapılandırma seçenekleri
 
 * **Sahtekarlık bildirildiğinde kullanıcıyı engelle**: Bir kullanıcı sahtekarlık bildirirse, kendi hesabı 90 gün veya yönetici hesabını engellemesinin kaldırıldığı kadar engellenir. Yönetici oturum açma raporunu kullanarak oturum açma işlemleri gözden geçirin ve gelecekteki sahtekarlığı önlemek, uygun eylemi gerçekleştirin. Yönetici böylece [engellemesini](#unblock-a-user) kullanıcının hesabı.
-* **İlk Karşılama sırasında sahtekarlık bildirme kodu**: Kullanıcılar, iki aşamalı doğrulamayı gerçekleştirmek için bir telefon araması aldığında, bunlar normal basın **#** kullanıcıların oturum açma onaylamak için. Rapor sahtekarlık bir kod tuşlarına basarak önce kullanıcının girdiği **#**. Bu kodu **0** varsayılan olarak, ancak bunu özelleştirebilirsiniz.
+* **İlk Karşılama sırasında sahtekarlık bildirme kodu**: Kullanıcılar, iki aşamalı doğrulamayı gerçekleştirmek için bir telefon araması aldığında, bunlar normal basın **#** kullanıcıların oturum açma onaylamak için. Rapor sahtekarlık bir kod tuşlarına basarak önce kullanıcının girdiği **#** . Bu kodu **0** varsayılan olarak, ancak bunu özelleştirebilirsiniz.
 
    >[!NOTE]
    >Microsoft gelen varsayılan sesli karşılamalar basın seçmemelerini **0#** sahtekarlık uyarısı göndermek için. Bir kod dışında kullanmak istiyorsanız **0**, kaydedin ve kullanıcılarınız için uygun yönergelere ile kendi özel sesli karşılamalar karşıya yükleyin.
@@ -100,7 +100,7 @@ Yapılandırma _sahtekarlık Uyarısı_ böylece kullanıcılarınız, kullanıc
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Seçin **Azure Active Directory** > **oturum açma**. Sahtekarlık rapor artık standart Azure AD oturum açma işlemleri raporu bir parçasıdır.
 
-## <a name="phone-call-settings"></a>Telefon görüşmesi ayarları
+## <a name="phone-call-settings"></a>Telefon araması ayarları
 
 ### <a name="caller-id"></a>Arayan kimliği
 
@@ -144,7 +144,7 @@ Kullanıcıya özel sesli mesajı yürütüldüğünde, ileti dilini şu etkenle
 1. Karşıya yüklenecek bir .mp3 veya .wav ses dosyasını seçin.
 1. **Add (Ekle)** seçeneğini belirleyin.
 
-## <a name="one-time-bypass"></a>Bir kerelik geçiş
+## <a name="one-time-bypass"></a>Bir kerelik atlama
 
 _Bir kerelik atlama_ iki aşamalı doğrulama gerçekleştirmeden bir kereliğine kimlik doğrulaması bir kullanıcı özelliği sağlar. Geçiş geçicidir ve belirtilen sayıda saniye geçtikten sonra süresi dolar. Burada mobil uygulaması ya da telefon bir bildirim ya da telefon aramasına almıyor durumlarda, kullanıcının istenen kaynağa erişebilmek için bir kerelik geçiş izin verebilirsiniz.
 
@@ -338,7 +338,7 @@ Kullanıcılarınız için Azure multi-Factor Authentication, hesaplarını kayd
 | Telefonu arama |Otomatik bir sesli çağrıyla yerleştirir. Kullanıcı telefonu yanıtladığında ve telefon tuş kimliğini doğrulamak için # tuşuna basar. Telefon numarası şirket içi Active Directory ile eşitlenmez. |
 | Telefona kısa mesaj |Bir doğrulama kodu içeren bir kısa mesaj gönderir. Kullanıcı doğrulama kodunu oturum açma arabirimine girmesi istenir. Bu işlem, tek yönlü SMS çağrılır. İki yönlü SMS, belirli bir kodu metnin geri gerektiğini anlamına gelir. İki yönlü SMS kullanım dışı ve 14 Kasım 2018'den sonra desteklenmiyor. İki yönlü SMS otomatik olarak ayarlı için yapılandırılmış kullanıcılar _telefon_ doğrulama o zaman.|
 | Mobil uygulama üzerinden bildirim |Telefonunuza veya kayıtlı cihazınıza anında iletme bildirimi gönderir. Kullanıcı bildirimi görünümleri ve seçer **doğrulama** doğrulamayı tamamlamak için. Microsoft Authenticator uygulamasını kullanılabilir [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Mobil uygulamadaki veya donanım belirtecindeki doğrulama kodu |Microsoft Authenticator uygulamasını her 30 saniyede yeni bir OATH doğrulama kodu oluşturur. Kullanıcı oturum açma arabirimine doğrulama kodunu girer. Microsoft Authenticator uygulamasını kullanılabilir [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Mobil uygulama veya donanım belirteci doğrulama kodu |Microsoft Authenticator uygulamasını her 30 saniyede yeni bir OATH doğrulama kodu oluşturur. Kullanıcı oturum açma arabirimine doğrulama kodunu girer. Microsoft Authenticator uygulamasını kullanılabilir [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>Etkinleştirme ve doğrulama yöntemlerini devre dışı
 
@@ -351,7 +351,7 @@ Kullanıcılarınız için Azure multi-Factor Authentication, hesaplarını kayd
 
 Kimlik doğrulama yöntemlerinin kullanımı hakkında ek bilgi makalesinde bulunabilir [kimlik doğrulama yöntemleri nelerdir](concept-authentication-methods.md).
 
-## <a name="remember-multi-factor-authentication"></a>Çok Faktörlü Kimlik Doğrulamasını Anımsa
+## <a name="remember-multi-factor-authentication"></a>Çok faktörlü kimlik doğrulamasını anımsa
 
 _Çok faktörlü kimlik doğrulamasını anımsa_ özelliğidir cihazlar ve kullanıcı tarafından güvenilen tarayıcılar için multi-Factor Authentication tüm kullanıcılar için ücretsiz bir özellik. Kullanıcılar, belirtilen sayıda gün, bunlar başarıyla bir cihaz için çok faktörlü kimlik doğrulaması kullanarak oturum açmış sonra sonraki doğrulamaları atlayabilirsiniz. Özellik, bir kullanıcının aynı cihazda iki adımlı doğrulama için sayısını en aza indirerek kullanılabilirliği geliştirir.
 

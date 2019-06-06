@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 06/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 1001e6aec7ba2f6ce62eb267d218149296048bb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 574cc0c41ce645c71302178afcf6e7deaec69d8e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394357"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476094"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs'de Laboratuvar sanal makineler için bir kaynak grubu belirtin
 
@@ -29,6 +29,9 @@ Laboratuvar sahibi olarak, belirli bir kaynak grubunda oluşturulması için lab
 - Bu kaynakları izleme ve uygulama basitleştirmek için tek kaynak grup içindeki tüm Laboratuvar kaynaklarını birleştirmek [ilkeleri](../governance/policy/overview.md) kaynak grubu düzeyinde kaynakları yönetmek için.
 
 Bu özellik sayesinde, yeni veya mevcut bir kaynak grubu tüm laboratuvarınız için Vm'leri Azure aboneliğinizde belirtmek için bir komut dosyası kullanabilirsiniz. Şu anda bu özellik bir API aracılığıyla Azure DevTest Labs destekler.
+
+> [!NOTE]
+> DevTest Labs'de Laboratuvar oluşturma, tüm abonelik sınırlar geçerlidir. Bir laboratuvar aboneliğinizdeki herhangi bir kaynağa düşünün. Kaynak grupları durumunda sınırıdır [980 kaynak grupları, abonelik başına](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
 
 ## <a name="use-azure-portal"></a>Azure portalı kullanma
 Laboratuvar'da oluşturulan tüm sanal makineler için bir kaynak grubu belirtmek için aşağıdaki adımları izleyin. 

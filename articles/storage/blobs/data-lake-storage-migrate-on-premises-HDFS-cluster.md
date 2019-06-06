@@ -4,26 +4,26 @@ description: Verileri şirket içi HDFS Mağazası'ndan Azure Depolama'ya geçir
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 03/01/2019
+ms.date: 06/05/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1eac7ecce88dc817b9bd7bd5330d10b019cc7dd2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 9a42135df38cde91cc6626a3f7d0328334af0a5d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939247"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729059"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure depolama için bir şirket içi HDFS Mağazası'ndan veri taşımak için Azure Data Box'ı kullanın
 
-Data Box cihaz kullanarak Azure Depolama'ya (blob depolama veya Data Lake depolama Gen2'ye) Hadoop kümenizin bir şirket içi HDFS deposundaki verileri geçirebilirsiniz.
+Data Box cihaz kullanarak Azure Depolama'ya (blob depolama veya Data Lake depolama Gen2'ye) Hadoop kümenizin bir şirket içi HDFS deposundaki verileri geçirebilirsiniz. Bir 80 TB Data Box veya 770 TB veri kutusu ağır seçebilirsiniz.
 
 Bu makale, şu görevleri tamamlamanıza yardımcı olur:
 
-:heavy_check_mark: Verilerinizi bir Data Box cihazına kopyalayın.
+:heavy_check_mark: Data Box veya veri kutusu ağır bir cihaza veri kopyalayın.
 
-:heavy_check_mark: Data Box cihazı Microsoft'a gönderin.
+:heavy_check_mark: Cihaz Microsoft'a gönderin.
 
 :heavy_check_mark: Verileri Data Lake depolama Gen2'ye depolama hesabınız üzerine taşıyın.
 
@@ -37,10 +37,10 @@ Bunlar, geçişi tamamlamak için ihtiyacınız vardır.
 
 * Kaynak verileri içeren bir şirket içi Hadoop kümesi.
 
-* Bir [Azure Data Box cihazınızın](https://azure.microsoft.com/services/storage/databox/). 
+* Bir [Azure Data Box cihazınızın](https://azure.microsoft.com/services/storage/databox/).
 
-    - [Data Box'ınızı sipariş](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered). Bir depolama hesabı seçmek Box'ınızı sıralama sırasında unutmayın **değil** sahip hiyerarşik ad alanları üzerinde etkin. Azure Data Lake depolama Gen2 içine doğrudan alma Data Box henüz desteklemiyor olmasıdır. Bir depolama hesabına kopyalayın ve ardından ikinci bir kopyasını Gen2 ADLS hesabına yapmak gerekir. Yönergeler için bu adımları verilmiştir.
-    - [Data Box'ınızı bağlanmak ve kablo](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) bir şirket içi ağa.
+    - [Data Box'ınızı sipariş](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) veya [veri kutusu ağır](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). Bir depolama hesabı seçmek Cihazınızı sıralama sırasında unutmayın **değil** sahip hiyerarşik ad alanları üzerinde etkin. Data Box cihaz henüz Azure Data Lake depolama Gen2 içine doğrudan alma desteği olmayan olmasıdır. Bir depolama hesabına kopyalayın ve ardından ikinci bir kopyasını Gen2 ADLS hesabına yapmak gerekir. Yönergeler için bu adımları verilmiştir.
+    - Kablo ve bağlantı, [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) veya [veri kutusu ağır](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) bir şirket içi ağa.
 
 Hazır olduğunuzda başlayalım.
 
@@ -48,12 +48,12 @@ Hazır olduğunuzda başlayalım.
 
 Bir Data Box cihazına, şirket içi HDFS deposundan veri kopyalamak için birkaç şey ayarlayabilir ve ardından [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) aracı.
 
-Kopyalamakta olduğunuz veri miktarı tek bir veri kutusu kapasitesini birden fazla ise, Veri kümenizi, veri kutularına uyan boyutları halinde bölmeniz gerekir.
+Kopyalamakta olduğunuz veri miktarı tek bir veri kutusu kapasitesi veya veri kutusu ağır tek düğümde, birden fazla ise, Veri kümenizi cihazlarınızı sığması boyutları halinde bölmeniz.
 
-Data Box'ınızı için REST API'leri, Blob/nesne depolama aracılığıyla veri kopyalamak için aşağıdaki adımları izleyin. REST API Arabirimi Data Box, küme için HDFS deposu olarak görünür hale getirir. 
+Data Box cihazınıza REST API'leri, Blob/nesne depolama aracılığıyla veri kopyalamak için aşağıdaki adımları izleyin. REST API Arabirimi cihaz kümenize bir HDFS deposu olarak görünür hale getirir. 
 
 
-1. Data Box REST arabirimi bağlanmak için güvenlik ve bağlantı temelleri REST aracılığıyla veri kopyalamadan önce belirleyin. Yerel web kullanıcı Arabirimi, Data Box oturum açıp **Bağlan ve Kopyala** sayfası. Karşı Azure depolama hesabı, Data Box'a altında **erişim ayarları**bulup seçin **REST(Preview)**.
+1. Data Box veya veri kutusu ağır REST arabirimini bağlanmak için güvenlik ve bağlantı temelleri REST aracılığıyla veri kopyalamadan önce belirleyin. Yerel web kullanıcı Arabirimi, Data Box oturum açıp **Bağlan ve Kopyala** sayfası. Azure depolama hesabı cihazınız için altında **erişim ayarları**bulun ve seçin **REST**.
 
     !["Bağlan ve Kopyala" sayfası](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
@@ -63,7 +63,7 @@ Data Box'ınızı için REST API'leri, Blob/nesne depolama aracılığıyla veri
 
      !["Depolama hesabına erişme ve verileri karşıya yükleme" iletişim kutusu](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Uç nokta ekleyip veri kutusu IP adresine `/etc/hosts` her düğümde.
+3. Uç nokta ekleyip Data Box veya veri kutusu ağır düğüm IP adresine `/etc/hosts` her düğümde.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -122,22 +122,30 @@ Data Box'ınızı için REST API'leri, Blob/nesne depolama aracılığıyla veri
   
 Kopyalama hızını artırmak için:
 - Azaltıcının sayısını değiştirmeyi deneyin. (Yukarıdaki örnekte `m` = 4 azaltıcının.)
-- Birden fazla çalıştırmayı deneyin `distcp` paralel.
-- Büyük dosyaları daha küçük dosyalar iyi gerçekleştireceğini unutmayın.       
+- Birden çok çalıştırmayı deneyin `distcp` paralel.
+- Büyük dosyaları daha küçük dosyalar iyi gerçekleştireceğini unutmayın.
     
 ## <a name="ship-the-data-box-to-microsoft"></a>Data Box Microsoft'a gönderin
 
 Microsoft Data Box cihaz hazırlayıp için bu adımları izleyin.
 
-1. Veri kopyalama işlemi tamamlandıktan sonra çalıştırın [göndermeye hazırlama](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) Data Box'ınızı üzerinde. Cihaz hazırlığı tamamlandıktan sonra ürün reçetesi dosyalarını indirin. Bu ürün reçetesi veya bildirim dosyaları daha sonra verileri Azure'a karşıya doğrulamak için zamanlanacak. Cihazı kapatın ve kabloların kaldırın. 
-2.  Bir toplama için UPS ile zamanlama [Data Box'ınızı azure'a geri gönderin](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
-3.  Ne zaman Cihazınızı Microsoft alır ve ağ veri merkezine bağlı olduğu (devre dışı hiyerarşik ad alanları ile) belirtilen depolama hesabı için veriler karşıya yüklendikten sonra Data Box sipariş. BOM dosyalara karşı tüm verileri Azure'a karşıya yüklendiğini doğrulayın. Artık bu veri bir Data Lake depolama Gen2'ye depolama hesabına geçebilirsiniz.
+1. Veri kopyalama işlemi tamamlandıktan sonra çalıştırın:
+    
+    - [Data Box veya veri kutusu ağır göndermeye hazırlama](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest).
+    - Cihaz hazırlığı tamamlandıktan sonra ürün reçetesi dosyalarını indirin. Bu ürün reçetesi veya bildirim dosyaları daha sonra verileri Azure'a karşıya doğrulamak için zamanlanacak. 
+    - Cihazı kapatın ve kabloların kaldırın.
+2.  UPS ile bir toplama zamanlayın. Yönergeleri izleyin:
+
+    - [Data Box'ınızı gönderin](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) 
+    - [Veri kutusu ağır sevk](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
+3.  Ne zaman Cihazınızı Microsoft alır, veri merkezi ağa bağlı ve verileri (devre dışı hiyerarşik ad alanları ile) belirtilen depolama hesabına yüklendikten sonra cihaz siparişi veren. BOM dosyalara karşı tüm verileri Azure'a karşıya yüklendiğini doğrulayın. Artık bu veri bir Data Lake depolama Gen2'ye depolama hesabına geçebilirsiniz.
+
 
 ## <a name="move-the-data-onto-your-data-lake-storage-gen2-storage-account"></a>Data Lake depolama Gen2'ye depolama hesabınız oturum verileri taşıma
 
 Azure Data Lake depolama Gen2'ye veri deponuz olarak kullanıyorsanız bu adım gereklidir. Yalnızca bir blob depolama hesabı hiyerarşik ad alanı olmayan veri deponuz olarak kullanıyorsanız, bu adımı gerekmez.
 
-2 yollarla bunu yapabilirsiniz. 
+İki yolla bunu yapabilirsiniz.
 
 - Kullanım [verileri ADLS Gen2'ye taşımak için Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Belirtmek zorunda kalacaksınız **Azure Blob Depolama** kaynağı olarak.
 

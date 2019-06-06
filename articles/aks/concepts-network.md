@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074059"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431323"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ağ kavramları
 
@@ -99,6 +99,8 @@ LoadBalancer türü hizmet oluşturduğunuzda, bir temel alınan Azure yük deng
 AKS, NGINX gibi kullanarak bir giriş kaynağı oluşturun veya AKS HTTP uygulama yönlendirme özelliğini kullanın. Bir AKS kümesi için uygulama HTTP yönlendirme etkinleştirdiğinizde, Azure platformu giriş denetleyicisine oluşturur ve bir *dış DNS* denetleyicisi. Yeni giriş kaynakları Kubernetes'te oluşturuldukça gerekli DNS A kayıtlarını kümeye özgü bir DNS bölgesinde oluşturulur. Daha fazla bilgi için [HTTP uygulama yönlendirme dağıtma][aks-http-routing].
 
 Başka bir ortak giriş SSL/TLS sonlandırma özelliğidir. Giriş kaynağı yerine uygulamanın kendisinden, HTTPS erişilen büyük web uygulamaları, TLS sonlandırma işlenebilir. Otomatik TLS sertifika oluşturma ve yapılandırma sağlamak üzere, giriş kaynak sağlayıcılarını şimdi şifreleme gibi kullanacak şekilde yapılandırabilirsiniz. Şimdi şifreleme ile bir NGINX giriş denetleyicisine yapılandırma hakkında daha fazla bilgi için bkz. [giriş ve TLS][aks-ingress-tls].
+
+Ayrıca, istemci kaynak IP AKS kümenizde kapsayıcıları isteklerinde korumak için giriş denetleyicisini yapılandırabilirsiniz. Bir istemcinin isteği bir kapsayıcıda, AKS kümesi, giriş denetleyicisine aracılığıyla yönlendirilir, bu isteğin özgün kaynak IP'sini hedef kapsayıcı için kullanılamaz. Etkinleştirdiğinizde *istemci kaynak IP korunması*, istemci için kaynak IP istek üstbilgisindeki altında kullanılabilir *X-iletilen-için*. Giriş denetleyicinizde istemci kaynak IP koruma kullanıyorsanız, SSL doğrudan kullanamazsınız. İstemci kaynak IP korunması ve SSL doğrudan kullanılabilir diğer hizmetlerle gibi *LoadBalancer* türü.
 
 ## <a name="network-security-groups"></a>Ağ güvenlik grupları
 

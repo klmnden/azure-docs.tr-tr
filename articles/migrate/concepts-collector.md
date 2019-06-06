@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 865e0679ed05823d115baeb9eea3c01d7fb5f2a5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728014"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428469"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -111,7 +111,7 @@ Bağlantı denetimi URL'lerin bir listesini bağlanarak doğrulanır.
 --- | --- | ---
 *.portal.azure.com | Azure genel uygulanabilir. Zaman eşitleme ve Azure hizmet bağlantısını denetler. | Erişim URL'si gereklidir.<br/><br/> Bağlantı yoksa Önkoşul denetimi başarısız olur.
 *.portal.azure.us | Yalnızca Azure devlet kurumları için geçerlidir. Zaman eşitleme ve Azure hizmet bağlantısını denetler. | Erişim URL'si gereklidir.<br/><br/> Bağlantı yoksa Önkoşul denetimi başarısız olur.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| VCenter Powerclı PowerShell modülünü yüklemek için kullanılır. | URL'lere erişim gereklidir.<br/><br/> Önkoşul denetimi başarısız olmaz.<br/><br/> Toplayıcı VM üzerinde otomatik Modül yükleme başarısız olur. Modül internet bağlantısı olan bir makinede el ile yükleyin ve ardından modülleri gerecine kopyalamak gerekir. [Bu sorun giderme Kılavuzu'nda #4. adıma giderek daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
+*.oneget.org:443<br/><br/> *.github.com/oneget/oneget<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.azure.microsoft.com<br/><br/> *.azure.microsoft.com/en-us<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443<br/><br/> *.visualstudio.microsoft.com | VCenter Powerclı PowerShell modülünü yüklemek için kullanılır. | URL'lere erişim gereklidir.<br/><br/> Önkoşul denetimi başarısız olmaz.<br/><br/> Toplayıcı VM üzerinde otomatik Modül yükleme başarısız olur. Modül internet bağlantısı olan bir makinede el ile yükleyin ve ardından modülleri gerecine kopyalamak gerekir. [Bu sorun giderme Kılavuzu'nda #4. adıma giderek daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>VMware Powerclı modülünü el ile yükleme
@@ -209,9 +209,9 @@ Disk ayrıntıları (başına disk) | Saniye başına yazma işlemlerinin sayıs
 Disk ayrıntıları (başına disk) | Saniye başına megabayt okuma aktarım hızı | virtualDisk.read.average
 Disk ayrıntıları (başına disk) | Saniye başına megabayt hızının yazma | virtualDisk.write.average
 Ağ bağdaştırıcısı ayrıntıları (NIC) başına | Ağ bağdaştırıcısı adı | NIC Anahtarı
-Ağ bağdaştırıcısı ayrıntıları (NIC) başına | MAC Adresi | ((VirtualEthernetCard)nic).MacAddress
-Ağ bağdaştırıcısı ayrıntıları (NIC) başına | IPv4 Adresleri | vm.Guest.Net
-Ağ bağdaştırıcısı ayrıntıları (NIC) başına | IPv6 Adresleri | vm.Guest.Net
+Ağ bağdaştırıcısı ayrıntıları (NIC) başına | MAC adresi | ((VirtualEthernetCard)nic).MacAddress
+Ağ bağdaştırıcısı ayrıntıları (NIC) başına | IPv4 adresleri | vm.Guest.Net
+Ağ bağdaştırıcısı ayrıntıları (NIC) başına | IPv6 adresleri | vm.Guest.Net
 Ağ bağdaştırıcısı ayrıntıları (NIC) başına | Saniye başına megabayt okuma aktarım hızı | NET.Received.average
 Ağ bağdaştırıcısı ayrıntıları (NIC) başına | Saniye başına megabayt hızının yazma | NET.transmitted.average
 Envanteri yolu ayrıntıları | Ad | kapsayıcı. GetType(). Adı

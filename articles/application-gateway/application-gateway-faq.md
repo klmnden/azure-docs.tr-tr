@@ -6,18 +6,20 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 25779cd62f70df41a7734d2f8097504923dcb3a3
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947077"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430876"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway hakkında sık sorulan sorular
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Sık sorulan Azure Application Gateway hakkında sorular verilmiştir.
 
 ## <a name="general"></a>Genel
 
@@ -187,13 +189,18 @@ Bkz: [kuralları işleme sırası](https://docs.microsoft.com/azure/application-
 
 Ana bilgisayar adı alanı yapılandırdığınız araştırması için çok siteli uygulama ağ geçidinde gönderilecek adını belirtir. Aksi takdirde '127.0.0.1' kullanın. Bu değer sanal makine konak adından farklıdır. Şu biçimdedir \<Protokolü\>://\<konak\>:\<bağlantı noktası\>\<yolu\>.
 
-### <a name="can-i-whitelist-application-gateway-access-to-only-a-few-source-ips"></a>Alabilirim beyaz liste yalnızca birkaç kaynak IP'leri Application Gateway erişimi?
+### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Application Gateway erişim yalnızca birkaç kaynak IP adreslerine izin ver?
 
-Evet. Bkz: [belirli kaynak IP'leri erişimi kısıtlama](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips).
+Evet. Bkz: [belirli kaynak IP'leri erişimi kısıtlama](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Aynı bağlantı noktasını hem genel kullanıma yönelik hem de özel bakan dinleyicileri için kullanabilir miyim?
 
 Hayır.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>V1 SKU için v2 SKU geçirmek için kullanılabilecek yönergeler var mı?
+
+Evet. Ayrıntılar için bkz [geçirme Azure Application Gateway ve Web uygulaması güvenlik duvarı v1'den v2](migrate-v1-v2.md).
+
 
 ## <a name="configuration---ssl"></a>Yapılandırma - SSL
 
@@ -312,6 +319,10 @@ Daha fazla bilgi için [OWASP top-10 Güvenlik](https://www.owasp.org/index.php/
 ### <a name="does-waf-support-ddos-protection"></a>WAF, DDoS koruması destekliyor mu?
 
 Evet. DDoS koruması uygulama ağ geçidi dağıtıldığı sanal ağ üzerinde etkinleştirebilirsiniz. Bu ayar, Azure DDoS koruması hizmeti Ayrıca uygulama ağ geçidi sanal IP (VIP) koruma sağlar.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>V1 SKU için v2 SKU geçirmek için kullanılabilecek yönergeler var mı?
+
+Evet. Ayrıntılar için bkz [geçirme Azure Application Gateway ve Web uygulaması güvenlik duvarı v1'den v2](migrate-v1-v2.md).
 
 ## <a name="diagnostics-and-logging"></a>Tanılama ve günlüğe kaydetme
 

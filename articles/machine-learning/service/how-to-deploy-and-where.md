@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/21/2019
+ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 929a4ae2e954933bf00550770ba9d41319dc6241
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 1be9d11db9a1c614614e0a4023f84b15588ba5f0
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418048"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742952"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -97,7 +97,7 @@ Aşağıdaki hedefleri, işlem veya işlem kaynakları, web hizmeti dağıtımı
 | [Yerel web hizmeti](#local) | Test/hata ayıklama | Sınırlı test etme ve sorun giderme için uygundur.
 | [Azure Kubernetes Service'i (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
 | [Azure Container Instances (ACI)](#aci) | Test Etme | Düşük ölçek, CPU tabanlı iş yükleri için uygundur. |
-| [Azure Machine Learning işlem](how-to-run-batch-predictions.md) | (Önizleme) Batch çıkarımı | Toplu Puanlama sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
+| [Azure Machine Learning işlem](how-to-run-batch-predictions.md) | Batch çıkarımı | Batch çıkarımı sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | Dağıtma ve IOT cihazlarında ML modelleri hizmet. |
 
 
@@ -130,8 +130,9 @@ Aşağıdaki türleri şu anda desteklenir:
 Şeması oluşturma kullanmak için dahil `inference-schema` conda ortam dosyanızdaki Paket. Aşağıdaki örnekte `[numpy-support]` giriş betik numpy parametre türü kullandığından: 
 
 #### <a name="example-dependencies-file"></a>Örnek bağımlılıklar dosyası
-Çıkarım için Conda bağımlılıkları dosyasının bir örnek verilmiştir.
-```python
+Aşağıdaki YAML çıkarımı için Conda bağımlılıkları dosyasının örneğidir.
+
+```YAML
 name: project_environment
 dependencies:
   - python=3.6.2
@@ -186,6 +187,48 @@ def run(data):
         return error
 ```
 
+#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>Sözlük girişi (Power BI destek tüketim) ile örnek betiği
+
+Aşağıdaki örnek, girdi verisi olarak tanımlamak gösterilmiştir < anahtar: değer > veri çerçevesini kullanarak sözlük. Bu yöntem dağıtılan web hizmetinden Power BI'ı kullanma için desteklenir ([Power BI web hizmetini kullanma hakkında daha fazla edinin](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+
+```python
+import json
+import pickle
+import numpy as np
+import pandas as pd
+import azureml.train.automl
+from sklearn.externals import joblib
+from azureml.core.model import Model
+
+from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
+from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
+
+def init():
+    global model
+    model_path = Model.get_model_path('model_name')   # replace model_name with your actual model name, if needed
+    # deserialize the model file back into a sklearn model
+    model = joblib.load(model_path)
+
+input_sample = pd.DataFrame(data=[{
+              "input_name_1": 5.1,         # This is a decimal type sample. Use the data type that reflects this column in your data
+              "input_name_2": "value2",    # This is a string type sample. Use the data type that reflects this column in your data
+              "input_name_3": 3            # This is a integer type sample. Use the data type that reflects this column in your data
+            }])
+
+output_sample = np.array([0])              # This is a integer type sample. Use the data type that reflects the expected result
+
+@input_schema('data', PandasParameterType(input_sample))
+@output_schema(NumpyParameterType(output_sample))
+def run(data):
+    try:
+        result = model.predict(data)
+        # you can return any datatype as long as it is JSON-serializable
+        return result.tolist()
+    except Exception as e:
+        error = str(e)
+        return error
+```
 Daha fazla örnek komut dosyası için aşağıdaki örneklere bakın:
 
 * Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
@@ -281,7 +324,7 @@ ACI için kotaları ve bölge kullanılabilirliği görmek için bkz [kotaları 
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) ve [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) sınıfları.
 
-### <a id="aks"></a>Azure Kubernetes hizmeti (üretim)
+### <a id="aks"></a>Azure Kubernetes hizmeti (geliştirme ve test ve üretim)
 
 Mevcut bir AKS kümesi kullanmak veya Azure Machine Learning SDK'sı, CLI veya Azure portalını kullanarak yeni bir tane oluşturun.
 
@@ -293,6 +336,9 @@ Ekli bir AKS kümesi zaten varsa, kendisine dağıtabilirsiniz. Henüz oluşturd
 
   ```python
   aks_target = AksCompute(ws,"myaks")
+  # If deploying to a cluster configured for dev/test, ensure that it was created with enough
+  # cores and memory to handle this deployment configuration. Note that memory is also used by
+  # things such as dependencies and AML components.
   deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
   service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
   service.wait_for_deployment(show_output = True)
@@ -315,16 +361,23 @@ AKS dağıtımı ve otomatik olarak ölçeklendirme hakkında daha fazla bilgi e
 #### Yeni bir AKS kümesi oluşturma<a id="create-attach-aks"></a>
 **Tahmini süre:** Yaklaşık 5 dakika.
 
-> [!IMPORTANT]
-> Oluşturma veya bir AKS kümesi tek bir süredir eklemek, çalışma alanınız için işler. Bu kümeye birden çok dağıtımlar için yeniden kullanabilirsiniz. Küme veya onu içeren kaynak grubunu silerseniz, yeni bir kümeye dağıtmak için gerektiğinde oluşturmanız gerekir.
+Oluşturma veya bir AKS kümesi tek bir süredir eklemek, çalışma alanınız için işler. Bu kümeye birden çok dağıtımlar için yeniden kullanabilirsiniz. Küme veya onu içeren kaynak grubunu silerseniz, yeni bir kümeye dağıtmak için gerektiğinde oluşturmanız gerekir. Çalışma alanınıza bağlı birden çok AKS kümesi olabilir.
 
-Ayarı hakkında daha fazla bilgi için `autoscale_target_utilization`, `autoscale_max_replicas`, ve `autoscale_min_replicas`, bkz: [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) başvuru.
+Geliştirme, doğrulama ve sınama için AKS kümesi oluşturmak istiyorsanız, ayarladığınız `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` kullanırken [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py). Bu ayar bir kümesi, yalnızca bir düğümün sahip olur.
+
+> [!IMPORTANT]
+> Ayar `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` üretim trafiği işlemek için uygun olmayan bir AKS kümesi oluşturur. Çıkarım kez üretim için oluşturulan bir kümede daha uzun olabilir. Hataya dayanıklılık ayrıca geliştirme ve test kümeleri için garanti edilmez.
+>
+> Geliştirme/test için oluşturulmuş kümeleri en az iki sanal CPU kullanmanızı öneririz.
+
 Aşağıdaki örnek yeni bir Azure Kubernetes hizmeti kümesinin nasıl oluşturulacağını gösterir:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 
-# Use the default configuration (you can also provide parameters to customize this)
+# Use the default configuration (you can also provide parameters to customize this).
+# For example, to create a dev/test cluster, use:
+# prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksComputee.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
 
 aks_name = 'myaks'
@@ -341,6 +394,7 @@ Azure Machine Learning SDK'sı dışında bir AKS kümesi oluşturma hakkında d
 * [AKS kümesi oluşturma](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [(Portal) AKS kümesi oluşturma](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
+Daha fazla bilgi için `cluster_purpose` parametresi bkz [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) başvuru.
 
 > [!IMPORTANT]
 > İçin [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), büyüktür veya eşittir 12 sanal CPU'lara göre vm_size çarpılan agent_count emin olmanız gerekir daha sonra agent_count ve vm_size, özel değerleri seçin. Örneğin, bir vm_size 4 sanal CPU'lar varsa, "Standard_D3_v2" birini kullanırsanız, 3 veya daha büyük bir agent_count seçmeniz gerekir.
@@ -349,7 +403,16 @@ Azure Machine Learning SDK'sı dışında bir AKS kümesi oluşturma hakkında d
 
 #### <a name="attach-an-existing-aks-cluster"></a>Mevcut bir AKS kümesi ekleme
 
-AKS kümesini Azure aboneliğinizde zaten ve sürüm 1.12. ## ve en az 12 sanal CPU'lara sahip, görüntünüzü dağıtmak için kullanın. Aşağıdaki kod, mevcut bir AKS 1.12 eklemek gösterilmektedir. ## çalışma kümesi:
+AKS kümesini Azure aboneliğinizde zaten ve sürüm 1.12. ##, görüntünüzü dağıtmak için kullanın.
+
+> [!WARNING]
+> Bir AKS kümesi bir çalışma alanına eklenirken ayarlayarak kümeyi nasıl kullanacağını tanımlayabilirsiniz `cluster_purpose` parametresi.
+>
+> Ayarlanmamış olması halinde `cluster_purpose` parametresi veya set `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, sonra kümeye en az 12 sanal CPU'lar kullanılabilir olması gerekir.
+>
+> Ayarlarsanız `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, sonra kümeyi 12 sanal CPU'lar olması gerekmez. Ancak, geliştirme/test için yapılandırılan bir kümeniz üretim düzeyinde trafik için uygun olmayacaktır ve çıkarım sürelerini artırabilir.
+
+Aşağıdaki kod, mevcut bir AKS 1.12 eklemek gösterilmektedir. ## çalışma kümesi:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -357,11 +420,18 @@ from azureml.core.compute import AksCompute, ComputeTarget
 resource_group = 'myresourcegroup'
 cluster_name = 'mycluster'
 
-# Attach the cluster to your workgroup
+# Attach the cluster to your workgroup. If the cluster has less than 12 virtual CPUs, use the following instead:
+# attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+#                                         cluster_name = cluster_name,
+#                                         cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
+
+Daha fazla bilgi için `attack_configuration()`, bkz: [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-) başvuru.
+
+Daha fazla bilgi için `cluster_purpose` parametresi bkz [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) başvuru.
 
 ## <a name="consume-web-services"></a>Web hizmetlerini kullanma
 
@@ -395,7 +465,7 @@ print(response.json())
 Daha fazla bilgi için [istemci uygulamalarının webservices'a kullanması için oluşturma](how-to-consume-web-service.md).
 
 
-### <a id="azuremlcompute"></a> Batch tüketim
+### <a id="azuremlcompute"></a> Batch çıkarımı
 Azure Machine Learning işlem hedefleri oluşturulur ve Azure Machine Learning hizmeti tarafından yönetilir. Azure Machine Learning işlem hatlarını gelen toplu tahmin için kullanılabilir.
 
 Bir Azure Machine Learning işlem ile batch çıkarım kılavuzu için okuma [Batch Öngörüler çalıştırma nasıl](how-to-run-batch-predictions.md) makalesi.

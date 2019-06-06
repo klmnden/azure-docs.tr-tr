@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: eb131e07b0cf561f3156744472660852bbd69ec4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b2d88004696515169ffde96b50d2771bcc1a669
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393296"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428137"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Dağıtma ve FabricClient kullanarak uygulamaları kaldırma
 > [!div class="op_single_selector"]
@@ -39,15 +39,15 @@ Bir kez bir [uygulama türü paketlenmiş][10], bir Azure Service Fabric kümesi
 3. Uygulama paketini görüntü deposundan kaldırmak
 4. Uygulama örneğini oluşturma
 
-Bir uygulama dağıtıldığında ve bir örneği, kümede çalışan sonra uygulama örneğini ve uygulama türünü silebilirsiniz. Bir uygulamayı kümeden tamamen kaldırmak için aşağıdaki adımları içerir:
+Bir uygulamayı dağıtırsanız ve kümedeki bir örneğini çalıştıran sonra uygulama örneğini ve uygulama türünü silebilirsiniz. Tamamen bir uygulama, aşağıdaki adımları izleyerek kümeden kaldırın:
 
 1. Çalışan Kaldır (veya sildiğinizde) uygulama örneği
 2. Artık ihtiyacınız yoksa, uygulama türünün kaydını
 
-Dağıtma ve hata ayıklama, yerel geliştirme kümenizde uygulamaları için Visual Studio kullanıyorsanız, tüm önceki adımları otomatik olarak bir PowerShell Betiği işlenir.  Bu betik bulunan *betikleri* uygulama projesinin klasörü. Bu makalede, Visual Studio dışında aynı işlemleri gerçekleştirebilmeleri için bu betiği yaptığı hakkında arka plan sağlar. 
+Dağıtma ve hata ayıklama, yerel geliştirme kümenizde uygulamaları için Visual Studio kullanıyorsanız, tüm önceki adımları otomatik olarak bir PowerShell Betiği işlenir.  Bu betik bulunan *betikleri* uygulama projesinin klasörü. Bu makalede, böylece Visual Studio dışında aynı işlemleri de yapabilirsiniz, betik yaptığı hakkında arka plan sağlar. 
  
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
-Oluşturarak kümeye bağlanın. bir [FabricClient](/dotnet/api/system.fabric.fabricclient) bu makaledeki kod örnekleri birini çalıştırmadan önce örneği. Örnekleri bir yerel geliştirme kümesi veya bir uzak kümeye veya Azure Active Directory, X509 kullanılarak güvenli kümeye bağlanmak için sertifikaları veya Windows Active Directory bakın [güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Yerel geliştirme kümesine bağlanmak için şu komutu çalıştırın:
+Oluşturarak kümeye bağlanın. bir [FabricClient](/dotnet/api/system.fabric.fabricclient) bu makaledeki kod örnekleri birini çalıştırmadan önce örneği. Örnekleri bir yerel geliştirme kümesi veya bir uzak kümeye veya Azure Active Directory, X509 kullanılarak güvenli kümeye bağlanmak için sertifikaları veya Windows Active Directory bakın [güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Yerel geliştirme kümesine bağlanmak için aşağıdaki örneği çalıştırın:
 
 ```csharp
 // Connect to the local cluster.
@@ -55,9 +55,9 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Uygulama paketini karşıya yükleyin
-Derleme ve adlı bir uygulama paketi varsayalım *MyApplication* Visual Studio'da. Varsayılan olarak, "MyApplicationType" ApplicationManifest.xml içinde listelenen uygulama türü adı var.  Gerekli uygulama bildirimi, hizmet bildirimleri ve kodu/config/veri paketleri içeren uygulama paketini bulunan *C:\Users\&lt; kullanıcıadı&gt;\Documents\Visual Studio 2017\Projects\ MyApplication\MyApplication\pkg\Debug*.
+Derleme ve adlı bir uygulama paketi varsayalım *MyApplication* Visual Studio'da. Varsayılan olarak, "MyApplicationType" ApplicationManifest.xml içinde listelenen uygulama türü adı var.  Gerekli uygulama bildirimi, hizmet bildirimleri ve kodu/config/veri paketleri içeren uygulama paketini bulunan *C:\Users\&lt; kullanıcıadı&gt;\Documents\Visual Studio 2019\Projects\ MyApplication\MyApplication\pkg\Debug*.
 
-Uygulama paketini karşıya yükleme, iç Service Fabric bileşenleri tarafından erişilebilen bir konuma yerleştirir. Service Fabric uygulama paketi kaydı sırasında uygulama paketini doğrular. Uygulama paketi yerel olarak (yani, yüklemeden önce) doğrulamak istiyorsanız, ancak kullanmak [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet'i.
+Uygulama paketini karşıya yükleme, iç Service Fabric bileşenleri tarafından erişilebilen bir konuma yerleştirir. Service Fabric uygulama paketi kaydı sırasında uygulama paketini doğrular. Ancak, uygulama paketi yerel olarak doğrulamak istiyorsanız (diğer bir deyişle, önce karşıya), kullanın [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet'i.
 
 [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API uygulama paketini kümenin görüntü deposuna yükler. 
 
@@ -83,7 +83,7 @@ Birden fazla uygulama örneğinin belirtilen herhangi bir kayıtlı uygulama tü
 Hangi adlı görmek için uygulamalar ve hizmetler çalıştırmak, bir kümede çalışan [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) ve [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) API'leri.
 
 ## <a name="create-a-service-instance"></a>Bir hizmet örneği oluşturma
-Hizmet türü kullanan bir hizmet örneği oluşturabilir [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  Hizmet, uygulama bildiriminde varsayılan hizmet olarak bildirilirse, uygulama örneği oluşturulduğunda hizmet örneği.  Çağırma [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) zaten örneği bir hizmet için API FabricException içeren FabricErrorCode.ServiceAlreadyExists değerini içeren bir hata kodu türünde bir özel durum döndürür.
+Hizmet türü kullanan bir hizmet örneği oluşturabilir [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  Hizmet, uygulama bildiriminde varsayılan hizmet olarak bildirilirse, uygulama örneği oluşturulduğunda hizmet örneği.  Çağırma [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) zaten örneği bir hizmet için API FabricException türünde bir özel durum döndürür. Özel durum FabricErrorCode.ServiceAlreadyExists değerini içeren bir hata kodu içerir.
 
 ## <a name="remove-a-service-instance"></a>Bir hizmet örneğini kaldırma
 Bir hizmet örneği artık gerekli olmadığında çalışmasını kaldırabilirsiniz çağırarak uygulama örneği [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) API.  
@@ -98,7 +98,7 @@ Bir uygulama örneği artık gerekli olmadığında, kalıcı olarak adını kul
 > Bu işlem geri alınamaz ve uygulama durumu kurtarılamıyor.
 
 ## <a name="unregister-an-application-type"></a>Bir uygulama türünün kaydını silmek
-Belirli bir uygulama türü sürümü artık gerekli değilse, uygulama türünü kullanarak bu belirli sürümü kaydını kaldırmanız gerekir [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Kullanılmayan uygulama türü sürümleri kaydı, görüntü deposu tarafından kullanılan depolama alanı serbest bırakır. Uygulama türü sürümünü uygulama bu uygulama türü sürümünü karşı örneği oluşturulur ve bu uygulama türü sürümünü hiçbir bekleyen uygulama yükseltmeleri başvuruyor sürece kaydı olabilir.
+Belirli bir uygulama türü sürümü artık gerekli değilse, uygulama türünü kullanarak bu belirli sürümü kaydını kaldırmanız gerekir [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Kullanılmayan uygulama türü sürümleri kaydı, görüntü deposu tarafından kullanılan depolama alanı serbest bırakır. Hiçbir uygulama bu uygulama türü sürümünü karşı örneği oluşturulur sürece bir uygulama türü sürümünü kaydı olabilir. Ayrıca, uygulama türünü bekleyen uygulama yok olabilir yükseltmeleri bu uygulama türü sürümünü başvuruyor.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>İçin bir Imagestoreconnectionstring kopyalama ServiceFabricApplicationPackage sorar
@@ -141,7 +141,7 @@ Deneyin:
 
 Sorun: Karşıya yükleme paketi başarıyla tamamlandı ancak [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API zaman aşımına uğrar. Deneyin:
 - [Paket sıkıştırma](service-fabric-package-apps.md#compress-a-package) görüntü deposuna kopyalamadan önce.
-Sıkıştırma boyutunu azaltır ve hangi sırayla trafik miktarını azaltır ve bu Service Fabric çalışma dosyaları sayısı gerçekleştirmeniz gerekir. Karşıya yükleme işlemi (özellikle sıkıştırma zaman eklerseniz) daha yavaş olabilir, ancak kayıt ve kaydını uygulama türü daha hızlı.
+Sıkıştırma boyutunu azaltır ve hangi sırayla trafik miktarını azaltır ve bu Service Fabric çalışma dosyaları sayısı gerçekleştirmeniz gerekir. Karşıya yükleme işlemi (özellikle sıkıştırma zaman eklerseniz) daha yavaş olabilir, ancak kaydetme ve uygulama kaydı türü daha hızlı.
 - İçin daha büyük bir zaman belirtmek [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API'SİYLE `timeout` parametresi.
 
 ### <a name="deploy-application-package-with-many-files"></a>Çok sayıda dosya içeren uygulama paketini dağıtma
@@ -151,7 +151,7 @@ Deneyin:
 - İçin daha büyük bir zaman belirtmek [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) ile `timeout` parametresi.
 
 ## <a name="code-example"></a>Kod örneği
-Aşağıdaki örnek bir uygulama paketi görüntü deposuna kopyalayan, uygulama türünü sağlar, bir uygulama örneği oluşturur, bir hizmet örneği oluşturur, uygulama türünü kaldırma hükümlerine Uygulama örneğinin kaldırır ve siler Görüntü deposundaki uygulama paketi.
+Aşağıdaki örnek, bir uygulama paketi görüntü deposuna kopyalar ve uygulama türünün sağlar. Ardından, örnek bir uygulama örneği oluşturur ve bir hizmet örneği oluşturur. Son olarak, örnek uygulama örneğini kaldırır, uygulama türünün sağlamasını kaldırır ve görüntü deposundan uygulama paketini siler.
 
 ```csharp
 using System;
@@ -179,7 +179,7 @@ static void Main(string[] args)
     string serviceName = "fabric:/MyApplication/Stateless1";
     string imageStoreConnectionString = "file:C:\\SfDevCluster\\Data\\ImageStoreShare";
     string packagePathInImageStore = "MyApplication";
-    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2017\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
+    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2019\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
     string serviceType = "Stateless1Type";
 
     // Connect to the cluster.

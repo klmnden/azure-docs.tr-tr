@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: d2312fac64515756f5ed2e0feb22fdc6b7205376
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66125177"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735207"
 ---
-**En son Güncelleştirmesi'ni belge**: 14 Mayıs 2019 10: 00'te Pasifik saati.
+**En son Güncelleştirmesi'ni belge**: 4 Haziran 2019 15:00 PST.
 
 Açıklanması bir [CPU güvenlik açıklarından yeni sınıf](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) kurgusal yürütme yan kanal saldırıları olarak bilinen daha fazla netlik dağıtımınızla müşterilerden gelen soruları sonuçlandı.  
 
@@ -48,8 +48,8 @@ Bir işletim sistemi güncelleştirme diğer Azure müşterilerinin Azure üzeri
 
 | Teklifi | Önerilen Eylem  |
 |----------|---------------------|
-| Azure Cloud Services  | Etkinleştirme [otomatik güncelleştirme](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) veya en yeni konuk işletim sistemi çalıştırdığınızdan emin olun. |
-| Azure Linux Sanal Makineleri | Güncelleştirmeleri, işletim sistemi Sağlayıcısı'ndan yükleyin. Daha fazla bilgi için [Linux](#linux) bu belgenin devamındaki. |
+| Azure bulut Hizmetleri  | Etkinleştirme [otomatik güncelleştirme](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) veya en yeni konuk işletim sistemi çalıştırdığınızdan emin olun. |
+| Azure Linux sanal makineleri | Güncelleştirmeleri, işletim sistemi Sağlayıcısı'ndan yükleyin. Daha fazla bilgi için [Linux](#linux) bu belgenin devamındaki. |
 | Azure Windows sanal makineleri  | En son güvenlik paketi yükleyin.
 | Diğer Azure PaaS Hizmetleri | Bu hizmetler kullanan müşteriler için gereken herhangi bir işlem yoktur. Azure, işletim sistemi sürümleri otomatik olarak güncel tutar. |
 
@@ -77,7 +77,7 @@ Güvenilmeyen kod çalıştırıyorsanız VM veya Bulut hizmeti içinde ek güve
 Hedef işletim sisteminiz bu ek güvenlik özelliklerini etkinleştirmek için güncel olması gerekir. Çok sayıda kurgusal yürütme yan kanal azaltmaları varsayılan olarak etkindir ancak aşağıda açıklanan ek özellikler el ile etkinleştirilmelidir ve performans düşüşüne neden olabilir. 
 
 
-**1. adım: Sanal makine hiper iş parçacığı devre dışı** - VM gerekir hiper iş parçacığı devre dışı bırakın veya hiper iş parçacıklı olmayan VM boyutu için taşımak için bir hiper iş parçacıklı güvenilmeyen kod çalıştırmaya müşteriler. Sanal makinenizin hiper iş parçacıklı olup olmadığını denetlemek için lütfen başvurmak aşağıdaki betiği kullanarak Windows komut satırından VM içinde.
+**1. adım: Hyper-threading sanal makinede devre dışı** -güvenilmeyen kod hiper iş parçacıklı bir VM'de çalıştıran müşteriler, hyper-threading devre dışı bırakın veya olmayan-hiper iş parçacıklı bir VM boyutu için taşımak gerekir. Başvuru [bu belge](https://docs.microsoft.com/azure/virtual-machines/windows/acu) hiper iş parçacıklı VM boyutları (vCPU core'a oranını olduğu 2:1) listesi. Sanal makinenizin hiper izleğin-etkin olup olmadığını denetlemek için bkz aşağıdaki betiği kullanarak Windows komut satırından VM içinde.
 
 Tür `wmic` etkileşimli arabirimi girmek için. Ardından fiziksel miktarını görüntülemek için aşağıdaki ve mantıksal yazın VM üzerindeki.
 
@@ -85,7 +85,7 @@ Tür `wmic` etkileşimli arabirimi girmek için. Ardından fiziksel miktarını 
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-Mantıksal işlemci sayısı fiziksel işlemcilerin (çekirdek) büyük ise, hiper iş parçacıklı etkinleştirilir.  Hiper iş parçacıklı VM çalıştırıyorsanız, lütfen [Azure desteğine başvurun](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) devre dışı bir hiper iş parçacıklı alınamıyor.  Hiper iş parçacığı devre dışı bırakıldıktan sonra **desteği tam VM yeniden başlatma gerektiren**. 
+Mantıksal işlemci sayısı (çekirdek) fiziksel işlemci sayısından büyükse, ardından hyper-threading etkinleştirilir.  Hiper iş parçacıklı bir VM çalıştırıyorsanız, lütfen [Azure desteğine başvurun](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) hiper iş parçacığı için alma devre dışı.  Hyper-threading devre dışı bırakıldığında **desteği tam VM yeniden başlatma gerektiren**. Lütfen [çekirdek sayısı](#core-count) neden, VM çekirdek sayısı azaldıkça anlamak için.
 
 
 **2. adım**: 1. adım için paralel olarak yönergeleri [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları etkin kullanarak doğrulamak için [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell modülü.
@@ -123,14 +123,14 @@ Windows OS support for MDS mitigation is enabled: True
 <a name="linux"></a>Kümesi içinde ek güvenlik özelliklerini etkinleştirme, hedef işletim sistemini tam olarak güncel olmasını gerektirir. Bazı risk azaltma işlemleri varsayılan olarak etkinleştirilir. Aşağıdaki bölümde, varsayılan olarak ve/veya donanım desteği (mikro kod) sayfalarında devre dışı olan özellikleri açıklar. Bu özellikleri etkinleştirmek, performans düşüşüne neden olabilir. Daha fazla yönerge için işletim sistemi sağlayıcınızın belgeleri başvurusu
 
 
-**1. adım: Sanal makine hiper iş parçacığı devre dışı** - VM hiper iş parçacığı devre dışı bırakma veya hiper iş parçacıklı olmayan VM'ye taşıma gerekir bir hiper iş parçacıklı güvenilmeyen kod çalıştırmaya müşteriler.  Hiper iş parçacıklı VM çalıştırıyorsanız denetlemek için çalıştırın `lscpu` Linux VM'de komutu. 
+**1. adım: Hyper-threading sanal makinede devre dışı** -güvenilmeyen kod hiper iş parçacıklı bir VM'de çalıştıran müşteriler, hyper-threading devre dışı bırakın veya olmayan-hiper iş parçacıklı bir VM'ye taşımak gerekir.  Başvuru [bu belge](https://docs.microsoft.com/azure/virtual-machines/linux/acu) hiper iş parçacıklı VM boyutları (vCPU core'a oranını olduğu 2:1) listesi. Hiper iş parçacıklı bir VM çalıştırıyorsanız denetlemek için çalıştırın `lscpu` Linux VM'de komutu. 
 
-Varsa `Thread(s) per core = 2`, hiper iş parçacıklı etkinleştirilirse. 
+Varsa `Thread(s) per core = 2`, ardından hyper-threading etkinleştirildi. 
 
-Varsa `Thread(s) per core = 1`, sonra da hiper iş parçacığı devre dışı bırakıldı. 
+Varsa `Thread(s) per core = 1`, ardından hyper-threading devre dışı bırakıldı. 
 
  
-Hiper izleğin etkin bir VM için çıktı örneği: 
+Hiper izleğin-etkin bir VM için örnek çıktı gösterilmektedir: 
 
 ```console
 CPU Architecture:      x86_64
@@ -145,7 +145,8 @@ NUMA node(s):          1
 
 ```
 
-Hiper iş parçacıklı VM çalıştırıyorsanız, lütfen [Azure desteğine başvurun](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) devre dışı bir hiper iş parçacıklı alınamıyor.  Hiper iş parçacığı devre dışı bırakıldıktan sonra **desteği tam VM yeniden başlatma gerektiren**.
+Hiper iş parçacıklı bir VM çalıştırıyorsanız, lütfen [Azure desteğine başvurun](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) hiper iş parçacığı için alma devre dışı.  Hyper-threading devre dışı bırakıldığında **desteği tam VM yeniden başlatma gerektiren**. Lütfen [çekirdek sayısı](#core-count) neden, VM çekirdek sayısı azaldıkça anlamak için.
+
 
 
 **2. adım**: Herhangi bir karşı azaltmak için kurgusal yürütme yan kanal güvenlik açıkları, işletim sistemi sağlayıcının belgelerine bakın:   
@@ -153,6 +154,11 @@ Hiper iş parçacıklı VM çalıştırıyorsanız, lütfen [Azure desteğine ba
 - [RedHat ve CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
+
+
+### <a name="core-count"></a>Çekirdek sayısı
+
+Hiper iş parçacıklı bir VM oluşturulduğunda, Azure tarafından ayrılan çekirdek başına 2 iş parçacığı - bunlar Vcpu olarak adlandırılır. Hyper-threading devre dışı bırakıldığında, Azure, bir iş parçacığı ve yüzeyleri tek iş parçacıklı çekirdek (fiziksel çekirdekler)'kurmak kaldırır. CPU vCPU oranını 2:1., bu nedenle bir kez hyper-threading devre dışı bırakıldı, CPU sayısı VM tarafından yarım azaltılabilir için görünür. Örneğin, bir D8_v3 hiper iş parçacıklı VM 8 Vcpu (çekirdek x 4 çekirdeği başına 2 iş parçacığı) üzerinde çalışan bir vm'dir.  Hyper-threading devre dışı bırakıldığında, CPU çekirdeği başına 1 iş parçacığı ile 4 fiziksel çekirdek için kaldıracağız. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

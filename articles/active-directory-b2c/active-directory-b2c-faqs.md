@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C için sık sorulan sorular | Microsoft Docs
 description: Sık Azure Active Directory B2C hakkında sorulan sorular (SSS).
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0c837ce66656c0e8a6a15d359c76459b03c2d0dd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9198bd4f88533a8eb5817dcb6edb75931c40ec80
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722772"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510045"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri güncelleştirmeleri kontrol etmeyi unutmayın.
@@ -104,7 +104,7 @@ Hayır, Azure AD B2C aynı dizi rapor şeklinde Azure AD Premium desteklemez. An
 * **Denetim raporları** hem yönetici etkinliği, hem de uygulama etkinlik içerir. 
 * **Kullanım raporları** kullanıcı sayısı, oturum açma sayısı ve MFA'ın birim içerir. 
 
-### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Ben Azure AD B2C tarafından sunulan sayfaları UI yerelleştirebilir mi? Hangi dillerin destekleniyor mu?
+### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Ben Azure AD B2C tarafından sunulan sayfaları UI yerelleştirebilir mi? Hangi diller desteklenir?
 Evet!  Hakkında bilgi edinin [dil özelleştirme](active-directory-b2c-reference-language-customization.md), genel Önizleme aşamasında olduğu.  36 dillerin çevirileri sunuyoruz ve ihtiyaçlarınıza uyacak şekilde herhangi bir dize geçersiz kılabilirsiniz.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Azure AD B2C tarafından sunulan my kaydolma ve oturum açma sayfalarında kendi URL'leri kullanabilir miyim? Örneğin, URL login.microsoftonline.com login.contoso.com için değiştirebilirim?

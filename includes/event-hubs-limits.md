@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3f3b60c3744ce9dea61054b3fa0aaccfea27d784
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: fa6b4d6d0db09f8c4955430d6dc227356416d915
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238708"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735954"
 ---
 Aşağıdaki tabloda için belirli sınırları ve kotalar listeler [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Event Hubs fiyatlandırması hakkında daha fazla bilgi için bkz: [Event Hubs fiyatlandırması](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -39,11 +39,11 @@ Event Hubs Dedicated teklifi, bir aylık fiyatla, en az 4 saatlik kullanım ücr
 | --- | ---|
 | Bant genişliği |  20 cu |
 | Ad Alanları | 50 CU başına |
-| Event Hubs |  Event hubs/konuları sınırlama yok |
+| Event Hubs |  ad alanı başına 1000 |
 | Giriş olayları | Dahil |
 | İleti Boyutu | 1 milyon bayt |
 | Bölümler | CU başına 2000 |
 | Tüketici grupları | Sınır, CU başına 1000 olay hub'ı başına |
 | Aracılı bağlantılar | 100 bin adet dahil |
-| İleti Saklama | 90 gün, CU dahil edilen 10 TB |
+| İleti Saklama | 7 gün (çok yakında 90 gün saklama) yedekleme CU 10 TB dahil |
 | Capture | Dahil |

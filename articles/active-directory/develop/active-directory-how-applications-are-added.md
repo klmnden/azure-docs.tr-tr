@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 06/04/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cc9d0a951ac6f7ed18ad6558ae9edb2d1f9c8f4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 84069fb80ac751cbde53b0febdac451b54cd2b29
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544629"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688760"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Uygulamaları Azure AD'ye neden ve nasıl eklenir
 
@@ -32,9 +32,9 @@ Azure AD'de uygulamaları iki sunumu vardır:
 * [Hizmet sorumluları](app-objects-and-service-principals.md#service-principal-object) -uygulamanın bir örneği olarak düşünülebilir. Hizmet sorumluları genellikle bir uygulama nesnesine başvurursanız ve bir uygulama nesnesi dizinler arasında birden çok hizmet sorumluları tarafından başvurulabilir.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Uygulama nesneleri nedir ve burada geliyorlar?
-Yönetebileceğiniz [uygulama nesneleri](app-objects-and-service-principals.md#application-object) Azure portalında [uygulama kayıtları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) karşılaşırsınız. Uygulama nesneleri Azure AD'ye uygulamayı tanımlayan ve kendi ayarlarınızı temel alan uygulama belirteçlerini vermek nasıl hizmet verme uygulaması tanımını kabul edilebilir. Hizmet sorumluları diğer dizinlerde destekleyen çok kiracılı bir uygulama olsa bile, uygulama nesnesinin yalnızca kendi giriş dizininde bulunur. Uygulama nesnesi (olarak da gibi ek bilgileri burada bahsedilen değil) aşağıdakilerden herhangi birini içerebilir:
+Yönetebileceğiniz [uygulama nesneleri](app-objects-and-service-principals.md#application-object) Azure portalında [uygulama kayıtları](https://aka.ms/appregistrations) karşılaşırsınız. Uygulama nesneleri Azure AD'ye uygulamayı tanımlayan ve kendi ayarlarınızı temel alan uygulama belirteçlerini vermek nasıl hizmet verme uygulaması tanımını kabul edilebilir. Hizmet sorumluları diğer dizinlerde destekleyen çok kiracılı bir uygulama olsa bile, uygulama nesnesinin yalnızca kendi giriş dizininde bulunur. Uygulama nesnesi (olarak da gibi ek bilgileri burada bahsedilen değil) aşağıdakilerden herhangi birini içerebilir:
 * Ad, logo ve yayımcı
-* Yanıt URL'leri
+* Yeniden yönlendirme URI'leri
 * Gizli anahtarları (uygulama kimliğini doğrulamak için kullanılan simetrik ve/veya asimetrik anahtarlar)
 * API bağımlılıkları (OAuth)
 * Yayımlanan API'leri/kaynak/kapsamlar (OAuth)
@@ -74,7 +74,7 @@ Uygulama nesneleri gibi hizmet sorumluları dahil olmak üzere birden çok yolla
   * Office 365'e abone veya bir deneme sürümünü başlatmak, dizindeki tüm Office 365 ile ilişkili işlevselliği sunmak için kullanılan çeşitli Hizmetleri temsil eden bir veya daha fazla hizmet sorumluları oluşturulur.
   * SharePoint gibi bazı Office 365 hizmetlerine, iş akışları dahil olmak üzere bileşenleri arasında güvenli iletişim sağlamak için düzenli olarak hizmet sorumluları oluşturma.
 * Ne zaman bir yönetici (Bu da uygulama nesnesini oluşturur) uygulama galerisinden bir uygulama ekler.
-* Kullanmak için uygulama ekleme [Azure AD uygulama ara sunucusu](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+* Kullanmak için uygulama ekleme [Azure AD uygulama ara sunucusu](/azure/active-directory/manage-apps/application-proxy)
 * Bir uygulama için çoklu oturum açma bağlanmak SAML veya parola kullanarak çoklu oturum açma (SSO)
 * Program aracılığıyla Azure AD Graph API'si veya PowerShell aracılığıyla
 
@@ -101,8 +101,8 @@ Kendiniz eklediğiniz uygulama (olarak temsil edilen **uygulama (sizin)** diyagr
   * Talep dönüştürme kuralları
   * Öznitelik eşlemeleri (kullanıcı hazırlama)
 * Uygulama nesneleri ve hizmet sorumlusu hakkında daha ayrıntılı bilgi için Azure AD Graph REST API başvuru belgelerine bakın:
-  * [Uygulama](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Hizmet sorumlusu](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+  * [Uygulama](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Hizmet sorumlusu](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Neden Azure AD ile uygulamaları tümleştirme?
 Uygulamaları Azure AD'ye bir veya daha fazlası dahil olmak üzere sağladığı hizmetler için eklenir:

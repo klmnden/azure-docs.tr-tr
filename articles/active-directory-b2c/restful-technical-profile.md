@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C, özel bir ilkede RESTful teknik profil tanımlama | Microsoft Docs
 description: Azure Active Directory B2C, özel bir ilkede bir RESTful teknik profili tanımlayın.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0726c22e436658d51419b9e32d73f48db99ba805
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21a2ea861df96a057db0ec13eacd0906ed51fff1
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705310"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512735"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel ilke RESTful teknik profil tanımlama
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) B2C, kendi RESTful hizmeti için destek sağla
 - **Doğrulama teknik profili** -doğrulama teknik profili RESTful hizmeti çağırır. Kullanıcı yolculuğu devam etmeden önce doğrulama teknik profili, kullanıcı tarafından sağlanan verileri doğrular. Doğrulama teknik profil ile bir hata iletisi otomatik olarak onaylanan sayfasında görüntüleme ve çıkış talep döndürdü.
 - **Talep değişimi** -RESTful hizmeti aracılığıyla bir düzenleme adımı için bir çağrı yapılır. Bu senaryoda, hata iletisini işlemek için hiçbir kullanıcı arabirimi yoktur. REST API'nizi hata verirse, kullanıcı hata iletisi ile bağlı olan taraf uygulamaya yönlendirilir.
 
-## <a name="protocol"></a>Protokol
+## <a name="protocol"></a>Protocol
 
 **Adı** özniteliği **Protokolü** öğesi ayarlanması gerekiyor `Proprietary`. **İşleyici** özniteliği Azure AD B2C tarafından kullanılan protokol işleyicisi bütünleştirilmiş kodun tam adı içermesi gerekir: `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -86,7 +86,7 @@ Teknik profili, kimlik sağlayıcısı tarafından döndürülen olmayan taleple
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | ServiceUrl | Evet | REST API uç noktası URL'si. | 
-| AuthenticationType | Evet | RESTful talep sağlayıcısı tarafından gerçekleştirilen kimlik doğrulama türü. Olası değerler: `None`, `Basic`, veya `ClientCertificate`. `None` Değer olmadığını REST API anonim olduğunu belirtir. `Basic` Değeri REST API ile HTTP temel kimlik doğrulaması sağlandığını gösterir. Yalnızca doğrulanmış kullanıcıların, Azure AD B2C'de dahil olmak üzere, API'nizi erişebilir. `ClientCertificate` (Önerilen) değeri gösterir REST API İstemci sertifikası kimlik doğrulaması kullanarak erişimi kısıtlar. Azure AD B2C gibi uygun sertifikaların sahip Hizmetleri, hizmetinizin erişebilirsiniz. | 
+| authenticationType | Evet | RESTful talep sağlayıcısı tarafından gerçekleştirilen kimlik doğrulama türü. Olası değerler: `None`, `Basic`, veya `ClientCertificate`. `None` Değer olmadığını REST API anonim olduğunu belirtir. `Basic` Değeri REST API ile HTTP temel kimlik doğrulaması sağlandığını gösterir. Yalnızca doğrulanmış kullanıcıların, Azure AD B2C'de dahil olmak üzere, API'nizi erişebilir. `ClientCertificate` (Önerilen) değeri gösterir REST API İstemci sertifikası kimlik doğrulaması kullanarak erişimi kısıtlar. Azure AD B2C gibi uygun sertifikaların sahip Hizmetleri, hizmetinizin erişebilirsiniz. | 
 | Sendclaimsın | Hayır | Giriş talepleri RESTful talep sağlayıcısını nasıl gönderileceğini belirtir. Olası değerler: `Body` (varsayılan), `Form`, `Header`, veya `QueryString`. `Body` İstek gövdesi JSON biçiminde gönderilen giriş talep değerdir. `Form` , İstek gövdesinde bir ampersan gönderilen ' &' anahtar değeri biçimi ayrılmış giriş talep değerdir. `Header` İstek üstbilgisinde gönderilen giriş talep değerdir. `QueryString` Sorgu dizesi isteğinde gönderilen giriş talep değerdir. | 
 | ClaimsFormat | Hayır | Çıkış talep biçimini belirtir. Olası değerler: `Body` (varsayılan), `Form`, `Header`, veya `QueryString`. `Body` İstek gövdesi JSON biçiminde gönderilen çıkış talep değerdir. `Form` , İstek gövdesinde bir ampersan gönderilen ' &' anahtar değeri biçimi çıkış talep değerdir. `Header` İstek üstbilgisinde gönderilen çıkış talep değerdir. `QueryString` Sorgu dizesi isteğinde gönderilen çıkış talep değerdir. | 
 | DebugMode | Hayır | Teknik profili, hata ayıklama modunda çalıştırır. REST API, hata ayıklama modunda daha fazla bilgi döndürebilir. Dönen hata iletisi bölümüne bakın. | 
@@ -161,7 +161,7 @@ Kimlik doğrulaması türü ayarlanırsa `ClientCertificate`, **CryptographicKey
 | --------- | -------- | ----------- |
 | version | Evet | 1.0.0 | 
 | durum | Evet | 409 | 
-| kod | Hayır | Bir hata kodu, RESTful uç noktası sağlayıcı olduğunda görüntülenen `DebugMode` etkinleştirilir. | 
+| code | Hayır | Bir hata kodu, RESTful uç noktası sağlayıcı olduğunda görüntülenen `DebugMode` etkinleştirilir. | 
 | requestId | Hayır | Bir istek tanımlayıcısı olan RESTful uç noktası sağlayıcısından olduğunda görüntülenen `DebugMode` etkinleştirilir. | 
 | userMessage | Evet | Kullanıcıya gösterilen bir hata iletisi. | 
 | developerMessage | Hayır | Sorun ve olan Bunu düzeltmek nasıl ayrıntılı bir açıklamasını olduğunda görüntülenen `DebugMode` etkinleştirilir. | 

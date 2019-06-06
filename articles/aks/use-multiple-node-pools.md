@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a295dfa1f7f2c58b3e45036212434837ac4bfb4d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235767"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475456"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Önizleme - oluşturma ve Azure Kubernetes Service (AKS) kümesi için birden çok düğüm havuzları yönetme
 
@@ -74,6 +74,7 @@ Oluşturma ve birden çok düğüm havuzları destekleyen AKS kümeleri yönetme
 * İlk düğüm havuzunu silemezsiniz.
 * HTTP uygulama yönlendirme eklenti kullanılamaz.
 * Ekleme/güncelleştirme/silme düğüm havuzları gibi çoğu işlemi var olan bir Resource Manager şablonu kullanarak yapamazsınız. Bunun yerine, [ayrı bir Resource Manager şablonu kullanma](#manage-node-pools-using-a-resource-manager-template) bir AKS kümesindeki düğüm havuzları değişiklik yapmak için.
+* Küme otomatik ölçeklendiricinin (şu anda önizlemede aks'deki) kullanılamaz.
 
 Bu özellik Önizleme aşamasında olduğu sürece, aşağıdaki ek kısıtlamalar uygulanır:
 
@@ -222,7 +223,7 @@ Düğüm ve düğüm havuzu silmek için birkaç dakika sürer.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Bir düğüm havuzu için bir VM boyutu belirtin
 
-Bir düğüm havuzu oluşturmak için önceki örneklerde oluşturulan kümedeki düğümler için bir varsayılan sanal makine boyutu kullanıldı. Daha yaygın bir senaryoda, farklı VM boyutları ve özellikleri sayesinde düğüm havuzları oluşturmanıza olanak içindir. Örneğin, büyük miktarda CPU veya bellek düğümleri içeren bir düğüm havuzunu veya GPU desteği sağlayan bir düğüm havuzunu oluşturabilirsiniz. Sonraki adımda, [kullanım taints ve tolerations][#schedule-pods-using-taints-and-tolerations] Kubernetes Zamanlayıcı pod'ların erişimi sınırlamak nasıl bildirmek için bu düğümler üzerinde çalıştırabilirsiniz.
+Bir düğüm havuzu oluşturmak için önceki örneklerde oluşturulan kümedeki düğümler için bir varsayılan sanal makine boyutu kullanıldı. Daha yaygın bir senaryoda, farklı VM boyutları ve özellikleri sayesinde düğüm havuzları oluşturmanıza olanak içindir. Örneğin, büyük miktarda CPU veya bellek düğümleri içeren bir düğüm havuzunu veya GPU desteği sağlayan bir düğüm havuzunu oluşturabilirsiniz. Sonraki adımda, [taints ve tolerations](#schedule-pods-using-taints-and-tolerations) Kubernetes Zamanlayıcı bu düğümler üzerinde çalışabilen pod'ların erişimi sınırlamak nasıl gerektiğini anlatın.
 
 Aşağıdaki örnekte, kullanan bir GPU tabanlı düğüm havuzu oluşturmak *işler için standart_nc6* VM boyutu. Bu sanal makineler, NVIDIA Tesla K80 kartını desteklenir. Kullanılabilir VM boyutları hakkında daha fazla bilgi için bkz: [azure'da Linux sanal makine boyutları][vm-sizes].
 
@@ -332,7 +333,7 @@ Uygulanan bu taint sahip pod düğümlerinde zamanlanabilir *gpunodepool*. Diğe
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak düğüm havuzları yönetme
 
-Yönetilen kaynaklar oluşturmak için bir Azure Resource Manager şablonu kullandığınızda ve kaynak güncelleştirmek için şablon ve yeniden dağıtma ayarları genellikle güncelleştirebilirsiniz. AKS kümesi oluşturulduktan sonra aks'deki nodepools ile ilk nodepool profili güncelleştirilemiyor. Bu davranış, olamaz var olan bir Resource Manager şablonu güncelleştirme, değişiklik yapmak için düğüm havuzları, yeniden anlamına gelir. Bunun yerine, aracı havuzları yalnızca var olan bir AKS kümesi için güncelleştirmeleri ayrı bir Resource Manager şablonu oluşturmanız gerekir.
+Yönetilen kaynaklar oluşturmak için bir Azure Resource Manager şablonu kullandığınızda ve kaynak güncelleştirmek için şablon ve yeniden dağıtma ayarları genellikle güncelleştirebilirsiniz. AKS kümesi oluşturulduktan sonra aks'deki düğüm havuzları ile ilk düğüm havuzu profili güncelleştirilemiyor. Bu davranış, olamaz var olan bir Resource Manager şablonu güncelleştirme, değişiklik yapmak için düğüm havuzları, yeniden anlamına gelir. Bunun yerine, aracı havuzları yalnızca var olan bir AKS kümesi için güncelleştirmeleri ayrı bir Resource Manager şablonu oluşturmanız gerekir.
 
 Gibi bir şablon oluşturma `aks-agentpools.json` ve aşağıdaki örnek bildirimde yapıştırın. Bu örnek şablon, aşağıdaki ayarları yapılandırır:
 
@@ -437,7 +438,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede bir AKS kümesindeki birden çok düğüm havuzları oluşturma ve yönetme öğrendiniz. Pod'ları arasında düğüm havuzları denetleme hakkında daha fazla bilgi için bkz. [aks'deki Gelişmiş Zamanlayıcı özellikleri için en iyi yöntemler][operator-best-practices-advanced-scheduler].
+Bu makalede, bir AKS kümesindeki birden çok düğüm havuzları oluşturma ve yönetme öğrendiniz. Pod'ları arasında düğüm havuzları denetleme hakkında daha fazla bilgi için bkz. [aks'deki Gelişmiş Zamanlayıcı özellikleri için en iyi yöntemler][operator-best-practices-advanced-scheduler].
 
 Oluşturma ve Windows Server kapsayıcı düğüm havuzları kullanma hakkında bilgi için bkz: [AKS içinde bir Windows Server kapsayıcı oluşturma][aks-windows].
 

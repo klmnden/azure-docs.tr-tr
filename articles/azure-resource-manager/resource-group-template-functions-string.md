@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82b9403a3d5a5b6938f5b95bbfce888d1e70e451
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782931"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431220"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Dize işlevleri için Azure Resource Manager şablonları
 
@@ -349,7 +349,7 @@ Bir dizinin değer içermesi, bir nesne içeren bir anahtar veya bir alt dizenin
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| kapsayıcı |Evet |dizi, nesne veya dize |Bulunacak değer içeren kayıt değeri. |
+| container |Evet |dizi, nesne veya dize |Bulunacak değer içeren kayıt değeri. |
 | itemToFind |Evet |dize veya tamsayı |Bulunacak değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
@@ -713,7 +713,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | arrayOutput | String | bir |
 | stringOutput | String | O |
 
-## <a name="format"></a>biçim
+## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
@@ -1015,7 +1015,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | lastString | Int | 0 |
 | Bulunamadı | Int | -1 |
 
-## <a name="length"></a>Uzunluğu
+## <a name="length"></a>length
 
 `length(string)`
 
@@ -1259,7 +1259,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
         },
-        "secodeOutput": {
+        "secondOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
@@ -1272,9 +1272,9 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
-| secodeOutput | String | 123-123-xxxx |
+| secondOutput | String | 123-123-xxxx |
 
-## <a name="skip"></a>atla
+## <a name="skip"></a>Atla
 
 `skip(originalValue, numberToSkip)`
 
@@ -1477,7 +1477,7 @@ Belirtilen değerin bir dizeye dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Evet | Herhangi biri |Dizeye dönüştürülecek değer. Nesneler ve diziler de dahil olmak üzere herhangi bir türde değer dönüştürülebilir. |
+| valueToConvert |Evet | Tüm |Dizeye dönüştürülecek değer. Nesneler ve diziler de dahil olmak üzere herhangi bir türde değer dönüştürülebilir. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1550,7 +1550,7 @@ Belirtilen karakter konumunda başlar ve belirtilen sayıda karakteri içeren bi
 |:--- |:--- |:--- |:--- |
 | stringToParse |Evet |string |Alt dizenin ayıklanacağı özgün dize. |
 | startIndex |Hayır |int |Sıfır tabanlı başlangıç karakteri konumu alt dize. |
-| Uzunluğu |Hayır |int |Alt dizenin karakter sayısı. Dize içindeki bir konuma başvurmalıdır. Sıfır olmalıdır veya büyük. |
+| length |Hayır |int |Alt dizenin karakter sayısı. Dize içindeki bir konuma başvurmalıdır. Sıfır olmalıdır veya büyük. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1893,7 +1893,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 }
 ```
 
-## <a name="uri"></a>uri
+## <a name="uri"></a>URI
 
 `uri (baseUri, relativeUri)`
 
@@ -2077,7 +2077,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| biçim |Hayır |string |URI bir dizeye dönüştürülecek değer kodlanmış. Hangisini [standart biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Hayır |string |URI bir dizeye dönüştürülecek değer kodlanmış. Hangisini [standart biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Açıklamalar
 

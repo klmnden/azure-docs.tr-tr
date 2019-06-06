@@ -2,19 +2,19 @@
 title: Çözümler ve eğitim için Azure Active Directory B2C | Microsoft Docs
 description: Bu makalede çözüm için bağlantılar sağlar ve yardımcı olabilecek eğitim bilgileri anlamak ve son için son iş çözümleri için Azure Active Directory B2C'yi kullanın.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 7b409cc80d2443b01d3025dd84348af18118d640
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 95002eb73277176d4a8aeaa40deea4d96c39a755
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691958"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512403"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Çözümler ve Azure Active Directory B2C için eğitim
 

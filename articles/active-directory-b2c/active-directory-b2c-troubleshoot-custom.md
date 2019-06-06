@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C özel ilkelerinde sorunlarını gidermek için application Insights | Microsoft Docs
 description: Kurulum özel ilkeler yürütülmesini izlemek için Application ınsights'ı öğrenin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9b25e5dc5d090ad7aab3d61e2c303a465b5d7443
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: df5d710792d8c47e491f5b06d88f4050e8eb4a01
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703927"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508063"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Günlükleri toplama
 
@@ -29,7 +29,7 @@ Bu makalede, böylece özel ilkeleriniz ile sorunları tanılamak günlükleri A
 
 Azure AD B2C'yi, Application Insights'a veri göndermek için bir özelliği destekler.  Application Insights özel durumları tanılama ve uygulama performası sorunlarını görselleştirmek için bir yol sağlar.
 
-### <a name="setup-application-insights"></a>Application Insights Kurulumu
+### <a name="setup-application-insights"></a>Application Insights'ı kurma
 
 1. [Azure Portal](https://portal.azure.com) gidin. Kiracıda (Azure AD B2C kiracınızı değil) Azure aboneliğinizle olduğundan emin olun.
 1. Tıklayın **+ yeni** sol taraftaki gezinti menüsünde.

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 06/04/2019
 ms.author: juliako
-ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385157"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688657"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları
 
@@ -36,11 +36,18 @@ Daha fazla bilgi için [Media Services v2'den v3 taşımak için geçiş kılavu
 
 ## <a name="may-2019"></a>Mayıs 2019
 
-### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 ve dinamik paketleme desteği 
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Media Services tanılama günlükleri ve ölçümler için Azure İzleyici desteği
 
-Eklenen HLS (sürüm 4 veya üzeri), dinamik paketleme ile birden çok codec bileşenleri ve diller birden çok ses parçaları olan varlıklar için destek sunar.
+Telemetri verileri emmited Media Services tarafından görüntülemek için artık Azure İzleyicisi'ni kullanabilirsiniz.
 
-Daha fazla bilgi için [dinamik paketleme](dynamic-packaging-overview.md).
+* Media Services anahtar teslim uç noktası tarafından gönderilen istekleri izlemek için Azure İzleyici tanılama günlükleri'ni kullanın. 
+* Media Services tarafından yayılan ölçümleri izleyebilir [akış uç noktalarını](streaming-endpoint-concept.md).   
+
+Ayrıntılar için bkz [İzleyici Media Services ölçümleri ve tanılama günlüklerini](media-services-metrics-diagnostic-logs.md).
+
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Dinamik paketleme birden çok ses parçaları desteği 
+
+Birden çok codec bileşenleri ve dilleri ile birden çok ses parçaları sahip varlıklar akışı yapılırken [dinamik paketleme](dynamic-packaging-overview.md) çoklu ses parçaları HLS çıktısı için artık desteklemektedir (sürüm 4 veya üzeri).
 
 ### <a name="korea-regional-pair-is-open-for-media-services"></a>Medya Hizmetleri için bölgesel çift Kore açıktır 
 

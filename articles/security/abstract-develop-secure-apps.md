@@ -1,6 +1,6 @@
 ---
-title: Azure'da güvenli uygulamalar geliştirin | Microsoft Docs
-description: Bulut için daha güvenli uygulamalar geliştirmenize yardımcı olacak bir kılavuz.
+title: Azure - Microsoft Azure üzerinde güvenli bir bulut uygulamaları geliştirin
+description: Yazılım geliştirme yaşam döngüsünün her aşamada bulut için uygulamalar geliştirirken dikkate almanız gereken bir kılavuz için güvenlik sorularını ve denetimleri.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 4c4c2cc3356a10eacbb5460fae27a0a8a66ddd35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 710d7a12db3b38a6cecffb33ade6b60eb50d03c7
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587691"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428278"
 ---
-# <a name="develop-secure-applications-on-azure"></a>Azure'da güvenli uygulamalar geliştirin
+# <a name="develop-secure-cloud-applications-on-azure"></a>Azure'da güvenli bir bulut uygulamaları geliştirin
 ## <a name="abstract"></a>Özet
 Bu belgede, güvenlik sorularını ve yazılım geliştirme yaşam döngüsünün her aşamada bulut için uygulamalar geliştirirken dikkate almanız gereken denetimlerine genel bir kılavuzdur. Ürününüzü yayımlamadan önce bu kavramları daha güvenli yazılımlar oluşturmanıza yardımcı olabilir. Bu makalede ortaya konulan önerilerini Azure güvenlik ve müşterilerimizin deneyimlerle deneyimlerimizden gelir.
 

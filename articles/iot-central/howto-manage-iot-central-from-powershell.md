@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 8d432d588cfd563ee48b93f9042339e9590bb5e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 086c7d303fd199090de3be77b2456c4ebcd053a8
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533277"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726933"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Azure PowerShell’den IoT Central’ı yönetme
 
@@ -25,7 +25,7 @@ Oluşturma ve IOT Central'dan IOT Central uygulamaları yönetmek yerine [Uygula
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Azure PowerShell'i yerel makinenizde çalıştırmak isterseniz, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps). Azure PowerShell'i yerel olarak çalıştırdığınızda kullanmak **Connect AzAccount** cmdlet'ini, bu makalede yer alan cmdlet'ler çalışmadan önce Azure'da oturum açın.
 
@@ -68,10 +68,10 @@ Betik, Doğu ABD bölgesinde uygulama için önce bir kaynak grubu oluşturur. K
 |ResourceGroupName |Uygulamayı içeren kaynak grubu. Bu kaynak grubunun aboneliğinizde zaten mevcut olmalıdır. |
 |Location |Varsayılan olarak, bu cmdlet, kaynak grubu konumu kullanır. Şu anda IOT Central uygulamada oluşturabilirsiniz **Doğu ABD**, **Batı ABD**, **Kuzey Avrupa**, veya **Batı Avrupa** bölgeleri. |
 |Ad              |Azure portalında uygulama adı. |
-|Al etki alanı         |Uygulama URL'sini alt etki alanı. Örnekte, uygulama URL'si olan https://mysubdomain.azureiotcentral.com. |
+|Alt etki alanı         |Uygulama URL'sini alt etki alanı. Örnekte, uygulama URL'si olan https://mysubdomain.azureiotcentral.com. |
 |Sku               |Şu anda yalnızca bir bölüm değerdir **S1** (standart katman). Bkz: [Azure IOT Central fiyatlandırma](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Şablon          | Kullanılacak uygulama şablonu. Daha fazla bilgi için aşağıdaki tabloya bakın: |
-|DisplayName       |Uygulamanın kullanıcı Arabiriminde görüntülenen adı. |
+|displayName       |Uygulamanın kullanıcı Arabiriminde görüntülenen adı. |
 
 **Uygulama Şablonları**
 

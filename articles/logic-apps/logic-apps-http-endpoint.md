@@ -1,29 +1,25 @@
 ---
-title: Çağrı, tetikleyici veya iç içe HTTP uç noktaları - Azure Logic Apps ile iş akışlarını | Microsoft Docs
+title: Çağrı, tetikleyici veya iç içe HTTP uç noktaları - Azure Logic Apps ile iş akışları
 description: Çağrı, tetikleyici veya iş akışları için Azure Logic Apps iç içe için HTTP uç noktaları ayarlama
 services: logic-apps
-keywords: İş akışları, HTTP uç noktaları
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
+author: ecfan
+ms.author: klam; LADocs
+ms.reviewer: jehollan, klam, LADocs
+manager: carmonm
+ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: klam; LADocs
-ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304272"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495048"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Çağrı, tetikleyici veya iç içe iş akışları ile HTTP uç noktalarını logic apps'teki
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Çağrı, tetikleyici veya iç içe iş akışları ile Azure Logic apps'te HTTP uç noktaları
 
 Tetiklemek ya da URL aracılığıyla, mantıksal uygulamaları çağırma logic apps'te tetikleyici olarak yerel olarak zaman uyumlu bir HTTP uç noktalarını kullanıma sunabilirsiniz. Çağrılabilir uç noktalar desenini kullanarak logic apps iş akışları da yerleştirebilirsiniz.
 
@@ -249,7 +245,7 @@ Yanıt şu özelliklere sahiptir:
 | --- | --- |
 | statusCode |Gelen istek için yanıt için HTTP durum kodu belirtir. Bu kod, 2xx, 4xx veya 5xx ile başlayan herhangi bir geçerli durum kodu olabilir. Ancak, 3xx durum kodları izin verilmez. |
 | Üst bilgileri |Yanıta eklenecek üstbilgi herhangi bir sayıda tanımlar. |
-| body |Bir dize olabilir bir gövde nesnesi, JSON nesnesi veya bir önceki adımda başvurulan bile ikili içeriği belirtir. |
+| Gövde |Bir dize olabilir bir gövde nesnesi, JSON nesnesi veya bir önceki adımda başvurulan bile ikili içeriği belirtir. |
 
 İşte JSON şeması artık nasıl göründüğünü **yanıt** eylem:
 
@@ -273,7 +269,7 @@ Yanıt şu özelliklere sahiptir:
 > [!TIP]
 > Mantıksal Uygulama Tasarımcısı mantıksal uygulamanız için tam JSON tanımı görüntülemek için seçin **kod görünümü**.
 
-## <a name="q--a"></a>Soru-Cevap
+## <a name="q--a"></a>Soru - Yanıt
 
 #### <a name="q-what-about-url-security"></a>S: URL güvenlik hakkında neler diyeceksiniz?
 

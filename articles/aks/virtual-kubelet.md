@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: f7a0269ff22987648d134cb7f4fba8e28e29fd8b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956282"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475414"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) ile sanal Kubelet kullanın
 
@@ -30,13 +30,13 @@ Standart bir Kubernetes düğümü ise gibi hem Linux hem de Windows kapsayıcı
 
 Bu belge, bir AKS kümesi olduğunu varsayar. Bir AKS kümesi gerekirse bkz [Azure Kubernetes Service (AKS) hızlı başlangıç][aks-quick-start].
 
-Ayrıca Azure CLI Sürüm ihtiyacınız **2.0.33** veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
+Ayrıca Azure CLI Sürüm ihtiyacınız **2.0.65** veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
-Virtual Kubelet yüklemek için [Helm](https://docs.helm.sh/using_helm/#installing-helm) de gereklidir.
+Virtual Kubelet yüklemek için yükleme ve yapılandırma [Helm] [ aks-helm] AKS kümenizde. Tiller olduğundan emin olun [Kubernetes RBAC ile kullanılmak üzere yapılandırılmış](#for-rbac-enabled-clusters), gerekirse.
 
 ### <a name="register-container-instances-feature-provider"></a>Container Instances özellik sağlayıcısını Kaydet
 
-Azure Container örneği (ACI) hizmeti daha önce kullanmadıysanız, hizmet sağlayıcısı, aboneliğiniz ile kaydedin. Aşağıdaki örnekte gösterildiği gibi [az provider list] [az provider list] komutunu kullanarak ACI Sağlayıcısı kaydı durumunu kontrol edebilirsiniz:
+Azure Container örneği (ACI) hizmeti daha önce kullanmadıysanız, hizmet sağlayıcısı, aboneliğiniz ile kaydedin. ACI sağlayıcı kaydı kullanarak durumu denetleyebilirsiniz [az sağlayıcı listesi] [ az-provider-list] aşağıdaki örnekte gösterildiği gibi komut:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -44,13 +44,13 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 
 *Microsoft.ContainerInstance* sağlayıcısı olarak raporlamalıdır *kayıtlı*aşağıdaki örnek çıktıda gösterildiği gibi:
 
-```
+```console
 Namespace                    RegistrationState
 ---------------------------  -------------------
 Microsoft.ContainerInstance  Registered
 ```
 
-Sağlayıcı olarak gösteriliyorsa *NotRegistered*, aşağıdaki örnekte gösterildiği gibi sağlayıcıyı [az provider register] [az sağlayıcısını kaydetme] kullanarak kaydedin:
+Sağlayıcı olarak gösteriliyorsa *NotRegistered*, kullanarak sağlayıcısını kaydedin [az provider register] [ az-provider-register] aşağıdaki örnekte gösterildiği gibi:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -83,7 +83,7 @@ subjects:
 
 Hizmet hesabını uygular ve ile bağlama [kubectl uygulamak] [ kubectl-apply] ve belirtin, *rbac sanal-kubelet.yaml* aşağıdaki örnekte gösterildiği gibi dosya:
 
-```
+```console
 $ kubectl apply -f rbac-virtual-kubelet.yaml
 
 clusterrolebinding.rbac.authorization.k8s.io/tiller created
@@ -102,10 +102,14 @@ helm init --service-account tiller
 Kullanım [az aks yükleme-connector] [ aks-install-connector] Virtual Kubelet yüklemek için komutu. Aşağıdaki örnek Linux ve Windows bağlayıcı dağıtır.
 
 ```azurecli-interactive
-az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --os-type Both
+az aks install-connector \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --connector-name virtual-kubelet \
+    --os-type Both
 ```
 
-Bu bağımsız değişkenler kullanılabilir `aks install-connector` komutu.
+Bu bağımsız değişkenler kullanılabilir [az aks yükleme-connector] [ aks-install-connector] komutu.
 
 | Bağımsız değişkeni: | Açıklama | Gerekli |
 |---|---|:---:|
@@ -122,17 +126,15 @@ Bu bağımsız değişkenler kullanılabilir `aks install-connector` komutu.
 
 ## <a name="validate-virtual-kubelet"></a>Sanal Kubelet doğrula
 
-Virtual Kubelet yüklendiğini doğrulamak için Kubernetes düğümleri kullanarak listesini döndürmek [kubectl alma düğümleri] [ kubectl-get] komutu.
+Virtual Kubelet yüklendiğini doğrulamak için Kubernetes düğümleri kullanarak listesini döndürmek [kubectl alma düğümleri] [ kubectl-get] komutu:
 
-```
+```console
 $ kubectl get nodes
 
-NAME                                    STATUS    ROLES     AGE       VERSION
-aks-nodepool1-23443254-0                Ready     agent     16d       v1.9.6
-aks-nodepool1-23443254-1                Ready     agent     16d       v1.9.6
-aks-nodepool1-23443254-2                Ready     agent     16d       v1.9.6
-virtual-kubelet-virtual-kubelet-linux   Ready     agent     4m        v1.8.3
-virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
+NAME                                             STATUS   ROLES   AGE   VERSION
+aks-nodepool1-56577038-0                         Ready    agent   11m   v1.12.8
+virtual-kubelet-virtual-kubelet-linux-eastus     Ready    agent   39s   v1.13.1-vk-v0.9.0-1-g7b92d1ee-dev
+virtual-kubelet-virtual-kubelet-windows-eastus   Ready    agent   37s   v1.13.1-vk-v0.9.0-1-g7b92d1ee-dev
 ```
 
 ## <a name="run-linux-container"></a>Linux kapsayıcı çalıştırma
@@ -178,11 +180,11 @@ kubectl create -f virtual-kubelet-linux.yaml
 
 Kullanım [kubectl pod'ları alma] [ kubectl-get] komutunu `-o wide` zamanlanmış düğümle pod'ların bir listesini çıkarmak için bağımsız değişken. Dikkat `aci-helloworld` pod zamanlandı `virtual-kubelet-virtual-kubelet-linux` düğümü.
 
-```
+```console
 $ kubectl get pods -o wide
 
-NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
-aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
+NAME                              READY   STATUS    RESTARTS   AGE     IP               NODE
+aci-helloworld-7b9ffbf946-rx87g   1/1     Running   0          22s     52.224.147.210   virtual-kubelet-virtual-kubelet-linux-eastus
 ```
 
 ## <a name="run-windows-container"></a>Windows kapsayıcısı çalıştırma
@@ -226,13 +228,13 @@ Uygulamayı çalıştırın [kubectl oluşturma] [ kubectl-create] komutu.
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
-Kullanım [kubectl pod'ları alma] [ kubectl-get] komutunu `-o wide` zamanlanmış düğümle pod'ların bir listesini çıkarmak için bağımsız değişken. Dikkat `nanoserver-iis` pod zamanlandı `virtual-kubelet-virtual-kubelet-win` düğümü.
+Kullanım [kubectl pod'ları alma] [ kubectl-get] komutunu `-o wide` zamanlanmış düğümle pod'ların bir listesini çıkarmak için bağımsız değişken. Dikkat `nanoserver-iis` pod zamanlandı `virtual-kubelet-virtual-kubelet-windows` düğümü.
 
-```
+```console
 $ kubectl get pods -o wide
 
-NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
-nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.91.121.91   virtual-kubelet-virtual-kubelet-win
+NAME                              READY   STATUS    RESTARTS   AGE     IP               NODE
+nanoserver-iis-5d999b87d7-6h8s9   1/1     Running   0          47s     52.224.143.39    virtual-kubelet-virtual-kubelet-windows-eastus
 ```
 
 ## <a name="remove-virtual-kubelet"></a>Sanal Kubelet Kaldır
@@ -240,7 +242,11 @@ nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.
 Kullanım [az aks remove-connector] [ aks-remove-connector] Virtual Kubelet kaldırmak için komutu. Bağımsız değişken değerlerini bağlayıcı, AKS kümesi ve AKS küme kaynak grubu adıyla değiştirin.
 
 ```azurecli-interactive
-az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
+az aks remove-connector \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --connector-name virtual-kubelet \
+    --os-type Both
 ```
 
 > [!NOTE]
@@ -259,6 +265,9 @@ Virtual Kubelet hakkında daha fazla bilgiyi [sanal Kubelet GitHub projesini][vk
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 [virtual-nodes-cli]: virtual-nodes-cli.md
 [virtual-nodes-portal]: virtual-nodes-portal.md
+[aks-helm]: kubernetes-helm.md
+[az-provider-list]: /cli/azure/provider#az-provider-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

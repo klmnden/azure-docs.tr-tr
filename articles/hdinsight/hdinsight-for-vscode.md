@@ -1,20 +1,18 @@
 ---
-title: Azure HDInsight araçları - Visual Studio kodu Hive, LLAP veya PySpark kullanın | Microsoft Docs
+title: Azure HDInsight araçları - Visual Studio kodu Hive, LLAP veya PySpark kullanın
 description: Oluşturmak ve sorgular ve betikleri göndermek amacıyla Visual Studio Code için Azure HDInsight Araçları'nı kullanmayı öğrenin.
-Keywords: Visual Studio kodu, Azure HDInsight araçları, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, Interactive Query
-documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/30/2019
+ms.openlocfilehash: d114a1e62ae0d28e7d4a3ad453d5d7bd3e1d5b7a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681758"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427696"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Visual Studio Code için Azure HDInsight araçları kullanma
 
@@ -71,12 +69,12 @@ Visual Studio Code'dan betikleri HDInsight kümelerine gönderebilirsiniz önce 
 
     ![Visual Studio Code oturum açma için HDInsight araçları](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Oturum açma yönergeleri **çıkış** bölmesi.
+2. Oturum açma yönergeleri izleyin **çıkış** bölmesi.
     + Azure, genel ortam için **HDInsight: Oturum açma** komut tetikleme **Azure'da oturum aç** eylem HDInsight Gezgini ve bunun tersi de geçerlidir.
 
         ![Azure için oturum açma yönergeleri](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
-    + Diğer ortamlarda, oturum açma yönergelerini izleyin.
+    + Diğer ortamlarda, oturum açma yönergeleri izleyin.
 
         ![Diğer ortam için oturum açma yönergeleri](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
@@ -219,7 +217,7 @@ Visual Studio Code için HDInsight araçları ile etkileşimli Hive sorguları g
 
 8. Aracı'nı da destekler **SQL yan tümcesi** sorgu.
 
-   ![Python iş sonucu gönderme](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) alt durum sorguları zaman çalıştırdığınız çubuğunda sol taraftaki gönderme durumu görüntülenir. Diğer sorgular durum olduğunda paylaşmayın **PySpark Çekirdeği (meşgul)**.  
+   ![Python iş sonucu gönderme](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) alt durum sorguları zaman çalıştırdığınız çubuğunda sol taraftaki gönderme durumu görüntülenir. Diğer sorgular durum olduğunda paylaşmayın **PySpark Çekirdeği (meşgul)** .  
 
 >[!NOTE]  
 >Küme oturum bilgilerini koruyabilir. Aynı kümenin birden çok hizmet çağrısını üzerinde başvurulabilen şekilde tanımlanmış değişken, işlev ve karşılık gelen değerler oturumda tutulur. 
@@ -306,34 +304,34 @@ Bir dosya göndermek, .vscode klasörü otomatik olarak iş klasöre eklenen dik
     **POST /batches**   
     İstek Gövdesi
 
-    | ad | açıklama | type | 
+    | name | description | türü | 
     | :- | :- | :- | 
-    | dosya | Yürütülecek uygulamanın içeren dosya | yol (gerekli) | 
+    | dosyası | Yürütülecek uygulamanın içeren dosya | yol (gerekli) | 
     | Proxyuserpassword | İş çalışırken bürünülecek kullanıcı | string | 
     | className | Uygulamanın Java/Spark temel sınıfı | string |
     | args | Uygulama için komut satırı bağımsız değişkenleri | dize listesi | 
     | jar dosyaları dışındaki | Bu oturumda kullanılmak üzere jar'lar | Dize listesi | 
     | pyFiles | Bu oturumda kullanılmak üzere Python dosyaları | Dize listesi |
-    | dosya görüntüle | Bu oturumda kullanılmak üzere dosyaları | Dize listesi |
+    | dosyaları | Bu oturumda kullanılmak üzere dosyaları | Dize listesi |
     | driverMemory | Sürücü işlemi için kullanılacak bellek miktarını | string |
     | driverCores | Sürücü işlemi için kullanılacak çekirdek sayısı | int |
     | executorMemory | Yürütücü işlemi bellek miktarı | string |
     | executorCores | Her Yürütücü için kullanılacak çekirdek sayısı | int |
     | numExecutors | Bu oturum için başlatmak için Yürütücü sayısı | int |
     | arşivleri | Bu oturumda kullanılmak üzere arşivleri | Dize listesi |
-    | kuyruk | YARN Kuyruğun adı gönderildi | string |
-    | ad | Bu oturumun adı | string |
+    | sıra | YARN Kuyruğun adı gönderildi | string |
+    | name | Bu oturumun adı | string |
     | conf | Spark yapılandırma özellikleri | Harita anahtarı val = |
 
-    Yanıt Gövdesi   
+    Yanıt gövdesi   
     Oluşturulan toplu iş nesnesi.
 
-    | ad | açıklama | type | 
+    | name | description | türü | 
     | :- | :- | :- | 
     | id | Oturum kimliği | int | 
     | appId | Bu oturumun uygulama kimliği |  String |
     | appInfo | Ayrıntılı uygulama bilgileri | Harita anahtarı val = |
-    | günlük | Günlük satırları | dize listesi |
+    | Günlük | Günlük satırları | dize listesi |
     | durum |   Toplu işlem durumu | string |
 
 >[!NOTE]
@@ -356,7 +354,7 @@ Bir dosya göndermek, .vscode klasörü otomatik olarak iş klasöre eklenen dik
    ![Azure HDInsight kümesi](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
 
 
-## <a name="additional-features"></a>Ek özellikler
+## <a name="additional-features"></a>Ek Özellikler
 
 Visual Studio Code için HDInsight aşağıdaki özellikleri destekler:
 
@@ -380,7 +378,7 @@ Visual Studio Code için HDInsight aşağıdaki özellikleri destekler:
 
 ## <a name="logout"></a>Oturumu Kapat  
 
-Menü çubuğundan gidin **görünümü** > **komut paleti...** yazıp enter **HDInsight: Oturum kapatma**.  Alt sağ köşesinde bildiren bir açılır pencere olacak **oturum kapatma başarıyla!**.
+Menü çubuğundan gidin **görünümü** > **komut paleti...** yazıp enter **HDInsight: Oturum kapatma**.  Alt sağ köşesinde bildiren bir açılır pencere olacak **oturum kapatma başarıyla!** .
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

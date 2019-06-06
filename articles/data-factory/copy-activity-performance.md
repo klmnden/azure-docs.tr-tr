@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768178"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425611"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performansı ve ayarlama Kılavuzu kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ Dikkat edilecek noktalar:
 
 ## <a name="data-integration-units"></a>Veri tümleştirme birimleri
 
-A **veri tümleştirme birim (DIU)** (eski adıyla bulut verisi taşıma birimi veya DMU olarak bilinir) Data factory'de tek bir birim (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüdür. **Yalnızca DIU uygulandığı [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, ama [şirket içinde barındırılan tümleştirme çalışma zamanı](concepts-integration-runtime.md#self-hosted-integration-runtime).
+A **veri tümleştirme birim (DIU)** (eski adıyla bulut verisi taşıma birimi veya DMU olarak bilinir) Data factory'de tek bir birim (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüdür. **Yalnızca DIU uygulandığı [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)** , ama [şirket içinde barındırılan tümleştirme çalışma zamanı](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
 **Kopyalama etkinliği çalıştırmasının güçlendirmek için en az veri tümleştirme birimi 2'dir.** Belirtilmezse, aşağıdaki tabloda farklı kopyalama senaryolarında kullanılan varsayılan DIUs listelenmektedir:
 
@@ -93,7 +93,7 @@ Bu varsayılanı geçersiz kılmak için bir değer belirtin. **dataIntegrationU
 Bir etkinlik çalıştırması izlerken çıkış kopyalama etkinliği çalıştırma her kopya için gerçekten kullanılan veri tümleştirme birimleri görebilirsiniz. Ayrıntıları öğrenin [kopyalama etkinliği izleme](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> DIUs ayarı **4 büyük** şu anda yalnızca çalışır, **birden çok dosyayı Blob Depolama/deposundan veri Lake kopyalamayı depolama/Amazon S3/bulut FTP/bulut SFTP'ye herhangi bir bulut veri depolar.**.
+> Ayarlama DIUs **4 büyük** şu anda yalnızca geçerlidir, **birden çok dosyayı Azure depolama/Data Lake depolama/Amazon S3/Google bulut depolama/bulut FTP/buluttan SFTP herhangi diğer bulut veri depoları içinkopyalamak**.
 >
 
 **Örnek:**

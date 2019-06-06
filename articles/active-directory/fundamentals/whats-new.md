@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 387f1e0bf6461b5e87da1de35e74c5e49c5dc632
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: e6a66aefec69a0551f85b11a380c90d1915bd776
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305537"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474197"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -39,6 +39,192 @@ Bu sayfaya ay güncelleştirilir, böylece bunu düzenli olarak tekrar ziyaret. 
 
 ---
 
+## <a name="may-2019"></a>Mayıs 2019
+
+### <a name="service-change-future-support-for-only-tls-12-protocols-on-the-application-proxy-service"></a>Hizmet Değiştir: Yalnızca TLS 1.2 protokolleri uygulama ara Sunucusu hizmetine yönelik gelecek destek
+
+**Türü:** Değişiklik planı  
+**Hizmet kategorisi:** Uygulama Ara sunucusu  
+**Ürün özelliği:** Erişim Denetimi
+
+Müşterilerimiz için sınıfının en iyisi şifreleme sağlamak için biz yalnızca TLS 1.2 protokolleri uygulama ara Sunucusu hizmetine erişimi sınırlandırma. Bu değişiklik, değişiklikleri görmeyeceksiniz için zaten yalnızca TLS 1.2 protokolleri kullanan müşteriler için kademeli olarak sunulacaktır.
+
+31 Ağustos 2019, TLS 1.0 ve TLS 1.1 kullanımdan kaldırma gerçekleşir ancak bu değişikliğe hazırlanmak için zamanınız şekilde ek Gelişmiş bildirimi sağlarız. Bu değişiklik hazırlamak için kullanıcılarınızın uygulama proxy'si aracılığıyla yayımlanan uygulamalara erişmek için kullandığı tüm istemciler dahil olmak üzere, istemci-sunucu ve tarayıcı sunucu birleşimlerini emin olun, uygulamaya bir bağlantı sürdürmenizi TLS 1.2 protokolünü kullanacak şekilde güncelleştirildi Proxy hizmeti. Daha fazla bilgi için [Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#before-you-begin).
+
+---
+
+### <a name="use-the-usage-and-insights-report-to-view-your-app-related-sign-in-data"></a>Kullanım ve öngörüleri raporunu uygulamayla ilgili oturum açma verilerinizi görüntülemek için kullanın
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** İzleme ve Raporlama
+
+Artık bulunan kullanım ve öngörüleri raporu kullanabilirsiniz **kurumsal uygulamalar** hakkında bilgileri de dahil olmak üzere, oturum açma verilerini, uygulama odaklı bir görünümünü elde etmek için Azure Portalı'nın alan:
+
+- Kuruluşunuz için üst kullanılan uygulamalar
+
+- Uygulamalarla en çok başarısız oturum açma işlemleri
+
+- En sık karşılaşılan hatalar her uygulama için oturum açma
+
+Bu özellik hakkında daha fazla bilgi için bkz. [kullanım bilgilerini ve öngörüleri Azure Active Directory Portalı'nda rapor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report)
+
+---
+
+### <a name="automate-your-user-provisioning-to-cloud-apps-using-azure-ad"></a>Azure AD kullanarak uygulamaları bulut sağlama, kullanıcı otomatikleştirin
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** İzleme ve Raporlama
+
+Oluşturma, silme, otomatik hale getirmek için Azure AD sağlama hizmeti kullanmak için bu yeni öğreticileri izleyin ve aşağıdaki bulut tabanlı uygulamalar için kullanıcı hesapları güncelleştiriliyor:
+
+- [Comeet](https://docs.microsoft.com/azure/active-directory/saas-apps/comeet-recruiting-software-provisioning-tutorial)
+
+- [DynamicSignal](https://docs.microsoft.com/azure/active-directory/saas-apps/dynamic-signal-provisioning-tutorial)
+
+- [KeeperSecurity](https://docs.microsoft.com/azure/active-directory/saas-apps/keeper-password-manager-digitalvault-provisioning-tutorial)
+
+Ayrıca bu yeni izleyebilirsiniz [Dropbox öğretici](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), Grup nesnelerini sağlamasını yapma hakkında bilgi sağlar.
+
+Daha iyi otomatik kullanıcı hesabı sağlama üzerinden kuruluşunuzun güvenliğini sağlama hakkında daha fazla bilgi için bkz. [Azure AD ile SaaS uygulamalarına kullanıcı sağlamayı otomatikleştirin](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+
+---
+
+### <a name="identity-secure-score-is-now-available-in-azure-ad-general-availability"></a>Güvenli kimlik puanı Azure AD'de (Genel kullanım) kullanıma sunuldu
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Yok  
+**Ürün özelliği:** Kimlik güvenliği ve koruması
+
+Artık izleme ve kimlik bilgilerinizi artırmak güvenlik duruşunu kimliğini kullanarak Azure AD'de puanı özellik güvenli. Kimlik güvenli yardımcı olması için tek bir Pano puanı özellik kullanır:
+
+- Hatada yavaşlık durumunu nesnel 1 ile 223 arasında bir puan dayalı kimlik güvenlik duruşu ölçün.
+
+- Kimlik güvenlik geliştirmeleri için planlama
+
+- Güvenlik geliştirmelerinizin başarısını gözden geçirin
+
+Güvenlik puanı kimlik özelliği hakkında daha fazla bilgi için bkz. [Azure Active Directory'de kimlik güvenli puanı nedir?](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score).
+
+---
+
+### <a name="new-app-registrations-experience-is-now-available-general-availability"></a>Yeni uygulama kaydı deneyimini sunulmuştur kullanılabilir (Genel kullanım)
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
+**Ürün özelliği:** Bir geliştirici deneyimi
+
+Yeni [uygulama kayıtları](https://aka.ms/appregistrations) deneyimi, artık genel kullanıma sunulmuştur. Bu yeni deneyim, Azure portalı ve uygulama kayıt portalı alışık olduğunuz tüm anahtar özelliklerini içerir ve aracılığıyla bağlı geliştirir:
+
+- **Daha iyi uygulama yönetimi.** Uygulamalarınızı farklı portalları arasında görmenin yerine, artık tüm uygulamalarınızı tek bir konumda görebilirsiniz.
+
+- **Basitleştirilmiş uygulama kaydı.** Yenilenmiş izni seçme deneyimi için geliştirilmiş Gezinti deneyiminden artık kaydetmek ve uygulamaları yönetmek daha kolaydır.
+
+- **Daha ayrıntılı bilgi.** Hızlı Başlangıç kılavuzları ve daha fazlası dahil olmak üzere uygulamanızı hakkında daha fazla ayrıntı bulabilirsiniz.
+
+Daha fazla bilgi için [Microsoft kimlik platformu](https://docs.microsoft.com/azure/active-directory/develop/) ve [uygulama kayıtları deneyimi genel kullanıma sunuldu!](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) blog duyuruları.
+
+---
+
+### <a name="new-capabilities-available-in-the-risky-users-api-for-identity-protection"></a>Kimlik koruması için riskli kullanıcılar API'sinde kullanılabilen yeni özellikleri
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Kimlik Koruması  
+**Ürün özelliği:** Kimlik güvenliği ve koruması
+
+Artık riskli kullanıcılar API'si kullanıcıların risk geçmişini alamadık, riskli kullanıcılar kapatmak ve kullanıcılar tehlikede gibi onaylamak için kullanabileceğiniz duyurmaktan Mutluluk duyuyoruz. Bu değişiklik, daha verimli bir şekilde kullanıcılarınızın risk durumu güncelleştirme ve kendi risk geçmişini anlama yardımcı olur.
+
+Daha fazla bilgi için [riskli kullanıcılar API başvuru belgeleri](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2019"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Mayıs 2019
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** 3. taraf tümleştirme
+
+Mayıs 2019 ' federasyon ile 21 bu yeni uygulamalar için uygulama Galerisi desteği ekledik:
+
+[Freedcamp](https://docs.microsoft.com/azure/active-directory/saas-apps/freedcamp-tutorial), [gerçek bağlantı](https://docs.microsoft.com/azure/active-directory/saas-apps/real-links-tutorial), [Kianda](https://app.kianda.com/sso/OpenID/AzureAD/), [basit oturum](https://docs.microsoft.com/azure/active-directory/saas-apps/simple-sign-tutorial), [Braze](https://docs.microsoft.com/azure/active-directory/saas-apps/braze-tutorial), [Displayr](https://docs.microsoft.com/azure/active-directory/saas-apps/displayr-tutorial), [Templafy](https://docs.microsoft.com/azure/active-directory/saas-apps/templafy-tutorial), [Marketo satış ilgisini](https://toutapp.com/login), [ACLP](https://docs.microsoft.com/azure/active-directory/saas-apps/aclp-tutorial), [OutSystems](https://docs.microsoft.com/azure/active-directory/saas-apps/outsystems-tutorial), [Meta4 genel ik](https://docs.microsoft.com/azure/active-directory/saas-apps/meta4-global-hr-tutorial), [Kuantum çalışma alanına](https://docs.microsoft.com/azure/active-directory/saas-apps/quantum-workplace-tutorial), [Cobalt](https://docs.microsoft.com/azure/active-directory/saas-apps/cobalt-tutorial), [iki Web yöntemini API bulut](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial), [RedFlag](https://pocketstop.com/redflag/), [Whatfix](https://docs.microsoft.com/azure/active-directory/saas-apps/whatfix-tutorial), [Denetimi](https://docs.microsoft.com/azure/active-directory/saas-apps/control-tutorial), [JOBHUB](https://docs.microsoft.com/azure/active-directory/saas-apps/jobhub-tutorial), [NEOGOV](https://docs.microsoft.com/azure/active-directory/saas-apps/neogov-tutorial), [Foodee](https://docs.microsoft.com/azure/active-directory/saas-apps/foodee-tutorial), [MyVR](https://docs.microsoft.com/azure/active-directory/saas-apps/myvr-tutorial)
+
+Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile SaaS uygulama tümleştirmesi](https://aka.ms/appstutorial). Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilgi için bkz. [uygulamanızı Azure Active Directory Uygulama galerisinde listeleyin](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="improved-groups-creation-and-management-experiences-in-the-azure-ad-portal"></a>Geliştirilmiş grupları oluşturma ve yönetim deneyimleri Azure AD portalında
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Grup Yönetimi  
+**Ürün özelliği:** İş Birliği
+
+Azure AD portalında deneyimleri grupları ile ilgili iyileştirmeler yaptık. Bu geliştirmeler yöneticilerin grupları listesi, üyeleri listeler, daha iyi yönetin ve ek oluşturma seçenekleri sağlamak için olanak sağlar.
+
+Geliştirmeler şunlardır:
+
+- Temel üyelik türü ve grup türüne göre filtreleme.
+
+- Ayrıca, kaynak ve e-posta adresi gibi yeni bir sütun.
+
+- Çoklu seçim grupları, üyeleri ve sahibi olanağı kolay silinmek üzere listeler.
+
+- Bir e-posta adresi seçin ve grup oluşturma sırasında sahipleri ekleme yeteneği.
+
+Daha fazla bilgi için [temel bir grup oluşturma ve Azure Active Directory'yi kullanarak üye ekleme](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+
+---
+
+### <a name="configure-a-naming-policy-for-office-365-groups-in-azure-ad-portal-general-availability"></a>Azure AD portalında (Genel kullanım) Office 365 grupları için bir adlandırma ilkesini yapılandırma
+
+**Türü:** Değişen özellik  
+**Hizmet kategorisi:** Grup Yönetimi  
+**Ürün özelliği:** İş Birliği
+
+Yöneticiler artık bir adlandırma ilkesini Azure AD portalı kullanarak, Office 365 grupları için yapılandırabilirsiniz. Bu değişiklik veya kuruluşunuzdaki kullanıcılar tarafından düzenlenemiyor Office 365 grupları için tutarlı adlandırma kuralları uygulanmasına yardımcı olur.
+
+Office 365 grupları için adlandırma ilkesi iki farklı yolla yapılandırabilirsiniz:
+
+- Ön ekleri veya bir grup adı için otomatik olarak eklenen son eklerini tanımlayın.
+
+- Özelleştirilmiş bir kelimelerin (örneğin "CEO, bordro, ik") Grup adlarında izin verilmeyen engellenen kuruluşunuz için karşıya yükleyin.
+
+Daha fazla bilgi için [Office 365 grupları için bir adlandırma ilkesini zorlama](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-naming-policy).
+
+---
+
+### <a name="microsoft-graph-api-endpoints-are-now-available-for-azure-ad-activity-logs-general-availability"></a>Microsoft Graph API uç noktaları için Azure AD etkinlik günlüklerini (Genel kullanım) kullanıma sunulmuştur
+
+**Türü:** Değişen özellik  
+**Hizmet kategorisi:** Raporlama  
+**Ürün özelliği:** İzleme ve Raporlama
+
+Microsoft Graph API uç noktaları Azure AD etkinlik desteği genel kullanıma duyurmaktan Mutluluk duyuyoruz günlükleri. Kullanım sürüm 1.0 hem Azure ad denetim günlükleri, oturum açma günlüklerinin yanı sıra API bu sürümle birlikte, artık.
+
+Daha fazla bilgi için [Azure AD denetim günlüğü API genel bakış](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0).
+
+---
+
+### <a name="administrators-can-now-use-conditional-access-for-the-combined-registration-process-public-preview"></a>Yöneticiler artık birleşik kayıt işlemi (genel Önizleme) için koşullu erişim kullanabilirsiniz
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Koşullu Erişim  
+**Ürün özelliği:** Kimlik güvenliği ve koruması  
+
+Yöneticiler, artık birleşik kayıt sayfasına tarafından kullanmak için koşullu erişim ilkeleri oluşturabilirsiniz. Bu kayıt, izin vermek için ilkeler uygulama içerir:
+
+- Güvenilen bir ağda kullanıcılardır.
+
+- Düşük bir oturum açma riski kullanıcılardır.
+
+- Yönetilen bir cihazda kullanıcılardır.
+
+- Kullanıcılar kuruluşun kullanım koşulları (TOU) için kabul etmiş olursunuz.
+
+Koşullu erişim ve parola sıfırlama hakkında daha fazla bilgi için gördüğünüz [koşullu erişim için Azure AD MFA birleştirilir ve parola sıfırlama kayıt deneyimi blog gönderisi](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Conditional-access-for-the-Azure-AD-combined-MFA-and-password/ba-p/566348). Birleşik kayıt işlemi için koşullu erişim ilkeleri hakkında daha fazla bilgi için bkz. [birleşik kayıt için koşullu erişim ilkeleri](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined#conditional-access-policies-for-combined-registration). Kullanım Özelliği Azure AD koşulları hakkında daha fazla bilgi için bkz. [kullanım Özelliği Azure Active Directory koşullarını](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
+
+---
+
 ## <a name="april-2019"></a>Nisan 2019
 
 ### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-in-refreshed-azure-ad-identity-protection"></a>Yeni Azure AD tehdit zekası algılama yenilenmiş Azure AD kimlik koruması kullanıma sunuldu
@@ -53,7 +239,7 @@ Azure AD kimlik Koruması'nın yenilenmiş sürümü hakkında daha fazla bilgi 
 
 ---
 
-### <a name="azure-active-directory-azure-ad-entitlement-management-is-now-available-public-preview"></a>Azure Active Directory (Azure AD) yetkilendirme management artık kullanılabilir (genel Önizleme)
+### <a name="azure-ad-entitlement-management-is-now-available-public-preview"></a>Azure AD hak yönetimi sunulmuştur kullanılabilir (genel Önizleme)
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Identity Governance  
@@ -69,7 +255,7 @@ Azure AD hak yönetimi, artık genel önizlemede nasıl çalışanların ve iş 
 **Hizmet kategorisi:** Grup Yönetimi  
 **Ürün özelliği:** İş Birliği
 
-Yöneticiler artık bir adlandırma ilkesini Azure AD portalı kullanarak, Office 365 grupları için yapılandırabilirsiniz. Bu değişiklik veya kuruluşunuzdaki kullanıcılar tarafından düzenlenemiyor Office 365 grupları için tutarlı adlandırma kuralları uygulanmasına yardımcı olur. 
+Yöneticiler artık bir adlandırma ilkesini Azure AD portalı kullanarak, Office 365 grupları için yapılandırabilirsiniz. Bu değişiklik veya kuruluşunuzdaki kullanıcılar tarafından düzenlenemiyor Office 365 grupları için tutarlı adlandırma kuralları uygulanmasına yardımcı olur.
 
 Office 365 grupları için adlandırma ilkesi iki farklı yolla yapılandırabilirsiniz:
 
@@ -388,10 +574,10 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 **Türü:** Değişen özellik  
 **Hizmet kategorisi:** Self Servis parola sıfırlama  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
- 
+
 Müşteri geri bildirimine yanıt olarak, birleştirilmiş MFA/SSPR kayıt Önizleme deneyimini daha hızlı bir şekilde MFA ve SSPR için güvenlik bilgilerini kaydetmek için kullanıcıların yardımcı olma geliştirdik. 
 
-**Kullanıcılarınız için geliştirilmiş deneyim hemen açmak için şu adımları izleyin:**
+**Etkinleştirmek için kullanıcılarınızın için Gelişmiş deneyimine Bugün, şu adımları izleyin:**
 
 1. Azure portalına genel yönetici veya Kullanıcı Yöneticisi oturum açın ve gidin **Azure Active Directory > Kullanıcı Ayarları > erişim paneli Önizleme özellikleri için ayarları yönetme**. 
 
@@ -752,59 +938,5 @@ Kasım 2018'de Federasyon ile bu 26 yeni uygulamalar için uygulama Galerisi des
 [CoreStack](https://cloud.corestack.io/site/login), [HubSpot](https://docs.microsoft.com/azure/active-directory/saas-apps/HubSpot-tutorial), [GetThere](https://docs.microsoft.com/azure/active-directory/saas-apps/getthere-tutorial), [gri Pe](https://docs.microsoft.com/azure/active-directory/saas-apps/grape-tutorial), [eHour](https://getehour.com/try-now), [Consent2Go](https://docs.microsoft.com/azure/active-directory/saas-apps/Consent2Go-tutorial), [Appinux](https://docs.microsoft.com/azure/active-directory/saas-apps/appinux-tutorial), [DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview), [Useall](https://docs.microsoft.com/azure/active-directory/saas-apps/useall-tutorial), [sonsuz kampüs](https://docs.microsoft.com/azure/active-directory/saas-apps/infinitecampus-tutorial), [Alaya](https://alayagood.com/en/demo/), [ HeyBuddy](https://docs.microsoft.com/azure/active-directory/saas-apps/heybuddy-tutorial), [Wrike SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/wrike-tutorial), [kayması](https://docs.microsoft.com/azure/active-directory/saas-apps/drift-tutorial), [Zenegy iş merkezi 365](https://accounting.zenegy.com/), [Everbridge üye portalı](https://docs.microsoft.com/azure/active-directory/saas-apps/everbridge-tutorial), [IDEO](https://profile.ideo.com/users/sign_up), [Ivanti Hizmet Yöneticisi'ni (ISM)](https://docs.microsoft.com/azure/active-directory/saas-apps/ivanti-service-manager-tutorial), [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-tutorial), [Allbound SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/allbound-sso-tutorial), [parçalı uygulamaları - Klasik Test](https://test.plexonline.com/signon), [parçalı uygulamaları – Klasik](https://www.plexonline.com/signon), [parçalı uygulamaları - UX Test](https://test.cloud.plex.com/sso), [parçalı uygulamaları – UX](https://cloud.plex.com/sso), [parçalı uygulamaları – IAM](https://accounts.plex.com/), [UĞRAŞIYOR - Childcare kayıtları, katılımcı ve finansal izleme sistemi](https://getcrafts.ca/craftsregistration) 
 
 Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile SaaS uygulama tümleştirmesi](https://aka.ms/appstutorial). Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilgi için bkz. [uygulamanızı Azure Active Directory Uygulama galerisinde listeleyin](https://aka.ms/azureadapprequest).
-
----
-
-## <a name="october-2018"></a>Ekim 2018
-
-### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Azure AD günlükleri artık Azure Log Analytics (genel Önizleme) ile çalışma
-
-**Türü:** Yeni özellik  
-**Hizmet kategorisi:** Raporlama  
-**Ürün özelliği:** İzleme ve Raporlama
-
-Azure Log Analytics için artık Azure AD günlüklerinizi iletebilir duyurmaktan Mutluluk duyuyoruz! Bu en çok istenen özellik analytics'e işletmenizi, işlemleri ve güvenlik yanı sıra altyapınızı izlemeye yardımcı olmak için bir yol için daha iyi erişmesini yardımcı olur. Daha fazla bilgi için [Azure Active Directory etkinlik günlükleri artık Azure Log Analytics'te](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843) blogu.
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Ekim 2018
-
-**Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal uygulamalar  
-**Ürün özelliği:** 3. taraf tümleştirme
- 
-Ekim 2018'de Federasyon ile 14 Bu yeni uygulamalar için uygulama Galerisi desteği ekledik:
-
-[Ödül Puanlarım](https://docs.microsoft.com/azure/active-directory/saas-apps/myawardpoints-tutorial), [Vibe HCM](https://docs.microsoft.com/azure/active-directory/saas-apps/vibehcm-tutorial), ambyint, [MyWorkDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/myworkdrive-tutorial), [BorrowBox](https://docs.microsoft.com/azure/active-directory/saas-apps/borrowbox-tutorial), tuş takımı, [ON24 sanal ortam](https://docs.microsoft.com/azure/active-directory/saas-apps/on24-tutorial), [RingCentral](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-tutorial), [Zscaler üç](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-three-tutorial), [Phraseanet](https://docs.microsoft.com/azure/active-directory/saas-apps/phraseanet-tutorial), [Appraisd](https://docs.microsoft.com/azure/active-directory/saas-apps/appraisd-tutorial), [Workspot denetimi](https://docs.microsoft.com/azure/active-directory/saas-apps/workspotcontrol-tutorial), [Shuccho kayıt](https://docs.microsoft.com/azure/active-directory/saas-apps/shucchonavi-tutorial), [Glassfrog](https://docs.microsoft.com/azure/active-directory/saas-apps/glassfrog-tutorial)
-
-Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile SaaS uygulama tümleştirmesi](https://aka.ms/appstutorial). Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilgi için bkz. [uygulamanızı Azure Active Directory Uygulama galerisinde listeleyin](https://aka.ms/azureadapprequest).
-
----
-
-### <a name="azure-ad-domain-services-email-notifications"></a>E-posta bildirimleri Azure AD etki alanı Hizmetleri
-
-**Türü:** Yeni özellik  
-**Hizmet kategorisi:** Azure AD Domain Services  
-**Ürün özelliği:** Azure AD Domain Services
-
-Azure AD Domain Services yönetilen etki alanınız ile ilgili sorunları veya yanlış yapılandırmalar hakkında Azure portalındaki uyarılar sağlar. Bu uyarılar, desteğe başvurun gerek kalmadan sorunları düzeltmek deneyebilmek adım adım kılavuzlar içerir.
-
-Ekim ayında başlayarak, yönetilen etki alanınız için bildirim ayarlarını özelleştirmek mümkün olacaktır için yeni uyarılar ortaya çıktığında, insanların sürekli güncelleştirmeler için portalı denetleyin gereğini ortadan kaldırır, atanmış bir gruba e-posta gönderilir.
-
-Daha fazla bilgi için [bildirim ayarları Azure AD Etki Alanı Hizmetleri'nde](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-notifications).
-
----
-
-### <a name="azure-ad-portal-supports-using-the-forcedelete-domain-api-to-delete-custom-domains"></a>Özel etki alanları silinecek ForceDelete etki alanı API kullanarak azure AD portalı destekler 
-
-**Türü:** Değişen özellik  
-**Hizmet kategorisi:** Dizin Yönetimi  
-**Ürün özelliği:** Dizin
-
-Artık ForceDelete etki alanı API başvuruları, kullanıcılar, gruplar ve uygulamalar gibi özel bir etki alanı adınızla (contoso.com) öğesinden geri ilk varsayılan etki alanı adı (zaman uyumsuz olarak yeniden adlandırarak özel etki alanı silmek için kullanabileceğiniz duyurmaktan Mutluluk duyuyoruz contoso.onmicrosoft.com).
-
-Bu değişiklik, özel etki alanı adı kuruluşunuz artık kullanıyorsa veya başka bir Azure AD ile etki alanı adı kullanmanız gerekiyorsa daha hızlı bir şekilde silmek için yardımcı olur.
-
-Daha fazla bilgi için [bir özel etki alanı adını silme](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-manage#delete-a-custom-domain-name).
 
 ---

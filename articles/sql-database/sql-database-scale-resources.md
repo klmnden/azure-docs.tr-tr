@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e476f27e2a1945135bd90435078d5bcd47c4b3de
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073133"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743117"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dinamik olarak ölçek en düşük kapalı kalma süresi ile veritabanı kaynakları
 
@@ -55,6 +55,9 @@ Azure SQL veritabanı üç türdeki tüm veritabanlarınızın dinamik olarak ö
 - İle bir [tek veritabanı](sql-database-single-database-scale.md), kullanabilirsiniz [DTU](sql-database-dtu-resource-limits-single-databases.md) veya [sanal çekirdek](sql-database-vcore-resource-limits-single-databases.md) maksimum miktarı her bir veritabanı için atanan kaynakları tanımlamak için modeller.
 - A [yönetilen örneği](sql-database-managed-instance.md) kullanan [sanal çekirdekler](sql-database-managed-instance.md#vcore-based-purchasing-model) modu ve maksimum CPU Çekirdeği ve en fazla depolama, örneğe ayrılan tanımlamanızı sağlar. Örneği içindeki tüm veritabanlarına örneğine ayrılan kaynaklar paylaşır.
 - [Elastik havuzlar](sql-database-elastic-pool-scale.md) , havuzda veritabanı başına en fazla kaynak sınırı tanımlamanıza olanak sağlar.
+
+> [!NOTE]
+> Ölçeği artırma/ölçek, işlemi bir kısa bağlantı kesme tamamlandı bekleyebilirsiniz. Uyguladıysanız [yeniden deneme mantığı standart geçici hatalar için](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), yük devretme görürsünüz değil.
 
 ## <a name="alternative-scale-methods"></a>Alternatif ölçek yöntemleri
 

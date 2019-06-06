@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9658ed46e1a46aa3fc2c7fe251fd73b2ef0a13dd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991360"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480312"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -28,7 +28,7 @@ Bu makalede Windows istemcilerinden bağlandığınızda, Microsoft Azure dosyal
 
 Bir dosya paylaşımını bağlayabilmeniz çalıştığınızda şu hatayı alabilirsiniz:
 
-- 5. Sistem hatası oluştu. Erişim reddedildi.
+- Sistem hatası 5 oluştu. Erişim reddedildi.
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>1. neden: Şifrelenmemiş iletişim kanalı
 
@@ -54,9 +54,9 @@ Sanal ağ ve güvenlik duvarı kuralları depolama hesabı düzgün şekilde yap
 
 Şirket içinde veya farklı bir veri merkezinde bir dosya paylaşımını bağlayabilmeniz çalıştığınızda aşağıdaki hataları alabilirsiniz:
 
-- 53 sistem hatası oluştu. Ağ yolu bulunamadı.
-- 67 sistem hatası oluştu. Ağ adı bulunamıyor.
-- 87 sistem hatası oluştu. Parametresi geçersiz.
+- Sistem hatası 53 oluştu. Ağ yolu bulunamadı.
+- Sistem hatası 67 oluştu. Ağ adı bulunamıyor.
+- Sistem hatası 87 oluştu. Parametre yanlış.
 
 ### <a name="cause-1-port-445-is-blocked"></a>1. neden: Bağlantı noktası 445 engellendi
 
@@ -136,14 +136,13 @@ Dosya paylaşımının nerede bağlı bilgisayar için bir dosya izin verilen e�
 
 Bazı işler kapatarak eşzamanlı açık tanıtıcı sayısını azaltın ve yeniden deneyin. Daha fazla bilgi için [Microsoft Azure depolama performansı ve ölçeklenebilirlik denetim listesi](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>"Erişim reddedildi" hatası portalında bir Azure dosya paylaşımına göz atarken
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>"Yetkilendirme hatası" hata portalında bir Azure dosya paylaşımına göz atarken
 
 Portalda bir Azure dosya paylaşımına göz attığınızda aşağıdaki hata iletisini alabilirsiniz:
 
-Erişim reddedildi  
-Erişim izniniz yok  
-Bu içeriğe erişime izniniz yok gibi görünüyor. Erişim almak için lütfen sahibiyle iletişime geçin.  
+Yetkilendirme hatası  
+Erişiminiz yok 
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>1. neden: Kullanıcı hesabınızın, depolama hesabına erişimi yok
 
@@ -225,7 +224,7 @@ Sürücüleri, kullanıcı başına bağlanır. Uygulama, uygulamanızın veya h
 
 ### <a name="solution"></a>Çözüm
 
-Şu çözümlerden birini kullanın:
+Aşağıdaki çözümlerden birini kullanın:
 
 -   Sürücü, uygulamayı içeren kullanıcı hesabından bağlayın. PsExec gibi bir araç kullanabilirsiniz.
 - Kullanıcı adını depolama hesabı adı ve anahtarı geçirin ve password parametrelerini, net komutunu kullanın.
@@ -287,5 +286,5 @@ AAD DS AAD kiracısı için Dağıtılmış depolama hesabınızın abonelik etk
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun.
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 Hala yardıma ihtiyacınız varsa [Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi alınamıyor.

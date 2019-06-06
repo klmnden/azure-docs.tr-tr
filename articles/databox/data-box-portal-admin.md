@@ -1,34 +1,34 @@
 ---
-title: Azure Data Box, Azure portal aracılığıyla yönetme | Microsoft Docs
-description: Azure portalı kullanarak Azure Data Box'ınızı nasıl yönetebileceğiniz açıklanmaktadır.
+title: Azure Data Box, Azure veri kutusu ağır Azure portal aracılığıyla yönetme | Microsoft Docs
+description: Azure Data Box ve da Azure veri kutusu ağır yönetmek için Azure portalını kullanmayı açıklar.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 31909e1f13d211aa87f13547218a6967d8e195ac
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5ece12e117db7b334bce8edfd49a5a622e46e13c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950545"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427729"
 ---
-# <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>Azure Data Box'ınızı yönetmek için Azure portalını kullanma
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box ve da Azure veri kutusu ağır yönetmek için Azure portalını kullanma
 
-Bu makalede Azure Data Box üzerinde gerçekleştirilebilen yönetim görevleri ve karmaşık iş akışları bazılarını açıklar. Data Box’ı Azure portal veya yerel web kullanıcı arabirimiyle yönetebilirsiniz.
+Bu makale, Azure Data Box hem Azure veri kutusu ağır için geçerlidir. Bu makalede Azure Data Box cihaz üzerinde gerçekleştirilebilen yönetim görevleri ve karmaşık iş akışları bazılarını açıklar. Data Box cihazı Azure portal aracılığıyla yönetmek veya yerel web kullanıcı Arabirimi.
 
-Bu makale, Azure portalı kullanarak gerçekleştirebileceğiniz görevlere odaklanmaktadır. Azure portalı kullanarak siparişleri yönetebilir, Data Box’ı yönetebilir ve siparişin durumunu tamamlanana kadar takip edebilirsiniz.
+Bu makale, Azure portalı kullanarak gerçekleştirebileceğiniz görevlere odaklanmaktadır. Siparişleri yönetme Data Box cihazı yönetmek için Azure portalını kullanın ve tamamlanması ilerlerken siparişin durumunu izleyin.
 
 
 ## <a name="cancel-an-order"></a>Siparişi iptal etme
 
-Siparişinizi verdikten sonra çeşitli nedenlerle iptal etmeniz gerekebilir. Siparişi yalnızca sipariş işleme alınmadan önce iptal edebilirsiniz. Sipariş işleme alınıp Data Box hazırlandığında siparişi iptal etmeniz mümkün değildir. 
+Siparişinizi verdikten sonra çeşitli nedenlerle iptal etmeniz gerekebilir. Siparişi yalnızca sipariş işleme alınmadan önce iptal edebilirsiniz. Siparişin işlenmesi ve Data Box cihazınızın hazır sonra siparişi iptal etmek mümkün değildir.
 
 Bir siparişi iptal etmek için aşağıdaki adımları gerçekleştirin.
 
-1.  **Genel bakış > İptal**'e gidin. 
+1.  **Genel bakış > İptal**'e gidin.
 
     ![Siparişi iptal etme 1](media/data-box-portal-admin/cancel-order1.png)
 
@@ -36,11 +36,11 @@ Bir siparişi iptal etmek için aşağıdaki adımları gerçekleştirin.
 
     ![Siparişi iptal etme 2](media/data-box-portal-admin/cancel-order2.png)
 
-3.  Sipariş iptal edildikten sonra portaldaki durumu **İptal edildi** olarak görüntülenir. 
+3.  Sipariş iptal edildikten sonra portaldaki durumu **İptal edildi** olarak görüntülenir.
 
 ## <a name="clone-an-order"></a>Siparişi kopyalama
 
-Kopyalama belirli durumlarda kullanışlıdır. Örneğin kullanıcı, veri aktarımı için daha önceden Data Box kullanmıştır. Yeni veriler üretildikçe Azure'a aktarmak için diğer bir Data Box’a daha ihtiyaç duyulur. Bu durumda aynı sipariş kopyalanabilir.
+Kopyalama belirli durumlarda kullanışlıdır. Örneğin kullanıcı, veri aktarımı için daha önceden Data Box kullanmıştır. Daha fazla veri oluşturulan gibi bu verileri Azure'a aktarmak başka bir Data Box cihazınızın gerek yoktur. Bu durumda aynı sipariş kopyalanabilir.
 
 Siparişi kopyalamak için aşağıdaki adımları gerçekleştirin.
 
@@ -53,7 +53,7 @@ Siparişi kopyalamak için aşağıdaki adımları gerçekleştirin.
 Kopya sipariş birkaç dakikada oluşturulur ve portal yeni siparişi gösterecek şekilde güncelleştirilir.
 
 
-## <a name="delete-order"></a>Siparişi sil
+## <a name="delete-order"></a>Siparişi silme
 
 Tamamlanan siparişleri silmek isteyebilirsiniz. Siparişte adınız, adresiniz ve iletişim bilgileriniz gibi kişisel bilgileriniz yer alır. Sipariş silindiğinde bu kişisel bilgiler de silinir.
 
@@ -67,15 +67,15 @@ Yalnızca tamamlanan veya iptal edilen siparişleri silebilirsiniz. Siparişi si
 
 3. Siparişi silme işlemini onaylamanız istendiğinde siparişin adını girin. Tıklayın **Sil**.
 
-## <a name="download-shipping-label"></a>Sevkiyat etiketini indirin
+## <a name="download-shipping-label"></a>Sevkiyat etiketini indirme
 
-Data Box’unuzun E-ink ekranı çalışmıyorsa ve iade gönderimi etiketini göstermiyorsa gönderim etiketini indirmeniz gerekebilir. 
+Data Box’unuzun E-ink ekranı çalışmıyorsa ve iade gönderimi etiketini göstermiyorsa gönderim etiketini indirmeniz gerekebilir. Hiç E-mürekkep ekranda veri kutusu ağır yoktur ve bu nedenle bu iş akışı veri kutusu ağır için geçerli değildir.
 
 Sevkiyat etiketini indirmek için aşağıdaki adımları gerçekleştirin.
 
 1.  **Genel bakış > Sevkiyat etiketi indir** bölümüne gidin. Bu seçenek yalnızca cihaz gönderildikten sonra kullanılabilir. 
 
-    ![Sevkiyat etiketini indirin](media/data-box-portal-admin/download-shipping-label.png)
+    ![Sevkiyat etiketini indirme](media/data-box-portal-admin/download-shipping-label.png)
 
 2.  Aşağıda gösterilen iade sevkiyat etiketi indirilir. Etiketi kaydedin ve yazdırın. Etiketi katlayıp cihazdaki şeffaf kılıfa koyun. Etiketin görünür olduğundan emin olun. Cihazdaki önceki gönderimden kalan tüm çıkartmaları sökün.
 
@@ -95,7 +95,7 @@ Siparişi düzenlemek için aşağıdaki adımları gerçekleştirin.
 
     ![Teslimat adresini düzenleme 2](media/data-box-portal-admin/edit-shipping-address2.png)
 
-## <a name="edit-notification-details"></a>Bildirim ayrıntılarını düzenle
+## <a name="edit-notification-details"></a>Bildirim ayrıntılarını düzenleme
 
 Sipariş durumu e-postalarının gönderilmesini istediğiniz kullanıcıları değiştirmek isteyebilirsiniz. Örneğin cihaz teslim edildiğinde veya alındığında bir kullanıcının bilgilendirilmesi gerekebilir. Başka bir kullanıcı verileri kaynaktan silmeden önce Azure depolama hesabında olduğunu doğrulayabilmeniz için veri kopyalama tamamlandığında bilgilendirilmesi gerekebilir. Bu gibi durumlarda bildirim ayrıntılarını düzenleyebilirsiniz.
 
@@ -110,7 +110,7 @@ Bildirim ayrıntılarını düzenlemek için aşağıdaki adımları gerçekleş
     ![Bildirim ayrıntılarını düzenleme 2](media/data-box-portal-admin/edit-notification-details2.png)
 
 
-## <a name="download-order-history"></a>İndirme sırası geçmişi
+## <a name="download-order-history"></a>Sipariş geçmişi indirme
 
 Data Box siparişiniz tamamlandıktan sonra cihaz disklerindeki veriler silinir. Cihaz temizleme tamamlandığında, sipariş geçmişini Azure portalında indirebilirsiniz.
 
@@ -120,7 +120,7 @@ Sipariş geçmişini indirmek için aşağıdaki adımları uygulayın.
 
     ![Sipariş geçmişi indirme](media/data-box-portal-admin/download-order-history-1.png)
 
-2. **Sipariş geçmişini indir**'e tıklayın. İndirilen geçmişte kurye takip günlüklerini bir kaydını görürsünüz. Bu günlüğün en altına giderseniz, aşağıdakilere giden bağlantıları görebilirsiniz:
+2. **Sipariş geçmişini indir**'e tıklayın. İndirilen geçmişte kurye takip günlüklerini bir kaydını görürsünüz. Günlük bir veri kutusu ağır iki düğümde karşılık gelen iki kümesini olacaktır. Bu günlüğün en altına giderseniz, aşağıdakilere giden bağlantıları görebilirsiniz:
     
    - **Kopyalama günlükleri** - Data Box'tan Azure depolama hesabınıza veri kopyalama sırasında hatalı çıkış veren dosyaların listesini içerir.
    - **Denetim günlükleri** - Azure veri merkezi dışında olduğunda Data Box üzerindeki açma ve paylaşın erişimi hakkında bilgi içerir.
@@ -200,7 +200,7 @@ Cihaz durumu portalda değiştiğinde bu, size e-posta ile bildirilir.
 |Sipariş durumu |Açıklama |
 |---------|---------|
 |Sipariş edildi     | Sipariş başarıyla oluşturuldu. <br>Cihaz kullanılabilir durumdaysa Microsoft tarafından gönderilecek cihaz belirlenir ve cihaz hazırlanır. <br> Cihaz o anda mevcut değilse sipariş cihaz mevcut olduğunda işleme alınır. Siparişin işleme alınması birkaç gün ile birkaç ay sürebilir. Sipariş 90 gün içinde gerçekleştirilemiyorsa sipariş iptal edilir ve bu size bildirilir.         |
-|İşlenen     | Siparişin işlenmesi tamamlandı. Siparişiniz uyarınca cihaz gönderilmek üzere veri merkezinde hazırlanır.         |
+|İşlendi     | Siparişin işlenmesi tamamlandı. Siparişiniz uyarınca cihaz gönderilmek üzere veri merkezinde hazırlanır.         |
 |Yola çıktı     | Sipariş sevk edildi. Gönderiyi takip etmek için portalda, siparişinizde görüntülenen takip kimliğini kullanın.        |
 |Teslim Edildi     | Gönderim, belirtilen adrese teslim edildi.        |
 |Teslim alındı     |İade gönderiniz teslim alındı ve kurye tarafından tarandı.         |
@@ -215,4 +215,4 @@ Cihaz durumu portalda değiştiğinde bu, size e-posta ile bildirilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Data Box sorunlarını giderme](data-box-faq.md) hakkında bilgi edinin.
+- Bilgi edinmek için nasıl [Data Box sorun giderme ve veri kutusu ağır sorunları](data-box-troubleshoot.md).

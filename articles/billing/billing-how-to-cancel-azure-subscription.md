@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 06/03/2019
 ms.author: banders
-ms.openlocfilehash: 235d93de56289bb2daaa661ee9806732da3b6d6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8f4279d9ac085cdd1ded0dfdda4fad9d3fe12fb8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417600"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480226"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Azure aboneliğiniz iptal et
 
@@ -29,6 +29,7 @@ Aboneliğinizi iptal etmeden önce:
 * Hizmetlerinizi kapatın. Git [Yönetim Portalı'nda kaynaklar sayfası](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), ve **Durdur** tüm sanal makineleri, uygulamaları veya diğer hizmetleri çalıştırma.
 * Verilerinizi geçirme göz önünde bulundurun. Bkz: [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../azure-resource-manager/resource-group-move-resources.md).
 * Tüm kaynaklar ve tüm kaynak grupları silmeniz gerekir. Bir aboneliği iptal edebilir önce bunların silinmesi gereklidir. Tek tek her kaynak grubunun silinmesi gerekir. Kaynak grubu silme işlemi sırasında kaynak grubu adını yazarak, silmeyi onaylamanız gerekir.
+* Bu abonelikte başvuran herhangi bir özel rol varsa `AssignableScopes`, aboneliğini kaldırmak için özel roller güncelleştirmeniz gerekir. Abonelik iptal edildikten sonra özel bir rol güncelleştirme denerseniz, bir hata alabilirsiniz. Daha fazla bilgi için [özel roller ile ilgili sorunları giderme](../role-based-access-control/troubleshooting.md#problems-with-custom-roles) ve [Azure kaynakları için özel roller](../role-based-access-control/custom-roles.md).
 
 Ücretli bir Azure destek planı iptal ederseniz abonelik dönemi için rest yine de faturalandırılır. Daha fazla bilgi için [Azure destek planları](https://azure.microsoft.com/support/plans/).
 
@@ -43,11 +44,9 @@ Aboneliğinizi iptal etmeden önce:
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Aboneliğimi iptal sonra ne olur?
 
-Faturalandırma, hemen iptal sonra durdurulur. Ancak, portalda göstermek iptal 10 dakikaya kadar sürebilir.
+Faturalandırma, iptal edildikten sonra hemen durduruldu. Ancak, portalda göstermek iptal 10 dakikaya kadar sürebilir. Bir faturalandırma döneminde ortasında iptal ederseniz, süresi sona erdikten sonra tipik fatura tarihinde son fatura göndereceğiz.
 
-Bundan sonra hizmetlerinizi devre dışı bırakılır. Bu, sanal makinelerinizi paylaştırılmamış, geçici IP adreslerini serbest ve depolama salt okunur anlamına gelir.
-
-Bir faturalandırma döneminde ortasında iptal ederseniz, süresi sona erdikten sonra tipik fatura tarihinde son fatura göndereceğiz.
+İptal sonra hizmetleriniz devre dışı. Bu, sanal makinelerinizi paylaştırılmamış, geçici IP adreslerini serbest ve depolama salt okunur anlamına gelir.
 
 Biz, verilerinize erişim sağlaması gereken veya fikrinizi değiştirmeniz durumunda kalıcı olarak silinmeden önce 90 gün bekleyin. Biz, veri koruma için ücret almayız. Daha fazla bilgi için bkz. [Microsoft Trust Center - verilerinizi nasıl yönetilir](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 

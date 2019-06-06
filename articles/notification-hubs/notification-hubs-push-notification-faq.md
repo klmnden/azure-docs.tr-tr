@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 8af545f5700e90303562174a3c27cc5438b28e24
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925875"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730458"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs ile anında iletme bildirimleri: Sık sorulan sorular
 
@@ -56,7 +56,7 @@ Temel ve standart Notification hub katmanları için düzgün şekilde yapıland
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Nasıl yükseltebilir veya my hub veya ad alanı farklı bir katmana düşürme?
 
-Git  **[Azure portal]** > **Notification Hubs ad alanlarını** veya **Notification hubs'ı**. Güncelleştirme ve şuraya gitmek istediğiniz kaynağı seçin **fiyatlandırma katmanı**. Aşağıdaki gereksinimleri göz önünde bulundurun:
+Git  **[Azure portal]**  > **Notification Hubs ad alanlarını** veya **Notification hubs'ı**. Güncelleştirme ve şuraya gitmek istediğiniz kaynağı seçin **fiyatlandırma katmanı**. Aşağıdaki gereksinimleri göz önünde bulundurun:
 
 * Güncel fiyatlandırma katmanını uygulandığı *tüm* kullandığınız ad alanı, hub'ları.
 * Cihaz sayısı indirgeme katmanı sınırını aşarsa, düşürme önce cihazları Sil gerekir.
@@ -69,13 +69,13 @@ Sunucu SDK'ları, .NET, Java, Node.js, PHP ve Python için kullanılabilir. Fark
 
 ### <a name="which-client-platforms-do-you-support"></a>Hangi istemci platformlarını destekliyorsunuz?
 
-Anında iletme bildirimleri için desteklenen [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Evrensel](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android Çin (Baidu) aracılığıyla](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) ve Android, [Chrome uygulamaları](notification-hubs-chrome-push-notifications-get-started.md), ve [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Daha fazla bilgi için Git [Notification hubs'ı kullanmaya başlama öğreticileri] sayfası.
+Anında iletme bildirimleri için desteklenen [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Evrensel](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android Çin (Baidu) aracılığıyla](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) ve Android, ve [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Daha fazla bilgi için Git [Notification hubs'ı kullanmaya başlama öğreticileri] sayfası.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>SMS mesajı, e-posta veya web bildirimleri destekliyorsunuz?
 
 Bildirim hub'ları öncelikli olarak bildirim göndermek için mobil uygulamalar için tasarlandı. İleti özellikleri e-posta veya metin sağlamaz. Ancak, bu yetenekleri sağlayan üçüncü taraf platformları kullanarak yerel anında iletme bildirimleri göndermek için Notification Hubs ile tümleştirilebilir [Mobile Apps].
 
-Bildirim hub'ları da sağlamaz yepyeni bir tarayıcı içi anında iletme bildirimi teslim hizmeti. Müşteriler, üzerinde desteklenen sunucu tarafı platformları SignalR kullanarak bu özelliği uygulayabilir. Korumalı alan Chrome tarayıcı uygulamalarında bildirimleri göndermek istiyorsanız, bkz. [Chrome uygulama Öğreticisi].
+Bildirim hub'ları da sağlamaz yepyeni bir tarayıcı içi anında iletme bildirimi teslim hizmeti. Müşteriler, üzerinde desteklenen sunucu tarafı platformları SignalR kullanarak bu özelliği uygulayabilir. 
 
 ### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>Mobile Apps ve Azure Notification Hubs'ın ilgili şeklini ve bunları ne zaman kullanırım?
 
@@ -210,7 +210,6 @@ Azure Notification hubs'ı etkinleştirir telemetri verileri görüntüleme [Azu
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification hubs'ı REST API'leri]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification hubs'ı kullanmaya başlama öğreticileri]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Chrome uygulama Öğreticisi]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Arka uç kayıt Kılavuzu]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Arka uç kaydı Kılavuzu 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
@@ -222,4 +221,4 @@ Azure Notification hubs'ı etkinleştirir telemetri verileri görüntüleme [Azu
 [Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
-[App Service fiyatlandırması]: https://azure.microsoft.com/pricing/details/app-service/
+[App Service Fiyatlandırması]: https://azure.microsoft.com/pricing/details/app-service/

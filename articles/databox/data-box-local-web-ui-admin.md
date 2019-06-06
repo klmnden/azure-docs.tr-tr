@@ -1,25 +1,25 @@
 ---
-title: Microsoft Azure Data Box yerel web kullanıcı arabirimi yönetimi | Veride Microsoft Docs
-description: Data Box cihazınızı yönetmek için yerel web kullanıcı arabirimi kullanmayı açıklar
+title: Yerel web kullanıcı Arabirimi Yönetim için Azure Data Box, Azure veri kutusu ağır | Microsoft Docs
+description: Data Box ve veri kutusu ağır cihazlarınızı yönetmek için yerel web kullanıcı Arabirimi kullanmayı açıklar
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-ms.date: 02/01/2019
+ms.topic: article
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf8af37b0caf51966e336bcb4cea0c4ece5ca9c7
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327369"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496254"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Data Box'ınızı yönetmek için yerel web kullanıcı arabirimini kullanma
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Data Box ve da veri kutusu ağır yönetmek için yerel web kullanıcı arabirimini kullanın
 
-Bu makalede Data Box'ta gerçekleştirilebilen bazı yapılandırma ve yönetim görevleri anlatılmaktadır. Data Box'ı Azure portalı kullanıcı arabirimi ve cihazın yerel web kullanıcı arabirimi aracılığıyla yönetebilirsiniz. Bu makale, yerel web kullanıcı arabirimini kullanarak gerçekleştirebileceğiniz görevlere odaklanmaktadır.
+Bu makalede Data Box ve veri kutusu ağır cihazlarda gerçekleştirilebilir yapılandırma ve yönetim görevlerinin bazılarını açıklar. Azure portal kullanıcı Arabirimi aracılığıyla Data Box ve veri kutusu ağır cihazlar ve cihazın yerel web kullanıcı Arabirimi yönetebilirsiniz. Bu makale, yerel web kullanıcı arabirimini kullanarak gerçekleştirebileceğiniz görevlere odaklanmaktadır.
 
-Data Box için yerel web kullanıcı arabirimi cihazın başlangıç yapılandırması için kullanılır. Yerel web kullanıcı arabirimini ayrıca Data Box'ı kapatmak veya yeniden başlatmak, tanılama testleri çalıştırmak, yazılım güncelleştirmek, kopyalama günlüklerini görüntülemek ve Microsoft Desteği için günlük paketi oluşturmak için de kullanabilirsiniz.
+Cihaz için başlangıç yapılandırmasını yerel web kullanıcı Arabirimi Data Box ve veri kutusu ağır için kullanılır. Yerel web kullanıcı Arabirimi, kapatma veya cihazı yeniden başlatmak, tanılama sınamaları çalıştırın, yazılım güncelleştirme, kopyalama günlüklerini görüntülemek ve Microsoft Support bir günlük paketi oluşturmak için de kullanabilirsiniz. İki bağımsız düğüm ile veri kutusu ağır bir cihazda cihaz her düğüme karşılık gelen iki ayrı bir yerel web kullanıcı arabirimleri erişebilirsiniz.
 
 Bu makale aşağıdaki öğreticileri içerir:
 
@@ -27,11 +27,11 @@ Bu makale aşağıdaki öğreticileri içerir:
 - Cihazınızı kapatma ya da yeniden başlatma
 - BOM indirin veya bildirim dosyaları
 - Cihazın kullanılabilir kapasitesini görüntüleme
-- Sağlama toplamı doğrulamasını atlama 
+- Sağlama toplamı doğrulamasını atlama
 
 ## <a name="generate-support-package"></a>Destek paketi oluşturma
 
-Cihaz sorunları yaşarsanız, sistem günlüklerinden bir Destek paketi oluşturabilirsiniz. Microsoft Destek sorunu gidermek için bu paketi kullanır. Destek paketi oluşturmak için aşağıdaki adımları gerçekleştirin:
+Cihaz sorunları yaşarsanız, sistem günlüklerinden bir Destek paketi oluşturabilirsiniz. Microsoft Destek sorunu gidermek için bu paketi kullanır. Destek paketi oluşturmak için aşağıdaki adımları uygulayın:
 
 1. Yerel web kullanıcı arabiriminde **Desteğe Başvur**'a gidin ve **Destek paketi oluştur**'a tıklayın.
 
@@ -52,9 +52,9 @@ Cihaz sorunları yaşarsanız, sistem günlüklerinden bir Destek paketi oluştu
 
 ## <a name="shut-down-or-restart-your-device"></a>Cihazınızı kapatma ya da yeniden başlatma
 
-Data Box'ınızı yerel web kullanıcı arabirimini kullanarak kapatabilir ya da yeniden başlatabilirsiniz. Cihazı yeniden başlatmadan önce konaktaki paylaşımları sonra da cihazı çevrimdışına almanız önerilir. Bu, veri bozulması olasılığını en aza indirir. Cihazı kapatırken devam eden bir veri kopyalama işlemi olmadığından emin olun.
+Kapatabilir veya yerel web kullanıcı arabirimini kullanarak Cihazınızı yeniden başlatın. Cihazı yeniden başlatmadan önce konaktaki paylaşımları sonra da cihazı çevrimdışına almanız önerilir. Bu, veri bozulması olasılığını en aza indirir. Cihazı kapatırken devam eden bir veri kopyalama işlemi olmadığından emin olun.
 
-Data Box'ınızı kapatmak için aşağıdaki adımları gerçekleştirin.
+Cihazı kapatmak için aşağıdaki adımları uygulayın.
 
 1. Yerel web kullanıcı arabiriminde **Kapat ya da yeniden başlat**'a gidin.
 2. **Kapat**'a tıklayın.
@@ -80,11 +80,11 @@ Data Box'ınızı yeniden başlatmak için aşağıdaki adımları gerçekleşti
 
 ## <a name="download-bom-or-manifest-files"></a>BOM indirin veya bildirim dosyaları
 
-Fatura, malzeme (BOM) veya bildirim dosyaları için Data Box kopyalanan dosyaların listesini içerir. Data Box göndermeye hazırlayın, bu dosyalar üretilir.
+Fatura, malzeme (BOM) veya bildirim dosyaları Data Box veya veri kutusu ağır kopyalanan dosyaların listesini içerir. Cihazı göndermeye hazırlayın, bu dosyalar üretilir.
 
-Başlamadan önce Data Box'ınızı tamamlanmış olduğundan emin olun **göndermeye hazırlama** adım. BOM indirin veya bildirim dosyaları için aşağıdaki adımları izleyin:
+Başlamadan önce cihazınızın tamamlanmış olduğundan emin olun **göndermeye hazırlama** adım. BOM indirin veya bildirim dosyaları için aşağıdaki adımları izleyin:
 
-1. Data Box'ınızı için yerel web kullanıcı Arabirimine gidin. Data Box göndermeye hazırlama tamamlandığını görürsünüz. Cihaz hazırlığı tamamlandıktan sonra cihaz durumu olarak görüntülenir **gönderilmeye hazır**.
+1. Cihazınızın yerel web kullanıcı Arabirimi gidin. Cihazı göndermeye hazırlama tamamlandığını görürsünüz. Cihaz hazırlığı tamamlandıktan sonra cihaz durumu olarak görüntülenir **gönderilmeye hazır**.
 
     ![Cihazı göndermeye hazır](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -109,6 +109,9 @@ Başlamadan önce Data Box'ınızı tamamlanmış olduğundan emin olun **gönde
     |mydbmdrg2_MDisk BOM.txt     |Yönetilen Disk         |SMB/NFS         |
 
 Data Box, Azure veri merkezi IP'sine döndükten sonra Azure depolama hesabına yüklenmiş dosyalarını doğrulamak için bu listeyi kullanın. Bir örnek bildirim dosyası aşağıda gösterilmiştir.
+
+> [!NOTE]
+> Bir veri kutusu yoğun, dosyalarını (BOM) listesini iki kümesini cihazda iki düğüm karşılık gelen yok.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -150,32 +153,31 @@ Data Box, Azure veri merkezi IP'sine döndükten sonra Azure depolama hesabına 
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Bu dosya, kopyalanan Data box'taki tüm dosyaları listesini içerir. Bu dosyadaki *crc64* karşılık gelen dosyası için sağlama toplamı değeri ilişkili.
+Bu dosya, Data Box veya veri kutusu ağır kopyalanan tüm dosyaların listesini içerir. Bu dosyadaki *crc64* karşılık gelen dosyası için sağlama toplamı değeri ilişkili.
 
 ## <a name="view-available-capacity-of-the-device"></a>Cihazın kullanılabilir kapasitesini görüntüleme
 
-Cihazın kullanılabilir ve kullanılan kapasitesini görüntülemek için cihaz panosunu kullanabilirsiniz. 
+Cihazın kullanılabilir ve kullanılan kapasitesini görüntülemek için cihaz panosunu kullanabilirsiniz.
 
 1. Yerel web kullanıcı arabiriminde **Panoyu görüntüle**'ye gidin.
 2. **Bağlan ve kopyala**'nın altında cihazdaki boş ve kullanılan alan gösterilir.
 
     ![Kullanılabilir kapasiteyi görüntüleme](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
-
 ## <a name="skip-checksum-validation"></a>Sağlama toplamı doğrulamasını atlama
 
-Göndermeye hazırlama, sağlama, verileriniz için varsayılan olarak üretilir. (Küçük dosya boyutunu), veri türüne bağlı olarak bazı nadir durumlarda performans yavaş olabilir. Bu gibi durumlarda sağlama toplamını atlayabilirsiniz. 
+Göndermeye hazırlama, sağlama, verileriniz için varsayılan olarak üretilir. (Küçük dosya boyutunu), veri türüne bağlı olarak bazı nadir durumlarda performans yavaş olabilir. Bu gibi durumlarda sağlama toplamını atlayabilirsiniz.
 
 Performans ciddi şekilde etkilenmedikçe sağlama toplamını kesinlikle atlamamanızı öneririz.
 
-1. Yerel web kullanıcı Arabirimi cihazınızın sağ üst köşesinde bulunan ayarlarına gidin.
+1. Yerel web kullanıcı Arabirimi cihazınızın sağ üst köşesinde bulunan, Git **ayarları**.
 
     ![Sağlama toplamını devre dışı bırakma](media/data-box-local-web-ui-admin/disable-checksum.png)
 
-2. Sağlama toplamı doğrulamasını **Devre dışı bırakma** 
+2. Sağlama toplamı doğrulamasını **Devre dışı bırakma**
 3. **Uygula**'ya tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Data Box'ı Azure portalı aracılığıyla yönetme](data-box-portal-admin.md) hakkında bilgi edinin.
+- Bilgi edinmek için nasıl [Data Box ve veri kutusu ağır Azure portalı yönetme](data-box-portal-admin.md).
 

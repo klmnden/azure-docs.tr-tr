@@ -2,18 +2,17 @@
 title: Azure HDInsight kümelerinizi izlemek için Azure İzleyici'yi kullanma oturumu
 description: Bir HDInsight kümesinde çalışan işleri izlemek için Azure İzleyici günlüklerine kullanmayı öğrenin.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 610843d325744aec8ad944075f06c63c90b6fe4d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/03/2019
+ms.openlocfilehash: 16659a335ef6126e75f5a9a99784e71afa056bef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203675"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479256"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Azure İzleyici'yi kullanın, HDInsight kümelerinizi izlemek için günlükleri
 
@@ -49,21 +48,15 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Bu bölümde, bir Azure Log Analytics çalışma alanı işleri, hata ayıklama günlükleri izlemek üzere kullanmak için mevcut bir HDInsight Hadoop kümesi yapılandırın.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. Gelen [Azure portalında](https://portal.azure.com/), kümenizi seçin.  Bkz: [kümeleri Listele ve Göster](./hdinsight-administer-use-portal-linux.md#showClusters) yönergeler için. Kümeye yeni bir portal sayfası açılır.
 
-2. Sol menüden **tüm hizmetleri**.
+1. Soldan altında **izleme**seçin **Operations Management Suite**.
 
-3. Altında **ANALYTICS**seçin **HDInsight kümeleri**.
+1. Ana görünümünde altında **OMS izleme**seçin **etkinleştirme**.
 
-4. Kümenizi listeden seçin.
+1. Gelen **bir çalışma alanı seçin** aşağı açılan listesinde, mevcut bir Log Analytics çalışma alanını seçin.
 
-5. Soldan altında **izleme**seçin **Operations Management Suite**.
-
-6. Ana görünümünde altında **OMS izleme**seçin **etkinleştirme**.
-
-7. Gelen **bir çalışma alanı seçin** aşağı açılan listesinde, mevcut bir Log Analytics çalışma alanını seçin.
-
-8. **Kaydet**’i seçin.  Ayarı kaydetmek için birkaç dakika sürer.
+1. **Kaydet**’i seçin.  Ayarı kaydetmek için birkaç dakika sürer.
 
     ![HDInsight kümeleri için izlemeyi etkinleştirin](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "HDInsight kümeleri için izlemeyi etkinleştir")
 

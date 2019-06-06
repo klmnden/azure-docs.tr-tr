@@ -2,18 +2,17 @@
 title: Azure Kubernetes Service (AKS) için en iyi uygulamalar
 description: Azure Kubernetes Service (AKS) uygulama oluşturmak ve yönetmek için küme işleci ve geliştirici en iyi koleksiyonu
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 12/07/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
-ms.openlocfilehash: c73f2fea808944847fab6a675914ee57e537560b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/07/2018
+ms.author: iainfou
+ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467162"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514568"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Küme işleci ve geliştirici en iyi uygulamalar Azure Kubernetes Service'teki (AKS) oluşturmak ve yönetmek için uygulamalar
 
@@ -27,21 +26,21 @@ Bir küme işleci olarak, kendi gereksinimlerini anlamak için uygulama sahipler
 
 **Çok kiracılı**
 
-* [Küme ayırma için en iyi uygulamalar](operator-best-practices-cluster-isolation.md)
+* [Küme yalıtımı için en iyi deneyimler](operator-best-practices-cluster-isolation.md)
     * Çok kiracılı modeli çekirdek bileşenleri ve mantıksal yalıtımı ile ad alanlarını içerir.
-* [Temel Zamanlayıcı özellikleri için en iyi uygulamalar](operator-best-practices-scheduler.md)
+* [Temel zamanlayıcı özellikleri için en iyi deneyimler](operator-best-practices-scheduler.md)
     * Kaynak kotaları ve pod kesintisi bütçelerini kullanarak içerir.
-* [Gelişmiş Zamanlayıcı özellikleri için en iyi uygulamalar](operator-best-practices-advanced-scheduler.md)
+* [Gelişmiş zamanlayıcı özellikleri için en iyi deneyimler](operator-best-practices-advanced-scheduler.md)
     * Taints ve tolerations, düğüm seçicileri ve benzeşim ve arası pod benzeşimi ve benzeşim karşıtlığını kullanarak içerir.
-* [Kimlik doğrulama ve yetkilendirme için en iyi uygulamalar](operator-best-practices-identity.md)
+* [Kimlik doğrulaması ve yetkilendirme için en iyi yöntemler](operator-best-practices-identity.md)
     * Azure rol tabanlı erişim denetimlerine (RBAC) ve pod kimlikler kullanarak Active Directory ile tümleştirmeyi içerir.
 
 **Güvenlik**
 
-* [Küme güvenliği ve yükseltmeler için en iyi uygulamalar](operator-best-practices-cluster-security.md)
+* [Küme güvenliği ve yükseltmeler için en iyi yöntemler](operator-best-practices-cluster-security.md)
     * Kapsayıcı erişimini sınırlandırma ve yükseltmeleri ve düğümü yeniden başlatma işlemlerini yönetme API sunucusuna erişimi güvenli hale getirme içerir.
 * [Kapsayıcı görüntü yönetimi ve güvenliği için en iyi uygulamalar](operator-best-practices-container-image-management.md)
-    * Görüntü ve çalışma zamanları, güvenilen kayıt defterleri ve otomatik yapılara, temel görüntü güncelleştirmeleri kullanarak güvenli hale getirme dahildir...
+    * Görüntü ve çalışma zamanları ve otomatik yapılara temel görüntü güncelleştirmeleri güvenli hale getirme içerir.
 * [Pod güvenlik için en iyi uygulamalar](developer-best-practices-pod-security.md)
     * Kaynaklara erişimi güvenli hale getirme, kimlik bilgisi ifşa sınırlandırma ve pod kimlikler ve dijital anahtar kasalarını kullanarak içerir.
 
@@ -49,7 +48,7 @@ Bir küme işleci olarak, kendi gereksinimlerini anlamak için uygulama sahipler
 
 * [Ağ bağlantısı için en iyi uygulamalar](operator-best-practices-network.md)
     * Giriş ve web uygulaması güvenlik duvarları (WAF) kullanarak ve düğüm SSH erişimini güvenli hale getirme farklı ağ modellerini içerir.
-* [Depolama ve yedekleme için en iyi uygulamalar](operator-best-practices-storage.md)
+* [Depolama ve yedekleme için en iyi yöntemler](operator-best-practices-storage.md)
     * Dinamik olarak sağlama birimleri ve yedekleri uygun depolama türü ve düğüm boyutunu seçme içerir.
 
 **Kurumsal kullanıma hazır iş yüklerini çalıştırma**
@@ -61,7 +60,7 @@ Bir küme işleci olarak, kendi gereksinimlerini anlamak için uygulama sahipler
 
 Bir geliştirici olarak veya uygulama sahibi, geliştirme deneyiminizi kolaylaştırmak ve tanımlama performans gereksinimlerine göre gerektirir.
 
-* [Kaynakları yönetmek uygulama geliştiricileri için en iyi uygulamalar](developer-best-practices-resource-management.md)
+* [Uygulama geliştiriciler için kaynak yönetimine yönelik en iyi yöntemler](developer-best-practices-resource-management.md)
     * Pod kaynak isteklerini ve geliştirme araçlarını yapılandırma ve uygulama sorunları için iade etme sınırları, tanımlama içerir.
 * [Pod güvenlik için en iyi uygulamalar](developer-best-practices-pod-security.md)
     * Kaynaklara erişimi güvenli hale getirme, kimlik bilgisi ifşa sınırlandırma ve pod kimlikler ve dijital anahtar kasalarını kullanarak içerir.

@@ -1,6 +1,6 @@
 ---
-title: 'Azure durumu İzleyicisi v2 API Başvurusu: İzlemeyi etkinleştir | Microsoft Docs'
-description: Durum İzleyicisi'ni v2 API başvuru Enable-ApplicationInsightsMonitoring. Web sitesi yeniden dağıtmaya gerek kalmadan Web sitesi performansını izleyin. Şirket içinde, sanal makinelerde veya Azure üzerinde ASP.NET web uygulamaları ile çalışır.
+title: 'Azure Durum İzleyicisi v2 API Başvurusu: İzlemeyi etkinleştir | Microsoft Docs'
+description: Durum İzleyicisi'ni v2 API'si başvurusu. Etkinleştir-ApplicationInsightsMonitoring. Web sitesi yeniden dağıtmaya gerek kalmadan Web sitesi performansını izleyin. ASP.NET web uygulamaları ile çalışır, şirket içi Vm'leri içinde veya azure'da barındırılan.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,61 +12,58 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 0a443df0c55dc916ef6d12d53811e9d9932370e7
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: e87bfad11eee5b86d35e6b4f2846b094c467e0ef
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66255914"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734180"
 ---
 # <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>Durum İzleyicisi'ni v2 API'si: Etkinleştir-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-Bu belge, bir üyesi olarak sunulan bir cmdlet açıklar [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Bu makalede bir üyesi olan bir cmdlet [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Durum İzleyicisi'ni v2 şu anda genel Önizleme aşamasındadır.
-> Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir.
-> Daha fazla bilgi için [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Bu önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor ve bazıları kısıtlı yeteneklere sahip.
+> Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Açıklama
 
-Etkinleştirme kodu daha az bir hedef makine üzerinde IIS uygulamaları izleme ekleyin.
+Kodsuz etkinleştirir, hedef bilgisayarda IIS uygulama izleme ekleyin.
+
 Bu cmdlet, IIS applicationHost.config değiştirmek ve bazı kayıt defteri anahtarlarını ayarlayın.
-Bu cmdlet, ayrıca hangi izleme anahtarını hangi uygulama tarafından kullanılan tanımlayan bir applicationinsights.ikey.config oluşturulur.
-IIS, başlangıçta bu uygulama başladığında, uygulamalarına Application Insights SDK'sı ekleyecektir RedfieldModule yükler.
+Ayrıca her bir uygulama tarafından kullanılan izleme anahtarını tanımlayan bir applicationinsights.ikey.config dosyası oluşturun.
+IIS, uygulamaların başlangıç olarak, Application Insights SDK'sı uygulamalarınızı ekleyecektir başlangıçta RedfieldModule yükler.
 Yaptığınız değişiklikleri etkili olması için IIS'yi yeniden başlatın.
 
-İzleme etkinleştirdikten sonra kullanılması önerilir [Canlı ölçümleri](live-stream.md) hızlı bir şekilde uygulamanızı bize telemetri gönderdiği varsa gözlemleyin.
+İzleme etkinleştirdikten sonra kullanmanızı öneririz [Canlı ölçümleri](live-stream.md) uygulamanızı bize telemetri gönderdiği varsa hemen kontrol etmek için.
 
 
 > [!NOTE] 
-> Başlamak için bir izleme anahtarı olması gerekir. Daha fazla bilgi için okuma [yeni kaynak Oluştur](create-new-resource.md#copy-the-instrumentation-key).
-
+> - Başlamak için bir izleme anahtarı gerekir. Daha fazla bilgi için [kaynak Oluştur](create-new-resource.md#copy-the-instrumentation-key).
+> - Bu cmdlet, gözden geçirin ve lisans ve gizlilik bildirimimizi kabul gerektirir.
 
 > [!IMPORTANT] 
-> Bu cmdlet bir PowerShell oturumu yönetici izinleri ile bir yükseltilmiş yürütme İlkesi gerektirir. Okuma [burada](status-monitor-v2-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy) daha fazla bilgi için.
-
-> [!NOTE] 
-> Bu cmdlet gözden geçirin ve lisans ve gizlilik bildirimimizi kabul etmenizi gerektirir.
-
+> Bu cmdlet, yönetici izinlerine sahip bir PowerShell oturumu yükseltilmiş yürütme İlkesi gerektirir. Daha fazla bilgi için [yükseltilmiş yürütme İlkesi ile yönetici olarak çalıştır PowerShell](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
 
 ## <a name="examples"></a>Örnekler
 
-### <a name="example-with-single-instrumentation-key"></a>Tek bir izleme anahtarı ile örnek
-Bu örnekte, geçerli makine üzerindeki tüm uygulamalara tek izleme anahtarı atanır.
+### <a name="example-with-a-single-instrumentation-key"></a>Örnek bir tek bir izleme anahtarı ile
+Bu örnekte, geçerli bilgisayarda tüm uygulamalar tek izleme anahtarı atanır.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-### <a name="example-with-instrumentation-key-map"></a>İzleme anahtarı eşleme örneği
-Bu örnekte, 
-- `MachineFilter` geçerli makine kullanarak eşleşir `'.*'` joker karakter.
-- `AppFilter='WebAppExclude'` sağlar bir `null` Instrumentationkey. Bu uygulama algılayıcılarla olmaz.
-- `AppFilter='WebAppOne'` Bu belirli uygulama benzersiz izleme anahtarını atar.
-- `AppFilter='WebAppTwo'` Ayrıca bu belirli uygulama benzersiz izleme anahtarını atar.
-- Son olarak, `AppFilter` de kullanır `'.*'` diğer tüm web uygulamalarının eşleştirmek için joker karakter önceki kurallar tarafından eşleştirilen ve varsayılan izleme anahtarını atar.
-- Yalnızca okunabilirlik için eklenen boşluk.
+### <a name="example-with-an-instrumentation-key-map"></a>Bir izleme anahtarı eşleme örneği
+Bu örnekte:
+- `MachineFilter` Geçerli bilgisayar kullanarak eşleşen `'.*'` joker karakter.
+- `AppFilter='WebAppExclude'` sağlar bir `null` izleme anahtarı. Belirtilen uygulama algılayıcılarla olmaz.
+- `AppFilter='WebAppOne'` Belirtilen uygulama benzersiz izleme anahtarını atar.
+- `AppFilter='WebAppTwo'` Belirtilen uygulama benzersiz izleme anahtarını atar.
+- Son olarak, `AppFilter` de kullanır `'.*'` önceki kurallar tarafından eşleşen olmayan ve varsayılan izleme anahtarı atama tüm web uygulamaları eşleştirmek için joker karakter.
+- Okunabilirlik için boşluk eklenir.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
@@ -78,38 +75,41 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-## <a name="parameters"></a>Parametreler 
+## <a name="parameters"></a>Parametreler
 
 ### <a name="-instrumentationkey"></a>-Instrumentationkey
-**Gerekli.** Hedef makinedeki tüm uygulamalar tarafından kullanım için tek bir iKey sağlamak için bu parametreyi kullanın.
+**Gerekli.** Hedef bilgisayarda tüm uygulamalar tarafından kullanım için bir tek bir izleme anahtarı sağlamak için bu parametreyi kullanın.
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**Gerekli.** Birden çok ikey'leri ve hangi uygulamaları hangi ikey kullanmaya ilişkin bir eşleme sağlamak için bu parametreyi kullanın. Çeşitli makineler için bir tek bir yükleme betiği MachineFilter ayarlayarak oluşturabilirsiniz. 
+**Gerekli.** Birden çok izleme anahtarı ve her bir uygulama tarafından kullanılan izleme anahtarı ilişkin bir eşleme sağlamak için bu parametreyi kullanın.
+Birkaç bilgisayar için bir tek bir yükleme betiği ayarlayarak oluşturabileceğiniz `MachineFilter`.
 
-> [!IMPORTANT] 
-> Uygulama kuralları sağlanan sırada karşı eşleşir. Bu nedenle en belirgin kurallar ilk belirtmeniz gerekir ve son en genel kurallar.
+> [!IMPORTANT]
+> Uygulama kuralları kuralları sağlanan sırayla karşı eşleşir. Bu nedenle en belirgin kurallar ilk belirtmeniz gerekir ve son en genel kurallar.
 
 #### <a name="schema"></a>Şema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
-- **MachineFilter** bilgisayar veya vm adını bir gerekli c# regex olduğu.
+- **MachineFilter** gerekli bir C# regex bilgisayar veya VM adı.
     - '. *' tüm eşleşir
-    - Bilgisayarlarda tam adda 'ComputerName' eşleşir.
-- **AppFilter** bilgisayar veya vm adını bir gerekli c# regex olduğu.
+    - 'ComputerName' yalnızca bilgisayarlar belirtilen tam adıyla eşleşir.
+- **AppFilter** gerekli bir C# regex bilgisayar veya VM adı.
     - '. *' tüm eşleşir
-    - 'ApplicationName' yalnızca IIS uygulamaları, tam adıyla eşleşir.
-- **Instrumentationkey** Yukarıdaki iki filtrelerle eşleşen uygulamaları izlemeyi etkinleştirmek için gereklidir.
-    - Bu değeri izleme hariç tutmak için kurallar tanımlamak istiyorsanız boş bırakın
+    - 'ApplicationName' yalnızca IIS uygulamaları belirtilen tam adıyla eşleşir.
+- **Instrumentationkey** önceki iki filtrelerle eşleşen uygulamaları izlemeyi etkinleştirmek için gereklidir.
+    - Bu değeri izleme hariç tutmak için kurallar tanımlamak istiyorsanız boş bırakın.
 
 
 ### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**İsteğe bağlı.** Olayları ve iletileri için yönetilen bir işlem yürütülürken olup bitenleri toplamak izleme altyapısı etkinleştirmek için bu anahtarı kullanın. Ancak bunlarla sınırlı olmamak bağımlılık sonuç kodları, HTTP fiilleri ve SQL komut metnini içeren. İzleme altyapısı, ek yükü ekler ve varsayılan olarak kapalıdır.
+**İsteğe bağlı.** Olayları ve iletileri yönetilen bir işlem yürütülürken olup bitenler hakkında toplamak izleme altyapısı etkinleştirmek için bu anahtarı kullanın. Bu olayları ve iletileri bağımlılık sonuç kodları, HTTP fiilleri ve SQL komut metni içerir.
+
+İzleme altyapısı, ek yükü ekler ve varsayılan olarak kapalıdır.
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
 **İsteğe bağlı.** Gözetimsiz yüklemelerinde lisans ve gizlilik bildirimini kabul etmek için bu anahtarı kullanın.
 
 ### <a name="-verbose"></a>-Verbose
-**Ortak parametresi.** Ayrıntılı günlük çıktısını almak için bu anahtarı kullanın.
+**Ortak parametresi.** Ayrıntılı günlükleri görüntülemek için bu anahtarı kullanın.
 
 ### <a name="-whatif"></a>-WhatIf 
 **Ortak parametresi.** Test ve izleme gerçekten etkinleştirmeden giriş parametrelerinizi doğrulamak için bu anahtarı kullanın.
@@ -153,15 +153,15 @@ Successfully enabled Application Insights Status Monitor
 ## <a name="next-steps"></a>Sonraki adımlar
 
   Telemetrinizi görüntüleyin:
- - Performans ve kullanımı izlemek için [ölçümleri keşfedin](../../azure-monitor/app/metrics-explorer.md)
-- [Olayları ve günlükleri arayın](../../azure-monitor/app/diagnostic-search.md) sorunları tanılamak için
-- Daha gelişmiş sorgular için [analiz](../../azure-monitor/app/analytics.md)
-- [Panolar oluşturun](../../azure-monitor/app/overview-dashboard.md)
+ - [Ölçümleri keşfetme](../../azure-monitor/app/metrics-explorer.md) performans ve kullanımı izlemek için.
+- [Olayları ve günlükleri arayın](../../azure-monitor/app/diagnostic-search.md) sorunları tanılamak için.
+- [Analytics'i](../../azure-monitor/app/analytics.md) daha gelişmiş sorgular için.
+- [Panolar oluşturma](../../azure-monitor/app/overview-dashboard.md).
  
  Daha fazla telemetri ekleyin:
  - [Web testleri oluşturun](monitor-web-app-availability.md) sitenizin Canlı kalması için.
-- [Web istemcisi telemetrisini ekleyin](../../azure-monitor/app/javascript.md) web sayfası koduna ait özel durumları görmek ve izleme çağrıları eklemenize izin vermek için.
-- [Kodunuza Application Insights SDK'sını ekleyin](../../azure-monitor/app/asp-net.md) izleme ve günlük çağrıları
+- [Web istemcisi telemetrisini ekleyin](../../azure-monitor/app/javascript.md) web sayfası koduna ait özel durumları görmek ve izleme çağrıları etkinleştirmek için.
+- [Kodunuza Application Insights SDK'sını ekleyin](../../azure-monitor/app/asp-net.md) izleme ve günlük çağrıları.
  
  Durum İzleyicisi v2 ile daha fazlasını yapın:
  - Kılavuzunu kullanın [sorun giderme](status-monitor-v2-troubleshoot.md) Durum İzleyicisi v2.

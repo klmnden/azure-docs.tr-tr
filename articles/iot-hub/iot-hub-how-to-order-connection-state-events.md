@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015269"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743313"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Bağlantı olayları Azure Cosmos DB kullanarak Azure IOT hub'a cihaz sipariş
 
@@ -36,7 +36,7 @@ Sıra numarası onaltılık düzendeki bir sayıyı bir dize gösterimidir. Dize
 
 1. Cosmos DB SQL API içinde seçin **Veri Gezgini** > **öğeleri** > **yeni saklı yordam**.
 
-   ![Saklı yordam oluştur](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
+   ![Saklı yordam oluşturma](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
 2. Girin **LatestDeviceConnectionState** saklı yordamın kimliği için aşağıdakileri yapıştırın **saklı yordam gövde**. Bu kodu mevcut kodlar saklı yordam gövde yerini aldığını unutmayın. Bu kod, cihaz kimliği başına bir satır tutar ve en yüksek sıra numarası tanımlayarak bu cihaz kimliği son bağlantı durumunu kaydeder.
 
@@ -154,7 +154,7 @@ Sıra numarası onaltılık düzendeki bir sayıyı bir dize gösterimidir. Dize
 
 4. Logic Apps Tasarımcısı'nda, sık kullanılan Tetikleyicileri görene kadar sağa kaydırın. Altında **şablonları**, seçin **boş mantıksal uygulama** böylece, mantıksal uygulamanızı sıfırdan oluşturabilirsiniz.
 
-### <a name="select-a-trigger"></a>Tetikleyici seçin
+### <a name="select-a-trigger"></a>Tetikleyici seçme
 
 Tetikleyici, mantıksal uygulamanızı başlatan belirli bir olaydır. Bu öğreticide, iş akışını başlatan tetikleyici HTTP üzerinden bir istek alır.
 
@@ -266,13 +266,13 @@ Bu bölümde, IoT Hub'ınızı gerçekleşen olayları yayımlamak için yapıla
 
 4. Doldurun **olay aboneliği ayrıntıları**: Açıklayıcı bir ad girin ve seçin **Event Grid şema**.
 
-5. Doldurun **olay türleri** alanları. Seçeneğinin işaretini kaldırın **tüm olay türlerine abone** seçip **cihaz bağlı** ve **cihazın bağlantısı** menüsünde.
+5. Doldurun **olay türleri** alanları. Açılan listede yalnızca seçin **cihaz bağlı** ve **cihazın bağlantısı** menüsünde. Ekranda listenin kapatıp seçimlerinizi kaydetmek için başka bir yerde tıklayın.
 
    ![Aranacak olay türlerini ayarlayın](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
 6. İçin **uç noktası ayrıntıları**, uç nokta türü olarak seçin **Web kancası** ve select uç noktasına tıklayın ve mantıksal uygulamanızdan kopyaladığınız URL'yi yapıştırın ve seçimi onaylayın.
 
-   ![uç nokta URL'si seçin](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![uç nokta URL'si seçin](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. Form artık aşağıdaki örneğe benzer görünmelidir:
 
@@ -302,11 +302,9 @@ Bu bölümde, IoT Hub'ınızı gerçekleşen olayları yayımlamak için yapıla
 
    ![Cihaz için bağlantı dizesi](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### <a name="start-raspberry-pi-simulator"></a>Raspberry Pi'yi simülatörü başlatın
 
-1. Raspberry Pi web simülatörü cihaz bağlantı benzetimini yapmak için kullanalım.
+Raspberry Pi web simülatörü cihaz bağlantı benzetimini yapmak için kullanalım.
 
 [Raspberry Pi'yi simülatörü başlatın](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
@@ -340,7 +338,7 @@ Yerine [Azure portalında](https://portal.azure.com), Azure CLI kullanarak IOT h
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu öğreticide Azure aboneliğinize ücret uygulanmasına neden olan kaynaklar kullanılmıştır. Öğreticideki denemeleriniz ve sonuçlarınızın testi bittiğinde, korumak istemediğiniz kaynakları devre dışı bırakın veya silin.
+Bu öğreticide Azure aboneliğinize ücret uygulanmasına neden olan kaynaklar kullanılmıştır. İşiniz bittiğinde Eğitim programını çalışıyor ve test sonuçlarınız, devre dışı bırakın veya tutmak istemediğiniz kaynakları silin.
 
 Mantıksal uygulamanızda yapılan çalışmayı kaybetmek istemiyorsanız, bunu silmek yerine devre dışı bırakın.
 

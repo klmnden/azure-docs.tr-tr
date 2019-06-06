@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/22/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 40564e52cbcde0e835ed97132196bf7ed084f5b7
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65986882"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431204"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi 
 
@@ -26,8 +26,8 @@ Yeni v2 SKU aşağıdaki geliştirmeleri içerir:
   Bölge artıklığı, yalnızca Azure bölgeleri kullanılabilir olduğu kullanılabilir. Diğer bölgelerde, diğer tüm özellikler desteklenir. Daha fazla bilgi için [Azure kullanılabilirlik alanları nedir?](../availability-zones/az-overview.md#services-support-by-region)
 - **Statik VIP**: Uygulama ağ geçidi v2 SKU destekler statik VIP özel olarak yazın. Bu, bir yeniden başlatma işleminden sonra bile dağıtım yaşam döngüsü için bu uygulama ağ geçidiyle ilişkili VIP de değişmez sağlar.
 - **Üstbilgi yeniden yazma**: Uygulama ağ geçidi eklemek, kaldırmak veya HTTP istek ve yanıt üstbilgileri v2 SKU ile güncelleştirme sağlar. Daha fazla bilgi için [uygulama ağ geçidi ile yeniden HTTP üstbilgileri](rewrite-http-headers.md)
-- **Anahtar kasası tümleştirmeyi (Önizleme)**: Uygulama ağ geçidi v2, etkin HTTPS dinleyicileri için bağlı sunucu sertifikaları için (genel önizlemede) anahtar kasası ile tümleştirmeyi destekler. Daha fazla bilgi için [sertifikaları Key Vault ile SSL sonlandırma](key-vault-certs.md).
-- **Azure Kubernetes Service giriş denetleyicisine (Önizleme)**: Application Gateway v2 giriş denetleyicisine Giriş bir Azure Kubernetes Service (AKS kümesi olarak bilinen AKS) için kullanılacak Azure Application Gateway sağlar. Daha fazla bilgi için [belgeleri sayfasını](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Anahtar kasası tümleştirmeyi (Önizleme)** : Uygulama ağ geçidi v2, etkin HTTPS dinleyicileri için bağlı sunucu sertifikaları için (genel önizlemede) anahtar kasası ile tümleştirmeyi destekler. Daha fazla bilgi için [sertifikaları Key Vault ile SSL sonlandırma](key-vault-certs.md).
+- **Azure Kubernetes Service giriş denetleyicisine (Önizleme)** : Application Gateway v2 giriş denetleyicisine Giriş bir Azure Kubernetes Service (AKS kümesi olarak bilinen AKS) için kullanılacak Azure Application Gateway sağlar. Daha fazla bilgi için [belgeleri sayfasını](https://azure.github.io/application-gateway-kubernetes-ingress/).
 - **Performans iyileştirmeleri**: En fazla 5 X daha iyi SSL SKU sunar v2 standart/WAF SKU karşılaştırıldığında performans yük boşaltma.
 - **Daha hızlı dağıtım ve güncelleştirme zamanı** v2 SKU standart/WAF SKU karşılaştırıldığında daha hızlı dağıtım ve güncelleştirme süresi sağlar. Bu ayrıca, WAF yapılandırma değişikliklerini de içerir.
 
@@ -54,6 +54,8 @@ Birim kılavuzu işlem:
 > [!NOTE]
 > Her örnek, şu anda yaklaşık 10 kapasite birimleri destekleyebilir.
 > İşlem birimi ele alınan istek sayısı durumunda WAF gelen istek boyutu ve TLS sertifika anahtar boyutu, anahtar değişim algoritması, üstbilgi yeniden gibi çeşitli ölçütlere bağlıdır. İşlem birimi başına istek oranını belirlemek için uygulama testleri almanızı öneririz. Kapasite Birimi hem işlem birimi faturalama başlamadan önce bir ölçü olarak kullanılabilir hale getirilir.
+
+Aşağıdaki tabloda, örnek fiyatları gösterir ve yalnızca gösterme amaçlıdır.
 
 **Fiyatlandırma ABD Doğu bölgesinde**:
 
@@ -110,7 +112,7 @@ Aşağıdaki tabloda her SKU ile sunulan özellikler karşılaştırılmaktadır
 | Bölge artıklığı                                   |          | &#x2713; |
 | Statik VIP                                        |          | &#x2713; |
 | Azure Kubernetes Service (AKS) giriş denetleyicisine |          | &#x2713; |
-| Azure Key Vault tümleştirmesi                       |          | &#x2713; |
+| Azure Anahtar Kasası tümleştirme                       |          | &#x2713; |
 | HTTP (S) üst bilgileri yeniden yazma                           |          | &#x2713; |
 | URL tabanlı yönlendirme                                 | &#x2713; | &#x2713; |
 | Birden çok site barındırma                             | &#x2713; | &#x2713; |
@@ -136,12 +138,15 @@ Aşağıdaki tabloda her SKU ile sunulan özellikler karşılaştırılmaktadır
 |Kullanıcı tanımlı yol (UDR) uygulama ağ geçidi alt ağı üzerinde|Desteklenmiyor|
 |Gelen bağlantı noktası aralığı için NSG| -65200 ila 65535 Standard_v2 için SKU<br>-65503 için 65534 standart SKU için.<br>Daha fazla bilgi için [SSS](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Azure Tanılama'da Performans Günlükleri|Desteklenmiyor.<br>Azure ölçümleri kullanılmalıdır.|
-|Faturalama|Faturalandırma, 1 Temmuz 2019 üzerinde başlatmak üzere zamanlandı.|
+|Faturalandırma|Faturalandırma, 1 Temmuz 2019 üzerinde başlatmak üzere zamanlandı.|
 |FIPS modundayken|Bunlar şu anda desteklenmemektedir.|
 |ILB yalnızca modu|Bu şu anda desteklenmiyor. Genel ve ILB modu birlikte desteklenir.|
 |Netwatcher tümleştirme|Desteklenmiyor.|
 |Azure Destek Merkezi tümleştirmesi|Henüz kullanılamıyor.
 
+## <a name="migrate-from-v1-to-v2"></a>v1'den v2'ye geçiş
+
+Azure PowerShell Betiği, otomatik ölçeklendirme SKU v2, v1 uygulama ağ geçidi/WAF'den geçirmenize yardımcı olmak için PowerShell galerisinde kullanılabilir. Bu betik yapılandırma v1 geçidinizden kopyalamanıza yardımcı olur. Trafik geçiş yine sizin sorumluluğunuzdur. Daha fazla ayrıntı için [geçirme Azure Application Gateway v1'den v2](migrate-v1-v2.md).
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Hızlı Başlangıç: Azure Application Gateway - Azure portalı ile doğrudan web trafiği](quick-create-portal.md)

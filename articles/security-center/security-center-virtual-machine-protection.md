@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: e65e3869d420607ad2721df8ba0ef1005c923f73
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 4e0a8473dfadc151ab861a4d749d9ff5e1622fb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968028"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428391"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma
 Azure Güvenlik Merkezi, Azure kaynakları, Azure dışı sunucuların ve sanal makinelerin güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler) ve bilgisayarlar, uygulamalar, ağ, SQL ve kimlik ve erişim.
@@ -31,7 +31,7 @@ Kaynaklarınızın güvenlik durumunu izleyebilirsiniz **Güvenlik Merkezi-genel
 
 Seçerek, tüm sorunların bir listesini görüntüleyebilirsiniz **önerileri**. Önerileri uygulama hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik önerilerini uygulama](security-center-recommendations.md).
 
-Tam listesi işlem ve App services önerileri için bkz: [önerileri](security-center-virtual-machine-recommendations.md).
+Tam listesi işlem ve App services önerileri için bkz: [önerileri](security-center-virtual-machine-protection.md#compute-and-app-recommendations).
 
 Devam etmek için seçin **işlem ve uygulamalar** altında **kaynakları** veya Güvenlik Merkezi ana menüsünde.
 ![Güvenlik Merkezi Panosu](./media/security-center-virtual-machine-recommendations/overview.png)
@@ -43,8 +43,8 @@ Altında **işlem ve uygulamalar**, aşağıdaki sekmeleri vardır:
 - **Sanal makineler ve bilgisayarlar**: Sanal makinelerinizin, bilgisayarlarınızın ve her birinin geçerli güvenlik durumunun listesi.
 - **Cloud Services**: Güvenlik Merkezi tarafından izlenen web ve çalışan rollerinizin listesi.
 - **Uygulama Hizmetleri**: App service ortamları ve her birinin geçerli güvenlik durumunu listesi.
-- **Kapsayıcılar (Önizleme)**: Iaas Linux makineleri ve Docker yapılandırmalarına güvenlik değerlendirmesini üzerinde barındırılan kapsayıcıları listesi.
-- **İşlem kaynakları (Önizleme)**: Service Fabric kümeleri ile Event hubs gibi işlem kaynaklarınız için önerilerin bir listesi.
+- **Kapsayıcılar (Önizleme)** : Iaas Linux makineleri ve Docker yapılandırmalarına güvenlik değerlendirmesini üzerinde barındırılan kapsayıcıları listesi.
+- **İşlem kaynakları (Önizleme)** : Service Fabric kümeleri ile Event hubs gibi işlem kaynaklarınız için önerilerin bir listesi.
 
 Devam etmek için seçin **işlem ve uygulamalar** altında **kaynak güvenlik sağlığı**.
 
@@ -122,7 +122,7 @@ Bu öneriyle ilgili daha kesin bir açıklama görmek için **AÇIKLAMA** sütun
 
 
 
-![OS sürümünü güncelleştirme](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
+![İşletim sistemi sürümünü güncelleştirme](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services"></a>Uygulama hizmetleri
 App Service bilgileri görüntülemek için aboneliğinize App Service etkinleştirmeniz gerekir. Bu özellik etkinleştirme hakkında yönergeler için bkz: [Azure Güvenlik Merkezi ile App Service'ı koruma](security-center-app-services.md).
@@ -184,53 +184,50 @@ Ayarlamak istiyorsanız Yeni ölçeği otomatik olarak Microsoft Monitoring Agen
 |----|----|----|----|
 |App Service|20|Web uygulaması yalnızca HTTPS üzerinden erişilebilir olmalıdır|Web uygulamalarının erişim yalnızca HTTPS üzerinden sınırlayın.|
 |App Service|20|İşlev uygulaması yalnızca HTTPS üzerinden erişilebilir olmalıdır|İşlev uygulamaları, erişim yalnızca HTTPS üzerinden sınırlayın.|
-|App Service|5|App Service'te tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
+|App Service|5|App Service içindeki tanılama günlükleri etkinleştirilmelidir.|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
 |App Service|10|Uzaktan hata ayıklama için Web uygulaması kapalı olmaları|Artık bunu kullanmanız gerekiyorsa, Web uygulamaları için hata ayıklama devre dışı bırakın. Uzaktan hata ayıklama, gelen bağlantı noktası üzerinde bir işlev uygulaması açılmasını gerektirir.|
 |App Service|10|Uzaktan hata ayıklama işlev uygulaması için kapatılmalıdır|Artık bunu kullanmanız gerekiyorsa, işlev uygulaması için hata ayıklama devre dışı bırakın. Uzaktan hata ayıklama, gelen bağlantı noktası üzerinde bir işlev uygulaması açılmasını gerektirir.|
-|App Service|10|Web uygulaması için IP kısıtlamalarını yapılandırma|Uygulamanıza erişmek için izin verilen IP adreslerinin bir listesini tanımlar. IP kısıtlamaları kullanımı, bir web uygulaması genel saldırılara karşı korur.|
 |App Service|10|Tüm izin verme ('* ') uygulamanıza erişmek için kaynaklar| WEBSITE_LOAD_CERTIFICATES parametre kümesi izin verme "". Parametresini ayarlayarak '' tüm sertifikalar, web uygulamaları kişisel sertifika deposuna yüklendiğini anlamına gelir. Site çalışma zamanında tüm sertifikalara erişim gerektiğini olası olmadığından bu en düşük öncelik ilkesini kötüye neden olabilir.|
 |App Service|20|CORS her kaynağın Web uygulamalarınıza erişmek izin vermemelidir|Web uygulamanızla etkileşim kurmak yalnızca gerekli etki alanı sağlar. Kaynak kaynak paylaşımı (CORS) tüm etki alanları web uygulamanıza erişmek izin vermemelisiniz.|
 |App Service|20|CORS her kaynağın işlev uygulamanıza erişmek izin vermemelidir| İşlev uygulamanızla etkileşim kurmak yalnızca gerekli etki alanı sağlar. Kaynak kaynak paylaşımı (CORS) tüm etki alanlarının işlev uygulamanıza erişmek izin vermemelisiniz.|
-|İşlem kaynakları (toplu)|1|Batch hesabında ölçüm uyarı kuralları yapılandırma|Batch hesabında ölçüm uyarı kuralları yapılandırın ve havuzu Silme Tamamlandı olayları ve havuz silme başlangıç olayları ölçümlerini etkinleştir|
-|İşlem kaynakları (service fabric)|10|Service fabric'te istemci kimlik doğrulaması için Azure Active Directory kullanın|İstemci kimlik doğrulaması yalnızca Azure Active Directory aracılığıyla Service Fabric'te gerçekleştirin.|
-|İşlem kaynakları (Otomasyon hesabı)|5| Otomasyon hesabının şifrelemeyi etkinleştir|Otomasyon hesabı değişken varlıkları şifrelenmesi, hassas verileri depolarken etkinleştirin.|
-|İşlem kaynakları (yük dengeleyici)|5|Yük dengeleyicide tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
-|İşlem kaynakları (arama)|5|Arama hizmetinde tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
-|İşlem kaynakları (hizmet veri yolu)|5|Hizmet veri yolu tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
-|İşlem kaynakları (akış analizi)|5|Azure Stream analytics'te tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
-|İşlem kaynakları (service fabric)|5|Service fabric'te tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
+|İşlem kaynakları (toplu)|1|Batch hesapları ölçüm uyarı kuralları yapılandırılmalıdır|Batch hesabında ölçüm uyarı kuralları yapılandırın ve havuzu Silme Tamamlandı olayları ve havuz silme başlangıç olayları ölçümlerini etkinleştir|
+|İşlem kaynakları (service fabric)|10|Yalnızca Azure Active Directory Service Fabric kümeleri için istemci kimlik doğrulaması kullanmanız gerekir|İstemci kimlik doğrulaması yalnızca Azure Active Directory aracılığıyla Service Fabric'te gerçekleştirin.|
+|İşlem kaynakları (Otomasyon hesabı)|5|Otomasyon hesabı değişkenleri şifrelenmelidir|Otomasyon hesabı değişken varlıkları şifrelenmesi, hassas verileri depolarken etkinleştirin.|
+|İşlem kaynakları (arama)|5|Arama Hizmetleri için tanılama günlüklerini etkinleştirme denetleme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
+|İşlem kaynakları (hizmet veri yolu)|5|Service Bus tanılama günlüklerinde etkinleştirilmelidir.|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
+|İşlem kaynakları (akış analizi)|5|Azure Stream analytics'te tanılama günlükleri etkinleştirilmelidir.|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
 |İşlem kaynakları (toplu)|5|Batch hesapları, tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
-|İşlem kaynakları (olay hub'ı)|5|Olay Hub'ındaki tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
+|İşlem kaynakları (olay hub'ı)|5|Tanılama günlükleri Olay Hub'ındaki etkinleştirilmelidir.|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
 |İşlem kaynakları (mantıksal uygulamalar)|5|Logic apps'teki tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
 |İşlem kaynakları (service fabric)|15|Service fabric'te EncryptAndSign ClusterProtectionLevel özelliğini ayarlayın|Service Fabric, düğümden düğüme iletişim için bir birincil küme sertifikası kullanarak koruma (None, oturum ve EncryptAndSign) üç düzeyleri sağlar.  Tüm düğümler için iletileri şifrelenir ve dijital olarak imzalanmış emin olmak için koruma düzeyini ayarlayın. |
 |İşlem kaynakları (hizmet veri yolu)|1|Service Bus ad alanındaki tüm yetkilendirme kurallarını RootManageSharedAccessKey dışında Kaldır |Hizmet veri yolu istemcileri tüm kuyrukları ve konuları ad alanında erişim sağlayan bir ad alanı düzeyinde erişim ilkesi kullanmamanız gerekir. En az ayrıcalık ile hizalamak için güvenlik modeli oluşturmanız gerektiğini erişim ilkelerini kuyruklar ve konular erişebilmesi için yalnızca belirli bir varlık için varlık düzeyinde.|
-|İşlem kaynakları (olay hub'ı)|1|RootManageSharedAccessKey dışındaki tüm yetkilendirme kurallarını olay hub'ı ad alanından kaldırın |Olay hub'ı istemcilerin tüm kuyrukları ve konuları ad alanında erişim sağlayan bir ad alanı düzeyinde erişim ilkesi kullanmamanız gerekir. En az ayrıcalık ile hizalamak için güvenlik modeli oluşturmanız gerektiğini erişim ilkelerini kuyruklar ve konular erişebilmesi için yalnızca belirli bir varlık için varlık düzeyinde.|
-|İşlem kaynakları (olay hub'ı)|5|Olay hub'ı varlıkta yetkilendirme kuralları tanımlayın|Yetkilendirme kuralları en az ayrıcalıklı erişim vermek için olay hub'ı varlık üzerinde denetim.|
+|İşlem kaynakları (olay hub'ı)|1|RootManageSharedAccessKey olay hub'ı ad alanından kaldırılması dışında tüm yetkilendirme kuralları|Olay hub'ı istemcilerin tüm kuyrukları ve konuları ad alanında erişim sağlayan bir ad alanı düzeyinde erişim ilkesi kullanmamanız gerekir. En az ayrıcalık ile hizalamak için güvenlik modeli oluşturmanız gerektiğini erişim ilkelerini kuyruklar ve konular erişebilmesi için yalnızca belirli bir varlık için varlık düzeyinde.|
+|İşlem kaynakları (olay hub'ı)|5|Olay hub'ı varlık yetkilendirme kurallarında tanımlanması gerekir|Yetkilendirme kuralları en az ayrıcalıklı erişim vermek için olay hub'ı varlık üzerinde denetim.|
 |Machine|50|Makinelerinize izleme aracısı yükleyin|Veri toplama, tarama, temel tarama ve her makineye bir uç nokta koruma güncelleştirmeleri etkinleştirmek için izleme aracısını yükleyin.|
 |Makine|50|Otomatik sağlama ve Abonelikleriniz için veri toplamayı etkinleştir |Otomatik sağlama ve veri toplamayı etkinleştirmek için aboneliklerinizi tarama, temel tarama ve aboneliklerinize eklenen her makineye bir uç nokta koruma güncelleştirmeleri makineler için veri toplamayı etkinleştirin.|
 |Makine|40|Makinelerinizin izleme aracısı sistem durumu sorunlarını çözün|Tam Güvenlik Merkezi koruma için sorun giderme Kılavuzu'ndaki yönergeleri takip ederek makinelerinizdeki izleme aracı sorunlarını çözün.| 
 |Makine|40|Makinelerinizin uç nokta koruması sistem durumu sorunlarını çözün|Tüm Güvenlik Merkezi koruma için sorun giderme Kılavuzu'ndaki yönergeleri takip ederek makinelerinizi izleme aracı sorunları çözün.|
 |Makine|40|Makinelerinizde eksik tarama verileri sorunlarını giderin|Sanal makineler ve bilgisayarlar üzerinde eksik tarama verileri sorunlarını giderin. Tarama, temel tarama ve uç nokta koruma çözümü tarama eksik güvenlik değerlendirmeleri gibi eksik, makineleri sonuçları üzerinde eksik tarama verileri güncelleştirin.|
-|Makine|40|Makinelerinize sistem güncelleştirmeleri yükleyin|Eksik sistem güvenliği ve güvenli Windows ve Linux sanal makineleri ve bilgisayarlar için kritik güncelleştirmeleri yükleyin
+|Makine|40|Sistem güncelleştirmeleri makinelerinizde yüklü olması gerekir|Eksik sistem güvenliği ve güvenli Windows ve Linux sanal makineleri ve bilgisayarlar için kritik güncelleştirmeleri yükleyin
 |Machine|15|Web uygulaması güvenlik duvarı ekleme| Web uygulamalarınızın güvenliğini sağlamak için bir web uygulaması Güvenlik Duvarı (WAF) çözümünü dağıtın. |
 |Machine|40|Bulut hizmeti rolleriniz için işletim sistemi sürümünü güncelleştirin|Bulut hizmeti rolleriniz için işletim sistemi sürümünü, işletim sistemi ailenizdeki en yeni sürüm ile güncelleştirin.|
-|Makine|35|Makinelerinizin güvenlik yapılandırmasındaki güvenlik açıklarını düzeltin|Güvenlik Yapılandırması saldırılarına karşı korunacak makinelerinizde güvenlik açıklarını düzeltin. |
+|Makine|35|Güvenlik Yapılandırması makinelerinizde güvenlik açıkları düzeltilen|Güvenlik Yapılandırması saldırılarına karşı korunacak makinelerinizde güvenlik açıklarını düzeltin.|
 |Makine|35|Kapsayıcılarınızı güvenlik yapılandırması, güvenlik açıklarını düzeltin|Docker yüklü makineleri korumak için bunların güvenlik yapılandırmasındaki güvenlik açıklarını düzeltin.|
 |Makine|25|Uyarlamalı Uygulama Denetimlerini etkinleştirin|Uygulamalar, Azure'da yer alan Vm'leriniz üzerinde çalışabilen uygulama denetime etkinleştirin. Bu, sanal makinelerinizi kötü amaçlı yazılımlara karşı sağlamlaştırma yardımcı olur. Güvenlik Merkezi, her sanal makinede çalışan uygulamaların çözümlemek için machine learning kullanır ve bu bilgileri kullanarak kuralları yardımcı olur, uygulamanızı sağlar. Bu özellik yapılandırma işlemi basitleştirir ve izin verme kurallarını uygulama koruma.|
 |Makine|20|Makinelerinize uç nokta koruma çözümü yükleyin|Tehditleri ve güvenlik açıklarından korumak için sanal makineler, bir uç nokta koruma çözümüne yükleyin.|
 |Makine|20|Sistem güncelleştirmelerini uygulamak için makinelerinizi yeniden başlatın|Sistem güncelleştirmelerini uygulamak ve makinenizi güvenlik açıklarına karşı korumak için makinelerinizi yeniden başlatın.|
-|Machine|15|Sanal makinelerinizde disk şifrelemesi Uygula|Windows ve Linux sanal makineleri için Azure Disk şifrelemesi hem kullanılarak sanal makine disklerinizi şifreleyin. Azure Disk şifrelemesi (ADE) sektörde standart BitLocker özelliğini Windows ve Linux korumak ve verilerinizi koruyun ve kurumsal güvenlik ve uyumluluk karşılamanıza yardımcı olmak için işletim sistemi ve veri disk şifreleme sağlamak için DM-Crypt özelliğini kullanır. Taahhüt müşteri Azure anahtar kasası. Ne zaman, uyumluluk ve güvenlik gereksinimleri, kullanım Azure disk şifrelemesi kısa ömürlü (yerel olarak bağlı geçici) disk şifreleme gibi şifreleme anahtarlarınızı kullanarak uca verileri şifrelemek gerektirir. Alternatif olarak, Microsoft tarafından yönetilen anahtarları azure'da şifreleme anahtarları nerede Azure depolama hizmeti şifrelemesi kullanarak varsayılan olarak varsayılan olarak, yönetilen diskler bekleme durumundayken şifrelenir. Bu, uyumluluk ve güvenlik gereksinimlerini karşılıyorsa, gereksinimlerinizi karşılamak için varsayılan yönetilen disk şifrelemesi yararlanabilirsiniz.|
+|Machine|15|Sanal makinelerde disk şifrelemesini uygulanmalıdır|Windows ve Linux sanal makineleri için Azure Disk şifrelemesi hem kullanılarak sanal makine disklerinizi şifreleyin. Azure Disk şifrelemesi (ADE) sektörde standart BitLocker özelliğini Windows ve Linux korumak ve verilerinizi koruyun ve kurumsal güvenlik ve uyumluluk karşılamanıza yardımcı olmak için işletim sistemi ve veri disk şifreleme sağlamak için DM-Crypt özelliğini kullanır. Taahhüt müşteri Azure anahtar kasası. Ne zaman, uyumluluk ve güvenlik gereksinimleri, kullanım Azure disk şifrelemesi kısa ömürlü (yerel olarak bağlı geçici) disk şifreleme gibi şifreleme anahtarlarınızı kullanarak uca verileri şifrelemek gerektirir. Alternatif olarak, Microsoft tarafından yönetilen anahtarları azure'da şifreleme anahtarları nerede Azure depolama hizmeti şifrelemesi kullanarak varsayılan olarak varsayılan olarak, yönetilen diskler bekleme durumundayken şifrelenir. Bu, uyumluluk ve güvenlik gereksinimlerini karşılıyorsa, gereksinimlerinizi karşılamak için varsayılan yönetilen disk şifrelemesi yararlanabilirsiniz.|
 |Machine|30|Sanal makinelerinize bir güvenlik açığı değerlendirme çözümü yükleyin|Sanal makinelerinize bir güvenlik açığı değerlendirme çözümü yükleyin|
 |Makine|15|Web uygulaması güvenlik duvarı ekleme| Web uygulamalarınızın güvenliğini sağlamak için bir web uygulaması Güvenlik Duvarı (WAF) çözümünü dağıtın. |
-|Makine|30|Bir güvenlik açığı değerlendirme çözümü kullanarak güvenlik açıklarını düzeltin|Kendisi için bir güvenlik açığı değerlendirme 3 taraf çözümü dağıtılan sanal makinelerin sürekli olarak uygulama ve işletim sistemi güvenlik açıklarını karşı incelenen. Tür güvenlik açıklarına bulunduğunda, bunlar öneri bir parçası olarak daha fazla bilgi için kullanılabilir.|
+|Makine|30|Güvenlik açıklarını bir güvenlik açığı değerlendirme çözümü tarafından düzeltilen|Kendisi için bir güvenlik açığı değerlendirme 3 taraf çözümü dağıtılan sanal makinelerin sürekli olarak uygulama ve işletim sistemi güvenlik açıklarını karşı incelenen. Tür güvenlik açıklarına bulunduğunda, bunlar öneri bir parçası olarak daha fazla bilgi için kullanılabilir.|
 |Machine|30|Sanal makinelerinize bir güvenlik açığı değerlendirme çözümü yükleyin|Sanal makinelerinize bir güvenlik açığı değerlendirme çözümü yükleyin|
-|Machine|1|Yeni Azure Resource Manager kaynaklarına sanal makineleri geçirme|Azure Resource Manager sanal makineleriniz için gibi güvenlik geliştirmeleri sağlamak için kullanın: yönetilen kimlik, anahtar kasası için erişim gizli dizileri, daha güçlü erişim denetimi (RBAC), daha iyi denetim, Resource Manager tabanlı bir dağıtım ve yönetim erişim Azure AD tabanlı kimlik doğrulaması ve etiketleri için destek ve daha kolay güvenlik yönetimi için kaynak grupları. |
-|Machine|30|Bir güvenlik açığı değerlendirme çözümü kullanarak güvenlik açıklarını düzeltin|Kendisi için bir güvenlik açığı değerlendirme 3 taraf çözümü dağıtılan sanal makinelerin sürekli olarak uygulama ve işletim sistemi güvenlik açıklarını karşı incelenen. Tür güvenlik açıklarına bulunduğunda, bunlar öneri bir parçası olarak daha fazla bilgi için kullanılabilir.|
-|Sanal makine ölçek kümesi |4|Sanal Makine Ölçek Kümelerinde tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunlar için bir yıla kadar Beklet. Bu, araştırma amacıyla etkinlik kayıtlarını yeniden oluşturmanıza olanak sağlar. Bu bir güvenlik olayı ortaya veya ağınızın tehlikeye yararlı olur.|
-|Sanal makine ölçek kümesi|35|Sanal makine ölçek kümelerinizin güvenlik yapılandırmasındaki güvenlik açıklarını düzeltme|Sanal makine ölçek kümelerinizi saldırılardan korumak için güvenlik yapılandırmasındaki güvenlik açıklarını düzeltin. |
-|Sanal makine ölçek kümesi|5|Sanal makine ölçek kümelerinde uç nokta koruması sistem durumu hatalarını düzeltme|Sanal makine ölçek kümelerinizi tehdit ve güvenlik açıklarından korumak için uç nokta koruma sistem durumu hatalarını düzeltin. |
-|Sanal makine ölçek kümesi|10|Sanal makine ölçek kümelerine uç nokta koruma çözümü yükleme|Tehditleri ve güvenlik açıklarından korumak için sanal makine ölçek kümeleri, bir uç nokta koruma çözümüne yükleyin. |
-|Sanal makine ölçek kümesi|40|Sanal makine ölçek kümelerine sistem güncelleştirmelerini yükleme|Windows ve Linux sanal makine ölçek kümelerinizi korumak için eksik sistem güvenliği güncelleştirmelerini ve diğer kritik güncelleştirmeleri yükleyin. |
+|Machine|1|Sanal makineler yeni AzureRM kaynaklarına geçirilmelidir|Azure Resource Manager sanal makineleriniz için gibi güvenlik geliştirmeleri sağlamak için kullanın: yönetilen kimlik, anahtar kasası için erişim gizli dizileri, daha güçlü erişim denetimi (RBAC), daha iyi denetim, Resource Manager tabanlı bir dağıtım ve yönetim erişim Azure AD tabanlı kimlik doğrulaması ve etiketleri için destek ve daha kolay güvenlik yönetimi için kaynak grupları. |
+|Machine|30|Güvenlik açıklarını bir güvenlik açığı değerlendirme çözümü tarafından düzeltilen|Kendisi için bir güvenlik açığı değerlendirme 3 taraf çözümü dağıtılan sanal makinelerin sürekli olarak uygulama ve işletim sistemi güvenlik açıklarını karşı incelenen. Tür güvenlik açıklarına bulunduğunda, bunlar öneri bir parçası olarak daha fazla bilgi için kullanılabilir.|
+|Sanal makine ölçek kümesi |4|Sanal makine ölçek kümeleri için tanılama günlüklerine etkinleştirilmelidir.|Günlükleri etkinleştirmek ve bunlar için bir yıla kadar Beklet. Bu, araştırma amacıyla etkinlik kayıtlarını yeniden oluşturmanıza olanak sağlar. Bu bir güvenlik olayı ortaya veya ağınızın tehlikeye yararlı olur.|
+|Sanal makine ölçek kümesi|35|Güvenlik Yapılandırması, sanal makine ölçek kümeleri üzerinde güvenlik açıkları düzeltilen|Güvenlik Yapılandırması saldırılarına karşı korumak için sanal makine ölçek kümeleri üzerinde güvenlik açıklarını düzeltin. |
+|Sanal makine ölçek kümesi|5|Sanal makine ölçek kümelerinde Endpoint protection durum hataları düzeltme|Tehditleri ve güvenlik açıklarından korumak için endpoint protection durum hataları, sanal makine ölçek kümelerinde düzeltin. |
+|Sanal makine ölçek kümesi|10|Uç nokta korumasını sanal makinelerde yüklü olması gerekir|Tehditleri ve güvenlik açıklarından korumak için sanal makine ölçek kümeleri, bir uç nokta koruma çözümüne yükleyin. |
+|Sanal makine ölçek kümesi|40|Sistem güncelleştirmeleri, sanal makine ölçek kümesi yüklü olması gerekir|Eksik sistem güvenliği ve, Windows ve Linux sanal makine ölçek kümeleri güvenli hale getirmek için kritik güncelleştirmeleri yükleyin. |
  
 
 

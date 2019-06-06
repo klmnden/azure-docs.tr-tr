@@ -11,19 +11,19 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/20/2019
-ms.openlocfilehash: a9f883a9776f68a7ece471caca5dc1d7af2aec32
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/05/2019
+ms.openlocfilehash: b39d2c839444e3cad60d5ff08e117282ecc04d7a
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393534"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734768"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL veritabanı sunucusuz (Önizleme)
 
 ## <a name="serverless-compute-tier"></a>Sunucusuz işlem katmanı
 
-Sunucusuz SQL veritabanı (Önizleme) saniye başına temelinde tek bir veritabanı tarafından kullanılan süre boyunca faturalar hesaplayan bir işlem katmandır. Sunucusuz işlem Isınma bazı gecikme boşta kullanım dönemlerini gücünüze aralıklı, öngörülemeyen kullanım düzenlerine sahip tek veritabanları için en iyi duruma getirilmiş fiyat-performans ' dir.
+Sunucusuz SQL veritabanı (Önizleme) daralttığında işlem ve saniye başına kullanılan işlem miktarı düzenler bir tek veritabanı işlem katmandır. 
 
 Sunucusuz bilgi işlem katmanı veritabanında kullanabilmeniz için işlem aralığı ve autopause gecikme tarafından parametreli olup.
 
@@ -31,7 +31,7 @@ Sunucusuz bilgi işlem katmanı veritabanında kullanabilmeniz için işlem aral
 
 ### <a name="performance"></a>Performans
 
-- `MinVcore` ve `MaxVcore` veritabanı için kullanılabilir işlem kapasitesi aralığını tanımlamak yapılandırılabilir parametrelerdir. Bellek ve GÇ, sınırları, belirtilen sanal çekirdek aralığı orantılıdır.  
+- En düşük Vcore ve en yüksek sanal çekirdek sayısı, veritabanı için kullanılabilir işlem kapasitesi aralığını tanımlamak yapılandırılabilir parametrelerdir. Bellek ve GÇ, sınırları, belirtilen sanal çekirdek aralığı orantılıdır.  
 - Autopause gecikmeyi otomatik olarak duraklatılmadan önce veritabanı etkin olmaması gereken süre tanımlayan yapılandırılabilir bir parametredir. Sonraki oturum oluştuğunda veritabanı otomatik olarak sürdürülür.
 
 ### <a name="pricing"></a>Fiyatlandırma
@@ -43,19 +43,19 @@ Sunucusuz bilgi işlem katmanı veritabanında kullanabilmeniz için işlem aral
 
 ## <a name="scenarios"></a>Senaryolar
 
-Sunucusuz işlem Isınma bazı gecikme boşta kullanım dönemlerini gücünüze aralıklı, öngörülemeyen kullanım düzenlerine sahip tek veritabanları için en iyi duruma getirilmiş fiyat-performans ' dir. Buna karşılık, sağlanan işlem katmanı, işlem Isınma kurtarmadaki gecikmeyi Aboneliklerde daha yüksek bir ortalama kullanım ile tek veya havuza alınmış veritabanları için en iyi duruma getirilmiş fiyat-performans gösterir.
+Sunucusuz işlem Isınma bazı gecikme boşta kullanım dönemlerini gücünüze aralıklı, öngörülemeyen kullanım düzenlerine sahip tek veritabanları için en iyi duruma getirilmiş fiyat-performans ' dir. Buna karşılık, sağlanan işlem katmanı, tek veritabanları veya birden çok işlem Isınma kurtarmadaki gecikmeyi Aboneliklerde daha yüksek bir ortalama kullanım ile elastik havuzlardaki veritabanları için en iyi duruma getirilmiş fiyat-performans gösterir.
 
 ### <a name="scenarios-well-suited-for-serverless-compute"></a>Sunucusuz bilgi işlem için uygun olan senaryoları
 
-- Tek veritabanlarını desenleri etkin olmadığı dönemler ile interspersed aralıklı, tahmin edilemeyen kullanım miktarı, kullanılan işlem saniye başına faturalandırma göre fiyat tasarrufu yararlanabilir.
-- Kaynak talebi tahmin etmek zordur ve işlem boyutlandırma hizmetine temsilci atamak tercih eden müşteriler ile tek veritabanları.
-- Sağlanan işlem katmanında tek veritabanları, performans düzeyleri sık değiştirin.
+- Aralıklı, öngörülemeyen kullanım düzenlerine sahip tek veritabanları, etkin olmama zaman içinde daha düşük ortalama işlem kullanımı ve nokta ile interspersed.
+- Sık boyutlandırılan sağlanan işlem katmanı ve temsilci atamak tercih eden müşteriler tek veritabanları için hizmet ölçeklendirme işlem.
+- Yeni tek veritabanları işlem boyutlandırma zor veya SQL veritabanı'nda dağıtımından önce tahmin etmek mümkün olduğu Kullanım Geçmişi olmadan.
 
 ### <a name="scenarios-well-suited-for-provisioned-compute"></a>Sağlanan işlem için uygun olan senaryoları
 
-- Daha fazla normal ve daha fazla önemli ile tek veritabanları, kullanımın zaman işlem.
+- Daha fazla normal, öngörülebilir kullanım düzenlerini ve daha yüksek bir ortalama ile tek veritabanları, kullanımın zaman işlem.
 - Hakkında daha fazla kaynaklanan performans dengelemeler genişliğinin kullanılmasını veritabanları kırpma bellek sık veya duraklatılmış duruma gelen autoresuming içinde gecikme.
-- Tek bir sunucu birleştirilebilir ve elastik havuzlar için daha iyi fiyat iyileştirme kullanan aralıklı, öngörülemeyen kullanım düzenlerine sahip birden çok veritabanı.
+- Elastik havuzlar için daha iyi fiyat-performans iyileştirme içine birleştirilebilir aralıklı, öngörülemeyen kullanım düzenlerine sahip birden çok veritabanı.
 
 ## <a name="comparison-with-provisioned-compute-tier"></a>Sağlanan işlem katmanı ile karşılaştırma
 
@@ -63,7 +63,7 @@ Aşağıdaki tabloda, sunucusuz bilgi işlem katmanı ve sağlanan işlem katman
 
 | | **Sunucusuz bilgi işlem** | **Sağlanan işlem** |
 |:---|:---|:---|
-|**Tipik kullanım senaryosu**| Etkin nokta ile interspersed aralıklı, tahmin edilemeyen kullanım veritabanlarıyla. | Veritabanı veya elastik havuzlar sayesinde daha fazla normal kullanım.|
+|**Veritabanı kullanım düzeninden**| Aralıklı, öngörülemeyen kullanım zaman içinde daha düşük ortalama işlem kullanımına sahip. |  Daha fazla normal kullanım düzenlerini daha yüksek bir ortalama ile kullanım süresi veya esnek havuzları kullanan birden çok veritabanı üzerinde işlem.|
 | **Performans yönetim çabası** |Daha düşük|Daha yüksek|
 |**Ölçeklendirme işlem**|Otomatik|Manual|
 |**İşlem yanıt hızı**|Etkin nokta sonra daha düşük|Hemen|
@@ -77,7 +77,7 @@ Sunucusuz SQL veritabanı şu anda yalnızca genel amaçlı katmanında satın a
 
 ### <a name="scaling-responsiveness"></a>Yanıt verme hızını ölçeklendirme
 
-Veritabanları için herhangi bir işlem belirlenen sınırlar içinde istenen miktarda kesintisiz resource talebi karşılamak için yeterli kapasiteye sahip bir makinede genel olarak, çalıştırılan `maxVcores` değeri. Bazen, makineyi birkaç dakika içinde kaynak talebi karşılamak kuramazsa Yük Dengeleme otomatik olarak gerçekleşir. Veritabanı bağlantıları bırakıldığında dışında kısa bir süre sonunda işlemi, yük dengelemeyi sırasında çevrimiçi kalır.
+Genel olarak, sunucusuz veritabanları için herhangi bir işlem tarafından en yüksek Vcore değeri şuna ayarlı sınırları içinde istenen miktarda kesintisiz resource talebi karşılamak için yeterli kapasiteye sahip bir makinede çalıştırılır. Bazen, makineyi birkaç dakika içinde kaynak talebi karşılamak kuramazsa Yük Dengeleme otomatik olarak gerçekleşir. Örneğin, 4 sanal çekirdek kaynak taleptir yoktur, ancak yalnızca 2 sanal çekirdek, daha sonra birkaç dakika 4 sanal çekirdek sağlanan önce yük dengelemek sürebilir. Veritabanı bağlantıları bırakıldığında dışında kısa bir süre sonunda işlemi, yük dengelemeyi sırasında çevrimiçi kalır.
 
 ### <a name="memory-management"></a>Bellek yönetimi
 
@@ -90,7 +90,7 @@ CPU veya önbellek kullanım düşük olduğunda sağlanan işlem veritabanları
 - Toplam boyutu en kısa süre önce bir süre için önbellek girişlerini eşiğin bir kullanılan önbellek kullanımı düşük olarak kabul edilir.
 - Önbellek geri kazanma tetiklendiğinde hedef önbellek boyutu, bir önceki boyutuna kesir olarak artımlı olarak azaltılır ve tekrar kullanılabilir hale getirme yalnızca kullanım düşükse, devam eder.
 - Önbellek geri kazanma ortaya çıktığında, yüksek bellek baskısı olduğunda çıkarmak için önbellek girişlerinin seçmek için sağlanan işlem veritabanları için aynı seçim ilke ilkedir.
-- Önbellek boyutu, hiçbir zaman yapılandırılabilecek en düşük Vcore tarafından tanımlanan en az bellek azaltılır.
+- Önbellek boyutu, hiçbir zaman yapılandırılabilecek en düşük Vcore tarafından tanımlanan en düşük bellek sınırı aşağıdaki azaltılır.
 
 Hem sunucusuz ve sağlanan veritabanları, tüm kullanılabilir bellek kullanıldığında girişleri çıkarılmış önbellek işlem.
 
@@ -102,31 +102,41 @@ Verileri diskten aynı şekilde ile sağlanan veritabanları için aynı hızda 
 
 ### <a name="autopause"></a>Autopause
 
-Autopause autopause gecikme süresi için aşağıdaki koşulların tümü doğru olması durumunda tetiklenir:
+Autopausing autopause gecikme süresi için aşağıdaki koşulların tümü doğru olması durumunda tetiklenir:
 
 - Sayı oturumlar = 0
-- CPU = 0 (için kullanıcı iş yükü kullanıcı havuzunda çalışan)
+- CPU kullanıcı havuzunda çalışan kullanıcı iş yükü için 0 =
 
-Autopause isterseniz devre dışı bırakmak için bir seçenek sağlanır.
+Bir seçenek autopausing isterseniz devre dışı bırakmak için sağlanır.
+
+Aşağıdaki özellikler autopausing desteklemez.  Aşağıdaki özelliklerden herhangi birini kullanılıyorsa, diğer bir deyişle, sonra veritabanının veritabanı etkin olmama süresini bağımsız olarak çevrimiçi kalır:
+
+- Coğrafi çoğaltma (etkin coğrafi çoğaltma ve otomatik yük devretme grupları).
+- Uzun süreli yedek saklama (LTR).
+- SQL veri eşitlemede kullanılan eşitleme veritabanı.
+
+Autopausing veritabanının çevrimiçi olması gereken bazı hizmet güncelleştirmeleri dağıtımı sırasında geçici olarak engellenir.  Hizmet güncelleştirmesi tamamlandıktan sonra bu gibi durumlarda autopausing yeniden izin olur.
 
 ### <a name="autoresume"></a>Autoresume
 
-Aşağıdaki koşullardan herhangi biri herhangi bir zamanda doğruysa Autoresume tetiklenir:
+Aşağıdaki koşullardan herhangi biri herhangi bir zamanda doğruysa Autoresuming tetiklenir:
 
 |Özellik|Autoresume tetikleyicisi|
 |---|---|
 |Kimlik doğrulama ve yetkilendirme|Oturum Aç|
-|Tehdit algılama|Tehdit algılama ayarları veritabanı veya sunucu düzeyinde etkinleştirme/devre dışı bırakma<br>Veritabanı veya sunucu düzeyinde tehdit algılama ayarları değiştirme|
+|Tehdit algılama|Veritabanı veya sunucu düzeyinde tehdit algılama ayarları etkinleştirme/devre dışı bırakma.<br>Veritabanı veya sunucu düzeyinde tehdit algılama ayarları değiştirme.|
 |Veri bulma ve sınıflandırma|Ekleme, değiştirme, silme veya duyarlılık etiketleri görüntüleme|
-|Denetim|Denetim kayıtlarını görüntüleme.<br>Denetim ilkesini görüntüleme veya güncelleştirme|
+|Denetim|Denetim kayıtlarını görüntüleme.<br>Güncelleştirme veya denetim ilkesini görüntüleme.|
 |Veri maskeleme|Ekleme, değiştirme, silme veya veri maskeleme kuralları görüntüleme|
 |Saydam veri şifrelemesi|Görünüm durumu veya saydam veri şifrelemesi durumu|
 |Veri deposu sorgu (performans)|Sorgu deposu ayarları görüntüleme veya değiştirdiğiniz; otomatik ayarlama|
 |Bırakabilirsiniz|Uygulama ve bırakabilirsiniz önerileri otomatik dizin oluşturma gibi doğrulama|
-|Veritabanı kopyalama|Kopya olarak veritabanı oluşturma<br>Bir BACPAC dosyasına aktarma|
+|Veritabanı kopyalama|Veritabanı kopya olarak oluşturun.<br>Bir BACPAC dosyasına dışarı aktarın.|
 |SQL data Sync'i|Yapılandırılabilir bir zamanlamaya göre çalıştırın ya da el ile gerçekleştirilen hub ve üye veritabanı arasında eşitleme|
-|Belirli bir veritabanı meta verileri değiştirme|Yeni veritabanı etiketler ekleme<br>En yüksek Vcore, en düşük Vcore autopause gecikme değiştirme|
+|Belirli bir veritabanı meta verileri değiştirme|Yeni veritabanı etiketler ekleme.<br>En çok sanal çekirdek, en düşük Vcore veya autopause gecikme değiştiriliyor.|
 |SQL Server Management Studio (SSMS)|Sürüm 18 SSMS kullanarak ve herhangi bir veritabanı için yeni bir sorgu penceresi açıp sunucuda aynı sunucuya otomatik olarak duraklatıldı veritabanında devam edecek. IntelliSense ile SSMS sürümü 17.9.1 kullanarak devre dışı ise bu davranışı gerçekleşmez.|
+
+Autoresuming ayrıca veritabanının çevrimiçi olması gereken bazı hizmet güncelleştirmeleri dağıtımı sırasında tetiklenir.
 
 ### <a name="connectivity"></a>Bağlantı
 
@@ -134,16 +144,7 @@ Sunucusuz veritabanı duraklatıldı durumunda ilk oturum açma veritabanını s
 
 ### <a name="latency"></a>Gecikme süresi
 
-Autopause ya da sunucusuz veritabanı autoresume gecikme süresi, genellikle 1 dakika bazında ' dir.
-
-### <a name="feature-support"></a>Özellik desteği
-
-Aşağıdaki özellikler autopausing ve autoresuming desteklemez. Aşağıdaki özelliklerden herhangi birini kullanılıyorsa, diğer bir deyişle, sonra veritabanının veritabanı etkin olmama süresini bağımsız olarak çevrimiçi kalır:
-
-- Coğrafi çoğaltma (etkin coğrafi çoğaltma ve otomatik yük devretme grupları)
-- Uzun süreli yedek saklama (LTR)
-- SQL veri eşitlemede kullanılan eşitleme veritabanı.
-
+Autoresume ve sunucusuz veritabanı autopause gecikme süresini genellikle 1 dakikalık autoresume ve 1-10 dakika için autopause sırasıdır.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Sunucusuz bilgi işlem katmanı içine ekleme
 
@@ -161,7 +162,7 @@ Yeni bir veritabanı oluşturmak veya bir sunucusuz bilgi işlem katmanı varola
 
    |Parametre|Değer seçenekleri|Varsayılan değer|
    |---|---|---|---|
-   |En Az vCore|Herhangi {0,5, 1, 2, 4}, en çok sanal çekirdek değerini aşmayan|0,5 sanal çekirdek|
+   |En düşük Vcore|Herhangi {0,5, 1, 2, 4}, en çok sanal çekirdek değerini aşmayan|0,5 sanal çekirdek|
    |Autopause gecikmesi|En küçük: 360 dakika (6 saat)<br>En fazla: süre 10080 dakikadır (7 gün)<br>Artış: 60 dakika<br>Autopause devre dışı bırak: -1|360 dakika|
 
 > [!NOTE]
@@ -175,8 +176,6 @@ Bkz: [hızlı başlangıç: Azure portalını kullanarak Azure SQL veritabanı t
 
 Aşağıdaki örnek GP_S_Gen5_4 en düşük Vcore ve autopause gecikme için varsayılan değerlerle adlı hizmet hedefi tarafından tanımlanan sunucusuz bilgi işlem katmanı yeni bir veritabanı oluşturur.
 
-Sunucusuz PowerShell şu anda galeride böylece çalıştırma olandan daha yeni bir sürümü gerektirir `Update-Module Az.Sql` en son etkin sunucusuz cmdlet'lerini alma.
-
 ```powershell
 New-AzSqlDatabase `
   -ResourceGroupName $resourceGroupName `
@@ -187,7 +186,7 @@ New-AzSqlDatabase `
   -ComputeGeneration Gen5 `
   -MinVcore 0.5 `
   -MaxVcore 2 `
-  -AutoPauseDelay 720
+  -AutoPauseDelayInMinutes 720
 ```
 
 ### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Sunucusuz bilgi işlem katmanı içinde sağlanan işlem veritabanını taşıma
@@ -204,7 +203,7 @@ Set-AzSqlDatabase
   -ComputeGeneration Gen5 `
   -MinVcore 1 `
   -MaxVcore 4 `
-  -AutoPauseDelay 1440
+  -AutoPauseDelayInMinutes 1440
 ```
 
 ### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Sağlanan işlem katmanı sunucusuz veritabanına taşıma
@@ -223,7 +222,7 @@ En düşük Vcore değiştirme işlemi gerçekleştirildiğinde kullanarak [küm
 
 ### <a name="autopause-delay"></a>Autopause gecikmesi
 
-Autopause gecikmesini değiştirme işlemi gerçekleştirildiğinde kullanarak [kümesi AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) PowerShell kullanarak komut `AutoPauseDelay` bağımsız değişken.
+Autopause gecikmesini değiştirme işlemi gerçekleştirildiğinde kullanarak [kümesi AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) PowerShell kullanarak komut `AutoPauseDelayInMinutes` bağımsız değişken.
 
 ## <a name="monitoring"></a>İzleme
 
@@ -279,7 +278,7 @@ Kaynak limitleri için bkz. [sunucusuz bilgi işlem katmanı](sql-database-vCore
 Faturalandırılan işlem en fazla kullanılan CPU ve saniyede kullanılan bellek miktarıdır. Kullanılan CPU miktarını ve her biri için sağlanan en düşük miktar daha az kullanılan bellek miktarı sağlanan faturalandırılır. CPU ile bellek faturalandırma için karşılaştırmak için bellek, sanal çekirdekler birimlerine bellek miktarı GB olarak 3 GB sanal çekirdek ölçeklendirme tarafından normalleştirilmiştir.
 
 - **Kaynak faturalandırılır**: CPU ve bellek
-- **Tutarı üzerinden faturalandırılırsınız ($)** : sanal çekirdek birim fiyatı * max (en düşük Vcore, kullanılan sanal çekirdek, en düşük bellek GB * 1/3 bellek kullanılan GB * 1/3) 
+- **Faturalandırılan miktar**: sanal çekirdek birim fiyatı * max (en düşük Vcore, kullanılan sanal çekirdek, en düşük bellek GB * 1/3 bellek kullanılan GB * 1/3) 
 - **Faturalama sıklığı**: Saniye başına
 
 Saniye başına sanal çekirdek başına maliyet sanal çekirdek birim fiyatı. Başvurmak [Azure SQL veritabanı fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/sql-database/single/) belirli birimi fiyatlar belirli bir bölge için.
@@ -292,25 +291,25 @@ Faturalandırılan işlem miktarını tarafından aşağıdaki ölçüm sunulur:
 
 Bu miktar saniyede hesaplanır ve 1 dakika içinde toplanır.
 
-1 dakika sanal çekirdek ve en fazla 4 sanal çekirdek ile yapılandırılmış bir sunucusuz veritabanı göz önünde bulundurun.  Bu, yaklaşık 3 GB en düşük bellek ve en fazla 12 GB bellek karşılık gelir.  Otomatik duraklatma gecikme 6 saat olarak ayarlanır ve veritabanı iş yükünüzü 24 saatlik bir dönemde ilk 2 saat boyunca etkin ve etkin olmayan Aksi takdirde varsayalım.    
+1 dakika sanal çekirdek ve en fazla 4 sanal çekirdek ile yapılandırılmış bir sunucusuz veritabanı göz önünde bulundurun.  Bu, yaklaşık 3 GB en düşük bellek ve en fazla 12 GB bellek karşılık gelir.  Otomatik duraklatma gecikme 6 saat olarak ayarlanır ve veritabanı iş yükünüzü 24 saatlik bir dönemde ilk 2 saat boyunca etkin ve etkin olmayan Aksi takdirde varsayalım.    
 
-Bu durumda, veritabanı işlem ve depolama için sırasında ilk 8 saat olarak faturalandırılır.  Veritabanı devre dışı sonra ikinci saatten itibaren olsa da, veritabanı çevrimiçi durumdayken sağlanan en düşük işlem üzerinde göre sonraki 6 saat içindeki işlem yine de faturalandırılır.  Veritabanı duraklatıldığında yalnızca depolama 24 saatlik dönemde geri kalanı faturalandırılır.
+Bu durumda, veritabanı işlem ve depolama için sırasında ilk 8 saat olarak faturalandırılır.  Veritabanı devre dışı sonra ikinci saatten itibaren olsa da, veritabanı çevrimiçi durumdayken sağlanan en düşük işlem üzerinde göre sonraki 6 saat içindeki işlem yine de faturalandırılır.  Veritabanı duraklatıldığında yalnızca depolama 24 saatlik dönemde geri kalanı faturalandırılır.
 
 Bu örnekteki işlem faturada daha kesin bir şekilde aşağıdaki gibi hesaplanır:
 
 |Zaman aralığı|saniyede kullanılan sanal çekirdekler|Saniyede kullanılan GB|İşlem boyutu faturalandırılır|Sanal çekirdek saniye süre faturalandırılır|
 |---|---|---|---|---|
 |0:00-1:00|4|9|kullanılan sanal çekirdekler|4 sanal çekirdek * 3600 saniye = 14400 sanal çekirdek saniye|
-|1:00-2:00|1|12|Kullanılan bellek|12 Gb * 1/3 * 14400 sanal çekirdek saniye = 3600 saniye|
-|2:00-8:00|0|0|Sağlanan en düşük bellek|3 Gb * 1/3 * 21600 saniye = 21600 sanal çekirdek saniye|
+|1:00-2:00|1|12|Kullanılan bellek|12 GB * 1/3 * 14400 sanal çekirdek saniye = 3600 saniye|
+|2:00-8:00|0|0|Sağlanan en düşük bellek|3 GB * 1/3 * 21600 saniye = 21600 sanal çekirdek saniye|
 |8:00-24:00|0|0|Duraklatılmış faturalandırılırken işlem yok|0 sanal çekirdek saniye|
 |Toplam sanal çekirdek saniye içinde 24 saat olarak faturalandırılır||||50400 sanal çekirdek saniye|
 
-İşlem birim fiyatı $0.000073/vCore/second olduğunu varsayın.  Sonra bu 24 saatlik dönem için fatura işlem ürün işlem birim fiyatı ve sanal çekirdek saniyelik olarak faturalandırılır: $0.000073/vCore/second * $3.68 50400 sanal çekirdek saniye =
+İşlem birim fiyatı $0.000073/vCore/second olduğunu varsayın.  Sonra bu 24 saatlik dönem için fatura işlem ürün işlem birim fiyatı ve sanal çekirdek saniyelik olarak faturalandırılır: $0.000073/vCore/second * $3.68 50400 sanal çekirdek saniye =
 
 ## <a name="available-regions"></a>Kullanılabilen bölgeler
 
-Sunucusuz bilgi işlem katmanı şu bölgeler dışındaki tüm bölgelerde kullanılabilir: Avustralya Orta, Çin Doğu, Kuzey Çin, Fransa Güney, Almanya Orta, Almanya Kuzeydoğu, Hindistan Batı, Kore Güney, Güney Afrika Batı, UK Kuzey, UK Güney, UK Batı ve Orta Batı ABD.
+Sunucusuz bilgi işlem katmanı, tüm dünyada dışında aşağıdaki bölgelerde kullanılabilir: Avustralya Orta, Çin Doğu, Kuzey Çin, Fransa Güney, Almanya Orta, Almanya Kuzeydoğu, Hindistan Batı, Kore Güney, Güney Afrika Batı, UK Kuzey, UK Güney, UK Batı ve Orta Batı ABD.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

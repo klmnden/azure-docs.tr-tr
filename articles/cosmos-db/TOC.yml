@@ -362,6 +362,8 @@
               href: manage-mongodb-with-resource-manager.md
             - name: PowerShell kullanarak yönetme
               href: powershell-samples-mongodb.md
+            - name: Yaygın sorunları giderme
+              href: mongodb-troubleshoot.md
     - name: Gremlin API
       displayName: 'graph, graph database'
       items:

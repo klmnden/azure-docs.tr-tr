@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869421"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472163"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Azure CDN varlıkları belirteç kimlik doğrulaması ile güvenli hale getirme
 
@@ -173,17 +173,17 @@ Aşağıdaki akış çizelgesi, CDN uç noktasında belirteci kimlik doğrulamas
 3. Altında **HTTP büyük**seçin **kurallar altyapısı**. Kural altyapısı özelliği geçerli belirteç kimlik doğrulaması özelliği etkinleştirmek ve ek belirteç kimlik doğrulaması ile ilgili özellikleri etkinleştirmek için yollarını tanımlamak için kullanın. Daha fazla bilgi için [kural altyapısı başvurusu](cdn-rules-engine-reference.md).
 
    1. Mevcut bir kuralı seçin veya belirteci kimlik doğrulaması uygulamak istediğiniz varlık veya yolunu tanımlamak için yeni bir kural oluşturun. 
-   2. Bir kural belirteci kimlik doğrulamasını etkinleştirmek için seçin **[belirteç kimlik doğrulaması](cdn-rules-engine-reference-features.md#token-auth)** gelen **özellikleri** listeleyin ve ardından **etkin**. Seçin **güncelleştirme** kural güncelleştiriyorsanız veya **Ekle** bir kuralı oluşturuyorsanız.
+   2. Bir kural belirteci kimlik doğrulamasını etkinleştirmek için seçin **[belirteç kimlik doğrulaması](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** gelen **özellikleri** listeleyin ve ardından **etkin**. Seçin **güncelleştirme** kural güncelleştiriyorsanız veya **Ekle** bir kuralı oluşturuyorsanız.
         
       ![Belirteç kimlik doğrulaması etkin örnek CDN kural altyapısı](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. Kural altyapısı ek belirteç kimlik doğrulamayla ilgili özellikler de etkinleştirebilirsiniz. Aşağıdaki özelliklerden herhangi birini etkinleştirmek için seçim **özellikleri** listeleyin ve ardından **etkin**.
     
-   - **[Belirteç kimlik doğrulama reddi kod](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Bir istek reddedildiğinde kullanıcıya döndürülür yanıtının türünü belirler. Burada ayarlanan kurallar kümesi'nde yanıt kodu geçersiz kılma **reddi özel işleme** belirteç tabanlı kimlik doğrulama sayfasındaki bölümü.
+   - **[Belirteç kimlik doğrulama reddi kod](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : Bir istek reddedildiğinde kullanıcıya döndürülür yanıtının türünü belirler. Burada ayarlanan kurallar kümesi'nde yanıt kodu geçersiz kılma **reddi özel işleme** belirteç tabanlı kimlik doğrulama sayfasındaki bölümü.
 
-   - **[Belirteç kimlik doğrulaması, URL çalışması Yoksay](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Belirteci doğrulamak için kullanılan URL büyük küçük harfe duyarlı olup olmadığını belirler.
+   - **[Belirteç kimlik doğrulaması, URL çalışması Yoksay](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : Belirteci doğrulamak için kullanılan URL büyük küçük harfe duyarlı olup olmadığını belirler.
 
-   - **[Parametre auth token](cdn-rules-engine-reference-features.md#token-auth-parameter)**: İstenen URL'yi görüntülenen belirteci kimlik doğrulaması sorgu dizesi parametresi olarak yeniden adlandırır. 
+   - **[Parametre auth token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : İstenen URL'yi görüntülenen belirteci kimlik doğrulaması sorgu dizesi parametresi olarak yeniden adlandırır. 
         
      ![Belirteç kimlik doğrulaması ayarları örneği CDN kural altyapısı](./media/cdn-token-auth/cdn-rules-engine2.png)
 

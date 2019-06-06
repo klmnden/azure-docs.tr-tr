@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 5131329f6675bc86374f5a5c081e0aaa7d36c0fe
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155232"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430761"
 ---
 # <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure veri fabrikası eşleme veri akışları sütun desenleri
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Sabit kodlanmış sütun adları yerine desenleri temel şablon sütunları oluşturabilmesi çeşitli Azure veri fabrikası, veri akışı dönüşümleri "Sütunları desenleri" fikrini destekler. İfade oluşturucu içinde bu özellik sütunları xact, belirli bir alan adları yerine dönüştürme için eşleştirilecek desenleri tanımlamak için kullanabilirsiniz. Gelen kaynak alanları genellikle, özellikle metin dosyalarında veya NoSQL veritabanları sütunları değiştirme söz konusu olduğunda değiştirirseniz desenleri kullanışlıdır. Bu durum bazen "Şema değişikliklerini" adlandırılır.
+Sabit kodlanmış sütun adları yerine desenleri temel şablon sütunları oluşturabilmesi çeşitli Azure veri fabrikası, veri akışı dönüşümleri "Sütunları desenleri" fikrini destekler. İfade oluşturucu içinde bu özellik, tam ve özel alan adları yerine dönüştürme için sütunları eşleştirmeye desenleri tanımlamak için kullanabilirsiniz. Gelen kaynak alanları genellikle, özellikle metin dosyalarında veya NoSQL veritabanları sütunları değiştirme söz konusu olduğunda değiştirirseniz desenleri kullanışlıdır. Bu durum bazen "Şema değişikliklerini" adlandırılır.
 
 ![Sütun desenleri](media/data-flow/columnpattern2.png "sütun desenleri")
 
@@ -27,6 +27,6 @@ Bir ifade desenleri kabul eden bir dönüştürme eklerken, "Sütun deseni Ekle"
 
 Şablon sütun modellerini oluştururken kullanmanız `$$` ifadesindeki eşleşen her alan için başvuru giriş veri akışını göstermek için.
 
-İfade Oluşturucu regex işlevlerden birini kullanmayı seçerseniz, ardından sonradan kullanabilirsiniz 1 USD $2, $3... regex ifadeniz eşleşen desenleri başvurmak için.
+İfade Oluşturucu regex işlevlerden birini kullanmayı seçerseniz, ardından daha sonra kullanabileceğiniz $1, 2 $ $3... regex ifadeniz eşleşen alt desenlerin başvuracak şekilde değiştirin.
 
-Sütun düzeni senaryoya örnek olarak, toplam gelen alan bir dizi kullanıyor. Toplama SUM toplama dönüşümü hesaplamalardır. Sonra alan türü her eşleşme "tamsayıyı" eşleşme TOPLAYIN ve her bir eşleştirmeyi ifadeniz başvurmak için $$'i kullanın.
+Sütun düzeni senaryoya örnek olarak, toplam gelen alan bir dizi kullanıyor. Toplama SUM toplama dönüşümü hesaplamalardır. Ardından, TOPLA "tamsayı" eşleşen ve ardından her bir eşleştirmeyi ifadeniz başvurmak için $ kullanan alan türlerinin her eşleşme kullanabilirsiniz.

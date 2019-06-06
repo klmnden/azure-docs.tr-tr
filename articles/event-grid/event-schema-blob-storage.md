@@ -109,7 +109,7 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | eTag | string | Koşullu işlemleri gerçekleştirmek için kullanabileceğiniz bir değer. |
 | contentType | string | Blob'u için belirtilen içerik türü. |
 | contentLength | integer | Blob bayt cinsinden boyutu. |
-| blobType | string | Blob türü. Geçerli değerler "BlockBlob" veya "PageBlob" olmalı. |
+| BlobType | string | Blob türü. Geçerli değerler "BlockBlob" veya "PageBlob" olmalı. |
 | url | string | Blob yolu. |
 | sequencer | string | İstekleri izlemek için kullanabileceğiniz bir kullanıcı tarafından denetlenen bir değer. |
 | storageDiagnostics | object | Depolama Tanılama hakkında bilgi sağlar. |

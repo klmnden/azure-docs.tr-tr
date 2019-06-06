@@ -4,16 +4,16 @@ description: Güncelleştirme yönetimi ile ilgili sorunları giderme hakkında 
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f286877c6a9e787c06a8a846efaf94668c04fc4e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bcc871ecc9413f02545e6aec4caa6342d563b44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787704"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474579"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
 
@@ -78,19 +78,48 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Senaryo: Güncelleştirme yönetimi verilerini bir makine için Azure İzleyici günlüklerine gösterilmiyor
+### <a name="nologs"></a>Senaryo: Makineleri portalında güncelleştirme yönetimi altında görünmüyor
 
 #### <a name="issue"></a>Sorun
 
-Gösterme makineler sahip **değerlendirilmeyen** altında **Uyumluluk**, ancak bir karma Runbook çalışanı ancak güncelleştirme yönetimi için sinyal verilerini Azure İzleyici günlüklerine bakın.
+Aşağıdaki senaryolarda çalışabilir:
+
+* Makine programlarınızı **yapılandırılmadı** güncelleştirme yönetimi görünümünden bir VM
+
+* Otomasyon hesabınızı güncelleştirme yönetimi görünümünden makinelerinizi eksik
+
+* Gösterme makineler sahip **değerlendirilmeyen** altında **Uyumluluk**, ancak bir karma Runbook çalışanı ancak güncelleştirme yönetimi için sinyal verilerini Azure İzleyici günlüklerine bakın.
 
 #### <a name="cause"></a>Nedeni
 
+Bu, yerel yapılandırma ile ilgili olası sorunları veya yanlış yapılandırılmış kapsam yapılandırması tarafından kaynaklanabilir.
+
 Karma Runbook çalışanı yeniden kayıtlı ve yeniden gerekebilir.
+
+Kota saklanmasını ulaştı ve durdurma veriler çalışma alanınızdaki tanımladığınız.
 
 #### <a name="resolution"></a>Çözüm
 
-Bölümündeki adımları [Windows karma Runbook çalışanı dağıtma](../automation-windows-hrw-install.md) için karma çalışan Windows yeniden veya [Linux karma Runbook çalışanı dağıtma](../automation-linux-hrw-install.md) Linux için.
+* Makinenizde doğru çalışma alanına raporlama emin olun. Hangi çalışma makineniz için raporlama doğrulayın. Bunu doğrulamak yönergeler için bkz: [Log Analytics aracı bağlantısını doğrulamak](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Ardından, bu çalışma alanını Azure Otomasyon hesabınıza bağlı olduğundan emin olun. Bunu doğrulamak için Otomasyon hesabınıza gidin ve **bağlantılı çalışma** altında **ilgili kaynakları**.
+
+* Log Analytics çalışma alanınızda makineler görünmesini emin olun. Otomasyon hesabınıza bağlı Log Analytics çalışma alanınızda aşağıdaki sorguyu çalıştırın. Makinenizde makinenizde sorgu sonuçlarını görmüyorsanız, büyük olasılıkla bir yerel yapılandırma sorunu olduğu anlamına gelir sinyal göndermiyor değil. Sorun Gidericisi çalıştırabileceğiniz [Windows](update-agent-issues.md#troubleshoot-offline) veya [Linux](update-agent-issues-linux.md#troubleshoot-offline) işletim sistemi veya, bağlı olarak olabilir [aracıyı yeniden yükleme](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Sorgu sonuçlarını makinenize gösterilir sonra çok gereken aşağıdaki madde işareti içinde belirtilen kapsam yapılandırması.
+
+  ```loganalytics
+  Heartbeat
+  | summarize by Computer, Solutions
+  ```
+
+* Kapsam yapılandırma sorunlarını denetleyin. [Kapsam yapılandırması](../automation-onboard-solutions-from-automation-account.md#scope-configuration) hangi makineleri çözüm için yapılandırılmaları belirler. Makinenizin çalışma alanınızda gösteren ancak değilse, gösteren makineleri hedeflemek için kapsam yapılandırması yapılandırmanız gerekecektir. Bunu yapma hakkında bilgi için bkz: [çalışma alanındaki yerleşik makine](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+
+* Yukarıdaki adımlar sorunu çözmezse bölümündeki adımları [Windows karma Runbook çalışanı dağıtma](../automation-windows-hrw-install.md) için karma çalışan Windows yeniden veya [Linux karma Runbook çalışanı dağıtma](../automation-linux-hrw-install.md) Linux için.
+
+* Çalışma alanınızda aşağıdaki sorguyu çalıştırın. Sonuç görürseniz `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` ulaşıldı ve kaydedilmesini veri durdurdu çalışma alanınızda tanımlanan bir kotası vardır. Çalışma alanınızda gidin **kullanım ve Tahmini maliyetler** > **veri hacmi Yönetimi** kotanızı denetleyin ve sahip olduğunuz kotayı Kaldır.
+
+  ```loganalytics
+  Operation
+  | where OperationCategory == 'Data Collection Status'
+  | sort by TimeGenerated desc
+  ```
 
 ## <a name="windows"></a>Windows
 
@@ -206,7 +235,7 @@ Windows Update veya WSUS makinede doğru şekilde yapılandırılmamış. Günce
 
 Tüm özel durum iletisi görmek için kırmızı renkte gösterilen özel durumu çift tıklayın. Aşağıdaki tabloda olası çözümleri veya gerçekleştirilecek eylemleri gözden geçirin:
 
-|Özel Durum  |Çözüm veya eylem  |
+|Özel durum  |Çözüm veya eylem  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | İlgili hata kodunu arama [Windows güncelleştirme hatası kodu listesi](https://support.microsoft.com/help/938205/windows-update-error-code-list) özel durumun nedeni hakkında ek ayrıntıları bulmak için.        |
 |`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Bu hatalar, ağ bağlantısı sorunları var. Makinenizde güncelleştirme yönetimi için uygun ağ bağlantısı olduğundan emin olun. Bölümüne [ağ planlaması](../automation-update-management.md#ports) bağlantı noktaları ve gerekli olan adresleri listesi.        |

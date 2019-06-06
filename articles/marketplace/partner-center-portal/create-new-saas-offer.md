@@ -7,27 +7,28 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243340"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455650"
 ---
 # <a name="create-a-new-saas-offer"></a>Yeni bir SaaS teklifi oluşturma
 
-Hizmet (SaaS) sunduğu yazılım oluşturmaya başlamak için olun, ilk [bir iş ortağı merkezi hesabınız oluşturma](./create-account.md) açın [ticari Marketplace panosunu](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), ile **sunar** sekmesi seçili. 
+Hizmet (SaaS) sunduğu yazılım oluşturmaya başlamak için olun, ilk [bir iş ortağı merkezi hesabınız oluşturma](./create-account.md) açın [ticari Marketplace panosunu](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), ile **genelbakış** sekmesi seçili.
 
-![Market iş ortağı merkezi Panoda ticari](./media/commercial-marketplace-offers.png)
+![Market iş ortağı merkezi Panoda ticari](./media/new-offer-overview.png)
 
 Seçin + **yeni oluştur...** düğmesini ve ardından **hizmet olarak yazılım** menü öğesi. 
 
 Bir teklif türlerinden birini seçerseniz, eski yönlendirilecek [bulut iş ortağı portalı](https://cloudpartner.azure.com/).  SaaS teklifleri yalnızca şu anda ticari Market iş ortağı merkezi portalında kullanılabilir. 
 
-![İş ortağı Merkezi'nde teklif penceresi oluştur](./media/new-offer.png)
+![İş ortağı Merkezi'nde teklif penceresi oluştur](./media/new-offer-click.png)
 
+**Yeni teklif** iletişim kutusu görüntülenir. 
 
-**Yeni teklif** iletişim kutusu görüntülenir. ![Yeni Teklif iletişim kutusu](./media/new-offer-popup.png)
+![Yeni Teklif iletişim kutusu](./media/new-offer-popup.png)
 
 
 ## <a name="offer-id-and-name"></a>Teklif kimliği ve adı

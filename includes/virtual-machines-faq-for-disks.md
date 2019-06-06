@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248925"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482365"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -143,7 +143,7 @@ Yalnızca veri disklerinde, işletim sistemi diski GPT bölümleme kullanılabil
 
 **Anlık görüntüleri hangi disk türlerini destekler?**
 
-Standart SSD Premium SSD ve standart SSD herhangi boyutu sınırı olmadan anlık görüntüleri destekler. Bu nedenle anlık görüntü büyük diskler (en fazla 32 tib'a kadar) kullanabilirsiniz. Ultra yüksek SSD anlık görüntülerini desteklemez.
+Premium SSD, standart bir SSD ve HDD standart destek anlık görüntüler. Bu üç disk türleri için anlık görüntüler (32 TiB kadar disk boyutu dahil) tüm disk boyutları için desteklenir. Ultra yüksek SSD anlık görüntülerini desteklemez.
 
 ## <a name="standard-ssd-disks"></a>Standart SSD disk
 

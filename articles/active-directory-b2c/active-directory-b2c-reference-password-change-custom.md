@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C'de özel ilkeleri kullanarak parola değişikliği yapılandırma | Microsoft Docs
 description: Azure Active Directory B2C'de özel ilkeleri kullanarak parolalarını değiştirme olanağı hakkında bilgi edinin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d05a5c4fa13b83abd26ee06123028f75a725582
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a49f62b6fc1ea00084266d4c5405f8bf96d034cb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729464"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509251"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de özel ilkeleri kullanarak parola değişikliği yapılandırın
 
@@ -173,7 +173,7 @@ Uygulamalarınızı Azure AD B2C'de test etme, döndürülen Azure AD B2C belirt
 7. **Karşıya Yükle**'ye tıklayın.
 8. 5. adım-7 gibi bağlı olan taraf dosyası için yineleyin *ProfileEditPasswordChange.xml*.
 
-### <a name="run-the-policy"></a>İlkeyi çalıştır
+### <a name="run-the-policy"></a>İlke çalıştırın
 
 1. Değiştirdiğiniz İlkesi'ni açın. Örneğin, *B2C_1A_profile_edit_password_change*.
 2. İçin **uygulama**, daha önce kaydettiğiniz uygulamanızı seçin. Belirteç görmek için **yanıt URL'si** göstermelidir `https://jwt.ms`.

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 60cf37e5f6375d08e73241f6e357ac39ea665e9b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d58c596421cec2e69210dd39a5d4a9708c154b44
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192545"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492747"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>İş açısından kritik verilerin Azure Blob Depolama alanında Store
 
@@ -34,9 +34,9 @@ Tipik kullanım alanları şunlardır:
 
 Aşağıdaki sabit depolama destekler:
 
-- **[Zamana bağlı Bekletme İlkesi desteği](#time-based-retention)**: Kullanıcılar için belirli bir aralıkta verileri depolamak için ilkeler ayarlayabilir. Zamana bağlı bekletme ilkesi olduğunda ayarlamak, BLOB'ları oluşturulan ve okuma, ancak olmayan değiştirilebilir veya silindi. Saklama süresi sona erdiğinde blobları silindi ancak üzerine yazılmaz.
+- **[Zamana bağlı Bekletme İlkesi desteği](#time-based-retention)** : Kullanıcılar için belirli bir aralıkta verileri depolamak için ilkeler ayarlayabilir. Zamana bağlı bekletme ilkesi olduğunda ayarlamak, BLOB'ları oluşturulan ve okuma, ancak olmayan değiştirilebilir veya silindi. Saklama süresi sona erdiğinde blobları silindi ancak üzerine yazılmaz.
 
-- **[Yasal tutma ilkesi desteği](#legal-holds)**: Bekletme aralığı bilinmiyorsa, kullanıcıların yasal tutma temizlenene kadar immutably verileri depolamak için yasal tutma kuralı ayarlayabilirsiniz.  Yasal tutma ilkesi ayarladığınızda, blobları oluşturulabilir ve okuma, ancak değil değiştirilmiş veya silinmiş. Her bir yasal tutma, bir kimlik dizesi kullanılan bir kullanıcı tanımlı alfasayısal etiket (örneğin, bir durum kimliği, olay adı, vb.) ile ilişkilidir. 
+- **[Yasal tutma ilkesi desteği](#legal-holds)** : Bekletme aralığı bilinmiyorsa, kullanıcıların yasal tutma temizlenene kadar immutably verileri depolamak için yasal tutma kuralı ayarlayabilirsiniz.  Yasal tutma ilkesi ayarladığınızda, blobları oluşturulabilir ve okuma, ancak değil değiştirilmiş veya silinmiş. Her bir yasal tutma, bir kimlik dizesi kullanılan bir kullanıcı tanımlı alfasayısal etiket (örneğin, bir durum kimliği, olay adı, vb.) ile ilişkilidir. 
 
 - **Tüm katmanları blob desteği**: SOLUCAN ilkeleri, Azure Blob Depolama katmanını bağımsızdır ve katmanları için geçerlidir: sık erişimli, seyrek erişimli ve Arşiv. Kullanıcılar, veri değiştirilemezlik korurken veri iş yüklerini en maliyet açısından iyileştirilmiş katmanına geçiş yapabilirsiniz.
 
@@ -53,7 +53,7 @@ Sabit bir ilke tarafından korunan tüm blobların varsa kapsayıcı ve hesabın
 ### <a name="time-based-retention"></a>Zamana bağlı bekletme
 
 > [!IMPORTANT]
-> Zamana bağlı bekletme ilkesi olmalıdır *kilitli* bir sabit olarak blob için (yazma ve silme korumalı) sn 17a-4(f) ve diğer yasal uyumluluk durumunda. Bir makul süre içinde genellikle 24 saat içindeki ilke kilitleme öneririz. Kullanımı önerilmemektedir *kilidi* kısa süreli özellik denemeler dışındaki herhangi bir amaçla durum.
+> Zamana bağlı bekletme ilkesi olmalıdır *kilitli* bir uyumlu olması blob için değişmez (yazma ve silme korumalı) sn 17a-4(f) ve diğer yasal uyumluluk durumunda. İlkeyi zaman makul bir süre genellikle 24 saatten az kilitlemenizi öneririz. Uygulanan zamana bağlı bekletme ilkesini ilk durumu *kilidi*, bunu kilitlediğinizde ilkeyi özelliği test etmek ve değişiklikleri etmenize imkan sağlar. Sırada *kilidi* durumu değiştirilemezlik koruma sağlar, kullanımı önerilmemektedir *kilidi* kısa süreli özellik denemeler dışındaki herhangi bir amaçla durum. 
 
 Bir kapsayıcı zamana bağlı Bekletme İlkesi uygulandığında, kapsayıcıdaki tüm blob'lara süresi boyunca sabit durumda kalır *etkili* saklama süresi. Mevcut blobları için geçerli saklama süresi, kullanıcı tarafından belirtilen saklama aralığı blob değiştirme saati arasındaki farkı eşittir.
 
@@ -65,6 +65,8 @@ Yeni bloblar için geçerli olan saklama süresi, kullanıcı tarafından belirt
 > Bu kapsayıcı içinde mevcut blob _testblob1_, bir yıl önce oluşturuldu. Geçerli saklama süresini _testblob1_ dört yıl.
 >
 > Yeni bir blob _testblob2_, artık kapsayıcıya yüklenir. Bu yeni blob için geçerli saklama süresi, beş yıl ' dir.
+
+Bir kilidi zamana bağlı bekletme ilkesi özelliği yalnızca test için önerilir ve sn 17a-4(f) ve diğer yasal uyumluluk ile uyumlu olması için bir ilke kilitlenmelidir. Zamana bağlı bekletme ilkesi kilitlendikten sonra ilke kaldırılamaz ve en fazla 5 etkin tutma süresi artışları izin verilir. Ayarlayın ve kilitleme zamana bağlı bekletme ilkeleri hakkında daha fazla bilgi için bkz. [Başlarken](#getting-started) bölümü.
 
 ### <a name="legal-holds"></a>Yasal tutma
 
@@ -124,7 +126,7 @@ En son sürümleri [Azure portalında](https://portal.azure.com), [Azure CLI](ht
 
     İlkeyi Başlangıç durumu özelliği test etmek ve bunu kilitlediğinizde ilkesinde değişiklik kilitli değil. Kilitleme ilkesi sn 17a-4 gibi düzenlemelerle uyumluluğu için önemlidir.
 
-5. İlke kilitleyin. Üç nokta simgesine sağ tıklayın (**...** ), ve ek eylemleri aşağıdaki menü görünür:
+5. İlke kilitleyin. Üç nokta simgesine sağ tıklayın ( **...** ), ve ek eylemleri aşağıdaki menü görünür:
 
     !["İlkesi menüsünde kilitleme"](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
@@ -169,7 +171,7 @@ Aşağıdaki istemci kitaplıkları, Azure Blob Depolama için sabit depolamayı
 
 **Belgeleri SOLUCAN uyumluluk sağlayabilir miyim?**
 
-Evet. Belge uyumluluk için Microsoft kayıtları yönetim ve bilgi İdaresi, Azure Blob Depolama sabit ve belirli gereksinimler ile uyumluluğunu değerlendirmek için Cohasset ilişkilendirir, konusunda uzmanlaşmış önde gelen bağımsız değerlendirme firması korunur Finansal Hizmetler sektöründe için. Azure sabit Blob Blobları zamana bağlı bir SOLUCAN durumda tutmak için kullanılan depolama CFTC kural 1.31(c)-(d) ve STANDARTLAR kural 4511 sn kural 17a-4 ilgili depolama gereksinimlerini karşıladığını Cohasset doğrulandı. Finans kuruluşları için kayıt saklama için genel olarak en normatif bir Rehber temsil ettikleri olarak Microsoft bu kural kümesi hedeflenen. Cohasset raporun kullanılabilir [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage).
+Evet. Belge uyumluluk için Microsoft kayıtları yönetim ve bilgi İdaresi, Azure Blob Depolama sabit ve belirli gereksinimler ile uyumluluğunu değerlendirmek için Cohasset ilişkilendirir, konusunda uzmanlaşmış önde gelen bağımsız değerlendirme firması korunur Finansal Hizmetler sektöründe için. Azure sabit Blob Blobları zamana bağlı bir SOLUCAN durumda tutmak için kullanılan depolama CFTC kural 1.31(c)-(d) ve STANDARTLAR kural 4511 sn kural 17a-4 ilgili depolama gereksinimlerini karşıladığını Cohasset doğrulandı. Finans kuruluşları için kayıt saklama için genel olarak en normatif bir Rehber temsil ettikleri olarak Microsoft bu kural kümesi hedeflenen. Cohasset raporun kullanılabilir [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage). Kanıtlama harfini SOLUCAN uyumluluk ile ilgili Microsoft istemek için lütfen Azure desteğine başvurun.
 
 **Bu özellik, yalnızca blok blobları, veya sayfa ve ekleme blobları da için geçerli midir?**
 
@@ -186,6 +188,10 @@ Evet, bir kapsayıcı aynı anda hem yasal tutma hem de zamana bağlı bekletme 
 **Yasal tutma için yalnızca yasal Study ilkelerdir veya diğer kullanım senaryoları vardır?**
 
 Hayır, yasal tutma olmayan zamana bağlı bekletme ilkesi için kullanılan yalnızca genel bir terimdir. Yalnızca dava için kullanılması gerekmez ilgili bildirileri. Yasal tutma ilkeleri, bekletme dönemi bilinmeyen olduğu üzerine yazma ve silme önemli kurumsal SOLUCAN verileri korumak için devre dışı bırakmak için yararlı olur. Görev açısından kritik SOLUCAN iş yüklerinizi korumak veya bir özel olay tetikleyicisi zamana bağlı bekletme ilkesini gerektirir önce bir hazırlama İlkesi kullanmak için bir kuruluş ilkesi bunu kullanabilir. 
+
+**Kaldırmak bir *kilitli* zamana bağlı bekletme ilkesini veya yasal tutma?**
+
+Yalnızca kilidi zamana bağlı bekletme ilkeleri, bir kapsayıcıdan kaldırılabilir. Zamana bağlı bekletme ilkesi kilitlendikten sonra kaldırılamaz; yalnızca etkin tutma süresi uzantıları izin verilir. Yasal tutma etiketleri silinebilir. Yasal tüm etiketleri silindiğinde, yasal tutma kaldırılır.
 
 **Zaman tabanlı saklama veya yasal tutma ilkesi ile *kilitlenmiş* bir kapsayıcıyı silmeye çalışırsam ne olur?**
 
@@ -375,12 +381,12 @@ $policy = Set-AzRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
 ```
 
-Değiştirilemezlik ilkesini kaldırmak (add - isteği kapatmak için zorla):
+Kilitli değiştirilemezlik ilkesini kaldırmak (add - isteği kapatmak için zorla):
 ```powershell
 # with an immutability policy object
 $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `

@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709929"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475196"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı için HTTP değişkenleri
 HTTP değişkenleri üzerinden HTTP istek ve yanıt meta verilerini almak bir yöntem sağlar. Bu meta veriler, ardından bir istek veya yanıt dinamik olarak değiştirmek için kullanılabilir. Aşağıdaki kural altyapısı özellikleri için HTTP değişkenlerini sınırlıdır:
 
-- [Önbellek anahtarı yeniden yazma](cdn-rules-engine-reference-features.md#cache-key-rewrite)
-- [İstemci istek üst bilgisini değiştirin](cdn-rules-engine-reference-features.md#modify-client-request-header)
-- [İstemci yanıt üst bilgisi değiştirme](cdn-rules-engine-reference-features.md#modify-client-response-header)
-- [URL yeniden yönlendirme](cdn-rules-engine-reference-features.md#url-redirect)
-- [URL yeniden yazma](cdn-rules-engine-reference-features.md#url-rewrite)
+- [Önbellek anahtarı yeniden yazma](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
+- [İstemci istek üst bilgisini değiştirin](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
+- [İstemci yanıt üst bilgisi değiştirme](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
+- [URL yeniden yönlendirme](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
+- [URL yeniden yazma](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
 
 ## <a name="definitions"></a>Tanımlar
 Aşağıdaki tabloda, desteklenen HTTP değişkenler açıklanmaktadır. Belirli bir istek için coğrafi meta verileri (örneğin, posta kodu) kullanılamadığında, boş bir değer döndürülür.
@@ -102,7 +102,7 @@ Sınırlayıcılar aşağıdaki tabloda açıklanmıştır.
 | / | Bir HTTP değişkeni veya desen sınırlandırır. |
 | // | Bulun ve tüm örneklerini belirtilen desenle değiştirin. |
 | /= | Bulma, kopyalama ve belirtilen desenle tüm örneklerini yeniden yazın. |
-| ,  | Küçük HTTP değişkenle ilişkili dönüştürün. |
+| , | Küçük HTTP değişkenle ilişkili dönüştürün. |
 | ^ | Büyük harfe HTTP değişkenle ilişkili dönüştürün. |
 | ,, | Belirtilen karakter değeri küçük HTTP değişkenle ilişkili tüm örneklerini dönüştürün. |
 | ^^ | Belirtilen karakter değeri büyük harfe HTTP değişkenle ilişkili tüm örneklerini dönüştürün. |
@@ -113,7 +113,7 @@ Aşağıdaki tabloda, bir HTTP değişkeni olarak belirtilen metin kabul değil 
 | Koşul | Açıklama | Örnek |
 | --------- | ----------- | --------|
 | % Sembol kaçış | Yüzde simgesi ters eğik çizgi kullanılarak atlanması. <br />Örnek değer sağında bir HTTP değişkeni değil de, değişmez değer olarak kabul edilir.| \%{} konağı |
-| Bilinmeyen değişkenleri | Boş bir dize her zaman için bilinmeyen değişkenleri döndürülür. | % {unknownvariable} |
+| Bilinmeyen değişkenleri | Boş bir dize her zaman için bilinmeyen değişkenleri döndürülür. | % {unknown_variable} |
 | Geçersiz karakterler veya söz dizimi | Geçersiz karakter veya sözdizimi içeriyor. değişken değişmez değerler kabul edilir. <br /><br />#1. örnek: Belirtilen değer geçersiz bir karakter içeriyor (örneğin,-). <br /><br />#2. örnek: Belirtilen değer küme ayracı çift kümesini içerir. <br /><br />#3. örnek: Belirtilen değer bir kapanış küme ayracı eksik.<br /> | #1. örnek: % {aracı resp_user} <br /><br />#2. örnek: % {{ana}} <br /><br />#3. örnek: % {konak |
 | Değişken adı eksik | Bir değişken belirtilmediğinde NULL değer her zaman döndürülür. | %{} |
 | Sondaki karakterler | Bir değişken izine karakter değişmez değerler kabul edilir. <br />Örnek sağındaki değer değişmez değer kabul edilir izleyen bir küme ayracı içerir. | %{host}} |
@@ -127,9 +127,9 @@ Aşağıdaki tabloda, varsayılan değer tanımlama açıklar.
 
 | Koşul | Sözdizimi | Örnek | Açıklama |
 | --------- | ------ | --------| ----------- |
-| Aşağıdaki koşullardan biri karşılaması durumunda bir üst bilgi varsayılan bir değere ayarlayın: <br /><br />-Üst bilgisi eksik <br /><br />-Üst bilgi değeri NULL olarak ayarlanır.| % {Değişken: = Value} | % {http_referer: = belirtilmeyen} | Referer üst bilgisi yalnızca ayarlanacak *belirtilmeyen* eksik ya da ayarlanmış olduğunda null. Bunu ayarlarsanız, hiçbir eylem gerçekleşir. |
-| Eksik olduğunda, bir üst bilgi varsayılan bir değere ayarlayın. | % {Değişken = Value} | %{http_referer=unspecified} | Referer üst bilgisi yalnızca ayarlanacak *belirtilmeyen* eksik olduğunda. Bunu ayarlarsanız, hiçbir eylem gerçekleşir. |
-| Üst bilgi aşağıdaki koşullardan birini karşılamıyor varsayılan değerine ayarlanır: <br /><br />-Eksik:<br /><br /> -NULL olarak ayarlayın. | % {Değişken: + değeri} | % {http_referer: + belirtilmeyen} | Referer üst bilgisi yalnızca ayarlanacak *belirtilmeyen* bir değer atandığında için. Eksik ya da ayarlanmış ise hiçbir eylem gerçekleşecek null. |
+| Aşağıdaki koşullardan biri karşılaması durumunda bir üst bilgi varsayılan bir değere ayarlayın: <br /><br />-Üst bilgisi eksik <br /><br />-Üst bilgi değeri NULL olarak ayarlanır.| % {Değişken: = Value} | % {http_referrer: = belirtilmeyen} | Başvuran üst bilgisi yalnızca ayarlanacak *belirtilmeyen* eksik ya da ayarlanmış olduğunda null. Bunu ayarlarsanız, hiçbir eylem gerçekleşir. |
+| Eksik olduğunda, bir üst bilgi varsayılan bir değere ayarlayın. | % {Değişken = Value} | %{http_referrer=unspecified} | Başvuran üst bilgisi yalnızca ayarlanacak *belirtilmeyen* eksik olduğunda. Bunu ayarlarsanız, hiçbir eylem gerçekleşir. |
+| Üst bilgi aşağıdaki koşullardan birini karşılamıyor varsayılan değerine ayarlanır: <br /><br />-Eksik:<br /><br /> -NULL olarak ayarlayın. | % {Değişken: + değeri} | % {http_referrer: + belirtilmeyen} | Başvuran üst bilgisi yalnızca ayarlanacak *belirtilmeyen* bir değer atandığında için. Eksik ya da ayarlanmış ise hiçbir eylem gerçekleşecek null. |
 
 ## <a name="manipulating-variables"></a>Değişkenleri düzenleme
 Değişkenleri aşağıdaki yöntemlerle yönetilebilir:

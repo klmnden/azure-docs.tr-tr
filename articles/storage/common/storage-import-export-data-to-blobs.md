@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 05/31/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ddaead7a0e616b3138dca0b18a58d64e38a46f9e
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 68f62a6945f3b651781414e3194104b6d2e6295c
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66356422"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455802"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 
@@ -58,7 +58,7 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
 6.  Disk hazırlamak için aşağıdaki komutu çalıştırın. **Veri boyutu bağlı olarak bu gün olarak birkaç saat sürebilir.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite /enablecontentmd5 
     ```
     Günlük dosyası, Aracı çalıştırdığınız klasörde oluşturulur. İki dosyayı da oluşturulan - bir *.xml* dosyası (aracını çalıştırdığınız klasöre) ve bir *sürücü manifest.xml* dosyası (veri bulunduğu klasörü).
     
@@ -72,6 +72,7 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
     |/bk:     |Sürücüsü için BitLocker anahtarı. Çıktısından sayısal parolası `manage-bde -protectors -get D:`      |
     |/srcdir:     |Ardından gönderilmeye diskinin sürücü harfi `:\`. Örneğin, `D:\`.         |
     |/dstdir:     |Azure depolama alanındaki hedef kapsayıcısının adı.         |
+    |/blobtype:     |Bu seçenek verileri içeri aktarmak istediğiniz blobları türünü belirtir. Blok blobları için budur `BlockBlob` ve sayfa blobları için `PagaBlob`.         |
     |/skipwrite:     |Hiçbir kopyalanması gereken yeni verileri ve disk üzerinde var olan veri olduğunu belirten seçeneği hazırlanması sağlamaktır.          |
     |/enablecontentmd5:     |Seçeneği etkin olduğunda, MD5 Azure blok blobu karşıya yükleme sırasında hesaplanır sağlar.          |
 7. Sevk edilmesi gereken her disk için önceki adımı yineleyin. Her komut satırı çalıştırma için sağlanan ada sahip bir günlük dosyası oluşturulur.

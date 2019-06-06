@@ -2,20 +2,20 @@
 title: Talep ekleme ve özel ilkeleri - Azure Active Directory B2C kullanarak kullanıcı girişi özelleştirme | Microsoft Docs
 description: Kullanıcı girişini özelleştirme ve Azure Active Directory B2C'de kaydolma veya oturum açma yolculuğunun talep ekleme hakkında bilgi edinin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768003"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507553"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Talep Ekle ve Azure Active Directory B2C'de özel ilkeler kullanarak kullanıcı girişi özelleştirme
 
@@ -51,7 +51,7 @@ Aşağıdaki öğeler, talep tanımlamak için kullanılır:
 - **UserHelpText** -kullanıcının gerektiğini anlamak yardımcı olur.
 - **UserInputType** -metin kutusu, radyo seçim, aşağı açılan liste veya çoklu seçim olabilir.
 
-#### <a name="textbox"></a>Metin Kutusu
+#### <a name="textbox"></a>TextBox
 
 ```xml
 <ClaimType Id="city">
@@ -263,7 +263,7 @@ Aşağıdaki öğeler, talep tanımlamak için kullanılır:
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Azure AD kiracınıza tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve Azure AD kiracınıza içeren dizine seçme.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **uygulama kayıtları**.
-4. Seçin **kimlik deneyimi çerçevesi (Önizleme)**.
+4. Seçin **kimlik deneyimi çerçevesi (Önizleme)** .
 5. Seçin **karşıya özel İlkesi**ve ardından değiştirilen iki ilke dosyalarını karşıya yükleyin.
 2. Yüklenmiş ve'a tıklayın kaydolma veya oturum açma ilkesini seçin **Şimdi Çalıştır** düğmesi.
 3. Bir e-posta adresi kullanarak kaydolma olması gerekir.

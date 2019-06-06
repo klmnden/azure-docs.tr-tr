@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7eb4d80933e06b9eceb072bee93e2b127cfa9ffe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67720256cfac68c350c800291653a4a0c1d7ee46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727443"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427825"
 ---
 # <a name="certificate-creation-methods"></a>Sertifika oluşturma yöntemleri
 
@@ -82,7 +82,7 @@ Sertifika oluşturma el ile tamamlanan veya kullanarak bir "Self" veren olabilir
 |Sağlayıcı|Sertifika türü|  
 |--------------|----------------------|  
 |DigiCert|Key Vault, DigiCert OV ya da EV SSL sertifikalarıyla sunar.|
-|GlobalCert|Key Vault, GlobalSign OV ya da EV SSL sertifikalarıyla sunar.|
+|GlobalCert|Key Vault, Globaltrust OV ya da EV SSL sertifikalarıyla sunar. |
 
  Sertifikayı veren süresi kaynak olarak Azure anahtar kasası (KV) olarak temsil edilen bir varlıktır. KV sertifikanın kaynağı hakkında bilgi sağlamak için kullanılır; Verenin adı, sağlayıcı, kimlik bilgilerini ve diğer yönetimsel ayrıntıları.
 

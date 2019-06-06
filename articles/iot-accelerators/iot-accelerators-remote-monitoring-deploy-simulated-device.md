@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: cdd2b24e6f833ee0acb229a37c7cd3b8b6f36339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66143393"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427574"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Yeni bir simülasyon cihazı dağıtma
 
@@ -88,13 +88,14 @@ Bu bölümde, yapılandırdığınız cihaz modeli dosyalarından yüklemek içi
 1. Mevcut cihaz modeli dosyaları kapsayıcısından yeni bir konuma kopyalayın. İlk olarak, kapsayıcı kimliği için cihaz benzetimi kapsayıcı bulun:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Ardından cihaz modeli dosyaları kopyalayın **tmp** sanal makinede klasör. Aşağıdaki komut, kapsayıcı kimliği c378d6878407--bu değeri cihaz benzetimi kapsayıcı Kimliğinizle değiştirin varsayar:
 
     ```sh
-    docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo chown -R azureuser /tmp/devicemodels/
     ```
 
     Tutun **bash** SSH oturumunuzun açık penceresiyle.
@@ -116,13 +117,13 @@ Bu bölümde, yapılandırdığınız cihaz modeli dosyalarından yüklemek içi
     Çalışan Docker kapsayıcıları ve onların kapsayıcı kimlikleri durumunu görmek istiyorsanız, aşağıdaki komutu kullanın:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Cihaz benzetimi kapsayıcısı günlüğünden görmek istiyorsanız, aşağıdaki komutu çalıştırın. Kapsayıcı kimliği, cihaz benzetimi kapsayıcı kimliği ile değiştirin:
 
     ```sh
-    docker logs -f 5d3f3e78822e
+    sudo docker logs -f 5d3f3e78822e
     ```
 
 ## <a name="run-simulation"></a>Simülasyon çalıştırma

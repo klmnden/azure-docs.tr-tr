@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b881a645a42d92407aa39d0f4896629f799e6928
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524020"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66426931"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Önerileriniz veya otomatik tamamlama, Azure Search uygulamanıza ekleyin
 
@@ -46,7 +46,7 @@ Azure Search hizmeti, çözüm bir hazırlanmış NYCJobs tanıtım dizini barı
 
 * İndirme [DotNetHowToAutoComplete örnek](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
 
-, Kapsamlı, kapsayan öneriler, otomatik tamamlama, çok yönlü gezinme ve istemci tarafı önbelleğe alma örnektir. Ne örnek sunan, tam açıklama için yorum ve Benioku dosyasını gözden geçirmelisiniz.
+, Kapsamlı, kapsayan öneriler, otomatik tamamlama, çok yönlü gezinme ve istemci tarafı önbelleğe alma örnektir. Ne örnek sunan, tam açıklama için yorum ve Benioku dosyasını gözden geçirin.
 
 ## <a name="run-the-sample"></a>Örneği çalıştırma
 
@@ -70,7 +70,7 @@ Açık **Index.cshtml** altındaki kodu görmek için klasör \Views\Home dosyas
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-Stil, JavaScript ve yer tutucu metnini başvuru için bir kimlik için bir sınıf ile basit bir giriş metin kutusu budur.  Magic katıştırılmış JavaScript'te ' dir.
+Bu stil, JavaScript ve yer tutucu metnini başvuru için bir kimlik için bir sınıf ile basit bir giriş metin kutusu örneğidir.  Magic katıştırılmış JavaScript'te ' dir.
 
 C# Dil örnek yararlanmak için Index.cshtml içinde JavaScript kullanan [jQuery kullanıcı Arabirimi otomatik tamamlama Kitaplığı](https://jqueryui.com/autocomplete/). Bu kitaplık, otomatik tamamlama deneyimi MVC denetleyicisi öneriler almak için zaman uyumsuz çağrıları yaparak arama kutusuna ekler. JavaScript dil IndexJavaScript.cshtml sürümüdür. Bu, Azure Search REST API çağrıları yanı sıra arama çubuğu için aşağıdaki betiği içerir.
 
@@ -95,7 +95,7 @@ Yukarıdaki kodu tarayıcıda Otomatik Tamamla "example1a" giriş kutusuna jQuer
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-Yukarıdaki satırı jQuery kullanıcı Arabirimi Otomatik Tamamlama işlevi arama kutusu altında görüntülenen öğe listesini almak nereye bildirir. Bu bir MVC projesi olduğundan, Sorgu önerileri (hakkında daha fazla sonraki bölümde Öner) döndürmek için mantığı içeren HomeController.cs Öner işlevi çağırır. Bu işlev, ayrıca Denetim vurgular, benzer öğe eşleştirmesi ve terimi birkaç parametrelerini geçirir. JavaScript API'si otomatik tamamlama dönem parametresi ekler.
+Yukarıdaki satırı jQuery kullanıcı Arabirimi Otomatik Tamamlama işlevi arama kutusu altında görüntülenen öğe listesini almak nereye bildirir. Bu proje bir MVC projesi olduğundan, Sorgu önerileri (hakkında daha fazla sonraki bölümde Öner) döndürmek için mantığı içeren HomeController.cs Öner işlevi çağırır. Bu işlev, ayrıca Denetim vurgular, benzer öğe eşleştirmesi ve terimi birkaç parametrelerini geçirir. JavaScript API'si otomatik tamamlama dönem parametresi ekler.
 
 ### <a name="extending-the-sample-to-support-fuzzy-matching"></a>Örneği benzer öğe eşleştirmeyi destekleyecek şekilde genişletme
 
@@ -162,7 +162,7 @@ Biz web sayfası için JavaScript kodunu gözden geçirdikten sonra göz atalım
 
 Açık **HomeController.cs** denetleyicileri dizin altında dosya. 
 
-İlk şey yapabilirsiniz adlı sınıfı üst kısmındaki bir yöntemdir `InitSearch`. Bu, Azure Search hizmeti için kimliği doğrulanmış bir HTTP dizini istemcisi oluşturur. Daha fazla bilgi için [bir .NET uygulamasından Azure Search kullanma](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+İlk şey yapabilirsiniz adlı sınıfı üst kısmındaki bir yöntemdir `InitSearch`. Bu yöntem, Azure Search hizmeti için kimliği doğrulanmış bir HTTP dizin istemcisi oluşturur. Daha fazla bilgi için [bir .NET uygulamasından Azure Search kullanma](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 41 satırında Öner işlevi dikkat edin. Dayanır [DocumentsOperationsExtensions.Suggest yöntemi](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
@@ -271,7 +271,7 @@ $(function () {
 });
 ```
 
-Bunu yukarıdaki Home denetleyicisini çağıran örnekle karşılaştırdığınızda birçok benzerlik göreceksiniz.  Otomatik Tamamlama yapılandırmasını `minLength` ve `position` tam olarak aynıdır. 
+Bu örnek giriş denetleyicisine çağırır yukarıdaki örneğe karşılaştırırsanız benzerlikler birkaç fark edeceksiniz.  Otomatik Tamamlama yapılandırmasını `minLength` ve `position` tam olarak aynıdır. 
 
 Buradaki önemli değişiklik kaynaktır. Giriş denetleyicide Öner yöntemini çağırmak, yerine REST isteği içinde JavaScript işlevi oluşturulur ve Ajax kullanarak. Ardından gelen yanıt "success" parametresinde işlenir ve kaynak olarak kullanılır.
 
@@ -302,7 +302,7 @@ var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/inde
 
 1. NYCJobs örnek kodu DataLoader klasöründe açın **DataLoader.sln** Visual Studio'da.
 
-1. Azure Search hizmetiniz için bağlantı bilgilerini ekleyin. DataLoader projesindeki App.config dosyasını açın ve TargetSearchServiceName ile TargetSearchServiceApiKey appSettings değerlerini Azure Search hizmetiniz ve Azure Search Service API Anahtarı değeriyle değiştirin. Bu bilgilere Azure portaldan ulaşabilirsiniz.
+1. Azure Search hizmetiniz için bağlantı bilgilerini ekleyin. DataLoader projesindeki App.config dosyasını açın ve TargetSearchServiceName ile TargetSearchServiceApiKey appSettings değerlerini Azure Search hizmetiniz ve Azure Search Service API Anahtarı değeriyle değiştirin. Bu bilgiler, Azure portalında bulunabilir.
 
 1. İki dizin oluşturma ve NYCJob örnek verileri içeri aktarma uygulamayı başlatmak için F5 tuşuna basın.
 

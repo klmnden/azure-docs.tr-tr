@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: f119d128b35b93d7e18d514c09d187689d8dffe9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 82e4278a130bb67a1af61ead981259d7bb4e1aa7
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111277"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427428"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM ile azure'a iş yüklerini yedeklemek hazırlama
 
@@ -54,6 +54,7 @@ Desteklenen dosya türleri | Bu dosya türlerini, Azure Backup ile yedeklenebili
 Desteklenmeyen dosya türleri | Büyük küçük harfe duyarlı dosya sistemlerindeki sunucular; sabit bağlantılar (atlanır); yeniden ayrıştırma noktaları (atlanır); şifrelenmiş ve sıkıştırılmış (atlanır); şifrelenmiş ve aralıklı (atlanır); Sıkıştırılmış akış; akışı ayrıştıramadı.
 Yerel depolama | Yedeklemek istediğiniz her makine yedeklenmekte verilerin boyutunu % 5'en az yerel boş depolama alanı olması gerekir. Örneğin, 100 GB veri yedekleme, en az 5 GB boş alan karalama konumu gerektirir.
 Depolama kasası | Bir Azure Backup vault'a Yedekleyebileceğiniz veri miktarı için bir sınır yoktur ancak (örneğin bir sanal makine veya veritabanı) bir veri kaynağının boyutunu 54400 GB uzun olmaması gerekir.
+Azure ExpressRoute | Azure ExpressRoute özel veya Microsoft eşlemesi ile yapılandırılmışsa, verileri Azure'a yedeklemek için kullanılamaz.<br/><br/> Azure ExpressRoute genel eşlemesi ile yapılandırılmışsa, verileri Azure'a yedeklemek için kullanılabilir.<br/><br/> **Not:** Genel eşdüzey hizmet sağlama, yeni bağlantı hatları için kullanım dışı bırakılmıştır.
 Azure Backup aracısı | DPM, System Center 2012 SP1'de çalışıyorsa, paketi 2 veya üzeri için DPM SP1 yükleyin. Bu, aracı yüklemesi için gereklidir.<br/><br/> Bu makalede, Azure Backup Aracısı, Microsoft Azure kurtarma hizmeti (MARS) aracısı olarak da bilinen en son sürümünü dağıtmayı açıklar. Dağıtılan bir önceki sürümüne sahipseniz, bu yedekleme beklendiği gibi çalıştığından emin olmak için en son sürüme güncelleştirin.
 
 Başlamadan önce Azure yedekleme özelliği etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Hakkında bilgi edinin [Azure Backup fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/).

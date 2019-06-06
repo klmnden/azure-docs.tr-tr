@@ -11,65 +11,63 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/23/2019
+ms.date: 6/6/2019
 ms.author: raiye
-ms.openlocfilehash: 4c0f364e596fbe2bf9083cbcf521902523c92a70
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241316"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743050"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
 
 ## <a name="may-2019-guest-os"></a>Mayıs 2019 konuk işletim sistemi
 
->[!NOTE]
->Olabilir konuk işletim sistemi, şu anda, otomatik güncelleştirmeler için yapılandırılmış olan bir bulut hizmeti vm'lerine da sunulacaktır. Piyasaya çıkış tamamlandığında, bu sürümü ile Azure portal ve yapılandırma dosyalarını el ile güncelleştirmeleri kullanılabilir hale getirilir. Aşağıdaki düzeltme ekleri olabilir konuk işletim sisteminde dahil edilir. Bu liste değiştirilebilir ' dir.
-
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206 ]  |  IE toplaması olabilir   |  2,86, 3.73, 4.66  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4505050 ]  |  IE toplaması olabilir   |  2,86, 3.73, 4.66  |  18 Mayıs 2019  |
-|  Rel 19-05   |  [4497932 ]  |  Güncelleştirme Flash   |  3.73, 4.66, 5.31  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4499175 ]  |  Güvenlik dökümü olabilir   |  2.86  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4495612 ]  |  Güvenlik dökümü .NET 3.5 olabilir   |  2.86  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4495593 ]  |  Güvenlik dökümü .NET 4.5.2'nin olabilir   |  2.86  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4499158 ]  |  Güvenlik dökümü olabilir   |  3.73  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4495607 ]  |  Güvenlik dökümü .NET 3.5 olabilir   |  3.73  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4495591 ]  |  Güvenlik dökümü .NET 4.5.2'nin olabilir   |  3.73  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4492872 ]  |  IE dökümü   |  3.73  |  16 Nisan 2019  |
-|  Rel 19-05   |  [4499165 ]  |  Mart güvenlik dökümü   |  4.66  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4495615 ]  |  Güvenlik dökümü .NET 3.5 olabilir   |  4.66  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4495589 ]  |  Güvenlik dökümü .NET 4.5.2'nin olabilir   |  4.66  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4498947 ]  |  SSU olabilir   |  5.31  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4494175 ]  |  Mikro kod güncelleştirme olabilir   |  5.31  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4505052 ]  |  Güvenlik dökümü olabilir   |  5.31  |  19 Mayıs 2019  |
-|  Rel 19-05   |  [4499728 ]  |  SSU olabilir   |  6.7  |  19 Mayıs 2019  |
-|  Rel 19-05   |  [4505056 ]  |  Güvenlik dökümü olabilir   |  6.7  |  19 Mayıs 2019  |
-|  Rel 19-05   |  [4494174 ]  |  Mikro kod güncelleştirme olabilir   |  6.7  |  14 Mayıs 2019  |
-|  Rel 19-05   |  [4495590 ]  |  Güvenlik dökümü .NET olabilir   |  6.7  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4498206]  |  IE toplaması olabilir   |  2,86, 3.73, 4.66  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4505050]  |  IE toplaması olabilir   |  2,86, 3.73, 4.66  |  18 Mayıs 2019  |
+|  Rel 19-05   |  [4497932]  |  Güncelleştirme Flash   |  3.73, 4.66, 5.31  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4499175]  |  Güvenlik dökümü olabilir   |  2.86  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495612]  |  Güvenlik dökümü .NET 3.5 olabilir   |  2.86  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495593]  |  Güvenlik dökümü .NET 4.5.2'nin olabilir   |  2.86  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4499158]  |  Güvenlik dökümü olabilir   |  3.73  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495607]  |  Güvenlik dökümü .NET 3.5 olabilir   |  3.73  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495591]  |  Güvenlik dökümü .NET 4.5.2'nin olabilir   |  3.73  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4492872]  |  IE dökümü   |  3.73  |  16 Nisan 2019  |
+|  Rel 19-05   |  [4499165]  |  Mart güvenlik dökümü   |  4.66  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495615]  |  Güvenlik dökümü .NET 3.5 olabilir   |  4.66  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495589]  |  Güvenlik dökümü .NET 4.5.2'nin olabilir   |  4.66  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4498947]  |  SSU olabilir   |  5.31  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4494175]  |  Mikro kod güncelleştirme olabilir   |  5.31  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4505052]  |  Güvenlik dökümü olabilir   |  5.31  |  19 Mayıs 2019  |
+|  Rel 19-05   |  [4499728]  |  SSU olabilir   |  6.7  |  19 Mayıs 2019  |
+|  Rel 19-05   |  [4505056]  |  Güvenlik dökümü olabilir   |  6.7  |  19 Mayıs 2019  |
+|  Rel 19-05   |  [4494174]  |  Mikro kod güncelleştirme olabilir   |  6.7  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495590]  |  Güvenlik dökümü .NET olabilir   |  6.7  |  14 Mayıs 2019  |
 
-[KB4493510]: https://support.microsoft.com/kb/KB4493510
-[KB4493472]: https://support.microsoft.com/kb/KB4493472
-[KB4493451]: https://support.microsoft.com/kb/KB4493451
-[KB4493446]: https://support.microsoft.com/kb/KB4493446
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[4498206]: https://support.microsoft.com/kb/4498206
+[4505050]: https://support.microsoft.com/kb/4505050
+[4497932]: https://support.microsoft.com/kb/4497932
+[4499175]: https://support.microsoft.com/kb/4499175
+[4495612]: https://support.microsoft.com/kb/4495612
+[4495593]: https://support.microsoft.com/kb/4495593
+[4499158]: https://support.microsoft.com/kb/4499158
+[4495607]: https://support.microsoft.com/kb/4495607
+[4495591]: https://support.microsoft.com/kb/4495591
+[4492872]: https://support.microsoft.com/kb/4492872
+[4499165]: https://support.microsoft.com/kb/4499165
+[4495615]: https://support.microsoft.com/kb/4495615
+[4495589]: https://support.microsoft.com/kb/4495589
+[4498947]: https://support.microsoft.com/kb/4498947
+[4494175]: https://support.microsoft.com/kb/4494175
+[4505052]: https://support.microsoft.com/kb/4505052
+[4499728]: https://support.microsoft.com/kb/4499728
+[4505056]: https://support.microsoft.com/kb/4505056
+[4494174]: https://support.microsoft.com/kb/4494174
+[4495590]: https://support.microsoft.com/kb/4495590
 
 
 ## <a name="april-2019-guest-os"></a>Nisan 2019 konuk işletim sistemi
@@ -83,11 +81,11 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Rel 19-04 | [4493448] | Windows Güvenlik | 2.85 | 9 Nisan 2019 |
 | Rel 19-04 | [4493478] | Flash | 3.72, 4.65, 5.30, 6.6 | 9 Nisan 2019 |
 | Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 Nisan 2019 |
-| Rel 19-04 | [KB4490628] | Hizmet yığını güncelleştirmesi | 2.85 | 12 Mart 2019 |
-| Rel 19-04 | [KB4474419] | SHA2 desteği | 2.85 | 12 Mart 2019 |
-| Rel 19-04 | [KB4489878] | Mart güvenlikle ilgili olmayan toplaması | 2.85 | 12 Mart 2019 |
-| Rel 19-04 | [KB4489891] | Mart güvenlikle ilgili olmayan toplaması | 3.72 | 12 Mart 2019 |
-| Rel 19-04 | [KB4489881] | Mart güvenlikle ilgili olmayan toplaması | 4.65 | 12 Mart 2019 |
+| Rel 19-04 | [4490628] | Hizmet yığını güncelleştirmesi | 2.85 | 12 Mart 2019 |
+| Rel 19-04 | [4474419] | SHA2 desteği | 2.85 | 12 Mart 2019 |
+| Rel 19-04 | [4489878] | Mart güvenlikle ilgili olmayan toplaması | 2.85 | 12 Mart 2019 |
+| Rel 19-04 | [4489891] | Mart güvenlikle ilgili olmayan toplaması | 3.72 | 12 Mart 2019 |
+| Rel 19-04 | [4489881] | Mart güvenlikle ilgili olmayan toplaması | 4.65 | 12 Mart 2019 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
 [4493470]: https://support.microsoft.com/kb/4493470
@@ -96,11 +94,11 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 [4493448]: https://support.microsoft.com/kb/4493448
 [4493478]: https://support.microsoft.com/kb/4493478
 [4493435]: https://support.microsoft.com/kb/4493435
-[KB4490628]: https://support.microsoft.com/kb/KB4490628
-[KB4474419]: https://support.microsoft.com/kb/KB4474419
-[KB4489878]: https://support.microsoft.com/kb/KB4489878
-[KB4489891]: https://support.microsoft.com/kb/KB4489891
-[KB4489881]: https://support.microsoft.com/kb/KB4489881
+[4490628]: https://support.microsoft.com/kb/KB4490628
+[4474419]: https://support.microsoft.com/kb/KB4474419
+[4489878]: https://support.microsoft.com/kb/KB4489878
+[4489891]: https://support.microsoft.com/kb/KB4489891
+[4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>Mart 2019 konuk işletim sistemi
 

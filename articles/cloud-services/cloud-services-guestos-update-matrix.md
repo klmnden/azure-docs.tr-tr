@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/8/2019
+ms.date: 6/6/2019
 ms.author: raiye
-ms.openlocfilehash: 71f66129aeec4f4c8b470a421caade22960d2d64
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: bdb3d0af93a69c1d15bd34a4badef5915ec0f01f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473211"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743024"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetleri için sürümleri sağlar. Bu bilgiler bir konuk işletim sistemi devre dışı bırakılmasına sıranız yükseltme yolunuza planlamanıza yardımcı olur. Kullanılacak rollerinizi yapılandırırsanız *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -42,6 +42,9 @@ En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetl
 Konuk işletim sisteminizi güncelleştirin konusunda emin değilseniz? Denetleme [bu] [ cloud updates] uğradı.
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
+
+###### <a name="june-6-2019"></a>**6 Haziran 2019**
+Olabilir konuk işletim sistemi kullanıma sundu.
 
 ###### <a name="may-7-2019"></a>**7 Mayıs 2019**
 Nisan konuk işletim sistemi kullanıma sundu.
@@ -70,7 +73,7 @@ Ekim konuk işletim sistemi kullanıma sundu.
 ###### <a name="october-12-2018"></a>**12 Ekim 2018**
 Eylül konuk işletim sistemi kullanıma sundu.
 
-## <a name="releases"></a>Sürümler
+## <a name="releases"></a>Yayınlar
 
 ## <a name="family-6-releases"></a>Aile 6 yayınlar
 **Windows Server 2019**
@@ -92,8 +95,9 @@ Eylül konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-6.7_201905-01 |6 Haziran 2019 |POST 6.9 |
 | WA-GUEST-OS-6.6_201904-01 |7 Mayıs 2019 |POST 6,8 |
-| WA-GUEST-OS-6.5_201903-01 |26 Mart 2019 |POST 6.7 |
+|~~WA-GUEST-OS-6.5_201903-01~~ |26 Mart 2019 |6 Haziran 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |12 Mart 2019 |7 Mayıs 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |5 Şubat 2019 |26 Mart 2019 |
 |~~WA-GUEST-OS-6.2_201812-01~~ |24 Ocak 2019 |12 Mart 2019 |
@@ -111,8 +115,9 @@ Eylül konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-5.31_201905-01 |6 Haziran 2019 |POST 5.33 |
 | WA-GUEST-OS-5.30_201904-01 |7 Mayıs 2019 |POST 5.32 |
-| WA-GUEST-OS-5.29_201903-01 |26 Mart 2019 |POST 5.31 |
+|~~WA-GUEST-OS-5.29_201903-01~~ |26 Mart 2019 |6 Haziran 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |12 Mart 2019 |7 Mayıs 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |5 Şubat 2019 |26 Mart 2019 |
 |~~WA-GUEST-OS-5.26_201812-01~~ |7 Ocak 2019 |12 Mart 2019 |
@@ -127,8 +132,9 @@ Eylül konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-4.66_201905-01 |6 Haziran 2019 |POST 4.68 |
 | WA-GUEST-OS-4.65_201904-01 |7 Mayıs 2019 |POST 4.67 |
-| WA-GUEST-OS-4.64_201903-01 |26 Mart 2019 |POST 4.66 |
+|~~WA-GUEST-OS-4.64_201903-01~~ |26 Mart 2019 |6 Haziran 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |12 Mart 2019 |7 Mayıs 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |5 Şubat 2019 |26 Mart 2019 |
 |~~WA-GUEST-OS-4.61_201812-01~~ |7 Ocak 2019 |12 Mart 2019 |
@@ -143,8 +149,9 @@ Eylül konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-3.73_201905-01 |Haziran 67, 2019 |POST 3,75 |
 | WA-GUEST-OS-3.72_201904-01 |7 Mayıs 2019 |POST 3.74 |
-| WA-GUEST-OS-3.71_201903-01 |26 Mart 2019 |POST 3.73 |
+|~~WA-GUEST-OS-3.71_201903-01~~ |26 Mart 2019 |6 Haziran 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |12 Mart 2019 |7 Mayıs 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |5 Şubat 2019 |26 Mart 2019 |
 |~~WA-GUEST-OS-3.68_201812-01~~ |7 Ocak 2019 |12 Mart 2019 |
@@ -159,8 +166,9 @@ Eylül konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-2.86_201905-01 |6 Haziran 2019 |POST 2.88 |
 | WA-GUEST-OS-2.85_201904-01 |7 Mayıs 2019 |POST 2.87 |
-| WA-GUEST-OS-2.84_201903-01 |26 Mart 2019 |POST 2.86 |
+|~~WA-GUEST-OS-2.84_201903-01~~ |26 Mart 2019 |6 Haziran 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |12 Mart 2019 |7 Mayıs 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |5 Şubat 2019 |26 Mart 2019 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |7 Ocak 2019 |12 Mart 2019 |

@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c3f31e8d260ea5e462e8782fadd9f61f34d03add
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b3032aa796b3c79572bbf8b2beb85efc252ff73b
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307280"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497531"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix profil kapsayıcıları ve Azure dosyaları
 
-Windows sanal masaüstü Önizleme hizmeti bir kullanıcı profili çözümü FSLogix profili kapsayıcıları önerir. Windows sanal masaüstü gibi uzak bilgi işlem ortamlarının profillerinde gerekmeden FSLogix tasarlanmıştır. Bu, tek bir kapsayıcıda tam kullanıcı profili depolar. Oturum sırasında kapsayıcı yerel, Konuk Sanal Sabit Disk (VHD) ve Hyper-V sanal sabit disk (VHDX) Microsoft hizmetlerini kullanarak bilgi işlem ortamınız için dinamik olarak eklenir. Kullanıcı profili hemen kullanılabilir ve sistemi tam olarak bir yerel kullanıcı profili gibi görünür.
+Windows sanal masaüstü Önizleme hizmeti bir kullanıcı profili çözümü FSLogix profili kapsayıcıları önerir. Windows sanal masaüstü gibi uzak bilgi işlem ortamlarının profillerinde gerekmeden FSLogix tasarlanmıştır. Bu, tek bir kapsayıcıda tam kullanıcı profili depolar. Oturum sırasında bu kapsayıcı yerel olarak desteklenen Sanal Sabit Disk (VHD) ve Hyper-V sanal sabit disk (VHDX) kullanarak bilgi işlem ortamınız için dinamik olarak eklenir. Kullanıcı profili hemen kullanılabilir ve sistemi tam olarak bir yerel kullanıcı profili gibi görünür.
 
 Bu makalede, Azure dosyaları ile kullanılan FSLogix profili kapsayıcıları açıklayacağız. Windows sanal masaüstü, bağlamında bilgilerdir [3/21'duyurulan](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
 
@@ -24,7 +24,7 @@ Bu makalede, Azure dosyaları ile kullanılan FSLogix profili kapsayıcıları a
 
 Kullanıcı profili hakkında masaüstü ayarlarını kalıcı ağ bağlantıları ve uygulama ayarları gibi yapılandırma bilgilerini de dahil olmak üzere bireysel veri öğeleri içerir. Varsayılan olarak, Windows işletim sistemiyle tümleşiktir bir yerel kullanıcı profili oluşturur.
 
-Kullanıcı verileri ve işletim sistemi arasında bir bölümü bir uzak kullanıcı profili sağlar. İşletim sisteminin değiştirilmesi veya kullanıcı verilerini etkileyen olmadan değiştirilen sağlar. Uzak Masaüstü oturumu ana bilgisayarı (RDSH) ve sanal masaüstü altyapıları (VDI), işletim sistemi aşağıdaki nedenlerden dolayı değiştirilebilir:
+Kullanıcı verileri ve işletim sistemi arasında bir bölümü bir uzak kullanıcı profili sağlar. İşletim sisteminin değiştirilmesi veya kullanıcı verilerini etkilemeden değiştirilen sağlar. Uzak Masaüstü oturumu ana bilgisayarı (RDSH) ve sanal masaüstü altyapıları (VDI), işletim sistemi aşağıdaki nedenlerden dolayı değiştirilebilir:
 
 - İşletim sistemi yükseltmesi
 - Bir mevcut sanal makine (VM) değiştirme
@@ -67,7 +67,7 @@ S2D kümeleri yama, güncelleştirilen ve güvenli bir durumda tutulan bir işle
 
 ## <a name="fslogix-profile-containers"></a>FSLogix profili kapsayıcıları
 
-19 Kasım 2018 [Microsoft alınan FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). Birçok profil kapsayıcı zorlukları, bunlar arasında anahtar FSLogix adresler şunlardır:
+19 Kasım 2018 [Microsoft alınan FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix, birçok profil kapsayıcı sorunlarını ele alır. Anahtar aralarında şunlardır:
 
 - **Performans:** [FSLogix profili kapsayıcıları](https://fslogix.com/products/profile-containers) , yüksek performanslı, ve geçmişe yönelik olarak engellediğiniz performans sorunları çözüp önbelleğe alınmış exchange modu.
 - **OneDrive:** FSLogix profili kapsayıcılar, OneDrive iş kalıcı olmayan RDSH veya VDI ortamlarında desteklenmez. [OneDrive iş ve FSLogix en iyi uygulamaları](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) nasıl etkileşim kurduklarını açıklar. Daha fazla bilgi için [eşitleme istemcisi sanal masaüstlerini kullanma](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).

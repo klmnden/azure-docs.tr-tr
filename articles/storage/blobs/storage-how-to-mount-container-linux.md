@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 2/1/2019
 ms.author: normesta
 ms.reviewer: seguler
-ms.openlocfilehash: 261fd9f820f3e5421d9d0f4f7c9220ec31003283
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d5077b75ff9e760917e9d5d02bea49dc4967a08b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148432"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473455"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>BLOB Depolama blobfuse ile bir dosya sistemi olarak takmak nasıl
 
 ## <a name="overview"></a>Genel Bakış
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) bir Azure Blob Depolama için sanal dosya sistemi sürücüsüdür. Blobfuse Linux dosya sistemi üzerinden mevcut blok blobu verileriniz depolama hesabınızda erişmenize olanak sağlar. Azure Blob Depolama, bir nesne depolama hizmetidir ve hiyerarşik ad alanı yok. Blobfuse sanal dizin şeması, ayırıcı olarak eğik ile '/' kullanarak bu ad alanı sağlar.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) bir Azure Blob Depolama için sanal dosya sistemi sürücüsüdür. Blobfuse Linux dosya sistemi üzerinden mevcut blok blobu verileriniz depolama hesabınızda erişmenize olanak sağlar. Blobfuse sanal dizin şeması sınırlayıcı olarak '/' ile ileri eğik çizgi kullanır.  
 
 Bu kılavuzda blobfuse kullanın ve Blob Depolama kapsayıcısı üzerinde Linux ve verilere bağlama gösterilmektedir. Blobfuse hakkında daha fazla bilgi edinmek için Ayrıntılar oku [blobfuse depo](https://github.com/Azure/azure-storage-fuse).
 

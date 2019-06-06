@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/04/2019
 ms.author: twhitney
-ms.openlocfilehash: 6b5ebbab717a3db7c9b50549d2762df61c274131
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 11f6869d4d5a2ee0ef2e986ee8268c7a001ea015
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307355"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688642"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Küme Windows Server düğümleri Bakımı veya sorun giderme için Azure Kubernetes Service (AKS) için RDP ile bağlanma
 
@@ -32,7 +32,18 @@ Ayrıca Azure CLI Sürüm 2.0.61 gerekir veya daha sonra yüklü ve yapılandır
 
 AKS kümenizin Windows Server düğümler dışarıdan erişilebilir IP adresi yok. Bir RDP bağlantısı için genel olarak erişilebilir bir IP adresine sahip bir sanal makine, Windows Server düğümler aynı alt ağda dağıtabilirsiniz.
 
-Aşağıdaki örnekte adlı bir sanal makine oluşturulmaktadır *myVM* içinde *myResourceGroup* kaynak grubu. Değiştirin *$SUBNET_ID* , Windows Server düğüm havuzu tarafından kullanılan alt ağ kimliği.
+Aşağıdaki örnekte adlı bir sanal makine oluşturulmaktadır *myVM* içinde *myResourceGroup* kaynak grubu.
+
+İlk olarak, Windows Server düğüm havuzu tarafından kullanılan alt ağ alın. Alt ağ kimliğini almak için alt ağın adı gerekir. Alt ağın adını almak için sanal ağ adı gereklidir. Sanal ağ adına, kümeniz için alt ağlar listesi sorgulayarak alın. Küme sorgu adı gerekir. Azure Cloud Shell'de aşağıdaki çalıştırarak bunların hepsini alabilirsiniz:
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+VNET_NAME=$(az network vnet list -g $CLUSTER_RG --query [0].name -o tsv)
+SUBNET_NAME=$(az network vnet subnet list -g $CLUSTER_RG --vnet-name $VNET_NAME --query [0].name -o tsv)
+SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
+```
+
+SUBNET_ID olduğuna göre VM oluşturmak için aynı Azure Cloud Shell penceresinde aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 az vm create \

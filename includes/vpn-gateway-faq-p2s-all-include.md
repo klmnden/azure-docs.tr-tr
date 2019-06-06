@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/18/2019
+ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 42c94188c0c38448660998bcfc122ae626285566
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20f0d6a88fead155225cff69ab89635de587a46d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248893"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66455189"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Noktadan Siteye yapılandırmamda kaç VPN istemci uç noktam olabilir?
 
@@ -78,7 +78,7 @@ IKEv2 için Windows 10 ve Server 2016’yı hazırlamak için:
 
 1. Güncelleştirmeyi yükleyin.
 
-   | İşletim sistemi sürümü | Date | Sayı/Bağlantı |
+   | İşletim sistemi sürümü | Tarih | Sayı/Bağlantı |
    |---|---|---|
    | Windows Server 2016<br>Windows 10 Sürüm 1607 | 17 Ocak 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 Sürüm 1703 | 17 Ocak 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |

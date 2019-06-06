@@ -4,14 +4,14 @@ description: Kaynakları Azure'a dağıtmak için Azure Resource Manager ve Azur
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5203519b1553de54d4e3cd1fafe6fb3d1c18ebd6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779952"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476990"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma
 
@@ -35,6 +35,8 @@ Dağıtmak için bir **abonelik**, kullanın [yeni AzDeployment](/powershell/mod
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
+Şu anda, yönetim grubu dağıtımları yalnızca REST API aracılığıyla desteklenir. Bkz: [kaynakları Resource Manager şablonları ve Resource Manager REST API'si ile dağıtma](resource-group-template-deploy-rest.md).
+
 Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıtımları hakkında daha fazla bilgi için bkz. [oluşturma kaynak grubu ve kaynak abonelik düzeyinde](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -44,7 +46,7 @@ Bir şablonu dağıtmak için ihtiyacınız vardır. Zaten yoksa, indirin ve kay
 Azure Cloud shell şablonları dağıtmak için kullandığınız sürece, Azure PowerShell'i yükleme ve Azure'a bağlanmak gereken:
 
 - **Azure PowerShell cmdlet'lerini yerel bilgisayarınıza yükleyin.** Daha fazla bilgi için bkz. [Azure PowerShell kullanmaya başlayın](/powershell/azure/get-started-azureps).
-- **Kullanarak Azure'a bağlanma [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Birden çok Azure aboneliğiniz varsa, aynı zamanda çalıştırmak ihtiyacınız olabilecek [kümesi AzContext](/powershell/module/Az.Accounts/Set-AzContext). Daha fazla bilgi için [birden çok Azure aboneliği kullanın](/powershell/azure/manage-subscriptions-azureps).
+- **Kullanarak Azure'a bağlanma [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Birden çok Azure aboneliğiniz varsa, aynı zamanda çalıştırmak ihtiyacınız olabilecek [kümesi AzContext](/powershell/module/Az.Accounts/Set-AzContext). Daha fazla bilgi için [birden çok Azure aboneliği kullanın](/powershell/azure/manage-subscriptions-azureps).
 
 ## <a name="deploy-local-template"></a>Yerel şablonu dağıtma
 

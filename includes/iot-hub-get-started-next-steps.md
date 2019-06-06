@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 9f7f71f47fadd7cfe2364acf1a8505e1967a78e5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: fc4b613eb9e77acef4568ef93b7606fb43568f82
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146447"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475996"
 ---
 Azure IOT Hub ile çalışmaya başlama ve tüm genişletilmiş IOT senaryolarını keşfetmeye devam etmek için aşağıdakilere bakın:
 
@@ -25,7 +25,7 @@ Azure IOT Hub ile çalışmaya başlama ve tüm genişletilmiş IOT senaryoları
 
 - [IoT hub’ınızdan gelen gerçek zamanlı algılayıcı verilerini Power BI kullanarak görselleştirme](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 
-- [IoT hub’ınızdan gelen gerçek zamanlı algılayıcı verilerini Azure Uygulama Hizmeti’nin Web Apps özelliğini kullanarak görselleştirme](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
+- [IOT hub'ınıza gerçek zamanlı sensör verilerini görselleştirmek için bir web uygulaması kullanma](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
 
 - [Azure Machine Learning’de, IoT hub’ınızdan gelen algılayıcı verileriyle hava durumu tahmini](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
 

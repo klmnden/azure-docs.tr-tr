@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724375"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476109"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark işlerini iyileştirme
 
@@ -57,12 +57,12 @@ En iyi performans ile parquet biçimi *snappy sıkıştırma*, Spark varsayılan
 
 Yeni bir Spark kümesi oluşturduğunuzda, kümenin varsayılan depolama alanı olarak Azure Blob Depolama veya Azure Data Lake Storage tercih yapma seçeneğine sahip olursunuz. Kümenizi sildiğinizde, verilerinizi otomatik olarak silinmez için iki seçenek de uzun vadeli depolama avantajı geçici kümeler için size. Geçici bir küme oluşturun ve verilerinize erişmeye devam edebilirsiniz.
 
-| Store türü | Dosya Sistemi | Hız | Geçici | Kullanım Örnekleri |
+| Store türü | Dosya Sistemi | Hız | Geçici | Kullanım örnekleri |
 | --- | --- | --- | --- | --- |
-| Azure Blob Depolama | **wasb [s]:**//url/ | **Standart** | Evet | Geçici küme |
-| Azure Data Lake depolama Gen 2| **abfs [s]:**//url/ | **Daha hızlı** | Evet | Geçici küme |
-| Azure Data Lake Storage Gen 1| **Adl:**//url/ | **Daha hızlı** | Evet | Geçici küme |
-| Yerel HDFS | **hdfs:**//url/ | **Hızlı** | Hayır | Etkileşimli 7/24 küme |
+| Azure Blob Depolama | **wasb:** //url/ | **Standart** | Evet | Geçici küme |
+| Azure Data Lake depolama Gen 2| **abfs [s]:** //url/ | **Daha hızlı** | Evet | Geçici küme |
+| Azure Data Lake Storage Gen 1| **Adl:** //url/ | **Daha hızlı** | Evet | Geçici küme |
+| Yerel HDFS | **hdfs:** //url/ | **Hızlı** | Hayır | Etkileşimli 7/24 küme |
 
 ## <a name="use-the-cache"></a>Önbellek kullanma
 

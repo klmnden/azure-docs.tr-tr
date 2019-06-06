@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 185c16e76094fe55a54fb17bef24fcd03d7b54f0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243576"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475148"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Önizleme - IP adresi aralıklarını Azure Kubernetes Service (AKS) kullanarak API sunucusu için güvenli erişim yetkili
 
@@ -74,8 +74,6 @@ API sunucusu yetkili IP aralıkları yapılandırdığınızda aşağıdaki sın
 Temel alınan Kubernetes API'ları nasıl sunulur Kubernetes API sunucusudur. Bu bileşen etkileşimi için yönetim araçları gibi sağlar `kubectl` veya Kubernetes panosunu. AKS, bir tek kiracılı Küme Yöneticisi, ayrılmış bir API sunucusu sağlar. Varsayılan olarak, API sunucusuna bir genel IP adresi atanır ve rol tabanlı erişim denetimi (RBAC) kullanarak erişimi denetlemesi gerekir.
 
 Aksi durumda ortak olarak erişilebilen AKS denetim düzlemi güvenli erişimi / API sunucusu etkinleştirebilmek ve kullanabilmek IP aralıklarını yetkili. Bu yetkili IP aralıkları yalnızca API sunucusu ile iletişim kurmak için tanımlanan IP adres aralıklarına izin verin. Bu yetkili IP aralıkları parçası olmayan bir IP adresinden API sunucusuna yapılan bir istek engellendi. Kullanıcılar ve istediklerinde eylemleri korunmasına yetki vermek için RBAC kullanmaya devam etmelidir.
-
-Yetkili IP aralığı işlevselliği kullanmak için bir genel IP adresi, düğüm havuzu üzerinde temel bir NGINX hizmetinin dağıtarak sunulur. API sunucusu düğüm havuzu yetkili bu genel IP adresi üzerinden iletişim kurar. API sunucusuna erişebilen ek IP adresi aralıklarını tanımlarsınız.
 
 API sunucusu ve diğer küme bileşenleri hakkında daha fazla bilgi için bkz. [Kubernetes kavramlarını AKS için çekirdek][concepts-clusters-workloads].
 

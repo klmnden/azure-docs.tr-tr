@@ -6,40 +6,38 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60924865"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735193"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini kullanıcı tanımlı işlevlerde hata ayıklama
 
-Bu makalede, tanılamak ve kullanıcı tanımlı işlevleri hata ayıklama nasıl özetlenir. Ardından, bunları hata ayıklama sırasında bulunamadı en yaygın senaryolardan bazıları tanımlar.
+Bu makalede, Azure dijital İkizlerini kullanıcı tanımlı işlevlerde hata ayıklama ve tanılama nasıl özetlenir. Ardından, bunları hata ayıklama sırasında bulunamadı en yaygın senaryolardan bazıları tanımlar.
 
 >[!TIP]
 > Okuma [izleme ve günlüğe kaydetme yapılandırma](./how-to-configure-monitoring.md) etkinlik günlükleri, tanılama günlükleri ve Azure İzleyicisi'ni kullanarak Azure dijital İkizlerini araçlarındaki hata ayıklamayı kurma hakkında daha fazla bilgi edinmek için.
 
 ## <a name="debug-issues"></a>Sorunlarında hata ayıklama
 
-Azure dijital İkizlerini örneğinizin içinde gerçekleşen tüm sorunlarının nasıl tanılandığını bilerek sorunu, sorunu ve çözüm nedenini etkili bir şekilde tanımlamak için kolaylık sağlar.
+Azure dijital İkizlerini içinde sorunlarının nasıl tanılandığını bilerek, etkili bir şekilde sorunlarını analiz etmenize, sorunların nedenlerini belirleyin ve uygun çözümler sağlayacağını olanak tanır.
 
-### <a name="enable-log-analytics-for-your-instance"></a>Örneğiniz için log analytics etkinleştir
+Günlüğe kaydetme, analiz ve tanılama araçları çeşitli bu amaçla sağlanır.
 
-Günlükleri ve ölçümleri Azure dijital İkizlerini örneğinizin Azure İzleyicisi'nde görüntülenir. Bu belge, oluşturduğunuz varsayar bir [Azure İzleyici günlükleri](../azure-monitor/log-query/log-query-overview.md) çalışma alanını kullanarak [Azure portalı](../azure-monitor/learn/quick-create-workspace.md)temellidir [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), aracılığıyla veya [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+### <a name="enable-logging-for-your-instance"></a>Örneğiniz için günlüğe kaydetmeyi etkinleştirme
 
-> [!NOTE]
-> 5 dakikalık bir gecikmeyle olayları ilk kez Azure İzleyici günlüklerine gönderirken karşılaşabilirsiniz.
+Azure dijital İkizlerini güçlü günlük kayıtları, izleme ve analiz destekler. Çözümleri geliştiriciler, Azure İzleyici günlükleri, tanılama günlükleri, etkinlik günlükleri ve diğer hizmetleri, IOT uygulama karmaşık izleme gereksinimlerini desteklemek için kullanabilirsiniz. Sorgu veya çeşitli hizmetlerdeki kayıtları görüntülemek ve pek çok hizmeti için ayrıntılı günlük kaydı kapsamı sağlamak için günlük kaydı seçeneklerine birleştirilebilir.
 
-İzleme ve günlüğe kaydetme dijital İkizlerini Azure kaynakları için yapılandırmak için okuma [izleme ve günlüğe kaydetme yapılandırma](./how-to-configure-monitoring.md).
+* Azure dijital çiftleri için özel günlük kaydı yapılandırması için okuma [izleme ve günlüğe kaydetme yapılandırma](./how-to-configure-monitoring.md).
+* Başvurun [Azure İzleyici](../azure-monitor/overview.md) Azure İzleyici etkin güçlü günlük ayarları hakkında bilgi edinmek için genel bakış.
+* Makalesini gözden geçirin [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../azure-monitor/platform/diagnostic-logs-overview.md) Azure portalı, Azure CLI veya PowerShell aracılığıyla Azure dijital çiftleri olarak tanılama günlüğü ayarlarını yapılandırmak için.
 
-Makaleyi okuyun [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../azure-monitor/platform/diagnostic-logs-overview.md) Azure portalı, Azure CLI veya PowerShell aracılığıyla Azure dijital çiftleri olarak tanılama günlüğü ayarlarını yapılandırmak için.
-
->[!IMPORTANT]
-> Tüm günlük kategorileri, Ölçümler ve Azure Log Analytics çalışma alanınızı seçtiğinizden emin olun.
+Yapılandırıldıktan sonra ölçüm, tüm günlük kategorileri seçin ve hata ayıklama çalışmalarınızı desteklemek için güçlü Azure İzleyici log analytics çalışma alanları kullanmak mümkün olacaktır.
 
 ### <a name="trace-sensor-telemetry"></a>Telemetri algılayıcı izleme
 
@@ -47,7 +45,7 @@ Telemetri algılayıcı izleme, tanılama ayarları Azure dijital İkizlerini Ö
 
 Algılayıcı telemetri iletileriyle ilgili günlüklerinin için eşleştirilecek gönderilen olay verileri üzerinde bir bağıntı kimliği belirtebilirsiniz. Bunu yapmak için ayarlanmış `x-ms-client-request-id` özelliğini bir GUID.
 
-Sorgu kümesi kullanarak günlükleri log analytics'e açmak telemetri gönderdikten sonra bağıntı kimliği:
+Log analytics'e kümesini kullanarak günlükleri için bir sorgu açın telemetri gönderdikten sonra bağıntı kimliği:
 
 ```Kusto
 AzureDiagnostics
@@ -209,4 +207,6 @@ Tanılama ayarlarını etkinleştirme, bu sık karşılaşılan özel durumlar k
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Nasıl etkinleştireceğinizi öğrenin [izleme ve günlükleri](../azure-monitor/platform/activity-logs-overview.md) Azure dijital İkizlerini içinde.
+- Nasıl etkinleştireceğinizi öğrenin [izleme ve günlükleri](./how-to-configure-monitoring.md) Azure dijital İkizlerini içinde.
+
+- Okuma [genel bakış, Azure etkinlik günlüğü](../azure-monitor/platform/activity-logs-overview.md) makale için daha fazla Azure günlük seçenekleri.

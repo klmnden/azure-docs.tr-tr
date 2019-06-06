@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 72d3455f37d0ccef0dd5b7d8882f70670de07572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44343f6bc6f48a6caa056f3336af55613a1e74d0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755499"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476788"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Erişim, güç ve bağlantı modunu, Azure veri kutusu ağ geçidiniz için yönetme
 
@@ -37,22 +37,64 @@ Cihaz parolasını değiştirmek için yerel kullanıcı Arabirimi aşağıdaki 
 1. Yerel web kullanıcı Arabirimi, Git **Bakım > parola değişikliği**.
 2. Geçerli parola ve yeni parolayı girin. Sağlanan parola 8 ile 16 karakter arasında olmalıdır. Parola şu karakterleri 3 olması gerekir: büyük harf, küçük harfler, sayısal ve özel karakter. Yeni parolayı onaylayın.
 
-    ![Parolayı değiştir](media/data-box-gateway-manage-access-power-connectivity-mode/change-password-1.png)
+    ![Parola Değiştir](media/data-box-gateway-manage-access-power-connectivity-mode/change-password-1.png)
 
 3. Tıklayın **parolasını değiştirme**.
  
-### <a name="reset-device-password"></a>Cihaz parolasını sıfırla
+### <a name="reset-device-password"></a>Cihaz parolasını sıfırlama
 
 Sıfırlama iş akışı, eski parolayı çağırmak kullanıcı gerektirmez ve parola kayıp olduğunda yararlıdır. Bu iş akışı, Azure portalında gerçekleştirilir.
 
 1. Azure portalında Git **genel bakış > yönetici parolası sıfırlama**.
 
-    ![Parola sıfırlama](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Parola sıfırla](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
 
  
 2. Yeni bir parola girin ve parolayı doğrulayın. Sağlanan parola 8 ile 16 karakter arasında olmalıdır. Parola şu karakterleri 3 olması gerekir: büyük harf, küçük harfler, sayısal ve özel karakter. Tıklayın **sıfırlama**.
 
-    ![Parola sıfırlama](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Parola sıfırla](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+
+## <a name="manage-resource-access"></a>Kaynak erişimini yönetme
+
+Veri kutusu Edge/veri kutusu ağ geçidi, IOT Hub ve Azure depolama kaynağı oluşturmak için bir kaynak grubu düzeyinde izinleri katkıda bulunan olarak veya üzeri gerekir. Ayrıca ilgili kaynak sağlayıcıları kayıtlı olması gerekir. Etkinleştirme anahtarı ve kimlik bilgileri gerektiren işlemler için Azure Active Directory Graph API'si için izinleri de gereklidir. Bunlar aşağıdaki bölümlerde açıklanmıştır.
+
+### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Microsoft Azure Active Directory Graph API izinleri Yönet
+
+Veri kutusu sınır cihazı veya kimlik bilgileri gerektiren bir işlem gerçekleştirmek için etkinleştirme anahtarı oluştururken, Azure Active Directory Graph API'si izinlerinin olması gerekir. Kimlik bilgileri gerektiren işlemler aşağıdakilerden biri olabilir:
+
+-  Bir paylaşımı ile ilişkili depolama hesabı oluşturuluyor.
+-  Cihaz paylaşımlarında erişebilen kullanıcı oluşturma.
+
+Olması bir `User` yapabilmesi gereken Active Directory kiracısı üzerinde erişim `Read all directory objects`. İçin izniniz yok gibi Konuk kullanıcı olamaz `Read all directory objects`. Konuk, sonra bir etkinleştirme anahtarı, bir veri kutusu Edge cihazınıza paylaşımında oluşturulmasını oluşturma gibi işlemler kullanıyorsanız, bir kullanıcının oluşturma tüm başarısız olur.
+
+Azure Active Directory Graph API'si için kullanıcılara erişim sağlamak nasıl hakkında daha fazla bilgi için bkz. [Yöneticiler, kullanıcılar ve Konuk kullanıcılar için erişim varsayılan](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+
+### <a name="register-resource-providers"></a>Kaynak sağlayıcılarını kaydetme
+
+Bir Azure kaynağında (Azure Resource Manager modelinde) sağlamak için bu kaynağın oluşturulmasını destekleyen bir kaynak sağlayıcısı gerekir. Örneğin, bir sanal makine sağlamak için bir abonelikte bulunan 'Microsoft.Compute' kaynak sağlayıcısı olmalıdır.
+ 
+Abonelik düzeyinde kaynak sağlayıcı kayıtlı. Varsayılan olarak, yeni bir Azure aboneliği ile yaygın olarak kullanılan kaynak sağlayıcıları listesini önceden büyük/küçük harf kaydettirilir. Kaynak Sağlayıcı 'Microsoft.DataBoxEdge' Bu listede dahil edilmez.
+
+Kullanıcıların bu kaynaklar için kaynak sağlayıcıları olduğu sürece zaten 'Microsoft.DataBoxEdge' gibi kaynaklara sahip hakları, sahip oldukları kendi kaynak grupları içindeki oluşturabilmek abonelik düzeyinde için erişim izinleri vermeniz gerekmez. kayıtlı.
+
+Herhangi bir kaynak oluşturma girişiminde bulunmadan önce abonelikte kaynak sağlayıcısına kayıtlı olduğundan emin olun. Kaynak sağlayıcısı kayıtlı değilse, yeni kaynak oluşturan kullanıcıya abonelik düzeyinde gerekli kaynak sağlayıcısını kaydetmek için yeterli haklara sahip olduğundan emin olmak gerekir. Ardından bu de yapmadıysanız aşağıdaki hatayı görürsünüz:
+
+*Abonelik <Subscription name> şu kaynak sağlayıcılarını kaydetme izni yok: Microsoft.DataBoxEdge.*
+
+
+Geçerli abonelikte kaynak sağlayıcılarının bir listesini almak için aşağıdaki komutu çalıştırın:
+
+```PowerShell
+Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
+```
+
+Veri kutusu Edge cihazı için `Microsoft.DataBoxEdge` kaydedilmelidir. Kaydedilecek `Microsoft.DataBoxEdge`, abonelik yöneticisinin aşağıdaki komutu çalıştırın:
+
+```PowerShell
+Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
+```
+
+Bir kaynak sağlayıcısı kaydetme hakkında daha fazla bilgi için bkz. [çözmek için kaynak Sağlayıcısı kaydı hataları](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
 ## <a name="manage-connectivity-mode"></a>Bağlantı modunu yönetin
 
@@ -80,7 +122,7 @@ Cihaz modunu değiştirmek için aşağıdaki adımları izleyin:
 
 ## <a name="manage-power"></a>Güç Yönetimi
 
-Kapatabilir veya yerel web kullanıcı arabirimini kullanarak fiziksel ve sanal Cihazınızı yeniden başlatın. Cihazı yeniden başlatmadan önce konaktaki paylaşımları sonra da cihazı çevrimdışına almanız önerilir. Bu eylem veri bozulması olasılığını en aza indirir.
+Kapatabilir veya sanal cihazınızın yerel web UI aracılığıyla yeniden başlatın. Cihazı yeniden başlatmadan önce konaktaki paylaşımları sonra da cihazı çevrimdışına almanız önerilir. Bu eylem veri bozulması olasılığını en aza indirir.
 
 1. Yerel web kullanıcı Arabirimi, Git **Bakım > güç ayarları**.
 2. Tıklayın **kapatma** veya **yeniden** yapmak istediğinize bağlı olarak.

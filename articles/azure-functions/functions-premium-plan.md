@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242296"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492711"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure işlevleri Premium planı (Önizleme)
 
@@ -56,7 +56,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="private-network-connectivity"></a>Özel ağ bağlantısı
 
-Azure işlevleri için bir Premium planı dağıtılan yararlanır [web uygulamaları için yeni sanal ağ tümleştirmesi](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration).  Yapılandırıldığında, uygulamanız, sanal ağ içindeki kaynaklarla iletişim kurabilir veya hizmet uç noktaları güvenli.  IP kısıtlamaları, uygulamanın gelen trafiği kısıtlamak için de kullanılabilir.
+Azure işlevleri için bir Premium planı dağıtılan yararlanır [web uygulamaları için yeni sanal ağ tümleştirmesi](../app-service/web-sites-integrate-with-vnet.md).  Yapılandırıldığında, uygulamanız, sanal ağ içindeki kaynaklarla iletişim kurabilir veya hizmet uç noktaları güvenli.  IP kısıtlamaları, uygulamanın gelen trafiği kısıtlamak için de kullanılabilir.
 
 Bir alt ağ bir Premium planı işlev uygulamanızı atarken, olası her örneği için yeterli IP adreslerine sahip bir alt ağ gerekir. Önizleme sırasında en fazla örnek sayısı değişebilir ancak en az 100 kullanılabilir adresleri olan bir IP bloğu kılarız.
 

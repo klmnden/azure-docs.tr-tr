@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 93af2e4c373701383a674c694f7799ba890414dd
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4afc1231e6c9fa49c04c7bf6dfe26ee5eb87cc31
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65887431"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475173"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>İş sürekliliği ve olağanüstü durum kurtarma Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -115,7 +115,7 @@ Uygulamalar, veri nerede yazabilirsiniz ortak bir depolama noktası tipik strate
 
 Azure yönetilen diskler kullanıyorsanız, çoğaltma ve DR çözümler şunlar gibi seçebilirsiniz:
 
-* [Azure'da ark](https://github.com/heptio/ark/blob/master/docs/azure-config.md)
+* [Azure'da Velero](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
 * [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>Uygulama tabanlı zaman uyumsuz çoğaltma

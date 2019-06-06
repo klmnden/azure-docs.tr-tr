@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: 89cbf220c9ae32c7f63da4941ced1bdbfa1e5293
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835033"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735256"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>GRUB ve tek kullanıcı modu erişmek için seri Konsolu
 GRUB genel birleşik, büyük olasılıkla ilk şey bir VM'yi önyüklemeden olduğunda görürsünüz Şifresizdir, ' dir. İşletim sistemi başlatılmadan önce bu görüntülediğinden, SSH erişilebilir değil. GRUB ' diğer özelliklerin yanı sıra tek kullanıcı moduna önyükleme, önyükleme yapılandırması üzerinde değişiklik yapabilirsiniz.
@@ -184,7 +184,7 @@ SLES GRUB erişim YaST aracılığıyla şifresizdir yapılandırma gerektirir. 
 SLES normal şekilde önyükleme işlemi yapamıyorsanız Acil shell'e otomatik olarak bırakılır. Acil Durum Kabuk el ile girmek için aşağıdaki yönergeleri kullanın:
 
 1. GRUB ' (SLES girişi), önyükleme girişi düzenlemek için ' e basın
-1. İle başlar çekirdek satırı arayın `linux`
+1. Çekirdek çizgi ara - ile başlar `linux`
 1. Append `systemd.unit=emergency.target` satırın sonuna
 1. Bu ayarlarla yeniden başlatın ve Acil Durum Kabuk girmek için Ctrl + X tuşlarına basın.
    > Unutmayın, Acil Durum kabuğunda oturum bırakılacak bir _salt okunur_ dosya sistemi. Tüm dosyalara düzenlemeler yapmak istiyorsanız, okuma-yazma izinlerine sahip bir dosya sistemi yeniden bağlamak gerekir. Bunu yapmak için girin `mount -o remount,rw /` Kabuk içine

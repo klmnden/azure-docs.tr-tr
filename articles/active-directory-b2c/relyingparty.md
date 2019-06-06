@@ -2,20 +2,20 @@
 title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C'de özel ilkesinin RelyingParty öğesi belirtin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9e8718d9216bb2f4a83f8e0373b4788210015b75
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2b5e9bfe6eaa9b84e259d941760792635a2994f4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253770"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512848"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -170,7 +170,7 @@ Daha fazla bilgi için [özel ilkeler kullanarak dinamik içerik ile kullanıcı
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- | 
-| Id | Evet | Değer olmalıdır `PolicyProfile`. |
+| Kimlik | Evet | Değer olmalıdır `PolicyProfile`. |
 
 **TechnicalProfile** aşağıdaki öğeleri içerir:
 

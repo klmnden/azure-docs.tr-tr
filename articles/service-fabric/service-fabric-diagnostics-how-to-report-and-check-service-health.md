@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0db341a9e36d61761321821de5631a564adea050
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322086"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428161"
 ---
 # <a name="report-and-check-service-health"></a>Hizmet durumunu raporlama ve denetleme
 Hizmetlerinizi sorunlarla, yanıt ve olayları ve kesintileri düzeltme olanağınız sorunları hızlı bir şekilde algılamak için yeteneğinizi bağlıdır. Sorunlar ve hatalar için Azure Service Fabric sistem durumu Yöneticisi hizmeti kodunuzdan raporu standart sistem durumu izleme Service Fabric sistem durumunu denetlemek için sağladığı araçları kullanabilirsiniz.
@@ -37,7 +37,7 @@ Bu makalede hizmet kodundan durumu raporları örneği size kılavuzluk eder. Ö
 ## <a name="prerequisites"></a>Önkoşullar
 Aşağıdakilerin yüklü olması gerekir:
 
-* Visual Studio 2015 veya Visual Studio 2017
+* Visual Studio 2015 veya Visual Studio 2019
 * Service fabric SDK'sı
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>Güvenli yerel geliştirme kümesi oluşturmak için
@@ -65,7 +65,7 @@ Aşağıdakilerin yüklü olması gerekir:
 Visual Studio'da Service Fabric proje şablonları, örnek kod içerir. Aşağıdaki adımlar, nasıl özel durum olayları hizmet kodunuzdan bildirebilirsiniz gösterir. Bu raporlar otomatik olarak Service Fabric, Service Fabric Explorer, Azure portal durum görünümü ve PowerShell gibi sağladığı sistem durumu izleme için standart Araçları'nda görüntülenir.
 
 1. Visual Studio'da daha önce oluşturduğunuz uygulamayı kapatıp yeniden açmanız veya kullanarak yeni bir uygulama oluşturma **durum bilgisi olan hizmet** Visual Studio şablonu.
-1. Stateful1.cs dosyasını açın ve bulma `myDictionary.TryGetValueAsync` Çağır `RunAsync` yöntemi. Bu yöntem döndürdüğünü gördüğünüz bir `result` anahtar mantığı bu uygulamada çalışan sayısını olduğundan geçerli sayaç değerini tutan. Bu gerçek bir uygulama varsa ve bir hata sonucu eksikliği temsil varsa, bu olay bayrak istersiniz.
+1. Stateful1.cs dosyasını açın ve bulma `myDictionary.TryGetValueAsync` Çağır `RunAsync` yöntemi. Bu yöntem döndürdüğünü gördüğünüz bir `result` anahtar mantığı bu uygulamada çalışan sayısını olduğundan geçerli sayaç değerini tutan. Bu uygulamayı gerçek bir uygulama varsa ve bir hata sonucu eksikliği temsil varsa, bu olay bayrak istersiniz.
 1. Bir hata sonucu eksikliği temsil ettiğinde sistem durumu olayı bildirmek için aşağıdaki adımları ekleyin.
    
     a. Ekleme `System.Fabric.Health` Stateful1.cs dosyaya ad alanı.
@@ -124,7 +124,7 @@ Visual Studio'da Service Fabric proje şablonları, örnek kod içerir. Aşağı
     }
     ```
    Bu kod, sistem durumu raporu her değişiminde tetikler `RunAsync` yürütür. Değişikliği yaptıktan sonra basın **F5** uygulamayı çalıştırın.
-1. Uygulama çalışmaya başladıktan sonra uygulama durumunu denetlemek için Service Fabric Explorer'ı açın. Bu kez, Service Fabric Explorer, uygulamanın sağlıksız olduğunu gösterir. Daha önce eklediğimiz koddan bildirilen hata nedeniyle budur.
+1. Uygulama çalışmaya başladıktan sonra uygulama durumunu denetlemek için Service Fabric Explorer'ı açın. Bu kez, Service Fabric Explorer, uygulamanın sağlıksız olduğunu gösterir. Hata oluştuğundan uygulama sağlıksız gösterir bildirilen koddan önceden ekledik.
    
     ![Service Fabric Explorer'da iyi durumda olmayan uygulama](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 1. Service Fabric Explorer ağaç görünümünde birincil çoğaltma'yı seçerseniz, göreceksiniz **sistem durumu** çok bir hata gösterir. Service Fabric Explorer, aynı zamanda eklenen sistem durumu raporu ayrıntıları görüntüler `HealthInformation` kodda parametresi. PowerShell ve Azure Portalı'nda aynı sistem durumu raporlarının görebilirsiniz.

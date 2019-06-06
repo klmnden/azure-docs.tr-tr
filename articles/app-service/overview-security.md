@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0e592c03da222e5265ed53aab8ef73f3b477f33a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955752"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475872"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service'te güvenlik
 
@@ -113,7 +113,6 @@ Alternatif olarak, App Service uygulamanızı facebook veya [Azure anahtar kasas
 
 Dışında **yalıtılmış** fiyatlandırma katmanı, tüm katmanlar, uygulamalarınızı App Service paylaşılan ağ altyapısında çalıştırın. Örneğin, genel IP adresleri ve ön uç yük Dengeleyiciler diğer kiracılar ile paylaşılır. **Yalıtılmış** katmanı size tam ağ yalıtımı, uygulamalarınız içinde ayrılmış bir çalıştırarak [App Service ortamı](environment/intro.md). App Service ortamı içinde kendi örneğini çalıştıran [Azure sanal ağı](/azure/virtual-network/). Olanak tanır: 
 
-- Ağ erişimi kısıtlamak [ağ güvenlik grupları](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Uygulamalarınızı bir adanmış genel uç noktası ile özel ön uç işlevi görür.
 - Azure sanal ağınız içindeki yalnızca erişime izin veren bir iç yük dengeleyici (ILB) kullanarak iç uygulama işlevi görür. ILB internet'ten uygulamalarınızın toplam yalıtımı sağlar, özel alt ağdan bir IP adresi vardır.
 - [Bir web uygulaması Güvenlik Duvarı (WAF) arkasındaki bir ILB kullanın](environment/integrate-with-application-gateway.md). WAF, DDoS koruması, URI filtreleme ve SQL ekleme önleme gibi genel kullanıma yönelik uygulamalarınız için kurumsal düzeyde koruma sunar.

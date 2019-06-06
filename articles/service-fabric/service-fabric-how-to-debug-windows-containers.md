@@ -1,6 +1,6 @@
 ---
 title: Windows kapsayıcıları Service Fabric ve VS hata ayıklama | Microsoft Docs
-description: Visual Studio 2017'yi kullanarak Azure Service fabric'te Windows kapsayıcılarını hata ayıklama hakkında bilgi edinin.
+description: Visual Studio 2019'ı kullanarak Azure Service fabric'te Windows kapsayıcılarını hata ayıklama hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
-ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15f288d5400b49ec05c9ffb936fd2097cc61bae8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482652"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428155"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Nasıl yapılır: Visual Studio 2017'yi kullanarak Azure Service fabric'te Windows kapsayıcılarını hata ayıklama
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Nasıl yapılır: Visual Studio 2019'ı kullanarak Azure Service fabric'te Windows kapsayıcılarını hata ayıklama
 
-Visual Studio 2017 güncelleştirme 7 ile (15.7), Service Fabric Hizmetleri kapsayıcılar içindeki .NET uygulamalarına ayıklayabilirsiniz. Bu makalede, ortamınızı yapılandırın ve ardından yerel bir Service Fabric kümesinde çalışan bir kapsayıcı bir .NET uygulamasında hata ayıklama işlemini göstermektedir.
+Visual Studio 2019'ile Service Fabric Hizmetleri kapsayıcılar içindeki .NET uygulamalarına ayıklayabilirsiniz. Bu makalede, ortamınızı yapılandırın ve ardından yerel bir Service Fabric kümesinde çalışan bir kapsayıcı bir .NET uygulamasında hata ayıklama işlemini göstermektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -53,19 +53,19 @@ Visual Studio 2017 güncelleştirme 7 ile (15.7), Service Fabric Hizmetleri kaps
 
 Hata ayıklama kapsayıcıları Service Fabric ve olası çözümleri ile bilinen kısıtlamaların listesi aşağıdadır:
 
-* Localhost için ClusterFQDNorIP kullanarak DNS çözümlemesi kapsayıcılarda desteklemez.
+* Localhost için ClusterFQDNorIP kullanarak DNS çözümlemesi kapsayıcılarda desteklemeyeceği.
     * Çözüm: Makine adı (yukarıya bakın) kullanarak yerel küme oluşturma
-* Windows 10 çalıştıran bir sanal makinede DNS yanıtı geri kapsayıcı almazsınız.
+* Windows 10 çalıştıran bir sanal makinede DNS yanıtı geri kapsayıcı elde etmezsiniz.
     * Çözüm: Sanal makineler NIC'de IPv4 için UDP Sağlama boşaltması devre dışı bırak
-    * Lütfen bu makinedeki ağ performansı bozar unutmayın.
+    * Windows 10 çalıştıran makinede ağ performansı bozar.
     * https://github.com/Azure/service-fabric-issues/issues/1061
 * Docker Compose kullanarak uygulamayı dağıtıldıysa DNS kullanarak aynı uygulama Hizmetleri'nde çözümleme hizmet adını Windows 10 üzerinde çalışmıyor
     * Çözüm: Hizmet uç noktaları çözümlenecek ServiceName.ApplicationName kullanın
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * IP adresi için ClusterFQDNorIP kullanıyorsanız, konaktaki birincil IP değiştirme DNS işlevselliğinin keser.
-    * Çözüm: Konakta yeni birincil IP kullanarak bir küme oluşturun veya makine adı kullanın. Bu tasarım gereğidir.
-* Küme oluşturulurken FQDN ağ üzerinde çözümlenebilen değil, DNS başarısız olur.
-    * Çözüm: Ana bilgisayarın birincil IP kullanarak yerel kümeye yeniden oluşturun. Bu tasarım gereğidir.
+    * Çözüm: Konakta yeni birincil IP kullanarak bir küme oluşturun veya makine adı kullanın. Bu arıza tasarım gereğidir.
+* DNS, ağ üzerinde çözümlenebilen FQDN kümenin oluşturulduğu değilse, başarısız olur.
+    * Çözüm: Ana bilgisayarın birincil IP kullanarak yerel kümeye yeniden oluşturun. Bu hata, tasarım gereğidir.
 * Bir kapsayıcı hata ayıklarken docker günlükleri yalnızca Service Fabric Explorer dahil olmak üzere Service Fabric API'leri üzerinden değil Visual Studio çıktı penceresinde kullanılabilir
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Docker kapsayıcıları Service Fabric üzerinde çalışan bir .NET uygulamasında hata ayıklama
@@ -81,4 +81,4 @@ Hata ayıklama kapsayıcıları Service Fabric ve olası çözümleri ile biline
     Visual Studio, .NET ve .NET Core konsol ve ASP.NET proje türleri destekler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Service Fabric kapsayıcıları ve özellikleri hakkında daha fazla bilgi edinmek için lütfen bu bağlantıyı izleyin: [Service Fabric kapsayıcıları genel bakış](service-fabric-containers-overview.md).
+Service Fabric kapsayıcıları ve özellikleri hakkında daha fazla bilgi edinmek için Service Fabric kapsayıcıları overview](service-fabric-containers-overview.md) bakın.

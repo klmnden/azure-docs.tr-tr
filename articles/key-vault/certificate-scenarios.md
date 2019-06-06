@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a0ff97eb17dcf2625e1bb75dabf3e4a9686b5b85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725719"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427847"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault sertifikalar ile çalışmaya başlama
 Aşağıdaki senaryolardan birkaç Key Vault'un sertifika yönetim hizmeti, ilk sertifikayı anahtar kasanızı oluşturmak için gereken ek adımları dahil olmak üzere birincil kullanımlarını özetler.
@@ -39,8 +39,7 @@ Sertifikalar, anahtar kasası sertifikası olarak birbirine bağlı üç birbiri
 -   Kolaylaşmasına BT yöneticisi, PKI yönetim veya herkesin belirli bir şirket için (ör. CA ' ları ile hesapları yönetme Contoso) anahtar kasası sertifikaların kullanılması için önkoşuldur.  
     Aşağıdaki CA'lar anahtar kasası ile iş ortaklığı yaptı geçerli sağlayıcıları şunlardır:  
     -   DigiCert - Key Vault OV-SSL sertifikalarıyla DigiCert sunar.  
-    -   GlobalSign - Key Vault OV-SSL sertifikalarıyla GlobalSign sunar.  
-    -   WoSign - Key Vault teklifler OV-SSL veya EV SSL sertifikalarıyla WoSign WoSign hesabında WoSign Portalı'nda müşteri tarafından yapılandırılan ayar temel alınarak.  
+    -   Globaltrust - Key Vault OV-SSL sertifikalarıyla Globaltrust sunar.  
 
 **2. adım** -Hesap Yöneticisi kimlik bilgilerini kaydetmek için Key Vault tarafından kullanılacak bir CA sağlayıcısı oluşturur için yenileyin ve SSL sertifikaları Key Vault aracılığıyla kullanır.
 

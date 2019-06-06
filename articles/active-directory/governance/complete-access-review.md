@@ -16,12 +16,12 @@ ms.date: 05/22/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae204ec1789f227150adc560d4a292404d23b7e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ec3909ffbb624284f999360140b7454098643062
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113268"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473357"
 ---
 # <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Erişim gözden geçirmesi gruplarının tamamlamak ya da uygulamaları Azure ad erişim gözden geçirmeleri
 
@@ -40,7 +40,7 @@ Daha fazla bilgi için [hangi kullanıcıların lisansına sahip olması gerekir
 
 Gözden geçirenler, incelemeler tamamlandı olarak ilerleme durumunu izleyebilirsiniz.
 
-1. Azure portal ve açık oturum [erişim gözden geçirmeleri sayfasına](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Azure portal ve açık oturum [Kimlik Yönetimi sayfası](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. Sol menüde **erişim gözden geçirmeleriyle**.
 

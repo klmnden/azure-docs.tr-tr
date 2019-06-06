@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2019
+ms.date: 6/03/2019
 ms.author: monhaber
-ms.openlocfilehash: 807bde76bb6bb50490ee599768273a59c49d5e45
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258698"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480527"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platformlar ve Azure Güvenlik Merkezi tarafından desteklenen özellikler
 
@@ -93,7 +93,7 @@ Bir bulut hizmetinde çalışan sanal makineleri de desteklenir. Üretim yuvalar
 |FIM|✔|✔|✔|✔|✔|✔|Standart|
 |Disk şifreleme değerlendirme|✔|✔|X|✔|✔|X|Boş|
 |Üçüncü taraf dağıtım|✔|X|X|✔|X|X|Boş|
-|Nsg'ler değerlendirmesi|✔|✔|X|✔|✔|X|Boş|
+|NSG değerlendirmesi|✔|✔|X|✔|✔|X|Boş|
 |Fileless tehdit algılama|✔|✔|✔|X|X|X|Standart|
 |Ağ eşlemesi|✔|✔|X|✔|✔|X|Standart|
 |Uyarlamalı ağ denetimleri|✔|✔|X|✔|✔|X|Standart|
@@ -129,7 +129,7 @@ Ne zaman, her biri bu korumalar için oluşturulan öneriler hakkında daha fazl
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Azure Blob Depolama hesapları *|✔| ✔|
+|Azure Blob Depolama hesapları|✔| ✔|
 |Uygulama hizmetleri|✔| ✔|
 |Cloud Services|✔| X|
 |VNets|✔| NA|
@@ -137,7 +137,6 @@ Ne zaman, her biri bu korumalar için oluşturulan öneriler hakkında daha fazl
 |NIC’ler|✔| NA|
 |NSG'ler|✔| NA|
 |Abonelik|✔ **| ✔|
-|App Service|✔| NA|
 |Batch|✔| NA|
 |Service Fabric|✔| NA|
 |Otomasyon hesabı|✔| NA|
@@ -147,14 +146,9 @@ Ne zaman, her biri bu korumalar için oluşturulan öneriler hakkında daha fazl
 |Stream Analytics|✔| NA|
 |Olay hub'ı|✔| NA|
 |Mantıksal uygulamalar|✔| NA|
-|Alt ağ|✔| NA|
-|Sanal ağ|✔| NA|
 |Depolama hesabı|✔| NA|
 |Redis|✔| NA|
-|SQL|✔| NA|
 |Data lake analytics|✔| NA|
-|Depolama hesabı|✔| NA|
-|Abonelik|✔| NA|
 |Key Vault|✔| NA|
 
 

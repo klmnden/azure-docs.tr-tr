@@ -9,19 +9,19 @@ ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
-ms.openlocfilehash: 70c32f5e54fa7e71c0884ceba48c84af782b3f41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5ab817c65ab562f37b456cc3589624c1876084f0
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419025"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428205"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Service Fabric Mesh uygulamalarını derlemek için Windows geliştirme ortamınızı ayarlayın
 
 Windows geliştirme makinenizde Azure Service Fabric Örgü uygulamalar geliştirip çalıştırmanızı için gerekir:
 
 * Docker
-* Visual Studio 2017
+* Visual Studio 2017 veya üstü
 * Service Fabric Mesh çalışma zamanı
 * Mesh Service Fabric SDK ve araçları.
 
@@ -37,14 +37,14 @@ Yüklü olan her şeyi size yardım alarak çalıştırdığınız Windows sür�
 
 ## <a name="visual-studio"></a>Visual Studio
 
-Service Fabric Mesh uygulamalarını dağıtmak için Visual Studio 2017 gereklidir. [Sürüm 15.6.0'ı][download-visual-studio] veya üstünü yükleyin ve aşağıdaki iş yüklerini etkinleştirin:
+Service Fabric Mesh uygulama dağıtmak için Visual Studio 2017 veya üstü gereklidir. [Sürüm 15.6.0'ı][download-visual-studio] veya üstünü yükleyin ve aşağıdaki iş yüklerini etkinleştirin:
 
 * ASP.NET ve web geliştirme
-* Azure Geliştirme
+* Azure geliştirme
 
 ## <a name="install-docker"></a>Docker'ı yükleme
 
-Docker'ın yüklü zaten varsa, en son sürüm olduğundan emin olun. Docker kullanıma yeni bir sürüm olduğundan belirtmeyi ancak en son sürüme sahip olmasını sağlamak için el ile denetleyin.
+Docker'ın yüklü zaten varsa, en son sürüm olduğundan emin olun. Yeni bir sürümü kullanıma bağlıdır, ancak el ile en son sürümü kullandığınızdan emin olun, docker, isteyebilir.
 
 #### <a name="install-docker-on-windows-10"></a>Windows 10 Docker'ı yükleyin
 
@@ -52,7 +52,7 @@ Service Fabric Mesh tarafından kullanılan kapsayıcılı Service Fabric uygula
 
 Yükleme sırasında, istendiğinde **Linux kapsayıcıları yerine Windows kapsayıcılarını kullan**'ı seçin.
 
-Hyper-V makinenizde etkin değilse Docker yükleyicisi ile etkinleştirebilirsiniz. Bu seçenek sunulursa **Tamam**'a tıklayın.
+Hyper-V makinenizde etkin değilse, bunu etkinleştirmek Docker'ın yükleyicisi sunar. Bu seçenek sunulursa **Tamam**'a tıklayın.
 
 #### <a name="install-docker-on-windows-server-2016"></a>Windows Server 2016'da Docker'ı yükleyin
 
@@ -89,7 +89,7 @@ Aşağıdaki sırayla Service Fabric Mesh çalışma zamanını, SDK'yı ve ara�
 > Üzerinde geliştiriyorsanız, Windows Fall Creators update (1709 sürümü) makine, yalnızca Windows sürüm 1709 docker görüntülerini kullanabilirsiniz.
 > Windows üzerinde geliştirme yapıyorsanız 10 Nisan 2018 Güncelleştirmesi (sürüm 1803) makine, ya da Windows sürüm 1709 veya 1803 docker görüntülerini kullanabilirsiniz.
 
-Yerel kümeniz yoksa Visual Studio tarafından oluşturulacağından Visual Studio kullanıyorsanız bu adımı atlayabilirsiniz.
+Visual Studio kullanıyorsanız, yoksa, Visual Studio yerel bir küme sizin için oluşturur çünkü bu bölümü atlayabilirsiniz.
 
 Oluştururken veya aynı anda tek bir Service Fabric uygulama çalışan hata ayıklama performansı için en iyi bir tek düğümlü yerel geliştirme kümesi oluşturun. Aynı anda birden çok uygulama çalıştırıyorsanız, beş düğümlü yerel geliştirme kümesi oluşturun. Kümeyi dağıtmak veya bir Service Fabric Mesh projede hata ayıklaması çalıştırılması gerekir.
 

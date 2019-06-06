@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: efa85491f4b183a044ec5d9e5e6e3d11eebedbe3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023621"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428440"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Örnek: Metni Çevir API'sini kullanarak özel bir yetenek oluşturma
 
-Bu örnekte, web, herhangi bir dilde kabul eden ve İngilizceye çevirir API özel beceri oluşturma konusunda bilgi edinin. Örnekte bir [Azure işlevi](https://azure.microsoft.com/services/functions/) sarmalamak için [Çevir metin API'si](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) böylece özel bir yetenek arabirimini uygular.
+Bu örnekte, bir web API'si için özel yetenek oluşturmayı öğrenin. Bu yetenek, herhangi bir dilde kabul eder ve İngilizceye çevirir. Örnekte bir [Azure işlevi](https://azure.microsoft.com/services/functions/) sarmalamak için [Çevir metin API'si](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) böylece özel bir yetenek arabirimini uygular.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-+ Hakkında bilgi edinin [özel bir yetenek arabirimi](cognitive-search-custom-skill-interface.md) özel bir yetenek uygulamalıdır giriş/çıkış arabirimi ile aşina değilseniz makalesi.
++ Hakkında bilgi edinin [özel bir yetenek arabirimi](cognitive-search-custom-skill-interface.md) özel bir yetenek uygulamalıdır giriş/çıkış arabirimine aşina değilseniz, makalesi.
 
 + [Translator metin çevirisi API'si için kaydolun](../cognitive-services/translator/translator-text-how-to-signup.md)ve onu kullanmak üzere bir API anahtarınızı alın.
 
-+ Yükleme [Visual Studio 2017 sürüm 15.5](https://www.visualstudio.com/vs/) veya daha sonra Azure geliştirme iş yükü dahil.
++ Yükleme [Visual Studio 2019](https://www.visualstudio.com/vs/) veya daha sonra Azure geliştirme iş yükü dahil.
 
 ## <a name="create-an-azure-function"></a>Azure İşlevi oluşturma
 
@@ -37,9 +37,9 @@ Bu örnek bir web API barındırmak için bir Azure işlevi kullansa da, gerekli
 
 1. Visual Studio'da **yeni** > **proje** Dosya menüsünden.
 
-1. Yeni Proje iletişim kutusunda, seçmek **yüklü**, genişletme **Visual C#** > **bulut**seçin **Azure işlevleri**, yazın Projeniz için ad ve seçin **Tamam**. İşlev uygulamasının adı, bir C# ad alanı olarak geçerli olmalıdır; bu nedenle alt çizgi, kısa çizgi veya alfasayısal olmayan herhangi bir karakter kullanmayın.
+1. Yeni Proje iletişim kutusunda, seçmek **yüklü**, genişletme **Visual C#**  > **bulut**seçin **Azure işlevleri**, yazın Projeniz için ad ve seçin **Tamam**. İşlev uygulamasının adı, bir C# ad alanı olarak geçerli olmalıdır; bu nedenle alt çizgi, kısa çizgi veya alfasayısal olmayan herhangi bir karakter kullanmayın.
 
-1. Seçin **Azure işlevler v2 (.NET Core)**. Ayrıca, sürüm 1 ile yapabilirsiniz, ancak aşağıda yazılan kodların v2 şablonu temel alan.
+1. Seçin **Azure işlevler v2 (.NET Core)** . Ayrıca, sürüm 1 ile yapabilirsiniz, ancak aşağıda yazılan kodların v2 şablonu temel alan.
 
 1. Olmasını seçin **HTTP tetikleyicisi**
 
@@ -195,7 +195,7 @@ Bu, yalnızca tek bir kayıt üzerinde aynı anda çalışan basit bir enricher 
 
 ## <a name="test-the-function-from-visual-studio"></a>Visual Studio'dan işlevi test etme
 
-Tuşuna **F5** program ve test işlevi davranışları çalıştırılacak. Bu durumda İngilizce, İspanyolca bir metni çevirmek için aşağıdaki işlevi kullanacağız. Postman veya fiddler'ı aşağıda gösterilene benzer bir çağrı vermek için kullanın:
+Tuşuna **F5** program ve test işlevi davranışları çalıştırılacak. Bu durumda, İspanyolca, İngilizce için bir metni çevirmek için aşağıdaki işlevi kullanacağız. Postman veya fiddler'ı aşağıda gösterilene benzer bir çağrı vermek için kullanın:
 
 ```http
 POST https://localhost:7071/api/Translate
@@ -270,7 +270,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 }
 ```
 
-Bu işlev yerel ortamda çalıştırırken daha önce gördüğünüz bir benzer bir sonuç üretir.
+Bu örnek, yerel ortamda işlevi çalıştırıldığında, daha önce gördüğünüz bir benzer bir sonuç üretir.
 
 ## <a name="connect-to-your-pipeline"></a>Ardışık düzeninize bağlanma
 Yeni özel bir yetenek olduğuna göre bunu standartlarındaki şu ekleyebilirsiniz. Aşağıdaki örnekte, yetenek çağırmak nasıl gösterir. Yetenek toplu işlemiyor olduğundan, en yüksek toplu iş boyutu yalnızca olması için bir yönerge ekleyin ```1``` göndermek için tek tek belgeler.

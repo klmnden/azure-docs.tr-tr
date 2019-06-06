@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ecf6d04056a91f1f9dd62a5238f60177d2bf59
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 16e4a5f63ba80b02a967888ad76fedf165a576c8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420596"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473407"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Bir birincil yenileme belirteci nedir?
 
@@ -111,8 +111,11 @@ Bir kullanıcı, bir tarayıcı etkileşimi başlattığında, tarayıcı (veya 
 Bir PRT multi factor authentication (MFA) talep belirli senaryolarda alabilirsiniz. Bir MFA tabanlı PRT uygulamalar için belirteçler istemek için kullanıldığında, bu uygulama belirteçleri için MFA talebi aktarılır. Bu işlev, bunu gerektiren her uygulama için MFA testini engelleyerek, kullanıcılar için sorunsuz bir deneyim sunar. Bir PRT MFA talebi aşağıdaki yollarla alabilirsiniz:
 
 * **İş için Windows Hello ile oturum**: Windows iş için Hello parolaları değiştirir, şifreleme anahtarlarını güçlü iki öğeli kimlik doğrulaması sağlamak için kullanır. Windows iş için Hello bir cihazdaki bir kullanıcı için özeldir ve kendisini MFA sağlamayı gerektirir. Oturum Windows iş için Hello bir kullanıcı oturum açtığında, kullanıcının PRT MFA talebi alır. Bu senaryo, akıllı kart kimlik doğrulaması, bir ADFS MFA talep oluşturursa, akıllı kart ile oturum açan kullanıcılar için de geçerlidir.
+   * Windows iş için Hello çok faktörlü kimlik doğrulaması olarak kabul edilir, PRT yenilendiğinde, kullanıcılar iş için WIndows Hello ile oturum zaman MFA süresi sürekli olarak genişletecek şekilde MFA talebi güncelleştirilir
 * **WAM etkileşimli oturum açma sırasında MFA**: Bir kullanıcının uygulamaya erişmek için mfa'yı yapmanız gerekiyorsa WAM aracılığıyla bir belirteç isteği sırasında bu etkileşim sırasında yenilenen PRT bir MFA talebi ile imprinted.
+   * Bu durumda, dizinde belirlenmiş kullanım ömrü MFA süre dayanır için MFA talebi sürekli olarak güncelleştirilmez.
 * **Cihaz kaydı sırasında MFA**: Yönetici Azure AD'ye cihaz ayarlarına yapılandırılmış olmadığını [cihazları kaydetmek mfa'yı gerekli](device-management-azure-portal.md#configure-device-settings), kullanıcının kaydı tamamlamak için mfa'yı yapması için gerekli. Bu işlem sırasında bir kullanıcıya verilen PRT elde kaydı sırasında MFA talebi sahiptir. Bu özellik, yalnızca bu cihazda oturum açın diğer kullanıcılara değil, birleştirme işlemi gerçekleştiren kullanıcı için geçerlidir.
+   * MFA süresi, dizinde belirlenmiş kullanım ömrü dayalı şekilde benzer WAM etkileşimli oturum açma MFA talebi sürekli olarak güncelleştirilmez.
 
 Windows 10 bölümlenmiş PRTs listesini her kimlik bilgisi tutar. Bu nedenle, her biri için Windows Hello iş, parola veya akıllı kart için bir PRT yoktur. Bu bölümleme değil karma sırasında belirteci isteklerini ve kullanılan kimlik bilgisi dayalı MFA talep yalıtılmış olmasını sağlar.
 

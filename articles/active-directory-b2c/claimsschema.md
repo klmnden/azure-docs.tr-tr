@@ -2,20 +2,20 @@
 title: ClaimsSchema - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C'de özel bir ilke ClaimsSchema öğesi belirtin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721752"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511859"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -48,12 +48,12 @@ ms.locfileid: "64721752"
 
 **ClaimType** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | Çeşitli ekranında kullanıcılara görüntülenen başlığı. Değer olabilir [yerelleştirilmiş](localization.md). |
+| displayName | 0:1 | Çeşitli ekranında kullanıcılara görüntülenen başlığı. Değer olabilir [yerelleştirilmiş](localization.md). |
 | DataType | 0:1 | Talep türü. Veri türlerini boolean, tarih, dateTime, int, long, dize stringCollection, alternativeSecurityIdCollection kullanılabilir. |
 | DefaultPartnerClaimTypes | 0:1 | İş ortağı varsayılan talep türleri için belirtilen bir protokol kullanın. Değer, geçersiz kılınabilir **PartnerClaimType** belirtilen **Inputclaim** veya **OutputClaim** öğeleri. Bu öğe, bir protokol için varsayılan adı belirtmek için kullanın.  |
-| Maske | 0:1 | Talep görüntülenirken uygulanabilir karakter maskeleme isteğe bağlı bir dize. Örneğin, telefon numarası 324-232-4343 XXX-XXX-4343 maskelenmiş olamaz. |
+| Maskesi | 0:1 | Talep görüntülenirken uygulanabilir karakter maskeleme isteğe bağlı bir dize. Örneğin, telefon numarası 324-232-4343 XXX-XXX-4343 maskelenmiş olamaz. |
 | UserHelpText | 0:1 | Amacı anlamak, kullanıcılar için yararlı olabilecek bir talep türünün açıklaması. Değer olabilir [yerelleştirilmiş](localization.md). |
 | UserInputType | 0:1 | El ile için talep türünü talep veri girerken kullanılabilir olması gereken giriş denetimi türü. Bu sayfada tanımlı kullanıcı giriş türleri bakın. |
 | Kısıtlama | 0:1 | Normal bir ifade (Regex) ya da kabul edilebilir değerler listesi gibi bu talebi için değer kısıtlaması. Değer olabilir [yerelleştirilmiş](localization.md). |
@@ -63,9 +63,9 @@ PredicateValidationReference| 0:1 | Bir başvuru bir **PredicateValidationsInput
 
 **DefaultPartnerClaimTypes** aşağıdaki öğe içerebilir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| Protokol | 0: n | Talep türü adı, varsayılan iş ortakları ile protokollerin listesi. |
+| Protocol | 0: n | Talep türü adı, varsayılan iş ortakları ile protokollerin listesi. |
 
 **Protokolü** öğesi aşağıdaki öznitelikler içerir:
 
@@ -100,7 +100,7 @@ Sonuç olarak, Azure AD B2C tarafından verilen JWT belirteci yayan `family_name
 }
 ```
 
-### <a name="mask"></a>Maske
+### <a name="mask"></a>Maskesi
 
 **Maskesi** öğesi aşağıdaki öznitelikler içerir:
 
@@ -150,7 +150,7 @@ Kimlik deneyimi çerçevesi e-posta adresini ve e-posta etki alanı adı yalnız
 
 **Kısıtlama** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | Sabit listesi | 1:n | Kullanıcı arabiriminde kullanılabilen seçenekler için açılan bir menüde bir değer gibi talep seçmek kullanıcı. |
 | Desen | 1:1 | Kullanılacak normal ifade. |

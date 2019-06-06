@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: 949468dfe26b076b5c5cf5cab8bbdc2038c7bd2a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 021b9035b10ad5a08bca1842e8d0714b33c84271
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165892"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492431"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Oluşturma ve veri kümeleri (Önizleme) Azure Machine learning'de erişme
 
@@ -40,7 +40,7 @@ Oluşturma ve veri kümeleriyle çalışmak için ihtiyacınız vardır:
 
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
-* Bir [Azure Machine Learning hizmeti çalışma Azure Machine Learning hizmeti çalışma alanı](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
+* Bir [Azure Machine Learning hizmeti çalışma alanı](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
 
 * [Yüklü Python için Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), azureml veri kümeleri paketi içerir.
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c55dc0cbc175542d0b208bbe72566a0adb55a371
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919097"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496735"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Karma kimlik benimseme stratejinizi tanımlayın
 Bu görevde, karma kimlik çözümü içinde bahsedilen iş gereksinimlerini karşılamak için karma kimlik benimseme stratejinizi tanımlayın:
@@ -199,8 +199,7 @@ Stratejiniz için bir çözüm üzerinde kapatılmış, ancak yine de, kullanıc
 | Şirket içi AD |Multi-Factor Authentication Sunucusu |
 
 > [!NOTE]
-> Ayrıca, seçtiğiniz çok faktörlü kimlik doğrulaması tasarım seçeneği tasarımınız için gerekli olan özellikleri desteklediğini de emin olmalısınız.  Daha fazla bilgi için okuma [multi-Factor güvenlik çözümünü seçtiğiniz](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
-> 
+> Ayrıca, seçtiğiniz çok faktörlü kimlik doğrulaması tasarım seçeneği tasarımınız için gerekli olan özellikleri desteklediğini de emin olmalısınız.  Daha fazla bilgi için okuma [multi-Factor güvenlik çözümünü seçtiğiniz](../authentication/concept-mfa-howitworks.md).
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Multi-Factor Auth sağlayıcısı

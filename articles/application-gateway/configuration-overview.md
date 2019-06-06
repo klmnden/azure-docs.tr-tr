@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946818"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431309"
 ---
 # <a name="application-gateway-configuration-overview"></a>Uygulama ağ geçidi yapılandırmasına genel bakış
 
@@ -57,7 +57,7 @@ Ağ güvenlik grupları (Nsg'ler), Application Gateway üzerinde desteklenir. An
 
 - Gelen trafiği **AzureLoadBalancer** etiket izin verilmelidir.
 
-##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>Beyaz liste Application Gateway erişimi birkaç kaynak IP'leri
+##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Application Gateway birkaç kaynak IP'leri erişmesine izin vermek
 
 Bu senaryo için uygulama ağ geçidi alt ağda Nsg kullanın. Bu öncelik sırasına göre bir alt ağda bulunan aşağıdaki kısıtlamalar yerleştirin:
 
@@ -118,7 +118,7 @@ Bu dinleyici ile ilişkilendirmek için planladığınız ön uç IP adresi seç
 
 Ön uç bağlantı noktasını seçin. Var olan bir bağlantı noktası seçin veya yeni bir tane oluşturun. Herhangi bir değer seçin [bağlantı noktası aralığına izin](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Yalnızca bilinen bağlantı noktaları 80 ve 443, gibi ancak uygun bir izin verilen özel bir bağlantı noktası kullanabilirsiniz. Bir bağlantı noktası, genel kullanıma yönelik dinleyicileri veya özel bakan dinleyicileri için kullanılabilir.
 
-### <a name="protocol"></a>Protokol
+### <a name="protocol"></a>Protocol
 
 HTTP veya HTTPS seçin:
 
@@ -209,13 +209,13 @@ Yola dayalı kural için karşılık gelen birden fazla arka uç HTTP ayarları,
 
 ### <a name="redirection-setting"></a>Yeniden yönlendirme ayarı
 
-Yeniden yönlendirme için temel bir kuralı yapılandırdıysanız, ilişkili dinleyici üzerindeki tüm istekleri hedef yönlendirilir. Bu *genel* yeniden yönlendirme. Yeniden yönlendirme için bir yol tabanlı kural yapılandırılmışsa, yalnızca belirli bir site alanında isteklerini yönlendirilir. Tarafından belirtilen bir alışveriş sepeti alanı örneğidir */cart/\**. Bu *yol tabanlı* yeniden yönlendirme.
+Yeniden yönlendirme için temel bir kuralı yapılandırdıysanız, ilişkili dinleyici üzerindeki tüm istekleri hedef yönlendirilir. Bu *genel* yeniden yönlendirme. Yeniden yönlendirme için bir yol tabanlı kural yapılandırılmışsa, yalnızca belirli bir site alanında isteklerini yönlendirilir. Tarafından belirtilen bir alışveriş sepeti alanı örneğidir */cart/\** . Bu *yol tabanlı* yeniden yönlendirme.
 
 Yeniden yönlendirme hakkında daha fazla bilgi için bkz: [Application Gateway yeniden yönlendirmeye genel bakış](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
-#### <a name="redirection-type"></a>Yeniden yönlendirme türü
+#### <a name="redirection-type"></a>Yönlendirme türü
 
-Gerekli bir yeniden yönlendirme türünü seçin: *PERMANENT(301)*, *Temporary(307)*, *Found(302)*, veya *other(303) bkz*.
+Gerekli bir yeniden yönlendirme türünü seçin: *PERMANENT(301)* , *Temporary(307)* , *Found(302)* , veya *other(303) bkz*.
 
 #### <a name="redirection-target"></a>Yeniden yönlendirme hedefi
 
@@ -259,17 +259,17 @@ Bu özellik, bir kullanıcı oturumunu aynı sunucu üzerinde tutmak istediğini
 
 Bağlantı boşaltma düzgün bir şekilde arka uç havuzu üyeleri planlanan hizmet güncelleştirmeleri sırasında kaldırmanıza yardımcı olur. Kural oluşturma sırasında bir arka uç havuzunun tüm üyeleri için bu ayarı uygulayabilirsiniz. Arka uç havuzuna serbest kayıt tüm örneklerini yeni istekler almadığınız sağlar. Bu arada, mevcut isteklerine yapılandırılmış bir süre sınırı içinde tamamlamak için izin verilir. Bağlantı boşaltma arka uç havuzundan bir API çağrısı tarafından açıkça kaldırılan arka uç örnekleri için geçerlidir. Olarak bildirilen bir arka uç örneklerinin aynı zamanda geçerli *sağlıksız* sistem tarafından.
 
-### <a name="protocol"></a>Protokol
+### <a name="protocol"></a>Protocol
 
 Application Gateway, HTTP ve HTTPS yönlendirme istekleri arka uç sunucuları için destekler. Arka uç sunucularına trafiği, HTTP seçerseniz şifrelenmez. Şifrelenmemiş iletişimin kabul edilebilir değilse, HTTPS seçin.
 
 Bu ayar ile HTTPS dinleyicisinin destekler birleştirilmiş [uçtan uca SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Bu hassas verileri arka uca şifrelenmiş güvenli bir şekilde aktarmanıza olanak sağlar. Her arka uç sunucusunda uçtan uca SSL etkin olan arka uç havuzundaki bir sertifikayla güvenli iletişime izin verecek şekilde yapılandırılması gerekir.
 
-### <a name="port"></a>Bağlantı noktası
+### <a name="port"></a>Port
 
 Bu ayar, burada trafiği arka uç sunucuları uygulama ağ geçidinden dinleme bağlantı noktasını belirtir. 1 ile 65535 arasında değişen bağlantı noktaları yapılandırabilirsiniz.
 
-### <a name="request-timeout"></a>İstek zaman aşımına uğradı
+### <a name="request-timeout"></a>İstek zaman aşımı
 
 Bu ayar application gateway arka uç havuzundan "bağlantı zaman aşımına uğradı" hata iletisi döndürmeden önce yanıt almayı bekleyeceği saniye sayısıdır.
 

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: d4d3d9a3ff57a7a388e9703d0d145d8ce6eafd12
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b55cc226cfbb462cdccd73b3b80cfb0d56c10711
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143017"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475601"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure rol tabanlı erişim denetimleri Kubernetes yapılandırma dosyasının Azure Kubernetes Service (AKS) erişim tanımlamak için kullanın
 
@@ -24,7 +24,7 @@ Bu makalede bir AKS kümesi yapılandırma bilgilerini alabilirsiniz bu sınır�
 
 Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
-Bu makalede, ayrıca Azure CLI Sürüm 2.0.53 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu makalede, ayrıca Azure CLI Sürüm 2.0.65 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
 ## <a name="available-cluster-roles-permissions"></a>Kullanılabilir küme rol izinleri
 
@@ -45,9 +45,9 @@ Bu RBAC rolleri, bir Azure Active Directory (AD) kullanıcı veya gruba uygulana
 
 ## <a name="assign-role-permissions-to-a-user-or-group"></a>Bir kullanıcı veya grup rolü izinleri atama
 
-Kullanılabilir rollerden biri atamak için kaynak Kimliğini AKS kümesi ve Azure AD kullanıcı hesabı veya grup Kimliğini almanız gerekir. Aşağıdaki örnek komutlar aşağıdaki adımları uygulayın:
+Kullanılabilir rollerden biri atamak için kaynak Kimliğini AKS kümesi ve Azure AD kullanıcı hesabı veya grup Kimliğini almanız gerekir. Aşağıdaki örnek komutlar:
 
-* Küme kaynak Kimliğini kullanarak alır [az aks show] [ az-aks-show] adlı Küme için komutu *myAKSCluster* içinde *myResourceGroup* kaynak grubu. Gerektiğinde kendi küme ve kaynak grubu adı belirtin.
+* Küme kaynak Kimliğini kullanarak alma [az aks show] [ az-aks-show] adlı Küme için komutu *myAKSCluster* içinde *myResourceGroup* kaynak grubu. Gerektiğinde kendi küme ve kaynak grubu adı belirtin.
 * Kullanan [az hesabı show] [ az-account-show] ve [az ad kullanıcı show] [ az-ad-user-show] kullanıcı kimliğinizi almak için komutları
 * Son olarak, bir rolü kullanarak atar [az rol ataması oluşturma] [ az-role-assignment-create] komutu.
 
@@ -69,7 +69,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Azure AD grubu için izinleri atamak istiyorsanız, güncelleştirme `--assignee` önceki örnekte gösterildiği gibi bir kullanıcı yerine, grubun nesne Kimliğini parametresi. Bir grubun nesne Kimliğini almak için kullanın [az ad Grup show] [ az-ad-group-show] komutu. Aşağıdaki örnekte adlı bir Azure AD grubu nesne kimliği alır *appdev*: `az ad group show --group appdev --query objectId -o tsv`
+> Azure AD grubu için izinleri atamak istiyorsanız, güncelleştirme `--assignee` parametresi için nesne Kimliğine sahip bir önceki örnekte gösterilen *grubu* yerine *kullanıcı*. Bir grubun nesne Kimliğini almak için kullanın [az ad Grup show] [ az-ad-group-show] komutu. Aşağıdaki örnekte adlı bir Azure AD grubu nesne kimliği alır *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 Önceki atama için değiştirebileceğiniz *küme kullanıcı rolünü* gerektiğinde.
 

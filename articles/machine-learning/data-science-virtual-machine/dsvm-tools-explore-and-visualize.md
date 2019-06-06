@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 693be80e493a0ba259d147f432dc9d6c07ba876d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502271"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427523"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Veri keşfi ve görselleştirme araçları üzerinde veri bilimi sanal makinesi
 
@@ -42,7 +42,7 @@ Veri bilimi anahtar bir adımda verileri öğrenmektir. Görselleştirme ve veri
 | Nedir?   |  Weka veri araştırma görevleri için makine öğrenimi algoritmaları koleksiyonudur. Algoritmalar doğrudan bir veri kümesine uygulanan veya kendi Java koddan çağrılır. Weka veri ön işleme, Sınıflandırma, regresyon, kümeleme, ilişkilendirme kuralları ve görselleştirme araçları içerir. |
 | Desteklenen DSVM sürümleri     | Windows, Linux     |
 | Tipik kullanımları      | Genel ML aracı     |
-| Kullanma / çalıştırın nasıl?      | Windows üzerinde Başlat menüsündeki Weka arayın. Linux üzerinde X2Go bilgilerinizle oturum açın, sonra gidin uygulamaları geliştirme -> Weka ' ->. |
+| Kullanma / çalıştırın nasıl?      | Windows üzerinde Başlat menüsündeki Weka arayın. Linux üzerinde X2Go bilgilerinizle oturum açın ve ardından gitmek uygulamaları geliştirme -> Weka ' ->. |
 | Örneklere bağlantılar      | [Weka örnekleri](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | DSVM ilgili araçları      |LightGBM, Rattle, Xgboost   |
 
@@ -56,12 +56,12 @@ Veri bilimi anahtar bir adımda verileri öğrenmektir. Görselleştirme ve veri
 | Örneklere bağlantılar      | [Çıngırağı](https://togaware.com/onepager/) |
 | DSVM ilgili araçları      |LightGBM, Weka, Xgboost   |
 
-## <a name="powerbi-desktop"></a>PowerBI Masaüstü 
+## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Etkileşimli veri görselleştirmesi ve BI aracı    |
 | Desteklenen DSVM sürümleri      | Windows  |
 | Tipik kullanımları      |  Veri Görselleştirme ve panolar oluşturma   |
 | Kullanma / çalıştırın nasıl?      | Masaüstü kısayolu (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, Juno      |
+| DSVM ilgili araçları      |   Visual Studio 2019, Visual Studio kodu, Juno      |
 

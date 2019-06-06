@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: raynew
-ms.openlocfilehash: e7cea725a25d48ac9f1ffad6acc434e21145890e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: a7dd5530c3941fe55e8a649f8adb217159823f5d
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473237"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492783"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silme
 
@@ -62,7 +62,7 @@ ARMClient komut hakkında daha fazla bilgi için bu başvuru [belge](https://git
 
 ### <a name="use-azure-resource-manager-client-to-delete-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silmek için Azure Resource Manager istemcisini kullanma
 
-1. Abonelik kimliği, kaynak grubu adı ve kasa adını kullanarak aşağıdaki komutu çalıştırın. W\hen herhangi bir bağımlılığın yoksa, kasa siler. komutu çalıştırın.
+1. Abonelik kimliği, kaynak grubu adı ve kasa adını kullanarak aşağıdaki komutu çalıştırın. Komutu çalıştırdığınızda herhangi bir bağımlılığın yoksa, kasa siler.
 
    ```
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
@@ -102,7 +102,7 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
      ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
 5. İsteğe bağlı olarak verileri neden silmekte olduğunuz bir neden belirtin ve yorum ekleyin.
-6. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png):
+6. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png).
 7. İş tamamlandıktan sonra hizmeti bir ileti gönderir: **yedekleme işlemi durduruldu ve yedekleme verileri silindi**.
 8. Üzerinde listesindeki bir öğeyi sildikten sonra **yedekleme öğeleri** menüsünde tıklatın **Yenile** kasadaki öğeleri görmek için.
 
@@ -117,7 +117,7 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
     ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. Öğeye sağ tıklayın > **Sil**.
-4. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png):
+4. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png).
 5. İş tamamlandıktan sonra hizmeti bir ileti gönderir: **yedekleme işlemi durduruldu ve yedekleme verileri silindi**.
 6. Üzerinde listesindeki bir öğeyi sildikten sonra **Yedekleme Altyapısı** menüsünde tıklatın **Yenile** kasadaki öğeleri görmek için.
 
@@ -146,7 +146,7 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
      ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
 7. İsteğe bağlı olarak verileri neden silmekte olduğunuz bir neden belirtin ve yorum ekleyin.
-8. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png):
+8. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png).
 9. Üzerinde listesindeki bir öğeyi sildikten sonra **Yedekleme Altyapısı** menüsünde tıklatın **Yenile** kasadaki öğeleri görmek için.
 
 ### <a name="delete-the-vault-after-removing-dependencies"></a>Bağımlılıklar kaldırdıktan sonra kasayı silin

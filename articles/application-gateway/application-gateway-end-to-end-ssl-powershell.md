@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 8c715cb84dff6e2e739de59aba33041ec1b8db52
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d9851f6b3e32d0c7ab0d7774458ba5bc4d9ba823
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786277"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729669"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Application Gateway ve PowerShell kullanarak uçtan uca SSL'yi yapılandırma
 
@@ -44,7 +44,7 @@ Bu senaryo olur:
 
 Bir uygulama ağ geçidi ile uçtan uca SSL'yi yapılandırmak için bir sertifika ağ geçidi için gereklidir ve arka uç sunucuları için sertifikaları gereklidir. Ağ geçidi sertifikası, bir simetrik anahtar SSL protokolü belirtimi uyarınca türetmek için kullanılır. Ardından kullanılan simetrik anahtarı şifrelemek ve şifresini çözmek için ağ geçidi gönderilen trafik. Ağ geçidi sertifikası kişisel bilgi değişimi (PFX) biçiminde olması gerekir. Bu dosya biçimi, uygulama ağ geçidi tarafından şifreleme ve şifre çözme trafik gerçekleştirmek için gerekli olan özel anahtarı dışarı olanak tanır.
 
-Uçtan uca SSL şifrelemesi için arka uç uygulama ağ geçidiyle Güvenilenler listesinde olmalıdır. Ortak sertifikayı arka uç sunucuları uygulama ağ geçidine yükleyin. Sertifika ekleme, uygulama ağ geçidi yalnızca bilinen arka uç örnekleriyle iletişim sağlar. Bu daha fazla uçtan uca iletişimin güvenliğini sağlar.
+Uçtan uca SSL şifrelemesi için arka uç açıkça uygulama ağ geçidi tarafından izin verilmesi gerekir. Ortak sertifikayı arka uç sunucuları uygulama ağ geçidine yükleyin. Sertifika ekleme, uygulama ağ geçidi yalnızca bilinen arka uç örnekleriyle iletişim sağlar. Bu daha fazla uçtan uca iletişimin güvenliğini sağlar.
 
 Yapılandırma işlemini aşağıdaki bölümlerde açıklanmıştır.
 
@@ -170,7 +170,7 @@ Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturmadan önce ayarlan�
    > Alınan ortak anahtarı, arka uçta barındırma üstbilgileri ve sunucu adı belirtme (SNI) kullanıyorsanız, hangi trafik akışı için hedef siteye olmayabilir. Şüpheli olduğunuz, ziyaret https://127.0.0.1/ hangi sertifikanın için kullanılan onaylamak için arka uç sunucularda *varsayılan* SSL bağlaması. Bu bölümde, isteğinden ortak anahtarı kullanın. HTTPS bağlantılarına barındırma üstbilgileri ve SNI kullanıyorsanız ve bir yanıt ve sertifika için bir el ile tarayıcı istekten aldığınız değil https://127.0.0.1/ arka uç sunucularda varsayılan SSL bağlaması bunlara ayarlamanız gerekir. Bunu yaparsanız araştırmaları başarısız ve arka uç izin verilenler listesinde değil.
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]

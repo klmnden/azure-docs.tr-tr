@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: bfe28f3ff994d518cb744233e88a6f04b5771a83
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967521"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730184"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Visual Studio kod dağıtma
 
@@ -62,13 +62,14 @@ dotnet build -c Release
 Aşağıdaki adımlar Visual Studio Code'da Uzaktan izleme mikro hizmetleri çalıştırma işlemini gösterir:
 
 1. Visual Studio Code'u başlatın.
-1. Açık **azure-iot-pcs-remote-monitoring-dotnet** yerel kopyanızı VS code'da modülünden.
-1. Dosyaları kopyalama **launch.json** ve **tasks.json** scripts\local\launch\idesettings\vscode gelen\. Yeni bir klasör oluşturun **azure-iot-pcs-remote-monitoring-dotnet\.vscode** dosyaların yapıştırın.
-1. VS Code'da hata ayıklama panelini açın ve çalıştırın **tüm mikro hizmetleri çalıştırmak** yapılandırma. Bu yapılandırma, cihaz benzetimi mikro hizmet Docker'da çalıştırılır ve diğer mikro hizmetler hata ayıklayıcıda çalıştırır.
+1. VS Code'da açın **azure-iot-pcs-remote-monitoring-dotnet** klasör.
+1. Adlı yeni bir klasör oluşturun **.vscode** içinde **azure-iot-pcs-remote-monitoring-dotnet** klasör.
+1. Dosyaları kopyalama **launch.json** ve **tasks.json** services\scripts\local\launch\idesettings\vscode için gelen **.vscode** oluşturduğunuz klasör.
+1. Açık **hata ayıklama paneli** VS Code ve çalışma **çalıştırmak tüm mikro Hizmetleri** yapılandırma. Bu yapılandırma, cihaz benzetimi mikro hizmet Docker'da çalıştırılır ve diğer mikro hizmetler hata ayıklayıcıda çalıştırır.
 
-Çıkış için örnek olarak **Auth** hizmeti **hata ayıklama konsolunu** aşağıdaki gibi görünür:
+Çıkış çalışmasını **tümünü Çalıştır microsoervices** hata ayıklama konsolunda aşağıdaki gibi görünür:
 
-[![Yerel-kimlik doğrulama-hizmeti Dağıt](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![Dağıtma-yerel-mikro hizmetler](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>Web kullanıcı arabirimini çalıştırma
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508415"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497104"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -49,7 +49,7 @@ Oluşturun veya bir sanal ağı yapılandırmak için aşağıdaki araçları ku
 
 * Azure portal
 * PowerShell
-* Azure CLI'si
+* Azure CLI
 * Ağ yapılandırma dosyası (yalnızca klasik sanal ağlar için - netcfg). Bkz: [ağ yapılandırma dosyası kullanarak bir sanal ağ yapılandırma](virtual-networks-using-network-configuration-file.md) makalesi.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Sanal Ağlarımın içinde hangi adres aralıkları kullanabilirim?
@@ -180,17 +180,18 @@ Evet. Bir sanal ağ içinde dağıtılan tüm Vm'leri ve Cloud Services rol örn
 ## <a name="azure-services-that-connect-to-vnets"></a>Sanal ağlara bağlanan azure Hizmetleri
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Azure App Service Web Apps bir VNet ile birlikte kullanabilir miyim?
-Evet. Bir ASE (App Service ortamı) kullanarak bir sanal ağ içindeki Web uygulamalarını dağıtabilirsiniz. Vnet'inizi için yapılandırılmış bir noktadan siteye bağlantı varsa, tüm Web uygulamaları güvenli bir şekilde bağlanabilir ve VNet kaynaklara erişebilir. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Evet. Bir ASE (App Service ortamı) kullanarak bir sanal ağ içindeki Web uygulamaları dağıtma, uygulamalarınızda arka uç sanal ağlarınız ile sanal ağ tümleştirmesi ve gelen trafik kilitleme için hizmet uç noktaları ile uygulamanızı bağlayın. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
+* [App Service ağ özellikleri](../app-service/networking-features.md)
 * [Bir App Service ortamında Web uygulamaları oluşturma](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Uygulamanızı bir Azure sanal ağı ile tümleştirme](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Sanal ağ tümleştirme ve karma bağlantılar, Web uygulamaları ile kullanma](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json#hybrid-connections-and-app-service-environments)
+* [App Service erişim kısıtlamaları](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Cloud Services web ve çalışan rolleri (PaaS) sanal ağ ile dağıtabilirsiniz?
 Evet. (İsteğe bağlı olarak), Cloud Services rol örneklerini sanal ağlar içinde dağıtabilirsiniz. Bunu yapmak için sanal ağ adına ve rol/alt ağ eşlemeleri hizmet yapılandırmanıza ağ yapılandırma bölümünde belirtin. Herhangi bir ikili dosyalarınızı güncelleştirmek gerekmez.
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>Bir sanal makine ölçek kümesi (VMSS) bir sanal ağa bağlayabilir miyim?
-Evet. Bir sanal ağa bir VMSS bağlanmanız gerekir.
+### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>Sanal makine ölçek kümesi bir sanal ağa bağlayabilirim?
+Evet. Sanal makine ölçek kümesi bir sanal ağa bağlanması gerekir.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>Azure'nın tam bir listesi bir Vnet'e kaynaklardan dağıtabileceğiniz Hizmetleri mı?
 Evet, Ayrıntılar için bkz. [Azure Hizmetleri için sanal ağ tümleştirmesi](virtual-network-for-azure-services.md).
@@ -219,7 +220,7 @@ Evet. Ayrıntılar için bkz [Azure ağ güvenliğine genel bakış](../security
 ## <a name="apis-schemas-and-tools"></a>API'leri, şemalar ve Araçlar
 
 ### <a name="can-i-manage-vnets-from-code"></a>Sanal ağlar koddan yönetebilir miyim?
-Evet. Bulunan sanal ağlar için REST API'lerini kullanma [Azure Resource Manager](/rest/api/virtual-network) ve [Klasik (Hizmet Yönetimi)](https://go.microsoft.com/fwlink/?LinkId=296833) dağıtım modelleri.
+Evet. Bulunan sanal ağlar için REST API'lerini kullanma [Azure Resource Manager](/rest/api/virtual-network) ve [Klasik](https://go.microsoft.com/fwlink/?LinkId=296833) dağıtım modelleri.
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Sanal ağlar için araç desteği var mı?
 Evet. Kullanma hakkında daha fazla bilgi edinin:
@@ -227,7 +228,7 @@ Evet. Kullanma hakkında daha fazla bilgi edinin:
 - Üzerinden dağıtılan sanal ağlarda yönetmek için PowerShell'i [Resource Manager](/powershell/module/az.network) ve [Klasik](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) dağıtım modelleri.
 - Azure komut satırı arabirimi (CLI) dağıtma ve yönetme ile dağıtılan sanal ağlarda [Resource Manager](/cli/azure/network/vnet) ve [Klasik](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) dağıtım modelleri.  
 
-## <a name="vnet-peering"></a>Sanal ağ eşleme
+## <a name="vnet-peering"></a>VNet eşlemesi
 
 ### <a name="what-is-vnet-peering"></a>VNet eşlemesi nedir?
 VNet eşlemesi (veya sanal ağ eşlemesi) sanal ağları bağlamanıza olanak sağlar. Sanal ağ arasında VNet eşleme bağlantısı, özel IPv4 adresleri üzerinden aralarındaki trafik yönlendirme sağlar. Eşlenmiş sanal ağlardaki sanal makineler aynı ağ içinde yoksa gibi birbiriyle iletişim kurabilir. Bu sanal ağları, aynı bölgedeki veya farklı bölgelerde (diğer adıyla genel sanal ağ eşleme) olabilir. Sanal ağ eşleme bağlantılarını da Azure abonelikleri genelinde oluşturulabilir.
@@ -247,7 +248,7 @@ Küresel VNet eşlemesi bunlara kuramayan anlamına temel yük dengeleyicileri a
 - API Management
 - Active Directory etki alanı hizmeti (ADDS)
 - Logic Apps
-- HD Insight
+- HDInsight
 -   Azure Batch
 - AKS
 - App Service Ortamı
@@ -285,7 +286,7 @@ Hayır. Geçişli eşleme desteklenmiyor. C ve VNetC Bunun gerçekleşmesi için
 Hayır. VNet eşlemesi, yerel veya genel bant genişliği kısıtlamalar uygulamaz. Bant genişliği, VM veya işlem kaynağı tarafından yalnızca sınırlıdır.
 
 ### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>VNet eşlemesi sorunları'ilgili sorunları nasıl giderebilirim?
-[Sorun giderici Kılavuzu] İşte (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) deneyebilirsiniz.
+İşte bir [sorun giderici Kılavuzu](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) deneyebilirsiniz.
 
 ## <a name="virtual-network-tap"></a>Sanal ağ TAP
 

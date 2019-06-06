@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16d100256f9252b478500488c2dc5a01c7e6a0b5
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418069"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515563"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 
@@ -155,11 +155,11 @@ Azure Machine Learning ile bir Python modeli oluşturun ve ONNX biçimine dönü
 
 Otomatik ML ayrıca gibi diğer Microsoft çözümleri kullanılabilir:
 
-|Tümleştirmeler|Açıklama
-|------------|-----------
-|ML.NET|Otomatik model seçimi ve eğitim ML.NET ile Visual Studio ve Visual Studio Code kullanarak .NET uygulamaları (Önizleme) ML otomatik. [Daha fazla bilgi edinin](https://docs.microsoft.com/dotnet/machine-learning/automl-overview).
-|HDIsnight|Ölçeği genişletme, otomatik ML eğitim işleri HDInsight içindeki Spark üzerinde paralel olarak kümeleri. [Daha fazla bilgi edinin](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md).
-|PowerBI|Makine öğrenimi modellerini doğrudan Power BI (Önizleme) içinde çağırın. [Daha fazla bilgi edinin](https://docs.microsoft.com/power-bi/service-machine-learning-automated).
+|Tümleştirmeler|Açıklama|
+|------------|-----------|
+|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Otomatik model seçimi ve eğitim ML.NET ile Visual Studio ve Visual Studio Code kullanarak .NET uygulamaları (Önizleme) ML otomatik.|
+|[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Ölçeği genişletme, otomatik ML eğitim işleri HDInsight içindeki Spark üzerinde paralel olarak kümeleri.|
+|[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Makine öğrenimi modellerini doğrudan Power BI (Önizleme) içinde çağırın.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

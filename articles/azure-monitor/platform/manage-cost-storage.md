@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/03/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: ead3122d2040a544c6f09e434f27b7970f0d5840
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8eeb29b2d1fe17ae5581dab81c34d5c2c635a6c2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417852"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496337"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Kullanımı ve Azure İzleyici günlüklerine ile maliyetleri yönetme
 
@@ -58,6 +58,9 @@ Log Analytics ücretleri Azure faturanızı eklenir. Azure faturalandırma böl�
 Günlük üst sınır yapılandırın ve çalışma alanınız için günlük alımı sınırlayabilirsiniz, ancak hedef günlük limite ulaşılmadan olmamalıdır dikkatli kullanın.  Aksi takdirde, diğer Azure Hizmetleri ve çözümleri olan işlevselliği güncel verileri çalışma alanında kullanılabilir olan bağımlı etkileyebilir günün geri kalanında verileri kaybedersiniz.  Sonuç olarak, BT Hizmetleri destekleyen kaynakların sistem durumu koşullarını etkilendiğinde yeteneğinizi inceleyin ve almak için sizi uyarır.  Günlük üst sınırınızı veya çalışma alanınız için planlanmayan ücretleri sınırlandırmak istediğinizde, yönetilen kaynaklardaki veri hacmindeki beklenmeyen artış yönetmek ve için bir yol olarak kullanılmak üzere tasarlanmıştır.  
 
 Günlük sınıra ulaşıldığında, Faturalanabilir veri türlerinin günlük geri kalanı için durdurur. Seçili Log Analytics çalışma alanı için sayfanın üstündeki bir uyarı başlık görünür ve bir işlemi olay gönderilir *işlemi* altında tablo **LogManagement** kategorisi. Veri toplama sürdürür altında sıfırlama zaman tanımlandıktan sonra *günlük sınır ayarlanacak*. Günlük veri sınırına ulaşıldığında bildirmek için yapılandırılmış. Bu işlem olayı temel alan bir uyarı kuralı tanımlayan öneririz. 
+
+> [!NOTE]
+> Günlük üst sınır, Azure Güvenlik Merkezi'nde veri koleksiyonunu durdurmaz.
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Tanımlamak için hangi günlük veri sınırınızın tanımlayın
 
@@ -105,7 +108,7 @@ Aşağıdaki adımları ne kadar günlük verileri çalışma alanınızda taraf
 
 ## <a name="legacy-pricing-tiers"></a>Eski fiyatlandırma katmanları
 
-Bir kurumsal anlaşması olan müşteriler 1 Temmuz 2018'den önce imzalanmış veya zaten bir Log Analytics çalışma alanı bir abonelikte oluşturan kişi, yine de erişiminiz *ücretsiz* planı. Mevcut bir EA kaydına için aboneliğinize bağlı değildir, *ücretsiz* katmanı kullanılabilir değil, bir çalışma alanı 2 Nisan 2018'den sonra yeni bir abonelik oluşturduğunuzda.  Verileri yedi gün bekletme için sınırlı *ücretsiz* katmanı.  Eski için *tek başına* veya *düğüm başına* geçerli 2018 tek fiyatlandırma katmanı, toplanan verilerin yanı sıra, katmanları son 31 gün boyunca kullanılabilir. *Ücretsiz* katmanda 500 MB günlük alımı sınırı vardır ve tutarlı bir şekilde toplu izin miktarları aşan fark ederseniz, bu sınırı aşan miktarda veri toplamak için başka bir plan için çalışma alanınızı değiştirebilirsiniz. 
+Abonelikleri olan ve Log Analytics çalışma alanı veya Application Insights kaynağı 2 Nisan 2018'den önce olduğunu veya 1 Şubat 2019'dan önce kullanmaya bir Kurumsal Anlaşma bağlantılı fiyatlandırma katmanları eski erişiminiz devam eder: Ücretsiz, tek başına (GB başına) ve düğüm başına (OMS).  Ücretsiz fiyatlandırma katmanı çalışma alanları, günlük veri alımı (hariç, Azure Güvenlik Merkezi tarafından toplanan güvenlik veri türleri) 500 MB ile sınırlı olacaktır ve veri saklama için 7 gün sınırlıdır. Ücretsiz fiyatlandırma katmanı, yalnızca değerlendirme amacıyla tasarlanmıştır. Çalışma alanları tek başına veya fiyatlandırma katmanları düğüm başına veri saklama için 2 yıl erişimi. 
 
 > [!NOTE]
 > OMS E1 paketi, OMS E2 Suite veya System Center için OMS eklentisi satın alındıktan sonra sunulan destek haklarını kullanmak için Log Analytics seçin *düğüm başına* fiyatlandırma katmanı.
@@ -131,7 +134,9 @@ Log Analytics çalışma alanınızın eski fiyatlandırma katmanları arasında
 
 Eski ücretsiz fiyatlandırma katmanı olan ve bir günde 500 MB veri göndermiş, günün geri kalanı için veri toplamayı durdurur. Günlük sınıra ulaşılması Log Analytics Veri toplamayı durdurur ya da veri eksik gibi görünüyor yaygın bir nedenidir.  Log Analytics'e veri toplamayı başlatır ve durdurur ' % s'olay türü işlemi oluşturur. Aramada, günlük sınırınıza ulaşmanız ve verileri eksik olursa denetlemek için aşağıdaki sorguyu çalıştırın: 
 
-`Operation | where OperationCategory == 'Data Collection Status'`
+```kusto
+Operation | where OperationCategory == 'Data Collection Status'
+```
 
 Veri toplama sona erdiğinde, OperationStatus olduğu **uyarı**. Veri toplama başladığında OperationStatus olduğu **başarılı**. Aşağıdaki tabloda veri toplamayı durdurur nedenleri açıklanır ve veri koleksiyonu devam bir önerilen eylem:  
 
@@ -153,51 +158,63 @@ Yüksek kullanımın nedeni aşağıdakilerden biri veya her ikisidir:
 
 Geçen ayın her günü sinyal bildiren bilgisayarların sayısını anlamak için kullanın
 
-`Heartbeat | where TimeGenerated > startofday(ago(31d))
+```kusto
+Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
-| render timechart`
+| render timechart
+```
 
 Çalışma alanını eski başına fiyatlandırma katmanında düğüm varsa, düğüm olarak faturalandırılır bilgisayarların listesini almak için gönderen düğümleri için konum **veri türleri faturalandırılır** (bazı veri türleri ücretsizdir). Bunu yapmak için `_IsBillable` [özelliği](log-standard-properties.md#_isbillable) ve tam etki alanı adının en soldaki alan kullanın. Bu, faturalandırılan verilerle bilgisayarların listesini döndürür:
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
 
 Görülen Faturalanabilir düğüm sayısı olarak tahmin edilebilir: 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| billableNodes=dcount(computerName)`
+| billableNodes=dcount(computerName)
+```
 
 > [!NOTE]
 > Bu `union withsource = tt *` veri türlerinde taramaları çalıştırmak pahalı olduğundan tutumlu sorgular. Bu sorgu bilgisayar başına bilgi kullanım veri türü ile sorgulama eski biçimini değiştirir.  
 
 Daha doğru bir hesaplama, aslında neler faturalandırılır, saatlik faturalandırılan veri türleri gönderme bilgisayar sayısını almaktır. (Eski düğüm başına fiyatlandırma katmanında çalışma alanları için Log Analytics, saatlik olarak faturalandırılırsınız gereken düğüm sayısını hesaplar.) 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
 
 ## <a name="understanding-ingested-data-volume"></a>Anlama alınan veri hacmi
 
 Üzerinde **kullanım ve Tahmini maliyetler** sayfasında *çözüm başına veri alımı* grafik, toplam gönderilen veri hacmini ve ne kadar her çözüm tarafından gönderilen verilerin gösterir. Bu sayede olup genel veri kullanımı (veya belirli bir çözüm tarafından kullanım) artıyor mu gibi eğilimleri belirlemek sabit kaldığını veya azaldığını. Bu oluşturmak için kullanılan sorgu
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 Unutmayın yan tümcesi "nerede IsBillable = true" veri türleri için ücretsizdir alımı belirli çözümlerinden filtreler. 
 
 Bkz: veri eğilimlerini IIS günlükler nedeniyle verileri incelemek isterseniz, örneğin belirli veri türleri için daha fazla sınırlandıramazsınız gidebilir:
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 ### <a name="data-volume-by-computer"></a>Bilgisayara göre veri hacmi
 

@@ -69,7 +69,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '(Önizleme) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Yapılandırma saat dilimi</a> örnek oluşturma sırasında.'
+          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Saat dilimi yapılandırma</a> örnek oluşturma sırasında.'
           - html: 'Örneği oluşturma <a href="https://aka.ms/managed-instance-collation">tercih ettiğiniz sunucu düzeyinde harmanlama</a>.'
           - html: 'Coğrafi geri yükleme işlevi etkinleştirir, <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">veritabanınızı PowerShell kullanarak başka bir veri merkezine geri</a>.'
           - html: '(Önizleme) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Bırakılan PowerShell kullanarak veritabanlarını yeniden oluşturma</a>'
@@ -90,7 +90,7 @@ sections:
             title: Azure portal
           - image:
               src: media/index/cli.svg
-            title: Azure CLI'si
+            title: Azure CLI
           - image:
               src: media/index/logo_powershell.svg
             title: PowerShell

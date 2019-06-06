@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f02d2eed2030a5d2f54b3bee85885bbb572ac762
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230083"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476682"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>PowerShell Azure işlevleri yerel olarak hata ayıklama
 
@@ -95,15 +95,28 @@ Hata ayıklama başladığında, `if` deyimi.
 
 ## <a name="debug-in-visual-studio-code"></a>Visual Studio Code'da Hata Ayıkla
 
-PowerShell işlevlerinizi Visual Studio code'da hata ayıklamak için aşağıdaki uzantılar Visual Studio Code için aşağıdakiler gereklidir:
+PowerShell işlevlerinizi Visual Studio code'da hata ayıklamak için aşağıdakilerin yüklü olması gerekir:
 
-* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
-* [Azure İşlevleri](functions-create-first-function-vs-code.md)
+* [Visual Studio Code için PowerShell uzantısı](/powershell/scripting/components/vscode/using-vscode)
+* [Visual Studio Code için Azure İşlevleri uzantısı](functions-create-first-function-vs-code.md)
+* [PowerShell Core 6.2 veya üzeri](/powershell/scripting/install/installing-powershell#powershell-core)
 
-PowerShell ve Azure işlevleri Uzantıları yükledikten sonra var olan bir işlev uygulaması projesi yükleyin. Ayrıca [işlevler projesi oluşturma](functions-create-first-function-vs-code.md).
+Bu bağımlılıklar yükledikten sonra varolan bir PowerShell işlevleri projesini yüklemek veya [ilk PowerShell işlevleri projenizi oluşturma](functions-create-first-function-powershell.md).
 
 >[!NOTE]
 > Projenize gerekli yapılandırma dosyalarını olmamalıdır, bunları eklemeniz istenir.
+
+### <a name="set-the-powershell-version"></a>PowerShell sürümünü ayarlama
+
+PowerShell Core, Windows PowerShell ile yan yana yüklenir. PowerShell Core, Visual Studio Code için PowerShell uzantıyla kullanılmak üzere PowerShell sürüm olarak ayarlayın.
+
+1. Komut paleti görüntüleyip ardından aramak için F1 tuşuna basarak `Session`.
+
+1. Seçin **PowerShell: Oturum menüsünü göster**.
+
+1. Varsa, **geçerli oturumu** değil **PowerShell Core 6**, seçin **geçin: PowerShell Core 6**.
+
+Bir PowerShell dosyasını açın, sağ alt kısımdaki yeşil görüntülenen sürüm bakın. Bu metin seçme, oturum menü görüntüler. Daha fazla bilgi için bkz. [uzantıyla kullanılmak üzere PowerShell sürümünü seçerek](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 
 ### <a name="start-the-function-app"></a>İşlev uygulamasını Başlat
 
@@ -140,7 +153,7 @@ Devam etmek ve tam olarak betiğinizi çağırma sonra olduğunu fark edeceksini
 * Yaptığınız PowerShell konsolunu `Invoke-RestMethod` bir sonuç döndürdü
 * Visual Studio Code tümleşik PowerShell konsolunda yürütülecek bir betik için bekliyor
 
-Sonraki kez aynı işlevi, hata ayıklayıcıda uzantısı keser sonra doğru PowerShell çağırdığınızda `Wait-Debugger`.
+Daha sonra PowerShell uzantısı hata ayıklayıcıda aynı işlev çağırdığınızda sonra doğru keser `Wait-Debugger`.
 
 ## <a name="debugging-in-a-powershell-console"></a>Bir PowerShell konsolunda hata ayıklama
 

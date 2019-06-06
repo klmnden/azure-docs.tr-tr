@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 99ca7e82a11687d25355589e7ea539a14cdb493b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420790"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66455138"
 ---
 1. Aşağıdaki platformlar için SDK hızlı başlangıçları istemciyi indirin:
     
@@ -94,7 +94,7 @@ ms.locfileid: "66420790"
 
         2. Visual Studio'da yerel olarak .NET sunucu projesi oluşturun.
 
-        3. Visual Studio'da Çözüm Gezgini'ni açın, sağ `ZUMOAPPNAMEService` proje, tıklayın **Yayımla**, görürsünüz bir `Publish to App Service` penceresi. Mac üzerinde çalışıyorsanız, uygulamayı dağıtmak için diğer yöntemlere göz atın [burada](https://docs.microsoft.com/en-us/azure/app-service/deploy-local-git).
+        3. Visual Studio'da Çözüm Gezgini'ni açın, sağ `ZUMOAPPNAMEService` proje, tıklayın **Yayımla**, görürsünüz bir `Publish to App Service` penceresi. Mac üzerinde çalışıyorsanız, uygulamayı dağıtmak için diğer yöntemlere göz atın [burada](https://docs.microsoft.com/azure/app-service/deploy-local-git).
         
            ![Visual studio yayımlama](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
 

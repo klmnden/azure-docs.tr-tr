@@ -11,19 +11,19 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e7405e48307091ff5df12096d49a00c011e2de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66155256"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480437"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen ortam işlem
 Bu makalede, işlem veya dönüşüm veri için kullanabileceğiniz farklı işlem ortamlarında açıklanmaktadır. (İsteğe bağlı ve Getir kendi) farklı yapılandırmalar hakkında ayrıntılar bu bağlama bağlı hizmetler yapılandırırken Data Factory tarafından desteklenen bir Azure data factory'ye ortamları işlem sağlar.
 
 Aşağıdaki tabloda Data Factory ve bunlar üzerinde çalışan etkinlikler tarafından desteklenen işlem ortamlarının listesi sağlar. 
 
-| İşlem ortamı                                          | etkinlikler                                                   |
+| İşlem ortamı                                          | activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [İsteğe bağlı HDInsight kümesi](#azure-hdinsight-on-demand-linked-service) veya [kendi HDInsight kümenizi](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop akış](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Özel](transform-data-using-dotnet-custom-activity.md)     |
@@ -240,7 +240,7 @@ Boyutlandırılmış D4 baş düğümü ve alt düğümü oluşturmak istiyorsan
 "dataNodeSize": "Standard_D4",
 ```
 
-Bu özellikler için yanlış bir değer belirtirseniz, aşağıdaki alabileceğiniz **hata:** Küme oluşturulamadı. Özel durum: Küme oluşturma işlemi tamamlanamıyor. İşlem '400' koduyla başarısız oldu. Geride bırakma durumu küme: 'Error'. Mesaj: 'PreClusterCreationValidationFailure'. Bu hata iletisini aldığınızda, kullandığınızdan emin olun **CMDLET'i ve API'leri** tablosundan ad [sanal makinelerinin boyutları](../virtual-machines/linux/sizes.md) makalesi.        
+Bu özellikler için yanlış bir değer belirtirseniz, aşağıdaki alabileceğiniz **hata:** Küme oluşturulamadı. Özel durum: Küme oluşturma işlemi tamamlanamıyor. İşlem '400' koduyla başarısız oldu. Geride bırakma durumu küme: 'Error'. İleti: 'PreClusterCreationValidationFailure'. Bu hata iletisini aldığınızda, kullandığınızdan emin olun **CMDLET'i ve API'leri** tablosundan ad [sanal makinelerinin boyutları](../virtual-machines/linux/sizes.md) makalesi.        
 
 ## <a name="bring-your-own-compute-environment"></a>Kendi işlem ortamı getirin
 Bu tür yapılandırma, kullanıcılar, Data Factory öğesinde bağlantılı hizmet olarak zaten mevcut olan bir bilgi işlem ortamı kaydedebilirsiniz. Bilgi işlem ortamınız, kullanıcı tarafından yönetilir ve Data Factory hizmetinin etkinlikleri yürütmek için kullanır.
@@ -387,8 +387,8 @@ Bir Machine Learning batch Puanlama uç noktası bir data factory'ye kaydetmeniz
 | ApiKey                 | Yayımlanan çalışma alanı modelinin API.     | Evet                                      |
 | updateResourceEndpoint | Tahmine dayalı Web hizmeti ile eğitilmiş model dosyasını güncelleştirmek için kullanılan bir Azure ML Web Hizmeti uç noktası güncelleştirme kaynak URL'si | Hayır                                       |
 | servicePrincipalId     | Uygulamanın istemci kimliği belirtin.     | UpdateResourceEndpoint belirttiyseniz gereklidir |
-| servicePrincipalKey    | Uygulama anahtarını belirtin.           | UpdateResourceEndpoint belirttiyseniz gereklidir |
-| tek                 | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Azure portalının sağ üst köşedeki fare getirerek geri alabilirsiniz. | UpdateResourceEndpoint belirttiyseniz gereklidir |
+| serviceprincipalkey değerleri    | Uygulama anahtarını belirtin.           | UpdateResourceEndpoint belirttiyseniz gereklidir |
+| kiracı                 | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Azure portalının sağ üst köşedeki fare getirerek geri alabilirsiniz. | UpdateResourceEndpoint belirttiyseniz gereklidir |
 | connectVia             | Bu bağlı hizmeti için etkinlikler gönderilmesi için kullanılacak Integration Runtime. Azure tümleştirme çalışma zamanı veya şirket içinde barındırılan Integration Runtime'ı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır                                       |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics bağlı hizmeti
@@ -486,14 +486,15 @@ Oluşturabileceğiniz **Azure Databricks bağlı hizmeti** Databricks workloads(
 | Özellik             | Açıklama                              | Gerekli                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | Bağlı hizmetin adı               | Evet   |
-| tür                 | Type özelliği ayarlanmalıdır: **AzureDatabricks**. | Evet                                      |
-| etki alanı               | Buna göre bir Databricks çalışma alanı, bölgeye göre Azure bölgesi belirtin. Örnek: https://eastus.azuredatabricks.net | Evet                                 |
+| türü                 | Type özelliği ayarlanmalıdır: **AzureDatabricks**. | Evet                                      |
+| Etki alanı               | Buna göre bir Databricks çalışma alanı, bölgeye göre Azure bölgesi belirtin. Örnek: https://eastus.azuredatabricks.net | Evet                                 |
 | accessToken          | Data factory'nin Azure Databricks için kimlik doğrulaması erişim belirteci gereklidir. Erişim belirteci databricks çalışma alanından oluşturulması gerekir. Erişim belirteci bulunabilir bulmak için aşağıdaki adımları ayrıntılı [burada](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Evet                                       |
 | existingClusterId    | Bu tüm işleri çalıştırmak için var olan bir kümenin küme kimliği. Bu, zaten oluşturulmuş bir etkileşimli kümede olmalıdır. Yanıt vermeyi durdurursa kümeyi el ile yeniden başlatmanız gerekebilir. Daha fazla güvenilirlik için yeni kümelerinde çalışan işlerin Databricks önerin. Küme Kimliği bulabilirsiniz kümeler, etkileşimli bir çalışma alanı -> Databricks kümesinde etkileşimli küme adı -> yapılandırma -> etiketleri ->. [Daha fazla ayrıntı](https://docs.databricks.com/user-guide/clusters/tags.html) | Hayır 
 | newClusterVersion    | Spark kümesi sürümü. Databricks içinde bir proje kümesi oluşturun. | Hayır  |
 | newClusterNumOfWorker| Bu küme olması gereken alt düğüm sayısı. Bir kümenin bir Spark sürücüsü ve num_workers yürütücüler num_workers + 1 Spark düğümleri toplam vardır. Int32 biçimlendirilmiş bir dize, "1" anlamına gelir numOfWorker gibi 1 veya "1:10" otomatik ölçeklendirme, en az 1 ve en yüksek olarak 10 anlamına gelir.  | Hayır                |
 | newClusterNodeType   | Bu alan, bu kümesinde Spark düğümlerinin her biri için kullanılabilir kaynakları tek bir değer olarak kodlar. Örneğin, düğümlerin sağlanabilir ve bellek veya işlem gücü kullanımlı iş yükleri için iyileştirilmiş Spark Bu alan yeni küme için gereklidir                | Hayır               |
 | newClusterSparkConf  | İsteğe bağlı, kullanıcı tarafından belirtilen Spark yapılandırma anahtar-değer çiftleri kümesi. Kullanıcılar ayrıca ek JVM seçenekleri bir dizede Yürütücü ve sürücü ile spark.driver.extraJavaOptions ve spark.executor.extraJavaOptions sırasıyla geçirebilirsiniz. | Hayır  |
+| newClusterInitScripts| İsteğe bağlı, kullanıcı tanımlı başlatma betikleri yeni küme için bir dizi. İnit betikleri DBFS yolu belirtme. | Hayır  |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Azure SQL Veritabanı bağlı hizmeti

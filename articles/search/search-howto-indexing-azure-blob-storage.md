@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e55d596cfaf34c177f6dc43c27aaac37da87d2f7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f60146e4e11e50b2f2254a0d8d7f59c01ba74464
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024883"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479941"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Depolama'da belgelerin dizin oluşturma
 Bu makalede, belgelerin dizinini oluşturmak için Azure Search kullanma gösterilmektedir (PDF gibi Microsoft Office belge ve diğer birçok ortak biçimleri) Azure Blob Depolama alanında depolanır. İlk olarak ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, davranışların bir daha ayrıntılı keşfi sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -38,7 +38,7 @@ Bir Azure Blob Depolama Dizin Oluşturucu kullanarak ayarlayabilirsiniz:
 
 Burada, REST API kullanarak akışı gösterilmektedir.
 
-### <a name="step-1-create-a-data-source"></a>1. Adım: Veri kaynağı oluşturma
+### <a name="step-1-create-a-data-source"></a>1. adım: Bir veri kaynağı oluşturun
 Bir veri kaynağı, hangi veri dizini için (yeni, değiştirilen veya Silinen satırlar) verilerdeki değişiklikleri verimli bir şekilde tanımlamak için ilkeler ve veri erişmek için gerekli kimlik bilgilerini belirtir. Bir veri kaynağı, aynı arama hizmetinde birden çok dizin oluşturucular tarafından kullanılabilir.
 
 Veri kaynağı, blob dizin oluşturma işlemi için aşağıdaki gerekli özelliklerde sahip olmanız gerekir:
@@ -77,7 +77,7 @@ Paylaşılan depolama hakkında daha fazla bilgi için erişim imzaları, bkz: [
 > [!NOTE]
 > SAS kimlik bilgileri kullanıyorsanız, veri kaynağı kimlik bilgileri düzenli aralıklarla yenilenen imzaları ile kendi zaman aşımını önlemek için güncelleştirme gerekir. SAS kimlik bilgilerinin süresi dolar, dizin oluşturucu için benzer bir hata iletisiyle başarısız olur `Credentials provided in the connection string are invalid or have expired.`.  
 
-### <a name="step-2-create-an-index"></a>2. Adım: Dizin oluşturma
+### <a name="step-2-create-an-index"></a>2. adım: Dizin oluşturma
 Bir belgede, öznitelikler, alanları dizinini belirtir ve arama şekil diğer yapıları karşılaşırsınız.
 
 Aranabilir bir dizin oluşturmak nasıl işte `content` bloblarından ayıklanan metinleri saklamak için alan:   
@@ -96,7 +96,7 @@ Aranabilir bir dizin oluşturmak nasıl işte `content` bloblarından ayıklanan
 
 Dizin oluşturma hakkında daha fazla bilgi için bkz. [dizin oluştur](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
-### <a name="step-3-create-an-indexer"></a>3. Adım: Dizin oluşturucu oluşturma
+### <a name="step-3-create-an-indexer"></a>3. adım: Dizin oluşturucu oluşturma
 Bir dizin oluşturucu, bir veri kaynağı ile bir hedef arama dizinine bağlar ve veri yenilemeyi otomatikleştirmek için bir zamanlama sağlar.
 
 Dizinin ve veri kaynağının oluşturulan dizin oluşturucu oluşturmaya hazırsınız:
@@ -139,6 +139,7 @@ Yapılandırmanıza bağlı olarak [dizin oluşturucu yapılandırmasını](#Par
   * **meta veri\_depolama\_son\_değiştiren** son değiştirme (Edm.DateTimeOffset) - blob için zaman damgası. Azure arama, her şeyi ilk dizinleme sonra ölçeklemek önlemek için değiştirilen blobları tanımlamak için bu zaman damgası kullanır.
   * **meta veri\_depolama\_boyutu** (EDM.Int64) - blob bayt cinsinden boyutu.
   * **meta veri\_depolama\_içeriği\_md5** (Edm.String) - blob içeriğinin varsa MD5 karma değeri.
+  * **meta veri\_depolama\_sas\_belirteci** (Edm.String) - tarafından kullanılan geçici bir belirteç [özel becerileri](cognitive-search-custom-skill-interface.md) blob doğru erişim elde etmek için. Bu sas belirteci sona erebilir gibi daha sonra kullanmak üzere depolanması için beklenmiyor.
 * Her belge biçimi için özel meta veri özelliklerini listelenen alanlarına ayıklanan [burada](#ContentSpecificMetadata).
 
 Yukarıdaki özelliklerin tümü için alanları search dizininizi tanımlama - yalnızca uygulamanız için gereken özellikleri yakalama gerekmez.

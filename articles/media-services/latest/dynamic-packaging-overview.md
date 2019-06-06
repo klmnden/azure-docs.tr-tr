@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: c25aef76b5559b6d00ccf60675d61ea5ea346773
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299180"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494360"
 ---
 # <a name="dynamic-packaging"></a>Dinamik paketleme
 
@@ -114,10 +114,10 @@ Dinamik paketleme ile kodlanmış bir ses içeren MP4 dosyalarını destekler.
     * DTS Express (dtse)
     * DTS HD Kayıpsız (çekirdek yok) (dtsl)
 
-### <a name="hls-support"></a>HLS desteği
+### <a name="multi-audio-tracks"></a>Çoklu ses parçaları
 
-Dinamik paketleme HLS destekler (sürüm 4 veya üzeri) birden çok codec bileşenleri ve diller birden çok ses parçaları sahip varlıklar için.
-
+Birden çok codec bileşenleri ve diller birden çok ses parçaları sahip varlıklar akış, dinamik paketleme çoklu ses parçaları HLS çıktısı destekler. (sürüm 4 veya üzeri).
+ 
 ### <a name="not-supported"></a>Desteklenmiyor
 
 Dinamik paketleme içeren dosyaları desteklemez [Dolby dijital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) ses (eski codec olmadığı).

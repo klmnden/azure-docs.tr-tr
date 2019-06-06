@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826572"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515928"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics, tanılama günlükleri kullanarak sorun giderme
 
@@ -46,7 +46,7 @@ Etkinlik günlükleri, varsayılan olarak etkindir ve Stream Analytics işinizi 
 
    ![Stream Analytics etkinlik günlüğü işlem özeti](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Ekranı aşağı kaydırarak **özellikleri** bölümünü JSON, başarısız olan işlemi neden olan hatanın ayrıntıları sağlar. Bu örnekte, ilişkili enlem değerleri dışındayken bir çalışma zamanı hatası nedeniyle başarısız oldu.
+4. Ekranı aşağı kaydırarak **özellikleri** bölümünü JSON, başarısız olan işlemi neden olan hatanın ayrıntıları sağlar. Bu örnekte, ilişkili enlem değerleri dışındayken bir çalışma zamanı hatası nedeniyle başarısız oldu. Stream Analytics işi tarafından işlenen veri tutarsızlık bir veri hatasına neden olur. Farklı hakkında bilgi edinebilirsiniz [girdi ve çıktı verilerini hataları ve neden ortaya](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
    ![JSON hatası ayrıntıları](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 

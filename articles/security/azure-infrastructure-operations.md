@@ -1,8 +1,8 @@
 ---
-title: Azure Üretim Operasyon ve Yönetimi
-description: Bu makalede, Yönetim genel bir açıklamasını ve Azure üretim ağı çalışmasını sağlar.
+title: Azure üretim ağı - Microsoft Azure Yönetimi
+description: Bu makalede, Microsoft'un nasıl yönetir ve Azure veri merkezleri güvenliğini sağlamak için Azure üretim ağı çalışır açıklanır.
 services: security
-documentationcenter: na
+documentationcenter: n
 author: TerryLanfear
 manager: barbkess
 editor: TomSh
@@ -12,16 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515896851c5bf7b9c847416ebadedf1242e0eeb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591468"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428271"
 ---
-# <a name="azure-production-operations-and-management"></a>Azure Üretim Operasyon ve Yönetimi    
+# <a name="management-and-operation-of-the-azure-production-network"></a>Yönetim ve işlem Azure üretim ağ    
+Bu makalede, Microsoft'un nasıl yönetir ve Azure veri merkezleri güvenliğini sağlamak için Azure üretim ağı çalışır açıklanır.
+
+## <a name="monitor-log-and-report"></a>İzleme, günlük ve rapor
+
 Yönetim ve işlem Azure üretim ağ operasyon ekiplerine Azure ve Azure SQL veritabanı arasında eşgüdümlü bir çaba olduğu. Çeşitli sistem ve uygulama performansı izleme araçları ortamda takımlar kullanın. Ve ağ cihazları, sunucuları, hizmetleri ve uygulama işlemleri izlemek için uygun araçları kullanırlar.
 
 Azure ortamında çalışan hizmetleri güvenli olarak yürütülmesini sağlamak için izleme, günlüğe kaydetme ve raporlama, aşağıdaki eylemler dahil olmak üzere birden çok düzeyi operasyon ekibi uygulayın:

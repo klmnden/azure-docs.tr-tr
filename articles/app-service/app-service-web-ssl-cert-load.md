@@ -11,56 +11,77 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 05/29/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 763aadc50a8760b4265dbfc21e9278f909b68433
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ead1892062912840c9931ae60d11c90975ad26ac
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851128"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475113"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Azure App Service'teki uygulama kodunuzda SSL sertifikası kullanma
 
-Bu nasıl yapılır kılavuzunda, karşıya yüklediğiniz veya App Service uygulamanıza içeri aktarılan uygulama kodunuzda SSL sertifikaları birini kullanmayı gösterir. Kullanım örneği uygulamanızın sertifika doğrulaması gerektiren bir dış hizmete erişimi olduğunu örneğidir. 
+Bu nasıl yapılır kılavuzunda, genel veya özel sertifikalarının uygulama kodunuzda nasıl kullanılacağını gösterir. Kullanım örneği uygulamanızın sertifika doğrulaması gerektiren bir dış hizmete erişimi olduğunu örneğidir.
 
-Kodunuzda SSL sertifikalarının kullanılması için bu yaklaşım SSL yararlanır App Service, uygulamanız olması için gerekli işlevselliği **temel** katmanı veya üzeri. Sertifika dosyası uygulama dizininizde dahil etmek ve doğrudan yüklemek için bir alternatifidir (bkz [alternatif: yük sertifika dosyası olarak](#file)). Ancak, bu seçenek, uygulama kodu veya Geliştirici sertifikası özel anahtarı Gizle izin vermez. Uygulama kodunuz bir açık kaynak depoda ise, ayrıca, bir sertifika deposunda özel anahtarı olan tutarak bir seçenek değil.
+Sertifikaları kullanarak kodunuzda bu yaklaşım SSL yararlanır App Service, uygulamanız olması için gerekli işlevselliği **temel** katmanı veya üzeri. Alternatif olarak, [uygulama deponuza sertifika dosyasını dahil](#load-certificate-from-file), ancak özel sertifikaları için önerilen bir yöntem değildir.
 
 App Service, SSL sertifikalarını yönetmenize olanak tanır, sertifikaları ve uygulama kodunuzu ayrı olarak korumak ve hassas verilerinizi koruyun.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="upload-a-private-certificate"></a>Özel bir sertifika yükleyin
 
-Bu nasıl yapılır kılavuzunda tamamlamak için:
+Özel bir sertifikayı karşıya yüklemeden önce emin [tüm gereksinimlerini karşılayan](app-service-web-tutorial-custom-ssl.md#prepare-a-private-certificate)dışında sunucu kimlik doğrulaması için yapılandırılmış olması gerekmez.
 
-- [App Service uygulaması oluşturma](/azure/app-service/)
-- [Özel bir DNS adını web uygulamanıza eşleme](app-service-web-tutorial-custom-domain.md)
-- [Bir SSL sertifikasını karşıya yükle](app-service-web-tutorial-custom-ssl.md) veya [bir App Service sertifikasını içeri](web-sites-purchase-ssl-web-site.md) web uygulamanıza
+Yüklemeye hazır olduğunuzda, aşağıdaki komutu çalıştırarak <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
+```azurecli-interactive
+az webapp config ssl upload --name <app-name> --resource-group <resource-group-name> --certificate-file <path-to-PFX-file> --certificate-password <PFX-password> --query thumbprint
+```
 
-## <a name="load-your-certificates"></a>Sertifikalarınızı yüklemek
+Sertifika parmak izini kopyalayın ve bkz [sertifika erişilebilir hale](#make-the-certificate-accessible).
 
-Yüklenen veya App Service içeri aktarılan bir sertifikayı kullanmak için önce uygulama kodunuz için erişilebilir hale. Bunu `WEBSITE_LOAD_CERTIFICATES` uygulama ayarı.
+## <a name="upload-a-public-certificate"></a>Bir ortak sertifika karşıya yükleme
 
-İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, web uygulaması sayfanızın açın.
+Ortak Sertifikalar desteklenir *.cer* biçimi. Bir ortak sertifika karşıya yüklemek için <a href="https://portal.azure.com" target="_blank">Azure portalında</a>ve uygulamanıza gidin.
 
-Sol gezinti bölmesinde tıklayın **SSL sertifikaları**.
+Tıklayın **SSL ayarları** > **ortak sertifika (.cer)**  > **ortak sertifika karşıya** uygulamanızın sol gezinti bölmesinden.
 
-![Sertifika karşıya yüklendi](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
+İçinde **adı**, sertifika için bir ad yazın. İçinde **CER sertifika dosyası**, CER dosyanızı seçin.
 
-Tüm karşıya yüklenen ve içeri aktarılan SSL sertifikalarınızı bu web uygulaması için kendi parmak izleri ile burada gösterilir. Kullanmak istediğiniz sertifikanın parmak izini kopyalayın.
+**Karşıya Yükle**'ye tıklayın.
 
-Sol gezinti bölmesinde tıklayın **uygulama ayarları**.
+![Ortak sertifikayı karşıya yükleme](./media/app-service-web-ssl-cert-load/private-cert-upload.png)
 
-Çağrılan ayarlama uygulama ekleme `WEBSITE_LOAD_CERTIFICATES` ve sertifikanın parmak izi değerini ayarlayın. Birden çok sertifika erişilebilir hale getirmek için virgülle ayrılmış bir parmak izi değerleri kullanın. Tüm sertifikaları erişilebilir hale getirmek için değerine `*`. Bu sertifikayı yerleştireceğiniz Al Not `CurrentUser\My` depolayın.
+Sertifika karşıya yüklendikten sonra sertifika parmak izini kopyalayın ve bkz [sertifika erişilebilir hale](#make-the-certificate-accessible).
+
+## <a name="import-an-app-service-certificate"></a>Bir App Service sertifikasını içeri aktarın
+
+Bkz: [satın alma ve Azure App Service için SSL sertifikası yapılandırma](web-sites-purchase-ssl-web-site.md).
+
+Sertifikayı içeri aktarıldıktan sonra sertifika parmak izini kopyalayın ve bkz [sertifika erişilebilir hale](#make-the-certificate-accessible).
+
+## <a name="make-the-certificate-accessible"></a>Sertifika erişilebilir olun
+
+Karşıya yüklenen veya içeri aktarılan bir sertifika uygulama kodunuzda kullanmak için parmak izi ile erişilebilir olun `WEBSITE_LOAD_CERTIFICATES` uygulama ayarı, aşağıdaki komutu çalıştırarak <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
+```
+
+Tüm sertifikaları erişilebilir hale getirmek için değerine `*`.
+
+> [!NOTE]
+> Bu ayar belirtilen sertifikaları yerleştirir [geçerli User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) ancak çoğu fiyatlandırma katmanları için mağazası **yalıtılmış** Katmanı (yani uygulama çalışan bir [App Service ortamı](environment/intro.md)), sertifikaları yerleştirir [yerel Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) depolayın.
+>
 
 ![Uygulama ayarı yapılandırın](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 
 İşlemi tamamladıktan sonra **Kaydet**’e tıklayın.
 
-Yapılandırılmış sertifika artık kodunuz tarafından kullanılmak üzere hazırdır.
+Yapılandırılan sertifikaları kodunuz tarafından kullanılmaya hazır.
 
-## <a name="use-certificate-in-c-code"></a>C# kodunda sertifika kullan
+## <a name="load-the-certificate-in-code"></a>Kodda sertifikasını yükleme
 
 Sertifikanızı erişilebilir olduğunda, C# kodu tarafından sertifika parmak izini erişim. Aşağıdaki kod bir sertifika parmak izi yükler `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
@@ -88,11 +109,17 @@ certStore.Close();
 ```
 
 <a name="file"></a>
-## <a name="alternative-load-certificate-as-a-file"></a>Alternatif: sertifika dosyası olarak yükleme
+## <a name="load-certificate-from-file"></a>Dosyadan Sertifika Yükleme
 
-Bu bölümde gösterilmiştir nasıl yapılır ve uygulama dizininizde bir sertifika dosyası yükleyin. 
+Bir sertifika dosyası uygulama dizininize yüklemek ihtiyacınız varsa uygulamayı kullanarak yüklemek daha iyi [FTPS](deploy-ftp.md) yerine [Git](deploy-local-git.md), örneğin. Kaynak denetimi dışında özel bir sertifika gibi hassas verileri tutmanız gerekir.
 
-Aşağıdaki C# örneği adı verilen bir sertifika yüklediğinde `mycert.pfx` gelen `certs` uygulamanızın deponun dizin.
+.NET kodunuzu doğrudan Dosya yükleniyor olsa da, kitaplığı yine de geçerli kullanıcı profili yüklenip yüklenmediğini doğrular. Geçerli kullanıcı profilini yüklemek için `WEBSITE_LOAD_USER_PROFILE` uygulama ayarı aşağıdaki komutla <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
+```
+
+Bu ayar sonra aşağıdaki C# örnek adı verilen bir sertifika yüklediğinde `mycert.pfx` gelen `certs` uygulamanızın deponun dizin.
 
 ```csharp
 using System;
@@ -105,4 +132,3 @@ string certPath = Server.MapPath("~/certs/mycert.pfx");
 X509Certificate2 cert = GetCertificate(certPath, signatureBlob.Thumbprint);
 ...
 ```
-

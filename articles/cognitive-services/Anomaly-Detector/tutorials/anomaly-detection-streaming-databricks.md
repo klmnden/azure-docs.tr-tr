@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Databricks kullanarak akış verileri anomali algılama'
+title: 'Öğretici: Azure Databricks kullanarak akış verileri üzerinde anomali algılama'
 description: Verilerinizdeki anormallikleri izlemek için Azure Databricks ve Anomali algılayıcısı API'sini kullanın.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: a00ad2523c215fa54d7d19d8c9e923b621f3081a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1808bb88ac1bb27f2fd0652585521fbb2abdf56
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791761"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734674"
 ---
-# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak akış verileri anomali algılama
+# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak akış verileri üzerinde anomali algılama
 
-Microsoft Power BI Desktop, verilerinize bağlanmanıza, verilerinizi dönüştürmenize ve görselleştirmenize olanak sağlayan ücretsiz bir uygulamadır. Anomali algılayıcısı APİ'si, Azure Bilişsel Hizmetler'in bir parçası, zaman serisi verilerinizle izleme bir yol sağlar. Anomali algılama neredeyse gerçek zamanlı veri akışı çalıştırmak için bu öğreticiyi kullanın. Azure Databricks kullanarak. Azure Event Hubs kullanarak twitter verilerini alma ve Spark Event Hubs bağlayıcısını kullanarak Azure Databricks'e aldıktan. Ardından, akış verileri üzerinde anomalileri algılamak için API kullanacaksınız. 
+[Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) hızlı, kolay ve işbirliğine dayalı Apache Spark tabanlı analiz hizmetidir. Anomali algılayıcısı APİ'si, Azure Bilişsel Hizmetler'in bir parçası, zaman serisi verilerinizle izleme bir yol sağlar. Anomali algılama neredeyse gerçek zamanlı veri akışı çalıştırmak için bu öğreticiyi kullanın. Azure Databricks kullanarak. Azure Event Hubs kullanarak twitter verilerini alma ve Spark Event Hubs bağlayıcısını kullanarak Azure Databricks'e aldıktan. Ardından, akış verileri üzerinde anomalileri algılamak için API kullanacaksınız. 
 
 Aşağıdaki şekilde uygulama akışı gösterilmektedir:
 
@@ -79,7 +79,7 @@ Bu bölümde, kullanarak bir Azure Databricks çalışma alanı oluşturma [Azur
 
     **Oluştur**’u seçin.
 
-4. Hesabın oluşturulması birkaç dakika sürer. 
+4. Çalışma alanının oluşturulması birkaç dakika sürer. 
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Databricks’te Spark kümesi oluşturma
 
@@ -99,7 +99,8 @@ Bu bölümde, kullanarak bir Azure Databricks çalışma alanı oluşturma [Azur
    * Bu makale için bir küme oluşturun **5.2** çalışma zamanı. Seçmeyin **5.3** çalışma zamanı.
    * Emin **sonra Sonlandır \_ \_ yapılmadan geçecek dakika cinsinden** onay kutusunun seçili. Küme kullanılmıyor, kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
 
-     **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
+     **Küme oluştur**’u seçin. 
+4. Küme oluşturma birkaç dakika sürer. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
 
 ## <a name="create-a-twitter-application"></a>Twitter uygulaması oluşturma
 
@@ -127,7 +128,7 @@ Bu öğreticide, Event Hubs’a tweet’ler göndermek için Twitter API’lerin
 
    ![Kitaplık ekle iletişim kutusu](../media/tutorials/databricks-add-library-option.png "Kitaplık ekle iletişim kutusu")
 
-2. Yeni Kitaplık sayfasında **Kaynak** için **Maven Koordinatı**’nı seçin. **Koordinat** için, eklemek istediğiniz paketin koordinatını girin. Bu öğreticide kullanılan kitaplıklar için Maven koordinatları aşağıdaki gibidir:
+2. Yeni Kitaplık sayfasında için **kaynak** seçin **Maven**. İçin **koordinatları**, eklemek istediğiniz paketin koordinatını girin. Bu öğreticide kullanılan kitaplıklar için Maven koordinatları aşağıdaki gibidir:
 
    * Spark Event Hubs bağlayıcısı - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * Twitter API’si - `org.twitter4j:twitter4j-core:4.0.7`
@@ -172,17 +173,13 @@ Bu öğreticide kullandığınız [Azure Bilişsel hizmetler Anomali algılayıc
 
      **Oluştur**’u seçin.
 
-5. Kaynak oluşturulduktan sonra gelen **genel bakış** sekmesinde **erişim anahtarlarını gösterme**.
+5. Kaynak oluşturulduktan sonra gelen **genel bakış** sekmesinde kopyalayın ve kaydedin **uç nokta** ekran görüntüsünde gösterildiği gibi URL. Ardından **erişim anahtarlarını gösterme**.
 
     ![Erişim anahtarlarını gösterme](../media/tutorials/cognitive-services-get-access-keys.png "Erişim anahtarlarını gösterme")
 
-    Ayrıca ekran görüntüsünde gösterildiği gibi uç nokta URL’sinin bir kısmını kopyalayın. Öğreticide bu URL’ye ihtiyacınız olacaktır.
-
-6. Altında **anahtarları**, kullanmak istediğiniz anahtarın karşısındaki Kopyala simgesini seçin.
+6. Altında **anahtarları**, kullanmak istediğiniz anahtarın karşısındaki Kopyala simgesini seçin. Erişim anahtarını kaydedin.
 
     ![Erişim anahtarlarını kopyalama](../media/tutorials/cognitive-services-copy-access-keys.png "Erişim anahtarlarını kopyalama")
-
-7. Uç nokta URL’si ve erişim anahtarı için bu adımda aldığınız değerleri kaydedin. Daha sonra bu öğreticide gerekli olacak.
 
 ## <a name="create-notebooks-in-databricks"></a>Databricks’te not defterleri oluşturma
 
@@ -191,7 +188,7 @@ Bu bölümde, Databricks çalışma alanında aşağıdaki adlarla iki not defte
 - **SendTweetsToEventHub** - Bu, Twitter’dan tweet’ler almak ve bunları Event Hubs’ta akışa almak için kullandığınız bir üretici not defteridir.
 - **AnalyzeTweetsFromEventHub** -bir tüketici not defteri kullanırsınız Event Hubs'tan tweetleri okumak ve anomali algılama çalıştırın.
 
-1. Sol bölmede **Çalışma Alanı**’nı seçin. **Çalışma Alanı** açılır listesinden **Oluştur**’u ve sonra **Not Defteri**’ni seçin.
+1. Azure Databricks çalışma alanında **çalışma** sol bölmeden. **Çalışma Alanı** açılır listesinden **Oluştur**’u ve sonra **Not Defteri**’ni seçin.
 
     ![Databricks’te not defteri oluşturma](../media/tutorials/databricks-create-notebook.png "Create notebook in Databricks")
 
@@ -205,7 +202,7 @@ Bu bölümde, Databricks çalışma alanında aşağıdaki adlarla iki not defte
 
 ## <a name="send-tweets-to-event-hubs"></a>Event Hubs’a tweet’ler gönderme
 
-İçinde **SendTweetsToEventHub** not defterine aşağıdaki kodu yapıştırın ve yer tutucuyu, daha önce oluşturduğunuz Twitter uygulamasının ve Event Hubs ad alanı için değerlerle değiştirin. Bu not defteri, gerçek zamanlı olarak "Azure" anahtar sözcüğünü içeren tweet’leri Event Hubs’ta akışa alır.
+İçinde **SendTweetsToEventHub** not defterine aşağıdaki kodu yapıştırın ve yer tutucuyu, daha önce oluşturduğunuz Twitter uygulamasının ve Event Hubs ad alanı için değerlerle değiştirin. Bu not defteri oluşturma zamanı ve numarası "Gibi" s "Azure" anahtar sözcüğünü içeren tweetleri ayıklar ve olaylar olarak Event Hubs'a giren gerçek zamanlı akış.
 
 ```scala
 //
@@ -302,7 +299,7 @@ eventHubClient.get().close()
 pool.shutdown()
 ```
 
-Not defterlerini çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aşağıdaki kod parçacığında gösterildiği gibi bir çıktı görürsünüz. Çıktıdaki her olay, Event Hubs’a giren bir tweet’tir.
+Not defterlerini çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aşağıdaki kod parçacığında gösterildiği gibi bir çıktı görürsünüz. Çıktıdaki her olay, Event hubs'a giren "Gibi" s sayısı ve zaman damgası bir birleşimini ' dir.
 
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
 
@@ -325,7 +322,7 @@ Not defterlerini çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aş
 
 ## <a name="read-tweets-from-event-hubs"></a>Event Hubs’tan tweet’leri okuma
 
-**AnalyzeTweetsFromEventHub** not defterine aşağıdaki kodu yapıştırın ve yer tutucuyu, daha önce oluşturduğunuz Azure Event Hubs değerleriyle değiştirin. Bu not defteri, **SendTweetsToEventHub** not defterini kullanarak önceden Event Hubs’ta akışa alınan tweet’leri okur.
+İçinde **AnalyzeTweetsFromEventHub** not defterine aşağıdaki kodu yapıştırın ve yer tutucuyu, daha önce oluşturduğunuz Anomali algılayıcısı kaynağınızın değerlerle değiştirin. Bu not defteri, **SendTweetsToEventHub** not defterini kullanarak önceden Event Hubs’ta akışa alınan tweet’leri okur.
 
 İlk olarak, Anomali algılayıcısı çağırmak için bir istemci yazma. 
 ```scala
@@ -387,7 +384,7 @@ object AnomalyDetector extends Serializable {
     return response.toString()
   }
 
-  // Calls the Latest Point Detection API for timeserie.
+  // Calls the Latest Point Detection API.
   def detectLatestPoint(series: Series): Option[AnomalySingleResponse] = {
     try {
       println("Process Timestamp: " + series.series.apply(series.series.length-1).timestamp.toString + ", size: " + series.series.length)
@@ -406,7 +403,7 @@ object AnomalyDetector extends Serializable {
     }
   }
 
-  // Calls the Batch Detection API for timeserie.
+  // Calls the Batch Detection API.
   def detectBatch(series: Series): Option[AnomalyBatchResponse] = {
     try {
       val response = processUsingApi(gson.toJson(series), batchDetectionUrl)
@@ -425,7 +422,7 @@ object AnomalyDetector extends Serializable {
 }
 ```
 
-Not defterlerini çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aşağıdaki kod parçacığında gösterildiği gibi bir çıktı görürsünüz. : 
+Not defterlerini çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aşağıdaki kod parçacığında gösterildiği gibi bir çıktı görürsünüz.
 
     import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
     import java.net.URL
@@ -447,10 +444,9 @@ Ardından bir toplama işlevi, gelecekteki kullanımlarınız için hazırlayın
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
 import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
-//import org.apache.spark.sql.functions._
 import scala.collection.immutable.ListMap
 
-class AnomalyDetectorAggregationFunction_Hourly extends UserDefinedAggregateFunction {
+class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
   override def inputSchema: StructType = new StructType().add("timestamp", TimestampType).add("value", FloatType)
   
   override def bufferSchema: StructType = new StructType().add("point", MapType(TimestampType, FloatType))
@@ -482,8 +478,8 @@ class AnomalyDetectorAggregationFunction_Hourly extends UserDefinedAggregateFunc
       
       
       // 0.25 is maxAnomalyRatio. It represents 25%, max anomaly ratio in a time series.
-      // 95 is the sensitivity of the algorithms. 
-      // Check Anomaly detector API reference (https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-last-detect)
+      // 95 is the sensitivity of the algorithms.
+      // Check Anomaly detector API reference (https://aka.ms/anomaly-detector-rest-api-ref)
       
       val series: Series = new Series(detect_points.toArray, 0.25, 95, "hourly")
       val response: Option[AnomalySingleResponse] = AnomalyDetector.detectLatestPoint(series)
@@ -498,7 +494,7 @@ class AnomalyDetectorAggregationFunction_Hourly extends UserDefinedAggregateFunc
 
 ```
 
-Not defterlerini çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aşağıdaki kod parçacığında gösterildiği gibi bir çıktı görürsünüz. 
+Not defterlerini çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aşağıdaki kod parçacığında gösterildiği gibi bir çıktı görürsünüz.
 
     import org.apache.spark.sql.Row
     import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
@@ -506,7 +502,7 @@ Not defterlerini çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aş
     import scala.collection.immutable.ListMap
     defined class AnomalyDetectorAggregationFunction
 
-Ardından, anomali algılama için olay hub'ından veri yükleyebilirsiniz.
+Ardından, anomali algılama için olay hub'ından veri yükleyebilirsiniz. Yer tutucusunu, daha önce oluşturduğunuz, Azure Event Hubs için değerlerle değiştirin.
 
 ```scala
 //
@@ -544,7 +540,7 @@ display(msgStream)
 
 ```
 
-Çıkış şimdi şu resme benzer şekilde görünür. Gerçek zamanlı verileri olduğu gibi ödeme dikkat tarihinizden tabloda tarihten itibaren bu öğreticideki farklı olabilir.
+Çıkış şimdi şu resme benzer şekilde görünür. Verileri gerçek zamanlı olarak tarihinizden tabloda tarihten itibaren bu öğreticideki farklı olabileceğini unutmayın.
 ![Yük gelen verileri olay hub'ı](../media/tutorials/load-data-from-eventhub.png "yük veri gelen olay hub'ı")
 
 Artık, neredeyse gerçek zamanlı olarak Apache Spark için Event Hubs bağlayıcısını kullanarak Azure Databricks'e Azure Event Hubs verilerini yaptınız. Spark için Event Hubs bağlayıcısını kullanma hakkında daha fazla bilgi için [bağlayıcı belgesi](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs)ne başvurun.
@@ -583,7 +579,8 @@ groupTime                       average
 
 ```
 
-Ardından, Delta toplanmış çıkış sonucu alın. Anomali algılama daha uzun bir geçmiş penceresinde gerektirdiğinden, Delta algılamak için istediğiniz noktasının geçmiş verileri tutmak için kullanıyoruz. 
+Ardından, Delta toplanmış çıkış sonucu alın. Anomali algılama daha uzun bir geçmiş penceresinde gerektirdiğinden, Delta algılamak için istediğiniz noktasının geçmiş verileri tutmak için kullanıyoruz. Değiştir "[yer tutucu: Tablo adı]" ile (örneğin, "tweets") oluşturulması için tam bir Delta tablo adı. Değiştir "[yer tutucu: klasör adını kontrol noktaları]" her zaman benzersiz olan bir dize değeri ile bu kodu çalıştırmak (örneğin, "etl-gelen-eventhub-20190605").
+Azure Databricks üzerinde Delta Lake hakkında daha fazla bilgi için lütfen bkz [Delta Lake Kılavuzu](https://docs.azuredatabricks.net/delta/index.html)
 
 
 ```scala
@@ -599,6 +596,7 @@ groupStream.writeStream
 
 ```
 
+Değiştir "[yer tutucu: Tablo adı]" yukarıda seçtiğiniz ile aynı Delta tablo adı.
 ```scala
 //
 // Show Aggregate Result
@@ -625,26 +623,34 @@ groupTime                       average
 
 ```
 
-Şimdi toplu zaman serisi verilerinin sürekli olarak Delta alınır. Ardından en son noktasının anomali algılama için saatte bir iş zamanlayabilirsiniz. 
+Şimdi toplu zaman serisi verilerinin sürekli olarak Delta alınır. Ardından, en son noktasının anomali algılama için saatlik bir iş zamanlayabilirsiniz. Değiştir "[yer tutucu: Tablo adı]" yukarıda seçtiğiniz ile aynı Delta tablo adı.
 
 ```scala
 //
-// Anomaly Detection with Batch query
+// Anomaly Detection
 //
 
 import java.time.Instant
+import java.time.format.DateTimeFormatter
+import java.time.ZoneOffset
 import java.time.temporal.ChronoUnit
 
 val detectData = spark.read.format("delta").table("[Placeholder: table name]")
 
-// How long history you want to use in anomaly detection. It is hourly time series in this tutorial, so 72 means 72 hours. 
-val batchSize = 72
+// You could use Databricks to schedule an hourly job and always monitor the latest data point
+// Or you could specify a const value here for testing purpose
+// For example, val endTime = Instant.parse("2019-04-16T00:00:00Z")
+val endTime = Instant.now()
 
-// Change the endTime to where you want to detect. You could use Databricks to schedule a job and change it to the latest hour. 
-val endTime = Instant.parse("2019-04-16T00:00:00Z")
+// This is when your input of anomaly detection starts. It is hourly time series in this tutorial, so 72 means 72 hours ago from endTime.
+val batchSize = 72
 val startTime = endTime.minus(batchSize, ChronoUnit.HOURS)
 
-val series = detectData.filter($"groupTime" < endTime.toString && $"groupTime" >= startTime.toString).sort($"groupTime")
+val DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC);
+
+val series = detectData.filter($"groupTime" <= DATE_TIME_FORMATTER.format(endTime))
+  .filter($"groupTime" > DATE_TIME_FORMATTER.format(startTime))
+  .sort($"groupTime")
 
 series.createOrReplaceTempView("series")
 
@@ -653,7 +659,7 @@ series.createOrReplaceTempView("series")
 // Register the function to access it
 spark.udf.register("anomalydetect", new AnomalyDetectorAggregationFunction)
 
-val adResult = spark.sql("SELECT '" + endTime.toString + "' as timestamp, anomalydetect(groupTime, average) as anomaly FROM series")
+val adResult = spark.sql("SELECT '" + endTime.toString + "' as datetime, anomalydetect(groupTime, average) as anomaly FROM series")
 adResult.show()
 ```
 Aşağıdaki gibi neden: 
@@ -665,36 +671,21 @@ Aşağıdaki gibi neden:
 |2019-04-16T00:00:00Z|  false|
 +--------------------+-------+
 
-```
-Delta geri dön anomali algılama sonucu çıktı. 
-```scala
-//
-// Output Batch AD Result to delta
-//
 
-adResult.writeStream
-  .format("delta")
-  .outputMode("complete")
-  .option("checkpointLocation", "/delta/[Placeholder: table name]/_checkpoints/[Placeholder: folder name for checkpoints]")
-  .table("[Placeholder: table name]")
-  
-```
+That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then run anomaly detection on streaming data in near real time.
+Although in this tutorial, the granularity is hourly, you can always change the granularity to meet your need. 
 
+## Clean up resources
 
-İşte bu kadar! Azure Databricks kullanarak verileri başarıyla yaptınız Azure Event Hubs'a, Event Hubs bağlayıcısını kullanarak akış verilerini kullandınız ve sonra akış verileriyle neredeyse gerçek zamanlı anomali algılama çalıştırdınız.
-Bu öğreticideki olsa da, ayrıntı düzeyi saatlik, her zaman ayrıntı düzeyi, gereksinime uygun şekilde değiştirebilirsiniz. 
+After you have finished running the tutorial, you can terminate the cluster. To do so, in the Azure Databricks workspace, select **Clusters** from the left pane. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon and then select **Confirm**.
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
+![Stop a Databricks cluster](../media/tutorials/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-Öğreticiyi çalıştırdıktan sonra kümeyi sonlandırabilirsiniz. Bunu yapmak için Azure Databricks çalışma alanında sol bölmedeki **Kümeler**’i seçin. Sonlandırmak istediğiniz küme için imleci **Eylemler** sütunu altındaki üç noktanın üzerine taşıyın ve **Sonlandır** simgesini seçin.
+If you don't manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
 
-![Databricks kümesini durdurma](../media/tutorials/terminate-databricks-cluster.png "Databricks kümesini durdurma")
+## Next steps
 
-El ile otomatik olarak durdurur küme sonlandırmaz, seçtiğiniz sağlanan **sonra Sonlandır \_ \_ yapılmadan geçecek dakika cinsinden** küme oluşturulurken onay kutusu. Böyle bir durumda, belirtilen süre boyunca etkin olmaması durumunda küme otomatik olarak durdurulur.
-
-## <a name="next-steps"></a>Sonraki adımlar
-
-Bu öğreticide, verileri Azure Event Hubs’ta akışa almak ve sonra gerçek zamanlı olarak Event Hubs’tan akış verilerini okumak için Azure Databricks’i kullanmayı öğrendiniz. Anomali algılayıcısı API çağrısı ve anomalileri Power BI desktop'ı kullanarak görselleştirme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin. 
+In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. Advance to the next tutorial to learn how to call the Anomaly Detector API and visualize anomalies using Power BI desktop. 
 
 > [!div class="nextstepaction"]
->[Power BI desktop ile batch anomali algılama](batch-anomaly-detection-powerbi.md)
+>[Batch anomaly detection with Power BI desktop](batch-anomaly-detection-powerbi.md)

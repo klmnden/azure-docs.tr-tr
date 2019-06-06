@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242416"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480064"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -162,6 +162,9 @@ Kaynak dizini yerel bir Git deposu olduğu çalıştırma eğitim başlattığı
 ## <a name="snapshot"></a>Anlık Görüntü
 
 Bir farklı çalıştır gönderdiğinizde, Azure Machine Learning komut dosyasına bir zip dosyası olarak içeren ve işlem hedefe gönderir dizini sıkıştırır. Zip dosyası ardından ayıklanır ve komut dosyası var. çalıştırın. Azure Machine Learning, zip dosyası da çalıştırma kaydı bir parçası olarak bir anlık görüntü olarak depolar. Çalışma alanına erişimi olan herkes bir çalıştırma kaydı göz atabilir ve anlık görüntü indirin.
+
+> [!NOTE]
+> Gereksiz dosyaları anlık eklenmesini önlemek için yoksayma dosyası (.gitignore veya .amlignore) olun. Bu dosya anlık görüntü dizinine yerleştirin ve bunu yoksaymak için dosya adlarını ekleyin. Aynı .amlignore dosyasını kullanan [söz dizimi ve desenler .gitignore dosyası olarak](https://git-scm.com/docs/gitignore). Her iki dosya varsa, .amlignore dosya önceliklidir.
 
 ## <a name="activity"></a>Etkinlik
 

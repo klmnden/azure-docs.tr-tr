@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5773924e98b7ea13c180979dba1325eb8919ff3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c9b07e7524488d0336a55af6e1d5f36af59a870
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60469904"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729834"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri
 Bu makale, grupları oluşturmak için Azure Active Directory (Azure AD) PowerShell cmdlet'lerini kullanmaya yönelik yönergeler içerir. Bu içerik yalnızca (birleştirilmiş grupları denir) Office 365 grupları için geçerlidir. 
@@ -34,12 +34,7 @@ Office 365 grupları ayarları, bir ayar nesnesi ve bir SettingsTemplate nesnesi
 
 Cmdlet'ler, Azure Active Directory PowerShell V2 modülü bir parçasıdır. Yönergeler için nasıl indirin ve bilgisayarınıza modülü yüklemek, makaleye göz atın [Azure Active Directory PowerShell sürüm 2](https://docs.microsoft.com/powershell/azuread/). Modülü sürüm 2 sürümünü yükleyebilirsiniz [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureAD/).
 
-## <a name="retrieve-a-specific-settings-value"></a>Belirli ayarları değeri alınamıyor
-Almak istediğiniz ayar adını biliyorsanız, kullanabileceğiniz aşağıdaki geçerli ayarları değerini almak için cmdlet'i. Bu örnekte, biz "UsageGuidelinesUrl." adlı bir ayarın değerini alma Dizin ayarları ve adları hakkında daha fazla aşağı bu makalede daha fazla bilgi edinebilirsiniz.
 
-```powershell
-(Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
-```
 
 ## <a name="create-settings-at-the-directory-level"></a>Dizin düzeyinde ayarları oluşturma
 Bu adımları ayarları dizin düzeyinde dizindeki tüm Office 365 grupları için geçerli oluşturun. Yalnızca Get-AzureADDirectorySettingTemplate cmdlet kullanılabilir [graf için Azure AD PowerShell Önizleme modülünün](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
@@ -74,21 +69,27 @@ Bu adımları ayarları dizin düzeyinde dizindeki tüm Office 365 grupları iç
 4. Ardından Kullanım Kılavuzu değeri güncelleştirin:
   
    ```powershell
-   $setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+   $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
    ```  
-5. Son olarak, ayarlarını uygulayın:
+5. Ardından ayarını uygulayın:
   
    ```powershell
-   New-AzureADDirectorySetting -DirectorySetting $setting
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-
-Cmdlet, işlemin başarıyla tamamlanmasından sonra yeni ayarları nesnesinin Kimliğini döndürür:
+6. Kullanarak değerlerini okuyabilirsiniz:
 
   ```powershell
-  Id                                   DisplayName TemplateId                           Values
-  --                                   ----------- ----------                           ------
-  c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
-  ```
+   $Setting.Values
+   ```  
+## <a name="update-settings-at-the-directory-level"></a>Dizin düzeyinde ayarlarını güncelleştirme
+Değeri için UsageGuideLinesUrl ayarı şablonda güncelleştirmek için yalnızca yukarıdaki adım 4 ile URL'yi düzenleyin, sonra adım 5'i yeni değeri ayarlamak için gerçekleştirin.
+
+UsageGuideLinesUrl değerini kaldırmak için URL yukarıdaki adım 4 kullanarak boş bir dize olacak şekilde düzenleyin:
+
+ ```powershell
+   $Setting["UsageGuidelinesUrl"] = ""
+   ```  
+Ardından 5. adım yeni değeri ayarlamak için gerçekleştirin.
 
 ## <a name="template-settings"></a>Şablon ayarları
 Group.Unified SettingsTemplate içinde tanımlanan ayarlar aşağıda verilmiştir. Aksi belirtilmediği sürece, bu özellikler bir Azure Active Directory Premium P1 lisansı gerektirir. 
@@ -109,7 +110,42 @@ Group.Unified SettingsTemplate içinde tanımlanan ayarlar aşağıda verilmişt
 |  <ul><li>AllowToAddGuests<li>Şunu yazın: Boolean<li>Varsayılan: True | Boole Konukları bu dizine eklemek için kullanılabilir olup olmadığını belirten bir.|
 |  <ul><li>ClassificationList<li>Şunu yazın: String<li>Varsayılan: "" |Office 365 grupları için uygulanabilir geçerli sınıflandırma değerleri virgülle ayrılmış listesi. |
 
+## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Örnek: Dizin düzeyinde gruplar için konuk ilkesi yapılandırma
+1. Tüm ayarı şablonları alın:
+  ```powershell
+   Get-AzureADDirectorySettingTemplate
+   ```
+2. Konuk ilke gruplar için dizin düzeyinde ayarlamak için Group.Unified şablonun yüklü olmalıdır.
+   ```powershell
+   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   ```
+3. Ardından, o şablonu temel alan yeni bir ayar nesnesi oluşturun:
+  
+   ```powershell
+   $Setting = $template.CreateDirectorySetting()
+   ```  
+4. Ardından AllowToAddGuests ayarını güncelleştirme
+   ```powershell
+   $Setting["AllowToAddGuests"] = $False
+   ```  
+5. Ardından ayarını uygulayın:
+  
+   ```powershell
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   ```
+6. Kullanarak değerlerini okuyabilirsiniz:
+
+  ```powershell
+   $Setting.Values
+   ```   
+
 ## <a name="read-settings-at-the-directory-level"></a>Dizin düzeyinde ayarlarını okuma
+
+Almak istediğiniz ayar adını biliyorsanız, kullanabileceğiniz aşağıdaki geçerli ayarları değerini almak için cmdlet'i. Bu örnekte, biz "UsageGuidelinesUrl." adlı bir ayarın değerini alma 
+
+  ```powershell
+  (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+  ```
 Bu adımlar, dizindeki tüm Office grupları için geçerli olan ayarları dizin düzeyinde okuyun.
 
 1. Tüm mevcut dizin ayarları okuyun:
@@ -150,6 +186,12 @@ Bu adımlar, dizindeki tüm Office grupları için geçerli olan ayarları dizin
    EnableGroupCreation           True
    ```
 
+## <a name="remove-settings-at-the-directory-level"></a>Dizin düzeyinde ayarlarını Kaldır
+Bu adım, dizindeki tüm Office grupları için geçerli olan ayarları dizin düzeyinde kaldırır.
+  ```powershell
+  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
+  ```
+
 ## <a name="update-settings-for-a-specific-group"></a>Belirli bir grup için ayarları güncelleştir
 
 1. "Groups.Unified.Guest" adlı ayarları şablonunu Ara
@@ -166,50 +208,25 @@ Bu adımlar, dizindeki tüm Office grupları için geçerli olan ayarları dizin
    ```
 2. Groups.Unified.Guest şablon için şablon nesnesi Al:
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
+   $Template1 = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
    ```
 3. Şablondan Yeni bir ayar nesnesi oluşturun:
    ```powershell
-   $Setting = $Template.CreateDirectorySetting()
+   $SettingCopy = $Template1.CreateDirectorySetting()
    ```
 
 4. Ayarını, gerekli değeri ayarlayın:
    ```powershell
-   $Setting["AllowToAddGuests"]=$False
+   $SettingCopy["AllowToAddGuests"]=$False
    ```
 5. Gerekli grubu için yeni ayar dizinde oluşturun:
    ```powershell
-   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $Setting
-  
-   Id                                   DisplayName TemplateId                           Values
-   --                                   ----------- ----------                           ------
-   25651479-a26e-4181-afce-ce24111b2cb5             08d542b9-071f-4e16-94b0-74abb372e3d9 {class SettingValue {...
+   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $SettingCopy
    ```
-
-## <a name="update-settings-at-the-directory-level"></a>Dizin düzeyinde ayarlarını güncelleştirme
-
-Bu adımlar, dizindeki tüm Office 365 grupları için geçerli olan ayarları dizin düzeyinde güncelleştirin. Bu örnekler, dizininizde zaten bir ayar nesnesi var. varsayar.
-
-1. Var olan ayarları nesnesini Bul:
+6. Ayarları doğrulamak için şu komutu çalıştırın:
    ```powershell
-   $setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
+   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups | fl Values
    ```
-2. Değeri güncelleştirin:
-  
-   ```powershell
-   $Setting["AllowToAddGuests"] = "false"
-   ```
-3. Güncelleştirme ayarı:
-  
-   ```powershell
-   Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting
-   ```
-
-## <a name="remove-settings-at-the-directory-level"></a>Dizin düzeyinde ayarlarını Kaldır
-Bu adım, dizindeki tüm Office grupları için geçerli olan ayarları dizin düzeyinde kaldırır.
-  ```powershell
-  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
-  ```
 
 ## <a name="cmdlet-syntax-reference"></a>Cmdlet'in söz dizimi başvurusu
 Daha fazla Azure Active Directory PowerShell belgeleri bulabilirsiniz [Azure Active Directory cmdlet'leri](/powershell/azure/install-adv2?view=azureadps-2.0).

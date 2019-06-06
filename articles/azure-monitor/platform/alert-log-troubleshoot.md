@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 03a6ea45577b4a4bf57501b1834f91438feb4e2b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399179"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477866"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları giderme  
 
 Bu makalede, Azure İzleyici'de günlük uyarıları ayarlama, olabileceği yaygın sorunları çözme işlemini göstermektedir. Ayrıca, işlev veya günlük uyarıları yapılandırma ile sık karşılaşılan sorunlara çözümler sağlar. 
 
-Terim *günlük uyarıları* yangın günlük sorguda bağlı uyarılar açıklar bir [Azure Log Analytics çalışma alanı](../learn/tutorial-viewdata.md) veya [Azure Application Insights](../../azure-monitor/app/analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerinde öğrenin [Azure İzleyici'de günlük uyarıları](../platform/alerts-unified-log.md).
+Terim *günlük uyarıları* yangın günlük sorguda dayalı kurallar tanımlamak bir [Azure Log Analytics çalışma alanı](../learn/tutorial-viewdata.md) veya [Azure Application Insights](../../azure-monitor/app/analytics.md). Daha fazla ilgili işlevler, terminolojisi ve türlerinde öğrenin [Azure İzleyici'de günlük uyarıları](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Bu makalede, burada Azure portalında tetiklenen bir uyarı kuralı gösterir ve bir bildirim, bir ilişkili eylem grubu tarafından gerçekleştirilmeyen durumları dikkate almaz. Böyle durumlarda, ayrıntılara bakın [oluştur ve Eylem grupları Azure portalında yönetmek](../platform/action-groups.md).

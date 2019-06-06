@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: f36442c5e26391f410eeb5e39a7485da7199bdad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243442"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743152"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure kurtarma Hizmetleri (MARS) aracısı sorunlarını giderme
 
@@ -43,19 +43,19 @@ Gerçekleştirmenizi öneririz doğrulama başlamadan önce Microsoft Azure kurt
 
 | Hata Ayrıntıları | Olası nedenler | Önerilen Eylemler |
 | ---     | ---     | ---    |
-| **Hata:** </br> *Sağlanan kasa kimlik bilgileri geçersiz. Dosya bozuk veya mu değil sahip en son kimlik bilgilerini kurtarma hizmeti ile ilişkili. (KİMLİK: 34513)* | <ul><li> Kasa kimlik bilgileri geçersiz (diğer bir deyişle, bunlar 48 saatten fazla kayıt süreden önce yüklenen).<li>MARS aracısını indirip yükleyin. Windows Temp Dizini silemiyor. <li>Kasa kimlik bilgilerini bir ağ konumunda ' dir. <li>TLS 1.0 devre dışı bırakıldı<li> Yapılandırılmış bir proxy sunucusundan bağlantıyı engelliyor. <br> |  <ul><li>Yeni kasa kimlik bilgilerini indirin. (**Not**: Birden çok kasa kimlik bilgileri dosyalarını daha önce indirdiyseniz, yalnızca en son indirilen dosyayı 48 saat içinde geçerlidir.) <li>Başlatma **IE** > **ayarı** > **Internet Seçenekleri** > **güvenlik**  >  **Internet**. Ardından, **Özel düzey**ve bölüm karşıdan dosya görene kadar kaydırın. Ardından **etkinleştirme**.<li>Bu siteleri IE'de eklemeniz gerekebilir [Güvenilen siteler](https://docs.microsoft.com/azure/backup/backup-configure-vault#verify-internet-access).<li>Bir proxy sunucusu kullanmak için ayarları değiştirin. Ardından proxy sunucusu ayrıntıları sağlayın. <li> Tarih ve saat, makine ile aynı.<li>Dosya indirmeleri izin verilmeyen bildiren bir hata alırsanız, çok sayıda dosya C:/Windows/Temp dizininde olması olasıdır.<li>C:/Windows/Temp gidin ve .tmp uzantısına sahip birden fazla 60.000 veya 65.000 dosyaları olup olmadığını denetleyin. Varsa, bu dosyaları silin.<li>.NET framework 4.6.2 yüklü olduğundan emin olun. <li>PCI uyumluluk nedeniyle TLS 1.0 devre dışı bıraktığınız, şuna başvurun [sorun giderme sayfası](https://support.microsoft.com/help/4022913). <li>Aşağıdaki dosyaları, sunucu üzerinde yüklü virüsten koruma yazılımınız varsa, virüsten koruma tarama dışında tut: <ul><li>CBengine.exe<li>.NET Framework ile ilgili CSC.exe. Sunucuda yüklü her .NET sürümü için bir CSC.exe yoktur. .NET Framework etkilenen sunucudaki tüm sürümleri bağlıdır CSC.exe dosyaları hariç tutun. <li>Karalama klasörünü veya önbellek konumu. <br>*Karalama klasörünü veya önbellek konumu yolu için varsayılan konum C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch olan*.<br><li>Bin klasörü C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+| **Hata:** </br> *Sağlanan kasa kimlik bilgileri geçersiz. Dosya bozuk veya mu değil sahip en son kimlik bilgilerini kurtarma hizmeti ile ilişkili. (Kimlik: 34513)* | <ul><li> Kasa kimlik bilgileri geçersiz (diğer bir deyişle, bunlar 48 saatten fazla kayıt süreden önce yüklenen).<li>MARS aracısını indirip yükleyin. Windows Temp Dizini silemiyor. <li>Kasa kimlik bilgilerini bir ağ konumunda ' dir. <li>TLS 1.0 devre dışı bırakıldı<li> Yapılandırılmış bir proxy sunucusundan bağlantıyı engelliyor. <br> |  <ul><li>Yeni kasa kimlik bilgilerini indirin. (**Not**: Birden çok kasa kimlik bilgileri dosyalarını daha önce indirdiyseniz, yalnızca en son indirilen dosyayı 48 saat içinde geçerlidir.) <li>Başlatma **IE** > **ayarı** > **Internet Seçenekleri** > **güvenlik**  >  **Internet**. Ardından, **Özel düzey**ve bölüm karşıdan dosya görene kadar kaydırın. Ardından **etkinleştirme**.<li>Bu siteleri IE'de eklemeniz gerekebilir [Güvenilen siteler](https://docs.microsoft.com/azure/backup/backup-configure-vault#verify-internet-access).<li>Bir proxy sunucusu kullanmak için ayarları değiştirin. Ardından proxy sunucusu ayrıntıları sağlayın. <li> Tarih ve saat, makine ile aynı.<li>Dosya indirmeleri izin verilmeyen bildiren bir hata alırsanız, çok sayıda dosya C:/Windows/Temp dizininde olması olasıdır.<li>C:/Windows/Temp gidin ve .tmp uzantısına sahip birden fazla 60.000 veya 65.000 dosyaları olup olmadığını denetleyin. Varsa, bu dosyaları silin.<li>.NET framework 4.6.2 yüklü olduğundan emin olun. <li>PCI uyumluluk nedeniyle TLS 1.0 devre dışı bıraktığınız, şuna başvurun [sorun giderme sayfası](https://support.microsoft.com/help/4022913). <li>Aşağıdaki dosyaları, sunucu üzerinde yüklü virüsten koruma yazılımınız varsa, virüsten koruma tarama dışında tut: <ul><li>CBengine.exe<li>.NET Framework ile ilgili CSC.exe. Sunucuda yüklü her .NET sürümü için bir CSC.exe yoktur. .NET Framework etkilenen sunucudaki tüm sürümleri bağlıdır CSC.exe dosyaları hariç tutun. <li>Karalama klasörünü veya önbellek konumu. <br>*Karalama klasörünü veya önbellek konumu yolu için varsayılan konum C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch olan*.<br><li>Bin klasörü C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 
 ## <a name="unable-to-download-vault-credential-file"></a>Kasa kimlik bilgileri dosyası indirilemedi
 
 | Hata Ayrıntıları | Önerilen Eylemler |
 | ---     | ---    |
-|Kasa kimlik bilgileri dosyası indirilemedi. (KİMLİK: 403) | <ul><li> Farklı bir tarayıcı kullanarak kasa kimlik bilgilerini indirerek deneyin ya da aşağıdaki adımları: <ul><li> IE, F12 tuşuna başlatın. </li><li> Git **ağ** IE önbelleği ve tanımlama bilgilerini temizleme için sekmesinde </li> <li> Sayfayı yenileyin<br>(VEYA)</li></ul> <li> Abonelik devre dışı bırakılmış/süresi dolmuş olup olmadığını denetleyin<br>(VEYA)</li> <li> Herhangi bir güvenlik duvarı kural kasa kimlik bilgileri dosyası indirme engelleyip engellemediğini denetleyin <br>(VEYA)</li> <li> Kasa (kasa başına 50 makine) sınırı tüketmiş değil emin olun.<br>(VEYA)</li>  <li> Kullanıcı, Azure Backup izni kasa kimlik bilgileri indirin ve sunucuyu kasaya kaydetmek için bkz: gerekli olduğundan emin olun [makale](backup-rbac-rs-vault.md)</li></ul> |
+|Kasa kimlik bilgileri dosyası indirilemedi. (Kimlik: 403) | <ul><li> Farklı bir tarayıcı kullanarak kasa kimlik bilgilerini indirerek deneyin ya da aşağıdaki adımları: <ul><li> IE, F12 tuşuna başlatın. </li><li> Git **ağ** IE önbelleği ve tanımlama bilgilerini temizleme için sekmesinde </li> <li> Sayfayı yenileyin<br>(VEYA)</li></ul> <li> Abonelik devre dışı bırakılmış/süresi dolmuş olup olmadığını denetleyin<br>(VEYA)</li> <li> Herhangi bir güvenlik duvarı kural kasa kimlik bilgileri dosyası indirme engelleyip engellemediğini denetleyin <br>(VEYA)</li> <li> Kasa (kasa başına 50 makine) sınırı tüketmiş değil emin olun.<br>(VEYA)</li>  <li> Kullanıcı, Azure Backup izni kasa kimlik bilgileri indirin ve sunucuyu kasaya kaydetmek için bkz: gerekli olduğundan emin olun [makale](backup-rbac-rs-vault.md)</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Microsoft Azure Kurtarma Hizmeti Aracısı, Microsoft Azure Backup'a bağlanamadı
 
 | Hata Ayrıntıları | Olası nedenler | Önerilen Eylemler |
 | ---     | ---     | ---    |
-| **Hata:** <br /><ol><li>*Microsoft Azure Recovery hizmet Aracısı, Microsoft Azure Backup'a bağlanamadı. (KİMLİK: 100050) ağ ayarlarınızı denetleyin ve internet'e bağlanabilir olduğundan emin olun*<li>*(407) Proxy Kimlik Doğrulaması Gerekli* |Proxy bağlantıyı engelliyor. |  <ul><li>Başlatma **IE** > **ayarı** > **Internet Seçenekleri** > **güvenlik**  >  **Internet**. Ardından **Özel düzey** ve bölüm karşıdan dosya görene kadar kaydırın. Seçin **etkinleştirme**.<li>Bu siteleri IE'de eklemeniz gerekebilir [Güvenilen siteler](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Bir proxy sunucusu kullanmak için ayarları değiştirin. Ardından proxy sunucusu ayrıntıları sağlayın.<li> Makinenizde sınırlı internet erişimi, güvenlik duvarı ayarlarını makinede veya proxy bu izin verdiğinden emin olun [URL'leri](backup-configure-vault.md#verify-internet-access) ve [IP adresi](backup-configure-vault.md#verify-internet-access). <li>Aşağıdaki dosyaları, sunucu üzerinde yüklü virüsten koruma yazılımınız varsa, virüsten koruma tarama dışında tut. <ul><li>CBEngine.exe (yerine dpmra.exe).<li>CSC.exe (.NET Framework ile ilgili). Sunucuda yüklü her .NET sürümü için bir CSC.exe yoktur. .NET framework etkilenen sunucudaki tüm sürümleri bağlıdır CSC.exe dosyaları hariç tutun. <li>Karalama klasörünü veya önbellek konumu. <br>*Karalama klasörünü veya önbellek konumu yolu için varsayılan konum C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch olan*.<li>Bin klasörü C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+| **Hata:** <br /><ol><li>*Microsoft Azure Recovery hizmet Aracısı, Microsoft Azure Backup'a bağlanamadı. (Kimlik: 100050) ağ ayarlarınızı denetleyin ve internet'e bağlanabilir olduğundan emin olun*<li>*(407) Proxy Kimlik Doğrulaması Gerekli* |Proxy bağlantıyı engelliyor. |  <ul><li>Başlatma **IE** > **ayarı** > **Internet Seçenekleri** > **güvenlik**  >  **Internet**. Ardından **Özel düzey** ve bölüm karşıdan dosya görene kadar kaydırın. Seçin **etkinleştirme**.<li>Bu siteleri IE'de eklemeniz gerekebilir [Güvenilen siteler](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Bir proxy sunucusu kullanmak için ayarları değiştirin. Ardından proxy sunucusu ayrıntıları sağlayın.<li> Makinenizde sınırlı internet erişimi, güvenlik duvarı ayarlarını makinede veya proxy bu izin verdiğinden emin olun [URL'leri](backup-configure-vault.md#verify-internet-access) ve [IP adresi](backup-configure-vault.md#verify-internet-access). <li>Aşağıdaki dosyaları, sunucu üzerinde yüklü virüsten koruma yazılımınız varsa, virüsten koruma tarama dışında tut. <ul><li>CBEngine.exe (yerine dpmra.exe).<li>CSC.exe (.NET Framework ile ilgili). Sunucuda yüklü her .NET sürümü için bir CSC.exe yoktur. .NET framework etkilenen sunucudaki tüm sürümleri bağlıdır CSC.exe dosyaları hariç tutun. <li>Karalama klasörünü veya önbellek konumu. <br>*Karalama klasörünü veya önbellek konumu yolu için varsayılan konum C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch olan*.<li>Bin klasörü C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 
 
 
@@ -82,7 +82,15 @@ Gerçekleştirmenizi öneririz doğrulama başlamadan önce Microsoft Azure kurt
 El ile yedeklemeler sorunsuz çalışırken zamanlanmış yedeklemeleri otomatik olarak tetiklenir yoksa, aşağıdaki işlemleri deneyin:
 
 - Windows Server Yedekleme zamanlaması Azure dosyaları ve klasörleri yedekleme zamanlaması ile çakışmadığından emin olun.
-- Git **Denetim Masası** > **Yönetimsel Araçlar** > **Görev Zamanlayıcı**. Genişletin **Microsoft**seçip **çevrimiçi yedekleme**. Çift **Microsoft OnlineBackup**ve Git **Tetikleyicileri** sekmesi. Durum ayarlandığından emin olun **etkin**. Aksi takdirde seçin **Düzenle**seçip **etkin** onay kutusunu ve tıklatın **Tamam**. Üzerinde **genel** sekmesine gidin **güvenlik seçenekleri** ve görevi çalıştırmak için seçili kullanıcı hesabı ya da olduğundan emin olun **sistem** veya **yerel Administrators grubunun** sunucusunda.
+
+- Çevrimiçi Yedekleme durumu ayarlandığından emin olun **etkinleştirme**. Durum gerçekleştirmek doğrulamak için aşağıdaki:
+
+  - Git **Denetim Masası** > **Yönetimsel Araçlar** > **Görev Zamanlayıcı**.
+    - Genişletin **Microsoft**seçip **çevrimiçi yedekleme**.
+  - Çift **Microsoft OnlineBackup**ve Git **Tetikleyicileri** sekmesi.
+  - Durum ayarlanırsa doğrulayın **etkin**. Aksi takdirde seçin **Düzenle**seçip **etkin** onay kutusunu ve tıklatın **Tamam**.
+
+- Görevi çalıştırmak için seçili kullanıcı hesabı ya da olduğundan emin olun **sistem** veya **yerel Yöneticiler grubuna** sunucusunda. Kullanıcı hesabı doğrulamak için Git **genel** denetleyin ve sekme **güvenlik seçenekleri**.
 
 - PowerShell 3.0 veya üzeri sunucu üzerinde yüklü olup olmadığını. PowerShell sürümünü denetlemek için aşağıdaki komutu çalıştırın ve doğrulayın *ana* sürüm numarası 3'ten büyük ya da eşit.
 
@@ -98,6 +106,15 @@ El ile yedeklemeler sorunsuz çalışırken zamanlanmış yedeklemeleri otomatik
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
+- Sunucu yedekleme aracısını yükleme sonrasında yeniden başlatıldı emin olun.
+
+- Eksik olmadığından emin olun veya bozuk **PowerShell** Modülü **MSonlineBackup**. Çözümlenecek var olması durumunda tüm eksik veya bozuk dosyaları, sorun gerçekleştirmek aşağıda:
+
+  - (Windows 2008 R2) başka bir makineden MSOnlineBackup klasörden kopyalayın MARS Aracısı düzgün bir şekilde çalışma sahip *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* yolu.
+  - Bu yolla sorunlu makine yapıştırın *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* .
+  - Varsa **MSOnlineBackup** klasördür zaten var makinenin içinde Yapıştır/içindeki içerik dosyalarını değiştirin.
+
+
 > [!TIP]
 > Değişiklikleri tutarlı bir şekilde uygulandığından emin olmak için yukarıdaki adımları gerçekleştirdikten sonra sunucuyu yeniden başlatın.
 
@@ -108,7 +125,7 @@ Azure Yedekleme başarıyla kurtarma birimi, birkaç dakika sonra bile bağlamak
 
 1.  Birkaç dakikadan uzun süredir çalışıyor durumda devam eden bağlama işlemini iptal edin.
 
-2.  Yedekleme aracının en son sürümüne bağımlı olup olmadığınızı bakın. Sürümü, bulunacak **eylemleri** bölmesinde seçin MARS konsolunun **hakkında Microsoft Azure kurtarma Hizmetleri Aracısı**. Onaylayın **sürüm** sayıdır belirtilen sürümden daha yüksek veya ona eşit [bu makalede](https://go.microsoft.com/fwlink/?linkid=229525). En son sürümü karşıdan yükleyebileceğiniz [burada](https://go.microsoft.com/fwLink/?LinkID=288905).
+2.  Yedekleme aracının en son sürümüne bağımlı olup olmadığınızı bakın. Sürümü, bulunacak **eylemleri** bölmesinde seçin MARS konsolunun **hakkında Microsoft Azure kurtarma Hizmetleri Aracısı**. Onaylayın **sürüm** sayıdır belirtilen sürümden daha yüksek veya ona eşit [bu makalede](https://go.microsoft.com/fwlink/?linkid=229525). En son sürümü [buradan](https://go.microsoft.com/fwLink/?LinkID=288905) indirebilirsiniz.
 
 3.  Git **cihaz Yöneticisi** > **depolama denetleyicileri**bulun **Microsoft iSCSI başlatıcısı**. Bulabiliyorsa, doğrudan 7. adıma gidin.
 

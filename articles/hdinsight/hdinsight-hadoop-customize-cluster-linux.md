@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518900"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479467"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Betik eylemlerini kullanarak Azure HDInsight kümelerinizi özelleştirebilirsiniz.
 
@@ -58,7 +58,7 @@ Betik eylemi çalıştıran bir HDInsight kümesindeki düğümler üzerinde Bas
 
      * ESP ile kümeleri için:
          
-         * Wasb [s] :// veya http [s] :// URI'ler desteklenir.
+         * Wasb: / / ya da wasbs: / / ya da http [s] :// URI'ler desteklenir.
             
 * Yalnızca belirli düğüm türleri üzerinde çalıştırılacak kısıtlanabilir. Baş düğümlerinden veya alt düğümlerinden verilebilir.
 
@@ -143,12 +143,12 @@ Betik eylemi betikler aşağıdaki yardımcı programlar kullanılabilir:
 
 HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için komut dosyaları sağlar:
 
-| Ad | Betik |
+| Ad | Komut Dosyası |
 | --- | --- |
-| Azure Depolama hesabı ekleme |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Bkz: [HDInsight için ek depolama hesapları ekleme](hdinsight-hadoop-add-storage.md). |
-| Hue Yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Bkz: [yükleme ve kullanma, HDInsight, Hadoop üzerinde Hue kümeleri](hdinsight-hadoop-hue-linux.md). |
+| Bir Azure depolama hesabı ekleme |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Bkz: [HDInsight için ek depolama hesapları ekleme](hdinsight-hadoop-add-storage.md). |
+| Hue yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Bkz: [yükleme ve kullanma, HDInsight, Hadoop üzerinde Hue kümeleri](hdinsight-hadoop-hue-linux.md). |
 | Presto yükleme |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Bkz: [yüklemeden ve kullanmadan Presto üzerinde Hadoop tabanlı HDInsight kümeleri](hdinsight-hadoop-install-presto.md). |
-| Giraph Yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Bkz: [HDInsight Hadoop üzerinde Apache Giraph'ı yükleme kümeleri](hdinsight-hadoop-giraph-install-linux.md). |
+| Giraph yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Bkz: [HDInsight Hadoop üzerinde Apache Giraph'ı yükleme kümeleri](hdinsight-hadoop-giraph-install-linux.md). |
 | Hive kitaplıklarını önceden yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Bkz: [HDInsight kümenizi oluştururken özel Apache Hive kitaplıkları ekleme](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Küme oluşturma sırasında bir betik eylemi kullanın
@@ -173,7 +173,7 @@ Bu bölümde, bir HDInsight kümesi oluştururken betik eylemleri kullanabilece�
 
     | Özellik | Değer |
     | --- | --- |
-    | Bir betik seçin | Kendi betiğinizi kullanmayı tercih __özel__. Aksi takdirde, sağlanan betikleri birini seçin. |
+    | Bir komut dosyası seçin | Kendi betiğinizi kullanmayı tercih __özel__. Aksi takdirde, sağlanan betikleri birini seçin. |
     | Ad |Betik eylemi için bir ad belirtin. |
     | Bash betiği URI'si |Betik URI'si belirtin. |
     | HEAD/çalışan/Zookeeper |Betik üzerinde çalıştığı düğümleri belirtin: **HEAD**, **çalışan**, veya **ZooKeeper**. |
@@ -255,7 +255,7 @@ Git [Azure portalında](https://portal.azure.com):
 
     | Özellik | Değer |
     | --- | --- |
-    | Bir betik seçin | Kendi betiğinizi kullanmayı tercih __özel__. Aksi takdirde, sağlanan bir betik seçin. |
+    | Bir komut dosyası seçin | Kendi betiğinizi kullanmayı tercih __özel__. Aksi takdirde, sağlanan bir betik seçin. |
     | Ad |Betik eylemi için bir ad belirtin. |
     | Bash betiği URI'si |Betik URI'si belirtin. |
     | HEAD/çalışan/Zookeeper |Betik üzerinde çalıştığı düğümleri belirtin: **HEAD**, **çalışan**, veya **ZooKeeper**. |

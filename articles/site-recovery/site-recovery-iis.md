@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61280426"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480302"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Çok katmanlı bir IIS tabanlı web uygulamasının olağanüstü durum kurtarmayı ayarlayın
 
@@ -109,7 +109,7 @@ Bağlantı dizesi bir IP adresi kullanarak veritabanı sanal makine başvurursa,
         </connectionStrings>
         </configuration>
 
-Web katmanı bağlantı dizesinde güncelleştirmek için ekleme bir [IIS bağlantı güncelleştirme betiğini](https://aka.ms/asr-update-webtier-script-classic) 3. Grup kurtarma planında sonra.
+Web katmanı bağlantı dizesinde güncelleştirmek için ekleme bir [IIS bağlantı güncelleştirme betiğini](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) 3. Grup kurtarma planında sonra.
 
 #### <a name="site-bindings-for-the-application"></a>Uygulama için site bağlamaları
 Her site, bağlama bilgileri içerir. Bağlama bilgileri bağlama, hangi IIS sunucu isteklerini site, bağlantı noktası numarası ve site için ana bilgisayar adları için dinleyen IP adresi türünü içerir. Yük devretme sırasında bunlarla ilişkili IP adresini bir değişiklik olursa bu bağlamaları güncelleştirmeniz gerekebilir.

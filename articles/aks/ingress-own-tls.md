@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 4ba38ee0a4c26a99b7cbddc46eef35cfc39a511d
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: eebc484351714c7a30f65e61434076fcde175a8d
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66392562"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430946"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Bir HTTPS giriş denetleyicisi oluşturmak ve kendi TLS sertifikalarını Azure Kubernetes Service (AKS) kullanma
 
@@ -41,6 +41,9 @@ Giriş denetleyicisine ayrıca Linux düğümde zamanlanması gerekir. Windows S
 
 > [!TIP]
 > Aşağıdaki örnek, bir Kubernetes ad alanı adlı giriş kaynakları oluşturur *giriş temel*. Bir ad alanı, kendi ortamınız için gerektiği şekilde belirtin. AKS kümenizi RBAC etkin değilse, ekleme `--set rbac.create=false` Helm komutlar.
+
+> [!TIP]
+> Etkinleştirmek istiyorsanız, [istemci kaynak IP korunması] [ client-source-ip] kümenizde kapsayıcıları istekleri için ekleme `--set controller.service.externalTrafficPolicy=Local` için Helm install komutu. IP istek üst bilgisi altında depolanan istemci kaynak *X-iletilen-için*. Giriş denetleyicisine istemci kaynak IP koruma etkin ile kullanırken SSL doğrudan çalışmaz.
 
 ```console
 # Create a namespace for your ingress resources
@@ -315,3 +318,4 @@ Aşağıdakileri de yapabilirsiniz:
 [aks-ingress-basic]: ingress-basic.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-tls]: ingress-tls.md
+[client-source-ip]: concepts-network.md#ingress-controllers

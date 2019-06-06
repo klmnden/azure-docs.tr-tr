@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 464d01b7b818b461024737a83d88c78947453c37
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736148"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428491"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Media Services v3 API'sine - .NET bağlanma
 
@@ -27,7 +27,7 @@ Bu makalede hizmet sorumlusu oturum açma yöntemini kullanarak Azure Media Serv
 ## <a name="prerequisites"></a>Önkoşullar
 
 - [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md). Kaynak grubu adı ve Media Services hesap adını hatırlamak emin olun
-- .NET geliştirme için kullanmak istediğiniz bir aracı yükleyin. Bu makaledeki adımlarda kullanmayı gösteren [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio Code'u, bkz: [çalışma C# ](https://code.visualstudio.com/docs/languages/csharp). Ya da farklı bir kod Düzenleyicisi'ni kullanabilirsiniz.
+- .NET geliştirme için kullanmak istediğiniz bir aracı yükleyin. Bu makaledeki adımlarda kullanmayı gösteren [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio Code'u, bkz: [çalışma C# ](https://code.visualstudio.com/docs/languages/csharp). Ya da farklı bir kod Düzenleyicisi'ni kullanabilirsiniz.
 
 ## <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 

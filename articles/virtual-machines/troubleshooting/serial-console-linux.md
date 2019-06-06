@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389030"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735250"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux için Azure seri konsol
 
@@ -47,6 +47,7 @@ Windows için seri konsol belgeleri için bkz. [seri konsol için Windows](../wi
 
 - Linux dağıtımları için özel ayarları için bkz: [seri konsol Linux dağıtım kullanılabilirlik](#serial-console-linux-distribution-availability).
 
+- Seri çıktısı, sanal makine veya sanal makine ölçek kümesi örneği üzerinde yapılandırılmalıdır `ttys0`. Azure görüntüleri için varsayılan değer budur ancak çift bunu özel görüntüleri temel denetlemek isteyebilirsiniz. Ayrıntılar [aşağıda](#custom-linux-images).
 
 
 ## <a name="get-started-with-the-serial-console"></a>Seri konsol ile çalışmaya başlama
@@ -84,6 +85,9 @@ Seri konsol-örnek başına sanal makine ölçek kümeleri için kullanılabilir
 ## <a name="serial-console-linux-distribution-availability"></a>Seri konsol Linux dağıtım kullanılabilirlik
 Seri konsol düzgün çalışması okuma ve seri bağlantı noktasına konsol iletileri yazma konuk işletim sisteminin yapılandırılması gerekir. Çoğu [destekli Azure Linux dağıtımları](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) varsayılan olarak yapılandırılmış seri Konsolu. Seçme **seri konsol** içinde **destek + sorun giderme** bölümde Azure portal'ın seri konsoluna erişim sağlar.
 
+> [!NOTE]
+> Seri konsol, herhangi bir şey görmediğinizden, sanal makinenizde, önyükleme tanılaması etkin olduğundan emin olun. Ulaşmaktan **Enter** burada bir şey seri konsolda bazılarındaki sorunları genellikle düzeltir.
+
 Dağıtım      | Seri konsol erişimi
 :-----------|:---------------------
 Red Hat Enterprise Linux    | Seri konsol erişimi varsayılan olarak etkindir.
@@ -92,10 +96,13 @@ Ubuntu      | Seri konsol erişimi varsayılan olarak etkindir.
 CoreOS      | Seri konsol erişimi varsayılan olarak etkindir.
 SUSE        | Azure'da sunulan yeni SLES görüntüleri, varsayılan olarak etkin seri konsol erişimi. Azure üzerinde eski sürümlerini (10 veya öncesi) SLES kullanıyorsanız, bkz. [KB makalesi](https://www.novell.com/support/kb/doc.php?id=3456486) seri konsol etkinleştirmek için.
 Oracle Linux        | Seri konsol erişimi varsayılan olarak etkindir.
-Özel Linux görüntüleri     | Seri konsol özel Linux VM görüntünüz için etkinleştirmek için konsol erişimi dosyasındaki etkinleştirme */etc/inittab* bir terminal çalıştırılacak `ttyS0`. Örneğin: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Düzgün bir şekilde özel görüntülerinizi oluşturmayla ilgili daha fazla bilgi için [azure'da bir Linux VHD'si oluşturup yükleme](https://aka.ms/createuploadvhd). Özel bir çekirdek oluşturuyorsanız, bu çekirdek bayraklar etkinleştirme göz önünde bulundurun: `CONFIG_SERIAL_8250=y` ve `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Yapılandırma dosyası genellikle bulunan */boot/* yolu.
 
-> [!NOTE]
-> Seri konsol, herhangi bir şey görmediğinizden, sanal makinenizde, önyükleme tanılaması etkin olduğundan emin olun. Ulaşmaktan **Enter** burada bir şey seri konsolda bazılarındaki sorunları genellikle düzeltir.
+### <a name="custom-linux-images"></a>Özel Linux görüntüleri
+Seri konsol özel Linux VM görüntünüz için etkinleştirmek için konsol erişimi dosyasındaki etkinleştirme */etc/inittab* bir terminal çalıştırılacak `ttyS0`. Örneğin: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`.
+
+Seri çıkışı için hedef olarak ttys0 eklemek isteyeceksiniz. Seri konsol ile çalışmak için özel bir görüntü yapılandırma hakkında daha fazla bilgi için bkz: Genel sistem gereksinimlerine [azure'da bir Linux VHD'si oluşturup yükleme](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+
+Özel bir çekirdek oluşturuyorsanız, bu çekirdek bayraklar etkinleştirme göz önünde bulundurun: `CONFIG_SERIAL_8250=y` ve `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Yapılandırma dosyası genellikle bulunan */boot/* yolu. |
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Seri konsoluna erişmek için genel senaryolar
 
@@ -201,6 +208,7 @@ Seri konsol metin yalnızca bir kısmını ekran boyutunu (genellikle bir metin 
 Uzun dizeler yapıştırma çalışmaz. | Seri konsol seri bağlantı noktası bant genişliği aşırı yüklemesini önlemek için 2048 karakter terminale içine yapıştırdığınız dize uzunluğunu kısıtlar.
 Seri konsol ile bir depolama hesabı güvenlik duvarı çalışmıyor. | Seri konsol tasarıma göre depolama hesabı önyükleme tanılama depolama hesabı etkin güvenlik duvarları ile çalışmaz.
 Seri konsol hiyerarşik ad alanları ile Azure Data Lake depolama Gen2'ı kullanarak bir depolama hesabı ile çalışmaz. | Bu, hiyerarşik ad alanları ile bilinen bir sorundur. Azaltmak için Azure Data Lake depolama Gen2'ı kullanarak sanal makinenizin önyükleme tanılaması depolama hesabı oluşturulmaz emin olun. Bu seçenek yalnızca depolama hesabı oluşturulduktan sonra ayarlayabilirsiniz. Ayrı önyükleme tanılaması depolama hesabı Azure Data Lake depolama bu sorunu gidermek için etkin Gen2 oluşturmanız gerekebilir.
+Hatalı klavye SLES BYOS görüntülerde giriş. Yalnızca tutularak klavye girdisi kabul edilir. | Plymouth paketi ile ilgili bir sorun budur. Plymouth Azure'da giriş ekranı gerekmez ve platform olanağıyla seri Konsolu Plymouth uğratan olarak çalıştırılmamalıdır. İle Plymouth Kaldır `sudo zypper remove plymouth` ve ardından yeniden başlatın. Alternatif olarak, ekleyerek, GRUB yapılandırma çekirdek satırının değiştirme `plymouth.enable=0` satırın sonuna. Bunu yapabilirsiniz [önyükleme işlemi sırasında önyükleme girişini düzenleme](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), veya GRUB_CMDLINE_LINUX satırda düzenleyerek `/etc/default/grub`, yeniden oluşturma ile kaz `grub2-mkconfig -o /boot/grub2/grub.cfg`ve ardından yeniden başlatılıyor.
 
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular

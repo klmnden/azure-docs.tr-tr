@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 234fc94a0a2ad3d3bee49853cf1dfc6a805a0166
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: adfc96d2d7abf38c00f32a5d53615bb7c99c320e
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825399"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742377"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Oturum açtıktan sonra bir uygulamanın sayfada hata
 
@@ -67,9 +67,11 @@ Azure AD yanıtta gönderilecek Azure AD yapılandırmasında bir öznitelik ekl
 
 Kullanıcının uygulamaya sonraki oturum açışında Azure AD, SAML yanıt olarak yeni bir öznitelik gönderin.
 
-## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>Uygulama bir farklı kullanıcı tanımlayıcısı value veya format bekliyor
+## <a name="the-application-doesnt-identify-the-user"></a>Uygulama kullanıcıyı tanımlamak değil
 
-Oturum açma uygulamaya SAML yanıtını rolleri gibi öznitelikleri eksik olduğundan veya uygulama, Entityıd özniteliği için farklı bir biçim bekleniyordu, çünkü başarısız oluyor.
+Oturum açma uygulamaya SAML yanıtını rolleri gibi öznitelikleri eksik olduğundan veya uygulamanın farklı biçim veya Entityıd özniteliğinin değeri bekleniyor çünkü başarısız oluyor.
+
+Kullanıyorsanız [Azure AD'ye otomatik kullanıcı hazırlama](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) oluşturmak için korumak ve kullanıcılar uygulamayı kaldırın. Ardından, kullanıcı SaaS uygulamasına başarıyla sağlandığını doğrulayın. Daha fazla bilgi için [Azure AD galeri uygulaması için hiçbir kullanıcı sağlanmıyor](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
 
 ## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Azure AD uygulama yapılandırmasında bir özniteliği ekleyin:
 

@@ -12,36 +12,36 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 05/31/2019
 ms.author: jowargo
-ms.openlocfilehash: 2ba3be0d51758cf7afd9f85258403bf79ca8401f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 3f5b23028094b545262e9c01640890f2c0b989ca
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239408"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431243"
 ---
-# <a name="security-model-of-azure-notification-hubs"></a>Azure Notification Hubs'ın güvenlik modeli
+# <a name="notification-hubs-security"></a>Bildirim hub'ları güvenlik
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu konuda, Azure Notification Hubs'ın güvenlik modeli açıklanır. Notification Hubs, Service Bus varlık olduğundan, bunlar aynı güvenlik modeli olarak hizmet veri yolu uygulayın. Daha fazla bilgi için [hizmet veri yolu kimlik doğrulaması](https://msdn.microsoft.com/library/azure/dn155925.aspx) konuları.
+Bu konuda, Azure Notification Hubs'ın güvenlik modeli açıklanır.
 
 ## <a name="shared-access-signature-security-sas"></a>Paylaşılan erişim imzası güvenlik (SAS)
 
 Notification hubs'ı uygulayan bir varlık düzeyinde güvenlik şeması SAS (paylaşılan erişim imzası) çağrılır. Bu düzen, varlık üzerinde hakları 12 adede kadar yetkilendirme kuralları, bunların açıklaması bildirmek Mesajlaşma varlıkları sağlar.
 
-Her kural "Güvenlik talepleri" bölümünde açıklandığı gibi bir ad, bir anahtar değeri (paylaşılan gizli) ve hakları, bir dizi içeriyor Bildirim hub'ı oluştururken, iki kuralları otomatik olarak oluşturulur: biri (istemci uygulamanın kullandığı) dinleme haklarına sahip ve diğeri (uygulama arka ucu kullanan) tüm haklara sahip.
+Her kural açıklandığı gibi bir ad, bir anahtar değeri (paylaşılan gizli) ve hakları, bir dizi içeren [güvenlik talepleri](#security-claims). Bildirim hub'ı oluştururken, iki kuralları otomatik olarak oluşturulur: biriyle **dinleme** (istemci uygulamanın kullandığı) hakları ve bir **tüm** (uygulama arka ucu kullanan) hakları.
 
 Kayıt Yönetimi aracılığıyla gönderilen bilgiler, istemci uygulamalardan gerçekleştirirken bildirimleri (örneğin, hava durumu güncelleştirmelerini) hassas değil, istemci uygulamaya anahtar değeri Kuralın yalnızca dinleme erişim vermek için bir bildirim hub'ı erişmek için yaygın bir yolu olan, ve uygulama arka ucu için anahtar değeri kural tam erişim vermek için.
 
-Anahtar değerini Windows Store istemci uygulamalara ekleme önerilmez. Anahtar değeri katıştırma önlemek için başlatma sırasında bir uygulama arka ucundan almak istemci uygulaması olmasını sağlamaktır.
+Uygulamaları değil Windows Store istemci uygulamalara anahtar değeri ekleme, bunun yerine bir uygulama arka ucundan başlangıçta almak istemci uygulamanız.
 
-Dinleme erişim anahtarıyla kaydetmek için herhangi bir etiket bir istemci uygulaması izin verdiğini anlamak önemlidir. Uygulamanız için belirli istemciler (örneğin, kullanıcı kimliklerini etiketleri göstermek) için belirli etiketlere kayıtları kısıtlamanız gerekiyorsa, uygulamanızın arka ucuna kayıtları gerçekleştirmeniz gerekir. Kayıt yönetimi daha fazla bilgi için bkz. Bu şekilde, istemci uygulaması bildirim hub'ları doğrudan erişimi unutmayın.
+Anahtar ile **dinleme** erişim için herhangi bir etiket kaydetmek bir istemci uygulaması sağlar. Uygulamanız için belirli istemciler (örneğin, kullanıcı kimliklerini etiketleri göstermek) için belirli etiketlere kayıtları kısıtlamanız gerekiyorsa, uygulamanızın arka ucunu kayıtları gerçekleştirmeniz gerekir. Daha fazla bilgi için [kayıt yönetimi](notification-hubs-push-notification-registration-management.md). Bu şekilde, istemci uygulaması bildirim hub'ları doğrudan erişimi unutmayın.
 
 ## <a name="security-claims"></a>Güvenlik talepleri
 
-Bildirim hub'ı işlemlerine izin için üç güvenlik taleplerini diğer varlıklara benzer şekilde: Dinleme, gönderin ve yönetin.
+Bildirim hub'ı işlemlerine izin için üç güvenlik taleplerini diğer varlıklara benzer şekilde: **Dinleme**, **Gönder**, ve **yönetme**.
 
 | İste   | Açıklama                                          | İzin verilen işlemleri |
 | ------- | ---------------------------------------------------- | ------------------ |

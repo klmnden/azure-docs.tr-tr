@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96442a9d49581da6841fa7acb8329354ec727f60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918469"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473167"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Yaygın senaryoları Azure AD hak yönetimi (Önizleme)
 
@@ -50,7 +50,7 @@ Kuruluşunuz için hak yönetimini yapılandırmadan birkaç yolu vardır. Ancak
 > | **2.** [Paket erişmek için kaynak rolleri Ekle](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>Gruplar</li><li>Uygulamalar</li><li>SharePoint siteleri</li></ul> | ![Kaynak rolleri Ekle](./media/entitlement-management-scenarios/resource-roles.png) |
 > | **3.** [İlke Ekle](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>Dizininizdeki kullanıcılar için</li><li>Onay iste</li><li>Süre sonu ayarları</li></ul> | ![İlke ekleme](./media/entitlement-management-scenarios/policy.png) |
 
-### <a name="i-want-to-allow-users-from-my-business-partners-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>(Henüz kullanıcıları dizinimdeki'dahil) my iş ortaklarından gruplar, uygulamalara veya SharePoint sitelerine erişim istemek için kullanıcıların istiyorum
+### <a name="i-want-to-allow-users-from-my-business-partners-directory-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>(Henüz kullanıcıları dizinimdeki'dahil) iş ortakları Dizinimi kullanıcı grupları, uygulamaları veya SharePoint siteleri için erişim isteği izin istiyorum
 
 > [!div class="mx-tableFixed"]
 > | Adımlar | Örnek |
@@ -93,7 +93,7 @@ Kuruluşunuz için hak yönetimini yapılandırmadan birkaç yolu vardır. Ancak
 > | **1.** [My erişim Portalı'nda açık isteği](entitlement-management-request-approve.md#open-request) | [![My erişim portalı simgesi](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
 > | **2.** [Erişim isteği Onayla](entitlement-management-request-approve.md#approve-or-deny-request) | ![Erişimi onayla](./media/entitlement-management-scenarios/approve-access.png) |
 
-## <a name="requestors"></a>İstek Sahipleri
+## <a name="requestors"></a>İstek sahipleri
 
 ### <a name="i-want-to-view-the-groups-applications-or-sharepoint-sites-available-to-me-and-request-access"></a>Grupları, uygulamaları veya SharePoint siteleri Kullanabileceğim görüntülemek ve istek erişimi istiyorum
 
@@ -124,4 +124,4 @@ Kuruluşunuz için hak yönetimini yapılandırmadan birkaç yolu vardır. Ancak
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Öğretici: İlk erişim paketinizi oluşturmak](entitlement-management-access-package-first.md)
-- [Düzenleme ve var olan erişim paketini yönetme](entitlement-management-access-package-edit.md)
+- [Var olan bir erişim paketini düzenleme ve yönetme](entitlement-management-access-package-edit.md)

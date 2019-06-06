@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000965"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476042"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Uygulama ağ geçidi ile yeniden yazma HTTP üstbilgileri
 
@@ -153,11 +153,11 @@ Bir HTTP istek veya yanıt üst bir üst bilgi veya sunucu değişkeni varlığ�
 
 ## <a name="limitations"></a>Sınırlamalar
 
+- Ardından bu üstbilgi değerini yeniden yazma, yanıt aynı ada sahip birden fazla üst bilgileri varsa, diğer üstbilgilerini yanıta bırakma neden olur. Yanıt olarak birden fazla Set-Cookie üst bilgisini olabileceği için bu genellikle ile Set-Cookie üst bilgisini oluşabilir. Bu tür senaryolardan bir app service ile bir uygulama ağ geçidi kullanıyorsanız ve tanımlama bilgilerine dayalı oturum benzeşimi, uygulama ağ geçidinde yapılandırmış olmanız gerekir. Bu örnekte yanıt 2 Set-Cookie üst bilgileri içerir: başka bir deyişle, app service tarafından kullanılan hizmet örneğiyle `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` ve başka bir uygulama ağ geçidi benzeşimi, yani `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Bu senaryoda Set-Cookie üst birini yeniden yazma, diğer bir Set-Cookie üst bilgisini yanıttan kaldırılmasında neden olabilir.
+
 - Bağlantı, yükseltme ve konak üstbilgileri yeniden yazma şu anda desteklenmemektedir.
 
 - Üst bilgi adları içerebilir herhangi bir alfasayısal karakter ve belirli simgeleri sınıfında tanımlandığı gibi [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Alt çizgi şu anda desteklemiyoruz (\_) üst bilgi adları özel karakterler.
-
-- Ardından bu üstbilgi değerini yeniden yazma, yanıt aynı ada sahip birden çok üst bilgi varsa, diğer üstbilgilerini yanıta bırakma neden olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 9fbd9b8e298713dad022196989027f9e43ce806d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 682059914b5d86f5e670e373a4acf3e4ac6246ba
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394821"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428218"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Visual Studio kullanarak Service Fabric uygulamanızı hata ayıklama
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "60394821"
 
 
 ## <a name="debug-a-local-service-fabric-application"></a>Yerel bir Service Fabric uygulamasının hatalarını ayıklama
-Dağıtarak ve Azure Service Fabric uygulamanızı yerel bilgisayar geliştirme kümedeki hata ayıklama zamandan ve paradan tasarruf. Visual Studio 2017 veya Visual Studio 2015, uygulamayı yerel kümeye dağıtma ve otomatik olarak hata ayıklayıcı uygulamanızın tüm örneklerine bağlanabilirsiniz; Visual Studio hata ayıklayıcıya bağlanmak için yönetici olarak çalıştırmanız gerekir.
+Dağıtarak ve Azure Service Fabric uygulamanızı yerel bilgisayar geliştirme kümedeki hata ayıklama zamandan ve paradan tasarruf. Visual Studio 2019 veya 2015'i, uygulamayı yerel kümeye dağıtma ve otomatik olarak hata ayıklayıcı uygulamanızın tüm örneklerine bağlanabilirsiniz. Visual Studio hata ayıklayıcıya bağlanmak için yönetici olarak çalıştırmanız gerekir.
 
 1. İçindeki adımları izleyerek bir yerel geliştirme kümesi Başlat [Service Fabric geliştirme ortamınızı ayarlama](service-fabric-get-started.md).
 2. Tuşuna **F5** veya **hata ayıklama** > **hata ayıklamayı Başlat**.
@@ -49,7 +49,7 @@ Dağıtarak ve Azure Service Fabric uygulamanızı yerel bilgisayar geliştirme 
    
     ![Tanılama Olayları penceresinde açın][viewdiagnosticevents]
    
-    Bir hizmete veya uygulamaya, izlemeleri filtrelemek istiyorsanız, belirli bir hizmet veya uygulama akış izlemeleri etkinleştirmeniz yeterlidir.
+    Bir hizmete veya uygulamaya, izlemeleri filtrelemek istiyorsanız, belirli bir hizmet veya uygulama akış izlemeleri etkinleştirin.
 6. Tanılama Olayları görülebilir içinde otomatik olarak oluşturulan **ServiceEventSource.cs** dosya ve uygulama kodundan olarak adlandırılır.
    
     ```csharp
@@ -58,14 +58,14 @@ Dağıtarak ve Azure Service Fabric uygulamanızı yerel bilgisayar geliştirme 
 7. **Tanılama olayları** penceresi, filtreleme, duraklatma ve gerçek zamanlı olayları inceleyerek destekler.  Olay iletisi içeriği de dahil olmak üzere, bir basit dize arama filtresidir.
    
     ![Filtre, duraklatma ve sürdürme veya etkinliklerini gerçek zamanlı olarak İnceleme][diagnosticeventsactions]
-8. Hata Ayıklama Hizmetleri başka bir uygulama gibidir. Visual Studio ile kesme noktaları, kolayca hata ayıklama için normal olarak ayarlanır. Reliable Collections birden fazla düğümde çoğaltmak olsa da, bunlar yine de IEnumerable uygulayın. Bu, sonuçlar görünümü Visual Studio'da hata ayıklama sırasında içine koyduğunuz görmek için kullanabileceğiniz anlamına gelir. Bir kesme noktası herhangi bir yere kodunuzda ayarlamanız yeterlidir.
+8. Hata Ayıklama Hizmetleri başka bir uygulama gibidir. Visual Studio ile kesme noktaları, kolayca hata ayıklama için normal olarak ayarlarsınız. Reliable Collections birden fazla düğümde çoğaltmak olsa da, bunlar yine de IEnumerable uygulayın. Bu uygulama içinde depoladığınız görmek için hata ayıklama sırasında sonuçları görünümü Visual Studio'da kullanabileceğiniz anlamına gelir. Bunu yapmak için kodunuzdaki herhangi bir yerde bir kesme noktası ayarlayın.
    
     ![Bir uygulamanın hatalarını ayıklamaya başlamadan][breakpoint]
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## <a name="debug-a-remote-service-fabric-application"></a>Uzak bir Service Fabric uygulamasının hatalarını ayıklama
-Service Fabric uygulamalarınızı azure'da bir Service Fabric kümesinde çalıştırıyorsanız, doğrudan Visual Studio'dan Bu uzaktan hata ayıklamanız mümkün.
+Service Fabric uygulamalarınızı azure'da bir Service Fabric kümesinde çalıştırıyorsanız, bu uygulamaların doğrudan Visual Studio'dan uzaktan hata ayıklaması yapabilirsiniz.
 
 > [!NOTE]
 > Özellik gerektirir [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) ve [.NET 2.9 için Azure SDK'sı](https://azure.microsoft.com/downloads/).    
@@ -78,11 +78,11 @@ Service Fabric uygulamalarınızı azure'da bir Service Fabric kümesinde çalı
 > 
 > 
 
-1. Kümenizde gidin **Cloud Explorer**seçin ve sağ tıklatıp **Etkinleştir'hata ayıklama**
+1. Kümenizde gidin **Cloud Explorer**. Sağ tıklatın ve seçin **Etkinleştir'hata ayıklama**
    
     ![Uzaktan hata ayıklamayı etkinleştirme][enableremotedebugging]
    
-    Bu, küme düğümlerinin yanı sıra gerekli ağ yapılandırmaları uzaktan hata ayıklama uzantısı etkinleştirilirken işlemi devre dışı başlatır.
+    Bu eylem kapalı küme düğümlerini ve gerekli ağ yapılandırmaları uzaktan hata ayıklama uzantısı etkinleştirilirken işlemini başlatır.
 2. Küme düğümü **Cloud Explorer**ve **hata ayıklayıcı Ekle**
    
     ![Hata ayıklayıcının][attachdebugger]
@@ -94,8 +94,8 @@ Service Fabric uygulamalarınızı azure'da bir Service Fabric kümesinde çalı
    
     İşlem çalışan tüm düğümler için hata ayıklayıcının.
    
-   * Durum bilgisi olmayan hizmet nerede hata ayıklaması yaptığınız durumda da, tüm düğümlerde hizmetin tüm örneklerini hata ayıklama oturumu bir parçasıdır.
-   * Durum bilgisi olan hizmet ayıklıyorsanız, herhangi bir bölümü yalnızca birincil çoğaltması active ve bu nedenle, hata ayıklayıcı tarafından yakalanan olacaktır. Birincil çoğaltma hata ayıklama oturumu sırasında taşınırsa, bu çoğaltmanın işleme hata ayıklama oturumunun parçası görünmeye devam edecektir.
+   * Durum bilgisi olmayan hizmet hata ayıklama işlemi burada durumda da, tüm düğümlerde hizmetin tüm örneklerini hata ayıklama oturumu bir parçasıdır.
+   * Durum bilgisi olan hizmet hata ayıklama, herhangi bir bölümü yalnızca birincil çoğaltması active ve bu nedenle, hata ayıklayıcı tarafından yakalanan olacaktır. Birincil çoğaltma hata ayıklama oturumu sırasında taşınırsa, bu çoğaltmanın işleme hata ayıklama oturumunun parçası görünmeye devam edecektir.
    * Yalnızca ilgili bölümlerin veya belirli bir hizmetin örneklerine yakalamak için koşullu kesme noktaları yalnızca belirli bir bölüm veya örnek ayırmak için kullanabilirsiniz.
      
      ![Koşullu kesme noktası][conditionalbreakpoint]
@@ -109,7 +109,7 @@ Service Fabric uygulamalarınızı azure'da bir Service Fabric kümesinde çalı
     ![Uzaktan hata ayıklama devre dışı bırak][disableremotedebugging]
 
 ## <a name="streaming-traces-from-a-remote-cluster-node"></a>Akış izlemelerinden uzak küme düğümü
-Ayrıca akış izlemeleri için doğrudan Visual Studio için uzak bir küme düğümü misiniz. Bu özellik, bir Service Fabric küme düğümünde üretilen stream ETW İzleme olayları sağlar.
+Siz de stream izlemeleri için doğrudan Visual Studio için uzak bir küme düğümü yapabiliyoruz. Bu özellik, bir Service Fabric küme düğümünde üretilen stream ETW İzleme olayları sağlar.
 
 > [!NOTE]
 > Bu özellik gerektirir [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) ve [.NET 2.9 için Azure SDK'sı](https://azure.microsoft.com/downloads/).
@@ -124,11 +124,11 @@ Ayrıca akış izlemeleri için doğrudan Visual Studio için uzak bir küme dü
 > 
 > 
 
-1. Kümenizde gidin **Cloud Explorer**seçin ve sağ tıklatıp **akış izlemeleri etkinleştir**
+1. Kümenizde gidin **Cloud Explorer**. Sağ tıklatın ve seçin **akış izlemeleri etkinleştir**
    
     ![Uzak akış izlemeleri etkinleştir][enablestreamingtraces]
    
-    Bu, küme düğümlerinin yanı sıra gerekli ağ yapılandırmaları akış izlemeleri uzantısı etkinleştirilirken işlemi devre dışı başlatır.
+    Bu eylem, küme düğümlerinin yanı sıra gerekli ağ yapılandırmaları akış izlemeleri uzantısı etkinleştirilirken işleminin kazandırın.
 2. Genişletin **düğümleri** öğesinde **Cloud Explorer**, seçin ve izlemelerinden akış istediğiniz düğüme sağ **akış görünümü izlemeleri**
    
     ![Uzak izlemeleri akış görünümü][viewremotestreamingtraces]

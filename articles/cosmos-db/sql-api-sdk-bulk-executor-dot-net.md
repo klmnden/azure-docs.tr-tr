@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 4f2d8b3246901f139695998224dfe036cccb9833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627159"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471431"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET toplu Yürütücü kitaplığı: Yükleme bilgileri 
 
@@ -42,6 +42,18 @@ ms.locfileid: "60627159"
 
 ## <a name="release-notes"></a>Sürüm notları
 
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
+
+* Köşe ve kenarlar ttl kabul etmek graf toplu Yürütücü için destek eklendi
+
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
+
+* Esnek Azure Cosmos DB ağ geçidi modunda çalışırken ölçeklendirme sırasında özel durum nedeniyle bir sorun düzeltildi. Bu düzeltme için 1.4.1 işlevsel olarak eşdeğer yapar bırakın.
+
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
+
+* Eklenen BulkDelete bölüm anahtarı, belge kimliği tanımlama grubu silmek için kabul etmek, SQL API hesaplarını destekler. Bu değişikliği için 1.4.0 işlevsel olarak eşdeğer yapar bırakın.
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * MongoBulkExecutor .NET Standard 2.0 desteği dahil olmak üzere. Bu özellik için 1.3.0 işlevsel olarak eşdeğer kılar ayrıca .NET Standard 2.0 olarak hedef çerçeveyi destekleme ile serbest bırakın.
@@ -50,10 +62,24 @@ ms.locfileid: "60627159"
 
 * Eklenen .NET Standard .NET Core uygulamalarıyla çalışır Bulkexecutor'a kitaplığı yapmak 2.0 desteklenen hedef çerçeveleri biri olarak.
 
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* Artık Azure Cosmos DB .NET SDK'sı (2.4.0) en son sürümünü kullanmak için toplu Yürütücü güncelleştirildi
+
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+
+* Köşe ve kenarlar ttl kabul etmek graf toplu Yürütücü için destek eklendi
+
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+
+* Esnek Azure Cosmos DB ağ geçidi modunda çalışırken ölçeklendirme sırasında özel durum nedeniyle bir sorun düzeltildi.
+
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+
+* Eklenen BulkDelete bölüm anahtarı, belge kimliği tanımlama grubu silmek için kabul etmek, SQL API hesaplarını destekler.
+
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-* Aşırı bölüm anahtarı, belge kimliği tanımlama grubu silmek için kabul etmek SQL API hesabı için BulkDelete işlemi eklendi.
-* Aşırı silmek için belgeler belirtme giriş sorgusunda filtre olarak kullanmanın yanı sıra bölüm anahtarı değerini belirten bölüm anahtarını içeren RequestOptions kabul etmek SQL API hesabı için BulkDelete işlemi eklendi.
 * Bulkexecutor'a tarafından kullanılan kullanıcı aracısı, bir biçimlendirme sorunu nedeniyle bir sorun düzeltildi.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0

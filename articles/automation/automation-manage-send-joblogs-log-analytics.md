@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e0f2d3491db24ecbb49c189232dbc7f698e09fb1
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200602"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430777"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>İş durumunu ve iş akışları Otomasyonu, Azure İzleyici günlüklerine iletin.
 
@@ -96,8 +96,8 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 | Caller_s |İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir. |
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | JobId_g |Runbook işinin Kimliği olan GUID. |
-| ResultType |Runbook işinin durumudur. Olası değerler şunlardır:<br>-Yeni<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>-Tamamlandı |
-| Category | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır. |
+| ResultType |Runbook işinin durumudur. Olası değerler şunlardır:<br>-Yeni<br>-Oluşturuldu<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>-Tamamlandı |
+| Kategori | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır. |
 | OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
 | Resource | Otomasyon hesabının adı |
 | SourceSystem | Azure İzleyici nasıl günlüğe yazacağını veri toplanmadı. Her zaman *Azure* Azure tanılama için. |
@@ -120,7 +120,7 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | JobId_g |Runbook işinin Kimliği olan GUID. |
 | ResultType |Runbook işinin durumudur. Olası değerler şunlardır:<br>İlerleme- |
-| Category | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır. |
+| Kategori | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır. |
 | OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
 | Resource | Otomasyon hesabının adı |
 | SourceSystem | Azure İzleyici nasıl günlüğe yazacağını veri toplanmadı. Her zaman *Azure* Azure tanılama için. |

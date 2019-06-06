@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 05/30/2019
-ms.openlocfilehash: 94309a019800b560cf6731d84cea324932e3f357
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4f1dd0bfc0637c6681b513860a63df2b8c35fe5e
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398542"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430865"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile model interpretability
 
@@ -462,7 +462,7 @@ Açıklama, özgün modeli ile birlikte dağıtılabilir ve zaman Puanlama yerel
 
 Otomatik machine learning paketleri otomatik olarak geliştirilen modellerinin özellik önemi yorumlanması için içerir. Ayrıca, sınıflandırma senaryoları sınıf düzeyinde özelliği önem almanızı sağlar. Otomatik makine öğrenimi içinde bu davranışı etkinleştirmek için iki yöntem vardır:
 
-* Eğitilen topluluğu modeli için özellik önem etkinleştirmek için [ `explain_model()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) işlevi.
+* Eğitilen topluluğu modeli için özellik önem etkinleştirmek için [ `explain_model()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) işlevi.
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
@@ -471,7 +471,7 @@ Otomatik machine learning paketleri otomatik olarak geliştirilen modellerinin �
         per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
     ```
 
-* Eğitim önce tek tek her çalıştırma için özellik önem etkinleştirmek için `model_explainability` parametresi `True` içinde `AutoMLConfig` birlikte doğrulama verileri sağlayan nesne. Ardından [ `retrieve_model_explanation()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) işlevi.
+* Eğitim önce tek tek her çalıştırma için özellik önem etkinleştirmek için `model_explainability` parametresi `True` içinde `AutoMLConfig` birlikte doğrulama verileri sağlayan nesne. Ardından [ `retrieve_model_explanation()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) işlevi.
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation

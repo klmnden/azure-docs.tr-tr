@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2de945d2ef1d87b47ea81aac034916466d3c9bda
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258857"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735160"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>İleti zenginleştirmelerinin CİHAZDAN buluta IOT hub'ı iletileri (Önizleme)
 
@@ -49,6 +49,8 @@ Değer aşağıdaki örnekler hiçbirini olabilir:
 
 Bir IOT Hub'ın yerleşik uç noktaya giden iletileri ya da Azure Blob Depolama, Service Bus kuyruğu veya Service Bus konu gibi özel uç noktalar için yönlendirilmiş iletiler zenginleştirmelerinin ekleyebilirsiniz.
 
+Event Grid, Event Grid uç nokta seçerek yayımlanan iletileri zenginleştirmelerinin ekleyebilirsiniz. Daha fazla bilgi için [IOT Hub ve Event Grid](iot-hub-event-grid.md).
+
 Zenginleştirmelerinin uç noktası uygulanır. Belirli bir uç nokta için damgalı için beş zenginleştirmelerinin belirtirseniz, bu uç noktaya gitmesiyle tüm iletiler aynı beş zenginleştirmelerinin ile içerdiği.
 
 İletisi zenginleştirmelerinin denemek hakkında bilgi için bkz [ileti zenginleştirmelerinin Öğreticisi](tutorial-message-enrichments.md)
@@ -75,7 +77,7 @@ Zenginleştirmelerinin uç noktası uygulanır. Belirli bir uç nokta için damg
 
 ## <a name="availability"></a>Kullanılabilirlik
 
-Bu özellik Önizleme aşamasındadır ve Doğu ABD, Batı ABD, Batı Avrupa dışındaki tüm bölgelerde kullanılabilir [Azure kamu](/azure-government/documentation-government-welcome.md), [Azure Çin 21Vianet](/azure/china/china-welcome.md), ve [Azure Almanya](https://azure.microsoft.com/global-infrastructure/germany/).
+Bu özellik Önizleme aşamasındadır ve Doğu ABD, Batı ABD, Batı Avrupa dışındaki tüm bölgelerde kullanılabilir [Azure kamu](/azure/azure-government/documentation-government-welcome), [Azure Çin 21Vianet](/azure/china/china-welcome), ve [Azure Almanya](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

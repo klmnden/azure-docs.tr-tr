@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 06/06/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f37a0c9e4c664ac9631a0a07fa6f114e62939845
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e91d55c29d325301b8ac70ddc63fb408961fbb2c
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852616"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742974"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>App Service uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -30,19 +30,14 @@ Bu konuda, Azure App Service'ı, Facebook kimlik doğrulama sağlayıcısı kull
 Bu konudaki yordamı tamamlamak için doğrulanmış e-posta adresi ve cep telefonu numarası olan bir Facebook hesabı olmalıdır. Yeni Facebook hesabı oluşturmak için Git [facebook.com].
 
 ## <a name="register"> </a>Facebook ile uygulamanızı kaydetme
-1. Oturum [Azure portal]ve uygulamanıza gidin. Kopyalama, **URL**. Facebook Uygulamanızı yapılandırmak için kullanır.
-2. Başka bir tarayıcı penceresinde gidin [Facebook geliştiriciler] hesap kimlik bilgileri Web sitesi ve, Facebook ile oturum açın.
-3. (İsteğe bağlı) Önceden kaydolmadıysanız tıklayın **uygulamaları** > **geliştiricisi olarak kaydolun**, ardından ilkeyi kabul edin ve kayıt adımları izleyin.
+1. Gidin [Facebook geliştiriciler] hesap kimlik bilgileri Web sitesi ve, Facebook ile oturum açın.
+3. (İsteğe bağlı) Geliştiriciler hesabı için bir Facebook yoksa tıklayın **Başlarken** ve kayıt adımları izleyin.
 4. Tıklayın **uygulamalarım** > **yeni uygulama Ekle**.
 5. İçinde **görünen ad**, uygulamanız için benzersiz bir ad yazın. Ayrıca sağlar, **ilgili kişi e-posta**ve ardından **uygulama kimliği oluşturma** ve güvenlik denetimi tamamlandı. Bu yeni Facebook Uygulama geliştirici panosu açılır.
-6. Altında **Facebook oturum açma**, tıklayın **ayarlanan**ve ardından **ayarları** sol taraftaki gezinti **Facebook oturum açma**.
-7. Uygulamanızın ekleme **yeniden yönlendirme URI'si** için **geçerli OAuth yeniden yönlendirme URI'leri**, ardından **Değişiklikleri Kaydet**.
-   
-   > [!NOTE]
-   > URL yoluyla eklenmiş uygulamanızın URI'dir, yeniden yönlendirme */.auth/login/facebook/callback*. Örneğin, `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. HTTPS şeması kullandığınızdan emin olun.
-   > 
-   > 
-8. Sol gezinti bölmesinde tıklayın **ayarları** > **temel**. Üzerinde **uygulama gizli anahtarı** alan, tıklayın **Göster**, istenen ve değerlerini not edin, parolanızı girebilirsiniz **uygulama kimliği** ve **uygulama gizli anahtarı** . Bunlar daha sonra Azure'da Uygulamanızı yapılandırmak için kullanırsınız.
+6. Tıklayın **Pano** > **Facebook oturum açma** > **ayarlanan** > **Web**.
+1. Sol taraftaki gezinti altında **Facebook oturum açma**, tıklayın **ayarları**.
+1. İçinde **geçerli OAuth yeniden yönlendirme URI'leri**, türü `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` değiştirin  *\<-adı >* ile Azure App Service uygulamanızın adı. Tıklayın **değişiklikleri kaydetmek**.
+8. Sol gezinti bölmesinde tıklayın **ayarları** > **temel**. Üzerinde **uygulama gizli anahtarı** alan, tıklayın **Göster**. Değerlerini kopyalamayı **uygulama kimliği** ve **uygulama gizli anahtarı**. Bunlar daha sonra Azure'da App Service Uygulamanızı yapılandırmak için kullanırsınız.
    
    > [!IMPORTANT]
    > Uygulama gizli anahtarı bir önemli güvenlik kimlik bilgisidir. Bu gizli dizi kimseyle paylaşmayın değil veya bir istemci uygulaması içinde dağıtın.
@@ -51,7 +46,7 @@ Bu konudaki yordamı tamamlamak için doğrulanmış e-posta adresi ve cep telef
 9. Uygulamayı kaydetmek için kullanılan Facebook uygulama yönetici hesabıdır. Bu noktada, yalnızca Yöneticiler bu uygulamaya oturum açabilirsiniz. Diğer Facebook hesaplarının kimliğini doğrulamak için tıklayın **uygulama incelemesi** ve etkinleştirme **olun \<uygulamanızın-adı > ortak** Facebook kimlik doğrulaması kullanarak genel genel erişimi etkinleştirmek için.
 
 ## <a name="secrets"> </a>Uygulamanıza Facebook bilgilerini ekleyin
-1. Geri [Azure portal], uygulamanıza gidin. Tıklayın **ayarları** > **kimlik doğrulama / yetkilendirme**, emin olun **App Service kimlik doğrulaması** olduğu **üzerinde**.
+1. Oturum [Azure portal] ve App Service uygulamanıza gidin. Tıklayın **ayarları** > **kimlik doğrulama / yetkilendirme**, emin olun **App Service kimlik doğrulaması** olduğu **üzerinde**.
 2. Tıklayın **Facebook**, daha önce aldığınız uygulama kimliği ve uygulama gizli anahtarı değerleri yapıştırın, isteğe bağlı olarak uygulamanızın ihtiyaç duyduğu herhangi bir kapsam etkinleştirin ve ardından tıklayın **Tamam**.
    
     ![][0]

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7cb3f7baa38305215a8b8383d25132327327d182
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918491"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472959"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Karma kimlik yaşam döngüsü planlaması
 Kimlik, Kurumsal mobilite ve uygulama erişim stratejinizin girişiminin temellerinden biridir. Mobil cihaz veya SaaS uygulaması için imzalama olsun, kimlik bilgilerinizi her şeyi erişmesini önemlidir. En yüksek düzeyde otomatik hale getirme ve kaynaklar sağlama işleminin merkezileştirerek içeren birleştirme ve kimlik depolarınızı arasında eşitleme bir kimlik yönetimi çözümü kapsar. Kimlik çözümü, şirket içi ve bulut arasında bir merkezi kimlik olabilir ve Kimlik Federasyonu çeşit merkezi kimlik doğrulamaya korumak ve güvenli bir şekilde paylaşın ve dış kullanıcıların ve işletmelerin işbirliği yapmak için de gerekir. İşletim sistemlerini ve uygulamaları kişilere arasında veya bir kuruluşla ilişkili kaynaklar. Kuruluş yapısı sağlama ilkelerini ve yordamlarını uyum sağlayacak şekilde değiştirilebilir.
@@ -48,22 +48,23 @@ Bu gereksinimleri tanımlarken, en az emin aşağıdaki soruları yanıtlanır
   
   * Karma kimlik çözümü tanıtıcıları Lisans Yönetimi mu?
     * Yanıt Evet ise, hangi özellikler sağlanıyor?
-* Grup tabanlı lisans yönetimi çözümü işliyor? 
+  * Grup tabanlı lisans yönetimi çözümü işliyor? 
   
-      - Yanıt Evet ise, bir güvenlik grubu atamak mümkün mü? 
-       - Evet ise, bulut dizini lisans grubunun tüm üyelerine otomatik olarak atayabilirim? 
-        - Bir kullanıcı daha sonra eklenen veya gruptan, bir lisans otomatik olarak atanan veya kaldırılacak uygun şekilde kaldırıldı ne olacak? 
+    * Yanıt Evet ise, bir güvenlik grubu atamak mümkün mü? 
+    * Evet ise, bulut dizini lisans grubunun tüm üyelerine otomatik olarak atayabilirim? 
+    * Bir kullanıcı daha sonra eklenen veya gruptan, bir lisans otomatik olarak atanan veya kaldırılacak uygun şekilde kaldırıldı ne olacak? 
 * Diğer üçüncü taraf kimlik sağlayıcıları ile tümleştirme:
-* Bu karma çözümü, çoklu oturum açmayı uygulamak için üçüncü taraf kimlik sağlayıcıları ile tümleştirilebilir?
-* Tüm farklı kimlik sağlayıcıları cohesive kimlik sisteme buluşturulan mümkündür?
-* Yanıt Evet ise nasıl ve bunlar ve hangi özelliklerin kullanılabilir olduğu?
+  * Bu karma çözümü, çoklu oturum açmayı uygulamak için üçüncü taraf kimlik sağlayıcıları ile tümleştirilebilir?
+  * Tüm farklı kimlik sağlayıcıları cohesive kimlik sisteme buluşturulan mümkündür?
+  * Yanıt Evet ise nasıl ve bunlar ve hangi özelliklerin kullanılabilir olduğu?
 
 ## <a name="synchronization-management"></a>Eşitleme Yönetimi
 Tüm kimlik sağlayıcıları getirin ve saklamak için bir kimlik Yöneticisi'nin hedeflerinden eşitlendi. Eşitlenen verileri tutmak bir yetkili ana kimlik sağlayıcısını temel. Eşitlenmiş yönetim modeliyle bir karma kimlik senaryosunda bir şirket içi sunucusundaki tüm kullanıcı ve cihaz kimliklerini yönetme ve hesapları ve isteğe bağlı, buluta parolaları eşitleyin. Kullanıcı, bulutta yaradıkları ve oturum açma işleminde, parola kimlik çözümü tarafından doğrulanmış olarak aynı şirket içi parolayı girer. Bu model, bir dizin eşitleme aracı kullanır.
 
-![Dizin eşitleme](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) uygun tasarıma, karma kimlik çözümü eşitlenmesini sağlamak aşağıdaki soruları yanıtlanır: • karma kimlik çözümü için kullanılabilir eşitleme çözümleri nelerdir?
-• Çoklu oturum açma özellikleri nelerdir?
-• B2B ve B2C arasında Kimlik Federasyonu için seçenekleri nelerdir?
+![Dizin eşitleme](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) uygun tasarıma, karma kimlik çözümü eşitlenmesini sağlamak aşağıdaki soruları yanıtlanır:
+*    Karma kimlik çözümü için kullanılabilir eşitleme çözümleri nelerdir?
+*    Çoklu oturum açma özellikleri nelerdir?
+*    B2B ve B2C arasında Kimlik Federasyonu için seçenekleri nelerdir?
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Karma kimlik yönetimini benimseme stratejinizi belirleme](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 23922ec02f7406b5cbc482c938dbcf6a56cad6d7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234154"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475637"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Önizleme - Azure Kubernetes Service'teki (AKS) uygulama taleplerini karşılamak üzere küme otomatik olarak ölçeklendirme
 
@@ -28,11 +28,11 @@ Bu makalede etkinleştirin ve bir AKS kümesindeki Küme ölçeklendiriciyi yön
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, Azure CLI Sürüm 2.0.55 gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu makalede, Azure CLI Sürüm 2.0.65 gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
 ### <a name="install-aks-preview-cli-extension"></a>Aks önizlemesini CLI uzantısını yükleme
 
-Küme otomatik ölçeklendiricinin destekleyen AKS kümeleri sanal makine ölçek kümeleri'ni kullanın ve Kubernetes sürümü çalıştıran *1.12.4* veya üzeri. Bu ölçek kümesi desteği Önizleme aşamasındadır. Kabul et ve ölçek kümelerini kullanmak kümeleri oluşturmak için ilk yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme] [ az-extension-add] komutunu aşağıda gösterildiği gibi Örnek:
+Küme otomatik ölçeklendiricinin destekleyen AKS kümeleri sanal makine ölçek kümeleri'ni kullanın ve Kubernetes sürümü çalıştıran *1.12.7* veya üzeri. Bu ölçek kümesi desteği Önizleme aşamasındadır. Kabul et ve ölçek kümelerini kullanmak kümeleri oluşturmak için ilk yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme] [ az-extension-add] komutunu aşağıda gösterildiği gibi Örnek:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -63,9 +63,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>Sınırlamalar
 
-Oluştururken ve sanal makine ölçek kümeleri kullanan, AKS kümelerini yönetme aşağıdaki sınırlamalar geçerlidir:
+Oluştururken ve küme ölçeklendiriciyi kullanmak AKS kümelerini yönetme aşağıdaki sınırlamalar geçerlidir:
 
 * HTTP uygulama yönlendirme eklenti kullanılamaz.
+* Birden fazla düğüm havuzu (şu anda önizlemede aks'deki) şu anda kullanılamaz.
 
 ## <a name="about-the-cluster-autoscaler"></a>Küme otomatik ölçeklendiricinin hakkında
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: dbc8363052556f29633c069bcd82af5249a3406f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306887"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428119"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 
@@ -38,7 +38,7 @@ Bir Service Fabric kümesindeki Windows kapsayıcısında mevcut olan bir uygula
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Şunları çalıştıran bir geliştirme bilgisayarı:
-  * Visual Studio 2015 veya Visual Studio 2017.
+  * Visual Studio 2015 veya Visual Studio 2019.
   * [Service Fabric SDK’sı ve araçları](service-fabric-get-started.md).
   *  Windows için Docker. [Windows için Docker CE edinme (dengeli)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Docker’ı yükleyip başlattıktan sonra tepsi simgesine sağ tıklayıp **Windows kapsayıcılarına geç** öğesini seçin. Bu adım, Windows temelinde Docker görüntülerini çalıştırmak için gereklidir.
 
@@ -482,7 +482,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 Windows Server kapsayıcıları tüm ana bilgisayar işletim sistemi sürümleri arasında uyumlu değildir. Örneğin:
  
 - Windows Server 1709 sürümü kullanılarak oluşturulan Windows Server kapsayıcıları, Windows Server 2016 sürümünü çalıştıran bir konağa çalışmaz. 
-- Windows Server 2016 kullanılarak oluşturulan Windows Server kapsayıcıları hyperv yalıtım modu yalnızca Windows Server 1709 sürümü çalıştıran bir konakta çalışır. 
+- Windows Server 2016 kullanılarak oluşturulan Windows Server kapsayıcıları, yalnızca Windows Server 1709 sürümü çalıştıran bir konakta, Hyper-V yalıtım modunda çalışır. 
 - Windows Server 2016 kullanılarak oluşturulan Windows Server kapsayıcıları ile kapsayıcı işletim sistemi ve konak işletim sistemi düzeltmesi aynı işlem yalıtım modunda Windows Server 2016 çalıştıran bir konakta çalışan olduğunda emin olmak gerekli olabilir.
  
 Daha fazla bilgi için bkz. [Windows kapsayıcı sürümü uyumluluğu](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).

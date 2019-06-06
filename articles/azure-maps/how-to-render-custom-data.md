@@ -3,18 +3,18 @@ title: Azure haritalar içinde bir hücresel harita üzerinde özel veri işleme
 description: Azure haritalar içinde bir hücresel harita üzerinde özel veri işleme.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 46f08aaa33563f620e7a011620730249e903f7b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9fed8464bd19c4b8a32e37c8c97698f0a2d9503
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794647"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734292"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Hücresel harita üzerinde özel verisi işleme
 
@@ -42,7 +42,7 @@ Etiketleri ve özel bir görüntü ile Raptiyeler işlemek için aşağıdaki ad
 
 2. İsteği oluşturmak için Seç **yeni** yeniden. İçinde **Yeni Oluştur** penceresinde **istek**. Girin bir **istek adı** Raptiyeler için isteği kaydedin ve ardından konum olarak önceki adımda oluşturduğunuz koleksiyonu seçin **Kaydet**.
     
-    ![Postman içinde bir isteği oluştur](./media/tutorial-geofence/postman-new.png)
+    ![Postman içinde bir isteği oluştur](./media/how-to-render-custom-data/postman-new.png)
 
 3. Oluşturucu sekmesinde GET HTTP yöntemini seçin ve bir GET isteği oluşturmak için aşağıdaki URL'yi girin.
 
@@ -145,7 +145,7 @@ Kullanarak yolu ve PIN konum bilgileri edinebilirsiniz [verileri karşıya yükl
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
     ```
 
-6. Elde edilen görüntü aşağıda verilmiştir:
+    Yanıt görüntü aşağıda verilmiştir:
 
     ![Azure haritalar veri depolamadan veri alma](./media/how-to-render-custom-data/uploaded-path.png)
 
@@ -164,9 +164,9 @@ Bir görünüm stili değiştiricilerini kullanarak değiştirebileceğiniz [yol
     &subscription-key={subscription--key}
     ```
 
-Elde edilen görüntü aşağıda verilmiştir:
+    Yanıt görüntü aşağıda verilmiştir:
 
-![Donuk bir Çokgen işleme](./media/how-to-render-custom-data/opaque-polygon.png)
+    ![Donuk bir Çokgen işleme](./media/how-to-render-custom-data/opaque-polygon.png)
 
 
 ## <a name="render-a-circle-and-pushpins-with-custom-labels"></a>Bir daire ve Raptiyeler özel etiketler ile işleme
@@ -186,9 +186,9 @@ Bir daire ve özel etiketlerle Raptiyeler işlemek için aşağıdaki adımları
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
     ```
 
-Elde edilen görüntü aşağıda verilmiştir:
+    Yanıt görüntü aşağıda verilmiştir:
 
-![Özel Raptiyeler daire işleme](./media/how-to-render-custom-data/circle-custom-pins.png)
+    ![Özel Raptiyeler daire işleme](./media/how-to-render-custom-data/circle-custom-pins.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

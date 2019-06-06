@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de9ae8e5c0cbf0997811db9624f6c6b92e03a5df
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835303"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742948"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service'te gelen ve giden IP adresleri
 
@@ -35,9 +35,17 @@ ms.locfileid: "60835303"
 - Bir kaynak grubundaki son uygulamayı silmek _ve_ bölge birleşimi ve yeniden oluşturun.
 - Sertifika yenileme sırasında gibi mevcut bir SSL bağlaması Sil (bkz [sertifikaları yenileme](app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-## <a name="get-static-inbound-ip"></a>Statik bir gelen IP alma
+## <a name="find-the-inbound-ip"></a>Gelen IP Bul
 
-Bazen, uygulamanız için adanmış ve statik bir IP adresi isteyebilirsiniz. Statik bir gelen IP adresini almak için yapılandırmanız gereken bir [IP tabanlı SSL bağlaması](app-service-web-tutorial-custom-ssl.md#bind-your-ssl-certificate). Uygulamanızı güvenli hale getirmek için SSL işlevi gerçekten ihtiyacınız yoksa, bu bağlama için otomatik olarak imzalanan bir sertifika da karşıya yükleyebilirsiniz. Bir IP tabanlı SSL bağlaması içinde bir statik IP adresi gerçekleşecek şekilde bunu App Service hükümlerine IP adresini, kendi sertifika bağlıdır. 
+Yalnızca yerel terminalde aşağıdaki komutu çalıştırın:
+
+```bash
+nslookup <app-name>.azurewebsites.net
+```
+
+## <a name="get-a-static-inbound-ip"></a>Statik bir gelen IP alma
+
+Bazen, uygulamanız için adanmış ve statik bir IP adresi isteyebilirsiniz. Statik bir gelen IP adresini almak için yapılandırmanız gereken bir [IP tabanlı SSL bağlaması](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). Uygulamanızı güvenli hale getirmek için SSL işlevi gerçekten ihtiyacınız yoksa, bu bağlama için otomatik olarak imzalanan bir sertifika da karşıya yükleyebilirsiniz. Bir IP tabanlı SSL bağlaması içinde bir statik IP adresi gerçekleşecek şekilde bunu App Service hükümlerine IP adresini, kendi sertifika bağlıdır. 
 
 ## <a name="when-outbound-ips-change"></a>Giden IP'ler değiştiğinde
 

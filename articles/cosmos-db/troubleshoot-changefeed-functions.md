@@ -7,12 +7,12 @@ ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 66eff6ee603ced03a8f4d75d4569752e0b11a6e7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242526"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734509"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Tanılama ve Azure Cosmos DB tetikleyicisi Azure işlevleri'nde kullanırken sorunlarını giderme
 
@@ -88,6 +88,12 @@ Bu senaryoda en iyi eylem planını eklemektir `try/catch blocks` öğelerinin b
 Ayrıca, senaryoya doğrulandı, kaç Azure işlev uygulaması örnekleri biliyor varsa çalışıyor. Kira kapsayıcınızı inceleyin ve öğeleri içinde ayrık değerlerini sayısını `Owner` bunları özelliğinde işlev uygulamanızın örnek sayısına eşit olmalıdır. Bilinen bir Azure işlev uygulaması örnekleri değerinden daha fazla sahipleri varsa, bu ek sahipleri bir "değişiklikleri çalarak" olduğunu gösterir.
 
 Bu durum geçici çözüm kolay bir yolu olan uygulamak için bir `LeaseCollectionPrefix/leaseCollectionPrefix` işlevinize yeni/farklı bir değerle veya alternatif olarak, yeni bir kira kapsayıcı ile test edin.
+
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Bağlama ile IReadOnlyList yalnızca yapılabilir<Document> veya JArray
+
+Azure işlevleri projenizi (veya başvurulan projeler) tarafından sağlanan olandan farklı bir sürümü ile Azure Cosmos DB SDK'sı el ile NuGet başvuru içeriyorsa bu hata oluşur [Azure işlevleri Cosmos DB uzantısı](./troubleshoot-changefeed-functions.md#dependencies).
+
+Geçici çözüm için bu durum, eklendi ve Azure Cosmos DB SDK başvurusu izin el ile NuGet başvuru çözmek Azure işlevleri Cosmos DB uzantı paketi kaldırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

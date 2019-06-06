@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720476"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479151"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile kullanılmak üzere depolama seçeneklerini karşılaştırma
 
@@ -26,12 +26,12 @@ Bu makalede, bu depolama türleri ve benzersiz özelliklerine genel bakış sağ
 
 HDInsight'ın farklı sürümleriyle desteklenen Azure depolama hizmetleri aşağıdaki tabloda özetlenmiştir:
 
-| Depolama birimi hizmeti | Hesap türü | Namespace türü | Desteklenen hizmetler | Desteklenen performans katmanları | Desteklenen erişim katmanları | HDInsight Sürümü | Küme türü |
+| Depolama hizmeti | Hesap türü | Namespace türü | Desteklenen hizmetler | Desteklenen performans katmanları | Desteklenen erişim katmanları | HDInsight Sürümü | Küme türü |
 |---|---|---|---|---|---|---|---|
 |Azure Data Lake Storage Gen2| Genel amaçlı V2 | Hiyerarşik (dosya sistemi) | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | 3.6 + | Tümü |
 |Azure Storage| Genel amaçlı V2 | Object | Blob | Standart | Sık erişimli, seyrek erişimli ve Arşiv | 3.6 + | Tümü |
 |Azure Storage| Genel amaçlı V1 | Object | Blob | Standart | Yok | Tümü | Tümü |
-|Azure Storage| BLOB Depolama ** | Object | Blok Blobu | Standart | Sık erişimli, seyrek erişimli ve Arşiv | Tümü | Tümü |
+|Azure Storage| BLOB Depolama ** | Object | Blok blobu | Standart | Sık erişimli, seyrek erişimli ve Arşiv | Tümü | Tümü |
 |Azure Data Lake Storage Gen1| Yok | Hiyerarşik (dosya sistemi) | Yok | Yok | Yok | Yalnızca 3.6 | HBase dışında tümü |
 
 ** HDInsight kümeleri için yalnızca ikincil depolama hesapları BlobStorage türünde olabilir.
@@ -42,7 +42,7 @@ Azure depolama erişim katmanları hakkında daha fazla bilgi için bkz. [Azure 
 
 Birincil ve isteğe bağlı ikincil depolama hizmetleri farklı birleşimlerini kullanarak bir küme oluşturabilirsiniz. Aşağıdaki tabloda, HDInsight şu anda desteklenen küme depolama yapılandırmaları özetlenmektedir:
 
-| HDInsight Sürümü | Birincil Depolama | İkincil depolama | Desteklenen |
+| HDInsight Sürümü | Birincil depolama | İkincil depolama | Desteklenen |
 |---|---|---|---|
 | 3.6 & 4.0 | Genel amaçlı V1, genel amaçlı V2 | Genel amaçlı V1, genel amaçlı V2 BlobStorage (blok Blobları) | Evet |
 | 3.6 & 4.0 | Genel amaçlı V1, genel amaçlı V2 | Data Lake Storage Gen2 | Hayır |
@@ -53,7 +53,7 @@ Birincil ve isteğe bağlı ikincil depolama hizmetleri farklı birleşimlerini 
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Evet |
 | 3.6 | Data Lake Storage Gen1 | Genel amaçlı V1, genel amaçlı V2 BlobStorage (blok Blobları) | Evet |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Hayır |
-| 4.0 | Data Lake Storage Gen1 | Herhangi biri | Hayır |
+| 4.0 | Data Lake Storage Gen1 | Tüm | Hayır |
 
 * = Aynı yönetilen kimliği kümeye erişim için kullanılacak tüm Kurulum oldukları sürece bu bir veya birden çok Data Lake depolama Gen2 hesapları olabilir.
 
@@ -137,7 +137,7 @@ HDInsight, işlem düğümlerine yerel olarak bağlı olan dağıtılmış dosya
 
 HDInsight ile Azure Depolama'daki verilere erişebilir. Söz dizimi aşağıdaki gibidir:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 HDInsight kümeleri ile bir Azure depolama hesabını kullanırken aşağıdaki ilkeleri göz önünde bulundurun:
 
@@ -215,7 +215,7 @@ Veriler için Data Lake depolama Gen1 kapsayıcılar olan temelde klasörleri ve
 ## <a name="DataLakeStoreSecurity"></a>Data Lake depolama Gen1 veri güvenliği
 Data Lake depolama Gen1 kullanan Azure Active Directory kimlik doğrulaması ve kullandığı erişim için verilerinizi listeleri (ACL) erişimi yönetmek üzere denetler.
 
-| **Özellik** | **Açıklama** |
+| **Özelliği** | **Açıklama** |
 | --- | --- |
 | Kimlik Doğrulaması |Data Lake depolama Gen1, Data Lake depolama Gen1 içinde depolanan tüm veriler için kimlik ve erişim yönetimi için Azure Active Directory (Azure AD) ile tümleşir. Tümleştirme nedeniyle, Data Lake depolama Gen1 tüm Azure AD özelliklerden faydalanır. Bu özellikler, çok faktörlü kimlik doğrulaması, koşullu erişim, rol tabanlı erişim denetimi, uygulama kullanımını izleme, güvenlik izleme ve uyarı içerir ve benzeri. Data Lake depolama Gen1 REST arabirimi içinde kimlik doğrulaması için OAuth 2.0 protokolünü destekler. Bkz: [kimlik doğrulaması Azure Active Directory'yi kullanarak Azure Data Lake depolama Gen1 içinde](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
 | Erişim denetimi |Data Lake depolama Gen1 WebHDFS protokolünün kullanıma sunulan POSIX stili izinleri destekleyerek erişim denetimi sağlar. ACL’ler kök klasörde, alt klasörlerde ve dosyalarda tek tek etkinleştirilebilir. ACL'ler Data Lake depolama Gen1 bağlamında nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Data Lake depolama Gen1'deki erişim denetimi](../data-lake-store/data-lake-store-access-control.md). |

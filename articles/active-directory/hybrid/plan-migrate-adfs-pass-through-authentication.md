@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Geçişli kimlik doğrulaması için Azure Active Directory Federasyon seçeneğinden geçiş | Microsoft Docs'
+title: "Azure AD Connect: Federasyon seçeneğinden PTA için Azure AD'ye geçirme"
 description: Bu makalede, karma kimlik ortamınız için geçişli kimlik doğrulaması Federasyon seçeneğinden taşıma hakkında bilgi bulunur.
 services: active-directory
 author: billmath
@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb421442a7b45f3cd5925fd1475a0a69053c3113
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382779"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473388"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Geçişli kimlik doğrulaması için Azure Active Directory Federasyon seçeneğinden geçiş
 
@@ -75,7 +75,7 @@ Hangi yöntemi kullanmanız gerektiğini anlamak için aşağıdaki bölümlerde
 2. Üzerinde **ek görevler** sayfasında **geçerli yapılandırmayı görüntüleme**ve ardından **sonraki**.<br />
  
    ![Ek Görevler sayfasında görünümü geçerli yapılandırma seçeneğinin ekran görüntüsü](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
-3. Üzerinde **çözümünüzü İnceleme** sayfasında, kaydırma **Active Directory Federasyon Hizmetleri (AD FS)**.<br />
+3. Üzerinde **çözümünüzü İnceleme** sayfasında, kaydırma **Active Directory Federasyon Hizmetleri (AD FS)** .<br />
 
    * AD FS yapılandırması bu bölümünde görünüyorsa, güvenli bir şekilde Azure AD Connect kullanarak AD FS başlangıçta yapılandırıldığını kabul edilebilir. Azure AD Connect kullanarak yönetilen kimlik için Federasyon kimlik etki alanlarınızı dönüştürebilirsiniz **değiştirme kullanıcı oturum açma** seçeneği. İşlemi hakkında daha fazla bilgi için bkz **1. seçenek: Azure AD Connect kullanarak geçişli kimlik doğrulaması yapılandırma**.
    * AD FS geçerli ayarları listede yoksa, el ile etki alanlarınızı Federal Kimlik için yönetilen kimlik PowerShell kullanarak dönüştürmeniz gerekir. Bu işlem hakkında daha fazla bilgi için bkz **seçeneği 2: Geçiş Federasyon seçeneğinden geçişli kimlik doğrulaması için Azure AD Connect ve PowerShell kullanarak**.
@@ -218,7 +218,7 @@ Geçişli kimlik doğrulaması ve sorunsuz çoklu oturum açma hem dağıtıldı
 * Sorunsuz çoklu oturum açma için hazırlık yapılıyor.
 * Oturum açma yöntemi, geçişli kimlik doğrulaması ve sorunsuz çoklu oturum açmayı etkinleştirme değiştiriliyor.
 
-### <a name="step-1-prepare-for-seamless-sso"></a>1. Adım: Sorunsuz çoklu oturum açma için hazırlama
+### <a name="step-1-prepare-for-seamless-sso"></a>1. adım: Sorunsuz çoklu oturum açma için hazırlama
 
 Cihazlarınızı sorunsuz çoklu oturum açmayı kullanmak, Active Directory'de Grup İlkesi'ni kullanarak bir Azure AD URL'si kullanıcıların intranet bölgesi ayarlarına eklemeniz gerekir.
 
@@ -229,7 +229,7 @@ Adımlarını tamamlamanız [dağıtmadan](https://docs.microsoft.com/azure/acti
 > [!IMPORTANT]
 > Bu değişiklik, kullanıcıların Azure AD'de oturum biçimini değiştirmez. Ancak, devam etmeden önce bu yapılandırma tüm cihazlarınıza uygulama önemlidir. Bu yapılandırmayı almadığını cihazlarda oturum kullanıcılar yalnızca bir kullanıcı adı ve Azure AD'de oturum açmak için parola girmesini gerekir.
 
-### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>2. Adım: Geçişli kimlik doğrulaması için oturum açma yöntemini değiştirme ve sorunsuz çoklu oturum açmayı etkinleştirin
+### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>2. adım: Geçişli kimlik doğrulaması için oturum açma yöntemini değiştirme ve sorunsuz çoklu oturum açmayı etkinleştirin
 
 Geçişli kimlik doğrulaması için oturum açma yöntemini değiştirme ve sorunsuz çoklu oturum açmayı etkinleştirmek için iki seçeneğiniz vardır.
 

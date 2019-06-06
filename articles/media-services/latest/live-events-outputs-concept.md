@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/06/2019
 ms.author: juliako
-ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550974"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732977"
 ---
 # <a name="live-events-and-live-outputs"></a>Canlı Etkinlikler ve Canlı Çıkışlar
 
@@ -79,48 +79,53 @@ Canlı Etkinlik oluşturulduktan sonra, şirket içi gerçek zamanlı kodlayıc�
 
 Gösterim amaçlı olmayan URL'leri veya gösterim URL'lerini kullanabilirsiniz. 
 
+> [!NOTE] 
+> Alma URL'si Tahmine dayalı olarak bir "gösterim" modunu ayarlayın.
+
 * Gösterim olmayan URL'si
 
     AMS v3'te varsayılan modda gösterim amaçlı olmayan URL'ler kullanılır. Potansiyel olarak Canlı Etkinliği daha hızlı bir şekilde alabilirsiniz ancak alma URL'si yalnızca canlı etkinlik başlatıldığında bildirilir. Canlı Etkinliği durdurup yeniden başlattığınızda URL değişir. <br/>Gösterim amaçlı olmayan URL'ler, son kullanıcının canlı etkinliği mümkün olan en hızlı şekilde almak isteyen ve dinamik alma URL'leriyle uyumlu olan bir uygulama kullanarak akış yapmak istediğinde kullanışlıdır.
 * Gösterim URL'si
 
     Yayın kodlayıcı donanımları kullanan ve Canlı Etkinliği başlattıktan sonra kodlayıcılarını yeniden yapılandırmak istemeyen büyük medya yayımcıları gösterim modunu tercih eder. Bu yayımcılar zaman içinde değişmeyen, tahmine dayalı bir alma URL'sini kullanmayı tercih eder.
+    
+    Bu mod belirtmek için ayarladığınız `vanityUrl` için `true` olacak şekilde oluşturulma zamanında (varsayılan değer `false`). Ayrıca kendi erişim belirteci geçmesi gerekir (`LiveEventInput.accessToken`) olacak şekilde oluşturulma zamanında. URL'deki rastgele bir belirteç önlemek için belirteci değeri belirtin. Erişim belirteci (ile veya tireler olmadan) geçerli bir GUID dizesi olması gerekir. Modu ayarlandıktan sonra güncelleştirilemiyor.
 
-> [!NOTE] 
-> Alma URL'si Tahmine dayalı olarak bir "gösterim" mod kullanmak ve (URL'sindeki rastgele bir belirteç) kendi erişim belirtecinizi geçmesi gerekir.
+    Erişim belirteci, veri merkezinizde benzersiz olması gerekir. Gösterim URL'sini kullanmak üzere uygulamanız gerekiyorsa, her zaman erişim belirteciniz (yerine, herhangi bir mevcut GUID yeniden) için yeni bir GUID örneği oluşturmak için önerilir. 
 
 ### <a name="live-ingest-url-naming-rules"></a>Canlı URL adlandırma kuralları alma
 
 Aşağıdaki *rastgele* dize, 128 bit bir onaltılık sayıdır (0-9 a-f arası 32 karakterden oluşur).<br/>
-Sabit URL için aşağıdaki *erişim belirtecini* belirtmeniz gerekir. Bu da 128 bit onaltılık sayıdır.
+*Erişim belirteci* sabit URL'sini belirtmeniz gerekir. Geçerli bir GUID dizesi olan bir erişim belirteci dizesi ayarlamanız gerekir. <br/>
+*Akış adı* belirli bir bağlantı için akış adını belirtir. Akış adı değeri kullanmanızı genellikle gerçek zamanlı Kodlayıcı tarafından eklenir.
 
 #### <a name="non-vanity-url"></a>Gösterim olmayan URL'si
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/<access token>`
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/<access token>`
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Kesintisiz Akış
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>Gösterim URL'si
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/<access token>`
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/<access token>`
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Kesintisiz Akış
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>Canlı olay Önizleme URL'si
 

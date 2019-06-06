@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fe913f057d00fd18b1b163f124d9dd0b83abf0de
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5854a795ba7ceeeb4512f1e2fd16d98826d55dd5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925892"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477979"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Başvuru - IOT Hub uç noktaları
 
@@ -75,20 +75,20 @@ Aboneliğinizde var olan Azure Hizmetleri, IOT hub ileti yönlendirme için uç 
 
 IOT hub'ı, şu anda ek uç noktalar olarak aşağıdaki Azure Hizmetleri destekler:
 
-* Azure Depolama kapsayıcıları
+* Azure depolama kapsayıcıları
 * Event Hubs
 * Service Bus Kuyrukları
 * Service Bus Konuları
 
 Uç noktalar ekleyebilirsiniz sayısı limitleri için bkz [kotalar ve azaltma](iot-hub-devguide-quotas-throttling.md).
 
-REST API kullanabilirsiniz [uç nokta sistem durumu alma](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) uç sistem durumunu almak için. Kullanmanızı öneririz [IOT hub'ı ölçümleri](iot-hub-metrics.md) tanımlamak ve uç nokta sistem durumu ölü ya da sistem durumu kötü olduğunda, hatalarını ayıklamanıza yönlendirme ileti gecikmesi için ilgili.
+REST API kullanabilirsiniz [uç nokta sistem durumu alma](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) uç sistem durumunu almak için. Kullanmanızı öneririz [IOT hub'ı ölçümleri](iot-hub-metrics.md) belirlemek ve uç nokta sistem durumu ölü ya da sağlıksız, olduğunda gecikme süresi, uç nokta bu durumlardan birinde olduğunda daha yüksek olmasını bekliyoruz gibi hataları hata ayıklamak için yönlendirme ileti gecikme süresi ile ilgili.
 
-|Sağlık Durumu|Açıklama|
+|Sistem durumu|Açıklama|
 |---|---|
-|iyi durumda|Uç nokta, beklendiği gibi iletileri kabul ediyor.|
+|İyi durumda|Uç nokta, beklendiği gibi iletileri kabul ediyor.|
 |İyi durumda olmayan|Uç nokta ileti beklendiği gibi kabul etmiyor ve IOT hub'ı Bu uç noktaya veri göndermek için yeniden deneniyor. IOT Hub durumu sonunda tutarlı bir duruma olduğunda sağlıksız bir uç nokta durumunu iyi durumda olacak şekilde güncelleştirilir.|
-|bilinmiyor|IOT Hub uç noktası ile bağlantı değil. İleti teslim veya bu uç noktadan reddetti.|
+|Bilinmiyor|IOT Hub uç noktası ile bağlantı değil. İleti teslim veya bu uç noktadan reddetti.|
 |eski|IOT hub'ı iletileri gönderme retrial dönemin denenen sonra uç noktayı iletileri kabul etmiyor.|
 
 ## <a name="field-gateways"></a>Alan ağ geçitleri

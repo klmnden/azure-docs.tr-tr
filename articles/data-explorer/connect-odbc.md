@@ -1,40 +1,32 @@
 ---
 title: Azure Veri Gezgini ODBC ile bağlanma
-description: Bu nasıl yapılır makalesinde bir Azure Veri Gezgini ODBC bağlantı kurmanız sonra Tableau ile verileri görselleştirme için bu bağlantıyı kullanmak hakkında bilgi edinin.
+description: Bu makalede, Azure Veri Gezgini bir açık veritabanı bağlantısı (ODBC) bağlantı kurmanız öğrenin.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 02ae9673f1dc402ee1500b466d7e259263ef3262
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60448461"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494840"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Azure Veri Gezgini ODBC ile bağlanma
 
 Açık veritabanı bağlantısı ([ODBC](/sql/odbc/reference/odbc-overview)) veritabanı erişimi için bir yaygın olarak kabul edilen uygulama programlama arabirimi (API). Özel bir bağlayıcı olmayan uygulamalardan Azure veri Gezgini'ne bağlanmak için ODBC kullanma.
 
-Arka planda uygulamaları adlı veritabanı özel modüller uygulanan işlevleri ODBC arabiriminde çağırma *sürücüleri*. Azure Veri Gezgini, SQL Server iletişim protokolü kümesini destekler ([MS TDS](/azure/kusto/api/tds/)); bu nedenle, SQL Server için ODBC sürücüsü kullanabilirsiniz.
+Arka planda uygulamaları adlı veritabanı özel modüller uygulanan işlevleri ODBC arabiriminde çağırma *sürücüleri*. Azure Veri Gezgini, SQL Server iletişim protokolü kümesini destekler ([MS TDS](/azure/kusto/api/tds/)), SQL Server için ODBC sürücüsü kullanabilirsiniz.
 
-Bu makalede, Azure veri Gezgini'ne ODBC destekleyen herhangi bir uygulamadan bağlanabilmesi için SQL Server ODBC sürücüsü kullanmayı öğrenin. Sonra isteğe bağlı olarak Tableau Azure veri Gezgini'ne bağlanmak ve bir örnek kümeden verilerinizi getirin.
+Bu makalede, Azure veri Gezgini'ne ODBC destekleyen herhangi bir uygulamadan bağlanabilmesi için SQL Server ODBC sürücüsü kullanmayı öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu nasıl tamamlamak için şunlara ihtiyacınız vardır:
+Aşağıdakiler gerekir:
 
 * [SQL Server sürüm 17.2.0.1 için Microsoft ODBC sürücüsü veya üzeri](/sql/connect/odbc/download-odbc-driver-for-sql-server) işletim sisteminiz için.
-
-* Tableau Örneğimizdeki takip etmek istiyorsanız, ayrıca gerekir:
-
-  * Tableau Masaüstü, tam veya [deneme](https://www.tableau.com/products/desktop/download) sürümü.
-
-  * StormEvents örnek veriler içeren bir kümesi. Daha fazla bilgi için [hızlı başlangıç: Bir Azure Veri Gezgini kümesi ile veritabanı oluşturma](create-cluster-database-portal.md) ve [örnek verileri Azure veri Gezgini'ne alma](ingest-sample-data.md).
-
-    [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="configure-the-odbc-data-source"></a>ODBC veri kaynağını yapılandırma
 
@@ -56,7 +48,7 @@ SQL Server için ODBC sürücüsünü kullanarak bir ODBC veri kaynağını yap�
 
 1. Seçin **Active Directory tümleşik** ardından **sonraki**.
 
-    ![Active Directory Tümleşik](media/connect-odbc/active-directory-integrated.png)
+    ![Active Directory ile tümleşik](media/connect-odbc/active-directory-integrated.png)
 
 1. Örnek verilerle veritabanı seçip **sonraki**.
 
@@ -72,34 +64,6 @@ SQL Server için ODBC sürücüsünü kullanarak bir ODBC veri kaynağını yap�
 
     ![Test başarılı oldu](media/connect-odbc/test-succeeded.png)
 
-## <a name="visualize-data-in-tableau-optional"></a>(İsteğe bağlı) Tableau verileri görselleştirin
-
-ODBC yapılandırma bitirdikten sonra örnek verileri Tableau getirebilirsiniz.
-
-1. Tableau Desktop'ta sol menüde **diğer veritabanları (ODBC)**.
-
-    ![ODBC ile bağlanma](media/connect-odbc/connect-odbc.png)
-
-1. İçin **DSN**, ODBC için oluşturduğunuz veri kaynağını seçin ve ardından seçin **oturum**.
-
-    ![ODBC oturum açma](media/connect-odbc/odbc-sign-in.png)
-
-1. İçin **veritabanı**, kümenizdeki örnek veritabanı gibi seçin *TestDatabase*. İçin **şema**seçin *dbo*ve **tablo**seçin *StormEvents* örnek tablo.
-
-    ![Veritabanı ve Tablo Seç](media/connect-odbc/select-database-table.png)
-
-1. Tableau, artık şema örnek veriler için de gösterir. Seçin **Şimdi Güncelleştir** Tableau verileri getirmek için.
-
-    ![Verileri güncelleştirme](media/connect-odbc/update-data.png)
-
-    Veriler içeri aktarıldığında, Tableau veri satırı aşağıdaki görüntüye benzer gösterir.
-
-    ![Sonuç kümesi](media/connect-odbc/result-set.png)
-
-1. Şimdi, Azure veri Gezgini'nde duruma verileri temel alan Tableau görselleştirmeler oluşturabilirsiniz. Daha fazla bilgi için [Tableau öğrenme](https://www.tableau.com/learn).
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure Veri Gezgini için sorgu yazma](write-queries.md)
-
-[Öğretici: Azure Power BI veri Gezgini'nde verileri görselleştirin](visualize-power-bi.md)
+* [Tableau Azure veri Gezgini'ne bağlanma](tableau.md)

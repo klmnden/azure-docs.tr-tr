@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 8ed7d144b886cc29592418007b9103b4aa94e8ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b09182ef06c708e9c606173f02b006e7802f29ed
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331086"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477813"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL veritabanı ve veri ambarı için saydam veri şifrelemesi
 
@@ -33,7 +33,7 @@ Ayrıca bir Azure sanal makinesinde çalışan SQL Server Key vault'tan bir asim
 
 ## <a name="service-managed-transparent-data-encryption"></a>Hizmetle yönetilen şeffaf veri şifreleme
 
-Azure'da varsayılan saydam veri şifrelemesi için veritabanı şifreleme anahtarını bir yerleşik bir sunucu sertifikası tarafından korunduğunu ayardır. Yerleşik bir sunucu sertifikası her sunucu için benzersizdir. Coğrafi çoğaltma ilişkisinde bir veritabanı olduğundan, birincil ve ikincil coğrafi çoğaltmalı veritabanı birincil veritabanının ana sunucu anahtarı tarafından korunur. İki veritabanı aynı sunucuya bağlandıysanız ayrıca yerleşik aynı sertifikayı paylaşırlar. Microsoft otomatik olarak bu sertifikaları iç güvenlik ilkesi ayarlarıyla döndürür ve kök anahtarı Microsoft bir iç gizli dizi deposu tarafından korunur.
+Azure'da varsayılan saydam veri şifrelemesi için veritabanı şifreleme anahtarını bir yerleşik bir sunucu sertifikası tarafından korunduğunu ayardır. Yerleşik bir sunucu sertifikası her sunucu için benzersizdir. Coğrafi çoğaltma ilişkisinde bir veritabanı olduğundan, birincil ve ikincil coğrafi çoğaltmalı veritabanı birincil veritabanının ana sunucu anahtarı tarafından korunur. İki veritabanı aynı sunucuya bağlandıysanız ayrıca yerleşik aynı sertifikayı paylaşırlar. Microsoft otomatik olarak bu sertifikaları iç güvenlik ilkesi ayarlarıyla döndürür ve kök anahtarı Microsoft bir iç gizli dizi deposu tarafından korunur.  Müşteriler, SQL veritabanı uyumluluk bağımsız üçüncü taraf Denetim raporları kullanılabilir iç güvenlik ilkeleri ile kontrol edebilirsiniz [Microsoft Trust Center](https://servicetrust.microsoft.com/).
 
 Microsoft ayrıca sorunsuz bir şekilde taşır ve coğrafi çoğaltma için gerektiği şekilde anahtarları yönetir ve geri yükler.
 

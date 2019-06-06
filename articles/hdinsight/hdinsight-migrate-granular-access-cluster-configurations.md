@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/26/2019
-ms.openlocfilehash: 8bcb20ec5c85c3cfa2e481a4a5848f404a2fb4eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/03/2019
+ms.openlocfilehash: 9a592533a92ec724c9a332bef5fdfcf385cb7b2c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685453"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730678"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Küme yapılandırmaları için ayrıntılı rol tabanlı erişime geçme
 
@@ -20,8 +20,8 @@ Hassas bilgileri almak için daha fazla ayrıntılı rol tabanlı erişimi deste
 
 ## <a name="what-is-changing"></a>Değişen nedir?
 
-Daha önce gizli dizileri HDInsight API aracılığıyla sahip, katkıda bulunan veya okuyucu işlediği küme kullanıcılar tarafından elde edilemedi [RBAC rollerini](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles).
-Bundan sonra bu Sırları artık okuyucu rolüne sahip kullanıcılar için erişilebilir. Bir kullanıcının rolünü daha fazla yükseltilmiş erişim elde etmek için kullanılabilecek değerleri sağlamalıdır gizli olarak tanımlanır. Bunlar, küme ağ geçidi HTTP kimlik bilgilerini, depolama hesabı anahtarlarını ve veritabanı kimlik bilgileri gibi değerleri içerir.
+Daha önce gizli dizileri HDInsight API aracılığıyla sahip, katkıda bulunan veya okuyucu işlediği küme kullanıcılar tarafından elde edilemedi [RBAC rollerini](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)olan herkes için kullanılabilir oldukları gibi `*/read` izni gerekli.
+Bundan sonra bu gizli dizileri erişim gerektiren `Microsoft.HDInsight/clusters/configurations/*` izni, bunlar artık erişilebilir okuyucu rolü olan kullanıcılar tarafından anlamına gelir. Bir kullanıcının rolünü daha fazla yükseltilmiş erişim elde etmek için kullanılabilecek değerleri sağlamalıdır gizli olarak tanımlanır. Bunlar, küme ağ geçidi HTTP kimlik bilgilerini, depolama hesabı anahtarlarını ve veritabanı kimlik bilgileri gibi değerleri içerir.
 
 Ayrıca yeni bir sunuyoruz [Hdınsight küme işleci](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) rol sahibi veya katkıda bulunan Yönetimsel izinlere sahip olmadan gizli dizileri almak mümkün olacaktır. Özetlersek:
 
@@ -41,13 +41,15 @@ Aşağıdaki varlıklar ve senaryoları etkilenir:
 - [API](#api): Kullanan kullanıcılar `/configurations` veya `/configurations/{configurationName}` uç noktaları.
 - [Visual Studio Code için Azure HDInsight Araçları](#azure-hdinsight-tools-for-visual-studio-code) sürüm 1.1.1 veya daha düşük.
 - [Intellij için Azure Araç Seti](#azure-toolkit-for-intellij) 3.20.0 sürüm veya daha düşük.
+- [Azure Data Lake ve Stream Analytics araçları Visual Studio için](#azure-data-lake-and-stream-analytics-tools-for-visual-studio) 2.3.9000.1 önceki bir sürümü.
+- [Eclipse için Azure Araç Seti](#azure-toolkit-for-eclipse) 3.15.0 sürüm veya daha düşük.
 - [.NET için SDK'sı](#sdk-for-net)
     - [sürümleri 1.x veya 2.x](#versions-1x-and-2x): Kullanan kullanıcılar `GetClusterConfigurations`, `GetConnectivitySettings`, `ConfigureHttpSettings`, `EnableHttp` veya `DisableHttp` ConfigurationsOperationsExtensions sınıftaki yöntemleri.
     - [sürümleri 3.x ve en fazla](#versions-3x-and-up): Kullanan kullanıcılar `Get`, `Update`, `EnableHttp`, veya `DisableHttp` yöntemlerinden `ConfigurationsOperationsExtensions` sınıfı.
 - [Python SDK'sı](#sdk-for-python): Kullanan kullanıcılar `get` veya `update` yöntemlerinden `ConfigurationsOperations` sınıfı.
 - [Java için SDK](#sdk-for-java): Kullanan kullanıcılar `update` veya `get` yöntemlerinden `ConfigurationsInner` sınıfı.
 - [Go için SDK](#sdk-for-go): Kullanan kullanıcılar `Get` veya `Update` yöntemlerinden `ConfigurationsClient` yapısı.
-
+- [Az.HDInsight PowerShell](#azhdinsight-powershell) 2.0.0 sürümü.
 Senaryonuzun geçiş adımlarını görmek için aşağıdaki bölümlere bakın (ya da yukarıdaki bağlantıları kullanın).
 
 ### <a name="api"></a>API
@@ -80,6 +82,14 @@ Aşağıda, güncelleştirme veya sürüm 1.1.1 kullanıyorsanız [Visual Studio
 ### <a name="azure-toolkit-for-intellij"></a>IntelliJ için Azure Araç Takımı
 
 Aşağıda, güncelleştirme veya sürüm 3.20.0 kullanıyorsanız [eklentisi Intellij için Azure Araç Takımı'nın en son sürümünü](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) kesintilerini önlemek için.
+
+### <a name="azure-data-lake-and-stream-analytics-tools-for-visual-studio"></a>Azure Data Lake ve Visual Studio için Stream Analytics araçları
+
+Güncelleştirme sürümüne 2.3.9000.1 veya sonraki sürümleri [Azure Data Lake ve Stream Analytics araçları Visual Studio için](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) kesintilerini önlemek için.  Güncelleştirme ile ilgili Yardım için bkz, belgelerimize [güncelleştirme Data Lake araçları Visual Studio için](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started#update-data-lake-tools-for-visual-studio).
+
+### <a name="azure-toolkit-for-eclipse"></a>Eclipse için Azure Araç Seti
+
+Aşağıda, güncelleştirme veya sürüm 3.15.0 kullanıyorsanız [Eclipse için Azure Araç Takımı'nın en son sürümünü](https://marketplace.eclipse.org/content/azure-toolkit-eclipse) kesintilerini önlemek için.
 
 ### <a name="sdk-for-net"></a>.NET için SDK
 
@@ -114,7 +124,7 @@ Güncelleştirme [sürüm 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1
 - [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) olacak **artık dönüş hassas parametreleri** depolama anahtarları (çekirdek-site) veya HTTP kimlik bilgilerini (ağ geçidi) gibi.
     - Hassas parametreleri de dahil olmak üzere tüm yapılandırmaları kullanın [ `ConfigurationsOperations.list` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) ileride.  Not 'Reader' rolüne sahip kullanıcılar bu yöntemi kullanmak mümkün olmayacaktır. Bu küme için hassas bilgileri hangi kullanıcıların erişeceği ayrıntılı denetim sağlar. 
     - Yalnızca HTTP ağ geçidi kimlik bilgilerini almak için kullanın [ `ConfigurationsOperations.get_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-).
-- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-resource-group-name--cluster-name--tags-none--custom-headers-none--raw-false----operation-config-) kullanım dışı bırakıldı ve almıştır [ `ClusterOperationsExtensions.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-).
+- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-resource-group-name--cluster-name--tags-none--custom-headers-none--raw-false----operation-config-) kullanım dışı bırakıldı ve almıştır [ `ClusterOperations.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-).
 
 ### <a name="sdk-for-java"></a>Java için SDK'sı
 
@@ -122,8 +132,8 @@ Güncelleştirme [sürüm 1.0.0](https://search.maven.org/artifact/com.microsoft
 
 - [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get) olacak **artık dönüş hassas parametreleri** depolama anahtarları (çekirdek-site) veya HTTP kimlik bilgilerini (ağ geçidi) gibi.
     - Hassas parametreleri de dahil olmak üzere tüm yapılandırmaları kullanın [ `ConfigurationsInner.list` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable) ileride.  Not 'Reader' rolüne sahip kullanıcılar bu yöntemi kullanmak mümkün olmayacaktır. Bu küme için hassas bilgileri hangi kullanıcıların erişeceği ayrıntılı denetim sağlar. 
-    - Yalnızca HTTP ağ geçidi kimlik bilgilerini almak için kullanın [ `ConfigurationsOperations.get_gateway_settings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.getgatewaysettings?view=azure-java-stable).
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) kullanım dışı bırakıldı ve almıştır [ `ClusterOperationsExtensions.update_gateway_settings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.updategatewaysettings?view=azure-java-stable).
+    - Yalnızca HTTP ağ geçidi kimlik bilgilerini almak için kullanın [ `ClustersInner.getGatewaySettings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.getgatewaysettings?view=azure-java-stable).
+- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) kullanım dışı bırakıldı ve almıştır [ `ClustersInner.updateGatewaySettings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.updategatewaysettings?view=azure-java-stable).
 
 ### <a name="sdk-for-go"></a>Go için SDK'sı
 
@@ -133,6 +143,15 @@ Güncelleştirme [sürüm 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree
     - Hassas parametreleri de dahil olmak üzere tüm yapılandırmaları kullanın [ `ConfigurationsClient.list` ](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.List) ileride.  Not 'Reader' rolüne sahip kullanıcılar bu yöntemi kullanmak mümkün olmayacaktır. Bu küme için hassas bilgileri hangi kullanıcıların erişeceği ayrıntılı denetim sağlar. 
     - Yalnızca HTTP ağ geçidi kimlik bilgilerini almak için kullanın [ `ClustersClient.get_gateway_settings` ](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.GetGatewaySettings).
 - [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Update) kullanım dışı bırakıldı ve almıştır [ `ClustersClient.update_gateway_settings` ](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings).
+
+### <a name="azhdinsight-powershell"></a>Az.HDInsight PowerShell
+Güncelleştirme [Az PowerShell sürüm 2.0.0](https://www.powershellgallery.com/packages/Az) veya daha sonra kesintileri önlemek için.  Bu değişikliklerden etkilenen bir yöntem kullanılıyorsa çok az kod değişiklikleri gerekebilir.
+- `Grant-AzHDInsightHttpServicesAccess` artık kullanımdan kaldırıldı ve yeni tarafından değiştirilmiştir `Set-AzHDInsightGatewayCredential` cmdlet'i.
+- `Get-AzHDInsightJobOutput` Depolama anahtarı için ayrıntılı rol tabanlı erişimi desteklemek için güncelleştirildi.
+    - HDInsight küme işleci, katkıda bulunan veya sahip rollerine sahip kullanıcılar etkilenmez.
+    - Yalnızca okuyucu rolüne sahip kullanıcılar belirtmeniz gerekecektir `DefaultStorageAccountKey` parametresi açıkça.
+- `Revoke-AzHDInsightHttpServicesAccess` artık kullanılmıyor. Bu cmdlet artık gerekli olmadığı için HTTP artık her zaman etkindir.
+ Bkz: [az. HDInsight Geçiş Kılavuzu](https://github.com/Azure/azure-powershell/blob/master/documentation/migration-guides/Az.2.0.0-migration-guide.md#azhdinsight) daha fazla ayrıntı için.
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>Bir kullanıcıya HDInsight küme işleci rolü ataması ekleme
 

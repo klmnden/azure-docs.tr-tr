@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 7ebb88317da45ff496385b72c603a44d628b0202
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a582a4787a4b215d82dcbff60be8853793f92c32
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869072"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728360"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>İşletim sistemi ve Azure PowerShell ile bir sanal makine ölçek kümesi bağlı veri diskleri şifreleme
 
@@ -33,7 +33,7 @@ Azure disk şifrelemesi desteklenmez:
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Disk şifrelemesi için etkin bir Azure Key Vault oluşturma
 
@@ -87,7 +87,7 @@ New-AzVmss `
     -Credential $cred
 ```
 
-## <a name="enable-encryption"></a>Şifrelemeyi etkinleştir
+## <a name="enable-encryption"></a>Şifrelemeyi etkinleştirme
 
 Bir ölçek kümesindeki sanal makine örnekleri şifrelemek için önce bazı bilgiler ile Key Vault URI'si ve kaynak kimliğinde Al [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault). Bu değişkenler ardından ile şifreleme işlemi başlatmak için kullanılan [kümesi AzVmssDiskEncryptionExtension](/powershell/module/az.compute/Set-AzVmssDiskEncryptionExtension):
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: cc65d6d3f7e7dcc08ea29ecc8a299b556563135b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236304"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735024"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy’i kullanmaya başlama
 
@@ -28,7 +28,7 @@ AzCopy, BLOB veya dosyalar için veya bir depolama hesabına kopyalamak için ku
 
 ## <a name="download-azcopy"></a>AzCopy indirin
 
-İlk olarak, AzCopy V10 yürütülebilir dosyayı bilgisayarınızda herhangi bir klasöre indirin. Kolaylık olması için sistem yolunuzda kullanım kolaylığı için AzCopy klasör konumunu eklemeyi düşünün.
+İlk olarak, AzCopy V10 yürütülebilir dosyayı bilgisayarınızda herhangi bir dizine indirin. 
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
@@ -39,13 +39,15 @@ AzCopy, BLOB veya dosyalar için veya bir depolama hesabına kopyalamak için ku
 
 ## <a name="run-azcopy"></a>AzCopy çalıştırın
 
-Bir komut istemi'nden dosyayı karşıdan yüklediğiniz dizine gidin.
+Kolaylık olması için sistem yolunuzda kullanım kolaylığı için AzCopy yürütülebilir dizin konumunu eklemeyi düşünün. Bu şekilde yazabilirsiniz `azcopy` sisteminize herhangi bir dizinden.
 
-AzCopy komutların bir listesini görüntülemek için şunu yazın `azCopy`ve ardından ENTER tuşuna basın.
+Yolunuza AzCopy dizini eklememeyi seçerseniz, türü ve AzCopy yürütülebilir dosyasının konumuna dizinleri gerekecektir `azcopy` veya `.\azcopy` Windows PowerShell komut istemleri içinde.
 
-Belirli bir komut hakkında daha fazla bilgi için şunu yazın `azCopy` ardından komut adı.
+Komutların bir listesini görmek için şunu yazın `azcopy -h` ve ardından ENTER tuşuna basın.
 
-Örneğin, hakkında bilgi edinmek için `copy` , aşağıdakini yazın `azcopy copy`ve ardından ENTER tuşuna basın.
+Belirli bir komut hakkında bilgi edinmek için yalnızca komut adını içerir (örneğin: `azcopy list -h`).
+
+![Satır içi Yardım](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 AzCopy ile anlamlı bir şey yapmak için önce yetkilendirme kimlik bilgilerini depolama hizmetine nasıl sağlarız karar vermeniz gerekir.
 
@@ -81,7 +83,7 @@ Bu roller, kimliğinize herhangi birinde bu kapsamlara atanabilir:
 
 Doğrulama ve roller atama konusunda bilgi almak için bkz: [verilere Azure blob ve kuyruk RBAC ile Azure portalında erişim ver](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Bu rollerden erişim denetim listesine hedef kapsayıcının veya klasörün (ACL) kimliğinizi eklediyseniz, ıdentity'ye atanır olması gerekmez. ACL'de kimliğinizi izni hedef klasörde yazma ve kapsayıcı ve her bir üst klasörü üzerinde yürütme izni gerekiyor.
+Bu rollerden erişim denetim listesine hedef kapsayıcı ya da dizinin (ACL) kimliğinizi eklediyseniz, ıdentity'ye atanır olması gerekmez. ACL'de kimliğinizi hedef dizin üzerinde yazma izni ve kapsayıcı ve her bir üst dizin yürütme izni gerekiyor.
 
 Daha fazla bilgi için bkz. [Azure Data Lake depolama Gen2'deki erişim denetimi](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
@@ -102,7 +104,7 @@ Bu roller, kimliğinize herhangi birinde bu kapsamlara atanabilir:
 
 Doğrulama ve roller atama konusunda bilgi almak için bkz: [verilere Azure blob ve kuyruk RBAC ile Azure portalında erişim ver](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Bu rollerden erişim denetim listesine hedef kapsayıcının veya klasörün (ACL) kimliğinizi eklediyseniz, ıdentity'ye atanır olması gerekmez. ACL'de kimliğinizi okuma izni hedef klasörde ve kapsayıcı ve her bir üst klasörü üzerinde yürütme izni gerekiyor.
+Bu rollerden erişim denetim listesine hedef kapsayıcı ya da dizinin (ACL) kimliğinizi eklediyseniz, ıdentity'ye atanır olması gerekmez. ACL'de, hedef dizin üzerinde okuma ve yürütme izni kapsayıcı ve her bir üst dizin kimliğinizi gerekir.
 
 Daha fazla bilgi için bkz. [Azure Data Lake depolama Gen2'deki erişim denetimi](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 

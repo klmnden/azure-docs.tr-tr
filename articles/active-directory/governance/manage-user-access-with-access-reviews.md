@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5efbc3b78800caa9d603e870b81705424c4d3fd6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9d873f1dace3e3be6a8767e77d57db5ac554afd7
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113221"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473811"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleriyle kullanıcı erişimini yönetme
 
@@ -44,7 +44,7 @@ Bir erişim gözden geçirmesinde bir veya daha çok kullanıcı gözden geçire
 
 2. Her kullanıcının kendi erişimini mi gözden geçireceğine yoksa bir veya daha fazla kullanıcının tüm kullanıcıların erişimini mi gözden geçireceğine karar verin.
 
-3. Bir genel yönetici veya Kullanıcı Yöneticisi, Git [erişim gözden geçirmeleri sayfasına](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. Bir genel yönetici veya Kullanıcı Yöneticisi, Git [Kimlik Yönetimi sayfası](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 4. Erişim gözden geçirmesi oluşturma. Daha fazla bilgi için [grupları ve uygulamaları, erişim gözden geçirmesi Oluştur](create-access-review.md).
 

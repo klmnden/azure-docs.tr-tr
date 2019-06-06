@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 6d17d5c2c0eaebc694abe820318f6ac0c70b0be8
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6a2e065466ab4426a6472b64fae19d264ff8dd81
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544603"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734234"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Yedekleme ve PowerShell ile Azure sanal makinelerinde SQL veritabanlarını geri yükleme
 
@@ -281,7 +281,7 @@ Kullanım [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com
 
 ````powershell
 $startDate = (Get-Date).AddDays(-7).ToUniversalTime()
-$endDate = Get-Date.ToUniversalTime()
+$endDate = (Get-Date).ToUniversalTime()
 Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $targetVault.ID -StartDate $startdate -EndDate $endDate
 ````
 
@@ -491,7 +491,7 @@ Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManag
 
 ### <a name="stop-protection"></a>Korumayı Durdur
 
-#### <a name="retain-data"></a>Verileri tut
+#### <a name="retain-data"></a>Verileri Tut
 
 Kullanıcı korumasını durdurmak isterse kullanabilecekleri [devre dışı bırak AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet'i. Bu zamanlanmış yedeklemeleri durdurur ancak kadar yukarı yedeklenen verileri artık sonsuza kadar korunur.
 
@@ -500,7 +500,7 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload 
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
 ````
 
-#### <a name="delete-backup-data"></a>Yedekleme verilerini sil
+#### <a name="delete-backup-data"></a>Yedekleme verilerini silme
 
 Yedekleme verileri kasaya tamamen kaldırmak için yalnızca Ekle '-RemoveRecoveryPoints bayrağı/anahtara ['koruma komutunu devre dışı bırak'](#retain-data).
 

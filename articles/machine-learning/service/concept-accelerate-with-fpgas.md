@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 9204b0d8513d4adbb9c93be94284d7d46de41e06
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851018"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479570"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>Alanda programlanabilir kapı dizileri (FPGA) nedir
 
@@ -35,7 +35,7 @@ Aşağıdaki tablo ve diyagram nasıl FPGA diğer işlemcilere karşılaştırma
 |Özel uygulama tümleşik devreler|ASICS|Özel bağlantı hatları, Google TensorFlow işlemci birimi (TPU) gibi yüksek verimlilik sağlar. Gereksinimleriniz değiştikçe bunlar yapılandırılamaz.|
 |Alanda programlanabilir kapı dizileri|FPGA|FPGA, azure'da kullanılabilen gibi ASICS yakın bir performans sağlar. Bunlar ayrıca yeni mantığını uygulamak için zaman içinde esnek ve sunmanın.|
 |Grafik işleme birimleri|GPU'ları|Yapay ZEKA hesaplamalar için popüler bir seçimdir. GPU'ları, daha hızlı CPU'lar daha görüntü işleme sırasında kolaylaştırır, paralel işleme özellikleri sunar.|
-|Merkezi işlem birimleri|CPU'lar|Genel amaçlı işlemcilerde, performansını, grafik ve video işleme için ideal değildir.|
+|Merkezi işlem birimleri|CPU’lar|Genel amaçlı işlemcilerde, performansını, grafik ve video işleme için ideal değildir.|
 
 Azure'da FPGA, gerçek zamanlı AI hesaplamalar hızlandırmak için hangi veri bilimcilerine ve geliştiricilere kullanmak Intel FPGA cihazlarda temel alır. FPGA özellikli bu mimari, performans, esneklik ve ölçek sağlar ve Azure'da kullanıma sunuldu.
 
@@ -80,7 +80,7 @@ DNN eğitilen modelleri için Azure bulutunda FPGA dağıtımına başlamak içi
 
 Bu videoları ve bloglar out denetleyin:
 
-+ [Hiperölçekli donanım: ML uygun ölçekte Azure + FPGA üzerinde: Build 2018'e (video)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
++ [Hiperölçekli donanım: ML uygun ölçekte Azure + FPGA üzerinde: Build 2018'e (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [Microsoft FPGA tabanlı yapılandırılabilir bulut (video) içinde](https://channel9.msdn.com/Events/Build/2017/B8063)
 

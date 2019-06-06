@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 79cf4c713d60fa600bbb80b9c16728502ffc88ff
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4d8d2fd9a7408bb77939c9a1c8fdd67251282f49
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236826"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479209"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: Azure SQL veritabanı SQL Server ile karşılaştırması
 
@@ -96,8 +96,9 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 | [JSON veri desteği](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Evet](sql-database-json-features.md) | [Evet](sql-database-json-features.md) |
 | [Dil öğeleri](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Çoğu - bkz. ayrı ayrı öğeler |  Evet - bkz [T-SQL farklılıkları](sql-database-managed-instance-transact-sql-information.md) |
 | [Bağlı sunucular](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Hayır - bkz [esnek sorgu](sql-database-elastic-query-horizontal-partitioning.md) | Yalnızca [SQL Server ve SQL veritabanı](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
-| [Günlük aktarma](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) ile her veritabanı bulunur. Olağanüstü durum kurtarma ele alınmıştır [Azure SQL veritabanı ile iş sürekliliğine genel bakış](sql-database-business-continuity.md) |[Yüksek kullanılabilirlik](sql-database-high-availability.md) ile her veritabanı bulunur. Olağanüstü durum kurtarma ele alınmıştır [Azure SQL veritabanı ile iş sürekliliğine genel bakış](sql-database-business-continuity.md) |
+| [Günlük aktarma](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) ile her veritabanı bulunur. Olağanüstü durum kurtarma ele alınmıştır [Azure SQL veritabanı ile iş sürekliliğine genel bakış](sql-database-business-continuity.md) | Yerel olarak yerleşik DMS geçiş işleminin bir parçası olarak. [Yüksek kullanılabilirlik](sql-database-high-availability.md) ile her veritabanı dahil edilir ve günlük aktarma HA alternatif olarak kullanmak için önerilmez. Olağanüstü durum kurtarma ele alınmıştır [Azure SQL veritabanı ile iş sürekliliğine genel bakış](sql-database-business-continuity.md) |
 | [Oturum açma bilgileri ve kullanıcılar](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | Evet, ancak `CREATE` ve `ALTER` oturum açma deyimleri tüm seçenekleri (hiçbir Windows ve sunucu düzeyinde Azure Active Directory oturum açma bilgileri) teklif değil. `EXECUTE AS LOGIN` olduğundan desteklenmiyor - kullanın `EXECUTE AS USER` yerine.  | Evet, bazı ile [farklar](sql-database-managed-instance-transact-sql-information.md#logins-and-users). Windows oturum açma bilgileri desteklenmez ve Azure Active Directory oturum açma bilgileri ile değiştirilmelidir. |
+| [Uzun süreli yedek saklama - LTR](sql-database-long-term-retention.md) | Otomatik olarak alınan yedeklemeler 10 yıla Evet, takip edin. | Henüz değil. Kullanım `COPY_ONLY` [el ile yedeklemeler](sql-database-managed-instance-transact-sql-information.md#backup) geçici bir çözüm olarak. |
 | [Ana Veri Hizmetleri (AVH)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Hayır | Hayır |
 | [En az günlük toplu içeri aktarma](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Hayır | Hayır |
 | [Sistem verilerini değiştirme](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Hayır | Evet |

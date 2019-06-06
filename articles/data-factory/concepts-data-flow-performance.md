@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 90c7e4653b879c2432f08506cea08646e84bb69a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297695"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480423"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Eşleme veri akışları performansı ve ayarlama Kılavuzu
 
@@ -29,15 +29,28 @@ Azure Data Factory eşleme veri akışları tasarlama, dağıtma ve uygun ölçe
 
 ![Düğme hata ayıklama](media/data-flow/debugb1.png "hata ayıklama")
 
+## <a name="monitor-data-flow-performance"></a>Veri akışı performansını izleme
+
+Tarayıcıda akış eşleme verilerinizi tasarlama olsa da, birim testi tek tek her dönüştürme altındaki ayarlar bölmesini her dönüştürme için veri Önizleme sekmesine tıklayarak gerçekleştirebilirsiniz. Atmanız gereken sonraki adım, veri akışı için uçtan uca işlem hattı tasarımcısında test sağlamaktır. Bir yürütme veri akışı etkinliği eklemek ve veri akışınız performansını test etmek için hata ayıklama düğmesini kullanın. İşlem hattı penceresinin alt bölmede saydamlaşabilir simge "Eylemler" altında görürsünüz:
+
+![Veri akışı izleme](media/data-flow/mon002.png "veri akışı izleme 2")
+
+Bu simgeye tıklayarak sonraki performans profili, veri akışı ve yürütme planı görüntüler. Veri akışınızı farklı boyutlu veri kaynaklarına karşı performansını tahmin etmek için bu bilgileri kullanabilirsiniz. Küme iş yürütme Kurulum süresi 1 dakika, genel performans hesaplamalarınızda varsayılır ve ' % s'varsayılan Azure Integration Runtime'ı kullanıyorsanız, küme döndürme süresi de 5 dakika eklemeniz gerekebilir unutmayın.
+
+![Veri akışı izleme](media/data-flow/mon003.png "veri akışı izleme 3")
+
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Azure SQL veritabanı ve Azure SQL veri ambarı için en iyi duruma getirme
 
 ![Kaynak bölümü](media/data-flow/sourcepart2.png "kaynak bölümü")
 
-### <a name="you-can-match-spark-data-partitioning-to-your-source-database-partitioning-based-on-a-database-table-column-key-in-the-source-transformation"></a>Spark veri, kaynak veritabanı için bölümlendirme kaynak dönüşümü bir veritabanı tablosu sütunu anahtarında göre eşleşebilir.
+### <a name="partition-your-source-data"></a>Veri bölümleme
 
 * "En"İyileştir gidin ve "Kaynak"'ı seçin. Belirli bir tablo sütunu ya da bir tür bir sorgu ayarlayın.
 * Ardından "sütun" i seçerseniz, bölüm sütunu seçin.
 * Ayrıca, Azure SQL DB için en fazla bağlantı sayısını ayarlayın. Veritabanınıza paralel bağlantıları sağlamak için daha yüksek bir ayar deneyebilirsiniz. Ancak, bazı durumlarda daha hızlı performans bağlantıları sınırlı sayıda ile sonuçlanabilir.
+* Kaynak veritabanı tabloları bölümlenmiş olması gerekmez.
+* Kaynak dönüşümünüzü, veritabanı tablosunun bölümleme düzeni ile eşleşen bir sorgu ayarlama kaynak veritabanı altyapısı'bölüm eleme kullanmasına izin verir.
+* Kaynak zaten bölümlenmiş değil, ADF yine de veri kaynağı dönüşümünde seçtiğiniz anahtarı temel alan Spark dönüşüm ortamında bölümleme kullanın.
 
 ### <a name="set-batch-size-and-query-on-source"></a>Toplu iş boyutu ve sorgu kaynağında ayarlayın
 
@@ -51,7 +64,7 @@ Azure Data Factory eşleme veri akışları tasarlama, dağıtma ve uygun ölçe
 
 ![Havuz](media/data-flow/sink4.png "havuz")
 
-* Veri floes satır tarafından işlenmesini önlemek için Azure SQL DB için havuz ayarları "toplu iş boyutu" ayarlayın. Bu işlem, sağlanan boyutuna göre toplu işlem veritabanına ADF Yazar bildirir.
+* Satır veri akışlarınızı işlenmesini önlemek için Azure SQL DB için havuz ayarları "toplu iş boyutu" ayarlayın. Bu işlem, sağlanan boyutuna göre toplu işlem veritabanına ADF Yazar bildirir.
 
 ### <a name="set-partitioning-options-on-your-sink"></a>Bölümleme havuzunuzu seçeneklerini ayarlayın
 
@@ -84,7 +97,7 @@ Azure Data Factory eşleme veri akışları tasarlama, dağıtma ve uygun ölçe
 
 ### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Polybase aracılığıyla toplu veri yükleme için hazırlık kullanın
 
-* Veri floes satır tarafından işlenmesini önlemek için ADF DW'ye satır ekler önlemek için Polybase yararlanabilir, böylece havuz ayarları "Hazırlama" seçeneğini ayarlayın. Bu, Polybase verilerin toplu olarak yüklenmesi için kullanmak üzere ADF yenilemelerini ister.
+* Satır veri akışlarınızı işlenmesini önlemek için ADF DW'ye satır ekler önlemek için Polybase yararlanabilir, böylece havuz ayarları "Hazırlama" seçeneğini ayarlayın. Bu, Polybase verilerin toplu olarak yüklenmesi için kullanmak üzere ADF yenilemelerini ister.
 * Veri akış etkinliğinizi yürüttüğünüzde hazırlama ile bir işlem hattı açık olduğundan, hazırlama verilerinizi toplu yükleme için Blob Depolama konumu seçmek gerekir.
 
 ### <a name="increase-the-size-of-your-azure-sql-dw"></a>Azure SQL DW boyutunu artırın
@@ -113,4 +126,4 @@ Veri akışı diğer makalelere bakın:
 
 - [Veri akışına genel bakış](concepts-data-flow-overview.md)
 - [Veri akışı etkinliği](control-flow-execute-data-flow-activity.md)
-
+- [Veri akışı performansını izleme](concepts-data-flow-monitoring.md)

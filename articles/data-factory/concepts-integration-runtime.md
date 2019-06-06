@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232417"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427145"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory'deki tümleştirme çalışma zamanı
 Integration Runtime (IR), Azure Data Factory tarafından farklı ağ ortamlarında aşağıdaki veri tümleştirme özelliklerini sunmak için kullanılan işlem altyapısıdır:
@@ -40,7 +40,7 @@ Aşağıdaki tabloda tümleştirme çalışma zamanı türlerinin her birinin su
 
 IR türü | Ortak ağ | Özel ağ
 ------- | -------------- | ---------------
-Azure | Veri Akışı<br/>Veri taşıma<br/>Etkinlik dağıtma | &nbsp;
+Azure | Veri akışı<br/>Veri taşıma<br/>Etkinlik dağıtma | &nbsp;
 Kendinden konak | Veri taşıma<br/>Etkinlik dağıtma | Veri taşıma<br/>Etkinlik dağıtma
 Azure-SSIS | SSIS paketi yürütme | SSIS paketi yürütme
 
@@ -114,11 +114,11 @@ IR Konumu arka uç işleminin konumunu tanımlar ve bu veri taşıma, etkinlik d
 ### <a name="azure-ir-location"></a>Azure IR konumu
 Veri taşıma veya etkinlik başlatmanın gerçekleşmesini istediğiniz bölgeyi Azure IR’nin kesin konumu olarak ayarlayabilirsiniz. 
 
-Varsayılan ayar olan Azure IR’yi otomatik çözümlemeyi seçerseniz, 
+Kullanmayı tercih ederseniz **otomatik Çözümle Azure IR** varsayılan, 
 
 - Kopyalama etkinliğinde ADF, aynı uygun bölgede veya aynı coğrafyadaki en yakın bölgede bulunan en uygun konumu seçmek amacıyla havuzunuzu ve kaynak veri deponuzu otomatik olarak algılamak için veya bunların hiçbiri algılanamıyorsa alternatif olarak veri fabrikası bölgesini kullanmak için özelliklerini en iyi şekilde kullanır.
 
-- Lookup/GetMetadata etkinliğini yürütmek ve dönüşüm etkinliğini göndermek için ADF, veri fabrikası bölgesindeki IR’yi kullanır.
+- GetMetadata/arama/Delete Etkinlik yürütme (diğer adıyla işlem hattı etkinliklerinin), dönüştürme etkinliğine (etkinlikleri dış'olarak da bilinir) dağıtımı ve işlemleri (test bağlantısı, göz atma klasör listesi ve Tablo listesinde, verilerin önizlemesini), yazma için ADF IR data factory bölgede kullanır.
 
 - Veri akışı için ADF IR data factory bölgede kullanır. 
 
@@ -148,7 +148,7 @@ Aşağıdaki şemada Data Factory konum ayarları ve tümleştirme çalışma za
 
 ## <a name="determining-which-ir-to-use"></a>Kullanılacak IR'yi belirleme
 
-### <a name="copy-activity"></a>Etkinliği kopyala
+### <a name="copy-activity"></a>Kopyalama etkinliği
 
 Kopyalama etkinliği için veri akışı yönünü tanımlamak üzere kaynak ve havuz bağlantılı hizmetleri gerektirir. Kopyalama işlemini gerçekleştirmek için kullanılacak olan tümleştirme çalışma zamanı örneğini belirlemek için aşağıdaki mantık kullanılır: 
 

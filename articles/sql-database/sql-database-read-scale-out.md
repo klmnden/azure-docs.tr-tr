@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 1b452fb0bac91429793f8d55e439c36c70784722
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146127"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492715"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Salt okunur çoğaltmalar Yük Dengeleme salt okunur sorgu iş yükleri için kullanın
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 Bir parçası olarak [yüksek kullanılabilirlik mimarisi](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), her bir veritabanı Premium, iş açısından kritik veya hiper ölçekli hizmet katmanında birden fazla ikincil çoğaltma birincil çoğaltma ile otomatik olarak sağlanır. İkincil çoğaltmaları birincil çoğaltması olarak aynı işlem boyutu ile sağlanır. **Okuma ölçeği genişletme** özelliği okuma-yazma çoğaltma paylaşmak yerine kapasitesi salt okunur çoğaltmalarından birini kullanarak yük dengelemeyle SQL veritabanı salt okunur iş yüklerini, sağlar. Bu şekilde salt okunur iş yükü ana okuma-yazma iş yükünden yalıtılmış ve performansını etkilemez. Özelliği, mantıksal olarak ayrı salt okunur gibi iş yüklerini analiz içeren uygulamalar için tasarlanmıştır. Bu ek kapasite olmaksızın kullanarak performans avantajı elde edebilir ek bir maliyet.
 

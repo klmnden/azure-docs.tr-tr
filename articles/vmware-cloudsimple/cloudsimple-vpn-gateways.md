@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa7730247ddc5f30c3d21a32421a6c55ec4ef72e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872759"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496857"
 ---
 # <a name="vpn-gateways-overview"></a>VPN ağ geçitleri genel bakış
 
@@ -37,6 +37,8 @@ Siteden siteye VPN için kullanım örnekleri şunlardır:
 * Özel bulut vCenter'ınıza için şirket içi kaynaklardan kullanışlı aktarım VM şablonları, Iso'lar ve diğer dosyaları.
 * Şirket içi ağınızdan özel bulutunuzda çalışan iş yüklerini erişilebilirliğini.
 
+![Siteden siteye VPN bağlantı topolojisi](media/cloudsimple-site-to-site-vpn-connection.png)
+
 ### <a name="cryptographic-parameters"></a>Şifreleme parametreleri
 
 Siteden siteye VPN bağlantısı, güvenli bir bağlantı kurmak için aşağıdaki varsayılan şifreleme parametreleri kullanır.  Şirket içi VPN CİHAZDAN bir bağlantı oluşturduğunuzda, parametreleriyle aynı olmalıdır.
@@ -52,7 +54,7 @@ Siteden siteye VPN bağlantısı, güvenli bir bağlantı kurmak için aşağıd
 | Karma algoritması| SHA 256 | SHA 256 | SHA 1 |
 | Diffie Hellman grubu (DH grubu) | 1 | 1. | 1 |
 | Yaşam süresi | 28.800 saniye | 28.800 saniye | 28.800 saniye |
-| Veri Boyutu | 4 GB | 4 GB | 4 GB |
+| Veri boyutu | 4 GB | 4 GB | 4 GB |
 
 
 #### <a name="phase-2-proposals"></a>2. Aşama teklifleri 
@@ -63,7 +65,7 @@ Siteden siteye VPN bağlantısı, güvenli bir bağlantı kurmak için aşağıd
 | Karma algoritması| SHA 256 | SHA 256 | SHA 1 |
 | Mükemmel Forward Secrecy grubu (PFS grubu) | None | Yok. | None |
 | Yaşam süresi | 1800 saniye | 1800 saniye | 1800 saniye |
-| Veri Boyutu | 4 GB | 4 GB | 4 GB |
+| Veri boyutu | 4 GB | 4 GB | 4 GB |
 
 ## <a name="point-to-site-vpn-gateway"></a>Noktadan siteye VPN ağ geçidi
 

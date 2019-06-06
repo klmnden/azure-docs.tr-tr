@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 6bfcd11dd6bfd31583fb2d0cd3f4229d3dd70065
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1cc03cbcffc5253e8b357b6702cd21c45740ff81
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65887371"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514500"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) hakkında sık sorulan sorular
 
@@ -66,7 +66,7 @@ Depolama hesapları veya ayrılmış genel IP adresleri gibi bir AKS kümesi ile
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Ben AKS altyapı kaynak grubu için kendi ad verebilir misiniz?
 
-Evet. Varsayılan olarak, AKS kaynak sağlayıcısı otomatik olarak ikincil bir kaynak grubu oluşturur. (gibi *MC_myResourceGroup_myAKSCluster_eastus*) dağıtımı sırasında. Şirket ilkesi ile uyum sağlamak için bu yönetilen kümesi için kendi ad sağlayabilirsiniz (*MC_*) kaynak grubu.
+Evet. Varsayılan olarak, AKS kaynak sağlayıcısı otomatik olarak ikincil bir kaynak grubu oluşturur. (gibi *MC_myResourceGroup_myAKSCluster_eastus*) dağıtımı sırasında. Şirket ilkesi ile uyum sağlamak için bu yönetilen kümesi için kendi ad sağlayabilirsiniz (*MC_* ) kaynak grubu.
 
 Kendi kaynak grubu adı belirtmek için yükleme [aks önizlemesini] [ aks-preview-cli] Azure CLI uzantısı sürüm *0.3.2* veya üzeri. Kullanarak bir AKS kümesi oluşturduğunuzda [az aks oluşturma] [ az-aks-create] komutu, kullanın *--düğümü-resource-group* parametre ve kaynak grubu için bir ad belirtin. Varsa, [bir Azure Resource Manager şablonu kullanma] [ aks-rm-template] bir AKS kümesi dağıtmak için kaynak grubu adını kullanarak tanımlayabilirsiniz *nodeResourceGroup* özelliği.
 
@@ -129,6 +129,10 @@ AKS, yönetilen bir hizmet olduğundan, biz dağıtıp eklentileri ve pod'ların
 
 Kullanıcılar, minimum kılamaz `maxPods` doğrulama.
 
+## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Benim için AKS aracı düğümleri Azure ayırma indirimleri uygulayabilir miyim?
+
+AKS aracı düğümleri, standart Azure sanal makineleri olarak faturalandırılır, satın aldıysanız bunu [Azure ayırmaları] [ reservation-discounts] AKS kullandığınız için VM boyutu, bu indirimlerin oluştuğu otomatik olarak uygulanır.
+
 <!-- LINKS - internal -->
 
 [aks-regions]: ./quotas-skus-regions.md#region-availability
@@ -145,6 +149,7 @@ Kullanıcılar, minimum kılamaz `maxPods` doğrulama.
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 
 <!-- LINKS - external -->
 

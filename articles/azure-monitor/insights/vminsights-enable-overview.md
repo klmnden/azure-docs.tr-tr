@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 76d18b6a942ed9b8c6871b0ff7cbc1c83917ada4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c84c3eb74d214a5c98aabef7b2e2987dfdf67c0f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130476"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472597"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>VM'ler (Önizleme) genel bakış için Azure İzleyicisi'ni etkinleştirme
 
@@ -39,7 +39,8 @@ Başlamadan önce aşağıdaki bölümlerde yer alan bilgiler anladığınızdan
 
 VM'ler için Azure İzleyici, bir Log Analytics çalışma alanı şu bölgelerde destekler:
 
-- Orta Batı ABD
+- Batı Orta ABD
+- Batı ABD 2<sup>1</sup>
 - Doğu ABD
 - Kanada orta<sup>1</sup>
 - UK Güney<sup>1</sup>
@@ -74,7 +75,7 @@ Azure İlkesi, Azure PowerShell veya Azure Resource Manager şablonlarını kull
 
 Aşağıdaki tabloda, VM'ler için Azure İzleyici ile desteklenen Windows ve Linux işletim sistemleri listelenmiştir. Büyük ve küçük Linux işletim sistemi sürüm ayrıntıları ve çekirdek sürümleriyle desteklenen tam listesi daha sonra bu bölümde sağlanır.
 
-|İşletim sistemi sürümü |Performans |Haritalar |Sağlık |
+|İşletim sistemi sürümü |Performans |Haritalar |Durum |
 |-----------|------------|-----|-------|
 |Windows Server 2019 | X | X | X |
 |Windows Server 2016 1803 | X | X | X |

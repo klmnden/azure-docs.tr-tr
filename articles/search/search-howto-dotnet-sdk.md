@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 25a156c4403b7a89f7a7bf7f6acf22fa34216791
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d0921761b565d9e61374bf340f812af4d43f192a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025138"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66426748"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Bir .NET uygulamasından Azure Search kullanma
 
@@ -33,14 +33,14 @@ SDK diğer NuGet paketleri şunlardır:
  
   - `Microsoft.Azure.Search.Data`: Azure Search kullanarak bir .NET uygulaması geliştirmeye devam ediyoruz ve sorgu veya dizinleri belgeleri güncelleştirmek yalnızca ihtiyacınız varsa bu paketi kullanın. Ayrıca oluşturmak veya dizinleri güncelleştirme gerekirse eş anlamlı sözcük eşlemelerini veya diğer hizmet düzeyi kaynakları kullanmak `Microsoft.Azure.Search` bunun yerine paket.
   - `Microsoft.Azure.Search.Service`: Azure Search dizinlerini, eş anlamlı sözcük eşlemelerini, dizin oluşturucular, veri kaynakları veya diğer hizmet düzeyi kaynakları yönetmek için. NET'te Otomasyon geliştiriyorsanız, bu paketi kullanın. Dizinlerinizi içinde sorgu veya güncelleştirme belgelere yalnızca ihtiyacınız varsa `Microsoft.Azure.Search.Data` bunun yerine paket. Azure Search'ün tüm işlevlerine ihtiyacınız varsa, `Microsoft.Azure.Search` bunun yerine paket.
-  - `Microsoft.Azure.Search.Common`: Azure Search .NET kitaplıkları tarafından gereken genel türler. Bu paket, uygulamanızda doğrudan kullanmak gerekmez; Yalnızca, bir bağımlılık olarak kullanılmak üzere tasarlanmıştır.
+  - `Microsoft.Azure.Search.Common`: Azure Search .NET kitaplıkları tarafından gereken genel türler. Bu paket, uygulamanızda doğrudan kullanmak gerekmez. Yalnızca, bir bağımlılık olarak kullanılmak üzere tasarlanmıştır.
 
 Sınıflar gibi çeşitli istemci kitaplıkları tanımlamak `Index`, `Field`, ve `Document`, yanı sıra operations ister `Indexes.Create` ve `Documents.Search` üzerinde `SearchServiceClient` ve `SearchIndexClient` sınıfları. Bu sınıfların şu ad alanlarından düzenlenmiştir:
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
-Geçerli Azure Search .NET SDK'sı sürümü genel kullanıma sunulmuştur. Bir sonraki sürümünde birleştirmek bize geri bildirim sağlamak istiyorsanız, lütfen şu adresi ziyaret bizim [geri bildirim sayfası](https://feedback.azure.com/forums/263029-azure-search/).
+Geçerli Azure Search .NET SDK'sı sürümü genel kullanıma sunulmuştur. Bir sonraki sürümünde birleştirmek öğrenmek bize geri bildirim sağlamak istiyorsanız, bizim [geri bildirim sayfası](https://feedback.azure.com/forums/263029-azure-search/).
 
 .NET SDK'sı sürümünü destekleyen `2017-11-11` , [Azure Search REST API'sine](https://docs.microsoft.com/rest/api/searchservice/). Bu sürüm, artık dizin oluşturucular için artımlı iyileştirme yanı sıra, eş anlamlılar için destek içerir. 
 
@@ -50,7 +50,7 @@ Bu SDK'sı tarafından desteklenmeyen [yönetim işlemlerini](https://docs.micro
 Zaten Azure Search .NET SDK'sı daha eski bir sürümünü kullanıyorsanız ve genel kullanıma sunulan yeni sürüme yükseltmek istiyorsanız [bu makalede](search-dotnet-sdk-migration-version-5.md) açıklar nasıl.
 
 ## <a name="requirements-for-the-sdk"></a>SDK'sı gereksinimleri
-1. Visual Studio 2017.
+1. Visual Studio 2017 veya üstü.
 2. Kendi Azure Search hizmeti. SDK'yı kullanmak için hizmetinizin API anahtarlarını bir veya daha fazla ve adı gerekir. [Portalda hizmet oluşturma](search-create-service-portal.md) Bu adımlarda yardımcı olur.
 3. Azure Search .NET SDK'sını indirin [NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.Search) "NuGet paketlerini Yönet" Visual Studio kullanarak. Paket adı için yalnızca arama `Microsoft.Azure.Search` üzerinde NuGet.org (veya biri diğer işlevlerinin bir alt kümesini yalnızca gerekiyorsa Yukarıdaki adları paketi).
 
@@ -63,7 +63,7 @@ Arama uygulamanız yapmanız gerekir birkaç şey vardır. Bu öğreticide, bu t
 * Belgelerle dizini doldurma
 * Belgeler tam metin arama ve filtreler kullanılarak aranıyor
 
-Aşağıdaki örnek kod, her birini gösterir. Kod parçacıkları, kendi uygulamanızda kullanmaktan çekinmeyin.
+Aşağıdaki örnek kod, bu senaryoların her biri gösterilmektedir. Kod parçacıkları, kendi uygulamanızda kullanmaktan çekinmeyin.
 
 ### <a name="overview"></a>Genel Bakış
 Biz keşfetmeye örnek uygulamayı yeni bir oluşturur "hotels" adlı dizin birkaç belge ile doldurur ve ardından bazı arama sorguları yürütür. Genel akış gösteren eden ana program şöyledir:
@@ -130,7 +130,7 @@ Console.WriteLine("{0}", "Creating index...\n");
 CreateHotelsIndex(serviceClient);
 ```
 
-Sonra dizininin doldurulması gerekir. Bunu yapmak için ihtiyacımız bir `SearchIndexClient`. Bir almanın iki yolu vardır: Bu oluşturmak ya da çağırma `Indexes.GetClient` üzerinde `SearchServiceClient`. İkinci kolaylık sağlamak için kullanırız.
+Sonra dizininin doldurulması gerekir. Dizinini doldurmak için ihtiyacımız bir `SearchIndexClient`. Bir almanın iki yolu vardır: Bu oluşturmak ya da çağırma `Indexes.GetClient` üzerinde `SearchServiceClient`. İkinci kolaylık sağlamak için kullanırız.
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
@@ -141,7 +141,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 > 
 > 
 
-Biz sahip olduğunuza göre bir `SearchIndexClient`, biz dizini doldurabilirsiniz. Bu, size daha sonra size yol gösterir, başka bir yöntem tarafından gerçekleştirilir.
+Biz sahip olduğunuza göre bir `SearchIndexClient`, biz dizini doldurabilirsiniz. Dizin oluşturma işlemi, biz daha sonra size yol gösterir, başka bir yöntem tarafından gerçekleştirilir.
 
 ```csharp
 Console.WriteLine("{0}", "Uploading documents...\n");
@@ -171,7 +171,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 
 Şu dizine yazma erişimi gerekmediği sorgu anahtarını kullanırız. Bu bilgileri girebilirsiniz `appsettings.json` dosya [örnek uygulama](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
-Bu uygulama geçerli bir hizmet adı ve API anahtarları ile çalıştırırsanız, çıkış şöyle görünmelidir:
+Bu uygulama geçerli bir hizmet adı ve API anahtarları ile çalıştırırsanız, çıkış şu örnekteki gibi görünmelidir:
 
     Deleting index...
     
@@ -206,7 +206,7 @@ Uygulamanın tam kaynak kodu, bu makalenin sonunda sağlanır.
 Ardından, biz çağıran yöntemlerin her biri daha yakından bakalım sürer `Main`.
 
 ### <a name="creating-an-index"></a>Dizin oluşturma
-Oluşturduktan sonra bir `SearchServiceClient`, `Main` zaten varsa, "hotels" dizini siler. Aşağıdaki yöntemi tarafından gerçekleştirilir:
+Oluşturduktan sonra bir `SearchServiceClient`, `Main` zaten varsa, "hotels" dizini siler. Silme işlemi, aşağıdaki yöntemi tarafından gerçekleştirilir:
 
 ```csharp
 private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
@@ -247,10 +247,10 @@ Bu yöntem yeni bir oluşturur `Index` nesne listesini `Field` yeni bir dizin ş
 >
 > 
 
-Alanlara ek olarak (Bu örnekteki kısaltma atlanır) dizine da Puanlama profilleri, öneri araçlarını veya CORS seçenekleri ekleyebilirsiniz. Dizin nesne ve onun bağlı bölümlerinde hakkında daha fazla bilgi bulabilirsiniz [SDK başvurusu](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), yanı [Azure Search REST API'si başvurusunda](https://docs.microsoft.com/rest/api/searchservice/).
+Alanlara ek olarak (Bu parametreleri kısaltma örnekten atlanır) dizine da Puanlama profilleri, öneri araçlarını veya CORS seçenekleri ekleyebilirsiniz. Dizin nesne ve onun bağlı bölümlerinde hakkında daha fazla bilgi bulabilirsiniz [SDK başvurusu](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), yanı [Azure Search REST API'si başvurusunda](https://docs.microsoft.com/rest/api/searchservice/).
 
 ### <a name="populating-the-index"></a>Dizini doldurma
-Sonraki adım `Main` yeni oluşturulan dizinini doldurmak için. Bu aşağıdaki yönteminde gerçekleştirilir:
+Sonraki adım `Main` yeni oluşturulan dizinini doldurmak için. Bu dizin oluşturma işlemi aşağıdaki yönteminde gerçekleştirilir:
 
 ```csharp
 private static void UploadDocuments(ISearchIndexClient indexClient)
@@ -325,7 +325,7 @@ Bu yöntem, dört bölümden oluşur. İlk bir dizi oluşturur `Hotel` dizine y�
 > 
 > 
 
-Üçüncü kısmı olan bu yöntem, dizin oluşturma için önemli bir hata durumunu işler bir catch bloğu ' dir. Azure Search hizmetiniz toplu işlemdeki belgelerin bazılarına dizin oluşturmada başarısız olursa `Documents.Index` tarafından bir `IndexBatchException` oluşturulur. Bu durum, hizmetiniz ağır yük altındayken belgelere dizin oluşturuyorsanız oluşabilir. **Bu durumu, kodunuzda açık şekilde işlemenizi kesinlikle öneririz.** Başarısız olan belgelere dizin oluşturmayı geciktirip sonra yeniden deneyebilir veya günlük tutup örneğin devam ettiği şekilde devam edebilir veya uygulamanızın veri tutarlılığı gereksinimlerine bağlı olarak başka bir şey yapabilirsiniz.
+Üçüncü kısmı olan bu yöntem, dizin oluşturma için önemli bir hata durumunu işler bir catch bloğu ' dir. Azure Search hizmetiniz toplu işlemdeki belgelerin bazılarına dizin oluşturmada başarısız olursa `Documents.Index` tarafından bir `IndexBatchException` oluşturulur. Bu durum, hizmetiniz ağır yük altında olsa da, belgelere dizin oluşturuyorsanız oluşabilir. **Bu durumu, kodunuzda açık şekilde işlemenizi kesinlikle öneririz.** Başarısız olan belgelere dizin oluşturmayı geciktirip sonra yeniden deneyebilir veya günlük tutup örneğin devam ettiği şekilde devam edebilir veya uygulamanızın veri tutarlılığı gereksinimlerine bağlı olarak başka bir şey yapabilirsiniz.
 
 > [!NOTE]
 > Kullanabileceğiniz [ `FindFailedActionsToRetry` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) önceki çağrıda başarısız olan eylemleri içeren yeni bir toplu iş oluşturmak için gereken yöntemini `Index`. Düzgün bir şekilde kullanma hakkında ayrıntılı bilgi yok [StackOverflow üzerinde](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
@@ -393,14 +393,14 @@ public partial class Hotel
 }
 ```
 
-Fark edilecek ilk şey her ortak özelliği olan `Hotel` dizin tanımını, ancak çok önemli bir fark bir alana karşılık gelir: Her alanın adı küçük harfle ("ortası büyük harf"), sırasında her bir genel özelliğinin adını başlar `Hotel` büyük harfle ("Pascal harf") başlar. Bu durum, hedef şemanın uygulama geliştiricisinin denetimi dışında kaldığı bir veri bağlamayı gerçekleştiren .NET uygulamalarında ortak bir senaryodur. Özellik adlarını ortası büyük harf yaparak .NET adlandırma yönergelerini bozmanın yerine, `[SerializePropertyNamesAsCamelCase]` özniteliğiyle SDK'nın özellik adlarını otomatik olarak ortası büyük harfle eşlenmesini söyleyebilirsiniz.
+Fark edilecek ilk şey her ortak özelliği olan `Hotel` dizin tanımını, ancak çok önemli bir fark bir alana karşılık gelir: Her alanın adı küçük harfle ("ortası büyük harf"), sırasında her bir genel özelliğinin adını başlar `Hotel` büyük harfle ("Pascal harf") başlar. Bu senaryoda, hedef şemanın uygulama geliştiricisinin denetimi dışında olduğu veri bağlamayı gerçekleştiren .NET uygulamalarında yaygındır. Özellik adlarını ortası büyük harf yaparak .NET adlandırma yönergelerini bozmanın yerine, `[SerializePropertyNamesAsCamelCase]` özniteliğiyle SDK'nın özellik adlarını otomatik olarak ortası büyük harfle eşlenmesini söyleyebilirsiniz.
 
 > [!NOTE]
 > Azure Search .NET SDK'sı, özel model nesnelerinizi JSON'a ve JSON'dan seri hale getirmek ve seri durumdan çıkarmak için [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) kitaplığını kullanır. Gerekirse bu seri hale getirmeyi özelleştirebilirsiniz. Daha fazla bilgi için [JSON.NET ile özel serileştirme](#JsonDotNet).
 > 
 > 
 
-Fark etmeye ikinci şey her ortak özelliği süslemek öznitelikleri olan (gibi `IsFilterable`, `IsSearchable`, `Key`, ve `Analyzer`). Bu öznitelikler doğrudan eşleme [Azure Search dizini karşılık gelen özniteliklerini](https://docs.microsoft.com/rest/api/searchservice/create-index#request). `FieldBuilder` Sınıfı dizini için alan tanımları oluşturmak için bunları kullanır.
+Fark etmeye ikinci şey her ortak özelliği süslemek öznitelikleri olan (gibi `IsFilterable`, `IsSearchable`, `Key`, ve `Analyzer`). Bu öznitelikler doğrudan eşleme [Azure Search dizini karşılık gelen özniteliklerini](https://docs.microsoft.com/rest/api/searchservice/create-index#request). `FieldBuilder` Sınıfı dizini için alan tanımları oluşturmak için bu özellikleri kullanır.
 
 Üçüncü önemli şey hakkında `Hotel` sınıftır genel özelliklerin veri türleri. Bu özelliklerin .NET türleri dizin tanımında eşdeğer alan türleriyle eşlenir. Örneğin, `Category` dize özelliği `Edm.String` türündeki `category` alanına eşlenir. `bool?` ve `Edm.Boolean`, `DateTimeOffset?` ve `Edm.DateTimeOffset`, vb. arasında benzer türde eşlemeler bulunur. Tür eşlemesine yönelik belirli kurallar, [Azure Search .NET SDK başvurusundaki](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get) `Documents.Get` yönteminde belirtilmiştir. `FieldBuilder` Sınıfı bu eşlemenin sizin için üstlenir ancak yine de serileştirme sorunları gidermek gerektiği durumlarda anlamak yararlı olabilir.
 
@@ -424,7 +424,7 @@ Bu nedenle, en iyi uygulama olarak model sınıflarınızda boş değer atanabil
 <a name="JsonDotNet"></a>
 
 #### <a name="custom-serialization-with-jsonnet"></a>JSON.NET ile özel serileştirme
-SDK'sı, seri hale getirme ve belgeleri seri durumundan çıkarma için JSON.NET kullanır. Seri hale getirme özelleştirmek ve tanımlayarak kendi gerekirse seri durumdan çıkarma `JsonConverter` veya `IContractResolver` (bkz [JSON.NET belgeleri](https://www.newtonsoft.com/json/help/html/Introduction.htm) daha fazla ayrıntı için). Uygulamanızın Azure arama ve daha gelişmiş diğer senaryolar ile kullanmak için mevcut bir model sınıfı uyum sağlamak istediğinizde bu yararlı olabilir. Örneğin, özel seri hale getirme ile şunları yapabilirsiniz:
+SDK'sı, seri hale getirme ve belgeleri seri durumundan çıkarma için JSON.NET kullanır. Seri hale getirme özelleştirmek ve tanımlayarak kendi gerekirse seri durumdan çıkarma `JsonConverter` veya `IContractResolver`. Daha fazla bilgi için [JSON.NET belgeleri](https://www.newtonsoft.com/json/help/html/Introduction.htm). Uygulamanızın Azure arama ve daha gelişmiş diğer senaryolar ile kullanmak için mevcut bir model sınıfı uyum sağlamak istediğinizde bu yararlı olabilir. Örneğin, özel seri hale getirme ile şunları yapabilirsiniz:
 
 * Dahil edilecek veya belge alanları depolanan bazı özellikleri model sınıfınızın hariç.
 * Kodunuzdaki özellik adları ve dizininizdeki alan adları arasındaki eşleme.
@@ -433,7 +433,7 @@ SDK'sı, seri hale getirme ve belgeleri seri durumundan çıkarma için JSON.NET
 Github'da Azure Search .NET SDK'sı için birim testleri özel serileştirme uygulama örnekleri bulabilirsiniz. İyi bir başlangıç noktasıdır [bu klasör](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models). Bu, özel serileştirme testler tarafından kullanılan sınıfları içerir.
 
 ### <a name="searching-for-documents-in-the-index"></a>Dizin içindeki belgeler aranıyor
-Örnek uygulama son adımda dizindeki bazı belgeler için arama gerçekleştirmektir. Aşağıdaki yöntem bunu yapar:
+Örnek uygulama son adımda dizindeki bazı belgeler için arama gerçekleştirmektir:
 
 ```csharp
 private static void RunQueries(ISearchIndexClient indexClient)
@@ -492,9 +492,9 @@ private static void RunQueries(ISearchIndexClient indexClient)
 }
 ```
 
-Her bir sorgu yürütür, bu yöntem öncelikle yeni bir oluşturur `SearchParameters` nesne. Bu sorgunun sıralama, filtreleme, sayfalama ve model oluşturma gibi ek seçenekleri belirlemek için kullanılır. Bu yöntemde, biz tutunun `Filter`, `Select`, `OrderBy`, ve `Top` özelliği için farklı sorgular. Tüm `SearchParameters` özellikleri belgelenmiştir [burada](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
+Her bir sorgu yürütür, bu yöntem öncelikle yeni bir oluşturur `SearchParameters` nesne. Bu nesne, sıralama, filtreleme, sayfalama ve modelleme gibi sorgu için ek seçenekleri belirlemek için kullanılır. Bu yöntemde, biz tutunun `Filter`, `Select`, `OrderBy`, ve `Top` özelliği için farklı sorgular. Tüm `SearchParameters` özellikleri belgelenmiştir [burada](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
 
-Arama sorgusu gerçekten yürütülecek sonraki adımdır bakın. Bu yapılır kullanarak `Documents.Search` yöntemi. Her sorgu için bir dize olarak kullanılacak arama metni biz geçirin (veya `"*"` arama metni ise), ayrıca daha önce oluşturduğunuz arama parametreleri. Ayrıca belirttiğimiz `Hotel` tür parametresi için `Documents.Search`, arama sonuçlarındaki belgelerin türündeki nesneleri seri durumdan çıkarılacak SDK söyler `Hotel`.
+Arama sorgusu gerçekten yürütülecek sonraki adımdır bakın. Arama çalıştıran yapılır kullanarak `Documents.Search` yöntemi. Her sorgu için bir dize olarak kullanılacak arama metni biz geçirin (veya `"*"` arama metni ise), ayrıca daha önce oluşturduğunuz arama parametreleri. Ayrıca belirttiğimiz `Hotel` tür parametresi için `Documents.Search`, arama sonuçlarındaki belgelerin türündeki nesneleri seri durumdan çıkarılacak SDK söyler `Hotel`.
 
 > [!NOTE]
 > Arama sorgu ifadesi söz dizimi hakkında daha fazla bilgi bulabilirsiniz [burada](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).

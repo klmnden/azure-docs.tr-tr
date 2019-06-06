@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load data
-ms.date: 04/17/2018
+ms.date: 05/31/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: f1bfd6a9f7b5d6b7622b3fc79848b986172ff746
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1b5af710feb743a30ac4a2af94b6e7e8b6c56595
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240836"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479882"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı’na veri yüklemek için en iyi uygulamalar
 
@@ -102,7 +102,9 @@ Gün boyunca binlerce ekleme yapmanız gerekiyorsa, eklemeleri toplu olarak yük
 
 ## <a name="creating-statistics-after-the-load"></a>Yüklemeden sonra istatistik oluşturma
 
-Sorgu performansını geliştirmek için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra istatistiklerin tüm sütunlarda oluşturulması önemlidir.  İstatistiklerin ayrıntılı bir açıklaması için bkz. [İstatistikler](sql-data-warehouse-tables-statistics.md). Aşağıdaki örnek Customer_Speed tablosunun beş sütununda istatistikler oluşturur.
+Sorgu performansını geliştirmek için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra istatistiklerin tüm sütunlarda oluşturulması önemlidir.  Bu el ile yapılabilir veya etkinleştirebilirsiniz [statustics otomatik olarak oluşturma](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
+
+İstatistiklerin ayrıntılı bir açıklaması için bkz. [İstatistikler](sql-data-warehouse-tables-statistics.md). Aşağıdaki örnek, el ile Customer_Speed tablosunun beş sütunlarda istatistikler oluşturma işlemi gösterilmektedir.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

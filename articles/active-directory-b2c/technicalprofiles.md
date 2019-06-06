@@ -2,20 +2,20 @@
 title: TechnicalProfiles | Microsoft Docs
 description: Azure Active Directory B2C'de özel bir ilke TechnicalProfiles öğesi belirtin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da769093794a559e4b856f7ae4f211c3900632c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f712634c83fa290ab24d5e8437a82d5f93af0b7f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711055"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512291"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -80,12 +80,12 @@ A **TechnicalProfiles** Talep sağlayıcı tarafından desteklenen teknik profil
 
 **TechnicalProfile** aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| Domain | 0:1 | Teknik profil için etki alanı adı. Facebook kimlik sağlayıcısı teknik profilinizi belirtir, örneğin, etki alanı Facebook.com adıdır. |
-| DisplayName | 0:1 | Kullanıcılara görüntülenen teknik profil adı. |
+| Etki Alanı | 0:1 | Teknik profil için etki alanı adı. Facebook kimlik sağlayıcısı teknik profilinizi belirtir, örneğin, etki alanı Facebook.com adıdır. |
+| displayName | 0:1 | Kullanıcılara görüntülenen teknik profil adı. |
 | Açıklama | 0:1 | Kullanıcılara görüntülenen teknik Profil açıklaması. |
-| Protokol | 0:1 | Diğer taraf iletişimi için kullanılan protokol. |
+| Protocol | 0:1 | Diğer taraf iletişimi için kullanılan protokol. |
 | Meta Veriler | 0:1 | Bir işlem sırasında uç noktasıyla iletişim protokolü tarafından kullanılan anahtar/değer çiftleri koleksiyonu. |
 | InputTokenFormat | 0:1 | Giriş belirteci biçimi. Olası değerler: `JSON`, `JWT`, `SAML11`, veya `SAML2`. `JWT` Değeri temsil eden bir JSON Web belirteci IETF belirtimi uyarınca. `SAML11` Değeri OASIS belirtimi uyarınca bir SAML 1.1 güvenlik belirteci temsil eder.  `SAML2` Değeri OASIS belirtimi uyarınca bir SAML 2.0 güvenlik belirteci temsil eder. |
 | OutputTokenFormat | 0:1 | Çıkış belirteci biçimi. Olası değerler: `JSON`, `JWT`, `SAML11`, veya `SAML2`. |
@@ -102,7 +102,7 @@ A **TechnicalProfiles** Talep sağlayıcı tarafından desteklenen teknik profil
 | UseTechnicalProfileForSessionManagement | 0:1 | Oturum yönetimi için kullanılacak farklı bir teknik profili. |
 |EnabledForUserJourneys| 0:1 |Teknik profili bir kullanıcı yolculuğunda yürütülürse denetler.  |
 
-### <a name="protocol"></a>Protokol
+### <a name="protocol"></a>Protocol
 
 **Protokolü** öğesi aşağıdaki öznitelikler içerir:
 
@@ -115,7 +115,7 @@ A **TechnicalProfiles** Talep sağlayıcı tarafından desteklenen teknik profil
 
 A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | Öğe | 0: n | Teknik profiline ilişkili meta verileri. Her teknik profili türü farklı bir meta veri öğeleri kümesi vardır. Daha fazla bilgi için teknik profil türleri bölümüne bakın. |
 
@@ -131,7 +131,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 **CryptographicKeys** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | Anahtar | 1:n | Bu teknik profili içinde kullanılan bir şifreleme anahtarı. |
 
@@ -148,7 +148,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 **InputClaimsTransformations** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1:n | Herhangi bir talep, Talep sağlayıcı veya bağlı olan taraf için gönderilmeden önce yürütülmesi gereken bir talep dönüştürme tanımlayıcısı. Talep dönüştürme mevcut ClaimsSchema talep değiştirmek veya yenilerini oluşturmak için kullanılabilir. |
 
@@ -164,7 +164,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 **InputClaims** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | Inputclaim | 1:n | Beklenen bir giriş talep türü. |
 
@@ -182,7 +182,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 **PersistedClaims** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | Kalıcı hale getirmek için talep türü. |
 
@@ -200,7 +200,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 **OutputClaims** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | outputClaim | 1:n | Beklenen bir çıkış talep türü. |
 
@@ -219,7 +219,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 **OutputClaimsTransformations** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | OutputClaimsTransformation | 1:n | Herhangi bir talep, Talep sağlayıcı veya bağlı olan taraf için gönderilmeden önce yürütülmesi gereken talep dönüştürmeleri tanımlayıcıları. Talep dönüştürme mevcut ClaimsSchema talep değiştirmek veya yenilerini oluşturmak için kullanılabilir. |
 
@@ -235,7 +235,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 **ValidationTechnicalProfiles** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | Kullanılan teknik profiller tanımlayıcıların bazılarını veya tümünü başvuru teknik profili, çıkış talep doğrulayın. Tüm giriş talepleri başvurulan teknik profili, başvuru teknik profili çıkış Taleplerde yer almalıdır. |
 

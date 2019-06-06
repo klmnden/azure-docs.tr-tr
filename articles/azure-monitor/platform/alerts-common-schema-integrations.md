@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: b51b9f08819a4c496e051d375f6d52aaa985c8e6
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 13cb3880662e1665b03dd63f009645acbe97fc75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394139"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734883"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Ortak uyarı şema Logic Apps ile tümleştirme
 
@@ -21,7 +21,7 @@ Bu makalede, tüm uyarıları yönetmek için ortak uyarı şema yararlanan bir 
 
 ## <a name="overview"></a>Genel Bakış
 
-[Ortak uyarı şeması](https://aka.ms/commonAlertSchemaDocs) tüm, farklı uyarı türleri arasında standartlaştırılmış ve Genişletilebilir bir JSON şeması sağlar. Ortak uyarı şema program aracılığıyla – Web kancaları, runbook'ları ve logic apps kullanılabilir olduğunda yararlıdır. Bu makalede, tüm uyarıları yönetmek için tek bir mantıksal uygulama'nın nasıl yazılabilir gösterir. Programlı diğer yöntemler ile aynı ilkeler uygulanabilir. Bu makalede açıklanan mantıksal uygulama için iyi tanımlanmış değişkenler oluşturur ['önemli' alanlar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)ve ayrıca nasıl işleyebileceğini açıklar [uyarı türü]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') belirli mantığı.
+[Ortak uyarı şeması](https://aka.ms/commonAlertSchemaDocs) tüm, farklı uyarı türleri arasında standartlaştırılmış ve Genişletilebilir bir JSON şeması sağlar. Ortak uyarı şema program aracılığıyla – Web kancaları, runbook'ları ve logic apps kullanılabilir olduğunda yararlıdır. Bu makalede, tüm uyarıları yönetmek için tek bir mantıksal uygulama'nın nasıl yazılabilir gösterir. Programlı diğer yöntemler ile aynı ilkeler uygulanabilir. Bu makalede açıklanan mantıksal uygulama için iyi tanımlanmış değişkenler oluşturur ['önemli' alanlar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)ve ayrıca nasıl işleyebileceğini açıklar [uyarı türü](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) belirli mantığı.
 
 
 ## <a name="prerequisites"></a>Önkoşullar 
@@ -125,7 +125,7 @@ Bu makalede okuyucu alışkın olduğu varsayılır.
 
     ![Mantıksal uygulama ifade](media/alerts-common-schema-integrations/logic-app-expressions.png "mantıksal uygulama ifadesi")
     
-     ['MonitoringService' alanı]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') uyarı türü benzersiz olarak tanımlanabilmesi tanır temel üzerinde koşullu mantık oluşturabilirsiniz.
+     ['MonitoringService' alanı](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) uyarı türü benzersiz olarak tanımlanabilmesi tanır temel üzerinde koşullu mantık oluşturabilirsiniz.
 
     
     Örneğin, aşağıdaki kod parçacığını denetler uyarı bir Application Insights tabanlı günlük uyarı ve bu durumda, arama sonuçlarını yazdırır. Aksi takdirde 'NA' yazdırır.

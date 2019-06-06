@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a597ab3519f4ba1696e111622541bcab89488558
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417992"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425420"
 ---
 # <a name="content-key-policies"></a>İçerik Anahtar İlkeleri
 
@@ -35,7 +35,7 @@ Media Services için içerik anahtarı otomatik olarak izin vermek için öneril
 > * Özelliklerini **içerik anahtar ilkeleri** DateTime türü her zaman UTC biçiminde olan.
 > * Medya hizmeti hesabınız için sınırlı sayıda ilkeleri tasarım ve aynı seçeneklere gerektiğinde, akış Bulucuyu için yeniden kullanabilirsiniz. Daha fazla bilgi için [kotaları ve sınırlamaları](limits-quotas-constraints.md).
 
-## <a name="example"></a>Örnek
+### <a name="example"></a>Örnek
 
 Anahtarı almak için kullanın **GetPolicyPropertiesWithSecretsAsync**gösterildiği [mevcut ilkeden bir imzalama anahtarı alma](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) örnek.
 

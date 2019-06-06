@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/05/2019
+ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242288"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734643"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>-Tek bir sunucu PostgreSQL için Azure veritabanı çoğaltmalarını okuyun
 
@@ -60,17 +60,15 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 İstemde, kullanıcı hesabı için parolayı girin.
 
 ## <a name="monitor-replication"></a>İzleyici çoğaltma
-PostgreSQL için Azure veritabanı tarafından sağlanan **arasında en fazla gecikme çoğaltmaları** ölçüm Azure İzleyici'de. Bu ölçüm yalnızca ana sunucu üzerinde kullanılabilir. Ölçüm lag ana çoğu İzolasyonu çoğaltma arasındaki bayt cinsinden gösterir. 
+PostgreSQL için Azure veritabanı çoğaltmasını izleme için iki ölçüm sağlar. İki ölçüm **arasında en fazla gecikme çoğaltmaları** ve **çoğaltma gecikmesi**. Bu ölçümleri görüntüleme hakkında bilgi edinmek için **bir yinelemeyi izlemek** bölümünü [çoğaltma ile ilgili nasıl yapılır makalesi okuma](howto-read-replicas-portal.md).
 
-PostgreSQL için Azure veritabanı'nı da sağlar **çoğaltma gecikmesi** ölçüm Azure İzleyici'de. Bu ölçüm yalnızca çoğaltmalar için kullanılabilir. 
+**Arasında en fazla gecikme çoğaltmaları** ölçüm bayt ana çoğu İzolasyonu çoğaltma arasındaki gecikme gösterir. Bu ölçüm yalnızca ana sunucu üzerinde kullanılabilir.
 
-Ölçüm hesaplandığı `pg_stat_wal_receiver` görüntüle:
+**Çoğaltma gecikmesi** ölçüm son işlem yeniden beri zamanı gösterir. Ölçüm, ana sunucunuz üzerinde gerçekleşen işlem varsa, bu zaman gecikmesini yansıtır. Bu ölçüm yalnızca çoğaltma sunucusu için kullanılabilir. Çoğaltma gecikmesi hesaplanır `pg_stat_wal_receiver` görüntüle:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
-
-Çoğaltma gecikmesi ölçüm yeniden yürütülmüş işlemin son daraltılmasından gösterir. Ölçüm, ana sunucunuz üzerinde gerçekleşen işlem varsa, bu zaman gecikmesini yansıtır.
 
 Çoğaltma gecikmesi, iş yükü için kabul edilebilir olmayan bir değer ulaştığında bildirmek için uyarı ayarlama. 
 

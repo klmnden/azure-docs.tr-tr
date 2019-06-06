@@ -8,16 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e88977cc4d99df176116e6be7d8e06adb6297782
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209572"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497565"
 ---
 # <a name="vlans-and-subnets-overview"></a>VLAN ve alt ağları genel bakış
 
 CloudSimple CloudSimple hizmetinizin dağıtıldığı bölge başına bir ağ sağlar.  Varsayılan olarak etkin yönlendirme ile tek bir TCP Katman 3 adres alanı ağdır.  Tüm özel Bulutlar ve alt ağlar bu bölgede oluşturulan herhangi bir ek yapılandırma birbiriyle iletişim kurabilir.  VLAN'ları kullanarak vCenter dağıtılmış bağlantı noktası grupları oluşturabilirsiniz.
+
+![CloudSimple ağ topolojisi](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>VLAN'ları
 
@@ -35,11 +37,15 @@ Bir yalıtılmış VMware yığınınızın (ESXi konaklarını ve vCenter, Vsan
 
 En düşük vSphere/vSAN alt ağ CIDR aralığı ön eki: **/24** en fazla vSphere/vSAN alt ağ CIDR aralığı ön eki:   **/21**
 
+> [!CAUTION]
+> VSphere/vSAN CIDR aralığında IP adresi, özel bulut altyapısı tarafından kullanım için ayrılmıştır. Herhangi bir sanal makinede bu aralıktaki bir IP adresini kullanmayın.
+
+
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/vSAN alt ağ CIDR aralığı sınırları
 
 VSphere/vSAN alt ağ CIDR aralığı boyutunu seçme, özel bulut boyutuna göre bir etkisi yoktur.  Aşağıdaki tabloda, en fazla vSphere/vSAN alt ağ CIDR boyutuna göre düğüm sayısını gösterir.
 
-| Belirtilen vSphere/vSAN alt ağ CIDR ön ek uzunluğu | En fazla düğüm sayısı |
+| Belirtilen vSphere/vSAN alt ağ CIDR ön ek uzunluğu | Maksimum düğüm sayısı |
 |---------------------------------------------------|-------------------------|
 | /24 | 26 |
 | /23 | 58 |

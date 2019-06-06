@@ -7,16 +7,16 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/25/2019
-ms.custom: seodec18
-ms.openlocfilehash: 3fab76613bb992b29ceeef12cf5f410c5c3b208d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/31/2019
+ms.openlocfilehash: b29f3168b7ecc1ec8f783a7ce7a6dea83318fa14
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205525"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455702"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
+
 Bu makalede, Azure Stream Analytics işi için çıktıların türlerini açıklar. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla.
 
 Stream Analytics sorgunuz tasarlarken kullanarak çıktının adına başvurmak [yan tümcesi içinde](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). İş başına tek bir çıkış veya (gerekiyorsa), birden çok INTO yan tümceleri sorguda sağlayarak iş akışı başına birden çok çıkış kullanabilirsiniz.
@@ -26,28 +26,18 @@ Test Stream Analytics işi oluşturmak ve düzenlemek için çıkışları kulla
 Bazı çıkış türleri desteği [bölümleme](#partitioning). [Çıktı toplu iş boyutu](#output-batch-size) aktarım hızını iyileştirmek için farklılık gösterir.
 
 
-## <a name="azure-data-lake-store"></a>Azure Data Lake Store
-Stream Analytics destekler [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store, büyük veri analizi iş yükleri için bir kuruluş çapında hiper ölçekli depodur. Data Lake Store, herhangi bir boyut, türü ve işletimsel ve keşfe dönük çözümleme için alma hızı verileri depolamak için kullanabilirsiniz. Stream Analytics, Data Lake Store erişim iznine sahip olması gerekir.
+## <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
 
-Stream analytics'ten Azure Data Lake Store çıkışı şu anda Azure Çin (21Vianet) ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
+Stream Analytics destekler [Azure Data Lake depolama Gen 1](../data-lake-store/data-lake-store-overview.md). Azure Data Lake Storage bir büyük veri analizi iş yükleri için kuruluş çapında hiper ölçekli depodur. Data Lake Storage herhangi bir boyut, türü ve işletimsel ve keşfe dönük çözümleme için alma hızı verileri depolamak için kullanabilirsiniz. Stream Analytics, Data Lake Storage erişim iznine sahip olması gerekir.
 
-### <a name="authorize-an-azure-data-lake-store-account"></a>Bir Azure Data Lake Store hesabı yetki
+Stream analytics'ten Azure Data Lake depolama çıkışı şu anda Azure Çin (21Vianet) ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
 
-1. Azure Portalı'ndaki bir çıkış olarak Data Lake Store seçtiğinizde, var olan Data Lake Store örneğine bir bağlantı yetkilendirme istenir.
-
-   ![Data Lake Store için bir bağlantı yetkilendirme](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
-
-2. Data Lake Store için zaten erişimi varsa seçin **şimdi Yetkilendir**. Bir sayfa açılır ve gösterir **yetkilendirme için yeniden yönlendirme**. Yetkilendirme başarılı olduktan sonra Data Lake Store çıkış yapılandırmanıza olanak tanıyan sayfası gösterilir.
-
-3. Kimliği doğrulanmış Data Lake Store hesabı oluşturduktan sonra Data Lake Store çıkışınızı özelliklerini yapılandırabilirsiniz.
-
-   ![Stream Analytics çıktı olarak Data Lake Store tanımlayın](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)
-
-Özellik adları ve açıklamaları, Data Lake Store çıkış yapılandırmak için aşağıdaki tabloda listelenmektedir.   
+Özellik adları ve açıklamaları, Data Lake depolama Gen 1 çıkışınızı yapılandırmak için aşağıdaki tabloda listelenmektedir.   
 
 | Özellik adı | Açıklama |
 | --- | --- |
 | Çıktı diğer adı | Sorgular, Data Lake Store sorgu çıkışı yönlendirmek için kullanılan kolay bir ad. |
+| Abonelik | Azure Data Lake Storage hesabını içeren aboneliği. |
 | Hesap adı | Çıkış burada gönderiyorsanız Data Lake Store hesabının adıdır. Aşağı açılan listesini aboneliğinizde mevcut bir Data Lake Store hesapları ile sunulur. |
 | Yol ön eki deseni | Belirtilen Data Lake Store hesabındaki dosyaları yazmak için kullanılan dosya yolu. {Değişkenleri time} ve {date} bir veya daha fazla örneğini belirtin:<br /><ul><li>Örnek 1: klasör1/günlükler / {tarih} / {time}</li><li>Örnek 2: klasör1/günlükler / {tarih}</li></ul><br />Oluşturulan klasör yapısını zaman damgasını UTC ve yerel saat izler.<br /><br />Dosya yolu deseni sonunda eğik çizgi (/) içermiyorsa, son deseni dosya yolunda dosya adı ön eki olarak kabul edilir. <br /><br />Bu durumlarda, yeni dosyalar oluşturulur:<ul><li>Çıkış şemayı değiştirme</li><li>Harici veya dahili bir işi yeniden başlatın.</li></ul> |
 | Tarih biçimi | İsteğe bağlı. Ön ek yolu tarih belirteci kullandıysanız, dosyalarınızı düzenlenmiş tarih biçimi seçebilirsiniz. Örnek: YYYY/AA/GG |
@@ -55,25 +45,11 @@ Stream analytics'ten Azure Data Lake Store çıkışı şu anda Azure Çin (21Vi
 | Olay serileştirme biçimi | Çıktı verilerini seri hale getirme biçimi. JSON, CSV ve Avro desteklenir.|
 | Encoding | CSV veya JSON biçimi kullanıyorsanız, bir kodlama belirtilmelidir. Şu anda desteklenen tek kodlama biçimi UTF-8'dir.|
 | Sınırlayıcı | Yalnızca CSV serileştirme için geçerlidir. Stream Analytics, CSV verileri seri hale getirme için birkaç ortak sınırlayıcıları destekler. Desteklenen değerler şunlardır: virgülle, noktalı virgül, boşluk, sekme ve dikey çubuk.|
-| Biçimlendir | Yalnızca JSON serileştirmesi için geçerlidir. **Ayrılmış çizgi** çıktı yeni satırla ayrılmış her bir JSON nesnesi sağlanarak biçimlendirileceğini belirtir. **Dizi** çıkış bir JSON nesne dizisi biçimlendirileceğini belirtir. Yalnızca sonraki zaman penceresine işini durdurur veya Stream Analytics taşınmıştır, bu dizi kapatıldı. Genel olarak, çıktı dosyası için hala yazıldığı sırada herhangi bir özel işlem gerektirmez çünkü satır ayrılmış JSON, kullanılacak tercih edilir.|
-
-### <a name="renew-data-lake-store-authorization"></a>Data Lake Store yetkilendirmeyi Yenile
-İşinizi oluşturulduğu veya en son kimlik doğrulaması parolasını değişmişse Data Lake Store hesabınızı yeniden kimlik doğrulamaya zorlayabilir gerekir. Sağlamalarını yoksa, iş çıktısı sonuçlar üretmez ve yapılan işlem günlüklerinde gereksinimini belirten bir hata gösterir. 
-
-Şu anda, kimlik doğrulama belirteci 90 günde bir Data Lake Store çıkış olan tüm işler için el ile yenilenmesi gerekiyor. Bu sınırlama tarafından üstesinden gelebilir [yönetilen kimlikleri (Önizleme) ile kimlik doğrulaması](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
-
-Yetkilendirmeyi yenilemek için:
-
-1. Seçin **Durdur** işinizi durdurmak için.
-1. Gidin, Data Lake Store için çıktı ve seçin **yetkilendirmeyi yenilemek** bağlantı.
-
-   Kısa bir süre için bir açılır sayfa gösteren **yetkilendirme için yeniden yönlendirme**. Yetkilendirme başarılı olursa sayfasını gösteren **yetkilendirme başarıyla yenilendi** ve otomatik olarak kapanır. 
-   
-1. Seçin **Kaydet** sayfanın alt kısmındaki. Ardından, işten yeniden başlatabilirsiniz **son durduruldu zamanı** veri kaybını önlemek için.
-
-![Çıkış, Data Lake Store yetkilendirmeyi Yenile](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)
+| Biçimi | Yalnızca JSON serileştirmesi için geçerlidir. **Ayrılmış çizgi** çıktı yeni satırla ayrılmış her bir JSON nesnesi sağlanarak biçimlendirileceğini belirtir. **Dizi** çıkış bir JSON nesne dizisi biçimlendirileceğini belirtir. Yalnızca sonraki zaman penceresine işini durdurur veya Stream Analytics taşınmıştır, bu dizi kapatıldı. Genel olarak, çıktı dosyası için hala yazıldığı sırada herhangi bir özel işlem gerektirmez çünkü satır ayrılmış JSON, kullanılacak tercih edilir.|
+| Kimlik doğrulaması modu | Data Lake Storage kullanarak hesabınızda erişim yetkisi vermek [yönetilen kimliği](stream-analytics-managed-identities-adls.md) veya kullanıcı belirteci. Erişim sağladıktan sonra kullanıcı hesabı parolasını değiştirme, bu iş için Data Lake Storage çıkış siliniyor veya Stream Analytics işi silme erişimi iptal edebilirsiniz. |
 
 ## <a name="sql-database"></a>SQL Veritabanı
+
 Kullanabileceğiniz [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) kendiliğinden ilişkisel veriler veya ilişkisel bir veritabanında barındırılan içeriğe bağlı uygulamalar çıktı olarak. SQL veritabanı'nda var olan bir tablo için Stream Analytics işlerini yazma. Tablo şemasını, alanları ve bunların türlerini işinizin çıktısında tam olarak eşleşmelidir. Ayrıca belirtebileceğiniz [Azure SQL veri ambarı](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) aracılığıyla SQL veritabanı çıktı olarak çıkış seçeneği. Yazma aktarım hızını iyileştirmek için yollar hakkında bilgi edinmek için [çıktı olarak Azure SQL veritabanı ile Stream Analytics](stream-analytics-sql-output-perf.md) makalesi. 
 
 Aşağıdaki tabloda özellik adları ve SQL veritabanı çıktı oluşturmak için bunların açıklaması listelenmektedir.
@@ -90,11 +66,11 @@ Aşağıdaki tabloda özellik adları ve SQL veritabanı çıktı oluşturmak i�
 |Eşleşme toplu iş sayısı| Önerilen sınır gönderilen her toplu ile kayıtlarının sayısı üzerinde işlem ekleyin.|
 
 > [!NOTE]
-> Şu anda Azure SQL veritabanı teklifi, Stream Analytics işi çıktısında için desteklenir. Eklenen bir veritabanı ile SQL Server çalıştıran bir Azure sanal makine desteklenmiyor. Gelecekteki sürümlerde değişebilir budur.
->
+> Stream Analytics, ancak bir Azure sanal makinesinde çalışan SQL Server veritabanını bağlı ile desteklenmeyen çıktısını bir iş için desteklenen sunan Azure SQL veritabanı.
 
 ## <a name="blob-storage"></a>Blob depolama
-Azure Blob Depolama, bulutta büyük miktarda yapılandırılmamış veriyi depolamak için uygun maliyetli ve ölçeklenebilir bir çözüm sunar. Blob Depolama ve bunun kullanımını giriş için bkz [BLOB'ları kullanmayı](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+
+Azure Blob Depolama, bulutta büyük miktarda yapılandırılmamış veriyi depolamak için uygun maliyetli ve ölçeklenebilir bir çözüm sunar. Blob Depolama ve bunun kullanımını giriş için bkz [karşıya yükleme, indirme ve Azure portalı ile blobları listeleme](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 Özellik adları ve açıklamalarının bir blob çıktı oluşturmak için aşağıdaki tabloda listelenmektedir.
 
@@ -110,7 +86,7 @@ Azure Blob Depolama, bulutta büyük miktarda yapılandırılmamış veriyi depo
 | Olay serileştirme biçimi | Çıkış verileri seri hale getirme biçimi. JSON, CSV ve Avro desteklenir. |
 | Encoding    | CSV veya JSON biçimi kullanıyorsanız, bir kodlama belirtilmelidir. Şu anda desteklenen tek kodlama biçimi UTF-8'dir. |
 | Sınırlayıcı   | Yalnızca CSV serileştirme için geçerlidir. Stream Analytics, CSV verileri seri hale getirme için birkaç ortak sınırlayıcıları destekler. Desteklenen değerler şunlardır: virgülle, noktalı virgül, boşluk, sekme ve dikey çubuk. |
-| Biçimlendir      | Yalnızca JSON serileştirmesi için geçerlidir. **Ayrılmış çizgi** çıktı yeni satırla ayrılmış her bir JSON nesnesi sağlanarak biçimlendirileceğini belirtir. **Dizi** çıkış bir JSON nesne dizisi biçimlendirileceğini belirtir. Yalnızca sonraki zaman penceresine işini durdurur veya Stream Analytics taşınmıştır, bu dizi kapatıldı. Genel olarak, çıktı dosyası için hala yazıldığı sırada herhangi bir özel işlem gerektirmez çünkü satır ayrılmış JSON, kullanılacak tercih edilir. |
+| Biçimi      | Yalnızca JSON serileştirmesi için geçerlidir. **Ayrılmış çizgi** çıktı yeni satırla ayrılmış her bir JSON nesnesi sağlanarak biçimlendirileceğini belirtir. **Dizi** çıkış bir JSON nesne dizisi biçimlendirileceğini belirtir. Yalnızca sonraki zaman penceresine işini durdurur veya Stream Analytics taşınmıştır, bu dizi kapatıldı. Genel olarak, çıktı dosyası için hala yazıldığı sırada herhangi bir özel işlem gerektirmez çünkü satır ayrılmış JSON, kullanılacak tercih edilir. |
 
 Çıktı olarak Blob Depolama kullanırken, aşağıdaki durumlarda BLOB yeni bir dosya oluşturulur:
 
@@ -124,6 +100,7 @@ Azure Blob Depolama, bulutta büyük miktarda yapılandırılmamış veriyi depo
 * Çıktı tarafından bölümlendiğinde ise burada bölüm anahtarı kardinalite özel bir alan 8000 aşıyor ve bölüm anahtarı yeni bir blob oluşturulur.
 
 ## <a name="event-hubs"></a>Event Hubs
+
 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) hizmetidir yüksek düzeyde ölçeklenebilir Yayımla-abone ol olay yutucu. Bu, saniye başına milyonlarca olayı toplayabilirsiniz. Stream Analytics iş çıktısını başka bir iş akışında girişi olduğunda bir olay hub'ının çıktı olarak kullanılır.
 
 Çıkış olarak event hubs'tan veri akışlarını yapılandırmanız için birkaç parametre ihtiyacınız vardır.
@@ -139,27 +116,16 @@ Azure Blob Depolama, bulutta büyük miktarda yapılandırılmamış veriyi depo
 | Olay serileştirme biçimi | Çıktı verilerini seri hale getirme biçimi. JSON, CSV ve Avro desteklenir. |
 | Encoding | CSV ve JSON, UTF-8 şu anda desteklenen tek kodlama biçimi içindir. |
 | Sınırlayıcı | Yalnızca CSV serileştirme için geçerlidir. Akış Analizi, CSV biçiminde verilerin serileştirilmesi için yaygın olarak kullanılan bazı sınırlayıcıları destekler. Desteklenen değerler şunlardır: virgülle, noktalı virgül, boşluk, sekme ve dikey çubuk. |
-| Biçimlendir | Yalnızca JSON serileştirmesi için geçerlidir. **Ayrılmış çizgi** çıktı yeni satırla ayrılmış her bir JSON nesnesi sağlanarak biçimlendirileceğini belirtir. **Dizi** çıkış bir JSON nesne dizisi biçimlendirileceğini belirtir. Yalnızca sonraki zaman penceresine işini durdurur veya Stream Analytics taşınmıştır, bu dizi kapatıldı. Genel olarak, çıktı dosyası için hala yazıldığı sırada herhangi bir özel işlem gerektirmez çünkü satır ayrılmış JSON, kullanılacak tercih edilir. |
+| Biçimi | Yalnızca JSON serileştirmesi için geçerlidir. **Ayrılmış çizgi** çıktı yeni satırla ayrılmış her bir JSON nesnesi sağlanarak biçimlendirileceğini belirtir. **Dizi** çıkış bir JSON nesne dizisi biçimlendirileceğini belirtir. Yalnızca sonraki zaman penceresine işini durdurur veya Stream Analytics taşınmıştır, bu dizi kapatıldı. Genel olarak, çıktı dosyası için hala yazıldığı sırada herhangi bir özel işlem gerektirmez çünkü satır ayrılmış JSON, kullanılacak tercih edilir. |
 | Özellik sütunları | İsteğe bağlı. Giden iletinin yükü yerine özellikleri kullanıcı olarak eklenmesi gereken virgülle ayrılmış sütun. Bu özellik hakkında daha fazla bilgi bölümündedir [çıkışı için özel meta veri özelliklerini](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI
+
 Kullanabileceğiniz [Power BI](https://powerbi.microsoft.com/) için analiz sonuçları için bir zengin görselleştirme deneyiminin sunulabilmesi için bir Stream Analytics işi çıktı olarak. İşletimsel panolar, rapor oluşturma ve ölçüm temelli raporlama için bu özelliği kullanabilirsiniz.
 
 Stream Analytics'ten alınan Power BI çıkışı şu anda Azure Çin (21Vianet) ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
 
-### <a name="authorize-a-power-bi-account"></a>Power BI hesabı yetki
-1. Power BI, Azure Portalı'ndaki bir çıkış olarak seçildiğinde, varolan bir Power BI kullanıcı yetkilendirmek için veya yeni bir Power BI hesabı oluşturmanız istenir.
-   
-   ![Çıkış yapılandırmak için bir Power BI kullanıcı yetkilendirmek](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
-
-2. Yoksa henüz yoksa, ve ardından yeni bir hesap oluşturun **şimdi Yetkilendir**. Aşağıdaki sayfa açılır:
-   
-   ![Azure hesabınızdan Power BI'da kimlik doğrulaması](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)
-
-3. Power BI çıkışına yetkisi vermek için iş veya Okul hesabı sağlayın. Henüz Power BI için oturumunuz, seçin **şimdi kaydolun**. Power BI için kullandığınız iş veya Okul hesabı ile artık oturum açmadıysanız Azure aboneliği hesabından farklı olabilir.
-
-### <a name="configure-the-power-bi-output-properties"></a>Power BI çıktı özelliklerini yapılandırma
-Power BI hesabı kimlik doğrulaması yaptıktan sonra Power BI çıkışınızı özelliklerini yapılandırabilirsiniz. Özellik adları ve açıklamaları, Power BI çıkışına yapılandırmak için aşağıdaki tabloda listelenmektedir.
+Özellik adları ve açıklamaları, Power BI çıkışına yapılandırmak için aşağıdaki tabloda listelenmektedir.
 
 | Özellik adı | Açıklama |
 | --- | --- |
@@ -167,8 +133,9 @@ Power BI hesabı kimlik doğrulaması yaptıktan sonra Power BI çıkışınız�
 | Grup çalışma alanı |Diğer Power BI kullanıcıları ile veri paylaşımını etkinleştirmek için Power BI hesabınızda içinde grupları seçebilir veya seçin **çalışma Alanım** grubuna yazma istemiyorsanız. Mevcut bir grubu güncelleştiriliyor, Power BI kimlik doğrulaması yenileme gerektirir. |
 | Veri kümesi adı |Power BI çıkışına kullanmak istediğiniz bir veri kümesi adı belirtin. |
 | Tablo adı |Power BI çıkış veri kümesi altında bir tablo adı sağlayın. Şu anda Power BI çıkışına Stream Analytics işlerine bir veri kümesinde yalnızca bir tabloya sahip olabilir. |
+| Bağlantı Yetkilendirme | Çıkış ayarlarınızı yapılandırmak için Power BI ile yetkilendirilmesi gerekir. Bu çıkış, Power BI panonuza erişim sonra kullanıcı hesabı parolasını değiştirme, iş çıktısı siliniyor veya Stream Analytics işi silme erişimi iptal edebilirsiniz. | 
 
-Power BI çıkışına ve Pano yapılandırma yönergeleri için bkz [Azure Stream Analytics ve Power BI](stream-analytics-power-bi-dashboard.md) makalesi.
+Power BI çıkışına ve Pano yapılandırma yönergeleri için bkz [Azure Stream Analytics ve Power BI](stream-analytics-power-bi-dashboard.md) öğretici.
 
 > [!NOTE]
 > Açıkça tablo ve veri kümesini Power BI panosunda oluşturmayın. Tablo ve veri kümesi otomatik olarak iş başlatıldığında ve iş parçacıklarının çıkış Power BI'a başlar doldurulur. İş sorgusu hiçbir sonuç oluşturmaz, tablo ve veri kümesi oluşturulmaz. Power BI veri kümesi ve bu Stream Analytics işinde sağlanan adla aynı ada sahip bir tablo zaten varsa, mevcut verilerin üzerine yazılır.
@@ -203,19 +170,10 @@ Stream Analytics, olay çıktıdaki ilk kümesini göre veri modeli şemayı alg
 Int64 | Int64 | Dize | Dize | çift
 çift | çift | Dize | Dize | çift
 Dize | Dize | Dize | Dize | Dize 
-Tarih saat | Dize | Dize |  Tarih saat | Dize
-
-
-### <a name="renew-power-bi-authorization"></a>Power BI yetkilendirmeyi Yenile
-Stream Analytics işinizi oluşturulduğu veya en son kimlik doğrulaması sonra Power BI hesabınızın parolasını değiştirirse, Stream Analytics yeniden kimlik doğrulamaya zorlayabilir gerekir. Azure multi-Factor Authentication, Azure Active Directory (Azure AD) kiracınız yapılandırılmışsa, ayrıca Power BI yetkilendirme iki haftada yenilemeniz gerekir. Bu sorunun belirtisi, hiçbir iş çıktısının ve bir "kimliği doğrula kullanıcı hatası" işlem günlüklerinde verilmiştir:
-
-  ![Power BI kimlik doğrulaması, kullanıcı hatası](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)
-
-Bu sorunu çözmek için çalışan işini durdurma ve Power BI çıkışınızı gidin. Seçin **yetkilendirmeyi yenilemek** bağlantı ve iş öğesinden yeniden **son durduruldu zamanı** veri kaybını önlemek için.
-
-  ![Çıkış için Power BI yetkilendirmeyi Yenile](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)
+Tarih saat | Dize | Dize |  Tarih saat | String
 
 ## <a name="table-storage"></a>Table Storage
+
 [Azure tablo depolama](../storage/common/storage-introduction.md) yüksek oranda kullanılabilir ve ölçeklenebilir depolama sunar, böylece uygulamanın kullanıcı talebi karşılamak üzere otomatik olarak ölçeklendirebilirsiniz. Tablo, daha az şema kısıtlamaları olan yapılandırılmış veriler için kullanabileceğiniz Microsoft'un NoSQL anahtar/öznitelik deposu depolamadır. Azure tablo depolama, Kalıcılık ve verimli alma verilerini depolamak için kullanılabilir.
 
 Özellik adları ve açıklamalarının bir tablo çıktı oluşturmak için aşağıdaki tabloda listelenmektedir.
@@ -231,7 +189,8 @@ Bu sorunu çözmek için çalışan işini durdurma ve Power BI çıkışınız�
 | Toplu işlem boyutu |Bir toplu işlem için kayıt sayısı. Varsayılan değer (100) çoğu işleri için yeterli olur. Bkz: [tablo toplu işlem spec](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) bu ayarı değiştirme hakkında daha fazla ayrıntı için. |
 
 ## <a name="service-bus-queues"></a>Service Bus kuyrukları
-[Service Bus kuyruklarını](https://msdn.microsoft.com/library/azure/hh367516.aspx) bir veya birden çok rakip tüketiciye bir FIFO mesaj teslimatı sağlar. Genellikle, iletiler alınan ve zamana bağlı kuyruğa eklendikleri sırayla alıcılar tarafından işlenebilir. Her bir ileti alındı ve yalnızca bir ileti tüketicisi tarafından alınıp.
+
+[Service Bus kuyruklarını](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) bir veya birden çok rakip tüketiciye bir FIFO mesaj teslimatı sağlar. Genellikle, iletiler alınan ve zamana bağlı kuyruğa eklendikleri sırayla alıcılar tarafından işlenebilir. Her bir ileti alındı ve yalnızca bir ileti tüketicisi tarafından alınıp.
 
 Özellik adları ve açıklamalarının bir kuyruk çıkış oluşturmak için aşağıdaki tabloda listelenmektedir.
 
@@ -245,7 +204,7 @@ Bu sorunu çözmek için çalışan işini durdurma ve Power BI çıkışınız�
 | Olay serileştirme biçimi |Çıktı verilerini seri hale getirme biçimi. JSON, CSV ve Avro desteklenir. |
 | Encoding |CSV ve JSON, UTF-8 şu anda desteklenen tek kodlama biçimi içindir. |
 | Sınırlayıcı |Yalnızca CSV serileştirme için geçerlidir. Akış Analizi, CSV biçiminde verilerin serileştirilmesi için yaygın olarak kullanılan bazı sınırlayıcıları destekler. Desteklenen değerler şunlardır: virgülle, noktalı virgül, boşluk, sekme ve dikey çubuk. |
-| Biçimlendir |Yalnızca JSON türü için geçerlidir. **Ayrılmış çizgi** çıktı yeni satırla ayrılmış her bir JSON nesnesi sağlanarak biçimlendirileceğini belirtir. **Dizi** çıkış bir JSON nesne dizisi biçimlendirileceğini belirtir. |
+| Biçimi |Yalnızca JSON türü için geçerlidir. **Ayrılmış çizgi** çıktı yeni satırla ayrılmış her bir JSON nesnesi sağlanarak biçimlendirileceğini belirtir. **Dizi** çıkış bir JSON nesne dizisi biçimlendirileceğini belirtir. |
 | Özellik sütunları | İsteğe bağlı. Giden iletinin yükü yerine özellikleri kullanıcı olarak eklenmesi gereken virgülle ayrılmış sütun. Bu özellik hakkında daha fazla bilgi bölümündedir [çıkışı için özel meta veri özelliklerini](#custom-metadata-properties-for-output). |
 
 Bölüm sayısı [Service Bus SKU ve boyutuna bağlı olarak](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı, her bölüm için benzersiz bir tamsayı değerdir.

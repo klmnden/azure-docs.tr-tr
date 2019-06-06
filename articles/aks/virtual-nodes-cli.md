@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 7631a2d6aef2efedf30c0b9015913c89949d4c29
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506954"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742782"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Oluşturma ve Azure CLI kullanarak sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesi yapılandırma
 
@@ -69,6 +69,7 @@ Sanal düğümler işlevleri ACI'ın özellik kümesi üzerinde bağımlılığa
 * [Konak diğer adları](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Bağımsız değişkenler](../container-instances/container-instances-exec.md#restrictions) ACI içindeki exec için
 * [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) pod'ların sanal düğüme dağıtma
+* [Windows Server düğümleri (şu anda önizlemede aks'deki)](windows-container-cli.md) yanı sıra sanal düğümler desteklenmez. Sanal düğümler, bir AKS kümesindeki düğümler Windows Server gerek kalmadan Windows Server kapsayıcıları zamanlamak için kullanabilirsiniz.
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
 
@@ -78,7 +79,7 @@ Cloud Shell'i açmak için seçmeniz **deneyin** bir kod bloğunun sağ üst kö
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz, bu makalede Azure CLI Sürüm 2.0.49 gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur. [az group create][az-group-create] komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *westus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
@@ -86,7 +87,7 @@ Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği man
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-a-virtual-network"></a>Sanal ağ oluştur
+## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
 Kullanarak bir sanal ağ oluşturma [az ağ sanal ağ oluşturma] [ az-network-vnet-create] komutu. Aşağıdaki örnek, bir sanal ağ adı oluşturur *myVnet* bir adres ön eki ile *10.0.0.0/8*ve adlı bir alt ağ *myAKSSubnet*. Varsayılan olarak bu alt ağ adres ön eki *10.240.0.0/16*:
 
@@ -280,7 +281,7 @@ Yükleme `curl` pod kullanarak `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Artık erişim pod kullanmanın adresi `curl`, gibi *http://10.241.0.4*. Önceki gösterilen kendi iç IP adresi verin `kubectl get pods` komutu:
+Artık erişim pod kullanmanın adresi `curl`, gibi *http://10.241.0.4* . Önceki gösterilen kendi iç IP adresi verin `kubectl get pods` komutu:
 
 ```console
 curl -L http://10.241.0.4

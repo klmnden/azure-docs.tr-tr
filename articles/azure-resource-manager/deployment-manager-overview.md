@@ -1,23 +1,18 @@
 ---
 title: Azure Deployment Manager bölgeye - güvenli dağıtım uygulamalarını
 description: Azure Deployment Manager ile pek çok bölge üzerinde bir hizmet dağıtmayı açıklar. Bu, tüm bölgelere sunulmadan önce dağıtımınızı kararlılığını doğrulamak için güvenli dağıtım uygulamalarını gösterir.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/13/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595794"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431160"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure Deployment Manager (genel Önizleme) ile güvenli dağıtım uygulamalarını etkinleştirme
 
@@ -25,7 +20,7 @@ Birçok bölgede hizmetinizi dağıtmadan ve her bölgede beklendiği gibi çal�
 
 Dağıtım Yöneticisi Kaynak Yöneticisi'nin bir özelliktir. Bu, dağıtım sırasında yeteneklerinizi genişletir. Karmaşık bir servis olduğunda Dağıtım Yöneticisi'ni kullanın, çeşitli bölgelere dağıtılması gerekiyor. Hizmetinizi aşamalı kullanıma sunarak, tüm bölgelere dağıtılmadan önce olası sorunları bulabilirsiniz. Aşamalı dağıtım, ek güvenlik önlemleri gerekmiyorsa, standart kullanma [dağıtım seçenekleri](resource-group-template-deploy-portal.md) için Resource Manager. Dağıtım Yöneticisi, sürekli tümleştirme ve sürekli teslim (CI/CD) teklifleri gibi Resource Manager dağıtımlarını destekleyen tüm mevcut üçüncü taraf araçları sorunsuzca tümleştirilir. 
 
-Azure Dağıtım Yöneticisi özel önizleme aşamasındadır. Azure Deployment Manager'ı için tamamlayın [kayıt formunu](https://aka.ms/admsignup). Yardım sağlayarak özelliği geliştirmek [geri bildirim](https://aka.ms/admfeedback).
+Azure Deployment Manager Önizleme aşamasındadır. Özellik sağlayarak geliştirmemize yardımcı olun [geri bildirim](https://aka.ms/admfeedback).
 
 Deployment Manager'ı kullanmak için dört dosyaları oluşturmak gerekir:
 

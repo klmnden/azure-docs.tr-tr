@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c49a639c0426b4535c4c2e88d36d447c10826f1
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416697"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730693"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -82,6 +82,9 @@ Hayır, Azure Disk şifrelemesi yalnızca takılan birimler şifreler.
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Nasıl miyim gizli dizileri veya şifreleme anahtarlarını döndürme?
 
 İlk disk şifrelemeyi etkinleştirmek için kullanılan komutla aynı çağrı gizli dizileri döndürmek için farklı bir Key Vault belirtme. Anahtar şifreleme anahtarı döndürmek için ilk olarak disk şifrelemeyi etkinleştirmek için yeni anahtar şifreleme belirtme kullanılan aynı komut çağırın. 
+
+>[!WARNING]
+> - Daha önce kullandıysanız [Azure AD uygulaması ile Azure Disk şifrelemesi](azure-security-disk-encryption-prerequisites-aad.md) bu sanal Makineyi şifrelemek için Azure AD kimlik belirterek devam gerekecektir VM'nizi şifrelemek için bu seçeneği kullanın. Kullanamazsınız [Azure Disk şifrelemesi](azure-security-disk-encryption-prerequisites.md) bu desteklenen bir senaryo değildir gibi şifrelenmiş bu VM üzerinde bu VM şifreli için AAD uygulaması uzağa anlamı geçiş henüz desteklenmiyor.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Nasıl eklerim veya kullanırsanız başlangıçta alamadık, anahtar şifreleme anahtarı Kaldır?
 

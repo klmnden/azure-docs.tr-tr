@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.openlocfilehash: 622261d0f7e602635aa6a638357278a9c63a6ecd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.date: 06/03/2019
+ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990507"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479270"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight kümeleri ölçeklendirme
 
@@ -34,7 +34,7 @@ Microsoft kümeleri ölçeklendirmek için aşağıdaki yardımcı programların
 |[Azure CLI](hdinsight-administer-use-command-line.md)|Azure hdınsight küme boyutlandırma \<clusterName > \<hedef örnek sayısı > |
 |[Azure portal](https://portal.azure.com)|HDInsight kümesi bölmenizi açın, **küme boyutu** sol taraftaki menüden, sonra küme boyutu bölmesinde, çalışan düğümlerinin sayısını yazın ve Kaydet'i seçin.|  
 
-![Kümeyi ölçeklendirin](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Küme ölçeklendirme](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Bu yöntemlerden birini kullanarak, HDInsight kümenizin ölçeğini artırıp dakika içinde ölçeklendirebilirsiniz.
 
@@ -58,13 +58,12 @@ Bir ölçek ölçeği azaltma işlemi sırasında başarısız işlerinizi çal�
 1. İşleri el ile bitmelidir.
 1. İşleri ölçeklendirme işlemini sonlandırdığını sonra yeniden gönderin.
 
-Bekleyen bir listesi ve çalışan işleri görmek için YARN kullanabilirsiniz **ResourceManager kullanıcı Arabirimi**, şu adımları izleyin:
+Bekleyen bir listesi ve çalışan işleri görmek için YARN kullanabilirsiniz **kaynak yöneticisi kullanıcı Arabirimi**, şu adımları izleyin:
 
-1. [Azure portalda](https://portal.azure.com) oturum açın.
-2. Soldan gidin **tüm hizmetleri** > **Analytics** > **HDInsight kümeleri**ve sonra kümenizi seçin.
-3. Ana görünümünde gidin **küme panoları** > **Ambari giriş**. Küme kimlik bilgilerinizi girin.
-4. Ambari Arabiriminden seçin **YARN** Hizmetleri sol menüdeki listesi.  
-5. YARN sayfasından seçin **hızlı bağlantılar** ve etkin baş düğümün üzerine gelin ve ardından **ResourceManager kullanıcı Arabirimi**.
+1. Gelen [Azure portalında](https://portal.azure.com/), kümenizi seçin.  Bkz: [kümeleri Listele ve Göster](./hdinsight-administer-use-portal-linux.md#showClusters) yönergeler için. Kümeye yeni bir portal sayfası açılır.
+2. Ana görünümünde gidin **küme panoları** > **Ambari giriş**. Küme kimlik bilgilerinizi girin.
+3. Ambari Arabiriminden seçin **YARN** Hizmetleri sol menüdeki listesi.  
+4. YARN sayfasından seçin **hızlı bağlantılar** ve etkin baş düğümün üzerine gelin ve ardından **ResourceManager kullanıcı Arabirimi**.
 
     ![ResourceManager kullanıcı Arabirimi](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 

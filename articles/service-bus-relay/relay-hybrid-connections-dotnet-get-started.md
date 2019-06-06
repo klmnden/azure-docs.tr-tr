@@ -1,6 +1,6 @@
 ---
-title: .NET’te Azure Relay Karma Bağlantılar Web Yuvaları ile çalışmaya başlama | Microsoft Docs
-description: Azure Relay Karma Bağlantılar Web Yuvaları için bir C# konsol uygulaması yazın.
+title: . NET'te Azure geçiş karma bağlantıları WebSockets kullanmaya başlama | Microsoft Docs
+description: Yazma bir C# konsol uygulaması için Azure geçişi karma bağlantıları WebSockets.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 88d540f274d8b07bfbdbb566c670adf6ddfefd74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749736"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428345"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Geçiş karma bağlantıları WebSockets .NET içinde kullanmaya başlayın
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,7 +64,7 @@ Geçiş hizmetine ileti göndermek Visual Studio kullanarak bir C# konsol uygula
 
     ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Tebrikler, uçtan uca bir Karma Bağlantılar uygulaması oluşturdunuz!
+Tebrikler, tam bir karma bağlantılar uygulaması oluşturdunuz!
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu hızlı başlangıçta, WebSockets ileti göndermek ve almak için kullanılan .NET istemci ve sunucu uygulamaları oluşturuldu. Azure geçişi karma bağlantılar özelliği, ileti göndermek ve almak için HTTP kullanarak da destekler. Azure geçiş karma bağlantıları ile HTTP kullanmayı öğrenmek için bkz [HTTP hızlı](relay-hybrid-connections-http-requests-dotnet-get-started.md).

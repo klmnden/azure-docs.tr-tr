@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918962"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427103"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş sürekliliği ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri
 
@@ -26,7 +26,7 @@ Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka b
 
 Şekil 1 – Azure bölgesel çiftler
 
-| Coğrafya | Eşleştirilmiş bölgeler |  |
+| Geography | Eşleştirilmiş bölgeler |  |
 |:--- |:--- |:--- |
 | Asya |Doğu Asya |Güneydoğu Asya |
 | Avustralya |Avustralya Doğu |Avustralya Güneydoğu |
@@ -35,7 +35,7 @@ Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka b
 | Kanada |Kanada Orta |Doğu Kanada |
 | Çin |Çin Kuzey |Çin Doğu|
 | Çin |Çin Kuzey 2 |Çin Doğu 2|
-| Avrupa |Kuzey Avrupa |Batı Avrupa |
+| Avrupa |Kuzey Avrupa (İrlanda) |Batı Avrupa (Hollanda) |
 | Fransa |Fransa Orta|Fransa Güney|
 | Almanya |Almanya Orta |Almanya Kuzeydoğu |
 | Hindistan |Orta Hindistan |Güney Hindistan |

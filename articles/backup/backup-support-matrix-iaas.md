@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399686"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743170"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM yedeklemesi için destek matrisi
 Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi makinelerin ve iş yükleri ve Azure sanal makineleri (VM) yedekleme. Bu makalede, Azure sanal makinelerini Azure Backup ile yedeklediğinizde destek ayarları ve sınırlamaları özetlenmektedir.
@@ -54,6 +54,8 @@ Yedeklemeler günde (aracılığıyla, MARS Aracısı) | Günde üç zamanlanmı
 Aylık/yıllık yedekleme   | Azure VM uzantısı ile yedeklerken desteklenmiyor. Yalnızca günlük ve haftalık desteklenir.<br/><br/> Aylık/yıllık Bekletme dönemi için günlük/haftalık yedekleri tutma ilkesi ayarlayabilirsiniz.
 Otomatik saat ayarlama | Desteklenmiyor.<br/><br/> Azure yedekleme otomatik olarak bir VM'yi yedeklerken Yaz Saati değişiklikler için ayarlama değil.<br/><br/>  İlkeyi gereken şekilde el ile değiştirin.
 [Karma yedekleme için güvenlik özellikleri](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  Güvenlik özellikleri devre dışı bırakma desteklenmiyor.
+Yedekleme, makine değiştirildiği VM | Desteklenmiyor.<br/><br/> Tarih-bu VM için yedekleme etkinleştirdikten sonra gelecek için makine zamanı değişirse; Ancak zaman değişiklik geri alınır olsa bile, başarılı bir yedeğiniz garanti edilmez.  
+
 
 ## <a name="operating-system-support-windows"></a>İşletim sistemi desteği (Windows)
 
@@ -146,7 +148,7 @@ Vm'leri yedekleme [kullanılabilirlik kümeleri](https://docs.microsoft.com/azur
 Vm'leri yedekleme [kullanılabilirlik alanları](https://docs.microsoft.com/azure/availability-zones/az-overview) |  Desteklenmiyor.
 Geri ile dağıtılan Vm'leri yedekleme [karma kullanım Avantajı'nı (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Destekleniyor.
 Dağıtılan Vm'leri geri oluşturan bir [ölçek kümesi](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |  Desteklenmiyor.
-Geri üzerinden dağıtılan Vm'leri yedekleme [Azure Marketi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Microsoft, üçüncü taraf tarafından yayımlanan) |  Destekleniyor.<br/><br/> Sanal Makineyi desteklenen bir işletim sistemi çalıştırmalıdır.<br/><br/> Sanal makine dosyalarını kurtarırken, yalnızca bir uyumlu işletim sistemine (değil bir önceki veya sonraki işletim sistemi) geri yükleyebilirsiniz.
+Geri üzerinden dağıtılan Vm'leri yedekleme [Azure Marketi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Microsoft, üçüncü taraf tarafından yayımlanan) |  Destekleniyor.<br/><br/> Sanal Makineyi desteklenen bir işletim sistemi çalıştırmalıdır.<br/><br/> Sanal makine dosyalarını kurtarırken, yalnızca bir uyumlu işletim sistemine (değil bir önceki veya sonraki işletim sistemi) geri yükleyebilirsiniz. Azure Marketi satın alma bilgiler bu ihtiyaçları gibi ancak yalnızca diskler olarak Vm'leri olarak yedeklenen sanal yenilemeyin.
 Özel görüntüden (üçüncü taraf) dağıtılan Vm'leri yedekleme |   Destekleniyor.<br/><br/> Sanal Makineyi desteklenen bir işletim sistemi çalıştırmalıdır.<br/><br/> Sanal makine dosyalarını kurtarırken, yalnızca bir uyumlu işletim sistemine (değil bir önceki veya sonraki işletim sistemi) geri yükleyebilirsiniz.
 Azure'a geçiş Vm'leri yedekleme  | Destekleniyor.<br/><br/> Sanal makineyi yedeklemek için geçirilen makinede VM Aracısı yüklenmelidir.
 Çoklu VM tutarlılığı ' yedekleme | Azure yedekleme, birden çok VM arasında veri ve uygulama tutarlılığı sağlamaz.

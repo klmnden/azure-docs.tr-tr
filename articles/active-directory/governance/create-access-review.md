@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bafa4614e40bb1796ec90e07ecf5b9286a8acb9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113446"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734572"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Grupları bir erişim gözden geçirmesi oluşturma veya uygulamaları Azure ad erişim gözden geçirmeleri
 
@@ -31,14 +31,13 @@ Bu makalede, grubu üyeleri veya uygulama erişimi için bir veya daha fazla eri
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Azure AD Premium P2
-- [Erişim gözden geçirmeleri etkin](access-reviews-overview.md)
 - Genel yönetici veya Kullanıcı Yöneticisi
 
 Daha fazla bilgi için [hangi kullanıcıların lisansına sahip olması gerekir?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-one-or-more-access-reviews"></a>Bir veya daha fazla erişim gözden geçirmesi oluşturma
 
-1. Azure portal ve açık oturum [erişim gözden geçirmeleri sayfasına](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Azure portal ve açık oturum [Kimlik Yönetimi sayfası](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. Sol menüde **erişim gözden geçirmeleriyle**.
 

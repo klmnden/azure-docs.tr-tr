@@ -12,28 +12,22 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/10/2018
+ms.date: 6/05/2019
 ms.author: aljo
-ms.openlocfilehash: e94280f9df1d4ac59856a73f6f6c2b7f7a0b9cc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a75b02b8173507a28204a3ec2030ce7ed9838495
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726596"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729856"
 ---
 # <a name="production-readiness-checklist"></a>Üretim hazırlığı denetim listesi
 
 Uygulama ve küme üretim trafiği almaya hazır mı? Çalıştırma ve test, uygulama ve kümeniz mutlaka üretime geçmeye hazırdır anlamına gelmez. Uygulama ve küme aşağıdaki denetim listesini giderek sorunsuz çalışmasını tutun. Bu tüm öğeler kullanıma kesinlikle öneririz. Kuşkusuz, belirli satır öğesi (örneğin, kendi tanılama çerçeveleri) için alternatif çözümler kullanmayı seçebilirsiniz.
 
 
-## <a name="pre-requisites-for-production"></a>Üretim için ön koşullar
-1. [Azure Service Fabric güvenliği iyi](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) şunlardır: 
-1. X.509 sertifikaları kullanma
-1. Güvenlik ilkelerini yapılandır
-1. Azure Service Fabric için SSL'yi yapılandırma
-1. Ağ yalıtımını ve güvenlik, Azure Service Fabric ile kullanma
-1. Güvenlik için Azure anahtar kasası ayarlama
-1. Microsoft.Network/loadBalancersAssign kullanıcıları rollere
+## <a name="prerequisites-for-production"></a>Üretim için Önkoşullar
+1. Azure Service Fabric en iyi uygulamalar: [Uygulama tasarımı](./service-fabric-best-practices-applications.md), [güvenlik](./service-fabric-best-practices-security.md), [ağ](./service-fabric-best-practices-networking.md), [kapasitenin planlanması ve ölçeklendirme](./service-fabric-best-practices-capacity-scaling.md), [kod olarak altyapı](./service-fabric-best-practices-infrastructure-as-code.md), ve [izleme ve tanılama](./service-fabric-best-practices-monitoring.md). 
 1. Reliable Actors güvenlik yapılandırması Actors programlama modelini kullanıyorsa uygulayın
 1. 20'den fazla çekirdek veya 10 düğümü olan kümeler için sistem hizmetleri için bir adanmış birincil düğüm türü oluşturun. Ekleme [yerleştirme kısıtlamaları](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) sistem hizmetleri için birincil düğüm türü ayırmak için.
 1. Birincil düğüm türü için bir D2v2 ya da daha yüksek bir SKU kullanın. En az 50 GB sabit disk kapasitesi ile bir SKU seçmek için önerilir.

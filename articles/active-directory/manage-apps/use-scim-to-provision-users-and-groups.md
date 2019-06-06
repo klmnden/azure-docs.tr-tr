@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388152"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742476"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -81,7 +81,7 @@ Bu makalede açıklanan SCIM profilini destekleyen uygulamalar, Azure Active Dir
    *Şekil 3: Azure portalında sağlama yapılandırma*
     
 1. İçinde **Kiracı URL'si** uygulamanın SCIM uç nokta URL'sini girin. Örnek: https://api.contoso.com/scim/v2/
-1. SCIM uç noktanın bir OAuth taşıyıcı belirtecinden bir veren Azure AD dışındaki gerektiriyorsa, gerekli OAuth taşıyıcı belirteci sonra isteğe bağlı kopyalayın **gizli belirteç** alan. Bu alan boş bırakılırsa, Azure AD, her isteği ile Azure AD tarafından verilen bir OAuth taşıyıcı belirtecini içerir. Kimlik sağlayıcısı olarak Azure AD'yi kullanan uygulamalar, bu Azure AD tarafından verilen belirteci doğrulayabilirsiniz.
+1. SCIM uç noktanın bir OAuth taşıyıcı belirtecinden bir veren Azure AD dışındaki gerektiriyorsa, gerekli OAuth taşıyıcı belirteci sonra isteğe bağlı kopyalayın **gizli belirteç** alan. 
 1. Seçin **Test Bağlantısı** için Azure Active Directory SCIM uç noktaya bağlanmayı deneyin. Deneme başarısız olursa hata bilgileri görüntülenir.  
 
     >[!NOTE]
@@ -667,8 +667,7 @@ Azure ad sağlama isteklerini kabul edebilen bir SCIM uç noktası uygulamak iç
     
 1. İçinde **Kiracı URL'si** internet açık URL ve bağlantı noktası SCIM uç noktanızı girin. Giriş aşağıdakine benzer olan http://testmachine.contoso.com:9000 veya http://\<IP adresi >: 9000 / burada \<IP adresi > olan internet açık IP adresi. 
 
-1. SCIM uç noktanın bir OAuth taşıyıcı belirtecinden bir veren Azure AD dışındaki gerektiriyorsa, gerekli OAuth taşıyıcı belirteci sonra isteğe bağlı kopyalayın **gizli belirteç** alan. Bu alan boş bırakılırsa, Azure AD her isteği ile Azure AD tarafından verilen bir OAuth taşıyıcı belirtecini içerir. Azure AD kimlik sağlayıcısı bu Azure AD'ye doğrulayabilirsiniz olarak kullanan uygulamalar-belirteç.
-
+1. SCIM uç noktanın bir OAuth taşıyıcı belirtecinden bir veren Azure AD dışındaki gerektiriyorsa, gerekli OAuth taşıyıcı belirteci sonra isteğe bağlı kopyalayın **gizli belirteç** alan. 
 1. Seçin **Test Bağlantısı** için Azure Active Directory SCIM uç noktaya bağlanmayı deneyin. Deneme başarısız olursa hata bilgileri görüntülenir.  
 
     >[!NOTE]

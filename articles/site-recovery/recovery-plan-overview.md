@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 32cad7005b2b4da830ac3febf6da847933967a3d
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400020"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471449"
 ---
 # <a name="about-recovery-plans"></a>Kurtarma planları hakkında
 
@@ -37,10 +37,10 @@ Bir kurtarma planı yük devretme küçük bağımsız birimleri oluşturarak si
 
 Planlama ve uygulamaya özgü özellikleri yakalamak için bir kurtarma grubu oluşturun. Örneğin, bir SQL server ile tipik bir üç katmanlı uygulama arka ucu, ara yazılım ve bir web ön ucu düşünelim. Genellikle, böylece her katmandaki makineler yük devretme sonrasında doğru sırayla Başlat kurtarma planını özelleştirin.
 
-    - SQL arka uç, ilk olarak, ara yazılım başlaması gereken sonraki ve son olarak web ön ucu.
-    - Bu başlatma sırasını, uygulamanın son makine başlatıldığında tarafından çalışmasını sağlar.
-    - Bu sırada, ara yazılım başlar ve SQL Server katmanına bağlanmaya çalıştığında, SQL sunucusu katmanı zaten çalışıyor sağlar. 
-    - Bu sırada, ön uç sunucusu son başlatır, son kullanıcılar, tüm bileşenleri hazır olduğunuzda önce uygulama URL'sini ve çalışan ve uygulama bağlamayın. böylece istek kabul etmeye hazır olun da yardımcı olur.
+- SQL arka uç, ilk olarak, ara yazılım başlaması gereken sonraki ve son olarak web ön ucu.
+- Bu başlatma sırasını, uygulamanın son makine başlatıldığında tarafından çalışmasını sağlar.
+- Bu sırada, ara yazılım başlar ve SQL Server katmanına bağlanmaya çalıştığında, SQL sunucusu katmanı zaten çalışıyor sağlar. 
+- Bu sırada, ön uç sunucusu son başlatır, son kullanıcılar, tüm bileşenleri hazır olduğunuzda önce uygulama URL'sini ve çalışan ve uygulama bağlamayın. böylece istek kabul etmeye hazır olun da yardımcı olur.
 
 Bu sıralamayı oluşturmak için kurtarma grubuna grup ekleme ve gruplara makineleri ekleyin.
 - Sipariş belirtilen yerlerde, sıralama kullanılır. Eylemler, uygun olduğunda, uygulama kurtarma RTO geliştirmek paralel olarak çalışır.

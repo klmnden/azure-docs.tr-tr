@@ -2,20 +2,20 @@
 title: Belirteçleri - Azure Active Directory B2C genel bakış | Microsoft Docs
 description: Azure Active Directory B2C'de kullanılan belirteçleri hakkında bilgi edinin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681902"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509087"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C belirteçlerinde genel bakış
 
@@ -42,7 +42,7 @@ A [kayıtlı uygulama](tutorial-register-applications.md) belirteçlerini alır 
 
 Uygulamanızı Azure AD B2C'den aldığı güvenlik belirteçleri gelen gelebilir `/authorize` veya `/token` uç noktaları. Ne zaman kimlik belirteçlerini alınan gelen `/authorize` uç nokta, bunların yapılır kullanarak [örtük akış](active-directory-b2c-reference-spa.md), sık kullanılan javascript tabanlı web uygulamaları için oturum kullanıcılar için. Ne zaman kimlik belirteçlerini alınan gelen `/token` uç nokta, bunların yapılır kullanarak [gizli kod akışını](active-directory-b2c-reference-oidc.md), belirteç tarayıcıdan gizli tutar.
 
-## <a name="claims"></a>Talepler
+## <a name="claims"></a>Talep
 
 Azure AD B2C'yi kullandığınızda, içerik belirteçlerinizden birinin üzerinde ayrıntılı denetime sahiptir. Yapılandırabileceğiniz [kullanıcı akışları](active-directory-b2c-reference-policies.md) ve [özel ilkeler](active-directory-b2c-overview-custom.md) belirli kullanıcı veri kümelerini uygulamanız için gerekli olan talepleri göndermek için. Bu talep gibi standart özellikleri içerebilir **displayName** ve **emailAddress**. Uygulamalarınız, bu talepler, güvenli bir şekilde kullanıcılar ve isteklerinin kimliğini doğrulamak için kullanabilirsiniz. 
 
@@ -55,17 +55,17 @@ Aşağıdaki tabloda, kimliği belirteçlerinde beklediğiniz ve Azure AD B2C ta
 | Hedef kitle | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Amaçladığınız alıcının belirtecin tanımlar. Azure AD B2C için İzleyici uygulama kimliğini olduğu. Uygulamanız, bu değeri doğrulamak ve bu eşleşmiyorsa belirteci reddetme. Hedef kitle kaynak ile eşanlamlıdır. |
 | Veren | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Oluşturur ve belirteci döndürür güvenlik belirteci hizmeti (STS) tanımlar. Ayrıca, kullanıcı kimlik doğrulamasının yapıldığı dizini tanımlar. Uygulama belirteci uygun uç noktasından gelen emin olmak için verenin talep doğrulamalıdır. |
 | Çıkışı | `iat` | `1438535543` | Belirteç düzenlendiği zaman dönem saatle gösterilir. |
-| Sona erme zamanı | `exp` | `1438539443` | Başlangıçtan belirteci geçersiz hale geldiği tarih dönem saatle gösterilir. Uygulamanızın bu talep belirteci ömrü geçerliliğini doğrulamak için kullanması gerekir. |
+| Süre sonu | `exp` | `1438539443` | Başlangıçtan belirteci geçersiz hale geldiği tarih dönem saatle gösterilir. Uygulamanızın bu talep belirteci ömrü geçerliliğini doğrulamak için kullanması gerekir. |
 | Öncesine değil | `nbf` | `1438535543` | Başlangıçtan belirtecin geçerli hale geldiği tarih dönem saatle gösterilir. Bu süre genellikle belirtecin verilmiş saat ile aynıdır. Uygulamanızın bu talep belirteci ömrü geçerliliğini doğrulamak için kullanması gerekir. |
 | Version | `ver` | `1.0` | Azure AD B2C tarafından tanımlanan kimlik belirteci sürümü. |
 | Kod karması | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Kod karma belirteci ile birlikte bir OAuth 2.0 yetkilendirme kodu verildiğinde bir kimliği belirtece dahildir. Kod karma bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla bilgi için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Erişim belirteci karması | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Bir kimliği belirtece dahildir, yalnızca OAuth 2.0 erişim belirteci ile birlikte belirtecin verildiğinde bir erişim belirteci karması. Bir erişim belirteci karma bir erişim belirteci özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla bilgi için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce | `nonce` | `12345` | Nonce belirteç yeniden yürütme saldırıları azaltmak için kullanılan bir stratejidir. Uygulamanızı bir geçici öğe içinde bir yetkilendirme isteği kullanarak belirtebilirsiniz `nonce` sorgu parametresi. İstekte sağladığınız değeri içinde değiştirilmemiş yayıldığını `nonce` yalnızca bir kimlik belirteci talep. Bu talep, istekte belirtilen değerle değerini doğrulamak uygulamanızın sağlar. Uygulamanız kimlik belirteci doğrulama işlemi sırasında bu doğrulaması gerçekleştirmeniz gerekir. |
 | Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Belirteç bir kaynağa erişmek için kullanıldığında gibi güvenli bir şekilde, yetkilendirme denetimleri gerçekleştirmek için kullanılabilir. Varsayılan olarak, konu talep, dizinde kullanıcının nesne kimliği ile doldurulur. |
-| Kimlik doğrulaması bağlamı sınıf başvurusu | `acr` | Uygulanamaz | Yalnızca eski ilkeleriyle kullanılır. |
+| Kimlik doğrulaması bağlamı sınıf başvurusu | `acr` | Geçerli değil | Yalnızca eski ilkeleriyle kullanılır. |
 | Güven Framework İlkesi | `tfp` | `b2c_1_signupsignin1` | Kimlik belirteci almak için kullanılan ilke adı. |
 | Kimlik doğrulama süresi | `auth_time` | `1438535543` | Hangi kullanıcı kimlik bilgileri, en son girilen saati dönem saatle gösterilir. |
-| Kapsam | `scp` | `Read`| Kaynak bir erişim belirteci için verilen izinler. Birden çok verilen izinler, boşlukla ayrılır. |
+| `Scope` | `scp` | `Read`| Kaynak bir erişim belirteci için verilen izinler. Birden çok verilen izinler, boşlukla ayrılır. |
 | Yetkili taraf | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | **Uygulama kimliği** istemci uygulamasının isteği başlatıldı. |
 
 ## <a name="configuration"></a>Yapılandırma

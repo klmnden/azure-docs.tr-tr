@@ -1,5 +1,5 @@
 ---
-title: Müşteri kapsayıcıları - Azure App Service'ı yapılandırma | Microsoft Docs
+title: Özel kapsayıcı - Azure App Service'ı yapılandırma | Microsoft Docs
 description: Node.js uygulamalarını Azure App Service'te çalışacak şekilde yapılandırma hakkında bilgi edinin
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919732"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430936"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Azure App Service için özel bir Linux kapsayıcısını yapılandırın
 
@@ -28,7 +28,7 @@ Bu kılavuzu temel kavramları ve kapsayıcı uygulamalar App Service Linux içi
 
 ## <a name="configure-port-number"></a>Bağlantı noktası numarasını yapılandırmadan
 
-Özel görüntünüzü de web sunucusu, 80 dışında bir bağlantı noktası kullanabilirsiniz. Azure kullanarak kendi özel kullandığı bağlantı noktası hakkında bilgi `WEBSITES_PORT` uygulama ayarı. [Bu öğreticideki Python örneği](https://github.com/Azure-Samples/docker-django-webapp-linux) için GitHub sayfası, `WEBSITES_PORT` olarak _8000_ ayarlamanız gerektiğini gösterir. Çalıştırarak ayarlayabilirsiniz [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) Cloud shell'de komutu. Örneğin:
+Özel görüntünüzü de web sunucusu, 80 dışında bir bağlantı noktası kullanabilirsiniz. Azure kullanarak özel kapsayıcınızı kullandığı bağlantı noktası hakkında bilgi `WEBSITES_PORT` uygulama ayarı. [Bu öğreticideki Python örneği](https://github.com/Azure-Samples/docker-django-webapp-linux) için GitHub sayfası, `WEBSITES_PORT` olarak _8000_ ayarlamanız gerektiğini gösterir. Çalıştırarak ayarlayabilirsiniz [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) Cloud shell'de komutu. Örneğin:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -137,8 +137,8 @@ wordpress:
 
 Çok kapsayıcılı şu anda Önizleme aşamasındadır. Aşağıdaki App Service platformu özellikleri desteklenmez:
 
-- Kimlik Doğrulama / Yetkilendirme
-- Yönetilen kimlikler
+- Kimlik doğrulama / yetkilendirme
+- Yönetilen kimlik
 
 ### <a name="docker-compose-options"></a>Docker Compose seçenekleri
 

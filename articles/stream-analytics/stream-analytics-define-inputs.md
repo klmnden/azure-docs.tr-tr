@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: 420705ef6b2e38d147b7033d2fb3ad57bbc216ac
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.date: 05/30/2019
+ms.openlocfilehash: 1822bfe9f2d6d337db74ba94d43644b0b3567c71
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159296"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455623"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics giriş olarak Stream veri
 
 Stream Analytics, Azure veri akışları ile birinci sınıf tümleştirme giriş kaynakları üç tür olarak sahiptir:
+
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/) 
@@ -26,22 +26,26 @@ Stream Analytics, Azure veri akışları ile birinci sınıf tümleştirme giri�
 Bu giriş kaynakları, Stream Analytics işinizi aynı Azure aboneliğinde veya farklı bir abonelik Canlı çalıştırabilirsiniz.
 
 ### <a name="compression"></a>Sıkıştırma
-Stream Analytics, tüm veri akışı giriş kaynaklarında sıkıştırma destekler. Şu anda desteklenen sıkıştırma türleri şunlardır: Yok, GZip ve Deflate sıkıştırma. Sıkıştırma desteğine başvuru verileri için kullanılabilir değil. Giriş biçimi, sıkıştırılmış Avro veri olması durumunda saydam bir şekilde ele alınır. Avro serileştirme ile sıkıştırma türünü belirtmeniz gerekmez. 
+
+Stream Analytics, tüm veri akışı giriş kaynaklarında sıkıştırma destekler. Desteklenen bir sıkıştırma türleri şunlardır: Yok, GZip ve Deflate sıkıştırma. Sıkıştırma desteğine başvuru verileri için kullanılabilir değil. Giriş biçimi, sıkıştırılmış Avro veri olması durumunda saydam bir şekilde ele alınır. Avro serileştirme ile sıkıştırma türünü belirtmeniz gerekmez. 
 
 ## <a name="create-edit-or-test-inputs"></a>Oluşturma, düzenleme veya test girişleri
-Kullanabileceğiniz [Azure portalı](https://portal.azure.com) için [yeni girdileri Oluştur](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) görüntüleyebilir veya var olan akış işinizin girişler düzenleyin. Ayrıca, giriş bağlantılarını test edebilirsiniz ve [test sorguları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) örnek verilerden. Bir sorgu yazdığınızda, giriş FROM yan tümcesi içinde listelenir. Kullanılabilir girişler listesini alabilirsiniz **sorgu** portalında sayfası. Birden çok giriş kullanmak istiyorsanız, aşağıdakileri yapabilirsiniz `JOIN` bunları veya birden çok yazma `SELECT` sorgular.
+
+Kullanabileceğiniz [Azure portalında](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), ve [Visual Studio Code](quick-create-vs-code.md) ekleyebilir ve görüntüleme ya da akış işiniz üzerinde mevcut girişleri düzenlemek için. Ayrıca, giriş bağlantılarını test edebilirsiniz ve [test sorguları](stream-analytics-manage-job.md#test-your-query) Azure portalından örnek verilerden [Visual Studio](stream-analytics-vs-tools-local-run.md), ve [Visual Studio Code](vscode-local-run.md). Bir sorgu yazdığınızda, FROM yan tümcesindeki giriş listesi. Kullanılabilir girişler listesini alabilirsiniz **sorgu** portalında sayfası. Birden çok giriş kullanmak istiyorsanız, aşağıdakileri yapabilirsiniz `JOIN` bunları veya birden çok yazma `SELECT` sorgular.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Event Hubs’dan veri akışı sağlama
 
-Azure Event Hubs yüksek oranda ölçeklenebilir sağlar yayımlama-abonelik olay ingestors. Böylece işleyebilir ve analiz veri uygulamanızın bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki bir olay hub'ı, saniyede milyonlarca toplayabilirsiniz. Birlikte, Event Hubs ve Stream Analytics bir uçtan uca çözüm için gerçek zamanlı analizler sağlar. Olay hub'ları sağlar, olayları Azure'da içine akış gerçek zamanlı olarak ve Stream Analytics işleri, gerçek zamanlı olayları işleyebilir. Örneğin, Event Hubs'a web tıklama, sensör okumaları veya çevrimiçi günlüğü olaylarını gönderebilir. Ardından, Event Hubs, gerçek zamanlı filtreleyerek, toplayarak ve bağıntı için giriş veri akışları olarak kullanmak için Stream Analytics işleri de oluşturabilirsiniz.
+Azure Event Hubs yüksek oranda ölçeklenebilir sağlar yayımlama-abonelik olay ingestors. Bir olay hub'ı, böylece işleyebilir ve analiz veri uygulamanızın bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki saniye başına milyonlarca olayı toplayabilirsiniz. Birlikte, Event Hubs ve Stream Analytics bir uçtan uca çözüm için gerçek zamanlı analizler sağlar. Olay hub'ları sağlar, olayları Azure'da içine akış gerçek zamanlı olarak ve Stream Analytics işleri, gerçek zamanlı olayları işleyebilir. Örneğin, Event Hubs'a web tıklama, sensör okumaları veya çevrimiçi günlüğü olaylarını gönderebilir. Ardından, Event Hubs, gerçek zamanlı filtreleyerek, toplayarak ve bağıntı için giriş veri akışları olarak kullanmak için Stream Analytics işleri de oluşturabilirsiniz.
 
 `EventEnqueuedUtcTime` bir olay hub'ındaki bir olayın geliş zaman damgasını ve varsayılan Stream Analytics'e Event Hubs'dan gelen olayların zaman damgası. Veri yükü kullanmalısınız olayda bir zaman damgası kullanarak bir akış olarak işlenecek [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü.
 
-### <a name="consumer-groups"></a>Tüketici grupları
-Kendi tüketici grubu için giriş her Stream Analytics olay hub'ı yapılandırmanız gerekir. Bir işin ne zaman kendi kendine birleşme içeriyor veya sahip birden fazla giriş, bazı girişler aşağı yönde birden fazla okuyucu tarafından okunmaması. Bu durum tek bir tüketici grubundaki okuyucu sayısını etkiler. Bölüm başına tüketici grubu başına beş okuyucular Event Hubs sınırını aşmamak için her bir Stream Analytics işine ilişkin bir tüketici grubu tanımlamak için en iyi uygulama olan. Olay hub'ı başına 20 tüketici grubu sınırı yoktur. Daha fazla bilgi için [Azure Stream Analytics sorunlarını giderme girişleri](stream-analytics-troubleshoot-input.md).
+### <a name="event-hubs-consumer-groups"></a>Event hubs'ı tüketici grubu
 
-### <a name="stream-data-from-event-hubs"></a>Event Hubs’dan veri akışı sağlama
+Kendi tüketici grubu için giriş her Stream Analytics olay hub'ı yapılandırmanız gerekir. Bir işin ne zaman kendi kendine birleşme içeriyor veya sahip birden fazla giriş, bazı girişler aşağı yönde birden fazla okuyucu tarafından okunmaması. Bu durum tek bir tüketici grubundaki okuyucu sayısını etkiler. Bölüm başına tüketici grubu başına beş okuyucular Event Hubs sınırını aşmamak için her bir Stream Analytics işine ilişkin bir tüketici grubu tanımlamak için en iyi uygulama olan. Bir standart katman olay hub'ı için 20 tüketici grubu sınırı yoktur. Daha fazla bilgi için [Azure Stream Analytics sorunlarını giderme girişleri](stream-analytics-troubleshoot-input.md).
+
+### <a name="create-an-input-from-event-hubs"></a>Event Hubs'a ait bir girdi oluşturma
+
 Aşağıdaki tabloda her bir özellik açıklanmaktadır **yeni giriş** sayfası akış veri girişi için bir olay hub'ı Azure Portalı'nda:
 
 | Özellik | Açıklama |
@@ -79,14 +83,17 @@ FROM Input
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>IOT hub'ı Stream verileri
+
 Azure IOT Hub, yüksek düzeyde ölçeklenebilir Yayımla-abone ol olay yutucu IOT senaryoları için iyileştirilmiş ' dir.
 
 Stream analytics'te bir IOT Hub'ından gelen olayların varsayılan zaman damgası olan IOT Hub olay geldiği zaman damgası olan `EventEnqueuedUtcTime`. Veri yükü kullanmalısınız olayda bir zaman damgası kullanarak bir akış olarak işlenecek [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü.
 
-### <a name="consumer-groups"></a>Tüketici grupları
+### <a name="iot-hub-consumer-groups"></a>IOT Hub tüketici grupları
+
 Her Stream Analytics IOT Hub'ı tüketici grubu için giriş yapılandırmanız gerekir. Bir işi kendi kendine birleşme içerdiğinde ya da birden fazla giriş varsa, bazı giriş aşağı yönde birden fazla okuyucu tarafından okunmaması. Bu durum tek bir tüketici grubundaki okuyucu sayısını etkiler. Bölüm başına tüketici grubu başına beş okuyucular Azure IOT Hub sınırını aşmamak için her bir Stream Analytics işine ilişkin bir tüketici grubu tanımlamak için en iyi uygulama olan.
 
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Giriş veri akışı IOT hub'ı yapılandırma
+
 Aşağıdaki tabloda her bir özellik açıklanmaktadır **yeni giriş** Giriş akışı olarak IOT hub'ı yapılandırırken Azure portalında sayfası.
 
 | Özellik | Açıklama |
@@ -124,13 +131,10 @@ Günlük işleme, Stream Analytics ile Blob Depolama girişlerini kullanarak iç
 
 Blob Depolama olaylarını Stream analytics'te varsayılan zaman damgası olan blob son değiştirildiği zaman damgası olan `BlobLastModifiedUtcTime`. Veri yükü kullanmalısınız olayda bir zaman damgası kullanarak bir akış olarak işlenecek [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü. Blob dosya varsa bir Stream Analytics işi saniyede Azure Blob Depolama giriş veri çeker. Blob dosya kullanılamıyorsa bir üstel geri alma bir gecikme süresiyle en fazla 90 saniyelik yoktur.
 
-CSV biçimlendirilmiş girişleri *gerektiren* alanlar için veri kümesi ve tüm üst bilgi satırı alanları tanımlamak için bir üst bilgi satırı benzersiz olması gerekir.
-
-Stream Analytics, olay hub'ına yakalama veya IOT hub'ı Azure depolama kapsayıcısı özel uç nokta tarafından oluşturulan seri durumdan çıkarılırken AVRO iletileri şu anda desteklemiyor.
+CSV biçimlendirilmiş girdi veri kümesi alanlarını tanımlamak için bir üst bilgi satırı gerektirir ve tüm üst bilgi satırı alanları benzersiz olmalıdır.
 
 > [!NOTE]
 > Stream Analytics, mevcut bir blob dosyasına ekleyerek içeriği desteklemiyor. Stream Analytics her dosyanın yalnızca bir kez görüntüleyeceği ve dosyayı iş verileri okuma sonra gerçekleşen değişikliklerin işlenmez. En iyi blob dosyası için tüm verileri tek seferde karşıya yükleme ve ardından ek yeni olaylar farklı, yeni blob dosyasını eklemektir.
-> 
 
 Tek seferde çok sayıda BLOB karşıya yükleme, nadir durumlarda, birkaç BLOB'ları okuma atlamak Stream Analytics neden olabilir. En az 2 BLOB depolamaya saniye uzaklıkta blobları karşıya yüklemek için önerilir. Bu seçenek uygun değilse, Event Hubs akış geniş hacimli olaylar için kullanabilirsiniz. 
 

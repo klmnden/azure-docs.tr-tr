@@ -2,20 +2,20 @@
 title: Özel bir ilke Azure Active Directory B2C, bir OAuth2 teknik profili tanımlamak | Microsoft Docs
 description: Azure Active Directory B2C, özel bir ilkede bir OAuth2 teknik profili tanımlayın.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 65634cb6573a0f163f7a0ca07bf26af9512e240b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 80b196b34e8eee99ed77c3c8a914f89fa68d87b8
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683882"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512944"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel İlkesi'nde bir OAuth2 teknik profili tanımlama
 
@@ -23,7 +23,7 @@ ms.locfileid: "64683882"
 
 Azure Active Directory (Azure AD) B2C, OAuth2 protokolünü kimlik sağlayıcısı için destek sağlar. OAuth2 yetkilendirme ve temsilci seçilen kimlik doğrulaması için birincil protokolüdür. Daha fazla bilgi için [RFC 6749 OAuth 2.0 yetkilendirme Framework](https://tools.ietf.org/html/rfc6749). OAuth2 teknik profili ile Facebook gibi bir OAuth2 tabanlı kimlik sağlayıcısı ile ad'sini birleştirebilir. Bir kimlik sağlayıcısı ile Federasyon, kullanıcıların oturum sosyal var olan oturum veya Kurumsal kimlikleri sağlar.
 
-## <a name="protocol"></a>Protokol
+## <a name="protocol"></a>Protocol
 
 **Adı** özniteliği **Protokolü** öğesi ayarlanması gerekiyor `OAuth2`. Örneğin, protokol için **Facebook OAUTH** teknik profil `OAuth2`:
 
@@ -104,7 +104,7 @@ Teknik profil de kimlik sağlayıcısı tarafından döndürülen olmayan talepl
 | --------- | -------- | ----------- |
 | client_secret | Evet | Kimlik sağlayıcısı uygulama istemci gizli bilgisi. Yalnızca şifreleme anahtarı gereklidir **response_types** meta veri kümesine `code`. Bu durumda, Azure AD B2C, bir erişim belirteci için yetki kodunu değiştirmek için başka bir çağrı yapar. Meta veriler ayarlanırsa `id_token`, şifreleme anahtarını atlayabilirsiniz. |  
 
-## <a name="redirect-uri"></a>Yönlendirme URI'si
+## <a name="redirect-uri"></a>Yeniden yönlendirme URI'si
 
 Kimlik sağlayıcınızın yeniden yönlendirme URL'sini yapılandırırken girin `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`. Değiştirdiğinizden emin olun **Kiracı** kiracınızın adı (örneğin, contosob2c.onmicrosoft.com) ile ve **Policyıd** ilkenizin (örneğin, b2c_1a_policy) tanımlayıcısına sahip. Yeniden yönlendirme URI'si, tüm küçük harflerle olması gerekiyor.
 

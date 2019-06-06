@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304402"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475411"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Windows Server düğüm havuzları ve uygulama iş yüklerini Azure Kubernetes Service (AKS) için geçerli sınırlamalar
 
@@ -45,6 +45,7 @@ Windows Server kapsayıcıları kubernetes için Yukarı Akış aşağıdaki sı
 Windows Server düğüm havuzu desteği aks'deki aşağıdaki ek kısıtlamalar geçerlidir:
 
 - Bir AKS kümesi, her zaman ilk düğüm havuzu olarak Linux düğüm havuzu içerir. AKS kümesi silinmedikçe bu ilk Linux tabanlı düğüm havuzu silinemiyor.
+- Şu anda AKS, yalnızca varsayılan Linux düğüm havuzu bir arka uç havuzu için yalnızca veren temel Azure load balancer'a destekler. Sonuç olarak, giden trafiği Windows pod'ların her zaman olacak [Azure tarafından yönetilen ortak IP adresine çevrilir][azure-outbound-traffic]. Bu IP adresi yapılandırılabilir olmadığından, Windows pod'ların gelen beyaz liste trafiği için şu anda mümkün değildir. 
 - AKS kümeleri Azure CNI (Gelişmiş) ağ modeli kullanmanız gerekir.
     - Kubernetes (Temel) ağ desteklenmiyor. Kubernetes kullanan bir AKS kümesi oluşturulamıyor. Ağ modelleri arasındaki farklılıklar hakkında daha fazla bilgi için bkz. [kavramları aks'deki uygulamalar için ağ][azure-network-models].
     - Azure CNI ağ modeli, ek planlama ve IP adresi yönetim değerlendirmeleri gerektirir. Planlama ve Azure CNI uygulama konusunda daha fazla bilgi için bkz. [Azure CNI yapılandırma ağ aks'deki][configure-azure-cni].
@@ -87,3 +88,4 @@ AKS, Windows Server kapsayıcıları kullanmaya başlamak için [AKS Windows Ser
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat

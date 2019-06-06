@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde kimliği ve erişimi izleme | Microsoft Docs
 description: Kullanıcılarınızın erişim etkinliğini ve kimlikle ilgili sorunları izleme amacıyla Azure Güvenlik Merkezi'ndeki tanımlama ve erişim özelliklerini nasıl kullanacağınızı öğrenin.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.date: 05/30/2018
+ms.author: monhaber
+ms.openlocfilehash: 16548ae75567fa3ba6f8c9135d61945bd28d2db8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389486"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428427"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Kimlik ve erişim (Önizleme) Azure Güvenlik Merkezi'nde izleme
 Bu makale kullanıcılarınızın kimliğini ve erişim etkinliğini izleme amacıyla Azure Güvenlik Merkezi'ni kullanmanıza yardımcı olur.
@@ -42,7 +42,6 @@ Kimlik etkinliklerini izleyerek bir olay gerçekleşmeden önce öngörülü eyl
 > [!NOTE]
 > Aboneliğinizi 600'den fazla hesapları varsa, Güvenlik Merkezi kimlik önerileri, aboneliğe göre çalıştırılır silemiyor. Çalıştırılamaz öneriler "altında açıklanan kullanılamayan iç değerlendirmeler" altında listelenir.
 Güvenlik Merkezi bir bulut çözümü sağlayıcısı (CSP) iş ortağının yönetim aracıları karşı kimlik önerileri çalıştırılamıyor.
->
 >
 
 Bkz: [önerileri](security-center-identity-access.md#recommendations) Güvenlik Merkezi tarafından sağlanan kimlik ve erişim önerilerin bir listesi.
@@ -111,23 +110,20 @@ Aşağıdaki tabloda kullanılabilir kimlik ve erişim öneriler ve uygulamanız
 
 |Kaynak türü|Güvenlik puanı|Öneri|Açıklama|
 |----|----|----|----|
-|Abonelik|50|Aboneliğinizde sahip izinleri ile Azure yönetim uygulaması hesaplar için mfa'yı etkinleştirme|Hesapları veya kaynak ihlalini önlemek için yönetici ayrıcalıkları olan tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirin.|
-|Abonelik|50|Aboneliklerinizi Güvenlik Merkezi'ni etkinleştir |Tüm aboneliklerinizi Gelişmiş tehdit algılama, JIT, uygulama beyaz listesini ve Gelişmiş önerileri için Güvenlik Merkezi'ni etkinleştir |
-|Abonelik|50|Güvenlik Merkezi standart katmanda aboneliklerinizi etkinleştir |Güvenlik Merkezi standart katmanı için Gelişmiş tehdit algılama, JIT, uygulama beyaz listesini ve Gelişmiş öneriler, tüm Aboneliklerde etkinleştirin.|
-|Abonelik|40|Azure yönetim uygulaması aboneliğinizde yazma izinleri olan hesaplar için mfa'yı etkinleştirme|Hesapları veya kaynak ihlalini önlemek için yazma ayrıcalıklarına sahip tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirin.|
-|Abonelik|30|Sahip izinleri olan dış hesapları aboneliğinizden kaldırın|Sahip izinleri olan dış hesapları aboneliğinizden izlenmeyen erişimi engellemek için kaldırın. |
-|Abonelik|30|Azure yönetim uygulaması aboneliğinizde Okuma izinleri olan hesaplar için mfa'yı etkinleştirme|Hesapları veya kaynak ihlalini önlemek için okuma ayrıcalıklarına sahip tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirin.|
-|Abonelik|25|Yazma izinleri olan dış hesapları aboneliğinizden kaldırın|Yazma izinleri olan dış hesapları aboneliğinizden izlenmeyen erişimi engellemek için kaldırın. |
-|Abonelik|20|Sahip izinleri ile kullanım dışı bırakılmış hesapları aboneliğinizden kaldırın|Sahip izinleri ile kullanım dışı bırakılmış hesapların aboneliklerinizden kaldırın. Kullanım dışı bırakılmış hesapları için oturum açma Azure AD'de engellenmiş olan hesaplardır.|
-|Abonelik|5|Kullanım dışı bırakılmış hesapları aboneliğinizden kaldırın|Kullanım dışı bırakılmış hesapların aboneliklerinizden yalnızca geçerli kullanıcılara erişimi etkinleştirmek için kaldırın. Kullanım dışı bırakılmış hesapları için oturum açma Azure AD'de engellenmiş olan hesaplardır.|
-|Abonelik|5|Aboneliğinizde birden çok sahip belirleyin|Yönetici erişimi fazlalığı sağlamak için birden fazla abonelik sahibi belirleyin.|
-|Abonelik|5|Aboneliğinizde en fazla 3 sahipleri belirleyin|Güvenliği aşılmış bir sahip tarafından ihlal olasılığını azaltmak için 3'ten az abonelik sahipleri belirleyin.|
-|Key Vault|5|Anahtar Kasası'nda tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
-|Abonelik|15|Okuma izinleri olan dış hesapları aboneliğinizden kaldırın|Okuma ayrıcalıklarına sahip dış hesapların aboneliğinizden izlenmeyen erişimi engellemek için kaldırın.|
-|Abonelik|1|Güvenlik ilgili kişi bilgilerini belirtin|Her aboneliğiniz için güvenlik kişi bilgilerini sağlayın. Bir e-posta adresi ve telefon numarası iletişim bilgileridir. Bilgileri güvenlik ekibimizin kaynaklarınızın tehlikede olduğunu tespit olursa sizinle iletişim kurmak için kullanılır|
+|Abonelik|50|Aboneliğinizde sahip izinleri ile hesapları MFA etkinleştirilmelidir|Hesapları veya kaynak ihlalini önlemek için yönetici ayrıcalıkları olan tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirin.|
+|Abonelik|40|MFA abonelik hesaplarınızı yazma izinlerine sahip etkinleştirilmiş olmalıdır|Hesapları veya kaynak ihlalini önlemek için yazma ayrıcalıklarına sahip tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirin.|
+|Abonelik|30|Sahip izinlerine sahip dış hesapların aboneliğinizden kaldırılması gerekiyor|Sahip izinleri olan dış hesapları aboneliğinizden izlenmeyen erişimi engellemek için kaldırın.|
+|Abonelik|30|Mfa'yı Okuma izinleri olan abonelik hesaplarınızı etkinleştirilmiş olmalıdır|Hesapları veya kaynak ihlalini önlemek için okuma ayrıcalıklarına sahip tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirin.|
+|Abonelik|25|Yazma sahip dış hesapların aboneliğinizden kaldırılması gerekiyor izinleri|Yazma izinleri olan dış hesapları aboneliğinizden izlenmeyen erişimi engellemek için kaldırın. |
+|Abonelik|20|Sahip izinleri ile kullanım dışı bırakılmış hesapların aboneliğinizden kaldırılması gerekiyor|Sahip izinleri ile kullanım dışı bırakılmış hesapların aboneliklerinizden kaldırın.|
+|Abonelik|5|Kullanım dışı bırakılan hesapların aboneliğinizden kaldırılması gerekiyor|Kullanım dışı bırakılmış hesapların aboneliklerinizden yalnızca geçerli kullanıcılara erişimi etkinleştirmek için kaldırın. |
+|Abonelik|5|Aboneliğinize atanmış birden fazla sahibi olmalıdır.|Yönetici erişimi fazlalığı sağlamak için birden fazla abonelik sahibi belirleyin.|
+|Abonelik|5|En fazla 3 sahipleri, aboneliğiniz için belirlenen|Güvenliği aşılmış bir sahip tarafından ihlal olasılığını azaltmak için 3'ten az abonelik sahipleri belirleyin.|
+|Key Vault|5|Tanılama günlükleri, anahtar Kasası'nda etkinleştirilmelidir.|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
+|Abonelik|15|Okuma izinleri olan dış hesapların aboneliğinizden kaldırılması gerekiyor|Okuma ayrıcalıklarına sahip dış hesapların aboneliğinizden izlenmeyen erişimi engellemek için kaldırın.| 
 
-> ! [NOT] MFA gerektirir, ancak ayarlanmış dışarıda bırakılacak sahip bir koşullu erişim ilkesi oluşturduğunuzda, Azure MFA olmadan oturum açmak bazı kullanıcılar sağladığından Güvenlik Merkezi MFA öneri değerlendirme İlkesi uyumlu olmayan, göz önünde bulundurur.
->
+> [!NOTE]
+> MFA gerektirir, ancak ayarlanmış dışarıda bırakılacak sahip bir koşullu erişim ilkesi oluşturduğunuzda, Azure MFA olmadan oturum açmak bazı kullanıcılar sağladığından Güvenlik Merkezi MFA öneri değerlendirme İlkesi uyumlu olmayan, göz önünde bulundurur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Diğer Azure kaynak türü için geçerli öneriler hakkında daha fazla bilgi için aşağıdakilere bakın:

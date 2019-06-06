@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921063"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474058"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD hak yönetimi nedir? (Önizleme)
 
@@ -70,22 +70,13 @@ Hak Yönetimi ile erişimi yönetmek kaynak türleri şunlardır:
 
 - Azure AD güvenlik grupları
 - Office 365 grupları
-- Azure AD kurumsal uygulamalar
-- SaaS uygulamaları
-- Özel tümleşik uygulamaları
-- SharePoint Online site koleksiyonları
-- SharePoint Online siteleri
+- SaaS uygulaması ve Federasyon destekleyen özel tümleşik uygulamalar gibi veya sağlama azure AD kurumsal uygulamalar
+- SharePoint Online site koleksiyonları ve siteler
 
-## <a name="prerequisites"></a>Önkoşullar
+Azure AD güvenlik grupları veya Office 365 grupları'nı kullanan diğer kaynaklara erişim de denetleyebilirsiniz.  Örneğin:
 
-Azure AD hak yönetimi (Önizleme) kullanmak için aşağıdaki lisanslardan birine sahip olmalıdır:
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 lisansı
-
-Daha fazla bilgi için [Azure Active Directory Premium sürümleri için kaydolun](../fundamentals/active-directory-get-started-premium.md) veya [Enterprise Mobility + Security E5 deneme](https://aka.ms/emse5trial).
-
-Azure kamu, Azure Almanya ve Azure Çin 21Vianet gibi özel Bulutlar, bu önizlemede şu anda kullanılabilir değildir.
+- Azure AD güvenlik grubu kullanarak bir erişim paketinde ve yapılandırma için Microsoft Office 365 kullanıcı lisansları verebilirsiniz [grup tabanlı lisanslama](../users-groups-roles/licensing-groups-assign.md) bu grup için
+- Kullanıcıların bir Azure AD güvenlik grubu kullanarak bir erişim paketinde ve oluşturarak Azure kaynaklarını yönetmek için erişim verebilirsiniz bir [Azure rol ataması](../../role-based-access-control/role-assignments-portal.md) bu grup için
 
 ## <a name="what-are-access-packages-and-policies"></a>Erişim paketler ve ilkeleri nelerdir?
 
@@ -129,15 +120,15 @@ Hak Yönetimi ve belgelerini daha iyi anlamak için aşağıdaki koşulları gö
 | Hak Yönetimi | Atar, iptal eder ve erişim paketleri yöneten hizmet. |
 | Paket erişim | İzinleri ve ilkeleri kullanıcılar isteyebilir kaynakları koleksiyonudur. Bir erişim paket her zaman bir katalogda yer alır. |
 | erişim isteği | Bir erişim paket erişimi için istek. Bir istek genellikle bir iş akışı gider. |
-| ilke | Nasıl kullanıcıları, erişim elde kimler onaylayabilir ve ne kadar süreyle kullanıcıların erişimi gibi erişim yaşam döngüsünü tanımlayan kuralları kümesi. Örnek ilkeleri ve dış çalışan erişimi içerir. |
+| policy | Nasıl kullanıcıları, erişim elde kimler onaylayabilir ve ne kadar süreyle kullanıcıların erişimi gibi erişim yaşam döngüsünü tanımlayan kuralları kümesi. Örnek ilkeleri ve dış çalışan erişimi içerir. |
 | catalog | İlgili kaynakları ve erişim paketleri bir kapsayıcısı. |
 | Genel katalog | Her zaman kullanılabilir yerleşik bir kataloğu. Genel kataloğa kaynakları eklemek için belirli izinler gerektirir. |
-| kaynak | Bir varlık veya bir kullanıcı için izinler verilebilir hizmet (örneğin, grubu, uygulama veya site). |
-| kaynak türü | Grupları, uygulamaları ve SharePoint Online siteleri içeren bir kaynak türü. |
+| resource | Bir varlık veya bir kullanıcı için izinler verilebilir hizmet (örneğin, grubu, uygulama veya site). |
+| Kaynak türü | Grupları, uygulamaları ve SharePoint Online siteleri içeren bir kaynak türü. |
 | Kaynak rolü | Kaynakla ilişkili izinler koleksiyonudur. |
 | Kaynak dizini | Paylaşmak için bir veya daha fazla kaynağa sahip bir dizin. |
 | atanan kullanıcılar | Bir kullanıcı veya grup için bir erişim paketinin atama. |
-| etkinleştir | Bir access paketi istemek kullanıcılar için kullanılabilir hale getirme işlemidir. |
+| Etkinleştirme | Bir access paketi istemek kullanıcılar için kullanılabilir hale getirme işlemidir. |
 
 ## <a name="roles-and-permissions"></a>Roller ve izinler
 
@@ -173,6 +164,12 @@ Aşağıdaki tabloda, bu rollerin her birini izinleri listeler.
 | [Kaynakların bir kataloğu içine/dışına Ekle/Kaldır](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Katalog sahip ekleme ya da paket yöneticileri erişimi](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Katalog düzenleme/silme](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+
+## <a name="license-requirements"></a>Lisans gereksinimleri
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Azure kamu, Azure Almanya ve Azure Çin 21Vianet gibi özel Bulutlar, bu önizlemede şu anda kullanılabilir değildir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

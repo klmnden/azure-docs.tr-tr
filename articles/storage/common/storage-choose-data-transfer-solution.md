@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 4e2a182493b1e9de3d2ba9d586a9560e42fe0ecb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56470c08f0ac940dae42821ae61846f1c86d52eb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484083"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479522"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Veri aktarımı için bir Azure çözümü seçin
 
@@ -63,6 +63,11 @@ Bir veri aktarım çözümü seçmenize yardımcı olması için aşağıdaki so
 - Devam eden, sürekli veri aktarımı için mı arıyorsunuz?
 
     Yanıt Evet ise, seçenekleri kullanın [Senaryo 4: Düzenli aralıklarla veri aktarımları](storage-solution-periodic-data-transfer.md).
+ 
+
+## <a name="data-transfer-feature-in-azure-portal"></a>Azure portalında veri aktarımı özelliği
+
+Azure depolama hesabınızı seçin ve portal azure'da da gidebilirsiniz **veri aktarımı** özelliği. Ortamınızdaki ağ bant genişliğini, aktarmak istediğiniz veri boyutu ve sıklığı veri aktarımı sağlar. En iyi veri çözümleri, sağladığınız bilgileri için karşılık gelen aktarım görürsünüz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

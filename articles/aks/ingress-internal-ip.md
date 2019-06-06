@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 27d93f963003cfb30b8827d45c0472405b0ed0a6
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: f3986b68242d580d9a6bd0e0cc38ce2c9d3aeeb5
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66392673"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430956"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) bir giriş denetleyicisine bir iç sanal ağ oluşturma
 
@@ -53,6 +53,9 @@ Giriş denetleyicisine ayrıca Linux düğümde zamanlanması gerekir. Windows S
 
 > [!TIP]
 > Aşağıdaki örnek, bir Kubernetes ad alanı adlı giriş kaynakları oluşturur *giriş temel*. Bir ad alanı, kendi ortamınız için gerektiği şekilde belirtin. AKS kümenizi RBAC etkin değilse, ekleme `--set rbac.create=false` Helm komutlar.
+
+> [!TIP]
+> Etkinleştirmek istiyorsanız, [istemci kaynak IP korunması] [ client-source-ip] kümenizde kapsayıcıları istekleri için ekleme `--set controller.service.externalTrafficPolicy=Local` için Helm install komutu. IP istek üst bilgisi altında depolanan istemci kaynak *X-iletilen-için*. Giriş denetleyicisine istemci kaynak IP koruma etkin ile kullanırken SSL doğrudan çalışmaz.
 
 ```console
 # Create a namespace for your ingress resources
@@ -275,3 +278,4 @@ Aşağıdakileri de yapabilirsiniz:
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
+[client-source-ip]: concepts-network.md#ingress-controllers

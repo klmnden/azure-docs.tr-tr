@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 92a0ba8c0f43e26b7a1bbe82cc52f61d390fc04d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cb9edbb508ddd993dcefbf69eb06b4f0d4156485
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827330"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742544"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Ana VHD görüntüsü üzerinde Office yükleme
 
@@ -29,7 +29,9 @@ Bu makalede Azure veya Hyper-V Yöneticisi'ni sağlanan olup olmadığını eri�
 
 Paylaşılan bilgisayar etkinleştirmeye, Office 365 ProPlus kuruluşunuzdaki birden çok kullanıcı tarafından erişilen bir bilgisayara dağıtmanızı sağlar. Paylaşılan bilgisayar etkinleştirme hakkında daha fazla bilgi için bkz. [Office 365 ProPlus için paylaşılan bilgisayar etkinleştirmeye genel bakış](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
 
-Kullanım [Office dağıtım aracı](https://www.microsoft.com/download/details.aspx?id=49117) Office yüklenecek. Windows 10 Enterprise çok oturum, yalnızca Office 365 ProPlus'ı destekler.
+Kullanım [Office dağıtım aracı](https://www.microsoft.com/download/details.aspx?id=49117) Office yüklenecek. Windows 10 Enterprise çok oturum, yalnızca Office aşağıdaki sürümlerini destekler:
+- Office 365 ProPlus
+- Microsoft 365 iş aboneliğiyle birlikte gelen office 365 iş
 
 Office dağıtım aracı, yapılandırma XML dosyası gerektirir. Aşağıdaki örnek özelleştirmek için bkz: [Office Dağıtım Aracı'nı yapılandırma seçenekleri](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
 
@@ -132,7 +134,7 @@ OneDrive makine başına modunda yüklemek nasıl aşağıda verilmiştir:
 
 2. Bu bağlantıyla hazırlanmış konumunuza OneDriveSetup.exe indirin: <https://aka.ms/OneDriveWVD-Installer>
 
-3. Gt;(yok) office ile OneDrive yüklediyseniz  **\<ExcludeApp kimliği = "OneDrive" /\>**, tüm mevcut OneDrive kullanıcı başına yüklemeleri aşağıdakini çalıştırarak yükseltilmiş bir komut istemi'nden kaldırın. komut:
+3. Gt;(yok) office ile OneDrive yüklediyseniz  **\<ExcludeApp kimliği = "OneDrive" /\>** , tüm mevcut OneDrive kullanıcı başına yüklemeleri aşağıdakini çalıştırarak yükseltilmiş bir komut istemi'nden kaldırın. komut:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

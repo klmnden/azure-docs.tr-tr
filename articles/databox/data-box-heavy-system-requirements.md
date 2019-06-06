@@ -8,14 +8,14 @@ ms.subservice: heavy
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd2f96954cde367eb99d89e89bcf672b53dd590
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248002"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427746"
 ---
-# <a name="azure-data-box-heavy-system-requirements"></a>Azure veri kutusu ağır sistem gereksinimleri
+# <a name="azure-data-box-heavy-system-requirements-preview"></a>Azure veri kutusu ağır sistem gereksinimleri (Önizleme)
 
 Bu makalede, Azure veri kutusu ağır cihazınız için ve cihaz için bağlanan istemciler için en önemli sistem gereksinimlerini açıklar. Önce veri kutusu ağır dağıtın ve ardından geri gerekirse dağıtım ve sonraki işlemi sırasında başvurduğu bilgileri dikkatlice gözden öneririz.
 
