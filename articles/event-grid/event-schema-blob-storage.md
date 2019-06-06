@@ -90,12 +90,12 @@ Bir olay aşağıdaki üst düzey veri vardır:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
-| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| topic | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| subject | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| eventType | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
 | eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
 | id | string | Olayın benzersiz tanımlayıcısı. |
-| veriler | object | BLOB Depolama olay verileri. |
+| data | object | BLOB Depolama olay verileri. |
 | dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
@@ -109,9 +109,9 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | eTag | string | Koşullu işlemleri gerçekleştirmek için kullanabileceğiniz bir değer. |
 | contentType | string | Blob'u için belirtilen içerik türü. |
 | contentLength | integer | Blob bayt cinsinden boyutu. |
-| BlobType | string | Blob türü. Geçerli değerler "BlockBlob" veya "PageBlob" olmalı. |
+| blobType | string | Blob türü. Geçerli değerler "BlockBlob" veya "PageBlob" olmalı. |
 | url | string | Blob yolu. |
-| Sıralayıcı | string | İstekleri izlemek için kullanabileceğiniz bir kullanıcı tarafından denetlenen bir değer. |
+| sequencer | string | İstekleri izlemek için kullanabileceğiniz bir kullanıcı tarafından denetlenen bir değer. |
 | storageDiagnostics | object | Depolama Tanılama hakkında bilgi sağlar. |
  
 ## <a name="next-steps"></a>Sonraki adımlar
