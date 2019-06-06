@@ -157,12 +157,12 @@ Bir olay aşağıdaki üst düzey veri vardır:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
-| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| topic | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| subject | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| eventType | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
 | eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
 | id | string | Olayın benzersiz tanımlayıcısı. |
-| veriler | object | BLOB Depolama olay verileri. |
+| data | object | BLOB Depolama olay verileri. |
 | dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
@@ -173,20 +173,20 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | id | string | Olay Kimliği |
 | timestamp | string | Olayın gerçekleştiği zaman. |
 | action | string | Belirtilen olayın kapsayan eylem. |
-| hedef | object | Olay hedefi. |
-| istek | object | Olayı oluşturan istek. |
+| target | object | Olay hedefi. |
+| request | object | Olayı oluşturan istek. |
 
 Hedef nesne, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | mediaType | string | Başvurulan nesnenin MIME türü. |
-| boyut | integer | İçeriğin bayt sayısı. Uzunluk alanı ile aynıdır. |
-| Özet | string | Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet. |
-| Uzunluğu | integer | İçeriğin bayt sayısı. Boyut alanına ile aynıdır. |
-| depo | string | Depo adı. |
-| etiket | string | Etiket adı. |
-| ad | string | Grafik adı. |
+| size | integer | İçeriğin bayt sayısı. Uzunluk alanı ile aynıdır. |
+| digest | string | Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet. |
+| length | integer | İçeriğin bayt sayısı. Boyut alanına ile aynıdır. |
+| repository | string | Depo adı. |
+| tag | string | Etiket adı. |
+| name | string | Grafik adı. |
 | version | string | Grafik sürümü. |
 
 İstek nesnesi, aşağıdaki özelliklere sahiptir:
@@ -195,9 +195,9 @@ Hedef nesne, aşağıdaki özelliklere sahiptir:
 | -------- | ---- | ----------- |
 | id | string | Olayı başlatan isteği kimliği. |
 | addr | string | IP veya ana bilgisayar adı ve büyük olasılıkla bağlantı noktası olayı başlatan istemci bağlantısı. Standart http isteğinden RemoteAddr değerdir. |
-| konak | string | Harici olarak erişilebilen ana bilgisayar adını http ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği. |
+| host | string | Harici olarak erişilebilen ana bilgisayar adını http ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği. |
 | method | string | Olayı oluşturan istek yöntemi. |
-| UserAgent | string | İsteğin kullanıcı aracısını üstbilgisi. |
+| useragent | string | İsteğin kullanıcı aracısını üstbilgisi. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
