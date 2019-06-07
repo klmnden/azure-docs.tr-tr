@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 7a4153dd382a901db21752dd3d55a01803431791
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 763e7bc9298eee1ab602968360bbc79a58243e5b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388679"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752433"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Yükleme ve konuşma hizmeti kapsayıcıları çalıştırma
 
@@ -111,13 +111,13 @@ Aşağıdaki tabloda desteklenen yerel ayarlar için **konuşma metin** 1.1.1, k
 |--|--|
 |Çince|`zh-cn`|
 |Türkçe |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
-|Fransızca  |`fr-ca`<br>`fr-fr`|
-|Almanca |`de-de`|
+|Fransızca |`fr-ca`<br>`fr-fr`|
+|Almanca|`de-de`|
 |İtalyanca|`it-it`|
 |Japonca|`ja-jp`|
 |Korece|`ko-kr`|
 |Portekizce|`pt-br`|
-|İspanyolca |`es-es`<br>`es-mx`|
+|İspanyolca|`es-es`<br>`es-mx`|
 
 
 #### <a name="text-to-speech-locales"></a>Metin okuma yerel ayarlar
@@ -143,15 +143,15 @@ Aşağıdaki tabloda desteklenen yerel ayarlar için **metin okuma** 1.1.0 için
 |Türkçe |`en-gb`|George apollo<br>hazelrus<br>Susan apollo|
 |Türkçe |`en-in`|heera apollo<br>priyarus<br>ravi apollo<br>|
 |Türkçe |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
-|Fransızca |`fr-ca`|caroline<br>harmonierus|
-|Fransızca |`fr-fr`|hortenserus<br>Julie apollo<br>Paul apollo|
-|Almanca |`de-de`|hedda<br>heddarus<br>Stefan apollo|
+|Fransızca|`fr-ca`|caroline<br>harmonierus|
+|Fransızca|`fr-fr`|hortenserus<br>Julie apollo<br>Paul apollo|
+|Almanca|`de-de`|hedda<br>heddarus<br>Stefan apollo|
 |İtalyanca|`it-it`|cosimo apollo<br>luciarus|
 |Japonca|`ja-jp`|ayumi apollo<br>harukarus<br>ichiro apollo|
 |Korece|`ko-kr`|heamirus|
 |Portekizce|`pt-br`|Daniel apollo<br>heloisarus|
-|İspanyolca |`es-es`|elenarus<br>Gamze apollo<br>Pablo apollo<br>|
-|İspanyolca |`es-mx`|hildarus<br>raul apollo|
+|İspanyolca|`es-es`|elenarus<br>Gamze apollo<br>Pablo apollo<br>|
+|İspanyolca|`es-mx`|hildarus<br>raul apollo|
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Konuşma kapsayıcılar için docker isteği
 
@@ -260,7 +260,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 ### <a name="text-to-speech"></a>Metin okuma
 
-Kapsayıcı REST uç noktasını bulunabilir API'leri sağlar [burada](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) ve örnekler bulunabilir [burada](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
+Kapsayıcı REST uç noktasını bulunabilir API'leri sağlar [burada](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) ve örnekler bulunabilir [burada](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]

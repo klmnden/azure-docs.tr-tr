@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: d1808bb88ac1bb27f2fd0652585521fbb2abdf56
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: a5790b5412023f06d9f9fd1d2ff61c11db4c53f3
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734674"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807469"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak akış verileri üzerinde anomali algılama
 
-[Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) hızlı, kolay ve işbirliğine dayalı Apache Spark tabanlı analiz hizmetidir. Anomali algılayıcısı APİ'si, Azure Bilişsel Hizmetler'in bir parçası, zaman serisi verilerinizle izleme bir yol sağlar. Anomali algılama neredeyse gerçek zamanlı veri akışı çalıştırmak için bu öğreticiyi kullanın. Azure Databricks kullanarak. Azure Event Hubs kullanarak twitter verilerini alma ve Spark Event Hubs bağlayıcısını kullanarak Azure Databricks'e aldıktan. Ardından, akış verileri üzerinde anomalileri algılamak için API kullanacaksınız. 
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) hızlı, kolay ve işbirliğine dayalı Apache Spark tabanlı analiz hizmetidir. Anomali algılayıcısı APİ'si, Azure Bilişsel Hizmetler'in bir parçası, zaman serisi verilerinizle izleme bir yol sağlar. Anomali algılama neredeyse gerçek zamanlı veri akışı çalıştırmak için bu öğreticiyi kullanın. Azure Databricks kullanarak. Azure Event Hubs kullanarak twitter verilerini alma ve Spark Event Hubs bağlayıcısını kullanarak Azure Databricks'e aldıktan. Ardından, akış verileri üzerinde anomalileri algılamak için API kullanacaksınız. 
 
 Aşağıdaki şekilde uygulama akışı gösterilmektedir:
 

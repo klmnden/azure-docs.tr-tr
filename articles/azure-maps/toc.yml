@@ -154,6 +154,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/data'
         - name: Coğrafi Konum hizmeti
           href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
+        - name: Mobility hizmeti
+          href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: İşleme hizmeti
           href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: Yönlendirme hizmeti

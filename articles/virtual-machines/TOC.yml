@@ -12,6 +12,8 @@
       href: workloads/oracle/oracle-considerations.md
     - name: SAP
       href: workloads/sap/get-started.md
+    - name: Yüksek performanslı bilgi işlem
+      href: workloads/hpc/configure.md
     - name: Ana bilgisayar yeniden barındırma
       href: workloads/mainframe-rehosting/overview.md
 - name: Klasik dağıtımlar

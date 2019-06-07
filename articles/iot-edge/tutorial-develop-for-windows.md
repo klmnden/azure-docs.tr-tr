@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 891b64b8e31266360d718255dcd8e8a1f9fb597c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 81d660857eff63e0dfeeda400b168ea424152081
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306574"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808610"
 ---
-# <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Öğretici: IOT Edge modülleri Windows cihazlar için geliştirme
+# <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Öğretici: Windows cihazları için IoT Edge modülleri geliştirme
 
 Geliştirip IOT Edge çalıştıran Windows cihazlar için kod dağıtmak için Visual Studio'yu kullanın.
 
@@ -173,53 +173,54 @@ IOT Edge çalışma zamanı, IOT Edge cihaza, kapsayıcı görüntüleri çekmek
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. Deployment.template.json dosyayı kaydedin. 
 
-### Review the sample code
+### <a name="review-the-sample-code"></a>Örnek kodu gözden geçirin
 
-The solution template that you created includes sample code for an IoT Edge module. This sample module simply receives messages and then passes them on. The pipeline functionality demonstrates an important concept in IoT Edge, which is how modules communicate with each other.
+Oluşturduğunuz çözüm şablonu, bir IOT Edge modülü için örnek kod içerir. Bu örnek modülü yalnızca ileti alır ve bunları geçirdiği sonra. İşlem hattı işlevleri modüller birbirleri ile nasıl iletişim kuracağını olan IOT Edge, önemli bir kavramdır gösterir.
 
-Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific language for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [Declare routes](module-composition.md#declare-routes).
+Her modülü birden çok olabilir *giriş* ve *çıkış* kuyrukları bildirilen kodları. IOT Edge hub'ı kullanarak cihaz üzerinde çalışan bir modülün çıkışına iletilerden modüllerinin bir veya daha fazla giriş yönlendirir. Giriş ve çıkışları bildirmek için belirli bir dil diller arasında farklılık gösterir ancak tüm modüller arasında kavramı aynıdır. Modüller arasında yönlendirme hakkında daha fazla bilgi için bkz. [bildirmek yollar](module-composition.md#declare-routes).
 
-1. In the **main.c** file, find the **SetupCallbacksForModule** function.
+1. İçinde **main.c** dosya, bulma **SetupCallbacksForModule** işlevi.
 
-2. This function sets up an input queue to receive incoming messages. It calls the C SDK module client function [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback). Review this function and see that it initializes an input queue called **input1**. 
+2. Bu işlev, gelen iletileri almak için bir giriş sırasını ayarlar. C SDK'sı modülü istemci işlevi çağırdığı [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback). Bu işlev gözden geçirin ve adlı bir giriş sırası başlatır bkz **input1**. 
 
-   ![Find the input name in the SetInputMessageCallback constructor](./media/tutorial-develop-for-windows/declare-input-queue.png)
+   ![SetInputMessageCallback oluşturucuda giriş adını bulma](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
-3. Next, find the **InputQueue1Callback** function.
+3. Ardından, bulma **InputQueue1Callback** işlevi.
 
-4. This function processes received messages and sets up an output queue to pass them along. It calls the C SDK module client function [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync). Review this function and see that it initializes an output queue called **output1**. 
+4. Bu işlev, alınan iletileri işler ve bunları birlikte geçirmek için bir çıkış sırasını ayarlar. C SDK'sı modülü istemci işlevi çağırdığı [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync). Bu işlev gözden geçirin ve adlı bir çıkış kuyruğuna başlatır bkz **output1**. 
 
-   ![Find the output name in the SendEventToOutputAsync constructor](./media/tutorial-develop-for-windows/declare-output-queue.png)
+   ![Çıkış adı SendEventToOutputAsync oluşturucuda Bul](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
-5. Open the **deployment.template.json** file.
+5. Açık **deployment.template.json** dosya.
 
-6. Find the **modules** property of the $edgeAgent desired properties. 
+6. Bulma **modülleri** $edgeAgent özelliğini istenen özellikleri. 
 
-   There should be two modules listed here. The first is **tempSensor**, which is included in all the templates by default to provide simulated temperature data that you can use to test your modules. The second is the **IotEdgeModule1** module that you created as part of this project.
+   Burada listelenen iki modül olması gerekir. İlk **tempSensor**, hangi tüm şablonlarda modüllerinizi test etmek için kullanabileceğiniz sanal sıcaklık verilerini sağlamak için varsayılan olarak eklenir. İkinci **IotEdgeModule1** bu projenin bir parçası olarak oluşturulan modülü.
 
-   This modules property declares which modules should be included in the deployment to your device or devices. 
+   Bu modüller özelliği, cihaz veya cihazlara dağıtım modüllerine eklenmelidir bildirir. 
 
-7. Find the **routes** property of the $edgeHub desired properties. 
+7. Bulma **yollar** $edgeHub özelliğini istenen özellikleri. 
 
-   One of the functions if the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the routes property. The first route, **IotEdgeModule1ToIoTHub**, uses a wildcard character (**\***) to include any message coming from any output queue in the IoTEdgeModule1 module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, **sensorToIotEdgeModule1**, takes messages coming from the tempSensor module and routes them to the *input1* input queue of the IotEdgeModule1 module. 
+   IOT Edge hub'ı modülü bir dağıtımdaki tüm modüller arasında iletileri yönlendirmek için ise işlevlerden biri. Yollar özellik değerleri gözden geçirin. İlk yol **IotEdgeModule1ToIoTHub**, bir joker karakter kullanan ( **\*** ) IoTEdgeModule1 modüldeki herhangi bir çıkış kuyruğuna gelen iletiler eklenecek. Bu iletiler kısımlarda *Yukarı Akış $* , IOT hub'ı gösteren ayrılmış bir ad olduğu. İkinci rota **sensorToIotEdgeModule1**tempSensor modülünden gelen iletileri alır ve bunları yönlendirir *input1* IotEdgeModule1 modülünün giriş sırası. 
 
-   ![Review routes in deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
+   ![Yollar deployment.template.json gözden geçirin](./media/tutorial-develop-for-windows/deployment-routes.png)
 
 
-## Build and push your solution
+## <a name="build-and-push-your-solution"></a>Oluşturun ve çözümünüzü gönderin
 
-You've reviewed the module code and the deployment template to understand some key deployment concepts. Now, you're ready to build the IotEdgeModule1 container image and push it to your container registry. With the IoT tools extension for Visual Studio, this step also generates the deployment manifest based on the information in the template file and the module information from the solution files. 
+Modül kodunuzu ve bazı önemli dağıtım kavramları anlamak için dağıtım şablonu gözden geçirdim. Artık, IotEdgeModule1 kapsayıcı görüntüsünü oluşturma ve kapsayıcı kayıt defterinizde göndermek hazırsınız. Visual Studio için IOT araçları uzantısı ile bu adım Ayrıca şablon dosyasındaki bilgiler ve çözüm dosyalarını modülü bilgilerinden göre dağıtım bildirimi oluşturur. 
 
-### Sign in to Docker
+### <a name="sign-in-to-docker"></a>Docker'da oturum açın
 
-Provide your container registry credentials to Docker on your development machine so that it can push your container image to be stored in the registry. 
+Kapsayıcı görüntünüzü kayıt defterinde depolanan gönderebilirsiniz, böylece kapsayıcınızı geliştirme makinenizde Docker kayıt defteri kimlik bilgilerini sağlayın. 
 
-1. Open PowerShell or a command prompt.
+1. PowerShell veya komut istemi açın.
 
-2. Sign in to Docker with the Azure container registry credentials that you saved after creating the registry. 
+2. Docker için kayıt defterini oluşturduktan sonra kaydedilmiş Azure kapsayıcı kayıt defteri kimlik bilgileri ile oturum açın. 
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -262,7 +263,7 @@ Geliştirme makinenizde kapsayıcı kayıt defterinizde artık erişimi olduğun
 
     ![Kapsayıcı kayıt defterine iki görüntü sürümünü görüntüleme](./media/tutorial-develop-for-windows/view-repository-versions.png)
 
-### <a name="troubleshoot"></a>Sorun gider
+### <a name="troubleshoot"></a>Sorun giderme
 
 Oluştururken ve modülü görüntünüzü gönderilirken hatalarla karşılaşırsanız, geliştirme makinenizde Docker yapılandırmasını yapmak genellikle sahiptir. Yapılandırmanızı gözden geçirmek için aşağıdaki denetimleri kullanın: 
 

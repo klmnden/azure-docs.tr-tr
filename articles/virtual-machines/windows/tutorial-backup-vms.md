@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/27/2017
+ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7c6f5e199041af7d0ecd829ace2b56f5789f4955
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1efa76cf6bb29dfac473ad6ce31cefdfee0c52ec
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785357"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808808"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Öğretici: Yedekleme ve azure'da Windows sanal makineler için dosyaları geri yükleme
 
@@ -40,20 +40,19 @@ Windows VM'lerinin anlık görüntüsü alınırken, Backup hizmeti Birim Gölge
 
 Veri aktarımı tamamlandığında, anlık görüntü kaldırılır ve bir kurtarma noktası oluşturulur.
 
-
 ## <a name="create-a-backup"></a>Yedekleme oluşturma
 Kurtarma Hizmetleri Kasasına basit bir zamanlanmış günlük yedekleme oluşturma. 
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Sol taraftaki menüden **Sanal makineler**'i seçin. 
-3. Listeden yedekleyeceğiniz VM'yi seçin.
-4. VM dikey penceresinde, **işlemleri** bölümünde **yedekleme**. **Yedeklemeyi etkinleştir** dikey penceresi açılır.
-5. **Kurtarma Hizmetleri kasası**’nda **Yeni oluştur**’a tıklayıp yeni kasa için ad belirtin. Sanal makineyle aynı Kaynak Grubunda ve konumda yeni bir kasa oluşturulur.
-6. **Yedekleme ilkesi**’ne tıklayın. Bu örnek için varsayılanları tutun ve **Tamam**’a tıklayın.
-7. **Yedeklemeyi etkinleştir** dikey penceresinde **Yedeklemeyi Etkinleştir** seçeneğine tıklayın. Bu işlem, varsayılan zamanlamaya göre günlük bir yedekleme oluşturur.
-10. Başlangıç kurtarma noktası oluşturmak için **Yedekleme** dikey penceresinde **Şimdi yedekle** seçeneğine tıklayın.
-11. **Şimdi Yedekle** dikey penceresinde takvim simgesine tıklayın, bu kurtarma noktasının korunduğu son günü seçmek için takvim denetimini kullanın ve **Yedekleme**’ye tıklayın.
-12. VM’nize yönelik **Yedekleme** dikey penceresinde tamamlanmış kurtarma noktalarının sayısını görürsünüz.
+1. Sol taraftaki menüden **Sanal makineler**'i seçin. 
+1. Listeden yedekleyeceğiniz VM'yi seçin.
+1. VM dikey penceresinde, **işlemleri** bölümünde **yedekleme**. **Yedeklemeyi etkinleştir** dikey penceresi açılır.
+1. **Kurtarma Hizmetleri kasası**’nda **Yeni oluştur**’a tıklayıp yeni kasa için ad belirtin. Yeni bir kasa ile aynı kaynak grubunda ve konumda sanal makine olarak oluşturulur.
+1. Altında **yedekleme ilkesi seçmek**, varsayılan tutun **(yeni) DailyPolicy**ve ardından **yedeklemeyi etkinleştir**.
+1. Başlangıç kurtarma noktası oluşturmak için **Yedekleme** dikey penceresinde **Şimdi yedekle** seçeneğine tıklayın.
+1. Üzerinde **Şimdi Yedekle** dikey penceresinde Takvim simgesine tıklayın, takvim denetimini kullanın ne kadar geri yükleme noktası korunur ve tıklayın **Tamam**.
+1. İçinde **yedekleme** dikey penceresinde VM'niz için tam geri yükleme noktalarının sayısını görürsünüz.
+
 
     ![Kurtarma noktaları](./media/tutorial-backup-vms/backup-complete.png)
     
@@ -69,25 +68,28 @@ Bu örnekte, IIS'nin varsayılan web sayfasında kullanılan görüntü dosyası
 
     ![Varsayılan IIS web sayfası](./media/tutorial-backup-vms/iis-working.png)
 
-2. VM’ye bağlanın.
-3. VM'de **Dosya Gezgini**'ni açın ve \inetpub\wwwroot konumuna gidip **iisstart.png** dosyasını silin.
-4. Yerel bilgisayarınızda, varsayılan IIS sayfasındaki görüntünün gittiğini görmek için tarayıcıyı yenileyin.
+1. VM’ye bağlanın.
+1. VM'de **Dosya Gezgini**'ni açın ve \inetpub\wwwroot konumuna gidip **iisstart.png** dosyasını silin.
+1. Yerel bilgisayarınızda, varsayılan IIS sayfasındaki görüntünün gittiğini görmek için tarayıcıyı yenileyin.
 
     ![Varsayılan IIS web sayfası](./media/tutorial-backup-vms/iis-broken.png)
 
-5. Yerel bilgisayarınızda, yeni bir sekme açın ve [Azure portal](https://portal.azure.com)'a gidin.
-6. Sol taraftaki menüde **Sanal makineler**'i ve listedeki VM'lerden birini seçin.
-8. VM dikey penceresinde, **Ayarlar** bölümünden **Yedekleme**’ye tıklayın. **Yedekleme** dikey penceresi açılır. 
-9. Dikey pencerenin üst tarafındaki menüde **Dosya Kurtarma** seçeneğini belirleyin. **Dosya Kurtarma** dikey penceresi açılır.
-10. İçinde **1. adım: Kurtarma noktası seçin**, açılan listeden bir kurtarma noktası seçin.
-11. İçinde **2. adım: Göz atmak ve dosyaları kurtarmak için betiği indirme**, tıklayın **yürütülebilir dosyayı indir** düğmesi. Dosyaya **İndirilenler** klasörünüze kaydedin.
-12. Yerel bilgisayarınızda **Dosya Gezgini**'ni açın, **İndirilenler** klasörünüze gidin ve indirilen .exe dosyasını kopyalayın. Dosya adında ön ek olarak VM adınız bulunur. 
-13. VM'nizde (RDP bağlantısı üzerinden), .exe dosyasını VM'nizin Masaüstü'ne yapıştırın. 
-14. VM'nizin masaüstüne gidin ve .exe dosyasına çift tıklayın. Bu işlem bir komut istemi başlatır ve kurtarma noktasını erişebileceğiniz bir dosya paylaşımı olarak bağlar. Paylaşımı oluşturmayı tamamladığında, **q** yazarak komut istemini kapatın.
-15. VM'nizde **Dosya Gezgini**'ni açın ve dosya paylaşımı için kullanılmış olan sürücü harfine gidin.
-16. \inetpub\wwwroot konumuna gidin ve dosya paylaşımından **iisstart.png** dosyasını kopyalayıp \inetpub\wwwroot konumuna yapıştırın. Örneğin, F:\inetpub\wwwroot\iisstart.png dosyasını kopyalayın ve dosyayı kurtarmak için bunu c:\inetpub\wwwroot konumuna yapıştırın.
-17. Yerel bilgisayarınızda, IIS varsayılan sayfasını gösteren VM'nin IP adresine bağlandığınız tarayıcı sekmesini açın. Tarayıcı sayfasını yenilemek için CTRL + F5 tuşlarına basın. Artık görüntünün geri yüklendiğini görüyor olmalısınız.
-18. Yerel bilgisayarınızda Azure portalında hem de tarayıcı sekmesine dönün **3. adım: Kurtarma işleminden sonra diskleri çıkarma** tıklayın **diskleri çıkar** düğmesi. Bu adımı gerçekleştirmeyi unutursanız takma noktası ile bağlantı 12 saatin sonunda otomatik olarak kapatılır. Bu 12 saatin ardından yeni takma noktası oluşturmak için yeni bir betik indirmeniz gerekir.
+1. Yerel bilgisayarınızda, yeni bir sekme açın ve [Azure portal](https://portal.azure.com)'a gidin.
+1. Sol taraftaki menüde **Sanal makineler**'i ve listedeki VM'lerden birini seçin.
+1. VM dikey penceresinde, **işlemleri** bölümünde **yedekleme**. **Yedekleme** dikey penceresi açılır. 
+1. Dikey pencerenin üst tarafındaki menüde **Dosya Kurtarma** seçeneğini belirleyin. **Dosya Kurtarma** dikey penceresi açılır.
+1. İçinde **1. adım: Kurtarma noktası seçin**, açılan listeden bir kurtarma noktası seçin.
+1. İçinde **2. adım: Göz atmak ve dosyaları kurtarmak için betiği indirme**, tıklayın **yürütülebilir dosyayı indir** düğmesi. Dosya parolasını kopyalayın ve güvenli bir yerde saklayın.
+1. Yerel bilgisayarınızda **Dosya Gezgini**'ni açın, **İndirilenler** klasörünüze gidin ve indirilen .exe dosyasını kopyalayın. Dosya adında ön ek olarak VM adınız bulunur. 
+1. (RDP bağlantısı kullanarak) VM'NİZDE vm'nizin Masaüstü .exe dosyasına yapıştırın. 
+1. VM'nizin masaüstüne gidin ve .exe dosyasına çift tıklayın. Bir komut istemi başlatılır. Program erişebileceğiniz bir dosya paylaşımı olarak kurtarma noktasını takar. Paylaşımı oluşturmayı tamamladığında, **q** yazarak komut istemini kapatın.
+1. VM'nizde **Dosya Gezgini**'ni açın ve dosya paylaşımı için kullanılmış olan sürücü harfine gidin.
+1. \inetpub\wwwroot konumuna gidin ve dosya paylaşımından **iisstart.png** dosyasını kopyalayıp \inetpub\wwwroot konumuna yapıştırın. Örneğin, F:\inetpub\wwwroot\iisstart.png dosyasını kopyalayın ve dosyayı kurtarmak için bunu c:\inetpub\wwwroot konumuna yapıştırın.
+1. Yerel bilgisayarınızda, IIS varsayılan sayfasını gösteren VM'nin IP adresine bağlandığınız tarayıcı sekmesini açın. Tarayıcı sayfasını yenilemek için CTRL + F5 tuşlarına basın. Artık görüntünün geri yüklendiğini görüyor olmalısınız.
+1. Yerel bilgisayarınızda Azure portalında hem de tarayıcı sekmesine dönün **3. adım: Kurtarma işleminden sonra diskleri çıkarma** tıklayın **diskleri çıkar** düğmesi. Bu adımı gerçekleştirmeyi unutursanız takma noktası ile bağlantı 12 saatin sonunda otomatik olarak kesilir. Bu 12 saatin ardından yeni takma noktası oluşturmak için yeni bir betik indirmeniz gerekir.
+
+
+
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
