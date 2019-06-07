@@ -236,12 +236,12 @@ Bir olay aşağıdaki üst düzey veri vardır:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
-| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| topic | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| subject | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| eventType | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
 | eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
 | id | string | Olayın benzersiz tanımlayıcısı. |
-| veriler | object | Kaynak grubu olay verileri. |
+| data | object | Kaynak grubu olay verileri. |
 | dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
@@ -249,16 +249,16 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Yetkilendirme | object | İşlem için istenen yetkilendirme. |
-| Talep | object | Talep özellikleri. Daha fazla bilgi için [JWT belirtimi](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| authorization | object | İşlem için istenen yetkilendirme. |
+| claims | object | Talep özellikleri. Daha fazla bilgi için [JWT belirtimi](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | Sorun giderme için bir işlem kimliği. |
-| HTTP isteği | object | İşlem ayrıntıları. Bu nesne yalnızca olan mevcut bir kaynağı güncelleştirirken dahil ya da bir kaynak siliniyor. |
-| ResourceProvider | string | İşlemi kaynak sağlayıcı. |
+| httpRequest | object | İşlem ayrıntıları. Bu nesne yalnızca olan mevcut bir kaynağı güncelleştirirken dahil ya da bir kaynak siliniyor. |
+| resourceProvider | string | İşlemi kaynak sağlayıcı. |
 | resourceUri | string | İşlemi kaynak URI'si. |
 | operationName | string | Alınan işlemi. |
-| durum | string | İşlemin durumu. |
+| status | string | İşlemin durumu. |
 | subscriptionId | string | Kaynak abonelik kimliği. |
-| Kiracı kimliği | string | Kaynak Kiracı kimliği. |
+| tenantId | string | Kaynak Kiracı kimliği. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
