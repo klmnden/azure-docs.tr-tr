@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 365f017fe7d71500c17d0a9ccd9c5a0a26a78b75
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989542"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472806"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Üst bilgi tabanlı kimlik doğrulaması için uygulama proxy'si ile PingAccess ile çoklu oturum açma
 
@@ -117,7 +117,7 @@ Ardından, yeniden yönlendirme URL'si dış URL'nizi ayarlanır emin olun:
 
    ![Uygulama kayıtları](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
 2. Uygulamanızı seçin.
-3. Yanındaki bağlantıyı seçin **yeniden yönlendirme URI'leri**, yeniden yönlendirme URI'leri zaman ayarlanan web ve genel istemcilerinin sayısını gösteren.  **\<Uygulama adı >-kimlik doğrulaması** sayfası görüntülenir.
+3. Yanındaki bağlantıyı seçin **yeniden yönlendirme URI'leri**, yeniden yönlendirme URI'leri zaman ayarlanan web ve genel istemcilerinin sayısını gösteren. **\<Uygulama adı >-kimlik doğrulaması** sayfası görüntülenir.
 4. Daha önce uygulamaya atanmış bir dış URL içinde olup olmadığını denetleyin **yeniden yönlendirme URI'leri** listesi. Değilse, dış URL'yi ekleyin artık, bir yeniden yönlendirme URI'si türünü kullanan **Web**seçip **Kaydet**.
 
 Son olarak, şirket içi uygulamanız kullanıcıların okuma erişimi ve diğer uygulamalara okuma/yazma erişimine sahip olacak şekilde ayarlayın:
@@ -128,7 +128,7 @@ Son olarak, şirket içi uygulamanız kullanıcıların okuma erişimi ve diğer
 2. Seçin **temsilci izinleri** > **kullanıcı** > **User.Read**.
 3. Seçin **uygulama izinleri** > **uygulama** > **Application.ReadWrite.All**.
 4. Seçin **izinleri eklemek**.
-5. İçinde **API izinleri** sayfasında **vermek için yönetici onayı \<dizin adınız >**.
+5. İçinde **API izinleri** sayfasında **vermek için yönetici onayı \<dizin adınız >** .
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>PingAccess adımlar için bilgi toplama
 
@@ -150,7 +150,7 @@ Bu bilgileri toplamak için:
 4. Sonraki **dizin (Kiracı) kimliği** değeri, aynı zamanda seçin **Panoya Kopyala**, daha sonra kopyalayın ve kaydedin. Bu değer daha sonra PingAccess'ın veren belirtin.
 5. Kenar **uygulama kayıtları** uygulamanız için seçin **sertifikalarını ve gizli dizilerini** > **yeni gizli**. **İstemci gizli dizi eklemek** sayfası görüntülenir.
 
-   ![İstemci parolası ekleyin](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
+   ![İstemci gizli anahtarı Ekle](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
 6. İçinde **açıklama**, türü `PingAccess key`.
 7. Altında **Expires**, PingAccess anahtarını ayarlamak nasıl seçin: **1 yıl içinde**, **2 yıl içinde**, veya **hiçbir zaman**.
 8. **Add (Ekle)** seçeneğini belirleyin. PingAccess anahtar istemci gizli tablosunda görünür bir rastgele bu autofills içinde dize **değer** alan.
@@ -158,9 +158,9 @@ Bu bilgileri toplamak için:
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>Özel alanlar (isteğe bağlı) göndermek için GraphAPI güncelleştir
 
-Azure AD kimlik doğrulaması için gönderen güvenlik belirteçleri listesi için bkz. [Microsoft kimlik platformu kimlik belirteçlerini](../develop/id-tokens.md). Diğer belirteçler gönderen bir özel talep ihtiyacınız varsa, ayarlayın `acceptMappedClaims` uygulama alanına `True`. Graph Gezgini kullanabilirsiniz veya bu değişikliği yapmak için Azure AD portalının uygulama bildirimi.
+İçindeki diğer belirteç gönderen bir özel talep gerekiyorsa access_token PingAccess tarafından tüketilen, Ayarla `acceptMappedClaims` uygulama alanına `True`. Graph Gezgini kullanabilirsiniz veya bu değişikliği yapmak için Azure AD portalının uygulama bildirimi.
 
-Bu örnek Graph Gezgini kullanır:
+**Bu örnek Graph Gezgini kullanır:**
 
 ```
 PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
@@ -170,7 +170,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 
-Bu örnekte [Azure Active Directory portalında](https://aad.portal.azure.com/) güncelleştirilecek `acceptMappedClaims` alan:
+**Bu örnekte [Azure Active Directory portalında](https://aad.portal.azure.com/) güncelleştirilecek `acceptMappedClaims` alan:**
 
 1. Oturum [Azure Active Directory portalında](https://aad.portal.azure.com/) uygulama yöneticisi olarak.
 2. Seçin **Azure Active Directory** > **uygulama kayıtları**. Uygulamaların listesi görüntülenir.
@@ -179,7 +179,28 @@ Bu örnekte [Azure Active Directory portalında](https://aad.portal.azure.com/) 
 5. Arama `acceptMappedClaims` alan ve değere değiştirin `True`.
 6. **Kaydet**’i seçin.
 
-### <a name="use-a-custom-claim-optional"></a>(İsteğe bağlı) bir özel talep kullanın
+
+### <a name="use-of-optional-claims-optional"></a>İsteğe bağlı taleplerin (isteğe bağlı) kullanın
+İsteğe bağlı bir talep, her kullanıcı ve Kiracı standard-but-not-included-by-default talep eklemenize olanak sağlar. Uygulama bildirimini değiştirerek, uygulamanız için isteğe bağlı bir talep yapılandırabilirsiniz. Daha fazla bilgi için bkz. [Azure AD uygulama bildirim makaleyi anlama](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
+
+PingAccess tüketecektir access_token ile e-posta adresi eklemek için örnek:
+```
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
+```
+
+### <a name="use-of-claims-mapping-policy-optional"></a>Talep eşleme ilkesi (isteğe bağlı) kullanın
+[Talep eşleme ilkesi (Önizleme)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) AzureAD içinde yok öznitelikler için. ADFS veya kullanıcı nesneleri tarafından desteklenen ek özel talep ekleyerek, eski şirket içi uygulamaları buluta geçirmek talep eşleme sağlar
 
 Uygulamanızın özel talep kullanın ve ek alanları dahil olmak üzere seçtiğiniz emin olması da [bir özel talep İlkesi eşlemesi oluşturulur ve uygulamaya atanan](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
@@ -187,6 +208,16 @@ Uygulamanızın özel talep kullanın ve ek alanları dahil olmak üzere seçti�
 > Bir özel talep kullanmak için tanımlanan ve uygulamaya atanan özel bir ilke olmalıdır. Bu ilke, tüm gerekli özel öznitelikler içermelidir.
 >
 > İlke tanımı ve PowerShell, Azure AD Graph Gezgini ya da Microsoft Graph aracılığıyla atanabilecek yapabilirsiniz. PowerShell'de bunları yapıyorsanız, ilk kullanmanız gerekebilir `New-AzureADPolicy` ve uygulama ile atamak `Add-AzureADServicePrincipalPolicy`. Daha fazla bilgi için [talep eşleme ilke ataması](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+Örnek:
+```powershell
+$pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
+
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+```
+
+### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>Özel talepler (isteğe bağlıdır, ancak ek talep kullanan uygulamaya beklediğiniz gereklidir) kullanmak PingAccess etkinleştir
+Aşağıdaki adımda PingAccess yapılandıracağınız, Web oturumu oluşturur (Ayarlar -> erişim -> Web oturumları) olmalıdır **istek profili** seçimi ve **kullanıcı özniteliklerini Yenile** kümesine **yok**
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>PingAccess indirin ve uygulamanızı yapılandırın
 

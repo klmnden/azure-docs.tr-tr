@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 4376db8cdfa90b8d29ecd9b210e683848b4c94b4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: a82d9e6e1d5ffa9b97bb0c1a4272375d4a71863c
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072597"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742805"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Oluşturma ve Azure portalında sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesi yapılandırma
 
@@ -69,10 +69,11 @@ Sanal düğümler işlevleri ACI'ın özellik kümesi üzerinde bağımlılığa
 * [Konak diğer adları](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Bağımsız değişkenler](../container-instances/container-instances-exec.md#restrictions) ACI içindeki exec için
 * [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) pod'ların sanal düğüme dağıtma
+* [Windows Server düğümleri (şu anda önizlemede aks'deki)](windows-container-cli.md) yanı sıra sanal düğümler desteklenmez. Sanal düğümler, bir AKS kümesindeki düğümler Windows Server gerek kalmadan Windows Server kapsayıcıları zamanlamak için kullanabilirsiniz.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-an-aks-cluster"></a>AKS kümesi oluşturma
 
@@ -196,7 +197,7 @@ Yükleme `curl` pod kullanarak `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Artık erişim pod kullanmanın adresi `curl`, gibi *http://10.241.0.4*. Önceki gösterilen kendi iç IP adresi verin `kubectl get pods` komutu:
+Artık erişim pod kullanmanın adresi `curl`, gibi *http://10.241.0.4* . Önceki gösterilen kendi iç IP adresi verin `kubectl get pods` komutu:
 
 ```azurecli-interactive
 curl -L http://10.241.0.4

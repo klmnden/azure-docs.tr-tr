@@ -2,20 +2,20 @@
 title: Bir kullanıcı yolculuğunun özel ilkeler ile kullanıcı arabirimini özelleştirme | Microsoft Docs
 description: Azure Active Directory B2C özel ilkeleri hakkında bilgi edinin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1cd3fa11df9bd9c87b84985f7acad6ba0a5e8838
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695769"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509599"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Bir kullanıcı yolculuğunun özel ilkeler ile kullanıcı arabirimini özelleştirme
 
@@ -120,7 +120,7 @@ CORS (çıkış noktaları arası kaynak paylaşımı) uç noktanız içerik yü
 Üzerinde içeriğinizin barındırıldığı depolama alanını CORS etkin olduğunu doğrulamak için aşağıdaki adımlarla devam edin:
 
 1. Bir tarayıcı oturumu açın ve sayfasına giderek *unified.html* , depolama hesabındaki konumunun tam URL'yi kullanarak `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Örneğin, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2.  https://test-cors.org sayfasına gidin. Bu site, kullanmakta olduğunuz sayfayı CORS etkin olduğunu doğrulamak sağlar.  
+2. https://test-cors.org sayfasına gidin. Bu site, kullanmakta olduğunuz sayfayı CORS etkin olduğunu doğrulamak sağlar.  
    <!--
    ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
    -->

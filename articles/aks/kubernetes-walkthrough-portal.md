@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 5/31/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c43375afe7965475e84793ddcd54a38a2e9bd3cd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58f89ddcf4480df14689541ec99b6c9b2526721a
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073741"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688084"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir Azure Kubernetes Service (AKS) kümesini dağıtma
 
@@ -27,31 +27,32 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
- [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-an-aks-cluster"></a>AKS kümesi oluşturma
 
-Azure portalının sol üst köşesinde seçin **+ kaynak Oluştur** > **Kubernetes hizmeti**.
+Azure portalının sol üst köşesinde seçin **+ kaynak Oluştur** > **kapsayıcıları** >  **Kubernetes hizmeti**.
 
 AKS kümesi oluşturmak için aşağıdaki adımları tamamlayın:
 
-1. **Temel**: Aşağıdaki seçenekleri yapılandırın:
+1. Üzerinde **Temelleri** sayfasında, aşağıdaki seçenekleri yapılandırın:
    - *PROJE AYRINTILARINI*: Bir Azure aboneliği seçin sonra seçin veya bir Azure kaynak grubu gibi oluşturma *myResourceGroup*. **Kubernetes kümesi adı** alanına *myAKSCluster* gibi bir ad girin.
    - *KÜME AYRINTILARI*: Bölge, Kubernetes sürümü ve DNS adı ön eki için AKS kümesi seçin.
-   - *ÖLÇEK*: AKS düğümleri için VM boyutunu seçin. AKS kümesi dağıtıldıktan sonra, sanal makine boyutu **değiştirilemez**.
+   - **BİRİNCİL düğüm HAVUZU**: AKS düğümleri için VM boyutunu seçin. AKS kümesi dağıtıldıktan sonra, sanal makine boyutu **değiştirilemez**. 
        - Kümeye dağıtılacak düğüm sayısını seçin. Bu hızlı başlangıç **Düğüm sayısı** değerini *1* olarak belirleyin. Küme dağıtıldıktan sonra düğüm sayısı **ayarlanabilir**.
     
      ![AKS kümesi oluşturma - temel bilgileri sağlama](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Seçin **sonraki: Kimlik doğrulaması** tamamlandığında.
+     Seçin **sonraki: Ölçek** tamamlandığında.
 
-1. **Kimlik doğrulaması**: Aşağıdaki seçenekleri yapılandırın:
-   - Yeni bir hizmet sorumlusu oluşturun veya *Yapılandır* seçeneğiyle mevcut bir hizmet sorumlusunu kullanın. Mevcut bir SPN kullanırken, SPN istemci kimliğini ve gizli dizisini sağlamanız gerekir.
-   - Kubernetes rol tabanlı erişim denetimleri (RBAC) seçeneğini etkinleştirin. Bu denetimler AKS kümenize dağıtılmış olan Kubernetes kaynakları üzerinde daha ayrıntılı denetim sunar.
+2. Üzerinde **ölçek** sayfasında, varsayılan seçenekleri tutun. Ekranın alt kısmında tıklayın **sonraki: kimlik doğrulaması**.
+3. Üzerinde **kimlik doğrulaması** sayfasında, aşağıdaki seçenekleri yapılandırın:
+   - Bırakarak yeni bir hizmet sorumlusu oluşturma **hizmet sorumlusu** alanına **(yeni) varsayılan hizmet sorumlusu**. Veya seçebilirsiniz *yapılandırma hizmet sorumlusu* var olan bir kullanılacak. Mevcut bir kullanırsanız, SPN istemci Kimliğini ve parolasını sağlamanız gerekir.
+   - Kubernetes rol tabanlı erişim denetimleri (RBAC) seçeneğini etkinleştirin. Bu, AKS kümesinde dağıtılan Kubernetes kaynaklara erişim üzerinde daha ayrıntılı denetim sağlar.
 
-     Varsayılan olarak, *temel* ağ kullanılır ve kapsayıcılar için Azure İzleyici etkinleştirilir. **Gözden geçir + oluştur**’u seçin ve hazır olduğunuzda **Oluştur**’a tıklayın.
+    Varsayılan olarak, *temel* ağ kullanılır ve kapsayıcılar için Azure İzleyici etkinleştirilir. Tıklayın **gözden geçir + Oluştur** ardından **Oluştur** doğrulama tamamlandığında.
 
-AKS kümesinin oluşturulması ve kullanıma hazır olması birkaç dakika sürer. İşiniz bittiğinde AKS kümesi kaynak grubuna gibi Gözat *myResourceGroup*ve AKS kaynak gibi seçin *myAKSCluster*. Aşağıdaki örnek ekran görüntüsündeki gibi AKS küme panosu gösterilir:
+AKS kümesi oluşturmak için birkaç dakika sürer. Dağıtım tamamlandığında, tıklayın **kaynağa Git**, AKS küme kaynak grubunu, gibi veya *myResourceGroup*ve AKS kaynak gibi seçin *myAKSCluster*. AKS küme Panosu, bu örnekte olduğu gibi gösterilir:
 
 ![Azure portalda örnek AKS panosu](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -59,7 +60,7 @@ AKS kümesinin oluşturulması ve kullanıma hazır olması birkaç dakika süre
 
 Bir Kubernetes kümesini yönetmek için kullandığınız [kubectl][kubectl], Kubernetes komut satırı istemcisi. `kubectl` istemcisi Azure Cloud Shell’de önceden yüklüdür.
 
-Azure portalının sağ üst köşesindeki düğmeyi kullanarak Cloud Shell’i açın.
+Açık Cloud Shell kullanarak `>_` Azure portalın üst kısmındaki düğmesi.
 
 ![Azure Cloud Shell'i portalda açma](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735160"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754555"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>İleti zenginleştirmelerinin CİHAZDAN buluta IOT hub'ı iletileri (Önizleme)
 
@@ -77,7 +77,7 @@ Zenginleştirmelerinin uç noktası uygulanır. Belirli bir uç nokta için damg
 
 ## <a name="availability"></a>Kullanılabilirlik
 
-Bu özellik Önizleme aşamasındadır ve Doğu ABD, Batı ABD, Batı Avrupa dışındaki tüm bölgelerde kullanılabilir [Azure kamu](/azure/azure-government/documentation-government-welcome), [Azure Çin 21Vianet](/azure/china/china-welcome), ve [Azure Almanya](https://azure.microsoft.com/global-infrastructure/germany/).
+Bu özellik Önizleme aşamasındadır ve Doğu ABD, Batı ABD, Batı Avrupa dışındaki tüm bölgelerde kullanılabilir [Azure kamu](/azure/azure-government/documentation-government-welcome), [Azure Çin 21Vianet](/azure/china), ve [Azure Almanya](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
