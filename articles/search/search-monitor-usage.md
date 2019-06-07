@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797371"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755065"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search'te kaynak tüketimi ve sorgu etkinliğini İzle
 
@@ -69,7 +69,7 @@ Aşağıdaki tabloda, günlükleri depolamak ve geniş kapsamlı hizmet işlemle
 
 Sonraki bölümde, etkinleştirme ve toplamak ve Azure arama işlemleri tarafından oluşturulan günlük verilerine erişmek için Azure Blob Depolama kullanma adımlarında size kılavuzluk eder.
 
-## <a name="enable-logging"></a>Günlüğe yazmayı etkinleştir
+## <a name="enable-logging"></a>Günlü kaydını etkinleştir
 
 Dizin oluşturma ve sorgu iş yükleri için günlük varsayılan olarak kapalıdır ve günlüğe kaydetme altyapı hem de dış uzun vadeli depolama için eklenti çözümleri bağlıdır. Günlükleri başka bir yerde depolanması için tek başına kalıcı veriler yalnızca Azure Search'te oluşturur ve yönetir, nesneleridir.
 
@@ -175,7 +175,7 @@ Azure Search REST API ve .NET SDK'sı hem hizmet ölçümleri, dizin ve dizin ol
 * [Belge sayısı](/rest/api/searchservice/count-documents)
 * [Dizin Oluşturucu durumunu Al](/rest/api/searchservice/get-indexer-status)
 
-PowerShell veya Azure CLI kullanarak etkinleştirmek için belgelere bakın [burada](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+PowerShell veya Azure CLI kullanarak etkinleştirmek için belgelere bakın [burada](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

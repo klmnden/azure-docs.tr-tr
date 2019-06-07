@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 054aaf6f607bba216f979665a0b0672ec253ba7f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475990"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752952"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama 
 
@@ -37,18 +37,8 @@ Bu makalede, model yönetimi için çeşitli bilgisayar hedefine kullanmayı ö�
 
 Azure Machine Learning hizmeti farklı işlem hedef arasında değişen desteğe sahiptir. Az miktarda veriniz üzerinde dev/deneme ile tipik model geliştirme yaşam döngüsü başlatır. Bu aşamada, yerel bir ortamı kullanmanızı öneririz. Örneğin, yerel bilgisayarınıza veya bulut tabanlı bir VM. Büyük veri kümeleri üzerinde eğitim ölçeğini veya dağıtılmış eğitimi yapmak gibi bir Farklı Çalıştır gönderdiğiniz her zaman bu daralttığında tek veya çok node küme oluşturmak için Azure Machine Learning işlem kullanmanızı öneririz. Çeşitli senaryolarda olarak değişiklik gösterebilir destek aşağıda ayrıntılarıyla olsa da, kendi işlem kaynağı ekleyebilirsiniz:
 
+[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
-|Eğitim &nbsp;hedefleri| GPU desteği |Otomatik ML | ML işlem hatları | Görsel arabirim
-|----|:----:|:----:|:----:|:----:|
-|[Yerel bilgisayar](#local)| Belki de | evet | &nbsp; | &nbsp; |
-|[Azure Machine Learning işlem](#amlcompute)| evet | Evet & <br/>Hiper parametre&nbsp;ayarlama | evet | evet |
-|[Uzak VM](#vm) |evet | Evet & <br/>Hiper parametre ayarı | evet | &nbsp; |
-|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | evet | evet | &nbsp; |
-|[Azure Data Lake Analytics'i](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | evet | &nbsp; |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | evet | &nbsp; |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | evet | &nbsp; |
-
-**Tüm hedefler için birden fazla eğitim işleri yeniden kullanılabilir işlem**. Örneğin, uzak bir VM çalışma alanınıza eklediğiniz sonra birden çok iş için kullanabilirsiniz.
 
 > [!NOTE]
 > Azure Machine Learning işlem oluşturulabilir kalıcı bir kaynak olarak veya bir farklı çalıştır istediğinizde dinamik olarak oluşturulur. Bu şekilde oluşturulan işlem hedefleri yeniden kullanmak için eğitim çalıştırma tamamlandıktan sonra işlem hedef çalışma tabanlı olarak oluşturulmasını kaldırır.

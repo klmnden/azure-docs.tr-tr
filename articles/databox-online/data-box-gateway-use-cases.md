@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: cdc1b07b93386c0225c1e6c5f570ea1247e450b5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924403"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754185"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure veri kutusu ağ geçidi için kullanım örnekleri
 
@@ -50,7 +50,7 @@ Başlamadan önce çalışan bir veri kutusu ağ geçidi aygıtı olduğundan em
 - Veriler karşıya yüklendikten sonra arşiv katmanına taşımak gerekir. Blob katmanı iki şekilde ayarlayabilirsiniz: Azure PowerShell Betiği veya bir Azure depolama yaşam döngüsü yönetim ilkesi.  
     - Azure PowerShell kullanarak izleyin, bunlar [adımları](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) arşiv katmanı verileri taşımak için.
     - Azure Yaşam Döngüsü Yönetimi'ni kullanarak, veriler için arşiv katmanını taşımak için şu adımları izleyin.
-        - [Kayıt](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) katmanı arşiv kullanılacak Blob yaşam döngüsü yönetimi hizmetinin önizlemesi.
+        - [Kayıt](/azure/storage/common/storage-lifecycle-management-concepts) katmanı arşiv kullanılacak Blob yaşam döngüsü yönetimi hizmetinin önizlemesi.
         - Aşağıdaki ilkeyi kullanmak [arşiv verilerini alma](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
 - BLOB arşiv işaretlenmiş bir kez sıcak veya soğuk katmanı sürece bunlar artık ağ geçidi tarafından değiştirilebilir. Yerel depolamada bir dosya ise (silmeler dahil) Yerel kopyaya yapılan değişiklikler katmanı arşiv olarak karşıya değil.
 - Arşiv depolama birimindeki verileri okumak için sık erişimli veya seyrek erişimli blob katmanını değiştirerek rehydrated gerekir. [Paylaşım yenileme](data-box-gateway-manage-shares.md#refresh-shares) ağ geçidinde blob yeniden doldurma değil.

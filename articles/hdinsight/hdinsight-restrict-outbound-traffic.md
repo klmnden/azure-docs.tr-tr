@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 0e3a35c2ceed5f3bb08b2d332f05bbaf416c94b2
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743238"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754591"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Giden ağ trafiği için Güvenlik Duvarı (Önizleme) kullanarak Azure HDInsight kümelerini yapılandırma
 
@@ -162,7 +162,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 Azure İzleyici günlüklerine ile Azure güvenlik duvarınızı tümleştirme önce tüm uygulama bağımlılıklarını, uyumlu olmadığında bir uygulama çalışma başlama yararlı olur. Azure İzleyici günlükleri hakkında daha fazla bilgi [Azure İzleyici'de günlük verileri](../azure-monitor/log-query/log-query-overview.md)
 
 ## <a name="access-to-the-cluster"></a>Kümeye erişim
-Güvenlik Duvarı kurulumunu başarıyla atandıktan sonra iç uç nokta kullanabilirsiniz (https://<clustername>-int.azurehdinsight.net) sanal ağ içindeki Ambari'den erişmek için. Genel bir uç nokta kullanmak için (https://<clustername>. azurehdinsight.net) veya ssh uç noktası (<clustername>-ssh.azurehdinsight.net), yol tablonuz doğru rotalar ve NSG kuralları Kurulumu açıklanan asymetric yönlendirme sorunu önlemekiçineminolun[burada](https://docs.microsoft.com/azure/firewall/integrate-lb).
+Güvenlik Duvarı kurulumunu başarıyla atandıktan sonra iç uç nokta kullanabilirsiniz (`https://<clustername>-int.azurehdinsight.net`) sanal ağ içindeki Ambari'den erişmek için. Genel bir uç nokta kullanmak için (`https://<clustername>.azurehdinsight.net`) veya ssh uç noktası (`<clustername>-ssh.azurehdinsight.net`), yol tablonuz doğru rotalar ve NSG kuralları Kurulumu açıklanan asymetric yönlendirme sorunu önlemek için emin [burada](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## <a name="configure-another-network-virtual-appliance"></a>Başka bir ağ sanal Gereci yapılandırın
 

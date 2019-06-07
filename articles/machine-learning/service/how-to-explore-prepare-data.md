@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: e692b0dc1089804b1d68b79c1a6f438f30554602
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146290"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753049"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Keşfedin ve veri kümesi sınıfı (Önizleme) ile verileri hazırlama
 
@@ -121,7 +121,7 @@ dataset.get_profile()
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 Kimlik|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Büyük/küçük harf numarası|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Tarih|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Engelle|FieldType.STRING|004XX S KILBOURN KAYDET|113XX S PRAIRIE KAYDET|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Birincil tür|FieldType.STRING|YANILTICI YÖNTEMİ|HIRSIZLIĞI|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -134,12 +134,12 @@ Bölge|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|1
 İleri Git|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0.0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
 Topluluk alan|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 FBI kod|FieldType.INTEGER|6|11|10.0|0.0|10.0|0.0|0.0|0.0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
-X Koordinatı|FieldType.INTEGER|1.16309e + 06|1.18336e + 06|10.0|7.0|3.0|0.7|0.0|0.0|1.16309e + 06|1.16309e + 06|1.16309e + 06|1.16401e + 06|1.16678e + 06|1.17921e + 06|1.18336e + 06|1.18336e + 06|1.18336e + 06|1.17108e + 06|10793.5|1.165e + 08|0.335126|-2.33333
-Y Koordinatı|FieldType.INTEGER|1.8315e + 06|1.908e + 06|10.0|7.0|3.0|0.7|0.0|0.0|1.8315e + 06|1.8315e + 06|1.8315e + 06|1.83614e + 06|1.85005e + 06|1.89352e + 06|1.908e + 06|1.908e + 06|1.908e + 06|1.86319e + 06|39905.2|1.59243e + 09|0.293465|-2.33333
+X koordinatı|FieldType.INTEGER|1.16309e + 06|1.18336e + 06|10.0|7.0|3,0|0.7|0.0|0.0|1.16309e + 06|1.16309e + 06|1.16309e + 06|1.16401e + 06|1.16678e + 06|1.17921e + 06|1.18336e + 06|1.18336e + 06|1.18336e + 06|1.17108e + 06|10793.5|1.165e + 08|0.335126|-2.33333
+Y koordinatı|FieldType.INTEGER|1.8315e + 06|1.908e + 06|10.0|7.0|3,0|0.7|0.0|0.0|1.8315e + 06|1.8315e + 06|1.8315e + 06|1.83614e + 06|1.85005e + 06|1.89352e + 06|1.908e + 06|1.908e + 06|1.908e + 06|1.86319e + 06|39905.2|1.59243e + 09|0.293465|-2.33333
 Yıl|FieldType.INTEGER|2016|2016|10.0|0.0|10.0|0.0|0.0|0.0|2016|2016|2016|2016|2016|2016|2016|2016|2016|2016|0|0|NaN|NaN
 Güncelleştirme tarihi|FieldType.DATE|2016-05-11 15:48:00+00:00|2016-05-27 15:45:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Enlem|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
-Boylam|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
+Enlem|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3,0|0.7|0.0|0.0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
+Boylam|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3,0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
 Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
 
 ## <a name="impute-missing-values"></a>Eksik değerleri impute
@@ -148,7 +148,7 @@ Veri kümeleri, null değerler, NaN'ın ve içerik içeren değerleri eksik değ
 
 Önceki bölümde oluşturulan veri kümesi profilinden olduğunu görebiliriz `Latitude` ve `Longitude` sütunlarına sahip eksik değerleri yüksek yüzdesi. Bu örnekte, ortalamasını hesaplamak ve bu iki sütun için eksik değerleri impute.
 
-İlk olarak, en son tanım ile veri kümesinin alın [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) ve verileri ile Karşılaştır [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), biz yalnızca adresine istediğimiz sütunları görüntüleme.
+İlk olarak, en son tanım ile veri kümesinin alın [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) ve verileri ile Karşılaştır [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#keep-columns-columns--multicolumnselection--validate-column-exists--bool---false-----azureml-dataprep-api-dataflow-dataflow), biz yalnızca adresine istediğimiz sütunları görüntüleme.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -261,7 +261,7 @@ ds_def.get_profile()
 Kimlik|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Enlem|FieldType.DECIMAL|41.6928|41.9032|10.0|0.0|10.0|0.0|0.0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1,05
-Boylam|FieldType.INTEGER|-87|-87|10.0|0.0|10.0|0.0|3.0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
+Boylam|FieldType.INTEGER|-87|-87|10.0|0.0|10.0|0.0|3,0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
 
 Profilden görürsünüz `Error Count` için `Longitude` 3 sütundur. Aşağıdaki kod, veri kümesini filtreler, hatayı alır ve hangi değerin onaylama başarısız olmasına neden olan görür. Buradan, kodunuzu ayarlamak ve verilerinizi uygun şekilde temizler.
 
@@ -294,7 +294,7 @@ dataset.head(3)
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|...
 
-2016 ' tarih ve saat biçimini dönüştürmek ihtiyacınız olmadığını düşünelim-04-04 10 PM - 12: 00 '. İçinde [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) bağımsız değişkeni, istenen çıkışınızda örnekleri sağlamak `example_data` parametre şu biçimde: *(özgün çıkış, istenen çıkış)*.
+2016 ' tarih ve saat biçimini dönüştürmek ihtiyacınız olmadığını düşünelim-04-04 10 PM - 12: 00 '. İçinde [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) bağımsız değişkeni, istenen çıkışınızda örnekleri sağlamak `example_data` parametre şu biçimde: *(özgün çıkış, istenen çıkış)* .
 
 Aşağıdaki kod iki istenen çıkış örnekleri sağlar ("2016-04-04 23:56:00", "2016-04-04 10 PM-12 AM") ve ("2016-04-15 17:00:00", "2016-04-15 4 PM - 18: 00")
 
@@ -310,7 +310,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 
 Aşağıdaki tabloda, yeni bir sütun kayıtları belirtilen biçimde Date_Time_Range içerdiğine dikkat edin.
 
-||Kimlik|Date|Date_Time_Range
+||Kimlik|Tarih|Date_Time_Range
 -|--------|-----|----
 0|10498554|2016-04-04 23:56:00|2016-04-04 10 PM-12 AM'DEN
 1|10516598|2016-04-15 17:00:00|2016-04-15 4 PM - 18: 00

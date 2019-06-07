@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: edadb369461bb3865dd6894c3329e7079fa9d13f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121510"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752560"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlük kaydı ve denetim
 
@@ -182,7 +182,7 @@ Depolama analizi, depolama hesabınız için toplam limiti bağımsızdır depol
 
 Depolama analizi, aşağıdaki türde kimliği doğrulanmış ve anonim istekler kaydeder:
 
-| Kimliği Doğrulandı  | Anonim|
+| Kimlik doğrulaması  | Anonim|
 | :------------- | :-------------|
 | Başarılı istekler | Başarılı istekler |
 |Başarısız istek, zaman aşımı, azaltma, ağ, yetkilendirme ve başka hatalar da dahil olmak üzere | Başarılı ve başarısız istekleri dahil olmak üzere bir paylaşılan erişim imzası kullanarak istekleri |
@@ -279,7 +279,7 @@ Aşağıdaki tabloda, listeler ve tümleştirme senaryoları açıklanmıştır:
 |[Uygulama Haritası](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Uygulamanızın bileşenlerinin yanı sıra önemli ölçüm ve uyarılar.|
 |[Tanılama verileri örneği için arama](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| İstekler, özel durumlar, bağımlılık çağrıları, günlük izlemeleri ve sayfa görüntülemeleri gibi olaylarda arama yapın ve bunları filtreleyin.|
 |[Toplu veriler için ölçüm Gezgini](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|İstek, hata ve özel durum oranları; yanıt süreleri, sayfa yükleme süreleri gibi toplu verileri keşfedin, filtreleyin ve bölümlere ayırın.|
-|[Panolar](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Birden çok kaynaktan toplanan verileri birleştirin ve başkalarıyla paylaşın. Çok bileşenli uygulamalar ve takım odasında sürekli görüntüleme için idealdir.|
+|[Panolar](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)|Birden çok kaynaktan toplanan verileri birleştirin ve başkalarıyla paylaşın. Çok bileşenli uygulamalar ve takım odasında sürekli görüntüleme için idealdir.|
 |[Canlı ölçümleri Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Yeni bir derleme dağıttığınızda, her şeyin beklendiği gibi çalıştığından emin olmak için bu neredeyse gerçek zamanlı performans göstergelerini izleyin.|
 |[Analizler](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Bu güçlü sorgulama dilini kullanarak uygulamanızın performansı ve kullanımıyla ilgili zor soruları yanıtlayın.|
 |[Otomatik ve el ile uyarılar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Otomatik uyarılar, uygulamanızın normal telemetri desenlerini uyum ve olduğunda ve normal desenin dışında bir şey tetiklenir. Belirli özel veya standart ölçüm düzeylerinde de uyarılar ayarlayabilirsiniz.|
@@ -330,7 +330,7 @@ Bağlı kaynaklar, bilgisayarları ve Azure İzleyici günlüklerine tarafından
 
 | Hizmet | Kaynak türü | Günlükler | Ölçümler | Çözüm |
 | :------ | :------------ | :--- | :------ | :------- |
-|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Tanılama|Tanılama|    [Azure uygulama](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [ağ geçidi analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Tanılama|Tanılama|    [Azure uygulama](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics) [ağ geçidi analizi](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||     Bağlayıcı|  Bağlayıcı|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Bağlayıcısı (Önizleme)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Azure Otomasyon hesapları| Microsoft.Automation/<br>AutomationAccounts|    Tanılama||       [Daha fazla bilgi](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Azure Batch hesapları|  Microsoft.Batch/<br>batchAccounts|  Tanılama|    Tanılama||
@@ -338,26 +338,26 @@ Bağlı kaynaklar, bilgisayarları ve Azure İzleyici günlüklerine tarafından
 |Bilişsel Hizmetler|    Microsoft.CognitiveServices/<br>accounts|       Tanılama|||
 |Azure Data Lake Analytics| Microsoft.DataLakeAnalytics/<br>accounts|   Tanılama|||
 |Azure Data Lake Store| Microsoft.DataLakeStore/<br>accounts|   Tanılama|||
-|Azure olay hub'ı ad alanı| Microsoft.EventHub/<br>ad alanları|  Tanılama|    Tanılama||
+|Azure olay hub'ı ad alanı| Microsoft.EventHub/<br>Ad alanları|  Tanılama|    Tanılama||
 |Azure IoT Hub| Microsoft.Devices/<br>IotHubs||     Tanılama||
 |Azure Key Vault|   Microsoft.KeyVault/<br>kasaları|  Tanılama  || [Anahtar Kasası Analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Azure Load Balancer|   Microsoft.Network/<br>Sonraki|    Tanılama|||
 |Azure Logic Apps|  Microsoft.Logic/<br>İş akışları|  Tanılama|    Tanılama||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Ağ Güvenlik Grupları|   Microsoft.Network/<br>networksecuritygroups|Tanılama||   [Azure ağ güvenlik grubu analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Ağ Güvenlik Grupları|   Microsoft.Network/<br>networksecuritygroups|Tanılama||   [Azure ağ güvenlik grubu analizi](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-and-network-security-group-analytics)|
 |Kurtarma kasaları|   Microsoft.RecoveryServices/<br>kasaları|||[Azure kurtarma Hizmetleri analizi (Önizleme)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Hizmet ara|   Microsoft.Search/<br>searchServices|    Tanılama|    Tanılama||
-|Service Bus ad alanı| Microsoft.ServiceBus/<br>ad alanları|    Tanılama|Tanılama|    [Service Bus analizi (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Service Bus ad alanı| Microsoft.ServiceBus/<br>Ad alanları|    Tanılama|Tanılama|    [Service Bus analizi (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Depolama||    [Service Fabric analizi (Önizleme)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>sunucuları /<br>veritabanları||       Tanılama||
 ||Microsoft.Sql/<br>sunucuları /<br>elasticPools||||
 |Depolama|||         Betik| [Azure depolama analizi (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
-|Azure Sanal Makineler|    Microsoft.Compute/<br>virtualMachines|  Dahili numara|  Dahili numara||
+|Azure sanal makineleri|    Microsoft.Compute/<br>virtualMachines|  Dahili numara|  Dahili numara||
 ||||Tanılama||
 |Sanal makine ölçek kümeleri|    Microsoft.Compute/<br>virtualMachines    ||Tanılama||
 ||Microsoft.Compute/<br>virtualMachineScaleSets /<br>virtualMachines||||
 |Web sunucu grupları|Microsoft.Web/<br>serverfarms||   Tanılama
-|Web Siteleri|  Microsoft.Web/<br>siteler ||      Tanılama|    [Daha fazla bilgi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
+|Web siteleri|  Microsoft.Web/<br>Siteleri ||      Tanılama|    [Daha fazla bilgi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
 ||Microsoft.Web/<br>Site /<br>yuvaları||||
 
 

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025350"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755107"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Bağlanmak ve Azure SQL veritabanı kullanarak Azure Search dizin oluşturucularında içerik dizini
 
@@ -158,23 +158,7 @@ Düzenli bir zamanlamaya göre çalıştırmak için dizin oluşturucu da düzen
 
 **Aralığı** parametresi gereklidir. İki ardışık dizin oluşturucusu yürütme başlangıcı arasındaki zaman aralığını gösterir. İzin verilen en küçük aralığı 5 dakikadır; uzun bir gündür. Bir XSD "dayTimeDuration" değeri biçimlendirilmelidir (sınırlı bir alt kümesini bir [ISO 8601 süre](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) değeri). Bu desen: `P(nD)(T(nH)(nM))`. Örnekler: `PT15M` her 15 dakika boyunca `PT2H` her 2 saatte için.
 
-İsteğe bağlı **startTime** zamanlanan yürütme ne zaman başlamak gösterir. Atlanırsa, geçerli UTC zamanı kullanılır. Bu süre geçmişte – dizinleyici startTime sürekli olarak çalışıyorsa durum ilk yürütme zamanlandı olabilir.  
-
-Bir dizin oluşturucu yalnızca tek bir yürütme, aynı anda çalıştırabilirsiniz. Bir dizin oluşturucu, yürütme zamanlandığında çalışıyorsa, yürütme sonraki zamanlanan saatine kadar ertelenir.
-
-Bu daha somut anlaşılması için bir örnek düşünelim. Varsayalım biz yapılandırılmış aşağıdaki saatlik zamanlaması:
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-Şunlar olur:
-
-1. 1 Mart 2015 12: 00'da geçici bir çözüm veya bu ilk dizin oluşturucu yürütmeyi başlatır UTC.
-2. Bu yürütme 20 dakika (veya dilediğiniz zaman küçüktür 1 saat) geçen varsayılır.
-3. İkinci yürütme sırasında veya 1 Mart 2015'e 1: 00'da geçici olarak başlatır.
-4. Şimdi yaklaşık 2: 10'da tamamlanabilmesi bu yürütme bir saatten – örneğin 70 dakika – aldığını varsayalım.
-5. Saat 2:00 ' da artık üçüncü yürütme başlatmak bu olur. Ancak, çünkü 1'de ikinci yürütülmesinden yine de çalıştırmak, üçüncü yürütme atlandı. Üçüncü yürütme 3'da başlar.
-
-Ekleme, değiştirme veya var olan bir dizin oluşturucu için bir zamanlama kullanılarak bir **PUT dizin oluşturucu** isteği.
+Dizin Oluşturucu zamanlamaları tanımlama hakkında daha fazla bilgi için bkz. [dizin oluşturucular için Azure Search zamanlama](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 
@@ -297,7 +281,7 @@ Geçici silme tekniği kullanarak, geçici silme ilkesi şu şekilde oluştururk
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Coğrafi konum |Edm.GeographyPoint |Yalnızca Coğrafya türünün örneğini (varsayılan değer olan) SRID 4326 NOKTASIYLA desteklenir |
-| rowVersion |Yok |Satır sürümü sütunları arama dizinini depolanamaz, ancak değişiklik izleme için kullanılabilir |
+| rowversion |Yok |Satır sürümü sütunları arama dizinini depolanamaz, ancak değişiklik izleme için kullanılabilir |
 | zaman, zaman aralığı, ikili, varbinary, resim, xml, geometri, CLR Türleri |Yok |Desteklenmiyor |
 
 ## <a name="configuration-settings"></a>Yapılandırma ayarları

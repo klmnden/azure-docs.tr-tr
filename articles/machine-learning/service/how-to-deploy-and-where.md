@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1be9d11db9a1c614614e0a4023f84b15588ba5f0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742952"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753112"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -92,14 +92,7 @@ Daha fazla bilgi için başvuru belgeleri için bkz. [Model sınıfı](https://d
 
 Aşağıdaki hedefleri, işlem veya işlem kaynakları, web hizmeti dağıtımınız barındırmak için kullanılabilir. 
 
-| Hedef işlem | Kullanım | Açıklama |
-| ----- | ----- | ----- |
-| [Yerel web hizmeti](#local) | Test/hata ayıklama | Sınırlı test etme ve sorun giderme için uygundur.
-| [Azure Kubernetes Service'i (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
-| [Azure Container Instances (ACI)](#aci) | Test Etme | Düşük ölçek, CPU tabanlı iş yükleri için uygundur. |
-| [Azure Machine Learning işlem](how-to-run-batch-predictions.md) | Batch çıkarımı | Batch çıkarımı sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
-| [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | Dağıtma ve IOT cihazlarında ML modelleri hizmet. |
-
+[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>Dağıtmaya hazırlanma
 

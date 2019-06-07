@@ -10,12 +10,12 @@ ms.component: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: ddae39b7a2c76b5bb3f7caff1c0d5a8165c9d93a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 3f25d2ab5b2b988725d8f4fdf942854746f404d1
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873824"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754838"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Bağlantı sorunlarını giderme
 
@@ -57,7 +57,7 @@ Aksi takdirde, bu bakım için zamanlanmış bir olayı olmadığını doğrulam
 
 ## <a name="check-your-firewall-settings"></a>Güvenlik Duvarı ayarlarınızı denetleyin
 
-SQL Veri Ambarı 1433 numaralı bağlantı noktası üzerinden iletişim kurar.   Kurumsal ağ içinden gelen bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe verilmeyebilir. Bu durumda, BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL veritabanı sunucunuza bağlanamazsınız. Güvenlik duvarı yapılandırmaları hakkında daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json#manage-ip-firewall-rules-using-the-azure-portal).
+SQL Veri Ambarı 1433 numaralı bağlantı noktası üzerinden iletişim kurar.   Kurumsal ağ içinden gelen bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe verilmeyebilir. Bu durumda, BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL veritabanı sunucunuza bağlanamazsınız. Güvenlik duvarı yapılandırmaları hakkında daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Sanal ağ/Service uç noktasının ayarlarınızı kontrol edin
 

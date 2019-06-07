@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/06/2019
 ms.author: twhitney
-ms.openlocfilehash: 5f727cb5c56c31e769edcb365f6d571253174567
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305292"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752382"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Önizleme - Azure CLI kullanarak bir Azure Kubernetes Service (AKS) kümesine bir Windows Server kapsayıcı oluşturma
 
@@ -86,7 +86,6 @@ Bu özellik Önizleme aşamasında olduğu sürece, aşağıdaki ek kısıtlamal
 * AKS kümesi en fazla sekiz düğüm havuzları sahip olabilir.
 * AKS kümesi en fazla 400 düğümleri bu sekiz düğüm havuzları arasında olabilir.
 * Windows Server düğüm havuzu adı, 6 karakterlik bir sınırı vardır.
-* Windows Server düğüm havuzları Kanada bölgeleri şu anda kullanılabilir değil.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 

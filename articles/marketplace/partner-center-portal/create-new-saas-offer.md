@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455650"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751889"
 ---
 # <a name="create-a-new-saas-offer"></a>Yeni bir SaaS teklifi oluşturma
 
@@ -74,7 +74,7 @@ Ticari Market iş ortağı Merkezi'nde ile hizmet (SaaS) sunduğu yazılım list
 
 - Teklifinizi Azure istemcileriyle uyumlu olmalıdır. (Genellikle en iyi performans ve uyumluluk için SaaS uygulamalarını Azure'da ayrıca barındırılan, ancak bu zorunlu değildir.) 
 - Teklifinizi kullanmalısınız [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) kimlik yönetimi ve kimlik doğrulaması için.
-- Teklifinizi kullanmalısınız [SaaS yerine getirme API'leri](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) Azure Marketi ile tümleştirme.
+- Teklifinizi kullanmalısınız [SaaS yerine getirme API'leri](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) Azure Marketi ile tümleştirme.
 
 #### <a name="billing-infrastructure-costs"></a>Faturalandırma altyapı maliyetleri
 SaaS teklifleri için yayımcı olarak kullanım ücretleri Azure altyapı ve yazılım lisans ücretleri için tek maliyeti öğesi olarak dikkate alması gerekir. Bu maliyet müşteri için aylık sabit ücret gösterilir. Azure altyapı kullanım yönetilir ve doğrudan sizin için iş ortağı üzerinden faturalandırılırsınız. Gerçek altyapı kullanım ücretleri müşteri tarafından görülmez. Yayımcılar Azure altyapı kullanım ücretleri, yazılım lisans fiyatına paket genellikle tercih etme. 

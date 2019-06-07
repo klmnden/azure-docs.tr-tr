@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 6/5/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b1763e7c24ea75a698c3718ab5e205dcc3e0c8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 4b33174b20cdf42e29cdb5b4786122513d2c6080
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495793"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753745"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Güvenlik Duvarı nedir?
 
@@ -62,7 +62,7 @@ Tüm giden sanal ağ trafiği IP adresleri Azure Güvenlik Duvarı genel IP’si
 
 ### <a name="inbound-dnat-support"></a>Gelen DNAT desteği
 
-Güvenlik duvarınızın genel IP adresine gelen trafik çevrilir (Hedef Ağ Adresi Çevirisi) ve sanal ağınızdaki özel IP adreslerine filtrelenir. 
+Güvenlik duvarınızın genel IP adresine gelen trafik çevrilir (Hedef Ağ Adresi Çevirisi) ve sanal ağınızdaki özel IP adreslerine filtrelenir.
 
 ### <a name="azure-monitor-logging"></a>Azure İzleyici günlükleri
 
@@ -82,8 +82,7 @@ TCP/UDP dışı protokollere (örneğin ICMP) yönelik ağ filtreleme kuralları
 |Bağlantı noktası aralığında ağ ve uygulama kuralları|Yüksek bağlantı noktaları, yönetimi ve sistem durumu için ayrılmış olarak bağlantı noktaları için 64.000 sınırlı araştırmaları. |Bu sınırlama gevşetmek için çalışıyoruz.|
 |Tehdit zekası uyarıları maskelenmiş|Ağ kuralları 80/443 numaralı giden filtreleme maskeleri için hedef ile uyarı yalnızca modu için yapılandırıldığında zeka uyarılar tehdit.|80/uygulama kurallarını kullanarak 443 üzerinden giden filtreleme oluşturun. Veya, tehdit zekası moduna **uyar ve reddetme**.|
 |Azure güvenlik duvarı Azure DNS ad çözümlemesi için yalnızca kullanır.|Azure güvenlik duvarı yalnızca Azure DNS kullanma FQDN'leri çözümler. Özel bir DNS sunucusu desteklenmez. Diğer alt ağlardaki DNS çözümlemesi üzerinde hiçbir etkisi yoktur.|Bu sınırlama gevşetmek için çalışıyoruz.|
-|Azure güvenlik duvarı SNAT/dnat'ı özel IP hedefler için çalışmıyor|Internet giriş/çıkış için Azure güvenlik duvarı SNAT/dnat'ı destek sınırlıdır. SNAT/dnat'ı için özel IP hedefleri şu anda çalışmıyor. Örneğin, uç için uç.|Bu incelenmektedir.
-
+|Azure güvenlik duvarı SNAT/dnat'ı özel IP hedefler için çalışmıyor|Internet giriş/çıkış için Azure güvenlik duvarı SNAT/dnat'ı destek sınırlıdır. SNAT/dnat'ı için özel IP hedefleri şu anda çalışmıyor. Örneğin, uç için uç.|Bu, gelecekteki bir güncelleştirmesi için yol haritası açıktır.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Öğretici: Dağıtma ve Azure Azure portalını kullanarak güvenlik duvarı yapılandırma](tutorial-firewall-deploy-portal.md)

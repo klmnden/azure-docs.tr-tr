@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
 manager: jeconnoc
-ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69f5bdd80e4cf10db6a530ddfa08a1f26cd42ca0
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686978"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754422"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure geliştirme alanları'nda iş sürekliliği ve olağanüstü durum kurtarma
 
@@ -27,7 +27,7 @@ Azure geliştirme alanları Azure Kubernetes Service (AKS) bir özelliktir. Aks'
 
 Geliştirme alanları farklı bölgelerde AKS kümelerinde etkinleştirilmesi geliştirme alanları kullanarak bir Azure bölgesine hatadan hemen sonra devam etmek sağlar.
 
-AKS, çok bölgeli dağıtımlar hakkında genel bilgi için bkz: [planlamak için çok bölgeli dağıtım](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multi-region-deployment)
+AKS, çok bölgeli dağıtımlar hakkında genel bilgi için bkz: [planlamak için çok bölgeli dağıtım](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
 Azure geliştirme alanları ile uyumlu bir AKS kümesi dağıtma hakkında daha fazla bilgi için bkz: [Azure Cloud Shell kullanarak bir Kubernetes kümesi oluşturma](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
 

@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523088"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753880"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanarak azure Search şifreleme
 
@@ -227,7 +227,7 @@ Portalda bir AAD uygulaması oluşturmak için:
 
 1. [Azure Active Directory uygulaması oluşturma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [Uygulama kimliği ve kimlik doğrulama anahtarını alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) gibi bu şifrelenmiş bir dizin oluşturma için gerekli olacaktır. Değerler sağlamanız gerekiyor **uygulama kimliği** ve **kimlik doğrulama anahtarı**.
+1. [Uygulama kimliği ve kimlik doğrulama anahtarını alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) gibi bu şifrelenmiş bir dizin oluşturma için gerekli olacaktır. Değerler sağlamanız gerekiyor **uygulama kimliği** ve **kimlik doğrulama anahtarı**.
 
 >[!Important]
 > Yerine yönetilen bir kimlik doğrulamasının bir AAD uygulaması kullanmaya karar verirken, Azure Search, AAD uygulaması sizin adınıza Yönetme yetkisine sahip değil ve AAD uygulamanızı gibi dönemsel rotasyonunu yönetmek için en fazla olduğu gerçeği göz önünde bulundurun. Uygulama kimlik doğrulama anahtarı.

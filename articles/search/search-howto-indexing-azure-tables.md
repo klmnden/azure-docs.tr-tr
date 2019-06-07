@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bca7c1b9ffe7ac0ab82f4287bba201a78fbf726a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024792"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755077"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Search dizini Azure tablo depolama
 Bu makalede, Azure Search için Azure tablo depolamada depolanan dizin verilerini nasıl kullanılacağını gösterir.
@@ -30,7 +30,7 @@ Bu kaynakları kullanarak Azure tablo depolama dizin oluşturucu ayarlayabilirsi
 
 Burada biz REST API kullanarak akışı gösterilmektedir. 
 
-### <a name="step-1-create-a-datasource"></a>1. Adım: Veritabanı oluşturma
+### <a name="step-1-create-a-datasource"></a>1. adım: Veritabanı oluşturma
 
 Bir veri kaynağı, hangi verilerin dizin için veriler ve verilerdeki değişikliklerin etkili bir şekilde tanımlamak Azure arama'yı etkinleştirmek ilkeleri erişmek için gerekli kimlik bilgilerini belirtir.
 
@@ -76,7 +76,7 @@ Paylaşılan depolama hakkında daha fazla bilgi için erişim imzaları, bkz: [
 > [!NOTE]
 > Paylaşılan erişim imzası kimlik bilgileri kullanıyorsanız veri kaynağı kimlik bilgileri düzenli aralıklarla yenilenen imzaları ile kendi zaman aşımını önlemek için güncelleştirme gerekir. Paylaşılan erişim imzası kimlik bilgilerinin süresi dolar, dizin oluşturucu "Bağlantı dizesinde sağlanan kimlik bilgileri geçersiz veya süresi dolmuş." benzer bir hata iletisiyle başarısız olur  
 
-### <a name="step-2-create-an-index"></a>2. Adım: Dizin oluşturma
+### <a name="step-2-create-an-index"></a>2. adım: Dizin oluşturma
 Dizin alanları bir belgede, öznitelikleri belirtir ve arama şekil diğer yapıları karşılaşırsınız.
 
 Bir dizin oluşturmak için:
@@ -95,7 +95,7 @@ Bir dizin oluşturmak için:
 
 Dizinler oluşturma ile ilgili daha fazla bilgi için bkz: [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-3-create-an-indexer"></a>3. Adım: Dizin oluşturucu oluşturma
+### <a name="step-3-create-an-indexer"></a>3. adım: Dizin oluşturucu oluşturma
 Bir dizin oluşturucu, bir veri kaynağı ile bir hedef arama dizinine bağlar ve veri yenilemeyi otomatikleştirmek için bir zamanlama sağlar. 
 
 Veri kaynağı ve dizin oluşturulduktan sonra Dizin Oluşturucu oluşturmaya hazırsınız:
@@ -114,6 +114,8 @@ Veri kaynağı ve dizin oluşturulduktan sonra Dizin Oluşturucu oluşturmaya ha
 Bu dizin oluşturucu her iki saatte bir çalışır. ("PT2H için" zamanlama aralığı ayarlanır.) 30 dakikada bir dizin oluşturucu çalıştırmak için "PT30M" için aralığı ayarlayın. Desteklenen en kısa aralık beş dakikadır. Zamanlama isteğe bağlıdır; yalnızca ne zaman oluşturulduktan sonra atlanırsa, dizin oluşturucu çalıştırır. Ancak, herhangi bir zamanda isteğe bağlı bir dizin oluşturucu çalıştırabilirsiniz.   
 
 Dizin Oluşturucu Oluşturma API'si hakkında daha fazla bilgi için bkz. [dizin oluşturucu oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+Dizin Oluşturucu zamanlamaları tanımlama hakkında daha fazla bilgi için bkz. [dizin oluşturucular için Azure Search zamanlama](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Farklı alan adları ile Dağıt
 Bazı durumlarda, mevcut dizininizi alan adlarını tablonuzdaki özelliği adlarından farklıdır. Arama dizininizdeki tablosundan özellik adları alan adlarıyla eşlemek için alan eşlemelerini kullanabilirsiniz. Alan eşlemeleri hakkında daha fazla bilgi için bkz: [Azure Search dizin oluşturucu alan eşlemelerini köprü veri kaynakları ve arama dizinleri arasındaki farklar](search-indexer-field-mappings.md).

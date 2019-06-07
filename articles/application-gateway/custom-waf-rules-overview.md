@@ -7,18 +7,14 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 62259749e04d66d78206a0bba77ce88f2c08c82f
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66689009"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752037"
 ---
 # <a name="custom-rules-for-web-application-firewall"></a>Web uygulaması güvenlik duvarı için özel kurallar
-
-> [!IMPORTANT]
-> Azure Application Gateway WAF özel kurallar şu anda genel önizlemede. **Özel kurallar yalnızca WAF_v2 SKU'nun kullanılabilir**.
-> Bu genel önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılmamalıdır. Belirli özellikler desteklenmiyor olabilir, kısıtlı yeteneklere sahip olabilir veya tüm Azure konumlarında mevcut olmayabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Application Gateway web uygulaması Güvenlik Duvarı (WAF), farklı türlerde saldırılarına karşı koruma sağlayan önceden yapılandırılmış, platform tarafından yönetilen bir ruleset ile birlikte gelir. Bu tür saldırıları, siteler betik, SQL ekleme ve diğerleri içerir. WAF yöneticisiyseniz, çekirdek kural genişletmek için kendi kurallar kümesi (CRS) kurallarını yazmak isteyebilirsiniz. Kurallarınızı engellemek veya temel ölçütlerle eşleşen üzerinde istenen trafiğe izin verecek.
 

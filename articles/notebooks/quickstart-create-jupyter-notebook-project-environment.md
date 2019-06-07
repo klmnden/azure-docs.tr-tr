@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 954bbc22e42865991ca7f38fbf3f6f0e8e78a437
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240650"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754036"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Hızlı Başlangıç: Özel bir ortamla proje oluşturma
 
@@ -43,7 +43,7 @@ Azure not defterlerinde bir proje, not defterleri, veri dosyaları, belgeler, re
     - **Genel proje**: (Seçili)
     - **Bir Benioku.MD oluşturma**: (Seçili)
 
-1. Birkaç dakika sonra Azure not defterleri yeni projeye gider. Bir not defteri seçerek projeye ekleyin. **+ yeni** açılan (yalnızca görünen **+**), sonra seçerek **not defteri**.
+1. Birkaç dakika sonra Azure not defterleri yeni projeye gider. Bir not defteri seçerek projeye ekleyin. **+ yeni** açılan (yalnızca görünen **+** ), sonra seçerek **not defteri**.
 
 1. Not Defteri gibi bir ad verin *özel environment.ipynb*seçin **Python 3.6** dili ve seçin için **yeni**.
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2018
+ms.date: 06/06/2019
 ms.author: Kumud
-ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec68038a5b0fe7edca095e0d9b190d5da09c8e82
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735246"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754678"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Standard Load Balancer ölçümleri ve sistem durumu tanılama
 
@@ -31,14 +31,14 @@ Bu makalede bu özelliklerin hızlı bir tura sağlar ve standart Load Balancer 
 
 ## <a name = "MultiDimensionalMetrics"></a>Çok boyutlu ölçümleri
 
-Azure Load Balancer'ı Azure Portal'daki yeni Azure ölçümler (Önizleme) aracılığıyla yeni bir çok boyutlu ölçümler sağlar ve gerçek zamanlı tanılama Öngörüler yük dengeleyici kaynakları almanıza yardımcı olur. 
+Azure Load Balancer'ı Azure Portal'daki yeni Azure ölçümleri aracılığıyla yeni bir çok boyutlu ölçümler sağlar ve gerçek zamanlı tanılama Öngörüler yük dengeleyici kaynakları almanıza yardımcı olur. 
 
 Çeşitli Standard Load Balancer yapılandırmaları aşağıdaki ölçümler sağlar:
 
 | Ölçüm | Kaynak türü | Açıklama | Önerilen toplama |
 | --- | --- | --- | --- |
-| VIP kullanılabilirlik (veri yolu kullanılabilirlik) | Herkese açık yük dengeleyici | Standart Load Balancer veri yolundan bir bölgede yük dengeleyici ön ucuna, tüm sanal makinenizin destekler SDN yığınını için sürekli olarak uygular. Sağlıklı örnekleri kaldığı sürece, ölçüm olarak uygulamanızın yük dengeli trafik aynı yolu izler. Müşterilerinizin kullandığı veri yolu ayrıca doğrulanır. Ölçüm uygulamanıza görünmez ve diğer işlemlerle etkilemez.| Ortalama |
-| DIP kullanılabilirlik (sistem durumu araştırma durumu) |  Genel ve iç yük dengeleyici | Standart Load Balancer, uygulama uç noktasının yapılandırma ayarlarınıza göre izler bir dağıtılmış sistem durumu yoklaması hizmeti kullanır. Bu ölçüm, bir toplama veya uç nokta başına sağlar filtrelenmiş görünüm load balancer Havuzu'ndaki her örneğinin uç noktası. Load Balancer, uygulama durumunu nasıl görüntülediğine, sistem durumu araştırması yapılandırması tarafından belirtildiği şekilde görebilirsiniz. |  Ortalama |
+| Veri yolu Kullanılabilirliği (VIP kullanılabilirlik)| Herkese açık yük dengeleyici | Standart Load Balancer veri yolundan bir bölgede yük dengeleyici ön ucuna, tüm sanal makinenizin destekler SDN yığınını için sürekli olarak uygular. Sağlıklı örnekleri kaldığı sürece, ölçüm olarak uygulamanızın yük dengeli trafik aynı yolu izler. Müşterilerinizin kullandığı veri yolu ayrıca doğrulanır. Ölçüm uygulamanıza görünmez ve diğer işlemlerle etkilemez.| Ortalama |
+| Sistem durumu araştırma durumu (DIP kullanılabilirlik) |  Genel ve iç yük dengeleyici | Standart Load Balancer, uygulama uç noktasının yapılandırma ayarlarınıza göre izler bir dağıtılmış sistem durumu yoklaması hizmeti kullanır. Bu ölçüm, bir toplama veya uç nokta başına sağlar filtrelenmiş görünüm load balancer Havuzu'ndaki her örneğinin uç noktası. Load Balancer, uygulama durumunu nasıl görüntülediğine, sistem durumu araştırması yapılandırması tarafından belirtildiği şekilde görebilirsiniz. |  Ortalama |
 | SYN (eşitleme) paketleri |  Herkese açık yük dengeleyici | Standart Load Balancer İletim Denetimi Protokolü (TCP) bağlantılarını sonlandırmak veya TCP veya UDP paket akışları ile etkileşim desteklemez. Akışlar ve bunların el sıkışmaları her zaman kaynağı ile sanal makine örneği arasındadır. TCP protokolü senaryolarınızı daha iyi gidermek için SYN kullanmak yapabileceğiniz kaç TCP bağlantısı anlamak için paket sayaçları denemesi yapıldı. Ölçüm alınan TCP SYN paketlerin sayısını raporlar.| Ortalama |
 | SNAT bağlantıları |  Genel Load Balancer |Standart yük dengeleyici genel IP adresi ön ucu verdiğinizi giden akışlar sayısını raporlar. Kaynak ağ adresi çevirisi (SNAT) bağlantı noktaları exhaustible bir kaynaktır. Bu ölçüm, ne kadar yoğun olarak uygulamanız üzerinde SNAT giden kaynaklı akışlar için güvenmektedir bir göstergesini verebilirsiniz. Başarılı ve başarısız giden SNAT akışlar için sayaçları bildirilir ve sorun giderme ve giden akış durumunu anlamak için kullanılabilir.| Ortalama |
 | Bayt sayaçları |  Genel ve iç yük dengeleyici | Standart yük dengeleyici ön uç işlenen veri bildirir.| Ortalama |
@@ -46,18 +46,18 @@ Azure Load Balancer'ı Azure Portal'daki yeni Azure ölçümler (Önizleme) arac
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Azure portalında yük dengeleyici ölçümlerinizi görüntüleyin
 
-Azure Portalı aracılığıyla her iki yük dengeleyici kaynak sayfasında belirli bir kaynak için ve Azure İzleyici sayfasında kullanılabilir ölçümler (Önizleme) sayfanın load balancer ölçümleri sunar. 
+Azure Portalı aracılığıyla hem yük dengeleyici kaynak sayfasında belirli bir kaynak için hem de Azure İzleyici sayfa kullanılabilir ölçümler sayfanın load balancer ölçümleri sunar. 
 
 Standard Load Balancer kaynaklarınız için ölçümleri görüntülemek için:
-1. Ölçümler (Önizleme) sayfasına gidin ve aşağıdakilerden birini yapın:
+1. Ölçümleri sayfasına gidin ve aşağıdakilerden birini yapın:
    * Yük Dengeleyici kaynak sayfasında ölçüm türü açılan listesinde seçin.
    * Azure İzleyici sayfasında, yük dengeleyici kaynağını seçin.
 2. Uygun toplama türünü ayarlayın.
 3. İsteğe bağlı olarak, gerekli filtreleme ve gruplandırma yapılandırın.
 
-![Standard Load Balancer ölçümleri Önizleme](./media/load-balancer-standard-diagnostics/LBMetrics1.png)
+    ![Standart Load balancer ölçümleri](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
-*Şekil: Kullanılabilirlik ve sistem durumu araştırma durumu ölçümü için Standard Load Balancer DIP*
+    *Şekil: Standard Load Balancer için veri yolu kullanılabilirlik ölçümü*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>API'ler aracılığıyla programlama çok boyutlu ölçümleri alma
 
@@ -72,15 +72,15 @@ VIP kullanılabilirlik ölçümü Vm'lerinizi bulunduğu bölgede işlem ana ver
 - Derinlemesine ve hizmetinizin dağıtıldığı platform sağlıklı olup veya konuk işletim sistemi veya uygulama örneği sağlıklı olup anlayın.
 - Bir olay, hizmet veya temel alınan veri düzlemi ilgili kaynaklandığını ayırmak. Bu ölçüm sistem durumu araştırması durum ("DIP kullanılabilirlik") ile karıştırmayın.
 
-Standard Load Balancer kaynaklarınız için VIP kullanılabilirlik almak için:
+Standard Load Balancer kaynaklarınız için veri yolu kullanılabilirliği almak için:
 1. Doğru yük dengeleyici kaynağını seçili olduğundan emin olun. 
-2. İçinde **ölçüm** aşağı açılan listesinden **VIP kullanılabilirlik**. 
+2. İçinde **ölçüm** aşağı açılan listesinden **veri yolu kullanılabilirliği**. 
 3. İçinde **toplama** aşağı açılan listesinden **ortalama**. 
-4. Ayrıca, VIP adresi veya VIP bağlantı noktası gerekli ön uç IP adresi ile boyut olarak veya ön uç bağlantı noktası üzerinde bir filtre ekleyin ve sonra bunları seçili boyutuna göre gruplayın.
+4. Ayrıca, ön uç IP adresi veya boyut gerekli ön uç IP adresiyle ön uç bağlantı noktası veya ön uç bağlantı noktası üzerinde bir filtre ekleyin ve ardından seçili boyutuna göre gruplandırın.
 
 ![Yoklama VIP](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Şekil: Yük Dengeleyici VIP algılama ayrıntıları*
+*Şekil: Yük Dengeleyici yoklama ayrıntıları ön uç*
 
 Ölçüm etkin, bant dışı bir ölçüye göre oluşturulur. Bölge içinde bir yoklama hizmeti, ölçüm için trafiğin kaynaklandığı. Hizmet genel ön uç ile bir dağıtımını oluşturun ve ön uç kaldırana kadar devam sürede etkin hale gelir. 
 
@@ -93,7 +93,7 @@ VIP kullanılabilirlik aşağıdaki nedenlerle başarısız olur:
 - Dağıtımınız, arka uç havuzunda kalan yok durumu iyi olan VM'lerin sahiptir. 
 - Altyapı kesinti oluştu.
 
-Tanılama amacıyla kullanabileceğiniz [sistem durumu araştırması durumuyla birlikte VIP kullanılabilirlik ölçümü](#vipavailabilityandhealthprobes).
+Tanılama amacıyla kullanabileceğiniz [sistem durumu araştırması durumuyla birlikte veri yolu kullanılabilirlik ölçümü](#vipavailabilityandhealthprobes).
 
 Kullanım **ortalama** çoğu senaryo için toplama olarak.
 
@@ -101,13 +101,9 @@ Kullanım **ortalama** çoğu senaryo için toplama olarak.
 
 Sistem durumu araştırma durumu ölçümü, yük dengeleyici durum araştırması yapılandırıldığında, sizin tarafınızdan yapılandırılan uygulama dağıtımınızın durumunu açıklar. Yük Dengeleyici durum araştırması durumunu yeni akışlar gönderileceği belirlemek için kullanır. Sistem durumu araştırmalarının kaynağı olan bir Azure altyapı adresinden ve VM konuk işletim sistemi içinde görülebilir.
 
-Standard Load Balancer kaynaklarınız için DIP kullanılabilirlik almak için:
-1. Seçin **DIP kullanılabilirlik** ölçüm ile **ortalama** toplama türü. 
-2. Gerekli VIP IP adres veya bağlantı noktası (veya her ikisi de) bir filtre uygulayacaksınız.
-
-![DIP kullanılabilirlik](./media/load-balancer-standard-diagnostics/LBMetrics-DIPAvailability.png)
-
-*Şekil: Yük Dengeleyici VIP kullanılabilirlik*
+Standard Load Balancer kaynaklarınız için sistem durumu araştırma durumu almak için:
+1. Seçin **sistem durumu araştırma** ölçüm ile **ortalama** toplama türü. 
+2. Gerekli ön uç IP adresi veya bağlantı noktası (veya her ikisi de) bir filtre uygulayacaksınız.
 
 Sistem durumu araştırmaları, aşağıdaki nedenlerden dolayı başarısız:
 - Durum araştırması dinlemiyor veya yanıt vermeyen bir bağlantı noktası yapılandırın veya yanlış protokolünü kullanır. Hizmetinizi doğrudan sunucu döndürmeyi (DSR veya kayan IP) kullanıyorsa, kuralları, NIC'ın IP yapılandırmasının IP adresinde dinleyen bir hizmet emin olun ve üzerinde yalnızca ön uç IP adresiyle yapılandırılmış geri döngü adresi.
@@ -165,13 +161,13 @@ Azure'nın sağladığınız yapılandırma göre dağıtımınızın durumunu n
 
 Bir adım daha atın ve Azure'nın belirli bir dağıtım için sorumlu olduğu temel alınan veri düzlemine durumunu nasıl görüntülediğine konusunda fikir sahibi olun için VIP kullanılabilirlik ölçümlerini kullanın. Her iki ölçüm birleştirdiğinizde, bu örnekte gösterildiği gibi hata nerede olabilir, ayırabilirsiniz:
 
-![VIP tanılama](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
+![Veri yolu kullanılabilirliği ve sistem durumu araştırma ölçümleri birleştirme](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
 
-*Şekil: DIP ve VIP kullanılabilirlik ölçümlerini birleştirme*
+*Şekil: Veri yolu kullanılabilirliği ve sistem durumu araştırma ölçümleri birleştirme*
 
 Grafik, aşağıdaki bilgileri görüntüler:
-- Altyapı sağlıklı sanal makinelerinizin barındırma altyapısını erişilebilir ve arka uçta birden çok VM'in yerleştirildiği. Bu bilgileri yüzde 100 VIP kullanılabilirlik mavi izleme tarafından belirtilir. 
-- Ancak, sistem durumu araştırma durumu (DIP kullanılabilirlik) grafik başına yüzde 0 turuncu izleme tarafından belirtildiği şekilde altındadır. Yeşil vurgular (DIP kullanılabilirlik) durumu sağlıklı, ve hangi müşterinin dağıtım noktasının nerede dönüştü daire içinde alanında yeni akışlar kabul edemiyor.
+- Vm'lerinizi barındırma altyapısını, kullanılabilir ve grafik başına yüzde 0. Daha sonra altyapı sağlıklı ve sanal makinelerin erişilebilir ve arka uçta birden çok VM'in yerleştirildiği. Bu bilgileri yüzde 100'üne sonraki veri yolu kullanılabilirlik (VIP kullanılabilirlik) mavi izleme tarafından belirtilir. 
+- Mor izleme tarafından belirtilen sistem durumu araştırma durumu (DIP kullanılabilirlik), hesap başına yüzde 0 altındadır. Yeşil vurgular (DIP kullanılabilirlik) sistem durumu araştırma durumu sağlıklı, ve hangi müşterinin dağıtım noktasının nerede dönüştü daire içinde alanında yeni akışlar kabul edemiyor.
 
 Grafik, müşterilerin kendi dağıtım sorunlarını giderme tahmin veya diğer sorunları ortaya çıkan destek sormak zorunda kalmadan olanak tanır. Sistem durumu araştırmaları, yanlış yapılandırma veya bir uygulamayı nedeniyle başarısız olduğu için hizmet kullanılamıyor.
 
@@ -195,7 +191,7 @@ Genel bir Standard Load Balancer kaynaklarınızın durumunu görüntülemek iç
 
 2. Seçin **kaynak durumu**ve ardından emin olun **abonelik kimliği** ve **kaynak türünün yük dengeleyici =** seçilir.
 
-   ![Kaynak durumu](./media/load-balancer-standard-diagnostics/LBHealth3.png)
+   ![Kaynak sistem durumu](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
    *Şekil: Sistem durumu görüntüleme için kaynağı seçin*
 
@@ -207,11 +203,11 @@ Genel bir Standard Load Balancer kaynaklarınızın durumunu görüntülemek iç
  
 Aşağıdaki tabloda çeşitli kaynak sistem durumları ve açıklamalarının listelenmiştir: 
 
-| Kaynak durumu | Açıklama |
+| Kaynak sistem durumu | Açıklama |
 | --- | --- |
 | Kullanılabilir | Genel standart yük dengeleyici kaynağınızı sağlıklı ve kullanılabilir. |
 | Kullanılamaz | Genel standart yük dengeleyici kaynağınızı iyi durumda değil. Seçerek sağlığını tanılamanız **Azure İzleyici** > **ölçümleri**.<br>(*Kullanılamıyor* durumu anlamına da kaynak genel standard load balancer'ınız ile bağlı değil.) |
-| Bilinmeyen | Kaynak sistem durumu, genel standart yük dengeleyici kaynağı için henüz güncelleştirilmemiş.<br>(*Bilinmeyen* durumu anlamına da kaynak genel standard load balancer'ınız ile bağlı değil.)  |
+| Bilinmiyor | Kaynak sistem durumu, genel standart yük dengeleyici kaynağı için henüz güncelleştirilmemiş.<br>(*Bilinmeyen* durumu anlamına da kaynak genel standard load balancer'ınız ile bağlı değil.)  |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

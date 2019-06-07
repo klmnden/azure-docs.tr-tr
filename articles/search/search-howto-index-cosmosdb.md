@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522831"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753991"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Azure Search Dizin Oluşturucu kullanarak Cosmos DB dizinleme
 
@@ -282,6 +282,8 @@ Dizinin ve veri kaynağının oluşturulan dizin oluşturucu oluşturmaya hazır
 Bu dizin oluşturucu ("PT2H için" zamanlama aralığı ayarlanır) iki saatte çalışır. 30 dakikada bir dizin oluşturucu çalıştırmak için "PT30M" için aralığı ayarlayın. Kısa desteklenen aralığı 5 dakikadır. Zamanlama atlanırsa isteğe bağlıdır, dizin oluşturucu yalnızca oluştururken bir kez çalışır. Ancak, bir dizin oluşturucu isteğe bağlı herhangi bir zamanda çalıştırabilirsiniz.   
 
 Dizin Oluşturucu Oluşturma API'si hakkında daha fazla ayrıntı için kullanıma [dizin oluşturucu oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+Dizin Oluşturucu zamanlamaları tanımlama hakkında daha fazla bilgi için bkz. [dizin oluşturucular için Azure Search zamanlama](search-howto-schedule-indexers.md).
 
 ## <a name="use-net"></a>.NET’i kullanma
 

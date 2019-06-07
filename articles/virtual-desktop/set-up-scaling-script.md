@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410580"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755139"
 ---
 # <a name="automatically-scale-session-hosts"></a>Oturum ana bilgisayarlarını otomatik olarak ölçeklendirme
 
@@ -26,7 +26,7 @@ Betiğin çalıştırıldığı ortam şunları içermelidir:
 
 - Bir Windows sanal masaüstü Kiracı ve hesap veya bir hizmet sorumlusu (örneğin, RDS'yi katkıda bulunan) söz konusu kiracıyı sorgulamak için gerekli izinlere sahip.
 - Oturum Ana havuzuna Vm'leri yapılandırılmış ve sanal masaüstü Windows hizmetine kayıtlı.
-- Bir ek sanal zamanlanmış görev, Görev Zamanlayıcısı üzerinden çalışır ve oturumu konakları için ağ erişimi olan makine. Bu belgenin sonraki bölümlerinde için reffered scaler VM olacaktır.
+- Bir ek sanal zamanlanmış görev, Görev Zamanlayıcısı üzerinden çalışır ve oturumu konakları için ağ erişimi olan makine. Bunun için belgede daha sonra VM scaler adlandırılır.
 - [Microsoft Azure Resource Manager PowerShell Modülü](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) zamanlanmış görev çalışan sanal makinede yüklü.
 - [Windows sanal masaüstü PowerShell Modülü](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) zamanlanmış görev çalışan sanal makinede yüklü.
 

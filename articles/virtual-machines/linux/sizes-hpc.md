@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 44b965bd60d976d4d28dc5e31d78a1c838d4ee02
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 32b0f467f11cf8cb0a04657006cb5a86b11e27e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704672"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755182"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Yüksek performanslı bilgi işlem, sanal makine boyutları
 
@@ -33,38 +33,55 @@ ms.locfileid: "64704672"
 
 ### <a name="mpi"></a>MPI 
 
-Yalnızca Intel MPI 5.x sürümler desteklenir.
+SR-IOV etkin VM boyutları, Azure üzerinde neredeyse izin herhangi kullanılacak MPI flavor.
+SR-IOV olmayan etkin Vm'lerde yalnızca Intel MPI 5.x sürümler desteklenir. Sonraki sürümlerinde (2017, 2018) Intel MPI çalışma zamanı kitaplığı olabilir veya Azure Linux RDMA sürücüleri ile uyumlu olmayabilir.
 
-> [!NOTE]
-> Sonraki sürümlerinde (2017, 2018) Intel MPI çalışma zamanı kitaplığı olabilir veya Azure Linux RDMA sürücüleri ile uyumlu olmayabilir.
 
-### <a name="distributions"></a>Dağıtımlar
+### <a name="supported-os-images"></a>Desteklenen işletim sistemi görüntüleri
  
-Yoğun işlem gücü kullanımlı VM görüntüleri Azure Market'te RDMA bağlantısı destekler birinden dağıtın:
+Azure marketi, RDMA bağlantısı destekleyen çok sayıda Linux dağıtımları sahiptir:
   
-* **Ubuntu** -Ubuntu Server 16.04 LTS. VM'de RDMA sürücüleri yapılandırın ve Intel MPI indirmek için Intel ile kaydedin:
+* **CentOS tabanlı HPC** - olmayan-SR-IOV özellikli VM'ler, CentOS tabanlı sürüm 6.5 için HPC veya 7.5 kadar sonraki bir sürümünü uygun. Sürüm 7.1 için 7.5 H serisi VM'ler için önerilir. RDMA sürücüleri ve Intel MPI 5.1 sanal makinede yüklü.
+  SR-IOV sanal makineler için CentOS HPC 7.6 en iyi duruma getirilmiş ve önceden yüklenen RDMA sürücüleri ve çeşitli MPI paketlerin yüklü ile birlikte gelir.
+  Diğer RHEL/CentOS VM görüntüleri için InfiniBand etkinleştirmek için InfiniBandLinux uzantısı ekleyin. Bu bir Linux VM uzantısı RDMA bağlantısı için Mellanox OFED sürücüleri (vm'lerde SR-IOV) yükler. Aşağıdaki PowerShell cmdlet'ini, var olan bir RDMA özellikli sanal makinesinde InfiniBandDriverLinux uzantının en son sürümü (sürüm 1.0) yükler. RDMA özellikli VM adlı *myVM* ve adlı kaynak grubunda dağıtılan *myResourceGroup* içinde *Batı ABD* bölge aşağıdaki gibi:
 
-  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+  ```powershell
+  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  ```
+  Alternatif olarak, VM uzantılarını aşağıdaki JSON öğesi ile kolay dağıtım için Azure Resource Manager şablonları eklenebilir:
+  ```json
+  "properties":{
+  "publisher": "Microsoft.HpcCompute",
+  "type": "InfiniBandDriverLinux",
+  "typeHandlerVersion": "1.0",
+  } 
+  ```
+ 
+  > [!NOTE]
+  > CentOS tabanlı HPC görüntülerinde de çekirdek güncelleştirmeler devre dışı bırakıldı **yum** yapılandırma dosyası. Linux RDMA sürücüleri bir RPM paket olarak dağıtılır ve çekirdek güncelleştirildiyse, sürücü güncelleştirmelerini çalışmayabilir nedeni budur.
+  >
+  
 
-* **SUSE Linux Enterprise Server** -SLES 12 SP3 HPC, SLES 12 için HPC (Premium), SLES 12 için SP3 SP1 için HPC, SLES 12 SP1 için HPC (Premium). RDMA sürücüleri yüklenir ve Intel MPI paketler VM'de dağıtılır. MPI, aşağıdaki komutu çalıştırarak yükleyin:
+* **SUSE Linux Enterprise Server** -SLES 12 SP3 için HPC, SLES 12 SP3 HPC (Premium), SLES 12 için HPC, SLES 12 SP1 for HPC (Premium), SLES 12 SP4 ve SLES 15 SP1. RDMA sürücüleri yüklenir ve Intel MPI paketler VM'de dağıtılır. MPI, aşağıdaki komutu çalıştırarak yükleyin:
 
   ```bash
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
-    
-* **CentOS tabanlı HPC** -6.5 HPC CentOS tabanlı veya sonraki bir sürümü (sürüm 7.1 veya sonraki sürümleri için H-serisi, önerilir). RDMA sürücüleri ve Intel MPI 5.1 sanal makinede yüklü.  
- 
-  > [!NOTE]
-  > CentOS tabanlı HPC görüntülerinde de çekirdek güncelleştirmeler devre dışı bırakıldı **yum** yapılandırma dosyası. Linux RDMA sürücüleri bir RPM paket olarak dağıtılır ve çekirdek güncelleştirildiyse, sürücü güncelleştirmelerini çalışmayabilir nedeni budur.
-  > 
- 
+  
+* **Ubuntu** -Ubuntu Server 16.04 LTS, 18.04 LTS. VM'de RDMA sürücüleri yapılandırın ve Intel MPI indirmek için Intel ile kaydedin:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
+
+  MPI ayarı Infiniband, etkinleştirme hakkında daha fazla ayrıntı için bkz. [etkinleştirme InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov).
+
+
 ### <a name="cluster-configuration-options"></a>Küme yapılandırma seçenekleri
 
 Azure, RDMA ağ aracılığıyla iletişim kuran Linux HPC VM kümeleri oluşturmak için çeşitli seçenekler sunar dahil olmak üzere: 
 
 * **Sanal makineler** -RDMA özellikli HPC VM'lerin aynı kullanılabilirlik (Azure Resource Manager dağıtım modeli kullandığınız zaman) kümesinde dağıtın. Klasik dağıtım modelini kullanıyorsanız, aynı bulut hizmetindeki sanal makineleri dağıtın. 
 
-* **Sanal makine ölçek kümeleri** - bir VM ölçek kümesi, tek bir yerleştirme grubu dağıtımı sınırladığınızdan emin olun. Örneğin, bir Resource Manager şablonunda ayarlamak `singlePlacementGroup` özelliğini `true`. 
+* **Sanal makine ölçek kümeleri** - bir sanal makine ölçek kümesi, tek bir yerleştirme grubu dağıtımı sınırladığınızdan emin olun. Örneğin, bir Resource Manager şablonunda ayarlamak `singlePlacementGroup` özelliğini `true`. 
 
 * **Azure CycleCloud** -bir HPC kümesi oluşturma [Azure CycleCloud](/azure/cyclecloud/) Linux düğümlerinde MPI işlerini çalıştırma için.
 
@@ -72,14 +89,12 @@ Azure, RDMA ağ aracılığıyla iletişim kuran Linux HPC VM kümeleri oluştur
 
 * **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) yönetilen bir Windows Server baş düğüm çalıştırmak için çeşitli Linux dağıtımları, RDMA özellikli Azure Vm'lerinde dağıtılan düğüm işlem destekler. Örnek bir dağıtım için bkz: [azure'da HPC Pack Linux RDMA kümesi oluşturma](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
 
-Tercih ettiğiniz küme yönetim aracını bağlı olarak, ek sistem yapılandırması MPI işlerini çalıştırma için gerekli olabilir. Örneğin, bir VM kümesinde SSH anahtarları oluşturma veya parolasız SSH güven oluşturma küme düğümleri arasında güven oluşturma gerekebilir.
 
-### <a name="network-topology-considerations"></a>Ağ topolojisi hakkında önemli noktalar
-* RDMA özellikli azure'da Linux VM'ler üzerinde Eth1 RDMA ağ trafiği için ayrılmış. Eth1 ayarları veya bu ağa başvuran yapılandırma dosyasındaki bilgileri değiştirmeyin. Eth0 normal Azure ağ trafiği için ayrılmış.
-
-* Azure'da RDMA ağ adres alanı 172.16.0.0/16 ayırır. 
-
-
+### <a name="network-considerations"></a>Ağ konuları
+* Olmayan-SR-IOV hakkında RDMA özellikli Linux Vm'leri azure'da eth1 RDMA ağ trafiği için ayrılmış. Eth1 ayarları veya bu ağa başvuran yapılandırma dosyasındaki bilgileri değiştirmeyin.
+* Üzerinde SR-IOV etkin Vm'leri (HB ve HC serisi), ib0 RDMA ağ trafiği için ayrılır.
+* Azure'da RDMA ağ adres alanı 172.16.0.0/16 ayırır. Bir Azure sanal ağında dağıtılan örneklerinde MPI uygulamalarını çalıştırmak için sanal ağ adres alanı RDMA ağ çakışmadığından emin olun.
+* Tercih ettiğiniz küme yönetim aracını bağlı olarak, ek sistem yapılandırması MPI işlerini çalıştırma için gerekli olabilir. Örneğin, bir VM kümesinde SSH anahtarları oluşturma veya parolasız SSH oturumu açma oluşturarak küme düğümleri arasında güven oluşturma gerekebilir.
 
 
 ## <a name="other-sizes"></a>Diğer boyutları
@@ -92,8 +107,5 @@ Tercih ettiğiniz küme yönetim aracını bağlı olarak, ek sistem yapılandı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+- Kurulum, en iyi duruma getirmek ve ölçeklendirme hakkında daha fazla bilgi [HPC iş yüklerini](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc) azure'da.
 - Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları arasında işlem performansını karşılaştırmanıza yardımcı olabilir.
-
-
-
-

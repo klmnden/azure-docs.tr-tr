@@ -2,18 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: virtual-machines
-author: jonbeck7
+author: vermagit
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/29/2018
-ms.author: azcspmt;jonbeck;cynthn;danlep
+ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
 ms.custom: include file
-ms.openlocfilehash: c12fff63cdb7241d89e7511a3dac2ff9c1363ae6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5cbc19d5aade2bbcc8b8dca277352d1b17d1d35a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145840"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755194"
 ---
 ## <a name="deployment-considerations"></a>Dağıtma konuları
 * **Azure aboneliği** – fazla sayıda bilgi işlem yoğun örnekler dağıtın, Kullandıkça Öde aboneliğine veya diğer satın alma seçeneklerini göz önünde bulundurun. [Ücretsiz Azure hesabı](https://azure.microsoft.com/free/) kullanıyorsanız, yalnızca sınırlı sayıda Azure işlem çekirdeği kullanabilirsiniz.
@@ -29,11 +29,11 @@ ms.locfileid: "66145840"
 * **Yeniden boyutlandırma** – kendi özelleştirilmiş donanım nedeniyle yalnızca aynı boyut ailesi (H serisi veya yoğun işlem gücü kullanımlı A serisi) işlem yoğunluklu örneklerinden boyutlandırabilirsiniz. Örneğin, yalnızca H serisi boyutlar H serisi bir VM'den diğer boyutlandırabilirsiniz. Ayrıca, bir bilgi işlem açısından yoğun olmayan boyutundan yoğun işlem gücü kullanımlı bir boyuta yeniden boyutlandırma desteklenmiyor.  
 
 ## <a name="rdma-capable-instances"></a>RDMA özellikli örnekler
-Bir alt işlem yoğunluklu örneklerinden (H16r, H16mr, A8 ve A9) bir ağ arabirimi için doğrudan uzak bellek erişimi (RDMA) bağlantı özelliği. (NC24r gibi 'r' ile belirtilen seçili N serisi de RDMA özellikli boyutlarda.) Diğer VM boyutları için kullanılabilir standart Azure ağ arabiriminin yanı sıra bu arabirimidir. 
+Bir alt işlem yoğunluklu örneklerinden (A8, A9, H16r, H16mr, HB ve HC) bir ağ arabirimi için doğrudan uzak bellek erişimi (RDMA) bağlantı özelliği. Seçili N serisi boyutları NC24rs yapılandırmaları (NC24rs_v2 ve NC24rs_v3) gibi 'r' ile belirtilen RDMA özelliğine sahiptir. Diğer VM boyutları için kullanılabilir standart Azure ağ arabiriminin yanı sıra bu arabirimidir. 
   
-Bu arabirim H16r, H16mr ve RDMA özellikli N serisi sanal makineler için FDR oranları ve QDR oranları A8 ve A9 sanal makineler için çalışan bir InfiniBand (IB) ağ üzerinden iletişim kurmak RDMA özellikli örnekler sağlar. Bu RDMA özelliklerini belirli ileti geçirme arabirimi (MPI) uygulamaları performans ve ölçeklenebilirliği artırabilir.
+Bu arabirim EDR oranlarda HB, HC, FDR H16r, H16mr ve RDMA özellikli N serisi sanal makineler için oranları ve QDR oranları A8 ve A9 sanal makineler için işletim bir InfiniBand (IB) ağ üzerinden iletişim kurmak RDMA özellikli örnekler sağlar. Bu RDMA özelliklerini belirli ileti geçirme arabirimi (MPI) uygulamaları performans ve ölçeklenebilirliği artırabilir. Hızı hakkında daha fazla bilgi için bu sayfada tablolarda ayrıntıları bakın.
 
 > [!NOTE]
-> Azure'da IP IB üzerinde desteklenmiyor. Yalnızca IB üzerinden RDMA desteklenir.
+> Azure'da IP IB üzerinde yalnızca desteklenir SR-IOV özellikli VM'ler (şu anda HB ve HC). IB üzerinden RDMA, RDMA özellikli tüm örnekleri için desteklenir.
 >
 

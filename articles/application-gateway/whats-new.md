@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: cdf2a1a730be657b41c7a4b2daf2f178661394b4
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 2a494b924107baeabbcf412af7e1bbdb1db0f753
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947118"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752010"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure Application Gateway yenilikler nelerdir?
 
@@ -27,6 +27,7 @@ Azure Application Gateway, sürekli olarak güncelleştirilir. İle en son geli�
 
 |Özellik  |Açıklama  |Eklenme tarihi  |
 |---------|---------|---------|
+|WAF özel kuralları |Özel kurallar oluşturarak Applicaiton ağ geçidi WAF_v2 artık desteklemektedir. Bkz: [Application Gateway için özel kurallar](custom-waf-rules-overview.md). |Haziran 2019 |
 |Otomatik ölçeklendirme, bölge artıklığı, statik VIP destek GA |V2 SKU bölge artıklığı hangi destekleyen otomatik ölçeklendirme, performans, statik VIP'ler, Key Vault geliştirmek için genel kullanılabilirlik üstbilgi yeniden yazın. Bkz: [Application Gateway otomatik ölçeklendirme belgeleri](application-gateway-autoscaling-zone-redundant.md). |Nisan 2019 |
 |Anahtar kasası tümleştirme |Application Gateway artık etkin HTTPS dinleyicileri için bağlı sunucu sertifikaları için anahtar kasası ile tümleştirme (genel önizlemede) destekler. Bkz: [sertifikaları Key Vault ile SSL sonlandırma](key-vault-certs.md). |Nisan 2019 |
 |Üst bilgi CRUD/yeniden yazma işlemleri     |HTTP üst bilgileri artık yazabilirsiniz. Bkz: [Öğreticisi: Application gateway oluşturma ve HTTP üst bilgilerini yeniden](tutorial-http-header-rewrite-powershell.md) daha fazla bilgi için.|Aralık 2018|

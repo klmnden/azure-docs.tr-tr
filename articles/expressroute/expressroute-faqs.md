@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/06/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1a6f3fbc0160a78fb76f810257d3285725445eba
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257975"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754748"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -288,7 +288,7 @@ Evet. ExpressRoute bağlantı hattı bağlantı sağlayıcı tarafından gerekli
 
 ## <a name="expressroute-local"></a>ExpressRoute yerel
 ### <a name="what-is-expressroute-local"></a>ExpressRoute yerel nedir?
-ExpressRoute yerel bir SKU, ExpressRoute bağlantı hattı ' dir. Bir anahtar yerel olarak veya aynı metro yakın bir veya iki Azure bölgeleri için yalnızca yerel bir eşdüzey hizmet sağlama konumu size bir ExpressRoute devresine erişim özelliğidir. Buna karşılık, standart devreyi, coğrafi bir alan ve tüm Azure bölgelerinde Premium devreye tüm Azure bölgelerinde genel olarak erişmenizi sağlar. 
+ExpressRoute yerel SKU, ExpressRoute bağlantı hattı üzerinde kullanılabilir olan [ExpressRoute doğrudan](expressroute-erdirect-about.md). Bir anahtar yerel olarak veya aynı metro yakın bir veya iki Azure bölgeleri için yalnızca yerel bir eşdüzey hizmet sağlama konumu size bir ExpressRoute devresine erişim özelliğidir. Buna karşılık, standart devreyi, coğrafi bir alan ve tüm Azure bölgelerinde Premium devreye tüm Azure bölgelerinde genel olarak erişmenizi sağlar. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>ExpressRoute yerel yararları nelerdir?
 Çıkış veri aktarımı, standart veya Premium ExpressRoute bağlantı hattı için de ödeme yapmam gerekiyor ancak, çıkış veri aktarımı ayrı olarak yerel ExpressRoute bağlantı hattınız için ödeme yapmayın. Diğer bir deyişle, ExpressRoute yerel fiyatı, veri aktarım ücretleri içerir. Çok büyük miktarda veri aktarmak için sahip ve istenen, Azure bölgeleri bir ExpressRoute konumuna eşleme için özel bağlantı üzerinden verilerinizi getirebilirsiniz ExpressRoute yerel daha ekonomik bir çözüm olur. 

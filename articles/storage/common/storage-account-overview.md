@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236744"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754993"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -32,7 +32,7 @@ Genel amaçlı v2 depolama hesabı için en son Azure depolama özelliklerini de
 - BLOB'ları (tüm türleri: Engelleme, Sayfa Ekle)
 - Dosyalar
 - Diskler
-- Sıralar
+- Kuyruklar
 - Tablolar
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Genel amaçlı v1 hesapları, tüm Azure depolama hizmetlerine erişim sağlar, 
 - BLOB'ları (tüm türleri için)
 - Dosyalar
 - Diskler
-- Sıralar
+- Kuyruklar
 - Tablolar
 
 Genel amaçlı v1 hesapları, genel amaçlı v2 hesapları çoğu durumda önerilir, ancak bu senaryolar için en uygun seçenektir:
@@ -62,7 +62,11 @@ Genel amaçlı v1 hesapları, genel amaçlı v2 hesapları çoğu durumda öneri
 
 ### <a name="block-blob-storage-accounts"></a>Blok blob depolama hesapları
 
-Bir blok blob depolama hesabı, blok blobları olarak yapılandırılmamış nesne verilerini depolamak için bir özel depolama hesabı veya ekleme blobları. Blok blob depolama hesapları, kullanım düzenlerini esas alarak verileri depolamak için birden çok erişim katmanı sunar. Daha fazla bilgi için [erişim katmanları için blok blob verilerine](#access-tiers-for-block-blob-data).
+Bir blok blob depolama hesabı, blok blobları olarak yapılandırılmamış nesne verilerini depolamak için bir özel depolama hesabıdır. Bu depolama hesabı, blok bloblarını destekler yazın ve BLOB'ları, ancak sayfa blobları, tablolar veya kuyruklar ekleyin.
+
+Blok blob depolama hesapları, genel amaçlı v2 ve blob depolama hesapları ile karşılaştırıldığında, düşük ve tutarlı bir gecikme süresi ve yüksek işlem hızları sağlar.
+
+Şu anda blok blob depolama hesaplarında sık erişimli, seyrek erişimli veya arşiv erişim katmanları katmanlama desteklemez.
 
 ### <a name="filestorage-preview-storage-accounts"></a>Dosya deposundan (Önizleme) depolama hesapları
 
@@ -75,12 +79,16 @@ Depolama hesabınızı adlandırırken şu kuralları göz önünde bulundurun:
 - Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir.
 - Depolama hesabınızın adının Azure içinde benzersiz olması gerekir. İki depolama hesabı aynı ada sahip olamaz.
 
-## <a name="general-purpose-performance-tiers"></a>Genel amaçlı performans katmanları
+## <a name="performance-tiers"></a>Performans katmanları
 
 Genel amaçlı depolama hesapları ya da aşağıdaki performans katmanları yapılandırılabilir:
 
 * Bloblar, dosyalar, tabloları, kuyrukları ve Azure sanal makine disklerini depolamak için standart performans katmanı.
 * Yalnızca yönetilmeyen sanal makine disklerini depolamak için bir premium performans katmanı.
+
+Blok blob depolama hesapları, blok blobları depolamak için bir premium performans katmanı sağlamak ve ekleme blobları.
+
+Dosya deposundan (Önizleme) depolama hesaplarında Azure dosya paylaşımları için bir premium performans katmanı sağlar.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Blok blobu veri erişim katmanları
 
@@ -88,9 +96,9 @@ Azure depolama, kullanım düzenlerini esas alarak blok blob verilerine erişmek
 
 Kullanılabilir erişim katmanları şunlardır:
 
-* **Etkin** erişim katmanı, sık sık depolama hesabındaki nesnelere erişimi için optimize edilmiştir. Depolama maliyetleri, daha yüksek olsa sık erişimli katmanı veri erişimi en uygun maliyetli. Yeni depolama hesaplarında sık erişimli oluşturulan varsayılan olarak katman.
+* **Etkin** erişim katmanı, sık sık depolama hesabındaki nesnelere erişimi için optimize edilmiştir. Depolama maliyetleri, daha yüksek olsa sık erişimli katmanı veri erişimi en uygun maliyetli. Yeni depolama hesaplarında sık erişimli katmanı içinde varsayılan olarak oluşturulur.
 * **Seyrek erişimli** erişim katmanı, büyük miktarlarda az sıklıkta erişilen ve en az 30 gün saklanan verileri depolamak için optimize edilmiştir. Veri depolama seyrek erişim katmanında daha uygun maliyetlidir, ancak bu verilere sık erişimli katmandaki verilere göre daha pahalı olabilir.
-* **Arşiv** katmanı, yalnızca tek bir blok bloblar için kullanılabilir. Arşiv katmanı, birkaç saatlik alma gecikmesinden etkilenmeyecek ve Arşiv katmanında en az 180 gün boyunca kalacak veriler için optimize edilmiştir. Arşiv katmanı verilerini depolamak için en uygun maliyetli bir seçenektir, ancak bu verilere erişmek sık erişimli veya seyrek erişimli katmanları veri erişimi değerinden daha pahalıdır.
+* **Arşiv** katmanı, yalnızca tek bir blok bloblar için kullanılabilir. Arşiv katmanı, birkaç saatlik alma gecikmesinden etkilenmeyecek ve Arşiv katmanında en az 180 gün boyunca kalacak veriler için optimize edilmiştir. Arşiv katmanı verilerini depolamak için en uygun maliyetli bir seçenektir, ancak bu verilere sık erişimli veya seyrek erişimli katmanlarda verilere göre daha pahalıdır.
 
 Verilerinizin kullanım düzeninde bir değişiklik olursa herhangi bir zamanda bu erişim katmanları arasında geçiş yapabilirsiniz. Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: sık erişimli, seyrek erişimli ve Arşiv erişim katmanları](../blobs/storage-blob-storage-tiers.md).
 
@@ -119,7 +127,7 @@ Bir depolama hesabı, Azure, verileriniz için benzersiz bir ad sağlar. Azure S
 * Azure dosyaları: http://*mystorageaccount*. file.core.windows.net
 
 > [!NOTE]
-> Blob Depolama hesabı yalnızca Blob Hizmeti uç noktasını kullanıma sunar.
+> Blok blobu ve blob depolama hesapları yalnızca blob Hizmeti uç noktasını kullanıma sunar.
 
 Bir depolama hesabındaki bir nesneye erişim URL'si, depolama hesabındaki nesnenin konumu uç noktaya eklenmesiyle oluşturulur. Örneğin bir blob adresi şu biçimde olabilir: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
@@ -165,7 +173,7 @@ Azure depolama REST API'si hakkında daha fazla bilgi için bkz: [Azure depolama
 > [!IMPORTANT]
 > Bloblar, blobla birlikte istemci tarafı şifreleme depolama şifrelemesiyle ilgili meta veriler kullanılarak depolanır. İstemci tarafı şifreleme ile şifrelenmiş bir blobu kopyalarsanız, kopyalama işleminin başta şifreleme ile ilgili meta veriler olmak üzere blob meta verilerini koruduğundan emin olun. Bir blobu şifreleme meta verileri olmadan kopyalarsanız blob içeriği tekrar alınamaz. Şifrelemeyle ilgili meta veriler hakkında daha fazla bilgi için bkz. [Azure Depolama İstemci Tarafı Şifrelemesi](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="azure-importexport-service"></a>Azure İçeri/Dışarı Aktarma hizmeti
+### <a name="azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti
 
 Büyük miktarda depolama hesabınıza alınacak verileri varsa, Azure içeri/dışarı aktarma hizmeti kullanmayı düşünün. İçeri/dışarı aktarma hizmeti, Azure veri merkezi dağıtımı disk sürücülerine büyük miktarda veriyi Azure Blob Depolama ve Azure dosyaları için güvenli bir şekilde içeri aktarmak için kullanılır. 
 
@@ -177,5 +185,6 @@ Büyük miktarda depolama hesabınıza alınacak verileri varsa, Azure içeri/d�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bir Azure depolama hesabı oluşturma hakkında bilgi edinmek için [depolama hesabı oluşturma](storage-quickstart-create-account.md).
+* Genel amaçlı Azure depolama hesabı oluşturma hakkında bilgi edinmek için [depolama hesabı oluşturma](storage-quickstart-create-account.md).
+* Bir blok blob depolama hesabı oluşturmayı öğrenmek için bkz: [blok blob depolama hesabı oluşturma](../blobs/storage-blob-create-account-block-blob.md).
 * Yönetmek veya mevcut bir depolama hesabını silmek için bkz: [yönetme Azure depolama hesapları](storage-account-manage.md).

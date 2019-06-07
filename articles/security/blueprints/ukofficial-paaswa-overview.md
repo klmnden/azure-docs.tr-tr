@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109336"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753824"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: UK resmi iş yükleri için barındırma PaaS Web uygulaması
 
@@ -85,7 +85,7 @@ Aşağıdaki teknolojileri kimlik yönetimi özellikleri Azure ortamında sağla
 - Yararlanarak aracılığıyla [Azure Active Directory koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) müşteriler, ek güvenlik denetimleri uygulamalara veya kullanıcılara ortamlarında konum, cihaz, durum ve oturum gibi belirli koşullara göre erişim zorunlu risk.
 - [Azure DDoS koruması](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model) uygulama tasarım en iyi yöntemleri ile birlikte, her zaman açık trafik izleme, DDoS saldırılarına ve gerçek zamanlı azaltma ortak ağ düzeyinde saldırı karşı koruma sağlar. PaaS mimarisi ile platform düzeyi DDoS koruması müşteriye saydam ve platform içine eklenen ancak uygulama güvenlik tasarım sorumluluk müşteriyle kaynaklandığını dikkat edin önemlidir.
 
-#### <a name="data-in-transit"></a>Aktarımdaki verileri
+#### <a name="data-in-transit"></a>Aktarım durumundaki veriler
 
 Veriler aktarım sırasında dışında ve Azure bileşenleri arasında kullanılarak korunan [Aktarım Katmanı Güvenliği/Güvenli Yuva Katmanı (TLS/SSL)](https://www.microsoft.com/TrustCenter/Security/Encryption), olarak iletişimleri şifrelemek için simetrik şifreleme paylaşılan bir parolaya dayanan kullanır ağ üzerinden yolculuk ediyor. Varsayılan olarak, TLS 1.2 kullanarak ağ trafiği güvenlik altına alınır.
 
@@ -99,7 +99,7 @@ Veriler aktarım sırasında dışında ve Azure bileşenleri arasında kullanı
 
 ### <a name="paas-services-in-this-blueprint"></a>Bu şema PaaS Hizmetleri
 
-#### <a name="azure-app-service"></a>Azure App Service
+#### <a name="azure-app-service"></a>Azure uygulama hizmeti
 
 Azure App Service barındırma ortamı geliştirilen Java, PHP, Node.js, Python, HTML web uygulaması için tam olarak yönetilen bir web sağlar ve C# altyapıyı yönetmek zorunda kalmadan. Otomatik ölçeklendirme sunar ve yüksek kullanılabilirlik, hem Windows hem de Linux destekler ve otomatik dağıtımlar sağlar [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) veya herhangi bir Git tabanlı deposundan.
 
@@ -191,7 +191,7 @@ Bu şablon, aşağıdaki Application Insights bileşenlerini kullanır:
 
 #### <a name="azure-activity-logs"></a>Azure etkinlik günlükleri
 
-[Azure etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#what-you-can-do-with-the-activity-log) Abonelikleriniz için Denetim düzlemi olaylarını denetler. Etkinlik günlüğü'nü kullanarak belirleyebilirsiniz ' ne, kim ve ne zaman ' işlemlerini (PUT, POST, DELETE), aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen herhangi bir yazma için. Ayrıca, işlemi ve ilgili diğer özellikleri durumunu anlayabilirsiniz.
+[Azure etkinlik günlüğü](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) Abonelikleriniz için Denetim düzlemi olaylarını denetler. Etkinlik günlüğü'nü kullanarak belirleyebilirsiniz ' ne, kim ve ne zaman ' işlemlerini (PUT, POST, DELETE), aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen herhangi bir yazma için. Ayrıca, işlemi ve ilgili diğer özellikleri durumunu anlayabilirsiniz.
 
 #### <a name="azure-monitor"></a>Azure İzleyici
 

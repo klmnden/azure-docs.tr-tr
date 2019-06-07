@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: f873f20f97b822e1f4dee716cb69535b0522dc2c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6b5f0e96b90ee0515c0a86f41c6ee2161d6c54a6
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866495"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752723"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Özellikler ve Azure Cloud Shell için Araçlar
 
@@ -72,7 +72,7 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 |Kategori   |Ad   |
 |---|---|
 |Linux araçları            |Bash<br> zsh<br> Göster<br> tmux<br> dıg<br>               |
-|Azure Araçları            |[Azure CLI](https://github.com/Azure/azure-cli) ve [Klasik Azure CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Azure Araçları            |[Azure CLI](https://github.com/Azure/azure-cli) ve [Klasik Azure CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Metin düzenleyiciler           |kod (Cloud Shell Düzenleyicisi)<br> vim<br> nano<br> emacs    |
 |Kaynak denetimi         |git                    |
 |Derleme araçları            |Olun<br> Maven<br> npm<br> pip         |
@@ -85,7 +85,7 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 |Dil   |Version   |
 |---|---|
 |.NET Core  |2.0.0       |
-|Başlayın         |1.9        |
+|Git         |1.9        |
 |Java       |1,8        |
 |Node.js    |8.9.4      |
 |PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |

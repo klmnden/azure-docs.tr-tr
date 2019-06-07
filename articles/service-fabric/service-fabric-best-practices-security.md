@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 449dbb04d58fe7980c845b8c5bc8d837b643c1be
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 69e51f23980aa1d4225f2e5062470f94e5ca9008
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386722"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753795"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric güvenliği 
 
@@ -205,7 +205,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Geniş çapta bilinen ve Microsoft güvenlik temellerini kendiniz bir taban çizgisi oluşturmak yerine gibi iyi sınanmış bir endüstri standardı yapılandırma uygulamak öneririz](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); bunlar, sanal makinenizde sağlama seçeneği Ölçek kümeleri kullanmaktır Azure Desired State Configuration (DSC) uzantısı işleyicisi, VM'ler için üretim yazılımı çalıştıran çevrimiçi geldikleri şekilde yapılandırmak için.
 
 ## <a name="azure-firewall"></a>Azure Güvenlik Duvarı
-[Azure güvenlik duvarı, Azure sanal ağ kaynaklarını koruyan bir yönetilen, bulut tabanlı bir ağ güvenlik hizmetidir. Bir yerleşik yüksek kullanılabilirlik ve ölçeklenebilirlik sınırsız bulut hizmetiyle tamamen durum bilgisi olan bir güvenlik duvarı gibidir. ](https://docs.microsoft.com/azure/firewall/overview); Bu joker karakterler dahil olmak üzere tam etki alanı adlarını (FQDN) belirtilen bir listesi için giden HTTP/S trafik sınırlama imkanı sağlar. Bu özelliğe SSL sonlandırması gerekmez. Kendi yararlanın, önerilen [Azure güvenlik duvarı FQDN etiketleri](https://docs.microsoft.com/azure/firewall/fqdn-tags) Windows güncelleştirmeleri ve Microsoft Windows Update ağ trafiğini etkinleştirmek için uç noktalar, güvenlik duvarı üzerinden akabilir. [Azure bir şablon kullanarak güvenlik duvarı dağıtma](https://docs.microsoft.com/azure/firewall/deploy-template) Microsoft.Network/azureFirewalls kaynak şablon tanımı için bir örnek sağlar.
+[Azure güvenlik duvarı, Azure sanal ağ kaynaklarını koruyan bir yönetilen, bulut tabanlı bir ağ güvenlik hizmetidir. Bir yerleşik yüksek kullanılabilirlik ve ölçeklenebilirlik sınırsız bulut hizmetiyle tamamen durum bilgisi olan bir güvenlik duvarı gibidir. ](https://docs.microsoft.com/azure/firewall/overview); Bu joker karakterler dahil olmak üzere tam etki alanı adlarını (FQDN) belirtilen bir listesi için giden HTTP/S trafik sınırlama imkanı sağlar. Bu özelliğe SSL sonlandırması gerekmez. Kendi yararlanın, önerilen [Azure güvenlik duvarı FQDN etiketleri](https://docs.microsoft.com/azure/firewall/fqdn-tags) Windows güncelleştirmeleri ve Microsoft Windows Update ağ trafiğini etkinleştirmek için uç noktalar, güvenlik duvarı üzerinden akabilir. [Azure bir şablon kullanarak güvenlik duvarı dağıtma](https://docs.microsoft.com/azure/firewall/deploy-template) Microsoft.Network/azureFirewalls kaynak şablon tanımı için bir örnek sağlar. İki güvenlik duvarı kuralları Service Fabric uygulamaları için ortak olan kümeleri ağınız ile iletişim kurmasına izin vermek için * download.microsoft.com, ve * servicefabric.azure.com; Windows güncelleştirmeleri ve Service Fabric işlem sanal makine uzantısı kod çekmek için.
 
 ## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)

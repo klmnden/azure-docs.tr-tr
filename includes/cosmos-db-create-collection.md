@@ -8,34 +8,30 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 28ecac39d991754cfadeb87479c336a6c6086fd7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 45fa6a332697cf298b2446212701025007682357
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151360"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754249"
 ---
-Şimdi bir veritabanı ve koleksiyon oluşturmak için Azure portalında Veri Gezgini aracını kullanabilirsiniz. 
+Artık, bir veritabanı ve kapsayıcı oluşturmak için Azure portalında Veri Gezgini aracını kullanabilirsiniz. 
 
-1. **Veri Gezgini** > **Yeni Koleksiyon**’a tıklayın. 
+1. Seçin **Veri Gezgini** > **yeni kapsayıcı**. 
     
-    **Koleksiyon Ekle** alanı en sağda görüntülenir, görmek için sağa kaydırmanız gerekebilir.
+    **Ekle kapsayıcı** alanı en sağda görüntülenir, görmek için sağa kaydırmanız gerekebilir.
 
-    ![Azure portalındaki Veri Gezgini, koleksiyon Ekle bölmesi](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    ![Azure portalındaki Veri Gezgini, kapsayıcı Ekle bölmesi](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
 
-2. **Koleksiyon Ekle** sayfasında, yeni koleksiyon için ayarları girin.
+2. İçinde **kapsayıcısı Ekle** sayfasında, yeni bir kapsayıcı için ayarları girin.
 
-    Ayar|Önerilen değer|Açıklama
-    ---|---|---
-    Veritabanı kimliği|Görevler|Yeni veritabanınızın adı olarak *Görevler* girin. Veritabanı adı 1 ila 255 karakter içermeli ve içeremezler `/, \\, #, ?`, veya bir boşluk.
-    Koleksiyon kimliği|Öğeler|Yeni koleksiyonunuzun adı olarak *Öğeler* girin. Koleksiyon kimliği karakter gereksinimleri, veritabanı adlarına ilişkin karakter gereksinimleri ile aynıdır.
-    Bölüm anahtarı| `<Your partition key>`| Bir bölüm anahtarı girmeniz */userid*.
-    Aktarım hızı|400 RU|Aktarım hızını saniyede 400 istek birimi (RU/s) olarak değiştirin. Daha sonra gecikme süresini azaltmak isterseniz aktarım hızının ölçeğini artırabilirsiniz. 
+    |Ayar|Önerilen değer|Açıklama
+    |---|---|---|
+    |**Veritabanı Kimliği**|Görevler|Girin *ToDoList* yeni bir veritabanı adı olarak. Veritabanı adı 1 ila 255 karakter içermeli ve içeremezler `/, \\, #, ?`, veya bir boşluk. Denetleme **sağlama veritabanı aktarım hızını** seçeneği, bu veritabanındaki tüm kapsayıcılar arasında veritabanına sağlanan işleme paylaşmak olanak tanır. Bu seçenek ile maliyet tasarrufları da yardımcı olur. |
+    |**Aktarım hızı**|400|Aktarım hızını 400 istek birimi (RU/sn) saniyede bırakılacak. Daha sonra gecikme süresini azaltmak isterseniz aktarım hızının ölçeğini artırabilirsiniz.| 
+    |**Kapsayıcı kimliği**|Öğeler|Girin *öğeleri* yeni kapsayıcınız için adı. Kapsayıcı kimlikleri aynı karakter gereksinimleri veritabanı adlarına sahip.|
+    |**Bölüm anahtarı**| /kategori| Bu makalede açıklanan örnek kullanır */Category* bölüm anahtarı olarak.|
     
-    Önceki ayarlara ek olarak, isterseniz koleksiyon için **Benzersiz anahtarlar** ekleyebilirsiniz. Bu örnekte bu alanı boş bırakalım. Benzersiz anahtarlar sayesinde geliştiriciler veritabanına bir veri bütünlüğü katmanı ekleyebilir. Koleksiyon oluştururken benzersiz anahtar ilkesi oluşturulduğunda, bölüm anahtarı başına bir veya birden çok değerin benzersiz olduğundan emin olursunuz. Daha fazla bilgi edinmek için [Azure Cosmos DB'de benzersiz anahtarlar](../articles/cosmos-db/unique-keys.md) makalesine bakın.
+    Önceki ayarlara ek olarak, isteğe bağlı olarak ekleyebilirsiniz **benzersiz anahtarlar** kapsayıcısı için. Bu örnekte bu alanı boş bırakalım. Benzersiz anahtarlar sayesinde geliştiriciler veritabanına bir veri bütünlüğü katmanı ekleyebilir. Bir kapsayıcı oluştururken bir benzersiz anahtar ilkesi oluşturarak, bölüm anahtarı başına bir veya daha fazla değerlerin benzersiz olmasını sağlamak. Daha fazla bilgi edinmek için [Azure Cosmos DB'de benzersiz anahtarlar](../articles/cosmos-db/unique-keys.md) makalesine bakın.
     
-    **Tamam** düğmesine tıklayın.
-
-    Veri Gezgini, yeni veritabanını ve koleksiyonu görüntüler.
-
-    ![Yeni veritabanını ve koleksiyonu gösteren Azure portalı Veri Gezgini](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection.png)
+    **Tamam**’ı seçin. Veri Gezgini yeni veritabanını ve kapsayıcı görüntüler.

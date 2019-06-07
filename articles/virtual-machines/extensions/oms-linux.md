@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2019
+ms.date: 06/06/2019
 ms.author: roiyz
-ms.openlocfilehash: 538eb492829c8ad171d1d27b51405725f53f352a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b24af016349db0fcfb4106a1e69da395e3d0150
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743607"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755145"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Linux için Azure İzleyici sanal makine uzantısı
 
@@ -53,11 +53,27 @@ Log Analytics aracısını uzantısı bu Linux dağıtımları karşı çalışt
 >OpenSSL sürümünden daha düşük 1.x herhangi bir platformda desteklenmiyor ve sürüm 1.10 (64-bit) x86_64 platformlarda desteklenir.  
 >
 
+### <a name="agent-prerequisites"></a>Aracı önkoşulları
+
+Aşağıdaki tabloda, aracının yüklü olması desteklenen Linux dağıtımları için gereken paketleri vurgulanmaktadır.
+
+|Gerekli paket |Açıklama |En düşük sürüm |
+|-----------------|------------|----------------|
+|Glibc |    GNU C Kitaplığı | 2.5-12 
+|openssl    | OpenSSL kitaplıkları | 1.0.x veya 1.1.x |
+|Curl | cURL web istemcisi | 7.15.5 |
+|Python ctypes | | 
+|PAM | Eklenebilir kimlik doğrulaması modülleri | | 
+
+>[!NOTE]
+>Rsyslog veya syslog-ng, syslog iletileri toplamak için gereklidir. Red Hat Enterprise Linux, CentOS ve Oracle Linux sürümü (sysklog) 5 sürümünde varsayılan syslog daemon'u syslog olay toplaması için desteklenmiyor. Bu dağıtımları sürümünden Syslog verilerini toplamak için rsyslog daemon'u yüklenmeli ve sysklog değiştirmek için yapılandırılmış.
+
 ### <a name="agent-and-vm-extension-version"></a>Aracı ve VM uzantısı sürümü
 Aşağıdaki tabloda, her sürüm için Log Analytics aracısını paketi ve Azure İzleyicisi VM uzantısı sürümünü bir eşleme sağlar. Log Analytics aracı Paket sürümü için sürüm notları için bir bağlantı bulunur. Sürüm Notları, hata düzeltmeleri ve belirli bir aracı sürüm için yeni özellikler hakkında ayrıntılı bilgi içerir.  
 
 | Azure İzleyici Linux VM uzantısı sürümü | Log Analytics aracısını Paket sürümü | 
 |--------------------------------|--------------------------|
+|1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 

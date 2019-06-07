@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: a3cb6e1b20e405cedddae8684a4b91fcb8a5514a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f25840c21ec64ca8d8e9e17eb39637cff7524c76
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695357"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755249"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimini Sil
 
@@ -69,7 +69,7 @@ Portal bir ağ arabirimi oluşturulurken ağ arabiriminin uygulama güvenlik gru
 
 **Komutları**
 
-|Tool|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az network nic create](/cli/azure/network/nic)|
 |PowerShell|[Yeni AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)|
@@ -96,7 +96,7 @@ Görüntüleyebilir ve oluşturulduktan sonra bir ağ arabirimi için çoğu aya
 
 Bir ağ arabirimi için bir IPv6 adresi atanmışsa, PowerShell çıkış adresi atanır ancak atanan adresi döndürmüyor olgu döndürür. Benzer şekilde, CLI adresi atanır ancak döndürür gerçeği döndürür *null* çıktısını adresi için de.
 
-|Tool|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az ağ NIC listesi](/cli/azure/network/nic) abonelikte; ağ arabirimlerini görüntülemek için [az ağ nic show](/cli/azure/network/nic) bir ağ arabirimi ayarlarını görüntülemek için|
 |PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) abonelik veya Görünüm ayarlarında bir ağ arabirimi için ağ arabirimlerini görüntülemek için|
@@ -111,11 +111,13 @@ DNS sunucusu, sanal makine işletim sistemi içinde ağ arabirimi Azure DHCP sun
 4. Şunlardan birini seçin:
    - **Sanal ağdan devral**: Ağ arabirimine atanan sanal ağ için tanımlanmış DNS sunucusu ayarını devralmak için bu seçeneği belirleyin. Sanal ağ düzeyinde özel bir DNS sunucusu ya da Azure tarafından sağlanan DNS sunucusu tanımlanır. Azure tarafından sağlanan DNS sunucusunun ana bilgisayar adları aynı sanal ağa atanan kaynaklar için çözebilirsiniz. FQDN, farklı sanal ağlar için atanan kaynaklar için çözmek için kullanılmalıdır.
    - **Özel**: Birden çok sanal ağlarda adlarını çözümlemek için kendi DNS sunucunuzu yapılandırabilirsiniz. Bir DNS sunucusu olarak kullanmak istediğiniz sunucusunun IP adresini girin. Belirttiğiniz DNS sunucusu adresi, yalnızca bu ağ arabirimi atanır ve ağ arabirimine atanan sanal ağ için herhangi bir DNS ayarını geçersiz kılar.
+     >[!Note]
+     >Sanal Makineyi bir kullanılabilirlik kümesinin bir parçası olan bir NIC kullanıyorsa, her kullanılabilirlik kümesinin parçası olan tüm NIC'ler Vm'lerden biri için belirtilen tüm DNS sunucularına devralınır.
 5. **Kaydet**’i seçin.
 
 **Komutları**
 
-|Tool|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic)|
 |PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
@@ -136,7 +138,7 @@ Ayar, sanal makine iletmek için gereken trafiği alan sanal makineye bağlı he
 
 **Komutları**
 
-|Tool|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic)|
 |PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
@@ -156,7 +158,7 @@ Alt ağ, ancak bir ağ arabirimine atanan sanal ağda değil değiştirebilirsin
 
 **Komutları**
 
-|Tool|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
@@ -170,7 +172,7 @@ Yalnızca bir ağ arabirimine ekleyebilir veya bir ağ arabirimi ağ arabirimi b
 
 **Komutları**
 
-|Tool|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic)|
 |PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
@@ -202,7 +204,7 @@ Bir ağ arabirimi sildiğinizde, kendisine atanan MAC ya da IP adresleri serbest
 
 **Komutları**
 
-|Tool|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az ağ NIC Sil](/cli/azure/network/nic)|
 |PowerShell|[Remove-AzNetworkInterface](/powershell/module/az.network/remove-aznetworkinterface)|
@@ -254,7 +256,7 @@ Ağ arabirimleri üzerinde görevleri gerçekleştirmek için hesabınızı atan
 | Microsoft.Network/networkInterfaces/read                                   | Ağ arabirimini Al                                     |
 | Microsoft.Network/networkInterfaces/write                                  | Ağ arabirimi güncelle                        |
 | Microsoft.Network/networkInterfaces/join/action                            | Bir sanal makineye bir ağ arabirimi ekleyin           |
-| Microsoft.Network/networkInterfaces/delete                                 | Ağ arabirimini sil                                  |
+| Microsoft.Network/networkInterfaces/delete                                 | Ağ arabirimini Sil                                  |
 | Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Bir ağ arabirimi bir Hi aracılığıyla bir kaynak alanına...     |
 | Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Ağ arabirimi etkin yönlendirme tablosu alma               |
 | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Ağ arabirimi etkin güvenlik grupları Al           |

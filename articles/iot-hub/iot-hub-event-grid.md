@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: f08845dbf4168627d0198e81d2092a1fe56c6c89
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 73a9aebfd0c5338f63927860ce3f6c57b20428a4
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733863"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754779"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Tetikleyici eylemlere Event Grid kullanarak IOT Hub olaylarına tepki verme
 
@@ -25,7 +25,7 @@ Olay bildirimleri diğer hizmetlere gönderin ve aşağı akış süreçlerini t
 
 ## <a name="regional-availability"></a>Bölgesel kullanılabilirlik
 
-Event Grid tümleştirmesi, Event Grid desteklendiği bölgede bulunan IOT hub'ları için kullanılabilir. Cihazın telemetri olayları hariç tüm cihaz olaylarını genel kullanıma sunulmuştur. Cihazın telemetri olayı genel Önizleme aşamasındadır ve Doğu ABD, Batı ABD, Batı Avrupa dışındaki tüm bölgelerde kullanılabilir [Azure kamu](/azure/azure-government/documentation-government-welcome), [Azure Çin 21Vianet](/azure/china/china-welcome), ve [Azure Almanya](https://azure.microsoft.com/global-infrastructure/germany/). En son bölgelerin listesi için bkz. [Azure Event grid'e giriş](../event-grid/overview.md).
+Event Grid tümleştirmesi, Event Grid desteklendiği bölgede bulunan IOT hub'ları için kullanılabilir. Cihazın telemetri olayları hariç tüm cihaz olaylarını genel kullanıma sunulmuştur. Cihazın telemetri olayı genel Önizleme aşamasındadır ve Doğu ABD, Batı ABD, Batı Avrupa dışındaki tüm bölgelerde kullanılabilir [Azure kamu](/azure/azure-government/documentation-government-welcome), [Azure Çin 21Vianet](/azure/china), ve [Azure Almanya](https://azure.microsoft.com/global-infrastructure/germany/). En son bölgelerin listesi için bkz. [Azure Event grid'e giriş](../event-grid/overview.md).
 
 ## <a name="event-types"></a>Olay türleri
 

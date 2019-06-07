@@ -7,18 +7,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 1d7e130d619f580aeb82939e19ea5abf680ff039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a541af77daf4136c0056cf9919d69c538d1dc5b6
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61333625"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754467"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Container Registry'den Azure Kubernetes hizmeti ile kimlik doğrulaması
 
 Azure Kubernetes Service (AKS) ile Azure Container Registry (ACR) kullanırken, bir kimlik doğrulama mekanizması kurulması gerekir. Bu makalede, bu iki Azure Hizmetleri arasındaki kimlik doğrulaması için önerilen yapılandırmaları açıklanmaktadır.
 
-Bu makalede, bir AKS kümesi oluşturduğunuz ve kümeyle erişebilir varsayılır `kubectl` komut satırı istemcisi. 
+Yalnızca bu kimlik doğrulama yöntemlerini birini yapılandırmanız gerekir. En yaygın bir yaklaşım [AKS hizmet sorumlusu kullanılarak erişim](#grant-aks-access-to-acr). Belirli gereksinimleriniz varsa, isteğe bağlı olarak yapabilecekleriniz [Kubernetes gizli dizileri kullanarak erişim izni](#access-with-kubernetes-secret).
+
+Bu makalede, bir AKS kümesi oluşturduğunuz ve kümeyle erişebilir varsayılır `kubectl` komut satırı istemcisi.
 
 ## <a name="grant-aks-access-to-acr"></a>ACR verme AKS erişimi
 

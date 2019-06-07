@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916373"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751984"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics aracısını log verileri toplama
 
@@ -59,7 +59,8 @@ Ağustos 2018 tarihinden sonraki sürümleri ile başlayarak, aşağıdaki deği
 * AMI yeni sürümleri desteklenmez.  
 * SSL çalıştıran sürümler 1.x varsayılan olarak desteklenir.
 
-Bir distro veya destek modelimizi hizalama değil ve şu anda desteklenmeyen bir sürümünü kullanıyorsanız, Microsoft destek sürümleri çatalı aracı ile ilgili Yardım sağlamaz sıkan Bu deponun çatalını oluşturmanız önerilir.
+>[!NOTE]
+>Bir distro veya destek modelimizi hizalama değil ve şu anda desteklenmeyen bir sürümünü kullanıyorsanız, Microsoft destek sürümleri çatalı aracı ile ilgili Yardım sağlamaz sıkan Bu deponun çatalını oluşturmanız önerilir.
 
 * Amazon Linux 2017.09 (x 64)
 * CentOS Linux 6 (x86/x64) ve 7 (x 64)  
@@ -72,6 +73,21 @@ Bir distro veya destek modelimizi hizalama değil ve şu anda desteklenmeyen bir
 >[!NOTE]
 >OpenSSL 1.1.0 yalnızca x86_x64 platformları (64-bit) ve OpenSSL 1.x herhangi bir platformda desteklenmiyor ' den önceki desteklenir.
 >
+
+### <a name="agent-prerequisites"></a>Aracı önkoşulları
+
+Aşağıdaki tabloda, aracının yüklü olması desteklenen Linux dağıtımları için gereken paketleri vurgulanmaktadır.
+
+|Gerekli paket |Açıklama |En düşük sürüm |
+|-----------------|------------|----------------|
+|Glibc |    GNU C Kitaplığı | 2.5-12 
+|openssl    | OpenSSL kitaplıkları | 1.0.x veya 1.1.x |
+|Curl | cURL web istemcisi | 7.15.5 |
+|Python ctypes | | 
+|PAM | Eklenebilir kimlik doğrulaması modülleri | | 
+
+>[!NOTE]
+>Rsyslog veya syslog-ng, syslog iletileri toplamak için gereklidir. Red Hat Enterprise Linux, CentOS ve Oracle Linux sürümü (sysklog) 5 sürümünde varsayılan syslog daemon'u syslog olay toplaması için desteklenmiyor. Bu dağıtımları sürümünden Syslog verilerini toplamak için rsyslog daemon'u yüklenmeli ve sysklog değiştirmek için yapılandırılmış.
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 Protokolü
 Azure İzleyici günlüklerine Aktarımdaki verilerin güvenliğini sağlamak üzere en az kullanmak üzere yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**.  Ek bilgi için gözden [TLS 1.2 kullanarak güvenli bir şekilde veri gönderen](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 

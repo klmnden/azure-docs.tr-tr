@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 95c6e1f015e519bd1e753fce9a2c6f064a854456
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713774"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754054"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN ağ geçitleri üzerinden şirket içi bağlantıyı tanılama
 
@@ -36,7 +36,7 @@ Azure ve şirket içi arasında siteden siteye bağlantı yapılandırma istedi�
 
 1. Sanal ağ geçidi - azure'da VPN ağ geçidi
 1. Yerel ağ geçidi - [şirket içi (FortiGate) VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) Azure bulutunda gösterimi
-1. Siteden siteye bağlantı (rota tabanlı) - [VPN Gateway ve şirket içi yönlendiricileri arasındaki bağlantı](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. Siteden siteye bağlantı (rota tabanlı) - [VPN Gateway ve şirket içi yönlendiricileri arasındaki bağlantı](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [FortiGate yapılandırma](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Siteden siteye bir yapılandırma için ayrıntılı adım adım rehberlik ederek bulunabilir: [Azure portalını kullanarak siteden siteye bağlantı ile VNet oluşturma](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

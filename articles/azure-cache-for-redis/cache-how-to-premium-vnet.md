@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8c95b2981933764bc8d6dcf8bf57e9ab40ef53b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831085"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752066"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Sanal ağ desteği için bir Premium Azure önbelleği için Redis yapılandırma
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, kümeleme, Kalıcılık ve sanal ağ desteği gibi Premium katman özellikleri dahil olmak üzere tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Bir sanal ağ, bulutta özel bir ağdır. Bir Azure önbelleği için Redis örneği bir VNet ile yapılandırıldığında, genel olarak adreslenebilir değildir ve yalnızca sanal makineler ve sanal ağ içindeki uygulamalardan erişilebilir. Bu makalede, Redis örneği için bir premium Azure Cache için sanal ağ desteğini yapılandırma açıklanır.
@@ -113,7 +113,7 @@ Yedi giden bağlantı noktası gereksinimleri vardır.
 | Bağlantı noktaları | Direction | Aktarım Protokolü | Amaç | Yerel IP | Uzak IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Giden |TCP |Redis bağımlılıklar üzerinde Azure depolama/PKI (Internet) | (Alt ağ redis) |* |
-| 53 |Giden |TCP/UDP |DNS (Internet/VNet) bağımlılıkları redis | (Alt ağ redis) |* |
+| 53 |Giden |TCP/UDP |DNS (Internet/VNet) bağımlılıkları redis | (Alt ağ redis) | 168.63.129.16 ve 169.254.169.254 numaralı <sup>1</sup> ve alt ağ için herhangi bir özel DNS sunucusu <sup>3</sup> |
 | 8443 |Giden |TCP |Redis için iç iletişimler | (Alt ağ redis) | (Alt ağ redis) |
 | 10221-10231 |Giden |TCP |Redis için iç iletişimler | (Alt ağ redis) | (Alt ağ redis) |
 | 20226 |Giden |TCP |Redis için iç iletişimler | (Alt ağ redis) |(Alt ağ redis) |
@@ -121,6 +121,9 @@ Yedi giden bağlantı noktası gereksinimleri vardır.
 | 15000-15999 |Giden |TCP |Redis için iç iletişimler | (Alt ağ redis) |(Alt ağ redis) |
 | 6379-6380 |Giden |TCP |Redis için iç iletişimler | (Alt ağ redis) |(Alt ağ redis) |
 
+<sup>1</sup> bu IP adresleri Microsoft'a ait Azure DNS veren konak VM ele almak için kullanılır.
+
+<sup>3</sup> alt ağlar ile özel bir DNS sunucusu veya özel DNS yoksay önbellekler redis için gerekli değildir.
 
 #### <a name="inbound-port-requirements"></a>Gelen bağlantı noktası gereksinimleri
 

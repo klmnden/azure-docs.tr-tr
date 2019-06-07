@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: df05bd984667283b0ccc143ba14fff6b35d69144
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400245"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753169"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python'da otomatik ML denemeleri yapılandırın
 
@@ -158,7 +158,7 @@ Rastgele bölünmüş kabul edilebilir değilse, özel doğrulama veri kümesi, 
 
 Daha sonra modeli eğitimi burada belirleyin. Bir otomatik machine learning eğitim denemesini aşağıdaki işlem seçenekleri çalıştırabilirsiniz:
 *   Yerel makinenizde yerel Masaüstü veya dizüstü – gibi genel olarak küçük veri kümesi olduğunda ve hala keşif aşamasında demektir.
-*   Buluttaki – uzak bir makine [Azure Machine Learning işlem yönetilen](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) kümelerinde Azure sanal makineler, makine öğrenimi modellerini eğitmenize olanağı sağlayan yönetilen bir hizmettir.
+*   Buluttaki – uzak bir makine [Azure Machine Learning işlem yönetilen](concept-compute-target.md#amlcompute) kümelerinde Azure sanal makineler, makine öğrenimi modellerini eğitmenize olanağı sağlayan yönetilen bir hizmettir.
 
 Bkz: [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) örneğin Not Defterleri ile yerel ve uzak hedef işlem.
 

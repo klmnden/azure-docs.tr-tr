@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
-ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925665"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753779"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Sık sorulan sorular: Azure'dan Azure'a olağanüstü durum kurtarma
 
@@ -143,7 +143,7 @@ Evet. 24 saatten saklama süresini 72 saate artırmak istiyorsanız, Site Recove
 Bu kurtarma noktasını tüm çoğaltılan sanal makineler arasında tutarlı olduğundan emin olmak anlamına gelir.
 Site Recovery ", bu seçeneği belirlediğinizde, grubun parçası olan tüm makineleri birlikte çoğaltmak için bir çoğaltma grubu oluşturur çoklu VM tutarlılığı,", bir seçenek sunar.
 Yük devretme zaman tüm sanal makineleri kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktalarını paylaşılan.
-Go için Bu öğreticide [çoklu VM tutarlılığını etkinleştirmek](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+Go için Bu öğreticide [çoklu VM tutarlılığını etkinleştirmek](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Alabilirim bir çoklu VM tutarlılığı çoğaltma grubu içindeki tek sanal makine yük devretme?
 "Çoklu VM tutarlılığı" seçeneğini belirleyerek, uygulama bir grup içindeki tüm sanal makineler üzerinde bir bağımlılık olduğunu belirten. Bu nedenle, tek sanal makine yük devretme izin verilmez.

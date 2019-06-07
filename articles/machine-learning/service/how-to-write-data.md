@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0275d27a0a27d0279886f6f7fd15b14d312a44ea
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 6206ad1a7356221bf94134e5d293c27d778cc187
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472000"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752862"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Yazma ve verileri Azure Machine Learning veri hazırlığı SDK ile yapılandırma
 
@@ -73,7 +73,7 @@ t.head(5)
 
 ### <a name="delimited-file-example"></a>Ayrılmış dosyası örneği
 
-Aşağıdaki kod [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-csv-directory-path--destinationpath--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) ayrılmış bir dosyaya veri yazmak için işlevi.
+Aşağıdaki kod [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) ayrılmış bir dosyaya veri yazmak için işlevi.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -121,7 +121,7 @@ Yukarıdaki kod, bu çıktıyı üretir:
 
 ### <a name="parquet-file-example"></a>Parquet dosyası örneği
 
-Benzer şekilde `write_to_csv()`, [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-parquet-file-path--typing-union--destinationpath--nonetype----none--directory-path--typing-union--destinationpath--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) işlevi bir veri akış çalıştırmaları çalıştırılan Parquet adım yazma ile yeni bir veri akışı döndürür.
+Benzer şekilde `write_to_csv()`, [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) işlevi bir veri akış çalıştırmaları çalıştırılan Parquet adım yazma ile yeni bir veri akışı döndürür.
 
 ```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),

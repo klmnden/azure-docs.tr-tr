@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: BrianLevenson
-ms.openlocfilehash: 881d62cd7b7b9d4434a807a2aab62b75e9a8e97b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5e20d65160e66937668d9f504245a8c042d58fee
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937790"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751657"
 ---
 # <a name="azure-marketplace-and-appsource-roadmap"></a>Azure Market ve AppSource yol haritası
 
@@ -21,12 +21,15 @@ Bu belge, Azure Market, AppSource ve ilgili iş ortağı programları sıradakil
 
 Önerilerinizi duymaktan mutluluk duyarız! Konuşmaya katılın [Microsoft iş ortağı topluluğu](https://www.microsoftpartnercommunity.com/) yeni özellikler, programlar ve olayları hakkında en son güncelleştirmeleri almak için.
 
+
 ## <a name="roadmap"></a>Yol Haritası
 ![](./media/marketplace-publishers-guide/roadmap.png)
+
 
 ## <a name="recent-releases"></a>Yeni sürümler
 
 Bir özelliği Canlı hale geldikten sonra Yol Haritası ' kaldırılır. Market'te eklenen işlevler aşağıdakileri içerir.
+
 
 ### <a name="for-march-2019"></a>Mart 2019'için
 
@@ -34,12 +37,11 @@ Bir özelliği Canlı hale geldikten sonra Yol Haritası ' kaldırılır. Market
 * [CSP kanal (ISV) içine teklifleri yayımlama](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)
 * [Market teklifleri (CSP) ürünlerini satın](https://docs.microsoft.com/partner-center/sell-marketplace-products)
 * [Standart Sözleşme](https://docs.microsoft.com/azure/marketplace/standard-contract)
-* [SaaS yerine getirme API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis)
+* [SaaS yerine getirme API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-apis)
 * [Market coğrafi bölgeler ve para birimleri](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
 * [Satıcı öngörüleri](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Ziyaret [Azure Market ve AppSource yayımcı Kılavuzu](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) sayfası.
-
----

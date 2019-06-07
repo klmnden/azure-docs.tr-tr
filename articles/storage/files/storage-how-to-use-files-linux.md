@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 73ed98bf950f7c9f52e2b8eeb431fe4b36bfe324
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427932"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754826"
 ---
 # <a name="use-azure-files-with-linux"></a>Azure Dosyaları'nı Linux ile kullanma
 
@@ -75,7 +75,10 @@ ms.locfileid: "66427932"
 
     Diğer dağıtımlarında, uygun paket yöneticisini kullanın veya [kaynaktan derleme](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Bağlanılan paylaşımı dizin/dosya izinlerini karar**: Aşağıda izin örneklerde `0777` olan okuma vermek için kullanılan, yazma ve Yürütme izinleri tüm kullanıcılara. Diğer değiştirebileceğiniz [chmod izinleri](https://en.wikipedia.org/wiki/Chmod) istenen şekilde.
+* **Bağlanılan paylaşımı dizin/dosya izinlerini karar**: Aşağıda izin örneklerde `0777` olan okuma vermek için kullanılan, yazma ve Yürütme izinleri tüm kullanıcılara. Diğer değiştirebileceğiniz [chmod izinleri](https://en.wikipedia.org/wiki/Chmod) istendiği gibi ancak bu anlamına gelir potansiyel olarak erişim kısıtlama. Diğer izinler kullanırsanız, ayrıca seçtiğiniz yerel gruplar için erişimi korumak için fazla kullanmayı düşünmeniz gerekir.
+
+> [!NOTE]
+> Dizin ve dosya izinle dir_mode = ve file_mode açıkça atamazsanız 0755 için varsayılan.
 
 * **Bağlantı noktası 445'in açık olduğundan emin olun**: SMB, TCP bağlantı noktası 445 üstünden iletişim kurar. İstemci makinenizde güvenlik duvarının TCP bağlantı noktaları 445’i engellemediğinden emin olun.
 
@@ -89,7 +92,7 @@ ms.locfileid: "66427932"
     mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **Azure dosya paylaşımını bağlayabilmeniz için bağlama komutu kullanın**: Değiştirmeyi unutmayın **< depolama_hesabı_adı >** , **< paylaşım_adı >** , **< smb_version >** , **< storage_account_key >** , ve **< mount_point >** ortamınız için uygun bilgi ile. Linux dağıtımınıza SMB 3.0 şifreleme ile destekliyorsa, (bkz [anlamak SMB istemci gereksinimleri](#smb-client-reqs) daha fazla bilgi için), kullanın **3.0** için **< smb_version >** . SMB 3.0 şifreleme ile desteklemeyen Linux dağıtımları için kullanmak **2.1** için **< smb_version >** . Azure dosya paylaşımının yalnızca bir Azure bölgesi dışında bağlanabilir (dahil olmak üzere şirket içinde veya farklı bir Azure bölgesinde) SMB 3.0 ile. 
+1. **Azure dosya paylaşımını bağlayabilmeniz için bağlama komutu kullanın**: Değiştirmeyi unutmayın **< depolama_hesabı_adı >** , **< paylaşım_adı >** , **< smb_version >** , **< storage_account_key >** , ve **< mount_point >** ortamınız için uygun bilgi ile. Linux dağıtımınıza SMB 3.0 şifreleme ile destekliyorsa, (bkz [anlamak SMB istemci gereksinimleri](#smb-client-reqs) daha fazla bilgi için), kullanın **3.0** için **< smb_version >** . SMB 3.0 şifreleme ile desteklemeyen Linux dağıtımları için kullanmak **2.1** için **< smb_version >** . Azure dosya paylaşımının yalnızca bir Azure bölgesi dışında bağlanabilir (dahil olmak üzere şirket içinde veya farklı bir Azure bölgesinde) SMB 3.0 ile. İsterseniz, bağlı paylaşım dizin ve dosya izinlerini değiştirebilirsiniz ancak erişimi kısıtlamak anlamına gelir.
 
     ```bash
     sudo mount -t cifs //<storage_account_name>.file.core.windows.net/<share_name> <mount_point> -o vers=<smb_version>,username=<storage_account_name>,password=<storage_account_key>,dir_mode=0777,file_mode=0777,serverino

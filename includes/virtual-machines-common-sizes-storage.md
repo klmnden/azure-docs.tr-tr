@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420735"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66755593"
 ---
 Depolama en iyi duruma getirilmiş VM boyutları, yüksek disk aktarım hızı ve g/ç sunar ve büyük veri, SQL, NoSQL veritabanları, veri ambarı ve büyük işlem veritabanları için idealdir.  Cassandra, MongoDB, Cloudera ve Redis örneklerindendir. Bu makalede, Vcpu, veri diskleri ve NIC hem de yerel depolama aktarım hızı ve ağ bant genişliği için en iyi duruma getirilmiş her boyut sayısı hakkında bilgi sağlar.
 
@@ -57,7 +57,7 @@ Premium depolama önbelleğe alma: Desteklenmiyor
 - SLES 12 SP2 veya üzeri
 - RHEL veya CentOS sürüm 6.7 6.10, Microsoft tarafından sağlanan LIS paketiyle 4.3.1 izlenecek (veya üstü) yüklü
 - RHEL veya CentOS sürüm 7.3, Microsoft tarafından sağlanan LIS 4.2.1 Paketle (veya üstü) yüklü
-- RHEL veya CentOS sürüm 7.4 veya üzeri
+- RHEL veya CentOS sürüm 7.6 veya üzeri
 - Oracle Linux UEK4 veya üzeri
 - Debian 9, 10 veya üzeri bir Debian backports çekirdek ile
 - CoreOS 4.14 çekirdek veya üzeri

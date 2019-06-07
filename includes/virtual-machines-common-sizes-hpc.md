@@ -2,18 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: virtual-machines
-author: jonbeck7
+author: vermagit
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/26/2019
-ms.author: azcspmt;jonbeck;cynthn
+ms.author: azcspmt;jonbeck;cynthn;amverma
 ms.custom: include file
-ms.openlocfilehash: f3c1a946afb7f51a1c7543dabae7f2f42ff466be
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9b4bdee19c883252e7de140ac7b19babd43d1df8
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145842"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755198"
 ---
 Azure H serisi sanal makineler (VM'ler) liderlik düzeyde performans ve ölçeklenebilirlik MPI, teslim etmek ve maliyet verimliliği çeşitli gerçek HPC iş yükleri için tasarlanmıştır.
 
@@ -27,9 +27,13 @@ H serisi VM'ler, yüksek CPU frekansları ya da temel gereksinimleri başına b�
 
 ## <a name="hb-series"></a>HB serisi
 
-Premium Depolama: Premium depolama desteklenen önbelleğe alma: Desteklenen
+ACU: 199-216
 
-| Boyutlandır | vCPU | İşlemci | Bellek (GB) | Bellek, GB/sn bant genişliği | Temel CPU frekansını (GHz) | Tüm çekirdek sıklığı (GHz, en yüksek) | Tek çekirdekli sıklığı (GHz, en yüksek) | RDMA performans (GB/sn) | MPI desteği | Geçici depolama (GB) | Maksimum veri diskleri | En fazla Ethernet NIC |
+Premium Depolama: Desteklenen
+
+Premium depolama önbelleğe alma: Desteklenen
+
+| Boyut | Sanal işlemci | İşlemci | Bellek (GB) | Bellek, GB/sn bant genişliği | Temel CPU frekansını (GHz) | Tüm çekirdek sıklığı (GHz, en yüksek) | Tek çekirdekli sıklığı (GHz, en yüksek) | RDMA performans (GB/sn) | MPI desteği | Geçici depolama (GB) | Maksimum veri diskleri | En fazla Ethernet NIC |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | Tümü | 700 | 4 | 1 |
 
@@ -37,10 +41,14 @@ Premium Depolama: Premium depolama desteklenen önbelleğe alma: Desteklenen
 
 ## <a name="hc-series"></a>HC serisi
 
-Premium Depolama: Premium depolama desteklenen önbelleğe alma: Desteklenen
+ACU: 297-315
+
+Premium Depolama: Desteklenen
+
+Premium depolama önbelleğe alma: Desteklenen
 
 
-| Boyutlandır | vCPU | İşlemci | Bellek (GB) | Bellek, GB/sn bant genişliği | Temel CPU frekansını (GHz) | Tüm çekirdek sıklığı (GHz, en yüksek) | Tek çekirdekli sıklığı (GHz, en yüksek) | RDMA performans (GB/sn) | MPI desteği | Geçici depolama (GB) | Maksimum veri diskleri | En fazla Ethernet NIC |
+| Boyut | Sanal işlemci | İşlemci | Bellek (GB) | Bellek, GB/sn bant genişliği | Temel CPU frekansını (GHz) | Tüm çekirdek sıklığı (GHz, en yüksek) | Tek çekirdekli sıklığı (GHz, en yüksek) | RDMA performans (GB/sn) | MPI desteği | Geçici depolama (GB) | Maksimum veri diskleri | En fazla Ethernet NIC |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Tümü | 700 | 4 | 1 |
 
@@ -55,15 +63,15 @@ Premium Depolama:  Desteklenmiyor
 
 Premium depolama önbelleğe alma:  Desteklenmiyor
 
-| Boyutlandır | vCPU | İşlemci | Bellek (GB) | Bellek, GB/sn bant genişliği | Temel CPU frekansını (GHz) | Tüm çekirdek sıklığı (GHz, en yüksek) | Tek çekirdekli sıklığı (GHz, en yüksek) | RDMA performans (GB/sn) | MPI desteği | Geçici depolama (GB) | Maksimum veri diskleri | En fazla Ethernet NIC |
+| Boyut | Sanal işlemci | İşlemci | Bellek (GB) | Bellek, GB/sn bant genişliği | Temel CPU frekansını (GHz) | Tüm çekirdek sıklığı (GHz, en yüksek) | Tek çekirdekli sıklığı (GHz, en yüksek) | RDMA performans (GB/sn) | MPI desteği | Geçici depolama (GB) | Maksimum veri diskleri | En fazla Ethernet NIC |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 | 8 | Intel Xeon E5 2667 v3 | 56 | 40 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
-| Standard_H16 | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 |  56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
-| Standard_H8m | 8 | Intel Xeon E5 2667 v3 | 112 | 40 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
-| Standard_H16m | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
-| Standart_h16r <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
-| Standart_h16mr <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
+| Standard_H8 | 8 | Intel Xeon E5 2667 v3 | 56 | 40 | 3,2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
+| Standard_H16 | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3,2 | 3.3 | 3.6 |  - | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
+| Standard_H8m | 8 | Intel Xeon E5 2667 v3 | 112 | 40 | 3,2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
+| Standard_H16m | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3,2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
+| Standart_h16r <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3,2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
+| Standart_h16mr <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3,2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
 
-<sup>1</sup> MPI uygulamaları için adanmış RDMA arka uç ağı ultra düşük gecikmeli ve yüksek bant genişliği sağlayan FDR InfiniBand ağı tarafından etkinleştirilir.
+<sup>1</sup> MPI uygulamaları için adanmış RDMA arka uç ağı FDR InfiniBand ağı tarafından etkinleştirilir.
 
 <br>

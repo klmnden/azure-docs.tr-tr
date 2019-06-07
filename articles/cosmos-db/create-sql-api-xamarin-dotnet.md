@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: a17461a90a19d775b8c7cac86d0bc6e9a18856bd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: e0d439edc35e70bc8ac477cf56a6bc25e41df083
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860878"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754733"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Hızlı Başlangıç: Azure Cosmos DB SQL API hesabı kullanarak Xamarin ile todo uygulaması derleme
 
@@ -48,7 +48,7 @@ Mac kullanıyorsanız, [Mac için Visual Studio](https://www.visualstudio.com/vs
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Koleksiyon ekleme
+## <a name="add-a-container"></a>Bir kapsayıcı ekleyin
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -184,7 +184,7 @@ ToDoItems çözümündeki kod şunları içerir:
     }
     ```
 
-    Burada değiştirilecek belgeyi benzersiz bir şekilde tanımlamak için yeni bir URI gerekir ve bu URI, `UriFactory.CreateDocumentUri` kullanılarak ve veritabanı ile koleksiyon adlarının yanında belgenin kimliği geçirilerek elde edilir.
+    Burada değiştirilecek belgeyi benzersiz olarak tanımlanabilmesi için yeni bir URI gerekiyor ve kullanılarak elde `UriFactory.CreateDocumentUri` ve veritabanı ile koleksiyon adlarının ve belgenin kimliği geçirme.
 
     `DocumentClient.ReplaceDocumentAsync`, URI tarafından tanımlanan belgeyi parametre olarak belirtilen bir belgeyle değiştirir.
 
@@ -245,7 +245,7 @@ Aşağıdaki adımlarda, Mac için Visual Studio hata ayıklayıcısı kullanıl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak koleksiyon oluşturmayı ve bir Xamarin uygulaması derleyip dağıtmayı öğrendiniz. Şimdi Azure Cosmos DB hesabınıza ek veriler aktarabilirsiniz.
+Bu hızlı başlangıçta, bir Azure Cosmos hesabı oluşturmak, Veri Gezgini'ni kullanarak bir kapsayıcı oluşturmak öğrendiniz ve bir Xamarin uygulaması derleyip dağıtacaksınız. Şimdi, Azure Cosmos hesabınıza ek veri aktarabilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB hesabınıza veri aktarma](import-data.md)

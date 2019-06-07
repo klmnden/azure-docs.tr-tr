@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f60146e4e11e50b2f2254a0d8d7f59c01ba74464
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 832be20f78d1e88a3bb6d1c25c7aaf5d7354e857
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479941"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753970"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Depolama'da belgelerin dizin oluşturma
 Bu makalede, belgelerin dizinini oluşturmak için Azure Search kullanma gösterilmektedir (PDF gibi Microsoft Office belge ve diğer birçok ortak biçimleri) Azure Blob Depolama alanında depolanır. İlk olarak ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, davranışların bir daha ayrıntılı keşfi sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -116,6 +116,8 @@ Bu dizin oluşturucu ("PT2H için" zamanlama aralığı ayarlanır) iki saatte �
 
 Dizin Oluşturucu Oluşturma API'si hakkında daha fazla ayrıntı için kullanıma [dizin oluşturucu oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
+Dizin Oluşturucu zamanlamaları tanımlama hakkında daha fazla bilgi için bkz. [dizin oluşturucular için Azure Search zamanlama](search-howto-schedule-indexers.md).
+
 ## <a name="how-azure-search-indexes-blobs"></a>Azure Search BLOB'ları nasıl dizinler?
 
 Yapılandırmanıza bağlı olarak [dizin oluşturucu yapılandırmasını](#PartsOfBlobToIndex), blob dizin oluşturucu yalnızca depolama meta verileri dizinleyebilirsiniz (yararlı hakkındaki meta veriler yalnızca sizin ve BLOB içeriğinin dizinini gerekmez), depolama ve içerik meta verileri veya hem meta veriler ve metin içeriği. Varsayılan olarak, dizin oluşturucu, hem meta veriler hem de içerik ayıklar.
@@ -139,7 +141,8 @@ Yapılandırmanıza bağlı olarak [dizin oluşturucu yapılandırmasını](#Par
   * **meta veri\_depolama\_son\_değiştiren** son değiştirme (Edm.DateTimeOffset) - blob için zaman damgası. Azure arama, her şeyi ilk dizinleme sonra ölçeklemek önlemek için değiştirilen blobları tanımlamak için bu zaman damgası kullanır.
   * **meta veri\_depolama\_boyutu** (EDM.Int64) - blob bayt cinsinden boyutu.
   * **meta veri\_depolama\_içeriği\_md5** (Edm.String) - blob içeriğinin varsa MD5 karma değeri.
-  * **meta veri\_depolama\_sas\_belirteci** (Edm.String) - tarafından kullanılan geçici bir belirteç [özel becerileri](cognitive-search-custom-skill-interface.md) blob doğru erişim elde etmek için. Bu sas belirteci sona erebilir gibi daha sonra kullanmak üzere depolanması için beklenmiyor.
+  * **meta veri\_depolama\_sas\_belirteci** (Edm.String) - tarafından kullanılan geçici bir SAS belirteci [özel becerileri](cognitive-search-custom-skill-interface.md) blob erişim elde etmek için. Bu belirteç, süresi dolduğundan daha sonra kullanmak üzere depolanması.
+
 * Her belge biçimi için özel meta veri özelliklerini listelenen alanlarına ayıklanan [burada](#ContentSpecificMetadata).
 
 Yukarıdaki özelliklerin tümü için alanları search dizininizi tanımlama - yalnızca uygulamanız için gereken özellikleri yakalama gerekmez.

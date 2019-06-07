@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2019
+ms.date: 06/06/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949998"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754894"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure kaynakları için rol tanımları anlama
 
@@ -131,12 +131,12 @@ Yönetim ve veri işlemlerini nasıl çalıştığını daha iyi anlamak için b
 
 [Sahibi](built-in-roles.md#owner) Alice için rol ve [depolama Blob verileri katkıda bulunan](built-in-roles.md#storage-blob-data-contributor) rolde Bob için aşağıdaki eylemleri:
 
-Sahibi
+Sahip
 
 &nbsp;&nbsp;&nbsp;&nbsp;Eylemler<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Depolama Blob Verileri Katkıda Bulunanı
+Depolama Blob verileri katkıda bulunan
 
 &nbsp;&nbsp;&nbsp;&nbsp;Eylemler<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -157,7 +157,7 @@ Yönetim ve depolama için veri düzlemi güvenliği hakkında daha fazla bilgi 
 
 Görüntülemek ve veri işlemleriyle çalışmak için doğru SDK'lar ve Araçlar sürümlerinin olması gerekir:
 
-| Tool  | Version  |
+| Aracı  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 veya üzeri |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 veya üzeri |
@@ -216,7 +216,7 @@ Azure portalında da göz atıp kuyruklar ve Blob içeriğini yönetmek kullanı
 
 ## <a name="assignablescopes"></a>assignableScopes
 
-`AssignableScopes` Özellik rol atama için kullanılabilir olduğunu kapsam (abonelik, kaynak grupları veya kaynak) belirtir. Rol atama için uygun abonelikleri yalnızca yapabileceğiniz veya ve değil dağınıklığı kullanıcı gerektiren kaynak grupları aboneliklere veya kaynak gruplarına geri kalanı için karşılaşabilirsiniz. En az birini kullanmanız gerekir aboneliğe, kaynak grubuna ya da kaynak kimliği.
+`AssignableScopes` Özelliği, bu rol tanımı mevcut olan kapsam (abonelik, kaynak grupları veya kaynak) belirtir. Yalnızca abonelikleri veya gerekli kaynak gruplarını rol ataması için kullanılabilir hale ve aboneliklere veya kaynak gruplarına geri kalanı için kullanıcı deneyimi basmakalıpların değil. En az birini kullanmanız gerekir aboneliğe, kaynak grubuna ya da kaynak kimliği.
 
 Yerleşik rolleri `AssignableScopes` kök kapsamı ayarlayın (`"/"`). Kök kapsam rolü tüm kapsamlarda atama için uygun olduğunu gösterir. Geçerli atanabilir kapsamlarla örnekleri şunlardır:
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ead81dfec5c98e810abfe4b88accb9aa9092fc90
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 58136aba278097e9778cc1361ed77a4512e3d51b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472724"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751906"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft Identity Platform'un gelişimi
 
@@ -58,7 +58,7 @@ Azure portalında **[uygulama kayıtları](https://go.microsoft.com/fwlink/?link
 
 ### <a name="msal-libraries"></a>MSAL kitaplıkları
 
-MSAL kitaplığı, tüm Microsoft kimlikleri doğrulamak uygulamalar oluşturmak için kullanabilirsiniz. . NET'te MSAL kitaplıkları genel kullanıma sunulmuştur. JavaScript, iOS ve Android için MSAL kitaplıkları vardır ve önizleme aşamasındadır ve bir üretim ortamında kullanım için uygundur. Genel kullanıma sunulan sürümleri MSAL ve ADAL yaptığımız gibi aynı üretim düzeyi desteğin MSAL Önizleme kitaplıklarında sağlıyoruz.
+MSAL kitaplığı, tüm Microsoft kimlikleri doğrulamak uygulamalar oluşturmak için kullanabilirsiniz. .NET ve JavaScript MSAL kitaplıklarında genel kullanıma sunulmuştur. İOS ve Android için MSAL kitaplıkları vardır ve önizleme aşamasındadır ve bir üretim ortamında kullanım için uygundur. Genel kullanıma sunulan sürümleri MSAL ve ADAL yaptığımız gibi aynı üretim düzeyi desteğin MSAL Önizleme kitaplıklarında sağlıyoruz.
 
 Ayrıca, uygulamanızı Azure AD B2C ile tümleştirmek için MSAL kitaplıkları da kullanabilirsiniz.
 

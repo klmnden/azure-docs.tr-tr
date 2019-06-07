@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f369f899d4a383205ad124e4fcd8dabf9f92f63f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480064"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753199"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -27,7 +27,7 @@ Mimari, kavramlar ve Azure Machine Learning hizmeti için iş akışı hakkında
 
 Machine learning iş akışı genellikle bu sırayı takip eder:
 
-1. Makine öğrenimi betiklerini Eğitim geliştirme **Python**.
+1. Makine öğrenimi betiklerini Eğitim geliştirme **Python** veya görsel arabirim.
 1. Oluşturma ve yapılandırma bir **hedef işlem**.
 1. **Komut Gönderme** ortamında çalıştırmak için yapılandırılmış işlem hedefine. Eğitim sırasında komut dosyaları okuyabilir ya da yazma **veri deposu**. Ve olarak yürütme kayıtlarını kaydedilir **çalıştıran** içinde **çalışma** ve altında gruplandırılmış **denemeleri**.
 1. **Denemeyi sorgu** için ölçümleri geçerli ve geçmiş çalıştırmalardan oturum. Ölçümler istenilen bir sonucu göstermediği, geri adım 1 ve betiklerinizi üzerinde yineleme döngüsü.
@@ -107,34 +107,7 @@ Python SDK API'si veya Azure Machine Learning CLI depolamak ve deposundan dosyal
 
 ## <a name="compute-target"></a>Hedef işlem
 
-İşlem hedefi eğitim betiğinizi çalıştırmak veya hizmet dağıtımınızı barındırmak için kullandığınız işlem kaynağıdır. Desteklenen işlem hedefleri şunlardır:
-
-| Hedef işlem | Eğitim | Dağıtım |
-| ---- |:----:|:----:|
-| Yerel bilgisayarınıza | ✓ | &nbsp; |
-| Azure Machine Learning işlem | ✓ | &nbsp; |
-| Azure'da bir Linux sanal makinesi</br>(veri bilimi sanal makinesi gibi) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; |
-| Azure Data Lake Analytics | ✓ | &nbsp; |
-| HDInsight için Apache Spark | ✓ | &nbsp; |
-| Azure Container Instances | &nbsp; | ✓ |
-| Azure Kubernetes Service | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| Alanda programlanabilir kapı dizileri (FPGA) | &nbsp; | ✓ |
-
-İşlem hedefleri, bir çalışma alanına eklenir. İşlem yerel makine dışındaki hedefleri çalışma alanının kullanıcılar tarafından paylaşılır.
-
-### <a name="managed-and-unmanaged-compute-targets"></a>Yönetilen ve yönetilmeyen işlem hedefleri
-
-* **Yönetilen**: Oluşturulan ve Azure Machine Learning hizmeti tarafından yönetilen hedef işlem. Bu işlem, hedef makine öğrenimi iş yükleri için iyileştirilmiştir. Azure Machine Learning işlem olduğundan, yalnızca 4 Aralık 2018'den itibaren hedef yönetilen bilgi işlem. Ek yönetilen bir işlem hedefleri gelecekte eklenebilir.
-
-    Machine learning oluşturabilirsiniz işlem örnekleri çalışma aracılığıyla doğrudan Azure portalı, Azure Machine Learning SDK veya Azure CLI kullanarak. Diğer tüm işlem hedefleri çalışma alanı dışında oluşturdunuz ve ona bağlı.
-
-* **Yönetilmeyen**: Olan işlem hedefleri *değil* Azure Machine Learning hizmeti tarafından yönetilir. Bunları Azure Machine Learning dışında oluşturup kullanmadan önce çalışma alanınıza eklemek gerekebilir. Yönetilmeyen işlem hedefleri, korumak veya makine öğrenimi iş yükleri için performansı artırmak için ek adımlar gerektirebilir.
-
-Eğitim için işlem hedef seçme hakkında daha fazla bilgi için bkz: [seçin ve modelinizi eğitmek için bir işlem hedefine](how-to-set-up-training-targets.md).
-
-Dağıtım için bir işlem hedef seçme hakkında daha fazla bilgi için bkz: [dağıtma modeller Azure Machine Learning hizmeti ile](how-to-deploy-and-where.md).
+A [hedef işlem](concept-compute-target.md) çalıştırdığınız eğitim betiği veya ana bilgisayar hizmeti dağıtımınız işlem kaynağı belirtmenize olanak sağlar. Bu konum, yerel makinenizde veya bir bulut tabanlı işlem kaynağı olabilir. İşlem hedefleri, bilgi işlem ortamınızı kodunuzu değiştirmeden değiştirmek kolaylaştırır. 
 
 ## <a name="training-script"></a>Eğitim betiği
 

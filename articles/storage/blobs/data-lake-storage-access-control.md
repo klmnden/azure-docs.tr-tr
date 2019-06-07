@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243602"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751643"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye erişim denetimi
 
@@ -53,7 +53,7 @@ Dosyalar ve dizinler için erişim düzeyine sahip bir güvenlik sorumlusu iliş
 
 Depolama hesabı düzeyinde bir güvenlik sorumlusu bir rolü atandı, güvenlik sorumlusunu belirli dosyalara ve dizinlere erişim yükseltilmiş erişim denetim listelerini kullanın.
 
-Erişim denetim listeleri, bir rol ataması tarafından verilen bir düzeyi daha düşük erişim düzeyini sağlamak için kullanamazsınız. Örneğin, atadığınız [depolama Blob verileri katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) güvenlik sorumlusunu bir dizine yazmasını önlemek için erişim denetimi kullanamazsınız sonra asıl güvenlik rolüne listeler.
+Erişim denetim listeleri, bir rol ataması tarafından verilen bir düzeyi daha düşük erişim düzeyini sağlamak için kullanamazsınız. Örneğin, atadığınız [depolama Blob verileri katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) güvenlik sorumlusunu bir dizine yazmasını önlemek için erişim denetimi kullanamazsınız sonra asıl güvenlik rolüne listeler.
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Erişim denetim listeleri kullanarak dosya ve dizin düzeyi izinleri ayarlama
 

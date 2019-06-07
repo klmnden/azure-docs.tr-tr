@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
-ms.openlocfilehash: 935d2e1c96705506636c2883113a64bb70c39336
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806199"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752836"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>İş ortağı merkezi ticari Market hesabınızı yönetme 
 
@@ -149,7 +149,7 @@ Daha fazla bilgi için [GUID'leri SSS ile Azure izleme müşteri kullanımını]
 
 İş ortağı merkezi yararlanır [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) birden çok kullanıcı hesabı erişim ve yönetim. Kuruluşunuzun Azure AD, iş ortağı merkezi hesabınızla otomatik olarak ilişkili kayıt işleminin bir parçası olarak. 
 
-## <a name="manage-users"></a>Kullanıcıları Yönet
+## <a name="manage-users"></a>Kullanıcıları yönetme
 
 **Kullanıcılar** iş ortağı merkezi bir bölümünü (altında **hesap ayarları**) kullanıcıları, grupları ve iş ortağı merkezi hesabınız erişimi olan bir Azure AD uygulamaları yönetmek için Azure AD kullanalım. Kullanıcıları yönetme, ile imzalanmış olması gerektiğini unutmayın, [iş hesabı](./company-work-accounts.md) (ilişkili Azure AD kiracısı). Farklı bir iş hesabı içinde kullanıcıları yönetmek için / Kiracı, ihtiyaç duyacağınız sahip bir kullanıcı olarak yeniden oturum açın veya oturumu kapatıp açmanız **Manager** izinleri, iş hesabı / Kiracı. 
 
@@ -185,7 +185,7 @@ Yeni kullanıcı hesapları oluşturmak için bir hesapla sahip [ **genel yönet
 
 1. Git **kullanıcılar** (altında **hesap ayarları**) seçin **kullanıcı ekleme**, ardından **Create new users**.
 1. Her yeni bir kullanıcı için bir ad, Soyadı ve kullanıcı adı girin. 
-1. Yeni bir kullanıcı, kuruluşunuzun dizininde bir genel yönetici hesabına sahip olmasını istiyorsanız, başlıklı kutuyu işaretleyin **bu kullanıcının genel yönetici Azure ad, tüm dizin kaynakları üzerinde tam denetime sahip olun.**. Bu, tüm yönetim özelliklerine şirketinizde kullanıcının Azure AD kullanıcı tam erişim sağlar. İçinde olmayan bir iş ortağı merkezi de, hesap uygun rol/izin vermediği sürece kullanıcılar eklemek ve kuruluşunuzun iş hesabı (Azure AD kiracısı) kullanıcıları yönetmek mümkün olacaktır. 
+1. Yeni bir kullanıcı, kuruluşunuzun dizininde bir genel yönetici hesabına sahip olmasını istiyorsanız, başlıklı kutuyu işaretleyin **bu kullanıcının genel yönetici Azure ad, tüm dizin kaynakları üzerinde tam denetime sahip olun.** . Bu, tüm yönetim özelliklerine şirketinizde kullanıcının Azure AD kullanıcı tam erişim sağlar. İçinde olmayan bir iş ortağı merkezi de, hesap uygun rol/izin vermediği sürece kullanıcılar eklemek ve kuruluşunuzun iş hesabı (Azure AD kiracısı) kullanıcıları yönetmek mümkün olacaktır. 
 1. İçin kutusunu işaretlediyseniz **bu kullanıcının genel yönetici olun**, sağlamak ihtiyacınız olacak bir **parola kurtarma e-posta** kullanıcının parolasını gerekiyorsa, kurtarılır.
 1. İçinde **grup üyeliği** bölümünde, yeni bir kullanıcının ait olmasını istediğiniz grupları seçin.
 1. İçinde **rolleri** bölümünde, rolleri veya özelleştirilmiş kullanıcı izinlerini belirtin.
@@ -223,7 +223,7 @@ Kullanıcılarınız parolalarını değiştirmek gerekiyorsa, bunu kendilerini 
 3.  Geçici bir parola da dahil olmak üzere, kullanıcı için oturum açma bilgilerini gösteren bir onay sayfası görüntülenir. Bu sayfadan çıktıktan sonra geçici parolayı erişmek mümkün olmayacaktır olarak yazdırma veya bu bilgileri kopyalayıp kullanıcıya sağlamak emin olun.
 
 
-## <a name="manage-groups"></a>Grupları Yönet
+## <a name="manage-groups"></a>Grupları yönetme
 
 Grupları, birden çok kullanıcı rolleri ve izinleri hep birlikte denetlemenizi sağlar.
 
@@ -279,7 +279,7 @@ Uygulamaları, eklemek için şirketinizin Azure Active Directory'de zaten mevcu
 1.  Gelen **kullanıcılar** sayfa (altında **hesap ayarları**) seçeneğini **Azure AD uygulamaları ekleme**.
 2.  Sonraki sayfada seçin **yeni Azure AD uygulama**.
 3.  Girin **yanıt URL'si** yeni Azure AD uygulaması. Bu kullanıcılar burada oturum açabilir ve (uygulama URL'si veya oturum açma URL'si bazen olarak da bilinir), Azure AD uygulamasını kullanın URL'dir. **Yanıt URL'si** 256 karakterden uzun olamaz ve dizininizde benzersiz olmalıdır.
-4.  Girin **uygulama kimliği URI'si** yeni Azure AD uygulaması. Bu, Azure AD'ye tek bir oturum açma isteği gönderildiğinde, sunulan Azure AD uygulaması için mantıksal bir tanımlayıcıdır. Unutmayın **uygulama kimliği URI'si** dizininizdeki her bir Azure AD uygulama için benzersiz olmalıdır. Bu kimliği, 256 karakterden uzun olamaz. Uygulama Kimliği URI'si hakkında daha fazla bilgi için bkz. [uygulamaları Azure Active Directory ile tümleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#changing-the-application-registration-to-support-multi-tenant).
+4.  Girin **uygulama kimliği URI'si** yeni Azure AD uygulaması. Bu, Azure AD'ye tek bir oturum açma isteği gönderildiğinde, sunulan Azure AD uygulaması için mantıksal bir tanımlayıcıdır. Unutmayın **uygulama kimliği URI'si** dizininizdeki her bir Azure AD uygulama için benzersiz olmalıdır. Bu kimliği, 256 karakterden uzun olamaz. Uygulama Kimliği URI'si hakkında daha fazla bilgi için bkz. [uygulamaları Azure Active Directory ile tümleştirme](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5.  İçinde **rolleri** bölümünde, Azure AD uygulaması için özelleştirilmiş izinleri ve rolleri belirtin.
 6.  **Kaydet**’i seçin.
 
@@ -313,7 +313,7 @@ Azure Active Directory (AAD) Kiracı roller genel yönetici, yönetici kullanıc
 |      |• İş ortağı merkezi destek bileti oluşturma
 ||• Görünümü sözleşmeleri, fiyat listeleri ve teklifler
 ||• Görüntüleme, oluşturma ve iş ortağı kullanıcıları yönetme|
-|Yönetici|• Haricinde vergi ve ödeme ayarları tüm Microsoft hesabı özelliklere erişebilirsiniz
+|Yöneticisi|• Haricinde vergi ve ödeme ayarları tüm Microsoft hesabı özelliklere erişebilirsiniz
 |      |• Kullanıcıları ve rolleri yönetme ve iş hesaplarını (kiracılar)|
 |Geliştirici|• Paketleri yükle, uygulamalar ve eklentiler gönderin ve telemetri Ayrıntılar için kullanım raporunu görüntüle
 |      |• Finansal bilgi veya hesap ayarları erişemiyor|

@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42f5d3abda715d83d58b0d341aed784de639e460
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239948"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751791"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Hızlı Başlangıç: Not defteri oluşturma ve paylaşma
 
@@ -41,11 +41,11 @@ ms.locfileid: "60239948"
 
      ![Yeni Proje açılır penceresi ile doldurulmuş ayrıntıları](media/quickstarts/new-project-popup.png)
 
-1. Birkaç dakika sonra Azure not defterleri yeni projeye gider. Bir not defteri seçerek projeye ekleyin. **+ yeni** açılan (yalnızca görünen **+**), sonra seçerek **not defteri**:
+1. Birkaç dakika sonra Azure not defterleri yeni projeye gider. Bir not defteri seçerek projeye ekleyin. **+ yeni** açılan (yalnızca görünen **+** ), sonra seçerek **not defteri**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "Yeni bir proje boş ve not defteri komut ekleme")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
-1. İçinde **Yeni Not Defteri Oluştur** görünen açılan bir dosya adı gibi not defteri için girin *HelloWorldInPython.ipynb* (*.ipynb* IronPython (Jupyter) not defteri anlamına gelir. ) seçip **Python 3.6** dil (olarak da adlandırılan *çekirdek*):
+1. İçinde **Yeni Not Defteri Oluştur** görünen açılan bir dosya adı gibi not defteri için girin *HelloWorldInPython.ipynb* ( *.ipynb* IronPython (Jupyter) not defteri anlamına gelir. ) seçip **Python 3.6** dil (olarak da adlandırılan *çekirdek*):
 
     ![Yeni Not Defteri Oluştur açılan menüsü](media/quickstarts/new-notebook-popup.png)
 

@@ -4,14 +4,14 @@ description: Yeni kaynak grubuna veya aboneliğe taşınabilir Azure kaynak tür
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/17/2019
+ms.date: 6/6/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcac557f29a987ea732744c1b82f90f858623ec5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 314b28edbd5770186d96fb2a2b203f26ff27bda0
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872547"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752359"
 ---
 # <a name="move-operation-support-for-resources"></a>İşlem desteği kaynakları Taşı
 Bu makalede, bir Azure kaynak türü taşıma işlemini destekleyip desteklemediğini listelenmektedir. Bir kaynak türü taşıma işlemi desteklemesine rağmen kaynak taşınmasını engellemek koşulları olabilir. Taşıma işlemlerini etkileyen koşullar hakkında daha fazla ayrıntı için bkz: [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](resource-group-move-resources.md).
@@ -36,7 +36,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| sunucu | Evet | Evet |
+| Sunucuları | Evet | Evet |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -92,8 +92,8 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | ------------- | ----------- | ---------- |
 | Kümeleri | Hayır | Hayır |
 | fileservers | Hayır | Hayır |
-| işler | Hayır | Hayır |
-| çalışma alanı | Hayır | Hayır |
+| İşleri | Hayır | Hayır |
+| Çalışma alanları | Hayır | Hayır |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -157,24 +157,24 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
 | availabilitysets | Evet | Evet |
-| diskler | Evet | Evet |
+| Diskler | Evet | Evet |
 | galeriler | Hayır | Hayır |
 | galeriler/görüntüleri | Hayır | Hayır |
 | galeriler/resimler/sürümleri | Hayır | Hayır |
 | hostgroups | Hayır | Hayır |
 | hostgroups/ana bilgisayarları | Hayır | Hayır |
-| görüntüler | Evet | Evet |
+| images | Evet | Evet |
 | proximityplacementgroups | Hayır | Hayır |
 | restorepointcollections | Hayır | Hayır |
 | sharedvmimages | Hayır | Hayır |
 | sharedvmimages/sürümleri | Hayır | Hayır |
-| anlık görüntüler | Evet | Evet |
+| Anlık görüntüleri | Evet | Evet |
 | virtualmachines | Evet | Evet |
 | virtualmachines ve uzantıları | Evet | Evet |
 | virtualmachinescalesets | Evet | Evet |
@@ -213,7 +213,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Hayır | Hayır |
+| accounts | Hayır | Hayır |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -228,7 +228,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| işler | Hayır | Hayır |
+| İşleri | Hayır | Hayır |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -238,7 +238,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| çalışma alanı | Hayır | Hayır |
+| Çalışma alanları | Hayır | Hayır |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -254,8 +254,8 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| paketler | Hayır | Hayır |
-| planlar | Hayır | Hayır |
+| Paketleri | Hayır | Hayır |
+| Planları | Hayır | Hayır |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -271,12 +271,12 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -288,18 +288,18 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| sunucu | Evet | Evet |
+| Sunucuları | Evet | Evet |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| sunucu | Evet | Evet |
+| Sunucuları | Evet | Evet |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
 | servergroups | Hayır | Hayır |
-| sunucu | Evet | Evet |
+| Sunucuları | Evet | Evet |
 | serversv2 | Evet | Evet |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
@@ -373,12 +373,12 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
 | Kümeleri | Evet | Evet |
-| ad alanları | Evet | Evet |
+| Ad alanları | Evet | Evet |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Hayır | Hayır |
+| accounts | Hayır | Hayır |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -408,12 +408,12 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| işler | Evet | Evet |
+| İşleri | Evet | Evet |
 
 ## <a name="microsoftinsights"></a>Microsoft.insights
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Hayır | Hayır |
+| accounts | Hayır | Hayır |
 | actiongroups | Evet | Evet |
 | activitylogalerts | Hayır | Hayır |
 | alertrules | Evet | Evet |
@@ -423,9 +423,9 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | metricalerts | Hayır | Hayır |
 | notificationgroups | Hayır | Hayır |
 | notificationrules | Hayır | Hayır |
-| scheduledqueryrules | Hayır | Hayır |
+| scheduledqueryrules | Evet | Evet |
 | Web testleri | Evet | Evet |
-| çalışma kitapları | Evet | Evet |
+| Çalışma kitapları | Evet | Evet |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -436,7 +436,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
 | checknameavailability | Evet | Evet |
-| Graf | Evet | Evet |
+| graph | Evet | Evet |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -457,12 +457,12 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Hayır | Hayır |
+| accounts | Hayır | Hayır |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -478,7 +478,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | ------------- | ----------- | ---------- |
 | commitmentplans | Evet | Evet |
 | veritabanınızdaki | Evet | Hayır |
-| çalışma alanı | Evet | Evet |
+| Çalışma alanları | Evet | Evet |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -488,7 +488,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Hayır | Hayır |
+| accounts | Hayır | Hayır |
 | hesapları/çalışma alanları | Hayır | Hayır |
 | çalışma alanları/hesapları/projeleri | Hayır | Hayır |
 | teamaccounts | Hayır | Hayır |
@@ -498,7 +498,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -508,7 +508,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| çalışma alanı | Hayır | Hayır |
+| Çalışma alanları | Hayır | Hayır |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.managedıdentity
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -518,7 +518,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -556,7 +556,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | applicationsecuritygroup | Evet | Evet |
 | azurefirewalls | Evet | Evet |
 | bastionhosts | Hayır | Hayır |
-| bağlantılar | Evet | Evet |
+| Bağlantıları | Evet | Evet |
 | ddoscustompolicies | Evet | Evet |
 | ddosprotectionplans | Hayır | Hayır |
 | dnszones | Evet | Evet |
@@ -601,20 +601,20 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| ad alanları | Evet | Evet |
+| Ad alanları | Evet | Evet |
 | ad/notificationhubs | Evet | Evet |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| çalışma alanı | Evet | Evet |
+| Çalışma alanları | Evet | Evet |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
 | managementconfigurations | Evet | Evet |
 | çözümler | Evet | Evet |
-| görüntüleme | Evet | Evet |
+| Görünümler | Evet | Evet |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -644,7 +644,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesaplar | Hayır | Hayır |
+| accounts | Hayır | Hayır |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -654,7 +654,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| ad alanları | Evet | Evet |
+| Ad alanları | Evet | Evet |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -664,7 +664,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| akışlar | Evet | Evet |
+| Akışlar | Evet | Evet |
 | eyleminde | Evet | Evet |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -686,7 +686,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| ad alanları | Evet | Evet |
+| Ad alanları | Evet | Evet |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -696,9 +696,9 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | containergroups | Hayır | Hayır |
 | containergroupsets | Hayır | Hayır |
 | edgeclusters | Hayır | Hayır |
-| ağlar | Hayır | Hayır |
+| Ağlar | Hayır | Hayır |
 | secretstores | Hayır | Hayır |
-| birim | Hayır | Hayır |
+| volumes | Hayır | Hayır |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -706,9 +706,9 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | uygulamalar | Evet | Evet |
 | containergroups | Hayır | Hayır |
 | Ağ geçitleri | Evet | Evet |
-| ağlar | Evet | Evet |
-| gizli dizi | Evet | Evet |
-| birim | Evet | Evet |
+| Ağlar | Evet | Evet |
+| Gizli dizileri | Evet | Evet |
+| volumes | Evet | Evet |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -735,7 +735,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | instancepools | Evet | Evet |
 | managedinstances | Evet | Evet |
 | managedinstances/veritabanları | Evet | Evet |
-| sunucu | Evet | Evet |
+| Sunucuları | Evet | Evet |
 | sunucuları/veritabanları | Evet | Evet |
 | sunucuları/elasticpools | Evet | Evet |
 | virtualclusters | Evet | Evet |
@@ -791,7 +791,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | ------------- | ----------- | ---------- |
 | Ortamlar | Hayır | Hayır |
 | ortamları/eventsources | Hayır | Hayır |
-| Örnekler | Hayır | Hayır |
+| örnekler | Hayır | Hayır |
 | Örnek/ortamları | Hayır | Hayır |
 | Örnek/ortam/eventsources | Hayır | Hayır |
 
@@ -799,7 +799,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
 | providerregistrations | Hayır | Hayır |
-| kaynaklar | Hayır | Hayır |
+| Kaynakları | Hayır | Hayır |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -821,7 +821,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| hesap | Evet | Evet |
+| account | Evet | Evet |
 | hesabı/uzantısı | Evet | Evet |
 | hesabı/proje | Evet | Evet |
 
@@ -835,13 +835,13 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| sertifika | Hayır | Evet |
+| Sertifikaları | Hayır | Evet |
 | connectiongateways | Evet | Evet |
-| bağlantılar | Evet | Evet |
+| Bağlantıları | Evet | Evet |
 | customapis | Evet | Evet |
 | hostingenvironments | Hayır | Hayır |
 | serverfarms | Evet | Evet |
-| siteler | Evet | Evet |
+| Siteleri | Evet | Evet |
 | Site/premieraddons | Evet | Evet |
 | Site/Yuvalar | Evet | Evet |
 
@@ -855,7 +855,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | ------------- | ----------- | ---------- |
 | applicationgroups | Hayır | Hayır |
 | hostpools | Hayır | Hayır |
-| çalışma alanı | Hayır | Hayır |
+| Çalışma alanları | Hayır | Hayır |
 
 ## <a name="third-party-services"></a>Üçüncü taraf hizmetleri
 

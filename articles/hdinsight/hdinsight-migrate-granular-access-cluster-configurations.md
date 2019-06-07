@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9a592533a92ec724c9a332bef5fdfcf385cb7b2c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730678"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754541"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Küme yapılandırmaları için ayrıntılı rol tabanlı erişime geçme
 
@@ -59,10 +59,10 @@ Aşağıdaki API'leri değiştirildi veya kullanım dışı:
 - [**GET /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (hassas bilgileri kaldırıldı)
     - Daha önce bireysel yapılandırma türleri (gizli anahtarları dahil) almak için kullanılır.
     - Bu API çağrısı artık tek tek yapılandırma türlerine sahip gizli diziler atlanmış döndürür. Gizli öğeleri dahil olmak üzere tüm yapılandırmaları almak için yeni bir GÖNDERİ /configurations çağrı kullanın. Ağ Geçidi ayarlarını almak için yeni bir GÖNDERİ /getGatewaySettings çağrı kullanın.
-- [**GET /configurations** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configurations) (kullanım dışı)
+- [**GET /configurations** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (kullanım dışı)
     - Daha önce (gizli anahtarları dahil) tüm yapılandırmaları almak için kullanılır.
     - Bu API çağrısı artık desteklenir. İleride tüm yapılandırmaları almak için yeni bir GÖNDERİ /configurations çağrı kullanın. Atlanmış gizli parametrelerle yapılandırmaları almak için GET /configurations/ {configurationName} çağrısı kullanın.
-- [**POST /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) (kullanım dışı)
+- [**POST /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) (kullanım dışı)
     - Daha önce Ağ Geçidi kimlik bilgilerini güncelleştirmek için kullanılır.
     - Bu API çağrısı kullanım dışı ve artık desteklenmiyor. Bunun yerine yeni bir GÖNDERİ /updateGatewaySettings kullanın.
 

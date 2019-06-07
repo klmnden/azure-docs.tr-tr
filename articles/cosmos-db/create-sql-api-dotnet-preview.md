@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 51494acaa393493e567e0fcbb359756bdab21503
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: bf749cde85be10bae5f7acf3f1f995be1b81c30f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860901"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754340"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Hızlı Başlangıç: Azure Cosmos DB SQL API hesabı kullanarak bir ASP.NET web uygulaması derleme
 
@@ -43,12 +43,12 @@ Visual Studio yüklü 2019 yoksa, indirip kullanabilirsiniz **ücretsiz** [Visua
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
+## <a name="create-an-azure-cosmos-account"></a>Bir Azure Cosmos hesabı oluşturma
 
 [!INCLUDE [cosmos-db-create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
 
 <a id="create-collection"></a>
-## <a name="add-a-collection"></a>Koleksiyon ekleme
+## <a name="add-a-container"></a>Bir kapsayıcı ekleyin
 
 [!INCLUDE [cosmos-db-create-collection-preview](../../includes/cosmos-db-create-collection-preview.md)]
 
