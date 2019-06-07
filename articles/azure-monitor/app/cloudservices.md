@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256297"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478319"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application ınsights'ı Azure bulut Hizmetleri
 [Application Insights] [ start] izleyebilirsiniz [Azure cloud hizmeti uygulamaları](https://azure.microsoft.com/services/cloud-services/) kullanılabilirlik, performans, hatalar ve kullanım verileri Application Insights SDK'ları ile birleştirerek[Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) , bulut hizmetlerinden veri. Uygulamanızın gerçek hayattaki performansı ve etkinliğine ilişkin aldığınız geri bildirimlerden yararlanarak her geliştirme yaşam döngüsünde tasarımın yönü konusunda bilinçli kararlar alabilirsiniz.
@@ -194,18 +194,18 @@ Web rollerinde, istek modülü otomatik olarak HTTP istekleriyle ilgili verileri
 ## <a name="performance-counters"></a>Performans sayaçları
 Aşağıdaki sayaçlar varsayılan olarak toplanır:
 
-    * \Process(??APP_WIN32_PROC??)\% İşlemci Süresi
-    * \Memory\Available Bytes
-    * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
-    * \Process(??APP_WIN32_PROC??)\Private Bytes
-    * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-    * \Processor(_Total)\% Processor Time
+* \Process(??APP_WIN32_PROC??)\% İşlemci Süresi
+* \Memory\Available Bytes
+* \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
+* \Process(??APP_WIN32_PROC??)\Private Bytes
+* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
+* \Processor(_Total)\% Processor Time
 
 Web rolleri için aşağıdaki sayaçlar da toplanır:
 
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
 Düzenleyerek ek özel sayaçlar veya başka Windows performans sayaçları belirtebilirsiniz *Applicationınsights.config* [Bu örnekte gösterildiği gibi](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
