@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 6516b11bf5d4d4c4e5406a3e6e0cce3189796d33
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 25ff618045c65371b1bddd8aeb32166b3e168a93
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956405"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497210"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Azure CNI ağı yapılandırma
 
@@ -63,7 +63,7 @@ Pod'ların bir AKS kümesindeki düğüm başına en fazla sayısını 250'dir. 
 
 | Dağıtım yöntemi | Kubernetes varsayılan | Azure CNI varsayılan | Dağıtım sırasında yapılandırılabilir |
 | -- | :--: | :--: | -- |
-| Azure CLI'si | 110 | 30 | Evet (en fazla 250) |
+| Azure CLI | 110 | 30 | Evet (en fazla 250) |
 | Resource Manager şablonu | 110 | 30 | Evet (en fazla 250) |
 | Portal | 110 | 30 | Hayır |
 
@@ -170,8 +170,6 @@ Aşağıdaki sorular ve yanıtlar uygulamak **Azure CNI** ağ yapılandırması.
   Önerilmez, ancak bu yapılandırma mümkündür. Hizmeti adres aralığı, Kubernetes kümenizde iç Hizmetleri atar sanal IP'ler (VIP) kümesidir. Azure ağı yok görünürlük bir Kubernetes kümesinin hizmet IP aralığı vardır. Küme hizmeti adres aralığı görünürlük eksikliği nedeniyle, daha sonra hizmet adres aralığıyla çakışıyor küme sanal ağda yeni bir alt ağ oluşturmak mümkündür. Böyle bir çakışma ortaya çıkarsa, Kubernetes hizmet öngörülemeyen davranışlara veya hatalara neden alt ağdaki başka bir kaynak tarafından kullanımda bir IP atayabilirsiniz. Küme sanal ağ dışındaki bir adres aralığı kullandığınız sağlayarak bu çakışma risk önleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-### <a name="networking-in-aks"></a>AKS ağ
 
 Aşağıdaki makalelerde AKS de ağ oluşturmayla ilgili daha fazla bilgi edinin:
 

@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2e0c17b07f70d9b05ff9ea6c3af2e8dc26127cae
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 56a2b89277cbf8866c1992a6738bd80106ef3313
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906525"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480015"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive JDBC sürücüsü, HDInsight ile sorgulama
 
@@ -28,7 +28,6 @@ Hive JDBC arabirimi hakkında daha fazla bilgi için bkz. [HiveJDBCInterface](ht
 * Bir HDInsight Hadoop kümesi. Oluşturmak için bkz: [Azure HDInsight ile çalışmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) sürüm 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) veya üzeri.
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL JDBC istemci uygulamasıdır.
-
 
 ## <a name="jdbc-connection-string"></a>JDBC bağlantı dizesi
 
@@ -54,20 +53,12 @@ SQuirreL SQL uzaktan HDInsight kümenizle Hive sorguları çalıştırmak için 
 
 1. Kümenizden kopyalanacak belirli dosyaları içerecek bir dizin oluşturun.
 
-2. Aşağıdaki betikte değiştirin `sshuser` küme SSH kullanıcı hesabı adı ile.  Değiştirin `CLUSTERNAME` ile HDInsight kümesi adı.  Bir komut satırından bir HDInsight kümesinden dosyaları kopyalamak için aşağıdaki komutu girin:
+2. Aşağıdaki betikte değiştirin `sshuser` küme SSH kullanıcı hesabı adı ile.  Değiştirin `CLUSTERNAME` ile HDInsight kümesi adı.  Bir komut satırından önceki adımda oluşturulan çalışma dizininize geçin ve sonra bir HDInsight kümesinden dosyaları kopyalamak için aşağıdaki komutu girin:
 
-    ```bash
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-codec*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libfb*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+    ```cmd
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/{hadoop-auth.jar,hadoop-common.jar,lib/log4j-*.jar,lib/slf4j-*.jar} .
+
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/{commons-codec*.jar,commons-logging-*.jar,hive-*-1.2*.jar,httpclient-*.jar,httpcore-*.jar,libfb*.jar,libthrift-*.jar} .
     ```
 
 3. SQuirreL SQL uygulamayı başlatın. Pencerenin soldan seçin **sürücüleri**.
@@ -80,9 +71,9 @@ SQuirreL SQL uzaktan HDInsight kümenizle Hive sorguları çalıştırmak için 
 
 5. Sürücü Ekle iletişim kutusunda aşağıdaki bilgileri ekleyin:
 
-    * **Ad**: Kovan
+    * **Ad**: Hive
     * **Örnek URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Yol'ekstra sınıf**: Daha önce indirdiğiniz jar dosyalarının tümü eklemek için Ekle düğmesini kullanın.
+    * **Yol'ekstra sınıf**: Kullanım **Ekle** jar dosyalarının tümü eklemek için daha önce indirilen
     * **Sınıf adı**: org.apache.hive.jdbc.HiveDriver
 
    ![sürücü iletişim kutusu Ekle](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)

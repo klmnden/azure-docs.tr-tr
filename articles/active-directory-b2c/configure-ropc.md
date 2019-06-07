@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C'de kaynak sahibi parola kimlik bilgileri akışı yapılandırma | Microsoft Docs
 description: Azure AD B2C'de kaynak sahibi parola kimlik bilgileri akışı yapılandırmayı öğrenin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da7fe9310f50d2d2a3c247a410db204903d3412b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: 2e590e4765f4795123e219f8da4b3e62bc79ca30
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715875"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511357"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C'de kaynak sahibi parola kimlik bilgileri akışı yapılandırma
 

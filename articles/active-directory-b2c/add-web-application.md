@@ -2,20 +2,20 @@
 title: Bir web uygulaması - Azure Active Directory B2C ekleme | Microsoft Docs
 description: Bir Active Directory B2C kiracınıza web uygulamasına eklemeyi öğrenin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 04/16/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: ede3fd0dd1d0351e691a9f160260c029d01c8f8a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a1d098550c6fb733e088f8ad211d29f48f55d2d6
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704037"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511714"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Bir web API uygulaması Azure Active Directory B2C kiracınıza ekleyin
 
@@ -52,6 +52,6 @@ Bir uygulamadan korumalı web API'sini çağırmak için API'ye uygulama izinler
 2. Seçin **API erişimi**ve ardından **Ekle**.
 3. İçinde **API seçin** açılır menüsünde, select *webapi1*.
 4. İçinde **kapsamları seçin** açılır menüsünde, select **okuma** ve **yazma** daha önce tanımladığınız kapsamları.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 
 Uygulamanız korumalı web API'sini çağırmak için kaydedilir. Bir kullanıcının uygulamayı kullanmak için Azure AD B2C ile kimliğini doğrular. Uygulama, korumalı web API'sine erişmek için Azure AD B2C bir yetkilendirme izni alır.

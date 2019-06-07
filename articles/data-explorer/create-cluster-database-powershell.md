@@ -1,18 +1,18 @@
 ---
-title: 'Hızlı Başlangıç: PowerShell kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma'
+title: PowerShell kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
 description: PowerShell kullanarak bir Azure Veri Gezgini küme ve veritabanı oluşturmayı öğrenin
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 28785bb99dcdb767a64ae977e8326b80130fb135
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 85c8cc81b3c61e2faf65bf8a06c69ca7f2b906c9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240204"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497334"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>PowerShell kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
 
@@ -24,7 +24,7 @@ ms.locfileid: "66240204"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu hızlı başlangıçta, bir küme ve bir veritabanını Powershell kullanarak oluşturun. Windows, Linux üzerinde veya PowerShell cmdlet'leri ve betikleri çalıştırılabilir [Azure Cloud Shell](../cloud-shell/overview.md) ile [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) Azure Veri Gezgini kümeleri ve veritabanlarını oluşturma ve yapılandırma için.
+Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu makalede, bir küme ve bir veritabanını Powershell kullanarak oluşturduğunuz. Windows, Linux üzerinde veya PowerShell cmdlet'leri ve betikleri çalıştırılabilir [Azure Cloud Shell](../cloud-shell/overview.md) ile [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) Azure Veri Gezgini kümeleri ve veritabanlarını oluşturma ve yapılandırma için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure CLI'yı yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıçta Azure CLI 2.0.4 sürüm gerektirir veya üzeri. Sürümünüzü kontrol etmek için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Azure CLI'yı yerel olarak yükleyip kullanmayı tercih ederseniz bu makale Azure CLI 2.0.4 sürüm gerektirir veya üzeri. Sürümünüzü kontrol etmek için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-parameters"></a>Parametreleri Yapılandır
 
@@ -107,7 +107,7 @@ Artık bir küme ve bir veritabanı vardır.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-* Diğer hızlı başlangıçlarımızı ve öğreticilerimizi izlemeyi planlıyorsanız, oluşturduğunuz kaynakları tutun.
+* Diğer makalelerimize takip etmeyi planlıyorsanız, oluşturduğunuz kaynakları tutun.
 * Kaynakları temizlemek için kümeyi silin. Bir küme sildiğinizde, tüm veritabanları da siler. Kümenizi silmek için aşağıdaki komutu kullanın:
 
     ```azurepowershell-interactive
@@ -117,4 +117,4 @@ Artık bir küme ve bir veritabanı vardır.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Ek Az.Kusto komutlar](/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
-* [Hızlı Başlangıç: Azure Veri Gezgini .NET standart SDK'sı (Önizleme) kullanarak veri alma](net-standard-ingest-data.md)
+* [Azure Veri Gezgini .NET standart SDK'sı (Önizleme) kullanarak veri alma](net-standard-ingest-data.md)

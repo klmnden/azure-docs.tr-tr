@@ -1,6 +1,6 @@
 ---
 title: Sanal çekirdek - Azure SQL veritabanı hizmeti | Microsoft Docs
-description: Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depolama kaynaklarının ölçeğini, aynı şirket içi performans ve fiyat iyileştirme sağlar.
+description: Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depolama kaynaklarının ölçeğini, aynı şirket içi performans ve fiyat iyileştirme olanak tanır.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,70 +12,68 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 520dba611e6791fca990e21173424a914c3d8e14
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235896"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693341"
 ---
-# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Sanal çekirdek hizmet katmanları seçin ve DTU hizmet katmanı arasından geçirme
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Sanal çekirdek hizmet katmanları seçin ve DTU hizmet katmanı arasından geçirme
 
-Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depolama kaynaklarının ölçeğini, aynı şirket içi performans ve fiyat iyileştirme sağlar. Ayrıca, donanımın seçmenize olanak sağlar:
+Sanal çekirdek (vCore)-tabanlı satın alma modeli bağımsız olarak ölçeklendirme işlem ve depolama kaynakları, aynı şirket içi performans ve fiyat iyileştirmenize olanak tanır. Ayrıca donanımın seçmenizi sağlar:
 
-- 4-24 mantıksal CPU'lar Intel E5-2673 v3 temel kadar. nesil (Haswell) 2,4 GHz işlemcileri, sanal çekirdek = 1 bağlı PP (fiziksel çekirdek), çekirdek başına 7 GB SSD
-- 5-kadar 80 mantıksal CPU'lar Intel E5-2673 v4 temel alır. nesil (Broadwell) 2,3 GHz işlemcileri, sanal çekirdek = 1 LP (hiper iş parçacığı), çekirdek, hızlı eNVM SSD başına 5.1 GB
-
+- **4. nesil**: En fazla 24 mantıksal CPU'lar Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri, sanal çekirdek tabanlı = 1 bağlı PP (fiziksel çekirdek), çekirdek başına 7 GB SSD
+- **5. nesil**: En fazla 80 mantıksal CPU'lar Intel E5-2673 v4 (Broadwell) 2.3 GHz işlemcileri, sanal çekirdek tabanlı 1 LP (hiper iş parçacığı), çekirdek, hızlı eNVM SSD başına 5.1 GB =
 
 Donanım 4. nesil sanal çekirdek başına önemli ölçüde daha fazla bellek sunar. Ancak, 5. nesil donanım çok daha yüksek bilgi işlem kaynaklarını ölçeklendirme olanak tanır.
 
 > [!NOTE]
-> DTU tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [DTU tabanlı hizmet katmanları](sql-database-service-tiers-dtu.md). DTU tabanlı hizmet katmanları ve sanal çekirdek tabanlı hizmet katmanları ayrım yapma hakkında daha fazla bilgi için bkz: [Azure SQL veritabanı'nın satın alma modeli](sql-database-purchase-models.md).
+> DTU tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [hizmet katmanları için DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md). DTU tabanlı hizmet katmanları ve sanal çekirdek tabanlı satın alma modeli arasındaki farklar hakkında daha fazla bilgi için bkz: [Azure SQL veritabanı'nın satın alma modeli](sql-database-purchase-models.md).
 
 ## <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
 
-Üç hizmet katmanı genel amaçlı, Hiper ölçekli ve iş açısından kritik vCore modeli sağlar. Hizmet katmanları, bir dizi işlem boyutları, yüksek kullanılabilirlik tasarımı, hata yalıtımı, türler ve depolama alanının boyutunu ve g/ç aralığı tarafından ayrılır. Ayrı olarak, gerekli depolama ve saklama dönemi yedeklemeleri için yapılandırmanız gerekir. Azure portalında (veritabanı değil) sunucusuna gidin > Yönetilen yedekleme > ilkesini yapılandırma > noktası içinde zaman geri yükleme yapılandırması > 7-35 gün.
+Sanal çekirdek tabanlı satın alma modeli, üç hizmet katmanı sunar: genel amaçlı, Hiper ölçekli ve iş açısından kritik. Bu hizmet katmanları, bir dizi işlem boyutları, yüksek kullanılabilirlik tasarımı, hata Yalıtımı yöntemleri, türleri ve boyutları, depolama ve g/ç aralıkları tarafından ayrılır.
 
-Aşağıdaki tabloda, üç katmanı arasındaki farkları yardımcı olur:
+Ayrı olarak, gerekli depolama ve saklama dönemi yedeklemeleri için yapılandırmanız gerekir. Yedekleme bekletme süresini ayarlama, Azure portalını açın, sunucu (veritabanı değil) gidin ve ardından Git **yedekleri Yönet** > **ilkesini yapılandırma**  >   **Noktası içinde zaman geri yükleme Yapılandırması** > **7-35 gün**.
+
+Aşağıdaki tabloda, üç katmanı arasındaki farklar açıklanmaktadır:
 
 ||**Genel amaçlı**|**İş açısından kritik**|**Hiper ölçekli**|
 |---|---|---|---|
-|En uygun olduğu durum|Çoğu iş yükü. Teklifler yönlendirilmiş Dengeli ve ölçeklenebilir işlem ve depolama seçenekleri bütçe.|Yüksek GÇ gereksinimleri olan iş uygulamaları. Çeşitli yalıtılmış çoğaltmaları kullanarak hatalara karşı en yüksek düzeyde dayanıklılık sağlar.|Çoğu iş yükü ile yüksek düzeyde ölçeklenebilir depolama ve okuma ölçek gereksinimleri|
-|İşlem|**Sağlanan işlem**:<br/>4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 80 2 sanal çekirdek<br/>**Sunucusuz bilgi işlem**<br/>5. nesil: 0,5 - 4 sanal çekirdek|**Sağlanan işlem**:<br/>4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 80 2 sanal çekirdek|**Sağlanan işlem**:<br/>4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 80 2 sanal çekirdek|
-|Bellek|**Sağlanan işlem**:<br/>4. nesil: Sanal çekirdek başına 7 GB<br/>5. nesil: Sanal çekirdek başına 5.1 GB<br/>**Sunucusuz bilgi işlem**<br/>5. nesil: Sanal çekirdek başına 3 GB|**Sağlanan işlem**:<br/>4. nesil: Sanal çekirdek başına 7 GB<br/>5. nesil: Sanal çekirdek başına 5.1 GB |**Sağlanan işlem**:<br/>4. nesil: Sanal çekirdek başına 7 GB<br/>5. nesil: Sanal çekirdek başına 5.1 GB|
-|Depolama|Uzaktan Depolama kullanıyor:<br/>**Tek veritabanı sağlanan işlem**:<br/>5 GB – 4 TB<br/>**Tek veritabanı sunucusuz işlem**:<br/>5 GB - 1 TB<br/>**Yönetilen örnek**: 32 GB - 8 TB |Yerel SSD depolama kullanır:<br/>**Tek veritabanı sağlanan işlem**:<br/>5 GB – 4 TB<br/>**Yönetilen örnek**:<br/>32 GB - 4 TB |Esnek, otomatik olarak büyütme gerektiğinde depolama. 100 TB depolama alanı kadar ve ötesinde destekler. Yerel SSD depolaması yerel arabellek havuzu önbellek ve yerel veri depolama. Son uzun süreli veri deposu olarak Azure uzak depolama. |
-|Bellek|4. nesil: Çekirdek başına 7 GB<br>5. nesil: Çekirdek başına 5.1 GB | 4. nesil: Çekirdek başına 7 GB<br>5. nesil: Çekirdek başına 5.1 GB |4. nesil: Çekirdek başına 7 GB<br>5. nesil: Çekirdek başına 5.1 GB|
-|Depolama|Uzaktan Depolama kullanıyor:<br/>Tek veritabanı: 5 GB – 4 TB<br/>Yönetilen örnek: 32 GB - 8 TB |Yerel SSD depolama kullanır:<br/>Tek veritabanı: 5 GB – 4 TB<br/>Yönetilen örnek: 32 GB - 4 TB |Esnek, otomatik olarak büyütme gerektiğinde depolama. 100 TB depolama alanı kadar ve ötesinde destekler. Yerel SSD depolaması yerel arabellek havuzu önbellek ve yerel veri depolama. Son uzun süreli veri deposu olarak Azure uzak depolama. |
-|GÇ verimliliği (yaklaşık)|Tek veritabanı: 7000 maksimum IOPS ile sanal çekirdek başına 500 IOPS</br>Yönetilen örnek: Bağımlı [dosya boyutu](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|Çekirdek başına 5000 IOPS'yi 200.000 maksimum IOPS ile|TBD|
-|Kullanılabilirlik|1 çoğaltma, herhangi bir okuma ölçek|3 çoğaltma, 1 [okuma ölçeği çoğaltma](sql-database-read-scale-out.md),<br/>Bölge yedekli HA|1 okuma/yazma çoğaltma yanı sıra 0-4 [okuma ölçeği çoğaltmalar](sql-database-read-scale-out.md)|
-|Yedeklemeler|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 gün (varsayılan olarak 7 gün)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 gün (varsayılan olarak 7 gün)|Anlık görüntü tabanlı Yedekleme Azure uzak depolama ve geri yükler, bu anlık görüntüler Hızlı Kurtarma için kullanın. Yedeklemeler anlıktır ve işlem GÇ performansını etkilemez. Geri yüklemeler çok hızlıdır ve bir veri işlemi (dakika yerine saatler veya günler katılarak) boyutunu değildir.|
+|En iyi kullanım alanı:|Çoğu iş yükü. Teklifler bütçeye yönelik, dengeli ve ölçeklenebilir işlem ve Depolama Seçenekleri.|Yüksek g/ç gereksinimlerine sahip iş uygulamaları. Çeşitli yalıtılmış çoğaltmaları kullanarak hatalara en yüksek esnekliği sunar.|Çoğu iş yükü ile yüksek düzeyde ölçeklenebilir depolama ve okuma ölçek gereksinimleri.|
+|İşlem|**Sağlanan işlem**:<br/>4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 80 2 sanal çekirdek<br/>**Sunucusuz bilgi işlem**:<br/>5. nesil: 0,5 - 4 sanal çekirdek|**Sağlanan işlem**:<br/>4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 80 2 sanal çekirdek|**Sağlanan işlem**:<br/>4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 80 2 sanal çekirdek|
+|Bellek|**Sağlanan işlem**:<br/>4. nesil: Sanal çekirdek başına 7 GB<br/>5. nesil: Sanal çekirdek başına 5.1 GB<br/>**Sunucusuz bilgi işlem**:<br/>5. nesil: Sanal çekirdek başına 3 GB|**Sağlanan işlem**:<br/>4. nesil: Sanal çekirdek başına 7 GB<br/>5. nesil: Sanal çekirdek başına 5.1 GB |**Sağlanan işlem**:<br/>4. nesil: Sanal çekirdek başına 7 GB<br/>5. nesil: Sanal çekirdek başına 5.1 GB|
+|Depolama|Uzak Depolama kullanır.<br/>**Tek veritabanı sağlanan işlem**:<br/>5 GB – 4 TB<br/>**Tek veritabanı sunucusuz işlem**:<br/>5 GB - 1 TB<br/>**Yönetilen örnek**: 32 GB - 8 TB |Yerel SSD depolama kullanır.<br/>**Tek veritabanı sağlanan işlem**:<br/>5 GB – 4 TB<br/>**Yönetilen örnek**:<br/>32 GB - 4 TB |Esnek otomatik olarak büyütme gerektiğinde depolama. En fazla 100 TB depolama destekler. Yerel SSD depolaması yerel arabellek havuzu önbellek ve yerel veri depolama için kullanır. Azure Uzaktan Depolama son uzun süreli veri deposu kullanır. |
+|G/ç aktarım hızı (yaklaşık)|**Tek veritabanı**: Sanal çekirdek başına 500 IOPS 7000 maksimum IOPS ile.<br/>**Yönetilen örnek**: Bağımlı [dosya boyutunu](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|Çekirdek başına 5000 IOPS'yi 200.000 maksimum IOPS ile|Hiper ölçekli birden çok düzeyde önbelleğe alma ile çok katmanlı bir mimari var. Etkili IOPS, iş yüküne bağlıdır.|
+|Kullanılabilirlik|1 çoğaltma, hiçbir okuma ölçeği çoğaltması|3 çoğaltma, 1 [okuma ölçeği çoğaltma](sql-database-read-scale-out.md),<br/>Bölgesel olarak yedekli yüksek kullanılabilirlik (HA)|1 okuma-yazma çoğaltma yanı sıra, 0-4 [okuma ölçeği çoğaltmalar](sql-database-read-scale-out.md)|
+|Yedeklemeler|[Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 gün (varsayılan olarak 7 gün)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 gün (varsayılan olarak 7 gün)|Anlık görüntü tabanlı yedeklemelerin Azure uzak depolama. Geri yüklemeler bu anlık görüntüler, Hızlı Kurtarma için kullanın. Yedeklemeler anlıktır ve işlem g/ç performans etkisi yoktur. Geri yüklemeler, hızlı ve bir veri boyutu işlemi (alma dakika yerine saatler veya günler) değil.|
 |Bellek içi|Desteklenmiyor|Desteklenen|Desteklenmiyor|
 |||
 
 > [!NOTE]
-> Azure keşfetmek için ücretsiz bir Azure hesabı ile birlikte temel bir hizmet katmanında, ücretsiz bir Azure SQL veritabanı alabilirsiniz. Bilgi için [Azure ücretsiz hesabınızla yönetilen bir bulut veritabanı oluşturun](https://azure.microsoft.com/free/services/sql-database/).
+> Ücretsiz bir Azure hesabı ile birlikte temel bir hizmet katmanında, ücretsiz bir Azure SQL veritabanı alabilirsiniz. Daha fazla bilgi için [Azure ücretsiz hesabınızla yönetilen bir bulut veritabanı oluşturun](https://azure.microsoft.com/free/services/sql-database/).
 
-- Daha fazla bilgi için [tek veritabanı sanal çekirdek kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md) ve [yönetilen örneği'nde sanal çekirdek kaynak sınırları](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- Genel amaçlı ve iş açısından kritik hizmet katmanları hakkında daha fazla bilgi için bkz. [genel amaçlı ve iş açısından kritik hizmet katmanlarına](sql-database-service-tiers-general-purpose-business-critical.md).
+- Sanal çekirdek kaynak sınırları hakkında daha fazla bilgi için bkz. [tek bir veritabanında sanal çekirdek kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md) ve [sanal çekirdek kaynak sınırları yönetilen örneğinde](sql-database-managed-instance.md#vcore-based-purchasing-model).
+- Genel amaçlı ve iş kritik hizmet katmanları hakkında daha fazla bilgi için bkz. [genel amaçlı ve iş açısından kritik hizmet katmanları](sql-database-service-tiers-general-purpose-business-critical.md).
 - Hiper ölçekli bir hizmet katmanındaki sanal çekirdek tabanlı satın alma modeli hakkında daha fazla bilgi için bkz: [hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md).  
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hibrit Avantajı
 
-Sağlanan bilgisayar katmanındaki sanal çekirdek tabanlı satın alma modeli, mevcut lisanslarınızı kullanarak SQL veritabanı üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/). Bu Azure avantajını Yazılım Güvencesi içeren şirket içi SQL Server lisanslarınızı kullanarak Azure SQL veritabanı'nda % 30 kaydetmek için şirket içi SQL Server lisanslarınızı kullanmanıza olanak tanır.
+Sanal çekirdek tabanlı satın alma modeli sağlanan işlem katmanında indirimli Fiyatlardan SQL veritabanı için mevcut lisanslarınızı kullanarak değiştirebilir [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/). Bu Azure avantajı, Yazılım Güvencesi içeren şirket içi SQL Server lisanslarınızı kullanarak Azure SQL veritabanı'nda yüzde 30 tasarruf sağlar.
 
-![fiyatlandırma](./media/sql-database-service-tiers/pricing.png)
+![Fiyatlandırma](./media/sql-database-service-tiers/pricing.png)
 
-Azure karma avantajı ile SQL veritabanı altyapısı için kendi mevcut SQL Server lisansınızı kullanarak temel Azure altyapısını karşılığında Ödeme yapmalarını sağlayan seçebilirsiniz (**BasePrice**) veya her iki temel alınan altyapı için ödeme ve SQL Server Lisansı (**LicenseIncluded**).
+Azure hibrit avantajı ile SQL veritabanı altyapısı için kendisine (temel işlem fiyatı) mevcut SQL Server lisansınızı kullanarak yalnızca temel alınan Azure altyapı için ödeme yapmayı seçebilirsiniz veya temel alınan altyapı ve SQL Server için ödeme yapabilirsiniz Lisans, (lisans dahil fiyatlandırma).
 
-
-Azure portalını kullanarak ya da aşağıdaki API'leri kullanarak, lisans modeli değiştirmek ya da seçin.
+Lisanslama modelinizin, Azure portalını kullanarak veya aşağıdaki API'lerden birini kullanarak değiştirin ya da seçin:
 
 - Ayarlamak veya PowerShell kullanarak lisans türünü güncelleştirmek için:
 
-  - [Yeni AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
-  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
+  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
   - [Yeni AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
-  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
 
 - Azure CLI'yı kullanarak lisans türünü güncelleştirmek veya ayarlamak için:
 
@@ -84,54 +82,59 @@ Azure portalını kullanarak ya da aşağıdaki API'leri kullanarak, lisans mode
   - [az sql mı oluşturma](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
   - [az sql mı güncelleştirme](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
-- Ayarlamak veya REST API'yi kullanarak lisans türünü güncelleştirmek için:
+- Lisans türü REST API'si kullanarak güncelleştirin veya ayarlamak için:
 
   - [Veritabanları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
   - [Veritabanları - güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/update)
   - [Yönetilen örnekler - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
   - [Yönetilen örnekleri - güncelleştirme](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
-## <a name="migration-from-dtu-model-to-vcore-model"></a>VCore modeli DTU modeline geçiş
+## <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>DTU tabanlı modeli sanal çekirdek tabanlı modele geçiş
 
-### <a name="migration-of-a-database"></a>Bir veritabanı geçişi
+### <a name="migrate-a-database"></a>Veritabanını geçirme
 
-Sanal çekirdek tabanlı satın alma modeli için DTU tabanlı satın alma modeli bir veritabanını geçirme, yükseltme veya indirgeme DTU tabanlı satın alma modeli, standart ve Premium veritabanları arasında benzerdir.
+Sanal çekirdek tabanlı satın alma modeli için DTU tabanlı satın alma modeli bir veritabanını geçirme, yükseltme veya indirgeme DTU tabanlı satın alma modeli, standart ve premium hizmet katmanları arasında benzerdir.
 
-### <a name="migration-of-databases-with-geo-replication-links"></a>Coğrafi Çoğaltma bağlantılarını içeren bir veritabanı geçişi
+### <a name="migrate-databases-with-geo-replication-links"></a>Coğrafi Çoğaltma bağlantılarını ile veritabanlarını geçirme
 
-DTU tabanlı modeli sanal çekirdek tabanlı modele geçiş, yükseltme veya indirgeme standart ve Premium veritabanları arasındaki coğrafi çoğaltma ilişkileri için benzerdir. Coğrafi çoğaltma, ancak kullanıcı sonlandırma sıralama kurallara uymanız gerekir gerektirmez. Yükseltme sırasında ikincil veritabanı yükseltmeniz ve ardından birincil yükseltmeniz gerekir. Önceki sürüme indirirken ters sırada: birincil veritabanının ilk sürümüne düşürürseniz ve ardından ikincil düşürme gerekir.
+DTU tabanlı modele geçiş için sanal çekirdek tabanlı satın alma modeli, yükseltme veya indirgeme standart ve premium hizmet katmanlarındaki veritabanları arasındaki coğrafi çoğaltma ilişkileri için benzerdir. Geçiş sırasında coğrafi çoğaltma durdurma gerekmez, ancak bu sıralama kuralları izlemelidir:
 
-İki elastik havuzlar arasında coğrafi çoğaltmayı kullanarak, bir havuz olarak birincil ve diğer – ikincil olarak belirlemeniz önerilir. Bu durumda, geçirme elastik havuzlar, aynı kılavuzu kullanmanız gerekir.  Ancak, teknik olarak birincil ve ikincil veritabanları elastik havuz içerdiğini mümkün değildir. Bu durumda, düzgün bir şekilde geçiş için "birincil" olarak daha yüksek kullanımı havuz işle ve sıralama kuralları buna göre izleyin.  
+- Yükseltme sırasında ikincil veritabanı yükseltmeniz ve ardından birincil yükseltmeniz gerekir.
+- Önceki sürüme indirirken ters sırada: birincil veritabanının ilk sürümüne düşürürseniz ve ardından ikincil düşürme gerekir.
+
+İki elastik havuzlar arasında coğrafi çoğaltma kullanırken, birincil ve ikincil olarak başka bir havuz belirlemeniz önerilir. Bu durumda, elastik havuzlar geçirirken, aynı sıralama kılavuzu kullanmanız gerekir. Ancak, hem birincil hem de ikincil veritabanlarını içeren bir elastik havuzları varsa, daha yüksek kullanımı havuz birincil olarak kabul ve sıralama kuralları buna göre izleyin.  
 
 Aşağıdaki tablo, belirli bir geçiş senaryoları için yönergeler sağlar:
 
 |Geçerli hizmet katmanı|Hedef hizmet katmanı|Geçiş türü|Kullanıcı eylemleri|
 |---|---|---|---|
-|Standart|Genel amaçlı|Yanal|Herhangi bir sırada geçirme ancak bir uygun sanal çekirdek boyutlandırma * emin olmanız gerekir|
-|Premium|İş Açısından Kritik|Yanal|Herhangi bir sırada geçirme ancak uygun sanal çekirdek boyutlandırma * emin olmanız gerekir|
-|Standart|İş Açısından Kritik|Yükseltme|Öncelikle ikincil geçirmeniz gerekir|
-|İş Açısından Kritik|Standart|Eski sürümü yükle|Öncelikle birincil geçirmeniz gerekir|
-|Premium|Genel amaçlı|Eski sürümü yükle|Öncelikle birincil geçirmeniz gerekir|
+|Standart|Genel amaçlı|Yanal|Herhangi bir sırada geçirme ancak uygun sanal çekirdek boyutlandırma * emin olmanız gerekir|
+|Premium|İş açısından kritik|Yanal|Herhangi bir sırada geçirme ancak uygun sanal çekirdek boyutlandırma * emin olmanız gerekir|
+|Standart|İş açısından kritik|Yükseltme|Öncelikle ikincil geçirmeniz gerekir|
+|İş açısından kritik|Standart|Eski sürüme düşür|Öncelikle birincil geçirmeniz gerekir|
+|Premium|Genel amaçlı|Eski sürüme düşür|Öncelikle birincil geçirmeniz gerekir|
 |Genel amaçlı|Premium|Yükseltme|Öncelikle ikincil geçirmeniz gerekir|
-|İş Açısından Kritik|Genel amaçlı|Eski sürümü yükle|Öncelikle birincil geçirmeniz gerekir|
-|Genel amaçlı|İş Açısından Kritik|Yükseltme|Öncelikle ikincil geçirmeniz gerekir|
+|İş açısından kritik|Genel amaçlı|Eski sürüme düşür|Öncelikle birincil geçirmeniz gerekir|
+|Genel amaçlı|İş açısından kritik|Yükseltme|Öncelikle ikincil geçirmeniz gerekir|
 ||||
 
-\* Her 100 DTU standart katmanda en az 1 sanal çekirdek gerektirir ve en az 1 sanal çekirdek her Premium katmanda 125 DTU gerektirir
+\* Her 100 Dtu ve standart katmanda en az 1 sanal çekirdek gerektirir ve her bir 125 Dtu premium katmanda en az 1 sanal çekirdek gerektirir.
 
-### <a name="migration-of-failover-groups"></a>Yük devretme grupları geçişi
+### <a name="migrate-failover-groups"></a>Yük devretme gruplarını geçirme
 
-Yük devretme grupları ile birden çok veritabanı geçişi birincil ve ikincil veritabanlarını tek tek geçişini gerektirir. Bu işlem sırasında aynı önemli noktalar ve sıralama kuralları geçerlidir. Veritabanları, sanal çekirdek tabanlı modele dönüştürüldükten sonra Yük devretme grubu aynı ilke ayarlarıyla yürürlükte kalır.
+Yük devretme grupları ile birden çok veritabanı geçişi birincil ve ikincil veritabanlarını tek tek geçişini gerektirir. Bu işlem sırasında aynı önemli noktalar ve sıralama kuralları geçerlidir. Veritabanları için sanal çekirdek tabanlı satın alma modeli dönüştürüldükten sonra Yük devretme grubu aynı ilke ayarlarıyla yürürlükte kalır.
 
-### <a name="creation-of-a-geo-replication-secondary"></a>Coğrafi çoğaltma ikincil oluşturma
+### <a name="create-a-geo-replication-secondary-database"></a>Coğrafi çoğaltma ikincil veritabanı oluşturma
 
-Yalnızca birincil olarak aynı hizmet katmanını kullanarak bir coğrafi-ikincil oluşturabilirsiniz. İçin bir veritabanı yüksek günlük oluşturma hızı ile aynı işlem boyutu birincil olarak ikincil yaratılırken önerilir. Tek bir birincil veritabanı için elastik havuzdaki bir coğrafi-ikincil oluşturuyorsanız, havuz olduğunu önerilir `maxVCore` ayarı, birincil veritabanı işlem boyutu eşleşir. Esnek havuz başka bir elastik havuzdaki bir birincil site için bir coğrafi-ikincil oluşturuyorsanız havuzlarının aynı olduğunu önerilir `maxVCore` ayarları
+Birincil veritabanı için kullanılan yalnızca aynı hizmet katmanını kullanarak bir coğrafi çoğaltma ikincil veritabanı (bir coğrafi-ikincil) oluşturabilirsiniz. Yüksek günlüğü oluşturmayı oranına sahip veritabanları için aynı işlem boyutu birincil olarak ile coğrafi-ikincil oluşturmanızı öneririz.
 
-### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Sanal çekirdek tabanlı bir veritabanı için DTU tabanlı bir veritabanı dönüştürmek için veritabanı kopyalama kullanma
+Tek bir birincil veritabanı için elastik havuzdaki bir coğrafi-ikincil oluşturuyorsanız emin `maxVCore` havuzu eşleşiyorsa birincil veritabanının işlem boyutu ayarlama. Başka bir elastik havuzda bir birincil site için bir coğrafi-ikincil oluşturuyorsanız, havuzları aynı olmasını öneririz `maxVCore` ayarları.
 
-DTU tabanlı işlem boyutu olan herhangi bir veritabanı sanal çekirdek tabanlı işlem boyutu kısıtlamaları veya kaynak veritabanının en büyük veritabanı boyutu hedef işlem boyutu desteklediği sürece özel sıralaması olmayan bir veritabanına kopyalayabilirsiniz. Veritabanı kopyalama, kopyalama işleminin başlangıç tarihindeki verileri anlık görüntüsünü oluşturur ve kaynak ve hedef arasında veri eşitlemeye gerçekleştirmez.
+### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Sanal çekirdek tabanlı bir veritabanı için DTU tabanlı bir veritabanı dönüştürmek için veritabanı kopyasını kullanın.
+
+DTU tabanlı işlem boyutu olan herhangi bir veritabanı sanal çekirdek tabanlı işlem boyutu kısıtlamaları veya kaynak veritabanının en büyük veritabanı boyutu hedef işlem boyutu desteklediği sürece özel sıralaması olmayan bir veritabanına kopyalayabilirsiniz. Veritabanı kopyalama, kopyalama işleminin başlangıç tarihindeki verileri anlık görüntüsünü oluşturur ve kaynak ve hedef arasında verileri eşitleyebilmeniz değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Özel hakkında ayrıntılı bilgi işlem boyutları ve tek veritabanı için kullanılabilir depolama boyutu seçenekleri için bkz: [tek veritabanları için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md)
-- Özel hakkında ayrıntılı bilgi işlem boyutları ve elastik havuzlar için kullanılabilir depolama boyutu seçenekleri için bkz: [elastik havuzlar için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Belirli bir bilgi işlem boyutlarına ve tek veritabanları için kullanılabilen depolama boyutu seçenekleri için bkz: [tek veritabanları için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md).
+- Belirli bir bilgi işlem boyutlarına ve elastik havuzlar için kullanılabilir depolama boyutu seçenekleri için bkz. [elastik havuzlar için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

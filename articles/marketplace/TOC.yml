@@ -58,8 +58,6 @@
         - name: Market avantajlarınız
           href: ./gtm-your-marketplace-benefits.md
           items:
-            - name: Microsoft ile işletmenizi tanıtma
-              href: ./gtm-promote-your-business.md
             - name: Tercih edilen çözümler
               href: ./preferred-solutions.md
             - name: Tümleşik çözümler

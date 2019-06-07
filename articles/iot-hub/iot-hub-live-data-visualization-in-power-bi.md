@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e932048b41e9af149f14a814a1c92d86bd26f29
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780163"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479877"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI'ı kullanarak Azure IOT Hub'ından gerçek zamanlı algılayıcı verilerini Görselleştirme
 
@@ -25,7 +25,7 @@ ms.locfileid: "60780163"
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
-Power BI'ı kullanarak Azure IOT hub'ınızın aldığı gerçek zamanlı algılayıcı verilerini görselleştirme öğrenin. Toe denemek istiyorsanız, Web Apps ile IOT hub'ınızdaki verileri görselleştirebilir, lütfen bakın [Azure IOT hub'ı gerçek zamanlı sensör verilerini görselleştirmek için kullanım Azure Web Apps](iot-hub-live-data-visualization-in-web-apps.md).
+Power BI'ı kullanarak Azure IOT hub'ınızın aldığı gerçek zamanlı algılayıcı verilerini görselleştirme öğrenin. Toe denemek istiyorsanız, bir web uygulaması ile IOT hub'ınızdaki verileri görselleştirebilir, lütfen bkz [Azure IOT hub'ı gerçek zamanlı sensör verilerini görselleştirmek için bir web uygulamasını kullanmak](iot-hub-live-data-visualization-in-web-apps.md).
 
 ## <a name="what-you-do"></a>Neler
 
@@ -179,6 +179,6 @@ Microsoft sunduğu [Power BI mobil uygulamalarında](https://powerbi.microsoft.c
 
 Azure IOT hub'ından gerçek zamanlı sensör verilerini görselleştirmek için Power BI başarıyla kullandınız.
 
-Azure IOT Hub'ından verileri görselleştirmek için alternatif bir yolu yoktur. Bkz: [Azure IOT hub'ı gerçek zamanlı sensör verilerini görselleştirmek için kullanım Azure Web Apps](iot-hub-live-data-visualization-in-web-apps.md).
+Azure IOT Hub'ından verileri görselleştirmek başka bir yol için bkz: [Azure IOT hub'ı gerçek zamanlı sensör verilerini görselleştirmek için bir web uygulamasını kullanmak](iot-hub-live-data-visualization-in-web-apps.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -1,6 +1,6 @@
 ---
-title: 'Azure durumu İzleyicisi v2 API Başvurusu: Yapılandırmasını al | Microsoft Docs'
-description: Durum İzleyicisi'ni v2 API başvuru Get-ApplicationInsightsMonitoringConfig. Web sitesi yeniden dağıtmaya gerek kalmadan Web sitesi performansını izleyin. Şirket içinde, sanal makinelerde veya Azure üzerinde ASP.NET web uygulamaları ile çalışır.
+title: 'Azure Durum İzleyicisi v2 API Başvurusu: Yapılandırmasını al | Microsoft Docs'
+description: Durum İzleyicisi'ni v2 API'si başvurusu. Get-ApplicationInsightsMonitoringConfig. Web sitesi yeniden dağıtmaya gerek kalmadan Web sitesi performansını izleyin. ASP.NET web uygulamaları ile çalışır, şirket içi Vm'leri içinde veya azure'da barındırılan.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,25 +12,25 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: ddc1f673ffec793bbca643ec1057215067f761a9
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 1f7061c9823ddc8ff7f8f42976041f1c9ff68fc0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66255141"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514394"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v021-alpha"></a>Durum İzleyicisi'ni v2 API'si: Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
-Bu belge, bir üyesi olarak sunulan bir cmdlet açıklar [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Bu makalede bir üyesi olan bir cmdlet [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Durum İzleyicisi'ni v2 şu anda genel Önizleme aşamasındadır.
-> Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir.
-> Daha fazla bilgi için [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Bu önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor ve bazıları kısıtlı yeteneklere sahip.
+> Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Açıklama
 
-Yapılandırma dosyasını alın ve değerleri konsola yazdırma.
+Yapılandırma dosyasını alır ve değerleri konsola yazdırır.
 
 > [!IMPORTANT] 
 > Bu cmdlet, yönetici izinlerine sahip bir PowerShell oturumu gerektirir.
@@ -41,9 +41,9 @@ Yapılandırma dosyasını alın ve değerleri konsola yazdırma.
 PS C:\> Get-ApplicationInsightsMonitoringConfig
 ```
 
-## <a name="parameters"></a>Parametreler 
+## <a name="parameters"></a>Parametreler
 
-(Gerekli parametre yok)
+Gerekli parametre.
 
 ## <a name="output"></a>Çıktı
 
@@ -61,16 +61,16 @@ Filters:
 ## <a name="next-steps"></a>Sonraki adımlar
 
   Telemetrinizi görüntüleyin:
- - Performans ve kullanımı izlemek için [ölçümleri keşfedin](../../azure-monitor/app/metrics-explorer.md)
-- [Olayları ve günlükleri arayın](../../azure-monitor/app/diagnostic-search.md) sorunları tanılamak için
-- Daha gelişmiş sorgular için [analiz](../../azure-monitor/app/analytics.md)
-- [Panolar oluşturun](../../azure-monitor/app/overview-dashboard.md)
+ - [Ölçümleri keşfetme](../../azure-monitor/app/metrics-explorer.md) performans ve kullanımı izlemek için.
+- [Olayları ve günlükleri arayın](../../azure-monitor/app/diagnostic-search.md) sorunları tanılamak için.
+- Kullanım [analytics](../../azure-monitor/app/analytics.md) daha gelişmiş sorgular için.
+- [Panolar oluşturma](../../azure-monitor/app/overview-dashboard.md).
  
  Daha fazla telemetri ekleyin:
  - [Web testleri oluşturun](monitor-web-app-availability.md) sitenizin Canlı kalması için.
-- [Web istemcisi telemetrisini ekleyin](../../azure-monitor/app/javascript.md) web sayfası koduna ait özel durumları görmek ve izleme çağrıları eklemenize izin vermek için.
-- [Kodunuza Application Insights SDK'sını ekleyin](../../azure-monitor/app/asp-net.md) izleme ve günlük çağrıları
+- [Web istemcisi telemetrisini ekleyin](../../azure-monitor/app/javascript.md) web sayfası koduna ait özel durumları görmek ve izleme çağrıları etkinleştirmek için.
+- [Kodunuza Application Insights SDK'sını ekleyin](../../azure-monitor/app/asp-net.md) izleme ve günlük çağrıları.
  
  Durum İzleyicisi v2 ile daha fazlasını yapın:
  - Kılavuzunu kullanın [sorun giderme](status-monitor-v2-troubleshoot.md) Durum İzleyicisi v2.
- - Bu yapılandırma kullanarak değişiklik [kümesi yapılandırma](status-monitor-v2-api-set-config.md) cmdlet'i.
+ - Kullanarak yapılandırma için değişiklik [kümesi yapılandırma](status-monitor-v2-api-set-config.md) cmdlet'i.

@@ -2,20 +2,20 @@
 title: Oturum davranışını - Azure Active Directory B2C'yi yapılandırma | Microsoft Docs
 description: Azure Active Directory B2C'de oturum davranışını yapılandırın.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7bfa34f44ca8ba53b89e4218303a7cd77cd0add9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3167a63be46e0d777fbec0c6a3301684fb7636bd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700978"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512556"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de oturum davranışını yapılandırma
 
@@ -51,10 +51,10 @@ Aşağıdaki kullanım örnekleri, bu özellikleri kullanarak etkinleştirilir:
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve Azure AD B2C kiracınızı içeren dizine seçme.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
-4. Seçin **kullanıcı akışları (ilke)**.
+4. Seçin **kullanıcı akışları (ilke)** .
 5. Daha önce oluşturduğunuz kullanıcı akışı açın. 
 6. Seçin **özellikleri**.
-7. Yapılandırma **Web uygulaması oturumunun ömrü (dakika)**, **Web uygulaması oturumu zaman aşımı**, **çoklu oturum açma yapılandırması**, ve **gerektiren kimlik belirteci oturum kapatma istekleri**  gerektiğinde.
+7. Yapılandırma **Web uygulaması oturumunun ömrü (dakika)** , **Web uygulaması oturumu zaman aşımı**, **çoklu oturum açma yapılandırması**, ve **gerektiren kimlik belirteci oturum kapatma istekleri**  gerektiğinde.
 
     ![Oturum davranışını yapılandırma](./media/session-behavior/session-behavior.png)
     

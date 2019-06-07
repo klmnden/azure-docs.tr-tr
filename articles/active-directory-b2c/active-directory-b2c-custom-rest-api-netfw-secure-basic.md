@@ -2,20 +2,20 @@
 title: RESTful hizmetlerinizi Azure Active Directory B2C'de HTTP temel kimlik doğrulaması kullanarak güvenli hale getirme | Microsoft Docs
 description: Azure AD B2C'yi özel, REST API talep alışverişlerine HTTP temel kimlik doğrulaması kullanarak güvenli hale getirin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: db5642abfca03f97ed258d287f5279cad0a32015
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e07a3fee2cc6c588dee608a68415b554e6fc77f3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694658"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507599"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP temel kimlik doğrulaması kullanarak, RESTful Hizmetleri güvenli hale getirme
 
@@ -31,7 +31,7 @@ Daha fazla bilgi için [ASP.NET web API'de temel kimlik doğrulaması](https://d
 
 Bölümündeki adımları tamamlamanız [tümleştirme REST API, Azure AD B2C kullanıcı yolculuğu alışverişlerine talep](active-directory-b2c-custom-rest-api-netfw.md) makalesi.
 
-## <a name="step-1-add-authentication-support"></a>1. Adım: Kimlik doğrulama desteği ekleme
+## <a name="step-1-add-authentication-support"></a>1. adım: Kimlik doğrulama desteği ekleme
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Adım 1.1: Uygulama ayarları, projenin web.config dosyasına ekleyin.
 
@@ -222,11 +222,11 @@ Controllers\IdentityController.cs açın ve eklemek `[Authorize]` ve denetleyici
 
 ![Denetleyiciye Authorize etiketi Ekle](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-authorize.png)
 
-## <a name="step-2-publish-to-azure"></a>2. Adım: Azure’da Yayımlama
+## <a name="step-2-publish-to-azure"></a>2. adım: Azure'a Yayımlama
 
 Çözüm Gezgini'nde projenize yayımlamak için sağ **Contoso.AADB2C.API** proje ve ardından **Yayımla**.
 
-## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>3. Adım: Azure AD B2C için RESTful Hizmetleri uygulama kimliği ve uygulama gizli anahtarı Ekle
+## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>3. adım: Azure AD B2C için RESTful Hizmetleri uygulama kimliği ve uygulama gizli anahtarı Ekle
 
 RESTful hizmetiniz istemci kimliği (kullanıcı adı) ve gizli dizi tarafından korunduktan sonra kimlik bilgilerinin Azure AD B2C kiracınızda depolamanız gerekir. RESTful hizmetlerinizi çağırdığında, özel ilkeniz kimlik bilgilerini sağlar.
 
