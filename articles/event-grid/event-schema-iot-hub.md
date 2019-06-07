@@ -151,11 +151,11 @@ Tüm olaylar aynı üst düzey veri içerir:
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | id | string | Olayın benzersiz tanımlayıcısı. |
-| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| Konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
-| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| topic | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| subject | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| eventType | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
 | eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
-| Veri | object | IOT Hub olay verileri.  |
+| data | object | IOT Hub olay verileri.  |
 | dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
@@ -163,7 +163,7 @@ Tüm IOT Hub olaylarını veri nesnesinin aşağıdaki özellikleri içerir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| HubName | string | IOT cihaz nerede oluşturulduğu veya silindiği Hub adı. |
+| hubName | string | IOT cihaz nerede oluşturulduğu veya silindiği Hub adı. |
 | deviceId | string | Cihazın benzersiz tanımlayıcısı. Bu büyük küçük harfe duyarlı dize en fazla 128 karakter uzunluğunda olabilir ve ASCII 7 bit alfasayısal karakterlerin yanı sıra şu özel karakterleri destekler: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
 Veri nesnesi, içeriğini, her olay yayımcısı için farklıdır. 
@@ -188,11 +188,11 @@ Veri nesnesi, içeriğini, her olay yayımcısı için farklıdır.
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| ikiz | object | Uygulama cihaz meta verilerini bir bulut gösterimiyse cihaz ikizinde hakkında bilgi sağlar. | 
-| cihaz kimliği | string | Cihaz ikizi benzersiz tanımlayıcısı. | 
-| ETag | string | Cihaz ikizi güncelleştirmeleri tutarlılık sağlamaya yönelik bir doğrulayıcı. Her bir etag cihaz ikizi benzersiz olması garanti edilir. |  
+| twin | object | Uygulama cihaz meta verilerini bir bulut gösterimiyse cihaz ikizinde hakkında bilgi sağlar. | 
+| deviceId | string | Cihaz ikizi benzersiz tanımlayıcısı. | 
+| etag | string | Cihaz ikizi güncelleştirmeleri tutarlılık sağlamaya yönelik bir doğrulayıcı. Her bir etag cihaz ikizi benzersiz olması garanti edilir. |  
 | deviceEtag| string | Bir cihaz kayıt defterine güncelleştirmelerin tutarlılık sağlamaya yönelik bir doğrulayıcı. Her deviceEtag cihaz kayıt defteri başına benzersiz olması garanti edilir. |
-| durum | string | Olup cihaz ikizinde etkin veya devre dışı. | 
+| status | string | Olup cihaz ikizinde etkin veya devre dışı. | 
 | statusUpdateTime | string | Son cihaz ikizi durumu ISO8601 zaman damgası güncelleştirin. |
 | connectionState | string | Olup cihaz bağlı bağlantısı kesildi veya. | 
 | lastActivityTime | string | Son Etkinlik ISO8601 zaman damgası. | 
@@ -202,8 +202,8 @@ Veri nesnesi, içeriğini, her olay yayımcısı için farklıdır.
 | primaryThumbprint | string | Birincil parmak izi x509 için sertifika. |
 | secondaryThumbprint | string | İkincil parmak izi x509 için sertifika. | 
 | version | integer | Bir her artırılır tamsayı saat cihaz ikizi güncelleştirilir. |
-| İstenen | object | Yalnızca uygulama arka ucu tarafından yazılmış ve cihaz tarafından okunur özellikleri kısmı. | 
-| bildirilen | object | Yalnızca cihaz tarafından yazılmış ve uygulama arka ucu tarafından okunur özellikleri kısmı. |
+| desired | object | Yalnızca uygulama arka ucu tarafından yazılmış ve cihaz tarafından okunur özellikleri kısmı. | 
+| reported | object | Yalnızca cihaz tarafından yazılmış ve uygulama arka ucu tarafından okunur özellikleri kısmı. |
 | lastUpdated | string | ISO8601 zaman damgası son cihaz ikizi özelliğinin güncelleştirin. | 
 
 ## <a name="next-steps"></a>Sonraki adımlar
