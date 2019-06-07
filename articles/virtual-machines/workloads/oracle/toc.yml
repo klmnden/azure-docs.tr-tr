@@ -1,7 +1,11 @@
 - name: Genel Bakış
   items:
-    - name: Oracle VM'leri ile ilgili önemli noktalar
-      href: oracle-considerations.md
+    - name: Oracle çözümlerine genel bakış
+      href: oracle-overview.md
+    - name: Azure VM’lerinde çözümler
+      href: oracle-vm-solutions.md
+    - name: OCI ile çözümler - Önizleme
+      href: oracle-oci-overview.md
 - name: Hızlı Başlangıçlar
   items:
     - name: Oracle DB oluşturma
@@ -10,7 +14,7 @@
   items:
     - name: Oracle ASM’yi yapılandırma
       href: configure-oracle-asm.md
-    - name: Oracle DataGuard’ı yapılandırma
+    - name: Oracle Data Guard’ı yapılandırma
       href: configure-oracle-dataguard.md
     - name: Oracle GoldenGate'i yapılandırma
       href: configure-oracle-golden-gate.md
@@ -20,7 +24,7 @@
       href: oracle-design.md
     - name: Oracle DB için yedekleme stratejisi
       href: oracle-backup-recovery.md
-    - name: Oracle Olağanüstü Durum Kurtarma seçenekleri
+    - name: Oracle olağanüstü durum kurtarma seçenekleri
       href: oracle-disaster-recovery.md
 - name: Kaynaklar
   items:

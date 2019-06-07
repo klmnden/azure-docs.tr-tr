@@ -2,8 +2,10 @@
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Uygulama yönetimi hakkında
+    - name: Uygulama yönetimi nedir?
       href: what-is-application-management.md
+    - name: Uygulama Ara Sunucusu nedir?
+      href: what-is-application-proxy.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:

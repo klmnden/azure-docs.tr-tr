@@ -18,6 +18,10 @@
       href: tutorial-phs-backup.md
 - name: Kavramlar
   items:
+    - name: Hibrit Kimlik
+      items:
+        - name: Şirket İçi İş Yükleri için Bulutta İdare Edilen Yönetim
+          href: cloud-governed-management-for-on-premises.md
     - name: Azure AD Connect ve Connect Health
       items:
         - name: Azure AD Connect ve Connect Health nedir?

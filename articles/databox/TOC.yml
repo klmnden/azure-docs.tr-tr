@@ -111,9 +111,7 @@
           items:
             - name: Azure portalı aracılığıyla yönetme
               href: data-box-portal-ui-admin.md
-            - name: Verileri blob katmanına taşıma
-              href: data-box-how-to-set-data-tier.md
-            - name: Data Box Heavy sorunlarını giderme
+            - name: Data Box Disk sorunlarını giderme
               href: data-box-disk-troubleshoot.md
             - name: Destek birimine başvurma
               href: data-box-disk-contact-microsoft-support.md
@@ -155,12 +153,18 @@
               href: data-box-local-web-ui-admin.md
             - name: Cihaz sorunlarını giderme
               href: data-box-troubleshoot.md
+            - name: Verileri blob katmanına taşıma
+              href: data-box-how-to-set-data-tier.md
             - name: Destek birimine başvurma
               href: data-box-disk-contact-microsoft-support.md
             - name: Geçiş
               items:
+                - name: SharePoint Online’a
+                  href: data-box-heavy-migrate-spo.md
                 - name: Azure Dosya Eşitleme’ye
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: HDFS Mağazası’ndan
+                  href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
     - name: Kaynaklar
       items:
         - name: Data Box ürünü

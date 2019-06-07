@@ -86,6 +86,8 @@
       href: cal-s4h.md
     - name: Azure'da SAP HANA altyapı yapılandırmaları ve işlemleri
       href: hana-vm-operations.md
+    - name: SAP HANA Azure sanal makine depolama alanı yapılandırmaları
+      href: hana-vm-operations-storage.md
     - name: Azure Sanal Makineler'de SAP HANA Kullanılabilirliği
       items:
         - name: Azure Kullanılabilirlik üzerinde SAP HANA'ya genel bakış
