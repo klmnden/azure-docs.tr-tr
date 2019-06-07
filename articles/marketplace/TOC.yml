@@ -326,39 +326,6 @@
               href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
         - name: SaaS uygulama teklifi
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
-          items:
-            - name: Ön koşullar
-              href: ./cloud-partner-portal/saas-app/cpp-prerequisites.md
-            - name: SaaS uygulama teklifi oluşturma
-              href: ./cloud-partner-portal/saas-app/cpp-create-offer.md
-              items:
-                - name: Teklif Ayarları sekmesi
-                  href: ./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md
-                - name: Teknik Bilgiler sekmesi
-                  href: ./cloud-partner-portal/saas-app/cpp-technical-info-tab.md
-                - name: Planlar sekmesi
-                  href: ./cloud-partner-portal/saas-app/cpp-plans-tab.md
-                - name: Kanal Bilgileri sekmesi
-                  href: ./cloud-partner-portal/saas-app/cpp-channel-info-tab.md
-                - name: Test Sürüşü sekmesi
-                  href: ./cloud-partner-portal/saas-app/cpp-testdrive-tab.md
-                - name: StoreFront Ayrıntıları sekmesi
-                  href: ./cloud-partner-portal/saas-app/cpp-storefront-tab.md
-                - name: Kişiler sekmesi
-                  href: ./cloud-partner-portal/saas-app/cpp-contacts-tab.md
-            - name: Teklif yayımlama
-              href: ./cloud-partner-portal/saas-app/cpp-publish-offer.md
-            - name: Mevcut teklifi güncelleştirme
-              href: ./cloud-partner-portal/saas-app/cpp-update-existing-offer.md
-            - name: SaaS gerçekleştirme API'leri
-              href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
-              items:
-                - name: SaaS uygulaması kaydetme
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-registration.md
-                - name: SaaS API v1 (kullanım dışı)
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
-                - name: SaaS API v2
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
         - name: Sanal makine teklifi
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
           items:

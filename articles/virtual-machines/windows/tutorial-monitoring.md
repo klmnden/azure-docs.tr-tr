@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 32e92cb8cd6cd5d16ea8d38d178bb440420e6784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa423fc441c50c774a9670feec64d0f844a4f5ec
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712228"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755308"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Öğretici: İzleme ve azure'da Windows sanal makinesi güncelleştirme
 
@@ -168,29 +168,25 @@ Güncelleştirmeleri yüklemek için yayın zamanlamanızı ve hizmet pencereniz
 
 **Güncelleştirme yönetimi** ekranının üst kısmındaki **Güncelleştirme dağıtımı zamanla**’ya tıklayarak VM için yeni bir Güncelleştirme Dağıtımı zamanlayabilirsiniz. **Yeni güncelleştirme dağıtım** ekranında aşağıdaki bilgileri belirtin:
 
-* **Ad** - Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad belirtin.
-* **Güncelleştirme sınıflandırması**: Güncelleştirme dağıtımının dağıtıma dahil olan yazılım türlerini seçin. Sınıflandırma türleri şunlardır:
-  * Kritik güncelleştirmeler
-  * Güvenlik güncelleştirmeleri
-  * Güncelleştirme paketleri
-  * Özellik paketleri
-  * Hizmet paketleri
-  * Tanım güncelleştirmeleri
-  * Araçlar
-  * Güncelleştirmeler
+Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme dağıtımı zamanla**. **Yeni güncelleştirme dağıtım** sayfası açılır. Aşağıdaki tabloda açıklanan özellikler için değerleri girin ve ardından **Oluştur**:
 
-* **Zamanlama ayarları** - Geçerli saatten 30 dakika sonrası olan varsayılan tarih ve saati kabul edebilir ya da farklı bir zaman belirtebilirsiniz.
-  Ayrıca, dağıtımın bir kez gerçekleşeceğini belirtebilir veya yinelenen bir zamanlama ayarlayabilirsiniz. Yinelenen bir zamanlama ayarlamak için Yineleme altında Yinelenen seçeneğine tıklayın.
+| Özellik | Açıklama |
+| --- | --- |
+| Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
+|İşletim sistemi| Linux veya Windows|
+| Grupları güncelleştirmek için |Azure makineler için abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlarsınız. </br></br>Azure olmayan makineler için mevcut bir Azure olmayan makine dağıtımına dahil edilecek bir grubu seçmek için arama kaydedilmiş seçin. </br></br>Daha fazla bilgi için bkz: [dinamik gruplar](../../automation/automation-update-management.md#using-dynamic-groups)|
+| Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Azure İzleyici günlüklerine bilgisayar grupları oluşturma farklı yöntemleri hakkında bilgi edinmek için bkz: [Azure İzleyici günlüklerine bilgisayar grupları](../../azure-monitor/platform/computer-groups.md) |
+|Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin|
+|Güncelleştirmeleri Ekle/Dışla|Bu açılır **dahil edin/dışlayın** sayfası. Dahil edilecek veya dışlanacak güncelleştirmeler ayrı sekmelerdedir. Ekleme nasıl ele alındığını daha fazla bilgi için bkz: [ekleme davranışı](../../automation/automation-update-management.md#inclusion-behavior) |
+|Zamanlama ayarları|Her iki kez başlatın ve saati seçin veya yineleme için yineleme|
+| Ön betiklerini + sonrası betikleri|Önce ve sonra dağıtımınız betiklerin seçin|
+| Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değeri 30 dakika ile en fazla 6 saat değerinden küçük olamaz |
+| Denetim yeniden başlatma| Yeniden başlatma işlemlerini nasıl işleneceğini belirler. Kullanılabilen seçenekler:</br>Gerekirse yeniden başlat (Varsayılan)</br>Her zaman yeniden başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden başlatma - güncelleştirmeleri yüklemez|
 
-  ![Güncelleştirme Zamanlama Ayarları ekranı](./media/tutorial-monitoring/manageupdates-schedule-win.png)
-
-* **Bakım penceresi (dakika)** - Güncelleştirme dağıtımının gerçekleşmesini istediğiniz süreyi belirtin.  Bu ayar, değişikliklerin sizin tanımladığınız hizmet pencereleri içinde gerçekleştirilmesini sağlar.
+Güncelleştirme dağıtımları da bir program aracılığıyla oluşturulabilir. REST API ile bir güncelleştirme dağıtımı oluşturmak nasıl öğrenmek için bkz. [yazılım güncelleştirme yapılandırmaları - oluşturma](/rest/api/automation/softwareupdateconfigurations/create). Haftalık bir güncelleştirme dağıtımı oluşturmak için kullanılan bir örnek runbook yoktur. Bu runbook hakkında daha fazla bilgi için bkz: [bir kaynak grubundaki bir veya daha fazla sanal makineleri için haftalık bir güncelleştirme dağıtımı oluşturma](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 Zamanlamayı yapılandırmayı tamamladıktan sonra **Oluştur** düğmesine tıklayın ve durum panosuna dönün.
 **Zamanlanan** tablosunda oluşturduğunuz dağıtım zamanlaması görüntülenir.
-
-> [!WARNING]
-> Yeniden başlatma gerektiren güncelleştirmeler için sanal makine otomatik olarak yeniden başlatılır.
 
 ### <a name="view-results-of-an-update-deployment"></a>Güncelleştirme dağıtımının sonuçlarını görüntüleme
 
@@ -226,7 +222,7 @@ Sanal makineniz için Değişiklik ve Sayım yönetimini etkinleştirme:
 2. Listeden bir VM seçin.
 3. Sanal makine ekranında, **İşlemler** bölümünde **Sayım** veya **Değişiklik izleme**'ye tıklayın. **Değişiklik İzleme ve Sayımı Etkinleştir** ekranı açılır.
 
-Konumu, Log Analytics çalışma alanını ve Otomasyon hesabı'e tıklayın yapılandırma **etkinleştirme**. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir. Çözümler menüde ayrı yerlerde olsa da, bunlar aynı çözümdür. Biri etkinleştirildiğinde, sanal makinenizde her ikisi de etkinleştirilir.
+Konumu, Log Analytics çalışma alanını ve Otomasyon hesabı'e tıklayın yapılandırma **etkinleştirme**. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir. Çözümler menüde ayrı yerlerde olsa da aynıdır. Biri etkinleştirildiğinde, sanal makinenizde her ikisi de etkinleştirilir.
 
 ![Değişiklik ve Sayım izlemeyi etkinleştirme](./media/tutorial-monitoring/manage-inventory-enable.png)
 

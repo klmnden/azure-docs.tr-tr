@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 460d8756c437a1212aef054cf069be2bccac8c8a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 64accb70561d4c0282b3ee45935d955dba1c67c4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001355"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474544"
 ---
 # <a name="security-attributes-for-azure-services"></a>Azure Hizmetleri için güvenlik öznitelikleri
 
@@ -103,7 +103,7 @@ Bu makalede, seçili Azure Hizmetleri için genel güvenlik öznitelikleri topla
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
-| Kimlik Doğrulaması| Evet | Müşteriler, otomatik olarak ile tümleşen bir App Service üzerindeki uygulama oluşturabilirsiniz [Azure Active Directory (Azure AD)](../active-directory/index.md) yanı sıra diğer OAuth uyumlu kimlik sağlayıcıları; Bkz [kimlik doğrulama ve yetkilendirme Azure App Service'e](../app-service/overview-authentication-authorization.md). App Service varlıklarına Management erişimi için tüm erişim sorumlusu Azure AD kimlik doğrulaması ve Azure Resource Manager RBAC rolleri birleşimiyle denetlenir. |
+| Kimlik Doğrulaması| Evet | Müşteriler, otomatik olarak ile tümleşen bir App Service üzerindeki uygulama oluşturabilirsiniz [Azure Active Directory (Azure AD)](../active-directory/index.yml) yanı sıra diğer OAuth uyumlu kimlik sağlayıcıları; Bkz [kimlik doğrulama ve yetkilendirme Azure App Service'e](../app-service/overview-authentication-authorization.md). App Service varlıklarına Management erişimi için tüm erişim sorumlusu Azure AD kimlik doğrulaması ve Azure Resource Manager RBAC rolleri birleşimiyle denetlenir. |
 | Yetkilendirme| Evet | App Service varlıklarına Management erişimi için tüm erişim sorumlusu Azure AD kimlik doğrulaması ve Azure Resource Manager RBAC rolleri birleşimiyle denetlenir.  |
 
 

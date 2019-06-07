@@ -61,19 +61,18 @@
       href: security-center-policies-overview.md
     - name: Dosya Bütünlüğünü İzleme kullanarak ana hatları karşılaştırma
       href: security-center-file-integrity-monitoring-baselines.md
-      items:
-        - name: Veri toplama
-          href: security-center-enable-data-collection.md
-        - name: Yerleşik güvenlik ilkeleri
-          href: security-center-policy-definitions.md
-        - name: E-posta bildirimleri
-          href: security-center-provide-security-contact-details.md
-        - name: Fiyatlandırma katmanı
-          href: security-center-pricing.md
-        - name: Güvenlik yapılandırmaları
-          href: security-center-customize-os-security-config.md
-        - name: Kiracı çapında görünürlük
-          href: security-center-management-groups.md
+    - name: Veri toplama
+      href: security-center-enable-data-collection.md
+    - name: Yerleşik güvenlik ilkeleri
+      href: security-center-policy-definitions.md
+    - name: E-posta bildirimleri
+      href: security-center-provide-security-contact-details.md
+    - name: Fiyatlandırma katmanı
+      href: security-center-pricing.md
+    - name: Güvenlik yapılandırmaları
+      href: security-center-customize-os-security-config.md
+    - name: Kiracı çapında görünürlük
+      href: security-center-management-groups.md
     - name: Güvenlik önerileri uygulama
       href: security-center-recommendations.md
       items:

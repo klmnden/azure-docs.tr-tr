@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0411e1ab76d010eae26142d681dc157a1eb776a8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481162"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752455"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Öğretici: Otsuka Shokai Azure Active Directory ile tümleştirme
 
@@ -79,14 +79,7 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
 
    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-1. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında, aşağıdaki adımları gerçekleştirin:
-
-    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/S000000100`
-
-    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/ResponseOffice365`
-
-    > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Otsuka Shokai istemci Destek ekibine](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+1. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında, uygulamanın önceden yapılandırılmış olduğu ve gerekli URL'ler zaten Azure ile önceden doldurulur. Tıklayarak yapılandırmayı kaydetmek kullanıcının erişmesi **Kaydet** düğmesi.
 
 1. Otsuka Shokai uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. Otsuka Shokai uygulama bekliyor **NameIdentifier** ile eşlenecek **user.objectid**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle**  simgesi ve değişiklik öznitelik eşlemesi.
 
@@ -139,7 +132,7 @@ Bu bölümde, bir test kullanıcısı b Simon adlı Azure portalında oluşturac
 1. Seçin **yeni kullanıcı** ekranın üstünde.
 1. İçinde **kullanıcı** özellikleri, aşağıdaki adımları izleyin:
    1. **Ad** alanına `B. Simon` girin.  
-   1. İçinde **kullanıcı adı** alanına username@companydomain.extension. Örneğin, `BrittaSimon@contoso.com`.
+   1. İçinde **kullanıcı adı** alanına username@companydomain.extension. Örneğin, `B.Simon@contoso.com`.
    1. Seçin **Show parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
    1. **Oluştur**’a tıklayın.
 
@@ -163,7 +156,7 @@ Bu bölümde, B. Otsuka Shokai için erişim izni verdiğinizde, Azure çoklu ot
 
 ### <a name="create-otsuka-shokai-test-user"></a>Otsuka Shokai test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Otsuka Shokai içinde adlı bir kullanıcı oluşturun. Çalışmak [Otsuka Shokai Destek ekibine](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) Otsuka Shokai platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde Otsuka Shokai B.Simon adlı bir kullanıcı oluşturun. Çalışmak [Otsuka Shokai Destek ekibine](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) Otsuka Shokai platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-sso"></a>Test SSO
 

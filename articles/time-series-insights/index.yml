@@ -56,7 +56,7 @@ sections:
         className: cardsD
         items:
           - title: Time Series Insights GA API'leri
-            html: <p><a href="rest/api/time-series-insights/ga">Veri Erişimi</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Sorgu API'si</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Sorgu Söz Dizimi</a></p>
+            html: <p><a href="/rest/api/time-series-insights/ga">Veri Erişimi</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Sorgu API'si</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Sorgu Söz Dizimi</a></p>
           - title: Time Series Insights Önizleme API'leri
             html: <p><a href="/rest/api/time-series-insights/preview-query">Sorgu API'si</a></p> <p><a href="/rest/api/time-series-insights/preview-model">Model API'si</a></p> <p><a href="/rest/api/time-series-insights/preview-env">Ortam API'si</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">Zaman Serisi İfadesi API'si</a></p>
           - title: İstemci SDK’sı

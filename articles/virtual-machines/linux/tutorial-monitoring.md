@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 921505e7f470d337d9e9e491c6db79930d487eb5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169559"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754398"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Öğretici: İzleme ve azure'da bir Linux sanal makinesi güncelleştirme
 
@@ -29,7 +29,7 @@ Azure’daki sanal makinelerin (VM) düzgün bir şekilde çalıştığından em
 
 > [!div class="checklist"]
 > * VM’de önyükleme tanılamalarını etkinleştirme
-> * Önyükleme tanılamasını görüntüle
+> * Önyükleme tanılamasını görüntüleme
 > * Konak ölçümlerini görüntüleme
 > * VM’de tanılama uzantısını etkinleştirme
 > * VM ölçümlerini görüntüleme
@@ -42,7 +42,7 @@ Azure’daki sanal makinelerin (VM) düzgün bir şekilde çalıştığından em
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="create-vm"></a>VM Oluştur
+## <a name="create-vm"></a>VM oluşturma
 
 Tanılama ve ölçüm özelliklerinin nasıl çalıştığını görmek için bir VM gerekir. Öncelikle [az group create](/cli/azure/group#az-group-create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroupMonitor* adlı bir kaynak grubu oluşturur.
 
@@ -92,7 +92,7 @@ az vm boot-diagnostics enable \
   --storage $bloburi
 ```
 
-## <a name="view-boot-diagnostics"></a>Önyükleme tanılamasını görüntüle
+## <a name="view-boot-diagnostics"></a>Önyükleme tanılamasını görüntüleme
 
 Önyükleme tanılaması etkinleştirildiğinde, VM’yi durdurduğunuz ve başlattığınızda her seferinde önyükleme işlemiyle ilgili bilgiler bir günlük dosyasına yazılır. Bu örnekte öncelikle [az vm deallocate](/cli/azure/vm#az-vm-deallocate) komutuyla VM’yi şu şekilde serbest bırakın:
 
@@ -140,7 +140,7 @@ VM ölçümlerini, konak VM ölçümlerini görüntülediğiniz gibi görüntül
 
     ![VM ölçümlerini görüntüleme](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
-## <a name="create-alerts"></a>Uyarı oluştur
+## <a name="create-alerts"></a>Uyarı oluşturma
 
 Belirli performans ölçümlerine bağlı uyarılar oluşturabilirsiniz. Uyarılar, ortalama CPU kullanımı belirli bir eşiği aştığında veya mevcut boş disk alanı belirli bir miktarın altına düştüğünde bildirim almak için kullanılabilir. Uyarılar Azure portalında görüntülenebilir veya e-posta ile gönderilebilir. Ayrıca oluşturulan uyarılara yanıt olarak Azure Otomasyonu runbook’larını veya Azure Logic Apps’i tetikleyebilirsiniz.
 
@@ -201,28 +201,27 @@ Ekleme sırasında aşağıdaki önkoşullardan birinin karşılanmadığı tesp
 
 Güncelleştirmeleri yüklemek için yayın zamanlamanızı ve hizmet pencerenizi izleyen bir dağıtım zamanlayın. Dağıtıma hangi güncelleştirme türlerinin dahil edileceğini seçebilirsiniz. Örneğin, kritik güncelleştirmeleri veya güvenlik güncelleştirmelerini dahil edip güncelleştirme paketlerini dışlayabilirsiniz.
 
-VM'ye yeni bir Güncelleştirme Dağıtımı zamanlamak için, **Güncelleştirme yönetimi** ekranının üst kısmındaki **Güncelleştirme dağıtımı zamanla**’yı seçin. **Yeni güncelleştirme dağıtım** ekranında aşağıdaki bilgileri belirtin:
+**Güncelleştirme yönetimi** ekranının üst kısmındaki **Güncelleştirme dağıtımı zamanla**’ya tıklayarak VM için yeni bir Güncelleştirme Dağıtımı zamanlayabilirsiniz. **Yeni güncelleştirme dağıtım** ekranında aşağıdaki bilgileri belirtin:
 
-* **Ad** - Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad belirtin.
-* **Güncelleştirme sınıflandırması**: Güncelleştirme dağıtımının dağıtıma dahil olan yazılım türlerini seçin. Sınıflandırma türleri şunlardır:
-  * Kritik güncelleştirmeler ve güvenlik güncelleştirmeleri
-  * Diğer güncelleştirmeler
-* **Dışlanacak Güncelleştirmeler** - Güncelleştirme dağıtımı sırasında atlanacak paket adlarının bir listesini sağlayabilirsiniz. Paket adları joker karakterleri desteği (gibi \*çekirdek\*).
+Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme dağıtımı zamanla**. **Yeni güncelleştirme dağıtım** sayfası açılır. Aşağıdaki tabloda açıklanan özellikler için değerleri girin ve ardından **Oluştur**:
 
-  ![Güncelleştirme Zamanlama Ayarları ekranı](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
+| Özellik | Açıklama |
+| --- | --- |
+| Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
+|İşletim sistemi| Linux veya Windows|
+| Grupları güncelleştirmek için |Azure makineler için abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlarsınız. </br></br>Azure olmayan makineler için mevcut bir Azure olmayan makine dağıtımına dahil edilecek bir grubu seçmek için arama kaydedilmiş seçin. </br></br>Daha fazla bilgi için bkz: [dinamik gruplar](../../automation/automation-update-management.md#using-dynamic-groups)|
+| Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Azure İzleyici günlüklerine bilgisayar grupları oluşturma farklı yöntemleri hakkında bilgi edinmek için bkz: [Azure İzleyici günlüklerine bilgisayar grupları](../../azure-monitor/platform/computer-groups.md) |
+|Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin|
+|Güncelleştirmeleri Ekle/Dışla|Bu açılır **dahil edin/dışlayın** sayfası. Dahil edilecek veya dışlanacak güncelleştirmeler ayrı sekmelerdedir. Ekleme nasıl ele alındığını daha fazla bilgi için bkz: [ekleme davranışı](../../automation/automation-update-management.md#inclusion-behavior) |
+|Zamanlama ayarları|Her iki kez başlatın ve saati seçin veya yineleme için yineleme|
+| Ön betiklerini + sonrası betikleri|Önce ve sonra dağıtımınız betiklerin seçin|
+| Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değeri 30 dakika ile en fazla 6 saat değerinden küçük olamaz |
+| Denetim yeniden başlatma| Yeniden başlatma işlemlerini nasıl işleneceğini belirler. Kullanılabilen seçenekler:</br>Gerekirse yeniden başlat (Varsayılan)</br>Her zaman yeniden başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden başlatma - güncelleştirmeleri yüklemez|
 
-* **Zamanlama ayarları** - Geçerli saatten 30 dakika sonrası olan varsayılan tarih ve saati kabul edebilir ya da farklı bir zaman belirtebilirsiniz.
-  Ayrıca, dağıtımın bir kez gerçekleşeceğini belirtebilir veya yinelenen bir zamanlama ayarlayabilirsiniz. Yinelenen bir zamanlama ayarlamak için Yineleme altında Yinelenen seçeneğini belirtin.
+Güncelleştirme dağıtımları da bir program aracılığıyla oluşturulabilir. REST API ile bir güncelleştirme dağıtımı oluşturmak nasıl öğrenmek için bkz. [yazılım güncelleştirme yapılandırmaları - oluşturma](/rest/api/automation/softwareupdateconfigurations/create). Haftalık bir güncelleştirme dağıtımı oluşturmak için kullanılan bir örnek runbook yoktur. Bu runbook hakkında daha fazla bilgi için bkz: [bir kaynak grubundaki bir veya daha fazla sanal makineleri için haftalık bir güncelleştirme dağıtımı oluşturma](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
-  ![Güncelleştirme Zamanlama Ayarları ekranı](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
-
-* **Bakım penceresi (dakika)** - Güncelleştirme dağıtımının gerçekleşmesini istediğiniz süreyi belirtin. Bu ayar, değişikliklerin sizin tanımladığınız hizmet pencereleri içinde gerçekleştirilmesini sağlar.
-
-Zamanlamayı yapılandırmayı tamamladıktan sonra **Oluştur** düğmesini seçin ve durum panosuna dönün.
+Zamanlamayı yapılandırmayı tamamladıktan sonra **Oluştur** düğmesine tıklayın ve durum panosuna dönün.
 **Zamanlanan** tablosunda oluşturduğunuz dağıtım zamanlaması görüntülenir.
-
-> [!WARNING]
-> Yeniden başlatma gerektiren güncelleştirmeler için sanal makine otomatik olarak yeniden başlatılır.
 
 ### <a name="view-results-of-an-update-deployment"></a>Güncelleştirme dağıtımının sonuçlarını görüntüleme
 
@@ -302,7 +301,7 @@ Bu öğreticide bir VM için güncelleştirmeleri yapılandırdınız, gözden g
 
 > [!div class="checklist"]
 > * VM’de önyükleme tanılamalarını etkinleştirme
-> * Önyükleme tanılamasını görüntüle
+> * Önyükleme tanılamasını görüntüleme
 > * Konak ölçümlerini görüntüleme
 > * VM’de tanılama uzantısını etkinleştirme
 > * VM ölçümlerini görüntüleme
