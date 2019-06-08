@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 8439da94c770bee313a1ae1d1da5df30683cd2ad
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: db431d7815cfcc006563bd6da438154ef77ae6e2
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155721"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66814780"
 ---
 ## <a name="cli-shell"></a>CLI Kabuğu
 
 Kullanılacak önerilen [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) CLI komutları yürütmek için. **Cloud Shell** bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz, etkileşimli bir kabuktur. Yaygın kullanılan Azure araçları hesabınızla kullanmanız için Cloud Shell'de önceden yüklenir ve yapılandırılır. Bu, çalışma biçiminize en uygun kabuk deneyimini seçme esnekliği sağlar. Linux kullanıcıları Bash deneyimini, Windows kullanıcıları ise PowerShell’i tercih edebilir.
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+CLI'yi yerel olarak da yükleyebilirsiniz. Bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) platformunuza yönelik yönergeler.
 
-### <a name="login"></a>Oturum Aç
+### <a name="sign-in"></a>Oturum aç
 
-(Bulutta veya yerel olarak), CLI Kabuğu çalıştırma kullanmaya başlamak için `az login` Azure ile bir bağlantı oluşturmak için.
+CLI'ın yerel bir yüklemesini kullanarak Azure'da oturum açma gerektirir. Bu adım, Azure Cloud Shell için gerekli değildir. Oturum açmak için `az login` komutu.
 
 CLI varsayılan tarayıcınızı açabiliyorsa, tarayıcıyı açar ve oturum açma sayfasını yükler. Aksi takdirde, tarayıcı sayfasını açın ve ayrıldıktan sonra bir yetkilendirme kodu girmek için komut satırında yönergeleri için ihtiyaç duyduğunuz https://aka.ms/devicelogin tarayıcınızda.
 
