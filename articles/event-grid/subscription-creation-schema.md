@@ -35,14 +35,14 @@ Olay aboneliği adı 3-64 karakter uzunluğunda olmalıdır ve yalnızca a-z, A-
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Hedef | object | Uç nokta tanımlayan nesne. |
-| filtre | object | Olay türlerini filtreleme için isteğe bağlı alan. |
+| destination | object | Uç nokta tanımlayan nesne. |
+| filter | object | Olay türlerini filtreleme için isteğe bağlı alan. |
 
 ### <a name="destination-object"></a>hedef nesne
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| EndpointType | dize | (Web kancası/HTTP, olay hub'ı veya kuyruk) abonelik için uç nokta türü. | 
+| endpointType | dize | (Web kancası/HTTP, olay hub'ı veya kuyruk) abonelik için uç nokta türü. | 
 | endpointUrl | dize | Bu olay aboneliğine olaylar için hedef URL. | 
 
 ### <a name="filter-object"></a>filtre nesnesi
