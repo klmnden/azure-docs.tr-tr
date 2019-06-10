@@ -69,17 +69,17 @@ Aşağıdaki veri türleri ile oluşturulan modeller desteklenir **seri hale get
 | double |çift duyarlıklı kayan nokta sayısı |
 | int |32 bit tamsayı |
 | float |tek duyarlıklı kayan nokta sayısı |
-| uzun |uzun tamsayı |
+| long |uzun tamsayı |
 | int8\_t |8 bit tamsayı |
 | Int16\_t |16 bit tam sayı |
 | Int32\_t |32 bit tamsayı |
 | Int64\_t |64 bit tamsayı |
 | bool |boole |
 | ascii\_char\_ptr |ASCII dizesi |
-| EDM\_TARİH\_ZAMAN\_UZAKLIĞI |Tarih Saat farkı |
+| EDM\_DATE\_TIME\_OFFSET |Tarih Saat farkı |
 | EDM\_GUID |GUID |
 | EDM\_BINARY |binary |
-| BİLDİRME\_YAPISI |Karmaşık veri türü |
+| DECLARE\_STRUCT |Karmaşık veri türü |
 
 Son veri türüyle başlayalım. **DECLARE\_yapı** gruplandırmaları olan diğer temel eleman türleri ve karmaşık veri türlerini tanımlamanızı sağlar. Bu gruplandırmalar bize şuna benzer bir modeli tanımlamak izin ver:
 
