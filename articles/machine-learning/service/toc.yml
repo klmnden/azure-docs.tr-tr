@@ -86,24 +86,27 @@
     - name: Çalışma alanı
       displayName: concept definitions architecture
       href: concept-workspace.md
+    - name: İşlem hedefi
+      displayName: concept definitions architecture
+      href: concept-compute-target.md
     - name: Görsel arabirim
       displayName: concept
       href: ui-concept-visual-interface.md
-    - name: Otomatik makine öğrenimi
+    - name: Otomatikleştirilmiş ML
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
     - name: Model yönetimi (MLOps)
       displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
+    - name: Yeniden kullanılabilir ML işlem hatları
+      href: concept-ml-pipelines.md
     - name: Model yorumlanabilirliği
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: FPGA’lar ile hızlandırma
+    - name: FPGA’lara genel bakış
       href: concept-accelerate-with-fpgas.md
-    - name: ONNX ve ONNX Çalışma Zamanı ile iyileştirme
+    - name: ONNX ve ONNX Çalışma Zamanı
       href: concept-onnx.md
-    - name: Makine öğrenmesi işlem hatları
-      href: concept-ml-pipelines.md
     - name: Güvenlik
       items:
         - name: Kurumsal güvenliğe genel bakış

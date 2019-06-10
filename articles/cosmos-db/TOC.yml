@@ -533,8 +533,8 @@
           href: how-to-sql-subquery.md
     - name: Değişiklik Akışı
       items:
-        - name: Azure Cosmos DB Tetikleyicisi günlükleri
-          href: how-to-configure-cosmos-db-trigger-logs.md
+        - name: Azure Cosmos DB Tetikleyici bağlantı ilkesi
+          href: how-to-configure-cosmos-db-trigger-connection-policy.md
         - name: Birden Fazla Azure Cosmos DB Tetikleyicisi
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Azure Cosmos DB Tetikleyicileriyle İlgili Sorunları Giderme

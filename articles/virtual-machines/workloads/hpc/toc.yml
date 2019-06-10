@@ -1,0 +1,30 @@
+- name: Yüksek Performanslı Bilgi İşlem Belgeleri
+  items:
+    - name: Genel Bakış
+      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+    - name: Yapılandırma
+      items:
+        - name: Linux için iyileştirme
+          href: configure.md
+        - name: Infiniband’i etkinleştirme
+          href: enable-infiniband.md
+    - name: MPI’yı ayarlama
+      href: setup-mpi.md
+    - name: Ölçeklendirme uygulamaları
+      href: compiling-scaling-applications.md
+    - name: Sanal makineler
+      items:
+        - name: HB serisi
+          items:
+            - name: Genel Bakış
+              href: hb-series-overview.md
+            - name: Performans
+              href: hb-series-performance.md
+        - name: HC serisi
+          items:
+            - name: Genel Bakış
+              href: hc-series-overview.md
+            - name: Performans
+              href: hc-series-performance.md
+        - name: HB serisi ve HC serisi sanal makineler ile ilgili bilinen sorunlar
+          href: hb-hc-known-issues.md

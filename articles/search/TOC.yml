@@ -163,25 +163,29 @@
       items:
         - name: Dizin oluşturuculara genel bakış
           href: search-indexer-overview.md
-        - name: Blob depolama dizin oluşturucu
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Tablo depolama dizin oluşturucu
+        - name: Azure Tablo Depolama dizin oluşturucu
           href: search-howto-indexing-azure-tables.md
-        - name: SQL DB dizin oluşturucu
+        - name: Azure SQL DB dizin oluşturucu
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Azure Cosmos DB dizin oluşturucu
+        - name: Azure Cosmos DB dizinleyici
           href: search-howto-index-cosmosdb.md
-        - name: Bire çok blob dizini oluşturma
-          href: search-howto-index-one-to-many-blobs.md
-        - name: CSV blob dizini oluşturma
-          href: search-howto-index-csv-blobs.md
-        - name: JSON blob dizini oluşturma
-          href: search-howto-index-json-blobs.md
+        - name: Azure Blob Depolama dizin oluşturucu
+          items:
+            - name: Blob dizin oluşturucu ayarlama
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: Bire çok blobları dizinleme
+              href: search-howto-index-one-to-many-blobs.md
+            - name: CSV bloblarını dizine ekleme
+              href: search-howto-index-csv-blobs.md
+            - name: JSON bloblarını dizine ekleme
+              href: search-howto-index-json-blobs.md
+        - name: Zamanlama dizin oluşturucuları
+          href: search-howto-schedule-indexers.md
+        - name: Alanları eşleme
+          href: search-indexer-field-mappings.md
         - name: SQL Server VM’lerine bağlanma
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Alan eşlemeleri
-          href: search-indexer-field-mappings.md
-        - name: Genel sorunları giderme
+        - name: Yaygın sorunları giderme
           href: search-indexer-troubleshooting.md
     - name: AI ile zenginleştirme
       items:
