@@ -306,20 +306,20 @@ Bir dosya göndermek, .vscode klasörü otomatik olarak iş klasöre eklenen dik
 
     | name | description | türü | 
     | :- | :- | :- | 
-    | dosyası | Yürütülecek uygulamanın içeren dosya | yol (gerekli) | 
-    | Proxyuserpassword | İş çalışırken bürünülecek kullanıcı | string | 
+    | file | Yürütülecek uygulamanın içeren dosya | yol (gerekli) | 
+    | proxyUser | İş çalışırken bürünülecek kullanıcı | string | 
     | className | Uygulamanın Java/Spark temel sınıfı | string |
     | args | Uygulama için komut satırı bağımsız değişkenleri | dize listesi | 
-    | jar dosyaları dışındaki | Bu oturumda kullanılmak üzere jar'lar | Dize listesi | 
+    | jars | Bu oturumda kullanılmak üzere jar'lar | Dize listesi | 
     | pyFiles | Bu oturumda kullanılmak üzere Python dosyaları | Dize listesi |
-    | dosyaları | Bu oturumda kullanılmak üzere dosyaları | Dize listesi |
+    | files | Bu oturumda kullanılmak üzere dosyaları | Dize listesi |
     | driverMemory | Sürücü işlemi için kullanılacak bellek miktarını | string |
     | driverCores | Sürücü işlemi için kullanılacak çekirdek sayısı | int |
     | executorMemory | Yürütücü işlemi bellek miktarı | string |
     | executorCores | Her Yürütücü için kullanılacak çekirdek sayısı | int |
     | numExecutors | Bu oturum için başlatmak için Yürütücü sayısı | int |
-    | arşivleri | Bu oturumda kullanılmak üzere arşivleri | Dize listesi |
-    | sıra | YARN Kuyruğun adı gönderildi | string |
+    | archives | Bu oturumda kullanılmak üzere arşivleri | Dize listesi |
+    | queue | YARN Kuyruğun adı gönderildi | string |
     | name | Bu oturumun adı | string |
     | conf | Spark yapılandırma özellikleri | Harita anahtarı val = |
 
@@ -331,8 +331,8 @@ Bir dosya göndermek, .vscode klasörü otomatik olarak iş klasöre eklenen dik
     | id | Oturum kimliği | int | 
     | appId | Bu oturumun uygulama kimliği |  String |
     | appInfo | Ayrıntılı uygulama bilgileri | Harita anahtarı val = |
-    | Günlük | Günlük satırları | dize listesi |
-    | durum |   Toplu işlem durumu | string |
+    | log | Günlük satırları | dize listesi |
+    | state |   Toplu işlem durumu | string |
 
 >[!NOTE]
 >Atanan livy config çıkış Bölmesi'nde görüntüler zaman betiği gönderin.
