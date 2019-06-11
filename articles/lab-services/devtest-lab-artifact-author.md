@@ -56,7 +56,7 @@ Aşağıdaki örnek, bir tanım dosyasının temel yapıyı oluşturan bölümle
 | Öğe adı | Gerekli mi? | Açıklama |
 | --- | --- | --- |
 | $schema |Hayır |JSON şema dosyasının konumu. JSON şema dosyası tanım dosyasının geçerliliğini sınamak için yardımcı olabilir. |
-| başlık |Evet |Laboratuar ortamında görüntülenen yapıtın adı. |
+| title |Evet |Laboratuar ortamında görüntülenen yapıtın adı. |
 | description |Evet |Laboratuar ortamında görüntülenen yapıt açıklaması. |
 | iconUri |Hayır |Laboratuar ortamında gösterilen simge URI'si. |
 | targetOsType |Evet |Yapıt yüklendiği VM'nin işletim sistemi. Desteklenen Seçenekler şunlardır: Windows ve Linux. |
@@ -78,7 +78,7 @@ Parametreler tanımlamak için aşağıdaki yapısını kullanın:
 
 | Öğe adı | Gerekli mi? | Açıklama |
 | --- | --- | --- |
-| türü |Evet |Parametre değerinin türü. İzin verilen türler için aşağıdaki listeye bakın. |
+| type |Evet |Parametre değerinin türü. İzin verilen türler için aşağıdaki listeye bakın. |
 | displayName |Evet |Laboratuvardaki kullanıcıya görüntülenen parametrenin adı. |
 | description |Evet |Laboratuar ortamında görüntülenen parametre açıklaması. |
 
