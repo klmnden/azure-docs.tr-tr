@@ -35,10 +35,10 @@ Yeni Azure temel yük dengeleyici oluşturmak için aşağıdaki HTTP PUT İste�
 
 |Ad  |İçinde  |Gerekli |Tür |Açıklama |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  yol       |  True       |   dize      |  Microsoft Azure aboneliği benzersiz olarak tanımlanabilmesi abonelik kimlik bilgileri. Abonelik kimliği, her hizmet çağrısı için URI parçası oluşturur.      |
-|resourceGroupName     |     yol    | True        |  dize       |   Kaynak grubunun adı.     |
-|loadBalancerName     |  yol       |      True   |    dize     |    Yük dengeleyicinin adı.    |
-|API sürümü    |   sorgu     |  True       |     dize    |  İstemci API sürümü.      |
+|subscriptionId   |  yol       |  True       |   string      |  Microsoft Azure aboneliği benzersiz olarak tanımlanabilmesi abonelik kimlik bilgileri. Abonelik kimliği, her hizmet çağrısı için URI parçası oluşturur.      |
+|resourceGroupName     |     yol    | True        |  string       |   Kaynak grubunun adı.     |
+|loadBalancerName     |  yol       |      True   |    string     |    Yük dengeleyicinin adı.    |
+|api-version    |   sorgu     |  True       |     string    |  İstemci API sürümü.      |
 
 
 
@@ -48,7 +48,7 @@ Tek gerekli parametresi `location`. Değil tanımlarsanız *SKU* sürümü, bir 
 
 | Ad | Tür | Açıklama |
 | :--- | :--- | :---------- |
-| location | dize | Kaynak konumu. Konumları kullanarak geçerli bir listesini alın [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) işlemi. |
+| location | string | Kaynak konumu. Konumları kullanarak geçerli bir listesini alın [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) işlemi. |
 
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>Örnek: Oluşturma ve bir temel yük dengeleyici güncelleştirme
