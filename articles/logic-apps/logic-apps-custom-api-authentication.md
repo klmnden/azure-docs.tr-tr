@@ -190,11 +190,11 @@ Açık mantıksal uygulama tanımınızı kod Görünümü'nde Git **HTTP** eyle
 
 | Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
-| tek | Evet | Azure AD kiracısı için GUID | 
-| Hedef kitle | Evet | İstemci kimlik, web veya API uygulaması için uygulama kimliği, erişmek istediğiniz hedef kaynağı için GUID | 
+| tenant | Evet | Azure AD kiracısı için GUID | 
+| audience | Evet | İstemci kimlik, web veya API uygulaması için uygulama kimliği, erişmek istediğiniz hedef kaynağı için GUID | 
 | clientId | Evet | Uygulama Kimliği mantıksal uygulamanızın istemci kimliği olan erişim isteğinde bulunan istemci için GUID | 
-| gizli dizi | Evet | Anahtar veya parolayı erişim belirteci istenirken istemci uygulama kimliği | 
-| tür | Evet | Kimlik doğrulaması türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. | 
+| secret | Evet | Anahtar veya parolayı erişim belirteci istenirken istemci uygulama kimliği | 
+| type | Evet | Kimlik doğrulaması türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. | 
 |||| 
 
 Örneğin:
@@ -236,7 +236,7 @@ Web uygulamanızı veya API uygulaması için mantıksal uygulamadan gelen istek
 
 | Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
-| tür | Evet | Kimlik doğrulaması türü. SSL istemci sertifikaları için bir değer olmalıdır `ClientCertificate`. | 
+| type | Evet | Kimlik doğrulaması türü. SSL istemci sertifikaları için bir değer olmalıdır `ClientCertificate`. | 
 | password | Evet | İstemci sertifikası (PFX dosyası) erişmek için parola | 
 | PFX | Evet | İstemci sertifikası (PFX dosyası) base64 ile kodlanmış içeriği | 
 |||| 
@@ -253,7 +253,7 @@ Web uygulamanızı veya API uygulaması, mantıksal uygulamadan gelen istekleri 
 
 | Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
-| tür | Evet | Kullanmak istediğiniz kimlik doğrulaması türü. Temel kimlik doğrulaması için bir değer olmalıdır `Basic`. | 
+| type | Evet | Kullanmak istediğiniz kimlik doğrulaması türü. Temel kimlik doğrulaması için bir değer olmalıdır `Basic`. | 
 | username | Evet | Kimlik doğrulaması için kullanmak istediğiniz kullanıcı adı | 
 | password | Evet | Kimlik doğrulaması için kullanmak istediğiniz parolayı | 
 |||| 
