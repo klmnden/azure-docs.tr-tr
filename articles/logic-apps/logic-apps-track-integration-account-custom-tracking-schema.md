@@ -58,8 +58,8 @@ Bu makalede, mantıksal uygulamanızı dışında Katmanlar kullanabileceğiniz 
 
 | Özellik | Tür | Açıklama |
 | --- | --- | --- |
-| Kaynak türü |   | Çalıştırma kaynağı türü. İzin verilen değerler **Microsoft.Logic/workflows** ve **özel**. (Zorunlu) |
-| Kaynak |   | Kaynak türü ise **Microsoft.Logic/workflows**, kaynak bilgileri bu şemayı izlemesi gerekir. Kaynak türü ise **özel**, bir JToken şemadır. (Zorunlu) |
+| sourceType |   | Çalıştırma kaynağı türü. İzin verilen değerler **Microsoft.Logic/workflows** ve **özel**. (Zorunlu) |
+| source |   | Kaynak türü ise **Microsoft.Logic/workflows**, kaynak bilgileri bu şemayı izlemesi gerekir. Kaynak türü ise **özel**, bir JToken şemadır. (Zorunlu) |
 | systemId | String | Mantıksal uygulama sistem kimliği (Zorunlu) |
 | runId | String | Mantıksal uygulama çalıştırması kimliği. (Zorunlu) |
 | operationName | String | (Örneğin, bir eylem veya tetikleyici) işlemin adı. (Zorunlu) |
@@ -70,8 +70,8 @@ Bu makalede, mantıksal uygulamanızı dışında Katmanlar kullanabileceğiniz 
 | clientRequestId | String | İstemci iletileri ilişkilendirmek için doldurabilirsiniz. (İsteğe bağlı) |
 | eventLevel |   | Olay düzeyi. (Zorunlu) |
 | eventTime |   | Etkinliğin UTC biçiminde YYYY-AA-DDTHH:MM:SS.00000Z saati. (Zorunlu) |
-| RecordType |   | İzleme kayıt türü. Değer izin verilen **özel**. (Zorunlu) |
-| kayıt |   | Özel bir kayıt türü. İzin verilen biçim JToken ' dir. (Zorunlu) |
+| recordType |   | İzleme kayıt türü. Değer izin verilen **özel**. (Zorunlu) |
+| record |   | Özel bir kayıt türü. İzin verilen biçim JToken ' dir. (Zorunlu) |
 ||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B Protokolü izleme şemaları
