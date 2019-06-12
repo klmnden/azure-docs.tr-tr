@@ -119,16 +119,16 @@ Bu adımları bir uç noktaya mantıksal uygulamanızdan öbekli içerik yüklem
 
    | Logic Apps üstbilgi alanı istek | Değer | Tür | Açıklama |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-aktarım modu** | öbekli | String | İçerik öbekler halinde karşıya yüklendiğini belirtir. |
-   | **x-ms-content-length** | <*içerik uzunluğu*> | Tamsayı | Bayt Öbekleme önce tüm içerik boyutu |
+   | **x-ms-transfer-mode** | öbekli | String | İçerik öbekler halinde karşıya yüklendiğini belirtir. |
+   | **x-ms-content-length** | <*içerik uzunluğu*> | Integer | Bayt Öbekleme önce tüm içerik boyutu |
    ||||
 
 2. Uç nokta, "200" başarılı durum kodu ve isteğe bağlı bu bilgilerle yanıt verir:
 
    | Uç nokta yanıt üstbilgi alanı | Tür | Gerekli | Açıklama |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-öbek boyutu** | Tamsayı | Hayır | Bayt cinsinden önerilen öbek boyutu |
-   | **Konum** | String | Hayır | URL konumu HTTP PATCH iletilerin gönderileceği adresi |
+   | **x-ms-chunk-size** | Integer | Hayır | Bayt cinsinden önerilen öbek boyutu |
+   | **Location** | String | Hayır | URL konumu HTTP PATCH iletilerin gönderileceği adresi |
    ||||
 
 3. Mantıksal uygulamanızı oluşturur ve bu bilgileri her izleme iletileri - HTTP PATCH gönderir:
@@ -139,9 +139,9 @@ Bu adımları bir uç noktaya mantıksal uygulamanızdan öbekli içerik yüklem
 
      | Logic Apps üstbilgi alanı istek | Değer | Tür | Açıklama |
      |---------------------------------|-------|------|-------------|
-     | **İçerik-aralık** | <*Aralığı*> | String | Bitiş değeri ve toplam içerik boyutu, örneğin başlangıç değeri de dahil olmak üzere geçerli bir içerik öbek için bayt aralığı: "bayt 0-1023/10100 =" |
-     | **İçerik türü** | <*içerik türü*> | String | Öbekli içerik türü |
-     | **İçerik uzunluğu** | <*içerik uzunluğu*> | String | Bayt cinsinden geçerli öbek boyutu uzunluğu |
+     | **Content-Range** | <*Aralığı*> | String | Bitiş değeri ve toplam içerik boyutu, örneğin başlangıç değeri de dahil olmak üzere geçerli bir içerik öbek için bayt aralığı: "bayt 0-1023/10100 =" |
+     | **Content-Type** | <*içerik türü*> | String | Öbekli içerik türü |
+     | **Content-Length** | <*içerik uzunluğu*> | String | Bayt cinsinden geçerli öbek boyutu uzunluğu |
      |||||
 
 4. Her bir PATCH isteği sonra "200" durum kodu ile yanıt vererek, her öbek için giriş uç noktası onaylar.
