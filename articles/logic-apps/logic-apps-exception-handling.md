@@ -73,17 +73,17 @@ Veya el ile yeniden deneme ilkesinde belirtebileceğiniz `inputs` bölüm için 
 
 | Değer | Tür | Açıklama |
 |-------|------|-------------|
-| <*yeniden deneme ilkesi türü*> | String | Kullanmak istediğiniz yeniden deneme ilkesi türü: `default`, `none`, `fixed`, veya `exponential` | 
-| <*yeniden deneme aralığı*> | String | Yeniden deneme aralığı değeri burada kullanmalıdır [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Varsayılan en düşük aralık `PT5S` ve en büyük aralık `PT1D`. Üstel aralık İlkesi kullandığınızda, farklı minimum ve maksimum değerleri belirtebilirsiniz. | 
-| <*yeniden deneme girişimleri*> | Tamsayı | 1 ile 90 arasında olmalıdır, yeniden deneme sayısı | 
+| <*retry-policy-type*> | String | Kullanmak istediğiniz yeniden deneme ilkesi türü: `default`, `none`, `fixed`, veya `exponential` | 
+| <*retry-interval*> | String | Yeniden deneme aralığı değeri burada kullanmalıdır [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Varsayılan en düşük aralık `PT5S` ve en büyük aralık `PT1D`. Üstel aralık İlkesi kullandığınızda, farklı minimum ve maksimum değerleri belirtebilirsiniz. | 
+| <*retry-attempts*> | Integer | 1 ile 90 arasında olmalıdır, yeniden deneme sayısı | 
 ||||
 
 *İsteğe bağlı*
 
 | Değer | Tür | Açıklama |
 |-------|------|-------------|
-| <*en düşük aralık*> | String | Üstel aralık İlkesi, rastgele Seçilen aralıktaki en küçük aralığını [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <*en büyük aralık*> | String | Üstel aralık İlkesi, rastgele Seçilen aralıktaki en büyük aralığını [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*minimum-interval*> | String | Üstel aralık İlkesi, rastgele Seçilen aralıktaki en küçük aralığını [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*maximum-interval*> | String | Üstel aralık İlkesi, rastgele Seçilen aralıktaki en büyük aralığını [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 Farklı ilke türleri hakkında daha fazla bilgi aşağıda verilmiştir.
