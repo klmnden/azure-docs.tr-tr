@@ -63,7 +63,7 @@ Yardımcı olmak için başarı, hatalar ve ileti özelliklerini işletmeden iş
 | as2To | String | AS2 iletisinin başlıklarından AS2 ileti alıcısı'nın adı. (Zorunlu) |
 | as2From | String | AS2 iletisinin başlıklarından AS2 iletiyi gönderenin adı. (Zorunlu) |
 | agreementName | String | İletileri çözümlendiği AS2 sözleşmesi adı. (İsteğe bağlı) |
-| yön | String | İleti akışı yönünü almak veya göndermek. (Zorunlu) |
+| direction | String | İleti akışı yönünü almak veya göndermek. (Zorunlu) |
 | messageId | String | AS2 ileti kimliği, üstbilgileri AS2 iletisinin (isteğe bağlı) |
 | dispositionType |String | İleti değerlendirme bildirim (MDN) değerlendirme türü değeri. (İsteğe bağlı) |
 | fileName | String | AS2 iletisinin üstbilgisinden dosya adı. (İsteğe bağlı) |
@@ -76,7 +76,7 @@ Yardımcı olmak için başarı, hatalar ve ileti özelliklerini işletmeden iş
 | outgoingHeaders |JToken sözlüğü | AS2 ileti üst bilgisi ayrıntıları giden. (İsteğe bağlı) |
 | isNrrEnabled | Boolean | Değer olmayan biliniyorsa varsayılan değeri kullanın. (Zorunlu) |
 | isMdnExpected | Boolean | Değer olmayan biliniyorsa varsayılan değeri kullanın. (Zorunlu) |
-| mdnType | Sabit listesi | İzin verilen değerler **NotConfigured**, **eşitleme**, ve **zaman uyumsuz**. (Zorunlu) |
+| mdnType | Enum | İzin verilen değerler **NotConfigured**, **eşitleme**, ve **zaman uyumsuz**. (Zorunlu) |
 ||||
 
 ## <a name="as2-mdn-tracking-schema"></a>AS2 MDN izleme şeması
@@ -116,16 +116,16 @@ Yardımcı olmak için başarı, hatalar ve ileti özelliklerini işletmeden iş
 | as2To | String | AS2 iletisinin aldığı iş ortağı adı. (Zorunlu) |
 | as2From | String | AS2 ileti gönderen iş ortağı adı. (Zorunlu) |
 | agreementName | String | İletileri çözümlendiği AS2 sözleşmesi adı. (İsteğe bağlı) |
-| yön |String | İleti akışı yönünü almak veya göndermek. (Zorunlu) |
+| direction |String | İleti akışı yönünü almak veya göndermek. (Zorunlu) |
 | messageId | String | AS2 ileti kimliği. (İsteğe bağlı) |
-| Originalmessageıd |String | AS2 özgün ileti kimliği. (İsteğe bağlı) |
+| originalMessageId |String | AS2 özgün ileti kimliği. (İsteğe bağlı) |
 | dispositionType | String | MDN değerlendirme türü değeri. (İsteğe bağlı) |
 | isMessageFailed |Boolean | AS2 iletisinin mi başarısız. (Zorunlu) |
 | isMessageSigned |Boolean | AS2 iletisinin imzalanmış olup. (Zorunlu) |
 | isNrrEnabled | Boolean | Değer olmayan biliniyorsa varsayılan değeri kullanın. (Zorunlu) |
-| statusCode | Sabit listesi | İzin verilen değerler **kabul edilen**, **reddedildi**, ve **AcceptedWithErrors**. (Zorunlu) |
-| micVerificationStatus | Sabit listesi | İzin verilen değerler **çıktı**, **başarılı**, ve **başarısız**. (Zorunlu) |
-| CorrelationMessageId | String | Bağıntı Kimliği Özgün kimliği messaged (ileti kimliği iletinin MDN yapılandırılır). (İsteğe bağlı) |
+| statusCode | Enum | İzin verilen değerler **kabul edilen**, **reddedildi**, ve **AcceptedWithErrors**. (Zorunlu) |
+| micVerificationStatus | Enum | İzin verilen değerler **çıktı**, **başarılı**, ve **başarısız**. (Zorunlu) |
+| correlationMessageId | String | Bağıntı Kimliği Özgün kimliği messaged (ileti kimliği iletinin MDN yapılandırılır). (İsteğe bağlı) |
 | incomingHeaders | JToken sözlüğü | Gelen ileti üst bilgisi ayrıntıları gösterir. (İsteğe bağlı) |
 | outgoingHeaders |JToken sözlüğü | Giden ileti üst bilgisi ayrıntıları gösterir. (İsteğe bağlı) |
 ||||
