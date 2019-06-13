@@ -57,7 +57,7 @@ Bir uç nokta indirme veya karşıya yüklemeleri için Öbekleme etkinleştiril
 
 HTTP eylem zaten Öbekleme etkinleştir değil, ayrıca, eylemin içinde Öbekleme yukarı ayarlamanız gerekir `runTimeConfiguration` özelliği. Eylem içinde bu özellik, daha sonra açıklandığı gibi doğrudan kod düzenleyicisinde görüntüle veya burada açıklandığı gibi Logic Apps Tasarımcısı'nda ayarlayabilirsiniz:
 
-1. HTTP eylem sağ üst köşedeki üç nokta düğmesini (**...** ) ve ardından **ayarları**.
+1. HTTP eylem sağ üst köşedeki üç nokta düğmesini ( **...** ) ve ardından **ayarları**.
 
    ![Eylem, tıklayarak ayarlar menüsünü açın.](./media/logic-apps-handle-large-messages/http-settings.png)
 
@@ -119,7 +119,7 @@ Bu adımları bir uç noktaya mantıksal uygulamanızdan öbekli içerik yüklem
 
    | Logic Apps üstbilgi alanı istek | Değer | Tür | Açıklama |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | öbekli | String | İçerik öbekler halinde karşıya yüklendiğini belirtir. |
+   | **x-ms-aktarım modu** | öbekli | String | İçerik öbekler halinde karşıya yüklendiğini belirtir. |
    | **x-ms-content-length** | <*içerik uzunluğu*> | Integer | Bayt Öbekleme önce tüm içerik boyutu |
    ||||
 
@@ -127,8 +127,8 @@ Bu adımları bir uç noktaya mantıksal uygulamanızdan öbekli içerik yüklem
 
    | Uç nokta yanıt üstbilgi alanı | Tür | Gerekli | Açıklama |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Integer | Hayır | Bayt cinsinden önerilen öbek boyutu |
-   | **Location** | String | Hayır | URL konumu HTTP PATCH iletilerin gönderileceği adresi |
+   | **x-ms-öbek boyutu** | Integer | Hayır | Bayt cinsinden önerilen öbek boyutu |
+   | **Konum** | String | Hayır | URL konumu HTTP PATCH iletilerin gönderileceği adresi |
    ||||
 
 3. Mantıksal uygulamanızı oluşturur ve bu bilgileri her izleme iletileri - HTTP PATCH gönderir:
@@ -139,9 +139,9 @@ Bu adımları bir uç noktaya mantıksal uygulamanızdan öbekli içerik yüklem
 
      | Logic Apps üstbilgi alanı istek | Değer | Tür | Açıklama |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*Aralığı*> | String | Bitiş değeri ve toplam içerik boyutu, örneğin başlangıç değeri de dahil olmak üzere geçerli bir içerik öbek için bayt aralığı: "bayt 0-1023/10100 =" |
-     | **Content-Type** | <*içerik türü*> | String | Öbekli içerik türü |
-     | **Content-Length** | <*içerik uzunluğu*> | String | Bayt cinsinden geçerli öbek boyutu uzunluğu |
+     | **İçerik-aralık** | <*Aralığı*> | String | Bitiş değeri ve toplam içerik boyutu, örneğin başlangıç değeri de dahil olmak üzere geçerli bir içerik öbek için bayt aralığı: "bayt 0-1023/10100 =" |
+     | **İçerik türü** | <*içerik türü*> | String | Öbekli içerik türü |
+     | **İçerik uzunluğu** | <*içerik uzunluğu*> | String | Bayt cinsinden geçerli öbek boyutu uzunluğu |
      |||||
 
 4. Her bir PATCH isteği sonra "200" durum kodu ile yanıt vererek, her öbek için giriş uç noktası onaylar.

@@ -71,7 +71,7 @@ Yardımcı olmak için başarı, hatalar ve ileti özelliklerini işletmeden iş
 | isMessageSigned | Boolean | AS2 iletisinin imzalanmış olup. (Zorunlu) |
 | isMessageEncrypted | Boolean | AS2 iletisinin şifrelenmiş olan. (Zorunlu) |
 | isMessageCompressed |Boolean | AS2 iletisinin sıkıştırılmış olan. (Zorunlu) |
-| CorrelationMessageId | String | İletileri Mdn'leri ile ilişkilendirmek için AS2 ileti kimliği. (İsteğe bağlı) |
+| correlationMessageId | String | İletileri Mdn'leri ile ilişkilendirmek için AS2 ileti kimliği. (İsteğe bağlı) |
 | incomingHeaders |JToken sözlüğü | Gelen AS2 ileti üst bilgisi ayrıntıları. (İsteğe bağlı) |
 | outgoingHeaders |JToken sözlüğü | AS2 ileti üst bilgisi ayrıntıları giden. (İsteğe bağlı) |
 | isNrrEnabled | Boolean | Değer olmayan biliniyorsa varsayılan değeri kullanın. (Zorunlu) |
