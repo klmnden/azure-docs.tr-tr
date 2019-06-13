@@ -66,7 +66,7 @@ Uygulama durumunu Uzantı Şeması aşağıdaki JSON'u göstermektedir. Uzantı 
 | Ad | Değer / örnek | Veri Türü
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| Yayımcı | `Microsoft.ManagedServices` | string |
+| publisher | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
@@ -74,7 +74,7 @@ Uygulama durumunu Uzantı Şeması aşağıdaki JSON'u göstermektedir. Uzantı 
 
 | Ad | Değer / örnek | Veri Türü
 | ---- | ---- | ----
-| protokol | `http` veya `tcp` | string |
+| protocol | `http` veya `tcp` | string |
 | port | Protokol olduğunda isteğe bağlı `http`zorunlu Protokolü `tcp` | int |
 | requestPath | Protokol olduğunda zorunlu `http`, protokol olduğunda izin verilmiyor `tcp` | string |
 
