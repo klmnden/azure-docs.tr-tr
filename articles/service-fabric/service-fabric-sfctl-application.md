@@ -28,26 +28,26 @@ Oluşturma, silme ve uygulama ve uygulama türlerini yönetme.
 
 |Komut|Açıklama|
 | --- | --- |
-| oluşturmaya | Belirtilen tanımını kullanarak bir Service Fabric uygulaması oluşturur. |
+| create | Belirtilen tanımını kullanarak bir Service Fabric uygulaması oluşturur. |
 | delete | Var olan bir Service Fabric uygulaması siler. |
-| dağıtılan | Bir Service Fabric düğüm üzerinde dağıtılan bir uygulama hakkındaki bilgileri alır. |
-| dağıtılan-health | Bir Service Fabric düğüm üzerinde dağıtılmış bir uygulamanın durumu hakkında bilgileri alır. |
-| dağıtılan listesi | Bir Service Fabric düğümde dağıtılan uygulamalar listesini alır. |
-| sağlık | Service fabric uygulaması durumunu alır. |
-| bilgi | Service Fabric uygulaması hakkındaki bilgileri alır. |
+| deployed | Bir Service Fabric düğüm üzerinde dağıtılan bir uygulama hakkındaki bilgileri alır. |
+| deployed-health | Bir Service Fabric düğüm üzerinde dağıtılmış bir uygulamanın durumu hakkında bilgileri alır. |
+| deployed-list | Bir Service Fabric düğümde dağıtılan uygulamalar listesini alır. |
+| health | Service fabric uygulaması durumunu alır. |
+| info | Service Fabric uygulaması hakkındaki bilgileri alır. |
 | list | Belirtilen filtrelerle eşleşen ve Service Fabric kümesinde oluşturulan uygulamaların listesini alır. |
-| yükleme | Service Fabric uygulaması hakkında bilgi alır yükleyin. |
-| Bildirimi | Bir uygulama türünü tanımlayan bir bildirim alır. |
-| sağlama | Hükümler veya kayıtları .sfpkg paket dış depoda veya görüntü deposundaki uygulama paketi kullanarak küme Service Fabric uygulaması yazın. |
-| durumu- | Service Fabric uygulama üzerinde bir sistem durumu raporu gönderir. |
+| load | Service Fabric uygulaması hakkında bilgi alır yükleyin. |
+| manifest | Bir uygulama türünü tanımlayan bir bildirim alır. |
+| provision | Hükümler veya kayıtları .sfpkg paket dış depoda veya görüntü deposundaki uygulama paketi kullanarak küme Service Fabric uygulaması yazın. |
+| report-health | Service Fabric uygulama üzerinde bir sistem durumu raporu gönderir. |
 | type | Tam olarak belirtilen adla eşleşen bir Service Fabric kümesinde uygulama türleri listesini alır. |
-| tür listesi | Service Fabric kümesinde uygulama türleri listesini alır. |
-| sağlamayı kaldırma | Kümeden bir Service Fabric uygulama türünün kaydını ya da kaldırır. |
-| yükselt | Uygulamayı Service Fabric kümesini yükseltme işlemini başlatır. |
-| Yükseltme devam et | Uygulamayı Service Fabric kümesini yükseltme devam eder. |
-| Yükseltmeyi geri alma | Şu anda devam eden bir uygulama yükseltmesini Service Fabric kümesinde geri başlatır. |
-| Yükseltme durumu | Bu uygulama üzerinde gerçekleştirilen en son yükseltme ayrıntılarını alır. |
-| karşıya yükle | Bir Service Fabric uygulama paketi görüntü deposuna kopyalayın. |
+| type-list | Service Fabric kümesinde uygulama türleri listesini alır. |
+| unprovision | Kümeden bir Service Fabric uygulama türünün kaydını ya da kaldırır. |
+| upgrade | Uygulamayı Service Fabric kümesini yükseltme işlemini başlatır. |
+| upgrade-resume | Uygulamayı Service Fabric kümesini yükseltme devam eder. |
+| upgrade-rollback | Şu anda devam eden bir uygulama yükseltmesini Service Fabric kümesinde geri başlatır. |
+| upgrade-status | Bu uygulama üzerinde gerçekleştirilen en son yükseltme ayrıntılarını alır. |
+| upload | Bir Service Fabric uygulama paketi görüntü deposuna kopyalayın. |
 
 ## <a name="sfctl-application-create"></a>sfctl uygulaması oluşturma
 Belirtilen tanımını kullanarak bir Service Fabric uygulaması oluşturur.
