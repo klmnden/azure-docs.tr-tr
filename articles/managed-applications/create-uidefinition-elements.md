@@ -40,14 +40,14 @@ Bu makalede, şema ve bir CreateUiDefinition desteklenen tüm öğelerin özelli
 
 | Özellik | Gerekli | Açıklama |
 | -------- | -------- | ----------- |
-| ad | Evet | Bir öğenin belirli bir örneğine başvurmak için iç tanımlayıcı. Öğe adı, en yaygın kullanım bulunduğu `outputs`, burada belirtilen öğelerin çıkış değerleri şablon parametreleri eşlenir. Ayrıca, bir öğeye çıkış değeri bağlamak için kullanabilirsiniz `defaultValue` başka bir öğe. |
+| name | Evet | Bir öğenin belirli bir örneğine başvurmak için iç tanımlayıcı. Öğe adı, en yaygın kullanım bulunduğu `outputs`, burada belirtilen öğelerin çıkış değerleri şablon parametreleri eşlenir. Ayrıca, bir öğeye çıkış değeri bağlamak için kullanabilirsiniz `defaultValue` başka bir öğe. |
 | type | Evet | Öğe için işlenecek UI denetimi. Desteklenen türler bir listesi için bkz. [öğeleri](#elements). |
-| etiket | Evet | Öğenin görünen metin. Değer, birden çok dizeyi içeren bir nesne olabilir. Bu nedenle bazı öğe türleri, birden çok etiket içerir. |
+| label | Evet | Öğenin görünen metin. Değer, birden çok dizeyi içeren bir nesne olabilir. Bu nedenle bazı öğe türleri, birden çok etiket içerir. |
 | defaultValue | Hayır | Öğesinin varsayılan değeri. Değer, bir nesne olabilir. Bu nedenle bazı öğe türü karmaşık varsayılan değerleri destekler. |
-| Araç İpucu | Hayır | Öğenin araç ipucunda görüntülenecek metin. Benzer şekilde `label`, bazı öğeleri birden çok araç ipucu dizeleri destekler. Satır içi bağlantıları, Markdown söz dizimi kullanılarak eklenebilir.
-| Kısıtlamaları | Hayır | Öğe doğrulama davranışını özelleştirmek için kullanılan bir veya daha fazla özellikleri. Kısıtlamalar için desteklenen özellikler öğesi türüne göre değişir. Bazı öğe türleri doğrulama davranışını özelleştirmesini desteklemiyor ve bu nedenle hiçbir kısıtlamaları özelliğine sahiptir. |
-| seçenekler | Hayır | Öğe davranışını özelleştirmek ek özellikler. Benzer şekilde `constraints`, desteklenen özellikler öğesi türüne göre farklılık gösterir. |
-| Görünür | Hayır | Öğenin görüntülenip görüntülenmeyeceğini belirtir. Varsa `true`, öğeyi ve geçerli alt öğelerini görüntülenir. Varsayılan değer `true` şeklindedir. Kullanım [mantıksal işlevler](create-uidefinition-functions.md#logical-functions) dinamik olarak bu özelliğin değerini denetlemek için.
+| toolTip | Hayır | Öğenin araç ipucunda görüntülenecek metin. Benzer şekilde `label`, bazı öğeleri birden çok araç ipucu dizeleri destekler. Satır içi bağlantıları, Markdown söz dizimi kullanılarak eklenebilir.
+| constraints | Hayır | Öğe doğrulama davranışını özelleştirmek için kullanılan bir veya daha fazla özellikleri. Kısıtlamalar için desteklenen özellikler öğesi türüne göre değişir. Bazı öğe türleri doğrulama davranışını özelleştirmesini desteklemiyor ve bu nedenle hiçbir kısıtlamaları özelliğine sahiptir. |
+| options | Hayır | Öğe davranışını özelleştirmek ek özellikler. Benzer şekilde `constraints`, desteklenen özellikler öğesi türüne göre farklılık gösterir. |
+| visible | Hayır | Öğenin görüntülenip görüntülenmeyeceğini belirtir. Varsa `true`, öğeyi ve geçerli alt öğelerini görüntülenir. Varsayılan değer `true` şeklindedir. Kullanım [mantıksal işlevler](create-uidefinition-functions.md#logical-functions) dinamik olarak bu özelliğin değerini denetlemek için.
 
 ## <a name="elements"></a>Öğeler
 
