@@ -12,10 +12,10 @@ ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.openlocfilehash: 9f4bbf91b09abeb917fd9f49482881e33bf788ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499639"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure'da barındırılan bir API'yi PowerApps ve Microsoft Flow için dışarı aktarma
@@ -74,7 +74,7 @@ Dışa aktarma, tamamlanması **Express** modu, şu adımları izleyin:
  
     ![Dışarı aktarma PowerApps ve Microsoft Flow için express](media/app-service-export-api-to-powerapps-and-flow/export-express.png)
 
-3. **Tamam** düğmesine tıklayın. Özel bağlayıcı yerleşik ve belirttiğiniz ortama eklenir.
+3. **Tamam**'ı tıklatın. Özel bağlayıcı yerleşik ve belirttiğiniz ortama eklenir.
 
 Kullanım örnekleri **Express** Azure işlevleri ile Modu'ndan [Powerapps'ten bir işlev çağırma](functions-powerapps-scenario.md) ve [Microsoft Flow bir işlevi çağırmayı](functions-flow-scenario.md).
 
@@ -170,7 +170,7 @@ Aşağıdaki yapılandırma değerleri büyük/küçük harf gereklidir:
 > [!IMPORTANT]
 > Başka birinin API tanımı PowerApps ve Microsoft Flow el ile akışının bir parçası içeri aktaracak, bunları istemci Kimliğini ve istemci gizli dizisi ile sağlamanız gerekir *bağlayıcı kaydını*, kaynak URL'sini, API'nizi yanı sıra. Bu gizli dizileri güvenli bir şekilde yönetildiğinden emin olun. **API güvenlik kimlik bilgileri paylaşmaz.**
 
-### <a name="generic-oauth-20"></a>Generic OAuth 2.0
+### <a name="generic-oauth-20"></a>Genel OAuth 2.0
 Genel OAuth 2.0 kullanarak, herhangi bir OAuth 2.0 sağlayıcı ile tümleştirebilirsiniz. Bu, yerel olarak desteklenmeyen özel sağlayıcıları ile çalışmanıza olanak sağlar.
 
 Aşağıdaki yapılandırma değerleri büyük/küçük harf gereklidir:

@@ -13,10 +13,10 @@ ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331426"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Veritabanı sunucuları için sanal ağ hizmet uç noktaları ve kuralları kullanma
@@ -197,7 +197,7 @@ PolyBase, verileri Azure depolama hesaplarını Azure SQL Data Warehouse'a yükl
    > - Genel amaçlı v1 veya blob depolama hesabı varsa, şunları yapmalısınız **v2'ye yükseltmeniz** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar için lütfen şuna bakın [Kılavuzu](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Depolama hesabınız kapsamında gidin **erişim denetimi (IAM)**, tıklatıp **rol ataması Ekle**. Ata **depolama Blob verileri katkıda bulunan** SQL veritabanı sunucunuza RBAC rolü.
+1. Depolama hesabınız kapsamında gidin **erişim denetimi (IAM)** , tıklatıp **rol ataması Ekle**. Ata **depolama Blob verileri katkıda bulunan** SQL veritabanı sunucunuza RBAC rolü.
 
    > [!NOTE] 
    > Bu adım yalnızca sahibi ayrıcalığa sahip üyeleri gerçekleştirebilir. Azure kaynakları için çeşitli yerleşik roller için şuna başvurun [Kılavuzu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -209,7 +209,7 @@ PolyBase, verileri Azure depolama hesaplarını Azure SQL Data Warehouse'a yükl
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
     
-   1. Veritabanı kapsamlı kimlik bilgileri ile oluşturun **Kimliği = 'Yönetilen hizmet Kimliği'**:
+   1. Veritabanı kapsamlı kimlik bilgileri ile oluşturun **Kimliği = 'Yönetilen hizmet Kimliği'** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -248,7 +248,7 @@ Bağlantı hatası 40914 ilişkili *sanal ağ kuralları*, Azure Portalı'nda g�
 
 ### <a name="error-40914"></a>Hata 40914
 
-*İleti metni:* Sunucu açamıyor '*[sunucu-adı]*' oturum açma tarafından istenen. İstemcinin sunucuya erişmesine izin verilmiyor.
+*İleti metni:* Sunucu açamıyor ' *[sunucu-adı]* ' oturum açma tarafından istenen. İstemcinin sunucuya erişmesine izin verilmiyor.
 
 *Hata açıklaması:* Sanal ağ sunucu uç noktaları olan bir alt ağda istemcisidir. Ancak, Azure SQL veritabanı sunucusunun SQL veritabanıyla iletişim kurmak için sağ alt ağa izin veren sanal ağ kuralı yok.
 

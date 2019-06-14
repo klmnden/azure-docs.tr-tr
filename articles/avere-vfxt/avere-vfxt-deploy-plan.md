@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409889"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT sisteminizi planlama
@@ -42,7 +42,7 @@ Avere vFXT sistemin ağ altyapısı planlama yaparken aşağıdaki yönergeleri 
 
 * Küme oluşturma şablonu kaynak grupları, sanal ağlar, alt ağlar ve depolama hesapları dahil olmak üzere küme için gerekli altyapı kaynakların çoğunu oluşturabilirsiniz. Zaten mevcut olan kaynakları kullanmak istiyorsanız, bunlar bu tablodaki gereksinimleri karşıladığından emin olun. 
 
-  | Kaynak | Var olanı kullan? | Gereksinimler |
+  | Resource | Var olanı kullan? | Gereksinimler |
   |----------|-----------|----------|
   | Kaynak grubu | Evet, boş ise | Boş olmalıdır| 
   | Depolama hesabı | Küme oluşturulduktan sonra Blob kapsayıcı var olan bir bağlama varsa Evet <br/>  Küme oluşturma sırasında yeni bir Blob kapsayıcısı oluşturma, Hayır | Var olan Blob kapsayıcı boş olmalıdır <br/> &nbsp; |
@@ -74,9 +74,9 @@ Küme düğümleri önbelleğinizin istek aktarım hızı ve depolama kapasitesi
 
 Her vFXT düğüm aynı olacaktır. Diğer bir deyişle, üç düğümlü bir küme oluşturursanız, aynı türde ve size üç VM gerekir. 
 
-| Örnek türü | vCPU sayısı | Bellek  | Yerel SSD depolama  | Maksimum veri diskleri | Önbelleğe alınmamış disk aktarım hızı | NIC (sayı) |
+| Örnek türü | Vcpu | Bellek  | Yerel SSD depolama  | Maksimum veri diskleri | Önbelleğe alınmamış disk aktarım hızı | NIC (sayı) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51.200 IOPS <br/> 768 MB/sn | 16.000 MB/sn (8)  |
+| Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51\.200 IOPS <br/> 768 MB/sn | 16\.000 MB/sn (8)  |
 
 Düğüm başına disk önbellek yapılandırılabilir ve 1000 GB ile 8000 GB rage. Düğüm başına 4 TB Standard_E32s_v3 düğümler için önerilen önbellek boyutudur.
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
 ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60336783"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Bilişsel hizmetler isteklerine kimlik doğrulaması
@@ -34,7 +34,7 @@ Abonelik anahtarınızı alabilirsiniz [Azure portalında](cognitive-services-ap
 
 Hızlı bir şekilde Azure Bilişsel hizmetler ile kullanmak için kullanılabilir kimlik doğrulama üst bilgileri gözden geçirelim.
 
-| Üst bilgi | Açıklama |
+| Üstbilgi | Açıklama |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Belirli bir hizmet için bir abonelik anahtarı veya bir hizmet birden çok abonelik anahtarı ile kimlik doğrulaması için bu üstbilgiyi kullanır. |
 | Ocp-Apim-abonelik-bölge | Bu üst bilgi amaçlıdır bir hizmet birden çok abonelik anahtarı ile kullanırken gerekli [Translator Text API](./Translator/reference/v3-0-reference.md). Abonelik bölgeyi belirtmek için bu üstbilgiyi kullanır. |
@@ -161,5 +161,5 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Bilişsel Hizmetler nedir?](welcome.md)
-* [Bilişsel hizmetler fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/)
+* [Bilişsel Hizmetler fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/)
 * [Hesap oluşturma](cognitive-services-apis-create-account.md)

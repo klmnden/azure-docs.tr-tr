@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: e662e61a9df45cf3d57d5698337a26b7b8fc55a3
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349748"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60605466"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Dışarı aktarma veya özel görüntü işleme kullanıcı verilerini silme
 
@@ -25,7 +25,7 @@ ms.locfileid: "58349748"
 
 Dışarı aktarma ve özel görüntü işleme kullanıcı verilerini silmek öğrenmek için aşağıdaki tabloya bakın.
 
-| Veriler | Dışarı aktarma işlemi | İşlemi Siler |
+| Veriler | Dışarı aktarma işlemi | Silme işlemi |
 | ---- | ---------------- | ---------------- |
 | Hesap bilgileri (Abonelik anahtarları) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Azure portal (Azure abonelikleri) kullanarak silin. Veya "Hesabınızı Sil" düğmesini kullanarak CustomVision.ai Ayarları sayfasından (Microsoft hesabı abonelikleri) | 
 | Yineleme ayrıntılarını | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |

@@ -3,20 +3,21 @@ title: Azure Traffic Manager'da çok değerli trafik yönlendirme yöntemini yap
 description: Bu makalede, trafiği yönlendirmek için A/AAAA uç noktaları Traffic Manager yapılandırma açıklanmaktadır.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: kumud
-ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: allensu
+ms.openlocfilehash: 5db8e2932a43a2d6c6cb8a99c4f32b37a4a5a3f8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050913"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Trafik Yöneticisi'nde çoklu değer yönlendirme yöntemini yapılandırma
 
@@ -27,7 +28,7 @@ Bu makalede, çoklu değer trafik yönlendirme yöntemini yapılandırma açıkl
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma 
 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 Traffic Manager profili için bir kaynak grubu oluşturun.
 1. Azure portalında sol bölmesinde seçin **kaynak grupları**.
@@ -46,7 +47,7 @@ En düşük gecikme süresine uç noktaya göndererek kullanıcı trafiği yönl
     | Yönlendirme yöntemi          | Seçin **birden çok değerli** yönlendirme yöntemi.                                       |
     | Abonelik            | Aboneliğinizi seçin.                          |
     | Kaynak grubu          | Seçin *myResourceGroupTM1*. |
-    | Konum                | Bu ayar, kaynak grubunun konumunu ifade eder ve genel olarak dağıtılacak Traffic Manager profilini etkilemez.                              |
+    | Location                | Bu ayar, kaynak grubunun konumunu ifade eder ve genel olarak dağıtılacak Traffic Manager profilini etkilemez.                              |
    |        |           | 
   
    ![Traffic Manager profili oluşturma](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
@@ -61,7 +62,7 @@ En düşük gecikme süresine uç noktaya göndererek kullanıcı trafiği yönl
 
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
-    | Type                    | Harici uç nokta                                   |
+    | Tür                    | Dış uç noktası                                   |
     | Ad           | myEndpoint1                                        |
     | Tam etki alanı adı (FQDN) veya IP           | Bu Traffic Manager profiline eklemek istediğiniz uç noktaya genel IP adresini yazın                         |
     |        |           |

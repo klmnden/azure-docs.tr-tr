@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288552"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>PIM'de Azure AD rolleri güvenlik uyarılarını yapılandırma
@@ -74,7 +74,7 @@ Bu bölümde, nasıl düzeltileceğini ve engelleme ile birlikte Azure AD roller
 | **Nasıl?** | Hesapları listesinde gözden geçirin. Bunlar artık erişime ihtiyacınız varsa bunları kendi ayrıcalıklı rollerini kaldırın. |
 | **Önleme** | Parolayı biliyor kullanıcılar bir değişiklik olduğunda paylaşılan hesapları güçlü parolalar döndürme emin olun. </br>Hesapları kullanarak ayrıcalıklı rolleri ile düzenli olarak gözden [erişim gözden geçirmeleriyle](pim-how-to-start-security-review.md) ve artık gerekmeyen rol atamalarını kaldırın. |
 | **Portal risk azaltma eylemi** | Hesabı, ayrıcalıklı rolünden kaldırır. |
-| **En iyi uygulamalar** | , Hizmet, paylaşılan ve bir parola kullanarak kimlik doğrulaması ve genel yönetici veya Güvenlik Yöneticisi gibi yüksek ayrıcalıklı yönetici rollerine atanan Acil Durum erişim hesapları için aşağıdaki durumlarda Döndürülmüş parolalarını sahip olmalıdır:<ul><li>Kötüye kullanım veya yönetimsel erişim hakları'nın güvenliğinin içeren bir güvenlik olayı sonra</li><li>Bunlar artık yönetici (bir BT yöneticisi bırakır oluştu veya kuruluştan ayrılması Örneğin, bir çalışanın sonra), böylece herhangi bir kullanıcının ayrıcalıkları değiştikten</li><li>Düzenli aralıklarla (örneğin, üç aylık veya yıllık), bilinen ihlalinden ya da değişiklik olduysa bile BT personel</li></ul>Birden çok kişi bu hesapların kimlik bilgilerine erişiminiz olduğundan, kendi rolleri bıraktıysanız kişiler hesapları artık erişebildiğinden emin olmak için kimlik bilgilerini döndürülmesi gereken. [Daha fazla bilgi](https://aka.ms/breakglass) |
+| **En iyi uygulamalar** | , Hizmet, paylaşılan ve bir parola kullanarak kimlik doğrulaması ve genel yönetici veya Güvenlik Yöneticisi gibi yüksek ayrıcalıklı yönetici rollerine atanan Acil Durum erişim hesapları için aşağıdaki durumlarda Döndürülmüş parolalarını sahip olmalıdır:<ul><li>Kötüye kullanım veya yönetimsel erişim hakları'nın güvenliğinin içeren bir güvenlik olayı sonra</li><li>Bunlar artık yönetici (bir BT yöneticisi bırakır oluştu veya kuruluştan ayrılması Örneğin, bir çalışanın sonra), böylece herhangi bir kullanıcının ayrıcalıkları değiştikten</li><li>Düzenli aralıklarla (örneğin, üç aylık veya yıllık), bilinen ihlalinden ya da değişiklik olduysa bile BT personel</li></ul>Birden çok kişi bu hesapların kimlik bilgilerine erişiminiz olduğundan, kendi rolleri bıraktıysanız kişiler hesapları artık erişebildiğinden emin olmak için kimlik bilgilerini döndürülmesi gereken. [Daha fazla bilgi edinin](https://aka.ms/breakglass) |
 
 ### <a name="roles-are-being-assigned-outside-of-pim"></a>PIM dışında rolleri atanmış
 
@@ -126,7 +126,7 @@ Güvenlik Uyarıları ortamınız ve Güvenlik amaçları ile çalışmak için 
 
 1. Bu uyarının ayarı yapılandırmak için bir uyarı adına tıklayın.
 
-    ![Güvenlik uyarısı ayarları](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![Güvenlik Uyarısı Ayarları](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

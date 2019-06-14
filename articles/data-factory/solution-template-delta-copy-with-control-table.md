@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.openlocfilehash: c32592ce539eeb2dec71792e4a6eb31e7d904eff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312516"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Veritabanı denetim tablosu ile Delta kopya
@@ -102,13 +102,13 @@ Bu şablon, önce eski eşik değerini alır ve geçerli eşik değeri ile karş
 
 7. Seçin **bu şablonu kullan**.
 
-     ![Bu şablonu kullan](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
+     ![Bu şablonu kullanın.](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
 8. Aşağıdaki örnekte gösterildiği gibi kullanılabilir işlem hattı bakın:
 
      ![İşlem hattı gözden geçirin](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. Seçin **saklı yordamı**. İçin **saklı yordam adı**, seçin **[update_watermark]**. Seçin **parametreyi içeri aktar**ve ardından **dinamik içerik Ekle**.  
+9. Seçin **saklı yordamı**. İçin **saklı yordam adı**, seçin **[update_watermark]** . Seçin **parametreyi içeri aktar**ve ardından **dinamik içerik Ekle**.  
 
      ![Saklı yordam etkinliği ayarlayın](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
 

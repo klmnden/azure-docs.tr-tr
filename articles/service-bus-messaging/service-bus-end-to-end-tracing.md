@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311021"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Dağıtılmış izleme ve Service Bus mesajlaşması ile bağıntı
@@ -139,7 +139,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 Bu örnekte, dinleyici süresi, sonuç, benzersiz tanımlayıcı ve her Service Bus işlemi için başlangıç saati günlüğe kaydeder.
 
-#### <a name="events"></a>Olaylar
+#### <a name="events"></a>Events
 
 Her işlem için iki olay gönderilir: 'Start' ve 'Stop'. En büyük olasılıkla, yalnızca 'Stop' olayları ilgilendiğiniz. Bunlar işleminin sonucu sağlayın, hem de bir etkinlik özellikleri başlangıç saati ve süreyi.
 
@@ -153,7 +153,7 @@ Her 'Stop' olayının `Status` özelliğiyle `TaskStatus` zaman uyumsuz işlemi 
 
 İzleme eklenmiş operations tam listesi aşağıda verilmiştir:
 
-| İşlem Adı | İzlenen API | Belirli yükü özellikleri|
+| İşlem adı | İzlenen API | Belirli yükü özellikleri|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` -Gönderilen iletilerin listesi |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` -İşlenen ileti<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` -Zamanlanmış iletileri uzaklığı<br/>`long SequenceNumber` -Zamanlanmış iletileri (olay yükü 'Stop') seri numarası |

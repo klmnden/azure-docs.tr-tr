@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245486"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect eşitleme: Kullanıcıları, grupları ve kişileri anlama
@@ -47,7 +47,7 @@ Gruplar Active Directory'den Azure AD'ye eşitleme yaparken dikkat edilmesi gere
 
     * Varsa grup *proxyAddress* özniteliktir boş, kendi *posta* öznitelik değerine sahip olmalıdır
 
-    * Varsa grup *proxyAddress* özniteliktir boş olmayan, en az bir SMTP proxy adresi değeri içermelidir. İşte bazı örnekler:
+    * Varsa grup *proxyAddress* özniteliktir boş olmayan, en az bir SMTP proxy adresi değeri içermelidir. Bazı örnekler şunlardır:
     
       * Olan proxyAddress özniteliği değerine sahip bir Active Directory grubu *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* Azure AD'de posta etkin olmayacaktır. Bir SMTP adresi yok.
       

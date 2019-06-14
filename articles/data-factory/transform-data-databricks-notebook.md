@@ -13,10 +13,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311674"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Bir Databricks not defteri çalıştırarak verileri dönüştürme
@@ -59,9 +59,9 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 
 |Özellik|Açıklama|Gerekli|
 |---|---|---|
-|ad|İşlem hattındaki bir etkinliğin adı.|Evet|
-|açıklama|Etkinliğin ne yaptığını açıklayan metin.|Hayır|
-|type|Databricks not defteri etkinliği için etkinlik DatabricksNotebook türüdür.|Evet|
+|name|İşlem hattındaki bir etkinliğin adı.|Evet|
+|description|Etkinliğin ne yaptığını açıklayan metin.|Hayır|
+|türü|Databricks not defteri etkinliği için etkinlik DatabricksNotebook türüdür.|Evet|
 |linkedServiceName|Databricks bağlı Databricks not defteri çalıştığı hizmetin adı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.|Evet|
 |notebookPath|Databricks çalışma alanınızda çalıştırılması için Not defterini mutlak yolu. Bu yol, eğik çizgi ile başlamalıdır.|Evet|
 |baseParameters|Anahtar-değer çiftleri dizisi. Temel parametreleri her etkinlik için kullanılabilir. Not defterini belirtilmemiş bir parametre alırsa, not defterindeki varsayılan değer kullanılır. Parametreler hakkında daha fazla bilgi edinin [Databricks not defterlerini](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Hayır|

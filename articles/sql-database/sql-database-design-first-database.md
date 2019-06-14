@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: a13d1f843604025ee0f843c0770b3d11b53dd837
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fc3b1cdfee76bbee7676170fa69a1c53a495dc53
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762872"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051131"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Öğretici: SSMS kullanarak Azure SQL veritabanı içinde tek bir veritabanında ilişkisel veritabanı tasarlama
 
@@ -29,7 +29,7 @@ Azure SQL veritabanı, bir ilişkisel veritabanı olarak-hizmet (DBaaS), Microso
 > - BCP ile toplu veri yükleme
 > - SSMS ile veri sorgulama
 
-* Azure aboneliğiniz yoksa, [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/) başlamadan önce.
+\* Azure aboneliğiniz yoksa, [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/) başlamadan önce.
 
 > [!NOTE]
 > Bu öğreticinin amaçları doğrultusunda, tek bir veritabanını kullanıyoruz. Ayrıca, bir elastik havuzdaki havuza alınmış bir veritabanı veya yönetilen bir örneği bir örneği veritabanında da kullanabilirsiniz. Yönetilen örnek bağlantı için bu yönetilen örnek hızlı başlangıçlara bakın: [Hızlı Başlangıç: Bir Azure SQL veritabanı yönetilen örneğine bağlanmak için Azure VM yapılandırma](sql-database-managed-instance-configure-vm.md) ve [hızlı başlangıç: Noktadan siteye bağlantı, şirket içinden Azure SQL veritabanı yönetilen örneği için yapılandırma](sql-database-managed-instance-configure-p2s.md).
@@ -117,7 +117,7 @@ IP adresiniz, artık IP Güvenlik Duvarı üzerinden geçirebilirsiniz. Artık S
 > [!IMPORTANT]
 > Varsayılan olarak, SQL veritabanı IP Güvenlik Duvarı üzerinden erişim tüm Azure Hizmetleri için etkindir. Tüm Azure hizmetleri için devre dışı bırakmak isterseniz bu sayfadaki **KAPALI** öğesine tıklayın.
 
-## <a name="connect-to-the-database"></a>Veritabanı'na bağlanma
+## <a name="connect-to-the-database"></a>Veritabanına bağlanın
 
 Kullanım [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) veritabanınızı tek bir bağlantı kurmak için.
 
@@ -227,10 +227,10 @@ Aşağıdaki diyagramda bu tabloların birbirleriyle nasıl ilişkili olduğu g�
 4. İçin değerleri değiştirerek tablolara örnek veriler eklemek için aşağıdaki komutları yürütün *sunucu*, *veritabanı*, *kullanıcı*, ve *parola* ortamınız için değerlerle.
 
    ```cmd
-   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 Daha önce oluşturduğunuz tablolara örnek veriler yüklediniz.

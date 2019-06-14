@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400613"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
@@ -108,7 +108,7 @@ SASL DÜZ AMQP ile kullanırken, bir IOT hub'ına bağlanan bir istemci her TCP 
 
 ## <a name="scope-iot-hub-level-credentials"></a>IOT hub'ı düzeyinde kimlik kapsamı
 
-Kısıtlanmış bir kaynak URI'si ile belirteçleri oluşturarak IOT hub'ı düzeyinde güvenlik ilkelerinin kapsamını belirleyebilirsiniz. Örneğin, bir CİHAZDAN CİHAZDAN buluta iletileri göndermeye uç noktadır **/devices/ {DeviceID} / iletiler/olaylar**. Bir IOT hub'ı düzeyinde paylaşılan erişim ilkesi ile de kullanabileceğiniz **DeviceConnect** , resourceURI olan bir belirteç imzalamak için izinleri **/devices/ {DeviceID}**. Bu yaklaşım, yalnızca cihaz adına bir ileti göndermek için kullanılabilen bir belirteç oluşturur **DeviceID**.
+Kısıtlanmış bir kaynak URI'si ile belirteçleri oluşturarak IOT hub'ı düzeyinde güvenlik ilkelerinin kapsamını belirleyebilirsiniz. Örneğin, bir CİHAZDAN CİHAZDAN buluta iletileri göndermeye uç noktadır **/devices/ {DeviceID} / iletiler/olaylar**. Bir IOT hub'ı düzeyinde paylaşılan erişim ilkesi ile de kullanabileceğiniz **DeviceConnect** , resourceURI olan bir belirteç imzalamak için izinleri **/devices/ {DeviceID}** . Bu yaklaşım, yalnızca cihaz adına bir ileti göndermek için kullanılabilen bir belirteç oluşturur **DeviceID**.
 
 Bu mekanizma benzer [Event Hubs Yayımcı ilkesi](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab)ve özel kimlik doğrulama yöntemleri sağlar.
 
@@ -242,7 +242,7 @@ Tasarım ile ön uç üzerinde cihazlardan erişilebilen tüm işlevselliği kul
 
 (Bağımsız olarak Protokolü) cihaz'e yönelik uç noktalar şunlardır:
 
-| Uç Nokta | İşlev |
+| Uç Nokta | İşlevi |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |CİHAZDAN buluta iletileri gönderir. |
 | `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Bulut-cihaz iletilerini alır. |
@@ -314,7 +314,7 @@ Hizmet bileşenleri, yalnızca güvenlik belirteçleri kullanarak daha önce aç
 
 Bitiş noktası kullanıma sunulan hizmet işlevleri şunlardır:
 
-| Uç Nokta | İşlev |
+| Uç Nokta | İşlevi |
 | --- | --- |
 | `{iot hub host name}/devices` |Oluşturma, güncelleştirme, alma ve cihaz kimliklerini silme. |
 | `{iot hub host name}/messages/events` |CİHAZDAN buluta iletiler alır. |

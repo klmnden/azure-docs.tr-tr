@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 565e1bf7a4972e230b3cf56232ebd24519fcab5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60525860"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı sunucusu kavramları
@@ -41,7 +41,7 @@ Aşağıdaki öğeleri veritabanınıza güvenli erişim sağlayın.
 |     |     |
 | :-- | :-- |
 | **Kimlik doğrulama ve yetkilendirme** | MySQL sunucusu için Azure veritabanı, yerel MySQL kimlik doğrulamasını destekler. Bağlanın ve Sunucu Yöneticisi oturum açma sunucusuyla kimlik doğrulaması. |
-| **Protokol** | Hizmet, MySQL tarafından kullanılan bir ileti tabanlı iletişim kuralı destekler. |
+| **Protokolü** | Hizmet, MySQL tarafından kullanılan bir ileti tabanlı iletişim kuralı destekler. |
 | **TCP/IP** | Protokol, TCP/IP üzerinde ve UNIX etki alanı Yuva üzerinden desteklenir. |
 | **Güvenlik duvarı** | Hangi bilgisayarların izinli olduğunu belirtmenize kadar verilerinizi korumak için bir güvenlik duvarı kuralı tüm erişim veritabanı sunucunuza engeller. Bkz: [MySQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md). |
 | **SSL** | Hizmet, uygulamalarınız ve veritabanı sunucunuz arasında zorunlu SSL bağlantılarını destekler.  Bkz. [MySQL için Azure Veritabanına güvenli bir şekilde bağlanmak üzere uygulamanızda SSL bağlantısı yapılandırma](./howto-configure-ssl.md). |

@@ -18,10 +18,10 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77cf89b7697b7b6b08dead34339ae50dbba8518
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296325"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Ayarlar ve veri dolaşımı hakkında SSS
@@ -76,7 +76,7 @@ Windows 10 Kasım 2015 veya üzeri sürümlerde, Kurumsal durumda Dolaşım yaln
 Birden çok Azure AD'yi farklı hesaplarını Azure AD kiracılarıyla aynı cihazda, her Azure AD kiracısı için Azure Rights Management hizmeti ile iletişim kurmak için cihaz kayıt defterini güncelleştirmeniz gerekir.  
 
 1. Her Azure AD kiracınız için GUID'i bulun. Azure portalını açın ve Azure AD kiracısı seçin. Kiracı için Özellikler sayfasında seçilen Kiracı için GUID'dir (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), etiketlenmiş **dizin kimliği**. 
-2. GUID sonra kayıt defteri anahtarını eklemeniz gerekecektir **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<Kiracı kimliği GUID >**.
+2. GUID sonra kayıt defteri anahtarını eklemeniz gerekecektir **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<Kiracı kimliği GUID >** .
    Gelen **Kiracı kimliği GUID** anahtar, adlı yeni Çoklu dize değeri (REG çoklu SZ) oluşturma **AllowedRMSServerUrls**. Verileri için cihaz erişen diğer Azure kiracılar lisans dağıtım noktası URL'leri belirtin.
 3. Lisans dağıtım noktası URL'lerini çalıştırarak bulabilirsiniz **Get-AadrmConfiguration** AADRM modülünden cmdlet'i. Varsa değerlerini **Licensingıntranetdistributionpointurl** ve **LicensingExtranetDistributionPointUrl** farklıysa, her iki değeri belirtin. Değerler aynıysa değeri yalnızca bir kez belirtin.
 

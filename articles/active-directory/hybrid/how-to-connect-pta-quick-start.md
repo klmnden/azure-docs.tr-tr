@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243610"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory geçişli kimlik doğrulaması: Hızlı başlangıç
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) geçişli kimlik doğrulaması sayesinde kulla
 
 Kiracınızda geçişli kimlik doğrulaması dağıtmak için aşağıdaki yönergeleri izleyin:
 
-## <a name="step-1-check-the-prerequisites"></a>1. Adım: Önkoşulları denetleme
+## <a name="step-1-check-the-prerequisites"></a>1\. adım: Önkoşulları denetleme
 
 Aşağıdaki önkoşulların yerinde olduğundan emin olun.
 
@@ -70,7 +70,7 @@ Aşağıdaki önkoşulların yerinde olduğundan emin olun.
    - Kimlik doğrulama aracılarının erişmesi **login.windows.net** ve **login.microsoftonline.com** ilk kayıt için. Bu URL'ler için Güvenlik Duvarı'nı açın.
    - Sertifika doğrulaması için aşağıdaki URL'ler engellemesini: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, ve **www \.microsoft.com:80**. Bu URL'ler, diğer Microsoft ürünleri ile sertifika doğrulama için kullanıldığından bu zaten URL'leri engeli kaldırılmış olabilir.
 
-## <a name="step-2-enable-the-feature"></a>2. Adım: Özellik etkinleştirme
+## <a name="step-2-enable-the-feature"></a>2\. adım: Özellik etkinleştirme
 
 Geçişli kimlik doğrulaması aracılığıyla etkinleştirme [Azure AD Connect](whatis-hybrid-identity.md).
 
@@ -83,12 +83,12 @@ Azure AD Connect ilk kez yüklüyorsanız, seçin [özel bir yükleme yolu](how-
 
 Zaten Azure AD Connect kullanarak yüklediyseniz [hızlı yükleme](how-to-connect-install-express.md) veya [özel yükleme](how-to-connect-install-custom.md) yolunu seçin **değiştirme kullanıcı oturum açma** Azure AD'de görevi Bağlanmak ve ardından **sonraki**. Ardından **geçişli kimlik doğrulaması** oturum açma yöntemi olarak. Başarıyla tamamlandığında, geçişli kimlik doğrulaması Aracısı, Azure AD Connect ile aynı sunucuda yüklü ve kiracınızda özelliği etkinleştirilir.
 
-![Azure AD Connect: Kullanıcı oturumunu değiştir](./media/how-to-connect-pta-quick-start/changeusersignin.png)
+![Azure AD Connect: Kullanıcı oturum açma](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
 >Geçişli kimlik doğrulaması, bir kiracı düzeyinde özelliğidir. Oturum açmak için kullanıcılar arasında etkiler üzerinde kapatma _tüm_ kiracınızdaki yönetilen etki alanları. Geçişli kimlik doğrulaması için Active Directory Federasyon Hizmetleri (AD FS) geçiş yapıyorsanız, AD FS altyapınızı kapatmadan önce en az 12 saat beklemeniz gerekir. Bu bekleme süresi, kullanıcılar için Exchange ActiveSync geçiş sırasında oturum açarken tutmak, sağlamaktır. AD FS'den doğrudan kimlik doğrulamaya geçiş ile ilgili daha fazla yardım için yayımlanan ayrıntılı dağıtım planımız denetleyin [burada](https://aka.ms/adfstoptadpdownload).
 
-## <a name="step-3-test-the-feature"></a>3. Adım: Bu özelliği sınama
+## <a name="step-3-test-the-feature"></a>3\. adım: Bu özelliği sınama
 
 Geçişli kimlik doğrulaması doğru şekilde etkinleştirdiğinizden emin doğrulamak için aşağıdaki yönergeleri izleyin:
 
@@ -104,7 +104,7 @@ Geçişli kimlik doğrulaması doğru şekilde etkinleştirdiğinizden emin doğ
 
 Bu aşamada, geçişli kimlik doğrulaması kullanarak, kiracınızdaki tüm yönetilen etki alanlarındaki kullanıcılar oturum açabilir. Ancak, Federasyon etki alanlarındaki kullanıcılar AD FS veya daha önce yapılandırmış olduğunuz başka bir Federasyon sağlayıcısı kullanarak oturum açmak devam edin. Yönetilen Federasyon oluşturan etki alanından dönüştürürseniz, geçişli kimlik doğrulaması kullanarak oturum açarken bu etki alanındaki tüm kullanıcıları otomatik olarak başlatın. Geçişli kimlik doğrulaması özelliği yalnızca bulut kullanıcılarına etkilemez.
 
-## <a name="step-4-ensure-high-availability"></a>4. Adım: Yüksek kullanılabilirlik sağlayın
+## <a name="step-4-ensure-high-availability"></a>4\. Adım: Yüksek kullanılabilirlik sağlayın
 
 Geçişli kimlik doğrulaması, bir üretim ortamına dağıtmayı planlıyorsanız, ek bir tek başına kimlik doğrulama aracılarının yüklemeniz gerekir. Bu kimlik doğrulama Aracısı sunucularında yükleme _diğer_ bir çalışan Azure AD connect'ten. Bu ayar, kullanıcı oturum açma istekleri için yüksek kullanılabilirlik sağlar.
 
@@ -140,7 +140,7 @@ Tek başına bir kimlik doğrulama Aracısı dağıtmak için iki yolu vardır:
 İkinci olarak, oluşturma ve katılımsız dağıtım betiğini çalıştırın. Aynı anda birden çok kimlik doğrulama aracılarının dağıtın veya kimlik doğrulama aracılarının, etkin kullanıcı arabirimi yoksa veya Uzak Masaüstü ile erişemiyor Windows sunucuları yüklemek istediğinizde bu kullanışlıdır. Bu yaklaşımı kullanmak yönergeler şunlardır:
 
 1. Bir kimlik doğrulama aracısı yüklemek için aşağıdaki komutu çalıştırın: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. Kimlik Doğrulama Aracısı hizmetimiz ile Windows PowerShell kullanarak kaydedebilirsiniz. Bir PowerShell kimlik bilgileri nesnesi oluşturma `$cred` kiracınız için genel yönetici kullanıcı adı ve parola içeren. Aşağıdaki komutu çalıştırın değiştirerek *\<kullanıcıadı\>* ve  *\<parola\>*:
+2. Kimlik Doğrulama Aracısı hizmetimiz ile Windows PowerShell kullanarak kaydedebilirsiniz. Bir PowerShell kimlik bilgileri nesnesi oluşturma `$cred` kiracınız için genel yönetici kullanıcı adı ve parola içeren. Aşağıdaki komutu çalıştırın değiştirerek *\<kullanıcıadı\>* ve  *\<parola\>* :
 
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -153,7 +153,7 @@ Tek başına bir kimlik doğrulama Aracısı dağıtmak için iki yolu vardır:
 >[!IMPORTANT]
 >Bir kimlik doğrulama Aracısı sanal makinede yüklü değilse sanal makinenin başka bir kimlik doğrulama Aracısı Kurulum kopyalanamıyor. Bu yöntem **desteklenmeyen**.
 
-## <a name="step-5-configure-smart-lockout-capability"></a>5. Adım: Akıllı kilitleme özelliğini yapılandırma
+## <a name="step-5-configure-smart-lockout-capability"></a>5\. Adım: Akıllı kilitleme özelliğini yapılandırma
 
 Akıllı kilitleme kötü aktörleri kullanıcılarınızın parolaları tahmin çalışan kilitleme veya almak için deneme yanılma yöntemlerle yardımcı olur. Active Directory ulaşmadan önce şirket içi Active Directory'de Azure AD'de ayarları akıllı kilitleme ve / veya uygun kilitleme ayarlarını yapılandırarak saldırıları filtrelenebilen. Okuma [bu makalede](../authentication/howto-password-smart-lockout.md) kiracınızda kullanıcı hesaplarınızı korumak için akıllı kilitleme ayarlarını yapılandırma hakkında daha fazla bilgi için.
 

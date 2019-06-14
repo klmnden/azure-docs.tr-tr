@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610494"
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenliğine giriş
@@ -140,7 +140,7 @@ Etkinleştirmek veya günlükleri aşağıdaki türde devre dışı bırakabilir
 
 -   Web sunucusu günlüğü - HTTP işlemlerini W3C Genişletilmiş günlük dosyası biçimini kullanarak hakkında bilgi Bu, işlenen isteklerin veya özel bir IP adresinden kaç isteklerdir sayısı gibi genel site ölçümleri belirlerken kullanışlıdır.
 
-#### <a name="application-diagnostics"></a>Uygulama tanılamaları
+#### <a name="application-diagnostics"></a>Uygulama tanılama
 [Uygulama tanılama](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) bir web uygulaması tarafından üretilen bilgileri yakalamanıza olanak sağlar. ASP.NET uygulamalarında kullanabileceğiniz [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) uygulama tanılama günlüğüne bilgileri günlüğe kaydetmek için sınıf. Uygulama Tanılama'da olayları, uygulama performansı ile ilgili ve uygulama arızaları ve hataları ile ilgili başlıca iki türde vardır. Arızalar ve hatalar ayrılabilir daha ayrıntılı bağlantı, güvenlik ve arıza sorunları. Arıza sorunları, genellikle uygulama kodundaki bir sorunla ilgilidir.
 
 Uygulama Tanılama'da bu şekilde gruplandırılmış olayları görebilirsiniz:
@@ -155,7 +155,7 @@ Bu bölümde Azure depolama güvenlik ve Özet bilgilerini bu özellikleri hakk�
 ### <a name="role-based-access-control-rbac"></a>Rol Tabanlı Erişim Denetimi (RBAC)
 Rol tabanlı erişim denetimi (RBAC) ile depolama hesabınızın güvenliğini sağlayabilirsiniz. Erişimi kısıtlama temel alarak [bilmeniz gereken](https://en.wikipedia.org/wiki/Need_to_know) ve [en az ayrıcalık](https://en.wikipedia.org/wiki/Principle_of_least_privilege) güvenlik ilkeleri, veri erişimi için güvenlik ilkelerini zorlamak istediğinizde kuruluşlar için zorunlu. Bu erişim hakları, gruplara ve uygulamalara belirli bir kapsama uygun RBAC rolü atanarak verilir. Kullanabileceğiniz [yerleşik RBAC rolleri](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles), ayrıcalıkları kullanıcılara atamak için depolama hesabı katılımcısı gibi. Depolama erişim tuşlarını için bir depolama hesabıyla [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) modeli, rol tabanlı erişim denetimi (RBAC) denetlenebilir.
 
-### <a name="shared-access-signature"></a>Paylaşılan Erişim İmzası
+### <a name="shared-access-signature"></a>Paylaşılan erişim imzası
 [Paylaşılan erişim imzası (SAS)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1), depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. SAS, belirli bir süre için ve belirli bir izin kümesi ile bir istemci, depolama hesabınızdaki nesnelere sınırlı verebilirsiniz anlamına gelir. Hesap erişim anahtarlarınızı paylaşmak zorunda kalmadan bu sınırlı izinler verebilirsiniz.
 
 ### <a name="encryption-in-transit"></a>Aktarım sırasında şifreleme
@@ -234,7 +234,7 @@ Microsoft Azure [ExpressRoute](https://docs.microsoft.com/azure/expressroute/exp
 
 ![Express Route](./media/azure-security/azure-security-fig1.png)
 
-ExpressRoute ile Microsoft Azure, Office 365 ve CRM Online gibi Microsoft bulut hizmetlerine bağlantı kurabilirsiniz. Ortak yerleşim tesisinde bağlantı sağlayıcısı üzerinden herhangi bir ağdan herhangi bir ağa (IP VP), noktadan noktaya Ethernet ağı veya sanal çapraz bağlantısından bağlantı olabilir. 
+ExpressRoute ile Microsoft Azure, Office 365 ve CRM Online gibi Microsoft bulut hizmetlerine bağlantı kurabilirsiniz. Ortak yerleşim tesisinde bağlantı sağlayıcısı üzerinden herhangi bir ağdan herhangi bir ağa (IP VP), noktadan noktaya Ethernet ağı veya sanal çapraz bağlantısından bağlantı olabilir.
 
 ExpressRoute bağlantıları ortak Internet üzerinden geçmemektedir ve bu nedenle VPN tabanlı çözümler daha fazla güvenli kabul edilebilir. Bu, ExpressRoute bağlantılarına İnternet üzerindeki sıradan bağlantılara göre daha fazla güvenilirlik, yüksek hız, düşük gecikme ve normal bağlantılardan daha yüksek güvenlik sağlar.
 

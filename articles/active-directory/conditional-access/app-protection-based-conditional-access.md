@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60356070"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Koşullu erişim (Önizleme) ile bulut uygulaması erişimi için uygulama koruma İlkesi gerektirir.
@@ -111,7 +111,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
     ![Koşullu erişim](./media/app-protection-based-conditional-access/07.png)
 
-4. İçinde **koşullar**, yapılandırma **cihaz platformlarını** ve **istemci uygulamaları (Önizleme)**:
+4. İçinde **koşullar**, yapılandırma **cihaz platformlarını** ve **istemci uygulamaları (Önizleme)** :
 
     a. İçinde **cihaz platformlarını**seçin **Android** ve **iOS**.
 
@@ -141,7 +141,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
     ![Koşullu erişim](./media/app-protection-based-conditional-access/07.png)
 
-4. İçinde **koşullar**, yapılandırma **istemci uygulamaları (Önizleme)**. 
+4. İçinde **koşullar**, yapılandırma **istemci uygulamaları (Önizleme)** . 
 
     a. İçinde **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 
@@ -194,7 +194,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
      ![Koşullu erişim](./media/app-protection-based-conditional-access/07.png)
 
-4. İçinde **koşullar**, yapılandırma **cihaz platformlarını** ve **istemci uygulamaları (Önizleme)**. 
+4. İçinde **koşullar**, yapılandırma **cihaz platformlarını** ve **istemci uygulamaları (Önizleme)** . 
  
     a. İçinde **cihaz platformlarını**seçin **Android** ve **iOS**.
 
@@ -230,7 +230,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
     ![Koşullu erişim](./media/app-protection-based-conditional-access/07.png)
 
-4. İçinde **koşullar**, yapılandırma **istemci uygulamaları (Önizleme)**. 
+4. İçinde **koşullar**, yapılandırma **istemci uygulamaları (Önizleme)** . 
 
     İçinde **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 
@@ -296,7 +296,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
      ![Koşullu erişim](./media/app-protection-based-conditional-access/07.png)
 
-4. İçinde **koşullar**, yapılandırma **cihaz platformlarını** ve **istemci uygulamaları (Önizleme)**. 
+4. İçinde **koşullar**, yapılandırma **cihaz platformlarını** ve **istemci uygulamaları (Önizleme)** . 
  
     a. İçinde **cihaz platformlarını**seçin **Android** ve **iOS**.
 
@@ -332,7 +332,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
     ![Koşullu erişim](./media/app-protection-based-conditional-access/07.png)
 
-4. İçinde **koşullar**, yapılandırma **istemci uygulamaları (Önizleme)**. 
+4. İçinde **koşullar**, yapılandırma **istemci uygulamaları (Önizleme)** . 
 
     İçinde **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 
@@ -403,7 +403,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandır�
 
      ![Koşullu erişim](./media/app-protection-based-conditional-access/02.png)
 
-4. İçinde **koşullar**, yapılandırma **cihaz platformlarını** ve **istemci uygulamaları (Önizleme)**. 
+4. İçinde **koşullar**, yapılandırma **cihaz platformlarını** ve **istemci uygulamaları (Önizleme)** . 
  
     a. İçinde **cihaz platformlarını**seçin **Android** ve **iOS**.
 

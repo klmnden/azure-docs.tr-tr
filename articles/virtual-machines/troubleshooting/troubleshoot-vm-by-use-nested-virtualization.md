@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444366"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure'da iç içe sanallaştırma kullanarak Azure VM ilgili bir sorun giderme
@@ -35,7 +35,7 @@ VM sorun bağlamak için kurtarma VM aşağıdaki gereksinimleri karşılaması 
 
 -   Kurtarma VM, sorunlu VM aynı türde (standart veya Premium) depolama hesabı kullanmanız gerekir.
 
-## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>1. Adım: Kurtarma sanal makine oluşturma ve Hyper-V rolünü yükleme
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>1\. adım: Kurtarma sanal makine oluşturma ve Hyper-V rolünü yükleme
 
 1.  Yeni bir kurtarma sanal makine oluşturun:
 
@@ -71,7 +71,7 @@ VM sorun bağlamak için kurtarma VM aşağıdaki gereksinimleri karşılaması 
 
 13. Hyper-V rolünü yüklemek için sunucu izin verin. Bu işlem birkaç dakika sürer ve sunucu otomatik olarak yeniden başlatılır.
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>2. Adım: Kurtarma sanal makinenin Hyper-V sunucusunda sorunu VM oluşturma
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>2\. adım: Kurtarma sanal makinenin Hyper-V sunucusunda sorunu VM oluşturma
 
 1.  Sorunu VM disk adını kaydetmek ve VM sorun silin. Tüm bağlı diskleri tutmak olduğundan emin olun. 
 
@@ -116,13 +116,13 @@ VM sorun bağlamak için kurtarma VM aşağıdaki gereksinimleri karşılaması 
     ![görüntünün hakkında diskini bağlar](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
-17. **Uygula**’yı ve sonra **Tamam**’ı seçin.
+17. Seçin **Uygula**ve ardından **Tamam**.
 
 18. VM'de çift tıklayın ve sonra başlatın.
 
 19. Artık şirket içi VM olarak VM üzerinde çalışabilirsiniz. Gereksinim duyduğunuz herhangi bir sorun giderme adımları izleyebilirsiniz.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>3. Adım: Azure'da Azure VM yeniden oluşturma
+## <a name="step-3-re-create-your-azure-vm-in-azure"></a>3\. adım: Azure'da Azure VM yeniden oluşturma
 
 1.  VM çevrimiçine aldıktan sonra sanal Makineye Hyper-V Yöneticisi'ni kapatın.
 

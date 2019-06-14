@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.openlocfilehash: 387877efea4df30685fcf443a4d114c4feb66401
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60525716"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Ölçümler ile ilgili uyarılar için Azure veritabanı için MySQL ayarlamak için Azure portalını kullanma 
@@ -66,11 +66,11 @@ Yapılandırın ve uyarı kuralları kullanma hakkında bilgi edinin:
 
     Seçin **Tamam** tamamlandığında.
 
-    ![Eylem grubu](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![eylem grubu](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. Bir uyarı kuralı adını, açıklamasını ve önem derecesini belirtin.
 
-    ![Eylem grubu](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![eylem grubu](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. Seçin **uyarı kuralı oluştur** uyarı oluşturmak için.
 

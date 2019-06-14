@@ -16,10 +16,10 @@ ms.date: 04/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64edf2aa47211c1d2a598417a7b2edc00f260075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60321442"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Öğretici: ScaleX Enterprise ile Azure Active Directory Tümleştirmesi
@@ -60,7 +60,7 @@ Azure AD'ye ScaleX kuruluşta tümleştirmesini yapılandırmak için ScaleX Kur
 
 **Galeriden ScaleX kuruluş eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 

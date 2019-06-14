@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: aschhab
 ms.openlocfilehash: 0f9365b72da1cec81eed82756097d32b1d72ca71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307487"
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction söz dizimi
@@ -197,7 +197,7 @@ Boole sabit anahtar sözcüklere göre temsil edilir `TRUE` veya `FALSE`. Değer
   
 Dize sabitleri tek tırnak işaretleri içine alınır ve geçerli Unicode karakterlerini içerir. İki tek tırnak işareti gibi bir dize sabiti katıştırılmış tek tırnak işareti temsil edilir.  
   
-## <a name="function"></a>işlev  
+## <a name="function"></a>İşlevi  
   
 ```  
 <function> :=  

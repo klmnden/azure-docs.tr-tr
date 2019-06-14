@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60322242"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services olayları Azure Event Grid şemaları
@@ -131,7 +131,7 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | previousState | string | Olay önce iş durumu. |
-| durum | string | Bu durumda bildirilmesini işi yeni durumu. Örneğin, "zamanlandı: İşi başlatmak hazır"veya" tamamlandı: İş tamamlandı".|
+| state | string | Bu durumda bildirilmesini işi yeni durumu. Örneğin, "zamanlandı: İşi başlatmak hazır"veya" tamamlandı: İş tamamlandı".|
 
 Burada iş durumu değerlerden biri olabilir: *Kuyruğa Alınan*, *zamanlanmış*, *işleme*, *tamamlandı*, *hata*, *iptal*, *İptal ediliyor*
 
@@ -621,8 +621,8 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | DiscontinuityCount | integer | Son 20 saniye içinde gözlemlenen discontinuities sayısı. |
 | NonIncreasingCount | integer | Geçmişteki zaman damgalı veri öbeği sayısı son 20 saniye içinde alınmadı. |
 | UnexpectedBitrate | bool | Son 20 saniye cinsinden izin verilenden fazla sınırı tarafından beklenen ve gerçek bit hızlarına dönüştürme farklıysa. True ise ve yalnızca, incomingBitrate olan > = 2 * bit hızı veya incomingBitrate < = hızı/2 veya IncomingBitrate = 0. |
-| durum | string | Canlı etkinlik durumu. |
-| iyi durumda | bool | Belirtir olup olmadığını alma sayıları ve bayrakları göre kötü durumda. Sağlıklı true ise, overlapCount 0 = & & discontinuityCount 0 = & & nonIncreasingCount 0 = & & unexpectedBitrate = false. |
+| state | string | Canlı etkinlik durumu. |
+| İyi durumda | bool | Belirtir olup olmadığını alma sayıları ve bayrakları göre kötü durumda. Sağlıklı true ise, overlapCount 0 = & & discontinuityCount 0 = & & nonIncreasingCount 0 = & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -669,12 +669,12 @@ Bir olay aşağıdaki üst düzey veri vardır:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| konu başlığı | string | EventGrid konu. Bu özellik, Media Services hesabı kaynak kimliği vardır. |
-| konu | string | Media Services kanalın Media Services hesabı altında kaynak yolu. İş için kaynak kimliği konusu ve konu verin birleştiriliyor. |
-| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. Örneğin, "Microsoft.Media.JobStateChange". |
+| topic | string | EventGrid konu. Bu özellik, Media Services hesabı kaynak kimliği vardır. |
+| subject | string | Media Services kanalın Media Services hesabı altında kaynak yolu. İş için kaynak kimliği konusu ve konu verin birleştiriliyor. |
+| eventType | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. Örneğin, "Microsoft.Media.JobStateChange". |
 | eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
 | id | string | Olayın benzersiz tanımlayıcısı. |
-| veriler | object | Media Services olay verileri. |
+| data | object | Media Services olay verileri. |
 | dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 

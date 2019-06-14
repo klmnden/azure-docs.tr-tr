@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
 ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367362"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>IPSec aktarım modu için ExpressRoute özel eşlemesini yapılandırın
@@ -176,13 +176,13 @@ Hedef bağlantı noktası 8080'ile şifrelenmiş HTTP trafik belirten bir filtre
 7. Üzerinde **IP protokol türü** sayfasında **TCP**. Ardından **İleri**'ye tıklayın.
 
    [![30]][30]
-8. Üzerinde **IP protokolü bağlantı noktasını** sayfasında **herhangi bir bağlantı noktasından** ve **Bu bağlantı noktası:**. Tür **8080** metin kutusuna. Bu ayarlar, yalnızca HTTP trafiğini hedef bağlantı noktası 8080 üzerinde şifreleneceğini belirtir. Ardından **İleri**'ye tıklayın.
+8. Üzerinde **IP protokolü bağlantı noktasını** sayfasında **herhangi bir bağlantı noktasından** ve **Bu bağlantı noktası:** . Tür **8080** metin kutusuna. Bu ayarlar, yalnızca HTTP trafiğini hedef bağlantı noktası 8080 üzerinde şifreleneceğini belirtir. Ardından **İleri**'ye tıklayın.
 
    [![31]][31]
 9. IP filtre listesi görüntüleyin.  IP filtre listesi yapılandırmasını **azure şirket içi HTTP8080** aşağıdaki ölçütleri ile eşleşen tüm trafik için şifrelemeyi tetikleyen:
 
-   * 10.0.1.0/24 (Azure Subnet2) herhangi bir kaynak adresi
-   * 10.2.27.0/25 (şirket içi alt ağ) herhangi bir hedef adresi
+   * 10\.0.1.0/24 (Azure Subnet2) herhangi bir kaynak adresi
+   * 10\.2.27.0/25 (şirket içi alt ağ) herhangi bir hedef adresi
    * TCP Protokolü
    * Hedef bağlantı noktası 8080
 

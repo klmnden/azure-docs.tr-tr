@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347553"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect eşitleme hizmeti özellikleri
@@ -41,7 +41,7 @@ Bu ayarların çoğu, yalnızca Azure AD Connect tarafından değiştirilebilir.
 
 Aşağıdaki ayarları tarafından yapılandırılabilir `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Açıklama |
+| DirSyncFeature | Yorum |
 | --- | --- |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Birincil SMTP adresi yanı sıra userPrincipalName katılın nesnelerin sağlar. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |UserPrincipalName özniteliği (Federasyon olmayan) kullanıcıların yönetilen ve lisanslı güncelleştirmek eşitleme altyapısı sağlar. |
@@ -55,7 +55,7 @@ Bir özelliği etkinleştirdikten sonra onu tekrar devre dışı bırakılamaz.
 
 Aşağıdaki ayarlar, Azure AD Connect tarafından yapılandırılır ve tarafından değiştirilemez `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Açıklama |
+| DirSyncFeature | Yorum |
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: Cihaz geri yazma özelliğini etkinleştirme](how-to-connect-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect eşitlemesi: Dizin genişletmeleri](how-to-connect-sync-feature-directory-extensions.md) |

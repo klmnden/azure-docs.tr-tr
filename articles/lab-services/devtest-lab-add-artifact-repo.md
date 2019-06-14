@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311731"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Özel yapıtlar ve Resource Manager şablonları depolamak için bir Git deposu ekleme
@@ -54,7 +54,7 @@ Laboratuvarınız için bir depo eklemek için ilk olarak, deponuzdan anahtarı 
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Azure depolarda kopya URL'si ve kişisel erişim belirteci alma
 
-1. Takım koleksiyonunuzun giriş sayfasına gidin (örneğin, https://contoso-web-team.visualstudio.com)ve ardından projenizi seçin.
+1. Takım koleksiyonunuzun giriş sayfasına gidin (örneğin, https://contoso-web-team.visualstudio.com) ve ardından projenizi seçin.
 2. Proje giriş sayfasında **kod**.
 3. Kopya URL'si projede görüntülemek için **kod** sayfasında **kopya**.
 4. URL'yi kaydedin. Daha sonra URL'yi kullanın.
@@ -74,7 +74,7 @@ Laboratuvarınız için bir depo eklemek için ilk olarak, deponuzdan anahtarı 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 2. Seçin **diğer hizmetler**ve ardından **DevTest Labs** hizmetler listesinden.
 3. Laboratuvarınızı labs listesinden seçin. 
-4. Seçin **yapılandırması ve ilkelerini** > **depoları** > **+ Ekle**.
+4. Seçin **yapılandırması ve ilkelerini** > **depoları** >  **+ Ekle**.
 
     ![Depo Ekle düğmesi](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. İkinci **depoları** sayfasında, aşağıdaki bilgileri belirtin:

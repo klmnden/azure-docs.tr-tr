@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122652"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data factory'deki tümleştirme çalışma zamanı izleme  
@@ -73,7 +73,7 @@ Aşağıdaki tabloda, izleme özellikleri için açıklamalar verilmiştir **her
 | Ad | Şirket içinde barındırılan tümleştirme çalışma zamanı ve onunla ilişkili düğümü adı. Şirket içinde barındırılan tümleştirme çalışma zamanının yüklü olan bir şirket içi Windows makine düğümüdür. |  
 | Durum | Genel şirket içinde barındırılan tümleştirme çalışma zamanını ve her düğüm durumu. Örnek: Çevrimiçi/çevrimdışı/sınırlı/vb. Bu durumlar hakkında daha fazla bilgi için sonraki bölüme bakın. | 
 | Version | Şirket içinde barındırılan tümleştirme çalışma zamanı ve her düğüm sürümü. Şirket içinde barındırılan tümleştirme çalışma zamanı sürümü grubunda düğüm çoğunluğu sürümüne göre belirlenir. Şirket içinde barındırılan tümleştirme çalışma zamanı kurulumu ile ilgili farklı sürümlerini düğüm varsa, yalnızca mantıksal olarak aynı sürüm numarası ile tümleştirme çalışma zamanı işlevi düzgün bir şekilde şirket içinde barındırılan. Başkalarının sınırlı modundaki ve (yalnızca otomatik güncelleştirme başarısız olursa) el ile güncelleştirilmesi gerekir. | 
-| Uygun bellek | Şirket içinde barındırılan Integration runtime düğümü kullanılabilir bellek. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. | 
+| Kullanılabilir bellek | Şirket içinde barındırılan Integration runtime düğümü kullanılabilir bellek. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. | 
 | CPU kullanımı | Şirket içinde barındırılan Integration runtime düğümü, CPU kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. |
 | Ağ (daraltma/genişletme) | Şirket içinde barındırılan Integration runtime düğümü, ağ kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. | 
 | (Çalışan / sınırlama) eşzamanlı işleri | **Çalışan**. İşleri veya her bir düğümde çalışan görevler sayısı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. <br/><br/>**Sınırı**. Her düğüm için en fazla eşzamanlı iş sınırı belirtir. Bu değer, makine boyutuna bağlı olarak tanımlanır. Sınır CPU, bellek veya ağ altında kullanılan olsa bile çıkış etkinliklerini zamanlama sırasında eş zamanlı iş yürütme Gelişmiş senaryolarda ölçeğini artırabilirsiniz. Bu özellik, bir tek düğümlü şirket içinde barındırılan tümleştirme çalışma zamanı ile de kullanılabilir. |
@@ -96,9 +96,9 @@ Aşağıdaki tabloda, şirket içinde barındırılan tümleştirme çalışma z
 | ------ | ------------------ | 
 | Çevrimiçi | Düğüm bağlı Data Factory hizmetinde yayımlayın. |
 | Çevrimdışı | Düğümü çevrimdışı durumda. |
-| Yükseltiliyor | Düğüm, otomatik olarak güncelleştirilir. |
+| Yükseltme | Düğüm, otomatik olarak güncelleştirilir. |
 | Sınırlı | Bir bağlantı sorunundan kaynaklanıyor. HTTP bağlantı noktası 8050 sorunu, service bus bağlantı sorunu veya kimlik bilgisi eşitleme sorunu nedeniyle olabilir. |
-| Etkin Değil | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür. |
+| Etkin değil | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür. |
 
 Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir.
 
@@ -193,7 +193,7 @@ Azure-SSIS tümleştirme çalışma zamanı SSIS paketlerinizi çalıştırmaya 
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Durum (genel Azure-SSIS tümleştirme çalışma zamanı)
 
-| Tüm durum | Açıklama | 
+| Genel durum | Açıklama | 
 | -------------- | ----------- | 
 | İlk | Azure-SSIS Integration runtime düğümünde ayrılan ve hazırlanmış verilmemiş. | 
 | Başlatılıyor | Ayrılmış ve hazırlanan, Azure-SSIS tümleştirme çalışma zamanı düğümleri ve faturalandırma başlatıldı. |

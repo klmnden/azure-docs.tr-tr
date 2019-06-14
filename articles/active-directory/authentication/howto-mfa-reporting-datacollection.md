@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60359050"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure multi-Factor Authentication kullanıcı veri toplama
@@ -35,14 +35,14 @@ Kimlik doğrulama girişimlerini (Raporlama ve sorun giderme için kullanılır)
 - Ad
 - Soyadı
 - E-posta adresi
-- Kullanıcı Grubu
+- Kullanıcı grubu
 - Kimlik doğrulama yöntemini (telefon görüşmesi, metin iletisi, mobil uygulama, OATH belirteci)
 - Telefon araması modunu (standart, PIN)
 - SMS mesajı yönünü (tek yönlü, çift yönlü)
 - SMS mesajı modunu (OTP, OTP + PIN)
 - Mobil uygulama modunu (standart, PIN)
 - OATH belirteci modu (standart, PIN)
-- Kimlik Doğrulama Türü
+- Kimlik doğrulaması türü
 - Uygulama Adı
 - Birincil arama ülke kodu
 - Birincil arama telefon numarası
@@ -57,7 +57,7 @@ Kimlik doğrulama girişimlerini (Raporlama ve sorun giderme için kullanılır)
 - Genel kimlik doğrulaması
 - Genel sonucu
 - Sonuçlar
-- Kimliği Doğrulandı
+- Kimlik doğrulaması
 - Sonuç
 - IP adresi başlatılıyor
 - Cihazlar
@@ -78,7 +78,7 @@ Etkinleştirme (Microsoft Authenticator mobil uygulamasında bir hesabı etkinle
 - Etkinleştirme durumu sonucu
 - Cihaz adı
 - Cihaz Türü
-- Uyg Sürümü
+- Uygulama Sürümü
 - OATH belirtecinin etkin
 
 Bloklar (engellenmiş durumda belirlemek için kullanılan ve raporlama için):
@@ -86,13 +86,13 @@ Bloklar (engellenmiş durumda belirlemek için kullanılan ve raporlama için):
 - Blok zaman damgası
 - Kullanıcı adına göre engelle
 - Kullanıcı adı
-- Ülke Kodu
-- Telefon Numarası
+- Ülke kodu
+- Telefon numarası
 - Biçimlendirilmiş telefon numarası
 - Dahili numara
 - Temiz uzantısı
 - Engellendi
-- Engelleme Nedeni
+- Engelleme nedeni
 - Tamamlama zaman damgası
 - Tamamlama nedeni
 - Hesap Kilitli
@@ -103,15 +103,15 @@ Bloklar (engellenmiş durumda belirlemek için kullanılan ve raporlama için):
 Atlar (Raporlama için kullanılan):
 
 - Zaman damgası atlama
-- Atlama (Saniye)
+- Saniye cinsinden geçiş süresi
 - Kullanıcı adı tarafından atlama
 - Kullanıcı adı
-- Ülke Kodu
-- Telefon Numarası
+- Ülke kodu
+- Telefon numarası
 - Biçimlendirilmiş telefon numarası
 - Dahili numara
 - Temiz uzantısı
-- Atlama Nedeni
+- Bypass Reason
 - Tamamlama zaman damgası
 - Tamamlama nedeni
 - Kullanılan atlama
@@ -120,16 +120,16 @@ Değişiklikler (MFA sunucusu ya da AAD kullanıcı değişiklikleri eşitlemek 
 
 - Zaman damgası değiştirme
 - Kullanıcı adı
-- Yeni Ülke Kodu
-- Yeni Telefon Numarası
-- Yeni Dahili Numara
+- Yeni ülke kodu
+- Yeni telefon numarası
+- Yeni Uzantı yükle
 - Yeni yedek ülke kodu
 - Yeni yedek telefon numarası
 - Yeni yedekleme uzantısı
 - Yeni PIN
-- PIN Değişikliği Gerekiyor
+- PIN değişikliği gerekiyor
 - Eski cihaz belirteci
-- Yeni Cihaz Belirteci
+- Yeni cihaz belirteci
 
 ## <a name="gather-data-from-mfa-server"></a>MFA sunucudan veri toplayın
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
 ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254261"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Yığın üzerinde SQL Server'ı yedekleme
@@ -97,7 +97,7 @@ SQL Server veritabanı yedeği Azure'a ve azure'dan kurtarma yönetimini üç ad
 
 12. Bekletme İlkesi zamanlamayı seçin. Bekletme İlkesi birlikte nasıl çalıştığı hakkında ayrıntılar, sağlanan [kullanımı Azure Backup'ın bant altyapısı makale değiştirin](backup-azure-backup-cloud-as-tape.md).
 
-    ![Saklama İlkesi](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Bekletme İlkesi](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Bu örnekte:
 

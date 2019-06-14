@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7724d69a9294b420ca061d5ad26ad64826372203
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453307"
 ---
 # <a name="how-to-improve-the-detection-accuracy"></a>Nasıl Yapılır: Algılama doğruluğunu artırmak 
@@ -49,7 +49,7 @@ Algılama doğruluğunu artırmak için üç yolu vardır: riskli oturum açma c
 Geri bildiriminiz algılama sonuçları doğruluğunu artırmak için Azure AD tarafından işlenir. Genellikle, bir kullanıcı risk veya oturum açma riski araştırma bir parçası olarak geri bildirim sağlayın. Daha fazla bilgi için [riskli kullanıcılar ve oturum açma araştırma](howto-investigate-risky-users-signins.md).
 
 
-## <a name="confirm-compromised"></a>Güvenliğin tehlikeye girdiğini onaylayın
+## <a name="confirm-compromised"></a>Onayla tehlikede
 
 Tehlikeye gibi bir oturum açma olay onaylama için Azure AD oturum açma kimlik sahibinin yetkilendirdiği değildi, bildirir. "Tehlikeye onaylayın" seçtiğinizde Azure AD olacaktır.
 
@@ -65,15 +65,15 @@ Bir riskli oturum açma doğrulamak için:
 
 - **Riskli oturum açma işlemleri raporu** -bu seçenek bir riskli oturum açma için bir veya daha fazla oturum açma olaylarını doğrulamanızı sağlar.
 
-    ![Kullanıcı riskini kapat](./media/howto-improve-detection-accuracy/07.png)
+    ![Kullanıcı riski Kapat](./media/howto-improve-detection-accuracy/07.png)
 
 - **Riskli oturum açma işlemleri raporu Ayrıntılar görünümünü** -bu seçenek, seçilen oturum açma olayı riskli oturum açma işlemleri raporu için güvenliği aşılmış bir hesabı onaylamak sağlar. 
 
-    ![Kullanıcı riskini kapat](./media/howto-improve-detection-accuracy/04.png)
+    ![Kullanıcı riski Kapat](./media/howto-improve-detection-accuracy/04.png)
 
 
  
-## <a name="confirm-safe"></a>Güvenli olduğunu onayla
+## <a name="confirm-safe"></a>Güvenli onaylayın
 
 
 Azure AD'ye güvenli sinyalleri olarak oturum açma olay onaylama, oturum açma **olan** ilgili kimlik sahibinin yetkilendirdiği. "Güvenli onaylayın" seçtiğinizde Azure AD olacaktır:
@@ -91,16 +91,16 @@ Bir güvenli oturum açma, doğrulamak için:
 
 - **Riskli oturum açma işlemleri raporu** -bu seçenek, bir güvenli oturum açmak için bir veya daha fazla oturum açma olaylarını onaylamak sağlar.
 
-    ![Kullanıcı riskini kapat](./media/howto-improve-detection-accuracy/08.png)
+    ![Kullanıcı riski Kapat](./media/howto-improve-detection-accuracy/08.png)
 
 - **Riskli oturum açma işlemleri raporu Ayrıntılar görünümünü** -bu seçenek, bir güvenli oturum açma için seçilen oturum açma olayı riskli oturum açma işlemleri raporu onaylamak sağlar. 
 
-    ![Kullanıcı riskini kapat](./media/howto-improve-detection-accuracy/05.png)
+    ![Kullanıcı riski Kapat](./media/howto-improve-detection-accuracy/05.png)
 
 
 
 
-## <a name="dismiss-user-risk"></a>Kullanıcı riskini kapat
+## <a name="dismiss-user-risk"></a>Kullanıcı riski Kapat
 
 Düzeltme eylemleri bir risk kullanıcı için zaten gerçekleştirdik ya da bunlar yanlışlıkla riskli olarak işaretlenen düşünüyorsanız, bir kullanıcının risk sayabilirsiniz. Bir kullanıcının risk kapatılıyor kullanıcı riskli olmayan bir duruma geri yükler. Tüm riskli oturum açma işlemleri ve risk, seçilen kullanıcı için olaylar kapatıldı.
 
@@ -109,11 +109,11 @@ Düzeltme eylemleri bir risk kullanıcı için zaten gerçekleştirdik ya da bun
 
 - **Riskli kullanıcılar raporu** - bu seçenek, bir son kullanıcı riski verilecek sağlar veya daha fazla seçilen kullanıcılar.
 
-    ![Kullanıcı riskini kapat](./media/howto-improve-detection-accuracy/02.png)
+    ![Kullanıcı riski Kapat](./media/howto-improve-detection-accuracy/02.png)
 
 - **Ayrıntılar görünümü** -kullanıcı risk rapor seçilen kullanıcı için kullanıcı risk kapatmak bu seçeneği sağlar. 
 
-    ![Kullanıcı riskini kapat](./media/howto-improve-detection-accuracy/01.png)
+    ![Kullanıcı riski Kapat](./media/howto-improve-detection-accuracy/01.png)
 
 
 **Bilmeniz gerekenler:**

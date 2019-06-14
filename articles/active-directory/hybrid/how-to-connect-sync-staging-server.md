@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381595"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Hazırlama sunucusu ve olağanüstü durum kurtarma
@@ -65,9 +65,9 @@ Birincil sunucuya özel değişiklikler yaptınız ve hazırlık sunucusu yapıl
 
 #### <a name="import-and-synchronize"></a>İçeri aktarma ve eşitleme
 1. Seçin **Bağlayıcılar**ve ilk bağlayıcı türü olan seçin **Active Directory Domain Services**. Tıklayın **çalıştırma**seçin **tam içeri aktarma**, ve **Tamam**. Bu türün tüm bağlayıcıları için bu adımları uygulayın.
-2. Bağlayıcı türü olan seçin **Azure Active Directory (Microsoft)**. Tıklayın **çalıştırma**seçin **tam içeri aktarma**, ve **Tamam**.
+2. Bağlayıcı türü olan seçin **Azure Active Directory (Microsoft)** . Tıklayın **çalıştırma**seçin **tam içeri aktarma**, ve **Tamam**.
 3. Bağlayıcılar sekmesi seçili olduğundan emin olun. Her bağlayıcı türü olan **Active Directory Domain Services**, tıklayın **çalıştırmak**seçin **Delta eşitlemesi**, ve **Tamam**.
-4. Bağlayıcı türü olan seçin **Azure Active Directory (Microsoft)**. Tıklayın **çalıştırma**seçin **Delta eşitlemesi**, ve **Tamam**.
+4. Bağlayıcı türü olan seçin **Azure Active Directory (Microsoft)** . Tıklayın **çalıştırma**seçin **Delta eşitlemesi**, ve **Tamam**.
 
 Artık aşamalı dışa aktarma değişiklikler Azure AD'ye ve AD (Exchange karma dağıtımı kullanıyorsanız) şirket. Sonraki adımlar ne gerçekten dizinleri ver başlamadan önce değişmek üzere olduğunu denetlemek sağlar.
 

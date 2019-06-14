@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
 ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370994"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>REST API kullanarak Azure kaynak kullanımını gözden geçirin
@@ -45,8 +45,8 @@ Aşağıdaki üst bilgiler gereklidir:
 
 |İstek üstbilgisi|Açıklama|  
 |--------------------|-----------------|  
-|*İçerik türü:*| Gereklidir. Kümesine `application/json`. |  
-|*Yetkilendirme:*| Gereklidir. Geçerli bir kümesi `Bearer` belirteci. |
+|*Content-Type:*| Gereklidir. Kümesine `application/json`. |  
+|*Authorization:*| Gereklidir. Geçerli bir kümesi `Bearer` belirteci. |
 
 HTTP istek gövdesinde raporun parametrelerini yapılandırın. Aşağıdaki örnekte, her gün ne zaman etkin, bir Azure depolama blob kapsayıcısına yazılmış bir CSV dosyasıdır ve saatlik kaynak grubundaki tüm kaynaklar için maliyet bilgilerini içeren oluşturmak için rapor ayarlanır `westus`.
 
@@ -89,7 +89,7 @@ HTTP istek gövdesinde raporun parametrelerini yapılandırın. Aşağıdaki ör
 }
 ```
 
-,
+Sanal Makineye (VM) bağlı bir veya birden çok işletim sistemi diski içerdiği için
 
 ## <a name="filtering-reports"></a>Raporları filtreleme
 

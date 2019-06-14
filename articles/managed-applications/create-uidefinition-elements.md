@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: tomfitz
 ms.openlocfilehash: 41a583a77f85bb1524112fa20d9098e18bc4f431
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587947"
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition öğeleri
@@ -44,10 +44,10 @@ Bu makalede, şema ve bir CreateUiDefinition desteklenen tüm öğelerin özelli
 | type | Evet | Öğe için işlenecek UI denetimi. Desteklenen türler bir listesi için bkz. [öğeleri](#elements). |
 | label | Evet | Öğenin görünen metin. Değer, birden çok dizeyi içeren bir nesne olabilir. Bu nedenle bazı öğe türleri, birden çok etiket içerir. |
 | defaultValue | Hayır | Öğesinin varsayılan değeri. Değer, bir nesne olabilir. Bu nedenle bazı öğe türü karmaşık varsayılan değerleri destekler. |
-| toolTip | Hayır | Öğenin araç ipucunda görüntülenecek metin. Benzer şekilde `label`, bazı öğeleri birden çok araç ipucu dizeleri destekler. Satır içi bağlantıları, Markdown söz dizimi kullanılarak eklenebilir.
+| Araç İpucu | Hayır | Öğenin araç ipucunda görüntülenecek metin. Benzer şekilde `label`, bazı öğeleri birden çok araç ipucu dizeleri destekler. Satır içi bağlantıları, Markdown söz dizimi kullanılarak eklenebilir.
 | constraints | Hayır | Öğe doğrulama davranışını özelleştirmek için kullanılan bir veya daha fazla özellikleri. Kısıtlamalar için desteklenen özellikler öğesi türüne göre değişir. Bazı öğe türleri doğrulama davranışını özelleştirmesini desteklemiyor ve bu nedenle hiçbir kısıtlamaları özelliğine sahiptir. |
 | options | Hayır | Öğe davranışını özelleştirmek ek özellikler. Benzer şekilde `constraints`, desteklenen özellikler öğesi türüne göre farklılık gösterir. |
-| visible | Hayır | Öğenin görüntülenip görüntülenmeyeceğini belirtir. Varsa `true`, öğeyi ve geçerli alt öğelerini görüntülenir. Varsayılan değer `true` şeklindedir. Kullanım [mantıksal işlevler](create-uidefinition-functions.md#logical-functions) dinamik olarak bu özelliğin değerini denetlemek için.
+| Görünür | Hayır | Öğenin görüntülenip görüntülenmeyeceğini belirtir. Varsa `true`, öğeyi ve geçerli alt öğelerini görüntülenir. Varsayılan değer `true` şeklindedir. Kullanım [mantıksal işlevler](create-uidefinition-functions.md#logical-functions) dinamik olarak bu özelliğin değerini denetlemek için.
 
 ## <a name="elements"></a>Öğeler
 

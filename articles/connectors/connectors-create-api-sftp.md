@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
 ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60450769"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>İzleme, oluşturma ve Azure Logic Apps kullanarak SFTP dosyalarını yönetme
@@ -66,14 +66,14 @@ SFTP Bağlayıcısı'nı ve SFTP-SSH Bağlayıcısı arasındaki diğer farklıl
 
 1. Boş mantıksal uygulama için arama kutusuna filtreniz olarak "sftp" girin. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
 
-   -veya-
+   veya
 
    Var olan mantıksal uygulamalar, son adım, bir eylem eklemek istediğiniz altında seçin için **yeni adım**. 
    Arama kutusuna filtreniz olarak "sftp" girin. 
    Eylemler listesinde, istediğiniz eylemi seçin.
 
    Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. 
-   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+   Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
 
 1. Bağlantınız için gerekli bilgileri sağlayın.
 
@@ -112,7 +112,7 @@ Tetikleyici yeni bir dosya bulduğunda tetikleyici, yeni dosya eksiksiz ve kısm
 
 Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
 
-* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)** .
 
 * Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -120,7 +120,7 @@ Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz
 
 <a name="file-add-modified"></a>
 
-### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP tetikleyici: Bir dosya eklendiğinde veya değiştirildiğinde
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP tetikleyici: Dosya eklendiğinde veya değiştirildiğinde
 
 Bir dosya eklendiğinde veya bir SFTP sunucu üzerinde değiştirilmiş bu tetikleyiciyi bir mantıksal uygulama iş akışı başlatır. Örneğin, dosyanın içeriğini denetler ve içerik belirtilen bir koşulu karşılayıp içeriği alan bir koşul ekleyebilirsiniz. Ardından, dosyanın içeriğini alır ve bu içeriği SFTP sunucusunda bir klasöre koyar, bir eylem ekleyebilirsiniz. 
 
@@ -128,7 +128,7 @@ Bir dosya eklendiğinde veya bir SFTP sunucu üzerinde değiştirilmiş bu tetik
 
 Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
 
-* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)** .
 
 * Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -140,7 +140,7 @@ Bu işlem bir SFTP sunucusuna dosya içeriği alır. Örneğin, önceki örnekte
 
 Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
 
-* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)** .
 
 * Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
 

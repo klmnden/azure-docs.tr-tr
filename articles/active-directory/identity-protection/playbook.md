@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60294387"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory kimlik koruması Kılavuzu
@@ -51,7 +51,7 @@ Aşağıdaki yordamı tamamlayarak kullanmanızı gerektirir:
 - [Tor tarayıcı](https://www.torproject.org/projects/torbrowser.html.en) anonim IP adresleri benzetimini yapmak için. Kuruluşunuz kısıtladığında Tor tarayıcınızı kullanarak bir sanal makine kullanmanız gerekebilir.
 - Çok faktörlü kimlik doğrulaması için henüz kaydedilmemiş bir test hesabı.
 
-**Bir oturum açma bir anonim IP benzetimini yapmak için aşağıdaki adımları gerçekleştirin.**:
+**Bir oturum açma bir anonim IP benzetimini yapmak için aşağıdaki adımları gerçekleştirin.** :
 
 1. Kullanarak [Tor tarayıcı](https://www.torproject.org/projects/torbrowser.html.en), gitmek [ https://myapps.microsoft.com ](https://myapps.microsoft.com).   
 2. Görünmesini istediğiniz hesabı kimlik bilgilerini girin **anonim IP adreslerinden oturum açma** rapor.
@@ -76,7 +76,7 @@ Aşağıdaki yordamı tamamladıktan sonra olan bir kullanıcı hesabı kullanma
 - Çok faktörlü kimlik doğrulaması etkin.
 
 
-**Bir oturum açma tanınmayan bir konumdan benzetimini yapmak için aşağıdaki adımları gerçekleştirin.**:
+**Bir oturum açma tanınmayan bir konumdan benzetimini yapmak için aşağıdaki adımları gerçekleştirin.** :
 
 1. Test hesabınızla oturum açtığınızda, MFA testini MFA testini geçmiyor başarısız.
 2. Yeni VPN kullanarak [ https://myapps.microsoft.com ](https://myapps.microsoft.com) test hesabınızın kimlik bilgilerini girin.
@@ -91,7 +91,7 @@ Bu risk olayı hakkında daha fazla bilgi için bkz: [mümkün alışılmadık k
 Mümkün olmayan seyahat koşul benzetimi, algoritma mümkün olmayan seyahat tanıdık cihazlardan veya dizinindeki diğer kullanıcılar tarafından kullanılan VPN'ler oturum açma işlemleri gibi yanlış pozitifleri kullanıma ortadan kaldırmak için machine learning kullandığından zordur. Ayrıca, risk olayları oluşturma başlamadan önce algoritması bir oturum açma geçmiş 14 gün ve kullanıcının 10 oturum açma bilgileri gerektirir. Karmaşık makine öğrenimi modellerini nedeniyle ve kurallarına yukarıda, aşağıdaki adımları bir risk olayına neden olmayan bir fırsat yoktur. Bu risk olayı yayımlamak birden çok Azure AD hesapları için bu adımları çoğaltma isteyebilirsiniz.
 
 
-**Bir alışılmadık konuma imkansız seyahat benzetimini yapmak için aşağıdaki adımları gerçekleştirin.**:
+**Bir alışılmadık konuma imkansız seyahat benzetimini yapmak için aşağıdaki adımları gerçekleştirin.** :
 
 1. Standart tarayıcınızı kullanarak [ https://myapps.microsoft.com ](https://myapps.microsoft.com).  
 2. Bir imkansız seyahat risk olayı oluşturmak istediğiniz hesabın kimlik bilgilerini girin.
@@ -121,7 +121,7 @@ Daha fazla bilgi için bkz. [Kullanıcı risk ilkesini yapılandırma](howto-use
 ![Kullanıcı riski](./media/playbook/02.png "Playbook")
 
 
-**Bir kullanıcı riski İlkesi test etmek için aşağıdaki adımları gerçekleştirin.**:
+**Bir kullanıcı riski İlkesi test etmek için aşağıdaki adımları gerçekleştirin.** :
 
 1. Oturum açma için [ https://portal.azure.com ](https://portal.azure.com) kiracınız için genel yönetici kimlik bilgilerine sahip.
 2. Gidin **kimlik koruması**. 

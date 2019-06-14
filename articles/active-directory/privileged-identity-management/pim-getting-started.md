@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60290047"
 ---
 # <a name="start-using-pim"></a>PIM kullanmaya başlama
@@ -56,7 +56,7 @@ PIM dizininizde kullanmaya başlamak için öncelikle PIM etkinleştirmeniz gere
 
 1. Listesinde **PIM onayı**.
 
-    ![PIM'i onayla](./media/pim-getting-started/consent-pim.png)
+    ![PIM'i Onayla](./media/pim-getting-started/consent-pim.png)
 
 1. Tıklayın **Kimliğimi doğrula** Azure MFA ile kimliğinizi doğrulayın. Bir hesap seçin istenir.
 
@@ -125,7 +125,7 @@ PIM açma daha kolay hale getirmek için PIM kutucuğu, Azure portalı panonuza 
 
 1. Denetleme **dikey pencereyi panoya Sabitle** PIM hızlı başlangıç dikey pencereyi panoya sabitleyin.
 
-    ![Dikey pencereyi panoya sabitle](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Dikey pencereyi panoya Sabitle](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     Azure panosunda, böyle bir kutucuk görürsünüz:
 

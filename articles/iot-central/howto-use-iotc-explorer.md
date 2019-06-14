@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 16cb27ab330118d1bb59cf4f3d782bf55fa28d43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60517087"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Cihaz bağlantısı Azure IOT Central Gezgini'ni kullanarak izleme
@@ -79,7 +79,7 @@ Uygulamanızdaki tüm aygıtları izlemek için aşağıdaki komutu çalıştır
 iotc-explorer monitor-messages
 ```
 
-Çıkış:
+Çıktı:
 
 ![izleme iletileri komut çıktısı](media/howto-use-iotc-explorer/monitormessages.png)
 
@@ -103,7 +103,7 @@ Kullanabileceğiniz `get-twin` için bir IOT Central cihaz ikizi içeriğini alm
 iotc-explorer get-twin <your-device-id>
 ```
 
-Çıkış:
+Çıktı:
 
 ![Get-twin komut çıktısı](media/howto-use-iotc-explorer/getdevicetwin.png)
 

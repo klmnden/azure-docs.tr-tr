@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60401740"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ortamınızı System Center Operations Manager sistem durumunu denetleyin (Önizleme) çözümü ile en iyi duruma getirme
@@ -61,7 +61,7 @@ Yapılan öneriler bilgi ve müşteri binlerce Microsoft mühendisinin göre kaz
 
 Sistem Center Operations Manager sistem durumu denetimi çözümü, aşağıdaki kaynaklardan toplar:
 
-* Kayıt Defteri
+* Kayıt defteri
 * Windows Yönetim Araçları (WMI)
 * Olay günlüğü
 * Dosya verileri

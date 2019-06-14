@@ -3,20 +3,21 @@ title: Azure Traffic Manager'ı kullanarak öncelikli trafik yönlendirme yönte
 description: Bu makalede, trafik Yöneticisi'nde öncelik trafik yönlendirme yöntemini yapılandırma açıklanmaktadır
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 66c5bd9390d6fe0f26af66e18aed22c07a7da3e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 259457a604727cba6e6964851ec4fcf4b13a20a6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048494"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Trafik Yöneticisi'nde öncelikli trafik yönlendirme yöntemini yapılandırma
 
@@ -33,7 +34,7 @@ Birincil bir hizmete trafiği göndermek ve aynı yedekleme hizmetler için yük
     1. İçin **trafik yönlendirme yöntemi ayarları**, trafik yönlendirme yöntemini olduğundan emin olun **öncelik**. Yüklü değilse, **öncelik** aşağı açılan listeden.
     2. Ayarlama **uç nokta İzleyicisi ayarları** aynı şekilde bu profili içindeki tüm her bir uç noktası için:
         1. Uygun seçin **Protokolü**, belirtin **bağlantı noktası** sayı. 
-        2. İçin **yolu** eğik çizgi yazın */*. Uç noktaları izlemek için bir yol ve dosya adı belirtmeniz gerekir. Bir eğik çizgi "/" göreli yolu için geçerli bir giriştir ve dosyasının kök dizininde (varsayılan) olduğunu gösterir.
+        2. İçin **yolu** eğik çizgi yazın */* . Uç noktaları izlemek için bir yol ve dosya adı belirtmeniz gerekir. Bir eğik çizgi "/" göreli yolu için geçerli bir giriştir ve dosyasının kök dizininde (varsayılan) olduğunu gösterir.
         3. Sayfanın üst kısmında tıklayın **Kaydet**.
 5. İçinde **ayarları** bölümünde **uç noktaları**.
 6. İçinde **uç noktaları** dikey penceresinde, uç noktalarınız için öncelik sırası gözden geçirin. Seçtiğinizde, **öncelik** trafik yönlendirme yöntemini, seçili uç noktalardan önemli olan konuya sırası. Uç noktaları öncelik sırasını doğrulayın.  Üst birincil uç noktadır. Görüntülenme sırasını denetleyin. tüm istekler, ilk uç noktaya yönlendirilir ve iyi durumda olmayan, Traffic Manager algılarsa, trafiği otomatik olarak sonraki uç noktaya devreder. 

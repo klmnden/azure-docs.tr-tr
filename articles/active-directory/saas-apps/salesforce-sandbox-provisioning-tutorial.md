@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e0a4eed020728bea5de196eebe438947ae509e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515647"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Öğretici: Salesforce korumalı alan için otomatik kullanıcı hazırlama yapılandırın
@@ -68,7 +68,7 @@ Bu bölümün amacı, Salesforce korumalı alan Active Directory kullanıcı hes
 
 1. Ayarlama **hazırlama modu** için **otomatik**.
 
-    ![sağlama](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![Sağlama](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 1. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki yapılandırma ayarları sağlayın:
    

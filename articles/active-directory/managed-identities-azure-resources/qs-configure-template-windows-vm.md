@@ -16,10 +16,10 @@ ms.date: 09/14/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cb96f4aaef461d049ca496780d542ad7db229e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307769"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
@@ -32,7 +32,7 @@ Bu makalede, Azure Resource Manager dağıtım şablonu kullanarak, Azure sanal 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure Resource Manager dağıtım şablonu kullanmaya bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md). **Gözden geçirmeyi unutmayın [sistem tarafından atanan ve kullanıcı tarafından atanan bir yönetilen kimlik arasındaki farkı](overview.md#how-does-it-work)**.
+- Azure Resource Manager dağıtım şablonu kullanmaya bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md). **Gözden geçirmeyi unutmayın [sistem tarafından atanan ve kullanıcı tarafından atanan bir yönetilen kimlik arasındaki farkı](overview.md#how-does-it-work)** .
 - Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları

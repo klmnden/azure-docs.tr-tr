@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
 ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240219"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure sanal makine yedeklemesinden dosya kurtarma
@@ -196,7 +196,7 @@ Aşağıdaki tabloda, sunucu ve bilgisayar işletim sistemleri uyumluluğu göst
 
 Linux'ta, korunan sanal makinenin dosya sistemi dosyaları geri yüklemek için kullanılan bilgisayarın işletim sistemi desteklemesi gerekir. Betiği çalıştırmak için bir bilgisayar seçildiğinde, bilgisayar uyumlu bir işletim sistemine sahip ve aşağıdaki tabloda tanımlanan sürümlerinden birini kullanan emin olun:
 
-|Linux İşletim Sistemi | Sürümler  |
+|Linux OS | Sürümler  |
 | --------------- | ---- |
 | Ubuntu | 12.04 ve üzeri |
 | CentOS | 6.5 ve üzeri  |

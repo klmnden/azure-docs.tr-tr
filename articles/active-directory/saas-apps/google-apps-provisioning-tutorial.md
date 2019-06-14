@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea1f4d4a6b60961515826a1ba7409bf149b318e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60277174"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için G Suite'i yapılandırma
@@ -89,7 +89,7 @@ Bu bölümde Azure AD'nize G Suite API'sini sağlama kullanıcı hesabı ile ba�
 
     b. Seçin **etki alanı adı** sol gezinti bölmesinde, seçip **Ekle**.
 
-    ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
+    ![Etki Alanı](./media/google-apps-provisioning-tutorial/domain_1.png)
 
     ![Etki alanı ekleme](./media/google-apps-provisioning-tutorial/domain_2.png)
 
@@ -101,7 +101,7 @@ Bu bölümde Azure AD'nize G Suite API'sini sağlama kullanıcı hesabı ile ba�
 
     Azure AD etki alanı adlarıyla doğrulama hakkında daha kapsamlı yönergeler için bkz: [kendi etki alanı adınızı Azure AD'ye ekleme](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
 
-    ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
+    ![Etki Alanı](./media/google-apps-provisioning-tutorial/domain_4.png)
 
     e. Dizininize eklemek istediğiniz tüm etki alanları için önceki adımları yineleyin.
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: a0bb34f8a43199a5d3a18064bce92ef4bec543af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66492848"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050651"
 ---
 # <a name="azure-functions-networking-options"></a>Azure işlevleri ağ seçenekleri
 
@@ -25,13 +25,13 @@ Barındırma modelleri kullanılabilir ağ yalıtımı farklı düzeyleri vardı
 
 * Bir sanal ağ bağlantısı ve ölçeklendirme seçenekleri çeşitli düzeylerde ile çok kiracılı bir altyapı üzerinde çalışan planı seçenek kümesi vardır:
     * [Tüketim planı](functions-scale.md#consumption-plan), yanıt olarak yüklemek için dinamik olarak ölçeklendirilebilir ve en az bir ağ yalıtım seçenekleri sunar.
-    * [Premium planı](functions-scale.md#premium-plan-public-preview), hangi ayrıca ölçeklendirilebilen dinamik olarak daha kapsamlı ağ yalıtımı sunmaya devam ederken.
+    * [Premium planı](functions-scale.md#premium-plan), hangi ayrıca ölçeklendirilebilen dinamik olarak daha kapsamlı ağ yalıtımı sunmaya devam ederken.
     * Azure [App Service planı](functions-scale.md#app-service-plan), sabit bir ölçekte çalışır ve Premium plana benzer ağ yalıtımı sağlar.
 * İşlevleri çalıştırabileceğiniz bir [App Service ortamı](../app-service/environment/intro.md). Bu yöntem, sanal ağınıza işlevinizi dağıtır ve tam ağ denetimi ve yalıtım sağlar.
 
 ## <a name="matrix-of-networking-features"></a>Matris ağ özellikleri
 
-|                |[Tüketim planı](functions-scale.md#consumption-plan)|[Premium planı (Önizleme)](functions-scale.md#premium-plan-public-preview)|[App Service planı](functions-scale.md#app-service-plan)|[App Service Ortamı](../app-service/environment/intro.md)|
+|                |[Tüketim planı](functions-scale.md#consumption-plan)|[Premium planı (Önizleme)](functions-scale.md#premium-plan)|[App Service planı](functions-scale.md#app-service-plan)|[App Service Ortamı](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Gelen IP kısıtlamaları](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Giden IP kısıtlamaları](#private-site-access)|❌No| ❌No|❌No|✅Yes|

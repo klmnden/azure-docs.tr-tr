@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
 ms.openlocfilehash: 5718064994a80266c216ae6040746be29194adc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254718"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure Backup sunucusu yenilikler
@@ -39,7 +39,7 @@ TLS 1.2 ile sınıfının en iyisi, şifreleme Microsoft tarafından önerilen i
 ## <a name="vmware-vm-protection-support"></a>VMware VM koruma desteği
 VMware VM yedekleme, artık üretim dağıtımları için desteklenir. Aşağıdaki VMware VM koruması için MABS V3 sunar:
 
--   5.5 ve 6.0 desteği ile birlikte vCenter ve ESXi 6.5 desteği.
+-   5\.5 ve 6.0 desteği ile birlikte vCenter ve ESXi 6.5 desteği.
 - Otomatik koruma buluta VMware vm'lerinin. Yeni VMware Vm'leri korumalı bir klasöre eklenirse, bunlar disk ile bulut için otomatik olarak korunur.
 - VMware alternatif konuma kurtarma için kurtarma Verimlilik geliştirmeleri.
 

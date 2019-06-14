@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 66e6b4713591f099769543a75dcddec34f3d2e2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534326"
 ---
 # <a name="alias-server-names"></a>Diğer sunucu adları
@@ -34,7 +34,7 @@ Bir istemciden bağlanırken, diğer sunucu adını kullanarak girilen **bağlan
 
 ![Power BI Desktop bağlantısı](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
-## <a name="create-an-alias"></a>Diğer ad oluştur
+## <a name="create-an-alias"></a>Bir diğer ad oluştur
 
 Diğer uç nokta oluşturmak için geçerli bir Azure Analysis Services sunucu adı döndüren herhangi bir yöntemi kullanabilirsiniz. Örneğin, gerçek sunucu içeren Azure Blob depolama alanındaki bir dosyaya bir başvuru adı veya oluşturma ve bir ASP.NET Web Forms uygulaması yayımlama.
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 803fcc0161f2a092006e60db5a98f5bf18dce1c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381187"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Windows Azure Active Directory Sync ve Azure Active Directory Sync yükseltme
@@ -35,7 +35,7 @@ DirSync son sürümü, Temmuz 2014'te yayımlanmıştır ve Azure AD eşitleme'n
 Azure AD Connect, DirSync ve Azure AD eşitleme geçmiştir. Bu, bu iki desteklenen tüm senaryoları birleştirir. Daha fazla bilgi [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md).
 
 ## <a name="deprecation-schedule"></a>Kullanımdan kaldırma zamanlamasına
-| Tarih | Açıklama |
+| Tarih | Yorum |
 | --- | --- |
 | 13 Nisan 2016 |Windows Azure Active Directory Sync ("DirSync") ve Microsoft Azure Active Directory Sync ("Azure AD eşitleme") kullanım dışı olarak bildirilir. |
 | 13 Nisan 2017 |Destek sona erer. Müşteriler artık Azure AD Connect'e yükseltme yapmadan önce bir destek olayı açmaya mümkün olacaktır. |

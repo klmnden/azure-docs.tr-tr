@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242264"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma
@@ -33,7 +33,7 @@ Azure Active Directory Sorunsuz Çoklu Oturum Açma (Azure AD Sorunsuz SSO) öze
 
 Sorunsuz çoklu oturum açma ile birleştirilebilir [parola karması eşitleme](how-to-connect-password-hash-synchronization.md) veya [geçişli kimlik doğrulaması](how-to-connect-pta.md) oturum açma yöntemleri. Sorunsuz çoklu oturum açma olan _değil_ Active Directory Federasyon Hizmetleri (ADFS) için geçerlidir.
 
-![Sorunsuz Çoklu Oturum Açma](./media/how-to-connect-sso/sso1.png)
+![Sorunsuz çoklu oturum açma](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
 >Sorunsuz çoklu oturum açma olması için kullanıcının cihazı gerekiyor **etki alanına katılmış**, cihazın olmasını gerektirmez, ancak [Azure AD katıldı](../active-directory-azureadjoin-overview.md).

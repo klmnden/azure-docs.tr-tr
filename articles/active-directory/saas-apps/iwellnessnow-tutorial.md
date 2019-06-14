@@ -17,10 +17,10 @@ ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02b831df98db5b9d63873a0da93e603cd7cbf308
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60269459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Öğretici: İWellnessNow ile Azure Active Directory Tümleştirme
@@ -61,7 +61,7 @@ Azure AD'de iWellnessNow tümleştirmesini yapılandırmak için iWellnessNow Ga
 
 **Galeriden iWellnessNow eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 

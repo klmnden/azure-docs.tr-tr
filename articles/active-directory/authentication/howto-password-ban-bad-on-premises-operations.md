@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca85007bb016cc98d1be61ce08865945e699ad4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358195"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD parola koruması işletimsel yordamları
@@ -32,11 +32,11 @@ Bu makaledeki yönergeleri [özel yasaklı parola listesi yapılandırma](howto-
 1. Ayarlama **etkinleştirme Windows Server Active Directory parola koruması** için **Evet**
 1. Belirtildiği gibi [Dağıtım Kılavuzu](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), başlangıçta ayarlamak için önerilen **modu** için **denetim**
    * Özelliğiyle memnun kaldıktan sonra geçebilirsiniz **modu** için **zorlanan**
-1. **Kaydet**’e tıklayın
+1. **Kaydet**'e tıklayın.
 
 ![Azure portalında Azure AD parola koruması bileşenleri etkinleştirme](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 
-## <a name="audit-mode"></a>Denetim Modu
+## <a name="audit-mode"></a>Denetim modu
 
 Denetim modu yazılım "what IF" modda çalıştırmak için bir yol olarak tasarlanmıştır. Her DC Aracısı gelen bir parola etkin ilkesine göre değerlendirir. Geçerli ilke Denetim modunda olacak şekilde yapılandırılmışsa, "yanlış" parolalar olay günlüğü iletilerine neden ancak kabul edilir. Denetim ve zorla modu arasındaki tek fark budur; diğer tüm işlemler aynı çalıştırın.
 

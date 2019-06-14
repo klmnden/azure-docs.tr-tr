@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60422687"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Azure'da bir Java uygulamasında Twilio kullanarak telefon görüşmesi yapma
@@ -183,7 +183,7 @@ Bu kod, Azure üzerinde Java Twilio kullanarak temel işlevselliğini göstermek
 
 * Web formu kullanmak yerine, Azure depolama blobları veya SQL veritabanı telefon numaraları depolamak ve metin çağırmak için kullanabilirsiniz. Java'da Azure depolama BLOB'ları kullanma hakkında daha fazla bilgi için bkz: [Java'dan Blob Depolama hizmetini kullanma][howto_blob_storage_java]. 
 * Kullanabileceğinizi **RoleEnvironment.getConfigurationSettings** hesap kimliği ve kimlik doğrulama belirteci makecall.jsp değerleri sabit kodlama yerine dağıtımınızın yapılandırma ayarlarından Twilio alınacak. Hakkında bilgi için **RoleEnvironment** sınıfı [JSP biçiminde Azure hizmeti çalışma zamanı kitaplığı kullanarak] [ azure_runtime_jsp] ve Azurehizmetiçalışmazamanıpaketibelgeleri[ http://dl.windowsazure.com/javadoc][azure_javadoc].
-* Bir Twilio tarafından sağlanan URL makecall.jsp kod atar [ https://twimlets.com/message ] [ twimlet_message_url], **Url** değişkeni. Bu URL, Twilio çağrısı ile devam etmek nasıl bildiren bir Twilio biçimlendirme dili (TwiML) yanıt sağlar. Örneğin, döndürülen TwiML içerebilir bir **&lt;Say&gt;** çağrı alıcıya konuşulan metnin sonuçlanır fiil. Twilio tarafından sağlanan URL kullanmak yerine, Twilio'nın isteğine yanıt vermek için kendi hizmet oluşturabilirsiniz; Daha fazla bilgi için [kullanım Twilio ses ve SMS özellikleri Java için nasıl][howto_twilio_voice_sms_java]. TwiML hakkında daha fazla bilgi şu adreste bulunabilir: [ https://www.twilio.com/docs/api/twiml ] [ twiml]ve daha fazla bilgi **&lt;Say&gt;** ve diğer Twilio fiiller konumunda bulunabilir [ https://www.twilio.com/docs/api/twiml/say ] [ twilio_say].
+* Bir Twilio tarafından sağlanan URL makecall.jsp kod atar [ https://twimlets.com/message ] [ twimlet_message_url], **Url** değişkeni. Bu URL, Twilio çağrısı ile devam etmek nasıl bildiren bir Twilio biçimlendirme dili (TwiML) yanıt sağlar. Örneğin, döndürülen TwiML içerebilir bir **&lt;Say&gt;** çağrı alıcıya konuşulan metnin sonuçlanır fiil. Twilio tarafından sağlanan URL kullanmak yerine, Twilio'nın isteğine yanıt vermek için kendi hizmet oluşturabilirsiniz; Daha fazla bilgi için [kullanım Twilio ses ve SMS özellikleri Java için nasıl][howto_twilio_voice_sms_java]. TwiML hakkında daha fazla bilgi şu adreste bulunabilir: [ https://www.twilio.com/docs/api/twiml ] [ twiml]ve daha fazla bilgi **&lt; Say&gt;** ve diğer Twilio fiiller konumunda bulunabilir [ https://www.twilio.com/docs/api/twiml/say ] [ twilio_say].
 * Twilio güvenlik yönergeleri okuyun [ https://www.twilio.com/docs/security ] [ twilio_docs_security].
 
 Twilio hakkında ek bilgi için bkz: [ https://www.twilio.com/docs ] [ twilio_docs].

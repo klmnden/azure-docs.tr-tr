@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91ac6b4530414850c52605bac8cb701aa2b877d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473199"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Azure Active Directory'de bir dizini silme
@@ -63,7 +63,7 @@ Süresi dolan (30 gün) | Tüm erişilebilir veri| Kullanıcıların Office 365 
 Devre dışı (30 gün) | Verileri yalnızca Yöneticisi için erişilebilir | Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<br>Yöneticiler Microsoft 365 Yönetim Merkezine erişim ancak olamaz için lisans atama veya güncelleştirme
 Sağlaması (30 gün sonra devre dışı) | Silinen verileri (otomatik olarak silinmesini başka bir hizmetler kullanılıyorsa) | Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<br>Yöneticiler satın alın ve diğer Aboneliklerini yönetmek için Microsoft 365 Yönetim merkezine erişebilirsiniz
 
-## <a name="delete-a-subscription"></a>Aboneliği sil
+## <a name="delete-a-subscription"></a>Aboneliği silme
 
 Bir abonelik, Microsoft 365 Yönetim merkezini kullanarak üç gün içinde silinecek yetki kaldırıldı durumu koyabilirsiniz.
 
@@ -101,7 +101,7 @@ Beklenecekler için deneme Office 365 aboneliği (Ücretli iş ortağı/CSP, Kur
 Ürün durumu | Veriler | Veri erişimi
 ------------- | ---- | --------------
 Etkin (deneme sürümü için 30 gün) | Tüm erişilebilir veri | Kullanıcıların Self Servis kaydolma ürün, dosyalar veya uygulamalar için normal erişimi<br>Yöneticiler normal Microsoft 365 Yönetim Merkezi ve kaynaklara erişimi
-Silinen | Silinen veriler | Kullanıcıların, Self Servis kaydolma ürün, dosyalar veya uygulamalar erişemez.<br>Yöneticiler satın alın ve diğer Aboneliklerini yönetmek için Microsoft 365 Yönetim merkezine erişebilirsiniz
+Silme | Silinen veriler | Kullanıcıların, Self Servis kaydolma ürün, dosyalar veya uygulamalar erişemez.<br>Yöneticiler satın alın ve diğer Aboneliklerini yönetmek için Microsoft 365 Yönetim merkezine erişebilirsiniz
 
 ## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>Bir Self Servis kaydolma ürün Azure portalında nasıl silebilir miyim?
 

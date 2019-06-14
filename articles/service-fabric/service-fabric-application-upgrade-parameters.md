@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
 ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614390"
 ---
 # <a name="application-upgrade-parameters"></a>Uygulama yükseltme parametreleri
@@ -29,7 +29,7 @@ Bu makalede, Azure Service Fabric uygulaması yükseltme sırasında geçerli ol
 - [REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
 
 Uygulama yükseltmede üç kullanıcı tarafından seçilebilen yükseltme modlarından birini başlatılır. Kendi uygulama parametrelerinin her modu vardır:
-- İzleniyor
+- İzlenen
 - İzlenmeyen otomatik
 - İzlenmeyen el ile
 
@@ -44,12 +44,12 @@ Visual Studio Service Fabric uygulama yükseltme parametreleri, Visual Studio Y�
 ### <a name="required-parameters"></a>Gerekli Parametreler
 (PowerShell, VS PS = Visual Studio =)
 
-| Parametre | Şunun İçin Geçerli | Açıklama |
+| Parametre | İçin geçerlidir | Açıklama |
 | --- | --- | --- |
 ApplicationName |PS| Yükseltilmekte olan uygulamanın adı. Örnekler: fabric: / VisualObjects, fabric: / ClusterMonitor. |
 ApplicationTypeVersion|PS|Uygulama sürümü türü yükseltme hedefler. |
 FailureAction |PS, VS|İzin verilen değerler **geri alma**, **el ile**, ve **geçersiz**. Ne zaman telafi gerçekleştirilecek bir *izlenen* ilke ihlallerini ilke veya sistem durumu izleme karşılaştığı yükseltin. <br>**Geri alma** yükseltme otomatik olarak yükseltme öncesi sürüme geri döner olduğunu belirtir. <br>**El ile** yükseltme geçer gösterir *UnmonitoredManual* yükseltme modu. <br>**Geçersiz** hatası eylemi geçersiz olduğunu gösterir.|
-İzleniyor |PS|Yükseltme modu izlenip izlenmediğini gösterir. Service Fabric, yükseltme etki alanı ve küme durumunu tanımladığınız sistem durumu ilkeleri karşılıyorsanız cmdlet'i bir yükseltme etki alanı için bir yükseltme tamamlandıktan sonra sonraki yükseltme etki alanı yükseltir. Yükseltme etki alanı ya da küme sistem durumu ilkeleri karşılamak başarısız olursa, yükseltme başarısız olur ve Service Fabric geri yükseltme etki alanı için yükseltme yapar veya belirtilen ilke başına el ile moduna döner. Bir üretim ortamında uygulama yükseltmeleri için önerilen mod budur. |
+İzlenen |PS|Yükseltme modu izlenip izlenmediğini gösterir. Service Fabric, yükseltme etki alanı ve küme durumunu tanımladığınız sistem durumu ilkeleri karşılıyorsanız cmdlet'i bir yükseltme etki alanı için bir yükseltme tamamlandıktan sonra sonraki yükseltme etki alanı yükseltir. Yükseltme etki alanı ya da küme sistem durumu ilkeleri karşılamak başarısız olursa, yükseltme başarısız olur ve Service Fabric geri yükseltme etki alanı için yükseltme yapar veya belirtilen ilke başına el ile moduna döner. Bir üretim ortamında uygulama yükseltmeleri için önerilen mod budur. |
 UpgradeMode | VS | İzin verilen değerler **izlenen** (varsayılan), **UnmonitoredAuto**, veya **UnmonitoredManual**. Ayrıntılar için bu makaledeki her modu için PowerShell parametreleri bakın. |
 UnmonitoredAuto | PS | Yükseltme modu izlenmeyen otomatik olduğunu gösterir. Service Fabric, bir yükseltme etki alanını yükseltildikten sonra Service Fabric uygulaması sistem durumu bağımsız olarak bir sonraki yükseltme etki alanı yükseltir. Bu mod, üretim için tavsiye edilmez ve yalnızca bir uygulamanın geliştirilmesi sırasında yararlıdır. |
 UnmonitoredManual | PS | Yükseltme modu izlenmeyen el ile olduğunu gösterir. Service Fabric, bir yükseltme etki alanını yükseltildikten sonra sonraki yükseltme etki alanı kullanarak yükseltmek bekleyeceği *sürdürme ServiceFabricApplicationUpgrade* cmdlet'i. |
@@ -62,7 +62,7 @@ Yatay kaydırma çubuğu, tablonun alt kısmındaki tam açıklama alanı görü
 
 (PowerShell, VS PS = Visual Studio =)
 
-| Parametre | Şunun İçin Geçerli | Açıklama |
+| Parametre | İçin geçerlidir | Açıklama |
 | --- | --- | --- |
 | ApplicationParameter |PS, VS| Uygulama parametreleri geçersiz kılmalarını belirtir.<br>PowerShell uygulama parametreleri hashtable ad/değer çiftleri belirtilir. Örneğin, @{"VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1"}.<br>Visual Studio uygulama parametreleri, Service Fabric uygulamasını Yayımla iletişim belirtilebilir **uygulama parametreleri dosyası** alan.
 | Onayla |PS| İzin verilen değerler **True** ve **False**. Cmdlet'i çalıştırmadan önce onay ister. |

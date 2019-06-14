@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60363603"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>İkincil bir siteye Hyper-V çoğaltma için test sonuçları
@@ -106,7 +106,7 @@ Sonuçları, Site Recovery, Hyper-V çoğaltma ile birlikte en büyük bir küme
 
 ![Birincil donanım gereksinimleri](./media/hyper-v-vmm-performance-results/IC744922.png)
 
-| Sunucu | RAM | Model | İşlemci | İşlemci sayısı | NIC | Yazılım |
+| Sunucusu | RAM | Model | İşlemci | İşlemci sayısı | NIC | Yazılım |
 | --- | --- | --- | --- | --- | --- | --- |
 | Hyper-V kümesindeki sunucular: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |256 128ESTLAB HOST25 sahip |Dell ™ PowerEdge ™ R820 |Intel(r) Xeon(R) CPU E5-4620 0 \@ 2.20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | VMM Sunucusu |2 | | |2 |1 Gbps |Windows Server 2012 veritabanı R2 (x 64) + VMM 2012 R2 |
@@ -118,7 +118,7 @@ Sonuçları, Site Recovery, Hyper-V çoğaltma ile birlikte en büyük bir küme
 
 ![Birincil donanım belirtimi](./media/hyper-v-vmm-performance-results/IC744923.png)
 
-| Sunucu | RAM | Model | İşlemci | İşlemci sayısı | NIC | Yazılım |
+| Sunucusu | RAM | Model | İşlemci | İşlemci sayısı | NIC | Yazılım |
 | --- | --- | --- | --- | --- | --- | --- |
 | Hyper-V kümesindeki sunucular: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(r) Xeon(R) CPU E5-2630 0 \@ 2.30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(r) Xeon(R) CPU E5-4620 0 \@ 2.20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
@@ -135,7 +135,7 @@ Sonuçları, Site Recovery, Hyper-V çoğaltma ile birlikte en büyük bir küme
 | --- | --- | --- | --- | --- | --- |
 | Dosya Sunucusu |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Rastgele tüm %100 |
 | SQL Server (birim 1) SQL Server (2 birim) |864 |100%100% |70%0% |88 |% 100 random100% sıralı |
-| Exchange |32 |%100 |67% |8 |rastgele %100 |
+| Exchange |32 |100% |67% |8 |rastgele %100 |
 | İş istasyonu/VDI |464 |66%34% |70%95% |11 |Her iki rastgele %100 |
 | Web dosya sunucusu |4864 |33%34%33% |95%95%95% |888 |Rastgele tüm %75 |
 
@@ -173,7 +173,7 @@ Tablo, performans ölçümlerini ve dağıtımında ölçülen sayaçları özet
 | Ölçüm | Sayaç |
 | --- | --- |
 | CPU |\Processor(_Total)\% Processor Time |
-| Uygun bellek |\Memory\Available MBayt |
+| Kullanılabilir bellek |\Memory\Available MBayt |
 | IOPS |\PhysicalDisk (_Total) \Disk aktarımı/sn |
 | VM okuma işlemi (IOPS) / sn |\Hyper-V sanal depolama cihazı (\<VHD >) \Read işlemi/sn |
 | VM (IOPS) yazma işlemi/sn |\Hyper-V sanal depolama cihazı (\<VHD >) \Write işlemleri/sn |

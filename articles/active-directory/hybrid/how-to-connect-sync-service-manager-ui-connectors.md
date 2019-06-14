@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60384196"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Azure AD Connect eşitleme hizmeti yöneticisiyle bağlayıcıları kullanma
@@ -31,9 +31,9 @@ ms.locfileid: "60384196"
 Bağlayıcılar sekmesi eşitleme altyapısının bağlandığı tüm sistemleri yönetmek için kullanılır.
 
 ## <a name="connector-actions"></a>Bağlayıcı eylemi
-| Eylem | Açıklama |
+| Eylem | Yorum |
 | --- | --- |
-| Oluştur |Kullanmayın. İçin ek AD ormanına bağlanmak için Yükleme Sihirbazı'nı kullanın. |
+| Create |Kullanmayın. İçin ek AD ormanına bağlanmak için Yükleme Sihirbazı'nı kullanın. |
 | Özellikler |Etki alanı ve OU filtreleme için kullanılır. |
 | [Silme](#delete) |Ya da bağlayıcı alanında verileri silmek için veya bir orman için bağlantıyı silmek için kullanılır. |
 | [Çalıştırma profillerini Yapılandır](#configure-run-profiles) |Filtreleme, etki alanı dışında bir şey burada yapılandırın. Bu eylem, önceden yapılandırılmış çalıştırma profillerini görmek için kullanabilirsiniz. |
@@ -42,7 +42,7 @@ Bağlayıcılar sekmesi eşitleme altyapısının bağlandığı tüm sistemleri
 | Bağlayıcı dışarı aktarma |Kullanmayın. |
 | Bağlayıcı alma |Kullanmayın. |
 | Bağlayıcıyı güncelleştir |Kullanmayın. |
-| Şemayı Yenile |Önbelleğe alınan şemasını yeniler. Bu yana, aynı zamanda güncelleştirmeleri kuralları eşitleme, Yükleme Sihirbazı'nda, bunun yerine, bu seçeneği kullanmak için tercih edilir. |
+| Şemasını Yenile |Önbelleğe alınan şemasını yeniler. Bu yana, aynı zamanda güncelleştirmeleri kuralları eşitleme, Yükleme Sihirbazı'nda, bunun yerine, bu seçeneği kullanmak için tercih edilir. |
 | [Bağlayıcı alanı arama](#search-connector-space) |Nesneleri bulmak ve bir nesne ve verileri sistem aracılığıyla izlemek için kullanılır. |
 
 ### <a name="delete"></a>Sil

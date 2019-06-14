@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295791"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Nasıl Yapılır: Azure Active Directory kimlik koruması (yenilenmiş) risk ilkelerini yapılandırma
@@ -60,7 +60,7 @@ Oturum açma riski İlkesi yapılandırdığınızda ayarlamanız gerekir:
 
 - İlke tetikler oturum açma riski düzeyi:
 
-    ![Oturum açma risk düzeyi](./media/howto-configure-risk-policies/12.png)
+    ![Oturum açma riski düzeyi](./media/howto-configure-risk-policies/12.png)
 
 - Oturum açma riski düzeyinizi sağlandığında uygulanmasını istediğiniz erişim türünü:  
 
@@ -127,7 +127,7 @@ Kullanıcı riski İlkesi belirli bir kullanıcı risk düzeyi için yapılandı
    
 Kullanıcı riski İlkesi bulunduğu **yapılandırma** bölümünde [Azure AD kimlik koruması sayfa](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Kullanıcı riski ilkesi](./media/howto-configure-risk-policies/11014.png)
+![Kullanıcı riski İlkesi](./media/howto-configure-risk-policies/11014.png)
 
 
 

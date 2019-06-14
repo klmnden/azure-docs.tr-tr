@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: rosh
 ms.openlocfilehash: 085cb20e4dad92ed55b5ba0914c677aa50f3ac97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345762"
 ---
 # <a name="project-answer-search-use-and-display-requirements"></a>Proje yanıt arama kullanın ve gereksinimleri görüntüleme
@@ -36,7 +36,7 @@ Yapma:
 - "Arama API'leri", toplu olarak, Bing özel arama, varlık araması, resim arama, haber arama, Video arama, görsel arama ve Web arama API'leri anlamına gelir. 
 
 
-## <a name="3-search-apis"></a>3. API arama
+## <a name="3-search-apis"></a>3. Arama API'leri
 
 Bu bölüm 3 gereksinimleri arama API'leri için geçerlidir.
 
@@ -61,9 +61,9 @@ Yalnızca internet arama Deneyimi gereksinimi için URL'yi bulma bölümünde 3E
 
 **C. Bildirimler ve markalama.** 
 
-- Göze çarpacak şekilde işlevsel köprü adresinde Microsoft gizlilik bildirimi dahil https://go.microsoft.com/fwlink/?LinkId=521839, neredeyse her noktasında bir kullanıcı bir arama sorgusu giriş imkanı kullanıcı deneyimi (UX). Köprü "Microsoft Privacy Statement" etiket.
-- Bing, adreste yönergeleri ile tutarlı marka öne https://go.microsoft.com/fwlink/?linkid=833278, neredeyse her noktasında kullanıcı Deneyimini bir kullanıcı bir arama sorgusu giriş olanağı sunar.  Böyle bir marka açıkça kullanıcıya Microsoft internet arama deneyimini güçlendiren olduğunu belirtmek gerekir.
-- Her yanıt (veya bir yanıt bölümü) açıklandığı gibi Microsoft Bing Web, resim, Haberler ve Video API'lerini görüntülenen özniteliği https://go.microsoft.com/fwlink/?linkid=833278sürece Microsoft, aksi halde, kullanımınız için yazma belirtir. 
+- Göze çarpacak şekilde işlevsel köprü adresinde Microsoft gizlilik bildirimi dahil https://go.microsoft.com/fwlink/?LinkId=521839 , neredeyse her noktasında bir kullanıcı bir arama sorgusu giriş imkanı kullanıcı deneyimi (UX). Köprü "Microsoft Privacy Statement" etiket.
+- Bing, adreste yönergeleri ile tutarlı marka öne https://go.microsoft.com/fwlink/?linkid=833278 , neredeyse her noktasında kullanıcı Deneyimini bir kullanıcı bir arama sorgusu giriş olanağı sunar.  Böyle bir marka açıkça kullanıcıya Microsoft internet arama deneyimini güçlendiren olduğunu belirtmek gerekir.
+- Her yanıt (veya bir yanıt bölümü) açıklandığı gibi Microsoft Bing Web, resim, Haberler ve Video API'lerini görüntülenen özniteliği https://go.microsoft.com/fwlink/?linkid=833278 sürece Microsoft, aksi halde, kullanımınız için yazma belirtir. 
 - Microsoft aksini belirtmedikçe yanıtları (özniteliği ya da yanıtları bölümlerini), Microsoft Bing özel arama API'si görüntülenen belirli kullanımınız için yazma değil.
 
 

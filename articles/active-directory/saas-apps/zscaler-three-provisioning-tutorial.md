@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: d96444984c503da68ccbda3aef9fea0ede5c7ff9
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579062"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "67049050"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Öğretici: Zscaler üç yapılandırmak için otomatik kullanıcı hazırlama
 
@@ -125,7 +125,7 @@ Bu bölümde, oluşturmak, güncelleştirmek ve Zscaler Azure AD'de kullanıcı 
 
 11. Zscaler üç için Azure AD'den eşitlenen kullanıcı özniteliklerini gözden **öznitelik eşlemelerini** bölümü. Seçilen öznitelikler **eşleşen** özellikleri, kullanıcı hesaplarını Zscaler üç güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** değişiklikleri uygulamak için.
 
-    ![Öznitelik Eşlemeleri](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
+    ![Öznitelik eşlemeleri](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
 
 12. İçinde **eşlemeleri** bölümünden **eşitleme Azure Active Directory gruplarına ZscalerThree**:
 
@@ -133,13 +133,13 @@ Bu bölümde, oluşturmak, güncelleştirmek ve Zscaler Azure AD'de kullanıcı 
 
 13. Zscaler üç için Azure AD'den eşitlenen grup öznitelikleri gözden **öznitelik eşlemelerini** bölümü. Seçilen öznitelikler **eşleşen** özellikleri gruplarında Zscaler üç güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** değişiklikleri uygulamak için.
 
-    ![Öznitelik Eşlemeleri](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
+    ![Öznitelik eşlemeleri](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Kapsam belirleme filtrelerini yapılandırmak için yönergeleri bakın [Scoping filtre öğretici](./../active-directory-saas-scoping-filters.md).
 
 15. Azure AD sağlama hizmeti için Zscaler üç etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü:
 
-    ![Sağlama Durumu](./media/zscaler-three-provisioning-tutorial/provisioning-status.png)
+    ![Sağlama durumu](./media/zscaler-three-provisioning-tutorial/provisioning-status.png)
 
 16. Kullanıcılara ve/veya olmasını istediğiniz grupları Zscaler üç sağlamak için altında istediğiniz değerleri seçerek tanımlamak **kapsam** içinde **ayarları** bölümü:
 

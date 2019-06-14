@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244011"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect eşitleme: Bir varsayılan yapılandırmaya bir değişiklik yapın
@@ -71,7 +71,7 @@ Altta bir seçili eşitleme kuralının almalarını için düğmeler bulunur. *
    ![Gelen kapsam belirleme filtresi kuralı](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Bu bölümde, hangi nesnelerin kuralın geçerli olacağı tanımlamak için kullanılır. Kural, boş bırakılması durumunda tüm kullanıcı nesnelerinin geçerli. Ancak, Konferans salonu, hizmet hesapları ve diğer kişiler olmayan kullanıcı nesnelerini içerir.
 4. Üzerinde **birleştirme kuralları** sayfasında, bu alanı boş bırakın.
-5. Üzerinde **dönüşümleri** sayfasında, değişiklik **FlowType** için **ifade**. İçin **Target özniteliği**seçin **givenName**. Ve **kaynak**, girin **PCase([givenName])**.
+5. Üzerinde **dönüşümleri** sayfasında, değişiklik **FlowType** için **ifade**. İçin **Target özniteliği**seçin **givenName**. Ve **kaynak**, girin **PCase([givenName])** .
    ![Gelen kuralı dönüşümleri](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
    Eşitleme altyapısı, işlev adı ve öznitelik adı için duyarlıdır. Bir sorun yazarsanız, kural eklediğinizde, bir uyarı görürsünüz. Kaydet ve devam et, ancak yeniden açın ve hatayı düzeltmek için ihtiyaç duyduğunuz.
 6. Tıklayın **Ekle** kuralını kaydetmek için.
@@ -229,7 +229,7 @@ Temel alınan UserType özniteliği eşitlemesini etkinleştirme adımları olar
 >[!NOTE]
 > Bu bölümün geri kalanında bu adımları kapsar. Özel eşitleme kuralları olmadan tek ormanlı bir topolojiye ile bir Azure AD dağıtım bağlamında açıklanmıştır. Çok ormanlı topolojisi varsa, özel eşitleme kuralları yapılandırılmamış veya bir hazırlama sunucusunda, adımları uygun şekilde ayarlamanız gerekir.
 
-### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>1. Adım: Eşitleme Zamanlayıcısı'nı devre dışı bırakın ve devam eden eşitleme olduğunu doğrulayın
+### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>1\. adım: Eşitleme Zamanlayıcısı'nı devre dışı bırakın ve devam eden eşitleme olduğunu doğrulayın
 İstenmeden yapılmış olabilecek değişiklikleri Azure AD'ye dışarı önlemek için eşitleme kuralları güncelleniyor ortasında durumdayken eşitleme yer aldığını emin olun. Yerleşik Eşitleme Zamanlayıcısı'nı devre dışı bırakmak için:
 
  1. Azure AD Connect sunucusunda bir PowerShell oturumu başlatın.
@@ -237,7 +237,7 @@ Temel alınan UserType özniteliği eşitlemesini etkinleştirme adımları olar
  3. Eşitleme Hizmeti Yöneticisi giderek açın **Başlat** > **eşitleme hizmeti**.
  4. Git **işlemleri** sekme ve durumu ile işlemi yok onaylayın *sürüyor*.
 
-### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>2. Adım: Şirket içi kaynak özniteliği eklemek AD Bağlayıcısı şeması
+### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>2\. adım: Şirket içi kaynak özniteliği eklemek AD Bağlayıcısı şeması
 Şirket alınan tüm Azure AD öznitelikleri AD bağlayıcı alanında. Kaynak özniteliği içeri aktarılan öznitelikleri listesine eklemek için:
 
  1. Git **Bağlayıcılar** Eşitleme Hizmeti Yöneticisi'nde sekmesi.
@@ -247,7 +247,7 @@ Temel alınan UserType özniteliği eşitlemesini etkinleştirme adımları olar
  5. Tıklayın **Tamam** kaydetmek için.
 ![Şirket içi kaynak öznitelik Ekle AD Bağlayıcısı şeması](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>3. Adım: Azure AD Bağlayıcısı şemasına UserType ekleyin
+### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>3\. adım: Azure AD Bağlayıcısı şemasına UserType ekleyin
 Varsayılan olarak, temel alınan UserType özniteliği Azure AD Connect alanına içe aktarılmaz. Temel alınan UserType özniteliği içeri aktarılan öznitelikleri listesine eklemek için:
 
  1. Git **Bağlayıcılar** Eşitleme Hizmeti Yöneticisi'nde sekmesi.
@@ -258,7 +258,7 @@ Varsayılan olarak, temel alınan UserType özniteliği Azure AD Connect alanın
 
 ![Azure AD Bağlayıcısı şemaya kaynak öznitelik Ekle](./media/how-to-connect-sync-change-the-configuration/usertype2.png)
 
-### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>4. Adım: Şirket içi Active Directory'den öznitelik değeri akış için bir gelen eşitleme kuralı oluşturma
+### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>4\. Adım: Şirket içi Active Directory'den öznitelik değeri akış için bir gelen eşitleme kuralı oluşturma
 Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi Active Directory'den kaynak özniteliğindeki akış izin verir:
 
 1. Eşitleme kuralları Düzenleyicisi giderek açın **Başlat** > **eşitleme kuralları Düzenleyicisi**.
@@ -273,7 +273,7 @@ Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi
     | Bağlı sistem | *Şirket içi çekme AD Bağlayıcısı* |  |
     | Bağlı sistem nesnesi türü | **Kullanıcı** |  |
     | Meta veri deposu nesne türü | **Kişi** |  |
-    | Bağlantı Türü | **Birleştir** |  |
+    | Bağlantı türü | **Birleştir** |  |
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
 5. Git **Scoping filtre** sekme ve Ekle bir **tek kapsam belirleme filtre grubu** aşağıdaki yan tümcesiyle:
@@ -286,13 +286,13 @@ Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi
 
 6. Git **dönüştürme** sekme ve istenen dönüştürme kuralı uygulayın. Örneğin bir kullanılmayan tanımladıysanız, şirket içinde AD özniteliği (örneğin, extensionAttribute1) UserType kaynak özniteliği doğrudan öznitelik akışı uygulayabilirsiniz:
 
-    | Akış türü | Hedef öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
+    | Akış türü | Hedef öznitelik | source | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
     | Doğrudan | UserType | extensionAttribute1 | Denetlenmeyen | Güncelleştirme |
 
     Başka bir örnekte, diğer özelliklerden temel alınan UserType özniteliği değeri türetmek istersiniz. Örneğin, tüm kullanıcılar konuk olarak, eşitlemek istediğiniz şirket içi AD userPrincipalName özniteliği, etki alanı bölümü ile sona erer <em>@partners.fabrikam123.org</em>. Böyle bir ifade uygulayabilirsiniz:
 
-    | Akış türü | Hedef öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
+    | Akış türü | Hedef öznitelik | source | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
     | İfade | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Üye", "Konuk"), hata ("UserPrincipalName UserType belirlemek için mevcut değil")) | Denetlenmeyen | Güncelleştirme |
 
@@ -300,7 +300,7 @@ Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi
 
 ![Gelen eşitleme kuralı oluşturma](./media/how-to-connect-sync-change-the-configuration/usertype3.png)
 
-### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>5. Adım: Öznitelik değeri Azure AD'ye akışına bir giden eşitleme kuralı oluşturma
+### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>5\. Adım: Öznitelik değeri Azure AD'ye akışına bir giden eşitleme kuralı oluşturma
 Giden eşitleme kuralı öznitelik değerini meta veri deposu için temel alınan UserType özniteliği Azure AD'de akış izin verir:
 
 1. Eşitleme kuralları Düzenleyicisi gidin.
@@ -315,7 +315,7 @@ Giden eşitleme kuralı öznitelik değerini meta veri deposu için temel alına
     | Bağlı sistem | *AAD bağlayıcı seçin* ||
     | Bağlı sistem nesnesi türü | **Kullanıcı** ||
     | Meta veri deposu nesne türü | **Kişi** ||
-    | Bağlantı Türü | **Birleştir** ||
+    | Bağlantı türü | **Birleştir** ||
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
 5. Git **Scoping filtre** sekme ve Ekle bir **tek kapsam belirleme filtre grubu** iki yan tümceyi ile:
@@ -329,7 +329,7 @@ Giden eşitleme kuralı öznitelik değerini meta veri deposu için temel alına
 
 6. Git **dönüştürme** sekme ve aşağıdaki dönüştürme kuralı uygulayın:
 
-    | Akış türü | Hedef öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
+    | Akış türü | Hedef öznitelik | source | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
     | Doğrudan | UserType | UserType | Denetlenmeyen | Güncelleştirme |
 
@@ -337,7 +337,7 @@ Giden eşitleme kuralı öznitelik değerini meta veri deposu için temel alına
 
 ![Giden eşitleme kuralı oluşturma](./media/how-to-connect-sync-change-the-configuration/usertype4.png)
 
-### <a name="step-6-run-a-full-synchronization-cycle"></a>6. Adım: Bir tam eşitleme döngüsü çalıştırın
+### <a name="step-6-run-a-full-synchronization-cycle"></a>6\. Adım: Bir tam eşitleme döngüsü çalıştırın
 Genel olarak, biz Active Directory ve Azure AD Bağlayıcısı şemaları için yeni özellikler eklendi ve kullanılmaya özel eşitleme kuralları için bir tam eşitleme döngüsü gereklidir. Azure AD'ye dışarı aktarmadan önce değişiklikleri doğrulamak istiyorsanız. 
 
 El ile yaptığınız bir tam eşitleme döngüsü adımları çalıştırırken değişiklikleri doğrulamak için aşağıdaki adımları kullanabilirsiniz.
@@ -389,7 +389,7 @@ El ile yaptığınız bir tam eşitleme döngüsü adımları çalıştırırken
 > [!NOTE]
 > Bu adımları değil tam eşitleme ve Azure AD Bağlayıcısı üzerinde adımları dışa aktarma. Öznitelik değerleri yalnızca Azure AD ile şirket içi Active Directory'den akışa çünkü bu adımlar gerekli değildir.
 
-### <a name="step-7-re-enable-the-sync-scheduler"></a>7. Adım: Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin
+### <a name="step-7-re-enable-the-sync-scheduler"></a>7\. Adım: Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin
 Yerleşik Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin:
 
 1. Bir PowerShell oturumu başlatın.

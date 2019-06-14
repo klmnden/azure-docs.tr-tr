@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60368054"
 ---
 # <a name="detect-common-objects-in-images"></a>Ortak nesneler içinde olabilecek resimleri algılama
@@ -95,7 +95,7 @@ Görüntü işleme örnek görüntüde nesneleri tespit edilirken döndürür a�
 * Nesneler genellikle algılanmayan birbirine yakın dizilmişlerdir varsa (örneğin kalıplar yığını).
 * Nesneleri markaya göre ayırt edilen değil veya ürün adları (örneğin bir mağaza raf sodas farklı türde). Bir görüntüden kullanarak marka bilgilerini ancak alabilirsiniz [marka algılama](concept-brand-detection.md) özelliği.
 
-## <a name="use-the-api"></a>API kullanın
+## <a name="use-the-api"></a>API’yi kullanma
 
 Nesne algılama özelliği parçasıdır [analiz görüntü](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Bu API'nin yerel SDK veya REST çağrılarını aracılığıyla çağırabilirsiniz. Dahil `Objects` içinde **visualFeatures** sorgu parametresi. Daha sonra tam JSON yanıt aldığınızda, sadece içerikleri için dizeyi ayrıştırmak `"objects"` bölümü.
 

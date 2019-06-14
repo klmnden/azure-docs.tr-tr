@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66135643"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048705"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway
 
@@ -155,12 +155,11 @@ Azure etkinlik günlüğü varsayılan olarak oluşturur. Günlükleri, olay gü
 
 ### <a name="access-log"></a>Erişim günlüğü
 
-Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneğinde etkinleştirdiyseniz erişim günlüğü oluşturulur. Veri günlük kaydı etkinleştirildiğinde, belirtilen depolama hesabında depolanır. Application Gateway her erişim, aşağıdaki örnekte gösterildiği gibi JSON biçiminde kaydedilir:
-
+Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneğinde etkinleştirdiyseniz erişim günlüğü oluşturulur. Veri günlük kaydı etkinleştirildiğinde, belirtilen depolama hesabında depolanır. Application Gateway her erişim v1 için aşağıdaki örnekte gösterildiği gibi JSON biçiminde kaydedilir:
 
 |Değer  |Açıklama  |
 |---------|---------|
-|instanceId     | Hizmet isteği uygulama ağ geçidi örneği.        |
+|InstanceId     | Hizmet isteği uygulama ağ geçidi örneği.        |
 |Clientıp     | İsteğin kaynak IP.        |
 |clientPort     | İstek için kaynak bağlantı noktası.       |
 |HttpMethod     | İstek tarafından kullanılan HTTP yöntemi.       |
@@ -196,6 +195,58 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
     }
 }
 ```
+Uygulama ağ geçidi ve WAF v2 için biraz daha bilgiye günlüklerde gösterilir:
+
+|Değer  |Açıklama  |
+|---------|---------|
+|InstanceId     | Hizmet isteği uygulama ağ geçidi örneği.        |
+|Clientıp     | İsteğin kaynak IP.        |
+|clientPort     | İstek için kaynak bağlantı noktası.       |
+|HttpMethod     | İstek tarafından kullanılan HTTP yöntemi.       |
+|requestUri     | Alınan istek URI'si.        |
+|RequestQuery     | **Sunucu yönlendirilen**: İsteğin gönderildiği arka uç havuzu örneği.</br>**X-AzureApplicationGateway-günlük-ID**: İstek için kullanılan bağıntı kimliği. Arka uç sunucularda trafiği sorunları gidermek için kullanılabilir. </br>**SUNUCU DURUMU**: Application Gateway, arka uçtan alınan HTTP yanıt kodu.       |
+|UserAgent     | HTTP isteği üst bilgisinden kullanıcı aracısı.        |
+|Httpstatus'a     | Uygulama ağ geçidinden istemciye döndürülen HTTP durum kodu.       |
+|httpVersion     | İstek HTTP sürümü.        |
+|ReceivedBytes     | Paket, alınan bayt cinsinden boyutu.        |
+|SentBytes| Paket, gönderilen bayt cinsinden boyutu.|
+|timeTaken| Uzunluğu, bir isteğin işlenmesi için ve yanıtının gönderilmesi için geçen süre (milisaniye cinsinden). Bu, uygulama ağ geçidi bir HTTP isteği işlemi tamamlanmadan gönderdiğinizde yanıt süresi'nin ilk baytı aldığında zaman aralığından olarak hesaplanır. Time-Taken alanı genellikle istek ve yanıt paketlerin ağ üzerinden gezilerinizde zaman içerdiğine dikkat edin önemlidir. |
+|Express'e| Arka uç havuzları ile iletişim SSL kullanılıp. Geçerli değerler, açma ve kapatma olmalı.|
+|sslCipher| (SSL etkinleştirildiyse) SSL iletişimi için kullanılan şifre paketi.|
+|sslProtocol| (SSL etkinleştirildiyse) kullanılan SSL protokolü.|
+|serverRouted| Arka uç sunucusu, uygulama ağ geçidi isteği yönlendirir.|
+|serverStatus| Arka uç sunucusuna HTTP durum kodu.|
+|serverResponseLatency| Arka uç sunucusundan yanıt gecikme süresi.|
+|host| İstek ana bilgisayar üst bilgisinde listelenen adresi.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off"
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "52.231.230.101"
+    }
+}
+```
 
 ### <a name="performance-log"></a>Performans günlüğü
 
@@ -204,11 +255,11 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 
 |Değer  |Açıklama  |
 |---------|---------|
-|instanceId     |  Uygulama ağ geçidi örneği performans verileri oluşturulur. Çok örnekli application gateway için örnek başına bir satır var.        |
+|InstanceId     |  Uygulama ağ geçidi örneği performans verileri oluşturulur. Çok örnekli application gateway için örnek başına bir satır var.        |
 |HealthyHostCount     | Arka uç havuzundaki sağlıklı konakların sayısı.        |
 |unHealthyHostCount     | Arka uç havuzunda iyi durumda olmayan konak sayısı.        |
 |RequestCount     | Hizmet isteklerinin sayısı.        |
-|gecikme | Hizmet istekleri arka uç örneğinden gelen isteklerin ortalama gecikme süresi (milisaniye cinsinden). |
+|Gecikme süresi | Hizmet istekleri arka uç örneğinden gelen isteklerin ortalama gecikme süresi (milisaniye cinsinden). |
 |failedRequestCount| Başarısız istek sayısı.|
 |throughput| Ortalama aktarım hızını saniye başına bayt cinsinden son günlüğü itibaren.|
 
@@ -241,7 +292,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 
 |Değer  |Açıklama  |
 |---------|---------|
-|instanceId     | Uygulama ağ geçidi örneği için hangi güvenlik duvarı veri oluşturuluyor. Çok örnekli application gateway için örnek başına bir satır var.         |
+|InstanceId     | Uygulama ağ geçidi örneği için hangi güvenlik duvarı veri oluşturuluyor. Çok örnekli application gateway için örnek başına bir satır var.         |
 |Clientıp     |   İsteğin kaynak IP.      |
 |clientPort     |  İstek için kaynak bağlantı noktası.       |
 |requestUri     | Alınan istek URL'si.       |
@@ -249,9 +300,9 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 |ruleSetVersion     | Kural kullanılan sürümünü ayarlama. Değerleri 2.2.9 ve 3. 0'ı kullanılabilir.     |
 |RuleId     | Tetikleyici olayın kural kimliği.        |
 |message     | Tetikleyici olay kullanıcı dostu iletisi. Ayrıntılar bölümünde daha ayrıntılı bilgi sağlanır.        |
-|eylem     |  İstekte gerçekleştirilen eylem. Engellenen ve izin verilen değerleri kullanılabilir.      |
-|site     | Günlük oluşturulduğu site. Genel kurallar olduğundan şu anda yalnızca genel listelenir.|
-|ayrıntılar     | Olay Ayrıntıları.        |
+|action     |  İstekte gerçekleştirilen eylem. Engellenen ve izin verilen değerleri kullanılabilir.      |
+|Site     | Günlük oluşturulduğu site. Genel kurallar olduğundan şu anda yalnızca genel listelenir.|
+|Ayrıntıları     | Olay Ayrıntıları.        |
 |details.Message     | Kural açıklaması.        |
 |details.data     | Belirli veri kural eşleşen isteğinde bulundu.         |
 |details.File     | Kural bulunan yapılandırma dosyası.        |

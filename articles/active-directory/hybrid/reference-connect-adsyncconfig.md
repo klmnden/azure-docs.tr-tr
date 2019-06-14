@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381204"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell başvurusu
@@ -122,7 +122,7 @@ Active Directory ormanı ve etki alanı için temel Okuma izinleri başlatın.
 
 ### <a name="syntax"></a>SÖZ DİZİMİ
 
-#### <a name="userdomain"></a>USERDOMAIN
+#### <a name="userdomain"></a>UserDomain
 ```
 Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -295,7 +295,7 @@ Active Directory ormanı ve etki alanı için Exchange karma özelliğini başla
 
 ### <a name="syntax"></a>SÖZ DİZİMİ
 
-#### <a name="userdomain"></a>USERDOMAIN
+#### <a name="userdomain"></a>UserDomain
 ```
 Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -462,7 +462,7 @@ Active Directory ormanı ve etki alanı için Exchange posta ortak klasör özel
 
 ### <a name="syntax"></a>SÖZ DİZİMİ
 
-#### <a name="userdomain"></a>USERDOMAIN
+#### <a name="userdomain"></a>UserDomain
 ```
 Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName <String>
  -ADConnectorAccountDomain <String> [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm]
@@ -624,7 +624,7 @@ Active Directory ormanı ve etki alanı için mS-DS-ConsistencyGuid özelliğini
 
 ### <a name="syntax"></a>SÖZ DİZİMİ
 
-#### <a name="userdomain"></a>USERDOMAIN
+#### <a name="userdomain"></a>UserDomain
 ```
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -785,7 +785,7 @@ Active Directory ormanı ve etki alanı için parola karması eşitlemeyi başla
 
 ### <a name="syntax"></a>SÖZ DİZİMİ
 
-#### <a name="userdomain"></a>USERDOMAIN
+#### <a name="userdomain"></a>UserDomain
 ```
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -906,7 +906,7 @@ Active Directory ormanı ve etki alanı için parola geri yazma özelliğini Azu
 
 ### <a name="syntax"></a>SÖZ DİZİMİ
 
-#### <a name="userdomain"></a>USERDOMAIN
+#### <a name="userdomain"></a>UserDomain
 ```
 Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -1202,7 +1202,7 @@ Active Directory ormanı ve etki alanı için Azure ad grup geri yazma'yı başl
 
 ### <a name="syntax"></a>SÖZ DİZİMİ
 
-#### <a name="userdomain"></a>USERDOMAIN
+#### <a name="userdomain"></a>UserDomain
 ```
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
  [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]

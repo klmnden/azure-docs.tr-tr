@@ -15,10 +15,10 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60194384"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Azure portalını kullanarak Azure kaynakları için atamaları görünümü Reddet
@@ -34,7 +34,7 @@ Bir reddetme atama hakkında bilgi edinmek için şunlara sahip olmalısınız:
 
 - `Microsoft.Authorization/denyAssignments/read` çoğu dahil izni [Azure kaynakları için yerleşik roller](built-in-roles.md).
 
-## <a name="view-deny-assignments"></a>Reddetme atamalarını görüntüleyin
+## <a name="view-deny-assignments"></a>Görünüm atamaları Reddet
 
 Reddetme atamalarını abonelik veya yönetim grubu kapsamda görüntülemek üzere şu adımları izleyin.
 
@@ -42,7 +42,7 @@ Reddetme atamalarını abonelik veya yönetim grubu kapsamda görüntülemek üz
 
 1. Yönetim grubu veya görüntülemek istediğiniz aboneliğe tıklayın.
 
-1. Tıklayın **erişim denetimi (IAM)**.
+1. Tıklayın **erişim denetimi (IAM)** .
 
 1. Tıklayın **atamaları Reddet** sekme (veya **görünümü** Reddet düğmesi görünümünde atamaları kutucuğuna).
 

@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 60f2edf0adbfd740ce552449125ae69ab50a8586
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409730"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051093"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Hızlı Başlangıç: Bağlanmak ve bir Azure SQL veritabanı sorgulamak için SQL Server Management Studio'yu kullanın.
 
@@ -30,7 +30,7 @@ Bu hızlı başlangıçta kullanacaksınız [SQL Server Management Studio] [ ssm
 
   || Tek veritabanı | Yönetilen örnek |
   |:--- |:--- |:---|
-  | Oluştur| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Yapılandırma | [sunucu düzeyinde IP güvenlik duvarı kuralı](sql-database-server-level-firewall-rule.md)| [Bir VM bağlantısı](sql-database-managed-instance-configure-vm.md)|
@@ -87,7 +87,7 @@ SMSS Azure SQL veritabanı sunucunuza bağlanın.
 
 5. Veritabanı nesneleri görüntülemek için genişletin **veritabanları** ve ardından **mySampleDatabase**.
 
-   ![Veritabanı nesneleri görüntüle](./media/sql-database-connect-query-ssms/connected.png)  
+   ![mySampleDatabase nesneleri](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>Verileri sorgulama
 
@@ -106,7 +106,7 @@ Bu çalıştırma [seçin](https://msdn.microsoft.com/library/ms189499.aspx) Tra
 
 3. Araç çubuğunda **yürütme** verilerin alınacağı `Product` ve `ProductCategory` tablolar.
 
-    ![iki tablodan verileri almak için sorgu](./media/sql-database-connect-query-ssms/query2.png)
+    ![Veri tablosu ürün ve ProductCategory almak için sorgu](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Veri ekleme
 
@@ -133,7 +133,7 @@ Bu çalıştırma [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni 
            ,GETDATE() );
    ```
 
-2. Seçin **yürütme** yeni bir satır eklemek için `Product` tablo. **İletileri** bölmesini görüntüler **(1 satır etkilendi)**.
+2. Seçin **yürütme** yeni bir satır eklemek için `Product` tablo. **İletileri** bölmesini görüntüler **(1 satır etkilendi)** .
 
 ## <a name="view-the-result"></a>Görünüm sonucu
 
@@ -146,7 +146,7 @@ Bu çalıştırma [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni 
 
 2. **Yürüt**’ü seçin. Aşağıdaki sonucu görüntülenir.
 
-   ![Sonuç](./media/sql-database-connect-query-ssms/result.png)
+   ![Ürün Tablo Sorgu sonucu](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>Verileri güncelleştirme
 
@@ -160,7 +160,7 @@ Bu çalıştırma [güncelleştirme](https://msdn.microsoft.com/library/ms177523
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seçin **yürütme** belirtilen satırı güncelleştirmek için `Product` tablo. **İletileri** bölmesini görüntüler **(1 satır etkilendi)**.
+2. Seçin **yürütme** belirtilen satırı güncelleştirmek için `Product` tablo. **İletileri** bölmesini görüntüler **(1 satır etkilendi)** .
 
 ## <a name="delete-data"></a>Verileri silme
 
@@ -173,7 +173,7 @@ Bu çalıştırma [Sil](https://msdn.microsoft.com/library/ms189835.aspx) Transa
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seçin **yürütme** belirtilen satırı silmek için `Product` tablo. **İletileri** bölmesini görüntüler **(1 satır etkilendi)**.
+2. Seçin **yürütme** belirtilen satırı silmek için `Product` tablo. **İletileri** bölmesini görüntüler **(1 satır etkilendi)** .
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

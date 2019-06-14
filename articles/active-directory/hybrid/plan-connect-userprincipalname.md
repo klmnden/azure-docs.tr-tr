@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60382132"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName popülasyonu
@@ -25,7 +25,7 @@ UserPrincipalName özniteliği değeri, kullanıcı hesapları için Azure AD ku
 ## <a name="upn-terminology"></a>UPN terminolojisi
 Bu makalede aşağıdaki terimler kullanılır:
 
-|Sözleşme Dönemi|Açıklama|
+|Terim|Açıklama|
 |-----|-----|
 |İlk etki alanı|Varsayılan etki alanı (onmicrosoft.com) Azure AD kiracısında. Örneğin, contoso.onmicrosoft.com.|
 |Microsoft Online e-posta adresi (MOERA) yönlendirme|Azure AD, Azure AD MailNickName özniteliğine ve İlk Azure AD etki alanı olarak MOERA hesaplar &lt;MailNickName&gt;&#64;&lt;ilk etki alanı&gt;.|

@@ -3,21 +3,20 @@ title: Phoenix Azure Data Factory kullanarak verileri kopyalama | Microsoft Docs
 description: Desteklenen bir havuz veri depolarına Phoenix bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 12/07/2018
+ms.author: jingwang
 ms.openlocfilehash: 012057c7d01924ab1998a010b6ea0c7d83651a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405932"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Phoenix Azure Data Factory kullanarak verileri kopyalama 
@@ -67,7 +66,7 @@ Phoenix bağlı hizmeti için aşağıdaki özellikleri destekler:
     "properties": {
         "type": "Phoenix",
         "typeProperties": {
-            "host" : "<cluster>.azurehdinsight.cn",
+            "host" : "<cluster>.azurehdinsight.net",
             "port" : "443",
             "httpPath" : "/hbasephoenix0",
             "authenticationType" : "WindowsAzureHDInsightService",
@@ -119,7 +118,7 @@ Phoenix verileri kopyalamak için kopyalama etkinliği için kaynak türünü ay
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **PhoenixSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193722"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Azure ön kapısı hizmetinde arka uçlar ve arka uç havuzları
@@ -71,7 +71,7 @@ Arka uç havuzu farklı arka uçları sistem durumu araştırmaları nasıl değ
 
 - **Protokol**. Sistem durumu araştırma isteklerine uçlarınıza HTTP veya HTTPS protokolü için ön kapı hizmetinden gönderilip gönderilmeyeceğini tanımlar.
 
-- **Aralık (saniye)**. Sistem durumu araştırmaları sıklığını uçlarınıza veya ön kapısı ortamların her birinde bir araştırma gönderir aralıklarını tanımlar.
+- **Aralık (saniye)** . Sistem durumu araştırmaları sıklığını uçlarınıza veya ön kapısı ortamların her birinde bir araştırma gönderir aralıklarını tanımlar.
 
     >[!NOTE]
     >Daha hızlı yük devretme işlemleri için aralığı daha düşük bir değere ayarlayın. Düşük değeri, yüksek sistem durumu araştırması birim uçlarınıza alırsınız. Aralığı 30 saniye 90 ön kapısı ortamları veya POP'ları ile bir genel olarak ayarlanırsa, örneğin, her arka uç hakkında alırsınız saniyede 3-5 yoklama istek.
@@ -85,7 +85,7 @@ Yük Dengeleyici arka uç havuzu ayarlarını nasıl biz sistem durumu araştır
 
 - **Başarılı örnek boyutu**. Daha önce belirtildiği gibi örnek boyutu arka uç sağlıklı çağırmanın başarılı örneklerin sayısını tanımlar. Örneğin, bir ön kapısı sistem durumu araştırma aralığı 30 saniyedir, örnek boyutu 5'tir ve başarılı örnek boyutu 3 varsayalım. Arka ucunuz için biz durumunu değerlendirme her zaman araştırmaları, 150 saniye (5 x 30) son beş samples umuyoruz. En az üç başarılı araştırmaları, arka uç sağlıklı olarak bildirmek için gereklidir.
 
-- **Gecikme süresi duyarlılık (ek gecikme)**. Arka uçları gecikme ölçüm Duyarlılık aralık içinde istek göndermek veya yakın arka uç isteği iletmek için ön kapı isteyip istemediğinizi tanımlar.
+- **Gecikme süresi duyarlılık (ek gecikme)** . Arka uçları gecikme ölçüm Duyarlılık aralık içinde istek göndermek veya yakın arka uç isteği iletmek için ön kapı isteyip istemediğinizi tanımlar.
 
 Daha fazla bilgi için [en az gecikme göre yönlendirme yöntemini](front-door-routing-methods.md#latency).
 

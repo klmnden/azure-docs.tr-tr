@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370381"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Kullandıkça Öde aboneliğinizi Azure ayırma kullanımını anlama
@@ -44,7 +44,7 @@ Dağıtılan VM ayırma öznitelikleri ile eşleştiği için sanal makinenin do
 
 ### <a name="statement-section-of-csv-file-for-vms"></a>VM'ler için CSV dosyası bölümünü deyimi
 
-CSV dosyanız bu bölümü, ayırma için toplam kullanım gösterir. Filtre uygulamak **ölçüm alt kategorisi** içeren alan **"Ayırma-"**. Aşağıdaki ekran görüntüsüne benzer bir şey görürsünüz:
+CSV dosyanız bu bölümü, ayırma için toplam kullanım gösterir. Filtre uygulamak **ölçüm alt kategorisi** içeren alan **"Ayırma-"** . Aşağıdaki ekran görüntüsüne benzer bir şey görürsünüz:
 
 ![Filtrelenmiş ayırma kullanım ayrıntıları ve ücretleri ekran görüntüsü](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
@@ -93,7 +93,7 @@ Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**. Aşağıdaki ekran gör
 2. **ConsumptionMeter** SQL veritabanı kaynak için ölçüm kimliği.
 3. **Ölçüm kimliği** ayırma ölçer. Bu ölçüm maliyeti 0 TL'dir. Ayırma indirimini Bu ölçüm kimliği CSV dosyasında gösterir. uygun bir SQL veritabanı kaynaklar.
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

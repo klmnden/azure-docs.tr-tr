@@ -2,17 +2,16 @@
 title: Kavramlar - Azure Kubernetes hizmeti (AKS) depolama
 description: Azure Kubernetes hizmeti (birimler, kalıcı birimleri, depolama sınıfları ve talepleri de dahil olmak üzere AKS), depolama hakkında bilgi edinin
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 03/01/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 03/01/2019
+ms.author: iainfou
 ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60466826"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için Depolama Seçenekleri
@@ -24,9 +23,9 @@ Azure Kubernetes Service (AKS) uygulamaları, verileri depolama ve alma için ge
 Bu makalede aks'deki uygulamalarınıza depolama sağlamak için gereken temel kavramlar tanıtılır:
 
 - [Birimleri](#volumes)
-- [Kalıcı birimleri](#persistent-volumes)
+- [Kalıcı birimler](#persistent-volumes)
 - [Depolama sınıfları](#storage-classes)
-- [Kalıcı hacim talepleri](#persistent-volume-claims)
+- [Kalıcı birim talepleri](#persistent-volume-claims)
 
 ## <a name="volumes"></a>Birimler
 

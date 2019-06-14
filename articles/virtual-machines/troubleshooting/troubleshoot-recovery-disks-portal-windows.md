@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
 ms.openlocfilehash: ec2da7d9f659f32c40f7a2685ab08be4eec27ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320932"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>İşletim sistemi diskini bir kurtarma Azure portalını kullanarak sanal Makinesine ekleyerek bir Windows sanal makinesinin sorunlarını giderme
@@ -105,7 +105,7 @@ Sonraki birkaç adımı için sorun giderme amacıyla başka bir VM kullanın. V
 
     ![Dosya ve depolama hizmetleri Sunucu Yöneticisi içinde seçin](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-3. Veri diski otomatik olarak algılandı ve bağlı. Bağlı disklerin listesini görmek için seçin **diskleri**. Sürücü harfini birim bilgilerini görüntülemek için veri diski seçebilirsiniz. Aşağıdaki örnek, iliştirilmiş ve kullanarak veri diski gösterir **F:**:
+3. Veri diski otomatik olarak algılandı ve bağlı. Bağlı disklerin listesini görmek için seçin **diskleri**. Sürücü harfini birim bilgilerini görüntülemek için veri diski seçebilirsiniz. Aşağıdaki örnek, iliştirilmiş ve kullanarak veri diski gösterir **F:** :
 
     ![Bağlı disk ve birim bilgileri Sunucu Yöneticisi'nde](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
 

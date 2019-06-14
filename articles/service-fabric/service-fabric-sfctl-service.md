@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556382"
 ---
 # <a name="sfctl-service"></a>sfctl service
@@ -30,24 +30,24 @@ Oluşturma, silme ve hizmet, hizmet türlerini ve hizmet paketleri yönetin.
 | --- | --- |
 | Uygulama adı | Bir hizmet için Service Fabric uygulamasının adını alır. |
 | kod paketi listesi | Bir Service Fabric düğümde dağıtılan kod paketlerin listesini alır. |
-| oluşturmaya | Belirtilen Service Fabric hizmeti oluşturur. |
+| create | Belirtilen Service Fabric hizmeti oluşturur. |
 | delete | Var olan bir Service Fabric hizmeti siler. |
 | dağıtılan türü | Bir Service Fabric kümesindeki bir düğümde dağıtılan uygulamayı belirtilen hizmet türü hakkındaki bilgileri alır. |
 | dağıtılan-türü-list | Bir Service Fabric kümesindeki bir düğümde dağıtılan uygulamaları hizmet türleri hakkında bilgi içeren listeyi alır. |
-| açıklama | Mevcut bir Service Fabric hizmet açıklamasını alır. |
+| description | Mevcut bir Service Fabric hizmet açıklamasını alır. |
 | Get-container-logs | Kapsayıcı günlükleri için kapsayıcı bir Service Fabric dağıtıldığını alır. |
-| sağlık | Belirtilen Service Fabric hizmetinin sistem durumunu alır. |
-| bilgi | Service Fabric uygulamaya ait belirli hizmet hakkındaki bilgileri alır. |
+| health | Belirtilen Service Fabric hizmetinin sistem durumunu alır. |
+| info | Service Fabric uygulamaya ait belirli hizmet hakkındaki bilgileri alır. |
 | list | Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetleri hakkındaki bilgileri alır. |
-| Bildirimi | Hizmet türünü tanımlayan bir bildirim alır. |
+| manifest | Hizmet türünü tanımlayan bir bildirim alır. |
 | Paketi dağıtma | Belirtilen hizmet bildirimi için belirtilen düğümün görüntü önbelleğine ilişkili paketleri indirir. |
 | paket durumu | Bir Service Fabric düğümü ve bir uygulama için dağıtılan belirli bir uygulama için bir hizmet paketi sistem durumu hakkında bilgi alır. |
 | Paket bilgileri | Tam olarak belirtilen adla eşleşen bir Service Fabric düğümde dağıtılan hizmet paketleri listesini alır. |
 | Paket listesi | Bir Service Fabric düğümde dağıtılan hizmet paketleri listesini alır. |
 | Kurtarma | Service Fabric kümesine çekirdek kaybına şu anda takılı belirtilen hizmet, kurtarılır denemesi gösterir. |
-| durumu- | Service Fabric hizmeti üzerinde bir sistem durumu raporu gönderir. |
-| çöz | Bir Service Fabric bölümü çözümleyin. |
-| tür listesi | Bir Service Fabric kümesindeki bir sağlanan uygulama türü tarafından desteklenen hizmet türleri hakkındaki bilgileri içeren listeyi alır. |
+| report-health | Service Fabric hizmeti üzerinde bir sistem durumu raporu gönderir. |
+| Çöz | Bir Service Fabric bölümü çözümleyin. |
+| type-list | Bir Service Fabric kümesindeki bir sağlanan uygulama türü tarafından desteklenen hizmet türleri hakkındaki bilgileri içeren listeyi alır. |
 | update | Belirtilen hizmet verilen güncelleştirme açıklaması kullanarak güncelleştirir. |
 
 ## <a name="sfctl-service-app-name"></a>sfctl hizmet-adı

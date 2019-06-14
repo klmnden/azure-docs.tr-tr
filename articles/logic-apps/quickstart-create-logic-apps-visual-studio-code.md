@@ -11,10 +11,10 @@ ms.reviewer: klam, deli, LADocs
 ms.suite: integration
 ms.date: 10/05/2018
 ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60512043"
 ---
 # <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Hızlı Başlangıç: Oluşturma ve otomatik mantıksal uygulama iş akışlarını - Visual Studio Code yönetme
@@ -102,7 +102,7 @@ Başlamadan önce şunlara sahip olduğundan emin olun:
 
    Bu örnek, yeni bir kaynak grubu oluşturur:
 
-   ![Yeni kaynak grubu oluştur](./media/create-logic-apps-visual-studio-code/select-or-create-azure-resource-group.png)
+   ![Yeni kaynak grubu oluşturun](./media/create-logic-apps-visual-studio-code/select-or-create-azure-resource-group.png)
 
 1. Azure kaynak grubunuz için bir ad belirtin ve ardından ENTER tuşuna basın.
 

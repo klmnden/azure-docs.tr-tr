@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242648"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı başlangıç
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) sorunsuz çoklu oturum açma (sorunsuz çoklu 
 
 Sorunsuz çoklu oturum açma dağıtmak için aşağıdaki adımları izleyin.
 
-## <a name="step-1-check-the-prerequisites"></a>1. Adım: Önkoşulları denetleme
+## <a name="step-1-check-the-prerequisites"></a>1\. adım: Önkoşulları denetleme
 
 Aşağıdaki önkoşulların karşılandığından emin olun:
 
@@ -55,7 +55,7 @@ Aşağıdaki önkoşulların karşılandığından emin olun:
 
 * **Office 365 istemcileri en son sürümlerini kullanan**: Bir sessiz oturum açma deneyimi ile Office 365 istemcileri (Outlook, Word, Excel ve diğerleri) almak için kullanıcılarınızın sürümleri 16.0.8730.xxxx kullanmanız gerekir veya üzeri.
 
-## <a name="step-2-enable-the-feature"></a>2. Adım: Özellik etkinleştirme
+## <a name="step-2-enable-the-feature"></a>2\. adım: Özellik etkinleştirme
 
 Sorunsuz çoklu oturum açma aracılığıyla etkinleştirme [Azure AD Connect](whatis-hybrid-identity.md).
 
@@ -98,7 +98,7 @@ Sorunsuz çoklu oturum açma doğru etkinleştirdiğinizden emin doğrulamak iç
 >[!NOTE]
 > Pass--Hash ve kimlik bilgisi Hırsızlıklarını azaltma mimarileri, şirket içi ortamınızda kullanıyorsanız, emin olmak için gerekli değişiklikleri yapmanızı `AZUREADSSOACC` bilgisayar hesabı bitmiyor karantina kapsayıcısında. 
 
-## <a name="step-3-roll-out-the-feature"></a>3. Adım: Özelliği kullanıma alma
+## <a name="step-3-roll-out-the-feature"></a>3\. adım: Özelliği kullanıma alma
 
 Aşağıda sağlanan yönergeleri kullanarak kullanıcılarınıza kademeli olarak sorunsuz çoklu oturum açma geri alabilirsiniz. Tüm Azure AD aşağıdaki URL'yi ekleyerek başlattığınızda veya Active Directory'de Grup İlkesi'ni kullanarak seçili kullanıcıların Intranet bölgesi ayarları:
 
@@ -117,7 +117,7 @@ Kullanıcıların Intranet bölge ayarlarını değiştirmek için iki yolu vard
 
 | Seçenek | Yönetici önemli noktalar | Kullanıcı deneyimi |
 | --- | --- | --- |
-| Grup ilkesi | Intranet bölgesi ayarlarını düzenleme aşağı yönetim kilitleri | Kullanıcılar kendi ayarlarını değiştiremez. |
+| Grup İlkesi | Intranet bölgesi ayarlarını düzenleme aşağı yönetim kilitleri | Kullanıcılar kendi ayarlarını değiştiremez. |
 | Grup İlkesi tercihi |  Intranet bölgesi ayarlarını düzenleme yönetim sağlar. | Kullanıcılar kendi ayarlarını değiştirebilirsiniz. |
 
 ### <a name="group-policy-option---detailed-steps"></a>"Grup İlkesi" seçeneği - ayrıntılı adımlar
@@ -199,7 +199,7 @@ Bu makalenin kapsamı dışında Azure AD URL Google Chrome ve Firefox ile Mac k
 
 Sorunsuz çoklu oturum açma, Firefox ve Microsoft Edge tarayıcılarda özel tarama modunda çalışmıyor. Tarayıcı Gelişmiş korumalı modda çalışıyorsa aynı zamanda Internet Explorer'da çalışmaz.
 
-## <a name="step-4-test-the-feature"></a>4. Adım: Bu özelliği sınama
+## <a name="step-4-test-the-feature"></a>4\. Adım: Bu özelliği sınama
 
 Özellik belirli bir kullanıcı için test etmek için aşağıdaki tüm koşulların karşılandığından emin olun:
   - Kurumsal bir cihazda oturum açtığında kullanıcı.
@@ -214,7 +214,7 @@ Kullanıcının kullanıcı adı veya parola girmek için burada yoksa senaryoyu
    - Oturum `https://myapps.microsoft.com/contoso.onmicrosoft.com` yeni bir özel tarayıcı oturumunda. Değiştirin *contoso* kiracınızın ada sahip.
    - Oturum `https://myapps.microsoft.com/contoso.com` yeni bir özel tarayıcı oturumunda. Değiştirin *contoso.com* kiracınıza doğrulanmış bir etki alanı (bir Federasyon etki alanı değil).
 
-## <a name="step-5-roll-over-keys"></a>5. Adım: Anahtarları
+## <a name="step-5-roll-over-keys"></a>5\. Adım: Anahtarları
 
 Adım 2'de, Azure AD Connect sorunsuz çoklu oturum açma etkin tüm Active Directory ormanlarında bilgisayar hesaplarının (Azure AD temsil eden) oluşturur. Daha fazla bilgi için bkz: [Azure Active Directory sorunsuz çoklu oturum açma: Teknik yakından bakışın](how-to-connect-sso-how-it-works.md).
 

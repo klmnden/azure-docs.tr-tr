@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60416195"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Azure Active Directory Sertifika tabanlı kimlik doğrulaması Android
@@ -66,7 +66,7 @@ En iyi uygulama, kuruluşunuzun ADFS hata sayfalarını aşağıdaki bilgilerle 
 
 Daha fazla bilgi için [AD FS oturum açma sayfalarını özelleştirme](https://technet.microsoft.com/library/dn280950.aspx).
 
-Bazı Office uygulamalarında (modern kimlik doğrulaması) etkin Gönder '*oturum açma istemi =*' Azure AD'ye kendi isteği. Varsayılan olarak, Azure AD çevirir '*oturum açma istemi =*'isteğindeki ADFS'*wauth usernamepassworduri =*' (U/P kimlik doğrulaması yapmak için ADFS ister) ve '*wfresh = 0*' (AD FS için sorar SSO durumu yok saymak ve yeni bir kimlik doğrulaması yapın). Sertifika tabanlı kimlik doğrulaması bu uygulamalar için etkinleştirmek istiyorsanız, varsayılan Azure AD davranışını değiştirmeniz gerekir. Ayarla '*PromptLoginBehavior*'ın, Federasyon etki alanı ayarlarınızı'*devre dışı bırakılmış*'.
+Bazı Office uygulamalarında (modern kimlik doğrulaması) etkin Gönder '*oturum açma istemi =* ' Azure AD'ye kendi isteği. Varsayılan olarak, Azure AD çevirir '*oturum açma istemi =* 'isteğindeki ADFS'*wauth usernamepassworduri =* ' (U/P kimlik doğrulaması yapmak için ADFS ister) ve '*wfresh = 0*' (AD FS için sorar SSO durumu yok saymak ve yeni bir kimlik doğrulaması yapın). Sertifika tabanlı kimlik doğrulaması bu uygulamalar için etkinleştirmek istiyorsanız, varsayılan Azure AD davranışını değiştirmeniz gerekir. Ayarla '*PromptLoginBehavior*'ın, Federasyon etki alanı ayarlarınızı'*devre dışı bırakılmış*'.
 Kullanabileceğiniz [msoldomainfederationsettings komutunu](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) bu görevi gerçekleştirmek için cmdlet:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`

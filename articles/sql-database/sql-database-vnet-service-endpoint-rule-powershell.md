@@ -13,10 +13,10 @@ ms.reviewer: genemi, vanto
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6713182003a280c1d53e904209159b55b4ad01c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331154"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  SQL sanal hizmet uç noktası ve sanal ağ kuralı oluşturma
@@ -67,7 +67,7 @@ Bizim tanıtım PowerShell Betiği, daha küçük betikleri dizisine ayrılmış
 
 <a name="a-script-10" />
 
-### <a name="script-1-variables"></a>1. kod: Değişkenler
+### <a name="script-1-variables"></a>1\. kod: Değişkenler
 
 İlk bu PowerShell Betiği, değerleri değişkenlere atar. Sonraki komut, şu değişkenlerde bağlıdır.
 
@@ -116,7 +116,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 <a name="a-script-20" />
 
-### <a name="script-2-prerequisites"></a>2. kod: Önkoşullar
+### <a name="script-2-prerequisites"></a>2\. kod: Önkoşullar
 
 Bu betik, uç nokta eylem olduğu sonraki komut için hazırlar. Bu betik, aşağıdaki oluşturur zaten mevcut ancak yalnızca öğeler listelenir. Bu öğe zaten var olduğundan emin olması durumunda, betik 2 atlayabilirsiniz:
 
@@ -207,7 +207,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 <a name="a-script-30" />
 
-## <a name="script-3-create-an-endpoint-and-a-rule"></a>3. betik: Bir uç nokta ve kuralı oluşturma
+## <a name="script-3-create-an-endpoint-and-a-rule"></a>3\. betik: Bir uç nokta ve kuralı oluşturma
 
 Bu betik, bir alt ağ ile sanal ağ oluşturur. Sonra da betik atar **Microsoft.Sql** alt ağınız için uç nokta türü. Son olarak betik alt ağınızın bir kuralın böylece SQL veritabanı sunucunuza erişim denetim listesine (ACL) ekler.
 
@@ -293,12 +293,12 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 
 <a name="a-script-40" />
 
-## <a name="script-4-clean-up"></a>4. betik: Temizleme
+## <a name="script-4-clean-up"></a>4\. betik: Temizleme
 
 Bu son kod, önceki betikler gösterimi için oluşturulan kaynakları siler. Ancak, betik aşağıdaki silmeden önce sizden onay ister:
 
 - Azure SQL veritabanı sunucusu
-- Azure Kaynak Grubu
+- Azure kaynak grubu
 
 Betik 4 1 betik tamamlandıktan sonra istediğiniz zaman çalıştırabilirsiniz.
 

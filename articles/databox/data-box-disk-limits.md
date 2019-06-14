@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400635"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk limitleri
@@ -71,8 +71,8 @@ Azure nesnelerin yazılabilir boyutları aşağıda verilmiştir. Yüklenen tüm
 
 | Azure nesne türü | Varsayılan limit                                             |
 |-------------------|-----------------------------------------------------------|
-| Blok Blobu        | ~ 4,75 TiB                                                 |
-| Sayfa Blobu         | 8 TiB <br> (Sayfa blobu biçiminde yüklenen her dosya, 512 bayt hizalı olmalıdır, aksi takdirde yükleme başarısız olur. <br> VHD ve VHDX 512 bayt hizalı var.) |
+| Blok blobu        | ~ 4,75 TiB                                                 |
+| Sayfa blobu         | 8 TiB <br> (Sayfa blobu biçiminde yüklenen her dosya, 512 bayt hizalı olmalıdır, aksi takdirde yükleme başarısız olur. <br> VHD ve VHDX 512 bayt hizalı var.) |
 |Azure Dosyaları        | 1 TiB <br> En çok, Paylaşım 5 TiB boyutudur     |
 | Yönetilen diskler     |4 TiB <br> Boyutu ve sınırları hakkında daha fazla bilgi için bkz: <li>[Yönetilen diskler için ölçeklenebilirlik hedefleri](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 

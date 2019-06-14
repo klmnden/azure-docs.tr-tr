@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60554702"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure önbelleği için Redis yapılandırma
@@ -38,7 +38,7 @@ Azure önbelleği için Redis ayarları görüntülenebilir ve yapılandırılan
 
 Görüntüleyebilir ve kullanarak aşağıdaki ayarları yapılandırın **kaynak menüsünde**.
 
-* [Genel Bakış](#overview)
+* [Genel bakış](#overview)
 * [Etkinlik Günlüğü](#activity-log)
 * [Erişim denetimi (IAM)](#access-control-iam)
 * [Etiketler](#tags)
@@ -82,12 +82,12 @@ Tıklayın **etkinlik günlüğü** önbelleğiniz üzerinde gerçekleştirilen 
 
 **Erişim denetimi (IAM)** bölümde, Azure portalında rol tabanlı erişim denetimi (RBAC) için destek sağlar. Bu yapılandırma yeterlidir ve tam olarak, erişim yönetimi gereksinimlerini karşılama kuruluşlara yardımcı olur. Daha fazla bilgi için [Azure portalında rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="tags"></a>Etiketler
+### <a name="tags"></a>Tags
 
 **Etiketleri** bölüm kaynaklarınızı düzenlemenize yardımcı olur. Daha fazla bilgi için [etiketleri kullanarak Azure kaynaklarınızı düzenleme](../azure-resource-manager/resource-group-using-tags.md).
 
 
-### <a name="diagnose-and-solve-problems"></a>Sorunları tanılama ve çözme
+### <a name="diagnose-and-solve-problems"></a>Sorunları tanılayın ve çözün
 
 Tıklayın **Tanıla ve problemleri çözmenize** çözümlemek için genel sorunlar ve stratejileri sağlanmalıdır.
 
@@ -112,7 +112,7 @@ Tıklayın **Tanıla ve problemleri çözmenize** çözümlemek için genel soru
 
 
 
-### <a name="access-keys"></a>Erişim tuşları
+### <a name="access-keys"></a>Erişim anahtarları
 Tıklayın **erişim anahtarları** görüntülemek veya önbellek hesabınız için erişim anahtarlarını yeniden oluşturmak için. Bu anahtarlar önbelleğinize bağlanma istemcileri tarafından kullanılır.
 
 ![Azure önbelleği için Redis erişim anahtarları](./media/cache-configure/redis-cache-manage-keys.png)
@@ -124,7 +124,7 @@ Aşağıdaki ayarları yapılandırılmış **Gelişmiş ayarlar** dikey pencere
 * [Bellek ilkeleri](#memory-policies)
 * [Anahtar alanı bildirimleri (Gelişmiş ayarları)](#keyspace-notifications-advanced-settings)
 
-#### <a name="access-ports"></a>Erişim Bağlantı Noktaları
+#### <a name="access-ports"></a>Erişim bağlantı noktaları
 SSL olmayan erişim yeni önbellekler için varsayılan olarak devre dışı bırakılmıştır. SSL olmayan bağlantı noktasını etkinleştirmek için tıklayın **Hayır** için **yalnızca SSL aracılığıyla erişime izin ver** üzerinde **Gelişmiş ayarlar** dikey penceresinde ve ardından **Kaydet**.
 
 > [!NOTE]
@@ -366,7 +366,7 @@ Varsayılan olarak, Azure İzleyici'de önbellek ölçümleridir [30 gün saklan
 ## <a name="support--troubleshooting-settings"></a>Destek ve sorun giderme ayarları
 Ayarlarında **destek + sorun giderme** bölüm önbelleğinizi ile ilgili sorunları çözmek için seçenekler ile size sağlar.
 
-![Destek ve sorun giderme](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Destek + sorun giderme](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Kaynak durumu](#resource-health)
 * [Yeni destek isteği](#new-support-request)
@@ -404,7 +404,7 @@ Yeni Azure Cache, Redis örneği için aşağıdaki varsayılan Redis yapıland�
 | `maxclients` |Fiyatlandırma katmanına bağlı<sup>2</sup> |Bu değer bağlı istemciler aynı anda izin verilen en büyük sayısıdır. Sınıra ulaşıldığında Redis 'maksimum istemci sayısı üst sınırına' bir hata döndürüyor tüm yeni bağlantıları kapatır. |
 | `maxmemory-policy` |`volatile-lru` |Redis ne zaman kaldırmak nasıl seçtiği için Maxmemory İlkesi ayarı olan `maxmemory` (önbellek oluştururken seçtiğiniz sunan önbellek boyutu) ulaşıldı. Varsayılan ayar olan Azure önbelleği için Redis `volatile-lru`, LRU algoritması kullanılarak ayarlanan bir süre sonu anahtarları kaldırır. Bu ayar, Azure portalında yapılandırılabilir. Daha fazla bilgi için [bellek ilkeleri](#memory-policies). |
 | `maxmemory-samples` |3 |Bellek kaydetmek için kesin bir algoritma yerine yaklaşık algoritmaları LRU ve TTL algoritmaları en az olan. Varsayılan olarak üç anahtar denetimleri ve çekme daha kısa bir süre önce kullanıldı bir Redis. |
-| `lua-time-limit` |5.000 |En fazla yürütme zamanı Lua komut dosyası milisaniye cinsinden. En fazla yürütme zamanı ulaşılırsa, Redis bir kod yürütülmesine izin verilen en fazla süre geçtikten sonra hala bulunduğu ve bir hata ile sorguları yanıtlamak başlatır günlüğe kaydeder. |
+| `lua-time-limit` |5,000 |En fazla yürütme zamanı Lua komut dosyası milisaniye cinsinden. En fazla yürütme zamanı ulaşılırsa, Redis bir kod yürütülmesine izin verilen en fazla süre geçtikten sonra hala bulunduğu ve bir hata ile sorguları yanıtlamak başlatır günlüğe kaydeder. |
 | `lua-event-limit` |500 |Komut dosyası olay sırası en büyük boyutu. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |İstemci çıkış arabelleği sınırları veri yeterince hızlı sunucudan (Pub/Sub istemci iletileri yayımcı üretmek elimizden geldiğince hızlı kullanamıyor yaygın bir nedeni olduğundan) herhangi bir nedenden dolayı okuyorsanız olmayan istemciler bağlantısının kesilmesi zorlamak için kullanılabilir. Daha fazla bilgi için bkz. [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
@@ -446,9 +446,9 @@ Veritabanları hakkında daha fazla bilgi için bkz. [Redis veritabanı nedir?](
   * C6 (53 GB) önbellek - 20.000 bağlantıları kadar
 * Premium önbellekler
   * P1 (6 GB - 60 GB) - 7.500 bağlantıları kadar
-  * 15.000 bağlantıları kadar ö2 (13 GB 130 GB)-
-  * 30.000 bağlantı kadar (26 GB - 260 GB) - P3
-  * 40.000 bağlantıları kadar P4 (53 GB 530 GB)-
+  * 15\.000 bağlantıları kadar ö2 (13 GB 130 GB)-
+  * 30\.000 bağlantı kadar (26 GB - 260 GB) - P3
+  * 40\.000 bağlantıları kadar P4 (53 GB 530 GB)-
 
 > [!NOTE]
 > Her önbellek boyutu sağlar, ancak *kadar* belirli sayıda bağlantıları, her bağlantı için Redis ek yükü ile ilişkili. TLS/SSL şifreleme sonucunda CPU ve bellek kullanımı gibi ek yükü örneği olacaktır. Belirtilen önbellek boyutu için en yüksek bağlantı sınırı hafifçe yüklü bir önbellek varsayar. Yük bağlantı ek yükünden *artı* istemci işlemleri yükü sistem kapasiteyi aşıyor, geçerli önbellek boyutu için bağlantı sınırını aştınız değil olsa bile önbelleğin kapasite sorunları oluşabilir.

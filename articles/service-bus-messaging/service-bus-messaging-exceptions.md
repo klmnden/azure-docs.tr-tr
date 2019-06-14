@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: b90e87310bf6dec505176b7f4d4cb9e15ac57c20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307786"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Hizmet Veri Yolu mesajlaşma özel durumları
@@ -62,7 +62,7 @@ Aşağıdaki tabloda, Mesajlaşma özel durum türlerini ve nedenler ve notları
 | [Transactionındoubtexception](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) |Bir işlem, şüpheli bir işlem üzerinde denenen veya hareketi tamamlamak için bir girişimde ve şüpheli işlem olur. |Uygulamanız, işlemin zaten teslim edilmiş olarak (bir özel durum olarak), bu özel durum işlemesi gerekir. |- |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
-[QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception), belirli bir varlık için belirlenen kotanın aşıldığını gösterir.
+[QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) belirli bir varlığa kotasının aşıldığını gösterir.
 
 ### <a name="queues-and-topics"></a>Kuyruklar ve konular
 Kuyruklar ve konular için genellikle kuyruk boyutu budur. Hata iletisi özelliği, daha fazla ayrıntı, aşağıdaki örnekte olduğu gibi içerir:

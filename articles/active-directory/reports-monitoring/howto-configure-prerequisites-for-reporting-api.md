@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ab30dfeccc4ae1c7b09a8f48846ffb9e71cfc23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60439170"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory raporlama API'SİYLE erişmek için Önkoşullar
@@ -41,7 +41,7 @@ Raporlama API'sini erişiminizi hazırlamak için şunları yapmanız:
 
 API aracılığıyla raporlama verilerine erişim almak için atanan aşağıdaki rollerden birine sahip olmanız gerekir:
 
-- Güvenlik Okuyucusu
+- Güvenlik okuyucusu
 
 - Güvenlik Yöneticisi
 
@@ -62,19 +62,19 @@ Azure AD raporlama API'si erişmek için dizininize yapılandırmak için oturum
 
 1. İçinde [Azure portalında](https://portal.azure.com)seçin **Azure Active Directory** sol gezinti bölmesinden.
    
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. İçinde **Azure Active Directory** sayfasında **uygulama kayıtları**.
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
 3. Gelen **uygulama kayıtları** sayfasında **yeni uygulama kaydı**.
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/03.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/03.png)
 
 4. İçinde **Oluştur** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/04.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
     a. İçinde **adı** metin kutusuna `Reporting API application`.
 
@@ -95,7 +95,7 @@ Erişmek istediğiniz API bağlı olarak, uygulamanızı aşağıdaki izinler ge
 | Microsoft Graph | Tüm denetim günlük verilerini okuyun |
 
 
-![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/36.png)
+![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/36.png)
 
 Aşağıdaki bölümde, her iki API'leri için adımları listelenir. API'lerden birini erişmek istemiyorsanız, ilgili adımları atlayabilirsiniz.
 
@@ -103,45 +103,45 @@ Aşağıdaki bölümde, her iki API'leri için adımları listelenir. API'lerden
 
 1. Uygulamanızdan seçin **uygulama kayıtları** sayfasından seçim yapıp **ayarları**. 
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/05.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
 2. Üzerinde **ayarları** sayfasında **gerekli izinler**. 
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/06.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
 3. Üzerinde **gerekli izinler** sayfasında **API** listesinde **Windows Azure Active Directory**. 
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/07.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
 4. Üzerinde **erişimini etkinleştir** sayfasında **dizin verilerini okuma** ve seçimini **oturum açın ve kullanıcı profilini okuma**. 
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/08.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
 5. Üst araç çubuğunda tıklatın **Kaydet**.
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/15.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/15.png)
 
 6. Üzerinde **gerekli izinler** sayfasında, üstteki araç çubuğunda tıklatın **Ekle**.
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/32.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/32.png)
 
 7. Üzerinde **API erişimi Ekle** sayfasında **bir API seçin**.
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/31.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/31.png)
 
 8. Üzerinde **bir API seçin** sayfasında **Microsoft Graph**ve ardından **seçin**.
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/33.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/33.png)
 
 9. Üzerinde **erişimini etkinleştir** sayfasında **tüm denetim günlük verileri okuma**ve ardından **seçin**.  
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/34.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/34.png)
 
 10. Üzerinde **API erişimi Ekle** sayfasında **Bitti**.  
 
 11. Üzerinde **gerekli izinler** sayfasının üst araç. tıklayın **izinler**ve ardından **Evet**.
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/17.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/17.png)
 
 
 ## <a name="gather-configuration-settings"></a>Yapılandırma ayarlarını toplayın 
@@ -160,11 +160,11 @@ Bu değerler, raporlama API çağrıları yapılandırırken gerekir.
 
 1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti bölmesinde seçin **Azure Active Directory**.
    
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. Üzerinde **Azure Active Directory** sayfasında **özel etki alanı adları**.
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
 
 3. Etki alanı adınızı etki alanları listeden kopyalayın.
 
@@ -175,13 +175,13 @@ Bu değerler, raporlama API çağrıları yapılandırırken gerekir.
 
 1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti bölmesinde **Azure Active Directory**.
    
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. Uygulamanızdan seçin **uygulama kayıtları** sayfası.
 
 3. Uygulama sayfasından gidin **uygulama kimliği** seçip **kopyalamak için tıklayın**.
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/11.png) 
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/11.png) 
 
 
 ### <a name="get-your-applications-client-secret"></a>Uygulamanızda gizli anahtar alma
@@ -191,21 +191,21 @@ Uygulamanızın istemci gizli anahtarını almak için yeni bir anahtar oluştur
 
 1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti bölmesinde **Azure Active Directory**.
    
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2.  Uygulamanızdan seçin **uygulama kayıtları** sayfası.
 
 3. Uygulama sayfasında, araç çubuğunda üstte **ayarları**. 
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/05.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
 4. Üzerinde **ayarları** sayfasında **API erişimi** bölümünde **anahtarları**. 
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/12.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
 5. Üzerinde **anahtarları** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    ![Uygulamayı kaydet](./media/howto-configure-prerequisites-for-reporting-api/14.png)
+    ![Uygulamayı kaydetme](./media/howto-configure-prerequisites-for-reporting-api/14.png)
 
     a. İçinde **açıklama** metin kutusuna `Reporting API`.
 

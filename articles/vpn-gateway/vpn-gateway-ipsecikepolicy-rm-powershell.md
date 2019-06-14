@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
 ms.openlocfilehash: d04d62d66b4ba22437e6d854566f8bbf5536a6fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121102"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>S2S VPN veya VNet-VNet bağlantıları için IPSec/IKE ilkesi yapılandırma
@@ -276,7 +276,7 @@ $gw2ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW2IPconf1 -Subnet $sub
 New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance
 ```
 
-### <a name="step-2---create-a-vnet-tovnet-connection-with-the-ipsecike-policy"></a>2. adım - bir VNet toVNet bağlantı IPSec/IKE İlkesi ile oluşturma
+### <a name="step-2---create-a-vnet-tovnet-connection-with-the-ipsecike-policy"></a>2\. adım - bir VNet toVNet bağlantı IPSec/IKE İlkesi ile oluşturma
 
 S2S VPN bağlantısı için benzer bir IPSec/IKE ilkesi oluşturma, ardından yeni bir bağlantı ilkesi uygulamak.
 

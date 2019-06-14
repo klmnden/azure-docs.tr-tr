@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348097"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory geçişli kimlik doğrulaması güvenliğe derinlemesine bakış
@@ -91,8 +91,8 @@ Kimlik doğrulama aracılarının kendilerini Azure AD ile kaydetmek için aşa�
     - Anahtar çiftini standart RSA 2048 bit şifreleme oluşturulur.
     - Özel anahtar, kimlik doğrulama Aracısı bulunduğu şirket içi sunucuda kalır.
 3. Kimlik Doğrulama Aracısı "kayıt" istek istekte bulunan aşağıdaki bileşenleri ile HTTPS üzerinden Azure AD'ye yapar:
-    - 1. adımda alınan erişim belirteci.
-    - 2. adımda oluşturulan genel anahtarı.
+    - 1\. adımda alınan erişim belirteci.
+    - 2\. adımda oluşturulan genel anahtarı.
     - Sertifika imzalama isteği (CSR ya da sertifika isteği). Bu istek, sertifika yetkilisi (CA) olarak Azure AD ile bir dijital kimlik sertifikası için geçerlidir.
 4. Azure AD erişim belirteci kayıt isteği doğrular ve isteği genel Yöneticisi geldiğini doğrular.
 5. Ardından Azure AD imzalar ve dijital kimlik sertifikası kimlik doğrulaması aracıya geri gönderir.
@@ -167,7 +167,7 @@ Azure AD ile kimlik doğrulaması Aracısı'nın güven yenilemek için:
     - Özel anahtarı şirket içi sunucu hiçbir zaman ayrılmaz.
 3. Kimlik Doğrulama Aracısı ardından "sertifika yenileme" Azure AD'ye HTTPS üzerinden, istekte bulunan aşağıdaki bileşenleri ile istekte:
     - Windows sertifika deposu CERT_SYSTEM_STORE_LOCAL_MACHINE konumu alınır mevcut sertifika. Var. hiç genel yönetici bu yordamda ilgili genel yönetici adına gereken herhangi bir erişim belirteci olması
-    - 2. adımda oluşturulan genel anahtarı.
+    - 2\. adımda oluşturulan genel anahtarı.
     - Sertifika imzalama isteği (CSR ya da sertifika isteği). Bu istek, sertifika yetkilisi olarak Azure AD ile yeni bir dijital kimlik sertifikası için geçerlidir.
 4. Azure AD, mevcut sertifikayı sertifika yenileme isteğini doğrular. Daha sonra istek kiracınızda kayıtlı bir kimlik doğrulama Aracısı geldiğini doğrular.
 5. Mevcut sertifika hala geçerli ise Azure AD sonra yeni bir dijital kimliği sertifikayı imzalar ve yeni sertifika kimlik doğrulaması aracıya geri verir. 
@@ -186,7 +186,7 @@ Azure AD ile kimlik doğrulaması Aracısı'nın güven yenilemek için:
 
 (Hata düzeltmeleri veya performans geliştirmeleri ile) yeni bir sürümü yayımlandığında güncelleştirici uygulaması kimlik doğrulaması Aracısı otomatik olarak güncelleştirir. Güncelleştirici uygulaması, kiracınız için herhangi bir parolayı doğrulama isteğinin işlemez.
 
-Azure AD işaretli olarak yazılımın yeni sürümünü barındıran **Windows Installer paketi (MSI)**. MSI kullanarak oturum açmış [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) Özet algoritması SHA256 olan. 
+Azure AD işaretli olarak yazılımın yeni sürümünü barındıran **Windows Installer paketi (MSI)** . MSI kullanarak oturum açmış [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) Özet algoritması SHA256 olan. 
 
 ![Otomatik güncelleştirme](./media/how-to-connect-pta-security-deep-dive/pta5.png)
 

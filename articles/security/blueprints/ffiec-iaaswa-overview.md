@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: 10d13e7dd145feff286b8dd58fa1bc657961e8c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585803"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-ffiec-financial-services"></a>Azure güvenlik ve uyumluluk planı: Iaas Web uygulaması için FFIEC finansal hizmetler
@@ -56,7 +56,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Dağıtım mimarisi ayr�
 - Azure Güvenlik Merkezi
 - Azure Storage
     - (7) coğrafi olarak yedekli depolama hesapları
-- Azure Sanal Makineler
+- Azure sanal makineleri
     - (1) yönetim/savunma (Windows Server 2016 Datacenter)
     - (2) active Directory etki alanı denetleyicisi (Windows Server 2016 Datacenter)
     - (2) SQL Server kümesi düğümünün (Windows Server 2016 üzerinde SQL Server 2017)
@@ -83,7 +83,7 @@ Bu çözüm aşağıdaki yapılandırmaları olan bir etki alanına katılmış 
 
 ### <a name="virtual-network"></a>Sanal ağ
 
-10.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
+10\.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
 
 **Ağ güvenlik grupları**: Bu çözüm, kaynakları ayrı web alt ağı, veritabanı alt ağı, Active Directory alt ve bir sanal ağ içinde yönetim alt ağı ile bir mimari dağıtır. Alt ağlar için yalnızca bu gerekli system ve yönetim işlevselliği için alt ağlar arasındaki trafiği kısıtlamak için ayrı alt ağlara uygulanan ağ güvenlik grubu kuralları tarafından mantıksal olarak ayrılır.
 
@@ -96,7 +96,7 @@ Alt ağlar, özel bir ağ güvenlik grubu vardır:
 - Ağ güvenlik grubu SQL sunucuları ve bulut tanığı (SQLNSG) için 1
 - 1 güvenlik grubu (WEBNSG) web katmanı için ağ.
 
-### <a name="data-in-transit"></a>Aktarımdaki verileri
+### <a name="data-in-transit"></a>Aktarım durumundaki veriler
 Azure, Azure veri merkezlerinden tüm iletişimi varsayılan olarak şifreler. Ayrıca, Azure depolama için tüm işlemleri Azure portalı üzerinden, HTTPS oluşur.
 
 ### <a name="data-at-rest"></a>Bekleyen veriler

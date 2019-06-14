@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: 13231fe75ff173999f3a7fa4728f583c6f04c54d
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "67049697"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Öğretici: Zscaler ZSCloud otomatik kullanıcı hazırlama için yapılandırma
 
@@ -125,7 +125,7 @@ Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bı
 
 11. Zscaler ZSCloud içinde için Azure AD'den eşitlenen kullanıcı özniteliklerini gözden **öznitelik eşlemelerini** bölümü. Seçilen öznitelikler **eşleşen** özellikleri Zscaler ZSCloud kullanıcı hesaplarını güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** değişiklikleri uygulamak için.
 
-    ![Öznitelik Eşlemeleri](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
+    ![Öznitelik eşlemeleri](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
 
 12. İçinde **eşlemeleri** bölümünden **eşitleme Azure Active Directory gruplarına ZscalerZSCloud**:
 
@@ -133,13 +133,13 @@ Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bı
 
 13. Zscaler ZSCloud içinde için Azure AD'den eşitlenen grup öznitelikleri gözden **öznitelik eşlemelerini** bölümü. Seçilen öznitelikler **eşleşen** özellikleri Zscaler ZSCloud gruplarında güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** değişiklikleri uygulamak için.
 
-    ![Öznitelik Eşlemeleri](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
+    ![Öznitelik eşlemeleri](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 
 14. Kapsam belirleme filtrelerini yapılandırmak için yönergeleri bakın [Scoping filtre öğretici](./../active-directory-saas-scoping-filters.md).
 
 15. Azure AD sağlama hizmeti için Zscaler ZSCloud etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü:
 
-    ![Sağlama Durumu](./media/zscaler-zscloud-provisioning-tutorial/provisioningstatus.png)
+    ![Sağlama durumu](./media/zscaler-zscloud-provisioning-tutorial/provisioningstatus.png)
 
 16. Kullanıcılara ve/veya olmasını istediğiniz grupları Zscaler ZSCloud sağlamak için altında istediğiniz değerleri seçerek tanımlamak **kapsam** içinde **ayarları** bölümü:
 

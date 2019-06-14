@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414639"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Sorun giderme birleştirilmiş güvenlik bilgileri kayıt (Önizleme)
@@ -35,7 +35,7 @@ Birleşik kayıt için kaydedilen olayları, Azure AD'de kimlik doğrulama yönt
 
 Aşağıdaki tablo, birleştirilen kaydı tarafından oluşturulan tüm denetim olaylarını listeler:
 
-| Etkinlik | Durum | Neden | Açıklama |
+| Etkinlik | Durum | Reason | Açıklama |
 | --- | --- | --- | --- |
 | Kullanıcı kayıtlı tüm gerekli güvenlik bilgileri | Başarılı | Kullanıcı, tüm gerekli güvenlik bilgileri kayıtlı. | Bu olay, bir kullanıcı kaydı başarıyla tamamlandığında gerçekleşir.|
 | Kullanıcı kayıtlı tüm gerekli güvenlik bilgileri | Hata | Kullanıcı güvenlik bilgileri kayıt iptal edildi. | Bu olay, bir kullanıcı kaydı kesmeyi moddan iptal ettiğinde gerçekleşir.|

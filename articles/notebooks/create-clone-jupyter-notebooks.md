@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237491"
 ---
 # <a name="create-and-clone-projects"></a>Projeleri oluşturma ve kopyalama
@@ -80,9 +80,9 @@ Aşağıdaki ayrılmış sözcükler başlarına proje kimlikleri kullanılamaz.
 | --- | --- | --- | --- | --- | --- |
 | hakkında | account | Yönetim | api | blogu | sınıf |
 | content | pano | Keşfedin | SSS | Yardım | html |
-| giriş sayfası | içeri aktarma | Kitaplık | yönetim | yeni | Not Defteri |
-| Not Defterleri | PDF | önizleme | fiyatlandırma | profil | ara |
-| durum | destek | test | | | |
+| Giriş | içeri aktarma | Kitaplık | yönetim | yeni | Not Defteri |
+| Not Defterleri | PDF | önizleme | Fiyatlandırma | Profili | search |
+| status | Destek | test | | | |
 
 Bu sözcükler birini bir proje kimliği kullanmayı denerseniz **yeni proje oluştur** ve **proje ayarları** açılan pencereler gösterir, "kitaplık kimliği ayrılmış bir tanımlayıcı değil."
 

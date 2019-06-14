@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 607d538a2a2636e17265e95195000a777f162dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60263364"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Öğretici: Jive otomatik kullanıcı hazırlama için yapılandırma
@@ -68,7 +68,7 @@ Bu yordam bir parçası olarak, Jive.com istemeniz gerekir kullanıcı güvenlik
 
 1. Ayarlama **hazırlama modu** için **otomatik**. 
 
-    ![sağlama](./media/jive-provisioning-tutorial/provisioning.png)
+    ![Sağlama](./media/jive-provisioning-tutorial/provisioning.png)
 
 1. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki yapılandırma ayarları sağlayın:
    

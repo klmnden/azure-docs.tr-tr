@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288411"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>PIM'de Azure kaynak rol ayarlarını yapılandırma
@@ -79,13 +79,13 @@ Ve bunlardan birini seçebileceğiniz **etkin** atama süresi seçenekleri:
 
 PIM iki farklı senaryolar için isteğe bağlı zorlama Azure multi-Factor Authentication (MFA) sağlar.
 
-### <a name="require-multi-factor-authentication-on-active-assignment"></a>Etkin atamada Multi-Factor Authentication iste
+### <a name="require-multi-factor-authentication-on-active-assignment"></a>Etkin atamada multi-Factor Authentication iste
 
 Bazı durumlarda (örneğin bir gün) kısa bir süre için bir role üye atamak isteyebilirsiniz. Bu durumda, etkinleştirme isteği atanan üyelerini gerek yoktur. Üye kendi rol ataması kullandığında zaten atanmış olan şu rolden etkin olduğu Bu senaryoda, MFA PIM zorunlu kılamaz.
 
 Atama yerine getirmesini Kaynak Yöneticisi kimin söyledikleri olduğundan emin olmak için MFA etkin atamada denetleyerek zorunlu kılabilir **etkin atamada multi-Factor Authentication iste** kutusu.
 
-### <a name="require-multi-factor-authentication-on-activation"></a>Etkinleştirme yapılırken Multi-Factor Authentication'ı gerekli kılın
+### <a name="require-multi-factor-authentication-on-activation"></a>Multi-Factor Authentication'ı etkinleştirme gerektirir
 
 MFA etkinleştirilebilmesi çalıştırmak uygun rolü üyelerinin gerektirebilir. Bu işlem, etkinleştirme kim makul kesin olarak söyledikleri isteyen kullanıcı sağlar. Kullanıcı hesabının tehlikede, bu seçenek zorlamayı durumlarda kritik kaynaklara korur.
 
@@ -93,7 +93,7 @@ Mfa'yı etkinleştirme tamamlanmadan önce çalıştırmak uygun bir üye gerekt
 
 Daha fazla bilgi için [multi factor authentication (MFA) ve PIM](pim-how-to-require-mfa.md).
 
-## <a name="activation-maximum-duration"></a>Maksimum etkinlik süresi
+## <a name="activation-maximum-duration"></a>Maksimum etkinleştirme süresi
 
 Kullanım **maksimum etkinleştirme süresi** en uzun süreyi saat cinsinden süresi dolmadan önce rol etkin kaldığından ayarlamak için kaydırıcıyı. Bu değer 1 ile 24 saat arasında olabilir.
 
@@ -109,7 +109,7 @@ Bir rolü etkinleştirmek için onay gerektir istiyorsanız, aşağıdaki adıml
 
 1. Tıklayın **onaylayanları seçin** Seç üyelerinin veya grubun bir bölme açmak için.
 
-    ![Üye veya grup seçin](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Bir üye veya grup seçin](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. En az bir üye veya grup seçin ve ardından **seçin**. Herhangi bir birleşimini üyeleri ve grupları ekleyebilirsiniz. En az bir onaylayan seçmeniz gerekir. Hiçbir varsayılan onaylayanlar vardır.
 

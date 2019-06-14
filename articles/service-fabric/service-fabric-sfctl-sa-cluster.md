@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: a652439729e538b3ce2545ab3b09284e6645ce9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556398"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
@@ -30,7 +30,7 @@ Tek başına Service Fabric kümeleri yönetin.
 | --- | --- |
 | yapılandırma | Service Fabric tek başına küme yapılandırmasını alın. |
 | Yükseltme yapılandırma | Service Fabric tek başına küme yapılandırmasını yükseltme başlatın. |
-| Yükseltme durumu | Service Fabric tek başına Küme Küme yapılandırma yükseltme durumunu alın. |
+| upgrade-status | Service Fabric tek başına Küme Küme yapılandırma yükseltme durumunu alın. |
 
 ## <a name="sfctl-sa-cluster-config"></a>sfctl sa-cluster config
 Service Fabric tek başına küme yapılandırmasını alın.

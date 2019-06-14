@@ -12,10 +12,10 @@ ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414962"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory ile esnek erişim denetimi yönetim stratejisi oluşturma
@@ -97,7 +97,7 @@ Bir kesinti sırasında maruz kalma riskinizi anlama riskini azaltmaya yardımc�
    * **Kategori 1 görev açısından kritik uygulamalarını** , olamaz kullanılabilir birden fazla işlem birkaç dakika, örneğin kuruluşun gelir doğrudan etkileyen uygulamaları.
    * **Kategori 2 önemli uygulamaları** iş birkaç saat içinde erişilebilir olması gerekir.
    * **Düşük öncelikli uygulama kategorisi 3** birkaç gün kesintiye dayanacak.
-2. 1. ve 2 kategoriye giren uygulamalar için önceden planlama izin vermek istediğiniz erişim düzeyini hangi türde Microsoft önerir:
+2. 1\. ve 2 kategoriye giren uygulamalar için önceden planlama izin vermek istediğiniz erişim düzeyini hangi türde Microsoft önerir:
    * Tam erişim veya indirmeleri sınırlama gibi kısıtlı oturum izin vermek istiyor musunuz?
    * Uygulama, ancak tüm uygulama parçası erişmesine izin vermek istiyor musunuz?
    * Bilgi çalışanı erişmesine ve erişim denetimi geri yüklenene kadar yönetici erişimi engellemek istiyor musunuz?
@@ -143,7 +143,7 @@ Aşağıdaki örnekte: **Örnek bir - erişimi için Görev açısından kritik 
   * Ad: EM001 - ACİL DURUMDA ETKİNLEŞTİR: MFA kesintisi [1/4] - Exchange, SharePoint - hibrit Azure AD'ye katılma gerektirir
   * Kullanıcılar ve gruplar: ContingencyAccess içerir. CoreAdmins ve EmergencyAccess hariç tut
   * Bulut uygulamaları: Exchange Online ve SharePoint Online
-  * Koşullar: Herhangi biri
+  * Koşullar: Tüm
   * İzin verme denetimi: Etki alanına katılmış gerektirir
   * Durum: Devre dışı
 * İlke 2: Windows dışındaki blok platformları

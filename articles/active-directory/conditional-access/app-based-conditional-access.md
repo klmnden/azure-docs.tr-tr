@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12bfd70336c01e5595a086f360ce176df190a20e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60356647"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Nasıl Yapılır: Koşullu erişim ile bulut uygulaması erişimi için onaylı istemci uygulama gerektir 
@@ -145,7 +145,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
     ![Koşullu erişim](./media/app-based-conditional-access/07.png)
 
-4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları (Önizleme)**. 
+4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları (Önizleme)** . 
 
     a. Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 
@@ -412,7 +412,7 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
     ![Koşullu erişim](./media/app-based-conditional-access/07.png)
 
-4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları (Önizleme)**. 
+4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları (Önizleme)** . 
 
     Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 

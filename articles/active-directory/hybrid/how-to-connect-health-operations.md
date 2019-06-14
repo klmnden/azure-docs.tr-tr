@@ -15,10 +15,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 090a066afb24c4776f9844b8850264ffad842c59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60350176"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health işlemleri
@@ -67,7 +67,7 @@ Azure AD Connect Health'i Active Directory Federasyon Hizmetleri (AD FS) için v
 2. Üzerinde **sunucu** eylem çubuğunda dikey **Sil**.
 ![Ekran görüntüsü, Azure AD Connect Health sunucu Sil](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. Onay kutusuna sunucu adını yazarak doğrulayın.
-4. **Sil**'e tıklayın.
+4. Tıklayın **Sil**.
 
 Azure AD Connect Health'i için Azure Active Directory etki alanı Hizmetleri:
 
@@ -75,7 +75,7 @@ Azure AD Connect Health'i için Azure Active Directory etki alanı Hizmetleri:
 2. Etki alanı denetleyicisinin kaldırılmasını seçin.
 3. Eylem çubuğundaki **Sil Seçili**.
 4. Sunucu silme eylemi onaylayın.
-5. **Sil**'e tıklayın.
+5. Tıklayın **Sil**.
 
 ### <a name="delete-a-service-instance-from-azure-ad-connect-health-service"></a>Azure AD Connect Health hizmetinden bir hizmet örneği silme
 Bazı durumlarda, bir hizmet örneği kaldırmak isteyebilirsiniz. Bir hizmet örneği Azure AD Connect Health hizmetten kaldırmak için bilmeniz gerekenler aşağıda verilmiştir.
@@ -92,7 +92,7 @@ Bir hizmet örneği silmekte olduğunuz, aşağıdakilere dikkat edin:
 2. Üzerinde **hizmet** eylem çubuğunda dikey **Sil**. 
 ![Ekran görüntüsü, Azure AD Connect Health hizmeti Sil](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Hizmet adını onay kutusuna yazarak onaylayın (örneğin: sts.contoso.com).
-4. **Sil**'e tıklayın.
+4. Tıklayın **Sil**.
    <br><br>
 
 [//]: # (RBAC bölümünün Başlat)
@@ -120,10 +120,10 @@ Son kullanıcı erişimi düzeyinde dizin veya hizmet varsa izin verilir örnek 
 
 ### <a name="allow-users-or-groups-access-to-azure-ad-connect-health"></a>Kullanıcıları veya grupları Azure AD Connect Health erişmesine izin ver
 Aşağıdaki adımlarda, erişime izin verecek şekilde gösterilmektedir.
-#### <a name="step-1-select-the-appropriate-access-scope"></a>1. Adım: Uygun erişim kapsamı seçin
+#### <a name="step-1-select-the-appropriate-access-scope"></a>1\. adım: Uygun erişim kapsamı seçin
 Bir kullanıcı erişim izin vermek için *tüm hizmet örnekleri* Azure AD Connect Health düzey, Azure AD Connect Health ana dikey penceresini açın.<br>
 
-#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>2. Adım: Kullanıcılar ve gruplar ekleyin ve Rolleri Ata
+#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>2\. adım: Kullanıcılar ve gruplar ekleyin ve Rolleri Ata
 1. Gelen **yapılandırma** bölümünde **kullanıcılar**.<br>
    ![Ekran görüntüsü, Azure AD Connect Health kaynak kenar çubuğu](./media/how-to-connect-health-operations/startRBAC.png)
 2. **Add (Ekle)** seçeneğini belirleyin.
@@ -143,7 +143,7 @@ Listelenen kullanıcılar ve gruplar, atanan rollerinin göre yararlanabiliyor.
 >
 >
 
-#### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>3. Adım: Dikey konumu kullanıcılar veya gruplar ile paylaşma
+#### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>3\. adım: Dikey konumu kullanıcılar veya gruplar ile paylaşma
 1. İzinleri atadıktan sonra bir kullanıcının Azure AD Connect Health giderek erişebildiği [burada](https://aka.ms/aadconnecthealth).
 2. Dikey penceresinde kullanıcı, dikey ya da farklı bölümlerini, panoya sabitleyebilirsiniz. Tıklamanız yeterlidir **panoya Sabitle** simgesi.<br>
    ![PIN simgesinin vurgulandığı ekran görüntüsü, Azure AD Connect Health RBAC PIN dikey](./media/how-to-connect-health-operations/RBAC_pin_blade.png)

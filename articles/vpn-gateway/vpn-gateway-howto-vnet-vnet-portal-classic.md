@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 48377f981e4d2c9ab480a1a734e6207a0246712a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60407993"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Bir VNet-VNet bağlantısı (Klasik) yapılandırma
@@ -80,7 +80,7 @@ Aşağıdaki tabloda, sanal ağlarınız tanımlamak nasıl bir örnek gösteril
 
 **Örnek**
 
-| Sanal Ağ | Adres Alanı | Bölge | Yerel ağ alanına bağlanır. |
+| Sanal Ağ | Adres alanı | Bölge | Yerel ağ alanına bağlanır. |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Doğu ABD |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Batı ABD |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -142,7 +142,7 @@ Azure, sanal ağlar arasındaki trafiği nasıl yönlendireceğini belirlemek i�
 
 Her sanal ağ için yerel site başka bir sanal ağ ' dir. Aşağıdaki örnek değerler için sunduğumuz yapılandırması kullanılır:
 
-| Sanal Ağ | Adres Alanı | Bölge | Yerel ağ alanına bağlanır. |
+| Sanal Ağ | Adres alanı | Bölge | Yerel ağ alanına bağlanır. |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Doğu ABD |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Batı ABD |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -167,7 +167,7 @@ Her bir sanal ağ, sanal ağ geçidi olması gerekir. Sanal ağ geçidi yönlend
 3. Ağ geçidi alt ağ adı 'GatewaySubnet' gerekli ad ile otomatik olarak doldurulur. **Adres aralığı** VPN ağ geçidi hizmetlerine ayrılır IP adreslerini içerir. Bazı yapılandırmalar bir ağ geçidi alt ağı / 29 izin ver, ancak daha fazla IP adresi için Ağ Geçidi Hizmetleri gerektirebilir gelecek yapılandırmaları barındırmak için/28 veya/27 kullanmak en iyisidir. Bizim örnek ayarlarda 10.11.1.0/27 kullanırız. Adres alanı tıklayabilir, ardından tıklayın **Tamam**.
 4. Yapılandırma **ağ geçidi boyutu**. Bu ayar başvurduğu [ağ geçidi SKU'su](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 5. Yapılandırma **yönlendirme türü**. Yönlendirme türü bu yapılandırma için **dinamik**. Ağ geçidini kaldırmak ve yeni bir tane oluşturun, yönlendirme türü daha sonra değiştiremezsiniz.
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**'ı tıklatın.
 7. Üzerinde **yeni VPN bağlantısı** sayfasında **Tamam** sanal ağ geçidi oluşturmaya başlamak için. Bir ağ geçidinin oluşturulması, seçili ağ geçidi SKU’suna bağlı olarak 45 dakika veya daha uzun sürebilir.
 
 ## <a name="vnet4settings"></a>5. adım - testvnet4'ü ayarlarını yapılandırma
@@ -178,12 +178,12 @@ Adımları tekrar [bir yerel site oluşturma](#localsite) ve [sanal ağ geçidi 
 
 Sanal ağ geçitleri için her iki Vnet'in oluşturulduktan sonra yerel siteler kılınmasından **VPN ağ geçidi IP adresi** değerleri.
 
-|Sanal ağ adı|Bağlantılı site|Ağ geçidi IP adresi|
+|VNet adı|Bağlantılı site|Ağ geçidi IP adresi|
 |:--- |:--- |:--- |
 |TestVNet1|VNet4Local|TestVNet4 için VPN ağ geçidi IP adresi|
 |TestVNet4|VNet1Local|TestVNet1 için VPN ağ geçidi IP adresi|
 
-### <a name="part-1---get-the-virtual-network-gateway-public-ip-address"></a>1. Kısım - sanal ağ geçidi genel IP adresini alma
+### <a name="part-1---get-the-virtual-network-gateway-public-ip-address"></a>1\. Kısım - sanal ağ geçidi genel IP adresini alma
 
 1. Sanal ağınızı Azure portalında bulun.
 2. Sanal Ağ'ı açmak için tıklayın **genel bakış** sayfası. Sayfasında, **VPN bağlantıları**, sanal ağ geçidiniz için IP adresini görüntüleyebilirsiniz.
@@ -192,7 +192,7 @@ Sanal ağ geçitleri için her iki Vnet'in oluşturulduktan sonra yerel siteler 
 3. IP adresini kopyalayın. Sonraki bölümde kullanır.
 4. TestVNet4 için bu adımları yineleyin
 
-### <a name="part-2---modify-the-local-sites"></a>2. Kısım - yerel sitelerini değiştirmek
+### <a name="part-2---modify-the-local-sites"></a>2\. Kısım - yerel sitelerini değiştirmek
 
 1. Sanal ağınızı Azure portalında bulun.
 2. VNet üzerinde **genel bakış** sayfasında, yerel site'a tıklayın.

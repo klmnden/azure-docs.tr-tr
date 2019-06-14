@@ -18,10 +18,10 @@ ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296053"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Nasıl Yapılır: Riskli kullanıcıları ve oturum açma işlemlerini araştırma 
@@ -54,7 +54,7 @@ Riskli kullanıcılar raporu aşağıdakileri gösteren bir varsayılan görün�
 
 - Risk ayrıntısı
 
-- Riskin son güncelleştirilmesi
+- Son güncelleştirme risk
 
 - Tür
 
@@ -77,11 +77,11 @@ Liste görünümündeki bir öğeye tıklayarak bu öğe hakkında mevcut olan t
 
 Detaylarını gösterir:
 
-- Temel bilgiler
+- Temel bilgileri
 
-- Son riskli oturum açmalar
+- Yeni riskli oturum açma işlemleri
 
-- Bir oturum açma adına bağlı olmayan riskli olaylar
+- Bir oturum açma için bağlı olmayan risk olayları
 
 - Risk geçmişi
 
@@ -127,7 +127,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 **Risk durumu** filtre seçmenize imkan tanır:
 
 - Risk altında
-- Düzeltildi
+- Çözümlendi
 - Kapatıldı
 
 
@@ -141,11 +141,11 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 **Türü** filtre seçmenize imkan tanır:
 
 - Konuk
-- Üye
+- Üyesi
 
 **Durumu** filtre seçmenize imkan tanır:
 
-- Silinen
+- Silme
 - Etkin
 
 
@@ -220,11 +220,11 @@ Liste görünümündeki bir öğeye tıklayarak bu öğe hakkında mevcut olan t
 
 Detaylarını gösterir:
 
-- Temel bilgiler
+- Temel bilgileri
 
 - Cihaz bilgileri
 
-- Risk bilgileri
+- Risk bilgisi
 
 - MFA bilgileri
 
@@ -238,9 +238,9 @@ Buna ek olarak, şunları yapabilirsiniz:
 
 ![Riskli kullanıcılar raporu](./media/howto-investigate-risky-users-signins/13.png)
 
-- Güvenliğin tehlikeye girdiğini onaylayın 
+- Onayla tehlikede 
 
-- Güvenli olduğunu onayla
+- Güvenli onaylayın
 
 Daha fazla bilgi için [algılama doğruluğunu artırmak nasıl](howto-improve-detection-accuracy.md).
 
@@ -279,10 +279,10 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 **Risk durumu** filtre seçmenize imkan tanır:
 
 - Risk altında
-- Güvenliğin tehlikeye girdiği onaylandı
-- Güvenli işlem onaylandı
+- Onaylanan tehlikede
+- Güvenli Onaylandı
 - Kapatıldı
-- Düzeltildi
+- Çözümlendi
 
 
 **Risk düzeyini (toplama)** filtre seçmenize imkan tanır:

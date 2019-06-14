@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d9bf155f24c947f8a27a38af01aedcf0b041b94
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d0d0c3683d8855418bdafa204325525c4cd3943c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050774"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Azure Otomasyonu ile Azure Linux sanal makine dikey olarak ölçeklendirme
 Dikey ölçeklendirme artan veya azalan bir makine yanıt iş yükü olarak kaynaklarını işlemidir. Azure'da bu sanal makinenin boyutunu değiştirerek gerçekleştirilebilir. Bu, aşağıdaki senaryolarda yardımcı olabilir
@@ -83,6 +83,7 @@ Bunu başarmak adımlar için ana hat gibidir aşağıda
 > | Standard_ND6s |Standard_ND24s |
 > | Standard_NV6 |Standard_NV24 |
 > | Standard_NV6s_v2 |Standard_NV24s_v2 |
+> | Standard_NV12s_v3 |Standard_NV48s_v3 |
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Azure Otomasyonu, sanal makinelerinizi erişmek için Kurulum
 Yapmanız gereken ilk şey, Ölçek VM ölçek kümesi örneklerine kullanılan runbook'ları barındıracak bir Azure Otomasyonu hesabı oluşturmaktır. Yakın zamanda Otomasyon hizmetini ayarı oluşturan hizmet sorumlusunu otomatik olarak runbook'ları kullanıcı adına çok kolay çalıştırmak için getiren "Farklı Çalıştır hesabı" özelliğini kullanıma sunduk. Daha fazla bilgiyi bu konuda aşağıdaki makalede:

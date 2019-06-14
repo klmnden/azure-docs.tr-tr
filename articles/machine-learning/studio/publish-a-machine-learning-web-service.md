@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334038"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini dağıtma
@@ -65,7 +65,7 @@ Aşağıdaki adımlar, bir Tahmine dayalı denemeye yeni bir web hizmeti olarak 
 
 Tahmine dayalı denemeye hazır olduktan sonra yeni (Resource Manager tabanlı), Azure web hizmeti olarak dağıtabilirsiniz. Web hizmetini kullanarak, kullanıcılar, modelinize veri gönderebilir ve modeli, Öngörüler döndürür.
 
-Tahmine dayalı denemenizi dağıtmak için **çalıştırma** deneme tuvalinin altındaki. Denemeyi çalıştırma tamamlandıktan sonra tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti Dağıt [yeni]**.  Machine Learning Studio Web hizmeti Portalı'nın dağıtım sayfası açılır.
+Tahmine dayalı denemenizi dağıtmak için **çalıştırma** deneme tuvalinin altındaki. Denemeyi çalıştırma tamamlandıktan sonra tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti Dağıt [yeni]** .  Machine Learning Studio Web hizmeti Portalı'nın dağıtım sayfası açılır.
 
 > [!NOTE] 
 > Yeni bir web hizmetini dağıtmak için yeterli olan aboneliği, web hizmetini dağıtma olması gerekir. Daha fazla bilgi edinmek, [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md). 

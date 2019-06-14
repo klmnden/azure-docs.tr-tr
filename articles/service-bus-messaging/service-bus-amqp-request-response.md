@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c22ba0b57ed1161e1f7e2082d2ba21f27b656da1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60402692"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure hizmet veri yolu AMQP 1.0: istek-yanıt tabanlı işlemler
@@ -116,10 +116,10 @@ properties: {
 
 Service Bus varlıklarına şu şekilde ele alınması gerekir:  
   
-|Varlık türü|Adres|Örnek|  
+|varlık türü|Adres|Örnek|  
 |-----------------|-------------|-------------|  
-|kuyruk|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
-|konu başlığı|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
+|queue|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
+|topic|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
 |aboneliği|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
   
 ## <a name="message-operations"></a>İleti işlemleri  
@@ -134,7 +134,7 @@ Varlık açıklamasında belirtilen süreye göre bir iletinin kilit genişletir
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:renew-lock`|  
+|İşlemi|string|Evet|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
  İstek iletisi gövdesi aşağıdaki girişlerle eşleme içeren bir amqp değeri bölümü oluşması gerekir:  
@@ -172,14 +172,14 @@ Kilitlemeden iletileri göz atar.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:peek-message`|  
+|İşlemi|string|Evet|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|uzun|Evet|Sıra numarası gözlem başlayacağı.|  
+|`from-sequence-number`|long|Evet|Sıra numarası gözlem başlayacağı.|  
 |`message-count`|int|Evet|En fazla göz atmak için ileti sayısı.|  
   
 #### <a name="response"></a>Yanıt  
@@ -213,7 +213,7 @@ Temsil eden bir ileti eşlemesi, aşağıdaki girişleri içermelidir:
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:schedule-message`|  
+|İşlemi|string|Evet|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -257,7 +257,7 @@ Zamanlanmış iletileri iptal eder.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:cancel-scheduled-message`|  
+|İşlemi|string|Evet|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -293,7 +293,7 @@ Varlık açıklamasında belirtilen süreye göre bir iletinin kilit genişletir
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:renew-session-lock`|  
+|İşlemi|string|Evet|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -327,14 +327,14 @@ Kilitlemeden oturumu iletileri atar.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:peek-message`|  
+|İşlemi|string|Evet|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|gelen dizisi-sayı|uzun|Evet|Sıra numarası gözlem başlayacağı.|  
+|gelen dizisi-sayı|long|Evet|Sıra numarası gözlem başlayacağı.|  
 |ileti sayısı|int|Evet|En fazla göz atmak için ileti sayısı.|  
 |oturum kimliği|string|Evet|Oturum kimliği|  
   
@@ -369,7 +369,7 @@ Oturum durumunu ayarlar.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:set-session-state`|  
+|İşlemi|string|Evet|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -398,7 +398,7 @@ Oturum durumunu alır.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:get-session-state`|  
+|İşlemi|string|Evet|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -432,7 +432,7 @@ Bir Mesajlaşma varlığı oturumları numaralandırır.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:get-message-sessions`|  
+|İşlemi|string|Evet|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -440,7 +440,7 @@ Bir Mesajlaşma varlığı oturumları numaralandırır.
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |Son güncelleştirme saati|timestamp|Evet|Yalnızca belirli bir süre sonra güncelleştirilmiş oturumları içerecek şekilde filtreleyin.|  
-|atla|int|Evet|Oturumlarının sayısını atlayın.|  
+|Atla|int|Evet|Oturumlarının sayısını atlayın.|  
 |Sayfanın Üstü|int|Evet|Oturumlarının sayısı.|  
   
 #### <a name="response"></a>Yanıt  
@@ -456,7 +456,7 @@ Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren b
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|atla|int|Evet|Durum kodu 200 ise Atlanan oturum sayısı.|  
+|Atla|int|Evet|Durum kodu 200 ise Atlanan oturum sayısı.|  
 |oturumlarının kimlikleri|dize dizisi|Evet|Oturum durum kodu 200 ise kimlikleri dizisi.|  
   
 ## <a name="rule-operations"></a>Kural işlemleri  
@@ -469,7 +469,7 @@ Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren b
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:add-rule`|  
+|İşlemi|string|Evet|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -501,7 +501,7 @@ Sql filtresi eşlemesi aşağıdaki girdileri şunları içermelidir:
 |ileti kimliği|string|Hayır||  
 |-|string|Hayır||  
 |Yanıtla|string|Hayır||  
-|etiket|string|Hayır||  
+|label|string|Hayır||  
 |oturum kimliği|string|Hayır||  
 |yanıt için oturum kimliği|string|Hayır||  
 |içerik türü|string|Hayır||  
@@ -530,7 +530,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:remove-rule`|  
+|İşlemi|string|Evet|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -556,7 +556,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:enumerate-rules`|  
+|İşlemi|string|Evet|`com.microsoft:enumerate-rules`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
 
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -564,7 +564,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |Sayfanın Üstü|int|Evet|Sayfanın getirilecek kuralları sayısı.|  
-|atla|int|Evet|Atlamak için kuralları sayısı. Başlangıç dizini (+ 1) üzerinde kurallarının listesini tanımlar. | 
+|Atla|int|Evet|Atlamak için kuralları sayısı. Başlangıç dizini (+ 1) üzerinde kurallarının listesini tanımlar. | 
 
 #### <a name="response"></a>Yanıt
 
@@ -609,12 +609,12 @@ Dizideki her eşleme girişi aşağıdaki özellikleri içerir:
 |Dizin (varsa var)|Değer türü|Değer içeriği|  
 |---------|----------------|--------------|
 | 0 | string | Bağıntı Kimliği |
-| 1 | string | İleti Kimliği |
-| 2 | string | Alıcı |
+| 1 | string | İleti kimliği |
+| 2 | string | Bitiş |
 | 3 | string | Yanıtla |
 | 4 | string | Etiket |
 | 5 | string | Oturum Kimliği |
-| 6 | string | Oturum Kimliğini Yanıtla|
+| 6 | string | Yanıtlanacak oturum kimliği|
 | 7 | string | İçerik Türü |
 | 8 | Eşleme | Uygulama haritasını tanımlanan özellikler |
 
@@ -639,7 +639,7 @@ Sıra numarası tarafından ertelenmiş ileti alır.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:receive-by-sequence-number`|  
+|İşlemi|string|Evet|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -681,14 +681,14 @@ Ertelenmiş ileti değerlendirme durumunu güncelleştirir. Bu işlem, işlemler
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|işlem|string|Evet|`com.microsoft:update-disposition`|  
+|İşlemi|string|Evet|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|Hayır|İşlem sunucusu milisaniye cinsinden zaman aşımı.|  
   
 İstek iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|Değerlendirme durumu|string|Evet|completed<br /><br /> Yayını bırakıldı<br /><br /> Askıya alındı|  
+|Değerlendirme durumu|string|Evet|Tamamlandı<br /><br /> Yayını bırakıldı<br /><br /> Askıya alındı|  
 |Kilit belirteçleri|uuid dizisi|Evet|Değerlendirme durumu güncelleştirmek için ileti kilidi belirteçleri.|  
 |Teslim edilemeyen iletiler açıklaması|string|Hayır|Değerlendirme durumu ayarlanırsa ayarlanabilir **askıya**.|  
 |Teslim edilemeyen iletiler açıklaması|string|Hayır|Değerlendirme durumu ayarlanırsa ayarlanabilir **askıya**.|  

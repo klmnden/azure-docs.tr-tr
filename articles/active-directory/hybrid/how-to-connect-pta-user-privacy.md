@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242374"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Kullanıcı gizliliği ve Azure Active Directory geçişli kimlik doğrulaması
@@ -93,7 +93,7 @@ Bu komut dosyasını çalıştırmak için zamanlama 48 saatte şu adımları iz
 1.  Betik bir dosyaya kaydet ". PS1 "uzantısı.
 2.  Açık **Denetim Masası** tıklayın **sistem ve güvenlik**.
 3.  Altında **Yönetimsel Araçlar** başlığı tıklayın "**görevleri zamanlayın**".
-4.  İçinde **Görev Zamanlayıcı**, sağ tıklayın "**görev zamanlama Kitaplığı**"ve tıklayın"**... temel görevi oluştur** ".
+4.  İçinde **Görev Zamanlayıcı**, sağ tıklayın "**görev zamanlama Kitaplığı**"ve tıklayın" **... temel görevi oluştur** ".
 5.  Yeni görev için bir ad girin ve tıklayın **sonraki**.
 6.  Seçin "**günlük**" için **görev tetikleyici** tıklatıp **sonraki**.
 7.  Yinelenme iki gün olarak ayarlanmış ve tıklayın **sonraki**.

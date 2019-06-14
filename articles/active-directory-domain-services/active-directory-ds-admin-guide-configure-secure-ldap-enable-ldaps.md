@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: df189e405dcd5277c1ccbd94e9d5d302660be79b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60359861"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) bir Azure AD Domain Services yönetilen etki alanı için etkinleştirme
@@ -28,10 +28,10 @@ ms.locfileid: "60359861"
 Tam [görev 2 - için güvenli LDAP sertifikasını dışarı aktarma bir. PFX dosyasını](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
 
 
-## <a name="task-3-enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>3. Görev: Azure portalını kullanarak yönetilen etki alanı için güvenli LDAP'yi etkinleştirme
+## <a name="task-3-enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>3\. Görev: Azure portalını kullanarak yönetilen etki alanı için güvenli LDAP'yi etkinleştirme
 Güvenli LDAP'yi etkinleştirmek için aşağıdaki yapılandırma adımlarını gerçekleştirin:
 
-1. Gidin  **[Azure portalında](https://portal.azure.com)**.
+1. Gidin  **[Azure portalında](https://portal.azure.com)** .
 
 2. Ara 'etki alanı Hizmetleri'nde' **kaynak Ara** arama kutusu. Seçin **Azure AD Domain Services** arama sonuç. **Azure AD Domain Services** sayfası, yönetilen etki alanınıza listeler.
 

@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60475002"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Telefon aramaları kullanmak için güvenlik bilgileri (Önizleme) ayarlama
@@ -86,11 +86,11 @@ Telefon görüşmeleri, iki aşamalı doğrulama kullanarak iş veya Okul hesab�
 
     ![Bağlantı için varsayılan oturum açma yöntemini değiştirme](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Seçin **telefon - çağrı (*_your_phone_number_*)** metotları seçin ve açılan listeden **Onayla**.
+2. Seçin **telefon - çağrı ( *_your_phone_number_* )** metotları seçin ve açılan listeden **Onayla**.
 
     ![İçin varsayılan oturum açma yöntemini seçin](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    Oturum açma, değişiklikler için kullanılan varsayılan yöntemi **telefon - çağrı (*_your_phone_number_*)**.
+    Oturum açma, değişiklikler için kullanılan varsayılan yöntemi **telefon - çağrı ( *_your_phone_number_* )** .
 
 ## <a name="additional-security-info-methods"></a>Ek güvenlik bilgileri yöntemi
 Nasıl kuruluş kişilerinizi, olduğuna göre kimliğinizi doğrulamak için yapmak çalıştığınız için ek bir seçeneğiniz vardır. Seçeneklere şunlar dahildir:

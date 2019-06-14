@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: 4d2e8b442f70ee791fe65a32402e5272eda3f209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589046"
 ---
 # <a name="deploy-service-catalog-app-through-azure-portal"></a>Azure Portalı aracılığıyla hizmet Kataloğu uygulaması dağıtma
@@ -58,7 +58,7 @@ Hizmet Kataloğu uygulaması dağıtıldıktan sonra iki yeni kaynak grubunuz ol
 
 1. Adlı kaynak grubunu görüntülemek **applicationGroup** hizmet Kataloğu uygulamasını görmek için.
 
-   ![Uygulamayı görüntüle](./media/deploy-service-catalog-quickstart/view-managed-application.png)
+   ![Uygulamayı görüntüleyin](./media/deploy-service-catalog-quickstart/view-managed-application.png)
 
 1. Adlı kaynak grubunu görüntülemek **applicationGroup {characters karma}** hizmet Kataloğu uygulaması için kaynakları görmek için.
 

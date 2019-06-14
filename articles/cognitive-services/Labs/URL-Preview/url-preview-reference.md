@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60462597"
 ---
 # <a name="project-url-preview-v7-reference"></a>Proje URL'si Önizleme v7 başvurusu
@@ -62,7 +62,7 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 ## <a name="headers"></a>Üst bilgiler
 İstek ve yanıt içerebilecek üst bilgiler verilmiştir.
 
-|Üst bilgi|Açıklama|
+|Üstbilgi|Açıklama|
 |------------|-----------------|
 |<a name="market" />BingAPIs-Market|Yanıt üst bilgisi.<br /><br /> İstek tarafından kullanılan pazar. Biçimi şöyledir: \<languageCode\>-\<countryCode\>. Örneğin, tr-TR.|
 |<a name="traceid" />BingAPIs-TraceId|Yanıt üst bilgisi.<br /><br /> İsteğin ayrıntılarını içeren günlük girdisinin kimliği. Hata oluştuğunda, bu kimliği yakalayın. Sorunu belirleyemez ve çözemezseniz, Destek ekibine diğer bilgilerle birlikte bu kimliği de sağlayın.|
@@ -112,9 +112,9 @@ Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.
 
 |Ad|Değer|Tür|
 |----------|-----------|----------|
-|ad|Sayfa başlığı, mutlaka HTML Başlığı|String|
+|name|Sayfa başlığı, mutlaka HTML Başlığı|String|
 |url|Aslında gezinilen URL'si (istek ve ardından yeniden yönlendirmeleri)|String|
-|açıklama|Sayfa içeriği ve kısa açıklama|String|
+|description|Sayfa içeriği ve kısa açıklama|String|
 |isFamilyFriendly|Web dizindeki öğeler için en doğru; Bu algılama yöntemi yalnızca bir URL ve sayfa içeriği göre gerçek zamanlı öğesinden yapın|boole|
 |primaryImageOfPage/contentUrl|Önizlemede dahil etmek için temsili bir görüntü URL'si|String|
 
@@ -127,7 +127,7 @@ Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.
 
 Bir isteği döndüren olası HTTP durum kodları şunlardır:
 
-|Durum Kodu|Açıklama|
+|Durum kodu|Açıklama|
 |-----------------|-----------------|
 |200|Başarılı.|
 |400|Sorgu parametrelerden biri eksik veya geçerli değil.|
@@ -172,7 +172,7 @@ Olası hata kodu ve alt hata kodu değerleri şunlardır.
 
 |Kod|Alt|Açıklama
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Uygulanmadı|HTTP durum kodunu 500'dür.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP durum kodunu 500'dür.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Engellendi|Her isteğin herhangi bir bölümü geçerli değil Bing InvalidRequest döndürür. Örneğin, bir gerekli parametre eksik veya bir parametre değeri geçerli değil.<br/><br/>Hata ParameterMissing veya ParameterInvalidValue ise, HTTP durum kodu 400 ' dir.<br/><br/>HTTPS yerine HTTP protokolünü kullanıyorsanız, Bing HttpNotAllowed döndürür ve 410 HTTP durum kodudur.
 |RateLimitExceeded|Hiçbir alt kodları|/ Saniye (QPS) sorguları veya sorgu başına aylık (QPM) kota aştığında Bing RateLimitExceeded döndürür.<br/><br/>QPS aşarsanız, HTTP durum kodu 429 Bing döndürür ve QPM aşarsanız, Bing 403 döndürür.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing çağıran doğrulandığında Bing InvalidAuthorization döndürür. Örneğin, `Ocp-Apim-Subscription-Key` üstbilgisi eksik veya abonelik anahtarı geçerli değil.<br/><br/>Birden fazla kimlik doğrulama yöntemi belirtmek, yedeklilik meydana gelir.<br/><br/>Hata InvalidAuthorization ise, HTTP durum kodunu 401 ' dir.

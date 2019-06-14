@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348725"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync'ten yükseltme
@@ -38,7 +38,7 @@ Azure AD Connect'i yüklemeye başlamadan önce emin olun [Azure AD Connect'i in
 Dirsync'ten yükseltmiyorsanız diğer senaryolar için ilgili belgelere bakın.
 
 ## <a name="upgrade-from-dirsync"></a>DirSync'ten yükseltme
-Geçerli DirSync dağıtımınıza bağlı olarak farklı yükseltme seçenekleri mevcuttur. Tahmini yükseltme süresi üç saatten azsa yerinde yükseltme yapılması önerilir. Tahmini yükseltme süresi üç saatten fazlaysa başka bir sunucu üzerinde paralel dağıtım yapılması önerilir. 50.000'den fazla nesneniz varsa yükseltmenin üç saatten fazla süreceği tahmin edilir.
+Geçerli DirSync dağıtımınıza bağlı olarak farklı yükseltme seçenekleri mevcuttur. Tahmini yükseltme süresi üç saatten azsa yerinde yükseltme yapılması önerilir. Tahmini yükseltme süresi üç saatten fazlaysa başka bir sunucu üzerinde paralel dağıtım yapılması önerilir. 50\.000'den fazla nesneniz varsa yükseltmenin üç saatten fazla süreceği tahmin edilir.
 
 | Senaryo |
 | --- |
@@ -54,7 +54,7 @@ Yükseltmenin tamamlanmasına ilişkin tahmini süre sihirbaz tarafından görü
 Yapılandırma geçişi ve paralel dağıtım yapmak istiyorsanız yerinde yükseltme önerisini geçersiz kılabilirsiniz. Örneğin, donanım ve işletim sistemini yenileme olanağından faydalanabilirsiniz. Daha fazla bilgi için [paralel dağıtım](#parallel-deployment) bölümüne bakın.
 
 **Paralel dağıtım**  
-50.000'den fazla nesneniz varsa paralel dağıtım seçeneğini kullanmanız önerilir. Bu dağıtım, kullanıcılarınızın işletimsel gecikme yaşamasını önler. Azure AD Connect yüklemesi, yükseltme için kesinti süresini tahmin etmeye çalışır ancak DirSync'i daha önce yükselttiyseniz kendi deneyiminizin sizin için en iyi kılavuz olacağını söyleyebiliriz.
+50\.000'den fazla nesneniz varsa paralel dağıtım seçeneğini kullanmanız önerilir. Bu dağıtım, kullanıcılarınızın işletimsel gecikme yaşamasını önler. Azure AD Connect yüklemesi, yükseltme için kesinti süresini tahmin etmeye çalışır ancak DirSync'i daha önce yükselttiyseniz kendi deneyiminizin sizin için en iyi kılavuz olacağını söyleyebiliriz.
 
 ### <a name="supported-dirsync-configurations-to-be-upgraded"></a>Yükseltilecek olan desteklenen DirSync yapılandırmaları
 Yükseltilmiş DirSync ile şu yapılandırma değişiklikleri desteklenir:
@@ -102,7 +102,7 @@ Ek adımların gerekli olduğu durumlar:
    * DirSync için tam SQL Sunucusu kullanıyorsanız bu paketi görürsünüz:  
      ![Analiz tamamlandı, DirSync’ten yükseltme yapmaya hazırsınız](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
      DirSync tarafından kullanılan mevcut SQL Server veritabanı sunucusuyla ilgili bilgiler görüntülenir. Gerekirse uygun ayarlamaları yapın. Yüklemeye devam etmek için **İleri**'ye tıklayın.
-   * 50.000’den fazla nesneniz varsa şu ekranı görürsünüz:  
+   * 50\.000’den fazla nesneniz varsa şu ekranı görürsünüz:  
      ![Analiz tamamlandı, DirSync’ten yükseltme yapmaya hazırsınız](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
      Bir yerinde yükseltmeye devam etmek için şu iletinin yanındaki onay kutusunu tıklayın: **Bu bilgisayarda Dirsync'i yükseltmeye devam edin.**
      Bunun yerine [paralel dağıtım](#parallel-deployment) yapmak için DirSync yapılandırma ayarlarını dışarı aktarın ve yapılandırmayı yeni sunucuya taşıyın.
@@ -119,7 +119,7 @@ Ek adımların gerekli olduğu durumlar:
 ### <a name="export-the-dirsync-configuration"></a>DirSync yapılandırmasını dışarı aktarma
 **50.000'den fazla nesneyle paralel dağıtım**
 
-50.000'den fazla nesneniz varsa Azure AD Connect yüklemesi tarafından paralel dağıtım seçeneğini kullanmanız önerilir.
+50\.000'den fazla nesneniz varsa Azure AD Connect yüklemesi tarafından paralel dağıtım seçeneğini kullanmanız önerilir.
 
 Şuna benzer bir ekran görüntülenir:  
 ![Analiz tamamlandı](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
@@ -132,7 +132,7 @@ Ayarlarınız başarıyla dışarı aktarıldıktan sonra DirSync sunucusundaki 
 
 **50.000'den az nesneyle paralel dağıtım**
 
-50.000'den az nesneniz varsa ancak yine de paralel dağıtım yapmak istiyorsanız şunları yapın:
+50\.000'den az nesneniz varsa ancak yine de paralel dağıtım yapmak istiyorsanız şunları yapın:
 
 1. Azure AD Connect yükleyicisini (MSI) çalıştırın.
 2. **Azure AD Connect'e Hoş Geldiniz** ekranını gördüğünüzde, pencerenin sağ üst köşesindeki "X" işaretine tıklayarak yükleme sihirbazından çıkın.
@@ -162,7 +162,7 @@ Azure AD Connect'i yeni bir sunucuya yüklediğinizde, Azure AD Connect’i temi
      ![Azure AD kimlik bilgilerinizi girin](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. **İleri**’ye tıklayın.
 8. **Yapılandırma için hazır** sayfasında, **Start the synchronization process as soon as configuration completes (Yapılandırma tamamlanınca eşitlemeyi başlat)** seçeneğini işaretli olarak bırakın. Sunucu şu an [hazırlama modunda](how-to-connect-sync-staging-server.md) olduğundan değişiklikler Azure AD’ye dışarı aktarılmaz.
-9. **Yükle**'ye tıklayın.
+9. **Yükle**'ye tıklatın.
 10. Yükleme tamamlandıktan sonra Synchronization Service Manager'ı ve Synchronization Rule Editor'ı kullanmadan veya başka bir yapılandırma değişikliği yapmadan önce Windows oturumunuzu kapatıp tekrar açın.
 
 > [!NOTE]

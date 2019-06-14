@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: danlep
 ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60430822"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Kapsayıcı görüntülerini Azure Container Registry'de Sil
@@ -20,11 +20,11 @@ Azure kapsayıcı kayıt defterinizin boyutunu korumak için düzenli aralıklar
 
 Görüntü verilerini birkaç farklı yolla silebilirsiniz çünkü her silme işlemi depolama kullanımını nasıl etkilediğini anlamak önemlidir. Bu makalede ilk Docker kayıt defteri ve kapsayıcı görüntüleri alan bileşenleri tanıtır ve ardından görüntü verilerini silmek için çeşitli yöntemler ele alınmaktadır. Örnek betikler, silme işlemleri otomatikleştirmek için sağlanır.
 
-## <a name="registry"></a>Kayıt Defteri
+## <a name="registry"></a>Kayıt defteri
 
 Bir kapsayıcı *kayıt defteri* depolar ve kapsayıcı görüntülerini dağıtan bir hizmettir. Azure Container Registry özel Docker kapsayıcısı kayıt defterleri Azure sağlarken docker hub'ı genel bir Docker kapsayıcısı kayıt ' dir.
 
-## <a name="repository"></a>Depo
+## <a name="repository"></a>Havuz
 
 Kapsayıcı kayıt defterleri yönetme *depoları*, kapsayıcı görüntüleri ile aynı adı taşıyan ancak farklı etiketler koleksiyonu. Örneğin, aşağıdaki üç görüntü "acr-helloworld" deposunda şunlardır:
 
@@ -68,7 +68,7 @@ Görüntüleri oluşan bir veya daha fazla *katmanları*, her bir satır görün
 
 Katman paylaşımı da ortak katmanları paylaşımı ile birden çok görüntü katmanı dağıtım düğümlerine iyileştirir. Örneğin, görüntüyü bir düğümde oluşturucularını Alpine Linux katmanla içeriyorsa, sonraki çekme aynı katman başvuran farklı bir resim, katman düğüme aktarmaz. Bunun yerine, düğüm üzerinde mevcut katman başvuruyor.
 
-### <a name="manifest"></a>Bildirim
+### <a name="manifest"></a>Bildirimi
 
 Bir kapsayıcı kayıt defterine gönderilmiştir her bir kapsayıcı görüntüsü ile ilişkili bir *bildirim*. Bildirimi kayıt defteri tarafından oluşturulan görüntüyü gönderildiğinde yeniden, benzersiz olarak resmi tanımlar ve katmanları belirtir. Azure CLI komutuyla bir depo için bildirimleri listeleyebilirsiniz [az acr depo show-bildirimleri][az-acr-repository-show-manifests]:
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240829"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure İzleyici'de Syslog veri kaynakları
@@ -54,7 +54,7 @@ Linux için Log Analytics aracısını yalnızca yapılandırmasında belirtilen
 ### <a name="configure-syslog-in-the-azure-portal"></a>Azure portalında Syslog yapılandırma
 Syslog gelen yapılandırma [Gelişmiş ayarlar veri menüde](agent-data-sources.md#configuring-data-sources). Bu yapılandırma her bir Linux aracı yapılandırma dosyasını teslim edilir.
 
-Yeni bir özellik adını yazarak ve tıklayarak ekleyebilirsiniz **+**. Her özellik için yalnızca seçilen önem dereceleri iletilerle toplanacak.  Toplamak istediğiniz belirli bir özellik için önem derecelerini işaretleyin. İletilerine filtre uygulamak için herhangi bir ek ölçüt sağlayamaz.
+Yeni bir özellik adını yazarak ve tıklayarak ekleyebilirsiniz **+** . Her özellik için yalnızca seçilen önem dereceleri iletilerle toplanacak.  Toplamak istediğiniz belirli bir özellik için önem derecelerini işaretleyin. İletilerine filtre uygulamak için herhangi bir ek ölçüt sağlayamaz.
 
 ![Syslog yapılandırma](media/data-sources-syslog/configure.png)
 

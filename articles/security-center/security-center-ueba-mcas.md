@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332406"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>Azure kaynakları ve kullanıcıları için UEBA 
 
-Kullanıcı ve varlık davranış çözümlemesinden (UEBA) Azure kaynakları ve kullanıcıları (Azure etkinlik) dayalı uyarılar getirmek için Microsoft Cloud App Security ile Azure Güvenlik Merkezi'nde iş ortağı. Bu uyarılar anomalileri içinde kullanıcı davranışlarını algılayın ve kullanıcı ve varlık davranış analizi ve makine Gelişmiş tehdit algılama, aboneliklerinizi etkinliklerinde hemen çalıştırabilirsiniz (ML) öğrenimi dayanır. Otomatik olarak etkin olduğundan, yeni anomali algılama sonuçlarını hemen hemen algılamalar, aboneliğinizle ilişkili kaynakları ve kullanıcıları arasında çok sayıda davranış anormallikleri hedefleyen sağlayarak sağlar. Ayrıca, bu uyarıları araştırma sürecini hızlandırmak ve devam eden tehditleri içeren yardımcı olmak için Microsoft Cloud App Security algılama altyapısında, zaten var olan verilerden yararlanacak. 
+Kullanıcı ve varlık davranış çözümlemesinden (UEBA) Azure kaynakları ve kullanıcıları (Azure etkinlik) dayalı uyarılar getirmek için Microsoft Cloud App Security ile Azure Güvenlik Merkezi'nde iş ortağı. Bu uyarılar, kullanıcı ve varlık davranışı analizi ile makine öğrenmesi (ML) sayesinde kullanıcı davranışındaki anormal durumları algılar ve aboneliklerinizin etkinliklerinde anında gelişmiş tehdit algılama işlemi çalıştırmanızı sağlar. Yeni anomali algılama özellikleri otomatik olarak etkinleştirildiğinden, aboneliğinizle ilişkili kullanıcı ve kaynaklardaki farklı davranış anomalilerini hedefleyen anında algılama süreçleri sayesinde hızlı sonuçlar sunar. Bu uyarılar ayrıca araştırma sürecini hızlandırmanıza ve devam eden tehditleri dahil etmenize yardımcı olmak için Microsoft Cloud App Security algılama altyapısında mevcut olan ek verilerden de faydalanır. 
 
 > [!NOTE]
 > Güvenlikle ilgili Müşteri verilerinin bir kopyasını depolayabilir, Azure Güvenlik Merkezi, toplanan ya da (örneğin, sanal makine veya Azure Active Directory Kiracı) müşteri kaynakla ilişkili: (a) bu kaynak, aynı coğrafi bölgede içinde olması dışında bu bölgelerde burada Microsoft Azure Güvenlik Merkezi, bu tür verilerin bir kopyasını durumunun Amerika Birleşik Devletleri'nde depolanacağı dağıtmak henüz var; ve (b) Azure Güvenlik Merkezi, bu tür verileri işlemek için başka bir Microsoft çevrimiçi hizmeti kullanır. Burada, bu tür veriler, bir çevrimiçi hizmet coğrafi konum kurallarına uygun olarak depolayabilir.

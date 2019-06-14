@@ -18,10 +18,10 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353270"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 dolaşım ayarları başvurusu
@@ -30,7 +30,7 @@ Dolaşıma açıldı veya Windows 10'da yedeklenen tüm ayarları tam bir listes
 ## <a name="devices-and-endpoints"></a>Cihazların ve uç noktaları
 Eşitlemeden, yedekleme, desteklenen bir hesap türleri ve cihazlar özeti için aşağıdaki tabloya bakın ve Windows 10'daki framework geri yükleyin.
 
-| Hesap türü ve işlem | Masaüstü | Cep telefonu |
+| Hesap türü ve işlem | Masaüstü | Mobil |
 | --- | --- | --- |
 | Azure Active Directory: eşitleme |Evet |Hayır |
 | Azure Active Directory: yedekleme/geri yükleme |Hayır |Hayır |
@@ -67,116 +67,116 @@ Aşağıdaki tabloda, ayarları Grup sütunu içindeki diğer girişler ayarlar�
 İç ayarlar grubunda sütun girişleri ayarları ve yalnızca uygulama içinde veya mobil cihaz Yönetimi (MDM) veya Grup İlkesi ayarlarını kullanarak tüm cihaz eşitleme devre dışı bırakarak eşitlenmesini devre dışı bırakılabilir uygulamaları bakın.
 Dolaşımda yoksa ayarlar veya eşitleme grubuna ait değil.
 
-| Ayarlar | Masaüstü | Cep telefonu | Grup |
+| Ayarlar | Masaüstü | Mobil | Grup |
 | --- | --- | --- | --- |
-| **Hesapları**: hesap resmi |eşitle |X |Tema |
+| **Hesapları**: hesap resmi |Eşitleme |X |Tema |
 | **Hesapları**: diğer hesap ayarları |X |X | |
 | **Mobil geniş bant Gelişmiş**: Internet bağlantısı paylaşımının ağ adı (Bluetooth aracılığıyla mobil Wi-Fi etkin noktalarına otomatik bulma etkinleştirir) |X |X |Parolalar |
 | **Uygulama verilerini**: tek tek uygulamalar verileri Eşitle |Eşitleme yedekleme |Eşitleme yedekleme |İç |
 | **Uygulama listesi**: yüklü uygulamalar listesi |X |yedekleme |Diğer |
 | **Bluetooth**: tüm Bluetooth ayarları |X |X | |
-| **Komut İstemi**: Komut istemi "Varsayılan" ayarları |eşitle |X |İç |
-| **kimlik bilgileri**: Kimlik bilgileri kasası |eşitle |eşitle |password |
-| **Tarih, saat ve bölge**: otomatik saat (Internet zaman eşitleme) |eşitle |eşitle |language |
-| **Tarih, saat ve bölge**: 24 saatlik düzende |eşitle |X |language |
-| **Tarih, saat ve bölge**: tarih ve saat |eşitle |X |language |
+| **Komut İstemi**: Komut istemi "Varsayılan" ayarları |Eşitleme |X |İç |
+| **kimlik bilgileri**: Kimlik bilgileri kasası |Eşitleme |Eşitleme |password |
+| **Tarih, saat ve bölge**: otomatik saat (Internet zaman eşitleme) |Eşitleme |Eşitleme |language |
+| **Tarih, saat ve bölge**: 24 saatlik düzende |Eşitleme |X |language |
+| **Tarih, saat ve bölge**: tarih ve saat |Eşitleme |X |language |
 | **Tarih, saat ve bölge**: saat dilimi | |X |language |
-| **Tarih, saat ve bölge**: gün ışığından yararlanma saatine |eşitle |X |language |
-| **Tarih, saat ve bölge**: ülke/bölge |eşitle |X |language |
-| **Tarih, saat ve bölge**: haftanın ilk günü |eşitle |X |language |
-| **Tarih, saat ve bölge**: bölge format (yerel) |eşitle |X |language |
-| **Tarih, saat ve bölge**: kısa tarih |eşitle |X |language |
-| **Tarih, saat ve bölge**: uzun tarih |eşitle |X |language |
-| **Tarih, saat ve bölge**: kısa süre |eşitle |X |language |
-| **Tarih, saat ve bölge**: uzun saat |eşitle |X |language |
-| **Masaüstü kişiselleştirme**: Masaüstü tema (arka plan, sistem renk, varsayılan sistem ses ve ekran koruyucu) |eşitle |X |Tema |
-| **Masaüstü kişiselleştirme**: slayt gösterisi duvar kağıdı |eşitle |X |Tema |
-| **Masaüstü kişiselleştirme**: görev çubuğu ayarları (konum, otomatik gizleme, vb.) |eşitle |X |Tema |
+| **Tarih, saat ve bölge**: gün ışığından yararlanma saatine |Eşitleme |X |language |
+| **Tarih, saat ve bölge**: ülke/bölge |Eşitleme |X |language |
+| **Tarih, saat ve bölge**: haftanın ilk günü |Eşitleme |X |language |
+| **Tarih, saat ve bölge**: bölge format (yerel) |Eşitleme |X |language |
+| **Tarih, saat ve bölge**: kısa tarih |Eşitleme |X |language |
+| **Tarih, saat ve bölge**: uzun tarih |Eşitleme |X |language |
+| **Tarih, saat ve bölge**: kısa süre |Eşitleme |X |language |
+| **Tarih, saat ve bölge**: uzun saat |Eşitleme |X |language |
+| **Masaüstü kişiselleştirme**: Masaüstü tema (arka plan, sistem renk, varsayılan sistem ses ve ekran koruyucu) |Eşitleme |X |Tema |
+| **Masaüstü kişiselleştirme**: slayt gösterisi duvar kağıdı |Eşitleme |X |Tema |
+| **Masaüstü kişiselleştirme**: görev çubuğu ayarları (konum, otomatik gizleme, vb.) |Eşitleme |X |Tema |
 | **Masaüstü kişiselleştirme**: Başlangıç ekranı düzeni |X |yedekleme | |
 | **Cihazları**: paylaşılan yazıcılara için bağlı |X |X |diğer |
-| **Microsoft Edge tarayıcısı**: listesini okuma |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: Sık Kullanılanlar |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: üst siteleri <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: URL'ler yazılan <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: Sık Kullanılanlar çubuğu ayarları <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: Giriş düğmesini göster <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: açılır pencereleri engelle <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: her indirme yapmanız gerekenler sor <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: parolaları kaydetmek için teklif <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: gönderme istekleri izleme <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: form girişlerinin Kaydet <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: yazarken arama ve site önerilerini göster <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: tanımlama bilgilerini tercih <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: korumalı medya lisansları cihazıma Kaydet siteleri izin <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Microsoft Edge tarayıcısı**: ekran okuyucu ayarlama <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Yüksek Karşıtlık**: Veya kapat |eşitle |X |Erişim Kolaylığı |
-| **Yüksek Karşıtlık**: Tema Ayarları |eşitle |X |Erişim Kolaylığı |
-| **Internet Explorer**: sekmeler (URL ve başlık) açın |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: listesini okuma |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: yazılan URL'leri |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: Tarama geçmişi |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: Sık Kullanılanlar |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: dışlanan URL'leri |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: giriş sayfaları |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: öneriler etki alanı |eşitle |eşitle |Internet Explorer |
-| **Klavye**: kullanıcılar Aç/Kapat Klavyesi |eşitle |X |Erişim Kolaylığı |
-| **Klavye**: Evet Yapışkan Aç (varsayılan olarak kapalıdır) |eşitle |X |Erişim Kolaylığı |
-| **Klavye**: Filtre Tuşlarını etkinleştir (varsayılan olarak kapalıdır) |eşitle |X |Erişim Kolaylığı |
-| **Klavye**: geçiş tuşlarını etkinleştir (varsayılan olarak kapalıdır) |eşitle |X |Erişim Kolaylığı |
-| **Internet Explorer**: etki alanı dil: Çince (CHS) - QWERTY etkinleştirme kendi kendine öğrenme |eşitle |X |Dil |
-| **Dil**: CHS QWERTY - derecelendirme dinamik aday etkinleştir |eşitle |X |Dil |
-| **Dil**: QWERTY - CHS char-Basitleştirilmiş Çince set |eşitle |X |Dil |
-| **Dil**: QWERTY - CHS char-Geleneksel Çince set |eşitle |X |Dil |
-| **Dil**: CHS QWERTY - belirsiz PinYin'e |eşitle |yedekleme |Dil |
-| **Dil**: CHS QWERTY - belirsiz çiftleri |eşitle |yedekleme |Dil |
-| **Dil**: CHS QWERTY - tam PinYin'e |eşitle |X |Dil |
-| **Dil**: CHS QWERTY - çift PinYin'e |eşitle |X |Dil |
-| **Dil**: Otomatik Düzeltme okuma CHS QWERTY- |eşitle |X |Dil |
-| **Dil**: CHS QWERTY - C/E anahtarı anahtar, kaydırma |eşitle |X |Dil |
-| **Dil**: Ctrl tuşu CHS QWERTY - C/E geçiş |eşitle |X |Dil |
-| **Dil**: CHS WUBI - tek karakter giriş modu |eşitle |X |Dil |
-| **Dil**: CHS WUBI - adayı kodlama kalan Göster |eşitle |X |Dil |
-| **Dil**: CHS WUBI - 4 kodlama geçersiz olduğunda bip sesi |eşitle |X |Dil |
-| **Dil**: -CHT Bopomofo CJK Ext A içerir |eşitle |X |Dil |
-| **Dil**: Japonca IME - Tahmine dayalı yazma ve özel sözcük |eşitle |eşitle |Dil |
+| **Microsoft Edge tarayıcısı**: listesini okuma |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: Sık Kullanılanlar |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: üst siteleri <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: URL'ler yazılan <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: Sık Kullanılanlar çubuğu ayarları <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: Giriş düğmesini göster <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: açılır pencereleri engelle <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: her indirme yapmanız gerekenler sor <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: parolaları kaydetmek için teklif <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: gönderme istekleri izleme <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: form girişlerinin Kaydet <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: yazarken arama ve site önerilerini göster <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: tanımlama bilgilerini tercih <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: korumalı medya lisansları cihazıma Kaydet siteleri izin <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Microsoft Edge tarayıcısı**: ekran okuyucu ayarlama <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Yüksek Karşıtlık**: Veya kapat |Eşitleme |X |Erişim Kolaylığı |
+| **Yüksek Karşıtlık**: Tema Ayarları |Eşitleme |X |Erişim Kolaylığı |
+| **Internet Explorer**: sekmeler (URL ve başlık) açın |Eşitleme |Eşitleme |Internet Explorer |
+| **Internet Explorer**: listesini okuma |Eşitleme |Eşitleme |Internet Explorer |
+| **Internet Explorer**: yazılan URL'leri |Eşitleme |Eşitleme |Internet Explorer |
+| **Internet Explorer**: Tarama geçmişi |Eşitleme |Eşitleme |Internet Explorer |
+| **Internet Explorer**: Sık Kullanılanlar |Eşitleme |Eşitleme |Internet Explorer |
+| **Internet Explorer**: dışlanan URL'leri |Eşitleme |Eşitleme |Internet Explorer |
+| **Internet Explorer**: giriş sayfaları |Eşitleme |Eşitleme |Internet Explorer |
+| **Internet Explorer**: öneriler etki alanı |Eşitleme |Eşitleme |Internet Explorer |
+| **Klavye**: kullanıcılar Aç/Kapat Klavyesi |Eşitleme |X |Erişim Kolaylığı |
+| **Klavye**: Evet Yapışkan Aç (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim Kolaylığı |
+| **Klavye**: Filtre Tuşlarını etkinleştir (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim Kolaylığı |
+| **Klavye**: geçiş tuşlarını etkinleştir (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim Kolaylığı |
+| **Internet Explorer**: etki alanı dil: Çince (CHS) - QWERTY etkinleştirme kendi kendine öğrenme |Eşitleme |X |Dil |
+| **Dil**: CHS QWERTY - derecelendirme dinamik aday etkinleştir |Eşitleme |X |Dil |
+| **Dil**: QWERTY - CHS char-Basitleştirilmiş Çince set |Eşitleme |X |Dil |
+| **Dil**: QWERTY - CHS char-Geleneksel Çince set |Eşitleme |X |Dil |
+| **Dil**: CHS QWERTY - belirsiz PinYin'e |Eşitleme |yedekleme |Dil |
+| **Dil**: CHS QWERTY - belirsiz çiftleri |Eşitleme |yedekleme |Dil |
+| **Dil**: CHS QWERTY - tam PinYin'e |Eşitleme |X |Dil |
+| **Dil**: CHS QWERTY - çift PinYin'e |Eşitleme |X |Dil |
+| **Dil**: Otomatik Düzeltme okuma CHS QWERTY- |Eşitleme |X |Dil |
+| **Dil**: CHS QWERTY - C/E anahtarı anahtar, kaydırma |Eşitleme |X |Dil |
+| **Dil**: Ctrl tuşu CHS QWERTY - C/E geçiş |Eşitleme |X |Dil |
+| **Dil**: CHS WUBI - tek karakter giriş modu |Eşitleme |X |Dil |
+| **Dil**: CHS WUBI - adayı kodlama kalan Göster |Eşitleme |X |Dil |
+| **Dil**: CHS WUBI - 4 kodlama geçersiz olduğunda bip sesi |Eşitleme |X |Dil |
+| **Dil**: -CHT Bopomofo CJK Ext A içerir |Eşitleme |X |Dil |
+| **Dil**: Japonca IME - Tahmine dayalı yazma ve özel sözcük |Eşitleme |Eşitleme |Dil |
 | **Dil**: Kore dili (KOR) IME |X |X |Dil |
 | **Dil**: el yazısı tanıma |X |X |Dil |
-| **Dil**: Dil profili |eşitle |yedekleme |Dil |
-| **Dil**: yazım denetimi - otomatik düzeltme ve Vurgu yazım hatası |eşitle |yedekleme |Dil |
-| **Dil**: klavyeler listesi |eşitle |yedekleme |Dil |
+| **Dil**: Dil profili |Eşitleme |yedekleme |Dil |
+| **Dil**: yazım denetimi - otomatik düzeltme ve Vurgu yazım hatası |Eşitleme |yedekleme |Dil |
+| **Dil**: klavyeler listesi |Eşitleme |yedekleme |Dil |
 | **Kilit ekranı**: tüm kilit ekranı ayarları |X |X | |
-| **Büyüteç'i**: açık veya kapalı (ana Aç/Kapat) |X |X |Erişim kolaylığı |
-| **Büyüteç'i**: ters çevirmeyi renk Aç veya kapat (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
-| **Büyüteç'i**: izleme - klavye odağı izleyin |eşitle |X |Erişim kolaylığı |
-| **Büyüteç'i**: izleme - fare imlecini takip edin |eşitle |X |Erişim kolaylığı |
-| **Büyüteç'i**: kullanıcılar oturum açtığında Başlat (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
-| **Fare**: fare imlecini boyutunu değiştirme |eşitle |X |diğer |
-| **Fare**: fare imlecini rengini değiştirme |eşitle |X |diğer |
+| **Büyüteç'i**: açık veya kapalı (ana Aç/Kapat) |X |X |Erişim Kolaylığı |
+| **Büyüteç'i**: ters çevirmeyi renk Aç veya kapat (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim Kolaylığı |
+| **Büyüteç'i**: izleme - klavye odağı izleyin |Eşitleme |X |Erişim Kolaylığı |
+| **Büyüteç'i**: izleme - fare imlecini takip edin |Eşitleme |X |Erişim Kolaylığı |
+| **Büyüteç'i**: kullanıcılar oturum açtığında Başlat (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim Kolaylığı |
+| **Fare**: fare imlecini boyutunu değiştirme |Eşitleme |X |diğer |
+| **Fare**: fare imlecini rengini değiştirme |Eşitleme |X |diğer |
 | **Fare**: diğer tüm ayarlar |X |X | |
-| **Ekran okuyucusu**: hızlı başlatma |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcılar, ekran okuyucusu aralık Konuşmayı değiştirebilir |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcıları açın veya ekran okuyucu ipuçları ortak öğeler için okuma Kapat (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcıları açın veya yazılan karakter olup olmadığını duyabileceğiniz Kapat (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcılar, açık veya kapalı olup olmadığını yazılan sözcükleri duyabileceğiniz kapatabilir (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: ekran okuyucusu aşağıdaki INSERT imlece sahip (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: ekran okuyucusu imleç visual vurgulamasını etkinleştirmenin (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: ses ipuçları Yürüt (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: parmağınızı kaldırın touch tuşlarını etkinleştirmek (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
-| **Erişim Kolaylığı**: sönen bir imleç kalınlığını ayarlayın |eşitle |X |Erişim kolaylığı |
-| **Erişim Kolaylığı**: arka plan görüntülerini kaldırmak (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: hızlı başlatma |Eşitleme |X |Erişim Kolaylığı |
+| **Ekran okuyucusu**: kullanıcılar, ekran okuyucusu aralık Konuşmayı değiştirebilir |Eşitleme |X |Erişim Kolaylığı |
+| **Ekran okuyucusu**: kullanıcıları açın veya ekran okuyucu ipuçları ortak öğeler için okuma Kapat (üzerinde varsayılan olarak) |Eşitleme |X |Erişim Kolaylığı |
+| **Ekran okuyucusu**: kullanıcıları açın veya yazılan karakter olup olmadığını duyabileceğiniz Kapat (üzerinde varsayılan olarak) |Eşitleme |X |Erişim Kolaylığı |
+| **Ekran okuyucusu**: kullanıcılar, açık veya kapalı olup olmadığını yazılan sözcükleri duyabileceğiniz kapatabilir (üzerinde varsayılan olarak) |Eşitleme |X |Erişim Kolaylığı |
+| **Ekran okuyucusu**: ekran okuyucusu aşağıdaki INSERT imlece sahip (üzerinde varsayılan olarak) |Eşitleme |X |Erişim Kolaylığı |
+| **Ekran okuyucusu**: ekran okuyucusu imleç visual vurgulamasını etkinleştirmenin (üzerinde varsayılan olarak) |Eşitleme |X |Erişim Kolaylığı |
+| **Ekran okuyucusu**: ses ipuçları Yürüt (üzerinde varsayılan olarak) |Eşitleme |X |Erişim Kolaylığı |
+| **Ekran okuyucusu**: parmağınızı kaldırın touch tuşlarını etkinleştirmek (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim Kolaylığı |
+| **Erişim Kolaylığı**: sönen bir imleç kalınlığını ayarlayın |Eşitleme |X |Erişim Kolaylığı |
+| **Erişim Kolaylığı**: arka plan görüntülerini kaldırmak (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim Kolaylığı |
 | **Güç ve uyku**: tüm ayarlar |X |X | |
-| **Başlat ekranı kişiselleştirme**: Vurgu rengi (yalnızca phone) |X |eşitle |Tema |
-| **Yazarak**: yazım denetimi sözlüğü |eşitle |yedekleme |Dil |
-| **Yazarak**: otomatik düzeltme sözcük yanlış |eşitle |yedekleme |Dil |
-| **Yazarak**: yanlış yazılan sözcükleri Vurgula |eşitle |yedekleme |Dil |
-| **Yazarak**: yazarken metin önerilerini göster |eşitle |yedekleme |Dil |
-| **Yazarak**: bir metin önerisi seçmem sonra boşluk Ekle |eşitle |yedekleme |Dil |
-| **Yazarak**: Ben çift ara çubuğuna dokunun sonra bir nokta ekleyin |eşitle |yedekleme |Dil |
-| **Yazarak**: her cümle ilk harfini büyük harfe çevirme |eşitle |yedekleme |Dil |
-| **Yazarak**: Ben çift-shift tuşunu dokunduğunuzda tümüyle büyük harfe kullanın |eşitle |yedekleme |Dil |
-| **Yazarak**: yazarken anahtar ses çal |eşitle |yedekleme |Dil |
-| **Yazarak**: Kişiselleştirme verileri için dokunmatik klavye |eşitle |yedekleme |Dil |
-| **Wi-Fi**: Wi-Fi profilleri (yalnızca WPA) |eşitle |eşitle |Parolalar |
+| **Başlat ekranı kişiselleştirme**: Vurgu rengi (yalnızca phone) |X |Eşitleme |Tema |
+| **Yazarak**: yazım denetimi sözlüğü |Eşitleme |yedekleme |Dil |
+| **Yazarak**: otomatik düzeltme sözcük yanlış |Eşitleme |yedekleme |Dil |
+| **Yazarak**: yanlış yazılan sözcükleri Vurgula |Eşitleme |yedekleme |Dil |
+| **Yazarak**: yazarken metin önerilerini göster |Eşitleme |yedekleme |Dil |
+| **Yazarak**: bir metin önerisi seçmem sonra boşluk Ekle |Eşitleme |yedekleme |Dil |
+| **Yazarak**: Ben çift ara çubuğuna dokunun sonra bir nokta ekleyin |Eşitleme |yedekleme |Dil |
+| **Yazarak**: her cümle ilk harfini büyük harfe çevirme |Eşitleme |yedekleme |Dil |
+| **Yazarak**: Ben çift-shift tuşunu dokunduğunuzda tümüyle büyük harfe kullanın |Eşitleme |yedekleme |Dil |
+| **Yazarak**: yazarken anahtar ses çal |Eşitleme |yedekleme |Dil |
+| **Yazarak**: Kişiselleştirme verileri için dokunmatik klavye |Eşitleme |yedekleme |Dil |
+| **Wi-Fi**: Wi-Fi profilleri (yalnızca WPA) |Eşitleme |Eşitleme |Parolalar |
 
 ###### <a name="footnote-1"></a>Dipnot 1
 Desteklenen en düşük işletim sistemi sürümü Windows Creators Update (derleme 15063). 

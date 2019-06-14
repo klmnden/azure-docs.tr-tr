@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60471905"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Senaryoları, sınırlamalar ve bilinen sorunlar Azure Active Directory'de lisanslama yönetmek için grupları kullanma
@@ -188,7 +188,7 @@ Bir gruba lisans değişiklikleri Azure AD değişiklikleri tüm kullanıcılara
    > ```
 
 3. Nasıl bir grup, tüm kullanıcı değişikliklerini de dahil olmak üzere işlendiği için günlüğün tamamını görmek için aşağıdaki filtreleri ayarlayın:
-   - **Başlatan (aktör)**: "Microsoft Azure AD grup tabanlı Lisanslama"
+   - **Başlatan (aktör)** : "Microsoft Azure AD grup tabanlı Lisanslama"
    - **Tarih aralığı** (isteğe bağlı): belirli bir grup bildiğinizde özel aralığını kullanmaya ve işlem tamamlandı
 
 Bu örnek çıkışa işlemi, sonuçlanan tüm kullanıcı değişiklikler ve işleme bitiş başlangıcını gösterir.

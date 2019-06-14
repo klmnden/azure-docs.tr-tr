@@ -17,10 +17,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543078"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Linux VM'ler için örnek Azure altyapı Kılavuzu
@@ -55,8 +55,8 @@ Tüm adlandırma kurallarına yukarıda izleyin:
 * Adventure Works Cycles kullandığı **[BT iş yükü]-[konumu]-[Azure resource]** öneki olarak
   * Bu örnekte, "**azos**" (Azure çevrimiçi Store), BT iş yükü adıdır ve "**kullanın**" (Doğu ABD 2) konumdur
 * Sanal ağları kullanın AZOS kullanım VN<strong>[sayı]</strong>
-* Kullanılabilirlik kümelerini kullanın azos-kullanın-olarak-**[rol]**
-* Sanal makine adları azos kullanın-kullanın-vm -**[vmname]**
+* Kullanılabilirlik kümelerini kullanın azos-kullanın-olarak- **[rol]**
+* Sanal makine adları azos kullanın-kullanın-vm - **[vmname]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Azure aboneliklerini ve hesaplarını
 Adventure Works Cycles, bu BT iş yükü için fatura bilgilerini sağlamak için Adventure Works Enterprise aboneliğinizin adlı Enterprise aboneliğini kullanıyor.

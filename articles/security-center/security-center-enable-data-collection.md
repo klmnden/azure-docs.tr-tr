@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 8fed3ce98b23c5ac1cc97b88a278c5946f06af8e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968795"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050589"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde veri toplamayı
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler), sanal makine ölçek kümeleri, Iaas kapsayıcılarınızdaki ve Azure olmayan (dahil, şirket içi) bilgisayarlar güvenlik açıklarını ve tehditleri izlemek için veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri) çalışan işlemler, makine adı, IP adresleri ve kullanıcı oturum. Microsoft Monitoring Agent aracı, ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanınıza kopyalar.
@@ -31,12 +31,11 @@ Bu makalede, Microsoft Monitoring Agent'ı yükleme ve toplanan verilerin depola
 > [!NOTE]
 > - Veri toplama, yalnızca işlem kaynakları (VM'ler, sanal makine ölçek kümeleri, Iaas kapsayıcıları ve Azure olmayan bilgisayarlar) gereklidir. Aracıları sağlama yoksa bile Azure Güvenlik Merkezi'nden yararlanabilir; Ancak, güvenlik kısıtlı olarak erişebilir ve yukarıda listelenen özellikleri desteklenmez.  
 > - Desteklenen platformlar listesi için bkz: [desteklenen platformlar Azure Güvenlik Merkezi'nde](security-center-os-coverage.md).
-> - Sanal makine ölçek kümesi için veri koleksiyonu şu anda desteklenmiyor.
-> - Yeni veya mevcut bir çalışma kullanıp Log Analytics'te veri depolama, veri depolama için ek ücret, daha fazla ayrıntı için fiyatlandırma sayfasına bakın.
+> - Yeni veya mevcut bir çalışma kullanıp Log Analytics'te veri depolama, veri depolama için ek ücretlerine tabi olabilirsiniz. Daha fazla ayrıntı için [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Microsoft Monitoring Agent'ın otomatik sağlamayı etkinleştirme <a name="auto-provision-mma"></a>
 
-Makinelerden verileri toplamak için Microsoft izleme aracısı yüklü olmalıdır.  Aracı yüklemesi otomatik olarak olabilir (önerilir) veya aracıyı el ile yüklemeyi tercih edebilirsiniz.  
+Makinelerden veri toplamak için Microsoft izleme aracısı yüklü olmalıdır.  Aracı yüklemesi otomatik olarak yapılabilir (önerilir) veya aracıyı el ile yükleyebilirsiniz.  
 
 >[!NOTE]
 > Otomatik sağlama varsayılan olarak kapalıdır. Güvenlik Merkezi, varsayılan olarak otomatik sağlama yüklemek için ayarlanacak ayarlayın **üzerinde**.
@@ -87,10 +86,8 @@ Güvenlik Merkezi tarafından oluşturulan bir çalışma alanı seçmek için:
 1. Güvenlik Merkezi bir Güvenlik Merkezi çözüm çalışma alanının fiyatlandırma katmanını ayarlamak için abonelik başına otomatik olarak etkinleştirir. 
 
 > [!NOTE]
-> Fiyatlandırma katmanı Güvenlik Merkezi tarafından oluşturulan çalışma alanları, Log Analytics, Güvenlik Merkezi faturalandırma etkilemez. Güvenlik Merkezi her zaman, Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanına yüklenmiş çözümlere göre faturalandırılır. Güvenlik Merkezi'nin ücretsiz katmanı için etkinleştirir *SecurityCenterFree* çözüm için varsayılan çalışma alanı. Güvenlik Merkezi, Standart katmanda varsayılan çalışma alanında *Security* çözümünü etkinleştirir.
-> Log Analytics'te veri depolama, veri depolama için ek ücret, daha fazla ayrıntı için fiyatlandırma sayfasına bakın.
-
-Fiyatlandırma hakkında daha fazla bilgi için bkz. [Güvenlik Merkezi fiyatlandırma](https://azure.microsoft.com/pricing/details/security-center/).
+> Fiyatlandırma katmanı Güvenlik Merkezi tarafından oluşturulan çalışma alanları, Log Analytics, Güvenlik Merkezi faturalandırma etkilemez. Güvenlik Merkezi her zaman, Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanına yüklenmiş çözümlere göre faturalandırılır. Güvenlik Merkezi'nin ücretsiz katmanı için etkinleştirir *SecurityCenterFree* çözüm için varsayılan çalışma alanı. Güvenlik Merkezi standart katmanı için etkinleştirir *güvenlik* çözüm için varsayılan çalışma alanı.
+> Log Analytics'te veri depolama, veri depolama için ek ücretlerine tabi olabilirsiniz. Daha fazla ayrıntı için [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 
 Mevcut log analytics hesabı hakkında daha fazla bilgi için bkz: [mevcut log analytics müşterileri](security-center-faq.md#existingloganalyticscust).
 
@@ -102,7 +99,7 @@ Mevcut bir Log Analytics çalışma alanınızı kullanmak için olmalıdır oku
 
 > [!NOTE]
 > Mevcut çalışma alanınızda etkin çözüm, kendisine bağlı Azure vm'lerine uygulanır. Ücretli çözümler için bu ek ücretlere neden olabilir. İçin veri gizlilik konuları, seçili çalışma alanının sağ coğrafi bölgede olduğundan emin olun.
-> Log analytics'te veri depolama, veri depolama için ek ücret, daha fazla ayrıntı için fiyatlandırma sayfasına bakın.
+> Log analytics'te veri depolama, veri depolama için ek ücretlerine tabi olabilirsiniz. Daha fazla ayrıntı için [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 
 Mevcut bir Log Analytics çalışma alanı seçmek için:
 
@@ -150,7 +147,7 @@ Tüm aboneliklerinizdeki tüm çalışma alanları, verilerinizin depolanacağı
 ## <a name="data-collection-tier"></a>Veri koleksiyonu katmanı
 Azure Güvenlik Merkezi'nde veri koleksiyonunu katmanı seçerek yalnızca Log Analytics çalışma alanınızda, güvenlik olaylarının depolama etkiler. Log Analytics aracısını hala toplamak ve Log Analytics çalışma alanınızda (varsa) depolamak seçtiğiniz hangi güvenlik olayları katmanı bağımsız olarak Azure Güvenlik Merkezi'nin tehdit algılamaları için gereken güvenlik olayları analiz edin. Çalışma alanınızda güvenlik olayları depolamak seçme araştırma, arama ve çalışma alanınızda bu olayların denetimini etkinleştirir. 
 > [!NOTE]
-> Log analytics'te veri depolama, veri depolama için ek ücret, daha fazla ayrıntı için fiyatlandırma sayfasına bakın.
+> Log analytics'te veri depolama, veri depolama için ek ücretlerine tabi olabilirsiniz. Daha fazla ayrıntı için [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 > 
 > Çalışma alanınızda depolanmış Abonelikleriniz ve çalışma alanlarından olayların dört kümesi için ilke filtreleme hakkı seçebilirsiniz: 
 
@@ -179,7 +176,7 @@ Güvenlik ve App Locker olay kimlikleri her küme için tam bir dökümü aşağ
 | --- | --- |
 | En az | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| Ortak | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,4622, |
+| Common | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -205,8 +202,10 @@ Otomatik sağlama çalışır durumda olduğunda zaten bir aracı veya uzantı y
 
 - Microsoft Monitoring Agent makinede, ancak uzantı (doğrudan aracı) olarak yüklenir.<br>
 Microsoft Monitoring Agent (olarak değil bir Azure uzantısı) doğrudan VM'de yüklü değilse, Güvenlik Merkezi Microsoft Monitoring Agent uzantısını yükleyecek ve Microsoft Monitoring agent, en son sürüme yükseltebilirsiniz.
-Yüklü aracı için zaten yapılandırılmış kendi çalışma alanlarında bildirmeye devam eder ve ayrıca Güvenlik Merkezi'nde yapılandırılmış çalışma alanına rapor eder (birden çok giriş desteklenir).
+Yüklü aracı için zaten yapılandırılmış kendi çalışma alanlarında bildirmeye devam eder ve ayrıca Güvenlik Merkezi'nde yapılandırılmış çalışma alanına rapor eder (birden çok giriş Windows makinelerde desteklenir).
 Yapılandırılmış çalışma alanı olan bir kullanıcı çalışma (Güvenlik Merkezi'nin varsayılan çalışma değil) ve ardından yüklemeniz gerekir, "güvenlik /"securityFree"çözümü için Güvenlik Merkezi, Vm'leri ve Bilgisayarları'ndan olayları işlemeyi başlatmak bu çalışma alanına raporlama.<br>
+<br>
+Linux makineler için aracı çoklu yönlendirmeyi değil henüz destekleniyor - bu nedenle, var olan bir aracı yüklemesini algılanırsa, otomatik sağlama gerçekleşmez ve makinenin yapılandırması değiştirilmez.
 <br>
 Güvenlik Merkezi'ne abonelikleri eklenmedi 2019-03-mevcut bir aracının ne zaman algılanır, 17 önce mevcut makinelerde Microsoft Monitoring Agent uzantısını yüklenmez ve makine etkilenmez. Bu makineler için bu makineler üzerinde aracı yükleme sorunlarını gidermek için "Çözümle makinelerinizde aracı sistem durumu sorunlarını izleme" öneri için bkz.
 

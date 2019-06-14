@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: aljo, anmola
-ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: caed77234646654d151b64d2c80b7231342f6d8c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837530"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050481"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Service Fabric güvenilir hizmetler ve Windows üzerinde Reliable Actors kapsayıcılı hale getirme
 
@@ -119,6 +119,16 @@ Bu belgede, bir Windows kapsayıcısının içinde çalışan hizmetinizi almak 
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> Varsayılan olarak, Service Fabric uygulamaları Service Fabric çalışma zamanı, uygulamaya özgü isteklerini kabul eden bir uç nokta biçiminde erişimi. Uygulama, güvenilmeyen kod barındırdığında bu erişimi devre dışı bırakmayı düşünün. Daha fazla bilgi için lütfen bkz [en iyi güvenlik uygulamaları Service fabric'te](service-fabric-best-practices-security.md#platform-isolation). Service Fabric çalışma zamanı erişimi devre dışı bırakmak için aşağıdaki gibi içeri aktarılan hizmet bildirimi için karşılık gelen uygulama bildiriminin ilkeler bölümünde aşağıdaki ayarı ekleyin:
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. Bu uygulamayı test etmek için 5.7 veya üzeri sürümü çalıştıran bir kümeye dağıtmak gerekir. Çalışma zamanı sürüm 6.1 veya daha düşük, düzenleyin ve bu önizleme özelliğini etkinleştirmek için küme ayarları güncelleştirmeniz gerekir. Bu adımları izleyerek [makale](service-fabric-cluster-fabric-settings.md) sonraki gösterilen ayarı eklemek için.
     ```

@@ -10,10 +10,10 @@ ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 4d11dfcb66a545cbecc80b6bdad558ca6d328ed2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499265"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>OMS güncelleştirme dağıtımlarınızı Azure'a geçirme
@@ -51,7 +51,7 @@ Var olan bu kayıtlı arama kullanmak için aşağıdaki adımları izleyin:
 
 Dağıtım, Azure portalına gidin yeni bir güncelleştirme oluşturmak için kullanılır ve Otomasyon hesabı seçin **güncelleştirme yönetimi**. Tıklayın **güncelleştirme dağıtımı zamanla**.
 
-![Güncelleştirme dağıtımını zamanla](media/migrate-oms-update-deployments/schedule-update-deployment.png)
+![Güncelleştirme dağıtımı zamanla](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
 **Yeni güncelleştirme dağıtımı** bölmesi açılır. Aşağıdaki tabloda açıklanan özellikler için değerleri girin ve ardından **Oluştur**:
 
@@ -60,7 +60,7 @@ Güncelleştirilecek makineler için mevcut bir OMS dağıtım tarafından kulla
 | Özellik | Açıklama |
 | --- | --- |
 |Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
-|İşletim Sistemi| Seçin **Linux** veya **Windows**.|
+|İşletim sistemi| Seçin **Linux** veya **Windows**.|
 |Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Azure İzleyici günlüklerine bilgisayar grupları oluşturma farklı yöntemleri hakkında bilgi edinmek için bkz: [Azure İzleyici günlüklerine bilgisayar grupları](../azure-monitor/platform/computer-groups.md) |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin. CentOS desteklemiyor bu kullanıma hazır.|
 |Hariç tutulacak güncelleştirmeler|Hariç tutulacak güncelleştirmeler girin. Windows için KB makalesi olmadan girin **KB** önek. Linux için paket adını girin veya bir joker karakterini kullanın.  |

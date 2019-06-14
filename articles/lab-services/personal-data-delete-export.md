@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395008"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Dışarı aktarma veya Azure DevTest Labs ' kişisel verilerini silme
@@ -39,10 +39,10 @@ DevTest Labs Laboratuvar kullanıcılara otomatik kapatma e-posta bildirimleri g
 ### <a name="user-object-id"></a>Kullanıcı nesnesi kimliği
 DevTest Labs Laboratuvar yöneticilere kaynak bilgileriyle aya aylık maliyet eğilimlerinizi ve maliyet göstermek için kullanıcı nesne kimliği kullanır. Maliyetleri izlemenize ve bunların Laboratuvar için eşikler yönetmek için sağlar. 
 
-**Geçerli Takvim ayı için tahmini maliyet eğilimi:**
+**Geçerli Takvim ayı için tahmini maliyet eğilimi:** 
 ![geçerli Takvim ayı için tahmini maliyet eğilimi](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**Kaynak tarafından ay başından bu yana maliyet tahmini:**
+**Kaynak tarafından ay başından bu yana maliyet tahmini:** 
 ![kaynak tarafından ay başından bu yana maliyet tahmini](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
@@ -69,7 +69,7 @@ Bir laboratuvar kullanıcı olarak DevTest Labs hizmeti depolar kişisel veriler
     ![Blobları kutucuk seçin](./media/personal-data-delete-export/select-blobs-tile.png)
 5. Adlı kapsayıcıyı seçin **labresourceusage** kapsayıcılar listesinde.
 
-    ![Blob kapsayıcısı seçin](./media/personal-data-delete-export/select-blob-container.png)
+    ![BLOB kapsayıcısı seçin](./media/personal-data-delete-export/select-blob-container.png)
 6. Seçin **klasör** Laboratuvarınızı sonra adlı. Bulduğunuz **csv** dosyaları **diskleri** ve **sanal makineler** laboratuvarınızda bu klasördeki. Bu csv dosyaları indirmek, bir erişim isteğinde Laboratuvar kullanıcı için içerik filtreleme ve onlarla paylaşmanız.
 
     ![CSV dosyalarını indirme](./media/personal-data-delete-export/download-csv-file.png)

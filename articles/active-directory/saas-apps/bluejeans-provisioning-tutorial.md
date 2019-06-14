@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d8fedb372fb245b7bc35cb440bd758336ab2a68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60281939"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için BlueJeans yapılandırın
@@ -47,7 +47,7 @@ Azure AD ile otomatik kullanıcı hazırlama için BlueJeans yapılandırmadan �
 
 **Azure AD uygulama galerisinden BlueJeans eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde seçin **Azure Active Directory**.
+1. İçinde  **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde seçin **Azure Active Directory**.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
    * İçinde **yönetici parolası** alan, yönetici kullanıcı adı için karşılık gelen parola doldurun.
 
-6. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için BlueJeans bağlanabilirsiniz. Bağlantı başarısız olursa BlueJeans hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
+6. 5\. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için BlueJeans bağlanabilirsiniz. Bağlantı başarısız olursa BlueJeans hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
     ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 

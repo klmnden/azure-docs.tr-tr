@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: b112dd881d4b2e87e617111d00bc82c6151d7750
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370087"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Azure ayırma indirimi sanal makinelerine nasıl uygulanır
@@ -72,7 +72,7 @@ Ayırma indirimi yalnızca VM kullanımı için geçerlidir. burada `ServiceType
 
 Ayrılmış VM örnekleri otomatik olarak her iki Klasik Vm'leri için geçerli ve bulut Hizmetleri örneği boyutu esnekliği etkinleştirildiğinde. Ayırma indirimi, bulut Hizmetleri için yalnızca işlem maliyeti için geçerlidir. Ayırma indirimi, bulut Hizmetleri için uygulandığında, kullanım ücretleri işlem ücreti (Linux ölçüm) ile ayrılmıştır ve bulut Hizmetleri ücretleri (bulut Hizmetleri yönetim ölçüm). Daha fazla bilgi için [nasıl Cloud Services ayırma indirimi geçerlidir](billing-reserved-instance-windows-software-costs.md#cloud-services-software-meters-not-included-in-reservation-cost).
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

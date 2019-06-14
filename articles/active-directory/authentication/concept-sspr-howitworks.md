@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60415642"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalışır? Azure AD self servis parola sıfırlama
@@ -61,8 +61,8 @@ Sıfırlama sayfası parola ardındaki mantığı hakkında bilgi edinmek için 
 
 SSPR etkinleştirilirse, kimlik doğrulama yöntemleri için aşağıdaki seçeneklerden en az birini seçmeniz gerekir. Bu seçenekler "kapılarını" anılan bazen işittiğiniz Yüksek oranda olmasını öneririz, **iki veya daha fazla kimlik doğrulama yöntemlerini seçmesine** böylece kullanıcılarınız, gerektiğinde bunlar bir erişim oluşturulamıyor olması durumunda, daha fazla esnekliğine sahip olursunuz. Aşağıda listelenen yöntemleri hakkında ek bilgi makalesinde bulunabilir [kimlik doğrulama yöntemleri nelerdir?](concept-authentication-methods.md).
 
-* Mobil uygulama bildirimi (önizleme)
-* Mobil uygulama kodu (önizleme)
+* Mobil uygulama bildirimi (Önizleme)
+* Mobil uygulama kodu (Önizleme)
 * Email
 * Cep telefonu
 * Ofis telefonu
@@ -93,7 +93,7 @@ Microsoft Authenticator uygulaması gibi bir mobil uygulama, parola sıfırlama 
 * Yöneticiler bir yöntem gerektirdiğinde olması bir parola sıfırlama için kullanılan doğrulama kodu kullanılabilecek tek seçenek budur.
 * Yöneticiler iki yöntem gerektirdiğinde olması bir parola sıfırlama için kullanılan, kullanıcıların kullanmaya **EITHER** bildirim **veya** doğrulama kodu yanı sıra diğer yöntemleri etkinleştirildi.
 
-| Sıfırlama için gereken yöntemlerin sayısı | Bir | İki |
+| Sıfırlama için gereken yöntem sayısı | Bir | İki |
 | :---: | :---: | :---: |
 | Kullanılabilir mobil uygulama özellikleri | Kod | Kod veya bildirim |
 

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307936"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows için Azure performans tanılama VM uzantısı
@@ -70,13 +70,13 @@ Aşağıdaki JSON şema Azure performans tanılama VM uzantısı için gösterir
 |   **Ad**   |**Değer / örnek**|       **Açıklama**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|API sürümü.
-|Yayımcı|Microsoft.Azure.Performance.Diagnostics|Uzantı yayımcısı ad alanı.
-|type|AzurePerformanceDiagnostics|VM uzantısı türü.
+|publisher|Microsoft.Azure.Performance.Diagnostics|Uzantı yayımcısı ad alanı.
+|türü|AzurePerformanceDiagnostics|VM uzantısı türü.
 |typeHandlerVersion|1.0|Uzantı işleyici sürümü.
-|performanceScenario|temel|Veri yakalamak istediğiniz performans senaryo. Geçerli değerler: **temel**, **vmslow**, **depolamasını Azure dosyalarına**, ve **özel**.
+|performanceScenario|Temel|Veri yakalamak istediğiniz performans senaryo. Geçerli değerler: **temel**, **vmslow**, **depolamasını Azure dosyalarına**, ve **özel**.
 |traceDurationInSeconds|300|İzleme, izleme seçeneklerden herhangi biri seçtiyseniz süresi.
 |perfCounterTrace|p|Performans sayacını izlemeyi etkinleştirmek için seçenek. Geçerli değerler **p** veya değer boş. Bu izleme yakalamak istemiyorsanız değer olarak boş bırakın.
-|networkTrace|Z|Ağ izlemeyi etkinleştirmek için seçenek. Geçerli değerler **n** veya değer boş. Bu izleme yakalamak istemiyorsanız değer olarak boş bırakın.
+|networkTrace|n|Ağ izlemeyi etkinleştirmek için seçenek. Geçerli değerler **n** veya değer boş. Bu izleme yakalamak istemiyorsanız değer olarak boş bırakın.
 |xperfTrace|x|XPerf izlemeyi etkinleştirmek için seçenek. Geçerli değerler **x** veya değer boş. Bu izleme yakalamak istemiyorsanız değer olarak boş bırakın.
 |storPortTrace|s|StorPort izlemeyi etkinleştirmek için seçenek. Geçerli değerler **s** veya değer boş. Bu izleme yakalamak istemiyorsanız değer olarak boş bırakın.
 |srNumber|123452016365929|Destek bileti numarası, varsa. Değeri, yoksa boş bırakın.
@@ -109,11 +109,11 @@ Windows sanal makinelerinde uzantıyı yüklemek için aşağıdaki yönergeleri
     > [!NOTE]
     > Uzantı sağlama başarılı olduğunda çalışır. İki dakika sürdüğünü veya tamamlamak için temel senaryo için daha az. Diğer senaryolar için yükleme sırasında belirtilen süresi çalıştırır.
 
-## <a name="remove-the-extension"></a>Uzantıyı kaldırma
+## <a name="remove-the-extension"></a>Uzantıyı kaldırın
 Uzantıyı sanal makineden kaldırmak için bu adımları izleyin:
 
 1. Oturum [Azure portalında](https://portal.azure.com), bu uzantıyı kaldırın ve ardından istediğiniz sanal makineyi seçin **uzantıları** dikey penceresi. 
-2. Seçin (**...** ) seçin ve liste performans tanılama uzantısını girişinin **kaldırma**.
+2. Seçin ( **...** ) seçin ve liste performans tanılama uzantısını girişinin **kaldırma**.
 
     ![Ekran görüntüsü, uzantıları dikey penceresinde vurgulanır Kaldır](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
@@ -234,7 +234,7 @@ Perfınsights araç çeşitli günlükler, yapılandırma ve seçilen senaryoya 
 
 ## <a name="view-and-share-the-results"></a>Görüntüleyebilir ve sonuçları paylaşın
 
-Çıkış uzantı yüklemesi sırasında belirtilen depolama hesabı için yüklenmiş ve 30 gün boyunca kullanarak paylaşılan bir zip dosyası bulunabilir [paylaşılan erişim imzaları (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Bu zip dosyası, tanılama günlükleri ve bulguları ve öneriler içeren bir rapor içerir. Çıkış zip dosyası için bir SAS bağlantı adlı bir metin dosyası içinde bulunabilir *zipfilename*klasörü altında _saslink.txt **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<sürüm >**. Bu bağlantıya sahip olan herkes, zip dosyası indirebilirsiniz.
+Çıkış uzantı yüklemesi sırasında belirtilen depolama hesabı için yüklenmiş ve 30 gün boyunca kullanarak paylaşılan bir zip dosyası bulunabilir [paylaşılan erişim imzaları (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Bu zip dosyası, tanılama günlükleri ve bulguları ve öneriler içeren bir rapor içerir. Çıkış zip dosyası için bir SAS bağlantı adlı bir metin dosyası içinde bulunabilir *zipfilename*klasörü altında _saslink.txt **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<sürüm >** . Bu bağlantıya sahip olan herkes, zip dosyası indirebilirsiniz.
 
 Destek biletiniz çalışma destek mühendisi yardımcı olmak için Microsoft bu SAS bağlantısı Tanılama verileri indirmek için kullanabilirsiniz.
 

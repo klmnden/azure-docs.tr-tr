@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad0ee590572dbc92e67be9f84ffc65afc3e8473
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60282146"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Bonusly yapılandırın
@@ -47,7 +47,7 @@ Azure AD ile otomatik kullanıcı hazırlama için Bonusly yapılandırmadan ön
 
 **Azure AD uygulama galerisinden Bonusly eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -120,7 +120,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
     ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/Token02.png)
 
-8. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için Bonusly bağlanabilirsiniz. Bağlantı başarısız olursa Bonusly hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
+8. 5\. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için Bonusly bağlanabilirsiniz. Bağlantı başarısız olursa Bonusly hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
     ![Bonusly sağlama](./media/bonusly-provisioning-tutorial/TestConnection.png)
 

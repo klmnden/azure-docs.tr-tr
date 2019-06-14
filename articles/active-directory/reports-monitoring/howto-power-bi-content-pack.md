@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437700"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI içerik Paketi'ni kullanma
@@ -57,7 +57,7 @@ Ayrıca, belirli bir tarih veya konumu seçerek sonuçlarını filtreleyebilirsi
 
 **Cihaz oturum açma işlemleri**: Bu rapor, kuruluşunuzda kullanılan cihaz profillerini anlayabilir ve kullanıma göre cihaz ilkeleri belirleyebilirsiniz yardımcı olur. Bu veriler dahil olmak üzere kullanıcılar hakkında ayrıntılı bilgiyle beraber uygulamalara oturum açmak için kullanılan tarayıcılar ve işletim sistemi türü sağlar:
 
-- User Name
+- Kullanıcı adı
 - IP Adresi
 - Location 
 - Oturum açma durumu 

@@ -13,10 +13,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326365"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Bir kiracı başına veritabanı SaaS uygulaması ile tek bir kiracıyı geri yükleme
@@ -76,7 +76,7 @@ Bu kurtarma senaryoları göstermek için "yanlışlıkla" Kiracı veritabanlar�
 
 1. PowerShell ISE'de Aç... \\Öğrenme modülleri\\iş sürekliliği ve olağanüstü durum kurtarma\\RestoreTenant\\*tanıtım RestoreTenant.ps1*ve aşağıdaki değeri ayarlayın:
 
-   * **$DemoScenario** = **1**, *silme son olayı (ile hiçbir bilet satışı)*.
+   * **$DemoScenario** = **1**, *silme son olayı (ile hiçbir bilet satışı)* .
 2. Betiği çalıştırın ve son olay silmek için F5 tuşuna basın. Aşağıdaki onay mesajı görünür:
 
    ```Console

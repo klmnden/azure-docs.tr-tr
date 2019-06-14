@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b94e9b7267c956c07f4171f8cce46c6159affd90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60459782"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Nasıl Yapılır: Kullanıcı riski ilkesini yapılandırma
@@ -46,7 +46,7 @@ Kullanıcı riski İlkesi belirli bir kullanıcı risk düzeyi için yapılandı
    
 Oturum açma riski İlkesi bulunduğu **yapılandırma** bölümünde [Azure AD kimlik koruması sayfa](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Kullanıcı riski ilkesi](./media/howto-user-risk-policy/1014.png)
+![Kullanıcı riski İlkesi](./media/howto-user-risk-policy/1014.png)
 
 
 

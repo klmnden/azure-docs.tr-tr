@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e3145d0faaa3aecb90b582b3b6ef0063572ff43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60430809"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için GoToMeeting yapılandırın
@@ -65,7 +65,7 @@ Bu bölümde, Azure AD sağlama API'si GoToMeeting'ın kullanıcı hesabına ba�
 
 1. Ayarlama **sağlama** moduna **otomatik**. 
 
-    ![sağlama](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Sağlama](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. Yönetici kimlik bilgileri bölümü altında aşağıdaki adımları gerçekleştirin:
    

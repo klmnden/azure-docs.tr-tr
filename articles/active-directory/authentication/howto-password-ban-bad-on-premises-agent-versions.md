@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358217"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD parola koruması Aracı sürüm geçmişi
@@ -119,7 +119,7 @@ Düzeltmeleri:
 * Sonraki sürümlere yükseltme yapılırken, her iki DC aracı ve proxy yükleyici yerinde yükseltme artık destekleyecektir.
 
 > [!WARNING]
-> 1.1.10.3 sürümünden yerinde yükseltme desteklenmez ve bir yükleme hataya neden olur. Çok 1.2.10 sürüme yükseltin veya sonraki sürümlerde, önce tamamen DC aracı ve proxy hizmeti yazılımı kaldırın, ardından gerekir sıfırdan yeni sürümünü yükleyin. Azure AD parola koruması Proxy Hizmeti yeniden kayıt gereklidir.  Orman yeniden kaydolmak için gerekli değildir.
+> 1\.1.10.3 sürümünden yerinde yükseltme desteklenmez ve bir yükleme hataya neden olur. Çok 1.2.10 sürüme yükseltin veya sonraki sürümlerde, önce tamamen DC aracı ve proxy hizmeti yazılımı kaldırın, ardından gerekir sıfırdan yeni sürümünü yükleyin. Azure AD parola koruması Proxy Hizmeti yeniden kayıt gereklidir.  Orman yeniden kaydolmak için gerekli değildir.
 
 > [!NOTE]
 > Yerinde yükseltme DC Aracısı yazılım yeniden başlatma gerektirir.

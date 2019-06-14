@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864524"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050743"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio kullanarak Azure işlevleri geliştirme  
 
@@ -89,7 +89,7 @@ Daha fazla bilgi için [işlevleri sınıf kitaplığı projesi](functions-dotne
 
 ## <a name="configure-the-project-for-local-development"></a>Yerel geliştirme için proje yapılandırma
 
-İşlevler çalışma zamanı, dahili bir Azure depolama hesabı kullanır. Tüm HTTP ve Web kancaları dışındaki türler tetiklemek için ayarlamanız gerekir **Values.AzureWebJobsStorage** geçerli bir Azure depolama hesabı bağlantı dizesi için anahtar. İşlev uygulamanızı kullanabilirsiniz [Azure storage öykünücüsü](../storage/common/storage-use-emulator.md) için **AzureWebJobsStorage** bağlantı ayarının, proje tarafından gerekli. Öykünücü kullanmak için değerini ayarlamak **AzureWebJobsStorage** için `UseDevelopmentStorage=true`. Dağıtımdan önce bir gerçek depolama bağlantısı için bu ayarı değiştirmelisiniz.
+İşlevler çalışma zamanı, dahili bir Azure depolama hesabı kullanır. Tüm HTTP ve Web kancaları dışındaki türler tetiklemek için ayarlamanız gerekir **Values.AzureWebJobsStorage** geçerli bir Azure depolama hesabı bağlantı dizesi için anahtar. İşlev uygulamanızı kullanabilirsiniz [Azure storage öykünücüsü](../storage/common/storage-use-emulator.md) için **AzureWebJobsStorage** bağlantı ayarının, proje tarafından gerekli. Öykünücü kullanmak için değerini ayarlamak **AzureWebJobsStorage** için `UseDevelopmentStorage=true`. Dağıtımdan önce bir gerçek depolama bağlantısı için bu ayarı değiştirin.
 
 Depolama hesabı bağlantı dizesi ayarlamak için:
 
@@ -181,9 +181,13 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 Azure işlevleri çekirdek araçları kullanma hakkında daha fazla bilgi edinmek için [kod ve Azure işlevleri yerel olarak test](functions-run-local.md).
 
-## <a name="publish-to-azure"></a>Azure'a Yayımla
+## <a name="publish-to-azure"></a>Azure'a Yayımlama
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
+
+### <a name="deployment-technology"></a>Dağıtım teknolojisi
+
+Visual Studio'dan yayımlama sırasında iki teknolojilerden birine dağıtım gerçekleştirmek için kullanılır: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) ve [Zip (önerilen) dağıtımı ile çalışma alanından-etkin paket](functions-deployment-technologies.md#zip-deploy).
 
 ## <a name="function-app-settings"></a>İşlev uygulaması ayarları
 

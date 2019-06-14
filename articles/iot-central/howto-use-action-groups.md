@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
 ms.openlocfilehash: 857d747fa691d1ec2b386d5931a7edea08b7e609
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60517188"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Bir veya daha fazla kurallardan çalıştırmak için birden fazla eylem grubu
@@ -37,7 +37,7 @@ Bir eylem grubu yapabilirsiniz:
 
 Aşağıdaki ekran görüntüsünde, e-posta ve SMS bildirimleri gönderir ve bir Web kancası çağıran bir eylem grubu gösterilmektedir:
 
-![Eylem grubu](media/howto-use-action-groups/actiongroup.png)
+![eylem grubu](media/howto-use-action-groups/actiongroup.png)
 
 Bir IOT Central kuralda bir eylem grubu kullanmak için aynı abonelikte Azure IOT Central uygulamasına eylem grubu olmalıdır.
 

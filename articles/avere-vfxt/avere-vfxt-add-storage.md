@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515894"
 ---
 # <a name="configure-storage"></a>Depolama alanını yapılandırma
@@ -124,7 +124,7 @@ Küme oluşturulduktan sonra BLOB Depolama eklemek için aşağıdaki adımları
    | Hizmet türü | (Azure depolama erişim anahtarını seçin) |
    | Kiracı | Depolama hesabı adı |
    | Abonelik | Abonelik kimliği |
-   | Depolama Erişim Anahtarı | Azure depolama hesabı anahtarı (önceki adımda kopyaladığınız) | 
+   | Depolama erişim anahtarı | Azure depolama hesabı anahtarı (önceki adımda kopyaladığınız) | 
 
    **Gönder**'e tıklayın.
 

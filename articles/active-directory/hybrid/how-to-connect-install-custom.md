@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 706a826d1b256e95e459d2a44cdb13ee56c70599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60352706"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
@@ -287,7 +287,7 @@ Web uygulama sunucusunun AD FS sunucusu ile güvenli bir bağlantı kurması iç
 ### <a name="specify-the-service-account-for-the-ad-fs-service"></a>AD FS hizmetine ilişkin hizmet hesabını belirtme
 AD FS hizmetinin kullanıcıların kimliklerini doğrulayabilmesi ve Active Directory'de kullanıcı bilgilerini arayabilmesi için bir etki alanı hizmet hesabı gerekir. AD FS hizmeti, iki hizmet hesabı türünü destekler:
 
-* **Grup Tarafından Yönetilen Hizmet Hesabı** - Windows Server 2012'de Active Directory Etki Alanı Hizmetleri ile birlikte kullanıma sunuldu. Bu hesap türü, AD FS (hesap parolasının düzenli olarak güncelleştirilmesi gerekmeyen tek bir hesap) gibi hizmetler sağlar  AD FS sunucularınızın ait olduğu etki alanında Windows Server 2012 etki alanı denetleyicileriniz varsa bu seçeneği kullanın.
+* **Grup Tarafından Yönetilen Hizmet Hesabı** - Windows Server 2012'de Active Directory Etki Alanı Hizmetleri ile birlikte kullanıma sunuldu. Bu hesap türü, AD FS (hesap parolasının düzenli olarak güncelleştirilmesi gerekmeyen tek bir hesap) gibi hizmetler sağlar AD FS sunucularınızın ait olduğu etki alanında Windows Server 2012 etki alanı denetleyicileriniz varsa bu seçeneği kullanın.
 * **Etki Alanı Kullanıcı Hesabı** - Bu hesap türü için bir parola sağlamanız ve parola değiştiğinde veya süresi dolduğunda parolayı düzenli olarak güncelleştirmeniz gerekir. AD FS sunucularınızın ait olduğu etki alanında Windows Server 2012 etki alanı denetleyicileriniz yoksa bu seçeneği kullanın.
 
 Grup Tarafından Yönetilen Hizmet Hesabı'nı seçtiyseniz ve bu özellik Active Directory'de hiç kullanılmadıysa Kuruluş Yöneticisi kimlik bilgilerini girmeniz istenir. Bu kimlik bilgileri, anahtar deposunu başlatmak ve Active Directory'de ilgili özelliği etkinleştirmek için kullanılır.

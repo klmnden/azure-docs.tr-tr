@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60440654"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) dağıtma
@@ -32,7 +32,7 @@ Bu adım adım kılavuzda, Azure Active Directory (Azure AD) Privileged Identity
 > 
 > Bunlar genel öneriler ve bunlar belirli Kurumsal ihtiyaçlarınızı uygularsanız, yalnızca uygulamalıdır.
 
-## <a name="step-1-learn-about-pim"></a>1. Adım PIM hakkında bilgi edinin
+## <a name="step-1-learn-about-pim"></a>1\.Adım PIM hakkında bilgi edinin
 
 Azure AD Privileged Identity Management (PIM) Azure AD genelinde ayrıcalıklı yönetici rollerini yönetmenize yardımcı Azure kaynaklarını ve diğer Microsoft Çevrimiçi Hizmetler. Burada ayrıcalıklı kimlikleri Unutulan ve atanan bir dünyada, PIM tam zamanında erişim isteği onay iş akışları ve tamamen tümleşik erişim gözden geçirmeleri belirleyebilmeniz, açığa çıkarın ve ayrıcalıklı kötü amaçlı etkinlikleri engellemek gibi çözümler sağlar. gerçek zamanlı roller. Kuruluşunuzda, ayrıcalıklı rolleri yönetmek için PIM dağıtma, ayrıcalıklı rollerin etkinlikleri hakkında değerli Öngörüler görünmesini sırasında risk büyük ölçüde azaltır.
 
@@ -85,7 +85,7 @@ Daha fazla bilgi için [Azure AD Privileged Identity Management nedir?](pim-conf
 
 Daha fazla bilgi için [PIM'de yönetemezsiniz rolleri](pim-roles.md).
 
-## <a name="step-2-plan-your-deployment"></a>2. Adım Dağıtımınızı planlama
+## <a name="step-2-plan-your-deployment"></a>2\.Adım Dağıtımınızı planlama
 
 Bu bölüm, PIM kuruluşunuza dağıtmadan önce yapmanız gerekenler üzerinde odaklanır. Yönergeleri izleyin ve bu bölümde açıklanan kavramlar, kuruluşunuzun ayrıcalıklı kimlikleri için uyarlanmış iyi planı oluşturmak için yol gösterecek şekilde anlamak önemlidir.
 
@@ -153,7 +153,7 @@ Azure AD rolleri için en az ayrıcalık ilkesini uygulamak için aşağıdaki a
 
 ![Erişim gözden geçirmesi oluşturma](./media/pim-deployment-plan/create-access-review.png)
 
-Gözden geçirenler ayarlamalısınız **üyeler (kendi)**. Bu bir e-posta rolün tüm üyeleri için erişim gerekip gerekmediğini doğrulamak için alın gönderir. Ayrıca açmanız **onayda nedeni gerekli kıl** Gelişmiş ayarlarda, böylece kullanıcılar durum neden ihtiyaç duydukları rolü. Bu bilgilere dayanarak, kullanıcıların gereksiz rollerini kaldırın ve genel yöneticiler söz konusu olduğunda daha ayrıntılı yönetici rolleri atamak mümkün olacaktır.
+Gözden geçirenler ayarlamalısınız **üyeler (kendi)** . Bu bir e-posta rolün tüm üyeleri için erişim gerekip gerekmediğini doğrulamak için alın gönderir. Ayrıca açmanız **onayda nedeni gerekli kıl** Gelişmiş ayarlarda, böylece kullanıcılar durum neden ihtiyaç duydukları rolü. Bu bilgilere dayanarak, kullanıcıların gereksiz rollerini kaldırın ve genel yöneticiler söz konusu olduğunda daha ayrıntılı yönetici rolleri atamak mümkün olacaktır.
 
 Erişim gözden geçirmeleri, roller, erişimi gözden geçirmek için kişilere bildirmek için e-postaları dayanır. E-postaları bağlı olmayan hesapları ayrıcalıklı, bu hesapları ikincil e-posta alanı doldurmak emin olun. Daha fazla bilgi için [proxyAddresses özniteliği Azure AD'de](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
@@ -179,14 +179,14 @@ Azure AD rolleri, izinleri en çok sayıda koruma önceliğini belirlemek öneml
 
 1. Genel yönetici
 1. Güvenlik yöneticisi
-1. Kullanıcı yöneticisi
-1. Exchange yöneticisi
+1. Kullanıcı Yöneticisi
+1. Exchange Yöneticisi
 1. SharePoint yöneticisi
-1. Intune yöneticisi
+1. Intune Yöneticisi
 1. Güvenlik okuyucusu
 1. Hizmet yöneticisi
 1. Faturalama yöneticisi
-1. Skype Kurumsal yöneticisi
+1. Skype Kurumsal Yöneticisi
 
 > [!TIP]
 > :heavy_check_mark: **Microsoft öneriyor** tüm genel Yöneticiler ve güvenlik yöneticileri en tehlikeye olduğunda zarar yapabilirsiniz olanları oldukları gibi bir ilk adım olarak PIM kullanarak yönetin.
@@ -252,7 +252,7 @@ PIM çözümünüzü uygulamadan önce kuruluşunuzun kullandığı tüm ayrıca
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Önemli abonelik sahibi | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Diğer abonelik sahipleri | 1 Saat | None | yok | 3 ay |
 | Daha az kritik aboneliklerinin kullanıcı erişimi Yöneticisi | :heavy_check_mark: | :heavy_check_mark: | : x:. | None | 1 Saat | None | yok | 3 ay |
-| Sanal Makine Katılımcısı | : x:. | :heavy_check_mark: | : x:. | None | 3 saat | None | yok | 6 ay |
+| Sanal makine Katılımcısı | : x:. | :heavy_check_mark: | : x:. | None | 3 saat | None | yok | 6 ay |
 
 Aşağıdaki tabloda, ayarların her biri açıklanmaktadır.
 
@@ -270,7 +270,7 @@ Aşağıdaki tabloda, ayarların her biri açıklanmaktadır.
 | Etkin zaman aşımı | Azure kaynak rolleri için bir etkin bir rol ataması bu süre yapılandırılan sonra süresi dolar. 15 günden 1 ay, 3 ay, 6 aylık, 1 yıl seçebilirsiniz veya kalıcı olarak etkin. |
 | Uygun bir süre sonu | Bir Azure kaynak rolleri için uygun rol atamasını bu süre yapılandırılan sonra süresi dolar. 15 günden 1 ay, 3 ay, 6 aylık, 1 yıl seçebilirsiniz veya kalıcı olarak uygun. |
 
-## <a name="step-3-implement-your-solution"></a>3. Adım Çözümünüzü uygulama
+## <a name="step-3-implement-your-solution"></a>Adım 3. Çözümünüzü uygulama
 
 Doğru planlama temel bir uygulamayı Azure Active Directory ile başarıyla dağıtabilirsiniz temelidir.  Bu akıllı güvenlik ve ekleme başarılı dağıtımlar için zaman azaltırken basitleştirir tümleştirme sağlar.  Bu birleşim, uygulamanızı kolayca süresini, son kullanıcılarınız için azaltma oluştu tümleşik sağlar.
 
@@ -340,7 +340,7 @@ PIM dağıtma kullanıcılar ayrıcalıklı rol için ek adımlar başlatacaktı
 > [!TIP]
 > :heavy_check_mark: **Microsoft öneriyor** PIM akışı geçmek, Yardım Masası/destek ekibinizle saat ayarlamanıza olanak (kuruluşunuzun iç bir BT destek varsa team). Bunları, iletişim bilgilerinizi yanı sıra ilgili belgeler sağlar.
 
-### <a name="move-to-production"></a>Üretim aşamasına geçme
+### <a name="move-to-production"></a>Üretime taşıma
 
 Test tamamlandı ve başarılı olduğunda, PIM test aşamalardaki PIM yapılandırmanızda tanımlanan her rolünün tüm kullanıcılar için tüm adımları tekrarlayarak üretime taşıyın. İçin Azure AD rolleri için PIM, kuruluşlar çoğunlukla test ve PIM önce test ve diğer rolleri için PIM alınıyor genel yöneticileri geri alın. Bu sırada Azure kaynakları için kuruluşlar genellikle test ve PIM aynı anda bir Azure aboneliği geri alın.
 
@@ -353,7 +353,7 @@ Test tamamlandı ve başarılı olduğunda, PIM test aşamalardaki PIM yapıland
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 1. Açık **Azure AD Privileged Identity Management**.
 1. Tıklayın **Azure AD rolleri** ve ardından **rolleri**.
-1. Yapılandırdığınız her rol için üç nokta simgesine tıklayın (**...** ) uygun bir atamayı sahip tüm kullanıcılar için.
+1. Yapılandırdığınız her rol için üç nokta simgesine tıklayın ( **...** ) uygun bir atamayı sahip tüm kullanıcılar için.
 1. Tıklayın **kalıcı hale getirmek** rol ataması kalıcı hale getirme seçeneği.
 
 #### <a name="azure-resource-roles"></a>Azure kaynağı rolleri
@@ -362,10 +362,10 @@ Test tamamlandı ve başarılı olduğunda, PIM test aşamalardaki PIM yapıland
 1. Açık **Azure AD Privileged Identity Management**.
 1. Tıklayın **Azure kaynaklarını** ve bir abonelik veya kaynak istediğiniz geri almak için'a tıklayın.
 1. Tıklayın **rolleri**.
-1. Yapılandırdığınız her rol için üç nokta simgesine tıklayın (**...** ) uygun bir atamayı sahip tüm kullanıcılar için.
+1. Yapılandırdığınız her rol için üç nokta simgesine tıklayın ( **...** ) uygun bir atamayı sahip tüm kullanıcılar için.
 1. Tıklayın **kalıcı hale getirmek** rol ataması kalıcı hale getirme seçeneği.
 
-## <a name="step-4-next-steps-after-deploying-pim"></a>4. Adım. PIM dağıttıktan sonra sonraki adımlar
+## <a name="step-4-next-steps-after-deploying-pim"></a>4\. adımı. PIM dağıttıktan sonra sonraki adımlar
 
 PIM üretimde başarıyla dağıtmak, kuruluşunuzun güvenlik altına alma açısından sds'de önemli bir kimlikleri ayrıcalıklı olur. Güvenlik ve uyumluluk için kullanmanız gereken ek PIM özellikleri dağıtımı PIM ile gelir.
 

@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448657"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>HTTP + Swagger REST uç noktalarına çağrı Azure Logic Apps Bağlayıcısı
@@ -68,7 +68,7 @@ Oluşturma, yapılandırma ve Azure Depolama'da Swagger belgeleri depolamak içi
 
    `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
 
-## <a name="technical-details"></a>Teknik ayrıntılar
+## <a name="technical-details"></a>Teknik Ayrıntılar
 Tetikleyiciler ve Eylemler ile ilgili ayrıntıları aşağıda verilmiştir, bu da HTTP + Swagger Bağlayıcısı destekler.
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger Tetikleyicileri
@@ -92,12 +92,12 @@ HTTP + Swagger Bağlayıcısı olası tek bir eylem ile birlikte gelir. Aşağı
 Giden HTTP isteği, Swagger meta verileri ile ilgili Yardım olun.
 Bir yıldız işareti (*) gerekli bir alan anlamına gelir.
 
-| Görünen ad | Özellik adı | Açıklama |
+| Display name | Özellik adı | Açıklama |
 | --- | --- | --- |
 | Yöntem * |method |Kullanılacak HTTP fiili. |
-| URI * |uri |HTTP isteği için URI. |
+| URI * |URI |HTTP isteği için URI. |
 | Üst bilgiler |Üst bilgileri |HTTP üstbilgileri dahil etmek için bir JSON nesnesi. |
-| Gövde |body |HTTP istek gövdesi. |
+| Gövde |Gövde |HTTP istek gövdesi. |
 | Kimlik Doğrulaması |kimlik doğrulaması |İstek için kullanılacak kimlik doğrulaması. Daha fazla bilgi için [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
 
 **Çıkış Ayrıntıları**
@@ -106,9 +106,9 @@ HTTP yanıtı
 
 | Özellik Adı | Veri türü | Açıklama |
 | --- | --- | --- |
-| Üst bilgiler |object |Yanıt üst bilgileri |
+| Üst bilgiler |object |Yanıt Üstbilgileri |
 | Gövde |object |Yanıt nesnesi |
-| Durum Kodu |int |HTTP durum kodu |
+| Durum kodu |int |HTTP durum kodu |
 
 ### <a name="http-responses"></a>HTTP yanıtları
 Çeşitli eylemler çağrı yaparken, belirli yanıtlarını alabilirsiniz. Aşağıdaki karşılık gelen yanıtları ve açıklamaları özetleyen bir tablodur.
@@ -116,7 +116,7 @@ HTTP yanıtı
 | Ad | Açıklama |
 | --- | --- |
 | 200 |Tamam |
-| 202 |Kabul Edildi |
+| 202 |Kabul edildi |
 | 400 |Hatalı istek |
 | 401 |Yetkilendirilmemiş |
 | 403 |Yasak |

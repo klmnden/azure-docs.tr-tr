@@ -16,10 +16,10 @@ ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60431765"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Öğretici: Yapılandırma kutusu için otomatik kullanıcı hazırlama
@@ -52,7 +52,7 @@ Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcıla
 
 [Kurumsal bir uygulamayı kullanıcı veya grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-## <a name="assign-users-and-groups"></a>Kullanıcıları ve grupları ata
+## <a name="assign-users-and-groups"></a>Kullanıcıları ve grupları atama
 **Kutusu > kullanıcıları ve grupları** Azure portalında sekme kutusuna hangi kullanıcıların ve grupların erişim verilmesi gerektiğini belirtmenize olanak sağlar. Bir kullanıcı veya grup atamasını gerçekleşmesi aşağıdakiler neden olur:
 
 * Azure AD kutusuna kimlik doğrulaması için atanan kullanıcı (ya da doğrudan atama veya grup üyeliği) izin verir. Bir kullanıcı atanmamışsa, Azure AD kutusuna oturum açmak için bunları izin vermez ve Azure AD oturum açma sayfasında bir hata döndürür.
@@ -95,7 +95,7 @@ Bu bölümün amacı, Active Directory kullanıcı hesaplarının kutusunu sağl
 
 4. Ayarlama **hazırlama modu** için **otomatik**. 
 
-    ![sağlama](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Sağlama](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. Altında **yönetici kimlik bilgileri** bölümünde **Authorize** bir oturum açma iletişim kutusu yeni bir tarayıcı penceresinde açın.
 

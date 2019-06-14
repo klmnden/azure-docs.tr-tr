@@ -11,10 +11,10 @@ ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0269397b0f8da66d2bafecfb427ba705fdfff001
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394498"
 ---
 # <a name="part-of-speech-tagging"></a>Konuşma bölümü etiketleme
@@ -37,11 +37,11 @@ Kategorileri gibi bunlar *isim* (genellikle, kişiler, yerler, noktalar, fikirle
 | '' | kapanış tırnak işareti | ' '' |
 | ( | Açma parantezinden | ( [ { |
 | ) | Kapanış ayracı | ) ] } |
-| ,  | Virgül | ,  |
+| , | Virgül | , |
 | -- | tire | -- |
 | . | tümce Sonlandırıcı | . ! ? |
 | : | iki nokta üst üste ya da üç nokta | : ; ... |
-| BİLGİ | koordine birlikte, | ve ancak veya henüz|
+| CC | koordine birlikte, | ve ancak veya henüz|
 | CD | Kardinal rakamı | dokuz 20 1980 ' 96 |
 | DT | determiner |bir bir tüm hem hiçbiri|
 | EX | varlıksal vardır | var. |
@@ -65,7 +65,7 @@ Kategorileri gibi bunlar *isim* (genellikle, kişiler, yerler, noktalar, fikirle
 | KKY | superlative zarfı | en büyük bluntest erken en uzak ilk en uygulamalarınızdaki heartiest yüksek en büyük en az ikinci tightest en kötü en yakın en az |
 | RP | Parçacık | üzerinde kapalı yukarı kullanıma hakkında |
 | SYM | Sembol | % & |
-| TO | preposition veya infinitive işaretçisi olacak şekilde "için" | - |
+| HEDEF | preposition veya infinitive işaretçisi olacak şekilde "için" | - |
 | HATA | İnterjection | hata hooray howdy Merhaba |
 | VB | fiil, taban form | Ata anında verin |
 | VBD | fiil, geçmiş şimdiki | atanan verdiğiniz uçtu |

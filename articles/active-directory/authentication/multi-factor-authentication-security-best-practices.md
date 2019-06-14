@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60357979"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Güvenlik Kılavuzu, Azure AD hesapları ile Azure multi-Factor Authentication kullanma
@@ -29,7 +29,7 @@ ms.locfileid: "60357979"
 * (Ya da Azure MFA, Azure AD Premium veya Enterprise Mobility + Security) her kullanıcı için lisans satın alın
 * Bir multi-Factor Auth sağlayıcısı ve ödeme kullanıcı başına veya kimlik doğrulaması başına oluşturma
 
-### <a name="licenses"></a>Lisanslar
+### <a name="licenses"></a>Lisansları
 
 ![Lisansları kullanıcılara uygulamak, etkinleştirin ve bildir](./media/multi-factor-authentication-security-best-practices/ems.png)
 
@@ -85,7 +85,7 @@ Kullanıcı Portalı Self Servis özellikleri ve tam bir dizi kullanıcı yönet
 * Yükleme ve ASP.NET v2.0.507207 kaydetme
 * Bu sunucuyu bir çevre ağında dağıtılan emin olun
 
-### <a name="app-passwords"></a>Uygulama Parolaları
+### <a name="app-passwords"></a>Uygulama parolaları
 
 Kuruluşunuz SSO Azure AD ile birleştirildiyse ve Azure mfa'yı kullanıyor olacak, sonra aşağıdaki ayrıntılara dikkat edin:
 

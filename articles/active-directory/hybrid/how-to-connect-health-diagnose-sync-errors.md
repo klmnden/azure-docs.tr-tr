@@ -15,10 +15,10 @@ ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60350006"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Tanılama ve yinelenen öznitelik eşitleme hatalarını Düzelt
@@ -70,8 +70,8 @@ Azure portalından düzeltilebilir olduğu belirli senaryolar tanımlamak için 
 | Durum | Bu ne demektir? |
 | ------------------ | -----------------|
 | Başlatılmadı | Bu tanılama işlemi ziyaret etmediniz. Tanılama sonucu bağlı olarak doğrudan portaldan eşitleme hatayı düzeltmek için olası bir yolu yoktur. |
-| El ile Düzeltme Gerekli | Hata ölçütleri portalından kullanılabilir düzeltmelerin sığmıyor. Kullanıcılar, çakışan iki nesne türlerini değil veya zaten tanılama adımlara geçmeden ve herhangi bir düzeltme çözüm portalından kullanılabilir. İkinci durumda, şirket içi tarafındaki bir düzeltme hala çözümleri biridir. [Hakkında daha fazla bilgi şirket içi düzeltmeleri](https://support.microsoft.com/help/2647098). | 
-| Beklenen Eşitleme | Bir düzeltme uygulandı. Portal, hata temizlemek için bir sonraki eşitleme döngüsü bekliyor. |
+| El ile düzeltme gerekli | Hata ölçütleri portalından kullanılabilir düzeltmelerin sığmıyor. Kullanıcılar, çakışan iki nesne türlerini değil veya zaten tanılama adımlara geçmeden ve herhangi bir düzeltme çözüm portalından kullanılabilir. İkinci durumda, şirket içi tarafındaki bir düzeltme hala çözümleri biridir. [Hakkında daha fazla bilgi şirket içi düzeltmeleri](https://support.microsoft.com/help/2647098). | 
+| Eşitleme bekleniyor | Bir düzeltme uygulandı. Portal, hata temizlemek için bir sonraki eşitleme döngüsü bekliyor. |
 
   >[!IMPORTANT]
   > Tanı durumu sütun sonra her bir eşitleme döngüsü sıfırlar. 
@@ -107,7 +107,7 @@ Bu örneklerde, soru tanımlamayı dener olmadığını **ALi Jackson** yine de 
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Bu hesapların her ikisi de aynı kullanıcıya mı ait?
 Bu soru, aynı kullanıcıya ait olup olmadığını görmek için Azure AD'de gelen çakışan bir kullanıcıyı ve mevcut kullanıcı nesnesi denetler.  
 1. Çakışan nesne, Azure Active Directory'ye yeni eşitlendi. Nesnelerin öznitelik karşılaştırın:  
-   - Görünen Ad
+   - Görünen ad
    - Kullanıcı Asıl Adı
    - Nesne Kimliği
 2. Azure AD karşılaştırma başarısız olursa, Active Directory ile sağlanan nesneler olup olmadığını denetlemek **belirtilen userprincipalnames adlı**. Yanıt **Hayır** her ikisini de bulursanız.

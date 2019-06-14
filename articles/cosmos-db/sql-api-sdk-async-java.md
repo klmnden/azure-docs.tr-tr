@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 3/5/2019
 ms.author: moderakh
 ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "57570105"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları

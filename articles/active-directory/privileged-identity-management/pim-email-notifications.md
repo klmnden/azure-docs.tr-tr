@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289196"
 ---
 # <a name="email-notifications-in-pim"></a>PIM e-posta bildirimleri
@@ -68,7 +68,7 @@ Bir haftalık PIM Özet e-posta için Azure AD rolleri, ayrıcalıklı rol yöne
 
 E-posta dört kutucuk bulunur:
 
-| Kutucuk | Açıklama |
+| kutucuğu | Açıklama |
 | --- | --- |
 | **Etkin kullanıcılar** | Kullanıcılar Kiracı içinde uygun rol etkin sayısı. |
 | **Kalıcı yapılan kullanıcılar** | Uygun bir atamayı kullanıcılarla kalıcı yapılan deneme sayısı. |

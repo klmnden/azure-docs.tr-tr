@@ -10,10 +10,10 @@ ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370756"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Ayırma indirimi Azure Cosmos DB'ye nasıl uygulanacağını anlama
@@ -94,7 +94,7 @@ Kapsayan bir ayırma indirimi şöyle hesaplanır: aktarım hızı tüketim * re
 
 **Senaryo 2**
 
-Örneğin, AU Orta 2 ve FR Güney bölgelerinde Azure Cosmos DB dağıtımları gerektiğini varsayalım. Her bölgede 50.000 RU/sn aktarım hızı tüketiminin sahiptir. 100.000 bir rezervasyon satın alma (AU Orta 2 kullanım ilk indirimli varsayılarak) RU/sn gibi geçerli olacaktır:
+Örneğin, AU Orta 2 ve FR Güney bölgelerinde Azure Cosmos DB dağıtımları gerektiğini varsayalım. Her bölgede 50.000 RU/sn aktarım hızı tüketiminin sahiptir. 100\.000 bir rezervasyon satın alma (AU Orta 2 kullanım ilk indirimli varsayılarak) RU/sn gibi geçerli olacaktır:
 
 |Ölçüm tanımı | Bölge |Aktarım hızı tüketim (RU/sn) |Ayırma indirimi RU/s olarak uygulandı |
 |---------|---------|---------|---------|
@@ -109,7 +109,7 @@ Azure fatura sistemiyle rezervasyon faturalandırma avantajından, işlenen ve a
 
 Anlamak ve kullanım raporları faturalama Azure ayırmalarınızın uygulamayı görüntülemek için bkz: [anlamak Azure ayırma kullanım](../billing/billing-understand-reserved-instance-usage-ea.md).
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

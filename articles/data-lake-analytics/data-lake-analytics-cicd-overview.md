@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60333885"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics için bir CI/CD işlem hattı ayarlama  
@@ -43,8 +43,8 @@ U-SQL projesi için bir derleme görevi ayarlama önce U-SQL projesi en son sür
 
 Aksi durumda, projeyi geçirmek için iki seçeneğiniz vardır:
 
-- 1. seçenek: Eski içeri aktarma öğesi önceki adlarıyla değiştirin.
-- 2. seçenek: Eski proje, Visual Studio için Azure Data Lake Araçları ' açın. 2.3.3000.0 yeni bir sürümü kullanın. Eski proje şablonu, en son sürüme otomatik olarak yükseltilecektir. 2.3.3000.0 yeni sürümleri ile oluşturulan yeni projeler yeni şablonu kullanın.
+- 1\. seçenek: Eski içeri aktarma öğesi önceki adlarıyla değiştirin.
+- 2\. seçenek: Eski proje, Visual Studio için Azure Data Lake Araçları ' açın. 2\.3.3000.0 yeni bir sürümü kullanın. Eski proje şablonu, en son sürüme otomatik olarak yükseltilecektir. 2\.3.3000.0 yeni sürümleri ile oluşturulan yeni projeler yeni şablonu kullanın.
 
 ### <a name="get-nuget"></a>Get NuGet
 
@@ -80,10 +80,10 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 Bağımsız değişken tanımı ve değerler aşağıdaki gibidir:
 
 * **USQLSDKPath =\<U-SQL Nuget paketini > \build\runtime**. Bu parametre, U-SQL dil hizmeti için NuGet paketinin yükleme yolu belirtir.
-* **USQLTargetType birleştirme ya da SyntaxCheck =**:
+* **USQLTargetType birleştirme ya da SyntaxCheck =** :
     * **Birleştirme**. Birleştirme modu arka plan kod dosyaları derler. Örnekler **.cs**, **.py**, ve **.r** dosyaları. Bu satır içleri U-SQL betiğini elde edilen kullanıcı tanımlı kod kitaplığa. Örnekler bir dll ikili, Python veya R kodu.
     * **SyntaxCheck**. SyntaxCheck modu, arka plan kod dosyaları ilk U-SQL betiği ile birleştirir. Sonra kodunuzu doğrulamak için U-SQL betiği derler.
-* **DataRoot =\<DataRoot yolu >**. DataRoot yalnızca SyntaxCheck modu için gereklidir. Betik SyntaxCheck moduyla oluşturduğunda, MSBuild betiğindeki veritabanı nesnelere başvurular denetler. Yapılandırmadan önce başvurulan derleme makinenin DataRoot klasörü U-SQL veritabanında nesneleri içeren bir eşleşen yerel ortamı ayarlayın. Bu veritabanı bağımlılıklar da yönetebilirsiniz [bir U-SQL veritabanı projesine başvurma](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild, veritabanı nesne başvuruları, dosyaları değil yalnızca denetler.
+* **DataRoot =\<DataRoot yolu >** . DataRoot yalnızca SyntaxCheck modu için gereklidir. Betik SyntaxCheck moduyla oluşturduğunda, MSBuild betiğindeki veritabanı nesnelere başvurular denetler. Yapılandırmadan önce başvurulan derleme makinenin DataRoot klasörü U-SQL veritabanında nesneleri içeren bir eşleşen yerel ortamı ayarlayın. Bu veritabanı bağımlılıklar da yönetebilirsiniz [bir U-SQL veritabanı projesine başvurma](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild, veritabanı nesne başvuruları, dosyaları değil yalnızca denetler.
 * **EnableDeployment = true** veya **false**. EnableDeployment, derleme işlemi sırasında başvurulan U-SQL veritabanı dağıtmak için izin verip vermediğini belirtir. U-SQL veritabanı projesi başvuru ve veritabanı nesnelerini U-SQL betiğinizde kullanmak, bu parametre kümesine **true**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Azure işlem hatları aracılığıyla sürekli tümleştirme
@@ -456,31 +456,31 @@ Bir veritabanı dağıtım görevi Azure işlem hatları ayarlamak için aşağ�
 
 | Parametre | Açıklama | Varsayılan Değer | Gerekli |
 |---------|-----------|-------------|--------|
-|Paket|Dağıtılacak U-SQL veritabanı dağıtım paketi yolu.|null |true|
+|Paket|Dağıtılacak U-SQL veritabanı dağıtım paketi yolu.|Null|true|
 |Database|Dağıtılan ya da oluşturulan veritabanı adı.|ana|false|
-|Günlük dosyası|Günlük dosyasının yolu. Varsayılan olarak standart çıkış (konsol).|null |false|
+|Günlük dosyası|Günlük dosyasının yolu. Varsayılan olarak standart çıkış (konsol).|Null|false|
 |LogLevel|Günlük düzeyi: Ayrıntılı, Normal, uyarı veya hata.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>Parametresi için yerel dağıtımı
 
 |Parametre|Açıklama|Varsayılan Değer|Gerekli|
 |---------|-----------|-------------|--------|
-|DataRoot|Yerel veri kök klasörünün yolu.|null |true|
+|DataRoot|Yerel veri kök klasörünün yolu.|Null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Azure Data Lake Analytics dağıtımı için parametreleri
 
 |Parametre|Açıklama|Varsayılan Değer|Gerekli|
 |---------|-----------|-------------|--------|
-|Hesap|Hesap adına göre dağıtmak için Azure Data Lake Analytics hesabını belirtir.|null |true|
-|ResourceGroup|Azure Data Lake Analytics hesabı için Azure kaynak grubu adı.|null |true|
-|SubscriptionId|Azure Data Lake Analytics hesabı için Azure abonelik kimliği.|null |true|
-|Kiracı|Kiracı adı, Azure Active Directory (Azure AD) etki alanı adıdır. Azure portalında abonelik yönetimi sayfasındaki bulun.|null |true|
-|AzureSDKPath|Azure SDK'sı bağımlı derlemelerin aranacağı yol.|null |true|
+|Hesap|Hesap adına göre dağıtmak için Azure Data Lake Analytics hesabını belirtir.|Null|true|
+|ResourceGroup|Azure Data Lake Analytics hesabı için Azure kaynak grubu adı.|Null|true|
+|SubscriptionId|Azure Data Lake Analytics hesabı için Azure abonelik kimliği.|Null|true|
+|Kiracı|Kiracı adı, Azure Active Directory (Azure AD) etki alanı adıdır. Azure portalında abonelik yönetimi sayfasındaki bulun.|Null|true|
+|AzureSDKPath|Azure SDK'sı bağımlı derlemelerin aranacağı yol.|Null|true|
 |Etkileşimli|Gerekmediğini etkileşimli mod kimlik doğrulaması için kullanılacak.|false|false|
-|ClientId|Azure AD uygulama kimliği etkileşimli olmayan kimlik doğrulaması için gereklidir.|null |Etkileşimli olmayan kimlik doğrulaması için gereklidir.|
-|Secrete|Secrete veya etkileşimli olmayan kimlik doğrulaması için parola. Yalnızca güvenilen ve güvenli ortamında kullanılmalıdır.|null |Kullanım SecreteFile yoksa etkileşimli olmayan kimlik doğrulaması için gereklidir.|
-|SecreteFile|Dosyayı secrete veya etkileşimli olmayan kimlik doğrulaması için parola kaydeder. Yalnızca geçerli kullanıcı tarafından okunabilen sakladığınızdan emin olun.|null |Kullanım Secrete yoksa etkileşimli olmayan kimlik doğrulaması için gereklidir.|
-|CertFile|Dosya X.509 Sertifika etkileşimli olmayan kimlik doğrulama için kaydeder. Varsayılan istemci kullanmaktır secrete kimlik doğrulaması.|null |false|
+|ClientId|Azure AD uygulama kimliği etkileşimli olmayan kimlik doğrulaması için gereklidir.|Null|Etkileşimli olmayan kimlik doğrulaması için gereklidir.|
+|Secrete|Secrete veya etkileşimli olmayan kimlik doğrulaması için parola. Yalnızca güvenilen ve güvenli ortamında kullanılmalıdır.|Null|Kullanım SecreteFile yoksa etkileşimli olmayan kimlik doğrulaması için gereklidir.|
+|SecreteFile|Dosyayı secrete veya etkileşimli olmayan kimlik doğrulaması için parola kaydeder. Yalnızca geçerli kullanıcı tarafından okunabilen sakladığınızdan emin olun.|Null|Kullanım Secrete yoksa etkileşimli olmayan kimlik doğrulaması için gereklidir.|
+|CertFile|Dosya X.509 Sertifika etkileşimli olmayan kimlik doğrulama için kaydeder. Varsayılan istemci kullanmaktır secrete kimlik doğrulaması.|Null|false|
 | JobPrefix | U-SQL DDL işin veritabanı dağıtımı için önek. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>Sonraki adımlar

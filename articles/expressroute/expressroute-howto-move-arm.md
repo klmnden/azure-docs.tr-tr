@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 11a84d4ced3232102d262352b84abe1f813e2406
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60365208"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>PowerShell kullanılarak Resource Manager dağıtım modelinde ExpressRoute devreleri Klasikten Taşı
@@ -31,7 +31,7 @@ Bir ExpressRoute bağlantı hattı Klasik ve Resource Manager dağıtım modelle
 
 ## <a name="move-an-expressroute-circuit"></a>Bir ExpressRoute bağlantı hattı Taşı
 
-### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>1. Adım: Klasik dağıtım modelinden bağlantı hattına ayrıntıları toplayın
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>1\. adım: Klasik dağıtım modelinden bağlantı hattına ayrıntıları toplayın
 
 Azure Klasik ortamı için oturum açın ve hizmet anahtarı toplayın.
 
@@ -60,7 +60,7 @@ Azure Klasik ortamı için oturum açın ve hizmet anahtarı toplayın.
    Get-AzureDedicatedCircuit
    ```
 
-### <a name="step-2-sign-in-and-create-a-resource-group"></a>2. Adım: Oturum açma ve bir kaynak grubu oluşturma
+### <a name="step-2-sign-in-and-create-a-resource-group"></a>2\. adım: Oturum açma ve bir kaynak grubu oluşturma
 
 Resource Manager ortamı için oturum açın ve yeni bir kaynak grubu oluşturun.
 
@@ -82,7 +82,7 @@ Resource Manager ortamı için oturum açın ve yeni bir kaynak grubu oluşturun
    New-AzResourceGroup -Name "DemoRG" -Location "West US"
    ```
 
-### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>3. Adım: ExpressRoute bağlantı hattı Resource Manager dağıtım modeline taşıma
+### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>3\. adım: ExpressRoute bağlantı hattı Resource Manager dağıtım modeline taşıma
 
 ExpressRoute bağlantı hattı Klasik dağıtım modelinden Resource Manager dağıtım modeline taşıma artık hazırsınız. Devam etmeden önce sağlanan bilgileri gözden geçirin [bir ExpressRoute bağlantı hattını Klasikten Resource Manager dağıtım modeline taşıma](expressroute-move.md).
 

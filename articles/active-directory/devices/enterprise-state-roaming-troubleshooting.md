@@ -20,10 +20,10 @@ ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353185"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal durumda Dolaşım ayarları sorunlarını giderme
@@ -87,7 +87,7 @@ Belirli koşullar altında Azure multi-Factor Authentication yapılandırılmı�
 
 **Olası sorun**: Eşitleme, yönetim Active Directory Federasyon hizmetlerini çok faktörlü kimlik doğrulaması koşullu erişim ilkesini yapılandırır ve cihazın erişim belirtecinin süresi başarısız olabilir. Office 365 gibi diğer Azure hizmetlerine erişirken çok faktörlü kimlik doğrulamasını tamamlamak ya da oturum açın ve Microsoft Passport for Work PIN kullanarak oturumunuzu emin olun.
 
-### <a name="event-viewer"></a>Olay Görüntüleyici
+### <a name="event-viewer"></a>Olay Görüntüleyicisi
 
 Gelişmiş sorun giderme için Olay Görüntüleyicisi'ni belirli hataları bulmak için kullanılabilir. Bunlar aşağıdaki tabloda belirtilmiştir. Olayları Olay Görüntüleyicisi'ni altında bulunabilir > Uygulama ve hizmet günlükleri > **Microsoft** > **Windows** > **SettingSync Azure** ve kimlikle ilgili sorunları ile eşitleme için **Microsoft** > **Windows** > **AAD**.
 

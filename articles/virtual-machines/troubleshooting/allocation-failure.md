@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: 72fbdbcfcd94dd41a67bb81314802dd7314ae463
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505828"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Oluşturma, yeniden başlatma veya azure'da Vm'leri yeniden boyutlandırma karşılaşılan ayırma hatalarını giderme
@@ -42,7 +42,7 @@ Talebinize en iyi şekilde eşleşen bir senaryo belirleme ve sonra başarılı 
 
 VM'yi yeniden boyutlandırma veya mevcut bir kullanılabilirlik kümesi için bir VM konumundaki mevcut kullanılabilirlik barındıran özgün küme denenecek eklemek için bir istek ayarlayın. İstenen VM boyutu, küme tarafından desteklenir, ancak küme şu anda yeterli kapasiteye sahip olmayabilir. 
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 VM'yi farklı bir kullanılabilirlik kümesinin parçası olabilir (aynı bölgede) kümesi farklı bir kullanılabilirlik bir VM oluşturun. Bu yeni VM, sonra aynı sanal ağa eklenebilir.
 
@@ -57,7 +57,7 @@ Bu adım, yeni bir ayırma girişimi çalıştırılır ve yeni bir küme, yeter
 
 Kısmi ayırmayı kaldırma (serbest bırakıldı) bir veya daha fazla durduruldu, ancak tüm, Vm'leri bir kullanılabilirlik kümesi anlamına gelir. Bir VM'yi serbest bırakın, ilişkili kaynakları serbest bırakılır. Kısmen serbest kullanılabilirlik kümesindeki Vm'leri yeniden başlatma var olan bir kullanılabilirlik kümesine Vm'leri ekleme aynıdır. Bu nedenle, ayırma isteğinin özgün kümesine mevcut bir kullanılabilirlik kümesi konakları yeterli kapasiteye sahip olmayabilir çalıştı gerekir.
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 Durdurun (serbest bırakın) tüm VM'lerin aynı kullanılabilirlik kümesi ve ardından her biri yeniden başlatın.
 Durdurmak için: Kaynak Gruplar > [kaynak grubunuzun] > kaynak > [kullanılabilirlik kümesi] > sanal makineler > [sanal makinenizi] > Durdur.
@@ -70,7 +70,7 @@ Bu yeni bir ayırma girişimi çalıştırılır ve yeni bir küme, yeterli kapa
 
 Durduruldu tam ayırmayı kaldırma anlamına gelir (bir kullanılabilirlik kümesindeki tüm sanal makineler serbest bırakıldı). Bu Vm'leri yeniden başlatma ayırma isteği bölgeyi veya bölgenin içinde istenen boyut destekleyen tüm kümeleri hedefleyecektir. Bu makaledeki öneriler başına ayırma isteğiniz değiştirin ve başarılı ayırma olasılığını artırmak için isteği yeniden deneyin. 
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 Eski VM serisi veya boyutları, Dv1, DSv1, Av1, D15v2 veya DS15v2, gibi kullanırsanız yeni sürümlere taşıma göz önünde bulundurun. Bu önerileri belirli VM boyutları için bkz.
 Başka bir VM boyutu kullanma seçeneğiniz yoksa, aynı coğrafyadaki başka bir bölgeye dağıtmayı deneyin. Daha fazla bilgi için her bir bölgede kullanılabilen VM boyutları https://aka.ms/azure-regions

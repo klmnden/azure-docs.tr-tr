@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60495194"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure İzleyici ile Active Directory çoğaltma durumunu izleme
@@ -52,7 +52,7 @@ Herhangi bir etki alanı denetleyicilerinizin doğrudan Azure İzleyici bağlanm
 ## <a name="ad-replication-status-data-collection-details"></a>AD çoğaltma durumu verileri toplama ayrıntıları
 Veri toplama metotlarını ve verileri için AD çoğaltma durumu nasıl toplanır hakkında diğer ayrıntıları aşağıdaki tabloda gösterilmektedir.
 
-| Platform | Doğrudan Aracı | SCOM Aracısı | Azure Storage | SCOM gerekli? | Yönetim grubu gönderilen SCOM Aracısı verileri | Toplama sıklığı |
+| Platform | Doğrudan aracı | SCOM Aracısı | Azure Storage | SCOM gerekli? | Yönetim grubu gönderilen SCOM Aracısı verileri | Toplama sıklığı |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |beş günde bir |
 
@@ -106,7 +106,7 @@ AD çoğaltma durumu çözümü sayısını gösterir. Pano kutucuğu daha önce
 >
 
 ### <a name="ad-replication-status-details"></a>AD çoğaltma durumu ayrıntıları
-Herhangi bir öğeyi, listelerden birine tıkladığınızda, bir günlük sorgusu kullanarak hakkındaki ek ayrıntıları bakın. Sonuçları yalnızca bu öğe ile ilgili hataları gösterecek şekilde filtrelenir. Tıklayarak etki alanı denetleyicisine altında listelendiğinden **hedef sunucu durumu (ADDC02)**, sorgu sonuçları için filtre gördüğünüz show hata etki alanı denetleyicisi ile hedef sunucu olarak listelenen:
+Herhangi bir öğeyi, listelerden birine tıkladığınızda, bir günlük sorgusu kullanarak hakkındaki ek ayrıntıları bakın. Sonuçları yalnızca bu öğe ile ilgili hataları gösterecek şekilde filtrelenir. Tıklayarak etki alanı denetleyicisine altında listelendiğinden **hedef sunucu durumu (ADDC02)** , sorgu sonuçları için filtre gördüğünüz show hata etki alanı denetleyicisi ile hedef sunucu olarak listelenen:
 
 ![Sorgu sonuçlarında AD çoğaltma durumu hataları](./media/ad-replication-status/oms-ad-replication-search-details.png)
 

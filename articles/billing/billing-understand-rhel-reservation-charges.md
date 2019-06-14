@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/22/2019
 ms.author: cwatson
 ms.openlocfilehash: fe0d0f0baa2b3d1c08e871541dce1511e00f7f87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370211"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Azure için Red Hat Linux Kurumsal Yazılım ayırma planı indirimi nasıl uygulanacağını anlama
@@ -38,7 +38,7 @@ Ayrılmış VM örnekleri gibi Red Hat planı satın örneği boyutu esnekliği 
 - 1 ile 3 veya 4 Vcpu VM dağıtıldı,
 - veya bir VM ile 5 veya daha fazla Vcpu 0.77 veya hakkında %77.
 
-2.6 5 veya daha fazla Vcpu için oranıdır. Bu nedenle Red Hat ile 5 veya daha fazla Vcpu ile bir VM için bir ayırma yaklaşık %77 yazılım maliyeti, yalnızca bir kısmını kapsar.
+2\.6 5 veya daha fazla Vcpu için oranıdır. Bu nedenle Red Hat ile 5 veya daha fazla Vcpu ile bir VM için bir ayırma yaklaşık %77 yazılım maliyeti, yalnızca bir kısmını kapsar.
 
 ## <a name="understand-red-hat-vm-usage-before-you-buy"></a>Satın almadan önce Red Hat sanal makine kullanımını anlama
 
@@ -59,7 +59,7 @@ Azure portal Market adları:
 - Red Hat Enterprise Linux 7.6
 - Red Hat Enterprise Linux 7 (latest lvm)
 
-|Red Hat VM | Ölçüm kimliği| Oranı| Örnekte VM boyutu|
+|Red Hat VM | MeterId| Oranı| Örnekte VM boyutu|
 | -------| ------------------------| --- |--- |
 |1-4 vCPU VM lisansı|077a07bb-20f8-4bc6-b596-ab7211a1e247|1|D4s_v3|
 |1-4 vCPU VM lisansı|2f96d035-3bac-46d6-b2bc-c6daa0938536|1|D4s_v3|
@@ -83,7 +83,7 @@ Azure portal Market adları:
 
 Azure portal Market adı:
 
-|Red Hat VM | Ölçüm kimliği | Oranı|Örnekte VM boyutu|
+|Red Hat VM | MeterId | Oranı|Örnekte VM boyutu|
 | ------- | --- | ------------------------| --- | --- |
 |1-4 vCPU VM lisansı |4d902611-eed7-4060-a33e-3c7fdbac6406|1|D4s_v3|
 |5 + vCPU VM lisansı|6dfb482b-23ea-487f-810c-e66360f025de|2.333333333|D8s_v3|
@@ -92,7 +92,7 @@ Azure portal Market adı:
 
 Azure portal Market adları:
 
-|Red Hat VM | Ölçüm kimliği | Oranı|Örnekte VM boyutu|
+|Red Hat VM | MeterId | Oranı|Örnekte VM boyutu|
 | ------- |------------------------| --- | --- |
 |1-4 vCPU VM lisansı|e9711132-d9d9-450c-8203-25cfc4bce8de|1|D4s_v3|
 |5 + vCPU VM lisansı|93954aa4-b55f-4b7b-844d-a119d6bf3c4e|2|D8s_v3|
@@ -106,7 +106,7 @@ Azure portal Market adları:
 - SAP için Red Hat Enterprise Linux 7.4
 - SAP için Red Hat Enterprise Linux 7.5
 
-|Red Hat VM | Ölçüm kimliği | Oranı|Örnekte VM boyutu|
+|Red Hat VM | MeterId | Oranı|Örnekte VM boyutu|
 | ------- |------------------------| --- |--- |
 |1 vCPU VM lisansı|25889e91-c740-42ac-bc52-6b8f73b98575|1|D2s_v3|
 |2 vCPU VM lisansı|2a0c92c8-23a7-4dc9-a39c-c4a73a85b5da|1|D2s_v3|
@@ -134,7 +134,7 @@ Azure portal Market adları:
 - SAP HANA için Red Hat Enterprise Linux 7.2
 - SAP HANA için Red Hat Enterprise Linux 7.3
 
-|Red Hat VM | Ölçüm kimliği | Oranı|Örnekte VM boyutu|
+|Red Hat VM | MeterId | Oranı|Örnekte VM boyutu|
 | ------- |------------------------| --- |--- |
 |1 vCPU VM lisansı|be0a59d1-eed7-47ec-becd-453267753793|1|D2s_v3|
 |2 vCPU VM lisansı|3b97c9f5-f5d5-4fd3-a421-b78fca32a656|1|D2s_v3|
@@ -165,6 +165,6 @@ Rezervasyonlar hakkında daha fazla bilgi edinmek için aşağıdaki makalelere 
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

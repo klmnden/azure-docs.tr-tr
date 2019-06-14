@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60357549"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
@@ -96,7 +96,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 * **Etkinlik aktör**: Ek gerçekleştirmesini kısıtladı kullanıcı işlemleri sıfırlayın. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik hedef**: Ek gerçekleştirmesini kısıtladı kullanıcı işlemleri sıfırlayın. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik durumu**:
-  * _Success_: Bir kullanıcı herhangi bir ek sıfırlar gerçekleştirme, herhangi bir ek kimlik doğrulama yöntemleri çalışırken ya da sonraki 24 saat için herhangi bir ek telefon numaraları doğrulanıyor kısıtladı gösterir.
+  * _Başarı_: Bir kullanıcı herhangi bir ek sıfırlar gerçekleştirme, herhangi bir ek kimlik doğrulama yöntemleri çalışırken ya da sonraki 24 saat için herhangi bir ek telefon numaraları doğrulanıyor kısıtladı gösterir.
 * **Etkinlik durumu hata nedeni**: Geçerli değildir.
 
 ### <a name="activity-type-change-password-self-service"></a>Etkinlik türü: Parolayı değiştirme (self servis)
@@ -107,7 +107,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 * **Etkinlik aktör**: Kullanıcıların parolalarını değiştiren kullanıcı. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik hedef**: Kullanıcıların parolalarını değiştiren kullanıcı. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik durumları**:
-  * _Success_: Bir kullanıcının parolasını başarıyla değiştirildi gösterir.
+  * _Başarı_: Bir kullanıcının parolasını başarıyla değiştirildi gösterir.
   * _Hata_: Bir kullanıcının parolasını değiştirmek başarısız olduğunu gösterir. Satır görmek için seçebileceğiniz **etkinlik durum nedeni** hatanın neden oluştuğunun hakkında daha fazla bilgi için kategori.
 * **Etkinlik durumu hata nedeni**:
   * _FuzzyPolicyViolationInvalidPassword_: Seçilen kullanıcı olmadığından Microsoft yasaklanmış parola algılama özellikleri çok ortak veya özellikle zayıf olması için otomatik olarak yasaklanmış bir parola.
@@ -120,7 +120,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 * **Etkinlik aktör**: Parola başka bir son kullanıcı veya yönetici adına sıfırlama gerçekleştirilen yönetici. Parola Yöneticisi, kullanıcı yöneticinize veya Yardım Masası Yöneticisi olması gerekir.
 * **Etkinlik hedef**: Kullanıcı, parola sıfırlandı. Kullanıcı, bir son kullanıcı veya farklı bir yönetici olabilir.
 * **Etkinlik durumları**:
-  * _Success_: Bir yönetici bir kullanıcının parola başarıyla sıfırlandı gösterir.
+  * _Başarı_: Bir yönetici bir kullanıcının parola başarıyla sıfırlandı gösterir.
   * _Hata_: Bir yönetici bir kullanıcının parolasını değiştirmek başarısız olduğunu gösterir. Satır görmek için seçebileceğiniz **etkinlik durum nedeni** hatanın neden oluştuğunun hakkında daha fazla bilgi için kategori.
 
 ### <a name="activity-type-reset-password-self-service"></a>Etkinlik türü: Parola sıfırlama (self servis)
@@ -131,7 +131,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 * **Etkinlik aktör**: Kullanıcının parolasını sıfırlamasını kullanıcı. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik hedef**: Kullanıcının parolasını sıfırlamasını kullanıcı. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik durumları**:
-  * _Success_: Kullanıcı başarıyla kendi parolalarını sıfırlama gösterir.
+  * _Başarı_: Kullanıcı başarıyla kendi parolalarını sıfırlama gösterir.
   * _Hata_: Bir kullanıcı kendi parolasını sıfırlamak başarısız olduğunu gösterir. Satır görmek için seçebileceğiniz **etkinlik durum nedeni** hatanın neden oluştuğunun hakkında daha fazla bilgi için kategori.
 * **Etkinlik durumu hata nedeni**:
   * _FuzzyPolicyViolationInvalidPassword_: Yönetici olmadığından Microsoft yasaklanmış parola algılama özellikleri çok ortak veya özellikle zayıf olması için otomatik olarak yasaklanmış bir parola seçilir.
@@ -144,7 +144,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 * **Etkinlik aktör**: Parola parçası gerçekleştiren kullanıcının akış sıfırlayın. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik hedef**: Parola parçası gerçekleştiren kullanıcının akış sıfırlayın. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik durumları**:
-  * _Success_: Kullanıcı parola sıfırlama işlem akışında belirli bir adım başarıyla tamamlandığını gösterir.
+  * _Başarı_: Kullanıcı parola sıfırlama işlem akışında belirli bir adım başarıyla tamamlandığını gösterir.
   * _Hata_: Parola belirli bir adım başarısız akış sıfırlama gösterir. Satır görmek için seçebileceğiniz **etkinlik durum nedeni** hatanın neden oluştuğunun hakkında daha fazla bilgi için kategori.
 * **Etkinlik durumu nedeniyle**:   İçin aşağıdaki tabloya bakın [tüm izin verilen sıfırlama etkinlik durumu nedeniyle](#description-of-the-report-columns-in-the-azure-portal).
 
@@ -156,7 +156,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 * **Etkinlik aktör**: Kendi hesap parolalarını sıfırlamadan kilidi kullanıcı. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik hedef**: Kendi hesap parolalarını sıfırlamadan kilidi kullanıcı. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik durumları izin**:
-  * _Success_: Bir kullanıcı, kendi hesabı başarıyla kilidi gösterir.
+  * _Başarı_: Bir kullanıcı, kendi hesabı başarıyla kilidi gösterir.
   * _Hata_: Bir kullanıcı hesaplarının kilidini başarısız olduğunu gösterir. Satır görmek için seçebileceğiniz **etkinlik durum nedeni** hatanın neden oluştuğunun hakkında daha fazla bilgi için kategori.
 
 ### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Etkinlik türü: Self servis parola sıfırlama için kaydolan kullanıcı
@@ -167,7 +167,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 * **Etkinlik aktör**: Parola sıfırlama için kaydolan kullanıcı. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik hedef**: Parola sıfırlama için kaydolan kullanıcı. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik durumları izin**:
-  * _Success_: Kullanıcı başarıyla parola sıfırlamaya uygun olarak geçerli ilke kayıtlı olduğunu belirtir. 
+  * _Başarı_: Kullanıcı başarıyla parola sıfırlamaya uygun olarak geçerli ilke kayıtlı olduğunu belirtir. 
   * _Hata_: Kullanıcı parola sıfırlama için kaydolmasını başarısız olduğunu gösterir. Satır görmek için seçebileceğiniz **etkinlik durum nedeni** hatanın neden oluştuğunun hakkında daha fazla bilgi için kategori.
 
      >[!NOTE]

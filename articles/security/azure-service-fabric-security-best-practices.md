@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611518"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric en iyi güvenlik uygulamaları
@@ -101,7 +101,7 @@ Küme güvenli değildir, herkes anonim olarak kümeye bağlanın ve yönetim i�
 
 X.509 sertifikaları kullanma hakkında daha fazla bilgi edinmek için [bir Service Fabric kümesi ekleme veya kaldırma sertifikalarını](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure).
 
-## <a name="configure-security-policies"></a>Güvenlik ilkelerini yapılandır
+## <a name="configure-security-policies"></a>Güvenlik ilkelerini yapılandırma
 Service Fabric ayrıca uygulamalar tarafından kullanılan kaynakların güvenliğini sağlar. Kaynak dosyalar, dizinler, ister ve uygulama dağıtıldığında, sertifikaları kullanıcı hesapları altında depolanır. Bu özellik çalışan uygulamalar da paylaşılan barındırılan bir ortamda birbirinden, daha güvenli hale getirir.
 
 -   Bir Active Directory etki alanı grubu veya kullanıcı kullanın: Bir Active Directory kullanıcı veya grup hesabı için kimlik bilgileri altında hizmet çalıştırın. Active Directory şirket içi Azure Active Directory ve etki alanı içinde kullandığınızdan emin olun. Etki alanındaki bir etki alanı kullanıcısı veya grubu kullanarak izinleri verilmiş olması diğer kaynaklara erişin. Örneğin, dosya paylaşımları gibi kaynaklar.
@@ -139,10 +139,10 @@ Sertifika, azure'da SSL sertifikaları için aşağıdaki gereksinimleri karşı
 -   Sertifikanın konu adı, bulut hizmetine erişmek için kullanılan etki alanı adı eşleşmelidir.
 
     - Bulut hizmetinize erişmek için kullanılacak özel etki alanı adını alın.
-    - Hizmetinizin özel etki alanı adıyla eşleşen bir konu adına sahip bir CA'dan bir sertifika isteyin. Örneğin, özel etki alanı adınızı ise __contoso__**.com**, Sertifika yetkilinizden sertifikası konu adı olmalıdır **. contoso.com** veya __www__ **. contoso.com**.
+    - Hizmetinizin özel etki alanı adıyla eşleşen bir konu adına sahip bir CA'dan bir sertifika isteyin. Örneğin, özel etki alanı adınızı ise __contoso__ **.com**, Sertifika yetkilinizden sertifikası konu adı olmalıdır **. contoso.com** veya __www__ **. contoso.com**.
 
     >[!NOTE]
-    >Bir CA için bir SSL sertifikası alınamıyor __cloudapp__**.net** etki alanı.
+    >Bir CA için bir SSL sertifikası alınamıyor __cloudapp__ **.net** etki alanı.
 
 -   Sertifikanın en az 2.048 bit şifreleme kullanmanız gerekir.
 

@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243500"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect eşitleme: Filtrelemeyi yapılandırma
 Filtreleme kullanarak, hangi nesnelerin Azure Active Directory (Azure AD) görüneceğini şirket içi dizininizden denetleyebilirsiniz. Varsayılan yapılandırma, yapılandırılmış Ormanlardaki etki alanlarındaki tüm nesneleri alır. Genel olarak, bu önerilen yapılandırmadır. E-posta gönderin ve herkesin çağırmak için eksiksiz bir genel adres listesi gibi Exchange Online ve Skype Kurumsal, Office 365 iş yükleri kullanarak kullanıcıların yararlanır. Varsayılan yapılandırma ile bir şirket içi Exchange veya Lync uygulamasıyla sahip olabileceği aynı deneyimi sahip.
 
-Bazı durumlarda ancak, gerekli bir varsayılan yapılandırmaya bazı değişiklikler yapın. İşte bazı örnekler:
+Bazı durumlarda ancak, gerekli bir varsayılan yapılandırmaya bazı değişiklikler yapın. Bazı örnekler şunlardır:
 
 * Kullanmayı planladığınız [birden çok Azure AD directory topolojisini](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Belirli bir hangi nesnelerin eşitleneceğini denetlemek için bir filtre uygulamak gereken sonra Azure AD dizini.
 * Azure veya Office 365 için bir pilot çalıştırın ve Azure AD'de yalnızca bir kullanıcı alt istersiniz. Küçük bir pilot çalışmasında tam genel bir adres işlevselliğini göstermek için liste olması önemli değildir.
@@ -218,7 +218,7 @@ Filtreleme gelen, gücünü kullanın **kapsam** eşitlemek veya eşitleme için
 
 Bize bir örneğe bakın:  
 ![Kapsam](./media/how-to-connect-sync-configure-filtering/scope.png)  
-Bu olarak okunmalıdır **(departman = BT) veya (departman satış ve c = us)**.
+Bu olarak okunmalıdır **(departman = BT) veya (departman satış ve c = us)** .
 
 Aşağıdaki örnekler ve adımlar, örnek olarak kullanıcı nesnesini kullanın, ancak tüm nesne türleri için bunu kullanabilirsiniz.
 

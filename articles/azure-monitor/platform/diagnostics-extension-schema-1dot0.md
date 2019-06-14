@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237850"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure tanılama 1.0 yapılandırma şeması
@@ -99,11 +99,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration öğesi  
 En üst düzey öğesi tanılama yapılandırma dosyası.  
 
-Öznitelikler:
+Öznitelikleri:
 
 |Öznitelik  |Tür   |Gerekli| Varsayılan | Açıklama|  
 |-----------|-------|--------|---------|------------|  
-|**configurationChangePollInterval**|süre|İsteğe bağlı | PT1M| Tanı İzleyicisi yoklama aralığını tanılama yapılandırma değişikliklerini belirtir.|  
+|**configurationChangePollInterval**|Süresi|İsteğe bağlı | PT1M| Tanı İzleyicisi yoklama aralığını tanılama yapılandırma değişikliklerini belirtir.|  
 |**overallQuotaInMB**|unsignedInt|İsteğe bağlı| 4000 MB. Bir değer belirtirseniz, bu miktar aşmamalıdır |Tüm günlük arabellekleri için ayrılan dosya sistemi depolama miktarı.|  
 
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs öğesi  
@@ -111,26 +111,26 @@ Temel alınan Tanılama Altyapısı tarafından oluşturulan günlükler için a
 
 Üst öğe: DiagnosticMonitorConfiguration öğesi.  
 
-Öznitelikler:
+Öznitelikleri:
 
 |Öznitelik|Tür|Açıklama|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 |**scheduledTransferLogLevelFilter**|string|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
-|**scheduledTransferPeriod**|süre|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
+|**scheduledTransferPeriod**|Süresi|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
 
 ## <a name="logs-element"></a>Günlükleri öğesi  
  Temel Azure günlükleri arabellek yapılandırmasını tanımlar.
 
  Üst öğe: DiagnosticMonitorConfiguration öğesi.  
 
-Öznitelikler:  
+Öznitelikleri:  
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 |**scheduledTransferLogLevelFilter**|string|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
-|**scheduledTransferPeriod**|süre|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
+|**scheduledTransferPeriod**|Süresi|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
 
 ## <a name="directories-element"></a>Dizinleri öğesi  
 Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırmasını tanımlar.
@@ -138,19 +138,19 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 Üst öğe: DiagnosticMonitorConfiguration öğesi.  
 
 
-Öznitelikler:  
+Öznitelikleri:  
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
-|**scheduledTransferPeriod**|süre|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
+|**scheduledTransferPeriod**|Süresi|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
 
 ## <a name="crashdumps-element"></a>CrashDumps öğesi  
  Kilitlenme bilgi dökümleri directory tanımlar.
 
  Üst öğe: Dizinleri öğesi.  
 
-Öznitelikler:  
+Öznitelikleri:  
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
@@ -162,7 +162,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
  Üst öğe dizinleri öğesi.  
 
-Öznitelikler:  
+Öznitelikleri:  
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
@@ -174,7 +174,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
  Üst öğe dizinleri öğesi.  
 
-Öznitelikler:  
+Öznitelikleri:  
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
@@ -191,7 +191,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
  Üst öğe: Veri kaynağı öğesi.
 
-Öznitelikler:
+Öznitelikleri:
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
@@ -203,7 +203,7 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
  Üst öğe: DirectoryConfiguration öğesi.  
 
-Öznitelikler:  
+Öznitelikleri:  
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
@@ -215,11 +215,11 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
 
  Üst öğe: DirectoryConfiguration öğesi.  
 
-Öznitelikler:  
+Öznitelikleri:  
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
-|**Adı**|string|Gereklidir. İzlenecek dizin içeren yerel kaynak adı.|  
+|**name**|string|Gereklidir. İzlenecek dizin içeren yerel kaynak adı.|  
 |**RelativePath**|string|Gereklidir. İzlemek için yerel kaynak göreli yol.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters öğesi  
@@ -228,46 +228,46 @@ Tanımlayabileceğiniz dosya tabanlı günlükler için arabellek yapılandırma
  Üst öğe: DiagnosticMonitorConfiguration öğesi.
 
 
- Öznitelikler:  
+ Öznitelikleri:  
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
-|**scheduledTransferPeriod**|süre|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
+|**scheduledTransferPeriod**|Süresi|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
 
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration öğesi  
  Toplanacak performans sayacını tanımlar.
 
  Üst öğe: PerformanceCounters öğesi.  
 
- Öznitelikler:  
+ Öznitelikleri:  
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|string|Gereklidir. Toplanacak performans sayacı yolu.|  
-|**sampleRate**|süre|Gereklidir. Performans sayacının toplanacağını oranı.|  
+|**sampleRate**|Süresi|Gereklidir. Performans sayacının toplanacağını oranı.|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog öğesi  
  İzlemek için olay günlüklerini tanımlar.
 
  Üst öğe: DiagnosticMonitorConfiguration öğesi.
 
-  Öznitelikler:
+  Öznitelikleri:
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 |**scheduledTransferLogLevelFilter**|string|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**. Diğer olası değerler **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
-|**scheduledTransferPeriod**|süre|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
+|**scheduledTransferPeriod**|Süresi|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
 
 ## <a name="datasource-element"></a>Veri kaynağı öğesi  
  İzlenecek olay günlüğünün tanımlar.
 
  Üst öğe: WindowsEventLog Element.  
 
- Öznitelikler:
+ Öznitelikleri:
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
-|**Adı**|string|Gereklidir. Toplanacak günlük belirten bir XPath ifadesi.|  
+|**name**|string|Gereklidir. Toplanacak günlük belirten bir XPath ifadesi.|  
 
