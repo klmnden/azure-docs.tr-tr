@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349853"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Otomatik yükseltme
@@ -33,14 +33,14 @@ Otomatik yükseltme, aşağıdakiler için varsayılan olarak etkindir:
 * Ayarları yükleme ve DirSync yükseltmeleri express.
 * SQL Express LocalDB kullanımıyla, hangi her zaman hızlı ayarları kullan olduğu. DirSync ile SQL Express LocalDB de kullanabilirsiniz.
 * Hızlı ayarları ve DirSync tarafından oluşturulan varsayılan MSOL_ hesabı AD hesaptır.
-* 100. 000'den az nesneler meta veri deposunda sahip.
+* 100\. 000'den az nesneler meta veri deposunda sahip.
 
 Otomatik yükseltme geçerli durumu PowerShell cmdlet'iyle görüntülenebilir `Get-ADSyncAutoUpgrade`. Bunu, aşağıdaki durumlara sahiptir:
 
-| Durum | Açıklama |
+| Eyalet | Yorum |
 | --- | --- |
 | Enabled |Otomatik yükseltme etkinleştirilir. |
-| Askıya Alındı |Yalnızca sistem tarafından ayarlayın. Sistem **şu anda** otomatik güncelleştirmeleri almak uygun. |
+| Askıya alındı |Yalnızca sistem tarafından ayarlayın. Sistem **şu anda** otomatik güncelleştirmeleri almak uygun. |
 | Devre dışı |Otomatik yükseltme devre dışı bırakıldı. |
 
 Arasında değiştirebilirsiniz **etkin** ve **devre dışı bırakılmış** ile `Set-ADSyncAutoUpgrade`. Sistem durumu ayarlamalıdır yalnızca **askıya alındı**.  Otomatik yükseltme durumu askıya alındı olarak ayarlarsanız 1.1.750.0 önce Autoupgrade kümesi ADSyncAutoUpgrade cmdlet engellenebilir. Bu işlev, artık AutoUpgrade engellemez şekilde değiştirilmiştir.

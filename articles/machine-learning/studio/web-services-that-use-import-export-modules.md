@@ -16,10 +16,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345150"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Veri içeri aktarma ve veri dışarı aktarma modüllerini kullanan Azure Machine Learning Studio web hizmetlerini dağıtma
@@ -67,7 +67,7 @@ Azure SQL tablosundan verileri okumak için:
 ## <a name="create-the-predictive-experiment"></a>Tahmine dayalı deneme oluşturma
 Sonraki web hizmetini dağıttığınız Tahmine dayalı denemeye ayarlayın.
 
-1. Deneme tuvalinin altındaki tıklatın **Web hizmetinin ayarı** seçip **Tahmine dayalı Web hizmeti [önerilen]**.
+1. Deneme tuvalinin altındaki tıklatın **Web hizmetinin ayarı** seçip **Tahmine dayalı Web hizmeti [önerilen]** .
 2. Kaldırma *Web hizmeti girişini* ve *Web hizmeti çıkış modülleri* Tahmine dayalı denemeye öğesinden.
 3. Dışarı aktarma bileşenleri arama kutusuna yazın.
 4. Sonuç listesinden eklemek bir *verileri dışarı aktarma* modülünü deneme tuvaline.
@@ -100,10 +100,10 @@ Klasik veya yeni bir web hizmeti için dağıtabilirsiniz.
 Klasik Web hizmeti olarak dağıtma ve bunu kullanmak için bir uygulama oluşturmak için:
 
 1. Deneme tuvalinin alt kısmında, Çalıştır'a tıklayın.
-2. Çalıştırma tamamlandığında tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]**.
+2. Çalıştırma tamamlandığında tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]** .
 3. Web hizmeti panosunda API anahtarınızı bulun. Kopyalayın ve daha sonra kullanmak üzere kaydedin.
 4. İçinde **varsayılan uç nokta** tablo, tıklayın **toplu iş yürütme** API Yardım sayfası açmak için bağlantı.
-5. Visual Studio'da oluşturma bir C# konsol uygulaması: **Yeni** > **proje** > **Visual C#**   >  **Windows Klasik Masaüstü**  >   **Konsol uygulaması (.NET Framework)**.
+5. Visual Studio'da oluşturma bir C# konsol uygulaması: **Yeni** > **proje** > **Visual C#**   >  **Windows Klasik Masaüstü**  >   **Konsol uygulaması (.NET Framework)** .
 6. API Yardım sayfasında bulabilirsiniz **örnek kodu** sayfanın alt kısmındaki bölümde.
 7. Kopyalama ve yapıştırma C# Program.cs dosyanıza örnek kod ve blob depolama için tüm başvuruları kaldırın.
 8. Değerini güncelleştirin *apiKey* değişken daha önce kaydedilmiş API anahtarına sahip.
@@ -128,11 +128,11 @@ Tamamlanma çalıştırma, yeni bir tablo Puanlama sonuçlarını içeren bir ve
 Yeni bir Web hizmeti dağıtma ve bunu kullanmak için bir uygulama oluşturmak için:
 
 1. Deneme tuvalinin altındaki tıklatın **çalıştırma**.
-2. Çalıştırma tamamlandığında tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Yeni]**.
+2. Çalıştırma tamamlandığında tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Yeni]** .
 3. Deneme dağıtma sayfasında, web hizmetiniz için bir ad girin ve fiyatlandırma planı seçin ve ardından'a tıklayın **Dağıt**.
 4. Üzerinde **hızlı** sayfasında **Tüket**.
 5. İçinde **örnek kodu** bölümünde **Batch**.
-6. Visual Studio'da oluşturma bir C# konsol uygulaması: **Yeni** > **proje** > **Visual C#**   >  **Windows Klasik Masaüstü**  >   **Konsol uygulaması (.NET Framework)**.
+6. Visual Studio'da oluşturma bir C# konsol uygulaması: **Yeni** > **proje** > **Visual C#**   >  **Windows Klasik Masaüstü**  >   **Konsol uygulaması (.NET Framework)** .
 7. Kopyalama ve yapıştırma C# örnek kodu Program.cs dosyanıza.
 8. Değerini güncelleştirin *apiKey* değişken ile **birincil anahtar** bulunan **temel tüketim bilgileri** bölümü.
 9. Bulun *scoreRequest* bildirimi ve geçirilen bir Web hizmeti parametreleri güncelleştirin *verileri içeri aktarma* ve *verileri dışarı aktarma* modüller. Bu durumda, özgün sorguyu ancak yeni bir tablo adı tanımlayın.

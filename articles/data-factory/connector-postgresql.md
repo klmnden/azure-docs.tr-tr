@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 8515b3f357d77ea4f3d98101f8dd058f13b69206
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405772"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Azure Data Factory kullanarak PostgreSQL verileri kopyalama
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-onprem-postgresql-connector.md)
 > * [Geçerli sürüm](connector-postgresql.md)
 
@@ -36,7 +36,7 @@ PostgreSQL veritabanı'ndan veri her desteklenen havuz veri deposuna kopyalayabi
 
 PostgreSQL veritabanınızın genel olarak erişilebilir durumda değilse, şirket içinde barındırılan tümleştirme çalışma zamanını oluşturan ayarlayın gerekir. Şirket içinde barındırılan tümleştirme çalışma zamanları hakkında bilgi edinmek için [şirket içinde barındırılan tümleştirme çalışma zamanı](create-self-hosted-integration-runtime.md) makalesi. Tümleştirme çalışma zamanı 3.7 sürümünden itibaren yerleşik bir PostgreSQL sürücü sağlar, bu nedenle herhangi bir sürücü el ile yüklemeniz gerekmez.
 
-3.7 düşük şirket içinde barındırılan IR sürümü için yüklemeniz gerekir. [Ngpsql PostgreSQL için veri sağlayıcısı](https://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 ve tümleştirme çalışma zamanı makinesinde 3.1.9 arasında sürümüne sahip.
+3\.7 düşük şirket içinde barındırılan IR sürümü için yüklemeniz gerekir. [Ngpsql PostgreSQL için veri sağlayıcısı](https://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 ve tümleştirme çalışma zamanı makinesinde 3.1.9 arasında sürümüne sahip.
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -176,7 +176,7 @@ PostgreSQL verileri kopyalamak için kopyalama etkinliği için kaynak türünü
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **RelationalSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 > [!NOTE]
 > Şema ve tablo adları büyük/küçük harfe duyarlıdır. İçine alınmaları `""` (çift tırnak) sorgu.

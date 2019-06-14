@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242223"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: Sık sorulan sorular
@@ -83,7 +83,7 @@ Kerberos şifre çözme anahtarı sık geri önemlidir `AZUREADSSOACC` şirket i
 
 Azure AD Connect çalıştırdığınız şirket içi sunucusunda bu adımları izleyin:
 
-### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>1. Adım Sorunsuz çoklu oturum açma yeri etkinleştirilmiş AD ormanına listesini alın
+### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>1\.Adım Sorunsuz çoklu oturum açma yeri etkinleştirilmiş AD ormanına listesini alın
 
 1. İlk olarak, indirme ve yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. `%programfiles%\Microsoft Azure Active Directory Connect` klasörüne gidin.
@@ -91,7 +91,7 @@ Azure AD Connect çalıştırdığınız şirket içi sunucusunda bu adımları 
 4. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracınızın genel yönetici kimlik bilgilerini girmek için bir açılan pencere vermeniz gerekir.
 5. Çağrı `Get-AzureADSSOStatus | ConvertFrom-Json`. Bu komut, bu özelliğin etkinleştirildiği üzerinde AD ormanına ("Etki alanları" listesinde bakın) listesini sağlar.
 
-### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>2. Adım Bu, üzerinde ayarlanmış her AD ormanında Kerberos şifre çözme anahtarı güncelleştirme
+### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>2\.Adım Bu, üzerinde ayarlanmış her AD ormanında Kerberos şifre çözme anahtarı güncelleştirme
 
 1. Çağrı `$creds = Get-Credential`. İstendiğinde, hedeflenen AD ormanı için etki alanı yöneticisi kimlik bilgilerini girin.
 
@@ -106,7 +106,7 @@ Azure AD Connect çalıştırdığınız şirket içi sunucusunda bu adımları 
 
 ## <a name="how-can-i-disable-seamless-sso"></a>Sorunsuz çoklu oturum açma nasıl devre dışı bırakabilirim?
 
-### <a name="step-1-disable-the-feature-on-your-tenant"></a>1. Adım Kiracınızın özelliği devre dışı bırak
+### <a name="step-1-disable-the-feature-on-your-tenant"></a>1\.Adım Kiracınızın özelliği devre dışı bırak
 
 #### <a name="option-a-disable-using-azure-ad-connect"></a>Seçenek A: Azure AD Connect kullanarak devre dışı bırak
 
@@ -132,7 +132,7 @@ Aşağıdaki adımlar, Azure AD Connect çalıştırdığınız şirket içi sun
 >[!IMPORTANT]
 >Sorunsuz çoklu oturum açma devre dışı bırakma PowerShell kullanarak Azure AD CONNECT'te durumu değiştirmez. Sorunsuz çoklu oturum açma etkin olarak gösterilir **değiştirme kullanıcı oturum açma** sayfası.
 
-### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>2. Adım Sorunsuz çoklu oturum açma yeri etkinleştirilmiş AD ormanına listesini alın
+### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>2\.Adım Sorunsuz çoklu oturum açma yeri etkinleştirilmiş AD ormanına listesini alın
 
 Sorunsuz bir Azure AD Connect kullanarak çoklu oturum açma devre dışı bıraktıysanız, 1 ile 4 aşağıdaki görevleri izleyin. Bunun yerine PowerShell kullanarak sorunsuz SSO devre dışı bıraktıysanız, görev 5 atlamayın.
 
@@ -142,7 +142,7 @@ Sorunsuz bir Azure AD Connect kullanarak çoklu oturum açma devre dışı bıra
 4. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracınızın genel yönetici kimlik bilgilerini girmek için bir açılan pencere vermeniz gerekir.
 5. Çağrı `Get-AzureADSSOStatus | ConvertFrom-Json`. Bu komut, bu özelliğin etkinleştirildiği üzerinde AD ormanına ("Etki alanları" listesinde bakın) listesini sağlar.
 
-### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>3. Adım El ile silmeniz `AZUREADSSOACCT` listelenen gördüğünüz her AD ormanında bilgisayar hesabı.
+### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Adım 3. El ile silmeniz `AZUREADSSOACCT` listelenen gördüğünüz her AD ormanında bilgisayar hesabı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a54d1ad3ab809f2a2f8df6ae0e30b1b061c2be1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60471340"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory'de Grup üyeliği kullanıcıları için lisans atama
@@ -33,7 +33,7 @@ Bu örnekte, Kiracı adlı bir güvenlik grubu içeren **ik departmanı**. Bu gr
 > 
 > Grup lisansı atama için kullanım konumu belirtilmemiş olmadan herhangi bir kullanıcı dizin konumunu devralır. Birden fazla konumda kullanıcılar varsa, her zaman kullanım konumu lisans ataması sonucu sağlar (örneğin aracılığıyla yapılandırması) AAD Connect - Azure AD'de kullanıcı oluşturma akışınızı parçası her zaman doğru olduğundan ve kullanıcıların almadığınız olarak ayarlamanızı öneririz izin verilmeyen bir konumda Hizmetleri.
 
-## <a name="step-1-assign-the-required-licenses"></a>1. Adım: Gerekli lisansları atama
+## <a name="step-1-assign-the-required-licenses"></a>1\. adım: Gerekli lisansları atama
 
 1. Oturum [ **Azure AD yönetim merkezini** ](https://aad.portal.azure.com) lisans yönetici hesabıyla. Lisansları yönetmek için bir Lisans Yöneticisi, Kullanıcı Yöneticisi veya genel yönetici hesabı olmalıdır.
 
@@ -57,7 +57,7 @@ Bu örnekte, Kiracı adlı bir güvenlik grubu içeren **ik departmanı**. Bu gr
 
 Bir gruba lisans atadığınızda, Azure AD, bu grubun tüm mevcut üyelerin işler. Bu işlem ile grup boyutunu değişen biraz zaman alabilir. Sonraki adım, işlemin tamamlandığını doğrulayın ve daha fazla dikkat sorunlarını gidermek için gerekip gerekmediğini belirlemek açıklar.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2. Adım: İlk atama tamamlandığını doğrulama
+## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2\. adım: İlk atama tamamlandığını doğrulama
 
 1. Git **Azure Active Directory** > **grupları**. Lisans atanmış olan grubu seçin.
 
@@ -79,7 +79,7 @@ Bir gruba lisans atadığınızda, Azure AD, bu grubun tüm mevcut üyelerin iş
 
    [Bu bölümü okuyun](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) grup tabanlı lisanslama tarafından yapılan değişiklikleri çözümlemek için denetim günlüklerini nasıl kullanılabileceği hakkında daha fazla bilgi için.
 
-## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3. Adım: İçin lisans sorunlarını denetleyin ve çözümleyin
+## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3\. adım: İçin lisans sorunlarını denetleyin ve çözümleyin
 
 1. Git **Azure Active Directory** > **grupları**ve lisansları atanmış olan Grup bulunamıyor.
 2. Grup bölmeden **lisansları**. Bölmenin en üstünde bir bildirim için lisansı atanamıyor 10 kullanıcı olduğunu gösterir. Bu grup için lisans bir hata durumunda tüm kullanıcıların listesini görmek için açın.

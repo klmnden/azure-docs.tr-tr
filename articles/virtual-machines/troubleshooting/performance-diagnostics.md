@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60308202"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure sanal makineleri için performans tanılamaları
@@ -63,16 +63,16 @@ Performans Tanılama VM uzantısı adlı bir Tanılama aracını çalıştıran 
 Aşağıdaki analiz senaryoları, Azure portalından kullanılabilir. Bir analiz, karşılaştığınız performans sorunu bağlı olarak seçin. Analiz için gerekli süre ve İzleme Seçenekleri'ni seçin.
 
 * **Hızlı Performans Analizi**  
-    Bilinen sorunları denetler, en iyi analiz ve tanılama verilerini toplar. Bu analiz çalıştırmak için birkaç dakika sürer. [Daha fazla bilgi](https://aka.ms/perfinsights/quick)
+    Bilinen sorunları denetler, en iyi analiz ve tanılama verilerini toplar. Bu analiz çalıştırmak için birkaç dakika sürer. [Daha fazla bilgi edinin](https://aka.ms/perfinsights/quick)
 
 * **Performans Analizi**  
-    Tüm denetimleri hızlı performans analizi içerir ve yüksek kaynak tüketimi izler. Yüksek CPU, bellek ve disk kullanımı gibi genel performans sorunlarını gidermek için bu sürümü kullanın. Bu analiz, seçili süre bağlı olarak 15 dakika 30 saniye sürer. [Daha fazla bilgi](https://aka.ms/perfinsights/vmslow) 
+    Tüm denetimleri hızlı performans analizi içerir ve yüksek kaynak tüketimi izler. Yüksek CPU, bellek ve disk kullanımı gibi genel performans sorunlarını gidermek için bu sürümü kullanın. Bu analiz, seçili süre bağlı olarak 15 dakika 30 saniye sürer. [Daha fazla bilgi edinin](https://aka.ms/perfinsights/vmslow) 
     
 * **Gelişmiş Performans Analizi**  
-    Aşağıdaki bölümlerde belirtildiği gibi bir veya daha fazla izlemelerini toplar ve performansı analiz tüm denetimleri içerir. Bu senaryo ek izlemeleri gereken karmaşık sorunları gidermek için kullanılır. Bu senaryo için daha uzun süre çalışan VM ve seçilen izleme seçenekleri boyutuna bağlı olarak, tanılama çıkışı toplam boyutunu artırır. Bu analiz, seçilen süre bağlı olarak çalıştırmak için 15 dakika 30 saniye sürer. [Daha fazla bilgi](https://aka.ms/perfinsights/advanced) 
+    Aşağıdaki bölümlerde belirtildiği gibi bir veya daha fazla izlemelerini toplar ve performansı analiz tüm denetimleri içerir. Bu senaryo ek izlemeleri gereken karmaşık sorunları gidermek için kullanılır. Bu senaryo için daha uzun süre çalışan VM ve seçilen izleme seçenekleri boyutuna bağlı olarak, tanılama çıkışı toplam boyutunu artırır. Bu analiz, seçilen süre bağlı olarak çalıştırmak için 15 dakika 30 saniye sürer. [Daha fazla bilgi edinin](https://aka.ms/perfinsights/advanced) 
     
 * **Azure dosyaları analizi**  
-    Ağ izleme ve SMB sayaçları yakalar ve performansı analiz tüm denetimleri içerir. Bu senaryo, Azure dosyaları, performans sorunlarını gidermek için kullanılır. Bu analiz, seçilen süre bağlı olarak çalıştırmak için 15 dakika 30 saniye sürer. [Daha fazla bilgi](https://aka.ms/perfinsights/azurefiles)
+    Ağ izleme ve SMB sayaçları yakalar ve performansı analiz tüm denetimleri içerir. Bu senaryo, Azure dosyaları, performans sorunlarını gidermek için kullanılır. Bu analiz, seçilen süre bağlı olarak çalıştırmak için 15 dakika 30 saniye sürer. [Daha fazla bilgi edinin](https://aka.ms/perfinsights/azurefiles)
 
 
 ![Tanılama bölmesinde performans tanılama dikey ekran görüntüsü çalıştırma](media/performance-diagnostics/run-diagnostics-pane.png)

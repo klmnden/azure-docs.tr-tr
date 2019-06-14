@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452833"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory kimlik koruması Kılavuzu sözlüğü
@@ -145,7 +145,7 @@ Kullanıcı başarılı bir şekilde yeni bir konumdan (IP, enlem/boylam ve ASN)
 ### <a name="sign-in-risk"></a>Oturum açma riski
 Risk bakın (oturum açma) düzeyi
 
-### <a name="sign-in-risk-policy"></a>Oturum açma riski ilkesi
+### <a name="sign-in-risk-policy"></a>Oturum açma riski İlkesi
 Bir özel oturum açma riskini değerlendirir ve önceden tanımlanmış koşullar ve kurallara dayanan bir risk azaltma işlemleri geçerli bir koşullu erişim ilkesi.
 
 ### <a name="user-compromise-risk"></a>Kullanıcı güvenlik ihlali riski
@@ -154,13 +154,13 @@ Risk bakın (kullanıcı güvenliğinin aşılması) düzeyi
 ### <a name="user-risk"></a>Kullanıcı riski
 Bkz risk düzeyine (kullanıcı güvenliğinin aşılması).
 
-### <a name="user-risk-policy"></a>Kullanıcı riski ilkesi
+### <a name="user-risk-policy"></a>Kullanıcı riski İlkesi
 Oturum açma göz önünde bulundurur ve önceden tanımlanmış koşullar ve kurallara dayanan bir risk azaltma işlemleri geçerli bir koşullu erişim ilkesi.
 
 ### <a name="users-flagged-for-risk"></a>Riskli oldukları belirlenen kullanıcılar
 Etkin ya da düzeltilen risk olayları, kullanıcılar
 
-### <a name="vulnerability"></a>Güvenlik açığı
+### <a name="vulnerability"></a>Güvenlik Açığı
 Bir yapılandırma veya Azure Active Directory'de koşul getiren dizin açıkları veya tehditlere maruz kalabilir.
 
 ## <a name="see-also"></a>Ayrıca bkz.

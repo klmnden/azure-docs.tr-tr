@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505582"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Etkinleştirmek veya bir Azure VM konuk işletim sisteminde bir güvenlik duvarı kuralı devre dışı bırak
@@ -35,7 +35,7 @@ Güvenlik duvarı kurallarını nasıl yapılandırabileceğinizi gereken sanal 
 
 ### <a name="online-troubleshooting"></a>Çevrimiçi sorun giderme 
 
-#### <a name="mitigation-1-custom-script-extension"></a>1. azaltma: Özel Betik Uzantısı
+#### <a name="mitigation-1-custom-script-extension"></a>1\. azaltma: Özel Betik Uzantısı
 
 1.  Aşağıdaki şablonu kullanarak, komut dosyası oluşturun.
 
@@ -73,7 +73,7 @@ Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir sanal Mak
         exit
         ```
 
-#### <a name="mitigation-3-pstools-commands"></a>3. azaltma: PSTools komutları
+#### <a name="mitigation-3-pstools-commands"></a>3\. azaltma: PSTools komutları
 
 Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir sanal Makineye erişilebildiğinden ve diğer sanal makine kullanarak izleyin risk azaltma işlemleri yapabilirsiniz.
 

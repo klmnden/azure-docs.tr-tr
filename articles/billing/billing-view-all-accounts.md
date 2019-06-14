@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
 ms.openlocfilehash: 31e4eb1d6493c8de99ac48e09dfb2b8b6481b70a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369259"
 ---
 # <a name="view-your-billing-accounts-in-azure-portal"></a>Azure portalında faturalama hesaplarınızı görüntüleyin  
@@ -39,7 +39,7 @@ Bir kapsam, kullanıcıların görüntüleyip faturalandırmayı yönetmek için
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. **Maliyet Yönetimi + Faturalama** araması yapın.
+2. Arama **maliyet Yönetimi + faturalandırma**.
 
    ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
 
@@ -49,6 +49,6 @@ Bir kapsam, kullanıcıların görüntüleyip faturalandırmayı yönetmek için
 
 4. Ayrıntılarını görüntülemek için bir kapsam seçin.
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

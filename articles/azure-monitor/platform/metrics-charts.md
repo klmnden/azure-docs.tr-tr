@@ -1,18 +1,18 @@
 ---
 title: Gelişmiş özelliklerini Azure ölçüm Gezgini
 description: Azure İzleyici ölçüm Gezgini'ni gelişmiş özellikler hakkında bilgi edinin
-author: lingliw
+author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 01/22/2019
+ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60256913"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Gelişmiş özelliklerini Azure ölçüm Gezgini
@@ -77,7 +77,7 @@ Boyutlarla ölçümleri gösteren grafikler için filtre uygulayabilirsiniz. "İ
 
 Bir ölçüm bölme ölçütü: ölçüm karşılaştırma birbirleriyle nasıl farklı parçalarını görselleştirmek için boyut ve boyutun harici segmentleriyle.
 
-### <a name="apply-splitting"></a>Bölme uygula
+### <a name="apply-splitting"></a>Bölme Uygula
 
 1. Tıklayarak **uygulamak bölme** grafiğin üstünde.
  
@@ -132,7 +132,7 @@ Uyarı kuralı için temel bir ölçüm tabanlı olarak ölçümlerinizi görsel
 
 Temel alınan ölçü boyutları ile uyarı kuralı oluşturma bölmesine özel uyarı kuralları oluşturma daha kolay hale getirmek için önceden doldurulmuş grafiğinizi alınır.
 
-![Uyarı kuralı oluştur](./media/metrics-charts/016.png)
+![Uyarı kuralı oluşturma](./media/metrics-charts/016.png)
 
 Göz atın [makale](alerts-metric.md) ölçüm uyarılarını ayarlama hakkında daha fazla bilgi edinmek için.
 
@@ -149,3 +149,4 @@ Göz atın [makale](alerts-metric.md) ölçüm uyarılarını ayarlama hakkında
 ## <a name="next-steps"></a>Sonraki adımlar
 
   Okuma [özel KPI panoları oluşturma](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) Ölçümleriyle eyleme dönüştürülebilir panolar oluşturmak için en iyi uygulamalar hakkında bilgi edinmek için.
+

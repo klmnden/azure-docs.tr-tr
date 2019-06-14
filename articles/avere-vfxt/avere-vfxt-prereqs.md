@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409260"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT oluşturmaya hazırlanma
 
 Bu makalede bir Avere vFXT kümesi oluşturmak için önkoşul görevleri açıklar.
 
-## <a name="create-a-new-subscription"></a>Yeni abonelik oluştur
+## <a name="create-a-new-subscription"></a>Yeni Abonelik Oluştur
 
 Yeni bir Azure aboneliği oluşturarak başlayın. Kolayca tüm proje kaynaklarını ve izlemek, diğer projeleri olası kaynak sağlama işlemi sırasında azaltma korunmasına ve temizlemeyi kolaylaştırmak için her Avere vFXT proje için ayrı bir abonelik kullanın.  
 

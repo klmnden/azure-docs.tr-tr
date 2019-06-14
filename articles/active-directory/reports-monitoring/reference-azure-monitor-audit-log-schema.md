@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437082"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure AD denetim günlükleri şemada yorumlama
@@ -153,7 +153,7 @@ Bu makalede, Azure İzleyici'de Azure Active Directory (Azure AD) denetim günl�
 | operationName | İşlemin adı. |
 | operationVersion | İstemci tarafından istenen REST API sürümü. |
 | category | Şu anda *denetim* desteklenen tek değerdir. |
-| Kiracı kimliği | Kiracı günlükleri ile ilişkili olan GUID. |
+| tenantId | Kiracı günlükleri ile ilişkili olan GUID. |
 | resultType | İşlemin sonucu. Sonucu olabilir *başarı* veya *hatası*. |
 | resultSignature |  Bu alan eşlenmemiş ve onu yok sayabilirsiniz. | 
 | resultDescription | Ek açıklama sonucun mevcut olduğunda. | 
@@ -172,7 +172,7 @@ Bu makalede, Azure İzleyici'de Azure Active Directory (Azure AD) denetim günl�
 | AuditEventCategory | Denetim olayı türü. Bu olabilir *kullanıcı yönetimi*, *Uygulama Yönetimi*, veya başka bir tür.|
 | Kimlik türü | Türü olabilir *uygulama* veya *kullanıcı*. |
 | İşlem Türü | Türü olabilir *Ekle*, *güncelleştirme*, *Sil*. veya *diğer*. |
-| Hedef Kaynak Türü | Üzerinde işlem gerçekleştirilmeden hedef kaynak türü belirtir. Türü olabilir *uygulama*, *kullanıcı*, *rol*, *İlkesi* | 
+| Hedef kaynak türü | Üzerinde işlem gerçekleştirilmeden hedef kaynak türü belirtir. Türü olabilir *uygulama*, *kullanıcı*, *rol*, *İlkesi* | 
 | Hedef kaynak adı | Hedef kaynak adı. Bir uygulama adı, bir rol adı, kullanıcı asıl adı veya bir hizmet asıl adı olabilir. |
 | additionalTargets | Belirli işlemleri için ek özellikleri listeler. Örneğin, bir güncelleştirme işlemi için eski değerleri ve yeni değerleri altında listelenen *targetUpdatedProperties*. | 
 

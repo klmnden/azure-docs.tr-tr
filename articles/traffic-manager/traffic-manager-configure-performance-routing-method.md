@@ -2,21 +2,22 @@
 title: Azure Traffic Manager'ı kullanarak performans trafiği yönlendirme yöntemini yapılandırma | Microsoft Docs
 description: Bu makalede Traffic Manager uç nokta trafiği için en düşük gecikme süresiyle nasıl yapılandırılacağını açıklar.
 services: traffic-manager
+manager: twooley
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 5e9b02a4145d86b86ea3ba0d509d06b7c148cc6d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883976"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048469"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Performans trafiği yönlendirme yöntemini yapılandırma
 
@@ -31,7 +32,7 @@ Performans trafiği yönlendirme metodunu uç noktaya en düşük gecikme süres
     1. İçin **trafik yönlendirme yöntemi ayarları**, için **yönlendirme yöntemi** seçin **performans**.
     2. Ayarlama **uç nokta İzleyicisi ayarları** aynı şekilde bu profili içindeki tüm her bir uç noktası için:
         1. Uygun seçin **Protokolü**, belirtin **bağlantı noktası** sayı. 
-        2. İçin **yolu** eğik çizgi yazın */*. Uç noktaları izlemek için bir yol ve dosya adı belirtmeniz gerekir. Bir eğik çizgi "/" göreli yolu için geçerli bir giriştir ve dosyasının kök dizininde (varsayılan) olduğunu gösterir.
+        2. İçin **yolu** eğik çizgi yazın */* . Uç noktaları izlemek için bir yol ve dosya adı belirtmeniz gerekir. Bir eğik çizgi "/" göreli yolu için geçerli bir giriştir ve dosyasının kök dizininde (varsayılan) olduğunu gösterir.
         3. Sayfanın üst kısmında tıklayın **Kaydet**.
 5.  Değişiklikleri yapılandırmanızda şu şekilde test edin:
     1.  Portalın arama çubuğunda, Traffic Manager profil adı için arama yapın ve sonuçları Traffic Manager profiline tıklayın, görüntülenen.

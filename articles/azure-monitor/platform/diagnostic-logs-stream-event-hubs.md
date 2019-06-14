@@ -9,10 +9,10 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237682"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Olay hub'ına Stream Azure tanılama günlükleri
@@ -24,7 +24,7 @@ Akış özelliği için tanılama günlüklerini kullanabilir birkaç yolu vard�
 * **3. taraf günlüğe kaydetme ve telemetri sistemleri günlüklerine Stream** – tüm tanılama günlüklerinizi kanal günlük verilerini bir üçüncü taraf SIEM veya log analytics aracı için tek bir olay hub'ına akış.
 * **Power BI'a "sıcak yol" veri akışı tarafından hizmet durumunu görüntüle** – kullanarak Event Hubs, Stream Analytics ve Power BI, sizin kolayca dönüştürüp tanılama verilerinizi neredeyse gerçek zamanlı Öngörüler, Azure Hizmetleri için. [Bu belge makalesi nasıl Event hubs'ı ayarlayın, Stream Analytics ile verileri işlemek ve Power BI çıkış olarak kullanmak harika bir genel bakış sunar](../../stream-analytics/stream-analytics-power-bi-dashboard.md). Tanılama günlükleri ile ayarlanan için bazı ipuçları şunlardır:
 
-  * Portalda seçeneği işaretleyin veya ile başlayan ada sahip ad alanında olay hub'ı seçmek istediğiniz şekilde PowerShell aracılığıyla etkinleştirin. tanılama günlüklerini kategorisi için bir olay hub'ı otomatik olarak oluşturulan **ınsights -**.
+  * Portalda seçeneği işaretleyin veya ile başlayan ada sahip ad alanında olay hub'ı seçmek istediğiniz şekilde PowerShell aracılığıyla etkinleştirin. tanılama günlüklerini kategorisi için bir olay hub'ı otomatik olarak oluşturulan **ınsights -** .
   * Aşağıdaki SQL kodunu tüm günlüğü verileri bir Power BI tablosuna ayrıştırmak için kullanabileceğiniz örnek bir Stream Analytics sorgu aşağıdaki gibidir:
 
     ```sql
@@ -181,7 +181,7 @@ Event Hubs örnek çıkış verilerini şu şekildedir:
 
 | Öğe adı | Açıklama |
 | --- | --- |
-| kayıt |Bu yük tüm günlük olaylar dizisi. |
+| Kayıtları |Bu yük tüm günlük olaylar dizisi. |
 | time |Olayın gerçekleştiği zaman. |
 | category |Bu olay için günlüğü kategorisi. |
 | resourceId |Bu olayı oluşturan kaynağının kaynak kimliği. |

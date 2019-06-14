@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60411863"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
@@ -97,8 +97,8 @@ Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla
 
 **Değerler TestVNet1 için:**
 
-* VNET Adı: TestVNet1
-* Kaynak Grubu: TestRG1
+* VNet adı: TestVNet1
+* Kaynak grubu: TestRG1
 * Konum: Doğu ABD
 * TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * Ön uç: 10.11.0.0/24
@@ -112,12 +112,12 @@ Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla
 
 **Değerler TestVNet4 için:**
 
-* VNET Adı: TestVNet4
+* VNet adı: TestVNet4
 * TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 * Ön uç: 10.41.0.0/24
 * Arka uç: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
-* Kaynak Grubu: TestRG4
+* Kaynak grubu: TestRG4
 * Konum: Batı ABD
 * GatewayName: VNet4GW
 * Genel IP: VNet4GWIP
@@ -276,7 +276,7 @@ Bu senaryoda TestVNet1 ve TestVNet5’i bağlarsınız. VNet’ler farklı abone
 
 ### <a name="TestVNet1diff"></a>5. Adım - TestVNet1’i oluşturma ve yapılandırma
 
-Bu yönergeler, önceki bölümlerde yer alan adımların devamıdır. TestVNet1 için TestVNet1 ve VPN ağ geçidini oluşturup yapılandırmak için [1. Adımı](#Connect) ve [2. Adımı](#TestVNet1) tamamlamalısınız.  Bu yapılandırma için önceki bölümdeki TestVNet4’ü oluşturmanız gerekmez, ancak oluşturursanız bu adımlarla çakışmaz. 1. ve 2. Adımı tamamladıktan sonra 6. Adıma (aşağıda) geçin.
+Bu yönergeler, önceki bölümlerde yer alan adımların devamıdır. TestVNet1 için TestVNet1 ve VPN ağ geçidini oluşturup yapılandırmak için [1. Adımı](#Connect) ve [2. Adımı](#TestVNet1) tamamlamalısınız. Bu yapılandırma için önceki bölümdeki TestVNet4’ü oluşturmanız gerekmez, ancak oluşturursanız bu adımlarla çakışmaz. 1\. ve 2. Adımı tamamladıktan sonra 6. Adıma (aşağıda) geçin.
 
 ### <a name="verifyranges"></a>6. Adım - IP adresi aralıklarını doğrulama
 
@@ -284,8 +284,8 @@ Ek bağlantılar oluşturulduğu sırada, yeni sanal ağın IP adresi alanının
 
 **Değerler TestVNet5 için:**
 
-* VNET Adı: TestVNet5
-* Kaynak Grubu: TestRG5
+* VNet adı: TestVNet5
+* Kaynak grubu: TestRG5
 * Konum: Japonya Doğu
 * TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
 * Ön uç: 10.51.0.0/24
@@ -301,7 +301,7 @@ Ek bağlantılar oluşturulduğu sırada, yeni sanal ağın IP adresi alanının
 
 Bu adım, yeni abonelik (5. Abonelik) bağlamında tamamlanmalıdır. Bu kısım, aboneliğin sahibi olan farklı bir kuruluşun yöneticisi tarafından tamamlanabilir. Abonelikler arasında geçiş yapmak için `az account list --all` hesabınızda kullanılabilen abonelikler listelemek için ardından kullanın `az account set --subscription <subscriptionID>` kullanmak istediğiniz aboneliğe geçin.
 
-1. 5. Aboneliğe bağlı olduğunuzdan emin olun ve bir kaynak grubu oluşturun.
+1. 5\. Aboneliğe bağlı olduğunuzdan emin olun ve bir kaynak grubu oluşturun.
 
    ```azurecli
    az group create -n TestRG5  -l japaneast

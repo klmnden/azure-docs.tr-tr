@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447232"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Web kancaları ve Azure Logic Apps kullanarak olay-tabanlı iş akışları veya Eylemler oluşturma
@@ -76,7 +76,7 @@ Mantıksal Uygulama Tasarımcısı'nda bir Web kancası eylemi ayarlama göstere
 
 4. Tıklayın **Kaydet** mantıksal uygulamayı yayımlamak için.
 
-## <a name="technical-details"></a>Teknik ayrıntılar
+## <a name="technical-details"></a>Teknik Ayrıntılar
 
 Daha fazla ayrıntı aşağıdadır tetikleyiciler ve eylemler hakkında bu Web kancası destekler.
 
@@ -93,16 +93,16 @@ Daha fazla ayrıntı aşağıdadır tetikleyiciler ve eylemler hakkında bu Web 
 Bir geri çağırma URL'si yangın gerektiği gibi mantıksal uygulama için URL'yi çağırabilen bir hizmete abone olun.
 Bir * gerekli alan anlamına gelir.
 
-| Görünen Ad | Özellik Adı | Açıklama |
+| Görünen ad | Özellik Adı | Açıklama |
 | --- | --- | --- |
 | Abone yöntemi * |method |Abonelik isteği için kullanılacak HTTP yöntemi |
-| Abone URI * |uri |Abonelik isteği için kullanılacak HTTP URI |
+| Abone URI * |URI |Abonelik isteği için kullanılacak HTTP URI |
 | Aboneliği yöntemi * |method |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
-| URI * aboneliği iptal et |uri |Aboneliği kaldırma isteği için kullanılacak HTTP URI |
-| Gövde abone olun |body |Abonelik için HTTP istek gövdesi |
+| URI * aboneliği iptal et |URI |Aboneliği kaldırma isteği için kullanılacak HTTP URI |
+| Gövde abone olun |Gövde |Abonelik için HTTP istek gövdesi |
 | Üstbilgileri abone olun |Üst bilgileri |HTTP isteği üstbilgileri için abone ol |
 | Kimlik doğrulaması abone olun |kimlik doğrulaması |Abone için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) için Ayrıntılar |
-| Gövde aboneliği iptal et |body |HTTP istek gövdesi için Aboneliği Kaldır |
+| Gövde aboneliği iptal et |Gövde |HTTP istek gövdesi için Aboneliği Kaldır |
 | Üstbilgileri aboneliği iptal et |Üst bilgileri |HTTP isteği üstbilgileri için Aboneliği Kaldır |
 | Kimlik doğrulaması aboneliği iptal et |kimlik doğrulaması |Abonelik iptali için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) için Ayrıntılar |
 
@@ -114,7 +114,7 @@ Web kancası isteği
 | --- | --- | --- |
 | Üst bilgiler |object |Web kancası isteği üst bilgileri |
 | Gövde |object |Web kancası isteği nesnesi |
-| Durum Kodu |int |Web kancası isteği durum kodu |
+| Durum kodu |int |Web kancası isteği durum kodu |
 
 ## <a name="webhook-actions"></a>Web kancası eylemleri
 
@@ -129,16 +129,16 @@ Web kancası isteği
 Bir geri çağırma URL'si gerektiği gibi bir iş akışı adımı sürdürmek için URL çağırabilen bir hizmete abone olun.
 Bir * gerekli alan anlamına gelir.
 
-| Görünen Ad | Özellik Adı | Açıklama |
+| Görünen ad | Özellik Adı | Açıklama |
 | --- | --- | --- |
 | Abone yöntemi * |method |Abonelik isteği için kullanılacak HTTP yöntemi |
-| Abone URI * |uri |Abonelik isteği için kullanılacak HTTP URI |
+| Abone URI * |URI |Abonelik isteği için kullanılacak HTTP URI |
 | Aboneliği yöntemi * |method |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
-| URI * aboneliği iptal et |uri |Aboneliği kaldırma isteği için kullanılacak HTTP URI |
-| Gövde abone olun |body |Abonelik için HTTP istek gövdesi |
+| URI * aboneliği iptal et |URI |Aboneliği kaldırma isteği için kullanılacak HTTP URI |
+| Gövde abone olun |Gövde |Abonelik için HTTP istek gövdesi |
 | Üstbilgileri abone olun |Üst bilgileri |HTTP isteği üstbilgileri için abone ol |
 | Kimlik doğrulaması abone olun |kimlik doğrulaması |Abone için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) için Ayrıntılar |
-| Gövde aboneliği iptal et |body |HTTP istek gövdesi için Aboneliği Kaldır |
+| Gövde aboneliği iptal et |Gövde |HTTP istek gövdesi için Aboneliği Kaldır |
 | Üstbilgileri aboneliği iptal et |Üst bilgileri |HTTP isteği üstbilgileri için Aboneliği Kaldır |
 | Kimlik doğrulaması aboneliği iptal et |kimlik doğrulaması |Abonelik iptali için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) için Ayrıntılar |
 
@@ -150,7 +150,7 @@ Web kancası isteği
 | --- | --- | --- |
 | Üst bilgiler |object |Web kancası isteği üst bilgileri |
 | Gövde |object |Web kancası isteği nesnesi |
-| Durum Kodu |int |Web kancası isteği durum kodu |
+| Durum kodu |int |Web kancası isteği durum kodu |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

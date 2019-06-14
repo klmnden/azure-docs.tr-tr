@@ -15,10 +15,10 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386253"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Kullanıcı gizliliği ve Azure AD Connect Health 
@@ -31,7 +31,7 @@ ms.locfileid: "60386253"
 ## <a name="user-privacy-classification"></a>Kullanıcı gizliliği sınıflandırma
 Azure AD Connect Health denk içine **veri işlemcisi** GDPR sınıflandırması kategorisidir. Bir veri işlemcisi işlem hattı anahtar iş ortakları ve son tüketici hizmeti veri işleme hizmetleri sağlar. Azure AD Connect Health, kullanıcı verilerini oluşturmaz ve bağımsız hangi kişisel veriler üzerinde toplanır ve nasıl kullanılacağını denetleyemez. Veri alma, toplama, analiz ve raporlama Azure AD Connect Health mevcut şirket içi verileri temel alır. 
 
-## <a name="data-retention-policy"></a>Veri saklama ilkesi
+## <a name="data-retention-policy"></a>Veri bekletme ilkesi
 Azure AD Connect Health raporları oluşturmaz, analizler gerçekleştirin veya 30 gün ayrıntılı bilgiler sağlar. Bu nedenle, Azure AD Connect Health depolamaz, işlem veya her 30 gün saklanması. Bu tasarım, GDPR düzenlemeler, Microsoft gizlilik uyumluluk düzenlemelerini ve Azure AD veri saklama ilkeleri ile uyumludur. 
 
 Etkin sunucularıyla **sistem sağlığı hizmeti verileri güncel değil** **hata** hiçbir veri bu zaman aralığı sırasında Connect Health ulaştı 30 gün arka arkaya kullanılmaması önermek için uyarılar. Bu sunucular devre dışı ve Connect Health Portalı'nda gösterilmez. Sunucuları yeniden etkinleştirmek için öncelikle kaldırmanız ve [health aracısını yeniden](how-to-connect-health-agent-install.md). Lütfen bu için uygulanmaz unutmayın **uyarıları** aynı uyarı türüne sahip. Uyarılar, kısmi veri için uyarılırsınız sunucudan eksik olduğunu gösterir. 

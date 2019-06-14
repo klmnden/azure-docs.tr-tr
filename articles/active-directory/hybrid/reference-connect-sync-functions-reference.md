@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381156"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect eşitleme: İşlevler Başvurusu
@@ -82,7 +82,7 @@ Türleri aşağıdaki sözdizimiyle belirtilir:
 | **Program akışı** | | | | |
 | [Hata:](#error) |[IIF](#iif) |[Seç](#select) |[Anahtar](#switch) | |
 | [Burada](#where) |[ile](#with) | | | |
-| **Metin** | | | | |
+| **Text** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Sol](#left) |[Len](#len) |[LTrim](#ltrim) |[Orta](#mid) | |
 | [padLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Değiştir](#replace) | |
@@ -363,7 +363,7 @@ CGuid işlevi bir GUID dize gösterimini ikili gösterimine dönüştürür.
 * Bu düzende biçimlendirilmiş bir dize: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx veya {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 - - -
-### <a name="contains"></a>Contains
+### <a name="contains"></a>İçerir
 **Açıklama:**  
 Contains işlevi, birden çok değerli bir özniteliği içindeki bir dizeyle bulur.
 
@@ -402,7 +402,7 @@ ConvertFromBase64 işlevi, belirtilen base64 kodlu değer normal bir dizeye dön
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
 `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Örneklerin her ikisi de döndürür "*Merhaba Dünya!*"
+Örneklerin her ikisi de döndürür "*Merhaba Dünya!* "
 
 - - -
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
@@ -420,7 +420,7 @@ Bu biçim, Azure Active Directory tarafından DN kullanılır.
 
 **Örnek:**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
-Döndürür "*Merhaba Dünya!*"
+Döndürür "*Merhaba Dünya!* "
 
 - - -
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -846,7 +846,7 @@ ItemOrNull işlevi, birden çok değerli bir dizeyi/özniteliği bir öğeyi dö
 Dizin sınırların dışında ise, ardından bir Null değer döndürür.
 
 - - -
-### <a name="join"></a>Birleştir
+### <a name="join"></a>Katıl
 **Açıklama:**  
 Birleştirme işlevi, birden çok değerli bir dize alır ve her bir öğe eklenen belirtilen ayırıcı ile tek değerli bir dize döndürür.
 
@@ -1166,7 +1166,7 @@ RTrim işlevi bir dizedeki sondaki boşlukları kaldırır.
 "Test" döndürür.
 
 - - -
-### <a name="select"></a>Şunu seçin:
+### <a name="select"></a>Seçim
 **Açıklama:**  
 Belirtilen işlev üzerinde birden çok değerli bir öznitelik (veya bir ifadenin çıkış) tüm değerler temel işlemi.
 
@@ -1246,7 +1246,7 @@ Değer, özel bir dize döndürür hata işlevini de olabilir.
 Bazı büyük şehirlerin konuşulan dili döndürür, aksi takdirde bir hata döndürür.
 
 - - -
-### <a name="trim"></a>Kırp
+### <a name="trim"></a>Kırpma
 **Açıklama:**  
 Kırpma işlevi, baştaki ve sondaki beyaz boşlukları bir dizeden kaldırır.
 
@@ -1295,7 +1295,7 @@ Sertifika değerleri, süresi dolmuş olmayan birden çok değerli öznitelik us
 **Açıklama:**  
 WITH işlevi karmaşık ifadeyi temsil eden bir görünen bir alt ifade bir değişken kullanarak veya birden fazla kez karmaşık ifadenin basitleştirmesini sağlar.
 
-**Sözdizimi:**
+**Sözdizimi:** 
 `With(var variable, exp subExpression, exp complexExpression)`  
 * değişkeni: Alt ifade temsil eder.
 * Alt: alt ifade değişkeni tarafından temsil edilir.

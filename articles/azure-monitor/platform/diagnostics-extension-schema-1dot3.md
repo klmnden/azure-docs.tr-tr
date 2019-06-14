@@ -10,16 +10,16 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238065"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure tanılama 1.3 ve üzeri yapılandırma şeması
 > [!NOTE]
 > Azure tanılama uzantısını performans sayaçları ve diğer istatistikleri toplamak için kullanılan bileşendir:
-> - Azure Sanal Makineler
+> - Azure sanal makineleri
 > - Sanal Makine Ölçek Kümeleri
 > - Service Fabric
 > - Cloud Services
@@ -451,7 +451,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |----------------|-----------------|  
 | **overallQuotaInMB** | En çok çeşitli Azure tanılama tarafından toplanan Tanılama verileri tarafından tüketilebilir yerel disk alanı miktarı. 4096 MB varsayılan ayardır.<br />
 |**useProxyServer** | IE ayarlarında belirlenen Ara sunucu ayarlarını kullanmak için Azure Tanılama'yı yapılandırın.|
-|**havuzlar** | 1.5 eklendi. İsteğe bağlı. Ayrıca havuzlarını destekleyen tüm alt öğeleri için Tanılama verileri göndermek için bir havuz konuma işaret eder. Application Insights veya olay hub'ları havuz örnek verilebilir.|  
+|**havuzlar** | 1\.5 eklendi. İsteğe bağlı. Ayrıca havuzlarını destekleyen tüm alt öğeleri için Tanılama verileri göndermek için bir havuz konuma işaret eder. Application Insights veya olay hub'ları havuz örnek verilebilir.|  
 
 
 <br /> <br />
@@ -564,7 +564,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Hızlı sorgular için optimize edilmiş performans sayacı tablo oluşturmanıza olanak sağlar. Tanımlanan her performans sayacı **PerformanceCounters** öğesi performans sayacı tablonun yanı sıra ölçüm tablosunda depolanır.  
 
- **ResourceId** özniteliği gereklidir.  Azure tanılama dağıttığınız sanal makine veya sanal makine ölçek kümesi kaynak kimliği. Alma **ResourceId** gelen [Azure portalında](https://portal.azure.com). Seçin **Gözat** -> **kaynak grupları** -> **< adı\>**. Tıklayın **özellikleri** kutucuğuna ve değeri Şuradan Kopyala: **kimliği** alan.  
+ **ResourceId** özniteliği gereklidir.  Azure tanılama dağıttığınız sanal makine veya sanal makine ölçek kümesi kaynak kimliği. Alma **ResourceId** gelen [Azure portalında](https://portal.azure.com). Seçin **Gözat** -> **kaynak grupları** ->  **< adı\>** . Tıklayın **özellikleri** kutucuğuna ve değeri Şuradan Kopyala: **kimliği** alan.  
 
 |Alt öğeleri|Açıklama|  
 |--------------------|-----------------|  
@@ -584,7 +584,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Alt öğe|Açıklama|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Aşağıdaki öznitelikler gereklidir:<br /><br /> - **counterSpecifier** -performans sayacının adı. Örneğin, `\Processor(_Total)\% Processor Time`. Konağınız üzerinde performans sayaçları listesini almak için komutu çalıştırmak `typeperf`.<br /><br /> - **sampleRate** -sayaç ne sıklıkta örneklenir.<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **Birim** -sayacın ölçü birimi.|
-|**havuzlar** | 1.5 eklendi. İsteğe bağlı. Bir havuzu de Tanılama verileri gönder konumuna işaret eder. Örneğin, Azure İzleyici ya da olay hub'ları.|    
+|**havuzlar** | 1\.5 eklendi. İsteğe bağlı. Bir havuzu de Tanılama verileri gönder konumuna işaret eder. Örneğin, Azure İzleyici ya da olay hub'ları.|    
 
 
 
@@ -606,7 +606,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="logs-element"></a>Günlükleri öğesi  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - günlükleri*
 
- Sürüm 1.0 ve 1.1 sunar. 1.2 ile eksik. 1.3 geri eklendi.  
+ Sürüm 1.0 ve 1.1 sunar. 1\.2 ile eksik. 1\.3 geri eklendi.  
 
  Temel Azure günlükleri arabellek yapılandırmasını tanımlar.  
 
@@ -615,7 +615,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**bufferQuotaInMB**|**unsignedInt**|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
 |**scheduledTransferLogLevelFilter**|**dize**|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgi sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**ve **Kritik**.|  
 |**scheduledTransferPeriod**|**Süresi**|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
-|**havuzlar** |**dize**| 1.5 eklendi. İsteğe bağlı. Bir havuzu de Tanılama verileri gönder konumuna işaret eder. Örneğin, Application Insights veya olay hub'ları.|  
+|**havuzlar** |**dize**| 1\.5 eklendi. İsteğe bağlı. Bir havuzu de Tanılama verileri gönder konumuna işaret eder. Örneğin, Application Insights veya olay hub'ları.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Ağaç: -DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources kök*
@@ -644,7 +644,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
-|**Adı**|string|Sinkname tanımlayan bir dize.|  
+|**name**|string|Sinkname tanımlayan bir dize.|  
 
 |Öğe|Tür|Açıklama|  
 |-------------|----------|-----------------|  
@@ -672,7 +672,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Öznitelikler|Tür|Açıklama|  
 |----------------|----------|-----------------|  
 |**logLevel**|**dize**|Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgi sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**ve **Kritik**.|  
-|**Adı**|**dize**|Kanalın başvurmak için benzersiz bir ad|  
+|**name**|**dize**|Kanalın başvurmak için benzersiz bir ad|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig öğesi

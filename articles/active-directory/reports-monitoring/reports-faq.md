@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fc90d62f889bfd9f439a7e8955f049c6c979746
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437048"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Sık sorulan sorular Azure Active Directory raporlarını geçici bir çözüm
@@ -150,14 +150,14 @@ Bu makale, Azure Active Directory (Azure AD) hakkında sık sorulan sorular rapo
 **C:** Koşullu erişim durumu, aşağıdaki değerlere sahip olabilir:
 
 * **Uygulanmamış**: Bu, CA ilke kullanıcı ve uygulamanın kapsamında olduğu anlamına gelir. 
-* **Success**: Bu kullanıcı ve uygulamanın kapsamında olan bir CA ilke vardı ve CA ilkeleri başarıyla karşılandı anlamına gelir. 
+* **Başarı**: Bu kullanıcı ve uygulamanın kapsamında olan bir CA ilke vardı ve CA ilkeleri başarıyla karşılandı anlamına gelir. 
 * **Hata**: Bu kullanıcı ve uygulamanın kapsamında olan bir CA ilke vardı ve CA ilkeleri karşılanmadı anlamına gelir. 
     
 **S: Koşullu erişim ilkesi sonucu için tüm olası değerler nelerdir?**
 
 **C:** Koşullu erişim ilkesi, aşağıdaki sonuçları olabilir:
 
-* **Success**: İlke başarıyla gerçekleşmiş.
+* **Başarı**: İlke başarıyla gerçekleşmiş.
 * **Hata**: İlke karşılanmadı.
 * **Uygulanmamış**: İlke koşullarını karşılamıyor, çünkü bu olabilir.
 * **Etkin**: Bu ilkeyi devre dışı durumda kaynaklanır. 

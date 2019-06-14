@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452696"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Sık sorulan sorular ve (Azure Active Directory'de yenilenmiş) kimlik koruması ile ilgili bilinen sorunlar
@@ -32,7 +32,7 @@ ms.locfileid: "60452696"
 **Kullanıcı riski yok sayın** kimlik koruması ayarlar aktör kullanıcının risk geçmişinde kimlik koruması için (yenilenmiş) klasikteki **Azure AD'ye**.
 
 
-**Kullanıcı riski yok sayın** (yenilenmiş) kimlik koruması aktör kullanıcının risk geçmişinde kimlik koruması (yenilenmiş) için ayarlar **\<yöneticinin adı için kullanıcının dikey penceresini gösteren köprü ile\>**.
+**Kullanıcı riski yok sayın** (yenilenmiş) kimlik koruması aktör kullanıcının risk geçmişinde kimlik koruması (yenilenmiş) için ayarlar **\<yöneticinin adı için kullanıcının dikey penceresini gösteren köprü ile\>** .
 
 Kullanıcı risk işten çıkarma akışında gecikme sürelerine neden geçerli bilinen bir sorun yoktur. "Kullanıcı riski İlkesi" varsa, bu ilke "Kullanıcı riskine Kapat" ı dakikalar içinde kapatılmış kullanıcılara uygulama durdurur. Ancak, gecikmeleri "Risk" kapatılmış kullanıcıların durumunu yenileme UX ile bilinen vardır. Geçici çözüm olarak, tarayıcı düzeyinde en son kullanıcı "Risk durumu" görmek için sayfayı yenileyin.
 
@@ -43,7 +43,7 @@ Kullanıcı risk işten çıkarma akışında gecikme sürelerine neden geçerli
 
 Geçiş **Göster olarak tarihleri** gizler **son RISK güncelleştirme** sütun. Sütun tıklayarak rolleriniz için **sütunları** riskli kullanıcılar dikey penceresinin üstünde.
 
-**Tüm olayları kapatılamadı** kimlik koruması, risk olayları için durumu ayarlar klasikteki **kapatıldı (Çözüldü)**.
+**Tüm olayları kapatılamadı** kimlik koruması, risk olayları için durumu ayarlar klasikteki **kapatıldı (Çözüldü)** .
 
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Riskli oturum açma işlemleri raporu bilinen sorunlar
@@ -76,7 +76,7 @@ IP coğrafi konum eşleme sektör genelinde bir zorluktur. Oturum açma işlemle
 
 **Güvenli onaylayın** (bir oturum açma) – Azure AD kimlik koruması oturum açma kimlik sahibi tarafından gerçekleştirildi ve güvenliğinin göstermez olduğunu bildirir.
 
-- Bu geri bildirim aldıktan sonra biz oturum açma (kullanıcı değil) taşıma durumuna risk **onaylı güvenli** ve risk düzeyine **-**.
+- Bu geri bildirim aldıktan sonra biz oturum açma (kullanıcı değil) taşıma durumuna risk **onaylı güvenli** ve risk düzeyine **-** .
 
 - Ayrıca, biz makinemizi sistemler için risk değerlendirmesi gelecekteki yenilikleri öğrenmek için bilgileri sağlayın.
 

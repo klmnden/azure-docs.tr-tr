@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60488943"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Veri Yönetimi ağ geçidi - yüksek kullanılabilirlik ve ölçeklenebilirlik (Önizleme)
@@ -165,7 +165,7 @@ Yüksek kullanılabilirlik ve ölçeklenebilirlik özelliğini kullanmak için m
 - Her Integration runtime düğümü, kimlik bilgileri Yöneticisi uygulaması çalıştıran istemci makine yanı sıra, bu sertifikaya güvenmesi gerekir. 
   > [!NOTE]
   > Kimlik bilgileri Yöneticisi uygulamasını güvenli bir şekilde Kopyalama Sihirbazı'ndan kimlik bilgisi ayarlanırken kullanılır / Azure portalı. Ve bu, şirket içi aynı ağ içinde herhangi bir makineden tetiklenme / özel veri deposu.
-- Joker karakterli sertifikalar desteklenir. FQDN adınız ise **node1.domain.contoso.com**, kullanabileceğiniz ***. domain.contoso.com** sertifikanın konu adı olarak.
+- Joker karakterli sertifikalar desteklenir. FQDN adınız ise **node1.domain.contoso.com**, kullanabileceğiniz * **. domain.contoso.com** sertifikanın konu adı olarak.
 - SAN sertifika konu diğer adları yalnızca son maddenin kullanılacak ve diğer tüm mevcut sınırlama nedeniyle yoksayılacak önerilmez. Örneğin bir SAN sertifikası, SAN olan sahip **node1.domain.contoso.com** ve **node2.domain.contoso.com**, yalnızca bu sertifika, FQDN: makinede kullanabilirsiniz **node2.domain.contoso.com**.
 - SSL sertifikaları için Windows Server 2012 R2 tarafından desteklenen herhangi bir anahtar boyutu destekler.
 - CNG kullanarak sertifika anahtarlar desteklenmez.
@@ -189,7 +189,7 @@ Etkinleştirebilirsiniz **Gelişmiş ayarları** içinde **ağ geçidi** gibi ge
 Ad | Ağ geçidi ile ilişkili düğümleri ve mantıksal ağ geçidi adı.  
 Durum | Mantıksal ağ geçidini ve ağ geçidi düğümleri durumu. Örnek: Çevrimiçi/çevrimdışı/sınırlı/vb. Bu durumlar hakkında daha fazla bilgi için bkz. [ağ geçidi durumu](#gateway-status) bölümü. 
 Version | Mantıksal ağ geçidi her ağ geçidi düğümü ve sürümü gösterir. Mantıksal ağ geçidi sürümünü grubunda düğüm çoğunluğu sürümüne göre belirlenir. Düğüm varsa, yalnızca mantıksal ağ geçidi işlevi olarak aynı sürüm numarasına sahip mantıksal bir ağ geçidi kurulumunu farklı sürümleriyle düzgün. Başkalarının sınırlı modundaki ve (yalnızca otomatik güncelleştirme başarısız olursa) el ile güncelleştirilmesi gerekir. 
-Uygun bellek | Bir ağ geçidi düğümü kullanılabilir bellek. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. 
+Kullanılabilir bellek | Bir ağ geçidi düğümü kullanılabilir bellek. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. 
 CPU kullanımı | Bir ağ geçidi düğümü, CPU kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. 
 Ağ (daraltma/genişletme) | Bir ağ geçidi düğümü, ağ kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. 
 (Çalışan / sınırlama) eşzamanlı işleri | İşleri veya her bir düğümde çalışan görevler sayısı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. Her düğüm için en fazla eşzamanlı iş sınırı belirtir. Bu değer, makine boyutuna bağlı olarak tanımlanır. Eş zamanlı iş yürütme Gelişmiş senaryolarda artırabileceğinizi limiti artırabilirsiniz burada CPU / bellek / ağ altında kullanılan ancak etkinlikler zaman aşımına uğruyor. Bu özellik, bir tek düğümlü ağ geçidi ile (ölçeklenebilirlik ve kullanılabilirlik özelliği etkin olduğunda bile) de kullanılabilir. Daha fazla bilgi için [ölçeklendirme konuları](#scale-considerations) bölümü. 
@@ -205,14 +205,14 @@ Durum  | Yorumlar/senaryoları
 :------- | :------------------
 Çevrimiçi | Düğüm, Data Factory hizmetine bağlı.
 Çevrimdışı | Düğümü çevrimdışı durumda.
-Yükseltiliyor | Düğüm, otomatik olarak güncelleştirilir.
+Yükseltme | Düğüm, otomatik olarak güncelleştirilir.
 Sınırlı | Bağlantı sorunundan kaynaklanıyor. HTTP bağlantı noktası 8050 sorunu, service bus bağlantı sorunu veya kimlik bilgileri eşitleme sorunu nedeniyle olabilir. 
-Etkin Değil | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir. 
+Etkin değil | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir. 
 
 
 Aşağıdaki tabloda, olası durumlar sağlayan bir **mantıksal ağ geçidi**. Ağ geçidi durumu, ağ geçidi düğümleri durumlar üzerinde bağlıdır. 
 
-Durum | Yorumlar
+Durum | Açıklamalar
 :----- | :-------
 Kayıt gerekiyor | Bu mantıksal ağ geçidi için hiçbir düğüm henüz kayıtlı
 Çevrimiçi | Ağ geçidi düğümleri çevrimiçi

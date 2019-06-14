@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319522"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Azure VM'de bir RDP genel hata sorunlarını giderme
@@ -63,11 +63,11 @@ RDP dinleyicisi yanlış yapılandırılmış.
 
 Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapshot-copy-managed-disk.md), ve [kurtarma VM için işletim sistemi diski](troubleshoot-recovery-disks-portal-windows.md)ve ardından adımları izleyin.
 
-### <a name="serial-console"></a>Seri konsol
+### <a name="serial-console"></a>Seri Konsol
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>1. Adım: CMD örnek seri konsolu aç
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>1\. adım: CMD örnek seri konsolu aç
 
-1. Erişim [seri konsol](serial-console-windows.md) seçerek **destek ve sorun giderme** > **seri konsol (Önizleme)**. VM'de özelliği etkinleştirilmişse, sanal makine başarıyla bağlanabilirsiniz.
+1. Erişim [seri konsol](serial-console-windows.md) seçerek **destek ve sorun giderme** > **seri konsol (Önizleme)** . VM'de özelliği etkinleştirilmişse, sanal makine başarıyla bağlanabilirsiniz.
 
 2. CMD örneği için yeni bir kanal oluşturun. Tür **CMD** kanal adını almak için kanal başlatmak için.
 
@@ -77,7 +77,7 @@ Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapsho
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>2. Adım: RDP kayıt defteri anahtarlarını değerlerini kontrol edin:
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>2\. adım: RDP kayıt defteri anahtarlarını değerlerini kontrol edin:
 
 1. RDP tarafından devre dışı bırakılırsa onay ilkeleri.
 
@@ -164,17 +164,17 @@ Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapsho
 
 Hala sorun olursa, adım 2 taşıyın.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>2. Adım: Uzak Masaüstü Hizmetleri etkinleştirme
+#### <a name="step-2-enable-remote-desktop-services"></a>2\. adım: Uzak Masaüstü Hizmetleri etkinleştirme
 
 Daha fazla bilgi için [Uzak Masaüstü Hizmetleri, bir Azure sanal makinesinde başlatılıyor değil](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>3. Adım: RDP dinleyici Sıfırla
+#### <a name="step-3-reset-rdp-listener"></a>3\. adım: RDP dinleyici Sıfırla
 
 Daha fazla bilgi için [Uzak Masaüstü bağlantısını keser sık Azure VM'de](troubleshoot-rdp-intermittent-connectivity.md).
 
 ### <a name="offline-repair"></a>Çevrimdışı onarım
 
-#### <a name="step-1-turn-on-remote-desktop"></a>1. Adım: Uzak Masaüstü Aç
+#### <a name="step-1-turn-on-remote-desktop"></a>1\. adım: Uzak Masaüstü Aç
 
 1. [İşletim sistemi diskini bir kurtarma VM'si ekleme](../windows/troubleshoot-recovery-disks-portal.md).
 2. Kurtarma VM'sini bir Uzak Masaüstü Bağlantısı'nı başlatın.
@@ -234,14 +234,14 @@ Daha fazla bilgi için [Uzak Masaüstü bağlantısını keser sık Azure VM'de]
 
 Hala sorun olursa, adım 2 taşıyın.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>2. Adım: Uzak Masaüstü Hizmetleri etkinleştirme
+#### <a name="step-2-enable-remote-desktop-services"></a>2\. adım: Uzak Masaüstü Hizmetleri etkinleştirme
 
 Daha fazla bilgi için [Uzak Masaüstü Hizmetleri, bir Azure sanal makinesinde başlatılıyor değil](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>3. Adım: RDP dinleyici Sıfırla
+#### <a name="step-3-reset-rdp-listener"></a>3\. adım: RDP dinleyici Sıfırla
 
 Daha fazla bilgi için [Uzak Masaüstü bağlantısını keser sık Azure VM'de](troubleshoot-rdp-intermittent-connectivity.md).
 
-## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
 Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

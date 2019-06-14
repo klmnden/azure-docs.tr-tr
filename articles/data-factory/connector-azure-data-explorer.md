@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: orspodek
 ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394515"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama
@@ -71,9 +71,9 @@ Azure Veri Gezgini bağlı hizmeti için aşağıdaki özellikleri destekler:
 | type | **Türü** özelliği ayarlanmalıdır **AzureDataExplorer** | Evet |
 | endpoint | Uç nokta URL'si biçiminde Azure Veri Gezgini kümenin `https://<clusterName>.<regionName>.kusto.windows.net`. | Evet |
 | database | Veritabanının adı. | Evet |
-| tenant | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, normal olarak tanıdığınız, "**yetkilisi kimliği**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Bu, Azure portalının sağ üst köşedeki fareyle gelerek alın. | Evet |
+| tek | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, normal olarak tanıdığınız, "**yetkilisi kimliği**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Bu, Azure portalının sağ üst köşedeki fareyle gelerek alın. | Evet |
 | servicePrincipalId | Uygulamanın istemci kimliği belirtin. Bu, normal olarak tanıdığınız, "**AAD uygulama istemci Kimliğini**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Evet |
-| serviceprincipalkey değerleri | Uygulama anahtarını belirtin. Bu, normal olarak tanıdığınız, "**AAD uygulama anahtarı**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
+| servicePrincipalKey | Uygulama anahtarını belirtin. Bu, normal olarak tanıdığınız, "**AAD uygulama anahtarı**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 
 **Bağlı hizmeti özellikleri örneği:**
 

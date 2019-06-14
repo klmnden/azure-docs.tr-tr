@@ -4,21 +4,21 @@ description: Azure AD Connect ile oluşan SQL bağlantı sorunlarını gidermek 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/14/2018
-ms.date: 11/12/2018
-ms.component: hybrid
-ms.author: v-junlch
+ms.date: 05/14/2018
+ms.subservice: hybrid
+ms.author: billmath
+ms.collection: M365-identity-device-management
 ms.openlocfilehash: dea88951682c24d2a470d5bd7646722481e4db2f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381397"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect ile SQL bağlantı sorunlarını giderme
@@ -32,7 +32,7 @@ Aşağıdaki ekran görüntüsünde, SQL Server bulunamazsa tipik bir hata göst
 Bir powershell penceresi açın ve ADSyncTools Powershell modülünü içeri aktarın
 
 ``` powershell
-Import-Module "C:\Program Files\Azure Active Directory Connect\Tools\AdSyncTools.psm1" 
+Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools.psm1" 
 ```
 
 >[!NOTE]
@@ -50,9 +50,9 @@ Bu powershell işlevi, belirtilen SQL Server ve örnek geçirilen kimlik bilgile
 
 Örnek: yalnızca bir sunucu adı kullanma
 ```
-PS C:\Program Files\Azure Active Directory Connect\Tools> import-module .\AdSyncTools.psm1
+PS C:\Program Files\Microsoft Azure Active Directory Connect\Tools> import-module .\AdSyncTools.psm1
 
-PS C:\Program Files\Azure Active Directory Connect\Tools> Connect-AdSyncDatabase -Server SQL1
+PS C:\Program Files\Microsoft Azure Active Directory Connect\Tools> Connect-AdSyncDatabase -Server SQL1
 Resolving server address : SQL1
     InterNetworkV6 : fe80::6c90:a995:3e70:ef74%17
     InterNetworkV6 : 2001:4898:e0:66:6c90:a995:3e70:ef74
@@ -82,13 +82,13 @@ Container                        :
 
 
 
-PS C:\Program Files\Azure Active Directory Connect\Tools> 
+PS C:\Program Files\Microsoft Azure Active Directory Connect\Tools> 
 ```
 
 Örnek: mevcut olmayan bir örneği ve bağlantı noktası numarası kullanarak
 
 ```
-PS C:\Program Files\Azure Active Directory Connect\tools> Connect-AdSyncDatabase -Server SQL1 -Instance "INSTANCE1"
+PS C:\Program Files\Microsoft Azure Active Directory Connect\tools> Connect-AdSyncDatabase -Server SQL1 -Instance "INSTANCE1"
 Resolving server address : SQL1
     InterNetworkV6 : fe80::6c90:a995:3e70:ef74%17
     InterNetworkV6 : 2001:4898:e0:66:6c90:a995:3e70:ef74
@@ -109,7 +109,7 @@ At line:1 char:1
 TROUBLESHOOTING: Attempting to query the SQL Server Browser service configuration on SQL1.
 Get-ADSyncSQLBrowserInstances : Unable to read the SQL Server Browser configuration. An existing connection was forcibly closed by the remote host. 
 Ensure port 1434 (UDP) is open on SQL1 and the SQL Server Browser service is running. 
-At C:\Program Files\Azure Active Directory Connect\tools\AdSyncTools.psm1:1717 char:18
+At C:\Program Files\Microsoft Azure Active Directory Connect\tools\AdSyncTools.psm1:1717 char:18
 +     $instances = Get-ADSyncSQLBrowserInstances $Server
 +                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : ConnectionError: (:) [Write-Error], WriteErrorException
@@ -126,8 +126,8 @@ ation Manager on SQL1 to verify the instance name and TCP/IP port assignment man
 You must specify both the instance name and the port to connect when the SQL Server Browser service is not running. An inbound firewall rule on SQL1 is required for the associated port.
     Example: 'MySQLInstance,1234' where 1234 has a matching firewall rule.
 
-PS C:\Program Files\Azure Active Directory Connect\tools> 
-PS C:\Program Files\Azure Active Directory Connect\tools> Connect-AdSyncDatabase -Server SQL1 -Instance "INSTANCE1,99"
+PS C:\Program Files\Microsoft Azure Active Directory Connect\tools> 
+PS C:\Program Files\Microsoft Azure Active Directory Connect\tools> Connect-AdSyncDatabase -Server SQL1 -Instance "INSTANCE1,99"
 Resolving server address : SQL1
     InterNetworkV6 : fe80::6c90:a995:3e70:ef74%17
     InterNetworkV6 : 2001:4898:e0:66:6c90:a995:3e70:ef74
@@ -169,10 +169,9 @@ TcpStatus    : Blocked - the inbound firewall rule for port 58379 is missing or 
 
 
 
-PS C:\Program Files\Azure Active Directory Connect\tools>  
+PS C:\Program Files\Microsoft Azure Active Directory Connect\tools>  
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 - [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
 -  [Azure AD Connect ile Azure AD bağlantısı](tshoot-connect-connectivity.md)
-

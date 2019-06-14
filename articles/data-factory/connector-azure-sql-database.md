@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 231f44612b5e87afdf84f31d86c80be644fb4484
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6ae1094a6e47d19af97fbbb1ce988d0756f33731
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048576"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı'ndan ya da veri kopyalama
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-azure-sql-connector.md)
 > * [Geçerli sürüm](connector-azure-sql-database.md)
 
@@ -364,6 +364,9 @@ GO
 
 ### <a name="azure-sql-database-as-the-sink"></a>Azure SQL veritabanı havuz olarak
 
+> [!TIP]
+> Desteklenen yazma davranışları, yapılandırmaları ve gelen en iyi uygulama hakkında daha fazla bilgi edinin [açısından en iyisi, Azure SQL veritabanı'na veri yükleme](#best-practice-for-loading-data-into-azure-sql-database).
+
 Azure SQL veritabanı'na veri kopyalamak için ayarlanmış **türü** özelliği kopyalama etkinliğindeki havuz için **SqlSink**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **havuz** bölümü:
 
 | Özellik | Açıklama | Gerekli |
@@ -372,14 +375,11 @@ Azure SQL veritabanı'na veri kopyalamak için ayarlanmış **türü** özelliğ
 | writeBatchSize | SQL tablosuna ekler için satır sayısı **toplu iş başına**.<br/> İzin verilen değer **tamsayı** (satır sayısı). Varsayılan olarak, Data Factory dinamik olarak satır boyutuna göre uygun toplu iş boyutu belirler. | Hayır |
 | writeBatchTimeout | Batch için bekleme süresi, işlemin zaman aşımına uğramadan önce tamamlanmasını ekleyin.<br/> İzin verilen değer **timespan**. Örnek: "00: 30:00" (30 dakika). | Hayır |
 | preCopyScript | Azure SQL veritabanı'na veri yazılmadan önce çalıştırmak kopyalama etkinliği için bir SQL sorgusunu belirtin. Bu yalnızca bir kez çalıştır kopyalama çağrılır. Önceden yüklenmiş ve verileri temizlemek için bu özelliği kullanın. | Hayır |
-| sqlWriterStoredProcedureName | Kaynak verileri hedef tabloya uygulanacağını tanımlayan saklı yordamın adı. Upsert eder misiniz veya tarafından dönüştürmek için bir örnek verilmiştir, kendi iş mantığınızı kullanarak. <br/><br/>Bu saklı yordam **toplu iş çağrılan**. Yalnızca bir kez çalıştırın ve kaynak verilerle ilgisi yoktur işlemleri için `preCopyScript` özelliği. Örnek işlemler silmeden ve kesin. | Hayır |
+| sqlWriterStoredProcedureName | Kaynak verileri hedef tabloya uygulanacağını tanımlayan saklı yordamın adı. <br/>Bu saklı yordam **toplu iş çağrılan**. Yalnızca bir kez çalıştırın ve kaynak verileri, örneğin, silmek veya kesmek için hiçbir şey sahip işlemleri için `preCopyScript` özelliği. | Hayır |
 | storedProcedureParameters |Saklı yordamın parametreleri.<br/>Ad ve değer çiftlerini izin verilen değerler. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. | Hayır |
 | sqlWriterTableType | Saklı yordam, kullanılacak bir tablo türü adı belirtin. Kopyalama etkinliği, Taşınmakta olan veriler geçici tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu daha sonra mevcut verilerle kopyalanan verileri birleştirebilirsiniz. | Hayır |
 
-> [!TIP]
-> Azure SQL veritabanı'na veri kopyalama, kopyalama etkinliği havuz tablo için verileri varsayılan olarak ekler. Upsert ya da ek iş mantığı için saklı yordamı kullanın. **SqlSink**. Daha ayrıntılı bilgi edinin [SQL havuz saklı yordam çağırma](#invoking-stored-procedure-for-sql-sink).
-
-#### <a name="append-data-example"></a>Örnek veri ekleme
+**Örnek 1: veri ekleme**
 
 ```json
 "activities":[
@@ -411,7 +411,7 @@ Azure SQL veritabanı'na veri kopyalamak için ayarlanmış **türü** özelliğ
 ]
 ```
 
-#### <a name="invoke-a-stored-procedure-during-copy-for-upsert-example"></a>Upsert örneğin kopyalama sırasında bir saklı yordam çağırma
+**Örnek 2: Kopyalama sırasında bir saklı yordam çağırma**
 
 Daha ayrıntılı bilgi edinin [SQL havuz saklı yordam çağırma](#invoking-stored-procedure-for-sql-sink).
 
@@ -450,84 +450,69 @@ Daha ayrıntılı bilgi edinin [SQL havuz saklı yordam çağırma](#invoking-st
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>Hedef veritabanındaki Kimlik sütunları
+## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>Azure SQL veritabanı'na veri yüklemeye yönelik en iyi uygulama
 
-Bu bölümde bir IDENTITY sütunu hedef tabloda bir kimlik sütunu olmayan bir kaynak tablosundan veri kopyalamak nasıl gösterir.
+Azure SQL veritabanı'na veri kopyalama, farklı yazma davranışını gerektirebilir:
 
-#### <a name="source-table"></a>Kaynak tablosu
+- **[Append](#append-data)** : kaynak Verilerimin yalnızca yeni kayıtları; var
+- **[Upsert](#upsert-data)** : kaynak Verilerimin hem eklemeleri ve güncelleştirmeleri; var
+- **[Üzerine](#overwrite-entire-table)** : Tüm boyut tablosunu her zaman yeniden yüklemek istiyorsanız;
+- **[Özel mantığı ile yazma](#write-data-with-custom-logic)** : Son ekleme ve hedef tabloya önce ek işleme ihtiyacım var.
+
+Başvurmak sırasıyla bölümler ADF ve en iyi yapılandırma.
+
+### <a name="append-data"></a>Veri ekleme
+
+Bu bu Azure SQL veritabanı havuz bağlayıcının varsayılan davranıştır ve ADF yapın **toplu ekleme** tablonuza verimli bir şekilde yazmak için. Yalnızca kaynak yapılandırabilir ve buna göre havuz olarak kopyalama etkinliği.
+
+### <a name="upsert-data"></a>Verileri upsert etme
+
+**Ben seçeneği** (özellikle büyük veri kopyalamak için olduğunda önerilen): **en yüksek performanslı yaklaşım** upsert yapmak için aşağıda verilmiştir: 
+
+- İlk olarak, yararlanan bir [veritabanı kapsamlı geçici tablo](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) kopyalama etkinliğini kullanarak tüm kayıtları toplu yükleme için. İşlemleri veritabanına karşı geçici kapsamlı olarak tabloları tutulmayan, saniyeler içinde milyonlarca kayıt yükleyebilirsiniz.
+- Yürütme uygulamak için ADF içinde bir saklı yordam etkinliği bir [birleştirme](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (veya ekleme/güncelleştirme) ifadesi ve geçici tablo tüm gerçekleştirmek için kaynak güncelleştirmeleri veya tek bir işlem ekler gidiş-dönüş miktarını azaltmayı ve günlük işlemlerini kullanın. Saklı yordam etkinliğine sonunda geçici tablo için bir sonraki upsert döngüyü hazır olmasını kesilebilir. 
+
+Örneğin, Azure Data Factory'de bir işlem hattı oluşturabilirsiniz bir **kopyalama etkinliği** ile zincirleme bir **saklı yordam etkinliği** başarılı. Eski veri kaynak deponuza bir Azure SQL veritabanı geçici tabloya deyin kopyalar " **##UpsertTempTable**" tablo adı veri kümesinde, ardından ikinci bir depolanan hedefe geçici tablo kaynak verileri birleştirmek için yordamı çağıran Tablo ve geçici tablosu temizleme.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+Veritabanında bir saklı yordam için yukarıdaki saklı yordam etkinliği işaret edilen aşağıdaki gibi birleştirme mantığıyla tanımlayın. Hedef varsayılarak **pazarlama** üç sütunlar içeren tablo: **Profileıd**, **durumu**, ve **kategori**, temel upsert yapıp **Profileıd** sütun.
 
 ```sql
-create table dbo.SourceTbl
-(
-       name varchar(100),
-       age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-#### <a name="destination-table"></a>Hedef Tablo
+**Seçenek II:** alternatif olarak, seçebileceğiniz [kopyalama etkinliği içinde saklı yordamı çağırma](#invoking-stored-procedure-for-sql-sink), bu yaklaşım, toplu yararlanarak yerine kaynak tablodaki her satır için yürütüldüğünde Not sırasında varsayılan yaklaşım Ekle Kopyalama etkinliği, bu nedenle, büyük ölçekli upsert için sığmıyor.
 
-```sql
-create table dbo.TargetTbl
-(
-       identifier int identity(1,1),
-       name varchar(100),
-       age int
-)
-```
+### <a name="overwrite-entire-table"></a>Tüm tablo üzerine yaz
 
-> [!NOTE]
-> Hedef tablo bir kimlik sütunu var.
+Yapılandırabileceğiniz **preCopyScript** özelliği kopyalama etkinliğindeki havuz, bu durumda her kopyalama etkinliği için çalıştırma ADF betik ilk olarak, daha sonra verileri eklemek için kopyalama işleminin çalıştırılma yürütür. Örneğin, en son verileriyle tüm tablo üzerine yazmak için önce toplu yeni veri kaynağından yükleme önce tüm kayıtları silmek için bir betik belirtebilirsiniz.
 
-#### <a name="source-dataset-json-definition"></a>Kaynak veri kümesi JSON tanımı
+### <a name="write-data-with-custom-logic"></a>Özel mantığı ile veri yazma
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
-
-#### <a name="destination-dataset-json-definition"></a>Hedef veri kümesi JSON tanımı
-
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
-
-> [!NOTE]
-> Kaynak ve hedef tablonuz farklı bir şeması vardır. 
-
-Hedef bir kimliğe sahip başka bir sütuna sahiptir. Bu senaryoda, belirtmelisiniz **yapısı** kimlik sütunu içermeyen hedef veri kümesi tanımında özelliği.
+Bölümünde anlatıldığı gibi benzer [Upsert veri](#upsert-data) bölümü, son eklenen kaynak verileri hedef tabloya önce ek işleme uygulamak gerektiğinde yapabilecekleriniz bir) büyük ölçekli bir veritabanı kapsamlı geçici tabloya yük sonra çağırma bir saklı yordam veya b) kopyalama sırasında bir saklı yordam çağırma.
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> SQL havuz saklı yordam çağırma
 
 Azure SQL veritabanı'na veri kopyalama, yapılandırın ve bir kullanıcı tarafından belirtilen saklı yordam ek parametrelerle çağırın.
 
-Yerleşik kopyalama mekanizmaları amaca hizmet yoksa, bir saklı yordamı kullanabilirsiniz. Genellikle, upsert, INSERT ve update kullanıldıklarından veya ek işlem son eklenen kaynak verileri hedef tabloya önce yapılmalıdır. Bazı ek işleme örnekleri ek değerler ve birden fazla tablosuna eklenirken Ara birleştirme sütunlarıdır.
+> [!TIP]
+> Saklı yordam çağırma verileri-satır büyük ölçekli kopyalama için önerilen değil, toplu işlem yerine işler. Daha fazla bilgi [açısından en iyisi, Azure SQL veritabanı'na veri yükleme](#best-practice-for-loading-data-into-azure-sql-database).
+
+Yerleşik kopyalama mekanizmaları, amaca yönelik olmayan bir saklı yordam kullanabilirsiniz örneğin son eklenen kaynak verileri hedef tabloya önce ek işlem uygulayın. Bazı ek işleme örnekleri ek değerler ve birden fazla tablosuna eklenirken Ara birleştirme sütunlarıdır.
 
 Aşağıdaki örnek, Azure SQL veritabanındaki bir tabloya bir upsert yapmak için bir saklı yordam kullanmayı gösterir. Varsayılır, giriş veri ve havuz **pazarlama** her tablo üç sütun vardır: **Profileıd**, **durumu**, ve **kategori**. Temel upsert yapmak **Profileıd** sütun ve yalnızca belirli bir kategori için uygulayın.
 
@@ -613,27 +598,27 @@ Ayrıntıları öğrenin [kaynak dönüştürme](data-flow-source.md) ve [havuz 
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM özniteliğini (varbinary(max)) |Byte[] |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| Numeric |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
-| rowVersion |Byte[] |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| küçük para |Decimal |
+| smallmoney |Decimal |
 | sql_variant |Object |
-| metin |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
-| Varbinary |Byte[] |
+| varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

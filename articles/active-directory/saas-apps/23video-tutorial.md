@@ -16,10 +16,10 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60439735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Öğretici: 23 Video ile Azure Active Directory Tümleştirme
@@ -60,7 +60,7 @@ Azure AD'de 23 Video tümleştirmesini yapılandırmak için 23 Video Galeriden 
 
 **Galeriden 23 Video eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -132,7 +132,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve 2
 
     ![Çoklu oturum açmayı yapılandırın](./media/23video-tutorial/tutorial_23video_configure.png) 
 
-7. Çoklu oturum açmayı yapılandırma **23 Video** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)**, **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si**için [23 Video Destek ekibine](mailto:support@23company.com). 
+7. Çoklu oturum açmayı yapılandırma **23 Video** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)** , **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si**için [23 Video Destek ekibine](mailto:support@23company.com). 
 
 
 > [!TIP]

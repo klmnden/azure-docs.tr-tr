@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391370"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API ile SSH kimlik doğrulaması kullanan bir Linux sanal makinesi oluşturma
@@ -54,8 +54,8 @@ Aşağıdaki üst bilgiler gereklidir:
 
 | İstek üstbilgisi   | Açıklama |
 |------------------|-----------------|
-| *İçerik türü:*  | Gereklidir. Kümesine `application/json`. |
-| *Yetkilendirme:* | Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Content-Type:*  | Gereklidir. Kümesine `application/json`. |
+| *Authorization:* | Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 REST API istekleri ile çalışma hakkında genel bilgi için bkz. [bir REST API istek/yanıt bileşenleri](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -66,7 +66,7 @@ Aşağıdaki ortak tanımları, istek gövdesi oluşturmak için kullanılır:
 | Ad                       | Gerekli | Tür                                                                                | Açıklama  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | Kaynak konumu. |
-| ad                       |          | string                                                                              | Sanal makinenin adı. |
+| name                       |          | string                                                                              | Sanal makinenin adı. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Sanal makine için donanım ayarlarını belirtir. |
 | properties.storageProfile  |          | [Datadisks](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Sanal makine diskleri için depolama ayarlarını belirtir. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Sanal makine için işletim sistemi ayarlarını belirtir. |
@@ -133,14 +133,14 @@ Bir örnek istek gövdesi, aşağıda verilmiştir. VM adı belirttiğinizden em
 
 Bu HTTP isteği gönderilirken tercihinizi istemci kullanabilir. Ayrıca bir [tarayıcı içi araç](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) tıklayarak **deneyin** düğmesi.
 
-### <a name="responses"></a>Yanıtlar
+### <a name="responses"></a>Responses
 
 Oluşturulacak veya güncelleştirilecek bir sanal makine işlemi için iki başarılı yanıtlar vardır:
 
 | Ad        | Tür                                                                              | Açıklama |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 TAMAM      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Tamam          |
-| 201 oluşturuldu | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Oluşturulan     |
+| 201 oluşturuldu | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Oluşturuldu     |
 
 Sıkıştırılmış bir *201 oluşturuldu* bir VM oluşturur, önceki örnek istek gövdesi yanıttan gösteren bir *Vmıd* atanmış olan ve *provisioningState* olan*Oluşturma*:
 

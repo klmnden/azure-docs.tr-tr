@@ -13,10 +13,10 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295390"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Azure AD Connect performansını etkileyen faktörler
@@ -100,7 +100,7 @@ Aşağıdaki işlemleri, bir tam eşitleme döngüsünde dahildir:
 Eşitleme işlemi çalışma zamanı performans özellikleri şunlardır:
 
 * Eşitleme iş parçacıklıdır sağlama altyapısı çalıştırma profillerini bağlı dizinleri, nesneler veya öznitelikleri, tüm paralel işleme gerektirmeyen tek olur.
-* İçeri aktarma zaman ile eşitlendiğinden nesne sayısını doğrusal oranda artar. 10.000 nesneleri içeri aktarmak için 10 dakika alırsa, örneğin, durumda 20.000 nesneler yaklaşık 20 dakika aynı sunucu üzerinde kazanacaktır.
+* İçeri aktarma zaman ile eşitlendiğinden nesne sayısını doğrusal oranda artar. 10\.000 nesneleri içeri aktarmak için 10 dakika alırsa, örneğin, durumda 20.000 nesneler yaklaşık 20 dakika aynı sunucu üzerinde kazanacaktır.
 * Dışarı aktarma da doğrusal değildir.
 * Eşitleme nesneleri diğer nesnelere başvurular sayısına göre katlanarak artar. Üyeleri kullanıcı, nesneyi veya diğer gruplara başvurduğundan grup üyeliklerini ve iç içe geçmiş gruplar ana performans etkileri olabilir. Bu başvurular bulundu ve eşitleme döngüsü tamamlanması MV gerçek nesnelere başvuru.
 
@@ -169,7 +169,7 @@ Kaynak Active Directory topolojiniz boyutu, SQL veritabanı performansı etkiler
 
 
 
-- 100. 000'den fazla kullanıcısı olan kuruluşlar, ağ gecikme süreleriyle birlikte bulundurma SQL veritabanı ile aynı sunucuda sağlama altyapısı tarafından azaltabilir.
+- 100\. 000'den fazla kullanıcısı olan kuruluşlar, ağ gecikme süreleriyle birlikte bulundurma SQL veritabanı ile aynı sunucuda sağlama altyapısı tarafından azaltabilir.
 - Giriş ve çıkış yüksek disk nedeniyle eşitleme işlemi (g/ç) gereksinimlerini kullanın Katı Hal sürücüleri (SSD) için RAID 0 ya da RAID 1 yapılandırmaları mümkün değilse, SQL veritabanı sağlama altyapısının en iyi sonuçlar için göz önünde bulundurun.
 - Tam eşitleme bilindiğinde desteklemez; gereksiz karmaşıklık ve daha yavaş yanıt sürelerine neden olur.
 

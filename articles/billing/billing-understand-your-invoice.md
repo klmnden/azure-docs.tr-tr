@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369973"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure faturanızla ilgili koşulları anlama
@@ -44,7 +44,7 @@ Fatura hesap bilgileri bölümü, ilk sayfa üst kısmındaki ve profili ve üye
 
 ![Fatura hesap bilgileri bölümü](./media/billing-understand-your-invoice/1.png)
 
-| Sözleşme Dönemi | Açıklama |
+| Terim | Açıklama |
 | --- | --- |
 | Müşteri Sipariş No |İzleme için size atanan bir isteğe bağlı satınalma siparişi numarası |
 | Fatura No. |İzleme amacıyla kullanılan benzersiz bir Microsoft oluşturulan fatura numarası |
@@ -65,7 +65,7 @@ Abonelik adı ("üretim depolama"), bu fatura aboneliği adıdır.
 #### <a name="understand-the-previous-charges"></a>Önceki ücretlerini anlama
 Önceki Bakiye, ödemeler ve bekleyen Bakiye fatura bölümünü son fatura döneminize beri işlemler özetlenir.
 
-| Sözleşme Dönemi | Açıklama |
+| Terim | Açıklama |
 | --- | --- |
 | Önceki bakiye |Kalan ödenmemiş toplam tutar son fatura döneminden |
 | Ödemeler |Toplam ödemeler ve krediler son fatura döneminize uygulanan |
@@ -74,7 +74,7 @@ Abonelik adı ("üretim depolama"), bu fatura aboneliği adıdır.
 #### <a name="understand-the-current-charges"></a>Geçerli ücretleri anlama
 Fatura geçerli ücretler bölümü, geçerli fatura dönemi için aylık ücretlerinizle ilgili ayrıntıları gösterir.
 
-| Sözleşme Dönemi | Açıklama |
+| Terim | Açıklama |
 | --- | --- |
 | Kullanım ücretleri |Kullanım ücretleri bir Abonelikteki geçerli fatura dönemi için aylık toplam ücretlerdir|
 | İndirimler |Geçerli fatura döneminize uygulanan hizmet indirimleri|
@@ -84,7 +84,7 @@ Fatura geçerli ücretler bölümü, geçerli fatura dönemi için aylık ücret
 
 Aşağıdaki tablo için satılan açıklar ve faturanızı ikinci sayfada gösterilen ödeme yönergeleri.
 
-| Sözleşme Dönemi |Açıklama |
+| Terim |Açıklama |
 | --- | --- |
 | Kime Satıldı |Hesapta profili adresi. <br/><br/>Adresini değiştirmeniz gerekirse, bkz. [Azure hesabınızla ilgili kişi e-posta adresi ve telefon numarası gibi profil bilgilerini değiştirme](billing-how-to-change-azure-account-profile.md).|
 | Ödeme yönergeleri |Ödeme yöntemine bağlı olarak ödeme yapma (örneğin ile kartı veya fatura kredi) hakkında yönergeler. |
@@ -97,11 +97,11 @@ Fatura kullanım ücretleri bölümünü üzerinde yapılacak bir ücret ölçü
 
 Aşağıdaki tabloda, faturanızı üzerinde gösterilen kullanım ücretleri sütun üst bilgilerini açıklar.
 
-| Sözleşme Dönemi |Açıklama |
+| Terim |Açıklama |
 | --- | --- |
 | Ad |Kullanımı için üst düzey hizmeti belirtir |
 | Tür |Hızı etkileyen Azure hizmet türü tanımlar. |
-| Kaynak |Tüketilen ölçüm için ölçü birimini belirtir |
+| Resource |Tüketilen ölçüm için ölçü birimini belirtir |
 | Bölge |Veri Merkezi konumuna göre ücretlendirilen belirli hizmetler için veri merkezinin konumunu belirtir |
 | Kullanılan |Fatura dönemi boyunca kullanılan ölçüm miktarı |
 | Dahil |Geçerli fatura döneminize ücretsiz dahil olan ölçüm miktarı |
@@ -114,6 +114,6 @@ Aşağıdaki tabloda, faturanızı üzerinde gösterilen kullanım ücretleri s�
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>My fatura ücretleri doğru olduğunu nasıl emin olabilirim?
 Daha fazla ayrıntı istediğiniz faturanızla ilgili bir ücret yoksa bkz [Microsoft Azure için faturanızı anlayın.](billing-understand-your-bill.md)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

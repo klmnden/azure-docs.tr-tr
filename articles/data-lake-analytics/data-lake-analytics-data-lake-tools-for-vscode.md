@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.openlocfilehash: 5042d89f1cb5e928444e4b3c9a23db7bb1d66585
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60509349"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Visual Studio Code için Azure Data Lake Araçları'nı kullanma
@@ -369,7 +369,7 @@ Yapabilecekleriniz [yükleme durumunu izlemek](#check-storage-tasks-status).
 Komutunu kullanarak bir dosyayı indirebilirsiniz **ADL: Dosya indirme** veya **ADL: (Gelişmiş) dosyasını indirin**.
 
 **ADL aracılığıyla bir dosyayı indirmek için: Komut dosyası (Gelişmiş) indirin**
-1. Kod Düzenleyicisi'ni sağ tıklatın ve ardından **karşıdan dosya (Gelişmiş)**.
+1. Kod Düzenleyicisi'ni sağ tıklatın ve ardından **karşıdan dosya (Gelişmiş)** .
 2. VS Code bir JSON dosyası gösterir. Dosya yolu girin ve aynı anda birden çok dosya indirin. Yönergeler görüntülenir **çıkış** penceresi. Dosya veya dosyalar yüklemeye devam etmek için (Ctrl + S) JSON dosyası olarak kaydedin.
 
     ![Dosya indirme için yollar ile JSON dosyası](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
@@ -460,7 +460,7 @@ BLOB depolama alanına göz atın:
 
 Data Lake araçları, Azure portalında Azure depolama yolu açılır. Yolun bulabilir ve Web dosyası önizlenemedi.
 
-## <a name="additional-features"></a>Ek özellikler
+## <a name="additional-features"></a>Ek Özellikler
 
 VS Code için Data Lake araçları, aşağıdaki özellikleri destekler:
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60455239"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Azure Active Directory ile eşitlenmeyen bir nesneyle ilgili sorunları giderme
@@ -73,15 +73,15 @@ Başlangıç [Eşitleme Hizmeti Yöneticisi](how-to-connect-sync-service-manager
 
 **Durumu** sütun en önemli bilgileri içeren ve bir çalıştırma için en önemli bir sorun gösterir. Araştırma öncelik sırasına göre en yaygın durumlar hızlı bir özeti aşağıda verilmiştir (burada * birden çok olası hata dizelerini gösterir).
 
-| Durum | Açıklama |
+| Durum | Yorum |
 | --- | --- |
 | durduruldu-* |Çalıştırma tamamlayamadı. Uzak sistem kapalı ve temas kurulamıyor Bu, örneğin, meydana gelebilir. |
-| durduruldu-hata-sınırı |5. 000'den fazla hataları vardır. Çalıştırma, çok sayıda hata nedeniyle otomatik olarak durduruldu. |
+| durduruldu-hata-sınırı |5\. 000'den fazla hataları vardır. Çalıştırma, çok sayıda hata nedeniyle otomatik olarak durduruldu. |
 | Tamamlanan -\*-hata |Çalıştırma tamamlandı, ancak araştırılması gereken hataları (az 5.000) vardır. |
 | Tamamlanan -\*-uyarılar |Çalıştırma tamamlandı, ancak bazı veriler beklenen durumda değil. Hatalar varsa, bu ileti genellikle yalnızca bir belirtisidir. Hataları da giderdik kadar Uyarılarını Araştır yok. |
 | başarılı |Sorun yok. |
 
-Bir satır sonuna seçtiğinizde **işlemleri** sekmesi, çalıştırmanın ayrıntılarını göstermek için güncelleştirilir. Bu alan en sol tarafında başlıklı bir listesine sahip **adım #**. Bu liste yalnızca ormanınızda birden çok etki alanınız ve her etki alanı adımı tarafından temsil edilen görünür. Etki alanı adı başlığı altında bulunabilir **bölüm**. Altında **eşitleme istatistikleri** başlığı işlendi değişikliklerin sayısı hakkında daha fazla bilgi bulabilirsiniz. Değiştirilmiş nesneleri listesini almak için bağlantıyı seçin. Hatalarla nesneniz varsa, bu hataları görünür **eşitleme hatalarını** başlığı.
+Bir satır sonuna seçtiğinizde **işlemleri** sekmesi, çalıştırmanın ayrıntılarını göstermek için güncelleştirilir. Bu alan en sol tarafında başlıklı bir listesine sahip **adım #** . Bu liste yalnızca ormanınızda birden çok etki alanınız ve her etki alanı adımı tarafından temsil edilen görünür. Etki alanı adı başlığı altında bulunabilir **bölüm**. Altında **eşitleme istatistikleri** başlığı işlendi değişikliklerin sayısı hakkında daha fazla bilgi bulabilirsiniz. Değiştirilmiş nesneleri listesini almak için bağlantıyı seçin. Hatalarla nesneniz varsa, bu hataları görünür **eşitleme hatalarını** başlığı.
 
 ### <a name="errors-on-the-operations-tab"></a>İşlemleri sekmesini hatalarında
 Hatalar, Eşitleme Hizmeti Yöneticisi hata nesnesinde hem hata kendisini daha fazla bilgi sağlayan bağlantılar olarak gösterir.
@@ -91,7 +91,7 @@ Hata dizesi seçerek başlatın. (Önceki resimde, hata dizedir **eşitleme kura
 
 Sağ **çağrı yığını bilgisi** kutusunun **Tümünü Seç**ve ardından **kopyalama**. Ardından yığın kopyalayın ve Not Defteri gibi sık kullandığınız düzenleyicinizi hataya bakın.
 
-Gelen hata ise **SyncRulesEngine**, çağrı yığını bilgilerini ilk nesnenin tüm öznitelikleri listeler. Başlık görene kadar kaydırın **InnerException = >**.  
+Gelen hata ise **SyncRulesEngine**, çağrı yığını bilgilerini ilk nesnenin tüm öznitelikleri listeler. Başlık görene kadar kaydırın **InnerException = >** .  
 
   ![Eşitleme hizmeti InnerException başlığı altındaki hata bilgilerini gösteren Yöneticisi'nin, ekran = >](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
   

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90a624a6b3b4696899af0d8606f653df260cc201
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348289"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Azure AD Connect için kullanılacak yükleme türünü seçin
@@ -56,7 +56,7 @@ Seçenekler burada Express kullanmaya devam edebilirsiniz:
 - Birden fazla ormanınız veya birden fazla orman gelecekte eşitlemek planlama.
 - Connect sunucusundan ulaşılabilir değil, ormanınızdaki etki alanınız.
 - Kullanıcı oturum açma için Federasyon veya geçişli kimlik doğrulaması kullanmayı planlayın.
-- 100. 000'den fazla nesneniz ve tam SQL Server'ı kullanmanız gerekir.
+- 100\. 000'den fazla nesneniz ve tam SQL Server'ı kullanmanız gerekir.
 - Grup tabanlı filtreleme ve yalnızca etki alanı veya OU tabanlı filtreleme kullanmayı planlayın.
 
 ## <a name="upgrade-from-dirsync"></a>DirSync'ten yükseltme

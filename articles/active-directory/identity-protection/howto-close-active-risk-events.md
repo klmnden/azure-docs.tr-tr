@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e003aec8fa5aeab587fa07acdae3a13b370a535
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453502"
 ---
 # <a name="how-to-close-active-risk-events"></a>Nasıl Yapılır: Etkin risk olaylarını kapatma
@@ -50,7 +50,7 @@ Etkin risk olayı kapatmak için aşağıdaki seçenekleriniz vardır:
 
 [Kullanıcı riski koşullu erişim ilkesini](howto-user-risk-policy.md) yapılandırarak belirli bir kullanıcı riski seviyesinin otomatik olarak algılanması durumunda parola değişikliği yapılmasını sağlayabilirsiniz. 
 
-![Parola sıfırlama](./media/howto-close-active-risk-events/13.png)
+![Parola sıfırla](./media/howto-close-active-risk-events/13.png)
 
 Bir parola sıfırlama ilgili kullanıcının tüm etkin risk olayları kapatır ve kimlik güvenli bir duruma geri getirir. Kullanıcı riski İlkesi kullanarak, çünkü bu yöntem otomatik active risk olayı kapatmak için tercih edilen yöntemdir. Etkilenen kullanıcı ve Yardım Masası veya bir yönetici arasında gerekli bir etkileşim yoktur.
 
@@ -65,12 +65,12 @@ Ancak, bir kullanıcı riski İlkesi kullanarak her zaman geçerli değildir. Bu
 
 Kullanıcı riski İlkesi kullanarak bir parola sıfırlama gerektiren bir seçenek değilse, el ile parola sıfırlama ile kapalı bir kullanıcı için tüm risk olayları alabilirsiniz.
 
-![Parola sıfırlama](./media/howto-close-active-risk-events/04.png)
+![Parola sıfırla](./media/howto-close-active-risk-events/04.png)
 
 
 İlgili iletişim kutusu, bir parola sıfırlama için iki farklı yöntem sunar:
 
-![Parola sıfırlama](./media/howto-close-active-risk-events/05.png)
+![Parola sıfırla](./media/howto-close-active-risk-events/05.png)
 
 
 **Geçici bir parola oluştur** -geçici bir parola oluşturarak, hemen bir kimlik geri güvenli bir duruma getirebilirsiniz. Bu yöntem, geçici parolayı ne olduğunu bilmeniz gerekir çünkü etkilenen kullanıcılarla etkileşim gerektirir. Örneğin, yeni bir geçici parola kullanıcı için bir alternatif e-posta adresi veya Kullanıcı Yöneticisi göndermek olabilir. Geçici bir parola olduğundan, kullanıcının sonraki oturum açma sırasında parola değiştirme istenir.
@@ -83,7 +83,7 @@ Kullanıcı riski İlkesi kullanarak bir parola sıfırlama gerektiren bir seçe
 
 Bir parola, sıfırlama sizin için bir seçenek değil, tüm risk olayları kapatılamadı. 
 
-![Parola sıfırlama](./media/howto-close-active-risk-events/03.png)
+![Parola sıfırla](./media/howto-close-active-risk-events/03.png)
 
 Tıkladığınızda **tüm olayları kapatılamadı**, tüm olayları kapatılır ve etkilenen kullanıcı artık risk altındadır. Bu yöntem mevcut parolayı bir etkiye sahip olmadığından, ancak bunu ilgili kimlik geri güvenli bir duruma getirmek değil. Bu yöntem için tercih edilen kullanım örneği, etkin risk olayları ile silinen bir kullanıcıdır. 
 
