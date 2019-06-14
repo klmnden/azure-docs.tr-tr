@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607282"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>İçerik denetleme incelemeleri, iş akışları ve işler
@@ -29,7 +29,7 @@ Bir gözden geçirme, içerik için gözden geçirme aracı yüklenir ve altınd
 
 Bkz: [gözden geçirme aracı Kılavuzu](./review-tool-user-guide/review-moderated-images.md) değerlendirmeleri oluşturmaya başlayın veya görmek için [REST API Kılavuzu](./try-review-api-review.md) programlamayla Bunun hakkında bilgi edinmek için.
 
-## <a name="workflows"></a>İş akışları
+## <a name="workflows"></a>İş Akışları
 
 Bir iş akışı içeriği için bulut tabanlı özelleştirilmiş filtre kullanılıyor. İş akışları çeşitli içerik farklı yollarla filtreleyebilir ve ardından uygun eylemi gerçekleştirin için hizmetler için bağlanabilirsiniz. Content Moderator Bağlayıcısı ile bir iş akışı otomatik olarak denetleme etiketler ve gözden geçirmeleri ile gönderilen içerik oluşturun.
 

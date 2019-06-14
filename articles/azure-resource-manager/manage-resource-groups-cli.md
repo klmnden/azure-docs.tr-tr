@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 9245d4c01816d26e262b1c8bd35015e2a6a9558c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550555"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Azure CLI kullanarak Azure Resource Manager kaynak gruplarını yönetme
@@ -27,7 +27,7 @@ Kaynak gruplarını yönetme hakkında diğer makaleler:
 - [Azure portalını kullanarak Azure kaynak gruplarını yönetme](./manage-resources-portal.md)
 - [Azure PowerShell kullanarak Azure kaynak gruplarını yönetme](./manage-resources-powershell.md)
 
-## <a name="what-is-a-resource-group"></a>Kaynak grubu nedir
+## <a name="what-is-a-resource-group"></a>Bir kaynak grubu nedir
 
 Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. Kaynak grubu bir çözümün tüm kaynaklarını veya yalnızca grup olarak yönetmek istediğiniz kaynakları içerebilir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz. Genellikle, kolayca dağıtabilir, güncelleştirme ve onları bir grup olarak silmek için aynı kaynak grubuna aynı yaşam döngüsünü paylaşan kaynakların ekleyin.
 
@@ -47,7 +47,7 @@ read location &&
 az group create --name $resourceGroupName --location $location
 ```
 
-## <a name="list-resource-groups"></a>Kaynak gruplarını listele
+## <a name="list-resource-groups"></a>Kaynak gruplarını listeleme
 
 Aşağıdaki CLI betiği, aboneliğiniz altında kaynak grupları listeler.
 

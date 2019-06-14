@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: jhubbard
 ms.date: 03/12/2019
 ms.openlocfilehash: 760b292e75b4cc64b85eaf51ffad0521b721dabf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60330865"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell kullanarak saydam veri şifrelemesi (TDE) koruyucu Döndür
@@ -71,7 +71,7 @@ El ile anahtar döndürme kullanan [Ekle AzKeyVaultKey](/powershell/module/az.ke
    -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-## <a name="option-2-manual-rotation"></a>2. seçenek: El ile döndürme
+## <a name="option-2-manual-rotation"></a>2\. seçenek: El ile döndürme
 
 Seçeneği kullandığı [Ekle AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey), [Ekle AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), ve [kümesi AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) eklemek için cmdlet'leri bir tamamen Yeni anahtarı altında yeni bir anahtar adı veya hatta başka bir anahtar kasası olabilir. 
 

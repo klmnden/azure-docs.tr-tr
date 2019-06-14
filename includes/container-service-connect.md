@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: container-service
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 06/05/2019
 ms.author: danlep
-ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb6dec606169eb0bf2bfbeff042700cff441560b
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202830"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808913"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Kubernetes, DC/OS veya Docker Swarm kümesine uzak bağlantı kurma
 Azure Container Service kümesi oluşturduktan sonra, iş yüklerini dağıtmak ve yönetmek için kümeye bağlanmanız gerekir. Bu makalede uzak bir bilgisayardan kümenin ana VM’ine nasıl bağlanacağınız açıklanır. 
@@ -32,7 +32,7 @@ Bilgisayarınızda `kubectl` yükleyip yapılandırmak için şu adımları taki
 > 
 
 ### <a name="install-kubectl"></a>Kubectl yükleyin
-Bu aracı yüklemenin bir yolu `az acs kubernetes install-cli` Azure CLI komutu. Bu komutu çalıştırmak için emin olun, [yüklü](/cli/azure/install-az-cli2) Azure CLI'nin en son sürümünü ve bir Azure hesabı için oturum açtınız (`az login`).
+Bu aracı yüklemenin bir yolu `az acs kubernetes install-cli` Azure CLI komutu. Bu komutu çalıştırmak için [Azure CLI'yı yükleme](/cli/azure/install-azure-cli) ve ile bir Azure hesabında oturum açma `az login`.
 
 ```azurecli
 # Linux or macOS
@@ -78,7 +78,7 @@ kubectl proxy
 
 Kubernetes UI sayfasına şu adresten ulaşabilirsiniz: `http://localhost:8001/ui`.
 
-Daha fazla bilgi için bkz: [Kubernetes hızlı başlangıç](http://kubernetes.io/docs/user-guide/quick-start/).
+Daha fazla bilgi için [Kubernetes Hızlı Başlangıç](http://kubernetes.io/docs/user-guide/quick-start/).
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>DC/OS veya Swarm kümesine bağlanma
 

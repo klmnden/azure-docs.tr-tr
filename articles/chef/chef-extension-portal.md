@@ -9,10 +9,10 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563889"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Azure portalından Chef İstemcisi'ni yükleme
@@ -74,7 +74,7 @@ Bu bölümde, bir Linux makine oluşturmak için öncelikle Azure portalını ku
 
      ![Bir sanal makine için bir uzantı eklemek için Add uzantı seçin](./media/chef-extension-portal/add-vm-add-extension.png)
 
-1. Üzerinde **yeni kaynak** sekmesinde **Linux Chef uzantısı (1.2.3-Beta)**.
+1. Üzerinde **yeni kaynak** sekmesinde **Linux Chef uzantısı (1.2.3-Beta)** .
 
      ![Chef, Linux ve Windows sanal makineleri için uzantıları sahip](./media/chef-extension-portal/select-linux-chef-extension.png)
 
@@ -82,7 +82,7 @@ Bu bölümde, bir Linux makine oluşturmak için öncelikle Azure portalını ku
 
 1. Üzerinde **uzantı yükleme** sekmesinde, aşağıdaki değerleri belirtin ve ardından **Tamam**.
 
-    - **Chef sunucu URL'si** -Örneğin, kuruluş adını içeren Chef sunucu URL'si girin *https://api.chef.io/organization/mycompany*.
+    - **Chef sunucu URL'si** -Örneğin, kuruluş adını içeren Chef sunucu URL'si girin *https://api.chef.io/organization/mycompany* .
     - **Chef düğüm adı** -Chef düğüm adı girin. Bu, herhangi bir değer olabilir.
     - **Çalıştırma listesi** -makineye eklenir Chef çalıştırma listesi girin. Bu boş bırakılabilir.
     - **İstemci adı doğrulama** -Chef doğrulama istemci adı girin. Örneğin, *tarcher Doğrulayıcı*.

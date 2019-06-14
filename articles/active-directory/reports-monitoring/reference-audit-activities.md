@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285480"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD denetim etkinliği başvurusu
@@ -66,10 +66,10 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Erişim Gözden Geçirmeleri|Erişim Gözden Geçirmesini Güncelleştirme|
 |Erişim Gözden Geçirmeleri|Azure AD erişim gözden geçirmeleri ekleme durumunu güncelleştirme|
 |Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi posta bildirimi ayarlarını güncelleştirme|
-|Erişim Gözden Geçirmeleri|Erişim gözden geçirme yineleme sayısı ayarını güncelleştir|
-|Erişim Gözden Geçirmeleri|Erişim gözden geçirme gün cinsinden yineleme sayısı ayarını güncelleştir|
-|Erişim Gözden Geçirmeleri|Erişim gözden geçirme yineleme bitiş türü ayarını güncelleştir|
-|Erişim Gözden Geçirmeleri|Erişim gözden geçirme yineleme türü ayarını güncelleştir|
+|Erişim Gözden Geçirmeleri|Güncelleştirme erişim gözden geçirme yineleme sayısı ayarını|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi yineleme süresi gün sayısını güncelleştirme|
+|Erişim Gözden Geçirmeleri|Güncelleştirme erişim gözden geçirme yineleme bitiş türü ayarını|
+|Erişim Gözden Geçirmeleri|Güncelleştirme erişim gözden geçirme yineleme türü ayarını|
 |Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi anımsatıcı ayarlarını güncelleştirme|
 |Erişim Gözden Geçirmeleri|Program güncelleştirme|
 |Erişim Gözden Geçirmeleri|İstek onayını güncelleştirme|
@@ -518,10 +518,10 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Grup Yönetimi|İstek onayı isteğini gözden geçirme|
 |Grup Yönetimi|Erişim Gözden Geçirmesini Güncelleştirme|
 |Grup Yönetimi|Erişim gözden geçirmesi posta bildirimi ayarlarını güncelleştirme|
-|Grup Yönetimi|Erişim gözden geçirme yineleme sayısı ayarını güncelleştir|
-|Grup Yönetimi|Erişim gözden geçirme gün cinsinden yineleme sayısı ayarını güncelleştir|
-|Kullanıcı Yönetimi|Erişim gözden geçirme yineleme bitiş türü ayarını güncelleştir|
-|Kullanıcı Yönetimi|Erişim gözden geçirme yineleme türü ayarını güncelleştir|
+|Grup Yönetimi|Güncelleştirme erişim gözden geçirme yineleme sayısı ayarını|
+|Grup Yönetimi|Erişim gözden geçirmesi yineleme süresi gün sayısını güncelleştirme|
+|Kullanıcı Yönetimi|Güncelleştirme erişim gözden geçirme yineleme bitiş türü ayarını|
+|Kullanıcı Yönetimi|Güncelleştirme erişim gözden geçirme yineleme türü ayarını|
 
 
 

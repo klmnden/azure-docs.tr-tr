@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
 ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123540"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Uç nokta kota anahtarlarını yönetmek için Microsoft Azure Traffic Manager'ı kullanma
@@ -100,7 +100,7 @@ Doğu ABD Traffic Manager profili oluşturmak için birkaç adım vardır: profi
     |Yapılandırma parametresi|Değişken adı veya değeri|Amaç|
     |--|--|--|
     |-Uçnoktaadı|luıs Doğu endpoint|Profili altında görüntülenen uç nokta adı|
-    |-TrafficManagerProfile|$eastprofile|1. adımda oluşturduğunuz profili nesnesini kullanın|
+    |-TrafficManagerProfile|$eastprofile|1\. adımda oluşturduğunuz profili nesnesini kullanın|
     |-Type|ExternalEndpoints|Daha fazla bilgi için [Traffic Manager uç noktası][traffic-manager-endpoints] |
     |-Hedef|eastus.api.cognitive.microsoft.com|LUIS uç noktası için etki alanı budur.|
     |-EndpointLocation|"eastus"|Uç nokta bölgesi|
@@ -169,7 +169,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
     |Yapılandırma parametresi|Değişken adı veya değeri|Amaç|
     |--|--|--|
     |-Uçnoktaadı|luıs Batı endpoint|Profili altında görüntülenen uç nokta adı|
-    |-TrafficManagerProfile|$westprofile|1. adımda oluşturduğunuz profili nesnesini kullanın|
+    |-TrafficManagerProfile|$westprofile|1\. adımda oluşturduğunuz profili nesnesini kullanın|
     |-Type|ExternalEndpoints|Daha fazla bilgi için [Traffic Manager uç noktası][traffic-manager-endpoints] |
     |-Hedef|westus.api.cognitive.microsoft.com|LUIS uç noktası için etki alanı budur.|
     |-EndpointLocation|"westus"|Uç nokta bölgesi|
@@ -308,7 +308,7 @@ Batı ABD Traffic Manager profili oluşturmak için aynı adımları izleyin: pr
     Başarılı yanıt aynı yanıt olarak 3. adım:.
 
 ### <a name="powershell-variables"></a>PowerShell değişkenleri
-Önceki bölümlerde üç PowerShell değişkenleri oluşturulan: `$eastprofile`, `$westprofile`, `$parentprofile`. Bu değişkenler, Traffic Manager yapılandırması sonuna doğru kullanılır. Değişkenleri oluşturmamayı seçtiniz veya için veya PowerShell pencerenizi zaman aşımına, PowerShell cmdlet'ini kullanabilirsiniz  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)**, profili yeniden alın ve atamak için bir değişken. 
+Önceki bölümlerde üç PowerShell değişkenleri oluşturulan: `$eastprofile`, `$westprofile`, `$parentprofile`. Bu değişkenler, Traffic Manager yapılandırması sonuna doğru kullanılır. Değişkenleri oluşturmamayı seçtiniz veya için veya PowerShell pencerenizi zaman aşımına, PowerShell cmdlet'ini kullanabilirsiniz  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** , profili yeniden alın ve atamak için bir değişken. 
 
 Açılı ayraçlar öğeleri değiştirin `<>`, her gereksinim duyduğunuz üç profil için doğru değerlerle. 
 

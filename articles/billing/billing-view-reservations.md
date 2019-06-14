@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369225"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Azure portalında Azure rezervasyonların
@@ -49,7 +49,7 @@ Rezervasyon kapsamı değiştirmeniz gerekiyorsa, bölünmüş bir ayırma veya 
 Azure portalında ayırma işlemleri görüntülemek için
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. **Maliyet Yönetimi + Faturalama** araması yapın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
 
     ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-view-reservation/portal-cm-billing-search.png)
 
@@ -85,6 +85,6 @@ Kullanımını anlayın:
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

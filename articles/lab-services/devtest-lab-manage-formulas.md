@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60562602"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs formülleri yönetme
@@ -44,7 +44,7 @@ Aşağıdaki adımlar özel bir görüntü, Market görüntüsü ya da başka bi
 
 3. İstenen Laboratuvar labs listesinden seçin.  
 
-4. Laboratuvar sayfasında seçin **formülleri (yeniden kullanılabilir tabanları)**.
+4. Laboratuvar sayfasında seçin **formülleri (yeniden kullanılabilir tabanları)** .
    
     ![Formül menüsü](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
@@ -102,7 +102,7 @@ Bir formül değiştirmek için aşağıdaki adımları izleyin:
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 2. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 3. İstenen Laboratuvar labs listesinden seçin.  
-4. Laboratuvar sayfasında seçin **formülleri (yeniden kullanılabilir tabanları)**.
+4. Laboratuvar sayfasında seçin **formülleri (yeniden kullanılabilir tabanları)** .
    
     ![Formül menüsü](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Üzerinde **Laboratuvar formülleri** sayfasında, değiştirmek istediğiniz formülü seçin.

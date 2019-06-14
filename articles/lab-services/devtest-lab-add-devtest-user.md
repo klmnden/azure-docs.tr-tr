@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311429"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs'de sahibini ve kullanıcıları ekleme
@@ -32,7 +32,7 @@ Azure DevTest labs'deki erişim tarafından denetlenir [Azure rol tabanlı Acces
 Bir kullanıcı atayabilir üç ana rolü vardır:
 
 * Sahip
-* DevTest Labs Kullanıcısı
+* DevTest Labs kullanıcısı
 * Katılımcı
 
 Aşağıdaki tabloda, bu rollerin her birini kullanıcılar tarafından gerçekleştirilen eylemleri gösterir:

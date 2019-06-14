@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237830"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure tanılama 1.2 yapılandırma şeması
@@ -112,7 +112,7 @@ Toplanacak telemetri verilerini için yapılandırma ayarlarını tanımlar. Aş
 |**DiagnosticInfrastructureLogs**|Azure tanılama tarafından oluşturulan günlüklerin toplanmasını etkinleştirin. Tanılama Altyapısı günlükleri, tanılama sistem gidermek için kullanışlıdır. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** -toplanan günlüklerde en düşük önem derecesi yapılandırır.<br /><br /> -                     **scheduledTransferPeriod** -zamanlanmış aktarmalarıyla depolama arasındaki aralığı ve en yakın dakikaya yuvarlanır. Değer bir [XML "Süresi veri türü."](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**Dizinler**|Bir dizin, IIS başarısız istek günlüklerine erişme ve/veya IIS günlükler içeriğini toplanmasını etkinleştirir. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -zamanlanmış aktarmalarıyla depolama arasındaki aralığı ve en yakın dakikaya yuvarlanır. Değer bir [XML "Süresi veri türü."](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**EtwProviders**|EventSource ETW olayları toplamayı yapılandırır ve/veya ETW bildirim alarak sağlayıcıları.|  
-|**Ölçümler**|Bu öğe, hızlı sorgular için optimize edilmiş performans sayacı tablo oluşturmanıza olanak sağlar. Tanımlanan her performans sayacı **PerformanceCounters** öğesi performans sayacı tablonun yanı sıra ölçüm tablosunda depolanır. Gerekli öznitelik:<br /><br /> **ResourceId** -bu Azure tanılama dağıttığınız sanal makinenin kaynak kimliğidir. Alma **ResourceId** gelen [Azure portalında](https://portal.azure.com). Seçin **Gözat** -> **kaynak grupları** -> **< adı\>**. Tıklayın **özellikleri** kutucuğuna ve değeri Şuradan Kopyala: **kimliği** alan.|  
+|**Ölçümler**|Bu öğe, hızlı sorgular için optimize edilmiş performans sayacı tablo oluşturmanıza olanak sağlar. Tanımlanan her performans sayacı **PerformanceCounters** öğesi performans sayacı tablonun yanı sıra ölçüm tablosunda depolanır. Gerekli öznitelik:<br /><br /> **ResourceId** -bu Azure tanılama dağıttığınız sanal makinenin kaynak kimliğidir. Alma **ResourceId** gelen [Azure portalında](https://portal.azure.com). Seçin **Gözat** -> **kaynak grupları** ->  **< adı\>** . Tıklayın **özellikleri** kutucuğuna ve değeri Şuradan Kopyala: **kimliği** alan.|  
 |**PerformanceCounters**|Performans sayaçlarını toplamayı etkinleştirir. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -zamanlanmış aktarmalarıyla depolama arasındaki aralığı ve en yakın dakikaya yuvarlanır. Değer bir [XML "Süresi veri türü".](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**WindowsEventLog**|Windows olay günlükleri, koleksiyonunu etkinleştirir. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -zamanlanmış aktarmalarıyla depolama arasındaki aralığı ve en yakın dakikaya yuvarlanır. Değer bir [XML "Süresi veri türü".](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 

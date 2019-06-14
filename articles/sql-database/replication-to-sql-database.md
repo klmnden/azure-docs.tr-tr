@@ -13,10 +13,10 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646811"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL veritabanı tek ve havuza alınmış veritabanlarını çoğaltma
@@ -107,7 +107,7 @@ Aşağıdaki seçenekler, Azure SQL veritabanı abonelikler için desteklenmez:
 Bir yayın ve gönderme temelli bir abonelik oluşturun. Daha fazla bilgi için bkz.
   
 - [Bir yayın oluşturun](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Bir itme aboneliği oluşturmak](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) abonesi olarak Azure SQL veritabanı sunucu adını kullanarak (örneğin **N'azuresqldbdns.database.windows.net'**) ve hedef veritabanı olarak (Azure SQL veritabanı adı örnek **AdventureWorks**).  
+- [Bir itme aboneliği oluşturmak](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) abonesi olarak Azure SQL veritabanı sunucu adını kullanarak (örneğin **N'azuresqldbdns.database.windows.net'** ) ve hedef veritabanı olarak (Azure SQL veritabanı adı örnek **AdventureWorks**).  
 
 ## <a name="see-also"></a>Ayrıca Bkz.  
 

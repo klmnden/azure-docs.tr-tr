@@ -9,10 +9,10 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: ec7033719316bb186408ea78f6dabac43c383491
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60519301"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Oluşturma ve Azure IOT Central uygulamanızda bir işi çalıştırma
@@ -76,7 +76,7 @@ Bir işi oluşturulduktan sonra **durumu** sütun güncelleştirmeleriyle işin 
 | -------------------- | ------------------------------------------------------- |
 | Tamamlandı            | Tüm cihazlarda bu işlemi çalıştırıldı.              |
 | Başarısız               | Bu iş, başarısız oldu ve cihazlarda tam olarak yürütülür.  |
-| Beklemede              | Bu proje, henüz cihazlarda yürütme başlamış edilmemiş.         |
+| Bekleniyor              | Bu proje, henüz cihazlarda yürütme başlamış edilmemiş.         |
 | Çalışıyor              | Bu iş şu anda cihazlarda yürütüyor.             |
 | Durduruldu              | Bu işlem, bir kullanıcı tarafından el ile durduruldu.           |
 
@@ -95,7 +95,7 @@ Durum iletisi işinde cihazlar için genel bir bakış tarafından izlenir. Aşa
 | -------------------- | ----------------------------------------------------------------------------- |
 | Tamamlandı            | Bu cihaz üzerinde işlemi çalıştırıldı.                                     |
 | Başarısız               | Bu cihaz üzerinde çalıştırmak işi başarısız oldu. Hata iletisi, daha fazla bilgi gösterir.  |
-| Beklemede              | İşi henüz bu cihaz üzerinde yürütülen edilmemiş.                                   |
+| Bekleniyor              | İşi henüz bu cihaz üzerinde yürütülen edilmemiş.                                   |
 
 > [!NOTE]
 > Cihaz silinmişse, cihaz seçemezsiniz ve cihaz kimliği ile silinmiş görüntüler

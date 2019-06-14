@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25e67a5a6c3abebbac2e0489ff636ca1457b62ea
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476277"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807722"
 ---
 Sanal makineye (VM) bağlı bir veri diskine ihtiyacınız olmadığında bunu kolayca ayırabilirsiniz. VM’den bir diski ayırdığınızda disk depolama biriminden kaldırılmaz. Disk üzerinde var olan verileri yeniden kullanmak isterseniz bu verileri aynı VM’ye veya başka bir VM’ye yeniden ekleyebilirsiniz.  
 
@@ -19,7 +19,7 @@ Sanal makineye (VM) bağlı bir veri diskine ihtiyacınız olmadığında bunu k
 ## <a name="find-the-disk"></a>Diski bulma
 Bir diski VM’den ayırmadan önce LUN numarasını bulmanız gerekir. Bu numara ayrılacak disk için bir tanımlayıcıdır. Bunu yapmak için şu adımları uygulayın:
 
-1. Azure CLI’yi açın ve [Azure aboneliğinize bağlanın](/cli/azure/authenticate-azure-cli). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
+1. Azure CLI'yi açın ve [Azure aboneliğinize bağlanma](/cli/azure/authenticate-azure-cli). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
 2. VM'nize hangi disklerin bağlı olduğunu bulun. Aşağıdaki örnekte `myVM` adlı VM’nin diskleri listelenmiştir:
 
     ```azurecli

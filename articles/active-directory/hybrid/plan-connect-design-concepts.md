@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60382309"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Tasarım kavramları
@@ -175,7 +175,7 @@ Azure AD Connect consistencyguid içinde özelliği etkin dağıttığınız ve 
 
 ![Yeni dizinler için mevcut dağıtım ekleme](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 
-## <a name="azure-ad-sign-in"></a>Azure AD'de oturum açma
+## <a name="azure-ad-sign-in"></a>Azure AD oturum açma
 Şirket içi dizininizi Azure AD ile tümleştirme sırasında önemli olduğu şekilde kullanıcı eşitleme ayarlarını nasıl etkileyebileceğini anlaması için kimlik doğrulaması yapar. Azure AD userPrincipalName (UPN) kullanıcının kimliğini doğrulamak için kullanır. Bununla birlikte, kullanıcılarınızın eşitlediğinizde, dikkatli bir şekilde userPrincipalName değeri için kullanılacak özniteliği seçmeniz gerekir.
 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>UserPrincipalName özniteliği seçme

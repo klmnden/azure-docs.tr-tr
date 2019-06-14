@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: bwren
 ms.openlocfilehash: dc3a754bd1a9f689f4b24b9ee2c1e4cbc0611684
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60519759"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Azure İzleyici günlüklerine log Analytics günlük aramasından geçiş
@@ -49,10 +49,10 @@ Azure İzleyici günlüklerine geçerli sorguyu kaydetmek için seçmeniz **Kayd
 
 ![Günlüğü sorgusunu kaydedin](media/log-search-transition/save-query-logs.png)
 
-## <a name="saved-queries"></a>Kaydedilmiş sorgular
+## <a name="saved-queries"></a>Kaydedilmiş Sorgular
 Günlük araması'nda, kaydedilmiş sorgularınız için Eylem çubuğu öğesini kullanılabilen **kayıtlı aramalar**. Kaydedilen sorgularından Azure İzleyici günlüklerine erişim [sorgu Gezgini](../log-query/get-started-portal.md#save-queries).
 
-![Sorgu gezgini](media/log-search-transition/query-explorer.png)
+![Sorgu Gezgini](media/log-search-transition/query-explorer.png)
 
 ## <a name="drill-down-on-summarized-rows"></a>Özetlenen satırlarda detaya gitme
 Günlük araması'nda, söz konusu satırdaki ayrıntılı kayıtlarını listeler başka bir sorgu başlatmak için bir Özet sorguda bir satır tıklayabilirsiniz.
@@ -63,14 +63,14 @@ Azure İzleyici günlüklerine bu kayıtları döndürmek için sorguyu değişt
 
 ![Azure İzleyici, ayrıntılı günlüğe kaydeder](media/log-search-transition/drilldown-logs.png)
 
-## <a name="take-action"></a>İşlem yap
+## <a name="take-action"></a>Eylem
 Günlük araması'nda, yapabilecekleriniz [runbook başlatma](take-action.md) seçerek bir arama sonuç **harekete**.
 
-![İşlem yap](media/log-search-transition/take-action-log-search.png)
+![Eylem](media/log-search-transition/take-action-log-search.png)
 
 Azure İzleyici günlüklerine [günlük sorgudan bir uyarı oluşturmak](../platform/alerts-log.md). Uyarıya yanıt olarak çalıştırılacak bir veya daha fazla Eylemler ile bir eylem grubu yapılandırın.
 
-![Eylem grubu](media/log-search-transition/action-group.png)
+![eylem grubu](media/log-search-transition/action-group.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326297"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip bilet ile çalışmak için genel kılavuz örnek SaaS uygulamaları
@@ -35,7 +35,7 @@ Zip dosyaları bir dış kaynaktan indirilip ayıklanan zaman yürütülebilir i
 3. Tıklayın **Download ZIP** ve dosyayı kaydedin.
 4. Zip dosyasını sağ tıklatın ve seçin **özellikleri**. Zip dosya adı, depo adına karşılık gelir. (ör. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. Üzerinde **genel** sekmesinde **Engellemeyi Kaldır**.
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**'ı tıklatın.
 7. Dosyaları ayıklayın.
 
 Betikleri yerleştirilir *... \\Öğrenme modülleri* klasör.
@@ -90,7 +90,7 @@ Başarılı tanıtım bağlantısı sağlamak için tüm sunucularda yüklü bir
     - **Tek başına uygulama:** sunucuları tek tek Kiracı (ör. *contosoconcerthall -&lt;kullanıcı&gt;. database.windows.net*) 
     - **Kiracı başına veritabanı:** *tenants1-dpt -&lt;kullanıcı&gt;. database.windows.net*
     - **Çok kiracılı veritabanı:** *tenants1-mt -&lt;kullanıcı&gt;. database.windows.net* 
-2. **Bağlan** > **Veritabanı Altyapısı...**:
+2. **Bağlan** > **Veritabanı Altyapısı...** :
 
    ![katalog sunucusu seçeneğine tıklayın](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 

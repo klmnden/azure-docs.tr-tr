@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538147"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>İstek ve yanıt bileşenleri ile çalışmaya başlama
@@ -86,9 +86,9 @@ Aşağıdaki tablo tetikleyici ve eylem için giriş alanlarını açıklar ve i
 #### <a name="request-trigger"></a>İstek tetikleyicisi
 Gelen HTTP isteği tetikleyicisinden için giriş alanını verilmiştir.
 
-| Görünen ad | Özellik adı | Açıklama |
+| Display name | Özellik adı | Açıklama |
 | --- | --- | --- |
-| JSON şeması |Şema |HTTP istek gövdesi JSON şeması |
+| JSON şeması |schema |HTTP istek gövdesi JSON şeması |
 
 <br>
 
@@ -104,11 +104,11 @@ Gelen HTTP isteği tetikleyicisinden için giriş alanını verilmiştir.
 #### <a name="response-action"></a>Yanıt eylemi
 HTTP yanıt eylemi için giriş alanlarını verilmiştir. A * gerekli alan olduğu anlamına gelir.
 
-| Görünen ad | Özellik adı | Açıklama |
+| Display name | Özellik adı | Açıklama |
 | --- | --- | --- |
 | Durum kodu * |statusCode |HTTP durum kodu |
 | Üst bilgiler |Üst bilgileri |Tüm yanıt üstbilgilerini eklemek için bir JSON nesnesi |
-| Gövde |body |Yanıt gövdesi |
+| Gövde |Gövde |Yanıt gövdesi |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Şimdi, platformu deneyin ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Diğer bağlayıcıları logic apps'teki bakarak keşfedebilirsiniz bizim [API listesi](apis-list.md).

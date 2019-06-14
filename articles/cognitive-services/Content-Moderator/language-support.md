@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: cf1dc352068747ab2f77beec8802407d15699d17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607160"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Content Moderator API'si için dil desteği
@@ -29,100 +29,100 @@ ms.locfileid: "60607160"
 | -------------------- |-------------|--------|---------------------|---|
 | Arapça (Romanized)   | Afrikaner dili   | Arapça   | Arapça | |
 | Bali dili | Arnavutça | Çince (Basitleştirilmiş)    | Danca | |
-| Bengali | Amhara dili | Geleneksel Çince     | Felemenkçe | |
+| Bengali | Amhara dili | seçenekleri yerine     | Felemenkçe | |
 | Bugi dili | Arapça | Çekçe                     | Türkçe | |
 | Buhid | Ermenice | Danca                     | Fince | |
-| Carian | Assam dili | Felemenkçe                     | Fransızca  | |
-| Çince (Basitleştirilmiş) | Azerice | Türkçe  | Yunanca (modern) | |
-| Geleneksel Çince | Bangla - Bangladeş | Fince  | İtalyanca | |
-| Church (Slavca) | Bangla - Hindistan | Fransızca      | Korece | |
-| Koptikleri | Bask dili | Almanca                       | Norveççe | |
-| Çekçe |  Belarusça | Yunanca (modern)         | Lehçe | |
+| Carian | Assam dili | Felemenkçe                     | Fransızca | |
+| Çince (Basitleştirilmiş) | Azerbaycan | Türkçe  | Yunanca (modern) | |
+| seçenekleri yerine | Bangla - Bangladeş | Fince  | İtalyanca | |
+| Church (Slavca) | Bangla - Hindistan | Fransızca     | Korece | |
+| Koptikleri | Bask dili | Almanca                      | Norveççe | |
+| Çekçe |  Beyaz Rusça | Yunanca (modern)         | Lehçe | |
 | Dhivehi | Boşnakça - Kiril | Macarca      | Portekizce | |
 | Felemenkçe | Boşnakça - Latin | İtalyanca             | Rumence | |
 | Türkçe | (Kreyolu) | Bretonca [GeoPol olmayan] | Japonca  | Rusça |
 | Farsça | Bulgarca | Korece                        | Slovakça | |
-| Fransızca  | Katalanca | Norveççe                        | İspanyolca  ||
-| Almanca  | Orta Kürtçe | Lehçe        | Türkçe | |
+| Fransızca | Katalanca | Norveççe                        | İspanyolca ||
+| Almanca | Orta Kürtçe | Lehçe        | Türkçe | |
 | Yunanca | Çeroki dili | Portekizce | | |
-| Haiti Kreyolu | Çince (Basitleştirilmiş) | Rumence | | |
+| Haitian | Çince (Basitleştirilmiş) | Rumence | | |
 | İbranice | Çince (Geleneksel) - Hong Kong ÖİB | Rusça | | |
 | Hintçe | Çince (Geleneksel) - Tayvan | Sırpça Kiril | | |
 | Hmong | Hırvatça | Sırpça Latin | | |
 | Macarca | Çekçe | Slovakça | | |
-| İtalyanca | Danca | İspanyolca  | | |
-| Japonca | Dari dili | İsveççe | | |
+| İtalyanca | Danca | İspanyolca | | |
+| Japonca | Dari | İsveççe | | |
 | Korece | Felemenkçe | Türkçe | | |
 | Kurdish (Arabic) | Türkçe | | | |
 | Kürtçe (Latin) | Estonca | | | |
 | Lepça dili | Filipin dili | | | |
 | Limbu dili | Fince | | | |
-| Lu | Fransızca  | | | |
+| Lu | Fransızca | | | |
 | Lycian | Galiçya dili | | | |
 | Lydian | Gürcüce | | | |
-| Mycenaean (Yunanca) | Almanca  | | | |
+| Mycenaean (Yunanca) | Almanca | | | |
 | Nko | Yunanca | | | |
-| Norveççe (Bokmål) | Gucerat dili | | | |
-| Norveççe (Nynorsk) |  Hausa dili | | | |
+| Norveççe (Bokmal) | Gucerat dili | | | |
+| Norveç dili (Nynorsk) |  Hausa | | | |
 | Eski (Farsça) | İbranice | | | |
-| Peştuca | Hintçe | | | |
+| Pashto | Hintçe | | | |
 | Lehçe | Macarca | | | |
 | Portekizce | İzlanda dili | | | |
-| Pencap dili | Igbo dili | | | |
+| Pencap dili | İgbo dili | | | |
 | Rejang | Endonezya dili | | | |
 | Rusça | İnuit dili | | | |
 | Santali | İrlanda dili | | | |
-| Sasak | Zosa dili | | | |
+| Sasak | Zosa Dili | | | |
 | Saurashtra | Zulu dili | | | |
 | Sırpça (Kiril) | İtalyanca | | | |
 | Sırpça (Latin) | Japonca | | | |
-| Sinhali dili | Kannada dili | | | |
+| Sinhala | Kannada dili | | | |
 | Slovence | Kazakça | | | |
-| İspanyolca  | Khmer dili | | | |
+| İspanyolca | Khmer | | | |
 | İsveççe | Kiçe dili | | | |
-| Sylheti | Kinyarvanda dili | | | |
+| Sylheti | Kinyarwanda | | | |
 | Süryanice | Svahili dili | | | |
-| Tagbanwa | Konkan dili | | | |
+| Tagbanwa | Konkani dili | | | |
 | Tai (Nua) | Korece | | | |
 | Tamashek | Kırgızca | | | |
 | Türkçe | Lao dili | | | |
 | Ugaritic | Letonca | | | |
 | Özbekçe (Kiril) | Litvanca | | | |
 | Özbekçe (Latin) | Lüksemburg dili | | | |
-| Vai | Makedonca | | | |
-| Yi dili | Malay dili | | | |
+| Vai | Makedonya | | | |
+| Yi | Malay dili | | | |
 | Zhuang, Chuang | Malayalam dili | | | |
 | | Malta dili | | | |
-| | Maori dili | | | |
-| | Marathi dili | | | |
+| | Maori | | | |
+| | Marathi | | | |
 | | Moğolca | | | |
 | | Nepal dili | | | |
 | | Norwegian (Bokmål) | | | |
-| | Norveççe (Nynorsk) | | | |
+| | Norveç dili (Nynorsk) | | | |
 | | Odia | | | |
-| | Peştuca | | | |
+| | Pashto | | | |
 | | Farsça | | | |
 | | Lehçe | | | |
 | | Portekizce - Brezilya | | | |
 | | Portekizce - Portekiz | | | |
 | | Pulaar | | | |
 | | Pencap dili | | | |
-| | Pencap dili (Pakistan) | | | |
+| | Punjabi (Pakistan) | | | |
 | | Keçuva dili (Peru) | | | |
 | | Rumence | | | |
 | | Rusça | | | |
-| | İskoçya Gaelcesi | | | |
+| | Scottish Gaelic | | | |
 | | Sırpça (Kiril) | | | |
 | | Sırpça (Kiril, Bosna ve Hersek) | | | |
 | | Sırpça (Latin) | | | |
 | | Sesotho | | | |
 | | Kuzey Sesotho dili | | | |
-| | Setsvana dili | | | |
+| | Setswana | | | |
 | | Sindhi dili | | | |
-| | Sinhali dili | | | |
+| | Sinhala | | | |
 | | Slovakça | | | |
 | | Slovence | | | |
-| | İspanyolca  | | | |
+| | İspanyolca | | | |
 | | İsveççe | | | |
 | | Tacikçe dili | | | |
 | | Tamil dili | | | |
@@ -140,4 +140,4 @@ ms.locfileid: "60607160"
 | | Vietnam dili | | | |
 | | Gaelce | | | |
 | | Volof dili | | | |
-| | Yorubaca | | | |
+| | Yoruba | | | |

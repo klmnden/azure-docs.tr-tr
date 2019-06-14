@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: f79ba9ae60454d4e73c914fc1c8af675a6d07d5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608862"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Azure güvenlik ve uyumluluk planı - 800-171 NIST SP için veri analizi
@@ -85,7 +85,7 @@ Her nsg belirli bağlantı noktalarına sahiptir ve çözüm güvenli bir şekil
 
 **Alt ağlar**: Her alt ağ, karşılık gelen NSG ile ilişkilidir.
 
-### <a name="data-in-transit"></a>Aktarımdaki verileri
+### <a name="data-in-transit"></a>Aktarım durumundaki veriler
 Azure, Azure veri merkezleri gelen ve giden tüm iletişimi varsayılan olarak şifreler. Tüm depolama için Azure portalı üzerinden HTTPS gerçekleşir.
 
 ### <a name="data-at-rest"></a>Bekleyen veriler

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296451"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect kullanıcı oturum açma seçenekleri
@@ -126,9 +126,9 @@ Azure AD oturum açma deneyimini, Azure AD için Azure AD dizininde doğrulanmı
 Azure AD Connect, bunları Azure AD'de özel etki alanı ile eşleştirmeye çalışır ve etki alanları için tanımlanan UPN sonekleri listeler. Ardından, yapılması gereken uygun eylem yardımcı olur.
 Azure AD oturum açma sayfasının, her sonek karşı karşılık gelen durumunu görüntüler ve şirket içi Active Directory için tanımlanan UPN sonekleri listeler. Durum değerleri aşağıdakilerden biri olabilir:
 
-| Durum | Açıklama | Eylem gerekli |
+| Eyalet | Açıklama | Eylem gerekli |
 |:--- |:--- |:--- |
-| Doğrulandı |Azure AD Connect, Azure AD'de doğrulanmış etki alanı için eşleşen bir bulundu. Bu etki alanı için tüm kullanıcılar, şirket içi kimlik bilgilerini kullanarak oturum açabilirsiniz. |Herhangi bir eylemde bulunmanız gerekmez. |
+| doğrulandı |Azure AD Connect, Azure AD'de doğrulanmış etki alanı için eşleşen bir bulundu. Bu etki alanı için tüm kullanıcılar, şirket içi kimlik bilgilerini kullanarak oturum açabilirsiniz. |Eylem gerekmiyor. |
 | Doğrulanmadı |Azure AD Connect, Azure AD'de eşleşen özel etki alanı bulundu, ancak doğrulanmış değil. Bu etki alanı kullanıcılarının UPN soneki, varsayılan değiştirilecek. onmicrosoft.com sonekini etki alanını doğruladıysanız değil eşitlemeden sonra. | [Azure AD'de özel etki alanını doğrulayın.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | Ekli değil |Azure AD Connect için UPN soneki corresponded özel bir etki alanı bulunamadı. Bu etki alanı kullanıcılarının UPN soneki, varsayılan değiştirilecek. onmicrosoft.com sonekini etki alanı eklenmiş değildir ve Azure'da doğrulanır. | [Ekleme ve için UPN son ekine karşılık gelen bir özel etki alanını doğrulayın.](../fundamentals/add-custom-domain.md) |
 
@@ -155,27 +155,27 @@ Biz şirket içi dizin örneğin UPN--bir parçası olarak kullanılan UPN sonek
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Hızlı ayarlar/parola karması eşitleme
 
-| Durum | Azure oturum açma kullanıcı deneyimine etkisi |
+| Eyalet | Azure oturum açma kullanıcı deneyimine etkisi |
 |:---:|:--- |
 | Ekli değil |Bu durumda, herhangi bir özel etki alanı contoso.com için Azure AD dizininde eklendi. UPN ile şirket içi son ekine sahip kullanıcılar @contoso.com şirket içi UPN Azure'da oturum açarken kullandığınız mümkün olmayacaktır. Bunlar bunun yerine varsayılan Azure AD dizini için son eki ekleyerek bunları Azure AD tarafından sağlanır yeni bir UPN kullanmanız gerekir. Örneğin, Azure AD directory azurecontoso.onmicrosoft.com kullanıcılara, sonra şirket içi kullanıcı eşitleme user@contoso.com bir UPN ile verilen user@azurecontoso.onmicrosoft.com. |
 | Doğrulanmadı |Bu durumda, Azure AD dizininde eklenen bir özel etki alanı contoso.com sahibiz. Ancak, henüz doğrulanır. Etki alanı doğrulamadan kullanıcıları eşitleme ile devam edin, ardından kullanıcıları yeni UPN Azure AD tarafından olduğu gibi "Eklenmedi" senaryosunda atanır. |
-| Doğrulandı |Bu durumda, zaten eklenmiş olan ve UPN soneki için Azure ad'deki doğrulanmış özel etki alanı contoso.com sahibiz. Kullanıcılar, şirket içi kullanıcı asıl adı, örneğin kullanmanız mümkün olacaktır user@contoso.com, Azure AD'ye eşitlenmiş sonra Azure'da oturum açın. |
+| doğrulandı |Bu durumda, zaten eklenmiş olan ve UPN soneki için Azure ad'deki doğrulanmış özel etki alanı contoso.com sahibiz. Kullanıcılar, şirket içi kullanıcı asıl adı, örneğin kullanmanız mümkün olacaktır user@contoso.com, Azure AD'ye eşitlenmiş sonra Azure'da oturum açın. |
 
 ###### <a name="ad-fs-federation"></a>AD FS federasyon
 Varsayılan bir Federasyon oluşturulamıyor. onmicrosoft.com etki alanı adını Azure ad'deki veya doğrulanmamış bir özel etki alanını Azure AD'de. İle Federasyon oluşturmak için doğrulanmamış bir etki alanını seçerseniz Azure AD Connect Sihirbazı çalıştırırken, daha sonra Azure AD Connect, etki alanı için DNS'İNİZDE barındırıldığı oluşturulması gereken kayıtlarla ister. Daha fazla bilgi için [Federasyon için seçilen Azure AD etki alanını doğrulama](how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
 Kullanıcı oturum açma seçeneğini seçtiyseniz, **AD FS ile Federasyon**, Azure AD'de bir Federasyon oluşturmaya devam etmek için özel bir etki alanına sahip olmalıdır. Bizim tartışma için bu Azure AD dizininde eklenen bir özel etki alanı contoso.com olmalıdır anlamına gelir.
 
-| Durum | Azure oturum açma deneyimini kullanıcı üzerinde etkisi |
+| Eyalet | Azure oturum açma deneyimini kullanıcı üzerinde etkisi |
 |:---:|:--- |
 | Ekli değil |Bu durumda, Azure AD Connect, Azure AD directory UPN soneki contoso.com için eşleşen özel etki alanı bulunamadı. Şirket içi UPN ile AD FS kullanarak oturum açmalarını gerekiyorsa, özel etki alanı contoso.com eklemeniz gerekir (gibi user@contoso.com). |
 | Doğrulanmadı |Bu durumda, Azure AD Connect ile nasıl daha sonraki bir aşamada, etki alanını doğrulayabilmesi uygun ayrıntı ister. |
-| Doğrulandı |Bu durumda, başka bir eylem olmadan yapılandırmasıyla devam gidebilirsiniz. |
+| doğrulandı |Bu durumda, başka bir eylem olmadan yapılandırmasıyla devam gidebilirsiniz. |
 
 ## <a name="changing-the-user-sign-in-method"></a>Kullanıcı oturum açma yöntemini değiştirme
 Azure AD Connect Sihirbazı ile ilk yapılandırmadan sonra Azure AD Connect içinde kullanılabilir olan görevler kullanarak, Federasyon, parola karması eşitleme veya doğrudan kimlik doğrulama kullanıcı oturum açma yöntemini değiştirebilirsiniz. Azure AD Connect Sihirbazı'nı yeniden çalıştırın ve gerçekleştirebileceğiniz görevler listesini görürsünüz. Seçin **değiştirme kullanıcı oturum açma** görevler listesinden.
 
-![Kullanıcı oturumunu değiştir](./media/plan-connect-user-signin/changeusersignin.png)
+![Kullanıcı oturum açma](./media/plan-connect-user-signin/changeusersignin.png)
 
 Sonraki sayfada, Azure AD için kimlik bilgilerini sağlamanız istenir.
 

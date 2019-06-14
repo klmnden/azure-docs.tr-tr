@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60527305"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure tanılama uzantısı yapılandırma şeması sürümleri ve geçmişi
@@ -21,7 +21,7 @@ Bu sayfa dizinlerinin Azure tanılama Uzantı Şeması sürümleri, Microsoft Az
 
 > [!NOTE]
 > Azure tanılama uzantısını performans sayaçları ve diğer istatistikleri toplamak için kullanılan bileşendir:
-> - Azure Sanal Makineler
+> - Azure sanal makineleri
 > - Sanal Makine Ölçek Kümeleri
 > - Service Fabric
 > - Cloud Services

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538252"
 ---
 # <a name="get-started-with-the-query-action"></a>Sorgu eylemi ile çalışmaya başlama
@@ -58,23 +58,23 @@ Bu bağlayıcıyı destekler eylemini ilgili ayrıntıları aşağıda verilmiş
 
 | Eylem | Açıklama |
 | --- | --- |
-| Diziyi filtrele |Bir dizideki her öğe için bir koşulu değerlendirir ve sonuçları döndürür |
+| Diziyi filtreleme |Bir dizideki her öğe için bir koşulu değerlendirir ve sonuçları döndürür |
 
 ## <a name="action-details"></a>Eylem ayrıntıları
 Sorgu eylemi olası tek bir eylem ile birlikte gelir. Aşağıdaki tablolar, gerekli ve isteğe bağlı giriş alanları için eylem ve eylemini kullanarak ile ilişkilendirilmiş ilgili çıkış ayrıntılarını açıklar.
 
-### <a name="filter-array"></a>Diziyi filtrele
+### <a name="filter-array"></a>Diziyi filtreleme
 Giden HTTP isteği yapan eylem için giriş alanlarını verilmiştir.
 A * gerekli alan olduğu anlamına gelir.
 
-| Görünen ad | Özellik adı | Açıklama |
+| Display name | Özellik adı | Açıklama |
 | --- | --- | --- |
-| Gelen * |başlangıç |Filtrelenecek dizi |
-| Koşul * |nereye |Her öğe için değerlendirilecek koşulu |
+| Gelen * |from |Filtrelenecek dizi |
+| Koşul * |Burada |Her öğe için değerlendirilecek koşulu |
 
 <br>
 
-### <a name="output-details"></a>Çıkış ayrıntıları
+### <a name="output-details"></a>Çıkış Ayrıntıları
 HTTP yanıtının çıkış ayrıntılarını aşağıda verilmiştir.
 
 | Özellik adı | Veri türü | Açıklama |

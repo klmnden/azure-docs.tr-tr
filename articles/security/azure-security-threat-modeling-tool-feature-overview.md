@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588800"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Tehdit modelleme aracı özelliğine genel bakış
@@ -36,7 +36,7 @@ Aracı şu anda kullanılabilir özellikleri görmek için ekibimiz tarafından 
 
 ![Temel bir tehdit modeli](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-## <a name="navigation"></a>Gezinme
+## <a name="navigation"></a>Gezinti
 
 Yerleşik özellikler ele önce aracında bulunan ana bileşenleri gözden geçirelim.
 
@@ -62,7 +62,7 @@ Simgeleri kısayolları en üst düzey menüler şunlardır:
 | **açın** | Yeni bir dosya açar. |
 | **Kaydet** | Geçerli dosyaya kaydeder. |
 | **Tasarım** | Açılır **tasarım** modelleri oluşturabileceğiniz görünümü. |
-| **Çözümleme** | Tehditler ve bunların özelliklerini gösterir oluşturulur. |
+| **Analiz edin** | Tehditler ve bunların özelliklerini gösterir oluşturulur. |
 | **Diyagram ekleme** | Yeni bir diyagramda (Excel'de yeni sekmeler benzer) ekler. |
 | **Diyagram Sil** | Geçerli diyagrama siler. |
 | **Kes/kopyala/yapıştır** | Kopyalar, keser ve öğeleri yapıştırır. |
@@ -199,7 +199,7 @@ Oluşturulan her tehdit öncelik düzeyini değiştirebilirsiniz. Farklı renkle
 
 ![İş parçacığı özellikleri](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
-## <a name="reports"></a>Reports
+## <a name="reports"></a>Raporlar
 
 Önceliklerini değiştirmek ve oluşturulan her tehdit durumunu güncelleştirerek tamamladıktan sonra size dosyayı kaydedin ve/veya bir raporu yazdırın. Git **rapor** > **tam raporu oluşturma**. Rapor adı ve aşağıdaki görüntüye benzer bir şey görmeniz gerekir:
 

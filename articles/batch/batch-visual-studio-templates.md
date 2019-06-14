@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550095"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Batch çözümleri oluşturma sürecini hızlandıracak biçimde Visual Studio Proje şablonları kullanın.
@@ -89,7 +89,7 @@ Bir iş yöneticisi, daha önce oluşturduğunuz çözüme eklemek için aşağ�
 
 1. Var olan çözümünüzü Visual Studio'da açın.
 2. Çözüm Gezgini'nde çözüme sağ tıklayın, **Ekle** > **yeni proje**.
-3. Altında **Visual C#**, tıklayın **bulut**ve ardından **Azure Batch İş Yöneticisi işi Ayırıcılı**.
+3. Altında **Visual C#** , tıklayın **bulut**ve ardından **Azure Batch İş Yöneticisi işi Ayırıcılı**.
 4. Uygulamanızı açıklayan ve bu projeyi İş Yöneticisi (örn.) tanımlayan bir ad yazın "LitwareJobManager").
 5. Projeyi oluşturmak için tıklayın **Tamam**.
 6. Son olarak, tüm başvurulan NuGet paketlerini yükleme ve değiştirmeye başlamadan önce projenin geçerli olduğunu doğrulamak için Visual Studio zorlamak için projeyi derleyin.
@@ -258,7 +258,7 @@ Bir görev işlemci, daha önce oluşturduğunuz çözüme eklemek için aşağ�
 
 1. Var olan çözümünüzü Visual Studio'da açın.
 2. Çözüm Gezgini'nde çözüme sağ tıklayın, **Ekle**ve ardından **yeni proje**.
-3. Altında **Visual C#**, tıklayın **bulut**ve ardından **Azure Batch görevi İşlemci**.
+3. Altında **Visual C#** , tıklayın **bulut**ve ardından **Azure Batch görevi İşlemci**.
 4. Uygulamanızı açıklayan ve bu projeyi (örn. görev işlemci olarak tanımlayan bir ad yazın "LitwareTaskProcessor").
 5. Projeyi oluşturmak için tıklayın **Tamam**.
 6. Son olarak, tüm başvurulan NuGet paketlerini yükleme ve değiştirmeye başlamadan önce projenin geçerli olduğunu doğrulamak için Visual Studio zorlamak için projeyi derleyin.

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587929"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition işlevleri
@@ -164,7 +164,7 @@ Aşağıdaki örnek döndürür `true`:
 "[contains(steps('foo').element1, 'key1')]"
 ```
 
-### <a name="length"></a>Uzunluğu
+### <a name="length"></a>length
 Bir dize, bir dizideki değerlerin sayısını veya bir nesnedeki anahtar sayısı karakter sayısını döndürür.
 
 #### <a name="example-1-string"></a>Örnek 1: dize
@@ -335,7 +335,7 @@ Aşağıdaki örnek döndürür `{"key1": "foobar"}`:
 "[take(steps('foo').element1, 1)]"
 ```
 
-### <a name="skip"></a>atla
+### <a name="skip"></a>Atla
 Belirtilen sayıda bir koleksiyondaki öğeleri atlar ve kalan öğeleri döndürür.
 
 #### <a name="example-1-string"></a>Örnek 1: dize
@@ -370,7 +370,7 @@ Aşağıdaki örnek döndürür `{"key2": "raboof"}`:
 ## <a name="logical-functions"></a>Mantıksal işlevler
 Bu işlevler koşullular içinde kullanılabilir. Bazı işlevler tüm JSON veri türlerini desteklemiyor olabilir.
 
-### <a name="equals"></a>şuna eşittir:
+### <a name="equals"></a>eşittir
 Döndürür `true` her iki parametre aynı türde ve değer varsa. Bu işlev, tüm JSON veri türlerini destekler.
 
 Aşağıdaki örnek döndürür `true`:
@@ -493,7 +493,7 @@ Varsayar `element1` ve `element2` tanımsızdır. Aşağıdaki örnek döndürü
 "[coalesce(steps('foo').element1, steps('foo').element2, 'foobar')]"
 ```
 
-## <a name="conversion-functions"></a>Dönüşüm işlevleri
+## <a name="conversion-functions"></a>Dönüştürme işlevleri
 Bu işlevlerin değerlerini JSON veri türleri ve Kodlamalar arasında dönüştürmek için kullanılabilir.
 
 ### <a name="int"></a>int
@@ -643,7 +643,7 @@ Aşağıdaki örnek döndürür `"https://portal.azure.com/"`:
 "[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
 ```
 
-## <a name="math-functions"></a>Matematiksel işlevler
+## <a name="math-functions"></a>Matematik işlevleri
 ### <a name="add"></a>add
 İki sayı ekleyen ve sonucu döndürür.
 
@@ -653,7 +653,7 @@ Aşağıdaki örnek döndürür `3`:
 "[add(1, 2)]"
 ```
 
-### <a name="sub"></a>alt
+### <a name="sub"></a>sub
 İkinci sayı ilk sayısından çıkarır ve sonucu döndürür.
 
 Aşağıdaki örnek döndürür `1`:
@@ -704,7 +704,7 @@ Aşağıdaki örnek döndürür `1`:
 "[min(1, 2)]"
 ```
 
-### <a name="max"></a>en çok
+### <a name="max"></a>en fazla
 İki sayı daha büyük döndürür.
 
 Aşağıdaki örnek döndürür `2`:

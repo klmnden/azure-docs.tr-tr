@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236271"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Azure Databricks için Excel, Python veya R bağlanma
@@ -65,8 +65,8 @@ Bir veri kaynağı adı (DSN) belirli bir veri kaynağına hakkındaki bilgileri
     
     DSN Kurulum iletişim kutusunda aşağıdaki ek adımları gerçekleştirin.
     
-    * Tıklayın **HTTP OPTIONS**. Açılan iletişim kutusunda, değeri yapıştırın *HTTP yolu* , Databricks çalışma alanından kopyalar. **Tamam** düğmesine tıklayın.
-    * Tıklayın **SSL seçeneklerini**. Açılan iletişim kutusunda seçin **SSL'yi etkinleştir** onay kutusu. **Tamam** düğmesine tıklayın.
+    * Tıklayın **HTTP OPTIONS**. Açılan iletişim kutusunda, değeri yapıştırın *HTTP yolu* , Databricks çalışma alanından kopyalar. **Tamam**'ı tıklatın.
+    * Tıklayın **SSL seçeneklerini**. Açılan iletişim kutusunda seçin **SSL'yi etkinleştir** onay kutusu. **Tamam**'ı tıklatın.
     * Tıklayın **Test** Azure Databricks bağlantısını test etmek için. Tıklayın **Tamam** yapılandırmayı kaydetmek için.
     * İçinde **ODBC Veri Kaynağı Yöneticisi** iletişim kutusu, tıklayın **Tamam**.
 

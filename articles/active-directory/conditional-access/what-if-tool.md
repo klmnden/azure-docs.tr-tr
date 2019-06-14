@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6271c7a99e82fb1fff2815167b0149c74212f260
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60354341"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Ne olursa nedir, Azure Active Directory koşullu erişim aracı?
@@ -86,11 +86,11 @@ Taklit etmek için tek bir IPv4 adresi IP adresidir [konum koşulu](location-con
 
 ### <a name="device-platforms"></a>Cihaz platformları
 
-Bu ayar taklit eder [cihaz platformları koşul](conditions.md#device-platforms) ve denk temsil **tüm platformlar (desteklenmeyen dahil olmak üzere)**. 
+Bu ayar taklit eder [cihaz platformları koşul](conditions.md#device-platforms) ve denk temsil **tüm platformlar (desteklenmeyen dahil olmak üzere)** . 
 ### <a name="client-apps"></a>İstemci uygulamaları
 
 Bu ayar taklit eden [istemci uygulamalar koşulunu](conditions.md#client-apps).
-Varsayılan olarak, bu ayar tüm ilkelerin sahip bir değerlendirme neden olur. **tarayıcı** veya **mobil uygulamalar ve masaüstü istemciler** ya da tek tek veya her ikisini de seçildi. Ayrıca takım politikaları algıladığı **Exchange ActiveSync (EAS)**. Seçerek bu ayar daraltabilirsiniz:
+Varsayılan olarak, bu ayar tüm ilkelerin sahip bir değerlendirme neden olur. **tarayıcı** veya **mobil uygulamalar ve masaüstü istemciler** ya da tek tek veya her ikisini de seçildi. Ayrıca takım politikaları algıladığı **Exchange ActiveSync (EAS)** . Seçerek bu ayar daraltabilirsiniz:
 
 - **Tarayıcı** en az olan tüm ilkelerini değerlendirme için **tarayıcı** seçili. 
 

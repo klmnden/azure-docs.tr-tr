@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60383891"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect için topolojiler
@@ -165,7 +165,7 @@ Bu topoloji, aşağıdaki sahip başka kısıtlamalar desteklenen senaryolar:
 * Windows 10 cihazları tek bir Azure AD kiracınız ile ilişkili olabilir.
 * Çoklu oturum açma (SSO) seçeneği parola karma eşitlemesi ve geçişli kimlik doğrulaması için yalnızca bir Azure AD kiracınız ile kullanılabilir.
 
-Birbirini dışlayan nesne gereksinimini geri yazma için de geçerlidir. Bunlar tek şirket içi yapılandırma olduğunu varsaydığından geri yazma özelliklerinden bazıları bu topoloji ile desteklenmez. Bu özellikler şunları içerir:
+Birbirini dışlayan nesne gereksinimini geri yazma için de geçerlidir. Bunlar tek şirket içi yapılandırma olduğunu varsaydığından geri yazma özelliklerinden bazıları bu topoloji ile desteklenmez. Bu özellikler şunlardır:
 
 * Varsayılan yapılandırma ile grup geri yazma.
 * Cihaz geri yazma.

@@ -16,10 +16,10 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60596687"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>REST API kullanarak Azure kaynakları için özel roller oluşturma
@@ -54,11 +54,11 @@ Bir kapsamda özel roller listelemek için kullanın [rol tanımları: liste](/r
 
 1. URI içinde değiştirin *{kapsamı}* rolleri listesinde istediğiniz kapsama sahip.
 
-    | Kapsam | Tür |
+    | `Scope` | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Kaynak |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Değiştirin *{filter}* rolü türüne sahip.
 
@@ -78,11 +78,11 @@ Görünen adıyla bir özel rol hakkında bilgi almak için kullanın [rol tanı
 
 1. URI içinde değiştirin *{kapsamı}* rolleri listesinde istediğiniz kapsama sahip.
 
-    | Kapsam | Tür |
+    | `Scope` | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Kaynak |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Değiştirin *{filter}* rolü için görünen adına sahip.
 
@@ -104,11 +104,11 @@ Benzersiz kimliğine göre özel bir rol hakkında bilgi almak için kullanın [
 
 1. URI içinde değiştirin *{kapsamı}* rolleri listesinde istediğiniz kapsama sahip.
 
-    | Kapsam | Tür |
+    | `Scope` | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Kaynak |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Değiştirin *{Roledefinitionıd}* , rol tanımı GUID tanımlayıcısı.
 
@@ -152,11 +152,11 @@ Benzersiz kimliğine göre özel bir rol hakkında bilgi almak için kullanın [
 
 1. URI içinde değiştirin *{kapsamı}* ilk `assignableScopes` özel rolü.
 
-    | Kapsam | Tür |
+    | `Scope` | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Kaynak |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Değiştirin *{Roledefinitionıd}* ile özel rolü GUID tanımlayıcısı.
 
@@ -217,11 +217,11 @@ Benzersiz kimliğine göre özel bir rol hakkında bilgi almak için kullanın [
 
 1. URI içinde değiştirin *{kapsamı}* ilk `assignableScopes` özel rolü.
 
-    | Kapsam | Tür |
+    | `Scope` | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Kaynak |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Değiştirin *{Roledefinitionıd}* ile özel rolü GUID tanımlayıcısı.
 
@@ -301,11 +301,11 @@ Bir özel rolü silmek için kullanın [rol tanımları: silme](/rest/api/author
 
 1. URI içinde değiştirin *{kapsamı}* özel rolü silmek istediğiniz kapsama sahip.
 
-    | Kapsam | Tür |
+    | `Scope` | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Kaynak |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Değiştirin *{Roledefinitionıd}* ile özel rolü GUID tanımlayıcısı.
 

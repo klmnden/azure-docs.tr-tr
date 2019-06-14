@@ -11,10 +11,10 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.openlocfilehash: a8bd260db7a141ce845ce7fb5b7e10f642907b82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310374"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Veri Ambarı’nı yükselterek performansı iyileştirme
@@ -27,7 +27,7 @@ Artık sorunsuz bir şekilde Azure portalında SQL veri ambarı işlem için iyi
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
-## <a name="applies-to"></a>Uygulandığı öğe
+## <a name="applies-to"></a>Şunlara uygulanacaktır:
 
 İşlem için iyileştirilmiş Gen1 katmanı veri ambarında bu yükseltmenin uygulanabileceği [desteklenen bölgeler](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
@@ -189,7 +189,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 3. Genel Bakış bölümünde üstüne seçin **+ yeni geri yükleme noktası**.
 
-    ![Yeni Geri Yükleme Noktası](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
+    ![Yeni geri yükleme noktası](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
 
 4. Geri yükleme noktası için bir ad belirtin.
 
@@ -205,7 +205,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 4. Şunlardan birini seçin **otomatik geri yükleme noktaları** veya **kullanıcı tanımlı bir geri yükleme noktaları**.
 
-    ![Otomatik Geri Yükleme Noktaları](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
+    ![Otomatik geri yükleme noktaları](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
 
 5. Kullanıcı tanımlı noktaları, geri yüklemek için **geri yükleme noktası seçin** veya **yeni bir kullanıcı tanımlı bir geri yükleme noktası oluşturma**. Bir Gen2 Server'da desteklenen coğrafi bölgeyi seçin. 
 

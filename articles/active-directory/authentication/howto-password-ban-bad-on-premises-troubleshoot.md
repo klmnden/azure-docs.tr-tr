@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414775"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD parola koruması sorunlarını giderme
@@ -100,7 +100,7 @@ Hala DC Aracısı yazılımını çalıştıran bir etki alanı denetleyicisini 
 
 İndirgeme başarılı oldu ve etki alanı denetleyicisi gizleyip gizlemeyeceğini ve normal üye sunucu olarak yeniden çalıştırmayı sonra pasif modunda çalışan DC Aracısı yazılımını döner. Ardından herhangi bir zamanda kaldırılabilir.
 
-## <a name="removal"></a>Çıkarma
+## <a name="removal"></a>Temizleme
 
 Temizleme ve Azure AD parola koruması yazılımı etki alanı ve orman ilgili tüm durum kaldırmanız karar, bu görevi, aşağıdaki adımları kullanarak gerçekleştirilebilir:
 

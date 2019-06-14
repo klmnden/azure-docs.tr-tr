@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
 ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609738"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA
@@ -358,7 +358,7 @@ Veri depolama alanı elde etmek için ortak bir API şema hızlı sağlık birli
 ### <a name="application-insights"></a>Application Insights
 - [Application Insights](/azure/application-insights/app-insights-overview) birden çok platformlardaki web geliştiricilerine yönelik genişletilebilir bir uygulama performans yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Bu performans anomalileri algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır.
 
-### <a name="azure-alerts"></a>Azure Uyarıları
+### <a name="azure-alerts"></a>Azure uyarıları
 - [Uyarılar](/azure/azure-monitor/platform/alerts-metric) Azure hizmetlerini izleme, bir yöntem sunan ve veriler üzerinde koşullar yapılandırmanıza olanak sağlar. Bir uyarı durumu izleme verilerini eşleştiğinde uyarılar, bildirimler de sağlar.
 
 ### <a name="azure-monitor-logs"></a>Azure İzleyici günlükleri

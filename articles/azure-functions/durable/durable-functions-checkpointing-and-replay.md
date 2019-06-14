@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: b1fd31a758501620129fdbbc532b8defcf927045
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648508"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrol noktalarına ve yeniden yürütme içinde dayanıklı işlevler (Azure işlevleri)
@@ -78,10 +78,10 @@ Denetim noktası işlemi tamamlandıktan sonra orchestrator işlevi oluncaya kad
 
 Tamamlandığında, daha önce gösterilen işlev geçmişini aşağıdaki Azure tablo depolama (gösterim amacıyla kısaltılır) şuna benzer:
 
-| PartitionKey (InstanceId)                     | EventType             | Zaman damgası               | Girdi | Ad             | Sonuç                                                    | Durum |
+| PartitionKey (InstanceId)                     | olay türü             | Zaman damgası               | Girdi | Ad             | Sonuç                                                    | Durum |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null   | E1_HelloSequence |                                                           |                     |
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |

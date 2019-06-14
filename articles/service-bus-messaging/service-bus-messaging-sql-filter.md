@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
 ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591798"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter söz dizimi
@@ -193,7 +193,7 @@ Boole sabit anahtar sözcüklere göre temsil edilir **TRUE** veya **FALSE**. De
 
 Dize sabitleri tek tırnak işaretleri içine alınır ve geçerli Unicode karakterlerini içerir. İki tek tırnak işareti gibi bir dize sabiti katıştırılmış tek tırnak işareti temsil edilir.  
   
-## <a name="function"></a>işlev  
+## <a name="function"></a>İşlevi  
   
 ```  
 <function> :=  

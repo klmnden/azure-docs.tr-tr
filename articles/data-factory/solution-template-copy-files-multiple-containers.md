@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/1/2018
 ms.openlocfilehash: a52729adf8d6df3f4e44e561b45b854db433628c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60635212"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Azure Data Factory ile birden çok kapsayıcı dosyaları Kopyala
@@ -51,7 +51,7 @@ Bu şablon, kapsayıcılar, kaynak depolama deposundan numaralandırır. Ardınd
 
 3. Seçin **bu şablonu kullan**.
 
-    ![Bu şablonu kullan](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
+    ![Bu şablonu kullanın.](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
 4. Aşağıdaki örnekte olduğu gibi işlem hattını görürsünüz:
 

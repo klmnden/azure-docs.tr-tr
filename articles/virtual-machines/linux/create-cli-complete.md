@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: eb4c5897cdadecd074c2764faceeed13f4c724c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60328650"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI'de eksiksiz bir Linux sanal makinesi oluşturma
@@ -112,7 +112,7 @@ az network public-ip create \
     --dns-name mypublicdns
 ```
 
-Çıkış:
+Çıktı:
 
 ```json
 {
@@ -182,7 +182,7 @@ Ağ güvenlik grubu ve kurallarıyla inceleyin [az ağ nsg show](/cli/azure/netw
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
-Çıkış:
+Çıktı:
 
 ```json
 {
@@ -345,7 +345,7 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Çıkış:
+Çıktı:
 
 ```json
 {
@@ -515,7 +515,7 @@ Genel IP adresini oluştururken sağladığınız DNS girişi ile sanal makineni
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-Çıkış:
+Çıktı:
 
 ```bash
 The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' can't be established.

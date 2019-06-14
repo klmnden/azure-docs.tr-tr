@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60286966"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Azure AD PIM rolleri Güvenlik Sihirbazı
@@ -53,11 +53,11 @@ Sihirbazın ikinci adım, yöneticinin rol atamalarını değiştirme olanağı 
 
 1. Tıklayın **sonraki** uygun hale getirmek istediğiniz üyeleri seçin.
 
-    ![Üyeleri uygun hale dönüştür](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Üyeleri uygun hale getirme](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Üyelerini seçtikten sonra tıklayın **sonraki**.
 
-    ![Değişiklikleri inceleyin](./media/pim-security-wizard/review-changes.png)
+    ![Değişiklikleri gözden geçirin](./media/pim-security-wizard/review-changes.png)
 
 1. Tıklayın **Tamam** kalıcı atamaları uygun hale getirme için.
 

@@ -10,10 +10,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 52ed101199126818abaddef47892e1f033eb3968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609120"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(KULLANIM DIŞI) Bir Azure AD hizmet sorumlusu Container Service'te bir Kubernetes kümesi için ayarlayın
@@ -43,7 +43,7 @@ Aşağıdaki gereksinimleri karşılayan mevcut bir Azure AD hizmet sorumlusunu 
 > Bir hizmet sorumlusu oluşturmak için, Azure AD kiracınızla bir uygulamayı kaydetme ve uygulamanızı aboneliğinizdeki bir role atama izinlerinizin olması gerekir. Gerekli izinlere sahip olup olmadığınızı görmek için [Portal’dan denetleyin](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
-## <a name="option-1-create-a-service-principal-in-azure-ad"></a>1. seçenek: Azure AD'de hizmet sorumlusu oluşturma
+## <a name="option-1-create-a-service-principal-in-azure-ad"></a>1\. seçenek: Azure AD'de hizmet sorumlusu oluşturma
 
 Kubernetes kümenizi dağıtmadan önce bir Azure AD hizmet sorumlusu oluşturmak isterseniz, Azure birkaç yöntem sunar.
 
@@ -97,7 +97,7 @@ Aşağıdaki örnekte Azure CLI ile parametreleri iletme yollarından biri göst
     ```
 
 
-## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>2. seçenek: İle kümeyi oluştururken hizmet sorumlusu oluşturma `az acs create`
+## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>2\. seçenek: İle kümeyi oluştururken hizmet sorumlusu oluşturma `az acs create`
 
 Kubernetes kümesini oluşturmak için [`az acs create`](/cli/azure/acs#az-acs-create) komutunu çalıştırırsanız, otomatik olarak bir hizmet sorumlusu oluşturma seçeneğine sahip olursunuz.
 
@@ -155,7 +155,7 @@ Hizmet sorumlusu kimlik bilgilerinizin süresi dolduysa, kimlik bilgilerini gün
 az ad sp reset-credentials --name <appId>
 ```
 
-Çıkış:
+Çıktı:
 
 ```json
 {

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
 ms.openlocfilehash: 5452a1adb419a2f57e2124d5aac49f9cdcff615a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609962"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure güvenlik ve uyumluluk planı: PaaS Web uygulaması için PCI DSS
@@ -106,7 +106,7 @@ App Service ortamları için aşağıdaki denetimleri/yapılandırmaları kullan
 
 ### <a name="virtual-network"></a>Sanal Ağ
 
-10.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
+10\.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
 
 **Ağ güvenlik grupları**: [Ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) erişim denetimi izin veren veya reddeden bir sanal ağ içinde trafiği listeleri (ACL) içeriyor. Ağ güvenlik grupları, trafiğin bir alt ağ veya tek tek VM düzeyinde güvenliğini sağlamak için kullanılabilir. Aşağıdaki ağ güvenlik grupları mevcut:
 
@@ -126,7 +126,7 @@ Sahip ağ güvenlik gruplarının her biri belirli bağlantı noktaları ve prot
 
 **Azure yük dengeleyici**: [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) müşterilerin uygulamalarını ölçeklendirme ve yüksek kullanılabilirlik hizmetleri oluşturma olanak tanır. Yük Dengeleyici, gelen yanı sıra giden senaryoları destekler ve düşük gecikme süreli, yüksek aktarım hızı sağlar ve akışlar tüm TCP ve UDP uygulamaları için en fazla bir milyonlarca ölçeklendirir.
 
-### <a name="data-in-transit"></a>Aktarımdaki verileri
+### <a name="data-in-transit"></a>Aktarım durumundaki veriler
 
 Azure, Azure veri merkezlerinden tüm iletişimi varsayılan olarak şifreler. Tüm Azure Depolama'ya Azure portalı üzerinden HTTPS gerçekleşir.
 

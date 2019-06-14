@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: adb8917605a00208b328e7fd15f96d28c7838988
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60201678"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Verileri Azure SQL Data Sync için eşitleme Aracısı
@@ -26,7 +26,7 @@ Yükleme ve Azure SQL Data Sync için veri eşitleme Aracısı yapılandırarak 
 > [!IMPORTANT]
 > Azure SQL Data Sync mu **değil** şu anda Azure SQL veritabanı yönetilen örneği destekler.
 
-## <a name="download-and-install"></a>İndir ve yükle
+## <a name="download-and-install"></a>İndirme ve yükleme
 
 Veri Eşitleme aracısını indirmek için Git [SQL Azure veri eşitleme Aracısı](https://www.microsoft.com/download/details.aspx?id=27693).
 
@@ -157,7 +157,7 @@ SQL Server'ı barındıran bir bilgisayara aracı çalışmadığından emin ke�
   1. Üzerinde **SQL veri eşitleme Aracısı Özellikleri**seçin **oturum** sekmesi.
   1. İçinde **parola** kutusuna, parolanızı girin.
   1. İçinde **parolayı onayla** kutusunda, isterse parolanızı tekrar girmelisiniz.
-  1. **Uygula**’yı ve sonra **Tamam**’ı seçin.
+  1. Seçin **Uygula**ve ardından **Tamam**.
   1. İçinde **Hizmetleri** penceresinde sağ **SQL veri eşitleme Aracısı** hizmet ve ardından **Başlat**.
   1. Kapat **Hizmetleri** penceresi.
 

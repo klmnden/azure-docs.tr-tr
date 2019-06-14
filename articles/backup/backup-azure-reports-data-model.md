@@ -2,19 +2,17 @@
 title: Azure Backup için veri modeli
 description: Bu makalede, Azure Backup raporları için Power BI veri modeli ayrıntıları hakkında konuşuyor.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-origin.date: 06/26/2017
-ms.date: 08/08/2018
-ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
+ms.date: 06/26/2017
+ms.author: adigan
 ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337587"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure Backup raporları için veri modeli
@@ -191,8 +189,5 @@ Bu tablo, kasa ile ilgili çeşitli alanlarını temel alan ve toplamalar sağla
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Backup raporları oluşturmak için veri modeli gözden geçirin, sonra oluşturma ve Power BI'da raporları görüntüleme hakkında daha fazla ayrıntı için aşağıdaki makalelere bakın.
 
-- [Power BI'da raporlar oluşturma](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-- [Power BI raporlarını filtreleme](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-
-
-<!-- Update_Description: update metedata properties -->
+* [Power BI'da raporlar oluşturma](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [Power BI raporlarını filtreleme](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

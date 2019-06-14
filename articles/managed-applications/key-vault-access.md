@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588303"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Azure yönetilen uygulamaları dağıtırken access Key Vault gizli
@@ -40,7 +40,7 @@ Bu makalede yönetilen uygulamalarla çalışmak için Key Vault yapılandırma 
 
 ## <a name="add-service-as-contributor"></a>Katkıda bulunan olarak hizmet Ekle
 
-1. **Erişim denetimi (IAM)** öğesini seçin.
+1. Seçin **erişim denetimi (IAM)** .
 
    ![Erişim denetimi seçin](./media/key-vault-access/access-control.png)
 

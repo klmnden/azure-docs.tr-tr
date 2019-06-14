@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: b30094e264086f018acbf84144300df46c60ac4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610260"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-nist-sp-800-171"></a>Azure güvenlik ve uyumluluk planı - 800-171 NIST SP için Iaas Web uygulaması
@@ -38,7 +38,7 @@ Yönetim Burcu ana bilgisayarı, yöneticilerin dağıtılan kaynaklara güvenli
 
 Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Daha fazla bilgi için [dağıtım mimarisi](#deployment-architecture) bölümü.
 
-- Azure Sanal Makineler
+- Azure sanal makineleri
     - (1) yönetim/savunma (Windows Server 2016 Datacenter)
     - (2) active Directory etki alanı denetleyicisi (Windows Server 2016 Datacenter)
     - (2) SQL Server kümesi düğümünün (Windows Server 2016 üzerinde SQL Server 2017)
@@ -80,7 +80,7 @@ Bu çözüm aşağıdaki yapılandırmaları olan bir etki alanına katılmış 
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) kimlik bilgilerini ve diğer gizli dizileri yalıtılmış olan korumalı bir ortamda çalışan işletim sistemini çalıştırmak için etkin.
 
 ### <a name="virtual-network"></a>Sanal ağ
-10.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
+10\.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
 
 **Ağ güvenlik grupları**: Bu çözüm, web, veritabanı, Active Directory ve Yönetim sanal ağ içinde ayrı alt ağlar ile bir mimari kaynaklarında dağıtır. Alt ağları, mantıksal olarak ayrı bir alt ağa uygulanan NSG kuralları tarafından ayrılır. Kurallar, yalnızca bu gerekli system ve yönetim işlevselliği için alt ağlar arasındaki trafiği kısıtlayın.
 
@@ -93,7 +93,7 @@ Alt ağlar, adanmış bir NSG sahiptir:
 - SQL sunucuları ve bulut tanığı (SQLNSG) için bir NSG
 - Web Katmanı (WEBNSG) için bir NSG
 
-### <a name="data-in-transit"></a>Aktarımdaki verileri
+### <a name="data-in-transit"></a>Aktarım durumundaki veriler
 Azure, Azure veri merkezleri gelen ve giden tüm iletişimi varsayılan olarak şifreler. Ayrıca, depolama için tüm işlemleri Azure portalı üzerinden HTTPS gerçekleştirilir.
 
 ### <a name="data-at-rest"></a>Bekleyen veriler

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60545070"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric destek seçenekleri
@@ -29,7 +29,7 @@ Uygulama iş yükleri çalıştıran Service Fabric kümeleriniz için uygun des
 
 Azure'da dağıtılan Service Fabric kümenizdeki sorunları raporlama için bir destek bileti açın [Azure portalında](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) veya [Microsoft destek portalı](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
-Aşağıdakiler hakkında daha fazla bilgi edinin:
+Daha fazla bilgi:
  
 - [Azure için Microsoft desteğine](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Microsoft premier desteği](https://support.microsoft.com/en-us/premier).
@@ -45,7 +45,7 @@ Aşağıdakiler hakkında daha fazla bilgi edinin:
 
 Service Fabric kümenizdeki sorunları dağıtılan şirket içi raporlama veya diğer bulutlarda bir profesyonel destek bileti açmak [Microsoft destek portalı](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
-Aşağıdakiler hakkında daha fazla bilgi edinin:
+Daha fazla bilgi:
 
 - [Şirket içi Microsoft profesyonel destek](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft premier desteği](https://support.microsoft.com/en-us/premier).

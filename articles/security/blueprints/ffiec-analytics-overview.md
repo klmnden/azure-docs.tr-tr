@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: a4e989778f041c586293e79005af2c8e87c8213c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585888"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Azure güvenlik ve uyumluluk planı: FFIEC finansal hizmetler için analiz
@@ -77,7 +77,7 @@ Aşağıdaki bölümde dağıtım ve uygulama öğeleri ayrıntılı olarak aç�
 
 ### <a name="virtual-network"></a>Sanal ağ
 
-10.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
+10\.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
 
 **Ağ güvenlik grupları**: [Ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) izin veren veya bir sanal ağ içinde trafiği reddeden erişim denetim listeleri içerir. Ağ güvenlik grupları, trafiğin bir alt ağ veya tek tek VM düzeyinde güvenliğini sağlamak için kullanılabilir. Aşağıdaki ağ güvenlik grupları mevcut:
 
@@ -91,7 +91,7 @@ Sahip ağ güvenlik gruplarının her biri belirli bağlantı noktaları ve prot
 
 **Alt ağlar**: Her alt ağa karşılık gelen ağ güvenlik grubu ile ilişkilidir.
 
-### <a name="data-in-transit"></a>Aktarımdaki verileri
+### <a name="data-in-transit"></a>Aktarım durumundaki veriler
 
 Azure, Azure veri merkezlerinden tüm iletişimi varsayılan olarak şifreler. Tüm Azure Depolama'ya Azure portalı üzerinden HTTPS gerçekleşir.
 

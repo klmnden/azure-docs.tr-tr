@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348459"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect eşitleme: Yükleme sihirbazını ikinci kez çalıştırma
@@ -65,7 +65,7 @@ Diğer seçenekleri ilk yüklemesinden değiştirilemez ve kullanılabilir deği
 * Katılma yöntemi nesneler için farklı bir ormandan değiştirin.
 * Grup tabanlı filtreleme etkinleştirin.
 
-## <a name="refresh-directory-schema"></a>Dizin şemasını yenile
+## <a name="refresh-directory-schema"></a>Dizin şemasını Yenile
 Şema şirket içi birini değiştirdiyseniz, bu seçenek kullanılır AD DS ormanlarını. Örneğin,'ü Exchange yüklemiş veya cihaz nesneleri ile bir Windows Server 2012 şema için yükseltilir. Bu durumda, şemayı yeniden AD DS'den okuma ve önbelleğinde güncelleştirmek için Azure AD Connect istemek gerekir. Bu eylem ayrıca eşitleme kuralları yeniden oluşturur. Örneğin Exchange şema eklerseniz, Exchange için eşitleme kuralları yapılandırmaya eklenir.
 
 Bu seçeneği belirlediğinizde, yapılandırmanızda tüm dizinleri listelenir. Varsayılan ayar tutun ve tüm ormanlarda yenileyin veya bunlardan bazıları seçimini kaldırın.
@@ -81,7 +81,7 @@ Seçeneği, hazırlama şu anda etkin olup olmadığını gösterir:
 Durumu değiştirmek için bu seçeneği belirleyin ve seçin veya onay kutusunun işaretini kaldırın.  
 ![Hazırlama modunu geçerli durumunu da gösterildiğini seçeneği](./media/how-to-connect-installation-wizard/stagingmodeenable.png)
 
-## <a name="change-user-sign-in"></a>Kullanıcı oturumunu değiştir
+## <a name="change-user-sign-in"></a>Kullanıcı oturum açma
 Bu seçenek için ve parola karma eşitlemesi, geçişli kimlik doğrulaması ya da Federasyon oturum açma kullanıcı yöntemi değiştirmenize olanak sağlar. Değerine değiştirilemiyor **yapılandırmayın**.
 
 Bu seçenek hakkında daha fazla bilgi için bkz. [kullanıcı oturum açma](plan-connect-user-signin.md#changing-the-user-sign-in-method).

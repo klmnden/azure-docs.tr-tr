@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: 3c78aed2f30ea85f5bc16a8c0fb270bb1c761be8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586041"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure güvenlik ve uyumluluk planı: FedRAMP Otomasyon için veri ambarı
@@ -43,7 +43,7 @@ Bir sanal makine, yöneticilerin erişim dağıtılan kaynaklara güvenli bir ba
 
 Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Ayrıntılar için bkz dağıtım mimarisi [dağıtım mimarisi](#deployment-architecture) bölümü.
 
-Azure Sanal Makineler
+Azure sanal makineleri
 -   (1) Burcu ana bilgisayarı
 -   (2) active Directory etki alanı denetleyicisi
 -   (2) SQL Server küme düğümü

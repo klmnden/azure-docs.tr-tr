@@ -2,18 +2,17 @@
 title: Azure Service Fabric CLI (sfctl) kullanarak Azure Service Fabric uygulamaları yönetme
 description: Dağıtma ve uygulamaları, Azure Service Fabric CLI kullanarak bir Azure Service Fabric kümesinden kaldırma hakkında bilgi edinin
 services: service-fabric
-author: rockboyfor
-manager: digimobile
+author: Christina-Kang
+manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
-origin.date: 07/31/2018
-ms.date: 04/29/2019
-ms.author: v-yeche
+ms.date: 07/31/2018
+ms.author: bikang
 ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60621386"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI (sfctl) kullanarak bir Azure Service Fabric uygulamasını Yönet
@@ -171,5 +170,3 @@ Son olarak, yükseltme ilerleme durumu ve iptal edilmesi gerekiyor, kullanabilec
 * [Service Fabric CLI'sını temel bilgileri](service-fabric-cli.md)
 * [Linux üzerinde Service Fabric ile çalışmaya başlama](service-fabric-get-started-linux.md)
 * [Bir Service Fabric uygulama yükseltmesi başlatılıyor](service-fabric-application-upgrade.md)
-
-<!--Update_Description: update meta properties -->

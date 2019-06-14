@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43aa0859fa67cc6b2f5c5974f072e7b6d4b29527
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66112971"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Azure VM'de oturum açma için Azure kaynakları için yönetilen kimliklerini kullanma 
@@ -48,7 +48,7 @@ Azure kaynakları için yönetilen kimlikleri sağlayan bir [hizmet sorumlusu ne
 
 Bu hizmet sorumlusunu Azure kaynakları için yönetilen kimlik altında oturum gibi Azure kaynakları için yönetilen kimliklerle betik istemcinizi bunlardan herhangi birini yapmak artık gerekir. 
 
-## <a name="azure-cli"></a>Azure CLI'si
+## <a name="azure-cli"></a>Azure CLI
 
 Aşağıdaki komut dosyasını gösterir nasıl yapılır:
 

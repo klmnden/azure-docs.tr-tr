@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
 ms.openlocfilehash: 728a2f8cf61bbe0691350b9de45a5fab6b90cadb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563078"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure yönetilen bir Azure container registry'ye kimliğini doğrulamak için kimliği kullan 
@@ -92,7 +92,7 @@ Yükleme sonrasında, Docker VM üzerinde düzgün çalıştığını doğrulama
 sudo docker run -it hello-world
 ```
 
-Çıkış:
+Çıktı:
 
 ```
 Hello from Docker!

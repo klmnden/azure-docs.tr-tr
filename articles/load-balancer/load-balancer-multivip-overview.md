@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
 ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60594168"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer için birden çok ön uç
@@ -30,7 +30,7 @@ Azure Load Balancer tanımladığınızda, bir ön uç ve arka uç havuzu yapıl
 
 Aşağıdaki tabloda bazı örnek ön uç yapılandırmaları içerir:
 
-| Ön uç | IP adresi | protokol | port |
+| Ön uç | IP adresi | protocol | port |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -54,7 +54,7 @@ Varsayılan davranışı ile başlatarak bu senaryolar daha fazla inceleyeceğiz
 
 Bu senaryoda, ön uçlar aşağıdaki gibi yapılandırılır:
 
-| Ön uç | IP adresi | protokol | port |
+| Ön uç | IP adresi | protocol | port |
 | --- | --- | --- | --- |
 | ![Yeşil ön uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![Mor ön uç](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -65,12 +65,12 @@ DIP gelen akışta hedefi olan. Arka uç havuzundaki her VM istenen hizmette bir
 
 | Kural | Ön uç eşleme | Arka uç havuzu |
 | --- | --- | --- |
-| 1 |![Yeşil ön uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![Arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![Arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![Yeşil ön uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Azure Load Balancer tam eşlemede artık şu şekilde olur:
 
-| Kural | Ön uç IP adresi | protokol | port | Hedef | port |
+| Kural | Ön uç IP adresi | protocol | port | Hedef | port |
 | --- | --- | --- | --- | --- | --- |
 | ![Yeşil kuralı](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |DIP adresi |80 |
 | ![Mor kuralı](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |DIP adresi |81 |
@@ -104,7 +104,7 @@ Bu senaryo için arka uç havuzundaki her VM, üç ağ arabirimi bulunur:
 
 Önceki senaryonun olduğu gibi aynı ön uç yapılandırması varsayalım:
 
-| Ön uç | IP adresi | protokol | port |
+| Ön uç | IP adresi | protocol | port |
 | --- | --- | --- | --- |
 | ![Yeşil ön uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![Mor ön uç](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -113,12 +113,12 @@ Bu senaryo için arka uç havuzundaki her VM, üç ağ arabirimi bulunur:
 
 | Kural | Ön uç | Arka uç havuzuna eşleme |
 | --- | --- | --- |
-| 1 |![kural](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (içinde VM1 ve VM2) |
-| 2 |![kural](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (içinde VM1 ve VM2) |
+| 1 |![Kural](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (içinde VM1 ve VM2) |
+| 2 |![Kural](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![arka uç](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (içinde VM1 ve VM2) |
 
 Aşağıdaki tabloda yük dengeleyicide tam eşleme gösterilmektedir:
 
-| Kural | Ön uç IP adresi | protokol | port | Hedef | port |
+| Kural | Ön uç IP adresi | protocol | port | Hedef | port |
 | --- | --- | --- | --- | --- | --- |
 | ![Yeşil kuralı](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |aynı ön uç (65.52.0.1) |aynı ön uç (80) |
 | ![Mor kuralı](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |aynı ön uç (65.52.0.2) |aynı ön uç (80) |

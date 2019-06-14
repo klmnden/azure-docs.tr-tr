@@ -11,10 +11,10 @@ ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60530934"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler kavramları, terminolojisi ve varlıkları
@@ -286,7 +286,7 @@ Daha fazla bilgi için bkz. [Yüksek kullanılabilirlik ve güvenilirlik](../sch
 
 <a name="status"></a>
 
-## <a name="state"></a>durum
+## <a name="state"></a>state
 
 Bir işin durumu **Etkin**, **Devre Dışı**, **Tamamlandı** veya **Hatalı** olacaktır, örneğin: 
 
@@ -297,7 +297,7 @@ Ancak bir işin durumu **Tamamlandı** veya **Arızalı** şeklindeyse durumu g�
 
 <a name="status"></a>
 
-## <a name="status"></a>durum
+## <a name="status"></a>status
 
 Bir iş başlatıldıktan sonra Scheduler, yalnızca Scheduler tarafından denetlenen **status** nesnesiyle iş durumu hakkında bilgi döndürür. Ancak **status** nesnesini **job** nesnesinin içinde bulabilirsiniz. İş durumunda bulunan bilgiler şunlardır:
 

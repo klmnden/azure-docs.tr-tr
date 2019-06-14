@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7e97bd50e3d37218e0f88f722387fd1a53167e27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534166"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Bir Azure sanal ağ (VNet) üzerindeki veri kaynakları için ağ geçidi kullanma
@@ -28,7 +28,7 @@ Azure Analysis Services sunucunuz, şirket içinde kendi ortamınızda olmaları
 
 ## <a name="configure-alwaysusegateway-property"></a>AlwaysUseGateway özelliğini yapılandırın
 
-1. Ssms'de > sunucu > **özellikleri** > **genel**seçin **Özellikleri Göster, Gelişmiş (Tümü)**.
+1. Ssms'de > sunucu > **özellikleri** > **genel**seçin **Özellikleri Göster, Gelişmiş (Tümü)** .
 2. İçinde **ASPaaS\AlwaysUseGateway**seçin **true**.
 
     ![Her zaman ağ geçidi özelliğini kullanın](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)

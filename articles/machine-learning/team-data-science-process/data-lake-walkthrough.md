@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400091"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake ile ölçeklenebilir veri bilimi: Uçtan uca kılavuz
@@ -135,7 +135,7 @@ Bu bölümde gösterilen veri işleme görevlerini başlayan kümeniz, kalite de
 
 U-SQL betikleri ayrı bir dosyada sağlanan ve burada açıklanmıştır. Tam indirebileceğiniz **U-SQL betikleri** gelen [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-U-SQL, Visual Studio'yu Aç çalıştırabileceği **Dosya--> Yeni Proje-->**, seçin **U-SQL projesi**, ad ve bir klasöre kaydedin.
+U-SQL, Visual Studio'yu Aç çalıştırabileceği **Dosya--> Yeni Proje-->** , seçin **U-SQL projesi**, ad ve bir klasöre kaydedin.
 
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
@@ -148,7 +148,7 @@ U-SQL, Visual Studio'yu Aç çalıştırabileceği **Dosya--> Yeni Proje-->**, s
 
 ### <a name="ingest"></a>Veri alımı: Genel blobdan veri okuma
 
-Azure BLOB verilerin konumu olarak başvurulan **wasb://container\_adı\@blob\_depolama\_hesabı\_name.blob.core.windows.net/blob_name**ve alınabilir **Extractors.Csv()**. Yerine kendi kapsayıcı adı ve depolama hesabı adı kapsayıcısı için aşağıdaki komut\_adı\@blob\_depolama\_hesabı\_wasb adres adı. Dosya adları aynı biçimde olduğundan kullanmak mümkün mü **seyahat\_veri\_\{\*\}.csv** tüm 12 seyahat dosyaları okumak için.
+Azure BLOB verilerin konumu olarak başvurulan **wasb://container\_adı\@blob\_depolama\_hesabı\_name.blob.core.windows.net/blob_name**ve alınabilir **Extractors.Csv()** . Yerine kendi kapsayıcı adı ve depolama hesabı adı kapsayıcısı için aşağıdaki komut\_adı\@blob\_depolama\_hesabı\_wasb adres adı. Dosya adları aynı biçimde olduğundan kullanmak mümkün mü **seyahat\_veri\_\{\*\}.csv** tüm 12 seyahat dosyaları okumak için.
 
     ///Read in Trip data
     @trip0 =
@@ -453,7 +453,7 @@ Artık çıktı dosyaları veya Azure Blob Depolama, hem de Azure portalında ko
 * İlk seçenek, kullandığınız bir Azure Blob için yazılan örneklenen verileri (içinde **veri örnekleme** Yukarıdaki adımı) ve Azure Machine learning'in modellerini Derleme ve dağıtma için Python'ı kullanın.
 * İkinci seçenek bir Hive sorgusu kullanarak doğrudan Azure Data Lake verileri sorgulamak. Bu seçenek, yeni bir HDInsight kümesi oluşturma veya var olan bir HDInsight kümesine Azure Data Lake Storage NY taksi verileri nerede Hive tablolarını işaret kullanmak gerektirir.  Bu seçeneklerin, aşağıdaki bölümlerde ele alınmıştır.
 
-## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>1. seçenek: Machine learning modellerini Derleme ve dağıtma için Python kullanma
+## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>1\. seçenek: Machine learning modellerini Derleme ve dağıtma için Python kullanma
 Python kullanarak makine öğrenme modellerini Derleme ve dağıtma için yerel makinenizde veya Azure Machine Learning Studio'da Jupyter not defteri oluşturun. Jupyter not defteri sağlanan [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) keşfedin, veri, özellik Mühendisliği, modelleme ve dağıtım görselleştirmek için tam kodu içerir. Bu makalede, yalnızca modelleme ve dağıtım ele alınmaktadır.
 
 ### <a name="import-python-libraries"></a>Python kitaplıkları içeri aktarma
@@ -593,7 +593,7 @@ Makine öğrenimi modelinde, oluşturulduktan sonra kullanıma hazır hale getir
 
        ![c4](./media/data-lake-walkthrough/c4-call-API.PNG)
 
-## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>2. seçenek: Oluşturma ve Azure Machine Learning modellerini doğrudan dağıtma
+## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>2\. seçenek: Oluşturma ve Azure Machine Learning modellerini doğrudan dağıtma
 Azure Machine Learning Studio, doğrudan Azure Data Lake Store verileri okuyabilir ve modelleri oluşturup sonra kullanılabilir. Bu yaklaşım Azure Data Lake Store işaret eden bir Hive tablosu kullanır. Bu ayrı bir Azure HDInsight kümesi, sağlanması, gerektirir üzerinde Hive tablosu oluşturulur. Aşağıdaki bölümlerde bunun nasıl yapılacağı gösterilmektedir.
 
 ### <a name="create-an-hdinsight-linux-cluster"></a>Bir HDInsight Linux kümesi oluşturma

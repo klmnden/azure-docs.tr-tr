@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60618889"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Sanal makine ölçek kümesi Azure Portalı'nda otomatik olarak ölçeklendirme
@@ -55,7 +55,7 @@ Uygulamanızın talebi artarsa, ölçek kümenizdeki sanal makine örneklerinde 
     | *İşleci*             | Ölçüm verilerini eşikle karşılaştırmak için kullanılan işleç.                                                     | Büyüktür   |
     | *Eşik*            | Otomatik ölçeklendirme kuralının bir eylemi tetiklemesine neden olan yüzdesi.                                                 | 70             |
     | *Süresi*             | Ölçüm ve eşik değerleri karşılaştırılmadan önce izleme yapılacak süre.                                   | 10 dakika     |
-    | *İşlem*            | Yukarı veya aşağı kural geçerli olduğunda ve hangi artış ölçek kümesinin ölçeğinin büyütüleceğini tanımlar                        | Yüzdeyi şu kadar artır: |
+    | *İşlem*            | Yukarı veya aşağı kural geçerli olduğunda ve hangi artış ölçek kümesinin ölçeğinin büyütüleceğini tanımlar                        | Yüzdeyi şu kadar Artır |
     | *Örnek sayısı*       | Kural tetiklendiğinde değiştirilmesi gereken sanal makine örneklerinin yüzdesi.                                            | 20             |
     | *Seyrek erişimli (dakika)*  | Otomatik ölçeklendirme eylemlerinin geçerli olması için kural tekrar uygulanmadan önceki bekleme süresi. | 5 dakika      |
 
@@ -76,9 +76,9 @@ Bir akşam veya hafta sonu uygulama talebiniz azalabilir. Yük belirli bir süre
     
     | Parametre              | Açıklama                                                                                                          | Değer          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *İşleci*             | Ölçüm verilerini eşikle karşılaştırmak için kullanılan işleç.                                                      | Şu değerden az:   |
+    | *İşleci*             | Ölçüm verilerini eşikle karşılaştırmak için kullanılan işleç.                                                      | Küçüktür   |
     | *Eşik*            | Otomatik ölçeklendirme kuralının bir eylemi tetiklemesine neden olan yüzdesi.                                                 | 30             |
-    | *İşlem*            | Yukarı veya aşağı kural geçerli olduğunda ve hangi artış ölçek kümesinin ölçeğinin büyütüleceğini tanımlar                         | Yüzdeyi şu kadar azalt: |
+    | *İşlem*            | Yukarı veya aşağı kural geçerli olduğunda ve hangi artış ölçek kümesinin ölçeğinin büyütüleceğini tanımlar                         | Yüzdeyi şu kadar Azalt |
     | *Örnek sayısı*       | Kural tetiklendiğinde değiştirilmesi gereken sanal makine örneklerinin yüzdesi.                                             | 20             |
 
 3. Bir kural oluşturmak için Seç **Ekle**

@@ -10,10 +10,10 @@ ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ea6599152d3cbf1f50132f5b207c19148401f798
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564268"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Karma Runbook çalışanları sorunlarını giderme

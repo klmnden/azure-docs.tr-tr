@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611700"
 ---
 # <a name="security-frame-session-management"></a>Güvenlik çerçevesi: Oturum yönetimi
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Azure AD kullanarak ADAL yöntemleri kullanarak uygulama uygun oturum kapatma](#logout-adal)</li></ul> |
-| IoT Cihazı | <ul><li>[Sınırlı yaşam süreleri için oluşturulan SaS belirteçlerini kullanma](#finite-tokens)</li></ul> |
+| IOT cihaz | <ul><li>[Sınırlı yaşam süreleri için oluşturulan SaS belirteçlerini kullanma](#finite-tokens)</li></ul> |
 | **Azure belge veritabanı** | <ul><li>[En düşük belirteç ömrünü için oluşturulan kaynak belirteçleri kullanma](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[ADFS kullanırken WsFederation yöntemlerle uygun uygulama oturum kapatma](#wsfederation-logout)</li></ul> |
 | **Kimlik sunucusu** | <ul><li>[Kimlik sunucusu kullanılırken uygun kapatma gerçekleştir](#proper-logout)</li></ul> |
@@ -71,7 +71,7 @@ Session.Abandon() yöntemini çağırarak, kullanıcının oturumunu yok. Yönte
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | IoT Cihazı | 
+| **Bileşen**               | IOT cihaz | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |

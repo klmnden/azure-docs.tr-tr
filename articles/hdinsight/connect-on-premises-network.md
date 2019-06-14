@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60537913"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>HDInsight’ı şirket içi ağınıza bağlama
@@ -277,7 +277,7 @@ Ağ trafiğinizi denetlemek için ağ güvenlik grupları (NSG) veya kullanıcı
 
 1. IP adresleri için sanal ağınızın bulunduğu konumu bulun. Konuma göre gerekli IP'ler listesi için bkz. [gerekli IP adresleri](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
 
-2. 1. adımda belirlenen IP adresleri için bu IP gelen trafiğe izin adresleri.
+2. 1\. adımda belirlenen IP adresleri için bu IP gelen trafiğe izin adresleri.
 
    * Kullanıyorsanız __NSG__: İzin __gelen__ bağlantı noktası üzerinde trafiğe __443__ IP adresleri için.
    * Kullanıyorsanız __UDR__: Ayarlama __sonraki atlama__ yol türünü __Internet__ IP adresleri için.

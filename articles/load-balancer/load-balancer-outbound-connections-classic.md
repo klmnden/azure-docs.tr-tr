@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
 ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595038"
 ---
 # <a name="outbound-connections-classic"></a>Giden bağlantılar (Klasik)
@@ -49,7 +49,7 @@ Klasik dağıtımlarda farklı farklı işlevselliğe sahiptir:
 
 | Klasik dağıtım | Kullanılabilen İşlevler | 
 | --- | --- |
-| Sanal Makine | Senaryo [1](#ilpip), [2](#publiclbendpoint), veya [3](#defaultsnat) |
+| Sanal makine | Senaryo [1](#ilpip), [2](#publiclbendpoint), veya [3](#defaultsnat) |
 | Web çalışanı rolü | yalnızca senaryo [2](#publiclbendpoint), [3](#defaultsnat) | 
 
 [Risk azaltma stratejisi](#snatexhaust) aynı farklılıkları da vardır.

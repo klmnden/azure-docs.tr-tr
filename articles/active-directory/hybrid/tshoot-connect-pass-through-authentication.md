@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60456173"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory geçişli kimlik doğrulaması sorunlarını giderme
@@ -133,7 +133,7 @@ Ayrıntılı analizler için "" oturum (Bu seçenek bulmak için Olay Görüntü
 
 ### <a name="detailed-trace-logs"></a>Ayrıntılı izleme günlükleri
 
-Kullanıcı oturum açma sorunlarını giderme için izleme günlüklerine bakın **%ProgramData%\Microsoft\Azure AD Connect kimlik doğrulaması Agent\Trace\\**. Bu günlükler geçişli kimlik doğrulaması özelliğini kullanarak başarısız neden belirli bir kullanıcı oturum açma nedenleri. Bu hatalar da önceki oturum açma hatası nedeniyle tabloda gösterilen oturum açma hatası nedeniyle eşlenir. Bir örnek günlük girişi aşağıda verilmiştir:
+Kullanıcı oturum açma sorunlarını giderme için izleme günlüklerine bakın **%ProgramData%\Microsoft\Azure AD Connect kimlik doğrulaması Agent\Trace\\** . Bu günlükler geçişli kimlik doğrulaması özelliğini kullanarak başarısız neden belirli bir kullanıcı oturum açma nedenleri. Bu hatalar da önceki oturum açma hatası nedeniyle tabloda gösterilen oturum açma hatası nedeniyle eşlenir. Bir örnek günlük girişi aşağıda verilmiştir:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -161,7 +161,7 @@ Denetim günlüğü etkinleştirilirse, etki alanı denetleyicilerinizin Güvenl
 
 ## <a name="performance-monitor-counters"></a>Performans İzleyicisi sayaçları
 
-Kimlik doğrulama aracılarının izlemek için başka bir kimlik doğrulama Aracısı yüklendiği her sunucuda belirli Performans İzleyicisi sayaçları izlemek için yoludur. Aşağıdaki genel sayaçları kullanın (**# PTA kimlik doğrulamaları**, **#PTA kimlik doğrulamaları başarısız** ve **#PTA başarılı kimlik doğrulamalarını**) ve hata sayaçları (**# PTA kimlik doğrulama hataları**):
+Kimlik doğrulama aracılarının izlemek için başka bir kimlik doğrulama Aracısı yüklendiği her sunucuda belirli Performans İzleyicisi sayaçları izlemek için yoludur. Aşağıdaki genel sayaçları kullanın ( **# PTA kimlik doğrulamaları**, **#PTA kimlik doğrulamaları başarısız** ve **#PTA başarılı kimlik doğrulamalarını**) ve hata sayaçları ( **# PTA kimlik doğrulama hataları**):
 
 ![Geçişli kimlik doğrulaması Performans İzleyicisi sayaçları](./media/tshoot-connect-pass-through-authentication/pta12.png)
 

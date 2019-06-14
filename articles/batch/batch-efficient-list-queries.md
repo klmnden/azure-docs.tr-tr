@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d9e30bb8b31939b14d347369bbe88e23fcec49c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778263"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050534"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Sorguları listesi Batch kaynaklarını verimli bir şekilde oluşturun
 
@@ -74,13 +74,13 @@ Filtre dizesi döndürülen öğe sayısını azaltan bir ifadedir. Örneğin, b
 * Mantıksal işleçler kullanarak birden fazla ifade birleştirilebilir `and` ve `or`.
 * Bu örnekte filtre dizesi listelerini çalışmasını "işleme yalnızca" görevleri: `(state eq 'running') and startswith(id, 'renderTask')`.
 
-### <a name="select"></a>Şunu seçin:
+### <a name="select"></a>Seçim
 Select dize her öğe için döndürülen özellik değerleri sınırlar. Özellik adlarının bir listesini belirtin ve öğeleri sorgu sonuçlarında yalnızca bu özellik değerleri döndürülür.
 
 * Select dize bir virgülle ayrılmış özellik adları listesinden oluşur. Varlık türü, sorgulama için özelliklerinden herhangi birini belirtebilirsiniz.
 * Bu örnek seçin dize yalnızca üç özellik değerlerini her görev için döndürülmesi gerektiğini belirtir: `id, state, stateTransitionTime`.
 
-### <a name="expand"></a>Genişlet
+### <a name="expand"></a>Expand
 Genişletme dizesi belirli bilgileri elde etmek için gereken API çağrısı sayısını azaltır. Bir genişletme dizesi kullandığınızda, her öğeyle ilgili daha fazla bilgi edinilebilir tek bir API çağrısı ile. İlk ardından listesindeki her bir öğe için bilgileri istenirken, varlıkların listesini almak yerine bir genişletme dizesi tek bir API çağrısı aynı bilgileri almak için kullanın. Daha az API çağrılarını daha iyi performans gösterir.
 
 * Select dizesine benzer, genişletme dizesi, belirli veri liste sorgu sonuçlarını içerilip içerilmeyeceğini denetler.
@@ -89,7 +89,7 @@ Genişletme dizesi belirli bilgileri elde etmek için gereken API çağrısı sa
 * Bu örnekte, dize genişletin listedeki her öğe için istatistik bilgilerini döndürülmesi gerektiğini belirtir: `stats`.
 
 > [!NOTE]
-> Üç sorgu dizesi türlerinden herhangi birini oluştururken (filtreleme, seçin ve genişletin) özellik adlarını ve çalışması, REST API öğesi karşılıkları eşleştiğinden emin olun. Örneğin, .NET ile çalışıyorsanız [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask) sınıfı belirtmelisiniz **durumu** yerine **durumu**, .NET özelliğinin olsa bile [ CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state). .NET ve REST API'lerinin arasında özellik eşlemeleri için aşağıdaki tabloya bakın.
+> Üç sorgu dizesi türlerinden herhangi birini oluştururken (filtreleme, seçin ve genişletin) özellik adlarını ve çalışması, REST API öğesi karşılıkları eşleştiğinden emin olun. Örneğin, .NET ile çalışıyorsanız [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) sınıfı belirtmelisiniz **durumu** yerine **durumu**, .NET özelliğinin olsa bile [ CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). .NET ve REST API'lerinin arasında özellik eşlemeleri için aşağıdaki tabloya bakın.
 > 
 > 
 
@@ -110,7 +110,7 @@ Genişletme dizesi belirli bilgileri elde etmek için gereken API çağrısı sa
 * [ODATADetailLevel][odata].[ SelectClause][odata_select]: Her bir öğeyle döndürülen hangi özellik değerlerini belirtin.
 * [ODATADetailLevel][odata].[ ExpandClause][odata_expand]: Her öğe için ayrı çağrılar yerine tek bir API çağrısı içindeki tüm öğeler için verileri alır.
 
-Aşağıdaki kod parçacığı havuzları belirli bir dizi istatistiklerini için Batch hizmetini verimli bir şekilde sorgulamak için Batch .NET API kullanır. Bu senaryoda hem test hem de üretim havuzuna toplu kullanıcı sahiptir. "Test" ile test havuzu kimliklerini ön eki ve ürün havuzu kimlikleri "üretim" öneki. Kod parçacığında *myBatchClient* düzgün başlatılmadı örneğidir [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient) sınıfı.
+Aşağıdaki kod parçacığı havuzları belirli bir dizi istatistiklerini için Batch hizmetini verimli bir şekilde sorgulamak için Batch .NET API kullanır. Bu senaryoda hem test hem de üretim havuzuna toplu kullanıcı sahiptir. "Test" ile test havuzu kimliklerini ön eki ve ürün havuzu kimlikleri "üretim" öneki. Kod parçacığında *myBatchClient* düzgün başlatılmadı örneğidir [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) sınıfı.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> Örneği [ODATADetailLevel] [ odata] seçim ile yapılandırılmış ve genişletme yan tümceleri de geçirilebilir uygun Get yöntemleri gibi [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), döndürülen veri miktarını sınırlamak için.
+> Örneği [ODATADetailLevel] [ odata] seçim ile yapılandırılmış ve genişletme yan tümceleri de geçirilebilir uygun Get yöntemleri gibi [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), döndürülen veri miktarını sınırlamak için.
 > 
 > 
 

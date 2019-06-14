@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395875"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçlara bağlayın
@@ -31,7 +31,7 @@ Log Analytics ve Azure İzleyici gibi Azure hizmetlerinin algılayın, çözüml
 Bağlantılar aşağıdaki ITSM araçları ile ITSMC destekler:
 
 -   ServiceNow
--   System Center Service Manager
+-   System Center Hizmet Yöneticisi
 -   Provance
 -   Cherwell
 
@@ -89,7 +89,7 @@ Bağlanmakta olduğunuz ITSM ürün bağlı olarak, aşağıdaki adımları kull
 
 ITSM araçlarınıza prepped sonra bir bağlantı oluşturmak için aşağıdaki adımları izleyin:
 
-1. Git **tüm kaynakları**, Aranan **ServiceDesk(YourWorkspaceName)**.
+1. Git **tüm kaynakları**, Aranan **ServiceDesk(YourWorkspaceName)** .
 2. Altında **çalışma alanı veri kaynakları** sol bölmesinden **ITSM bağlantıları**.
    ![ITSM bağlantıları](media/itsmc-overview/itsm-connections.png)
 
@@ -134,7 +134,7 @@ Aşağıdaki yordamı kullanın:
 
 6. Seçin **iş öğesi** aşağı açılan menüden türü.
    ITSM ürününüzü gerekli alanları doldurun veya mevcut bir şablonu kullanmak bu seçeneği seçin.
-7. **Tamam** düğmesine tıklayın.
+7. **Tamam**'ı tıklatın.
 
 Azure bir uyarı kuralı oluşturma veya düzenleme, bir ITSM eylemi olan bir eylem grubu kullanın. Uyarı tetiklendiğinde ITSM Aracı'nda oluşturulan/güncelleştirilen iş öğesi.
 
@@ -181,24 +181,24 @@ ServiceDeskWorkItemType_s="Incident"
 **Alanları**
 
 - ServiceDeskConnectionName
-- Hizmet Masası Kimliği
-- Durum
+- Hizmet Masası kimliği
+- Eyalet
 - Aciliyet
-- Etki
+- Etkisi
 - Öncelik
-- Önem Yükseltme
-- Oluşturan
+- Yükseltme
+- Tarafından oluşturulan
 - Çözümleyen
 - Kapatma tarihi
-- Kaynak
-- Atanan
+- source
+- Atamayı alan
 - Kategori
 - Unvan
 - Açıklama
-- Oluşturma Tarihi
+- Oluşturulma tarihi
 - Kapatılma tarihi
-- Çözüm Tarihi
-- Son Değişiklik Tarihi
+- Çözümlenme tarihi
+- Son değiştirme tarihi
 - Computer
 
 
@@ -208,25 +208,25 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 **Alanları**
 - ServiceDeskConnectionName
-- Hizmet Masası Kimliği
-- Oluşturan
+- Hizmet Masası kimliği
+- Tarafından oluşturulan
 - Kapatma tarihi
-- Kaynak
-- Atanan
+- source
+- Atamayı alan
 - Unvan
 - Tür
 - Kategori
-- Durum
-- Önem Yükseltme
+- Eyalet
+- Yükseltme
 - Çakışma durumu
 - Aciliyet
 - Öncelik
 - Risk
-- Etki
-- Atanan
-- Oluşturma Tarihi
+- Etkisi
+- Atamayı alan
+- Oluşturulma tarihi
 - Kapatılma tarihi
-- Son Değişiklik Tarihi
+- Son değiştirme tarihi
 - İstenen tarih
 - Planlanan başlangıç tarihi
 - Planlanan bitiş tarihi
@@ -240,19 +240,19 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Log Analytics alan | ServiceNow alan |
 |:--- |:--- |
 | ServiceDeskId_s| Sayı |
-| IncidentState_s | Durum |
+| IncidentState_s | Eyalet |
 | Urgency_s |Aciliyet |
-| Impact_s |Etki|
+| Impact_s |Etkisi|
 | Priority_s | Öncelik |
 | CreatedBy_s | Tarafından açılmış |
-| ResolvedBy_s | Çözen:|
+| ResolvedBy_s | Çözümleyen|
 | ClosedBy_s  | Kapatma tarihi |
 | Source_s| Kişi türü |
-| AssignedTo_s | Atanan:  |
+| AssignedTo_s | Atamayı alan  |
 | Category_s | Kategori |
 | Title_s|  Kısa açıklama |
 | Description_s|  Notlar |
-| CreatedDate_t|  Açıldı |
+| CreatedDate_t|  Açılan |
 | ClosedDate_t| Kapalı|
 | ResolvedDate_t|Çözümlendi|
 | Computer  | Yapılandırma öğesi |
@@ -262,17 +262,17 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Log Analytics | ServiceNow alan |
 |:--- |:--- |
 | ServiceDeskId_s| Sayı |
-| CreatedBy_s | İsteği gönderen: |
+| CreatedBy_s | İsteyen: |
 | ClosedBy_s | Kapatma tarihi |
-| AssignedTo_s | Atanan:  |
+| AssignedTo_s | Atamayı alan  |
 | Title_s|  Kısa açıklama |
 | Type_s|  Tür |
 | Category_s|  Kategori |
-| CRState_s|  Durum|
+| CRState_s|  Eyalet|
 | Urgency_s|  Aciliyet |
 | Priority_s| Öncelik|
 | Risk_s| Risk|
-| Impact_s| Etki|
+| Impact_s| Etkisi|
 | RequestedDate_t  | Tarihe göre istendi |
 | ClosedDate_t | Kapatılma tarihi |
 | PlannedStartDate_t  |     Planlanan başlangıç tarihi |

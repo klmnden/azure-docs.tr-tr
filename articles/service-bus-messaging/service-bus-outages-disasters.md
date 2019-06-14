@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589738"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Hizmet veri yolu kesintilerini ve olağanüstü durumları yönetme karşı uygulamalar insulating için en iyi yöntemler
@@ -27,7 +27,7 @@ Olağanüstü bir durumda, kalıcı bir Service Bus ölçek birimi veya veri mer
 ## <a name="protecting-against-outages-and-disasters---service-bus-premium"></a>Kesintileri ve olağanüstü durumları yönetme - hizmet veri yolu Premium karşı koruma
 Yüksek kullanılabilirlik ve olağanüstü durum kurtarma kavramları yerleşik Azure Service Bus Premium katmanı, her ikisi de aynı bölgede (aracılığıyla, kullanılabilirlik alanları) olarak sağ ve farklı bölgelere (aracılığıyla coğrafi olağanüstü durum kurtarma).
 
-### <a name="geo-disaster-recovery"></a>Coğrafi Olağanüstü Durum Kurtarma
+### <a name="geo-disaster-recovery"></a>Coğrafi olağanüstü durum kurtarma
 
 Service Bus Premium ad alanı düzeyinde coğrafi olağanüstü durum kurtarma destekler. Daha fazla bilgi için [Azure Service Bus Geo-olağanüstü durum kurtarma](service-bus-geo-dr.md). İçin olağanüstü durum kurtarma özelliği [Premium SKU](service-bus-premium-messaging.md) yalnızca meta veri olağanüstü durum kurtarma uygular ve birincil ve ikincil olağanüstü durum kurtarma ad alanlarında kullanır.
 

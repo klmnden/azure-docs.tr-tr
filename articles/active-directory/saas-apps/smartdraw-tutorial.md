@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d811cd69185e77f50749fc48974dee684fb7cfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a2322636aab2e0f38e29063d958cb670b5e062f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65744741"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Öğretici: SmartDraw ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de SmartDraw tümleştirmesini yapılandırmak için SmartDraw Galeride
 
 **Galeriden SmartDraw eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -116,7 +116,7 @@ Azure AD çoklu oturum açma ile SmartDraw yapılandırmak için aşağıdaki ad
     > [!NOTE]
     > Oturum açma URL değeri, gerçek değil. Oturum açma URL değeri, bu öğreticinin ilerleyen bölümlerinde açıklanan gerçek oturum açma URL ile güncelleştirir. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-6. SmartDraw uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
+6. SmartDraw uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
     ![image](common/edit-attribute.png)
 
@@ -126,7 +126,7 @@ Azure AD çoklu oturum açma ile SmartDraw yapılandırmak için aşağıdaki ad
     | ---------------| --------------- |
     | FirstName | User.givenName |
     | LastName | User.surname |
-    | E-posta | User.Mail |
+    | Email | User.Mail |
     | Gruplar | User.groups |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
@@ -175,13 +175,13 @@ Azure AD çoklu oturum açma ile SmartDraw yapılandırmak için aşağıdaki ad
 
     a. İçinde **(acme.com gibi) kendi etki alanı** metin etki alanınızı girin.
 
-    b. Kopyalama **bilgisayarınızı SP tarafından başlatılan oturum açma URL'si olacaktır** örneğinizin ve oturum açma URL'si metin kutusuna yapıştırın **temel SAML yapılandırma** Azure portalında.
+    b. Kopyalama **bilgisayarınızı SP tarafından başlatılan oturum açma URL'si olacaktır** örneğinizin ve oturum açma URL'si metin kutusuna yapıştırın **temel SAML yapılandırma** Azure portalında.
     
     c. İçinde **SmartDraw erişim izin vermek için güvenlik grupları** metin kutusuna **herkes**.
 
     d. İçinde **SAML veren URL'niz** metin değerini yapıştırın **Azure AD tanımlayıcısı** hangi Azure portaldan kopyaladığınız.
 
-    e. Not Defteri'nde, Azure portalından indirdiğiniz meta veri XML dosyasını açın, içeriğini kopyalayın ve ardından yapıştırın **bilgisayarınızı SAML meta veri** kutusu.
+    e. Not Defteri'nde, Azure portalından indirdiğiniz meta veri XML dosyasını açın, içeriğini kopyalayın ve ardından yapıştırın **bilgisayarınızı SAML meta veri** kutusu.
 
     f. Tıklayın **yapılandırmayı kaydedin** 
 

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557078"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Coğrafi geri yükleme, çok kiracılı bir SaaS uygulaması, veritabanı yedeklerinden kurtarma için kullanın
@@ -80,7 +80,7 @@ Bu öğreticide kullanılan DR betikler kullanılabilir [GitHub deposundan Kirac
 ## <a name="review-the-healthy-state-of-the-application"></a>Uygulamanın sistem durumunu gözden geçirin
 Kurtarma işlemine başlamadan önce uygulama normal sağlıklı durumunu gözden geçirin.
 
-1. Wingtip bilet olay hub'ı web tarayıcınızda açın (http://events.wingtip-dpt.&lt; kullanıcı&gt;. trafficmanager.net değiştirin &lt;kullanıcı&gt; dağıtımınızın kullanıcı değeri ile).
+1. Wingtip bilet olay hub'ı web tarayıcınızda açın (http://events.wingtip-dpt.&lt ; kullanıcı&gt;. trafficmanager.net değiştirin &lt; kullanıcı&gt; dağıtımınızın kullanıcı değeri ile).
     
    Sayfanın en altına gidin ve kataloğu sunucu adını ve konumunu altbilgisindeki dikkat edin. Uygulamanın dağıtıldığı bölge konumdur.    
 
@@ -200,7 +200,7 @@ Uygulama, uygulama uç noktasını Traffic Manager'da devre dışı bırakıldı
  
     ![Kurtarma işlemi](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Bir kiracının olayları sayfası doğrudan Kiracı çevrimdışı durumdayken açarsanız, sayfanın Kiracı çevrimdışı bir bildirim görüntüler. Contoso Konser Salonu çevrimdışı olduğunda, örneğin, açmaya http://events.wingtip-dpt.&lt; kullanıcı&gt;.trafficmanager.net/contosoconcerthall.
+  * Bir kiracının olayları sayfası doğrudan Kiracı çevrimdışı durumdayken açarsanız, sayfanın Kiracı çevrimdışı bir bildirim görüntüler. Contoso Konser Salonu çevrimdışı olduğunda, örneğin, açmaya http://events.wingtip-dpt.&lt ; kullanıcı&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Kurtarma işlemi](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -266,7 +266,7 @@ Bu görevde, geri yüklenen Kiracı veritabanlarından birini güncelleştirin. 
 
 3. Betiği çalıştırmak için F5'i seçin.
 
-4. Contoso Konser Salonu olayları sayfayı yenileyin (http://events.wingtip-dpt.&lt; kullanıcı&gt;.trafficmanager.net/contosoconcerthall) ve ciddi Strauss olay eksik olduğuna dikkat edin.
+4. Contoso Konser Salonu olayları sayfayı yenileyin (http://events.wingtip-dpt.&lt ; kullanıcı&gt;.trafficmanager.net/contosoconcerthall) ve ciddi Strauss olay eksik olduğuna dikkat edin.
 
 Bu öğreticide kurtarma bölgesinde artık çalıştıran uygulama kurtardı. Kurtarma bölgesinde yeni bir kiracı hazırladıktan ve geri yüklenen kiracılar birinin veri değiştirilmiş.  
 
@@ -299,9 +299,9 @@ Kesinti çözümlendikten sonra uygulama ve onun özgün bölgeye veritabanları
 
 Repatriated gereken Kiracı veritabanlarının sayısını sınırlamak için 1-3 adımları en kısa sürede gerçekleştirilir.  
 
-4. adım, yalnızca Katalog Kurtarma bölgesinde kesinti sırasında değiştirildiyse gerçekleştirilir. Kataloğa yeni Kiracı oluşturduysanız veya herhangi bir veritabanı veya havuz yapılandırma kurtarma bölgesinde değiştirilirse güncelleştirilir.
+4\. adım, yalnızca Katalog Kurtarma bölgesinde kesinti sırasında değiştirildiyse gerçekleştirilir. Kataloğa yeni Kiracı oluşturduysanız veya herhangi bir veritabanı veya havuz yapılandırma kurtarma bölgesinde değiştirilirse güncelleştirilir.
 
-7. adım, kiracılar için en az neden olur ve veri kaybı olmamasına önemlidir. Bu hedefe ulaşmak için coğrafi çoğaltma işlemi kullanır.
+7\. adım, kiracılar için en az neden olur ve veri kaybı olmamasına önemlidir. Bu hedefe ulaşmak için coğrafi çoğaltma işlemi kullanır.
 
 Her veritabanı, coğrafi olarak çoğaltılmış önce özgün bölgede karşılık gelen veritabanı silinir. Veritabanı kurtarma bölgede coğrafi çoğaltmalı ikincil bir çoğaltmaya özgün bölgede oluşturma, ise. Çoğaltma tamamlandıktan sonra Kiracı veritabanına herhangi bir bağlantı kurtarma bölgesinde keser kataloğunda çevrimdışı olarak işaretlenmiş. Veritabanı sonra Yük devretme, işlemleri ikincil kadar hiçbir veriyi işlemek için bekleyen neden kaybolur. 
 
@@ -330,7 +330,7 @@ Adım 8'de, Kurtarma bölgesinde kurtarma sunucuları ve havuzları da dahil olm
 
     Yeni bir PowerShell penceresi kurtarma betiği çalıştırmak için F5'i seçin. Repatriation birkaç dakika sürer ve PowerShell penceresinde izlenebilir.
 
-3. Komut dosyası çalıştırılırken, olay hub'ı sayfayı yenileyin (http://events.wingtip-dpt.&lt; kullanıcı&gt;. trafficmanager.net).
+3. Komut dosyası çalıştırılırken, olay hub'ı sayfayı yenileyin (http://events.wingtip-dpt.&lt ; kullanıcı&gt;. trafficmanager.net).
 
     Tüm kiracılar çevrimiçi ve erişilebilir bu süreci boyunca olduğuna dikkat edin.
 

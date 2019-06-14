@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: fa89117e85bc3d3c9664e6aa037fac923b7432ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544892"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>Klasik Azure CLI'de Internet'e yönelik Yük Dengeleyici (Klasik) oluşturmaya başlama
@@ -56,7 +56,7 @@ Bu kılavuz, yukarıdaki senaryoya göre İnternet’e yönelik yük dengeleyici
 Bu senaryoda "web1" ve "web2" adlı sanal makinelerin oluşturulduğu varsayılmaktadır.
 Bu kılavuzda hem genel hem de yerel bağlantı noktası olarak 80 numaralı bağlantı noktası kullanılarak bir yük dengeleyici kümesi oluşturulmaktadır. 80 numaralı bağlantı noktasında da bir araştırma bağlantı noktası yapılandırılmakta ve yük dengeleyici kümesi "lbset" olarak adlandırılmaktadır.
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1\. Adım
 
 `azure network vm endpoint create` kullanarak "web1" adlı sanal makine için ilk uç noktayı ve yük dengeleyici kümesini oluşturun.
 
@@ -64,7 +64,7 @@ Bu kılavuzda hem genel hem de yerel bağlantı noktası olarak 80 numaralı ba�
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2\. Adım
 
 Yük dengeleyici kümesine "web2" adlı ikinci bir sanal makine ekleyin.
 
@@ -72,7 +72,7 @@ Yük dengeleyici kümesine "web2" adlı ikinci bir sanal makine ekleyin.
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>3\. Adım
 
 `azure vm show` komutunu kullanarak yük dengeleyici yapılandırmasını doğrulayın.
 

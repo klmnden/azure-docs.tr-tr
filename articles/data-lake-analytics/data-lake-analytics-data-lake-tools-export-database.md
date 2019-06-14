@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628582"
 ---
 # <a name="export-a-u-sql-database"></a>U-SQL veritabanını dışarı aktarma
@@ -26,7 +26,7 @@ Geliştirin ve U-SQL sorguları geliştirme ve test ortamları ayarlamak, geliş
 
 ## <a name="export-steps"></a>Dışarı aktarma adımları
 
-### <a name="step-1-export-the-database-in-server-explorer"></a>1. Adım: Sunucu Gezgini'nde veritabanını dışarı aktarma
+### <a name="step-1-export-the-database-in-server-explorer"></a>1\. adım: Sunucu Gezgini'nde veritabanını dışarı aktarma
 
 Sunucu Gezgini'nde izinlerine sahip olduğunuz tüm Data Lake Analytics hesapları listelenir. Veritabanı dışarı aktarmak için:
 
@@ -37,7 +37,7 @@ Sunucu Gezgini'nde izinlerine sahip olduğunuz tüm Data Lake Analytics hesaplar
 
      Varsa **dışarı** menü seçeneği kullanılabilir değilse, yapmanız [en son sürümünü sürümüne güncelleştirme aracı](https://aka.ms/adltoolsvs).
 
-### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>2. Adım: Dışarı aktarmak istediğiniz nesneleri yapılandırın
+### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>2\. adım: Dışarı aktarmak istediğiniz nesneleri yapılandırın
 
 Büyük bir veritabanı yalnızca küçük bir bölümünü gerekiyorsa, Dışarı Aktarma Sihirbazı'nda dışarı aktarmak istediğiniz nesne kümesini yapılandırabilirsiniz. 
 
@@ -45,7 +45,7 @@ Verme eylemi bir U-SQL işi tamamlandı. Bu nedenle, bir Azure hesabından diğe
 
 ![Veritabanı Dışarı Aktarma Sihirbazı - seçim nesneleri dışarı aktarın.](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard.png)
 
-### <a name="step-3-check-the-objects-list-and-other-configurations"></a>3. Adım: Nesne listesi ve diğer yapılandırmaları denetleyin
+### <a name="step-3-check-the-objects-list-and-other-configurations"></a>3\. adım: Nesne listesi ve diğer yapılandırmaları denetleyin
 
 Bu adımda seçilen nesneleri doğrulayabilirsiniz **nesne listesini dışarı aktarma** kutusu. Herhangi bir hata varsa, seçin **önceki** geri dönün ve doğru şekilde dışarı aktarmak istediğiniz nesneleri yapılandırın.
 
@@ -55,13 +55,13 @@ Dışarı aktarma hedefi için diğer ayarları da yapılandırabilirsiniz. Yap�
 |-------------|-----------|
 |Hedef adı|Bu ad, dışarı aktarılan Veritabanı kaynaklarından tasarruf etmek istediğiniz gösterir. Derlemeleri, ek dosyaları ve örnek verileri verilebilir. Bu ada sahip bir klasör yerel veri kökü klasörünüzün altında oluşturulur.|
 |Proje dizini|Bu yol, dışarı aktarılan U-SQL komut dosyasını kaydetmek istediğiniz tanımlar. Tüm veritabanı nesne tanımları, bu konuma kaydedilir.|
-|Yalnızca Şema|Bu seçeneği belirlerseniz, tek veritabanı tanımları ve kaynaklar (gibi derlemeleri ve ek dosyaları) dışarı aktarılır.|
-|Şema ve Veri|Bu seçeneği seçerseniz, veritabanı tanımları, kaynakları ve veri dışarı aktarılır. Tablo üst N satırlarını dışarı aktarılır.|
-|Yerel Veritabanına Otomatik Olarak Aktar|Bu seçeneği belirlerseniz, dışarı aktarılan veritabanıdır verirken yerel veritabanınızı otomatik olarak içeri aktarılan tamamlandı.|
+|Yalnızca şema|Bu seçeneği belirlerseniz, tek veritabanı tanımları ve kaynaklar (gibi derlemeleri ve ek dosyaları) dışarı aktarılır.|
+|Şema ve veri|Bu seçeneği seçerseniz, veritabanı tanımları, kaynakları ve veri dışarı aktarılır. Tablo üst N satırlarını dışarı aktarılır.|
+|Yerel veritabanına otomatik olarak içeri aktarma|Bu seçeneği belirlerseniz, dışarı aktarılan veritabanıdır verirken yerel veritabanınızı otomatik olarak içeri aktarılan tamamlandı.|
 
 ![Veritabanı Dışarı Aktarma Sihirbazı - nesne listesini dışarı aktarma ve diğer yapılandırmaları](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-configuration.png)
 
-### <a name="step-4-check-the-export-results"></a>4. Adım: Dışarı aktarma sonuçlarını denetleyin
+### <a name="step-4-check-the-export-results"></a>4\. Adım: Dışarı aktarma sonuçlarını denetleyin
 
 Dışarı aktarma tamamlandığında, Sihirbazı günlük pencerede dışarı aktarılan sonuçları görüntüleyebilirsiniz. Aşağıdaki örnek, derlemeleri, ek dosyaları ve örnek veriler dahil olmak üzere dışarı aktarılan U-SQL betiği ve veritabanı kaynakları bulmak gösterilmektedir:
 

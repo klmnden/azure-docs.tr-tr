@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334123"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme
@@ -21,7 +21,7 @@ Web sitesini ziyaret ederek açmaya çalıştığınızda hatalarla karşılaş�
 
 ## <a name="prerequisites"></a>Önkoşullar
 * **Visual Studio 2015 veya Visual Studio 2013'ün**.
-* **[Visual Studio için Data Lake Araçları](https://aka.ms/adltoolsvs)**.
+* **[Visual Studio için Data Lake Araçları](https://aka.ms/adltoolsvs)** .
 
     Visual Studio için Data Lake araçları yüklendikten sonra göreceğiniz bir **Data Lake** öğesi **Araçları** Visual Studio menüsünde:
 
@@ -58,7 +58,7 @@ Ayrıca kullanıcı tanımlı işleçler uygulamaya ekleyebilirsiniz.  Daha fazl
 2. U-SQL projesi türünü seçin.
 
     ![yeni U-SQL Visual Studio projesi](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. **Tamam** düğmesine tıklayın. Visual studio Script.usql dosyasıyla bir çözüm oluşturur.
+3. **Tamam**'ı tıklatın. Visual studio Script.usql dosyasıyla bir çözüm oluşturur.
 4. Script.usql dosyasına aşağıdaki betiği girin:
 
         // Create a database for easy reuse, so you don't need to read from a file every time.

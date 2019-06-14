@@ -15,10 +15,10 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595760"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure'da (Önizleme) bir yönetim çözümü dosyası oluşturma
@@ -70,10 +70,10 @@ Aşağıdaki tabloda, bir parametre özniteliklerini açıklar.
 
 | Öznitelik | Açıklama |
 |:--- |:--- |
-| type |Parametresi için veri türü. Kullanıcı için görüntülenen giriş denetiminin veri türüne bağlıdır.<br><br>bool - açılan kutusu<br>dize - metin kutusu<br>int - metin kutusu<br>SecureString - parola alanı<br> |
+| türü |Parametresi için veri türü. Kullanıcı için görüntülenen giriş denetiminin veri türüne bağlıdır.<br><br>bool - açılan kutusu<br>dize - metin kutusu<br>int - metin kutusu<br>SecureString - parola alanı<br> |
 | category |Kategori parametresi isteğe bağlı.  Aynı kategoride parametreleri birlikte gruplandırılır. |
 | Denetimi |Dize parametreleri için ek işlevsellik sağlar.<br><br>DateTime - Datetime denetimi görüntülenir.<br>GUID - GUID değeri otomatik olarak oluşturulur ve parametre görüntülenmez. |
-| açıklama |Parametresi için isteğe bağlı bir açıklama.  Bir parametrenin yanındaki bilgi balonunda görüntülenir. |
+| description |Parametresi için isteğe bağlı bir açıklama.  Bir parametrenin yanındaki bilgi balonunda görüntülenir. |
 
 ### <a name="standard-parameters"></a>Standart Parametreler
 Aşağıdaki tabloda, tüm yönetim çözümleri için standart parametreler listelenmektedir.  Bu değerler, çözümünüzü Azure Marketi'nde ya da hızlı başlangıç şablonları yüklendiğinde, bunların istenmesi yerine kullanıcının doldurulur.  Çözüm başka bir yöntemle yüklüyse kullanıcı bunlar için değer sağlamalısınız.
@@ -129,7 +129,7 @@ Yapısı, çözüm dosyasına kopyalayıp standart Parametreler aşağıda veril
     }
 
 
-Parametre değerlerini söz dizimi ile çözümün diğer öğeleri başvurduğu **parametreleri ('parametre adı')**.  Örneğin, çalışma alanı adı erişmek için kullanacağınız **parameters('workspaceName')**
+Parametre değerlerini söz dizimi ile çözümün diğer öğeleri başvurduğu **parametreleri ('parametre adı')** .  Örneğin, çalışma alanı adı erişmek için kullanacağınız **parameters('workspaceName')**
 
 ## <a name="variables"></a>Değişkenler
 [Değişkenleri](../../azure-resource-manager/resource-group-authoring-templates.md#variables) yönetimi çözümü geri kalanında kullanacağınız değerlerdir.  Bu değerler, çözüm yükleme kullanıcıya sunulmaz.  Yazar birden çok kez çözümün kullanılabilir değerleri yönetebileceği tek bir konum sağlamak için tasarlanmıştır. Herhangi bir değeri belirli çözümünüze bunları kodlamak yerine değişkenlerine koymalısınız **kaynakları** öğesi.  Bu kod daha okunabilir hale getirir ve sonraki sürümlerinde bu değerleri kolayca değiştirmenize izin verir.
@@ -144,7 +144,7 @@ Aşağıdaki örneği verilmiştir bir **değişkenleri** çözümlerinde kullan
         "AutomationApiVersion": "2015-10-31"
     },
 
-Değişken değerleri söz dizimi ile çözüm aracılığıyla başvurmanız **değişkenleri ('değişken adı')**.  Örneğin, SolutionName değişkeni erişmek için kullanacağınız **variables('SolutionName')**.
+Değişken değerleri söz dizimi ile çözüm aracılığıyla başvurmanız **değişkenleri ('değişken adı')** .  Örneğin, SolutionName değişkeni erişmek için kullanacağınız **variables('SolutionName')** .
 
 Ayrıca, karmaşık değişkenleri tanımlayabilirsiniz, birden çok değerlerini ayarlar.  Burada farklı kaynak türleri için birden çok özellik tanımlama bu yönetim çözümlerine özellikle yararlı olur.  Örneğin, yukarıda gösterilen aşağıdaki çözüm değişkenlerini yeniden yapılandırma.
 
@@ -164,7 +164,7 @@ Bu durumda, söz dizimi ile çözüm aracılığıyla değişken değerleri baş
 [Kaynakları](../../azure-resource-manager/resource-group-authoring-templates.md#resources) yönetim çözümünüzü yükleyecekleri ve yapılandıracakları farklı kaynakları tanımlayın.  Bu şablon en büyük ve en karmaşık kısmı olacaktır.  Kaynak öğelerin eksiksiz bir açıklaması ve yapısı alabilirsiniz [Azure Resource Manager şablonları yazma](../../azure-resource-manager/resource-group-authoring-templates.md#resources).  Tipik tanımlayacak farklı kaynaklar diğer makalelerde, bu belgede ayrıntılı olarak belirtilir. 
 
 
-### <a name="dependencies"></a>Bağımlılıklar
+### <a name="dependencies"></a>Bağımlılıkları
 **DependsOn** öğeyi belirten bir [bağımlılık](../../azure-resource-manager/resource-group-define-dependencies.md) başka bir kaynak üzerinde.  Çözüm yüklendikten sonra bir kaynak tüm bağımlılıklarını oluşturulmuş kadar oluşturulmaz.  Örneğin, çözümünüz olabilir [runbook başlatma](solutions-resources-automation.md#runbooks) kullanarak yüklendiğinde bir [proje kaynak](solutions-resources-automation.md#automation-jobs).  Proje kaynak proje oluşturulmadan önce runbook oluşturulduğundan emin olmak için runbook kaynağına bağlı olacaktır.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics çalışma alanı ve Otomasyon hesabı
@@ -205,7 +205,7 @@ Bir kaynak giriş her çözüm gerektiren **kaynakları** çözüm tanımlayan �
 
 
 
-### <a name="dependencies"></a>Bağımlılıklar
+### <a name="dependencies"></a>Bağımlılıkları
 Çözüm kaynak olmalıdır bir [bağımlılık](../../azure-resource-manager/resource-group-define-dependencies.md) bunlar çözüm oluşturulabilmesi için önce mevcut olması gerektiğinden, çözümdeki diğer her kaynaktaki.  Her kaynak için bir giriş ekleyerek bunu **dependsOn** öğesi.
 
 ### <a name="properties"></a>Özellikler
@@ -213,7 +213,7 @@ Bir kaynak giriş her çözüm gerektiren **kaynakları** çözüm tanımlayan �
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| workspaceResourceId |Log Analytics çalışma formundaki Kimliğini  *\<kaynak grubu kimliği > /providers/Microsoft.OperationalInsights/workspaces/\<çalışma alanı adı\>*. |
+| workspaceResourceId |Log Analytics çalışma formundaki Kimliğini  *\<kaynak grubu kimliği > /providers/Microsoft.OperationalInsights/workspaces/\<çalışma alanı adı\>* . |
 | referencedResources |Çözüm kaldırıldığında kaldırılmamalıdır çözümü kaynakların listesi. |
 | containedResources |Çözümdeki çözüm kaldırıldığında veritabanınızdan kaldırılması gereken kaynakların listesi. |
 
@@ -224,10 +224,10 @@ Yukarıdaki örnekte, bir runbook, zamanlama ve görünümü ile çözüm içind
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| ad |Çözüm adı. |
+| name |Çözüm adı. |
 | version |Yazar tarafından belirlendiği şekilde bu çözümün sürümü. |
-| ürün |Çözüm tanımlamak için benzersiz bir dize. |
-| Yayımcı |Çözümün yayımcısı. |
+| Ürün |Çözüm tanımlamak için benzersiz bir dize. |
+| publisher |Çözümün yayımcısı. |
 
 
 

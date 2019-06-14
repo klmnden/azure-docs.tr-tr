@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245217"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Mevcut bir ad eşitleme veritabanını kullanarak Azure AD Connect'i yükleme
@@ -98,7 +98,7 @@ Gerekli olan herhangi bir ilave adımı doğrulamak için aşağıdaki tabloyu k
 
 |Özellik|Adımlar|
 |-----|-----|
-|Parola Karması Eşitleme| Parola karma eşitlemesi ve parola geri yazma ayarları tam olarak Azure AD Connect sürümleri ile 1.2.65.0 başlangıç geri yüklenir.  Azure AD Connect'in eski bir sürümü kullanılarak geri yükleme eşitleme bu özellikler için bunların sunucunuz etkin eşitlemeyi eşleştiğinden emin olmak için seçenek ayarları gözden geçirin.  Başka yapılandırma adımları gerekli olmamalıdır.|
+|Parola Karması eşitleme| Parola karma eşitlemesi ve parola geri yazma ayarları tam olarak Azure AD Connect sürümleri ile 1.2.65.0 başlangıç geri yüklenir.  Azure AD Connect'in eski bir sürümü kullanılarak geri yükleme eşitleme bu özellikler için bunların sunucunuz etkin eşitlemeyi eşleştiğinden emin olmak için seçenek ayarları gözden geçirin.  Başka yapılandırma adımları gerekli olmamalıdır.|
 |AD FS ile Federasyon|Azure kimlik doğrulamaları sunucunuz etkin eşitlemeyi için yapılandırılmış AD FS ilkesini kullanmaya devam eder.  Azure AD Connect, AD FS grubunu yönetmek için kullanıyorsanız, AD FS federasyon bekleme sunucunuz etkin eşitlemeyi örnekli mimariye geçiş hazırlığı için oturum açma yöntemi isteğe bağlı olarak değişebilir.   Cihaz seçenekleri etkin eşitlemeyi sunucuda etkinleştirilirse, "cihaz seçeneklerini Yapılandır" görevi'ni çalıştırarak bu sunucuda bu seçenekleri yapılandırın.|
 |Geçişli kimlik doğrulaması ve Masaüstü çoklu oturum açma|Etkin eşitlemeyi sunucunuzdaki yapılandırmasıyla eşleşecek şekilde oturum açma yöntemini güncelleştirin.  Bunun üzerinde birlikte sorunsuz çoklu oturum açma birincil, geçişli kimlik doğrulaması için sunucu yükseltme devre dışı bırakılır ve sahip değilseniz Kiracı URL'nizi kilitli olabilir önce uyulmazsa yedekleme olarak parola karması eşitleme seçeneği oturum açın. Ayrıca, hazırlama modunda geçişli kimlik doğrulaması etkinleştirdiğinizde, yeni bir kimlik doğrulama Aracısı yükleneceğini, Not, kayıtlı ve oturum açma istekleri kabul edeceği bir yüksek kullanılabilirlik aracısı olarak çalıştırılır.|
 |PingFederate ile federasyon|Azure kimlik doğrulamaları sunucunuz etkin eşitlemeyi için yapılandırılmış PingFederate ilkesini kullanmaya devam eder.  Bekleme sunucunuz etkin eşitlemeyi örnekli mimariye geçiş için hazırlık PingFederate için oturum açma yöntemi isteğe bağlı olarak değişebilir.  Ek etki alanlarını PingFederate ile federasyona eklemek ihtiyacınız kadar bu adımı ertelenmiş.|

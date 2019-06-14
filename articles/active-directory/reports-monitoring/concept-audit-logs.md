@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60441146"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki denetim etkinliği raporları 
@@ -127,7 +127,7 @@ Aşağıdaki alanlarda denetim verilerini filtreleyebilirsiniz:
 
 **Etkinlik** filtresi, yaptığınız kategori ve etkinlik kaynağı türü seçimine dayanır. Görmek istediğiniz belirli bir etkinliği ya da tüm etkinlikleri seçebilirsiniz. 
 
-Graph API'si (https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta; burada $tenantdomain = etki alanınızın adıdır) kullanarak tüm Denetim Etkinliklerinin listesini alabilir veya [denetim raporu olayları](reference-audit-activities.md) makalesine bakabilirsiniz.
+Graph API'si (https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes?api-version=beta; burada $tenantdomain = etki alanınızın adıdır) kullanarak tüm Denetim Etkinliklerinin listesini alabilir veya [denetim raporu olayları](reference-audit-activities.md) makalesine bakabilirsiniz.
 
 **Durumu** filtre filtrelemenize olanak sağlayan bir denetim işlemin durumu temelinde. Durumu aşağıdakilerden biri olabilir:
 

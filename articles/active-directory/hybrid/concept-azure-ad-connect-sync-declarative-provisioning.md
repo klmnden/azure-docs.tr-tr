@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246273"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect eşitleme: Bildirim Temelli Sağlamayı Anlama
@@ -42,13 +42,13 @@ Bildirim temelli sağlama nesneleri bir kaynak bağlı dizinden gelen işlem ve 
 * [Öncelik](#precedence), öznitelik Katkıları çakışan çözümler
 * Hedef, hedef nesne
 
-## <a name="scope"></a>Kapsam
+## <a name="scope"></a>`Scope`
 Kapsam modülü, bir nesne değerlendirmek ve kapsam içindedir ve işleme dahil edilmesi gereken kurallar belirler. Nesne öznitelikleri değerlerine bağlı olarak, farklı eşitleme kuralları, kapsam içinde yer değerlendirilir. Örneğin, devre dışı bir kullanıcı Exchange posta kutusu ile daha etkin bir kullanıcı bir posta kutusu ile farklı kurallara sahip.  
-![Kapsam](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![`Scope`](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 Kapsam grupları ve yan tümce tanımlanır. Yan tümceleri içinde bir grubudur. Mantıksal AND bir gruptaki tüm koşullar arasında kullanılır. Örneğin, (departman BT ve ülke = Danimarka =). Mantıksal OR grupları arasında kullanılır.
 
-![Kapsam](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
+![`Scope`](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
 Bu resimdeki kapsamı olarak okunmalıdır (departman BT ve ülke = = Danimarka) veya (ülke İsveç =). Grup 1 veya 2 grup true, sonra kuralın değerlendirildiği taktirde kapsamdadır.
 
 Kapsam Modülü aşağıdaki işlemleri destekler.
@@ -66,7 +66,7 @@ Kapsam Modülü aşağıdaki işlemleri destekler.
 | ISBITSET, ISNOTBITSET |Belirli bir biti ayarlanmışsa değerlendirir. Örneğin, bir kullanıcı etkin veya devre dışı olduğunu görmek için userAccountControl bitler değerlendirmek için kullanılabilir. |
 | ISMEMBEROF, ISNOTMEMBEROF |Bağlayıcı alanında bir gruba bir DN değeri içermelidir. Belirtilen grubun bir üyesiyse, kural kapsamdadır. |
 
-## <a name="join"></a>Birleştir
+## <a name="join"></a>Katıl
 Eşitleme işlem hattının birleştirme modülü, hedef kaynak nesnesi ve bir nesne arasındaki ilişkiyi bulmak için sorumludur. Bir gelen kuralı üzerinde bu ilişkiyi bir bağlayıcı alanında meta veri deposunda bir nesneye bir ilişki bulma bir nesne olabilir.  
 ![Mv ile cs arasında katılın](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
 Başka bir bağlayıcı tarafından oluşturulan zaten meta veri deposu, bir nesne ise, değeriyle ilişkilendirilip ilişkilendirilmeyeceğini görmek için hedeftir. Örneğin, bir hesap-kaynak ormanda kullanıcı hesap ormandan kullanıcıyla kaynak ormandaki alanına eklenmelidir.

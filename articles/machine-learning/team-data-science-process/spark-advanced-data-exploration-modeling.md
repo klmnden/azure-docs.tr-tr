@@ -12,10 +12,10 @@ ms.date: 02/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5f6145e581393d874871d214515a660f987d1d7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253382"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Spark ile gelişmiş veri keşfi ve modelleme
@@ -196,7 +196,7 @@ Verileri Spark yönetilmeye başladıktan sonra veri bilimi işlemi sonraki adı
 Bu kod ve sonraki kod parçacıkları örnek ve verileri çizmek için yerel Sihirli sorgulamak için SQL Sihri kullanın.
 
 * **SQL Sihri (`%%sql`)** HDInsight PySpark çekirdeği kolay satır içi HiveQL sqlContext sorguları destekler. (-O deðiþken_adý) bağımsız değişkeni bir Pandas DataFrame Jupyter sunucuda olarak SQL sorgusunun çıktısını sürdürür. Başka bir deyişle, yerel modda kullanılabilir.
-*  **`%%local` Sihirli** kod HDInsight küme baş düğümüne olan Jupyter sunucu üzerinde yerel olarak çalıştırmak için kullanılır. Genellikle, kullandığınız `%%local` sonra Sihirli `%%sql -o` Sihirli bir sorguyu çalıştırmak için kullanılır. -O parametresi yerel SQL sorgusunun çıktısını kalıcı. Ardından `%%local` Sihirli sonraki yerel olarak karşı ve yerel olarak kalıcı çıkış SQL sorguları çalıştırmak için kod parçacıkları kümesini tetikler. Çıktı, kodu çalıştırdıktan sonra otomatik olarak görselleştirilir.
+* **`%%local` Sihirli** kod HDInsight küme baş düğümüne olan Jupyter sunucu üzerinde yerel olarak çalıştırmak için kullanılır. Genellikle, kullandığınız `%%local` sonra Sihirli `%%sql -o` Sihirli bir sorguyu çalıştırmak için kullanılır. -O parametresi yerel SQL sorgusunun çıktısını kalıcı. Ardından `%%local` Sihirli sonraki yerel olarak karşı ve yerel olarak kalıcı çıkış SQL sorguları çalıştırmak için kod parçacıkları kümesini tetikler. Çıktı, kodu çalıştırdıktan sonra otomatik olarak görselleştirilir.
 
 Bu sorgu gelişlerin yolcular sayısına göre alır. 
 

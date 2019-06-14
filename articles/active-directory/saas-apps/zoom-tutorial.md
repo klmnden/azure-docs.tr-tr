@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 641fe5439e320208d41969b9563293257648d488
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.openlocfilehash: 4b4b680657ba8575333f598d3a34c4f4b5f2ebd7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65895936"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Öğretici: Azure Active Directory Tümleştirmesi ile yakınlaştırma
 
@@ -53,7 +53,7 @@ Azure AD yakınlaşın tümleştirmesini yapılandırmak için yakınlaştırma 
 
 **Galeriden yakınlaştırma eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -112,20 +112,20 @@ Azure AD çoklu oturum açma ile yakınlaştırma yapılandırmak için aşağı
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [yakınlaştırma istemci Destek ekibine](https://support.zoom.us/hc/en-us) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. Yakınlaştırma uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
+5. Yakınlaştırma uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
     ![image](common/edit-attribute.png)
 
 6. Buna ek olarak, yukarıda uygulama yakınlaştırmak için SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
     
-    | Ad | Ad alanı  |  Kaynak özniteliği|
+    | Ad | Ad Alanı  |  Kaynak özniteliği|
     | ---------------| --------------- | --------- |
-    | E-posta Adresi  | User.Mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
+    | E-posta adresi  | User.Mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
     | Ad  | User.givenName  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
     | Soyadı  | User.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
     | Telefon numarası  | User.telephoneNumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
     | Departman  | User.Department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
-    | rol |    User.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
+    | role |    User.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
 
     > [!NOTE]
     > Lütfen tıklayın [burada](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Azure AD'de rol yapılandırma bilmek

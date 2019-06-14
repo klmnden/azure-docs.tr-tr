@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60605694"
 ---
 # <a name="use-case---product-recommendations"></a>Kullanım Örneği - Ürün Önerileri
@@ -39,7 +39,7 @@ Vardır birçok güçlükle de bu çevrimiçi Perakendeciler yüz bu tür bir ku
 
 Son olarak, genel yukarı satış izleyerek yaklaşımlarını verimliliğini ölçme ve çapraz satış tıklatın dönüştürme satış başarılar ve bunların geleceğe yönelik öneriler için ayarlamak Perakendeciler gerekir.
 
-## <a name="solution-overview"></a>Çözüme Genel Bakış
+## <a name="solution-overview"></a>Çözüme genel bakış
 Bu örnek kullanım örneği çözülen ve Azure Data Factory ve dahil olmak üzere diğer Cortana Intelligence Bileşen Hizmetleri'ni kullanarak gerçek Azure kullanıcılar tarafından uygulanan [HDInsight](https://azure.microsoft.com/services/hdinsight/) ve [Power BI](https://powerbi.microsoft.com/).
 
 Çevrimiçi satış şirketi, iş akışı boyunca kendi veri depolama seçenekleri olarak Azure Blob Depolama, şirket içi SQL server, Azure SQL DB ve ilişkisel veri reyonu kullanır.  Blob depolama, müşteri bilgileri, müşteri davranış verilerini ve ürün bilgileri verileri içerir. Ürün bilgisi verileri ürün marka bilgilerini içeren ve bir ürün kataloğu depolanmış şirket içi bir SQL veri ambarı'nda. 

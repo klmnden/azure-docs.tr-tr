@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d25082c429c58c074726c75f7ff6f248daee4151
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571165"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050611"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure işlevleri Python Geliştirici Kılavuzu
 
@@ -30,7 +30,7 @@ Bu makalede, Python kullanarak Azure işlevleri geliştirmeye giriş niteliğind
 
 Bir Azure işlevi, giriş işleyen, çıktı üretir Python betiğinizi durum bilgisi olmayan bir yöntem olmalıdır. Varsayılan olarak, çalışma zamanı adlı bir genel yöntem uygulanması gereken yöntemini bekliyor `main()` içinde `__init__.py` dosya.
 
-Varsayılan yapılandırma belirterek değiştirebilirsiniz `scriptFile` ve `entryPoint` özelliklerinde `function.json` dosya. Örneğin, _function.json_ aşağıda çalışma zamanı kullanmak için bildiren _customentry()_ yönteminde _main.py_ dosyası, Azure işleviniz için giriş noktası olarak.
+Varsayılan yapılandırma belirterek değiştirebilirsiniz `scriptFile` ve `entryPoint` özelliklerinde *function.json* dosya. Örneğin, _function.json_ aşağıda çalışma zamanı kullanmak için bildiren `customentry()` yönteminde _main.py_ dosyası, Azure işleviniz için giriş noktası olarak.
 
 ```json
 {
@@ -40,7 +40,7 @@ Varsayılan yapılandırma belirterek değiştirebilirsiniz `scriptFile` ve `ent
 }
 ```
 
-Tetikleyiciler ve bağlamalar verilerden yöntem öznitelikleri kullanarak işleve bağlı `name` tanımlanan özellik `function.json` yapılandırma dosyası. Örneğin, _function.json_ adlı bir HTTP isteği tarafından tetiklenen basit bir işlev aşağıda anlatılmaktadır `req`:
+Tetikleyiciler ve bağlamalar verilerden yöntem öznitelikleri kullanarak işleve bağlı `name` tanımlanan özellik *function.json* dosya. Örneğin, _function.json_ adlı bir HTTP isteği tarafından tetiklenen basit bir işlev aşağıda anlatılmaktadır `req`:
 
 ```json
 {
@@ -68,7 +68,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-İsteğe bağlı olarak ayrıca parametre türleri bildirme ve Python tür ek açıklamaları kullanarak işlev dönüş türü. Örneğin, aynı işlevi kullanılarak aşağıdaki gibi ek açıklamaları, yazılabilir:
+İsteğe bağlı olarak, IntelliSense ve kod düzenleyicinize tarafından sağlanan otomatik tamamlama özellikleri yararlanmak için ayrıca öznitelik türlerini bildirir ve Python tür ek açıklamaları kullanarak işlev dönüş türü. 
 
 ```python
 import azure.functions
@@ -78,7 +78,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```  
 
-Dahil Python ek açıklamalarını kullanma [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) giriş ve çıkışları için yöntemlerinizi bağlamak için paket. 
+Dahil Python ek açıklamalarını kullanma [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) giriş ve çıkışları için yöntemlerinizi bağlamak için paket.
 
 ## <a name="folder-structure"></a>klasör yapısı
 
@@ -97,8 +97,6 @@ Bir Python işlevleri proje için klasör yapısı aşağıdaki gibi görünür:
  | | - mySecondHelperFunction.py
  | - host.json
  | - requirements.txt
- | - extensions.csproj
- | - bin
 ```
 
 Var olan bir paylaşılan [host.json](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev, kendi kod dosyası ve bağlama yapılandırma dosyası (function.json) vardır. 
@@ -106,16 +104,16 @@ Var olan bir paylaşılan [host.json](functions-host-json.md) işlev uygulaması
 Paylaşılan kod ayrı bir klasöre tutulmalıdır. Modüller SharedCode klasöründe başvurmak için aşağıdaki söz dizimini kullanabilirsiniz:
 
 ```
-from ..SharedCode import myFirstHelperFunction
+from __app__.SharedCode import myFirstHelperFunction
 ```
 
-İşlevler çalışma zamanı tarafından kullanılan bağlama uzantıları içinde tanımlanmış `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) Azure işlevleri çekirdek araçları kullanarak. 
-
-İşlev uygulamanızda Azure işlevleri projesi dağıtırken, paket, ancak klasörün kendisini FunctionApp klasörün tüm içeriğini eklenmelidir.
+İşlev uygulamanızda Azure, tüm içeriğini işlev projesi dağıtılırken *FunctionApp* klasörü, paket, ancak klasörün kendisini eklenmelidir.
 
 ## <a name="triggers-and-inputs"></a>Tetikleyiciler ve girişleri
 
-Girişler, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici girişi ve ek giriş. Farklı olsa `function.json`, kullanım Python kodunda aynıdır.  Tetikleyici ve giriş kaynakları için bağlantı dizelerini değerleri eşlemeniz `local.settings.json` dosyasını yerel olarak ve Azure'da çalışan uygulama ayarları. Aşağıdaki kod parçacığını bir örnek olarak alalım:
+Girişler, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici girişi ve ek giriş. Farklı olsa `function.json` dosya, kullanım Python kodunda aynı.  Bağlantı dizelerini veya tetikleyici ve giriş kaynakları için gizli eşleme değerlere `local.settings.json` yerel olarak çalıştırılırken dosya ve uygulama ayarlarını Azure'da çalışırken. 
+
+Örneğin, aşağıdaki kod, ikisi arasındaki farkı gösterir:
 
 ```json
 // function.json
@@ -233,21 +231,9 @@ Ek günlük yöntemlerini kullanılabilir farklı izleme düzeylerini konsola ya
 | günlüğe kaydetme. **bilgisi (_ileti_)**    | Üzerinde kök Günlükçü düzeyi bilgileri içeren bir ileti yazar.  |
 | günlüğe kaydetme. **hata ayıklama (_ileti_)** | Üzerinde kök Günlükçü düzeyinde hata ayıklama içeren bir ileti yazar.  |
 
-## <a name="importing-shared-code-into-a-function-module"></a>Paylaşılan kod bir işlev modülü içe aktarma
-
-Göreli alma söz dizimini kullanarak Python modüllerini işlevi modülleri ile birlikte yayımlanan aktarılması gerekir:
-
-```python
-from . import helpers  # Use more dots to navigate up the folder structure.
-def main(req: func.HttpRequest):
-    helpers.process_http_request(req)
-```
-
-Alternatif olarak, paylaşılan kod bir tek başına paketine koyabilir, genel veya özel Pypı örneği için yayımlama ve normal bir bağımlılık olarak belirtin.
-
 ## <a name="async"></a>zaman uyumsuz
 
-İşlev uygulaması yalnızca bir Python işlemi bulunabilir gerektiğinden, bir Azure işlevi kullanarak bir zaman uyumsuz bir eş yordam olarak uygulamak için önerilir `async def` deyimi.
+Azure işlevinizi kullanarak bir zaman uyumsuz bir eş yordam olarak yazma öneririz `async def` deyimi.
 
 ```python
 # Will be run with asyncio directly
@@ -255,7 +241,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Main() işlevi zaman uyumlu ise (hiçbir `async` niteleyicisi) otomatik olarak çalıştıralım bir `asyncio` iş parçacığı havuzu.
+Main() işlevi zaman uyumlu ise (hiçbir `async` niteleyicisi) size bir otomatik olarak işlevi çalıştırmak bir `asyncio` iş parçacığı havuzu.
 
 ```python
 # Would be run in an asyncio thread-pool
@@ -288,6 +274,21 @@ def main(req: azure.functions.HttpRequest,
 `invocation_id`  
 Geçerli işlev çağırma kimliği.
 
+## <a name="global-variables"></a>Genel değişkenler
+
+Bunun için sonraki yürütmeleri uygulamanızın durumunu korunur garanti edilmez. Ancak, Azure işlevleri çalışma zamanı, genellikle aynı uygulamanın birden çok yürütme için aynı işlemi kullanır. Pahalı bir hesaplamanın sonuçlarını önbelleğe kaydetmek için bir genel değişken olarak bildirin. 
+
+```python
+CACHED_DATA = None
+
+def main(req):
+    global CACHED_DATA
+    if CACHED_DATA is None:
+        CACHED_DATA = load_json()
+
+    # ... use CACHED_DATA in code
+```
+
 ## <a name="python-version-and-package-management"></a>Python sürümü ve paket Yönetimi
 
 Şu anda Azure işlevleri Python yalnızca destekler 3.6.x (resmi CPython dağıtım).
@@ -295,10 +296,6 @@ Geçerli işlev çağırma kimliği.
 Visual Studio Code ve Azure işlevleri çekirdek araçları kullanarak yerel olarak geliştirirken, adlarını ve sürümleri için gerekli paketleri ekleme `requirements.txt` dosya ve bunları yüklemeniz kullanarak `pip`.
 
 Örneğin, aşağıdaki gereksinimleri dosya ve pip komut yüklemek için kullanılabilir `requests` Pypı paketinden.
-
-```bash
-pip install requests
-```
 
 ```txt
 requests==2.19.1
@@ -308,20 +305,9 @@ requests==2.19.1
 pip install -r requirements.txt
 ```
 
-Yayımlanmaya hazır olduğunuzda, tüm bağımlılıklarınızı listelendiğini doğrulayın `requirements.txt` dosyası, proje dizininizin kökünde bulunur. Başarıyla, Azure işlevleri'ni çalıştırmak için gereksinimleri dosya en az şu paketleri içermelidir:
-
-```txt
-azure-functions
-azure-functions-worker
-grpcio==1.14.1
-grpcio-tools==1.14.1
-protobuf==3.6.1
-six==1.11.0
-```
-
 ## <a name="publishing-to-azure"></a>Azure'da yayımlamak için
 
-Azure'da yayımlamak için bir derleyici gerektirir ve manylinux uyumlu tekerlekleri Pypı gelen yüklenmesini desteklemiyor bir paketi kullanıyorsanız, şu hatayla başarısız olur: 
+Yayımlamaya hazır olduğunuzda, tüm bağımlılıklarınızı listelendiğini doğrulayın *requirements.txt* dosya, proje dizininizin kökünde bulunur. Azure'da yayımlamak için bir derleyici gerektirir ve manylinux uyumlu tekerlekleri Pypı gelen yüklenmesini desteklemiyor bir paketi kullanıyorsanız, şu hatayla başarısız olur: 
 
 ```
 There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
@@ -336,70 +322,83 @@ func azure functionapp publish <app name> --build-native-deps
 
 Aslında, çalıştırmak için docker temel araçları kullanacağınız [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) olarak yerel makinenizde kapsayıcı görüntüsü. Bu ortamı kullanarak ardından oluşturun ve bunları azure'a son dağıtım için paketleme önce kaynak dağıtım, gerekli modüllerini yükleyin.
 
-> [!NOTE]
-> Temel Araçları (func) PyInstaller program kullanıcı kodunu ve Azure'da çalıştırmak için tek tek başına yürütülebilir dosya bağımlılıklarınızı dondurmak için kullanır. Bu işlevsellik şu anda Önizleme aşamasındadır ve Python paketlerini tüm türlerini genişletmek de değil. Modülleri içeri aktarmak zamanınız yoksa kullanarak yeniden yayımlamayı deneyin `--no-bundler` seçeneği. 
-> ```
-> func azure functionapp publish <app_name> --build-native-deps --no-bundler
-> ```
-> Sorun yaşamaya devam ederseniz, lütfen tarafından bize [açılırken bir sorun](https://github.com/Azure/azure-functions-core-tools/issues/new) ve sorunun açıklamasını dahil. 
+Bağımlılıklarınızı oluşturmak ve bir sürekli teslim (CD) sistemi kullanarak yayımlamak için [Azure DevOps işlem hatları kullanın](https://docs.microsoft.com/azure/azure-functions/functions-how-to-azure-devops). 
 
+## <a name="unit-testing"></a>Birim Testi
 
-Bağımlılıklarınızı oluşturmak ve sürekli tümleştirme (CI) ve sürekli teslim (CD) sistemi kullanarak yayımlamak için kullanabileceğiniz bir [Azure işlem hattı](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts) veya [Travis CI özel betik](https://docs.travis-ci.com/user/deployment/script/). 
+Python'da yazılmış işlevleri standart test çerçeveleri kullanarak başka bir Python kod gibi test edilebilir. Çoğu bağlamaları için uygun bir sınıfın bir örneğini oluşturarak sahte bir giriş nesnesi oluşturmak olası `azure.functions` paket.
 
-Bir örnek aşağıdadır `azure-pipelines.yml` derleme ve yayımlama işlemi için komut dosyası.
-```yml
-pool:
-  vmImage: 'Ubuntu 16.04'
+Örneğin, sahte bir test HTTP ile tetiklenen bir işlev, aşağıda verilmiştir:
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '8.x'
+```python
+# myapp/__init__.py
+import azure.functions as func
+import logging
 
-- script: |
-    set -e
-    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-    curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-    sudo apt-get install -y apt-transport-https
-    echo "install Azure CLI..."
-    sudo apt-get update && sudo apt-get install -y azure-cli
-    npm i -g azure-functions-core-tools --unsafe-perm true
-    echo "installing dotnet core"
-    curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 2.0
-- script: |
-    set -e
-    az login --service-principal --username "$(APP_ID)" --password "$(PASSWORD)" --tenant "$(TENANT_ID)" 
-    func settings add FUNCTIONS_WORKER_RUNTIME python
-    func extensions install
-    func azure functionapp publish $(APP_NAME) --build-native-deps
+def main(req: func.HttpRequest,
+         obj: func.InputStream):
+
+    logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Bir örnek aşağıdadır `.travis.yaml` derleme ve yayımlama işlemi için komut dosyası.
+```python
+# myapp/test_func.py
+import unittest
 
-```yml
-sudo: required
+import azure.functions as func
+from . import my_function
 
-language: node_js
+class TestFunction(unittest.TestCase):
+    def test_my_function(self):
+        # Construct a mock HTTP request.
+        req = func.HttpRequest(
+            method='GET',
+            body=None,
+            url='/my_function', 
+            params={'name': 'Test'})
 
-node_js:
-  - "8"
+        # Call the function.
+        resp = my_function(req)
 
-services:
-  - docker
-
-before_install:
-  - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-  - curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-  - sudo apt-get install -y apt-transport-https
-  - sudo apt-get update && sudo apt-get install -y azure-cli
-  - npm i -g azure-functions-core-tools --unsafe-perm true
-
-
-script:
-  - az login --service-principal --username "$APP_ID" --password "$PASSWORD" --tenant "$TENANT_ID"
-  - az account get-access-token --query "accessToken" | func azure functionapp publish $APP_NAME --build-native-deps
-
+        # Check the output.
+        self.assertEqual(
+            resp.get_body(), 
+            'Hello, Test!',
+        )
 ```
+
+Kuyruk ile tetiklenen bir işlev ile başka bir örnek aşağıda verilmiştir:
+
+```python
+# myapp/__init__.py
+import azure.functions as func
+
+def my_function(msg: func.QueueMessage) -> str:
+    return f'msg body: {msg.get_body().decode()}'
+```
+
+```python
+# myapp/test_func.py
+import unittest
+
+import azure.functions as func
+from . import my_function
+
+class TestFunction(unittest.TestCase):
+    def test_my_function(self):
+        # Construct a mock Queue message.
+        req = func.QueueMessage(
+            body=b'test')
+
+        # Call the function.
+        resp = my_function(req)
+
+        # Check the output.
+        self.assertEqual(
+            resp, 
+            'msg body: test',
+        )
+``` 
 
 ## <a name="known-issues-and-faq"></a>Bilinen sorunlar ve SSS
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586296"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure güvenlik ve uyumluluk planı: FedRAMP için analiz
@@ -90,7 +90,7 @@ Her nsg sahip belirli bağlantı noktaları ve protokoller çözüm güvenli bir
 Mimarisi, bekleyen veri şifrelemesi, Denetim veritabanı ve diğer ölçüler verilerinizi korumanızı sağlar.
 
 **Veri çoğaltma** Azure kamu için iki seçenek vardır [veri çoğaltma](https://docs.microsoft.com/azure/storage/common/storage-redundancy):
- - Veri çoğaltma için varsayılan ayar **coğrafi olarak yedekli depolama (GRS)**, zaman uyumsuz olarak depolayan müşteri verilerini bir birincil bölge dışında ayrı veri merkezindeki. Bu kurtarma kaybedilmesi olay birincil veri merkezi için veri sağlar.
+ - Veri çoğaltma için varsayılan ayar **coğrafi olarak yedekli depolama (GRS)** , zaman uyumsuz olarak depolayan müşteri verilerini bir birincil bölge dışında ayrı veri merkezindeki. Bu kurtarma kaybedilmesi olay birincil veri merkezi için veri sağlar.
  - **Yerel olarak yedekli depolama (LRS)** alternatif olarak Azure depolama hesabı yapılandırılabilir. LRS, müşteri, hesabı oluşturan aynı bölgede barındırılan bir depolama ölçek birimi içinde verileri çoğaltır. Tüm veri çoğaltıldığında eşzamanlı olarak, hiçbir yedekleme verilerini bir birincil depolama ölçek birimi hata kaybolur sağlama.
 
 **Azure depolama** tüm hizmetleri şifrelenmiş verileri rest gereksinimlerini karşılamak için bu başvuru mimarisi yararlanarak dağıtılan [Azure depolama](https://azure.microsoft.com/services/storage/), verileri depolayan [depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/storage-service-encryption).

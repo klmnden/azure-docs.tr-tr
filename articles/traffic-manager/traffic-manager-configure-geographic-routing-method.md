@@ -2,20 +2,21 @@
 title: Azure Traffic Manager'ı kullanarak coğrafi trafik yönlendirme yöntemini yapılandırma
 description: Bu makalede, Azure Traffic Manager kullanarak coğrafi trafik yönlendirme yöntemini yapılandırma açıklanmaktadır
 services: traffic-manager
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: kumud
-ms.openlocfilehash: 47cc56aac7d3e0147ef8577aac19776c6cacf7a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: bd01849e33d4c061b25c27a5391701876861b76b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884164"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051065"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Traffic Manager'ı kullanarak coğrafi trafik yönlendirme yöntemini yapılandırma
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
 ms.openlocfilehash: b56993b9ad03f2ab50fe3954ab5e8855d0d8bc0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371652"
 ---
 # <a name="azure-management---monitoring"></a>Azure Yönetimi - İzleme
@@ -46,7 +46,7 @@ Yapılandırma, uygulama ve kaynakların ilk dağıtımı ile yapılandırmasın
 Uygulamalarınızın, kaynaklarınızın ve verilerinizin yönetimi kapsamında, değerlendirilen tehditlerin, toplanıp çözümlenen güvenlik verilerinin ve uygulama ile kaynaklarınızın güvenli bir şekilde tasarlanıp yapılandırılmasını sağlamanın bir birleşimi bulunur.  [Azure Güvenlik Merkezi](../security-center/security-center-intro.md)’nin sağladığı güvenlik izleme ve tehdit analizine hibrit bulut iş yükleri arasında birleşik güvenlik yönetimi ve gelişmiş tehdit koruması dahildir.  Azure’da güvenlik ve Azure kaynaklarını güvenli bir şekilde yapılandırma hakkında kapsamlı bilgi için [Azure Güvenlik’e Giriş](../security/azure-security.md) sayfasına da başvurabilirsiniz.
 
 
-## <a name="protect"></a>Koruma
+## <a name="protect"></a>koruma
 Koruma, kontrolünüzün dışındaki kesintilerde bile uygulamalarınızın ve verilerinizin her zaman kullanılabilir kalmasını sağlamayı ifade eder.  Azure’da Koruma, iki hizmetle sağlanır.  [Azure Backup](../backup/backup-introduction-to-azure-backup.md), hem buluttaki hem de şirket içindeki verilerinize yönelik yedekleme ve kurtarma sağlar.    [Azure Site Recovery](../site-recovery/site-recovery-overview.md), iş sürekliliği ve olağanüstü durum oluşması halinde anında kurtarma olanağı sunarak uygulamanızın yüksek oranda kullanılabilir olmasını sağlar.
 
 ## <a name="migrate"></a>Geçiş 

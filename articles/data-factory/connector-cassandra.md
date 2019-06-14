@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 743dad6032547f8f535543413adff416efb56ac0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640098"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Cassanra'dan Azure Data Factory kullanarak veri kopyalama
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Geçerli sürüm](connector-cassandra.md)
 
@@ -132,7 +132,7 @@ Cassandra verileri kopyalamak için kopyalama etkinliği için kaynak türünü 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **CassandraSource** | Evet |
-| query |Verileri okumak için özel sorgu kullanın. 92 SQL sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgu kullanarak belirtmeniz **anahtar alanı name.table adı** sorgulamak istediğiniz tablosunu temsil edecek. |("TableName" ve "anahtar" alanı kümesindeki belirtilirse) yok. |
+| sorgu |Verileri okumak için özel sorgu kullanın. 92 SQL sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgu kullanarak belirtmeniz **anahtar alanı name.table adı** sorgulamak istediğiniz tablosunu temsil edecek. |("TableName" ve "anahtar" alanı kümesindeki belirtilirse) yok. |
 | consistencyLevel |Tutarlılık düzeyi, istemci uygulamasına veri döndürmeden önce kaç çoğaltmalar için Okuma isteği yanıtlamalıdır belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. Bkz: [veri tutarlılığını yapılandırma](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için.<br/><br/>İzin verilen değerler şunlardır: **BİR**, **iki**, **üç**, **çekirdek**, **tüm**, **LOCAL_QUORUM**, **EACH_QUORUM**, ve **LOCAL_ONE**. |Hayır (varsayılan değer `ONE`) |
 
 **Örnek:**
@@ -232,8 +232,8 @@ Aşağıdaki tablolar, liste ve eşleme StringSet sütundaki verileri normalleş
 
 | pk_int | List_index | List_value |
 | --- | --- | --- |
-| 1 |0 |1. |
-| 1. |1. |2 |
+| 1 |0 |1\. |
+| 1\. |1\. |2 |
 | 1 |2 |3 |
 | 3 |0 |100 |
 | 3 |1 |101 |

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246117"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect eşitleme: Varsayılan yapılandırmayı anlama
@@ -92,7 +92,7 @@ Aşağıdaki kişi nesneler **değil** Azure AD'ye eşitlenen:
 ### <a name="group-out-of-box-rules"></a>Grup kutusu giden kuralları
 Bir grup nesnesi eşitlenmesi için aşağıdakileri karşılamanız gerekir:
 
-* 50. 000'den az üyelerinin olması gerekir. Bu sayı şirket içi Grup üyeleri sayısıdır.
+* 50\. 000'den az üyelerinin olması gerekir. Bu sayı şirket içi Grup üyeleri sayısıdır.
   * Eşitleme ilk kez başlatılmadan önce daha fazla üye varsa, Grup eşitlenmez.
   * Üye sayısı ne zaman başlangıçta oluşturulduğu, ardından 50.000 üyeleri ulaştığında geçerseniz yeniden üyeliği sayısı 50. 000 ' daha düşük olana kadar eşitleme durdurur.
   * Not: 50.000 üyeliği sayısı ayrıca Azure AD tarafından zorlanır. Değiştirmek veya bu kuralı kaldırmak bile grupları ile daha fazla üye eşitlenebilir değildir.
@@ -137,7 +137,7 @@ SRE Kaynak Seti aracıdır ve Azure AD Connect eşitlemesi ile yüklenir. Başla
 
 Bu bölümde, yapılandırmanız için oluşturulan tüm eşitleme kuralları bakın. Tablodaki her satır bir eşitleme kuralıdır. Kural Türü altında sola, iki farklı türleri listelenmiştir: Gelen ve giden. Gelen ve giden meta veri görünümünden olur. Bu genel bakışta gelen kuralları odağı çoğunlukla seçeceksiniz. Eşitleme kuralları gerçek listesini, algılanan şemaya AD'de bağlıdır. Yukarıdaki resimde, hesap ormanı (fabrikamonline.com) Exchange ve Lync gibi tüm hizmetlere sahip olmadığı ve bu hizmetler için oluşturulmuş eşitleme kuralı yok. Ancak, kaynak ormanı (res.fabrikamonline.com), eşitleme kuralları için bu hizmetlerin bulabilirsiniz. Kuralları içeriğini algılanan sürümüne göre farklılık gösterir. Örneğin, Exchange 2013 ile bir dağıtımda var. daha Exchange 2010/2007'de yapılandırılmış. daha fazla öznitelik akışları
 
-### <a name="synchronization-rule"></a>Eşitleme Kuralı
+### <a name="synchronization-rule"></a>Eşitleme kuralı
 Bir yapılandırma nesnesi bir koşul karşılandığında akan öznitelikleri kümesi ile bir eşitleme kuralıdır. Bir bağlayıcı alanında bir nesne olarak bilinen meta veri içinde bir nesneye nasıl ilişkili olduğunu açıklamak için de kullanılır **birleştirme** veya **eşleşen**. Eşitleme kuralları birbirleriyle nasıl ilişkili olduğunu belirten bir öncelik değerine sahip. Daha düşük bir sayısal değere sahip bir eşitleme kuralı daha yüksek bir önceliği ve bir öznitelik akışı çakışması daha yüksek önceliği çakışma WINS.
 
 Eşitleme kuralı örnek olarak, konum **içinde ad – kullanıcı AccountEnabled**. Bu satırı SRE seçip işaretlemek **Düzenle**.
@@ -220,7 +220,7 @@ Eşitleme kuralları için öncelik gruplarında Yükleme Sihirbazı tarafından
 ### <a name="putting-it-all-together"></a>Hepsini bir araya getirme
 Artık yapılandırma farklı eşitleme kuralları ile nasıl çalıştığını anlamak için eşitleme kuralları hakkında yeterli biliyoruz. Bir kullanıcı ve meta veri deposu için katkıda öznitelikleri bakarsanız, kuralları aşağıdaki sırayla uygulanır:
 
-| Ad | Açıklama |
+| Ad | Yorum |
 |:--- |:--- |
 | İçinde ad – kullanıcı birleştirme |Bağlayıcı alanı nesne meta veri deposu ile katılmak için kural'ı tıklatın. |
 | İçinde UserAccount AD'den – etkin |Oturum açma için Azure AD için gerekli öznitelikler ve Office 365. Bu öznitelikler etkin hesabından istiyoruz. |

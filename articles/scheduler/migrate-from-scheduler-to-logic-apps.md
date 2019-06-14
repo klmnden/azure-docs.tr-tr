@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
 ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531683"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Azure Logic Apps için Azure zamanlayıcı işlerini geçirme
@@ -102,9 +102,9 @@ El ile çalıştırmak veya tek seferlik bir iş tetiklemek için mantıksal uyg
 
 Örneğin, Postman uygulamasını kullanarak, ayarlarla bu örneğe benzer bir POST isteği oluşturun ve ardından **Gönder** istekte bulunmak için.
 
-| İstek metodu | URL'si | Gövde | Üst bilgiler |
+| İstek yöntemi | URL'si | Gövde | Üst bilgiler |
 |----------------|-----|------|---------| 
-| **POST** | <*uç nokta URL'si*> | **Ham** <p>**JSON(application/json)** <p>İçinde **ham** kutusuna, istekte göndermek istediğiniz yük girin. <p>**Not**: Bu ayarı otomatik olarak yapılandırır **üstbilgileri** değerleri. | **Anahtar**: Content-Type <br>**Değer**: application/json
+| **POST** | <*uç nokta URL'si*> | **Ham** <p>**JSON(application/json)** <p>İçinde **ham** kutusuna, istekte göndermek istediğiniz yük girin. <p>**Not**: Bu ayarı otomatik olarak yapılandırır **üstbilgileri** değerleri. | **Anahtar**: İçerik türü <br>**Değer**: application/json
  |||| 
 
 ![Mantıksal uygulamanızı el ile tetiklemek için isteği gönder](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -159,7 +159,7 @@ Logic Apps'te, her bir kerelik iş örneğini çalıştıran tek bir mantıksal 
 
 Bir eylem aralıklı hatalar meydana geldiğinde mantıksal uygulamanız yeniden dener şeklini denetlemek için ayarlayabileceğiniz [yeniden deneme ilkesi](../logic-apps/logic-apps-exception-handling.md#retry-policies) her eylemin ayarlarında, örneğin:
 
-1. Eylemin açın (**...** ) seçin ve menü **ayarları**.
+1. Eylemin açın ( **...** ) seçin ve menü **ayarları**.
 
    ![Eylem ayarları](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -179,9 +179,9 @@ Azure Scheduler'da çalıştırmak varsayılan eylem başarısız olursa, hata d
 
    ![Paralel bir eylem ekleme](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. Alternatif bir eylem üzerinde açın (**...** ) seçin ve menü **sonrasında çalıştırmayı Yapılandır**.
+1. Alternatif bir eylem üzerinde açın ( **...** ) seçin ve menü **sonrasında çalıştırmayı Yapılandır**.
 
-   ![Sonrasında çalıştırmayı yapılandır](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
+   ![Sonrasında çalıştırmayı Yapılandır](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
 1. Kutusunu temizleyin **başarılı** özelliği. Bu özellikler'i seçin: **başarısız oldu**, **atlandı**, ve **zaman aşımına uğradı**
 

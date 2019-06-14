@@ -14,13 +14,13 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b74049833b055caa112c346b74798893f2c0febf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60476671"
 ---
-# <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama konusunda yardım alın
+# <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama ile ilgili yardım alın
 
 İki aşamalı doğrulama, kuruluşunuzun hesaplarınızı korumak için kullandığı bir güvenlik özelliğidir. İki aşamalı doğrulama bildiğiniz ve sahip olduğunuz bir şey olmak üzere iki kimlik doğrulaması biçimini kullandığı için yalnızca parola kullanmaktan daha güvenlidir. Sizinle sahip olduğunuz şey telefonunuz veya bir cihaz ederken bildiğiniz parolanızı bir şeydir. İki aşamalı doğrulamayı kullanmaya parolanızı aldıkları olsa bile, oturum kötü amaçlı bir bilgisayar korsanlarının durdurmak için yardımcı olabilir.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: de652f508f6946219627b3a3d51b148cbee58dbf
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 300d96a792663a32a326d5d01f281b77ccf9c4bf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050518"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -126,8 +126,10 @@ Daha fazla bilgi için [önceden var olan bir aracı yüklemesi durumlarda otoma
 
 ### Ben Microsoft Monitoring Agent ne vardı doğrudan makinede ancak uzantı (doğrudan aracı) olarak değil yüklü mü?<a name="directagentinstalled"></a>
 Microsoft Monitoring Agent (olarak değil bir Azure uzantısı) doğrudan VM'de yüklü değilse, Güvenlik Merkezi Microsoft Monitoring Agent uzantısını yükleyecek ve Microsoft Monitoring agent, en son sürüme yükseltebilirsiniz.
-Yüklü aracı için zaten yapılandırılmış kendi çalışma alanlarında bildirmeye devam eder ve ayrıca Güvenlik Merkezi'nde yapılandırılmış çalışma alanına rapor eder (birden çok giriş desteklenir).
+Yüklü aracı için zaten yapılandırılmış kendi çalışma alanlarında bildirmeye devam eder ve ayrıca Güvenlik Merkezi'nde yapılandırılmış çalışma alanına rapor eder (birden çok giriş Windows makinelerde desteklenir).
 Bir kullanıcı çalışma (değil Güvenlik Merkezi'nin varsayılan çalışma alanına) yapılandırılmış çalışma alanı ise yüklemeniz gerekir "güvenlik / dayanarak Güvenlik Merkezi, Vm'leri ve Bilgisayarları'ndan olayları işlemeyi başlatmak"SecurityCenterFree"Çözüm için raporlama Çalışma alanı.
+
+Linux makineler için aracı çoklu yönlendirmeyi değil henüz destekleniyor - bu nedenle, var olan bir aracı yüklemesini algılanırsa, otomatik sağlama gerçekleşmez ve makinenin yapılandırması değiştirilmez.
 
 Güvenlik Merkezi'ne abonelikleri eklenmedi 2019-03-mevcut bir aracının ne zaman algılanır, 17 önce mevcut makinelerde Microsoft Monitoring Agent uzantısını yüklenmez ve makine etkilenmez. Bu makineler üzerinde aracı yükleme sorunlarını gidermek için "Çözümle makinelerinizde aracı sistem durumu sorunlarını izleme" öneri bu makineler için bkz.
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310930"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure'da Service Fabric'e genel bakış kümeleri
@@ -31,9 +31,9 @@ Azure'da bir Service Fabric kümesi kullanan ve etkileşime giren bir Azure kayn
 * VM'ler ve sanal ağ kartları
 * sanal makine ölçek kümeleri
 * sanal ağlar
-* yük dengeleyiciler
-* depolama hesabı
-* genel IP adresleri
+* Yük Dengeleyiciler
+* Depolama hesapları
+* Genel IP adresleri
 
 ![Service Fabric Kümesi][Image]
 
@@ -55,7 +55,7 @@ Bir küme oluştururken, bir veya daha fazla düğüm türleri tanımlar.  Düğ
 Daha fazla bilgi için okuma [Service Fabric düğüm türleri ve sanal makine ölçek kümeleri](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Sanal makine örnekleri arkasında birleştirilir bir [Azure yük dengeleyici](/azure/load-balancer/load-balancer-overview), ile ilişkili bir [genel IP adresi](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) ve DNS etiketi.  Sağlama zaman bir kümeyle  *&lt;clustername&gt;*, DNS adı  *&lt;clustername&gt;.&lt; Konum&gt;. cloudapp.azure.com* ölçek kümesinin önündeki yük dengeleyici ile ilişkili DNS etiketi.
+Sanal makine örnekleri arkasında birleştirilir bir [Azure yük dengeleyici](/azure/load-balancer/load-balancer-overview), ile ilişkili bir [genel IP adresi](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) ve DNS etiketi.  Sağlama zaman bir kümeyle  *&lt;clustername&gt;* , DNS adı  *&lt;clustername&gt;.&lt; Konum&gt;. cloudapp.azure.com* ölçek kümesinin önündeki yük dengeleyici ile ilişkili DNS etiketi.
 
 Bir kümedeki sanal makinelerin yalnızca sahip [özel IP adresleri](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Yönetim ve hizmet trafiği, genel kullanıma yönelik Yük Dengeleyici üzerinden yönlendirilir.  Ağ trafiği, bu makinelere NAT kuralları (istemcilerin bağlanmak için belirli düğümler/örnek) veya Yük Dengeleme kuralları aracılığıyla yönlendirilir (trafiği Vm'lere gider hepsini bir kez deneme).  Bir yük dengeleyici DNS adı ile ilişkili bir genel IP bir biçime sahip:  *&lt;clustername&gt;.&lt; Konum&gt;. cloudapp.azure.com*.  Bir genel IP başka bir Azure kaynak grubunda bir kaynaktır.  Bir kümede birden çok düğüm türleri tanımlarsanız, bir yük dengeleyici için her düğüm türü/ölçek kümesi oluşturulur. Alternatif olarak, tek bir yük dengeleyici birden çok düğüm türleri için ayarlayabilirsiniz.  DNS etiketini birincil düğüm türünde  *&lt;clustername&gt;.&lt; Konum&gt;. cloudapp.azure.com*, diğer düğüm türleri DNS etiketine sahip  *&lt;clustername&gt;-&lt;nodetype&gt;.&lt; Konum&gt;. cloudapp.azure.com*.
 
@@ -95,7 +95,7 @@ Uygulama talepleri zamanla değişir. Daha yüksek uygulama iş yükü veya ağ 
 
 Daha fazla bilgi için okuma [Azure ölçekleme kümeleri](service-fabric-cluster-scaling.md).
 
-## <a name="upgrading"></a>Yükseltiliyor
+## <a name="upgrading"></a>Yükseltme
 Bir Azure Service Fabric kümesine sahip, ancak kısmen Microsoft tarafından yönetilen bir kaynaktır. Microsoft, temel işletim sistemi düzeltme eki uygulama ve kümenizde Service Fabric çalışma zamanını yükseltme gerçekleştirme sorumludur. Microsoft yeni bir sürümü yayımlandığında otomatik çalışma zamanını yükseltme, alma, kümesi veya istediğiniz bir desteklenen çalışma zamanı sürümü seçmek seçim yapabilirsiniz. Çalışma zamanı yükseltmeleri ek olarak, küme yapılandırması sertifikaları ya da uygulama bağlantı noktaları gibi güncelleştirebilirsiniz.
 
 Daha fazla bilgi için okuma [kümelerini yükseltme](service-fabric-cluster-upgrade.md).

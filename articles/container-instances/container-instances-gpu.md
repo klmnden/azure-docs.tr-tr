@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583851"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU kaynakları kullanan container Instances'ı dağıtma
@@ -105,7 +105,7 @@ Dağıtımın tamamlanması birkaç dakika sürer. Ardından, kapsayıcı başla
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
 ```
 
-Çıkış:
+Çıktı:
 
 ```Console
 [Vector addition of 50000 elements]
@@ -182,7 +182,7 @@ Dağıtımın tamamlanması birkaç dakika sürer. Ardından, kapsayıcıyı ba�
 az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
 ```
 
-Çıkış:
+Çıktı:
 
 ```Console
 2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA

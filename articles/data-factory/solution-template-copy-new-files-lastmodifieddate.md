@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
 ms.openlocfilehash: cae75f4d64c8b3f74cc40e94a675c0f10a6bd9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312857"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Azure Data Factory ile LastModifiedDate tarafından yeni ve değiştirilen dosyaları Kopyala
@@ -53,19 +53,19 @@ Bu şablon bir etkinlik içerir:
 
 4. Seçin **bu şablonu kullan**.
 
-    ![Bu şablonu kullan](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
+    ![Bu şablonu kullanın.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
     
 5. Aşağıdaki örnekte gösterildiği gibi panelinde kullanılabilir işlem hattı görürsünüz:
 
     ![İşlem hattı Göster](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
 6. Seçin **hata ayıklama**, değeri yazma **parametreleri** seçip **son**.  Aşağıdaki resimde, biz parametreleri aşağıdaki gibi ayarlayın.
-   - **FolderPath_Source** = **/source/**
-   - **FolderPath_Destination** = **/destination/**
+   - **FolderPath_Source** =  **/source/**
+   - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
-     Örneğin son arasında geçen süreyi içindeki değiştirilmiş dosyaları gösteren *2019-02-01T00:00:00Z* ve *2019-03-01T00:00:00Z* bir klasörden kopyalanır */source/*  bir klasöre */destination/*.  Bunları kendi parametrelerini değiştirebilirsiniz.
+     Örneğin son arasında geçen süreyi içindeki değiştirilmiş dosyaları gösteren *2019-02-01T00:00:00Z* ve *2019-03-01T00:00:00Z* bir klasörden kopyalanır */source/*  bir klasöre */destination/* .  Bunları kendi parametrelerini değiştirebilirsiniz.
     
      ![İşlem hattını çalıştırma](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
@@ -86,10 +86,10 @@ Bu şablon bir etkinlik içerir:
     ![Tetikleyici oluşturma](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. Değeri yazma **tetikleyici çalıştırma parametreleri** seçin ve aşağıdaki **son**.
-    - **FolderPath_Source** = **/source/**.  Kaynak veri deposu klasörünüze ile değiştirebilirsiniz.
-    - **FolderPath_Destination** = **/destination/**.  Hedef veri deposuna klasörünüze ile değiştirebilirsiniz.
-    - **LastModified_From** =  **@trigger(). outputs.windowStartTime**.  Tetikleyici, işlem hattı son tetiklenme zamanı belirleyen bir sistem değişkenidir.
-    - **LastModified_To** = **@trigger(). outputs.windowEndTime**.  Bu süre işlem hattı tetiklendiğinde süreyi belirlemede tetikleyiciden bir sistem değişkenidir.
+    - **FolderPath_Source** =  **/source/** .  Kaynak veri deposu klasörünüze ile değiştirebilirsiniz.
+    - **FolderPath_Destination** =  **/destination/** .  Hedef veri deposuna klasörünüze ile değiştirebilirsiniz.
+    - **LastModified_From** =   **@trigger(). outputs.windowStartTime**.  Tetikleyici, işlem hattı son tetiklenme zamanı belirleyen bir sistem değişkenidir.
+    - **LastModified_To** =  **@trigger(). outputs.windowEndTime**.  Bu süre işlem hattı tetiklendiğinde süreyi belirlemede tetikleyiciden bir sistem değişkenidir.
     
     ![Giriş parametreleri](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

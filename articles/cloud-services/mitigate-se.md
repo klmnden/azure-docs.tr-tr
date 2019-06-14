@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: cynthn
 ms.openlocfilehash: 3382907cf3267bc5a326daca2131829e82e76371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60613627"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Kurgusal yürütme yan kanal güvenlik açıklarına azure'da azaltma Kılavuzu

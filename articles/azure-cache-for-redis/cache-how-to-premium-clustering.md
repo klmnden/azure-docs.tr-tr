@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: yegu
 ms.openlocfilehash: 602d77f3d4e8ed10c2c964462bc2dc21240cef5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60541395"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Redis Redis için Premium Azure Cache için kümeleri yapılandırma
@@ -99,7 +99,7 @@ Aşağıdaki listede olan Azure önbelleği için Redis kümeleme sık sorulan s
 * [StackExchange.Redis kullanırken TAŞIMA özel durumları alıyorum ve kümeleme, ne yapmam gerekir?](#i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
 
 ### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering"></a>Herhangi bir değişiklik kümesi kullanmak için istemci uygulamamın gerekiyor mu?
-* Yalnızca 0 veritabanı Kümelemesi etkin olduğunda kullanılabilir. İstemci uygulamanızı birden çok veritabanı kullanıyorsa ve okuma veya 0'dan farklı bir veritabanına yazma çalışır, şu özel durum oluşturulur. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+* Yalnızca 0 veritabanı Kümelemesi etkin olduğunda kullanılabilir. İstemci uygulamanızı birden çok veritabanı kullanıyorsa ve okuma veya 0'dan farklı bir veritabanına yazma çalışır, şu özel durum oluşturulur. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->``StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
   
   Daha fazla bilgi için [Redis kümesi belirtimi - uygulanan alt](https://redis.io/topics/cluster-spec#implemented-subset).
 * Kullanıyorsanız [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), 1.0.481 kullanmalısınız veya üzeri. Aynı kullanarak önbelleğe bağlanma [uç noktaları, bağlantı noktalarını ve anahtarları](cache-configure.md#properties) kümeleme özellikli olmayan bir önbellek bağlanırken kullandığınız. Tek fark, tüm okuma ve yazma işlemleri veritabanına 0 yapılması gerekir.

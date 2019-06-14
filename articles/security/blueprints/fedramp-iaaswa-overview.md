@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 1ba5b813843ce2f5d31f337ab4d3d94e521b0e0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586143"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure güvenlik ve uyumluluk planı: FedRAMP için Iaas Web uygulaması
@@ -46,7 +46,7 @@ Bu çözüm, bir başvuru mimarisi için SQL Server arka ucuna sahip bir Iaas we
 
 Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Dağıtım mimarisi ayrıntılarını yerleştirilir [dağıtım mimarisi](#deployment-architecture) bölümü.
 
-- Azure Sanal Makineler
+- Azure sanal makineleri
     - (1) savunma ana bilgisayar (Windows Server 2016 Datacenter)
     - (2) active Directory etki alanı denetleyicisi (Windows Server 2016 Datacenter)
     - (2) SQL Server kümesi düğümünün (Windows Server 2016 üzerinde SQL Server 2017)
@@ -81,7 +81,7 @@ Aşağıdaki bölümde, geliştirme ve uygulama öğeleri ayrıntıları.
 **Kale ana bilgisayarı**: Kale ana bilgisayarı tek yöneticiler tarafından dağıtılan kaynaklara güvenli bir bağlantı sağlayan giriş noktası ' dir. Savunma ana bilgisayarın NSG RDP için 3389 numaralı TCP bağlantı noktasında yalnızca bağlantılar sağlar. Müşteriler daha fazla kuruluş sistem sağlamlaştırma gereksinimlerine karşılamak için Burcu ana bilgisayarı yapılandırabilirsiniz.
 
 ### <a name="virtual-network"></a>Sanal ağ
-10.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
+10\.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
 
 **Ağ güvenlik grupları**: Bu çözüm, kaynakları ayrı web alt ağı, veritabanı alt ağı, Active Directory alt ve bir sanal ağ içinde yönetim alt ağı ile bir mimari dağıtır. Alt ağlar için yalnızca bu gerekli system ve yönetim işlevselliği için alt ağlar arasındaki trafiği kısıtlamak için ayrı alt ağlara uygulanan ağ güvenlik grubu kuralları tarafından mantıksal olarak ayrılır.
 

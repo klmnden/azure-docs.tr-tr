@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
 ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588160"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS koruması: En iyi yöntemler ve başvuru mimarileri
@@ -182,7 +182,7 @@ Siber güvenlik savunma sürekli yeniliğe gerektirir. Azure DDoS standart bir d
 
 Azure kaynaklarını genellikle hedefleyen bir DDoS saldırısının kullanıcı açısından en az müdahale gerektirir. Yine de ekleme DDoS azaltma bir olay yanıtı stratejisinin bir parçası olarak iş sürekliliği etkisini en aza yardımcı olur.
 
-### <a name="microsoft-threat-intelligence"></a>Microsoft Tehdit Bilgileri
+### <a name="microsoft-threat-intelligence"></a>Microsoft tehdit bilgileri
 
 Microsoft, bir geniş tehdit zekası ağ sahiptir. Bu ağ, Microsoft Çevrimiçi Hizmetleri, Microsoft iş ortakları ve ilişkiler Internet güvenlik topluluğu içinde destekleyen bir genişletilmiş güvenlik topluluğunun kolektif bilgi kullanır. 
 

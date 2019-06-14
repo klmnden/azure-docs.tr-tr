@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
 ms.openlocfilehash: c96b924294286be57de90dae7e6534b5ed9306ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586238"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool güncelleştirme sürümü 7.1.60126.1 - 29.1.2019
@@ -59,7 +59,7 @@ Model doğrulama açıp kapatarak seçeneği dosyasında bulunabilir -> Ayarlar 
 
 .NET 4.7.1 yüklenemiyor veya üstü, Windows 10 Enterprise LTSB (sürüm 1507) gibi Windows 10 sistemlerinin kullanıcıları yükselttikten sonra Aracı'nı açmanız mümkün olmayacaktır. Bu eski Windows sürümleri artık tehdit modelleme aracı için desteklenen platformları olan ve en son güncelleştirmeyi yüklememeniz gerekir.
 
-#### <a name="workaround"></a>Geçici çözüm
+#### <a name="workaround"></a>Geçici Çözüm
 
 Windows 10 Enterprise LTSB (sürüm 1507) en son güncelleştirmeyi yüklemiş olan kullanıcıları Kaldır iletişim kutusunda, uygulamalar ve özellikler aracılığıyla tehdit modelleme Aracı'nın önceki sürümüne geri dönebilirsiniz.
 

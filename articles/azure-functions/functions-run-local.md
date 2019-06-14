@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6c0732b33608105009eda9bba2e4970e8e12e652
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241166"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050570"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -173,7 +173,7 @@ Daha fazla bilgi için [Azure işlevleri Tetikleyicileri ve bağlamaları kavram
 
 ## <a name="local-settings-file"></a>Yerel ayarlar dosyası
 
-Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları için ayarları dosyası local.settings.json depolar. Local.settings.json dosyasında ayarları, yalnızca yerel olarak çalıştırılırken işlevleri araçları tarafından kullanılır. Varsayılan olarak, projeyi Azure'da yayımlandığında bu ayarlar otomatik olarak geçirilmez. Kullanım `--publish-local-settings` geçiş [yayımladığınızda](#publish) bu ayarlar, Azure işlev uygulamasında eklenir emin olmak için. Değerler Not **ConnectionStrings** hiçbir zaman yayımlanır. Dosya aşağıdaki yapıya sahiptir:
+Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları için ayarları dosyası local.settings.json depolar. Local.settings.json dosyasında ayarları, yalnızca yerel olarak çalıştırılırken işlevleri araçları tarafından kullanılır. Varsayılan olarak, projeyi Azure'da yayımlandığında bu ayarlar otomatik olarak geçirilmez. Kullanım `--publish-local-settings` geçiş [yayımladığınızda](#publish) bu ayarlar, Azure işlev uygulamasında eklenir emin olmak için. Değerler **ConnectionStrings** hiçbir zaman yayımlanır. Dosya aşağıdaki yapıya sahiptir:
 
 ```json
 {
@@ -419,43 +419,37 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Azure'da yayımlama
 
-Temel araçları, dağıtım, iki tür işlevi proje dosyalarını doğrudan işlev uygulamanızı dağıtma ve yalnızca desteklenen özel bir Linux kapsayıcısı dağıtmayı destekler 2.x. Önceden olmalıdır [Azure aboneliğinizde bir işlev uygulamanız oluşturulurken](functions-cli-samples.md#create).
+Azure işlevleri çekirdek araçları iki dağıtım türlerini destekler: işlev proje dosyalarını doğrudan işlev uygulamanız dağıtma [Zip dağıtma](functions-deployment-technologies.md#zip-deploy) ve [özel bir Docker kapsayıcısı dağıtma](functions-deployment-technologies.md#docker-container). Önceden olmalıdır [Azure aboneliğinizde bir işlev uygulamanız oluşturulurken](functions-cli-samples.md#create), kodunuzu dağıtmak. Derleme gerektiren projeler, böylece ikili dosyaları dağıtılabilir oluşturulmalıdır.
 
-Sürüm 2.x olmalıdır [uzantılarınızı kayıtlı](#register-extensions) yayımlamadan önce projenizdeki. Derleme gerektiren projeler, böylece ikili dosyaları dağıtılabilir oluşturulmalıdır.
+### <a name="project-file-deployment"></a>Dağıtım (proje dosyaları)
 
-### <a name="project-file-deployment"></a>Proje dosyası dağıtımı
-
-En yaygın dağıtım yöntemi, paketi, işlev uygulaması projesi, ikili dosyaları ve bağımlılıkları ve işlev uygulamanızı paketi dağıtmak için temel araçları ile içerir. İsteğe bağlı olarak yapabilecekleriniz [doğrudan dağıtım paketinden işlevlerinizin çalıştığı](run-functions-from-deployment-package.md).
-
-Bir işlev uygulaması ile Azure işlevleri projenizi yayımlamak için kullanın `publish` komutu:
+Kodunuzu yerel bir işlev uygulaması azure'da yayımlamak için kullanın `publish` komutu:
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-Bu komut var olan işlev uygulamanızı Azure'a yayımlar. Bir hata oluşursa, `<FunctionAppName>` aboneliğinizde mevcut değil. Komut istemi veya terminal penceresinde Azure CLI kullanarak bir işlev uygulaması oluşturmak nasıl öğrenmek için bkz. [sunucusuz yürütme için bir işlev uygulaması oluşturma](./scripts/functions-cli-create-serverless.md).
-
-`publish` Komut işlevleri proje dizininin içeriğini yükler. Dosyaları yerel olarak silerseniz `publish` komut silinmez Azure'dan. Kullanarak Azure dosyaları silebilirsiniz [Kudu aracı](functions-how-to-use-azure-function-app-settings.md#kudu) içinde [Azure portal].
+Bu komut var olan işlev uygulamanızı Azure'a yayımlar. Yayımlamak çalışırsanız hata alırsınız bir `<FunctionAppName>` aboneliğinizde yok. Komut istemi veya terminal penceresinde Azure CLI kullanarak bir işlev uygulaması oluşturmak nasıl öğrenmek için bkz. [sunucusuz yürütme için bir işlev uygulaması oluşturma](./scripts/functions-cli-create-serverless.md). Varsayılan olarak, bu komutu çalıştırmak uygulamanızı sağlayacaktır [paketi çalıştırmak](run-functions-from-deployment-package.md) modu.
 
 >[!IMPORTANT]
 > Azure portalında bir işlev uygulaması oluşturduğunuzda, bu sürüm kullanır 2.x varsayılan olarak işlev çalışma zamanı. İşlev uygulaması kullanım sürümü yapmak için 1.x çalışma zamanı'ndaki yönergeleri izleyin [sürümünde çalışmasını 1.x](functions-versions.md#creating-1x-apps).
 > Mevcut işlevleri sahip bir işlev uygulaması için çalışma zamanı sürümünü değiştiremezsiniz.
 
-Şu Proje Yayımlama seçenekleri sürümleri, 1.x ve 2.x'i için geçerlidir:
+Aşağıdaki Yayımlama seçenekleri sürümleri, 1.x ve 2.x'i için geçerlidir:
 
 | Seçenek     | Açıklama                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Ayarları varsa üzerine yaz isteyen azure'a local.settings.json yayımlamak ayar zaten mevcut. Depolama öykünücüsü kullanıyorsanız, uygulama ayarının değiştirme bir [gerçek depolama bağlantısı](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Uygulama ayarların üzerine yazmak için istemi bastır olduğunda `--publish-local-settings -i` kullanılır.|
 
-Şu Proje Yayımlama seçenekleri yalnızca sürümünde desteklenen 2.x:
+Aşağıdaki Yayımlama seçenekleri yalnızca sürümünde desteklenen 2.x:
 
 | Seçenek     | Açıklama                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Yalnızca yayımlama ayarları ve içeriği atlayın. Komut istemi varsayılandır. |
 |**`--list-ignored-files`** | .Funcignore dosyasını temel alan yayımlama sırasında sayılan dosyaların bir listesini görüntüler. |
 | **`--list-included-files`** | .Funcignore dosyasını temel alan yayımlanan, dosyaların listesini görüntüler. |
-| **`--nozip`** | Varsayılan kapatır `Run-From-Zip` modunu devre dışı. |
+| **`--nozip`** | Varsayılan kapatır `Run-From-Package` modunu devre dışı. |
 | **`--build-native-deps`** | Python yayımlarken .wheels klasör oluşturmayı atlar uygulamalar çalışmaz. |
 | **`--additional-packages`** | Yerel bağımlılıkları oluştururken yüklemek için paketler listesi. Örneğin: `python3-dev libevent-dev`. |
 | **`--force`** | Bazı senaryolarda önceden yayımlama doğrulama yoksayın. |
@@ -463,9 +457,9 @@ Bu komut var olan işlev uygulamanızı Azure'a yayımlar. Bir hata oluşursa, `
 | **`--no-build`** | DotNet işlevleri derlenmesini atla. |
 | **`--dotnet-cli-params`** | Ne zaman yayımlama derlenmiş C# (.csproj) İşlevler, temel Araçlar 'dotnet build--çıktı bin/yayımlama' çağırır. Herhangi bir parametre için geçirilen komut satırına eklenir. |
 
-### <a name="custom-container-deployment"></a>Özel kapsayıcı dağıtımı
+### <a name="deployment-custom-container"></a>Dağıtım (özel kapsayıcı)
 
-İşlevleri işlevi projenize özel bir Linux kapsayıcısı içinde dağıtmanıza olanak sağlar. Daha fazla bilgi için [Linux üzerinde özel görüntü kullanarak bir işlev oluşturma](functions-create-function-linux-custom-image.md). Sürüm 2.x Core Araçları'nın özel bir kapsayıcı dağıtımı destekler. Özel kapsayıcı bir Dockerfile olmalıdır. --Dockerfile seçeneğini kullanmak `func init`.
+Azure işlevleri işlev projenizi dağıtmanıza olanak sağlar bir [özel Docker kapsayıcısı](functions-deployment-technologies.md#docker-container). Daha fazla bilgi için [Linux üzerinde özel görüntü kullanarak bir işlev oluşturma](functions-create-function-linux-custom-image.md). Özel kapsayıcı bir Dockerfile olmalıdır. Bir Dockerfile ile bir uygulama oluşturmak için--dockerfile seçeneğini kullanın `func init`.
 
 ```bash
 func deploy

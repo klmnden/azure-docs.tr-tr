@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610732"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Teradata, Azure Data Factory ile verileri taşıma
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](data-factory-onprem-teradata-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-teradata.md)
 
@@ -287,7 +287,7 @@ Teradata için veri taşıma, aşağıdaki eşlemeler Teradata türünden .NET t
 | --- | --- |
 | char |String |
 | Clob |String |
-| Grafiği |String |
+| Graphic |String |
 | VarChar |String |
 | VarGraphic |String |
 | Blob |Byte[] |
@@ -299,30 +299,30 @@ Teradata için veri taşıma, aşağıdaki eşlemeler Teradata türünden .NET t
 | Double |Double |
 | Tamsayı |Int32 |
 | Sayı |Double |
-| Tamsayı |Int16 |
+| Integer |Int16 |
 | Tarih |DateTime |
 | Zaman |TimeSpan |
-| Saat dilimi ile zaman |String |
+| Time With Time Zone |String |
 | Zaman damgası |DateTime |
-| Saat dilimi ile zaman damgası |DateTimeOffset |
-| Gün aralığı |TimeSpan |
-| Saat gün aralığı |TimeSpan |
-| Dakika gün aralığı |TimeSpan |
-| İkinci gün aralığı |TimeSpan |
-| Saat aralığı |TimeSpan |
-| Aralığı saat dakika |TimeSpan |
-| İkinci saat aralığı |TimeSpan |
-| Aralık dakika |TimeSpan |
-| İkinci aralık dakika |TimeSpan |
-| Aralık ikinci |TimeSpan |
-| Aralığı yıl |String |
-| Yıl ay aralığı |String |
-| Aralık ayı |String |
+| Timestamp With Time Zone |DateTimeOffset |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Interval Month |String |
 | Period(Date) |String |
 | Period(Time) |String |
-| Süresi (saat dilimiyle birlikte) |String |
-| Period(timestamp) |String |
-| Süre (saat dilimi ile zaman damgası) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
 | Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi

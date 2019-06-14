@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473915"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Microsoft olmayan hesapların Ekle
@@ -39,7 +39,7 @@ Facebook, Google, GitHub ve Amazon hesaplarınız için işlemi burada sağlayar
 
 ### <a name="turn-on-two-factor-verification"></a>İki aşamalı doğrulamayı açmak
 
-1. Bilgisayarınızda Git https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcomeseçin **Başlarken**ve ardından kimlik bilgilerinizi doğrulayın.
+1. Bilgisayarınızda Git https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome seçin **Başlarken**ve ardından kimlik bilgilerinizi doğrulayın.
 
 2. Kişisel Google hesabınız için iki aşamalı doğrulamayı açmak için sayfadaki adımları izleyin.
 

@@ -9,10 +9,10 @@ ms.date: 12/07/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: dfa2bbc735a79555da0421f64ca644adbd7a1701
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60363843"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>ExpressRoute bağlantı hatlarını klasikten Resource Manager dağıtım modeline taşıma
@@ -66,7 +66,7 @@ Ancak, **allowClassicOperations** olan TRUE olarak ayarlanırsa, şu Klasik işl
 ## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>Klasik ve Resource Manager dağıtım modelleri arasında iletişim
 ExpressRoute bağlantı hattı klasik ve Resource Manager dağıtım modelleri arasında bir köprü gibi davranır. Her iki sanal ağ aynı ExpressRoute bağlantı hattına bağlıysa klasik dağıtım modelinde sanal ağlardaki sanal makineler ve Resource Manager dağıtım modelinde sanal ağlardaki sanal makineler arasındaki trafik ExpressRoute aracılığıyla akar.
 
-Toplu işleme, sanal ağa ait ağ geçidi işleme kapasitesi tarafından sınırlandırılmıştır. Bu gibi durumlarda trafik, bağlantı sağlayıcısı ve sizin ağlarınıza girmez.  Sanal ağlar arasındaki trafik akışı tam olarak Microsoft ağı içerisinde yer alır.
+Toplu işleme, sanal ağa ait ağ geçidi işleme kapasitesi tarafından sınırlandırılmıştır. Bu gibi durumlarda trafik, bağlantı sağlayıcısı ve sizin ağlarınıza girmez. Sanal ağlar arasındaki trafik akışı tam olarak Microsoft ağı içerisinde yer alır.
 
 ## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Azure genel ve Microsoft eşleme kaynaklarına erişim
 Azure genel eşleme ve Microsoft eşleme aracılığıyla normalde erişilebilen kaynaklara erişmeye kesintisiz devam edebilirsiniz.  

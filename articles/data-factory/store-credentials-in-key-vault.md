@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 71f78685ee5fa340ec22c63e3e7f057bef122474
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311918"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048524"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure anahtar Kasası'nda kimlik bilgisi Store
 
@@ -32,7 +32,7 @@ Bu özellik, data factory yönetilen kimliğini kullanır. Gelen nasıl çalış
 
 Azure Key Vault'ta depolanan bir kimlik bilgisi başvuru yapmak için gerekir:
 
-1. **Data factory yönetilen kimliğini alma** "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak. Kullanıcı Arabirimi geliştirme ADF kullanırsanız, yönetilen kimlik uygulama kimliği Azure Key Vault bağlı hizmeti oluşturma penceresinde gösterilir; Ayrıca almak Azure Portalı'ndan başvurmak [alma data factory yönetilen kimlik](data-factory-service-identity.md#retrieve-managed-identity).
+1. **Data factory yönetilen kimliğini alma** "Yönetilen uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak. Kullanıcı Arabirimi geliştirme ADF kullanırsanız, yönetilen kimlik uygulama kimliği Azure Key Vault bağlı hizmeti oluşturma penceresinde gösterilir; Ayrıca almak Azure Portalı'ndan başvurmak [alma data factory yönetilen kimlik](data-factory-service-identity.md#retrieve-managed-identity).
 2. **Yönetilen kimlik, Azure anahtar Kasası'na erişim.** Anahtar kasanıza erişim -> ilkeler -> Ekle Yeni -> Identity application kimliği vermek için bu yönetilen arama **alma** izni gizli dizi izinleri açılır. Anahtar kasasındaki gizli erişmek belirlenen Bu fabrika sağlar.
 3. **Azure anahtar Kasası'na işaret eden bir bağlı hizmet oluşturursunuz.** Başvurmak [Azure Key Vault bağlı hizmeti](#azure-key-vault-linked-service).
 4. **Veri deposu bağlı hizmetini, hangi Başvurusu içinde karşılık gelen depolanan gizli anahtar kasası oluşturun.** Başvurmak [başvuru gizli anahtar kasasında depolanan](#reference-secret-stored-in-key-vault).
@@ -48,7 +48,7 @@ Azure Key Vault bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 **Kullanıcı Arabirimi geliştirme kullanarak:**
 
-Tıklayın **bağlantıları** -> **bağlı hizmetler** -> **+ yeni** -> "Azure Key Vault" için arama:
+Tıklayın **bağlantıları** -> **bağlı hizmetler** ->  **+ yeni** -> "Azure Key Vault" için arama:
 
 ![Arama AKV](media/store-credentials-in-key-vault/search-akv.png)
 

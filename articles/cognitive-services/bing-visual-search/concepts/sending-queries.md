@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
 ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60579873"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Bing görsel arama API'sine arama sorguları gönderme
@@ -84,7 +84,7 @@ Aşağıdakiler, isteğinizde belirtilmesi gereken sorgu parametreleridir. En az
 
 Aşağıdakiler, isteğinizde belirtilmesi gereken üst bilgilerdir. `Content-Type` Ve `Ocp-Apim-Subscription-Key` üst bilgiler, yalnızca gerekli üst bilgileri olan, ancak aynı zamanda içermelidir `User-Agent`, `X-MSEdge-ClientID`, `X-MSEdge-ClientIP`, ve `X-Search-Location`.
 
-| Üst bilgi | Açıklama |
+| Üstbilgi | Açıklama |
 | --- | --- |
 | <a name="acceptlanguage" />Accept-Language  | İsteğe bağlı istek üst bilgisi.<br /><br /> Kullanıcı arabirimi dizelerinde kullanılacak virgülle sınırlanmış bir dil listesi. Liste, tercih edilme durumuna göre azalan düzende sıralanır. Beklenen biçim de içinde olmak üzere daha fazla bilgi için bkz. [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Bu üst bilgi ve [setLang](#setlang) sorgu parametresi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin.<br /><br /> Bu üst bilgiyi ayarlarsanız, [cc](#cc) sorgu parametresini de belirtmelisiniz. Hangi pazardan sonuç döndürüleceğini belirlemek için, Bing listeden bulduğu ilk desteklenen dili kullanır ve bunu `cc` parametresinin değeriyle birleştirir. Liste desteklenen bir dil içermiyorsa, Bing isteği destekleyen en yakın dili ve pazarı bulur ya da sonuçlar için toplu veya varsayılan bir pazar kullanır. Bing kullanılan Pazar belirlemek için bkz: `BingAPIs-Market` başlığı.<br /><br /> Ancak birden çok dil belirtirseniz bu üst bilgiyi ve `cc` sorgu parametresini kullanın. Aksi takdirde, [mkt](#mkt) ile [setLang](#setlang) sorgu parametrelerini kullanın.<br /><br /> Kullanıcı arabirimi dizesi, kullanıcı arabiriminde etiket olarak kullanılan dizedir. JSON yanıt nesnelerinde çok az kullanıcı arabirimi dizesi vardır. Yanıt nesnelerinde Bing.com özelliklerine yönelik bağlantılar da belirtilen dildedir.  |
 | <a name="contenttype" />Content-Type  |     |

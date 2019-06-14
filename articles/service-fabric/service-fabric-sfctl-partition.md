@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: f7c9bcc51757100cb1fc957dee12213bc8bf2eec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556616"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
@@ -30,16 +30,16 @@ Sorgulamak ve tüm bölümlerini yönetin.
 | --- | --- |
 | veri kaybı | Bu API, belirtilen bölüm için veri kaybı anlamına. |
 | veri kaybı durumu | StartDataLoss API kullanmaya bölüm veri kaybı işlemin ilerlemesini alır. |
-| sağlık | Belirtilen Service Fabric bölümü durumunu alır. |
-| bilgi | Bir Service Fabric bölümü hakkında bilgi alır. |
+| health | Belirtilen Service Fabric bölümü durumunu alır. |
+| info | Bir Service Fabric bölümü hakkında bilgi alır. |
 | list | Bir Service Fabric hizmeti bölümlerini listesini alır. |
-| yükleme | Belirtilen Service Fabric bölümü yük bilgilerini alır. |
+| load | Belirtilen Service Fabric bölümü yük bilgilerini alır. |
 | Yük-Sıfırla | Bir Service Fabric bölümü geçerli iş yükünü sıfırlar. |
 | Çekirdek kayıp | Belirli bir durum bilgisi olan hizmet bölüm çekirdek kayıp sevk. |
 | Çekirdek kayıp durumu | StartQuorumLoss API kullanmaya bir bölüme bir çekirdek kayıp işleminin ilerleme durumunu alır. |
 | Kurtarma | Service Fabric kümesine çekirdek kaybına şu anda takılı belirli bir bölüme, kurtarılır denemesi gösterir. |
 | tüm kurtarma | Service Fabric kümesine çekirdek kaybına şu anda takılı kalıyor (sistem hizmetleri de dahil) tüm hizmetleri, kurtarılır denemesi gösterir. |
-| durumu- | Service Fabric bölüm üzerinde bir sistem durumu raporu gönderir. |
+| report-health | Service Fabric bölüm üzerinde bir sistem durumu raporu gönderir. |
 | restart | Bu API, bazı veya tüm çoğaltmalar veya belirtilen bölüm örneklerini yeniden başlatır. |
 | yeniden başlatma durumu | StartPartitionRestart kullanmaya PartitionRestart işleminin ilerleme durumunu alır. |
 | SVC adı | Bir bölüm için Service Fabric hizmeti adını alır. |
