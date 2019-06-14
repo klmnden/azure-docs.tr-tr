@@ -5,15 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-origin.date: 12/26/2018
-ms.date: 01/21/2019
-author: rockboyfor
-ms.author: v-yeche
+ms.date: 12/26/2018
+author: sivethe
+ms.author: sivethe
 ms.openlocfilehash: de037316efa50dd25ea04c370fa0e5878fb52ba1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448512"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB'nin MongoDB kullanarak dizin oluşturma
@@ -80,14 +79,14 @@ Yukarıdaki örnekte ```"university":1``` yan tümcesi çıkarılsaydı aşağı
 ## <a name="ttl-indexes"></a>TTL dizinleri
 
 Belirli bir koleksiyonda belge geçerlilik süresini etkinleştirmek için bir ["TTL dizini" (yaşam süresi dizini)](../cosmos-db/time-to-live.md) oluşturulması gerekir. TTL dizini, _ts alanında "expireAfterSeconds" değerini içeren bir dizindir.
-
+ 
 Örnek:
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```
 
 Yukarıdaki komut, ```db.coll``` koleksiyonunda son 10 saniye içinde değiştirilmemiş tüm belgelerin silinmesine neden olur. 
-
+ 
 > [!NOTE]
 > **_ts**, Cosmos DB’ye özel bir alandır ve MongoDB istemcilerinden erişilemez. Belgenin son değiştirme tarihinin zaman damgasını içeren ayrılmış (sistem) bir özelliktir.
 >
@@ -99,5 +98,3 @@ Yukarıdaki komut, ```db.coll``` koleksiyonunda son 10 saniye içinde değiştir
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Cosmos DB'yi dizine ekleme](../cosmos-db/index-policy.md)
 * [Yaşam süresi otomatik olarak Azure Cosmos DB'de verilerle süresi dolacak](../cosmos-db/time-to-live.md)
-
-<!-- Update_Description: update meta properties  -->

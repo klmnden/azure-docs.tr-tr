@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
 ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319334"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure İzleyicisi'ni kullanarak veri fabrikalarını izleme ve uyarı
@@ -275,7 +275,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Özellik | Tür | Açıklama | Örnek |
 | --- | --- | --- | --- |
-| Düzey |String | Tanılama günlüklerini düzeyi. 4. düzey, her zaman etkinlik günlükleri çalıştırma için durum geçerlidir. | `4`  |
+| Düzey |String | Tanılama günlüklerini düzeyi. 4\. düzey, her zaman etkinlik günlükleri çalıştırma için durum geçerlidir. | `4`  |
 | correlationId |String | Bir belirli bir istek için uçtan uca izlemek için benzersiz kimliği | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | String | İçinde timespan, UTC biçiminde etkinliğin saati `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| String| Etkinlik çalıştırma kimliği | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
@@ -321,7 +321,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Özellik | Tür | Açıklama | Örnek |
 | --- | --- | --- | --- |
-| Düzey |String | Tanılama günlüklerini düzeyi. 4. düzey etkinlik günlükleri çalıştırma için geçerlidir. | `4`  |
+| Düzey |String | Tanılama günlüklerini düzeyi. 4\. düzey etkinlik günlükleri çalıştırma için geçerlidir. | `4`  |
 | correlationId |String | Bir belirli bir istek için uçtan uca izlemek için benzersiz kimliği | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | String | İçinde timespan, UTC biçiminde etkinliğin saati `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| String| İşlem hattı çalıştırma kimliği | `9f6069d6-e522-4608-9f99-21807bfc3c70` |

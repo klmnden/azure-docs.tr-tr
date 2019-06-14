@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: 03c7da3e17e8e606b46c5c5e104a1271e8fbfd33
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a8abd71609d3e063c92541485007a3bde44be954
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873140"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051246"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Hızlı Başlangıç: Bir IOT hub'ına bir CİHAZDAN telemetri gönderme ve arka uç uygulaması ile (Python) okuyun
 
@@ -112,6 +112,13 @@ Simülasyon cihazı uygulaması, IoT hub’ınız üzerindeki cihaza özgü bir 
     Aşağıdaki ekran görüntüsünde, simülasyon cihazı uygulaması, IoT hub’ınıza telemetri gönderdiğinde oluşan çıktı gösterilmektedir:
 
     ![Simülasyon cihazını çalıştırma](media/quickstart-send-telemetry-python/SimulatedDevice.png)
+    
+### <a name="to-avoid-the-import-iothubclient-error"></a>İçeri aktarma iothub_client hatayı önlemek için
+Python için Azure IOT SDK'ın geçerli sürümü üzerindeki bir sarmalayıcıdır [C SDK'mız](https://github.com/azure/azure-iot-sdk-c). Kullanılarak oluşturulan [Boost](https://www.boost.org/) kitaplığı. Bu nedenle bazı önemli kısıtlamaları ile birlikte gelir. Daha fazla ayrıntı görmek [burada](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)
+
+1. Doğru sürüme sahip olup olmadığını denetleyin [Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues). Yalnızca belirli sürümler, düzgün çalıştığını bu örneğe ilişkin dikkat edin. 
+2. Doğru sürüme sahip olup olmadığını denetleyin C++ çalışma zamanı [Microsoft Visual C++ yeniden dağıtılabilir için Visual Studio 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads). (En son öneririz).
+3. Iothub istemci yüklü olduğunu doğrulayın: `pip install azure-iothub-device-client`.
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Hub’ınızdan telemetri okuma
 
