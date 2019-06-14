@@ -75,10 +75,10 @@ Linux için Azure Disk şifrelemesi, erişim için Active Directory, Key Vault, 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Yayımcı | Microsoft.Azure.Security | string |
+| publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
-| Aadclientıd | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
 | AADClientSecret | password | string |
 | AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path": "", "name": "","file_system": ""} | JSON sözlüğü |
@@ -86,7 +86,7 @@ Linux için Azure Disk şifrelemesi, erişim için Active Directory, Key Vault, 
 | KeyEncryptionAlgorithm | 'OAEP RSA', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
 | KeyVaultURL | url | string |
-| Parola | password | string | 
+| Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | İşletim sistemi, veri, tüm | string |
 
