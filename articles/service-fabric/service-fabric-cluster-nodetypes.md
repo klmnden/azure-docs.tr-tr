@@ -76,10 +76,10 @@ Service Fabric sanal makine uzantısı bir parçacığı aşağıda verilmiştir
 
 | **Ad** | **İzin verilen değerler** | ** --- ** | **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
-| ad | string | --- | uzantı için benzersiz ad |
+| name | string | --- | uzantı için benzersiz ad |
 | type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Tanımlayan işletim sistemi Service Fabric olduğu için önyükleniyor |
-| aynı autoUpgradeMinorVersion | TRUE veya false | --- | SF çalışma zamanı ikincil sürümlerinin otomatik yükseltmeyi etkinleştir |
-| Yayımcı | Microsoft.Azure.ServiceFabric | --- | Service Fabric uzantısı Yayımcı adı |
+| autoUpgradeMinorVersion | TRUE veya false | --- | SF çalışma zamanı ikincil sürümlerinin otomatik yükseltmeyi etkinleştir |
+| publisher | Microsoft.Azure.ServiceFabric | --- | Service Fabric uzantısı Yayımcı adı |
 | clusterEndpont | string | --- | Yönetim uç noktasına URI:Port |
 | nodeTypeRef | string | --- | nodeType adı |
 | durabilitylevel değeri | Bronz, silver, Altın, platinum | --- | değişmez Azure altyapı duraklatmak için izin verilen süre |
