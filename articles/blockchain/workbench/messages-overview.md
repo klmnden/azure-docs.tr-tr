@@ -40,7 +40,7 @@ Yeni bir kullanıcı oluşturur.
 | lastName             | Kullanıcının soyadı                               |
 | emailAddress         | Kullanıcının e-posta adresi                           |
 | externalId           | Kullanıcının Azure AD nesnesi kimliği                      |
-| connectionID         | Blok zinciri bağlantı için benzersiz tanımlayıcı |
+| connectionId         | Blok zinciri bağlantı için benzersiz tanımlayıcı |
 | messageSchemaVersion | Mesajlaşma şema sürümü                            |
 | messageName          | **CreateUserRequest**                               |
 
@@ -66,7 +66,7 @@ Blockchain Workbench'i şu alanlara sahip bir yanıt döndürür:
 | requestId             | İstemci tarafından sağlanan GUID |
 | userId                | Oluşturulan kullanıcının kimliği |
 | userChainIdentifier   | Blok zinciri ağ üzerinde oluşturulan kullanıcı adresi. Ethereum, kullanıcının adresidir **zincir** adresi. |
-| connectionID          | Blok zinciri bağlantı için benzersiz tanımlayıcı|
+| connectionId          | Blok zinciri bağlantı için benzersiz tanımlayıcı|
 | messageSchemaVersion  | Mesajlaşma şema sürümü |
 | messageName           | **CreateUserUpdate** |
 | status                | Kullanıcı oluşturma isteği durumu.  Başarılı, değer olup olmadığını **başarı**. Hata durumunda değerdir **hatası**.     |
@@ -119,7 +119,7 @@ Yeni bir sözleşmeyi oluşturur.
 | version              | Uygulamanın sürümü. Etkin bir uygulama birden çok sürümünü varsa gereklidir. Aksi takdirde sürüm isteğe bağlıdır. Uygulama sürümü hakkında daha fazla bilgi için bkz. [Azure Blockchain Workbench uygulama sürümü](version-app.md). |
 | workflowName         | İş akışının adı |
 | parametreler           | Sözleşme oluşturma için giriş parametreleri |
-| connectionID         | Blok zinciri bağlantı için benzersiz tanımlayıcı |
+| connectionId         | Blok zinciri bağlantı için benzersiz tanımlayıcı |
 | messageSchemaVersion | Mesajlaşma şema sürümü |
 | messageName          | **CreateContractRequest** |
 
