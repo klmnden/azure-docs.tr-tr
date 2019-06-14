@@ -77,7 +77,7 @@ Aşağıdaki JSON şema Azure VM bağımlılık Aracısı uzantısı için bir A
 | Ad | Değer / örnek |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
-| Yayımcı | Microsoft.Azure.Monitoring.DependencyAgent |
+| publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentLinux |
 | typeHandlerVersion | 9.5 |
 
