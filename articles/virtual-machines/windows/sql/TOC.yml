@@ -34,6 +34,8 @@
           href: virtual-machines-windows-sql-automated-backup-v2.md
     - name: Yönetim
       items:
+        - name: Azure portal ile
+          href: virtual-machines-windows-sql-manage-portal.md
         - name: SQL 2008 ve R2 için genişletilmiş destek
           href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
         - name: Bir VM’ye bağlanma

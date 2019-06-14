@@ -80,30 +80,23 @@
       href: environment-setup.md
       items:
         - name: Azure depolama hesapları
-          href: ../../storage/common/storage-create-storage-account.md
-          maintainContext: true
+          href: /azure/storage/common/storage-create-storage-account?context=azure/machine-learning/team-data-science-process/context/ml-context
         - name: Platformlar ve araçlar
           href: platforms-and-tools.md
         - name: HDInsight kümelerinde R ve Python
           items:
             - name: HDInsight'ta Spark’a giriş
-              href: ../../hdinsight/spark/apache-spark-overview.md
-              maintainContext: true
+              href: /azure/hdinsight/spark/apache-spark-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: Azure HDInsight’ta Apache Spark kümesi oluşturma
-              href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
-              maintainContext: true
+              href: /azure/hdinsight/spark/apache-spark-jupyter-spark-sql?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: Jupyter Notebook için PySpark çekirdekleri
-              href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
-              maintainContext: true
+              href: /azure/hdinsight/spark/apache-spark-jupyter-notebook-kernels?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: HDInsight’ta R Server
-              href: ../../hdinsight/r-server/r-server-overview.md
-              maintainContext: true
+              href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: HDInsight üzerinde R Server kullanmaya başlayın
-              href: ../../hdinsight/r-server/r-server-get-started.md
-              maintainContext: true
+              href: /azure/hdinsight/r-server/r-server-get-started?context=azure/machine-learning/team-data-science-process/context/ml-context
         - name: Azure Machine Learning çalışma alanı
-          href: ../studio/create-workspace.md
-          maintainContext: true
+          href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: İşletme ihtiyaçlarını çözümleme
       items:
         - name: Senaryonuzu tanımlama
@@ -124,8 +117,7 @@
                 - name: AzCopy’yi kullanma
                   href: move-data-to-azure-blob-using-azcopy.md
                 - name: Python kullanma
-                  href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
-                  maintainContext: true
+                  href: /azure/storage/blobs/storage-python-how-to-use-blob-storage?context=azure/machine-learning/team-data-science-process/context/ml-context
                 - name: SSIS kullanma
                   href: move-data-to-azure-blob-using-ssis.md
             - name: Sanal makine üzerinde SQL’a taşıma
@@ -193,11 +185,9 @@
         - name: Oluşturma ve eğitme modelleri
           items:
             - name: Algoritma seçme
-              href: ../studio/algorithm-choice.md
-              maintainContext: true
+              href: /azure/machine-learning/studio/algorithm-choice?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: Algoritma bilgi sayfası
-              href: ../studio/algorithm-cheat-sheet.md
-              maintainContext: true
+              href: /azure/machine-learning/studio/algorithm-cheat-sheet?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: Üretimde modelleri dağıtma
       href: deploy-models-in-production.md
 - name: İlgili

@@ -56,6 +56,8 @@
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Ağlar arası bağlantı
       href: cross-network-connectivity.md
+    - name: Azure ortak güvenlik öznitelikleri
+      href: expressroute-security-attributes.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Bağlantı hattı oluşturma ve değiştirme
