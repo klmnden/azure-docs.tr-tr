@@ -64,7 +64,7 @@ sections:
         className: cardsD
         items:
           - title: Önizlemeler
-            html: '<p><a href="stream-analytics-previews#public-previews">Genel önizlemeler</a></p><p><a href="stream-analytics-previews#private-previews">Özel önizlemeler</a></p>'
+            html: '<p><a href="stream-analytics-previews#public-previews">Genel önizlemeler</a></p><p><a href="stream-analytics-previews#other-previews">Özel önizlemeler</a></p>'
           - title: Komut Satırı
             html: '<p><a href="https://docs.microsoft.com/powershell/module/az.streamanalytics/#stream_analytics">Azure PowerShell</a></p>'
           - title: Diller

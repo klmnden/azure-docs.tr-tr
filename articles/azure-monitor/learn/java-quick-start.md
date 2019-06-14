@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e1574b55f9f14daba1831ba7f73b7f9ebde4c7f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd1644ad9b7fcee951b31997ab549f117530f635
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61387992"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808385"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java Web Uygulamanızı İzlemeye Başlama
 
@@ -85,7 +85,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
    ![Eclipse Azure Yapılandırma Menüsü](./media/java-quick-start/0007-j.png)
 
-5. Application Insights eklentisi yapılandırdıktan sonra yapmanız [yayımlama/yeniden yayımlama](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#publish-the-web-app-to-azure) uygulamanızı yeniden önce onu telemetri göndermeye başlaması mümkün olacaktır.
+5. Application Insights eklentisi yapılandırdıktan sonra yapmanız [yayımlama/yeniden yayımlama](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#deploy-the-app) uygulamanızı yeniden önce onu telemetri göndermeye başlaması mümkün olacaktır.
 
 > [!NOTE]
 > Java için Application Insights SDK’sı canlı ölçümleri yakalama ve görselleştirme özelliğine sahiptir, ancak telemetri koleksiyonunuzu ilk kez etkinleştirdiğinizde verilerin portalda görünmeye başlaması birkaç dakika sürebilir. Bu uygulama düşük trafikli bir test uygulaması ise, çoğu ölçümün yalnızca etkin istek veya işlem olduğunda yakalandığını aklınızda bulundurun.
