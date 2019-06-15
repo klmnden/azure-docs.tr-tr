@@ -3,20 +3,21 @@ title: Azure Traffic Manager'ı kullanarak ağırlıklı hepsini bir kez deneme 
 description: Bu makalede, trafik Yöneticisi'nde hepsini bir kez deneme yöntemiyle trafiğin yükünü dengelemenizi açıklanmaktadır
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: ef39c09d4fc411937fdd6f4b5b5aec491efd0c5f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: allensu
+ms.openlocfilehash: 4ca43bf958606a71911bf5d35f31e4fe0b342601
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071267"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Trafik Yöneticisi'nde ağırlıklı trafik yönlendirme yöntemini yapılandırma
 
@@ -34,7 +35,7 @@ Bir ortak trafik yönlendirme yöntemi bulut Hizmetleri ve Web dahil, aynı uç 
     1. İçin **trafik yönlendirme yöntemi ayarları**, trafik yönlendirme yöntemini olduğundan emin olun **ağırlıklı**. Yüklü değilse, **ağırlıklı** aşağı açılan listeden.
     2. Ayarlama **uç nokta İzleyicisi ayarları** aynı şekilde bu profili içindeki tüm her bir uç noktası için:
         1. Uygun seçin **Protokolü**, belirtin **bağlantı noktası** sayı. 
-        2. İçin **yolu** eğik çizgi yazın */*. Uç noktaları izlemek için bir yol ve dosya adı belirtmeniz gerekir. Bir eğik çizgi "/" göreli yolu için geçerli bir giriştir ve dosyasının kök dizininde (varsayılan) olduğunu gösterir.
+        2. İçin **yolu** eğik çizgi yazın */* . Uç noktaları izlemek için bir yol ve dosya adı belirtmeniz gerekir. Bir eğik çizgi "/" göreli yolu için geçerli bir giriştir ve dosyasının kök dizininde (varsayılan) olduğunu gösterir.
         3. Sayfanın üst kısmında tıklayın **Kaydet**.
 5. Değişiklikleri yapılandırmanızda şu şekilde test edin:
     1.  Portalın arama çubuğunda, Traffic Manager profil adı için arama yapın ve sonuçları Traffic Manager profiline tıklayın, görüntülenen.

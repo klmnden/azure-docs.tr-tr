@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f5996b41da68adc83c26e836c9fb1a175107337
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0b8dbb3992808bdcb94291d876192431c72f6c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60273800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Öğretici: Infogix Data3Sixty yöneten ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Infogix Data3Sixty yöneten tümleştirmesini Azure AD'de yapılandırmak için 
 
 **Galeriden Infogix Data3Sixty yöneten eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -129,7 +129,7 @@ Azure AD çoklu oturum açma Infogix Data3Sixty yöneten ile yapılandırmak iç
     | -----------| -------------- |
     | firstName  | User.givenName |
     | Soyadı   | User.surname |
-    | kullanıcı adı   | User.Mail    |
+    | username   | User.Mail    |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

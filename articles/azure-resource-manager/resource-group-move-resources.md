@@ -4,14 +4,14 @@ description: Kaynakları yeni kaynak grubuna veya aboneliğe taşıma için Azur
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 046b8e75be0247f335bcf1d29117f5900b70aeb6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477259"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083532"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -88,7 +88,6 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Logic Apps
 * Machine Learning - Machine Learning Studio web hizmetleri aynı abonelikte ancak farklı bir abonelikte bir kaynak grubuna taşındı. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
 * Yönetilen diskler - yönetilen diskler kullanılabilirlik alanlarında, farklı bir aboneliğe taşınamaz
-* Yönetilen kimlik - kullanıcı tarafından atanan
 * Media Services
 * İzleyici - değil emin olmak için yeni abonelik taşıma yapma aşan [abonelik kotaları](../azure-subscription-service-limits.md#monitor-limits)
 * Notification Hubs
@@ -141,6 +140,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * ExpressRoute
 * Lab Services'i - sınıf Laboratuvarlarını bir yeni kaynak grubuna veya aboneliğe taşınamaz. DevTest Labs, yeni bir kaynak grubu ile aynı abonelikte ancak değil, abonelikler arasında taşınabilir.
 * Yönetilen Uygulamalar
+* Yönetilen kimlik - kullanıcı tarafından atanan
 * Microsoft Genomiks
 * Güvenlik
 * Site Recovery

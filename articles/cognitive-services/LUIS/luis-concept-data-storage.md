@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: diberry
 ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60812944"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Veri depolama ve Bilişsel hizmetler Language Understanding (LUIS) kaldırılması
@@ -40,7 +40,7 @@ Eğitim için kullanılan örnek konuşma Sil [LUIS](luis-reference-regions.md).
 
 ### <a name="delete-utterances-in-review-from-active-learning"></a>Konuşma incelemesindeki gelen etkin olarak öğrenmeye Sil
 
-Konuşma içinde LUIS önerir kullanıcı konuşma listesinden silebilirsiniz  **[gözden geçirme endpoint konuşma sayfası](luis-how-to-review-endpoint-utterances.md)**. Konuşma bu listeden silme önerilmesini engelliyor, ancak bunları günlüklerinden silmez.
+Konuşma içinde LUIS önerir kullanıcı konuşma listesinden silebilirsiniz  **[gözden geçirme endpoint konuşma sayfası](luis-how-to-review-endpoint-utterances.md)** . Konuşma bu listeden silme önerilmesini engelliyor, ancak bunları günlüklerinden silmez.
 
 Etkin öğrenme konuşma istemiyorsanız yapabilecekleriniz [etkin olarak öğrenmeye devre dışı](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Etkin öğrenme devre dışı bırakma günlüğünü de devre dışı bırakır.
 

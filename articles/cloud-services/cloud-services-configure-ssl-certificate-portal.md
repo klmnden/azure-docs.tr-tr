@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2a9879ebc55a5f25c1a358e386697dce1c55ec90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61434101"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Azure'daki uygulama için SSL'yi yapılandırma
@@ -33,23 +33,23 @@ Bu görev, bir üretim dağıtımı kullanır. Bu konunun sonunda hazırlama da�
 
 Okuma [bu](cloud-services-how-to-create-deploy-portal.md) bir bulut hizmeti henüz oluşturmadıysanız, ilk.
 
-## <a name="step-1-get-an-ssl-certificate"></a>1. Adım: Bir SSL sertifikası alma
+## <a name="step-1-get-an-ssl-certificate"></a>1\. adım: Bir SSL sertifikası alma
 Bir uygulama için SSL'yi yapılandırmak için ilk olarak bir sertifika yetkilisi (CA) sertifika bu amaç için sorunları güvenilen bir üçüncü taraf imzalanmış bir SSL sertifikası almanız gerekir. Zaten bir yoksa, bir SSL sertifikaları satan bir şirketten edinmeniz gerekir.
 
 Sertifika, azure'da SSL sertifikaları için aşağıdaki gereksinimleri karşılaması gerekir:
 
 * Sertifika özel anahtar içermelidir.
 * Sertifikanın bir kişisel bilgi değişimi (.pfx) dosyasına aktarılabilen anahtar değişimi için oluşturulmuş olması gerekir.
-* Sertifikanın konu adı, bulut hizmetine erişmek için kullanılan etki alanı eşleşmesi gerekir. Cloudapp.net etki alanı için bir sertifika yetkilisinden (CA) bir SSL sertifikası alınamıyor. Kullanılacak özel etki alanı adı edinmeniz gerekir hizmetinize erişim. Sertifikanın konu adı, bir CA'dan bir sertifika talep ettiğinizde, uygulamanıza erişmek için kullanılan özel etki alanı adı eşleşmelidir. Örneğin, özel etki alanı adınızı ise **contoso.com** Sertifika yetkilinizden için bir sertifika isteği ***. contoso.com** veya **www\.contoso.com**.
+* Sertifikanın konu adı, bulut hizmetine erişmek için kullanılan etki alanı eşleşmesi gerekir. Cloudapp.net etki alanı için bir sertifika yetkilisinden (CA) bir SSL sertifikası alınamıyor. Kullanılacak özel etki alanı adı edinmeniz gerekir hizmetinize erişim. Sertifikanın konu adı, bir CA'dan bir sertifika talep ettiğinizde, uygulamanıza erişmek için kullanılan özel etki alanı adı eşleşmelidir. Örneğin, özel etki alanı adınızı ise **contoso.com** Sertifika yetkilinizden için bir sertifika isteği * **. contoso.com** veya **www\.contoso.com**.
 * Sertifikanın en az 2048 bit şifreleme kullanmanız gerekir.
 
 Test amaçları için yapabilecekleriniz [oluşturma](cloud-services-certs-create.md) ve otomatik olarak imzalanan bir sertifika kullanın. Kendinden imzalı bir sertifika bir CA ile kimlik doğrulaması yapılamıyor ve cloudapp.net etki alanı Web sitesi URL'si olarak kullanabilirsiniz. Örneğin, aşağıdaki görev sertifikada kullanılan ortak ad (CN) olan otomatik olarak imzalanan bir sertifika kullanır **sslexample.cloudapp.net**.
 
 Ardından, hizmet tanımı ve hizmet yapılandırma dosyalarını sertifikayla ilgili bilgileri içermelidir.
 
-<a name="modify"> </a>
+<a name="modify"></a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>2. Adım: Hizmet tanım ve yapılandırma dosyalarını değiştirme
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>2\. adım: Hizmet tanım ve yapılandırma dosyalarını değiştirme
 Uygulamanız sertifika kullanacak şekilde yapılandırılması gerekir ve bir HTTPS uç noktası eklenmelidir. Sonuç olarak, güncelleştirilecek hizmet yapılandırma dosyalarını ve hizmet tanımı gerekir.
 
 1. Geliştirme ortamınızda Hizmet tanım dosyası (CSDEF) açın, ekleme bir **sertifikaları** içinde bölümünde **WebRole** bölümünde ve sertifikası hakkında aşağıdaki bilgileri ekleyin (ve Ara sertifikalar için):
@@ -138,7 +138,7 @@ Uygulamanız sertifika kullanacak şekilde yapılandırılması gerekir ve bir H
 
 Hizmet yapılandırma dosyalarını ve hizmet tanımı güncelleştirildi, dağıtımınızı Azure'a yükleme paketi. Kullanıyorsanız **cspack**, kullanmayın **/generateConfigurationFile** , yeni eklediğiniz sertifika bilgileri üzerine yazılacağından, bayrak.
 
-## <a name="step-3-upload-a-certificate"></a>3. Adım: Sertifikayı karşıya yükleyin
+## <a name="step-3-upload-a-certificate"></a>3\. adım: Sertifikayı karşıya yükleyin
 Azure Portalı'na bağlanmak ve...
 
 1. İçinde **tüm kaynakları** bölüm portalın bulut hizmetinizi seçin.
@@ -155,7 +155,7 @@ Azure Portalı'na bağlanmak ve...
 
 4. Sağlamak **dosya**, **parola**, ardından **karşıya** veri giriş alanı alt kısmındaki.
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>4. Adım: HTTPS kullanarak rol örneğine bağlanın
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>4\. Adım: HTTPS kullanarak rol örneğine bağlanın
 Dağıtımınızı Azure'da hazır ve çalışır durumda, HTTPS üzerinden ona bağlanabilirsiniz.
 
 1. Tıklayın **Site URL'si** web tarayıcısını açın.

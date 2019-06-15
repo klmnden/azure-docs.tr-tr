@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
 ms.openlocfilehash: 5c3781c2111fff7483a7fb65bd7b2e69c2011d18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837751"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Grup tarafından Yönetilen Hizmet Hesabı olarak hizmet çalıştırma
 Windows Server tek başına küme üzerinde bir grup olarak yönetilen hizmet hesabı (gMSA) bir RunAs ilke kullanan bir hizmet çalıştırabilirsiniz.  Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesabın altına çalıştırın. Hatta bir paylaşılan barındırılan ortamda, farklı hesaplar altındaki uygulamaları çalıştıran bunları birbirinden daha güvenli kılacaktır. Active Directory şirket içi etki alanı ve değil Azure Active Directory (Azure AD) içinde kullandığına dikkat edin. Bir gmsa'yı kullanarak, parola veya yoktur uygulama bildiriminde depolanan şifrelenmiş parola.  Hizmet olarak da çalıştırabilirsiniz bir [Active Directory kullanıcı veya grup](service-fabric-run-service-as-ad-user-or-group.md).
 
-Aşağıdaki örnekte adlı bir gMSA hesabının nasıl oluşturulacağını gösterir *svc Test$*; küme düğümlerine; Bu yönetilen hizmet hesabını dağıtma ve yapılandırma kullanıcı asıl adı.
+Aşağıdaki örnekte adlı bir gMSA hesabının nasıl oluşturulacağını gösterir *svc Test$* ; küme düğümlerine; Bu yönetilen hizmet hesabını dağıtma ve yapılandırma kullanıcı asıl adı.
 
 Ön koşullar:
 - Etki alanı, bir KDS kök anahtarı gerekir.

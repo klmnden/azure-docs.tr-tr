@@ -11,10 +11,10 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851584"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı tabloları tasarlama
@@ -43,7 +43,7 @@ SQL veri ambarı'nda tablolar organizasyonu göstermek için tablo adları için
 | Wideworldımportersdw tablo  | Tablo türü | SQL Veri Ambarı |
 |:-----|:-----|:------|:-----|
 | Şehir | Boyut | wwi. DimCity |
-| Sıra | Olgu | wwi.FactOrder |
+| Sipariş verme | Olgu | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>Tablo kalıcılığı 
@@ -92,7 +92,7 @@ Tablo kategori tablo dağıtılmasında seçmek için hangi seçeneği genellikl
 |:---------------|:--------------------|
 | Olgu           | Kümelenmiş columnstore dizini ile karma dağıtım kullanın. İki karma tabloları aynı dağıtım sütunu katıldığında performansını artırır. |
 | Boyut      | Çoğaltılmış daha küçük tablolar için kullanın. Karma dağıtılmış tablo her işlem düğümünde depolamak için çok büyük ise kullanın. |
-| Hazırlanıyor        | Hepsini bir kez deneme hazırlama tablosu için kullanın. CTAS yüküyle hızlıdır. Veri hazırlama tablosunda eklendiğinde, INSERT kullanın... Üretim tablolarına veri taşımak için bu seçeneği seçin. |
+| Staging        | Hepsini bir kez deneme hazırlama tablosu için kullanın. CTAS yüküyle hızlıdır. Veri hazırlama tablosunda eklendiğinde, INSERT kullanın... Üretim tablolarına veri taşımak için bu seçeneği seçin. |
 
 ## <a name="table-partitions"></a>Tablo bölümleri
 Bölümlenmiş bir tablodaki depoları ve veri aralıkları göre tablo satırları işlemleri gerçekleştirir. Örneğin, bir tablo gün, ay veya yıl bölümlenmiş. Bölüm içindeki verileri için bir sorgu tarama sınırlayan bölüm eleme ile sorgu performansını iyileştirebilir. Ayrıca, bölüm değiştirme ile verileri koruyabilirsiniz. Verileri SQL veri ambarı'nda zaten dağıtılmış olduğundan, çok fazla sorgu performansı yavaşlatabilir. Daha fazla bilgi için [bölümleme Kılavuzu](sql-data-warehouse-tables-partition.md).  Ne zaman bölüm tablosuna değiştirme, bölümleri boş olmadığından, TRUNCATE_TARGET seçeneğini kullanmayı düşünün, [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) mevcut verileri kesilecek ise deyimi. Aşağıdaki kod anahtarları mevcut verilerin üzerine yazılacak SalesFact dönüştürülmüş günlük verileri. 

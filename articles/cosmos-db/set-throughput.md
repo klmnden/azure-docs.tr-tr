@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389241"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067512"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Kapsayıcı ve veritabanlarına aktarım hızı sağlama
 
@@ -87,7 +87,7 @@ SDK'ları kullanarak program aracılığıyla bir kapsayıcı veya bir veritaban
 
 .NET SDK'sı kullanırken [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) yöntemi bir kapsayıcı veya bir veritabanının en düşük aktarım hızı almanızı sağlar. 
 
-Herhangi bir zamanda, bir kapsayıcı veya bir veritabanı sağlanan aktarım hızını ölçeklendirebilirsiniz. 
+Herhangi bir zamanda, bir kapsayıcı veya bir veritabanı sağlanan aktarım hızını ölçeklendirebilirsiniz. Verimliliği artırmak için ölçeklendirme işlemi gerçekleştirildiğinde, gerekli kaynakları sağlamak için sistem görevlerini nedeniyle uzun zaman alabilir. Azure portalında veya SDK'ları kullanarak program aracılığıyla ölçeklendirme işleminin durumunu denetleyebilirsiniz. .Net SDK'sı kullanırken kullanarak ölçeklendirme işlemi durumunu alabilirsiniz `DocumentClient.ReadOfferAsync` yöntemi.
 
 ## <a name="comparison-of-models"></a>Modellerin karşılaştırması
 

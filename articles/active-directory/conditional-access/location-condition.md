@@ -1,5 +1,5 @@
 ---
-title: Konum koşulu Azure Active Directory koşullu erişim nedir? | Microsoft Docs
+title: Konum koşulu, Azure Active Directory koşullu erişim nedir? | Microsoft Docs
 description: Konum koşulu, bir kullanıcının ağ konumuna dayalı bulut uygulamalarınıza erişimi denetlemek için kullanmayı öğrenin.
 services: active-directory
 ms.service: active-directory
@@ -12,14 +12,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98588e0c25439fd4988fe39e06e7042cfa9113cb
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 886118614427bea61f745e1ded28824b60225919
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305672"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112306"
 ---
-# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Konum koşulu Azure Active Directory koşullu erişim nedir? 
+# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Konum koşulu, Azure Active Directory koşullu erişim nedir? 
 
 İle [Azure Active Directory (Azure AD) koşullu erişim](../active-directory-conditional-access-azure-portal.md), nasıl yetkili kullanıcılar denetleyebilir, bulut uygulamalarınızı erişebilirsiniz. Koşullu erişim ilkesinin konum koşulu kullanıcılarınızın ağ konumlarına erişim denetimleri ayarlarını bağlamasına olanak tanır.
 
@@ -61,7 +61,7 @@ Adlandırılmış konumlar yapılandırabileceğiniz sayısı, Azure AD'de ilgil
 Koşullu erişim ilkesi, IPv4 ve IPv6 trafiği için geçerlidir. Şu anda adlandırılmış konumlar yapılandırılması için IPv6 aralıkları izin vermez. Bu sınırlama aşağıdaki durumlarda neden olur:
 
 - Koşullu erişim ilkesi için özel IPv6 aralıkları hedeflenemez
-- Koşullu erişim ilkesi belirli IPv6 aralıkları dışarıda tutulamaz
+- Koşullu erişim ilkesini belirli IPv6 aralıkları dışarıda tutulamaz
 
 Bir ilke, "Herhangi bir yere" uygulamak için yapılandırılmışsa, IPv4 ve IPv6 trafiği için geçerli olur. Belirtilen ülke ve bölge için yapılandırılmış adlandırılmış konumlar yalnızca IPv4 adreslerini destekler. IPv6 trafiğidir yalnızca "Bilinmeyen alanları dahil et" seçeneğini seçtiyseniz dahil.
 
@@ -145,5 +145,5 @@ API ve PowerShell henüz desteklenmiyor veya koşullu erişim ilkeleri adlandır
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](app-based-mfa.md).
-- Ortamınızda koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz. [Azure Active Directory'de koşullu erişim için en iyi yöntemler](best-practices.md).
+- Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [gerektiren MFA belirli uygulamalar için Azure Active Directory koşullu erişim ile](app-based-mfa.md).
+- Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi uygulamalar](best-practices.md).

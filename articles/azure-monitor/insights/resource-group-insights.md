@@ -12,10 +12,10 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
 ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119431"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Kaynak grupları, Azure İzleyici (Önizleme) ile izleme
@@ -63,7 +63,7 @@ Uygulamanızın ne etmişsinizdir yavaş çalışıyor veya kullanıcılar hata 
 
 Çoğu kaynak türleri, Azure İzleyici çalışma galeri şablonları açılır. Oluşturduğunuz her bir çalışma kitabının kaydedilmiş, ekibinizle paylaşılan ve gelecekte benzer sorunları tanılamak için yeniden kullanılan özelleştirilebilir.
 
-### <a name="investigate-failures"></a>Hataları araştır
+### <a name="investigate-failures"></a>Hataları Araştır
 
 Hataları sekme seçimine test etmek için **hataları** altında **Araştır** sol menüdeki.
 
@@ -99,7 +99,7 @@ Bu tablo görselleştirmesine yönlendiren temel alınan günlük sorgusu ortaya
 
 Sorguyu doğrudan değiştirebilirsiniz. Referans olarak kullanın ve bundan kendi özel parametreli çalışma kitabı tasarlarken ödünç alın.
 
-### <a name="investigate-performance"></a>Performansı araştır
+### <a name="investigate-performance"></a>Performansını araştırın
 
 Çalışma kitaplarının kendi galeri performans sunar. App Service için önceden oluşturulmuş uygulama performansını çalışma kitabı aşağıdaki görünümü sunar:
 

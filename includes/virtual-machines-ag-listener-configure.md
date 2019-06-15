@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165824"
 ---
 Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinlediği bir IP adresi ve ağ adı değil. Kullanılabilirlik grubu dinleyicisi oluşturmak için aşağıdakileri yapın:
@@ -66,7 +66,7 @@ Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinledi
 
    ![Kaynak IP](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
-    d. **Tamam** düğmesine tıklayın.
+    d. **Tamam**'ı tıklatın.
 
 1. <a name="listname"></a>İstemci erişim noktası kaynak IP adresine bağımlı olun.
 

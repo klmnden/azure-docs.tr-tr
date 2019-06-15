@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c402b82b91b02f8d9619c851d09c689fd103c9fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730392"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116445"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure dijital İkizlerini Swagger başvuru belgeleri
 
@@ -112,7 +112,7 @@ OAuth 2.0 tarafından korunan istekleri etkileşimli olarak test etme hakkında 
 
     ![Azure AD uygulama kayıtları API ekleme](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
-4. OAuth 2.0 örtük akışını izin vermek için uygulama bildirimini yapılandırın. Tıklayın **bildirim** uygulamanız için uygulama bildirimini açın. Ayarlama *oauth2AllowImplicitFlow* için `true`.
+4. OAuth 2.0 örtük akışını izin vermek için uygulama bildirimini yapılandırın. Seçin **bildirim** uygulamanız için uygulama bildirimini açın. Ayarlama *oauth2AllowImplicitFlow* için `true`.
 
     ![Azure AD örtük akış](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
 
@@ -120,9 +120,9 @@ OAuth 2.0 tarafından korunan istekleri etkileşimli olarak test etme hakkında 
 
 Azure Active Directory kaydı tamamladıktan sonra:
 
-6. Tıklayın **Authorize** swagger sayfanızda düğmesi.
+6. Seçin **Authorize** swagger sayfanızda düğmesi.
 
-    [![Swagger'ı tıklatın düğmesi Yetkilendir](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Düğme seçin Swagger Yetkilendir](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 7. Uygulama Kimliği yapıştırın **client_id** alan.
 

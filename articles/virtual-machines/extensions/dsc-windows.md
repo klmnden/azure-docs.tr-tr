@@ -15,10 +15,10 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475516"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC uzantısı
@@ -101,8 +101,8 @@ Aşağıdaki JSON şema DSC uzantı ayarları bölümü için bir Azure Resource
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
-| Yayımcı | Microsoft.Powershell.DSC | string |
-| type | DSC | string |
+| publisher | Microsoft.Powershell.DSC | string |
+| türü | DSC | string |
 | typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Ayarlar özellik değerleri
@@ -168,7 +168,7 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 | 52 | Uzantı yükleme hatası | Bu hata için ileti belirli özel durum tarafından sağlanır |
 | 1002 | WMF yükleme hatası | WMF yükleme hatası oluştu. |
 | 1004 | Geçersiz Zip paketini | Geçersiz zip; Zip akışının paketi açılırken hata |
-| 1100 | Bağımsız Değişken Hatası | Kullanıcı tarafından sağlanan girdiyi bir sorunu gösterir. Belirli özel durum tarafından sağlanan hata iletisi|
+| 1100 | Bağımsız değişken hatası | Kullanıcı tarafından sağlanan girdiyi bir sorunu gösterir. Belirli özel durum tarafından sağlanan hata iletisi|
 
 
 ### <a name="support"></a>Destek

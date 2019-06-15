@@ -11,10 +11,10 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646784"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API aracılığıyla Azure Backup'ı kullanarak Azure VM yedekleme
@@ -41,7 +41,7 @@ POST URI'ya sahip `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`,
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Yanıtlar
+#### <a name="responses"></a>Responses
 
 'Yenile' işlem bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 
@@ -50,7 +50,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
 |204 No Content     |         |  Tamam düğmesiyle döndürülen içerik yok      |
-|202 kabul edildi     |         |     Kabul Edildi    |
+|202 kabul edildi     |         |     Kabul edildi    |
 
 ##### <a name="example-responses"></a>Örnek yanıt
 
@@ -108,7 +108,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *Alma* URI'ya sahip tüm gerekli parametreleri. Hiçbir ek istek gövdesi gerekli değildir.
 
-#### <a name="responses"></a>Yanıtlar
+#### <a name="responses"></a>Responses
 
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
@@ -208,7 +208,7 @@ Aşağıdaki istek gövdesi, korumalı bir öğe oluşturmak için gereken özel
 
 `{sourceResourceId}` Olduğu `{virtualMachineId}` gelen yukarıda sözü edilen [korunabilir öğe listesi yanıtı](#example-responses-1).
 
-#### <a name="responses"></a>Yanıtlar
+#### <a name="responses"></a>Responses
 
 Korumalı bir öğe oluşturma bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 
@@ -217,7 +217,7 @@ Korumalı bir öğe oluşturma bir [zaman uyumsuz işlem](https://docs.microsoft
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
 |200 TAMAM     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  Tamam       |
-|202 kabul edildi     |         |     Kabul Edildi    |
+|202 kabul edildi     |         |     Kabul edildi    |
 
 ##### <a name="example-responses"></a>Örnek yanıt
 
@@ -319,7 +319,7 @@ Aşağıdaki istek gövdesi, korumalı bir öğe için bir yedek tetiklemek içi
 }
 ```
 
-### <a name="responses"></a>Yanıtlar
+### <a name="responses"></a>Responses
 
 İsteğe bağlı yedekleme tetikleniyor olduğu bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 
@@ -327,7 +327,7 @@ Aşağıdaki istek gövdesi, korumalı bir öğe için bir yedek tetiklemek içi
 
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
-|202 kabul edildi     |         |     Kabul Edildi    |
+|202 kabul edildi     |         |     Kabul edildi    |
 
 #### <a name="example-responses"></a>Örnek yanıt
 
@@ -439,7 +439,7 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>Yanıtlar
+### <a name="responses"></a>Responses
 
 *SİLME* koruma bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 
@@ -448,7 +448,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
-|202 kabul edildi     |         |     Kabul Edildi    |
+|202 kabul edildi     |         |     Kabul edildi    |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

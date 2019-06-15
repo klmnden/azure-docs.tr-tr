@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9f123cdc88a3af68f7c37e44f60b588f5e8b66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dea184a09aea0b73bceb988a14400fa1d99b87b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280777"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103896"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dovetale"></a>Öğretici: Dovetale ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Dovetale tümleştirmesini yapılandırmak için Dovetale Galeriden 
 
 **Galeriden Dovetale eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -124,9 +124,9 @@ Azure AD çoklu oturum açma ile Dovetale yapılandırmak için aşağıdaki ad�
 
     | Ad | Kaynak özniteliği|
     | ---------------| --------------- |
-    | e-posta | User.Mail |
+    | email | User.Mail |
     | first_name | User.givenName |
-    | ad | User.userPrincipalName |
+    | name | User.userPrincipalName |
     | Soyadı | User.surname |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

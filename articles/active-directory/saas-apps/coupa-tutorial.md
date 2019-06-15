@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ca16e149852d044fdd6f6ea0baf0b11ccb75cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7b4db749d1191179b3f4f1d9bb13d77925697f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709581"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104538"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Öğretici: Coupa ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Coupa tümleştirmesini yapılandırmak için Coupa Galeriden yönet
 
 **Galeriden Coupa eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -114,7 +114,7 @@ Azure AD çoklu oturum açma ile Coupa yapılandırmak için aşağıdaki adıml
 
     | Ortam  | URL'si |
     |:-------------|----|
-    | Korumalı Alan | `sso-stg1.coupahost.com`|
+    | Korumalı alan | `sso-stg1.coupahost.com`|
     | Üretim | `sso-prd1.coupahost.com`|
     | | |
 
@@ -122,7 +122,7 @@ Azure AD çoklu oturum açma ile Coupa yapılandırmak için aşağıdaki adıml
 
     | Ortam | URL'si |
     |------------- |----|
-    | Korumalı Alan | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | Korumalı alan | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
     | Üretim | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 

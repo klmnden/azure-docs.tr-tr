@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/16/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 87fca23cab27ec27bfc9799066c126994167f46e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 499b5ac77728bc14aadd5a2ef235e28b6ca83516
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391392"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133059"
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekler ve bellek içi analiz için harika olan yüksek bellek CPU oranı VM boyutları teklifi en iyi duruma getirilmiş. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
@@ -117,7 +117,7 @@ Azure portalında uygun bir SUSE Linux görüntüsünü seçmek için:
 
 1. Azure portalında **kaynak oluştur** 
 1. "SUSE SAP" için arama 
-1. 2. nesil görüntüleri SAP için SLES ya da Kullandıkça Öde kullanılabilir veya (BYOS) kendi aboneliğini getiren. Arama sonuçlarında istediğiniz görüntüyü kategoriyi genişletin:
+1. 2\. nesil görüntüleri SAP için SLES ya da Kullandıkça Öde kullanılabilir veya (BYOS) kendi aboneliğini getiren. Arama sonuçlarında istediğiniz görüntüyü kategoriyi genişletin:
 
     * SAP için SUSE Linux Enterprise Server (SLES)
     * (BYOS) SAP için SUSE Linux Enterprise Server (SLES)
@@ -188,48 +188,6 @@ Hızlandırıcı yazma:  [Destekleniyor](https://docs.microsoft.com/azure/virtua
 <sup>4</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
 <br>
 
-## <a name="gs-series"></a>GS serisi 
-
-ACU: 180 - 240 <sup>1</sup>
-
-Premium Depolama:  Desteklenen
-
-Premium depolama önbelleğe alma:  Desteklenen
-
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS / sn (önbellek boyutu gib biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS / MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
-|---|---|---|---|---|---|---|---|
-| Standard_GS1 |2 |28 |56 |8 |10000 / 100 (264) |5000 / 125 |2 / 2000 |
-| Standard_GS2 |4 |56 |112 |16 |20000 / 200 (528) |10000 / 250 |2 / 4000 |
-| Standard_GS3 |8 |112 |224 |32 |40000 / 400 (1056) |20000 / 500 |4 / 8000 |
-| Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80000 / 800 (2112) |40000 / 1000 |8 / 16000 |
-| Standard_GS5&nbsp;<sup>2&nbsp;3</sup> |32 |448 |896 |64 |160000 / 1600 (4224) |80000 / 2000 |8 / 20000 |
-
-<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) GS serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin. Ayrıntılar için bkz [yüksek performans için tasarlama](../articles/virtual-machines/windows/premium-storage-performance.md).
-
-<sup>2</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
-
-<sup>3</sup> sınırlı kullanılabilir çekirdek boyutu.
-
-<br>
-
-## <a name="g-series"></a>G Serisi
-
-ACU: 180 - 240
-
-Premium Depolama:  Desteklenmiyor
-
-Premium depolama önbelleğe alma:  Desteklenmiyor
-
-| Boyut         | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / okuma MB/sn / yazma MB/sn | Maksimum veri diski / aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
-|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_G1  | 2         | 28          | 384            | 6000/93/46                                           | 8/8x500                       | 2 / 2000                     |
-| Standard_G2  | 4         | 56          | 768            | 12000/187/93                                         | 16/16x500                       | 2 / 4000                     |
-| Standard_G3  | 8         | 112         | 1536          | 24000/375/187                                        | 32/32x500                     | 4 / 8000                |
-| Standard_G4  | 16        | 224         | 3072          | 48000/750/375                                        | 64/64x500                     | 8 / 16000          |
-| Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6144          | 96000/1500/750                                       | 64/64x500                     | 8 / 20000           |
-
-<sup>1</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
-<br>
 
 ## <a name="dsv2-series-11-15"></a>DSv2-series 11-15
 

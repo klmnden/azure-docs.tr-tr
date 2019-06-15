@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06a4546864d2447049bc56491cdc37097760a678
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1a4c28f5892e8e885004c7fcc721b873a96c52ac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899861"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Öğretici: CS yıldız ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD CS yıldız tümleştirilmesi yapılandırmak için CS yıldız Galerid
 
 **Galeriden CS yıldız eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

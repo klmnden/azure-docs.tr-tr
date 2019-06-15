@@ -16,10 +16,10 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 51a2ac93fd2d863855c820ba147418c5397c2a89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851552"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>App Service uygulamanızı twitter oturum açma bilgilerini kullanacak şekilde yapılandırma
@@ -35,7 +35,7 @@ Bu konudaki yordamı tamamlamak için doğrulanmış e-posta adresi ve telefon n
 3. Yazın **adı** ve **açıklama** yeni uygulamanız için. Yapıştırma seçeneğiyle, uygulamanızın **URL** için **Web sitesi** değeri. Sonra **geri çağırma URL'si**, Yapıştır **geri çağırma URL'si** daha önce kopyaladığınız. Bu, mobil uygulama ağ geçidi yoluyla eklenmiş olan */.auth/login/twitter/callback*. Örneğin, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. HTTPS şeması kullandığınızdan emin olun.
 4. En altta sayfanın okuyun ve koşulları kabul edin. Ardından **kendi Twitter uygulamanızı oluşturun**. Bu uygulama görüntüler uygulama ayrıntıları kaydeder.
 5. Tıklayın **ayarları** sekmesinde, onay **Twitter ile oturum aç imzalamak için bu uygulamanın izin**, ardından **güncelleştirme ayarları**.
-6. Seçin **anahtarlar ve erişim belirteçleri** sekmesi. Değerlerini not edin **tüketici anahtarı (API anahtarı)** ve **tüketici gizli anahtarı (API gizli anahtarı)**.
+6. Seçin **anahtarlar ve erişim belirteçleri** sekmesi. Değerlerini not edin **tüketici anahtarı (API anahtarı)** ve **tüketici gizli anahtarı (API gizli anahtarı)** .
    
    > [!NOTE]
    > Tüketici gizli bir önemli güvenlik kimlik bilgisidir. Değil Bu gizli dizi kimseyle paylaşmayın veya uygulamanızla birlikte dağıtmayın.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4bb99c8cbec88d23f9297dcbe8b13cc69cd0006c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240995"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070676"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Azure Cosmos DB'de gerçek örneği kullanarak model ve bölüm verilerini
 
@@ -479,7 +479,7 @@ Bu son istek iyileştirmek için biz üçüncü bir kapsayıcı bizim tasarım t
 
 Bu kapsayıcı tarafından bölümlenmiş `type`, her zaman olacak `post` bizim öğeleri. Bu, tüm bu kapsayıcı öğeler aynı bölümde şaşıracaksınız sağlanır.
 
-Normalleştirilmişlikten çıkarma elde etmek için yalnızca daha önce yeni bir kapsayıcı gönderimleri gönderileceği ekledik işlem hattı akış değişiklik yeteneklerinizi sahibiz. Aklınızda çıplak gereken önemli bir unsur, yalnızca 100 en son gönderiler depolarız emin olmak ihtiyacımız olan; Aksi takdirde, kapsayıcı içeriğini bir bölüm en büyük boyutunu büyütün. Bu çağrı yaparak yapılır bir [sonrası tetikleyici](stored-procedures-triggers-udfs.md#triggers) kapsayıcıda her bir belge eklendiğinde:
+Normalleştirilmişlikten çıkarma elde etmek için yalnızca daha önce yeni bir kapsayıcı gönderimleri gönderileceği ekledik işlem hattı akış değişiklik yeteneklerinizi sahibiz. Aklınızda bulundurun gereken önemli bir unsur, yalnızca 100 en son gönderiler depolarız emin olmak ihtiyacımız olan; Aksi takdirde, kapsayıcı içeriğini bir bölüm en büyük boyutunu büyütün. Bu çağrı yaparak yapılır bir [sonrası tetikleyici](stored-procedures-triggers-udfs.md#triggers) kapsayıcıda her bir belge eklendiğinde:
 
 ![Akış kapsayıcı içine normal durumdan çıkarmayı gönderileri](./media/how-to-model-partition-example/denormalization-3.png)
 

@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813503"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Çalıştırma ve U-SQL Azure Data Lake U-SQL SDK'sı ile test etme
@@ -25,7 +25,7 @@ Verdiğiniz ise nasıl el ile yerel çalıştırın ve Azure Data Lake araçlar�
 
 Azure Data Lake U-SQL SDK'sı alabilirsiniz [burada](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) Nuget.org üzerinde. Ve kullanmadan önce aşağıdaki gibi bağımlılıkları olduğundan emin olmak gerekir.
 
-### <a name="dependencies"></a>Bağımlılıklar
+### <a name="dependencies"></a>Bağımlılıkları
 
 Data Lake U-SQL SDK'sı, aşağıdaki bağımlılıkları gerektirir:
 
@@ -53,7 +53,7 @@ Veri kök klasör için kullanılır:
 
 U-SQL betiklerini, hem göreli bir yol hem de yerel bir mutlak yol kullanabilirsiniz. Belirtilen verileri kök klasörü yol göreli yoludur. Kullanmanızı öneririz "/" betiklerinizi sunucu tarafı ile uyumlu hale getirmek için yol ayırıcı olarak. Göreli yollar ve bunların eşdeğer mutlak yollar bazı örnekleri aşağıda verilmiştir. Bu örneklerde C:\LocalRunDataRoot veri kök klasördür.
 
-|Göreli yol|Mutlak yol|
+|Göreli yolu|Mutlak yol|
 |-------------|-------------|
 |/abc/def/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
 |abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
@@ -223,7 +223,7 @@ Kullanım örneği aşağıda verilmiştir:
 
 Programlama arabirimleri tüm LocalRunHelper.exe içinde yer alır. U-SQL betiğini yerel test ölçeklendirmek için U-SQL SDK'sı ve C# test çerçevesi işlevselliğini tümleştirmek için bunları kullanabilirsiniz. Bu makalede, bu arabirimler, U-SQL betiğini sınamak için nasıl kullanılacağını göstermek için standart C# birim testi projesi kullanacağım.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>1. Adım: Oluşturma C# birim testi projesi ve yapılandırma
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>1\. adım: Oluşturma C# birim testi projesi ve yapılandırma
 
 - Bir C# birim testi projesi dosyası aracılığıyla oluşturma > Yeni > Proje > Visual C# > Test > birim testi projesi.
 - Proje için bir başvuru olarak LocalRunHelper.exe ekleyin. Nuget paketinde \build\runtime\LocalRunHelper.exe LocalRunHelper.exe bulunur.
@@ -240,7 +240,7 @@ Programlama arabirimleri tüm LocalRunHelper.exe içinde yer alır. U-SQL betiğ
 
 - Çalışma dizini, genellikle ProjectFolder\bin\x64\Debug altında olan proje NugetPackage\build\runtime\ altındaki tüm bağımlılık dosyaları kopyalamak emin olun.
 
-### <a name="step-2-create-u-sql-script-test-case"></a>2. Adım: U-SQL betiği test çalışması oluştur
+### <a name="step-2-create-u-sql-script-test-case"></a>2\. adım: U-SQL betiği test çalışması oluştur
 
 U-SQL betiği test için örnek kod aşağıda verilmiştir. Test etmek için betikleri, girdi dosyalarını ve beklenen Çıkış dosyalarını hazırlamanız gerekir.
 
@@ -362,9 +362,9 @@ Genel LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 |Workdır|string|Tercih edilen çalışma dizini|
 
 
-**Yöntem**
+**Yöntemi**
 
-|Yöntem|Açıklama|Geri Dön|Parametre|
+|Yöntem|Açıklama|döndürülecek|Parametre|
 |------|-----------|------|---------|
 |public bool DoCompile()|U-SQL betiği derleme|Başarılı olma durumunda true| |
 |Genel bool DoExec()|Derlenen sonuçtaki yürütün|Başarılı olma durumunda true| |
@@ -374,7 +374,7 @@ Genel LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 
 ## <a name="faq-about-common-issue"></a>Yaygın sorun hakkında SSS
 
-### <a name="error-1"></a>1. hata:
+### <a name="error-1"></a>1\. hata:
 E_CSC_SYSTEM_INTERNAL: İç hata! Dosya veya derleme 'ScopeEngineManaged.dll' veya bağımlılıklarından biri yüklenemedi. Belirtilen modül bulunamadı.
 
 Lütfen aşağıdakileri denetleyin:

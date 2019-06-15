@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c21a923f06a768c0a9a0f2843a24583df7a7821d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835728"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059655"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service'teki uygulamalar için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -38,7 +38,7 @@ Etkinleştirmek veya günlükleri aşağıdaki türde devre dışı bırakabilir
 * **Başarısız istek izleme** -ayrıntılı bir izleme isteği ve her bir bileşende geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız isteklerle bilgileri. Site performansı artırmak veya belirli bir HTTP hatası yalıtmak istiyorsanız kullanışlıdır. Bir klasöre her hata için uygulamanın dosya sisteminde oluşturulur. Dosya bekletme ilkeleri, yukarıda günlük ayrıntılı hata ile aynıdır.
 * **Web sunucusu günlüğe kaydetme** -kullanarak HTTP işlemleri hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimini](/windows/desktop/Http/w3c-logging). İşlenen isteklerin veya özel bir IP adresinden kaç isteklerdir sayısı gibi genel site ölçümleri belirlerken yararlı olacaktır.
 
-### <a name="application-diagnostics"></a>Uygulama tanılamaları
+### <a name="application-diagnostics"></a>Uygulama tanılama
 Uygulama Tanılama web uygulaması tarafından üretilen bilgileri yakalamanıza olanak sağlar. ASP.NET uygulamalarında kullanabileceğiniz [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) uygulama tanılama günlüğüne bilgileri günlüğe kaydetmek için sınıf. Örneğin:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -75,7 +75,7 @@ Etkinleştirdiğinizde **uygulama tanılama**, ayrıca **düzeyi**. Aşağıdaki
 
 Dosya sisteminde günlüklerini depolamak, dosyaları FTP tarafından erişilen veya Azure CLI kullanarak bir ZIP arşivi indirilir.
 
-Varsayılan olarak, günlükleri otomatik olarak silinmez (dışında **uygulama günlüğü (dosya sistemi)**). Günlükleri otomatik olarak silmek için ayarlarsınız **saklama dönemi (gün)** alan.
+Varsayılan olarak, günlükleri otomatik olarak silinmez (dışında **uygulama günlüğü (dosya sistemi)** ). Günlükleri otomatik olarak silmek için ayarlarsınız **saklama dönemi (gün)** alan.
 
 > [!NOTE]
 > Varsa, [depolama hesabınızın erişim anahtarlarını yeniden oluştur](../storage/common/storage-create-storage-account.md), güncelleştirilmiş anahtarları kullanmak için kendi günlük yapılandırmasını sıfırlamanız gerekir. Bunu yapmak için:
@@ -126,11 +126,11 @@ Bu komut adlı bir dosyaya ' appname' adlı uygulama için günlüklere kaydeder
 Visual Studio Application Insights, filtreleme ve günlük arama ve günlükleri istekleri ve diğer olaylarla ilişkilendirmek için gereken araçları sağlar.
 
 1. Projenizi Visual Studio'da Application Insights SDK'sını ekleyin.
-   * Çözüm Gezgini'nde projenize sağ tıklayın ve Application Insights Ekle'ı seçin. Arabirim içeren bir Application Insights kaynağı oluşturma adım adım yol gösterir. [Daha fazla bilgi](../azure-monitor/app/asp-net.md)
+   * Çözüm Gezgini'nde projenize sağ tıklayın ve Application Insights Ekle'ı seçin. Arabirim içeren bir Application Insights kaynağı oluşturma adım adım yol gösterir. [Daha fazla bilgi edinin](../azure-monitor/app/asp-net.md)
 2. İzleme dinleyicisi paketini projenize ekleyin.
    * Projenize sağ tıklayın ve NuGet paketlerini Yönet'i seçin. Seçin `Microsoft.ApplicationInsights.TraceListener` [daha fazla bilgi edinin](../azure-monitor/app/asp-net-trace-logs.md)
 3. Projenize yükleyin ve günlük verileri üretmek için çalıştırabilirsiniz.
-4. İçinde [Azure portalında](https://portal.azure.com/)yeni Application Insights kaynağınıza göz atın ve Aç **arama**. İstek, kullanım ve diğer telemetriyi birlikte günlük verilerinizi görmeniz gerekir. Bazı telemetri gelmesi birkaç dakika sürebilir: Yenile'ye tıklayın. [Daha fazla bilgi](../azure-monitor/app/diagnostic-search.md)
+4. İçinde [Azure portalında](https://portal.azure.com/)yeni Application Insights kaynağınıza göz atın ve Aç **arama**. İstek, kullanım ve diğer telemetriyi birlikte günlük verilerinizi görmeniz gerekir. Bazı telemetri gelmesi birkaç dakika sürebilir: Yenile'ye tıklayın. [Daha fazla bilgi edinin](../azure-monitor/app/diagnostic-search.md)
 
 [Application Insights ile izleme performansıyla ilgili daha fazla bilgi edinin](../azure-monitor/app/azure-web-apps.md)
 
@@ -192,12 +192,12 @@ Blob depolama için oturum açarken, verileri virgülle ayrılmış değerler (C
 | Tarih |Olayın saat ve tarihi |
 | Düzey |Olay düzeyi (uyarı, bilgi, hata) |
 | ApplicationName |Uygulama adı |
-| Örnek kimliği |Üzerinde olayın gerçekleştiği uygulama örneği |
+| InstanceId |Üzerinde olayın gerçekleştiği uygulama örneği |
 | EventTickCount |Değer çizgisi biçiminde (daha fazla duyarlık) olayın gerçekleştiği saat ve tarihi |
 | EventID |Bu olay, olay kimliği<p><p>Varsayılan olarak hiçbiri belirtilmişse 0 |
-| PID |İşlem Kimliği |
+| PID |İşlem kimliği |
 | TID |Olay üretilen iş parçacığının iş parçacığı kimliği |
-| İleti |Olay ayrıntı iletisi |
+| `Message` |Olay ayrıntı iletisi |
 
 Blob olarak depolanan veriler aşağıdaki örneğe benzer olacaktır:
 
@@ -205,7 +205,7 @@ Blob olarak depolanan veriler aşağıdaki örneğe benzer olacaktır:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> ASP.NET Core için günlük kaydı kullanılarak gerçekleştirilir [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) bu sağlayıcı mevduatlarını ek günlük dosyaları blob kapsayıcısına sağlayıcısı. Daha fazla bilgi için [ASP.NET Core Azure'da oturum](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
+> ASP.NET Core için günlük kaydı kullanılarak gerçekleştirilir [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) bu sağlayıcı mevduatlarını ek günlük dosyaları blob kapsayıcısına sağlayıcısı. Daha fazla bilgi için [ASP.NET Core Azure'da oturum](/aspnet/core/fundamentals/logging).
 >
 >
 
@@ -221,7 +221,7 @@ Başarısız istek izlemelerin adlı XML dosyalarında depolanan **fr ### .xml**
 ### <a name="detailed-error-logs"></a>Ayrıntılı hata günlükleri
 Ayrıntılı Hata günlüklerini oluşmuş HTTP hataları hakkında daha ayrıntılı bilgi sağlayan HTML belgeleridir. Bunlar yalnızca HTML belgeleri olduğundan, bir web tarayıcısı kullanarak görüntülenebilir.
 
-### <a name="web-server-logs"></a>Web sunucu günlükleri
+### <a name="web-server-logs"></a>Web sunucusu günlükleri
 Web sunucusu günlükleri kullanılarak biçimlendirilen [W3C Genişletilmiş günlük dosyası biçimini](/windows/desktop/Http/w3c-logging). Bu bilgileri bir metin düzenleyicisi kullanarak okuyabilir veya gibi yardımcı programlar kullanılarak Ayrıştırılan [günlük ayrıştırıcısı](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]

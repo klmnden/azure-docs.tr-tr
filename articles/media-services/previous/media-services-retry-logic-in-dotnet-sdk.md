@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61094666"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET için Media Services SDK'sı mantığı yeniden deneyin  
@@ -64,7 +64,7 @@ Aşağıdaki tablo, hangi WebException hata kodları için yeniden deneme mantı
 | Başvuruları |Evet |Evet |Evet |Hayır |
 | ReceiveFailure |Evet |Evet |Evet |Hayır |
 | RequestCanceled |Evet |Evet |Evet |Hayır |
-| Zaman Aşımı |Evet |Evet |Evet |Hayır |
+| zaman aşımı |Evet |Evet |Evet |Hayır |
 | ProtocolError <br/>Yeniden deneme ProtocolError HTTP durum kodu işleme tarafından denetlenir. Daha fazla bilgi için [HTTP Hatası durum kodları](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Evet |Evet |Evet |Evet |
 
 ### <a name="HTTPStatusCode"></a> HTTP Hatası durum kodları

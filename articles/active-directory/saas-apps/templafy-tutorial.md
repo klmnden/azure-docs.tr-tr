@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 843a4ef36d633b8b72453ba5eb2b969af4649531
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 674e2178ad5e9f58bbe691fd92f643750e0b91e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605309"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-templafy"></a>Öğretici: Templafy ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Templafy tümleştirmesini yapılandırmak için Templafy Galeriden 
 
 **Galeriden Templafy eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -118,7 +118,7 @@ Azure AD çoklu oturum açma ile Templafy yapılandırmak için aşağıdaki ad�
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Ad | Kaynak özniteliği| Ad alanı  |
+    | Ad | Kaynak özniteliği| Ad Alanı  |
     | ---------------| --------------- | --------- |
     | givenName | User.givenName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | Soyadı | User.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
@@ -132,7 +132,7 @@ Azure AD çoklu oturum açma ile Templafy yapılandırmak için aşağıdaki ad�
     | Bölüm | User.Department | `http://schemas.templafy.com/2016/06/identity/claims`|
     | Telefon numarası | User.telephoneNumber | `http://schemas.templafy.com/2016/06/identity/claims` |
     | facsimilenumber | User.facsimiletelephonenumber | `http://schemas.templafy.com/2016/06/identity/claims`|
-    | UPN | User.userPrincipalName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | upn | User.userPrincipalName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | NameIdentifier | User.Mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | | |
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 751a3a940dad74cbc8c7343ee70309736b381d5b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: ee976f163bdb00511e2a8f85906aa59aaebbfa47
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478872"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056547"
 ---
 # <a name="security-groups"></a>Güvenlik grupları
 <a name="network-security-groups"></a>
@@ -81,6 +81,7 @@ Genişletilmiş güvenlik kuralları, sanal ağlar için güvenlik tanımını d
 * **ServiceFabric** (yalnızca Resource Manager): Bu etiket ServiceFabric hizmetin adres ön eklerini belirtir. Belirtirseniz *ServiceFabric* değeri için trafiğe izin veya trafik için ServiceFabric reddedilir. 
 * **AzureMachineLearning** (yalnızca Resource Manager): Bu etiket AzureMachineLearning hizmetin adres ön eklerini belirtir. Belirtirseniz *AzureMachineLearning* değeri için trafiğe izin veya trafik için AzureMachineLearning reddedilir. 
 * **BatchNodeManagement** (yalnızca Resource Manager): Bu etiket Azure BatchNodeManagement hizmetin adres ön eklerini belirtir. Belirtirseniz *BatchNodeManagement* değeri için trafiğe izin veya trafik Batch hizmetinden işlem düğümlerine reddedilir.
+* **AzureBackup**(yalnızca Resource Manager): Bu etiket AzureBackup hizmetin adres ön eklerini belirtir. AzureBackup değeri belirtirseniz, trafiğe izin verilir veya trafik reddedilir AzureBackup için.
 
 > [!NOTE]
 > Hizmet etiketleri Azure hizmetlerinin adres ön eklerini kullanılan özel buluttan gösterir. 
@@ -96,19 +97,19 @@ Azure, oluşturduğunuz tüm ağ güvenlik gruplarına aşağıdaki varsayılan 
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Öncelik|Kaynak|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
+|Öncelik|source|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tümü|İzin Ver|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Öncelik|Kaynak|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
+|Öncelik|source|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tümü|İzin Ver|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Öncelik|Kaynak|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
+|Öncelik|source|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Tümü|Reddet|
 
@@ -116,19 +117,19 @@ Azure, oluşturduğunuz tüm ağ güvenlik gruplarına aşağıdaki varsayılan 
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Öncelik|Kaynak|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tümü | İzin Ver |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Öncelik|Kaynak|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tümü | İzin Ver |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Öncelik|Kaynak|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Tümü | Reddet |
 
@@ -148,7 +149,7 @@ Yukarıdaki resimde *NIC1* ve *NIC2*, *AsgWeb* uygulama güvenlik grubunun üyel
 
 Bu kural, internetten Web sunucularına gelen trafiğe izin vermek için kullanılır. İnternetten gelen trafik, [DenyAllInbound](#denyallinbound) varsayılan güvenlik grubu tarafından reddedildiğinden *AsgLogic* veya *AsgDb* uygulama güvenlik grupları için ek kurala ihtiyaç duyulmaz.
 
-|Öncelik|Kaynak|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | İzin Ver |
 
@@ -156,7 +157,7 @@ Bu kural, internetten Web sunucularına gelen trafiğe izin vermek için kullan�
 
 [AllowVNetInBound](#allowvnetinbound) varsayılan güvenlik kuralı aynı sanal ağ içinde bulunan kaynaklar arasındaki tüm iletişime izin verdiğinden, tüm kaynaklardan gelen trafiği reddetmek için bu kurala ihtiyaç duyulur.
 
-|Öncelik|Kaynak|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Tümü | Reddet |
 
@@ -164,7 +165,7 @@ Bu kural, internetten Web sunucularına gelen trafiğe izin vermek için kullan�
 
 Bu kural *AsgLogic* uygulama güvenlik grubundan *AsgDb* uygulama güvenlik grubuna gelen trafiğe izin verir. Bu kuralın önceliği, *Deny-Database-All* kuralının önceliğinden daha yüksektir. Sonuç olarak bu kural, *Deny-Database-All* kuralından önce işlenir ve böylece *AsgLogic* uygulama güvenlik grubundan gelen trafiğe izin veriler ve diğer tüm trafik engellenir.
 
-|Öncelik|Kaynak|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | İzin Ver |
 

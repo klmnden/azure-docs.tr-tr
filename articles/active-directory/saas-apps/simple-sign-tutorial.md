@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecc90c88d2d5b7381e3c79417b643a048d76339a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 8f175573d7be7f5b82f27762892b4e687548b183
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441491"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simple-sign"></a>Öğretici: Basit bir oturum ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de basit bir oturum tümleştirmesini yapılandırmak için basit bir o
 
 **Basit bir oturum Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

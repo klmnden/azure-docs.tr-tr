@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 19/02/2019
 ms.author: v-mohabe
 ms.openlocfilehash: fe8ceb8c196f7329027502847fba481169458d86
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966794"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Gelişmiş güvenlikten yararlanmaya başlamak için Azure Güvenlik Merkezi standart ekleme
@@ -57,7 +57,7 @@ Standart abonelik veya çalışma alanını yükseltmek için:
    >
    >
 
-## <a name="onboard-non-azure-computers"></a>Azure olmayan bilgisayarları ekle
+## <a name="onboard-non-azure-computers"></a>Azure dışı bilgisayarları ekleme
 Güvenlik Merkezi, Azure dışı bilgisayarların güvenlik durumunu izleyebilir ancak öncelikle bu kaynakları eklemeniz gerekir. Azure dışı bilgisayarlar ekleyebilirsiniz **Başlarken** dikey veya **işlem** dikey penceresi. Her iki yöntem alacağız.
 
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>Yeni Azure olmayan bilgisayarlardan ekleme **kullanmaya başlama**
@@ -65,7 +65,7 @@ Güvenlik Merkezi, Azure dışı bilgisayarların güvenlik durumunu izleyebilir
 1. Geri dönüp **Başlarken**.   
 2. **Başlangıç** sekmesini seçin.
 
-   ![Azure Dışı](./media/security-center-onboarding/non-azure.png)
+   ![Azure dışı](./media/security-center-onboarding/non-azure.png)
 
 3. **Yeni Azure dışı bilgisayarlar ekle** altında, **Yapılandır**’a tıklayın. Log Analytics çalışma alanlarınızın bir listesi gösterilir. Listede, varsa, otomatik sağlama etkinleştirildiğinde Güvenlik Merkezi tarafından sizin için oluşturulan varsayılan çalışma alanı bulunur. Bu çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanını seçin.
 

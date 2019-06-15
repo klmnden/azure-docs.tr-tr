@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7f0b467284872f3d936984741c6d092705008a5a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ba6d137a7eb5fc2c56bfc39aa8f831d76411fb46
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025929"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060862"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>İnsan etiketli döküm oluşturma
 
@@ -74,11 +74,11 @@ Normalleştirme transkripsiyonu üzerinde otomatik olarak gerçekleştirilen baz
 | Git - em alın! | go get em |
 | Double-jointed istiyorum | Çift jointed istiyorum |
 | 104 Elm Street | bir oh dört istasyon Sokak |
-| 102.7 için ayarlama | bir oh ayarlama iki yedi |
+| 102\.7 için ayarlama | bir oh ayarlama iki yedi |
 | PI hakkında 3,14 olan | Pi yaklaşık üç noktası bir dört olduğu |
 $3.14 maliyetleri| üç on dört maliyetleri |
 
-## <a name="mandarin-chinese-zh-cn"></a>Mandarin Çince (zh-cn)
+## <a name="mandarin-chinese-zh-cn"></a>Mandarin Çince (zh-CN)
 
 İnsan etiketli döküm Mandarin Çince ses için UTF-8 bayt sırası işaretçisi ile kodlanmış olmalıdır. Yarım genişlikteki noktalama karakterleri kullanmaktan kaçının. Bir sözcük program uygulamasında veri hazırlama veya web sayfalarından veri scrape şu karakterleri yanlışlıkla dahil edilebilir. Bu karakterler varsa, bunları uygun tam genişlikli değiştirme ile güncelleştirdiğinizden emin olun.
 

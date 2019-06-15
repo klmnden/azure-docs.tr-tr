@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 ms.openlocfilehash: b1873b770a6b4280b7098c68ecb75cc1411fe453
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60747021"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Azure portalını kullanarak sanal makineler için birden çok IP adresi atama
@@ -55,7 +55,7 @@ Eklemek istediğiniz IP adresi türüne göre aşağıdaki bölümlerde birindek
 Yeni bir özel IP adresi eklemek için aşağıdaki adımları tamamlayın:
 
 1. Bölümündeki adımları tamamlamanız [çekirdek adımları](#coreadd) bu makalenin.
-2. **Ekle**'ye tıklayın. İçinde **ekleme IP yapılandırması** görüntülenen bölmesi adlı IP yapılandırması oluşturun *IPConfig 4* ile *10.0.0.7* olarak bir *statik* Özel IP adresini'a tıklayın **Tamam**.
+2. **Ekle**'yi tıklatın. İçinde **ekleme IP yapılandırması** görüntülenen bölmesi adlı IP yapılandırması oluşturun *IPConfig 4* ile *10.0.0.7* olarak bir *statik* Özel IP adresini'a tıklayın **Tamam**.
 
     > [!NOTE]
     > Statik bir IP adresi eklerken, NIC'nin bağlı olduğu alt ağdaki kullanılmayan, geçerli bir adresi belirtmeniz gerekir. Seçtiğiniz adresi kullanılabilir değilse, portal IP adresi için bir X görüntüler ve farklı bir seçmeniz gerekir.
@@ -87,7 +87,7 @@ Genel bir IP adresi, bir genel IP adresi kaynağı için bir ayardır. Şu anda 
 #### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Genel IP adresi kaynağı yeni bir IP yapılandırmasını ilişkilendirin
 
 1. Bölümündeki adımları tamamlamanız [çekirdek adımları](#coreadd) bu makalenin.
-2. **Ekle**'ye tıklayın. İçinde **ekleme IP yapılandırması** görüntülenen bölmesi adlı IP yapılandırması oluşturun *IPConfig 4*. Etkinleştirme **genel IP adresi** bir var olan ve kullanılabilir genel IP adresi kaynağına nden seçip **genel IP adresi seçin** bölmesi görünür.
+2. **Ekle**'yi tıklatın. İçinde **ekleme IP yapılandırması** görüntülenen bölmesi adlı IP yapılandırması oluşturun *IPConfig 4*. Etkinleştirme **genel IP adresi** bir var olan ve kullanılabilir genel IP adresi kaynağına nden seçip **genel IP adresi seçin** bölmesi görünür.
 
     Genel IP adresi kaynağı seçtikten sonra tıklayın **Tamam** ve bölmeyi kapatır. Var olan bir genel IP adresi yoksa, bir adımları tamamlayarak oluşturabilirsiniz [genel bir IP adresi kaynağı oluşturun](#create-public-ip) bu makalenin. 
 

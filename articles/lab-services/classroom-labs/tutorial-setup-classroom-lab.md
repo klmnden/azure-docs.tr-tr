@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: bdcc4349f84a35b312ecb3ad6205273b62c2e989
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 803fe6eff8804dbd407642386865fe975c8db524
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722722"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123253"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Öğretici: Bir sınıf laboratuvarı ayarlama 
 Bu öğreticide, sınıftaki öğrenciler tarafından kullanılan sanal makinelerle bir sınıf laboratuvarı ayarlayacaksınız.  
@@ -48,7 +48,7 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
 
         ![Sınıf laboratuvarı oluşturma](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. **Sanal makine özelliklerini seçin** sayfasında aşağıdaki adımları gerçekleştirin:
-    1. Laboratuvarda oluşturulan sanal makineler (VM) için bir **boyut** seçin. Şu anda **küçük**, **orta**, **büyük**, ve **GPU** boyutları izin verilir.
+    1. Laboratuvarda oluşturulan sanal makineler (VM) için bir **boyut** seçin. Şu anda **küçük**, **orta**, **Orta (sanallaştırma)** , **büyük**, ve **GPU** boyutları izin verilir.
     3. Laboratuvardaki VM'leri oluşturmak için kullanılacak **VM görüntüsünü** seçin. Bir Linux görüntüsü seçerseniz, Uzak Masaüstü bağlantı etkinleştirmek için bir seçenek görürsünüz. Ayrıntılar için bkz [Linux için Uzak Masaüstü Bağlantısı etkinleştirme](how-to-enable-remote-desktop-linux.md).
     4. **İleri**’yi seçin.
 
@@ -69,9 +69,11 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
 
     ![Tamamlanmış şablon yapılandırma sayfası](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Üzerinde **yapılandırma şablonu** sayfasında, aşağıdaki adımları uygulayın: Bu adımlar **isteğe bağlı** öğretici.
-    1. **Bağlan**'ı seçerek şablon VM'sine bağlanın. Linux VM şablon varsa (RDP etkinse), SSH veya RDP kullanarak bağlanmasını isteyip istemediğinizi seçin.
-    2. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin.     
-    3. Şablon için bir **açıklama** girin
+    2. **Bağlan**'ı seçerek şablon VM'sine bağlanın. Linux VM şablon varsa (RDP etkinse), SSH veya RDP kullanarak bağlanmasını isteyip istemediğinizi seçin.
+    1. Seçin **parolayı Sıfırla** VM için parolayı sıfırlamak için. 
+    1. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin. 
+    1. VM'yi **durdurun**.  
+    1. Şablon için bir **açıklama** girin
 9. Şablon sayfasında **İleri**'yi seçin. 
 10. **Şablonu yayımla** sayfasında aşağıdaki işlemleri gerçekleştirin. 
     1. Şablon hemen yayımlamak için seçin **Yayımla**.  
@@ -107,6 +109,40 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
 
     ![Kullanıcı listesi](../media/how-to-configure-student-usage/users-list-new.png)
 
+## <a name="set-quotas-for-users"></a>Kullanıcılar için kota ayarlama
+Aşağıdaki adımları kullanarak, kullanıcı başına kotaları ayarlayabilirsiniz: 
+
+1. Seçin **kullanıcılar** sayfası zaten etkin değilse sol menüsünde. 
+2. Seçin **kullanıcı başına kota:** araç. 
+3. Üzerinde **kullanıcı başına kotası** sayfasında, her bir kullanıcı (Öğrenci) vermek istediğiniz süreyi belirtin: 
+    1. **0 saat (yalnızca zamanlama)** . Kullanıcılar Vm'lerini yalnızca zamanlanmış süre boyunca veya Laboratuvar sahibi olarak, Vm'lerde için bunları kullanabilirsiniz.
+
+        ![Sıfır saat - yalnızca zamanlanan saati](../media/how-to-configure-student-usage/zero-hours.png)
+    1. **Toplam Laboratuvar saat başına kullanıcı sayısı**. Kullanıcıların kümesi kaç saat (Bu alan için belirtilen) için Vm'lerini kullanabilir **zamanlanan süreden yanı sıra**. Bu seçeneği belirlerseniz, girin **saat sayısı** metin kutusuna. 
+
+        ![Saat başına kullanıcı sayısı](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. **Kaydet**’i seçin. 
+5. Değiştirilmiş değerlere araç göreceksiniz: **Kullanıcı başına kota: &lt;saat sayısı&gt;** . 
+
+    ![Kullanıcı başına kotası](../media/how-to-configure-student-usage/quota-per-user.png)
+
+## <a name="set-a-schedule-for-the-lab"></a>Laboratuvar için bir zamanlama
+Kota ayarı yapılandırılmışsa **0 saat (yalnızca zamanlama)** , Laboratuvar için bir zamanlama ayarlamanız gerekir. Bu öğreticide, bir programa haftalık olarak çalıştırılması için zamanlamayı ayarlayın.
+
+1. Geçiş **zamanlamaları** sayfasında ve seçin **Ekle zamanlama** araç. 
+
+    ![Zamanlama sayfasında zamanlama düğmesi ekleme](../media/how-to-create-schedules/add-schedule-button.png)
+2. Üzerinde **Ekle zamanlama** sayfasında, geçiş **haftalık** en üstünde. 
+3. İçin **zamanlama gün (gereklidir)** , zamanlama etkili olmasını istediğiniz günleri seçin. Aşağıdaki örnekte, Pazartesi-Cuma seçilir. 
+4. İçin **gelen** alanına **zamanlama başlangıç tarihi** ya da bir tarih seçerek çekme **Takvim** düğmesi. Bu alan gereklidir. 
+5. İçin **zamanlama bitiş tarihi**kapatma için VM'ler üzerinde olan bir bitiş tarihi seçin veya girin. 
+6. İçin **başlangıç zamanı**, başlatılacak Vm'leri istediğiniz saati seçin. Başlangıç zamanı, bitiş zamanı ayarlanmamışsa gereklidir. Seçin **kaldırma olay başlangıç** durdurma saati belirtmek istiyorsanız. varsa **başlangıç zamanı** olduğundan devre dışı seçin **Ekle başlangıç olayı** etkinleştirmek için açılır listenin yanındaki. 
+7. İçin **durdurma saati**, kapatma için Vm'leri istediğiniz saati seçin. Bitiş zamanı başlangıç zamanından ayarlanmamışsa gereklidir. Seçin **Kaldır durdurma olayını** yalnızca başlangıç saatini belirtmek istiyorsanız. varsa **durdurma saati** olduğundan devre dışı seçin **durdurma olay Ekle** etkinleştirmek için açılır listenin yanındaki.
+8. İçin **saat dilimi (gerekli)** , başlangıç için saat dilimini seçin ve bitiş zamanlarını belirttiğiniz.  
+9. İçin **notları**, zamanlama için herhangi bir açıklama veya notları girin. 
+10. **Kaydet**’i seçin. 
+
+    ![Haftalık Zamanlama](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## <a name="send-an-email-with-the-registration-link"></a>Kayıt bağlantısı içeren bir e-posta Gönder
 

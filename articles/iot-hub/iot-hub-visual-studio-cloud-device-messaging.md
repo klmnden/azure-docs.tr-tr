@@ -5,14 +5,13 @@ author: shizn
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 01/07/2018
-ms.date: 05/06/2019
+ms.date: 01/07/2018
 ms.author: xshi
 ms.openlocfilehash: ab3c02d7207bca70a90df8aa08c73c1484cd635d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440756"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>IOT Hub ve cihaz arasında ileti göndermek ve almak için Visual Studio için cloud Explorer'ı kullanın
@@ -49,12 +48,16 @@ Visual Studio Yükleyicisi'nden Cloud Explorer bileşen yalnızca cihaz-Bulut ve
 
     ![Hesap Yönetimi](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
-1. Tıklayın **hesaplarını yönetme** bulut Gezgini'nde.
-1. Tıklayın **Hesap Ekle...**  Azure'a ilk kez oturum açmak için yeni pencerede.
-1. Oturum açtıktan sonra Azure abonelik listesi gösterilir. Tıklayın ve görüntülemek istediğiniz Azure aboneliklerini seçin **Uygula**.
-1. Genişletin **aboneliğinizi** > **IOT hub'ları** > **uygulamanızın IOT hub'ı**, cihaz listesi, IOT hub'ı düğümünde gösterilir.
 
-    ![Cihaz Listesi](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
+2. Tıklayın **hesaplarını yönetme** bulut Gezgini'nde.
+
+3. Tıklayın **Hesap Ekle...**  Azure'a ilk kez oturum açmak için yeni pencerede.
+
+4. Oturum açtıktan sonra Azure abonelik listesi gösterilir. Tıklayın ve görüntülemek istediğiniz Azure aboneliklerini seçin **Uygula**.
+
+5. Genişletin **aboneliğinizi** > **IOT hub'ları** > **uygulamanızın IOT hub'ı**, cihaz listesi, IOT hub'ı düğümünde gösterilir.
+
+    ![Cihaz listesi](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
 
 ## <a name="monitor-device-to-cloud-messages"></a>CİHAZDAN buluta iletileri izlemeye
 
@@ -64,11 +67,11 @@ Cihazınızın IOT Hub'ına gönderilen iletileri izlemek için aşağıdaki ad�
 
     ![D2C iletisini izlemeye başlama](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message.png)
 
-1. İzlenen iletilerin gösterilecek **IOT hub'ı** çıkış bölmesi.
+2. İzlenen iletilerin gösterilecek **IOT hub'ı** çıkış bölmesi.
 
     ![İzleme D2C ileti sonucu](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result.png)
 
-1. İzlemeyi durdurmak için herhangi bir IOT hub'ı veya cihaz üzerinde sağ tıklayın ve seçmek için **D2C iletisini İzlemeyi Durdur**.
+3. İzlemeyi durdurmak için herhangi bir IOT hub'ı veya cihaz üzerinde sağ tıklayın ve seçmek için **D2C iletisini İzlemeyi Durdur**.
 
 ## <a name="send-cloud-to-device-messages"></a>Buluttan cihaza iletileri gönderme
 
@@ -78,8 +81,9 @@ Cihazınız için IOT hub'ınızdan ileti göndermek için bu adımları izleyin
 
     ![C2D ileti gönder](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message.png)
 
-1. İleti giriş kutusuna girin.
-1. Sonuçları gösterilecek **IOT hub'ı** çıkış bölmesi.
+2. İleti giriş kutusuna girin.
+
+3. Sonuçları gösterilecek **IOT hub'ı** çıkış bölmesi.
 
     ![C2D ileti sonucu Gönder](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result.png)
 

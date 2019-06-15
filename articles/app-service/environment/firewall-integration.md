@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dae2d40650b9fdb8df2d3bdb74b2df78639dc11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766547"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058054"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service ortamı kilitleme
 
@@ -30,6 +30,21 @@ Bir ASE sahip gelen bağımlılıklar vardır. Gelen yönetim trafiğinin bir g�
 ASE giden bağımlılık neredeyse tamamen statik adresleri arkasına olmayan FQDN ile tanımlanır. Statik adresler olmaması anlamına gelir ağ güvenlik grupları (Nsg'ler) ASE giden trafiği kilitlemek için kullanılamaz. Adresleri sıklıkta biri olamaz geçerli çözünürlüğüne göre kurallarını ayarlama ve Nsg'ler oluşturma kullanan, değiştirin. 
 
 Etki alanı adlarını temel alarak giden trafiği denetleyen bir güvenlik duvarı cihazın kullanımda giden adresleri güvenliğini sağlamak için çözüm arasındadır. Azure güvenlik duvarı hedef FQDN'sini üzerinde giden HTTP ve HTTPS trafiğini kısıtlayabilirsiniz.  
+
+## <a name="system-architecture"></a>Sistem Mimarisi
+
+Bir güvenlik duvarı cihazı üzerinden giden giden trafik ile ASE dağıtma, ASE alt yollara değiştirilmesi gerekir. Yollar bir IP düzeyinde çalışır. Yollarınızı belirlerken dikkatli emin değilseniz, başka bir adresten kaynak TCP yanıt trafiğini zorlayabilirsiniz. Asimetrik yönlendirme adı verilir ve TCP çalışmamasına neden olur.
+
+ASE gelen trafiği geri gelen trafik aynı şekilde yanıt verebilir böylece tanımlı yönlendirmeler olması gerekir. Bu gelen yönetim istekleri için geçerlidir ve gelen uygulama istekleri için geçerlidir.
+
+Bir ASE gelen ve giden trafiği tarafından aşağıdaki kurallara uymanız gerekir
+
+* Azure SQL, depolama ve olay hub'ı trafiği bir güvenlik duvarı cihaz kullanımıyla desteklenmez. Bu trafik, doğrudan bu hizmetlere gönderilmelidir. Gerçekleşen yapmak için bu üç Hizmetleri için hizmet uç noktası yapılandırmak için yoludur. 
+* Rota tablosu kuralları gelen yönetim trafiğinin geri nereden geldiğini gönderen tanımlanmalıdır.
+* Rota tablosu kuralları geri nereden geldiğini gelen uygulama trafiğini gönderdiği tanımlanmalıdır. 
+* ASE bırakarak tüm trafiği, güvenlik duvarı cihazınıza bir rota tablosu kuralla gönderilebilir.
+
+![ASE ile Azure güvenlik duvarı bağlantı akışı][5]
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Azure güvenlik duvarı ile ASE'nizi yapılandırma 
 
@@ -69,8 +84,6 @@ Uygulamalarınızı bağımlılıkları varsa, bunların Azure güvenlik duvarı
 
 Uygulama isteği trafiğiniz kaynağından gelir adres aralığını biliyorsanız, yol tablosuna, ASE alt ağınız için atanmış ekleyebilirsiniz. Adres aralığı büyük ya da belirtilmemiş olması durumunda, yol tablosuna eklemek için bir adres sağlamak için Application Gateway gibi ağ Gereci kullanabilirsiniz. ILB ASE'nizi bir Application Gateway yapılandırma hakkında ayrıntılı bilgi edinmek için [ILB ASE'nizi bir Application Gateway ile tümleştirme](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
 
-![ASE ile Azure güvenlik duvarı bağlantı akışı][5]
-
 Bu uygulama ağ geçidi kullanımı, sisteminizi yapılandırmak nasıl yalnızca bir örnektir. Bu yolu izlerseniz uygulama ağ geçidine gönderilen yanıt trafiğini doğrudan var. çıkacak şekilde ASE alt ağın yol tablosuna bir yol eklemek gerekir. 
 
 ## <a name="logging"></a>Günlüğe kaydetme 
@@ -81,7 +94,7 @@ Azure güvenlik duvarı günlükleri Olay hub'ı, Azure Depolama'ya gönderebili
  
 Azure İzleyici günlüklerine ile Azure güvenlik duvarınızı tümleştirme önce tüm uygulama bağımlılıklarını, uyumlu olmadığında bir uygulama çalışma başlama çok yararlı olur. Azure İzleyici günlükleri hakkında daha fazla bilgi [Azure İzleyici'de günlük verileri](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
  
-## <a name="dependencies"></a>Bağımlılıklar
+## <a name="dependencies"></a>Bağımlılıkları
 
 Aşağıdaki bilgiler yalnızca olan Azure güvenlik duvarı dışında bir güvenlik duvarı gerecini yapılandırmak isteyip istemediğinizi gerekli. 
 

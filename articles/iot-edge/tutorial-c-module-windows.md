@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 49f853341edab7c7dc92f72472b81f7fb22c0ad8
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 52725950be24e5c84bd16f17bb2d079b58612a37
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808763"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058308"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Öğretici: Windows cihazlar için bir C IOT Edge modülü geliştirme
 
@@ -51,8 +51,16 @@ Bu öğreticiye başlamadan önce Windows kapsayıcı geliştirme için gelişti
 * Kapsayıcı kayıt defteri gibi [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) ile yapılandırılmış [Azure IOT Edge araçlarını](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) uzantısı.
 * [Docker CE](https://docs.docker.com/install/) Windows kapsayıcılarını çalıştırmaya yönelik yapılandırılmış.
-* C için Azure IOT SDK'sı 
+* Vcpkg aracılığıyla x64 Windows için Azure IOT C SDK'sını yükleyin:
 
+   ```powershell
+   git clone https://github.com/Microsoft/vcpkg
+   cd vcpkg
+   .\bootstrap-vcpkg.bat
+   .\vcpkg install azure-iot-sdk-c:x64-windows
+   .\vcpkg --triplet x64-windows integrate install
+   ```
+   
 > [!TIP]
 > Visual Studio 2017 (sürüm 15.7 veya üzeri) kullanıyorsanız, lütfen yükleyip [Azure IOT Edge Araçları (Önizleme)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) VS 2017 Visual Studio Market
 

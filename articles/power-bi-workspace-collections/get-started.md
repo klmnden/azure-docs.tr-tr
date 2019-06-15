@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.openlocfilehash: d1011a8fd8f181233be8e1fa27c3bfaea3d86141
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685163"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Microsoft Power BI Çalışma Alanı Koleksiyonları'nı kullanmaya başlama
@@ -103,7 +103,7 @@ Veri kaynağına bağlanma hakkında daha fazla bilgi için bkz. [Veri kaynağı
 
 REST API kullanarak Power BI Çalışma Alanı Koleksiyonları içinde veri kümeleri oluşturabilirsiniz. Daha sonra verileri veri kümenize gönderebilirsiniz. Bu, Power BI Desktop olmadan verilerinizle çalışmanıza olanak sağlar. Daha fazla bilgi için bkz. [Veri Kümeleri Gönderme](https://msdn.microsoft.com/library/azure/mt778875.aspx).
 
-### <a name="reports"></a>Reports
+### <a name="reports"></a>Raporlar
 
 JavaScript API kullanarak doğrudan uygulamanızda bir veri kümesinden rapor oluşturabilirsiniz. Daha fazla bilgi için bkz. [Power BI Çalışma Alanı Koleksiyonları'nda bir veri kümesinden yeni bir rapor oluşturma](create-report-from-dataset.md).
 

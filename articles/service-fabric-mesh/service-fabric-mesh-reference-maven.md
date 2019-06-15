@@ -10,10 +10,10 @@ ms.topic: reference
 ms.service: service-fabric-mesh
 manager: subramar
 ms.openlocfilehash: 08e842f5b91bd0ca5f8e8b2a7866f3f9a689ac28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811621"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Service Fabric kafes için maven eklentisi
@@ -79,7 +79,7 @@ Maven plugin Maven Java uygulamanızı kullanmak için aşağıdaki kod parçac�
 
 Maven plugin, Azure için Maven eklentileri yaygın yapılandırmaları şu anda desteklemiyor.
 
-## <a name="how-to"></a>Nasıl Yapılır
+## <a name="how-to"></a>Nasıl Yapılır Konuları
 
 ### <a name="initialize-maven-project-for-azure-service-fabric-mesh"></a>Azure Service Fabric Mesh için Maven projesi başlatın.
 Uygulama kaynak YAML dosyası oluşturmak için aşağıdaki komutu çalıştırın.

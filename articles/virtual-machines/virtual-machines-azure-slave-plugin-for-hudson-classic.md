@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444213"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Hudson sürekli tümleştirme ile Azure bağımlı eklentisini kullanma
@@ -32,7 +32,7 @@ Azure bağımlı eklentisini için Hudson bağımlı düğümlerden azure'da da�
    
     Kullanılabilir eklentiler listesi boyunca kaydırın tercih ederseniz, Azure bağımlı eklentisini altında bulabilirsiniz **küme yönetimi ve dağıtılmış yapı** konusundaki **başkalarının** sekmesi.
 5. Onay kutusunu seçip **Azure bağımlı eklentisi**.
-6. **Yükle**'ye tıklayın.
+6. **Yükle**'ye tıklatın.
 7. Restart Hudson.
 
 Eklenti artık yüklendiğine göre sonraki adımlar, Azure abonelik profillerindeki ile eklentiyi yapılandırmak ve bağımlı düğümü için bir VM oluşturulurken kullanılacak bir şablon oluşturmak için olacaktır.
@@ -152,7 +152,7 @@ Bu bölümde, Azure üzerinde bir bağımlı düğümde çalıştırılacak Huds
 5. Proje Yapılandırması sayfasında seçin **burada bu proje çalıştırılabilir kısıtlama**.
 6. Seçin **düğüm ve etiket menüsü** seçip **linux** (biz Bu etiket sanal makine şablonunu önceki bölümde oluştururken belirttiğiniz).
 7. İçinde **derleme** bölümünde **derleme adımı Ekle** seçip **Kabuğu Yürüt**.
-8. Aşağıdaki Düzen değiştirerek, betik **{github hesabınızın adını}**, **{projenizin adına}**, ve **{proje dizininiz}** uygun değerleri ile düzenlenmiş yapıştırın betik metin alanında görüntülenir.
+8. Aşağıdaki Düzen değiştirerek, betik **{github hesabınızın adını}** , **{projenizin adına}** , ve **{proje dizininiz}** uygun değerleri ile düzenlenmiş yapıştırın betik metin alanında görüntülenir.
    
         # Clone from git repo
    

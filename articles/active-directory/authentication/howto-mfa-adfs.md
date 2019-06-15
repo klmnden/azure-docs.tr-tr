@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: a5b1838007e1be7fc1d9872516ede14c208b1f57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415367"
+ms.locfileid: "67113471"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
 
@@ -86,10 +86,10 @@ Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal
 Talepler yapıldığına göre, artık güvenilen IP’leri yapılandırabiliriz.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. **Azure Active Directory** > **Koşullu erişim** > **Adlandırılmış konumlar**’ı seçin.
-3. **Koşullu erişim - Adlandırılmış konumlar** dikey penceresinde **MFA güvenilen IP'lerini yapılandır**’ı seçin
+2. Seçin **Azure Active Directory** > **koşullu erişim** > **adlandırılmış Konumlar**.
+3. Gelen **koşullu erişim - adlandırılmış Konumlar** dikey penceresinde **MFA güvenilen Ip'lerini Yapılandır**
 
-   ![Azure AD koşullu erişim adlandırılmış konumlar MFA güvenilen IP'lerini yapılandır](./media/howto-mfa-adfs/trustedip6.png)
+   ![Azure AD koşullu erişim adlandırılmış konumlar MFA güvenilen Ip'lerini Yapılandır](./media/howto-mfa-adfs/trustedip6.png)
 
 4. Hizmet Ayarları sayfasındaki **güvenilen IP'ler** altında bulunan **İntranetimde bulunan şirket dışındaki kullanıcıların istekleri için çok öğeli kimlik doğrulamayı atla** seçeneğini belirleyin.  
 5. **Kaydet**’e tıklayın.

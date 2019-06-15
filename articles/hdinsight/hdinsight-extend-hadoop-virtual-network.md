@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 46fa1c5a4874508cf8e2d288a99c908744347b69
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.date: 06/04/2019
+ms.openlocfilehash: 4bfbce7dd985f3ebf67fde671d83acf30623b641
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480075"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055401"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -223,7 +223,7 @@ Yönetilen bir hizmet olarak HDInsight, HDInsight sistem sınırsız erişim ger
 
 ![Oluşturulan özel Azure VNET'te HDInsight varlıklar diyagramı](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-### <a id="hdinsight-ip"></a> Ağ güvenlik grupları ile HDInsight
+### <a name="hdinsight-with-network-security-groups"></a>Ağ güvenlik grupları ile HDInsight
 
 Kullanmayı planlıyorsanız **ağ güvenlik grupları** ağ trafiğinizi denetlemek için HDInsight'ı yüklemeden önce aşağıdaki eylemleri gerçekleştirin:
 
@@ -291,11 +291,11 @@ Ağ güvenlik grupları kullanırsanız, HDInsight kümeleri bağlantı noktası
     | &nbsp; | Güney Hindistan | 104.211.223.67<br/>104.211.216.210 | \*:443 | Gelen |
     | Japonya | Japonya Doğu | 13.78.125.90</br>13.78.89.60 | \*:443 | Gelen |
     | &nbsp; | Japonya Batı | 40.74.125.69</br>138.91.29.150 | \*:443 | Gelen |
-    | Güney Kore | Kore Orta | 52.231.39.142</br>52.231.36.209 | \*:433 | Gelen |
+    | Güney Kore | Kore Orta | 52.231.39.142</br>52.231.36.209 | \*:443 | Gelen |
     | &nbsp; | Kore Güney | 52.231.203.16</br>52.231.205.214 | \*:443 | Gelen
     | Birleşik Krallık | Birleşik Krallık Batı | 51.141.13.110</br>51.141.7.20 | \*:443 | Gelen |
     | &nbsp; | Birleşik Krallık Güney | 51.140.47.39</br>51.140.52.16 | \*:443 | Gelen |
-    | Amerika Birleşik Devletleri | Orta ABD | 13.67.223.215</br>40.86.83.253 | \*:443 | Gelen |
+    | Amerika Birleşik Devletleri | Orta ABD | 13.89.171.122</br>13.89.171.124 | \*:443 | Gelen |
     | &nbsp; | Doğu ABD | 13.82.225.233</br>40.71.175.99 | \*:443 | Gelen |
     | &nbsp; | Orta Kuzey ABD | 157.56.8.38</br>157.55.213.99 | \*:443 | Gelen |
     | &nbsp; | Batı Orta ABD | 52.161.23.15</br>52.161.10.167 | \*:443 | Gelen |
@@ -328,28 +328,29 @@ Aşağıdaki kaynak yönetimi şablonu, gelen trafiği kısıtlar ancak HDInsigh
 
 * [Güvenli bir Azure sanal ağ ve bir HDInsight Hadoop kümesi dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
-> [!IMPORTANT]  
-> Bu örnekte, kullanmakta olduğunuz Azure bölgesi eşleştirmek için kullanılan IP adreslerini değiştirin. Bu bilgiler bulabilirsiniz [HDInsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar](#hdinsight-ip) bölümü.
-
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 Gelen trafiği sınırlayan ve Kuzey Avrupa bölgesinde için IP adreslerinden gelen trafiğe izin veren bir sanal ağ oluşturmak için aşağıdaki PowerShell betiğini kullanın.
 
 > [!IMPORTANT]  
-> Bu örnekte, kullanmakta olduğunuz Azure bölgesi eşleştirmek için kullanılan IP adreslerini değiştirin. Bu bilgiler bulabilirsiniz [HDInsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar](#hdinsight-ip) bölümü.
+> IP adreslerini değiştirmek `hdirule1` ve `hdirule2` Bu örnekte, kullanmakta olduğunuz Azure bölgesi eşleştirilecek. Bu bilgiler bulabilirsiniz [HDInsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar](#hdinsight-ip) bölümü.
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
 $resourceGroupName = "Replace with the resource group the virtual network is in"
 $subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
+
 # Get the Virtual Network object
 $vnet = Get-AzVirtualNetwork `
     -Name $vnetName `
     -ResourceGroupName $resourceGroupName
+
 # Get the region the Virtual network is in.
 $location = $vnet.Location
+
 # Get the subnet object
 $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
+
 # Create a Network Security Group.
 # And add exemptions for the HDInsight health and management services.
 $nsg = New-AzNetworkSecurityGroup `
@@ -422,8 +423,10 @@ $nsg = New-AzNetworkSecurityGroup `
         -Access Allow `
         -Priority 305 `
         -Direction Inbound `
+
 # Set the changes to the security group
 Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
+
 # Apply the NSG to the subnet
 Set-AzVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `
@@ -433,14 +436,12 @@ Set-AzVirtualNetworkSubnetConfig `
 $vnet | Set-AzVirtualNetwork
 ```
 
-> [!IMPORTANT]  
-> Bu örnek, gerekli IP adreslerini gelen trafiğe izin vermek için kural eklemek üzere nasıl gösterir. Diğer kaynaklardan gelen erişimi kısıtlamak için bir kuralı içermiyor.
->
-> Aşağıdaki örnek, Internet'ten SSH erişimini etkinleştirmek gösterilmektedir:
->
-> ```powershell
-> Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
-> ```
+Bu örnek, gerekli IP adreslerini gelen trafiğe izin vermek için kural eklemek üzere nasıl gösterir. Diğer kaynaklardan gelen erişimi kısıtlamak için bir kuralı içermiyor. Aşağıdaki kod, Internet'ten SSH erişimini etkinleştirmek gösterilmektedir:
+
+```powershell
+Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
+Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
+```
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -457,7 +458,7 @@ Gelen trafiği kısıtlar ancak HDInsight tarafından gerekli IP adreslerinden g
 2. Azure HDInsight sistem durumu ve yönetim hizmetinden 443 numaralı bağlantı noktasında gelen iletişime izin verecek yeni bir ağ güvenlik grubu kuralları eklemek için aşağıdakileri kullanın. Değiştirin `RESOURCEGROUP` ile Azure sanal ağı içeren kaynak grubunun adı.
 
     > [!IMPORTANT]  
-    > Bu örnekte, kullanmakta olduğunuz Azure bölgesi eşleştirmek için kullanılan IP adreslerini değiştirin. Bu bilgiler bulabilirsiniz [HDInsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar](#hdinsight-ip) bölümü.
+    > IP adreslerini değiştirmek `hdirule1` ve `hdirule2` Bu örnekte, kullanmakta olduğunuz Azure bölgesi eşleştirilecek. Bu bilgiler bulabilirsiniz [HDInsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar](#hdinsight-ip) bölümü.
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -471,14 +472,12 @@ Gelen trafiği kısıtlar ancak HDInsight tarafından gerekli IP adreslerinden g
 3. Bu ağ güvenlik grubu için benzersiz tanımlayıcı almak için aşağıdaki komutu kullanın:
 
     ```azurecli
-    az network nsg show -g RESOURCEGROUP -n hdisecure --query 'id'
+    az network nsg show -g RESOURCEGROUP -n hdisecure --query "id"
     ```
 
     Bu komut, aşağıdaki metne benzer bir değer döndürür:
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
-
-    Çift tırnak işaretlerini kullanın `id` beklediğiniz sonuçları alamazsanız komutu.
 
 4. Bir alt ağ için ağ güvenlik grubunu uygulamak için aşağıdaki komutu kullanın. Değiştirin `GUID` ve `RESOURCEGROUP` fiyatlarla değerleri önceki adımdaki döndürdü. Değiştirin `VNETNAME` ve `SUBNETNAME` oluşturmak istediğiniz alt ağ adı ve sanal ağ adı.
 
@@ -488,14 +487,14 @@ Gelen trafiği kısıtlar ancak HDInsight tarafından gerekli IP adreslerinden g
 
     Bu komut tamamlandığında, sanal ağa HDInsight yükleyebilirsiniz.
 
-> [!IMPORTANT]  
-> Bu adımlar, yalnızca Azure bulut üzerindeki HDInsight sistem durumu ve yönetim hizmetine erişim açın. HDInsight küme sanal ağ dışındaki diğer tüm erişim engellenir. Sanal Ağ dışından erişim etkinleştirmek için ek ağ güvenlik grubu kuralları eklemeniz gerekir.
->
-> Aşağıdaki örnek, Internet'ten SSH erişimini etkinleştirmek gösterilmektedir:
->
-> ```azurecli
-> az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
-> ```
+
+Bu adımlar, yalnızca Azure bulut üzerindeki HDInsight sistem durumu ve yönetim hizmetine erişim açın. HDInsight küme sanal ağ dışındaki diğer tüm erişim engellenir. Sanal Ağ dışından erişim etkinleştirmek için ek ağ güvenlik grubu kuralları eklemeniz gerekir.
+
+Aşağıdaki kod, Internet'ten SSH erişimini etkinleştirmek gösterilmektedir:
+
+```azurecli
+az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
+```
 
 ## <a id="example-dns"></a> Örnek: DNS yapılandırması
 
@@ -658,7 +657,7 @@ Bu adımları tamamladıktan sonra tam etki alanı adlarını (FQDN) bir sanal a
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bir şirket içi ağa bağlanmak için HDInsight yapılandırma uçtan uca örneği için bkz: [bir şirket içi ağa bağlanma HDInsight](./connect-on-premises-network.md).
-* Apache Hbase kümeleri Azure sanal ağları yapılandırmak için bkz: [Apache HBase kümeleri oluşturma Azure sanal ağdaki HDInsight üzerinde](hbase/apache-hbase-provision-vnet.md).
+* Apache HBase kümeleri Azure sanal ağları yapılandırmak için bkz: [Apache HBase kümeleri oluşturma Azure sanal ağdaki HDInsight üzerinde](hbase/apache-hbase-provision-vnet.md).
 * Apache HBase coğrafi çoğaltmayı yapılandırmak için bkz: [Azure sanal ağlarda bulunan Apache HBase kümesi çoğaltma ayarlama](hbase/apache-hbase-replication.md).
 * Azure sanal ağları hakkında daha fazla bilgi için bkz. [Azure sanal ağına genel bakış](../virtual-network/virtual-networks-overview.md).
 

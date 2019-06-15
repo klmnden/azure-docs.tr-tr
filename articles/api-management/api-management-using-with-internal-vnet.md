@@ -14,19 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 7db40de921c0eb8826a2fee832c1a51c57796f6d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5d8a724a0b4dd6899a71187176b9d444e5fe19c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051683"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Azure API Management hizmeti bir iç sanal ağ ile kullanma
 Azure sanal ağlar ile Azure API Management API'leri değil internet üzerinden erişilebilen yönetebilirsiniz. VPN'si teknolojileri birkaç bağlantı kurmak kullanılabilir. API Management, iki ana modda bir sanal ağ içinde dağıtılabilir:
 * Dış
 * İç
 
-API yönetimi, dahili sanal ağ modunda dağıttığında, tüm hizmet uç noktaları (ağ geçidi, Geliştirici Portalı, Azure portalı, doğrudan yönetim ve Git) yalnızca erişimini denetleyen bir sanal ağ içinde görülebilir. Hizmet uç noktalarını hiçbiri genel DNS sunucusunda kayıtlı.
+API yönetimi, dahili sanal ağ modunda dağıttığında, tüm hizmet uç noktaları (proxy ağ geçidi, Geliştirici Portalı, doğrudan yönetim ve Git) yalnızca erişimini denetleyen bir sanal ağ içinde görülebilir. Hizmet uç noktalarını hiçbiri genel DNS sunucusunda kayıtlı.
+
+> [!NOTE]
+> Hizmet uç noktaları için DNS girdisi olduğundan, bu uç noktaları kadar erişilemez [DNS yapılandırılmış](#apim-dns-configuration) sanal ağ için.
 
 API Management, iç modda kullanma, aşağıdaki senaryoları elde edebilirsiniz:
 
@@ -116,10 +119,12 @@ Bir sanal ağda özel DNS sunucusu kullanıyorsanız, ayrıca bir DNS kayıtlar�
 2. Ardından, yalnızca sanal ağınızdaki erişilebilir uç noktalarına erişmek için DNS sunucunuzun kayıtlarını oluşturabilirsiniz.
 
 ## <a name="routing"> </a> Yönlendirme
-+ Yük dengeli özel bir sanal IP adresi alt ağı aralığından ayrılmış ve sanal ağ içindeki API Management hizmet uç noktalarından erişmek için kullanılır.
-+ Yük dengeli genel IP adresi (VIP), Yönetim Hizmeti uç noktasına erişim yalnızca bağlantı noktası üzerinden 3443 sağlamak için ayrıca ayrılacaktır.
-+ Bir alt ağ IP aralığı (DIP) ağdan bir IP adresi, sanal ağ içindeki kaynaklara erişmek için kullanılacak ve sanal ağ dışındaki kaynaklara erişmek için genel bir IP adresi (VIP) kullanılır.
-+ Genel yük dengeli ve özel IP adresleri, Azure portalında genel bakış/Essentials dikey penceresinde bulunabilir.
+
+* Bir yük dengeli *özel* sanal IP adresi alt ağı aralığından ayrılmış ve sanal ağ içinde API Management hizmet uç noktalarından erişmek için kullanılır. Bu *özel* IP adresi, Azure portalında hizmet için genel bakış dikey penceresinde bulunabilir. Bu adres sanal ağın kullandığı DNS sunucularını ile kayıtlı olması gerekir.
+* Bir yük dengeli *genel* IP adresi (VIP) ayrıca ayrılmış 3443 bağlantı noktası üzerinden erişebilmesi için Yönetim Hizmeti uç noktası. Bu *genel* IP adresi, Azure portalında hizmet için genel bakış dikey penceresinde bulunabilir. *Genel* yalnızca denetim düzlemi trafiği için kullanılan IP adresi `management` uç nokta üzerinde bağlantı noktası 3443 ve aşağı kilitli [ApiManagement] [ ServiceTags] servicetag .
+* Alt ağ IP aralığı (DIP) IP adreslerinden hizmetindeki her bir sanal makineye atanır ve sanal ağ içindeki kaynaklara erişmek için kullanılacak. Genel bir IP adresi (VIP), sanal ağ dışındaki kaynaklara erişmek için kullanılır. IP kısıtlama listeler sanal ağ içindeki kaynakların güvenliğini sağlamak için kullanılan vermek veya hizmetten erişimi kısıtlamak için burada API Management hizmeti dağıtılmış gerekir alt ağ için tüm aralık arar.
+* Genel yük dengeli ve özel IP adresleri, Azure portalında genel bakış dikey penceresinde bulunabilir.
+* Hizmet kaldırılır ve ardından sanal ağa eklenen ortak ve özel erişim için atanan IP adresleri değişebilir. Bu durumda, DNS kayıtları, yönlendirme kuralları ve IP kısıtlama listeler sanal ağ içinde güncelleştirmek gerekli olabilir.
 
 ## <a name="related-content"> </a>İlgili içerik
 Daha fazla bilgi için aşağıdaki makalelere bakın:

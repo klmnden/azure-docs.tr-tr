@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
 ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60734550"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>REST API kullanarak yük dengeleyici kullanım ölçümlerini Al
@@ -38,8 +38,8 @@ Aşağıdaki üst bilgiler gereklidir:
 
 |İstek üstbilgisi|Açıklama|  
 |--------------------|-----------------|  
-|*İçerik türü:*|Gereklidir. Kümesine `application/json`.|  
-|*Yetkilendirme:*|Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Content-Type:*|Gereklidir. Kümesine `application/json`.|  
+|*Authorization:*|Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>URI parametreleri
 

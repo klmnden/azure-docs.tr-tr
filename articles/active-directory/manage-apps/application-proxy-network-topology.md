@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7e236d3142ba4410b6942f9e8069e1429aae5378
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236259"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108435"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si kullanılırken ağ topolojisi hakkında önemli noktalar
 
@@ -80,17 +80,17 @@ Kurumsal ağınız ile Azure arasında adanmış bir VPN veya ExpressRoute bağl
 
 Kullanıcılarınızın uygulama proxy'si hizmeti arasında bağlantı kontrol etmek için yapabileceğiniz çok az yoktur. Kullanıcılar, ev ağı, bir kafeterya veya farklı bir ülke/bölge, uygulamalarınız erişebilir. Bunun yerine, uygulama proxy'si hizmeti uygulaması Ara sunucusu bağlayıcıları bağlantılara iyileştirebilirsiniz. Ortamınızı şu desenlerden eklemeyi göz önünde bulundurun.
 
-### <a name="pattern-1-put-the-connector-close-to-the-application"></a>1. Desen: Uygulamayı yakın bağlayıcısını yerleştirme
+### <a name="pattern-1-put-the-connector-close-to-the-application"></a>1\. Desen: Uygulamayı yakın bağlayıcısını yerleştirme
 
 Müşteri ağ yakın hedef uygulama Bağlayıcısı'nı koyun. Bu yapılandırma bağlayıcı ve uygulamayı Kapat olduğundan topografi diyagram 3 adımda en aza indirir. 
 
 Bağlayıcınızı görebilmesi için etki alanı denetleyicisi gerekiyorsa, bu düzen avantajlıdır. Çoğu senaryo için iyi çalıştığı için müşterilerimizin çoğu bu düzeni kullanın. Bu düzen Ayrıca hizmet Bağlayıcısı'nı arasındaki trafiğin iyileştirilmesi 2 deseni ile birleştirilebilir.
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>2. Desen: Microsoft eşlemesi ile ExpressRoute avantajlarından yararlanın
+### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>2\. Desen: Microsoft eşlemesi ile ExpressRoute avantajlarından yararlanın
 
 Microsoft eşlemesi ile ayarlanan ExpressRoute varsa, uygulama ara sunucusu Bağlayıcısı'nı arasındaki trafik için daha hızlı ExpressRoute bağlantısı kullanabilirsiniz. Bağlayıcı, uygulamanın yakın ağınıza açık durumdadır.
 
-### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>3. Desen: ExpressRoute özel eşlemesi avantajlarından yararlanın
+### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>3\. Desen: ExpressRoute özel eşlemesi avantajlarından yararlanın
 
 Adanmış bir VPN veya ExpressRoute Azure ve şirket ağınız arasında özel eşlemesi ile ayarlanan varsa, başka bir seçeneğiniz vardır. Bu yapılandırmada, Azure sanal ağında genellikle bir şirket ağına uzantı olarak kabul edilir. Bu nedenle Azure veri merkezinde bağlayıcıyı yükleyin ve yine de bağlayıcı uygulama bağlantının düşük gecikme süresi gereksinimleri karşılaması.
 
@@ -168,7 +168,7 @@ Bağlayıcısı Azure veri merkezinde yerleştirilebilir. Bağlayıcı görebilm
 
 ![ABD'de Bağlayıcısı ve AB'deki uygulama ile kullanıcı ve proxy gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
 
-Ayrıca, bu durumda bir değişken kullanarak göz önünde bulundurun. Sonra büyük olasılıkla, kuruluştaki kullanıcıların çoğu ABD'de varsa, ağınızı ABD için genişletir. ABD'de bağlayıcı yerleştirin ve uygulamaya ayrılmış iç kurumsal ağa satırı AB'de kullanın. 2. ve 3 Bu şekilde atlama en iyi duruma getirilir.
+Ayrıca, bu durumda bir değişken kullanarak göz önünde bulundurun. Sonra büyük olasılıkla, kuruluştaki kullanıcıların çoğu ABD'de varsa, ağınızı ABD için genişletir. ABD'de bağlayıcı yerleştirin ve uygulamaya ayrılmış iç kurumsal ağa satırı AB'de kullanın. 2\. ve 3 Bu şekilde atlama en iyi duruma getirilir.
 
 ![ABD, AB uygulamada kullanıcılar ve proxy Bağlayıcısı'nı gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
 

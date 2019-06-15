@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/23/2019
+ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 569b33d299f52f0da50d8a8992420754aa85b533
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521999"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062158"
 ---
 # <a name="what-is-language-understanding-luis"></a>Language Understanding (LUIS) nedir?
 
@@ -101,7 +101,7 @@ LUIS, istemci uygulaması ve dil modeli düzeyinde tam geliştirme yaşam döng�
 LUIS, HTTP isteği gönderen tüm ürün, hizmet veya çerçevelerle REST API olarak kullanılabilir. Aşağıdaki liste, LUIS ile birlikte en çok kullanılan Microsoft ürünlerini ve hizmetlerini göstermektedir.
 
 En çok kullanılan LUIS istemci uygulamaları şunlardır:
-* [Web uygulaması botu](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0), kullanıcıyla metin girişi aracılığıyla konuşmak için hızlıca LUIS destekli bir sohbet botu oluşturur. Eksiksiz bot deneyimi için [Bot Framework][bot-framework] sürüm [3.x](https://github.com/Microsoft/BotBuilder) veya [4.x](https://github.com/Microsoft/botbuilder-dotnet) kullanır.
+* [Web uygulaması botu](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0), kullanıcıyla metin girişi aracılığıyla konuşmak için hızlıca LUIS destekli bir sohbet botu oluşturur. Kullanan [Bot Framework] [ bot-framework] sürüm [4.x](https://github.com/Microsoft/botbuilder-dotnet) eksiksiz bir bot bir deneyim.
 
 LUIS'i hızlı ve kolay bir şekilde botla birlikte kullanmanızı sağlayacak uygulamalar:
 * [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) NPM paketi, yazma ve içeri aktarma olarak veya bir tek başına komut satırı aracı ile tahmini sağlar. 

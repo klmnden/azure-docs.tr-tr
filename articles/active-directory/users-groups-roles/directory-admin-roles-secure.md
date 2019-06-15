@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4b61b661d9da0748bc354b8defa4e6d67a047a2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7e61207ea23b9b9560668b58b33e3f32f5f70ab2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920477"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083934"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD'de karma ve bulut dağıtımları için ayrıcalıklı erişim güvenliğini sağlama
 
@@ -70,11 +70,11 @@ Microsoft, geliştirin ve siber saldırganlara karşı ayrıcalıklı erişimin 
 
 * (1-3 ay) 3. Aşama: Görünürlük oluşturun ve yönetici etkinliğine ilişkin tam denetim oluşturma
 
-* 4. Aşama (altı ay ve ötesi): Daha fazla güvenlik platformunuz sağlamlaştırmak için savunma oluşturmaya devam edin
+* 4\. Aşama (altı ay ve ötesi): Daha fazla güvenlik platformunuz sağlamlaştırmak için savunma oluşturmaya devam edin
 
 Bu yol haritası çerçeve, zaten dağıttığınız Microsoft teknolojileri kullanımını en üst düzeye çıkarmak için tasarlanmıştır. Mevcut ve gelecek temel güvenlik teknolojilerden ve dağıtmış olmanız veya dağıtma dikkate alarak, diğer satıcıların güvenlik araçları tümleştirin. 
 
-## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>1. Aşama: Öneririz kritik öğeleri hemen yapın
+## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>1\. Aşama: Öneririz kritik öğeleri hemen yapın
 
 ![İlk yapmak için kritik öğeleri 1. Aşama](./media/directory-admin-roles-secure/stage-one.png)
 
@@ -125,9 +125,9 @@ Atanan veya genel yönetici rolü için uygun olan hesaplarını değerlendirin.
 
 Azure multi-Factor Authentication (MFA), bir veya daha fazla Azure AD yönetim rolleri kalıcı olarak atanan tüm bireysel kullanıcılar için oturum açma sırasında gerektirir: Genel yönetici, ayrıcalıklı Rol Yöneticisi, Exchange Online yönetici ve SharePoint Online yönetici. Etkinleştirmek için kılavuzu kullanın [yönetici hesaplarınız için multi-Factor Authentication (MFA)](../authentication/howto-mfa-userstates.md) ve bu kullanıcılar, kaydolduğundan emin olun [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Adım 2 ve 3. Adım Kılavuzu'nun altında daha fazla bilgi bulunabilir [veri ve Office 365 hizmetlerine erişimi koruma](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
-## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>2. Aşama: En sık kullanılan saldırı tekniklerini azaltma
+## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>2\. Aşama: En sık kullanılan saldırı tekniklerini azaltma
 
-![2. Aşama sık kullanılan Mitigate saldırıları](./media/directory-admin-roles-secure/stage-two.png)
+![2\. Aşama sık kullanılan Mitigate saldırıları](./media/directory-admin-roles-secure/stage-two.png)
 
 En sık Azaltıcı üzerinde yol haritası odaklar aşaması 2 kullanılan saldırı tekniklerini kimlik bilgisi hırsızlığı ve kötüye kullanım ve yaklaşık 2-4 hafta içinde uygulanabilir. Yol haritasının ayrıcalıklı erişim güvenliğinin bu aşamada, aşağıdaki eylemleri içerir.
 
@@ -173,7 +173,7 @@ Aç:
 
 Windows Hello için iş kullanırsanız, MFA gereksinimi, Windows Hello oturum deneyimi kullanarak karşılanabilir. Daha fazla bilgi için [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
-#### <a name="configure-identity-protection"></a>Kimlik Koruması'nı yapılandır 
+#### <a name="configure-identity-protection"></a>Kimlik Koruması'nı yapılandırma 
 
 Azure AD kimlik koruması bir algoritma tabanlı izleme ve raporlama, kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını algılama için kullanabileceğiniz Aracı ' dir. Bu algılanan şüpheli etkinlikler için otomatik yanıtlar yapılandırabilir ve bunları gidermek için uygun eylemi gerçekleştirin. Daha fazla bilgi için [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md).
 
@@ -218,11 +218,11 @@ Azure etkinlik günlüğü, azure'da abonelik düzeyindeki olayların geçmişin
 Koşullu erişim ilkeleri, şirket içinde ve bulutta barındırılan uygulamalar için hazırlayın. Kullanıcılar çalışma alanına katılmış cihazlar varsa, daha fazla bilgi edinin [ayarlama şirket içi koşullu erişimi Azure Active Directory cihaz kaydı kullanarak](../active-directory-device-registration-on-premises-setup.md).
 
 
-## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>3. Aşama: Görünürlük oluşturup yönetici etkinliğine ilişkin tam denetim
+## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>3\. Aşama: Görünürlük oluşturup yönetici etkinliğine ilişkin tam denetim
 
-![3. Aşama yönetici etkinliğine ilişkin denetimi ele](./media/directory-admin-roles-secure/stage-three.png)
+![3\. Aşama yönetici etkinliğine ilişkin denetimi ele](./media/directory-admin-roles-secure/stage-three.png)
 
-3. aşama aşama 2'den aşamadaki risk azaltmalarını temel oluşturur ve yaklaşık 1-3 ayda uygulanacak şekilde tasarlanmıştır. Bu yol haritasının ayrıcalıklı erişim güvenliğinin aşaması şu bileşenleri içerir.
+3\. aşama aşama 2'den aşamadaki risk azaltmalarını temel oluşturur ve yaklaşık 1-3 ayda uygulanacak şekilde tasarlanmıştır. Bu yol haritasının ayrıcalıklı erişim güvenliğinin aşaması şu bileşenleri içerir.
 
 ### <a name="general-preparation"></a>Genel Hazırlık
 
@@ -320,9 +320,9 @@ Kullanıcıların erişimini de bağlı uygulamalarda korunduğundan emin olmak 
 
 Cloud App Security SIEM Aracısı Cloud App Security, Office 365 uyarıların ve etkinliklerin merkezi izlemeyi etkinleştirmek için SIEM sunucunuz ile tümleştirilir. Uyarıları ve etkinlikleri, Cloud App Security'den çeker ve bunları SIEM sunucusuna akışları sunucunuzda çalışır. Daha fazla bilgi için [SIEM tümleştirmesi](https://docs.microsoft.com/cloud-app-security/siem).
 
-## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>4. Aşama: Bir güvenlik duruşu için savunma oluşturmaya devam edin
+## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>4\. Aşama: Bir güvenlik duruşu için savunma oluşturmaya devam edin
 
-![4. Aşama önleyici güvenlik duruşunu benimseyin](./media/directory-admin-roles-secure/stage-four.png)
+![4\. Aşama önleyici güvenlik duruşunu benimseyin](./media/directory-admin-roles-secure/stage-four.png)
 
 Yol haritasının aşaması 4 aşama 3'ten görünürlüğünü kısıtladınız oluşturur ve altı ay içinde ve dışında uygulanacak şekilde tasarlanmıştır. Strong geliştirdiğiniz bir yol haritası yardımcı Tamamlanıyor Erişim Koruması şu anda bilinen ve günümüzde kullanılabilir olası saldırılara karşı ayrıcalıklı. Ne yazık ki, güvenlik tehditleri sürekli evrim geçiren ve güvenlik maliyetini artırmaya ve ortamınızı hedefleyen saldırganlar başarı oranını azaltarak odaklanan devamlı bir süreç olarak görüntülemek öneririz; bu nedenle.
 

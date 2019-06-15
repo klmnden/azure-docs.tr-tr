@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: a5037c535737946a50d8af6fa60d0815120276d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837341"
 ---
 # <a name="sfctl-container"></a>sfctl container
@@ -29,7 +29,7 @@ Kapsayıcı çalıştırma komutları bir küme düğümünde ilgili.
 |Komut|Açıklama|
 | --- | --- |
 | API çağırma | Belirli bir kod paketi için bir Service Fabric düğüm dağıtılan bir kapsayıcı kapsayıcı API'sini çağırır. |
-| günlükler | Kapsayıcı günlükleri için kapsayıcı bir Service Fabric düğüm belirli bir kod paketi için dağıtılan alır. |
+| logs | Kapsayıcı günlükleri için kapsayıcı bir Service Fabric düğüm belirli bir kod paketi için dağıtılan alır. |
 
 ## <a name="sfctl-container-invoke-api"></a>çağırma sfctl container-API
 Belirli bir kod paketi için bir Service Fabric düğüm dağıtılan bir kapsayıcı kapsayıcı API'sini çağırır.

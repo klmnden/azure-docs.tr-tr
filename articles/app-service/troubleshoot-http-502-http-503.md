@@ -18,10 +18,10 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833076"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>"502 hatalı ağ geçidi" ve "503 Hizmet kullanılamıyor" Azure App Service'te HTTP hatalarını giderme
@@ -83,7 +83,7 @@ App Service tanılamasını erişmek için App Service uygulamanızı veya App S
 #### <a name="use-the-kudu-debug-console"></a>Kudu hata ayıklama konsolunu kullanma
 App Service, hata ayıklama için keşfetmek, ortamınız hakkında bilgi almak için JSON uç noktaları yanı sıra, dosyaları karşıya yükleme için kullanabileceğiniz bir hata ayıklama konsoluna ile birlikte gelir. Bu adlandırılır *Kudu konsolunu* veya *SCM Pano* uygulamanız için.
 
-Bağlantı giderek bu panoya erişebilirsiniz **https://&lt;uygulama adınız >.scm.azurewebsites.net/**.
+Bağlantı giderek bu panoya erişebilirsiniz **https://&lt;uygulama adınız >.scm.azurewebsites.net/** .
 
 Kudu sağlayan şeylerden bazıları şunlardır:
 

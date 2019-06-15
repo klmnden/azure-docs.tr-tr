@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 764ad8f1ca19238e1986d1d187d19c405963a832
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac476e2a66f7fd1d315adb37258917b3ff47373f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868805"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093458"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Öğretici: Azure Active Directory tarafından Genesys PureCloud ile tümleştirmesi
 
@@ -52,7 +52,7 @@ Azure AD'de Genesys tarafından PureCloud tümleştirmesini yapılandırmak içi
 
 **Galeriden PureCloud Genesys tarafından eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -146,7 +146,7 @@ Azure AD çoklu oturum açma PureCloud Genesys tarafından ile yapılandırmak i
 
     | Ad | Kaynak özniteliği|
     | ---------------| --------------- |
-    | E-posta | User.userprinicipalname |
+    | Email | User.userprinicipalname |
     | OrganizationName | `Your organization name` |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

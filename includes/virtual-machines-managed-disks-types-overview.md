@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4abf50e11070f2060309ae9b9cd045c874a2c52e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147861"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133594"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure'da hangi disk türleri mevcuttur?
 
@@ -27,13 +27,13 @@ Aşağıdaki tabloda, kullanacağınız seçeneğe karar vermenize yardımcı ol
 |---------|---------|---------|---------|---------|
 |Disk türü   |SSD   |SSD   |SSD   |HDD   |
 |Senaryo   |SAP HANA, en çok katmanı veritabanları (örneğin, SQL, Oracle gibi) ve diğer işlem yoğunluklu iş yükleri gibi g/ç yoğunluklu iş yükleri.   |Üretim ve performansa duyarlı iş yükleri   |Web sunucuları, az kullanılan kurumsal uygulamalar ve geliştirme/test   |Yedekleme, kritik olmayan, seyrek erişim   |
-|Disk boyutu   |65.536 gibibayt (GiB) (Önizleme)   |32.767 giB    |32.767 giB   |32.767 giB   |
-|En fazla aktarım hızı   |2. 000'mib / sn (Önizleme)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|Maks. IOPS   |160,000 (Önizleme)   |20.000   |6,000   |2,000   |
+|Disk boyutu   |65\.536 gibibayt (GiB) (Önizleme)   |32\.767 giB    |32\.767 giB   |32\.767 giB   |
+|En fazla aktarım hızı   |2\. 000'mib / sn (Önizleme)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|En fazla IOPS   |160,000 (Önizleme)   |20\.000   |6,000   |2,000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra yüksek SSD (Önizleme)
 
-Azure ultra SSD (Önizleme), Azure Iaas Vm'leri için yüksek performans, yüksek IOPS ve tutarlı düşük gecikme süreli disk depolama alanı sunun. Ultra SSD bazı ek avantajları, iş yüklerinizi, sanal makinelerinizi yeniden başlatmaya gerek kalmadan yanı sıra, disk performansını dinamik olarak değiştirme özelliği içerir. Ultra yüksek SSD SAP HANA, en çok katmanı veritabanları ve işlem yoğunluklu iş yükleri gibi veri kullanımı yoğun iş yükleri için uygundur. Ultra yüksek SSD yalnızca veri diskleri kullanılabilir. İşletim sistemi diski premium SSD kullanmanızı öneririz.
+Azure ultra SSD (Önizleme), Azure Iaas Vm'leri için yüksek performans, yüksek IOPS ve tutarlı düşük gecikme süreli disk depolama alanı sunar. Ultra SSD bazı ek avantajları, iş yüklerinizi, sanal makinelerinizi yeniden başlatmaya gerek kalmadan yanı sıra, disk performansını dinamik olarak değiştirme özelliği içerir. Ultra yüksek SSD'ler, SAP HANA, en çok katmanı veritabanları ve işlem yoğunluklu iş yükleri gibi veri kullanımı yoğun iş yükleri için uygundur. Ultra yüksek SSD yalnızca veri diskleri kullanılabilir. İşletim sistemi diski premium SSD kullanmanızı öneririz.
 
 ### <a name="performance"></a>Performans
 
@@ -73,7 +73,8 @@ Ultra yüksek SSD için her g/ç işlemi daha az veya eşit 256 tek bir g/ç iş
 - ES/DS v3 Vm'lerde yalnızca desteklenir
 - Veri diskleri ve yalnızca destek 4 k fiziksel kesim boyutu yalnızca kullanılabilir  
 - Yalnızca boş diskler olarak oluşturulabilir  
-- Şu anda yalnızca Azure Resource Manager şablonları, CLI ve python SDK'sı kullanılarak dağıtılabilir.
+- Şu anda yalnızca Azure Resource Manager şablonları, CLI, PowerShell ve Python SDK'sı kullanılarak dağıtılabilir.
+- (Henüz) Azure portalı ile dağıtılamıyor.
 - Henüz diski anlık görüntüleri, VM görüntüleri, kullanılabilirlik kümeleri, sanal makine ölçek kümeleri ve Azure disk şifrelemesini desteklemiyor.
 - Henüz Azure Backup'ı veya Azure Site Recovery ile tümleştirmesini desteklemiyor.
 - Olduğu gibi [çoğu önizlemeler](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), bu özellik genel kullanılabilirlik (GA) kadar üretim iş yükleri için kullanılmamalıdır.

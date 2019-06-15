@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3ae6966ed3fa8ee57e0ac85fe34866dcbde0fb9e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425611"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077260"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performansı ve ayarlama Kılavuzu kopyalayın
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-copy-activity-performance.md)
 > * [Geçerli sürüm](copy-activity-performance.md)
 
@@ -61,7 +61,7 @@ Dikkat edilecek noktalar:
     <table>
     <tr>
         <td>CPU</td>
-        <td>2.20 GHz Intel Xeon E5-2660 v2 32 çekirdek</td>
+        <td>2\.20 GHz Intel Xeon E5-2660 v2 32 çekirdek</td>
     </tr>
     <tr>
         <td>Bellek</td>
@@ -306,7 +306,7 @@ Alttaki veri deposuna veya bunlara karşı çalışan diğer iş yükleri taraf�
 
 Microsoft veri depoları için başvurmak [izleme ve ayarlama konuları](#performance-reference) özgü veri depoları. Bu konular, veri deposu performans özelliklerine ve yanıt sürelerini en aza indirmek ve aktarım hızını en üst düzeye çıkarmak nasıl anlamanıza yardımcı olabilir.
 
-* Verileri kopyalarsanız **Blob depolamadan SQL veri ambarı**, kullanmayı **PolyBase** performansını artırmak üzere. Bkz: [Azure SQL veri ambarı'na veri yüklemek için PolyBase kullanma](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) Ayrıntılar için.
+* Verileri kopyalarsanız **tüm verileri depolamak için Azure SQL veri ambarı**, kullanmayı **PolyBase** performansını artırmak üzere. Bkz: [Azure SQL veri ambarı'na veri yüklemek için PolyBase kullanma](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) Ayrıntılar için.
 * Verileri kopyalarsanız **Azure Blob/Azure Data Lake Store için hdfs**, kullanmayı **DistCp** performansını artırmak üzere. Bkz: [kullanım verileri HDFS kopyalamak için DistCp](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs) Ayrıntılar için.
 * Verileri kopyalarsanız **redshift'ten Azure SQL veri ambarı/Azure BLob/Azure Data Lake Store için**, kullanmayı **kaldırma** performansını artırmak üzere. Bkz: [kullanım verileri Amazon Redshift'ten kopyalamak için kaldırma](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift) Ayrıntılar için.
 
@@ -317,10 +317,8 @@ Microsoft veri depoları için başvurmak [izleme ve ayarlama konuları](#perfor
 
 ### <a name="relational-data-stores"></a>İlişkisel veri deposu
 
-* **Kopyalama davranışı**: Bağlı olarak özellikleri için ayarladığınız **sqlSink**, kopyalama etkinliği farklı şekillerde hedef veritabanına veri yazar.
-  * Varsayılan olarak, en iyi performans sağlayan modu, veri taşıma hizmeti kullandığı veri eklemek için toplu kopyalama API ekleyin.
-  * Havuza bir saklı yordam yapılandırırsanız, veritabanı veri bir satırı toplu yükleme yerine anda geçerlidir. Performansı ciddi ölçüde düştüğü. Veri kümeniz varsa, büyük ise kullanmayı göz önünde bulundurun **preCopyScript** özelliği.
-  * Yapılandırırsanız **preCopyScript** çalıştırmak için her bir kopyalama etkinliği özelliği, hizmeti betik tetikler ve sonra verileri eklemek için toplu kopyalama API'sini kullanırsınız. Örneğin, en son verileriyle tüm tablo üzerine yazmak için önce toplu yeni veri kaynağından yükleme önce tüm kayıtları silmek için bir betik belirtebilirsiniz.
+* **Kopyalama davranışı ve performans olduğu çıkarımında**: Daha fazla bilgi için SQL havuzu veri yazma iki farklı yoldan [açısından en iyisi, Azure SQL veritabanı'na veri yükleme](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database).
+
 * **Veri düzeni ve toplu işlem boyutu**:
   * Tablo şemanızı kopyalama aktarım hızını etkiler. Veritabanı daha verimli bir şekilde daha az toplu veri kaydedebilir miyim çünkü aynı miktarda veri kopyalamak için büyük satır boyutu, küçük satır boyutu daha iyi performans sağlar.
   * Kopyalama etkinliği, toplu bir dizi içinde veri ekler. Bir toplu işte satır sayısını kullanarak ayarlayabilirsiniz **writeBatchSize** özelliği. Verilerinizi küçük satır varsa, ayarlayabileceğiniz **writeBatchSize** özellik toplu işlem ek yükü azaltır ve daha yüksek performans avantajlarından yararlanarak daha yüksek bir değere sahip. Verilerinizin satır boyutu büyükse, artırdığınızda dikkat **writeBatchSize**. Yüksek bir değere bir kopyalama hatasının veritabanı aşırı yüklenerek neden neden olabilir.

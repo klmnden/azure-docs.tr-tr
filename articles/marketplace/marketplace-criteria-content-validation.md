@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937842"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Market listelemesi yönergeleri
@@ -70,7 +70,7 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 |  | Liste öğesi | Temel gereksinimleri | En iyi gereksinimleri | 
 |:--- |:--- |:--- |:--- |
 |1 |Teklif ayarları | <br>• Teklif kimliği: En çok 50 karakter <br>• Yayımcı kimliği: Açılan listeden seçin <br>• Adı: En çok 50 karakter | Başlık stili açıklama içinde zaten kullanılabilir istemediğiniz yansıtmalar başlıkları uzun. | 
-| 2 | SKU'lar | İş ortağı yeni SKU'larında tıklar.| Başlık stili açıklama içinde zaten kullanılabilir istemediğiniz yansıtmalar başlıkları uzun.  |
+| 2 | SKU'ları | İş ortağı yeni SKU'larında tıklar.| Başlık stili açıklama içinde zaten kullanılabilir istemediğiniz yansıtmalar başlıkları uzun.  |
 | 3 | Market Yapıtları | Logo doğru görüntüleme |<br>• Logosu "Azure Portalı'nda biçimi büyük görüntüdür hero görüntüsü" içerir <br>• Logos: (48 x 48) küçük ve büyük (216 x 216) gereksinimleri verilmiştir. <br>• Hero resim gereksinimleri: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Ekran (en fazla 5):  CPP bir .png görüntü çözünürlüğü 1280 x 720 gerektirir.|
 | 4 | Tedarik Yönetimi |<br>• Sağlama Yönetimi: Müşteri adaylarınızı depolanacağı sistem seçin. <br>• Öğrenin, CRM sistemine bağlanmak [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
@@ -88,7 +88,7 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 | 6 | Çözüm destek & Yardımı  | Destek ve Yardım gerekli değildir  | | 
 | 7 | Kullanım Koşulları'nı kullanılabilir & Gizlilik İlkesi  |  İlkeleri veya koşulları gerekli değildir  | | 
 | 8 | Hizmet türleri | Hizmet türü ile eşleşen başlık emin olun. | |
-| 9 | Yetkinlikler |<br>• En az aşağıdakilerden biri olmalıdır:<br>• Uygulama geliştirme <br>• Uygulama tümleştirmesi <br>• Uygulama yaşam döngüsü yönetimi <br>• Bulut platformu <br>• Veri analizi <br>• Data Center <br>• Veri Platformu <br>• DevOps |
+| 9 | Uzmanlıklar |<br>• En az aşağıdakilerden biri olmalıdır:<br>• Uygulama geliştirme <br>• Uygulama tümleştirmesi <br>• Uygulama yaşam döngüsü yönetimi <br>• Bulut platformu <br>• Veri analizi <br>• Data Center <br>• Veri Platformu <br>• DevOps |
 | 10 | Products | Azure olmalıdır | |
 | 11 | Ülke/Bölge | Para birimi seçilen ülke ve bölgeye eşleşme emin olun | |
 | 12 | Daha Fazla Bilgi Edinin  | <br>• Bağlantılar alt (altında açıklama, Market bağlantıları soldaki değil) çözümü hakkında daha fazla bilgi için müşteri adayları ve doğru şekilde genel olarak kullanılabilir ve görüntüleme. <br>• Bağlantılar bir "kolay adı" olmalıdır ve dosya adı herhangi bir indirme olarak görünmeyen | |

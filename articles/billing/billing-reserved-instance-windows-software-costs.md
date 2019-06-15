@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
 ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371181"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile bulunmayan yazılım maliyetleri
@@ -27,7 +27,7 @@ Bir Azure hibrit avantajı, ayrılmış sanal makine örneklerine sahip değilse
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows yazılım ölçümleri rezervasyon maliyeti dahil değildir
 
-| Ölçüm kimliği | Kullanım dosyasındaki MeterName | Sanal makine tarafından kullanılan |
+| MeterId | Kullanım dosyasındaki MeterName | Sanal makine tarafından kullanılan |
 | ------- | ------------------------| --- |
 | e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Ayırma-Windows Svr seri Aktarım (1 çekirdek) | B serisi |
 | cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Ayırma-Windows Svr seri Aktarım (2 Çekirdek) | B serisi |
@@ -52,7 +52,7 @@ Bir Azure hibrit avantajı, ayrılmış sanal makine örneklerine sahip değilse
 
 ## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>Bulut Hizmetleri yazılım ölçümleri rezervasyon maliyeti dahil değildir
 
-| Ölçüm kimliği | Kullanım dosyasındaki MeterName |
+| MeterId | Kullanım dosyasındaki MeterName |
 | ------- | ------------------------|
 |ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Cloud Services 1 vCPU lisans|
 |e0434559-19ee-4132-9c46-05ad4044f3f7|Cloud Services 2 vCPU lisans|
@@ -78,6 +78,6 @@ Azure için ayırma hakkında daha fazla bilgi edinmek için aşağıdaki makale
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

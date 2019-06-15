@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0b1f414cadfeb0762e069acc40b37e0dde992502
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f39cfa37ca6b88828d0ab948387429b5a3a2267f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904548"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094729"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peoplecart"></a>Öğretici: Peoplecart ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Peoplecart tümleştirmesini yapılandırmak için Peoplecart Galeri
 
 **Galeriden Peoplecart eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

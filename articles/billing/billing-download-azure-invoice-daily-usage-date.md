@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60616475"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>İndirme veya Azure fatura ve günlük kullanım verilerini görüntüleme
@@ -58,7 +58,7 @@ Faturanızı hakkında daha fazla bilgi için bkz: [Microsoft Azure için fatura
 
 Faturalar her biri için oluşturulur [profili faturalama](billing-mca-overview.md#understand-billing-profiles) Microsoft Müşteri sözleşmesi. Bir faturalandırma profili sahibi, katkıda bulunan, okuyucu veya faturalama yöneticisi, Azure portalından faturaları indirmesine izin gerekir.
 
-1. **Maliyet Yönetimi + Faturalama** araması yapın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
 2. Faturalandırma profili seçin.
 3. **Faturalar**'ı seçin.
 4. Fatura kılavuzunda, indirmek istediğiniz fatura satırını bulur.
@@ -108,7 +108,7 @@ Yukarıdaki ve tıklayarak adımları izleyerek e-posta ile faturanızı alma d�
 
 Microsoft Müşteri sözleşmesi varsa, bir e-postada faturanızı almak için de seçebilirsiniz. Tüm faturalandırma profili sahipleri, Katkıda Bulunanlar, okuyucular ve fatura yöneticilerinin e-posta ile fatura alırsınız. Okuyucu, e-posta fatura tercih güncelleştirilemiyor.
 
-1. **Maliyet Yönetimi + Faturalama** araması yapın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
 1. Faturalandırma profili seçin.
 1. Altında **ayarları**seçin **özellikleri**.
 1. Altında **e-posta fatura**seçin **güncelleştirme e-posta fatura tercih**.
@@ -169,7 +169,7 @@ Görüntülemek ve faturalandırma profili için kullanım verilerini indirmek i
 
 #### <a name="download-usage-for-billed-charges"></a>Faturalandırılan ücretler kullanımı indir
 
-1. **Maliyet Yönetimi + Faturalama** araması yapın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
 2. Faturalandırma profili seçin.
 3. **Faturalar**'ı seçin.
 4. Fatura kılavuzunda fatura indirmek istediğiniz kullanım için karşılık gelen satırı bulur.
@@ -180,14 +180,14 @@ Görüntülemek ve faturalandırma profili için kullanım verilerini indirmek i
 
 Ayrıca, ay başından bu yana kullanım ücretleri henüz faturalandırılmış yok anlamına gelen geçerli fatura dönemi için indirebilirsiniz.
 
-1. **Maliyet Yönetimi + Faturalama** araması yapın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
 2. Faturalandırma profili seçin.
 3. İçinde **genel bakış** dikey penceresinde tıklayın **indirme Azure kullanım ve Ücret**.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

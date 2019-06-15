@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61364068"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Cihazdan buluta iletilerini yerleşik uç noktadan okuma
@@ -46,7 +46,7 @@ Event Hubs SDK'ları veya IOT hub'ını simgelerinde ürün tümleştirmeleri ku
 
 3. **Olayları** bölümünde aşağıdaki değerleri içerir: **Bölümler**, **Event Hub ile uyumlu adı**, **Event Hub ile uyumlu uç nokta**, **elde tutma süresi**, ve **tüketicigrupları**.
 
-    ![Cihazdan buluta ayarları](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
+    ![CİHAZDAN buluta ayarları](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
 Portalda, Event Hub ile uyumlu uç nokta alanına benzeyen tam bir Event Hubs bağlantı dizesi içerir: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Ardından, kullanmakta olduğunuz SDK diğer değerleri gerektiriyorsa, bunlar olur:
 
@@ -54,7 +54,7 @@ Portalda, Event Hub ile uyumlu uç nokta alanına benzeyen tam bir Event Hubs ba
 | ---- | ----- |
 | Uç Nokta | SB://abcd1234namespace.servicebus.Windows.NET/ |
 | Ana Bilgisayar Adı | abcd1234namespace.servicebus.Windows.NET |
-| Ad alanı | abcd1234namespace |
+| Ad Alanı | abcd1234namespace |
 
 Daha sonra olan herhangi bir paylaşılan erişim ilkesinin kullanabilirsiniz **ServiceConnect** belirtilen olay Hub'ına bağlanmak için izinleri.
 

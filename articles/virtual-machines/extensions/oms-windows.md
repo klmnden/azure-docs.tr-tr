@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 270b3ae49a815c9e12fce9377c8298192237f28a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fb931d5ce72b21cb17abbcd11095dbc8d611f0c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790383"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064436"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Windows için Azure İzleyici sanal makine uzantısı
 
@@ -38,17 +38,18 @@ Windows için Log Analytics Aracısı uzantısı, Windows işletim sistemi sür�
 - Windows Server 2008 R2, 2012, 2012 R2'de, 2016, sürüm 1709 ve 1803
 
 ### <a name="agent-and-vm-extension-version"></a>Aracı ve VM uzantısı sürümü
-Aşağıdaki tabloda, her sürüm için Log Analytics aracısını paketi ve Azure İzleyicisi VM uzantısı sürümünü bir eşleme sağlar. 
+Aşağıdaki tabloda, her sürüm için Log Analytics aracısını paketini ve Windows Azure İzleyicisi VM uzantısı sürümünü bir eşleme sağlar. 
 
-| Azure İzleyici Linux VM uzantısı sürümü | Log Analytics aracısını Paket sürümü | Yayınlanma Tarihi | Sürüm Notları |
+| Log Analytics Windows aracı Paket sürümü | Azure İzleyici Windows VM uzantısı sürümü | Yayınlanma Tarihi | Sürüm Notları |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 8.0.11049.0 | 1.0.11049.1 | Şubat 2017 | |
-| 8.0.11072.0 | 1.0.11072.1 | Eylül 2017 | |
-| 8.0.11081.0 | 1.0.11081.5 | Kasım 2017 | | 
-| 8.0.11103.0 | yok |  Nisan 2018 | |
-| 8.0.11136.0 | yok | Eylül 2018 |  <ul><li> Kaynak Kimliği değişikliğini VM hareket algılama için destek eklendi </li><li> Kaynak uzantısı olmayan kullanırken kimliği yükleme raporlaması için destek eklendi </li></ul>| 
-| 10.19.10006.0 | yok | Aralık 2018 | <ul><li> Küçük sabitleme düzeltmeleri </li></ul> | 
-| 10.19.13515.0 | 1.0.13515.1 | Mart 2019 | <ul><li>Küçük sabitleme düzeltmeleri </li></ul> |
+| 10.20.18001 | 1.0.18001 | Haziran 2019 | <ul><li> Küçük hata düzeltmeleri ve geliştirmeleri sabitleme </li><li> Proxy bağlantısı (WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH desteği) yapılırken varsayılan kimlik bilgileri devre dışı bırakmak için özelliği eklendi </li></ul>|
+| 10.19.13515 | 1.0.13515 | Mart 2019 | <ul><li>Küçük sabitleme düzeltmeleri </li></ul> |
+| 10.19.10006 | yok | Aralık 2018 | <ul><li> Küçük sabitleme düzeltmeleri </li></ul> | 
+| 8.0.11136 | yok | Eylül 2018 |  <ul><li> Kaynak Kimliği değişikliğini VM hareket algılama için destek eklendi </li><li> Kaynak uzantısı olmayan kullanırken kimliği yükleme raporlaması için destek eklendi </li></ul>| 
+| 8.0.11103 | yok |  Nisan 2018 | |
+| 8.0.11081 | 1.0.11081 | Kasım 2017 | | 
+| 8.0.11072 | 1.0.11072 | Eylül 2017 | |
+| 8.0.11049 | 1.0.11049 | Şubat 2017 | |
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 
@@ -89,8 +90,8 @@ Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir.
 | Ad | Değer / örnek |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Yayımcı | Microsoft.EnterpriseCloud.Monitoring |
-| type | MicrosoftMonitoringAgent |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| türü | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | Çalışma alanı kimliği (e.g)* | 6f680a37-00c6-41C7-a93f-1437e3462574 |
 | workspaceKey (örn.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
@@ -180,7 +181,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
 
 ## <a name="troubleshoot-and-support"></a>Sorun giderme ve Destek
 
-### <a name="troubleshoot"></a>Sorun gider
+### <a name="troubleshoot"></a>Sorun giderme
 
 Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure PowerShell modülü kullanılarak alınabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için Azure PowerShell modülü kullanarak şu komutu çalıştırın.
 

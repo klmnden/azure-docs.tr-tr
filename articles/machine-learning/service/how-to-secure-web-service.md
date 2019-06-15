@@ -12,10 +12,10 @@ author: aashishb
 ms.date: 04/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: 779a34800057284ce77b6d76e030ddca5fadc25f
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393819"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Azure Machine Learning aracılığıyla bir web hizmeti güvenli hale getirmek için SSL kullan

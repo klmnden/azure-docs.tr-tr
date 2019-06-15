@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirmesi ile CorpTax | Microsoft Docs'
-description: Azure Active Directory ve CorpTax arasında çoklu oturum açmayı yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Corptax | Microsoft Docs'
+description: Azure Active Directory ve Corptax arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,27 +8,28 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: fdad2893-41f4-4056-b6d2-ec3d050eb350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f150522c8ea4d3bcb69b7ffe274f1d40d831ab2b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7cd09a35d5796cdc4267c9d01a901b4e3b812d7c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864924"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104393"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Öğretici: CorpTax ile Azure Active Directory Tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Öğretici: Corptax ile Azure Active Directory Tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile CorpTax tümleştirme konusunda bilgi edinin.
-Azure AD ile CorpTax tümleştirme ile aşağıdaki avantajları sağlar:
+Bu öğreticide, Azure Active Directory (Azure AD) ile Corptax tümleştirme konusunda bilgi edinin.
+Azure AD ile Corptax tümleştirme ile aşağıdaki avantajları sağlar:
 
-* CorpTax erişimi, Azure AD'de kontrol edebilirsiniz.
-* Otomatik olarak (çoklu oturum açma) CorpTax için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Corptax erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) Corptax için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
 * Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,24 +37,24 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD Tümleştirmesi ile CorpTax yapılandırmak için aşağıdaki öğeler gerekir:
+Azure AD Tümleştirmesi ile Corptax yapılandırmak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
-* Abonelik CorpTax çoklu oturum açma etkin
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
+* Abonelik Corptax çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-* CorpTax destekler **SP** tarafından başlatılan
+* Corptax destekler **SP** tarafından başlatılan
 
-## <a name="adding-corptax-from-the-gallery"></a>Galeriden CorpTax ekleme
+## <a name="adding-corptax-from-the-gallery"></a>Galeriden Corptax ekleme
 
-Azure AD'de CorpTax tümleştirmesini yapılandırmak için CorpTax Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+Azure AD'de Corptax tümleştirmesini yapılandırmak için Corptax Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden CorpTax eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden Corptax eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select_azuread.png)
 
@@ -65,31 +66,31 @@ Azure AD'de CorpTax tümleştirmesini yapılandırmak için CorpTax Galeriden y�
 
     ![Yeni Uygulama düğmesi](common/add_new_app.png)
 
-4. Arama kutusuna **CorpTax**seçin **CorpTax** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Corptax**seçin **Corptax** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![Sonuç listesinde CorpTax](common/search_new_app.png)
+    ![Sonuç listesinde Corptax](common/search_new_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma CorpTax adlı bir test kullanıcı tabanlı test **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısının CorpTax ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Corptax adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Corptax ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma CorpTax ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Corptax ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[CorpTax çoklu oturum açmayı yapılandırma](#configure-corptax-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+2. **[Corptax çoklu oturum açmayı yapılandırma](#configure-corptax-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[CorpTax test kullanıcısı oluşturma](#create-corptax-test-user)**  - kullanıcı Azure AD gösterimini bağlı CorpTax Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Corptax test kullanıcısı oluşturma](#create-corptax-test-user)**  - kullanıcı Azure AD gösterimini bağlı Corptax Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-Azure AD çoklu oturum açma ile CorpTax yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma ile Corptax yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **CorpTax** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Corptax** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma](common/select_sso.png)
 
@@ -103,17 +104,17 @@ Azure AD çoklu oturum açma ile CorpTax yapılandırmak için aşağıdaki adı
 
 4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![CorpTax etki alanı ve URL'ler tek oturum açma bilgileri](common/sp_intiated.png)
+    ![Corptax etki alanı ve URL'ler tek oturum açma bilgileri](common/sp_intiated.png)
 
     İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:  `https://asp.corptax.com`
 
-8. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta verileri XML** ve bilgisayarınıza kaydedin.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta verileri XML** ve bilgisayarınıza kaydedin.
 
     ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-### <a name="configure-corptax-single-sign-on"></a>CorpTax tek oturum açmayı yapılandırın
+### <a name="configure-corptax-single-sign-on"></a>Corptax tek oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **CorpTax** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** için [CorpTax Destek ekibine](mailto:bgraves@corptax.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **Corptax** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** için [Corptax Destek ekibine](https://connect.corptax.com/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -133,7 +134,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına `brittasimon\@yourcompanydomain.extension`  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -142,15 +143,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Azure çoklu oturum açma kullanmak için CorpTax erişim vererek Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Corptax erişim vererek Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **CorpTax**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Corptax**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise_applications.png)
 
-2. Uygulamalar listesinde yazın ve **CorpTax**.
+2. Uygulamalar listesinde yazın ve **Corptax**.
 
-    ![Uygulamalar listesinde CorpTax bağlantı](common/all_applications.png)
+    ![Uygulamalar listesinde Corptax bağlantı](common/all_applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
@@ -166,18 +167,18 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için CorpTax erişim vererek 
 
 7. İçinde **atama Ekle** iletişim kutusunda, tıklayın **atama** düğmesi.
 
-### <a name="create-corptax-test-user"></a>CorpTax test kullanıcısı oluşturma
+### <a name="create-corptax-test-user"></a>Corptax test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon CorpTax içinde adlı bir kullanıcı oluşturun. Çalışmak [CorpTax Destek ekibine](mailto:bgraves@corptax.com) CorpTax platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Corptax içinde adlı bir kullanıcı oluşturun. Çalışmak [Corptax Destek ekibine](https://connect.corptax.com/) Corptax platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
-Erişim paneli CorpTax kutucuğa tıkladığınızda, için yönlendirilmelidir aşağıda CorpTax sayfası - 
+Erişim paneli Corptax kutucuğa tıkladığınızda, için yönlendirilmelidir aşağıda Corptax sayfası - 
 
 ![image](media/corptax-tutorial/corptaxlogin.png)
 
-İçinde **ortam** metin kutusunda, uygun ortamınızı yazıp, otomatik olarak için SSO'yu ayarladığınız CorpTax oturum. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+İçinde **ortam** metin kutusunda, uygun ortamınızı yazıp, otomatik olarak için SSO'yu ayarladığınız Corptax oturum. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

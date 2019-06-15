@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66136957"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service ve Azure işlevleri için yönetilen kimliklerini kullanma
@@ -287,9 +287,9 @@ Yönetilen bir kimlik ile bir uygulama tanımlı iki ortam değişkenleri vardı
 
 > |Parametre adı|İçinde|Açıklama|
 > |-----|-----|-----|
-> |kaynak|Sorgu|AAD kaynak kaynağın URI'sini için bir belirteç elde edilmelidir. Bu, aşağıdakilerden biri olabilir [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) veya başka bir kaynağa bir URI.|
+> |resource|Sorgu|AAD kaynak kaynağın URI'sini için bir belirteç elde edilmelidir. Bu, aşağıdakilerden biri olabilir [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) veya başka bir kaynağa bir URI.|
 > |API sürümü|Sorgu|Kullanılacak belirteç API sürümü. "2017-09-01", şu anda desteklenen tek sürüm aşamasındadır.|
-> |gizli dizi|Üst bilgi|MSI_SECRET ortam değişkeninin değeri. Bu üst bilgi, sunucu tarafı istek sahteciliği (SSRF) saldırılarını önlemeye yardımcı olmak için kullanılır.|
+> |secret|Üstbilgi|MSI_SECRET ortam değişkeninin değeri. Bu üst bilgi, sunucu tarafı istek sahteciliği (SSRF) saldırılarını önlemeye yardımcı olmak için kullanılır.|
 > |ClientID|Sorgu|(İsteğe bağlı) Kullanılacak kullanıcı tarafından atanan kimlik kimliği. Atlanırsa, sistem tarafından atanan kimlik kullanılır.|
 
 Başarılı 200 Tamam yanıtı bir JSON gövdesi aşağıdaki özellikleri içerir:
@@ -298,7 +298,7 @@ Başarılı 200 Tamam yanıtı bir JSON gövdesi aşağıdaki özellikleri içer
 > |-------------|----------|
 > |access_token|İstenen erişim belirteci. Çağıran web hizmeti, alıcı web hizmetinde kimlik doğrulaması için bu belirteci kullanabilirsiniz.|
 > |expires_on|Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır.|
-> |kaynak|Alıcı web hizmeti uygulama kimliği URI'si.|
+> |resource|Alıcı web hizmeti uygulama kimliği URI'si.|
 > |token_type|Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: Taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 Bu yanıt aynıdır [AAD hizmetten hizmete erişim belirteci isteği için yanıt](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2018
+ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: b968cc29a7139a4a6db5d2dea8dd6f8f4e1c7ccd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6d4a5b9688540e5aa96dd8789dbb609aedeca97
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60630788"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077850"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS çalıştıran bir StorSimple ana bilgisayarında MPIO yapılandırma
 Bu makalede, Centos 6.6 ana bilgisayar sunucusunda çoklu yol oluşturma g/ç (MPIO) yapılandırmak için gereken adımları açıklar. Ana bilgisayar sunucusu, iSCSI başlatıcılarının aracılığıyla yüksek kullanılabilirlik için Microsoft Azure StorSimple cihazınıza bağlıdır. Bu, çok yollu cihazlar ve yalnızca StorSimple birimlerini için özel kurulum otomatik olarak bulunmasını ayrıntılı olarak açıklanmaktadır.
@@ -56,11 +56,11 @@ Yapılandırma dosyası `/etc/multipath.conf` çoklu yol oluşturma özellikleri
 
 Multipath.conf beş bölümü vardır:
 
-- **Sistem düzeyinde varsayılanlarını** *(varsayılan)*: Sistem düzeyinde varsayılanlarını geçersiz kılabilirsiniz.
-- **Cihazları kara listede** *(kara liste)*: Cihaz Eşleyicisi tarafından denetlenmelidir olmayan cihazların listesini belirtebilirsiniz.
-- **Özel durumlar veya kara listeye** *(blacklist_exceptions)*: Kara liste içinde bile çok yollu cihazlar olarak kabul edilmesi için belirli cihazları tanımlayabilir.
-- **Depolama denetleyicisi belirli ayarları** *(cihazlar)*: Üretici ve ürün bilgilerine sahip cihazlara uygulanacak yapılandırma ayarlarını belirtebilirsiniz.
-- **Özel cihaz ayarları** *(multipaths)*: Bu bölümde, tek tek LUN'ları için yapılandırma ayarlarını ince ayar yapmak için kullanabilirsiniz.
+- **Sistem düzeyinde varsayılanlarını** *(varsayılan)* : Sistem düzeyinde varsayılanlarını geçersiz kılabilirsiniz.
+- **Cihazları kara listede** *(kara liste)* : Cihaz Eşleyicisi tarafından denetlenmelidir olmayan cihazların listesini belirtebilirsiniz.
+- **Özel durumlar veya kara listeye** *(blacklist_exceptions)* : Kara liste içinde bile çok yollu cihazlar olarak kabul edilmesi için belirli cihazları tanımlayabilir.
+- **Depolama denetleyicisi belirli ayarları** *(cihazlar)* : Üretici ve ürün bilgilerine sahip cihazlara uygulanacak yapılandırma ayarlarını belirtebilirsiniz.
+- **Özel cihaz ayarları** *(multipaths)* : Bu bölümde, tek tek LUN'ları için yapılandırma ayarlarını ince ayar yapmak için kullanabilirsiniz.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Çoklu yol oluşturma StorSimple Linux konağına bağlı yapılandırın
 Bir Linux konağına bağlı bir StorSimple cihazına, yüksek kullanılabilirlik ve Yük Dengeleme için yapılandırılabilir. Örneğin, iki arabirim SAN'a bağlı Linux ana varsa ve cihazın bu arabirimleri aynı alt ağda olan şekilde SAN'a bağlı iki arabirim, ardından sunulacağına 4 yol. Cihaz ve ana bilgisayar arabirimi her veri arabiriminde farklı bir IP alt ağı (ve değil yönlendirilebilir) varsa, ancak ardından yalnızca 2 yolları kullanılabilir. Otomatik olarak kullanılabilir tüm yolları Bul, bu yollar için bir Yük Dengeleme algoritması seçin, birimler, yalnızca StorSimple için belirli yapılandırma ayarlarını uygulayın ve ardından etkinleştirmek ve çoklu yol oluşturma doğrulamak için çoklu yol oluşturma yapılandırabilirsiniz.
@@ -183,7 +183,7 @@ Yukarıdaki yapılandırma, ana bilgisayar ve veri arabirimleri yönlendirilebil
 ## <a name="configuration-steps"></a>Yapılandırma adımları
 Çoklu yol oluşturma etkinleştirme ve son olarak yapılandırma doğrulama, yapılandırma adımları için çoklu yol oluşturma kullanmak için Yük Dengeleme algoritması belirtme, otomatik bulma için kullanılabilen yolları yapılandırmayı içerir. Bu adımların her biri, aşağıdaki bölümlerde ayrıntılı olarak ele alınmıştır.
 
-### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>1. Adım: Otomatik bulma için çoklu yol oluşturma yapılandırma
+### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>1\. adım: Otomatik bulma için çoklu yol oluşturma yapılandırma
 Çok yollu desteklenen cihazları otomatik olarak bulunan ve yapılandırılmış.
 
 1. Başlatma `/etc/multipath.conf` dosya. Şunu yazın:
@@ -210,7 +210,7 @@ Yukarıdaki yapılandırma, ana bilgisayar ve veri arabirimleri yönlendirilebil
         path_grouping_policy multibus
         }
 
-### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>2. Adım: StorSimple birimler için çoklu yol oluşturma yapılandırma
+### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>2\. adım: StorSimple birimler için çoklu yol oluşturma yapılandırma
 Varsayılan olarak, tüm cihazlar multipath.conf dosyasında listelenen siyah olur ve atlanır. StorSimple cihazlardan birimler için çoklu yol oluşturma izni kara liste özel durumlar oluşturmanız gerekir.
 
 1. Düzen `/etc/mulitpath.conf` dosya. Şunu yazın:
@@ -229,7 +229,7 @@ Varsayılan olarak, tüm cihazlar multipath.conf dosyasında listelenen siyah ol
             }
            }
 
-### <a name="step-3-configure-round-robin-multipathing"></a>3. Adım: Hepsini bir kez deneme çoklu yol oluşturma yapılandırma
+### <a name="step-3-configure-round-robin-multipathing"></a>3\. adım: Hepsini bir kez deneme çoklu yol oluşturma yapılandırma
 Bu Yük Dengeleme algoritması etkin denetleyici için tüm kullanılabilir multipaths Dengeli, hepsini bir biçimde kullanır.
 
 1. Düzen `/etc/multipath.conf` dosya. Şunu yazın:
@@ -250,7 +250,7 @@ Bu Yük Dengeleme algoritması etkin denetleyici için tüm kullanılabilir mult
 > 
 > 
 
-### <a name="step-4-enable-multipathing"></a>4. Adım: Çoklu yol oluşturma etkinleştir
+### <a name="step-4-enable-multipathing"></a>4\. Adım: Çoklu yol oluşturma etkinleştir
 1. Yeniden `multipathd` arka plan programı. Şunu yazın:
    
     `service multipathd restart`
@@ -259,7 +259,7 @@ Bu Yük Dengeleme algoritması etkin denetleyici için tüm kullanılabilir mult
         [root@centosSS ~]# service multipathd start
         Starting multipathd daemon:  [OK]
 
-### <a name="step-5-verify-multipathing"></a>5. Adım: Çoklu yol oluşturma doğrulayın
+### <a name="step-5-verify-multipathing"></a>5\. Adım: Çoklu yol oluşturma doğrulayın
 1. Önce iSCSI bağlantı ile StorSimple cihazı gibi kurulduğundan emin olun:
    
    a. StorSimple Cihazınızı keşfedin. Şunu yazın:
@@ -356,7 +356,7 @@ Ayrıca, çok yollu listelerden yanıt, ayrıca tüm diskleri yok gelebilir gibi
   
     `$ dmesg | grep sd*`
      
-     Veya
+     Or
   
     `$ fdisk –l`
   
@@ -417,7 +417,7 @@ A. Cihazınızı izin verilenler listesinde olup olmadığını doğrulamak içi
     dm-3 devnode blacklisted, unmonitored
 
 
-Daha fazla bilgi için Git [etkileşimli komutu çoklu yol oluşturma için sorun giderme kullanmak](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
+Daha fazla bilgi için Git [çoklu yol oluşturma için sorun giderme](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Yararlı komut listesi
 | Tür | Komut | Açıklama |
@@ -444,6 +444,6 @@ Daha fazla bilgi için Git [etkileşimli komutu çoklu yol oluşturma için soru
 ## <a name="next-steps"></a>Sonraki adımlar
 Linux ana bilgisayarında MPIO yapılandırma gibi aşağıdaki CentoS 6.6 belgelere bakın gerekebilir:
 
-* [CentOS MPIO ayarlama](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
+* [CentOS MPIO ayarlama](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Linux eğitim Kılavuzu](http://linux-training.be/linuxsys.pdf)
 

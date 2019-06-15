@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3f21f552add551ac2434618b184eb18c53ad5be
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 21136046bad8cb58432de367f0de06d1d0457eec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752240"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083797"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Yönetim görevi Azure Active Directory'de yönetici rolleri
 
@@ -274,19 +274,19 @@ Tüm yapılandırması okuma | Genel Yönetici |
 
 Görev | En az ayrıcalıklı rol | Ek roller
 ---- | --------------------- | ----------------
-Mfa'yı yapılandırma güvenilen IP adresleri | Koşullu erişim yöneticisi | 
-Özel denetimler oluşturma | Koşullu erişim yöneticisi | Güvenlik yöneticisi
-Adlandırılmış konumlar oluşturma | Koşullu erişim yöneticisi | Güvenlik yöneticisi
-İlkeleri oluşturma | Koşullu erişim yöneticisi | Güvenlik yöneticisi
-Kullanım Koşulları oluşturma | Koşullu erişim yöneticisi | Güvenlik yöneticisi
-VPN bağlantı sertifikası oluşturma | Koşullu erişim yöneticisi | Güvenlik yöneticisi
-Klasik ilke Sil | Koşullu erişim yöneticisi | Güvenlik yöneticisi
-Kullanım koşullarını silme | Koşullu erişim yöneticisi | Güvenlik yöneticisi
-VPN bağlantısı sertifikasını Sil | Koşullu erişim yöneticisi | Güvenlik yöneticisi
-Klasik ilke devre dışı bırak | Koşullu erişim yöneticisi | Güvenlik yöneticisi
-Özel denetimleri yönetmek | Koşullu erişim yöneticisi | Güvenlik yöneticisi
-Adlandırılmış konumları yönetin | Koşullu erişim yöneticisi | Güvenlik yöneticisi
-Kullanım koşullarını Yönet | Koşullu erişim yöneticisi | Güvenlik yöneticisi
+Mfa'yı yapılandırma güvenilen IP adresleri | Koşullu Erişim Yöneticisi | 
+Özel denetimler oluşturma | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
+Adlandırılmış konumlar oluşturma | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
+İlkeleri oluşturma | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
+Kullanım Koşulları oluşturma | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
+VPN bağlantı sertifikası oluşturma | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
+Klasik ilke Sil | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
+Kullanım koşullarını silme | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
+VPN bağlantısı sertifikasını Sil | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
+Klasik ilke devre dışı bırak | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
+Özel denetimleri yönetmek | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
+Adlandırılmış konumları yönetin | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
+Kullanım koşullarını Yönet | Koşullu Erişim Yöneticisi | Güvenlik yöneticisi
 Tüm yapılandırması okuma | Güvenlik okuyucusu | Güvenlik yöneticisi
 Adlandırılmış konumlar okuma | Güvenlik okuyucusu | Koşullu Erişim Yöneticisi, Güvenlik Yöneticisi
 

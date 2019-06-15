@@ -9,10 +9,10 @@ ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787805"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>VM ölçek kümeleri için Resource Manager şablonlarını kullanarak gelişmiş otomatik ölçeklendirme yapılandırması
@@ -31,7 +31,7 @@ Bu kılavuzda kullandığımız [Azure kaynak Gezgini](https://resources.azure.c
 
     ![Azure Gezgini](media/autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
-    Şablon yürütme varsayılan otomatik ölçeklendirme ayarı adı ile oluşturduğu **'autoscalewad'**. Sağ tarafta, bu otomatik ölçeklendirme ayarı tam tanımı görüntüleyebilirsiniz. Bu durumda, varsayılan otomatik ölçeklendirme ayarında bir CPU tabanlı % genişletmek ve ölçeğini kuralı ile birlikte gelir.  
+    Şablon yürütme varsayılan otomatik ölçeklendirme ayarı adı ile oluşturduğu **'autoscalewad'** . Sağ tarafta, bu otomatik ölçeklendirme ayarı tam tanımı görüntüleyebilirsiniz. Bu durumda, varsayılan otomatik ölçeklendirme ayarında bir CPU tabanlı % genişletmek ve ölçeğini kuralı ile birlikte gelir.  
 
 3. Artık daha fazla profilleri ve zamanlama veya özel gereksinimlerinize dayalı kurallar da ekleyebilirsiniz. Üç profil ile bir otomatik ölçeklendirme ayarı oluştururuz. Profiller ve otomatik ölçeklendirme kuralları anlamak için gözden [otomatik ölçeklendirme en iyi](autoscale-best-practices.md).  
 

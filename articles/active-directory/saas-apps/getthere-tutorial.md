@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 0424b21c60d4ae86f7802d1b3ca2a0d7bbe35759
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 499b7f5761c97f6986ca0291af2242d694b609d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101748"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Öğretici: GetThere ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de GetThere tümleştirmesini yapılandırmak için GetThere Galeriden 
 
 **Galeriden GetThere eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -126,7 +126,7 @@ Azure AD çoklu oturum açma ile GetThere yapılandırmak için aşağıdaki ad�
 
 6. Yukarıdaki için ayrıca GetThere uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
-    | Ad |  Kaynak özniteliği |  Ad alanı |
+    | Ad |  Kaynak özniteliği |  Ad Alanı |
     | ---------------| --------------- | --------------- |
     | Site adı | "Kuruluşunuz göre değeri sağla" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
     | Kullanıcı adı |  User.Mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |

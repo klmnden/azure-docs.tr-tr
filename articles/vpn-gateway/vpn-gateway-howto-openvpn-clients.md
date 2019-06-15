@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 5/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989099"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Azure VPN ağ geçidi için OpenVPN istemcilerini yapılandırma
@@ -129,7 +129,7 @@ VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin 
 15. Profil dosyasını ve çift tıklatın veya çekme göz atın **açık**.
 16. Tıklayın **Ekle** üzerinde **ekleme VPN** penceresi.
   
-    ![Dosyadan içeri aktar](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
+    ![Dosyadan İçeri Aktar](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
 17. VPN açarak bağlanabilir **ON** üzerinde **ağ ayarlarını** sayfasında, ya da sistem tepsisindeki ağ simgesinin altında.
 
 ## <a name="next-steps"></a>Sonraki adımlar

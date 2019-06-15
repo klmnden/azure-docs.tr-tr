@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
 ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233936"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Data Factory fiyatlandırma örnekleri anlama
@@ -41,7 +41,7 @@ Senaryoyu gerçekleştirmek için aşağıdaki öğeleri içeren bir işlem hatt
 | --- | --- |
 | Bağlı hizmet oluşturma | 2 okuma/yazma varlık  |
 | Veri kümeleri oluşturma | 4 okuma/yazma varlıkları (veri kümesi oluşturmak için 2, bağlı hizmet başvuruları için 2) |
-| Ardışık Düzen Oluştur | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
+| İşlem hattı oluşturma | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
 | İşlem hattına sahip | 1 okuma/yazma varlık |
 | İşlem hattı çalıştırma | 2 etkinlik çalıştırması (tetikleyici çalıştırması, etkinlik çalıştırması için 1 için 1) |
 | 10 dakikalık kopyalama veri varsayım: yürütme süresi = | 10 \* 4 azure Integration Runtime (varsayılan DIU ayarı = 4) veri tümleştirme birimleri ve kopyalama performansı iyileştirme hakkında daha fazla bilgi için bkz. [bu makalede](copy-activity-performance.md) |
@@ -72,7 +72,7 @@ Senaryoyu gerçekleştirmek için aşağıdaki öğeleri içeren bir işlem hatt
 | --- | --- |
 | Bağlı hizmet oluşturma | 3 okuma/yazma varlık  |
 | Veri kümeleri oluşturma | 4 okuma/yazma varlıkları (veri kümesi oluşturmak için 2, bağlı hizmet başvuruları için 2) |
-| Ardışık Düzen Oluştur | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
+| İşlem hattı oluşturma | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
 | İşlem hattına sahip | 1 okuma/yazma varlık |
 | İşlem hattı çalıştırma | 3 etkinlik çalıştırması (tetikleyici çalıştırması, etkinlik çalışması için 2 için 1) |
 | 10 dakikalık kopyalama veri varsayım: yürütme süresi = | 10 \* 4 azure Integration Runtime (varsayılan DIU ayarı = 4) veri tümleştirme birimleri ve kopyalama performansı iyileştirme hakkında daha fazla bilgi için bkz. [bu makalede](copy-activity-performance.md) |
@@ -106,7 +106,7 @@ Senaryoyu gerçekleştirmek için aşağıdaki öğeleri içeren bir işlem hatt
 | --- | --- |
 | Bağlı hizmet oluşturma | 3 okuma/yazma varlık  |
 | Veri kümeleri oluşturma | 4 okuma/yazma varlıkları (veri kümesi oluşturmak için 2, bağlı hizmet başvuruları için 2) |
-| Ardışık Düzen Oluştur | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
+| İşlem hattı oluşturma | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
 | İşlem hattına sahip | 1 okuma/yazma varlık |
 | İşlem hattı çalıştırma | 4 etkinlik çalıştırması (tetikleyici çalıştırması, etkinlik çalışması için 3 için 1) |
 | 10 dakikalık kopyalama veri varsayım: yürütme süresi = | 10 \* 4 azure Integration Runtime (varsayılan DIU ayarı = 4) veri tümleştirme birimleri ve kopyalama performansı iyileştirme hakkında daha fazla bilgi için bkz. [bu makalede](copy-activity-performance.md) |
@@ -149,7 +149,7 @@ Senaryoyu gerçekleştirmek için aşağıdaki öğeleri içeren bir işlem hatt
 | --- | --- |
 | Bağlı hizmet oluşturma | 2 okuma/yazma varlık  |
 | Veri kümeleri oluşturma | 4 okuma/yazma varlıkları (veri kümesi oluşturmak için 2, bağlı hizmet başvuruları için 2) |
-| Ardışık Düzen Oluştur | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
+| İşlem hattı oluşturma | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
 | İşlem hattına sahip | 1 okuma/yazma varlık |
 | İşlem hattı çalıştırma | 2 etkinlik çalıştırması (tetikleyici çalıştırması, etkinlik çalıştırması için 1 için 1) |
 | Veri akışı varsayımlar: yürütme süresi 10 dakika + 10 dakikalık TTL = | 10 \* TTL 10 ile genel işlem, 8 çekirdek |

@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: c4e101e45dc1641c5731e246f7fdeeb37ebc0823
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864412"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Veri bilimi sanal makinesi üzerinde geliştirme araçları
@@ -31,7 +31,7 @@ Veri bilimi sanal makinesi (DSVM), çeşitli popüler Araçlar ve IDE paketleme 
 
 |    |           |
 | ------------- | ------------- |
-| Bu nedir?   | Genel amaçlı IDE      |
+| Nedir?   | Genel amaçlı IDE      |
 | Desteklenen DSVM sürümleri      | Windows      |
 | Tipik kullanımları      | Yazılım geliştirme    |
 | Nasıl, yapılandırılmış / DSVM üzerinde yüklü?      | Veri bilimi iş yükü (Python ve R araçları), Azure iş yükü (Hadoop, Data Lake), Node.js, SQL Server araçlarını, [Visual Studio Code için Azure Machine Learning](https://github.com/Microsoft/vs-tools-for-ai)    |

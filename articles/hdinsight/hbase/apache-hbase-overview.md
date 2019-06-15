@@ -5,23 +5,21 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 05/23/2019
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 358b835b42862bd0ceb1a5c4a48ba4b18a567f4d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: b41c34d4dcbfa4107383318cd9665a41edee79f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235904"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120463"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Azure HDInsight, Apache HBase nedir
 
 [Apache HBase](https://hbase.apache.org/) üzerinde oluşturulan bir açık kaynak, NoSQL veritabanıdır [Apache Hadoop](https://hadoop.apache.org/) ve sonra Modellenen [Google BigTable](https://cloud.google.com/bigtable/). HBase, sütun aileleri tarafından veritabanında büyük miktarlardaki yapılandırılmamış ve yarı yapılandırılmış veriler için rasgele erişim ve güçlü tutarlılık sağlar.
 
 Kullanıcı açısından bakıldığında, HBase, veritabanına benzer. Verileri satırlar ve sütunlar bir tablo biçiminde depolanır ve satır içindeki veriler sütun ailesi tarafından gruplandırılır. HBase, kullanılmadan önce sütunların ya da bunlarda depolanan veri türünün tanımlanmasına gerek duyulmayan, şemasız bir veritabanıdır. Açık kaynak kodu, binlerce düğümdeki petabaytlarca verileri işlemek için doğrusal olarak ölçeklendirir. Veri yedekleme, toplu işleme ve Hadoop ekosistemindeki dağıtılmış uygulamalar tarafından sağlanan diğer özelliklere dayanabilir.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="how-is-apache-hbase-implemented-in-azure-hdinsight"></a>Apache HBase, Azure HDInsight nasıl uygulanır?
 
@@ -52,12 +50,7 @@ Web araması olan kurallı kullanım örneği bigtable (ve uzantılarının, HBa
     Uygulamalar, bir veri deposu olarak kullanarak HBase’in üstünde çalışabilir. Örnekler, Phoenix, [OpenTSDB](http://opentsdb.net/), Kiji ve Titan. Uygulamalar HBase ile de tümleştirebilir. Örnekler [Apache Hive](https://hive.apache.org/), [Apache Pig](https://pig.apache.org/), [Solr](https://lucene.apache.org/solr/), [Apache Storm](https://storm.apache.org/), [Apache Flume](https://flume.apache.org/), [ Apache Impala](https://impala.apache.org/), [Apache Spark](https://spark.apache.org/) , [Ganglia](http://ganglia.info/), ve [Apache ayrıntıya](https://drill.apache.org/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [HDInsight, Apache Hadoop ile Apache HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md)
 * [Azure Sanal Ağ'da HDInsight kümeleri oluşturma](./apache-hbase-provision-vnet.md)
 * [HDInsight Apache HBase çoğaltmayı yapılandırma](apache-hbase-replication.md)
-* [HDInsight (Hadoop) ile Apache HBase kullanan Java uygulamaları oluşturmak için Apache Maven kullanma](./apache-hbase-build-java-maven-linux.md)
-
-## <a name="see-also"></a>Ayrıca bkz.
-* [Apache HBase](https://hbase.apache.org/)
-* [Apache HBase Başvuru Kılavuzu](https://hbase.apache.org/book.html)
-* [Bigtable: Yapılandırılmış veriler için Dağıtılmış depolama sistemi](https://research.google.com/archive/bigtable.html)

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685661"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058565"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Azure HDInsight için - amacı ve yararları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -21,7 +21,7 @@ Bu makale, geçiş için en iyi yöntemler üzerinde serideki ilk Azure HDInsigh
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>Neden Azure HDInsight için geçirmek için
 
-Azure HDInsight, kaynaklı Hadoop bileşenlerinin bulut dağıtımıdır [Hortonworks veri Platform(HDP)](https://hortonworks.com/products/data-center/hdp/). Azure HDInsight, devasa miktarlardaki verileri işlemeyi kolay, hızlı ve uygun maliyetli hale getirir. HDInsight gibi en popüler açık kaynak çerçevelerini içerir:
+Azure HDInsight, Hadoop bileşenlerinin bulut dağıtımıdır. Azure HDInsight, devasa miktarlardaki verileri işlemeyi kolay, hızlı ve uygun maliyetli hale getirir. HDInsight gibi en popüler açık kaynak çerçevelerini içerir:
 
 - Apache Hadoop
 - Apache Spark
@@ -82,7 +82,7 @@ Aşağıdaki adımlar, Azure HDInsight şirket içi Hadoop kümelerine geçişin
 Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
 
 - Şirket içi dağıtım
-- Proje ayrıntıları
+- Proje Ayrıntıları
 - Azure gereksinimleri
 
 ### <a name="on-premises-deployment-questionnaire"></a>Şirket içi dağıtım anketi
@@ -90,7 +90,6 @@ Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
 | **Soru** | **Örnek** | **Yanıt** |
 |---|---|---|
 |**konu**: **Ortam**|||
-|Küme dağıtım türü|Hortonworks, Cloudera, MapR| |
 |Küme dağıtım sürümü|HDP 2.6.5, CDH 5.7|
 |Büyük veri ekonomik sistemi bileşenleri|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Küme türleri|Hadoop, Spark, Confluent Kafka, Storm, Solr|
@@ -131,7 +130,7 @@ Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
 |ML Model eğitim işleri|bir hafta içerisinde bir kez 2 iş--||
 |Programlama Dilleri|Python, Scala, Java||
 |Komut dosyaları|Shell, Python||
-|**konu**: **Veriler**|||
+|**konu**: **Veri**|||
 |Veri kaynakları|Düz dosyaları, Json, Kafka, RDBMS||
 |Verileri düzenleme|Oozie iş akışları, hava akışı||
 |Bellek arama|Apache Ignite, ignite Redis||
@@ -148,7 +147,7 @@ Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
 |Veri büyüme oranı|yıl başına %10||
 |Küme düğümleri büyüme oranı|%5 yılda
 |**konu**: **Küme kullanımı**|||
-|Ortalama CPU yüzdesi|%60||
+|Ortalama CPU yüzdesi|60%||
 |Ortalama bellek yüzdesi|75%||
 |Kullanılan disk alanı|75%||
 |Ortalama ağ yüzdesi|%25
@@ -167,7 +166,7 @@ Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
 |**konu**: **Altyapı** |||
 |---|---|---|
 |**Soru**|**Örnek**|**Yanıt**|
-| Tercih Edilen Bölge|ABD Doğu||
+| Tercih edilen bölge|ABD Doğu||
 |Tercih edilen VNet?|Evet||
 |HA / DR gerekli?|Evet||
 |Diğer bulut hizmetleriyle tümleştirme?|ADF, CosmosDB||
@@ -199,7 +198,6 @@ Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
 |Paylaşım meta depolar farklı sunucular arasında?|Evet||
 |İş yükleri Ayrıştır?|Spark işlerinde Hive işlerini değiştirin||
 |ADF veri düzenlemesi için kullanılır?|Hayır||
-|HDInsight vs Hortonworks Data Platform ıaas?|HDInsight||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

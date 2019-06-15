@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5f514fe06c056c4f3142cbe1aad1f5b4082a796
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82a51913e2b278849d2640c838fa7ebc38bc2d9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284245"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Öğretici: Alcumus bilgisi Exchange ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Alcumus bilgisi Exchange tümleştirmesini yapılandırmak için Alc
 
 **Galeriden Alcumus bilgisi Exchange eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

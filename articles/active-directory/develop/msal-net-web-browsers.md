@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7f91e6ab1fb12132068b839e66fafd3ab1bc73
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 061b8a9f16396841c3f0d650ccc2f2c4a907aab3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65543954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111318"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Web tarayıcısı MSAL.NET kullanarak
 Web tarayıcılar için etkileşimli kimlik doğrulaması gereklidir. Varsayılan olarak, MSAL.NET destekler [sistem web tarayıcısı](#system-web-browser-on-xamarinios-and-xamarinandroid) üzerinde Xamarin.iOS ve [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Ancak [katıştırılmış bir Web tarayıcısı da etkinleştirebilirsiniz](#enable-embedded-webviews) gereksinimlerinizi (UX, çoklu oturum açma (SSO), güvenlik gereksinimini) bağlı olarak [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) ve [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) uygulamaları. Ve getirebilirsiniz [dinamik olarak seçin](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) kullanmak için hangi web tarayıcısı, Chrome veya Chrome özel sekmeler Android tarayıcı varlığını temel.
@@ -33,7 +33,7 @@ Etkileşimli bir belirteç alınırken, iletişim kutusunun içeriği kitaplığ
 
 - Parola (yazılmışsa) hiçbir zaman uygulama ya da kimlik doğrulama kitaplığı tarafından depolanır.
 - Diğer kimlik sağlayıcılardan (örneği için oturum açma iş Okul hesabı veya bir kişisel hesap MSAL veya Azure AD B2C ile bir sosyal hesap ile birlikte) için yeniden yönlendirmelerini sağlar.
-- STS, kullanıcı birden çok faktörlü kimlik doğrulaması (MFA) (Windows Hello PIN girmek veya telefon numaraları veya bir kimlik doğrulama uygulaması telefonundan çağrılan) kimlik doğrulama aşamasında sağlayarak koşullu erişim denetimi sağlar. Burada gerekli çok faktörlü kimlik doğrulamasını, henüz ayarlanmamış durumlarda, kullanıcı bunu zamanında aynı iletişim ayarlayabilirsiniz.  Kullanıcı kullanıcıdan birincil telefonu numarasını girer ve kimlik doğrulaması uygulama yükleyip hesabını eklemek için bir QR etiket tarama yönlendirilir. Etkileşim temelli bu sunucu, harika bir deneyim oldu!
+- STS koşullu erişim, örneğin, kullanıcı iş birden çok faktörlü kimlik doğrulaması (MFA) (Windows Hello PIN girmek veya telefon numaraları veya bir kimlik doğrulama uygulaması telefonundan çağrılan) kimlik doğrulama aşamasında sağlayarak kontrol etmenizi sağlar. Burada gerekli çok faktörlü kimlik doğrulamasını, henüz ayarlanmamış durumlarda, kullanıcı bunu zamanında aynı iletişim ayarlayabilirsiniz.  Kullanıcı kullanıcıdan birincil telefonu numarasını girer ve kimlik doğrulaması uygulama yükleyip hesabını eklemek için bir QR etiket tarama yönlendirilir. Etkileşim temelli bu sunucu, harika bir deneyim oldu!
 - Kullanıcının parola (eski parolayı ve yeni için ek alanlar vererek) süresi dolduğunda aynı bu iletişim kutusunda parola değiştirmesini sağlar.
 - Azure AD Kiracı Yöneticisi tarafından denetlenen Kiracı veya uygulama (görüntüler) marka etkinleştirir / uygulama sahibi.
 - Kullanıcıların kaynaklarına erişmesine izin vermek için onay etkinleştirir / adında yalnızca kimlik doğrulamasından sonra kapsamları.

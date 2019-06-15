@@ -10,12 +10,12 @@ ms.date: 05/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8fad7f0dc76aad306e0f2a8e26692ec997952c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: bd4c0bbe4e4ef1cfbd4d9da92d6fcfac509f45ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470354"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110416"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory nedir?
 
@@ -83,13 +83,13 @@ Azure AD daha iyi anlamak için ve kendi belgeleri, aşağıdaki koşulları inc
 
 Azure AD lisansınızın seçtikten sonra kuruluşunuz için bazılarını veya tümünü aşağıdaki özelliklere erişim elde edersiniz:
 
-|Category|Açıklama|
+|Kategori|Açıklama|
 |-------|-----------|
 |Uygulama yönetimi|Uygulama Ara sunucusu kullanarak Bulut ve şirket içi uygulamalarınızı yönetin çoklu oturum açma, uygulamalarım portalında (erişim paneli olarak da bilinir) ve yazılım hizmet (SaaS) uygulamaları olarak. Daha fazla bilgi için [güvenli uzaktan erişim sağlamak şirket içi uygulamalara](../manage-apps/application-proxy.md) ve [uygulama yönetimi belgeleri](../manage-apps/index.yml).|
 |Kimlik Doğrulaması|Azure Active Directory Self Servis parola sıfırlama, çok faktörlü kimlik doğrulaması, özel yasaklı parola listesi ve akıllı kilitleme yönetin. Daha fazla bilgi için [Azure AD kimlik doğrulaması belgeleri](../authentication/index.yml).|
 |İşletmeden işletmeye (B2B)|Konuk kullanıcıları ve dış iş ortakları, şirket verilerinizin kontrolünü korurken yönetin. Daha fazla bilgi için [Azure Active Directory B2B belgelerini](../b2b/index.yml).|
 |Müşteriye (B2C)|Özelleştirme ve denetim nasıl, kullanıcıların oturum açın ve uygulamalarınızı kullanırken profillerini yönetme. Daha fazla bilgi için [Azure Active Directory B2C belgeleri](../../active-directory-b2c/index.yml).|
-|Koşullu erişim|Bulut uygulamalarınıza erişimi yönetin. Daha fazla bilgi için [Azure AD koşullu erişim belgelerine](../conditional-access/index.yml).|
+|Koşullu Erişim|Bulut uygulamalarınıza erişimi yönetin. Daha fazla bilgi için [Azure AD koşullu erişim belgelerine](../conditional-access/index.yml).|
 |Geliştiriciler için Azure Active Directory|Tüm Microsoft kimliklerini oturum, Microsoft Graph, diğer Microsoft APIs veya özel API'leri çağırmak için belirteçleri almak uygulamalar oluşturun. Daha fazla bilgi için [Microsoft kimlik Platformu (geliştiriciler için Azure Active Directory)](../develop/index.yml).|
 |Cihaz Yönetimi|Bulutta veya şirket içi cihazlarınızı şirket verilerinize nasıl erişim yönetin. Daha fazla bilgi için [Azure AD cihaz Yönetimi belgeleri](../devices/index.yml).|
 |Etki alanı hizmetleri|Azure sanal makinelerini, etki alanı denetleyicileri kullanmak zorunda kalmadan bir etki alanına katılın. Daha fazla bilgi için [Azure AD Domain Services belgeleri](../../active-directory-domain-services/index.yml).|

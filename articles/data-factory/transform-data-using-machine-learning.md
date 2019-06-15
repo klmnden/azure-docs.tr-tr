@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60928088"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Geçerli sürüm](transform-data-using-machine-learning.md)
 
@@ -126,9 +126,9 @@ Aşağıdaki JSON kod parçacığında, bir Azure Machine Learning Batch Executi
 
 | Özellik          | Açıklama                              | Gerekli |
 | :---------------- | :--------------------------------------- | :------- |
-| ad              | İşlem hattındaki etkinliğin adı     | Evet      |
-| açıklama       | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
-| type              | Data Lake Analytics U-SQL etkinliği için etkinlik türdür **AzureMLBatchExecution**. | Evet      |
+| name              | İşlem hattındaki etkinliğin adı     | Evet      |
+| description       | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
+| türü              | Data Lake Analytics U-SQL etkinliği için etkinlik türdür **AzureMLBatchExecution**. | Evet      |
 | linkedServiceName | Bağlı hizmeti Azure Machine learning'e bağlı hizmetler. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
 | Webserviceınputs  | Azure Machine Learning Web hizmeti girişleri adlarını eşleme anahtar, değer çiftleri. Anahtarı, yayımlanan Azure Machine Learning Web hizmeti içinde tanımlanan giriş parametreleri eşleşmelidir. Giriş Blob konumları belirten bir Azure depolama bağlı hizmetleri ve FilePath özellikleri çifti değerdir. | Hayır       |
 | webServiceOutputs | Azure Machine Learning Web hizmeti çıkışları adlarını eşleme anahtar, değer çiftleri. Anahtarı, yayımlanan Azure Machine Learning Web hizmeti içinde tanımlanan çıkış parametreleri eşleşmelidir. Değer, bir Azure depolama bağlı hizmetleri ve dosya yolu: çıkış belirten özellikleri çifti Blob konumları. | Hayır       |

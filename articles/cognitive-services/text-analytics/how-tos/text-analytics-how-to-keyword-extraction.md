@@ -7,22 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/16/2019
-ms.author: aahi
-ms.openlocfilehash: 9cb6a40e6ce53a6d82d4129db876a1b24269f166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/05/2019
+ms.author: raymondl
+ms.openlocfilehash: b7683b6d5932872f8cef2f6db9a1ec7e5e4fa86d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828741"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069175"
 ---
-# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Örnek: Metin analizi kullanarak anahtar ifadeleri ayıklama
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Örnek: Metin Analizi’ni kullanarak anahtar ifadeleri ayıklama
 
 [Anahtar İfade Ayıklama API’si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6), yapılandırılmamış metni değerlendirir ve her bir JSON belgesi için bir anahtar ifade listesi döndürür. 
 
 Bir belge koleksiyonundaki ana noktaları hızlı şekilde belirlemeniz gerekiyorsa bu özellik kullanışlıdır. Örneğin, "The food was delicious and there were wonderful staff" (Yemek lezizdi ve müthiş personel hizmeti vardı) giriş metni olduğunda hizmet, "food" (yemek) ve "wonderful staff" (müthiş personel) ana konuşma noktalarını döndürür.
 
-Şu anda Anahtar İfade Ayıklama, İngilizce, Almanca, İspanyolca ve Japonca dillerini destekler. Diğer diller önizleme aşamasındadır. Daha fazla bilgi için bkz. [Desteklenen diller](../text-analytics-supported-languages.md).
+Bkz: [desteklenen diller](../text-analytics-supported-languages.md) makale daha fazla bilgi için. 
 
 > [!TIP]
 > Metin analizi de sağlar Linux tabanlı bir Docker kapsayıcı görüntüsü anahtar ifade ayıklama için böylece [yükleyin ve metin analizi kapsayıcı çalıştırın](text-analytics-how-to-install-containers.md) verilerinizi yakın.
@@ -67,7 +67,7 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
     }
 ```    
     
-## <a name="step-1-structure-the-request"></a>1. Adım: Yapı isteği
+## <a name="step-1-structure-the-request"></a>1\. adım: Yapı isteği
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
@@ -82,13 +82,13 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
 > [!Tip]
 > İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) **API testi konsolu**’nu açın.
 
-## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
+## <a name="step-2-post-the-request"></a>2\. adım: POST isteği
 
 İstek alındığında analiz gerçekleştirilir. Hizmet dakikada en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
 
 Hizmetin durum bilgisi olmadığını unutmayın. Hesabınızda bir veri depolanmaz. Sonuçlar hemen yanıtta döndürülür.
 
-## <a name="step-3-view-results"></a>3. Adım: Sonuçları görüntüleme
+## <a name="step-3-view-results"></a>3\. adım: Sonuçları görüntüleme
 
 Tüm POST istekleri, kimlikler ve algılanan özelliklerle JSON tarafından biçimlendirilmiş bir yanıt döndürür.
 

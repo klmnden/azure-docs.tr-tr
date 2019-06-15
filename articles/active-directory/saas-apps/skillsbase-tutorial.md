@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 060e071a5c54baa607733cd4fe7342fd981cf827
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a088675bc1610daf275bac77ae222f0e664afd67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257816"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090553"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Öğretici: Azure Active Directory temel beceriler ile tümleştirmesi
 
@@ -54,7 +54,7 @@ Azure AD temel becerileri tümleştirilmesi yapılandırmak için temel becerile
 
 **Galeriden becerileri temel eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

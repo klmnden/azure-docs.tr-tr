@@ -16,10 +16,10 @@ ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539908"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service tanılama genel bakış
@@ -48,7 +48,7 @@ Uygulamanızın sorun en iyi şekilde eşleşen bir giriş sayfası kategori se�
 
 Bu kutucuklar tıklandıktan sonra kutucuğu açıklanan sorunu ilgili konuların listesini görebilirsiniz. Bu konular, kod parçacıkları tam rapordan önemli bilgileri sağlar. Daha fazla sorunları araştırmak için aşağıdaki konulardan birini tıklayabilirsiniz. Ayrıca, tıklayabilirsiniz **tam raporu görüntüle** tek bir sayfada tüm konu başlıklarını keşfedin.
 
-![Konular](./media/app-service-diagnostics/application-logs-insights-3.png)
+![Konu başlıkları](./media/app-service-diagnostics/application-logs-insights-3.png)
 
 ![Tam raporu görüntüle](./media/app-service-diagnostics/view-full-report-4.png)
 

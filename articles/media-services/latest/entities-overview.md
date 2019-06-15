@@ -13,10 +13,10 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60732374"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services varlıkların filtreleme, sıralama, sayfalama
@@ -57,7 +57,7 @@ Aşağıdaki tablo nasıl filtreleme ve sıralama seçenekleri uygulanabilir gö
 |Ad|Filtre|Sipariş verme|
 |---|---|---|
 |id|||
-|ad|eq, gt, lt| Artan veya azalan|
+|name|eq, gt, lt| Artan veya azalan|
 |properties.alternateId |EQ||
 |properties.assetId |EQ||
 |Properties.Container |||
@@ -144,13 +144,13 @@ Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [i�
 |Ad|Filtre|Sipariş verme|
 |---|---|---|
 |id|||
-|ad|Eq, ne, ge, le, gt, lt|Artan veya azalan|
+|name|Eq, ne, ge, le, gt, lt|Artan veya azalan|
 |Properties.Created |Eq, ne, ge, le, gt, lt|Artan veya azalan|
 |Properties.Description |Eq, ne, ge, le, gt, lt||
 |properties.lastModified|Eq, ne, ge, le, gt, lt|Artan veya azalan|
 |Properties.Options |||
 |properties.policyId|Eq, ne||
-|type|||
+|türü|||
 
 ### <a name="pagination"></a>Sayfalandırma
 
@@ -178,7 +178,7 @@ Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [i�
 
 | Ad    | Filtre                        | Sipariş verme |
 |---------|-------------------------------|-------|
-| ad                    | EQ            | Artan veya azalan|
+| name                    | EQ            | Artan veya azalan|
 | Properties.State        | Eq, ne        |                         |
 | Properties.Created      | gt, lt, le ge| Artan veya azalan|
 | properties.lastModified | gt, lt, le ge | Artan veya azalan| 
@@ -226,7 +226,7 @@ Aşağıdaki tabloda bu seçeneklerin StreamingLocator özelliklerine nasıl uyg
 |Ad|Filtre|Sipariş verme|
 |---|---|---|
 |id |||
-|ad|Eq, ne, ge, le, gt, lt|Artan veya azalan|
+|name|Eq, ne, ge, le, gt, lt|Artan veya azalan|
 |properties.alternativeMediaId  |||
 |properties.assetName   |||
 |properties.contentKeys |||
@@ -236,7 +236,7 @@ Aşağıdaki tabloda bu seçeneklerin StreamingLocator özelliklerine nasıl uyg
 |properties.startTime   |||
 |properties.streamingLocatorId  |||
 |properties.streamingPolicyName |||
-|type   |||
+|türü   |||
 
 ### <a name="pagination"></a>Sayfalandırma
 
@@ -265,14 +265,14 @@ Aşağıdaki tabloda bu seçeneklerin StreamingPolicy özelliklerine nasıl uygu
 |Ad|Filtre|Sipariş verme|
 |---|---|---|
 |id|||
-|ad|Eq, ne, ge, le, gt, lt|Artan veya azalan|
+|name|Eq, ne, ge, le, gt, lt|Artan veya azalan|
 |properties.commonEncryptionCbcs|||
 |properties.commonEncryptionCenc|||
 |Properties.Created |Eq, ne, ge, le, gt, lt|Artan veya azalan|
 |properties.defaultContentKeyPolicyName |||
 |properties.envelopeEncryption|||
 |properties.noEncryption|||
-|type|||
+|türü|||
 
 ### <a name="pagination"></a>Sayfalandırma
 
@@ -292,7 +292,7 @@ while (currentPage.NextPageLink != null)
 
 Diğer örnekler için bkz [akış ilkeleri - liste](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 
-## <a name="transform"></a>Dönüşüm
+## <a name="transform"></a>Dönüştürme
 
 ### <a name="filteringordering"></a>Filtreleme ve sıralama
 
@@ -300,7 +300,7 @@ Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [d�
 
 | Ad    | Filtre                        | Sipariş verme |
 |---------|-------------------------------|-------|
-| ad                    | EQ            | Artan veya azalan|
+| name                    | EQ            | Artan veya azalan|
 | Properties.Created      | gt, lt, le ge| Artan veya azalan|
 | properties.lastModified | gt, lt, le ge | Artan veya azalan|
 

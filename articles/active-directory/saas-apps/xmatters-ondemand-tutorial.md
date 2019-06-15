@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 4217f85394d66c3da116cf92767ad1da8ad7e799
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e8ae31122d59238ac104d7d873cf56f32977c9af
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920184"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086512"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Öğretici: OnDemand xMatters ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de xMatters OnDemand tümleştirmesini yapılandırmak için xMatters O
 
 **Galeriden xMatters OnDemand eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

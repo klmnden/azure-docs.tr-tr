@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acbf27ca6f5b58d5c3cebb28698304c130381a7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ad2b3075ae9d5ccd7e32f039fbbbc8583cde73c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414928"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055966"
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Azure multi-Factor Authentication ve üçüncü taraf VPN çözümleriyle Gelişmiş senaryolar
 
 Azure multi-Factor Authentication, çeşitli üçüncü taraf VPN çözümleriyle sorunsuz bir şekilde bağlanmak için kullanılabilir. Bu makalede, Windows® Cisco ASA VPN Gereci, Citrix NetScaler SSL VPN Gereci ve Juniper ağları güvenli erişim/Pulse Secure bağlanmak güvenli SSL VPN Gereci odaklanır. Bu üç yaygın gereçler yönelik olarak yapılandırma kılavuzları oluşturduk. Multi-Factor Authentication sunucusu, ayrıca en RADIUS, LDAP, IIS veya AD FS için talep tabanlı kimlik doğrulaması kullanan diğer sistemler ile tümleştirebilirsiniz. Daha fazla bilgi bulabilirsiniz [MFA sunucusu yapılandırmaları](howto-mfaserver-deploy.md#next-steps).
+
+> [!IMPORTANT]
+> 1 Temmuz 2019'dan itibaren Microsoft artık yeni dağıtımlar için MFA sunucusu sunacaktır. Bulut tabanlı Azure multi-Factor Authentication, kullanıcıların multi-Factor authentication gerektirmesine istediğiniz yeni müşteriler kullanmanız gerekir. MFA sunucusu 1 Temmuz'dan önce etkinleştirmiş olan mevcut müşteriler, Gelecekteki güncelleştirmelerin en son sürümü indirip zamanki etkinleştirme kimlik bilgileri oluştur mümkün olacaktır.
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-multi-factor-authentication"></a>Cisco ASA VPN Gereci ve Azure multi-Factor Authentication
 Cisco AnyConnect® VPN oturum açma bilgileri ve portal erişimi için ek güvenlik sağlamak için Windows® Cisco ASA VPN Gereci ile Azure multi-Factor Authentication'ı tümleştirir.  RADIUS veya LDAP protokolünü kullanabilirsiniz.  Ayrıntılı adım adım yapılandırma Kılavuzları'nı indirmek için aşağıdakilerden birini seçin.

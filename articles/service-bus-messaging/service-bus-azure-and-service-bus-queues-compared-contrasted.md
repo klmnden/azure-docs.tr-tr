@@ -15,16 +15,16 @@ ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: dbbc43bc7a2f42f8a72ce12d84da1ae406a588d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799346"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyrukları - benzerlikler ve karşıtlıklar
 Bu makalede, iki tür kuyruk bugün Microsoft Azure tarafından sunulan arasındaki benzerlikleri ve farkları analiz eder: Depolama kuyrukları ve Service Bus kuyrukları. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
 
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 Azure, sıra mekanizmalar iki türlerini destekler: **Depolama kuyrukları** ve **Service Bus kuyruklarını**.
 
 **Depolama kuyrukları**, parçası olduğu [Azure depolama](https://azure.microsoft.com/services/storage/) altyapısı özelliği içinde ve hizmetler arasında güvenilir ve kalıcı Mesajlaşma sağlayan basit bir GET/PUT/GÖZLEM REST tabanlı arabirim.
@@ -143,7 +143,7 @@ Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları açısından karş
 * Depolama kuyrukları ile iletisinin içeriği XML uyumlu değilse, bu olmalıdır **Base64** kodlanmış. Varsa, **Base64**-iletisine kodlayın, kullanıcı yükü 64 KB yerine en fazla 48 KB olabilir.
 * Service Bus kuyrukları ile depolanan bir kuyruğa her ileti iki bölümden oluşur: bir başlık ve gövde. İletilerin toplam boyutu için hizmet katmanı tarafından desteklenen en büyük ileti boyutunu aşamaz.
 * İstemciler TCP protokolü üzerinden Service BUS ile iletişim kurarken, tek bir Service Bus kuyruğuna eş zamanlı bağlantı sayısı 100'e sınırlıdır. Bu sayı göndericiler ile alıcılar arasında paylaşılır. Bu kotasına ulaşıldığında, ek bağlantı için sonraki istekler reddedilir ve bir özel durum çağıran kod tarafından alınır. REST tabanlı API kullanarak kuyruklarına bağlanan istemcilerde bu sınırı uygulanmaktadır değil.
-* 10. 000'den fazla kuyrukları tek bir Service Bus ad alanında ihtiyacınız varsa Azure Destek ekibine başvurun ve artışı isteyebilir. Service Bus ile 10.000 kuyrukları ötesine genişletmek için de ek ad alanlarını kullanarak oluşturabilirsiniz [Azure portalında][Azure portal].
+* 10\. 000'den fazla kuyrukları tek bir Service Bus ad alanında ihtiyacınız varsa Azure Destek ekibine başvurun ve artışı isteyebilir. Service Bus ile 10.000 kuyrukları ötesine genişletmek için de ek ad alanlarını kullanarak oluşturabilirsiniz [Azure portalında][Azure portal].
 
 ## <a name="management-and-operations"></a>Yönetim ve işlemler
 Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları tarafından sağlanan yönetim özellikleri karşılaştırılır.

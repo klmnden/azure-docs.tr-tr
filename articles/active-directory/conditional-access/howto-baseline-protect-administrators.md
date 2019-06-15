@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1ce48126c3e8867ac7f2696d8cf7db992a9a60a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 4f8b7f281ad5ed8424110696544ffdb49e50ce59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112434"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>Temel ilke: Yöneticiler için MFA gerektirme
 
@@ -26,12 +26,12 @@ Kullanıcılara ayrıcalıklı hesaplara erişim ortamınıza sınırsız erişi
 
 * Genel yönetici
 * SharePoint yöneticisi
-* Exchange yöneticisi
-* Koşullu erişim yöneticisi
+* Exchange Yöneticisi
+* Koşullu Erişim Yöneticisi
 * Güvenlik yöneticisi
 * Yardım Masası Yöneticisi / parola Yöneticisi
 * Faturalama yöneticisi
-* Kullanıcı yöneticisi
+* Kullanıcı Yöneticisi
 
 Yöneticiler ilkesi için gerekli MFA etkinleştirme sırasında yukarıdaki dokuz yönetici rolleri kimlik doğrulayıcı uygulamasını kullanarak MFA'ya kaydetmeniz gerekir. MFA kayıt tamamlandıktan sonra Yöneticiler, oturum açma tek her seferinde MFA gerçekleştirmeniz gerekir.
 

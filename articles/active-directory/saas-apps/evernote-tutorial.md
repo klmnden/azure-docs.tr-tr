@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4185e9f5e1b411f95afacb80499db048769ea27b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60279681"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Öğretici: Evernote ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Evernote tümleştirmesini yapılandırmak için Evernote Galeriden 
 
 **Galeriden Evernote eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde  **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -125,7 +125,7 @@ Azure AD çoklu oturum açma ile Evernote yapılandırmak için aşağıdaki ad�
 
     a. Seçin **oturum SAML yanıtını ve onayını** seçeneğini **imzalama seçeneği**.
 
-    b. **Kaydet**’e tıklayın
+    b. **Kaydet**'e tıklayın.
 
 8. Üzerinde **Evernote kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
@@ -220,11 +220,11 @@ Evernote söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir gör
 
 1. Evernote şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-2. Tıklayın **'Yönetici Konsolu'**.
+2. Tıklayın **'Yönetici Konsolu'** .
 
     ![Yönetici Konsolu](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-3. Gelen **'Yönetici Konsolu'** Git **'kullanıcı ekleme'**.
+3. Gelen **'Yönetici Konsolu'** Git **'kullanıcı ekleme'** .
 
     ![TestUser Ekle](./media/evernote-tutorial/create_aaduser_0001.png)
 

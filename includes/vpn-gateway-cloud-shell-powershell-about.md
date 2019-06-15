@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f6af5e5e42a16548b1997845ea5076ddd4dd3be5
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 01358d13d30358a9950cbe35622df065fc5a6de5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735989"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133514"
 ---
 Bu makalede PowerShell cmdlet'lerini kullanır. Bu cmdlet'leri çalıştırmak için Azure Cloud Shell, Azure'da barındırılan ve tarayıcı üzerinden kullanılan bir etkileşimli Kabuk ortamını kullanabilirsiniz. Azure Cloud Shell, önceden yüklenmiş Azure PowerShell cmdlet'leri ile birlikte gelir.
 
@@ -29,4 +29,4 @@ Azure Cloud Shell ile yeniden başlatabilirsiniz:
 
 **PowerShell'i yerel olarak çalıştırma**
 
-Ayrıca, yükleyin ve Azure PowerShell cmdlet'lerini, bilgisayarınızda yerel olarak çalıştırın. PowerShell cmdlet'leri sık sık güncelleştirilir. En son sürümünü çalıştırmıyorsanız, yönergelerde belirtilen değerler başarısız olabilir. Yerel olarak çalışan PowerShell sürümünü bulmak için kullanın `Get-Module -ListAvailable Az` cmdlet'i. Yüklemek veya güncelleştirmek için bkz: [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps).
+Ayrıca, yükleyin ve Azure PowerShell cmdlet'lerini, bilgisayarınızda yerel olarak çalıştırın. PowerShell cmdlet'leri sık sık güncelleştirilir. En son sürümünü çalıştırmıyorsanız, yönergelerde belirtilen değerler başarısız olabilir. Azure PowerShell, bilgisayarınızda yüklü sürümlerini bulmak için kullanın `Get-Module -ListAvailable Az` cmdlet'i. Yüklemek veya güncelleştirmek için bkz: [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps).

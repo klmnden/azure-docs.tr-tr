@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69dac57118d7876ba08a562f5478b19465b37e07
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 670319eb3fb79742d2946f5fc45ca8904e8c1dd9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441476"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-braze"></a>Öğretici: Braze ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Braze tümleştirmesini yapılandırmak için Braze Galeriden yönet
 
 **Galeriden Braze eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -125,7 +125,7 @@ Azure AD çoklu oturum açma ile Braze yapılandırmak için aşağıdaki adıml
 
     | Ad | Kaynak özniteliği|
     | -----| --------------- |
-    | e-posta | User.userPrincipalName |
+    | email | User.userPrincipalName |
     | first_name| User.givenName|
     | Soyadı| User.surname|
     | oturum açma| User.Mail|

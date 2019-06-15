@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813314"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Batch ile 1000 konuşma LUIS portalında test etme
@@ -32,10 +32,10 @@ Bir toplu iş dosyası olarak bilinen, konuşma, gönderme bir *veri kümesi*, b
 
 |**kuralları**|
 |--|
-|* Hiçbir yinelenen konuşma|
+|\* Hiçbir yinelenen konuşma|
 |Konuşma 1000 veya daha az|
 
-* Çoğaltmaları tam dize eşleşmeleri, ilk simgeleştirilmiş eşleşme olarak kabul edilir. 
+\* Çoğaltmaları tam dize eşleşmeleri, ilk simgeleştirilmiş eşleşme olarak kabul edilir. 
 
 ## <a name="entities-allowed-in-batch-tests"></a>Batch testlerinde izin verilen varlıklar
 
@@ -99,7 +99,7 @@ Varlıkları test etmek istemiyorsanız dahil `entities` özellik ve değer olar
 
 Sık karşılaşılan hatalar şunlardır: 
 
-> * 1. 000'den fazla konuşma
+> * 1\. 000'den fazla konuşma
 > * Bir varlık özelliğine sahip olmayan bir utterance JSON nesnesi. Özelliği, boş bir dizi olabilir.
 > * İçinde birden çok varlık etiketli sözcükler
 > * Başlangıç ve bitiş boşluk varlık etiketi.

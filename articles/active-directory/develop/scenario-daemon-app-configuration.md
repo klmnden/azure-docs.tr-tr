@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8d377db827a6548c380128624c21f4ae7896aff
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075333"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055759"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Arka plan programı uygulama çağrıları web API'leri - kod yapılandırma
 
@@ -39,9 +39,11 @@ Arka plan programı uygulamaları destekleyen Microsoft kitaplıkları şunlard�
 
 ## <a name="configuration-of-the-authority"></a>Yapılandırma yetkilisi
 
-Temsilci izinleri, ancak uygulama izinleri, arka plan programı uygulamalarını kullanma koşuluyla, kendi *hesap türü desteklenen* olamaz *hesaplarında herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları ( Örneğin, Skype, Xbox, Outlook.com)*. Aslında, kişisel Microsoft hesapları için arka plan programı uygulamaya izin vermek için bir kiracı Yöneticisi yok yoktur. Seçmeniz gerekir *hesapları Kuruluşumdaki* veya *hesapları herhangi bir kuruluştaki*.
+Temsilci izinleri, ancak uygulama izinleri, arka plan programı uygulamalarını kullanma koşuluyla, kendi *hesap türü desteklenen* olamaz *hesaplarında herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları ( Örneğin, Skype, Xbox, Outlook.com)* . Aslında, kişisel Microsoft hesapları için arka plan programı uygulamaya izin vermek için bir kiracı Yöneticisi yok yoktur. Seçmeniz gerekir *hesapları Kuruluşumdaki* veya *hesapları herhangi bir kuruluştaki*.
 
-Bu nedenle uygulama yapılandırmasında belirtilen yetkilisi Kiracı ed (Kiracı kimliği veya kuruluşunuz ile ilişkilendirilen bir etki alanı adı belirterek) olmalıdır. Bir ISV ve çok kiracılı bir araç sağlamak istiyorsanız, kullanabileceğiniz `organizations`. Ancak, müşterileriniz için yönetici onayı vermek anlatan gerekecek göz önünde bulundurun. Bkz: [tamamını bir kiracı için onay isteme](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) Ayrıntılar için
+Bu nedenle uygulama yapılandırmasında belirtilen yetkilisi Kiracı ed (Kiracı kimliği veya kuruluşunuz ile ilişkilendirilen bir etki alanı adı belirterek) olmalıdır.
+
+Bir ISV ve çok kiracılı bir araç sağlamak istiyorsanız, kullanabileceğiniz `organizations`. Ancak, müşterileriniz için yönetici onayı vermek anlatan gerekecek göz önünde bulundurun. Bkz: [tamamını bir kiracı için onay isteme](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) Ayrıntılar için. Ayrıca şu anda bir sınırlama yoktur MSAL içinde `organizations` istemci kimlik bilgileri, bir uygulama gizli anahtarı (sertifika değil) olduğunda yalnızca izin verilir. Bkz: [MSAL.NET hata #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
 ## <a name="application-configuration-and-instantiation"></a>Uygulama Yapılandırması ve örnek oluşturma
 

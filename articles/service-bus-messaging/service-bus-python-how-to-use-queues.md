@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 6d95e4a0a7aeedef2fc7e635d2e49ea68c3ba0ca
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992044"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Python ile Service Bus kuyruklarını kullanma
@@ -38,7 +38,7 @@ Bu öğreticide, bir Service Bus kuyruğundaki iletileri alıp ileti göndermek 
         > Oluşturacağınız bir **kuyruk** Bu öğreticide Python kullanarak Service Bus ad alanında. 
 1. Yüklemeniz Python veya [Python Azure Service Bus paket][Python Azure Service Bus package], bakın [Python Yükleme Kılavuzu](../python-how-to-install.md). Service Bus Python SDK'ın tam belgelerine bakın [burada](/python/api/overview/azure/servicebus?view=azure-python).
 
-## <a name="create-a-queue"></a>Kuyruk oluştur
+## <a name="create-a-queue"></a>Bir kuyruk oluşturma
 **ServiceBusClient** nesnesi kuyrukları ile çalışmanıza olanak sağlar. Service Bus programlı olarak erişmek istiyorsanız, herhangi bir Python dosyasının en üstüne yakın aşağıdaki kodu ekleyin:
 
 ```python

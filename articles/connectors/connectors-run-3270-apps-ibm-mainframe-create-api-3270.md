@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538911"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>IBM ana bilgisayarları üzerinde 3270 ekran temelli uygulamalar, Azure Logic Apps ve IBM 3270 bağlayıcısını kullanarak Azure ile tümleştirin
@@ -221,7 +221,7 @@ Ayrıca, bu adımları yineleyin, ancak hata gösteren ekran yakalamak için bu 
 
 * MSG-10
 * CICS Hoş Geldiniz
-* Boş
+* boş
 * WBGB_1 (giriş)
 * WBGB_2 (hata)
 * Empty_1
@@ -355,7 +355,7 @@ Tüm adımları tamamladığınızda, uygulamanız için sürücü ekranlar, IBM
    ![3270 eylemini seçin](./media/connectors-create-api-3270/select-3270-action.png)
 
    Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. 
-   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+   Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
 
 1. Bağlantı henüz yok, bağlantınız için gerekli bilgileri sağlayın ve seçin **Oluştur**.
 
@@ -393,7 +393,7 @@ Tüm adımları tamamladığınızda, uygulamanız için sürücü ekranlar, IBM
 
    **Yöntemi seçin**
 
-   ![Yöntem seçin](./media/connectors-create-api-3270/select-method.png)
+   ![Yöntemini seçin](./media/connectors-create-api-3270/select-method.png)
 
    **Parametreleri seçin**
 

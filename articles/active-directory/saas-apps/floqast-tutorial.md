@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 5b3e839af886dc23bdfb11dacfb1854a2277bf3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b26133c64877bcac07d2e8ba10dbee05d4e36d34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862651"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102271"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Öğretici: FloQast ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de FloQast tümleştirmesini yapılandırmak için FloQast Galeriden y�
 
 **Galeriden FloQast eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -122,7 +122,7 @@ Azure AD çoklu oturum açma ile FloQast yapılandırmak için aşağıdaki adı
     | ------------------- | -------------------- |    
     | FirstName           | User.givenName |
     | LastName            | User.surname |
-    | E-posta               | User.Mail    |
+    | Email               | User.Mail    |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

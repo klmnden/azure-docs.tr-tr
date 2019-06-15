@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af10596fb1ddf4a4f9eba2b8265eb77221a19f4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: e29c58c0e9a31b2eb3e3d7e237a3db8173214faf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353134"
+ms.locfileid: "67110642"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
@@ -49,7 +49,7 @@ Yalnızca aşağıdaki cihazlar altında listelenen **kullanıcı cihazları**:
 
 ### <a name="q-i-see-the-device-record-under-the-user-info-in-the-azure-portal-and-i-see-the-state-as-registered-on-the-device-am-i-set-up-correctly-to-use-conditional-access"></a>S: Azure portalındaki kullanıcı bilgileri altında cihaz kaydı görüyorum. Ve durum kayıtlı bir cihazda bakın. Doğru koşullu erişim kullanmanın ayarladığım?
 
-**C:** Tarafından gösterilen cihaz birleşim durumu **DeviceID**gerekir Azure AD'de durumuyla eşleşen ve koşullu erişim için herhangi bir değerlendirme ölçütleri karşılayan. Daha fazla bilgi için [gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi](../conditional-access/require-managed-devices.md).
+**C:** Tarafından gösterilen cihaz birleşim durumu **DeviceID**gerekir Azure AD'de durumuyla eşleşen ve koşullu erişim için tüm değerlendirme ölçütleri karşılayan. Daha fazla bilgi için [gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi](../conditional-access/require-managed-devices.md).
 
 ---
 
@@ -263,7 +263,7 @@ Hibrit Azure AD'ye katılma Azure AD'ye kayıtlı durumu daha önceliklidir. Bu 
 
 **Notlar:**
 
-- Koşullu erişim ilkenizi dahil kullanıcıların bir [macOS için Office sürümü desteklenen](../conditional-access/technical-reference.md#client-apps-condition) kaynaklara erişmek için. 
+- Koşullu erişim ilkesi gereksiniminizi bulunan kullanıcılar bir [macOS için Office sürümü desteklenen](../conditional-access/technical-reference.md#client-apps-condition) kaynaklara erişmek için. 
 
 - İlk erişim denemede sırasında kullanıcılarınızın şirket Portalı'nı kullanarak cihazını kaydetmesi istenir.
 
