@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113489"
 ---
 # <a name="what-is-password-writeback"></a>Parola geri yazma nedir?
 
@@ -152,7 +152,6 @@ Parolalar, aşağıdaki durumlarda geri yazılır:
    * Tüm yönetici zorla Self Servis parola işlemi, örneğin, parola sona erme değiştirme
    * Bir yönetici Self Servis parola sıfırlama kaynaklanan [parola sıfırlama portalı](https://passwordreset.microsoftonline.com)
    * Tüm son kullanıcı yönetici tarafından başlatılan parola gelen sıfırlama [Azure portalı](https://portal.azure.com)
-   * Tüm son kullanıcı yönetici tarafından başlatılan parola gelen sıfırlama [Microsoft 365 Yönetim Merkezi](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Desteklenmeyen geri yazma işlemleri
 
@@ -162,6 +161,7 @@ Parolalar *değil* aşağıdaki durumlarda hiçbirinde yazılır:
    * PowerShell sürüm 1, sürüm 2 veya Azure AD Graph API'yi kullanarak kendi parolasını sıfırlama herhangi bir son kullanıcı
 * **Desteklenmeyen yönetici işlemleri**
    * PowerShell sürüm 1, sürüm 2 veya Azure AD Graph API'si sıfırlama herhangi bir son kullanıcı yönetici tarafından başlatılan parola
+   * Tüm son kullanıcı yönetici tarafından başlatılan parola gelen sıfırlama [Microsoft 365 Yönetim Merkezi](https://admin.microsoft.com)
 
 > [!WARNING]
 > Onay kutusu "kullanıcı sonraki oturumda parola değiştirmelidir Active Directory Kullanıcıları ve Bilgisayarları veya Active Directory Yönetim Merkezi gibi şirket içi Active Directory Yönetimsel Araçlar'daki değiştirmeli" kullanımı desteklenmiyor. Şirket içi, bir parola değiştirirken bu seçeneği işaretlemeyin.

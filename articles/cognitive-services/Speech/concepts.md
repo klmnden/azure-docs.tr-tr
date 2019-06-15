@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954528"
 ---
 # <a name="basic-concepts"></a>Temel kavramlar
@@ -162,7 +162,7 @@ Döküm yanıtları Dönüştürülen metin gelen istemcilere döndürür. Bir d
 
 | Durum | Açıklama |
 | ------------- | ---------------- |
-| Başarı | Tanıma başarılı oldu ve görüntü metni alanı var. |
+| Başarılı | Tanıma başarılı oldu ve görüntü metni alanı var. |
 | NoMatch | Konuşma Tanıma Ses akışında algılandı, ancak hiçbir hedef dil sözcükleri eşleştirilmiş olan. [NoMatch tanıma Status(#nomatch-recognition-status) daha fazla ayrıntı için bkz.  |
 | InitialSilenceTimeout | Ses akışı başlangıcını yalnızca sessizlik ve konuşma için beklerken zaman aşımına hizmeti yer alan |
 | BabbleTimeout | Ses akışı başlangıcını yalnızca gürültü ve konuşma için beklerken zaman aşımına hizmeti yer alan |
@@ -190,7 +190,7 @@ Microsoft konuşma hizmeti yük biçimleri çeşitli transkripsiyonu yanıtları
 
 İfade sonucu biçimi belirterek denetleyebilirsiniz `format` URL'si sorgu parametresi. Varsayılan olarak, hizmetin döndürdüğü `simple` sonuçları.
 
-| Biçim | Açıklama |
+| Biçimi | Açıklama |
 |-----|-----|
 | `simple` | Tanıma durumu ve görüntüleme formu içinde tanınan metin içeren bir Basitleştirilmiş ifade sonucu. |
 | `detailed` | Tanıma durumu ve en iyi N listesini ifade sonuçlar burada her ifade sonucu tüm dört tanıma formları ve bir güven puanı içerir. |

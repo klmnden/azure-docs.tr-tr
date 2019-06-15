@@ -10,10 +10,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156414"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure Data Lake Analytics'i Azure PowerShell'i kullanarak yönetme
@@ -84,7 +84,7 @@ Login-AzAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential 
 ## <a name="manage-accounts"></a>Hesapları yönetme
 
 
-### <a name="list-accounts"></a>Hesapları listele
+### <a name="list-accounts"></a>Hesapları Listele
 
 ```powershell
 # List Data Lake Analytics accounts within the current subscription.
@@ -242,10 +242,10 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 
 Kullanım `-Result` bitişi işler başarıyla tamamlanıp tamamlanmadığını belirlemek için parametre. Bu değerler içerir:
 
-* İptal edildi
+* İptal Edildi
 * Başarısız
 * None
-* Başarılı Oldu
+* Başarılı oldu
 
 ``` powershell
 # List Successful jobs.

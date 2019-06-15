@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: fa15a91a6b82a8858bf46a08e8a9dbe11a51d8d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899997"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105947"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Öğretici: Brightidea ile Azure Active Directory Tümleştirme
 
@@ -56,7 +56,7 @@ Azure AD'de Brightidea tümleştirmesini yapılandırmak için Brightidea Galeri
 
 **Galeriden Brightidea eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Azure AD çoklu oturum açma ile Brightidea yapılandırmak için aşağıdaki a
 
     a. Tıklayın **meta veri dosyasını karşıya yükleme**.
 
-    ![Meta veri dosyasını yükleyin](common/upload-metadata.png)
+    ![Meta veri dosyasını karşıya yükleyin](common/upload-metadata.png)
 
     b. Tıklayarak **klasör logosu** meta veri dosyası seçin ve **karşıya**.
 

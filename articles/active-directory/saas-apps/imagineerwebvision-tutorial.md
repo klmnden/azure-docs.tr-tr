@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c8bdfb7c9ae921eda2828af2c20136feaa9de6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: fd301abc9beea05df998a7e0e62ed7479c972135
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898059"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Öğretici: Imagineer WebVision ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Imagineer WebVision tümleştirmesini yapılandırmak için Imaginee
 
 **Galeriden Imagineer WebVision eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957324"
 ---
 # <a name="clustering-point-data"></a>Veri noktası kümeleme
@@ -86,7 +86,7 @@ Kümelenmiş bir veri noktasının kümelenmiş veri noktalarını içeren bir k
 
 | Özellik adı | Tür | Açıklama |
 |---------------|------|-------------|
-| küme | boole | Özellik bir kümeyi temsil edip etmediğini belirtir. |
+| Küme | boole | Özellik bir kümeyi temsil edip etmediğini belirtir. |
 | cluster_id | string | Veri kaynağı ile kullanılabilecek kümesi için benzersiz bir kimlik `getClusterExpansionZoom`, `getClusterChildren`, ve `getClusterLeaves` yöntemleri. |
 | point_count | number | Kümeyi içeren nokta sayısı. |
 | point_count_abbreviated | string | Kısaltmasıdır bir dize `point_count` uzun olursa değer. (örneğin, 4 K 4.000 olur) |

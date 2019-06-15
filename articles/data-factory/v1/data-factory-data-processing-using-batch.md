@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204031"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
@@ -184,7 +184,7 @@ Yöntemi anlamanız gereken birkaç önemli bileşenden oluşur:
 
    b. **Dosya** > **Yeni** > **Proje**’yi seçin.
 
-   c. Genişletin **şablonları**seçip **Visual C\#**. Bu kılavuzda, kullandığınız C\#, ancak özel etkinlik geliştirmek için dilediğiniz .NET dilini kullanabilirsiniz.
+   c. Genişletin **şablonları**seçip **Visual C\#** . Bu kılavuzda, kullandığınız C\#, ancak özel etkinlik geliştirmek için dilediğiniz .NET dilini kullanabilirsiniz.
 
    d. Seçin **sınıf kitaplığı** sağ taraftaki proje türleri listesinden.
 
@@ -192,7 +192,7 @@ Yöntemi anlamanız gereken birkaç önemli bileşenden oluşur:
 
    f. Seçin **C:\\ADF** için **konumu**. Klasör Oluştur **ADF** yoksa.
 
-   g. Projeyi oluşturmak için **Tamam**'ı seçin.
+   g. Seçin **Tamam** projeyi oluşturmak için.
 
 1. Seçin **Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**.
 
@@ -525,7 +525,7 @@ Her etkinlik için bir görev oluşturulur. Bu örnekte, işlem hattında yalnı
 
 Aşağıdaki örneklerde, ek ayrıntılar sağlar.
 
-#### <a name="step-1-create-the-data-factory"></a>1. Adım: Veri Fabrikası oluşturma
+#### <a name="step-1-create-the-data-factory"></a>1\. adım: Veri Fabrikası oluşturma
 1. İçin oturum açtıktan sonra [Azure portalında](https://portal.azure.com/), aşağıdaki adımları uygulayın:
 
    a. Seçin **yeni** sol menüsünde.
@@ -548,7 +548,7 @@ Aşağıdaki örneklerde, ek ayrıntılar sağlar.
 
    ![Veri Fabrikası sayfası](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>2. Adım: Bağlı hizmetler oluşturma
+#### <a name="step-2-create-linked-services"></a>2\. adım: Bağlı hizmetler oluşturma
 Bağlı hizmetler veri depolarını veya işlem Hizmetleri data factory'ye. Bu adımda, depolama hesabınızın ve Batch hesabı veri fabrikanıza bağlarsınız.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Azure Depolama bağlı hizmeti oluşturma
@@ -597,7 +597,7 @@ Bu adımda, data factory özel etkinliği çalıştırmak için kullanılan Batc
 
 1. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’ı seçin.
 
-#### <a name="step-3-create-datasets"></a>3. Adım: Veri kümeleri oluşturma
+#### <a name="step-3-create-datasets"></a>3\. adım: Veri kümeleri oluşturma
 Bu adımda, girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
 
 #### <a name="create-the-input-dataset"></a>Girdi veri kümesini oluşturma
@@ -736,7 +736,7 @@ Bu adımda, başka bir veri kümesi türü AzureBlob, çıktı verilerini göste
 
 1. Seçin **Dağıt** oluşturmak ve dağıtmak için araç çubuğunda **OutputDataset**.
 
-#### <a name="step-4-create-and-run-the-pipeline-with-a-custom-activity"></a>4. Adım: Oluşturma ve özel bir etkinlik ile işlem hattı çalıştırma
+#### <a name="step-4-create-and-run-the-pipeline-with-a-custom-activity"></a>4\. Adım: Oluşturma ve özel bir etkinlik ile işlem hattı çalıştırma
 Bu adımda, bir etkinlik, daha önce oluşturduğunuz özel etkinliği ile işlem hattı oluşturun.
 
 > [!IMPORTANT]
@@ -807,7 +807,7 @@ Bu adımda, bir etkinlik, daha önce oluşturduğunuz özel etkinliği ile işle
 
 1. İşlem hattını dağıtmak için komut çubuğundan **Dağıt**’ı seçin.
 
-#### <a name="step-5-test-the-pipeline"></a>5. Adım: İşlem hattını test etme
+#### <a name="step-5-test-the-pipeline"></a>5\. Adım: İşlem hattını test etme
 Bu adımda, işlem hattının giriş klasörler halinde dosyaları bırakarak sınayın. Her giriş klasörü için bir dosya ile işlem hattı test ederek başlayın.
 
 1. Üzerinde **veri fabrikası** seçin Azure portalındaki dikey penceresinde **diyagram**.

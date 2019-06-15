@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 976cf55dd8f1c11d1ea605b25086fa644afec980
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510813"
 ---
 # <a name="integer-claims-transformations"></a>Tamsayı dönüştürmeleri talep
@@ -29,7 +29,7 @@ Long veri türü bir dize veri türüne dönüştürür.
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | Inputclaim | uzun | Bir dizeye dönüştürmek için ClaimType. |
+| Inputclaim | Inputclaim | long | Bir dizeye dönüştürmek için ClaimType. |
 | outputClaim | outputClaim | string | Bu ClaimsTransformation çağrıldıktan sonra üreten ClaimType. |
 
 Bu örnekte, `numericUserId` uzun bir değer türü olan talep dönüştürülen bir `UserId` talep dize ile bir değer türü.

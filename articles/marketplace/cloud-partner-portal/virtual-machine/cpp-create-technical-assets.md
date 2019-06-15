@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
 ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938404"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Bir sanal makine teklifi için teknik varlıkları oluşturma
 
 Bu bölümde, oluşturma ve Azure Market teknik varlıkları bir sanal makine (VM) teklifi için yapılandırma açıklanmaktadır.  Bir VM iki bileşenleri içerir: isteğe bağlı ilişkili veri diskleri ve çözüm sanal sabit disk (VHD).  
 
-- *Sanal sabit diskleri (VHD'ler)*, işletim sistemi ve Azure Marketi'nde teklifinizle dağıtacağınız çözümünüzü içeren. VHD Hazırlama işlemi Linux tabanlı olmasına bağlı olarak farklılık gösterir, Windows tabanlı veya özel tabanlı bir VM.
+- *Sanal sabit diskleri (VHD'ler)* , işletim sistemi ve Azure Marketi'nde teklifinizle dağıtacağınız çözümünüzü içeren. VHD Hazırlama işlemi Linux tabanlı olmasına bağlı olarak farklılık gösterir, Windows tabanlı veya özel tabanlı bir VM.
 - *Veri diskleri* bir sanal makine için ayrılmış, kalıcı depolama temsil eder. Yapmak *değil* VHD çözümü kullanın (örneğin, `C:` sürücü) kalıcı bilgileri depolamak için.
 
 Bir işletim sistemi diski ile sıfır, bir VM görüntüsü içerir veya daha fazla veri diski. Disk başına bir VHD gereklidir. Oluşturulacak bir VHD bile boş veri diskleri gerektirir.
@@ -52,9 +52,9 @@ Ayrıca, aşağıdaki araçları, geliştirme ortamınızı eklemenizi öneririz
 
 -   [Azure Depolama Gezgini](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Dahili Hat: [Azure Resource Manager araçları](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Dahili Hat: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Dahili Hat: [JSON prettify](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+    *   Uzantı: [Azure Resource Manager araçları](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Uzantı: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *   Uzantı: [JSON prettify](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 Ayrıca araçlar da gözden geçirme öneririz [Azure Geliştirici Araçları](https://azure.microsoft.com/tools/) sayfası ve Visual Studio kullanıyorsanız [Visual Studio Market](https://marketplace.visualstudio.com/).
 

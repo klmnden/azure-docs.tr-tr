@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
 ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606748"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights Bağlayıcısı yönetim çözümü (kullanım dışı)
@@ -142,7 +142,7 @@ Perspektif bileşenleri arama sorgusu bağlı olarak güncelleştirilir. Başka 
 
 Application Insights Bağlayıcısı dikey pencereleri seçili Application Insights uygulamayı Özet sağlamak için tasarlanmıştır *Azure portalı kullandığınızda*. Çözüm, sorunu giderme yardımcı olan üst düzey bir izleme platformu olarak kullanabilirsiniz. Olası bir soruna bağlı uygulamalarınızı hiçbirinde gördüğünüzde, ya da ayrıntıya, Log Analytics arama yapabilir veya doğrudan Application Insights uygulama Özet.
 
-Özet için üç noktaya tıklayın (**...** ), her satırın sonunda görünür ve seçin **Application ınsights'ta Aç**.
+Özet için üç noktaya tıklayın ( **...** ), her satırın sonunda görünür ve seçin **Application ınsights'ta Aç**.
 
 >[!NOTE]
 >**Application ınsights'ta Aç** Azure portalında kullanılabilir değil.

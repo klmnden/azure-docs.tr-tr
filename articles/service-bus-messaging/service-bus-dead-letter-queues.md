@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
 ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66003128"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus edilemeyen genel bakış
@@ -45,10 +45,10 @@ Uygulamalar için kendi kodları tanımlayabilirsiniz `DeadLetterReason` özelli
 
 | Koşul | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
-| Her Zaman |HeaderSizeExceeded |Bu akış için boyut kotasını aştı. |
+| Her zaman |HeaderSizeExceeded |Bu akış için boyut kotası aşıldı. |
 | ! TopicDescription.<br />EnableFilteringMessagesBeforePublishing ve SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |özel durum. GetType(). Adı |özel durum. İleti |
-| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |İleti süresi doldu ve kullanılmayan lettered. |
-| SubscriptionDescription.RequiresSession |Oturum kimliği null. |Etkin oturum varlık, bir oturum tanımlayıcısı null bir ileti izin vermez. |
+| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |İletinin süresi doldu ve teslim edilmeyenler sırasına eklendi. |
+| SubscriptionDescription.RequiresSession |Oturum kimliği null. |Oturumun etkin olduğu varlık, oturum tanımlayıcısı null olan bir iletiye izin vermiyor. |
 | ! Sahipsiz Sıra |MaxTransferHopCountExceeded |Null |
 | Kullanılmayan lettering açıkça uygulama |Uygulama tarafından belirtilen |Uygulama tarafından belirtilen |
 

@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: eccc4100c89c971e264b9b915cd17b9f5ce4477b
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617456"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64405885"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Raspberry Pi'yi bağlanmak, Azure IOT Central uygulamasına (Python)
 
@@ -94,7 +94,7 @@ Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspber
 
 Sayısal ayarları
 
-| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
+| Display name | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltaj      | setVoltage | Volt | 0              | 0       | 240     | 0       |
 | Geçerli      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
@@ -102,16 +102,16 @@ Sayısal ayarları
 
 Geçiş ayarları
 
-| Görünen ad | Alan adı | Metni | Metin kapalı | İlk |
+| Display name | Alan adı | Metni | Metin kapalı | İlk |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | AÇIK      | KAPALI      | Kapalı     |
 
 ### <a name="properties"></a>Özellikler
 
-| Type            | Görünen ad | Alan adı | Veri türü |
+| Tür            | Display name | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
 | Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
-| Metin            | Konum     | location   | Yok       |
+| Text            | Location     | location   | Yok       |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

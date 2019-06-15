@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
 ms.openlocfilehash: 506076e2d9b171e1ec1ff604519cbbfbe4339e87
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66733065"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Azure Logic Apps ve Microsoft Flow, iş akışı tanımlama dili için işlev başvurusu
@@ -519,7 +519,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
 | <*Zaman damgası*> | Evet | String | Zaman damgası içeren dize |
-| <*gün*> | Evet | Tamsayı | Eklenecek gün sayısı pozitif veya negatif |
+| <*gün*> | Evet | Integer | Eklenecek gün sayısı pozitif veya negatif |
 | <*Biçim*> | Hayır | String | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 |||||
 
@@ -561,7 +561,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
 | <*Zaman damgası*> | Evet | String | Zaman damgası içeren dize |
-| <*saat*> | Evet | Tamsayı | Eklenecek saat sayısı pozitif veya negatif |
+| <*saat*> | Evet | Integer | Eklenecek saat sayısı pozitif veya negatif |
 | <*Biçim*> | Hayır | String | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 |||||
 
@@ -603,7 +603,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
 | <*Zaman damgası*> | Evet | String | Zaman damgası içeren dize |
-| <*dakika*> | Evet | Tamsayı | Pozitif veya negatif eklenecek dakika sayısı |
+| <*dakika*> | Evet | Integer | Pozitif veya negatif eklenecek dakika sayısı |
 | <*Biçim*> | Hayır | String | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 |||||
 
@@ -676,7 +676,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
 | <*Zaman damgası*> | Evet | String | Zaman damgası içeren dize |
-| <*saniye*> | Evet | Tamsayı | Pozitif veya negatif eklenecek saniye sayısı |
+| <*saniye*> | Evet | Integer | Pozitif veya negatif eklenecek saniye sayısı |
 | <*Biçim*> | Hayır | String | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 |||||
 
@@ -719,7 +719,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
 | <*Zaman damgası*> | Evet | String | Zaman damgası içeren dize |
-| <*aralığı*> | Evet | Tamsayı | Eklenecek belirtilen zaman birimi |
+| <*aralığı*> | Evet | Integer | Eklenecek belirtilen zaman birimi |
 | <*timeUnit*> | Evet | String | İle kullanılacak zaman birimi *aralığı*: "Saniye", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*Biçim*> | Hayır | String | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 |||||
@@ -1425,7 +1425,7 @@ dayOfMonth('<timestamp>')
 
 | Dönüş değeri | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| <*Ayın günü*> | Tamsayı | Belirtilen zaman damgası ayın günü |
+| <*Ayın günü*> | Integer | Belirtilen zaman damgası ayın günü |
 ||||
 
 *Örnek*
@@ -1455,7 +1455,7 @@ dayOfWeek('<timestamp>')
 
 | Dönüş değeri | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| <*Haftanın günü*> | Tamsayı | 1 ve benzeri Pazar 0, Pazartesi olduğu belirtilen zaman damgası öğesinden haftanın günü olduğu |
+| <*Haftanın günü*> | Integer | 1 ve benzeri Pazar 0, Pazartesi olduğu belirtilen zaman damgası öğesinden haftanın günü olduğu |
 ||||
 
 *Örnek*
@@ -1485,7 +1485,7 @@ dayOfYear('<timestamp>')
 
 | Dönüş değeri | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| <*yılın günü*> | Tamsayı | Belirtilen zaman damgası yılın günü |
+| <*yılın günü*> | Integer | Belirtilen zaman damgası yılın günü |
 ||||
 
 *Örnek*
@@ -1616,7 +1616,7 @@ div(<dividend>, <divisor>)
 
 | Dönüş değeri | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| <*sayının sonucu*> | Tamsayı | İlk sayısı ile ikinci sayı bölen gelen tamsayı sonucu |
+| <*sayının sonucu*> | Integer | İlk sayısı ile ikinci sayı bölen gelen tamsayı sonucu |
 ||||
 
 *Örnek*
@@ -1948,7 +1948,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
-| <*aralığı*> | Evet | Tamsayı | Otomatik olarak çıkarmak için belirtilen zaman birimi |
+| <*aralığı*> | Evet | Integer | Otomatik olarak çıkarmak için belirtilen zaman birimi |
 | <*timeUnit*> | Evet | String | İle kullanılacak zaman birimi *aralığı*: "Saniye", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*Biçim*> | Hayır | String | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 |||||
@@ -1992,7 +1992,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
-| <*aralığı*> | Evet | Tamsayı | Otomatik olarak çıkarmak için belirtilen zaman birimi |
+| <*aralığı*> | Evet | Integer | Otomatik olarak çıkarmak için belirtilen zaman birimi |
 | <*timeUnit*> | Evet | String | İle kullanılacak zaman birimi *aralığı*: "Saniye", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*Biçim*> | Hayır | String | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 |||||
@@ -2185,7 +2185,7 @@ indexOf('<text>', '<searchText>')
 
 | Dönüş değeri | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| <*Dizin değeri*>| Tamsayı | Belirtilen alt dizenin başlangıç konumunu veya dizin değeri. <p>Dize bulunamazsa numarası -1 döndürür. |
+| <*Dizin değeri*>| Integer | Belirtilen alt dizenin başlangıç konumunu veya dizin değeri. <p>Dize bulunamazsa numarası -1 döndürür. |
 ||||
 
 *Örnek*
@@ -2215,7 +2215,7 @@ int('<value>')
 
 | Dönüş değeri | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| <*tamsayı sonucu*> | Tamsayı | Belirtilen dize tamsayı sürümü |
+| <*tamsayı sonucu*> | Integer | Belirtilen dize tamsayı sürümü |
 ||||
 
 *Örnek*
@@ -2298,7 +2298,7 @@ iterationIndexes('<loopName>')
 
 | Dönüş değeri | Tür | Açıklama | 
 | ------------ | ---- | ----------- | 
-| <*Dizin*> | Tamsayı | Geçerli yineleme içinde belirtilen dizin değeri Until döngüsü | 
+| <*Dizin*> | Integer | Geçerli yineleme içinde belirtilen dizin değeri Until döngüsü | 
 |||| 
 
 *Örnek* 
@@ -2558,7 +2558,7 @@ lastIndexOf('<text>', '<searchText>')
 
 | Dönüş değeri | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| <*Bitiş dizin değeri*> | Tamsayı | Son oluşum belirtilen alt dizenin başlangıç konumunu veya dizin değeri. <p>Dize bulunamazsa numarası -1 döndürür. |
+| <*Bitiş dizin değeri*> | Integer | Son oluşum belirtilen alt dizenin başlangıç konumunu veya dizin değeri. <p>Dize bulunamazsa numarası -1 döndürür. |
 ||||
 
 *Örnek*
@@ -2589,7 +2589,7 @@ length([<collection>])
 
 | Dönüş değeri | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| <*Uzunluk-veya-count*> | Tamsayı | Koleksiyondaki öğe sayısı |
+| <*Uzunluk-veya-count*> | Integer | Koleksiyondaki öğe sayısı |
 ||||
 
 *Örnek*
@@ -2845,7 +2845,7 @@ multipartBody('<actionName>', <index>)
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Evet | String | Birden çok bölümleriyle çıktısı bir eylemin adı |
-| <*Dizin*> | Evet | Tamsayı | Dizin değeri istediğiniz bölümü |
+| <*Dizin*> | Evet | Integer | Dizin değeri istediğiniz bölümü |
 |||||
 
 | Dönüş değeri | Tür | Açıklama |
@@ -3001,13 +3001,13 @@ rand(<minValue>, <maxValue>)
 
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
-| <*minValue*> | Evet | Tamsayı | Aralıktaki en küçük tamsayı |
-| <*maxValue*> | Evet | Tamsayı | İşlev döndürebilen aralığında en yüksek tamsayı izleyen tamsayı |
+| <*minValue*> | Evet | Integer | Aralıktaki en küçük tamsayı |
+| <*maxValue*> | Evet | Integer | İşlev döndürebilen aralığında en yüksek tamsayı izleyen tamsayı |
 |||||
 
 | Dönüş değeri | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| <*rastgele bir sonuç*> | Tamsayı | Belirtilen aralıktan döndürülen rastgele tamsayı |
+| <*rastgele bir sonuç*> | Integer | Belirtilen aralıktan döndürülen rastgele tamsayı |
 ||||
 
 *Örnek*
@@ -3032,8 +3032,8 @@ range(<startIndex>, <count>)
 
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Evet | Tamsayı | Dizinin ilk öğesi olarak başlayan bir tamsayı değeri |
-| <*Sayısı*> | Evet | Tamsayı | Dizideki tamsayıların sayısı |
+| <*startIndex*> | Evet | Integer | Dizinin ilk öğesi olarak başlayan bir tamsayı değeri |
+| <*Sayısı*> | Evet | Integer | Dizideki tamsayıların sayısı |
 |||||
 
 | Dönüş değeri | Tür | Açıklama |
@@ -3157,7 +3157,7 @@ skip([<collection>], <count>)
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
 | <*Koleksiyon*> | Evet | Dizi | Öğeleri kaldırmak istediğiniz koleksiyonu |
-| <*Sayısı*> | Evet | Tamsayı | Önündeki kaldırılacak öğe sayısı için pozitif bir tamsayı |
+| <*Sayısı*> | Evet | Integer | Önündeki kaldırılacak öğe sayısı için pozitif bir tamsayı |
 |||||
 
 | Dönüş değeri | Tür | Açıklama |
@@ -3427,8 +3427,8 @@ substring('<text>', <startIndex>, <length>)
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
 | <*Metin*> | Evet | String | İstediğiniz karakter dizesi |
-| <*startIndex*> | Evet | Tamsayı | Başlangıç konumu veya dizin değeri olarak kullanmak istediğiniz 0'dan büyük veya eşit pozitif bir sayı |
-| <*Uzunluğu*> | Evet | Tamsayı | İçinde alt dizenin istediğiniz karakter pozitif bir sayı |
+| <*startIndex*> | Evet | Integer | Başlangıç konumu veya dizin değeri olarak kullanmak istediğiniz 0'dan büyük veya eşit pozitif bir sayı |
+| <*Uzunluğu*> | Evet | Integer | İçinde alt dizenin istediğiniz karakter pozitif bir sayı |
 |||||
 
 | Dönüş değeri | Tür | Açıklama |
@@ -3460,7 +3460,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
 | <*Zaman damgası*> | Evet | String | Zaman damgası içeren dize |
-| <*aralığı*> | Evet | Tamsayı | Otomatik olarak çıkarmak için belirtilen zaman birimi |
+| <*aralığı*> | Evet | Integer | Otomatik olarak çıkarmak için belirtilen zaman birimi |
 | <*timeUnit*> | Evet | String | İle kullanılacak zaman birimi *aralığı*: "Saniye", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*Biçim*> | Hayır | String | Ya da bir [tek biçim belirticisi](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim deseni](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Zaman damgası için varsayılan biçimi ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-aa-ddTHH:mm:ss:fffffffK), ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve saat dilimi bilgilerini korur. |
 |||||
@@ -3504,7 +3504,7 @@ take([<collection>], <count>)
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
 | <*Koleksiyon*> | Evet | Dize veya dizi | Kullanmak istediğiniz öğeleri koleksiyonu |
-| <*Sayısı*> | Evet | Tamsayı | Önünden istediğiniz öğeleri sayısı pozitif bir tamsayı |
+| <*Sayısı*> | Evet | Integer | Önünden istediğiniz öğeleri sayısı pozitif bir tamsayı |
 |||||
 
 | Dönüş değeri | Tür | Açıklama |
@@ -3544,7 +3544,7 @@ ticks('<timestamp>')
 
 | Dönüş değeri | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| <*saat döngüsü numarası*> | Tamsayı | Belirtilen zaman damgası beri tıklarının sayısını |
+| <*saat döngüsü numarası*> | Integer | Belirtilen zaman damgası beri tıklarının sayısını |
 ||||
 
 <a name="toLower"></a>
@@ -3719,7 +3719,7 @@ triggerMultipartBody(<index>)
 
 | Parametre | Gerekli | Tür | Açıklama |
 | --------- | -------- | ---- | ----------- |
-| <*Dizin*> | Evet | Tamsayı | Dizin değeri istediğiniz bölümü |
+| <*Dizin*> | Evet | Integer | Dizin değeri istediğiniz bölümü |
 |||||
 
 | Dönüş değeri | Tür | Açıklama |
@@ -4010,7 +4010,7 @@ uriPort('<uri>')
 
 | Dönüş değeri | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| <*bağlantı noktası değeri*> | Tamsayı | `port` Belirtilen URI değeri. Varsa `port` olmayan bir değer belirtin, protokolü için varsayılan bağlantı noktasını döndürür. |
+| <*bağlantı noktası değeri*> | Integer | `port` Belirtilen URI değeri. Varsa `port` olmayan bir değer belirtin, protokolü için varsayılan bağlantı noktasını döndürür. |
 ||||
 
 *Örnek*

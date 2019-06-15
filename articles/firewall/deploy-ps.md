@@ -7,10 +7,10 @@ ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.openlocfilehash: 7c30e0aa0ae9735f5d08e1a2c4d6e6d36d778e27
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410237"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Dağıtma ve Azure Azure PowerShell kullanarak güvenlik duvarı yapılandırma
@@ -54,7 +54,7 @@ Bu yordam, PowerShell'i yerel olarak çalıştırmanızı gerektirir. Azure Powe
 
 İlk olarak güvenlik duvarını dağıtmak için gerekli olan kaynakları içerecek bir kaynak grubu oluşturun. Ardından sanal ağı, alt ağları ve test sunucularını oluşturun.
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Kaynak grubu dağıtımı için tüm kaynakları içerir.
 

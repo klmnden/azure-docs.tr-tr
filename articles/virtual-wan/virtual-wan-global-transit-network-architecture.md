@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
 ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965973"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Ağ mimarisine genel geçiş ve sanal WAN
@@ -38,7 +38,7 @@ Bu modelde, bir bileşen olabilir:
 * Sanal ağ (Vnet)
 * Fiziksel dal site
 * Uzak kullanıcı
-* İnternet
+* Internet
 
 ![Merkez ve uç genel aktarım diyagramı](./media/virtual-wan-global-transit-network-architecture/architecture.png)
 

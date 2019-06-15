@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 05/23/2019
 ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240348"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Sanal çekirdek tabanlı satın alma modeli sınırlarını kullanarak elastik havuzlar için kaynak sınırları
@@ -58,7 +58,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Havuz başına maks. eş zamanlı oturum * |210|420|630|840|1050|1260|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
-|Çoğaltma sayısı|1|1.|1.|1.|1.|1|
+|Çoğaltma sayısı|1|1\.|1\.|1\.|1\.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
@@ -86,7 +86,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |En fazla eşzamanlı oturum açma havuzu (istek) *|1470|1680|1890|2100|3360|5040|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
-|Çoğaltma sayısı|1|1.|1.|1.|1.|1|
+|Çoğaltma sayısı|1|1\.|1\.|1\.|1\.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
@@ -114,7 +114,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |(İstek) havuz başına maks. eş zamanlı oturum *|210|420|630|840|1050|1260|1470|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
-|Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|
+|Çoğaltma sayısı|1|1\.|1\.|1\.|1\.|1\.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
@@ -141,7 +141,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Maks. eş zamanlı çalışan (istek) havuz başına *|1680|1890|2100|2520|33600|4200|8400|
 |(İstek) havuz başına maks. eş zamanlı oturum *|1680|1890|2100|2520|33600|4200|8400|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
-|Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|
+|Çoğaltma sayısı|1|1\.|1\.|1\.|1\.|1\.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|

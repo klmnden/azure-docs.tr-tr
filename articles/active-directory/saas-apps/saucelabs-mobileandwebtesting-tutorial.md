@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 41b35324ccca8cf40edbc53ed25a2d8615a9294e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8933cb90672e49305cd0fb7dc5e4f8f04f94093e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813627"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091553"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Öğretici: Görüntünüzün Labs - mobil ve Web testi ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Görüntünüzün Labs - mobil ve Web testi Azure AD'ye tümleştirmesini yapıl
 
 **Görüntünüzün Labs - mobil ve Web testi galerisinden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

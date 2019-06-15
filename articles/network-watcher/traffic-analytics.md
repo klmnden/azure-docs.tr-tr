@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;kumud
-ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 07bff578b27df13c65eb912a64b6a44b97175d37
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939886"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051674"
 ---
 # <a name="traffic-analytics"></a>Trafik Analizi
 
@@ -42,7 +42,7 @@ Azure sanal ağları hakkında giriş bilgilerini NSG akış günlüklerini sahi
 
 ## <a name="key-components"></a>Başlıca bileşenler
 
-- **Ağ güvenlik grubu (NSG)**: İzin veren veya bir Azure sanal ağa bağlı kaynaklara ağ trafiği reddeden güvenlik kurallarının bir listesini içerir. Ağ güvenlik grupları (NSG’ler), alt ağlarla, ayrı ayrı VM’lerle (klasik) veya VM’lere bağlı ağ arabirimleri ile ilişkilendirilebilir (Resource Manager). Daha fazla bilgi için [ağ güvenlik grubu genel bakış](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Ağ güvenlik grubu (NSG)** : İzin veren veya bir Azure sanal ağa bağlı kaynaklara ağ trafiği reddeden güvenlik kurallarının bir listesini içerir. Ağ güvenlik grupları (NSG’ler), alt ağlarla, ayrı ayrı VM’lerle (klasik) veya VM’lere bağlı ağ arabirimleri ile ilişkilendirilebilir (Resource Manager). Daha fazla bilgi için [ağ güvenlik grubu genel bakış](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Ağ güvenlik grubu (NSG) akış günlüklerini**: Bir ağ güvenlik grubu üzerinden giriş ve çıkış IP trafiğini bilgilerini görüntülemenize olanak sağlar. NSG akış günlükleri json biçiminde yazılır ve akış NIC uygulandığı bir kural başına temelinde giden ve gelen akışlar Göster, 5 demet bilgi (kaynak/hedef IP adresi, kaynak/hedef bağlantı noktası ve protokol) akışla ilgili ve trafiğe izin verildi veya reddedildi. NSG akış günlükleri hakkında daha fazla bilgi için bkz: [NSG akış günlüklerini](network-watcher-nsg-flow-logging-overview.md).
 - **Log Analytics**: İzleme verilerini toplayan ve merkezi bir depoya veri depolayan bir Azure hizmeti. Bu veriler, olaylar, performans verilerini ve Azure API aracılığıyla sağlanan özel veriler içerebilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir. Ağ Performans İzleyicisi'ni ve trafik analizi temel olarak Azure İzleyici günlüklerine kullanılarak oluşturulan gibi uygulamalarını izleme. Daha fazla bilgi için [Azure İzleyicisi](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Log Analytics çalışma alanı**: Azure İzleyici günlüklerine, bir Azure hesabıyla ilişkili verilerin depolandığı bir örneği. Log Analytics çalışma alanları hakkında daha fazla bilgi için bkz. [Log Analytics çalışma alanı oluşturma](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
@@ -87,12 +87,19 @@ Trafik analizi, aşağıdaki desteklenen bölgelerden'nde Nsg'ler için kullanab
 Log Analytics çalışma alanı şu bölgelerde bulunmalıdır:
 * Orta Kanada
 * Batı Orta ABD
-* Batı ABD 2
 * Doğu ABD
+* Doğu ABD 2
+* Orta Güney ABD
+* Batı ABD
+* Batı ABD 2
+* Orta ABD
 * Fransa Orta
+* Kuzey Avrupa
 * Batı Avrupa
 * Birleşik Krallık Güney
+* Avustralya Doğu
 * Avustralya Güneydoğu
+* Doğu Asya
 * Güneydoğu Asya
 * Kore Orta
 * Orta Hindistan

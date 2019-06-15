@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473748"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak bir Linux VM oluşturma
@@ -50,7 +50,7 @@ Aşağıdaki kılavuzda bir UbuntuLTS sanal makinesinin dağıtımı, her adım�
 
 En yaygın işletim sistemi dağıtımlarıyla eşlenmiş Azure CLI'si diğer adlarını kullanmak, dağıtım seçmenin hızlı bir yoludur. Aşağıdaki tabloda diğer adlar listelenmektedir (Azure CLI'sinin 0.10 sürümünden itibaren). `quick-create` kullanan tüm dağıtımlar, daha hızlı sağlama ve daha yüksek performanslı disk erişimi sunan katı hal sürücüsü (SSD) tarafından desteklenen VM'leri varsayılan olarak kullanır. (Bu diğer adlar, Azure'da bulunan dağıtımların çok küçük bir bölümünü temsil eder. [PowerShell’de](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ya da [web üzerinde](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) görüntü arayarak Azure Marketi'nde daha fazla görüntü bulun veya [kendi özel görüntünüzü karşıya yükleyin](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
-| Diğer ad | Yayımcı | Sunduğu | SKU | Version |
+| Alias | Yayımcı | Sunduğu | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7.2 |en son |
 | CoreOS |CoreOS |CoreOS |Dengeli |en son |
@@ -67,7 +67,7 @@ Aşağıdaki bölümlerde, Ubuntu 14.04.4 LTS Server'ı dağıtmak üzere **Imag
 * VM adı
 * konum (`westus` veya `westeurope` iyi varsayılanlardır)
 * linux (Azure'ın hangi işletim sistemini istediğinizi bilmesi için)
-* kullanıcı adı
+* username
 
 Daha fazla istemin gerekli olmaması için aşağıdaki örnekte tüm değerler belirtilmiştir. ssh-rsa biçiminde ortak anahtar dosyası olarak `~/.ssh/id_rsa.pub` dosyanız olduğu sürece bu dosyayı kullanabilirsiniz:
 

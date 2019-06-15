@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: fa53213e577028628d48db91704578e23888f2a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61411767"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>StorSimple sanal dizisi üzerinde güncelleştirme 1.0 yükleyin
@@ -76,7 +76,7 @@ Sanal diziniz güncelleştirme 0.6 çalıştırıyorsa, Microsoft Update Katalo�
    
     ![Katalogda arama](./media/storsimple-virtual-array-install-update-1/download1.png)
 
-4. **İndir**’e tıklayın.
+4. **İndir**'e tıklayın.
 
 5. İki dosyayı bir klasöre indirin. Klasör, CİHAZDAN erişilebilen bir ağ paylaşımına da kopyalayabilirsiniz.
 

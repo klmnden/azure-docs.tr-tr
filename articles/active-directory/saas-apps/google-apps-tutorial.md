@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7462536443b2be23eef0f8b4c6f6b6412fb7032
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8196576c4b419fdfc8f7e3adf5c474ef128ebbf6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898753"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101617"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Öğretici: G Suite ile Azure Active Directory Tümleştirme
 
@@ -50,7 +50,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 - Gerekli olmadıkça, üretim ortamında kullanmayın.
 - Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="frequently-asked-questions"></a>Sık Sorulan Sorular
+## <a name="frequently-asked-questions"></a>Sıkça Sorulan Sorular
 
 1. **S: Bu tümleştirme, Azure AD ile tümleştirme Google Cloud Platform SSO destekliyor mu?**
 
@@ -95,7 +95,7 @@ Azure AD'de G Suite tümleştirmesini yapılandırmak için G Suite Galeriden y�
 
 **G Suite Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -187,7 +187,7 @@ Azure AD çoklu oturum açma G Suite ile yapılandırmak için aşağıdaki adı
 
     | Ad | Kaynak özniteliği |
     | ---------------| --------------- |
-    | Benzersiz Kullanıcı Tanımlayıcısı | User.Mail |
+    | Benzersiz kullanıcı tanımlayıcısı | User.Mail |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

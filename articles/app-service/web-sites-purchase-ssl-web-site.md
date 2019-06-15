@@ -16,10 +16,10 @@ ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955717"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
@@ -50,11 +50,11 @@ Sertifika yapılandırmanıza yardımcı olması için aşağıdaki tabloyu kull
 | Ayar | Açıklama |
 |-|-|
 | Ad | App Service sertifikanız için bir kolay ad. |
-| Çıplak Etki Alanı Ana Bilgisayar Adı | Burada kök etki alanı belirtirseniz, güvenlik altına alan bir sertifika almak *hem* kök etki alanı ve `www` alt etki alanı. İçin güvenli bir alt etki alanı yalnızca belirtin alt etki alanı burada tam etki alanı adını (örneğin, `mysubdomain.contoso.com`). |
+| Ana bilgisayar adı çıplak etki | Burada kök etki alanı belirtirseniz, güvenlik altına alan bir sertifika almak *hem* kök etki alanı ve `www` alt etki alanı. İçin güvenli bir alt etki alanı yalnızca belirtin alt etki alanı burada tam etki alanı adını (örneğin, `mysubdomain.contoso.com`). |
 | Abonelik | Web uygulamasının barındırıldığı veri merkezi. |
 | Kaynak grubu | Sertifikayı içeren kaynak grubu. App Service uygulamanızı, örneğin aynı kaynak grubunu seçin ya da yeni bir kaynak grubunu kullanın. |
 | Sertifika SKU'su | Standart bir sertifika mı yoksa mı oluşturmak için sertifika türünü belirler [joker sertifikası](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Yasal Koşullar | Yasal koşulları kabul onaylamak için tıklayın. Sertifikaları Godaddy'den elde edilir. |
+| Yasal koşullar | Yasal koşulları kabul onaylamak için tıklayın. Sertifikaları Godaddy'den elde edilir. |
 
 ## <a name="store-in-azure-key-vault"></a>Azure Key vault'ta Store
 
@@ -75,11 +75,11 @@ Sertifikayı seçin [App Service sertifikaları](https://portal.azure.com/#blade
 | Location | App Service uygulamanızı aynı konumu seçin. |
 | Fiyatlandırma katmanı | Bilgi için [Azure anahtar kasası fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Erişim ilkeleri| Uygulamalar ve izin verilen erişimi kasa kaynaklara tanımlar. Daha sonra bu adımları uygulayarak yapılandırma [çeşitli uygulamalar bir anahtar kasası erişim](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Sanal Ağ Erişimi | Belirli bir Azure sanal ağları kasa erişimi kısıtlayın. Daha sonra bu adımları uygulayarak yapılandırma [Azure anahtar kasası yapılandırma güvenlik duvarları ve sanal ağlar](../key-vault/key-vault-network-security.md) |
+| Sanal ağ erişimi | Belirli bir Azure sanal ağları kasa erişimi kısıtlayın. Daha sonra bu adımları uygulayarak yapılandırma [Azure anahtar kasası yapılandırma güvenlik duvarları ve sanal ağlar](../key-vault/key-vault-network-security.md) |
 
 Kasayı seçtikten sonra kapatmak **Key Vault deposu** sayfası. **Store** seçeneği başarı için yeşil bir onay işareti göstermelidir. Sayfa bir sonraki adımda açık tutun.
 
-## <a name="verify-domain-ownership"></a>Etki alanı sahipliğini doğrulama
+## <a name="verify-domain-ownership"></a>Etki alanı sahipliğini doğrulayın
 
 Aynı **sertifika Yapılandırması** sayfasında son adımda kullanılan **2. adım: Doğrulama**.
 
@@ -97,9 +97,9 @@ Seçin **App Service doğrulaması**. Web uygulamanız için etki alanı zaten e
 
 ## <a name="bind-certificate-to-app"></a>Sertifika uygulamasına bağlama
 
-İçinde  **[Azure portalında](https://portal.azure.com/)**, soldaki menüden **uygulama hizmetleri** > **\<your_ uygulama >**.
+İçinde  **[Azure portalında](https://portal.azure.com/)** , soldaki menüden **uygulama hizmetleri** >  **\<your_ uygulama >** .
 
-Uygulamanızın sol gezinti bölmesinden seçin **SSL ayarları** > **özel sertifikaları (.pfx)** > **alma App Service sertifikası**.
+Uygulamanızın sol gezinti bölmesinden seçin **SSL ayarları** > **özel sertifikaları (.pfx)**  > **alma App Service sertifikası**.
 
 ![Sertifika İçeri Aktar görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
@@ -113,9 +113,9 @@ Bağlamasında yapılandırmanıza yardımcı olması için aşağıdaki tabloyu
 
 | Ayar | Açıklama |
 |-|-|
-| Konak adı | SSL bağlaması için eklemek için etki alanı adı. |
-| Özel Sertifika Parmak İzi | Bağlama sertifikası. |
-| SSL Türü | <ul><li>**SNI SSL** -birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](https://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).</li><li>**IP tabanlı SSL** - Yalnızca bir adet IP tabanlı SSL bağlaması eklenebilir. Bu seçenek yalnızca bir SSL sertifikası ile ayrılmış bir genel IP adresinin güvenliğini sağlamaya olanak tanır. Bağlama yapılandırdıktan sonra adımları [kayıt yeniden eşlemek için IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| Ana Bilgisayar Adı | SSL bağlaması için eklemek için etki alanı adı. |
+| Özel sertifika parmak izi | Bağlama sertifikası. |
+| SSL türü | <ul><li>**SNI SSL** -birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](https://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).</li><li>**IP tabanlı SSL** - Yalnızca bir adet IP tabanlı SSL bağlaması eklenebilir. Bu seçenek yalnızca bir SSL sertifikası ile ayrılmış bir genel IP adresinin güvenliğini sağlamaya olanak tanır. Bağlama yapılandırdıktan sonra adımları [kayıt yeniden eşlemek için IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## <a name="verify-https-access"></a>HTTPS erişimi doğrulama
 
@@ -136,7 +136,7 @@ Yeniden anahtarlama işlemi tamamlandıktan sonra tıklayın **eşitleme**. Eşi
 > [!NOTE]
 > Yoksa tıklarsanız **eşitleme**, App Service otomatik olarak 48 saat içinde sertifikanıza eşitler.
 
-## <a name="renew-certificate"></a>Sertifikayı yenile
+## <a name="renew-certificate"></a>Sertifikayı Yenile
 
 Sertifikayı, sertifikanın otomatik yenilenmesini üzerinde istediğiniz zaman açmak için seçin [App Service sertifikaları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sayfasında'a tıklayın **otomatik yenileme ayarları** sol gezinti bölmesinde.
 
@@ -153,7 +153,7 @@ Yenileme işlemi tamamlandıktan sonra tıklayın **eşitleme**. Eşitleme işle
 
 ## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 
-### <a name="azure-cli"></a>Azure CLI'si
+### <a name="azure-cli"></a>Azure CLI
 
 [!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 

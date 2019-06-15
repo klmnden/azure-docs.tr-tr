@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b6b28b9f55623fbdff6ab80c889141c8815600f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071524"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Yapılandırma veya bir Azure Batch havuzu düğümlerinde işlem uzak erişimi devre dışı bırak
 
@@ -27,7 +27,7 @@ Bir veya daha fazla uç nokta yapılandırması oluşur [ağ adresi çevirisi (N
 Bir veya daha fazla her NAT havuzu yapılandırması içeren [ağ güvenlik grubu (NSG) kuralları](/rest/api/batchservice/pool/add#networksecuritygrouprule). Her bir NSG kuralı izin verir veya belirli ağ trafiği uç noktasına reddeder. Veya tüm trafiği, tarafından tanımlanan trafiği reddetmek seçebileceğiniz bir [hizmet etiketi](../virtual-network/security-overview.md#service-tags) (örneğin, "Internet") veya belirli IP adresleri veya alt ağlara gelen trafiği.
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
-* Havuz uç nokta yapılandırması havuzun parçası olan [ağ yapılandırması](/rest/api/batchservice/pool/add#NetworkConfiguration). Ağ Yapılandırması isteğe bağlı olarak havuza eklemenizi ayarları içerebilir bir [Azure sanal ağı](batch-virtual-network.md). Bir sanal ağ içinde havuz ayarlarsanız, bir sanal ağ adresi ayarlarını kullanmaya NSG kuralları oluşturabilirsiniz.
+* Havuz uç nokta yapılandırması havuzun parçası olan [ağ yapılandırması](/rest/api/batchservice/pool/add#networkconfiguration). Ağ Yapılandırması isteğe bağlı olarak havuza eklemenizi ayarları içerebilir bir [Azure sanal ağı](batch-virtual-network.md). Bir sanal ağ içinde havuz ayarlarsanız, bir sanal ağ adresi ayarlarını kullanmaya NSG kuralları oluşturabilirsiniz.
 * Bir NAT havuzu yapılandırdığınız sırada birden fazla NSG kuralları yapılandırabilirsiniz. Kurallar öncelik sırasına göre denetlenir. Bir kural uygulandığı zaman eşleştirme için başka hiçbir kural test edilmez.
 
 

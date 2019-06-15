@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129741"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure İzleyici otomatik ölçeklendirme ortak ölçümleri
@@ -53,33 +53,33 @@ Aşağıdaki ölçümler için bir uyarı oluşturabilirsiniz:
 
 | Ölçüm Adı | Birim |
 | --- | --- |
-| \Processor(_Total)\% Processor Time |Percent |
-| \Processor(_Total)\% ayrıcalıklı zaman |Percent |
-| \Processor(_Total)\% kullanıcı zamanı |Percent |
+| \Processor(_Total)\% Processor Time |Yüzde |
+| \Processor(_Total)\% ayrıcalıklı zaman |Yüzde |
+| \Processor(_Total)\% kullanıcı zamanı |Yüzde |
 | \Processor bilgi (_Total) \Processor sıklığı |Count |
-| \System\Processes |Count |
-| \Process (_Total) \Thread sayısı |Count |
+| \System\Processes |Sayı |
+| \Process (_Total) \Thread sayısı |Sayı |
 | \Process (_Total) \Handle sayısı |Count |
-| \Memory\% Kaydedilmiş Bayt yüzdesi |Percent |
+| \Memory\% Kaydedilmiş Bayt yüzdesi |Yüzde |
 | \Memory\Available Bytes |Bayt |
 | \Memory\Committed bayt |Bayt |
 | \Memory\Commit sınırı |Bayt |
 | \Memory\Pool disk belleğine alınan bayt |Bayt |
 | \Memory\Pool olmayan havuz bayt sayısı |Bayt |
-| \PhysicalDisk(_Total)\% disk zamanı |Percent |
-| \PhysicalDisk(_Total)\% disk okuma süresi |Percent |
-| \PhysicalDisk(_Total)\% disk yazma saati |Percent |
+| \PhysicalDisk(_Total)\% disk zamanı |Yüzde |
+| \PhysicalDisk(_Total)\% disk okuma süresi |Yüzde |
+| \PhysicalDisk(_Total)\% disk yazma saati |Yüzde |
 | \PhysicalDisk (_Total) \Disk aktarımı/sn |CountPerSecond |
 | \PhysicalDisk (_Total) \Disk Okuma/sn |CountPerSecond |
 | \PhysicalDisk (_Total) \Disk Yazma/sn |CountPerSecond |
 | \PhysicalDisk (_Total) \Disk bayt/sn |BytesPerSecond |
 | \PhysicalDisk (_Total) \Disk Okuma Bayt/sn |BytesPerSecond |
 | \PhysicalDisk (_Total) \Disk Yazma Bayt/sn |BytesPerSecond |
-| \Avg \PhysicalDisk (_Total). Disk Kuyruğu Uzunluğu |Count |
+| \Avg \PhysicalDisk (_Total). Disk kuyruğu uzunluğu |Count |
 | \Avg \PhysicalDisk (_Total). Disk okuma kuyruğu uzunluğu |Count |
-| \Avg \PhysicalDisk (_Total). Disk yazma kuyruğu uzunluğu |Count |
-| \LogicalDisk(_Total)\% boş alanı |Percent |
-| \LogicalDisk (_Total) \Free megabayt sayısı |Count |
+| \Avg \PhysicalDisk (_Total). Disk yazma kuyruğu uzunluğu |Sayı |
+| \LogicalDisk(_Total)\% boş alanı |Yüzde |
+| \LogicalDisk (_Total) \Free megabayt sayısı |Sayı |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Konuk işletim sistemi ölçümleri Linux Vm'leri
 Azure'da bir VM oluşturduğunuzda, tanılama tanılama uzantısını kullanarak varsayılan olarak etkindir.
@@ -95,25 +95,25 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | Ölçüm Adı | Birim |
 | --- | --- |
 | \Memory\AvailableMemory |Bayt |
-| \Memory\PercentAvailableMemory |Percent |
+| \Memory\PercentAvailableMemory |Yüzde |
 | \Memory\UsedMemory |Bayt |
-| \Memory\PercentUsedMemory |Percent |
-| \Memory\PercentUsedByCache |Percent |
+| \Memory\PercentUsedMemory |Yüzde |
+| \Memory\PercentUsedByCache |Yüzde |
 | \Memory\PagesPerSec |CountPerSecond |
 | \Memory\PagesReadPerSec |CountPerSecond |
 | \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |Bayt |
-| \Memory\PercentAvailableSwap |Percent |
+| \Memory\PercentAvailableSwap |Yüzde |
 | \Memory\UsedSwap |Bayt |
-| \Memory\PercentUsedSwap |Percent |
-| \Processor\PercentIdleTime |Percent |
-| \Processor\PercentUserTime |Percent |
-| \Processor\PercentNiceTime |Percent |
-| \Processor\PercentPrivilegedTime |Percent |
-| \Processor\PercentInterruptTime |Percent |
-| \Processor\PercentDPCTime |Percent |
-| \Processor\PercentProcessorTime |Percent |
-| \Processor\PercentIOWaitTime |Percent |
+| \Memory\PercentUsedSwap |Yüzde |
+| \Processor\PercentIdleTime |Yüzde |
+| \Processor\PercentUserTime |Yüzde |
+| \Processor\PercentNiceTime |Yüzde |
+| \Processor\PercentPrivilegedTime |Yüzde |
+| \Processor\PercentInterruptTime |Yüzde |
+| \Processor\PercentDPCTime |Yüzde |
+| \Processor\PercentProcessorTime |Yüzde |
+| \Processor\PercentIOWaitTime |Yüzde |
 | \PhysicalDisk\BytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
@@ -123,15 +123,15 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk\AverageReadTime |Saniye |
 | \PhysicalDisk\AverageWriteTime |Saniye |
 | \PhysicalDisk\AverageTransferTime |Saniye |
-| \PhysicalDisk\AverageDiskQueueLength |Count |
+| \PhysicalDisk\AverageDiskQueueLength |Sayı |
 | \NetworkInterface\BytesTransmitted |Bayt |
 | \NetworkInterface\BytesReceived |Bayt |
-| \NetworkInterface\PacketsTransmitted |Count |
+| \NetworkInterface\PacketsTransmitted |Sayı |
 | \NetworkInterface\PacketsReceived |Count |
 | \NetworkInterface\BytesTotal |Bayt |
 | \NetworkInterface\TotalRxErrors |Count |
-| \NetworkInterface\TotalTxErrors |Count |
-| \NetworkInterface\TotalCollisions |Count |
+| \NetworkInterface\TotalTxErrors |Sayı |
+| \NetworkInterface\TotalCollisions |Sayı |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Yaygın olarak kullanılan Web (sunucu grubu) ölçümleri
 Ayrıca, Http kuyruk uzunluğu gibi yaygın web sunucusu ölçümleri temel alan otomatik ölçeklendirme gerçekleştirebilir. Ölçüm adı olan **HttpQueueLength**.  Aşağıdaki bölümde, kullanılabilir bir sunucu grubu (Web uygulamaları) ölçümlerini listelenmektedir.
@@ -147,8 +147,8 @@ Uyarı veya ölçeklendirme bu ölçümlere göre.
 
 | Ölçüm Adı | Birim |
 | --- | --- |
-| CpuPercentage |Percent |
-| MemoryPercentage |Percent |
+| CpuPercentage |Yüzde |
+| MemoryPercentage |Yüzde |
 | DiskQueueLength |Count |
 | HttpQueueLength |Count |
 | BytesReceived |Bayt |
@@ -190,3 +190,4 @@ VM ölçek kümeleri için kullanmak üzere Resource Manager şablonu otomatik �
 > Service Bus için kaynak grubu kavramını yok ancak Azure Resource Manager bölge başına varsayılan kaynak grubu oluşturur. Kaynak grubu genellikle 'Default - ServiceBus-[Bölge]' biçimindedir. Örneğin, 'Varsayılan-ServiceBus-EastUS', 'Varsayılan-ServiceBus-WestUS', 'Varsayılan-ServiceBus-AustraliaEast' vb.
 >
 >
+

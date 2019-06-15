@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4b4f1563aa0437cd45c297b95a83119318a24624
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307030"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109584"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD kimlik yönetimi nedir?
 
@@ -68,7 +68,7 @@ Tarihsel olarak, ayrıcalıklı erişimin diğer satıcılar tarafından ayrı b
 
 ![Ayrıcalıklı erişim yaşam döngüsü](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-Azure AD Privileged Identity Management (PIM) uyarlanmış ek denetimler sağlar erişiminin güvenliğini sağlama kaynaklar için Azure ve diğer Microsoft Çevrimiçi Hizmetler Azure AD genelinde hakları.  Tam zamanında erişim ve uyarı verme özellikleri ek olarak, çok faktörlü kimlik doğrulaması ve koşullu erişim, Azure AD PIM tarafından sağlanan rol değişikliği kapsamlı bir yardımcı olmak için idare güvenli şirketinizin kaynaklarına (dizin, dizi denetimi sağlar. Office 365 ve Azure kaynağı rolleri). Formlarla diğer erişim gibi kuruluşların erişim gözden geçirmeleri tüm kullanıcılar için yinelenen erişim yeniden sertifikalandırılmasını yönetici rolleri yapılandırmak için kullanabilirsiniz.
+Azure AD Privileged Identity Management (PIM) uyarlanmış ek denetimler sağlar erişiminin güvenliğini sağlama kaynaklar için Azure ve diğer Microsoft Çevrimiçi Hizmetler Azure AD genelinde hakları.  Tam zamanında erişim ve rol uyarı çok faktörlü kimlik doğrulama ve koşullu erişim yanı sıra Azure AD PIM tarafından sağlanan özellikleri değiştirmek, kapsamlı bir yardımcı olmak için idare güvenli şirketinizin kaynaklarına (dizin, dizi denetimi sağlayın Office 365 ve Azure kaynağı rolleri). Formlarla diğer erişim gibi kuruluşların erişim gözden geçirmeleri tüm kullanıcılar için yinelenen erişim yeniden sertifikalandırılmasını yönetici rolleri yapılandırmak için kullanabilirsiniz.
 
 ## <a name="getting-started"></a>Başlarken
 

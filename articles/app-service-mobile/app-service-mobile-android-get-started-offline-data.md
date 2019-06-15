@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: a20c79acce8c9dc9051651a0473fd07b8e62f5de
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126911"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Android mobil uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
@@ -74,7 +74,7 @@ Gönderme ve çekme cihaz ve Azure Mobile Services arasındaki değişiklikleri 
             return runAsyncTask(task);
         }
 
-## <a name="test-the-app"></a>Uygulamayı test edin
+## <a name="test-the-app"></a>Uygulamayı test etme
 Bu bölümde, Wi-Fi ile davranışı üzerinde test ve bir çevrimdışı senaryoda oluşturmak için Wi-Fi ' ı açın.
 
 Veri öğeleri eklediğinizde, bunlar yerel bir SQLite deposunda tutulan, ancak tuşuna kadar mobil hizmete eşitlenmedi **Yenile** düğmesi. Diğer uygulamalara veri eşitlenmesi gerektiğinde ilgili farklı gereksinimleri olabilir, ancak tanıtım amacıyla bu öğreticide, onu açıkça talep kullanıcının.

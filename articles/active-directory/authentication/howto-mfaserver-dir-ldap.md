@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 093849e10e9776327a54ea3a9ae22b863a528d37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 214462977c160685a943cb64c517da37d96d8e47
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415914"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057354"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP kimlik doğrulaması ve Azure multi-Factor Authentication sunucusu
 
 Varsayılan olarak, Azure Multi-Factor Authentication Sunucusu kullanıcıları Active Directory'den aktarmak ya da eşitlemek üzere yapılandırılmıştır. Ancak, ADAM dizini veya belirli Active Directory etki alanı denetleyicisi gibi farklı LDAP dizinlerini bağlamak için yapılandırılabilir. LDAP aracılığıyla bir dizine bağlı olduğunda, Azure multi-Factor Authentication sunucusu kimlik doğrulaması gerçekleştirmek için bir LDAP proxy olarak görev yapabilir. Ayrıca, IIS Kimlik Doğrulaması ile ön kimlik doğrulaması için ya da Azure MFA kullanıcı portalında birincil kimlik doğrulaması için LDAP bağlamanın RADIUS hedefi olarak kullanılmasına izin verir.
 
 Azure multi-Factor Authentication'ı LDAP proxy olarak kullanmak için Azure multi-Factor Authentication sunucusu LDAP istemcisi (örneğin, VPN Gereci, uygulaması) ile LDAP dizin sunucusu arasında ekleyin. Azure Multi-Factor Authentication doğrulama sunucusunun istemci sunucular ve LDAP dizini ile iletişim kurmak için yapılandırılmış olması gerekir. Bu yapılandırmada, Azure Multi-Factor Authentication Sunucusu istemci sunucularından uygulamalarından gelen LDAP isteklerini kabul eder ve bunları birincil kimlik bilgilerini doğrulamak amacıyla hedef LDAP dizini sunucusuna iletir. Birincil kimlik bilgilerini LDAP diziniyle doğrulama, Azure multi-Factor Authentication ikinci bir kimlik doğrulaması gerçekleştirir ve LDAP istemcisine geri yanıt gönderir. Kimlik doğrulama sürecinin tamamının başarılı olması için hem LDAP sunucusu kimlik doğrulamasının hem de ikinci adım kimlik doğrulama işleminin başarılı olması gerekir.
+
+> [!IMPORTANT]
+> 1 Temmuz 2019'dan itibaren Microsoft artık yeni dağıtımlar için MFA sunucusu sunacaktır. Bulut tabanlı Azure multi-Factor Authentication, kullanıcıların multi-Factor authentication gerektirmesine istediğiniz yeni müşteriler kullanmanız gerekir. MFA sunucusu 1 Temmuz'dan önce etkinleştirmiş olan mevcut müşteriler, Gelecekteki güncelleştirmelerin en son sürümü indirip zamanki etkinleştirme kimlik bilgileri oluştur mümkün olacaktır.
 
 ## <a name="configure-ldap-authentication"></a>LDAP kimlik doğrulamasını yapılandırma
 
@@ -37,7 +40,7 @@ LDAP kimlik doğrulamasını yapılandırmak için, bir Windows sunucusuna Azure
 
 3. Azure Multi-Factor Authentication LDAP hizmetinin LDAP isteklerini dinlemek için standart olmayan bağlantı noktalarına bağlanması gerekliyse, İstemciler sekmesinde TCP bağlantı noktasını ve SSL bağlantı noktasını değiştirin.
 4. Azure multi-Factor Authentication Sunucusu'na istemciden gelen LDAPS kullanmayı planlıyorsanız, MFA sunucusu ile aynı sunucuda bir SSL sertifikası yüklenmelidir. Tıklayın **Gözat** kutusunun yanında bir SSL sertifikasını ve güvenli bağlantı için kullanılacak sertifikayı seçin.
-5. **Ekle**'ye tıklayın.
+5. **Ekle**'yi tıklatın.
 6. LDAP istemcisi Ekle iletişim kutusuna, sunucu ve bir uygulama adı (isteğe bağlı) gereç, sunucu ya da yapan uygulamanın IP adresini girin. Uygulama adı Azure Multi-Factor Authentication raporlarında görünür ve SMS veya Mobil Uygulama kimlik doğrulama iletilerinde görüntülenebilir.
 7. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve iki aşamalı doğrulamaya tabi olacaksa **Azure Multi-Factor Authentication kullanıcılarının eşleşmesini gerektir** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu'ya henüz aktarılmadı ve/veya iki aşamalı doğrulamadan muaf tutulacak kutusunu işaretli bırakın. MFA sunucusu Yardım dosyasında bu özellik hakkında daha fazla bilgi için bkz.
 

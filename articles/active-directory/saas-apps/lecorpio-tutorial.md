@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0dec40027441432845d44828eb61e6b9e0ff081
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bd351191e780118fbce81cd804204bc4dfa00285
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897751"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098416"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Öğretici: Lecorpio ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Lecorpio tümleştirmesini yapılandırmak için Lecorpio Galeriden 
 
 **Galeriden Lecorpio eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -12,12 +12,12 @@ ms.date: 05/09/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2ecc458183006872d5a4c6712cdf00a97993dbc
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 780dedd52e492aceaab1aa00eedb631d0814ebf3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825549"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108371"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Azure Active Directory Uygulama proxy'si aracılığıyla şirket içi uygulamalara uzaktan erişim 
 
@@ -27,11 +27,11 @@ Azure AD uygulama ara sunucusu aşağıdaki gibidir:
 
 - **Kullanımı kolaydır**. Kullanıcılar, şirket içi uygulamalarınızı, O365 ve Azure AD ile tümleştirilmiş diğer SaaS uygulamalarına eriştikleri aynı şekilde erişebilir. Değiştirmeniz veya uygulamalarınızı uygulaması Ara sunucusu ile çalışacak şekilde güncelleştirmeniz gerekmez. 
 
-- **Güvenli**. Şirket içi uygulamaları, Azure'nın yetkilendirme denetimlerinden ve güvenlik analizinden kullanabilir. Örneğin, şirket içi uygulamalara koşullu erişim ve iki aşamalı doğrulama kullanabilirsiniz. Uygulama Ara sunucusu, güvenlik duvarı üzerinden gelen bağlantı açmanız gerekmez.
+- **Güvenli**. Şirket içi uygulamaları, Azure'nın yetkilendirme denetimlerinden ve güvenlik analizinden kullanabilir. Örneğin, şirket uygulamaları, koşullu erişim ve iki aşamalı doğrulama kullanabilir içinde. Uygulama Ara sunucusu, güvenlik duvarı üzerinden gelen bağlantı açmanız gerekmez.
  
 - **Uygun maliyetli**. Şirket içi çözümlerde genellikle ayarlayıp (DMZ'ler) arındırılmış bölge, kenar sunucu veya diğer karmaşık altyapı kurmanız gerekir. Uygulama proxy'si, kullanımı kolay hale getiren bulutta çalışır. Uygulama proxy'si kullanmak için ağ altyapısını değiştirmek veya ek cihazları, şirket içi ortamınızda yüklemek gerekmez.
 
-## <a name="what-is-application-proxy"></a>Uygulama Ara sunucusu nedir?
+## <a name="what-is-application-proxy"></a>Uygulama Ara Sunucusu nedir?
 Uygulama proxy'si, kullanıcıların şirket içi web uygulamalarına uzak istemciden erişmesine olanak sağlayan Azure ad için kullanılan bir özelliktir. Uygulama proxy'si, bulutta çalışan uygulama proxy'si hizmeti hem bir şirket içi sunucu üzerinde çalışan uygulama Proxy Bağlayıcısı içerir. Azure AD uygulama proxy'si hizmeti ve birlikte güvenli bir şekilde oturum açma kullanıcı belirteci Azure AD'den web uygulamasına geçirmek için uygulama ara sunucusu Bağlayıcısı iş.
 
 Uygulama proxy'si ile çalışır:

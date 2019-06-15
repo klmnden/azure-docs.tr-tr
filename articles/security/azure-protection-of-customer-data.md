@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603139"
 ---
 # <a name="azure-customer-data-protection"></a>Azure müşteri verilerini koruma   
@@ -55,9 +55,9 @@ Veri yedekleme için seçilen bir coğrafi alanda çoğaltılabilir ancak dış�
 
 Depolama hesabınızı oluşturduğunuzda şu çoğaltma seçeneklerinden birini seçin:
 
-- **Yerel olarak yedekli depolama (LRS)**: Yerel olarak yedekli depolama verilerinizin üç kopyasını tutar. LRS, tek bir bölgedeki tek bir tesis içinde üç kez çoğaltılır. LRS, tek bir tesis bir hata değil, ancak normal donanım arızalarına karşı verilerinizi korur.
-- **Bölgesel olarak yedekli depolama (ZRS)**: Bölgesel olarak yedekli depolama verilerinizin üç kopyasını tutar. ZRS, lrs'ye daha yüksek bir dayanıklılık düzeyi sunabilmek için üç tesis üzerinde üç kez çoğaltılır. Çoğaltma, tek bir bölgede veya iki bölge arasında oluşur. ZRS, verilerinizi tek bir bölge içinde dayanıklı olmasına yardımcı olur.
-- **Coğrafi olarak yedekli depolama (GRS)**: Coğrafi olarak yedekli depolama, depolama hesabınızı oluşturduğunuzda hesabınız için varsayılan olarak etkinleştirilir. GRS verilerinizin altı kopyasını tutar. GRS ile verileriniz birincil bölge içinde üç kez çoğaltılır. Verilerinizi ayrıca ikincil bir bölgede yüzlerce mil uzaktaki en yüksek dayanıklılık düzeyini sağlar. birincil bölgede üç kez çoğaltılır. Birincil bölgede bir arıza olması durumunda Azure Storage ikincil bölgeye devreder. GRS verilerinizin iki ayrı bölge içinde dayanıklı olmasını sağlar.
+- **Yerel olarak yedekli depolama (LRS)** : Yerel olarak yedekli depolama verilerinizin üç kopyasını tutar. LRS, tek bir bölgedeki tek bir tesis içinde üç kez çoğaltılır. LRS, tek bir tesis bir hata değil, ancak normal donanım arızalarına karşı verilerinizi korur.
+- **Bölgesel olarak yedekli depolama (ZRS)** : Bölgesel olarak yedekli depolama verilerinizin üç kopyasını tutar. ZRS, lrs'ye daha yüksek bir dayanıklılık düzeyi sunabilmek için üç tesis üzerinde üç kez çoğaltılır. Çoğaltma, tek bir bölgede veya iki bölge arasında oluşur. ZRS, verilerinizi tek bir bölge içinde dayanıklı olmasına yardımcı olur.
+- **Coğrafi olarak yedekli depolama (GRS)** : Coğrafi olarak yedekli depolama, depolama hesabınızı oluşturduğunuzda hesabınız için varsayılan olarak etkinleştirilir. GRS verilerinizin altı kopyasını tutar. GRS ile verileriniz birincil bölge içinde üç kez çoğaltılır. Verilerinizi ayrıca ikincil bir bölgede yüzlerce mil uzaktaki en yüksek dayanıklılık düzeyini sağlar. birincil bölgede üç kez çoğaltılır. Birincil bölgede bir arıza olması durumunda Azure Storage ikincil bölgeye devreder. GRS verilerinizin iki ayrı bölge içinde dayanıklı olmasını sağlar.
 
 **Veri yok etme**: Microsoft, müşterilerin verileri silmek ya da Azure bırakın fiziksel yok etme yetkisi alınan donanımın yanı sıra kendi yeniden önce depolama kaynaklarını üzerine yazmak için katı standartlar izler. Microsoft, müşteri talebindeki ve sözleşmeyi sonlandırma verilerin tam bir silme işlemi yürütür.
 

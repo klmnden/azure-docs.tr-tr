@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878843"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 için Azure depolama Bloblarından veri kopyalama
@@ -54,7 +54,7 @@ Söz dizimi parametrelerinde aşağıda açıklanmıştır:
 
 | Seçenek | Açıklama |
 | --- | --- |
-| Kaynak |Azure depolama blobunda kaynak verilerin konumu belirtir. Kaynak, bir blob kapsayıcı, blob veya başka bir Data Lake depolama Gen1 hesabı olabilir. |
+| source |Azure depolama blobunda kaynak verilerin konumu belirtir. Kaynak, bir blob kapsayıcı, blob veya başka bir Data Lake depolama Gen1 hesabı olabilir. |
 | Hedef |Kopyalamak için Data Lake depolama Gen1 hedef belirtir. |
 | SourceKey |Azure depolama blob kaynağı için depolama erişim anahtarını belirtir. Bu, yalnızca kaynak blob bir kapsayıcı veya blob ise gereklidir. |
 | Hesap |**İsteğe bağlı**. Kopyalama işini çalıştırmak için Azure Data Lake Analytics hesabı kullanmak istiyorsanız bunu kullanın. / Account seçeneği sözdiziminde kullanın, ancak bir Data Lake Analytics hesabı belirtmeyin AdlCopy işi çalıştırmak için bir varsayılan hesabı kullanır. Bu seçeneği kullanırsanız, ayrıca, kaynak (Azure Blob Depolama) hem de hedef (Azure Data Lake depolama Gen1) veri kaynakları olarak Data Lake Analytics hesabınız için eklemeniz gerekir. |

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878752"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 için tanılama günlüklerine erişme
@@ -129,7 +129,7 @@ JSON biçimli istek günlüğünde örnek giriş aşağıdadır. Her blob olarak
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
 | HttpMethod |String |HTTP yöntemi, bir işlem için kullanılmaz. Örneğin, alın. |
-| Yol |String |İşlem yolu üzerinde gerçekleştirildi |
+| `Path` |String |İşlem yolu üzerinde gerçekleştirildi |
 | RequestContentLength |int |HTTP isteğinin içerik uzunluğu |
 | Clientrequestıd'ye |String |Bu istek benzersiz olarak tanımlayan kimliği |
 | StartTime |String |Sunucu isteği aldığınız zaman |

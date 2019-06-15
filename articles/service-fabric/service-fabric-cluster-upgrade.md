@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
 ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472775"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Yükseltme ve bir Azure Service Fabric kümesi güncelleştiriliyor
@@ -36,7 +36,7 @@ Kümenizi otomatik yapı yükseltmeleri kümeniz üzerinde olmasını istediğin
 ## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>Fabric yükseltme davranışı otomatik yükseltmeler sırasında
 Microsoft, bir Azure kümesinde çalışır yapılandırma ve yapı kodu tutar. Gerektiğinde bir temelinde otomatik yükselten yazılım gerçekleştiririz. Bu yükseltme, kod, yapılandırma veya her ikisi de olabilir. Uygulamanızı hiçbir etkisi veya bu yükseltme işlemleri nedeniyle en az etki alternatife emin olmak için yükseltmeleri aşağıdaki aşamalar gerçekleştiririz:
 
-### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>1. Aşama: Tüm küme sistem durumu ilkeleri kullanarak bir yükseltme gerçekleştirilmeden
+### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>1\. Aşama: Tüm küme sistem durumu ilkeleri kullanarak bir yükseltme gerçekleştirilmeden
 Bu aşamasında, yükseltmeleri bir yükseltme etki alanı, aynı anda devam etmek ve kümede çalışan uygulamalar kapalı kalma süresi çalışmaya devam eder. Küme sistem durumu ilkeleri (düğüm durumu ve sistem kümede çalıştırılan tüm uygulamalar) yükseltme sırasında bağlı.
 
 Küme sistem durumu ilkeleri karşılanmazsa, yükseltmeyi geri alınır. Daha sonra bir e-posta, aboneliğin sahibine gönderilir. E-posta, aşağıdaki bilgileri içerir:
@@ -45,12 +45,12 @@ Küme sistem durumu ilkeleri karşılanmazsa, yükseltmeyi geri alınır. Daha s
 * Varsa önerilen düzeltici eylemler.
 * Gün (biz 2. Aşama yürütene kadar n) sayısı.
 
-Herhangi bir yükseltmeyi altyapı nedenlerle başarısız olduysa yönelik aynı yükseltmeyi birkaç kez daha yürütün. deneyin. 2. Aşama ilerlemeden n gün sonra tarihten itibaren e-posta gönderildi.
+Herhangi bir yükseltmeyi altyapı nedenlerle başarısız olduysa yönelik aynı yükseltmeyi birkaç kez daha yürütün. deneyin. 2\. Aşama ilerlemeden n gün sonra tarihten itibaren e-posta gönderildi.
 
 Küme sistem durumu ilkeleri karşılanırsa yükseltme başarılı olarak kabul ve tam olarak işaretlenmiş. Bu aşamada bu ilk yükseltme veya herhangi bir yükseltme tekrar bölümlerini sırasında ortaya çıkabilir. Başarılı çalıştırma hiç e-posta onayı yoktur. Bu, çok fazla e-postalar bir e-postayı--özel durum normal olarak başlatmasında gösterilmelidir gönderilmesini önlemek için yapılır. Çoğu uygulama, kullanılabilirliği etkilemeden başarılı olması için Küme yükseltme bekliyoruz.
 
-### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>2. Aşama: Yalnızca varsayılan sistem durumu ilkeleri kullanarak bir yükseltme gerçekleştirilmeden
-Sistem durumu ilkeleri bu aşamada, yükseltme başında sağlıklı uygulama sayısını yükseltme işlemi boyunca aynı kalır şekilde ayarlanır. 1. Aşama, olduğu gibi 2. Aşama yükseltmeleri bir yükseltme etki alanı aynı anda devam etmek ve kümede çalışan uygulamalar kapalı kalma süresi çalışmaya devam eder. Küme sistem durumu ilkeleri (düğüm durumu ve sistem kümede çalıştırılan tüm uygulamalar) yükseltme süresince bağlı.
+### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>2\. Aşama: Yalnızca varsayılan sistem durumu ilkeleri kullanarak bir yükseltme gerçekleştirilmeden
+Sistem durumu ilkeleri bu aşamada, yükseltme başında sağlıklı uygulama sayısını yükseltme işlemi boyunca aynı kalır şekilde ayarlanır. 1\. Aşama, olduğu gibi 2. Aşama yükseltmeleri bir yükseltme etki alanı aynı anda devam etmek ve kümede çalışan uygulamalar kapalı kalma süresi çalışmaya devam eder. Küme sistem durumu ilkeleri (düğüm durumu ve sistem kümede çalıştırılan tüm uygulamalar) yükseltme süresince bağlı.
 
 Küme sistem durumu ilkeleri etkili karşılanmazsa, yükseltmeyi geri alınır. Daha sonra bir e-posta, aboneliğin sahibine gönderilir. E-posta, aşağıdaki bilgileri içerir:
 
@@ -58,18 +58,18 @@ Küme sistem durumu ilkeleri etkili karşılanmazsa, yükseltmeyi geri alınır.
 * Varsa önerilen düzeltici eylemler.
 * Gün (biz 3.Aşama yürütene kadar n) sayısı.
 
-Herhangi bir yükseltmeyi altyapı nedenlerle başarısız olduysa yönelik aynı yükseltmeyi birkaç kez daha yürütün. deneyin. Birkaç yedekleme n gün önce gün bir anımsatıcı e-posta gönderilir. 3. Aşama ilerlemeden n gün sonra tarihten itibaren e-posta gönderildi. 2. Aşama gönderdiğimiz e-postaları ciddi atılmalıdır ve düzeltici eylemler atılmalıdır.
+Herhangi bir yükseltmeyi altyapı nedenlerle başarısız olduysa yönelik aynı yükseltmeyi birkaç kez daha yürütün. deneyin. Birkaç yedekleme n gün önce gün bir anımsatıcı e-posta gönderilir. 3\. Aşama ilerlemeden n gün sonra tarihten itibaren e-posta gönderildi. 2\. Aşama gönderdiğimiz e-postaları ciddi atılmalıdır ve düzeltici eylemler atılmalıdır.
 
 Küme sistem durumu ilkeleri karşılanırsa yükseltme başarılı olarak kabul ve tam olarak işaretlenmiş. Bu aşamada bu ilk yükseltme veya herhangi bir yükseltme tekrar bölümlerini sırasında ortaya çıkabilir. Başarılı çalıştırma hiç e-posta onayı yoktur.
 
-### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>3. Aşama: Yükseltme agresif bir sistem durumu ilkeleri kullanılarak gerçekleştirilir.
+### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>3\. Aşama: Yükseltme agresif bir sistem durumu ilkeleri kullanılarak gerçekleştirilir.
 Bu sistem durumu ilkeleri bu aşamada, uygulamaların durumunu yerine yükseltme doğru olarak. Bu aşamada birkaç Küme yükseltme edersiniz. Bu aşama için kümenizin alır, / kötüleşir veya kullanılabilirlik kaybetmek uygulamanızı olasılığı yoktur.
 
-3. Aşama yükseltmeleri benzer şekilde, diğer iki aşaması, bir yükseltme etki alanı aynı anda geçin.
+3\. Aşama yükseltmeleri benzer şekilde, diğer iki aşaması, bir yükseltme etki alanı aynı anda geçin.
 
 Küme sistem durumu ilkeleri karşılanmazsa, yükseltmeyi geri alınır. Herhangi bir yükseltmeyi altyapı nedenlerle başarısız olduysa yönelik aynı yükseltmeyi birkaç kez daha yürütün. deneyin. Destek ve/veya yükseltmeler artık alabileceklerdir bundan sonra küme, sabitlenir.
 
-Abonelik sahibi, düzeltici eylemlerle birlikte bu bilgileri içeren bir e-posta gönderilir. 3. Aşama başarısız olduğu bir duruma getirmek için tüm kümeleri beklemiyoruz.
+Abonelik sahibi, düzeltici eylemlerle birlikte bu bilgileri içeren bir e-posta gönderilir. 3\. Aşama başarısız olduğu bir duruma getirmek için tüm kümeleri beklemiyoruz.
 
 Küme sistem durumu ilkeleri karşılanırsa yükseltme başarılı olarak kabul ve tam olarak işaretlenmiş. Bu aşamada bu ilk yükseltme veya herhangi bir yükseltme tekrar bölümlerini sırasında ortaya çıkabilir. Başarılı çalıştırma hiç e-posta onayı yoktur.
 

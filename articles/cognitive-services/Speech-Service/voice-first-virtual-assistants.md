@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
 ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603472"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Özel ses öncelikli sanal Yardımcıları önizleme hakkında
@@ -30,7 +30,7 @@ Doğrudan satır konuşma ve özel ses öncelikli sanal Yardımcıları için il
 
 ## <a name="core-features"></a>Temel özellikleri
 
-| Category | Özellikler |
+| Kategori | Özellikler |
 |----------|----------|
 |[Özel Uyandırma sözcük](speech-devices-sdk-create-kws.md) | "Hey Contoso" gibi özel bir anahtar sözcüğü kullanılarak botlar konuşmaları şununla açabileceğinizi bilirsiniz Bu görev, bir özel Uyandırma sözcük ile yapılandırılabilir konuşma SDK'da özel Uyandırma word altyapısıyla gerçekleştirilir [burada oluşturabilen](speech-devices-sdk-create-kws.md). Doğrudan satır konuşma kanal başına cihaz karşı Uyandırma word etkinleştirme doğruluğunu artırır Hizmet tarafı Uyandırma word doğrulama içerir.
 |[Konuşmayı metne dönüştürme](speech-to-text.md) | Gerçek zamanlı ses tanıma tanınan metin kullanarak doğrudan satır konuşma kanal içerir [konuşma metin](speech-to-text.md) Azure konuşma Services'dan. Transcribed gibi bu metin botunuzun hem de istemci uygulamanız için kullanılabilir.

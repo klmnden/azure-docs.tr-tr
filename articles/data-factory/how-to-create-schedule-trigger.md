@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
 ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65151083"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Bir işlem hattını bir zamanlamaya göre çalışan bir Tetikleyici oluşturma
@@ -44,7 +44,7 @@ Oluşturabileceğiniz bir **zamanlama tetikleyicisi** (saatlik, günlük, vb.) d
 3. İçinde **Yeni Tetikleyici** sayfasında, aşağıdaki adımları uygulayın: 
 
     1. Onaylayın **zamanlama** seçildiğini **türü**. 
-    2. Tetikleyici için başlangıç tarih ve saati belirtin **başlangıç tarihi (UTC)**. Geçerli tarih ve saat için varsayılan olarak ayarlanır. 
+    2. Tetikleyici için başlangıç tarih ve saati belirtin **başlangıç tarihi (UTC)** . Geçerli tarih ve saat için varsayılan olarak ayarlanır. 
     3. Belirtin **yinelenme** tetikleyici için. Değerlerden biri, aşağı açılan listeden (her dakika, saatlik, günlük, haftalık ve aylık) seçin. Çarpan metin kutusuna girin. Örneğin, her 15 dakikada bir kez çalıştırılacak tetikleyici istiyorsanız, seçtiğiniz **her dakika**girin **15** metin kutusuna. 
     4. İçin **son** seçin tetikleyici için bir son tarih belirtmek istemiyorsanız, alan **Hayır son**. Bir son tarih belirtmek için seçin **tarih**, son tarih/saat belirtin ve tıklayın **Uygula**. Her işlem hattı çalıştırmasının bir maliyeti vardır. Test yapıyorsanız, işlem hattı tetiklenir emin olmak isteyebilirsiniz yalnızca birkaç kez. Öte yandan, yayımlama saatiyle bitiş saati arasında işlem hattının çalıştırılmasına yetecek kadar zaman olduğundan emin olun. Tetikleyici siz çözümü kullanıcı arabiriminde kaydettiğinizde değil ancak Data Factory'de yayımladığınızda devreye girer.
 
@@ -361,8 +361,8 @@ Aşağıdaki tabloda **schedule** öğeleri ayrıntılı bir şekilde açıklanm
 
 | JSON öğesi | Açıklama | Geçerli değerler |
 |:--- |:--- |:--- |
-| **minutes** | Tetikleyicinin çalıştığı dakika değeri. | <ul><li>Tamsayı</li><li>Tamsayı dizisi</li></ul>
-| **hours** | Tetikleyicinin çalıştığı saat değeri. | <ul><li>Tamsayı</li><li>Tamsayı dizisi</li></ul> |
+| **minutes** | Tetikleyicinin çalıştığı dakika değeri. | <ul><li>Integer</li><li>Tamsayı dizisi</li></ul>
+| **hours** | Tetikleyicinin çalıştığı saat değeri. | <ul><li>Integer</li><li>Tamsayı dizisi</li></ul> |
 | **weekDays** | Tetikleyicinin çalıştığı hafta günleri. Bu değer yalnızca haftalık bir sıklık ile belirtilebilir. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</li><li>Gün değerleri dizisi (en fazla dizi boyutu 7’dir)</li><li>Gün değerleri büyük/küçük harfe duyarlı değildir</li></ul> |
 | **monthlyOccurrences** | Tetikleyicinin çalıştığı ay günleri. Bu değer yalnızca aylık bir sıklık ile belirtilebilir. | <ul><li>Dizi **monthlyOccurrence** nesneleri: `{ "day": day,  "occurrence": occurrence }`.</li><li>**day** özniteliği, tetikleyicinin çalıştığı gündür. Örneğin, **day** değeri `{Sunday}` olan bir **monthlyOccurrences** özelliği, ayın her Pazar günü anlamına gelir. **day** özniteliği gereklidir.</li><li>**occurrence** özniteliği, ay içinde belirtilen **day** değerinin gerçekleşmesidir. Örneğin, **day** ve **occurrence** değerleri `{Sunday, -1}` olan bir **monthlyOccurrences** özelliği, ayın son Pazar günü anlamına gelir. **occurrence** özniteliği isteğe bağlıdır.</li></ul> |
 | **monthDays** | Tetikleyicinin çalıştığı ay günü. Bu değer yalnızca aylık bir sıklık ile belirtilebilir. | <ul><li><= -1 ve >= -31 şartlarını karşılayan herhangi bir değer</li><li>>= 1 ve <= 31 şartlarını karşılayan herhangi bir değer</li><li>Değer dizisi</li></ul> |

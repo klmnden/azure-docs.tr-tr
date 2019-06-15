@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 49f77da5843bc2438ea7f82475b4faf753b66f09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d947f610e6a753ce2ed349917640b07a55bbb735
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Öğretici: StatusPage ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de StatusPage tümleştirmesini yapılandırmak için StatusPage Galeri
 
 **Galeriden StatusPage eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

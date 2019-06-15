@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 03/13/2019
 ms.author: erikre
 ms.openlocfilehash: 4bf76ac0bdd59764815f18a40a3e243d7cf9d920
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60617427"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Azure Budgets ile maliyetleri yönetme
@@ -125,7 +125,7 @@ Yukarıdaki adımları gerçekleştiren mantıksal uygulamanızı oluşturmak i�
 
 Azure mantıksal uygulamanızı dağıttıktan sonra **Logic Apps Tasarımcısı'nda** açılır ve bir giriş içeren bir dikey pencere, video ve sık kullanılan Tetikleyicileri gösterir.
 
-### <a name="add-a-trigger"></a>Tetikleyici ekleyin
+### <a name="add-a-trigger"></a>Bir tetikleyici ekleme
 
 Her mantıksal uygulama, belirli bir olay gerçekleştiğinde ya da belirli bir koşul karşılandığında tetiklenen bir tetikleyiciyle başlamalıdır. Tetikleyici her etkinleştirildiğinde Logic Apps altyapısı iş akışınızı başlatan ve çalıştıran bir mantıksal uygulama örneği oluşturur. Eylemler tetikleyiciden sonra gerçekleşen tüm adımlardır.
 

@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70ca1e2f4fd831619cc3cd443d98018a35f4e1ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963083"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Öğretici: Raporlama hesabı otomatik kullanıcı hazırlama
@@ -69,7 +69,7 @@ Sağlama Özet raporunda görünür **sağlama** uygulama sekmesinde için. Bulu
 
 Sağlama özet raporu sağlama işin işlem durumunu denetlemek için ilk yerde yöneticileri Ara olmalıdır.
 
- ![Özet rapor](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![Özet raporu](./media/check-status-user-account-provisioning/summary_report.PNG)
 
 ## <a name="provisioning-audit-logs"></a>Sağlama denetim günlükleri
 Sağlama hizmeti tarafından gerçekleştirilen tüm etkinlikler görüntülenebilir Azure AD denetim günlükleri kaydedilir **denetim günlükleri** sekmesinde altında **hesap sağlama** kategorisi. Oturum etkinliği olay türleri şunlardır:

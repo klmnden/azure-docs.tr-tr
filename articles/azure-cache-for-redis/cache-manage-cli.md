@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119087"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Oluşturma ve Azure Cache için Redis Klasik Azure CLI kullanarak yönetme
@@ -46,11 +46,11 @@ Aşağıdaki özellikler, oluşturma ve Azure Cache, Redis örneği için günce
 
 | Özellik | Anahtar | Açıklama |
 | --- | --- | --- |
-| ad |-n, --name |Adı Azure önbelleği için Redis. |
+| name |-n, --name |Adı Azure önbelleği için Redis. |
 | kaynak grubu |g-,--resource-group |Kaynak grubunun adı. |
 | location |m-,--konum |Önbellek oluşturmak için konum. |
-| boyut |-z, --size |Azure önbelleği için boyutunu Redis. Geçerli değerler: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
-| sku |-x, --sku |Redis SKU. Şunlardan biri olmalıdır: [temel, standart, Premium] |
+| size |-z, --size |Azure önbelleği için boyutunu Redis. Geçerli değerler: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| SKU |-x, --sku |Redis SKU. Şunlardan biri olmalıdır: [temel, standart, Premium] |
 | EnableNonSslPort |-e, --enable-non-ssl-port |Azure önbelleği için Redis EnableNonSslPort özelliği. Bu bayrağı olmayan SSL bağlantı noktası önbellek hesabınız için etkinleştirmek istiyorsanız ekleyin |
 | Redis yapılandırması |-c, --redis-configuration |Redis yapılandırması. Yapılandırma anahtarları ve değerleri burada içeren bir JSON biçimli dizeyi girin. Biçim: "{" ":""," ":" "}" |
 | Redis yapılandırması |f-,--redis yapılandırma dosyası |Redis yapılandırması. Yapılandırma anahtarları ve değerleri burada içeren bir dosyanın yolunu girin. Dosya giriş biçimi: {"": "","": ""} |

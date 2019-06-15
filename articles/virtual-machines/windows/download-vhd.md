@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 3d44a4a723c39bf9780475a2ac3088da94285f6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61076353"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Azure'dan bir Windows VHD indirme
@@ -36,7 +36,7 @@ VHD, diğer sanal makineler oluşturmak için bir görüntü olarak kullanmak i�
 2.  [VM'ye bağlanın](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 3.  VM'de yönetici olarak komut istemi penceresi açın.
 4.  Dizinine *%windir%\system32\sysprep* ve sysprep.exe çalıştırın.
-5.  Sistem Hazırlama Aracı iletişim kutusunda **girin sistem kullanıma hazır deneyimi (OOBE)**, emin olun **Generalize** seçilir.
+5.  Sistem Hazırlama Aracı iletişim kutusunda **girin sistem kullanıma hazır deneyimi (OOBE)** , emin olun **Generalize** seçilir.
 6.  Kapatma seçenekleri belirleyin **kapatma**ve ardından **Tamam**. 
 
 VHD için yeni bir örnek var olan bir sanal makine veya veri diski disk olarak kullanmak için aşağıdaki adımları tamamlayın:

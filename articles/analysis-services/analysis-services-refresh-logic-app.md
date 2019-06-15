@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
 ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142413"
 ---
 # <a name="refresh-with-logic-apps"></a>Logic Apps ile yenileme
@@ -67,7 +67,7 @@ HTTP etkinliğini aşağıdaki gibi yapılandırın:
 |---------|---------|
 |**Yöntemi**     |POST         |
 |**URI**     | https://*sunucu bölgenizi*/servers/*aas sunucu adı*/models/*veritabanı adınız*/ <br /> <br /> Örneğin: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
-|**Üst bilgileri**     |   İçerik türü, uygulama/json <br /> <br />  ![Üst bilgiler](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**Üst Bilgiler**     |   İçerik türü, uygulama/json <br /> <br />  ![Üst bilgiler](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Gövde**     |   İstek gövdesi oluşturma hakkında daha fazla bilgi için bkz: [zaman uyumsuz yenileme REST API - POST /refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Kimlik Doğrulaması**     |Active Directory OAuth         |
 |**Kiracı**     |Azure Active Directory Tenantıd'nizi doldurun         |

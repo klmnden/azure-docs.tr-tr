@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
 ms.openlocfilehash: 21c49ad0d73721dd204a7a3899d11cf10d43521b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942062"
 ---
 # <a name="managing-users-on-the-cloud-partner-portal"></a>Bulut iş ortağı portalında kullanıcıları yönetme
@@ -40,7 +40,7 @@ Kullanıcı ekleme ve teklif yayımlamak için rolleri atamak için aşağıdaki
     - Bir "takım/Grup e-posta diğer adı/güvenlik grubu" eklemek kuruluştan ayrılmadan tek karşı koruma sağlamak için.
     - Bu e-posta kimlikleri bulut iş ortağı portalında sağlanan Microsoft gelen tüm iletişimi için izlenen emin olun.
     
-    ![Rol Ata](./media/assignrole.png)
+    ![Rol atama](./media/assignrole.png)
 
     **Rol**: Uygun kullanıcı rol türü tanımlamak için aşağıdaki tabloya bakın.
 

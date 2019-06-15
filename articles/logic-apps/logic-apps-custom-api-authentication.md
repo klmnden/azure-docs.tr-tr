@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66167390"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan özel API'lere giden çağrıların güvenliğini sağlama
@@ -43,7 +43,7 @@ Bu yöntem için genel adımlar şunlardır:
 
 3. Mantıksal uygulama tanımınızı uygulama kimliklerini içerir.
 
-#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>1. Bölüm: Mantıksal uygulamanız için bir Azure AD uygulama kimliği oluşturma
+#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>1\. Bölüm: Mantıksal uygulamanız için bir Azure AD uygulama kimliği oluşturma
 
 Mantıksal uygulamanızı karşı Azure AD kimlik doğrulaması için bu Azure AD uygulama kimliğini kullanır. Yalnızca bir kez dizininiz için bu kimlik ayarlamak zorunda. Örneğin, her mantıksal uygulama için benzersiz bir kimlik oluşturabilirsiniz olsa bile, tüm logic apps için aynı kimlik kullanmayı da tercih edebilirsiniz. Azure portalında bu kimlikleri ayarlayın veya kullanın [PowerShell](#powershell).
 
@@ -86,7 +86,7 @@ Mantıksal uygulamanızı karşı Azure AD kimlik doğrulaması için bu Azure A
 8. Araç çubuğunda **Kaydet**. Altında **değer**, anahtarınızı görünür. 
 **Kopyala ve anahtarınızı kaydetmek emin olun** daha sonra kullanmak üzere anahtarı gizli olduğu çıktığınızda **anahtarları** sayfası.
 
-   3. Kısım mantıksal uygulamanızı yapılandırdığınızda, bu anahtarı parola ya da "gizli" olarak belirtin.
+   3\. Kısım mantıksal uygulamanızı yapılandırdığınızda, bu anahtarı parola ya da "gizli" olarak belirtin.
 
    ![Kopyalayıp anahtarı daha sonra kullanmak üzere kaydedin](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
@@ -108,7 +108,7 @@ PowerShell ile Azure Resource Manager aracılığıyla bu görevi gerçekleştir
 
 Daha fazla bilgi için bilgi nasıl [kaynaklarına erişmek için PowerShell ile hizmet sorumlusu oluşturma](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>2. Bölüm: Web uygulamanızı veya API uygulaması için bir Azure AD uygulama kimliği oluşturma
+#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>2\. Bölüm: Web uygulamanızı veya API uygulaması için bir Azure AD uygulama kimliği oluşturma
 
 Web uygulamanızı veya API uygulaması zaten dağıtılmışsa, kimlik doğrulamasını etkinleştirmek ve Azure portalında uygulama kimliği oluşturun. Aksi takdirde [bir Azure Resource Manager şablonu ile dağıttığınızda kimlik doğrulamasını etkinleştirmek](#authen-deploy). 
 
@@ -126,7 +126,7 @@ Web uygulamanızı veya API uygulaması zaten dağıtılmışsa, kimlik doğrula
 
 4. **Kimlik Doğrulama / Yetkilendirme** sayfasında **Kaydet**’i seçin.
 
-Artık web uygulamanızı veya API uygulaması ile ilişkili uygulama kimliği için istemci kimliği ve Kiracı kimliği bulmanız gerekir. 3. Kısım'de bu kimliği kullanın. Bu nedenle bu adımları Azure portalı ile devam edin.
+Artık web uygulamanızı veya API uygulaması ile ilişkili uygulama kimliği için istemci kimliği ve Kiracı kimliği bulmanız gerekir. 3\. Kısım'de bu kimliği kullanın. Bu nedenle bu adımları Azure portalı ile devam edin.
 
 **Kimliğin uygulama istemci kimliği ve Kiracı kimliği, web uygulamanızı veya API uygulaması için Azure portalında bulun**
 
@@ -180,7 +180,7 @@ Bir boş web uygulaması ve bir mantıksal uygulama Azure Active Directory kimli
 
 [![Azure’a dağıtma](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>3. Bölüm: Mantıksal uygulamanızı yetkilendirme bölümünde Doldur
+#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>3\. Bölüm: Mantıksal uygulamanızı yetkilendirme bölümünde Doldur
 
 Önceki şablon zaten ayarlanmış bu yetkilendirme bölüm vardır, ancak doğrudan mantıksal uygulama yazıyorsanız, tam yetkilendirme bölümü içermelidir.
 

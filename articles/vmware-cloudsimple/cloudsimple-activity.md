@@ -9,17 +9,17 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dd073d040e6e7f149109c9988580dcd889f7c62f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160148"
 ---
 # <a name="activity-management-overview"></a>Etkinlik yönetimine genel bakış
 
 CloudSimple özel bulutlarınızın çalışmasını etkileyen tüm etkinlikleri izler. Uyarılar, olaylar, görevleri ve denetim etkinliği de dahil olmak üzere bu etkinlikler. [Etkinlik sayfaları](https://docs.azure.cloudsimple.com/activity/) geçerli etkinliği özetler ve daha ayrıntılı bilgi için ayrıntılara olanak sağlar.
 
-## <a name="events"></a>Olaylar
+## <a name="events"></a>Events
 
 Olayları CloudSimple portalda kullanıcı ve sistem etkinliğini izleyin.  Belirli bir kaynağa ve önem derecesini etkisi ile ilişkili etkinlik olayları göster.  Olayları CloudSimple portalından görüntüleyebilirsiniz.
 

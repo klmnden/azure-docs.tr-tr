@@ -14,25 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705215"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573516"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>İzleme ve Azure Güvenlik Merkezi'nde güvenlik olaylarını işleme
 Olaylar Panosu, zaman ve ilgilenmenizi gerektiren önemli olayların bir listesi üzerinden toplanan güvenlik olay sayısı için genel bir bakış sağlar.  
 
 > [!NOTE]
-> Bu özelliği kullanmak için çalışma alanınızı Log Analytics sürüm 2 çalıştırıyor olması ve Güvenlik Merkezi'nin standart katmanında olmanız gerekir. Güvenlik Merkezi'ni [fiyatlandırma sayfası](security-center-pricing.md) standart katman hakkında daha fazla bilgi.
->
->
+> Güvenlik olayları Pano 31 Temmuz 2019 üzerinde kullanımdan kaldırılacaktır. Daha fazla bilgi ve diğer hizmetler için bkz. [devre dışı bırakılması, Güvenlik Merkezi özelliklerini (Temmuz 2019)](security-center-features-retirement-july2019.md#menu_events).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Bir güvenlik olayı nedir?
 Güvenlik Merkezi kullanan çeşitli güvenlik toplamak için Microsoft Monitoring Agent, makinelerinizden yapılandırmaları ve olayları ilgili ve bu olayları, çalışma Alanlarınızda depolanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi günlükleri (Windows olay günlükleri), çalışan işler ve güvenlik çözümlerinden gelen olayları Güvenlik Merkezi ile tümleşiktir. Microsoft Monitoring Agent ayrıca kilitlenme bilgi dökümü dosyalarını da çalışma alanlarınıza kopyalar.
+
+## <a name="requirements"></a>Gereksinimler
+Bu özelliği kullanmak için çalışma alanınızı Log Analytics sürüm 2 çalıştırıyor olması ve Güvenlik Merkezi'nin standart katmanında olmanız gerekir. Güvenlik Merkezi'ni [fiyatlandırma sayfası](security-center-pricing.md) standart katman hakkında daha fazla bilgi.
 
 ## <a name="events-processed-dashboard"></a>İşlenen olaylar Panosu
 Size erişim **olayları** Güvenlik Merkezi ana menüsünde veya Güvenlik Merkezi panosunda **genel bakış** dikey penceresi.  
@@ -61,7 +62,7 @@ Size erişim **olayları** Güvenlik Merkezi ana menüsünde veya Güvenlik Merk
 
 3. **Olaylar Panosu** açılarak, seçilen çalışma alanı için olay ayrıntılarını gösterir. Önemli olayları ve türe göre tüm olaylar görüntüleyebilirsiniz.  Biz bu örnekte, seçili **önemli olayları**.
 
-   ![Önemli etkinlik][4]
+   ![Önemli olay][4]
 
 4. Bir olay türü seçerek çalışma alanı altında daha fazla veri sorgulayabilirsiniz. Biz bu örnekte, seçili **SecurityEvent**.
 

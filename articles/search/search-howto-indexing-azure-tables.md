@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: bca7c1b9ffe7ac0ab82f4287bba201a78fbf726a
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755077"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Search dizini Azure tablo depolama
@@ -30,7 +30,7 @@ Bu kaynakları kullanarak Azure tablo depolama dizin oluşturucu ayarlayabilirsi
 
 Burada biz REST API kullanarak akışı gösterilmektedir. 
 
-### <a name="step-1-create-a-datasource"></a>1. adım: Veritabanı oluşturma
+### <a name="step-1-create-a-datasource"></a>1\. adım: Veritabanı oluşturma
 
 Bir veri kaynağı, hangi verilerin dizin için veriler ve verilerdeki değişikliklerin etkili bir şekilde tanımlamak Azure arama'yı etkinleştirmek ilkeleri erişmek için gerekli kimlik bilgilerini belirtir.
 
@@ -76,7 +76,7 @@ Paylaşılan depolama hakkında daha fazla bilgi için erişim imzaları, bkz: [
 > [!NOTE]
 > Paylaşılan erişim imzası kimlik bilgileri kullanıyorsanız veri kaynağı kimlik bilgileri düzenli aralıklarla yenilenen imzaları ile kendi zaman aşımını önlemek için güncelleştirme gerekir. Paylaşılan erişim imzası kimlik bilgilerinin süresi dolar, dizin oluşturucu "Bağlantı dizesinde sağlanan kimlik bilgileri geçersiz veya süresi dolmuş." benzer bir hata iletisiyle başarısız olur  
 
-### <a name="step-2-create-an-index"></a>2. adım: Dizin oluşturma
+### <a name="step-2-create-an-index"></a>2\. adım: Dizin oluşturma
 Dizin alanları bir belgede, öznitelikleri belirtir ve arama şekil diğer yapıları karşılaşırsınız.
 
 Bir dizin oluşturmak için:
@@ -95,7 +95,7 @@ Bir dizin oluşturmak için:
 
 Dizinler oluşturma ile ilgili daha fazla bilgi için bkz: [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-3-create-an-indexer"></a>3. adım: Dizin oluşturucu oluşturma
+### <a name="step-3-create-an-indexer"></a>3\. adım: Dizin oluşturucu oluşturma
 Bir dizin oluşturucu, bir veri kaynağı ile bir hedef arama dizinine bağlar ve veri yenilemeyi otomatikleştirmek için bir zamanlama sağlar. 
 
 Veri kaynağı ve dizin oluşturulduktan sonra Dizin Oluşturucu oluşturmaya hazırsınız:

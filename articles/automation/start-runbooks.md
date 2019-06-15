@@ -10,17 +10,17 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60880204"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Azure Automation'da bir runbook başlatın
 
 Aşağıdaki tabloda kendi belirli senaryonuza en uygun Azure automation'da bir runbook başlatma yöntemi belirlemenize yardımcı olur. Bu makale, Azure portalı ve Windows PowerShell ile bir runbook başlatma hakkında bilgi içerir. Aşağıdaki bağlantılardan erişebileceğiniz diğer belgeler diğer yöntemler hakkında ayrıntılı bilgi sağlanır.
 
-| **Yöntem** | **Özellikleri** |
+| **Yöntemi** | **Özellikleri** |
 | --- | --- |
 | [Azure portal](#start-a-runbook-with-the-azure-portal) |<li>En basit yöntem etkileşimli kullanıcı arabirimi.<br> <li>Basit parametre değerlerini sağlamak için formu.<br> <li>İş durumu kolayca izleyin.<br> <li>Azure oturum ile kimliği doğrulanmış erişim içinde. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Windows PowerShell cmdlet'lerle komut satırından çağırın.<br> <li>Birden çok adım ile otomatik çözüm eklenebilir.<br> <li>İstek kimliği doğrulanır ve sertifika veya OAuth kullanıcı asıl / hizmet sorumlusu.<br> <li>Basit ve karmaşık parametre değerlerini sağlayın.<br> <li>İş durumu izleyin.<br> <li>PowerShell cmdlet'leri desteklemek için gereken istemci. |
@@ -84,7 +84,7 @@ Azure Otomasyonu web hizmeti, aşağıdaki bölümlerde açıklandığı gibi be
 
 ### <a name="named-values"></a>Adlandırılmış değerler
 
-Veri türü [object] parametresi olan sonra görünen değerlerin bir listesini buna göndermek için şu JSON biçimini kullanabilirsiniz: *{Name1: 'Value1', Name2: 'Value2', Name3: 'Value3'}*. Bu değerler basit türler olmalıdır. Runbook parametre olarak alan bir [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) her görünen değere karşılık gelen özelliklerle birlikte.
+Veri türü [object] parametresi olan sonra görünen değerlerin bir listesini buna göndermek için şu JSON biçimini kullanabilirsiniz: *{Name1: 'Value1', Name2: 'Value2', Name3: 'Value3'}* . Bu değerler basit türler olmalıdır. Runbook parametre olarak alan bir [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) her görünen değere karşılık gelen özelliklerle birlikte.
 
 Kullanıcı adlı bir parametreyi kabul eden aşağıdaki sınama runbook'unu göz önünde bulundurun.
 
@@ -121,7 +121,7 @@ Smith
 
 ### <a name="arrays"></a>Diziler
 
-Parametre, [dizi] gibi bir dizi olup olmadığını veya [string []], değerlerin bir listesini buna göndermek için şu JSON biçimini kullanabilirsiniz: *[Value1, Value2, Value3]*. Bu değerler basit türler olmalıdır.
+Parametre, [dizi] gibi bir dizi olup olmadığını veya [string []], değerlerin bir listesini buna göndermek için şu JSON biçimini kullanabilirsiniz: *[Value1, Value2, Value3]* . Bu değerler basit türler olmalıdır.
 
 Adlı bir parametreyi kabul eden aşağıdaki sınama runbook'unu göz önünde bulundurun *kullanıcı*.
 

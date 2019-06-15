@@ -16,12 +16,12 @@ ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 621ca9a7a55f86a92f0c809b6e220245f47dfd39
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233721"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108458"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile Uzak Masaüstü yayımlama
 
@@ -57,6 +57,8 @@ Bir RDS dağıtımında, RD Web rolü ve RD Ağ Geçidi rolü Internet'e yöneli
 - RD Web yayımlarken, aynı iç ve dış FQDN kullanmanız önerilir. Ardından iç ve dış FQDN'leri farklıysa istek üst bilgisi geçersiz bağlantıları alma istemcinin önlemek için çeviri devre dışı bırakmalısınız. 
 
 - Internet Explorer, RDS ActiveX eklentiyi etkinleştirin.
+
+- Azure AD ön kimlik doğrulama akışı, kullanıcılar yalnızca bunları yayımlanan kaynaklara bağlanabilir **RemoteApp ve Masaüstü** bölmesi. Kullanıcılar, Masaüstü kullanarak bir bağlanamıyor **uzak bir Bilgisayara Bağlan** bölmesi.
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Birleşik RDS ve uygulama proxy'si senaryo dağıtma
 
@@ -127,7 +129,7 @@ Bu makalede açıklanan yapılandırma Windows 7 veya 10, Internet Explorer ve R
 | Kimlik doğrulaması öncesi    | Windows 7/10 kullanarak Internet Explorer + RDS ActiveX eklentisi |
 | Geçiş | Tüm diğer Microsoft Uzak Masaüstü uygulamasını destekleyen işletim sistemi |
 
-Ön kimlik doğrulaması akışı geçiş akışı değerinden daha fazla güvenlik avantaj sunar. Ön kimlik doğrulama ile şirket içi kaynaklarınız için çoklu oturum açma, koşullu erişim ve iki aşamalı doğrulama gibi Azure AD kimlik doğrulama özellikleri kullanabilirsiniz. Ayrıca, yalnızca trafik ulaştığında, ağ kimliği doğrulanmış emin olun.
+Ön kimlik doğrulaması akışı geçiş akışı değerinden daha fazla güvenlik avantaj sunar. Ön kimlik doğrulama ile şirket içi kaynaklarınıza tek oturum açma, koşullu erişim ve iki aşamalı doğrulama gibi Azure AD kimlik doğrulama özellikleri kullanabilirsiniz. Ayrıca, yalnızca trafik ulaştığında, ağ kimliği doğrulanmış emin olun.
 
 Geçişli kimlik doğrulamasını kullanmak için bu makalede listelenen adımları yalnızca iki değişiklik vardır:
 1. İçinde [RD konak uç nokta yayımlama](#publish-the-rd-host-endpoint) 1. adımda, ön kimlik doğrulama yöntemi kümesine **geçiş**.

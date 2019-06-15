@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334888"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696608"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Bilişsel arama için sorun giderme ipuçları
 
@@ -84,7 +84,7 @@ Ekleme bir ```enriched``` dizin tanımınız, hata ayıklama amacıyla bir parç
 
 Eksik içerik dizin oluşturma sırasında bırakılmak belgeleri sonucu olabilir. Ücretsiz ve temel katmanlarında belge boyutuna düşük sınırlara sahiptir. Sınırı aşan herhangi bir dosya, dizin oluşturma sırasında bırakılır. Bırakılan belgeleri Azure portalında denetleyebilirsiniz. Arama hizmet panosunda, dizin oluşturucu kutucuğu çift tıklayın. Dizini oluşturulmuş başarılı belgelerini oranı gözden geçirin. % 100 değilse, daha fazla ayrıntı almak için oran tıklayabilirsiniz. 
 
-Sorun için dosya boyutu ile ilgiliyse, bu gibi bir hata görebilirsiniz: "Blob < dosya adı >" Belge ayıklama geçerli hizmet katmanı için en büyük boyutu aşıyor < dosya boyutu > bayt cinsinden boyutu yok." Dizin Oluşturucu sınırları hakkında daha fazla bilgi için bkz. [hizmet sınırları](search-limits-quotas-capacity.md).
+Sorun için dosya boyutu ile ilgiliyse, bu gibi bir hata görebilirsiniz: "Blob \<dosya adı >" boyutunun \<dosya boyutu > bayt cinsinden geçerli hizmet katmanı için belge ayıklama boyutu üst sınırı aşıyor. " Dizin Oluşturucu sınırları hakkında daha fazla bilgi için bkz. [hizmet sınırları](search-limits-quotas-capacity.md).
 
 Görüntülenecek başarısız olan içerik için ikinci bir nedeni, ilgili giriş/çıkış eşleme hataları olabilir. Örneğin, "Kişiler" çıkış hedef adıdır ancak küçük harf "Kişiler" dizin alan adıdır. Aslında bir alan boş olduğunda dizin oluşturma, başarılı anlattık sistem işlem hattının tamamı için 201 Başarı iletilerinin döndürebilir. 
 

@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6ae14ec152975717af5d55780bcc39aa87c4b01a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 6d461725d0d4c86ee7aa5b450d42c01ca77ffb16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406605"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107673"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure İzleyici çalışma kitapları, Azure Active Directory raporlama kullanma
 
@@ -74,9 +74,9 @@ Bu çalışma kitabı aşağıdaki oturum eğilimleri gösterir:
 
 - Tüm oturum açma işlemleri
 
-- Başarı
+- Başarılı
 
-- Bekleyen kullanıcı eylemi
+- Bekleyen bir kullanıcı eylemi
 
 - Hata
 
@@ -111,7 +111,7 @@ Bu çalışma kitabı aşağıdaki oturum eğilimleri gösterir:
 
 - Tüm oturum açma işlemleri
 
-- Başarı
+- Başarılı
 
 
 Her bir eğilim aşağıdaki kategorilere göre filtreleyebilirsiniz:
@@ -146,7 +146,7 @@ Bu çalışma kitabı devre dışı oturum açma işlemleri için eğilimleri g�
 
 - Kullanıcılar
 
-![Koşullu erişim kullanarak oturum açma işlemleri](./media/howto-use-azure-monitor-workbooks/49.png)
+![Koşullu Erişimle Oturum Açma İşlemleri](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
 Devre dışı oturum açma işlemleri için koşullu erişim durumuna göre dökümünü alın.
@@ -168,7 +168,7 @@ Bu çalışma kitabı aşağıdaki devre dışı oturum açma eğilimleri göste
 
 - MFA gerektirme
  
-- Kullanım koşulları gerektirir
+- Kullanım koşullarını gerekli kılma
 
 - Gizlilik bildirimi gerektirir
 
@@ -199,7 +199,7 @@ Kullanım **oturum açma hata analizi** aşağıdaki hataları gidermek için ç
 
 - Oturum açma işlemleri
 - Koşullu erişim ilkeleri
-- Eski kimlik doğrulaması 
+- Eski bir kimlik doğrulama 
 
 
 Koşullu erişim verileri göre oturum açma erişmek için **sorun giderme** bölümünden **oturum açma eski kimlik doğrulaması kullanarak**. 
@@ -208,7 +208,7 @@ Bu çalışma kitabı aşağıdaki oturum eğilimleri gösterir:
 
 - Tüm oturum açma işlemleri
 
-- Başarı
+- Başarılı
 
 - Bekleyen eylem
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 326382339e2b4aeaa488d3d7f76b7ff35f9bc620
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147775"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133301"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Etkinleştirme ve Azure ultra SSD (Önizleme) dağıtma
 
@@ -33,11 +33,12 @@ Yanıt X olduğu bölge Doğu ABD 2 bölgesinde kullanmak için aşağıdaki for
 
 Koruma **bölgeleri** değeri, kullanılabilirlik alanı temsil ettiği ve Ultra yüksek bir SSD dağıtmak için gerekir.
 
-|KaynakTürü  |Ad  |Location  |Bölgeler  |Kısıtlama  |Özellik  |Değer  |
+|ResourceType  |Ad  |Location  |Bölgeler  |Kısıtlama  |Özellik  |Değer  |
 |---------|---------|---------|---------|---------|---------|---------|
-|diskler     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|Diskler     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-Komutundan yanıt yoktu sonra hala geçerli özelliğine kaydınızı Beklemede veya henüz onaylanmadı.
+> [!NOTE]
+> Komutundan yanıt yoktu sonra hala geçerli özelliğine kaydınızı Beklemede veya henüz onaylanmadı.
 
 Dağıtmak için hangi bölgeyi artık bildiğinize göre bu makalede, ilk Vm'lerinizi ultra SSD ile dağıtılan almak için dağıtım adımları izleyin.
 

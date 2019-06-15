@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: b8cc628ef7db198c5068bb3917cf41113ba1687a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 9f4d3ff6fa02369c0e4a01949cc686b842a63a12
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417092"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808474"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Geliştirme ve Visual Studio - Azure App Service kullanarak Web işleri dağıtma
 
@@ -92,7 +92,7 @@ Bir proje tek başına bir WebJob olarak dağıtmak ve böylece web projesini da
 
 Visual Studio 2015 kullanıyorsanız, yükleme [(Visual Studio 2015) .NET için Azure SDK'sı](https://azure.microsoft.com/downloads/).
 
-Visual Studio 2019 kullanıyorsanız, yükleme [Azure geliştirme iş yükü](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
+Visual Studio 2019 kullanıyorsanız, yükleme [Azure geliştirme iş yükü](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Mevcut bir konsol uygulaması projesi için Web işleri dağıtımı etkinleştir
 

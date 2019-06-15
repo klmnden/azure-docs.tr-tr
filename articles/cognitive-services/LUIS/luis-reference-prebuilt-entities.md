@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: diberry
 ms.openlocfilehash: 729d5d1c9ad21654fbd5923b9f3ffacc3b709ef0
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388780"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Varlıkları aracılığıyla LUIS modelinize kültürün başına
@@ -27,13 +27,13 @@ Language Understanding (LUIS), önceden oluşturulmuş varlıklar sağlar. Uygul
 |Çince|[zh-CN](#chinese-entity-support)||
 |Felemenkçe|[NL-NL](#dutch-entity-support)||
 |Türkçe|[en-US (Amerika)](#english-american-entity-support)||
-|Fransızca |[fr-CA (Kanada)](#french-canadian-entity-support), [fr-FR (Fransa)](#french-france-entity-support), ||
-|Almanca |[de-DE](#german-entity-support)||
+|Fransızca|[fr-CA (Kanada)](#french-canadian-entity-support), [fr-FR (Fransa)](#french-france-entity-support), ||
+|Almanca|[de-DE](#german-entity-support)||
 |İtalyanca|[İt-IT](#italian-entity-support)||
 |Japonca|[ja-JP](#japanese-entity-support)||
 |Korece|[ko-KR](#korean-entity-support)||
 |Portekizce|[pt-BR (Brezilya)](#portuguese-brazil-entity-support)||
-|İspanyolca |[es-ES (İspanya)](#spanish-spain-entity-support), [es-MX (Meksika)](#spanish-mexico-entity-support)||
+|İspanyolca|[es-ES (İspanya)](#spanish-spain-entity-support), [es-MX (Meksika)](#spanish-mexico-entity-support)||
 |Türkçe|[Türkçe](#turkish-entity-support)|Türkçe'de desteklenen hiçbir önceden oluşturulmuş varlıklar|
 
 ## <a name="chinese-entity-support"></a>Çince varlık desteği

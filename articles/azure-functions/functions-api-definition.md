@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341734"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Openapı 2.0 (Önizleme) Azure işlevleri'nde meta veri desteği
 Openapı 2.0 (eski adıyla Swagger) meta verileri desteği Azure işlevleri bir Openapı 2.0 tanımı bir işlev uygulaması içinde yazmak için kullanabileceğiniz bir önizleme özelliği değil. Ardından, işlev uygulamasını kullanarak bu dosyayı barındırabilirsiniz.
 
 > [!IMPORTANT]
-> OpenAPI önizleme özelliği şu anda yalnızca 1.x çalışma zamanında kullanılabilir. 1.x işlev uygulaması oluşturma hakkında bilgi [burada bulunabilir](./functions-versions.md#creating-1x-apps).
+> OpenAPI önizleme özelliği şu anda yalnızca 1.x çalışma zamanında kullanılabilir. 1\.x işlev uygulaması oluşturma hakkında bilgi [burada bulunabilir](./functions-versions.md#creating-1x-apps).
 
 [Openapı meta verileri](https://swagger.io/) çok çeşitli diğer yazılımlar tarafından kullanılması için bir REST API'sini barındıran bir işlev verir. Bu yazılım PowerApps gibi Microsoft teklifleriyle içerir ve [Azure App Service API Apps özelliklerinden](../app-service/overview.md), gibi üçüncü taraf geliştirici araçları [Postman](https://www.getpostman.com/docs/importing_swagger), ve [diğer birçok paket](https://swagger.io/tools/).
 
@@ -36,7 +36,7 @@ Tüm Openapı ayarları yapılandırabileceğiniz **API tanımı** işlev uygula
 > [!NOTE]
 > İşlev API'si tanımı özelliği şu anda beta çalışma zamanı için desteklenmiyor.
 
-Barındırılan bir Openapı tanımı ve bir hızlı başlangıç tanımı oluşturmayı etkinleştirmek için **API tanımı kaynağı** için **işlevi (Önizleme)**. **Dış URL** başka bir yerde barındırılan bir Openapı tanımı kullanmak, işlevinizi sağlar.
+Barındırılan bir Openapı tanımı ve bir hızlı başlangıç tanımı oluşturmayı etkinleştirmek için **API tanımı kaynağı** için **işlevi (Önizleme)** . **Dış URL** başka bir yerde barındırılan bir Openapı tanımı kullanmak, işlevinizi sağlar.
 
 ## <a name="generate-definition"></a>İşlevinizin meta verilerini Swagger skeleton oluştur
 Bir şablon ilk Openapı tanımınızı yazmaya yardımcı olabilir. Tanım şablonu özelliğini tüm meta verilerin function.json dosyasında her, HTTP tetikleyicisi işlevlerini kullanarak seyrek bir Openapı tanımı oluşturur. API'niz hakkında daha fazla bilgi doldurmanız gerekir [Openapı belirtimi](https://swagger.io/specification/), istek ve yanıt şablonlar gibi.

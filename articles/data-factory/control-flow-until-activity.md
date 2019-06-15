@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 5a053ab213390a12c5d2051a802a1fa98279c344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155163"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data factory'de until etkinliği
@@ -55,7 +55,7 @@ Until etkinliği aynı işlevselliği sağlayan bir do-kadar döngü yapısı pr
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
 name | Adını `Until` etkinlik. | String | Evet
-tür | Ayarlanmalıdır **kadar**. | String | Evet
+türü | Ayarlanmalıdır **kadar**. | String | Evet
 İfade | True veya false değerlendirmelidir ifadesi | Expression.  | Evet
 timeout | Do-burada belirtilen süre geçtikten sonra döngü zaman aşımına kadar. | dize. `d.hh:mm:ss` (veya) `hh:mm:ss`. Varsayılan değer 7 gündür. En yüksek değerdir: 90 gün. | Hayır
 Etkinlikler | İfade sonucunu verene kadar çalıştırılan etkinlik kümesini `true`. | Etkinlikleri dizisi. |  Evet

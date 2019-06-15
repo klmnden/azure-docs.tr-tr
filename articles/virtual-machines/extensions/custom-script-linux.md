@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b9bc3ef0cf5dd54802d32058afb904800c364c19
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869886"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64725239"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Azure özel betik uzantısı sürüm 2 ile Linux sanal makineleri kullanın.
 Özel betik uzantısı sürüm 2 indirir ve Azure sanal makinelerinde betikleri çalıştırır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya başka bir yapılandırma/yönetim görevi için kullanışlıdır. Betikler Azure depolama veya başka bir erişilebilir internet konuma indirebilir veya uzantı çalışma zamanında sağlayabilir. 
@@ -37,7 +37,7 @@ Bu makalede, Azure clı'dan özel betik uzantısı kullanma ve bir Azure Resourc
 Lütfen bunun yerine yeni sürüm 2 kullanmak için yeni ve mevcut dağıtımları geçin. Yeni sürüm, mongodb'nin olması amaçlanmıştır. Bu nedenle, geçiş adı ve sürümü değiştirirken oldukça kolaydır, uzantı yapılandırmanızı değiştirmeniz gerekmez.
 
 
-### <a name="operating-system"></a>İşletim Sistemi
+### <a name="operating-system"></a>İşletim sistemi
 
 Özel betik uzantısı için Linux işletim sisteminin, daha fazla bilgi için desteklenen uzantısı uzantısı çalışmayacak görmeniz [makale](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
 
@@ -110,11 +110,11 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 | Ad | Değer / örnek | Veri Türü | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Yayımcı | Microsoft.Compute.Extensions | string |
-| type | CustomScript | string |
+| publisher | Microsoft.Compute.Extensions | string |
+| türü | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (örn.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (örn.) | Python MyPythonScript.py < param1 my > | string |
+| commandToExecute (örn.) | Python MyPythonScript.py \<param1 my > | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (örn.) | false | boole |
 | zaman damgası (örn.) | 123456789 | 32 bit tamsayı |

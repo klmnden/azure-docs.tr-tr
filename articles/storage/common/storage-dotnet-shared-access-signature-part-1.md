@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65907203"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Paylaşılan erişim imzaları (SAS) kullanma
@@ -89,7 +89,7 @@ Hizmet SAS belirteçleri ve hesap SAS bazı ortak parametreleri içerir ve ayrı
 * **Depolama kaynağı.** SAS depolama kaynaklarına erişim ile bir hizmeti temsilci seçebilirsiniz şunlardır:
   * Kapsayıcılar ve bloblar
   * Dosya paylaşımları ve dosyalarla
-  * Sıralar
+  * Kuyruklar
   * Tabloları ve tablo varlıkları aralığı.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Bir hesap SAS belirteci için parametreleri

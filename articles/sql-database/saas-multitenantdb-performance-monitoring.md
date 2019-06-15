@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485632"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Çok kiracılı SaaS uygulamasında parçalı çok kiracılı Azure SQL veritabanının performansını izleyin ve yönetin
@@ -98,7 +98,7 @@ Wingtip bilet SaaS çok kiracılı veritabanı bir SaaS uygulamasıdır ve SaaS 
 
 Uygulanmakta olan yükün neden olduğu kaynak kullanımını izlemek için çok kiracılı veritabanı portalda açın **tenants1**, kiracılar içeren:
 
-1. Açık [Azure portalında](https://portal.azure.com) ve sunucuya Gözat *tenants1-mt -&lt;kullanıcı&gt;*.
+1. Açık [Azure portalında](https://portal.azure.com) ve sunucuya Gözat *tenants1-mt -&lt;kullanıcı&gt;* .
 1. Aşağı kaydırın ve veritabanları bulup tıklayın **tenants1**. Şu ana kadar oluşturulan tüm kiracılar Bu parçalı çok kiracılı veritabanı içerir.
 
 ![Veritabanı şeması](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)

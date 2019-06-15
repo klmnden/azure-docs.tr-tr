@@ -10,10 +10,10 @@ ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480312"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
@@ -30,7 +30,7 @@ Bir dosya paylaşımını bağlayabilmeniz çalıştığınızda şu hatayı ala
 
 - Sistem hatası 5 oluştu. Erişim reddedildi.
 
-### <a name="cause-1-unencrypted-communication-channel"></a>1. neden: Şifrelenmemiş iletişim kanalı
+### <a name="cause-1-unencrypted-communication-channel"></a>1\. neden: Şifrelenmemiş iletişim kanalı
 
 Güvenlik nedenleriyle, Azure dosya paylaşımlarını bağlantı iletişim kanalını şifreli değildir ve Azure dosya paylaşımlarını bulunduğu aynı veri merkezlerinden bağlantı girişimi yapılmadan değil engellenir. Aynı veri merkezindeki şifrelenmemiş bağlantıları da ise engellenir [güvenli aktarım gerekli](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) depolama hesabı seçeneği etkinleştirilmiştir. Şifreli iletişim kanalı, yalnızca kullanıcının istemci işletim sistemi SMB şifrelemesi destekliyorsa sağlanır.
 
@@ -41,7 +41,7 @@ Windows 8, Windows Server 2012 ve sonraki sürümleri her sistem şifrelemeyi de
 1. SMB şifrelemesi (Windows 8, Windows Server 2012 veya üstü) destekleyen bir istemciyi bağlanmak veya aynı veri merkezinde Azure dosya paylaşımı için kullanılan Azure depolama hesabı olarak bir sanal makinesinden bağlanabilirsiniz.
 2. Doğrulama [güvenli aktarım gerekli](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) ayarı devre dışı depolama hesabında istemci SMB şifrelemesi desteklemiyorsa.
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>2. neden: Sanal ağ veya güvenlik duvarı kuralları depolama hesabı etkinleştirilir 
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>2\. neden: Sanal ağ veya güvenlik duvarı kuralları depolama hesabı etkinleştirilir 
 
 Sanal ağ (VNET) ve güvenlik duvarı kuralları depolama hesabında yapılandırılmışsa, istemci IP adresi veya sanal ağ erişimine izin verilmesini sürece ağ trafiğini erişimi reddedilir.
 
@@ -58,7 +58,7 @@ Sanal ağ ve güvenlik duvarı kuralları depolama hesabı düzgün şekilde yap
 - Sistem hatası 67 oluştu. Ağ adı bulunamıyor.
 - Sistem hatası 87 oluştu. Parametre yanlış.
 
-### <a name="cause-1-port-445-is-blocked"></a>1. neden: Bağlantı noktası 445 engellendi
+### <a name="cause-1-port-445-is-blocked"></a>1\. neden: Bağlantı noktası 445 engellendi
 
 Bağlantı noktası 445 giden iletişimi, Azure dosyaları bir veri merkezine engellenirse, sistem hatası 53 veya sistem hatası 67 ortaya çıkabilir. İzin vermek veya vermemek bağlantı noktası 445 erişimden ISS'ler özetini görmek için Git [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
@@ -109,7 +109,7 @@ Bir VPN belirli depolama hesabınıza ayarlayarak, trafik olarak güvenli bir t�
 Azure dosyaları SMB yanı sıra REST da destekler. REST erişim bağlantı noktası 443 (standart tcp) üzerinde çalışır. Zengin UI deneyimi sağlayan REST API kullanılarak yazılan çeşitli araçları vardır. [Depolama Gezgini](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) , bunlardan biridir. [İndirme ve yükleme, Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) ve Azure dosyaları tarafından desteklenen dosya paylaşımına bağlanın. Ayrıca [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) , ayrıca kullanıcı REST API.
 
 
-### <a name="cause-2-ntlmv1-is-enabled"></a>2. neden: NTLMv1 etkin
+### <a name="cause-2-ntlmv1-is-enabled"></a>2\. neden: NTLMv1 etkin
 
 NTLMv1 iletişim istemcide etkinse, sistem hatası 53 veya sistem hatası 87 ortaya çıkabilir. Azure dosyaları yalnızca NTLMv2 kimlik doğrulamasını destekler. NTLMv1 etkin olması daha az güvenli bir istemci oluşturur. Bu nedenle, iletişim, Azure dosyaları için engellenir. 
 
@@ -144,13 +144,13 @@ Portalda bir Azure dosya paylaşımına göz attığınızda aşağıdaki hata i
 Yetkilendirme hatası  
 Erişiminiz yok 
 
-### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>1. neden: Kullanıcı hesabınızın, depolama hesabına erişimi yok
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>1\. neden: Kullanıcı hesabınızın, depolama hesabına erişimi yok
 
 ### <a name="solution-for-cause-1"></a>Çözüm nedeni 1 için
 
 Azure dosya paylaşımının bulunduğu depolama hesabına Gözat'a tıklayın **erişim denetimi (IAM)** ve kullanıcı hesabınızın, depolama hesabına erişimi olduğunu doğrulayın. Daha fazla bilgi için bkz. [rol tabanlı erişim denetimi (RBAC) ile depolama hesabınızın güvenliğini sağlamak nasıl](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>2. neden: Sanal ağ veya güvenlik duvarı kuralları depolama hesabı etkinleştirilir
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>2\. neden: Sanal ağ veya güvenlik duvarı kuralları depolama hesabı etkinleştirilir
 
 ### <a name="solution-for-cause-2"></a>Neden 2 çözümü
 

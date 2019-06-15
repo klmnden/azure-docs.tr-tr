@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304149"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL veritabanı kullanan bir tek başına tek kiracılı uygulamasını dağıtma ve keşfetme
@@ -82,7 +82,7 @@ Uygulama olayları barındıran venues gösterir.  Mekanlar, uygulama kiracılar
 
      (Her URL'de değiştirin &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)
 
-   ![Olaylar](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
+   ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Gelen istekler, uygulamanın kullandığı dağıtımını denetlemek için [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Her kiracıya özgü uygulama örneği, URL'de Kiracı adı etki alanı adının bir parçası olarak içerir. Tüm Kiracı URL'leri, özel **kullanıcı** değeri. URL aşağıdaki biçimde izleyin:
 - http://events.&lt; venuename&gt;.&lt; Kullanıcı&gt;. trafficmanager.net

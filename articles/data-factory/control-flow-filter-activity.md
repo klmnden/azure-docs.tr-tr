@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
 ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60554856"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data factory'de filtre etkinliği
@@ -40,7 +40,7 @@ Bir filtre ifadesi bir giriş dizisine uygulamak için bir işlem hattındaki bi
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
 name | Adını `Filter` etkinlik. | String | Evet
-type | Ayarlanmalıdır **filtre**. | String | Evet
+türü | Ayarlanmalıdır **filtre**. | String | Evet
 condition | Giriş filtreleme için kullanılacak koşul. | İfade | Evet
 items | Filtre uygulanması gereken giriş dizisi. | İfade | Evet
 

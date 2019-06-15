@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: mstephen
 ms.openlocfilehash: b79418c6e64727e4fdf13b3f4f267d84fcf5da85
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235035"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Oluşturma bir. Yönetilen bir etki alanı için güvenli LDAP (LDAPS) Sertifika PFX dosyası
@@ -28,7 +28,7 @@ ms.locfileid: "66235035"
 
 Tam [1. Görev: Güvenli LDAP için sertifika edinme](configure-ldaps.md).
 
-## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>2. Görev: İçin güvenli LDAP sertifikasını dışarı aktarma bir. PFX dosyası
+## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>2\. Görev: İçin güvenli LDAP sertifikasını dışarı aktarma bir. PFX dosyası
 
 Bu görev başlamadan önce bir ortak sertifika yetkilisinden güvenli LDAP sertifikasını almak veya otomatik olarak imzalanan bir sertifika oluşturun.
 

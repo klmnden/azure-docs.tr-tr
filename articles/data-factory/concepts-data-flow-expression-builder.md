@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: df9cfb0c0e36f54c8b1fbee4def552c78e9d42c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61269198"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Eşleme veri akışı ifade oluşturucusu
@@ -42,13 +42,13 @@ Azure Data Factory eşleme veri akışı içinde veri dönüştürme için ifade
 
 ![İfade Oluşturucu](media/data-flow/exp5.png "ifade veri önizlemesi")
 
-## <a name="comments"></a>Yorumlar
+## <a name="comments"></a>Açıklamalar
 
 Tek satır ve çok satırlı açıklama söz dizimi kullanarak, ifadeleri için açıklamalar ekleyin:
 
 ![Açıklamalar](media/data-flow/comments.png "açıklamaları")
 
-## <a name="regular-expressions"></a>Normal İfadeler
+## <a name="regular-expressions"></a>Normal ifadeler
 
 Azure Data Factory, veri akışı ifade dili [tam başvuru belgelerine](https://aka.ms/dataflowexpressions), normal ifade söz dizimi dahil işlevleri sağlar. Normal ifade işlevlerine kullanırken, ters eğik çizgi yorumlamak ifade oluşturucu deneyecek (\\) olarak bir kaçış karakteri dizisi. Ters eğik çizgi normal ifadeniz kullanırken ya da tüm normal ifade dalgalanmasındaki alın (\`) veya çift ters eğik çizgi kullanın.
 

@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: 4f59f68c1598f737ea7cb3a0e8046fc0779ed9d3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 57ba55ce284030a4103077553b0dcfce01a93678
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125774"
 ---
 Azure dosya eşitleme aracısının sorunlarını gidermek için ve yeni işlevler eklemek için düzenli olarak güncelleştirilir. Kullanılabilir olarak Azure dosya eşitleme Aracısı güncelleştirmelerini almak için Microsoft Update'i yapılandırma öneririz.
 
@@ -31,7 +31,7 @@ Dört Onaylandı ve test Azure dosya eşitleme Aracısı güncelleştirmelerini 
 #### <a name="automatic-agent-lifecycle-management"></a>Otomatik aracı yaşam döngüsü yönetimi
 Aracı sürümü 6 ile dosya eşitleme takım bir aracı otomatik yükseltme özelliğini kullanıma sundu. İki moddan birini seçebilir ve sunucuda yükseltme denenmesi bir bakım penceresi belirtin. Bu özellik, aracı yaşam döngüsü yönetimi ile ya da sona erme, Aracıdan engelleyen bir guardrail sağlayarak yardımcı olur ya da geçerli ayar kalın bir sorunsuz için izin verme için tasarlanmıştır.
 1. **Varsayılan ayar** sona erme Aracıdan önleme girişiminde bulunur. Bir aracı gönderilen sona erme tarihini 21 gün içinde aracı kendi kendine yükseltme dener. Haftada bir kez süre sonundan önce ve seçili bakım penceresinde 21 gün içinde yükseltme girişimi başlayacak. **Bu seçeneği, normal Microsoft Update düzeltme ekleri alma ihtiyacını ortadan kaldırmaz.**
-2. İsteğe bağlı olarak, yeni bir aracı sürümü kullanılabilir hemen sonra aracıyı otomatik olarak kendisini yükseltecek olduğunu seçebilirsiniz. Bu ayrıca seçili bakım penceresi sırasında oluşur ve genel kullanıma sunulduğunda hemen sonra yeni özellikler ve geliştirmeleri avantajlarından yararlanarak sunucuya izin. Normal güncelleştirme düzeltme ekleri sunucunuza yanı sıra büyük Aracı sürümleri sağlayacak, sorunsuz, Önerilen ayar budur.
+2. İsteğe bağlı olarak, yeni bir aracı sürümü kullanılabilir hemen sonra aracıyı otomatik olarak kendisini yükseltecek olduğunu seçebilirsiniz (şu an kümelenmiş sunucular için geçerlidir). Bu güncelleştirme, seçili bakım penceresi sırasında oluşur ve genel kullanıma sunulduğunda hemen sonra yeni özellikler ve geliştirmeleri avantajlarından yararlanarak sunucuya izin. Normal güncelleştirme düzeltme ekleri sunucunuza yanı sıra büyük Aracı sürümleri sağlayacak, sorunsuz, Önerilen ayar budur. Yayımlanan her GA kalitede aracısıdır. Microsoft, bu seçeneği seçerseniz, size en yeni aracı sürümü uçuş. Kümelenmiş sunucular hariç tutulur. Yayını tamamlandıktan sonra aracı da kullanılabilir hale gelir [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257) aka.ms/AFS/agent.
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>Aracı yaşam döngüsü ve değişiklik Yönetimi garanti eder
 Azure dosya eşitleme sürekli olarak yeni özellikler ve geliştirmeler sağlayan bir bulut hizmetidir. Bu, belirli bir Azure dosya eşitleme Aracısı sürümü yalnızca sınırlı bir süre için desteklenmesi anlamına gelir. Dağıtımınızı kolaylaştırmak için aşağıdaki kurallar yeterli süre ve aracı güncelleştirmeler/yükseltmeler değişiklik Yönetimi işleminizin uyum sağlamak için bildirim olması garanti:

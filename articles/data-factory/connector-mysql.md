@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: e05e2f2d04aeb572307f8114ca80f148b3d50e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61370725"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>MySQL Azure Data Factory kullanarak verileri kopyalama
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Geçerli sürüm](connector-mysql.md)
 
@@ -36,7 +36,7 @@ Bu MySQL bağlayıcısını MySQL özellikle destekleyen **sürüm 5.6 ve 5.7**.
 
 MySQL veritabanınızı genel olarak erişilebilir durumda değilse, şirket içinde barındırılan tümleştirme çalışma zamanını oluşturan ayarlayın gerekir. Şirket içinde barındırılan tümleştirme çalışma zamanları hakkında bilgi edinmek için [şirket içinde barındırılan tümleştirme çalışma zamanı](create-self-hosted-integration-runtime.md) makalesi. Tümleştirme çalışma zamanı 3.7 sürümünden itibaren yerleşik bir MySQL sürücüsünün sağlar, bu nedenle herhangi bir sürücü el ile yüklemeniz gerekmez.
 
-3.7 düşük şirket içinde barındırılan IR sürümü için yüklemeniz gerekir. [MySQL Connector/Net için Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) 6.6.5 ve tümleştirme çalışma zamanı makinesinde 6.10.7 arasında sürümü. Bu 32 bit sürücü IR 64 bit ile uyumlu değil
+3\.7 düşük şirket içinde barındırılan IR sürümü için yüklemeniz gerekir. [MySQL Connector/Net için Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) 6.6.5 ve tümleştirme çalışma zamanı makinesinde 6.10.7 arasında sürümü. Bu 32 bit sürücü IR 64 bit ile uyumlu değil
 
 ## <a name="getting-started"></a>Başlarken
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148155"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Güvenlik Merkezi, Kiracı genelinde görünürlük elde edin
@@ -50,7 +50,7 @@ Yönetim gruplarına abonelikleri düzenleyebilir ve idare ilkelerini uygulamak 
     - **Yönetim grubu Tanıtıcısı** bu yönetim grubunda komutları göndermek için kullanılan dizini benzersiz tanımlayıcısı. Bu tanımlayıcı, Azure sistem genelinde bu grubu tanımlamak için kullanılan oluşturulduktan sonra düzenlenebilir değildir. 
     - Görünen ad alanı, Azure portalında görüntülenen addır. Yönetim oluştururken ayrı görünen ad isteğe bağlı bir alan olan Grup ve herhangi bir zamanda değiştirilebilir.  
 
-      ![Oluştur](./media/security-center-management-groups/create_context_menu.png)  
+      ![Create](./media/security-center-management-groups/create_context_menu.png)  
 5.  Seçin **Kaydet**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Azure portalında Yönetim grupları görüntüleyin
@@ -178,7 +178,7 @@ Abonelikler, oluşturduğunuz yönetim grubuna ekleyebilirsiniz. Bu adımlar, Ki
 
 2. Seçin **ekleme mevcut**.
 
-    ![Var olanı ekle](./media/security-center-management-groups/add-existing.png)
+    ![Mevcut yapıtı Ekle](./media/security-center-management-groups/add-existing.png)
 
 3. Abonelik altında girin **var olan bir kaynak ekleyin** tıklatıp **Kaydet**.
 

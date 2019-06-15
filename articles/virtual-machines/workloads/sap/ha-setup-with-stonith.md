@@ -15,10 +15,10 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123578"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH kullanarak yüksek kullanılabilirlik SUSE ayarlama
@@ -76,7 +76,7 @@ Microsoft Hizmet Yönetimi bu dizesi sağlayın. Dosyayı değiştirmek **hem** 
 
 ![initiatorname.PNG](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 değiştirme */etc/iscsi/iscsid.conf*: Ayarlama *node.session.timeo.replacement_timeout=5* ve *node.startup otomatik =*. Dosyayı değiştirmek **hem** düğümleri.
+1.2 değiştirme */etc/iscsi/iscsid.conf*: Ayarlama *node.session.timeo.replacement_timeout=5* ve *node.startup otomatik =* . Dosyayı değiştirmek **hem** düğümleri.
 
 1.3 bulma komutu yürütün, dört oturumları gösterir. Düğümler üzerinde çalıştırın.
 
@@ -508,7 +508,7 @@ Persistent=true
 
 ![Persistent.png](media/HowToHLI/HASetupWithStonith/Persistent.png)
 
-### <a name="scenario-6-node-2-unable-to-join-the-cluster"></a>6. Senaryo: Düğümü kümeye katılamadı 2
+### <a name="scenario-6-node-2-unable-to-join-the-cluster"></a>6\. Senaryo: Düğümü kümeye katılamadı 2
 
 Ne zaman varolan Düğüm2 birleştirme küme kullanarak *ha-kümesi-birleştirme* komutu, şu hata oluştu.
 

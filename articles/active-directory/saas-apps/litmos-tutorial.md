@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a9fb661e0b43e71cf9543e9b7042155763d1aa1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e84ec2d8895cf0cdaf933d6446b361a3e606feb5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60256501"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Öğretici: Litmos ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Litmos tümleştirmesini yapılandırmak için Litmos Galeriden yön
 
 **Galeriden Litmos eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827765"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
@@ -207,7 +207,7 @@ Birincil veritabanında Denetimi etkinleştirdiğinizde, coğrafi olarak çoğal
 3. İkincil siteden birincil depolama erişim anahtarı yeniden denetim yapılandırma sayfasına geçin ve ardından Git **Tamam**. Ardından **Kaydet** denetim yapılandırma sayfanın üstünde.
 4. Depolama Yapılandırması sayfasına dönün ve (hazırlığında sonraki anahtarın yenileme döngüsü) ikincil erişim tuşunu yeniden oluşturun.
 
-## <a name="additional-information"></a>Ek Bilgiler
+## <a name="additional-information"></a>Ek Bilgi
 
 - Günlük hakkındaki ayrıntılar için biçimi, depolama klasör hiyerarşisini ve adlandırma kuralları için bkz: [Blob denetim günlük biçimi başvurusu](https://go.microsoft.com/fwlink/?linkid=829599).
 
@@ -231,7 +231,7 @@ Birincil veritabanında Denetimi etkinleştirdiğinizde, coğrafi olarak çoğal
 
 ## <a id="subheading-7"></a>Azure PowerShell kullanarak SQL veritabanı denetimini yönetme
 
-**PowerShell cmdlet'leri (WHERE yan tümcesi desteği, ek bir filtreleme dahil)**:
+**PowerShell cmdlet'leri (WHERE yan tümcesi desteği, ek bir filtreleme dahil)** :
 
 - [Veritabanı Denetim İlkesi (Set-AzSqlDatabaseAuditing) güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
 - [Sunucu denetimi İlkesi (Set-AzSqlServerAuditing) güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)

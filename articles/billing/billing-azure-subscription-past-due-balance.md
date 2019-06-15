@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
 ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66023397"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Çözmek vadesi geçmiş bakiye Azure aboneliğiniz için
@@ -53,6 +53,6 @@ Hizmet iptal edilir ve kaynaklarınızı artık kullanılamaz. Azure veri hizmet
 
 Biliyorsanız ödemenizin işlendi ancak aboneliğiniz hala devre dışı, kişi [Azure Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: eb7150d0b1c3a4a312b0c05ba7612960aaf640f6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65227939"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Anahtar kasası için en iyi uygulamalar
@@ -32,7 +32,7 @@ Kasanızı erişimi denetleme sırasında önerileri aşağıdaki gibidir:
 
 Her ortam (geliştirme, ön üretim ve üretim) uygulama başına bir kasa Bizim önerimiz kullanmaktır. Bu, gizli dizileri ortamlar genelinde paylaşılmaz yardımcı olur ve ayrıca bir ihlal durumunda tehdidi azaltır.
 
-## <a name="backup"></a>Yedekle
+## <a name="backup"></a>Backup
 
 Normal geri yedeklerine emin olmak sizin [kasası](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) güncelleştirme/silme/oluştururken bir kasa içinde nesne.
 

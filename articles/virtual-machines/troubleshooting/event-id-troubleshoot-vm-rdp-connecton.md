@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485501"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Azure VM RDP bağlantı sorunlarını olay kimliğine göre giderme 
@@ -56,35 +56,35 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 
 **Günlük adı:**      Sistem <br />
 **Kaynak:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Tarih:***zaman* <br />
+**Tarih:** *zaman* <br />
 **Olay Kimliği:**      1058 <br />
 **Görev kategorisi:** None <br />
 **Düzeyi:**         Hata <br />
 **Anahtar sözcükler:**      Klasik <br />
 **Kullanıcı:**          Yok <br />
-**Bilgisayar:***bilgisayar* <br />
+**Bilgisayar:** *bilgisayar* <br />
 **Açıklama:** RD Oturumu Ana bilgisayarı, kendinden imzalı SSL bağlantıları RD Oturumu Ana Bilgisayar sunucusu kimlik doğrulaması için kullanılan sertifikanın süresi dolmuş değiştirmek başarısız oldu. İlgili durum kodu: erişim engellendi.
 
 **Günlük adı:**      Sistem <br />
 **Kaynak:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Tarih:***zaman* <br />
+**Tarih:** *zaman* <br />
 **Olay Kimliği:**      1058 <br />
 **Görev kategorisi:** None <br />
 **Düzeyi:**         Hata <br />
 **Anahtar sözcükler:**      Klasik <br />
 **Kullanıcı:**          Yok <br />
-**Bilgisayar:***bilgisayar* <br />
+**Bilgisayar:** *bilgisayar* <br />
 **Açıklama:** RD Oturumu Ana Bilgisayar sunucusu SSL bağlantıları üzerinde RD Oturumu Ana bilgisayarı sunucu kimlik doğrulaması için kullanılacak yeni bir otomatik olarak imzalanan sertifika oluşturmak başarısız oldu, ilgili durum kodu: nesne zaten mevcut.
 
 **Günlük adı:**      Sistem <br />
 **Kaynak:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Tarih:***zaman* <br />
+**Tarih:** *zaman* <br />
 **Olay Kimliği:**      1057 <br />
 **Görev kategorisi:** None <br />
 **Düzeyi:**         Hata <br />
 **Anahtar sözcükler:**      Klasik <br />
 **Kullanıcı:**          Yok <br />
-**Bilgisayar:***bilgisayar* <br />
+**Bilgisayar:** *bilgisayar* <br />
 **Açıklama:** RD Oturumu Ana bilgisayarı, yeni imzalanan SSL bağlantıları üzerinde RD Oturumu Ana Bilgisayar sunucusu kimlik doğrulaması için kullanılacak bir sertifika oluşturmak başarısız oldu. İlgili durum kodu: anahtar kümesi yok.
 
 Aşağıdaki komutları çalıştırarak 36872 ve 36870 SCHANNEL hata olayları için de göz atabilirsiniz:
@@ -102,7 +102,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Düzeyi:**         Hata <br />
 **Anahtar sözcükler:**       <br />
 **Kullanıcı:**          SİSTEM <br />
-**Bilgisayar:***bilgisayar* <br />
+**Bilgisayar:** *bilgisayar* <br />
 **Açıklama:** SSL sunucu kimlik bilgisi özel anahtarına erişme girişimi sırasında önemli bir hata oluştu. Şifreleme modülünden döndürülen hata kodu 0x8009030D ' dir.  <br />
 10001 iç bir hata durumudur.
 
@@ -224,7 +224,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Düzeyi:**         Hata <br />
 **Anahtar sözcükler:**       <br />
 **Kullanıcı:**          SİSTEM <br />
-**Bilgisayar:***bilgisayar* <br />
+**Bilgisayar:** *bilgisayar* <br />
 **Açıklama:** TLS sunucusu kimlik bilgisi oluşturulurken önemli bir hata oluştu. 10013 iç bir hata durumudur.
  
 ### <a name="cause"></a>Nedeni
@@ -248,13 +248,13 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 
 **Günlük adı:**      Microsoft-Windows-TerminalServices-SessionBroker/işlem <br />
 **Kaynak:**        Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Tarih:***zaman* <br />
+**Tarih:** *zaman* <br />
 **Olay Kimliği:**      2056 <br />
 **Görev kategorisi:** (109) <br />
 **Düzeyi:**         Hata <br />
 **Anahtar sözcükler:**       <br />
 **Kullanıcı:**          AĞ HİZMETİ <br />
-**Bilgisayar:***bilgisayar fqdn* <br />
+**Bilgisayar:** *bilgisayar fqdn* <br />
 **Açıklama:** Olay Kimliği 2056 kaynağından açıklaması Microsoft-Windows-TerminalServices-SessionBroker nebyla nalezena. Bu olayı oluşturan bileşen, yerel bilgisayarınızda yüklü değil veya yüklemenin bozuk. Yüklediğinizde veya yerel bilgisayarda bileşen onarın. <br />
 Olay başka bir bilgisayarda bulunuyorsa, görüntü bilgilerini olay ile kayıtlı gerekiyordu. <br />
 Aşağıdaki bilgiler, olay ile eklendi: <br />
@@ -264,18 +264,18 @@ Veritabanına oturum açma başarısız oldu.
 
 **Günlük adı:**      Microsoft-Windows-TerminalServices-SessionBroker-istemci/işlem <br />
 **Kaynak:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
-**Tarih:***zaman* <br />
+**Tarih:** *zaman* <br />
 **Olay Kimliği:**      1296 <br />
 **Görev kategorisi:** (104) <br />
 **Düzeyi:**         Hata <br />
 **Anahtar sözcükler:**       <br />
 **Kullanıcı:**          AĞ HİZMETİ <br />
-**Bilgisayar:***bilgisayar fqdn* <br />
+**Bilgisayar:** *bilgisayar fqdn* <br />
 **Açıklama:** Olay Kimliği 1296 kaynağından açıklaması Microsoft-Windows-TerminalServices-SessionBroker-Client nebyla nalezena. Bu olayı oluşturan bileşen, yerel bilgisayarınızda yüklü değil veya yüklemenin bozuk. Yüklediğinizde veya yerel bilgisayarda bileşen onarın.
 Olay başka bir bilgisayarda bulunuyorsa, görüntü bilgilerini olay ile kayıtlı gerekiyordu.
 Aşağıdaki bilgiler, olay ile eklendi:  <br />
-*Metin* <br />
-*Metin* <br />
+*text* <br />
+*text* <br />
 Uzak Masaüstü Bağlantı Aracısı RPC iletişimi için hazır değil.
 
 ### <a name="cause"></a>Nedeni

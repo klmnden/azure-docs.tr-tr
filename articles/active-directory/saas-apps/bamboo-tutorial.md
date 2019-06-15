@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c13469c9c70aec31314048b8971c66bae5cd49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 044a2f9a9ecd0ccceb99ce7999af7e2c8578950d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65858829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106529"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Öğretici: GmbH çözünürlüğün Bamboo için SAML SSO ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Bamboo için SAML SSO, Azure AD'de tümleştirmesini GmbH çözünürlüğün ya
 
 **SAML SSO için Bamboo GmbH çözünürlüğüyle Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

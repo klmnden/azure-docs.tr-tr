@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872794"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
@@ -191,7 +191,7 @@ Kaynak kodu `Microsoft.NET.Sdk.Functions` GitHub deposunda kullanılabilir [azur
 
 Visual Studio kullanan [Azure işlevleri çekirdek Araçları](functions-run-local.md#install-the-azure-functions-core-tools) işlevleri projelerini çalıştırmak için. Temel araçları, İşlevler çalışma zamanı için bir komut satırı arabirimidir.
 
-Npm kullanarak Core araçlarını yüklerseniz, Visual Studio tarafından kullanılan temel araçları sürümü etkilemez. İşlevler çalışma zamanı sürümü için 1.x, Visual Studio temel araçları sürümlerinde depolar *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* ve burada depolanan en son sürümünü kullanır. İçin 2.x İşlevler, temel Araçlar dahil **Azure işlevleri ve Web işleri Araçları** uzantısı. 1.x ve 2.x'i için İşlevler projesi çalıştırdığınızda, konsol çıkışında hangi sürümü kullanılıyor görebilirsiniz:
+Npm kullanarak Core araçlarını yüklerseniz, Visual Studio tarafından kullanılan temel araçları sürümü etkilemez. İşlevler çalışma zamanı sürümü için 1.x, Visual Studio temel araçları sürümlerinde depolar *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* ve burada depolanan en son sürümünü kullanır. İçin 2.x İşlevler, temel Araçlar dahil **Azure işlevleri ve Web işleri Araçları** uzantısı. 1\.x ve 2.x'i için İşlevler projesi çalıştırdığınızda, konsol çıkışında hangi sürümü kullanılıyor görebilirsiniz:
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)

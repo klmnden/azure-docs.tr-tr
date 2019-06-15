@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128701"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Dizi ve nesne işlevleri için Azure Resource Manager şablonları
@@ -195,7 +195,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| stringOutput | String | varsayılan |
+| stringOutput | String | default |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "varsayılan"} |
 | arrayOutput | Dizi | [1] |
@@ -864,7 +864,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="length" />
 
-## <a name="length"></a>Uzunluğu
+## <a name="length"></a>length
 `length(arg1)`
 
 Bir dizi ya da bir dizedeki karakter öğelerin sayısını döndürür.
@@ -947,7 +947,7 @@ Bu işlev bir dizi ile kullanma hakkında daha fazla bilgi için bkz. [Azure Res
 
 <a id="max" />
 
-## <a name="max"></a>en çok
+## <a name="max"></a>en fazla
 `max(arg1)`
 
 En yüksek değer bir sayı dizisi veya virgülle ayrılmış tamsayı listesi döndürür.
@@ -1139,7 +1139,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>atla
+## <a name="skip"></a>Atla
 `skip(originalValue, numberToSkip)`
 
 Sonra belirtilen sayı dizisindeki tüm öğeleri olan bir dizi döndürür veya belirtilen dizede sonra tüm karakterleri içeren bir dize döndürür.

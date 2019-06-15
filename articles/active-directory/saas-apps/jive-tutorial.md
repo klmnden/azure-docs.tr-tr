@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5073961e15b3d0dcf0df0fd97d3f8a4568f79eb5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7af47cf02d52abf8783eb1eb5da171b208ed07c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897959"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099379"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>Öğretici: Jive ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Jive tümleştirmesini yapılandırmak için Jive Galeriden yönetil
 
 **Galeriden Jive eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

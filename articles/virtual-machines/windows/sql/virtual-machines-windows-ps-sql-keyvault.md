@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6ad8eea21c10726b2c3eaf1e10bfd5efba4d1e48
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 13d698cfbc0241248a77fd5f3b148a9393320c64
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129629"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075993"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure sanal makinelerinde (Resource Manager) SQL Server için Azure anahtar kasası tümleştirmesini yapılandırma
 
@@ -53,25 +53,21 @@ Yeni bir SQL Server sanal makinesini Resource Manager ile sağlıyorsanız, Azur
 Sağlama ayrıntılı kılavuz için bkz. [Azure Portal'da bir SQL Server sanal makinesi sağlama](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="existing-vms"></a>Varolan Vm'leri
-Mevcut SQL Server sanal makineleri için SQL Server sanal makinenizi seçin. Ardından **SQL Server Yapılandırması** bölümünü **ayarları** dikey penceresi.
+
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Mevcut SQL Server sanal makineleri için açma, [SQL sanal makineleri kaynak](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) seçip **güvenlik** altında **ayarları**. Seçin **etkinleştirme** Azure anahtar kasası tümleştirmeyi etkinleştirmek için. 
 
 ![Var olan sanal makineler için SQL AKV tümleştirme](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
 
-İçinde **SQL Server Yapılandırması** dikey penceresinde tıklayın **Düzenle** otomatik anahtar kasası tümleştirme bölümünde düğmesini.
-
-![Var olan VM'ler için SQL AKV tümleştirmesini yapılandırma](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-configuration.png)
-
-İşiniz bittiğinde tıklayın **Tamam** altındaki düğmesine **SQL Server Yapılandırması** yaptığınız değişiklikleri kaydetmek için dikey.
+İşiniz bittiğinde seçin **Uygula** altındaki düğmesine **güvenlik** yaptığınız değişiklikleri kaydetmek için sayfa.
 
 > [!NOTE]
 > Burada oluşturulan kimlik bilgisi adı daha sonra bir SQL oturum açmayla. Bu anahtar kasasına erişmek SQL oturum açma sağlar. 
->
->
+
 
 > [!NOTE]
 > Şablon kullanarak AKV tümleştirme de yapılandırabilirsiniz. Daha fazla bilgi için [Azure anahtar kasası tümleştirme için Azure Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
-> 
-> 
+
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
-

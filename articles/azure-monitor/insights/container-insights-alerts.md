@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2019
 ms.author: magoedte
 ms.openlocfilehash: 46ac6794272728069d50479f8cd097185bfeeb1a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072397"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici'de performans sorunları için uyarılar ayarlama
@@ -36,7 +36,7 @@ Yüksek CPU veya bellek kullanımı ya da küme düğümlerinde düşük boş di
 Azure İzleyici uyarılarla ilgili bilgi sahibi değilseniz bkz [Microsoft azure'da uyarılara genel bakış](../platform/alerts-overview.md) başlamadan önce. Günlük sorguları kullanan uyarılar hakkında daha fazla bilgi edinmek için [Azure İzleyici'de günlük uyarıları](../platform/alerts-unified-log.md). Ölçüm Uyarıları hakkında daha fazla bilgi için bkz. [Azure İzleyici ölçüm uyarıları](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Kaynak kullanımı günlük arama sorguları
-Bu bölümdeki sorguların her uyarı senaryoyu destekler. 7. adımda alışık değilseniz [uyarı oluşturma](#create-an-alert-rule) bu makalenin.
+Bu bölümdeki sorguların her uyarı senaryoyu destekler. 7\. adımda alışık değilseniz [uyarı oluşturma](#create-an-alert-rule) bu makalenin.
 
 Aşağıdaki sorgu ortalama CPU kullanımı ortalama olarak dakikada üye düğümlerinin CPU kullanımının hesaplar.  
 

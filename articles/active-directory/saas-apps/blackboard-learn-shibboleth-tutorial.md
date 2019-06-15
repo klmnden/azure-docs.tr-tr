@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 861e8dec9383309a549cdd2c24ecd58d6dfdf25e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2e409733f3f84df04d1f863340c28b4ea508179
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60282386"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Öğretici: Yazı tahtası öğrenin - Shibboleth ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Yazı tahtası öğrenin - Azure AD'ye Shibboleth tümleştirmesini yapılandır
 
 **Shibboleth galerisinden Yazı tahtası öğrenin - eklemek için aşağıdaki adımları uygulayın:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

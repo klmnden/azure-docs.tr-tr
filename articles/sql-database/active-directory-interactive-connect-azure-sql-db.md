@@ -13,10 +13,10 @@ ms.reviewer: GeneMi
 ms.date: 03/12/2019
 manager: craigg
 ms.openlocfilehash: bc7274308b8a349d16866f107eac4a57e115be9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160830"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication ile Azure SQL Database'e bağlanma
@@ -122,7 +122,7 @@ C# Örnek dayanır [ `System.Data.SqlClient` ](https://docs.microsoft.com/dotnet
 | AzureAD_UserID | "erişilebileceği\@abc.onmicrosoft.com" | **Azure Active Directory** > **kullanıcı** > **yeni Konuk kullanıcı** |
 | Initial_DatabaseName | "Veritabanım" | **SQL sunucuları** > **SQL veritabanları** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **uygulama kayıtları** > **adına göre Ara** > **uygulama kimliği** |
-| RedirectUri | Yeni bir Urı'ya ("https://mywebserver.com/") | **Azure Active Directory** > **uygulama kayıtları** > **adına göre Ara** > *[Your App-kayıt]*  >  **Ayarları** > **RedirectURIs**<br /><br />Bu makale için geçerli bir değer burada kullanılan değildir çünkü, RedirectUri için uygundur. |
+| RedirectUri | Yeni bir Urı'ya ("https://mywebserver.com/") | **Azure Active Directory** > **uygulama kayıtları** > **adına göre Ara** >  *[Your App-kayıt]*  >  **Ayarları** > **RedirectURIs**<br /><br />Bu makale için geçerli bir değer burada kullanılan değildir çünkü, RedirectUri için uygundur. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="verify-with-sql-server-management-studio"></a>SQL Server Management Studio ile doğrulayın.

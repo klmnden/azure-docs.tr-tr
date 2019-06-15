@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 518f1048224a97943756c5b51b83cd509f82e11e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072508"
 ---
 # <a name="speech-service-supported-regions"></a>Konuşma hizmeti desteklenen bölgeler
 
@@ -80,12 +80,12 @@ Konuşma hizmeti de konuşma metin ve metin okuma istekleri için REST uç nokta
 
 ### <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
 
-Konuşmayı metne referans belgeleri için bkz. [REST API'leri](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+Konuşmayı metne referans belgeleri için bkz. [konuşma metin REST API](rest-speech-to-text.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### <a name="text-to-speech"></a>Metin okuma
 
-Metin okuma referans belgeleri için bkz. [REST API'leri](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+Metin okuma referans belgeleri için bkz. [metin okuma REST API'si](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

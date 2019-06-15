@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: a992851deda0659509c0ee4ea5de76b19734f017
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128847"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>StorSimple sanal dizisi için depolama hesabı kimlik bilgilerini yönetmek için StorSimple cihaz Yöneticisi'ni kullanın
@@ -69,13 +69,13 @@ Azure depolama hesabı kimlik bilgilerini eklemek için aşağıdaki yordamları
 
 1. Cihaz Yöneticisi hizmetinize select gidin ve çift tıklayın. Bu açılır **genel bakış** dikey penceresi.
 2. Seçin **depolama hesabı kimlik bilgileri** içinde **yapılandırma** bölümü.
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 4. İçinde **bir depolama hesabı ekleme** dikey penceresinde aşağıdakileri yapın:
    
     1. İçin **abonelik**seçin **geçerli**.
     2. Azure depolama hesabınızın adını sağlayın.
     3. Seçin **etkinleştirme** StorSimple cihazınız ve bulut arasında ağ iletişimi için güvenli bir kanal oluşturmak için. Seçin **devre dışı** yalnızca, bir özel bulutta işlem yapıyorsanız temizleyin.
-    4. **Ekle**'ye tıklayın. Depolama hesabı başarıyla oluşturulduktan sonra size bildirilir.<br></br>
+    4. **Ekle**'yi tıklatın. Depolama hesabı başarıyla oluşturulduktan sonra size bildirilir.<br></br>
    
         ![Mevcut bir depolama hesabı kimlik bilgisi Ekle](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
@@ -83,7 +83,7 @@ Azure depolama hesabı kimlik bilgilerini eklemek için aşağıdaki yordamları
 
 1. Cihaz Yöneticisi hizmetinize select gidin ve çift tıklayın. Bu açılır **genel bakış** dikey penceresi.
 2. Seçin **depolama hesabı kimlik bilgileri** içinde **yapılandırma** bölümü. Bu StorSimple cihaz Yöneticisi hizmeti ile ilişkili herhangi bir mevcut depolama hesabı kimlik listeler.
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 4. İçinde **bir depolama hesabı ekleme** dikey penceresinde aşağıdakileri yapın:
    
     1. İçin **abonelik**seçin **diğer**.
@@ -94,7 +94,7 @@ Azure depolama hesabı kimlik bilgilerini eklemek için aşağıdaki yordamları
    
     4. SSL etkinleştirmek için tıklayın **etkinleştirme** StorSimple cihaz Yöneticisi hizmetiniz ve bulut arasında ağ iletişimi için güvenli bir kanal oluşturmak için. Tıklayın **devre dışı** yalnızca, bir özel bulutta işlem yapıyorsanız düğmesi.
    
-    5. **Ekle**'ye tıklayın. Depolama hesabı kimlik bilgisi başarıyla oluşturulduktan sonra size bildirilir.
+    5. **Ekle**'yi tıklatın. Depolama hesabı kimlik bilgisi başarıyla oluşturulduktan sonra size bildirilir.
 
 5. Yeni oluşturulan depolama hesabı kimlik bilgisi altında yapılandırma StorSimple cihaz Yöneticisi hizmet dikey penceresinde görüntülenen **depolama hesabı kimlik bilgileri**.
    

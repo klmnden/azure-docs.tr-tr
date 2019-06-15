@@ -3,8 +3,8 @@ title: Azure Service Fabric Docker Compose dağıtımı Önizleme
 description: Azure Service Fabric, Service Fabric kullanarak mevcut kapsayıcıları düzenleyin daha kolay hale getirmek için Docker Compose biçimlerini kabul eder. Bu destek, şu anda Önizleme aşamasındadır.
 services: service-fabric
 documentationcenter: .net
-author: rockboyfor
-manager: digimobile
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -12,14 +12,13 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/23/2018
-ms.date: 04/29/2019
-ms.author: v-yeche
+ms.date: 2/23/2018
+ms.author: aljo, subramar
 ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60948843"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>(Önizleme) Azure Service fabric'te docker Compose dağıtımı desteği
@@ -139,8 +138,8 @@ Kaynak sınırları zorunlu tutmak için kümesi açıklandığı ayarlama [Serv
 ### <a name="ports-section"></a>Bağlantı noktaları bölümüne
 
 Service Fabric hizmeti dinleyicisi tarafından kullanılan bağlantı noktaları bölümündeki http veya https protokolünü belirtin. Bu uç nokta Protokolü doğru isteklerini iletmek ters proxy izin vermek için adlandırma hizmeti ile yayımlanan şunları sağlar:
-* Güvenli olmayan Service Fabric Compose Hizmetleri yönlendirmek belirtin **/http**. Örneğin,- **"80:80 / http"**.
-* Güvenli Service Fabric Compose Hizmetleri yönlendirmek belirtin **/https**. Örneğin,- **"443:443 / https"**.
+* Güvenli olmayan Service Fabric Compose Hizmetleri yönlendirmek belirtin **/http**. Örneğin,- **"80:80 / http"** .
+* Güvenli Service Fabric Compose Hizmetleri yönlendirmek belirtin **/https**. Örneğin,- **"443:443 / https"** .
 
 > [!NOTE]
 > Service Fabric dinleyici URL'sini doğru kaydetmek için Service Fabric /http ve /https bağlantı noktaları bölümünde söz dizimi özeldir.  Docker compose dosyası sözdizimi programlı olarak doğrulandı, bir doğrulama hatasına neden.
@@ -166,5 +165,3 @@ Bu model, üst düzeyde esneklik sunar ancak biz de burada türleri bildirim dos
 
 * Üzerinde okuma [Service Fabric uygulama modeli](service-fabric-application-model.md)
 * [Service Fabric CLI kullanmaya başlama](service-fabric-cli.md)
-
-<!-- Update_Description: wording update -->

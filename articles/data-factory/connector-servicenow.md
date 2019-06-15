@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60203423"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Servicenow'ı Azure Data Factory kullanarak verileri kopyalama
@@ -110,14 +110,14 @@ Servicenow'ı verileri kopyalamak için kopyalama etkinliği için kaynak türü
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **ServiceNowSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Actual.alm_asset"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Actual.alm_asset"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 Şema ve sütun için ServiceNow sorguda belirtirken, aşağıdakilere dikkat edin ve **başvurmak [performans ipuçları](#performance-tips) kopyalama performans olduğu çıkarımında üzerinde**.
 
 - **Şema:** şeması olarak belirtmek `Actual` veya `Display` adresinden parametresi olarak bakabilirsiniz ServiceNow sorgusunda `sysparm_display_value` true veya false çağırırken olarak [ServiceNow restful API'leri](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Sütun:** altında gerçek değer için sütun adı `Actual` şeması `[column name]_value`sırada altında görüntüleme değeri için `Display` şeması `[column name]_display_value`. Not sütun adı, sorguda kullanılan şema eşlemesine gerekir.
 
-**Örnek Sorgu:**
+**Örnek Sorgu:** 
 `SELECT col_value FROM Actual.alm_asset` VEYA 
 `SELECT col_display_value FROM Display.alm_asset`
 

@@ -1,6 +1,6 @@
 ---
 title: Hızlı Başlangıç - Azure Active Directory koşullu erişim ile bir oturumu risk algılandığında erişimi engelleme | Microsoft Docs
-description: Bu hızlı başlangıçta, oturum açma oturumu riskler için temel engellemek için bir Azure Active Directory (Azure AD) koşullu erişim ilkesini nasıl yapılandırabileceğinizi öğrenin.
+description: Bu hızlı başlangıçta, oturum açma oturumu riskler için temel engellemek üzere bir Azure Active Directory (Azure AD) koşullu erişim ilkesini nasıl yapılandırabileceğinizi öğrenin.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5defdf2d33d32042775271fe01aba377687ae75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8de4e785bbe2496ca38b33512da1c85f9ff76f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413546"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112770"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Hızlı Başlangıç: Azure Active Directory koşullu erişim ile bir oturumu risk algılandığında erişimi engelleme  
 
@@ -32,7 +32,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu öğreticide senaryoyu tamamlamak için şunlar gereklidir:
 
-- **Bir Azure AD Premium P2 sürümünü erişimi** -koşullu erişim bir Azure AD Premium P1 özelliği olsa da, bu hızlı başlangıçta bir senaryoda, kimlik koruması gerektirdiğinden P2 sürümü gerekir.
+- **Bir Azure AD Premium P2 sürümünü erişimi** -sırada koşullu erişim bir Azure AD Premium P1 özelliği, bu hızlı başlangıçta bir senaryoda, kimlik koruması gerektirdiğinden P2 sürümü gerekir.
 
 - **Kimlik koruması** -Bu hızlı başlangıçta senaryoda kimlik korumasının etkinleştirilmesini gerektirir. Kimlik Koruması'nı etkinleştirme bilmiyorsanız, bkz. [etkinleştirme Azure Active Directory kimlik koruması](../identity-protection/enable.md).
 
@@ -60,13 +60,13 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 | Kullanıcılar ve gruplar | Alain Charon  |
 | Bulut uygulamaları | Tüm bulut uygulamaları |
 | Oturum açma riski | Orta |
-| Erişim İzni Verme | Erişimi engelle |
+| Verme | Erişimi engelle |
 
 ![İlke oluşturma](./media/app-sign-in-risk/130.png)
 
 **Koşullu erişim ilkenizi yapılandırmak için:**
 
-1. [Azure portalınızda](https://portal.azure.com) genel yönetici, güvenlik yöneticisi veya koşullu erişim yöneticisi olarak oturum açın.
+1. Oturum açın, [Azure portalında](https://portal.azure.com) genel yönetici, güvenlik yöneticisi veya koşullu erişim Yöneticisi olarak.
 
 1. Azure portalında sol gezinti çubuğunda tıklatın **Azure Active Directory**.
 
@@ -74,7 +74,7 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 
 1. Üzerinde **Azure Active Directory** sayfasında **güvenlik** bölümünde **koşullu erişim**.
 
-   ![Koşullu erişim](./media/app-sign-in-risk/03.png)
+   ![Koşullu Erişim](./media/app-sign-in-risk/03.png)
 
 1. Üzerinde **koşullu erişim** sayfasında, üstteki araç çubuğunda tıklatın **Ekle**.
 
@@ -90,7 +90,7 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 
 1. Üzerinde **kullanıcılar ve gruplar** sayfası:
 
-   ![Koşullu erişim](./media/app-sign-in-risk/107.png)
+   ![Koşullu Erişim](./media/app-sign-in-risk/107.png)
 
    1. Tıklayın **kullanıcıları ve grupları seçin**ve ardından **kullanıcılar ve gruplar**.
 
@@ -106,7 +106,7 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 
 1. Üzerinde **bulut uygulamaları** sayfası:
 
-   ![Koşullu erişim](./media/app-sign-in-risk/109.png)
+   ![Koşullu Erişim](./media/app-sign-in-risk/109.png)
 
    1. Tıklayın **tüm bulut uygulamaları**.
 
@@ -118,7 +118,7 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 
 1. Üzerinde **koşullar** sayfası:
 
-   ![Oturum açma risk düzeyi](./media/app-sign-in-risk/21.png)
+   ![Oturum açma riski düzeyi](./media/app-sign-in-risk/21.png)
 
    1. Tıklayın **oturum açma riski**.
 
@@ -136,7 +136,7 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 
 1. Üzerinde **Grant** sayfası:
 
-   ![Koşullu erişim](./media/app-sign-in-risk/105.png)
+   ![Koşullu Erişim](./media/app-sign-in-risk/105.png)
 
    1. Seçin **erişimi engelle**.
 
@@ -144,13 +144,13 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 
 1. İçinde **ilkesini etkinleştir** bölümünde **üzerinde**.
 
-   ![İlkeyi etkinleştir](./media/app-sign-in-risk/18.png)
+   ![İlkeyi etkinleştirme](./media/app-sign-in-risk/18.png)
 
 1. **Oluştur**’a tıklayın.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Bir sanal oturum değerlendir
 
-Koşullu erişim ilkenizi yapılandırdığınıza göre şimdi beklenen şekilde çalışıp çalışmadığını kontrol etmek isteyebilirsiniz. İlk adım, koşullu erişim kullanmak **ne İlkesi aracı** bir oturum açma, test kullanıcının benzetimini yapmak için. Benzetim, bu oturum açma işleminin ilkeleriniz üzerindeki etkisini tahmin eder ve bir benzetim raporu oluşturur.  
+Koşullu erişim ilkenizi yapılandırdığınıza göre büyük olasılıkla beklenen şekilde çalışıp çalışmadığını bilmek ister. İlk adım, koşullu erişim kullanmak **ne İlkesi aracı** bir oturum açma, test kullanıcının benzetimini yapmak için. Benzetim, bu oturum açma işleminin ilkeleriniz üzerindeki etkisini tahmin eder ve bir benzetim raporu oluşturur.  
 
 Çalıştırdığınızda **ne İlkesi aracı** bu senaryo için **orta düzeyde risk düzeyi için erişimi engelle** altında listelenmelidir **uygulanacak ilkeler**.
 
@@ -160,7 +160,7 @@ Koşullu erişim ilkenizi yapılandırdığınıza göre şimdi beklenen şekild
 
 1. Üzerinde [koşullu erişim - ilkeleri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) sayfasında, üstteki menüde **ne**.  
 
-   ![What If](./media/app-sign-in-risk/14.png)
+   ![Ya](./media/app-sign-in-risk/14.png)
 
 1. Tıklayın **kullanıcı**seçin **Alan Charon** üzerinde **kullanıcılar** sayfasında ve ardından **seçin**.
 
@@ -172,7 +172,7 @@ Koşullu erişim ilkenizi yapılandırdığınıza göre şimdi beklenen şekild
 
 1. Tıklayın **ne**.
 
-## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test etme
+## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test
 
 Önceki bölümde, bir sanal oturum değerlendirilecek öğrendiniz. Bir simülasyon ek olarak, koşullu erişim ilkenizi, beklendiği gibi çalıştığından emin olmak için sınamalısınız.
 

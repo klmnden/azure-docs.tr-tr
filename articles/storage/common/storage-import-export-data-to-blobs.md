@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 68f62a6945f3b651781414e3194104b6d2e6295c
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 72a91fefc26e9c0b6d5a91223119815c4fcb9551
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455802"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808590"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 
@@ -39,7 +39,7 @@ Azure Blob depolama alanına veri aktarmak için içeri aktarma işine oluşturm
         - [FedEX hesabı oluşturma](https://www.fedex.com/en-us/create-account.html), veya 
         - [DHL hesabı oluşturma](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
-## <a name="step-1-prepare-the-drives"></a>1. adım: Sürücüleri hazırlama
+## <a name="step-1-prepare-the-drives"></a>1\. adım: Sürücüleri hazırlama
 
 Bu adım, bir günlük dosyası oluşturur. Günlük dosyası sürücü seri numarası, şifreleme anahtarını ve depolama hesabı ayrıntıları gibi temel bilgileri depolar. 
 
@@ -58,7 +58,7 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
 6.  Disk hazırlamak için aşağıdaki komutu çalıştırın. **Veri boyutu bağlı olarak bu gün olarak birkaç saat sürebilir.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite /enablecontentmd5 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
     Günlük dosyası, Aracı çalıştırdığınız klasörde oluşturulur. İki dosyayı da oluşturulan - bir *.xml* dosyası (aracını çalıştırdığınız klasöre) ve bir *sürücü manifest.xml* dosyası (veri bulunduğu klasörü).
     
@@ -74,13 +74,13 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
     |/dstdir:     |Azure depolama alanındaki hedef kapsayıcısının adı.         |
     |/blobtype:     |Bu seçenek verileri içeri aktarmak istediğiniz blobları türünü belirtir. Blok blobları için budur `BlockBlob` ve sayfa blobları için `PagaBlob`.         |
     |/skipwrite:     |Hiçbir kopyalanması gereken yeni verileri ve disk üzerinde var olan veri olduğunu belirten seçeneği hazırlanması sağlamaktır.          |
-    |/enablecontentmd5:     |Seçeneği etkin olduğunda, MD5 Azure blok blobu karşıya yükleme sırasında hesaplanır sağlar.          |
+    |/enablecontentmd5:     |MD5 hesaplanan ve olarak Ayarla seçeneği etkin olduğunda, sağlar `Content-md5` her blob özelliği. Yalnızca kullanmak istiyorsanız bu seçeneği kullanın. `Content-md5` verileri Azure'a karşıya yüklendikten sonra alan. <br> Bu seçenek (Bu, varsayılan olarak gerçekleşir) veri bütünleştirme denetimi etkilemez. Ayar verileri buluta karşıya yüklemek için geçen süreyi artırın.          |
 7. Sevk edilmesi gereken her disk için önceki adımı yineleyin. Her komut satırı çalıştırma için sağlanan ada sahip bir günlük dosyası oluşturulur.
     
     > [!IMPORTANT]
     > - Günlük dosyası ile birlikte bir `<Journal file name>_DriveInfo_<Drive serial ID>.xml` dosyası ayrıca araç bulunduğu aynı klasörde oluşturulur. Günlük dosyası çok büyük ise bir proje oluştururken, .xml dosyasını günlük dosyası yerine kullanılır. 
 
-## <a name="step-2-create-an-import-job"></a>2. adım: İçeri aktarma işi oluşturma
+## <a name="step-2-create-an-import-job"></a>2\. adım: İçeri aktarma işi oluşturma
 
 Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları gerçekleştirin.
 
@@ -102,7 +102,7 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
    - Bir abonelik seçin.
    - Bir kaynak grubu seçin veya girin.  
 
-     ![1. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![1\. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. İçinde **iş ayrıntıları**:
 
@@ -110,7 +110,7 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
     - Verilerin nerede yer alacağını hedef depolama hesabını seçin. 
     - Dropoff konum seçili depolama hesabının bölgeye göre otomatik olarak doldurulur.
    
-   ![2. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+   ![2\. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
 4. İçinde **iade sevkiyat bilgilerini**:
 
@@ -121,25 +121,25 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
        > [!TIP] 
        > Tek bir kullanıcı için bir e-posta adresi belirtmek yerine, Grup e-posta sağlayın. Bu, bir yönetici ayrılsa bile bildirimleri almak sağlar.
 
-     ![3. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![3\. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
 5. İçinde **özeti**:
 
    - Özet olarak sağlanan proje bilgileri gözden geçirin. İş adı ve teslimat adresi diskleri azure'a geri gönderin için Azure veri merkezi not edin. Bu bilgiler daha sonra sevkiyat etiketi kullanılır.
    - Tıklayın **Tamam** içeri aktarma işi oluşturma.
 
-     ![4. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![4\. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives"></a>3. adım: Sürücüleri gönderin 
+## <a name="step-3-ship-the-drives"></a>3\. adım: Sürücüleri gönderin 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
 
-## <a name="step-4-update-the-job-with-tracking-information"></a>4. Adım: İş izleme bilgilerini güncelleştir
+## <a name="step-4-update-the-job-with-tracking-information"></a>4\. Adım: İş izleme bilgilerini güncelleştir
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>5. Adım: Azure'a verilerin yüklendiğini doğrulama
+## <a name="step-5-verify-data-upload-to-azure"></a>5\. Adım: Azure'a verilerin yüklendiğini doğrulama
 
 İş tamamlanana kadar izleyin. İş tamamlandıktan sonra verilerinizi Azure'a karşıya yüklendiğini doğrulayın. Yalnızca, karşıya yükleme başarılı olduğunu doğruladıktan sonra şirket içi verileri silin.
 

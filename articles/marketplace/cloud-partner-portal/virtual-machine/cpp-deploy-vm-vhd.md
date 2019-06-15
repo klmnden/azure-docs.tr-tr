@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pabutler
 ms.openlocfilehash: a393620f28d45ec494c4e899f01e7e9a92b3ceba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938299"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Vhd'lerinizden VM dağıtma
@@ -62,7 +62,7 @@ Sanal makinenizin dağıtıldıktan sonra hazır olduğunuz [VM görüntünüzü
    | Genel IP için DNS adı      | Genel IP DNS adı                                                           |
    | Yönetici kullanıcı adı             | Yeni VM için yönetici hesabının kullanıcı adı                                  |
    | Yönetici Parolası              | Yeni VM için yönetici hesabının parolası                                  |
-   | İşletim Sistemi Türü                     | VM işletim sistemi: `Windows` \| `Linux`                                    |
+   | İşletim sistemi türü                     | VM işletim sistemi: `Windows` \| `Linux`                                    |
    | Abonelik Kimliği             | Seçili abonelik tanımlayıcısı                                      |
    | Location                    | Dağıtım coğrafi konum                                        |
    | VM Boyutu                     | [Azure VM boyutu](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), örneğin `Standard_A2` |
@@ -70,7 +70,7 @@ Sanal makinenizin dağıtıldıktan sonra hazır olduğunuz [VM görüntünüzü
    | VM Adı                     | Yeni bir VM adı                                                           |
    | Sanal ağ adı        | Sanal makine tarafından kullanılan sanal ağ adı                                   |
    | NIC adı                    | Sanal ağ çalıştıran ağ arabirim kartı adı               |
-   | VHD URL'si                     | İşletim sistemi diski VHD URL'si tamamlayın                                                     |
+   | VHD URL'Sİ                     | İşletim sistemi diski VHD URL'si tamamlayın                                                     |
    |  |  |
             
 1. Bu değerleri sizin sağlamanız sonra tıklayın **satın alma**. 

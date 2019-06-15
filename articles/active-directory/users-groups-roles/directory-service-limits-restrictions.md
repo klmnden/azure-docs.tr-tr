@@ -16,11 +16,11 @@ ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1191fb5c9aefb55896d5c44714f1061ff2674a8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472231"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64415222"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Azure AD hizmet sınırlamaları ve kısıtlamaları
 Bu makale, kullanım kısıtlamaları ve Azure Active Directory (Azure AD) hizmeti için diğer hizmet sınırlamaları içerir. Microsoft Azure hizmet sınırlamaları için tam kümesini arıyorsanız bkz [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../../azure-subscription-service-limits.md).

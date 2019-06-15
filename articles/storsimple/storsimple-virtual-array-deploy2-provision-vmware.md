@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61419307"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple sanal dizisi - Vmware'de sağlama dağıtma
@@ -62,7 +62,7 @@ Sağlama ve bir sanal cihaza bağlanmak için aşağıdaki adımları gerçekle�
 2. İçinde hiper yönetici sanal cihaz sağlayın.
 3. Sanal cihazı başlatın ve IP adresini alın.
 
-## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>1. Adım: Ana bilgisayar sistemi en düşük sanal cihaz gereksinimlerini karşıladığından emin olun.
+## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>1\. adım: Ana bilgisayar sistemi en düşük sanal cihaz gereksinimlerini karşıladığından emin olun.
 Sanal cihazı oluşturmak için ihtiyacınız:
 
 * VMware ESXi Server 5.0, 5.5, 6.0 veya 6.5 çalıştıran bir konak sistemi erişim.
@@ -73,7 +73,7 @@ Sanal cihazı oluşturmak için ihtiyacınız:
   * İnternet trafiği için ağa bağlı bir ağ arabirimi. En düşük Internet bant genişliği için en iyi çalışan cihazın izin vermek için 5 MB/sn olmalıdır.
   * Veri için 500 GB sanal disk.
 
-## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>2. Adım: Hiper yöneticide bir sanal cihaz sağlama
+## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>2\. adım: Hiper yöneticide bir sanal cihaz sağlama
 Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçekleştirin.
 
 1. Sanal cihaz görüntüsünü sisteminize kopyalayın. Bu sanal görüntü Azure portalından indirdiğiniz.
@@ -99,7 +99,7 @@ Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçek
 7. **Datastore Browser** (Veri Deposu Tarayıcısı) penceresi açılır.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image6.png)
-8. Araç çubuğunda, ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) simgesini yeni bir klasör oluşturun. Klasör adını belirtin ve not edin. Sanal makine oluştururken bu klasör adını kullanacaksınız (önerilen yöntemdir). **Tamam** düğmesine tıklayın.
+8. Araç çubuğunda, ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) simgesini yeni bir klasör oluşturun. Klasör adını belirtin ve not edin. Sanal makine oluştururken bu klasör adını kullanacaksınız (önerilen yöntemdir). **Tamam**'ı tıklatın.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image8.png)
 9. Yeni klasör **Datastore Browser** (Veri Deposu Tarayıcısı) penceresinin sol tarafında görünür.
@@ -131,7 +131,7 @@ Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçek
 18. Üzerinde **sanal makine sürümünü** sayfasında **sanal makine sürümünü: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
-19. Üzerinde **konuk işletim sistemi** sayfasında **konuk işletim sistemi** olarak **Windows**. İçin **sürüm**, açılır listeden seçin **Microsoft Windows Server 2012 (64-bit)**.
+19. Üzerinde **konuk işletim sistemi** sayfasında **konuk işletim sistemi** olarak **Windows**. İçin **sürüm**, açılır listeden seçin **Microsoft Windows Server 2012 (64-bit)** .
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
 20. Üzerinde **CPU'lar** sayfasında, ayarlamak **sanal Yuva sayısını** ve **sanal yuva başına çekirdek sayısı** böylece **toplam çekirdek sayınız** 4 (veya daha fazla) olabilir. **İleri**’ye tıklayın.
@@ -158,7 +158,7 @@ Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçek
 27. **Ready to Complete** (Tamamlanmak İçin Hazır) sayfasında yeni sanal makineyle ilgili tüm ayarları gözden geçirin. Denetleme **tamamlanmadan önce sanal makine ayarlarını Düzenle**. **Devam**’a tıklayın.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
-28. Üzerinde **sanal makinelerin özellikleri** sayfasında **donanım** sekmesinde, cihaz donanım bulun. Seçin **yeni Sabit Disk**. **Ekle**'ye tıklayın.
+28. Üzerinde **sanal makinelerin özellikleri** sayfasında **donanım** sekmesinde, cihaz donanım bulun. Seçin **yeni Sabit Disk**. **Ekle**'yi tıklatın.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
 29. Gördüğünüz bir **Donanım Ekle** penceresi. Üzerinde **cihaz türü** sayfasındaki **eklemek istediğiniz cihaz türünü seçin**seçin **Sabit Disk**, tıklatıp **sonraki**.
@@ -188,7 +188,7 @@ Sanal makineniz sağlanır. Bir sonraki adım bu makineyi açmak ve IP adresini 
 > [!NOTE]
 > VMware araçları sanal diziniz (yukarıda sağlanan gibi) yüklememenizi öneririz. VMware araçlarının yüklenmesi desteklenmeyen bir yapılandırmaya neden olabilir.
 
-## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>3. Adım: Sanal cihazı başlatma ve IP adresini alma
+## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>3\. adım: Sanal cihazı başlatma ve IP adresini alma
 Sanal cihazınızı başlatmak ve bağlantı kurmak için aşağıdaki adımları izleyin.
 
 #### <a name="to-start-the-virtual-device"></a>Sanal cihazı başlatmak için

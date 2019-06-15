@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d03d4bd86367aa29bbf93062f7cc03f57f4cad83
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075962"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines'de (Resource Manager) için otomatik yedekleme v2
 
@@ -60,17 +60,17 @@ Otomatik yedekleme v2 kullanmak için aşağıdaki önkoşulları gözden geçir
 ## <a name="settings"></a>Ayarlar
 Otomatik yedekleme v2 için yapılandırılabilir seçenekleri aşağıdaki tabloda açıklanmaktadır. Gerçek yapılandırma adımları, Azure portal veya Azure Windows PowerShell komutlarını kullanmadığınıza bağlı olarak değişir.
 
-### <a name="basic-settings"></a>Temel Ayarlar
+### <a name="basic-settings"></a>Temel ayarları
 
 | Ayar | Aralığı (varsayılan) | Açıklama |
 | --- | --- | --- |
 | **Otomatik Yedekleme** | Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirir veya SQL Server 2016/2017 Developer, Standard veya Enterprise çalıştıran bir Azure VM için otomatik yedekleme devre dışı bırakır. |
 | **Saklama dönemi** | 1-30 gün (30 gün) | Yedeklemeleri saklanacağı gün sayısı. |
 | **Depolama Hesabı** | Azure depolama hesabı | Otomatik yedekleme dosyalarını blob storage'da depolamak için kullanılacak bir Azure depolama hesabı. Tüm yedekleme dosyalarını depolamak için bu konumda bir kapsayıcı oluşturulur. Yedekleme dosyası adlandırma kuralı, tarih, saat ve veritabanı GUID'si içerir. |
-| **Şifreleme** |Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirir veya şifreleme devre dışı bırakır. Şifreleme etkin olduğunda, bir yedeklemeyi geri yüklemek için kullanılan sertifikaları belirtilen depolama hesabında yer alır. Aynı kullanan **automaticbackup** kapsayıcı adlandırma kuralını ile. Parola değişirse, bu parolayla yeni bir sertifika oluşturulur, ancak önceki yedeklemeleri geri yüklemek için eski sertifika kalır. |
+| **Şifreleme** |Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirir veya şifreleme devre dışı bırakır. Şifreleme etkin olduğunda, bir yedeklemeyi geri yüklemek için kullanılan sertifikaları belirtilen depolama hesabında yer alır. Aynı kullanan **otomatik yedekleme** kapsayıcı adlandırma kuralını ile. Parola değişirse, bu parolayla yeni bir sertifika oluşturulur, ancak önceki yedeklemeleri geri yüklemek için eski sertifika kalır. |
 | **Parola** |Parola metin | Şifreleme anahtarları parolası. Bu parola yalnızca olan şifreleme etkinse gereken. Şifrelenmiş bir yedeklemeyi geri yüklemek için doğru parolayı ve yedeğin alındığı anda kullanıldı ilgili sertifika olmalıdır. |
 
-### <a name="advanced-settings"></a>Gelişmiş Ayarlar
+### <a name="advanced-settings"></a>Gelişmiş ayarlar
 
 | Ayar | Aralığı (varsayılan) | Açıklama |
 | --- | --- | --- |
@@ -102,12 +102,12 @@ Salı yeniden ulaştıktan sonra otomatik yedekleme, tüm veritabanlarını yeni
 
 Bu senaryo, otomatik yedekleme, yalnızca belirtilen zaman aralığında çalışır ve her veritabanı, haftada bir kez yedeklenen gösterir. Bu, ayrıca burada tek bir gün içinde tüm yedeklemeler tamamlanması mümkün değildir durumda birden çok gün yedeklemeler için mümkün olduğunu gösterir.
 
-### <a name="scenario-2-daily-backups"></a>Senaryo 2: Günlük yedeklemeler
+### <a name="scenario-2-daily-backups"></a>Senaryo 2: Günlük yedekleme
 Büyük veritabanlarının sayısını içeren bir SQL Server VM'si var.
 
 Pazartesi günü aşağıdaki ayarlarla otomatik yedekleme v2 etkinleştir:
 
-- Yedekleme zamanlaması: El ile
+- Yedekleme zamanlaması: Manual
 - Tam yedekleme sıklığı: Günlük
 - Tam yedekleme başlangıç saati: 22:00
 - Tam yedekleme zaman penceresi: 6 saat
@@ -127,7 +127,7 @@ Sağlama sırasında ya da mevcut SQL Server 2016/2017 Vm'leri için otomatik ye
 
 Resource Manager dağıtım modelinde, yeni bir SQL Server 2016 veya 2017 sanal makinesi oluşturduğunuzda, otomatik yedekleme v2 yapılandırmak için Azure portalını kullanın.
 
-İçinde **SQL Server ayarları** bölmesinde **otomatik yedekleme**. Aşağıdaki Azure portalı ekran görüntüsü gösterildiği **SQL otomatik yedekleme** ayarları.
+İçinde **SQL Server ayarları** sekmesinde **etkinleştirme** altında **otomatik yedekleme**. Aşağıdaki Azure portalı ekran görüntüsü gösterildiği **SQL otomatik yedekleme** ayarları.
 
 ![Azure portalında SQL otomatik yedekleme yapılandırması](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 
@@ -136,15 +136,14 @@ Resource Manager dağıtım modelinde, yeni bir SQL Server 2016 veya 2017 sanal 
 
 ## <a name="configure-existing-vms"></a>Varolan Vm'leri yapılandırma
 
-Mevcut SQL Server sanal makineleri için SQL Server sanal makinenizi seçin. Ardından **SQL Server Yapılandırması** VM bölümünü **ayarları**.
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Mevcut SQL Server sanal makineleri için gidin [SQL sanal makineleri kaynak](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) seçip **yedeklemeleri** , otomatik yedekleri yapılandırmak için.
 
 ![Var olan sanal makineler için SQL otomatik yedekleme](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
-İçinde **SQL Server Yapılandırması** ayarlar'ı **Düzenle** otomatik yedekleme bölümünde düğmesini.
 
-![SQL otomatik yedekleme, var olan VM'ler için yapılandırma](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration-edit.png)
-
-İşiniz bittiğinde tıklayın **Tamam** altındaki düğmesine **SQL Server Yapılandırması** yaptığınız değişiklikleri kaydetmek için ayarları.
+İşiniz bittiğinde tıklayın **Uygula** altındaki düğmesinde **yedeklemeleri** Ayarları sayfasında, yaptığınız değişiklikleri kaydetmek için.
 
 Otomatik yedekleme ilk kez etkinleştirirseniz, Azure SQL Server Iaas Aracısı arka planda yapılandırır. Bu süre boyunca, Azure portalında, otomatik yedekleme yapılandırıldığını göstermeyebilir. Aracının yüklü için yapılandırılmış birkaç dakika bekleyin. Bundan sonra Azure portalında yeni ayarları ücreti yansıtılır.
 
@@ -169,7 +168,7 @@ $resourcegroupname = "resourcegroupname"
 
 SQL Server Iaas Aracısı uzantısı yüklü değilse, "Sqlıaasagent" veya "SQLIaaSExtension" olarak listelenen görmeniz gerekir. **ProvisioningState** için uzantı ayrıca "Başarılı" göstermelidir. 
 
-Bunu yüklü değil veya sağlanması başarısız oldu, şu komutla yükleyin. Ek olarak VM adı ve kaynak grubu, ayrıca bölgeyi belirtmeniz gerekir (**$region**), sanal makinenizin bulunur.
+Bunu yüklü değil veya sağlanması başarısız oldu, şu komutla yükleyin. Ek olarak VM adı ve kaynak grubu, ayrıca bölgeyi belirtmeniz gerekir ( **$region**), sanal makinenizin bulunur.
 
 ```powershell
 $region = “EASTUS2”

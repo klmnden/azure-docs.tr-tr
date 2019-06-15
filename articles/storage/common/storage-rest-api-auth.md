@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 38a120747734cbe4af8804a3e7596fc11a2c2eb3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306654"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Depolama REST API’sini kullanma
@@ -65,7 +65,7 @@ Sayfa için REST API başvurusundaki göz atalım [ListContainers](/rest/api/sto
 
 **İstek yöntemi**: AL. Bu fiili bir istek nesnesi özelliği olarak belirttiğiniz HTTP yöntemidir. Bu eylem için diğer değerler, HEAD, PUT ve DELETE, aradığınız API bağlı olarak içerir.
 
-**İstek URI'si**: https://myaccount.blob.core.windows.net/?comp=list  Bu blob depolama hesabı uç noktasından oluşturulmuş `http://myaccount.blob.core.windows.net` ve kaynak dizesi `/?comp=list`.
+**İstek URI'si**: https://myaccount.blob.core.windows.net/?comp=list   Bu blob depolama hesabı uç noktasından oluşturulmuş `http://myaccount.blob.core.windows.net` ve kaynak dizesi `/?comp=list`.
 
 [URI parametreleri](/rest/api/storageservices/List-Containers2#uri-parameters): ListContainers çağırırken kullanabileceğiniz ek sorgu parametreleri vardır. Birkaç bu parametreleri olan *zaman aşımı* çağrısı (saniye cinsinden) için ve *önek*, filtreleme için kullanılır.
 

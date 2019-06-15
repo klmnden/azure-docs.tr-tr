@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 3055d91028ed6c4fcfbfcbe607350b3f5fc8bedf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37d96b6c24bd4dd4faa05a124ea16c02811ec611
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Öğretici: Novatus ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Novatus tümleştirmesini yapılandırmak için Novatus Galeriden y�
 
 **Galeriden Novatus eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

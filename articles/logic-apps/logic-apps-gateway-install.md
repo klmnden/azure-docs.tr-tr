@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544475"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps için şirket içi veri ağ geçidi yükleme
@@ -32,7 +32,7 @@ Ağ geçidinin desteklediği [şirket içi Bağlayıcılar](../connectors/apis-l
 *   IBM Informix
 *   IBM MQ
 *   MySQL
-*   Oracle Database
+*   Oracle Veritabanı
 *   PostgreSQL
 *   SAP Uygulama Sunucusu 
 *   SAP İleti Sunucusu
@@ -97,7 +97,7 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
 
   * Bir yükleyici ile 14.16.6317.4 öncesi ayarlamak için bir ağ geçidi zaten varsa, en son Yükleyicisi'ni çalıştırarak ağ geçidinizin konumu değiştiremezsiniz. Ancak, bunun yerine istediğiniz konumu ile yeni bir ağ geçidi ayarlamak için en son yükleyicisi kullanabilirsiniz.
   
-    14.16.6317.4 sürümden daha eski bir ağ geçidi yükleyicisini varsa, ancak ağ geçidi yüklemediyseniz henüz, indirebilir ve bunları en son yükleyicisi kullanın.
+    14\.16.6317.4 sürümden daha eski bir ağ geçidi yükleyicisini varsa, ancak ağ geçidi yüklemediyseniz henüz, indirebilir ve bunları en son yükleyicisi kullanın.
 
 ## <a name="high-availability-support"></a>Yüksek kullanılabilirlik desteği
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5a54fb179b9baac9e72e003b1f9b0c6697ae74b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b91c0e55ba3400d4d601556d214bb2c9d6ff170
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65858758"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106567"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Öğretici: AuditBoard ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de AuditBoard tümleştirmesini yapılandırmak için AuditBoard Galeri
 
 **Galeriden AuditBoard eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61285614"
 ---
 # <a name="configure-the-review-tool"></a>Gözden Geçirme aracını yapılandırma
@@ -64,7 +64,7 @@ Birden fazla alt üyesiyseniz, hangi içerik incelemeleri, görüntülenme şekl
 
 ![Alt ekipler arasında geçiş yapın](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>Etiketler
+## <a name="tags"></a>Tags
 
 **Etiketleri** sekmesi iki varsayılan denetimi etiketler yanı sıra özel denetimi etiketleri tanımlamanızı sağlar&mdash;**isadult** (**bir**) ve **isracy**  (**r**). Özel bir etiket oluşturduğunuzda, varsayılan etiketler yanı sıra incelemelerde kullanılabilir hale gelir. Görünürlük ayarlarına geçiş yaparak hangi etiketlerin incelemelerde görünmesini değiştirebilirsiniz.
 
@@ -95,7 +95,7 @@ Bir iş akışı oluşturduğunuzda varsayılan içerik olarak işaretleyebilirs
 [Gözden geçirme aracı](./human-in-the-loop.md) aşağıdaki bağlayıcılar içerir:
 
 - Duygu Tanıma API'si
-- Yüz Tanıma API'si
+- Yüz tanıma API'si
 - PhotoDNA bulut hizmeti
 - Metin Analizi API’si
 
@@ -105,7 +105,7 @@ Bir bağlayıcı eklemek için (ve içeriği kullanmak için kullanılabilir hal
 
 ![Content Moderator bağlayıcı ayarları](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>İş akışları
+## <a name="workflows"></a>İş Akışları
 
 **İş akışları** sekmesini yönetmenize olanak tanır, [iş akışları](../review-api.md#workflows). İçerik için filtreler bulut tabanlı iş akışlarıdır ve içeriği farklı şekillerde sıralama ve uygun eylemleri gerçekleştirmek için bağlayıcılar ile çalışırlar. Burada, tanımlayabilirsiniz, düzenleme ve iş akışlarınızı test edin. Bkz: [tanımlama ve kullanma iş akışları](Workflows.md) bunun nasıl yapılacağı hakkında yönergeler için.
 

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.openlocfilehash: 688b87fcc0ec18e0bf5924470d521c44229ae421
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64682880"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Data Lake depolama Gen1 verilerini çözümlemek için HDInsight Spark kümesi kullanın
@@ -57,7 +57,7 @@ Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu ol
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Bir HDInsight Spark kümesi ile Data Lake depolama Gen1 kullanın
 
-1. Gelen [Azure portalı](https://portal.azure.com/), (Bu başlangıç panosuna sabitlediğiniz varsa) başlangıç Panosu, Apache Spark kümenizin kutucuğuna tıklayın. Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.
+1. Gelen [Azure portalı](https://portal.azure.com/), (Bu başlangıç panosuna sabitlediğiniz varsa) başlangıç Panosu, Apache Spark kümenizin kutucuğuna tıklayın. Ayrıca **Browse All (Tümüne Gözat)**  > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.
 
 2. Spark kümesi dikey penceresinden **Hızlı Bağlantılar**’a ve sonra **Küme Panosu** dikey penceresinden **Jupyter Not Defteri**’ne tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
 

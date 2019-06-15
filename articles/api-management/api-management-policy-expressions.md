@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304371"
 ---
 # <a name="api-management-policy-expressions"></a>API Management ilke ifadeleri
@@ -74,7 +74,7 @@ Birden fazla deyim ifadeleri içine alınmıştır `@{expression}`. Birden fazla
 ## <a name="CLRTypes"></a> .NET framework türleri içinde ilke ifadelere izin veriliyor
 Aşağıdaki tablo, .NET Framework türlerini ve ilke ifadelerinde izin üyeleri listeler.
 
-|Type|Desteklenen üyeleri|
+|Tür|Desteklenen üyeleri|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Tümü|
 |Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|

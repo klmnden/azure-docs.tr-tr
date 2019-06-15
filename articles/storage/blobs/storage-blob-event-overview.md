@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: 146b33c1a52838279f000a7f793902e2f35dbfaa
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826490"
 ---
 # <a name="reacting-to-blob-storage-events"></a>BLOB Depolama olaylarına tepki verme
@@ -34,24 +34,24 @@ Blob depolama olayları, genel amaçlı v2 depolama hesaplarında ve Blob depola
 ## <a name="available-blob-storage-events"></a>Blob Depolama olayları kullanılabilir
 Event grid'i kullanır [olay abonelikleri](../../event-grid/concepts.md#event-subscriptions) abonelere olay iletileri yönlendirmek için.  BLOB Depolama olay abonelikleri, iki tür olay şunları içerebilir:  
 
-> |Olay Adı|Açıklama|
+> |Olay adı|Açıklama|
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Bir blob oluşturulduğunda veya aracılığıyla yerini harekete `PutBlob`, `PutBlockList`, veya `CopyBlob` işlemleri|
 > |`Microsoft.Storage.BlobDeleted`|Bir blob aracılığıyla silindiğinde tetiklenen bir `DeleteBlob` işlemi|
 
-## <a name="event-schema"></a>Olay Şeması
+## <a name="event-schema"></a>Olay şeması
 BLOB Depolama olaylarını verilerinizdeki değişiklikleri yanıtlamak için gereken tüm bilgileri içerir.  EventType özelliği "Microsoft.Storage" ile başladığından bir Blob Depolama olayı belirleyebilirsiniz. Event Grid olay özelliklerinin kullanımı hakkında ek bilgi belirtilmiştir [Event Grid olay şeması](../../event-grid/event-schema.md).  
 
 > |Özellik|Tür|Açıklama|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |konu başlığı|string|Olay yayar depolama hesabının Tam Azure Resource Manager kimliği.|
-> |konu|string|Depolama hesapları, hizmetler ve kapsayıcılar için Azure RBAC açıklamak için kullandığımız aynı Genişletilmiş Azure Resource Manager biçimini kullanarak konusu olayın nesne göreli bir kaynak yolu.  Bu biçim bir servis talebi koruyarak blob adı içerir.|
+> |topic|string|Olay yayar depolama hesabının Tam Azure Resource Manager kimliği.|
+> |subject|string|Depolama hesapları, hizmetler ve kapsayıcılar için Azure RBAC açıklamak için kullandığımız aynı Genişletilmiş Azure Resource Manager biçimini kullanarak konusu olayın nesne göreli bir kaynak yolu.  Bu biçim bir servis talebi koruyarak blob adı içerir.|
 > |eventTime|string|Olayın oluşturulduğu, ISO 8601 biçiminde tarih/saat|
-> |olay türü|string|"Microsoft.Storage.BlobCreated" veya "Microsoft.Storage.BlobDeleted"|
+> |eventType|string|"Microsoft.Storage.BlobCreated" veya "Microsoft.Storage.BlobDeleted"|
 > |Kimlik|string|Bu benzersiz tanımlayıcı olay|
 > |dataVersion|string|Veri nesnesinin şema sürümü.|
 > |metadataVersion|string|Üst düzey özellikler şema sürümü.|
-> |veriler|nesne|Blob depolama özel olay verilerini toplama|
+> |data|object|Blob depolama özel olay verilerini toplama|
 > |data.contentType|string|Content-Type üst bilgisinde blobundan döndürülürdü blob'u, içerik türü|
 > |data.contentLength|number|Content-Length üst bilgisinde blobundan döndürülürdü gibi bayt sayısını temsil eden tamsayı olduğu gibi blob boyutu.  BlobCreated olaylı, ancak BlobDeleted gönderilir.|
 > |Data.URL|string|Olayın konusu nesnenin URL'si|
@@ -60,7 +60,7 @@ BLOB Depolama olaylarını verilerinizdeki değişiklikleri yanıtlamak için ge
 > |data.sequencer|string|Herhangi bir belirli blob adı için olayların mantıksal sırasını temsil eden bir donuk bir dize değeri.  Kullanıcılar, standart dize karşılaştırması, aynı blob adı iki olayların göreli sırasını anlamak için kullanabilirsiniz.|
 > |data.requestId|string|Depolama API işlemi için istek hizmet tarafından oluşturulan kimliği. Azure tanılama günlüklerinde "istek kimliği üstbilgisi" alanını kullanarak kaydeder ve başlatmasını API çağrısı 'x-ms-isteği-id' üst bilgisinde döndürülen depolama ilişkilendirmek için kullanılabilir. Bkz: [günlük biçimi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
 > |data.clientRequestId|string|Depolama API işlemi için sağlanan istemci istek kimliği. "X-ms-istemci-request-id" üst bilgisini kullanarak istemci isteklerinde sağlanan ve günlüklerinde "client-request-id" alanını kullanarak Azure depolama tanılama günlüklerine ilişkilendirmek için kullanılır. Bkz: [günlük biçimi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-> |data.storageDiagnostics|nesne|Bazen Azure depolama hizmeti tarafından bulunan Tanılama verileri. Mevcut olduğunda olay tüketicileri tarafından yoksayılacak.|
+> |data.storageDiagnostics|object|Bazen Azure depolama hizmeti tarafından bulunan Tanılama verileri. Mevcut olduğunda olay tüketicileri tarafından yoksayılacak.|
 |data.blobType|string|Blob türü. Geçerli değerler "BlockBlob" veya "PageBlob" olmalı.| 
 
 BlobCreated olayın bir örnek aşağıda verilmiştir:

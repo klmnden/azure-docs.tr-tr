@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 4/2/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60804002"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge üzerinde Azure Stream Analytics
  
-IOT Edge üzerinde Azure Stream Analytics (ASA), böylece cihaz tarafından üretilen verilerin tüm değerini açığa çıkarabilirsiniz yakın neredeyse gerçek zamanlı analitik zekayı IOT cihazlarına dağıtmak için geliştiricilerin güçlendirir. Azure Stream Analytics düşük gecikme süresi, dayanıklılık, bant genişliğinin verimli kullanımı ve uyumluluk için tasarlanmıştır. Kuruluşlar artık endüstriyel işlemler yakın Denetim mantığı dağıtabilir ve bulutta yapılan büyük veri analizi tamamlar.  
+IOT Edge üzerinde Azure Stream Analytics (ASA), böylece cihaz tarafından üretilen verilerin tüm değerini açığa çıkarabilirsiniz yakın neredeyse gerçek zamanlı analitik zekayı IOT cihazlarına dağıtmak için geliştiricilerin güçlendirir. Azure Stream Analytics, düşük gecikme süresi, dayanıklılık, bant genişliği ve uyumluluk verimli kullanımı için tasarlanmıştır. Kuruluşlar artık endüstriyel işlemler yakın Denetim mantığı dağıtabilir ve bulutta yapılan büyük veri analizi tamamlar.  
 
 IOT Edge üzerinde Azure Stream Analytics, çalışan içinde [Azure IOT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. İçinde ASA işi oluşturulduktan sonra dağıtabilir ve IOT hub'ı kullanarak yönetebilirsiniz.
 

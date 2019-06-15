@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845638"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Sertifika kimlik doğrulaması (Klasik) kullanarak noktadan siteye bağlantı yapılandırma
@@ -85,7 +85,7 @@ Bir test ortamı oluşturabilir veya bu değerlere bu makaledeki örnekleri daha
 
 Başlamadan önce bir Azure aboneliğine sahip olduğunuzu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
 
-### <a name="part-1-create-a-virtual-network"></a>1. Bölüm: Sanal ağ oluşturma
+### <a name="part-1-create-a-virtual-network"></a>1\. Bölüm: Sanal ağ oluşturma
 
 Bir sanal ağın (VNet) yoksa bir tane oluşturun. Ekran görüntüleri örnek olarak verilmiştir. Değerlerin kendinizinkilerle değiştirildiğinden emin olun. Azure portalını kullanarak sanal ağ oluşturmak için şu adımları uygulayın:
 
@@ -113,7 +113,7 @@ Bir sanal ağın (VNet) yoksa bir tane oluşturun. Ekran görüntüleri örnek o
 
     Bir DNS sunucusu eklemek için seçin **DNS sunucuları** VNet sayfanızdan. Ardından, seçin ve kullanmak istediğiniz DNS sunucusunun IP adresini girin **Kaydet**.
 
-### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>2. Bölüm: Bir ağ geçidi alt ağı ve dinamik yönlendirme ağ geçidi oluşturma
+### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>2\. Bölüm: Bir ağ geçidi alt ağı ve dinamik yönlendirme ağ geçidi oluşturma
 
 Bu adımda, bir ağ geçidi alt ağı ve dinamik yönlendirme ağ geçidi oluşturun. Klasik dağıtım modeli için Azure portalında, ağ geçidi alt ağı ve ağ geçidiyle aynı yapılandırma sayfaları oluşturun. Ağ geçidi alt ağı, yalnızca ağ geçidi Hizmetleri için kullanın. Ağ geçidi alt ağına hiçbir şeyi (VM’ler veya diğer hizmetler) doğrudan dağıtmayın.
 

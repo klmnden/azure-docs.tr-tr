@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023870"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Bilişsel arama standartlarındaki şu ek açıklamalarda başvuru yapma
@@ -28,7 +28,7 @@ Bu makaledeki örneklerde temel *içeriği* tarafından otomatik olarak oluştur
 
 Söz dizimi gözden geçirilmeden önce bu makalenin sonraki bölümlerinde sağlanan örnekleri daha iyi anlamak için birkaç önemli kavram şimdi yeniden ziyaret edin.
 
-| Sözleşme Dönemi | Açıklama |
+| Terim | Açıklama |
 |------|-------------|
 | Zenginleştirilmiş belge | Zenginleştirilmiş bir belge oluşturulur ve bir belgeyle ilişkili tüm ek açıklamaları tutmak için işlem hattı tarafından kullanılan iç bir yapıdır. Zenginleştirilmiş bir belgenin ek açıklamaları ağaç olarak düşünün. Genel olarak, önceki bir ek açıklamanın oluşturulan bir ek açıklama alt haline gelir.<p/>Zenginleştirilmiş belgeleri beceri yürütmesi süresi boyunca yalnızca mevcut. İçerik arama dizinine eşleştirildikten sonra zenginleştirilmiş belge artık gerekli değildir. Doğrudan zenginleştirilmiş belgelerle etkileşimde bulunmaz olsa da, bir beceri kümesi oluştururken belgeleri zihinsel bir modelini sağlamak kullanışlıdır. |
 | Zenginleştirme bağlamı | Zenginleştirme açısından öğesi zenginleştirilmiş bir yerde aldığı bağlamı. Varsayılan olarak zenginleştirme, bağlamıdır `"/document"` tek tek belgeler için kapsamlı düzeyi. Bir beceri çalıştığında, duruma yetenek çıkışlarına [tanımlı bağlamının özellikleri](#example-2).|

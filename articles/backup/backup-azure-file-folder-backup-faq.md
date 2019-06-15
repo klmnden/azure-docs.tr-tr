@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808304"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Dosya ve klasör yedekleme hakkında sık sorulan sorular 
 
@@ -83,11 +83,11 @@ Windows makine yeniden adlandırdığınızda, geçerli olarak yapılandırılm�
 - Eski sunucu adıyla kasaya yedeklenen verileri kurtarmanız gerekiyorsa, Veri Kurtarma Sihirbazı'nı alternatif bir konuma geri yüklemek için bu seçeneği kullanın. [Daha fazla bilgi edinin](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Yedekleme için en fazla dosya yolu uzunluğu nedir?
-MARS Aracısı NTFS kullanır ve sınırlı dosya yolu uzunluğu belirtimi kullanır [Windows API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Korumak istediğiniz dosyaları üst klasörünü veya disk sürücüsünü yedekleyin, izin verilen değer daha uzun olması durumunda.  
+MARS Aracısı NTFS kullanır ve sınırlı dosya yolu uzunluğu belirtimi kullanır [Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Korumak istediğiniz dosyaları üst klasörünü veya disk sürücüsünü yedekleyin, izin verilen değer daha uzun olması durumunda.  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>Dosya yolları hangi karakterlere izin verilir?
 
-MARS Aracısı NTFS kullanır ve sağlayan [karakterler](/windows/desktop/FileIO/naming-a-file#naming_conventions) dosya adları/yollarda.
+MARS Aracısı NTFS kullanır ve sağlayan [karakterler](/windows/desktop/FileIO/naming-a-file#naming-conventions) dosya adları/yollarda.
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>"Azure yedeklemeleri bu sunucu için yapılandırılmamış" uyarısı görüntülenir.
 Bu uyarı, yerel sunucuda depolanan yedekleme zamanlaması ayarları yedekleme kasasında depolanan ayarlarla aynı olmadığında bir yedekleme İlkesi yapılandırmış olduğunuz olsa bile görünebilir.

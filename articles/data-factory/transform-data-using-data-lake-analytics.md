@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
 ms.openlocfilehash: d5b074fcf182bcc9bf4dc17ba21215d27e13cbdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888444"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betikleri çalıştırarak verileri dönüştürme 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-usql-activity.md)
 > * [Geçerli sürüm](transform-data-using-data-lake-analytics.md)
 
@@ -119,9 +119,9 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özel
 
 | Özellik            | Açıklama                              | Gerekli |
 | :------------------ | :--------------------------------------- | :------- |
-| ad                | İşlem hattındaki etkinliğin adı     | Evet      |
-| açıklama         | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
-| type                | Data Lake Analytics U-SQL etkinliği için etkinlik türdür **DataLakeAnalyticsU SQL**. | Evet      |
+| name                | İşlem hattındaki etkinliğin adı     | Evet      |
+| description         | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
+| türü                | Data Lake Analytics U-SQL etkinliği için etkinlik türdür **DataLakeAnalyticsU SQL**. | Evet      |
 | linkedServiceName   | Azure Data Lake analytics'e bağlı hizmeti. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.  |Evet       |
 | ScriptPath          | U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harfe duyarlıdır. | Evet      |
 | scriptLinkedService | Bağlı bağlantı hizmeti **Azure Data Lake Store** veya **Azure depolama** data factory'ye betiği içeren | Evet      |

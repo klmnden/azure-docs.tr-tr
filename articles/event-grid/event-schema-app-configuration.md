@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 05/30/2019
 ms.author: jimmyca
 ms.openlocfilehash: fe0274f723692eea3cfd25cc0e9e146b35dce2ae
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735789"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Azure uygulama yapılandırması için Azure Event Grid olay şeması
@@ -89,8 +89,8 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | anahtar | string | Anahtar-değer değiştirilen veya silinen anahtarı. |
-| etiket | string | Etiketi, anahtar-değer, değiştirilmiş veya silinmiş. |
-| ETag | string | İçin `KeyValueModified` yeni anahtar-değer etag'i. İçin `KeyValueDeleted` silindikten sonra anahtar-değer etag'i. |
+| label | string | Etiketi, anahtar-değer, değiştirilmiş veya silinmiş. |
+| etag | string | İçin `KeyValueModified` yeni anahtar-değer etag'i. İçin `KeyValueDeleted` silindikten sonra anahtar-değer etag'i. |
  
 ## <a name="next-steps"></a>Sonraki adımlar
 

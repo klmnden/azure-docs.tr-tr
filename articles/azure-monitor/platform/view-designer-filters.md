@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551741"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Azure İzleyici görünümlerde filtreleri
@@ -28,7 +28,7 @@ Tarih zaman aralığı en üstündeki açılan view tarih zaman aralığını de
 
 ![Filtre örneği](media/view-designer-filters/filters-example-time.png)
 
-Tıklayın **+** görünüm için tanımlanan özel filtreleri kullanarak filtre ekleyin. Açılan veya bir değer yazın ya da filtre için bir değer seçin. Tıklayarak filtreleri eklemeye devam **+**. 
+Tıklayın **+** görünüm için tanımlanan özel filtreleri kullanarak filtre ekleyin. Açılan veya bir değer yazın ya da filtre için bir değer seçin. Tıklayarak filtreleri eklemeye devam **+** . 
 
 
 ![Filtre örneği](media/view-designer-filters/filters-example-custom.png)

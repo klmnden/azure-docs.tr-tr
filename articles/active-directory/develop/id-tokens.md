@@ -18,10 +18,10 @@ ms.custom: aaddev
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25408b2120a9ac9f38e7959ef8e9dbbb34df7c2b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962574"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft kimlik platformu kimlik belirteci
@@ -54,7 +54,7 @@ Bu v2.0 örnek belirtecinde görüntülemek [jwt.ms](https://jwt.ms/#id_token=ey
 
 ### <a name="header-claims"></a>Üst bilgi talep
 
-|Talep | Biçim | Açıklama |
+|İste | Biçimi | Açıklama |
 |-----|--------|-------------|
 |`typ` | Dize - her zaman "JWT" | JWT belirteci olduğunu gösterir.|
 |`alg` | String | Belirteç imzalamak için kullanılan algoritmayı belirtir. Örnek: "RS256" |
@@ -65,7 +65,7 @@ Bu v2.0 örnek belirtecinde görüntülemek [jwt.ms](https://jwt.ms/#id_token=ey
 
 Bu liste, çoğu id_tokens (belirtilenler dışında) varsayılan olarak bulunan talepleri görüntüler.  Ancak, uygulamanız kullanabilir [isteğe bağlı bir talep](active-directory-optional-claims.md) id_token ek Taleplerde istemek için.  Bunlar arasında değişebilir `groups` kullanıcının adı hakkındaki bilgiler için talep.
 
-|Talep | Biçim | Açıklama |
+|İste | Biçimi | Açıklama |
 |-----|--------|-------------|
 |`aud` |  Dize, bir uygulama kimliği URI'si | Amaçladığınız alıcının belirtecin tanımlar. İçinde `id_tokens`, uygulamanızın uygulama kimliği, Azure portalında uygulamanıza atanan İzleyici olduğu. Uygulamanız bu değeri doğrulamak ve değer eşleşmiyorsa belirteci reddetme. |
 |`iss` |  Dize, bir STS URI | Oluşturur ve belirteci ve kullanıcı kimlik doğrulamasının yapıldığı Azure AD kiracısı döndürür güvenlik belirteci hizmeti (STS) tanımlar. Belirteç v2.0 uç noktası tarafından verildiyse, URI içinde sona erecek `/v2.0`.  Kullanıcının bir Microsoft hesabı tüketici kullanıcıdan olduğunu gösteren GUID `9188040d-6c67-4c5b-b112-36a304b66dad`. Uygulamanız varsa, uygulamaya oturum açabilirsiniz kiracılar kümesini sınırlandırmak için talep GUID kısmını kullanmanız gerekir. |

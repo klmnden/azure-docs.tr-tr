@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 05/13/2019
 ms.openlocfilehash: 3b0ad33ea6348f24079b3c88f972437244c0bc93
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596752"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil Şeması Başvurusu
@@ -52,7 +52,7 @@ Bir iş akışı tanımı için üst düzey yapısı şu şekildedir:
 
 <a name="triggers-actions"></a>
 
-## <a name="triggers-and-actions"></a>Tetikleyiciler ve eylemler
+## <a name="triggers-and-actions"></a>Tetikleyiciler ve Eylemler
 
 Bir iş akışı tanımı `triggers` ve `actions` iş akışının yürütme sırasında gerçekleşen çağrıları bölümleri tanımlar. Söz dizimi ve bu bölümleri hakkında daha fazla bilgi için bkz: [iş akışı tetikleyici ve Eylemler](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
@@ -296,7 +296,7 @@ Logic Apps Tasarımcısı'nda görsel olarak çalışırken, ifadeleri ifade olu
 |----------|------|
 | ' | Kaydırma gibi yalnızca tek tırnak işareti, dizenin bir dize sabit değeri giriş olarak veya ifade ve işlevleri kullanmak için `'<myString>'`. Çift tırnak işareti kullanmayın (""), JSON biçimlendirme geçici olarak tüm bir ifade ile çakışıyor. Örneğin: <p>**Evet**: length('Hello') </br>**Hayır**: length("Hello") <p>Diziler veya rakam geçirdiğinizde, noktalama sarmalama gerekmez. Örneğin: <p>**Evet**: uzunluğu ([1, 2, 3]) </br>**Hayır**: uzunluğu ("[1, 2, 3]") |
 | [] | Bir dizideki belirli bir konuma (dizin) değerinde başvurmak için köşeli ayraç kullanın. Örneğin, bir dizi içinde ikinci öğeyi almak için şunu yazın: <p>`myArray[1]` |
-| : | Bir nesneyi bir özelliği başvuru için nokta işlecini kullanın. Örneğin, almak için `name` özelliği için bir `customer` JSON nesnesi: <p>`"@parameters('customer').name"` |
+| . | Bir nesneyi bir özelliği başvuru için nokta işlecini kullanın. Örneğin, almak için `name` özelliği için bir `customer` JSON nesnesi: <p>`"@parameters('customer').name"` |
 | ? | Bir çalışma zamanı hatası olmadan bir nesne null özelliklerinde başvurmak için soru işareti işleci kullanın. Örneğin, bir tetikleyici null çıkışları işlemek için bu ifade kullanabilirsiniz: <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` |
 |||
 

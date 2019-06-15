@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 58d22e3fcae5c30e5d7dcc39b317afeef4a693ee
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65605903"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Azure Resource Manager dağıtım geçmişini görüntüle
@@ -40,7 +40,7 @@ Dağıtım geçmişinden bir dağıtım hakkında bilgi almak için.
 
 1. Dağıtım için kullanılan şablonu görmek için seçin **şablon**. Şablonu yeniden yükleyebilirsiniz.
 
-    ![Şablonu göster](./media/resource-manager-deployment-operations/show-template-from-history.png)
+    ![Şablonu Göster](./media/resource-manager-deployment-operations/show-template-from-history.png)
 
 1. Dağıtım başarısız olursa, bir hata iletisi görürsünüz. Daha fazla ayrıntı için hata iletisini seçin.
 
@@ -150,7 +150,7 @@ Günlük bilgileri alın ve aşağıdaki PowerShell komutlarını kullanarak yer
 (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 ```
 
-## <a name="azure-cli"></a>Azure CLI'si
+## <a name="azure-cli"></a>Azure CLI
 
 Bir dağıtımın genel durumunu almak için kullanın **azure grubu dağıtım show** komutu.
 

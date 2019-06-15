@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: fba969b70ae052c928f33888d3c93eb7683ae9f7
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: de857498aeb51c9b3711c90338d983e85b61cb70
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455735"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065427"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Azure DevTest Labs’de paylaşılan resim galerisi yapılandırma
-DevTest Labs destekler [paylaşılan görüntü Galerisi](/virtual-machines/windows/shared-image-galleries.md) özelliği. Laboratuvar kullanıcılarının, laboratuvar kaynakları oluştururken paylaşılan bir konumdan görüntülere erişmesine imkan tanıyor. Ayrıca, özel olarak yönetilen sanal makine görüntülerinizle birlikte yapı ve organizasyon oluşturmanıza yardımcı oluyor. Paylaşılan görüntü Galerisi özellik şunları destekler:
+DevTest Labs destekler [paylaşılan görüntü Galerisi](../virtual-machines/windows/shared-image-galleries.md) özelliği. Laboratuvar kullanıcılarının, laboratuvar kaynakları oluştururken paylaşılan bir konumdan görüntülere erişmesine imkan tanıyor. Ayrıca, özel olarak yönetilen sanal makine görüntülerinizle birlikte yapı ve organizasyon oluşturmanıza yardımcı oluyor. Paylaşılan görüntü Galerisi özellik şunları destekler:
 
 - Görüntülerin yönetilen bir şekilde global olarak yinelenmesi
 - Daha kolay yönetim için görüntülerin sürümlerinin oluşturulması ve gruplanması

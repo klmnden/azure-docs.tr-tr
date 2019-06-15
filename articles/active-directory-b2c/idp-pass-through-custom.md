@@ -11,10 +11,10 @@ ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: d9420398c012b8da18e3b035cb845db6ce8c942d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511060"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Uygulamanızı Azure Active Directory B2C için bir erişim belirteci ile özel bir ilke geçirin
@@ -92,7 +92,7 @@ Uygulamalarınızı Azure AD B2C'de test etme, döndürülen Azure AD B2C belirt
 5. Özel ilkeler sayfasında tıklayın **karşıya yükleme İlkesi**.
 6. Seçin **ilke varsa üzerine**, arayın ve seçin *TrustframeworkExtensions.xml* dosya.
 7. **Karşıya Yükle**'ye tıklayın.
-8. 5. adım-7 gibi bağlı olan taraf dosyası için yineleyin *SignUpOrSignIn.xml*.
+8. 5\. adım-7 gibi bağlı olan taraf dosyası için yineleyin *SignUpOrSignIn.xml*.
 
 ### <a name="run-the-policy"></a>İlke çalıştırın
 

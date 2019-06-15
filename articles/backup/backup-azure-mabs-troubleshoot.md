@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: kasinh
 ms.openlocfilehash: 06faed8ceca77edc20b67f73a76d885839aa7dbc
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304330"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Sunucusu sorunlarını giderme
@@ -83,7 +83,7 @@ Gerçekleştirmenizi öneririz doğrulama başlamadan önce Microsoft Azure Back
 | --- | --- | --- |
 | Aracı korunan sunucuya gönderme | Sunucu için belirtilen kimlik bilgileri geçersiz. | **Ürününde görüntülenen önerilen eylemi işe yaramazsa, aşağıdaki adımları uygulayın**: <br> Koruma aracısını, belirtilen üretim sunucusu üzerinde el ile yüklemeyi deneyin [bu makalede](https://technet.microsoft.com/library/hh758186(v=sc.12).aspx#BKMK_Manual).|
 | Azure Backup Aracısı Azure Backup hizmetine bağlanamıyor (Kimliği: 100050) | Azure Backup Aracısı Azure Backup hizmetine bağlanamadı. | **Ürününde görüntülenen önerilen eylemi işe yaramazsa, aşağıdaki adımları uygulayın**: <br>1. Yükseltilmiş isteminden aşağıdaki komutu çalıştırın: **psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**. Bu, Internet Explorer penceresi açılır. <br/> 2. Git **Araçları** > **Internet Seçenekleri** > **bağlantıları** > **LAN Ayarları**. <br/> 3. Bir proxy sunucusu kullanmak için ayarları değiştirin. Ardından proxy sunucusu ayrıntıları sağlayın.<br/> 4. Makinenizde sınırlı internet erişimi, güvenlik duvarı ayarlarını makinede veya proxy bu izin verdiğinden emin olun [URL'leri](backup-configure-vault.md#verify-internet-access) ve [IP adresi](backup-configure-vault.md#verify-internet-access).|
-| Azure Backup Aracısı yüklemesi başarısız oldu | Microsoft Azure kurtarma Hizmetleri yüklemesi başarısız oldu. Microsoft Azure kurtarma Hizmetleri yüklemesi tarafından sisteme yapılan tüm değişiklikler geri alındı. (KİMLİK: 4024) | Azure aracısını el ile yükleyin.
+| Azure Backup Aracısı yüklemesi başarısız oldu | Microsoft Azure kurtarma Hizmetleri yüklemesi başarısız oldu. Microsoft Azure kurtarma Hizmetleri yüklemesi tarafından sisteme yapılan tüm değişiklikler geri alındı. (Kimlik: 4024) | Azure aracısını el ile yükleyin.
 
 
 ## <a name="configuring-protection-group"></a>Koruma grubunu yapılandırma

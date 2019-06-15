@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 916c4fae8eed9451080f92e97743876e89bd25ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719762"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>ML Hizmetleri Azure HDInsight kümesinde çalışır hale getirme
@@ -136,7 +136,7 @@ SSH oturumunuz etkin hale geldikten sonra yerel makinenizin 12800 numaralı bağ
 
 İşlem düğümlerini ölçeklendirmek için önce çalışan düğümlerinin yetkisini alma ve işlem düğümleri üzerinde yetkisi alınmış çalışan düğümlerinin yapılandırın.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>1. Adım: Çalışan düğümlerinin yetkisini alma
+### <a name="step-1-decommission-the-worker-nodes"></a>1\. adım: Çalışan düğümlerinin yetkisini alma
 
 ML Hizmetleri kümesi aracılığıyla yönetilen değil [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Çalışan düğümlerinin yetkisi alınmazsa, YARN kaynak yöneticisi sunucu tarafından alınan kaynakları farkında olmadığından beklendiği gibi çalışmaz. Bu durumu önlemek için, işlem düğümlerini ölçeklendirmeden önce çalışan düğümlerinin yetkisinin alınması önerilir.
 
@@ -158,7 +158,7 @@ ML Hizmetleri kümesi aracılığıyla yönetilen değil [Apache Hadoop YARN](ht
 * Çalışan düğümlerinin seçimini kaldırın ve baş düğümleri seçin.
 * Seçin **eylemleri** > **seçili Konaklar** > "**konakları** > **tüm bileşenleri yeniden Başlat**.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>2. Adım: Her yetkisi alınmış çalışan düğümü üzerinde işlem düğümlerini yapılandırın
+### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>2\. adım: Her yetkisi alınmış çalışan düğümü üzerinde işlem düğümlerini yapılandırın
 
 1. Yetkisi alınan her çalışan düğümüne SSH uygulayın.
 
@@ -172,7 +172,7 @@ ML Hizmetleri kümesi aracılığıyla yönetilen değil [Apache Hadoop YARN](ht
 
 1. Yönetim Yardımcı Programından çıkın.
 
-### <a name="step-3-add-compute-nodes-details-on-web-node"></a>3. Adım: Web düğümüne işlem düğümlerinin ayrıntılarını ekleme
+### <a name="step-3-add-compute-nodes-details-on-web-node"></a>3\. adım: Web düğümüne işlem düğümlerinin ayrıntılarını ekleme
 
 Tüm yetkisi alınmış çalışan düğümleri işlem düğümü çalışacak şekilde yapılandırıldıktan sonra kenar düğümüne geri dönün ve yetkisi alınmış çalışan düğümlerinin IP adreslerini ML Server web düğümünün yapılandırmasına ekleyin:
 

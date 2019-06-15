@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: df7866d4f87f55523e8139232e48d81cb17c80e4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62117342"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure’da StorSimple Cloud Appliance dağıtma ve yönetme (StorSimple Güncelleştirme 3 ve üstü)
@@ -108,7 +108,7 @@ Bu yordamları gerçekleştirmeden önce, [Bulut gereci önkoşullarını](#prer
 
 StorSimple Cloud Appliance oluşturmak için aşağıdaki adımları gerçekleştirin.
 
-### <a name="step-1-create-a-cloud-appliance"></a>1. Adım: Bulut Gereci oluşturma
+### <a name="step-1-create-a-cloud-appliance"></a>1\. adım: Bulut Gereci oluşturma
 
 StorSimple Cloud Appliance’ı oluşturmak için aşağıdaki adımları gerçekleştirin.
 
@@ -116,7 +116,7 @@ StorSimple Cloud Appliance’ı oluşturmak için aşağıdaki adımları gerçe
 
 Bu adımda bulut gereci oluşturulamazsa İnternet bağlantınız olmayabilir. Daha fazla bilgi edinmek için bulut gereci oluştururken [İnternet bağlantısı sorunlarını giderme](#troubleshoot-internet-connectivity-errors) bölümüne gidin.
 
-### <a name="step-2-configure-and-register-the-cloud-appliance"></a>2. Adım: Yapılandırma ve bulut Gereci kaydetme
+### <a name="step-2-configure-and-register-the-cloud-appliance"></a>2\. adım: Yapılandırma ve bulut Gereci kaydetme
 
 Bu yordama başlamadan önce, hizmet veri şifreleme anahtarının bir kopyasına sahip olduğunuzdan emin olun. Hizmet veri şifreleme anahtarı, StorSimple Cihaz Yöneticisi hizmetine ilk StorSimple fiziksel cihazınızı kaydettiğinizde oluşturulur. Bu anahtarı güvenli bir konumda saklamanız söylenmişti. Bir hizmeti verilerini şifreleme anahtarının bir kopyası sizde yoksa, yardım için Microsoft Destek’e başvurmanız gerekir.
 
@@ -124,7 +124,7 @@ StorSimple Cloud Appliance’ınızı yapılandırmak ve kaydetmek için aşağ�
 
 [!INCLUDE [Configure and register a cloud appliance](../../includes/storsimple-8000-configure-register-cloud-appliance.md)]
 
-### <a name="step-3-optional-modify-the-device-configuration-settings"></a>3. Adım: (İsteğe bağlı) Cihaz yapılandırma ayarlarını değiştirme
+### <a name="step-3-optional-modify-the-device-configuration-settings"></a>3\. adım: (İsteğe bağlı) Cihaz yapılandırma ayarlarını değiştirme
 
 Aşağıdaki bölümde, CHAP, StorSimple Snapshot Manager kullanmak ya da cihaz yöneticisi parolasını değiştirmek istiyorsanız, StorSimple Cloud Appliance için gereken cihaz yapılandırma ayarları açıklanmaktadır.
 
@@ -160,13 +160,13 @@ Windows PowerShell arabirimi üzerinden bulut gerecinize uzaktan erişim varsay�
 
 Aşağıdaki iki adımlı yordamda bulut gerecinize uzaktan nasıl bağlanabileceğiniz açıklanmıştır.
 
-### <a name="step-1-configure-remote-management"></a>1. Adım: Uzaktan Yönetimi yapılandırma
+### <a name="step-1-configure-remote-management"></a>1\. adım: Uzaktan Yönetimi yapılandırma
 
 StorSimple Cloud Appliance’ınız için uzaktan yönetimi yapılandırmak üzere aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [Configure remote management via HTTP for cloud appliance](../../includes/storsimple-8000-configure-remote-management-http-device.md)]
 
-### <a name="step-2-remotely-access-the-cloud-appliance"></a>2. Adım: Bulut gerecine uzaktan erişim
+### <a name="step-2-remotely-access-the-cloud-appliance"></a>2\. adım: Bulut gerecine uzaktan erişim
 
 Bulut gerecinde uzaktan yönetimi etkinleştirdikten sonra, aynı sanal ağ içindeki farklı bir sanal makineden gerece bağlanmak için Windows PowerShell uzaktan iletişimini kullanın. Örneğin, iSCSI’yı bağlamak için yapılandırdığınız ve kullandığınız ana bilgisayar sanal makinesinden bağlanabilirsiniz. Çoğu dağıtımda, bulut gerecine erişmek için kullanabileceğiniz ana bilgisayar sanal makinenize erişim için ortak bir uç nokta açarsınız.
 

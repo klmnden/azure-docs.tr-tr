@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc142bf02a44ea85861f4cc648fd7ee8602c7520
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 08108a1718ee917a317b4864de81959ae139eaa5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896887"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mondaycom"></a>Öğretici: Monday.com ile Azure Active Directory Tümleştirme
 
@@ -154,7 +154,7 @@ Bu bölümde, Azure AD çoklu oturum açma monday.com Azure portalında yapılan
 
        ![Yönet kullanıcı talepleri](common/new-attribute-details.png)
 
-1. İçinde **yukarı çoklu oturum açma SAML ile ayarlanmış** bölmesi altında **SAML imzalama sertifikası**seçin **indirme** yanındaki **sertifika (Base64)**. Gereksinimlerinize göre bir indirme seçeneğini seçin. Sertifika bilgisayarınıza kaydedin.
+1. İçinde **yukarı çoklu oturum açma SAML ile ayarlanmış** bölmesi altında **SAML imzalama sertifikası**seçin **indirme** yanındaki **sertifika (Base64)** . Gereksinimlerinize göre bir indirme seçeneğini seçin. Sertifika bilgisayarınıza kaydedin.
 
     ![Sertifika (Base64) yükleme seçeneği](common/certificatebase64.png)
 
@@ -186,7 +186,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
     1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    1. İçinde **kullanıcı adı** kutusuna **brittasimon\@\<your-şirket etki alanı >.\< Uzantı >**. Örneğin, **brittasimon\@contoso.com**.
+    1. İçinde **kullanıcı adı** kutusuna **brittasimon\@\<your-şirket etki alanı >.\< Uzantı >** . Örneğin, **brittasimon\@contoso.com**.
 
     1. Seçin **Show parola** onay kutusu. Görüntülenen değer azaltma **parola** kutusu.
 

@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: evansma
 ROBOTS: NOINDEX
 ms.openlocfilehash: 78162983601e9126bd34cb737e74783df982bacb
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258947"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS yerine getirme API sürüm 1 (kullanım dışı)
@@ -67,7 +67,7 @@ Bir kullanıcı, bir ISV Web sitesine yönlendirilir, sorgu parametrelerinde bir
 | x-ms-requestid     | Hayır           | İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 | x-ms-bağıntı kimliği | Hayır           | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu alan istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 | içerik türü       | Evet          | `application/json`                                        |
-| Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
+| authorization      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 | x-ms-Pazar-token| Evet| Kullanıcı, Azure SaaS ISV Web sitesine yönlendirilir, URL'deki belirteci sorgu parametresi. **Not:** Bu belirteç, yalnızca 1 saat boyunca geçerlidir. Ayrıca, URL kod çözme tarayıcıdan belirteç değeri kullanmadan önce.|
 |  |  |  |
   
@@ -137,7 +137,7 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 | x-ms-bağıntı kimliği     |   Hayır         | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu değer, tüm istemci işlemi olayları sunucu tarafında olaylarla ilişkilendirmek için kullanılabilir. Bu sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 | IF-Match/If-None-Match |   Hayır         |   Güçlü Doğrulayıcı ETag değeri.                                                          |
 | içerik türü           |   Evet        |    `application/json`                                                                   |
-|  Yetkilendirme         |   Evet        |    JSON web token (JWT) taşıyıcı belirteç.                                               |
+|  authorization         |   Evet        |    JSON web token (JWT) taşıyıcı belirteç.                                               |
 | x-ms-Pazar-oturum-modu| Hayır | Bir SaaS teklife abone sırasında prova modunu etkinleştirmek için bayrak. Ayarlanırsa, abonelik ücret uygulanmayan durumunda. ISV senaryolarını test etmek için kullanışlıdır. Lütfen kümesine **'prova'**|
 |  |  |  |
 
@@ -202,7 +202,7 @@ Değişiklik uç noktası şu anda abone planlarına dönüştürmek için yeni 
 | x-ms-bağıntı kimliği      | Hayır           | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu değer, tüm istemci işlemi olayları sunucu tarafında olaylarla ilişkilendirmek için kullanılabilir. Bu sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 | IF-Match /If-None-Match | Hayır           | Güçlü Doğrulayıcı ETag değeri.                              |
 | içerik türü            | Evet          | `application/json`                                        |
-| Yetkilendirme           | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
+| authorization           | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  |
 
 *Gövde*
@@ -264,7 +264,7 @@ Abone uç noktası silme eylemini belirtilen kimliğe sahip bir aboneliği silme
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | Hayır           | İstemciden istek izleme için benzersiz bir dize değeri. Bir GUID önerilir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.                                                           |
 | x-ms-bağıntı kimliği | Hayır           | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu değer, tüm istemci işlemi olayları sunucu tarafında olaylarla ilişkilendirmek için kullanılabilir. Bu sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
-| Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
+| authorization      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  |
 
 *Yanıt kodları*
@@ -314,7 +314,7 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Hayır           | İstemciden istek izleme için benzersiz bir dize değeri. Bir GUID önerilir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.   |
 | x-ms-bağıntı kimliği | Hayır           | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu değer, tüm istemci işlemi olayları sunucu tarafında olaylarla ilişkilendirmek için kullanılabilir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
-| Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
+| authorization      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  | 
 
 *Yanıt gövdesi*
@@ -332,7 +332,7 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 | **Parametre adı** | **Veri türü** | **Açıklama**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
 | id                 | String        | İşlemin kimliği.                                                                      |
-| durum             | Sabit listesi          | İşlem durumu aşağıdakilerden biri: `In Progress`, `Succeeded`, veya `Failed`.          |
+| status             | Enum          | İşlem durumu aşağıdakilerden biri: `In Progress`, `Succeeded`, veya `Failed`.          |
 | resourceLocation   | String        | Oluşturulan veya değiştirilen aboneliğinize bağlayın. Bu, istemci güncelleştirilen durumu post işlemi almak için yardımcı olur. Bu değer için ayarlanmadı `Unsubscribe` operations. |
 | Oluşturulan            | DateTime      | İşlem oluşturma zamanı UTC diliminde saat.                                                           |
 | Son değiştirme       | DateTime      | Son güncelleştirme işlemi UTC diliminde saat.                                                      |
@@ -382,7 +382,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Hayır           | İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.                                                           |
 | x-ms-bağıntı kimliği | Hayır           | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu değer, tüm istemci işlemi olayları sunucu tarafında olaylarla ilişkilendirmek için kullanılabilir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
-| Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                                                                    |
+| authorization      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                                                                    |
 |  |  |  |
 
 *Yanıt gövdesi*
@@ -405,7 +405,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 | OfferId                | String        | Teklif kullanıcıya abone kimliği.         |
 | Planıd                 | String        | Bir kullanıcı abone kimliği planlayın.          |
 | saasSubscriptionName   | String        | SaaS abonelik adı.                |
-| saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
+| saasSubscriptionStatus | Enum          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
 | Oluşturulan                | DateTime      | Abonelik oluşturma UTC zaman damgası değeri. |
 | Son değiştirme           | DateTime      | Abonelik UTC zaman damgası değeri değiştirildi. |
 |  |  |  |
@@ -454,7 +454,7 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Hayır           | İstemciden istek izleme için benzersiz bir dize değeri. Bir GUID önerilir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.             |
 | x-ms-bağıntı kimliği | Hayır           | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu değer, tüm istemci işlemi olayları sunucu tarafında olaylarla ilişkilendirmek için kullanılabilir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
-| Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
+| authorization      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  |
 
 *Yanıt gövdesi*
@@ -477,7 +477,7 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 | OfferId                | String        | Teklif kullanıcıya abone kimliği         |
 | Planıd                 | String        | Plan kullanıcı abone kimliği          |
 | saasSubscriptionName   | String        | SaaS abonelik adı                |
-| saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
+| saasSubscriptionStatus | Enum          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
 | Oluşturulan                | DateTime      | Abonelik oluşturma zaman damgası değeri UTC |
 | Son değiştirme           | DateTime      | Abonelik UTC zaman damgası değeri değiştirildi |
 |  |  |  |
@@ -529,7 +529,7 @@ Bir SaaS Web kancası değişiklikleri SaaS hizmeti için proaktif olarak bildir
 | OfferId                | String        | Teklif kullanıcıya abone kimliği. Yalnızca "Güncelleştir" eylemi ile sağlanır.        |
 | publisherId                | String        | Yayımcı kimliği SaaS teklifi         |
 | Planıd                 | String        | Bir kullanıcı abone kimliği planlayın. Yalnızca "Güncelleştir" eylemi ile sağlanır.          |
-| Eylem                 | String        | Bu bildirim tetikleme eylem. Olası değerler - etkinleştirme, silme, askıda kalma, eski duruma getirme, güncelleştirme          |
+| action                 | String        | Bu bildirim tetikleme eylem. Olası değerler - etkinleştirme, silme, askıda kalma, eski duruma getirme, güncelleştirme          |
 | Zaman damgası                 | String        | Bu bildirim tetiklendiğinde UTC zaman damgası değeri.          |
 |  |  |  |
 

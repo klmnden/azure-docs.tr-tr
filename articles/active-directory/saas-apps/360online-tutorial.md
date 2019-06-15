@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bf5a1e278d41e6fcec1a8dfa14348bb9e48333b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: adb93c25c9570848f6f0ca8a8741a5d13bbebc9e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285211"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107563"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Öğretici: 360 Online ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de 360 çevrimiçi tümleştirmesini yapılandırmak için 360 çevrimi
 
 **360 çevrimiçi Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

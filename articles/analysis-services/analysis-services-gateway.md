@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 190394481f17310784f87c9e2f642eeea0b2597f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141169"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062229"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Şirket içi veri ağ geçidi ile şirket içi veri kaynaklarına bağlanma
 Şirket içi veri ağ geçidi, şirket içi veri kaynakları ile bulutta, Azure Analysis Services sunucuları arasında güvenli veri aktarımı sağlar. Aynı bölgede birden fazla Azure Analysis Services sunucuları ile çalışma ek olarak, ağ geçidinin en son sürümünü de Azure Logic Apps, Power BI, Power Apps ve Microsoft Flow ile çalışır. Tek bir ağ geçidi ile aynı abonelik ve aynı bölgede birden çok hizmet ilişkilendirebilirsiniz. 
 
 Ağ geçidi ile Kurulum ilk kez alma dört kısımlı bir işlemdir:
 
-- **İndirme ve çalıştırma kurulum** -Bu adım, kuruluşunuzdaki bir bilgisayarda bir ağ geçidi hizmetini yükler. Ayrıca bir hesap kullanarak Azure'da oturum, [kiracının](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (konuk) hesapları desteklenmez.
+- **İndirme ve çalıştırma kurulum** -Bu adım, kuruluşunuzdaki bir bilgisayarda bir ağ geçidi hizmetini yükler. Ayrıca bir hesap kullanarak Azure'da oturum, [kiracının](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD. Azure B2B (konuk) hesapları desteklenmez.
 
 - **Ağ geçidi kaydetme** - Bu adımda, bir ad belirtin ve kurtarma anahtarı, ağ geçidiniz için ve ağ geçidinizin ağ geçidi bulut hizmeti ile kaydetme, bir bölge seçin. Ağ geçidi kaynağı herhangi bir bölgede kaydedilebilir, ancak, Analysis Services sunucuları aynı bölgede olması önerilir. 
 

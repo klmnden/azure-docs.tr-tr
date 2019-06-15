@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 2001b849e9c43d552889475ca237c52b141f3f04
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 32eb2c47ed46aed8e2e3755a83437a21391295c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306272"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122956"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift ile ilgili SSS
 
@@ -49,7 +49,11 @@ Bkz: [Azure Red Hat OpenShift sanal makine boyutları](supported-resources.md#vi
 
 Varsayılan olarak, bekleme sırasında şifreleme yoktur. Azure depolama platformu ve alma önce çözer devam ettirmeden önce verilerinizi otomatik olarak şifreler. Bkz: [bekleyen veriler için Azure depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) Ayrıntılar için.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-containers-and-manage-capacity"></a>Kapsayıcıları izlemek ve kapasitesini yönetmek için Prometheus/Grafana kullanabilir miyim?
+## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>Uygulamalarım izlemek için Prometheus/Grafana kullanabilir miyim?
+
+Evet, ad alanı ve İzleyici uygulamalarınızda Prometheus ad alanınız içinde dağıtabilirsiniz.
+
+## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>Kapasite ve küme sistem durumu ile ilgili ölçümleri izlemek için Prometheus/Grafana kullanabilir miyim?
 
 Hayır, geçerli anda değil.
 
@@ -80,3 +84,7 @@ Hayır. Küme Yöneticisi dahil tüm kaynakları, bir müşteri aboneliğinde ç
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>Açık hizmet Aracısı, Azure (desteklenen OSBA için) mı?
 
 Evet. OSBA Azure Red Hat OpenShift ile kullanabilirsiniz. Bkz: [Azure için açık hizmet Aracısı](https://github.com/Azure/open-service-broker-azure#openshift-project-template) daha fazla bilgi için.
+
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Farklı Abonelikteki bir sanal ağa eş çalışılırken ancak alma `Failed to get vnet CIDR` hata.
+
+Sanal ağ olan Aboneliklerde kaydedilecek emin `Microsoft.ContainerService` sağlayıcısıyla `az provider register -n Microsoft.ContainerService --wait` 

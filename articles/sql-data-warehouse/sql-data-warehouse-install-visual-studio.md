@@ -13,10 +13,10 @@ ms.date: 04/05/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: b2e34f1f72b1b0aa76d4a3031102d052118dae5f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304125"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>SQL Data Warehouse için Visual Studio ve SSDT yükleme
@@ -29,13 +29,13 @@ SSDT ile Visual Studio kullanarak tablolar, görünümler, saklı yordamlar ve d
 > 
 > 
 
-## <a name="step-1-install-visual-studio"></a>1. adım: Visual Studio yükleme
+## <a name="step-1-install-visual-studio"></a>1\. adım: Visual Studio yükleme
 Karşıdan yükleyip Visual Studio'yu yüklemek için aşağıdaki bağlantıları izleyin. Visual Studio 2013 zaten var veya sonraki bir sürümü yüklüyse, adım 2'ye atlayabilirsiniz SSDT'yi yükleme.
 
 1. [Visual Studio'yu indirin][].
 2. İzleyin [Visual Studio'yu] [ Installing Visual Studio] Kılavuzu MSDN'de ve varsayılan yapılandırmaları seçin.
 
-## <a name="step-2-install-ssdt"></a>2. adım: SSDT'yi yükleme
+## <a name="step-2-install-ssdt"></a>2\. adım: SSDT'yi yükleme
 Visual Studio için SSDT yüklemek için önce Visual Studio'da bir SSDT güncelleştirmesinin aşağıdaki adımları izleyerek denetleyin.
 
 1. Visual Studio'da tıklayın **Araçları** / **Uzantılar ve güncelleştirmeler...** / **Güncelleştirmeleri**

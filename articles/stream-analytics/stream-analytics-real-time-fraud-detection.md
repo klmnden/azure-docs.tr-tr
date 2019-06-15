@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 38353ed68469ac35f04d68e19afd11ac4b47f2ae
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cfb7dc8ef41c8829caebed6fff2d881093dbbe4d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076230"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
@@ -131,16 +131,17 @@ TelcoGenerator uygulamasını başlatmadan önce böylece araması kayıtları o
 
 ### <a name="start-the-app"></a>Uygulamayı başlatın
 1.  Bir komut penceresi açın ve TelcoGenerator uygulamasının sıkıştırması olduğu klasöre gidin.
+
 2.  Aşağıdaki komutu girin:
 
-        ```cmd
-        telcodatagen.exe 1000 0.2 2
-        ```
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
 
     Parametreler şunlardır: 
 
     * Saat başına CDR sayısı. 
-    * SIM kart sahtekarlık olasılığını: Ne sıklıkta yüzdesi uygulama sahte arama benzetimi gerçekleştirmesi gerektiği tüm çağrıları olarak. 0.2 değeri arama kayıtlarının %20'sinin sahte görüneceğini anlamına gelir.
+    * SIM kart sahtekarlık olasılığını: Ne sıklıkta yüzdesi uygulama sahte arama benzetimi gerçekleştirmesi gerektiği tüm çağrıları olarak. 0\.2 değeri arama kayıtlarının %20'sinin sahte görüneceğini anlamına gelir.
     * Saat cinsinden süre. Uygulamanın çalışması gereken saat sayısı. Ayrıca, komut satırında Ctrl + C tuşlarına basarak uygulamayı dilediğiniz zaman durdurabilirsiniz.
 
     Birkaç saniye sonra uygulama, telefon araması kayıtlarını olay hub'ına gönderirken ekranda bu kayıtları görüntülemeye başlar.

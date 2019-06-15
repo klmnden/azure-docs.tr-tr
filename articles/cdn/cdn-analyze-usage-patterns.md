@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606379"
 ---
 # <a name="core-reports-from-verizon"></a>Verizon'dan alınan çekirdek raporlar
@@ -27,7 +27,7 @@ ms.locfileid: "65606379"
 
 Verizon profillerini yönet portal Verizon'dan alınan çekirdek raporlar kullanarak, aşağıdaki raporları ile CDN için kullanım düzenlerini görüntüleyebilirsiniz:
 
-* Bant Genişliği
+* Bant genişliği
 * Aktarılan veriler
 * İsabet sayısı
 * Önbellek durumları
@@ -50,7 +50,7 @@ Verizon profillerini yönet portal Verizon'dan alınan çekirdek raporlar kullan
 
 4. Verileri Excel biçiminde dışarı aktarmak istiyorsanız, Excel simgesini tıklayın **Git** düğmesi.
 
-## <a name="bandwidth"></a>Bant Genişliği
+## <a name="bandwidth"></a>Bant genişliği
 Bant genişliği rapor, belirli süre boyunca, MB/sn cinsinden HTTP ve HTTPS için CDN bant genişliği kullanımını gösteren bir grafik ve veri tablosu oluşur. Tüm POP boyunca veya belirli POP için bant genişliği kullanımını görüntüleyebilirsiniz. Bu rapor ani trafik değişiklikleri ve dağıtım için POP görüntülemenize olanak sağlar.
 
 Gelen **kenar düğümleri** listesinden **tüm kenar düğümleri** tüm düğümleri gelen trafiği görmek veya belirli bir bölge seçin.
@@ -96,7 +96,7 @@ Süresi dolmuş önbellek isabet azaltmak için bir varlığın ayarlamak `max-a
   
   * Cache-Control: s-maxage
   * Cache-Control: Maksimum yaş
-  * Bitiş Tarihi
+  * Süre sonu
 * TCP_MISS: Bu durum, istenen varlık önbelleğe alınmış bir sürümü üzerinde istemcinin en yakın POP bulunamadı gösterir. Varlık, kaynak sunucuyu veya bir kaynak kalkan sunucu istenmektedir. Bir varlık, kaynak sunucu veya kaynak kalkan sunucu döndürürse, istemciye sunulan ve hem istemci hem de uç sunucusunu önbelleğe alınır. Aksi takdirde, olmayan-200 durum kodu (örneğin, 403 Yasak veya 404 bulunamadı) döndürülür.
 * TCP_EXPIRED_HIT: Süresi dolmuş bir TTL ile bir varlığı hedefleyen bir isteğin doğrudan POP istemciye sunulduğu bu durum raporlanır. Örneğin, varlık max-age ne zaman sona erdi. 
   

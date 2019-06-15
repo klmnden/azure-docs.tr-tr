@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1d2c587129f9f9f09c8f3871748449dc7b1755b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 9ce9c0c6d4f9002b061afd2ad09f02266d452979
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474036"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109256"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Federasyon seçeneğinden parola karması eşitleme için Azure Active Directory geçirme
 
@@ -224,7 +224,7 @@ Parola Karması eşitleme hem sorunsuz çoklu oturum açma dağıtıldıktan son
 * Sorunsuz çoklu oturum açma için hazırlık yapılıyor.
 * Oturum açma yöntemi, parola karma eşitlemesi ve sorunsuz çoklu oturum açmayı etkinleştirme değiştiriliyor.
 
-### <a name="step-1-enable-password-hash-synchronization"></a>1. adım: Parola karma eşitlemesini etkinleştirme
+### <a name="step-1-enable-password-hash-synchronization"></a>1\. adım: Parola karma eşitlemesini etkinleştirme
 
 Bu çözümü uygulamak için ilk adım, Azure AD Connect Sihirbazı'nı kullanarak parola karması eşitlemeyi etkinleştirmektir. Parola Karması eşitleme Federasyon kullanan ortamlarda olanak veren isteğe bağlı bir özelliktir. Kimlik doğrulaması akışı üzerinde hiçbir etkisi yoktur. Bu durumda, Azure AD Connect parola karmalarının Federasyon kullanarak oturum açın kullanıcıları etkilemeden eşitleme başlar.
 
@@ -259,7 +259,7 @@ Parola Karması eşitleme düzgün çalıştığını doğrulamak için tamamlay
 
 Sorunlarını gidermek için bkz: [Azure AD Connect eşitlemesi ile parola karması eşitleme sorunlarını giderme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization).
 
-### <a name="step-2-prepare-for-seamless-sso"></a>2. adım: Sorunsuz çoklu oturum açma için hazırlama
+### <a name="step-2-prepare-for-seamless-sso"></a>2\. adım: Sorunsuz çoklu oturum açma için hazırlama
 
 Cihazlarınızı sorunsuz çoklu oturum açmayı kullanmak, Active Directory'de Grup İlkesi'ni kullanarak bir Azure AD URL'si kullanıcıların intranet bölgesi ayarlarına eklemeniz gerekir.
 
@@ -270,7 +270,7 @@ Adımlarını tamamlamanız [dağıtmadan](https://docs.microsoft.com/azure/acti
 > [!IMPORTANT]
 > Bu değişiklik, kullanıcıların Azure AD'de oturum biçimini değiştirmez. Ancak, devam etmeden önce bu yapılandırma tüm cihazlarınıza uygulama önemlidir. Bu yapılandırmayı almadığını cihazlarda oturum kullanıcılar yalnızca bir kullanıcı adı ve Azure AD'de oturum açmak için parola girmesini gerekir.
 
-### <a name="step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso"></a>3. adım: Oturum açma yöntemi, parola karma eşitlemesini değiştirmek ve sorunsuz çoklu oturum açmayı etkinleştir
+### <a name="step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso"></a>3\. adım: Oturum açma yöntemi, parola karma eşitlemesini değiştirmek ve sorunsuz çoklu oturum açmayı etkinleştir
 
 Parola Karması eşitleme için oturum açma yöntemini değiştirme ve sorunsuz çoklu oturum açmayı etkinleştirmek için iki seçeneğiniz vardır.
 

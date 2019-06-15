@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60518446"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Azure Data Lake depolama Gen1 bölgeler arasında geçirme
@@ -30,7 +30,7 @@ Azure Data Lake depolama Gen1 yeni bölgelerde kullanıma sunulduğunda, yeni b�
 * **Azure veri fabrikası**. Daha fazla bilgi için bkz. [Azure Data Factory'ye giriş](../data-factory/introduction.md).
 
 
-## <a name="migration-considerations"></a>Geçiş konuları
+## <a name="migration-considerations"></a>Geçiş sırasında dikkat edilmesi gerekenler
 
 İlk olarak yazar, okuyan veya Data Lake depolama Gen1 verileri işleyen uygulamanız için en iyi geçiş stratejisini tanımlayın. Bir strateji seçtiğinizde, uygulamanızın kullanılabilirlik gereksinimlerini ve geçiş sırasında oluşan kapalı kalma süresi göz önünde bulundurun. Örneğin, "lift-and-shift" bulut geçişi modelini kullanmak için en kolay yaklaşım olabilir. Tüm verilerinizi kopyalanır sırada yeni bir bölgeye Bu yaklaşımda, uygulamanın mevcut bölgenizde duraklatın. Kopyalama işlemi tamamlandığında, uygulamanız yeni bölgedeki sürdürme ve eski Data Lake depolama Gen1 hesabı silin. Geçiş sırasında kapalı kalma süresi gereklidir.
 

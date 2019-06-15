@@ -1,6 +1,6 @@
 ---
 title: REST API - Azure kullanarak Azure kaynakları için atamaları izin verilmeyenler listesi | Microsoft Docs
-description: Liste öğrenin kullanıcıları, grupları ve uygulamaları, Azure kaynaklarını ve REST API için rol tabanlı erişim denetimi (RBAC) kullanarak atamalarını reddet.
+description: Liste öğrenin kullanıcıları, grupları ve Azure kaynaklarını ve REST API için rol tabanlı erişim denetimi (RBAC) kullanarak uygulama atamalarını reddet.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,22 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 0bc49456f5965846a2de542b4a063bab2d1838bf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194676"
+ms.locfileid: "67118295"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>REST API kullanarak Azure kaynakları için atamaları izin verilmeyenler listesi
 
-[Atamalar Reddet](deny-assignments.md) bir rol ataması bunları erişim verse bile kullanıcıların belirli bir Azure kaynak eylemler gerçekleştirme. Bu makalede listesine REST API'SİNİN nasıl kullanılacağı atamaları reddet.
+[Atamalar Reddet](deny-assignments.md) bir rol ataması bunları erişim verse bile kullanıcıların belirli bir Azure kaynak eylemler gerçekleştirme. Bu makalede nasıl listeleneceğini REST API kullanarak atamaları reddet.
 
 > [!NOTE]
-> Şu anda kendi ekleyebilirsiniz tek yolu reddetme atamaları olan Azure şemaları kullanarak. Daha fazla bilgi için [yeni kaynaklar ile Azure Blueprint kaynak kilitleri korumak](../governance/blueprints/tutorials/protect-new-resources.md).
+> Doğrudan kendi oluşturamazsınız atamaları reddet. Hakkında bilgi reddetmek için atamaları oluşturulur bkz [atamaları Reddet](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

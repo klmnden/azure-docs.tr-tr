@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147903"
 ---
 *Önbelleği hazırlanıyor*  
@@ -81,9 +81,9 @@ En yüksek aktarım göstermek için istek boyutu daha büyük kullanın. 64 K i
 
 | Test senaryosu | Hedef birim | Ad | Sonuç |
 | --- | --- | --- | --- |
-| En çok, Okuma IOPS |CacheReads |RandomWrites\_8 K |50.000 IOPS |
-| En çok, Yazma IOPS |NoCacheWrites |RandomReads\_8 K |64.000 IOPS |
-| En çok, Toplam IOPS |CacheReads |RandomWrites\_8 K |100.000 IOPS |
+| En çok, Okuma IOPS |CacheReads |RandomWrites\_8 K |50\.000 IOPS |
+| En çok, Yazma IOPS |NoCacheWrites |RandomReads\_8 K |64\.000 IOPS |
+| En çok, Toplam IOPS |CacheReads |RandomWrites\_8 K |100\.000 IOPS |
 | NoCacheWrites |RandomReads\_8 K | &nbsp; | &nbsp; |
 | En çok, Okuma MB/sn |CacheReads |RandomWrites\_64 K |524 MB/sn |
 | En çok, Yazma MB/sn |NoCacheWrites |RandomReads\_64 K |524 MB/sn |

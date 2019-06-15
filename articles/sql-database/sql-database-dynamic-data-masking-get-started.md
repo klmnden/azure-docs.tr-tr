@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/04/2019
-ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1db1535779d180994c9ce4350d11f4c696da9e3e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61075574"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721541"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL veritabanı dinamik veri maskeleme
 
@@ -43,7 +43,7 @@ Dinamik veri maskeleme, Azure SQL veritabanı yöneticisi, sunucu yöneticisi ta
 
 | Maskeleme işlevi | Maskeleme mantığı |
 | --- | --- |
-| **Varsayılan** |**Belirtilen alanları veri türlerine göre tam maskeleme**<br/><br/>• XXXX kullanın veya alan boyutu 4'ten az karakter dizesi veri türleriyle (n karakter, n metin, n değişken karakter) için ise daha az Xs.<br/>• Sıfır değeri (bigint, bit, decimal, int, para, sayısal, tamsayı, küçük para, Mini tamsayı, kayan, gerçek) sayısal veri türleri için kullanın.<br/>• 01-01-1900 kullanılmak tarih/saat veri türleri (tarih, datetime2, datetime, datetimeoffset, smalldatetime, süre).<br/>• SQL varyantı, varsayılan değer geçerli bir tür için kullanılır.<br/>XML belge • <masked/> kullanılır.<br/>• Özel veri türleri için boş bir değer kullanın (zaman damgası tablo, HierarchyId, GUID, ikili dosya, görüntü, varbinary uzamsal türler). |
+| **Varsayılan** |**Belirtilen alanları veri türlerine göre tam maskeleme**<br/><br/>• XXXX kullanın veya alan boyutu 4'ten az karakter dizesi veri türleriyle (n karakter, n metin, n değişken karakter) için ise daha az Xs.<br/>• Sıfır değeri (bigint, bit, decimal, int, para, sayısal, tamsayı, küçük para, Mini tamsayı, kayan, gerçek) sayısal veri türleri için kullanın.<br/>• 01-01-1900 kullanılmak tarih/saat veri türleri (tarih, datetime2, datetime, datetimeoffset, smalldatetime, süre).<br/>• SQL varyantı, varsayılan değer geçerli bir tür için kullanılır.<br/>XML belge • \<maskelenmiş / > kullanılır.<br/>• Özel veri türleri için boş bir değer kullanın (zaman damgası tablo, HierarchyId, GUID, ikili dosya, görüntü, varbinary uzamsal türler). |
 | **Kredi kartı** |**Son dört rakamı atanan alanların sunan yöntemi maskeleme** ve kredi kartı biçiminde bir ön ek olarak bir sabit dizesi ekler.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **E-posta** |**İlk harfi ve etki alanı ile XXX.com değiştirir yöntemi maskeleme** bir sabit dize öneki biçiminde bir e-posta adresi kullanarak.<br/><br/>aXX@XXXX.com |
 | **Rastgele sayı** |**Rastgele bir sayı oluşturan yöntemi maskeleme** göre gerçek veri türleri ve seçili sınırlar. Belirlenen sınırlar eşitse maskeleme işlevi olan bir sabit sayıdır.<br/><br/>![Gezinti Bölmesi](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
@@ -51,7 +51,7 @@ Dinamik veri maskeleme, Azure SQL veritabanı yöneticisi, sunucu yöneticisi ta
 
 <a name="Anchor1"></a>
 
-### <a name="recommended-fields-to-mask"></a>Maskelenmesi önerilen alanlar
+### <a name="recommended-fields-to-mask"></a>Maskelenmesi Önerilen alanlar
 
 DDM hizmetinin öneriler motoru, veritabanınızdaki belirli alanları maskeleme için iyi adaylar olabilir hassas olabilecek alanlar olarak işaretler. Portalı'nda dinamik veri maskeleme dikey penceresinde, veritabanınız için önerilen sütunlar görürsünüz. Tek yapmak için ihtiyacınız olan tıklayın **maske Ekle** bir veya birden çok sütunun ve ardından **Kaydet** bu alanlar için bir maske uygulamak için.
 

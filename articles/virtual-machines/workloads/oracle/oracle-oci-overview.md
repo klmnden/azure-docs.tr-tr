@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 711fce9627537e68171c3b170121900d6b14ca1e
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743658"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808626"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle uygulama çözümlerini Microsoft Azure'da ve Oracle bulut altyapısı (Önizleme) ile tümleştirme
 
@@ -45,7 +45,7 @@ Bulutlar arası yapılandırmasında çalıştırabileceğiniz uygulamalar şunl
 * Oracle perakende uygulamaları
 * Oracle Hyperion Finans Yönetimi
 
-Aşağıdaki diyagramda bağlı çözüme üst düzey bir genel bakış ' dir. Kolaylık olması için yalnızca uygulama katmanı ve veri katmanı diyagramda gösterilmektedir. Uygulama architecutre bağlı olarak, Azure'da bir web katmanı gibi ek katmanları çözümünüzü dahil olabilir. Daha fazla bilgi için aşağıdaki bölümlere bakın.
+Aşağıdaki diyagramda bağlı çözüme üst düzey bir genel bakış ' dir. Kolaylık olması için yalnızca uygulama katmanı ve veri katmanı diyagramda gösterilmektedir. Uygulama Mimarisi bağlı olarak, Azure'da bir web katmanı gibi ek katmanları çözümünüzü dahil olabilir. Daha fazla bilgi için aşağıdaki bölümlere bakın.
 
 ![Azure OCI çözümüne genel bakış](media/oracle-oci-overview/crosscloud.png)
 

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: fffa064b912a96b05feb901d1d2d44533c4681b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60885525"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>CİHAZDAN buluta iletişim Kılavuzu
@@ -35,7 +35,7 @@ Ne zaman çözüm arka ucu, IOT Hub cihaz uygulamasından gönderme bilgilerini 
 | Depolama ve alma | Geçici olarak IOT Hub tarafından en fazla 7 gün olarak depolanır. Yalnızca sıralı okuma. | IOT Hub tarafından cihaz çiftine depolanır. Alınabilir kullanarak [IOT Hub sorgu dili](iot-hub-devguide-query-language.md). | Kullanıcı tarafından sağlanan Azure depolama hesabında depolanır. |
 | Boyut | En fazla 256 KB'lık iletileri. | En çok bildirilen özellikler, 8 KB'lık boyutudur. | Azure Blob Depolama tarafından desteklenen en büyük dosya boyutu. |
 | Sıklık | Yüksek. Daha fazla bilgi için [IOT hub'ı sınırlar](iot-hub-devguide-quotas-throttling.md). | Orta. Daha fazla bilgi için [IOT hub'ı sınırlar](iot-hub-devguide-quotas-throttling.md). | Düşük. Daha fazla bilgi için [IOT hub'ı sınırlar](iot-hub-devguide-quotas-throttling.md). |
-| Protokol | Tüm protokoller kullanılabilir. | MQTT veya AMQP kullanarak kullanılabilir. | Cihazda gerektirir ancak herhangi bir protokolünü kullanarak HTTPS olduğunda kullanılabilir. |
+| Protocol | Tüm protokoller kullanılabilir. | MQTT veya AMQP kullanarak kullanılabilir. | Cihazda gerektirir ancak herhangi bir protokolünü kullanarak HTTPS olduğunda kullanılabilir. |
 
 Bir uygulamanın telemetri zaman serisi veya uyarı olarak hem bilgi göndermek ve cihaz ikizinde kullanılabilir hale getirmek gerekebilir. Bu senaryoda, aşağıdaki seçeneklerden birini seçebilirsiniz:
 

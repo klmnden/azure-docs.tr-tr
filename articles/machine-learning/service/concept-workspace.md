@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388965"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059252"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Bir Azure Machine Learning hizmeti çalışma alanı nedir?
 
@@ -32,16 +32,16 @@ Aşağıdaki bileşenler bir çalışma alanının diyagramda gösterilmektedir:
 
 + Bir çalışma alanı içerebilir [not defteri Vm'leri](quickstart-run-cloud-notebook.md), bulut kaynaklarına Azure Machine Learning çalıştırmak için gereken Python ortamını ile yapılandırılmış.
 + [Kullanıcı rolleri](how-to-assign-roles.md) diğer kullanıcıları, ekipleri veya projeleri çalışma alanınızda paylaşın olanak sağlar.
-+ [Hedef işlem](concept-azure-machine-learning-architecture.md#compute-target) denemelerinizi çalıştırmak için kullanılır.
++ [Hedef işlem](concept-azure-machine-learning-architecture.md#compute-targets) denemelerinizi çalıştırmak için kullanılır.
 + Çalışma alanı oluşturduğunuzda [ilişkili kaynakları](#resources) ayrıca sizin için oluşturulur.
-+ [Denemeleri](concept-azure-machine-learning-architecture.md#experiment) eğitim çalıştığı modellerinizi oluşturmak için kullanın.  Oluşturma ve çalıştırma denemeleri
++ [Denemeleri](concept-azure-machine-learning-architecture.md#experiments) eğitim çalıştığı modellerinizi oluşturmak için kullanın.  Oluşturma ve çalıştırma denemeleri
     + [Azure Machine için Python SDK'sı Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
     + [Makine öğrenimi denemeleri (Önizleme) otomatik](how-to-create-portal-experiments.md) bölümünde Azure portalında.
     + [Görsel arabirim (Önizleme)](ui-concept-visual-interface.md).
-+ [İşlem hatları](concept-azure-machine-learning-architecture.md#pipeline) modelinizi yeniden eğitme ve eğitim için yeniden kullanılabilir iş akışlarıdır.
-+ [Veri kümeleri](concept-azure-machine-learning-architecture.md#dataset) modeli eğitimi ve işlem hattı oluşturmak için kullandığınız veri Yönetimi Yardımı.
-+ Dağıtmak istediğiniz bir model aldıktan sonra oluşturduğunuz bir [kayıtlı modeli](concept-azure-machine-learning-architecture.md#model-registry).
-+ Kayıtlı model ve puanlama betiğine oluşturulacağı bir [dağıtım](concept-azure-machine-learning-architecture.md#image-registry).
++ [İşlem hatları](concept-azure-machine-learning-architecture.md#ml-pipelines) modelinizi yeniden eğitme ve eğitim için yeniden kullanılabilir iş akışlarıdır.
++ [Veri kümeleri](concept-azure-machine-learning-architecture.md#datasets-and-datastores) modeli eğitimi ve işlem hattı oluşturmak için kullandığınız veri Yönetimi Yardımı.
++ Dağıtmak istediğiniz bir model aldıktan sonra kayıtlı bir modeli oluşturun.
++ Kayıtlı model ve puanlama betiğine oluşturulacağı bir [dağıtım](concept-azure-machine-learning-architecture.md#deployment).
 
 ## <a name="tools-for-workspace-interaction"></a>Çalışma alanı etkileşimi için Araçlar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: b7ac96d3588923727a71cf6152ba36481ef44545
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 00393395745ca96ae14269ae80e4f3d25673fbfa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526665"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64723013"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure'da ağ sanal Gereci sorunları
 
@@ -74,7 +74,14 @@ PowerShell kullanma
 3. Denetleme **EnableIPForwarding** özelliği.
 4. IP iletimi etkin değilse, bunu etkinleştirmek için aşağıdaki komutları çalıştırın:
 
-   $nic2 = Get-AzNetworkInterface - ResourceGroupName <ResourceGroupName> -adı <NicName> $nic2. EnableIPForwarding = 1 kümesi AzNetworkInterface - Networkınterface $nic2 yürütün: $nic2 #and beklenen çıktı: EnableIPForwarding: TRUE NetworkSecurityGroup: null
+   ```powershell
+   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+   $nic2.EnableIPForwarding = 1
+   Set-AzNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
 
 **Standart SKU Pubilc IP kullanırken denetlemek için NSG** standart SKU ve genel IP'ler kullanırken olmalıdır nva'nın trafiğe izin vermek için bir NSG oluşturulur ve açık bir kural.
 

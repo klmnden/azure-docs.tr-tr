@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
 ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800067"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Yönetici kullanıcılar, SSH ve onay yönetmek veya VMAccess uzantısı ile Azure CLI kullanarak Linux vm'lerinde diskler onarın
@@ -68,7 +68,7 @@ az vm user update \
 
 > **NOT:** `az vm user update` Komut ekler için yeni ortak anahtar metnini `~/.ssh/authorized_keys` VM'de yönetici kullanıcı için dosya. Bunun yerine veya mevcut bir SSH anahtarınız kaldırın. Bu, dağıtım süresini ya da sonraki güncelleştirmeler VMAccess uzantısı aracılığıyla ayarlanan önceki anahtarlar kaldırmaz.
 
-## <a name="reset-password"></a>Parola sıfırlama
+## <a name="reset-password"></a>Parola sıfırla
 Aşağıdaki örnek, kullanıcının parolasını sıfırlar `azureuser` adlı VM'de `myVM`:
 
 ```azurecli-interactive

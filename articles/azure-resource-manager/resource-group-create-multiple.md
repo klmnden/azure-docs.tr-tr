@@ -2,35 +2,60 @@
 title: Azure kaynaklarını birden çok örneğini dağıtma | Microsoft Docs
 description: Kopyalama işlemi ve kullanma diziler bir Azure Resource Manager şablonunda yinelemek için birden çok kez kaynakları dağıtırken.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 06/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 05b68fde30587967f65ee362344eea9a258f89a7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205964"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807373"
 ---
-# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Bir kaynağa veya Azure Resource Manager şablonları özelliğinde birden fazla örneğini dağıtma
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Kaynak, özelliği veya Azure Resource Manager şablonlarında değişken yineleme
 
-Bu makalede bir kaynağın birden fazla örneğini oluşturmak için Azure Resource Manager şablonunuzda yineleme gösterilmektedir. Belirtmeniz gerekiyorsa olup kaynağın dağıtıldığı tüm bkz [koşul öğesi](resource-group-authoring-templates.md#condition).
+Bu makalede, Azure Resource Manager şablonunda bir kaynak, değişken veya özellik birden fazla örneğini oluşturma işlemini gösterir. Birden çok örnek oluşturma, ekleme `copy` şablonunuz için nesne.
 
-Bir öğretici için bkz. [öğretici: Resource Manager şablonlarını kullanarak birden çok kaynak örneğini oluşturma](./resource-manager-tutorial-create-multiple-instances.md).
+Bir kaynağı ile kullanıldığında, Nesne Kopyala şu biçimdedir:
 
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Bir değişken veya özellik ile kullanıldığında, Nesne Kopyala şu biçimdedir:
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+Her iki kullanır, bu makalede daha ayrıntılı açıklanmıştır. Bir öğretici için bkz. [öğretici: Resource Manager şablonlarını kullanarak birden çok kaynak örneğini oluşturma](./resource-manager-tutorial-create-multiple-instances.md).
+
+Belirtmeniz gerekiyorsa olup kaynağın dağıtıldığı tüm bkz [koşul öğesi](resource-group-authoring-templates.md#condition).
+
+## <a name="copy-limits"></a>Kopyalama sınırları
+
+Yineleme sayısını belirtmek için sayısı özelliği için bir değer sağlayın. 800 sayısını aşamaz.
+
+Sayısı negatif bir sayı olamaz. REST API sürümü bir şablonla dağıtırsanız **2019-05-10** veya daha sonra sayısı sıfır olarak ayarlayabilirsiniz. REST API sürümlerinde sayısı için sıfır desteklemez. Şu anda, Azure CLI veya PowerShell desteklemez sıfır sayısı, ancak bu destek, gelecek sürümlerin birinde eklenecektir.
+
+Sınırları sayısı için bir kaynak, değişken veya özellik ile kullanılıp aynıdır.
 
 ## <a name="resource-iteration"></a>Kaynak yineleme
 
-Bir kaynak bir veya daha fazla örneğini oluşturmak için dağıtım sırasında karar verdiğinizde, ekleme bir `copy` kaynak türü için öğesi. Kopyalama öğesinde, bu döngü için yineleme sayısı ve bir ad belirtin. Sayısı değeri pozitif bir tamsayı olmalıdır ve 800'den fazla olamaz. 
+Bir kaynak bir veya daha fazla örneğini oluşturmak için dağıtım sırasında karar verdiğinizde, ekleme bir `copy` kaynak türü için öğesi. Copy öğesinde, yineleme ve bu döngü için bir ad belirtin.
 
 Kaynak birkaç kez oluşturmak için aşağıdaki biçimi alır:
 
@@ -71,7 +96,7 @@ Bu adlar oluşturur:
 * storage1
 * storage2.
 
-Dizin değerini kaydırmak için copyIndex () işlevine bir değer geçirebilirsiniz. Copy öğesinde gerçekleştirmek için yineleme sayısını hala belirtilmiş ancak Copyındex değerini belirtilen değere göre uzaklığını. Bunu, aşağıdaki örnekte:
+Dizin değerini kaydırmak için copyIndex () işlevine bir değer geçirebilirsiniz. Yineleme sayısını hala copy öğesinde belirtildi ancak Copyındex değeri, belirtilen değere göre uzaklığı. Bunu, aşağıdaki örnekte:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -156,7 +181,7 @@ Kopyalama ile iç içe geçmiş Şablonlar hakkında daha fazla bilgi için bkz.
 Bir kaynak üzerinde bir özellik için birden fazla değer oluşturmak için bir `copy` özellikler öğesindeki dizisi. Bu dizi nesnelerini içerir ve her nesne aşağıdaki özelliklere sahiptir:
 
 * ad - çeşitli değerleri oluşturmak için özellik adı
-* Count - oluşturulacak değer sayısı. Sayısı değeri pozitif bir tamsayı olmalıdır ve 800'den fazla olamaz.
+* Count - oluşturulacak değer sayısı.
 * Giriş - özelliğe atanacak değerleri içeren bir nesne  
 
 Aşağıdaki örnek nasıl uygulanacağını gösterir `copy` Storageprofile özelliğine bir sanal makinede:

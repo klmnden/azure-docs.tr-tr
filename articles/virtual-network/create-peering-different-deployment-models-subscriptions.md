@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud;anavin
 ms.openlocfilehash: 2cdf136a01678f7fb2e594b325cd78e8e0240c70
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683413"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Oluşturma bir sanal ağ eşlemesi - farklı dağıtım modelleri ve abonelikler
@@ -28,7 +28,7 @@ Sanal ağlar aynı veya farklı olup, abonelikleri ve hangi bağlı olarak farkl
 |Azure dağıtım modeli  | Azure aboneliği  |
 |--------- |---------|
 |[Her iki kaynak yöneticisi](tutorial-connect-virtual-networks-portal.md) |Aynı|
-|[Her iki kaynak yöneticisi](create-peering-different-subscriptions.md) |Fark|
+|[Her iki kaynak yöneticisi](create-peering-different-subscriptions.md) |Farklı|
 |[Bir Resource Manager, diğeri Klasik](create-peering-different-deployment-models.md) |Aynı|
 
 Bir sanal ağ eşlemesi iki sanal ağı Klasik dağıtım modeliyle dağıtılan arasında oluşturulamıyor. Bu öğreticide, mevcut sanal ağlar aynı bölgede kullanılır. Bu öğreticide, aynı bölgedeki sanal ağlar eşler. Ayrıca farklı sanal ağlarda eş [desteklenen bölgeler](virtual-network-manage-peering.md#cross-region). Önerilen ile kendinizi alıştırın [eşleme gereksinimleri ve kısıtlamaları](virtual-network-manage-peering.md#requirements-and-constraints) önce sanal ağları eşleme.

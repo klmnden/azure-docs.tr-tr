@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 5197fdfe78b1b091de713754967f58157cc4a1b3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481662"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Verizon özel kurallar altyapısı Azure CDN'den eşleşen koşulları
@@ -804,7 +804,7 @@ Anahtar bilgileri:
 - Bir edge CNAME URL URL karşılaştırma önce bir CDN URL'sine yeniden.
 
     Örneğin, aşağıdaki URL'ler her ikisi de aynı varlığa işaret ve bu nedenle URL yolunun aynısını sahiptir:
-     - CDN URL'si: http://wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN URL'si: http://wpc.0001.&lt ; etki alanı&gt; /800001/CustomerOrigin/path/asset.htm
      - Edge CNAME URL'si: http:\//&lt;uç nokta&gt;.azureedge.net/path/asset.htm
     
     Ek bilgi:

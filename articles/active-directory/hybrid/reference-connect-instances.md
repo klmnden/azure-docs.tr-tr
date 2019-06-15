@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298826"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Örneklerle ilgili özel konular
@@ -33,7 +33,7 @@ Azure AD Connect ile Azure AD örneğini dünya çapında en yaygın olarak kull
 | --- |
 | \*.microsoftonline.de |
 | \*. windows.net |
-| + Sertifika iptal listeleri |
+| \+ Sertifika iptal listeleri |
 
 Azure AD kiracınız ile oturum açtığınızda onmicrosoft.de etki alanında bir hesap kullanmanız gerekir.
 
@@ -53,7 +53,7 @@ Bu bulut DirSync önceki sürümleri tarafından desteklenen sahip. Derlemeden A
 | \*.microsoftonline.us |
 | \*. windows.net (otomatik Azure kamu kiracısı algılama için gereklidir) |
 | \*.gov.us.microsoftonline.com |
-| + Sertifika iptal listeleri |
+| \+ Sertifika iptal listeleri |
 
 > [!NOTE]
 > Azure AD Connect itibaren sürüm 1.1.647.0, kayıt defterinde AzureInstance değeri ayarı artık, sağlanan gerekli, *. proxy sunucularınızda windows.net açıksa. Ancak, kendi Azure AD Connect sunucuları Internet bağlantısı izin vermeyen müşteriler için aşağıdaki el ile yapılandırma kullanılabilir.

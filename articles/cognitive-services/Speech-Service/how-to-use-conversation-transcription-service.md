@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: jhakulin
-ms.openlocfilehash: 80ec606fee30c239d47bca94188d3b9cbb7c82d5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: f0838d345abfcfdf69ca6ea44d3206c23010b457
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073096"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Çok katılımcılı sohbet Speech SDK'sı özelliği
 
@@ -43,7 +43,7 @@ Konuşma SDK'ın **ConversationTranscriber** API toplantıları/konuşmalar ekle
 * Ses imzalarını oluşturmak için giriş ses wave dosyasını 16-bit örnekleri, 16 kHz örnekleme hızı ve tek bir kanal (tekli) biçiminde olmalıdır.
 * Önerilen ses her örnek için iki dakika 30 saniye arasında uzunluğudur.
 
-Aşağıdaki örnek ses imzası [REST API'sini kullanarak.] oluşturmak için iki farklı yol gösterir. (https://aka.ms/cts/signaturegenservice) gelen C#:
+Ses imza oluşturmak için iki farklı şekilde aşağıdaki örnekte [REST API kullanarak](https://aka.ms/cts/signaturegenservice) gelen C#:
 
 ```csharp
 class Program

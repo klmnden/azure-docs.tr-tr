@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 9a9db9f05895569b050e56cdeec1ee2ee25af0df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237822"
 ---
 # <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>Azure portalında bir bildirim hub'ı için Apple anında iletilen bildirim servisi (APNS) ayarlarını yapılandırın
@@ -33,7 +33,7 @@ Aşağıdaki yordam, bildirim hub'ı Apple anında iletilen bildirim servisi (AP
 
    a. Seçerseniz **sertifika**:
    * Dosya simgesini seçin ve ardından *.p12* karşıya yüklemek istediğiniz dosya.
-   * Parola girin.
+   * Bir parola girin.
    * **Korumalı alan** modunu seçin. Uygulama Mağazası'ndan satın almış kullanıcılara anında iletme bildirimleri göndermek için seçin **üretim** modu.
 
      ![Ekran görüntüsü bir APNS sertifikası yapılandırma Azure portalında](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)

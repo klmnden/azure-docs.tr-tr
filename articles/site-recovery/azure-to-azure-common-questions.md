@@ -8,10 +8,10 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
 ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753779"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Sık sorulan sorular: Azure'dan Azure'a olağanüstü durum kurtarma
@@ -24,7 +24,7 @@ Bu makalede kullanarak Azure Vm'leri başka bir Azure bölgesine olağanüstü d
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery nasıl fiyatlandırılır?
 Gözden geçirme [Azure Site Recovery fiyatlandırma](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) ayrıntıları.
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Azure Site Recovery için ücretsiz katman nasıl çalışır?
-Azure Site Recovery ile korunan her örnek, ilk 31 gün boyunca ücretsiz olarak korunur. 32. günden itibaren örneğin korunması yukarıdaki fiyatlarla ücretlendirilir.
+Azure Site Recovery ile korunan her örnek, ilk 31 gün boyunca ücretsiz olarak korunur. 32\. günden itibaren örneğin korunması yukarıdaki fiyatlarla ücretlendirilir.
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>İlk 31 gün boyunca başka herhangi bir Azure hizmeti için ücretlendirilir miyim?
 Evet, Azure Site Recovery korunan bir örnek için ilk 31 gün boyunca ücretsiz olsa da Azure Depolama, depolama işlemleri ve veri aktarımı için ücretlendirilmeye devam edebilirsiniz. Korunan bir sanal makine için de Azure işlem ücretleri alınabilir. Fiyatlandırma hakkında tam bilgi almak [burada](https://azure.microsoft.com/pricing/details/site-recovery)
 

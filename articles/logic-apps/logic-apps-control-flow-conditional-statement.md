@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684821"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Azure Logic Apps iş akışı eylemleri denetleyen koşullu deyimler oluşturma
@@ -33,13 +33,13 @@ Yalnızca belirli bir koşul denetimini geçtikten sonra mantıksal uygulamanız
 
 * Bu makaledeki örnek [Bu örnek mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md) ile bir Outlook.com veya Office 365 Outlook hesabı.
 
-## <a name="add-condition"></a>Koşul ekle
+## <a name="add-condition"></a>Koşul Ekle
 
 1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın.
 
 1. İstediğiniz konumunda bir koşul ekleyin. 
 
-   Adımlar arasında bir koşul eklemek için işaretçiyi koşulu eklemek istediğiniz okun üzerine getirin. Seçin **artı** (**+**) görünür, ardından **Eylem Ekle**. Örneğin:
+   Adımlar arasında bir koşul eklemek için işaretçiyi koşulu eklemek istediğiniz okun üzerine getirin. Seçin **artı** ( **+** ) görünür, ardından **Eylem Ekle**. Örneğin:
 
    ![Adımları arasındaki Eylem Ekle](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
@@ -47,7 +47,7 @@ Yalnızca belirli bir koşul denetimini geçtikten sonra mantıksal uygulamanız
 
 1. Arama kutusuna filtreniz olarak "koşul" girin. Şu eylemi seçin: **Koşul - denetim**
 
-   ![Koşul ekle](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
+   ![Koşul Ekle](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
 1. İçinde **koşul** kutusunda, koşul oluşturun. 
 

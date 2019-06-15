@@ -1,6 +1,6 @@
 ---
 title: "Hızlı Başlangıç: Resource Manager - Azure HDInsight'ı kullanarak Apache Hadoop kümeleri oluşturma"
-description: HDInsight kümeleri oluşturmayı öğrenin.
+description: Bu hızlı başlangıçta, Azure Resource Manager şablonu kullanarak HDInsight Apache Hadoop kümesi oluşturma
 keywords: hadoop kullanmaya başlama,hadoop linux,hadoop hızlı başlangıç,hive kullanmaya başlama,hive hızlı başlangıç
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 05/14/2019
-ms.openlocfilehash: 9084e8e0fe7707b5f115df80792cea102772b8e9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.date: 06/12/2019
+ms.openlocfilehash: 43eb2f6aad1b980d59b34b83547c8fc4812a763b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861641"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057548"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Hızlı Başlangıç: Azure Resource Manager şablonu kullanarak HDInsight Apache Hadoop kümesi oluşturma
 
@@ -59,7 +59,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 > [!NOTE]  
 > Diğer küme oluşturma yöntemleri ve bu hızlı başlangıçta kullanılan özellikler hakkında bilgi edinmek bkz [oluşturma HDInsight kümeleri](../hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="troubleshoot"></a>Sorun gider
+## <a name="troubleshoot"></a>Sorun giderme
 
 HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](../hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
@@ -85,36 +85,3 @@ Bu hızlı başlangıçta, bir Resource Manager şablonu kullanarak HDInsight Ap
 
 > [!div class="nextstepaction"]
 >[Ayıklama, dönüştürme ve HDInsight üzerinde Apache Hive kullanarak verileri yükleme](../hdinsight-analyze-flight-delay-data-linux.md)
-
-Kendi verilerinizle çalışmaya başlamaya hazırsanız ve HDInsight’ın verileri nasıl depoladı veya verileri HDInsight’a alma hakkında daha fazla bilgi edinmek istiyorsanız, aşağıdaki makalelere bakın:
-
-* HDInsight’ın Azure Depolama’yı nasıl kullandığı hakkında daha fazla bilgi için bkz. [HDInsight ile Azure Depolama kullanma](../hdinsight-hadoop-use-blob-storage.md).
-* Data Lake Store ile HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: HDInsight kümelerinde ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-* HDInsight’a veril yükleme hakkında daha fazla bilgi için bkz. [Verileri HDInsight’a yükleme](../hdinsight-upload-data.md).
-* [Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
-
-HDInsight ile veri çözümleme hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
-
-* Visual Studio'dan Hive sorguları gerçekleştirme dahil, HDInsight ile Hive kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma Apache](hdinsight-use-hive.md).
-* Verileri dönüştürmek için kullanılan bir dil olan pig hakkında bilgi için bkz: [HDInsight ile Apache Pig kullanma](hdinsight-use-pig.md).
-* Hadoop’ta verileri işleyen programları yazmanın bir yöntemi olan MapReduce hakkında bilgi edinmek için bkz. [HDInsight ile MapReduce kullanma](hdinsight-use-mapreduce.md).
-* HDInsight’taki verileri çözümlemek amacıyla Visual Studio için HDInsight Araçları kullanma hakkında bilgi edinmek için bkz. [HDInsight için Visual Studio Hadoop araçlarını kullanmaya başlama](apache-hadoop-visual-studio-tools-get-started.md).
-* HDInsight’taki verileri analiz etmek amacıyla VSCode için HDInsight Araçları’nı kullanma hakkında bilgi edinmek için bkz. [Visual Studio Code için Azure HDInsight Araçları’nı kullanma](../hdinsight-for-vscode.md).
-
-
-HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek istiyorsanız, aşağıdaki makalelere bakın:
-
-* Linux tabanlı HDInsight kümenizi yönetme hakkında daha fazla bilgi için bkz: [Apache Ambari kullanarak HDInsight yönetme kümelerini](../hdinsight-hadoop-manage-ambari.md).
-* HDInsight kümesi oluştururken tercih edebileceğiniz seçenekler hakkında daha fazla bilgi için bkz. [Özel seçenekleri kullanarak Linux’ta HDInsight oluşturma](../hdinsight-hadoop-provision-linux-clusters.md).
-
-Azure Resource Manager şablonlarını kullanarak HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz:
-
-* [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular).
-* [Azure şablonu başvurusu](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
-
-[1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md
-
-[hdinsight-provision]: hdinsight-provision-linux-clusters.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md

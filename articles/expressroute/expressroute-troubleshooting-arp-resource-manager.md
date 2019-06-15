@@ -9,10 +9,10 @@ ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151575"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>ARP tablolarını Resource Manager dağıtım modelinde alma
@@ -154,7 +154,7 @@ Bir eşleme ARP tablosu belirlemek için kullanılan katman 2 yapılandırma ve 
        --- ----------------- ---------  ----------    
          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
-veya
+or
        
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------   

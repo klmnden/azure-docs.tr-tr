@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec8ffebbbe339e00431f510978f1d3155f1bc4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3d9ff6daf954c4c5293223d6a92522163d17973
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868559"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Öğretici: RedBrick Health ile Azure Active Directory Tümleştirmesi
 
@@ -57,7 +57,7 @@ Azure AD'de RedBrick sistem durumu tümleştirmesini yapılandırmak için yöne
 
 **Galeriden RedBrick sistem durumu eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

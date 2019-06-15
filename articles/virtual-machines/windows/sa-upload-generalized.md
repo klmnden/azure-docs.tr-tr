@@ -17,11 +17,11 @@ ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5b38d022d372e7d35ba2dbeaef90660ce95f73fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250747"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715115"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Yeni bir VM oluşturmak için Azure'da genelleştirilmiş VHD yükleme
 
@@ -41,7 +41,7 @@ Genelleştirilmiş VHD tüm kişisel hesap bilgilerinizi Sysprep kullanarak kald
   * Sysprep kullanarak sanal makineyi Genelleştir
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Sysprep kullanarak bir Windows sanal makineyi Genelleştir
-Bu bölümde, Windows sanal makinenizi bir görüntü olarak kullanılmaya generalize gösterilir. Sysprep diğer öğelerin yanı sıra tüm kişisel hesap bilgilerinizi kaldırır ve makineyi bir görüntü olarak kullanılacak şekilde hazırlar. Sysprep hakkında daha fazla ayrıntı için bkz: [Sysprep işlemini kullanma: Giriş](https://technet.microsoft.com/library/bb457073.aspx).
+Bu bölümde, Windows sanal makinenizi bir görüntü olarak kullanılmaya generalize gösterilir. Sysprep diğer öğelerin yanı sıra tüm kişisel hesap bilgilerinizi kaldırır ve makineyi bir görüntü olarak kullanılacak şekilde hazırlar. Sysprep hakkındaki ayrıntılar için bkz.[Sysprep İşlemini Kullanma: Giriş](https://technet.microsoft.com/library/bb457073.aspx).
 
 Makinede çalışan sunucu rollerini Sysprep tarafından desteklendiğinden emin olun. Daha fazla bilgi için [sunucu rolleri için Sysprep desteği](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -54,7 +54,7 @@ Makinede çalışan sunucu rollerini Sysprep tarafından desteklendiğinden emin
 2. Yönetici olarak Komut İstemi penceresini açın. Dizinine **%windir%\system32\sysprep**ve ardından çalıştırın `sysprep.exe`.
 3. **Sistem Hazırlama Aracı** iletişim kutusunda  **Sistem İlk Çalıştırma Deneyimi (OOBE) Moduna Gir**'i seçin ve **Genelleştir** onay kutusunun seçili olduğundan emin olun.
 4. İçinde **kapatma seçenekleri**seçin **kapatma**.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
    
     ![Sysprep Başlat](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Sysprep tamamlandığında, sanal makineyi kapatır. 

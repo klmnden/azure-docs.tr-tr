@@ -10,10 +10,10 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922818"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs kullanarak Azure Tanılama verileri etkin yolu akış
@@ -45,7 +45,7 @@ Event Hubs'a, Azure tanılama verilerini alma, bulut Hizmetleri, VM'ler, sanal m
 * Event Hubs ad alanı makale sağlanan [Event Hubs ile çalışmaya başlama](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Azure Tanılama Olay hub'ları havuz bağlanın
-Varsayılan olarak, Azure tanılama her zaman günlükleri ve ölçümleri bir Azure depolama hesabına gönderir. Bir uygulama Ayrıca verileri olay hub'ları için yeni bir ekleyerek gönderebilir **havuzlarını** bölümüne **PublicConfig** / **WadCfg** öğesinin *. wadcfgx* dosya. Visual Studio'da *.wadcfgx* dosya şu yolda depolanır: **Bulut hizmeti projesi** > **rolleri** > **(RoleName)** > **diagnostics.wadcfgx** dosya.
+Varsayılan olarak, Azure tanılama her zaman günlükleri ve ölçümleri bir Azure depolama hesabına gönderir. Bir uygulama Ayrıca verileri olay hub'ları için yeni bir ekleyerek gönderebilir **havuzlarını** bölümüne **PublicConfig** / **WadCfg** öğesinin *. wadcfgx* dosya. Visual Studio'da *.wadcfgx* dosya şu yolda depolanır: **Bulut hizmeti projesi** > **rolleri** >  **(RoleName)**  > **diagnostics.wadcfgx** dosya.
 
 ```xml
 <SinksConfig>
@@ -202,7 +202,7 @@ Aşağıdaki örnek, bir geliştirici bu hizmetin sistem durumu için kullanıla
 Bu örnekte, havuz için günlükleri uygulanır ve yalnızca hata düzeyi izleme filtrelenir.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Dağıtma ve bulut Hizmetleri uygulama ve Tanılama yapılandırmasını güncelleştir
-Visual Studio uygulama ve Event Hubs havuz yapılandırmasını dağıtmak için en kolay yolunu sağlar. Görüntüleme ve dosyayı düzenlemek için açın *.wadcfgx* dosyasını Visual Studio'da, düzenleyin ve kaydedin. Yol **bulut hizmeti projesi** > **rolleri** > **(RoleName)** > **diagnostics.wadcfgx**.  
+Visual Studio uygulama ve Event Hubs havuz yapılandırmasını dağıtmak için en kolay yolunu sağlar. Görüntüleme ve dosyayı düzenlemek için açın *.wadcfgx* dosyasını Visual Studio'da, düzenleyin ve kaydedin. Yol **bulut hizmeti projesi** > **rolleri** >  **(RoleName)**  > **diagnostics.wadcfgx**.  
 
 Bu noktada, tüm dağıtım ve dağıtım eylemleri Visual Studio, Visual Studio Team System ve tüm komutları veya betikleri MSBuild ve kullanım tabanlı güncelleştirme **/t: yayımlama** hedef dahil *.wadcfgx* paketleme işleminde. Ayrıca, dağıtımları ve güncelleştirmelerinin dosyasını Azure'a Vm'lerinizde uygun Azure tanılama Aracısı uzantısını kullanarak dağıtın.
 

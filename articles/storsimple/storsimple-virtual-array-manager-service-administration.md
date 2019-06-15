@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: bb6bb491ca71e5ced5aecc8137e9e1cbd950e80b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123814"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>StorSimple Virtual Array'iniz yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanın
@@ -54,7 +54,7 @@ Her bir iş akışı hakkında daha fazla bilgi için tablodaki ilgili yordamı 
 #### <a name="storsimple-device-manager-workflows"></a>StorSimple cihaz Yöneticisi iş akışları
 | Bunu yapmak istiyorsanız... | Bu yordamı kullanın |
 | --- | --- |
-| Hizmet oluşturma</br>Bir hizmeti Sil</br>Hizmet kayıt anahtarı alma</br>Hizmet kayıt anahtarını yeniden oluştur |[StorSimple cihaz Yöneticisi hizmetini dağıtma](storsimple-virtual-array-manage-service.md) |
+| Bir hizmet oluşturma</br>Bir hizmeti Sil</br>Hizmet kayıt anahtarı alma</br>Hizmet kayıt anahtarını yeniden oluştur |[StorSimple cihaz Yöneticisi hizmetini dağıtma](storsimple-virtual-array-manage-service.md) |
 | Etkinlik günlüklerini görüntüleme |[StorSimple hizmet özetini kullanma](storsimple-virtual-array-service-summary.md) |
 | Bir sanal dizin devre dışı bırak</br>Sanal dizi Sil |[Sanal dizi silin veya devre dışı bırakma](storsimple-virtual-array-deactivate-and-delete-device.md) |
 | Olağanüstü durum kurtarma ve cihaz yük devretme</br>Yük devretme önkoşulları</br>İş sürekliliği, olağanüstü durum kurtarma (BCDR)</br>Olağanüstü durum kurtarma sırasında hatalar |[Olağanüstü durum kurtarma ve cihaz yük devretme StorSimple Virtual Array'iniz için](storsimple-virtual-array-failover-dr.md) |

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e408439c4868a9fadfd15ab8ae303b2d881c481e
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 2b0892fb107827cd9060a36855e9b8bf4416463c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494290"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069427"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service'e erişim kısıtlamaları #
 
@@ -48,27 +48,27 @@ Erişim kısıtlamaları Arabiriminden uygulamanız için tanımlanan erişim k�
 
 Listenin tüm uygulamanızı olan geçerli kısıtlamalar gösterilir. Uygulamanızı bir sanal ağ kısıtlaması varsa, tablonun hizmet uç noktaları için Microsoft.Web etkinleştirilip etkinleştirilmediğini gösterir. Uygulama tanımlı hiçbir kısıtlama olduğunda, uygulamanızı her yerden erişilebilir.  
 
+## <a name="adding-ip-address-rules"></a>IP adresi kuralları ekleme
+
 Tıklayabilirsiniz **[+] Ekle** yeni bir erişim kısıtlama kuralı eklemek için. Bir kural eklediğinizde, hemen geçerli olur. Kurallar öncelik sırasına göre yukarı ve en düşük sayıdan başlayan uygulanır. Örtük Reddet tek bir kural eklediğinizde, geçerli tüm yoktur.
-
-### <a name="adding-ip-address-rules"></a>IP adresi kuralları ekleme
-
-![bir IP erişim kısıtlama Kuralı Ekle](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
 Bir kural oluştururken izin verme/reddetme ve ayrıca kuralının türünü seçmeniz gerekir. Öncelik değeri ve kısıtlama erişim sağlamak için gereklidir.  İsteğe bağlı olarak kurala bir ad ve açıklama ekleyebilirsiniz.  
 
+![bir IP erişim kısıtlama Kuralı Ekle](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
+
 Bir IP adresi ayarlamak için kural tabanlı, bir IPv4 veya IPv6 türünü seçin. IP adresi gösterimi, IPv4 ve IPv6 adresleri CIDR gösteriminde belirtilmelidir. Bir tam adresini belirtmek için burada IP adresiniz ilk dört sekizlik tabanda temsil eder ve özelliğini/32 maske 1.2.3.4/32 gibi kullanabilirsiniz. Tüm adresler için IPv4 CIDR gösteriminde 0.0.0.0/0 ' dir. CIDR gösterimi hakkında daha fazla bilgi edinebilirsiniz [sınıfsız etki alanları arası yönlendirme](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
-### <a name="service-endpoints"></a>Hizmet uç noktaları
+## <a name="service-endpoints"></a>Hizmet uç noktaları
+
+Hizmet uç noktaları, seçili Azure sanal ağ alt ağlara erişimi kısıtlama olanak sağlar. Belirli bir alt ağa erişimini kısıtlamak için bir sanal ağ türü ile bir kısıtlama kuralı oluşturun. Abonelik, VNet ve alt ağı izin verdiğini veya reddettiğini erişim ile istediğiniz yerden devam edebilir. Hizmet uç noktaları zaten Microsoft.Web ile seçtiğiniz bir alt ağ için etkin değilse, bunu yapmak soran kutuyu sürece bu otomatik olarak sizin için etkinleştirilecek. Veya alt ağdaki hizmet uç noktalarını etkinleştirmek için izinleriniz varsa uygulama ancak alt etkinleştirmek istediğiniz durum için büyük ölçüde ilişkilidir. Alt ağdaki hizmet uç noktalarının etkinleştirilmesi başkası almanız gerekirse, onay kutusunu işaretleyin ve uygulamanızı, daha sonra alt ağda etkinleştiriliyor olasılığına hizmet uç noktaları için yapılandırılmış olması. 
 
 ![bir sanal ağ erişimini kısıtlama Kuralı Ekle](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
-
-Seçilen alt ağa erişimini kısıtlamak için bir sanal ağ türü seçin. , Abonelik, VNet ve alt ağı izin verdiğini veya reddettiğini erişim ile istediğiniz çekme kurmaya devam eder. Hizmet uç noktaları zaten Microsoft.Web ile seçtiğiniz bir alt ağ için etkin değilse, bunu yapmak soran kutuyu sürece bu otomatik olarak sizin için etkinleştirilecek. Veya alt ağdaki hizmet uç noktalarını etkinleştirmek için izinleriniz varsa uygulama ancak alt etkinleştirmek istediğiniz durum için büyük ölçüde ilişkilidir. Alt ağdaki hizmet uç noktalarının etkinleştirilmesi başkası almanız gerekirse, onay kutusunu işaretleyin ve uygulamanızı, daha sonra alt ağda etkinleştiriliyor olasılığına hizmet uç noktaları için yapılandırılmış olması. 
 
 Hizmet uç noktaları, bir App Service ortamında çalışan uygulamalar için erişimi kısıtlamak için kullanılamaz. Uygulamanızı bir App Service Ortamı'nda olduğunda, IP erişim kuralları ile uygulamanıza erişimi denetleyebilirsiniz. 
 
 Hizmet uç noktaları ile uygulama ağ geçitleri ya da diğer WAF cihazlarını uygulamanızla yapılandırabilirsiniz. Güvenli arka uçları ile çok katmanlı uygulamalar da yapılandırabilirsiniz. Bazı olasılık hakkında daha fazla bilgi almak için okuma [ağ özellikleri ve App Service](networking-features.md).
 
-### <a name="managing-access-restriction-rules"></a>Erişimi kısıtlama kurallarını yönetme
+## <a name="managing-access-restriction-rules"></a>Erişimi kısıtlama kurallarını yönetme
 
 Mevcut bir erişim kısıtlama kuralı düzenlemek için herhangi bir satıra tıklayabilirsiniz. Düzenlemeler hemen öncelik sıralamada değişiklikleri içeren son derece etkilidir.
 
@@ -82,7 +82,7 @@ Bir kuralı silmek için tıklayın **...**  kural ve ardından **Kaldır**.
 
 ![erişimi kısıtlama kuralını Sil](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-### <a name="blocking-a-single-ip-address"></a>Tek bir IP adresi engelleme ##
+## <a name="blocking-a-single-ip-address"></a>Tek bir IP adresi engelleme ##
 
 İlk IP kısıtlaması kuralınızı eklerken, hizmet açık bir ekleme **tümünü Reddet** 2147483647 önceliğine sahip. Uygulamada, açık **tümünü Reddet** kuralı yürütülen son kural olacaktır ve kullanarak açıkça verilmeyen tüm IP adreslerini erişimini engeller bir **izin** kuralı.
 
@@ -90,7 +90,7 @@ Kullanıcılar tek bir IP adresi veya IP adresi bloğu açıkça engellemek iste
 
 ![bloğu tek bir IP adresi](media/app-service-ip-restrictions/block-single-address.png)
 
-### <a name="scm-site"></a>SCM sitesine 
+## <a name="scm-site"></a>SCM sitesine 
 
 Uygulama erişimi denetleme olanağına olmaya ek olarak, erişim, uygulamanız tarafından kullanılan scm sitesine da kısıtlayabilirsiniz. Web dağıtımı uç noktası ve ayrıca Kudu Konsolu scm sitedir. Ayrı ayrı erişim kısıtlamalarını uygulamadan scm sitesine atayın veya aynı hem uygulama hem de scm sitesine ayarlayın. Uygulamanız aynı kısıtlamalara sahip kutuyu işaretlediğinizde her şey kullanıma blanked. Kutunun işaretini kaldırırsanız, daha önce scm sitesine sahip hangi ayarları uygulanır. 
 

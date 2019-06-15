@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b98d494f3c567b92de53da42079c5bbf0734942
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c1a0f15d67d76ca0e1b2e9b348b36be7dee3dd6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284157"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Öğretici: AppBlade ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de AppBlade tümleştirmesini yapılandırmak için AppBlade Galeriden 
 
 **Galeriden AppBlade eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

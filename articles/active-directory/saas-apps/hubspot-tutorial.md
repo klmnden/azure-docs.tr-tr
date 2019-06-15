@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d74cc1665867568032bb1343e4f2c26c50fe15a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3b2c765778fc2bdd8425cc3f375831c0d317e753
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65770182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Öğretici: HubSpot ile Azure Active Directory Tümleştirme
 
@@ -123,7 +123,7 @@ Bu bölümde, Azure AD çoklu oturum açma ile HubSpot Azure portalında yapıla
 
     ![Küme ek URL'ler seçeneği](common/metadata-upload-additional-signon.png)
 
-1. İçinde **yukarı çoklu oturum açma SAML ile ayarlanmış** bölmesinde, **SAML imzalama sertifikası** bölümünden **indirme** yanındaki **sertifika (Base64)**. Gereksinimlerinize göre bir indirme seçeneğini seçin. Sertifika bilgisayarınıza kaydedin.
+1. İçinde **yukarı çoklu oturum açma SAML ile ayarlanmış** bölmesinde, **SAML imzalama sertifikası** bölümünden **indirme** yanındaki **sertifika (Base64)** . Gereksinimlerinize göre bir indirme seçeneğini seçin. Sertifika bilgisayarınıza kaydedin.
 
     ![Sertifika (Base64) yükleme seçeneği](common/certificatebase64.png)
 
@@ -183,7 +183,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
     1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    1. İçinde **kullanıcı adı** kutusuna **brittasimon\@\<your-şirket etki alanı >.\< Uzantı\>**. Örneğin, **brittasimon\@contoso.com**.
+    1. İçinde **kullanıcı adı** kutusuna **brittasimon\@\<your-şirket etki alanı >.\< Uzantı\>** . Örneğin, **brittasimon\@contoso.com**.
 
     1. Seçin **Show parola** onay kutusu. Görüntülenen değer azaltma **parola** kutusu.
 

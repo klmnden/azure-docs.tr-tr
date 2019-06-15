@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/06/2019
+ms.date: 06/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 00501ec72dff99f93fa04944c5ab733fce38ce21
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754894"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074002"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure kaynakları için rol tanımları anlama
 
@@ -225,7 +225,7 @@ Yerleşik rolleri `AssignableScopes` kök kapsamı ayarlayın (`"/"`). Kök kaps
 | Rol ataması tek bir abonelik için kullanılabilir | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
 | Rol ataması iki abonelik de kullanılabilir | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
 | Rol ataması yalnızca ağ kaynak grubundaki kullanılabilir | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| Rol atamasını tüm kapsamlar için kullanılabilir | `"/"` |
+| Rolü, tüm kapsamlarda atama için kullanılabilir (yalnızca yerleşik roller geçerlidir) | `"/"` |
 
 Hakkında bilgi için `AssignableScopes` özel roller için bkz: [Azure kaynakları için özel roller](custom-roles.md).
 

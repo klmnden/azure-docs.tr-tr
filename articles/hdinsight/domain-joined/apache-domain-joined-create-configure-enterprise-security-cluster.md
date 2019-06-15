@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
 ms.openlocfilehash: 5b5b83fe0028e43ca35bf883b29cb71bad6ca2c8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66253208"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Oluşturma ve Azure HDInsight Kurumsal güvenlik paketi kümeleri yapılandırma
@@ -219,7 +219,7 @@ Daha fazla bilgi için [etkinleştirme Azure Active Directory etki alanı Azure 
 
     ![Ağ seçin](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. Üzerinde **yönetici grubuna** ekran, adlı bir grubu bir bildirim görmeniz **AAD DC Administrators** bu Grup yönetmek için zaten oluşturuldu. İsteğe bağlı olarak, bu grubun üyeliğini değiştirebilirsiniz, ancak bu öğreticideki adımları için gerekli değildir. **Tamam**'ı tıklatın.
+1. Üzerinde **yönetici grubuna** ekran, adlı bir grubu bir bildirim görmeniz **AAD DC Administrators** bu Grup yönetmek için zaten oluşturuldu. İsteğe bağlı olarak, bu grubun üyeliğini değiştirebilirsiniz, ancak bu öğreticideki adımları için gerekli değildir. **Tamam** düğmesine tıklayın.
 
     ![Yönetici grubu görünümü](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 
@@ -304,7 +304,7 @@ Sertifikanın bilgisayarda yüklü olduğunu doğrulayın\'s kişisel depolama. 
 
         | Özellik | Değer |
         |---|---|
-        | Kaynak | Tüm |
+        | source | Tüm |
         | Kaynak bağlantı noktası aralıkları | * |
         | Hedef | Tüm |
         | Hedef bağlantı noktası aralığı | 636 |
@@ -353,7 +353,7 @@ Bu adım, aşağıdaki önkoşulları gerektirir:
     1. Tıklayın **özel (boyut, ayarları, uygulamalar)** .
     2. Bölüm 1'için istenen ayrıntılarını girin **Temelleri**. Emin **küme türü** olduğu **Spark 2.3 (HDI 3.6)** ve **kaynak grubu** olduğu **HDIFabrikam CentralUS**
 
-    1. 2. bölümünde **güvenlik + ağ**, aşağıdaki adımları tamamlayın:
+    1. 2\. bölümünde **güvenlik + ağ**, aşağıdaki adımları tamamlayın:
         1. Tıklayın **etkin** altında **Kurumsal güvenlik paketi**.
         1. Tıklayın **kümenin yönetici kullanıcı** seçip **HDIAdmin** şirket içinde yönetici kullanıcı olarak daha önce oluşturduğunuz hesabı. **Seç**'e tıklayın.
 

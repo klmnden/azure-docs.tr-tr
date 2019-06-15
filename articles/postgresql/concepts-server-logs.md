@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067402"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>-Tek bir sunucu PostgreSQL için Azure veritabanı'nda sunucu günlüklerini
@@ -47,11 +47,11 @@ Aşağıdaki tabloda, her oturum açma yenilikler açıklanır. Seçtiğiniz ç�
 | ResourceType | `Servers` |
 | ResourceId | Kaynak URI'si |
 | Resource | Sunucusunun adı |
-| Category | `PostgreSQLLogs` |
+| Kategori | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Günlüğe kaydetme düzeyi, örneğin: GÜNLÜK, HATA BİLDİRİMİ |
 | `Message` | Birincil günlük iletisi | 
-| Domain | Sunucu sürümü, örnek: postgres 10 |
+| Etki Alanı | Sunucu sürümü, örnek: postgres 10 |
 | Ayrıntı | İkincil günlük iletisi (varsa) |
 | ColumnName | (Eğer varsa) sütunun adı |
 | SchemaName | (Eğer varsa) şema adı |

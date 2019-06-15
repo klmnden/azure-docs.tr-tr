@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: e745a4ee4789ef46a61b5cb0bbf806c41ef631ec
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027923"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Azure Blockchain hizmet Consortium
@@ -43,7 +43,7 @@ Konsorsiyumu katılımcıları, kişi ve kuruluşların olabilir ve bir kullanı
 | Yeni üyeler davet edin | Hayır | Evet |
 | Katılımcı rolü üyesi veya | Hayır | Evet |
 | Üye görünen adı değiştir | Yalnızca kendi üyesi için | Yalnızca kendi üyesi için |
-| Üyeleri kaldır | Yalnızca kendi üyesi için | Evet |
+| Üyeleri Kaldır | Yalnızca kendi üyesi için | Evet |
 | Blok zinciri işlemlere katılmasına | Evet | Evet |
 
 ### <a name="user-role"></a>Kullanıcı rolü
