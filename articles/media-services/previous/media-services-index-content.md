@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: adsolank;juliako;johndeu
 ms.openlocfilehash: a11ae0414d6737f1588515ec19524bcf499f0c74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61215814"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Azure Media Indexer ile medya dosyalarının dizinini oluşturarak
@@ -155,7 +155,7 @@ Birden fazla girdi medya dosyası olduğunda, Dizin Oluşturucu 'JobResult.txt' 
 | **InputFileName.aib** |Ses dizini oluşturma blob dosyası. <br/><br/> Ses dizini oluşturma Blob (AIB) dosyası Microsoft SQL server tam metin arama ile aranabilir bir ikili dosyadır.  Alternatifleri için çok daha zengin bir arama deneyimi sağlayan, her bir sözcüğün içerdiği için AIB dosyası basit bir açıklamalı alt yazı dosyaları, daha güçlüdür. <br/> <br/>Dizin Oluşturucu SQL eklentiye bir makine Microsoft SQL server 2008 veya üzeri yüklenmesini gerektiriyor. Arama AIB kullanarak Microsoft SQL server tam metin araması WAMI tarafından oluşturulan kapalı açıklamalı alt yazı dosyaları arama değerinden daha doğru arama sonuçlarını sağlar. AIB kapalı açıklamalı alt yazı dosyaları ses her bir kesim için en yüksek güvenilirlik word içerirken, benzer ses alternatifleri word içerdiğinden budur. Konuşulan kelimeleri için arama upmost önemini ise, Microsoft SQL Server ile AIB içinde birlikte kullanmak için önerilir.<br/><br/> Eklentiyi yüklemek için tıklatın <a href="https://aka.ms/indexersql">Azure Media Indexer SQL eklenti</a>. <br/><br/>Diğer arama motorları gibi Apache Lucene/yeterlidir kapalı açıklamalı alt yazı ve anahtar sözcük XML dosyaları göre video dizini oluşturmak için Solr kullanmak da mümkündür, ancak bu daha az doğru arama sonuçlarında neden olur. |
 | **InputFileName.smi**<br/>**InputFileName.ttml**<br/>**InputFileName.vtt** |LAPONCA, TTML ve WebVTT biçimindeki kapalı açıklamalı alt yazı (CC) dosyaları.<br/><br/>Ses ve video dosyaları işitme engelli kişiler için erişilebilir hale getirmek için kullanılabilir.<br/><br/>Kapalı açıklamalı alt yazı dosyaları dahil adlı bir etiket <b>Recognizability</b> nasıl tanınabilir kaynak videoda konuşma olduğuna göre bir dizin oluşturma işi puanlar.  Değerini kullanabilir <b>Recognizability</b> kullanılabilirlik için ekran çıktı dosyaları için. Düşük bir puan ses kalitesi nedeniyle düşük dizin sonuçları anlamına gelir. |
 | **InputFileName.kw.xml<br/>InputFileName.info** |Anahtar sözcüğü ve bilgi dosyaları. <br/><br/>Anahtar sözcük dosyası sıklık ve uzaklık bilgilerini konuşma içeriğinden ayıklanan anahtar sözcükleri içeren bir XML dosyasıdır. <br/><br/>Bilgi dosyası tanınan her terim hakkında ayrıntılı bilgi içeren bir düz metin dosyasıdır. İlk satırı özeldir ve Recognizability puanı içerir. Sonraki her satırı aşağıdaki veriler sekmeyle ayrılmış bir listesi verilmiştir: başlangıç zamanı, bitiş zamanı, sözcüğün/tümceciğin, güvenilirlik. Saniyeler içinde bir kez verilir ve güvenle bir sayı olarak 0-1'den verilir. <br/><br/>Örnek satırı: "1.20    1.45    word    0.67" <br/><br/>Bu dosyalar amacıyla, bir dizi için gibi konuşma analizi yapmak için kullanılan veya daha fazla ilgili reklam sunmak için Bing, Google veya Microsoft SharePoint daha bulunabilir, ya da medya dosyalarını yapmak için kullanılan gibi arama motorları için kullanıma sunulan. |
-| **JobResult.txt** |Çıkış bildirimi, aşağıdaki bilgileri içeren birden çok dosya yalnızca dizin oluşturulurken mevcut:<br/><br/><table border="1"><tr><th>InputFile</th><th>Diğer ad</th><th>MediaLength</th><th>Hata</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
+| **JobResult.txt** |Çıkış bildirimi, aşağıdaki bilgileri içeren birden çok dosya yalnızca dizin oluşturulurken mevcut:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Hata</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
 Aksi takdirde tüm giriş medya dosyalarını başarıyla dizin, dizin oluşturma işi 4000 hata koduyla başarısız oluyor. Daha fazla bilgi için [hata kodları](#error_codes).
 
@@ -260,7 +260,7 @@ Bir hata olması durumunda, Azure Media Indexer'ın bildirmelisiniz aşağıdaki
 | --- | --- | --- |
 | 2000 |Geçersiz yapılandırma |Geçersiz yapılandırma |
 | 2001 |Geçersiz giriş varlıklar |Giriş varlıklar veya boş varlık eksik. |
-| 2002 |Bildirim geçersiz |Bildirimi boş veya geçersiz bir öğe bildirimi içeriyor. |
+| 2002 |Geçersiz bildirim |Bildirimi boş veya geçersiz bir öğe bildirimi içeriyor. |
 | 2003 |Medya dosyası indirilemedi. |Bildirim dosyasında geçersiz URL. |
 | 2004 |Desteklenmeyen Protokolü |Ortam URL'si protokolü desteklenmiyor. |
 | 2005 |Desteklenmeyen dosya türü |Girdi medya dosya türü desteklenmiyor. |

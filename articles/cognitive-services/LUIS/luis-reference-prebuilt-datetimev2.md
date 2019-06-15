@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148648"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 LUIS uygulaması için önceden oluşturulmuş varlık
@@ -82,7 +82,7 @@ Her öğeyi `values` dizisi, aşağıdaki alanları olabilir:
 |Özellik adı|Özellik açıklaması|
 |--|--|
 |Timex|saat, tarih veya tarih aralığını izleyen TIMEX biçiminde ifade [ISO 8601 standardına](https://en.wikipedia.org/wiki/ISO_8601) ve TIMEX3 özniteliklerini TimeML dilini kullanarak ek açıklaması için. Bu ek açıklama açıklanan [TIMEX yönergeleri](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|type|Aşağıdaki öğeler herhangi birini alt tür: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
+|türü|Aşağıdaki öğeler herhangi birini alt tür: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
 |value|**İsteğe bağlı.** Bir datetime nesnesini (tarih) (TarihSaat) ss: dd: ss (saat) yyyy:MM:dd biçimi yyyy:MM:dd içinde. Varsa `type` olduğu `duration`, değeri (süre) saniye sayısıdır. <br/> Yalnızca `type` olduğu `datetime` veya `date`, `time`, veya ' süresi.|
 
 ## <a name="valid-date-values"></a>Geçerli bir tarih değerleri

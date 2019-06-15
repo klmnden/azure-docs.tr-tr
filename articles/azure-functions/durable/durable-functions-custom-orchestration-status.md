@@ -2,20 +2,19 @@
 title: Dayanıklı işlevler - Azure özel düzenleme durumu
 description: Yapılandırma ve dayanıklı işlevler için özel düzenleme durumu kullanma hakkında bilgi edinin.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 12/25/2018
-ms.author: v-junlch
+ms.date: 12/07/2018
+ms.author: azfuncdf
 ms.openlocfilehash: 8d36c797e80702302a1954d2f00e1e4daabcaa88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60710009"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) özel düzenleme durumu
@@ -347,7 +346,3 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 > [!div class="nextstepaction"]
 > [Dayanıklı işlevler HTTP API'leri hakkında bilgi edinin](durable-functions-http-api.md)
-
-
-
-<!-- Update_Description: wording update -->

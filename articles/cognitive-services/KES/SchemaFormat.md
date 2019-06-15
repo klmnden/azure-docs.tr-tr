@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814404"
 ---
 # <a name="schema-format"></a>Şema biçimi
@@ -37,7 +37,7 @@ ms.locfileid: "60814404"
 
 Öznitelik adları olduğundan, bir harf ile başlamalı ve yalnızca harf (A-Z), sayılar (0-9) oluşur ve alt çizgi büyük küçük harf duyarlı tanımlayıcıları (\_).  Ayrılmış "logprob" öznitelik nesneleri arasındaki göreli doğal logaritmayı olasılıklar belirtmek için kullanılır.
 
-## <a name="attribute-type"></a>Öznitelik Türü
+## <a name="attribute-type"></a>Öznitelik türü
 
 Desteklenen öznitelik veri türlerinin bir listesi aşağıdadır:
 
@@ -48,7 +48,7 @@ Desteklenen öznitelik veri türlerinin bir listesi aşağıdadır:
 | `Int64` | İşaretli 64 bit tam sayı | is_between starts_with, eşittir | 9876543210 |
 | `Double` | Çift duyarlıklı kayan nokta değeri | is_between starts_with, eşittir | 1.602e-19 |
 | `Date` | Tarih (1400-01-01-9999-12-31) | Equals, is_between | '2016-03-14' |
-| `Guid` | Genel benzersiz tanıtıcısı | şuna eşittir: | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Guid` | Genel benzersiz tanıtıcısı | eşittir | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
 | `Blob` | Dahili olarak sıkıştırılmış veri dizini oluşturulmamış | *Yok.* | "Her kişi ve her kuruluşun gezegendeki daha fazlasını başarmak için güçlendirin" |
 | `Composite` | Birden çok alt öznitelikler oluşturma| *Yok* | {"Name": "harry shum", "Bağlantı": "microsoft"} |
 

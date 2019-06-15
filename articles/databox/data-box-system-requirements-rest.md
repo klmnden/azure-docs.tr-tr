@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436503"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure veri kutusu Blob Depolama alanı gereksinimleri
@@ -57,7 +57,7 @@ Veri kutusu Blob Depolama için belirli istemci kitaplıkları ve belirli bir u�
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    9.2.0                                           |    Nuget paketi:   https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>GitHub sürüm:   https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    app.config dosyası                 |
 |    Java                |    7.0.0                                           |    Maven paketi:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Bağlantı dizesi kurulumu         |
-|    Node.js             |    2.8.3                                           |    NPM bağlantısı:   https://www.npmjs.com/package/azure-storage   (Çalıştırın: `npm install azure-storage@2.7.0`)   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Hizmet örneği bildirimi    |
+|    Node.js             |    2.8.3                                           |    NPM bağlantısı:   https://www.npmjs.com/package/azure-storage   (Çalıştırın: `npm install azure-storage@2.7.0` )   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Hizmet örneği bildirimi    |
 |    C++                 |    5.2.0                                           |    Nuget paketi:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Bağlantı dizesi kurulumu         |
 |    PHP                 |    1.2.0                                           |    GitHub sürüm:<br>Ortak: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>(Daha fazla bilgi edinmek için aşağıdaki ayrıntıları görmek için.), oluşturucu yükleme                                                                                                             |    Bağlantı dizesi kurulumu         |
 |    Python              |    1.1.0                                           |    GitHub sürüm:<br>Common:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob:   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Hizmet örneği bildirimi    |

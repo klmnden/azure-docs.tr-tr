@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: ddc42023bae3403e7778327a40316462c85222c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390079"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Azure portalını kullanarak rota temelli VPN ağ geçidi oluşturma
@@ -49,7 +49,7 @@ Ağ geçidi alt ağı sanal ağ geçidi hizmetlerinin kullandığı ayrılmış 
    ![Ağ geçidi alt ağını ekleme](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Ağ geçidi alt ağını ekleme")
 4. **Adı** alt ağınızın gereken 'GatewaySubnet' değeriyle otomatik olarak doldurulur. Otomatik olarak doldurulmuş ayarlamak **adres aralığı** değerleri aşağıdaki değerleri eşleşecek şekilde:
 
-   **Adres aralığı (CIDR bloğu)**: 10.1.255.0/27
+   **Adres aralığı (CIDR bloğu)** : 10.1.255.0/27
 
    ![Ağ geçidi alt ağını ekleme](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Ağ geçidi alt ağını ekleme")
 5. Ağ geçidi alt ağı oluşturmak için tıklayın **Tamam** sayfanın alt kısmındaki.

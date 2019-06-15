@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61481618"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Şirket içi Always On kullanılabilirlik grupları Azure'a genişletme
@@ -42,7 +42,7 @@ Bu bölümde, nasıl kullanılacağını gösterir **Azure çoğaltması Ekleme 
 > [!IMPORTANT]
 > **Azure çoğaltması Ekleme Sihirbazı'nı** yalnızca klasik dağıtım modeliyle oluşturulan sanal makineleri destekler. Yeni VM dağıtımları daha yeni Resource Manager modelini kullanmanız gerekir. Resource Manager ile Vm'leri kullanıyorsanız, Transact-SQL commmands (burada gösterilmiyor) kullanarak Azure ikincil çoğaltmayı el ile eklemelisiniz. Bu sihirbaz, Resource Manager senaryoda çalışmaz.
 
-1. SQL Server Management Studio gelen genişletin **Always On yüksek kullanılabilirlik** > **kullanılabilirlik grupları** > **[kullanılabilirlik grubunuzun adı]**.
+1. SQL Server Management Studio gelen genişletin **Always On yüksek kullanılabilirlik** > **kullanılabilirlik grupları** >  **[kullanılabilirlik grubunuzun adı]** .
 2. Sağ **kullanılabilirlik çoğaltmalarının**, ardından **ekleme çoğaltma**.
 3. Varsayılan olarak, **Kullanılabilirlik Grubu Sihirbazı Ekle çoğaltmaya** görüntülenir. **İleri**’ye tıklayın.  Seçtiyseniz **bu sayfayı bir daha gösterme** sayfanın alt kısmındaki Bu sihirbaz, bu ekran seçeneğini bir önceki başlatma sırasında görüntülenmez.
    

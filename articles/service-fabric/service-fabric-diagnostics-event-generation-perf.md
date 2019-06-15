@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: ee1608c40801f568b38ace4670b0d5ea7f73003c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60392900"
 ---
 # <a name="performance-metrics"></a>Performans ölçümleri
@@ -29,7 +29,7 @@ Kümenizi ve bunun yanı sıra içinde çalışan uygulamaların performansını
 
 Kümenizdeki makineleri için daha iyi her makinede yük anlamak ve uygun küme kararları ölçeklendirme yapmak için aşağıdaki performans sayaçlarını toplamayı göz önünde bulundurun.
 
-| Sayaç kategorisi | Sayaç Adı |
+| Sayaç kategorisi | Sayaç adı |
 | --- | --- |
 | Mantıksal Disk | Mantıksal Disk boş alan |
 | PhysicalDisk (başına Disk) | Ort. Disk okuma kuyruğu uzunluğu |
@@ -45,8 +45,8 @@ Kümenizdeki makineleri için daha iyi her makinede yük anlamak ve uygun küme 
 | Processor(Total) | % İşlemci zamanı |
 | İşlem (hizmet başına) | % İşlemci zamanı |
 | İşlem (hizmet başına) | İşlem kimliği |
-| İşlem (hizmet başına) | Özel Baytlar |
-| İşlem (hizmet başına) | İş Parçacığı Sayısı |
+| İşlem (hizmet başına) | Özel bayt sayısı |
+| İşlem (hizmet başına) | İş parçacığı sayısı |
 | İşlem (hizmet başına) | Sanal bayt sayısı |
 | İşlem (hizmet başına) | Çalışma kümesi |
 | İşlem (hizmet başına) | Çalışma kümesi - özel |
@@ -63,9 +63,9 @@ Kümenizdeki makineleri için daha iyi her makinede yük anlamak ve uygun küme 
 
 .NET Hizmetleri kümenize dağıtıyorsanız aşağıdaki sayaçlarını topla. 
 
-| Sayaç kategorisi | Sayaç Adı |
+| Sayaç kategorisi | Sayaç adı |
 | --- | --- |
-| .NET CLR bellek (hizmet başına) | İşlem Kimliği |
+| .NET CLR bellek (hizmet başına) | İşlem kimliği |
 | .NET CLR bellek (hizmet başına) | # Toplam kaydedilmiş bayt |
 | .NET CLR bellek (hizmet başına) | # Toplam bayt ayrılmış |
 | .NET CLR bellek (hizmet başına) | # Tüm yığınlardaki bayt |

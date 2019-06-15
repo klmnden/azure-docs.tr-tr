@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60532777"
 ---
 # <a name="monitor-migration-activity"></a>Geçiş etkinliğini izleme
@@ -54,8 +54,8 @@ Aşağıdaki tablo, veritabanı düzeyinde dikey penceresindeki alanları listel
       <td>Geçiş başarısız oldu. Geçiş ayrıntıları için tam hata iletisinin altında 'hata ayrıntılarına bakın' bağlantıyı seçin.</td>
     </tr>
     <tr>
-      <td rowspan="4" class="Status"><strong>Durum</strong></td>
-      <td>Başlatılıyor</td>
+      <td rowspan="4" class="Status"><strong>Durumu</strong></td>
+      <td>Başlatma</td>
       <td>DMS geçiş ardışık ayarlıyor.</td>
     </tr>
     <tr>
@@ -64,7 +64,7 @@ Aşağıdaki tablo, veritabanı düzeyinde dikey penceresindeki alanları listel
     </tr>
     <tr>
       <td>Tamamlama</td>
-      <td>Geçiş tamamlandı.</td>
+      <td>Geçişi tamamlandı.</td>
     </tr>
     <tr>
       <td>Başarısız</td>
@@ -88,7 +88,7 @@ Aşağıdaki tablo, veritabanı düzeyinde dikey penceresindeki alanları listel
       <td>İlk yükleme ve sürekli Eşitleme tamamlandı. Bu durum ayrıca veritabanı başarıyla tam geçişi tamamlandıktan sonra gerçekleşir.</td>
     </tr>
     <tr>
-      <td>Bkz. hata ayrıntıları</td>
+      <td>Hata ayrıntılarına bakın</td>
       <td>Hata ayrıntılarını görüntülemek için bağlantıya tıklayın.</td>
     </tr>
     <tr>

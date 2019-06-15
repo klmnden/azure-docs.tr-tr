@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 9020ee690d93a1b477471fac4a482a909fca5935
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65077343"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>PostgreSQL – hiper ölçekli (Citus) (Önizleme) için Azure veritabanı'nda dağıtılmış veriler
@@ -23,7 +23,7 @@ Nasıl dağıtılmış tablolar gösteren parçaları ve parçalar düğümlere 
 
 Üç tür hiper ölçekli sunucu grubundaki tablolar, her farklı amaçlar için kullanılır.
 
-### <a name="type-1-distributed-tables"></a>1. tür: Dağıtılmış tablolar
+### <a name="type-1-distributed-tables"></a>1\. tür: Dağıtılmış tablolar
 
 İlk tür ve en yaygın *dağıtılmış* tablolar. SQL deyimleri için normal tablolar gibi görünüyor ancak yatay olan *bölümlenmiş* çalışan düğümleri arasında. Ne bu tablonun satırlarını adlı parça tablolarda, farklı düğümlerde depolandığı anlamına gelir *parçalar*.
 
@@ -34,13 +34,13 @@ Yalnızca SQL hiper ölçekli çalışır, ancak dağıtılmış bir tablonun ş
 Hiper ölçekli, algoritmik parçalama satırlar için parça atamak için kullanır. Atama adlı bir tablo sütununun değerini temel belirleyici tabanlı yaptığı *dağıtım sütunu.* Küme Yöneticisi, bir tablo dağıtırken bu sütun tanımlamalısınız.
 Doğru seçim yapmak, performansı ve işlevselliği için önemlidir.
 
-### <a name="type-2-reference-tables"></a>2. tür: başvuru tabloları
+### <a name="type-2-reference-tables"></a>2\. tür: başvuru tabloları
 
 Başvuru tablosu tüm içerikleri tek bir parçanın yoğunlaşmıştır dağıtılmış tablo türüdür. Tüm alt sorgularda başvuru bilgileri yerel olarak başka bir düğümden satırları isteyen ağ ek yükü olmadan erişebilmesi için her bir çalışan üzerinde parça çoğaltılır. Her satır ayrı parçalardaki ayırt etmenize gerek olmadığından başvuru tabloları hiç dağıtım sütunu var.
 
 Başvuru tabloları genelde küçüktür ve herhangi bir alt düğüm üzerinde çalışmakta olan sorgulara ile ilgili verileri depolamak için kullanılır. Örneğin, sipariş durumları veya ürün kategorileri gibi değerler numaralandırılır.
 
-### <a name="type-3-local-tables"></a>3. tür: yerel tablolar
+### <a name="type-3-local-tables"></a>3\. tür: yerel tablolar
 
 Hiper ölçekli kullandığınızda, bağlandığınız Düzenleyici düğüm normal bir PostgreSQL veritabanı hizmetidir. Düzenleyici normal tablolar oluşturabilir ve bunları parçalara ayırmak seçin.
 

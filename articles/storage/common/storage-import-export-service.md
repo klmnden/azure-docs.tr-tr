@@ -9,10 +9,10 @@ ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603099"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti nedir?
@@ -123,12 +123,12 @@ Azure içeri/dışarı aktarma hizmeti, için ve tüm Azure depolama hesapların
 |---------|---------|---------|---------|
 |Doğu ABD    | Kuzey Avrupa        | Orta Hindistan        |US Gov Iowa         |
 |Batı ABD     |Batı Avrupa         | Güney Hindistan        | US DoD Doğu        |
-|Doğu ABD 2    | Doğu Asya        |  Batı Hindistan        | US DoD Merkez        |
-|Batı ABD 2     | Güneydoğu Asya        | Kanada Orta        | Çin Doğu         |
-|Orta ABD     | Avustralya Doğu        | Kanada Doğu        | Çin Kuzey        |
-|Orta Kuzey ABD     |  Avustralya Güneydoğu       | Brezilya Güney        | BK Güney        |
+|Doğu ABD 2    | Doğu Asya        |  Batı Hindistan        | US DoD Orta        |
+|Batı ABD 2     | Güneydoğu Asya        | Orta Kanada        | Çin Doğu         |
+|Orta ABD     | Avustralya Doğu        | Doğu Kanada        | Çin Kuzey        |
+|Orta Kuzey ABD     |  Avustralya Güneydoğu       | Güney Brezilya        | Birleşik Krallık Güney        |
 |Orta Güney ABD     | Japonya Batı        |Kore Orta         | Almanya Orta        |
-|Orta Batı ABD     |  Japonya Doğu       | US Gov Virginia        | Almanya Kuzeydoğu        |
+|Batı Orta ABD     |  Japonya Doğu       | ABD Devleti Virginia        | Almanya Kuzeydoğu        |
 
 
 ## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler

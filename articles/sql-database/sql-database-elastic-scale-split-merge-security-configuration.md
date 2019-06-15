@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335233"
 ---
 # <a name="split-merge-security-configuration"></a>Ayırma-birleştirme güvenliği yapılandırma
@@ -421,7 +421,7 @@ Bulut hizmeti için karşıya yüklenen sertifikanın parmak izi ile parmak izi 
 1. MMC.exe çalıştırın.
 2. Dosya -> Ekle/Kaldır ek bileşenini...
 3. Seçin **sertifikaları**.
-4. **Ekle**'ye tıklayın.
+4. **Ekle**'yi tıklatın.
 5. Sertifika depolama konumu seçin.
 6. **Son**'a tıklayın.
 7. **Tamam** düğmesine tıklayın.
@@ -446,7 +446,7 @@ Bulut hizmeti için karşıya yüklenen sertifikanın parmak izi ile parmak izi 
 11. **Son**'a tıklayın.
 12. **Tamam** düğmesine tıklayın.
 
-## <a name="import-certificate"></a>Sertifikayı içeri aktar
+## <a name="import-certificate"></a>Sertifika İçeri Aktar
 Sertifika Alma Sihirbazı'nda:
 
 1. Depolama konumu seçin.

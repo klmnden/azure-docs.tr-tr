@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 0991a0df8d34ddbcebf3d4097c0219b47793120b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779933"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure haritalar yönlendirme kapsamı
@@ -54,20 +54,20 @@ Aşağıdaki tabloda Azure haritalar yönlendirme kapsamı bilgileri sağlar.
 | Fildişi Sahili                  |        ✓       |                       |             |
 | Mısır                          |        ✓       |         ✓            |             |
 | Gabon                          |        ✓       |                       |             |
-| Zambia                         |        ✓       |                       |             |
+| Gambia                         |        ✓       |                       |             |
 | Gana                          |        ✓       |                       |             |
 | Kenya                          |        ✓       |         ✓            |             |
-| Lesotho                        |        Ø        |         ✓            |             |
+| Lesoto                        |        Ø        |         ✓            |             |
 | Malavi                         |        ✓       |                       |              |
 | Mali                           |        ✓       |                       |             |
 | Moritanya                     |        ✓       |                       |             |
 | Mauritius ve Mayotte Reunion |        ✓      |                       |             |
 | Fas                        |        ✓       |                       |             |
 | Mozambik                     |        ✓       |         ✓            |             |
-| Namibia                        |        ✓       |                       |             |
+| Namibya                        |        ✓       |                       |             |
 | Nijer                          |        ✓       |                       |             |
 | Nijerya                        |        ✓       |         ✓            |             |
-| Ruanda                         |        ✓       |                       |             |
+| Rwanda                         |        ✓       |                       |             |
 | Senegal                        |        ✓       |                       |             |
 | Seyşeller                     |        ✓       |                       |             |
 | Güney Afrika                   |        ✓       ||         ✓            |             |
@@ -76,7 +76,7 @@ Aşağıdaki tabloda Azure haritalar yönlendirme kapsamı bilgileri sağlar.
 | Togo                           |        ✓       |                       |             |
 | Tunus                        |        ✓       |                       |             |
 | Uganda                         |        ✓       |                       |             |
-| Zambia                         |        ✓       |                       |             |
+| Zambiya                         |        ✓       |                       |             |
 | Zimbabve                       |        ✓       |                       |             |
 
 
@@ -95,7 +95,7 @@ Aşağıdaki tabloda Azure haritalar yönlendirme kapsamı bilgileri sağlar.
 | Kolombiya                       |        ✓       |         ✓            |             |
 | Kosta Rika                     |        ✓       |                      |             |
 | Küba                           |        ✓       |                      |             |
-| Dominika                       |        ✓       |                      |             |
+| Dominica                       |        ✓       |                      |             |
 | Dominik Cumhuriyeti             |        ✓       |                      |             |
 | Ekvador                        |        ✓       |                      |             |
 | El Salvador                    |        ✓       |                      |             |
@@ -117,10 +117,10 @@ Aşağıdaki tabloda Azure haritalar yönlendirme kapsamı bilgileri sağlar.
 | Surinam                       |        ✓       |                      |             |
 | Trinidad ve Tobago              |        ✓       |                      |             |
 | Amerika Birleşik Devletleri                  |        ✓       |         ✓            |     ✓      | 
-| + Amerikan Samoası                |        ✓       |                      |             |
-| + Kuzey Mariana Adaları      |        ✓       |                      |             |
+| \+ Amerikan Samoası                |        ✓       |                      |             |
+| \+ Kuzey Mariana Adaları      |        ✓       |                      |             |
 | +Puerto Rico                   |        ✓       |                      |             |
-| + ABD Virgin Adaları           |        ✓       |                      |             |
+| \+ ABD Virgin Adaları           |        ✓       |                      |             |
 | Uruguay                        |        ✓       |         ✓            |     ✓      | 
 | Venezuela                      |        ✓       |                      |             |
 
@@ -130,12 +130,12 @@ Aşağıdaki tabloda Azure haritalar yönlendirme kapsamı bilgileri sağlar.
 | Ülke/Bölge                 | Yönlendirme         | Trafiği yönlendirme | Kamyon yönlendirme |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Avustralya                      |        ✓       |         ✓            |     ✓       |
-| + Christmas Adası              |        ✓       |                      |             |
+| \+ Christmas Adası              |        ✓       |                      |             |
 | Brunei                         |        ✓       |         ✓            |             |
 | Kamboçya                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| Hong Kong Çin ÖİB                  |        ✓       |         ✓            |             |
+| Hong Kong SAR                  |        ✓       |         ✓            |             |
 | Hindistan                          |        ✓       |         ✓            |             |
 | Endonezya                      |        ✓       |         ✓            |             |
 | Güney Kore                          |        Ø       |                      |             |
@@ -167,26 +167,26 @@ Aşağıdaki tabloda Azure haritalar yönlendirme kapsamı bilgileri sağlar.
 | Kıbrıs                         |        ✓       |                      |             |
 | Çek Cumhuriyeti                 |        ✓       |         ✓            |     ✓      |
 | Danimarka                        |        ✓       |         ✓            |     ✓      |
-| + Faroe Adaları                 |        ✓       |                      |             |
+| \+ Faroe Adaları                 |        ✓       |                      |             |
 | Estonya                        |        ✓       |         ✓            |     ✓      |
 | Finlandiya                        |        ✓       |         ✓            |     ✓      |
 | Fransa                         |        ✓       |         ✓            |     ✓      | 
 | +Guadeloupe                    |        ✓       |                      |             |
-| + Martinik                    |        ✓       |                      |             |
+| \+ Martinik                    |        ✓       |                      |             |
 | +St. Barthélemy                |        ✓       |                      |             |
 | +St. Martin                    |        ✓       |                      |             |
-| + St. Pierre ve Miquelon         |        ✓       |                      |             |
-| Georgia                        |        ✓       |                      |             |
+| \+ St. Pierre ve Miquelon         |        ✓       |                      |             |
+| Gürcistan                        |        ✓       |                      |             |
 | Almanya                        |        ✓       |         ✓            |     ✓      | 
 | Yunanistan                         |        ✓       |         ✓            |     ✓      |  
-| Guernsay                       |        ✓       |                      |             |
+| Guernsey                       |        ✓       |                      |             |
 | Macaristan                        |        ✓       |         ✓            |     ✓      | 
 | İzlanda                        |        ✓       |         ✓            |             |
 | İrlanda                        |        ✓       |         ✓            |     ✓      | 
 | İtalya                          |        ✓       |         ✓            |     ✓      | 
 | Jersey                         |        ✓       |                      |             |
 | Letonya                         |        ✓       |         ✓            |     ✓      | 
-| Liechtenstein                  |        ✓       |         ✓            |             |
+| Lihtenştayn                  |        ✓       |         ✓            |             |
 | Litvanya                      |        ✓       |         ✓            |     ✓      | 
 | Lüksemburg                     |        ✓       |         ✓            |     ✓      | 
 | Kuzey Makedonya                |        ✓       |                      |             |
@@ -196,16 +196,16 @@ Aşağıdaki tabloda Azure haritalar yönlendirme kapsamı bilgileri sağlar.
 | Karadağ                     |        ✓       |                      |     ✓      | 
 | Hollanda                    |        ✓       |         ✓            |     ✓      | 
 | +Aruba                         |        ✓       |                      |             | 
-| + Karayipler Hollanda         |        ✓       |                      |             |
+| \+ Karayipler Hollanda         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| + Sint Maarten                  |        ✓       |                      |             |
+| \+ Sint Maarten                  |        ✓       |                      |             |
 | Norveç                         |        ✓       |         ✓            |     ✓      | 
 | Polonya                         |        ✓       |         ✓            |     ✓      | 
 | Portekiz                       |        ✓       |         ✓            |     ✓      |  
 | Romanya                        |        ✓       |         ✓            |     ✓      | 
 | Rusya Federasyonu             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| + Sint Maarten                  |        ✓       |                      |             |
+| \+ Sint Maarten                  |        ✓       |                      |             |
 | Sırbistan                         |        ✓       |                      |     ✓      | 
 | Slovakya                       |        ✓       |         ✓            |     ✓      | 
 | Slovenya                       |        ✓       |         ✓            |     ✓      |
@@ -217,12 +217,12 @@ Aşağıdaki tabloda Azure haritalar yönlendirme kapsamı bilgileri sağlar.
 | Birleşik Krallık                 |        ✓       |         ✓            |     ✓      | 
 | +Anguilla                      |        ✓       |                      |             |
 | +Bermuda                       |        ✓       |                      |             |
-| + İngiliz Virgin Adaları        |        ✓       |                      |             |
-| + Cayman Adaları                |        ✓       |                      |             |
-| + Cebelitarık                     |        ✓       |         ✓            |             | 
+| \+ İngiliz Virgin Adaları        |        ✓       |                      |             |
+| \+ Cayman Adaları                |        ✓       |                      |             |
+| \+ Cebelitarık                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| + Turks ve Caicos Adaları      |        ✓       |                      |             |
-| Vatikan Şehri                   |        ✓       |         ✓            |             |
+| \+ Turks ve Caicos Adaları      |        ✓       |                      |             |
+| Vatikan                   |        ✓       |         ✓            |             |
 | Man Adası                    |        ✓       |                      |             |
 
 

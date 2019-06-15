@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1ef273b65bb3a8b8536d27c70e8ba05e74faa39b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327975"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702478"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Dağıtımlarla için bilgi
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -45,11 +45,11 @@ Bu makalede, Azure'da Linux dağıtımınız çalıştırmaya yönelik genel kı
 
 ## <a name="general-linux-installation-notes"></a>Genel Linux yükleme notları
 * Hyper-V sanal sabit disk (VHDX) biçimi yalnızca Azure'da desteklenmiyor *VHD'yi sabit*.  Disk Hyper-V Yöneticisi'ni kullanarak VHD biçimine dönüştürebilir veya [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) cmdlet'i. VirtualBox kullanıyorsanız seçin **boyutu sabit** (dinamik olarak ayrılan) varsayılan yerine bir disk oluştururken.
-* Azure, yalnızca 1. kuşak sanal makineleri destekler. 1. nesil sanal makine VHD dosya biçimine VHDX ve sabit boyutlu diske dinamik olarak genişletilen dönüştürebilirsiniz. Bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [Hyper-V'de 1 veya 2. kuşak sanal makine oluşturmalısınız?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+* Azure, yalnızca 1. kuşak sanal makineleri destekler. 1\. nesil sanal makine VHD dosya biçimine VHDX ve sabit boyutlu diske dinamik olarak genişletilen dönüştürebilirsiniz. Bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [Hyper-V'de 1 veya 2. kuşak sanal makine oluşturmalısınız?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 * VHD için izin verilen boyut 1,023 GB'dir.
 * Linux sistemini yüklerken mantıksal birim Yöneticisi (çoğu yüklemeleri varsayılan olan LVM) yerine standart bölümleri kullanmanızı öneririz. Standart bölümleri kullanarak, özellikle bir işletim sistemi diski hiç olmadığı kadar başka bir özdeş sanal makineye sorun giderme için ekli ise kopyalanan sanal makineler ile LVM ad çakışmalarını önlemek. [LVM'yi](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veri diskleri üzerinde kullanılabilir.
 * UDF dosya sistemleri bağlamak için çekirdek desteği gereklidir. Azure'da ilk önyüklemede sağlama yapılandırması Konuk bağlı UDF biçimli medyasını kullanarak Linux VM geçirilir. Azure Linux Aracısı yapılandırmasını okuma ve VM sağlama UDF dosya sistemini bağlamalarına gerekir.
-* Linux çekirdek sürümleri daha önce 2.6.37 NUMA Hyper-V üzerinde daha büyük VM boyutlarıyla desteklemez. Yukarı Akış kullanan eski dağıtımlar Bu sorun öncelikle etkileri Red Hat 2.6.32 çekirdek ve Red Hat Enterprise Linux (RHEL) 6.6 (çekirdek 2.6.32 504) olarak düzeltildi. 2.6.32-504 önyükleme parametresi ayarlanmalıdır daha özel çekirdekler 2.6.37 eski veya RHEL tabanlı çekirdekler eski çalıştıran sistemlere `numa=off` grub.conf çekirdek komut satırında. Daha fazla bilgi için [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
+* Linux çekirdek sürümleri daha önce 2.6.37 NUMA Hyper-V üzerinde daha büyük VM boyutlarıyla desteklemez. Yukarı Akış kullanan eski dağıtımlar Bu sorun öncelikle etkileri Red Hat 2.6.32 çekirdek ve Red Hat Enterprise Linux (RHEL) 6.6 (çekirdek 2.6.32 504) olarak düzeltildi. 2\.6.32-504 önyükleme parametresi ayarlanmalıdır daha özel çekirdekler 2.6.37 eski veya RHEL tabanlı çekirdekler eski çalıştıran sistemlere `numa=off` grub.conf çekirdek komut satırında. Daha fazla bilgi için [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 * İşletim sistemi diski üzerinde takas bölümü yapılandırmayın. Linux aracısı aşağıdaki adımlarda açıklandığı gibi geçici kaynak diski üzerinde takas dosyası oluşturmak için yapılandırılabilir.
 * Tüm VHD'leri azure'da bir sanal Boyut 1 MB ile uyumlu olması gerekir. Ham bir diskten VHD'ye dönüştürme yaparken aşağıdaki adımlarda anlatıldığı gibi ham disk boyutu 1 MB, dönüştürmeden önce bir çok olduğunu sağlamalısınız.
 
@@ -74,7 +74,7 @@ Linux Azure'da çalıştırmak için belirli çekirdek modülleri gerektirir. Bu
 ### <a name="resizing-vhds"></a>VHD yeniden boyutlandırma
 VHD görüntüleri azure'da bir sanal Boyut 1 MB ile hizalı olmalıdır.  Genellikle, Hyper-V kullanılarak oluşturulan VHD'lerin düzgün şekilde hizalanmış.  VHD doğru bir şekilde hizalı değil ise, bir VHD'den görüntü oluşturmaya çalıştığınızda, aşağıdakine benzer bir hata iletisi alabilirsiniz.
 
-* VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd 21475270656 bayt desteklenmeyen sanal boyutuna sahiptir. Boyut (MB) cinsinden bir tam sayı olmalıdır.
+* VHD http:\//\<mystorageaccount >.blob.core.windows.net/vhds/MyLinuxVM.vhd 21475270656 bayt desteklenmeyen sanal boyutuna sahiptir. Boyut (MB) cinsinden bir tam sayı olmalıdır.
 
 Bu durumda, Hyper-V Yöneticisi konsolunu kullanarak VM'yi yeniden boyutlandırın veya [boyutlandırma VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet'i.  Bir Windows ortamında çalışıyorsa olmayan kullanmanızı öneririz `qemu-img` (gerekirse) dönüştürme ve VHD'yi yeniden boyutlandırmak için.
 

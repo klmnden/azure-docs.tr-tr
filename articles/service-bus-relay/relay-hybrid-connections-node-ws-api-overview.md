@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421616"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699386"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Geçiş karma bağlantıları düğümünü API'sine genel bakış
 
@@ -131,7 +131,7 @@ Oluşturucu bağımsız değişkenleri:
 - `server` (gerekli) - dinlemek bir karma bağlantı adı için tam uygun URI, WebSocket.createRelayListenUri() yardımcı yöntemi genellikle oluşturulur.
 - `token` (gerekli) - bu bağımsız değişken, daha önce verilmiş bir belirteç dizesi ya da böyle bir belirteç dizesini almak için çağrılan bir geri çağırma işlevini içerir. Belirteci yenileme olanak tanıdığından geri çağırma seçeneği tercih edilen, içindir.
 
-#### <a name="events"></a>Olaylar
+#### <a name="events"></a>Events
 
 `RelayedServer` örnekleri, gelen istekleri işleyen, bağlantı ve hata koşulları algılamak sağlayan üç olayları Yayımla. Abone olmalısınız `connect` olay iletileri işlemek için. 
 

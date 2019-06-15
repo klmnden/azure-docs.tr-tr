@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: ''
 ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845332"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Yedekleme işleri ve yedekleme kataloğunu yönetmek için kullanıcı arabirimi StorSimple Snapshot Manager'ı kullanın
@@ -107,7 +107,7 @@ Aşağıdaki tabloda StorSimple Snapshot Manager eylemleri alfabetik bir listesi
 > 
 > 
 
-| Eylem | Gezinme | Açıklama |
+| Eylem | Gezinti | Açıklama |
 |:--- |:--- |:--- |
 | Kimlik doğrulaması |Tıklayın **cihazları** düğümü, bir cihaza sağ tıklayın ve **sonuçları** bölmesi. |Tıklayın **doğrulaması** cihaz için yapılandırdığınız parolayı girmek için. |
 | Kopyala |Genişletin **yedekleme kataloğunu**, genişletme **bulut anlık görüntüleri**tarihli yedekle'ye tıklayın ve ardından bir birimde seçin **sonuçları** bölmesi. |Tıklayın **kopya** bulut anlık görüntüsü bir kopyasını oluşturun ve sizin belirlediğiniz bir konumda depolayın. |
@@ -118,7 +118,7 @@ Aşağıdaki tabloda StorSimple Snapshot Manager eylemleri alfabetik bir listesi
 | Ayrıntılar |Tıklayın **cihazları** düğümü ve bir cihaza sağ tıklatın **sonuçları** bölmesi. |Tıklayın **ayrıntıları** bir cihaz yapılandırma ayrıntılarını görmek için. |
 | Düzenle |Tıklayın **yedekleme ilkeleri**ve ardından bir ilkede sağ tıklayarak **sonuçları** bölmesi. |Tıklayın **Düzenle** bir birim grubu için yedekleme zamanlamasını değiştirmek için. |
 | Listeyi dışarı aktar |Herhangi bir düğüm veya sonuç tıklayın (Bu öğe tüm görünür **eylem** menüleri ve **eylemleri** bölmeleri.) |Tıklayın **listeyi dışarı aktar** listesini bir virgülle ayrılmış değer (CSV) dosyasına kaydetmek için. Analiz için bir elektronik tablo uygulamaya daha sonra bu dosyayı içeri aktarabilirsiniz. |
-| Yardım |Herhangi bir düğüm veya sonuç et (Bu öğe tüm görünür **eylem** menüleri ve **eylemleri** bölmeleri.) |Tıklayın **yardımcı** çevrimiçi Yardım içinde ayrı bir tarayıcı penceresi açın. |
+| Help |Herhangi bir düğüm veya sonuç et (Bu öğe tüm görünür **eylem** menüleri ve **eylemleri** bölmeleri.) |Tıklayın **yardımcı** çevrimiçi Yardım içinde ayrı bir tarayıcı penceresi açın. |
 | Buradan yeni pencere |Herhangi bir düğüm veya sonuç tıklayın (Bu öğe tüm görünür **eylem** menüleri ve **eylemleri** bölmeleri.) |Tıklayın **buradan yeni pencere** yeni bir StorSimple Snapshot Manager penceresini açın. |
 | Yenile |Herhangi bir düğüm veya sonuç tıklayın (Bu öğe tüm görünür **eylem** menüleri ve **eylemleri** bölmeleri.) |Tıklayın **Yenile** şu anda görüntülenen StorSimple Snapshot Manager pencerenin güncelleştirilecek. |
 | Cihaz Yenile |Tıklayın **cihazları** düğümü, bir cihaza sağ tıklayın ve **sonuçları** bölmesi. |Tıklayın **Yenile cihaz** belirli bağlı bir cihaz, StorSimple Snapshot Manager ile eşitlemek için. |
@@ -142,7 +142,7 @@ Aşağıdaki tabloda görüntülenen öğeler açıklanmaktadır **görünümü*
 | Menü öğesi | Açıklama |
 |:--- |:--- |
 | Sütun Ekle/Kaldır |Tıklayın **sütunları Ekle/Kaldır** içindeki sütun ekleme veya kaldırma için **sonuçları** bölmesi. |
-| Özelleştirme |Tıklayın **Özelleştir** StorSimple Snapshot Manager konsol penceresinde öğeleri göstermek veya gizlemek için. |
+| Özelleştir |Tıklayın **Özelleştir** StorSimple Snapshot Manager konsol penceresinde öğeleri göstermek veya gizlemek için. |
 
 ### <a name="favorites-menu"></a>Sık Kullanılanlar menüsü
 Kullanma **Sık Kullanılanlar** eklemek, kaldırmak ve sayfa görüntülemeleri ve sık kullandığınız görevleri düzenlemek için menü. 

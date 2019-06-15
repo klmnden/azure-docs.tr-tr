@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 2039dd9222809d2c05aaeaf01f9d38c51f3b3797
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837342"
 ---
 # <a name="sfctl-is"></a>sfctl is
@@ -28,7 +28,7 @@ Sorgulamak ve hizmet için altyapı komutlar gönderebilirsiniz.
 
 |Komut|Açıklama|
 | --- | --- |
-| command | Verilen altyapı hizmeti örneği yönetimsel bir komutu çalıştırır. |
+| Komutu | Verilen altyapı hizmeti örneği yönetimsel bir komutu çalıştırır. |
 | sorgu | Verilen altyapı hizmeti örneği üzerinde salt okunur bir sorguyu çağırır. |
 
 ## <a name="sfctl-is-command"></a>sfctl komutudur.

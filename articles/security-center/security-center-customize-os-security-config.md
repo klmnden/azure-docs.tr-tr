@@ -14,20 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705504"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573596"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>İşletim sistemi güvenlik yapılandırmaları (Önizleme) Azure Güvenlik Merkezi'nde özelleştirme
 
 Bu kılavuzda, Azure Güvenlik Merkezi'nde işletim sistemi güvenlik yapılandırması değerlendirmeleri özelleştirmek gösterilmiştir.
 
+> [!NOTE]
+> İşletim sistemi güvenlik yapılandırmaları özelleştirme yeteneği, 31 Temmuz 2019 üzerinde kullanımdan kaldırılacaktır. Daha fazla bilgi ve diğer hizmetler için bkz. [devre dışı bırakılması, Güvenlik Merkezi özelliklerini (Temmuz 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
+
 ## <a name="what-are-os-security-configurations"></a>İşletim sistemi güvenlik yapılandırmaları nelerdir?
 
-Azure Güvenlik Merkezi'nin izlediği güvenlik yapılandırmalarını bir dizi uygulayarak [150'den önerilen kurallar](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) işletim sistemini sağlamlaştırma için kuralları dahil olmak üzere ilgili güvenlik duvarları, Denetim, parola ilkeleri ve daha fazla bilgi için. Güvenlik açığı bulunan bir yapılandırmaya sahip bir makine bulundu, Güvenlik Merkezi bir güvenlik önerisi oluşturur.
+Azure Güvenlik Merkezi, işletim sistemini daha güçlü hale getirmek için güvenlik duvarları, denetim, parola ilkeleri ve benzeri birçok kural dahil olmak üzere [150'den fazla önerilen kuraldan](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) oluşan bir kümeyi uygulayarak güvenlik yapılandırmalarını izler. Bir makinenin yapılandırmasında güvenlik açığı varsa Güvenlik Merkezi bu konuyla ilgili bir güvenlik önerisi oluşturur.
 
 Kuralları özelleştirerek, kuruluşlar, kendi ortamlarından daha uygun olan yapılandırma seçenekleri denetleyebilirsiniz. Özelleştirilmiş değerlendirme ilkesi ayarlayabilir ve Abonelikteki tüm geçerli makinelerde uygulayın.
 
@@ -275,13 +278,13 @@ Tüm olası hatalar aşağıdaki tabloda listelenmiştir:
 
 | **Hata:**                                | **Açıklama**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfigurationSchemaVersionError  | Özellik *schemaVersion* geçersiz veya boş bulunamadı. Değer ayarlanmalıdır *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | Özellik *schemaVersion* geçersiz veya boş bulunamadı. Değer ayarlanmalıdır *{0}* .                                                         |
 | BaselineInvalidStringError               | Özellik *{0}* içeremez  *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | Değerine sahip bir kural taban çizgisi yapılandırma kuralları listesi içeren *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | CCE kimliği *{0}* benzersiz değil.                                                                                                                  |
 | BaselineRuleEmptyProperty                | Özellik *{0}* eksik veya geçersiz.                                                                                                       |
 | BaselineRuleIdNotInDefault               | Kural için bir kaynak özelliği yok *Microsoft* ancak Microsoft varsayılan kümesinde bulunamadı.                                                   |
-| BaselineRuleIdNotUniqueError             | Kural kimliği benzersiz değil.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | Kural tanımlayıcısı benzersiz değil.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | Özellik *{0}* geçersiz bulundu. Değer geçerli bir GUID değil.                                                                             |
 | BaselineRuleInvalidHive                  | Hive LocalMachine olması gerekir.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | Kural adı benzersiz değil.                                                                                                                 |
@@ -290,12 +293,12 @@ Tüm olası hatalar aşağıdaki tabloda listelenmiştir:
 | BaselineRuleNotInPlace                   | Kuralın bir varsayılan kural türüyle eşleşmesi {0} ve listelenen {1} listesi.                                                                       |
 | BaselineRulePropertyTooLong              | Özellik *{0}* çok uzun. İzin verilen en fazla uzunluk: {1}.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | Beklenen değer *{0}* tanımlanan kayıt defteri değeri türü ile eşleşmiyor.                                                              |
-| BaselineRulesetAdded                     | Kimlikli kural kümesi *{0}* Varsayılan yapılandırmada bulunamadı. Kural kümesi eklenemez.                                               |
+| BaselineRulesetAdded                     | Tanımlayıcısına sahip ruleset *{0}* Varsayılan yapılandırmada bulunamadı. Kural kümesi eklenemez.                                               |
 | BaselineRulesetIdMustBeUnique            | Belirtilen temel ruleset *{0}* benzersiz olması gerekir.                                                                                           |
-| BaselineRulesetNotFound                  | Kimlikli kural kümesi *{0}* ve ad *{1}* belirli yapılandırmada bulunamadı. Kural kümesi silinemiyor.                                |
-| BaselineRuleSourceNotMatch               | Kimlikli kural *{0}* zaten tanımlandı.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | Varsayılan kural türü *{0}*.                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | Kural gerçek türü *{0}*, ancak *kural türü* özelliği *{1}*.                                                                          |
+| BaselineRulesetNotFound                  | Tanımlayıcısına sahip ruleset *{0}* ve ad *{1}* belirli yapılandırmada bulunamadı. Kural kümesi silinemiyor.                                |
+| BaselineRuleSourceNotMatch               | Tanımlayıcısına sahip kural *{0}* zaten tanımlandı.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | Varsayılan kural türü *{0}* .                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | Kural gerçek türü *{0}* , ancak *kural türü* özelliği *{1}* .                                                                          |
 | BaselineRuleUnpermittedChangesError      | Yalnızca *expectedValue* ve *durumu* özellikleri değiştirilmesine izin verilir.                                                                       |
 | BaselineTooManyRules                     | Maksimum sayısı izin verilen özelleştirilmiş kurallar {0} kuralları. Belirli bir yapılandırma içeriyor {1} kuralları {2} varsayılan kuralları ve {3} özelleştirilmiş kurallar. |
 | ErrorNoConfigurationStatus               | Hiçbir yapılandırma durumu bulunamadı. İstenen yapılandırma durumunun durumu: *Varsayılan* veya *özel*.                                    |

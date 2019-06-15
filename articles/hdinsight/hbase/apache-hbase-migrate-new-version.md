@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: ashishth
 ms.openlocfilehash: a152b815daeefa4c199af9b159eee8e5783971e2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143314"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Bir Apache HBase kümesi yeni sürüme geçirme
@@ -31,7 +31,7 @@ Apache HBase yükseltmeden önce kaynak ve hedef kümeler HBase sürümlerinde u
 
 Bir örnek sürüm uyumluluk matrisi aşağıda verilmiştir. Uyumluluk Y gösterir ve olası bir uyumsuzluk N gösterir:
 
-| Uyumluluk türü | Ana sürüm| Alt sürüm | Yama |
+| Uyumluluk türü | Ana sürüm| Alt sürüm | Düzeltme Eki |
 | --- | --- | --- | --- |
 | İstemci-sunucu kablo uyumluluğu | N | E | E |
 | Sunucudan sunucuya uyumluluğu | N | E | E |
@@ -195,7 +195,7 @@ Azure HDInsight üzerinde Apache HBase kümenizi yükseltmek için aşağıdaki 
    Değişiklik `hbase.rootdir` özgün kümeyi kapsayıcıya işaret edecek şekilde yolu.
 
     ![Ambari HBase rootdir kapsayıcı adını değiştirme](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
-1. 4. 0'HDInsight 3.6 yükseltiyorsanız aşağıdaki adımları izleyin, aksi takdirde 10. adıma geçin:
+1. 4\. 0'HDInsight 3.6 yükseltiyorsanız aşağıdaki adımları izleyin, aksi takdirde 10. adıma geçin:
     1. Tüm gerekli hizmetler Ambari seçerek yeniden **Hizmetleri** > **tüm gerekli yeniden**.
     1. HBase hizmetini durdurun.
     1. Zookeeper düğümüne SSH ve yürütme [zkCli](https://github.com/go-zkcli/zkcli) komut `rmr /hbase-unsecure` HBase kök znode Zookeeper kaldırılamadı.

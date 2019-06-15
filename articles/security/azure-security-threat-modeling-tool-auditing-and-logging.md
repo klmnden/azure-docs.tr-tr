@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 4843828c89b04e36b0bcc73dcedf9c5735b73729
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610851"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Güvenlik çerçevesi: Denetim ve günlüğe kaydetme | Risk azaltma işlemleri 
@@ -76,7 +76,7 @@ ms.locfileid: "60610851"
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları**                   | <p>Sitenize bir kullanıcının gönderdiğini hassas verileri günlüğe kaydetme onay. Kasıtlı günlüğe kaydetme ve bunun yanı sıra yan etkileri tasarım sorunları neden olup olmadığını denetleyin. Hassas verilerin örnekleri şunlardır:</p><ul><li>Kullanıcı Kimlik Bilgileri</li><li>Sosyal Güvenlik numarası veya diğer tanımlama bilgileri</li><li>Kredi kartı numaraları veya diğer finansal bilgi</li><li>Sistem durumu bilgileri</li><li>Özel anahtarlar veya şifrelenmiş bilgilerin şifresini çözmek için kullanılabilecek diğer veri</li><li>Uygulama daha etkili bir şekilde saldırmak için kullanılacak sistem veya uygulama bilgileri</li></ul>|
+| **Adımları**                   | <p>Sitenize bir kullanıcının gönderdiğini hassas verileri günlüğe kaydetme onay. Kasıtlı günlüğe kaydetme ve bunun yanı sıra yan etkileri tasarım sorunları neden olup olmadığını denetleyin. Hassas verilerin örnekleri şunlardır:</p><ul><li>Kullanıcı kimlik bilgileri</li><li>Sosyal Güvenlik numarası veya diğer tanımlama bilgileri</li><li>Kredi kartı numaraları veya diğer finansal bilgi</li><li>Sistem durumu bilgileri</li><li>Özel anahtarlar veya şifrelenmiş bilgilerin şifresini çözmek için kullanılabilecek diğer veri</li><li>Uygulama daha etkili bir şekilde saldırmak için kullanılacak sistem veya uygulama bilgileri</li></ul>|
 
 ## <a id="log-restricted-access"></a>Denetim ve günlük dosyaları sınırlı erişimi olduğundan emin olun
 

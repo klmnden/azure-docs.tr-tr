@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 82e6a5b66342e58e62da029d617cbd1d74c28149
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61340528"
 ---
 # <a name="affiliation-entity"></a>Bağlantı varlığı
@@ -25,9 +25,9 @@ Ad    |Açıklama                            |Tür       | İşlemler
 ------- | ------------------------------------- | --------- | ----------------------------
 Kimlik      |Varlık Kimliği                              |Int64      |Eşittir
 AfN     |Normalleştirilmiş ilişkisi adı        |String     |Eşittir
-DAfN    |İlişki görünen adı       |String     |yok
-BİLGİ      |İlişki alıntı toplam sayısı           |Int32      |yok  
-ECC     |İlişki toplam tahmini alıntı sayısı |Int32      |yok
+DAfN    |İlişki görünen adı       |String     |Yok
+CC      |İlişki alıntı toplam sayısı           |Int32      |Yok  
+ECC     |İlişki toplam tahmini alıntı sayısı |Int32      |Yok
 
 ## <a name="extended-metadata-attributes"></a>Genişletilmiş meta veri öznitelikleri ##
 

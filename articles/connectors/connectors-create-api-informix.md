@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60691010"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Informix Bağlayıcısı ile çalışmaya başlama
@@ -44,7 +44,7 @@ Bu bağlayıcı, aşağıdaki mantıksal uygulama eylemleri destekler:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Tabloları listele
+## <a name="list-tables"></a>Listede tablolar
 Herhangi bir işlem için bir mantıksal uygulama oluşturma, Microsoft Azure portal aracılığıyla gerçekleştirilen birçok adımlar oluşur.
 
 Mantıksal uygulama içinde bir Informix veritabanındaki tablolar liste için bir eylem ekleyebilirsiniz. Bu eylem bir Informix schema deyiminin gibi işlemek için bağlayıcıyı bildirir `CALL SYSIBM.SQLTABLES`.
@@ -58,7 +58,7 @@ Mantıksal uygulama içinde bir Informix veritabanındaki tablolar liste için b
 2. İçinde **Tetikleyicileri** listesinden **yinelenme**. 
 3. İçinde **yinelenme** tetikleyici seçme **Düzenle**seçin **sıklığı** seçmek için açılan **gün**ve ardından  **Aralığı** türüne **7**.  
 4. Seçin **+ yeni adım** kutusuna ve ardından **Eylem Ekle**.
-5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - Get tabloları (Önizleme)**.
+5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - Get tabloları (Önizleme)** .
    
    ![](./media/connectors-create-api-informix/InformixconnectorActions.png)  
 6. İçinde **Informix - Get tabloları** yapılandırma bölmesinde **onay kutusu** etkinleştirmek için **şirket içi veri ağ geçidi üzerinden Bağlan**. Ayarları buluttan şirket içine değiştirmek dikkat edin.
@@ -82,12 +82,12 @@ Bu bağlayıcı, aşağıdaki bağlantı özelliklerini kullanarak buluttaki ve 
 
 | Özellik | Açıklama |
 | --- | --- |
-| sunucu |Gereklidir. TCP/IP adresi veya IPv4 veya IPv6 biçiminde, ardından (iki nokta üst üste bir TCP/IP bağlantı noktası numarası ile ayrılmış) diğer temsil eden bir dize değeri kabul eder. |
-| veritabanı |Gereklidir. Bir DRDA ilişkisel veritabanı adı (RDBNAM) temsil eden bir dize değeri kabul eder. Informix 128 bayt dizesini kabul eder (veritabanı bir IBM Informix veritabanı adı (dbname) bilinir). |
+| server |Gereklidir. TCP/IP adresi veya IPv4 veya IPv6 biçiminde, ardından (iki nokta üst üste bir TCP/IP bağlantı noktası numarası ile ayrılmış) diğer temsil eden bir dize değeri kabul eder. |
+| database |Gereklidir. Bir DRDA ilişkisel veritabanı adı (RDBNAM) temsil eden bir dize değeri kabul eder. Informix 128 bayt dizesini kabul eder (veritabanı bir IBM Informix veritabanı adı (dbname) bilinir). |
 | kimlik doğrulaması |İsteğe bağlı. Bir liste öğesi değeri, temel veya Windows (kerberos) kabul eder. |
-| kullanıcı adı |Gereklidir. Bir dize değeri kabul eder. |
+| username |Gereklidir. Bir dize değeri kabul eder. |
 | password |Gereklidir. Bir dize değeri kabul eder. |
-| ağ geçidi |Gereklidir. Logic Apps Depolama grubu içinde tanımlanan şirket içi veri ağ geçidini temsil eden bir liste öğesi değeri kabul eder. |
+| Ağ geçidi |Gereklidir. Logic Apps Depolama grubu içinde tanımlanan şirket içi veri ağ geçidini temsil eden bir liste öğesi değeri kabul eder. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Şirket içi ağ geçidi bağlantısı oluşturma
 Bu bağlayıcı, şirket içi veri ağ geçidini kullanarak şirket içi Informix veritabanına erişebilir. Ağ Geçidi daha fazla bilgi için bkz. 
@@ -128,7 +128,7 @@ Informix tablodaki tüm satırları getirmek için bir mantıksal uygulama eylem
 2. İçinde **Tetikleyicileri** listesinden **yinelenme**. 
 3. İçinde **yinelenme** tetikleyici seçme **Düzenle**seçin **sıklığı** seçmek için açılan **gün**ve ardından  **Aralığı** türüne **7**. 
 4. Seçin **+ yeni adım** kutusuna ve ardından **Eylem Ekle**.
-5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - satırları Al (Önizleme)**.
+5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - satırları Al (Önizleme)** .
 6. İçinde **(Önizleme) satırları Al** seçme eylemini **Bağlantıyı Değiştir**.
 7. İçinde **bağlantıları** yapılandırma bölmesinde **Yeni Oluştur**. 
    
@@ -165,7 +165,7 @@ Bir Informix tabloda bir satır eklemek için bir mantıksal uygulama eylemi olu
 2. İçinde **Tetikleyicileri** listesinden **yinelenme**. 
 3. İçinde **yinelenme** tetikleyici seçme **Düzenle**seçin **sıklığı** seçmek için açılan **gün**ve ardından  **Aralığı** türüne **7**. 
 4. Seçin **+ yeni adım** kutusuna ve ardından **Eylem Ekle**.
-5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - Satır Ekle (Önizleme)**.
+5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - Satır Ekle (Önizleme)** .
 6. İçinde **(Önizleme) satırları Al** seçme eylemini **Bağlantıyı Değiştir**. 
 7. İçinde **bağlantıları** yapılandırma bölmesinde, bir bağlantıyı seçin. Örneğin, **hisdemo2**.
    
@@ -192,7 +192,7 @@ Informix tablosunda bir satıra getirmek için bir mantıksal uygulama eylemi ol
 2. İçinde **Tetikleyicileri** listesinden **yinelenme**. 
 3. İçinde **yinelenme** tetikleyici seçme **Düzenle**seçin **sıklığı** seçmek için açılan **gün**ve ardından  **Aralığı** türüne **7**. 
 4. Seçin **+ yeni adım** kutusuna ve ardından **Eylem Ekle**.
-5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - satırları Al (Önizleme)**.
+5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - satırları Al (Önizleme)** .
 6. İçinde **(Önizleme) satırları Al** seçme eylemini **Bağlantıyı Değiştir**. 
 7. İçinde **bağlantıları** yapılandırmaları bölmesinde mevcut bir bağlantıyı seçin. Örneğin, **hisdemo2**.
    
@@ -220,7 +220,7 @@ Informix tablosunda bir satıra değiştirmek için bir mantıksal uygulama eyle
 2. İçinde **Tetikleyicileri** listesinden **yinelenme**. 
 3. İçinde **yinelenme** tetikleyici seçme **Düzenle**seçin **sıklığı** seçmek için açılan **gün**ve ardından  **Aralığı** türüne **7**. 
 4. Seçin **+ yeni adım** kutusuna ve ardından **Eylem Ekle**.
-5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - satırı güncelleştir (Önizleme)**.
+5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - satırı güncelleştir (Önizleme)** .
 6. İçinde **(Önizleme) satırları Al** seçme eylemini **Bağlantıyı Değiştir**. 
 7. İçinde **bağlantıları** yapılandırmaları bölmesinde mevcut bir bağlantıyı seçin. Örneğin, **hisdemo2**.
    
@@ -247,7 +247,7 @@ Bir Informix tablosunda bir satırı kaldırmak için bir mantıksal uygulama ey
 2. İçinde **Tetikleyicileri** listesinden **yinelenme**. 
 3. İçinde **yinelenme** tetikleyici seçme **Düzenle**seçin **sıklığı** seçmek için açılan **gün**ve ardından  **Aralığı** türüne **7**. 
 4. Seçin **+ yeni adım** kutusuna ve ardından **Eylem Ekle**.
-5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - Satır Sil (Önizleme)**.
+5. İçinde **eylemleri** listesinde, yazın **Informix** içinde **daha fazla eylem arayın** düzenleme kutusuna ve ardından **Informix - Satır Sil (Önizleme)** .
 6. İçinde **(Önizleme) satırları Al** seçme eylemini **Bağlantıyı Değiştir**. 
 7. İçinde **bağlantıları** yapılandırmaları bölmesinde, mevcut bir bağlantıyı seçin. Örneğin, **hisdemo2**.
    

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61338461"
 ---
 # <a name="interpret-method"></a>Yöntem yorumlama
@@ -31,7 +31,7 @@ Etkileşimli bir deneyim sağlamak üzere bu yöntemi tekrar tekrar sonrasında 
 
 Ad     | Değer | Gerekli mi?  | Açıklama
 ---------|---------|---------|---------
-**Sorgu**    | Metin dizesi | Evet | Kullanıcı tarafından girilen sorgu.  Tam 1 olarak ayarlanırsa, sorgu oluşturma sorgu otomatik tamamlama önerileri için önek olarak yorumlanacaktır.        
+**query**    | Metin dizesi | Evet | Kullanıcı tarafından girilen sorgu.  Tam 1 olarak ayarlanırsa, sorgu oluşturma sorgu otomatik tamamlama önerileri için önek olarak yorumlanacaktır.        
 **Model**    | Metin dizesi | Hayır  | Sorgulamak istediğiniz modelin adı.  Değer şu anda, varsayılan olarak *son*.        
 **Tamamlayın** | 0 veya 1 | Hayır<br>Varsayılan: 0  | 1, otomatik tamamlama önerileri, dil bilgisi ve graf verilerine dayalı olarak oluşturulan anlamına gelir.         
 **count**    | Sayı | Hayır<br>Varsayılan: 10 | Yorum döndürülecek en fazla sayısı.         
@@ -44,7 +44,7 @@ Ad     | Değer | Gerekli mi?  | Açıklama
 
 Ad     | Açıklama
 ---------|---------
-**Sorgu** |*Sorgu* istek parametresi.
+**query** |*Sorgu* istek parametresi.
 **Yorumlar** |Kullanıcı girişi dilbilgisi karşı eşleşen 0 veya daha farklı yolları dizisi.
 **[x] ınterpretations .logprob**  |Yorumu göreli doğal logaritmayı olasılık. Daha büyük değerler daha yüksektir.
 **[x] ınterpretations .parse**  |Sorgunun her bölümü nasıl yorumlanacağını gösteren bir XML dizesi.

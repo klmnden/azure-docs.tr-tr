@@ -11,14 +11,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764416"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory'de SQL Server saklı yordam etkinliği kullanarak verileri dönüştürme
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-stored-proc-activity.md)
 > * [Geçerli sürüm](transform-data-using-stored-procedure.md)
 
@@ -67,9 +67,9 @@ Aşağıdaki tabloda, bu JSON özellikleri açıklanmaktadır:
 
 | Özellik                  | Açıklama                              | Gerekli |
 | ------------------------- | ---------------------------------------- | -------- |
-| ad                      | Etkinliğin adı                     | Evet      |
-| açıklama               | Etkinliğin ne için kullanıldığını açıklayan metin | Hayır       |
-| type                      | Saklı yordam etkinliği için etkinlik türdür **SqlServerStoredProcedure** | Evet      |
+| name                      | Etkinliğin adı                     | Evet      |
+| description               | Etkinliğin ne için kullanıldığını açıklayan metin | Hayır       |
+| türü                      | Saklı yordam etkinliği için etkinlik türdür **SqlServerStoredProcedure** | Evet      |
 | linkedServiceName         | Başvuru **Azure SQL veritabanı** veya **Azure SQL veri ambarı** veya **SQL Server** Data Factory öğesinde bağlantılı hizmet olarak kayıtlı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
 | storedProcedureName       | Çağrılacak saklı yordamın adını belirtin. | Evet      |
 | storedProcedureParameters | Saklı yordam parametrelerinin değerlerini belirtin. Kullanım `"param1": { "value": "param1Value","type":"param1Type" }` parametre değerleri ve veri kaynağı tarafından desteklenen türlerinin geçirilecek. Bir parametre için null değeri geçirmeye izin ihtiyacınız varsa `"param1": { "value": null }` (küçük harflerle). | Hayır       |

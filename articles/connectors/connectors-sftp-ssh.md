@@ -11,10 +11,10 @@ ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
 ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922256"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>İzleme, oluşturma ve SSH ve Azure Logic Apps kullanarak SFTP dosyaları yönetme
@@ -92,14 +92,14 @@ SFTP-SSH Bağlayıcısı ve SFTP-SSH bağlayıcı yeteneklere sahip olduğu SFTP
 
 1. Boş mantıksal uygulamaları, arama kutusuna girin "sftp ssh" filtreniz olarak. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
 
-   -veya-
+   veya
 
    Var olan mantıksal uygulamalar, son adım, bir eylem eklemek istediğiniz altında seçin için **yeni adım**. 
    Arama kutusuna "sftp ssh" filtreniz olarak. 
    Eylemler listesinde, istediğiniz eylemi seçin.
 
    Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. 
-   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+   Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
 
 1. Bağlantınız için gerekli bilgileri sağlayın.
 
@@ -138,7 +138,7 @@ Tetikleyici yeni bir dosya bulduğunda tetikleyici, yeni dosya eksiksiz ve kısm
 
 Dosya içeriği isterken Tetikleyicileri dosyaları 15 MB değerinden daha büyük elde etmezsiniz. 15 MB değerinden daha büyük dosyaları almak için bu düzeni izleyin: 
 
-* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)** .
 
 * Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -146,7 +146,7 @@ Dosya içeriği isterken Tetikleyicileri dosyaları 15 MB değerinden daha büy�
 
 <a name="file-added-modified"></a>
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH tetikleyin: Bir dosya eklendiğinde veya değiştirildiğinde
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH tetikleyin: Dosya eklendiğinde veya değiştirildiğinde
 
 Bir dosya eklendiğinde veya bir SFTP sunucu üzerinde değiştirilmiş bu tetikleyiciyi bir mantıksal uygulama iş akışı başlatır. Örneğin, dosyanın içeriğini denetler ve içerik belirtilen bir koşulu karşılayıp içeriği alan bir koşul ekleyebilirsiniz. Ardından, dosyanın içeriğini alır ve bu içeriği SFTP sunucusunda bir klasöre koyar, bir eylem ekleyebilirsiniz. 
 
@@ -154,7 +154,7 @@ Bir dosya eklendiğinde veya bir SFTP sunucu üzerinde değiştirilmiş bu tetik
 
 Dosya içeriği isterken Tetikleyicileri dosyaları 15 MB değerinden daha büyük elde etmezsiniz. 15 MB değerinden daha büyük dosyaları almak için bu düzeni izleyin: 
 
-* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)** .
 
 * Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -166,7 +166,7 @@ Bu işlem bir SFTP sunucusuna dosya içeriği alır. Örneğin, önceki örnekte
 
 Dosya içeriği isterken Tetikleyicileri dosyaları 15 MB değerinden daha büyük elde etmezsiniz. 15 MB değerinden daha büyük dosyaları almak için bu düzeni izleyin: 
 
-* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)** .
 
 * Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
 

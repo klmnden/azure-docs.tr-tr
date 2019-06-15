@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: priyar
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515434"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing metin okuma API'si
@@ -41,7 +41,7 @@ Content-Length: 0
 
 Belirteç erişimi için gereken üst bilgi bilgileri aşağıdaki gibidir.
 
-Ad| Biçim | Açıklama
+Ad| Biçimi | Açıklama
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | Abonelik anahtarınız
 
@@ -60,9 +60,9 @@ JWT belirteci belirteç hizmetine döndürür `text/plain`. Daha sonra JWT olara
 
 Aşağıdaki tablo, sesli sentezi istekleri için kullanılan HTTP üst bilgilerini gösterir.
 
-Üst bilgi |Değer |Açıklamalar
+Üstbilgi |Değer |Açıklamalar
 ----|----|----
-Content-Type | Uygulama/ssml'yi + xml şeklindedir | Giriş içerik türü.
+İçerik türü | Uygulama/ssml'yi + xml şeklindedir | Giriş içerik türü.
 X Microsoft OutputFormat | **1.** ssml'yi-16 khz-16 bit-mono-tts <br> **2.** ham-16 khz-16 bit-mono-pcm <br>**3.** ses-16 khz-16 KB/sn-mono-siren <br> **4.** RIFF-16 khz-16 KB/sn-mono-siren <br> **5.** RIFF-16 khz-16 bit-mono-pcm <br> **6.** ses-16 khz-128kbitrate-mono-mp3 <br> **7.** ses-16 khz-64kbitrate-mono-mp3 <br> **8.** ses-16 khz-32kbitrate-mono-mp3 | Çıkış ses biçimi.
 X-Search-AppId | Bir GUID (onaltılık yalnızca, çizgi içermeyen) | İstemci uygulaması benzersiz olarak tanımlayan bir kimliği. Bu uygulamalar için depolama kimliği olabilir. Bir kullanılabilir durumda değilse, bir uygulama için oluşturulan kullanıcı kimliği olabilir.
 X arama ClientID | Bir GUID (onaltılık yalnızca, çizgi içermeyen) | Her yükleme için uygulama örneğini benzersiz şekilde tanımlayan bir kimliği.
@@ -190,7 +190,7 @@ Uygulama ayrıntıları için bkz. [Visual C# .NET metin okuma örnek uygulamas�
 
 Aşağıdaki tabloda bazı desteklenen yerel ayarlar ve ilgili ses tipi olarak tanımlar.
 
-Yerel ayar | Cinsiyet | Hizmet adı eşleme
+Yerel Ayar | Cinsiyet | Hizmet adı eşleme
 ---------|--------|------------
 ar-Örneğin * | Kadın | "Microsoft sunucu konuşma Sesli konuşmayı metne (ar-Örneğin, Hoda)"
 ar-SA | Erkek | "Microsoft Server Konuşma metin konuşma ses (ar-SA, Naayf)"
@@ -271,7 +271,7 @@ zh-TW | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-TW Yating, Ap
 zh-TW | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-TW, HanHanRUS)"
 zh-TW | Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-TW Zhiwei, Apollo)"
 
- * ar-ÖRN Modern standart Arapça (MSA) destekler.
+ \* ar-ÖRN Modern standart Arapça (MSA) destekler.
 
 > [!NOTE]
 > Unutmayın önceki hizmet adları **Microsoft sunucu konuşma Sesli konuşmayı metne (cs-CZ, Vit)** ve **konuşma ses (tr-IE, Shaun) için Microsoft sunucu konuşma metin** 3/31/2018 de kullanımdan Bing konuşma API'SİNİN özellikleri en iyi duruma getirme sırası. Lütfen kodunuzu güncelleştirilmiş adları ile güncelleştirin.

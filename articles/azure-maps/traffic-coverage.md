@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794046"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure haritalar trafik kapsamı
@@ -43,7 +43,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 |---------|:---------:|:---------:|
 |Avustralya     |✓         |✓        |
 |Brunei   |✓         |✓        |
-|Hong Kong Çin ÖİB     |✓         |✓         |
+|Hong Kong SAR     |✓         |✓         |
 |Hindistan   |✓         |✓         |
 |Endonezya     |✓         |✓         |
 |Makao ÖİB     |✓         |✓         |
@@ -69,7 +69,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 |Danimarka     |✓         |✓         |
 |Estonya     |         | ✓        |
 |Finlandiya     |✓         |✓         |
-|+ Aland Adaları      |✓         |✓         |
+|\+ Aland Adaları      |✓         |✓         |
 |Fransa     |✓         |✓         |
 |Monako     |✓         |✓         |
 |Almanya     |✓         |✓         |
@@ -89,7 +89,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 |Norveç     |✓         |✓         |
 |Polonya     |✓         |✓         |
 |Portekiz     |✓         |✓         |
-|+ Azor Adaları ve Madeira     |✓         |✓         |
+|\+ Azor Adaları ve Madeira     |✓         |✓         |
 |Romanya     |✓         |✓         |
 |Rusya Federasyonu     |✓         |✓         |
 |San Marino    |✓         |✓         |
@@ -97,17 +97,17 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 |Slovenya     |✓         |✓         |
 |İspanya     |✓         |✓         |
 |+Andorra     |✓         |✓         |
-|+ Balearic Adaları     |✓         |✓         |
-|+ Kanarya Adaları     |✓         |✓         |
+|\+ Balearic Adaları     |✓         |✓         |
+|\+ Kanarya Adaları     |✓         |✓         |
 |İsveç     |✓         |✓         |
 |İsviçre     |✓         |✓        |
 |Türkiye     |✓         |✓         |
 |Ukrayna     |✓         |✓         |
 |Birleşik Krallık     |✓         |✓         |
-|+ Cebelitarık     |✓         |✓         |
+|\+ Cebelitarık     |✓         |✓         |
 |+Guernsey & Jersey     |✓         |✓         |
-|+ Man Adası     |✓         |✓         |
-|Vatikan Şehri   |✓         |✓         |
+|\+ Man Adası     |✓         |✓         |
+|Vatikan   |✓         |✓         |
 
 
 ## <a name="middle-east-and-africa"></a>Orta Doğu ve Afrika

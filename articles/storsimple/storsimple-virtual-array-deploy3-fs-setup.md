@@ -16,10 +16,10 @@ ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61415239"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple sanal dizisi - kümesi oluşturan Azure portal aracılığıyla dosya sunucusu dağıtma
@@ -40,7 +40,7 @@ Yapılandırmak ve StorSimple Virtual Array'iniz ayarlamak için önce emin olun
 ## <a name="step-by-step-setup"></a>Adım adım Kurulum
 Ayarlanmış ve StorSimple Virtual Array'iniz yapılandırmak için aşağıdaki adım adım yönergeleri kullanın.
 
-## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>1. Adım: Yerel web kullanıcı Arabirimi Kurulumu tamamlayın ve Cihazınızı kaydetme
+## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>1\. adım: Yerel web kullanıcı Arabirimi Kurulumu tamamlayın ve Cihazınızı kaydetme
 #### <a name="to-complete-the-setup-and-register-the-device"></a>Kurulumu tamamlayın ve cihaz kaydetmek için
 1. Bir tarayıcı penceresi açın ve yerel web kullanıcı Arabirimine bağlanın. Şunu yazın:
    
@@ -117,7 +117,7 @@ Ayarlanmış ve StorSimple Virtual Array'iniz yapılandırmak için aşağıdaki
     
     ![Dosya sunucusu yapılandırın](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
-## <a name="step-2-configure-the-device-as-file-server"></a>2. Adım: Dosya sunucusu olarak cihazı yapılandırma
+## <a name="step-2-configure-the-device-as-file-server"></a>2\. adım: Dosya sunucusu olarak cihazı yapılandırma
 Aşağıdaki adımlarda gerçekleştirmek [Azure portalında](https://portal.azure.com/) gerekli cihaz kurulumunu tamamlamak için.
 
 #### <a name="to-configure-the-device-as-file-server"></a>Cihaz, dosya sunucusu olarak yapılandırmak için
@@ -166,7 +166,7 @@ Aşağıdaki adımlarda gerçekleştirmek [Azure portalında](https://portal.azu
    
    Bir paylaşımı ekleyebilirsiniz.
 
-## <a name="step-3-add-a-share"></a>3. Adım: Paylaşım ekleme
+## <a name="step-3-add-a-share"></a>3\. adım: Paylaşım ekleme
 Paylaşım oluşturmak için [Azure portalında](https://portal.azure.com/) aşağıdaki adımları gerçekleştirin.
 
 #### <a name="to-create-a-share"></a>Bir paylaşımı oluşturmak için
@@ -196,11 +196,11 @@ Paylaşım oluşturmak için [Azure portalında](https://portal.azure.com/) aşa
    
       ![Paylaşım ekleme](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
-## <a name="step-4-connect-to-the-share"></a>4. Adım: Paylaşıma bağlanma
+## <a name="step-4-connect-to-the-share"></a>4\. Adım: Paylaşıma bağlanma
 Şimdi, önceki adımda oluşturduğunuz bir veya daha fazla paylaşımı bağlanmak gerekir. StorSimple Virtual Array'iniz için bağlı bir Windows Server ana bilgisayarınızda aşağıdaki adımları gerçekleştirin.
 
 #### <a name="to-connect-to-the-share"></a>Paylaşımına bağlanmak için
-1. Tuşuna ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + r Belirtin Çalıştır penceresinde *&#92; &#92; &lt;dosya sunucusu adı&gt;* yol olarak değiştirerek *dosya sunucusu adı* dosyanıza atanmış cihaz adı ile Sunucu. **Tamam** düğmesine tıklayın.
+1. Tuşuna ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + r Belirtin Çalıştır penceresinde *&#92; &#92; &lt;dosya sunucusu adı&gt;* yol olarak değiştirerek *dosya sunucusu adı* dosyanıza atanmış cihaz adı ile Sunucu. **Tamam**'ı tıklatın.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. Bu, dosya Gezgini'ni açar. Artık oluşturduğunuz paylaşımları klasörler olarak görebiliyor olmalısınız. İçeriğini görmek için paylaşımı (klasörü) seçin ve çift tıklayın.

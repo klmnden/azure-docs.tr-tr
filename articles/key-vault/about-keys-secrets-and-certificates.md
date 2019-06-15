@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708693"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
@@ -330,7 +330,7 @@ Yanıta dahil ek salt okunur özniteliği vardır:
 > [!Note] 
 > Key Vault sertifikanın süresi dolarsa adreslenebilir anahtarıdır ve gizli hale çalışamaz.  
 
-#### <a name="tags"></a>Etiketler
+#### <a name="tags"></a>Tags
 
  İstemci belirtilen benzer etiketler anahtarları ve gizli anahtar-değer çiftlerinin dictionary'si.  
 

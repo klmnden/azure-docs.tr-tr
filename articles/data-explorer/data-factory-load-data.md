@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447977"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Azure Veri Gezgini, Azure Data Factory kullanarak veri kopyalama 
@@ -46,7 +46,7 @@ Bu makalede Data Factory-veri kopyalama aracını verileri Amazon S3'ten Azure v
 
     **Ayar**  | **Alan açıklaması**
     |---|---|
-    | **Ad** | Veri fabrikanızın genel olarak benzersiz bir ad girin. Hatasını alırsanız *"veri fabrikası adı \"LoadADXDemo\" kullanılamıyor"*, veri fabrikasının farklı bir ad girin. Data Factory yapıtlarının adlandırma kuralları için bkz: [Data Factory adlandırma kuralları](/azure/data-factory/naming-rules).|
+    | **Ad** | Veri fabrikanızın genel olarak benzersiz bir ad girin. Hatasını alırsanız *"veri fabrikası adı \"LoadADXDemo\" kullanılamıyor"* , veri fabrikasının farklı bir ad girin. Data Factory yapıtlarının adlandırma kuralları için bkz: [Data Factory adlandırma kuralları](/azure/data-factory/naming-rules).|
     | **Abonelik** | Veri fabrikasının oluşturulacağı Azure aboneliğini seçin. |
     | **Kaynak Grubu** | Seçin **Yeni Oluştur** ve yeni bir kaynak grubu adını girin. Seçin **var olanı kullan**, mevcut bir kaynak grubu varsa. |
     | **Sürüm** | Seçin **V2** |
@@ -158,7 +158,7 @@ Azure Veri Gezgini yeni bağlı hizmet, aşağıda belirtilen verileri Azure Ver
     * Bu tablo veri alınan ve Azure veri Gezgini'ne ikinci eşleme gerçekleşir. Eşleme göre gerçekleştirilir [CSV eşleme kurallarını](/azure/kusto/management/mappings#csv-mapping). Kaynak verileri CSV biçiminde başarısız olduysa, ADF tablo biçimine dönüştürülen veriler, bu nedenle, bu aşamada yalnızca ilgili eşleme CSV eşleme bir dikkat edin.
         * Altında **Azure Veri Gezgini (Kusto) havuz özellikleri** ilgili ekleme **alımı eşleme adı** (isteğe bağlı) bu nedenle, sütun eşleme kullanılabilir.
         * Varsa **alımı eşleme adı** belirtilmediyse, "by-name" eşleme sipariş tanımlanan **sütun eşlemelerini** bölümü oluşur. "By-name" Eşleme başarısız olursa, Azure Veri Gezgini (haritalar tarafından konumu varsayılan olarak) "sütuna göre konumu" sırada verilerin alımı çalışacaktır.
-    * Seçin **İleri**
+    * **İleri**’yi seçin
 
     ![Hedef veri kümesi sütun eşleme](media/data-factory-load-data/destination-dataset-column-mapping.png)
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860527"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>StorSimple Cihazınızı güncelleştirme 4'ü yükleyin
@@ -45,7 +45,7 @@ Cihazınızı güncelleştirmek için aşağıdaki adımları gerçekleştirin [
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Cihazınızı çalıştığını doğrulayın **StorSimple 8000 serisi güncelleştirme 4'e (6.3.9600.17820)**. **Son güncelleştirme tarihi** değiştirilmeleri.
+Cihazınızı çalıştığını doğrulayın **StorSimple 8000 serisi güncelleştirme 4'e (6.3.9600.17820)** . **Son güncelleştirme tarihi** değiştirilmeleri.
 
 * Şimdi Bakım modu güncelleştirmeleri kullanılabilir olduğunu göreceksiniz (Bu ileti güncelleştirmeleri yükledikten sonra en fazla 24 saat için görüntülenecek devam edebilir). Bakım modu güncelleştirmeleri, cihaz kapalı kalma süresi neden ve yalnızca cihazınızın Windows PowerShell arabirimi üzerinden uygulanabilir, kesintiye uğratan güncelleştirmelerdir.
 

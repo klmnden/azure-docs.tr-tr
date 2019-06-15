@@ -2,18 +2,16 @@
 title: Azure IOT Hub ile cihaz yönetimine genel bakış | Microsoft Docs
 description: Kurumsal cihaz yaşam döngüsü ve cihaz yönetim modellerini Azure IOT Hu--cihaz yönetimine genel bakış gibi yeniden başlatma, Fabrika sıfırlaması, üretici yazılımı güncelleştirmesi, yapılandırma, cihaz çiftleri, sorgular, işler.
 author: bzurcher
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 08/24/2017
-ms.date: 10/29/2018
-ms.author: v-yiso
+ms.date: 08/24/2017
+ms.author: briz
 ms.openlocfilehash: bdc55af23568b5785a831e81f352400c728c902e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400985"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT Hub ile cihaz yönetimine genel bakış
@@ -24,25 +22,29 @@ Azure IoT Hub, cihaz ve arka uç geliştiricilerinin güçlü cihaz yönetimi ç
 
 Başarılı bir kurumsal IoT çözümü oluşturmanın önemli bir kısmı, operatörlerin cihaz koleksiyonu için devam eden yönetimi nasıl gerçekleştirdiğine ilişkin bir strateji sağlanmasıdır. IoT operatörleri, işlerinin daha stratejik yönlerine odaklanmalarını sağlayan basit ve güvenilir araç ve uygulamalar gerektirir. Bu makalede aşağıdakiler sunulmaktadır:
 
-- Azure IoT Hub cihaz yönetimi yaklaşımına kısa bir genel bakış.
-- Genel cihaz yönetimi ilkelerinin açıklaması.
-- Cihaz yaşam döngüsü açıklaması.
-- Genel cihaz yönetimi desenlerine genel bakış.
+* Azure IoT Hub cihaz yönetimi yaklaşımına kısa bir genel bakış.
+* Genel cihaz yönetimi ilkelerinin açıklaması.
+* Cihaz yaşam döngüsü açıklaması.
+* Genel cihaz yönetimi desenlerine genel bakış.
 
 ## <a name="device-management-principles"></a>Cihaz yönetimi ilkeleri
+
 IoT bir dizi benzersiz cihaz yönetimi zorluğunu beraberinde getirir ve kurumsal sınıftaki her çözüm aşağıdaki ilkeleri hesaba katmalıdır:
 
 ![Cihaz yönetimi ilkeleri grafiği](media/iot-hub-device-management-overview/image4.png)
 
-- **Ölçek ve Otomasyon**: IOT çözümleri, rutin görevleri otomatik hale getirmek ve milyonlarca cihazı yönetmesine olanak oldukça küçük bir operasyon tanıyabilen basit Araçlar gerektirir. Operatörler toplu cihaz işlemlerini günlük olarak uzaktan gerçekleştirmeyi ve yalnızca doğrudan dikkat gerektiren sorunlar oluştuğunda uyarılmayı beklemektedir.
+* **Ölçek ve Otomasyon**: IOT çözümleri, rutin görevleri otomatik hale getirmek ve milyonlarca cihazı yönetmesine olanak oldukça küçük bir operasyon tanıyabilen basit Araçlar gerektirir. Operatörler toplu cihaz işlemlerini günlük olarak uzaktan gerçekleştirmeyi ve yalnızca doğrudan dikkat gerektiren sorunlar oluştuğunda uyarılmayı beklemektedir.
 
-- **Açıklık ve Uyumluluk**: Cihaz ekosistemi olağanüstü çeşitliliğe. Yönetim araçları çok sayıda cihaz sınıfına, platforma ve protokole uyum sağlayacak şekilde uyarlanmalıdır. Operatörler en kısıtlı katıştırılmış tek işlemli yongalardan güçlü ve tam işlevsel bilgisayarlara kadar çok sayıda cihaz türünü destekleyebilmelidir.
-- **Bağlam tanıma**: IOT ortamları dinamik ve sürekli değişen. Hizmet güvenilirliği üst düzey öneme sahiptir. Cihaz yönetimi işlemleri bakım kapalı kalma süresinin kritik iş işlemlerini etkilemediğinden veya tehlikeli koşullar oluşturmadığından emin olmak için aşağıdaki faktörleri göz önünde bulundurmalıdır:
+* **Açıklık ve Uyumluluk**: Cihaz ekosistemi olağanüstü çeşitliliğe. Yönetim araçları çok sayıda cihaz sınıfına, platforma ve protokole uyum sağlayacak şekilde uyarlanmalıdır. Operatörler en kısıtlı katıştırılmış tek işlemli yongalardan güçlü ve tam işlevsel bilgisayarlara kadar çok sayıda cihaz türünü destekleyebilmelidir.
+
+* **Bağlam tanıma**: IOT ortamları dinamik ve sürekli değişen. Hizmet güvenilirliği üst düzey öneme sahiptir. Cihaz yönetimi işlemleri bakım kapalı kalma süresinin kritik iş işlemlerini etkilemediğinden veya tehlikeli koşullar oluşturmadığından emin olmak için aşağıdaki faktörleri göz önünde bulundurmalıdır:
+
     * SLA bakım pencereleri
     * Ağ ve güç durumları
     * Kullanım koşulları
     * Cihaz coğrafi konumu
-- **Çok sayıda servis rolü**: Benzersiz iş akışları ve IOT işlemleri rolleri için destek çok önemlidir. Operasyon personeli, şirket içi BT bölümlerinin belirtilen kısıtlamalarıyla uyumlu bir şekilde çalışmalıdır.  Ayrıca, denetçilere ve diğer iş yönetimi rollerine gerçek zamanlı cihaz çalışma bilgilerini sunmanın uygun yollarını bulmalıdır.
+
+* **Çok sayıda servis rolü**: Benzersiz iş akışları ve IOT işlemleri rolleri için destek çok önemlidir. Operasyon personeli, şirket içi BT bölümlerinin belirtilen kısıtlamalarıyla uyumlu bir şekilde çalışmalıdır.  Ayrıca, denetçilere ve diğer iş yönetimi rollerine gerçek zamanlı cihaz çalışma bilgilerini sunmanın uygun yollarını bulmalıdır.
 
 ## <a name="device-lifecycle"></a>Cihaz yaşam döngüsü
 Tüm kurumsal IoT projelerinde ortak olan genel cihaz yönetimi aşamaları vardır. Azure IoT içinde, cihaz yaşam döngüsünün beş aşaması vardır:
@@ -114,6 +116,7 @@ IoT Hub aşağıdaki cihaz yönetim modellerini sağlar. [Cihaz Yönetimi öğre
     ![Cihaz yönetimi raporlama ilerleme ve durum deseninin grafiği](./media/iot-hub-device-management-overview/report-progress-pattern.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
+
 IoT Hub’ın cihaz yönetimi için sağladığı özellik, desen ve kod kitaplıkları, her cihaz yaşam döngüsü aşamasında kurumsal IoT operatörünün gereksinimlerini yerine getiren IoT uygulamaları oluşturmanıza olanak sağlar.
 
 IOT Hub'ında cihaz yönetimi özellikleri hakkında bilgi almaya devam etmek için bkz. [cihaz yönetimini kullanmaya başlama](iot-hub-node-node-device-management-get-started.md) öğretici.

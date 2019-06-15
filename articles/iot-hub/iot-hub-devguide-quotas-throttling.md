@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2019
 ms.openlocfilehash: ea9bea8b314d00db87ad7addacc49a976e0da08e
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550481"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT Hub kotaları ve azaltma
@@ -35,7 +35,7 @@ Aşağıdaki tabloda zorlanan kısıtlamalar gösterilmektedir. Değerleri tek t
 | -------- | ------- | ------- | ------- |
 | [Kimlik kayıt defteri işlemlerini](#identity-registry-operations-throttle) (oluşturma, Al, Listele, güncelleştirme ve silme) | 1.67/sec/Unit (100/dk/birim) | 1.67/sec/Unit (100/dk/birim) | 83.33/sec/Unit (5000/dk/birim) |
 | [Yeni cihaz bağlantılarını](#device-connections-throttle) (hızı için bu sınır geçerlidir _yeni bağlantıları_, bağlantıları toplam sayısını değil) | Daha yüksek 100/sn veya 12/sn/birim <br/> Örneğin, iki adet S1 birimi 2 olan\*12 = 24 yeni bağlantıları/sn, ancak sahip en az 100 yeni bağlantıları/sn, birimleri. Dokuz adet S1 birimi ile kullandığınız 108 yeni bağlantıları/sn (9\*12), birimleri arasında. | 120 yeni bağlantıları/sn/birim | 6000 yeni bağlantıları/sn/birim |
-| Cihazdan buluta gönderim | Daha yüksek 100/sn veya 12/sn/birim <br/> Örneğin, iki adet S1 birimi 2 olan\*12 = 24/sn, ancak en az 100/sn, birimleri arasında. Dokuz adet S1 birimi ile kullandığınız 108/sn (9\*12), birimleri arasında. | 120/sn/birim | 6.000/sn/birim |
+| Cihazdan buluta gönderim | Daha yüksek 100/sn veya 12/sn/birim <br/> Örneğin, iki adet S1 birimi 2 olan\*12 = 24/sn, ancak en az 100/sn, birimleri arasında. Dokuz adet S1 birimi ile kullandığınız 108/sn (9\*12), birimleri arasında. | 120/sn/birim | 6\.000/sn/birim |
 | Bulut-cihaz gönderen<sup>1</sup> | 1.67/sec/Unit (100/dk/birim) | 1.67/sec/Unit (100/dk/birim) | 83.33/sec/Unit (5000/dk/birim) |
 | Bulut-cihaz alır<sup>1</sup> <br/> (yalnızca cihaz HTTPS kullandığında)| 16.67/sec/Unit (1000/dk/birim) | 16.67/sec/Unit (1000/dk/birim) | 833.33/sec/Unit (50.000/dk/birim) |
 | Karşıya dosya yükleme | 1.67 dosya karşıya yükleme bildirimi/sn/birim (100/dk/birim) | 1.67 dosya karşıya yükleme bildirimi/sn/birim (100/dk/birim) | 83.33 dosya karşıya yükleme bildirimi/sn/birim (5000/dk/birim) |
@@ -76,7 +76,7 @@ IOT hub'ı diğer kullanım sınırlamaları uygular:
 | İşlem | Sınır |
 | --------- | ----- |
 | Cihazlar | Tek bir IOT hub'ına bağlanabilir cihazların sayısı 1.000.000 ' dir. Bu sınırı artırmak için tek yolu başvurmaktır [Microsoft Support](https://azure.microsoft.com/support/options/).| 
-| Karşıya dosya yükleme URI'ler | 10.000 SAS URI'leri bir depolama hesabı için tek seferde çıkarılabilir. <br/> Tek seferde 10 SAS URI’si/cihaz çıkarılabilir. |
+| Karşıya dosya yükleme URI'ler | 10\.000 SAS URI'leri bir depolama hesabı için tek seferde çıkarılabilir. <br/> Tek seferde 10 SAS URI’si/cihaz çıkarılabilir. |
 | İşleri<sup>1</sup> | En fazla eşzamanlı iş, 1 (ücretsiz ve S1 için), 5 (S2 için) ve 10 (S3 için). Ancak, en fazla eşzamanlı [cihaz içeri/dışarı aktarma işleri](iot-hub-bulk-identity-mgmt.md) tüm katmanlarda 1'dir. <br/>30 gün için iş geçmişi korunur. |
 | Ek uç noktalar | SKU Ücretli hubs 10 ek uç noktalar olabilir. Ücretsiz SKU hub'ları, bir ek uç nokta olabilir. |
 | İleti yönlendirme kuralları | SKU Ücretli hubs 100 yönlendirme kuralları olabilir. Ücretsiz SKU hubs beş yönlendirme kuralları olabilir. |
@@ -93,7 +93,7 @@ IOT hub'ı diğer kullanım sınırlamaları uygular:
 
 Herhangi bir zamanda kotaları artırma veya azaltma sınırları [bir IOT hub'ındaki sağlanan birimi sayısını artırabilir](iot-hub-upgrade.md).
 
-## <a name="latency"></a>Gecikme
+## <a name="latency"></a>Gecikme süresi
 
 Tüm işlemler için düşük gecikme süresi sağlamak IOT hub'ı içindedir. Ancak, ağ koşulları ve öngörülemeyen diğer faktörler nedeniyle, belirli bir gecikme süresi garanti edemez. Çözümünüzü tasarlarken, aşağıdakileri yapmalısınız:
 

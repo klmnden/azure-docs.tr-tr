@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472156"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery ile olağanüstü durum kurtarma için çok katmanlı bir SharePoint uygulaması için olağanüstü durum kurtarmayı ayarlama
@@ -93,7 +93,7 @@ Uygulamanızda herhangi bir katmanı paylaşılan disk tabanlı küme kullanıyo
 
 ## <a name="networking-configuration"></a>Ağ yapılandırması
 
-### <a name="network-properties"></a>Ağ özellikleri
+### <a name="network-properties"></a>Ağ Özellikleri
 
 * Böylece yük devretme işleminden sonra VM'lerin doğru DR ağa bağlı uygulama ve Web Katmanı VM'ler için ağ ayarları Azure portalında yapılandırın.
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f93152ae3db926fb989c219d1e515abaf0281bf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372201"
 ---
 # <a name="understand-the-charges-on-your-microsoft-customer-agreements-invoice"></a>Microsoft Müşteri anlaşmanın faturasında ücretlerini anlama
@@ -53,7 +53,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
     |Ürün SKU'su     | Ürününüzü örneğini tanımlayan benzersiz bir kod |
     |Miktar     |  İşlem miktarını      |
     |Fatura bölümü     | Profilin fatura ödeme, bu bölümde işlem gösterilir |
-    |Faturalama profili     | Bu faturalandırma profilin faturada işlem gösterilir |
+    |Faturalandırma profili     | Bu faturalandırma profilin faturada işlem gösterilir |
 
 5. Fatura Kimliği hareketlerinde fatura filtrelemek için arama yapın.
 
@@ -176,7 +176,7 @@ Zaten faturanızın ödeme yaptıysanız, Azure portalında faturaları sayfası
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

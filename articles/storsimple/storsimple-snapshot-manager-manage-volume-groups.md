@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303147"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699706"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Birim grupları oluşturmak ve yönetmek için StorSimple Snapshot Manager'ı kullanın
 ## <a name="overview"></a>Genel Bakış
@@ -53,7 +53,7 @@ Tıklarsanız **birim gruplarını** düğümünün **sonuçları** sütun seçi
 | Ad |**Adı** sütun birim grubu adını içerir. |
 | Uygulama |**Uygulamaları** sütun Windows konağında VSS yazıcılarının yüklü ve çalışır durumda sayısını gösterir. |
 | Seçildi |**Seçili** sütun birim grubunda bulunan birimleri sayısını gösterir. Sıfır (0), uygulama birim grubu birimlerin ile ilişkili olduğunu gösterir. |
-| İçeri aktarıldı |**İçeri aktarılan** sütun alınan birimlerin sayısını gösterir. Ayarlandığında **True**, bu sütun bir birim grubu Azure portalından alınan ve StorSimple Snapshot Manager'da oluşturulmamış gösterir. |
+| İçeri aktarılan |**İçeri aktarılan** sütun alınan birimlerin sayısını gösterir. Ayarlandığında **True**, bu sütun bir birim grubu Azure portalından alınan ve StorSimple Snapshot Manager'da oluşturulmamış gösterir. |
 
 > [!NOTE]
 > StorSimple Snapshot Manager birim gruplarını da görüntülenir **yedekleme ilkeleri** Azure portalında sekmesi.

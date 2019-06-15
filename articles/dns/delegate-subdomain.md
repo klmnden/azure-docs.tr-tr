@@ -2,17 +2,16 @@
 title: Bir Azure DNS alt etki alanı temsilcisi
 description: Bir Azure DNS alt etki alanı temsilcisi öğrenin.
 services: dns
-author: WenJason
+author: vhorne
 ms.service: dns
 ms.topic: article
-origin.date: 2/7/2019
-ms.date: 02/25/2019
-ms.author: v-jay
+ms.date: 2/7/2019
+ms.author: victorh
 ms.openlocfilehash: 31543db8e177701ddfe6beaaa3091d6465b0e9cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790819"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Bir Azure DNS alt etki alanı temsilcisi
@@ -59,7 +58,7 @@ Ardından, bir ad sunucusu (NS) kaydı için oluşturma **mühendislik** bölge.
 3. Üzerinde **kayıt kümesi Ekle** bölmesinde, türü **mühendislik** içinde **adı** metin kutusu.
 4. İçin **türü**seçin **NS**.
 5. Altında **ad sunucusu**, daha önce gelen kaydettiğiniz dört ad sunucusunun girin **mühendislik** bölge.
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**'ı tıklatın.
 
 ## <a name="test-the-delegation"></a>Temsilci seçmeyi test
 

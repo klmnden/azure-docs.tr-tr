@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60644143"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>SQL Server DPM iş yükü olarak Azure'a yedekleme
 Bu makalede, Azure Yedekleme'yi kullanarak SQL Server veritabanlarının yedeklenmesi için yapılandırma adımlarında yol gösterir.
 
-SQL Server veritabanlarını Azure'a yedeklemek için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+SQL Server veritabanlarını Azure'a yedeklemek için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 SQL Server veritabanı yedeği Azure'a ve azure'dan kurtarma yönetimini üç adımdan oluşur:
 
@@ -55,7 +55,7 @@ Başlamadan önce şunlardan emin olun tüm [önkoşulları](backup-azure-dpm-in
    >
    >
 
-8. **İleri**’ye tıklayın
+8. **İleri**'ye tıklayın.
 
     DPM, kullanılabilir depolama alanı ve olası disk alanı kullanımını gösterir.
 
@@ -94,7 +94,7 @@ Başlamadan önce şunlardan emin olun tüm [önkoşulları](backup-azure-dpm-in
 
 13. Bekletme İlkesi zamanlamayı seçin. Bekletme İlkesi birlikte nasıl çalıştığı hakkında ayrıntılar, sağlanan [kullanımı Azure Backup'ın bant altyapısı makale değiştirin](backup-azure-backup-cloud-as-tape.md).
 
-    ![Saklama İlkesi](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Bekletme İlkesi](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Bu örnekte:
 

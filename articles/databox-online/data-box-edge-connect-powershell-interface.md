@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717490"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Windows PowerShell aracılığıyla bir Azure veri kutusu Edge cihazı yönetme
@@ -43,7 +43,7 @@ Bu makalede, aşağıdaki yordamları içerir:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-IOT Edge Cihazınızı ve buna bağlanmak aşağı akış cihazları arasında güvenli bir bağlantı etkinleştirmek için IOT Edge sertifikalarını da karşıya yükleyebilirsiniz. IOT Edge üç sertifika bulunur (*.pem* biçimi) yüklemek gereken:
+IOT Edge Cihazınızı ve buna bağlanmak aşağı akış cihazları arasında güvenli bir bağlantı etkinleştirmek için IOT Edge sertifikalarını da karşıya yükleyebilirsiniz. IOT Edge üç sertifika bulunur ( *.pem* biçimi) yüklemek gereken:
 
 - Kök CA sertifikasını veya CA sahibi
 - Cihaz CA sertifikası

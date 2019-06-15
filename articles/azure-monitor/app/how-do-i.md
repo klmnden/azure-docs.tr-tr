@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
 ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60902115"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights’ta nasıl ... yapabilirim?
@@ -83,8 +83,8 @@ Dikkat edilmesi gereken bazı noktalar:
 ## <a name="separate-telemetry-from-different-versions"></a>Farklı sürümlerine ait ayrı telemetri
 
 * Bir uygulamada birden çok rol: Tek bir Application Insights kaynağı kullanın ve filtre [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* Geliştirme, test ve yayın sürümleri ayırma: Farklı Application Insgihts kaynakları kullanın. İzleme anahtarları web.config yerden devam edebiliyorduk. [Daha fazla bilgi](../../azure-monitor/app/separate-resources.md)
-* Raporlama derleme sürümleri: Bir telemetri Başlatıcısı aracılığıyla bir özellik ekleyin. [Daha fazla bilgi](../../azure-monitor/app/separate-resources.md)
+* Geliştirme, test ve yayın sürümleri ayırma: Farklı Application Insgihts kaynakları kullanın. İzleme anahtarları web.config yerden devam edebiliyorduk. [Daha fazla bilgi edinin](../../azure-monitor/app/separate-resources.md)
+* Raporlama derleme sürümleri: Bir telemetri Başlatıcısı aracılığıyla bir özellik ekleyin. [Daha fazla bilgi edinin](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Arka uç sunucularının ve Masaüstü uygulamaları izleme
 [Windows Server SDK modülü kullanmak](../../azure-monitor/app/windows-desktop.md).
@@ -96,7 +96,7 @@ Dikkat edilmesi gereken bazı noktalar:
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Diğer kaynakları ve Application Insights verilerini içeren Pano
 * [Telemetri Power BI'a aktarma](../../azure-monitor/app/export-power-bi.md ).
 
-Veya
+Or
 
 * SharePoint, SharePoint web bölümleri verileri görüntüleme panonuz olarak kullanın. [SQL'e aktarma için sürekli dışarı aktarma ve Stream Analytics kullanın](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md).  PowerView için bir SharePoint web bölümü oluşturma ve veritabanı incelemek için PowerView kullanın.
 

@@ -17,10 +17,10 @@ ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835660"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure Sanal Makineler'de SAP Business One
@@ -130,7 +130,7 @@ SQL Server DBMS bir iş için dağıtmak için belge Git [SAP NetWeaver için SQ
 
 SQL Server için DBMS yan kaba boyutlandırma tahminleri şunlardır:
 
-| Kullanıcı sayısı | vCPU sayısı | Bellek | Örnek VM türleri |
+| Kullanıcı sayısı | Vcpu | Bellek | Örnek VM türleri |
 | --- | --- | --- | --- |
 | en fazla 20 | 4 | 16 GB | D4s_v3, E4s_v3 |
 | en fazla 40 | 8 | 32 GB | D8s_v3, E8s_v3 |
@@ -150,7 +150,7 @@ SAP HANA için yedekleme ve geri yükleme stratejileri, belge okumalıdır [SAP 
 ### <a name="business-one-client-server"></a>İş bir istemci sunucu
 Bu bileşenler için depolama konuları birincil söz konusu değildir. Bununla birlikte, güvenilir bir platforma sahip istiyorsunuz. Bu nedenle, bu VM için Azure Premium depolama için bile temel VHD kullanmalısınız. Verilen veri ile VM boyutlandırma [SAP iş bir donanım gereksinimleri Kılavuzu](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Azure için odaklanın ve belgenin 2.4 bölümde belirtilen gereksinimleri olan hesapla gerekir. Gereksinimlerini hesaplamak gibi bunları ideal VM bulmak için aşağıdaki belgelere karşılaştırma yapmanız gerekir:
 
-- [Azure'da Windows sanal makine boyutları](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+- [Azure'daki Windows sanal makinesi boyutları](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 - [SAP notu 1928533 #](https://launchpad.support.sap.com/#/notes/1928533)
 
 CPU ve Microsoft tarafından belirtildiği için ihtiyaç duyulan bellek sayısı ile karşılaştırın. Ayrıca ağ aktarım hızı, Vm'leri seçerken göz önünde bulundurun.

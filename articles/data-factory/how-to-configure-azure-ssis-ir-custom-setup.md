@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711561"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı Kurulum özelleştirme
@@ -66,7 +66,7 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
 1. İndirme, yükleme ve başlatma [Azure Depolama Gezgini](https://storageexplorer.com/).
 
-   1. Altında **(yerel ve eklenmiş)**, sağ tıklayarak seçin **depolama hesapları** seçip **Azure Storage'a Bağlan**.
+   1. Altında **(yerel ve eklenmiş)** , sağ tıklayarak seçin **depolama hesapları** seçip **Azure Storage'a Bağlan**.
 
       ![Azure depolamaya bağlanma](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
@@ -122,7 +122,7 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
 1. Diğer özel kurulum örneklerini görmek için Azure Depolama Gezgini ile genel Önizleme kapsayıcıya bağlanın.
 
-   a.  Altında **(yerel ve eklenmiş)**, sağ **depolama hesapları**seçin **Azure Storage'a Bağlan**seçin **bir bağlantı dizesi veya paylaşılan erişim imzası URI'si**ve ardından **sonraki**.
+   a.  Altında **(yerel ve eklenmiş)** , sağ **depolama hesapları**seçin **Azure Storage'a Bağlan**seçin **bir bağlantı dizesi veya paylaşılan erişim imzası URI'si**ve ardından **sonraki**.
 
       ![Paylaşılan erişim imzası ile Azure Depolama'ya bağlanma](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 

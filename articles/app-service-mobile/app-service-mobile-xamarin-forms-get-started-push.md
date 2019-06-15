@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098735"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Xamarin.Forms uygulamanızı anında iletme bildirimleri ekleme
@@ -64,7 +64,7 @@ Arka uç FCM ile yapılandırılmış FCM ile kaydetmek için istemciye bileşen
 1. Proje özelliklerinde **Droid** proje, uygulamanın Android 7.0 veya üzeri sürümünü kullanarak derle ayarlayın.
 1. Ekleme **google-services.json** köküne Firebase konsolundan indirilen dosya, **Droid** proje ve derleme eylemi kümesine **GoogleServicesJson**. Daha fazla bilgi için [Google Hizmetleri JSON dosyası ekleme](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/#Add_the_Google_Services_JSON_File).
 
-#### <a name="registering-with-firebase-cloud-messaging"></a>Firebase Cloud Messaging ile kaydolma
+#### <a name="registering-with-firebase-cloud-messaging"></a>Kaydetme ile Firebase Cloud Messaging
 
 1. **AndroidManifest.xml** dosyasını açın ve aşağıdaki `<receiver>` öğelerini `<application>` öğesine ekleyin:
 
@@ -232,7 +232,7 @@ Yalnızca bir öykünücü üzerinde test ederken ilk iki adım gereklidir.
 2. Bir Google hesabı tıklayarak Android cihaza ekleyin **uygulamaları** > **ayarları** > **Hesap Ekle**. Daha sonra cihaza var olan bir Google hesabı ekleyin veya yeni bir tane oluşturmak için istemleri izleyin.
 3. Visual Studio veya Xamarin Studio'da, sağ **Droid** projesine **başlangıç projesi olarak ayarla**.
 4. Tıklayın **çalıştırma** projeyi oluşturun ve uygulamayı Android cihaz veya öykünücü üzerinde başlatın.
-5. Uygulamasında, bir görev yazın ve ardından artı (**+**) simgesi.
+5. Uygulamasında, bir görev yazın ve ardından artı ( **+** ) simgesi.
 6. Bir öğe eklendiğinde bir bildiriminin alındığını doğrulayın.
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>Yapılandırma ve (isteğe bağlı) iOS projesi çalıştırma
@@ -326,7 +326,7 @@ Uygulamanızı anında iletme bildirimlerini desteklemek için güncelleştirilm
    > [!NOTE]
    > Anında iletme bildirimleri uygulamanızdan açıkça kabul etmeniz gerekir. Bu istek, yalnızca uygulamayı çalıştıran ilk kez oluşur.
 
-3. Uygulamasında, bir görev yazın ve ardından artı (**+**) simgesi.
+3. Uygulamasında, bir görev yazın ve ardından artı ( **+** ) simgesi.
 4. Bildirim alınırsa ve ardından doğrulamak **Tamam** bildirimi kapatmak için.
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Yapılandırma ve çalıştırma (isteğe bağlı) Windows projeleri
@@ -398,7 +398,7 @@ Bu bölüm Windows cihazları için WinPhone81 projeleri ve Xamarin.Forms WinApp
 
 1. Visual Studio'da bir Windows projesini sağ tıklayın ve **başlangıç projesi olarak ayarla**.
 2. Projeyi oluşturmak ve uygulamayı başlatmak için **Çalıştır** düğmesine basın.
-3. Uygulamada, yeni bir todoıtem için'bir ad yazın ve ardından artı (**+**) simgesi ekleyin.
+3. Uygulamada, yeni bir todoıtem için'bir ad yazın ve ardından artı ( **+** ) simgesi ekleyin.
 4. Bir öğe eklendiğinde bir bildiriminin alındığını doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar

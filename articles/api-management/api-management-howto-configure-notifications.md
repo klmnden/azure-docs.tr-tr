@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
 ms.openlocfilehash: 2a959c9d131c6aa0bdc99450cf2b6f09a5d8bfa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60528456"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma
@@ -59,7 +59,7 @@ API Management, yönetme ve hizmet kullanımı sırasında gönderilen e-posta i
 * Onaylanan uygulama Galerisi gönderme
 * Geliştirici diğer harf
 * Geliştirici kota sınırına yaklaşılıyor bildirimi
-* Kullanıcı davet et
+* Kullanıcı Davet Et
 * Bir sorun için eklenen yeni açıklama
 * Alınan yeni sorun
 * Yeni Abonelik etkinleştirildi

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: spelluru
 ms.openlocfilehash: b54bc52a2feaf4646d801265ddb273c2c86158ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60823561"
 ---
 # <a name="subscribe-to-events-through-portal"></a>İçin portal aracılığıyla olaylara abone olma
@@ -28,7 +28,7 @@ Bu makalede, portal üzerinden Event Grid abonelikleri oluşturma açıklanır.
 
 1. Arama **Event Grid abonelikleri** ve kullanılabilir seçenekler arasından seçin.
 
-   ![Arama](./media/subscribe-through-portal/search.png)
+   ![Ara](./media/subscribe-through-portal/search.png)
 
 1. **+ Olay Aboneliği**'ni seçin.
 
@@ -36,7 +36,7 @@ Bu makalede, portal üzerinden Event Grid abonelikleri oluşturma açıklanır.
 
 1. Tür, oluşturmak istediğiniz aboneliği seçin. Örneğin, bir Azure aboneliği için olaylara abone olmak için seçin **Azure abonelikleri** ve hedef aboneliği.
 
-   ![Azure aboneliği seçin](./media/subscribe-through-portal/azure-subscription.png)
+   ![Azure aboneliğini seçin](./media/subscribe-through-portal/azure-subscription.png)
 
 1. Bu olay kaynağı için tüm olay türlerine abone olmak için tutmak **tüm olay türlerine abone** teslim seçeneği. Aksi takdirde, bu abonelik için olay türlerini seçin.
 

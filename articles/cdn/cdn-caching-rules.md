@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
 ms.openlocfilehash: 3a94b8252feb7c5c345d678579c477fce02d6e03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679212"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Denetim Azure CDN önbelleğe alma kuralları ile önbelleğe alma davranışı
@@ -75,7 +75,7 @@ Genel ve özel önbelleğe alma kuralları için gün, saat, dakika ve saniye ö
 
 Özel önbellek kuralları için iki eşleştirme koşulları kullanılabilir:
  
-- **Yol**: Bu durum, URL'nin etki alanı adı dışında bir yol ile eşleşen ve joker karakter sembolünü destekler (\*). Örneğin, _/myfile.html_, _/my/folder / *_, ve _/my/images/*.jpg_. En fazla uzunluk 260 karakterdir.
+- **Yol**: Bu durum, URL'nin etki alanı adı dışında bir yol ile eşleşen ve joker karakter sembolünü destekler (\*). Örneğin, _/myfile.html_, _/my/folder / *_ , ve _/my/images/*.jpg_. En fazla uzunluk 260 karakterdir.
 
 - **Uzantı**: Bu durum, istenen dosyanın dosya uzantısı ile eşleşir. Eşleştirilecek virgülle ayrılmış dosya uzantıları listesini sağlar. Örneğin, _.jpg_, _.mp3_, veya _.png_. Uzantıları sayısı 50'dir ve uzantı başına karakter sayısı 16'dır. 
 
@@ -92,7 +92,7 @@ Genel ve özel önbelleğe alma kuralları aşağıdaki sırayla işlenir:
    - Önbellek sona erme süresi: 1 gün
 
 - Özel önbelleğe alma kuralı #1:
-   - Eşleşme koşulu: **Path**
+   - Eşleşme koşulu: **Yolu**
    - Eşleşen değer:   _/home / *_
    - Önbelleğe alma davranışı: **geçersiz kılma**
    - Önbellek sona erme süresi: 2 gün

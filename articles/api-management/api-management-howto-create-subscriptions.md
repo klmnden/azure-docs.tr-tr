@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: bc791fea1dfd184749e84cb7b7a912972c6a9f12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60657621"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Azure API Yönetimi'nde abonelikleri oluşturma
@@ -33,7 +33,7 @@ Bu makaledeki adımlar için Önkoşullar aşağıdaki gibidir:
 + [Bir API Management örneği oluşturma](get-started-create-service-instance.md).
 + Anlamak [API Management abonelikleri](api-management-subscriptions.md).
 
-## <a name="create-a-new-subscription"></a>Yeni abonelik oluştur
+## <a name="create-a-new-subscription"></a>Yeni Abonelik Oluştur
 
 1. Seçin **abonelikleri** sol taraftaki menüden.
 2. Seçin **Abonelik Ekle**.

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e8606a0d4e203e1a910a5cd15ca83a622f5286bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65812543"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Nasıl kuruluşunuzdaki kullanıcılar uygulama Konuk kullanıcılar davet edebilir
@@ -35,11 +35,11 @@ Sonra Konuk kullanıcı eklendiğini dizine Azure AD'de uygulama sahibinin Konuk
 Bir uygulama için Self Servis yapılandırdıktan sonra uygulama sahibi kendi erişim paneli paylaşmak istediğiniz uygulama için bir Konuk kullanıcı davet etmek için kullanabilirsiniz. Konuk kullanıcı mutlaka önceden Azure AD'ye eklemiş gerekmez. 
 
 1. Giderek, erişim paneli `https://myapps.microsoft.com`.
-2. Uygulamaya gelin, elipsleri seçin (**...** ) ve ardından **Yönet uygulama**.
+2. Uygulamaya gelin, elipsleri seçin ( **...** ) ve ardından **Yönet uygulama**.
  
    ![Doğrudan Salesforce uygulamasının Yönet uygulama alt menüsünü gösteren ekran görüntüsü](media/add-users-iw/access-panel-manage-app.png)
  
-3. Kullanıcılar listenin en üstünde seçin **+**.
+3. Kullanıcılar listenin en üstünde seçin **+** .
    
    ![Uygulamaya üyeleri eklemek için artı simgesini gösteren ekran görüntüsü](media/add-users-iw/access-panel-manage-app-add-user.png)
    
@@ -62,7 +62,7 @@ Bir uygulama için Self Servis yapılandırdıktan sonra uygulama sahipleri payl
    
    ![Sahip olduğum gruplar altındaki bir grubu seçmek nereye gösteren ekran görüntüsü](media/add-users-iw/access-panel-groups-i-own.png)
    
-5. Grup üyeleri listenin en üstünde seçin **+**.
+5. Grup üyeleri listenin en üstünde seçin **+** .
    
    ![Gruba üye eklemek için artı simgesini gösteren ekran görüntüsü](media/add-users-iw/access-panel-groups-add-member.png)
    

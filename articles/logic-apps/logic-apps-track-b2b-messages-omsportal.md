@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120135"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Azure İzleyici günlükleri ile B2B iletilerini izleme
@@ -155,7 +155,7 @@ Her bir AS2 iletisi için özellik açıklamaları aşağıda verilmiştir.
 | ACK | MDN iletisini durumu <br>Kabul edilen bir pozitif MDN gönderilen veya alınan =. <br>Bekleyen bir MDN göndermek veya almak için bekliyor =. <br>Reddedilen bir negatif MDN gönderilen veya alınan =. <br>Gerekli değil = MDN ayarlanmadı anlaşmasında. |
 | Direction | AS2 ileti yönü |
 | Bağıntı Kimliği | Tüm mantıksal uygulama eylemleri ve Tetikleyicileri karşılık gelen kimliği |
-| İleti Kimliği | AS2 iletisi başlıklarından AS2 ileti kimliği |
+| İleti kimliği | AS2 iletisi başlıklarından AS2 ileti kimliği |
 | Zaman damgası | Ne zaman AS2 eylem ileti işleme süresi |
 |          |             |
 

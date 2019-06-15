@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: bwren
 ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61461937"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Azure İzleyici'de bir Log Analytics çalışma alanında özel alanlar oluşturma
@@ -45,7 +45,7 @@ Aşağıdaki bölümler, özel bir alan oluşturmak için yordamı sağlar.  Bu 
 > Özel alan oluşturulduktan sonra toplanan kayıtları yalnızca görünür Log Analytics çalışma alanına belirtilen ölçütlerle eşleşen kayıtlar eklendikçe özel alan doldurulur.  Özel alan oluşturulduğunda, veri deposunda zaten olan kayıtları eklenmedi.
 > 
 
-### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>1. adım – özel alan olan kayıtların tanımlanması
+### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>1\. adım – özel alan olan kayıtların tanımlanması
 İlk adım, özel alan alacak kayıtların belirlemektir.  İle başlayan bir [standart günlük sorgusu](../log-query/log-query-overview.md) ve Azure İzleyici'den öğreneceksiniz model olarak görev yapacak bir kaydı seçin.  Bir özel alana, verileri ayıklamak için önerilere şu belirttiğinizde **alan ayıklama Sihirbazı** burada doğrulamak ve kriterlerinizi açılır.
 
 1. Git **günlükleri** ve bir [kayıtları almak için sorgu](../log-query/log-query-overview.md) özel alanı olacaktır.
@@ -54,14 +54,14 @@ Aşağıdaki bölümler, özel bir alan oluşturmak için yordamı sağlar.  Bu 
 4. **Alan ayıklama Sihirbazı** açılır ve seçtiğiniz kayıt görüntülenen **ana örnek** sütun.  Özel alan seçilen özelliklerinde aynı değerlerle kayıtları için tanımlanır.  
 5. Seçimi tam olarak istediğiniz varsa, ölçütleri daraltmak için ek alanlar seçin.  Ölçütleri alan değerlerini değiştirmek için iptal etmek ve istediğiniz ölçütlerle eşleşen farklı bir kaydı seçin.
 
-### <a name="step-2---perform-initial-extract"></a>2. adım - ilk ayıklama gerçekleştirin.
+### <a name="step-2---perform-initial-extract"></a>2\. adım - ilk ayıklama gerçekleştirin.
 Özel alan olan kayıtları belirledikten sonra ayıklamak istediğiniz verileri belirleyin.  Log Analytics, benzer kayıtları benzer desenleri tanımlamak için bu bilgileri kullanır.  Bundan sonra bir adımda sonuçları doğrulamak ve daha fazla Log Analytics, kendi analizde kullanılacak ayrıntılarını sağlamak mümkün olacaktır.
 
 1. Örnek kaydındaki özel alanını doldurmak için kullanmak istediğiniz metni vurgulayın.  Ardından alan için bir ad ve veri türü sağlamak ve ilk ayıklama gerçekleştirmek için bir iletişim kutusu karşınıza çıkar.  Karakterleri  **\_CF** otomatik olarak eklenir.
 2. Tıklayın **ayıklamak** toplanan kayıtları analizini gerçekleştirme.  
 3. **Özeti** ve **arama sonuçları** bölümleri doğruluğunun inceleyebilirsiniz. Bu nedenle Ayıkla sonuçlarını görüntüler.  **Özet** kayıtları ve sayı her tanımlanan veri değerlerini tanımlamak için kullanılan ölçüt görüntüler.  **Arama sonuçları** ölçütlerle eşleşen kayıtları ayrıntılı bir listesini sağlar.
 
-### <a name="step-3--verify-accuracy-of-the-extract-and-create-custom-field"></a>3. adım – ayıklama doğruluğunu ve özel alan oluşturma
+### <a name="step-3--verify-accuracy-of-the-extract-and-create-custom-field"></a>3\. adım – ayıklama doğruluğunu ve özel alan oluşturma
 İlk Ayıkla gerçekleştirdikten sonra Log Analytics zaten toplanmış olan verileri temel alan, sonuçları görüntüler.  Ardından sonuçları doğru bakarsanız başka hiçbir iş ile özel alan oluşturabilirsiniz.  Aksi durumda, Log Analytics mantığını geliştirebilmek sonuçları geliştirebilirsiniz.
 
 1. İlk Ayıkla herhangi bir değer doğru değilse, ardından **Düzenle** bir yanlış yanındaki simgeye kayıt ve seçim **Bu vurgulamayı Değiştir** seçimi değiştirmek için.

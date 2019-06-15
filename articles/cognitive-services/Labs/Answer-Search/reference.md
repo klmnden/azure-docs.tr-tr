@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60721020"
 ---
 # <a name="project-answer-search-v7-reference"></a>Proje yanıt arama v7 başvurusu
@@ -62,9 +62,9 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 ## <a name="headers"></a>Üst bilgiler  
 İstek ve yanıt içerebilecek üst bilgiler verilmiştir.  
   
-|Üst bilgi|Açıklama|  
+|Üstbilgi|Açıklama|  
 |------------|-----------------|  
-|Kabul|İsteğe bağlı istek üst bilgisi.<br /><br /> Varsayılan medya türü application/json şeklindedir. Yanıt kullandığını belirtmek için [JSON-LD](https://json-ld.org/), uygulama/ld + json Accept üst bilgisi ayarlayın.|  
+|Kabul et|İsteğe bağlı istek üst bilgisi.<br /><br /> Varsayılan medya türü application/json şeklindedir. Yanıt kullandığını belirtmek için [JSON-LD](https://json-ld.org/), uygulama/ld + json Accept üst bilgisi ayarlayın.|  
 |<a name="acceptlanguage" />Accept-Language|İsteğe bağlı istek üst bilgisi.<br /><br /> Kullanıcı arabirimi dizelerinde kullanılacak virgülle sınırlanmış bir dil listesi. Liste, tercih edilme durumuna göre azalan düzende sıralanır. Beklenen biçim de içinde olmak üzere daha fazla bilgi için bkz. [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Bu üst bilgi ve [setLang](#setlang) sorgu parametresi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin.<br /><br /> Bu üst bilginin ayarlarsanız, cc sorgu parametresini de belirtmeniz gerekir. Hangi pazardan sonuç döndürüleceğini belirlemek için, Bing listeden bulduğu ilk desteklenen dili kullanır ve bunu `cc` parametresinin değeriyle birleştirir. Liste desteklenen bir dil içermiyorsa, Bing isteği destekleyen en yakın dili ve pazarı bulur ya da sonuçlar için toplu veya varsayılan bir pazar kullanır. Bing'in kullandığı pazarı saptamak için BingAPIs-Market üst bilgisine bakın.<br /><br /> Ancak birden çok dil belirtirseniz bu üst bilgiyi ve `cc` sorgu parametresini kullanın. Aksi takdirde, [mkt](#mkt) ile [setLang](#setlang) sorgu parametrelerini kullanın.<br /><br /> Kullanıcı arabirimi dizesi, kullanıcı arabiriminde etiket olarak kullanılan dizedir. JSON yanıt nesnelerinde çok az kullanıcı arabirimi dizesi vardır. Yanıt nesnelerinde Bing.com özelliklerine yönelik bağlantılar da belirtilen dildedir.|  
 |<a name="market" />BingAPIs-Market|Yanıt üst bilgisi.<br /><br /> İstek tarafından kullanılan pazar. Biçimi şöyledir: \<languageCode\>-\<countryCode\>. Örneğin, tr-TR.|  
 |<a name="traceid" />BingAPIs-TraceId|Yanıt üst bilgisi.<br /><br /> İsteğin ayrıntılarını içeren günlük girdisinin kimliği. Hata oluştuğunda, bu kimliği yakalayın. Sorunu belirleyemez ve çözemezseniz, Destek ekibine diğer bilgilerle birlikte bu kimliği de sağlayın.|  
@@ -131,7 +131,7 @@ Altında bir metin veya resim kullanılabilir lisans tanımlar.
   
 |Ad|Değer|Tür|  
 |----------|-----------|----------|  
-|ad|Lisans adı.|String|  
+|name|Lisans adı.|String|  
 |url|Kullanıcı Lisansı hakkında daha fazla bilgi edinebileceğiniz bir Web sitesi URL'si.<br /><br /> Köprü oluşturmak için adını ve URL'sini kullanın.|String|  
   
 
@@ -141,7 +141,7 @@ Lisans attribution için sözleşmeye dayalı bir kural tanımlar.
 |Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |_type|LicenseAttribution için ayarlanmış bir tür ipucu.|String|  
-|lisans|İçeriği altında kullanılabilir lisans.|[Lisans](#license)|  
+|Lisans|İçeriği altında kullanılabilir lisans.|[Lisans](#license)|  
 |licenseNotice|Hedeflenen alanının yanındaki lisans. Örneğin, "Metin SA tarafından CC lisansı altında".<br /><br /> Lisans'ın adını ve URL'sini kullan `license` lisans ayrıntılarını açıklayan Web sitesi için köprü oluşturma için alan. Ardından, lisans adı değiştirin `licenseNotice` oluşturduğunuz köprü dizesiyle (örneğin, CC-tarafından-SA).|String|  
 |mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boolean|  
 |targetPropertyName|Kuralın uygulanacağı alanın adı.|String|  
@@ -188,7 +188,7 @@ Bir yayımcı adının veya Web sitesi veya her ikisini sağlayabilir unutmayın
   
 |Ad|Değer|Tür|  
 |----------|-----------|----------|  
-|ad|Yayımcının adı.|String|  
+|name|Yayımcının adı.|String|  
 |url|Yayımcının Web sitesi URL'si.<br /><br /> Yayımcının Web sitesi sağlamayabilir unutmayın.|String|  
   
   
@@ -198,9 +198,9 @@ Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.
   
 |Ad|Değer|Tür|  
 |----------|-----------|----------|
-|ad|Sayfa başlığı, mutlaka HTML Başlığı|String|
+|name|Sayfa başlığı, mutlaka HTML Başlığı|String|
 |url|Aslında gezinilen URL'si (istek ve ardından yeniden yönlendirmeleri)|String|  
-|açıklama|Sayfa içeriği ve kısa açıklama|String|  
+|description|Sayfa içeriği ve kısa açıklama|String|  
 |isFamilyFriendly|Web dizindeki öğeler için en doğru; Bu algılama yöntemi yalnızca bir URL ve sayfa içeriği göre gerçek zamanlı öğesinden yapın|boole|
 |primaryImageOfPage/contentUrl|Önizlemede dahil etmek için temsili bir görüntü URL'si|String| 
   
@@ -227,14 +227,14 @@ Tanımlar grubu bir arama sonuçları, aşağıdaki gibi mainline.
 
 |Ad|Değer|Tür|  
 |-------------|-----------------|----------|
-|öğeler|Grup içinde görüntülemek için arama sonuçları listesi.|RankingItem|
+|items|Grup içinde görüntülemek için arama sonuçları listesi.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Görüntülenecek bir arama sonucu öğesi tanımlar.
 
 |Ad|Değer|Tür|  
 |-------------|-----------------|----------|
-|resultIndex|Görüntülenecek yanıtında öğenin sıfır tabanlı dizini. Bu alan öğe içermiyorsa, yanıt tüm öğeleri görüntüler. Örneğin, haber yanıt tüm haber makalelerini görüntüler.|Tamsayı|
+|resultIndex|Görüntülenecek yanıtında öğenin sıfır tabanlı dizini. Bu alan öğe içermiyorsa, yanıt tüm öğeleri görüntüler. Örneğin, haber yanıt tüm haber makalelerini görüntüler.|Integer|
 |answerType|Görüntülenecek öğe içeren yanıtı. Örneğin, haber.<br /><br />Yanıt SearchResponse nesnesinde bulunacak türünü kullanın. Türü bir SearchResponse alan adıdır.<br /><br /> Ancak, yalnızca bu nesne değeri alanı varsa yanıt türünü kullanın. Aksi takdirde, yoksayın.|String|
 |textualIndex|Görüntülenecek textualAnswers yanıt dizini.| İşaretsiz tamsayı|
 |value|Görüntülenecek yanıt veya öğeyi görüntülemek için bir yanıt tanımlayan kimliği. Kimliği bir yanıt tanımlıyorsa, yanıtın tüm öğeleri görüntüler.|Tanımlama|
@@ -273,7 +273,7 @@ Düz metin attribution için sözleşmeye dayalı bir kural tanımlar.
 
 Bir isteği döndüren olası HTTP durum kodları şunlardır:  
   
-|Durum Kodu|Açıklama|  
+|Durum kodu|Açıklama|  
 |-----------------|-----------------|  
 |200|Başarılı.|  
 |400|Sorgu parametrelerden biri eksik veya geçerli değil.|  
@@ -315,7 +315,7 @@ Olası hata kodu ve alt hata kodu değerleri şunlardır.
 
 |Kod|Alt|Açıklama
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Uygulanmadı|HTTP durum kodunu 500'dür.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP durum kodunu 500'dür.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Engellendi|Her isteğin herhangi bir bölümü geçerli değil Bing InvalidRequest döndürür. Örneğin, bir gerekli parametre eksik veya bir parametre değeri geçerli değil.<br/><br/>Hata ParameterMissing veya ParameterInvalidValue ise, HTTP durum kodu 400 ' dir.<br/><br/>HTTPS yerine HTTP protokolünü kullanıyorsanız, Bing HttpNotAllowed döndürür ve 410 HTTP durum kodudur.
 |RateLimitExceeded|Hiçbir alt kodları|/ Saniye (QPS) sorguları veya sorgu başına aylık (QPM) kota aştığında Bing RateLimitExceeded döndürür.<br/><br/>QPS aşarsanız, HTTP durum kodu 429 Bing döndürür ve QPM aşarsanız, Bing 403 döndürür.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing çağıran doğrulandığında Bing InvalidAuthorization döndürür. Örneğin, `Ocp-Apim-Subscription-Key` üstbilgisi eksik veya abonelik anahtarı geçerli değil.<br/><br/>Birden fazla kimlik doğrulama yöntemi belirtmek, yedeklilik meydana gelir.<br/><br/>Hata InvalidAuthorization ise, HTTP durum kodunu 401 ' dir.

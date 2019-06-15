@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636273"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Medya akışı Azure CDN ile iyileştirme 
@@ -86,8 +86,8 @@ Varsa **akamai'den Azure CDN standart** algılar akış bildirimi veya parça va
 
 |   | Genel web teslimatı | Genel medya akışı | İsteğe bağlı video medya akışı  
 --- | --- | --- | ---
-Önbelleğe alma: Olumlu <br> HTTP 200 203, 300, <br> 301, 302 ve 410 | 7 gün |365 gün | 365 gün   
-Önbelleğe alma: Olumsuz <br> HTTP 204 305, 404, <br> ve 405 | None | 1 saniye | 1 saniye
+Önbelleğe alma: Pozitif <br> HTTP 200 203, 300, <br> 301, 302 ve 410 | 7 gün |365 gün | 365 gün   
+Önbelleğe alma: Negatif <br> HTTP 204 305, 404, <br> ve 405 | None | 1 saniye | 1 saniye
  
 ### <a name="deal-with-origin-failure"></a>Kaynak hatası işlem  
 

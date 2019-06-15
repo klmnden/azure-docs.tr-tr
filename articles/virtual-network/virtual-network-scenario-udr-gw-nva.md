@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575598"
 ---
 # <a name="virtual-appliance-scenario"></a>Sanal gereç senaryosu
@@ -42,11 +42,11 @@ Aşağıdaki çözüm, bir çevre ağındaki (DMZ) uygulamak için güvenlik duv
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 Bugün, aşağıdaki gibi farklı özelliklerin kullanarak Azure'da yukarıda açıklanan ortam dağıtabilirsiniz.
 
-* **Sanal ağ (VNet)**. Bir Azure sanal ağı şirket içi ağa benzer şekilde davranır ve trafik yalıtımı ve görev ayrımı nettir sağlamak için bir veya daha fazla alt ağa bölümlenebilecek.
+* **Sanal ağ (VNet)** . Bir Azure sanal ağı şirket içi ağa benzer şekilde davranır ve trafik yalıtımı ve görev ayrımı nettir sağlamak için bir veya daha fazla alt ağa bölümlenebilecek.
 * **Sanal gereç**. Birkaç iş ortakları, yukarıda açıklanan üç güvenlik duvarları için kullanılabilecek Azure Marketi'nde sanal Gereçleri sağlar. 
-* **Kullanıcı tanımlı yollar (UDR)**. Rota tabloları sanal ağ içindeki paketleri akışını denetlemek için Azure ağ tarafından kullanılan Udr'ler içerebilir. Bu rota tablolarını alt ağlara uygulanabilir. Azure'da yeni özelliklerden biri, bir yol tablosu Azure Vnet'te bir sanal gerece bir karma bağlantı'dan gelen tüm trafiği iletmesi için olanak vererek GatewaySubnet uygulamak için olanağıdır.
+* **Kullanıcı tanımlı yollar (UDR)** . Rota tabloları sanal ağ içindeki paketleri akışını denetlemek için Azure ağ tarafından kullanılan Udr'ler içerebilir. Bu rota tablolarını alt ağlara uygulanabilir. Azure'da yeni özelliklerden biri, bir yol tablosu Azure Vnet'te bir sanal gerece bir karma bağlantı'dan gelen tüm trafiği iletmesi için olanak vererek GatewaySubnet uygulamak için olanağıdır.
 * **IP iletimi**. Varsayılan olarak, Azure ağ altyapısı İleri sanal ağ arabirim kartları (NIC) paketleri yalnızca NIC IP adresi paketin hedef IP adresi eşleşmesi durumunda. Bu nedenle, bir paket için belirli bir sanal gereç gönderilmelidir UDR tanımlar, Azure ağ altyapısı, paket bırakın. Paketin paket için gerçek hedef değil bir sanal makineye (Bu durumda bir sanal gereç) teslim sağlamak için sanal Gereci için IP iletimini etkinleştirmeniz gerekir.
-* **Ağ güvenlik grupları (Nsg'ler)**. Aşağıdaki örnekte Nsg'ler kullanılmaz, ancak daha fazla ve bu alt ağları ve Nıc'lere giden trafiği filtrelemek için bu çözümde alt ağlar ve/veya NIC için uygulanan Nsg kullanabilirsiniz.
+* **Ağ güvenlik grupları (Nsg'ler)** . Aşağıdaki örnekte Nsg'ler kullanılmaz, ancak daha fazla ve bu alt ağları ve Nıc'lere giden trafiği filtrelemek için bu çözümde alt ağlar ve/veya NIC için uygulanan Nsg kullanabilirsiniz.
 
 ![IPv6 bağlantısı](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 

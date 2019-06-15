@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60592163"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure sanal makinelerinde Always On kullanılabilirlik grupları oluşturmak için önkoşulları tamamlayın
@@ -75,7 +75,7 @@ Sanal ağ oluşturmak için:
    ![Yeni öğe](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/02-newiteminrg.png)
 2. Arama **sanal ağ**.
 
-     ![Sanal ağ ara](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/04-findvirtualnetwork.png)
+     ![Sanal ağ Ara](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/04-findvirtualnetwork.png)
 3. Tıklayın **sanal ağ**.
 4. Üzerinde **sanal ağ**, tıklayın **Resource Manager** dağıtım modeli ve ardından **Oluştur**.
 
@@ -85,7 +85,7 @@ Sanal ağ oluşturmak için:
    | --- | --- |
    | **Ad** |autoHAVNET |
    | **Adres alanı** |10.33.0.0/24 |
-   | **Alt ağ adı** |Yönetim Bölgesi |
+   | **Alt ağ adı** |Yönetici |
    | **Alt ağ adres aralığı** |10.33.0.0/29 |
    | **Abonelik** |Kullanmak istediğiniz aboneliği belirtin. **Abonelik** yalnızca bir aboneliğiniz varsa boştur. |
    | **Kaynak grubu** |Seçin **var olanı kullan** ve kaynak grubu adını seçin. |
@@ -115,7 +115,7 @@ Adlı bir alt ağ, yeni bir sanal ağ olan **yönetici**. Etki alanı denetleyic
    ![Sanal ağ yapılandırma](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/07-addsubnet.png)
 5. İkinci bir alt ağ oluşturun. Tıklayın **+ alt ağ**.
 6. Üzerinde **alt ağ Ekle**, yazarak alt ağ yapılandırma **sqlsubnet** altında **adı**. Azure otomatik olarak belirten bir geçerli **adres aralığı**. Bu adres aralığı en az 10 adresleri içerdiğinden emin olun. Bir üretim ortamında, daha fazla adres gerektirebilir.
-7. **Tamam** düğmesine tıklayın.
+7. **Tamam**'ı tıklatın.
 
     ![Sanal ağ yapılandırma](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/08-configuresubnet.png)
 
@@ -124,11 +124,11 @@ Ağ yapılandırması ayarları aşağıdaki tabloda özetlenmiştir:
 | **Alan** | Değer |
 | --- | --- |
 | **Ad** |**autoHAVNET** |
-| **Adres alanı** |Bu değer, aboneliğinizdeki kullanılabilir adres alanları bağlıdır. 10.0.0.0/16 tipik değeridir. |
+| **Adres alanı** |Bu değer, aboneliğinizdeki kullanılabilir adres alanları bağlıdır. 10\.0.0.0/16 tipik değeridir. |
 | **Alt ağ adı** |**Yönetici** |
-| **Alt ağ adres aralığı** |Bu değer, aboneliğinizdeki kullanılabilir adres aralıklarını bağlıdır. 10.0.0.0/24 buna tipik bir değerdir. |
+| **Alt ağ adres aralığı** |Bu değer, aboneliğinizdeki kullanılabilir adres aralıklarını bağlıdır. 10\.0.0.0/24 buna tipik bir değerdir. |
 | **Alt ağ adı** |**sqlsubnet** |
-| **Alt ağ adres aralığı** |Bu değer, aboneliğinizdeki kullanılabilir adres aralıklarını bağlıdır. 10.0.1.0/24 buna tipik bir değerdir. |
+| **Alt ağ adres aralığı** |Bu değer, aboneliğinizdeki kullanılabilir adres aralıklarını bağlıdır. 10\.0.1.0/24 buna tipik bir değerdir. |
 | **Abonelik** |Kullanmak istediğiniz aboneliği belirtin. |
 | **Kaynak Grubu** |**SQL-HA-RG** |
 | **Konum** |Kaynak grubu için seçtiğiniz aynı konumu belirtin. |
@@ -158,7 +158,7 @@ Ağ, alt ağlar, kullanılabilirlik kümeleri ve bir Internet'e yönelik Yük De
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Etki alanı denetleyicileri için sanal makineler oluşturun
 Oluşturma ve etki alanı denetleyicilerini yapılandırmak için iade **SQL-HA-RG** kaynak grubu.
 
-1. **Ekle**'ye tıklayın. 
+1. **Ekle**'yi tıklatın. 
 2. Tür **Windows Server 2016 Datacenter**.
 3. Tıklayın **Windows Server 2016 Datacenter**. İçinde **Windows Server 2016 Datacenter**, dağıtım modeli olduğundan emin olun **Resource Manager**ve ardından **Oluştur**. 
 
@@ -206,7 +206,7 @@ Aşağıdaki adımlarda, yapılandırma **ad birincil dc** corp.contoso.com etki
 1. Portalda açın **SQL-HA-RG** kaynak grubu ve select **ad birincil dc** makine. Üzerinde **ad birincil dc**, tıklayın **Connect** Uzak Masaüstü erişimi için RDP dosyasını açın.
 
     ![Sanal makineye bağlanma](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
-2. Yapılandırılmış Yönetici hesabınızla oturum açın (**\DomainAdmin**) ve parolayı (**Contoso! 0000**).
+2. Yapılandırılmış Yönetici hesabınızla oturum açın ( **\DomainAdmin**) ve parolayı (**Contoso! 0000**).
 3. Varsayılan olarak, **Sunucu Yöneticisi'ni** Pano görüntülenmesi gerekir.
 4. Tıklayın **rol ve Özellik Ekle** Panoda bağlantı.
 
@@ -221,7 +221,7 @@ Aşağıdaki adımlarda, yapılandırma **ad birincil dc** corp.contoso.com etki
 
     ![Rol iletişim kutusu Ekle](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/23-addroles.png)
 7. Tıklayın **sonraki** ulaşana kadar **onay** bölümü. Seçin **gerekirse hedef sunucuyu otomatik olarak yeniden** onay kutusu.
-8. **Yükle**'ye tıklayın.
+8. **Yükle**'ye tıklatın.
 9. Özellikleri yükleme işlemini tamamladıktan sonra dönmek **Sunucu Yöneticisi'ni** Pano.
 10. Yeni **AD DS** sol taraftaki bölmede seçeneği.
 11. Tıklayın **daha fazla** sarı uyarı çubuğundaki bağlantı.
@@ -235,7 +235,7 @@ Aşağıdaki adımlarda, yapılandırma **ad birincil dc** corp.contoso.com etki
     | **Dağıtım Yapılandırması** |**Yeni orman Ekle**<br/> **Kök etki alanı adı** corp.contoso.com = |
     | **Etki alanı denetleyicisi seçenekleri** |**DSRM parolasını** Contoso =! 0000<br/>**Parolayı onaylayın** Contoso =! 0000 |
 14. Tıklayın **sonraki** sihirbazdaki diğer sayfalarına gitmek için. Üzerinde **Önkoşul denetimi** sayfasında, aşağıdaki iletisini gördüğünüzü doğrulayın: **Tüm önkoşul denetimlerinden başarıyla geçti**. Uygulanabilir tüm uyarı iletilerini gözden geçirebilirsiniz, ancak yükleme işlemine devam etmek mümkündür.
-15. **Yükle**'ye tıklayın. **Ad birincil dc** sanal makine otomatik olarak yeniden başlatılır.
+15. **Yükle**'ye tıklatın. **Ad birincil dc** sanal makine otomatik olarak yeniden başlatılır.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Birincil etki alanı denetleyicisinin IP adresini not alın
 
@@ -371,7 +371,7 @@ Ardından, üç VM--iki SQL Server Vm'leri ve ek bir düğümü için bir VM olu
 | Sanal Makine Yapılandırması **temelleri** |**Adı** küme fsw =<br/>**Kullanıcı adı** DomainAdmin =<br/>**Parola** Contoso =! 0000<br/>**Abonelik** aboneliğinizi =<br/>**Kaynak grubu** SQL-HA-RG =<br/>**Konum** azure konumunuz = |**Adı** sqlserver-0 =<br/>**Kullanıcı adı** DomainAdmin =<br/>**Parola** Contoso =! 0000<br/>**Abonelik** aboneliğinizi =<br/>**Kaynak grubu** SQL-HA-RG =<br/>**Konum** azure konumunuz = |**Adı** sqlserver-1 =<br/>**Kullanıcı adı** DomainAdmin =<br/>**Parola** Contoso =! 0000<br/>**Abonelik** aboneliğinizi =<br/>**Kaynak grubu** SQL-HA-RG =<br/>**Konum** azure konumunuz = |
 | Sanal Makine Yapılandırması **boyutu** |**BOYUTU** DS1 =\_V2 (1 vCPU, 3,5 GB) |**BOYUTU** DS2 =\_V2 (2 Vcpu, 7 GB)</br>SSD depolama (Premium disk desteği. boyutu desteklemelidir )) |**BOYUTU** DS2 =\_V2 (2 Vcpu, 7 GB) |
 | Sanal Makine Yapılandırması **ayarları** |**Depolama**: Yönetilen diskler kullanın.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulmuş.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** = otomatik olarak oluşturulan depolama hesabı kullanın<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |**Depolama**: Yönetilen diskler kullanın.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulmuş.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** = otomatik olarak oluşturulan depolama hesabı kullanın<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |**Depolama**: Yönetilen diskler kullanın.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulmuş.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** = otomatik olarak oluşturulan depolama hesabı kullanın<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |
-| Sanal Makine Yapılandırması **SQL Server ayarları** |Uygulanamaz |**SQL Bağlantısı** özel (sanal ağ içinde) =<br/>**Bağlantı noktası** 1433 =<br/>**SQL kimlik doğrulaması** = devre dışı bırak<br/>**Depolama yapılandırması** genel =<br/>**Otomatik düzeltme eki uygulama** 2: 00'da Pazar =<br/>**Otomatik yedekleme** = devre dışı</br>**Azure Key Vault tümleştirmesi** = devre dışı |**SQL Bağlantısı** özel (sanal ağ içinde) =<br/>**Bağlantı noktası** 1433 =<br/>**SQL kimlik doğrulaması** = devre dışı bırak<br/>**Depolama yapılandırması** genel =<br/>**Otomatik düzeltme eki uygulama** 2: 00'da Pazar =<br/>**Otomatik yedekleme** = devre dışı</br>**Azure Key Vault tümleştirmesi** = devre dışı |
+| Sanal Makine Yapılandırması **SQL Server ayarları** |Geçerli değil |**SQL Bağlantısı** özel (sanal ağ içinde) =<br/>**Bağlantı noktası** 1433 =<br/>**SQL kimlik doğrulaması** = devre dışı bırak<br/>**Depolama yapılandırması** genel =<br/>**Otomatik düzeltme eki uygulama** 2: 00'da Pazar =<br/>**Otomatik yedekleme** = devre dışı</br>**Azure Key Vault tümleştirmesi** = devre dışı |**SQL Bağlantısı** özel (sanal ağ içinde) =<br/>**Bağlantı noktası** 1433 =<br/>**SQL kimlik doğrulaması** = devre dışı bırak<br/>**Depolama yapılandırması** genel =<br/>**Otomatik düzeltme eki uygulama** 2: 00'da Pazar =<br/>**Otomatik yedekleme** = devre dışı</br>**Azure Key Vault tümleştirmesi** = devre dışı |
 
 <br/>
 
@@ -390,7 +390,7 @@ Artık Vm'lere katılamayacak **corp.contoso.com**. SQL Server Vm'leri ve dosya 
 2. İçinde **Sunucu Yöneticisi'ni**, tıklayın **yerel sunucu**.
 3. Tıklayın **çalışma grubu** bağlantı.
 4. İçinde **bilgisayar adı** bölümünde **değişiklik**.
-5. Seçin **etki alanı** onay kutusunu ve türü **corp.contoso.com** metin kutusuna. **Tamam** düğmesine tıklayın.
+5. Seçin **etki alanı** onay kutusunu ve türü **corp.contoso.com** metin kutusuna. **Tamam**'ı tıklatın.
 6. İçinde **Windows Güvenlik** açılan iletişim kutusunda, varsayılan etki alanı yönetici hesabı için kimlik bilgilerini belirtin (**CORP\DomainAdmin**) ve parolayı (**Contoso! 0000**) .
 7. "Corp.contoso.com etki alanına Hoş Geldiniz" ileti gördüğünüzde tıklayın **Tamam**.
 8. Tıklayın **Kapat**ve ardından **şimdi yeniden Başlat** açılan iletişim kutusunda.
@@ -444,7 +444,7 @@ Kullanılabilirlik grubunu yapılandırmak için (CORP\install) yükleme hesabı
 
 1. Bir üyesi olarak oturum ayarlanmış **sysadmin** sabit sunucu rolü.
 
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**'ı tıklatın.
 
 Bir SQL Server VM önceki adımları tekrarlayın.
 

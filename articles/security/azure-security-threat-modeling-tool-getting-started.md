@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610819"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Tehdit modelleme aracı ile çalışmaya başlama
 
-Microsoft tehdit modelleme aracı 2018 GA Eylül 2018'de ücretsiz yayımlanan  **[tıklatın indirme](https://aka.ms/threatmodelingtool)**. Teslim mekanizması değişiklik müşteriler için en son geliştirmeleri ve hata düzeltmeleri, Bakımı ve kullanımı kolay duruma aracın her açtığınızda anında iletme olanak sağlıyor.
+Microsoft tehdit modelleme aracı 2018 GA Eylül 2018'de ücretsiz yayımlanan  **[tıklatın indirme](https://aka.ms/threatmodelingtool)** . Teslim mekanizması değişiklik müşteriler için en son geliştirmeleri ve hata düzeltmeleri, Bakımı ve kullanımı kolay duruma aracın her açtığınızda anında iletme olanak sağlıyor.
 Bu makalede, Microsoft SDL tehdit modelleme yaklaşımı ile çalışmaya başlama işlemi boyunca size yol gösterir ve aracının güvenlik işleminin temel öğesi olarak harika tehdit modelleri geliştirmek için nasıl kullanılacağını gösterir.
 
 Bu makalede, var olan modelleme yaklaşımı SDL tehdit bilgisi üzerinde oluşturur. Hızlı bir inceleme için başvurmak **[tehdit modelleme Web uygulamaları](https://msdn.microsoft.com/library/ms978516.aspx)** ve arşivlenmiş bir sürümünü **[ortaya çıkarmaya güvenlik açıkları kullanarak adım yaklaşım](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN makalesi, 2006'yayımladı.
@@ -79,14 +79,14 @@ Bunlar, ilk tehdit modeli geliştirme sürecinde oluşturacaksınız.
 > - Web Sunucumuz komutları gönderiyorsanız — daire
 > - Web sunucusu, bir veritabanı (paralel satırlarını) danışmanlığı
 
-Hangi Ricardo Cristina yalnızca gösterdi VAD, kısaltması olduğundan  **[veri akış diyagramı](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Tehdit modelleme aracı kırmızı noktalı farklı varlıklar denetiminde nerede göstermek için satırlar tarafından belirtilen güven sınırları belirtme olanağı sağlar. Örneğin, Active Directory denetimi dışında bu nedenle BT yöneticilerinin kimlik doğrulama amacıyla bir Active Directory sistemi gerektirir.
+Hangi Ricardo Cristina yalnızca gösterdi VAD, kısaltması olduğundan  **[veri akış diyagramı](https://en.wikipedia.org/wiki/Data_flow_diagram)** . Tehdit modelleme aracı kırmızı noktalı farklı varlıklar denetiminde nerede göstermek için satırlar tarafından belirtilen güven sınırları belirtme olanağı sağlar. Örneğin, Active Directory denetimi dışında bu nedenle BT yöneticilerinin kimlik doğrulama amacıyla bir Active Directory sistemi gerektirir.
 
 > Cristina: Benim için en uygun arar. Tehditler hakkında neler diyeceksiniz?
 > Ricardo: Size göstermek istiyorum.
 
 ## <a name="analyzing-threats"></a>Tehditleri çözümleme
 
-Adlandırılan SDL yaklaşım kullanan simgesi menü seçimini (kendisi için varsayılan şablonu temel alan bir listesi oluşturulan tehditleri tehdit modelleme aracı bulunamadı alınır dosyasıyla Büyüteç) analiz görünümünden tıklatır sonra  **[ (Kimlik sahtekarlığı, kurcalama, bilgi İfşası, Red, hizmet reddi ve ayrıcalıkların) STRIDE](https://en.wikipedia.org/wiki/STRIDE_(security))**. Yazılım tahmin edilebilir bir 6 kategorilerine kullanarak bulunan tehditleri kümesi altında geldiğini olur.
+Adlandırılan SDL yaklaşım kullanan simgesi menü seçimini (kendisi için varsayılan şablonu temel alan bir listesi oluşturulan tehditleri tehdit modelleme aracı bulunamadı alınır dosyasıyla Büyüteç) analiz görünümünden tıklatır sonra  **[ (Kimlik sahtekarlığı, kurcalama, bilgi İfşası, Red, hizmet reddi ve ayrıcalıkların) STRIDE](https://en.wikipedia.org/wiki/STRIDE_(security))** . Yazılım tahmin edilebilir bir 6 kategorilerine kullanarak bulunan tehditleri kümesi altında geldiğini olur.
 
 Bu yaklaşım, her kapı ve pencere sağlayarak evinizde güvenli hale getirme kilitleme mekanizması bir alarm sistemi ekleme veya arama sonra hırsız önce var gibidir.
 
