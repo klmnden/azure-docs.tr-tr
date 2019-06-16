@@ -9,7 +9,7 @@ metadata:
   ms.author: hrasheed
   ms.service: hdinsight
   ms.topic: landing-page
-  ms.date: 03/26/2019
+  ms.date: 06/13/2019
 abstract:
   description: 'Azure HDInsight’ı kullanarak akışı veya geçmiş verileri nasıl çözümleyebileceğinizi öğrenin. Küme oluşturma, büyük verileri işleme ve çözümleme ile Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm ve Microsoft Machine Learning Server gibi birçok diğer popüler açık kaynak altyapılarını kullanarak çözüm geliştirme konularında bilgi edinmek için öğreticilere ve diğer belgelere başvurabilirsiniz.<p>Azure HDInsight kuruluşlara yönelik, yönetilen, tam spektrumlu ve açık kaynaklı bir analiz hizmetidir. HDInsight, devasa miktarlardaki verileri işlemeyi kolay, hızlı ve uygun maliyetli hale getiren bir bulut hizmetidir. HDInsight ayıklama, dönüştürme ve yükleme (ETL), veri ambarı, makine öğrenmesi ve Nesnelerin İnterneti (IoT) gibi diğer senaryoları da destekler.</p>'
   aside:
