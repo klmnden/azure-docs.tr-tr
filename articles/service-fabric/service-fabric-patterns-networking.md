@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 456eac4a8d3a6cb8cbaca13ad4e4f3b2ae0309bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110241"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125606"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric ağ desenleri
 Azure Service Fabric kümenizi Azure diğer ağ özelliklerini tümleştirebilirsiniz. Bu makalede, biz, aşağıdaki özellikleri kullanırsınız kümeleri oluşturma işlemini gösterir:
@@ -268,7 +268,7 @@ Başka bir örnek için bkz: [, Service Fabric'e özgü değildir](https://githu
                     ],
     ```
 
-7. İçinde `Microsoft.ServiceFabric/clusters` kaynak, değişiklik `managementEndpoint` statik IP adresini DNS FQDN'sine. Güvenli bir küme kullanıyorsanız, değiştirdiğiniz emin *http://* için *https://*. (Bu adım yalnızca Service Fabric kümeleri için geçerli olduğunu unutmayın. Bir sanal makine ölçek kümesi kullanıyorsanız, bu adımı atlayın.)
+7. İçinde `Microsoft.ServiceFabric/clusters` kaynak, değişiklik `managementEndpoint` statik IP adresini DNS FQDN'sine. Güvenli bir küme kullanıyorsanız, değiştirdiğiniz emin *http://* için *https://* . (Bu adım yalnızca Service Fabric kümeleri için geçerli olduğunu unutmayın. Bir sanal makine ölçek kümesi kullanıyorsanız, bu adımı atlayın.)
 
     ```json
                     "fabricSettings": [],
@@ -370,7 +370,7 @@ Bu senaryo, bir yalnızca iç yük dengeleyiciyle varsayılan Service Fabric şa
                     ],
     ```
 
-6. İçinde `Microsoft.ServiceFabric/clusters` kaynak, değişiklik `managementEndpoint` iç yük dengeleyici adresine yönlendirin. Güvenli bir küme kullanıyorsanız, değiştirdiğiniz unutmayın *http://* için *https://*. (Bu adım yalnızca Service Fabric kümeleri için geçerli olduğunu unutmayın. Bir sanal makine ölçek kümesi kullanıyorsanız, bu adımı atlayın.)
+6. İçinde `Microsoft.ServiceFabric/clusters` kaynak, değişiklik `managementEndpoint` iç yük dengeleyici adresine yönlendirin. Güvenli bir küme kullanıyorsanız, değiştirdiğiniz unutmayın *http://* için *https://* . (Bu adım yalnızca Service Fabric kümeleri için geçerli olduğunu unutmayın. Bir sanal makine ölçek kümesi kullanıyorsanız, bu adımı atlayın.)
 
     ```json
                     "fabricSettings": [],
@@ -606,10 +606,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
 Dağıtımdan sonra kaynak grubunda iki yük Dengeleyiciler görebilirsiniz. Yük Dengeleyiciler göz atarsanız, genel bir IP adresi atanmış genel IP adresi ve yönetim uç noktalarını (bağlantı noktaları 19000 ve 19080) görebilirsiniz. İç yük dengeleyiciye atanan statik iç IP adresi ve uygulama uç noktası (bağlantı noktası 80) de görebilirsiniz. Her iki yük Dengeleyiciler, aynı sanal makine ölçek kümesi arka uç havuzunu kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Küme oluşturma](service-fabric-cluster-creation-via-arm.md) ternalLB.json
-    ```
+[Küme oluşturma](service-fabric-cluster-creation-via-arm.md)
 
 Dağıtımdan sonra kaynak grubunda iki yük Dengeleyiciler görebilirsiniz. Yük Dengeleyiciler göz atarsanız, genel bir IP adresi atanmış genel IP adresi ve yönetim uç noktalarını (bağlantı noktaları 19000 ve 19080) görebilirsiniz. İç yük dengeleyiciye atanan statik iç IP adresi ve uygulama uç noktası (bağlantı noktası 80) de görebilirsiniz. Her iki yük Dengeleyiciler, aynı sanal makine ölçek kümesi arka uç havuzunu kullanın.
 
-## <a name="next-steps"></a>Sonraki adımlar
-[Küme oluşturma](service-fabric-cluster-creation-via-arm.md)

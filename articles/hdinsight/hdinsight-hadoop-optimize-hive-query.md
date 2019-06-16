@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 1610678b0ae1d94c3f3b8f91913beceb211d08d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7d26d4c924ba2b7116b95e0b396652e49ca1b8f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701694"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059392"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight, Apache Hive sorgularını en iyi duruma getirme
 
@@ -39,7 +39,7 @@ HDInsight'ı ölçeklendirme hakkında daha fazla bilgi için bkz. [ölçek HDIn
 
 ## <a name="use-apache-tez-instead-of-map-reduce"></a>Map Reduce yerine Apache Tez kullanma
 
-[Apache Tez](https://hortonworks.com/hadoop/tez/) MapReduce motorunun alternatif bir yürütme altyapısıdır. Linux tabanlı HDInsight kümeleri varsayılan olarak etkin Tez vardır.
+[Apache Tez](https://tez.apache.org/) MapReduce motorunun alternatif bir yürütme altyapısıdır. Linux tabanlı HDInsight kümeleri varsayılan olarak etkin Tez vardır.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -51,7 +51,7 @@ Tez olduğundan daha hızlıdır:
 * **Kapsayıcıları yeniden**. Her olası Tez kapsayıcıları başlatılıyor nedeniyle gecikme süresi azalır emin olmak için kapsayıcıları yeniden kullanabilirsiniz.
 * **Sürekli iyileştirme teknikleri**. Geleneksel olarak iyileştirme derleme aşaması boyunca yapıldı. Girişleri hakkında daha fazla bilgi mevcuttur ancak, çalışma zamanı sırasında daha fazla iyileştirilmesi sağlar. Tez planı daha fazla çalışma zamanı aşamasına iyileştirmek izin sürekli iyileştirme teknikleri kullanır.
 
-Bu kavramlarla ilgili daha fazla bilgi için bkz. [Apache TEZ](https://hortonworks.com/hadoop/tez/).
+Bu kavramlarla ilgili daha fazla bilgi için bkz. [Apache TEZ](https://tez.apache.org/).
 
 Herhangi bir Hive sorgusu Tez sorgu kümesi aşağıdaki komutu ekleyerek etkin hale getirebilirsiniz:
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6741cf58208e972c85d41f2fa657e7dd82cc4f2b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b58a315cc2eed91162f19edd5c175d71cc7c4f3c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900217"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Öğretici: Degreed ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Degreed tümleştirmesini yapılandırmak için Degreed Galeriden y�
 
 **Galeriden Degreed eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

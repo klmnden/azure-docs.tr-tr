@@ -16,10 +16,10 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 0d7d4af46e54ad89e0d084cb15af13e56115e996
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60765320"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>App Service Ortamlarının Ağ Mimarisine Genel Bakış
@@ -68,7 +68,7 @@ Aşağıdaki diyagram bu kavramları daha ayrıntılı olarak gösterilmiştir:
 Yukarıdaki diyagramda:
 
 * App Service ortamı, genel VIP 192.23.1.2 olduğundan, "Internet" uç noktalarına çağrı yapılırken kullanılan giden IP adresidir.
-* 10.0.1.0/26 için App Service ortamını içeren alt ağın CIDR aralığı.  Diğer uç noktalar aynı sanal ağ alt yapısında uygulamalardan gelen çağrıları yere bu adres aralığında kaynaklanan olarak görürsünüz.
+* 10\.0.1.0/26 için App Service ortamını içeren alt ağın CIDR aralığı.  Diğer uç noktalar aynı sanal ağ alt yapısında uygulamalardan gelen çağrıları yere bu adres aralığında kaynaklanan olarak görürsünüz.
 
 ## <a name="calls-between-app-service-environments"></a>App Service ortamları arasında çağrıları
 Daha karmaşık bir senaryo, aynı sanal ağda birden fazla App Service ortamlarında dağıtmak ve başka bir App Service ortamı için bir App Service ortamından giden çağrıları yapmak ortaya çıkabilir.  Bu tür alanları arası App Service ortamı çağrılar da "Internet" çağrısı olarak kabul edilir.

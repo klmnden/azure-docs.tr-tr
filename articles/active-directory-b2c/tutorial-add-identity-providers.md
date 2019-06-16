@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ceae908b37c825721a42c49db4503382eb35c71c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66512205"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055088"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Öğretici: Kimlik sağlayıcıları Azure Active Directory B2C uygulamalarınızın ekleyin
 
@@ -46,7 +46,7 @@ Azure ad kullanıcıları için oturum açma etkinleştirmek için uygulamanın 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Azure AD kiracınıza tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve Azure AD kiracınıza içeren dizine seçme.
-3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **uygulama kayıtları**.
+3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **uygulama kayıtları (eski)** .
 4. **Yeni uygulama kaydı**’nı seçin.
 5. Uygulamanız için bir ad girin. Örneğin, `Azure AD B2C App`.
 6. İçin **uygulama türü**seçin `Web app / API`.
@@ -106,7 +106,7 @@ Eklemek istediğiniz kimlik sağlayıcısı için uygulamayı oluşturduktan son
     Örneğin, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
 8. İçin **istemci kimliği**, daha önce kaydettiğiniz uygulama Kimliğini girin ve **gizli**, daha önce kaydettiğiniz anahtarı değerini girin.
-9. İsteğe bağlı olarak, bir değer girin **Domain_hint**. Örneğin, `ContosoAD`. 
+9. İsteğe bağlı olarak, bir değer girin **Domain_hint**. Örneğin, `ContosoAD`. Etki alanı ipuçları (https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) uygulamadan kimlik doğrulama isteği bulunan yönergeleri. Kullanıcının kendi Federasyon Idp'nin oturum açma sayfasına hızlandırmak için kullanılabilir. Veya çok kiracılı bir uygulama tarafından kullanıcı doğrudan markalı hızlandırmak için kullanılabilmesi için kendi Kiracı için Azure AD oturum açma sayfası.
 10. **Tamam**'ı tıklatın.
 11. Seçin **bu kimlik sağlayıcısının taleplerini Eşle** ve aşağıdaki talep ayarlayın:
     

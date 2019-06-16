@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65471776"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure tanılama sorunlarını giderme
 Bu makalede, Azure Tanılama'yı kullanarak ilgili sorun giderme bilgileri açıklar. Azure Tanılama hakkında daha fazla bilgi için bkz: [Azure tanılama genel bakış](diagnostics-extension-overview.md).
 
 ## <a name="logical-components"></a>Mantıksal bileşenler
-**Tanılama eklentisi Başlatıcısı (DiagnosticsPluginLauncher.exe)**: Azure tanılama uzantısını başlatır. Noktası işleminin giriş olarak görev yapar.
+**Tanılama eklentisi Başlatıcısı (DiagnosticsPluginLauncher.exe)** : Azure tanılama uzantısını başlatır. Noktası işleminin giriş olarak görev yapar.
 
-**Tanılama Eklentisi (DiagnosticsPlugin.exe)**: Yapılandırır, başlatır ve İzleme Aracısı'nın ömrü yönetir. Bu başlatıcı tarafından başlatılan ana işlemidir.
+**Tanılama Eklentisi (DiagnosticsPlugin.exe)** : Yapılandırır, başlatır ve İzleme Aracısı'nın ömrü yönetir. Bu başlatıcı tarafından başlatılan ana işlemidir.
 
-**İzleme Aracısı (MonAgent\*.exe işlemleri)**: İzler, toplar ve Tanılama verileri aktarır.  
+**İzleme Aracısı (MonAgent\*.exe işlemleri)** : İzler, toplar ve Tanılama verileri aktarır.  
 
 ## <a name="logartifact-paths"></a>Günlük/yapıt yolları
 Bazı önemli günlükleri ve yapıtları yolları aşağıda verilmiştir. Belgenin geri kalanında bu bilgileri diyoruz.
 
-### <a name="azure-cloud-services"></a>Azure Cloud Services
-| Yapay Nesne | `Path` |
+### <a name="azure-cloud-services"></a>Azure bulut Hizmetleri
+| Yapıt | `Path` |
 | --- | --- |
 | **Azure tanılama yapılandırma dosyası** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Günlük dosyaları** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ Bazı önemli günlükleri ve yapıtları yolları aşağıda verilmiştir. Belg
 | **MonAgentHost günlük dosyası** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Sanal makineler
-| Yapay Nesne | `Path` |
+| Yapıt | `Path` |
 | --- | --- |
 | **Azure tanılama yapılandırma dosyası** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Günlük dosyaları** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -96,7 +96,7 @@ Görürseniz bir **negatif** çıkış kodu, başvurmak [çıkış kodu tablosun
 ## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Tanılama verileri Azure Depolama'ya günlüğe kaydedilmez
 Verilerin hiçbiri görüntülenmesini veya bazı verilerin görüntülenmesini belirleyin.
 
-### <a name="diagnostics-infrastructure-logs"></a>Tanılama altyapı günlükleri
+### <a name="diagnostics-infrastructure-logs"></a>Tanılama Altyapısı günlükleri
 Tanılama Tanılama Altyapısı günlükleri tüm hataları kaydeder. Etkinleştirdiğinizden emin olun [yakalama Tanılama Altyapısı günlükleri yapılandırmanızda](#how-to-check-diagnostics-extension-configuration). Görünen ilgili hataları hızlıca arayabilirsiniz sonra `DiagnosticInfrastructureLogsTable` yapılandırılmış depolama hesabınızda tablo.
 
 ### <a name="no-data-is-appearing"></a>Hiçbir veri görünmesini

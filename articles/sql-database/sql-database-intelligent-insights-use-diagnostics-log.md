@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703175"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent ınsights'ı Azure SQL veritabanı performans tanılama günlüğünü kullanma
@@ -81,11 +81,11 @@ Algılanan performans sorunu tanılamada yüzdelik ayrıntıları günlük dosya
 | Kaynak sınırlarını ulaşma | <li>Etkilenen kaynaklar</li><li>Sorgu karmaları</li><li>Kaynak tüketimi yüzdesi</li> |
 | İş yükü artışı | <li>Yürütme artan sorgu sayısı</li><li>Karma sorgu iş yükü artırmak için en büyük katkı ile sorgulama</li> |
 | Bellek baskısı | <li>Bellek yazıcısı</li> |
-| Kilitleniyor | <li>Etkilenen sorgu karmaları</li><li>Sorgu karma engelleme</li> |
+| Kilitleme | <li>Etkilenen sorgu karmaları</li><li>Sorgu karma engelleme</li> |
 | Artan MAXDOP | <li>Sorgu karmaları</li><li>CXP bekleme süreleri</li><li>Kez bekleyin</li> |
 | Pagelatch çakışması | <li>Çekişme neden sorguların karmaları sorgulama</li> |
 | Dizini yok | <li>Sorgu karmaları</li> |
-| Yeni Sorgu | <li>Sorgu karması yeni sorgu</li> |
+| Yeni sorgu | <li>Sorgu karması yeni sorgu</li> |
 | Olağan dışı bekleme istatistikleri | <li>Olağan dışı bekleme türleri</li><li>Sorgu karmaları</li><li>Sorgu bekleme süresini</li> |
 | TempDB çakışması | <li>Çekişme neden sorguların karmaları sorgulama</li><li>Sorgu attribution genel veritabanı pagelatch Çekişme bekleme süresi [%] için</li> |
 | Elastik havuz DTU eksik | <li>Elastik havuz</li><li>Üst veritabanı DTU kullanma</li><li>Havuz DTU üst tüketici tarafından kullanılan yüzdesi</li> |
@@ -94,7 +94,7 @@ Algılanan performans sorunu tanılamada yüzdelik ayrıntıları günlük dosya
 | Yavaş istemci | <li>Sorgu karmaları</li><li>Kez bekleyin</li> |
 | Fiyatlandırma katmanı düşürme | <li>Metin bildirimi</li> |
 
-### <a name="impact"></a>Etki
+### <a name="impact"></a>Etkisi
 
 Etki (etkisi özelliği için bir veritabanı olan sorunu algılanan davranış ne kadar katkıda tanımlar). Aralık 1-3, en büyük katkıyı yapan olarak 3, 2, Orta olarak ve 1, en düşük katkı etkiler. Etkisi değeri gereksinimlerinize bağlı olarak özel uyarı Otomasyon için bir giriş olarak kullanılabilir. Özellik sorgularına etkilenen (QueryHashes) belirli bir saptama tarafından etkilenen karmaları sorgu listesini sağlar.
 

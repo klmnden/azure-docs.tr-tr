@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414962"
+ms.locfileid: "67113483"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory ile esnek erişim denetimi yönetim stratejisi oluşturma
 
@@ -37,7 +37,7 @@ Bu belge, bir kuruluş stratejileri hakkında yönergeler aşağıdaki senaryola
 Bu belgede dört önemli dersler şunlardır:
 
 * Acil Durum erişim hesapları'nı kullanarak yönetici kilitleme kaçının.
-* MFA, koşullu erişim (CA) yerine kullanıcı başına mfa'yı kullanarak uygulayın.
+* Kullanıcı başına MFA yerine MFA, koşullu erişim (CA) kullanarak uygulayın.
 * Kullanıcı kilitlemesi birden çok koşullu erişim (CA) denetimlerini kullanarak azaltın.
 * Kullanıcı kilitlemesi birden çok kimlik doğrulama yöntemleri veya her kullanıcının eşdeğerleri sağlayarak azaltın.
 
@@ -109,7 +109,7 @@ Bir kesinti sırasında maruz kalma riskinizi anlama riskini azaltmaya yardımc�
 
 #### <a name="microsoft-recommendations"></a>Microsoft önerileri
 
-Bir yedek koşullu erişim ilkesi bir **ilke devre dışı** , Azure MFA'yı üçüncü taraf MFA, risk veya cihaz tabanlı denetimler atlar. Ardından, yedek planınızı etkinleştirmek, kuruluşunuzun karar verdiğinde, yöneticiler ilkesini etkinleştirmek ve normal denetim tabanlı ilkeler devre dışı bırakın.
+Yedek bir koşullu erişim ilkesi bir **ilke devre dışı** , Azure MFA'yı üçüncü taraf MFA, risk veya cihaz tabanlı denetimler atlar. Ardından, yedek planınızı etkinleştirmek, kuruluşunuzun karar verdiğinde, yöneticiler ilkesini etkinleştirmek ve normal denetim tabanlı ilkeler devre dışı bırakın.
 
 >[!IMPORTANT]
 > Yedek planı kullanımdayken kullanıcılarınızın güvenliği zorla ilkelerini devre dışı bırakma, güvenlik duruşunuzu bile geçici olarak azaltır.

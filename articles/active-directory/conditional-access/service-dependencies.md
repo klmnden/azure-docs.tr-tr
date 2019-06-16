@@ -1,8 +1,8 @@
 ---
-title: Azure Active Directory koşullu erişim Hizmet bağımlılıkları nelerdir? | Microsoft Docs
+title: Azure Active Directory koşullu erişim Hizmet bağımlılıklarını nelerdir? | Microsoft Docs
 description: Koşul bir ilkeyi tetiklemek için Azure Active Directory koşullu erişim nasıl kullanıldığı hakkında bilgi edinin.
 services: active-directory
-keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
+keywords: Koşullu erişim uygulamalara, Azure AD koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim ile koşullu erişim
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,14 +18,14 @@ ms.date: 03/18/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f727fc7133ebc9ee124e63253e8a266862b0d908
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 54e5de5fdb03cfaff4d4ed53da94b512f30db58a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60354378"
+ms.locfileid: "67112089"
 ---
-# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim Hizmet bağımlılıkları nelerdir? 
+# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim Hizmet bağımlılıklarını nelerdir? 
 
 
 Koşullu erişim ilkeleriyle birlikte, Web siteleri ve Hizmetleri için erişim gereksinimleri belirtebilirsiniz. Örneğin, erişim gereksinimlerinizi multi factor authentication (MFA) gerektirme içerebilir veya [yönetilen cihazlar](require-managed-devices.md). 

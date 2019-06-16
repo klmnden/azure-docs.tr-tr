@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5d10562a70b7d37908bc272bf555fd967831009
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477560"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076986"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler'de SQL Server için Güvenlikle İlgili Dikkat Edilmesi Gerekenler
 
@@ -42,7 +42,7 @@ Aşağıdaki bölümlerde, düşünme şu noktaları aracılığıyla hakkında 
 
 ## <a name="secure-connections"></a>Güvenli bağlantılar
 
-Bir galeri görüntüsü ile bir SQL Server sanal makinesi oluşturduğunuzda **SQL Server bağlantısı** seçeneği, size, tercih ettiğiniz **yerel (VM)**, **özel (sanal ağ içinde)**, veya **genel (Internet)**.
+Bir galeri görüntüsü ile bir SQL Server sanal makinesi oluşturduğunuzda **SQL Server bağlantısı** seçeneği, size, tercih ettiğiniz **yerel (VM)** , **özel (sanal ağ içinde)** , veya **genel (Internet)** .
 
 ![SQL Server bağlantısı](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
@@ -62,9 +62,11 @@ Son olarak, şifrelenmiş bağlantılar, Azure sanal makinesinde SQL Server veri
 
 Varsayılan olarak, SQL Server 1433 iyi bilinen bir bağlantı noktasında dinler. Daha fazla güvenlik için SQL Server'ın 1401 gibi varsayılan olmayan bir bağlantı noktası dinleyecek şekilde yapılandırın. Azure portalında bir SQL Server galeri görüntüsü sağlarsanız, bu bağlantı noktası belirtebilirsiniz **SQL Server ayarları** dikey penceresi.
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 Sağladıktan sonra bu yapılandırma için iki seçeneğiniz vardır:
 
-- Resource Manager Vm'leri için seçtiğiniz **SQL Server Yapılandırması** VM genel bakış dikey penceresinden. Bu bağlantı noktasını değiştirmek için bir seçenek sağlar.
+- Resource Manager Vm'leri için seçtiğiniz **güvenlik** gelen [SQL sanal makineleri kaynak](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource). Bu bağlantı noktasını değiştirmek için bir seçenek sağlar.
 
   ![TCP bağlantı noktası portalında değiştirin](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 

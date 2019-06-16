@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: b1e952d9af474e2318ef91a6bdcc2605a3c30018
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af6cec22ae455e6a6ead4c45fead2d7ff5b708d2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702337"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070502"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Denetleme ve SQL veritabanı ve SQL veri ambarı veritabanına erişim izni verme
 
@@ -64,7 +64,7 @@ Sunucu düzeyinde güvenlik duvarı tek bir IP adresi veya aralığı için yap�
 
 Sunucu düzeyi güvenlik duvarı doğru şekilde yapılandırıldığında **SQL sunucu yöneticisi** ve **Azure Active Directory yöneticisi**, SQL Server Management Studio veya SQL Server Veri Araçları gibi istemci araçlarını kullanarak bağlantı kurabilir. Tüm özellikler ve yetenekler yalnızca en güncel araçlar tarafından sunulur. Aşağıdaki şemada iki yönetici hesabı için tipik yapılandırma gösterilmektedir.
 
-![Yönetici erişim yolu](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+![iki Yönetim hesaplarını yapılandırma](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
 Yöneticiler, sunucu düzeyi güvenlik duvarındaki açık bağlantı noktalarından birini kullanarak tüm SQL Veritabanlarına bağlanabilir.
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: bwren
 ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425948"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Görüntüleme ve Azure İzleyici'de günlük verilerini analiz etme
@@ -48,14 +48,14 @@ Aşağıdaki seçenekler henüz Log Analytics kaynak görünümü kullanılamaz:
 
 - Kaydet
 - Uyarı ayarlama
-- Sorgu gezgini
+- Sorgu Gezgini
 - Farklı çalışma / (şu anda değil planlanmış) kaynak için değiştirme
 
 
 ## <a name="firewall-requirements"></a>Güvenlik duvarı gereksinimleri
 Tarayıcınız Log Analytics'e erişmek için aşağıdaki adresi erişim gerektirir.  Tarayıcınız Azure portalında bir güvenlik duvarı üzerinden erişiyorsanız, bu adresleri erişimi etkinleştirmeniz gerekir.
 
-| Uri | IP | Bağlantı Noktaları |
+| URI | IP | Bağlantı Noktaları |
 |:---|:---|:---|
 | portal.loganalytics.io | Dinamik | 80,443 |
 | api.loganalytics.io    | Dinamik | 80,443 |

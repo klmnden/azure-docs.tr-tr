@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a054274da0c83fa5f079e05a1c648c1fc693fd7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2bc3de858102c02d49a7cefeef15de7e1c82220e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Öğretici: BambooHR ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de BambooHR tümleştirmesini yapılandırmak için BambooHR Galeriden 
 
 **Galeriden BambooHR eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

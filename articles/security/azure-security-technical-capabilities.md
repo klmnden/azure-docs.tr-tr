@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 2dad1caeba8a0417b7ac16ebaa45f4f291f54495
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: c28c87339bbfda7cc47e329c8fe6cebdee4a7843
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480717"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127182"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikler
 Bu makalede bir tanıtım sunulmaktadır güvenlik yardımcı olan Azure Hizmetleri veri kaynakları ve uygulamalarını bulutta koruyun ve işletmenizi güvenlik ihtiyaçlarını.
@@ -124,9 +124,9 @@ Azure Active Directory B2C kullandığınızda tüketicileriniz uygulamalarını
 
 #### <a name="device-registration"></a>Cihaz kaydı
 
-[Azure AD cihaz kaydı](https://docs.microsoft.com/azure/active-directory/device-management-introduction) temelidir cihaz tabanlı [koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) senaryoları. Bir cihaz kaydedildiğinde Azure AD cihaz kaydı, cihaza kullanıcı oturum açtığında cihazın kimliğini doğrulamak için kullanılan kimliği sağlar. Kimliği doğrulanmış cihaz ve cihaz öznitelikleri böylece bulutta ve şirket içinde barındırılan uygulamalar için koşullu erişim ilkelerini zorlamak üzere kullanılabilir.
+[Azure AD cihaz kaydı](https://docs.microsoft.com/azure/active-directory/device-management-introduction) temelidir cihaz tabanlı [koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) senaryoları. Bir cihaz kaydedildiğinde Azure AD cihaz kaydı, cihaza kullanıcı oturum açtığında cihazın kimliğini doğrulamak için kullanılan kimliği sağlar. Kimliği doğrulanmış cihaz ve cihaz öznitelikleri sonra Bulut ve şirket içi barındırılan uygulamalar için koşullu erişim ilkelerini zorlamak üzere kullanılabilir.
 
-İle birlikte kullanıldığında bir [mobil cihaz Yönetimi (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) çözüm gibi Intune, Azure Active Directory'deki cihaz öznitelikleri cihaz hakkındaki ek bilgilerle güncelleştirilir. Bu durum, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak için cihazlardan erişimi zorlayan koşullu erişim kuralları oluşturmanıza olanak sağlar.
+İle birlikte kullanıldığında bir [mobil cihaz Yönetimi (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) çözüm gibi Intune, Azure Active Directory'deki cihaz öznitelikleri cihaz hakkındaki ek bilgilerle güncelleştirilir. Bu, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak için cihazlardan erişimi zorlayan koşullu erişim kuralları oluşturmanıza olanak sağlar.
 
 #### <a name="privileged-identity-management"></a>Ayrıcalıklı kimlik yönetimi
 

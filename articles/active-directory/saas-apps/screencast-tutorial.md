@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 836ef454e5bdb14fcc3f519f9c6d9f6dfb4b5703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73a29e106424fe87596bf196c16e9ea190da2d72
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686307"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Öğretici: Yayını-O-Matic ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Yayını-O-Matic, Azure AD'de tümleştirmesini yapılandırmak için ekran kayd
 
 **Yayını-O-Matic Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -148,7 +148,7 @@ Azure AD çoklu oturum açma yayını-O-Matic ile yapılandırmak için aşağı
 
    * Altında **IDP meta veri XML dosyasını karşıya yükle**, tıklayın **Dosya Seç** Azure portalından indirdiğiniz metaveri yüklenecek.
 
-   * **Tamam** düğmesine tıklayın.
+   * **Tamam**'ı tıklatın.
 
     ![Erişim](./media/screencast-tutorial/tutorial_screencast_save.png)
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
 ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471970"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Azure Service Bus ile sanal ağ hizmet uç noktaları kullanma
@@ -40,7 +40,7 @@ Sonuç, alt ağ ve ilgili Service Bus ad alanı, Mesajlaşma Hizmeti uç noktas�
 > - Azure Veri Gezgini
 >
 > Microsoft Hizmetleri bir sanal ağda olması gerekir
-> - Azure App Service
+> - Azure uygulama hizmeti
 > - Azure İşlevleri
 
 > [!IMPORTANT]
@@ -79,7 +79,7 @@ Aşağıdaki Resource Manager şablonu var olan bir Service Bus ad alanı için 
 > Olası hiçbir Reddet kural varken, Azure Resource Manager şablonu ayarlanmış varsayılan eylem sahip **"İzin ver"** hangi bağlantıları kısıtlama yoktur.
 > Sanal ağ veya güvenlik duvarı kuralları yaparken, ki değiştirmeli ***"Defaultactıon"***
 > 
-> başlangıç
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```

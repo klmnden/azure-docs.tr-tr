@@ -12,16 +12,16 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb26a5056ba4cec14218af70f1561c17e637102c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 16a2438133f545c57d1046a0c4db94135f8a426d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813113"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113193"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Öğretici: B2B Konuk kullanıcıları için multi-Factor authentication yürürlüğe
 
-Şirket dışından B2B konuk kullanıcılarıyla işbirliği yaparken, uygulamalarınızı çok faktörlü kimlik doğrulaması (MFA) ilkeleriyle korumak iyi bir fikirdir. Daha sonra şirket dışından kullanıcıların kaynaklarınıza erişmek için bir kullanıcı adı ve paroladan fazlasına ihtiyacı olacaktır. Azure Active Directory’de (Azure AD), erişim için MFA gerektiren bir koşullu erişim ilkesi ile bu hedefi başarabilirsiniz. MFA ilkeleri, tıpkı kendi kuruluşunuzun üyeleri için etkinleştirildiği şekilde, kiracı, uygulama veya bireysel konuk kullanıcı düzeyinde uygulanabilir.
+Şirket dışından B2B konuk kullanıcılarıyla işbirliği yaparken, uygulamalarınızı çok faktörlü kimlik doğrulaması (MFA) ilkeleriyle korumak iyi bir fikirdir. Daha sonra şirket dışından kullanıcıların kaynaklarınıza erişmek için bir kullanıcı adı ve paroladan fazlasına ihtiyacı olacaktır. Azure Active Directory'de (Azure AD), erişim için MFA gerektiren bir koşullu erişim ilkesi ile bu hedefe gerçekleştirebilirsiniz. MFA ilkeleri, tıpkı kendi kuruluşunuzun üyeleri için etkinleştirildiği şekilde, kiracı, uygulama veya bireysel konuk kullanıcı düzeyinde uygulanabilir.
 
 Örnek:
 
@@ -36,7 +36,7 @@ Bu öğreticide şunları yapacaksınız:
 
 > [!div class="checklist"]
 > * MFA kurulumundan önce oturum açma deneyimini test edin.
-> * Ortamınızdaki bir bulut uygulamasına erişim için MFA gerektiren koşullu erişim ilkesi oluşturun. Bu öğreticide, işlemi göstermek için Microsoft Azure Management uygulamasını kullanacağız.
+> * Erişim için bir bulut uygulaması ortamınızda MFA gerektiren bir koşullu erişim ilkesi oluşturun. Bu öğreticide, işlemi göstermek için Microsoft Azure Management uygulamasını kullanacağız.
 > * MFA oturum açma işleminin benzetimini yapmak için What If aracını kullanın.
 > * Koşullu erişim ilkenizi test edin.
 > * Test kullanıcısını ve ilkeyi temizleyin.
@@ -47,7 +47,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu öğreticide senaryoyu tamamlamak için şunlar gereklidir:
 
- - Koşullu erişim ilkesi özelliklerini içeren **Azure AD Premium edition’a erişim**. MFA uygulamak için, bir Azure AD koşullu erişim ilkesi oluşturmanız gerekir. Ortağın MFA özelliklerine sahip olup olmadığına bakılmaksızın, MFA ilkelerinin kuruluşunuzda her zaman uygulandığını unutmayın. Kuruluşunuz için MFA’yı ayarlarsanız, konuk kullanıcılarınız için yeterli Azure AD Premium lisanslarına sahip olduğunuzdan emin olmanız gerekir. 
+ - **Azure AD Premium sürümü için erişim**, koşullu erişim ilkesi yetenekleri içerir. MFA zorlamak için bir Azure AD koşullu erişim ilkesi oluşturmanız gerekir. Ortağın MFA özelliklerine sahip olup olmadığına bakılmaksızın, MFA ilkelerinin kuruluşunuzda her zaman uygulandığını unutmayın. Kuruluşunuz için MFA’yı ayarlarsanız, konuk kullanıcılarınız için yeterli Azure AD Premium lisanslarına sahip olduğunuzdan emin olmanız gerekir. 
  - Konuk kullanıcı olarak kiracı dizininize ekleyebileceğiniz ve oturum açmak için kullanabileceğiniz **geçerli bir harici e-posta hesabı**. Konuk hesabı nasıl oluşturulacağını bilmiyorsanız bkz. [Azure portalda B2B konuk kullanıcısı ekleme](add-users-administrator.md).
 
 ## <a name="create-a-test-guest-user-in-azure-ad"></a>Azure AD’de test konuk kullanıcısı oluşturma
@@ -74,7 +74,7 @@ Bu öğreticide senaryoyu tamamlamak için şunlar gereklidir:
 ## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>MFA gerektiren bir koşullu erişim ilkesi oluşturma
 1.  Oturum açın, [Azure portalında](https://portal.azure.com/) Güvenlik Yöneticisi veya koşullu erişim Yöneticisi olarak.
 2.  Azure portalında **Azure Active Directory** seçeneğini belirleyin. 
-3.  **Azure Active Directory** sayfasında **Güvenlik** bölümünde **Koşullu erişim**’i seçin.
+3.  Üzerinde **Azure Active Directory** sayfasında **güvenlik** bölümünden **koşullu erişim**.
 4.  **Koşullu Erişim** sayfasında, üstteki araç çubuğunda **Yeni ilke**’yi seçin.
 5.  **Yeni** sayfasında **Ad** metin kutusuna **B2B portal erişimi için MFA’yı gerekli kıl** yazın.
 6.  **Atamalar** bölümünde **Kullanıcılar ve gruplar**’ı seçin.
@@ -105,7 +105,7 @@ Bu öğreticide senaryoyu tamamlamak için şunlar gereklidir:
 
 ## <a name="use-the-what-if-option-to-simulate-sign-in"></a>Oturum açmanın benzetimini yapmak için What If seçeneğini kullanma
 
-1.  **Koşullu erişim - İlkeler** sayfasında **What If** seçeneğini belirleyin. 
+1.  Üzerinde **koşullu erişim - ilkeleri** sayfasında **ne**. 
 
     ![Ne nereye gösteren ekran görüntüsü seçeneği](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
@@ -123,7 +123,7 @@ Bu öğreticide senaryoyu tamamlamak için şunlar gereklidir:
 
     ![Ne nereye gösteren ekran görüntüsü seçeneği](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
-## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test etme
+## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test
 1.  [Azure portalınızda](https://portal.azure.com/) oturum açmak için test kullanıcı adınızı ve parolanızı kullanın.
 2.  Ek kimlik doğrulama yöntemlerine yönelik bir istek görmeniz gerekir. İlkenin geçerli olmasının biraz zaman alabileceğini unutmayın.
 
@@ -132,7 +132,7 @@ Bu öğreticide senaryoyu tamamlamak için şunlar gereklidir:
 3.  Oturumunuzu kapatın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Artık gerekli değilse test kullanıcısını ve test koşullu erişim ilkesini kaldırın.
+Artık gerekli değilse, test kullanıcısı ve koşullu erişim ilkesini test kaldırın.
 1.  [Azure portalda](https://portal.azure.com/) Azure AD yöneticisi olarak oturum açın.
 2.  Sol bölmede **Azure Active Directory**’yi seçin.
 3.  **Yönet** bölümünde **Kullanıcılar**’ı seçin.
@@ -142,4 +142,4 @@ Artık gerekli değilse test kullanıcısını ve test koşullu erişim ilkesini
 7.  **İlke Adı** listesinde, test ilkeniz için bağlam menüsünü (…) seçin ve **Sil** seçeneğini belirleyin. Onaylamak için **Evet**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, konuk kullanıcıların bulut uygulamalarınızdan birinde oturum açarken MFA kullanmasını gerekli kılan bir koşullu erişim ilkesi oluşturdunuz. İşbirliği yapmak üzere konuk kullanıcılar ekleme hakkında daha fazla bilgi için bkz. [Azure portalda Azure Active Directory B2B işbirliği kullanıcıları ekleme](add-users-administrator.md).
+Bu öğreticide, mfa'yı bir bulut uygulamalarınızda oturum açarken kullanmak konuk kullanıcılara gerektiren bir koşullu erişim ilkesi oluşturdunuz. İşbirliği yapmak üzere konuk kullanıcılar ekleme hakkında daha fazla bilgi için bkz. [Azure portalda Azure Active Directory B2B işbirliği kullanıcıları ekleme](add-users-administrator.md).

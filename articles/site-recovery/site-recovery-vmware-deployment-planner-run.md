@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61276755"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı'nı çalıştırın
@@ -21,7 +21,7 @@ Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recov
 ## <a name="modes-of-running-deployment-planner"></a>Dağıtım planlayıcısını çalıştırma modları
 Komut satırı aracını (ASRDeploymentPlanner.exe) aşağıdaki üç modun herhangi birinde çalıştırabilirsiniz:
 
-1.  [Profil oluşturma](#profile-vmware-vms)
+1.  [Profil Oluşturma](#profile-vmware-vms)
 2.  [Rapor oluşturma](#generate-report)
 3.  [Aktarım hızı alma](#get-throughput)
 

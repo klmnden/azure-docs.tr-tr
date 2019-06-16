@@ -11,10 +11,10 @@ ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, açık hizmet Aracısı, Azure için açık hizmet Aracısı
 ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61028431"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Mevcut MongoDB uygulamasını Azure Cosmos DB API ile MongoDB ile açık hizmet Aracısı (OSBA) Azure için tümleştirme
@@ -267,7 +267,7 @@ press Ctrl+C to detach
 ...
 ```
 
-Günlüklerde gösterilen URL'sine gidin. Önceki örnekte, kullanacağınız *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/*. 
+Günlüklerde gösterilen URL'sine gidin. Önceki örnekte, kullanacağınız *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* . 
 
 Değişikliklerinizi yanı sıra uygulama gördüğünüz doğrulayın.
 

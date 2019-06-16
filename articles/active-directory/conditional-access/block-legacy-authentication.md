@@ -1,8 +1,8 @@
 ---
-title: Koşullu erişim ile eski kimlik doğrulaması için Azure Active Directory (Azure AD) nasıl | Microsoft Docs
+title: Azure Active Directory (Azure AD) koşullu erişim ile eski bir kimlik doğrulama engellemeyle | Microsoft Docs
 description: Azure AD koşullu erişim kullanarak eski bir kimlik doğrulama engelleyerek, güvenlik duruşunu öğrenin.
 services: active-directory
-keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
+keywords: Koşullu erişim uygulamalara, Azure AD koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim ile koşullu erişim
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,19 +18,19 @@ ms.date: 03/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa7bc84558d2b794a569261ce3dd2db5d54493f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a638b501ea04db787ca366aa015850d94eb475ee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112713"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Nasıl yapılır: Azure ad koşullu erişim bloğu eski kimlik doğrulaması   
 
 Kullanıcılarınıza bulut uygulamalarınız için kolay erişim sunmak için Azure Active Directory (Azure AD) kimlik doğrulama protokolleri eski bir kimlik doğrulama dahil olmak üzere çok çeşitli destekler. Ancak, eski protokolleri, çok faktörlü kimlik doğrulaması (MFA) desteklemez. Mfa'yı birçok ortamlarda adresi kimlik hırsızlığı için ortak bir gereksinimdir. 
 
 
-Ortamınızı kiracınızın korumasını geliştirmek için blok eski bir kimlik doğrulama için hazır ise, koşullu erişim ile bu hedefe gerçekleştirebilirsiniz. Bu makalede, söz konusu bloğu eski kimlik doğrulamasını kiracınız için koşullu erişim ilkelerini nasıl yapılandırabilirsiniz açıklanmaktadır.
+Ortamınızı kiracınızın korumasını geliştirmek için blok eski bir kimlik doğrulama için hazır ise, koşullu erişim ile bu hedefe gerçekleştirebilirsiniz. Bu makalede, kiracınız için eski bir kimlik doğrulama engelleyen koşullu erişim ilkelerini nasıl yapılandırabileceğiniz açıklanmaktadır.
 
 
 
@@ -140,6 +140,6 @@ Diğer istemciler koşulunu kullanarak eski bir kimlik doğrulama engellerseniz,
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Koşullu erişim ilkelerini yapılandırma ile henüz bilmiyorsanız bkz [Azure Active Directory koşullu erişimiyle belirli uygulamalar için mfa'yı gerekli](app-based-mfa.md) örneği.
+- Koşullu erişim ilkelerini yapılandırma ile henüz bilmiyorsanız bkz [mfa'yı belirli uygulamaları Azure Active Directory koşullu erişimiyle birlikte gerekli](app-based-mfa.md) örneği.
 
 - Modern kimlik doğrulaması desteği hakkında daha fazla bilgi için bkz. [Office 2013 ve Office 2016 istemci uygulamaları için nasıl modern kimlik doğrulama çalışıyor](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

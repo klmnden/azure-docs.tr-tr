@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
 ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773952"
 ---
 # <a name="exclude-disks-from-replication"></a>Diskleri çoğaltmanın dışında tutma
@@ -20,7 +20,7 @@ Bu makalede, disklerin çoğaltmanın dışında nasıl tutulacağı açıklanma
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
 
-**Özellik** | **Vmware’den Azure’a** | **Hyper-V'den Azure'a** | **Azure'dan Azure'a**| **Hyper-V'den Hyper-V'ye** 
+**Özelliği** | **Vmware’den Azure’a** | **Hyper-V'den Azure'a** | **Azure'dan Azure'a**| **Hyper-V'den Hyper-V'ye** 
 --|--|--|--|--
 Diski hariç tutma | Evet | Evet | Hayır | Hayır
 
@@ -168,7 +168,7 @@ DB-Disk4 | Disk4 | G:\ | Kullanıcı Veritabanı2
 Dışarıda tutulabilecek bir disk belleği dosyası diski olan bir sanal makine düşünelim.
 İki durum vardır.
 
-### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>1. durum: Disk belleği dosyası D: sürücüsünde yapılandırılmış
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>1\. durum: Disk belleği dosyası D: sürücüsünde yapılandırılmış
 Disk yapılandırması aşağıdaki gibidir:
 
 **Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
@@ -197,7 +197,7 @@ Azure sanal makinesindeki disk belleği dosyası ayarları şunlardır:
 
 ![Azure sanal makinesindeki disk belleği dosyası ayarları](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>2. durum: Disk belleği dosyası başka bir sürücüde (D: sürücüsü dışında) yapılandırılmış
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>2\. durum: Disk belleği dosyası başka bir sürücüde (D: sürücüsü dışında) yapılandırılmış
 
 Kaynak sanal makine disk yapılandırması şöyledir:
 

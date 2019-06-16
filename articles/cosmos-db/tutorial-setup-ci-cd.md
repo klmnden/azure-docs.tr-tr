@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b97fb1956c75332c40e242484b9d94419a45eb92
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 19ced9767d77b0d7bfcec6f01425ab1089a55d54
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069237"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure DevOps'ta Azure Cosmos DB öykünücüsü derleme göreviyle CI/CD işlem hattı oluşturma
 
@@ -48,6 +48,9 @@ Artık uzantı yüklendiğine göre Azure DevOps hesabınızda oturum açın ve 
    ![Derleme işlem hattı için takım projesini, depoyu ve dalı seçme](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Son olarak derleme işlem hattı için kullanmak istediğiniz şablonu belirleyin. Bu öğreticide **ASP.NET** şablonunu seçeceğiz. 
+
+> [!NOTE]
+> Docker için el ile bir önceki görevde CI bir parçası olarak tamamlandığında sürece yüklü Windows için bu bir CI seçilecek aracı havuzu olmalıdır. Bkz: [Microsoft barındırılan aracıları](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) başlamak öneririz; makale için bir aracı havuzları seçimini `Hosted VS2017` veya `Hosted VS2019`. 
 
 Artık Azure Cosmos DB öykünücüsü derleme görevini kullanacak şekilde ayarlayabileceğiniz bir derleme işlem hattınız var. 
 

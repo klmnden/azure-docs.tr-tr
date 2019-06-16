@@ -2,7 +2,7 @@
 title: Azure Active Directory koşullu erişim erişim denetimleri nelerdir? | Microsoft Docs
 description: Erişimi Azure Active Directory koşullu erişim işlerinde nasıl denetimleri hakkında bilgi edinin.
 services: active-directory
-keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
+keywords: Koşullu erişim uygulamalara, Azure AD koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim ile koşullu erişim
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acc30bc18921b79be3b5e5b2ae340eab29dd5bcf
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: dd1ea7665daa6fd93a755cbdb20ebc63e3d63a94
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305768"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112551"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri nelerdir?
 
@@ -84,7 +84,7 @@ Daha fazla bilgi için [yönetilen cihazlar için koşullu erişim ile bulut uyg
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Hibrit Azure AD'ye katılmış
 
-Karma Azure AD'ye katılmış cihaz tabanlı koşullu erişim ilkelerini yapılandırmak için sahip olduğunuz başka bir seçenek olan gerek. Bu gereksinim, Windows Masaüstü, dizüstü bilgisayarlar ve bir şirket içi Active Directory'ye katılmış Kurumsal tabletler ifade eder. Bu seçenek belirlenirse, koşullu erişim ilkenizi, şirket içi Active Directory'niz ve Azure Active Directory'nize katılmış cihazları yapılan erişimi için erişim girişimlerini verir.  
+Karma Azure AD'ye katılmış cihaz tabanlı koşullu erişim ilkeleri yapılandırmak için sahip olduğunuz başka bir seçenek olan gerek. Bu gereksinim, Windows Masaüstü, dizüstü bilgisayarlar ve bir şirket içi Active Directory'ye katılmış Kurumsal tabletler ifade eder. Bu seçenek belirlenirse, koşullu erişim ilkenizi, şirket içi Active Directory'niz ve Azure Active Directory'nize katılmış cihazları yapılan erişimi için erişim girişimlerini verir.  
 
 Daha fazla bilgi için [Azure Active Directory cihaz tabanlı koşullu erişim ilkeleri ayarlama](require-managed-devices.md).
 
@@ -136,7 +136,7 @@ Bu hizmetler hakkında daha fazla bilgi için sağlayıcı doğrudan başvurun.
 
 ### <a name="creating-custom-controls"></a>Özel denetimler oluşturma
 
-Özel bir denetim oluşturmak için kullanmak istediğiniz sağlayıcıyı başvurmalısınız. Her bir Microsoft dışı sağlayıcısı, kendi işlem ve kaydolun, abone olmanızı veya aksi halde hizmetin bir parçası haline gelir ve koşullu erişim ile tümleştirmek istediğiniz belirtmek için gereksinimleri vardır. Bu noktada, sağlayıcı, JSON biçiminde bir veri bloğunu sağlayacak. Bu veri sağlayıcısı ve koşullu erişim, kiracınız için birlikte çalışmasına olanak sağlar, yeni denetimi oluşturur ve koşullu erişimi tanımlar, kullanıcılarınızın doğrulama sağlayıcısı ile başarıyla gerçekleştirdiniz varsa söyleyebilirsiniz.
+Özel bir denetim oluşturmak için kullanmak istediğiniz sağlayıcıyı başvurmalısınız. Her bir Microsoft dışı sağlayıcısı, kendi işlem ve kaydolun, abone olmanızı veya aksi halde hizmetin bir parçası haline gelir ve koşullu erişim ile tümleştirmek istediğiniz belirtmek için gereksinimleri vardır. Bu noktada, sağlayıcı, JSON biçiminde bir veri bloğunu sağlayacak. Bu veri sağlayıcısı ve koşullu erişim, kiracınız için birlikte çalışmasına olanak sağlar, yeni denetimi oluşturur ve koşullu erişimi nasıl anlayabilirim tanımlar, kullanıcılarınızın doğrulama sağlayıcısı ile başarıyla gerçekleştirdiyseniz.
 
 Özel denetimler, çok faktörlü kimlik doğrulaması gerektiren kimlik Koruması'nın Otomasyonu ile ya da rolleri Privileged Identity Manager (PIM) olarak yükseltmek için kullanılamaz.
 
@@ -182,6 +182,6 @@ Daha fazla bilgi için bkz:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](app-based-mfa.md).
+- Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [gerektiren MFA belirli uygulamalar için Azure Active Directory koşullu erişim ile](app-based-mfa.md).
 
-- Ortamınızda koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz. [Azure Active Directory'de koşullu erişim için en iyi yöntemler](best-practices.md).
+- Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi uygulamalar](best-practices.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b18c4c039b615c7c88268b6e668df9f7fec9fabf
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 414573a90e5a7b7de845b65e6e88715a26024f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687918"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125781"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Azcopy komutunu kullanarak, Amazon S3 demetten veri kopyalama
 
@@ -49,6 +49,9 @@ AWS erişim anahtarı ve gizli erişim anahtarı toplayın ve ardından bu ortam
 ## <a name="copy-objects-directories-and-buckets"></a>Nesneleri, dizin ve demet kopyalayın
 
 AzCopy kullanan [URL'den blok yerleştirme](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) verileri doğrudan AWS S3 ve depolama sunucuları arasında kopyalanır bu nedenle API. Bilgisayarınızın ağ bant genişliğini bu kopyalama işlemlerini kullanmayın.
+
+> [!IMPORTANT]
+> Bu özellik şu anda önizleme sürümündedir. Veri kopyalama işleminden sonra S3 demetten kaldırmak karar verirseniz, verileri kaldırmadan önce verileri depolama hesabınıza düzgün şekilde kopyalandığını doğrulamak emin olun.
 
 ### <a name="copy-an-object"></a>Bir nesneyi kopyalama
 

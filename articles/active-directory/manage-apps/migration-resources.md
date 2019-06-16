@@ -12,12 +12,12 @@ ms.date: 09/19/2018
 ms.author: mimart
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12370d54500dbc1fcd6f812206fdfea3e5298112
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b39704b25c26998e16ca8080c4e44dd1adf6965c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826089"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108223"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Kaynakları geçirmek için Azure Active Directory uygulamaları
 
@@ -32,6 +32,6 @@ Uygulama erişimi ve kimlik doğrulaması Azure Active Directory (Azure AD) geç
 | [Dağıtım planı: AD FS'den doğrudan kimlik doğrulama için geçirme](https://aka.ms/ADFSTOPTADPDownload)|Azure AD geçişli kimlik doğrulaması, hem şirket içi hem de bulut tabanlı uygulamalar için aynı parolayı kullanarak oturum açmasına yardımcı olur. Bunlar daha az bir parolayı anımsa sahip olduğundan bu özellik, kullanıcılarınıza daha iyi bir deneyim sağlar. Kullanıcılar yalnızca bir parolayı anımsa istedikleri zaman oturum açmak nasıl oluşturabileceğinize değil daha olası olduğundan ayrıca BT Yardım Masası maliyetlerini azaltır. Kullanıcılar Azure AD'de oturum açtığında bu özellik parolaları doğrudan şirket için Active Directory dizininizde doğrular.|
 | [Dağıtım planı: Çoklu oturum açma bir SaaS uygulaması için Azure AD ile etkinleştirme](https://aka.ms/SSODPDownload) | Tüm uygulamaları ve iş, bir tek kullanıcı hesabıyla yalnızca bir kez oturum açma sırasında yapmanız gereken kaynaklara erişim çoklu oturum açma (SSO) yardımcı olur. Bir kullanıcı oturum açtıktan sonra Örneğin, kullanıcının Microsoft Office, SalesForce, (örneğin bir parola yazmak) ikinci kez kimlik doğrulaması olmadan kutusuna taşıyabilirsiniz. 
 | [Dağıtım planı: Azure ad uygulama ara sunucusu ile uygulamalara genişletme](https://aka.ms/AppProxyDPDownload)| Erişime karşı çalışan dizüstü bilgisayarlar ve diğer cihazlara uygulamaları geleneksel olarak söz konusu sanal özel ağlar (VPN) veya (DMZ'ler) arındırılmış bölge şirket içi. Bunlar yalnızca karmaşık ve güvenliği zor sağlanan çözümler değil aynı zamanda kurulumu ve yönetimi yüksek maliyetli seçeneklerdir. Azure AD uygulama proxy'si, şirket uygulamalarına erişmek için kolaylaştırır. |
-| [Dağıtım planı](../fundamentals/active-directory-deployment-plans.md) | Çok faktörlü kimlik doğrulaması, koşullu erişim, kullanıcı sağlamayı, sorunsuz SSO, Self Servis parola sıfırlama ve daha fazlası gibi özellikler dağıtmak için daha fazla dağıtım planlarını edinin! |
+| [Dağıtım planı](../fundamentals/active-directory-deployment-plans.md) | Çok faktörlü kimlik doğrulaması, koşullu erişim, kullanıcı sağlamayı, sorunsuz çoklu oturum açma, Self Servis parola sıfırlama ve daha fazlası gibi özellikler dağıtmak için daha fazla dağıtım planlarını edinin! |
 
 

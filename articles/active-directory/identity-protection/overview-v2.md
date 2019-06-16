@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956939"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108897"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Azure Active Directory kimlik koruması nedir (yenilenebilecek)?
 
@@ -56,7 +56,7 @@ Bu tehditlere yanıt vermek için Azure AD kimlik koruması sağlar:
 
  
 
-Azure AD kimlik koruması, Azure Active Directory Premium, bir kullanıcının kimlik güvenliği aşıldığında otomatik olarak yanıt verecek şekilde ilkelerini yapılandırmanıza olanak sağlayan P2 özelliği veya birisi dışında olduğunda hesap sahibi kullanarak oturum çalışılıyor, kimlik. Diğer koşullu erişim denetimleri ek olarak, bu ilkeler, Azure AD tarafından ya da otomatik olarak erişim veya parola sıfırlama veya çok faktörlü kimlik doğrulaması zorlama gibi başlatma risk azaltma eylemleri engelleyebilirsiniz sağlanır. Ayrıca, kimlik koruması, risk ve olası güvenlik ihlalleri, kuruluşunuzda daha derin bir anlayış kazanmak için izleme ve raporlama yetenekleri sağlar. 
+Azure AD kimlik koruması, Azure Active Directory Premium, bir kullanıcının kimlik güvenliği aşıldığında otomatik olarak yanıt verecek şekilde ilkelerini yapılandırmanıza olanak sağlayan P2 özelliği veya birisi dışında olduğunda hesap sahibi kullanarak oturum çalışılıyor, kimlik. Azure AD tarafından sağlanan diğer koşullu erişim denetimleri ek olarak bu ilkeleri ya da otomatik olarak erişim ya da parola sıfırlama veya çok faktörlü kimlik doğrulaması zorlama gibi başlatma risk azaltma eylemleri engelleyebilirsiniz. Ayrıca, kimlik koruması, risk ve olası güvenlik ihlalleri, kuruluşunuzda daha derin bir anlayış kazanmak için izleme ve raporlama yetenekleri sağlar. 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
@@ -71,9 +71,9 @@ Azure AD kimlik koruması, aşağıdaki risk olaylarını algılar:
 | ---             | ---         | ---            |
 | Alışılmadık seyahat | Kullanıcının son oturum açma işlemleri üzerinde temel alışılmadık bir konumdan oturum açın. | Çevrimdışı |
 | Anonim IP adresi | Anonim bir IP adresinden oturum açın (örneğin: Tor tarayıcısı, anonymizer VPN'ler). | Gerçek zamanlı |
-| Bilinmeyen oturum açma özellikleri | Oturum özellikleri değil gördük son belirtilen kullanıcı için oturum açın. | Gerçek zamanlı |
-| Kötü amaçlı yazılım bağlantısı içeren IP adresi | Bir bağlı kötü amaçlı IP adresinden oturum açın | Çevrimdışı |
-| Kimlik bilgilerinin sızdırılması | Bu risk olayı kullanıcının geçerli kimlik bilgilerinin sızdırıldığını gösterir | Çevrimdışı |
+| Alışılmadık oturum açma özellikleri | Oturum özellikleri değil gördük son belirtilen kullanıcı için oturum açın. | Gerçek zamanlı |
+| Kötü amaçlı yazılım bağlı IP adresi | Bir bağlı kötü amaçlı IP adresinden oturum açın | Çevrimdışı |
+| Kimlik bilgilerinin sızdırılması | Bu risk olayı kullanıcının geçerli kimlik bilgilerinin sızdırılması gösterir. | Çevrimdışı |
 
 
 
@@ -153,7 +153,7 @@ Bir Contoso çalışanı örneğe göz atalım.
 
 2. Azure AD, çalışan bir anonim IP adresinden orta düzeyde riskli oturum açma düzeyini tetikleme oturum açmak için olduğunu algılar. 
 
-3. Contoso'nun BT yöneticisi kimlik koruması oturum açma riski koşullu erişim ilkesinin yapılandırıldığı çalışan bir MFA istemi tarafından sınandı. İlkeyi bir oturum açma riskini Orta büyüklükte ya da daha yüksek için mfa'yı gerektirir. 
+3. Contoso'nun BT Yöneticisi oturum açma kimlik Koruması riski koşullu erişim ilkesi yapılandırıldığı için çalışan bir MFA istemi tarafından sınandı. İlkeyi bir oturum açma riskini Orta büyüklükte ya da daha yüksek için mfa'yı gerektirir. 
 
 4. Çalışan MFA istemi geçirir ve Exchange Online erişir ve kendi kullanıcı risk düzeyi değiştirilmez. 
 
@@ -212,8 +212,8 @@ Daha fazla ayrıntı için [Azure Active Directory'de yönetici rolleri atama](.
 
 | Özellik | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/ücretsiz |
 | --- | --- | --- | --- |
-| Kullanıcı riski ilkesi | Evet | Hayır | Hayır |
-| Oturum açma riski ilkesi | Evet | Hayır | Hayır |
+| Kullanıcı riski İlkesi | Evet | Hayır | Hayır |
+| Oturum açma riski İlkesi | Evet | Hayır | Hayır |
 | Riskli kullanıcılar raporu | Tam erişim | Sınırlı bilgiler | Sınırlı bilgiler |
 | Riskli oturum açma işlemleri raporu | Tam erişim | Sınırlı bilgiler | Sınırlı bilgiler |
 | MFA kayıt ilkesi | Evet | Hayır | Hayır |

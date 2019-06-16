@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: ef2507a15579ea3d145bfe37df281e2c044d181c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7554f0739626520153196472a790ab672a932331
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722329"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066214"
 ---
 # <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Apache Spark uygulamaları yerel olarak veya uzaktan Azure araç seti ile HDInsight kümesinde SSH üzerinden Intellij için hata ayıklama
 
@@ -75,7 +75,7 @@ Bu hatayı gidermek için [yürütülebilir dosyayı indir](https://public-repo-
 
 ### <a name="scenario-2-perform-local-run"></a>Senaryo 2: Yerel çalıştırma gerçekleştirin
 1. Açık **SparkCore_wasbloTest** komut dosyası, Kod Düzenleyicisi'ni sağ tıklatın ve seçeneğini **'[Spark işi] XXX' çalıştırma** yerel çalıştırma gerçekleştirmek için.
-1. Bir kez yerel çalıştırma tamamlandı, geçerli proje gezgininizde kaydetme çıkış dosyası görebilirsiniz **veri** > **__varsayılan__**.
+1. Bir kez yerel çalıştırma tamamlandı, geçerli proje gezgininizde kaydetme çıkış dosyası görebilirsiniz **veri** >  **__varsayılan__** .
 
     ![Yerel çalıştırma sonucu](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
 1. Varsayılan değer otomatik olarak yerel çalıştırma ve yerel gerçekleştirdiğinizde yerel çalışma yapılandırması hata ayıklama araçlarımızı ayarladınız. Yapılandırması **[HDInsight üzerinde Spark] XXX** bölmenin sağ üst köşesinde gördüğünüz **[HDInsight üzerinde Spark] XXX** altında zaten oluşturulmuş **HDInsight üzerinde Apache Spark**. Geçiş **yerel olarak çalıştırma** sekmesi.
@@ -84,7 +84,7 @@ Bu hatayı gidermek için [yürütülebilir dosyayı indir](https://public-repo-
     - [Ortam değişkenlerini](#prerequisite-for-windows): Sistem ortam değişkeni zaten ayarlanmışsa **HADOOP_HOME** için **C:\WinUtils**, bunu otomatik olarak ölçeklendirilebilen algılayan el ile eklemeniz gerekmez.
     - [WinUtils.exe konumu](#prerequisite-for-windows): Sistem ortam değişkeninin ayarlı değil, konumu, düğmesine tıklayarak bulabilirsiniz.
     - Yalnızca iki seçenekten birini seçin ve MacOS ve Linux'ta gerekmez.
-1. Yerel çalıştırma ve yerel hata ayıklama işlemini gerçekleştirmeden önce el ile yapılandırma de ayarlayabilirsiniz. Önceki ekran görüntüsünde, artı işaretini seçin (**+**). Ardından **HDInsight üzerinde Apache Spark** seçeneği. İçin bilgi girin **adı**, **ana sınıf adı** kaydetmek için ardından yerel çalıştırma düğmesine tıklayın.
+1. Yerel çalıştırma ve yerel hata ayıklama işlemini gerçekleştirmeden önce el ile yapılandırma de ayarlayabilirsiniz. Önceki ekran görüntüsünde, artı işaretini seçin ( **+** ). Ardından **HDInsight üzerinde Apache Spark** seçeneği. İçin bilgi girin **adı**, **ana sınıf adı** kaydetmek için ardından yerel çalıştırma düğmesine tıklayın.
 
 ### <a name="scenario-3-perform-local-debugging"></a>Senaryo 3: Yerel hata ayıklama gerçekleştirin
 1. Açık **SparkCore_wasbloTest** komut dosyası, kesme noktaları belirleyin.
@@ -97,12 +97,12 @@ Bu hatayı gidermek için [yürütülebilir dosyayı indir](https://public-repo-
 
 1. Erişim için **yapılandırmalarını Düzenle** menüsünde, sağ üst köşede bulunan simgeyi seçin. Bu menüden oluşturabilir veya uzaktan hata ayıklama için yapılandırmaları düzenleyin.
 
-   ![Yapılandırmaları düzenle](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
+   ![Yapılandırmaları Düzenle](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
-1. İçinde **Çalıştır/hata ayıklama yapılandırmaları** iletişim kutusunda, artı işaretini seçin (**+**). Ardından **HDInsight üzerinde Apache Spark** seçeneği.
+1. İçinde **Çalıştır/hata ayıklama yapılandırmaları** iletişim kutusunda, artı işaretini seçin ( **+** ). Ardından **HDInsight üzerinde Apache Spark** seçeneği.
 
    ![Yeni yapılandırma Ekle](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-1. Geçiş **uzaktan çalıştırmak kümesinde** sekmesi. İçin bilgi girin **adı**, **Spark kümesi**, ve **ana sınıf adı**. Ardından **Gelişmiş Yapılandırma (uzak hata ayıklama)**. Sağladığımız araçları ile hata ayıklama desteği **yürütücüler**. **NumExectors**, varsayılan değer 5'tir. Size daha iyi 3'ten daha yüksek ayarlamazsınız.
+1. Geçiş **uzaktan çalıştırmak kümesinde** sekmesi. İçin bilgi girin **adı**, **Spark kümesi**, ve **ana sınıf adı**. Ardından **Gelişmiş Yapılandırma (uzak hata ayıklama)** . Sağladığımız araçları ile hata ayıklama desteği **yürütücüler**. **NumExectors**, varsayılan değer 5'tir. Size daha iyi 3'ten daha yüksek ayarlamazsınız.
 
    ![Hata ayıklama yapılandırmaları Çalıştır](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
@@ -148,7 +148,7 @@ Bu hatayı gidermek için [yürütülebilir dosyayı indir](https://public-repo-
 
 1. Hedef sağ **hata ayıklama** sekmesine tıklayın ve ardından **değer kümesi**. Ardından, değişken için yeni bir değer girin. Ardından **Enter** değeri kaydetmek için. 
 
-   ![Değer ata](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
+   ![Değerini ayarla](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
 
 1. Seçin **sürdürme Program** programı çalıştırmaya devam etmek için simge. Bu kez, hiçbir özel durum yakalandı. Proje özel durumlar başarıyla çalıştığını görebilirsiniz.
 
@@ -174,7 +174,6 @@ Bu hatayı gidermek için [yürütülebilir dosyayı indir](https://public-repo-
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Intellij için Azure Araç Seti'ni kullanma](apache-spark-intellij-tool-plugin.md)
 * [Apache Spark uygulamalar VPN üzerinden uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Hortonworks korumalı alanı ile Intellij için HDInsight araçları kullanma](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Apache Spark uygulamaları oluşturmak için Eclipse için Azure araç seti, HDInsight araçları kullanma](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
 * [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)

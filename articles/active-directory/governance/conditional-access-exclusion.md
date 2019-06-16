@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8611338acf7a1299e9c3a4f5347fb633604254e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110410"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için kullanım Azure AD erişim gözden geçirmeleri
 

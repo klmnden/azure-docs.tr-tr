@@ -17,10 +17,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098125"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Birden çok alt ağa sahip bir sanal ağ (Klasik) oluşturmak
@@ -39,7 +39,7 @@ Bir sanal ağ (Klasik) kullanarak oluşturabileceğiniz [Azure portalında](#por
 
 ## <a name="portal"></a>Portal
 
-1. Bir Internet tarayıcısında Git [Azure portalında](https://portal.azure.com). Kullanarak oturum açın, [Azure hesabı](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Azure hesabınız yoksa [ücretsiz denemeye](https://azure.microsoft.com/offers/ms-azr-0044p) kaydolabilirsiniz.
+1. Bir Internet tarayıcısında Git [Azure portalında](https://portal.azure.com). Kullanarak oturum açın, [Azure hesabı](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Azure hesabınız yoksa, oturum açabileceğiniz bir [ücretsiz deneme sürümü](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. Tıklayın **kaynak Oluştur** portalında.
 3. Girin *sanal ağ* içinde **markette Ara** kutusunun üst kısmındaki **yeni** bölmesi görünür. Tıklayın **sanal ağ** arama sonuçlarında görüntülendiğinde.
 4. Seçin **Klasik** içinde **dağıtım modeli seçin** kutusunda **sanal ağ** görünür, ardından bölmesinde **Oluştur**. 

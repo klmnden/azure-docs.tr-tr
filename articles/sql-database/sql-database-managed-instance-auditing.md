@@ -15,10 +15,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702937"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL veritabanı yönetilen örneği denetimini kullanmaya başlama
@@ -144,7 +144,7 @@ Aşağıdaki bölümde, yönetilen Örneğinize denetim yapılandırma açıklan
    - [Sunucu denetimi belirtimi T-SQL kılavuzu oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Veritabanı denetim belirtimine T-SQL kılavuzu oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-1. 6. adımda oluşturduğunuz sunucu denetimi etkinleştir:
+1. 6\. adımda oluşturduğunuz sunucu denetimi etkinleştir:
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -190,7 +190,7 @@ Yönetilen örnek denetim günlüklerinden bile hub veya Azure İzleyici günlü
    - [Sunucu denetimi belirtimi T-SQL kılavuzu oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Veritabanı denetim belirtimine T-SQL kılavuzu oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. 8. adımda oluşturduğunuz sunucu denetimi etkinleştir:
+10. 8\. adımda oluşturduğunuz sunucu denetimi etkinleştir:
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);

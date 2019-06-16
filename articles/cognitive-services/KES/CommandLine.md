@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60815145"
 ---
 # <a name="command-line-interface"></a>Command Line Interface
@@ -82,7 +82,7 @@ Bu dosyalar, yerel dosya yolu veya URL yolu Azure BLOB'ları için belirtilebili
 | `<indexFile>`   | Giriş ikili dizin yolu           |
 | `--port <port>` | Yerel bağlantı noktası numarası.  Varsayılan: 8000 |
 
-Bu dosyalar, yerel dosya yolu veya URL yolu Azure BLOB'ları için belirtilebilir.  Bir web hizmeti, barındırılan http://localhost:&lt; bağlantı noktası&gt;/.  Bkz: [Web API'leri](WebAPI.md) desteklenen işlemler listesi.
+Bu dosyalar, yerel dosya yolu veya URL yolu Azure BLOB'ları için belirtilebilir.  Bir web hizmeti, barındırılan http://localhost:&lt ; bağlantı noktası&gt; /.  Bkz: [Web API'leri](WebAPI.md) desteklenen işlemler listesi.
 
 Azure dışında en çok 1 MB boyut, saniyede 10 istekleri ve toplam çağrı sayısı 1000 ortamı, yerel olarak barındırılan hizmetler, dizin sınırlıdır dosyaları.  Bu sınırlamaların üstesinden gelmek için çalıştırın **host_service** bir Azure VM içinde veya bir Azure bulut hizmetini kullanmayı dağıtma **deploy_service**.
 

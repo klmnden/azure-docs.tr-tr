@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43d2cf1c833a160a5101d01170ce6923238795a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00bd25d3edf35356879975ec105ecabaa4e15b5b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60282361"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105918"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bynder"></a>Öğretici: Bynder ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Bynder tümleştirmesini yapılandırmak için Bynder Galeriden yön
 
 **Galeriden Bynder eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

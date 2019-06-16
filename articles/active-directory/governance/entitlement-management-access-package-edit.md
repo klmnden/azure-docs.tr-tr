@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce51f4df50de50cef06bba699ca7c6f76bc5d166
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833237"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Düzenleme ve Azure AD hak yönetimi (Önizleme) içinde var olan erişim paketini yönetme
@@ -146,11 +146,11 @@ Erişim paket atandığında azure AD'ye otomatik olarak kullanıcılar erişim 
 
 1. Kaynak rolleri listesinde, kaldırmak istediğiniz kaynak rolü bulun.
 
-1. Üç nokta simgesine tıklayın (**...** ) ve ardından **Kaynak rolü Kaldır**.
+1. Üç nokta simgesine tıklayın ( **...** ) ve ardından **Kaynak rolü Kaldır**.
 
     Mevcut atamaları erişim paketine sahip tüm kullanıcılar otomatik olarak bu kaynak rolüne, kaldırıldığında iptal kendi erişebilir.
 
-## <a name="add-a-new-policy"></a>Yeni ilke ekle
+## <a name="add-a-new-policy"></a>Yeni İlke Ekle
 
 Kimin bir erişim paketini talep edebilir belirttiğiniz şekilde bir ilke oluşturmaktır. Farklı kullanıcı kümeleri için farklı onay ve sona erme ayarları atamaları verilecek izin vermek istiyorsanız, tek bir erişim paketi için birden çok ilke oluşturabilirsiniz. Tek bir ilke, iç ve dış kullanıcılar için aynı erişim paketini atamak için kullanılamaz. Ancak, aynı erişim pakette--iki ilke oluşturabilirsiniz. bir iç kullanıcılar ve dış kullanıcılar için. Bir kullanıcıya uygulanan birden çok ilke varsa, atanacak istediğiniz ilkeyi seçin, isteği zamanında istenir.
 

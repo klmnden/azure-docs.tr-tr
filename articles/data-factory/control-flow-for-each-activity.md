@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
 ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808773"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach etkinliği, Azure Data Factory
@@ -71,8 +71,8 @@ ForEach etkinliği, işlem hattınızda yinelenen bir denetim akışını tanım
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-ad | İçin-her etkinliğin adı. | String | Evet
-type | Ayarlanmalıdır **ForEach** | String | Evet
+name | İçin-her etkinliğin adı. | String | Evet
+türü | Ayarlanmalıdır **ForEach** | String | Evet
 isSequential | Sıralı veya paralel döngü gerçekleştirilip gerçekleştirilmeyeceğini belirtir.  En fazla 20 döngü yinelemesi aynı anda paralel olarak gerçekleştirilebilir). Örneğin, bir ForEach etkinliği bir kopyalama etkinliği ile 10 farklı kaynak ve havuz veri kümeleri üzerinde yineleme varsa **isSequential** False olarak ayarlanırsa, tüm kopyaları aynı anda çalıştırılır. False varsayılan değerdir. <br/><br/> "İsSequential" False olarak ayarlarsanız, birden fazla yürütülebilir dosyaları çalıştırmasına doğru bir yapılandırma olduğundan emin olun. Aksi takdirde, bu özellik yazma çakışmalarını ücretlendirmeden kaçınmak için dikkatli kullanılmalıdır. Daha fazla bilgi için [Paralel yürütme](#parallel-execution) bölümü. | Boolean | Hayır. False varsayılan değerdir.
 batchCount | (İsSequential false olarak ayarlandığında) paralel yürütme sayısını kontrol etmek için kullanılacak toplu iş sayısı. | Tamsayı (maksimum 50) | Hayır. Varsayılan 20'dir.
 Öğeler | Bir JSON dizisi üzerinde yinelenir döndüren bir ifade. | (Bir JSON dizisi döndüren) ifadesi | Evet
@@ -482,7 +482,7 @@ Toplama çıktılarına __foreach__ etkinlik, lütfen yazılımınız _değişke
 
 ForEach etkinliği ve önerilen geçici çözümleri bazı sınırlamalar aşağıda verilmiştir.
 
-| Sınırlama | Geçici çözüm |
+| Sınırlama | Geçici Çözüm |
 |---|---|
 | Başka bir ForEach döngüsü içinde bir ForEach döngüsü (ya da Until döngüsü) iç içe olamaz. | Burada bir iç işlem hattı ile iç içe döngü üzerinden dış işlem hattı çalıştırmasıyla dış ForEach döngüsü yinelenir iki düzeyli işlem hattı tasarım. |
 | ForEach etkinliği limitinde `batchCount` 50 paralel işleme ve en fazla 100.000 öğe. | Burada dış işlem hattı ForEach etkinliği ile bir iç işlem hattı yinelenir iki düzeyli işlem hattı tasarım. |

@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65910825"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](data-factory-use-custom-activities.md)
 > * [Sürüm 2 (geçerli sürüm)](../transform-data-using-dotnet-custom-activity.md)
 
@@ -415,7 +415,7 @@ Bu bölümde gerçekleştireceğiniz adımlar şunlardır:
 > [!NOTE]
 > Oluşturma **dosya.txt** ve zaten yapmadıysanız blob kapsayıcısına yükleyin. Önceki bölümdeki yönergelere bakın.
 
-### <a name="step-1-create-the-data-factory"></a>1. Adım: Veri Fabrikası oluşturma
+### <a name="step-1-create-the-data-factory"></a>1\. adım: Veri Fabrikası oluşturma
 1. Azure portalında oturum açtıktan sonra aşağıdaki adımları uygulayın:
    1. Tıklayın **kaynak Oluştur** sol menüsünde.
    2. Tıklayın **veri ve analiz** içinde **yeni** dikey penceresi.
@@ -433,7 +433,7 @@ Bu bölümde gerçekleştireceğiniz adımlar şunlardır:
 
     ![Data Factory dikey penceresi](media/data-factory-use-custom-activities/data-factory-blade.png)
 
-### <a name="step-2-create-linked-services"></a>2. Adım: Bağlı hizmetler oluşturma
+### <a name="step-2-create-linked-services"></a>2\. adım: Bağlı hizmetler oluşturma
 Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory’ye bağlar. Bu adımda, Azure depolama hesabınız ve Azure Batch hesabı veri fabrikanıza bağlarsınız.
 
 #### <a name="create-azure-storage-linked-service"></a>Azure Storage bağlı hizmeti oluşturma
@@ -476,7 +476,7 @@ Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory�
 
        İçin **poolName** özelliği, havuzun havuz adı yerine Kimliğini belirtebilirsiniz.
 
-### <a name="step-3-create-datasets"></a>3. adım: Veri kümeleri oluşturma
+### <a name="step-3-create-datasets"></a>3\. adım: Veri kümeleri oluşturma
 Bu adımda, girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
 
 #### <a name="create-input-dataset"></a>Girdi veri kümesi oluşturma
@@ -707,7 +707,7 @@ Sorun giderme birkaç temel teknikten oluşur:
     Error in Activity: Unknown error in module: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Could not load type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from assembly 'Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral,
     ```
 
-    4.3.0 kullandığınız Azure depolama paketin sürümü Azure depolama paketi sürümü > 4.3.0 mevcut başvurusunu kaldırın. Ardından, NuGet Paket Yöneticisi konsolundan aşağıdaki komutu çalıştırın.
+    4\.3.0 kullandığınız Azure depolama paketin sürümü Azure depolama paketi sürümü > 4.3.0 mevcut başvurusunu kaldırın. Ardından, NuGet Paket Yöneticisi konsolundan aşağıdaki komutu çalıştırın.
 
     ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0

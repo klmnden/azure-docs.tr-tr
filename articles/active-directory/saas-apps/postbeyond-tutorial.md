@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a2bfcdcef00889d12fb30cb6f16bf74e6ab2cbd1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: fb6c32870d7a0ef07a6616d5669325538e64b14c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890848"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094303"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-postbeyond"></a>Öğretici: PostBeyond ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de PostBeyond tümleştirmesini yapılandırmak için PostBeyond Galeri
 
 **Galeriden PostBeyond eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

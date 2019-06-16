@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bff87ee1a221736abd8bb3b20ecbafb02f72d0f7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 94012a6830e59658562ed3e7485dad698f74974f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922221"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Sedgwick CMS
 
@@ -54,7 +54,7 @@ Azure AD'de Sedgwick CMS tümleştirmesini yapılandırmak için Sedgwick CMS Ga
 
 **Galeriden Sedgwick CMS eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

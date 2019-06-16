@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 69e51f23980aa1d4225f2e5062470f94e5ca9008
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 4888ea8473c50b8774add7a930612c585fc9cbde
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753795"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074354"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric güvenliği 
 
@@ -205,7 +205,13 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Geniş çapta bilinen ve Microsoft güvenlik temellerini kendiniz bir taban çizgisi oluşturmak yerine gibi iyi sınanmış bir endüstri standardı yapılandırma uygulamak öneririz](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); bunlar, sanal makinenizde sağlama seçeneği Ölçek kümeleri kullanmaktır Azure Desired State Configuration (DSC) uzantısı işleyicisi, VM'ler için üretim yazılımı çalıştıran çevrimiçi geldikleri şekilde yapılandırmak için.
 
 ## <a name="azure-firewall"></a>Azure Güvenlik Duvarı
-[Azure güvenlik duvarı, Azure sanal ağ kaynaklarını koruyan bir yönetilen, bulut tabanlı bir ağ güvenlik hizmetidir. Bir yerleşik yüksek kullanılabilirlik ve ölçeklenebilirlik sınırsız bulut hizmetiyle tamamen durum bilgisi olan bir güvenlik duvarı gibidir. ](https://docs.microsoft.com/azure/firewall/overview); Bu joker karakterler dahil olmak üzere tam etki alanı adlarını (FQDN) belirtilen bir listesi için giden HTTP/S trafik sınırlama imkanı sağlar. Bu özelliğe SSL sonlandırması gerekmez. Kendi yararlanın, önerilen [Azure güvenlik duvarı FQDN etiketleri](https://docs.microsoft.com/azure/firewall/fqdn-tags) Windows güncelleştirmeleri ve Microsoft Windows Update ağ trafiğini etkinleştirmek için uç noktalar, güvenlik duvarı üzerinden akabilir. [Azure bir şablon kullanarak güvenlik duvarı dağıtma](https://docs.microsoft.com/azure/firewall/deploy-template) Microsoft.Network/azureFirewalls kaynak şablon tanımı için bir örnek sağlar. İki güvenlik duvarı kuralları Service Fabric uygulamaları için ortak olan kümeleri ağınız ile iletişim kurmasına izin vermek için * download.microsoft.com, ve * servicefabric.azure.com; Windows güncelleştirmeleri ve Service Fabric işlem sanal makine uzantısı kod çekmek için.
+[Azure güvenlik duvarı, Azure sanal ağ kaynaklarını koruyan bir yönetilen, bulut tabanlı bir ağ güvenlik hizmetidir. Bir yerleşik yüksek kullanılabilirlik ve ölçeklenebilirlik sınırsız bulut hizmetiyle tamamen durum bilgisi olan bir güvenlik duvarı gibidir. ](https://docs.microsoft.com/azure/firewall/overview); Bu joker karakterler dahil olmak üzere tam etki alanı adlarını (FQDN) belirtilen bir listesi için giden HTTP/S trafik sınırlama imkanı sağlar. Bu özelliğe SSL sonlandırması gerekmez. Kendi yararlanın, önerilen [Azure güvenlik duvarı FQDN etiketleri](https://docs.microsoft.com/azure/firewall/fqdn-tags) Windows güncelleştirmeleri ve Microsoft Windows Update ağ trafiğini etkinleştirmek için uç noktalar, güvenlik duvarı üzerinden akabilir. [Azure bir şablon kullanarak güvenlik duvarı dağıtma](https://docs.microsoft.com/azure/firewall/deploy-template) Microsoft.Network/azureFirewalls kaynak şablon tanımı için bir örnek sağlar. Güvenlik duvarı kuralları Service Fabric uygulamaları için ortak olan aşağıdaki kümeleri sanal ağınızın izin vermek için:
+
+- *download.microsoft.com
+- *servicefabric.azure.com
+- *. core.windows.net
+
+Bu güvenlik duvarı kuralları, izin verilen giden ağ güvenlik ServiceFabric ve depolama, sanal ağınızdan izin verilen hedefleri olarak verilebilir gruplarını tamamlar.
 
 ## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
@@ -243,6 +249,18 @@ Varsayılan olarak, Windows Defender virüsten koruma, Windows Server 2016 üzer
 
 > [!NOTE]
 > Windows Defender kullanmıyorsanız yapılandırma kuralları için kötü amaçlı yazılımdan koruma belgelerinize bakın. Windows Defender, Linux üzerinde desteklenmez.
+
+## <a name="platform-isolation"></a>Platform yalıtım
+Varsayılan olarak, Service Fabric uygulamaları, farklı formlarda ortaya çıkmaktadır Service Fabric çalışma zamanının kendisi, erişim izni verilen: [ortam değişkenlerini](service-fabric-environment-variables-reference.md) uygulamaya karşılık gelen konak üzerindeki dosya yolları işaret eden ve Fabric dosyalar, uygulamaya özgü istekleri ve istemci kabul eden bir işlemler arası iletişim uç noktası kendi kimliğini doğrulamak için kullanmak için uygulamayı Fabric bekleyen sertifika. Planlıyorsanız güvenilmeyen kod hizmeti kendisini barındıran, açıkça gerek olmadığı sürece bu çalışma zamanı SF - erişimi devre dışı bırakmak için önerilir. Çalışma zamanı erişim, uygulama bildiriminin ilkeler bölümünde aşağıdaki bildirimi kullanarak kaldırılır: 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

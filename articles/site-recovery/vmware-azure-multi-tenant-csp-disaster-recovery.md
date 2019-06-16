@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60461026"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Bulut çözümü sağlayıcısı (CSP) programı ile çok kiracılı ortamında VMware olağanüstü durum kurtarmayı ayarlama
@@ -52,7 +52,7 @@ Kiracının abonelik Microsoft iş ortağı merkezi panosuna erişebilirsiniz.
 
 1. Üzerinde **müşteriler** sayfasında, Kiracı hesabı adına tıklayın.
 2. İçinde **abonelikleri** sayfası Kiracı hesabını, mevcut hesabı abonelikleri izleyebilir ve daha fazla abonelik gerektiği gibi ekleyin.
-3. Kiracının olağanüstü durum kurtarma işlemlerini yönetmek için seçin **tüm kaynakları (Azure portalı)**. Bu kiracının Azure aboneliklerine erişim verir.
+3. Kiracının olağanüstü durum kurtarma işlemlerini yönetmek için seçin **tüm kaynakları (Azure portalı)** . Bu kiracının Azure aboneliklerine erişim verir.
 
     ![Tüm kaynaklar bağlantı](./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png)  
 
@@ -89,11 +89,11 @@ Kiracının abonelik Microsoft iş ortağı merkezi panosuna erişebilirsiniz.
 
 Üç ana çok kiracılı modeli vardır:
 
-* **Paylaşılan barındırma hizmet sağlayıcısı (HSP)**: İş ortağı fiziksel altyapı sahip ve aynı altyapıda paylaşılan kaynaklar (vCenter, veri merkezleri, fiziksel depolama alanı ve benzeri) birden çok Kiracı Vm'leri barındırmak için kullanır. İş ortağı, yönetilen bir hizmet olarak olağanüstü durum kurtarma Yönetimi sağlayabilir veya Kiracı Self Servis bir çözüm olarak olağanüstü durum kurtarma sahip olabilir.
+* **Paylaşılan barındırma hizmet sağlayıcısı (HSP)** : İş ortağı fiziksel altyapı sahip ve aynı altyapıda paylaşılan kaynaklar (vCenter, veri merkezleri, fiziksel depolama alanı ve benzeri) birden çok Kiracı Vm'leri barındırmak için kullanır. İş ortağı, yönetilen bir hizmet olarak olağanüstü durum kurtarma Yönetimi sağlayabilir veya Kiracı Self Servis bir çözüm olarak olağanüstü durum kurtarma sahip olabilir.
 
 * **Barındırma hizmet sağlayıcısı adanmış**: İş ortağı fiziksel altyapı sahip, ancak ayrı bir altyapı üzerinde her bir kiracının sanal makineleri barındırmak için adanmış kaynaklar (birden çok vCenters, fiziksel veri depoları vb.) kullanır. İş ortağı, yönetilen bir hizmet olarak olağanüstü durum kurtarma Yönetimi sağlayabilir veya Kiracı Self Servis bir çözüm olarak bulunabilir.
 
-* **Yönetilen Hizmetler Sağlayıcısı (MSP)**: Müşteri sanal makineleri barındıran fiziksel altyapı sahip olan ve iş ortağı olağanüstü durum kurtarma etkinleştirme ve yönetimi sağlar.
+* **Yönetilen Hizmetler Sağlayıcısı (MSP)** : Müşteri sanal makineleri barındıran fiziksel altyapı sahip olan ve iş ortağı olağanüstü durum kurtarma etkinleştirme ve yönetimi sağlar.
 
 Bu makalede anlatıldığı gibi Kiracı abonelikleri ayarlayarak, müşterilerin herhangi bir ilgili çok kiracılı modeli etkinleştirme hızlıca başlatabilirsiniz. Farklı çok kiracılı modelleri hakkında daha fazla bilgi ve şirket içi etkinleştirme erişim denetimleri [burada](vmware-azure-multi-tenant-overview.md).
 

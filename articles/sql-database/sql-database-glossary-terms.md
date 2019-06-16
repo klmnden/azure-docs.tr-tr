@@ -13,19 +13,19 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 04/26/2019
 ms.openlocfilehash: 057c764a46508804bee6aa8f9912fdedc69e811f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762710"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL veritabanı terimler sözlüğü
 
-|Bağlam|Dönem|Daha fazla bilgi|
+|Bağlam|Terim|Daha fazla bilgi|
 |:---|:---|:---|
 |Azure hizmet adı|Azure SQL veritabanı veya SQL veritabanı|[Azure SQL veritabanı hizmeti](sql-database-technical-overview.md)|
 |İşlem katmanı|Sunucusuz (Önizleme)|[sunucusuz bilgi işlem katmanı](sql-database-serverless.md)
-||Sağlandı|[sunucusuz bilgi işlem katmanı](sql-database-serverless.md)
+||Sağlanan|[sunucusuz bilgi işlem katmanı](sql-database-serverless.md)
 |Dağıtım seçenekleri |Tek veritabanı|[Tek veritabanları](sql-database-single-database.md)|
 ||Elastik havuz|[Elastik havuz](sql-database-elastic-pool.md)|
 ||Yönetilen örnek|[Yönetilen örnek](sql-database-managed-instance.md)|
@@ -44,7 +44,7 @@ Veritabanı nesneleri|Azure SQL veritabanı|Azure SQL veritabanı'nda herhangi b
 ||Sağlanan veritabanı|Sağlanan işlem katmanında yapılandırılmış bir veritabanı|
 |[Satın alma modelleri ve kaynakları](sql-database-purchase-models.md)|DTU tabanlı satın alma modeli|[DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)|
 ||Sanal çekirdek tabanlı satın alma modeli|[Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md)|
-||vCore|Konuk işletim sistemi hiper yönetici tarafından sağlanan bir çekirdek.|
+||Sanal Çekirdek|Konuk işletim sistemi hiper yönetici tarafından sağlanan bir çekirdek.|
 ||Hizmet katmanı|Bir hizmet satın alma modeli içinde düzeyini|
 ||İşlem boyutu|Tek veritabanı, esnek havuz veya yönetilen örneği bir hizmet katmanında işlem kaynakları miktarı|
 ||Depolama alanı miktarı|Tek veritabanı, esnek havuz veya yönetilen örnek için kullanılabilir depolama miktarını|

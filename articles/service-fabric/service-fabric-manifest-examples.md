@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 85a3066095cfc30da19b06d26f41bdc156f85832
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60718232"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric uygulaması ve hizmet örnekleri listesi
@@ -26,7 +26,7 @@ Bu bölümde, uygulama ve hizmet bildirimleri örnekleri içerir. Bu örnekler, 
 
 Aşağıda gösterilen özelliklerin bir dizini ve örnek manifest(s) oldukları bir parçası.
 
-|Özellik|Bildirim|
+|Özellik|Bildirimi|
 |---|---|
 |[Kaynak idaresi](service-fabric-resource-governance.md)|[Reliable Services uygulaması bildirimi](service-fabric-manifest-example-reliable-services-app.md#application-manifest), [kapsayıcılı bir uygulama bildirimi](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Bir hizmet bir yerel yönetici farklı çalıştır hesabı](service-fabric-application-runas-security.md)|[Reliable Services uygulaması bildirimi](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|

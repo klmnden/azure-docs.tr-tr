@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
 ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66256618"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET web siteniz için Application Insights'ı ayarlama
@@ -70,7 +70,7 @@ Visual Studio'da günlüğe kaydedilmiş etkinliklerin sayısını görürsünü
 
 ![Visual Studio’nun ekran görüntüsü. Hata ayıklama sırasında Application Insights düğmesi görünür.](./media/asp-net/00006-Events.png)
 
-## <a name="step-3-see-your-telemetry"></a>3. adım: Telemetrinize bakma
+## <a name="step-3-see-your-telemetry"></a>3\. adım: Telemetrinize bakma
 Visual Studio’da veya Application Insights web portalında telemetrinizi görebilirsiniz. Uygulamanızın hatalarını ayıklamanıza yardımcı olması için Visual Studio'da telemetri arayın. Sisteminiz canlıyken web portalında performans ve kullanımı izleyin. 
 
 ### <a name="see-your-telemetry-in-visual-studio"></a>Visual Studio'da telemetrinize bakma
@@ -99,7 +99,7 @@ Portal, uygulamanızdan alınan telemetri görünümünde açılır.
 
 Daha fazla ayrıntı görmek için portalda istediğiniz kutucuğa veya grafiğe tıklayın.
 
-## <a name="step-4-publish-your-app"></a>4. Adım: Uygulamanızı yayımlama
+## <a name="step-4-publish-your-app"></a>4\. Adım: Uygulamanızı yayımlama
 Uygulamanızı IIS sunucunuza veya Azure’a yayımlayın. Her şeyin sorunsuz çalıştığından emin olmak için [Canlı Ölçümler Akışı](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream)’nı izleyin.
 
 Telemetri yapılarınızı Application Insights portalında, burada ölçümleri izleyebilir, telemetrinizde arama. Ayrıca güçlü kullanabilirsiniz [Kusto sorgu dili](/azure/kusto/query/) kullanımını ve performansını analiz etmek için ya da belirli olayları bulabilirsiniz.

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60838116"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Dışarı aktarma ve içeri aktarma'yı kullanarak MySQL veritabanınızı geçirme
@@ -90,7 +90,7 @@ Aşağıdaki örnek tabloya bir CSV dosyasından içeri aktarır:
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>SQL veri sihirbazları için Gezgin bölmesindeki alma ve verme
 MySQL Workbench'ten oluşturulan veya mysqldump komuttan oluşturulan SQL içeri veya dışarı aktarmak için bir sihirbaz kullanın. Bu sihirbaz erişim **Gezgin** bölmesinde seçerek veya **sunucu** ana menüden. Ardından **verileri dışarı aktarma** veya **veri içeri aktarma**. 
 
-#### <a name="data-export"></a>Veri Dışarı Aktarma
+#### <a name="data-export"></a>Verileri dışarı aktarma
 ![Gezinti bölmesini kullanarak MySQL Workbench verilerini dışarı aktarma](./media/concepts-migrate-import-export/p2.png)
 
 Kullanabileceğiniz **verileri dışarı aktarma** MySQL verilerinizi dışarı aktarmak için sekmesinde. 

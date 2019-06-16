@@ -9,18 +9,18 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 01349dbc5fe98fd69ce7219ef6f2029d7bb815d0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466448"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067921"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Azure IOT başvuru mimarisi için giriş
 
 Bu makalede tanıtılır [Azure IOT başvuru mimarisi](https://aka.ms/iotrefarchitecture) ve örnekleri nasıl verir [Azure IOT Çözüm Hızlandırıcıları](about-iot-accelerators.md) kendi önerilerini izleyin.
 
-Açık kaynak [Uzaktan izleme](iot-accelerators-remote-monitoring-sample-walkthrough.md) ve [Connected Factory](iot-accelerators-connected-factory-sample-walkthrough.md) Çözüm Hızlandırıcıları başvuru mimarisi önerilerin çoğu izleyin. Çözüm Hızlandırıcıları, kendi IOT çözümünüzü için bir başlangıç noktası olarak veya learning araçları kullanabilirsiniz.
+Açık kaynak [Uzaktan izleme](iot-accelerators-remote-monitoring-sample-walkthrough.md) ve [Connected Factory](iot-accelerators-connected-factory-features.md) Çözüm Hızlandırıcıları başvuru mimarisi önerilerin çoğu izleyin. Çözüm Hızlandırıcıları, kendi IOT çözümünüzü için bir başlangıç noktası olarak veya learning araçları kullanabilirsiniz.
 
 ## <a name="overview"></a>Genel Bakış
 

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 35759f03d7cf09a4114ca6dca74bd3ee92fdcbfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761701"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Esnek veritabanı araçlarını kullanarak çok parçalı sorgulama
@@ -61,7 +61,7 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 
 Önemli bir fark bağlantı çok parçalı bir yapıdır. Burada **SqlConnection** tek bir veritabanının üzerinde çalıştığı **MultiShardConnection** alır bir ***parçalar koleksiyonu*** giriş olarak. Parça parça eşlemesinden koleksiyonunu doldurur. Sorgu kullanarak parçalar koleksiyonu üzerinde yürütülür **UNION ALL** semantiği tek bir genel sonuç derlemek için. İsteğe bağlı olarak satır kaynaklandığı parça adını kullanarak çıkış eklenebilir **ExecutionOptions** özelliği komutu.
 
-Çağrı Not **myShardMap.GetShards()**. Bu yöntem, tüm parça parça eşlemesinden alır ve tüm ilgili veritabanları arasında sorgu çalıştırmak için kolay bir yol sağlar. Parçalar koleksiyonu çok parçalı sorgu daraltılmış olabilir. daha fazla koleksiyon üzerinde bir LINQ Sorgu gerçekleştirerek döndürülen çağrısından **myShardMap.GetShards()**. Kısmi sonuçlar İlkesi ile birlikte, çok parçalı sorgulama geçerli özellik parçalar yüzlerce en fazla on için iyi çalışacak şekilde tasarlanmıştır.
+Çağrı Not **myShardMap.GetShards()** . Bu yöntem, tüm parça parça eşlemesinden alır ve tüm ilgili veritabanları arasında sorgu çalıştırmak için kolay bir yol sağlar. Parçalar koleksiyonu çok parçalı sorgu daraltılmış olabilir. daha fazla koleksiyon üzerinde bir LINQ Sorgu gerçekleştirerek döndürülen çağrısından **myShardMap.GetShards()** . Kısmi sonuçlar İlkesi ile birlikte, çok parçalı sorgulama geçerli özellik parçalar yüzlerce en fazla on için iyi çalışacak şekilde tasarlanmıştır.
 
 Çok parçalı sorgulama ile bir şu anda doğrulama parçalar ve sorgulanır parçacıklarda eksikliği sınırlamasıdır. Verilere bağımlı yönlendirme sorgulama sırasında verilen parça parça eşlemesinin bir parçası olduğunu doğrular, ancak çok parçalı sorgular, bu onay gerçekleştirmeyin. Bu çok parçalı sorgular parça eşlemesinden kaldırılmış olan veritabanlarında çalışan neden olabilir.
 

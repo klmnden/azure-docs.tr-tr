@@ -12,20 +12,20 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/21/2019
+ms.date: 06/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 98bc10377dff8f06cd02d4a384ca14b364a73e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 167370a4eebded3dba898ed47dede7a36900d976
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808223"
 ---
 # <a name="workloads-on-azure-virtual-machines"></a>Azure sanal makinelerinde iş yükleri
 
 Azure'da sanal makineler, çok sayıda iş yükü destekleyebilir. Her iş yükü dağıtımları azure'da sanal makineler için en iyi tasarım Rehber özelleştirilmiş. Özel iş yükleri için sunuyoruz Kılavuzu bazıları aşağıda verilmiştir.
 
-
+- [Yüksek performanslı bilgi işlem](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) CPU veya GPU için iyileştirilmiş sanal makineler'ı karmaşık, yoğun işlem gücü kullanımlı sorunları çözmek için Azure kullanır. 
 - [SAP](./sap/get-started.md) Azure'da ölçeklenebilir, uyumlu ve kurumsal düzeyde kendini kanıtlamış bir platformda senaryoları ve görev açısından kritik SAP iş yükleri çalıştırabilirsiniz.
 - [Oracle](./oracle/oracle-considerations.md) tabanlı Oracle Linux'ta Oracle VT 12,1 Standard ve Enterprise sürümleri Azure'da sanal makine görüntülerinde çalıştırmayı destekler. 
 - [Ana bilgisayar yeniden barındırma](./mainframe-rehosting/overview.md) 

@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: c371254f344b321969dcc9b3c36212b7536aa95a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452833"
+ms.locfileid: "67109015"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory kimlik koruması Kılavuzu sözlüğü
 ### <a name="at-risk-user"></a>Risk (kullanıcı)
@@ -34,7 +34,7 @@ Bir oturum açma bir coğrafi konumdan belirli kullanıcı, benzer kullanıcıla
 ### <a name="azure-ad-identity-protection"></a>Azure AD Kimlik Koruması
 Risk olayları ve bir kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarına ilişkin birleştirilmiş görünüm sağlayan Azure Active Directory güvenlik modül.
 
-### <a name="conditional-access"></a>Koşullu erişim
+### <a name="conditional-access"></a>Koşullu Erişim
 Kaynaklara erişimi güvenli hale getirmek için bir ilke. Koşullu erişim kuralları, Azure Active Directory'de depolanır ve kaynağa erişim izni vermeden önce Azure AD tarafından değerlendirilir.  Kullanıcı konumu, cihaz sistem durumu veya kullanıcı kimlik doğrulaması yöntemine dayalı olarak erişimi kısıtlama örnek kurallar içerir.
 
 ### <a name="credentials"></a>Kimlik Bilgileri

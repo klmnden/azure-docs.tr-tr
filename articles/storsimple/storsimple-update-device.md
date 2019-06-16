@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: v-sharos
 ms.openlocfilehash: d973a16c121a1e8ebee10826d135bcbb33ef748c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61409996"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>StorSimple 8000 serisi Cihazınızı güncelleştirin
@@ -84,22 +84,22 @@ Bakım modu güncelleştirmeleri uygulamak gerekiyorsa, Klasik Azure Portalı ar
 > 
 > 
 
-### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>1. Adım: Seri konsoluna Bağlan <a name="step1">
+### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>1\. adım: Seri konsoluna Bağlan <a name="step1">
 İlk olarak, seri konsoluna erişmek için PuTTY gibi bir uygulama kullanın. Aşağıdaki yordam seri konsoluna bağlanmak için PuTTY kullanın açıklanmaktadır.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>2. Adım: Bakım Moduna gir <a name="step2">
+### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>2\. adım: Bakım Moduna gir <a name="step2">
 Konsola bağlandıktan sonra yüklemek ve bunları yüklemek için bakım moduna girmek için güncelleştirmeler olup olmadığını belirler.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### <a name="step-3-install-your-updates-a-namestep3"></a>3. Adım: Güncelleştirmelerinizi yükleyin <a name="step3">
+### <a name="step-3-install-your-updates-a-namestep3"></a>3\. adım: Güncelleştirmelerinizi yükleyin <a name="step3">
 Ardından, güncelleştirmelerinizi yükleyin.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>4. Adım: Bakım modundan çık <a name="step4">
+### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>4\. Adım: Bakım modundan çık <a name="step4">
 Son olarak, bakım modundan çıkın.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]

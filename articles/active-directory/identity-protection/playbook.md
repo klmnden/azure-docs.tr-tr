@@ -17,12 +17,12 @@ ms.date: 06/27/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294387"
+ms.locfileid: "67108837"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory kimlik koruması Kılavuzu
 
@@ -135,7 +135,7 @@ Daha fazla bilgi için bkz. [Kullanıcı risk ilkesini yapılandırma](howto-use
 6. Bir test hesabının, kullanıcı riski, örneğin, bir risk olaylarının benzetimini birkaç kez Yükselt.
 7. Birkaç dakika bekleyin ve ardından, kullanıcı için kullanıcı düzeyi, Orta olduğunu doğrulayın. Aksi takdirde kullanıcı için daha fazla risk olaylarının benzetimini yapma.
 8. Olarak **ilke zorlama**seçin **üzerinde**.
-9. Ayrıca, bir yükseltilmiş risk düzeyi bir kullanıcı ile oturum tarafından kullanıcı risk tabanlı koşullu erişim artık test edebilirsiniz.
+9. Kullanıcı artık test edebilirsiniz bir yükseltilmiş risk düzeyi ile kullanarak bir kullanıcı oturum açarak risk tabanlı koşullu erişim.
     
     
 

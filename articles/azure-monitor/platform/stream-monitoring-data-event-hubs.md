@@ -1,19 +1,19 @@
 ---
 title: Stream Azure Event hubs'a veri izleme
 description: Azure izleme verilerinizi analiz aracı ve bir iş ortağı SIEM verilerini almak için bir olay hub'ına akışı yapmayı öğrenin.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: johnkem
+ms.author: nikiest
 ms.subservice: ''
-ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8a4de244d0fa07bfc162625f577015317fca7e6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243463"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069330"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
@@ -43,8 +43,8 @@ Başlamadan önce yapmanız [Event Hubs ad alanı ve olay hub'ı oluşturma](../
 * Üretilen iş birimlerinin sayısı, event hubs'ınız için aktarım hızı ölçeği artırmanıza olanak sağlar. Bölüm sayısı, birçok tüketicilere tüketim paralel hale getirmek sağlar. Tek bir bölüm 20MBps kadar veya yaklaşık yapabilirsiniz saniyede 20.000 iletileri. Verileri kullanan bir aracı bağlı olarak olabilir veya birden çok bölümdeki verileri kullanan desteklemiyor olabilir. Ayarlanacak bölüm sayısı hakkında emin değilseniz, dört bölüm ile başlamanızı öneririz.
 * 7 gün için olay hub'ınızdaki ileti bekletme ayarlamanızı öneririz. Alıcı aracınız için bir günden kalırsa, bu aracın kaldığı yukarı seçebilir sağlar (olaylar için en fazla 7 gün).
 * Olay hub'ınız için varsayılan bir tüketici grubu kullanmanızı öneririz. Diğer tüketici grubu oluşturun veya aynı olay hub'ı aynı verileri kullanan iki farklı araçları planlamıyorsanız bir ayrı bir tüketici grubu kullanmak için gerek yoktur.
-* Azure etkinlik günlüğü için bir Event Hubs ad alanı seçin ve Azure İzleyici 'ınsights-günlükleri-operationallogs.' olarak adlandırılan bu ad alanı içinde bir olay hub'ı oluşturur. Diğer günlük türleri için (aynı ınsights günlükleri operationallogs olay hub'ı yeniden kullanmanıza olanak tanır) mevcut bir olay hub'ya da seçebilirsiniz veya Azure izleyici günlüğü Kategori başına bir olay hub'ı oluşturun.
-* Genellikle, bağlantı noktası 5671 ve 5672 olay merkezinde verileri tüketme makinede açılması gerekir.
+* Azure etkinlik günlüğü için bir Event Hubs ad alanı seçin ve Azure İzleyici 'insights-günlükleri-operational-logs.' olarak adlandırılan bu ad alanı içinde bir olay hub'ı oluşturur. Diğer günlük türleri için (aynı insights-günlükleri-operational-logs olay hub'ı yeniden kullanmanıza olanak tanır) mevcut bir olay hub'ya da seçebilirsiniz veya Azure izleyici günlüğü Kategori başına bir olay hub'ı oluşturun.
+* Genellikle, giden bağlantı noktası 5671 ve 5672 makinede veya olay hub'ından verileri tüketme VNET açılması gerekir.
 
 Ayrıca bkz [Azure Event Hubs SSS Sayfasındaki](../../event-hubs/event-hubs-faq.md).
 

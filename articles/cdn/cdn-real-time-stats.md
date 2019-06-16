@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334626"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Microsoft Azure cdn'de gerçek zamanlı İstatistikler
@@ -51,7 +51,7 @@ Aşağıdaki grafiklerde kullanılabilir:
 
 Grafiklerin her sayfa yüklendiğinde başlatılıyor, seçili zaman aralığı için gerçek zamanlı istatistikler görüntüler.  Grafik, her birkaç saniyede otomatik olarak güncelleştirilir.  **Grafı Yenile** , varsa, Temizle düğmesi sonra onu yalnızca görüntüler seçili veri grafiği.
 
-## <a name="bandwidth"></a>Bant Genişliği
+## <a name="bandwidth"></a>Bant genişliği
 ![Bant genişliği grafiği](./media/cdn-real-time-stats/cdn-bandwidth.png)
 
 **Bant genişliği** grafik, seçilen zaman aralığı geçerli platform için kullanılan bant genişliği miktarını görüntüler. Gölgeli grafiğin bant genişliği kullanımını gösterir. Tam şu anda kullanılan bant genişliği miktarı, doğrudan aşağıdaki çizgi grafikte görüntülenir.

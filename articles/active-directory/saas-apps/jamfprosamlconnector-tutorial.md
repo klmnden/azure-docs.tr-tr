@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00d03df38dee74f4767e8ff3b21d9462fd59c4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60269590"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Öğretici: Jamf Pro ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Jamf Pro tümleştirmesini yapılandırmak için Jamf Pro Galeriden 
 
 **Jamf Pro Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

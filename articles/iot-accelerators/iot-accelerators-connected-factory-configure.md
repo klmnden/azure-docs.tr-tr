@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 042277899ff22066cfa890e64f5c6c0f2e0134f9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387109"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080467"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm Hızlandırıcısını yapılandırın
 
@@ -340,4 +340,4 @@ Bir özelliği **NumberOfManufactureredProducts** düğüm değerdir yalnızca a
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir önerilen sonraki adım, bilgi edinmek için nasıl [bağlı Fabrika çözüm Hızlandırıcı için Windows veya Linux üzerinde bir ağ geçidi dağıtma](iot-accelerators-connected-factory-gateway-deployment.md).
+Bir önerilen sonraki adım, bilgi edinmek için nasıl [bağlı Fabrika çözümü özelleştirme](iot-accelerators-connected-factory-customize.md).

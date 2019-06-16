@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdb01802ec5b20ce57955a4e74e9de8108f4d96d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077022"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Öğretici: Azure CLI ile Linux VM’leri Oluşturma ve Yönetme
 
@@ -38,7 +38,7 @@ Azure sanal makineleri tam olarak yapılandırılabilir ve esnek bir bilgi işle
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="create-resource-group"></a>Kaynak grubu oluştur
+## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
 [az group create](https://docs.microsoft.com/cli/azure/group) komutuyla bir kaynak grubu oluşturun. 
 
@@ -50,11 +50,11 @@ az group create --name myResourceGroupVM --location eastus
 
 Kaynak grubu, bu öğretici boyunca görülebileceği gibi bir VM oluşturulurken veya değiştirilirken belirtilir.
 
-## <a name="create-virtual-machine"></a>Sanal makine oluştur
+## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
 [az vm create](https://docs.microsoft.com/cli/azure/vm) komutuyla bir sanal makine oluşturun. 
 
-Bir sanal makine oluştururken, işletim sistemi görüntüsü, disk boyutlandırma ve yönetici kimlik bilgileri gibi çeşitli seçenekler bulunur. Aşağıdaki örnekte *myVM* adlı Ubuntu Server çalıştıran bir VM oluşturulur. VM’de *azureuser* adlı bir kullanıcı hesabı ve varsayılan anahtar konumunda (*~/.ssh*) mevcut değilse SSH anahtarları oluşturulur:
+Bir sanal makine oluştururken, işletim sistemi görüntüsü, disk boyutlandırma ve yönetici kimlik bilgileri gibi çeşitli seçenekler bulunur. Aşağıdaki örnekte *myVM* adlı Ubuntu Server çalıştıran bir VM oluşturulur. VM’de *azureuser* adlı bir kullanıcı hesabı ve varsayılan anahtar konumunda ( *~/.ssh*) mevcut değilse SSH anahtarları oluşturulur:
 
 ```azurecli-interactive
 az vm create \
@@ -155,14 +155,14 @@ Bir sanal makinenin boyutu sanal makine tarafından kullanılabilen CPU, GPU ve 
 
 Aşağıdaki tabloda boyutlar kullanım durumlarına göre kategorilere ayrılmaktadır.  
 
-| Tür                     | Boyutlar           |    Açıklama       |
+| Tür                     | Ortak boyutlar           |    Açıklama       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Genel amaçlı](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Dengeli CPU/bellek. Küçük ve orta ölçekli uygulama ve veri çözümlerini geliştirmek/test etmek için idealdir.  |
-| [İşlem için iyileştirilmiş](sizes-compute.md)   | Fs, F             | Yüksek CPU/bellek. Orta düzey trafiğe sahip uygulamalar, ağ gereçleri ve toplu işlemler için idealdir.        |
-| [Bellek için iyileştirilmiş](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Yüksek bellek/çekirdek. İlişkisel veritabanı, orta veya büyük boyutlu önbellekler ve bellek içi analiz için idealdir.                 |
-| [Depolama için iyileştirilmiş](../virtual-machines-windows-sizes-storage.md)      | Ls                | Yüksek disk aktarım hızı ve GÇ. Büyük Veri, SQL ve NoSQL veritabanları için ideal.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NC            | Ağır grafik işlemleri ile video düzenleme işlemleri için özel olarak hedeflenen VM’ler.       |
-| [Yüksek performans](sizes-hpc.md) | H, A8-11          | İşleme düzeyi yüksek olan isteğe bağlı ağ arabirimleri (RDMA) içeren VM’lerimiz, şimdiye kadarki en güçlü CPU ile sunuluyor. 
+| [Genel amaçlı](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Dengeli CPU/bellek. Küçük ve orta ölçekli uygulama ve veri çözümlerini geliştirmek/test etmek için idealdir.  |
+| [İşlem için iyileştirilmiş](sizes-compute.md)   | Fsv2          | Yüksek CPU/bellek. Orta düzey trafiğe sahip uygulamalar, ağ gereçleri ve toplu işlemler için idealdir.        |
+| [Bellek için iyileştirilmiş](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Yüksek bellek/çekirdek. İlişkisel veritabanı, orta veya büyük boyutlu önbellekler ve bellek içi analiz için idealdir.                 |
+| [Depolama için iyileştirilmiş](sizes-storage.md)      | Lsv2, Ls              | Yüksek disk aktarım hızı ve GÇ. Büyük Veri, SQL ve NoSQL veritabanları için ideal.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Ağır grafik işlemleri ile video düzenleme işlemleri için özel olarak hedeflenen VM’ler.       |
+| [Yüksek performans](sizes-hpc.md) | H        | İşleme düzeyi yüksek olan isteğe bağlı ağ arabirimleri (RDMA) içeren VM’lerimiz, şimdiye kadarki en güçlü CPU ile sunuluyor. |
 
 
 ### <a name="find-available-vm-sizes"></a>Kullanılabilir VM boyutlarını bulma
@@ -252,7 +252,7 @@ Bir Azure VM’si birçok güç durumuna sahip olabilir. Bu durum VM’nin hiper
 
 ### <a name="power-states"></a>Güç durumları
 
-| Güç Durumu | Açıklama
+| Güç durumu | Açıklama
 |----|----|
 | Başlatılıyor | Sanal makinenin başlatıldığını gösterir. |
 | Çalışıyor | Sanal makinenin çalıştığını gösterir. |
@@ -273,7 +273,7 @@ az vm get-instance-view \
     --query instanceView.statuses[1] --output table
 ```
 
-Çıkış:
+Çıktı:
 
 ```azurecli-interactive 
 ode                DisplayStatus    Level
@@ -305,7 +305,7 @@ az vm stop --resource-group myResourceGroupVM --name myVM
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
-### <a name="delete-resource-group"></a>Kaynak grubunu sil
+### <a name="delete-resource-group"></a>Kaynak grubunu silme
 
 Bir kaynak grubunu silmek ayrıca grubun içindeki VM, sanal ağ ve disk gibi tüm kaynakları da siler. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
 

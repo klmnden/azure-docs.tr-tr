@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: d8a8a2f005a92988158b3f9c36ce24936fb020b4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 82ceb332ca377da1953908abba3f7c52874b995e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475619"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066800"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS) ile hizmet sorumluları
 
@@ -102,9 +102,10 @@ Gelişmiş Ağ, sanal ağ ve alt ağı veya genel IP adresleri başka bir kaynak
 - Oluşturma bir [özel rol] [ rbac-custom-role] ve aşağıdaki rol izinleri tanımlayın:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/virtualNetworks/subnets/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
-  - *Microsoft.Network/publicIPAddresses/join/action*
 - Veya atama [ağ Katılımcısı] [ rbac-network-contributor] sanal ağ içindeki alt ağ üzerinde yerleşik rol
 
 ### <a name="storage"></a>Depolama

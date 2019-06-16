@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: b57beb18b8bf7d82694f89e131d79d15c6fcd6bc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ab80b6efef71c71feea1359112d09bae90a7ab84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098881"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Öğretici: KnowledgeOwl ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de KnowledgeOwl tümleştirmesini yapılandırmak için KnowledgeOwl Ga
 
 **Galeriden KnowledgeOwl eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -148,7 +148,7 @@ Azure AD çoklu oturum açma ile KnowledgeOwl yapılandırmak için aşağıdaki
 
 7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin: 
 
-    | Ad | Kaynak özniteliği | Ad alanı |
+    | Ad | Kaynak özniteliği | Ad Alanı |
     | ------------ | -------------------- | -----|
     | ssoid | User.Mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
@@ -218,7 +218,7 @@ Azure AD çoklu oturum açma ile KnowledgeOwl yapılandırmak için aşağıdaki
     * Girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` içine **kullanıcı adı/e-posta** metin.
     * Girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` içine **ad** metin.
     * Girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` içine **Soyadı** metin.
-    * **Kaydet**’e tıklayın
+    * **Kaydet**'e tıklayın.
 
     i. Sayfanın alt kısmındaki **Kaydet**’e tıklayın.
 

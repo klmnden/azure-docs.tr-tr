@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: e9363f88db4fa44879eb8f6a6a04e23563c5ba44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125728"
 ---
 # <a name="use-azure-files-with-linux"></a>Azure Dosyaları'nı Linux ile kullanma
 
@@ -34,22 +34,22 @@ ms.locfileid: "66754826"
 
     SMB 3.0 şifreleme desteği Linux çekirdek sürümü 4.11 içinde sunulmuştur ve popüler Linux dağıtımları için eski çekirdek sürümlerine backported olmuştur. Bu belgenin yayın zaman bağlama seçeneği tablo üstbilgisinde belirtilen Azure Galerisi şu dağıtımlarını destekler. 
 
-* **Önerilen en az sürümleriyle ilgili bağlama özellikleri (SMB sürüm 2.1 ve SMB 3.0 sürümü)**    
+### <a name="minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30"></a>Önerilen en az sürümleriyle ilgili bağlama özellikleri (SMB sürüm 2.1 ve SMB 3.0 sürümü)
 
-    |   | SMB 2.1 <br>(Aynı Azure bölgesindeki VM'ler üzerinde başlatmalar) | SMB 3.0 <br>(Şirket içinde ve bölgeler arası gelen başlatmalar) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+|   | SMB 2.1 <br>(Aynı Azure bölgesindeki VM'ler üzerinde başlatmalar) | SMB 3.0 <br>(Şirket içinde ve bölgeler arası gelen başlatmalar) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-    Linux dağıtımınıza burada listelenmiyorsa, aşağıdaki komutla Linux çekirdek sürümü görmek için kontrol edebilirsiniz:
+Linux dağıtımınıza burada listelenmiyorsa, aşağıdaki komutla Linux çekirdek sürümü görmek için kontrol edebilirsiniz:
 
-   ```bash
-   uname -r
-   ```
+```bash
+uname -r
+```
 
 * <a id="install-cifs-utils"></a>**CIFS-utils paketi yüklenir.**  
     CIFS-utils paketin, Paket Yöneticisi ettiğiniz Linux dağıtımını kullanarak yüklenebilir. 
@@ -75,7 +75,7 @@ ms.locfileid: "66754826"
 
     Diğer dağıtımlarında, uygun paket yöneticisini kullanın veya [kaynaktan derleme](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Bağlanılan paylaşımı dizin/dosya izinlerini karar**: Aşağıda izin örneklerde `0777` olan okuma vermek için kullanılan, yazma ve Yürütme izinleri tüm kullanıcılara. Diğer değiştirebileceğiniz [chmod izinleri](https://en.wikipedia.org/wiki/Chmod) istendiği gibi ancak bu anlamına gelir potansiyel olarak erişim kısıtlama. Diğer izinler kullanırsanız, ayrıca seçtiğiniz yerel gruplar için erişimi korumak için fazla kullanmayı düşünmeniz gerekir.
+* **Bağlanılan paylaşımı dizin/dosya izinlerini karar**: Aşağıda izin örneklerde `0777` olan okuma vermek için kullanılan, yazma ve Yürütme izinleri tüm kullanıcılara. Diğer değiştirebileceğiniz [chmod izinleri](https://en.wikipedia.org/wiki/Chmod) istendiği gibi ancak bu anlamına gelir potansiyel olarak erişim kısıtlama. Diğer izinler kullanırsanız, ayrıca yerel kullanıcılar ve Gruplar tercih ettiğiniz için erişimi korumak için fazla kullanmayı düşünmeniz gerekir.
 
 > [!NOTE]
 > Dizin ve dosya izinle dir_mode = ve file_mode açıkça atamazsanız 0755 için varsayılan.

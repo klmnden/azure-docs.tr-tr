@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73f6126d6bf172a35a284e92b65b1c3ef449949e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7cf1b583189810b61ea349a29698ff6f12c39699
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106738"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Öğretici: Asana ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Asana tümleştirmesini yapılandırmak için Asana Galeriden yönet
 
 **Galeriden Asana eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

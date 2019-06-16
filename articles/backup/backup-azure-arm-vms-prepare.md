@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: bac61342f39821b6181a6a0e61bf0b11fb311007
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 06a7623fed0205d927fca9406469737faeda3a4b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076798"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Azure Vm'lerini bir kurtarma Hizmetleri kasasına yedekleme
 
@@ -70,6 +70,9 @@ Ayrıca, birkaç bazı durumlarda yapmanız gerekebilecek şey vardır:
  Kasayı oluşturduktan sonra kurtarma Hizmetleri kasaları listesinde görünür. Kasanız görmüyorsanız seçin **Yenile**.
 
 ![Yedekleme kasalarının listesi](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
+
+> [!NOTE]
+> Azure Backup hizmeti adlandırma biçimi ile anlık görüntü deposu için ayrı bir kaynak grubu (dışında VM kaynak grubu) oluşturur **AzureBackupRG_geography_number** (örnek: AzureBackupRG_northeurope_1). Bu kaynak grubundaki veriler, belirtilen gün sayısı süresince korunur *tut anında kurtarma anlık görüntü* Azure sanal makine yedekleme ilkesinin bir bölümü.  Bu kaynak grubu için bir kilit uygulama, yedekleme hatalarına neden olabilir.
 
 ### <a name="modify-storage-replication"></a>Depolama çoğaltma değiştirme
 

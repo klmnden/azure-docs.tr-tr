@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2dea1dcd2f6ecef580d65a95d1227380901213eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5c46b096b1182b3f2a998f992f72e6127dfe0888
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866559"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089549"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Öğretici: Sugar CRM ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Sugar CRM tümleştirmesini yapılandırmak için Sugar CRM Galeride
 
 **Sugar CRM Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

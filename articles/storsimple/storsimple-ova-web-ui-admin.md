@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630518"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>StorSimple Virtual Array'iniz yönetmek için Web kullanıcı arabirimini kullanın
@@ -51,7 +51,7 @@ Bazı durumlarda, yerel web kullanıcı Arabirimi üzerinden Cihazınızı yapı
 #### <a name="to-run-the-diagnostic-tests"></a>Tanılama testleri çalıştırmak için
 1. Yerel web kullanıcı Arabirimi, Git **sorun giderme** > **tanılama testleri**.
    
-    ![1. tanılama Çalıştır](./media/storsimple-ova-web-ui-admin/image29.png)
+    ![1\. tanılama Çalıştır](./media/storsimple-ova-web-ui-admin/image29.png)
 2. Sayfanın en altında tıklayın **tanılama Testleri Çalıştır**. Bu ağ, cihaz, web Ara sunucusu, olası sorunları tanılamak için testleri başlatır zaman ya da bulut ayarları. Cihaz testleri çalıştığını size bildirilir.
 3. Testleri tamamladıktan sonra sonuçları görüntülenir. Aşağıdaki örnek, tanılama testlerin sonuçlarını gösterir. Web proxy ayarlarını bu cihaz üzerinde yapılandırılmamış ve bu nedenle, web proxy testi değil çalıştırıldığı unutmayın. Ağ ayarlarını, DNS sunucusu ve saat ayarlarını diğer tüm testler başarılı.
    
@@ -66,7 +66,7 @@ Microsoft Support cihaz sorunları gidermeye yardımcı olabilecek ilgili günl�
     ![1 günlük paketini oluşturma](./media/storsimple-ova-web-ui-admin/image31.png)
 2. Sayfanın en altında tıklayın **günlük paketi oluştur**. Sistem günlüklerinin bir paket oluşturulur. Bu işlem birkaç dakika sürebilir.
    
-    ![2. günlük paketi oluştur](./media/storsimple-ova-web-ui-admin/image32.png)
+    ![2\. günlük paketi oluştur](./media/storsimple-ova-web-ui-admin/image32.png)
    
     Paket başarıyla oluşturulduktan sonra sayfa, paketin oluşturulduğu tarih ve saatini göstermek için güncelleştirilir bildirim alırsınız.
    

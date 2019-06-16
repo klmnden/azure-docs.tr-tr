@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: e4968310459097fc6a00f7c453846fe61726c3d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64716125"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST kullanarak HDInsight üzerinde Apache Hadoop MapReduce işlerle çalışma
@@ -77,7 +77,7 @@ HDInsight kümesi üzerinde bir Apache Hadoop MapReduce işlerini çalıştırma
    * **-u**: İsteğin kimliğini doğrulamak için kullanılan parola ve kullanıcı adını belirtir.
    * **-G**: Bu işlem bir GET isteği olduğunu belirtir
 
-   URI başlangıcını **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, tüm istekler için aynıdır.
+   URI başlangıcını **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** , tüm istekler için aynıdır.
 
 4. Bir MapReduce işi göndermek için aşağıdaki komutu kullanın:
 

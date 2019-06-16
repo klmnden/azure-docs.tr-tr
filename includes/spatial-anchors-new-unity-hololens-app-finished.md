@@ -6,12 +6,12 @@ ms.date: 05/14/2019
 ms.topic: include
 ms.author: pmorgan
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 06b4d6440bb3703ea62556d82152315630438376
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 3eee0b304f36847677167ada275451c4be9e9885
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969478"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "67135296"
 ---
 ## <a name="putting-everything-together"></a>Her şeyi bir araya getirilmesi
 
@@ -398,4 +398,4 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 Bu öğreticide, olduğunuz şunların nasıl yeni bir Unity HoloLens uygulama Azure uzamsal bağlayıcıları kullanma hakkında daha fazla. Yeni bir Android uygulaması Azure uzamsal bağlayıcıları kullanma hakkında daha fazla bilgi edinmek için sonraki öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Yeni bir Android uygulaması başlatılıyor](/azure/spatial-anchors/tutorials/tutorial-new-android-app.md)
+> [Yeni bir Android uygulaması başlatılıyor](/azure/spatial-anchors/tutorials/tutorial-new-android-app)

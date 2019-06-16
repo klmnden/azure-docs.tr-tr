@@ -9,10 +9,10 @@ ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478683"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>İçeri/dışarı aktarma işi için durum bilgilerini alma
@@ -35,7 +35,7 @@ Tablo ve durumu aşağıdaki diyagramda yaşam döngüsü sırasında geçişler
 
 Aşağıdaki tabloda, bir işi geçişine her bir durumu açıklar.
 
-|İş Durumu|Açıklama|
+|İş durumu|Açıklama|
 |---------------|-----------------|
 |`Creating`|Sonra iş Put işlemi çağrısı, bir iş oluşturulur ve durumuna ayarlanır `Creating`. İş çalışırken `Creating` durumunda, içeri/dışarı aktarma hizmeti sürücüleri sevk veri merkezine varsayar. Bir iş olarak kalabilir `Creating` iki sonra bunu otomatik olarak silinmez hizmet tarafından haftaya kadar durum.<br /><br /> İş çalışırken işi özellikleri güncelleştirme işlemi çağrısı yaparsanız `Creating` durumunda, işi kaldığı `Creating` durumu ve zaman aşımı aralığı için iki hafta sıfırlanır.|
 |`Shipping`|Paketiniz sevk sonra güncelleştirme işi özellikleri işlem güncelleştirmesi için iş durumunu çağırmalıdır `Shipping`. Sevkiyat durumu yalnızca aşağıdaki durumlarda ayarlanabilir `DeliveryPackage` (posta taşıyıcı ve izleme numarası) ve `ReturnAddress` özellikleri, iş için ayarlandı.<br /><br /> İş için iki haftalık gönderim halde kalır. İki hafta geçmiştir ve sürücüleri alınmamış, içeri/dışarı aktarma hizmeti işleçleri bildirilir.|
@@ -49,7 +49,7 @@ Bir işi yalnızca belirli durumlar iptal edebilirsiniz. İptal edilen bir işi 
 
 Aşağıdaki tabloda, bir hata oluştuğunda iş üzerindeki etkisini yanı sıra, her iş durumu için oluşabilecek hatalar açıklanmaktadır.
 
-|İş Durumu|Olay|Çözüm / sonraki adımlar|
+|İş durumu|Olay|Çözüm / sonraki adımlar|
 |---------------|-----------|------------------------------|
 |`Creating or Undefined`|Bir iş için bir veya daha fazla sürücü gelen, ancak iş kullanımda olmayan `Shipping` durumu veya hizmetteki iş kaydı yok.|İçeri/dışarı aktarma hizmeti operasyon ekibinin, oluşturmak veya iş iş ilerlemek için gerekli olan bilgileri güncelleştirmek için bir müşteri sizinle iletişime geçmeyi dener.<br /><br /> İşlemler ekibinin müşteri iki hafta içinde iletişim kuramazsa, operasyon ekibinin sürücüleri dönüş dener.<br /><br /> Sürücüleri döndürülemez ve müşteri ulaşılamaması halinde durumunda, sürücüleri 90 gün içinde güvenli bir şekilde yok edilir.<br /><br /> Bir işin durumuna şekilde güncelleştirilene kadar işlenemiyor Not `Shipping`.|
 |`Shipping`|Bir işi için paketi iki hafta boyunca edinildi değil.|İşlemler ekibinin, müşterinin eksik paket bildirir. Müşterinin yanıtta bağlı olarak, operasyon ekibinin paketini gelmesi için beklenecek genişletmek veya işi iptal.<br /><br /> Müşteri temas kurulamıyor ya da 30 gün içinde yanıt vermezse, olay, operasyon ekibinin işten taşımak için eylem başlatacak `Shipping` doğrudan durum `Closed` durumu.|

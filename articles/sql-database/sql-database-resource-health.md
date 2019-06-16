@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/26/2019
 ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61483063"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Azure SQL veritabanı için bağlantı sorunlarını gidermek için kaynak durumu kullanın
@@ -55,7 +55,7 @@ Durumu **kullanılamıyor** kaynak durumu, tutarlı bir oturum açma hataları S
 
 Sistem durumunu **bilinmeyen** bu kaynak hakkında bilgi için 10 dakikadan daha fazla kaynak durumu henüz aldığını gösterir. Bu durum kaynak durumunun eksiksiz bir gösterimi olmasa da, bir sorun giderme işlemi önemli veri noktası var. Kaynak beklenen şekilde çalışıyorsa, kaynak durumu için kullanılabilen birkaç dakika sonra değiştirin. Kaynağı ile ilgili sorunlar yaşıyorsanız, bilinmeyen durumunu platform içindeki bir olay kaynağı etkilediğini önerebilir.
 
-![Bilinmeyen](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
+![Bilinmiyor](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Geçmiş bilgileri
 

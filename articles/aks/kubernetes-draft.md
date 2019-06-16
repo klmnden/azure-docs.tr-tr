@@ -2,17 +2,16 @@
 title: AKS ve Azure Container Registry ile taslak kullanma
 description: AKS ve Azure Container Registry ile taslak kullanma
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 08/15/2018
+ms.author: zarhoads
 ms.openlocfilehash: 462cfd6ec0a6b25f85dda0245dd4f5feed7cb712
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465156"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) ile taslak kullanma
@@ -77,7 +76,7 @@ AKS kümenizi ACR kullanımdan yoktur, ACR ile AKS arasında bir güven ilişkis
 1. Taslak yapılandırma kümesi *kayıt defteri* değeri. Aşağıdaki komutlar, değiştirin `<acrName>` ACR kayıt defterinizin adıyla:
 
     ```console
-    draft config set registry <acrName>.azurecr.cn
+    draft config set registry <acrName>.azurecr.io
     ```
 
 1. ACR kayıt defteri ile oturum [az acr oturum açma][az-acr-login]:
@@ -220,7 +219,7 @@ Bu örnekte, görünen metni değiştirmek için Java örnek uygulamayı güncel
 vi src/main/java/helloworld/Hello.java
 ```
 
-Çıkış metnini görüntülemek için güncelleştirme *Hello World ben aks'deki Java!*:
+Çıkış metnini görüntülemek için güncelleştirme *Hello World ben aks'deki Java!* :
 
 ```java
 package helloworld;
@@ -271,4 +270,4 @@ Draft'ı kullanma hakkında daha fazla bilgi için Github'da taslak belgelerine 
 [aks-helm]: ./kubernetes-helm.md
 [kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-acr-login]: /cli/azure/acr#az-acr-login

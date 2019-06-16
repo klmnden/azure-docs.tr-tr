@@ -5,13 +5,13 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072642"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Depolama ve yedekleme Azure Kubernetes Service (AKS) için en iyi uygulamalar
@@ -34,12 +34,12 @@ Uygulamalar genellikle farklı türler ve depolama saniyeye kadar düşürmeyi b
 
 Aşağıdaki tabloda kullanılabilir depolama alanı türleri ve yeteneklerini özetler:
 
-| Kullanım örneği | Birim eklentisi | Okuma/yazma kez | Salt okunur çok | Okuma/yazma birçok |
-|----------|---------------|-----------------|----------------|-----------------|
-| Paylaşılan yapılandırma       | Azure Dosyaları   | Evet | Evet | Evet |
-| Yapılandırılmış uygulama verileri        | Azure Diskleri   | Evet | Hayır  | Hayır  |
-| Uygulama verilerini, salt okunur paylaşımlar | [Dysk (Önizleme)][dysk] | Evet | Evet | Hayır  |
-| Yapılandırılmamış veriler, dosya sistemi işlemleri | [BlobFuse (Önizleme)][blobfuse] | Evet | Evet | Evet |
+| Kullanım örneği | Birim eklentisi | Okuma/yazma kez | Salt okunur çok | Okuma/yazma birçok | Windows Server kapsayıcı desteği |
+|----------|---------------|-----------------|----------------|-----------------|--------------------|
+| Paylaşılan yapılandırma       | Azure Dosyaları   | Evet | Evet | Evet | Evet |
+| Yapılandırılmış uygulama verileri        | Azure Diskleri   | Evet | Hayır  | Hayır  | Evet |
+| Uygulama verilerini, salt okunur paylaşımlar | [Dysk (Önizleme)][dysk] | Evet | Evet | Hayır  | Hayır |
+| Yapılandırılmamış veriler, dosya sistemi işlemleri | [BlobFuse (Önizleme)][blobfuse] | Evet | Evet | Evet | Hayır |
 
 İki birincil tür aks'deki birimler için sağlanan depolama, Azure diskleri veya Azure dosyaları tarafından desteklenir. Her iki tür depolama güvenliğini artırmak için bekleyen verileri şifreler. varsayılan olarak Azure depolama hizmeti şifrelemesi (SSE) kullanın. Diskler, şu anda Azure Disk şifrelemesi kullanılarak AKS düğümü düzeyinde şifrelenemez.
 

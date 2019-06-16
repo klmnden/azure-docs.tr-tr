@@ -8,14 +8,13 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 01/14/2019
-ms.date: 03/04/2019
-ms.author: v-junlch
+ms.date: 01/14/2019
+ms.author: cshoe
 ms.openlocfilehash: 4ccfe192eaea94cb9b199bd3c6f0bdacf1685519
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61437727"
 ---
 # <a name="using-the-azure-function-return-value"></a>Azure işlev dönüş değeri kullanma
@@ -24,8 +23,8 @@ Bu makalede, nasıl iş dönüş değerleri açıklanmaktadır. bir işlev için
 
 Bir işlev dönüş değerine sahip dillerde bağlayabilirsiniz [çıktı bağlaması](./functions-triggers-bindings.md#binding-direction) dönüş değeri için:
 
-- Bir C# sınıf kitaplığında, yöntemin dönüş değerini çıkış bağlama özniteliğini uygulayın.
-- Diğer dillerde ayarlamak `name` özelliğinde *function.json* için `$return`.
+* Bir C# sınıf kitaplığında, yöntemin dönüş değerini çıkış bağlama özniteliğini uygulayın.
+* Diğer dillerde ayarlamak `name` özelliğinde *function.json* için `$return`.
 
 Dönüş değeri, birden çok çıkış bağlamaları varsa, bunlardan yalnızca biri için kullanın.
 
@@ -33,11 +32,11 @@ C# ve C# betiği için bir çıkış bağlaması veri göndermek için alternati
 
 Dönüş değeri kullanımını gösteren dile özgü örneğe bakın:
 
-- [C#](#c-example)
-- [C# betiği (.csx)](#c-script-example)
-- [F#](#f-example)
-- [JavaScript](#javascript-example)
-- [Python](#python-example)
+* [C#](#c-example)
+* [C# betiği (.csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ## <a name="c-example"></a>C# örneği
 
@@ -170,4 +169,3 @@ def main(input: azure.functions.InputStream) -> str:
 
 > [!div class="nextstepaction"]
 > [Azure işlevleri bağlama hataları işleme](./functions-bindings-errors.md)
-

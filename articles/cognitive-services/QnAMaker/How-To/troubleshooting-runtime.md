@@ -12,10 +12,10 @@ ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 6a84ecff04381b6dcc9706105df92ecc96dc8b1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61389523"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>Çalışma zamanı ve soru-cevap Oluşturucu hizmetini desteklemek için sorun giderme ipuçları
@@ -36,7 +36,7 @@ QnAMaker çalışma zamanı parçası olan Azure App Service'in ne zaman dağıt
     ![QnAMaker appservice yeniden başlatma](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
 ## <a name="how-to-get-the-qnamaker-service-hostname"></a>QnAMaker hizmet ana bilgisayar adını alma
-QnAMaker desteği veya UserVoice başvurduğunuzda QnAMaker hizmeti ana bilgisayar adı hata ayıklama amaçları için yararlıdır. Bu form URL'sini adıdır: https://*{hostname}*. azurewebsites.net.
+QnAMaker desteği veya UserVoice başvurduğunuzda QnAMaker hizmeti ana bilgisayar adı hata ayıklama amaçları için yararlıdır. Bu form URL'sini adıdır: https:// *{hostname}* . azurewebsites.net.
     
 1. QnAMaker hizmetinize (kaynak grubu) Git [Azure portalı](https://portal.azure.com)
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e2326a14c2f1215960d496dfab4c7f6832da2a3
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: d9fc2cb6e3aa23ffef03dc129f1f8cea520d1025
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473455"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105252"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cobalt"></a>Öğretici: Cobalt ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Cobalt tümleştirmesini yapılandırmak için Cobalt Galeriden yön
 
 **Galeriden Cobalt eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -119,7 +119,7 @@ Azure AD çoklu oturum açma ile Cobalt yapılandırmak için aşağıdaki adım
 
     | Ad | Kaynak özniteliği|
     | ---------------| --------- |
-    | Posta | User.Mail |
+    | Mail | User.Mail |
     | othermail | User.othermail |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

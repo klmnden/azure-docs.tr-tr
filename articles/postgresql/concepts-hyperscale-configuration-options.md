@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: e8c1c2e51ca14ae9b17f0d7efb20552cdd55139b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65077298"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-preview-performance-options"></a>PostgreSQL – hiper ölçekli (Citus) (Önizleme) için Azure veritabanı performans seçenekleri
@@ -20,7 +20,7 @@ ms.locfileid: "65077298"
  
 Çalışan düğümleri için ayrı ayrı bilgi işlem ve depolama ayarları ve düzenleyici düğüm bir hiper ölçekli (Citus) sunucu grubunda seçebilirsiniz.  İşlem kaynakları, temel alınan donanım mantıksal CPU'yu temsil eden sanal çekirdekler sağlanır. Sağlama için depolama alanı boyutu (Citus) hiper ölçekli sunucu grubunuz Düzenleyicisi ve çalışan düğümleri için kullanılabilir kapasiteyi ifade eder. Depolama, veritabanı dosyaları, geçici dosyaları, işlem günlükleri ve Postgres server günlükleri içerir. Ayrıca sağlama depolama toplam miktarı her çalışan ve düzenleyici düğüme g/ç kapasitesi kullanılabilir tanımlar.
  
-|                       | Çalışan düğümü           | Koordinatör düğümü      |
+|                       | Çalışan düğümü           | Düzenleyici düğüm      |
 |-----------------------|-----------------------|-----------------------|
 | İşlem, sanal çekirdek       | 4, 8, 16, 32          | 4, 8, 16, 32          |
 | Sanal çekirdek, GiB başına bellek | 8                     | 4                     |

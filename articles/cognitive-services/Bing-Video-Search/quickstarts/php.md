@@ -10,19 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 50c39594aeb014860d25b2f2cc791ebfec14b572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb02e569cb764405abc1e69f3ca0c8c3710860ed
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473340"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "67134926"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Hızlı Başlangıç: Bing Video arama REST API'si ile PHP videolar için arama yapın
 
 Bu hızlı başlangıçta, Bing Video arama API'si, ilk çağrı yapmak ve bir JSON yanıtı Arama sonuçlarından görüntülemek için kullanın. Bu basit bir JavaScript uygulama API'sine HTTP video arama sorgusu gönderir ve yanıtını görüntüler. Bu uygulamanın, JavaScript'te yazılmış ve Node.js kullanır, ancak çoğu programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir.
 Örnek kod PHP 5.6 ile çalışmak üzere yazılmıştır.
 
-API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)'na bakın.
+API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)'na bakın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -32,7 +32,7 @@ API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microso
 
 ## <a name="running-the-application"></a>Uygulamayı çalıştırma
 
-[Bing Video Arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) Bing arama motorundan video sonuçları döndürür.
+[Bing Video Arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) Bing arama motorundan video sonuçları döndürür.
 
 1. Kod açıklamasında belirtildiği gibi `php.ini` dosyanızda güvenli HTTP desteğinin etkinleştirildiğinden emin olun.
 2. Sık kullandığınız IDE veya düzenleyicide yeni bir PHP projesi oluşturun.

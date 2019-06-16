@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104740"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>İzleme ve Azure Logic Apps kullanarak Yammer hesabınızı yönetme
@@ -51,16 +51,16 @@ Azure Logic Apps ve Yammer Bağlayıcısı ile otomatik görevler ve izleme ve i
    * Boş mantıksal uygulamaları, arama kutusuna filtreniz olarak "yammer" girin. 
    Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
 
-     -veya-
+     veya
 
    * Var olan mantıksal uygulamalar için: 
    
      * Son adım, bir eylem eklemek istediğiniz altında seçin **yeni adım**. 
 
-       -veya-
+       veya
 
      * Bir eylem eklemek istediğiniz adımları arasında işaretçinizi adımlar arasındaki okun üzerine getirin. 
-     Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+     Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
      
        Arama kutusuna filtreniz olarak "yammer" girin. 
        Eylemler listesinde, istediğiniz eylemi seçin.

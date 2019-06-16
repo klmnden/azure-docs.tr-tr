@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: b8cf0891bd2a11a4ea46cc9fb8bad266862b6971
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6e7d0ff396a4d264ee1f724d192c6c36abb400b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005377"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051557"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Hızlı Başlangıç: Bir Android CİHAZDAN IOT telemetri gönderme
 
@@ -31,7 +31,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Android Studio'da https://developer.android.com/studio/. Android Studio yükleme hakkında daha fazla bilgi için bkz. [android yükleme](https://developer.android.com/studio/install). 
+* Android Studio'da https://developer.android.com/studio/. Android Studio yükleme hakkında daha fazla bilgi için bkz. [android yükleme](https://developer.android.com/studio/install).
 
 * Android SDK 27 bu makaledeki örnek tarafından kullanılır.
 
@@ -95,7 +95,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
    > * Eski Android Studio sürümünüz için Android Gradle eklentisi ve projede başvurulmuş Gradle sürümleridir. İzleyin [bu yönergeleri](https://developer.android.com/studio/releases/gradle-plugin) başvuru ve doğru sürümlerini eklentisi ve Gradle yüklemenizin yükleyin.
    > * Android SDK için lisans anlaşması imzalı değil. Derleme çıkışını Lisans Sözleşmesi'ni imzalamak ve SDK'yı indirmek için yönergeleri izleyin.
 
-4. Derleme tamamlandıktan sonra tıklayın **çalıştırma** > **'uygulamayı' Çalıştır**. Fiziksel bir Android cihazı veya Android öykünücüsünde çalıştırmak üzere uygulamayı yapılandırır. Bir Android uygulaması bir fiziksel cihaz veya öykünücü üzerinde çalışan daha fazla bilgi için bkz: [uygulamanızı çalıştırma](https://developer.android.com/training/basics/firstapp/running-app).
+4. Derleme tamamlandıktan sonra tıklayın **çalıştırma** >  **'uygulamayı' Çalıştır**. Fiziksel bir Android cihazı veya Android öykünücüsünde çalıştırmak üzere uygulamayı yapılandırır. Bir Android uygulaması bir fiziksel cihaz veya öykünücü üzerinde çalışan daha fazla bilgi için bkz: [uygulamanızı çalıştırma](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Uygulama yüklendikten sonra tıklayın **Başlat** IOT Hub'ınıza telemetri göndermeye başlaması düğmesi:
 
@@ -113,11 +113,10 @@ Bu bölümde, Azure Cloud Shell ile kullanacağınız [IOT uzantısı](https://d
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     Aşağıdaki ekran görüntüsünde, IOT hub'ı Android cihaz tarafından gönderilen telemetriyi aldığında olarak çıktı gösterir:
 
       ![Azure CLI kullanarak cihaz iletilerini okuma](media/quickstart-send-telemetry-android/read-data.png)
-
-
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
@@ -130,4 +129,3 @@ Bir arka uç uygulamasından simülasyon cihazınızı denetlemeyi öğrenmek i�
 
 > [!div class="nextstepaction"]
 > [Hızlı Başlangıç: Bir IOT hub'ına bağlı cihazı denetleme](quickstart-control-device-android.md)
-

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a59dbd934ba1a449f7671d433529513b9f14c80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 251d3738cb5b18cfe98878b857b91a3689fb81a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105611"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Öğretici: Cisco bulut ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Cisco bulut tümleştirmesini yapılandırmak için Cisco bulut Gale
 
 **Cisco bulut Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

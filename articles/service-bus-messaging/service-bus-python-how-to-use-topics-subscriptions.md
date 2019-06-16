@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991992"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Service Bus konuları ve abonelikleri ile Python kullanma
@@ -41,7 +41,7 @@ Bu makale, Service Bus konu başlıklarını ve aboneliklerini kullanmayı açı
     > Oluşturacağınız bir **konu** ve **abonelik** kullanarak konuya **Python** Bu hızlı başlangıçta. 
 3. Yükleme [Azure Python paketini][Azure Python package]. Bkz: [Python Yükleme Kılavuzu](../python-how-to-install.md).
 
-## <a name="create-a-topic"></a>Konu oluştur
+## <a name="create-a-topic"></a>Konu başlığı oluşturma
 
 **ServiceBusService** nesnesi konuları ile çalışmanıza olanak sağlar. Service Bus programlı olarak erişmek istiyorsanız, herhangi bir Python dosyasının en üstüne yakın aşağıdaki kodu ekleyin:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9d3c2c646cc713b4590a85def9813ca102198229
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c6e1748fa4c86f4820e8373bc45541ecad55c71
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867433"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Öğretici: Shuccho kayıt ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Shuccho kayıt tümleştirmesini yapılandırmak için yönetilen Sa
 
 **Galeriden Shuccho kayıt eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

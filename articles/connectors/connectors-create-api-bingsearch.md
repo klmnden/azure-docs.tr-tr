@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952668"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Bing arama ve Azure Logic Apps ile haber bulma
@@ -89,7 +89,7 @@ Azure Logic apps'te bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-c
    ![Eylem ekle](./media/connectors-create-api-bing-search/add-action.png)
 
    Var olan adımlar arasında bir eylem eklemek için bağlantı okun üzerine fareyi hareket ettirin. 
-   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+   Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
 
 3. Arama kutusuna filtreniz olarak "Bing arama" girin.
 Eylem listesinden istediğiniz eylemi seçin.

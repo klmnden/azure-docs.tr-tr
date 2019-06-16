@@ -8,12 +8,12 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: fbc3bba3d95526277da3487cb8670c1f1a88a925
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 7d40b8f0ca05000a51e70d7a124e9cb143aa2dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951763"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127246"
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>Abonelik yöneticileri için multi-Factor authentication (MFA) zorunlu
 
@@ -44,5 +44,5 @@ Kullanıcıların Azure Multi-Factor Authentication içeren lisansları olduğu 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Kullanıcılar için iki aşamalı doğrulamayı açma
 
-Bölümünde listelenen yordamlardan birini kullanın [iki aşamalı doğrulama gerektirme](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) Azure mfa'yı kullanmaya başlamak için bir kullanıcı veya grup için. Tüm oturum açma işlemleri için iki aşamalı doğrulama uygulamayı seçebilir ya da yalnızca önem verdiğiniz durumlarda iki aşamalı kimlik doğrulaması uygulamak için koşullu erişim ilkeleri oluşturabilirsiniz.
+Bölümünde listelenen yordamlardan birini kullanın [iki aşamalı doğrulama gerektirme](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) Azure mfa'yı kullanmaya başlamak için bir kullanıcı veya grup için. Tüm oturum açma işlemleri için iki aşamalı doğrulamayı zorunlu tutmayı seçebilirsiniz veya yalnızca önem verdiğiniz durumlarda iki aşamalı doğrulama gerektirmek için koşullu erişim ilkeleri oluşturabilirsiniz.
 

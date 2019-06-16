@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772967"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Durum Bilgisi Olan Reliable Services için tanılama işlevi
@@ -29,8 +29,8 @@ Azure Service Fabric durum bilgisi olan Reliable Services StatefulServiceBase s�
 
 Örnekleri, toplama ve/veya EventSource olaylarını görüntüleme içinde yardım araçları ve teknolojileri [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics.md)ve [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-## <a name="events"></a>Olaylar
-| Olay adı | Olay kimliği | Düzey | Olay açıklaması |
+## <a name="events"></a>Events
+| Olay adı | Olay Kimliği | Düzey | Olay açıklaması |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Bilgilendirici |Hizmet RunAsync görevi başlatılırken yayılan |
 | StatefulRunAsyncCancellation |2 |Bilgilendirici |Hizmet RunAsync görev iptal edildiğinde yayılan |
@@ -52,7 +52,7 @@ Reliable Services çalışma zamanı, aşağıdaki performans sayacı kategorile
 
 | Kategori | Açıklama |
 | --- | --- |
-| Service Fabric İşlem Çoğaltıcısı |Azure Service Fabric işlem Çoğaltıcısı için özel sayaçlar |
+| Service Fabric işlem Çoğaltıcısı |Azure Service Fabric işlem Çoğaltıcısı için özel sayaçlar |
 | Service Fabric TStore |Belirli bir Azure Service Fabric TStore sayaçları |
 
 Service Fabric işlem Çoğaltıcısı tarafından kullanılan [güvenilir durum Yöneticisi](service-fabric-reliable-services-reliable-collections-internals.md) belirli bir dizi işlem çoğaltmak için [çoğaltmaları](service-fabric-concepts-replica-lifecycle.md).
@@ -104,10 +104,10 @@ Reliable Services çalışma zamanı altında aşağıdaki olaylar yayan `Servic
 
  Sayaç adı | Açıklama |
 | --- | --- |
-| Saniye Başına Başlatılan İşlemler | Saniye başına oluşturulan yeni yazma işlemleri sayısı.|
-| Saniye Başına İşlemler | Güvenilir koleksiyonlar saniye başına gerçekleştirilen ekleme/güncelleştirme/silme işlemleri sayısı.|
-| Günlüğe Yazılan Bayt/sn | Diske saniye başına işlem Çoğaltıcısı tarafından yazılan bayt sayısı |
-| Saniye Başına Kısıtlanan İşlem | İşlemlerin sayısını, işlem kısıtlama nedeniyle çoğaltıcı tarafından saniyede reddetti. |
+| Saniye başına başlatılan işlemler başlayın | Saniye başına oluşturulan yeni yazma işlemleri sayısı.|
+| Saniye başına başlatılan işlemler | Güvenilir koleksiyonlar saniye başına gerçekleştirilen ekleme/güncelleştirme/silme işlemleri sayısı.|
+| Günlük yazılan bayt/sn | Diske saniye başına işlem Çoğaltıcısı tarafından yazılan bayt sayısı |
+| Saniye başına Kısıtlanan işlem | İşlemlerin sayısını, işlem kısıtlama nedeniyle çoğaltıcı tarafından saniyede reddetti. |
 | Ort. İşlem ms/yürütme | Milisaniye cinsinden işlem başına ortalama yürütme gecikmesi |
 | Ort. Temizleme gecikmesi (ms) | Disk temizleme işlemleri milisaniye cinsinden işlem Çoğaltıcısı başlatan ortalama süresi |
 
@@ -117,10 +117,10 @@ Reliable Services çalışma zamanı altında aşağıdaki olaylar yayan `Servic
 
  Sayaç adı | Açıklama |
 | --- | --- |
-| Öğe Sayısı | Depodaki öğe sayısı.|
+| Öğe sayısı | Depodaki öğe sayısı.|
 | Disk Boyutu | Depo kontrol noktası dosyalarının bayt cinsinden toplam disk boyutu.|
-| Kontrol Noktası Dosya Yazma Bayt/sn | En son denetim noktası dosyası için saniye başına yazılan bayt sayısı.|
-| Kopya Disk Aktarımı Bayt/sn | (Birincil Çoğaltmada) okumak veya (bir ikincil çoğaltma üzerinde), bir kopya depolayıp sırasında saniye başına yazılan disk bayt sayısı.|
+| Denetim noktası dosyası yazma bayt/sn | En son denetim noktası dosyası için saniye başına yazılan bayt sayısı.|
+| Disk aktarımı bayt/sn kopyalayın | (Birincil Çoğaltmada) okumak veya (bir ikincil çoğaltma üzerinde), bir kopya depolayıp sırasında saniye başına yazılan disk bayt sayısı.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [EventSource sağlayıcıları Perfview'de Aç](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

@@ -13,10 +13,10 @@ ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: ca4e343ea4774bbe4ff992ad671575b150b3c045
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65890971"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 API'ler Media Services ile geliştirme
@@ -101,7 +101,7 @@ Media Services, aşağıdaki uzun süre çalışan işlemler bulunur:
 * Ölçek StreamingEndpoint
 
 
-## <a name="sdks"></a>SDK
+## <a name="sdks"></a>SDK’lar
 
 > [!NOTE]
 > Azure Media Services v3 SDK iş parçacığı açısından güvenli olmasını garanti edilmez. Çok iş parçacıklı bir uygulama geliştirirken, istemci korumak veya iş parçacığı başına yeni bir AzureMediaServicesClient nesnesini kullanmak için kendi iş parçacığı eşitleme mantığı eklemeniz gerekir. Çoklu iş parçacığı oluşturma sorunları (örneğin,. NET'te HttpClient örneği) istemci kodunuz tarafından sağlanan isteğe bağlı nesneler tarafından sunulan, dikkatli olmalıdır.

@@ -13,10 +13,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: abb4a43176026fca5a80409ade13af1f8f96d9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390588"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Yapılandırma ve Azure Active Directory kimlik doğrulaması SQL ile yönetme
@@ -143,7 +143,7 @@ Yönetilen örneğiniz başarıyla güvenlik grubu üyeliği aracılığıyla ku
 
 8. Active Directory yönetici sayfanın üst kısmında seçin **Kaydet**.
 
-    ![kaydet](./media/sql-database-aad-authentication/save.png)
+    ![Kaydet](./media/sql-database-aad-authentication/save.png)
 
     Yönetici değiştirme işlemini birkaç dakika sürebilir. Ardından yeni yönetici Active Directory Yönetici kutusunda görüntülenir.
 

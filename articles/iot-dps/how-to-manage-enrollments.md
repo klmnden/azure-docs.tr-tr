@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122786"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure portalı ile cihaz kayıtlarını yönetme
@@ -29,8 +29,8 @@ Sağlama hizmeti ile cihazlarınızı kaydedebilirsiniz iki yolu vardır:
     Kayıt grubu portalında aşağıdaki adımları kullanarak cihazları bir grup oluşturabilirsiniz:
 
   1. Azure portalında oturum açın ve tıklayın **tüm kaynakları** sol taraftaki menüden.  
-  2. Cihazınıza kaynakları listesinden kaydetmek istediğiniz cihaz sağlama hizmetine tıklayın.  
-  3. Sağlama hizmetinize:  
+  1. Cihazınıza kaynakları listesinden kaydetmek istediğiniz cihaz sağlama hizmetine tıklayın.  
+  1. Sağlama hizmetinize:  
      a. Tıklayın **kayıtları Yönet**, ardından **kayıt grupları** sekmesi.  
      b. Üstteki **Ekle** düğmesine tıklayın.  
      c. "Kayıt grubu Ekle" panelini göründüğünde, kayıt listesi girişi bilgilerini girin.  **Grup adı** gereklidir. Ayrıca "CA veya Ara" seçin **sertifika türü**ve kök karşıya **birincil sertifika** cihaz grubu için.  

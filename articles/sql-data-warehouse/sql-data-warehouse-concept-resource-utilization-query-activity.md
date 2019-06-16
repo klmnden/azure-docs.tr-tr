@@ -11,10 +11,10 @@ ms.date: 04/12/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f80c1817d5c0ce79f2dc53f40a2cc4e00dd5c72b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61420975"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda kaynak kullanımı ve sorgu etkinliğini izleme
@@ -40,7 +40,7 @@ Aşağıdaki ölçümler, Azure portalında SQL veri ambarı için kullanılabil
 | Kullanılan önbellek yüzdesi | (önbellek kullanılan / kapasite önbellek) * burada kullanılan önbellek yerel SSD önbellekte tüm baytların toplamından tüm düğümlerde ve önbellek kapasitesi kadar yerel SSD depolama kapasitesinin toplamı 100 tüm düğümlerde önbelleğe alma | Maksimum |
 | Yerel tempdb yüzdesi | Yerel tempdb kullanımı tüm işlem düğümlerinde - değerler her beş dakikada gönderilir | Maksimum |
 
-## <a name="query-activity"></a>Sorgu Etkinliği
+## <a name="query-activity"></a>Sorgu etkinliği
 SQL veri ambarı T-SQL aracılığıyla izlerken bir programlama deneyimi için hizmet dinamik yönetim görünümlerini (Dmv'ler) sunmaktadır. Bu görünümler, etkin olarak sorun giderme ve, iş yükü ile performans sorunlarını tanımlamak faydalıdır.
 
 SQL veri ambarı sağlayan Dmv'leri listesini görüntülemek için şuna başvurun [belgeleri](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 

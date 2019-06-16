@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925160"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147524"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Öğretici: Veri için Azure Data Box Disk kopyalama ve doğrulayın
 
@@ -88,7 +88,7 @@ Bilgisayarınızla Data Box Disk arasında bağlantı kurmak ve veri kopyalamak 
     
     |Parametreler/Seçenekler  |Açıklama |
     |--------------------|------------|
-    |Kaynak            | Kaynak dizin yolunu belirtir.        |
+    |source            | Kaynak dizin yolunu belirtir.        |
     |Hedef       | Hedef dizin yolunu belirtir.        |
     |/E                  | Boş dizinler dahil olmak üzere alt dizinleri kopyalar. |
     |/MT[:N]             | N iş parçacığına sahip çoklu iş parçacıklı kopyalama işlemleri oluşturur ve burada N, 1 ile 128 arasında bir tam sayıdır. <br>N için varsayılan değer 8 olarak belirlenmiştir.        |
@@ -250,6 +250,8 @@ Birden fazla disk kullanıyorsanız ve bölünerek tüm disklere kopyalanması g
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Nasıl yapılır bölünmüş kopyalama aracını kullanarak hatalar görürseniz, Git [bölünmüş kopyalama aracı hatalarını giderme](data-box-disk-troubleshoot-data-copy.md).
+
 Veri kopyalama işlemi tamamlandıktan sonra verilerinizi doğrulamak için geçebilirsiniz. Bölünmüş kopyalama aracı kullandıysanız, (bölme de aracı doğrulama kopya) doğrulamasını atlayın ve sonraki öğreticiye ilerleyin.
 
 
@@ -270,6 +272,8 @@ Verileri kopyalamak için bölünmüş kopyalama aracı kullanmadıysanız, veri
     > - Seçenek 1 küçük dosyaları içeren, büyük bir veri kümesiyle ilgili kullanırsanız (~ KB'leri). Bu seçenek, yalnızca sağlama toplamı oluşturulması çok uzun zaman alabilir ve performansının çok yavaş olabilir dosyaları doğrular.
 
 3. Birden çok disk kullanıyorsanız, komutu her disk için çalıştırın.
+
+Doğrulama sırasında hatalar görürseniz, bkz. [doğrulama hatalarını giderme](data-box-disk-troubleshoot.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

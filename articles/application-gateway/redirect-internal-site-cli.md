@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133769"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Azure CLI kullanarak iç yeniden yönlendirmeyi ile bir uygulama ağ geçidi oluşturma
@@ -38,7 +38,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. [az group create](/cli/azure/group) ile bir kaynak grubu oluşturun.
 
@@ -217,7 +217,7 @@ Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Örneğin http
 
 ![Uygulama ağ geçidinde contoso test etme](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Diğer etki alanınıza, adresi değiştirin; örneğin http://www.contoso.org ve trafiği www için dinleyici için yeniden yönlendirilen görmelisiniz\.contoso.com.
+Diğer etki alanınıza, adresi değiştirin; örneğin http://www.contoso.org ve trafiği www için dinleyici için yeniden yönlendirilen görmelisiniz\. contoso.com.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

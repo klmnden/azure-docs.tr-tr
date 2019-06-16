@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 8e85f390ee5ff74f02cb95fa4dcf1dfc1a35dad1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21c10e142802914bcf3292ef7f25066675e6cdd1
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699870"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Öğretici: SharePoint şirket içi ile Azure Active Directory Tümleştirme
 
@@ -53,9 +53,12 @@ Azure AD'de şirket SharePoint tümleştirmesini yapılandırmak için SharePoin
 
 **SharePoint şirket içi Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
+
+    > [!NOTE]   
+    > Öğe mevcut olmamalıdır, de açılabilir sabit aracılığıyla **tüm hizmetleri** sol gezinti bölmesinin üst bağlantı. Aşağıdaki genel bakış **Azure Active Directory** bağlantısı bulunan **kimlik** veya bölüm aranır için filtre metin kutusunu kullanarak.
 
 2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
@@ -173,7 +176,7 @@ SharePoint şirket içi ile Azure AD çoklu oturum açmayı yapılandırmak içi
 
     d. Oturum açma sayfası URL'sini ayarda seçin **özel oturum açma sayfası** ve "/_trust/" değerini sağlayın.
 
-    e. **Tamam** düğmesine tıklayın.
+    e. **Tamam**'ı tıklatın.
 
     ![Kimlik doğrulama sağlayıcısını yapılandırma](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
@@ -248,7 +251,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 6. Tıklayarak **ekleme** ardından **bir API seçin**.
 
-    ![API Erişimi](./media/sharepoint-on-premises-tutorial/required_permissions.png)
+    ![API erişimi](./media/sharepoint-on-premises-tutorial/required_permissions.png)
 
 7. Her ikisini de Ekle **Windows Azure Active Directory** ve **Microsoft Graph API**, ama yalnızca teker teker seçmek mümkün olur.
 
@@ -256,11 +259,11 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 8. Windows Azure Active Directory'yi seçin, dizin verilerini okuma denetleyin ve Seç'e tıklayın. Geri dönün ve Microsoft Graph ekleyin ve dizin verilerini okuma onun için de seçin.  Seç'e tıklayın ve tıklayarak bitti.
 
-    ![Erişimi Etkinleştir](./media/sharepoint-on-premises-tutorial/readpermission.png)
+    ![Erişimi etkinleştir](./media/sharepoint-on-premises-tutorial/readpermission.png)
 
 9. Gerekli ayarları şimdi tıklayın **izinleri verin** ve ardından tıklayın Evet izin verin.
 
-    ![İzin Ver](./media/sharepoint-on-premises-tutorial/grantpermission.png)
+    ![İzin ver](./media/sharepoint-on-premises-tutorial/grantpermission.png)
 
     > [!NOTE]
     > İzinler başarıyla verildi olmadığını belirlemek için bildirimleri altında kontrol edin.  Değilse, AzureCP düzgün çalışmaz ve SharePoint şirket içi Azure Active Directory güvenlik grupları ile yapılandırmak mümkün olmayacaktır.

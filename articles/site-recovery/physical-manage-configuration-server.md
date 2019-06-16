@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119747"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
@@ -35,7 +35,7 @@ Tablo, şirket içi yapılandırma sunucusu makine dağıtmak için gereken önk
 | İşletim sistemi yerel ayarı | English (US)|
 | VMware vSphere PowerCLI sürümü | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Windows Server rolleri | Bu rolleri etkinleştirmeyin: <br> - Active Directory Domain Services <br>- İnternet Bilgi Hizmetleri <br> - Hyper-V |
-| Grup İlkeleri| Bu grup ilkeleri etkinleştirme: <br> -Komut istemine erişimi engelle <br> -Kayıt defteri düzenleme araçlarına erişimi engelleme <br> -Mantıksal dosya ekleri için güven <br> -Betik yürütmeyi açma <br> [Daha fazla bilgi](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+| Grup İlkeleri| Bu grup ilkeleri etkinleştirme: <br> -Komut istemine erişimi engelle <br> -Kayıt defteri düzenleme araçlarına erişimi engelleme <br> -Mantıksal dosya ekleri için güven <br> -Betik yürütmeyi açma <br> [Daha fazla bilgi edinin](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | -Önceden mevcut olan varsayılan Web sitesi <br> -Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br> -Önceden varolan Web sitesi/443 numaralı bağlantı noktasını dinlemeye uygulama<br>|
 | NIC türü | VMXNET3 (VMware VM olarak dağıtıldığında) |
 | IP adresi türü | Statik |
@@ -219,8 +219,8 @@ Makinede yapılandırma sunucusu için proxy ayarlarını aşağıdaki gibi değ
 
 Yapılandırma sunucusunu güncelleştirmek için güncelleştirme paketleri çalıştırdığınız. Güncelleştirmeleri kadar N-4 sürümleri için uygulanabilir. Örneğin:
 
-- 9.7, 9.8, 9.9 veya 9.10 - çalıştırıyorsanız, doğrudan 9.11 için yükseltebilirsiniz.
-- 9.6 veya önceki bir sürümü çalıştırıyorsanız ve 9.11 için yükseltmek istiyorsanız 9.7 sürümüne yükseltmeniz gerekir. 9.11 önce.
+- 9\.7, 9.8, 9.9 veya 9.10 - çalıştırıyorsanız, doğrudan 9.11 için yükseltebilirsiniz.
+- 9\.6 veya önceki bir sürümü çalıştırıyorsanız ve 9.11 için yükseltmek istiyorsanız 9.7 sürümüne yükseltmeniz gerekir. 9\.11 önce.
 
 Güncelleştirme paketleri yapılandırma sunucusundaki tüm sürümlerine yükseltme için bağlantılar kullanılabilir [wiki güncelleştirmeleri sayfası](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
 

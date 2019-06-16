@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61222056"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve sürekli dağıtım için Azure IOT Edge
@@ -47,7 +47,7 @@ Bu bölümde, yeni bir derleme işlem hattı oluşturun. IOT Edge çözüm örne
 >
 >Daha fazla bilgi için [derleme işlem hattı oluşturma](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Azure DevOps kuruluşunuz oturum (**https:\//dev.azure.com/{your kuruluş} /**) ve IOT Edge çözüm deponuzu içeren projeyi açın.
+1. Azure DevOps kuruluşunuz oturum (**https:\//dev.azure.com/{your kuruluş} /** ) ve IOT Edge çözüm deponuzu içeren projeyi açın.
 
    Bu makale için oluşturduğumuz adlı bir depo **IoTEdgeRepo**. Bu depoyu içeren **IoTEdgeSolution** hangi bir modül için kod adlı **filtermodule**. 
 
@@ -77,7 +77,7 @@ Bu bölümde, yeni bir derleme işlem hattı oluşturun. IOT Edge çözüm örne
     
      ![Derleme aracı havuzu yapılandırma](./media/how-to-ci-cd/configure-env.png)
 
-5. İşlem hattınızı adında bir iş ile önceden yapılandırılmış olarak gelir **1 aracı işi**. Artı işaretini seçin (**+**) üç görev projeye eklemek için: **Azure IOT Edge** iki kez ve **derleme Yapıtları yayımlama** sonra. (Görmek için her görevin adının üzerine gelme **Ekle** düğmesi.)
+5. İşlem hattınızı adında bir iş ile önceden yapılandırılmış olarak gelir **1 aracı işi**. Artı işaretini seçin ( **+** ) üç görev projeye eklemek için: **Azure IOT Edge** iki kez ve **derleme Yapıtları yayımlama** sonra. (Görmek için her görevin adının üzerine gelme **Ekle** düğmesi.)
 
    ![Azure IOT Edge görev ekleyin](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -89,7 +89,7 @@ Bu bölümde, yeni bir derleme işlem hattı oluşturun. IOT Edge çözüm örne
 
    * **Görünen ad**: Varsayılan değerleri kabul **Azure IOT Edge - derleme modül görüntüleri**.
    * **Eylem**: Varsayılan değerleri kabul **derleme modül görüntüleri**. 
-   * **. template.json dosyasını**: Öğesinin üç noktasını (**...** ) gidin **deployment.template.json** depodaki IOT Edge çözümünüzü içeren dosya. 
+   * **. template.json dosyasını**: Öğesinin üç noktasını ( **...** ) gidin **deployment.template.json** depodaki IOT Edge çözümünüzü içeren dosya. 
    * **Varsayılan platform**: Modüllerinizi, hedefte IOT Edge cihazı için uygun platformu seçin. 
    * **Çıkış değişkenleri**: Çıkış değişkenleri deployment.json dosyanızın oluşturulacağı dosya yolu yapılandırmak için kullanabileceğiniz bir başvuru adı içerir. Başvuru adı gibi bir şey akılda kalıcı kümesine **edge**. 
 
@@ -98,7 +98,7 @@ Bu bölümde, yeni bir derleme işlem hattı oluşturun. IOT Edge çözüm örne
    * **Görünen ad**: Eylem alanını değiştirdiğinde görünen adı otomatik olarak güncelleştirilir. 
    * **Eylem**: Seçmek için açılan listeyi kullanın **modül görüntüleri itme**. 
    * **Kapsayıcı kayıt defteri türü**: Modül görüntülerinizi depolamak için kullandığınız bir kapsayıcı kayıt defteri türü seçin. Seçtiğiniz hangi kayıt defteri türüne bağlı olarak, form değişiklikleri. Seçerseniz **Azure Container Registry**, Azure aboneliği ve kapsayıcı kayıt defterinizin adı seçmek için açılır listeleri kullanın. Seçerseniz **genel kapsayıcı kayıt defteri**seçin **yeni** bir kayıt defteri hizmeti bağlantısı oluşturmak için. 
-   * **. template.json dosyasını**: Öğesinin üç noktasını (**...** ) gidin **deployment.template.json** depodaki IOT Edge çözümünüzü içeren dosya. 
+   * **. template.json dosyasını**: Öğesinin üç noktasını ( **...** ) gidin **deployment.template.json** depodaki IOT Edge çözümünüzü içeren dosya. 
    * **Varsayılan platform**: Yerleşik modülü görüntülerinizi aynı platformu seçin.
 
    Modül görüntüleri barındırmak için birden çok kapsayıcı kayıt defterleri varsa, bu görev yinelenen, farklı bir kapsayıcı kayıt defteri seçin ve kullanmak gereken **atlama modul** bu olmayan görüntüleri atlamak için Gelişmiş ayarları belirli kayıt defteri.
@@ -152,7 +152,7 @@ Yeni işlem hattı oluşturma ve kalite güvencesi (kapsayan QA) dağıtımlar i
 
 8. Kalite kontrol aşamasında varsayılan görmelisiniz **aracı işi**. Aracı işi ayrıntılarını yapılandırabilirsiniz, ancak dağıtım görevini kullanabilirsiniz platform/küçük harfe duyarlı olduğundan **Hosted VS2017** veya **barındırılan Ubuntu 1604** içinde **aracı havuzu**(veya kendiniz tarafından yönetilen herhangi bir aracı). 
 
-9. Artı işaretini seçin (**+**) bir görev eklemek için. Arama ve ekleme **Azure IOT Edge**. 
+9. Artı işaretini seçin ( **+** ) bir görev eklemek için. Arama ve ekleme **Azure IOT Edge**. 
 
     ![QA için görev ekleyin](./media/how-to-ci-cd/add-task-qa.png)
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
 ms.openlocfilehash: ba2041495e1e3c63ee322a0b748753ad6cb68914
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870140"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Azure veri fabrikasında bağlı hizmetler
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-create-datasets.md)
 > * [Geçerli sürüm](concepts-datasets-linked-services.md)
 
@@ -65,7 +65,7 @@ Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 Özellik | Açıklama | Gerekli |
 -------- | ----------- | -------- |
 ad | Bağlı hizmetin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
-type | Bağlı hizmet türü. Örneğin: (Veri deposu) AzureStorage veya AzureBatch (işlem). TypeProperties açıklamasına bakın. | Evet |
+türü | Bağlı hizmet türü. Örneğin: (Veri deposu) AzureStorage veya AzureBatch (işlem). TypeProperties açıklamasına bakın. | Evet |
 typeProperties | Tür özellikleri için her veri deposunun farklı veya işlem. <br/><br/> Türler ve tür özellikleri için desteklenen veri deposuna, bkz: [veri kümesi türü](concepts-datasets-linked-services.md#dataset-type) bu makaledeki tablo. Bir veri deposuna belirli tür özellikleri hakkında bilgi edinmek için veri deposu Bağlayıcısı makalesi gidin. <br/><br/> Desteklenen işlem türleri ve tür özellikleri için bkz. [işlem bağlı Hizmetleri](compute-linked-services.md). | Evet |
 connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağda yer alıyorsa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır
 

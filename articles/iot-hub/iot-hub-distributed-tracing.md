@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400849"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Azure IOT cihaz-bulut iletileri dağıtılmış izleme (Önizleme) ile izleme
@@ -213,7 +213,7 @@ Buluttan izlenecek iletileri yüzdesini değiştirmek için cihaz ikizi güncell
 
 1. VS Code açın ve [IOT hub'ı bağlantı dizesi ayarlama](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
-1. Cihaz genişletin ve Ara **dağıtılmış izlemeyi ayarlama (Önizleme)**. Seçeneğine tıklayın **güncelleştirme dağıtılmış izlemeyi ayarlama (Önizleme)** alt düğümü.
+1. Cihaz genişletin ve Ara **dağıtılmış izlemeyi ayarlama (Önizleme)** . Seçeneğine tıklayın **güncelleştirme dağıtılmış izlemeyi ayarlama (Önizleme)** alt düğümü.
 
     ![Azure IOT hub'ı araç seti, dağıtılmış izlemeyi etkinleştirme](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
@@ -242,8 +242,8 @@ Birden fazla cihaza dağıtılmış izleme örnekleme yapılandırmasını günc
 
 | Öğe adı | Gerekli | Tür | Açıklama |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Evet | Tamsayı | Şu anda iki mod değerleri, örnekleme açıp kapatmak için desteklenir. `1` açık ve `2` kapalıdır. |
-| `sampling_rate` | Evet | Tamsayı | Bu değer bir yüzde değeri. Yalnızca değerlerini `0` için `100` (sınırlar dahil) izin verilir.  |
+| `sampling_mode` | Evet | Integer | Şu anda iki mod değerleri, örnekleme açıp kapatmak için desteklenir. `1` açık ve `2` kapalıdır. |
+| `sampling_rate` | Evet | Integer | Bu değer bir yüzde değeri. Yalnızca değerlerini `0` için `100` (sınırlar dahil) izin verilir.  |
 
 ## <a name="query-and-visualize"></a>Sorgulayın ve görselleştirin
 

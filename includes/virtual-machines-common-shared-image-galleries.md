@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7a0e628eed861767d1eeb50b0ded7bb3d8807328
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3ea41a16f79f903b5ff7d2b93f74f7d3d2a0dd83
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66271512"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133420"
 ---
 Paylaşılan görüntü Galerisi yapısı ve yönetilen görüntülerinizi etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan resim galerileri sağlar:
 
 - Görüntüleri yönetilen küresel çoğaltma.
 - Sürüm oluşturma ve daha kolay yönetim için görüntüleri gruplandırmasıdır.
-- Kullanılabilirlik alanlarını destekleyen bölgelerde bölgesel olarak yedekli depolama (ZRS) hesapları ile yüksek oranda kullanılabilir görüntüler. ZRS, bölgesel hatalarına karşı daha iyi esneklik sunar.
+- Kullanılabilirlik alanlarını destekleyen bölgelerde bölgesel olarak yedekli depolama (ZRS) hesapları ile yüksek oranda kullanılabilir görüntüler. ZRS, bölgesel arızalara karşı daha iyi koruma sağlar.
 - Abonelikler arasında ve hatta RBAC kullanarak Active Directory (AD) kiracılar arasında paylaştırma.
 - Her bölgede görüntü yinelemelerle dağıtımlarınızı ölçeklendirme.
 
@@ -78,15 +78,15 @@ Kaynak bölgeleri aşağıdaki tabloda listelenmiştir. Tüm genel bölgelerde h
 
 | Kaynak bölge |
 |---------------------|-----------------|------------------|-----------------|
-| Avustralya Orta   | Orta ABD EUAP | Kore Orta    | UK Güney 2      |
-| Avustralya Orta 2 | Doğu Asya       | Kore Güney      | Birleşik Krallık Batı         |
-| Avustralya Doğu      | Doğu ABD         | Orta Kuzey ABD | Batı Orta ABD |
-| Avustralya Güneydoğu | Doğu ABD 2       | Kuzey Avrupa     | Batı Avrupa     |
-| Güney Brezilya        | Doğu ABD 2 EUAP  | Orta Güney ABD | Batı Hindistan      |
-| Orta Kanada      | Fransa Orta  | Güney Hindistan      | Batı ABD         |
-| Doğu Kanada         | Fransa Güney    | Güneydoğu Asya   | Batı ABD         |
-| Orta Hindistan       | Japonya Doğu      | UK Kuzey         | Batı ABD 2       |
-| Orta ABD          | Japonya Batı      | Birleşik Krallık Güney         |                 |
+| Avustralya Orta   | Orta ABD EUAP | Kore Orta    | Batı Orta ABD |
+| Avustralya Orta 2 | Doğu Asya       | Kore Güney      | Batı Avrupa     |
+| Avustralya Doğu      | Doğu ABD         | Orta Kuzey ABD | Batı Hindistan      |
+| Avustralya Güneydoğu | Doğu ABD 2       | Kuzey Avrupa     | Batı ABD         |
+| Güney Brezilya        | Doğu ABD 2 EUAP  | Orta Güney ABD | Batı ABD 2       |
+| Orta Kanada      | Fransa Orta  | Güney Hindistan      |                 |
+| Doğu Kanada         | Fransa Güney    | Güneydoğu Asya   |                 |
+| Orta Hindistan       | Japonya Doğu      | Birleşik Krallık Güney         |                 |
+| Orta ABD          | Japonya Batı      | Birleşik Krallık Batı          |                 |
 
 
 

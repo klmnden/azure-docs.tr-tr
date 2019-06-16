@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/14/2019
 ms.author: absha
 ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831733"
 ---
 # <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Azure Application Gateway ile beyaz arka uç için sertifikaları oluşturma
 
-Uçtan uca SSL gerçekleştirmek için kimlik doğrulaması ve güvenilen kök sertifikaları karşıya yükleyerek Güvenilenler listesine eklenmek için arka uç örnekleriyle uygulama ağ geçidi gerektirir. V1 SKU olması durumunda, kimlik doğrulama sertifikaları v2 SKU olması durumunda, Güvenilenler listesine eklenmek için gerekli kök sertifikalar güvenilen ise gerekli sertifikaları
+Uçtan uca SSL gerçekleştirmek için kimlik doğrulaması ve güvenilen kök sertifikaları karşıya yükleyerek Güvenilenler listesine eklenmek için arka uç örnekleriyle uygulama ağ geçidi gerektirir. Sertifikaları beyaz listeye eklemek için v1 SKU’da kimlik doğrulama sertifikaları, v2 SKU’da ise güvenilen kök sertifikaları gereklidir
 
 Bu makalede şunları öğreneceksiniz:
 
@@ -65,7 +65,7 @@ SSL sertifikanızı, ortak anahtar .cer dosyasını (özel anahtarı değil) dı
 
    Dışarı aktarılan sertifika şuna benzer:
 
-   ![Dışa Aktarıldı](./media/certificates-for-backend-authentication/exported.png)
+   ![Dışarı aktarılan](./media/certificates-for-backend-authentication/exported.png)
 
 8. Not Defteri'ni kullanarak dışarı aktarılan sertifikası açarsanız, bu örnektekine benzer bir şey görürsünüz. Mavi bölümünde, uygulama ağ geçidine karşıya bilgileri içerir. Sertifikanızı Not Defteri'nde açın ve buna benzer aramaz, genellikle Bunun anlamı vermeden değil kullanarak Base-64 kodlanmış X.509 (. CER) biçimi. Ayrıca, farklı bir metin Düzenleyicisi kullanmak istiyorsanız, bazı düzenleyiciler istenmeyen arka planda biçimlendirme çıkarabilir anlayın. Bu, bu sertifika metinden azure'a karşıya sorunlar oluşturabilir.
 

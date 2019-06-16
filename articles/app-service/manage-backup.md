@@ -16,10 +16,10 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61271798"
 ---
 # <a name="back-up-your-app-in-azure"></a>Uygulamanızı Azure’a yedekleme
@@ -78,13 +78,13 @@ Aşağıdaki veritabanı çözümleri ile yedekleme özelliği desteklenir:
 ![Yapılandır'a tıklayın](./media/web-sites-backup/ClickConfigure1.png)
 3. İçinde **yedekleme yapılandırması** sayfasında **Depolama: Yapılandırılmamış** bir depolama hesabı yapılandırmak için.
    
-    ![Depolama hesabı seç][ChooseStorageAccount]
+    ![Depolama hesabı seçin][ChooseStorageAccount]
 4. Yedekleme Hedefinizi seçerek bir **depolama hesabı** ve **kapsayıcı**. Depolama hesabının, yedeklemek istediğiniz uygulama ile aynı aboneliğe ait olmalıdır. İsterseniz ilgili sayfaları'nda yeni bir depolama hesabı veya yeni bir kapsayıcı oluşturabilirsiniz. İşiniz bittiğinde tıklayın **seçin**.
    
-    ![Depolama hesabı seç](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+    ![Depolama hesabı seçin](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
 5. İçinde **yedekleme yapılandırması** hala açık bırakılan sayfasında yapılandırabilir **Backup Database**, ardından (SQL veritabanı veya MySQL) yedeklemeler, eklemek istediğiniz veritabanlarını seçin ve ardından tıklayın**Tamam**.  
    
-    ![Depolama hesabı seç](./media/web-sites-backup/03ConfigureDatabase1.png)
+    ![Depolama hesabı seçin](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > Bu listede görünmesi için bir veritabanı için bağlantı dizesini içinde bulunmalıdır **bağlantı dizeleri** bölümünü **uygulama ayarları** uygulamanız için sayfa. 
@@ -106,7 +106,7 @@ Depolama hesabı ve kapsayıcı yapılandırıldıktan sonra istediğiniz zaman 
 ## <a name="configure-automated-backups"></a>Otomatik yedeklemeleri yapılandırma
 1. İçinde **yedekleme yapılandırması** sayfasında **zamanlanmış yedekleme** için **üzerinde**. 
    
-    ![Depolama hesabı seç](./media/web-sites-backup/05ScheduleBackup1.png)
+    ![Depolama hesabı seçin](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Yedekleme zamanlama seçeneklerini gösterir, **zamanlanmış yedekleme** için **üzerinde**, ardından yedekleme zamanlaması istediğiniz gibi yapılandırın ve tıklayın **Tamam**.
    
     ![Otomatik yedeklemeleri etkinleştirin][SetAutomatedBackupOn]

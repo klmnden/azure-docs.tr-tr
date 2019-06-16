@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 949d6b00b4e04921ea745dd4efa1b8a58c49f534
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995679"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Yeni Microsoft Azure destek isteği dosyasını karşıya yükleme yardımcı programı yönergeleri
@@ -61,7 +61,7 @@ Dosyayı karşıya yüklemeyi yardımcı programını kullanırken aşağıdaki 
 | .cpk        | . EX   | .msg        | .psf  |   -       | .wma       | .zi_    |
 | .cpp        | .ex_  | .msi        | .pst  |  -        | .wmv       | .zip    |
 | .cs         | .ex0  | .mso        | .pub  | -         | .wmz       | .zip_   |
-| .CSV        | . FRD  | .msu        | -      |-          | .wps       | .zipp   |
+| . CSV        | . FRD  | .msu        | -      |-          | .wps       | .zipp   |
 | .cvr        | .gif  | .nfo        | -      |-          | .wpt       | .zipped |
 | -            | .Guid | -            | -      | -         | .wsdl      | .zippy  |
 | -            | .gz   | -            | -      | -         | .wsp       | .zipx   |

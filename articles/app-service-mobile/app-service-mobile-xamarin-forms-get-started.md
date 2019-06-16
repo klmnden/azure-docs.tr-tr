@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: b0719f6ac2f99f9e665b1265665752dd53ccbaf0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b47e498754bad6917efca5b7f19f8ebce9cf0330
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062214"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Azure ile Xamarin.Forms uygulaması oluşturma
 
@@ -48,19 +48,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 Çözümü açmak için Xamarin için Visual Studio Araçları gereklidir, bkz. [Xamarin yükleme yönergeleri][Install Xamarin]. Araçlar zaten yüklendiyse, çözümü indirip açmak için aşağıdaki adımları izleyin:
 
-### <a name="visual-studio"></a>Visual Studio
-
-1. [Azure Portal](https://portal.azure.com/) gidin.
-
-2. Mobil Uygulamanızın ayarlar dikey penceresinde **Hızlı Başlangıç** (Dağıtım altında) > **Xamarin.Forms**'a tıklayın. 3. Adım altında, henüz seçili değilse, **Yeni uygulama oluştur**’u seçin.  Sonra **İndir** düğmesine tıklayın.
-
-   Bu işlem, mobil uygulamanıza bağlı olan istemci uygulaması içeren bir projeyi indirir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
-
-3. İndirdiğiniz projeyi çıkarın ve ardından Visual Studio'da açın.
-
-4. Android veya Windows projelerini ve ağa bağlı bir Mac bilgisayar varsa iOS projesini çalıştırmak için aşağıdaki yönergeleri izleyin.
-
-### <a name="visual-studio-for-mac"></a>Mac için Visual Studio
+### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows veya Mac)
 
 1. Git [Azure portalında](https://portal.azure.com/) ve oluşturduğunuz mobil uygulamaya gidin. Üzerinde `Overview` dikey penceresinde mobil uygulamanız için genel bir uç nokta URL'sini arayın. Örnek - sitename my app name "test123" için olacak https://test123.azurewebsites.net.
 

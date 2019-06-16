@@ -16,18 +16,18 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b21c4727e7679c25dc2574a6506f8d3932aec2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d12991813f68a42f9846c1c9c9c31c01d371d1d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437441"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107648"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de adlandırılmış konumları yapılandırma
 
 Adlandırılmış konumlar ile, kuruluşunuzda güvenilir IP adresi aralıklarını etiketleyebilirsiniz. Azure AD, aşağıdakileri yapmak için adlandırılmış konumları kullanır:
 - [Risk olaylarında](concept-risk-events.md) hatalı pozitifleri algılama. Güvenilir bir konumdan oturum açılması, kullanıcının oturum açma riskini azaltır.   
-- [Konum tabanlı koşullu erişimi](../conditional-access/location-condition.md) yapılandırma.
+- Yapılandırma [konum tabanlı koşullu erişim](../conditional-access/location-condition.md).
 
 Bu hızlı başlangıçta, ortamınızda adlandırılmış konumları nasıl yapılandıracağınızı öğreneceksiniz.
 
@@ -43,7 +43,7 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Sol bölmede, **Azure Active Directory** seçeneğini belirleyin ve sonra **Güvenlik** bölümünden **Koşullu erişim**’i seçin.
+2. Sol bölmede seçin **Azure Active Directory**, ardından **koşullu erişim** gelen **güvenlik** bölümü.
 
     ![Koşullu erişim sekmesi](./media/quickstart-configure-named-locations/entrypoint.png)
 
@@ -64,5 +64,5 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 Daha fazla bilgi için bkz.
 
 - [Azure AD koşullu erişim](../active-directory-conditional-access-azure-portal.md).
-- [Azure AD koşullu erişiminde konum koşulları](../conditional-access/location-condition.md)
+- [Konum koşulları Azure AD koşullu erişim](../conditional-access/location-condition.md)
 - [Riskli oturum açma işlemleri raporu](concept-risky-sign-ins.md).  

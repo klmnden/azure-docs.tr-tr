@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 01a70bfbb169090fbdf4b5f8e00af6895f69c964
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903534"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091911"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Öğretici: SAP NetWeaver ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de SAP NetWeaver tümleştirmesini yapılandırmak için SAP NetWeaver 
 
 **SAP NetWeaver Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -165,7 +165,7 @@ SAP NetWeaver ile Azure AD çoklu oturum açmayı yapılandırmak için aşağı
 
     a. Tıklayın **meta veri dosyasını karşıya yükleme** yüklenecek **hizmet sağlayıcısı meta veri dosyası** , daha önce aldığınız.
 
-    ![Meta veri dosyasını yükleyin](common/upload-metadata.png)
+    ![Meta veri dosyasını karşıya yükleyin](common/upload-metadata.png)
 
     b. Tıklayarak **klasör logosu** meta veri dosyası seçin ve **karşıya**.
 
@@ -196,7 +196,7 @@ SAP NetWeaver ile Azure AD çoklu oturum açmayı yapılandırmak için aşağı
 
     ![image](./media/sapnetweaver-tutorial/nameidattribute1.png)
 
-    b. Gelen **dönüştürme** listesinden **ExtractMailPrefix()**.
+    b. Gelen **dönüştürme** listesinden **ExtractMailPrefix()** .
 
     c. Gelen **parametresi 1** listesinden **user.userprinicipalname**.
 

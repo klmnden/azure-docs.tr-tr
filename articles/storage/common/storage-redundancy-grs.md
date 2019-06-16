@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 09b553f3ca64d8f5217f023c776ec848215366f9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65151002"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Coğrafi olarak yedekli depolama (GRS): Azure depolama için bölgeler arası çoğaltma

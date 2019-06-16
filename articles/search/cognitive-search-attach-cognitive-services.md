@@ -11,10 +11,10 @@ ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244422"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search'te bir beceri kümesi ile bir Bilişsel hizmetler kaynağı ekleme 
@@ -140,7 +140,7 @@ Content-Type: application/json
 
 Bilişsel arama dizinleme ile ilişkili maliyetleri tahmin etmek için bazı sayılar çalıştırabilmeniz için ortalama bir belge benzer bir fikir ile başlayın. Örneğin, yaklaşık:
 
-+ 1.000 PDF.
++ 1\.000 PDF.
 + Altı her sayfa.
 + Bir görüntü her sayfada (6000 görüntüleri için).
 + Sayfa başına 3000 karakter.

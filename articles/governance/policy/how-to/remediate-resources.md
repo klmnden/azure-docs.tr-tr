@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d6753b319bc5bc4cbda18fe486695e5b0266acae
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ba015a1d5183fcf27cfcc05ef1d0cd838201e91e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66169647"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077111"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure İlkesi ile uyumlu olmayan kaynakları Düzelt
 
@@ -49,10 +49,6 @@ Rol tanımlamak için ilk adımıdır, **Deployıfnotexists** , dahil şablon i�
 
 ```azurecli-interactive
 az role definition list --name 'Contributor'
-```
-
-```azurepowershell-interactive
-Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## <a name="manually-configure-the-managed-identity"></a>Yönetilen kimlik el ile yapılandırma

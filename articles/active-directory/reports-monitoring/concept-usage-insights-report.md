@@ -17,10 +17,10 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 3fe1e72d277bffd4bc9b38ac377e33b341967e17
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806364"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki kullanım bilgilerini ve öngörüleri raporu
@@ -45,7 +45,7 @@ Kullanım ve öngörüleri rapordan verilere erişmek için gerekir:
 2. Doğru dizini seçin ve ardından **Azure Active Directory** ve **kurumsal uygulamalar**.
 3. Gelen **etkinlik** bölümünden **kullanım & ınsights** seçerek raporu açın. 
 
-![Kullanım ve öngörüleri raporu](./media/concept-usage-insights-report/main-menu.png)
+![Kullanım ve İçgörüler raporu](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Kullanım Raporu
@@ -58,7 +58,7 @@ Belirli bir uygulama odağı de ayarlayabilirsiniz. Seçin **görüntülemek otu
 
 Uygulama kullanımı grafiğinde bir gün seçtiğinizde, uygulama için oturum açma etkinliklerinin ayrıntılı bir listesini alın.  
 
-![Kullanım ve öngörüleri raporu](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![Kullanım ve İçgörüler raporu](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

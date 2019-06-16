@@ -7,12 +7,12 @@ ms.author: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: b5048266fe17bc16fba8228f7cc17d0ee9f3bc0b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4d391c095495a3d0e34a2111d7b4564e6f4f2b8d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714767"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072005"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>HDInsight kümesini yeni sürüme yükseltme
 En son HDInsight özelliklerden yararlanmak için HDInsight kümeleri en son sürüme yükseltilmesi özellikle önerilir. İzleyin, HDInsight'ı yükseltmek için yönergeleri küme sürümleri.
@@ -27,9 +27,8 @@ HDInsight kümesini yükseltme iş akışı aşağıdaki gibidir.
 
 1. Bu belgede, HDInsight kümenizi yükseltme sırasında gerekli olabilecek değişiklikleri anlamak için her bir bölümünü okuyun.
 2. Bir küme bir test/kalite güvencesi ortamı oluşturun. Küme oluşturma ile ilgili daha fazla bilgi için bkz: [Linux tabanlı HDInsight kümeleri oluşturmayı öğrenin](hdinsight-hadoop-provision-linux-clusters.md)
-3. Mevcut işleri, veri kaynağı ve havuz yeni ortama kopyalayın. Bkz: [Test ortamı için kopya veri](hdinsight-migrate-from-windows-to-linux.md#copy-data-to-the-test-environment) daha fazla ayrıntı için.
+3. Mevcut işleri, veri kaynağı ve havuz yeni ortama kopyalayın.
 4. İşlerinizi yeni kümede beklendiği gibi çalıştığından emin olmak için doğrulama sınaması gerçekleştirin.
-
 
 Her şeyin beklendiği gibi çalıştığını doğruladıktan sonra geçiş kapalı kalma süresi zamanlayın. Bu kesinti sırasında aşağıdaki eylemleri gerçekleştirin:
 

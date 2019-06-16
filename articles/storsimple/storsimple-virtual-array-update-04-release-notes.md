@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 06a3469507631d032535bce62b01d964e99dc603
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334803"
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>StorSimple sanal dizisi güncelleştirme 0,4 sürüm notları
@@ -56,7 +56,7 @@ Aşağıdaki tabloda, bu sürümde giderilen sorunlar özetini sağlar.
 | Hayır. | Özellik | Sorun |
 | --- | --- | --- |
 | 1 |Yedekleme performansı|Önceki sürümlerde, çok sayıda dosya içeren yedeklemeler (gün sırasına göre) tamamlanması uzun zaman alır. Bu sürümde, tam ve artımlı yedeklemeler tamamlanma süresi önemli azalmaya bakın. |
-| 2 |Destek paketi|Disk, CPU, bellek, ağ ve bulut istatistikleri artık destek paketleri cihaz sorunları gidermeye çok etkili hale getirme destek günlükleri için oturum açtınız.|
+| 2 |Destek Paketi|Disk, CPU, bellek, ağ ve bulut istatistikleri artık destek paketleri cihaz sorunları gidermeye çok etkili hale getirme destek günlükleri için oturum açtınız.|
 | 3 |Backup |Önceki sürümlerde, yedeklemeleri uzun süre çalışan bir alanı işlemden geçirin yedekleme hataları kaynaklanan cihazda neden olabilir. Bu hatayı kuyruğuna tek seferde en fazla 5 yedeklemeleri sağlayarak bu sürümde giderilen.|
 | 4 |iSCSI | Önceki sürümlerde, katmanlı veya yerel olarak sabitlenmiş birim için yerel ayırma için sağlanan birim hacminin % 10 idi. Bu sürümde, tüm iSCSI birimler (yerel olarak sabitlenmiş veya katmanlı) için yerel ayırma en fazla 200 GB'lık (katmanlı birimlerin 2 TB'tan büyük için) % 10 sınırlıdır böylece boşaltma yerel diskte daha fazla alan boşaltın. Bu sürümde yerel olarak sabitlenmiş birimlerin 200 GB ile sınırlı olmasını öneririz.|
 
@@ -69,7 +69,7 @@ Aşağıdaki tabloda StorSimple sanal dizisi için bilinen sorunların bir Özet
 | --- | --- | --- | --- |
 | **1.** |Güncelleştirmeler |Önizleme sürümünde oluşturulan sanal cihazlar için desteklenen genel kullanılabilirlik sürümü güncelleştirilemiyor. |Bu sanal cihazlar için genel kullanım sürümünde bir olağanüstü durum kurtarma (DR) iş akışı kullanarak devredilen gerekir. |
 | **2.** |Sağlanan veri diski |Belirli bir belirtilen boyutta bir veri diski sağladığınız ve karşılık gelen StorSimple sanal cihazı oluşturdunuz, gerekir değil genişletin veya veri diski küçültmeye sonra. Cihaz yerel katmanlarda tüm verilerin kaybıyla sonuçları yapmak çalışıyor. | |
-| **3.** |Grup ilkesi |Bir cihaz etki alanına katılmış olduğunda, bir Grup İlkesi uygulama cihaz işlemi olumsuz yönde etkileyebilir. |Sanal diziniz kendi kuruluş birimi (OU) için Active Directory olduğundan ve hiçbir Grup İlkesi nesneleri (GPO) uygulanmış emin olun. |
+| **3.** |Grup İlkesi |Bir cihaz etki alanına katılmış olduğunda, bir Grup İlkesi uygulama cihaz işlemi olumsuz yönde etkileyebilir. |Sanal diziniz kendi kuruluş birimi (OU) için Active Directory olduğundan ve hiçbir Grup İlkesi nesneleri (GPO) uygulanmış emin olun. |
 | **4.** |Yerel web kullanıcı Arabirimi |Internet Explorer (IE ESC) Artırılmış güvenlik özellikleri etkinleştirilirse, bazı sorun giderme veya bakım gibi yerel web kullanıcı Arabirimi sayfalarını düzgün çalışmayabilir. Bu sayfa düğmelerini de çalışmayabilir. |Internet Explorer Gelişmiş güvenlik özelliklerini devre dışı bırakın. |
 | **5.** |Yerel web kullanıcı Arabirimi |Bir Hyper-V sanal makine, GB/sn ağ arabirimlerinin de kullanıcı Arabirimi olarak 10 görüntülenen web arabirimleri. |Bir yansıma Hyper-V, davranıştır. Hyper-V, sanal ağ bağdaştırıcıları için 10 GB/sn her zaman gösterilir. |
 | **6.** |Katmanlı birimler veya paylaşımlar |Katmanlı birimlerin desteklenmiyor StorSimple ile çalışan uygulamalar için kilitleme bayt aralığı. Bayt aralığı kilitleme etkinse, StorSimple katmanlama çalışmaz. |Önerilen ölçüleri içerir: <br></br>Bayt aralığı uygulama mantığınızın kilitleme devre dışı bırakın.<br></br>Bu uygulama için verileri yerel olarak sabitlenmiş birim katmanlı birimlerin yerine koymak seçin.<br></br>*Uyarı*: Geri yükleme tamamlamadan önce kullanarak yerel olarak sabitlenmiş birimler ve bayt aralığı kilitleme etkin olduğunda, yerel olarak sabitlenmiş birimin çevrimiçi olabilir. Bir geri yükleme devam ediyor, bu gibi durumlarda, daha sonra tamamlamak geri yüklemek için beklemeniz gerekir. |

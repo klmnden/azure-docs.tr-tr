@@ -11,17 +11,17 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
 ms.openlocfilehash: 9590728cec663b36c889dc26a6216c3d474244e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60735485"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Azure Machine Learning kullanarak bir şirket içi SQL Server veritabanı Studio ile analizler gerçekleştirin
 
 Genellikle şirket içi verilerle çalışacak kuruluşların avantajı ölçek ve makine öğrenimi iş yükleri için bulutun çevikliğinden yapmak istiyorsunuz. Ancak, geçerli iş süreçleri ve iş akışları, şirket içi verileri buluta taşıyarak kesintiye istemiyorsanız. Azure Machine Learning Studio, bir şirket içi SQL Server veritabanından veri okumak ve ardından eğitim ve bu verilerle bir model Puanlama artık destekliyor. Artık bu el ile kopyalayın ve Bulut ve şirket içi sunucunuz arasında veri eşitlemeyi gerekmez. Bunun yerine, **verileri içeri aktarma** , eğitim ve puanlama işleri için modülü Azure Machine Learning Studio'da doğrudan, şirket içi SQL Server veritabanından artık bkz.
 
-Bu makalede nasıl giriş yapılır genel bir bakış SQL server verilerini Azure Machine Learning Studio'ya şirket sağlar. Çalışma alanları, modüller, veri kümeleri, denemeleri, Studio kavramları hakkında bilgi sahibi olduğunuz varsayılmıştır *vb.*.
+Bu makalede nasıl giriş yapılır genel bir bakış SQL server verilerini Azure Machine Learning Studio'ya şirket sağlar. Çalışma alanları, modüller, veri kümeleri, denemeleri, Studio kavramları hakkında bilgi sahibi olduğunuz varsayılmıştır *vb.* .
 
 > [!NOTE]
 > Bu özellik, ücretsiz çalışma alanları için kullanılamaz. Machine Learning fiyatlandırma ve katmanlar hakkında daha fazla bilgi için bkz: [Azure Machine Learning fiyatlandırması](https://azure.microsoft.com/pricing/details/machine-learning/).
@@ -73,7 +73,7 @@ Bu kılavuzda, Azure Data Factory Integration Runtime bir Azure Machine Learning
 > [!NOTE]
 > Azure Data Factory şirket içinde barındırılan Integration Runtime, daha önce veri yönetimi ağ geçidi biliniyordu. Adım adım öğretici için bir ağ geçidi olarak başvurmaya devam edecek.  
 
-### <a name="step-1-create-a-gateway"></a>1. Adım: Bir ağ geçidi oluşturma
+### <a name="step-1-create-a-gateway"></a>1\. adım: Bir ağ geçidi oluşturma
 İlk adım, oluşturmak ve şirket içi SQL veritabanınıza erişmek için ağ geçidi ayarlama sağlamaktır.
 
 1. Oturum [Azure Machine Learning Studio](https://studio.azureml.net/Home/) ve çalışmak istediğiniz çalışma alanını seçin.
@@ -120,7 +120,7 @@ Artık, şirket içi verileri kullanmaya hazırsınız.
 
 Oluşturun ve her çalışma alanı için birden çok ağ geçidi Studio'da ayarlayın. Örneğin, geliştirme sırasında test veri kaynaklarınıza bağlanmak istediğiniz bir ağ geçidi farklı bir ağ geçidi olarak da, üretim veri kaynakları için sahip olabilir. Azure Machine Learning Studio, birden çok ağ geçidi üzerinde Şirket ortamınıza bağlı olarak ayarlamak için esneklik sağlar. Şu anda çalışma alanları arasında bir ağ geçidi paylaşamaz ve yalnızca bir ağ geçidi tek bir bilgisayara yüklenebilir. Daha fazla bilgi için [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../../data-factory/tutorial-hybrid-copy-portal.md).
 
-### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>2. Adım: Bir şirket içi veri kaynağından verileri okumak için ağ geçidi kullanma
+### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>2\. adım: Bir şirket içi veri kaynağından verileri okumak için ağ geçidi kullanma
 Ağ geçidini ayarlamadan ayarladıktan sonra ekleyebileceğiniz bir **verileri içeri aktarma** şirket içi SQL Server veritabanındaki verileri girdi bir denemeyi modülü.
 
 1. Machine Learning Studio'da seçin **DENEMELERİ** sekmesinde **+ yeni** seçin ve sol alt köşesinde **boş deneme** (veya birden çok örnek birini seçin denemeleri kullanılabilir).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: c2964169996aa3b2ac18c9c2accf358b7213c1c1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8297b16ba5efa371adc4d9a20428f88a48545440
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901569"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Öğretici: Menlo güvenlik ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de Menlo güvenlik tümleştirmesini yapılandırmak için Menlo güven
 
 **Galeriden Menlo güvenlik eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

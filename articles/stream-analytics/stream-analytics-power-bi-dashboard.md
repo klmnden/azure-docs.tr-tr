@@ -7,16 +7,16 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 0e67a56e3d723874ed93fc8dcad91e3063d923ed
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818018"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076176"
 ---
-# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Öğretici: Stream Analytics ve Power BI: Veri akışı için gerçek zamanlı analiz Panosu
+# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics ve Power BI: Veri akışı için gerçek zamanlı analiz Panosu
+
 Azure Stream Analytics lider iş zekası araçları birini avantajlarından yararlanmanıza olanak tanır [Microsoft Power BI](https://powerbi.com/). Bu makalede, şunların nasıl iş zekası araçları, Azure Stream Analytics işleri için çıkış olarak Power BI kullanarak oluşturun. Ayrıca nasıl gerçek zamanlı bir Pano oluşturup kullanacağınızı öğrenin.
 
 Bu makalede, Stream Analytics'ten devam [gerçek zamanlı sahtekarlık algılama](stream-analytics-real-time-fraud-detection.md) öğretici. Bu öğreticide oluşturulan iş akışı oluşturur ve böylece bir akış analizi işi tarafından algılanan sahte telefon aramaları görselleştirebilirsiniz çıkış bir Power BI ekler. 
@@ -38,41 +38,31 @@ Gerçek zamanlı sahtekarlık algılama öğreticide çıktı Azure Blob depolam
 
 1. Azure portalında, daha önce oluşturduğunuz Streaming Analytics işini açın. Önerilen ad kullandıysanız, işi adı `sa_frauddetection_job_demo`.
 
-2. Seçin **çıkışları** ortasında işi Panosu kutusuna ve ardından **+ Ekle**.
+2. Sol menüden **çıkışları** altında **iş topolojisi**. Ardından, **+ Ekle** ve **Power BI** açılan menüden.
 
-3. İçin **çıkış diğer adı**, girin `CallStream-PowerBI`. Farklı bir ad kullanabilirsiniz. Bunu yaparsanız, adı daha sonra ihtiyacınız olduğundan, not edin. 
+3. **+ Ekle** > **Power BI**'ı seçin. Ardından formu aşağıdaki bilgilerle doldurun ve **Yetkilendir**'i seçin:
 
-4. Altında **havuz**seçin **Power BI**.
+   |**Ayar**  |**Önerilen değer**  |
+   |---------|---------|
+   |Çıktı diğer adı  |  CallStream Power BI  |
+   |Veri kümesi adı  |   SA veri kümesi  |
+   |Tablo adı |  dolandırıcılık amaçlı çağrıları  |
 
-   ![Power BI için bir çıktı oluşturma](./media/stream-analytics-power-bi-dashboard/create-power-bi-ouptut.png)
+   ![Stream Analytics çıktı yapılandırma](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
 
-5. Tıklayın **yetkilendirmek**.
+   > [!WARNING]
+   > Power BI veri kümesi ve Stream Analytics işinde belirttiğiniz ayarlara olarak aynı ada sahip bir tablo varsa, mevcut üzerine yazılır.
+   > Açıkça bu veri kümesi ve tablo, Power BI hesabınızda oluşturduğunuz değil öneririz. Stream Analytics işinizi başlattığınızda ve iş parçacıklarının çıkış Power BI'da oturum başlatır. otomatik olarak oluşturulur. İş sorgusu hiçbir sonuç döndürmezse, tablo ve veri kümesi oluşturulmaz.
+   >
 
-    Burada, bir iş veya Okul hesabı için Azure kimlik bilgilerinizi sağlayabilirsiniz bir pencere açılır. 
-
-    ![Power BI'a erişim için kimlik bilgilerini girin](./media/stream-analytics-power-bi-dashboard/power-bi-authorization-credentials.png)
-
-6. Kimlik bilgilerinizi girin. Kimlik bilgilerinizi girdiğinizde Power BI bölgenizde erişim izni akış analizi işine ayrıca vermiş sonra dikkat edin.
-
-7. Sizin döndürdü için **yeni çıkış** dikey penceresinde aşağıdaki bilgileri girin:
-
-   * **Grup çalışma alanı**: Power BI kiracınızın veri kümesini oluşturmak için istediğiniz bir çalışma alanı seçin.
-   * **Veri kümesi adı**:  `sa-dataset` yazın. Farklı bir ad kullanabilirsiniz. Bunu yaparsanız, bunu daha sonra kullanmak üzere not edin.
-   * **Tablo adı**: `fraudulent-calls` yazın. Şu anda Power BI çıkışına Stream Analytics işlerine bir veri kümesinde yalnızca bir tabloya sahip olabilir.
-
-     ![Power BI çalışma alanı veri kümesi ve tablo](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
-
-     > [!WARNING]
-     > Power BI veri kümesi ve Stream Analytics işinde belirttiğiniz ayarlara olarak aynı ada sahip bir tablo varsa, mevcut üzerine yazılır.
-     > Açıkça bu veri kümesi ve tablo, Power BI hesabınızda oluşturduğunuz değil öneririz. Stream Analytics işinizi başlattığınızda ve iş parçacıklarının çıkış Power BI'da oturum başlatır. otomatik olarak oluşturulur. İş sorgusu hiçbir sonuç döndürmezse, tablo ve veri kümesi oluşturulmaz.
-     >
+4. **Yetkilendir**'i seçtiğinizde bir açılır pencere görünür ve Power BI hesabınızda kimlik doğrulaması için sizden kimlik bilgilerini sağlamanız istenir. Yetkilendirme başarılı olduktan sonra **Kaydet** seçeneğine tıklayarak ayarları kaydedin.
 
 8. **Oluştur**’a tıklayın.
 
 Veri kümesi aşağıdaki ayarlara sahip oluşturulur:
 
-* **defaultRetentionPolicy: Basicfıfo**: FIFO, en çok 200.000 satır uzunluğunda verilerdir.
-* **defaultMode: pushStreaming**: Veri kümesi hem akış kutucukları hem de Geleneksel rapor tabanlı görselleri (diğer adıyla) destekler anında iletme).
+* **defaultRetentionPolicy: Basicfıfo** -FIFO, en çok 200.000 satır uzunluğunda verilerdir.
+* **defaultMode: pushStreaming** -veri kümesi, hem akış kutucukları hem de Geleneksel rapor tabanlı görselleri (anında iletme olarak da bilinir) destekler.
 
 Şu anda veri kümeleri ile diğer bayraklar oluşturamazsınız.
 
@@ -90,54 +80,52 @@ Power BI veri kümeleri hakkında daha fazla bilgi için bkz. [Power BI REST API
     >[!NOTE]
     >Giriş adı değil `CallStream` , sahtekarlık algılama öğreticide değiştirin `CallStream` içinde **FROM** ve **katılın** sorgu yan tümcelerinde.
 
-        ```SQL
-        /* Our criteria for fraud:
-        Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
+   ```SQL
+   /* Our criteria for fraud:
+   Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
-        SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
-        INTO "CallStream-PowerBI"
-        FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
-        JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
+   SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+   INTO "CallStream-PowerBI"
+   FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
+   JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
 
-        /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
-        ON CS1.CallingIMSI = CS2.CallingIMSI
+   /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
+   ON CS1.CallingIMSI = CS2.CallingIMSI
 
-        /* ...and date between CS1 and CS2 is between one and five seconds */
-        AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+   /* ...and date between CS1 and CS2 is between one and five seconds */
+   AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
 
-        /* Where the switch location is different */
-        WHERE CS1.SwitchNum != CS2.SwitchNum
-        GROUP BY TumblingWindow(Duration(second, 1))
-        ```
+   /* Where the switch location is different */
+   WHERE CS1.SwitchNum != CS2.SwitchNum
+   GROUP BY TumblingWindow(Duration(second, 1))
+   ```
 
 4. **Kaydet**’e tıklayın.
 
 
 ## <a name="test-the-query"></a>Sorguyu test edin
+
 Bu bölümde, isteğe bağlı ancak önerilen değerdir. 
 
 1. TelcoStreaming uygulama şu anda çalışmıyorsa başlatın şu adımları izleyin:
 
-    * Komut penceresi açın.
+    * Komut istemi açın.
     * Telcogenerator.exe ve değiştirilen telcodatagen.exe.config dosyaları olduğu klasöre gidin.
     * Şu komutu çalıştırın:
 
        `telcodatagen.exe 1000 .2 2`
 
-2. İçinde **sorgu** dikey penceresinde noktaya tıklayın `CallStream` seçin ve sonra **örnek giriş verileri**.
+2. Üzerinde **sorgu** noktaya tıklayın, sayfa için Stream Analytics işinizi `CallStream` seçin ve sonra **örnek giriş verileri**.
 
 3. Veri tıklatın ve üç dakika değerini istediğinizi belirtin **Tamam**. Veri örneğinin alındığını belirten bildirim gelene kadar bekleyin.
 
-4. **Test**'e tıklayın ve sonuçların geldiğinden emin olun.
-
+4. Tıklayın **Test** ve sonuçları gözden geçirin.
 
 ## <a name="run-the-job"></a>İşi çalıştırma
 
 1. TelcoStreaming uygulamayı çalışır durumda olduğundan emin olun.
 
-2. Kapat **sorgu** dikey penceresi.
-
-3. İşi dikey penceresinde **Başlat**.
+2. Gidin **genel bakış** için Stream Analytics işinizi sayfasından seçim yapıp **Başlat**.
 
     ![Stream Analytics işini başlatın](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
@@ -240,7 +228,7 @@ Bu yapılandırmayı göz önünde bulundurulduğunda, özgün sorguyu aşağıd
         dspl
 ```
 
-### <a name="renew-authorization"></a>Yetkilendirmeyi yenile
+### <a name="renew-authorization"></a>Yetkilendirmeyi Yenile
 Parola işinizi oluşturulduğu veya en son kimlik doğrulaması bu yana değişti, Power BI hesabınızı yeniden kimlik doğrulamaya zorlayabilir gerekir. Azure multi-Factor Authentication, Azure Active Directory (Azure AD) kiracınız yapılandırılmışsa, ayrıca Power BI yetkilendirme iki haftada yenilemeniz gerekir. Yenilemezseniz, iş çıktısı olmaması gibi belirtileri görebilir veya `Authenticate user error` işlem günlüğüne kaydeder.
 
 Benzer şekilde, belirtecin süresi dolduktan sonra iş başlarsa, bir hata oluşur ve işi başarısız olur. Bu sorunu çözmek için çalışan işini durdurma ve Power BI çıkışınızı gidin. Veri kaybını önlemek için seçin **yetkilendirmeyi yenilemek** bağlantı ve iş öğesinden yeniden **son durduruldu zamanı**.

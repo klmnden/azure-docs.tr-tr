@@ -14,13 +14,13 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 32e828f420d41d7a67e4f41ac8a4a0698711ce2f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64916399"
 ---
-# <a name="devtest-labs-in-the-enterprise"></a>DevTest Labs kuruluştaki
+# <a name="devtest-labs-in-the-enterprise"></a>Kuruluşta DevTest Labs
 Kuruluşların hızla nedeniyle bulut benimseme [avantajları](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) çeviklik, esneklik ve ekonomik içerir. İlk adımları genellikle geliştirme ve test iş yüklerini. Azure DevTest Labs sağlar [özellikleri](devtest-lab-concepts.md) Kurumsal ve Destek avantajı [anahtar geliştirme/test senaryoları](devtest-lab-guidance-get-started.md).
 
 İş yüklerini buluta geçirme kuruluşlar için yaygın endişeler şunlardır:

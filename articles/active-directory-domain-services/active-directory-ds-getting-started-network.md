@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mstephen
 ms.openlocfilehash: 65cc63b32afcc565f1901c4df2893ad103ec0da3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234906"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
@@ -29,7 +29,7 @@ ms.locfileid: "66234906"
 [Azure Active Directory Domain Services için ağ ile ilgili dikkat edilmesi gerekenler](network-considerations.md) bölümüne bakın.
 
 
-## <a name="task-2-configure-network-settings"></a>2. Görev: Ağ ayarlarını yapılandırma
+## <a name="task-2-configure-network-settings"></a>2\. Görev: Ağ ayarlarını yapılandırma
 Bir Azure sanal ağı ve adanmış bir alt ağ, sonraki yapılandırma görevi oluşturmaktır. Sanal ağınızdaki bu alt ağda Azure Active Directory Domain Services’ı etkinleştirin. Ayrıca, var olan bir sanal ağ seçin ve bunun içinde ayrılmış bir alt ağ oluşturmak.
 
 1. Tıklayın **sanal ağ** bir sanal ağ seçin.

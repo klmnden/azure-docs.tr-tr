@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: bfb858930bef87239021d049b59c282197bb49ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32095f76dbcdf2afd716daab096b9dd8d18d1bb9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871492"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096598"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Öğretici: My ödül noktaları üst alt/üst ekibi ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de ödül noktaları üst alt/üst Ekibim tümleştirmesini yapılandı
 
 **Galeriden ödül noktaları üst alt/üst Ekibim eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

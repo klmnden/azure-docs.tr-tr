@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475822"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Elastik veritabanı işleri oluşturmak ve yönetmek için Transact-SQL (T-SQL) kullanın
@@ -456,7 +456,7 @@ Proje açıklaması. Varsayılan null bir nvarchar(512) açıklamasıdır. Açı
 [  **\@etkin =** ] etkin  
 İş zamanlamasını etkinleştirilip etkinleştirilmediği. Etkin, varsayılan olarak 0 (devre dışı) ile bit. 0 ise, iş etkin değil ve kendi zamanlamasına göre çalışmaz; Ancak, bunu el ile çalıştırılabilir. 1 ise, iş, zamanlamaya göre çalışır ve el ile de çalıştırılabilir.
 
-[ **\@schedule_interval_type =**] schedule_interval_type  
+[ **\@schedule_interval_type =** ] schedule_interval_type  
 Yürütülecek iş olduğunda değeri gösterir. schedule_interval_type nvarchar(50), bir kez, varsayılan ve aşağıdaki değerlerden biri olabilir:
 - 'Bir kez'
 - 'Minutes'
@@ -1244,7 +1244,7 @@ Tüm işleri gösterir.
 |**job_name**|  nvarchar(128)   |İşin adı.|
 |**job_id**|    uniqueidentifier    |Projenin benzersiz kimliği.|
 |**job_version**    |int    |(İş değiştirilir her zaman otomatik olarak güncelleştirilir) iş sürümü.|
-|**Açıklaması**    |nvarchar(512)| İş için açıklama. Etkin bit iş etkin mi yoksa devre dışı mı olduğunu belirtir. 1 etkin işleri gösterir ve 0'ı devre dışı bırakılan işler gösterir.|
+|**description**    |nvarchar(512)| İş için açıklama. Etkin bit iş etkin mi yoksa devre dışı mı olduğunu belirtir. 1 etkin işleri gösterir ve 0'ı devre dışı bırakılan işler gösterir.|
 |**schedule_interval_type** |nvarchar(50)   |Yürütülecek iş olduğunda belirten değer: 'Bir kez', 'Minutes', 'Hours', 'Gün', ' hafta', 'Ay'
 |**schedule_interval_count**|   int|    Her işin yürütülmesi arasında gerçekleşecek şekilde schedule_interval_type nokta sayısı.|
 |**schedule_start_time**    |datetime2(7)|  Tarih ve saat son başlatılan yürütme işi oluştu.|
@@ -1285,7 +1285,7 @@ Tüm adımları her projenin geçerli sürümünde gösterir.
 |**target_group_id**|   uniqueidentifier|   Hedef grubun benzersiz kimliği.|
 |**initial_retry_interval_seconds**|    int |İlk yeniden deneme girişiminden önce gecikme. Varsayılan değer 1'dir.|
 |**maximum_retry_interval_seconds** |int|   Yeniden deneme girişimleri arasındaki en büyük gecikme. Yeniden denemeler arasındaki gecikme bu değerden daha büyük geçerseniz, bunun yerine bu değere tavan sabitlenir. Varsayılan değer 120'dir.|
-|**retry_interval_backoff_multiplier**  |real|  Birden çok iş yürütme adım durumunda yeniden deneme gecikmesi uygulanacak çarpan denemesi başarısız. 2.0 varsayılan değerdir.|
+|**retry_interval_backoff_multiplier**  |real|  Birden çok iş yürütme adım durumunda yeniden deneme gecikmesi uygulanacak çarpan denemesi başarısız. 2\.0 varsayılan değerdir.|
 |**retry_attempts** |int|   Yeniden deneme sayısı, bu adım başarısız olursa kullanmaya çalışır. Herhangi bir yeniden deneme girişimleri gösteren varsayılan 10.|
 |**step_timeout_seconds**   |int|   Yeniden deneme girişimleri arasındaki dakika cinsinden süre miktarı. Varsayılan değer 0 dakika arayla gösteren 0 ' dır.|
 |**output_type**    |nvarchar(11)|  Komut dosyasının konumu. Geçerli Önizleme 'Inline' varsayılandır ve yalnızca kabul edilen değer.|

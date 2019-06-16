@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50779f8a37713bda8b27c1cfd2ca37eed4edbd11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61073954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054701"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Azure Otomasyonu durumu Azure İzleyici günlüklerine veri raporlama yapılandırma ilet
 
@@ -49,26 +49,26 @@ Azure İzleyici günlüklerine Azure Automation DSC veri almaya başlamak için 
 
    ```powershell
    # Find the ResourceId for the Automation Account
-   Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+   Get-AzResource -ResourceType 'Microsoft.Automation/automationAccounts'
    ```
 
 1. Alma _ResourceId_ aşağıdaki PowerShell komutunu çalıştırarak bir Log Analytics çalışma alanınızın: (birden fazla çalışma alanı varsa, seçin _ResourceId_ yapılandırmak istediğiniz çalışma alanı için).
 
    ```powershell
    # Find the ResourceId for the Log Analytics workspace
-   Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+   Get-AzResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
    ```
 
 1. Aşağıdaki PowerShell komutunu çalıştırın değiştirerek `<AutomationResourceId>` ve `<WorkspaceResourceId>` ile _ResourceId_ değerleri önceki adımların her biri:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
+   Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Category 'DscNodeStatus'
    ```
 
 Azure İzleyici günlüklerine Azure Otomasyonu durumu yapılandırmasından veri almayı durdurmak istiyorsanız, aşağıdaki PowerShell komutunu çalıştırın:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories 'DscNodeStatus'
+Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Category 'DscNodeStatus'
 ```
 
 ## <a name="view-the-state-configuration-logs"></a>Durum yapılandırması günlüklerini görüntüleme
@@ -133,7 +133,7 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki kategoriye kay�
 | NodeName_s |Yönetilen düğümün adı. |
 | NodeComplianceStatus_s |Düğüm uyumlu olup olmadığı. |
 | DscReportStatus |Uyumluluk denetimi olmadığını başarıyla çalıştı. |
-| ConfigurationMode | Nasıl yapılandırma düğüme uygulanır. Olası değerler __"ApplyOnly"__,__"ApplyandMonitior"__, ve __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC yapılandırmasını uygular ve yeni bir yapılandırma, hedef düğüme veya bir sunucudan yeni bir yapılandırma çekildiğinde gönderildiğinde sürece başka hiçbir şey yapmaz. Yeni yapılandırma ilk uygulamadan sonra önceden yapılandırılmış bir durumdan kayması için DSC denetlemez. DSC denemeden önce başarılı oluncaya kadar yapılandırmayı uygulamak __ApplyOnly__ etkinleşir. </li><li> __ApplyAndMonitor__: Varsayılan değer budur. LCM herhangi bir yeni yapılandırmalar geçerlidir. Hedef düğüm istenen durumundan drifts sonra ilk uygulama yeni bir yapılandırma günlüklerini tutarsızlık DSC bildirir. DSC denemeden önce başarılı oluncaya kadar yapılandırmayı uygulamak __ApplyAndMonitor__ etkinleşir.</li><li>__ApplyAndAutoCorrect__: DSC, herhangi bir yeni yapılandırmalar geçerlidir. Yeni yapılandırma ilk uygulamadan sonra hedef düğüm istenen durumundan drifts DSC günlükleri tutarsızlık raporları ve sonra geçerli yapılandırmasını yeniden uygular.</li></ul> |
+| ConfigurationMode | Nasıl yapılandırma düğüme uygulanır. Olası değerler __"ApplyOnly"__ , __"ApplyandMonitior"__ , ve __"ApplyandAutoCorrect"__ . <ul><li>__ApplyOnly__: DSC yapılandırmasını uygular ve yeni bir yapılandırma, hedef düğüme veya bir sunucudan yeni bir yapılandırma çekildiğinde gönderildiğinde sürece başka hiçbir şey yapmaz. Yeni yapılandırma ilk uygulamadan sonra önceden yapılandırılmış bir durumdan kayması için DSC denetlemez. DSC denemeden önce başarılı oluncaya kadar yapılandırmayı uygulamak __ApplyOnly__ etkinleşir. </li><li> __ApplyAndMonitor__: Varsayılan değer budur. LCM herhangi bir yeni yapılandırmalar geçerlidir. Hedef düğüm istenen durumundan drifts sonra ilk uygulama yeni bir yapılandırma günlüklerini tutarsızlık DSC bildirir. DSC denemeden önce başarılı oluncaya kadar yapılandırmayı uygulamak __ApplyAndMonitor__ etkinleşir.</li><li>__ApplyAndAutoCorrect__: DSC, herhangi bir yeni yapılandırmalar geçerlidir. Yeni yapılandırma ilk uygulamadan sonra hedef düğüm istenen durumundan drifts DSC günlükleri tutarsızlık raporları ve sonra geçerli yapılandırmasını yeniden uygular.</li></ul> |
 | HostName_s | Yönetilen düğümün adı. |
 | IPAddress | Yönetilen düğüme IPv4 adresi. |
 | Category | DscNodeStatus |

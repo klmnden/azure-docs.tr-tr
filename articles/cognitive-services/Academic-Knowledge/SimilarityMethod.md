@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
 ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61336526"
 ---
 # <a name="similarity-method"></a>Benzerlik yöntemi
@@ -47,7 +47,7 @@ Ad | Açıklama
 
 ## <a name="successerror-conditions"></a>Başarı/hata koşulları
 
-HTTP durumu | Neden | Yanıt
+HTTP durumu | Reason | Yanıt
 -----------|----------|--------
 **200**         |Başarılı | Kayan noktalı sayı
 **400**         | Hatalı istek veya istek geçersiz | Hata iletisi      

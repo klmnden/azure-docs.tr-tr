@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
 ms.openlocfilehash: 4be73554df0b6bddaafe3910c80c855e127d79f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771660"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure SQL veritabanı için Azure Stream Analytics çıkışı

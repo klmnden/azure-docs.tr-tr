@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
 ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595506"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Birim Service Fabric durum bilgisi olan hizmetler testi
@@ -104,9 +104,9 @@ Yalnızca birincil bulunmalı veya bellek içi önbelleğe durumu Hizmetleri dur
 #### <a name="execute-requests-against-multiple-replicas"></a>Birden çok çoğaltma istekler yürütün
 Assert aynı istekte farklı yinelemenin karşı testler çalıştırılacak. Rol değişikliklerle birlikte kullanıldığında, tutarlılık sorunları yazdığı ortaya çıkarıldı olabilir. Örnek test, aşağıdaki adımları gerçekleştirebilir:
 1. Geçerli birincil karşı bir yazma isteği yürütün
-2. 1. adım geçerli birincil karşı yazılmış verileri döndüren Okuma isteği yürütün
+2. 1\. adım geçerli birincil karşı yazılmış verileri döndüren Okuma isteği yürütün
 3. Birincil ikincil tanıtın. Bu da geçerli birincil ikincil siteye indirgemeniz gerekir
-4. 2. adımda yeni ikincil karşı aynı Okuma isteği yürütün.
+4. 2\. adımda yeni ikincil karşı aynı Okuma isteği yürütün.
 
 Son adımda, döndürülen verilerin tutarlı test onaylama işlemi. Bu ortaya çıkarmaya olası bir sorunu hizmet tarafından döndürülen verileri güvenilir bir koleksiyona göre sonuçta yedeklenmiş ancak bellekte olmasıdır. Bellek içi verilerin olmayabilir ne güvenilir koleksiyonda düzgün mevcut ile eşitlenmiş durumda tutulmasını.
 

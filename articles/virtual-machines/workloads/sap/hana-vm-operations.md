@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/05/2019
+ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 156bb4cbf43dc71627f9db785dba574f25139285
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: b1591f4f1e96bbb2bffb80a2c652963faa5dca5b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077653"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure'da SAP HANA altyapı yapılandırmaları ve işlemleri
 Bu belge, Azure altyapı yapılandırma ve işletim dağıtılan Azure yerel sanal makinelerinde (VM'ler) SAP HANA sistemleri için yönergeler sağlar. Belge ayrıca SAP HANA ölçeklendirme M128s VM SKU için yapılandırma bilgilerini içerir. Bu belge aşağıdaki içeriği için standart bir SAP belgelerindeki değiştirin yönelik değildir:
@@ -66,6 +66,11 @@ Azure sanal makineleri kullanarak dağıtın:
 - Azure CLI.
 
 Ayrıca Azure VM Hizmetleri aracılığıyla bir tam yüklü SAP HANA platforma dağıtabilirsiniz [SAP Cloud platform](https://cal.sap.com/). Yükleme işlemi açıklanmıştır [dağıtma SAP S/4HANA veya BW/4hana'yı Azure üzerindeki](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) veya serbest Otomasyon [burada](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
+
+>[!IMPORTANT]
+> M208xx_v2 Vm'leri kullanmak için SUSE Linux görüntünüzü Azure sanal makine görüntü galerisinden seçerek dikkatli olmanız gerekir. Ayrıntılarını okumak için makaleyi okuyun [bellek için iyileştirilmiş sanal makine boyutları](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). Red Hat, HANA Mv2 ailesi Vm'leri kullanmak için henüz desteklenmiyor. 4/CY2019 Mv2 VM ailesi HANA çalışan Red Hat sürümleri için destek sağlamak için olan geçerli planlama 
+> 
+
 
 ### <a name="storage-configuration-for-sap-hana"></a>SAP HANA için depolama yapılandırması
 Depolama yapılandırmaları ve azure'da SAP HANA ile kullanılmak üzere depolama türleri okumak için belgeyi [SAP HANA Azure sanal makine depolama yapılandırmaları](./hana-vm-operations-storage.md)

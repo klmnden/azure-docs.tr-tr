@@ -10,59 +10,65 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/14/2017
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c080173af8ddd31b077bb820ea19d82eb2b29300
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8061cff8d39db66cb22a5650c7688657aa8b3554
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053946"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Azure AD PIM rolleri için denetim geçmişini görüntüleme
-Tüm ayrıcalıklı roller için belirli bir süre içinde tüm kullanıcı atama ve etkinleştirme görmek için Azure Active Directory (Azure AD) Privileged Identity Management (PIM) denetim Geçmişi'ni kullanabilirsiniz. Etkinlik, kiracınızda yönetici ve son kullanıcı eşitleme etkinliği de dahil olmak üzere tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory erişim ve kullanım raporlarını.](../reports-monitoring/overview-reports.md)
 
-## <a name="navigate-to-audit-history"></a>Denetim geçmişi gidin
-Gelen [Azure portalında](https://portal.azure.com) panoyu seçin **Azure AD Privileged Identity Management** uygulama. Tıklayarak denetim geçmişini buradan, erişim **ayrıcalıklı rollerimi Yönet** > **denetim geçmişi** PIM panosunda.
+Tüm ayrıcalıklı roller için son 30 gün içinde rol atamalarını ve etkinleştirmeler görmek için Azure Active Directory (Azure AD) Privileged Identity Management (PIM) denetim Geçmişi'ni kullanabilirsiniz. Etkinlik, dizininizdeki yönetici ve son kullanıcı eşitleme etkinliği de dahil olmak üzere tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory güvenlik ve Etkinlik raporlarını](../reports-monitoring/overview-reports.md).
 
-![Denetim geçmişi](media/azure-ad-pim-approval-workflow/image021.png)
+## <a name="view-audit-history"></a>Denetim geçmişini görüntüleme
 
-> [!NOTE]
-> Verileri eyleme göre sıralayın ve "Etkinleştirme onaylı" arayın
+Azure AD rolleri denetim geçmişini görüntülemek için aşağıdaki adımları izleyin.
 
+1. Oturum [Azure portalında](https://portal.azure.com/) üyesi olan bir kullanıcı ile [ayrıcalıklı Rol Yöneticisi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) rol.
 
-## <a name="audit-history-graph"></a>Denetim Geçmişi grafiği
-Denetim geçmişi, toplam etkinleştirmelerin, günlük en fazla etkinleştirme ve günlük ortalama etkinleştirme bir çizgi grafikte görüntülemek için kullanabilirsiniz.  Denetim geçmişi birden fazla rol varsa verileri role göre filtre uygulayabilirsiniz.
+1. Açık **Azure AD Privileged Identity Management**.
 
-Kullanım **zaman**, **eylem**, ve **rol** geçmişini sıralamak için düğmeler.
+1. Tıklayın **Azure AD rolleri**.
 
-## <a name="audit-history-list"></a>Denetim geçmişi listesi
-Denetim geçmişi listesinde sütunlar şunlardır:
+1. Tıklayın **Dizin rolleri denetim geçmişi**.
 
-* **İstek sahibi** -rol etkinleştirme ya da değişiklik isteyen kullanıcı.  "Azure sistem" değeri ise daha fazla bilgi için Azure denetim geçmişini denetleyin.
-* **Kullanıcı** -etkinleştiren veya bir rolü atanmış olan kullanıcı.
-* **Rol** -role atanmış veya kullanıcı tarafından etkinleştirildi.
-* **Eylem** - istek sahibi tarafından gerçekleştirilen eylemler. Bu atama, atamayı kaldırma konusunda, etkinleştirme veya devre dışı bırakma içerebilir.
-* **Zaman** - eylem oluştu.
-* **Akıl** -etkinleştirme sırasında herhangi bir metin neden alana girildiyse, burada gösterilir.
-* **Sona erme** - rol etkinleştirmesi için yalnızca ilgili.
+    Denetim geçmişinizi bağlı olarak bir sütun grafik toplam etkinleştirmelerin, günlük en fazla etkinleştirme ve günlük ortalama etkinleştirme ile birlikte görüntülenir.
+
+    ![Dizin rolleri denetim geçmişi](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+
+    Sayfanın en altında her bir eylemin kullanılabilir denetim geçmişi hakkında bilgi içeren bir tablo görüntülenir. Sütun, aşağıdaki anlamlara sahiptir:
+
+    | Sütun | Açıklama |
+    | --- | --- |
+    | Zaman | Eylemin gerçekleştiği. |
+    | İstek sahibi | Rol etkinleştirme ya da değişiklik isteyen kullanıcı. Değer ise **Azure sistem**, daha fazla bilgi için Azure denetim geçmişini kontrol edin. |
+    | Eylem | İstek sahibi tarafından gerçekleştirilen eylemler. Ata, Atamayı Kaldır, etkinleştirme, devre dışı bırak veya AddedOutsidePIM eylemler ekleyebilirsiniz. |
+    | Üyesi | Etkinleştiriyor veya bir role atanmış kullanıcı. |
+    | Rol | Rol atanmış veya kullanıcı tarafından etkinleştirildi. |
+    | Mantık yürütme | Neden alana etkinleştirme sırasında girilen metni. |
+    | süre sonu | Etkin bir rol süresinin sona erdiği. Yalnızca uygun rol atamaları için geçerlidir. |
+
+1. Denetim geçmişi sıralamak için tıklayın **zaman**, **eylem**, ve **rol** düğmeleri.
 
 ## <a name="filter-audit-history"></a>Denetim geçmişi Filtrele
-Denetim geçmişi tıklayarak gösterilir bilgileri filtreleyebilirsiniz **filtre** düğmesi.  **Güncelleştirme Grafik parametreleri dikey** görünür.
 
-Filtreleri ayarladıktan sonra tıklayın **güncelleştirme** geçmişinde bulunan verilere filtre uygulamak için.  Veriler hemen görünmüyorsa, sayfayı yenileyin.
+1. Denetim geçmişi sayfasının üst kısmında tıklayın **filtre** düğmesi.
 
-### <a name="change-the-date-range"></a>Tarih aralığını değiştirme
-Kullanım **Bugün**, **geçen hafta**, **geçtiğimiz ay**, veya **özel** denetim geçmişinin zaman aralığını değiştirmek için düğmeler.
+    **Grafik parametrelerini güncelleştir** bölmesi görünür.
 
-Seçtiğinizde **özel** düğmesi, sunulur bir **gelen** tarih alanı ve bir **için** tarih alanını geçmişi için tarih aralığı belirtin.  Tarih GG/AA/YYYY biçiminde girin veya tıkladığınızda **Takvim** simgesini ve bir takvimden tarih seçin.
+1. İçinde **zaman aralığı**, bir zaman aralığı seçin.
 
-### <a name="change-the-roles-included-in-the-history"></a>Geçmişi dahil rollerini değiştirme
-İşaretleyin veya işaretini kaldırın **rol** eklemek veya Geçmişten dışlamak için her rolün yanındaki onay kutusunu.
+1. İçinde **rolleri**, görüntülemek istediğiniz rolleri için onay işaretleri koyacağız ekleyin.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+    ![Grafik parametreleri bölmesini güncelleştir](media/pim-how-to-use-audit-log/update-chart-parameters.png)
+
+1. Tıklayın **Bitti** filtre uygulanmış bir denetim geçmişini görüntülemek için.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [PIM Azure kaynak rolleri için etkinlik ve denetim geçmişini görüntüle](azure-pim-resource-rbac.md)

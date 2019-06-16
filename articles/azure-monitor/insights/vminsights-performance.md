@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
 ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522083"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Nasıl yapılır Azure İzleyici ile grafik performansı için Vm'leri (Önizleme)
@@ -68,7 +68,7 @@ Aşağıdaki kapasite kullanımı grafikleri sağlanır:
 
 Seçerek zaman aralığı içinde grafiklerin ayrıntı değiştirebilirsiniz **ortalama**, **Min**, **Max**, **50**,  **90'ıncı**, ve **95** yüzdebirlik Seçici içinde.   
 
-Liste görünümünde tek bir VM tarafından kaynak kullanımı ve en yüksek kullanımı ile hangi makinenin popüler olduğunu görmek için **en iyi N listesi** sekmesi.  **En iyi N listesi** sayfası gösterir en çok kullanılan göre ölçüm için 95. yüzdebirlik göre sıralanmış ilk 20 makineler *CPU kullanımı %*.  Daha fazla makine seçerek gördüğünüz **yük daha fazla**, ve sonuçları ilk 500 makineler göstermek için genişletin. 
+Liste görünümünde tek bir VM tarafından kaynak kullanımı ve en yüksek kullanımı ile hangi makinenin popüler olduğunu görmek için **en iyi N listesi** sekmesi.  **En iyi N listesi** sayfası gösterir en çok kullanılan göre ölçüm için 95. yüzdebirlik göre sıralanmış ilk 20 makineler *CPU kullanımı %* .  Daha fazla makine seçerek gördüğünüz **yük daha fazla**, ve sonuçları ilk 500 makineler göstermek için genişletin. 
 
 >[!NOTE]
 >Listenin 500'den fazla makineler aynı anda gösteremez.  
@@ -78,7 +78,7 @@ Liste görünümünde tek bir VM tarafından kaynak kullanımı ve en yüksek ku
 
 Listede belirli bir sanal makinede sonuçları filtrelemek için bilgisayar adını girin. **adına göre Ara** metin.  
 
-Bunun yerine bir farklı performans ölçüm kullanımı görünümü, **ölçüm** açılan listesini seçin **kullanılabilir bellek**, **kullanılan Mantıksal Disk %**,  **Alınan Bayt/sn ağ**, veya **ağ gönderilen bayt/sn** ve bu ölçümü için kapsamlı kullanımını göstermek için listeyi güncelleştirir.  
+Bunun yerine bir farklı performans ölçüm kullanımı görünümü, **ölçüm** açılan listesini seçin **kullanılabilir bellek**, **kullanılan Mantıksal Disk %** ,  **Alınan Bayt/sn ağ**, veya **ağ gönderilen bayt/sn** ve bu ölçümü için kapsamlı kullanımını göstermek için listeyi güncelleştirir.  
 
 Açılır listeden bir sanal makine **özellikleri** panelinde sağ tarafında sayfasının ve buradan seçebilirsiniz **Performans ayrıntı**.  **Sanal makine ayrıntıları** sayfası açılır ve bu VM, doğrudan Azure VM'den VM Insights performans erişirken bir deneyime benzer kapsamlıdır.  
 
@@ -86,7 +86,7 @@ Açılır listeden bir sanal makine **özellikleri** panelinde sağ tarafında s
 Bir sanal makineden doğrudan erişmek için aşağıdaki adımları gerçekleştirin.
 
 1. Azure portalında **sanal makineler**. 
-2. Listeden VM'yi seçin ve **izleme** bölümü seçin **Insights (Önizleme)**.  
+2. Listeden VM'yi seçin ve **izleme** bölümü seçin **Insights (Önizleme)** .  
 3. Seçin **performans** sekmesi. 
 
 Bu sayfa yalnızca performans kullanımı grafikleri, ancak her mantıksal diski bulunan kendi kapasitesine kullanımı için ayrıca bir tablo gösteren içerir ve her ölçünün ortalama toplam sayısı.  
@@ -119,7 +119,7 @@ Raptiye simgesini sağ üst köşede grafikleri PIN'ler herhangi birinin en son 
 ![Sanal makine ölçek doğrudan VM ınsights performans görünümü ayarlama](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
 
 >[!NOTE]
->Belirli bir örneği için ayrıntılı performans görünümü örneği görünümden ölçek kümeniz için de erişebilirsiniz. Gidin **örnekleri** altında **ayarları** bölümüne ve ardından **Insights (Önizleme)**.
+>Belirli bir örneği için ayrıntılı performans görünümü örneği görünümden ölçek kümeniz için de erişebilirsiniz. Gidin **örnekleri** altında **ayarları** bölümüne ve ardından **Insights (Önizleme)** .
 
 ## <a name="alerts"></a>Uyarılar  
 Önceden yapılandırılmış uyarı kuralları performans ölçümleri özellikli VM'ler için Azure İzleyici bir parçası olarak dahil değildir. Vardır [sistem durumu uyarılarını](vminsights-health.md#alerts) düşük bellek kullanılabilir, düşük disk alanı, yüksek CPU kullanımı gibi performans sorunlarını Azure sanal makinenizde tespit karşılık gelen, vs.  Ancak, bu sistem durumu uyarıları yalnızca VM'ler için Azure İzleyici için etkinleştirilmiş tüm vm'lere uygulanır. 

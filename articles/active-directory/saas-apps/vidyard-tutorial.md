@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ff939fa514e067c26daf609270ef49de8c16db2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: a55ec7afc94440ea8b6a48ed1507476d362df6c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143171"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087431"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Öğretici: Vidyard ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Vidyard tümleştirmesini yapılandırmak için Vidyard Galeriden y�
 
 **Galeriden Vidyard eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

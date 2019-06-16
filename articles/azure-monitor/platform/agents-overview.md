@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977579"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure İzleme Aracısı genel bakış 
@@ -25,7 +25,7 @@ Microsoft Azure, Microsoft Windows ve Azure, veri merkezinizi veya diğer bulut 
 
 * Azure tanılama uzantısı
 * Linux ve Windows için log Analytics aracısını
-* Dependency Agent
+* Bağımlılık aracısı
 
 Bu makalede, sırayla, hangi BT Hizmet Yönetimi veya genel izleme gereksinimlerini destekleyecek belirlemek bunları ve bunların özelliklerini arasındaki farklar açıklanmaktadır.  
 
@@ -37,9 +37,9 @@ Toplanacak seçebilirsiniz:
 * İşletim sistemi performans sayaçları ve olay günlüklerini veya önceden tanımlanmış birtakım toplamak belirtebilirsiniz. 
 * Tüm istekleri ve/veya bir IIS web sunucusuna başarısız istekler
 * .NET uygulama izleme çıkış günlükleri
-* Windows için olay izleme (ETW) olayları 
+* Windows (ETW) olayları için olay izleme 
 * Syslog günlüğü olaylarını Topla  
-* Kilitlenme dökümleri 
+* Kilitlenme bilgi dökümleri 
 
 Azure Tanılama aracı, aşağıdakileri yapmak istediğinizde kullanılmalıdır:
 
@@ -69,7 +69,7 @@ Log Analytics aracısını istediğinizde kullanılmalıdır:
 * İzleme yapılandırma değişiklikleriyle [Azure Otomasyon, değişiklik izleme ve stok](../../automation/change-tracking.md).
 * Azure Hizmetleri gibi [Application Insights](https://docs.microsoft.com/azure/application-insights/) ve [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/), hangi yerel olarak depolamak verilerini doğrudan Log Analytics'te.  
 
-## <a name="dependency-agent"></a>Dependency Agent
+## <a name="dependency-agent"></a>Bağımlılık aracısı
 Bağımlılık Aracısı'nı, başlangıçta Microsoft tarafından geliştirilmiş değil hizmet eşlemesi çözümünün parçası olarak geliştirilmiştir. [Hizmet eşlemesi](../insights/service-map.md) ve [VM'ler için Azure İzleyici](../insights/vminsights-overview.md) gerektiren bir bağımlılık aracısını Windows ve Linux sanal makineleri ve ile tümleştirilir sanal üzerinde çalışan işlemler hakkında bulunan veri toplamak için Log Analytics aracısını makine ve işlem dış bağımlılıkları. Bu verileri bir Log Analytics çalışma alanında depolar ve bulunan birbirine bağlı bileşenleri görselleştirir.
 
 Sanal makinenizin izlemek üzere bu aracı bileşimi gerekebilir. Aracıları yan yana Azure uzantıları ancak yüklenebilir Linux'ta, Log Analytics aracısını *gerekir* yüklenmesi ilk; Aksi takdirde yükleme başarısız olur. 

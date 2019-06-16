@@ -13,16 +13,18 @@ ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bf21e8cb69091c222b73bb939b3a36caf097c299
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238858"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144165"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Öğretici: Resource Manager şablonları (genel Önizleme) ile Azure Deployment Manager'ı kullanın
 
-[Azure Deployment Manager](./deployment-manager-overview.md)’ı kullanarak uygulamalarınızı birden çok bölgede nasıl dağıtacağınızı öğrenin. Deployment Manager'ı kullanmak için iki şablonu oluşturmak gerekir:
+[Azure Deployment Manager](./deployment-manager-overview.md)’ı kullanarak uygulamalarınızı birden çok bölgede nasıl dağıtacağınızı öğrenin. Daha hızlı bir yaklaşımı tercih ederseniz [Azure Deployment Manager Hızlı Başlangıç](https://github.com/Azure-Samples/adm-quickstart) aboneliğinizde gerekli yapılandırmaları oluşturur ve birden çok bölgede bir uygulamayı dağıtmak için yapıtlar özelleştirir. Bu öğreticide yaptığı gibi hızlı başlangıç görevleri gerçekleştirir.
+
+Deployment Manager'ı kullanmak için iki şablonu oluşturmak gerekir:
 
 * **Topoloji şablonu**: Uygulamalarınızı Azure kaynaklarını ve bunların dağıtılacağı yeri açıklar.
 * **Dağıtım şablonu**: Uygulamalarınızı dağıtırken uygulanacak adımları açıklar.
@@ -44,7 +46,10 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * Yeni sürümü dağıtma
 > * Kaynakları temizleme
 
-Azure Deployment Manager REST API Başvurusu bulunabilir [burada](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Ek kaynaklar:
+
+* [Azure Deployment Manager REST API'si başvurusunda](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Öğretici: Azure Dağıtım Yöneticisi'nde sistem durumu denetimi kullanın](./deployment-manager-tutorial-health-check.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -130,7 +135,7 @@ Kök klasörde iki klasör vardır:
     </html>
     ```
 
-    Html dosyasında konum ve sürüm bilgileri gösterilir. 1.0.0.1 klasöründeki ikili dosyada "Sürüm 1.0.0.1" gösterilir. Hizmeti dağıttıktan sonra bu sayfalara göz atabilirsiniz.
+    Html dosyasında konum ve sürüm bilgileri gösterilir. 1\.0.0.1 klasöründeki ikili dosyada "Sürüm 1.0.0.1" gösterilir. Hizmeti dağıttıktan sonra bu sayfalara göz atabilirsiniz.
 5. Diğer yapıt dosyalarını inceleyin. Senaryoyu daha iyi anlamanıza yardımcı olur.
 
 Şablon yapıtları hizmet topolojisi şablonu tarafından kullanılır ve ikili dosya yapıtları piyasaya çıkarma şablonu tarafından kullanılır. Topoloji şablonu ve piyasaya çıkarma şablonu bir yapıt kaynağı Azure kaynağı tanımlar. Bu kaynak, Resource Manager’ı dağıtımda kullanılan şablona ve ikili dosya yapıtlarına yönlendirmek için kullanılır. Öğreticiyi basitleştirmek amacıyla, hem şablon yapıtları hem de ikili dosya yapıtlarını depolamak için bir depolama hesabı kullanılmıştır. Her iki yapıt kaynağı aynı depolama hesabını işaret eder.

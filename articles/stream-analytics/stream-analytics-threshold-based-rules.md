@@ -2,19 +2,18 @@
 title: Azure Stream analytics'te işlem yapılandırılabilir eşik temelli kurallar
 description: Bu makalede, Azure Stream Analytics'te yapılandırılabilir eşik temelli kurallar olan bir uyarı çözüm geliştirmek için başvuru verilerini kullanmayı açıklar.
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
-manager: digimobile
+author: zhongc
+ms.author: zhongc
+manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 04/30/2018
-ms.date: 08/20/2018
+ms.date: 04/30/2018
 ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761735"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Azure Stream analytics'te işlem yapılandırılabilir eşik temelli kurallar
@@ -47,6 +46,7 @@ Bu örnek başvuru verileri, eşik tabanlı bir kuralın nasıl gösterilebilir 
 - Kural olduğunu fark bir **işleci** sorgu söz dizimi daha sonra dinamik olarak yorumlanır alanı `AVGGREATEROREQUAL`. 
 - Kural belirli bir boyut anahtar verileri filtreler `2` değerle `C1`. Diğer alanlar giriş akışında olay alanlara göre filtre belirten, boş bir dize. Eşleşen diğer alanları gerektiği şekilde filtrelemek için ek CPU kurallar ayarlayabilirsiniz.
 - Tüm sütunları çıkış uyarı olayı dahil edilecek. Bu durumda, `includedDim` anahtar numarasını `2` açık `TRUE` temsil eden olay verilerini stream'de alan sayısı 2 uygun çıkış olayları dahil edilir. Diğer alanları uyarı çıkışında yer almaz, ancak alan listesi ayarlanabilir.
+
 
 ```json
 {
@@ -292,4 +292,3 @@ Bu örnek, tek bir uyarı olay üretilmiş JSON verilerini gösterir, başvuru v
 "alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
 "dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
-<!--Update_Description: updat meta properties, wording update-->

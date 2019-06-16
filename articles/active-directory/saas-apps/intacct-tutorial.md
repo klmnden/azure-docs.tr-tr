@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 31bc5622c6c6c3dd00bc59b5d8f3aa349055d125
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a80d354e0aed1d12bc64c99242e818787e93344
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60271375"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Öğretici: Intacct ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Intacct tümleştirmesini yapılandırmak için Intacct Galeriden y�
 
 **Galeriden Intacct eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

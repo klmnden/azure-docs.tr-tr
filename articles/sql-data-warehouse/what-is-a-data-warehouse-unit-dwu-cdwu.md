@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 mscustom: sqlfreshmay19
 ms.openlocfilehash: d20a600951a0fe586e981adf12127072df1b744c
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428017"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Veri ambarı birimi (Dwu) ve işlem veri ambarı birimi (cDWUs)
@@ -69,11 +69,11 @@ WITH
 Her performans katmanı, veri ambarı birimleri için biraz daha farklı bir ölçü kullanır. Ölçek birimi için faturalandırma doğrudan çevirir. Bu fark faturada yansıtılır.
 
 - Gen1 veri ambarları, veri ambarı birimi (Dwu) ölçülür.
-- 2. nesil veri ambarları ölçülür, veri ambarı birimi (cDWUs) işlem.
+- 2\. nesil veri ambarları ölçülür, veri ambarı birimi (cDWUs) işlem.
 
 Dwu'lar hem cDWUs yukarı veya aşağı ölçeklendirme işlem desteği ve duraklatma işlem, veri ambarı kullanmanız gerekmez. Bu işlemlerin tümü isteğe bağlı. Gen2 performansını artırmak için işlem düğümlerinde disk tabanlı yerel önbelleği kullanır. Ölçeklendirin veya sistem duraklatmak, önbellekte geçersiz kılınan ve önbellek hazırlanıyor, bir süre önce en iyi performans elde edilir şekilde gereklidir.  
 
-Veri ambarı birimleri arttıkça, bilgi işlem kaynaklarını doğrusal olarak artmaktadır. 2. nesil yüksek ölçek ve en iyi sorgu performansını sağlar. Gen2 sistemleri de çoğu önbellek kullanımını olun.
+Veri ambarı birimleri arttıkça, bilgi işlem kaynaklarını doğrusal olarak artmaktadır. 2\. nesil yüksek ölçek ve en iyi sorgu performansını sağlar. Gen2 sistemleri de çoğu önbellek kullanımını olun.
 
 ### <a name="capacity-limits"></a>Kapasite sınırları
 

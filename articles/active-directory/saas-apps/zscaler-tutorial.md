@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 631f65ff042c2f1d241626d5f480eae9a8b216a9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 750a403340e5bdbfbce1d566d2d1d6e6ba84fcf2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705045"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67085870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler"></a>Öğretici: Zscaler ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Zscaler tümleştirmesini yapılandırmak için Zscaler Galeriden y�
 
 **Galeriden Zscaler eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

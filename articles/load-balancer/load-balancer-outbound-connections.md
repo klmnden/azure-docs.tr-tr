@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
 ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967726"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
@@ -40,7 +40,7 @@ Vardır birden çok [giden senaryoları](#scenarios). Bu senaryolar, gerektiği 
 
 Azure Load Balancer ve ilgili kaynakları açıkça tanımlanmış kullanırken [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Azure, şu anda Azure Resource Manager kaynaklarını için giden bağlantı sağlamak için üç farklı yöntem sağlar. 
 
-| SKU'lar | Senaryo | Yöntem | IP protokolleri | Açıklama |
+| SKU'ları | Senaryo | Yöntem | IP protokolleri | Açıklama |
 | --- | --- | --- | --- | --- |
 | Standart, temel | [1. (İle veya olmadan bir yük dengeleyici) bir örnek düzeyinde ortak IP adresine sahip VM](#ilpip) | SNAT, bağlantı noktası maskelemeyi kullanılmıyor | TCP, UDP VE ICMP, ESP | Azure, örneğin NIC IP yapılandırması için atanan genel IP kullanır. Örneğinin tüm kısa ömürlü bağlantı noktaları kullanılabilir vardır. Standard Load Balancer kullanırken kullanmalısınız [giden kuralları](load-balancer-outbound-rules-overview.md) giden bağlantı açıkça tanımlamak için |
 | Standart, temel | [2. Genel Load Balancer (örneğinde örnek düzeyinde ortak IP adresi yok) bir VM ile ilişkili](#lb) | Yük Dengeleyici ön uç bağlantı noktası (PAT) maskelemeyi ile SNAT kullanma | TCP, UDP |Azure genel IP adresi genel yük dengeleyici ön uçlar, birden çok özel IP adresi ile paylaşır. Azure, ön uçlar için PAT kısa ömürlü bağlantı noktaları kullanır. |

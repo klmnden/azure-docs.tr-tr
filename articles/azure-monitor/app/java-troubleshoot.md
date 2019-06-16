@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c55828244d73e612da7a7da2d050252cce04aa2c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899508"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061148"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java için Application Insights Sorun Giderme, Soru ve Yanıt
 Sorular veya sorunlar [Azure Application Insights Java][java]? Burada, bazı ipuçları verilmektedir.
@@ -50,7 +50,7 @@ Sorular veya sorunlar [Azure Application Insights Java][java]? Burada, bazı ipu
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Bekleniyor verilerini göremiyorum
 * Kullanım açın ve olup tahmini maliyet sayfası ve onay [örnekleme](../../azure-monitor/app/sampling.md) işleminde. (% 100 iletim örnekleme işlemi olmadığı anlamına gelir.) Application Insights hizmetine ulaşan uygulamanızdan telemetri yalnızca bir bölümünü kabul edecek şekilde ayarlayabilirsiniz. Bu telemetrinin aylık kota içinde tutmanıza yardımcı olur.
 * SDK'sı açık örnekleme var mı? Yanıt Evet ise, veri uygulanabilir tüm türleri için belirtilen oranlar örneklenen.
-* Java SDK'sı daha eski bir sürümünü kullanıyorsunuz? 2.0.1 sürümünden itibaren yerel sürücülerde veri kalıcılığı yanı sıra aralıklı ağ ve arka uç hataları işlemek için hataya dayanıklılık mekanizması ekledik.
+* Java SDK'sı daha eski bir sürümünü kullanıyorsunuz? 2\.0.1 sürümünden itibaren yerel sürücülerde veri kalıcılığı yanı sıra aralıklı ağ ve arka uç hataları işlemek için hataya dayanıklılık mekanizması ekledik.
 * Kaynaklarınızın azaltılıp nedeniyle aşırı telemetri? BİLGİLERİNİ günlüğe kaydetmeyi varsa, bir günlük göreceksiniz "Uygulamayı kısıtladığı" iletisi. Geçerli packfile 32 bin telemetri öğelerin saniye başına ' dir.
 
 ### <a name="java-agent-cannot-capture-dependency-data"></a>Java aracı bağımlılık verileri yakalayamazsınız

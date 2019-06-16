@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 980dc850537b7419e4ee48391acd5ba971fb3fed
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 03cb3f2339dda1bf1dbb510b686882e924a98d74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118693"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
@@ -235,7 +235,7 @@ Yanlışlıkla geçersiz bir SAS URL'si kullanarak bağlı ve ayırma belirleyem
 
 Genel olarak, Depolama Gezgini, Linux üzerinde çalıştırmak için aşağıdaki paketler gereklidir:
 
-* [.NET core 2.0 çalışma zamanı](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Not: Depolama Gezgini sürüm 1.7.0 ve daha önce .NET Core 2.0 gerektirir. Yüklü .NET Core daha yeni bir sürümü varsa, düzeltme eki Depolama Gezgini (aşağıya bakın) gerekir. Depolama Gezgini 1.8.0 veya büyük ardından çalıştırıyorsanız, .NET Core 2.2 için kullanılacak mümkün olması gerekir. 2.2'den sonraki sürümlerde, şu anda çalışması için doğrulanmadı.
+* [.NET core 2.0 çalışma zamanı](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Not: Depolama Gezgini sürüm 1.7.0 ve daha önce .NET Core 2.0 gerektirir. Yüklü .NET Core daha yeni bir sürümü varsa, düzeltme eki Depolama Gezgini (aşağıya bakın) gerekir. Depolama Gezgini 1.8.0 veya büyük ardından çalıştırıyorsanız, .NET Core 2.2 için kullanılacak mümkün olması gerekir. 2\.2'den sonraki sürümlerde, şu anda çalışması için doğrulanmadı.
 * `libgnome-keyring-common` ve `libgnome-keyring-dev`
 * `libgconf-2-4`
 

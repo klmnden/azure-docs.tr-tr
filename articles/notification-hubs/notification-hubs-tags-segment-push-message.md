@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: jowargo
 ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457830"
 ---
 # <a name="routing-and-tag-expressions"></a>Yönlendirme ve etiket ifadeleri
@@ -35,7 +35,7 @@ Hedef için tek yolu kayıtları olduğunu etiketleri bunları ile ilişkilendir
 2. **Etiket**: belirtilen etiketi içeren tüm kayıtları bir bildirim alır.
 3. **Etiket ifadesi**: bildirim, etiket kümesinin belirtilen ifade eşleşen tüm kayıtlar alır.
 
-## <a name="tags"></a>Etiketler
+## <a name="tags"></a>Tags
 
 Bir etiketi alfasayısal içeren en fazla 120 karakter ve şu alfasayısal olmayan karakterleri bir dize olabilir: '_', ' @', '#', '. ',':', '-'. Aşağıdaki örnek, belirli müzik grupları hakkında kutlama bildirimleri almak için bir uygulama gösterir. Bu senaryoda, aşağıdaki resimde olduğu gibi farklı bantları temsil eden etiketlere sahip etiket kayıtları bildirimlerinin yönlendirileceği basit bir yolu şudur:
 

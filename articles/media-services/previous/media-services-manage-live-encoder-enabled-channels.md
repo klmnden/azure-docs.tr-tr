@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217255"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services aracılığıyla canlı akış gerçekleştirerek çoklu bit hızına sahip akışlar oluşturma
@@ -258,7 +258,7 @@ Gerçek zamanlı Kodlayıcı, bir maskeleme görüntüsü için geçiş ve bazı
 ### <a name="duration"></a>Süre
 Maskeleme görüntüsü süresini saniye cinsinden. Maskeleme görüntüsü başlatmak için sıfır olmayan pozitif bir değer olması gerekir. Devam eden Kurşun yoktur ve sıfır süresi belirtilirse, devam eden Kurşun sonlandırılacak.
 
-### <a name="insert-slate-on-ad-marker"></a>Reklam işaretçisine maskeleme görüntüsü ekle
+### <a name="insert-slate-on-ad-marker"></a>Reklam işaretçisine maskeleme görüntüsü Ekle
 Ne zaman true olarak bu ayar bir ad sonu sırasında maskeleme görüntüsü eklemek için gerçek zamanlı Kodlayıcı yapılandırır. Varsayılan değer true olur. 
 
 ### <a id="default_slate"></a>Varsayılan maskeleme görüntüsü varlık kimliği

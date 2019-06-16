@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 024a2dbbd46fa2ab60da0f9682dbe298eaf73e86
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61300131"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055569"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -85,7 +85,7 @@ Güncelleştirme yönetimi için yakın zamanda etkinleştirilmiş bilgisayarlar
 
 - **Uyumlu olmayan**: En az bir kritik veya güvenlik eksik olan bilgisayarlar güncelleştirin.
 
-- **Değerlendirilmedi**: Güncelleştirme Değerlendirme verileri beklenen zaman çerçevesi içinde bilgisayardan alınan edilmemiş. Linux bilgisayarlar için beklenen zaman çerçevesi içinde son 3 saat ' dir. Windows bilgisayarlar, son 12 saat içinde beklenen zaman çerçevesi içindir.
+- **Değerlendirilmedi**: Güncelleştirme Değerlendirme verileri beklenen zaman çerçevesi içinde bilgisayardan alınan edilmemiş. Linux bilgisayarlar için beklenen zaman çerçevesi içinde son saattir. Windows bilgisayarlar, son 12 saat içinde beklenen zaman çerçevesi içindir.
 
 Aracı durumunu görüntülemek için bağlantıyı seçin **güncelleştirme ARACISI hazırlığı** sütun. Bu seçeneğin belirlenmesi açılır **karma çalışanı** bölmesinde ve karma çalışanı durumunu gösterir. Aşağıdaki görüntüde, uzun bir süre için güncelleştirme yönetimini üzere bağlanmamış bir aracı örneği gösterilmektedir:
 
@@ -116,7 +116,7 @@ Bilgisayar güncelleştirme uyumluluğu taraması tamamlandıktan sonra aracıs�
 
 Tarama zamanlamasına ek olarak, güncelleştirme yüklemesi öncesinde ve güncelleştirme yüklemesi sonrasında yeniden başlatılmadan MMA 15 dakika içinde güncelleştirme uyumluluğu için tarama başlatılır.
 
-Bir Linux bilgisayar için Uyumluluk taraması varsayılan olarak her 3 saatte bir gerçekleştirilir. MMA aracısını yeniden başlatılması durumunda 15 dakika içinde Uyumluluk taraması başlatılır.
+Bir Linux bilgisayar için Uyumluluk taraması varsayılan olarak her saat başı gerçekleştirilir. MMA aracısını yeniden başlatılması durumunda 15 dakika içinde Uyumluluk taraması başlatılır.
 
 30 dakika ve Panoda yönetilen bilgisayarlardan gelen güncelleştirilmiş verilerin görüntülenmesi için 6 saat arasında sürebilir.
 
@@ -154,7 +154,7 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
    ![Zamanlama Ayarları iletişim kutusu](./media/manage-update-multi/update-set-schedule.png)
 
 - **Önceden komutlar + sonrası betiklerini**: Önce ve sonra dağıtımınız betiklerin seçin. Daha fazla bilgi için bkz. [Ön ve Son betikleri yönetme](pre-post-scripts.md).
-- **Bakım penceresi (dakika)**: Güncelleştirme dağıtımının gerçekleşmesini istediğiniz süreyi belirtin. Bu ayar, değişikliklerin sizin tanımladığınız hizmet pencereleri içinde gerçekleştirilmesini sağlar.
+- **Bakım penceresi (dakika)** : Güncelleştirme dağıtımının gerçekleşmesini istediğiniz süreyi belirtin. Bu ayar, değişikliklerin sizin tanımladığınız hizmet pencereleri içinde gerçekleştirilmesini sağlar.
 
 - **Denetim yeniden** -Bu ayar, yeniden başlatmalar güncelleştirme dağıtımı için nasıl işleneceğini belirler.
 

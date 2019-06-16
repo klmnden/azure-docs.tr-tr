@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 3cce18fa1890fc9e518294e294cc43e0e55065aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631544"
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>Abonelikler ve StorSimple cihaz Yöneticisi hizmeti ile ilişkilendirilen depolama hesapları geçirme
@@ -27,7 +27,7 @@ Yeni bir kayıt veya yeni bir abonelik için StorSimple hizmetinize taşımanız
 
 ## <a name="account-changes"></a>Hesap değişiklikleri
 
-| Taşıyabilirsiniz...| Desteklenen| Çalışmama süresi| Azure destek sürecini| Yaklaşım|
+| Taşıyabilirsiniz...| Desteklenen| Kapalı kalma süresi| Azure destek sürecini| Yaklaşım|
 |-----|-----|-----|-----|-----|
 | (StorSimple hizmeti ve depolama hesapları dahil) tüm bir abonelik başka bir kayıt için? | Evet       | Hayır       | **Kayıt aktarımı**<br>Kullanım:<li>Ne zaman yeni bir sözleşme altında yeni bir Azure taahhüt satın alın.</li><li>Tüm hesaplar ve abonelikler eski kayıt yeni geçirmek istediğiniz. Bu, eski abonelik altındaki tüm Azure hizmetleri içerir.</li> | **1. adım: Azure Kurumsal işlem destek bileti açın.**<li>[https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) kısmına gidin.</li><li> Seçin **kayıt yönetimi** seçip **tek kayıt için yeni bir kayıt aktarım**.<br>**2. adım: İstenen bilgileri sağlayın**<br>Şunları içerir:<li>Kaynak kayıt numarası</li><li> hedef kayıt numarası</li><li>Aktarım geçerlilik tarihi|
 | Var olan bir hesaptan StorSimple hizmeti için yeni bir kayıt?    | Evet       | Hayır       | **Hesap aktarımı**<br>Kullanım:<li>Ne zaman bir tam kayıt aktarımı istemezsiniz.</li><li>Yalnızca belirli hesap için yeni bir kayıt taşımak istediğiniz.</li>| **1. adım: Azure Kurumsal işlem destek bileti açın.**<li>[https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) kısmına gidin.</li><li>Seçin **kayıt yönetimi** seçip **bir EA hesap için yeni bir kayıt aktarım**.<br>**2. adım: İstenen bilgileri sağlayın**<br>Şunları içerir:<li>Kaynak kayıt numarası</li><li> hedef kayıt numarası</li><li>Aktarım geçerlilik tarihi|
@@ -39,7 +39,7 @@ Yeni bir kayıt veya yeni bir abonelik için StorSimple hizmetinize taşımanız
 
 ## <a name="datacenter-changes"></a>Veri Merkezi değişiklikleri
 
-| Taşıyabilirsiniz...| Desteklenen|Çalışmama süresi| Azure destek sürecini| Yaklaşım|
+| Taşıyabilirsiniz...| Desteklenen|Kapalı kalma süresi| Azure destek sürecini| Yaklaşım|
 |-----|-----|-----|-----|-----|
 | Bir Azure veri merkezi StorSimple hizmetinden diğerine? | Hayır | Evet |None, el ile işlemi  |<li>StorSimple cihazını devre dışı verileri geçirin.</li><li>Cihazın Fabrika sıfırlaması yapmasını, bu cihazdaki tüm yerel veriler silinir.</li><li>Cihazı yeni bir abonelik yeni bir StorSimple cihaz Yöneticisi hizmetine kaydedin.</li><li>Verileri cihaza geri geçirin.|
 | Bir Azure veri merkezi depolama hesabından diğerine? | Hayır |Evet  |None, el ile işlemi  | Yukarıdakiyle aynı.|

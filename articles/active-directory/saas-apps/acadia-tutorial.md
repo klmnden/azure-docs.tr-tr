@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c6958fef66e492ae1875538503e4094d8eeccb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6797d9824a2dff23f30f6d2c49fb7e62d76b1e0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Öğretici: Acadia ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Acadia tümleştirmesini yapılandırmak için Acadia Galeriden yön
 
 **Galeriden Acadia eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

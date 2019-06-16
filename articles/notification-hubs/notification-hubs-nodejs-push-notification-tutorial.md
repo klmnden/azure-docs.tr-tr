@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457875"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061605"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs ve Node.js ile anında iletme bildirimleri gönderme
 
@@ -106,7 +106,7 @@ Bağlantı elde `connectionstring` değerini [Azure Portal] aşağıdaki adımla
 - **Yükü** -ileti JSON veya ham dize yükü.
 - **Geri çağırma** -geri çağırma işlevi.
 
-Yük biçimi hakkında daha fazla bilgi için bkz. **yükü** bölümünü [uygulama GCM Server](https://developer.android.com/google/gcm/server.html#payload) belge.
+Yük biçimi hakkında daha fazla bilgi için bkz. **yükü** bölümünü [uygulama GCM Server](https://developers.google.com/cloud-messaging/) belge.
 
 Aşağıdaki kod `GcmService` örneği tarafından açığa çıkarılan `NotificationHubService` tüm kayıtlı istemcilere anında iletme bildirimi göndermek için.
 

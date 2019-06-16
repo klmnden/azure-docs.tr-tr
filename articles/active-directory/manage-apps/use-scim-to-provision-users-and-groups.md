@@ -17,10 +17,10 @@ ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742476"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
@@ -665,7 +665,7 @@ Azure ad sağlama isteklerini kabul edebilen bir SCIM uç noktası uygulamak iç
    ![][2]
    *Şekil 6: Azure portalında sağlama yapılandırma*
     
-1. İçinde **Kiracı URL'si** internet açık URL ve bağlantı noktası SCIM uç noktanızı girin. Giriş aşağıdakine benzer olan http://testmachine.contoso.com:9000 veya http://\<IP adresi >: 9000 / burada \<IP adresi > olan internet açık IP adresi. 
+1. İçinde **Kiracı URL'si** internet açık URL ve bağlantı noktası SCIM uç noktanızı girin. Giriş aşağıdakine benzer olan http://testmachine.contoso.com:9000 veya http://\< IP adresi >: 9000 / burada \< IP adresi > olan internet açık IP adresi. 
 
 1. SCIM uç noktanın bir OAuth taşıyıcı belirtecinden bir veren Azure AD dışındaki gerektiriyorsa, gerekli OAuth taşıyıcı belirteci sonra isteğe bağlı kopyalayın **gizli belirteç** alan. 
 1. Seçin **Test Bağlantısı** için Azure Active Directory SCIM uç noktaya bağlanmayı deneyin. Deneme başarısız olursa hata bilgileri görüntülenir.  
@@ -823,7 +823,7 @@ Internet Information Services hizmetinde barındırmak için bir geliştirici bi
    ```
 
 ### <a name="handling-endpoint-authentication"></a>İşleme uç nokta kimlik doğrulaması
-Azure Active Directory gelen istekleri bir OAuth 2.0 taşıyıcı belirteci içerir.   İstek alma herhangi bir hizmeti, Azure Active Directory Graph'i web hizmetine erişim için beklenen Azure Active Directory kiracısı için Azure Active Directory olarak veren kimlik doğrulamalıdır.  Belirteci, verenin "ISS" gibi bir ISS talep tanımlanır: "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Bu örnekte, talep değeri, temel adresini https://sts.windows.net, göreli adres sırada cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 segment veren, Azure Active Directory tanımlar, Azure Active Directory Kiracı için benzersiz bir tanımlayıcıdır. belirteci veren.  Azure Active Directory Graph'i web hizmetine erişmek için belirteç verildiyse 00000002-0000-0000-c000-000000000000, bu hizmet tanımlayıcısı belirtecin aud talep değerine olması gerekir.  Tek bir kiracıda kayıtlı uygulamaların her biri aynı alabilirsiniz `iss` SCIM isteklerle talep.
+Azure Active Directory gelen istekleri bir OAuth 2.0 taşıyıcı belirteci içerir.   İstek alma herhangi bir hizmeti, Azure Active Directory Graph'i web hizmetine erişim için beklenen Azure Active Directory kiracısı için Azure Active Directory olarak veren kimlik doğrulamalıdır.  Belirteci, verenin "ISS" gibi bir ISS talep tanımlanır: "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ ".  Bu örnekte, talep değeri, temel adresini https://sts.windows.net , göreli adres sırada cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 segment veren, Azure Active Directory tanımlar, Azure Active Directory Kiracı için benzersiz bir tanımlayıcıdır. belirteci veren.  Azure Active Directory Graph'i web hizmetine erişmek için belirteç verildiyse 00000002-0000-0000-c000-000000000000, bu hizmet tanımlayıcısı belirtecin aud talep değerine olması gerekir.  Tek bir kiracıda kayıtlı uygulamaların her biri aynı alabilirsiniz `iss` SCIM isteklerle talep.
 
 SCIM hizmeti oluşturmak için Microsoft tarafından sağlanan CLI kitaplıkları kullanan geliştiriciler Microsoft.Owin.Security.ActiveDirectory paket, aşağıdaki adımları kullanarak Azure Active Directory isteklerinden kimlik doğrulaması yapabilir: 
 

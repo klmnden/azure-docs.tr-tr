@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 59012bf32a4e1f0532b4d42e510d431180c35730
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43094cabab3cfc93e0dffa59a15867d01b036d38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865629"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087612"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Öğretici: Veritas Kurumsal Vault.cloud SSO ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Veritas Kurumsal Vault.cloud SSO tümleştirmesini yapılandırmak i
 
 **Galeriden Veritas Kurumsal Vault.cloud SSO eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Azure AD çoklu oturum açma Veritas Kurumsal Vault.cloud SSO ile yapılandırma
 
     b. İçinde **tanımlayıcı** kutusunda, veri merkezi göre URL'yi kullanın:
 
-    | Veri merkezi| URL |
+    | Veri merkezi| URL'si |
     |----------|----|
     | Kuzey Amerika| `https://auth.lax.archivecloud.net` |
     | Avrupa | `https://auth.ams.archivecloud.net` |
@@ -117,7 +117,7 @@ Azure AD çoklu oturum açma Veritas Kurumsal Vault.cloud SSO ile yapılandırma
 
     c. İçinde **yanıt URL'si** metin kutusunda, veri merkezi göre URL'yi kullanın:
 
-    | Veri merkezi| URL |
+    | Veri merkezi| URL'si |
     |----------|----|
     | Kuzey Amerika| `https://auth.lax.archivecloud.net` |
     | Avrupa | `https://auth.ams.archivecloud.net` |

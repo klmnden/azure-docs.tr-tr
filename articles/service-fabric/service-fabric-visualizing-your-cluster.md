@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: cbeb0a8944b35af2a68080a2b2f1bb4436c6e58d
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 88fe73988f6a90fd5041445a561c0f77f25eddc1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306688"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060404"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric Explorer ile kümenizi görselleştirme
 
@@ -123,16 +123,22 @@ Eventstore'a, Service Fabric platform olaylarına Service Fabric Explorer'da ve 
 >[!NOTE]
 >Service Fabric sürümü 6.4 itibaren. EventStore API'leri yalnızca yalnızca Azure üzerinde çalışan Windows kümeleri için kullanılabilir. Bu işlev, tek başına kümeler yanı sıra Linux taşıma üzerinde çalışıyoruz.
 
+## <a name="image-store-viewer"></a>Görüntü Store Görüntüleyicisi
+Görüntü deposu Görüntüleyicisi, görüntüleme için sağlayan bir yerel görüntü Store kullanarak geçerli görüntünün içeriğini depolamak ve dosyaların/klasörlerin kaldırma yanı sıra dosya ve klasör bilgileri almak, bir özellik sunulan bileşenidir.
+
+![Service Fabric Explorer küme eşleme][sfx-imagestore]
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Visual Studio'da Service Fabric uygulamalarınızı yönetme](service-fabric-manage-application-in-visual-studio.md)
 * [PowerShell kullanarak Service Fabric uygulama dağıtımı](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
-[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
-[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
-[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
-[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
-[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-dashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-map.png
+[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/sfx-application-tree.png
+[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/sfx-service-essentials.png
+[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/sfx-delete-application.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
+[sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png

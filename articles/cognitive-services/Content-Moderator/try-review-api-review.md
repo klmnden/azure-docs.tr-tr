@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607532"
 ---
 # <a name="create-human-reviews-rest"></a>İncelemelere (REST) oluşturma
@@ -186,7 +186,7 @@ Yukarıdaki bölümde olduğu gibi REST çağrısı parametrelerini girin. Bu ad
 
 Yanıt aşağıdaki alanlara dikkat edin:
 
-- **Durumu**
+- **status**
 - **reviewerResultTags**: Bu, herhangi bir etiket el ile insan tarafından İnceleme ekibi tarafından eklenmişse görünür (gösterilen **oluşturan** alan).
 - **meta veri**: Bu incelemede, insan tarafından İnceleme team yapılmış değişiklikler önce başlangıçta eklenmiş etiketler gösterir.
 

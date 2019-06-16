@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc08fd5cc4abbf5d16f9d49874ec2c70cace165b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867422"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067961"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Bir Azure sanal ağ veya güvenlik duvarı kurallarını kullanarak bir Azure container registry'ye erişimi kısıtlama
 
@@ -99,7 +99,7 @@ Yükleme sonrasında, Docker VM üzerinde düzgün çalıştığını doğrulama
 sudo docker run -it hello-world
 ```
 
-Çıkış:
+Çıktı:
 
 ```
 Hello from Docker!
@@ -127,7 +127,7 @@ Bir VM oluşturduğunuzda, Azure varsayılan olarak, aynı kaynak grubunda bir s
 az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
 ```
 
-Çıkış:
+Çıktı:
 
 ```console
 [
@@ -159,7 +159,7 @@ az network vnet subnet show \
   --output tsv
 ``` 
 
-Çıkış:
+Çıktı:
 
 ```
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
@@ -216,7 +216,7 @@ Devam [kayıt defterine erişim doğrulayın](#verify-access-to-the-registry).
 
 ## <a name="allow-access-from-an-ip-address"></a>Bir IP adresinden erişime izin ver
 
-Bu bölümde, bir Azure sanal ağındaki bir alt ağından erişime izin vermek için bir kapsayıcı kayıt defterinizi yapılandırın. Azure CLI ve Azure portalını kullanarak eşdeğer adımlar verilmiştir.
+Bu bölümde, kapsayıcı kayıt defterinizde belirli bir IP adresi veya aralığı erişime izin verecek şekilde yapılandırın. Azure CLI ve Azure portalını kullanarak eşdeğer adımlar verilmiştir.
 
 ### <a name="allow-access-from-an-ip-address---cli"></a>-CLI bir IP adresinden erişime izin ver
 

@@ -11,15 +11,15 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
 ms.openlocfilehash: 0421ec62d25bbfaba2909d16498cac5afd038a53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60737287"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 1.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Azure işlevleri çalışma zamanı sürümünü seçin: "]
 > * [Sürüm 1](functions-bindings-cosmosdb.md)
 > * [Sürüm 2](functions-bindings-cosmosdb-v2.md)
 
@@ -184,7 +184,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type** || Ayarlanmalıdır `cosmosDBTrigger`. |
 |**direction** || Ayarlanmalıdır `in`. Azure portalında tetikleyicisi oluşturduğunuzda bu parametre otomatik olarak ayarlanır. |
-|**Adı** || Değişken adı değişikliklerle belgelerin listesini temsil eden bir işlev kodunu kullanılır. |
+|**name** || Değişken adı değişikliklerle belgelerin listesini temsil eden bir işlev kodunu kullanılır. |
 |**connectionStringSetting**|**connectionStringSetting** | İzlenmekte olan Azure Cosmos DB hesabına bağlanmak için kullanılan bağlantı dizesi içeren bir uygulama ayarı adı. |
 |**databaseName**|**databaseName**  | İzlenmekte olan toplama ile Azure Cosmos DB veritabanının adı. |
 |**collectionName** |**collectionName** | İzlenmekte olan koleksiyonun adı. |
@@ -1163,7 +1163,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type**     || Ayarlanmalıdır `documentdb`.        |
 |**direction**     || Ayarlanmalıdır `in`.         |
-|**Adı**     || İşlevinde belgeyi temsil eden bağlama parametresinin adı.  |
+|**name**     || İşlevinde belgeyi temsil eden bağlama parametresinin adı.  |
 |**databaseName** |**databaseName** |Belge içeren veritabanı.        |
 |**collectionName** |**collectionName** | Belgeyi içeren koleksiyon adı. |
 |**id**    | **Kimlik** | Alınacak belgenin kimliği. Bu özelliği destekleyen [ifadeleri bağlama](./functions-bindings-expressions-patterns.md). Her ikisi de ayarlamamanız **kimliği** ve **sqlQuery** özellikleri. Tek ayarlamazsanız, tüm koleksiyon alınır. |
@@ -1581,10 +1581,10 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type**     || Ayarlanmalıdır `documentdb`.        |
 |**direction**     || Ayarlanmalıdır `out`.         |
-|**Adı**     || İşlevinde belgeyi temsil eden bağlama parametresinin adı.  |
+|**name**     || İşlevinde belgeyi temsil eden bağlama parametresinin adı.  |
 |**databaseName** | **databaseName**|Belge oluşturulduğu koleksiyonu içeren veritabanı.     |
 |**collectionName** |**collectionName**  | Belge oluşturulduğu koleksiyonun adı. |
-|**Createıfnotexists**  |**Createıfnotexists**    | Mevcut değilse, koleksiyonun oluşturulup oluşturulmayacağını belirten bir Boole değeri. Varsayılan değer *false* etkileri maliyet ayrılmış işleme ile yeni Koleksiyonlar oluşturulduğundan. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/documentdb/).  |
+|**createıfnotexists**  |**Createıfnotexists**    | Mevcut değilse, koleksiyonun oluşturulup oluşturulmayacağını belirten bir Boole değeri. Varsayılan değer *false* etkileri maliyet ayrılmış işleme ile yeni Koleksiyonlar oluşturulduğundan. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**partitionKey**|**partitionKey** |Zaman `CreateIfNotExists` true ise, oluşturulan koleksiyon için bölüm anahtarı yolunu tanımlar.|
 |**collectionThroughput**|**collectionThroughput**| Zaman `CreateIfNotExists` true ise, tanımlar [aktarım hızı](../cosmos-db/set-throughput.md) oluşturulan koleksiyon.|
 |**bağlantı**    |**connectionStringSetting** |Azure Cosmos DB bağlantı dizenizi içeren uygulama ayarının adı.        |

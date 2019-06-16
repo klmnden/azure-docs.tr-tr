@@ -9,10 +9,10 @@ ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
 ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347485"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft azure'da uyarılara genel bakış 
@@ -77,11 +77,11 @@ Daha önce Azure İzleyici ölçümleri, Application Insights, Log Analytics ve 
 
 Şu uyarı durumlarından desteklenir.
 
-| Durum | Açıklama |
+| Eyalet | Açıklama |
 |:---|:---|
 | Yeni | Sorun yalnızca algıladı ve henüz gözden. |
-| Onaylanan | Bir yönetici, uyarıyı gözden geçirdi ve üzerinde çalışmaya başladı. |
-| Kapatıldı | Sorun çözüldü. Bir uyarı kapatıldıktan sonra başka bir duruma değiştirerek yeniden açabilirsiniz. |
+| Onaylandı | Bir yönetici, uyarıyı gözden geçirdi ve üzerinde çalışmaya başladı. |
+| Kapalı | Sorun çözüldü. Bir uyarı kapatıldıktan sonra başka bir duruma değiştirerek yeniden açabilirsiniz. |
 
 **Uyarı durumu** farklı ve bağımsız olarak **izleme koşulu**. Uyarı durumu, kullanıcı tarafından ayarlanır. İzleme koşulu, sistem tarafından ayarlanır. Bir uyarı tetiklendiğinde uyarı izleme koşulu kümesine *harekete*. Uyarıyı temizler ateşlenmesine neden altta yatan durumun izleme koşulu ayarlandığında *çözümlenen*. Uyarı durumu kullanıcı değiştirmediği kadar değiştirilmez. Bilgi [uyarılar ve akıllı grupları durumunu değiştirme](https://aka.ms/managing-alert-smart-group-states).
 
@@ -110,12 +110,12 @@ Başka bir sayfasını açmak için uyarılar sayfasında üstüne aşağıdaki 
 
 | Değer | Açıklama |
 |:---|:---|
-| Toplam uyarı sayısı | Seçilen ölçütlerle eşleşen uyarılar toplam sayısı. Bu değer ile filtre tüm uyarılar görünümünü açmak için seçin. |
+| Toplam uyarı | Seçilen ölçütlerle eşleşen uyarılar toplam sayısı. Bu değer ile filtre tüm uyarılar görünümünü açmak için seçin. |
 | Akıllı gruplar | Seçilen ölçütlerle eşleşen uyarılardan oluşturulan akıllı grupları toplam sayısı. Tüm uyarılar Görünümü'nde akıllı grupları listesini açmak için bu değeri seçin.
-| Toplam uyarı kuralı sayısı | Uyarı kuralları seçili abonelik ve kaynak grubunda toplam sayısı. Seçili abonelikte ve kaynak grubu üzerinde filtre kuralları görünümünü açmak için bu değeri seçin.
+| Toplam uyarı kuralı | Uyarı kuralları seçili abonelik ve kaynak grubunda toplam sayısı. Seçili abonelikte ve kaynak grubu üzerinde filtre kuralları görünümünü açmak için bu değeri seçin.
 
 
-## <a name="manage-alert-rules"></a>Uyarı kurallarını yönetin
+## <a name="manage-alert-rules"></a>Uyarı kurallarını yönet
 Tıklayarak **uyarı kurallarını yönet** gösterilecek **kuralları** sayfası. **Kuralları** Azure aboneliklerinizde uyarı kurallarının tümünü yönetmek için tek bir yerdir. Bu, uyarı kurallarının tümünü listeler ve hedef kaynaklar, kaynak grupları, kural adı veya durum göre sıralanabilir. Uyarı kuralları ayrıca düzenlendi, etkin veya bu sayfadan devre dışı.  
 
  ![Uyarı kuralları](./media/alerts-overview/alerts-preview-rules.png)
@@ -148,11 +148,11 @@ Sayfanın üst kısmındaki açılan menüler aşağıdaki değerleri belirleyer
 | Abonelik | En fazla beş Azure aboneliklerini seçin. Yalnızca seçilen Aboneliklerde uyarılar görünümünde dahil edilir. |
 | Kaynak grubu | Tek bir kaynak grubu seçin. Yalnızca seçilen kaynak grubunun hedefleri olan uyarılar görünümünde dahil edilir. |
 | Kaynak türü | Bir veya daha fazla kaynak türlerini seçin. Yalnızca seçilen türdeki hedefleri olan uyarılar görünümünde dahil edilir. Bu sütun, yalnızca bir kaynak grubu belirttikten sonra kullanılabilir. |
-| Kaynak | Bir kaynak seçin. Yalnızca bu kaynak bir hedef olarak uyarılarla Görünümü'nde dahil edilir. Bu sütun, yalnızca bir kaynak türünü belirttikten sonra kullanılabilir. |
+| Resource | Bir kaynak seçin. Yalnızca bu kaynak bir hedef olarak uyarılarla Görünümü'nde dahil edilir. Bu sütun, yalnızca bir kaynak türünü belirttikten sonra kullanılabilir. |
 | Severity | Bir uyarı önem derecesini seçin ya da seçin *tüm* her türlü önem derecesi, uyarı eklenecek. |
 | İzleme koşulu | Bir izleme koşulu seçin ya da seçin *tüm* koşulları uyarıları eklemek için. |
 | Uyarı durumu | Bir uyarı durumu veya seçin, *tüm* durumlarının uyarıları eklemek için. |
-| İzleme hizmet | Bir hizmet veya seçin, *tüm* tüm hizmetleri dahil etmek için. Yalnızca hizmet hedefi olarak kullanan kurallar tarafından oluşturulan uyarıların dahil edilir. |
+| İzleme hizmeti | Bir hizmet veya seçin, *tüm* tüm hizmetleri dahil etmek için. Yalnızca hizmet hedefi olarak kullanan kurallar tarafından oluşturulan uyarıların dahil edilir. |
 | Zaman aralığı | Yalnızca seçili zaman penceresi içinde tetiklenen uyarılar görünümünde dahil edilir. Desteklenen değerler şunlardır: son bir saat, son 24 saat, son 7 günde ve son 30 gün. |
 
 Seçin **sütunları** görüntülenecek sütunları seçmek için sayfanın üst kısmındaki. 
@@ -160,11 +160,11 @@ Seçin **sütunları** görüntülenecek sütunları seçmek için sayfanın üs
 ## <a name="alert-detail-page"></a>Uyarı Ayrıntı Sayfası
 Bir uyarıyı seçtiğinizde, uyarı ayrıntısı sayfası görüntülenir. Bu uyarının ayrıntılar sağlar ve durumuna değiştirmenize olanak tanır.
 
-![Uyarı ayrıntıları](media/alerts-overview/alert-detail2.png)
+![Uyarı ayrıntısı](media/alerts-overview/alert-detail2.png)
 
 Uyarı ayrıntı sayfası aşağıdaki bölümleri içerir.
 
-| Section | Açıklama |
+| `Section` | Açıklama |
 |:---|:---|
 | Temel Bileşenler | Özellikleri ve diğer uyarı hakkında önemli bilgi görüntüler. |
 | Geçmiş | Uyarı tarafından gerçekleştirilen her eylemi ve uyarı değişiklikleri listeler. Durum değişiklikleri şu anda sınırlı. |

@@ -3,18 +3,18 @@ title: Kapsayıcı - Anomali algılayıcısı yapılandırın
 titleSuffix: Azure Cognitive Services
 description: Anomali algılayıcısı kapsayıcı çalışma zamanı ortamı kullanılarak yapılandırılan `docker run` komut bağımsız değişkenleri. Bu kapsayıcı birkaç isteğe bağlı ayarları ile birlikte gerekli birkaç ayar vardır.
 services: cognitive-services
-author: aahill
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/07/2019
-ms.author: aahi
-ms.openlocfilehash: 0d09ce29aa5431de3eb82e5d9fe7440d4e3352e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 8e6f7e33bf8bae3bc76074093167650813d76a8b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026397"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073344"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Anomali algılayıcısı kapsayıcılar'ı yapılandırma
 
@@ -89,7 +89,7 @@ Konak bağlama konumu söz dizimi konak işletim sistemine göre değişir. Ayr�
 
 |İsteğe bağlı| Ad | Veri türü | Açıklama |
 |-------|------|-----------|-------------|
-|İzin verilmedi| `Input` | String | Anomali algılayıcısı kapsayıcıları bu kullanmayın.|
+|İzin verilmiyor| `Input` | String | Anomali algılayıcısı kapsayıcıları bu kullanmayın.|
 |İsteğe bağlı| `Output` | String | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. Bu günlükler konumdur. Bu, kapsayıcı günlükleri içerir. <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Örnek docker komutlarını çalıştırın 

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: aed18cd33078d6af65e749cf9dd4950087b6b72c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063906"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve REST API ile cURL kullanarak form verileri ayıklayın
 
@@ -52,7 +52,7 @@ Form tanıyıcı kaynağınızı dağıtımı tamamlandığında bulun ve seçim
 Azure blob kapsayıcınızdaki belgeleri kullanarak bir Form tanıyıcı modeli eğitmek için çağrı **eğitme** aşağıdaki cURL komutu çalıştırarak API. Komutu çalıştırmadan önce şu değişiklikleri yapın:
 
 1. Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınızı aldığınız uç noktası ile. Form tanıyıcı kaynağınızda bulabilirsiniz **genel bakış** sekmesi.
-1. Değiştirin `<SAS URL>` eğitim verilerin konumu URL'sini imzası (SAS) bir Azure Blob Depolama kapsayıcısına paylaşılan erişim.  
+1. Değiştirin `<SAS URL>` eğitim verilerin konumu URL'sini imzası (SAS) bir Azure Blob Depolama kapsayıcısına paylaşılan erişim. (SAS-URL 'Paylaşılan erişim imzası' tıklayarak depolama hesabı ve 'SAS oluşturma ve bağlantı dizesini' ayarları menüsü altında alın. Bu, Blob hizmeti SAS URL'si gösterir. Sonra .net containername ekleyerek bu URL'yi ayarlama / ve önce? sv URL'de örn =:.blob.core.windows.net/ < name_of_your_container > /? sv =... Kullanılacak SAS URL'si budur.)
 1. Değiştirin `<subscription key>` önceki adımda kopyaladığınız abonelik anahtarı.
 
 ```bash
@@ -108,7 +108,7 @@ Ardından, bir belge çözümleyin ve anahtar-değer çiftleri ve tabloları bur
 
 1. Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınızı aldığınız uç noktası ile. Form tanıyıcı kaynağınızda bulabilirsiniz **genel bakış** sekmesi.
 1. Değiştirin `<modelID>` önceki bölümde aldığınız model kimliği.
-1. Değiştirin `<path to your form>` ile formunuzu dosyasının yolu. Örneğin c:\temp\file.pdf. 
+1. Değiştirin `<path to your form>` ile formunuzu (örneğin, C:\temp\file.pdf) dosyasının yolu.
 1. Değiştirin `<file type>` dosya türüne sahip. Desteklenen türler: pdf, görüntü/jpeg, görüntü/png.
 1. `<subscription key>` değerini abonelik anahtarınızla değiştirin.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18bf494ceb212de07b3e7ee1e0fa0e4de89cb07f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 94e65bc271cddb548e891deb1174891d8f30fa2c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976771"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059029"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Yüksek oranda kullanılabilir sanal makineler arasında yük dengeleme trafiği
 
@@ -31,7 +31,7 @@ Bu betik örneği, yüksek oranda kullanılabilir ve yük dengeli bir yapıland�
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Örnek betik
 
@@ -68,6 +68,16 @@ Bu betik, dağıtımı oluşturmak için aşağıdaki komutları kullanır. Tabl
 | [Yeni AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Sanal makine yapılandırması oluşturur. Bu yapılandırma; sanal makine adı, işletim sistemi ve yönetici kimlik bilgileri gibi bilgileri içerir. Yapılandırma, sanal makine oluşturulurken kullanılır. |
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Sanal makine oluşturur. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Kaynak grubunu ve grubun içerdiği tüm kaynakları kaldırır. |
+
+Ayrıca, yönetilen kendi özel görüntünüzü kullanarak Vm'leri oluşturabilirsiniz. VM yapılandırması için `Set-AzVMSourceImage` kullanın `-Id` ve `-VM` yerine parametre `-PublisherName`, `-Offer`, `-Skus`, ve `-Version`.
+
+Örneğin, VM yapılandırması oluşturma olacaktır:
+
+```powershell
+$vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 -AvailabilitySetId $as.Id | `
+  Set-AzVMOperatingSystem -Windows -ComputerName 'myVM3' -Credential $cred | `
+  Set-AzVMSourceImage -Id <Image.ID of the custom managed image> | Add-AzVMNetworkInterface -Id $nicVM3.Id
+ ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

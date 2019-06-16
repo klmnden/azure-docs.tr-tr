@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f58c8c3ea76cf44730a54897e6b77ef6e648a49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1df79d7a4bd983527ee6d84c7ffe8e5ef61d6197
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286413"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Amazon Web Services (AWS)
 
@@ -85,7 +85,7 @@ Azure AD'de Amazon Web Services (AWS) tümleştirmesini yapılandırmak için y�
 
 **Galeriden Amazon Web Services (AWS) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -149,7 +149,7 @@ Amazon Web Services (AWS) ile Azure AD çoklu oturum açmayı yapılandırmak i�
 
 7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Ad  | Kaynak özniteliği  | Ad alanı |
+    | Ad  | Kaynak özniteliği  | Ad Alanı |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | User.userPrincipalName | https://aws.amazon.com/SAML/Attributes |
     | Rol            | User.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -412,11 +412,11 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümde, Amazon Web Services (AWS) için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Amazon Web Services (AWS)**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Amazon Web Services (AWS)** .
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde yazın ve **Amazon Web Services (AWS)**.
+2. Uygulamalar listesinde yazın ve **Amazon Web Services (AWS)** .
 
     ![Uygulamalar listesini Amazon Web Services (AWS) bağlantıdaki](common/all-applications.png)
 

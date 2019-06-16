@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bad7c7b0c5233640f21294aa0a1636cce8e40d2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8dec2801c4e5510616ca719c43b88bb07c01ad86
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104815"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-consent2go"></a>Öğretici: Consent2Go ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Consent2Go tümleştirmesini yapılandırmak için Consent2Go Galeri
 
 **Galeriden Consent2Go eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62116875"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>StorSimple sanal dizisi paylaşımlarında yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
@@ -76,7 +76,7 @@ Yönergeleri Bu öğreticide aşağıdaki görevleri gerçekleştirmek için kul
 
 1. StorSimple hizmet özeti dikey penceresinden tıklayın **+ Ekle paylaşımı** komut çubuğundan. Bu açılır **Ekle paylaşımı** dikey penceresi.
 
-    ![Paylaşım ekleme](./media/storsimple-virtual-array-manage-shares/add-share.png)
+    ![Paylaşım Ekle](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
 2. İçinde **Ekle paylaşımı** dikey penceresinde aşağıdakileri yapın:
    
@@ -138,7 +138,7 @@ Bir paylaşımı silmek için aşağıdaki adımları tamamlayın.
 1. Gelen **paylaşımları** silmek istediğiniz paylaşım bulunduğu sanal diziyi StorSimple hizmeti Özet dikey penceresinde ayarını seçin.
 2. **Seçin** tıklatın ve Paylaşım **...**  (Alternatif olarak bu satıra sağ tıklayın) ve bağlam menüsünden **Sil**.
    
-    ![Paylaşımı sil](./media/storsimple-virtual-array-manage-shares/share-delete.png)
+    ![Paylaşımı Sil](./media/storsimple-virtual-array-manage-shares/share-delete.png)
 3. Silmek istediğiniz paylaşım durumunu denetleyin. Silmek istediğiniz paylaşım çevrimdışı durumda değilse, önce çevrimdışına. Bağlantısındaki [bir paylaşımı çevrimdışı duruma](#take-a-share-offline).
 4. İçinde onaylamanız istendiğinde **Sil** dikey penceresinde, onayı kabul edin ve tıklayın **Sil**. Paylaşım artık silinecek ve **paylaşımları** dikey penceresi sanal diziden paylaşımları güncelleştirilmiş listesini gösterir.
 

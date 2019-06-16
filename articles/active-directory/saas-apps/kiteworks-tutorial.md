@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b1789f0f6441da8a38440fc606a5748d48930a1a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c480babcb88528ef59cc9f1a9a0478e35a7b3fba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897911"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Öğretici: Kiteworks ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Kiteworks tümleştirmesini yapılandırmak için Kiteworks Galeride
 
 **Galeriden Kiteworks eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

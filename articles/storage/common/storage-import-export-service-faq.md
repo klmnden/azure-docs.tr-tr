@@ -9,10 +9,10 @@ ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478581"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure içeri/dışarı aktarma hizmeti: sık sorulan sorular 
@@ -22,7 +22,7 @@ Aşağıda, soruları ve Azure depolama alanına veri aktarmak için Azure içer
 - İçeri/dışarı aktarma için diskleri hazırlama
 - İçeri/dışarı aktarma işleri
 - Sevkiyat diskler
-- Muhtelif Hükümler 
+- Çeşitli 
 
 ## <a name="about-importexport-service"></a>İçeri/dışarı aktarma hizmeti hakkında
 
@@ -109,7 +109,7 @@ Bazı depolama hesabı konumu alternatif sevkiyat konumlara eşlenir. Daha önce
 Telefon numarası ve DC adresi proje oluşturmanın bir parçası sağlanır.
 
 
-## <a name="miscellaneous"></a>Muhtelif Hükümler
+## <a name="miscellaneous"></a>Çeşitli
 
 ### <a name="what-happens-if-i-accidentally-send-an-hdd-that-does-not-conform-to-the-supported-requirements"></a>Yanlışlıkla uymuyor bir HDD desteklenen gereksinimlerine gönderebilirim ne olur?
 
