@@ -14,10 +14,10 @@ ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65850776"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Azure hesabınız için profil bilgilerini değiştirme
@@ -76,7 +76,7 @@ Aşağıdaki yöntemlerden birini kullanarak iletişim e-posta adresinizi deği�
 
 * Git [iletişim bilgilerini](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) Azure portalında alan ve bir e-posta adresi girin. Sağladığınız adresi, hizmet ve pazarlama iletişimi alır. Azure hesap merkezi profilindeki e-posta adresine otomatik olarak eşleşecek şekilde güncelleştirilir. Profili e-posta adresinizi güncelleştirmek, oturum açma e-posta adresi değil.
 
-* İçinde [Azure portalında](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), adınızın baş harflerini içeren simge seçin veya resim. Ardından, bağlam menüsünü seçin (**...** ). Ardından, **Kişi Bilgilerim** menüsünde ve bir e-posta adresi girin. Sağladığınız adresi, hizmet ve pazarlama iletişimi alır. Azure hesap merkezi profilinizdeki e-posta adresine otomatik olarak eşleşecek şekilde güncelleştirilir. Profili e-posta adresinizi güncelleştirmek, oturum açma e-posta adresi değil.
+* İçinde [Azure portalında](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), adınızın baş harflerini içeren simge seçin veya resim. Ardından, bağlam menüsünü seçin ( **...** ). Ardından, **Kişi Bilgilerim** menüsünde ve bir e-posta adresi girin. Sağladığınız adresi, hizmet ve pazarlama iletişimi alır. Azure hesap merkezi profilinizdeki e-posta adresine otomatik olarak eşleşecek şekilde güncelleştirilir. Profili e-posta adresinizi güncelleştirmek, oturum açma e-posta adresi değil.
 
 ![Örnek bir e-posta adresi azure'da güncelleştiriliyor](./media/billing-how-to-change-azure-account-profile/azure-contact-information.png)
 
@@ -92,7 +92,7 @@ Dışında pazarlama e-postalar almayı kabul etmek için:
 
 Pazarlama iletişimleri dışında iyileştirilmiş, hesabınıza bağlı hizmet bildirimleri almaya devam.
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

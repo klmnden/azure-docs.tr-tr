@@ -9,10 +9,10 @@ ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8ec5c39342f0477bd2b529da38fd4d1292476c93
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119245"
 ---
 Aşağıdaki tabloda büyüyecek olan özellikler için kullanılabilir desteklenen bölgeler listelenir.
@@ -20,7 +20,7 @@ Aşağıdaki tabloda büyüyecek olan özellikler için kullanılabilir destekle
 |Coğrafi bölge | Azure bölgeleri|
 |---|---|
 |Kuzey Amerika | Doğu ABD, Batı ABD, Doğu ABD 2, Batı ABD 2, Orta ABD, Orta Güney ABD, Orta Kuzey ABD, Batı Orta ABD, Orta Kanada, Doğu Kanada |
-|Güney Amerika |Brezilya Güney |
+|Güney Amerika |Güney Brezilya |
 | Avrupa | Fransa Orta, Fransa Güney, Kuzey Avrupa, Batı Avrupa, UK Batı, UK Güney |
 | Asya | Doğu Asya, Güneydoğu Asya |
 | Japonya  | Batı Japonya, Doğu Japonya |

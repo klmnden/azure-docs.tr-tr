@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
-ms.openlocfilehash: b2940f3eee3112fe1c6d57cc92157c573ecad109
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1e303485a03edcd9ba3d3e7380aa4c7ae8b1a4b0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904268"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092609"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Öğretici: Salesforce korumalı alanı ile Azure Active Directory Tümleştirmesi
 
@@ -59,7 +59,7 @@ Azure AD'de Salesforce korumalı alan tümleştirmesini yapılandırmak için Sa
 
 **Galeriden Salesforce korumalı alan eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -112,7 +112,7 @@ Azure AD çoklu oturum açma ile Salesforce korumalı alan yapılandırmak için
 
     a. Tıklayın **meta veri dosyasını karşıya yükleme**.
 
-    ![Meta veri dosyasını yükleyin](common/upload-metadata.png)
+    ![Meta veri dosyasını karşıya yükleyin](common/upload-metadata.png)
 
     b. Tıklayarak **klasör logosu** meta veri dosyası seçin ve **karşıya**.
 

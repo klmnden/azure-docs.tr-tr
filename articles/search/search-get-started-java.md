@@ -10,10 +10,10 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61289884"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java'da Azure Search kullanmaya başlama
@@ -75,7 +75,7 @@ Azure Search'e yönelik tüm REST API çağrıları, hizmet URL'si ve api anahta
 Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki dosyalara uygulanır.  
 
 ## <a name="import-project"></a>Projeyi içeri aktarma
-1. Eclipse'te, **File (Dosya)** > **Import (İçeri Aktar)** > **General (Genel)** > **Existing Projects into Workspace (Var olan Projeleri Çalışma Alanına)** seçeneğini belirleyin.
+1. Eclipse'te, **File (Dosya)**  > **Import (İçeri Aktar)**  > **General (Genel)**  > **Existing Projects into Workspace (Var olan Projeleri Çalışma Alanına)** seçeneğini belirleyin.
    
     ![][4]
 2. **Select root directory (Kök dizini seç)** bölümünde örnek dosyaları içeren klasöre gidin. Proje klasörünü içeren klasörü seçin. Proje, **Projects (Projeler)** listesinde seçili öğe olarak görünmelidir.
@@ -92,33 +92,33 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
     ![][5]
 
 ## <a name="configure-the-project-build-and-runtime-environments"></a>Proje, derleme ve çalışma zamanı ortamlarını yapılandırma
-1. Eclipse'te, Proje Gezgini'nde, proje > **Properties (Özellikler)** > **Project Facets (Proje Modelleri)** öğesine sağ tıklayın.
+1. Eclipse'te, Proje Gezgini'nde, proje > **Properties (Özellikler)**  > **Project Facets (Proje Modelleri)** öğesine sağ tıklayın.
 2. **Dynamic Web Module (Dinamik Web Modülü)** öğesini, **Java**'yı ve **JavaScript**'i seçin.
    
     ![][6]
 3. **Apply (Uygula)** düğmesine tıklayın.
-4. **Window (Pencere)** > **Preferences (Tercihler)** > **Server (Sunucu)** > **Runtime Environments (Çalışma Zamanı Ortamları)** > **Add... (Ekle...)** öğesini seçin.
+4. **Window (Pencere)**  > **Preferences (Tercihler)**  > **Server (Sunucu)**  > **Runtime Environments (Çalışma Zamanı Ortamları)**  > **Add... (Ekle...)** öğesini seçin.
 5. Apache'yi genişletin ve önceden yüklediğiniz Apache Tomcat sunucusu sürümünü seçin. Sistemimizde sürüm 8 yüklüdür.
    
     ![][7]
 6. Sonraki sayfada Tomcat yükleme dizinini belirtin. Windows bilgisayarda, bu büyük olasılıkla C:\Program Files\Apache Software Foundation\Tomcat *sürüm* olacaktır.
 7. **Son**'a tıklayın.
-8. **Window (Pencere)** > **Preferences (Tercihler)** > **Java** > **Installed JREs (Yüklü JRE'ler)** > **Add (Ekle)** seçeneğini belirleyin.
+8. **Window (Pencere)**  > **Preferences (Tercihler)**  > **Java** > **Installed JREs (Yüklü JRE'ler)**  > **Add (Ekle)** seçeneğini belirleyin.
 9. **Add JRE (JRE Ekle)** bölümünde **Standard VM (Standart VM)** öğesini seçin.
 10. **İleri**’ye tıklayın.
 11. JRE Tanımı'nda, JRE giriş alanında **Directory (Dizin)** seçeneğine tıklayın.
-12. **Program Files (Program Dosyaları)** > **Java**'ya gidin ve daha önce yüklediğiniz JDK'yı seçin. JDK'yı JRE olarak seçmek önemlidir.
+12. **Program Files (Program Dosyaları)**  > **Java**'ya gidin ve daha önce yüklediğiniz JDK'yı seçin. JDK'yı JRE olarak seçmek önemlidir.
 13. Yüklü JRE'ler içinde **JDK**'yı seçin. Ayarlarınız aşağıdaki ekran görüntüsüne benzer görünmelidir.
     
     ![][9]
-14. İsteğe bağlı olarak, uygulamayı bir dış tarayıcı penceresinde açmak için **Window (Pencere)** > **Web Browser (Web Tarayıcısı)** > **Internet Explorer**'ı seçin. Dış tarayıcı kullanmanız daha iyi bir Web uygulaması deneyimi sağlar.
+14. İsteğe bağlı olarak, uygulamayı bir dış tarayıcı penceresinde açmak için **Window (Pencere)**  > **Web Browser (Web Tarayıcısı)**  > **Internet Explorer**'ı seçin. Dış tarayıcı kullanmanız daha iyi bir Web uygulaması deneyimi sağlar.
     
     ![][8]
 
 Yapılandırma görevlerini tamamladınız. Ardından, projeyi derleyip çalıştırırsınız.
 
 ## <a name="build-the-project"></a>Projeyi derleme
-1. Proje Gezgini'nde proje adına sağ tıklayın ve projeyi yapılandırmak için **Run As (Farklı Çalıştır)** > **Maven build... (Maven derlemesi...)** seçeneğini belirleyin.
+1. Proje Gezgini'nde proje adına sağ tıklayın ve projeyi yapılandırmak için **Run As (Farklı Çalıştır)**  > **Maven build... (Maven derlemesi...)** seçeneğini belirleyin.
    
     ![][10]
 2. Edit Configuration (Yapılandırmayı Düzenle) alanında Targets (Hedefler) için "clean install" ("temiz yükleme") yazın ve ardından **Run (Çalıştır)** düğmesine tıklayın.
@@ -131,10 +131,10 @@ Bu son adımda, uygulamayı bir yerel sunucu çalışma zamanı ortamında çal�
 Eclipse'te henüz bir sunucu çalışma zamanı ortamı belirtmediyseniz öncelikle bunu yapmanız gerekir.
 
 1. Proje Gezgini'nde **WebContent**'i genişletin.
-2. **Search.jsp** > **Run As (Farklı Çalıştır)** > **Run on Server (Sunucuda Çalıştır)** öğesine sağ tıklayın. Apache Tomcat sunucusunu seçin ve ardından **Run (Çalıştır)** öğesine tıklayın.
+2. **Search.jsp** > **Run As (Farklı Çalıştır)**  > **Run on Server (Sunucuda Çalıştır)** öğesine sağ tıklayın. Apache Tomcat sunucusunu seçin ve ardından **Run (Çalıştır)** öğesine tıklayın.
 
 > [!TIP]
-> Projenizi depolamak için varsayılan olmayan bir çalışma alanı kullandıysanız sunucu başlangıç hatasını önlemek için, **Run Configuration (Yapılandırmayı Çalıştır)** öğesini proje konumunu işaret edecek şekilde değiştirmeniz gerekir. Proje Gezgini'nde **Search.jsp** > **Run As (Farklı Çalıştır)** > **Run Configurations (Yapılandırmaları Çalıştır)** öğesine sağ tıklayın. Apache Tomcat sunucusunu seçin. **Arguments (Bağımsız Değişkenler)** seçeneğine tıklayın. Projeyi içeren klasörü ayarlamak için **Workspace (Çalışma Alanı)** veya **File System (Dosya Sistemi)** seçeneğine tıklayın.
+> Projenizi depolamak için varsayılan olmayan bir çalışma alanı kullandıysanız sunucu başlangıç hatasını önlemek için, **Run Configuration (Yapılandırmayı Çalıştır)** öğesini proje konumunu işaret edecek şekilde değiştirmeniz gerekir. Proje Gezgini'nde **Search.jsp** > **Run As (Farklı Çalıştır)**  > **Run Configurations (Yapılandırmaları Çalıştır)** öğesine sağ tıklayın. Apache Tomcat sunucusunu seçin. **Arguments (Bağımsız Değişkenler)** seçeneğine tıklayın. Projeyi içeren klasörü ayarlamak için **Workspace (Çalışma Alanı)** veya **File System (Dosya Sistemi)** seçeneğine tıklayın.
 > 
 > 
 

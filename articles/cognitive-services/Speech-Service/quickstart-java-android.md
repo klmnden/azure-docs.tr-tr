@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: f856694a5063551ba94bb6d322614aa490f13adb
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 369373d19945ea5226e4b9d005cffd3b35064be9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001827"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067618"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak Android'de Java konuşma tanıma
 
@@ -34,47 +34,7 @@ Bu hızlı başlangıcı tamamlamak için bir konuşma Hizmetleri abonelik anaht
 
 ## <a name="create-and-configure-a-project"></a>Projeyi oluşturma ve yapılandırma
 
-1. Android Studio’yu başlatın ve Hoş Geldiniz penceresinde **Yeni bir Android Studio projesi başlat**’ı seçin.
-
-    ![Android Studio Hoş Geldiniz penceresinin ekran görüntüsü](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
-
-1. **Projenizi seçin** Sihirbazı görüntülenirse, seçin **telefon ve Tablet** ve **boş etkinlik** etkinlik seçimi kutusunda. **İleri**’yi seçin.
-
-   ![Ekran görüntüsü Proje Sihirbazı'nı seçin](media/sdk/qs-java-android-02-target-android-devices.png)
-
-1. İçinde **Nakonfigurovat projekt** ekranında, girin **hızlı** olarak **adı**, **samples.speech.cognitiveservices.microsoft.com** olarak **Paket adı**, proje dizini seçin. İçin **en düşük API düzeyi** çekme **API 23: Android 6.0 (Marshmallow)**, diğer tüm onay kutularının işaretli ve select bırakın **son**.
-
-   ![Proje Sihirbazı'nı yapılandırma ekran görüntüsü](media/sdk/qs-java-android-03-create-android-project.png)
-
-Android Studio’nun yeni Android projenizi hazırlaması biraz zaman alır. Daha sonra, projenizi yapılandırarak Konuşma SDK’sı hakkında bilgi edinmesini ve Java 8’i kullanmasını sağlayın.
-
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.5.1`.
-
-Android Speech SDK'sı olarak paketlenmiş bir [AAR (Android kitaplık)](https://developer.android.com/studio/projects/android-library), gerekli kitaplıkları ve Android gerekli izinleri içerir.
-Https Maven deponun barındırılan:\//csspeechstorage.blob.core.windows.net/maven/.
-
-Konuşma SDK’sını kullanmak için projenizi ayarlayın. Android Studio menü çubuğundan **Dosya** > **Proje Yapısı**’nı seçerek Proje Yapısı penceresini açın. Proje Yapısı penceresinde aşağıdaki değişiklikleri yapın:
-
-1. Pencerenin sol tarafındaki listede **Proje**’yi seçin. **Varsayılan Kitaplık Deposu** ayarlarını, bir virgül ve tek tırnak içine alınan Maven deposu URL'sini ekleyerek düzenleyin. ' https:\//csspeechstorage.blob.core.windows.net/maven/'
-
-   ![Proje Yapısı penceresinin ekran görüntüsü](media/sdk/qs-java-android-06-add-maven-repository.png)
-
-1. Aynı ekranın sol tarafında **uygulamayı** seçin. Sonra da, pencerenin en üstünde **Bağımlılıklar** sekmesini seçin. Yeşil artı işaretini (+) ve açılan menüden **Kitaplık bağımlılığı**’nı seçin.
-
-   ![Proje Yapısı penceresinin ekran görüntüsü](media/sdk/qs-java-android-07-add-module-dependency.png)
-
-1. Açılan pencerede Android için Konuşma SDK’mızın adını ve sürümünü (`com.microsoft.cognitiveservices.speech:client-sdk:1.5.1`) girin. Sonra **Tamam**’ı seçin.
-   Artık, aşağıda gösterildiği gibi Konuşma SDK’sı bağımlılıklar listesine eklenmiş olmalıdır:
-
-   ![Proje Yapısı penceresinin ekran görüntüsü](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
-
-1. **Özellikler** sekmesini seçin. Hem **Kaynak Uyumluluğu** hem de **Hedef Uyumluluğu** için **1.8**’i seçin.
-
-   ![](media/sdk/qs-java-android-09-dependency-added.png)
-
-1. Proje Yapısı penceresini kapatmak ve değişikliklerinizi projeye uygulamak için **Tamam**’ı seçin.
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
 
 ## <a name="create-user-interface"></a>Kullanıcı arabirimi oluşturma
 
@@ -96,7 +56,7 @@ Metin ve grafik temsilini kullanıcı Arabirimi artık şöyle görünmelidir:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
 
-## <a name="add-sample-code"></a>Örnek kod ekleyin
+## <a name="add-sample-code"></a>Örnek kodu ekleme
 
 1. `MainActivity.java` kaynak dosyasını açın. Bu dosyanın içindeki kodun tamamını aşağıdakiyle değiştirin.
 
@@ -116,7 +76,7 @@ Metin ve grafik temsilini kullanıcı Arabirimi artık şöyle görünmelidir:
 
 1. Uygulamayı derlemek için Ctrl+F9 tuşlarına basın veya menü çubuğundan **Derle** > **Proje Yap**'ı seçin.
 
-1. Uygulamayı başlatmak için Shift+F10 tuşlarına basın veya **Çalıştır** > **'uygulama' çalıştır**'ı seçin.
+1. Uygulamayı başlatmak için Shift+F10 tuşlarına basın veya **Çalıştır** >  **'uygulama' çalıştır**'ı seçin.
 
 1. Görüntülenen dağıtım hedefi penceresinde Android cihazınızı seçin.
 

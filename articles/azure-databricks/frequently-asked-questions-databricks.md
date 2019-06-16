@@ -10,10 +10,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60784716"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks hakkında sık sorulan sorular
@@ -99,7 +99,7 @@ Databricks küme düğümü başına bir genel IP adresini kullanın. Aboneliği
 #### <a name="error-message"></a>Hata iletisi
 
 "Bulut sağlayıcısı başlatma hatası: Bir bulut Sağlayıcısı hatası küme ayarlarken hatayla karşılaşıldı. Daha fazla bilgi için Databricks kılavuzuna bakın.
-Azure hata kodu: MissingSubscriptionRegistration Azure hata iletisi: Abonelik, 'Microsoft.Compute' ad alanını kullanacak şekilde kaydedilmedi. Bkz: https://aka.ms/rps-not-found abonelikleri kaydedileceğini öğrenmek için. "
+Azure hata kodu: MissingSubscriptionRegistration Azure hata iletisi: Abonelik 'Microsoft.Compute' ad alanını kullanacak şekilde kaydedilmemiş. Bkz: https://aka.ms/rps-not-found abonelikleri kaydedileceğini öğrenmek için. "
 
 #### <a name="solution"></a>Çözüm
 

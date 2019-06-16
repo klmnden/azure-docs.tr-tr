@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: sajagtap
 ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228121"
 ---
 # <a name="video-moderation-with-human-review"></a>İnsan tarafından İnceleme ile video denetimi
@@ -25,7 +25,7 @@ Kullanım Content Moderator'ın makine destekli [video denetimi](video-moderatio
 
 Makine destekli video sınıflandırma ya da görüntü eğitilen modelleri veya video eğitilen modelleri ile elde edilir. Görüntü eğitimli video sınıflandırıcılar farklı olarak, Microsoft'un yetişkinlere yönelik ve müstehcen video sınıflandırıcı videolardaki eğitildi. Bu yöntem, daha iyi eşleşmenin kalitesini sonuçlanır.
 
-## <a name="shot-detection"></a>Çekim algılama
+## <a name="shot-detection"></a>Kare algılama
 
 Sınıflandırma ayrıntılarını alırken ek video zeka videoları analiz daha fazla esneklik yardımcı olur. Çerçeve çıktısı yerine, Microsoft'un video denetimi hizmeti çok görüntüsü düzeyi bilgileri sağlar. Şimdi, görüntüsü ve çerçeve düzeyindeki videolarınızı analiz seçeneğiniz de vardır.
 

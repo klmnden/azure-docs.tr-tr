@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235874"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
@@ -212,7 +212,7 @@ Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakk�
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Cihaz durumu   | Yeşil  | Orange  | Kırmızı    | 
 
-#### <a name="events"></a>Olaylar 
+#### <a name="events"></a>Events 
 | Ad             | Display name      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Basılan düğme B  | 
@@ -235,7 +235,7 @@ Geçiş ayarları
 
 ### <a name="properties"></a>Özellikler
 
-| Type            | Display name | Alan adı | Veri türü |
+| Tür            | Display name | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
 | Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
 | Cihaz özelliği | Cihaz konumu   | location  | location    |
@@ -245,7 +245,7 @@ Geçiş ayarları
 
 | Display name | Alan adı | Dönüş türü | Giriş alanının görünen adı | Giriş alan adı | Giriş alanı türü |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| echo         | echo       | text        | görüntülenecek değer         | displayedValue   | text             |
+| echo         | echo       | metin        | görüntülenecek değer         | displayedValue   | metin             |
 | Geri sayım    | Geri sayım  | number      | Gelen sayısı               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Sonraki adımlar

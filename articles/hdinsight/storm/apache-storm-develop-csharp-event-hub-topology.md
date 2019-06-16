@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690937"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078279"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight üzerinde Apache Storm ile Azure Event hubs'tan olay işleme (C#)
 
@@ -38,7 +38,7 @@ Projeniz için kullandığınız kullandığı Microsoft.SCP.Net.SDK NuGet paket
 > [!IMPORTANT]  
 > Örnekte, bu belgede, HDInsight 3.5 veya 3.6 kümesi bekliyor.
 >
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. 
 
 C# topolojileri ayrıca .NET 4.5 hedeflemesi gerekir.
 
@@ -137,8 +137,8 @@ Event Hubs, bu örnek için veri kaynağı. Bilgileri kullanın "bir olay hub'ı
 
    | Ad | İzinler |
    | --- | --- |
-   | yazıcı |Gönder |
-   | okuyucu |Dinle |
+   | Yazıcı |Gönder |
+   | Okuyucu |Dinle |
 
     ![Ekran görüntüsü, paylaşım erişim ilkeleri penceresi](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)
 

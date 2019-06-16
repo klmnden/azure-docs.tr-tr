@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 99439c2b6bd4fdd271dda7a49850c5b6f44330b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d30d044a26e6a092eba267f223be9b10c3a238b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165575"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075846"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 Virtual Machines'de (Resource Manager) için otomatik yedekleme
 
@@ -77,21 +77,19 @@ Sağlama sırasında ya da mevcut SQL Server 2014 sanal makineleri için otomati
 
 Resource Manager dağıtım modelinde yeni bir SQL Server 2014 sanal makine oluşturduğunuzda, otomatik yedeklemeyi yapılandırmak için Azure portalını kullanın.
 
-İçinde **SQL Server ayarları** bölmesinde **otomatik yedekleme**. Aşağıdaki Azure portalı ekran görüntüsü gösterildiği **SQL otomatik yedekleme** ayarları.
+İçinde **SQL Server ayarları** sekmesinde, aşağı kaydırarak **otomatik yedekleme** seçip **etkinleştirme**. Saklama süresi ve depolama hesabı, aynı zamanda etkinleştirme şifreleme, sistem veritabanlarını yedekleme ve yedekleme zamanlamasını yapılandırma de belirtebilirsiniz.  Aşağıdaki Azure portalı ekran görüntüsü gösterildiği **SQL otomatik yedekleme** ayarları.
 
 ![Azure portalında SQL otomatik yedekleme yapılandırması](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
 ## <a name="configure-existing-vms"></a>Varolan Vm'leri yapılandırma
 
-Mevcut SQL Server sanal makineleri için SQL Server sanal makinenizi seçin. Ardından **SQL Server Yapılandırması** VM bölümünü **ayarları**.
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Mevcut SQL Server sanal makineleri için gidin [SQL sanal makineleri kaynak](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) seçip **yedeklemeleri**. 
 
 ![Var olan sanal makineler için SQL otomatik yedekleme](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
-İçinde **SQL Server Yapılandırması** bölmesinde tıklayın **Düzenle** otomatik yedekleme bölümünde düğmesini.
-
-![SQL otomatik yedekleme, var olan VM'ler için yapılandırma](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-configuration.png)
-
-İşiniz bittiğinde tıklayın **Tamam** altındaki düğmesine **SQL Server Yapılandırması** yaptığınız değişiklikleri kaydetmek için ayarları.
+İşiniz bittiğinde seçin **Uygula** altındaki düğmesinde **yedeklemeleri** yaptığınız değişiklikleri kaydetmek için sayfanın.
 
 Otomatik yedekleme ilk kez etkinleştirirseniz, Azure SQL Server Iaas Aracısı arka planda yapılandırır. Bu süre boyunca, Azure portalında, otomatik yedekleme yapılandırıldığını göstermeyebilir. Aracının yüklü için yapılandırılmış birkaç dakika bekleyin. Bundan sonra Azure portalında yeni ayarları ücreti yansıtılır.
 
@@ -119,7 +117,7 @@ $resourcegroupname = "resourcegroupname"
 
 SQL Server Iaas Aracısı uzantısı yüklü değilse, "Sqlıaasagent" veya "SQLIaaSExtension" olarak listelenen görmeniz gerekir. **ProvisioningState** için uzantı ayrıca "Başarılı" göstermelidir.
 
-Bunu yüklü değil veya sağlanması başarısız oldu, şu komutla yükleyin. Ek olarak VM adı ve kaynak grubu, ayrıca bölgeyi belirtmeniz gerekir (**$region**), sanal makinenizin bulunur.
+Bunu yüklü değil veya sağlanması başarısız oldu, şu komutla yükleyin. Ek olarak VM adı ve kaynak grubu, ayrıca bölgeyi belirtmeniz gerekir ( **$region**), sanal makinenizin bulunur.
 
 ```powershell
 $region = "EASTUS2"

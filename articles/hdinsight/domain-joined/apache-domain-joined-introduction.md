@@ -6,14 +6,14 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 04/19/2019
-ms.openlocfilehash: 0582fa8b26bee05e4d2948037cc39a71ed656fce
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 06/12/2019
+ms.openlocfilehash: b7228fdf1bb67ff8029412174a883a3a0b123cfc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67126196"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Azure HDInsight, Kurumsal güvenlik paketi nedir
 
@@ -21,10 +21,9 @@ Geçmişte, Azure HDInsight yalnızca tek bir kullanıcı desteklenen: yerel yö
 
 Kurumsal güvenlik paketi'ile (ESP), bir Active Directory etki alanına katılmış bir HDInsight kümesi oluşturabilirsiniz. Daha sonra oturum açmak için HDInsight kümesi için Azure Active Directory aracılığıyla doğrulayabilir çalışanların kurumsal bir listesini yapılandırabilirsiniz. Hiç bir kuruluş dışına oturum açın veya HDInsight küme erişim. 
 
-Kuruluş yöneticisi rol tabanlı erişim denetimi (RBAC) için güvenlik Apache Hive kullanarak yapılandırabilirsiniz [Apache Ranger](https://hortonworks.com/apache/ranger/). RBAC yapılandırma, yalnızca gerekli olanla veri erişimi kısıtlar. Son olarak yönetici çalışanlara ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz. Yönetici daha sonra bir yüksek düzeyde kurumsal kaynakların elde edebilirsiniz.
+Kuruluş yöneticisi rol tabanlı erişim denetimi (RBAC) için güvenlik Apache Hive kullanarak yapılandırabilirsiniz [Apache Ranger](https://ranger.apache.org/). RBAC yapılandırma, yalnızca gerekli olanla veri erişimi kısıtlar. Son olarak yönetici çalışanlara ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz. Yönetici daha sonra bir yüksek düzeyde kurumsal kaynakların elde edebilirsiniz.
 
-> [!NOTE]  
-> Apache Oozie ESP kümelerinde şimdi etkinleştirildi. Oozie web kullanıcı Arabirimi erişmek için kullanıcıların etkinleştirmelisiniz [tünel](../hdinsight-linux-ambari-ssh-tunnel.md).
+Apache Oozie ESP kümelerinde şimdi etkinleştirildi. Oozie web kullanıcı Arabirimi erişmek için kullanıcıların etkinleştirmelisiniz [tünel](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 Kuruluş güvenliği dört temel yapı taşları içerir: çevre güvenliği, kimlik doğrulaması, yetkilendirme ve şifreleme.
 
@@ -43,25 +42,22 @@ Bu kurulum sayesinde kuruluş çalışanları küme düğümlerinde etki alanı 
 ## <a name="authorization"></a>Yetkilendirme
 Çoğu kuruluş izleyen en iyi uygulama her çalışana kuruluş kaynakları erişimi olduğundan emin olmak. Benzer şekilde, yönetici küme kaynakları için rol tabanlı erişim denetimi ilkeleri tanımlayabilirsiniz. 
 
-Örneğin yönetici [Apache Ranger](https://hortonworks.com/apache/ranger/)’ı Hive için erişim denetim ilkeleri belirleyecek şekilde yapılandırabilir. Bu işlev çalışanların yalnızca erişmesini sağlar. kendi işlerinde başarılı olmak için ihtiyaç duydukları kadar veri. Kümeye SSH erişimi de yalnızca yöneticiyle sınırlıdır.
+Örneğin yönetici [Apache Ranger](https://ranger.apache.org/)’ı Hive için erişim denetim ilkeleri belirleyecek şekilde yapılandırabilir. Bu işlev çalışanların yalnızca erişmesini sağlar. kendi işlerinde başarılı olmak için ihtiyaç duydukları kadar veri. Kümeye SSH erişimi de yalnızca yöneticiyle sınırlıdır.
 
 ## <a name="auditing"></a>Denetim
 Tüm küme kaynaklarını ve veri erişim denetiminin, kaynaklara yetkisiz veya istenmeyen erişimi takip etmek gereklidir. HDInsight küme kaynaklarını yetkisiz kullanıcılardan korumanın ve verilerin güvenliğini sağlama, kadar önemlidir. 
 
 Yönetici görüntüleyebilir ve tüm erişim veri ve HDInsight kümesi kaynakları için rapor. Yönetici de görüntüleyebilir ve tüm değişiklikleri Apache Ranger destekli uç noktalarda oluşturulan erişim denetimi ilkeleri rapor. 
 
-Bir HDInsight kümesi ile ESP denetim günlüklerini aramak için bilindik Apache Ranger arabirimini kullanır. Ranger arka uçta kullanan [Apache Solr](https://hortonworks.com/apache/solr/) depolamak ve günlükleri aranıyor.
+Bir HDInsight kümesi ile ESP denetim günlüklerini aramak için bilindik Apache Ranger arabirimini kullanır. Ranger arka uçta kullanan [Apache Solr](http://lucene.apache.org/solr/) depolamak ve günlükleri aranıyor.
 
 ## <a name="encryption"></a>Şifreleme
 Veri koruma, toplantı Kurumsal güvenlik ve uyumluluk gereksinimlerini için önemlidir. Erişim için verilerin yetkisiz çalışanların erişiminden korunmasının yanı sıra, bu şifreleme. 
 
-HDInsight kümeleri--Azure Blob Depolama ve Azure Data Lake depolama Gen1/Gen2--destek saydam sunucu tarafı için her iki veri depoları [verilerin şifrelenmesi](../../storage/common/storage-service-encryption.md) bekleyen. Güvenli HDInsight kümeleri, bekleme sırasında veri sunucu tarafı şifreleme bu özellik ile sorunsuz bir şekilde çalışır.
+Her iki veri depoları için HDInsight kümeleri, Azure Blob Depolama ve Azure Data Lake depolama Gen1/Gen2, saydam sunucu tarafı desteği [verilerin şifrelenmesi](../../storage/common/storage-service-encryption.md) bekleyen. Güvenli HDInsight kümeleri, bekleme sırasında veri sunucu tarafı şifreleme bu özellik ile sorunsuz bir şekilde çalışır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [ESP ile HDInsight kümeleri planlama](apache-domain-joined-architecture.md)
 * [ESP ile HDInsight kümelerini yapılandırma](apache-domain-joined-configure.md)
 * [ESP ile HDInsight kümelerini yönetme](apache-domain-joined-manage.md)
-* [ESP ile HDInsight kümeleri için Apache Hive ilkelerini yapılandırma](apache-domain-joined-run-hive.md)
-* [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
-

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c26a5007c2dcaa5d41be46f685f0f259866ca2c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8240a487bdb01cdbe9017ddc7cb95ce4fc0e1503
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544069"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052369"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Sosyal medya kimliklerinden kullanıcıları oturum açma için MSAL.NET kullanın
 
@@ -177,7 +177,7 @@ Müşteri etkisi kullanıcı adı alanı görüntülemek çalışırken "Belirte
 Alternatif olarak, `tid` kullanıyorsanız, talep [B2C özel ilkeler](https://aka.ms/ief), uygulamaya ek talep döndürülecek yeteneği sağlar. Hakkında daha fazla bilgi edinmek için [talep dönüştürme](/azure/active-directory-b2c/claims-transformation-technical-profile)
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Risk azaltma için "Belirteci yanıtından eksik"
-Tercih edilen kullanıcı adı olarak "name" talep kullanan bir seçenektir. İşlem, bu konuda açıklanan [B2C doc](/azure/active-directory-b2c/active-directory-b2c-reference-policies#frequently-asked-questions) -> "dönüş talep sütununda, başarılı bir profil düzenleme deneyimi sonra uygulamanıza geri gönderilen yetkilendirme belirteçlerinde döndürülmesini istediğiniz talepleri seçin. Örneğin, görünen ad, posta kodu seçin."
+Tercih edilen kullanıcı adı olarak "name" talep kullanan bir seçenektir. İşlem, bu konuda açıklanan [B2C doc](../../active-directory-b2c/active-directory-b2c-reference-policies.md) -> "dönüş talep sütununda, başarılı bir profil düzenleme deneyimi sonra uygulamanıza geri gönderilen yetkilendirme belirteçlerinde döndürülmesini istediğiniz talepleri seçin. Örneğin, görünen ad, posta kodu seçin."
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 

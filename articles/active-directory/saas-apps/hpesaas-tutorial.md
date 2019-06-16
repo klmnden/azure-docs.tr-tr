@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43a231a4317aa2500b6377b512ae9311b2c7acda
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e12f532ca73824c50375fba8b5ca3ee6e256c202
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898196"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Öğretici: HPE SaaS ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de HPE SaaS tümleştirmesini yapılandırmak için HPE SaaS Galeriden 
 
 **Galeriden HPE SaaS eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

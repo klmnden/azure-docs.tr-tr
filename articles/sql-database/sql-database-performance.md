@@ -6,17 +6,16 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: danimir
+ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
+manager: craigg
+ms.date: 01/25/2019
 ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584837"
 ---
 # <a name="monitor-and-improve-performance"></a>İzleme ve performansı geliştirin
@@ -41,10 +40,10 @@ Bu görünüm, veritabanınızın performansını özetini sağlar ve performans
 
 ![Performans](./media/sql-database-performance/performance.png)
 
-* **Önerileri** kutucuğu önerilerinde veritabanınız için bir dökümünü sağlar (ilk üç önerileri gösterilir varsa daha fazla). Bu kutucuğa tıklamak  **[performans önerileri](#performance-recommendations)**. 
+* **Önerileri** kutucuğu önerilerinde veritabanınız için bir dökümünü sağlar (ilk üç önerileri gösterilir varsa daha fazla). Bu kutucuğa tıklamak  **[performans önerileri](#performance-recommendations)** . 
 * **Ayarlama etkinliği** kutucuğu, devam eden ve tamamlanmış Eylemler, veritabanınızın ayarlama, size ayarlama etkinliği geçmişi hızlıca görüntülemenizi sağlayan bir özetini sağlar. Bu kutucuğa tıklandığında veritabanınızın tam ayarlama geçmişi görünümü alır.
 * **Otomatik ayarlama** döşeme gösterir [otomatik ayarlama yapılandırmasını](sql-database-automatic-tuning-enable.md) (veritabanınızı otomatik olarak uygulanacağını da seçeneklerini ayarlama) veritabanı. Bu kutucuğa tıklayarak Otomasyon yapılandırma iletişim kutusu açılır.
-* **Veritabanı sorguları** kutucuğu (kaynak kullanan sorgular genel DTU kullanımını ve üst) veritabanı sorgu performansı özetini gösterir. Bu kutucuğa tıklamak  **[sorgu performansı İçgörüleri](#query-performance-insight)**.
+* **Veritabanı sorguları** kutucuğu (kaynak kullanan sorgular genel DTU kullanımını ve üst) veritabanı sorgu performansı özetini gösterir. Bu kutucuğa tıklamak  **[sorgu performansı İçgörüleri](#query-performance-insight)** .
 
 ## <a name="performance-recommendations"></a>Performans önerileri
 
@@ -74,7 +73,7 @@ Azure SQL veritabanları otomatik olarak ayarla veritabanı performansı uygulay
 
   ![Performans Panosu](./media/sql-database-query-performance/performance.png)
 
-Bu sayfa hakkında daha fazla bilgi makalesinde Bul  **[sorgu performansı İçgörüleri'ni kullanmayı](sql-database-query-performance.md)**.
+Bu sayfa hakkında daha fazla bilgi makalesinde Bul  **[sorgu performansı İçgörüleri'ni kullanmayı](sql-database-query-performance.md)** .
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

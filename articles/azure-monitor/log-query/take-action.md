@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424763"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Log Analytics günlük araması sonuç Otomasyon Runbook'u ile bir eylem
@@ -38,7 +38,7 @@ Bir olayı harekete ve günlük arama sonuçlarınızı runbook başlatmak için
 
 1. Azure portalında **tüm hizmetleri** seçip **Log Analytics**.  
 2. Log Analytics çalışma alanınızı seçin.
-3. Çalışma alanında, seçin **günlükleri (Klasik)**.  
+3. Çalışma alanında, seçin **günlükleri (Klasik)** .  
 4. Günlük araması sayfasında, bir günlük araması gerçekleştirin.  
 5. Günlük araması sonuçlarından sol tarafındaki bir alanların ve açılan, select üç nokta işaretine **üzerinde eylem gerçekleştirmenize**.<br><br> ![Arama sonuçlarından Al eylemini seçin](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Seçin **bir runbook'u çalıştırma** ve çalıştırmak için bir runbook seçin.  Herhangi bir runbook Log Analytics çalışma alanına bağlı Otomasyon hesabı seçin.  Şunlara dikkat edin:

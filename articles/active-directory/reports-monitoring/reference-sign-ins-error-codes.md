@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 760eb5a37a09687cd98ca7abbdcb0bc42667f830
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513659"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107618"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Oturum açma etkinlik raporundaki hata kodları 
 

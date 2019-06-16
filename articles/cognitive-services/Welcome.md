@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: nitinme
 ms.openlocfilehash: d5a3226050901f6feb17c4d9d6a6582cb622618b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65020198"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Bilişsel hizmetler nelerdir?
@@ -22,7 +22,7 @@ Azure Bilişsel hizmetler API'leri ve SDK'ları Hizmetleri geliştiricilerin do�
 
 ## <a name="vision-apis"></a>Görsel API'ler
 
-|Hizmet Adı|Hizmet Açıklaması|
+|Hizmet adı|Hizmet açıklaması|
 |:-----------|:------------------|
 |[Görüntü işleme](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "görüntü işleme")|Görüntü işleme hizmeti, görüntü işleme ve bilgilerini döndürmek için gelişmiş algoritmalar erişim sağlar.|
 |[Custom Vision Service'i](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "özel görüntü işleme hizmeti")|Özel görüntü işleme hizmeti, özel görüntü sınıflandırıcılar oluşturmanızı sağlar.|
@@ -33,7 +33,7 @@ Azure Bilişsel hizmetler API'leri ve SDK'ları Hizmetleri geliştiricilerin do�
 
 ## <a name="speech-apis"></a>Konuşma API'leri
 
-|Hizmet Adı|Hizmet Açıklaması|
+|Hizmet adı|Hizmet açıklaması|
 |:-----------|:------------------|
 |[Konuşma Hizmetleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "konuşma Hizmetleri")|Konuşma hizmeti, uygulamalara konuşma tanıma özellikli özellikler ekler.|
 |[Konuşmacı tanıma API'si](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Konuşmacı tanıma API'si") (Önizleme)|Konuşmacı tanıma API'si, konuşmacı tanıma ve doğrulama için algoritmalar sağlar.|
@@ -42,7 +42,7 @@ Azure Bilişsel hizmetler API'leri ve SDK'ları Hizmetleri geliştiricilerin do�
 
 ## <a name="language-apis"></a>Dil API'leri
 
-|Hizmet Adı|Hizmet Açıklaması|
+|Hizmet adı|Hizmet açıklaması|
 |:-----------|:------------------|
 |[Language Understanding'i LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "dil anlama")|Language Understanding hizmeti (LUIS), uygulamanızın ne bir kişi kendi kelimelerinizle istediği anlamak sağlar.|
 |[Soru-cevap Oluşturucu](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "soru-cevap Oluşturucu")|Soru-cevap Oluşturucu, soru oluşturmanıza ve yarı yapılandırılmış içeriğinizi hizmet yanıt verir.|
@@ -50,9 +50,9 @@ Azure Bilişsel hizmetler API'leri ve SDK'ları Hizmetleri geliştiricilerin do�
 |[Translator metin çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator metin çevirisi")|Translator metin çevirisi, neredeyse gerçek zamanlı makine tabanlı metin çeviri için sağlar.|
 |[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer, video içgörü sağlar.|
 
-## <a name="search-apis"></a>API arama
+## <a name="search-apis"></a>Arama API'leri
 
-|Hizmet Adı|Hizmet Açıklaması|
+|Hizmet adı|Hizmet açıklaması|
 |:-----------|:------------------|
 |[Bing haber arama](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "Bing haber arama")|Bing haber arama, haber makalelerini kullanıcının sorgu ile ilgili belirlenen bir listesini döndürür.|
 |[Bing Video arama](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search/ "Bing Video arama")|Bing Video arama, kullanıcının sorgu ile ilgili belirlenen videoların bir listesini döndürür.|
@@ -67,7 +67,7 @@ Azure Bilişsel hizmetler API'leri ve SDK'ları Hizmetleri geliştiricilerin do�
 
 ## <a name="decision-apis"></a>Karar API'leri
 
-|Hizmet Adı|Hizmet Açıklaması|
+|Hizmet adı|Hizmet açıklaması|
 |:-----------|:------------------|
 |[Anomali algılayıcısı](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomali algılayıcısı") (Önizleme)|Anomali algılayıcısı, izlemek ve zaman serisi verilerinizle prosesler algılamak sağlar.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator, olası rahatsız edici, istenmeyen ve riskli içerik izleme sağlar.|

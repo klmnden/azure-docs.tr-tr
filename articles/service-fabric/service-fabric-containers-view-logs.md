@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/15/2018
 ms.author: aljo
 ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881495"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Bir Service Fabric kapsayıcı hizmeti için günlükleri görüntüleyin
@@ -29,7 +29,7 @@ Kapsayıcı günlüklerini kullanarak erişilebilir [Service Fabric Explorer](se
 
 Kapsayıcı günlüklerini kapsayıcı hizmet örneği üzerinde çalıştığı küme düğümünü bulunur. Örneğin, web ön uç kapsayıcısının günlükleri alma [Linux Voting örnek uygulamasını](service-fabric-quickstart-containers-linux.md). Ağaç görünümünde genişletin **küme**>**uygulamaları**>**VotingType**>**fabric: / Voting / azurevotefront**.  Ardından (d1aa737e-f22a-e347-be16-eec90be24bc1, bu örnekte) bölümü genişletin ve kapsayıcı küme düğümü üzerinde çalışıp çalışmadığını *_lnxvm_0*.
 
-Ağaç görünümünde, kod paketi bulmak *_lnxvm_0* düğümünü genişleterek **düğümleri**>**_lnxvm_0**>**fabric: / Voting**  > **azurevotfrontPkg**>**kod paketleri**>**kod**.  Ardından **kapsayıcı günlüklerini** kapsayıcı günlüklerini görüntülemek için seçeneği.
+Ağaç görünümünde, kod paketi bulmak *_lnxvm_0* düğümünü genişleterek **düğümleri**> **_lnxvm_0**>**fabric: / Voting**  > **azurevotfrontPkg**>**kod paketleri**>**kod**.  Ardından **kapsayıcı günlüklerini** kapsayıcı günlüklerini görüntülemek için seçeneği.
 
 ![Service Fabric platformu][Image1]
 

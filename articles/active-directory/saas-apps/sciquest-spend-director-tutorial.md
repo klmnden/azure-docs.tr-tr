@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 371ea6609181b84ff8554b9e2f1a5047d2d48c48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 199f531485a6a6c9ea234b35a7dbb88b66b3067c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Öğretici: Azure Active Directory tümleştirmesiyle SciQuest harcama Direktörü
 
@@ -54,7 +54,7 @@ Azure AD'de SciQuest harcama Direktörü tümleştirmesini yapılandırmak için
 
 **Galeriden SciQuest harcama Yöneticisi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

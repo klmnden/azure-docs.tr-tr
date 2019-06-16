@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: bidishac
-ms.openlocfilehash: 83149a8422db25106a97b1711c0ae9ce3c6603eb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: b463e2bd3df0c38bf446745a2eade221b00324da
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465672"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072531"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Hızlı Başlangıç: Ses öncelikli sanal asistan konuşma SDK, Java oluşturma
 
@@ -30,11 +30,11 @@ Bu hızlı başlangıç şunları gerektirir:
 * İşletim Sistemi: (64-bit) Windows, Ubuntu Linux 16.04/18.04 (64-bit) ve macOS 10.13 veya üzeri
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) veya [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
+* Konuşma Hizmetleri için bir Azure aboneliği anahtar **westus2** bölge. Bu aboneliği oluşturun [Azure portalında](https://portal.azure.com).
 * Bot Framework 4.2 sürümü kullanılarak oluşturulan önceden yapılandırılmış bir bot veya üzeri. Bot, ses giriş almak için yeni "Satır konuşma doğrudan" kanala abone olmak gerekir.
 
     > [!NOTE]
-    > Önizlemede, doğrudan satır konuşma kanal şu anda yalnızca destekleyen **westus2** bölge.
+    > Doğrudan satır okuma (Önizleme) şu anda yalnızca bulunan **westus2** bölge.
 
     > [!NOTE]
     > 30 günlük deneme için standart fiyatlandırma katmanı açıklanan [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md) sınırlıdır **westus** (değil **westus2**) ve bu nedenle uyumlu değil doğrudan ile Satır konuşma. Ücretsiz ve standart katmanı **westus2** abonelikleri uyumludur.
@@ -67,7 +67,7 @@ Ayrıca, günlük kaydını etkinleştirmek için güncelleştirmesi **pom.xml**
     </dependency>
    ```
 
-## <a name="add-sample-code"></a>Örnek kod ekleyin
+## <a name="add-sample-code"></a>Örnek kodu ekleme
 
 1. Java projenize yeni bir boş sınıf eklemek için **Dosya** > **Yeni** > **Sınıf** seçeneklerini belirleyin.
 
@@ -156,8 +156,8 @@ Ayrıca, günlük kaydını etkinleştirmek için güncelleştirmesi **pom.xml**
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
-    final String subscriptionKey = "YourSubscriptionKey"; // your subscription key
-    final String region = "YourServiceRegion"; // Your service region. Currently assumed to be westus2
+    final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only 'westus2' is currently supported
     final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromSecretKey(channelSecret, subscriptionKey, region);
 
     // Configure audio input from microphone.

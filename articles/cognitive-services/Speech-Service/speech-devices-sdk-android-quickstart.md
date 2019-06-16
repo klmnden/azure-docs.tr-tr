@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 5bebdd77afb9e9c77624ea4266ca217567dbf143
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425675"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072384"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Hızlı Başlangıç: Android'de konuşma cihaz SDK'sı örnek uygulamayı çalıştırma
 
@@ -37,7 +37,7 @@ Konuşma cihaz SDK'sını kullanmaya başlamadan önce yapmanız gerekir:
 
 * Alınacak bir [konuşma Hizmetleri için Azure abonelik anahtarı](get-started.md)
 
-* Konuşma Transkripsiyonu kullanmayı planlıyorsanız kullanmalısınız bir [döngüsel mikrofon cihaz](get-speech-devices-sdk.md) ve hizmet şu anda yalnızca "en-US" ve "zh-CN" bölgeleri, "centralus" ve "ping'in ekran" için kullanılabilir. Bir konuşma anahtarı konuşma Transkripsiyonu kullanmak için bu bölgelerden birinde olmalıdır.
+* Konuşma Transkripsiyonu kullanmayı planlıyorsanız kullanmalısınız bir [döngüsel mikrofon cihaz](get-speech-devices-sdk.md) ve bu özellik şu anda yalnızca "en-US" ve "zh-CN" bölgeleri, "centralus" ve "ping'in ekran" için kullanılabilir. Bir konuşma anahtarı konuşma Transkripsiyonu kullanmak için bu bölgelerden birinde olmalıdır.
 
 * Konuşma Hizmetleri hedefleri (veya Eylemler) kullanıcı konuşma tanımlamak için kullanmayı planlıyorsanız, ihtiyacınız olacak bir [Language Understanding hizmeti (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) abonelik. LUIS ve niyeti tanıma hakkında daha fazla bilgi için bkz: [amaçlarıyla LUIS, konuşma tanıma C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 

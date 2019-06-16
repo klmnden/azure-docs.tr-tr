@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
 ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899760"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights ile ayrıntılı web uygulaması ve hizmet tanılama
@@ -104,7 +104,7 @@ Her iki durumda da uyarı yalnızca, bulunduğunda ancak ilgili özel durum rapo
 
 Müşteri Samtec olduğu söylenebilir: "Bir yeni özellik sırasında tam geçişi, kaynak sınırlarını ulaşma ve zaman aşımlarına neden olan bir altında ölçeklendirilmiş veritabanı bulduk. Proaktif algılama Uyarıları gelen tam anlamıyla biz bildirilen çok neredeyse gerçek zamanlı sorun önceliklendirme şekilde. Azure platformu uyarılarla birlikte bu uyarıyı neredeyse anında sorunu yardımcı olmuştur. Toplam kapalı kalma süresi < 10 dakika."
 
-## <a name="live-metrics-stream"></a>Canlı Ölçüm Akışı
+## <a name="live-metrics-stream"></a>Canlı ölçümleri Stream
 En son derleme dağıtımı yüzünde Endişeli bir deneyim olabilir. Herhangi bir sorun varsa, gerekirse yedekleyebilirsiniz böylece bunlar hakkında hemen bilmek istiyorsunuz. Canlı ölçümler Stream yaklaşık bir saniye gecikmeyle ana ölçümleri sağlar.
 
 ![Canlı ölçümleri](./media/devops/0040.png)
@@ -133,7 +133,7 @@ Tüm telemetri örneği ve Portalı'nda depolanan ölçüm ham verileri sorgulay
 * Oturumlarının ve anında müşteri desteği sağlamak desteği ve operasyon ekipleri etkinleştirmek belirli kullanıcılar için yanıt sürelerini izleyin.
 * Özellik öncelik soruları yanıtlamak için sık kullanılan uygulama özelliklerini belirler.
 
-Müşteri DNN olduğu söylenebilir: "Application Insights sağlanan mümkün bize teşekkür denklemi eksik bir parçası olan birleştirme, sıralama, sorgu ve filtre veri gerektiğinde. Ekibimiz, güçlü bir sorgu dili ile veri öngörüleri bulmak ve sorunları çözmek etmemizi de sağladı bulmak için kendi resimleri ve deneyimi kullanmasını sağlayan bile vardı biliyoruz kaydetmedi. Çok ilginç yanıtların başlayarak soruları geldiğini *' ı elmas if...'.*"
+Müşteri DNN olduğu söylenebilir: "Application Insights sağlanan mümkün bize teşekkür denklemi eksik bir parçası olan birleştirme, sıralama, sorgu ve filtre veri gerektiğinde. Ekibimiz, güçlü bir sorgu dili ile veri öngörüleri bulmak ve sorunları çözmek etmemizi de sağladı bulmak için kendi resimleri ve deneyimi kullanmasını sağlayan bile vardı biliyoruz kaydetmedi. Çok ilginç yanıtların başlayarak soruları geldiğini *' ı elmas if...'.* "
 
 ## <a name="development-tools-integration"></a>Geliştirme araçları tümleştirme
 ### <a name="configuring-application-insights"></a>Application Insights'ı yapılandırma

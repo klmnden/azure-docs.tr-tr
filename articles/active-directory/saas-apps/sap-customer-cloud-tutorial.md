@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ba76692ec35ddfd0b6c8c49306d6056709d684e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 669dfaa40cfe1bc65618d8706910e19d72c233ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902944"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092045"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Öğretici: Müşteri için SAP Cloud ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de müşteri için SAP Cloud tümleştirmesini yapılandırmak için SA
 
 **SAP Cloud müşteri için Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -126,7 +126,7 @@ Azure AD çoklu oturum açma müşteri için SAP bulut ile yapılandırmak için
 
     b. Seçin **dönüştürme** olarak **kaynak**.
 
-    c. Gelen **dönüştürme** listesinden **ExtractMailPrefix()**.
+    c. Gelen **dönüştürme** listesinden **ExtractMailPrefix()** .
 
     d. Gelen **parametresi 1** listesinde, uygulamanız için kullanmak istediğiniz kullanıcı özniteliğini seçin.
     Örneğin, EmployeeID benzersiz kullanıcı tanımlayıcısı kullanmak istediğiniz ve öznitelik değeri içinde ExtensionAttribute2 depoladığınız seçerseniz, user.extensionattribute2 seçin.

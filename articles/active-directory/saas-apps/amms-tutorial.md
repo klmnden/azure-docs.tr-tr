@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 798245dc293ecac01fb874fc57b98b14d258f686
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b6b0d3248e63f4fc053748cda1633497d4eb4285
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900298"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amms"></a>Öğretici: AMMS ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de AMMS tümleştirmesini yapılandırmak için AMMS Galeriden yönetil
 
 **Galeriden AMMS eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

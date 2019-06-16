@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f22cb620bf8cf56110bec60a4dd809066393a8ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067654"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights verilerle özel raporları otomatikleştirme
 
@@ -92,7 +92,7 @@ availabilityResults
 
    ![Yeni işlev ekran oluşturma](./media/automate-custom-reports/function-app-03.png)
 
-5. Seçin  **_Application Insights Zamanlanmış Özet şablon_**.
+5. Seçin  **_Application Insights Zamanlanmış Özet şablon_** .
 
      > [!NOTE]
      > Varsayılan olarak, çalışma zamanı sürümü ile oluşturulan işlev uygulamaları 2.x. Yapmanız gerekenler [hedef Azure işlevleri çalışma zamanı sürümü](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) Application ınsights'ı kullanmak için bir 1.x Zamanlanmış Özet şablonu.
@@ -120,7 +120,7 @@ availabilityResults
      > [!NOTE]
      > SendGrid hesabı yoksa bir tane oluşturabilirsiniz. Azure işlevleri için SendGrid belgelere [burada](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Yalnızca SendGrid Kurulum ve bu makalenin sonunda sağlanan bir API anahtarı oluşturmak en az bir açıklama istiyorsanız. 
 
-9. Seçin **tümleştir** altında çıkışları tıklatın **SendGrid ($return)**.
+9. Seçin **tümleştir** altında çıkışları tıklatın **SendGrid ($return)** .
 
      ![Çıkış ekran görüntüsü](./media/automate-custom-reports/function-app-09.png)
 

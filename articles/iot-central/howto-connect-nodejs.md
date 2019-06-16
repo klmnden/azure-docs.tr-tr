@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888967"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
@@ -34,7 +34,7 @@ Azure IOT Central uygulamanızda aşağıdaki ölçümler, cihaz özelliklerini,
 
 Aşağıdaki telemetri ekleyin **ölçümleri** sayfası:
 
-| Görünen Ad | Alan Adı  | Birimler | Min | Maks | Ondalık Basamak Sayısı |
+| Görünen ad | Alan Adı  | Birimler | Min | Maks | Ondalık Basamak Sayısı |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Sıcaklık  | sıcaklık | F     | 60  | 110 | 0              |
 | Nem oranı     | Nem oranı    | %     | 0   | 100 | 0              |
@@ -49,7 +49,7 @@ Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgil
 
 Aşağıdaki durum eklemek **ölçümleri** sayfası:
 
-| Görünen Ad | Alan Adı  | Değer 1 | Görünen Ad | Değer 2 | Görünen Ad |
+| Görünen ad | Alan Adı  | 1 değeri | Görünen ad | Değer 2 | Görünen ad |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Fan Modu     | fanmode     | 1       | Çalışıyor      | 0       | Durduruldu      |
 
@@ -62,7 +62,7 @@ Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgil
 
 Aşağıdaki olay eklemek **ölçümleri** sayfası:
 
-| Görünen Ad | Alan Adı  | Severity |
+| Görünen ad | Alan Adı  | Severity |
 | ------------ | ----------- | -------- |
 | Elektriği  | overheat    | Hata    |
 
@@ -73,10 +73,10 @@ Aşağıdaki olay eklemek **ölçümleri** sayfası:
 
 Aşağıdaki cihaz özelliklerini ekleyin **özellikleri** sayfası:
 
-| Görünen Ad        | Alan Adı        | Veri türü |
+| Görünen ad        | Alan Adı        | Veri türü |
 | ------------------- | ----------------- | --------- |
 | Seri Numarası       | serialNumber      | metin      |
-| Cihaz üreticisi | üretici      | metin      |
+| Cihaz üreticisi | Üretici      | metin      |
 
 Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, uygulama özellikleri görüntülenemiyor.
 
@@ -84,7 +84,7 @@ Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgil
 
 Aşağıdaki **numarası** ayarlarını **ayarları** sayfası:
 
-| Görünen Ad    | Alan Adı     | Birimler | Ondalık sayı | Min | Maks  | İlk |
+| Görünen ad    | Alan Adı     | Birimler | Ondalık sayı | Min | Maks  | İlk |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Fan hızı       | fanSpeed       | RPM   | 0        | 0   | 3000 | 0       |
 | Sıcaklığı Ayarla | setTemperature | F     | 0        | 20  | 200  | 80      |
@@ -95,13 +95,13 @@ Cihaz şablona tabloda gösterildiği gibi tam olarak alan adı girin. İlgili c
 
 Aşağıdaki komutu ekleyin **komutları** sayfası:
 
-| Görünen Ad    | Alan Adı     | Varsayılan Zaman Aşımı | Veri Türü |
+| Görünen ad    | Alan Adı     | Varsayılan Zaman Aşımı | Veri Türü |
 | --------------- | -------------- | --------------- | --------- |
-| geri sayım       | Geri sayım      | 30              | number    |
+| Geri sayım       | Geri sayım      | 30              | number    |
 
 Aşağıdaki giriş alanını geri sayım komutu ekleyin:
 
-| Görünen Ad    | Alan Adı     | Veri Türü | Değer |
+| Görünen ad    | Alan Adı     | Veri Türü | Değer |
 | --------------- | -------------- | --------- | ----- |
 | Gelen sayısı      | countFrom      | number    | 10    |
 

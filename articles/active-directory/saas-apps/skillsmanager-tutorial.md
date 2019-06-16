@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: b599eaf36eed69cd693e0dc4e20ef2123e42e60b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03cc443197746909eb37efa699cebd8cfd460ac0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Öğretici: Azure becerileri Yöneticisi ile Active Directory Tümleştirmesi
 
@@ -53,7 +53,7 @@ Azure AD'de becerileri Manager'ın tümleştirmesini yapılandırmak için becer
 
 **Galeriden becerileri Yöneticisi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

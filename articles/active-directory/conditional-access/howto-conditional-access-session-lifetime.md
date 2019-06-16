@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988569"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112335"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Kimlik doğrulaması oturum yönetimi ile koşullu erişimi yapılandırma
 
@@ -53,11 +53,11 @@ Azure AD varsayılan tarayıcı oturum kalıcılığı için kullanıcıların k
 Koşullu erişim, bir Azure AD Premium özelliğidir ve bir premium lisansı gerektirir. Koşullu erişim hakkında daha fazla bilgi edinmek istiyorsanız bkz [Azure Active Directory'de koşullu erişim nedir?](overview.md#license-requirements)
 
 > [!WARNING]
-> Kullanıyorsanız [yapılandırılabilir belirteç ömrü](../develop/active-directory-configurable-token-lifetimes.md) özelliği şu anda genel Önizleme sürümünde, aynı kullanıcı veya uygulama birleşimi için iki farklı ilke oluşturmayı desteklemiyoruz olduğunu lütfen unutmayın: Bu özellik ve ile başka bir sahip yapılandırılabilir belirteç ömrü özelliği. Microsoft, yapılandırılabilir bir belirteç ömrü özellik 15 Ekim devre dışı bırakma ve koşullu erişimi kimlik doğrulaması oturum yönetim özelliğini değiştirmek planlamaktadır.  
+> Kullanıyorsanız [yapılandırılabilir belirteç ömrü](../develop/active-directory-configurable-token-lifetimes.md) özelliği şu anda genel Önizleme sürümünde, aynı kullanıcı veya uygulama birleşimi için iki farklı ilke oluşturmayı desteklemiyoruz olduğunu lütfen unutmayın: Bu özellik ve ile başka bir sahip yapılandırılabilir belirteç ömrü özelliği. Microsoft, yapılandırılabilir belirteç ömrü özelliği 1 Kasım tarihinde devre dışı bırakma ve koşullu erişimi kimlik doğrulaması oturum yönetim özelliğini değiştirmek planlamaktadır.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>İlke 1: Oturum açma sıklığı denetimi
 
-1. Yeni ilke oluştur
+1. Yeni İlke Oluştur
 1. Hedef bulut uygulamaları dahil olmak üzere, müşterinin ortam için gerekli tüm koşulları seçin.
 
    > [!NOTE]
@@ -68,7 +68,7 @@ Koşullu erişim, bir Azure AD Premium özelliğidir ve bir premium lisansı ger
 1. Değerini seçin **saat** veya **gün** açılır listesinden
 1. İlkenizi Kaydet
 
-![Sıklığı oturum için yapılandırılmış koşullu erişim ilkesi](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+![Koşullu erişim ilkesini sıklığı oturum için yapılandırılmış](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
 Azure AD'de kayıtlı Windows cihazları oturum açma cihaza bir komut istemi olarak kabul edilir. Örneğin, Office uygulamaları için 24 saat için sıklıkla oturum yapılandırdıysanız, cihaz oturum açma sıklığı ilke cihaza açarak yerine getirecek ve yeniden Office uygulamaları açılırken istenmez Windows kullanıcıları Azure AD'de kayıtlı.
 
@@ -76,7 +76,7 @@ Aynı tarayıcı oturumunda çalışan farklı web apps için farklı oturum aç
 
 ### <a name="policy-2-persistent-browser-session"></a>İlke 2: Kalıcı tarayıcı oturumu
 
-1. Yeni ilke oluştur
+1. Yeni İlke Oluştur
 1. Tüm gerekli koşulları seçin.
 
    > [!NOTE]
@@ -95,13 +95,13 @@ Aynı tarayıcı oturumunda çalışan farklı web apps için farklı oturum aç
 
 Hedef uygulama ve diğer koşulları ilkenizi nasıl yapılandırdığınıza göre kullanıcı oturum açma benzetimi için benzetim aracını kullanın. Kimlik doğrulaması oturum yönetim denetimleri aracının sonucu gösterilir.
 
-![Koşullu erişim aracı ne olur](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Koşullu erişim neler If Aracı sonuçları](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>İlke dağıtımı
 
-İlkenizi beklendiği gibi çalıştığından emin olmak için üretim ortamına sunulmadan önce test etmek için önerilen en iyi yöntem olacaktır. İdeal olarak, bir de test kiracılığınız yeni ilkeniz beklendiği gibi çalıştığını doğrulamak için kullanın. Daha fazla bilgi için bkz [Azure Active Directory'de koşullu erişim için en iyi yöntemler](best-practices.md).
+İlkenizi beklendiği gibi çalıştığından emin olmak için üretim ortamına sunulmadan önce test etmek için önerilen en iyi yöntem olacaktır. İdeal olarak, bir de test kiracılığınız yeni ilkeniz beklendiği gibi çalıştığını doğrulamak için kullanın. Daha fazla bilgi için bkz [Azure Active Directory'de koşullu erişim için en iyi uygulamalar](best-practices.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Koşullu erişim ilkesini yapılandırma bilmek istiyorsanız, bkz [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](app-based-mfa.md).
-* Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi yöntemler](best-practices.md).
+* Koşullu erişim ilkesini yapılandırma bilmek istiyorsanız, bkz [gerektiren MFA belirli uygulamalar için Azure Active Directory koşullu erişim ile](app-based-mfa.md).
+* Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi uygulamalar](best-practices.md).

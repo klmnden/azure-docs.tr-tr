@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9842c681c655bb2a69126806400d1de8e9779c88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 18517f8f0022b8347d8a3bb8a978c513db5f6f85
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813701"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-visitly"></a>Öğretici: Visitly ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Visitly tümleştirmesini yapılandırmak için Visitly Galeriden y�
 
 **Galeriden Visitly eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
