@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/24/2019
+ms.date: 06/10/2019
 ms.author: aljo
-ms.openlocfilehash: 606b14fba093b6ec8039c646a49bc3bf7d24eb51
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 8a548bce6da8b3bae004b0be4f6e8f09c9894025
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296777"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060350"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric desteklenen sürümler
 
@@ -36,8 +36,8 @@ Aşağıdaki tablo, Service Fabric ve Destek bitiş tarihlerinin sürümlerini l
 
 | Kümedeki Service Fabric çalışma zamanı | Doğrudan küme sürümünden yükseltme yapabilirsiniz |Uyumlu SDK veya NuGet Paket sürümü | Destek sonu |
 | --- | --- |--- | --- |
-| 5.3.121 önce tüm küme sürümleri | 5.1.158.* |2.3 sürümü küçüktür veya eşittir |20 Ocak 2017 |
-| 5.3.* | 5.1.158.* |2.3 sürümü küçüktür veya eşittir |24 Şubat 2017 |
+| 5\.3.121 önce tüm küme sürümleri | 5.1.158.* |2\.3 sürümü küçüktür veya eşittir |20 Ocak 2017 |
+| 5.3.* | 5.1.158.* |2\.3 sürümü küçüktür veya eşittir |24 Şubat 2017 |
 | 5.4.* | 5.1.158.* |Sürüm 2.4 küçüktür veya eşittir |10 Mayıs 2017       |
 | 5.5.* | 5.4.164.* |Sürüm 2.5 küçüktür veya eşittir |Ağustos 10,2017    |
 | 5.6.* | 5.4.164.* |Sürüm 2.6 küçüktür veya eşittir |Ekim 13,2017   |
@@ -46,7 +46,8 @@ Aşağıdaki tablo, Service Fabric ve Destek bitiş tarihlerinin sürümlerini l
 | 6.1.* | 5.7.221.* |Sürüm 3.0 küçüktür veya eşittir |15 Temmuz 2018      |
 | 6.2.* | 6.0.232.* |Sürüm 3.1 küçüktür veya eşittir |26 Ekim 2018   |
 | 6.3.* | 6.1.480.* |Sürüm 3.2 küçüktür veya eşittir |31 Mart 2019  |
-| 6.4.* | 6.2.301.* |Sürüm 3.3 küçüktür veya eşittir |Geçerli sürümü, bu nedenle bitiş tarihi |
+| 6.4.* | 6.2.301.* |Sürüm 3.3 küçüktür veya eşittir |15 Eylül 2019 |
+| 6.5.* | 6.4.617.* |Sürüm 3.4 küçüktür veya eşittir |Geçerli sürümü, bu nedenle bitiş tarihi |
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
@@ -103,3 +104,4 @@ Aşağıdaki tabloda, Service Fabric ve bunların karşılık gelen sürüm numa
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
 | 6.4 CU6 | 6.4.658.9590 | NA |
 | 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |
+| 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |

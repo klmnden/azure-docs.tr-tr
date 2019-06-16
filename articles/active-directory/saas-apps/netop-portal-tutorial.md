@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 0bbd13a29b8d01f64ca68c35b751b0adf0a76c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 751de509d17b05c2515261eeb7c036ae345986fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65743807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096304"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Öğretici: Netop portalı ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de Netop portalı tümleştirmesini yapılandırmak için Netop portal�
 
 **Galeriden NetOp portalı eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -154,7 +154,7 @@ Azure AD çoklu oturum açma Netop portalıyla yapılandırmak için aşağıdak
 
 ### <a name="configure-netop-portal-single-sign-on"></a>NetOp portalı çoklu oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırmak için **Netop portalı** tarafı, gereksinim duyduğunuz indirilen **Federasyon meta verileri XML** ve Azure Portalı'ndan oturum açma URL'si. 3. Adım'daki yönergeleri belgelerin [burada](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) NetOp portalı, Azure AD kimlik doğrulamasını yapılandırmak için.
+Çoklu oturum açmayı yapılandırmak için **Netop portalı** tarafı, gereksinim duyduğunuz indirilen **Federasyon meta verileri XML** ve Azure Portalı'ndan oturum açma URL'si. 3\. Adım'daki yönergeleri belgelerin [burada](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) NetOp portalı, Azure AD kimlik doğrulamasını yapılandırmak için.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

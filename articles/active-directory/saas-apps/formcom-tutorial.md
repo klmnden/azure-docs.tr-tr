@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1ed8dac90527de396e0b7ae59e5d19939a4a36be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf054cb3a965e94f7f18e39065d744b4376b6527
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278539"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Öğretici: Form.com ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de Form.com tümleştirmesini yapılandırmak için Form.com Galeriden 
 
 **Galeriden form.com eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -134,7 +134,7 @@ Azure AD çoklu oturum açma ile Form.com yapılandırmak için aşağıdaki ad�
 
 ### <a name="configure-formcom-single-sign-on"></a>Form.com tek oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **Form.com** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)**, **uygulama Federasyon meta verileri URL'sini** ve uygun kopyalanan URL'lerden Azure portalında [Form.com Destek ekibine](https://form.com/about/company/contact-us/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **Form.com** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)** , **uygulama Federasyon meta verileri URL'sini** ve uygun kopyalanan URL'lerden Azure portalında [Form.com Destek ekibine](https://form.com/about/company/contact-us/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

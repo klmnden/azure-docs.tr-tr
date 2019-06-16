@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790394"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118062"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları
 
@@ -53,7 +53,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Günlük oran sınırları (MBps)|3.75|7.5|11.25|15|18.75|22.5|
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
-|Çoğaltma sayısı|1|1.|1.|1.|1.|1|
+|Çoğaltma sayısı|1|1\.|1\.|1\.|1\.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
@@ -76,7 +76,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Günlük oran sınırları (MBps)|26.25|30|30|30|30|30|
 |Maks. eş zamanlı çalışan (istek)|1400|1600|1800|2000|3200|4800|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
-|Çoğaltma sayısı|1|1.|1.|1.|1.|1|
+|Çoğaltma sayısı|1|1\.|1\.|1\.|1\.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
@@ -99,7 +99,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Günlük oran sınırları (MBps)|3.75|7.5|11.25|15|18.75|22.5|26.25|
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|1400|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
-|Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|
+|Çoğaltma sayısı|1|1\.|1\.|1\.|1\.|1\.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
@@ -122,7 +122,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Günlük oran sınırları (MBps)|30|30|30|30|30|30|30|
 |Maks. eş zamanlı çalışan (istek)|1600|1800|2000|2400|3200|4000|8000|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
-|Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|
+|Çoğaltma sayısı|1|1\.|1\.|1\.|1\.|1\.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
@@ -131,7 +131,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 
 [Sunucusuz bilgi işlem katmanı](sql-database-serverless.md) Önizleme aşamasındadır ve yalnızca sanal çekirdek satın kullanarak tek veritabanı modeli aranır.
 
-#### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+#### <a name="generation-5-compute-platform"></a>5\. nesil işlem platformu
 
 |İşlem boyutu|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
 |:--- | --: |--: |--: |
@@ -146,11 +146,11 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |TempDB boyutu (GB)|32|64|128|
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
-|Hedef IOPS (64 KB)|250|500|1000|
+|Hedef IOPS (64 KB)|500|1000|2000|
 |Günlük oran sınırları (MBps)|2,5|5.6|10|
 |Maks. eş zamanlı çalışan (istek)|75|150|300|
 |İzin verilen maks. oturumları|30000|30000|30000|
-|Çoğaltma sayısı|1|1.|1|
+|Çoğaltma sayısı|1|1\.|1|
 |Çok AZ|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
@@ -255,7 +255,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 
 ## <a name="hyperscale-service-tier"></a>Hiper ölçekli hizmet katmanı
 
-### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+### <a name="generation-5-compute-platform"></a>5\. nesil işlem platformu
 
 |Performans düzeyi|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
@@ -265,7 +265,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Bellek içi OLTP depolama alanı (GB)|Yok|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |En yüksek veri boyutu (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
-|Maksimum günlük boyutu (TB)|1 |1. |1. |1. |1. |1. |1. |1 |
+|Maksimum günlük boyutu (TB)|1 |1\. |1\. |1\. |1\. |1\. |1\. |1 |
 |TempDB boyutu (GB)|64|128|256|384|384|384|384|384|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |Hedef IOPS (64 KB)|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|

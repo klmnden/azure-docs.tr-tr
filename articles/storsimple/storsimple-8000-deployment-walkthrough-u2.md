@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a4f9d9a7fe368ec4ffaceff80ce42d42a318c68d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61489107"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Şirket içi StorSimple cihazınızı (Güncelleştirme 3 ve üzeri) dağıtma
@@ -93,7 +93,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 ## <a name="step-by-step-deployment"></a>Adım adım dağıtım
 StorSimple cihazınızı veri merkezinde dağıtmak için aşağıdaki adım adım yönergeleri kullanın.
 
-## <a name="step-1-create-a-new-service"></a>1. Adım: Yeni hizmet oluşturma
+## <a name="step-1-create-a-new-service"></a>1\. adım: Yeni hizmet oluşturma
 Bir StorSimple Cihaz Yöneticisi hizmeti birden çok StorSimple cihazını yönetebilir. StorSimple Cihaz Yöneticisi hizmetinin bir örneğini oluşturmak için aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
@@ -105,19 +105,19 @@ Bir StorSimple Cihaz Yöneticisi hizmeti birden çok StorSimple cihazını yöne
 > * Bir depolama hesabı otomatik olarak oluşturulmasını etkinleştirdiyseniz, Git [2. adım: Hizmet kayıt anahtarı alma](#step-2-get-the-service-registration-key).
 
 
-## <a name="step-2-get-the-service-registration-key"></a>2. Adım: Hizmet kayıt anahtarı alma
+## <a name="step-2-get-the-service-registration-key"></a>2\. adım: Hizmet kayıt anahtarı alma
 StorSimple Cihaz Yöneticisi hizmeti çalışır duruma geldikten sonra, hizmet kayıt anahtarını almanız gerekir. Bu anahtar StorSimple cihazınızı kaydetmek ve hizmete bağlamak için kullanılır.
 
 Azure portalında aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
-## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>3. Adım: Yapılandırma ve StorSimple için Windows PowerShell üzerinden cihazı kaydetme
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>3\. adım: Yapılandırma ve StorSimple için Windows PowerShell üzerinden cihazı kaydetme
 Aşağıdaki yordamda açıklandığı gibi StorSimple cihazınızın ilk kurulumu tamamlamak üzere StorSimple için Windows PowerShell kullanın. Bu adımı tamamlamak için bir terminal öykünme yazılımı kullanmanız gerekir. Daha fazla bilgi için bkz. [Cihaz seri konsoluna bağlanmak için PuTTY kullanma](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-8000-configure-and-register-device-u2](../../includes/storsimple-8000-configure-and-register-device-u2.md)]
 
-## <a name="step-4-complete-minimum-device-setup"></a>4. Adım: Minimum cihaz kurulumunu tamamlayın
+## <a name="step-4-complete-minimum-device-setup"></a>4\. Adım: Minimum cihaz kurulumunu tamamlayın
 StorSimple cihazınız için en düşük cihaz yapılandırması için aşağıdakileri yapmanız gerekir: 
 
 * Cihazınız için kolay bir ad sağlayın.
@@ -130,14 +130,14 @@ En düşük cihaz kurulumunu tamamlamak için Azure portalında aşağıdaki ad�
 
 Minimum cihaz ayarını tamamladıktan sonra [en son güncelleştirmeleri taramak ve uygulamak](#scan-for-and-apply-updates) önerilir.
 
-## <a name="step-5-create-a-volume-container"></a>5. Adım: Birim kapsayıcısı oluşturun
+## <a name="step-5-create-a-volume-container"></a>5\. Adım: Birim kapsayıcısı oluşturun
 Birim kapsayıcısı, kapsadığı tüm birimler için depolama hesabı, bant genişliği ve şifreleme ayarlarını içerir. StorSimple cihazınızda birimleri sağlamaya başlamadan önce bir birim kapsayıcısı oluşturmanız gerekir.
 
 Birim kapsayıcısı oluşturmak için Azure portalında aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [storsimple-8000-create-volume-container](../../includes/storsimple-8000-create-volume-container.md)]
 
-## <a name="step-6-create-a-volume"></a>6. Adım: Birim oluşturun
+## <a name="step-6-create-a-volume"></a>6\. Adım: Birim oluşturun
 Bir birim kapsayıcısı oluşturduktan sonra, sunucularınız için StorSimple cihazında bir depolama birimi sağlayabilirsiniz. Birim oluşturmak için Azure portalında aşağıdaki adımları gerçekleştirin.
 
 > [!IMPORTANT]
@@ -146,7 +146,7 @@ Bir birim kapsayıcısı oluşturduktan sonra, sunucularınız için StorSimple 
 
 [!INCLUDE [storsimple-8000-create-volume](../../includes/storsimple-8000-create-volume-u2.md)]
 
-## <a name="step-7-mount-initialize-and-format-a-volume"></a>7. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin
+## <a name="step-7-mount-initialize-and-format-a-volume"></a>7\. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin
 Aşağıdaki adımlar, Windows Server konağınızda gerçekleştirilir.
 
 > [!IMPORTANT]
@@ -158,7 +158,7 @@ MPIO yapılandırmamaya karar verirseniz, bir Windows Server konağında StorSim
 
 [!INCLUDE [storsimple-8000-mount-initialize-format-volume](../../includes/storsimple-8000-mount-initialize-format-volume.md)]
 
-## <a name="step-8-take-a-backup"></a>8. adım: Yedekleyin
+## <a name="step-8-take-a-backup"></a>8\. adım: Yedekleyin
 Yedeklemeler, birimlerin zaman noktası korumasını sağlar ve geri yükleme sürelerini azaltırken kurtarılabilirliği iyileştirir. StorSimple cihazınızda iki tür yedekleme oluşturabilirsiniz: yerel anlık görüntüler ve bulut anlık görüntüleri. Bu yedekleme türlerinin her biri **Zamanlanmış** veya **El ile** olabilir.
 
 Zamanlanmış yedekleme oluşturmak için Azure portalında aşağıdaki adımları gerçekleştirin.

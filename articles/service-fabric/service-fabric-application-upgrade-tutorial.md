@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615232"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Visual Studio kullanarak Service Fabric uygulaması yükseltme Öğreticisi
@@ -32,7 +32,7 @@ ms.locfileid: "60615232"
 
 Azure Service Fabric yalnızca değiştirilen Hizmetleri yükseltilir ve yükseltme işlemi uygulama sağlığı izlenip izlenmediğini sağlayarak bulut uygulamalarını yükseltme işlemini basitleştirir. Bu da otomatik olarak geri uygulamayı sorunları karşılaşıldığında önceki sürüme yapar. Service Fabric uygulama yükseltmeleri *sıfır kapalı kalma süresi*, bu yana kesinti yaşamadan uygulama yükseltilebilir. Bu öğretici, Visual Studio'dan bir sıralı yükseltmesinin nasıl tamamlanacağı konusunda kapsar.
 
-## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>1. Adım: Derleme ve görsel nesneler örnek yayımlama
+## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>1\. adım: Derleme ve görsel nesneler örnek yayımlama
 İlk olarak, indirme [görsel nesneler](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) github'dan uygulama. Sonra derleme ve uygulamayı uygulama projesine sağ tıklayarak Yayımla **VisualObjects**, seçerek **Yayımla** Service Fabric menü öğesi komutu.
 
 ![Service Fabric uygulaması için bağlam menüsü][image1]
@@ -43,10 +43,10 @@ Seçme **Yayımla** bir açılır pencere taşır ve ayarlayabileceğiniz **hede
 
 Tıklayabilirsiniz artık **Yayımla** iletişim kutusunda. Kullanabileceğiniz [Service Fabric Explorer'ı, küme ve uygulamayı görüntülemek için](service-fabric-visualizing-your-cluster.md). Görsel nesneler uygulama yazarak gidebilirsiniz bir web hizmeti sahip [ http://localhost:8081/visualobjects/ ](http://localhost:8081/visualobjects/) tarayıcınızın adres çubuğuna.  Ekranda taşınması, 10, kayan görsel nesneler görmeniz gerekir.
 
-**NOT:** Dağıtma, `Cloud.xml` profili (Azure Service Fabric), uygulama daha sonra kullanılabilir olmalıdır **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/**. Sahip olduğunuzdan emin olun `8081/TCP` yük dengeleyicide (Service Fabric örnekle aynı kaynak grubunu yük Dengeleyicide Bul) yapılandırılmış.
+**NOT:** Dağıtma, `Cloud.xml` profili (Azure Service Fabric), uygulama daha sonra kullanılabilir olmalıdır **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/** . Sahip olduğunuzdan emin olun `8081/TCP` yük dengeleyicide (Service Fabric örnekle aynı kaynak grubunu yük Dengeleyicide Bul) yapılandırılmış.
 
-## <a name="step-2-update-the-visual-objects-sample"></a>2. Adım: Görsel nesneler örnek güncelleştirme
-1. adımda dağıtılmış sürümle görsel nesneler değil döndürme fark edebilirsiniz. Şimdi bir görsel nesneler burada döndürmek için bu uygulamayı yükseltin.
+## <a name="step-2-update-the-visual-objects-sample"></a>2\. adım: Görsel nesneler örnek güncelleştirme
+1\. adımda dağıtılmış sürümle görsel nesneler değil döndürme fark edebilirsiniz. Şimdi bir görsel nesneler burada döndürmek için bu uygulamayı yükseltin.
 
 VisualObjects çözüm VisualObjects.ActorService projeyi seçin ve açın **VisualObjectActor.cs** dosya. Bu dosyanın içindeki yöntemine gidin `MoveObject`, açıklama `visualObject.Move(false)`ve açıklama durumundan çıkarın `visualObject.Move(true)`. Hizmet yükseltildikten sonra bu kod değişikliği nesnesini döndürür.  **(Değil, yeniden derleme) çözümü oluşturabilirsiniz artık**, değiştirilen projeleri oluşturur. Seçerseniz *tümünü yeniden derle*, tüm projeler için sürümüne sahip.
 
@@ -62,7 +62,7 @@ Visual Studio Araçları seçerek temel sürümleri otomatik toplamaları yapabi
 
 Değişiklikleri kaydetmek ve şimdi denetle **uygulamayı Yükselt** kutusu.
 
-## <a name="step-3--upgrade-your-application"></a>3. Adım:  Uygulamanızı yükseltme
+## <a name="step-3--upgrade-your-application"></a>3\. adım:  Uygulamanızı yükseltme
 İle kendinizi alıştırın [uygulama yükseltme parametreleri](service-fabric-application-upgrade-parameters.md) ve [yükseltme işlemi](service-fabric-application-upgrade.md) çeşitli yükseltme parametreleri, zaman aşımları ve olabilir sistem durumu ölçütü iyi bir anlayış edinmek için uygulanır. Bu kılavuz için hizmet sistem durumu değerlendirme ölçütü (izlenmeyen modu) varsayılan olarak ayarlanır. Seçerek bu ayarları yapılandırabilirsiniz **yükseltme ayarlarını yapılandırma** ve ardından istediğiniz gibi parametreleri değiştirme.
 
 Seçerek uygulama yükseltme işlemini başlatmak için tüm küme duyuyoruz artık **Yayımla**. Bu seçenek, sürüm 2.0.0, hangi nesneleri döndürme uygulamanıza yükseltir. Service Fabric (bazı nesneler ilk olarak, başkaları tarafından izlenen güncelleştirilir) bir anda bir güncelleştirme etki alanı yükseltir ve yükseltme sırasında hizmet erişilebilir kalır. Hizmete erişimi istemci (tarayıcı) denetlenebilir.  

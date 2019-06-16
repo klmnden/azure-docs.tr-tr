@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 037996385f34c5037e0386686e3bdf8dc1b7a37a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d25efa8c666fa91c7bd652a7cf931ea6ca379aa2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133173"
 ---
-Bölgesel olarak yedekli depolama (ZRS), verilerinizi tek bir bölgede üç depolama kümeleri arasında eşzamanlı olarak çoğaltır. Her Depolama kümesi diğerlerinden fiziksel olarak ayrılır ve kendi kullanılabilirlik bölgesinde (AZ) bulunur. Her kullanılabilirlik alanı&mdash;ve ZRS küme içindeki&mdash;otonom ve ayrı bir yardımcı programları ve ağ özellikleri içerir.
+Bölgesel olarak yedekli depolama (ZRS), verilerinizi tek bir bölgede üç depolama kümeleri arasında eşzamanlı olarak çoğaltır. Her Depolama kümesi diğerlerinden fiziksel olarak ayrılır ve kendi kullanılabilirlik bölgesinde (AZ) bulunur. Her kullanılabilirlik alanı&mdash;ve ZRS küme içindeki&mdash;otonom ve ayrı bir yardımcı programları ve ağ özellikleri içerir. Yalnızca tüm çoğaltmalar için üç kümeleri arasında verileri yazıldıktan sonra bir ZRS depolama hesabına yazma isteği başarıyla döndürür.
 
 ZRS çoğaltmalı kullanarak bir depolama hesabında verilerinizin depoladığınızda, erişmek ve bir kullanılabilirlik alanı kullanılamaz duruma gelirse, verilerinizi yönetmek devam edebilirsiniz. ZRS, üstün performans ve düşük gecikme sağlar. ZRS sunar aynı [ölçeklenebilirlik hedefleri](../articles/storage/common/storage-scalability-targets.md) olarak [yerel olarak yedekli depolama (LRS)](../articles/storage/common/storage-redundancy-lrs.md).
 

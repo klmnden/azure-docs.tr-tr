@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 04/17/2019
-ms.openlocfilehash: ec9f5aa8163ea9bb838b1a95ab8ad49233a72643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: a88842802759a5c3ae7af7334bbe125344c978ea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392662"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066912"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 
@@ -62,7 +62,7 @@ Varsayılan olarak, küme düğümlerinin premium kullanılabilirlik modeli içi
 Bölge yedekli veritabanları, aralarındaki bazı uzaklığı ile farklı veri merkezlerinde çoğaltmaları olduğundan, artan ağ gecikme süresi işleme süresini artırabilir ve böylece bazı OLTP iş yüklerinin performansını etkileyebilir. Her zaman dilimi yedeklilik devre dışı bırakarak tek bölgeli yapılandırmaya geri dönebilirsiniz. Çevrimiçi bir işlem normal bir hizmet katmanı yükseltme benzer işlemidir. İşlemin sonunda, veritabanı veya havuz bir bölge yedekli halka dışında bir tek bir bölge halkası ya da tam tersi geçirilir.
 
 > [!IMPORTANT]
-> Bölge yedekli veritabanları ve elastik havuzlar şu anda yalnızca Premium ve iş açısından kritik hizmet katmanlarında desteklenir. Varsayılan, yedeklemeleri ve denetim kayıtları, RA-GRS depolama alanında depolanır ve bu nedenle bir bölge çapında kesinti olması durumunda otomatik olarak kullanılabilir olmayabilir. 
+> Bölge yedekli veritabanları ve elastik havuzlar şu anda yalnızca bölgelerde Premium ve iş açısından kritik hizmet katmanlarında desteklenir. 5\. nesil işlem donanım seçildiğinde iş açısından kritik katmanında kullanırken, bölge yedekli yapılandırması yalnızca kullanılabilir. Bölge yedekli veritabanları destekleyen bölgeler hakkında güncel bilgi için bkz: [bölgeye göre Destek Hizmetleri](../availability-zones/az-overview.md#services-support-by-region).  
 
 Bölge yedekli sürümü, yüksek kullanılabilirlik mimarisi ile Aşağıdaki diyagramda gösterilmiştir:
 

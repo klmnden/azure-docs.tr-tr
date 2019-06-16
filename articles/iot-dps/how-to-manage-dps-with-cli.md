@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 59d2277bd99fac1e8357c1b0d7336ca7451bf8dc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122884"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>IOT Hub cihazı sağlama hizmeti yönetmek için Azure CLI ve IOT uzantısını kullanma
@@ -29,7 +29,7 @@ Bu öğreticide, ilk Azure CLI ve IOT uzantısını ayarlama adımlarını tamam
 
 [Python 2.7x veya Python 3.x](https://www.python.org/downloads/) gereklidir.
 
-### <a name="step-2---install-the-azure-cli"></a>2. adım - Azure CLI yükleme
+### <a name="step-2---install-the-azure-cli"></a>2\. adım - Azure CLI yükleme
 
 İzleyin [yükleme yönergelerini](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ortamınızda Azure CLI'yı ayarlamak için. En az 2.0.24 Azure CLI sürümünüzü olmalıdır veya üzeri. Doğrulamak için `az –version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. Windows’a yüklemenin kolay bir yolu, [MSI](https://aka.ms/InstallAzureCliWindows) indirip yüklemektir.
 

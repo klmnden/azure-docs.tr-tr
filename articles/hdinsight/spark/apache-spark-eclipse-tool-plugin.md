@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 1ae585322316a9c215fc32cc2f8ffba2f332ff61
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cd5839520a5b85f31cbe677ad6691a3d6bacd0b0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066257"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Eclipse için Azure Araç Seti'ni kullanma
 
@@ -191,7 +191,7 @@ Ambari yönetilen kullanıcı adı kullanarak, normal bir küme bağlayabilirsin
 1. Spark geçmiş sunucusu Panoda, uygulama adı uygulamanın yalnızca çalışması sona aramak için kullanın. Önceki kodda, uygulama adı kullanarak ayarladığınız `val conf = new SparkConf().setAppName("MyClusterApp")`. Bu nedenle, Spark uygulamanızın adı olan **MyClusterApp**.
 
 ### <a name="start-the-apache-ambari-portal"></a>Apache Ambari portalını başlatma
-1. Azure Gezgini Spark küme adınızı sağ tıklayın ve ardından **açık küme yönetim portalı (Ambari)**. 
+1. Azure Gezgini Spark küme adınızı sağ tıklayın ve ardından **açık küme yönetim portalı (Ambari)** . 
 1. İstendiğinde, küme için yönetici kimlik bilgilerini girin. Bu küme hazırlama sırasında belirttiğiniz.
 
 ### <a name="manage-azure-subscriptions"></a>Azure aboneliklerini yönetme
@@ -212,7 +212,7 @@ Bu hatayı çözmek için gerekli [yürütülebilir dosyayı indir](https://publ
 1. Eclipse'i başlatın ve bir proje oluşturun. İçinde **yeni proje** iletişim kutusunda, aşağıdaki seçimleri yapın ve ardından **sonraki**.
    
    * Sol bölmede **HDInsight**’ı seçin.
-   * Sağ bölmede seçin **Spark HDInsight yerel çalıştırma örneği (Scala)**.
+   * Sağ bölmede seçin **Spark HDInsight yerel çalıştırma örneği (Scala)** .
 
    ![Yeni Proje iletişim kutusu](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
    
@@ -226,6 +226,60 @@ Bu hatayı çözmek için gerekli [yürütülebilir dosyayı indir](https://publ
    
    ![Spark uygulaması yerel çalıştırma sonucu](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
+## <a name="reader-only-role"></a>Salt okuyucu rolü
+Kullanıcıların gönderme salt okuyucu rolü izni olan bir küme için iş, Ambari kimlik bilgileri gereklidir.
+
+### <a name="link-cluster-from-context-menu"></a>Bağlam menüsünden bağlantı kümesi
+
+1. Salt okuyucu rolü hesabıyla oturum açın.
+       
+2. Gelen **Azure Gezgini**, genişletme **HDInsight** aboneliğinizde HDInsight kümelerinin görüntülemek için. Kümeler işaretlenmiş **"Rol: okuyucu"** yalnızca salt okuyucu rolü izni vardır.
+
+    ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
+
+3. Sağ salt okuyucu rolü izni ile kümeye tıklayın. Seçin **bu kümeye bağlantı** bağlamak için bağlam menüsünden küme. Ambari kullanıcı adı ve parola girin.
+
+    ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
+
+4. HDInsight kümesi başarıyla bağlıysa, yenilenir.
+   Aşama kümenin bağlı olur.
+  
+    ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
+
+
+
+### <a name="link-cluster-by-expanding-jobs-node"></a>İşleri düğümünü genişleterek bağlantı kümesi
+
+1. Tıklayın **işleri** düğümünün **küme iş erişim reddedildi.** penceresi açılır.
+   
+2. Tıklayın **bu kümeye bağlantı** kümesini bağlamak için.
+   
+    ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
+
+### <a name="link-cluster-from-spark-submission-window"></a>Spark gönderimi penceresinden bağlantı kümesi
+
+1. Bir HDInsight projesi oluşturun.
+
+2. Sağ paket tıklayın. Ardından **gönderin, HDInsight için Spark uygulaması**.
+   
+   ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
+
+3. Salt okuyucu rolü izni olan bir küme seçmeniz için **küme adı**. Çıkış, uyarı iletisi gösterilir. Tıklayabilirsiniz **bu kümeye bağlantı** kümesini bağlamak için.
+   
+   ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
+   
+### <a name="view-storage-accounts"></a>Görünüm depolama hesapları
+
+* Salt okuyucu rolü izni olan kümeler için tıklatın **depolama hesapları** düğümünün **depolama erişim reddedildi** penceresi açılır. 
+     
+   ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
+
+   ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
+
+* Bağlı kümeler için tıklatın **depolama hesapları** düğümünün **depolama erişim reddedildi** penceresi açılır. 
+     
+   ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
+
 ## <a name="known-problems"></a>Bilinen sorunlar
 Ne zaman bir küme bağlantı, ben depolama kimlik bilgileri vermenizi Öner.
 
@@ -236,9 +290,6 @@ Ne zaman bir küme bağlantı, ben depolama kimlik bilgileri vermenizi Öner.
 ![Eclipse alma hatası ne zaman meşgul küme](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
 
 ![Eclipse alma hatası ne zaman meşgul küme](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
-
-## <a name="feedback"></a>Geri Bildirim
-Bir Geri bildiriminiz varsa veya bu aracı kullanırken diğer herhangi bir sorunla karşılaşırsanız, bize bir e-postası gönderin hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Ayrıca bkz.
 * [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
@@ -257,7 +308,6 @@ Bir Geri bildiriminiz varsa veya bu aracı kullanırken diğer herhangi bir soru
 * [Oluşturmak ve Spark Scala uygulamaları göndermek amacıyla Intellij için Azure Araç Seti'ni kullanma](apache-spark-intellij-tool-plugin.md)
 * [Apache Spark uygulamalar VPN üzerinden uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Apache Spark uygulamalarında SSH üzerinden uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](../hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Hortonworks korumalı alanı ile Intellij için HDInsight araçları kullanma](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
 * [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)

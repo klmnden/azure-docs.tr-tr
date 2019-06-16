@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: efde1f1dafc62576398c5225ad1c652438fc0c31
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904111"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094494"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Öğretici: Periscope veri ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de Periscope veri tümleştirmesini yapılandırmak için Periscope ver
 
 **Galeriden Periscope veri eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -140,7 +140,7 @@ Azure AD çoklu oturum açma Periscope verilerle yapılandırmak için aşağıd
 
     f. XML dosyasının ilk Etiket Bul, değerini kopyalayın **Entityıd** yapıştırın **veren** metin.
 
-    g. Etiket Bul **IDPSSODescriptor** SAML protokolü. Bu bölümde Etiket Bul **KeyDescriptor** ile **kullanın imzalama =**. değerini kopyalayın **X509Certificate** yapıştırın **sertifika** metin.
+    g. Etiket Bul **IDPSSODescriptor** SAML protokolü. Bu bölümde Etiket Bul **KeyDescriptor** ile **kullanın imzalama =** . değerini kopyalayın **X509Certificate** yapıştırın **sertifika** metin.
 
     h. Siteleri ile birden fazla alanı varsayılan alan seçebilirsiniz **varsayılan alanı** açılır. Bu yeni kullanıcı eklendi Periscope verileri ilk kez oturum açın ve Active Directory çoklu oturum açma sağlanan alanı olacaktır.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 003666d5bb3c309e501bcf76a15beb47340f9150
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d3b304bb35ea69906fc9576f45733134387be1b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708741"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099508"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Öğretici: JIRA SAML SSO tarafından Microsoft (V5.2) ile Azure Active Directory Tümleştirme
 
@@ -80,7 +80,7 @@ Azure AD'de JIRA SAML SSO tarafından Microsoft (V5.2) tümleştirmesini yapıla
 
 **Galeriden JIRA SAML SSO tarafından Microsoft (V5.2) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -224,11 +224,11 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümde, JIRA SAML SSO tarafından Microsoft (V5.2) için erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **JIRA SAML SSO tarafından Microsoft (V5.2)**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **JIRA SAML SSO tarafından Microsoft (V5.2)** .
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **JIRA SAML SSO tarafından Microsoft (V5.2)**.
+2. Uygulamalar listesinde **JIRA SAML SSO tarafından Microsoft (V5.2)** .
 
     ![Uygulamalar listesinde Microsoft (V5.2) bağlantısıyla JIRA SAML SSO](common/all-applications.png)
 

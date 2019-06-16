@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79741d9ec71dd7735ef94ef8172921965a9e9df1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ce73db9f177c9aa9915e9c0d6d13f9e00893d5b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863788"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Öğretici: Ceridian Dayforce HCM ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Ceridian Dayforce HCM tümleştirmesini yapılandırmak için Ceridi
 
 **Galeriden Ceridian Dayforce HCM eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -107,21 +107,21 @@ Azure AD çoklu oturum açma Ceridian Dayforce HCM ile yapılandırmak için aş
 
     a. İçinde **işareti bulunan URL'si** metin kutusu, türü URL kullanıcılarınız oturum açmaya Ceridian Dayforce HCM uygulamanıza tarafından kullanılıyor.
 
-    | Ortam | URL |
+    | Ortam | URL'si |
     | :-- | :-- |
     | Üretim için | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
     | Test için | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
 
-    | Ortam | URL |
+    | Ortam | URL'si |
     | :-- | :-- |
     | Üretim için | `https://ncpingfederate.dayforcehcm.com/sp` |
     | Test için | `https://fs-test.dayforcehcm.com/sp` |
 
     c. İçinde **yanıt URL'si** metin kutusu, türü URL kullanılan Azure AD tarafından yanıta gönderilecek.
 
-    | Ortam | URL |
+    | Ortam | URL'si |
     | :-- | :-- |
     | Üretim için | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
     | Test için | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |

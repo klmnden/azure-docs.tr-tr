@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 51db52d5a5bfef6ef5a34fa9a0877516d5786236
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e18c5dfe3649f74a9f84c605785ca99748298bea
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143181"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086129"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Öğretici: ZIVVER ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de ZIVVER tümleştirmesini yapılandırmak için ZIVVER Galeriden yön
 
 **Galeriden ZIVVER eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -113,7 +113,7 @@ Azure AD çoklu oturum açma ile ZIVVER yapılandırmak için aşağıdaki adım
 
 6. Yukarıdaki için ayrıca ZIVVER uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
-    | Ad | Ad alanı | Kaynak özniteliği|
+    | Ad | Ad Alanı | Kaynak özniteliği|
     | ---------------| --------------- |
     | ZivverAccountKey | https:\//zivver.com/SAML/Attributes | User.objectid |
 

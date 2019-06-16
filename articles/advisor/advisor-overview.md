@@ -10,18 +10,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ccac3bf9a882dc021c6c969946ad9d439a7cf5d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467995"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069696"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Danışmanı giriş
 
 Azure Danışmanı özellikleri hakkında bilgi edinin ve sık sorulan soruların yanıtlarını alın.
 
-## <a name="what-is-advisor"></a>Danışman nedir?
+## <a name="what-is-advisor"></a>Advisor nedir?
 Advisor, Azure dağıtımlarınızın iyileştirilmesine yönelik en iyi uygulamaları izlemenize yardımcı olan kişiselleştirilmiş bir bulut danışmanıdır. Danışman, kaynak yapılandırmanızı ve kullanım telemetrinizi analiz ederek Azure kaynaklarınızın maliyet verimliliğini, performansını, yüksek kullanılabilirliğini ve güvenliğini geliştirmenize yardımcı olabilecek çözümler önerir.
 
 Danışman ile şunları yapabilirsiniz:
@@ -61,7 +61,9 @@ Danışman önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *oku
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Hangi kaynakların Advisor için öneriler sağlar mı?
 
-Advisor, Redis için sanal makineler, kullanılabilirlik kümeleri, uygulama ağ geçitleri, uygulama hizmetleri, SQL Server ve Azure Cache için öneriler sağlar.
+Advisor, Application Gateway, uygulama hizmetleri için öneriler sağlar kullanılabilirlik kümeleri, Azure önbellek, Azure Data Factory, MySQL, PostgreSQL, MariaDB, Azure ExpressRoute, Azure Cosmos DB için Azure veritabanı için Azure veritabanı için Azure veritabanı Azure genel IP adresleri, SQL veri ambarı, SQL Server, depolama hesapları, Traffic Manager profillerini ve sanal makineler.
+
+Azure Danışmanı'nı da içerir, önerileri [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-recommendations) öneriler için ek kaynak türleri içerebilir.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Erteleme veya miyim bir öneri Kapat?
 

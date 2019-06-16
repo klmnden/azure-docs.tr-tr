@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 0b158a1d713e0de8f3d1b2672aed442fce66e724
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65917168"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077370"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için görsel arabirim nedir? 
 
@@ -27,12 +27,12 @@ Görsel bir arabirim kullanır, Azure Machine Learning hizmeti [çalışma](conc
 + Yapıtları yazma [deneme](#experiment) çalışma alanı içinde çalışır.
 + Erişim [veri kümeleri](#dataset).
 + Kullanım [işlem kaynaklarını](#compute) çalışma denemeyi çalıştırın. 
-+ Kayıt [modelleri](concept-azure-machine-learning-architecture.md#model).
++ Kayıt [modelleri](concept-azure-machine-learning-architecture.md#models).
 + [Dağıtma](#deployment) modeller web Hizmetleri işlem çalışma alanındaki kaynakları olarak.
 
 ![Görsel arabirim genel bakış](media/ui-concept-visual-interface/overview.png)
 
-## <a name="workflow"></a>İş Akışı
+## <a name="workflow"></a>İş akışı
 
 Görsel arabirim hızlıca oluşturun, test ve model üzerinde yinelemek için etkileşimli ve görsel bir tuval sunar. 
 

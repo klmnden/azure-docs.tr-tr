@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: e1583ccf04b68f81a71bd2f63779680427ce3362
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730693"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068777"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -33,7 +33,7 @@ Azure Disk şifrelemesi ile VM disklerini şifrelemek için bir ücret yoktur, a
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Hangi sanal makine katmanları Azure Disk şifrelemesi destekliyor mu?
 
-Azure Disk şifrelemesi dahil olmak üzere standart katman sanal makinelerinde kullanılabilir [A, D, DS, G, GS ve F](https://azure.microsoft.com/pricing/details/virtual-machines/) serisi Iaas VM'ler. Premium depolama ile sanal makineler için kullanılabilir. Temel katmanı Vm'lerini kullanılamaz.
+Azure Disk şifrelemesi dahil olmak üzere standart katman sanal makinelerinde kullanılabilir [A, D, DS, E, G veya GS ve F](https://azure.microsoft.com/pricing/details/virtual-machines/) serisi Iaas VM'ler. Premium depolama ile sanal makineler için kullanılabilir. Temel katmanı Vm'lerini kullanılamaz.
 
 ## <a name="bkmk_LinuxOSSupport"></a> Hangi Linux dağıtımı, Azure Disk şifrelemesi destekliyor mu?
 
@@ -121,7 +121,9 @@ Evet. Disk şifrelemesi kullanarak bir Azure AD uygulamasını hala desteklenmek
 Azure Disk şifrelemesini yapılandırmak için en son Azure PowerShell SDK'sı sürümünü kullanın. En son sürümünü indirin [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk şifrelemesi *değil* Azure SDK sürüm 1.1.0 tarafından desteklenir.
 
 > [!NOTE]
-> Linux Azure disk şifrelemesi Önizleme uzantısı kullanım dışı bırakılmıştır. Ayrıntılar için bkz [kullanımdan Azure disk şifrelemesi Önizleme uzantısı Linux Iaas Vm'leri için](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/).
+> Linux Azure disk şifrelemesi Önizleme uzantısı "Microsoft.OSTCExtension.AzureDiskEncryptionForLinux" kullanım dışı bırakılmıştır. Bu uzantı, Azure disk şifrelemesi Önizleme sürümü için yayımlanmıştır. Uzantı önizleme sürümünü test veya üretim dağıtımınızda kullanmamalısınız.
+
+> Dağıtım senaryoları gibi Azure Kaynak Yöneticisi'ni (Linux Iaas VM'nizi şifrelemesini etkinleştirmek Linux VM için Azure disk şifrelemesi uzantısını dağıtmak için ihtiyaç sahip olduğu, ARM), Azure disk şifrelemesi desteklenen üretim uzantısını kullanmanız gerekir" Microsoft.Azure.Security.AzureDiskEncryptionForLinux".
 
 ## <a name="can-i-apply-azure-disk-encryption-on-my-custom-linux-image"></a>Azure Disk şifrelemesi my özel bir Linux görüntüsü üzerinde uygulayabilir miyim?
 

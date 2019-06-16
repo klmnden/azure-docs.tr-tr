@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790751"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Konak yük dengeli Azure web apps bölgenin tepesindeki
@@ -43,7 +43,7 @@ Bu makalede kullanılan tüm kaynakları tutmak için bir kaynak grubu oluşturu
 Yapılandırma bilgileri için aşağıdaki tabloyu kullanarak kaynak grubunuzda iki Web App Service planı oluşturun. Bir App Service planı oluşturma hakkında daha fazla bilgi için bkz. [bir Azure App Service planında yönetme](../app-service/app-service-plan-manage.md).
 
 
-|Ad  |İşletim Sistemi  |Location  |Fiyatlandırma Katmanı  |
+|Ad  |İşletim sistemi  |Location  |Fiyatlandırma Katmanı  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|Doğu ABD|Geliştirme ve Test D1 paylaşılan|
 |ASP-02     |Windows|Orta ABD|Geliştirme ve Test D1 paylaşılan|
@@ -60,8 +60,8 @@ Bir App Service planı her iki web uygulaması oluşturun.
 
    |Ad<br>(içinde benzersiz olmalıdır. azurewebsites.net)|Kaynak Grubu |App Service planı/konumu
    |---------|---------|---------|
-   |App-01|Mevcut olanı kullan<br>Kaynak grubunuzu seçin|ASP 01(East US)|
-   |App-02|Mevcut olanı kullan<br>Kaynak grubunuzu seçin|ASP 02(Central US)|
+   |App-01|Var olanı kullan<br>Kaynak grubunuzu seçin|ASP 01(East US)|
+   |App-02|Var olanı kullan<br>Kaynak grubunuzu seçin|ASP 02(Central US)|
 
 ### <a name="gather-some-details"></a>Bazı ayrıntılar toplayın
 
@@ -84,13 +84,13 @@ Artık iki web uygulaması uç noktaları oluşturabilirsiniz.
 
 1. Kaynak grubunuzu açın ve Traffic Manager profilinize tıklayın.
 2. Sol sütunda tıklayın **uç noktaları**.
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 4. Uç noktaları yapılandırmak için aşağıdaki tabloyu kullanın:
 
-   |Tür  |Ad  |Hedef  |Location  |Özel Üstbilgi ayarları|
+   |Tür  |Ad  |Hedef  |Location  |Özel üst bilgi ayarları|
    |---------|---------|---------|---------|---------|
-   |Harici uç nokta     |Bitiş-01|App-01 için kayıtlı IP adresi|Doğu ABD|konak:\<uygulama-01 için kaydettiğiniz URL'si\><br>Örnek: **konak: uygulama-01.azurewebsites.net**|
-   |Harici uç nokta     |Bitiş-02|App-02 için kayıtlı IP adresi|Orta ABD|konak:\<uygulama-02 kaydettiğiniz URL'si\><br>Örnek: **konak: uygulama-02.azurewebsites.net**
+   |Dış uç noktası     |Bitiş-01|App-01 için kayıtlı IP adresi|Doğu ABD|konak:\<uygulama-01 için kaydettiğiniz URL'si\><br>Örnek: **konak: uygulama-01.azurewebsites.net**|
+   |Dış uç noktası     |Bitiş-02|App-02 için kayıtlı IP adresi|Orta ABD|konak:\<uygulama-02 kaydettiğiniz URL'si\><br>Örnek: **konak: uygulama-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>DNS bölgesi oluşturma
 
@@ -104,9 +104,9 @@ DNS bölgenizi hazır olduğunda bir diğer ad kaydı için bölge tepesinde ekl
 2. **Kayıt kümesi**’ne tıklayın.
 3. Aşağıdaki tabloda kullanılarak ayarlanan kaydı ekleyin:
 
-   |Ad  |Tür  |Diğer kayıt kümesi  |Diğer ad türü  |Azure kaynağı|
+   |Ad  |Tür  |Diğer kayıt kümesi  |Diğer ad türü  |Azure kaynak|
    |---------|---------|---------|---------|-----|
-   |@     |A|Evet|Azure kaynağı|Traffic Manager - profilinizi|
+   |@     |A|Evet|Azure kaynak|Traffic Manager - profilinizi|
 
 ## <a name="add-custom-hostnames"></a>Özel ana bilgisayar adlarını ekleme
 

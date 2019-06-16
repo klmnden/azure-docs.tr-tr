@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/16/2019
-ms.openlocfilehash: 05961f8dd2788179a15e6bfe094484cf4770067b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: bfda8b83f1bedf11151ba89b58c95347aa35839a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052017"
 ---
 Kapsayıcıya sorguları için kullanılan bir Azure kaynak fiyatlandırma katmanını faturalandırılır `<ApiKey>`.
 
@@ -21,12 +21,12 @@ Kapsayıcıyı çalıştırmak için fatura bağımsız değişken değerlerini 
 
 ### <a name="billing-arguments"></a>Faturalandırma bağımsız değişkenleri
 
-Aşağıdaki seçeneklerden birini üçü için sırayla geçerli değerlerle belirtilmelidir `docker run` kapsayıcı başlatmak için komutu.
+İçin `docker run` kapsayıcı başlatmak için komut geçerli değerlerle şunlardan üçünü belirtilmesi gerekir:
 
 | Seçenek | Açıklama |
 |--------|-------------|
 | `ApiKey` | Fatura bilgileri izlemek için kullanılan Bilişsel hizmetler kaynağı API anahtarı.<br/>Bu seçeneğin değeri, belirtilen sağlanan kaynak için bir API anahtarı ayarlanmalıdır `Billing`. |
 | `Billing` | Bilişsel hizmetler kaynağın faturalandırma bilgileri izlemek için kullanılan uç nokta.<br/>Bu seçeneğin değeri, sağlanan bir Azure kaynak URI'sini uç noktasına ayarlamanız gerekir.|
-| `Eula` | Kapsayıcı lisansını kabul gösterir.<br/>Bu seçenek değeri ayarlanmalıdır `accept`. |
+| `Eula` | Kapsayıcı lisansını kabul gösterir.<br/>Bu seçenek değeri ayarlanmalıdır **kabul**. |
 
 

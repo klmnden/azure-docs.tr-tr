@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: raynew
 ms.openlocfilehash: 8419d7e7a91e4cbfd0eebfe00d35bf498cf5998c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129832"
 ---
 # <a name="customize-an-assessment"></a>Bir değerlendirmeyi özelleştirme
@@ -57,7 +57,7 @@ Bu özellikler yalnızca performans tabanlı boyutlandırma için geçerlidir. A
 - Alet, 20 saniyelik örnekler toparlar ve her 15 dakika için tek bir veri noktası oluşturur. Tek veri noktasını oluşturmak için alet tüm 20 saniyelik örneklerden en yüksek değerleri seçer ve Azure’a gönderir.
 - Azure’da bir değerlendirme oluşturduğunuzda, Azure Geçişi performans süresi ve performans geçmişi yüzdebirlik değerine bağlı olarak Azure Geçişi etkili kullanım değerini hesaplar ve boyutlandırma için bunu kullanır.
 
-Örneğin, performans süresini 1 gün ve yüzdebirlik değeri 95 yüzdebirlik olarak ayarlarsanız, Azure Geçişi toplayıcı tarafından gönderilen son bir günün 15 dakikalık örnek noktalarını kullanır, bunları artan biçimde sıralar ve etkili kullanım değeri olarak 95 yüzdebirliği seçer. 95. yüzdebirlik değeri, 99. yüzdebirliği seçtiğinizde gelebilecek aykırı değerleri görmezden gelmenizi sağlar. Dönemin en yüksek kullanımını seçmek ve aykırı değerleri kaçırmamak istiyorsanız 99. yüzdebirliği seçmelisiniz.
+Örneğin, performans süresini 1 gün ve yüzdebirlik değeri 95 yüzdebirlik olarak ayarlarsanız, Azure Geçişi toplayıcı tarafından gönderilen son bir günün 15 dakikalık örnek noktalarını kullanır, bunları artan biçimde sıralar ve etkili kullanım değeri olarak 95 yüzdebirliği seçer. 95\. yüzdebirlik değeri, 99. yüzdebirliği seçtiğinizde gelebilecek aykırı değerleri görmezden gelmenizi sağlar. Dönemin en yüksek kullanımını seçmek ve aykırı değerleri kaçırmamak istiyorsanız 99. yüzdebirliği seçmelisiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

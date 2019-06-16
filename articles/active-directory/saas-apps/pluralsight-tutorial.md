@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d184a1099b525fa5d819532cefa5dd6750e6c358
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869345"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094276"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Öğretici: Pluralsight ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Pluralsight tümleştirmesini yapılandırmak için Pluralsight Gale
 
 **Pluralsight galerideki eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -115,7 +115,7 @@ Pluralsight ile Azure AD çoklu oturum açmayı yapılandırmak için aşağıda
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. İlgili kişi [Pluralsight istemci Destek ekibine](mailto:support@pluralsight.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. Pluralsight uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
+5. Pluralsight uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
     ![Görüntü](common/edit-attribute.png)
 
     >[!NOTE]
@@ -127,7 +127,7 @@ Pluralsight ile Azure AD çoklu oturum açmayı yapılandırmak için aşağıda
     | --------------- | --------- |
     | Ad  | User.givenName  |
     | Soyadı  | User.surname  |
-    | E-posta  | User.Mail  |
+    | Email  | User.Mail  |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

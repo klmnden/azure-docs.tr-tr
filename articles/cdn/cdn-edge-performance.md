@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61070109"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Microsoft Azure CDN’de kenar düğümü performansını çözümleme
@@ -70,7 +70,7 @@ Panoyu doğrudan görünür zaman çizelgesi seçili süre içinde bir ölçüm 
 * Görünüm bir yıl grafik üzerine aynı süre boyunca önceki yılın etkinliğin bir katmana geçiş yapmak için önce tıklayın. Bu karşılaştırma türünü, uzun vadeli CDN kullanım biçimlerini hakkında Öngörüler sağlar. Grafiğin sağ üst köşede, her bir çizgi grafiği için renk kodu belirten bir gösterge içerir.
 
 #### <a name="updating-the-chart"></a>Grafik güncelleme
-* Zaman Aralığı: Aşağıdakilerden birini gerçekleştirin:
+* Zaman aralığı: Aşağıdakilerden birini gerçekleştirin:
   * Zaman çizelgesinde istediğiniz bölgeyi seçin. Grafik, seçilen zaman aralığı için karşılık gelen verilerle güncelleştirilir.
   * Grafik en çok iki yıl kullanılabilir tüm geçmiş verileri görüntülemek için çift tıklayın.
 * Ölçüm: İstenen ölçümün yanında görünen grafik simgesine tıklayın. Grafik ve zaman çizelgesi, karşılık gelen bir ölçüm için verilerle yenilenir.
@@ -134,7 +134,7 @@ Bu ölçümler amacı, HTTPS trafiği için CDN performansını izlemektir.
 | Güvenli isabet sayısı |CDN içeriğini HTTPS isteklerinin sayısını gösterir. |
 | Giden bayt güvenliğini sağlama |CDN'den (edge sunucuları) (örneğin, web tarayıcısı) istemciye teslim bayt cinsinden HTTPS trafiğini gösterir. |
 
-## <a name="reports"></a>Reports
+## <a name="reports"></a>Raporlar
 Bu modüldeki her rapor bir grafik ve bant genişliği ve trafiği kullanım ölçümleri farklı türleri için istatistikleri içeren (örneğin, HTTP durum kodları, önbellek durum kodları, istek URL'si, vb..). Bu bilgileri nasıl içerik istemcilerinize hizmet verilen içinde daha ayrıntılı inceleyin ve veri teslim performansını artırmak için CDN davranışı ince ayar yapmak için kullanılabilir.
 
 ### <a name="accessing-the-edge-performance-reports"></a>Edge performans raporları erişme
@@ -155,7 +155,7 @@ Bu modüldeki her rapor bir grafik ve bant genişliği ve trafiği kullanım öl
 | HTTP yöntemleri |HTTP yöntemleri verilerinizi istemek için kullanılan hızlı bir fikir edinmenizi sağlar. Genellikle, en yaygın HTTP isteği GET, HEAD ve sonrası yöntemlerdir. Halka grafik HTTP istek yöntemi her tür için oluştu isabet yüzdesini gösterir. |
 | URL'leri |İlk 10 istenen URL görüntüleyen bir grafik içerir. Her bir URL için bir çubuk görüntülenir. Belirli URL zaman aralığı üretti kaç isabet sayısı raporun kapsadığı çubuğu yüksekliğini belirtir. İlk 100 istatistiklerini URL'leri aşağıdaki doğrudan bu grafikte görüntülenen istedi. |
 | CNAME'ler |10 CNAME'ler varlıkları zamanla istemek için kullanılan bir rapor span üst görüntüleyen bir grafik içerir. İlk 100 istatistiklerini CNAME'ler aşağıdaki doğrudan bu grafikte görüntülenen istedi. |
-| Kaynaklar |En çok 10 CDN görüntüleyen bir grafik veya varlıklar belirtilen bir süredeki istenen müşteri kaynak sunucuları içerir. İlk 100 istatistikleri, CDN veya müşteri kaynak sunucusu aşağıdaki doğrudan bu grafikte görüntülenen istedi. Müşteri kaynak sunucuları, dizin adı seçeneği tanımlanan ad tarafından tanımlanır. |
+| Çıkış noktaları |En çok 10 CDN görüntüleyen bir grafik veya varlıklar belirtilen bir süredeki istenen müşteri kaynak sunucuları içerir. İlk 100 istatistikleri, CDN veya müşteri kaynak sunucusu aşağıdaki doğrudan bu grafikte görüntülenen istedi. Müşteri kaynak sunucuları, dizin adı seçeneği tanımlanan ad tarafından tanımlanır. |
 | Coğrafi POP'ları |Trafiğiniz ne kadarının yönlendirilmek bir belirli noktası bulunma (POP) gösterir. Üç harfli kısaltması bizim CDN ağındaki POP temsil eder. |
 | İstemciler |Belirtilen bir süredeki varlıklar istenen üst 10 istemciyi görüntüleyen bir grafik içerir. Bu raporun amacı doğrultusunda, aynı IP adresinden kaynaklanan tüm istekler aynı istemciden olarak değerlendirilir. En çok 100 istemciler için istatistikleri, doğrudan bu grafiğin altında görüntülenir. Bu rapor, üst istemcileriniz için indirme etkinliği desenlerini belirlemek için yararlıdır. |
 | Önbellek durumları |Genel son kullanıcı deneyimini iyileştirmeye yönelik yaklaşımları gösterebilir önbellek davranışının ayrıntılı bir dökümünü sağlar. En hızlı performansı Önbelleği İsabetli Okuma geldiğinden en aza İsabetsiz Önbellek okuma sayısı ve süresi dolmuş önbellek isabet veri teslim hızını en iyi duruma getirebilirsiniz. |

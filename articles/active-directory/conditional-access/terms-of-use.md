@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1abae0a454e17e8f633f68bc5853bfb4a4b24d14
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 0534613a9df3177290e9b4b57e9830fe62f9741a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383169"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112125"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory kullanım koşulları
 
@@ -125,13 +125,13 @@ Kullanım koşulları belgesi koşullarınıza son şeklini verdikten sonra bunu
    | **Koşullu erişim ilkesini sonra oluştur** | Bu kullanım koşulları, koşullu erişim ilkesi oluşturulurken denetim verme listesinde görünür. |
 
    >[!IMPORTANT]
-   >Koşullu erişim ilkesi denetimleri (kullanım koşulları dahil), hizmet hesaplarında uygulamayı desteklemez. Tüm hizmet hesaplarının koşullu erişim ilkesinden hariç tutulması önerilir.
+   >Koşullu erişim ilkesi denetimleri (kullanım koşulları dahil), hizmet hesaplarını zorlama desteklemez. Tüm hizmet hesaplarının koşullu erişim ilkesinden hariç tutulması önerilir.
 
     Ayrıntılı kullanım koşulları, belirli bulut uygulamaları veya kullanıcı grubu aşağı özel koşullu erişim ilkelerini etkinleştirin. Daha fazla bilgi için [hızlı başlangıç: Bulut uygulamaları erişmeden önce kabul edilmesi için kullanım koşullarını gerektiren](require-tou.md).
 
 1. **Oluştur**’a tıklayın.
 
-   Bir özel koşullu erişim şablonu seçtiyseniz, yeni bir ekran özel koşullu erişim ilkesi oluşturmak izin veren görüntülenir.
+   Bir özel koşullu erişim şablonu seçtiyseniz, yeni bir ekran özel koşullu erişim ilkesi oluşturma olanak tanıyan görüntülenir.
 
    ![Özel ilke](./media/terms-of-use/custom-policy.png)
 
@@ -307,7 +307,7 @@ Koşullu erişim ilkeleri hemen etkili olur. Bu durumda, yönetici "Üzgün Bulu
 > [!IMPORTANT]
 > Aşağıdaki durumlarda kapsam dahilindeki kullanıcıların yeni bir ilkeyi karşılamak için oturumu kapatıp yeniden oturum açmaları gerekir:
 >
-> - Kullanım koşullarında bir koşullu erişim ilkesi etkinleştirildiğinde
+> - Koşullu erişim ilkesi etkinleştirilirse şirket kullanım koşulları
 > - veya ikinci bir kullanım koşulları belgesi oluşturulduğunda
 
 ## <a name="b2b-guests-preview"></a>B2B Konukları (Önizleme)
@@ -384,4 +384,4 @@ Y: Kullanım koşulları aşağıdaki uç noktaların kimlik doğrulaması için
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Hızlı Başlangıç: Bulut uygulamaları erişmeden önce kabul edilmesi için kullanım koşullarını gerektirir](require-tou.md)
-- [Azure Active Directory’de koşullu erişim en iyi uygulamaları](best-practices.md)
+- [Azure Active Directory'de koşullu erişim için en iyi uygulamalar](best-practices.md)

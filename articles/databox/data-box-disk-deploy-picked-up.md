@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 0314c0e03402d53c7f79eed2efe11db953d184e6
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603095"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147501"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box Disk geri dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -84,7 +84,7 @@ Cihaz Avrupa'da döndüren, aşağıdaki adımları uygulayın.
     
 3. Konşimento numarasını belirtin ve toplama ayarlaması yapmak için **Toplama Zamanlama**'ya tıklayın.
 
-      ![Toplamayı zamanla](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
+      ![Toplamayı zamanlama](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
 
 ### <a name="pick-up-in-asia-pacific-region"></a>Asya Pasifik bölgesinde öğrenilip
 
@@ -156,6 +156,8 @@ Diskler Azure veri merkezindeki bir sunucuya bağlandıktan sonra veriler otomat
 Kopyalama tamamlandıktan sonra, sipariş durumu **Tamamlandı** olarak güncelleştirilir.
 
 ![Veri kopyalama tamamlandı](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
+
+Kopyalama hatalarla tamamlanırsa görmeniz [karşıya yükleme hatalarını giderme](data-box-disk-troubleshoot-upload.md).
 
 Kaynaktan silmeden önce verilerinizin depolama hesaplarında olduğundan emin olun. Verilerinizi olabilir:
 

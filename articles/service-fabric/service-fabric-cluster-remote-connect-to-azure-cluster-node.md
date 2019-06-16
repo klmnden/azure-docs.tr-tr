@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
 ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110932"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Uzaktan bağlanmak için bir sanal makine ölçek kümesi örneği veya küme düğümü
@@ -28,7 +28,7 @@ Bir IP adresi ve Uzaktan belirli bir örneğine bağlanmak için kullanabileceğ
 
 1. Gelen NAT kuralları, Uzak Masaüstü Protokolü (RDP) alın.
 
-    Genellikle, kendi sanal IP adresi ve ayrılmış bir yük dengeleyicisi, kümenizin tanımlanan her düğüm türü vardır. Varsayılan olarak, yük dengeleyici için bir düğüm türü şu biçimde adlandırılır: *LB-{kümesi-adı}-{düğüm-türü}*; Örneğin, *LB mycluster FrontEnd*. 
+    Genellikle, kendi sanal IP adresi ve ayrılmış bir yük dengeleyicisi, kümenizin tanımlanan her düğüm türü vardır. Varsayılan olarak, yük dengeleyici için bir düğüm türü şu biçimde adlandırılır: *LB-{kümesi-adı}-{düğüm-türü}* ; Örneğin, *LB mycluster FrontEnd*. 
     
     Azure portalında yük dengeleyiciniz için sayfasında **ayarları** > **gelen NAT kuralları**: 
 

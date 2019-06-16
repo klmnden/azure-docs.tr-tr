@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 92ea3c71dda011c5f7b19682d9bdea6c226ae5d2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992076"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>PHP ile Service Bus kuyruklarını kullanma
@@ -96,7 +96,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageShare
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="create-a-queue"></a>Kuyruk oluştur
+## <a name="create-a-queue"></a>Bir kuyruk oluşturma
 Service Bus kuyruklarına yönelik yönetim işlemlerini gerçekleştirebilirsiniz `ServiceBusRestProxy` sınıfı. A `ServiceBusRestProxy` nesnesi aracılığıyla oluşturulduğunda `ServicesBuilder::createServiceBusService` belirteci yönetme izni kapsülleyen bir uygun bir bağlantı dizesi ile fabrika yöntemi.
 
 Aşağıdaki örnek, örneği gösterilmiştir bir `ServiceBusRestProxy` ve çağrı `ServiceBusRestProxy->createQueue` adında bir kuyruk oluşturmak için `myqueue` içinde bir `MySBNamespace` hizmet ad alanı:

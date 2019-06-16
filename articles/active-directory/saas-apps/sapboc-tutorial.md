@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c64fb2dc4c494252f0078b8d23e05b15f07ebe00
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8ad2ffddf96aa6ecc886ac5653d2d0b8dcfb0856
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903565"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Öğretici: SAP Business nesne bulut ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de SAP iş nesnesi bulut tümleştirmesini yapılandırmak için SAP i�
 
 **SAP Business nesne bulut Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -138,7 +138,7 @@ Azure AD çoklu oturum açma SAP iş nesnesi Bulutla yapılandırmak için aşa�
     
     ![Güvenlik sekmesinde düzenleme simgesini seçin.](./media/sapboc-tutorial/config2.png)  
 
-4. İçin **kimlik doğrulama yöntemi**seçin **SAML çoklu oturum açma (SSO)**.
+4. İçin **kimlik doğrulama yöntemi**seçin **SAML çoklu oturum açma (SSO)** .
 
     ![SAML çoklu oturum açma için kimlik doğrulama yöntemini seçin.](./media/sapboc-tutorial/config3.png)  
 
@@ -225,7 +225,7 @@ Bir kullanıcı hesabı sağlamak için:
 
     ![Çalışan Ekle](./media/sapboc-tutorial/user1.png)
 
-3. Üzerinde **kullanıcılar** seçin sayfasında, yeni kullanıcı ayrıntıları eklemek için **+**. 
+3. Üzerinde **kullanıcılar** seçin sayfasında, yeni kullanıcı ayrıntıları eklemek için **+** . 
 
     ![Kullanıcılar sayfasına ekleme](./media/sapboc-tutorial/user4.png)
 
@@ -243,7 +243,7 @@ Bir kullanıcı hesabı sağlamak için:
 
     f. Üzerinde **Rollerini Seç** sayfasında kullanıcı için uygun rolü seçin ve ardından **Tamam**.
 
-      ![Rol seçin](./media/sapboc-tutorial/user3.png)
+      ![Rol seç](./media/sapboc-tutorial/user3.png)
 
     g. Seçin **Kaydet** simgesi.    
 

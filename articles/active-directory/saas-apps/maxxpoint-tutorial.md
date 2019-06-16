@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 889e9fb334f99db85143513f0447c212e54f56cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4a01c32bd033113d69f4fde6a47c494e2661e89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60259049"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Öğretici: MaxxPoint ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de MaxxPoint tümleştirmesini yapılandırmak için MaxxPoint Galeride
 
 **Galeriden MaxxPoint eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

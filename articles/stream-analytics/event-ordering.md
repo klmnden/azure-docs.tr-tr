@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 970eeb871775e24abb87c8b977e214645e514d3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789493"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Olay ilkeleri için Azure Stream Analytics sıralama yapılandırma
@@ -41,7 +41,7 @@ Bize bir örnek uygulamada bu ilkelerin bakın.
 <br> **Geç varış İlkesi:** 15 saniye
 <br> **Çıkış sırası İlkesi:** 8 saniye
 
-| Olay No | Olay Saati | Geliş saati | System.Timestamp | Açıklama |
+| Olay No | Olay saati | Geliş saati | System.Timestamp | Açıklama |
 | --- | --- | --- | --- | --- |
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | Olay geç ve dış dayanıklılık düzeyi geldi. Bu nedenle olay süresi en geç varış toleransı ayarlanmış.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | Olay geç ancak dayanıklılık düzeyi içindeki geldi. Bu nedenle olay saati ayarlanmış değil.  |
@@ -73,7 +73,9 @@ Birden çok bölüm aynı giriş akışından bir araya geldiğinde, geç varı�
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-En az bir giriş bölümünde boştur ve çıkış geç varış eşiğinin geciktirir bildirmek için bu ileti. Bunu çözmek için önerilir ya da: 1. Olay hub'ı / IOT hub'ınızın tüm bölümleri alma giriş emin olun. 2. By PartitionID tümcesi sorgunuzda bölümü kullanın. 
+En az bir giriş bölümünde boştur ve çıkış geç varış eşiğinin geciktirir bildirmek için bu ileti. Bunu çözmek için önerilir ya da: 
+1. Olay hub'ı / IOT hub'ınızın tüm bölümleri alma giriş emin olun. 
+2. By PartitionID tümcesi sorgunuzda bölümü kullanın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Zaman işleme konuları](stream-analytics-time-handling.md)

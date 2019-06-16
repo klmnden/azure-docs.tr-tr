@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 231b9b6d217a9ad1fe5f4a6478f5e8799257b92b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867880"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Öğretici: SAP HANA ile Azure Active Directory Tümleştirme
 
@@ -64,7 +64,7 @@ SAP HANA'ın Azure AD'ye tümleştirmesini yapılandırmak için SAP HANA Galeri
 
 **SAP HANA Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -135,7 +135,7 @@ Azure AD çoklu oturum açma ile SAP HANA yapılandırmak için aşağıdaki ad�
 
     ![image](./media/saphana-tutorial/tutorial_usermailedit.png)
 
-    b. Gelen **dönüştürme** listesinden **ExtractMailPrefix()**.
+    b. Gelen **dönüştürme** listesinden **ExtractMailPrefix()** .
 
     c. Gelen **parametresi 1** listesinden **user.mail**.
 

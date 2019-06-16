@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 94682cfae8078a38fff9ef36ccfc619baee2e612
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 79eae27becf0d2570132b3ad709414879140fd0f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694432"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Öğretici: Zscaler bir ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Zscaler bir'ın tümleştirmesini yapılandırmak için Zscaler bir 
 
 **Zscaler bir Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

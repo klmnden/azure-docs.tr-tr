@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7d2920e84e0e1e61627afe1fe029e047e13ed02
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 580b96de401169caf767d1e965971495d68b09be
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897885"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098599"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Öğretici: LCVista ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de LCVista tümleştirmesini yapılandırmak için LCVista Galeriden y�
 
 **Galeriden LCVista eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

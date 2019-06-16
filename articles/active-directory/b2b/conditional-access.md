@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3bfe067b7a927f800f88958ee2ffca09711c10
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113153"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B işbirliği kullanıcıları için koşullu erişim
 
@@ -46,7 +46,7 @@ Kullanım görmek için aşağıdaki animasyonu kullanıma alın deneyimi:
 ### <a name="mfa-reset-for-b2b-collaboration-users"></a>Sıfırlama B2B işbirliği kullanıcıları için MFA
 Şu anda yönetici B2B işbirliği kullanıcıları için kavram yukarı yeniden aşağıdaki PowerShell cmdlet'lerini kullanarak yalnızca gerektirebilir:
 
-1. Azure AD'ye bağlan
+1. Azure AD'ye Bağlanma
 
    ```
    $cred = Get-Credential
@@ -75,9 +75,9 @@ Geçerli sürümde, MFA öngörülebilirlik nedenlerini için kaynak kiralama he
 
 Contoso App1 ancak değil App2 etkin MFA ilkesi varsa, Contoso MFA talebi belirteci baktığımızda ardından biz aşağıdaki sorunları görebilirsiniz:
 
-* 1. günü: Kullanıcı MFA Contoso ağında sahiptir ve App1'i, ardından hiçbir ek MFA erişme istemi Fabrikam'da gösterilir.
+* 1\. günü: Kullanıcı MFA Contoso ağında sahiptir ve App1'i, ardından hiçbir ek MFA erişme istemi Fabrikam'da gösterilir.
 
-* 2. gün: Kullanıcı, Fabrikam erişirken şimdi contoso'da, uygulama 2 eriştiğini, MFA için orada kaydetmelisiniz.
+* 2\. gün: Kullanıcı, Fabrikam erişirken şimdi contoso'da, uygulama 2 eriştiğini, MFA için orada kaydetmelisiniz.
 
 Bu işlem, kafa karıştırıcı olabilir ve oturum açma tamamlamaları drop neden olabilir.
 
@@ -89,13 +89,13 @@ Bu nedenle, mfa B2B kullanıcıları için mfa'yı davet eden Kiracı her zaman 
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>B2B kullanıcıları için cihaz, konum ve risk tabanlı koşullu erişim
 
-Contoso Kurumsal verileri cihaz tabanlı koşullu erişim ilkelerini etkinleştirdiğinde, Contoso tarafından yönetilen ve Contoso cihaz ilkeleriyle uyumlu olmayan cihazlar üzerinden erişimi engelledi.
+Contoso Kurumsal verileri cihaz tabanlı koşullu erişim ilkelerini etkinleştirdiğinde, Contoso tarafından ve Contoso cihaz ilkeleriyle uyumlu yönetilmeyen cihazlardan erişim engellenir.
 
 B2B kullanıcı cihazına Contoso tarafından yönetilmiyorsa, bu ilkeleri zorunlu hangi bağlamda iş ortağı kuruluşlardan B2B kullanıcıları erişimi engellenir. Ancak, Contoso bunları cihaz tabanlı koşullu erişim ilkesinden hariç tutmak için belirli bir iş ortağı kullanıcıları içeren bir dışlama listesi oluşturabilirsiniz.
 
 #### <a name="location-based-conditional-access-for-b2b"></a>Konum tabanlı koşullu erişim için B2B
 
-Davet eden kuruluştan iş ortağı kuruluşları tanımlayan bir güvenilen IP adresi aralığı oluşturma erişebiliyorsa B2B kullanıcıları için konum tabanlı koşullu erişim ilkelerini zorunlu tutulabilir.
+Davet eden kuruluştan iş ortağı kuruluşları tanımlayan bir güvenilen IP adresi aralığı oluşturma erişebiliyorsa B2B kullanıcıları için konum tabanlı koşullu erişim ilkeleri zorunlu tutulabilir.
 
 #### <a name="risk-based-conditional-access-for-b2b"></a>B2B için risk tabanlı koşullu erişim
 

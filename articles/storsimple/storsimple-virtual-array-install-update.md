@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7bf064ff01693f7a65c756a99c435d7f1a39840e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61409464"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>StorSimple Virtual Array'iniz üzerinde - Azure portal güncelleştirmeleri yükle
@@ -59,7 +59,7 @@ Microsoft Update Kataloğu'ndan yazılım güncelleştirmesi indirmek için aşa
    
     ![Katalogda arama](./media/storsimple-virtual-array-install-update/download1.png)
 
-4. **Ekle**'ye tıklayın. Güncelleştirme sepete eklenir.
+4. **Ekle**'yi tıklatın. Güncelleştirme sepete eklenir.
 
 5. **Sepeti Görüntüle**’ye tıklayın.
 

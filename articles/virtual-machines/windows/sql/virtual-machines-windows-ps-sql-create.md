@@ -17,10 +17,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: edf5f2b681123243f55b1c2bf19a500e68171c0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165743"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell ile SQL Server sanal makineleri sağlama
@@ -64,7 +64,7 @@ $StorageName = $ResourceGroupName + "storage"
 $StorageSku = "Premium_LRS"
 ```
 
-### <a name="network-properties"></a>Ağ özellikleri
+### <a name="network-properties"></a>Ağ Özellikleri
 Sanal makinedeki ağ tarafından kullanılan özellikleri tanımlar. 
 
 - Ağ arabirimi
@@ -130,7 +130,7 @@ Sanal makine için kullanılacak SQL Server görüntüsünü tanımlamak için a
    $Sku = "SQLDEV"
    ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 Resource Manager dağıtım modeliyle, oluşturduğunuz ilk nesnenin kaynak grubudur. Kullanım [yeni AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) bir Azure kaynak grubu ve kaynaklarını oluşturmak için cmdlet'i. Kaynak grubu adı ve konumu için daha önce başlatılmış değişkenleri belirtin.
 
 Yeni kaynak grubunuzu oluşturmak için bu cmdlet'i çalıştırın.
@@ -172,7 +172,7 @@ Sanal alt ağ yapılandırmanızı oluşturmak için bu cmdlet'i çalıştırın
 $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
 ```
 
-### <a name="create-a-virtual-network"></a>Sanal ağ oluştur
+### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 Ardından, yeni kaynak grubu kullanarak sanal ağınızı oluşturma [yeni AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) cmdlet'i. Adı, konumu ve adres ön eki için daha önce başlatılmış değişkenleri belirtin. Önceki adımda tanımlanan alt ağ yapılandırmasını kullanın.
 
 Sanal ağınızı oluşturmak için bu cmdlet'i çalıştırın.
@@ -427,7 +427,7 @@ Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName
 ## <a name="next-steps"></a>Sonraki adımlar
 Sanal makine oluşturulduktan sonra şunları yapabilirsiniz:
 
-- RDP kullanarak sanal makineye bağlanın
+- RDP kullanarak sanal makineye bağlanma
 - VM'niz için portalda SQL Server ayarlarını yapılandırma dahil olmak üzere:
    - [Depolama ayarları](virtual-machines-windows-sql-server-storage-configuration.md) 
    - [Otomatik yönetim görevleri](virtual-machines-windows-sql-server-agent-extension.md)

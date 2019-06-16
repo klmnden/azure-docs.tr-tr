@@ -10,10 +10,10 @@ ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 82007c780a0c9ff3bb2e1a50a4826499f9df9c9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811713"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Python kullanarak Azure Data Lake Analytics'i yönetme
@@ -24,8 +24,8 @@ Bu makalede, Python kullanarak Azure Data Lake Analytics hesaplarını, veri kay
 ## <a name="supported-python-versions"></a>Desteklenen Python sürümleri
 
 * Python 64-bit sürümünü kullanın.
-* Python dağıtım bulunamadı, standart kullanabileceğiniz  **[Python.org indirir](https://www.python.org/downloads/)**. 
-* Birçok geliştiricinin kullanmak uygun bulma  **[Anaconda Python dağıtım](https://www.anaconda.com/download/)**.  
+* Python dağıtım bulunamadı, standart kullanabileceğiniz  **[Python.org indirir](https://www.python.org/downloads/)** . 
+* Birçok geliştiricinin kullanmak uygun bulma  **[Anaconda Python dağıtım](https://www.anaconda.com/download/)** .  
 * Bu makalede Python 3.6 sürümünü standart Python dağıtım kullanılarak yazılmıştır
 
 ## <a name="install-azure-python-sdk"></a>Azure Python SDK’yı yükleme

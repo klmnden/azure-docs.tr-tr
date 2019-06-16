@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: shared-resources
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/13/2019
+ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fa7f5d3fb38eb1dbca51dec9b73dca3c998436aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54ebe7df9523a863ae14bc55c6ae4c9635468755
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60500404"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063459"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation modülleri yönetme
 
-Azure Otomasyonu, Otomasyon hesabınızda PowerShell tabanlı runbook'ları tarafından kullanılmak üzere PowerShell modüllerini içeri aktarma olanağı sağlar. Bu modüller, özel modülleri PowerShell Galerisi'nden oluşturduğunuz veya Azure AzureRM ve Az modülleri olabilir.
+Azure Otomasyonu, Otomasyon hesabınızda PowerShell tabanlı runbook'ları tarafından kullanılmak üzere PowerShell modüllerini içeri aktarma olanağı sağlar. Bu modüller, özel modülleri PowerShell Galerisi'nden oluşturduğunuz veya Azure AzureRM ve Az modülleri olabilir. Bazı modüller, bir Otomasyon hesabı oluşturduğunuzda varsayılan olarak içeri aktarılır.
 
 ## <a name="import-modules"></a>Modülleri içeri aktarma
 
@@ -50,6 +50,22 @@ PowerShell Galerisi'nden bir modülü içeri aktarmak için şu adrese gidin htt
 Ayrıca, modülleri PowerShell Galerisi'nden Otomasyon hesabınızdan doğrudan aktarabilirsiniz. Otomasyon hesabınızı seçin **modülleri** altında **paylaşılan kaynakları**. Modüller sayfasında tıklayın **Galeriye Gözat**. Bu açılır **Galeriye Gözat** sayfası. Bir modül için PowerShell Galerisi aramak için bu sayfayı kullanabilirsiniz. Tıklatıp içeri aktarmak istediğiniz modülü seçin **alma**. Üzerinde **alma** sayfasında **Tamam** içeri aktarma işlemini başlatmak için.
 
 ![Azure portalından PowerShell Galerisi içeri aktarma](../media/modules/gallery-azure-portal.png)
+
+## <a name="delete-modules"></a>Modüller Sil
+
+Bir modül ile ilgili sorunlar veya bir modülün önceki bir sürüme geri almak ihtiyacınız varsa, Otomasyon hesabınızdan silebilirsiniz. Orijinal sürümünü silinemiyor [varsayılan modülleri](#default-modules) bir Otomasyon hesabı oluşturduğunuzda aktarılır. Silmek istediğiniz modülü birini daha yeni bir sürümü olup olmadığını [varsayılan modülleri](#default-modules) yüklendiğinde, Otomasyon hesabınıza yüklediğiniz sürüme geri alma. Aksi takdirde, Otomasyon hesabınızdan silmek herhangi bir modül kaldırılır.
+
+### <a name="azure-portal"></a>Azure portal
+
+Azure portalında, Otomasyon hesabınıza gidin ve seçin **modülleri** altında **paylaşılan kaynakları**. Kaldırmak istediğiniz modülü seçin. Üzerinde **Modülü** sayfası, clcick **Sil**. Bu modül ise [varsayılan modülleri](#default-modules) Otomasyon hesabının oluşturulduğu zaman mevcut olan sürümüne geri alınacak.
+
+### <a name="powershell"></a>PowerShell
+
+PowerShell üzerinden modülü kaldırmak için aşağıdaki komutu çalıştırın:
+
+```azurepowershell-interactive
+Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
+```
 
 ## <a name="internal-cmdlets"></a>İç cmdlet'leri
 
@@ -209,6 +225,37 @@ Azure Otomasyonu kullanmak için bir PowerShell modülü yazarken, aşağıdakil
 * Modül tamamen xcopy'ye bir pakette yer almalıdır. Runbook'ların yürütülmesi gerektiğinde azure Automation modülleri Automation korumalı alanlarına dağıtılır. Modüller ister çalışıyor üzerinde konak bağımsız olarak çalışması gerekir. Zip erişebiliyor olmalısınız ve modül paket taşıyın ve sahip başka bir ana bilgisayarın PowerShell ortamına içe aktarıldığında da normal çalışmasını işlev. Gerçekleşmesi için sırayla modülün modül klasörü dışında herhangi bir dosya bağlıdır olmamalıdır. Bu klasör modülü Azure Automation'a içeri aktarıldığında ayarlananlar klasördür. Bir ürün yüklü olduğunda, bu ayarları kümesi gibi modülü de herhangi bir konağa benzersiz kayıt defteri ayarlarını bağlı olmamalıdır. Modüldeki tüm dosyaları bir yol 140'den az karakter içermelidir. Tüm yollar 140 karakterden, runbook içeri aktarma sorunlarına neden olur. Bu en iyi yönteme uyulmazsa modül Azure Automation'da kullanılamaz.  
 
 * Başvuru değilse [Az Azure Powershell modülleri](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) de başvuru olmayan, modülünüzde olun `AzureRM`. `Az` Modülü ile birlikte kullanılamaz `AzureRM` modüller. `Az` runbook'larında desteklenir, ancak varsayılan olarak içe aktarılmaz. Hakkında bilgi edinmek için `Az` modülleri ve hesaba katmanız gereken noktalar [Az Modül desteği, Azure automation'da](../az-modules.md).
+
+## <a name="default-modules"></a>Varsayılan modülleri
+
+Aşağıdaki tablo, bir Otomasyon hesabı oluşturduğunuzda varsayılan olarak aktarılan modülleri listeler. Aşağıda listelenen modülleri içeri bunların yeni sürümlerini olabilir, ancak bunları daha yeni bir sürümü silseniz bile özgün sürümle Otomasyon hesabınızdan kaldırılamıyor.
+
+|Modül adı|Version|
+|---|---|
+| AuditPolicyDsc | 1.1.0.0 |
+| Azure | 1.0.3 |
+| Azure Depolama | 1.0.3 |
+| AzureRM.Automation | 1.0.3 |
+| AzureRM.Compute | 1.2.1 |
+| AzureRM.Profile | 1.0.3 |
+| AzureRM.Resources | 1.0.3 |
+| AzureRM.Sql | 1.0.3 |
+| AzureRM.Storage | 1.0.3 |
+| ComputerManagementDsc | 5.0.0.0 |
+| GPRegistryPolicyParser | 0.2 |
+| Microsoft.PowerShell.Core | 0 |
+| Microsoft.PowerShell.Diagnostics |  |
+| Microsoft.PowerShell.Management |  |
+| Microsoft.PowerShell.Security |  |
+| Microsoft.PowerShell.Utility |  |
+| Microsoft.WSMan.Management |  |
+| Orchestrator.AssetManagement.Cmdlets | 1 |
+| PSDscResources | 2.9.0.0 |
+| SecurityPolicyDsc | 2.1.0.0 |
+| StateConfigCompositeResources | 1 |
+| xDSCDomainjoin | 1.1 |
+| xPowerShellExecutionPolicy | 1.1.0.0 |
+| xRemoteDesktopAdmin | 1.1.0.0 |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

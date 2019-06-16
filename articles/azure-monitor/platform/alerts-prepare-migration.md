@@ -8,10 +8,10 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015603"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Logic apps ve runbook'ları Klasik uyarı kuralları bir geçiş için hazırlama
@@ -32,7 +32,7 @@ Aşağıdaki tabloda, hem Klasik hem de yeni uyarılar için programlama arabiri
 |         |Klasik uyarılar  |Yeni ölçüm uyarıları |
 |---------|---------|---------|
 |REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI'si     | [az İzleyici Uyarısı](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az İzleyici ölçümleri Uyarısı](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Azure CLI     | [az İzleyici Uyarısı](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az İzleyici ölçümleri Uyarısı](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Başvuru](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Başvuru](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager şablonu | [Klasik uyarılar için](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Yeni ölçüm uyarıları](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
@@ -57,7 +57,7 @@ Klasik biçimi Web kancası yükü alanları yeni biçime eşlemek için aşağ�
 | (Nasıl toplanan bir ölçüm değeri eşik karşı karşılaştırılır) işleci | **Context.Condition.operator** | **Data.Context.Condition.operator** |
 | Eşik | **Context.Condition.Threshold** | **data.context.condition.allOf[0].threshold** |
 | Ölçüm değeri | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
-| Abonelik kimliği | **context.subscriptionId** | **data.context.subscriptionId** |
+| Abonelik Kimliği | **context.subscriptionId** | **data.context.subscriptionId** |
 | Etkilenen kaynak kaynak grubu | **context.resourceGroup** | **data.context.resourceGroup** |
 | Etkilenen kaynak adı | **context.resourceName** | **data.context.resourceName** |
 | Etkilenen kaynak türü | **context.resourceType** | **data.context.resourceType** |

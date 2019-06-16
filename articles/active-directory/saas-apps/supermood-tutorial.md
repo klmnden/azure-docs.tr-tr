@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 177b393b475250e5e019a5829ea17279e1b0f44c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e54d0b1ef3173fd1ec709927c7c9842b428bd3a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922094"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089417"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Öğretici: Supermood ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Supermood tümleştirmesini yapılandırmak için Supermood Galeride
 
 **Galeriden Supermood eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -154,7 +154,7 @@ Azure AD çoklu oturum açma ile Supermood yapılandırmak için aşağıdaki ad
 
 1. Güvenlik Yöneticisi olarak Supermood.co yönetici Masası'na gidin.
 
-1. Tıklayarak **Hesabımı** (alt sol) ve **çoklu oturum açma (SSO)**.
+1. Tıklayarak **Hesabımı** (alt sol) ve **çoklu oturum açma (SSO)** .
 
     ![Tek bir sertifika](./media/supermood-tutorial/tutorial_supermood_single.png)
 
@@ -170,7 +170,7 @@ Azure AD çoklu oturum açma ile Supermood yapılandırmak için aşağıdaki ad
 
     b. İçinde **meta veri URL'sini kullanmak** metin kutusu, yapıştırma **uygulama Federasyon meta verileri URL'sini** , Azure Portalı'ndan kopyaladığınız.
 
-    c. **Ekle**'ye tıklayın.
+    c. **Ekle**'yi tıklatın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 02c09744130bec55eed4181b0d4ba958aec59e69
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d9745bdb1cb6de86a96946564865958433d49732
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905364"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Öğretici: Ziflow ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Ziflow tümleştirmesini yapılandırmak için Ziflow Galeriden yön
 
 **Galeriden Ziflow eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

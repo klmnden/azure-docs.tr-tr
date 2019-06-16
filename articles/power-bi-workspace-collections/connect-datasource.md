@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 721458c5725e912d801b307ac05f3fde0776580e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708767"
 ---
 # <a name="connect-to-a-data-source"></a>Bir veri kaynağına bağlanma
@@ -39,7 +39,7 @@ Power BI çalışma alanı koleksiyonları ile DirectQuery ile bulut veri kaynak
 * Azure SQL veritabanı
 * Azure SQL Veri Ambarı
 
-**İçeri Aktarma**
+**İçeri Aktar**
 
 Tüm Power BI Desktop'ta kullanılabilir veri kaynakları kullanarak içeri aktarabilirsiniz. Şunları yapacaksınız **değil** Power BI çalışma alanı koleksiyonları içinde bu verileri yenileyemezsiniz. Değişiklikleri, Power BI çalışma alanı koleksiyonları, PBIX dosyanızı karşıya yüklemek sahip. Kullanılabilir hiçbir ağ geçidi nedeni budur.
 

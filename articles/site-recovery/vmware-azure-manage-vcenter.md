@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
 ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60600362"
 ---
 # <a name="manage-vmware-vcenter-server"></a>VMware vCenter server'ı yönetme
@@ -98,7 +98,7 @@ IP adresi güncelleştirildikten hemen sonra Site Recovery bileşenlerini yeni v
 ## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>Yeni bir vCenter birkaç korumalı sanal makineleri geçirme
 
 > [!NOTE]
-> Bu bölüm, yalnızca zaman birkaç korumalı sanal makineleriniz için yeni bir vCenter geçirdiğiniz geçerlidir. Yeni bir vCenter Server'dan yeni bir sanal makine kümesi korumak istiyorsanız [yapılandırma sunucusuna yeni vCenter ayrıntılarını Ekle](#add-vmware-server-to-the-vault) ve başlayın  **[korumayı etkinleştir](vmware-azure-tutorial.md#enable-replication)**.
+> Bu bölüm, yalnızca zaman birkaç korumalı sanal makineleriniz için yeni bir vCenter geçirdiğiniz geçerlidir. Yeni bir vCenter Server'dan yeni bir sanal makine kümesi korumak istiyorsanız [yapılandırma sunucusuna yeni vCenter ayrıntılarını Ekle](#add-vmware-server-to-the-vault) ve başlayın  **[korumayı etkinleştir](vmware-azure-tutorial.md#enable-replication)** .
 
 Yeni bir vCenter birkaç sanal makineleri taşımak için:
 
@@ -108,7 +108,7 @@ Yeni bir vCenter birkaç sanal makineleri taşımak için:
 4. Şimdi, geçirilen sanal makineler tarafından korumak [korumayı etkinleştirdiğinizde yeni vCenter'ı seçerek](vmware-azure-tutorial.md#enable-replication).
 
 > [!TIP]
-> Geçirilmekte olan sanal makinelerin sayı **yüksek** burada verilen yönergeleri kullanarak yeni vCenter'ın IP adresi güncelleştirme eski vCenter korunan sanal makine sayısı. Eski vCenter korunur birkaç sanal makineler için [çoğaltmayı devre dışı bırak](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [yapılandırma sunucusuna yeni vCenter ayrıntılarını Ekle](#add-vmware-server-to-the-vault)ve başlangıç  **[korumayı etkinleştir](vmware-azure-tutorial.md#enable-replication)**.
+> Geçirilmekte olan sanal makinelerin sayı **yüksek** burada verilen yönergeleri kullanarak yeni vCenter'ın IP adresi güncelleştirme eski vCenter korunan sanal makine sayısı. Eski vCenter korunur birkaç sanal makineler için [çoğaltmayı devre dışı bırak](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [yapılandırma sunucusuna yeni vCenter ayrıntılarını Ekle](#add-vmware-server-to-the-vault)ve başlangıç  **[korumayı etkinleştir](vmware-azure-tutorial.md#enable-replication)** .
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 

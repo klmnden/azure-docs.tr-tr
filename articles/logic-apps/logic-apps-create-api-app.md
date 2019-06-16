@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
 ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681888"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan arayabileceğiniz özel API'ler oluşturma
@@ -167,7 +167,7 @@ API'nin açısından açıklanan yoklama tetikleyici, belirli adımlar şunlard�
 
 | Yeni verileri veya olay bulundu?  | API yanıtı | 
 | ------------------------- | ------------ |
-| Bulundu | Bir HTTP dönüş `200 OK` durumu ile yanıt yükünde (sonraki adım için giriş). <br/>Bu yanıt, bir mantıksal uygulama örneği oluşturur ve iş akışı başlatır. | 
+| Bulunamadı | Bir HTTP dönüş `200 OK` durumu ile yanıt yükünde (sonraki adım için giriş). <br/>Bu yanıt, bir mantıksal uygulama örneği oluşturur ve iş akışı başlatır. | 
 | Bulunamadı | Bir HTTP dönüş `202 ACCEPTED` durumu ile bir `location` başlığı ve bir `retry-after` başlığı. <br/>Tetikleyici, `location` üstbilgi de içermelidir bir `triggerState` , genellikle bir "zaman damgası." sorgu parametresi API'nizi bu tanımlayıcı, mantıksal uygulama tetiklendi son süreyi izlemek için kullanabilirsiniz. | 
 ||| 
 

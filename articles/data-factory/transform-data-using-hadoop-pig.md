@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 914bc37552a80886df16ed69fba4e31b3f22ac22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61399531"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Azure Data Factory'de Hadoop Pig etkinliği kullanarak verileri dönüştürme
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-pig-activity.md)
 > * [Geçerli sürüm](transform-data-using-hadoop-pig.md)
 
@@ -58,15 +58,15 @@ Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'
 
 | Özellik            | Açıklama                              | Gerekli |
 | ------------------- | ---------------------------------------- | -------- |
-| ad                | Etkinliğin adı                     | Evet      |
-| açıklama         | Etkinliğin ne için kullanıldığını açıklayan metin | Hayır       |
-| type                | Hive etkinliği için etkinlik türü HDinsightPig olduğu. | Evet      |
+| name                | Etkinliğin adı                     | Evet      |
+| description         | Etkinliğin ne için kullanıldığını açıklayan metin | Hayır       |
+| türü                | Hive etkinliği için etkinlik türü HDinsightPig olduğu. | Evet      |
 | linkedServiceName   | Data Factory öğesinde bağlantılı hizmet olarak HDInsight kümesine başvuru kayıtlı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
 | scriptLinkedService | Bir Azure depolama bağlı hizmeti başvuru yürütülecek Pig betiği depolamak için kullanılır. Bu bağlı hizmeti belirtmezseniz, Azure depolama bağlı HDInsight bağlı hizmette tanımlanan hizmeti kullanılır. | Hayır       |
 | ScriptPath          | ScriptLinkedService tarafından başvurulan Azure storage'da depolanan betik dosyasının yolunu belirtin. Dosya adı büyük/küçük harfe duyarlıdır. | Hayır       |
 | getDebugInfo        | Günlük dosyaları Azure depolama için ne zaman kopyalanır belirtir HDInsight küme tarafından kullanılan (veya) scriptLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
-| bağımsız değişkenler           | Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenleri, her görev için komut satırı bağımsız değişkenleri geçirilir. | Hayır       |
-| tanımlar             | Parametreler, Pig betiği içinde başvurmak için anahtar/değer çiftleri belirtin. | Hayır       |
+| arguments           | Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenleri, her görev için komut satırı bağımsız değişkenleri geçirilir. | Hayır       |
+| defines             | Parametreler, Pig betiği içinde başvurmak için anahtar/değer çiftleri belirtin. | Hayır       |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Anlatan farklı yollarla verileri dönüştürmek aşağıdaki makalelere bakın: 

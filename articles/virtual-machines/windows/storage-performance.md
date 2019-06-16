@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: f84e81a5a9e9c9cf6f477adefa0869d776f7dd71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec6a6ea5d00d43f6dffa3aabc367d94ebb8db198
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487351"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075600"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Lsv2 serisi sanal makinelerde performansını iyileştirme
 
@@ -24,7 +24,7 @@ Lsv2 serisi sanal makineler, çok çeşitli uygulamalar ve sektörler arasında 
 
 Tasarım Lsv2 serisi sanal makinelerin (VM'ler) işlemci, bellek, NVMe cihazları ve VM'ler arasında en iyi performansı sağlamak için AMD EPYC™ 7551 işlemci en üst düzeye çıkarır. Donanım performansı en üst düzeye ek olarak Lsv2 serisi VM'ler, Windows ve Linux işletim sistemlerinin gereksinimleri için donanım ve yazılım ile daha iyi performans ile çalışacak şekilde tasarlanmıştır.
 
-Yazılım ve donanım ayarlama, en iyi duruma getirilmiş sürümünde sonuçlandı [Windows Server 2019 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview), Lsv2 serisindeki NVMe cihazlarda en yüksek performansı destekleyen Azure marketi, erken aralık 2018'de yayınlandı VM'ler.
+Yazılım ve donanım ayarlama, en iyi duruma getirilmiş sürümünde sonuçlandı [Windows Server 2019 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), Lsv2 serisindeki NVMe cihazlarda en yüksek performansı destekleyen Azure marketi, erken aralık 2018'de yayınlandı VM'ler.
 
 Bu makalede ipuçları ve iş yüklerini ve uygulamaları sağlamak için öneriler Vm'lere tasarlanan en yüksek performansı elde edin. Daha fazla en iyi duruma getirilmiş Lsv2 görüntüleri Azure Marketi'nde eklendikçe bu sayfadaki bilgiler sürekli olarak güncelleştirilir.
 

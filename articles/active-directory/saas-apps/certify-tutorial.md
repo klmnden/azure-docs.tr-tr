@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3655b720b1d8bad7eb60f0be1192f9a200c75647
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64dbf6afc3ffa57bfa9add72955967d0c73e63bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281488"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>Öğretici: Certify ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Certify tümleştirmesini yapılandırmak için Certify Galeriden y�
 
 **Galeriden Certify eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

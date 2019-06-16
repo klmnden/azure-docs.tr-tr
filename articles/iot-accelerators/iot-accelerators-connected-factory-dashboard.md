@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: 05befc72f512f502456f798f25b6c72571451363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82045ddcc204fe369b7330fe9b3c2a8cadd56d88
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451043"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067929"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Bağlı Fabrika çözüm Hızlandırıcı Pano özelliklerini kullanma
 
@@ -42,7 +42,7 @@ Panoda ya da görüntülenen bilgileri filtreleyebilirsiniz içinde **Fabrika ko
 
 ## <a name="browse-an-opc-ua-server"></a>OPC UA sunucusuna göz atma
 
-Çözüm Hızlandırıcısını dağıttığınızda, bir dizi panodan göz atabileceğiniz sanal OPC UA sunucularını otomatik olarak hazırlarsınız. Sanal sunucular ile gerçek sunucuları dağıtmaya gerek olmadan çözüm Hızlandırıcısını denemenizi kolaylaştırır. Çözüme gerçek bir OPC UA sunucusu bağlamak istiyorsanız bkz [OPC UA Cihazınızı bağlı Fabrika çözüm hızlandırıcısına bağlamayı](iot-accelerators-connected-factory-gateway-deployment.md) öğretici.
+Çözüm Hızlandırıcısını dağıttığınızda, bir dizi panodan göz atabileceğiniz sanal OPC UA sunucularını otomatik olarak hazırlarsınız. Sanal sunucular ile gerçek sunucuları dağıtmaya gerek olmadan çözüm Hızlandırıcısını denemenizi kolaylaştırır.
 
 1. Tıklayın **tarayıcı simgesine** Pano gezinti çubuğunda:
 
@@ -111,6 +111,5 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 
 Çalışan bir çözüm hızlandırıcısı dağıttığınıza göre aşağıdaki makaleleri okuyarak IoT çözüm hızlandırıcılarıyla çalışmaya başlayabilirsiniz:
 
-* [Bağlı Fabrika Çözüm Hızlandırıcısı Kılavuzu](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [Bağlı Fabrika çözüm hızlandırıcısına Cihazınızı bağlama](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Bağlı Fabrika çözüm Hızlandırıcısını yapılandırın](iot-accelerators-connected-factory-configure.md)
 * [Azureiotsolutions.com sitesindeki izinler](iot-accelerators-permissions.md)

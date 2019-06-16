@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814142"
 ---
 # <a name="interpret-method"></a>Yöntem yorumlama
@@ -30,7 +30,7 @@ Ad|Değer| Açıklama
 sorgu    | Metin dizesi | Kullanıcı tarafından girilen sorgu.  Tam 1 olarak ayarlanırsa, sorgu oluşturma sorgu otomatik tamamlama önerileri için önek olarak yorumlanacaktır.        
 Tamamlayın | 0 (varsayılan) veya 1 | 1 dilbilgisi ve dizin verileri temel alan otomatik tamamlama önerileri oluşturulan anlamına gelir.         
 count    | Sayı (varsayılan = 10) | Yorum döndürülecek en fazla sayısı.         
-uzaklık   | Sayı (varsayılan = 0) | Döndürülecek ilk yorumu dizini.  Örneğin, *sayısı = 2 & uzaklığı 0 =* ınterpretations 0 ve 1 döndürür. *sayısı 2 & uzaklığı = 2 =* ınterpretations 2 ve 3 döndürür.       
+offset   | Sayı (varsayılan = 0) | Döndürülecek ilk yorumu dizini.  Örneğin, *sayısı = 2 & uzaklığı 0 =* ınterpretations 0 ve 1 döndürür. *sayısı 2 & uzaklığı = 2 =* ınterpretations 2 ve 3 döndürür.       
 timeout  | Sayı (varsayılan = 1000) | Milisaniye cinsinden zaman aşımı. Zaman aşımı dolmadan bulunan ınterpretations döndürülür.
 
 Kullanarak *sayısı* ve *uzaklığı* parametre sonuçları çok sayıda elde edilebilir artımlı olarak birden çok istek.

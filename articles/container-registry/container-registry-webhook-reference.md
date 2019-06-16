@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: danlep
 ms.openlocfilehash: 4c0845b9cf5194ecbd0ab813997e17e070840f44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61331350"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure kapsayıcı kayıt defteri Web kancası başvurusu
@@ -148,7 +148,7 @@ Web kancası bir Helm grafiği bir depoya gönderildiğinde tetiklenir.
 az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 ```
 
-## <a name="delete-event"></a>Etkinliği sil
+## <a name="delete-event"></a>Etkinliği Sil
 
 Görüntü deposu, Web kancası ile tetiklenen veya bildirimi silinir. Bir etiketi silindiğinde tetiklenir değil.
 

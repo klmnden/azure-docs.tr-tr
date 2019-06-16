@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.openlocfilehash: 7d56d7f8fcbd53d4f69863d260591ef80f3d7188
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459105"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure veritabanını MySQL veri çoğaltma için yapılandırma
@@ -204,7 +204,7 @@ Aşağıdaki adımlar, hazırlama ve MySQL server barındırılan şirket içind
 
 ## <a name="other-stored-procedures"></a>Diğer saklı yordamlar
 
-### <a name="stop-replication"></a>Çoğaltmayı durdur
+### <a name="stop-replication"></a>Çoğaltmayı Durdur
 
 Ana ve çoğaltma sunucusu arasında çoğaltmayı durdurmak için aşağıdaki depolanan yordamı kullanın:
 

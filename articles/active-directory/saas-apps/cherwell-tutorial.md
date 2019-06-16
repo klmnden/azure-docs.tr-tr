@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 211e11b5bfd6a8bb7b1d61fec120566d60b9c5c0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6fde8c38722e39d530c2890ef9c9a045b28b6e49
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191205"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105680"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Öğretici: Cherwell ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Cherwell tümleştirmesini yapılandırmak için Cherwell Galeriden 
 
 **Galeriden Cherwell eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

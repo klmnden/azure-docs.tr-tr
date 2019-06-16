@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 22f56fb44737bab30b113e3afe6b8ba21518330d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4edee73e13c0490810706a0f7a028b54f37b287b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890418"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redvector"></a>Öğretici: RedVector ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de RedVector tümleştirmesini yapılandırmak için RedVector Galeride
 
 **Galeriden RedVector eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

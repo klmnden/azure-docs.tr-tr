@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 991e6554df62591dea5c126f8ea82704373d6ffd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60781248"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>Azure klasik CLI kullanarak iç yük dengeleyici oluşturmaya başlama
@@ -65,7 +65,7 @@ Bu kılavuzda hem özel hem de yerel bağlantı noktası olarak 1433 numaralı b
 
 Bu, genelde veritabanı sunucularının genel IP adresi kullanarak doğrudan sunulmamasını garanti etmek için arka uçta iç yük dengeleyici kullanan SQL sanal makineleri olduğuna kullanılan bir senaryodur.
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1\. Adım
 
 `azure network service internal-load-balancer add` kullanarak iç yük dengeleyici kümesi oluşturun.
 
@@ -88,7 +88,7 @@ Daha fazla bilgi için bkz. `azure service internal-load-balancer --help`.
     info:    service internal-load-balancer list command OK
 
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2\. Adım
 
 İlk uç noktayı eklediğinizde iç yük dengeleyici kümesini yapılandırırsınız. Bu adımda uç noktası, sanal makine ve araştırma bağlantı noktasını iç yük dengeleyici kümesiyle ilişkilendirebilirsiniz.
 
@@ -96,7 +96,7 @@ Daha fazla bilgi için bkz. `azure service internal-load-balancer --help`.
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
 ```
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>3\. Adım
 
 `azure vm show` *sanal makine adı* komutunu kullanarak yük dengeleyici yapılandırmasını doğrulayın
 

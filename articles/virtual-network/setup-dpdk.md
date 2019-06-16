@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
 ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731609"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde DPDK ayarlayın
@@ -33,14 +33,14 @@ DPDK birden çok işletim sistemi dağıtımlarını destekleyen Azure sanal mak
 
 ## <a name="benefit"></a>Avantaj
 
-**Daha yüksek Saniyedeki (PPS)**: Kullanıcı alanı paketlerin alma denetimi ve çekirdek atlama, bağlam anahtarları ortadan kaldırarak döngü sayısı azaltır. Ayrıca, Azure Linux sanal makineler'de saniye başına işlenen paket oranını artırır.
+**Daha yüksek Saniyedeki (PPS)** : Kullanıcı alanı paketlerin alma denetimi ve çekirdek atlama, bağlam anahtarları ortadan kaldırarak döngü sayısı azaltır. Ayrıca, Azure Linux sanal makineler'de saniye başına işlenen paket oranını artırır.
 
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
 Azure Galerisi aşağıdaki dağıtımlar desteklenir:
 
-| Linux İşletim Sistemi     | Çekirdek sürümü        |
+| Linux OS     | Çekirdek sürümü        |
 |--------------|----------------       |
 | Ubuntu 16.04 | 4.15.0-1015-azure     |
 | Ubuntu 18.04 | 4.15.0-1015-azure     |

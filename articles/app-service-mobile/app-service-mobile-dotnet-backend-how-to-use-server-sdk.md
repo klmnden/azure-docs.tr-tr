@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119531"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps için .NET arka uç sunucu SDK’sı ile çalışma
@@ -53,7 +53,7 @@ Azure Mobile Apps projeye Visual Studio'dan yayımlamak için Visual Studio yük
 
 1. Açık **yeni proje** iletişim (gelen **dosya** > **yeni** > **proje...** ).
 2. Genişletin **Visual C#** seçip **Web**.
-3. Seçin **ASP.NET Web uygulaması (.NET Framework)**.
+3. Seçin **ASP.NET Web uygulaması (.NET Framework)** .
 4. Proje adını girin. Daha sonra, **Tamam**'a tıklayın.
 5. Seçin **Azure mobil uygulaması** şablonları listesinden.
 6. Tıklayın **Tamam** çözümü oluşturmak için.
@@ -69,7 +69,7 @@ Yükleme [.NET için Azure SDK'sı] [ 4] (sürüm 2.9.0'da veya üzeri) Visual S
 3. **ASP.NET Web Uygulaması**'nı seçin.
 4. Proje adını girin. Daha sonra, **Tamam**'a tıklayın.
 5. Altında *ASP.NET 4.5.2 şablonları*seçin **Azure mobil uygulaması**. Denetleme **bulutta Barındır** bu proje yayımlama bulutta bir mobil arka ucu oluşturmak için.
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**'ı tıklatın.
 
 ## <a name="install-sdk"></a>Nasıl Yapılır: İndirin ve SDK'sını başlatmak
 SDK'sı kullanılabilir [NuGet.org]. Bu paket, SDK'sı ile çalışmaya başlamak için gerekli temel işlevselliğini içerir. SDK'sını başlatmak için bunlar üzerinde eylem gerçekleştirebileceğini gerekir **HttpConfiguration** nesne.
@@ -104,7 +104,7 @@ Tek tek özellikleri etkinleştirmek için genişletme yöntemleri üzerinde ça
         .MapApiControllers()
         .ApplyTo(config);
 
-Sunucu hızlı başlangıç Azure portal çağrılarının **UseDefaultConfiguration()**. Aşağıdaki Kurulum bu eşdeğerdir:
+Sunucu hızlı başlangıç Azure portal çağrılarının **UseDefaultConfiguration()** . Aşağıdaki Kurulum bu eşdeğerdir:
 
         new MobileAppConfiguration()
             .AddMobileAppHomeController()             // from the Home package
@@ -203,7 +203,7 @@ Azure SDK'ın yüklü varsa, artık bir şablon tablo denetleyicisi gibi oluştu
    * İçinde **Model sınıfı** açılır listesinde, yeni bir DTO seçin.
    * İçinde **DbContext** açılır listesinde, mobil hizmet DbContext sınıfını seçin.
    * Denetleyici adı sizin için oluşturulur.
-4. **Ekle**'ye tıklayın.
+4. **Ekle**'yi tıklatın.
 
 Bir örnek için basit bir hızlı başlangıç sunucu projesi içeren **TodoItemController**.
 

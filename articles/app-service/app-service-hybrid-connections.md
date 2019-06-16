@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4b125649dee51680625ac5a92b31bdc9f6830529
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069560"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service karma bağlantılar #
 
@@ -41,7 +41,6 @@ Uygulamanızı yapılandırılmış bir karma bağlantı uç noktası ile eşle�
 > [!NOTE]
 > Başka bir deyişle, her zaman, karma bağlantı için bir DNS adı kullanmayı denemeniz gerekir. Bir IP adresi uç nokta kullanıyorsa, bunun yerine, bazı istemci yazılımını bir DNS arama yapmaz.
 >
-
 
 ### <a name="app-service-hybrid-connection-benefits"></a>App Service karma bağlantı avantajları ###
 
@@ -140,7 +139,7 @@ Bir veya daha fazla karma bağlantılar için HCM eklemek için:
 2. Seçin **başka bir karma bağlantı yapılandırma**.
 ![Ekran görüntüsü yeni karma bağlantılar yapılandırma][8]
 
-1. Azure hesabınızla oturum açın.
+1. Kullanılabilir aboneliklerinizle, karma bağlantılarınızı almak için Azure hesabınızla oturum açın. HCM ötesinde Azure hesabınızı kullanmaya devam etmez. 
 1. Bir abonelik seçin.
 1. HCM geçiş karma bağlantıları seçin.
 ![Karma bağlantılar'ın ekran görüntüsü][9]
@@ -226,7 +225,9 @@ Durumu "Bağlandı", en az bir HCM, karma bağlantısı ile yapılandırıldığ
 
 Uç nokta DNS adı yerine IP adresi kullanarak belirtildiğinden, istemciler kendi uç noktama bağlanamıyorum birincil nedenidir. Uygulamanızı istenen uç noktası ulaşamıyor ve bir IP adresi kullandıysanız HCM çalıştığı konak üzerinde geçerli bir DNS adı kullanmaya geçiş yapın. Ayrıca DNS adını düzgün HCM çalıştığı konakta çözümler denetleyin. HCM karma bağlantı uç noktasını çalıştığı konak bağlantısı olduğunu doğrulayın.  
 
-App Service'te tcpping Aracı'nı Gelişmiş araçlar (Kudu) konsolundan çağrılabilir. Bu araç, bir TCP uç noktasına erişebilir ancak bu, bir karma bağlantı uç noktası erişiminiz varsa söylemez söyleyebilirsiniz. Konsolunda bir karma bağlantı uç noktası karşı aracını kullandığınızda, yalnızca bir ana bilgisayar: bağlantı noktası birleşimini kullanan demektir.  
+App Service'te **tcpping** komut satırı aracını Gelişmiş araçlar (Kudu) Konsolu'ndan çağrılan. Bu araç, bir TCP uç noktasına erişebilir ancak bu, bir karma bağlantı uç noktası erişiminiz varsa söylemez söyleyebilirsiniz. Konsolunda bir karma bağlantı uç noktası karşı aracını kullandığınızda, yalnızca bir ana bilgisayar: bağlantı noktası birleşimini kullanan demektir.  
+
+Uç noktanız için bir komut satırı istemcisi varsa, uygulama konsol bağlantısı test edebilirsiniz. Örneğin, web sunucusu uç noktalarına erişimi curl kullanarak test edebilirsiniz.
 
 ## <a name="biztalk-hybrid-connections"></a>BizTalk Karma Bağlantıları ##
 

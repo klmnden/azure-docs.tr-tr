@@ -9,10 +9,10 @@ ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: e78c9a490d2ad02fb132d62b0ab0b55f15d3d4ed
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166264"
 ---
 ## <a name="create-a-module-identity"></a>Modül kimliği oluşturma
@@ -24,7 +24,7 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği ve mod�
 
     ![Visual Studio çözümü oluşturma](./media/iot-hub-get-started-create-module-identity-csharp/create-identities-csharp1.JPG)
 
-2. **Azure IoT Hub .NET hizmet SDK’sı V1.16.0-preview-001’i yükleme** - Modül kimliği ve modül ikizi, genel önizleme aşamasındadır. Yalnızca, IOT hub'ı ön hizmet SDK'ları içinde de kullanılabilir. Visual Studio’da araçlar > Nuget paket yöneticisi > çözüm için Nuget paketlerini yönet seçeneğini açın. Microsoft.Azure.Devices öğesini arayın. Ön sürümü dahil et onay kutusunu işaretlediğinizden emin olun. 1.16.0-preview-001 sürümünü seçip yükleyin. Şimdi tüm modül özelliklerine erişiminiz vardır. 
+2. **Azure IoT Hub .NET hizmet SDK’sı V1.16.0-preview-001’i yükleme** - Modül kimliği ve modül ikizi, genel önizleme aşamasındadır. Yalnızca, IOT hub'ı ön hizmet SDK'ları içinde de kullanılabilir. Visual Studio’da araçlar > Nuget paket yöneticisi > çözüm için Nuget paketlerini yönet seçeneğini açın. Microsoft.Azure.Devices öğesini arayın. Ön sürümü dahil et onay kutusunu işaretlediğinizden emin olun. 1\.16.0-preview-001 sürümünü seçip yükleyin. Şimdi tüm modül özelliklerine erişiminiz vardır. 
 
     ![Azure IoT Hub .NET hizmet SDK’sı V1.16.0-preview-001’i yükleme](./media/iot-hub-get-started-create-module-identity-csharp/install-sdk.png)
 

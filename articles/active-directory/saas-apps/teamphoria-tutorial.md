@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 11d0a0a67d1ce5049166cab3d9ca3e4903b6b460
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05387d2fd9b38ffa8137668e01b6d7cff3346ac8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866242"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Öğretici: Teamphoria ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Teamphoria tümleştirmesini yapılandırmak için Teamphoria Galeri
 
 **Galeriden Teamphoria eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

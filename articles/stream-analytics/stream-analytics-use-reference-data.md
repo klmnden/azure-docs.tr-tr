@@ -4,19 +4,19 @@ description: Bu makalede, başvuru verileri arama veya bir Azure Stream Analytic
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/11/2019
+ms.openlocfilehash: 99917fa01fcdb3faf731e9d0909d67ff41222f22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393128"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066777"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream analytics'te aramaları için başvuru verilerini kullanma
+
 Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği, değişen bir arama gerçekleştirme ya da, veri akışı ile ilişkilendirmek için kullanılan sınırlı bir veri kümesi var. Örneğin, bir IOT senaryosu içinde (Bu genellikle değişmez) algılayıcıları hakkındaki meta verileri içinde başvuru verilerini depolamak ve gerçek zamanlı IOT veri akışları ile katılın. Azure Stream Analytics, düşük gecikme süreli akış işlemesi için bellek başvuru verileri yükler. Yapmak için Azure Stream Analytics işinizi başvuru verilerinde kullanımı, genel olarak kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) sorgunuzda. 
 
 Stream Analytics Azure Blob Depolama ve Azure SQL veritabanı, başvuru verileri için depolama katmanı olarak destekler. Size ayrıca dönüştürün ve/veya başvuru veri kopyalama Blob depolama alanına kullanmak için Azure Data Factory tarafından [herhangi bir bulut tabanlı sayısı ve şirket içi veri depolarına](../data-factory/copy-activity-overview.md).
@@ -43,7 +43,7 @@ Başvuru veri yapılandırmak için önce türünde bir giriş oluşturmak için
 
 ### <a name="static-reference-data"></a>Statik başvuru verileri
 
-Ardından, başvuru verilerini değiştirmek için beklenmiyor, statik başvuru verileri giriş yapılandırmasında statik bir yolu belirterek etkin desteği. Belirtilen yol BLOB'dan Azure Stream Analytics seçer. {date} ve {time} değiştirme belirteçleri gerekli değildir. Stream Analytics'te başvuru veriler sabittir. Bu nedenle, bir statik başvuru veri blob'u üzerine önerilmez.
+Ardından, başvuru verilerini değiştirmek için beklenmiyor, statik başvuru verileri giriş yapılandırmasında statik bir yolu belirterek etkin desteği. Belirtilen yol BLOB'dan Azure Stream Analytics seçer. {date} ve {time} değiştirme belirteçleri gerekli değildir. Başvuru verileri Stream Analytics'te sabit olduğundan, statik başvuru veri blob'u üzerine önerilmez.
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Başvuru verilerinin bir zamanlamaya göre oluşturun
 
@@ -54,7 +54,7 @@ Azure Stream Analytics, yenilenmiş bir başvuru veri BLOB için bir dakika aral
 > [!NOTE]
 > Şu anda yalnızca blob adı, kodlanmış zaman makine saatini ilerler, Stream Analytics işleri için blob yenileme arayın. Örneğin, iş arar `sample/2015-04-16/17-30/products.csv` 17:30:00 16 Nisan 2015 UTC daha olası ancak daha önce Hayır bölge Zaman hemen sonra. Götürür *hiçbir zaman* bulunması sonuncu daha önce kodlanmış bir zaman blob'u arayın.
 > 
-> Örneğin İş blob bulduğunda `sample/2015-04-16/17-30/products.csv` 5:30 PM 16 Nisan 2015'ten önce kodlanmış bir tarih sahip tüm dosyaları göz ardı eder Bu nedenle geç gelen `sample/2015-04-16/17-25/products.csv` blob oluşturulur aynı kapsayıcıda, iş kullanmaz.
+> Örneğin, iş blob bulduğunda `sample/2015-04-16/17-30/products.csv` 5:30 PM 16 Nisan 2015'ten önce kodlanmış bir tarih sahip tüm dosyaları göz ardı eder Bu nedenle geç gelen `sample/2015-04-16/17-25/products.csv` blob oluşturulur aynı kapsayıcıda, iş kullanmaz.
 > 
 > Benzer şekilde, `sample/2015-04-16/17-30/products.csv` yalnızca 10: 03'te 16 Nisan 2015 oluşturulur ancak daha önceki bir tarihi ile herhangi bir blob kapsayıcısında mevcut olduğundan, işi 10:03 16 Nisan 2015'den başlar bu dosyayı kullanın ve o zamana kadar önceki başvuru verilerini kullanması.
 > 

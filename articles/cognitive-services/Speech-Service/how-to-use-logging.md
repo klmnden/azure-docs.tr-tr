@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4573ff14c5326a47cf7b15ae2660614661d45d80
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073078"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Konuşma SDK'da günlüğü etkinleştirme
 
 Dosyasına günlük kaydetmeyi Speech SDK'sı için isteğe bağlı bir özelliktir. Geliştirme sırasında ek bilgi ve konuşma SDK'ın temel bileşenlerinden tanılama günlüğü sağlar. Özelliğini ayarlayarak etkinleştirilebilir `Speech_LogFilename` günlük dosyasının adını ve konumunu bir konuşma yapılandırma nesnesine üzerinde. Günlüğe kaydetme, yapılandırmasından bir tanıyıcı oluşturulduktan sonra genel olarak etkinleştirilir ve daha sonra devre dışı bırakılamaz. Günlüğe kaydetme oturumu sırasında çalışan bir günlük dosyasının adını değiştiremezsiniz.
 
 > [!NOTE]
-> Günlüğe kaydetme programlama dilleri, JavaScript hariç tüm desteklenen konuşma SDK kullanıma sunulmuştur.
+> Günlük Speech SDK'sı sürüm 1.4.0 tüm desteklenen programlama dilleri, JavaScript hariç olmak üzere konuşma SDK bu yana kullanılabilir.
 
 ## <a name="sample"></a>Örnek
 

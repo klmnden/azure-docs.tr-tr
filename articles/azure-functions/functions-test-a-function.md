@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 7489f42719223dbd7f9cc2908f666dca53fe7c04
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 9a078579fff355d7ddb996316af2a2136fb62335
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66496401"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Kodunuzu Azure işlevleri'nde test stratejileri
@@ -312,7 +312,7 @@ module.exports = {
 ```
 Bu modül uygular `IsPastDue` öne çıkarmak için özelliği olan sahte Zamanlayıcı örneği olarak.
 
-Ardından, VS Code işlevleri uzantısı kullanın [yeni bir JavaScript HTTP işlev oluşturma](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started) ve adlandırın *HttpTrigger*. İşlev oluşturulduktan sonra yeni bir dosya adlı klasörde eklemek **index.test.js**ve aşağıdaki kodu ekleyin:
+Ardından, VS Code işlevleri uzantısı kullanın [yeni bir JavaScript HTTP işlev oluşturma](https://code.visualstudio.com/tutorials/functions-extension/getting-started) ve adlandırın *HttpTrigger*. İşlev oluşturulduktan sonra yeni bir dosya adlı klasörde eklemek **index.test.js**ve aşağıdaki kodu ekleyin:
 
 ```javascript
 const httpFunction = require('./index');

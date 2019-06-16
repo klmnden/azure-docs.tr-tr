@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
 ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951937"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
@@ -150,7 +150,7 @@ Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi kar�
 |**Parametre**        |**Tür**                          | **Ayrıntılar**|
 |:-|-|-|
 |MaxResultsToCache    |Uzun                              | Önbelleğe alınan Windows Update sonuçlarının maksimum sayısı. <br>Varsayılan değer: 3000 varsayılarak: <br> -Düğüm sayısı 20'dir. <br> -Bir düğüm / ay üzerinde gerçekleştirilecek güncelleştirme sayısı beştir. <br> -İşlem başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
-|TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Windows güncelleştirme yüklü tek bir düğüm bir kerede olur. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update, aynı anda yüklü bir yükseltme etki alanıdır. (En bir yükseltme etki alanına ait olan tüm düğümleri için Windows Update gidebilirsiniz.)<br> Başvurmak [SSS](#frequently-asked-questions) , uygun ilke kümeniz için en iyi olduğuna karar vermeye yönelik bölümü.
+|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Windows güncelleştirme yüklü tek bir düğüm bir kerede olur. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update, aynı anda yüklü bir yükseltme etki alanıdır. (En bir yükseltme etki alanına ait olan tüm düğümleri için Windows Update gidebilirsiniz.)<br> Başvurmak [SSS](#frequently-asked-questions) , uygun ilke kümeniz için en iyi olduğuna karar vermeye yönelik bölümü.
 |LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB, düzeltme eki düzenleme uygulama en büyük boyutunu kaydeder.
 | WUQuery               | string<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmeleri almak için sorgulayın. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Boolean <br> (varsayılan: false)                 | Hangi güncelleştirmelerin indirilmesi ve yüklenmesi denetlemek için bu bayrağı kullanın. Aşağıdaki değerlerine izin verilir. <br>TRUE - yalnızca Windows işletim sistemi güncelleştirmeleri yükler.<br>false - makinede sağlanan tüm güncelleştirmeleri yükler.          |
@@ -445,7 +445,7 @@ Bir yönetici, müdahale ve uygulama veya küme neden Windows güncelleştirmesi
 ## <a name="release-notes"></a>Sürüm Notları
 
 >[!NOTE]
-> 1.4.0 sürümünden başlayarak, sürüm notları ve sürümleri bulunabilir GitHub sürümde [sayfa](https://github.com/microsoft/Service-Fabric-POA/releases/).
+> 1\.4.0 sürümünden başlayarak, sürüm notları ve sürümleri bulunabilir GitHub sürümde [sayfa](https://github.com/microsoft/Service-Fabric-POA/releases/).
 
 ### <a name="version-110"></a>Sürüm 1.1.0
 - Genel sürüm
@@ -459,7 +459,7 @@ Bir yönetici, müdahale ve uygulama veya küme neden Windows güncelleştirmesi
 - Hata düzeltmesi hangi sistem durumu nedeniyle onarım görevlerin hazırlanması sırasında onay beklendiği gibi olduğunu değildi RM görevler oluşturma.
 - Windows POANodeSvc otomatik otomatik Gecikmeli hizmetinin başlatma modu değiştirildi.
 
-### <a name="version-121"></a>1.2.1 sürümü
+### <a name="version-121"></a>1\.2.1 sürümü
 
 - Küme ölçek azaltma iş akışında hata düzeltmesi. Çöp toplama mantıksal var olmayan düğümlerine ait POA onarım görevler için kullanıma sunuldu.
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c1f40c62fce61ba16dfdf289d54cd19c3739ce21
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 3fda34e46ddb7ea17c98795ad6632841b79764eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393753"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076921"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure sanal Makineler'de SQL Server için performans yönergeleri
 
@@ -55,7 +55,7 @@ Performans duyarlı uygulamalar için aşağıdaki kullanmanız önerilir [sanal
 * **SQL Server Enterprise Edition**: DS3_v2 veya üzeri
 * **SQL Server Standard ve Web sürümleri**: DS2_v2 veya üzeri
 
-[DSv2 serisi](../sizes-general.md#dsv2-series) en iyi performans için önerilen premium depolama Vm'leri destekler. Taban çizgileri İşte, ancak seçtiğiniz gerçek makine boyutu, iş yükü gereksinimlerine bağlıdır boyutları önerilir. DSv2 serisi VM'ler diğer makine boyutları, belirli iş yükü türleri için optimize edilmiş ise, çeşitli iş yükleri için uygundur, genel amaçlı vm'leridir. Örneğin, [M serisi](../sizes-memory.md#m-series) en yüksek vCPU sayısını ve en büyük SQL Server iş yükleri için bellek sunar. [GS serisi](../sizes-memory.md#gs-series) ve [DSv2 serisi 11-15](../sizes-memory.md#dsv2-series-11-15) büyük bellek gereksinimlerini en iyi duruma getirilir. Bu dizinin her ikisi de mevcuttur [kısıtlı çekirdek boyutları](../../windows/constrained-vcpu.md), talepleri düşük iş yükleriyle işlem için para kaydeder. [Ls serisi](../sizes-storage.md) makineler, yüksek disk aktarım hızı ve g/ç için iyileştirilmiştir. SQL Server yükünüzü düşünün ve bu VM serisi ve boyutu seçiminiz için geçerli önemlidir.
+[DSv2 serisi](../sizes-general.md#dsv2-series) en iyi performans için önerilen premium depolama Vm'leri destekler. Taban çizgileri İşte, ancak seçtiğiniz gerçek makine boyutu, iş yükü gereksinimlerine bağlıdır boyutları önerilir. DSv2 serisi VM'ler diğer makine boyutları, belirli iş yükü türleri için optimize edilmiş ise, çeşitli iş yükleri için uygundur, genel amaçlı vm'leridir. Örneğin, [M serisi](../sizes-memory.md#m-series) en yüksek vCPU sayısını ve en büyük SQL Server iş yükleri için bellek sunar. [GS serisi](../sizes-previous-gen.md#gs-series) ve [DSv2 serisi 11-15](../sizes-memory.md#dsv2-series-11-15) büyük bellek gereksinimlerini en iyi duruma getirilir. Bu dizinin her ikisi de mevcuttur [kısıtlı çekirdek boyutları](../../windows/constrained-vcpu.md), talepleri düşük iş yükleriyle işlem için para kaydeder. [Ls serisi](../sizes-storage.md) makineler, yüksek disk aktarım hızı ve g/ç için iyileştirilmiştir. SQL Server yükünüzü düşünün ve bu VM serisi ve boyutu seçiminiz için geçerli önemlidir.
 
 ## <a name="storage-guidance"></a>Depolama yönergeleri
 

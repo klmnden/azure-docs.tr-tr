@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c9689a468e8784eb4ec3590011e02a37d92d6b9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083395"
 ---
 # <a name="vpn-gateways-overview"></a>VPN ağ geçitleri genel bakış
 
@@ -45,19 +45,19 @@ Siteden siteye VPN bağlantısı, güvenli bir bağlantı kurmak için aşağıd
 
 Siteden siteye VPN bağlantısı, güvenli bir bağlantı kurmak için aşağıdaki varsayılan şifreleme parametreleri kullanır.  Şirket içi VPN CİHAZDAN bir bağlantı oluşturduğunuzda, şirket içi VPN ağ geçidi tarafından desteklenen aşağıdaki parametreleri kullanın.
 
-#### <a name="phase-1-proposals"></a>1. Aşama teklifleri
+#### <a name="phase-1-proposals"></a>1\. Aşama teklifleri
 
 | Parametre | Teklif 1 | Teklif 2 | Teklif 3 |
 |-----------|------------|------------|------------|
 | IKE Sürümü | IKEv1 | IKEv1 | IKEv1 |
 | Şifreleme | AES 128 | AES 256 | AES 256 |
 | Karma algoritması| SHA 256 | SHA 256 | SHA 1 |
-| Diffie Hellman grubu (DH grubu) | 1 | 1. | 1 |
-| Yaşam süresi | 28.800 saniye | 28.800 saniye | 28.800 saniye |
+| Diffie Hellman grubu (DH grubu) | 2 | 2 | 2 |
+| Yaşam süresi | 28\.800 saniye | 28\.800 saniye | 28\.800 saniye |
 | Veri boyutu | 4 GB | 4 GB | 4 GB |
 
 
-#### <a name="phase-2-proposals"></a>2. Aşama teklifleri 
+#### <a name="phase-2-proposals"></a>2\. Aşama teklifleri 
 
 | Parametre | Teklif 1 | Teklif 2 | Teklif 3 |
 |-----------|------------|------------|------------|

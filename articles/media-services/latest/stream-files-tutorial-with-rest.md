@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 15b2408113d8bd19d2e988643442ac5e3b305237
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149223"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055292"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Öğretici: URL'sini temel alarak bir uzak dosya kodlama ve akışını video - REST
 
@@ -236,7 +236,7 @@ Kodlama işi tamamlandıktan sonra sonraki adım video çıktısında olmaktır 
 
 Oluşturma işlemi bir **akış Bulucu** yayımlama denir. Varsayılan olarak, **akış Bulucu** API çağrılarını hemen sonra geçerli olduğunu ve isteğe bağlı bir başlangıç ve bitiş zamanlarını yapılandırmadığınız sürece silinene kadar sürer. 
 
-Oluştururken bir [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators), istenen belirtmeniz gerekecektir **StreamingPolicyName**. Bu örnekte, temiz (şifrelenmemiş) içeriğin akışını yapacağınız için önceden tanımlı temiz akış ilkesi **PredefinedStreamingPolicy.ClearStreamingOnly** kullanılmaktadır.
+Oluştururken bir [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators), istenen belirtmenize gerek **StreamingPolicyName**. Önceden tanımlanmış "Predefined_ClearStreamingOnly" kullanılan akış ilkeyi temizlemek için bu örnekte, de--Temizle (veya şifreli olmayan), akış içeriğini.
 
 > [!IMPORTANT]
 > Özel [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies)’yi kullanırken Media Service hesabınız için bu tür ilkelerin sınırlı bir kümesini tasarlamanız ve aynı şifreleme seçenekleri ve protokoller gerekli olduğunda StreamingLocators için bunları kullanmanız gerekir. 

@@ -10,10 +10,10 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457382"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(KULLANIM DIŞI) Azure Container Service uygulamaya genel erişimini etkinleştirme
@@ -38,10 +38,10 @@ Bir ACS DC/OS kapsayıcısında [genel aracı havuzu](container-service-mesos-ma
    | Alan | Açıklama |
    | --- | --- |
    | Ad |Açıklayıcı bir ad ve araştırma. |
-   | Bağlantı noktası |Test etmek için kapsayıcının bağlantı noktası. |
-   | Yol |(HTTP modunda olduğunda) Araştırma için göreli bir Web sitesi yolu. HTTPS desteklenmiyor. |
+   | Port |Test etmek için kapsayıcının bağlantı noktası. |
+   | `Path` |(HTTP modunda olduğunda) Araştırma için göreli bir Web sitesi yolu. HTTPS desteklenmiyor. |
    | Interval |Araştırma arasındaki süre miktarını saniye olarak çalışır. |
-   | İyi durumda olmayan eşik |Ardışık araştırma sayısı, kapsayıcı sağlıksız olduğunu düşünmeden önce çalışır. |
+   | Sağlıksız durum eşiği |Ardışık araştırma sayısı, kapsayıcı sağlıksız olduğunu düşünmeden önce çalışır. |
 6. Geri özelliklerini aracı yük dengeleyicinin, tıklayın **Yük Dengeleme kuralları** ardından **Ekle**.
    
     ![Azure kapsayıcı hizmeti yük dengeleyici kuralları](./media/container-service-enable-public-access/add-balancer-rule.png)
@@ -50,7 +50,7 @@ Bir ACS DC/OS kapsayıcısında [genel aracı havuzu](container-service-mesos-ma
    | Alan | Açıklama |
    | --- | --- |
    | Ad |Yük dengeleyicinin açıklayıcı bir ad. |
-   | Bağlantı noktası |Ortak gelen bağlantı noktası. |
+   | Port |Ortak gelen bağlantı noktası. |
    | Arka uç bağlantı noktası |İç ortak bağlantı noktası kapsayıcısının trafiği yönlendirmek için. |
    | Arka uç havuzu |Bu havuzdaki kapsayıcıları Bu yük dengeleyici için hedef olur. |
    | Araştırma |Bir hedef olarak belirlemek için kullanılan araştırma **arka uç havuzu** kötü durumda. |
@@ -74,9 +74,9 @@ Ardından, biz bizim açılan bağlantı noktası güvenlik duvarı üzerinden g
    | --- | --- |
    | Ad |Güvenlik duvarı kuralı, açıklayıcı bir ad. |
    | Öncelik |Kuralın önceliğini boyut. Düşük sayı öncelik o kadar yüksektir. |
-   | Kaynak |Gelen IP adresi aralığı izin verilen ya da bu kural tarafından reddedildi kısıtlayın. Kullanım **herhangi** bir kısıtlama belirtmek için. |
+   | source |Gelen IP adresi aralığı izin verilen ya da bu kural tarafından reddedildi kısıtlayın. Kullanım **herhangi** bir kısıtlama belirtmek için. |
    | Hizmet |Bu güvenlik kuralının içindir önceden tanımlanmış bir hizmetler kümesi seçin. Aksi takdirde kullanın **özel** kendi oluşturmak için. |
-   | Protokol |Temel trafiği kısıtlamak **TCP** veya **UDP**. Kullanım **herhangi** bir kısıtlama belirtmek için. |
+   | Protocol |Temel trafiği kısıtlamak **TCP** veya **UDP**. Kullanım **herhangi** bir kısıtlama belirtmek için. |
    | Bağlantı noktası aralığı |Zaman **hizmet** olduğu **özel**, bu kural etkiler bağlantı noktası aralığını belirtir. Tek bir bağlantı noktası gibi kullanabileceğiniz **80**, veya bir aralığı **1024-1500**. |
    | Eylem |İzin vermek veya kriterleri karşılayan trafiği reddetmek. |
 

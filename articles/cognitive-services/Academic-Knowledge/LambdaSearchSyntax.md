@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 4d4c540e00794bfdf1df265457798cc13530c828
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61337797"
 ---
 # <a name="lambda-search-syntax"></a>Lambda arama söz dizimi
@@ -33,13 +33,13 @@ FollowEdge(params string[] edgeTypes)
 > [!NOTE]
 > Sadece biz izlemenizi edge(s) türlerini hakkında önemsemiyorsanız atlamak *FollowEdge()* iki düğüm arasındaki: Sorgu bu iki düğüm arasında tüm olası kenarları boyunca size yol gösterir.
 
-Bir düğüme uygulanacak geçişi eylemleri belirttiğimiz *VisitNode()*, diğer bir deyişle, bu düğümde durdurun ve sonucu olarak geçerli bir yol döndürür veya graph incelemeye devam edin.  Enum türü *eylem* iki tür eylem tanımlar: *Action.Return* ve *Action.Continue*. Biz bu tür bir sabit listesi değeri doğrudan geçirebilirsiniz *VisitNode()*, veya bit düzeyinde ile birleştirip- and işleci '&'. İki eylem birleştirilir, hem eylemler gerçekleştirilecek anlamına gelir. Not: bit düzeyinde kullanmayın- or işleci ' |' eylemleri. Bunun yapılması, hiçbir şey dönmeden sonlandırmak sorgu neden olur. Atlama *VisitNode()* iki *FollowEdge()* koşulsuz olarak bir düğümde geldikten sonra graf keşfetmek sorgu çağrıları neden olur.
+Bir düğüme uygulanacak geçişi eylemleri belirttiğimiz *VisitNode()* , diğer bir deyişle, bu düğümde durdurun ve sonucu olarak geçerli bir yol döndürür veya graph incelemeye devam edin.  Enum türü *eylem* iki tür eylem tanımlar: *Action.Return* ve *Action.Continue*. Biz bu tür bir sabit listesi değeri doğrudan geçirebilirsiniz *VisitNode()* , veya bit düzeyinde ile birleştirip- and işleci '&'. İki eylem birleştirilir, hem eylemler gerçekleştirilecek anlamına gelir. Not: bit düzeyinde kullanmayın- or işleci ' |' eylemleri. Bunun yapılması, hiçbir şey dönmeden sonlandırmak sorgu neden olur. Atlama *VisitNode()* iki *FollowEdge()* koşulsuz olarak bir düğümde geldikten sonra graf keşfetmek sorgu çağrıları neden olur.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
 ```
 
-İçin *VisitNode()*, tür lambda ifadesinde biz de geçirebilirsiniz *ifade\<Func\<Inode, eylem\>\>*, bir aldığı*Inode* ve geçişi eylem döndürür:
+İçin *VisitNode()* , tür lambda ifadesinde biz de geçirebilirsiniz *ifade\<Func\<Inode, eylem\>\>* , bir aldığı*Inode* ve geçişi eylem döndürür:
 
 ```
 VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = null)
@@ -65,11 +65,11 @@ Belirtilen ada sahip bir alan geçerli düğüm olup olmadığını söyler.
 
 ##### <a name="string-getstring-fieldname"></a>dize (dize fieldName) alın
 
-Gibi çalışır *GetField\<dize\>(fieldName)*. Ancak, alanı bulunamazsa özel durum oluşturmaz, bunun yerine boş bir string("") döndürür.
+Gibi çalışır *GetField\<dize\>(fieldName)* . Ancak, alanı bulunamazsa özel durum oluşturmaz, bunun yerine boş bir string("") döndürür.
 
 ##### <a name="bool-hasstring-fieldname"></a>bool (dize fieldName) sahiptir.
 
-Sağlanan özellik geçerli düğüm olup olmadığını söyler. Aynı *ContainsField(fieldName)*.
+Sağlanan özellik geçerli düğüm olup olmadığını söyler. Aynı *ContainsField(fieldName)* .
 
 ##### <a name="bool-hasstring-fieldname-string-value"></a>bool (fieldName dize, dize değeri) sahip.
 

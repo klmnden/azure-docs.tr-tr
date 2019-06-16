@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69cd4576d0f0722fff0825502233aa50ff1c2c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3474c576ccc08ae22ddee2955aacc4c72d25c4f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60279121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Öğretici: Süre sonu anımsatıcı ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de süre sonu anımsatıcı tümleştirmesini yapılandırmak için sü
 
 **Süre sonu anımsatıcı Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

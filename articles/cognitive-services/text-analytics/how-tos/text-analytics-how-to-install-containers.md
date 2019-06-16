@@ -3,20 +3,20 @@ title: Kapsayıcıları yükleme ve çalıştırma
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: İndirme, yükleme ve bu izlenecek yol öğreticide metin analizi için kapsayıcıları çalıştırmak nasıl.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: f9f68b74c09bf0122ba856680a60bdb14ffa868f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: fc9e2b6e5ab2d2103cab2681fe603c1ca9b725c8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306519"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069208"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Yükleme ve metin analizi kapsayıcıları çalıştırma
 
@@ -50,7 +50,7 @@ Aşağıdaki tabloda açıklanmıştır en düşük ve önerilen CPU çekirdekle
 |-----------|---------|-------------|--|
 |Anahtar İfade Ayıklama | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |15, 30|
 |Dil Algılama | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |15, 30|
-|Yaklaşım Analizi | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |15, 30|
+|Duygu Analizi | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |15, 30|
 
 * Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
 * TPS - saniye başına işlem
@@ -65,7 +65,7 @@ Microsoft kapsayıcı kayıt defterinden kapsayıcı görüntülerini metin anal
 |-----------|------------|
 |Anahtar İfade Ayıklama | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 |Dil Algılama | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Yaklaşım Analizi | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+|Duygu Analizi | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) Microsoft kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü indirilemedi komutu.
 
@@ -159,7 +159,7 @@ Ana bilgisayarını kullanmak `https://localhost:5000`, kapsayıcı API'leri iç
 
 Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](../text-analytics-resource-container-config.md#mount-settings) ve günlüğe kaydetme etkin, kapsayıcı başlatma veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyalarını oluşturur. 
 
-## <a name="billing"></a>Faturalama
+## <a name="billing"></a>Faturalandırma
 
 Azure için fatura, kullanarak metin analizi kapsayıcıları Gönder bir _Bilişsel Hizmetler_ Azure hesabınız kaynaktaki. 
 

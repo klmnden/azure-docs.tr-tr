@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60397286"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Orta ağ bant genişliği düşük ile küçük veri kümeleri için veri aktarımı
@@ -51,7 +51,7 @@ Aşağıdaki tabloda temel işlevleri farklılıkları özetlemektedir.
 
 | Özellik | Azure Depolama Gezgini | Azure portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure depolama REST API veya SDK'ları |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
-| Kullanılabilirlik | İndir ve yükle <br>Tek başına aracı | Azure portalında Web tabanlı araştırma araçları | Komut satırı aracı |.NET, Java, Python, JavaScript, C++, Go, Ruby ve PHP'ye programlanabilir arabirimleri |
+| Kullanılabilirlik | İndirme ve yükleme <br>Tek başına aracı | Azure portalında Web tabanlı araştırma araçları | Komut satırı aracı |.NET, Java, Python, JavaScript, C++, Go, Ruby ve PHP'ye programlanabilir arabirimleri |
 | Grafik arabirimi | Evet | Evet | Hayır | Hayır |
 | Desteklenen platformlar | Windows, Mac, Linux | Web tabanlı |Windows, Mac, Linux |Tüm platformlar |
 | BLOB Depolama işlemlerine izin<br>BLOB'ları ve klasörleri | Karşıya Yükle<br>İndirme<br>Yönetme | Karşıya Yükle<br>İndirme<br>Yönetme |Karşıya Yükle<br>İndirme<br>Yönetme | Evet, özelleştirilebilir |

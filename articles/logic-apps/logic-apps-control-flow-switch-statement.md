@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683177"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Azure Logic Apps belirli değerlere göre iş akışının eylemlerini çalıştıran switch deyimleri oluşturma
@@ -45,7 +45,7 @@ Nesneleri, ifadeler veya belirteçleri değerlerine göre özel eylemler çalı�
 
 1. Bu örnekte, bir switch ifadesi, örnek iş akışı sonuna ekleyin. Son adımdan sonra seçin **yeni adım**.
 
-   Switch deyimi adımlar arasında eklemek istediğinizde, işaretçiyi switch ifadesi eklemek istediğiniz okun üzerine getirin. Seçin **artı** (**+**) görünür, ardından **Eylem Ekle**.
+   Switch deyimi adımlar arasında eklemek istediğinizde, işaretçiyi switch ifadesi eklemek istediğiniz okun üzerine getirin. Seçin **artı** ( **+** ) görünür, ardından **Eylem Ekle**.
 
 1. Arama kutusuna filtreniz olarak "geçiş" girin. Şu eylemi seçin: **Switch - denetim**
 
@@ -68,8 +68,8 @@ Nesneleri, ifadeler veya belirteçleri değerlerine göre özel eylemler çalı�
 
    | Durum # | **SelectedOption** | Eylem |
    |--------|--------------------|--------|
-   | 1. durum | **Onayla** | Outlook ekleme **bir e-posta** onaylayan seçildiğinde, RSS öğeyle ilgili ayrıntıların göndermek için eylem **Onayla**. |
-   | 2. durum | **Reddet** | Outlook ekleme **bir e-posta** diğer onaylayanlar RSS öğesinin reddedildiğini bildiren için eylem. |
+   | 1\. durum | **Onayla** | Outlook ekleme **bir e-posta** onaylayan seçildiğinde, RSS öğeyle ilgili ayrıntıların göndermek için eylem **Onayla**. |
+   | 2\. durum | **Reddet** | Outlook ekleme **bir e-posta** diğer onaylayanlar RSS öğesinin reddedildiğini bildiren için eylem. |
    | Varsayılan | None | Hiçbir eylem gerekmiyor. Bu örnekte, **varsayılan** durumda boş olduğundan **SelectedOption** yalnızca iki seçenek vardır. |
    |||
 

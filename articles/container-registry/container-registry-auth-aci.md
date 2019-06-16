@@ -2,17 +2,16 @@
 title: Azure Container Registry'den Azure Container Instances ile kimlik doğrulaması
 description: Özel kapsayıcı kayıt defterinizde bulunan görüntü Azure Container Instances ' bir Azure Active Directory Hizmet sorumlusu kullanarak erişmeyi öğrenin.
 services: container-registry
-author: rockboyfor
+author: dlepow
 ms.service: container-registry
 ms.topic: article
-origin.date: 04/23/2018
-ms.date: 03/25/2019
-ms.author: v-yeche
+ms.date: 04/23/2018
+ms.author: danlep
 ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333585"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Azure Container Registry'den Azure Container Instances ile kimlik doğrulaması
@@ -35,12 +34,12 @@ Hizmet sorumluları olmalıdır ne zaman kullanılan kayıt defteri [yönetici k
 
 Bir kapsayıcıda bir hizmet sorumlusu kullanarak Azure Container Instances'ı başlatmak için kendi kimliği belirtin. `--registry-username`ve bunun parolasını `--registry-password`.
 
-```azurecli
+```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mycontainerregistry.azurecr.cn/myimage:v1 \
-    --registry-login-server mycontainerregistry.azurecr.cn \
+    --image mycontainerregistry.azurecr.io/myimage:v1 \
+    --registry-login-server mycontainerregistry.azurecr.io \
     --registry-username <service-principal-ID> \
     --registry-password <service-principal-password>
 ```

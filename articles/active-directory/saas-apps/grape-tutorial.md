@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 192db67f481f3a4c420c19be7ce1febe55342050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd7b382e35191571af5a9d7ddd9884dff32e023d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60276706"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101544"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Öğretici: Gri Pe ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de gri Pe tümleştirmesini yapılandırmak için gri Pe Galeriden yön
 
 **Galeriden gri Pe eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

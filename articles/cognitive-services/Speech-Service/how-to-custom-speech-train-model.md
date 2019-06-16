@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 194ae477bb3cba4ac7e3350da6b793c6fea6ecdb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e12cef052db6aabad94b47283eda11f60f3b2b13
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063928"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Özel konuşma modeli eğitme
 
@@ -27,7 +27,7 @@ Eğitim bir konuşmayı metne dönüştürme hem Microsoft'un temel model veya o
 
 | Kullanım örneği | Veri türü | Veri miktarı |
 |----------|-----------|---------------|
-| Tam adlar ifadenin | Metin (cümleler/konuşma) arasında bir ilişki | 10 MB-500 MB |
+| Tam adlar ifadenin | İlgili metin (cümleler/konuşma) | 10 MB-500 MB |
 | Sözcükleri nedeniyle bir Vurgu ifadenin | İlgili metin (telaffuz) | Misrecognized sözcükleri girin |
 | Ortak kelimeler silindi veya ifadenin | Ses + insan etiketli dökümleri | 10 ila 1.000 transkripsiyonu saat |
 

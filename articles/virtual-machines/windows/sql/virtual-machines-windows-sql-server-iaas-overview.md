@@ -16,10 +16,10 @@ ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 99c4f0f99af61196cf1a12f2f68a7d10d8b2e6c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477170"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Sanal Makinelerinde SQL Server nedir? (Windows)
@@ -74,7 +74,7 @@ Kullanabileceğiniz Linux SQL Server sanal makine görüntülerini görmek için
 ### <a id="BYOL"></a> Kendi lisansını getir
 Ayrıca kendi lisansınızı getirebilirsiniz (KLG). Bu senaryoda, SQL Server Lisans için hiçbir ek bir ücret olmadan yalnızca VM için ödeme yaparsınız.  Kendi lisansınızı getirmek, sürekli üretim iş yüklerinde zaman içinde paradan tasarruf etmenizi sağlayabilir. Bu seçeneği kullanmaya yönelik gereksinimler için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md#byol).
 
-Kendi lisansını Getir için var olan kullanım başına ödeme SQL VM'yi ya da dönüştürebilir veya önekli bir resim dağıtabilirsiniz **{KLG}**. Lisanslama modelinizin kullanım başına ödeme ve KLG arasında geçiş yapma hakkında daha fazla bilgi için bkz. [bir SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md). 
+Kendi lisansını Getir için var olan kullanım başına ödeme SQL VM'yi ya da dönüştürebilir veya önekli bir resim dağıtabilirsiniz **{KLG}** . Lisanslama modelinizin kullanım başına ödeme ve KLG arasında geçiş yapma hakkında daha fazla bilgi için bkz. [bir SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md). 
 
 | Version | İşletim sistemi | Sürüm |
 | --- | --- | --- |

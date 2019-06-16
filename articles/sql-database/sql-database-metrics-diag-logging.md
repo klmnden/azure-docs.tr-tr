@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791961"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
@@ -44,7 +44,7 @@ Etkinleştirin ve aşağıdaki yöntemlerden birini kullanarak, ölçümleri ve 
 
 - Azure portal
 - PowerShell
-- Azure CLI'si
+- Azure CLI
 - Azure İzleyici REST API
 - Azure Resource Manager şablonu
 
@@ -263,7 +263,7 @@ Birden çok abonelik desteklemek için PowerShell betiğini kullanın. [kaynak �
     ```
    Değiştirin \<Subıd\> abonelik kimliği ile \<RG_NAME\> kaynak grubu adı ile ve \<WS_NAME\> çalışma alanı adı ile.
 
-### <a name="azure-cli"></a>Azure CLI'si
+### <a name="azure-cli"></a>Azure CLI
 
 Azure CLI kullanarak, ölçümleri ve tanılama günlük kaydını etkinleştirebilirsiniz.
 
@@ -443,9 +443,9 @@ Tüm günlükler için kullanılabilen telemetri ayrıntıları aşağıdaki tab
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Category|Kategori adı. Her zaman: ResourceUsageStats |
+|Kategori|Kategori adı. Her zaman: ResourceUsageStats |
 |Resource|Kaynağın adı |
-|KaynakTürü|Kaynak türünün adı. Her zaman: MANAGEDINSTANCES |
+|ResourceType|Kaynak türünün adı. Her zaman: MANAGEDINSTANCES |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Yönetilen örnek adı |
@@ -468,10 +468,10 @@ Tüm günlükler için kullanılabilen telemetri ayrıntıları aşağıdaki tab
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Category|Kategori adı. Her zaman: QueryStoreRuntimeStatistics |
+|Kategori|Kategori adı. Her zaman: QueryStoreRuntimeStatistics |
 |OperationName|İşlemin adı. Her zaman: QueryStoreRuntimeStatisticsEvent |
 |Resource|Kaynağın adı |
-|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -519,10 +519,10 @@ Daha fazla bilgi edinin [Query Store çalışma zamanı istatistik verileri](htt
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Category|Kategori adı. Her zaman: QueryStoreWaitStatistics |
+|Kategori|Kategori adı. Her zaman: QueryStoreWaitStatistics |
 |OperationName|İşlemin adı. Her zaman: QueryStoreWaitStatisticsEvent |
 |Resource|Kaynağın adı |
-|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -557,10 +557,10 @@ Daha fazla bilgi edinin [Query Store bekleme istatistikleri veri](https://docs.m
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQ |
-|Category|Kategori adı. Her zaman: Hatalar |
+|Kategori|Kategori adı. Her zaman: Hatalar |
 |OperationName|İşlemin adı. Her zaman: ErrorEvent |
 |Resource|Kaynağın adı |
-|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -586,10 +586,10 @@ Daha fazla bilgi edinin [SQL Server hata iletileri](https://msdn.microsoft.com/l
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Category|Kategori adı. Her zaman: DatabaseWaitStatistics |
+|Kategori|Kategori adı. Her zaman: DatabaseWaitStatistics |
 |OperationName|İşlemin adı. Her zaman: DatabaseWaitStatisticsEvent |
 |Resource|Kaynağın adı |
-|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -615,10 +615,10 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Category|Kategori adı. Her zaman: Zaman Aşımları |
+|Kategori|Kategori adı. Her zaman: Zaman Aşımları |
 |OperationName|İşlemin adı. Her zaman: TimeoutEvent |
 |Resource|Kaynağın adı |
-|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -638,10 +638,10 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Category|Kategori adı. Her zaman: blokları |
+|Kategori|Kategori adı. Her zaman: blokları |
 |OperationName|İşlemin adı. Her zaman: BlockEvent |
 |Resource|Kaynağın adı |
-|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -662,10 +662,10 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TimeGenerated [UTC] |Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Category|Kategori adı. Her zaman: Kilitlenmeler |
+|Kategori|Kategori adı. Her zaman: Kilitlenmeler |
 |OperationName|İşlemin adı. Her zaman: DeadlockEvent |
 |Resource|Kaynağın adı |
-|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -683,9 +683,9 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Category|Kategori adı. Her zaman: AutomaticTuning |
+|Kategori|Kategori adı. Her zaman: AutomaticTuning |
 |Resource|Kaynağın adı |
-|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |

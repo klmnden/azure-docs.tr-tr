@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129408"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight, Hadoop ile Apache Sqoop'u kullanma
@@ -51,7 +51,7 @@ HDInsight küme bazı örnek verilerle birlikte gelir. Aşağıdaki iki örnek k
   | deviceplatform |string |
   | devicemake |string |
   | devicemodel |string |
-  | durum |string |
+  | state |string |
   | Ülke |string |
   | querydwelltime |double |
   | oturum kimliği |bigint |
@@ -83,11 +83,11 @@ Küme, SQL veritabanı ve diğer nesneleri, bir Azure Resource Manager şablonu 
     |Location |Aşağı açılan listeden bir bölge seçin.|
     |Küme Adı |Hadoop kümesi için bir ad girin. Yalnızca küçük harf kullanın.|
     |Küme Oturum Açma Kullanıcı Adı |Önceden doldurulmuş değeri tutun `admin`.|
-    |Küme Oturum Açma Parolası |Parola girin.|
+    |Küme Oturum Açma Parolası |Bir parola girin.|
     |SSH kullanıcı adı |Önceden doldurulmuş değeri tutun `sshuser`.|
-    |SSH parolası |Parola girin.|
+    |SSH parolası |Bir parola girin.|
     |SQL Yöneticisi oturum açma |Önceden doldurulmuş değeri tutun `sqluser`.|
-    |SQL yönetici parolası |Parola girin.|
+    |SQL yönetici parolası |Bir parola girin.|
     |_artifacts konumu | Farklı bir konumda kendi bacpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.|
     |_artifacts konumu Sas belirteci |Boş bırakın.|
     |Bacpac dosyası adı |Kendi bacpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.|

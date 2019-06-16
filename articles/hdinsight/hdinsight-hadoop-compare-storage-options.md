@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: fb25386ef9282a922866e39353d84f0e339caee7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479151"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122129"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile kullanılmak üzere depolama seçeneklerini karşılaştırma
 
@@ -55,7 +55,7 @@ Birincil ve isteğe bağlı ikincil depolama hizmetleri farklı birleşimlerini 
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Hayır |
 | 4.0 | Data Lake Storage Gen1 | Tüm | Hayır |
 
-* = Aynı yönetilen kimliği kümeye erişim için kullanılacak tüm Kurulum oldukları sürece bu bir veya birden çok Data Lake depolama Gen2 hesapları olabilir.
+\* = Aynı yönetilen kimliği kümeye erişim için kullanılacak tüm Kurulum oldukları sürece bu bir veya birden çok Data Lake depolama Gen2 hesapları olabilir.
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight, Apache Hadoop ile Azure Data Lake depolama Gen2'ı kullanma
 

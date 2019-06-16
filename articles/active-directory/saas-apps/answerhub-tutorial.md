@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e51c37f983162b82747760b05e2ec5e4e6553c0b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106940"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Öğretici: AnswerHub ile Azure Active Directory Tümleştirme
 
@@ -184,7 +184,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** kutusuna **brittasimon\@< yourcompanydomain.extension >**.  
+    b. İçinde **kullanıcı adı** kutusuna **brittasimon\@< yourcompanydomain.extension >** .  
     Örneğin, BrittaSimon@contoso.com.
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.

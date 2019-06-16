@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585517"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Parçalı veritabanları arasında veri taşıma için bir ayırma-birleştirme hizmetini dağıtma
@@ -170,7 +170,7 @@ Bulunan komut dosyaları şunlardır:
        <td>1.    Parça eşleme Yöneticisi veritabanını oluşturur</td>
      </tr>
      <tr>
-       <td>2.    2. parça veritabanı oluşturur.
+       <td>2.    2\. parça veritabanı oluşturur.
      </tr>
      <tr>
        <td>3.    Bu veritabanları (mevcut bir parça söz konusu veritabanlarında eşler siler) için bir parça eşlemesi oluşturur. </td>

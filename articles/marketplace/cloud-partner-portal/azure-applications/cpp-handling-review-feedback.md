@@ -7,25 +7,25 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pabutler
-ms.openlocfilehash: 57efbfe12df8072d619cf71f4b08da2e2e5be3ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1a45af2cb5eed8daa4b50bb6f0b504f9653c827a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942952"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068947"
 ---
 # <a name="handling-review-feedback"></a>Gözden geçirme geri bildirimini işleme
 
 Bu makalede, Microsoft Azure Marketi gözden geçirme ekibi tarafından kullanılan Azure DevOps ortamına erişmek açıklanmaktadır.  Azure uygulama teklifinizi sırasında kritik sorunlar bulunuyorsa **Microsoft gözden geçirme** adım (İnceleme görüşüne) Bu sorunlar hakkında ayrıntılı bilgi görüntülemek için bu sisteme imzalayabilirsiniz.  Bu sorunları giderdikten sonra teklifinizin Azure Market'te yayımlamak devam etmek için yeniden göndermeniz gerekir.  Aşağıdaki diyagram, bu geri bildirim süreci için yayımlama işlemi ilişkisini gösterir.
 
-![VSTS görüş yayımlama adımları](./media/pub-flow-vsts-access.png)
+![Azure DevOps görüş yayımlama adımları](./media/pub-flow-vsts-access.png)
 
 Genellikle, gözden geçirme sorunlar, çekme isteği (PR) başvurulur.  Her çekme isteği için bir çevrimiçi bağlı [Azure DevOps](https://azure.microsoft.com/services/devops/) (daha önce Visual Studio Team Services (VSTS) olarak adlandırılır) sorun hakkında ayrıntılar içeren öğe.  Aşağıdaki resimde PR gözden geçirme başvuru örneği görüntüler.  Karmaşık durumlarda, gözden geçirme ve destek ekipleri ayrıca size e-posta. 
 
 ![Durum sekmesinde görüntüleme gözden geçirme geri bildirim](./media/status-tab-ms-review.png)
 
 
-## <a name="vsts-access"></a>VSTS erişim
+## <a name="azure-devops-access"></a>Azure DevOps erişimi
 
 Gözden geçirme geri bildirim başvurulan çekme isteği öğeleri görüntülemek için yayımcılar öncelikle uygun yetkilendirme verilmelidir.  Aksi takdirde, yeni yayımcılar almak bir `401 - Not Authorized` Pr'ler görüntülemeye çalışırken yanıt sayfası.  Bu Azure DevOps deposuna erişim istemek için aşağıdaki adımları gerçekleştirin:
 
@@ -40,7 +40,7 @@ Gözden geçirme geri bildirim başvurulan çekme isteği öğeleri görüntüle
     ![Destek bileti kategorisi](./media/support-incident1.png)
 
 4. İçinde **adım 1 / 2** sayfasında, iletişim bilgilerinizi girin ve seçin **devam**.
-5. İçinde **adım 2 / 2** sayfasında, bir olay başlığı belirtin (örneğin `Request VSTS access`) ve (yukarıda) İlk adımda toplanan bilgileri sağlayın.  Okuma ve sözleşmesini kabul edin ve ardından **Gönder**.
+5. İçinde **adım 2 / 2** sayfasında, bir olay başlığı belirtin (örneğin `Request Azure DevOps access`) ve (yukarıda) İlk adımda toplanan bilgileri sağlayın.  Okuma ve sözleşmesini kabul edin ve ardından **Gönder**.
 
 Olay oluşturma başarılı olduysa, bir onay sayfası görüntülenir.  Başvuru amacıyla bu sayfadaki onay bilgileri kaydedin.  Microsoft Destek ekibine erişim isteğiniz birkaç iş günü içinde yanıt.
 

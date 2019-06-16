@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: b5df69e9670c01b576afe242b39532acb1e1c526
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685911"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure İzleyici'de Azure Event Hubs ölçümleri
@@ -63,24 +63,24 @@ Veri ve yönetim işlemleri istek sayısını sayar.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| Gelen istekler (Önizleme) | Belirtilen bir süredeki Azure Event Hubs hizmetine yapılan isteklerin sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName |
-| Başarılı istekler (Önizleme)   | Azure Event Hubs hizmeti için belirtilen bir süredeki iletilen başarılı istek sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName |
-| Sunucu hataları (Önizleme) | Azure Event Hubs hizmetinde bir hata nedeniyle belirtilen bir süredeki işlenmedi istek sayısı. <br/><br/>Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName |
-|Kullanıcı hataları (Önizleme)|Kullanıcı hataları nedeniyle, belirtilen bir süredeki işlenmedi istek sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+| Gelen istekler (Önizleme) | Belirtilen bir süredeki Azure Event Hubs hizmetine yapılan isteklerin sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName |
+| Başarılı istekler (Önizleme)   | Azure Event Hubs hizmeti için belirtilen bir süredeki iletilen başarılı istek sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName |
+| Sunucu hataları (Önizleme) | Azure Event Hubs hizmetinde bir hata nedeniyle belirtilen bir süredeki işlenmedi istek sayısı. <br/><br/>Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName |
+|Kullanıcı hataları (Önizleme)|Kullanıcı hataları nedeniyle, belirtilen bir süredeki işlenmedi istek sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |Kota aşıldı hataları (Önizleme)|Kullanılabilir kota isteklerinin sayısı aşıldı. Bkz: [bu makalede](event-hubs-quotas.md) Event Hubs kotaları hakkında daha fazla bilgi.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 
 ## <a name="throughput-metrics"></a>Verimlilik metriklerini
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|Daraltılmış istekler (Önizleme)|Aktarım hızı birimi kullanım aşıldığından bulunduğu için kısıtlanan istek sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Daraltılmış istekler (Önizleme)|Aktarım hızı birimi kullanım aşıldığından bulunduğu için kısıtlanan istek sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 
 ## <a name="message-metrics"></a>İleti ölçümleri
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|Gelen iletiler (Önizleme)|Olay veya olay hub'ları için belirtilen bir süredeki gönderilen iletilerin sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
-|Giden iletiler (Önizleme)|Olayları veya ileti sayısını belirtilen bir süredeki Event Hubs'dan alınan.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Gelen iletiler (Önizleme)|Olay veya olay hub'ları için belirtilen bir süredeki gönderilen iletilerin sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Giden iletiler (Önizleme)|Olayları veya ileti sayısını belirtilen bir süredeki Event Hubs'dan alınan.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |Gelen bayt (Önizleme)|Azure Event Hubs hizmeti için belirtilen bir süredeki gönderilen bayt sayısı.<br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |Giden bayt (Önizleme)|Bayt sayısı, belirtilen bir süredeki Azure Event Hubs hizmetinden alınır.<br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 
@@ -88,9 +88,9 @@ Veri ve yönetim işlemleri istek sayısını sayar.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|ActiveConnections (Önizleme)|Bir varlığın yanı sıra bir ad alanı etkin bağlantı sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
-|Bağlantılar açık (Önizleme)|Açık bağlantıları sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
-|Bağlantı kapalı (Önizleme)|Kapalı bağlantılarının sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|ActiveConnections (Önizleme)|Bir varlığın yanı sıra bir ad alanı etkin bağlantı sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Bağlantılar açık (Önizleme)|Açık bağlantıları sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Bağlantı kapalı (Önizleme)|Kapalı bağlantılarının sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 
 ## <a name="event-hubs-capture-metrics"></a>Event Hubs yakalama ölçümleri
 
@@ -99,7 +99,7 @@ Yakalama özelliği, event hubs için etkinleştirdiğinizde, Event Hubs yakalam
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |Kapsam (Önizleme) yakalayın|Seçtiğiniz hedefe Yakalanacak henüz olan bayt sayısı.<br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
-|Yakalanan iletiler (Önizleme)|Seçtiğiniz hedefe, belirtilen bir süredeki yakalanır olay sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Yakalanan iletiler (Önizleme)|Seçtiğiniz hedefe, belirtilen bir süredeki yakalanır olay sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |Yakalanan Baytlar (Önizleme)|Seçilen hedef için belirtilen bir süredeki yakalanan bayt sayısı.<br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 
 ## <a name="metrics-dimensions"></a>Ölçümleri boyutları

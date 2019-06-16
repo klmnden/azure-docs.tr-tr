@@ -11,10 +11,10 @@ ms.date: 09/30/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510715"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Kullanıcı girişini doğrulama, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirme
@@ -56,7 +56,7 @@ Genel Bakış:
 ## <a name="prerequisites"></a>Önkoşullar
 Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
 
-## <a name="step-1-create-an-aspnet-web-api"></a>1. adım: Bir ASP.NET web API'si oluşturma
+## <a name="step-1-create-an-aspnet-web-api"></a>1\. adım: Bir ASP.NET web API'si oluşturma
 
 1. Visual Studio'da seçerek bir proje oluşturun **dosya** > **yeni** > **proje**.
 
@@ -74,9 +74,9 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](act
 
 6. Seçin **Tamam** projeyi oluşturmak için.
 
-## <a name="step-2-prepare-the-rest-api-endpoint"></a>2. adım: REST API uç noktası hazırlama
+## <a name="step-2-prepare-the-rest-api-endpoint"></a>2\. adım: REST API uç noktası hazırlama
 
-### <a name="step-21-add-data-models"></a>2.1. adım: Veri modelleri ekleme
+### <a name="step-21-add-data-models"></a>2\.1. adım: Veri modelleri ekleme
 Modelleri giriş talepleri temsil eder ve veri RESTful hizmetinizdeki çıkış talep. Kodunuz, bir C# nesnesi (modeli) için bir JSON dizesi giriş talepleri modelden seri durumdan çıkarılırken girdi verilerini okur. ASP.NET web API, çıkış talep modeline geri JSON otomatik olarak çıkarır ve ardından HTTP yanıt iletisinin gövdesine seri hale getirilmiş verileri yazar.
 
 Aşağıdakileri yaparak giriş talepleri temsil eden bir model oluşturun:
@@ -133,7 +133,7 @@ Aşağıdakileri yaparak giriş talepleri temsil eden bir model oluşturun:
     }
     ```
 
-### <a name="step-22-add-a-controller"></a>2.2. adım: Denetleyici ekleme
+### <a name="step-22-add-a-controller"></a>2\.2. adım: Denetleyici ekleme
 Web API'si, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetleyici, çıkış talep veya ad geçerli değil. bir çakışma HTTP hata iletisini oluşturur döndürür.
 
 1. Çözüm Gezgini'nde **Denetleyiciler** klasörüne sağ tıklayın, **Ekle**'yi ve ardından **Denetleyici**'yi seçin.
@@ -203,7 +203,7 @@ Web API'si, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetley
     }
     ```
 
-## <a name="step-3-publish-the-project-to-azure"></a>3. adım: Projeyi Azure'da yayımlama
+## <a name="step-3-publish-the-project-to-azure"></a>3\. adım: Projeyi Azure'da yayımlama
 1. Çözüm Gezgini'nde sağ **Contoso.AADB2C.API** proje ve ardından **Yayımla**.
 
     ![Microsoft Azure App Service'e yayımlama](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
@@ -226,7 +226,7 @@ Web API'si, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetley
 
 6. Web uygulamasının URL'sini kopyalayın.
 
-## <a name="step-4-add-the-new-loyaltynumber-claim-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>4. Adım: Yeni Ekle `loyaltyNumber` TrustFrameworkExtensions.xml dosyanızın şemaya talep
+## <a name="step-4-add-the-new-loyaltynumber-claim-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>4\. Adım: Yeni Ekle `loyaltyNumber` TrustFrameworkExtensions.xml dosyanızın şemaya talep
 `loyaltyNumber` Talep bizim şemasında henüz tanımlanmadı. İçinde bir tanım ekleyin `<BuildingBlocks>` başında bulabileceğiniz öğesi *TrustFrameworkExtensions.xml* dosya.
 
 ```xml
@@ -241,7 +241,7 @@ Web API'si, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetley
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>5. Adım: Bir talep Sağlayıcı Ekle
+## <a name="step-5-add-a-claims-provider"></a>5\. Adım: Bir talep Sağlayıcı Ekle
 Her talep sağlayıcısı uç noktaları ve protokolleri ve Talep sağlayıcı ile iletişim kurmak için gereken belirleyen bir veya daha fazla teknik profiller, olması gerekir.
 
 Bir talep sağlayıcısı, birden fazla teknik profili çeşitli nedenlerden dolayı olabilir. Örneğin, birden fazla teknik profili, çünkü birden çok protokol talep sağlayıcının desteklediği, çeşitli özellikleri uç noktalarına sahip olabilir veya sürümler güvence düzeyleri çeşitli sahip talep içerebilir tanımlanabilir. Bir kullanıcı yolculuğu ancak başka bir hassas talep serbest bırakmak için kabul edilebilir olabilir.
@@ -297,7 +297,7 @@ Bulun `<ClaimsProviders>` düğümünü ve ardından altına aşağıdaki XML pa
 </ClaimsProvider>
 ```
 
-## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>6. Adım: Ekleme `loyaltyNumber` talep uygulamanıza gönderilir. Bu nedenle, bağlı olan taraf ilke dosyanıza talep
+## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>6\. Adım: Ekleme `loyaltyNumber` talep uygulamanıza gönderilir. Bu nedenle, bağlı olan taraf ilke dosyanıza talep
 Düzenleme, *SignUpOrSignIn.xml* bağlı olan taraf (RP) dosya ve TechnicalProfile kimliğini değiştirme = "PolicyProfile" öğesini aşağıdakileri ekleyin: `<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`.
 
 Yeni Talep ekledikten sonra bağlı olan taraf kodu şöyle görünür:
@@ -323,7 +323,7 @@ Yeni Talep ekledikten sonra bağlı olan taraf kodu şöyle görünür:
 </TrustFrameworkPolicy>
 ```
 
-## <a name="step-7-upload-the-policy-to-your-tenant"></a>7. Adım: Kiracınız için ilkeyi karşıya yükle
+## <a name="step-7-upload-the-policy-to-your-tenant"></a>7\. Adım: Kiracınız için ilkeyi karşıya yükle
 
 1. İçinde [Azure portalında](https://portal.azure.com), geçiş [Azure AD B2C kiracınızın bağlamında](active-directory-b2c-navigate-to-b2c-context.md)ve ardından açın **Azure AD B2C**.
 
@@ -339,7 +339,7 @@ Yeni Talep ekledikten sonra bağlı olan taraf kodu şöyle görünür:
 
 7. SignUpOrSignIn.xml dosyasıyla önceki adımı yineleyin.
 
-## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>8. adım: Şimdi Çalıştır'i kullanarak özel bir ilkeyi test
+## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>8\. adım: Şimdi Çalıştır'i kullanarak özel bir ilkeyi test
 1. Seçin **Azure AD B2C ayarlarını**ve ardından **kimlik deneyimi çerçevesi**.
 
     > [!NOTE]

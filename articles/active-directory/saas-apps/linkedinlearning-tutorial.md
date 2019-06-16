@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3717ed095c162255b0c0cdf09cac13fe2033979a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ff3748213d8449704f7b1001469eb8f7a224498
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60260544"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Öğretici: LinkedIn Learning ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de LinkedIn Learning tümleştirmesini yapılandırmak için LinkedIn L
 
 **LinkedIn Learning Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -127,7 +127,7 @@ Azure AD çoklu oturum açma ile LinkedIn Learning yapılandırmak için aşağ�
     
     | Ad | Kaynak özniteliği |
     | ---------------| --------------- |
-    | e-posta  | User.Mail  |
+    | email  | User.Mail  |
     | Bölüm  | User.Department  |
     | firstName  | User.givenName  |
     | Soyadı  | User.surname  |

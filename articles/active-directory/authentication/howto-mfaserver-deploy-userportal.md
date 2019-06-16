@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f6feceff234bed51bcf6adf34f51313fa348d77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358659"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056040"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını kullanma
 
@@ -27,6 +27,9 @@ Kullanıcılar kendi normal kullanıcı adı ve parolaları ile kullanıcı port
 Kullanıcı portalı Yöneticileri yeni kullanıcı eklemek ve mevcut kullanıcıları güncelleştirmek üzere ayarlanabilir ve izin verilebilir.
 
 Ortamınıza bağlı olarak, kullanıcı portalını Azure Multi-Factor Authentication sunucusu ile aynı sunucuya veya İnternet'e yönelik başka bir sunucuya dağıtmak isteyebilirsiniz.
+
+> [!IMPORTANT]
+> 1 Temmuz 2019'dan itibaren Microsoft artık yeni dağıtımlar için MFA sunucusu sunacaktır. Bulut tabanlı Azure multi-Factor Authentication, kullanıcıların multi-Factor authentication gerektirmesine istediğiniz yeni müşteriler kullanmanız gerekir. MFA sunucusu 1 Temmuz'dan önce etkinleştirmiş olan mevcut müşteriler, Gelecekteki güncelleştirmelerin en son sürümü indirip zamanki etkinleştirme kimlik bilgileri oluştur mümkün olacaktır.
 
 ![MFA sunucusu kullanıcı portalı oturum açma sayfasında](./media/howto-mfaserver-deploy-userportal/portal.png)
 
@@ -66,7 +69,7 @@ Kullanıcı portalını dağıtmak için aşağıdaki adımları izleyin:
    > [!NOTE]
    > Bu SSL Sertifikası çoğunlukla genel olarak imzalanmış bir SSL sertifikasıdır.
 
-4. Herhangi bir bilgisayarda web tarayıcısını açın ve kullanıcı portalının yüklendiği URL’ye (Örnek: https://mfa.contoso.com/MultiFactorAuth)) gidin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
+4. Herhangi bir bilgisayarda web tarayıcısını açın ve kullanıcı portalının yüklendiği URL’ye (Örnek: https://mfa.contoso.com/MultiFactorAuth) ) gidin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
 
 ![MFA Sunucusu Kullanıcı Portalını yükleme](./media/howto-mfaserver-deploy-userportal/install.png)
 
@@ -105,7 +108,7 @@ Azure Multi-Factor Authentication Sunucusu dışında bir sunucuya kullanıcı p
     * **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** değerini bulun ve bu yer tutucu URL’yi 2. adımda yüklediğimiz Web Hizmeti SDK URL’siyle değiştirin.
     * Web.Config dosyasını kaydedin ve Not Defteri'ni kapatın.
 
-6. Herhangi bir bilgisayarda web tarayıcısını açın ve kullanıcı portalının yüklendiği URL’ye (Örnek: https://mfa.contoso.com/MultiFactorAuth)) gidin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
+6. Herhangi bir bilgisayarda web tarayıcısını açın ve kullanıcı portalının yüklendiği URL’ye (Örnek: https://mfa.contoso.com/MultiFactorAuth) ) gidin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
 
 IIS sunucusunda bir SSL sertifikası yapılandırma hakkında sorularınız varsa bkz. [IIS'de SSL ayarlama](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 

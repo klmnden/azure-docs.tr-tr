@@ -16,10 +16,10 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: e3da856efd7d44f15f9de27c9e38375d40dc211d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60850977"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>App Service uygulamanızı Microsoft Account login kullanacak şekilde yapılandırma
@@ -44,7 +44,7 @@ Bu konuda, Azure App Service'ı Microsoft Account bir kimlik doğrulama sağlay�
     > [!IMPORTANT]
     > Parola, bir önemli güvenlik kimlik bilgisidir. Parola kimseyle paylaşmayın değil veya bir istemci uygulaması içinde dağıtın.
     
-8. **Kaydet**’e tıklayın
+8. **Kaydet**'e tıklayın.
 
 ## <a name="secrets"> </a>App Service uygulamanızı Microsoft Account bilgilerini ekleyin
 1. Geri [Azure portal], uygulamanıza gidin, tıklayın **ayarları** > **kimlik doğrulama / yetkilendirme**.
