@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60755143"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure veri kutusu Edge Teknik Özellikler
@@ -95,7 +95,7 @@ Bu bölümde muhafaza ortam sıcaklığı, nem ve yükseklik gibi ilgili özelli
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Hava akışı                              |    Sistem hava akışı arkadan öne ' dir. Sistem low-pressure, arka Egzozu yüklemesiyle çalıştırılması gerekir. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
 |    İşletimsel olarak, en fazla yükseklik        |    XML'deki derecelendirilmiş sıcaklığı maksimum 3048 ölçümleri (10.000 feet) tarafından belirlenen [belirtimleri XML'deki derecelendirme sıcaklığı](#operating-temperature-de-rating-specifications).                                                                                |
-|    Maksimum yükseklik, çalışmaz    |    12.000 ölçümleri (39,370 fit)                                                                                                                                                                                         |
+|    Maksimum yükseklik, çalışmaz    |    12\.000 ölçümleri (39,370 fit)                                                                                                                                                                                         |
 |    Darbe işletimsel                   |    11 milisaniye cinsinden 6 yönleri için 6 G                                                                                                                                                                         |
 |    Darbe çalışmaz               |    2 milisaniye cinsinden 6 yönleri için 71 G                                                                                                                                                                           |
 |    Titreşim işletimsel               |    0, 26 G<sub>RMS</sub> 350 Hz rastgele için 5 Hz                                                                                                                                                                                     |

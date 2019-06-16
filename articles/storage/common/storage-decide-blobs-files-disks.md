@@ -9,10 +9,10 @@ ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 30c7c1c50e59162817d7cfab0d852d8e034457d0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969415"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blobları, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme
@@ -41,9 +41,9 @@ Aşağıdaki tabloda, Azure BLOB'ları ile Azure dosyaları karşılaştırır.
 |Bağlantı|REST API'leri--dünya çapında|REST API'ler - dünya çapında<br /><br /> SMB 2.1--bölge içinde<br /><br /> SMB 3.0--dünya çapında|  
 |Uç Noktalar|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Dizinler|Düz ad alanı|Doğru dizin nesneleri|  
-|Adları büyük/küçük harf duyarlılığı|Büyük/küçük harfe duyarlı|/ Küçük harfe duyarlı çalışması ancak büyük/küçük harf koruma|  
+|Adları büyük/küçük harf duyarlılığı|Büyük/Küçük harfe duyarlı|/ Küçük harfe duyarlı çalışması ancak büyük/küçük harf koruma|  
 |Kapasite|En fazla 2 PiB hesap sınırı |5 TiB dosya paylaşımları|  
-|Performans|Blok blobu başına en fazla 60 MiB/sn|Paylaşım başına en fazla 60 MiB/sn|  
+|Aktarım hızı|Blok blobu başına en fazla 60 MiB/sn|Paylaşım başına en fazla 60 MiB/sn|  
 |Nesne boyutu|Blok blobu başına yaklaşık 4,75 TiB kadar|Dosya başına en fazla 1 TiB|  
 |Faturalandırılan kapasite|Yazılan bayt sayısı tabanlı|Dosya boyutuna göre|  
 |İstemci kitaplıkları|Birden çok dil|Birden çok dil|  
@@ -62,9 +62,9 @@ Aşağıdaki tabloda, Azure dosyaları Azure diskleri ile karşılaştırır.
 |Yapılandırma|Sanal makinenin başlangıçta bağlı|Sanal makine başlatıldıktan sonra bağlı|  
 |Kimlik Doğrulaması|Yerleşik|NET kullanım ile ayarlama|  
 |REST kullanarak erişimi|İçindeki VHD dosyaları erişilemiyor|Bir paylaşımda depolanan dosyalara erişilebilir|  
-|En Yüksek Boyut|32 TiB disk|5 TiB dosya paylaşımını ve 1 TiB dosya paylaşımı içinde|  
-|En fazla IOPS|20.000 IOPS|1000 IOPS|  
-|Performans|Disk başına en fazla 900 MiB/sn|(Daha yüksek g/ç boyutları için daha yüksek alabilirsiniz) dosya paylaşımı başına 60 MiB/sn hedefidir.|  
+|En büyük boyutu|32 TiB disk|5 TiB dosya paylaşımını ve 1 TiB dosya paylaşımı içinde|  
+|En fazla IOPS|20\.000 IOPS|1000 IOPS|  
+|Aktarım hızı|Disk başına en fazla 900 MiB/sn|(Daha yüksek g/ç boyutları için daha yüksek alabilirsiniz) dosya paylaşımı başına 60 MiB/sn hedefidir.|  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

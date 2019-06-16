@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318198"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Kaynak makineye mobility Aracısı gönderme yüklemesi için hazırlama
@@ -27,7 +27,7 @@ Korumak istediğiniz her bir Windows makinede aşağıdakileri yapın:
     - Hkey_local_machıne\software\microsoft\windows\currentversion\policies\system kayıt defteri anahtarı altında yeni bir DWORD değeri ekleyin: **LocalAccountTokenFilterPolicy**. Değerine **1**.
     -  Bu komut isteminde aşağıdakini yapmak için aşağıdaki komutu çalıştırın:  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
-3. Korumak istediğiniz makinede Windows Güvenlik Duvarı'nda seçin **bir uygulama veya özelliğin güvenlik duvarı üzerinden izin**. Etkinleştirme **dosya ve Yazıcı Paylaşımı** ve **Windows Yönetim Araçları (WMI)**. Bir etki alanına ait bilgisayarlar için bir Grup İlkesi nesnesi (GPO) kullanarak güvenlik duvarı ayarlarını yapılandırabilirsiniz.
+3. Korumak istediğiniz makinede Windows Güvenlik Duvarı'nda seçin **bir uygulama veya özelliğin güvenlik duvarı üzerinden izin**. Etkinleştirme **dosya ve Yazıcı Paylaşımı** ve **Windows Yönetim Araçları (WMI)** . Bir etki alanına ait bilgisayarlar için bir Grup İlkesi nesnesi (GPO) kullanarak güvenlik duvarı ayarlarını yapılandırabilirsiniz.
 
    ![Güvenlik duvarı ayarları](./media/vmware-azure-install-mobility-service/mobility1.png)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60870515"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Windows sanal masaüstü önizlemede Temsilcili erişim
@@ -25,7 +25,7 @@ Windows Sanal Masaüstü yönetici temsilcisi erişimi destekleyen her öğenin 
     * Hizmet sorumluları
 * Rol tanımı
     * Yerleşik roller
-* Kapsam
+* `Scope`
     * Kiracı grupları
     * Kiracılar
     * Ana bilgisayar havuzları

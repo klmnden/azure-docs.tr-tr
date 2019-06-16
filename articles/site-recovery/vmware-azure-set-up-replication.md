@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: b60d8a8fb9b9300a6914ad33b2f760fb5adde3b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723518"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Yapılandırma ve Azure'da VMware olağanüstü durum kurtarma için çoğaltma ilkeleri yönetme
 Bu makalede, Azure'da VMware Vm'lerini olduğunuz çoğalttığınızda, çoğaltma ilkesi yapılandırma kullanarak [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="create-a-policy"></a>İlke oluştur
+## <a name="create-a-policy"></a>İlke oluşturma
 
 1. **Yönet** > **Site Recovery Altyapısı**’nı seçin.
 2. İçinde **VMware ve fiziksel makineler**seçin **çoğaltma ilkeleri**.
@@ -36,7 +36,7 @@ Bir çoğaltma ilkesi oluşturduğunuzda, eşleşen bir yeniden çalışma çoğ
 1. Tıklayın **ilişkilendirmek**ve yapılandırma sunucusunu seçin.
 
     ![Yapılandırma sunucusunu ilişkilendirme](./media/vmware-azure-set-up-replication/associate1.png)
-2. **Tamam** düğmesine tıklayın. Yapılandırma sunucusu, bir ila iki dakika içinde ilişkilendirilir.
+2. **Tamam**'ı tıklatın. Yapılandırma sunucusu, bir ila iki dakika içinde ilişkilendirilir.
 
     ![Yapılandırma sunucusu ilişkilendirme](./media/vmware-azure-set-up-replication/associate2.png)
 

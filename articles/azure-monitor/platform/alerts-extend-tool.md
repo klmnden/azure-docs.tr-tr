@@ -9,10 +9,10 @@ ms.date: 06/04/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 9d734f74c4e12b369e46c15dcb9d01a8185dddd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60431173"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme
@@ -24,7 +24,7 @@ OMS portalında uyarıları özelliği, Azure Uyarıları'nda Azure kamu Bulutu 
 > [!NOTE]
 > Microsoft, sistematik bir şekilde 1 Mart'ta 2019'üzerinde başlatma Azure Uyarılar ' Log Analytics, Azure kamu OMS portalı durumlarda oluşturulan uyarıların otomatik olarak genişletilir. Oluşturma sorunları varsa [Eylem grupları](../../azure-monitor/platform/action-groups.md), kullanın [düzeltme adımları](alerts-extend-tool.md#troubleshooting) otomatik olarak oluşturulan eylem grupları alınamıyor. 15 Mart 2019'e kadar Azure kamu OMS Portalı'nda aşağıdaki adımları kullanabilirsiniz.
 
-## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>1. seçenek: Operations Management Suite Portalı'ndan Başlat
+## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>1\. seçenek: Operations Management Suite Portalı'ndan Başlat
 Aşağıdaki adımlar, Azure kamu bulutu için Operations Management Suite portalında çalışma alanı için uyarılar genişletmek açıklanmaktadır.  
 
 1. Azure portalda **Tüm hizmetler**’i seçin. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
@@ -49,7 +49,7 @@ Uyarılar bile Azure'a başarıyla taşındıktan sonra Operations Management Su
 ![Ekran Operations Management Suite portalı uyarı ayarları sayfası](media/alerts-extend-tool/PostExtendList.png)
 
 
-## <a name="option-2-use-the-alertsversion-api"></a>2. seçenek: AlertsVersion API'si kullanma
+## <a name="option-2-use-the-alertsversion-api"></a>2\. seçenek: AlertsVersion API'si kullanma
 Log Analytics AlertsVersion API'si uyarıları Log Analytics'ten Azure uyarılarına genişletecektir REST API'sine çağrı yapmadan herhangi bir istemciden genişletmek için kullanabilirsiniz. API kullanarak Powershell'den erişebilirsiniz [ARMClient](https://github.com/projectkudu/ARMClient), açık kaynak komut satırı aracı. JSON sonuçları çıkış sağlayabilir.  
 
 API'yi kullanmak için öncelikle bir GET isteği oluşturun. Bu, değerlendirir ve aslında bir POST isteği kullanarak Azure'a genişletme girişiminde bulunmadan önce önerilen değişikliklerin özetini döndürür. Uyarıları ve önerilen listesini sonuçları listesinde [Eylem grupları](../../azure-monitor/platform/action-groups.md), JSON biçiminde. Benzer işlemler arasında birden fazla uyarı görülürse, bunların tümünün tek bir eylem grubuyla ilişkilendirilecek hizmet önerir. Adlandırma kuralı aşağıdaki gibidir: *WorkspaceName_AG_ #Number*.

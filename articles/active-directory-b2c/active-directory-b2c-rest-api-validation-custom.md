@@ -11,10 +11,10 @@ ms.date: 04/24/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 0779e4a93230a90b8eee76f1898154c1a5b82661
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66508738"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Çözüm: Kullanıcı girişini doğrulama olarak, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirme
@@ -41,7 +41,7 @@ Biz, profil düzenleme kullanıcı tarafından sağlanan adı bir dışlama list
 - Bölümünde anlatıldığı gibi yerel bir hesap oturumu açma kaydolma/oturum açma, tamamlamak için yapılandırılmış bir Azure AD B2C kiracısı [Başlarken](active-directory-b2c-get-started-custom.md).
 - İle etkileşim kurmak için bir REST API uç noktası. Bu kılavuz için şu adlı bir tanıtım sitede ayarladığınızdan [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) bir REST apı'niz ile.
 
-## <a name="step-1-prepare-the-rest-api-function"></a>1. adım: REST API işlevi hazırlama
+## <a name="step-1-prepare-the-rest-api-function"></a>1\. adım: REST API işlevi hazırlama
 
 > [!NOTE]
 > REST API işlevleri kurulumu, bu makalenin kapsamı dışında ' dir. [Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-reference) bulutta RESTful hizmetleri oluşturmak için mükemmel bir araç takımı sunar.
@@ -75,7 +75,7 @@ return request.CreateResponse(HttpStatusCode.OK);
 
 IEF bekliyor `userMessage` Azure işlevinin döndürdüğü talep. Önceki örnekte 409 çakışma durumu ne zaman döndürülür gibi doğrulama başarısız olursa bu talep kullanıcıya bir dize olarak sunulur.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>2. adım: RESTful API talep değişimi TrustFrameworkExtensions.xml dosyanızdaki teknik profili olarak yapılandırma
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>2\. adım: RESTful API talep değişimi TrustFrameworkExtensions.xml dosyanızdaki teknik profili olarak yapılandırma
 
 Teknik profili RESTful hizmeti ile istenen Exchange tam bir yapılandırmadır. TrustFrameworkExtensions.xml dosyasını açın ve içine aşağıdaki XML parçacığını ekleyin `<ClaimsProviders>` öğesi.
 
@@ -111,7 +111,7 @@ Teknik profili RESTful hizmeti ile istenen Exchange tam bir yapılandırmadır. 
 
 `InputClaims` Öğe IEF REST hizmeti için gönderilecek Talepleri tanımlar. Bu örnekte, talep içeriğini `givenName` REST hizmeti gönderilecek `playerTag`. Bu örnekte, talep geri IEF beklemiyor. Bunun yerine, aldığı durum kodlarına göre davranır ve REST hizmeti için bir yanıt bekler.
 
-## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>3. adım: Hizmet RESTful talep değişimi, kullanıcı girişi doğrulamak istediğiniz otomatik olarak onaylanan teknik profiline Ekle
+## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>3\. adım: Hizmet RESTful talep değişimi, kullanıcı girişi doğrulamak istediğiniz otomatik olarak onaylanan teknik profiline Ekle
 
 Doğrulama adımını en yaygın kullanımı bir kullanıcıyla etkileşim bulunduğu. Burada kullanıcının beklenmektedir giriş sağlamak için tüm etkileşimler *teknik profiller Self onaylanan*. Bu örnekte, Self Asserted ProfileUpdate teknik profili doğrulama ekleyeceğiz. Bu teknik, profilini bağlı olan taraf (RP) ilke dosyası `Profile Edit` kullanır.
 
@@ -121,7 +121,7 @@ Talep değişimi otomatik olarak onaylanan teknik profile eklemek için:
 2. Bu teknik profil yapılandırmasını gözden geçirin. Exchange kullanıcı (giriş talep) kullanıcıya sorulur talepleri ve geri otomatik olarak onaylanan sağlayıcısından (çıkış talep) beklenen talepler olarak nasıl tanımlandığını gözlemleyin.
 3. Arama `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`ve bu profile'nın düzenleme adımı 5 çağrılan fark `<UserJourney Id="ProfileEdit">`.
 
-## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>4. Adım: Karşıya yükleme ve test profili düzenleme RP ilke dosyası
+## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>4\. Adım: Karşıya yükleme ve test profili düzenleme RP ilke dosyası
 
 1. TrustFrameworkExtensions.xml dosyanın yeni sürümünü yükleyin.
 2. Kullanım **Şimdi Çalıştır** profil düzenleme RP ilke dosyası test etmek için.

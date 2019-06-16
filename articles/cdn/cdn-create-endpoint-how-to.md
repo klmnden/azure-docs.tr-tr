@@ -15,10 +15,10 @@ ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679575"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Bir Azure CDN uç noktası oluşturma
@@ -44,7 +44,7 @@ Azure hesabınızla [Azure portalında](https://portal.azure.com) oturum açın.
    
     ![Uç nokta Sayfası Ekle](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. **Ad** için, yeni CDN uç noktasına yönelik benzersiz bir ad girin. Bu ad, etki alanındaki önbelleğe alınmış kaynaklarınıza erişmek için kullanılan  _\<uçnoktaadı >_. azureedge.net.
+3. **Ad** için, yeni CDN uç noktasına yönelik benzersiz bir ad girin. Bu ad, etki alanındaki önbelleğe alınmış kaynaklarınıza erişmek için kullanılan  _\<uçnoktaadı >_ . azureedge.net.
 
 4. İçin **kaynak türü**, aşağıdaki kaynak türlerinin birini seçin: 
    - **Depolama** Azure depolama için
@@ -54,7 +54,7 @@ Azure hesabınızla [Azure portalında](https://portal.azure.com) oturum açın.
 
 5. İçin **kaynak konak adı**seçin veya kaynak sunucu etki alanınızı girin. Aşağı açılan 4. adımda belirtilen türdeki tüm kullanılabilir kaynak sunucuları listeler. Seçtiyseniz **özel kaynak** , çıkış noktası türünüz olarak özel kaynak sunucunuza etki alanını girin.
     
-6. İçin **kaynak yolu**, önbelleğe almak istediğiniz kaynakların yolunu girin. 5. adımda belirttiğiniz etki alanındaki herhangi bir kaynağın önbelleğe alınmasına izin için bu ayarı boş bırakın.
+6. İçin **kaynak yolu**, önbelleğe almak istediğiniz kaynakların yolunu girin. 5\. adımda belirttiğiniz etki alanındaki herhangi bir kaynağın önbelleğe alınmasına izin için bu ayarı boş bırakın.
     
 7. **Kaynak ana bilgisayar üst bilgisi** için, Azure CDN'nin her bir istekle göndermesini istediğiniz ana bilgisayar üst bilgisini girin veya varsayılan değeri bırakın.
    
@@ -62,7 +62,7 @@ Azure hesabınızla [Azure portalında](https://portal.azure.com) oturum açın.
    > Azure Storage ve Web Apps gibi bazı kaynak türleri, ana bilgisayar üst bilgisinin kaynağın etki alanı ile eşleşmesini gerektirir. Etki alanından farklı ana bilgisayar üst bilgisi gerektiren bir kaynağa sahip değilseniz varsayılan değeri bırakmanız gerekir.
    > 
     
-8. İçin **Protokolü** ve **kaynak bağlantı noktası**, kaynak sunucu kaynaklarınıza erişmek için kullanılacak bağlantı noktalarını ve protokolleri belirtin. En az bir protokol (HTTP veya HTTPS) seçilmelidir. CDN tarafından sağlanan etki alanını kullan (_\<uçnoktaadı >_. azureedge.net) HTTPS içeriğine erişmek için. 
+8. İçin **Protokolü** ve **kaynak bağlantı noktası**, kaynak sunucu kaynaklarınıza erişmek için kullanılacak bağlantı noktalarını ve protokolleri belirtin. En az bir protokol (HTTP veya HTTPS) seçilmelidir. CDN tarafından sağlanan etki alanını kullan ( _\<uçnoktaadı >_ . azureedge.net) HTTPS içeriğine erişmek için. 
    
    > [!NOTE]
    > **Kaynak bağlantı noktası** yalnızca uç nokta kullanır kaynak sunucudan bilgi almak için bağlantı noktası değeri belirler. Uç noktanın kendisi, **Kaynak bağlantı noktası** değerinden bağımsız olarak, yalnızca varsayılan HTTP ve HTTPS bağlantı noktalarındaki (80 ve 443) uç istemciler tarafından kullanılabilir.  

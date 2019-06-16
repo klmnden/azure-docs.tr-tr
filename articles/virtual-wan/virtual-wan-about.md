@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 06/11/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ee6b2dd07a89de4f5347e82bde19990dbb6c995
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460217"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077536"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Sanal WAN nedir?
 
-Azure sanal WAN en iyi duruma getirilmiş ve otomatik Dal bağlantısı için ve Azure üzerinden sağlayan bir ağ hizmetidir. Azure bölgeleri, dallarınız için bağlanmayı seçebilirsiniz hub'ları görür. Dalları bağlandıktan sonra dalı vnet'ten Vnet'e ve dal için dal bağlantısı kurmak için Azure omurgası yararlanabilirsiniz. İş ortakları ve sanal WAN VPN desteği konumları listesi için bkz. [sanal WAN iş ortakları ve konumları](virtual-wan-locations-partners.md) makalesi.
+Azure sanal WAN en iyi duruma getirilmiş ve otomatik Dal bağlantısı için ve Azure üzerinden sağlayan bir ağ hizmetidir. Azure bölgeleri, dallarınız için bağlanmayı seçebilirsiniz hub'ları görür. Ayrıca dalları bağlanmak ve dal-VNet bağlantısı keyfini çıkarmak için Azure omurgası yararlanabilirsiniz. Bir Azure sanal WAN VPN bağlantısı otomasyonla destekleyen iş ortaklarının listesi sahibiz. Daha fazla bilgi için [sanal WAN iş ortakları ve konumları](virtual-wan-locations-partners.md) makalesi.
 
 Azure sanal WAN siteden siteye VPN (genel kullanıma sunuldu) ExpressRoute (Önizleme), tek bir işletimsel arabirim uygulamasına noktadan siteye kullanıcı (Önizleme) VPN gibi birçok Azure bulut Bağlantı Hizmetleri getirmektedir. Sanal ağ bağlantıları kullanarak Azure Sanal Ağları için bağlantı kurulur.
 

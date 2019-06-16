@@ -19,10 +19,10 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d734db7fbedaf3e3f3cd71c31f9391a2237f5b4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545245"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Hizmetten hizmete çağrılar (paylaşılan gizli diziyi veya sertifika) istemci kimlik bilgileri kullanma
@@ -59,10 +59,10 @@ Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği 
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type değeri |gerekli |İstenen izin verme türü belirtir. İstemci kimlik bilgileri verme akışı bir değer olmalıdır **client_credentials**. |
-| client_id |gerekli |Çağıran web hizmeti Azure AD istemci kimliğini belirtir. Çağıran uygulamanın istemci Kimliğini bulmak için [Azure portalında](https://portal.azure.com), tıklayın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamaya tıklayın. Client_id olduğu *uygulama kimliği* |
-| client_secret |gerekli |Çağıran web hizmet veya yordam uygulamanın Azure AD'de kayıtlı bir anahtar girin. Azure portalında bir anahtar oluşturmak için tıklayın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamaya tıklayın, tıklayın **ayarları**, tıklayın **anahtarları** , ve bir anahtar ekleyin.  URL olarak kodlamak, sağlarken bu gizli dizi. |
-| kaynak |gerekli |Alıcı web hizmeti uygulama kimliği URI'si girin. Uygulama Kimliği URI'si Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklayın **uygulama kayıtları**hizmet uygulaması'nı tıklatın ve ardından **ayarları** ve  **Özellikleri**. |
+| grant_type |Gerekli |İstenen izin verme türü belirtir. İstemci kimlik bilgileri verme akışı bir değer olmalıdır **client_credentials**. |
+| client_id |Gerekli |Çağıran web hizmeti Azure AD istemci kimliğini belirtir. Çağıran uygulamanın istemci Kimliğini bulmak için [Azure portalında](https://portal.azure.com), tıklayın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamaya tıklayın. Client_id olduğu *uygulama kimliği* |
+| client_secret |Gerekli |Çağıran web hizmet veya yordam uygulamanın Azure AD'de kayıtlı bir anahtar girin. Azure portalında bir anahtar oluşturmak için tıklayın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamaya tıklayın, tıklayın **ayarları**, tıklayın **anahtarları** , ve bir anahtar ekleyin.  URL olarak kodlamak, sağlarken bu gizli dizi. |
+| resource |Gerekli |Alıcı web hizmeti uygulama kimliği URI'si girin. Uygulama Kimliği URI'si Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklayın **uygulama kayıtları**hizmet uygulaması'nı tıklatın ve ardından **ayarları** ve  **Özellikleri**. |
 
 #### <a name="example"></a>Örnek
 Aşağıdaki HTTP POST isteklerini bir [erişim belirteci](access-tokens.md) için https://service.contoso.com/ web hizmeti. `client_id` Erişim belirteci ister web hizmeti tanımlar.
@@ -80,11 +80,11 @@ Bir sertifika ile hizmetten hizmete erişim belirteci isteği aşağıdaki param
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type değeri |gerekli |İstenen yanıt türü belirtir. İstemci kimlik bilgileri verme akışı bir değer olmalıdır **client_credentials**. |
-| client_id |gerekli |Çağıran web hizmeti Azure AD istemci kimliğini belirtir. Çağıran uygulamanın istemci Kimliğini bulmak için [Azure portalında](https://portal.azure.com), tıklayın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamaya tıklayın. Client_id olduğu *uygulama kimliği* |
-| client_assertion_type |gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |gerekli | Onaylama (bir JSON Web belirteci) oluşturmak ve sertifika ile imzalamak için gereken kimlik bilgileri olarak uygulamanız için kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanız ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
-| kaynak | gerekli |Alıcı web hizmeti uygulama kimliği URI'si girin. Uygulama Kimliği URI'si Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklayın **uygulama kayıtları**hizmet uygulaması'nı tıklatın ve ardından **ayarları** ve  **Özellikleri**. |
+| grant_type |Gerekli |İstenen yanıt türü belirtir. İstemci kimlik bilgileri verme akışı bir değer olmalıdır **client_credentials**. |
+| client_id |Gerekli |Çağıran web hizmeti Azure AD istemci kimliğini belirtir. Çağıran uygulamanın istemci Kimliğini bulmak için [Azure portalında](https://portal.azure.com), tıklayın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamaya tıklayın. Client_id olduğu *uygulama kimliği* |
+| client_assertion_type |Gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Gerekli | Onaylama (bir JSON Web belirteci) oluşturmak ve sertifika ile imzalamak için gereken kimlik bilgileri olarak uygulamanız için kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanız ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
+| resource | Gerekli |Alıcı web hizmeti uygulama kimliği URI'si girin. Uygulama Kimliği URI'si Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklayın **uygulama kayıtları**hizmet uygulaması'nı tıklatın ve ardından **ayarları** ve  **Özellikleri**. |
 
 Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizli diziyi isteğiyle olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.
 
@@ -110,7 +110,7 @@ Başarılı yanıt, aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıtındaki
 | expires_in |Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
 | expires_on |Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır. |
 | not_before |Erişim belirteci kullanılabilir duruma süre. Tarih 1970'ten saniye sayısı temsil edilen-01-01T0:0:0Z UTC belirtecin geçerlilik süresini kadar.|
-| kaynak |Alıcı web hizmeti uygulama kimliği URI'si. |
+| resource |Alıcı web hizmeti uygulama kimliği URI'si. |
 
 #### <a name="example-of-response"></a>Örnek yanıt
 Aşağıdaki örnek, bir web hizmeti için bir erişim belirteci isteği için başarılı yanıtı gösterir.

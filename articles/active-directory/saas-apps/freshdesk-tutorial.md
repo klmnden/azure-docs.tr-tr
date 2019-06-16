@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4bdeecc5682eb09ac0a65d3834ad1770258c4e0
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3ed903e71a019d0bdb1b62503913bd696e9d8a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898467"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Öğretici: FreshDesk ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de FreshDesk tümleştirmesini yapılandırmak için FreshDesk Galeride
 
 **Galeriden FreshDesk eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -120,7 +120,7 @@ Azure AD çoklu oturum açma FreshDesk ile yapılandırmak için aşağıdaki ad
     
     | Ad | Kaynak özniteliği |
     | ---------------| --------------- |
-    | Benzersiz Kullanıcı Tanımlayıcısı | User.Mail |
+    | Benzersiz kullanıcı tanımlayıcısı | User.Mail |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
 ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232470"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Faturalandırma ve maliyet yönetimi için Otomasyon senaryoları
@@ -48,7 +48,7 @@ Faturalandırma ve maliyet Yönetimi API'leri çeşitli senaryolarda maliyet ve 
 |:---------------------------:|:-------------------------:|:----------------:|:--------------------:|:----------------:|:------------------:|:---------:|
 | Bütçeler                     |                           |                  |           X          |                  |                    |     X     |
 | Market Ücretleri                |             X             |         X        |           X          |         X        |          X         |     X     |
-| Fiyat Listesi                 |             X             |         X        |           X          |         X        |          X         |           |
+| Fiyat listesi                 |             X             |         X        |           X          |         X        |          X         |           |
 | Rezervasyon Önerileri |                           |                  |           X          |                  |                    |           |
 | Rezervasyon Ayrıntıları         |                           |                  |           X          |         X        |                    |           |
 | Rezervasyon Özetleri       |                           |                  |           X          |         X        |                    |           |
@@ -84,7 +84,7 @@ Doğrudan Web ve kurumsal müşterilere belirtilenler dışında tüm aşağıda
 
 -   [Kullanım API'si derecelendirilmemiş](/previous-versions/azure/reference/mt219003(v=azure.100)): Azure, tüm ölçüm/şarj yapmadan önce ham kullanım bilgilerini alın.
 
-### <a name="billing"></a>Faturalama
+### <a name="billing"></a>Faturalandırma
 -   [Faturalama dönemleri API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): ' % S'fatura kimlikleri bu süre için birlikte analiz etmek için bir faturalandırma döneminde belirleyin. Fatura kimlikleri faturaları API ile kullanabilirsiniz.
 
 -   [Faturaları API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): İndirme URL'si için fatura PDF formundaki bir fatura dönemi için alın.

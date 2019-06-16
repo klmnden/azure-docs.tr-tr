@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 10e19377d31489cd19465fe6171ffb530bd58c28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918435"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-sql-data-warehouse"></a>Ayırma indirimleri Azure SQL veri ambarı'na nasıl uygulanır?
@@ -37,7 +37,7 @@ Aşağıdaki örnekler, SQL veri ambarı ayrılmış kapasite indirim, dağıtı
 
 - **Örnek 3**: 100 cDWU ayrılmış kapasitesinin 1 birim satın. İki DW100c SQL veri ambarı örneği çalıştırın. Her 30 dakika boyunca çalışır. Bu durumda, her iki kullanım olayları ayrılmış kapasite indirim alın. Kullanım kullanarak Kullandıkça Öde tarifesine göre ücretlendirilir.
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
 
 - Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

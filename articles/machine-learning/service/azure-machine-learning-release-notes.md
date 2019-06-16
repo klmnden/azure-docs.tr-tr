@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 9e7441ab9503919fbf1d0890ce69f04259f38986
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298479"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065778"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -24,6 +24,51 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
 + Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/data-prep-sdk)
 
 Bkz: [bilinen sorunların listesi](resource-known-issues.md) bilinen hataların ve geçici çözümleri hakkında bilgi edinmek için.
+
+## <a name="2019-06-10"></a>2019-06-10
+
+### <a name="azure-machine-learning-sdk-for-python-v1043"></a>Azure Machine SDK için Python v1.0.43 Learning
+
++ **Yeni Özellikler**
+  + Azure Machine Learning artık popüler makine öğrenimi ve veri analizi için framework Scikit-öğrenme birinci sınıf destek sağlar. Kullanarak [ `SKLearn` estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py), kullanıcılar kolayca eğitin ve Scikit-öğrenme modellerini dağıtabilirsiniz.
+    + Bilgi edinmek için nasıl [Scikit-öğrenme ile hiper parametre ayarı çalıştırın HyperDrive kullanarak](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb).
+  + İşlem birimi ModuleStep yeniden kullanılabilir yönetmek için modülü ve ModuleVersion sınıfları birlikte işlem hatları oluşturma desteği eklendi.
+  + ACI webservices'a kalıcı scoring_uri güncelleştirmeler artık desteklenmektedir. Scoring_uri FQDN için bir IP değişecektir. FQDN için Dns ad etiketi üzerinde deploy_configuration dns_name_label ayarlanarak yapılandırılabilir. 
+  + Otomatik makine öğrenme yeni özellikleri:
+    + Tahmin için STL özelliği Oluşturucu
+    + KMeans kümeleme özelliği Süpürme için etkindir
+  + AmlCompute kota onaylar yalnızca daha hızlı hale geldi! Biz, artık bir eşik içinde kota istekleri onaylama işlemi otomatikleştirdiniz. Kotalar nasıl çalıştığı hakkında daha fazla bilgi için bilgi [kotalarını yönetmek nasıl](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+ 
+
++ **Önizleme özellikleri**
+    + İle tümleştirme [MLflow](https://mlflow.org) azureml mlflow paket üzerinden izleme 1.0.0 ([örnek not defterleri](https://aka.ms/azureml-mlflow-examples)).
+    + Jupyter not defteri çalıştırma olarak gönderin. [API başvuru belgeleri](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
+    + Genel önizlemeye sunulduğunu [veri değişikliklerini algılayıcısı](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) azureml contrib datadrift paketi aracılığıyla ([örnek not defterleri](https://aka.ms/azureml-datadrift-example)). Veri değişikliklerini başlıca nedenlerdendir burada doğruluğu zamanla düşüyor biridir. Veri sunulduğunda üretimde model için model üzerinde eğitim almış verilerden farklı olur. AML veri değişikliklerini algılayıcısı, müşterinin veri değişikliklerini izlemek için yardımcı olur ve kaymaları algılandığında uyarı gönderir. 
+
++ **Bozucu değişiklikler**
+
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + RunConfiguration yükleyin ve önceki davranışı için tam arka/compat ile tam dosya yolunu belirterek destekler kaydedin.
+  + Varsayılan olarak kapalı ServicePrincipalAuthentication, önbelleğe almayı eklendi.
+  + Ölçüm aynı adla birden fazla çizim günlüğünü etkinleştirin.
+  + Model sınıfı artık azureml.core düzgün bir şekilde alınabilir (`from azureml.core import Model`).
+  + İşlem hattı adımlarda `hash_path` parametresi artık kullanım dışı. Listede .amlignore veya .gitignore dosyaları hariç tüm kaynak_dizin karma yeni davranıştır.
+  + İşlem hattı paketler, çeşitli `get_all` ve `get_all_*` yöntemleri, şunun için kaldırılmıştır `list` ve `list_*`sırasıyla.
+  + azureml.Core.get_run artık özgün çalıştırması türü döndürmeden önce içeri aktarılacak sınıfları gerektirir.
+  + Bazı çağrıları WebService güncelleştirme bir güncelleştirme burada tetiklendi değil bir sorun düzeltildi.
+  + Zaman aşımı AKS webservices'a üzerinde Puanlama 300000ms 5 MSN arasında olmalıdır. En fazla 5 dakikaya kadar indirgenmesine scoring_timeout_ms Puanlama istekleri için 1 dakika izin verilir.
+  + LocalWebservice nesneler artık sahip `scoring_uri` ve `swagger_uri` özellikleri.
+  + Çıkış dizini oluşturma ve çıkış dizini karşıya kullanıcı işlemi dışında taşındı. Çalıştırma geçmişi her kullanıcı işlem içinde çalıştırmak için SDK'sı etkinleştirilmiş. Bu, çalışan tarafından dağıtılmış eğitimi deneyimli bazı eşitleme sorunlarını gidermeniz gerekir.
+  + Kullanıcı işlemi adından yazılan azureml günlük adını artık işlem adı (için Dağıtılmış yalnızca eğitme) ve PID içerir.
+
+### <a name="azure-machine-learning-data-prep-sdk-v115"></a>Azure Machine Learning veri hazırlama SDK v1.1.5
+
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + 2-basamaklı yıl biçimini sahip yorumlanan datetime değerleri için aralığı geçerli yıl Windows olabilir yayın eşleşecek şekilde güncelleştirildi. Aralığın 1930-2029 1950 2049 değiştirildi.
+  + Okuma sırasında dosya ve ayarı `handleQuotedLineBreaks=True`, `\r` yeni bir satır kabul edilir.
+  + Neden bir hata düzeltildi `read_pandas_dataframe` bazı durumlarda başarısız.
+  + Geliştirilmiş performansını `get_profile`.
+  + Geliştirilmiş hata iletileri.
 
 ## <a name="2019-05-28"></a>2019-05-28
 
@@ -513,7 +558,7 @@ Azure Machine Learning hizmeti için Azure portalı aşağıdaki güncelleştirm
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine SDK için Python v0.1.74 Learning
 
 + **Bozucu değişiklikler** 
-  * * Workspace.compute_targets, veri depoları, denemeleri, resimler, modeller ve *webservices'a* yöntemleri yerine özellikler. Örneğin, *Workspace.compute_targets()* ile *Workspace.compute_targets*.
+  * \* Workspace.compute_targets, veri depoları, denemeleri, resimler, modeller ve *webservices'a* yöntemleri yerine özellikler. Örneğin, *Workspace.compute_targets()* ile *Workspace.compute_targets*.
   * *Run.get_context* kullanımdan kaldırıldı *Run.get_submitted_run*. İkinci yöntem, sonraki sürümlerde kaldırılacak.
   * *PipelineData* sınıfı bir parametre yerine olarak datastore_name bir veri deposu nesnesi artık bekliyor. Benzer şekilde, *işlem hattı* default_datastore_name yerine default_datastore kabul eder.
 

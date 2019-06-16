@@ -9,17 +9,17 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209550"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Hızlı Başlangıç - özel bir bulut ortamı yapılandırma
 
 Bu makalede, CloudSimple özel bir bulut oluşturmak ve özel bulut ortamınızı ayarlama hakkında bilgi edinin.
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-private-cloud"></a>Özel bulut oluşturma
@@ -104,7 +104,7 @@ VPN istemcisi için CloudSimple bilgisayarınızdan bağlanmak için gereklidir.
 4. Seçin **kullanıcılar**.
 5. Tıklayarak **my VPN yapılandırmasını indir**
 
-    ![VPN yapılandırmasını indir](media/download-p2s-vpn-configuration.png)
+    ![VPN yapılandırmasını indirme](media/download-p2s-vpn-configuration.png)
 
 6. İçeri aktarma üzerinde VPN istemcinizi yapılandırma
 

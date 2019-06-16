@@ -11,20 +11,20 @@ ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154260"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL veri ambarı sorunlarını giderme
 Bu makalede, genel sorun giderme soru listelenmektedir.
 
-## <a name="connecting"></a>Bağlanıyor
+## <a name="connecting"></a>Bağlanma
 | Sorun                                                        | Çözüm                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Oturum açma kullanıcısı 'NT Yetkili\Anonim Oturum açma' için başarısız oldu. (Microsoft SQL Server, hata: 18456) | Bir AAD kullanıcısı ana veritabanına bağlanmayı dener, ancak bir kullanıcının ana veritabanında yok. Bu hata oluşur.  Bu sorunu düzeltmek için ya da SQL veri ambarı bağlantı zamanında bağlanmak veya ana veritabanına kullanıcı eklemek istediğiniz belirtin.  Bkz: [güvenliğine genel bakış] [ Security overview] makale daha fazla ayrıntı için. |
-| Sunucu asıl "KullanıcıAdım", geçerli güvenlik bağlamı altında "ana" veritabanına erişebilir değil. Kullanıcının varsayılan veritabanı açılamıyor. Oturum açma başarısız. Oturum açma 'KullanıcıAdım' kullanıcı için başarısız oldu. (Microsoft SQL Server, hata: 916) | Bir AAD kullanıcısı ana veritabanına bağlanmayı dener, ancak bir kullanıcının ana veritabanında yok. Bu hata oluşur.  Bu sorunu düzeltmek için ya da SQL veri ambarı bağlantı zamanında bağlanmak veya ana veritabanına kullanıcı eklemek istediğiniz belirtin.  Bkz: [güvenliğine genel bakış] [ Security overview] makale daha fazla ayrıntı için. |
+| Sunucu asıl "KullanıcıAdım", geçerli güvenlik bağlamı altında "ana" veritabanına erişebilir değil. Kullanıcının varsayılan veritabanı açılamıyor. Oturum açma başarısız oldu. Oturum açma 'KullanıcıAdım' kullanıcı için başarısız oldu. (Microsoft SQL Server, hata: 916) | Bir AAD kullanıcısı ana veritabanına bağlanmayı dener, ancak bir kullanıcının ana veritabanında yok. Bu hata oluşur.  Bu sorunu düzeltmek için ya da SQL veri ambarı bağlantı zamanında bağlanmak veya ana veritabanına kullanıcı eklemek istediğiniz belirtin.  Bkz: [güvenliğine genel bakış] [ Security overview] makale daha fazla ayrıntı için. |
 | CTAIP hata                                                  | SQL server ana veritabanı üzerinde ancak SQL veri ambarı veritabanındaki bir oturum açma oluşturulduğunda bu hata oluşabilir.  Bu hatayla karşılaşırsanız, göz atın [güvenliğine genel bakış] [ Security overview] makalesi.  Bu makalede, asıl oturum açma ve kullanıcı oluşturma ve SQL veri ambarı veritabanında bir kullanıcı oluşturma işlemini açıklar. |
 | Güvenlik Duvarı tarafından engellendi                                          | Azure SQL veritabanları, bir veritabanına erişimi olan IP adresleri yalnızca bilinen emin olmak için sunucu ve veritabanı düzeyinde güvenlik duvarları tarafından korunur. Bağlanabilmesi için önce güvenlik duvarları, açıkça etkinleştirmelisiniz yani varsayılan ve IP adresi veya adres aralığını güvenlidir.  Erişim için güvenlik duvarını yapılandırmanız için adımları izleyin. [sunucu Güvenlik Duvarı erişimi yapılandırmak için istemci IP] [ Configure server firewall access for your client IP] içinde [yönergeleri sağlama] [Provisioning instructions]. |
 | Aracı veya sürücü ile bağlantı kurulamıyor                           | SQL veri ambarı kullanılmasını önerir [SSMS][SSMS], [Visual Studio için SSDT][SSDT for Visual Studio], veya [sqlcmd] [ sqlcmd] , verileri sorgulamak için. Sürücüleri ve SQL veri ambarı'na bağlanma hakkında daha fazla bilgi için bkz. [Azure SQL veri ambarı için sürücüleri] [ Drivers for Azure SQL Data Warehouse] ve [Azure SQL Data Warehouse'a bağlanma] [ Connect to Azure SQL Data Warehouse] makaleler. |

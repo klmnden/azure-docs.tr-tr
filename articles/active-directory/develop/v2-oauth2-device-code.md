@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
+ms.date: 06/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86e875108e0349c0ab08a7217074e2afe23bcacc
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 79718b14210bfdf139bca76db91c57c38a791434
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544934"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052237"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft kimlik platformu ve OAuth 2.0 cihaz kod akışı
 
@@ -31,9 +31,11 @@ ms.locfileid: "65544934"
 Microsoft kimlik platformu destekleyen [cihaz kodu verme](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), giriş kısıtlı cihazları akıllı TV gibi IOT cihaz veya yazıcı oturum açmalarını sağlar.  Bu akış etkinleştirmek için cihaz tarayıcısında oturum açmak için başka bir cihazda kullanıcı bir Web sayfasını ziyaret edin sahiptir.  Kullanıcı oturum açtıktan sonra cihazın erişim belirteci alma ve gerektiğinde yenileme belirteçlerini kullanabilirsiniz.  
 
 > [!IMPORTANT]
-> Şu anda Microsoft kimlik platformu uç noktası yalnızca Azure AD kiracıları, ancak değil kişisel hesaplar için cihaz akışını destekler.  Kiracı olarak ayarlanmış bir uç nokta kullanmanız gerekir yani veya `organizations` uç noktası.  
+> Şu anda Microsoft kimlik platformu uç noktası yalnızca Azure AD kiracıları, ancak değil kişisel hesaplar için cihaz akışını destekler.  Kiracı olarak ayarlanmış bir uç nokta kullanmanız gerekir yani veya `organizations` uç noktası.  Bu destek yakında etkinleştirilecek. 
 >
 > Bir Azure AD kiracısına davet kişisel hesaplar, cihaz akış grant, ancak yalnızca Kiracı bağlamında kullanmanız mümkün olacaktır.
+>
+> Ek bir not olarak `verification_uri_complete` yanıt alanı dahil değil veya şu anda desteklenmiyor.  
 
 > [!NOTE]
 > Microsoft kimlik platformu uç nokta, tüm Azure Active Directory senaryolarını ve özelliklerini desteklemez. Microsoft kimlik platformu uç noktasını kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [Microsoft Identity platform sınırlamaları](active-directory-v2-limitations.md).
@@ -73,12 +75,11 @@ scope=user.read%20openid%20profile
 
 Başarılı yanıt, oturum açmak izin vermek için gerekli bilgileri içeren bir JSON nesnesi olur.  
 
-| Parametre | Biçim | Açıklama |
+| Parametre | Biçimi | Açıklama |
 | ---              | --- | --- |
 |`device_code`     | String | Yetkilendirme sunucusu ile istemci arasında oturum doğrulamak için kullanılan bir uzun dize. İstemci, yetkilendirme sunucusundan erişim belirteci istemek için bu parametreyi kullanır. |
 |`user_code`       | String | İkincil bir cihazda oturum tanımlamak için kullanılan kullanıcı için gösterilen bir kısa dize.|
 |`verification_uri`| URI | Kullanıcı Git ile URI `user_code` oturum açmak için. |
-|`verification_uri_complete`| URI | Bir araya getiren bir URI `user_code` ve `verification_uri`metinsel olmayan iletilmesi kullanıcı (örneğin, Bluetooth aracılığıyla bir cihaz için veya bir QR kodu aracılığıyla) için kullanılır.  |
 |`expires_in`      | int | Saniye önce `device_code` ve `user_code` süresi dolar. |
 |`interval`        | int | İstemci yoklama istekleri arasında beklemesi gereken saniye sayısı. |
 | `message`        | String | Kullanıcı için yönergeler insanlar tarafından okunabilen bir dize. Bu dahil ederek yerelleştirilebilen bir **sorgu parametresi** istek formunun `?mkt=xx-XX`, uygun dil kültür kodu doldurma. |
@@ -130,7 +131,7 @@ Başarılı bir token yanıt şöyle görünecektir:
 }
 ```
 
-| Parametre | Biçim | Açıklama |
+| Parametre | Biçimi | Açıklama |
 | --------- | ------ | ----------- |
 | `token_type` | String| Her zaman "Bearer. |
 | `scope` | Ayrılmış boşluk dizeleri | Bu, bir erişim belirteci döndürdüyse kapsamlar için erişim belirteci geçerliyse listeler. |

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
 ms.openlocfilehash: d8b532793282db18d6182237bb921bc118ea717b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938444"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>VHD oluşturma (SSS) sırasında sık karşılaşılan sorunlar
@@ -23,7 +23,7 @@ Aşağıdaki sık sorulan sorular (SSS) teklifleri için sanal makine (VM) oluş
 Azure Market, VM Teklifler oluşturma yönetilen depolama alanında bulunan görüntülerinden ya da Azure Premium depolama şu anda desteklemiyor.  Bu depolama seçenekleri hakkında daha fazla bilgi için bkz. [Azure yönetilen disklere genel bakış](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
-## <a name="can-you-use-generation-2-vms-for-offers"></a>2. kuşak Vm'lerde teklifleri için kullanabilir miyim?
+## <a name="can-you-use-generation-2-vms-for-offers"></a>2\. kuşak Vm'lerde teklifleri için kullanabilir miyim?
 
 Hayır, yalnızca nesil 1 VHD'ler desteklenir.  Ancak, şu anda 2. kuşak VM'ler için destek araştırmak için Microsoft Azure platformu ekibiyle birlikte çalışıyoruz.  Farklar hakkında daha fazla bilgi için bkz. [Hyper-V'de 1 veya 2. kuşak sanal makine oluşturmalısınız?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 

@@ -581,6 +581,10 @@
     - name: Güvenlik
       tocHref: /azure/security/
       topicHref: /azure/security/
+      items:
+        - name: Geliştirme
+          tocHref: /azure/security/develop/
+          topicHref: /azure/security/develop/
     - name: Güvenlik Merkezi
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/

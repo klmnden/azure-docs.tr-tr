@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6618906f7b1b063de18a4f8a418c1c2744ca1533
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 723d0cfe6e292c4b8013de4da55779a6c675d610
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975793"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64705935"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Kimlik bilgilerini geçirmek için Azure DSCExtension işleyicisi
 
 Bu makale için Azure Desired State Configuration ' nı (DSC) uzantısı kapsar. DSC uzantısı işleyicisine genel bakış için bkz. [Azure Desired State Configuration uzantısı işleyicisi giriş](dsc-overview.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="pass-in-credentials"></a>Kimlik bilgilerini geçirin
 
@@ -61,7 +61,7 @@ configuration Main
 }
 ```
 
-Eklenmesi önemlidir **düğüm localhost** yapılandırmasının bir parçası olarak. Uzantı işleyici özellikle arar **düğüm localhost** deyimi. Aşağıdaki adımlar, bu deyimi yoksa, çalışmaz. Typecast eklenmesi önemlidir **[PsCredential]**. Bu belirli tür uzantısı kimlik bilgisi şifrelenemedi tetikler.
+Eklenmesi önemlidir **düğüm localhost** yapılandırmasının bir parçası olarak. Uzantı işleyici özellikle arar **düğüm localhost** deyimi. Aşağıdaki adımlar, bu deyimi yoksa, çalışmaz. Typecast eklenmesi önemlidir **[PsCredential]** . Bu belirli tür uzantısı kimlik bilgisi şifrelenemedi tetikler.
 
 Bu betik, Azure Blob depolama alanına yayımlama için:
 
@@ -84,7 +84,7 @@ $vm | Update-AzVM
 
 Bu kodu çalıştırmak için kimlik bilgilerini ister. Kimlik bilgileri sağlandıktan sonra kısaca bellekte depolanır. Kimlik bilgisi, yayımlanan kullanarak **kümesi AzVMDscExtension** cmdlet'i, kimlik bilgisi, sanal makineye HTTPS üzerinden iletilir. VM, Azure yerel sanal makine sertifikası kullanarak diskte şifrelenmiş kimlik bilgileri depolar. Kimlik bilgisi kısaca bellekte şifresi çözülür ve ardından DSC için geçirmek için yeniden şifrelenir.
 
-Bu işlem farklıdır [uzantı işleyici olmadan güvenli yapılandırmaları kullanarak](/powershell/dsc/securemof). Azure ortamı, yapılandırma verilerini sertifikaları aracılığıyla güvenli bir şekilde aktarmak için bir yol sunar. DSC uzantısı işleyicisine kullandığınızda sağlamanıza gerek kalmaması **$CertificatePath** veya **$CertificateID**/ **$Thumbprint** girişte**ConfigurationData**.
+Bu işlem farklıdır [uzantı işleyici olmadan güvenli yapılandırmaları kullanarak](/powershell/dsc/securemof). Azure ortamı, yapılandırma verilerini sertifikaları aracılığıyla güvenli bir şekilde aktarmak için bir yol sunar. DSC uzantısı işleyicisine kullandığınızda sağlamanıza gerek kalmaması **$CertificatePath** veya **$CertificateID**/  **$Thumbprint** girişte**ConfigurationData**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

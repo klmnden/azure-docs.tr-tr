@@ -18,10 +18,10 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9958356cae3c486ecf68e280f33d63c6a537b14
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235258"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>MSAL Ulusal bulut ortamında kullanın
@@ -59,7 +59,7 @@ Bir Azure kamu aboneliğiniz yoksa, oluşturun bir [ücretsiz bir hesap](https:/
 
 ## <a name="javascript"></a>JavaScript
 
-### <a name="step-1-register-your-application"></a>1. adım: Uygulamanızı kaydetme
+### <a name="step-1-register-your-application"></a>1\. adım: Uygulamanızı kaydetme
 
 1. [Azure Portal](https://portal.azure.us/) oturum açın.
     
@@ -76,7 +76,7 @@ Bir Azure kamu aboneliğiniz yoksa, oluşturun bir [ücretsiz bir hesap](https:/
 1. İçinde **Gelişmiş ayarlar**altında **örtük vermeyi**seçin **kimlik belirteçlerini** ve **erişim belirteçlerini** onay kutuları. Bu uygulama kullanıcılarının oturumunu ve bir API'yi çağırması gerekir çünkü kimlik ve erişim belirteçler gereklidir.
 1. **Kaydet**’i seçin.
 
-### <a name="step-2--set-up-your-web-server-or-project"></a>2. adım:  Web sunucusu veya proje ayarlama
+### <a name="step-2--set-up-your-web-server-or-project"></a>2\. adım:  Web sunucusu veya proje ayarlama
 
 - [Proje dosyalarını indirme](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) düğüm gibi bir yerel web sunucusu için.
 
@@ -86,11 +86,11 @@ Bir Azure kamu aboneliğiniz yoksa, oluşturun bir [ücretsiz bir hesap](https:/
 
 Ardından atlamak [, JavaScript SPA'ya yapılandırma](#step-4-configure-your-javascript-spa) çalıştırmadan önce kodu örneği yapılandırmak için.
 
-### <a name="step-3-use-the-microsoft-authentication-library-to-sign-in-the-user"></a>3. adım: Kullanıcının oturum açmak için Microsoft kimlik doğrulama kitaplığını kullanma
+### <a name="step-3-use-the-microsoft-authentication-library-to-sign-in-the-user"></a>3\. adım: Kullanıcının oturum açmak için Microsoft kimlik doğrulama kitaplığını kullanma
 
 İzleyeceğiniz adımlar [JavaScript öğretici](tutorial-v2-javascript-spa.md#create-your-project) projenizi oluşturma ve kullanıcı oturum açmak için MSAL tümleştirin.
 
-### <a name="step-4-configure-your-javascript-spa"></a>4. Adım: JavaScript SPA'ya yapılandırın
+### <a name="step-4-configure-your-javascript-spa"></a>4\. Adım: JavaScript SPA'ya yapılandırın
 
 İçinde `index.html` dosyası proje Kurulum sırasında oluşturulur, uygulama kayıt bilgilerini ekleyin. Üst içinde aşağıdaki kodu ekleyin `<script></script>` gövdesinde etiketleri, `index.html` dosyası:
 

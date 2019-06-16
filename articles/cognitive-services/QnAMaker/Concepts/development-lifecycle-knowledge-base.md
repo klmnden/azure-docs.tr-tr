@@ -12,10 +12,10 @@ ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379342"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Soru-cevap Oluşturucu, Bilgi Bankası yaşam döngüsü
@@ -31,7 +31,7 @@ Soru-cevap Oluşturucu Bilgi Bankası (KB) uç noktası, bir kullanıcı sorgu K
 Bilgi Bankası bilgi bankanızı düzenleyerek veya otomatik ayıklama aracılığıyla içerikle doldurulur sonra test etmek için hazırdır. Soru-cevap Oluşturucu portalı üzerinden içinde etkileşimli testi yapılabilir **Test** paneli ortak kullanıcı sorguları girerek ve yanıtları doğru yanıtı ve yeterli güvenilirlik puanı ile döndürülen doğrulanıyor. 
 
 * **Düşük güven puanları düzeltmek için**: diğer sorular ekleyin. 
-* **Bir sorgu yanlış döndürdüğünde [varsayılan yanıt](confidence-score.md#change-default-answer)**: doğru soruyu yeni yanıtları ekleyin. 
+* **Bir sorgu yanlış döndürdüğünde [varsayılan yanıt](confidence-score.md#change-default-answer)** : doğru soruyu yeni yanıtları ekleyin. 
 
 Sonuçlardan memnun olana kadar test güncelleştirme sıkı Bu döngü devam eder. Bilgi edinmek için nasıl [bilgi bankanızı test](../How-To/test-knowledge-base.md).
 

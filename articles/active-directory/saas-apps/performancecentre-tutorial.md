@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ce92abda9652351712f086ab24aff8575d84c8d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 08f0f1c1e9bbfcd27f97cd58fa6c6e40f448f9f5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904461"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094628"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Öğretici: PerformanceCentre ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de PerformanceCentre tümleştirmesini yapılandırmak için Performanc
 
 **Galeriden PerformanceCentre eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -211,11 +211,11 @@ Bu bölümün amacı PerformanceCentre Britta Simon adlı bir kullanıcı oluşt
 
 2. Soldaki menüde **Interrelate**ve ardından **Katılımcısı oluşturma**.
    
-    ![Kullanıcı Oluştur][400]
+    ![Kullanıcı oluşturma][400]
 
 3. Üzerinde **arasında bir ilişki vardır - Katılımcısı oluşturma** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
-    ![Kullanıcı Oluştur][401]
+    ![Kullanıcı oluşturma][401]
     
     a. Gerekli öznitelikleri için Britta Simon ilgili metin kutularına yazın.
     

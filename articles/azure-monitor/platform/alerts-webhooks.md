@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.component: alerts
+ms.subservice: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345791"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Web kancası kullanarak bir Azure sistem bilgisini Klasik ölçüm uyarısı sahip
@@ -71,14 +71,14 @@ GÖNDERME işlemi, tüm ölçüm tabanlı uyarılar için şema ve aşağıdaki 
 
 | Alan | Zorunlu | Sabit değer kümesi | Notlar |
 |:--- |:--- |:--- |:--- |
-| durum |E |Etkin, çözülmüş |Belirlediğiniz koşullara göre uyarı durumu. |
+| status |E |Etkin, çözülmüş |Belirlediğiniz koşullara göre uyarı durumu. |
 | Bağlam |E | |Uyarı bağlamı. |
 | timestamp |E | |Uyarının tetiklenme zamanı. |
 | id |E | |Her uyarı kuralı benzersiz bir kimliğe sahiptir. |
-| ad |E | |Uyarı adı. |
-| açıklama |E | |Uyarı açıklaması. |
+| name |E | |Uyarı adı. |
+| description |E | |Uyarı açıklaması. |
 | Koşul türü |E |Ölçüm, olay |İki uyarı türleri desteklenir: ölçüm ve olay. Ölçüm uyarıları, bir ölçüm koşuluyla ilgili temel alır. Olay uyarıları bir etkinlik günlüğü olayında temel alır. Uyarı bir ölçüm veya olaya göre denetlemek için bu değeri kullanın. |
-| koşul |E | |Denetlenecek belirli alanları temel **koşul türü** değeri. |
+| condition |E | |Denetlenecek belirli alanları temel **koşul türü** değeri. |
 | MetricName |Ölçüm uyarıları | |Ne kuralı izler tanımlayan ölçüm adı. |
 | metricUnit |Ölçüm uyarıları |Bayt cinsinden BytesPerSecond, Count, CountPerSecond, yüzde, saniye |Ölçümde izin birimi. Bkz: [izin verilen değerler](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Ölçüm uyarıları | |Uyarıya neden ölçümü gerçek değeri. |
@@ -106,3 +106,4 @@ GÖNDERME işlemi, tüm ölçüm tabanlı uyarılar için şema ve aşağıdaki 
 * Bilgi nasıl [Azure uyarıdan Twilio aracılığıyla SMS iletisi göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Bilgi edinmek için nasıl [Azure uyarıdan bir Slack iletisi göndermek için bir mantıksal uygulama kullanma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Bilgi edinmek için nasıl [Azure uyarıdan bir Azure kuyruğuna bir ileti göndermek için bir mantıksal uygulama kullanma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
+

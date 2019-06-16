@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d4b154b8ce55c381f1398c696bc439067dccfab
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bdfd19d9a0e928e26ad6f01ba4b9c3f493aacb0c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899755"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Öğretici: Alibaba bulut hizmeti (rol tabanlı SSO) ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Alibaba bulut hizmeti (rol tabanlı SSO) tümleştirmesini yapıland
 
 **Galeriden Alibaba bulut hizmeti (rol tabanlı SSO) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -133,7 +133,7 @@ Azure AD çoklu oturum açma (rol tabanlı SSO) ile Alibaba bulut hizmeti yapıl
 
 6. Yukarıdaki için ayrıca Alibaba bulut hizmeti (rol tabanlı SSO) uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
-    | Ad | Ad alanı | Kaynak özniteliği|
+    | Ad | Ad Alanı | Kaynak özniteliği|
     | ---------------| ------------| --------------- |
     | Rol | https:\//www.aliyun.com/SAML-Role/Attribute | User.assignedroles |
     | RoleSessionName | https:\//www.aliyun.com/SAML-Role/Attribute | User.userPrincipalName |
@@ -282,11 +282,11 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümde, Azure çoklu oturum açma Alibaba bulut hizmetine (rol tabanlı SSO) erişimi vererek kullanmak Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Alibaba bulut hizmeti (rol tabanlı SSO)**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Alibaba bulut hizmeti (rol tabanlı SSO)** .
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **Alibaba bulut hizmeti (rol tabanlı SSO)**.
+2. Uygulamalar listesinde **Alibaba bulut hizmeti (rol tabanlı SSO)** .
 
     ![Alibaba bulut hizmeti (rol tabanlı SSO), uygulamalar listesinde bağlantı](common/all-applications.png)
 

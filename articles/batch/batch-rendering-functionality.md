@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118696"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch işleme özellikleri
@@ -62,7 +62,7 @@ Bir uygulamayı kullanmak için bir girişimde, ancak uygulama içinde belirtilm
 
 İşleme görevleri için komut satırının oluşturabilmek için işleme uygulama yürütülebilir dosyaları yükleme konumunu belirtilmelidir.  Sistem ortam değişkenlerini gerçek yolları belirtmek zorunda yerine kullanılabilir Azure Market VM görüntülerini üzerinde oluşturulmuştur.  Ek olarak bu ortam değişkenleri olan [standart Batch ortam değişkenlerini](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) her görev için oluşturuldu.
 
-|Uygulama|Uygulama yürütülebilir|Ortam Değişkeni|
+|Uygulama|Uygulama yürütülebilir|Ortam değişkeni|
 |---------|---------|---------|
 |Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
 |Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|

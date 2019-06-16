@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 57cda4d07315c6c37c2ce51f530fb081949b628c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939497"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob dosya sistemi sürücü (ABFS): Hadoop için adanmış bir Azure depolama sürücüsü
@@ -64,4 +64,4 @@ ABFS sürücü tam olarak belgelenen [resmi Hadoop belgeleri](https://hadoop.apa
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure Databricks kümesine oluşturma](./data-lake-storage-quickstart-create-databricks-account.md)
-- [Azure Data Lake depolama Gen2'ye kullanmak URI'si](./data-lake-storage-introduction-abfs-uri.md)
+- [Azure Data Lake Storage 2. Nesil URI'sini kullanma](./data-lake-storage-introduction-abfs-uri.md)

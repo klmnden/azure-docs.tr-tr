@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
 ms.openlocfilehash: b42eb51b510423ffc0d15ee3a646bca3d4392f7f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686848"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight kümesi için günlükleri yönetme
@@ -23,17 +23,17 @@ HDInsight küme günlüklerini yönetme küme ortamında tüm yönleri hakkında
 
 HDInsight günlük Yönetimi'ndeki tipik adımlar şunlardır:
 
-* 1. Adım: Günlük bekletme ilkeleri belirleme
-* 2. Adım: Küme hizmeti sürümleri yapılandırma günlüklerini yönetme
-* 3. Adım: Küme iş yürütme günlük dosyalarını yönetme
-* 4. Adım: Günlük birim depolama boyutları ve maliyetleri tahmin edin
-* 5. Adım: Günlük arşiv ilkeleri ve işlemlerini belirleyin
+* 1\. adım: Günlük bekletme ilkeleri belirleme
+* 2\. adım: Küme hizmeti sürümleri yapılandırma günlüklerini yönetme
+* 3\. adım: Küme iş yürütme günlük dosyalarını yönetme
+* 4\. Adım: Günlük birim depolama boyutları ve maliyetleri tahmin edin
+* 5\. Adım: Günlük arşiv ilkeleri ve işlemlerini belirleyin
 
-## <a name="step-1-determine-log-retention-policies"></a>1. Adım: Günlük bekletme ilkeleri belirleme
+## <a name="step-1-determine-log-retention-policies"></a>1\. adım: Günlük bekletme ilkeleri belirleme
 
 Bir HDInsight kümesi günlük yönetimi stratejisi oluşturmanın ilk adımı, iş senaryoları ve iş yürütme geçmişi depolama alanı gereksinimleri hakkında bilgi toplamak sağlamaktır.
 
-### <a name="cluster-details"></a>Küme Ayrıntıları
+### <a name="cluster-details"></a>Küme ayrıntıları
 
 Aşağıdaki küme ayrıntıları, günlük yönetimi stratejinizin bilgileri toplamak için yardımcı kullanışlıdır. Bu bilgiler, belirli bir Azure hesabı oluşturduğunuz tüm HDInsight kümelerinin toplayın.
 
@@ -69,7 +69,7 @@ Tasarım uygun stratejiler her türü için günlüğe kaydetme, HDInsight küme
 
 * İzleme bir çözüm ya da hizmet yararlı bir yararı olup göz önünde bulundurun. Microsoft System Center sağlayan bir [HDInsight Yönetim Paketi](https://www.microsoft.com/download/details.aspx?id=42521). Ayrıca, toplamak ve günlükleri merkezileştirmek için Apache Chukwa ve Ganglia gibi üçüncü taraf araçları da kullanabilirsiniz. Birçok şirket, Hadoop tabanlı büyük veri çözümleri, örneğin izlemek için hizmetleri sunar: Centerity, Compuware APM, Sematext SPM ve Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>2. Adım: Küme hizmeti sürümleri yönetmek ve betik eylemi günlüklerini görüntüleme
+## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>2\. adım: Küme hizmeti sürümleri yönetmek ve betik eylemi günlüklerini görüntüleme
 
 Tipik bir HDInsight kümesi, çeşitli hizmetler ve açık kaynak yazılım paketleri (örneğin, Apache HBase, Apache Spark ve diğerleri) kullanır. Bioinformatics gibi bazı iş yükleri için hizmet yapılandırması günlük geçmişi ek iş yürütme günlükleri tutmak için gerekebilir.
 
@@ -89,7 +89,7 @@ Ambari UI kullanarak, belirli bir ana bilgisayar (veya düğüm) kümede çalı�
 
 HDInsight [betik eylemlerini](hdinsight-hadoop-customize-cluster-linux.md) komut dosyaları el ile veya ne zaman belirtilen bir kümede çalışır. Örneğin, betik eylemleri, küme üzerinde ek yazılım yüklemeniz veya varsayılan değerleri aracılığıyla yapılandırma ayarlarınızı değiştirmek için kullanılabilir. Betik Eylem günlükleri, Küme kurulumu sırasında oluşan hataları ve küme performansı ve kullanılabilirliği etkileyebilecek yapılandırma ayarları değişiklikleri öngörü sağlayabilir.  Bir betik eyleminin durumunu görmek için seçin **ops** Ambari UI veya erişim durumu varsayılan depolama hesabında oturum düğmesi. Depolama günlüklerini kullanılabilir `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
-## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>3. Adım: Küme iş yürütme günlük dosyalarını yönetme
+## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>3\. adım: Küme iş yürütme günlük dosyalarını yönetme
 
 Sonraki adım, çeşitli hizmetler için iş yürütme günlük dosyalarını'gözden geçirme.  Apache HBase, Apache Spark ve birçok diğer hizmetleri içerebilir. Hangi günlüklerin yararlıdır (ve desteklenmeyen) belirleyen zaman alıcı olabilir çok sayıda ayrıntılı günlükleri, bir Hadoop kümesi oluşturur.  Günlük sisteminin anlamak için hedeflenen yönetim günlük dosyalarının önemlidir.  Bir örnek günlük dosyası verilmiştir.
 
@@ -134,7 +134,7 @@ YARN ResourceManager kullanıcı Arabirimi, küme baş düğümü üzerinde çal
 2. YARN Hizmetleri soldaki listeden seçin.
 3. Hızlı bağlantılar açılan listeden, küme baş düğümleri seçin ve ardından **ResourceManager günlükleri**. YARN günlükleri yönelik bağlantıların bir listesi sunulur.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>4. Adım: Günlük birim depolama boyutları ve maliyetleri tahmin edin
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>4\. Adım: Günlük birim depolama boyutları ve maliyetleri tahmin edin
 
 Önceki adımları tamamladıktan sonra türleri bir anlayış ve birimler, HDInsight kümesi oluşturmayı günlük dosyalarının vardır.
 
@@ -142,7 +142,7 @@ Bir süre sonra anahtar günlük depolama konumları, günlük veri hacmi analiz
 
 Artık bir günlük yönetimi stratejisi anahtar günlükleri için oluşturmak için yeterli bilgi vardır.  Her iki günlük boyut büyümesi tahmin ve bundan sonra depolama Azure hizmet maliyetlerini oturum, elektronik tabloyu (veya tercih ettiğiniz araç) kullanın.  Ayrıca günlük bekletme için tüm gereksinimleri İncelemekte olduğunuz günlükleri kümesini göz önünde bulundurun.  Artık hangi günlük dosyalarını (varsa) silinebilir ve hangi günlüklerin korunur verilecek ve daha az maliyetli bir Azure depolama alanına arşivlenmiş belirledikten sonra gelecek günlük depolama maliyetleri, reforecast.
 
-## <a name="step-5-determine-log-archive-policies-and-processes"></a>5. Adım: Günlük arşiv ilkeleri ve işlemlerini belirleyin
+## <a name="step-5-determine-log-archive-policies-and-processes"></a>5\. Adım: Günlük arşiv ilkeleri ve işlemlerini belirleyin
 
 Hangi günlük dosyalarının silinebilir belirledikten sonra birçok Hadoop Hizmetleri günlük dosyaları belirli bir süre sonra otomatik olarak silmek için günlük parametreleri ayarlayabilirsiniz.
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 360b794f0d8ba9c145a92f015f264eb624fbb0f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65144891"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure Data factory'de parquet biçimi
@@ -28,7 +28,7 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 
 | Özellik         | Açıklama                                                  | Gerekli |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | Dataset öğesinin type özelliği ayarlanmalıdır **Parquet**. | Evet      |
+| türü             | Dataset öğesinin type özelliği ayarlanmalıdır **Parquet**. | Evet      |
 | location         | Dosya konumunu ayarlar. Her dosya tabanlı bağlayıcı kendi konum türü ve desteklenen özellikleri altında `location`. **Makale bağlayıcı -> veri kümesi özellikleri bölümündeki ayrıntılara bakın**. | Evet      |
 | compressionCodec | Parquet dosyasına yazarken kullanılacak sıkıştırma codec bileşeni. Parquet dosyadan okurken, Data Factory otomatik olarak belirlemek dosya meta verileri temel alarak sıkıştırma codec bileşeni.<br>Desteklenen türler "**hiçbiri**","**gzip**","**snappy**" (varsayılan), ve "**lzo**". Şu anda LZO kopyalama etkinliğinin desteklemediği unutmayın. | Hayır       |
 
@@ -69,7 +69,7 @@ Kopyalama etkinliği aşağıdaki özellikler desteklenir ***\*kaynak\**** böl�
 
 | Özellik      | Açıklama                                                  | Gerekli |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **ParquetSource**. | Evet      |
+| türü          | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **ParquetSource**. | Evet      |
 | storeSettings | Bir veri deposundan veri okuma özellikleri grubudur. Her dosya tabanlı kendi desteklenen bir okuma ayarlarında bağlayıcının `storeSettings`. **Kopyalama etkinliği özellikler bölümü -> bağlayıcı makalede ayrıntılara bakın**. | Hayır       |
 
 ### <a name="parquet-as-sink"></a>Havuz olarak parquet
@@ -78,7 +78,7 @@ Kopyalama etkinliği aşağıdaki özellikler desteklenir ***\*havuz\**** bölü
 
 | Özellik      | Açıklama                                                  | Gerekli |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **ParquetSink**. | Evet      |
+| türü          | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **ParquetSink**. | Evet      |
 | storeSettings | Bir veri deposuna veri yazmaya yönelik özellikler grubu. Her dosya tabanlı kendi desteklenen yazma ayarlarında bağlayıcının `storeSettings`. **Kopyalama etkinliği özellikler bölümü -> bağlayıcı makalede ayrıntılara bakın**. | Hayır       |
 
 ## <a name="mapping-data-flow-properties"></a>Veri akışı özellikleri eşleme
@@ -94,7 +94,7 @@ Karmaşık veri türleri şu anda kullanıma alınmamış parquet (örneğin, ha
 > [!IMPORTANT]
 > Kopyalama şirket içinde barındırılan tümleştirme çalışma zamanı tarafından örneğin şirket içi ile bulut arasında yetkilendirilmiş için Parquet dosyalarını kopyalıyorsanız değil, verilerin depolandığı **olarak-olan**, yüklemeniz gerekir **64 bit JRE 8 (Java Çalışma zamanı ortamı) veya OpenJDK** IR makinenizde. Daha fazla ayrıntı içeren aşağıdaki paragrafa bakın.
 
-Parquet dosyası serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ilk olarak kayıt defteri denetleyerek ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi*`JAVA_HOME`* OpenJDK için.
+Parquet dosyası serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ilk olarak kayıt defteri denetleyerek ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi *`JAVA_HOME`* OpenJDK için.
 
 - **JRE kullanılacak**: 64-bit IR 64 bit JRE gerekir. Buradan bulabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **OpenJDK kullanılacak**: sürüm 3.13 IR itibaren desteklenir. Paketi diğer tüm jvm.dll OpenJDK derlemelerinin şirket içinde barındırılan IR makine ve JAVA_HOME ortam değişken Ayarla sistem uygun şekilde gerekli.

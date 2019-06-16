@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 861c2e86d623c46c14366f19457d1f689386a316
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577353"
 ---
 # <a name="firewall-tables-overview"></a>Güvenlik Duvarı tablolar genel bakış
@@ -28,7 +28,7 @@ Aşağıdaki tabloda, bir güvenlik duvarı kuralı parametreleri açıklar.
 | **Ad** | Güvenlik duvarı kuralı ve amacını benzersiz olarak tanımlayan bir ad. |
 | **Öncelik** | 100 ile en yüksek öncelikli olan 100 ile 4096 arasında bir sayı. Kurallar öncelik sırasına göre işlenir. Trafik kuralı eşleşme arasında geldiğinde, kuralı işlemeyi durdurur. Sonuç olarak, yüksek önceliğe sahip kurallar aynı özniteliklere sahip alt önceliklere sahip mevcut herhangi bir kuralın işlenen değil.  Çakışan kurallar kaçınmak için dikkatli olun. |
 | **Durum İzleme** | İzleme, durum bilgisi olmayan (özel bulut, Internet veya VPN) olabilir ya da durum bilgisi olan (genel IP).  |
-| **Protokol** | Seçenekler herhangi biri, TCP veya UDP içerir. ICMP gerektiriyorsa, kullanın. |
+| **Protokolü** | Seçenekler herhangi biri, TCP veya UDP içerir. ICMP gerektiriyorsa, kullanın. |
 | **Yön** | Kuralın gelen veya giden trafiğe uygulanma seçeneği. |
 | **Eylem** | İzin vermek veya trafiği kuralda tanımlanan türünün reddedin. |
 | **Kaynak** | Bir IP adresi, blok classless Inter-Domain yönlendirme (CIDR) (örneğin, 10.0.0.0/24) veya herhangi.  Bir aralığı belirtmek, hizmet etiketi veya uygulama güvenlik grubu, daha az güvenlik kuralları oluşturmanıza olanak sağlar. |
@@ -53,12 +53,12 @@ Ek kurallar ters yönde trafik akışı için gerekli olabilir.  Aşağıdaki no
 
 Aşağıdaki varsayılan kuralları her güvenlik duvarı masasında oluşturulur.
 
-|Öncelik|Ad|Durum İzleme|Direction|Trafik türü|Protokol|Kaynak|Kaynak Bağlantı Noktası|Hedef|Hedef Bağlantı Noktası|Eylem|
+|Öncelik|Ad|Durum İzleme|Direction|Trafik türü|Protocol|source|Kaynak Bağlantı Noktası|Hedef|Hedef Bağlantı Noktası|Eylem|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|izin ver-all-Internet|Durum bilgisi olan|Giden|Genel IP veya internet trafiği|Tümü|Herhangi biri|Herhangi biri|Herhangi biri|Herhangi biri|İzin Ver|
-|65001|reddetme-all-gelen-Internet|Durum bilgisi olan|Gelen|Genel IP veya internet trafiği|Tümü|Herhangi biri|Herhangi biri|Herhangi biri|Herhangi biri|Reddet|
-|65002|izin ver-all-için-intranet|Durum bilgisi olmayan|Giden|Özel bulut iç ya da VPN trafiği|Tümü|Herhangi biri|Herhangi biri|Herhangi biri|Herhangi biri|İzin Ver|
-|65003|izin ver-all-gelen-intranet|Durum bilgisi olmayan|Gelen|Özel bulut iç ya da VPN trafiği|Tümü|Herhangi biri|Herhangi biri|Herhangi biri|Herhangi biri|İzin Ver|
+|65000|izin ver-all-Internet|Durum bilgisi olan|Giden|Genel IP veya internet trafiği|Tümü|Tüm|Tüm|Tüm|Tüm|İzin Ver|
+|65001|reddetme-all-gelen-Internet|Durum bilgisi olan|Gelen|Genel IP veya internet trafiği|Tümü|Tüm|Tüm|Tüm|Tüm|Reddet|
+|65002|izin ver-all-için-intranet|Durum bilgisi olmayan|Giden|Özel bulut iç ya da VPN trafiği|Tümü|Tüm|Tüm|Tüm|Tüm|İzin Ver|
+|65003|izin ver-all-gelen-intranet|Durum bilgisi olmayan|Gelen|Özel bulut iç ya da VPN trafiği|Tümü|Tüm|Tüm|Tüm|Tüm|İzin Ver|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

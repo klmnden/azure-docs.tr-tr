@@ -15,10 +15,10 @@ ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
 ms.openlocfilehash: 8d4290f1411749e2d8d3d27fbd792ceeeea47ef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851367"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Uygulamayı azure'daki bir anlık görüntüden geri yükleme
@@ -71,4 +71,4 @@ Anlık görüntülerden geri çalışan uygulamalar için kullanılabilir **Prem
    
     ![](./media/app-service-web-restore-snapshots/4.png)
 
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.

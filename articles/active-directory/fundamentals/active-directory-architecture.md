@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ba36825805ff54165a3e6c4e221550cc30b07d3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: aed332f32fa9fdc154c72e45914e642a9dad4993
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235177"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055704"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory mimarisini nedir?
 Azure Active Directory (Azure AD), kullanıcılarınız için Azure hizmet ve kaynaklarına erişimi güvenli bir şekilde yönetmenizi sağlar. Azure AD ile birlikte eksiksiz kimlik yönetimi olanakları sunulur. Azure AD özellikleri hakkında daha fazla bilgi için bkz. [Azure Active Directory nedir?](active-directory-whatis.md)
@@ -95,7 +95,7 @@ Dizin modeli nihai bunları listeledik biridir. Zaman uyumsuz olarak çoğaltıl
 
 Azure AD, yazma işlemlerini birincil çoğaltmaya yönlendirerek ve eşzamanlı olarak ikincil çoğaltmaya geri çekerek, ikincil çoğaltmayı hedefleyen uygulamalar için okuma-yazma tutarlılığı sağlar.
 
-Azure AD’nin Graph API’sini kullanan uygulama yazma işlemleri, okuma-yazma tutarlılığı için dizin çoğaltması ile benzeşim sağlama yönteminden yararlanır. Azure AD Graph hizmeti, okumalar için kullanılan bir ikincil çoğaltma ile benzeşimi olan mantıksal bir oturum sürdürür; benzeşim, graf hizmetinin dağıtılmış bir önbellek kullanarak önbelleğe aldığı bir “çoğaltma belirtecinde” yakalanır. Bu belirteç aynı mantıksal oturumun daha sonraki işlemleri için kullanılır. 
+Azure AD’nin Graph API’sini kullanan uygulama yazma işlemleri, okuma-yazma tutarlılığı için dizin çoğaltması ile benzeşim sağlama yönteminden yararlanır. Azure AD Graph hizmet benzeşimi olan bir mantıksal bir oturum sürdürür; okuma için kullanılan bir ikincil çoğaltmaya benzeşim, graf hizmeti bir veri merkezindeki ikincil çoğaltmaya paylaşılan önbellek kullanarak önbelleğe alan bir "çoğaltma belirtecinde" yakalanır. Bu belirteç aynı mantıksal oturumun daha sonraki işlemleri için kullanılır. Aynı mantıksal oturumun kullanmaya devam etmek için sonraki istekler için aynı Azure AD veri merkezinde yönlendirilmesi gerekir. Dizin istemcisi birden çok Azure AD veri merkezlerine; yönlendiriliyor isterse, mantıksal bir oturum devam etmek mümkün değildir Bu durumda istemci bağımsız okuma-yazma bunları listeledik sahip birden çok mantıksal oturumu vardır.
 
  >[!NOTE]
  >Yazma işlemleri, mantıksal oturumdaki okumaların verildiği ikincil çoğaltmaya hemen çoğaltılır.

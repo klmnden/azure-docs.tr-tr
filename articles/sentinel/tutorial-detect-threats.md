@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
 ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65921804"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Öğretici: Azure Önizleme Gözcü ile tehditleri algılayın
@@ -49,7 +49,7 @@ Algılama kuralları bunlar ortaya, araştırılması düzeltilebilir ve sağlam
 
 2. Üst menü çubuğunda, **+ Ekle**.  
 
-   ![Uyarı kuralı oluştur](./media/tutorial-detect-threats/create-alert-rule.png)
+   ![Uyarı kuralı oluşturma](./media/tutorial-detect-threats/create-alert-rule.png)
 
 3. Altında **uyarı kuralı oluştur**, açıklayıcı bir ad verin ve ayarlayın **önem derecesi** gerektiği şekilde. 
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu;anilmur
 ms.openlocfilehash: 0ade52d3ae9714f2b370308253e455bcde7ac7a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825141"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>İş Akışı Tasarımcısı ile Gelişmiş Kodlama İş Akışları Oluşturma  
@@ -46,7 +46,7 @@ Varsayılan [iş akışları yayımlanan](media-services-workflow-designer.md#ex
 Aşağıdaki videolarda tasarımcısının nasıl kullanılacağını göstermektedir.
 
 ### <a name="day-1--getting-started"></a>Günlük 1 – kullanmaya başlama
-1. gün video kapsar:
+1\. gün video kapsar:
 
 * Tasarımcı genel bakış
 * Temel iş akışları – "Hello World"
@@ -56,8 +56,8 @@ Aşağıdaki videolarda tasarımcısının nasıl kullanılacağını göstermek
 > 
 > 
 
-### <a name="day-2"></a>2. gün
-2. gün video kapsar:
+### <a name="day-2"></a>2\. gün
+2\. gün video kapsar:
 
 * Kaynak dosya senaryoları değişen – ses işleme
 * Gelişmiş mantık ile iş akışları
@@ -67,8 +67,8 @@ Aşağıdaki videolarda tasarımcısının nasıl kullanılacağını göstermek
 > 
 > 
 
-### <a name="day-3"></a>3. günde
-3. günde video kapsar:
+### <a name="day-3"></a>3\. günde
+3\. günde video kapsar:
 
 * İş akışları/şemaları içinde betik oluşturma
 * Geçerli Kodlayıcı ile kısıtlamaları

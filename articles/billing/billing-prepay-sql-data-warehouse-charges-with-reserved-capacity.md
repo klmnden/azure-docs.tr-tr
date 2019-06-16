@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371198"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>SQL veri ambarı ücretleri için ön ödeme ile ayrılmış kapasite
@@ -70,7 +70,7 @@ Exchange ya da para iadesinin ayırmaları hakkında daha fazla bilgi için bkz.
 
 Ayırma indirimi, bölge ve SQL veri ambarı ayrılmış kapasite kapsamını eşleşen SQL veri ambarı örnek sayısına otomatik olarak uygulanır. SQL veri ambarı ayrılmış kapasite ile kapsamını güncelleştirebilirsiniz [Azure portalında](https://portal.azure.com/), PowerShell, CLI veya API üzerinden.
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/).
 

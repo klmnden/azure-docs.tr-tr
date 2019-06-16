@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466280"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory'de bir grup için lisans atama sorunlarını tanımlama ve çözme
@@ -62,7 +62,7 @@ Hangi kullanıcıların ve grupların lisanslarını kullanan görmek için bir 
 
 **PowerShell:** PowerShell cmdlet'leri bu hata olarak rapor _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Çakışan hizmet planları var
+## <a name="conflicting-service-plans"></a>Çakışan hizmet planları
 
 **Sorun:** Grubunda belirtilen ürünlerinden biri için farklı bir ürünü aracılığıyla kullanıcı zaten atanmış başka bir hizmet planı ile çakışan bir hizmet planı içerir. Bazı hizmet planları, bunlar ilgili başka bir hizmet planı ile aynı kullanıcıya atanamaz bir şekilde yapılandırılır.
 
@@ -77,7 +77,7 @@ Bu çakışmayı çözmek için iki planları devre dışı bırakmak gerekir. D
 
 **PowerShell:** PowerShell cmdlet'leri bu hata olarak rapor _MutuallyExclusiveViolation_.
 
-## <a name="other-products-depend-on-this-license"></a>Bu lisansa bağımlı olan başka ürünler var
+## <a name="other-products-depend-on-this-license"></a>Diğer ürünleri bu lisansa bağımlı
 
 **Sorun:** Bir grup içinde belirtilen ürün işlevi için başka bir ürün içinde başka bir hizmet planı için etkinleştirilmesi gereken bir hizmet planına içeriyor. Azure AD temel hizmet planı kaldırmaya çalıştığında bu hata oluşur. Örneğin, kullanıcı gruptan kaldırdığınızda bu durum oluşabilir.
 

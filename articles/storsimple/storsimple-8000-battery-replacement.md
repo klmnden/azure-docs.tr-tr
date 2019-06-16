@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 4ebf3f28d40e0461d140a3fe74fb940720f26db6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418967"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693747"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>StorSimple Cihazınızda yedek pil modülü değiştirin
 
@@ -49,7 +49,7 @@ Yedek pili StorSimple cihazınız için bir alan değiştirebilen birim modülü
    
    | Etiket | Açıklama |
    |:--- |:--- |
-   | 1 |PCM 0'DA |
+   | 1 |PCM 0 |
    | 2 |PCM 1 |
    | 3 |Denetleyici 0 |
    | 4 |Denetleyici 1 |

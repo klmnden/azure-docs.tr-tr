@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: dab0b11a350a10a209d67ddc69db5531a2cc292c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481482"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080777"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN Verizon Premium kural altyapısı özellikleri
 
@@ -338,7 +338,7 @@ Kural altyapısı içinde sorgu dizesini önbelleğe alma uygulanan şekilde öz
 
 Aşağıdaki örnek kullanım için bu özellik, bir örnek istek ve varsayılan önbellek anahtarı sağlar:
 
-- **Örnek istek:** http://wpc.0001.&lt; etki alanı&gt;/800001/Origin/folder/asset.htm?sessionid=1234 & dili = tr & UserID = 01
+- **Örnek istek:** http://wpc.0001.&lt ; etki alanı&gt; /800001/Origin/folder/asset.htm?sessionid=1234 & dili = tr & UserID = 01
 - **Varsayılan önbellek anahtarı:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>İçerir
@@ -516,8 +516,8 @@ Varsayılan olarak, özel günlük alan "x-ec_custom-1." olarak adlandırılır 
 
 Üst bilgi türü|Biçimi|Örnekler
 -|-|-
-İstek üstbilgisi|%{[RequestHeader]()}[ediyorum]() | % {Kabul-Encoding} ediyorum <br/> {Referrer}i <br/> % {Yetkilendirme} i
-Yanıt Üst Bilgisi|%{[ResponseHeader]()}[o]()| % {Yaş} o <br/> %{Content-Type}o <br/> % {Tanımlama bilgisi} o
+İstek üstbilgisi|`%{[RequestHeader]()}[i]()` | % {Kabul-Encoding} ediyorum <br/> {Referrer}i <br/> % {Yetkilendirme} i
+Yanıt Üst Bilgisi|`%{[ResponseHeader]()}[o]()`| % {Yaş} o <br/> %{Content-Type}o <br/> % {Tanımlama bilgisi} o
 
 Anahtar bilgileri:
 
@@ -999,7 +999,7 @@ Anahtar bilgileri:
     - server
     - Tanıtım
     - Transfer-encoding
-    - Yükseltme
+    - upgrade
     - değişiklik
     - aracılığıyla
     - uyarı

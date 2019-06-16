@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 11ba7cd9be59f13081bdc5a543c52ca5f9d66e09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 279f6970c34acbfea645366f7e965c830873fdbf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60339338"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Öğretici: Azure Active Directory Tümleştirmesi ile GÖR
 
@@ -53,7 +53,7 @@ Azure AD'de görevi tümleştirmesini yapılandırmak için görevi Galeriden y�
 
 **Galeriden görev eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

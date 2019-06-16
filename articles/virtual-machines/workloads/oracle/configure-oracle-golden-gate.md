@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c8d2a948dd82fb2c04aceb24815e63be13e35919
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722596"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Bir Azure Linux sanal makinesinde Oracle Golden kapısı uygulayın 
@@ -795,7 +795,7 @@ MyVM2 üzerinde durumunu ve geçmişini görüntülemek için aşağıdaki komut
 Bu, yükleme ve Oracle linux Golden ağ yapılandırmasını tamamlar.
 
 
-## <a name="delete-the-virtual-machine"></a>Sanal makineyi silme
+## <a name="delete-the-virtual-machine"></a>Şu sanal makineyi silin:
 
 Artık gerekli olmadığında kaynak grubunu, VM'yi ve tüm ilgili kaynakları kaldırmak için aşağıdaki komut kullanılabilir.
 

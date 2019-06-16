@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: d8cea59cd0bbeff410f585693cb7ffed82fd9327
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248167"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>Azure etkinlik günlüklerini Azure İzleyici ile Azure Active Directory kiracılar genelinde toplayın.
@@ -49,7 +49,7 @@ Aşağıda bu senaryoda kullanılan Azure kaynaklarıyla ilgili gereksinimler ve
 
 
 
-## <a name="step-1---create-an-event-hub"></a>1. Adım - Olay Hub’ı oluşturma
+## <a name="step-1---create-an-event-hub"></a>1\. Adım - Olay Hub’ı oluşturma
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../../event-hubs/event-hubs-create.md) to create your event hub. -->
 
@@ -74,7 +74,7 @@ Aşağıda bu senaryoda kullanılan Azure kaynaklarıyla ilgili gereksinimler ve
 9. Not Defteri gibi geçici bir konumda, Olay Hub'ı adının bir kopyasını ve birincil veya ikincil Olay Hub'ı bağlantı dizesini saklayın. Bu değerler Mantıksal Uygulama için gereklidir.  Olay Hub'ı bağlantı dizesi olarak **RootManageSharedAccessKey** bağlantı dizesini kullanabilir veya ayrı bir bağlantı dizesi oluşturabilirsiniz.  Kullandığınız bağlantı dizesinin `Endpoint=sb://` ile başlaması ve **Yönet** erişim ilkesi olan bir ilkeye yönelik olması gerekir.
 
 
-## <a name="step-2---export-activity-logs-to-event-hub"></a>2. Adım - Etkinlik Günlüklerini Event Hub’a aktarma
+## <a name="step-2---export-activity-logs-to-event-hub"></a>2\. Adım - Etkinlik Günlüklerini Event Hub’a aktarma
 
 Etkinlik Günlüğü akışını etkinleştirmek için bir Olay Hub'ı Ad Alanını ve bu ad alanı için paylaşılan erişim ilkesini seçmelisiniz. İlk yeni Etkinlik Günlüğü olayı olduğunda bu ad alanında bir Olay Hub'ı oluşturulur. 
 
@@ -94,7 +94,7 @@ Günlükleri yayan abonelikten farklı bir abonelikte yer alan olay hub'ı ad al
 
 <!-- Follow the steps in [stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) to configure a log profile that writes activity logs to an event hub. -->
 
-## <a name="step-3---create-logic-app"></a>3. Adım - Mantıksal Uygulama'yı oluşturma
+## <a name="step-3---create-logic-app"></a>3\. Adım - Mantıksal Uygulama'yı oluşturma
 
 Etkinlik günlükleri Olay hub'ına yazılmaya başlayınca, günlükleri Olay hub'ından toplamak ve Log Analytics çalışma alanına yazmak için bir mantıksal uygulama oluşturun.
 
@@ -312,7 +312,7 @@ Olay Hub'ından gelen çıkış bir JSON yükü ve bir kayıt dizisi içerir. [J
 
 10. Mantıksal Uygulamanızda yaptığınız değişiklikleri kaydetmek için **Kaydet**'e tıklayın.
 
-## <a name="step-4---test-and-troubleshoot-the-logic-app"></a>4. Adım - Mantıksal Uygulamayı test etme ve sorunlarını giderme
+## <a name="step-4---test-and-troubleshoot-the-logic-app"></a>4\. Adım - Mantıksal Uygulamayı test etme ve sorunlarını giderme
 İş akışının tamamlanması üzerine, hatasız çalıştığını doğrulamak için bunu tasarımcıda test edebilirsiniz.
 
 Logic Apps Tasarımcısı'nda, Mantıksal Uygulamayı test etmek için **Çalıştır**'a tıklayın. Mantıksal Uygulamadaki her adımda bir durum simgesi gösterilir; yeşil daire içinde beyaz onay işareti başarının göstergesidir.
@@ -321,7 +321,7 @@ Logic Apps Tasarımcısı'nda, Mantıksal Uygulamayı test etmek için **Çalı�
 
 Her adımla ilgili ayrıntılı bilgileri görmek için, adım adına tıklayarak öğeyi genişletin. Her adımda alınan ve gönderilen veriler hakkında daha fazla bilgi görmek için **Ham girişleri görüntüleyin**'e ve **Ham çıkışları görüntüleyin**'e tıklayın.
 
-## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>5. Adım - Log Analytics'de Azure Etkinlik Günlüğü'nü görüntüleme
+## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>5\. Adım - Log Analytics'de Azure Etkinlik Günlüğü'nü görüntüleme
 Son adım Log Analytics çalışma alanını denetleyip verilerin beklendiği gibi toplandığından emin olmaktır.
 
 1. Azure portalının sol alt köşesinde bulunan **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.

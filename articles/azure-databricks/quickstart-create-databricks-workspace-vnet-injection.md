@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 295b64b10f9f78ca6224d60fb84c6d1310aaa42e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770732"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Hızlı Başlangıç: Sanal ağ içinde bir Azure Databricks çalışma alanı oluşturma
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free
     |Ayar|Önerilen değer|Açıklama|
     |-------|---------------|-----------|
     |Ad|databricks hızlı başlangıç|Sanal ağınız için bir ad seçin.|
-    |Adres alanı|10.1.0.0/16|CIDR gösterimiyle sanal ağın adres aralığı.|
+    |Adres alanı|10.1.0.0/16|CIDR gösteriminde sanal ağın adres aralığı.|
     |Abonelik|\<Aboneliğiniz\>|Kullanmak istediğiniz Azure aboneliğini seçin.|
     |Kaynak grubu|databricks hızlı başlangıç|Seçin **Yeni Oluştur** ve hesabınız için yeni bir kaynak grubu adı girin.|
     |Location|\<Kullanıcılarınıza en yakın bölgeyi seçin\>|Burada, sanal ağınızı barındırabilirsiniz coğrafi bir konum seçin. Kullanıcılarınıza en yakın konumu kullanın.|
@@ -84,7 +84,7 @@ Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free
 
 1. Azure Databricks hizmetinize dönüp seçin **çalışma alanını Başlat** üzerinde **genel bakış** sayfası.
 
-2. Seçin **kümeleri** > **+ küme oluştur**. Bir küme adı gibi oluşturup *databricks hızlı küme*, geri kalan varsayılan ayarları kabul edin. Seçin **küme oluşturma**.
+2. Seçin **kümeleri** >  **+ küme oluştur**. Bir küme adı gibi oluşturup *databricks hızlı küme*, geri kalan varsayılan ayarları kabul edin. Seçin **küme oluşturma**.
 
     ![Azure Databricks kümesi oluşturma](./media/quickstart-create-databricks-workspace-vnet-injection/create-cluster.png)
 

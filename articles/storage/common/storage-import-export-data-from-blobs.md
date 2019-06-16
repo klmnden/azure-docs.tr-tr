@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209633"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Blob depolama alanından verileri dışarı aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
@@ -33,7 +33,7 @@ Verileri Azure Blob Depolama dışına aktarmak için dışarı aktarma işi olu
         - [FedEX hesabı oluşturma](https://www.fedex.com/en-us/create-account.html), veya 
         - [DHL hesabı oluşturma](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
-## <a name="step-1-create-an-export-job"></a>1. Adım: Dışarı aktarma işi oluşturma
+## <a name="step-1-create-an-export-job"></a>1\. adım: Dışarı aktarma işi oluşturma
 
 Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adımları gerçekleştirin.
 
@@ -52,10 +52,10 @@ Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adı
     - Dışarı aktarma işi için açıklayıcı bir ad girin. İşlerinizi ilerlemesini izlemek için seçtiğiniz adın kullanın. 
         - Ad yalnızca küçük harf, sayı, kısa çizgi ve alt çizgi içerebilir.
         - Ad bir harf ile başlamalı ve boşluk içeremez. 
-    - Abonelik seçin.
+    - Bir abonelik seçin.
     - Bir kaynak grubu seçin veya girin.
 
-        ![Temel](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
+        ![Temel Bilgiler](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
     
 3. İçinde **iş ayrıntıları**:
 
@@ -99,18 +99,18 @@ Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adı
 
     - Tıklayın **Tamam** dışarı aktarma işi oluşturma işlemini tamamlamak için.
 
-## <a name="step-2-ship-the-drives"></a>2. Adım: Sürücüleri gönderin
+## <a name="step-2-ship-the-drives"></a>2\. adım: Sürücüleri gönderin
 
 İstediğiniz sürücü sayısını bilmiyorsanız, Git [sürücü sayısını kontrol](#check-the-number-of-drives). Sürücü sayısı biliyorsanız, sürücüleri göndermeye devam edin.
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-3-update-the-job-with-tracking-information"></a>3. adım: İş izleme bilgilerini güncelleştir
+## <a name="step-3-update-the-job-with-tracking-information"></a>3\. adım: İş izleme bilgilerini güncelleştir
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
 
-## <a name="step-4-receive-the-disks"></a>4. Adım: Diskleri
+## <a name="step-4-receive-the-disks"></a>4\. Adım: Diskleri
 Pano işin tamamlandığından emin bildirdiğinde, diskleri size gönderilir ve sevk irsaliyesi için takip numarasını portalda kullanılabilir.
 
 1. Dışarı aktarılan verileri sürücüleriyle aldıktan sonra sürücüleri kilidini açmak için BitLocker anahtarlarını edinmeniz gerekir. Azure portalında dışarı aktarma işi gidin. Tıklayın **içeri/dışarı aktarma** sekmesi. 

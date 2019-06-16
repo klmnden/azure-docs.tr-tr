@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: dwgeo
 ms.openlocfilehash: 71925a1ee67956df45901950b2a59fa4c1b458a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463234"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>İstemciler için Azure Media Services anahtar dağıtımı hizmetiyle belirteçlerini nasıl geçirme öğrenin
@@ -29,7 +29,7 @@ Müşteriler genellikle player anahtarı edinebilirsiniz için nasıl bir oynat�
 
 - HTTP yetkilendirme üst bilgisi ile.
     > [!NOTE]
-    > OAuth 2.0 özellikleri "Bearer" öneki bekleniyor. Bir örnek oynatıcı belirteç yapılandırma ile Azure Media Player barındırılan [tanıtım sayfasını](https://ampdemo.azureedge.net/). Video kaynağı koymak için **AES (JWT belirteci)** veya **AES (SWT belirteci)**. Belirteci yetkilendirme üst bilgisi geçirilir.
+    > OAuth 2.0 özellikleri "Bearer" öneki bekleniyor. Bir örnek oynatıcı belirteç yapılandırma ile Azure Media Player barındırılan [tanıtım sayfasını](https://ampdemo.azureedge.net/). Video kaynağı koymak için **AES (JWT belirteci)** veya **AES (SWT belirteci)** . Belirteci yetkilendirme üst bilgisi geçirilir.
 
 - Bir URL ek sorgu parametresi ile "belirteci tokenvalue =."  
     > [!NOTE]

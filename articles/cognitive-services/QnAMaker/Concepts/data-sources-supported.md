@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tulasim
 ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379703"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Veri kaynakları için soru-cevap Oluşturucu içeriği
@@ -141,7 +141,7 @@ Yapılandırılmış bir soru-cevap örneği aşağıdadır *.xls* dosyasıyla H
 
 Bilgi Bankası içeri aktarma, var olan bir Bilgi Bankası içeriğini değiştirir. İçeri aktarma, veri kaynağı bilgilerini içeren bir yapılandırılmış .tsv dosyası gerektirir. Bu bilgiler soru-cevap soru-cevap çiftlerini gruplandırabilir ve bunları belirli bir veri kaynağı için öznitelik oluşturucu yardımcı olur.
 
-| Soru  | Yanıt  | Kaynak| Meta veri (1 anahtarı: 1 değeri) |          
+| Soru  | Yanıt  | source| Meta veri (1 anahtarı: 1 değeri) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Düzenleme|    `Key:Value`       |
@@ -154,7 +154,7 @@ Bilgi Bankası doldurmak için önceden var olan içerik yoksa, soru-cevap Oluş
 
 URL veya içeri aktardıktan sonra Markdown dönüştürülür ve bu biçimde depolanır. Dönüştürme işlemini doğru şekilde dosyalarınızı ve URL'leri bağlantılar dönüştürme değil, sorular ve cevaplar üzerindeki düzenleyebilir **Düzenle** sayfası. 
 
-|Biçimlendir|Amaç|
+|Biçimi|Amaç|
 |--|--|
 |`\n\n`| Yeni satır|
 |`\n*`|Madde işaretinde sıralı bir listesi için|

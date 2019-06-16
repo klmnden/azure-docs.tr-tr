@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938469"
 ---
 <a name="what-is-test-drive"></a>Test Sürüşü nedir?
@@ -47,8 +47,8 @@ Ve aşağıda dağıtım zamanı gerektiğinde, teklif nasıl görüneceğini g�
 
 Nasıl karmaşık olursa olsun, uygulamanızın Microsoft Test Sürüşünüz müşteri için ürününüzün hayata yardımcı olur. Günümüzde üç farklı türde ürün, senaryo ve Market olan türüne göre Test Sürüşleri sunuyoruz.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**: Bir Azure Resource Manager Test Sürüşü yayımcı tarafından oluşturulan bir çözümünü oluşturan tüm Azure kaynaklarını içeren bir dağıtım şablonudur. Bu senaryo uygun ürünler, yalnızca Azure kaynakları şunlardır.
-- **[Mantıksal uygulama](./logic-app-test-drive.md)**: Mantıksal uygulamayı Test Sürüşü tüm karmaşık çözüm mimarileri kapsayacak şekilde tasarlanmıştır dağıtım şablonudur. Tüm Dynamics uygulamaları ve özel ürünler bu tür bir Test Sürüşü kullanmanız gerekir.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Bir Azure Resource Manager Test Sürüşü yayımcı tarafından oluşturulan bir çözümünü oluşturan tüm Azure kaynaklarını içeren bir dağıtım şablonudur. Bu senaryo uygun ürünler, yalnızca Azure kaynakları şunlardır.
+- **[Mantıksal uygulama](./logic-app-test-drive.md)** : Mantıksal uygulamayı Test Sürüşü tüm karmaşık çözüm mimarileri kapsayacak şekilde tasarlanmıştır dağıtım şablonudur. Tüm Dynamics uygulamaları ve özel ürünler bu tür bir Test Sürüşü kullanmanız gerekir.
 - **Power BI**: Power BI Test Sürüşü yalnızca bir katıştırılmış bir özel oluşturulan Pano bağlantısıdır. Yalnızca bir etkileşimli Power BI görsel, bu tür bir Test Sürüşü kullanması gereken göstermek istediği herhangi bir ürünü.
     Burada karşıya yüklemek için ihtiyacınız olan, katıştırılmış Power BI URL'si.
 

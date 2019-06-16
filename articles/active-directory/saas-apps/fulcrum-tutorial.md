@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 040413f2e0daccc04921f32199a3c75e8d38310e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 57c95ddba28904ad24822b5ac0b01a77b4076db2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278559"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fulcrum"></a>Öğretici: Fulcrum ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Fulcrum tümleştirmesini yapılandırmak için Fulcrum Galeriden y�
 
 **Galeriden Fulcrum eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -127,7 +127,7 @@ Azure AD çoklu oturum açma ile Fulcrum yapılandırmak için aşağıdaki adı
     | ---------------| --------------- |
     | first_name | User.givenName |
     | Soyadı | User.surname |
-    | e-posta | User.Mail |
+    | email | User.Mail |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

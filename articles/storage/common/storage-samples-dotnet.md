@@ -10,10 +10,10 @@ ms.date: 05/03/2019
 ms.author: mhopkins
 ms.subservice: common
 ms.openlocfilehash: df7c14f1ee83015303657f9a0babde3d60c92292
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209702"
 ---
 # <a name="azure-storage-samples-using-net"></a>.NET kullanarak azure depolama örnekleri
@@ -25,11 +25,11 @@ Aşağıdaki tabloda örnekleri depomuzda ve her örneğinde kapsanan senaryolar
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Uç Nokta</th><th style="font-size:110%">Senaryo</th><th style="font-size:110%">Örnek Kod</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Ekleme Blobu</td> 
+<td>Ekleme blobu</td> 
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">BLOB'ları ile çalışmaya başlama</a></td> 
 </tr> 
 <tr> 
-<td>Blok Blobu</td>
+<td>Blok blobu</td>
 <td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Depolama Fotoğraf Galerisi Web uygulaması</a></td>
 </tr> 
 <tr> 
@@ -73,7 +73,7 @@ Aşağıdaki tabloda örnekleri depomuzda ve her örneğinde kapsanan senaryolar
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">BLOB'ları ile çalışmaya başlama</a></td>
 </tr> 
 <tr> 
-<td>Sayfa Blobu</td>
+<td>Sayfa blobu</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">BLOB'ları ile çalışmaya başlama</a></td>
 </tr>
 <tr> 
@@ -160,7 +160,7 @@ Aşağıdaki tabloda örnekleri depomuzda ve her örneğinde kapsanan senaryolar
 </tr> 
 <tr> 
 <td rowspan="7"><b>Tablo</b></td>
-<td>Tablo Oluştur</td> 
+<td>Tablo oluşturma</td> 
 <td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure depolama - örnek uygulaması kullanarak eşzamanlılığı yönetme</a></td> 
 </tr> 
 <tr> 

@@ -3,18 +3,18 @@ title: Yükleme ve kapsayıcıları - Anomali algılayıcısı çalıştırın
 titleSuffix: Azure Cognitive Services
 description: Zaman serisi verilerinizdeki anormallikleri belirlemek için gelişmiş algoritmalar Anomali algılayıcısı API'nin kullanın.
 services: cognitive-services
-author: aahill
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: aahi
-ms.openlocfilehash: ec32d5de9e3af14abbf14f79f37ab00f3346b1c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 0369e27e7a260c50fc4de690dd3261421356799a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306976"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073323"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Yükleme ve Anomali algılayıcısı kapsayıcıları çalıştırma
 
@@ -70,7 +70,7 @@ Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
 
 Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) komutu, kapsayıcı görüntüsü indirilemedi.
 
-| Kapsayıcı | Depo |
+| Kapsayıcı | Havuz |
 |-----------|------------|
 | bilişsel-services-anomali-algılayıcısı | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
 
@@ -169,7 +169,7 @@ Ana bilgisayarını kullanmak https://localhost:5000, kapsayıcı API'leri için
 
 Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](anomaly-detector-container-configuration.md#mount-settings) ve günlüğe kaydetme etkin, kapsayıcı başlatma veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyalarını oluşturur. 
 
-## <a name="billing"></a>Faturalama
+## <a name="billing"></a>Faturalandırma
 
 Kullanarak, fatura bilgilerini Azure Anomali algılayıcısı kapsayıcıları Gönder bir _Anomali algılayıcısı_ Azure hesabınız kaynaktaki. 
 

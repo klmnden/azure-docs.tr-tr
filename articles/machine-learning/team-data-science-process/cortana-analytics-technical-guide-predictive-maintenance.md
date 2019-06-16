@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715657"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Havacılıkta Tahmine dayalı bakım için Cortana Intelligence çözüm şablonları için teknik kılavuz
@@ -171,19 +171,19 @@ Aşağıdaki adımları pbıx dosyasını (örneğin, tahmin sonuçlarını) ver
    
    İhtiyacınız olacak **veritabanı sunucu adı, veritabanı adı, kullanıcı adı ve parola** sonraki adımlara geçmeden önce. Bunları nasıl bulacağınıza ilişkin kılavuz için adımlar aşağıda verilmiştir.
    
-   * Bir kez **'Azure SQL veritabanı'** çözüm şablonunuzda diyagram yeşile döner, buna tıklayın ve ardından **'Açık'**.
+   * Bir kez **'Azure SQL veritabanı'** çözüm şablonunuzda diyagram yeşile döner, buna tıklayın ve ardından **'Açık'** .
    * Yeni bir tarayıcı sekmesi/Azure portal sayfasındaki görüntüleyen penceresi görürsünüz. Tıklayın **'Kaynak grubu'** Sol paneldeki.
-   * Çözümü dağıtmak için kullanmakta olduğunuz aboneliği seçin ve ardından **' YourSolutionName\_ResourceGroup'**.
-   * Çıkış panelinde yeni pop tıklayın ![SQL simgesi](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) veritabanınıza erişmek için simge. Bu simge yanında, veritabanı adıdır (örneğin, **'pmaintenancedb'**) ve **veritabanı sunucu adı** sunucu adı özelliği altında listelenen ve benzer şekilde görünmelidir  **YourSolutionName.database.windows.net**.
+   * Çözümü dağıtmak için kullanmakta olduğunuz aboneliği seçin ve ardından **' YourSolutionName\_ResourceGroup'** .
+   * Çıkış panelinde yeni pop tıklayın ![SQL simgesi](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) veritabanınıza erişmek için simge. Bu simge yanında, veritabanı adıdır (örneğin, **'pmaintenancedb'** ) ve **veritabanı sunucu adı** sunucu adı özelliği altında listelenen ve benzer şekilde görünmelidir  **YourSolutionName.database.windows.net**.
    * Veritabanınızı **kullanıcıadı** ve **parola** kullanıcı adı ve parola ile aynı çözümün dağıtımı sırasında önceden kaydedilir.
 2. Durgun yoldaki rapor dosyası veri kaynağı, Power BI Desktop ile güncelleştirin.
    
-   * İndirdiğiniz ve oluşturucu dosyasının sıkıştırması açılan klasörde çift **Powerbı\\PredictiveMaintenanceAerospace.pbix** dosya. Dosyayı açtığınızda herhangi bir uyarı iletisi görürseniz, bunları yoksayar. Dosyanın üst kısmında tıklayın **'Sorguları Düzenle'**.
+   * İndirdiğiniz ve oluşturucu dosyasının sıkıştırması açılan klasörde çift **Powerbı\\PredictiveMaintenanceAerospace.pbix** dosya. Dosyayı açtığınızda herhangi bir uyarı iletisi görürseniz, bunları yoksayar. Dosyanın üst kısmında tıklayın **'Sorguları Düzenle'** .
      
      ![Sorguları Düzenle](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * İki tablo göreceğiniz **RemainingUsefulLife** ve **PMResult**. İlk tablo seçin ve tıklayın ![sorgu ayarları simgesi](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) yanındaki **'Source'** altında **'UYGULANAN adımlar'** sağdaki **'Sorgu ayarları'** bölme. Görünen uyarı iletileri yoksayın.
-   * Büyütme penceresi, değiştirin **'Sunucusu'** ve **'Database'** kendi sunucu ve veritabanı adları ve ardından **'Tamam'**. Sunucu adı için 1433 numaralı bağlantı noktasını belirttiğinizden emin olun (**YourSolutionName.database.windows.net, 1433**). Veritabanı alanı olarak bırakın **pmaintenancedb**. Ekranda görüntülenen uyarı iletilerini yoksayın.
-   * Çıkış penceresi sonraki pop, sol bölmede iki seçenek görürsünüz (**Windows** ve **veritabanı**). Tıklayın **'Database'**, doldurmak, **'Username'** ve **'Password'** (kullanıcı adı ve ilk çözüm dağıtılan ve bir Azure oluşturulan girdiğiniz parola budur SQL veritabanı). İçinde ***seçmek için bu ayarları uygulamak için hangi düzeye***, veritabanı düzeyinde seçeneği işaretleyin. Ardından **'Bağlan'**.
+   * Büyütme penceresi, değiştirin **'Sunucusu'** ve **'Database'** kendi sunucu ve veritabanı adları ve ardından **'Tamam'** . Sunucu adı için 1433 numaralı bağlantı noktasını belirttiğinizden emin olun (**YourSolutionName.database.windows.net, 1433**). Veritabanı alanı olarak bırakın **pmaintenancedb**. Ekranda görüntülenen uyarı iletilerini yoksayın.
+   * Çıkış penceresi sonraki pop, sol bölmede iki seçenek görürsünüz (**Windows** ve **veritabanı**). Tıklayın **'Database'** , doldurmak, **'Username'** ve **'Password'** (kullanıcı adı ve ilk çözüm dağıtılan ve bir Azure oluşturulan girdiğiniz parola budur SQL veritabanı). İçinde ***seçmek için bu ayarları uygulamak için hangi düzeye***, veritabanı düzeyinde seçeneği işaretleyin. Ardından **'Bağlan'** .
    * İkinci tabloda tıklatın **PMResult** ardından ![Gezinti simgesi](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) yanındaki **'Source'** altında **'UYGULANAN adımlar'** sağ **'Sorgu ayarları'** panelde, sunucu ve veritabanı adları Yukarıdaki adımlarda açıklandığı şekilde güncelleştirin ve Tamam'a tıklayın.
    * Önceki sayfaya geri destekli sonra penceresini kapatın. Bir ileti görüntüler - tıklayın **Uygula**. Son olarak, tıklayın **Kaydet** değişiklikleri kaydetmek için düğme. Power BI dosyanızı, şimdi sunucuyla bağlantı kurmuştur. Görselleştirmelerinizi boş ise göstergeleri sağ üst köşesinde Silgi simgesini tıklatarak tüm verileri görselleştirmek için görselleştirmelere seçimleri Temizle emin olun. Bir görselleştirmeyi yeni verileri yansıtması için Yenile düğmesini kullanın. Data factory 3 saatte bir yenileme zamanlandığında başlangıçta yalnızca çekirdek veri görselleştirmelerinizi üzerinde görürsünüz. Verileri yenilediğinizde görselleştirmeleriniz yansıtılan yeni Öngörüler 3 saat sonra görürsünüz.
 3. (İsteğe bağlı) Soğuk yolu panoya yayımlama [Power BI çevrimiçi Hizmetinde](https://www.powerbi.com/). Bu adım bir Power BI hesabı (veya Office 365 hesabı) gerektiğini unutmayın.

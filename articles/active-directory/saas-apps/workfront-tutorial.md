@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97eb016f1a77d4166976c6a4d7aebd073550e8c2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 51fd45729a4e34fa1669f758c5a9c8f5cbec498f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905374"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Öğretici: Workfront ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Workfront tümleştirmesini yapılandırmak için Workfront Galeride
 
 **Galeriden Workfront eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

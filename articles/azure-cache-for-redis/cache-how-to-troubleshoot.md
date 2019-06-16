@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
 ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60830016"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Azure önbelleği için Redis sorunlarını giderme
@@ -202,12 +202,12 @@ Bu hata iletisi sorunun nedenini ve olası çözümü noktası yardımcı olabil
 | --- | --- |
 | yönerge |Son zaman dilimi içinde: 0 komutları yayımlandı |
 | Yöneticisi |Yuva manager yapıyor `socket.select`, işletim sistemi olan bir şey yapmak için bir yuva belirtmek için soran anlamına gelir. Bunu yapmak için herhangi bir şey yoktur düşünün değil çünkü okuyucu etkin olarak ağdan okunurken değil |
-| kuyruk |73 toplam devam eden işlemler vardır. |
+| queue |73 toplam devam eden işlemler vardır. |
 | QU |devam eden işlemlerin 6 kuyruktaki gönderilmeyen ve giden ağ henüz yazmadınız |
 | qs |devam eden işlemlerin 67 sunucuya gönderildi ancak yanıt henüz kullanılamıyor. Yanıt olabilir `Not yet sent by the server` veya `sent by the server but not yet processed by the client.` |
 | QC |devam eden işlemlerin 0 yanıtları gördünüz ancak bunlar üzerinde tamamlama döngüsü bekliyorsunuz henüz tam işaretlenmiş henüz |
 | wr |(6 gönderilmemiş istekleri göz ardı olmayan anlamına gelir) etkin yazan bayt/activewriters yoktur |
-| in |Hiçbir etkin okuyucular vardır ve sıfır bayt NIC bayt/activereaders okumak kullanılabilir |
+| İçinde |Hiçbir etkin okuyucular vardır ve sıfır bayt NIC bayt/activereaders okumak kullanılabilir |
 
 ### <a name="steps-to-investigate"></a>Araştırmak için adımları
 

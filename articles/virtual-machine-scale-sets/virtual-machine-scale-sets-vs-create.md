@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: manayar
 ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62108075"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Visual Studio ile bir sanal makine ölçek kümesi oluşturma
@@ -76,7 +76,7 @@ Yük Dengeleyici (Linux) SSH veya RDP (Windows) ile sanal makine örneklerine ba
 
 3. Buradan, şablonunuzu dağıtmak için bir Azure kaynak grubu oluşturabilirsiniz.
    
-    ![Yeni Kaynak Grubu][new_resource]
+    ![Yeni kaynak grubu][new_resource]
 
 4. Ardından, **parametreleri Düzenle** , şablona geçirilen parametrelerini girin. Dağıtımı oluşturmak için gerekli olan işletim sistemi için kullanıcı adı ve parola sağlayın. Yüklü Visual Studio için PowerShell araçları sahip değilseniz, kontrol etmek için önerilir **parolaları Kaydet** gizli bir PowerShell komut satırı istemi önlemek veya bunları kullanmanızı [keyvault Destek](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
    

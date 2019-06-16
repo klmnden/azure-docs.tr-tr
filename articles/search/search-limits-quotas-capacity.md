@@ -11,10 +11,10 @@ ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024631"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search'te hizmet sınırları
@@ -47,14 +47,14 @@ En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınır
 
 ## <a name="index-limits"></a>Dizin sınırları
 
-| Kaynak | Ücretsiz | Temel&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource | Boş | Temel&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | En fazla dizin |3 |5 veya 15 |50 |200 |200 |Bölüm başına 1000 veya hizmet başına 3000 |10 |10 |
 | Dizin başına en fazla basit alanlar |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Dizin başına en fazla karmaşık koleksiyon alanları |40 |40 |40 |40 |40 |40 |40 |40 |
 | Belge başına tüm karmaşık koleksiyonlar arasında en yüksek öğe |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Karmaşık alanlarının en büyük derinliği |10 |10 |10 |10 |10 |10 |10 |10 |
-| En fazla [öneri Araçları](https://docs.microsoft.com/rest/api/searchservice/suggesters) dizin başına |1 |1. |1. |1. |1. |1. |1. |1 |
+| En fazla [öneri Araçları](https://docs.microsoft.com/rest/api/searchservice/suggesters) dizin başına |1 |1\. |1\. |1\. |1\. |1\. |1\. |1 |
 | En fazla [Puanlama profilleri](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) dizin başına |100 |100 |100 |100 |100 |100 |100 |100 |
 | Profil başına en fazla işlevleri |8 |8 |8 |8 |8 |8 |8 |8 |
 
@@ -82,7 +82,7 @@ Portal bir belge limiti gösteriyorsa, hizmetinizi ya da geç 2017'den önce olu
 
 Belge limitleri tabi hizmetler için aşağıdaki en yüksek sınırlar geçerlidir:
 
-|  Ücretsiz | Temel | S1 | S2 | S3 | S3&nbsp;HD |
+|  Boş | Temel | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10,000 |1&nbsp;milyon |Bölüm başına 15 milyon veya hizmet başına 180 milyon |Bölüm başına 60 milyon veya hizmet başına 720 milyon |Bölüm başına 120 milyon veya hizmet başına 1.4 milyar |Dizin başına 1 milyon veya bölüm başına 200 milyon |
 
@@ -105,12 +105,12 @@ Belge boyutunu tutmak, istekten sorgulanamayan verileri dışlamak unutmayın. G
 Bakiye ve bir bütün olarak hizmete kararlılık sağlamak için çalışan maksimum sayı var, ancak daha büyük veri kümeleri en fazla izin verdiğinden daha fazla dizin süre gerekebilir. İzin verilen en uzun süre içinde bir dizin oluşturma işi tamamlayamıyor bir zamanlamaya göre çalıştırmayı deneyin. Zamanlayıcı, dizin oluşturma durumunu izler. Zamanlanmış bir dizin oluşturma işi herhangi bir nedenden dolayı kesilirse, dizin oluşturucunun son zamanlanan sonraki çalışmaya kaldığı yukarı seçebilirsiniz.
 
 
-| Kaynak | Ücretsiz&nbsp;<sup>1</sup> | Temel&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Resource | Ücretsiz&nbsp;<sup>1</sup> | Temel&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | En fazla dizin oluşturucu |3 |5 veya 15|50 |200 |200 |Yok |10 |10 |
 | En fazla veri kaynağı |3 |5 veya 15 |50 |200 |200 |Yok |10 |10 |
 | En fazla becerilerini <sup>4</sup> |3 |5 veya 15 |50 |200 |200 |Yok |10 |10 |
-| Çağrı başına en fazla dizin yükleme |10.000 belge |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |Yok |Sınırsız |Sınırsız |
+| Çağrı başına en fazla dizin yükleme |10\.000 belge |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |Yok |Sınırsız |Sınırsız |
 | En az bir zamanlama | 5 dakika |5 dakika |5 dakika |5 dakika |5 dakika |5 dakika |5 dakika | 5 dakika |
 | En fazla çalışma süresi <sup>5</sup> | 1-3 dakika |24 saat |24 saat |24 saat |24 saat |Yok  |24 saat |24 saat |
 | Bilişsel arama becerilerini veya blob dizini oluşturmanın görüntü Analizi ile çalışan en fazla <sup>5</sup> | 3-10 dakika |2 saat |2 saat |2 saat |2 saat |Yok  |2 saat |2 saat |

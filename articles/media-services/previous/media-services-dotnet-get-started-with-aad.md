@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ecb704253597bf4eb5672fe924a0dafc4c1b3fd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726527"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>.NET ile Azure Media Services API'sine erişmek için Azure AD kimlik doğrulaması kullanın.
@@ -25,7 +25,7 @@ ms.locfileid: "64726527"
 > [!NOTE]
 > Media Services v2’ye herhangi bir yeni özellik veya işlevsellik eklenmemektedir. <br/>En son sürüm olan [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)’ü inceleyin. Ayrıca bkz [geçiş kılavuzuna v2'den v3](../latest/migrate-from-v2-to-v3.md)
 
-4.0.0.4 windowsazure.mediaservices ile başlayarak, Azure Media Services, Azure Active Directory (Azure AD) göre kimlik doğrulamasını destekler. Bu konuda Microsoft .NET ile Azure Media Services API'sine erişmek için Azure AD kimlik doğrulaması kullanmayı gösterir.
+4\.0.0.4 windowsazure.mediaservices ile başlayarak, Azure Media Services, Azure Active Directory (Azure AD) göre kimlik doğrulamasını destekler. Bu konuda Microsoft .NET ile Azure Media Services API'sine erişmek için Azure AD kimlik doğrulaması kullanmayı gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -62,7 +62,7 @@ Varsayılan uygulamasını değiştirme seçeneği de **AzureAdTokenProvider** k
 
     NuGet kullanarak başvuru eklemek için aşağıdaki adımları uygulayın: içinde **Çözüm Gezgini**proje adına sağ tıklayın ve ardından **NuGet paketlerini Yönet**. Ardından, arama **windowsazure.mediaservices** seçip **yükleme**.
     
-    -veya-
+    veya
 
     Aşağıdaki komutu çalıştırın **Paket Yöneticisi Konsolu** Visual Studio'da.
 

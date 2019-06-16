@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b0cd88cbb3729a3e81aeb5d6f43f417c8cb2f17
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904483"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64682759"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux (Microsoft.OSTCExtensions.DSCForLinux) için DSC uzantısı
 
@@ -34,7 +34,7 @@ DSCForLinux uzantısı yayımlandı ve Microsoft tarafından desteklenmiyor. Uza
 - Linux VM (yükleme ExtensionAction) özel DSC modülleri yükleme
 - Linux VM (ExtensionAction kaldırmak) için özel DSC modülleri kaldırma
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -42,7 +42,7 @@ DSCForLinux uzantısı yayımlandı ve Microsoft tarafından desteklenmiyor. Uza
 
 Tüm Linux DSC uzantı destekler [Azure'da desteklenen Linux dağıtımı](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) hariç:
 
-| Dağıtım | Sürüm |
+| Dağıtım | Version |
 |---|---|
 | Debian | Tüm sürümler |
 | Ubuntu| 18.04 |

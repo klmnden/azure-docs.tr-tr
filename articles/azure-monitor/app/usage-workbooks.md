@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64569611"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure İzleyici çalışma kitapları ile etkileşimli raporlar oluşturun
@@ -159,14 +159,14 @@ Dört farklı şu anda desteklenen parametre türleri vardır:
 
   |         |          |
    | ---------------- |:-----|
-   | **Metin**    | Kullanıcı bir metin kutusu düzenleyeceğiz ve isteğe bağlı olarak, varsayılan değeri doldurmak için bir sorgu sağlayabilirsiniz. |
+   | **Text**    | Kullanıcı bir metin kutusu düzenleyeceğiz ve isteğe bağlı olarak, varsayılan değeri doldurmak için bir sorgu sağlayabilirsiniz. |
    | **Açılan menü** | Kullanıcı, bir değerler kümesinden seçersiniz. |
    | **Zaman aralığı Seçici**| Kullanıcıya önceden tanımlı bir zaman aralığı değerleri kümesinden seçin veya bir özel zaman aralığı seçin.|
    | **Kaynak Seçici** | Kullanıcı, çalışma kitabı için seçilen kaynakları arasından seçim yapacağı.|
 
 ### <a name="using-a-text-parameter"></a>Bir metin parametresini kullanma
 
-Değer metin kutusuna bir kullanıcı türleri kaçış veya Alıntısı, doğrudan sorgusunda değiştirilir. Gereksinim duyduğunuz değer bir dize ise, sorgu parametresi tırnak olmalıdır (gibi **'{parameter}'**).
+Değer metin kutusuna bir kullanıcı türleri kaçış veya Alıntısı, doğrudan sorgusunda değiştirilir. Gereksinim duyduğunuz değer bir dize ise, sorgu parametresi tırnak olmalıdır (gibi **'{parameter}'** ).
 
 Bu, herhangi bir kullanılmak üzere bir metin kutusundaki değeri sağlar. Tablo adı, sütun adı, işlev adı, işleç, vb. olabilir.
 
@@ -229,7 +229,7 @@ Kendi özel zaman aralığı parametresi açılan parametre türü aracılığı
 
 Beş dakika veya Son 90 gün önce 15 varsayılan aralıklarını zaman aralığı parametre türleri vardır. Açık Başlat'ı seçin ve zaman aralığına ilişkin değerleri durdurmak rapor operatörü izin veren özel saat aralığı seçimine izin vermek için bir seçenek de mevcuttur.
 
-### <a name="resource-picker"></a>Kaynak seçici
+### <a name="resource-picker"></a>Kaynak Seçici
 
 Kaynak Seçici parametre türü, bazı kaynak türleri için raporun kapsamını olanağı sağlar. Kaynak Seçici türü yararlanan önceden oluşturulmuş çalışma kitabının bir örneğini **hatası Insights** çalışma kitabı.
 

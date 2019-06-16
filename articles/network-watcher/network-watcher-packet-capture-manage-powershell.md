@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 81b02cc7c7683bcd9abac2ad1b554644035991c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710105"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>PowerShell kullanarak Azure Ağ İzleyicisi ile paket yakalamayı yönetme
@@ -35,7 +35,7 @@ Bu makalede paket yakalaması için şu anda kullanılabilir olan farklı yönet
 
 - [**Paket Yakalamayı Başlat**](#start-a-packet-capture)
 - [**Paket Yakalamayı Durdur**](#stop-a-packet-capture)
-- [**bir paket yakalamasını Sil**](#delete-a-packet-capture)
+- [**Bir paket yakalamasını Sil**](#delete-a-packet-capture)
 - [**Paket yakalaması indirin**](#download-a-packet-capture)
 
 
@@ -54,13 +54,13 @@ Bu makalede, aşağıdaki kaynaklara sahip olduğunu varsayar:
 
 ## <a name="install-vm-extension"></a>VM uzantıları yükleme
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1\. Adım
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName testrg -Name VM1
 ```
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2\. Adım
 
 Aşağıdaki örnek çalıştırmak için gerekli uzantı bilgileri alır. `Set-AzVMExtension` cmdlet'i. Bu cmdlet, paket Yakalama aracı Konuk sanal makineye yükler.
 
@@ -91,7 +91,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
                          True         OK OK   
 ```
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>3\. Adım
 
 Aracısının yüklü olduğundan emin olmak için çalıştırmanız `Get-AzVMExtension` cmdlet'i ve sanal makine adı ve uzantı adı geçirin.
 
@@ -125,7 +125,7 @@ ForceUpdateTag          :
 
 Yukarıdaki adımlar tamamlandıktan sonra paket yakalama Aracısı sanal makineye yüklenir.
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1\. Adım
 
 Ağ İzleyicisi örneğini almak için sonraki adımdır bakın. Bu değişkenin geçirilen `New-AzNetworkWatcherPacketCapture` 4. adımda cmdlet'i.
 
@@ -134,7 +134,7 @@ $nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatc
 $networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName  
 ```
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2\. Adım
 
 Bir depolama hesabı alın. Bu depolama hesabı, paket yakalama dosyasını depolamak için kullanılır.
 
@@ -142,7 +142,7 @@ Bir depolama hesabı alın. Bu depolama hesabı, paket yakalama dosyasını depo
 $storageAccount = Get-AzStorageAccount -ResourceGroupName testrg -Name testrgsa123
 ```
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>3\. Adım
 
 Paket yakalaması tarafından depolanan verileri sınırlamak için filtreleri kullanılabilir. Aşağıdaki örnek, iki filtreleri ayarlar.  Bir filtre, 20, 80 ve 443 numaralı hedef bağlantı noktalarına giden TCP trafiğine yalnızca yerel IP 10.0.0.3 toplar.  İkinci filtre yalnızca UDP trafiğini toplar.
 
@@ -154,7 +154,7 @@ $filter2 = New-AzPacketCaptureFilterConfig -Protocol UDP
 > [!NOTE]
 > Bir paket yakalaması için birden çok filtre tanımlanabilir.
 
-### <a name="step-4"></a>4. Adım
+### <a name="step-4"></a>4\. Adım
 
 Çalıştırma `New-AzNetworkWatcherPacketCapture` gerekli değerler geçirerek paket yakalama işlemini başlatmak için cmdlet, önceki adımlarda alınır.
 ```powershell
@@ -258,7 +258,7 @@ Stop-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptur
 > [!NOTE]
 > Cmdlet hiç yanıt döndürür, o anda çalışan bir yakalama oturumu veya zaten durduran bir var olan oturumu çalıştı.
 
-## <a name="delete-a-packet-capture"></a>bir paket yakalamasını Sil
+## <a name="delete-a-packet-capture"></a>Bir paket yakalamasını Sil
 
 ```powershell
 Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"

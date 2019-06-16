@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129562"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Always On kullanılabilirlik grupları, Azure sanal Makineler'de otomatik olarak yapılandırın: Resource Manager
@@ -117,7 +117,7 @@ Gerekirse, bu değerleri değiştirebilirsiniz. Bu öğreticide, önceden ayarla
 
 ![Kullanılabilirlik grubu ayarları](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
-**Tamam** düğmesine tıklayın.
+**Tamam**'ı tıklatın.
 
 ### <a name="virtual-machine-size-storage-settings"></a>Sanal makine boyutu, depolama ayarları
 Üzerinde **VM boyutu, depolama ayarlarını**, bir SQL Server sanal makine boyutu seçin ve diğer ayarları gözden geçirin.
@@ -186,7 +186,7 @@ SQL Server yapılandırma en iyi uygulamalar hakkında daha fazla bilgi için bk
 Ayarları gözden geçirin ve ardından **Tamam**.
 
 ### <a name="summary"></a>Özet
-Özet sayfasında, ayarları Azure doğrular. Şablon da indirebilirsiniz. Özeti gözden geçirin. **Tamam** düğmesine tıklayın.
+Özet sayfasında, ayarları Azure doğrular. Şablon da indirebilirsiniz. Özeti gözden geçirin. **Tamam**'ı tıklatın.
 
 ### <a name="buy"></a>Satın Al
 Son bu dikey pencereyi içeren **kullanım koşullarını**, ve **gizlilik ilkesi**. Bu bilgileri gözden geçirin. Azure için hazır olduğunuzda, kullanılabilirlik grubu için gerekli kaynaklar sanal makineler ve diğer tüm oluşturmaya başlamak için tıklayın **Oluştur**.
@@ -206,7 +206,7 @@ SQL Server için RDP için şu adımları izleyin:
 1. Azure portal panosunda, dağıtım işleminin başarılı olduğunu doğrulayın.
 2. Tıklayın **kaynakları**.
 3. İçinde **kaynakları** dikey penceresinde tıklayın **sqlserver-0**, sanal makinelerin SQL Server çalıştıran bir bilgisayar adı.
-4. Dikey penceresinde **sqlserver-0**, tıklayın **Connect**. Tarayıcınızı açın veya uzak bağlantı nesnesi kaydetmek isteyip istemediğinizi sorar. **Aç**'a tıklayın.
+4. Dikey penceresinde **sqlserver-0**, tıklayın **Connect**. Tarayıcınızı açın veya uzak bağlantı nesnesi kaydetmek isteyip istemediğinizi sorar. Tıklayın **açık**.
 5. **Uzak Masaüstü Bağlantısı** bu uzak bağlantının yayımcısının tanımlanamıyor uyarabilir. **Bağlan**'a tıklayın.
 6. Windows Güvenlik birincil etki alanı denetleyicisinin IP adresine bağlanmak için kimlik bilgilerinizi girmenizi ister. Tıklayın **başka bir hesap kullan**. İçin **kullanıcı adı**, türü **contoso\DomainAdmin**. Yönetici kullanıcı adı şablonda ayarlarken bu hesabı yapılandırılmış. Şablonu yapılandırırken seçtiğiniz karmaşık bir parola kullanın.
 7. **Uzak Masaüstü** uzak bilgisayarda güvenlik sertifikasındaki sorunlar nedeniyle doğrulanamadı, uyarabilir. Güvenlik sertifikası adı gösterir. Öğreticiyi izlediyseniz, addır **sqlserver 0.contoso.com**. **Evet**'e tıklayın.

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
 ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937644"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Microsoft ile işletmenizi yükseltin 
@@ -29,7 +29,7 @@ MPN şu konularda rehberlik sağlar.
 
 Teklif veya uygulamanızı yükseltmek için diğer avantajları ve kaynakları erişmek için aşağıdaki tabloyu kullanın. 
 
-| Avantajı | kaynaklar |  
+| Avantajı | Kaynakları |  
 |:--- |:--- |  
 | Çekirdek Avantajlarınızı kullanın | Microsoft iş ortağı ağı bir parçası olarak, bir dizi zamandan ve paradan tasarruf etmenize yardımcı olabilecek temel avantajlar alırsınız. Avantajları yeteneklerinizi güçlendirebilir, daha iyi müşterilere ve işletmenizin tüm potansiyelini için bağlantılar oluşturmanıza da yardımcı olabilir.<ul> <li>Temel avantajlar hakkında daha fazla bilgi için temel avantajlar ziyaret edin ve gereksinimleri sayfasında bulunan [partner.microsoft.com/membership/core-benefits](https://partner.microsoft.com/membership/core-benefits).</li> </ul> |  
 | Bulut platformu uzmanlığı'na kazanın | Bir uzmanlık kazanmaya kendiniz diğer Microsoft iş ortakları arasında ayırt etmenize yardımcı olur. Bir uzmanlık kazanmaya ayrıca teknik uzmanlığa ve müşteri başarı pazarında gösteren yardımcı olur. Uzmanlık, ortak satış gibi birçok önemli iş ortağı programı için bir önkoşuldur.<ul> <li>Bulut platformu uzmanlığı hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan bulut platformu uzmanlığı [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  

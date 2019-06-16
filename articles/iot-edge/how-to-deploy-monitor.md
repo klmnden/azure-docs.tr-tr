@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126379"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Dağıtma ve Azure portalını kullanarak ölçekte IOT Edge modülleri izleme
@@ -50,13 +50,13 @@ Cihaz ikizleri ve etiketleri hakkında daha fazla bilgi için bkz: [IOT hub'daki
 
 Bir dağıtımı oluşturmak için beş adım vardır. Aşağıdaki bölümlerde, her birini yol. 
 
-### <a name="step-1-name-and-label"></a>1. Adım: Ad ve Etiket
+### <a name="step-1-name-and-label"></a>1\. adım: Ad ve etiket
 
 1. Dağıtımınızı en çok 128 küçük harf olan benzersiz bir ad verin. Boşluk ve şu geçersiz karakterlerden kaçının: `& ^ [ ] { } \ | " < > /`.
 1. Dağıtımlarınızı izlenmesine yardımcı olması için anahtar-değer çiftleri olarak etiketler ekleyebilirsiniz. Örneğin, **HostPlatform** ve **Linux**, veya **sürüm** ve **3.0.1**.
 1. Seçin **sonraki** iki adıma geçmeye. 
 
-### <a name="step-2-add-modules-optional"></a>2. Adım: (İsteğe bağlı) Modül Ekle
+### <a name="step-2-add-modules-optional"></a>2\. adım: (İsteğe bağlı) Modül Ekle
 
 Dağıtıma eklediğiniz modüllerinin iki türü vardır. İlk Depolama hesabı veya Stream Analytics gibi bir Azure hizmeti için temel modüldür. İkincisi, kendi kodunuzu kullanarak bir modüldür. Bir dağıtım için birden çok modül iki türden birine ekleyebilirsiniz. 
 
@@ -95,13 +95,13 @@ Bir modül olarak özel kod ekleyin veya bir Azure hizmeti modülü el ile eklem
 
 Yapılandırılmış bir dağıtım için tüm modüllerin oluşturduktan sonra seçin **sonraki** üç adım taşımak için.
 
-### <a name="step-3-specify-routes-optional"></a>3. Adım: Rota (isteğe bağlı) belirtme
+### <a name="step-3-specify-routes-optional"></a>3\. adım: Rota (isteğe bağlı) belirtme
 
 Modüller birbirleri ile dağıtımında iletişim kurma biçimini yolları tanımlayın. Varsayılan olarak sihirbaz size bir yol olarak adlandırılan **rota** ve tanımlanmış olarak **FROM /\* Yukarı Akış $**, modüllerin tarafından çıkış iletileri IOT hub'ına gönderilen anlamına gelir.  
 
 Ekleme veya yolları alınan bilgilerle güncelleştirme [bildirmek yollar](module-composition.md#declare-routes), ardından **sonraki** gözden geçirme bölüme geçmek için.
 
-### <a name="step-4-specify-metrics-optional"></a>4. Adım: Ölçümler (isteğe bağlı) belirtin
+### <a name="step-4-specify-metrics-optional"></a>4\. Adım: Ölçümler (isteğe bağlı) belirtin
 
 Bir cihaz, uygulama yapılandırma içeriği sonucunda geri bildirebilir çeşitli durumları özeti sayıları ölçümleri sağlar.
 
@@ -116,7 +116,7 @@ SELECT deviceId FROM devices
   WHERE properties.reported.lastDesiredStatus.code = 200
 ```
 
-### <a name="step-5-target-devices"></a>5. Adım: Hedef Cihazlar
+### <a name="step-5-target-devices"></a>5\. Adım: Hedef cihazlar
 
 Bu dağıtım alması gereken belirli cihazları hedeflemek için etiketler özelliği cihazlarınızdan kullanın. 
 
@@ -126,7 +126,7 @@ Birden çok dağıtım aynı cihazı hedefleyebilir olduğundan, her dağıtım 
 1. Girin bir **hedef koşulu** hangi cihazların bu dağıtım ile hedeflenecek belirlemek için. Koşul, cihaz ikizi etiketlere göre veya cihaz çiftinin bildirilen özellikler ve ifade biçim ile eşleşmesi. Örneğin, `tags.environment='test'` veya `properties.reported.devicemodel='4000x'`. 
 1. Seçin **sonraki** son adıma geçmek için.
 
-### <a name="step-6-review-deployment"></a>6. Adım: Dağıtımı Gözden Geçirme
+### <a name="step-6-review-deployment"></a>6\. Adım: Dağıtım gözden geçirin
 
 Dağıtım bilgilerinizi gözden geçirin ve ardından **Gönder**.
 

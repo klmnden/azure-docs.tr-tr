@@ -9,18 +9,18 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752952"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074938"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama 
 
-Azure Machine Learning hizmeti ile kaynakları veya ortamlar için olarak anılan, çeşitli modelinizi eğitmek [ __hedefleri işlem__](concept-azure-machine-learning-architecture.md#compute-target). İşlem hedefi, bir yerel makineye veya bir Azure Machine Learning işlem, Azure HDInsight veya uzak bir sanal makine gibi bir bulut kaynağı olabilir.  Model dağıtımı için işlem hedefleri açıklandığı gibi oluşturabilirsiniz ["nerede ve nasıl Modellerinizi dağıtmak"](how-to-deploy-and-where.md).
+Azure Machine Learning hizmeti ile kaynakları veya ortamlar için olarak anılan, çeşitli modelinizi eğitmek [ __hedefleri işlem__](concept-azure-machine-learning-architecture.md#compute-targets). İşlem hedefi, bir yerel makineye veya bir Azure Machine Learning işlem, Azure HDInsight veya uzak bir sanal makine gibi bir bulut kaynağı olabilir.  Model dağıtımı için işlem hedefleri açıklandığı gibi oluşturabilirsiniz ["nerede ve nasıl Modellerinizi dağıtmak"](how-to-deploy-and-where.md).
 
 Oluşturun ve Azure Machine Learning SDK'yı kullanarak Azure portalı, Azure CLI veya Azure Machine Learning VS Code uzantısı işlem hedefi yönetin. Başka bir hizmete (örneğin, bir HDInsight kümesi) oluşturulan işlem hedefleri varsa, Azure Machine Learning hizmeti çalışma alanınıza ekleyerek kullanabilirsiniz.
  
@@ -75,7 +75,7 @@ Aşağıdaki kod, kullanıcı tarafından yönetilen bir ortamda eğitim çalı�
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## <a name="set-up-compute-targets-with-python"></a>Python ile işlem hedeflerini ayarlama
+## <a name="set-up-in-python"></a>Python'ı ayarlama
 
 Kullanım bu yapılandırmak için aşağıdaki bölümlerde işlem hedefleri:
 
@@ -271,7 +271,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-compute-in-the-azure-portal"></a>Azure Portalı'nda işlem ayarlama
+## <a name="set-up-in-azure-portal"></a>Azure portalında ayarlama
 
 Azure portalında bir çalışma alanınız ile ilişkili olan işlem hedefleri erişebilirsiniz.  Portala kullanabilirsiniz:
 
@@ -357,7 +357,7 @@ Azure Machine Learning hizmeti çalışma dışında oluşturulan işlem hedefle
 1. Seçin __ekleme__. 
 1. İşlem hedef listeden seçerek iliştirme işlemi durumunu görüntüleyin.
 
-## <a name="set-up-compute-with-the-cli"></a>CLI ile işlem ayarlama
+## <a name="set-up-with-cli"></a>CLI ile ayarlama
 
 Kullanarak çalışma ile ilişkilendirilen işlem hedefleri erişebileceğiniz [CLI uzantısını](reference-azure-machine-learning-cli.md) Azure Machine Learning hizmeti için.  CLI'yı kullanabilirsiniz:
 
@@ -367,7 +367,7 @@ Kullanarak çalışma ile ilişkilendirilen işlem hedefleri erişebileceğiniz 
 
 Daha fazla bilgi için [kaynak yönetimi](reference-azure-machine-learning-cli.md#resource-management).
 
-## <a name="set-up-compute-with-vs-code"></a>VS Code ile işlem ayarlama
+## <a name="set-up-with-vs-code"></a>VS Code ile ayarlama
 
 Erişebilir, oluşturma ve yönetme kullanarak çalışma ile ilişkilendirilen işlem hedefleri [VS Code uzantısı](how-to-vscode-tools.md#create-and-manage-compute-targets) Azure Machine Learning hizmeti için.
 
@@ -384,7 +384,7 @@ Bir çalıştırma yapılandırma oluşturduktan sonra denemenizi çalıştırma
 >
 > Anlık görüntüde bulunan dosyaların önlemek için oluşturma bir [.gitignore](https://git-scm.com/docs/gitignore) veya `.amlignore` dosya dizin ve dosyaları ekleyin. `.amlignore` Dosyası aynı sözdizimini kullanır ve olarak desenleri [.gitignore](https://git-scm.com/docs/gitignore) dosya. Her iki dosya varsa, `.amlignore` dosya önceliklidir.
 > 
-> Daha fazla bilgi için [anlık görüntüleri](concept-azure-machine-learning-architecture.md#snapshot).
+> Daha fazla bilgi için [anlık görüntüleri](concept-azure-machine-learning-architecture.md#snapshots).
 
 ### <a name="create-an-experiment"></a>Deneme oluşturma
 

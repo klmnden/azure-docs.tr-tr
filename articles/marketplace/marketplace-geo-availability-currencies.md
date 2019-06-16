@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
 ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938265"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Coğrafi kullanılabilirlik ve para birimi desteği
@@ -35,7 +35,7 @@ Azure Marketi teklifleri 141 coğrafyalardaki müşterinin fatura adresiyle tan�
 | Barbados                            | BB        | USD          |
 | Belarus                             | BY        | USD          |
 | Belçika                             | BE        | EUR          |
-| Beliz                              | BZ        | USD          |
+| Belize                              | BZ        | USD          |
 | Bermuda                             | BM        | USD          |
 | Bolivya                             | BO        | USD          |
 | Bosna Hersek              | BA        | USD          |
@@ -72,7 +72,7 @@ Azure Marketi teklifleri 141 coğrafyalardaki müşterinin fatura adresiyle tan�
 | Yunanistan                              | GR        | EUR          |
 | Guatemala                           | GT        | USD          |
 | Honduras                            | HN        | USD          |
-| Hong Kong Çin ÖİB                       | HK        | USD          |
+| Hong Kong SAR                       | HK        | USD          |
 | Macaristan                             | HU        | EUR          |
 | İzlanda                             | IS        | EUR          |
 | Hindistan                               | IN        | INR          |

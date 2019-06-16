@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e641025d49dd42125aa692925c0697235489b1db
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b3f4cf4099459b655fc0e370935ddc8079de810
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307160"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073932"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Kimlik doğrulama ve yetkilendirme Azure uzamsal yer işaretlerine giden
 
@@ -56,7 +56,7 @@ Bu yapıldıktan sonra SDK'sı alışverişi hesap anahtarı için bir erişim b
 
 ## <a name="azure-ad-user-authentication"></a>Azure AD kullanıcı kimlik doğrulaması
 
-Azure Active Directory kullanıcılarını hedefleyen uygulamalar için önerilen Azure AD belirteçlerini ADAL kitaplığını aşağıdaki belgelerinde açıklanan şekilde kullanarak elde edebileceğiniz kullanıcının yaklaşımdır: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; listelenen adımları izlemelidir "Hızlı başlayan altında" içeren:
+Azure Active Directory kullanıcılarını hedefleyen uygulamalar için önerilen Azure AD belirteçlerini ADAL kitaplığını aşağıdaki belgelerinde açıklanan şekilde kullanarak elde edebileceğiniz kullanıcının yaklaşımdır: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); içeren "Hızlı başlıyor altında", listelenen adımları izlemelidir:
 
 1. Azure portalında yapılandırma
     1.  Uygulamanızı Azure AD'ye kaydetmeniz **yerel uygulama**. Kayıt bir parçası olarak uygulamanız veya çok kiracılı ve URL'leri, uygulamanız için izin verilen yeniden yönlendirme sağlamak olup olmadığını belirlemek gerekir.  
@@ -89,7 +89,7 @@ this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 
 Burada, uygulamanızı kendi mekanizması kullandığı varsayılır (örneğin: Microsoft hesabı, PlayFab, Facebook, Google kimliği, özel kullanıcı adı/parola, vs.) kendi arka uç hizmetinde kimlik doğrulaması için. Kullanıcılarınızın hizmet alabileceğiniz arka uç hizmetinize doğrulandıktan sonra Azure AD belirteçlerini, Azure için uzamsal yer işaretleri için bir erişim belirteci exchange ve istemci uygulamanıza geri dönün.
 
-Aşağıdaki belgelerinde açıklanan şekilde ADAL kitaplığını kullanarak Azure AD erişim belirteci alınır: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; içeren "Hızlı başlıyor altında", listelenen adımları izlemelidir:
+Aşağıdaki belgelerinde açıklanan şekilde ADAL kitaplığını kullanarak Azure AD erişim belirteci alınır: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); içeren "Hızlı başlıyor altında", listelenen adımları izlemelidir:
 
 1.  Azure portalında yapılandırma:
     1.  Uygulamanızı Azure AD'ye kaydetme:

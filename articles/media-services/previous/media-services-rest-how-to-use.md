@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
 ms.openlocfilehash: fbdd9325f50e1bcb271b7ca47b9ccd3361d0d27e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687054"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services işlemlerini REST API'si genel bakış 
@@ -57,12 +57,12 @@ REST kullanırken aşağıdaki maddeler geçerlidir.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Media Services tarafından desteklenen standart HTTP isteği üstbilgileri
 Media Services'e olun, her çağrı için gerekli üst bilgileri İsteğinizde içermelidir bir dizi yoktur ve aynı zamanda bir dizi isteğe bağlı üst bilgiler dahil etmek istediğiniz. Aşağıdaki tabloda gerekli üst bilgileri listeler:
 
-| Üst bilgi | Tür | Değer |
+| Üstbilgi | Tür | Değer |
 | --- | --- | --- |
 | Yetkilendirme |Taşıyıcı |Taşıyıcı yalnızca kabul edilen yetkilendirme mekanizmadır. Değer, Azure Active Directory tarafından sağlanan erişim belirtecini de içermelidir. |
 | x-ms-version |Decimal |2.17 (veya en son sürüm)|
-| DataServiceVersion |Decimal |3.0 |
-| MaxDataServiceVersion |Decimal |3.0 |
+| DataServiceVersion |Decimal |3,0 |
+| MaxDataServiceVersion |Decimal |3,0 |
 
 > [!NOTE]
 > Media Services REST API'lerini kullanıma sunmak için OData kullandığından, içindeki tüm istekleri DataServiceVersion ve MaxDataServiceVersion üstbilgileri eklenmelidir; değilse, ancak daha sonra şu anda Media Services DataServiceVersion değeri kullanılıyor 3.0 olduğunu varsayar.
@@ -71,26 +71,26 @@ Media Services'e olun, her çağrı için gerekli üst bilgileri İsteğinizde i
 
 Aşağıdaki isteğe bağlı bir üst kümesidir:
 
-| Üst bilgi | Tür | Değer |
+| Üstbilgi | Tür | Değer |
 | --- | --- | --- |
 | Tarih |RFC 1123 tarihi |İstek zaman damgası |
-| Kabul |İçerik türü |Aşağıdaki gibi yanıtı için istenen içerik türü:<p> -application/json;odata=verbose<p> -application/atom + xml şeklindedir<p> Yanıtlar, burada başarılı bir yanıt yükü olarak blob akışı içeren bir blob getirme gibi farklı bir içerik türü olabilir. |
+| Kabul et |İçerik türü |Aşağıdaki gibi yanıtı için istenen içerik türü:<p> -application/json;odata=verbose<p> -application/atom + xml şeklindedir<p> Yanıtlar, burada başarılı bir yanıt yükü olarak blob akışı içeren bir blob getirme gibi farklı bir içerik türü olabilir. |
 | Kabul kodlama |Gzip, deflate |GZIP ve DEFLATE, uygun olduğunda kodlama. Not: Büyük kaynaklar için Media Services ve bu başlığı yoksay küçülen verileri döndürür. |
 | Kabul dil |"en", "es" ve benzeri. |Yanıt için tercih edilen dili belirtir. |
 | Accept-Charset |"UTF-8" gibi Charset türü |Varsayılan UTF-8'dir. |
 | X-HTTP-Method |HTTP yöntemi |İstemciler veya bir GET çağrısı tünel, bu yöntemleri kullanmak için PUT ya da DELETE gibi HTTP yöntemleri desteklemez güvenlik duvarları sağlar. |
-| Content-Type |İçerik türü |İçerik türü istek gövdesinde PUT veya POST istekleri. |
+| İçerik türü |İçerik türü |İçerik türü istek gövdesinde PUT veya POST istekleri. |
 | İstemci istek kimliği |String |Belirtilen istek tanımlayan bir çağıranın tanımlı bir değer. Belirtilmişse bu değer yanıt iletisinde istek eşleştirmek için bir yol dahil edilir. <p><p>**Önemli**<p>Değerleri 2096b tavan (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services tarafından desteklenen standart HTTP yanıt üst bilgileri
 Aşağıdakileri yapmanızı isteyen kaynak ve gerçekleştirmek istediğiniz eylemi bağlı olarak döndürülen üst bilgiler kümesidir.
 
-| Üst bilgi | Tür | Değer |
+| Üstbilgi | Tür | Değer |
 | --- | --- | --- |
 | İstek Kimliği |String |Geçerli işlem, oluşturulan hizmet için benzersiz bir tanımlayıcı. |
 | İstemci istek kimliği |String |Varsa özgün istekteki çağıran tarafından belirtilen bir tanımlayıcı. |
 | Tarih |RFC 1123 tarihi |İsteği işleyen tarih. |
-| Content-Type |Değişir |Yanıt gövdesi içerik türü. |
+| İçerik türü |Değişir |Yanıt gövdesi içerik türü. |
 | İçerik kodlama |Değişir |Gzip veya deflate uygun şekilde. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Media Services tarafından desteklenen standart HTTP fiilleri

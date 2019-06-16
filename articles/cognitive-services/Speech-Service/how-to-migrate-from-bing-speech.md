@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
 ms.openlocfilehash: 6324da55c8af4934185fa39a106939844788adba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60653725"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Konuşma hizmeti için Bing konuşma içeriğinden geçirme
@@ -50,7 +50,7 @@ Kısmi veya Ara sonuçlar | :heavy_check_mark: | :heavy_check_mark: | WebSockets
 Konuşma niyeti tanıma | Ayrı LUIS API'si çağrısı gerektirir | (SDK ile) tümleştirilmiş |  Konuşma hizmeti sayesinde bir LUIS anahtarı kullanabilirsiniz.
 Basit niyeti tanıma | : heavy_minus_sign: | :heavy_check_mark:
 Batch transkripsiyonu uzun ses dosyası | : heavy_minus_sign: | :heavy_check_mark:
-Tanıma modu | Uç noktası URI'si aracılığıyla el ile | Automatic | Tanıma modu konuşma hizmeti kullanılabilir değil.
+Tanıma modu | Uç noktası URI'si aracılığıyla el ile | Otomatik | Tanıma modu konuşma hizmeti kullanılabilir değil.
 Uç nokta konumu | Genel | Bölgesel | Bölgesel uç noktaları, gecikme süresini artırın.
 REST API'leri | :heavy_check_mark: | :heavy_check_mark: | Konuşma Hizmetleri REST API'leri, Bing konuşma (farklı uç noktası) ile uyumludur. REST API'leri, metin okuma ve sınırlı konuşma metin işlevleri destekler.
 WebSockets protokolleri | :heavy_check_mark: | :heavy_check_mark: | Konuşma Hizmetleri WebSockets API'si, Bing konuşma (farklı uç noktası) ile uyumludur. Mümkünse, konuşma SDK kodunuzu basitleştirerek geçirin.

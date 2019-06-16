@@ -8,16 +8,20 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 30882899e5be4101ae3d77f9840d8bdef567e53f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 8c7bb080b350742d0722cdb4e07b82a6881ba05b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66676991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073663"
 ---
 # <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>Azure portalından CloudSimple portal tarafından VMware çözümü erişme
 
 Çoklu oturum açma CloudSimple portalına erişim için desteklenir. Azure portalında oturum açtıktan sonra yeniden imzalama olmadan CloudSimple portala erişebilirsiniz. İlk kez size erişim yetkisi vermek için istenirse CloudSimple portalı [CloudSimple hizmet yetkilendirme](#consent-to-cloudsimple-service-authorization-application) uygulama.  Yetkilendirme tek seferlik bir işlemdir.
+
+## <a name="before-you-begin"></a>Başlamadan önce
+
+Yalnızca yerleşik olan kullanıcılar **sahibi** ve **katkıda bulunan** rolleri CloudSimple portalına erişebilir.  Rolleri, abonelik üzerinde yapılandırılmalıdır.  Rolünüz denetimi ile ilgili daha fazla bilgi için bkz: [rol atamalarını görüntüleyin](https://docs.microsoft.com/azure/role-based-access-control/check-access) makalesi.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.openlocfilehash: 8427417c9b579c7dfa21f834ce1ca77099159eb2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072613"
 ---
 # <a name="voice-first-virtual-assistants-preview-frequently-asked-questions"></a>Ses öncelikli sanal Yardımcıları önizleme: Sık sorulan sorular
@@ -31,7 +31,7 @@ Bu belgede sorularınızın yanıtlarını bulamazsanız, kullanıma [diğer des
 
 **C:** En iyi şekilde başından itibaren bir ses öncelikli sanal asistan oluşturma başlamak olan [temel bir Bot Framework bot oluşturma](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0). Ardından, botunuzun için bağlama [doğrudan satır konuşma kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
-## <a name="debugging"></a>Hata ayıklama
+## <a name="debugging"></a>Hata Ayıklama
 
 **S: 401 hatası bağlanırken almak ve hiçbir şey çalışır. Konuşma abonelik anahtarımı geçerli biliyorum. Ne var ne yok?**
 

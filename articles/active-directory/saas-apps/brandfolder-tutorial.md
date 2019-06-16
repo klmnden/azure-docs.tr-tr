@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675ce4f9b6b34f98c81ad85f03a7c7cb178f1d6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 776333fa3bf0ca868f2e4109464f492e824b038b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60283098"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105966"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brandfolder"></a>Öğretici: Brandfolder ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Brandfolder tümleştirmesini yapılandırmak için Brandfolder Gale
 
 **Galeriden Brandfolder eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192301"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
@@ -111,7 +111,7 @@ Döndürülen durum kodları:
 |Kod  |Açıklama  |
 |---------|---------|
 |-1     |  Geçersiz       |
-|0     | Çoğaltılıyor        |
+|0     | Çoğaltma        |
 |1     |  Dolduruluyor       |
 |2     |   Tamamlandı       |
 |3     |   Başarısız      |

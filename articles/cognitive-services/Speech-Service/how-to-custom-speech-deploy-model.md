@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: fc51c1d9d47340da85d42f7c398c8ee21c601beb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025877"
 ---
-# <a name="deploy-a-custom-model"></a>Özel model dağıtma
+# <a name="deploy-a-custom-model"></a>Özel bir modeli dağıtma
 
 Karşıya ve veri inceledi, doğruluk hesaplanan ve özel bir modeli eğitilir sonra uygulamalar, Araçlar ve ürünlerle kullanmak için özel bir uç noktasını dağıtabilirsiniz. Bu belgede, özel konuşma tanıma portalı kullanarak bir uç nokta oluşturup dağıtmayı öğreneceksiniz.
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 51632b8b68640814fc113a94925b6d6deaca4c5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482581"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64682497"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Bağlanmak ve StorSimple cihazları yönetmek için StorSimple anlık görüntü Yöneticisi'ni kullanın
 ## <a name="overview"></a>Genel Bakış
@@ -83,7 +83,7 @@ Eklemek veya StorSimple cihazını değiştirmek için aşağıdaki yordamı kul
    
     ![Bir StorSimple cihazını Yapılandır](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_config_device.png) 
 3. İçinde **cihaz** açılan kutusunda, cihaz veya sanal cihazın IP adresini seçin. 
-4. İçinde **parola** metin kutusuna, Klasik Azure portalında cihaz için oluşturduğunuz StorSimple Snapshot Manager parolasını yazın. **Tamam** düğmesine tıklayın. Tanımladığınız cihaz için StorSimple Snapshot Manager arar. 
+4. İçinde **parola** metin kutusuna, Klasik Azure portalında cihaz için oluşturduğunuz StorSimple Snapshot Manager parolasını yazın. **Tamam**'ı tıklatın. Tanımladığınız cihaz için StorSimple Snapshot Manager arar. 
    
    * Kullanılabilir cihazsa, StorSimple Snapshot Manager bağlantı ekler.
    * Cihaz için herhangi bir nedenle kullanılamıyorsa, StorSimple Snapshot Manager bir hata iletisi döndürür. Tıklayın **Tamam** hata iletiyi kapatın ve ardından **iptal** kapatmak için **bir cihaz yapılandırma** iletişim kutusu.
@@ -101,7 +101,7 @@ Bir StorSimple cihazı bağlayın ve yedeklemeleri ilişkili olan mevcut tüm bi
 3. Sağ üst düğümü **kapsam** bölmesi ve ardından **içeri aktarmalar ekranını Değiştir**.
    
     ![İçeri aktarmalar ekranını Değiştir'i seçin](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png) 
-4. **İçeri aktarmalar ekranını Değiştir** iletişim kutusu görüntülenirse, yedeklemeleri ve içeri aktarılan birim gruplarını durumunu gösteren. **Tamam** düğmesine tıklayın.
+4. **İçeri aktarmalar ekranını Değiştir** iletişim kutusu görüntülenirse, yedeklemeleri ve içeri aktarılan birim gruplarını durumunu gösteren. **Tamam**'ı tıklatın.
 
 Birim gruplarını ve Yedekleme başarıyla içeri aktarıldı olduktan sonra birim gruplarını ve oluşturduğunuz ve StorSimple Snapshot Manager ile yapılandırılmış yedeklemeler yalnızca yönetme gibi StorSimple Snapshot Manager bunları yönetmek için kullanabilirsiniz. 
 

@@ -8,13 +8,13 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: ac56f86bad132f3e00a4b5c2507d65c0722c628c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935484"
 ---
-<a name="go-live"></a>Canlı Yayına Geç
+<a name="go-live"></a>Canlı izleyin
 =======
 
 Bu API, bir uygulamayı üretime göndermeden işlemi başlatır. Bu işlem genellikle uzun ömürlü. Bu çağrı bildirim e-posta listesinden kullanan [Yayımla](./cloud-partner-portal-api-publish-offer.md) API işlemi.
@@ -27,17 +27,17 @@ Bu API, bir uygulamayı üretime göndermeden işlemi başlatır. Bu işlem gene
 |  **Ad**      |   **Açıklama**                                                           | **Veri türü** |
 |  --------      |   ---------------                                                           | ------------- |
 | publisherId    | Örneğin, almak teklif için yayımcı tanımlayıcısı `contoso`       |  String       |
-| offerId        | Teklif almak için teklif tanımlayıcısı                                   |  String       |
+| OfferId        | Teklif almak için teklif tanımlayıcısı                                   |  String       |
 | API sürümü    | API'nin en son sürümü                                                   |  Tarih         |
 |  |  |  |
 
 
-<a name="header"></a>Üst bilgi
+<a name="header"></a>Üstbilgi
 ------
 
 |  **Ad**       |     **Değer**       |
 |  ---------      |     ----------      |
-| Content-Type    | `application/json`  |
+| İçerik türü    | `application/json`  |
 | Yetkilendirme   | `Bearer YOUR_TOKEN` |
 |  |  |
 

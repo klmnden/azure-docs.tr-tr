@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 734b0cf9373ea98ab33c06b45ad53b46a3355dd6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62117034"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple güvenlik ve veri koruma
@@ -196,7 +196,7 @@ Anahtar döndürme için bu en iyi uygulamaları izlemenizi öneririz:
 
 StorSimple, depolanan verileri korumak için aşağıdaki şifreleme algoritmalarını veya StorSimple çözümünüzün bileşenleri arasında seyahat kullanır.
 
-| Algoritma | Anahtar uzunluğu | Uygulamalar/protokolleri/açıklamaları |
+| Algoritması | Anahtar uzunluğu | Uygulamalar/protokolleri/açıklamaları |
 | --- | --- | --- |
 | RSA |2048 |RSA PKCS 1 v1.5 Azure portal tarafından cihaza gönderilen yapılandırma verilerini şifrelemek için kullanılır: Örneğin, depolama hesabı kimlik bilgileri, StorSimple cihaz yapılandırması ve bulut depolama şifreleme anahtarları. |
 | AES |256 |AES CBC ile Azure portalında StorSimple cihazından gönderilmeden önce ortak kısmını hizmet veri şifreleme anahtarı şifrelemek için kullanılır. Bu ayrıca, StorSimple cihaz tarafından verileri bulut depolama hesabına gönderilmeden önce verileri şifrelemek için kullanılır. |

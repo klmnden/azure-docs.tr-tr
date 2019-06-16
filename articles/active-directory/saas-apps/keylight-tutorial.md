@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a03bb2626525bf022b109105a7c6bc0dee23aea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 148c2c46a911088d01ab83fe2d16e8ca81d272ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407043"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098783"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Öğretici: LockPath Keylight ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de LockPath Keylight tümleştirmesini yapılandırmak için LockPath K
 
 **Galeriden LockPath Keylight eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -172,11 +172,11 @@ Azure AD çoklu oturum açma ile LockPath Keylight yapılandırmak için aşağ�
 
     j. Ayarlama **otomatik sağlama güvenlik yapılandırma**seçin **standart kullanıcı yapılandırması**.
 
-    k. İçinde **e-posta özniteliği** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    k. İçinde **e-posta özniteliği** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    m. İçinde **ad özniteliği** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    m. İçinde **ad özniteliği** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    m. İçinde **son name özniteliği** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    m. İçinde **son name özniteliği** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
     n. **Kaydet**’e tıklayın.
 

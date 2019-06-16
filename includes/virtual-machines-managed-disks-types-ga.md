@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c7b73cad200666db9e926d8e808eaa4a8dccffb2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2bc5602011ed64b11b1b8c96b7e69a8d5ee9bf32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133853"
 ---
 ## <a name="premium-ssd"></a>Premium SSD
 
@@ -45,7 +45,7 @@ Standart SSD için her g/ç işlemi daha az veya eşit 256 tek bir g/ç işleme 
 
 ## <a name="standard-hdd"></a>Standart HDD
 
-Azure standart HDD, gecikmeye duyarlı olmayan iş yükleri çalıştıran VM'ler için güvenilir, düşük maliyetli disk desteği sunar. Standart depolama ile verileri sabit disk sürücülerinin (HDD'ler) depolanır. Gecikme süresi, IOPS ve aktarım hızı, standart HDD diskleri diskler SSD tabanlı karşılaştırıldığında daha yaygın olarak değişiklik gösterebilir. Vm'lerle çalışırken, kritik iş yüklerini daha az ve geliştirme/test senaryoları için HDD standart diskleri kullanabilirsiniz. Standart HDD, tüm Azure bölgelerinde kullanılabilir ve tüm Azure Vm'leri ile kullanılabilir.
+Azure standart HDD, gecikmeye duyarlı olmayan iş yükleri çalıştıran VM'ler için güvenilir, düşük maliyetli disk desteği sunar. Standart depolama ile verileri sabit disk sürücülerinin (HDD'ler) depolanır. Gecikme süresi, IOPS ve aktarım hızı, standart HDD diskleri diskler SSD tabanlı karşılaştırıldığında daha yaygın olarak değişiklik gösterebilir. Gerçek performans, g/ç boyutu ve iş yükü deseni bağlı olarak değişiklik gösterebilir ancak standart HDD diskler yazma gecikmeleri 10ms altında sunun ve çoğu g/ç işlemleri için 20ms altında gecikme okumak için tasarlanmıştır. Vm'lerle çalışırken, kritik iş yüklerini daha az ve geliştirme/test senaryoları için HDD standart diskleri kullanabilirsiniz. Standart HDD, tüm Azure bölgelerinde kullanılabilir ve tüm Azure Vm'leri ile kullanılabilir.
 
 ### <a name="disk-size"></a>Disk boyutu
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]

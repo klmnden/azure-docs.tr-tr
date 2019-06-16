@@ -10,10 +10,10 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61304361"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Değişiklik izleme ile izlenmekte olan bir dosyanın içeriği görüntüle
@@ -34,7 +34,7 @@ Dosya içerik izleme önce ve sonra izlenmekte olan bir değişiklik değişikli
 2. Üst menüden **ayarlarını Düzenle**.
 3. Seçin **dosya içeriği** tıklatıp **bağlantı**. Bu açılır **değişiklik izleme için içerik konumu ekleme** bölmesi.
 
-   ![etkinleştir](./media/change-tracking-file-contents/enable.png)
+   ![Etkinleştirme](./media/change-tracking-file-contents/enable.png)
 
 4. Dosya içeriği depolamak için kullanılacak depolama hesabı ve aboneliği seçin. Var olan tüm izlenen dosyaların dosya içerik izlemeyi etkinleştirmek isteyip istemediğinizi seçin **üzerinde** için **karşıya yükleme, dosya içeriğini tüm ayarları için**. Bunu her dosya yolu için daha sonra değiştirebilirsiniz.
 

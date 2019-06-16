@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d4acc620fb2a4c41615c745516e5ccfafd59d848
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480423"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057970"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Eşleme veri akışları performansı ve ayarlama Kılavuzu
 
@@ -41,7 +41,7 @@ Bu simgeye tıklayarak sonraki performans profili, veri akışı ve yürütme pl
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Azure SQL veritabanı ve Azure SQL veri ambarı için en iyi duruma getirme
 
-![Kaynak bölümü](media/data-flow/sourcepart2.png "kaynak bölümü")
+![Kaynak bölümü](media/data-flow/sourcepart3.png "kaynak bölümü")
 
 ### <a name="partition-your-source-data"></a>Veri bölümleme
 
@@ -122,8 +122,8 @@ Bu simgeye tıklayarak sonraki performans profili, veri akışı ve yürütme pl
 * İşlem düğümünde kaynaklarını tüketme önlemek için varsayılan veya açık bir bölümleme düzeni performans için en iyi duruma getirir, ADF içinde tutun ve sonra bir sonraki bölümü tüm birleştiren işlem hattının kopyalama etkinliği için yeni bir tek bir çıkış klasöründeki dosyaları ekleyin. dosya. Esas olarak, bu teknik, dosya birleştirme öğesinden dönüştürme eylemi ayırır ve "çıktıyı tek dosyaya" ayarı olarak aynı sonucu veren.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veri akışı diğer makalelere bakın:
+Performansla ilgili diğer veri akışı makalelere bakın:
 
-- [Veri akışına genel bakış](concepts-data-flow-overview.md)
+- [Veri akışı için sekmesinde en iyi duruma](concepts-data-flow-optimize-tab.md)
 - [Veri akışı etkinliği](control-flow-execute-data-flow-activity.md)
 - [Veri akışı performansını izleme](concepts-data-flow-monitoring.md)

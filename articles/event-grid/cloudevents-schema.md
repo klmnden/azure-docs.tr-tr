@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
 ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436626"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid ile CloudEvents şeması kullanma
@@ -21,7 +21,7 @@ Ek olarak kendi [varsayılan olay şeması](event-schema.md), Azure Event Grid, 
 
 Yayımlama için ortak bir olay şema sağlayarak birlikte çalışabilirlik CloudEvents basitleştirir ve bulut kullanan olaylara bağlı. Bu şema Tekdüzen araçları, standart yolu yönlendirme & olayları işleme ve dış olay şeması seri durumdan çıkarılırken Evrensel yollarını sağlar. Ortak bir şema ile platformlar arasında iş daha kolayca tümleştirebilirsiniz.
 
-CloudEvents oluşturulan birkaç tarafından [ortak çalışanlar](https://github.com/cloudevents/spec/blob/master/community/contributors.md), Microsoft, dahil olmak üzere [bulut yerel bilgisayar Foundation](https://www.cncf.io/). 0.1 sürüm olarak şu anda kullanılabilir.
+CloudEvents oluşturulan birkaç tarafından [ortak çalışanlar](https://github.com/cloudevents/spec/blob/master/community/contributors.md), Microsoft, dahil olmak üzere [bulut yerel bilgisayar Foundation](https://www.cncf.io/). 0\.1 sürüm olarak şu anda kullanılabilir.
 
 Bu makalede, Event Grid ile CloudEvents şeması kullanmayı açıklar.
 
@@ -64,7 +64,7 @@ CloudEvents v0.1, aşağıdaki özelliklere sahiptir:
 
 | CloudEvents        | Tür     | Örnek JSON değeri             | Açıklama                                                        | Event Grid eşleme
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| olay türü          | String   | "com.example.someevent"          | Gerçekleşen, oluşumunu türü                                   | olay türü
+| eventType          | String   | "com.example.someevent"          | Gerçekleşen, oluşumunu türü                                   | eventType
 | eventTypeVersion   | String   | "1.0"                            | (İsteğe bağlı) eventType sürümü                            | dataVersion
 | cloudEventsVersion | String   | "0.1"                            | Olay kullanır CloudEvents belirtim sürümü        | *doğrudan geçiş*
 | source             | URI      | "/ mycontext"                     | Olay üretici açıklar                                       | Konu #subject
@@ -73,7 +73,7 @@ CloudEvents v0.1, aşağıdaki özelliklere sahiptir:
 | schemaURL          | URI      | "https:\//myschema.com"           | Veri özniteliği uyar (isteğe bağlı) şemayı Bağla | *kullanılmıyor*
 | contentType        | String   | "application/json"               | Veri kodlama biçimi (isteğe bağlı) açıklayın                       | *kullanılmıyor*
 | Uzantıları         | Eşleme      | {"yapıştırmadan": "vA", "extB", "vB"}  | Ek meta verileri (isteğe bağlı)                                 | *kullanılmıyor*
-| veriler               | Object   | {"objA": "vA", "objB", "vB"}  | Olay Yükü (isteğe bağlı)                                       | veriler
+| data               | Object   | {"objA": "vA", "objB", "vB"}  | Olay Yükü (isteğe bağlı)                                       | data
 
 Daha fazla bilgi için [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 

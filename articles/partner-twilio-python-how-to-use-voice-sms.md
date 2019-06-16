@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457677"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Ses ve SMS özellikleri python'da için Twilio kullanma
@@ -46,17 +46,17 @@ Twilio'yu kullanarak API yapar; fiiller Örneğin, **&lt;Say&gt;** fiil kullanı
 
 Twilio fiillerin listesi verilmiştir. Diğer fiilleri ve aracılığıyla özellikler hakkında bilgi edinin [Twilio işaretleme dili belge][twiml].
 
-* **&lt;Arama&gt;**: Çağıran, başka bir telefonu bağlanır.
-* **&lt;Gather&gt;**: Telefon tuş takımında girilen sayı toplar.
-* **&lt;Kapat&gt;**: Bir çağrı sona erer.
-* **&lt;Duraklatma&gt;**: Sessiz bir şekilde belirtilen sayıda saniye bekler.
-* **&lt;Play&gt;**: Ses dosyası yürütülür.
-* **&lt;Kuyruk&gt;**: Ekleme çağıranlar kuyruğuna.
-* **&lt;Kayıt&gt;**: Arayanın ses kayıtlarını ve kayıt içeren dosyanın URL'sini döndürür.
-* **&lt;Yeniden yönlendirme&gt;**: Arama veya SMS için farklı bir URL'de TwiML aktarımları denetim.
-* **&lt;Reddetme&gt;**: Faturalama olmadan Twilio numaranızı için gelen bir çağrıyı reddeder.
-* **&lt;Söyleyin&gt;**: Metin, üzerinde bir çağrı yapılır okuma dönüştürür.
-* **&lt;SMS&gt;**: Bir SMS mesajı gönderir.
+* **&lt;Arama&gt;** : Çağıran, başka bir telefonu bağlanır.
+* **&lt;Gather&gt;** : Telefon tuş takımında girilen sayı toplar.
+* **&lt;Kapat&gt;** : Bir çağrı sona erer.
+* **&lt;Duraklatma&gt;** : Sessiz bir şekilde belirtilen sayıda saniye bekler.
+* **&lt;Play&gt;** : Ses dosyası yürütülür.
+* **&lt;Kuyruk&gt;** : Ekleme çağıranlar kuyruğuna.
+* **&lt;Kayıt&gt;** : Arayanın ses kayıtlarını ve kayıt içeren dosyanın URL'sini döndürür.
+* **&lt;Yeniden yönlendirme&gt;** : Arama veya SMS için farklı bir URL'de TwiML aktarımları denetim.
+* **&lt;Reddetme&gt;** : Faturalama olmadan Twilio numaranızı için gelen bir çağrıyı reddeder.
+* **&lt;Söyleyin&gt;** : Metin, üzerinde bir çağrı yapılır okuma dönüştürür.
+* **&lt;SMS&gt;** : Bir SMS mesajı gönderir.
 
 ### <a id="TwiML"></a>TwiML
 TwiML çağrı işlemek nasıl Twilio veya SMS konusunda bilgilendiren Twilio fiilleri XML tabanlı yönergeleri kümesidir.

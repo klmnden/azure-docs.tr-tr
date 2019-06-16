@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdaaf29e5649c6b82606b1e332fea56cabfc9aaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df32eab48cbcdf4a8197e612e3efb24957c4d964
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60272402"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100289"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Öğretici: Innoverse ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Innoverse tümleştirmesini yapılandırmak için Innoverse Galeride
 
 **Galeriden Innoverse eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select_azuread.png)
 
@@ -125,7 +125,7 @@ Azure AD çoklu oturum açma ile Innoverse yapılandırmak için aşağıdaki ad
 
 7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Ad | Kaynak özniteliği| Ad alanı |
+    | Ad | Kaynak özniteliği| Ad Alanı |
     | ---------------| --------- | ----------------|
     | DisplayName | `user.userprincipalname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 

@@ -12,16 +12,16 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77dab6ad0480bc1565c219766d17211995dcfc20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8cb695fafe042c93f1b11d99296b0545e1674d9a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053713"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Öğretici: Cisco Spark için otomatik kullanıcı hazırlama yapılandırın
 
@@ -47,7 +47,7 @@ Azure AD ile otomatik kullanıcı hazırlama için Cisco Spark yapılandırmadan
 
 **Azure AD uygulama galerisinden Cisco Spark eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -137,7 +137,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcıların Azure AD'de kul
      }
      ```
 
-7. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD, Cisco Spark'a bağlanabilirsiniz. Bağlantı başarısız olursa, Cisco Spark hesabının yönetici izinlerine sahip olun ve yeniden deneyin.
+7. 5\. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD, Cisco Spark'a bağlanabilirsiniz. Bağlantı başarısız olursa, Cisco Spark hesabının yönetici izinlerine sahip olun ve yeniden deneyin.
 
     ![Cisco Spark sağlama](./media/cisco-spark-provisioning-tutorial/TestConnection.png)
 

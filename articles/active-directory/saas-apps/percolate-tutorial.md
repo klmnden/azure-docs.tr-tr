@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 83027e9fbc1826de727f123afe4507c2858c49ff
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: a6c1f893757baf1e6c85420b31997a5073cff684
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560560"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094608"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Öğretici: Percolate ile Azure Active Directory Tümleştirme
 
@@ -95,7 +95,7 @@ Azure AD çoklu oturum açma ile Percolate yapılandırmak için şu adımları 
 
 2. İçinde **tek bir oturum açma yönteminizi seçmeniz** Seç iletişim kutusunda **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için:
 
-    ![Çoklu oturum açma yöntemi seçin](common/select-saml-option.png)
+    ![Tek bir oturum açma yöntemi seçin](common/select-saml-option.png)
 
 3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim kutusunda:
 
@@ -105,7 +105,7 @@ Azure AD çoklu oturum açma ile Percolate yapılandırmak için şu adımları 
 
     ![Etki alanı ve URL'ler tek oturum açma bilgileri percolate](common/preintegrated.png)
 
-5. SP tarafından başlatılan modunda uygulama yapılandırmak isteyip istemediğinizi seçin **ek URL'lerini ayarlayın** hem de **oturum açma URL'si** kutusuna **https://percolate.com/app/login**:
+5. SP tarafından başlatılan modunda uygulama yapılandırmak isteyip istemediğinizi seçin **ek URL'lerini ayarlayın** hem de **oturum açma URL'si** kutusuna **https://percolate.com/app/login** :
 
    ![Etki alanı ve URL'ler tek oturum açma bilgileri percolate](common/metadata-upload-additional-signon.png)
 6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünden **kopyalama** kopyalamak için simge **uygulama Federasyon meta veri URL'si** . Bu URL'yi kaydedin.
@@ -168,7 +168,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
     1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    1. İçinde **kullanıcı adı** kutusuna **@ BrittaSimon\<yourcompanydomain >.\< Uzantı >**. (Örneğin, BrittaSimon@contoso.com.)
+    1. İçinde **kullanıcı adı** kutusuna **@ BrittaSimon\<yourcompanydomain >.\< Uzantı >** . (Örneğin, BrittaSimon@contoso.com.)
 
     1. Seçin **Göster parola**ve ardından içinde bir değer yazın **parola** kutusu.
 
@@ -184,7 +184,7 @@ Bu bölümde, Azure AD çoklu oturum açma kullanmak için Percolate erişim ver
 
 2. Uygulamalar listesinde seçin **Percolate**.
 
-    ![Uygulama listesi](common/all-applications.png)
+    ![Uygulamaların listesi](common/all-applications.png)
 
 3. Sol bölmede seçin **kullanıcılar ve gruplar**:
 

@@ -1,8 +1,8 @@
 ---
 title: Hızlı Başlangıç - Azure Active Directory kimlik koruması ile oturum risk algılandığında erişimi engelleme | Microsoft Docs
-description: Bu hızlı başlangıçta, oturum açma oturumu riskler için temel engellemek için bir Azure Active Directory (Azure AD) kimlik koruması oturum açma riski koşullu erişim ilkesini nasıl yapılandırabileceğinizi öğrenin.
+description: Bu hızlı başlangıçta, bir Azure Active Directory (Azure AD) kimlik koruması oturum açma riski oturum açma oturumu riskler için temel engellemek için koşullu erişim ilkesini nasıl yapılandırabileceğinizi öğrenin.
 services: active-directory
-keywords: kimlik koruması, uygulamalar, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+keywords: kimlik koruması, Azure AD koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim ile koşullu erişim koşullu erişim uygulamaları
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -17,18 +17,18 @@ ms.date: 09/13/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5127342f97a90103ef56efbd7465832440ec0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: c04d1a01c0ffd69e70dfa3b88b4f3c7f4b3576d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381833"
+ms.locfileid: "67108797"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Hızlı Başlangıç: Azure Active Directory kimlik koruması ile oturum risk algılandığında erişimi engelleme  
 
-Ortamınızın korumasını sürdürün için şüpheli oturum açarken kullanıcıların engellemek isteyebilirsiniz. Azure Active Directory (Azure AD) kimlik koruması, her oturum açma analiz eder ve bir kullanıcı hesabının meşru sahibi tarafından bir oturum açma denemesi olasılığını gerçekleştirilmedi hesaplar. (Düşük, Orta, yüksek) olasılığını oturum açma risk düzeyini adlı hesaplanan değeri biçiminde belirtilir. Oturum açma riski koşuluna ayarlayarak, belirli oturum açma risk düzeyleri için yanıt oturum açma riski koşullu erişim ilkesi yapılandırabilirsiniz. 
+Ortamınızın korumasını sürdürün için şüpheli oturum açarken kullanıcıların engellemek isteyebilirsiniz. Azure Active Directory (Azure AD) kimlik koruması, her oturum açma analiz eder ve bir kullanıcı hesabının meşru sahibi tarafından bir oturum açma denemesi olasılığını gerçekleştirilmedi hesaplar. (Düşük, Orta, yüksek) olasılığını oturum açma risk düzeyini adlı hesaplanan değeri biçiminde belirtilir. Oturum açma riski koşuluna ayarlayarak, oturum açma riski belirli oturum açma risk düzeyleri için yanıt vermek için koşullu erişim ilkesi yapılandırabilirsiniz. 
 
-Bu hızlı başlangıçta bir oturum açma riski engelleyen koşullu erişim ilkesini yapılandırmak bir oturum açma, bir orta gösterilmektedir ve oturum açma riski düzeyi algılandı. 
+Bu hızlı başlangıçta, bir oturum açma riski engelleyen bir oturum açma bir ortamda, koşullu erişim ilkesini yapılandırma işlemi gösterilmektedir ve oturum açma riski düzeyi algılandı. 
 
 ![İlke oluşturma](./media/quickstart-sign-in-risk-policy/1004.png)
 
@@ -110,7 +110,7 @@ Bu bölümde, gerekli oturum açma riski koşullu erişim ilkesi oluşturma işl
 14. İlke sayfasında tıklayın **Kaydet**.  
 
 
-## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test etme
+## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test
 
 İlkenizi test etmek için oturum açın deneyin, [Azure portalında](https://portal.azure.com) olarak **Alan Charon** Tor tarayıcıyı kullanarak. Oturum açma denemesi, koşullu erişim ilkesi tarafından engellenmesi gerekir.
 

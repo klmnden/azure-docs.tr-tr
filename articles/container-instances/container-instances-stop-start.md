@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65070808"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>El ile Azure Container Instances'da kapsayıcı başlatma veya durdurma
@@ -38,7 +38,7 @@ Bir kapsayıcı grubundaki tüm kapsayıcıları, bu eylem tarafından başlatı
 
 El ile başlatın veya bir kapsayıcı grubu yeniden sonra kapsayıcı grubu çalıştırmalar göre yapılandırılmış ilke yeniden başlatın.
   
-## <a name="restart"></a>Yeniden Başlatma
+## <a name="restart"></a>yeniden başlatıp
 
 -Örneğin, kullanarak çalışırken, bir kapsayıcı grubu yeniden başlatabilirsiniz [az container yeniden] [ az-container-restart] komutu. Bu eylem tüm kapsayıcıları, kapsayıcı grubunda yeniden başlatır. Her kapsayıcı için kapsayıcı görüntüsü güncelleştirdiyseniz, yeni bir görüntü alınır. 
 

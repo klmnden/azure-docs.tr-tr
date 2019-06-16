@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: fddd2291fe7fbb46c57d31e9aebc7fc6244df971
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61336975"
 ---
 # <a name="json-search-syntax"></a>JSON Arama Söz Dizimi
@@ -33,7 +33,7 @@ ms.locfileid: "61336975"
 }
 ```
 
-Bir sorgu yolda düğüm adları (_v0, v1,..._ ) sorgu nesnesinde; başvurulabilir düğüm tanımlayıcıları görür edge adları (_e0, e1,..._ ) yolu ilgili kenarları türlerini temsil eder. Bir yıldız işareti kullanabiliriz _*_ (hariç, verilmesi gereken başlangıç düğümü) bir düğüm veya kenar adı olarak bildirmek için vardır hiçbir kısıtlamaları bu tür bir öğe. Örneğin, bir sorgu yolu `/v0/*/v1/e1/*/` edge türünü kısıtlamadan grafikten yolları alır _(v0, v1)_. Bu arada, sorguya yolun (son düğüm) hedef kısıtlamaları ya da yok.
+Bir sorgu yolda düğüm adları (_v0, v1,..._ ) sorgu nesnesinde; başvurulabilir düğüm tanımlayıcıları görür edge adları (_e0, e1,..._ ) yolu ilgili kenarları türlerini temsil eder. Bir yıldız işareti kullanabiliriz _*_ (hariç, verilmesi gereken başlangıç düğümü) bir düğüm veya kenar adı olarak bildirmek için vardır hiçbir kısıtlamaları bu tür bir öğe. Örneğin, bir sorgu yolu `/v0/*/v1/e1/*/` edge türünü kısıtlamadan grafikten yolları alır _(v0, v1)_ . Bu arada, sorguya yolun (son düğüm) hedef kısıtlamaları ya da yok.
 
 Bir yolu, tek bir düğüm içeriyorsa, söyleyin _v0_, sorgu sadece kısıtlamalar karşılayan tüm varlıkları döndürür. Başlangıç düğüme uygulanan bir kısıtlama nesnesi olarak adlandırılan bir *Başlangıç sorgu nesnesi*, olan belirtimi aşağıda verilmiştir.
 

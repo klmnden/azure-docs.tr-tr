@@ -10,12 +10,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: d527c4fed9c43e62d815078c049d4d8e6f8a46b7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 04c19c9a8603fee46914eb94b50c4f97e34e9c42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787708"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070225"
 ---
 # <a name="sql-database-release-notes"></a>SQL veritabanı sürüm notları
 
@@ -29,10 +29,9 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 |Farklı yaklaşık sayısı|Bilgi için [yaklaşık ayrı Say](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Toplu iş modu Rowstore (altında uyumluluk düzeyi 150)|Bilgi için [Rowstore toplu iş modu](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
 | Veri bulma ve sınıflandırma  |Bilgi için [Azure SQL veritabanı ve SQL veri ambarı veri bulma & sınıflandırma](sql-database-data-discovery-and-classification.md).|
-| Elastik veritabanı işleri | Bilgi için [oluşturun, yapılandırın ve elastik işleri yönetme](elastic-jobs-overview.md). |
+| Esnek veritabanı işleri | Bilgi için [oluşturun, yapılandırın ve elastik işleri yönetme](elastic-jobs-overview.md). |
 | Esnek sorgular | Bilgi için [esnek sorgu genel bakış](sql-database-elastic-query-overview.md). |
 | Elastik işlemler | [Bulut veritabanlarında dağıtılmış işlemler](sql-database-elastic-transactions-overview.md). |
-| Örneği harmanlamasıyla yönetilen örnekleri |Bilgi için [Azure SQL veritabanı'nda yönetilen örnek oluşturma için PowerShell kullanarak Azure Resource Manager şablonu ile](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
 |(Altında uyumluluk düzeyi 150) bellek ataması geri bildirimi (satır modu)|Bilgi için [bellek ataması geri bildirimi (satır modu)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Azure portalındaki sorgu Düzenleyicisi |Bilgi için [bağlanmak ve veri sorgulamak için Azure portalında SQL sorgu Düzenleyicisi'ni kullanın](sql-database-connect-query-portal.md).|
 | R Hizmetleri / makine öğrenimi ile tek veritabanları ve elastik havuzlar |Bilgi için [Machine Learning Hizmetleri Azure SQL veritabanı'nda](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
@@ -42,9 +41,20 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 |SQL analizi|Bilgi için [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).|
 |Tablo değişkeni ertelenmiş derleme (altında uyumluluk düzeyi 150)|Bilgi için [tablo değişkeni ertelenmiş derleme](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | Yönetilen örnek tehdit algılama |Bilgi için [yapılandırma tehdit algılama, Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance-threat-detection.md).|
-| Yönetilen örnek için saat dilimi desteği|Daha fazla bilgi için [Azure SQL veritabanı yönetilen örneği saat diliminde](sql-database-managed-instance-timezone.md).|
 | Saydam veri şifrelemesi (TDE) ile Getir bilgisayarınızı kendi anahtarını (BYOK) yönetilen örnekleri |Bilgi için [Azure SQL saydam veri şifrelemesi ile Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar: Destek kendi anahtarını Getir](transparent-data-encryption-byok-azure-sql.md).|
 | &nbsp; |
+
+## <a name="june-2019"></a>Haziran 2019
+
+### <a name="service-improvements"></a>Hizmet geliştirmeleri
+
+| Hizmet geliştirmeleri | Ayrıntılar |
+| --- | --- |
+| Yönetilen örnek 5. nesil donanım nesil 4 sanal çekirdek| Daha fazla bilgi için bkz. https://aka.ms/four-cores-sql-mi-update. |
+| Yönetilen örnek - desteği abonelikleri için aylık Azure kredisi ile Visual Studio aboneleri için | Daha fazla bilgi için bkz. https://aka.ms/sql-mi-visual-studio-subscribers. |
+|Yönetilen örnek için daha büyük bölgesel sınırlar| Daha fazla bilgi için [bölgesel kaynak sınırlamaları](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
+| &nbsp; |
+
 
 ## <a name="may-2019"></a>Mayıs 2019
 
@@ -54,6 +64,8 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 | --- | --- |
 |Hiper ölçekli hizmet katmanı genel kullanıma sunuldu| Daha fazla bilgi için [hiper ölçekli hizmet katmanı için en fazla 100 TB](sql-database-service-tier-hyperscale.md) ve [yüksek performans için Azure veritabanı iş yüklerinizi hiper ölçekli ile ölçeklendirme](https://azure.microsoft.com/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/).|
 |Sunucusuz bilgi işlem katmanı genel önizlemede kullanıma | Daha fazla bilgi için [sunucusuz SQL veritabanı (Önizleme)](sql-database-serverless.md).|
+|Saat dilimi desteği yönetilen örnekleri genel kullanıma sunuldu |Daha fazla bilgi için [Azure SQL veritabanı yönetilen örneği saat diliminde](sql-database-managed-instance-timezone.md).|
+|Örneği harmanlamasıyla yönetilen örnekleri genel kullanıma sunuldu |Bilgi için [Azure SQL veritabanı'nda yönetilen örnek oluşturma için PowerShell kullanarak Azure Resource Manager şablonu ile](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
 | Sanal çekirdek tabanlı satın alma modelini kullanan veritabanları için artırılmış işlem günlüğü hızları ve hedef IOPS| Daha fazla bilgi için [sanal çekirdek tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) ve [kaynak sınırları tek veritabanları için DTU tabanlı satın alma modeli kullanarak](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases).
 | &nbsp; |
 

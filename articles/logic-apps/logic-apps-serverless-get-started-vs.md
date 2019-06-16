@@ -11,10 +11,10 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
 ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467442"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Azure Logic Apps ve Azure işlevleri - Visual Studio ile ilk sunucusuz uygulamanızı oluşturun
@@ -88,7 +88,7 @@ Başlamak için oluşturun bir [Azure kaynak grubu projesi](../azure-resource-ma
    > [!TIP]
    > Boş olmayan istediğiniz bir Azure kaynak grubuna çözümünüzü predeploy senaryolarda kullanabilirsiniz **mantıksal uygulama** şablon, yalnızca bir boş mantıksal uygulama oluşturur.
 
-1. Gelen **bu konumdan şablonlar Göster** listesinden **Azure Hızlı Başlangıç (github.com/Azure/azure-quickstart-templates)**.
+1. Gelen **bu konumdan şablonlar Göster** listesinden **Azure Hızlı Başlangıç (github.com/Azure/azure-quickstart-templates)** .
 
 1. Arama kutusuna filtreniz olarak "logic-app" girin. Sonuçlardan, bu şablonu seçin: **101-Logic-App-and-Function-App**
 

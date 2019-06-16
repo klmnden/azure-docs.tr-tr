@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62112659"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>İOS mobil uygulamalarla çevrimdışı eşitlemeyi etkinleştirme
@@ -147,7 +147,7 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
   * Todoıtem: Yapılacaklar öğelerini depolar. Sistem sütunlarıdır **createdAt**, **updatedAt**, ve **sürüm** isteğe bağlı sistem özelliklerdir.
 
 > [!NOTE]
-> Mobile Apps SDK'sı ile başlayan sütun adlarını saklar "**``**". Bu ön ek sistem sütun dışında herhangi bir şeyle kullanmayın. Aksi takdirde, uzak arka ucu kullanırken, sütun adları değiştirilmiştir.
+> Mobile Apps SDK'sı ile başlayan sütun adlarını saklar " **``** ". Bu ön ek sistem sütun dışında herhangi bir şeyle kullanmayın. Aksi takdirde, uzak arka ucu kullanırken, sütun adları değiştirilmiştir.
 >
 >
 
@@ -164,7 +164,7 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
 | id | Integer 64 |
 | itemId | String |
 | properties | İkili veriler |
-| tablo | String |
+| table | String |
 | tableKind | Tamsayı 16 |
 
 
@@ -188,7 +188,7 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
 | id |String |
 | anahtar |String |
 | KeyType |Integer 64 |
-| tablo |String |
+| table |String |
 | value |String |
 
 ### <a name="data-table"></a>Veri tablosu

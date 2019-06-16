@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
 ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128656"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Sayısal işlevler için Azure Resource Manager şablonları
@@ -40,7 +40,7 @@ Resource Manager, tamsayı ile çalışmak için aşağıdaki işlevleri sunar:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="add"></a>ekle
+## <a name="add"></a>add
 `add(operand1, operand2)`
 
 İki sağlanan tam sayının toplamını döndürür.
@@ -121,7 +121,7 @@ Bir yineleme döngüsü dizinini döndürür.
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
 | loopName | Hayır | string | Yineleme almak için döngünün adı. |
-| uzaklık |Hayır |int |Sıfır tabanlı yineleme değerine eklenecek sayı. |
+| offset |Hayır |int |Sıfır tabanlı yineleme değerine eklenecek sayı. |
 
 ### <a name="remarks"></a>Açıklamalar
 
@@ -322,7 +322,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>en çok
+## <a name="max"></a>en fazla
 `max (arg1)`
 
 En yüksek değer bir sayı dizisi veya virgülle ayrılmış tamsayı listesi döndürür.
@@ -591,7 +591,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="sub" />
 
-## <a name="sub"></a>alt
+## <a name="sub"></a>sub
 `sub(operand1, operand2)`
 
 Çıkarma iki sağlanan tamsayı döndürür.

@@ -8,10 +8,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
 ms.openlocfilehash: d0d68263485c5ab6e57a349317b1975862470cc2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721505"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Azure HDInsight Spark üzerinde dağıtılmış derin öğrenme için Caffe kullanma
@@ -36,7 +36,7 @@ Bir görevi tamamlamak için dört adım vardır:
 
 HDInsight bir PaaS çözümü olduğundan, bazı görevleri daha kolaydır - harika platform özelliklerini sunar. Bu blog gönderisinde kullanılan özelliklerden biri çağrıldığında [betik eylemi](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), hangi, yürütebilir küme düğümleri (baş düğüm, alt düğüm veya kenar düğümüne) özelleştirmek için Kabuk komutları.
 
-## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>1. Adım:  Tüm düğümlerde gerekli bağımlılıkları yükleyin
+## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>1\. adım:  Tüm düğümlerde gerekli bağımlılıkları yükleyin
 
 Başlamak için bağımlılıkları yüklemeniz gerekir. Caffe site ve [CaffeOnSpark site](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) bağımlılıkları için Spark YARN modunu yüklemeye yönelik bazı kullanışlı wiki sunar. HDInsight Spark YARN modunu de kullanır. Ancak, HDInsight platformuna yönelik birkaç daha fazla bağımlılıkları eklemeniz gerekir. Bunu yapmak için betik eylemi kullanın ve tüm baş düğümü ve çalışan düğümleri üzerinde çalıştırın. Bu betik eylemi, bu bağımlılıkların diğer paketleri ayrıca bağlı olarak yaklaşık 20 dakika sürer. Bir GitHub konumu veya varsayılan BLOB Depolama hesabı gibi HDInsight kümenize erişilebilir olan bazı konumda koymalısınız.
 
@@ -68,7 +68,7 @@ Başlamak için yalnızca bu betik eylemi kümenizi karşı tüm çalışan dü�
 ![Bağımlılıkları yüklemek üzere betik eylemleri](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>2. Adım: Caffe HDInsight için Apache Spark, baş düğümünde oluşturun.
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>2\. adım: Caffe HDInsight için Apache Spark, baş düğümünde oluşturun.
 
 İkinci adım, baş düğüme Caffe oluşturun ve ardından tüm çalışan düğümleri için derlenmiş kitaplıkları dağıtmak sağlamaktır. Bu adımda, gerekir [ssh, baş içine](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Bundan sonra izlemeniz gereken [CaffeOnSpark yapı işlemi](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Aşağıda birkaç ek adım ile CaffeOnSpark oluşturmak için kullanabileceğiniz betiği verilmiştir. 
 
@@ -145,9 +145,9 @@ Son onay için CaffeOnSpark yaparken büyük olasılıkla test hatası bakın. B
     Tests: succeeded 6, failed 1, canceled 0, ignored 0, pending 0
     *** 1 TEST FAILED ***
 
-## <a name="step-3-distribute-the-required-libraries-to-all-the-worker-nodes"></a>3. Adım: Tüm çalışan düğümleri için gerekli kitaplıkları dağıtın
+## <a name="step-3-distribute-the-required-libraries-to-all-the-worker-nodes"></a>3\. adım: Tüm çalışan düğümleri için gerekli kitaplıkları dağıtın
 
-Sonraki adım kitaplıkları dağıtmaktır (temel kitaplıklarında CaffeOnSpark/caffe-Genel/dağıtma/lib/ve CaffeOnSpark/caffe-dağıtım/dağıtma/lib /) tüm düğümlere. 2. adım, BLOB Depolama alanında bu kitaplıkları yerleştirin ve bu adımda, tüm baş düğümlerine ve çalışan düğümleri kopyalamak için betik eylemlerini kullanın.
+Sonraki adım kitaplıkları dağıtmaktır (temel kitaplıklarında CaffeOnSpark/caffe-Genel/dağıtma/lib/ve CaffeOnSpark/caffe-dağıtım/dağıtma/lib /) tüm düğümlere. 2\. adım, BLOB Depolama alanında bu kitaplıkları yerleştirin ve bu adımda, tüm baş düğümlerine ve çalışan düğümleri kopyalamak için betik eylemlerini kullanın.
 
 Bunu yapmak için betik eylemi aşağıdaki kod parçacığında gösterildiği gibi çalıştırın:
 
@@ -156,9 +156,9 @@ Bunu yapmak için betik eylemi aşağıdaki kod parçacığında gösterildiği 
 
 Doğru konumu noktasına kümenize belirli ihtiyacınız olduğundan emin olun)
 
-2. adımda, tüm düğümler için erişilebilir olan BLOB Depolama alanında yerleştirdiğiniz çünkü bu adımda, yalnızca, tüm düğümlere kopyalayın.
+2\. adımda, tüm düğümler için erişilebilir olan BLOB Depolama alanında yerleştirdiğiniz çünkü bu adımda, yalnızca, tüm düğümlere kopyalayın.
 
-## <a name="step-4-compose-a-caffe-model-and-run-it-in-a-distributed-manner"></a>4. Adım: Caffe modeli oluşturabilir ve dağıtılmış bir şekilde çalıştırın
+## <a name="step-4-compose-a-caffe-model-and-run-it-in-a-distributed-manner"></a>4\. Adım: Caffe modeli oluşturabilir ve dağıtılmış bir şekilde çalıştırın
 
 Caffe, önceki adımlarda çalıştırdıktan sonra yüklenir. Sonraki adım, Caffe modeli yazmaktır. 
 

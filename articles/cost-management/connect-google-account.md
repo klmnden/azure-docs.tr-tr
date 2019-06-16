@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 247d959abadc92d70bdd60555a090986743e9322
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002066"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Google Cloud Platform hesaba Bağlan
@@ -63,7 +63,7 @@ Kullanım ve varlık bilgilerini toplamak için aşağıdaki Google Cloud Platfo
 
 1. Cloudyn portalını Azure portalından açın veya gidin [ https://azure.cloudyn.com ](https://azure.cloudyn.com/) ve oturum açın.
 2. Tıklayın **ayarları** (dişli simgesi) seçip **bulut hesapları**.
-3. İçinde **hesap yönetimi**seçin **Google hesapları** sekmesine ve ardından **yeni Ekle +**.
+3. İçinde **hesap yönetimi**seçin **Google hesapları** sekmesine ve ardından **yeni Ekle +** .
 4. İçinde **Google hesabı adı**, fatura hesap için e-posta adresi girin, ardından tıklayın **sonraki**.
 5. Google kimlik doğrulaması iletişim kutusunu seçin veya Google hesabı girin ve ardından **izin** cloudyn.com hesabınıza erişim sağlayın.
 6. İstek proje bilgileri eklemek önceki olduğunu not. İçerirler **proje kimliği**, **proje** adı **fatura** demet adı ve **fatura dosya** rapor ön eki'e tıklayın  **Kaydet**.  

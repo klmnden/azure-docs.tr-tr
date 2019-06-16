@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 16-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 477271debc5f04b4ea0c71145968b29945142571
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e363b6284b29b28b8bfc3081221e23ea1842a322
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917484"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Öğretici: FishEye/Crucible için Kantega SSO ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Kantega SSO için FishEye/Crucible tümleştirmesini yapılandırmak
 
 **Galeriden Kantega SSO için FishEye/Crucible eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -303,7 +303,7 @@ FishEye/Crucible oturum açmak Azure AD kullanıcılarının etkinleştirmek iç
 
     e. İçinde **parolayı onayla** metin kutusu, kullanıcı parolasını yeniden girin.
 
-    f. **Ekle**'ye tıklayın.
+    f. **Ekle**'yi tıklatın.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

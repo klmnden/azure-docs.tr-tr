@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: fe8f97368531ed572083834256d84cd1ed6dd8a1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c3ef5362c4d97b8d805212f9cf813c7bc9c8c18c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687221"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059451"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight kümenizi oluştururken özel Apache Hive kitaplıkları ekleme
 
@@ -39,9 +39,6 @@ Küme oluşturma sırasında komut dosyaları listeler, kopyalar `/usr/lib/custo
 
 İçin **Windows tabanlı kümeler**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]  
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 **Gereksinimler**
 
 * Betikler her ikisi için de uygulanmalıdır **baş düğümlerine** ve **çalışan düğümleri**.
@@ -50,7 +47,7 @@ Küme oluşturma sırasında komut dosyaları listeler, kopyalar `/usr/lib/custo
 
 * Kitaplık jar dosyaları içeren depolama hesabını **gerekir** , HDInsight küme oluşturma sırasında bağlı. Varsayılan depolama hesabını ya da olmalıdır veya bir hesap üzerinden eklenen __isteğe bağlı yapılandırma__.
 
-* Betik eylemi bir parametre olarak kapsayıcı WASB yolu belirtilmelidir. Örneğin jar dosyaları dışındaki adlı bir kapsayıcıda depolanır, **libs** adlı bir depolama hesabında **depolamam**, parametre olacaktır **wasb://libs\@ mystorage.BLOB.Core.Windows.NET/**.
+* Betik eylemi bir parametre olarak kapsayıcı WASB yolu belirtilmelidir. Örneğin jar dosyaları dışındaki adlı bir kapsayıcıda depolanır, **libs** adlı bir depolama hesabında **depolamam**, parametre olacaktır **wasb://libs\@ mystorage.BLOB.Core.Windows.NET/** .
 
   > [!NOTE]  
   > Bu belge, zaten oluşturulan bir depolama hesabı, blob kapsayıcısını ve dosyaları karşıya olduğunu varsayar.
@@ -76,9 +73,9 @@ Küme oluşturma sırasında komut dosyaları listeler, kopyalar `/usr/lib/custo
 
    * **ÇALIŞAN**: Bu seçeneği işaretleyin.
 
-   * **ZOOKEEPER**: Bunu boş bırakın.
+   * **ZOOKEEPER**: Burayı boş bırakın.
 
-   * **PARAMETRELERİ**: WASB adresi için jar dosyaları dışındaki içeren kapsayıcı ve depolama hesabı girin. Örneğin, **wasb://libs\@mystorage.blob.core.windows.net/**.
+   * **PARAMETRELERİ**: WASB adresi için jar dosyaları dışındaki içeren kapsayıcı ve depolama hesabı girin. Örneğin, **wasb://libs\@mystorage.blob.core.windows.net/** .
 
 3. Sayfanın alt kısmında **betik eylemleri**, kullanın **seçin** yapılandırmayı kaydetmek için düğme.
 

@@ -9,10 +9,10 @@ ms.date: 03/19/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: bbc5aaf02f4ab4388e816faaf8df536770f3302a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205626"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure REST API izleme Kılavuzu
@@ -98,7 +98,7 @@ Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://docs.micros
 
 **Yöntemi**: GET
 
-**İstek URI'si**: https:\/\/management.azure.com/subscriptions/*{Subscriptionıd}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
+**İstek URI'si**: https:\/\/management.azure.com/subscriptions/ *{Subscriptionıd}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{ apiVersion}*
 
 Örneğin, bir Azure depolama hesabı için ölçüm tanımları almak için isteği şu şekilde görünür:
 
@@ -242,7 +242,7 @@ Kullanılabilir ölçüm tanımlarını bilinen sonra boyutlara sahip bazı öl�
 
 **Yöntemi**: GET
 
-**İstek URI'si**: https\://management.azure.com/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/*{ Kaynak-sağlayıcısı-namespace}*/*{kaynak-türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics? metricnames =*{ölçümü}*& zaman aralığı =*{starttime/endtime}*& $filter =*{filter}*& resulttype'ı meta verileri & api sürümü == *{apiVersion}*
+**İstek URI'si**: https\://management.azure.com/subscriptions/ *{abonelik-kimliği}* /resourceGroups/ *{kaynak-grup-adı}* /providers/ *{ Kaynak-sağlayıcısı-namespace}* / *{kaynak-türü}* / *{kaynak-adı}* /providers/microsoft.insights/metrics? metricnames = *{ölçümü}* & zaman aralığı = *{starttime/endtime}* & $filter = *{filter}* & resulttype'ı meta verileri & api sürümü == *{apiVersion}*
 
 Örneğin, 'İşlemleri' ölçümü için 'API adı boyutu' için nereden yayılan boyut değerlerinin listesini almak için GeoType boyut 'Birincil' = belirtilen zaman aralığı içinde İstek şu şekilde olacaktır:
 
@@ -315,7 +315,7 @@ Kullanılabilir ölçüm tanımlarını ve olası boyut değerleri bilinen sonra
 
 **Yöntemi**: GET
 
-**İstek URI'si**: https://management.azure.com/subscriptions/ *{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/*{kaynak-sağlayıcısı-namespace}* / *{kaynak-türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?metricnames=*{} ölçümü*& zaman aralığı =*{starttime/endtime}*& $filter =*{filter}*& aralığı =*{timeGrain}*& toplama =*{ aggreation}*& api sürümü =*{apiVersion}*
+**İstek URI'si**: https://management.azure.com/subscriptions/ *{abonelik-kimliği}* /resourceGroups/ *{kaynak-grup-adı}* /providers/ *{kaynak-sağlayıcısı-namespace}* / *{kaynak-türü}* / *{kaynak-adı}* /providers/microsoft.insights/metrics?metricnames= *{} ölçümü*& zaman aralığı = *{starttime/endtime}* & $filter = *{filter}* & aralığı = *{timeGrain}* & toplama = *{ aggreation}* & api sürümü = *{apiVersion}*
 
 Örneğin, ilk 3 almak için API'leri, azalan sırada bir 5 dakika aralık sırasında 'işlemleri' sayısına göre GeotType 'Birincil' olduğu değerini isteği şu şekilde olacaktır:
 
@@ -394,7 +394,7 @@ Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://msdn.micros
 
 **Yöntemi**: GET
 
-**İstek URI'si**: https:\/\/management.azure.com/subscriptions/*{Subscriptionıd}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
+**İstek URI'si**: https:\/\/management.azure.com/subscriptions/ *{Subscriptionıd}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{ apiVersion}*
 
 Örneğin, bir Azure mantıksal uygulaması için ölçüm tanımları almak için isteği şu şekilde görünür:
 
@@ -467,7 +467,7 @@ Kullanılabilir ölçüm tanımlarını bilinen sonra ardından ilgili ölçüm 
 
 **Yöntemi**: GET
 
-**İstek URI'si**: https://management.azure.com/subscriptions/ *{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/*{kaynak-sağlayıcısı-namespace}* / *{kaynak-türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?$filter=*{filter}*& api sürümü =*{apiVersion}*
+**İstek URI'si**: https://management.azure.com/subscriptions/ *{abonelik-kimliği}* /resourceGroups/ *{kaynak-grup-adı}* /providers/ *{kaynak-sağlayıcısı-namespace}* / *{kaynak-türü}* / *{kaynak-adı}* /providers/microsoft.insights/metrics?$filter= *{filter}* & api sürümü = *{apiVersion}*
 
 Örneğin, 1 saatlik bir zaman dilimi ve belirtilen zaman aralığı için RunsSucceeded ölçüm veri noktalarını almaya yönelik istek şu şekilde olacaktır:
 
@@ -605,13 +605,13 @@ Yukarıdaki kod için kullanılacak kaynak kimliği istenen Azure kaynağına ta
 
 Aşağıdaki liste, çeşitli Azure kaynakları için kaynak kodu biçimlerini birkaç örnekleri içerir:
 
-* **IOT hub'ı** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.Devices/IotHubs/*{IOT-hub-adı}*
-* **SQL esnek havuzu** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.Sql/servers/*{havuzu-db}*/elasticpools/*{sql-havuzu-adı}*
-* **SQL veritabanı (v12)** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.Sql/servers/*{sunucu-adı}*/databases/*{veritabanı-adı}*
-* **Service Bus** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.ServiceBus/*{namespace}* / *{servicebus-adı}*
-* **Sanal makine ölçek kümeleri** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-adı}*
-* **Vm'leri** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.Compute/virtualMachines/*{vm-adı}*
-* **Olay hub'ları** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.EventHub/namespaces/*{ eventhub namespace}*
+* **IOT hub'ı** -/subscriptions/ *{abonelik-kimliği}* /resourceGroups/ *{kaynak-grup-adı}* /providers/Microsoft.Devices/IotHubs/ *{IOT-hub-adı}*
+* **SQL esnek havuzu** -/subscriptions/ *{abonelik-kimliği}* /resourceGroups/ *{kaynak-grup-adı}* /providers/Microsoft.Sql/servers/ *{havuzu-db}* /elasticpools/ *{sql-havuzu-adı}*
+* **SQL veritabanı (v12)** -/subscriptions/ *{abonelik-kimliği}* /resourceGroups/ *{kaynak-grup-adı}* /providers/Microsoft.Sql/servers/ *{sunucu-adı}* /databases/ *{veritabanı-adı}*
+* **Service Bus** -/subscriptions/ *{abonelik-kimliği}* /resourceGroups/ *{kaynak-grup-adı}* /providers/Microsoft.ServiceBus/ *{namespace}* / *{servicebus-adı}*
+* **Sanal makine ölçek kümeleri** -/subscriptions/ *{abonelik-kimliği}* /resourceGroups/ *{kaynak-grup-adı}* /providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-adı}*
+* **Vm'leri** -/subscriptions/ *{abonelik-kimliği}* /resourceGroups/ *{kaynak-grup-adı}* /providers/Microsoft.Compute/virtualMachines/ *{vm-adı}*
+* **Olay hub'ları** -/subscriptions/ *{abonelik-kimliği}* /resourceGroups/ *{kaynak-grup-adı}* /providers/Microsoft.EventHub/namespaces/ *{ eventhub namespace}*
 
 Azure kaynak Gezgini, Azure portalında ve PowerShell veya Azure CLI aracılığıyla istenen kaynak görüntüleme kullanma dahil olmak üzere kaynak Kimliğini almak için alternatif bir yaklaşım vardır.
 

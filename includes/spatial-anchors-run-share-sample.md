@@ -4,18 +4,16 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 397a8a9b07b4d7a88d0345399ac4abcc3e738a82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b46a2b18309851bbe2934980137a53d2de6f6efc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60681393"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135318"
 ---
-## <a name="set-up-your-device"></a>Cihazınızı kurma
+## <a name="set-up-your-device-in-unity"></a>Unity Cihazınızı ayarlama
 
-Unity içinde projeyi açın `Unity` klasör.
-
-![Unity penceresi](./media/spatial-anchors-unity/unity-window.png)
+[!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
 ### <a name="set-up-an-android-device"></a>Bir Android cihazı ayarlama
 
@@ -43,20 +41,26 @@ Android Cihazınızda oturum açın ve bir USB kablosu kullanarak bilgisayarın�
 
 Açık **Build Settings** seçerek **dosya** > **Build Settings**.
 
-Altında **sahneler oluşturun**, bir onay işareti koyun `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` onay Sahne ve clear diğer tüm sahneler işaretler.
+Altında **sahneler oluşturun**, Sahne tüm bunların yanında bir onay işareti sahip olduğunuzdan emin olun.
 
 Emin **dışarı proje** bir onay işareti yok. Seçin **derleme ve çalıştırma**. Kaydetmeniz istenir, `.apk` dosya. Bunun için herhangi bir ad seçebilirsiniz.
 
-Uygulamayı'ndaki yönergeleri izleyin. Seçebileceğiniz **oluştur & Paylaşımı bağlantı** veya **paylaşılan bağlantı bulun**. İlk senaryo, daha sonra aynı cihaz veya farklı bir bulunduğu bir bağlantı oluşturmanızı sağlar. Aynı cihaz veya farklı bir uygulama zaten çalıştırdıysanız, ikinci senaryo, daha önce paylaşılan bağlayıcılarını bulundurmanıza olanak tanır. Senaryonuzu seçin sonra uygulama için neler etrafında ek yönergeler ile yol gösterecektir. Örneğin, ortam bilgilerini toplamak için Cihazınızı hareket istenir. Daha sonra dünyada bir yer işareti koyun, bunu yükler bekleyin ve benzeri.
+Uygulama başlar, içinde bir kez **seçin bir tanıtım** iletişim kutusunda, seçmek için sol veya sağ okları kullanın **LocalShare** seçenek ve dokunun **gidin!** . Uygulamayı'ndaki yönergeleri izleyin. Seçebileceğiniz **oluştur & Paylaşımı bağlantı** veya **paylaşılan bağlantı bulun**.
+
+İlk senaryo, daha sonra aynı cihaz veya farklı bir bulunduğu bir bağlantı oluşturmanızı sağlar.
+Aynı cihaz veya farklı bir uygulama zaten çalıştırdıysanız, ikinci senaryo, daha önce paylaşılan bağlayıcılarını bulundurmanıza olanak tanır. Senaryonuzu seçin sonra uygulamayı daha ayrıntılı yönergeler ne yapılacağını geçici yol gösterecektir. Örneğin, ortam bilgilerini toplamak için Cihazınızı yerleri istenir. Daha sonra dünyada bir yer işareti koyun kaydetmek bekleyin ve benzeri.
 
 ### <a name="deploy-to-an-ios-device"></a>Bir iOS cihazına dağıtma
 
 Açık **Build Settings** seçerek **dosya** > **Build Settings**.
 
-Altında **sahneler oluşturun**, bir onay işareti koyun `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` onay Sahne ve clear diğer tüm sahneler işaretler.
+Altında **sahneler oluşturun**, Sahne tüm bunların yanında bir onay işareti sahip olduğunuzdan emin olun.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Uygulamayı'ndaki yönergeleri izleyin. Seçebileceğiniz **oluştur & Paylaşımı bağlantı** veya **paylaşılan bağlantı bulun**. İlk senaryo, daha sonra aynı cihaz veya farklı bir bulunduğu bir bağlantı oluşturmanızı sağlar. Aynı cihaz veya farklı bir uygulama zaten çalıştırdıysanız, ikinci senaryo, daha önce paylaşılan bağlayıcılarını bulundurmanıza olanak tanır. Senaryonuzu seçin sonra uygulama için neler etrafında ek yönergeler ile yol gösterecektir. Örneğin, ortam bilgilerini toplamak için Cihazınızı hareket istenir. Daha sonra dünyada bir yer işareti koyun, bunu yükler bekleyin ve benzeri.
+Uygulama başlar, içinde bir kez **seçin bir tanıtım** iletişim kutusunda, seçmek için sol veya sağ okları kullanın **LocalShare** seçenek ve dokunun **gidin!** . Uygulamayı'ndaki yönergeleri izleyin. Seçebileceğiniz **oluştur & Paylaşımı bağlantı** veya **paylaşılan bağlantı bulun**.
+
+İlk senaryo, daha sonra aynı cihaz veya farklı bir bulunduğu bir bağlantı oluşturmanızı sağlar.
+Aynı cihaz veya farklı bir uygulama zaten çalıştırdıysanız, ikinci senaryo, daha önce paylaşılan bağlayıcılarını bulundurmanıza olanak tanır. Senaryonuzu seçin sonra uygulamayı daha ayrıntılı yönergeler ne yapılacağını geçici yol gösterecektir. Örneğin, ortam bilgilerini toplamak için Cihazınızı yerleri istenir. Daha sonra dünyada bir yer işareti koyun kaydetmek bekleyin ve benzeri.
 
 Xcode'da, seçerek uygulamayı durdurun **Durdur**.

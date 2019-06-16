@@ -15,10 +15,10 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924644"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure Klasik abonelik yöneticileri
@@ -38,7 +38,7 @@ Bu makalede, ortak yönetici ve hizmet yöneticisi rollerini ekleme veya değiş
 
     Ortak Yöneticiler abonelik kapsamında yalnızca atanabilir.
 
-1. Tıklayın **erişim denetimi (IAM)**.
+1. Tıklayın **erişim denetimi (IAM)** .
 
 1. Tıklayın **Klasik yöneticileri** sekmesi.
 
@@ -71,7 +71,7 @@ Unutmayın [Azure kaynakları için yerleşik roller](../role-based-access-contr
 
 1. Açık [abonelikleri](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ve bir abonelik seçin.
 
-1. Tıklayın **erişim denetimi (IAM)**.
+1. Tıklayın **erişim denetimi (IAM)** .
 
 1. Tıklayın **Klasik yöneticileri** sekmesi.
 
@@ -87,7 +87,7 @@ Unutmayın [Azure kaynakları için yerleşik roller](../role-based-access-contr
 
 Yalnızca Hesap Yöneticisi, bir aboneliği için Hizmet Yöneticisi olarak değiştirebilirsiniz. Bir Azure aboneliği için oturum açtığınızda varsayılan olarak, Hizmet Yöneticisi olarak Hesap Yöneticisi aynıdır. Kullanıcı hesabı yönetici rolüne sahip Azure portalına erişim sağlayamıyor. Hizmet Yöneticisi rolüne sahip kullanıcının, Azure portalında tam erişimi vardır. Hizmet Yöneticisi ve hesap yöneticiliği aynı kullanıcı ve farklı bir kullanıcı olarak hizmet yöneticisini değiştiremez, Hesap Yöneticisi Azure portalına erişim kaybeder. Ancak, Hesap Yöneticisi hizmet Yöneticisi geri kendilerini değiştirmek için her zaman hesap merkezi kullanabilirsiniz.
 
-Hizmet Yöneticisi değiştirmek için iki yolu vardır. Değiştirebileceğiniz **Azure portalında** veya **hesap Merkezi**.
+Hizmet Yöneticisi’ni değiştirmenin iki yolu vardır. Değiştirebileceğiniz **Azure portalında** veya **hesap Merkezi**.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -134,7 +134,7 @@ Bir iş veya Okul hesabıyla oturum açtıysanız, Hizmet Yöneticisi olarak, ku
   | Oturum açma yöntemi | Microsoft hesabı kullanıcı, Hizmet Yöneticisi olarak eklensin mi? | İş veya Okul hesabı aynı kuruluşta bir Hizmet Yöneticisi olarak eklensin mi? | İş veya Okul hesabı, farklı kuruluştaki bir Hizmet Yöneticisi olarak eklensin mi? |
   | --- | --- | --- | --- |
   |  Microsoft hesabı |Evet |Hayır |Hayır |
-  |  İş veya okul hesabı |Evet |Evet |Hayır |
+  |  İş veya Okul hesabı |Evet |Evet |Hayır |
 
 ## <a name="view-the-account-administrator"></a>Hesap Yöneticisi görüntüleyebilir
 

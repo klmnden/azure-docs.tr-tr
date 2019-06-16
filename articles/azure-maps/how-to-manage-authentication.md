@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952559"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure haritalar kimlik doğrulamasını Yönet
@@ -65,9 +65,9 @@ Azure haritalar hesabı Azure AD kiracınız ile ilişkilendirdikten sonra kulla
 
     ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. İçinde **rol ataması Ekle** penceresinin altında **rol**seçin **Azure haritalar tarih Okuyucu (Önizleme)**. Altında **erişim Ata**seçin **Azure AD kullanıcı, Grup veya hizmet sorumlusu**. Altında **seçin**, kullanıcı veya uygulama seçin. **Kaydet**’i seçin.
+2. İçinde **rol ataması Ekle** penceresinin altında **rol**seçin **Azure haritalar tarih Okuyucu (Önizleme)** . Altında **erişim Ata**seçin **Azure AD kullanıcı, Grup veya hizmet sorumlusu**. Altında **seçin**, kullanıcı veya uygulama seçin. **Kaydet**’i seçin.
 
-    ![Rol ataması ekle](./media/how-to-manage-authentication/add-role-assignment.png)
+    ![Rol ataması Ekle](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## <a name="view-available-azure-maps-rbac-roles"></a>Kullanılabilir Azure haritalar RBAC rollerini görüntüleme
 

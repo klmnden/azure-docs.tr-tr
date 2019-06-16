@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
 ms.openlocfilehash: 6619611bee96089e465feb6f50d38caeada06dd9
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472497"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server sistem durumunu geri yükle
@@ -93,7 +93,7 @@ Bu adımlarda kullanılan terminolojiyi içerir:
 6. Yedekleme sunucusu seçin bölmeden *kaynak makine* görüntülenen makineler listesinden.
 7. Kurtarma modunu Seç bölmesinde **sistem durumu** tıklatıp **sonraki**.
 
-    ![Arama](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Ara](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. Takvim üzerinde **birim ve tarih seçin** bölmesinde, bir kurtarma noktası. Zaman içinde herhangi bir kurtarma noktasından geri yükleyebilirsiniz. Tarihler **kalın** en az bir kurtarma noktasının kullanılabilirliğini gösterir. Birden fazla kurtarma noktası mevcutsa bir tarih seçtiğinizde belirli bir kurtarma noktasından seçin **zaman** açılan menüsü.
 

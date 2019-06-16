@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da934709274d90668d94dfea3a9c223e191d032
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ab2701a82da0b8f7bc4e23a3d947be905593e85
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076068"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057222"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>Web API'leri - uygulama kaydı çağrıları masaüstü uygulaması
 
@@ -42,16 +42,17 @@ Masaüstü uygulamanızı etkileşimli kimlik doğrulaması kullanıyorsa, tüm 
 - Cihaz kod akışını kullanmak istiyorsanız, kullanıcıların kendi kişisel Microsoft hesapları ile henüz oturum açılamıyor
 - Kullanıcılar bir B2C yetkilisi hem de ilke sosyal kimliklerle oturum açarsanız, yalnızca etkileşimli ve kullanıcı adı parola kimlik doğrulaması kullanabilirsiniz.
 
-## <a name="redirect-uris"></a>Yeniden Yönlendirme URI'leri
+## <a name="redirect-uris"></a>Yeniden yönlendirme URI'leri
 
 Yeniden yönlendirme URI'leri bir masaüstü uygulamasında kullanmak için kullanmak istediğiniz akışı üzerinde yeniden bağlı olacaktır.
 
-- Etkileşimli kimlik doğrulaması kullanıyorsanız, kullanmak isteyeceksiniz `https://login.microsoftonline.com/common/oauth2/nativeclient`. Karşılık gelen URL'yi tıklayarak bu yapılandırma başarıya ulaşırsınız **kimlik doğrulaması** uygulamanız için bölüm
+- Kullanıyorsanız **etkileşimli kimlik doğrulaması** veya **cihaz kod akış**, kullanmak istediğiniz `https://login.microsoftonline.com/common/oauth2/nativeclient`. Karşılık gelen URL'yi tıklayarak bu yapılandırma başarıya ulaşırsınız **kimlik doğrulaması** uygulamanız için bölüm
   
   > [!IMPORTANT]
   > Bugün Windows üzerinde çalışan masaüstü uygulamalarda varsayılan olarak başka bir yeniden yönlendirme URI'si MSAL.NET kullanır (`urn:ietf:wg:oauth:2.0:oob`). Gelecekte bu varsayılanı değiştirmek istiyoruz ve bu nedenle kullanmanızı öneririz `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
-- Tümleşik Windows kimlik doğrulaması, kullanıcı adı/parola veya cihaz kod akışı, uygulamanızı yalnızca kullanıyorsanız, uygulamanız için bir yeniden yönlendirme URI'si kaydetme gerekmez. Aslında bu akışlar Microsoft kimlik platformu v2.0 uç noktasına bir gidiş dönüş yapmak ve uygulamanızın belirli tüm URI üzerinde geri çağrılması olmaz. Bir ayrım yapmak için bunları sahip gizli bir istemci uygulama akışını yeniden yönlendirme URI'leri (arka plan programı uygulamalarında kullanılan ya da istemci kimlik bilgileri akışı), uygulamanızın genel istemci uygulaması olduğunu express gerekir. Bu yapılandırma sayfasına gidip sağlanır **kimlik doğrulaması** bölümü ve uygulamanız için **Gelişmiş ayarlar** ayrıntılarının öğesini **Evet**, sorusuna **Uygulama genel bir istemci kabul** (içinde **varsayılan istemci türü** paragraf)
+- Uygulamanızı yalnızca kullanıcı adı/parola, tümleşik Windows kimlik doğrulaması kullanıyorsa, uygulamanız için bir yeniden yönlendirme URI'si kaydetme gerekmez. Aslında bu akışlar Microsoft kimlik platformu v2.0 uç noktasına bir gidiş dönüş yapmak ve uygulamanızın belirli tüm URI üzerinde geri çağrılması olmaz. 
+- Cihaz kod akışını bir ayrım yapmak için tümleşik Windows kimlik doğrulaması ve kullanıcı adı/parola sahip gizli bir istemci uygulama akışının yeniden yönlendirme URI'leri (arka plan programı uygulamalarında kullanılan ya da istemci kimlik bilgileri akışı), express gerekir Uygulamanızı genel bir istemci uygulaması olduğunu. Bu yapılandırma sayfasına gidip sağlanır **kimlik doğrulaması** bölümü ve uygulamanız için **Gelişmiş ayarlar** ayrıntılarının öğesini **Evet**, sorusuna **Uygulama genel bir istemci kabul** (içinde **varsayılan istemci türü** paragraf)
 
   ![Genel istemci izin ver](media/scenarios/default-client-type.png)
 

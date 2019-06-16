@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409277"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Bulut ve bölgelerde hangi Azure Media Services v3 var.
@@ -26,9 +26,9 @@ Azure Media Services v3, Azure Resource Manager bildiriminde genel Azure, Azure 
 
 | Özellik|Küresel Azure bölgeleri | Azure Kamu|Azure Almanya|Azure Çin 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Kullanılabilir | Yok | Yok | Yok |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Kullanılabilir | Yok | Yok | Yok |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Kullanılabilir | Yok | Yok | Yok |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Kullanılabilir | Kullanılamaz | Kullanılamaz | Kullanılamaz |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Kullanılabilir | Kullanılamaz | Kullanılamaz | Kullanılamaz |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Kullanılabilir | Kullanılamaz | Kullanılamaz | Kullanılamaz |
 | [StandardEncoderPreset](encoding-concept.md) | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
 | [LiveEvents](live-streaming-overview.md) | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
 | [Akış](streaming-endpoint-concept.md) | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
@@ -64,7 +64,7 @@ Bir kez yukarıda gösterilen tüm Azure bölgelerinde listesini alma satırı �
 
 Aşağıdaki uç noktaların Media Services hesapları için farklı Ulusal Azure bulutlarına bağlanırken bilmek önemlidir.
 
-### <a name="global-azure"></a>Küresel Azure
+### <a name="global-azure"></a>Genel Azure
 
 |Uç Noktalar ||
 | --- | --- | 

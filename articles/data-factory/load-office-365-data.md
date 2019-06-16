@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
 ms.openlocfilehash: fe3a3b673f6512856f3640b3e103db8623570a88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60548286"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Office 365'ten veri yükleme
@@ -32,7 +32,7 @@ Bu makalede Data factory'yi gösterilmektedir _veri yükleme Office 365'ten Azur
       
    ![Yeni veri fabrikası sayfası](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Ad**: Azure data factory'nizi için genel olarak benzersiz bir ad girin. Hatasını alırsanız "veri fabrikası adı \"LoadFromOffice365Demo\" kullanılabilir değil," veri fabrikası için farklı bir ad girin. Örneğin, adı kullanabilirsiniz  _**adınız**_**LoadFromOffice365Demo**. Veri Fabrikası oluşturmayı yeniden deneyin. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
+    * **Ad**: Azure data factory'nizi için genel olarak benzersiz bir ad girin. Hatasını alırsanız "veri fabrikası adı \"LoadFromOffice365Demo\" kullanılabilir değil," veri fabrikası için farklı bir ad girin. Örneğin, adı kullanabilirsiniz  _**adınız**_ **LoadFromOffice365Demo**. Veri Fabrikası oluşturmayı yeniden deneyin. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
     * **Abonelik**: Veri fabrikasının oluşturulacağı Azure aboneliğini seçin. 
     * **Kaynak grubu**: Aşağı açılan listeden mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur** seçenek ve bir kaynak grubu adını girin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
     * **Sürüm**: Seçin **V2**.
@@ -119,7 +119,7 @@ Ayrıca sağ üst köşede kod tıklayarak işlem hattı çalıştırmasıyla il
 
 Üst araç çubuğunda, seçin **tümünü Yayımla**. Bu eylem, oluşturduğunuz varlıkları (veri kümeleri ve işlem hatları) Data Factory'de yayımlar.
 
-![Değişiklikleri yayımla](./media/load-office-365-data/publish-changes.png) 
+![Değişiklikleri Yayımla](./media/load-office-365-data/publish-changes.png) 
 
 ## <a name="trigger-the-pipeline-manually"></a>İşlem hattını el ile tetikleme
 
@@ -137,7 +137,7 @@ Git **İzleyici sekmesi** soldaki. El ile tetikleme tarafından tetiklenmiş bir
 
 Bu ilk kez kullanıyorsanız, bu bağlam için verileri isteyen (veri erişimi tablo olmasından, hangi hedef hesap, içine yüklenen verilerdir ve hangi kullanıcı kimliğini veri yapıyor birlikte erişim isteği), kopyalama etkinliği görürsünüz. Durum olarak "**sürüyor**", yalnızca öğesini Eylemler altında "Details" bağlantısına tıkladığınızda, durum olarak görürsünüz "**RequesetingConsent**".  Veri erişim onaylayan grubunun bir üyesi, Privileged Access Management istekte veri ayıklama devam etmeden önce onaylamanız gerekir.
 
-_İstekte bulunan onay olarak durumu:_
+_İstekte bulunan onay olarak durumu:_ 
 ![Etkinlik yürütme ayrıntıları - istek onayı](./media/load-office-365-data/activity-details-request-consent.png) 
 
 _Veri çıkarma olarak durumu:_

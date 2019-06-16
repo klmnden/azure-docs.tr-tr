@@ -17,10 +17,10 @@ ms.date: 08/22/2017
 ms.author: aelnably
 ms.custom: seodec18
 ms.openlocfilehash: 21f6963fbaada4524f27602454d38e7252a5e8b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60850093"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Azure CLI kullanarak kapsayıcılar için Web uygulamasını yönetme
@@ -108,5 +108,5 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [Linux üzerinde Azure App Service nedir?](app-service-linux-intro.md)
 * [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell'i (Önizleme)](../../cloud-shell/overview.md)
-* [Azure App Service’te hazırlık ortamları ayarlama](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Azure App Service ortamlarında hazırlık ayarlama](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Kapsayıcılar için Web App ile sürekli dağıtım](app-service-linux-ci-cd.md)

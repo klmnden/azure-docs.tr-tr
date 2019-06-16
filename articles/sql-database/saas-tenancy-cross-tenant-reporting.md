@@ -13,10 +13,10 @@ ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484767"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Kiracılar arası raporlama kullanarak dağıtılmış sorguları
@@ -93,7 +93,7 @@ Tanımını incelemek için *Venues* görüntüle:
 
 1. İçinde **Nesne Gezgini**, genişletme **contosoconcerthall** > **görünümleri**:
 
-   ![görüntüleme](media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Görünümler](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Sağ **dbo. Mekanlar**.
 3. Seçin **betik görünümü olarak** > **için oluşturma** > **yeni sorgu Düzenleyicisi penceresi**
@@ -128,7 +128,7 @@ Dağıtılmış sorguları çalıştırmak için kullanılabilmesi için sonraki
 
     ![Dış veri kaynağı oluşturma](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   Genel görünümler başvuran dış tablolar önceki bölümde açıklanan ve tanımlanmış **dağıtım SHARDED(VenueId) =**. Çünkü her *VenueId* haritalar tek bir veritabanı için bu artırır sonraki bölümde gösterildiği gibi birçok senaryo için performans.
+   Genel görünümler başvuran dış tablolar önceki bölümde açıklanan ve tanımlanmış **dağıtım SHARDED(VenueId) =** . Çünkü her *VenueId* haritalar tek bir veritabanı için bu artırır sonraki bölümde gösterildiği gibi birçok senaryo için performans.
 
     ![Dış tablolar oluşturma](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 

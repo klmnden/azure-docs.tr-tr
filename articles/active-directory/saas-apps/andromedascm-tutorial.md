@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d60ecfff4e634d6a92eaf1022761c2f23167918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68fa570ecfbafe2000bfa6eb9fa159dff48219a6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859095"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107081"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Öğretici: Andromeda ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Andromeda tümleştirmesini yapılandırmak için Andromeda Galeride
 
 **Galeriden Andromeda eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -131,8 +131,8 @@ Azure AD çoklu oturum açma ile Andromeda yapılandırmak için aşağıdaki ad
 
     | Ad | Kaynak özniteliği|
     | ------ | -----------|
-    | rol        | Uygulama belirli bir rolü |
-    | type        | Uygulama Türü |
+    | role        | Uygulama belirli bir rolü |
+    | türü        | Uygulama türü |
     | Şirket       | CompanyName |
 
     > [!NOTE]

@@ -10,14 +10,14 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: ae91deb5b49b0eb202175fdd242ef0d91975bb25
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 27aa0012023f99702cd435f309e44b3330681aee
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798223"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "67134973"
 ---
-#  <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Hızlı Başlangıç: Python için bir video arama Bing Video arama SDK ile gerçekleştirme
+# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Hızlı Başlangıç: Python için bir video arama Bing Video arama SDK ile gerçekleştirme
 
 Haberler için Bing Video arama SDK ile Python için aramaya başlamak için bu Hızlı Başlangıç'ı kullanın. Bing Video arama çoğu programlama dilleri ile uyumlu bir REST API olsa da SDK hizmeti uygulamalarınızla tümleştirmek için kolay bir yol sağlar. Bu örnek için kaynak kodu bulunabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py). Bu, daha fazla ek açıklamalar ve özellikleri içerir.
 
@@ -33,7 +33,7 @@ Bir python kullanmanız önerilir [sanal ortam](https://docs.python.org/3/tutori
 ```console
 python -m venv mytestenv
 ```
-   
+
 Bing Video arama SDK'sı ile yükleyin:
 
 ```console
@@ -50,8 +50,9 @@ python -m pip install azure-cognitiveservices-search-videosearch
     from azure.cognitiveservices.search.videosearch.models import VideoPricing, VideoLength, VideoResolution, VideoInsightModule
     from msrest.authentication import CognitiveServicesCredentials
     ```
+
 2. Abonelik anahtarınız için bir değişken oluşturun. 
-    
+
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
     ```
@@ -60,9 +61,9 @@ python -m pip install azure-cognitiveservices-search-videosearch
 
 `CognitiveServicesCredentials` nesnesinin bir örneğini oluşturun ve istemcinin bir örneğini başlatın:
 
-    ```python
-    client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
-    ```
+```python
+client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
+```
 
 ## <a name="send-a-search-request-and-get-a-response"></a>Bir arama talebi gönderin ve bir yanıt alın
 
@@ -92,5 +93,5 @@ python -m pip install azure-cognitiveservices-search-videosearch
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
-* [Bing Video arama API'si nedir?](../overview.md)
-* [Bilişsel Hizmetler .NET SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+- [Bing Video arama API'si nedir?](../overview.md)
+- [Bilişsel Hizmetler .NET SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e25060152577e7947a78aa0e8d78c85cc7fd2fad
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138333"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı (IDP) kullanın
@@ -26,7 +26,7 @@ ms.locfileid: "65138333"
 Bu belgede bir SAML 2.0 uyumlu SP Lite profili tabanlı kimlik sağlayıcısı, tercih edilen güvenlik belirteci hizmeti (STS) kullanma hakkında bilgi içeren / kimlik sağlayıcısı. Bu senaryo, bir kullanıcı dizini ve SAML 2.0 kullanarak erişilen şirket içinde depolamak parola zaten yararlıdır. Bu varolan bir kullanıcı dizinle oturum açmayı Office 365 ve diğer Azure AD güvenlikli kaynaklara için kullanılabilir. SAML 2.0 SP-Lite profili, bir oturum açma ve öznitelik exchange çerçeve sağlamak için yaygın olarak kullanılan güvenlik onaylama işlemi biçimlendirme dili (SAML) federe kimlik standardını temel alır.
 
 >[!NOTE]
->3. taraf Azure AD ile kullanılmak üzere test edilmiştir IDP listesi için bkz: [Azure AD Federasyonu uyumluluk listesi](how-to-connect-fed-compatibility.md)
+>3\. taraf Azure AD ile kullanılmak üzere test edilmiştir IDP listesi için bkz: [Azure AD Federasyonu uyumluluk listesi](how-to-connect-fed-compatibility.md)
 
 Microsoft tümleştirmesini düzgün bir şekilde yapılandırılmış, SAML 2.0 Idp'yi profili tabanlı ile Office 365 gibi bir Microsoft bulut hizmeti olarak bu oturum açma deneyimini destekler. SAML 2.0 kimlik sağlayıcısı olan üçüncü taraf ürünler ve bu nedenle Microsoft destek dağıtımı için yapılandırma, bunları ilgili en iyi sorun giderme sağlamaz. Bir kez düzgün bir şekilde yapılandırılmış, SAML 2.0 kimlik sağlayıcısı için uygun yapılandırma aşağıda daha ayrıntılı olarak açıklandığı Microsoft bağlantı Çözümleyicisi aracını kullanarak test edilebilir ile tümleştirme. SAML 2.0 SP-Lite profili tabanlı kimlik sağlayıcınız hakkında daha fazla bilgi için sağlanan kuruluş isteyin.
 

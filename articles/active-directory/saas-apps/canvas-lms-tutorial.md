@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7556e93e6e7b7e9bdb1f19f5a6e5b3c15c7b910
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d96d1addf1028c2651ed837f3dab66f12d5d5fcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105858"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Öğretici: Tuval ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de tuvalinin tümleştirmesini yapılandırmak için tuval Galeriden y�
 
 **Galeriden tuval eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
