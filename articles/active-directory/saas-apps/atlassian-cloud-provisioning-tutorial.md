@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant
 ms.openlocfilehash: 4e028429ca8a22915eff2b90ca63c6d05a67741b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64692230"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Öğretici: Atlassian bulut için otomatik kullanıcı hazırlama yapılandırın
@@ -48,7 +48,7 @@ Atlassian bulut için otomatik kullanıcı hazırlama Azure AD'ye yapılandırma
 
 **Azure AD uygulama galerisinden Atlassian bulut eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde seçin **Azure Active Directory**.
+1. İçinde  **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde seçin **Azure Active Directory**.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -115,7 +115,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
     ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
-7. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD, Atlassian buluta bağlanabilirsiniz. Bağlantı başarısız olursa, Atlassian bulut hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
+7. 5\. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD, Atlassian buluta bağlanabilirsiniz. Bağlantı başarısız olursa, Atlassian bulut hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
     ![Atlassian bulut sağlama](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
 

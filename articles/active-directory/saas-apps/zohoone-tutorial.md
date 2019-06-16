@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: c731919baf3acc8cedfb31c088f9a0a12791251c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0a37789e7c7efeb71770ff0e8061d57e6603b6c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Öğretici: Azure Active Directory tümleştirmesiyle Zoho bir
 
@@ -53,7 +53,7 @@ Azure AD'de, Zoho bir tümleştirmesini yapılandırmak için Zoho bir Galeriden
 
 **Galeriden bir Zoho eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -174,7 +174,7 @@ Azure AD çoklu oturum açma Zoho bir ile yapılandırmak için aşağıdaki ad�
 
     a. İçinde **etki alanı adı** metin türü etki alanı contoso.com gibi.
 
-    b. **Ekle**'ye tıklayın.
+    b. **Ekle**'yi tıklatın.
 
     >[!Note]
     >Etki alanı izleme ekledikten sonra [bunlar](https://www.zoho.com/one/help/admin-guide/domain-verification.html) adımları etki alanınızı doğrulayın. Etki alanı doğrulandıktan sonra etki alanı adınızı kullanmak **oturum açma URL'si** içinde **temel SAML yapılandırma** bölümü Azure Portalı'nda.
@@ -252,7 +252,7 @@ One Zoho oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunla
     >[!Note]
     >Doğrulanmış etki alanınızın etki alanı listeden seçin.
 
-    c. **Ekle**'ye tıklayın.
+    c. **Ekle**'yi tıklatın.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 

@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
 ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035769"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>El ile yüklemek veya portaldan Azure işlevleri bağlama uzantıları güncelleştirme
@@ -30,7 +30,7 @@ El ile yüklemek veya portalından Uzantıları'nı güncelleştirmek için aşa
 
 1. İçinde [Azure portalında](https://portal.azure.com), işlev uygulamanızı bulun ve seçin. Seçin **genel bakış** sekmenize **Durdur**.  Böylece değişiklik yapılabilmesi için işlev uygulaması durduruluyor dosyaları kilidini açar.
 
-1. Seçin **Platform özellikleri** sekmesi altında **geliştirme araçları** seçin **Gelişmiş araçlar (Kudu)**. Kudu uç noktası (`https://<APP_NAME>.scm.azurewebsites.net/`) yeni bir pencerede açılır.
+1. Seçin **Platform özellikleri** sekmesi altında **geliştirme araçları** seçin **Gelişmiş araçlar (Kudu)** . Kudu uç noktası (`https://<APP_NAME>.scm.azurewebsites.net/`) yeni bir pencerede açılır.
 
 1. Kudu penceresinde **hata ayıklama konsoluna** > **CMD**.  
 

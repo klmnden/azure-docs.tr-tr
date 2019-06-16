@@ -41,7 +41,7 @@ sections:
           - title: Zamana bağlı tablolar
             href: /azure/sql-database/sql-database-temporal-tables
             html: <p>İzleme ve verilerinizdeki değişiklikleri tam geçmişini analiz edin.</p>
-  - title: Diğer kaynaklar
+  - title: Daha fazla kaynak
     items:
       - type: list
         style: ordered

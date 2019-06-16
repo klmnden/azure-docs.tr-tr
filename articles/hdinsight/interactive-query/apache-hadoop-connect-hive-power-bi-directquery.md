@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: fb4e16c8be5344c5b9947758b6a09845b470196d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65801004"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Doğrudan sorgu kullanarak Azure HDInsight Microsoft Power BI ile etkileşimli sorgu Apache Hive verileri Görselleştirme
@@ -27,7 +27,7 @@ Yararlanabileceğiniz [Apache Hive ODBC sürücüsünü](../hadoop/apache-hadoop
 Bu makalede geçmeden önce aşağıdaki öğelere sahip olmanız gerekir:
 
 * **HDInsight küme**. Küme, Apache Hive ile bir HDInsight kümesi ya da yeni yayımlanmış bir etkileşimli sorgu kümesi olabilir. Kümeleri oluşturmak için bkz: [küme oluştur](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. Bir kopyasından indirebileceğiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
+* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** . Bir kopyasından indirebileceğiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## <a name="load-data-from-hdinsight"></a>HDInsight yük verileri
 
@@ -49,7 +49,7 @@ Bu makalede geçmeden önce aşağıdaki öğelere sahip olmanız gerekir:
 
     |Özellik | Değer |
     |---|---|
-    |Sunucu  |Küme adını girin, örneğin *myiqcluster.azurehdinsight.net*.|
+    |Sunucusu |Küme adını girin, örneğin *myiqcluster.azurehdinsight.net*.|
     |Database |Girin **varsayılan** Bu makale için.|
     |Veri bağlantısı modu |Seçin **DirectQuery** Bu makale için.|
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943150"
 ---
 <a name="web-analytics"></a>Web analizi
@@ -71,7 +71,7 @@ Kampanyalarınızın müşterileri Market'te göndermeye devam eder, trafiği y�
     2.  Giriş sayfası URL'si = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. Kullanıcı \"deneyin my ürün\" bağlamak ve Appsource'ta geçer.
     1. Başvuru URL =  <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. Giriş sayfası URL'si (**bu URL'yi utm olduğundan emin olun\_kampanya ve utm\_bu URL'ye eklenen kaynak**) = [ https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_kampanya MyCampaignAdName = & utm\_kaynak MySourceAdName =**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. Giriş sayfası URL'si (**bu URL'yi utm olduğundan emin olun\_kampanya ve utm\_bu URL'ye eklenen kaynak**) = [ https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_ kampanya MyCampaignAdName = & utm\_ kaynak MySourceAdName =** ](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Bir kampanya başarısını değerlendirme
 -----------------------------------------

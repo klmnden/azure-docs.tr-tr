@@ -1,19 +1,19 @@
 ---
-title: Azure hizmet durumu uyarıları PagerDuty ile yapılandırma | Microsoft Docs
+title: Azure hizmet durumu uyarıları göndermek PagerDuty ile Web kancalarını kullanma
 description: PagerDuty Örneğiniz için hizmet durumu olayları hakkında Kişiselleştirilmiş bildirimler alın.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: b78c155fb2f3a13c27f4ff71c4dd37df2dbd2f36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621016"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067145"
 ---
-# <a name="configure-service-health-alerts-with-pagerduty"></a>PagerDuty ile hizmet sistem durumu uyarılarını yapılandırma
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Azure hizmet durumu uyarıları göndermek PagerDuty ile Web kancalarını kullanma
 
 Bu makalede, bir Web kancası kullanarak PagerDuty aracılığıyla Azure hizmet durumu bildirimlerini ayarlama işlemini göstermektedir. Kullanarak [PagerDuty](https://www.pagerduty.com/)ait özel Microsoft Azure tümleştirme türü, hizmet durumu uyarıları, yeni veya mevcut PagerDuty hizmetlerinizi kolayca ekleyebilirsiniz.
 

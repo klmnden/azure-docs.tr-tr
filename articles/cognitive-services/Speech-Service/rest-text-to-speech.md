@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 59155b41906ffd401b971bee1248a225d0c33657
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237104"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072461"
 ---
 # <a name="text-to-speech-rest-api"></a>Metin okuma REST API
 
@@ -45,8 +45,8 @@ Bu API kullanmadan önce anlayın:
 | Bölge | Uç Nokta |
 |--------|----------|
 | Avustralya Doğu | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Brezilya Güney | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Kanada Orta | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Güney Brezilya | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Orta Kanada | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Orta ABD | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Doğu Asya | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Doğu ABD | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -59,7 +59,7 @@ Bu API kullanmadan önce anlayın:
 | Kuzey Avrupa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Orta Güney ABD | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Güneydoğu Asya | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| BK Güney | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Birleşik Krallık Güney | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Batı Avrupa | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Batı ABD | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Batı ABD 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -68,7 +68,7 @@ Bu API kullanmadan önce anlayın:
 
 Bu tablo, metin okuma istekleri için gerekli ve isteğe bağlı üst bilgileri listeler.
 
-| Üst bilgi | Açıklama | Gerekli / isteğe bağlı |
+| Üstbilgi | Açıklama | Gerekli / isteğe bağlı |
 |--------|-------------|---------------------|
 | `Authorization` | Bir yetkilendirme belirteci word tarafından öncesinde `Bearer`. Daha fazla bilgi için bkz. [Kimlik doğrulaması](#authentication). | Gerekli |
 
@@ -159,7 +159,7 @@ Bu bölgeler, REST API kullanarak metin okuma için desteklenir. Eşleşen abone
 
 Bu tablo, metin okuma istekleri için gerekli ve isteğe bağlı üst bilgileri listeler.
 
-| Üst bilgi | Açıklama | Gerekli / isteğe bağlı |
+| Üstbilgi | Açıklama | Gerekli / isteğe bağlı |
 |--------|-------------|---------------------|
 | `Authorization` | Bir yetkilendirme belirteci word tarafından öncesinde `Bearer`. Daha fazla bilgi için bkz. [Kimlik doğrulaması](#authentication). | Gerekli |
 | `Content-Type` | Sağlanan metin için içerik türünü belirtir. Kabul değeri: `application/ssml+xml`. | Gerekli |
@@ -168,7 +168,7 @@ Bu tablo, metin okuma istekleri için gerekli ve isteğe bağlı üst bilgileri 
 
 ### <a name="audio-outputs"></a>Ses çıkarır
 
-Bu, her isteği olarak gönderilir ve ses desteklenen biçimler listesini `X-Microsoft-OutputFormat` başlığı. Her bir bit hızı ve kodlama türünü içerir. 24 KHz, 16 KHz konuşma Hizmetleri destekler ve 8 KHz ses çıkarır.
+Bu, her isteği olarak gönderilir ve ses desteklenen biçimler listesini `X-Microsoft-OutputFormat` başlığı. Her bir bit hızı ve kodlama türünü içerir. 24 kHz, 16 kHz konuşma Hizmetleri destekler ve 8 kHz ses çıkarır.
 
 |||
 |-|-|
@@ -181,7 +181,7 @@ Bu, her isteği olarak gönderilir ve ses desteklenen biçimler listesini `X-Mic
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Seçilen ses ve çıkış biçimi farklı bit hızlarında varsa, ses, gerektiği şekilde örneklenmiş. Ancak, 24khz sesleri desteklemeyen `audio-16khz-16kbps-mono-siren` ve `riff-16khz-16kbps-mono-siren` Çıkış biçimleri.
+> Seçilen ses ve çıkış biçimi farklı bit hızlarında varsa, ses, gerektiği şekilde örneklenmiş. Ancak, 24 kHz sesleri desteklemeyen `audio-16khz-16kbps-mono-siren` ve `riff-16khz-16kbps-mono-siren` Çıkış biçimleri.
 
 ### <a name="request-body"></a>İstek gövdesi
 

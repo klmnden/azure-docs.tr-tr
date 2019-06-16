@@ -17,10 +17,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 51694ca085e131150217ffb3fbac9830980108cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62108450"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure’daki bir SQL Server Sanal Makinesi’ne Bağlanma (Klasik Dağıtım)
@@ -58,7 +58,7 @@ Bu senaryoda, sanal Makineyi kullanarak bağlantı kurabilir **adı** (Ayrıca o
 ### <a name="connect-to-sql-server-over-the-internet"></a>Internet üzerinden SQL Server'a bağlanma
 SQL Server veritabanı altyapısına Internet'ten bağlanmak istiyorsanız, gelen TCP iletişimi için bir sanal makine uç noktası oluşturmanız gerekir. Bu Azure yapılandırma adımı, gelen TCP bağlantı noktası trafiğini sanal makinenin erişebildiği bir TCP bağlantı noktasına yönlendirir.
 
-İnternet üzerinden bağlanmak için sanal makinenin DNS adını ve VM uç nokta bağlantı noktası numarasını (Bu makalenin sonraki bölümlerinde yapılandırılmış) kullanmanız gerekir. DNS adını bulmak için Azure portalına gidin ve seçin **sanal makineler (Klasik)**. Ardından, sanal makineyi seçin. **DNS adı** gösterilen **genel bakış** bölümü.
+İnternet üzerinden bağlanmak için sanal makinenin DNS adını ve VM uç nokta bağlantı noktası numarasını (Bu makalenin sonraki bölümlerinde yapılandırılmış) kullanmanız gerekir. DNS adını bulmak için Azure portalına gidin ve seçin **sanal makineler (Klasik)** . Ardından, sanal makineyi seçin. **DNS adı** gösterilen **genel bakış** bölümü.
 
 Örneğin, klasik bir sanal makine adlı düşünün **mysqlvm** DNS adı ile **mysqlvm7777.cloudapp.net** ve bir sanal makine uç noktası **57500**. Düzgün bir şekilde yapılandırılmış bağlantı varsayarsak, aşağıdaki bağlantı dizesi sanal makineyi dilediğiniz yerde erişmek için kullanılabilir internet üzerinde:
 

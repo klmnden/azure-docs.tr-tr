@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 6483fa8737ee3de6a60c4e4646fefec30ae702b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473425"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Azure CLI ile bir özel diskten Linux VM oluşturma
@@ -61,7 +61,7 @@ Aşağıdaki adımların tamamlanması gerekir:
 
 Kendi değerlerinizle örnek parametre adları aşağıdaki örneklerde, aşağıdaki gibi değiştirin *myResourceGroup*, *mystorageaccount*, ve *mydisks*.
 
-<a id="prepimage"> </a>
+<a id="prepimage"></a>
 
 ## <a name="prepare-the-vm"></a>VM’yi hazırlama
 
@@ -82,7 +82,7 @@ Ayrıca bkz: [Linux yükleme notları](create-upload-generic.md#general-linux-in
 > 
 > 
 
-## <a name="option-1-upload-a-vhd"></a>1. seçenek: VHD’yi karşıya yükleme
+## <a name="option-1-upload-a-vhd"></a>1\. seçenek: VHD’yi karşıya yükleme
 
 Sahip olduğunuz bir yerel makinede çalışıyor veya başka bir buluttan dışarı aktardığınız özelleştirilmiş bir VHD'yi karşıya yükleyebilirsiniz. Yeni bir Azure VM oluşturmak için bir VHD kullanmak için bir depolama hesabına VHD yükleyebilirsiniz ve bir VHD'den yönetilen disk oluşturma gerekecektir. Daha fazla bilgi için bkz. [Azure Yönetilen Disklere Genel Bakış](../windows/managed-disks-overview.md).
 
@@ -172,7 +172,7 @@ az disk create \
     --name myManagedDisk \
   --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
-## <a name="option-2-copy-an-existing-vm"></a>2. seçenek: Mevcut bir VM'yi kopyalama
+## <a name="option-2-copy-an-existing-vm"></a>2\. seçenek: Mevcut bir VM'yi kopyalama
 
 Ayrıca Azure'da özel bir VM oluşturun ve ardından işletim sistemi diski kopyalayın ve başka bir kopya oluşturmak için yeni bir VM ekleyin. Bu ama isterseniz var olan bir Azure VM, birden çok yeni VM'ler için model olarak kullanmak, oluşturmak, test etmek için iyi bir *görüntü* yerine. Mevcut bir Azure VM'den görüntü oluşturma hakkında daha fazla bilgi için bkz. [CLI kullanarak Azure VM'deki özel görüntüsünü oluşturma](tutorial-custom-images.md).
 

@@ -16,15 +16,15 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: a4a515f3d669794d5bcdd8fa506a8d3b846db987
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234951"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 
-## <a name="task-3-configure-administrative-group"></a>3. Görev: Yönetici grubu yapılandırma
+## <a name="task-3-configure-administrative-group"></a>3\. Görev: Yönetici grubu yapılandırma
 
 Bu yapılandırma görevi Azure AD dizininizde bir yönetim grubu oluşturun. Bu özel yönetim grubu adı *AAD DC Administrators*. Bu grubun üyeleri, yönetilen etki alanına etki alanı ile birleşik olan makineler üzerinde yönetim izinleri verilir. Etki alanına katılmış makinelerde, bu grubun Yöneticiler grubuna eklenir. Ayrıca, bu grubun üyeleri, etki alanına katılan makineler için uzaktan bağlanmak için Uzak Masaüstü'nü kullanabilirsiniz.
 

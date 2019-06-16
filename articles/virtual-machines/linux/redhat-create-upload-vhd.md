@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: szark
 ms.openlocfilehash: 9d5e9c6c8a104c16d1ff4e96929ff47ed6fd5ff6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966120"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure için Red Hat tabanlı bir sanal makine hazırlama
@@ -33,7 +33,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 **RHEL yükleme notları**
 
 * Azure, VHDX biçimini desteklemiyor. Azure'un destekledikleri yalnızca VHD düzeltildi. Disk VHD biçimine dönüştürmek için Hyper-V Yöneticisi'ni kullanabilirsiniz veya convert-vhd cmdlet'ini kullanabilirsiniz. VirtualBox kullanıyorsanız belirleyin **boyutu sabit** diski oluştururken seçeneği dinamik olarak ayrılan varsayılan aksine.
-* Azure yalnızca 1. kuşak sanal makineleri destekler. 1. nesil sanal makine VHD dosya biçimine VHDX ve bir sabit boyutlu disk için dinamik olarak genişletilen dönüştürebilirsiniz. Bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [Hyper-V'de 1 veya 2. kuşak sanal makine oluşturmalısınız?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Azure yalnızca 1. kuşak sanal makineleri destekler. 1\. nesil sanal makine VHD dosya biçimine VHDX ve bir sabit boyutlu disk için dinamik olarak genişletilen dönüştürebilirsiniz. Bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [Hyper-V'de 1 veya 2. kuşak sanal makine oluşturmalısınız?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 * VHD için izin verilen en büyük boyutu 1,023 GB'dir.
 * Mantıksal birim Yöneticisi (LVM) desteklenir ve işletim sistemi diski veya Azure sanal makineler'de veri diskleri kullanılabilir. Ancak, genel olarak, işletim sistemi diski LVM yerine standart bir bölüm kullanmak için önerilir. Özellikle, hiç olmadığı kadar başka bir özdeş sanal sorun giderme için makine bir işletim sistemi diski gerekiyorsa bu yöntem LVM adı kopyalanan sanal makineler ile çakışıyor uğraşmasına gerek kalmaz. Ayrıca bkz: [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ve [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) belgeleri.
 * Evrensel Disk Biçimi (UDF) dosya sistemleri bağlamak için çekirdek desteği gereklidir. Azure'da ilk önyüklemede Konuk bağlı UDF biçimli medya Linux sanal makinesi için sağlama yapılandırması geçirir. Azure Linux Aracısı yapılandırmasını okuma ve sanal makine sağlamak için UDF dosya sistemi monte etmesini mümkün olması gerekir.

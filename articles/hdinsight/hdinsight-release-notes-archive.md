@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 95a530ea57237453a3b0d7d8dd42963f4b9c3dde
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713050"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight için sürüm notları
@@ -28,7 +28,7 @@ Azure HDInsight, Azure üzerinde açık kaynaklı Apache Hadoop ve Apache Spark 
 
 En yeni güncelleştirmeleri ve özellikleri aşağıdaki kategorilere ayrılır:
 
-*  ***Hadoop ve diğer açık kaynaklı projelerin güncelleştirme*** – 20 + açık kaynak projeleri, bu güncelleştirmeyi içeren yeni bir sürümü arasında hata düzeltmeleri 1000 + yanı sıra **Spark (2.3)** ve **Kafka (1.0)**.
+*  ***Hadoop ve diğer açık kaynaklı projelerin güncelleştirme*** – 20 + açık kaynak projeleri, bu güncelleştirmeyi içeren yeni bir sürümü arasında hata düzeltmeleri 1000 + yanı sıra **Spark (2.3)** ve **Kafka (1.0)** .
 
     a.  [**Apache Spark 2.3 yeni özellikler**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
@@ -134,7 +134,7 @@ Bu sürüm, Hadoop ortak 2.7.3 ve aşağıdaki Apache düzeltme ekleri sağlar:
 
 -   [YARN-7697](https://issues.apache.org/jira/browse/YARN-7697): Günlük toplama tamamlansa bile günlükleri için tamamlanmış uygulamayı başarısız getiriliyor.
 
-2.6.4 Hadoop ortak 2.7.3 ve aşağıdaki Apache düzeltme ekleri sağlanan HDP:
+2\.6.4 Hadoop ortak 2.7.3 ve aşağıdaki Apache düzeltme ekleri sağlanan HDP:
 
 -   [HADOOP 13700](https://issues.apache.org/jira/browse/HADOOP-13700): Unthrown Ioexception TrashPolicy kaldırmak\#başlatmak ve \#GetInstance imzalar.
 
@@ -528,7 +528,7 @@ Bu sürüm, Kafka 1.0.0 ve aşağıdaki Apache düzeltme sağlar.
 
 ### <a name="mahout"></a>Mahout
 
-HDP 2.3.x ve Mahout, belirli bir Apache sürümünü aktarma yerine 2.4.x, biz bir Apache Mahout santral belirli bir gözden geçirme noktasına eşitlendi. 0.9.0 yayın, ancak önce 0.10.0 yayın sonra bu değişiklik noktasıdır. Bu, çok sayıda hata düzeltmesi sağlar ve 0.9.0 üzerinden işlevsel iyileştirmeler için yayın, ancak bu kararlı bir sürüm 0.10.0 yeni Spark tabanlı Mahout tam dönüştürmeden önce Mahout işlevsellik sağlar.
+HDP 2.3.x ve Mahout, belirli bir Apache sürümünü aktarma yerine 2.4.x, biz bir Apache Mahout santral belirli bir gözden geçirme noktasına eşitlendi. 0\.9.0 yayın, ancak önce 0.10.0 yayın sonra bu değişiklik noktasıdır. Bu, çok sayıda hata düzeltmesi sağlar ve 0.9.0 üzerinden işlevsel iyileştirmeler için yayın, ancak bu kararlı bir sürüm 0.10.0 yeni Spark tabanlı Mahout tam dönüştürmeden önce Mahout işlevsellik sağlar.
 
 Mahout HDP içinde için seçilen düzeltme noktası 2.3.x 2.4.x ise, Apache Mahout, 19 Aralık 2014'ten itibaren "mahout 0.10.x sürümü" dalından düzeltme 0f037cb03e77c096 github'da.
 
@@ -822,73 +822,73 @@ Bu bölüm, tüm yaygın güvenlik açıklarına ve bu sürümde giderilen expos
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **Özet:** Apache Ranger ilke değerlendirmesi yok sayar karakterden sonra '\*' joker karakter |
+| **Özet:**  Apache Ranger ilke değerlendirmesi yok sayar karakterden sonra '\*' joker karakter |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Önem derecesi:** kritik                                                                           |
-| **Satıcı:** Hortonworks                                                                          |
-| **Sürümleri etkilenen:** Apache ranger'ın sürümleri 0.5.x/0.6.x/0.7.0 dahil olmak üzere, HDInsight 3.6 sürümleri     |
-| **Etkilenen kullanıcılar:** sonra karakterlerle Ranger ilkelerini kullanan ortamlar '\*' joker karakter – gibi my\*, test\*.txt |
-| **Etkisi:** ilke kaynak Eşleştiricisi yoksayar karakterden sonra '\*' joker karakter, istenmeyen davranışlara neden olabilir.      |
-| **Ayrıntı düzeltin:** Ranger İlkesi kaynak Eşleştiricisi için joker karakter eşleşen doğru bir şekilde işlemek için güncelleştirilmiştir.           |
-| **Önerilen eylem:** yükseltme HDI 3.6 (ile Apache Ranger 0.7.1+).                                |
+| **Önem derecesi:**  kritik                                                                           |
+| **Satıcı:**  Hortonworks                                                                          |
+| **Sürümleri etkilenen:**  Apache ranger'ın sürümleri 0.5.x/0.6.x/0.7.0 dahil olmak üzere, HDInsight 3.6 sürümleri     |
+| **Etkilenen kullanıcılar:**  sonra karakterlerle Ranger ilkelerini kullanan ortamlar '\*' joker karakter – gibi my\*, test\*.txt |
+| **Etkisi:**  ilke kaynak Eşleştiricisi yoksayar karakterden sonra '\*' joker karakter, istenmeyen davranışlara neden olabilir.      |
+| **Ayrıntı düzeltin:**  Ranger İlkesi kaynak Eşleştiricisi için joker karakter eşleşen doğru bir şekilde işlemek için güncelleştirilmiştir.           |
+| **Önerilen eylem:**  yükseltme HDI 3.6 (ile Apache Ranger 0.7.1+).                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **Özet:** dış konuma belirtildiğinde, Apache Ranger Hive yetkilendirici RWX iznini kontrol etmelidir |
+| **Özet:**  dış konuma belirtildiğinde, Apache Ranger Hive yetkilendirici RWX iznini kontrol etmelidir |
 |--------------------------------------------------------------------------------------------------|
-| **Önem derecesi:** kritik                                                                           |
-| **Satıcı:** Hortonworks                                                                          |
-| **Sürümleri etkilenen:** Apache ranger'ın sürümleri 0.5.x/0.6.x/0.7.0 dahil olmak üzere, HDInsight 3.6 sürümleri |
-| **Etkilenen kullanıcılar:** dış konumu için ortamları hive tabloları |
-| **Etkisi:** dış konuma için hive tablolarını kullanma ortamlarda oluşturma tablo için belirtilen dış konuma RWX iznini için Apache Ranger Hive yetkilendirici denetlemeniz gerekir. |
-| **Ayrıntı düzeltin:** Ranger Hive yetkilendirici dış konuma izni denetimiyle doğru bir şekilde işlemek için güncelleştirilmiştir. |
-| **Önerilen eylem:** kullanıcılar (ile Apache Ranger 0.7.1+) HDI 3.6 için yükseltmeniz. |
+| **Önem derecesi:**  kritik                                                                           |
+| **Satıcı:**  Hortonworks                                                                          |
+| **Sürümleri etkilenen:**  Apache ranger'ın sürümleri 0.5.x/0.6.x/0.7.0 dahil olmak üzere, HDInsight 3.6 sürümleri |
+| **Etkilenen kullanıcılar:**  dış konumu için ortamları hive tabloları |
+| **Etkisi:**  dış konuma için hive tablolarını kullanma ortamlarda oluşturma tablo için belirtilen dış konuma RWX iznini için Apache Ranger Hive yetkilendirici denetlemeniz gerekir. |
+| **Ayrıntı düzeltin:**  Ranger Hive yetkilendirici dış konuma izni denetimiyle doğru bir şekilde işlemek için güncelleştirilmiştir. |
+| **Önerilen eylem:**  kullanıcılar (ile Apache Ranger 0.7.1+) HDI 3.6 için yükseltmeniz. |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **Özet:** olası kodun yürütülmesini yanlış kullanıcı olarak Apache Storm |
+| **Özet:**  olası kodun yürütülmesini yanlış kullanıcı olarak Apache Storm |
 |--------------------------------------------------------------------------------------------------|
-|**Önem derecesi:** önemli |
-| **Satıcı:** Hortonworks |
-| **Etkilenen sürümleri:** HDP 2.4.0, HDP-2.5.0 HDP 2.6.0 |
-| **Etkilenen kullanıcılar:** Storm güvenli modda kullanmak ve blobdeposu topolojisi dağıtmak için kullandığınız kullanıcı tabanlı yapıtlar veya blobdeposu topolojisi kaynakları dağıtmak için kullanma. |
-| **Etkisi:** bazı durumlar ve storm yapılandırmalarını altında teorik olarak bir topoloji sahibi gözetmen bir çalışan farklı, kök olmayan, bir kullanıcı olarak başlatılacak şekilde mümkündür. En kötü durumda, bu olan bir kullanıcının kimlik bilgilerini güvenli hale getirmek için neden olabilir. Bu güvenlik açığını, yalnızca güvenliği etkinleştirilmiş Apache Storm yüklemeler için geçerlidir. |
-| **Azaltma:** şu anda hiçbir geçici çözümler gibi HDP-2.6.2.1 yükseltin.  |
+|**Önem derecesi:**  önemli |
+| **Satıcı:**  Hortonworks |
+| **Etkilenen sürümleri:**  HDP 2.4.0, HDP-2.5.0 HDP 2.6.0 |
+| **Etkilenen kullanıcılar:**  Storm güvenli modda kullanmak ve blobdeposu topolojisi dağıtmak için kullandığınız kullanıcı tabanlı yapıtlar veya blobdeposu topolojisi kaynakları dağıtmak için kullanma. |
+| **Etkisi:**  bazı durumlar ve storm yapılandırmalarını altında teorik olarak bir topoloji sahibi gözetmen bir çalışan farklı, kök olmayan, bir kullanıcı olarak başlatılacak şekilde mümkündür. En kötü durumda, bu olan bir kullanıcının kimlik bilgilerini güvenli hale getirmek için neden olabilir. Bu güvenlik açığını, yalnızca güvenliği etkinleştirilmiş Apache Storm yüklemeler için geçerlidir. |
+| **Azaltma:**  şu anda hiçbir geçici çözümler gibi HDP-2.6.2.1 yükseltin.  |
 
 ### <a name="cve-2016-4970"></a>**CVE 2016 4970**
 
-| **Özet:** handler/ssl/OpenSslEngine.java 4.0.37.Final ve (sonsuz döngü) hizmet reddine neden olma uzak saldırganlara 4.1.1.Final izin vermeden önce 4.1.x önce Netty 4.0.x sürümü içinde |
+| **Özet:**  handler/ssl/OpenSslEngine.java 4.0.37.Final ve (sonsuz döngü) hizmet reddine neden olma uzak saldırganlara 4.1.1.Final izin vermeden önce 4.1.x önce Netty 4.0.x sürümü içinde |
 |--------------------------------------------------------------------------------------------------|
 | **Önem derecesi:** Orta  |
-| **Satıcı:** Hortonworks  |
-| **Etkilenen sürümleri:** HDP 2.x.x 2.3.x beri  |
-| **Etkilenen kullanıcılar:** HDFS kullanan tüm kullanıcılar. |
-| **Etkisi:** etkisidir düşük olarak Hortonworks doğrudan Hadoop kod temelinde OpenSslEngine.java kullanmaz.     |
-| **Önerilen eylem:** 2.6.3 HDP için yükseltin.   |
+| **Satıcı:**  Hortonworks  |
+| **Etkilenen sürümleri:**  HDP 2.x.x 2.3.x beri  |
+| **Etkilenen kullanıcılar:**  HDFS kullanan tüm kullanıcılar. |
+| **Etkisi:**  etkisidir düşük olarak Hortonworks doğrudan Hadoop kod temelinde OpenSslEngine.java kullanmaz.     |
+| **Önerilen eylem:**  2.6.3 HDP için yükseltin.   |
 
 ### <a name="cve-2016-8746"></a>**CVE 2016 8746**
 
-| **Özet:** eşleşen ilke değerlendirmesi sorunu Apache Ranger yolu                                                                    |
+| **Özet:**  eşleşen ilke değerlendirmesi sorunu Apache Ranger yolu                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **Önem derecesi:** Normal                                                                                                                   |
+| **Önem derecesi:**  Normal                                                                                                                   |
 | **Satıcı:** Hortonworks                                                                                                                |
-| **Sürümleri etkilenen:** Apache ranger'ın sürümleri 0.6.0/0.6.1/0.6.2 dahil olmak üzere tüm HDP 2.5 sürümleri                                         |
-| **Etkilenen kullanıcılar:** ranger İlkesi Yönetim Aracı'nın tüm kullanıcılar.                                                                         |
-| **Etkisi:** Ranger İlkesi altyapısı bir ilke joker karakterler ve özyinelemeli bayrak içerdiğinde yolları bazı durumlarda yanlış eşleşir. |
+| **Sürümleri etkilenen:**  Apache ranger'ın sürümleri 0.6.0/0.6.1/0.6.2 dahil olmak üzere tüm HDP 2.5 sürümleri                                         |
+| **Etkilenen kullanıcılar:**  ranger İlkesi Yönetim Aracı'nın tüm kullanıcılar.                                                                         |
+| **Etkisi:**  Ranger İlkesi altyapısı bir ilke joker karakterler ve özyinelemeli bayrak içerdiğinde yolları bazı durumlarda yanlış eşleşir. |
 | **Ayrıntı düzeltin:** Düzeltildi: ilke değerlendirme mantığı                                                                                          |
-| **Önerilen eylem:** kullanıcılar HDP 2.5.4+ (ile Apache Ranger 0.6.3+) yükseltme veya HDP 2.6 + (ile Apache Ranger 0.7.0+)         |
+| **Önerilen eylem:**  kullanıcılar HDP 2.5.4+ (ile Apache Ranger 0.6.3+) yükseltme veya HDP 2.6 + (ile Apache Ranger 0.7.0+)         |
 
 ### <a name="cve-2016-8751"></a>**CVE 2016 8751**
 
-| **Özet:** Apache Ranger depolanan siteler arası betik sorunu  |
+| **Özet:**  Apache Ranger depolanan siteler arası betik sorunu  |
 |--------------------------------------------------------------------------------------------------|
-| **Önem derecesi:** Normal |
-| **Satıcı:** Hortonworks |
-| **Sürümleri etkilenen:** Apache ranger'ın sürümleri 0.5.x/0.6.0/0.6.1/0.6.2 dahil olmak üzere tüm HDP 2.3/2.4/2.5 sürümleri  |
-| **Etkilenen kullanıcılar:** ranger İlkesi Yönetim Aracı'nın tüm kullanıcılar. |
-| **Etkisi:** özel ilkesi koşulları girerken Apache ranger'ın bir depolanan siteler arası betik için güvenlik açığı. Yönetici kullanıcılar depolayabileceğiniz bazı rastgele javascript kod yürütmesine normal kullanıcıların oturum açın ve erişim ilkeleri. |
-| **Ayrıntı düzeltin:** eklenen mantığı kullanıcı girişini temizleyin.  |
-| **Önerilen eylem:** kullanıcılar HDP 2.5.4+ (ile Apache Ranger 0.6.3+) yükseltme veya HDP 2.6 + (ile Apache Ranger 0.7.0+)  |
+| **Önem derecesi:**  Normal |
+| **Satıcı:**  Hortonworks |
+| **Sürümleri etkilenen:**  Apache ranger'ın sürümleri 0.5.x/0.6.0/0.6.1/0.6.2 dahil olmak üzere tüm HDP 2.3/2.4/2.5 sürümleri  |
+| **Etkilenen kullanıcılar:**  ranger İlkesi Yönetim Aracı'nın tüm kullanıcılar. |
+| **Etkisi:**  özel ilkesi koşulları girerken Apache ranger'ın bir depolanan siteler arası betik için güvenlik açığı. Yönetici kullanıcılar depolayabileceğiniz bazı rastgele javascript kod yürütmesine normal kullanıcıların oturum açın ve erişim ilkeleri. |
+| **Ayrıntı düzeltin:**  eklenen mantığı kullanıcı girişini temizleyin.  |
+| **Önerilen eylem:**  kullanıcılar HDP 2.5.4+ (ile Apache Ranger 0.6.3+) yükseltme veya HDP 2.6 + (ile Apache Ranger 0.7.0+)  |
 
 ## <a name="fixed-issues-for-support"></a>Giderilen sorunlar için destek
 
@@ -1035,7 +1035,7 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-98353              | [HADOOP 13707](https://issues.apache.org/jira/browse/HADOOP-13707)                                                                                                                                         | "HTTP SPNEGO değil yapılandırılırken kerberos etkinleştirilirse, bazı bağlantılar erişilemiyor" geri                 |
 | HATA-98372              | [HBASE 13848](https://issues.apache.org/jira/browse/HBASE-13848)                                                                                                                                           | Kimlik bilgisi sağlayıcısı API aracılığıyla erişim InfoServer SSL şifrelerini                                                        |
 | HATA-98385              | [ATLAS 2500](https://issues.apache.org/jira/browse/ATLAS-2500)                                                                                                                                             | Ek üst bilgilere Atlas yanıt olarak ekleyin.                                                                             |
-| HATA-98564              | [HADOOP 14651](https://issues.apache.org/jira/browse/HADOOP-14651)                                                                                                                                         | 2.7.5 okhttp sürüme güncelleştirme                                                                                        |
+| HATA-98564              | [HADOOP 14651](https://issues.apache.org/jira/browse/HADOOP-14651)                                                                                                                                         | 2\.7.5 okhttp sürüme güncelleştirme                                                                                        |
 | HATA-99440              | [RANGER 2045](https://issues.apache.org/jira/browse/RANGER-2045)                                                                                                                                           | Tablo sütunlarını içermeyen hive açık İlkesi, 'desc table' komutuyla listelenen izin ver                                 |
 | HATA-99803              | Yok                                                                                                                                                                                                        | Oozie HBase dinamik sınıfı yükleme devre dışı bırakmanız gerekir                                                                      |
 
@@ -1433,7 +1433,7 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 
     -   <https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations>
 
-## <a name="upgrading"></a>Yükseltiliyor
+## <a name="upgrading"></a>Yükseltme
 
 Bu özelliklerin tümü, HDInsight 3.6 içinde kullanılabilir. Spark, Kafka ve R Server (Machine Learning Hizmetleri) en son sürümünü almak için Spark, Kafka, ML Hizmetleri sürümü seçin, [HDInsight 3.6 kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). ADLS destek almak için bir seçenek olarak ADLS depolama türünü seçebilirsiniz. Var olan kümeleri için bu sürümleri otomatik olarak yükseltilmeyecek.
 

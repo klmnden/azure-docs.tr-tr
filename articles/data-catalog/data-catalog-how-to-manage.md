@@ -9,14 +9,14 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953104"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Azure veri Kataloğu'nda veri varlıklarını yönetme
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 Böylece kolayca keşfedin ve analiz ve karar vermek için gereken veri kaynaklarını anlama, azure veri Kataloğu veri kaynağı bulma için tasarlanmıştır. Bu bulma özellikleri, sizin ve diğer kullanıcıların bulun ve çeşitli kullanılabilir veri kaynaklarını anlama en büyük etkiyi haline getirir. Bu öğeleri göz önünde görünür ve tüm katalog kullanıcıları tarafından bulunabilir olması tüm kayıtlı veri kaynakları veri Kataloğu'nın varsayılan davranışını içindir.
 
 Veri Kataloğu, veri için erişim sağlamaz. Veri erişimini veri kaynağının sahibi tarafından denetlenir. Veri Kataloğu ile veri kaynaklarını bulmasına ve kataloğa kayıtlı kaynaklarla ilgili meta verileri görüntüleyebilirsiniz.
@@ -38,7 +38,7 @@ Veri Kataloğu'nda bir veri varlığına ait zaman sahipleri tarafından yetkili
 >
 >
 
-### <a name="take-ownership"></a>Sahipliği üstlen
+### <a name="take-ownership"></a>Sahipliği alın
 Kullanıcıların, seçerek veri varlıklarının sahipliğini yapabileceklerinizi **Sahipliği Al** veri Kataloğu portalında seçeneği. Sahipsiz veri varlığı sahipliğini almak için özel izin gerekir. Herhangi bir kullanıcı, bir sahipsiz veri varlığına sahipliğini alabilir.
 
 ### <a name="add-owners-and-co-owners"></a>Sahipler ve ikincil sahipler ekleyin
@@ -49,7 +49,7 @@ Bir veri varlığına zaten aitse, diğer kullanıcılar yalnızca sahipliği al
 >
 >
 
-### <a name="remove-owners"></a>Sahipleri kaldır
+### <a name="remove-owners"></a>Sahipleri Kaldır
 Herhangi bir varlık sahibi ikincil sahipler eklemeniz yeterlidir gibi tüm ikincil sahip herhangi bir varlık sahibi kaldırabilirsiniz.
 
 Sahip olarak kendilerini kaldırır bir varlık sahibi artık varlık yönetebilirsiniz. Varlık sahibi kendilerini bir sahibi olarak kaldırır ve diğer ikincil sahipleri, varlık sahipsiz durumuna geri döner.

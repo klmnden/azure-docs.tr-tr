@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: cf9356c2792781558c4403608ff5de0e3aaddb6a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 9339d891e8fe895f598e1a2615fcfa66b053b3e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254461"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063845"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service için Linux Java uygulaması yapılandırma
 
@@ -480,9 +480,7 @@ Linux için App Service, yönetilen Java web uygulamalarını barındırmak içi
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK sürümleri ve Bakım
 
-Azure'nın desteklenen Java Development Kit (JDK) olan [Zulu](https://www.azul.com/downloads/azure-only/zulu/) aracılığıyla sağlanan [Azul Systems](https://www.azul.com/).
-
-Ana sürüm güncelleştirmeleri Linux için Azure App service'taki yeni çalışma zamanı seçenekleri aracılığıyla sağlanır. Müşteriler, App Service dağıtımı yapılandırarak Java daha yeni sürümleri için güncelleştirme ve test etmeden sorumlu ve ihtiyaçlarını karşılayan önemli güncelleştirme sağlama.
+OpenJDK olan Azul Zulu Enterprise yapılar OpenJDK Azure ve Microsoft ve Azul sistemleri tarafından desteklenen Azure Stack için ücretsiz, çok platformlu, üretime hazır bir dağıtımını ' dir. Bunlar, oluşturma ve Java SE uygulamaları çalıştırmak için tüm bileşenleri içerir. JDK'den yükleyebileceğiniz [Java JDK yükleme](https://aka.ms/azure-jdks).
 
 Desteklenen JDK otomatik olarak üç aylık olarak Ocak, Nisan, Temmuz ve Ekim her yıl düzeltme eki.
 
@@ -493,18 +491,6 @@ Azul sistemlerden kullanılabilir olduklarında hemen sonra yamaları ve düzelt
 ### <a name="deprecation-and-retirement"></a>Kullanımdan kaldırma ve devre dışı bırakma
 
 Desteklenen Java Çalışma zamanı kullanımdan kaldırılacak, çalışma zamanı kullanımdan önce en az altı ay etkilenen çalışma zamanı kullanan Azure geliştiricileri, kullanımdan kaldırma bildirimi verilir.
-
-### <a name="local-development"></a>Yerel geliştirme
-
-Geliştiriciler, üretim sürümü, Azul Zulu Enterprise JDK yerel geliştirme için indirebileceği [Azul'ın indirme sitesinde](https://www.azul.com/downloads/azure-only/zulu/).
-
-### <a name="development-support"></a>Geliştirme desteği
-
-Ürün desteği [Azure tarafından desteklenen Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) Azure için geliştirmeye aracılığıyla kullanılabilir veya [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) ile bir [Azure destek planı koşullu](https://azure.microsoft.com/support/plans/).
-
-### <a name="runtime-support"></a>Çalışma zamanı desteği
-
-Geliştiriciler şunları yapabilir [bir sorun açın](/azure/azure-supportability/how-to-create-azure-support-request) oluşturulduysa Azure desteği aracılığıyla Azul Zulu JDK ile bir [tam destek planı](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

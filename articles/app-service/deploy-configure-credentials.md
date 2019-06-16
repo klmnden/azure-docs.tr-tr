@@ -14,10 +14,10 @@ ms.date: 03/10/2019
 ms.author: cephalin;byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: b054e56afdec65ac000b0dc18a0c1a3fd845b4c3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955986"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service için dağıtım kimlik bilgilerini yapılandırma
@@ -33,7 +33,7 @@ Bir uygulamanın kullanıcı düzeyinde kimlik bilgilerinizi yapılandırabilece
 
 Kullanıcı düzeyinde kimlik bilgilerinizi yapılandırmak için:
 
-1. İçinde [Azure portalında](https://portal.azure.com), soldaki menüden **uygulama hizmetleri** > **&lt;any_app >** > **dağıtım Merkezi** > **dağıtım kimlik bilgileri**.
+1. İçinde [Azure portalında](https://portal.azure.com), soldaki menüden **uygulama hizmetleri** >  **&lt;any_app >**  > **dağıtım Merkezi** > **dağıtım kimlik bilgileri**.
 
     Portalda dağıtım kimlik bilgileri sayfasında erişebilmeniz için önce en az bir uygulama olmalıdır. Bununla birlikte, [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), mevcut bir uygulamayı olmadan kullanıcı düzeyinde kimlik yapılandırabilirsiniz.
 
@@ -63,7 +63,7 @@ Kullanıcı düzeyinde kimlik, kullanıcı ve belirli bir kaynağa bağlı oldu�
 ## <a name="appscope"></a>Alma ve uygulama düzeyinde kimlik bilgilerini sıfırlama
 Uygulama düzeyinde kimlik bilgilerini almak için:
 
-1. İçinde [Azure portalında](https://portal.azure.com), soldaki menüden **uygulama hizmetleri** > **&lt;any_app >** > **dağıtım Merkezi** > **dağıtım kimlik bilgileri**.
+1. İçinde [Azure portalında](https://portal.azure.com), soldaki menüden **uygulama hizmetleri** >  **&lt;any_app >**  > **dağıtım Merkezi** > **dağıtım kimlik bilgileri**.
 
 2. Tıklayın **uygulama kimlik**, tıklatıp **kopyalama** kullanıcı adı veya parola kopyalamak için bağlantı.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: d018ce4164c50f5d21c8ab3e833bba7055ad9753
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66385039"
 ---
 # <a name="connect-your-f5-appliance"></a>F5 gerecinize bağlanma
@@ -32,7 +32,7 @@ Azure Gözcü herhangi bir F5 gereç Syslog CEF günlük dosyalarını kaydedere
 > [!NOTE]
 > Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
-## <a name="step-1-connect-your-f5-appliance-using-an-agent"></a>1. adım: F5 gerecinize bir aracı kullanarak bağlanma
+## <a name="step-1-connect-your-f5-appliance-using-an-agent"></a>1\. adım: F5 gerecinize bir aracı kullanarak bağlanma
 
 Azure Gözcü için F5 cihazınıza bağlanmak için adanmış bir makinede bir aracı dağıtmak gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Aracı otomatik olarak veya el ile dağıtabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
 
@@ -99,7 +99,7 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
   3. İlgili şema F5 olayları Log Analytics'te kullanmak için arama **CommonSecurityLog**.
 
  
-## <a name="step-2-forward-f5-logs-to-the-syslog-agent"></a>2. adım: F5 günlükleri Syslog aracıya ilet
+## <a name="step-2-forward-f5-logs-to-the-syslog-agent"></a>2\. adım: F5 günlükleri Syslog aracıya ilet
 
 F5'e Azure çalışma alanınıza Syslog aracı üzerinden CEF biçiminde Syslog iletilerini iletecek şekilde yapılandırın:
 
@@ -111,7 +111,7 @@ F5'e gidin [uygulama güvenlik olay günlüğü yapılandırma](https://aka.ms/a
   - Ayarlama **tesis** Syslog aracıyı ayarladığınız bir (varsayılan olarak, aracı bu ayarlar **local4**).
   - Ayarlayabileceğiniz **maksimum sorgu dizesi boyutu** aracınızı içinde ayarladığınız boyuta.
 
-## <a name="step-3-validate-connectivity"></a>3. adım: Bağlantıyı doğrula
+## <a name="step-3-validate-connectivity"></a>3\. adım: Bağlantıyı doğrula
 
 Çalınıyor Log Analytics'te görünmesini günlüklerinizi başlatana kadar 20 dakika sürebilir. 
 

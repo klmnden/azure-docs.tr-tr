@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878967"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 kullanmak için en iyi uygulamalar
@@ -27,7 +27,7 @@ Bu makalede, en iyi uygulamalar ve Azure Data Lake depolama Gen1 ile çalışma 
 
 Azure Data Lake depolama Gen1 teklifler POSIX erişim kontrolü ve Azure Active Directory (Azure AD) kullanıcıları, grupları ve hizmet sorumluları için ayrıntılı. Bu erişim denetimleri, mevcut dosya ve klasörler için ayarlanabilir. Erişim denetimleri, yeni dosyalar veya klasörler için uygulanan varsayılan değerleri oluşturmak için de kullanılabilir. Var olan klasörler ve alt nesneleri için ayarlanmış olan izinlere, izinleri yayılan yinelemeli olarak her nesne üzerinde olmanız gerekir. Çok sayıda dosya varsa, izinleri yayılması uzun sürebilir. Geçen süre, saniye başına işlenen 30-50 nesneler arasında değişebilir. Bu nedenle, klasör yapısını ve kullanıcı gruplarını uygun şekilde planlayın. Verilerinizle çalışırken Aksi takdirde, beklenmedik gecikmeler ve sorunları neden olabilir.
 
-100.000 alt nesneleri içeren bir klasör olduğunu kabul edelim. Saniye başına işlenen 30 nesnelerin alt sınır alırsa, tüm klasörün izinlerini güncelleştirmek için bir saat sürebilir. Data Lake depolama Gen1 ACL'ler hakkında daha fazla ayrıntı kullanılabilir [erişim denetimi, Azure Data Lake depolama Gen1](data-lake-store-access-control.md). ACL'ler yinelemeli olarak atama hakkında daha iyi performans için Azure Data Lake komut satırı aracını kullanabilirsiniz. Aracı, birden çok iş parçacığı ve hızlı bir şekilde milyonlarca dosyaya ACL uygulamak için özyinelemeli Gezinti mantığı oluşturur. Araç, Linux ve Windows, kullanılabilir ve [belgeleri](https://github.com/Azure/data-lake-adlstool) ve [indirir](https://aka.ms/adlstool-download) bu araç, Github'da bulunabilir. Bu aynı performans geliştirmeleri ile Data Lake depolama Gen1 yazılan kendi araçları tarafından etkinleştirilebilir [.NET](data-lake-store-data-operations-net-sdk.md) ve [Java](data-lake-store-get-started-java-sdk.md) SDK'ları.
+100\.000 alt nesneleri içeren bir klasör olduğunu kabul edelim. Saniye başına işlenen 30 nesnelerin alt sınır alırsa, tüm klasörün izinlerini güncelleştirmek için bir saat sürebilir. Data Lake depolama Gen1 ACL'ler hakkında daha fazla ayrıntı kullanılabilir [erişim denetimi, Azure Data Lake depolama Gen1](data-lake-store-access-control.md). ACL'ler yinelemeli olarak atama hakkında daha iyi performans için Azure Data Lake komut satırı aracını kullanabilirsiniz. Aracı, birden çok iş parçacığı ve hızlı bir şekilde milyonlarca dosyaya ACL uygulamak için özyinelemeli Gezinti mantığı oluşturur. Araç, Linux ve Windows, kullanılabilir ve [belgeleri](https://github.com/Azure/data-lake-adlstool) ve [indirir](https://aka.ms/adlstool-download) bu araç, Github'da bulunabilir. Bu aynı performans geliştirmeleri ile Data Lake depolama Gen1 yazılan kendi araçları tarafından etkinleştirilebilir [.NET](data-lake-store-data-operations-net-sdk.md) ve [Java](data-lake-store-get-started-java-sdk.md) SDK'ları.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Bireysel kullanıcılar ve güvenlik grupları kullanın
 
@@ -45,7 +45,7 @@ Azure Active Directory Hizmet sorumluları, genellikle Data Lake depolama Gen1 v
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Data Lake depolama Gen1 güvenlik duvarı ile Azure hizmet erişimini etkinleştir
 
-Data Lake depolama Gen1 bir Güvenlik Duvarı'nı ve Azure Hizmetleri için yalnızca dış izinsiz Girişi'dan daha küçük bir saldırı vektörü için önerilen erişimi sınırlandırma seçeneğini destekler. Güvenlik Duvarı, Data Lake depolama Gen1 hesabında Azure portalı üzerinden etkinleştirilebilir **Güvenlik Duvarı** > **etkinleştir Güvenlik Duvarı (açık)** > **azure'a erişmesine izin vermek Hizmetleri** seçenekleri.
+Data Lake depolama Gen1 bir Güvenlik Duvarı'nı ve Azure Hizmetleri için yalnızca dış izinsiz Girişi'dan daha küçük bir saldırı vektörü için önerilen erişimi sınırlandırma seçeneğini destekler. Güvenlik Duvarı, Data Lake depolama Gen1 hesabında Azure portalı üzerinden etkinleştirilebilir **Güvenlik Duvarı** > **etkinleştir Güvenlik Duvarı (açık)**  > **azure'a erişmesine izin vermek Hizmetleri** seçenekleri.
 
 ![Güvenlik Duvarı ayarları, Data Lake depolama Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Güvenlik Duvarı ayarları, Data Lake depolama Gen1")
 

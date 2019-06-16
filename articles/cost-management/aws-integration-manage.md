@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870320"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>AWS maliyetlerinden ve kullanımı Azure ile yönetme
@@ -75,24 +75,24 @@ Bu kapsam hesapları birleşik AWS hesapla ilişkili tüm AWS toplu bir görün�
 
 Aşağıdaki tablo, Grup ve maliyet analizi tarafından filtresi için kullanılabilir boyutları açıklar.
 
-| Boyut | Amazon Yinele üstbilgisi | Kapsamlar | Yorumlar |
+| Boyut | Amazon Yinele üstbilgisi | Kapsamlar | Açıklamalar |
 | --- | --- | --- | --- |
-| Kullanılabilirlik bölgesi | lineitem/AvailabilityZone | Tümü |   |
+| Kullanılabilirlik alanı | lineitem/AvailabilityZone | Tümü |   |
 | Location | Ürün/bölge | Tümü |   |
 | Ölçüm |   | Tümü |   |
 | Ölçüm kategorisi | lineItem/ProductCode | Tümü |   |
 | Ölçüm alt kategorisi | lineitem/UsageType | Tümü |   |
 | İşlem | İşlem başına lineItem | Tümü |   |
-| Kaynak | lineItem/ResourceId | Tümü |   |
+| Resource | lineItem/ResourceId | Tümü |   |
 | Kaynak türü | Ürün/Instancetype | Tümü | Ürün/Instancetype null ise lineItem/UsageType kullanılır. |
-| Kaynak Guid'si | Yok | Tümü | Azure ölçüm GUID. |
+| ResourceGuid | Yok | Tümü | Azure ölçüm GUID. |
 | Hizmet adı | Ürün/ProductName | Tümü | Ürün/ProductName null ise lineItem/ProductCode kullanılır. |
 | Hizmet katmanı |   |   |   |
 | Abonelik Kimliği | lineItem/UsageAccountId | Birleştirilmiş bir hesap ve yönetim grubu |   |
 | Abonelik adı | Yok | Birleştirilmiş bir hesap ve yönetim grubu | Hesap adlarını, AWS kuruluş API'si kullanılarak toplanır. |
 | Etiket | resourceTags /\* | Tümü | _Kullanıcı:_ önek, Bulutlar arası etiketleri izin vermek için kullanıcı tanımlı etiketlerini kaldırılır. _Aws:_ önek değişmeden. |
-| Faturalandırma hesabı kimliği | Fatura/PayerAccountId | Yönetim grubu |   |
-| Faturalama hesabı adı | Yok | Yönetim grubu | Hesap adlarını, AWS kuruluş API'si kullanılarak toplanır. |
+| Fatura hesap kimliği | Fatura/PayerAccountId | Yönetim grubu |   |
+| Fatura hesap adı | Yok | Yönetim grubu | Hesap adlarını, AWS kuruluş API'si kullanılarak toplanır. |
 | Sağlayıcı | Yok | Yönetim grubu | AWS veya Azure. |
 
 ## <a name="set-budgets-on-aws-scopes"></a>AWS kapsamları kümesi bütçeleri

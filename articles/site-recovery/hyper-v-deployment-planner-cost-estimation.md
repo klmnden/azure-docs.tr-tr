@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60947239"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Dağıtım Planlayıcısı maliyet tahmini raporu 
@@ -125,7 +125,7 @@ Sanal makineleri el ile eklemek için:
 
     i. **Azure Hibrit Kullanım Teklifi**
 
-1. Tablodaki tüm sanal makinelere **Yıllık DR Tatbikatları sayısı**, **Her DR Tatbikatının süresi (Gün)**, **Veri yedekliği** ve **Azure Hibrit Kullanım Teklifi** olarak aynı değeri uygulamak için **Tümüne uygula** öğesini seçebilirsiniz.
+1. Tablodaki tüm sanal makinelere **Yıllık DR Tatbikatları sayısı**, **Her DR Tatbikatının süresi (Gün)** , **Veri yedekliği** ve **Azure Hibrit Kullanım Teklifi** olarak aynı değeri uygulamak için **Tümüne uygula** öğesini seçebilirsiniz.
 
 1. Maliyeti güncelleştirmek için **Maliyeti yeniden hesapla** öğesini seçin.
 
@@ -133,17 +133,17 @@ Sanal makineleri el ile eklemek için:
 
 **VM sayısı**: Bu yapılandırmayla eşleşen sanal makine sayısı. Benzer yapılandırmadaki sanal makinelerin profili oluşturulmadıysa ancak bunlar korunuyorsa, mevcut sanal makinelerin sayısını güncelleştirebilirsiniz.
 
-**Iaas boyutu (öneri)**: Uyumlu sanal makinenin araç tarafından önerilen sanal makine rolü boyutu. 
+**Iaas boyutu (öneri)** : Uyumlu sanal makinenin araç tarafından önerilen sanal makine rolü boyutu. 
 
-**Iaas boyutu (sizin seçiminiz)**: Varsayılan olarak, boyutu önerilen VM rolü boyutuyla aynıdır. İhtiyacınıza göre rolü değiştirebilirsiniz. İşlem maliyetinde seçtiğiniz sanal makine rolü boyutu temel alınır.
+**Iaas boyutu (sizin seçiminiz)** : Varsayılan olarak, boyutu önerilen VM rolü boyutuyla aynıdır. İhtiyacınıza göre rolü değiştirebilirsiniz. İşlem maliyetinde seçtiğiniz sanal makine rolü boyutu temel alınır.
 
 **Depolama türü**: Sanal makine tarafından kullanılan depolamanın türü. Bu, standart veya premium depolamadır.
 
-**VM toplam depolama alanı boyutu (GB)**: VM toplam depolama alanı.
+**VM toplam depolama alanı boyutu (GB)** : VM toplam depolama alanı.
 
 **Yıllık DR Tatbikatları sayısı**: Bir yılda gerçekleştirdiğiniz DR tatbikatları sayısı. Varsayılan olarak, yılda dört kez gerçekleştirilir. Süreyi belirli VM’ler için değiştirebilir veya yeni değeri tüm VM’lere uygulayabilirsiniz. Üst satıra yeni değeri girip **Tümüne uygula** öğesini seçin. Yıllık DR tatbikatları sayısı ve her DR tatbikatının süresi temelinde, toplam DR tatbikatı maliyeti hesaplanır. 
 
-**Her DR Tatbikatının süresi (gün)**: Her DR tatbikatının süresi. Varsayılan olarak, [Disaster Recovery Yazılım Güvencesi avantajına](https://azure.microsoft.com/pricing/details/site-recovery) göre her 90 günde bir 7 gündür. Süreyi belirli VM’ler için değiştirebilir veya yeni değeri tüm VM’lere uygulayabilirsiniz. Üst satıra yeni bir değer girip **Tümüne uygula** öğesini seçin. Toplam DR tatbikatı maliyeti, yıllık DR tatbikatlarının sayısıyla her DR tatbikatının süresi temel alınarak hesaplanır.
+**Her DR Tatbikatının süresi (gün)** : Her DR tatbikatının süresi. Varsayılan olarak, [Disaster Recovery Yazılım Güvencesi avantajına](https://azure.microsoft.com/pricing/details/site-recovery) göre her 90 günde bir 7 gündür. Süreyi belirli VM’ler için değiştirebilir veya yeni değeri tüm VM’lere uygulayabilirsiniz. Üst satıra yeni bir değer girip **Tümüne uygula** öğesini seçin. Toplam DR tatbikatı maliyeti, yıllık DR tatbikatlarının sayısıyla her DR tatbikatının süresi temel alınarak hesaplanır.
  
 **İşletim sistemi türü**: Sanal Makinenin işletim sistemi (OS) türü. Windows veya Linux'tır. İşletim sistemi türü Windows olduğunda, o sanal makineye Azure Hibrit Kullanım Teklifi uygulanabilir. 
 
@@ -155,7 +155,7 @@ Sanal makineleri el ile eklemek için:
 
 **Kararlı durum çoğaltma maliyeti**: Çoğaltmanın depolama maliyeti.
 
-**Toplam DR Tatbikatı maliyeti (ortalama)**: DR tatbikatlarının işlem ve depolama maliyeti.
+**Toplam DR Tatbikatı maliyeti (ortalama)** : DR tatbikatlarının işlem ve depolama maliyeti.
 
 **Azure Site Recovery lisans maliyeti**: Site Recovery lisansı maliyeti.
 

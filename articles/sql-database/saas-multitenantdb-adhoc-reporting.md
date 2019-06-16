@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 10/30/2018
 ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485839"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Birden çok Azure SQL veritabanında geçici analiz sorguları çalıştırma
@@ -96,7 +96,7 @@ Bu alıştırmada, tüm Kiracı veritabanlarında sorgulama sağlayan geçici Ra
 
     ![Dış veri kaynağı oluşturma](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   Kiracı tablolara başvuran bir dış tablolar ile tanımlanan **dağıtım SHARDED(VenueId) =**. Bu sorgu için belirli bir yönlendiren *VenueId* uygun veritabanına ve sonraki bölümde gösterildiği gibi birçok senaryo için performansı geliştirir.
+   Kiracı tablolara başvuran bir dış tablolar ile tanımlanan **dağıtım SHARDED(VenueId) =** . Bu sorgu için belirli bir yönlendiren *VenueId* uygun veritabanına ve sonraki bölümde gösterildiği gibi birçok senaryo için performansı geliştirir.
 
     ![Dış tablolar oluşturma](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 

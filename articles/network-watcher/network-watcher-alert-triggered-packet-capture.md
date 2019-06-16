@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711918"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uyarılar ve Azure işlevleri ile öngörülü ağ izleme için paket yakalamayı kullanma
@@ -84,7 +84,7 @@ Bu senaryo, şunları yapar:
     |**Konum**|Orta ABD| İşlev uygulaması oluşturmak üzere OU'nun bölge.|
     |**Depolama Hesabı**|{otomatik olarak oluşturulan}| Azure işlevleri için genel amaçlı depolama gerekli depolama hesabı.|
 
-3. Üzerinde **PacketCaptureExample işlev uygulamaları** dikey penceresinde **işlevleri** > **özel işlev**  >  **+**.
+3. Üzerinde **PacketCaptureExample işlev uygulamaları** dikey penceresinde **işlevleri** > **özel işlev**  >  **+** .
 
 4. Seçin **HttpTrigger-Powershell**ve ardından kalan bilgileri girin. Son olarak, işlev oluşturmak için Seç **Oluştur**.
 
@@ -101,7 +101,7 @@ Bu senaryo, şunları yapar:
 
 Özelleştirmeleri, bu örnek için gerekli olan ve aşağıdaki adımlarda açıklanmıştır.
 
-### <a name="add-modules"></a>Modül ekle
+### <a name="add-modules"></a>Modül Ekle
 
 Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması için en son PowerShell modülünü yükleyin.
 
@@ -208,7 +208,7 @@ Azure Active Directory'de bir uygulamanın uygulama kimliği istemci kimliğidir
    > [!NOTE]
    > Uygulamayı oluştururken kullandığınız parolayı daha önce oluşturduğunuz anahtar dosyası kaydedilirken aynı parola olmalıdır.
 
-1. Azure portalında **abonelikleri**. Aboneliğini kullanın ve ardından **erişim denetimi (IAM)**.
+1. Azure portalında **abonelikleri**. Aboneliğini kullanın ve ardından **erişim denetimi (IAM)** .
 
     ![IAM işlevleri][functions9]
 

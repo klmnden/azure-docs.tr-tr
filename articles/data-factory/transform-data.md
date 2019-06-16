@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 2c674f77ef0f779c9764771e2e0ae7a4aea47548
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60622116"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data factory'de veri dönüştürme
@@ -60,7 +60,7 @@ Zaman içinde yeni bir giriş veri kümeleri kullanarak eğitilebileceği deneme
 
 Bkz: [kullanım Machine Learning etkinlikleri](transform-data-using-machine-learning.md) bu Machine Learning etkinlikleri hakkında ayrıntılı bilgi için. 
 
-## <a name="stored-procedure-activity"></a>Depolanan yordam etkinliği
+## <a name="stored-procedure-activity"></a>Saklı yordam etkinliği
 Aşağıdaki veri depolarını birinde bir saklı yordam çağırmak için bir Data Factory işlem hattı, SQL Server saklı yordam etkinliğine kullanabilirsiniz: Azure SQL veritabanı, Azure SQL veri ambarı, SQL Server veritabanı kuruluşunuza veya bir Azure VM. Bkz: [saklı yordam etkinliği](transform-data-using-stored-procedure.md) makale Ayrıntılar için.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL etkinliği

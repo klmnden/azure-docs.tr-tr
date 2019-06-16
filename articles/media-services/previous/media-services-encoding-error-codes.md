@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 82a8eecb4fb211117000c94c51644ce1fd27916d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463922"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64709517"
 ---
 # <a name="encoding-error-codes"></a>Kodlama hata kodları
 
@@ -27,10 +27,10 @@ Aşağıdaki tabloda, kodlama görevi yürütme sırasında bir hatayla karşıl
 
 | ErrorDetail.Code | Hata için olası nedenler |
 | --- | --- |
-| Bilinmeyen |Görev yürütülürken bilinmeyen hata |
+| Bilinmiyor |Görev yürütülürken bilinmeyen hata |
 | ErrorDownloadingInputAssetMalformedContent |Hatalı dosya adları, yanlış sıfır uzunluğu dosyaları gibi giriş varlığı yükleme hataları kapsayan hata kategorisi ve benzeri biçimlendirir. |
 | ErrorDownloadingInputAssetServiceFailure |Hizmet tarafında - yüklerken örnek ağ veya depolama hatalarını sorunları kapsar hata kategorisi. |
-| ErrorParsingConfiguration |Hata kategorisi nerede görev <see cref="MediaTask.PrivateData"/> (yapılandırma) geçerli değil, örneğin yapılandırması geçersiz XML içeriyor ya da geçerli bir sistem hazır değil. |
+| ErrorParsingConfiguration |Hata kategorisi nerede görev \<cref="MediaTask.PrivateData"/ bakın > (yapılandırma) geçerli değil, örneğin yapılandırması geçersiz XML içeriyor ya da geçerli bir sistem hazır değil. |
 | ErrorExecutingTaskMalformedContent |Girdi medya dosyalarının içindeki sorunları hata neden olduğu görevin yürütülmesi sırasında hata kategorisi. |
 | ErrorExecutingTaskUnsupportedFormat |Burada sağlanan dosyaları medya işleyicisini işleyemiyor - medya biçimlendirilmeyeceğini hata kategorisi desteklenen veya yapılandırmayla eşleşmiyor. Örneğin, bir yalnızca ses çıkışı, yalnızca video sahip bir varlık oluşturmak çalışıyor |
 | ErrorProcessingTask |İçeriği ilişkisiz bir medya işleyicisini görev işlenmesi sırasında karşılaştığı diğer hata kategorisi. |

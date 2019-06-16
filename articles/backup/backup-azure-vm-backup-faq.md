@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
 ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966312"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Sık sorulan sorular-Azure Vm'leri yedekleme
@@ -20,7 +20,7 @@ ms.locfileid: "65966312"
 Bu makalede, Azure sanal makinelerini yedekleme hakkında sık sorulan sorular yanıtlanmaktadır [Azure Backup](backup-introduction-to-azure-backup.md) hizmeti.
 
 
-## <a name="backup"></a>Yedekle
+## <a name="backup"></a>Backup
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Bunları oluşturduğunuz hangi sanal makine görüntüleri için yedekleme etkin hale getirilebilir?
 Bir VM oluşturduğunuzda, çalışan sanal makineler için yedeklemeyi etkinleştirebilirsiniz [desteklenen işletim sistemleri](backup-support-matrix-iaas.md#supported-backup-actions)
@@ -59,7 +59,7 @@ Azure Backup'ın Key Vault'a erişmesi için izinler sağlayın. İzinler açık
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Ben VM diskleri yönetilen disklere geçişi. Yedeklemelerim çalışmaya devam edecek mi?
 Evet, yedeklemeler sorunsuz çalışır. Her şeyi yeniden yapılandırmak için gerek yoktur.
 
-### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Yedeklemeyi Yapılandır Sihirbazı'nı sanal makinemi neden göremiyorum?
+### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Yedeklemeyi Yapılandır sihirbazında neden VM’mi göremiyorum?
 Sihirbaz yalnızca kasasıyla aynı bölgede Vm'leri listeler ve, zaten yedeklenmeyen.
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Sanal Makinem kapatılır. İsteğe bağlı veya zamanlanmış bir yedekleme iş olacak mı?
@@ -91,7 +91,7 @@ Azure yedekleme WA etkin disk yedekleyemezsiniz, ancak yedeklemeden hariç tutab
 Biz, 15 dakikalık bir RPO ile bir SAP HANA yedeklemesi için özel Önizleme çalıştırıyorsunuz. SQL DB yedekleme benzer bir şekilde oluşturulmuştur ve üçüncü taraf çözümleri ile SAP HANA sertifikalı backInt arabirim kullanır. İlgileniyorsanız, adresinden bize e-posta `AskAzureBackupTeam@microsoft.com` konu ile **Azure vm'lerde SAP HANA yedeklemesi için özel Önizleme için kaydolun**.
 
 
-## <a name="restore"></a>Geri yükle
+## <a name="restore"></a>Geri Yükleme
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Yalnızca diskleri geri yükle verilip verilmeyeceğini veya tam bir VM nasıl karar verebilirim?
 Bir VM geri yüklemesi için bir Azure VM hızlı oluşturma seçeneği olarak düşünün. Bu seçenek, disk adları, diskler, genel IP adresleri ve ağ arabirimi adlarını tarafından kullanılan kapsayıcıları değiştirir. Bir VM oluşturulduğunda değişiklik benzersiz kaynakları tutar. Sanal Makineyi bir kullanılabilirlik kümesine eklenmez.
@@ -108,7 +108,7 @@ Evet, disk alanından yönetilene geçirilen önce alınan yedeklemeler kullanab
 - Varsayılan olarak, bir geri yükleme VM iş yönetilmeyen VM oluşturur.
 - Ancak, diskleri geri yükle ve bunları yönetilen bir sanal makine oluşturmak için kullanın.
 
-### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>VM'yi yönetilen disklere geçirilmeden önce nasıl bir VM için bir geri yükleme noktası geri yükleyebilirim?
+### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>VM’yi nasıl yönetilen disklere geçirilmeden önceki bir geri yükleme noktasına geri yüklerim?
 Varsayılan olarak, bir geri yükleme VM işi, yönetilmeyen disklerle bir VM oluşturur. Yönetilen disklerle bir VM oluşturmak için:
 1. [Yönetilmeyen diskleri geri](tutorial-restore-disk.md#restore-a-vm-disk).
 2. [Geri yüklenen disklerden yönetilen disklere dönüştürme](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).

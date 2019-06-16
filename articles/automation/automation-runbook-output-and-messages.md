@@ -10,10 +10,10 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61227014"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook çıkışı ve iletileri Azure Otomasyonu
@@ -27,7 +27,7 @@ Aşağıdaki tabloda her akışları ve yayımlanan runbook'lar için Azure Port
 | Uyarı |Kullanıcıya yönelik uyarı iletisi. |İş geçmişine yazılır. |Test Çıkış Bölmesi'nde görüntülenir. |
 | Hata |Kullanıcıya yönelik hata iletisi. Bir özel durumun aksine, runbook varsayılan olarak bir hata iletisinden sonra devam eder. |İş geçmişine yazılır. |Test Çıkış Bölmesi'nde görüntülenir. |
 | Ayrıntılı |Genel ya da hata ayıklama bilgileri vermek iletileri. |Yalnızca runbook için ayrıntılı günlük kaydı açıksa iş geçmişine yazılır. |$VerbosePreference runbook'ta devam et yalnızca ayarlanırsa, Test çıkış Bölmesi'nde görüntülenir. |
-| İlerleme Durumu |Runbook'taki her etkinlikten önce ve sonra otomatik oluşturulan kayıtlar. Runbook kendi ilerleme durumu kayıtlarını etkileşimli bir kullanıcı için hedeflenen oluşturmanız çalışmaması gerekir. |Yalnızca runbook için ilerleme durumu günlük kaydı açıksa iş geçmişine yazılır. |Test Çıkış Bölmesi'nde görüntülenmez. |
+| İlerleme durumu |Runbook'taki her etkinlikten önce ve sonra otomatik oluşturulan kayıtlar. Runbook kendi ilerleme durumu kayıtlarını etkileşimli bir kullanıcı için hedeflenen oluşturmanız çalışmaması gerekir. |Yalnızca runbook için ilerleme durumu günlük kaydı açıksa iş geçmişine yazılır. |Test Çıkış Bölmesi'nde görüntülenmez. |
 | Hata ayıklama |Etkileşimli bir kullanıcıya yönelik iletiler. Runbook'larda kullanılmamalıdır. |İş geçmişine yazılmaz. |Test Çıkış Bölmesi'ne yazılmaz. |
 
 ## <a name="output-stream"></a>Çıkış akışı

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60576195"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>8000 serisi cihaz sorunlarını gidermek için StorSimple Tanılama aracını kullanma
@@ -210,7 +210,7 @@ Bu test, sistem bilgisi, güncelleştirmeleri, küme bilgilerini ve cihazınız 
 
 * Model, cihaz seri numarası, saat dilimi, denetleyici durumu ve sistem üzerinde çalışan ayrıntılı yazılım sürüm sistem bilgilerini içerir. Çıktı olarak bildirilen çeşitli sistem parametreleri anlamak için Git [sistem bilgisi yorumlanırken](#appendix-interpreting-system-information).
 
-* Güncelleştirme kullanılabilirlik normal ve Bakım modu kullanılabilir olup olmadığını bildirir ve ilişkili paket adları. Varsa `RegularUpdates` ve `MaintenanceModeUpdates` olan `false`, bu güncelleştirmeleri kullanılamaz olduğunu belirtir. Cihazınız güncel.
+* Güncelleştirme kullanılabilirlik normal ve Bakım modu kullanılabilir olup olmadığını bildirir ve ilişkili paket adları. Varsa `RegularUpdates` ve `MaintenanceModeUpdates` olan `false`, bu güncelleştirmeleri kullanılamaz olduğunu belirtir. Cihazınız güncel durumdadır.
 * Küme bilgilerini, tüm HCS küme gruplarını ve bunların ilgili durumlarını çeşitli mantıksal bileşenler hakkında bilgiler içerir. Bu bölümde, raporun bir çevrimdışı küme grubu görürseniz [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
 * Hizmet bilgileri, cihaz üzerinde çalışan tüm HCS ve CIS hizmetlerinin durumları ve adlarını içerir. Bu bilgiler Microsoft Support cihaz sorunun giderilmesine yardımcı olur.
 

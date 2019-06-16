@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712677"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Bir sanal makine ağ trafik filtresi sorununu tanılama
@@ -170,11 +170,11 @@ Azure kullanıp [portalı](#diagnose-using-azure-portal), [PowerShell](#diagnose
 
 | Özellik                | Değer                                                                              |
 |---------                |---------                                                                           |
-| Kaynak                  | Herhangi biri                                                                                |
-| Kaynak bağlantı noktası aralıkları      | Herhangi biri                                                                                |
+| source                  | Tüm                                                                                |
+| Kaynak bağlantı noktası aralıkları      | Tüm                                                                                |
 | Hedef             | VM'nin IP adresi, bir IP adresi aralığı veya alt ağdaki tüm adresleri. |
 | Hedef bağlantı noktası aralıkları | 80                                                                                 |
-| Protokol                | TCP                                                                                |
+| Protocol                | TCP                                                                                |
 | Eylem                  | İzin Ver                                                                              |
 | Öncelik                | 100                                                                                |
 | Ad                    | İzin ver-HTTP-All                                                                     |

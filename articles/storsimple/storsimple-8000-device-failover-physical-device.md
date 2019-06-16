@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 5fcf95a1a3033a5150945dbd841f12d50ebb023b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60577264"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Bir StorSimple 8000 serisi fiziksel cihaza yük devretme
@@ -61,7 +61,7 @@ Cihazınızı bir hedef fiziksel cihaza geri yüklemek için aşağıdaki adıml
 
         ![Hedef seçin](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev6.png)
 
-   3. Son olarak, tüm yük devretme ayarlarda gözden **özeti**. Ayarları gözden geçirdikten sonra seçilen birim kapsayıcıları birimlerin çevrimdışı olduğunu gösteren onay kutusunu işaretleyin. **Tamam** düğmesine tıklayın.
+   3. Son olarak, tüm yük devretme ayarlarda gözden **özeti**. Ayarları gözden geçirdikten sonra seçilen birim kapsayıcıları birimlerin çevrimdışı olduğunu gösteren onay kutusunu işaretleyin. **Tamam**'ı tıklatın.
 
        ![Yük devretme ayarları gözden geçirin](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev8.png)
   
@@ -75,7 +75,7 @@ Cihazınızı bir hedef fiziksel cihaza geri yüklemek için aşağıdaki adıml
    
    1. Yük devretme işlemi için hedef cihazla olarak kullanılan bir cihaz seçin.
 
-       ![Cihaz seç](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Cihaz seçin](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
    2. Git **birim kapsayıcıları** dikey penceresi. Eski bir CİHAZDAN birimleri ile birlikte tüm birim kapsayıcıları, listelenmelidir.
 

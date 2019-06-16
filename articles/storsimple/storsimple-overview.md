@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630210"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 serisi: bir hibrit bulut depolaması çözümü
@@ -207,7 +207,7 @@ Desteklenen StorSimple iş yüklerinin bir özeti aşağıda tabloda verilmişti
 
 | Senaryo | İş yükü | Desteklenen | Kısıtlamalar | Version |
 | --- | --- | --- | --- | --- |
-| İş Birliği |Dosya paylaşımı |Evet | |Tüm sürümler |
+| İş Birliği |Dosya Paylaşımı |Evet | |Tüm sürümler |
 | İş Birliği |Dağıtılmış bir dosya paylaşımı |Evet | |Tüm sürümler |
 | İş Birliği |SharePoint |Evet* |Yalnızca yerel olarak sabitlenmiş birimleri ile desteklenen |Güncelleştirme 2 ve üzeri |
 | Arşivleme |Basit dosya arşivleme |Evet | |Tüm sürümler |
@@ -273,7 +273,7 @@ Microsoft Azure StorSimple çözümünüzle dağıtmadan önce aşağıdaki teri
 | Bulut depolama şifreleme anahtarı |Bir parola veya buluta cihazınız tarafından gönderilen şifrelenmiş verilere erişmek için StorSimple cihazınız tarafından kullanılan anahtar. |
 | Küme durumunu algılayan güncelleştirme |Güncelleştirmelerin en düşük böylece yük devretme kümesindeki sunucularda yazılım güncelleştirmelerini yönetme veya hizmet kullanılabilirliğini etkilemez. |
 | DataPath |Bir koleksiyonu arası bağlı veri işleme işlemleri işlevsel birimi. |
-| devre dışı bırak |StorSimple cihazı ile ilişkili bir bulut hizmeti arasındaki bağlantıyı keser kalıcı bir eylem. Bulut anlık görüntüleri cihazın bu işlem kalır ve kopyalanmış veya olağanüstü durum kurtarma için kullanılan. |
+| Devre dışı bırak |StorSimple cihazı ile ilişkili bir bulut hizmeti arasındaki bağlantıyı keser kalıcı bir eylem. Bulut anlık görüntüleri cihazın bu işlem kalır ve kopyalanmış veya olağanüstü durum kurtarma için kullanılan. |
 | Disk yansıtma |Mantıksal disk birimi ayrı sabit çoğaltılmasını sürekli kullanılabilirlik sağlamak için gerçek zamanlı olarak beraberinde getirir. |
 | dinamik disk yansıtma |Dinamik diskler mantıksal disk birimi çoğaltma. |
 | dinamik diskler |Birden çok fiziksel disklere verileri yönetmek için Mantıksal Disk Yöneticisi (LDM) kullanır. bir disk birimi biçimi. Daha fazla boş alan sağlamak için dinamik diskler büyütülebilir. |

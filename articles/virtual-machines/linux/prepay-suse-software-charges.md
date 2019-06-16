@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771252"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Azure yazılım planları için ön ödeme yapma
@@ -63,7 +63,7 @@ Satın alım zamanında seçtiğiniz VM boyutuna RedHat planı indirimleri uygul
 
 İptal edemezsiniz veya satın aldığınız bir SUSE veya RedHat planı exchange. Kullanımınızı denetleyerek doğru planı satın aldığınızdan emin olun. Senaryonuzda satın almak daha fazla yardım için bkz: [yazılım planı indirim nasıl uygulandığını anlamanız](../../billing/billing-understand-suse-reservation-charges.md).
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

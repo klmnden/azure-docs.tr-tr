@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: e16cac281b77f3ca93d9ef358ae806203bc8b663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61348502"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Azure veri fabrikası pivot dönüştürme
@@ -20,7 +20,7 @@ Pivot ADF veri akışı içinde bir toplama ' farklı satır değerlerinin tek t
 
 ![Özet Seçenekleri](media/data-flow/pivot1.png "Özet 1")
 
-## <a name="group-by"></a>Gruplandırma ölçütü:
+## <a name="group-by"></a>Gruplandırma ölçütü
 
 ![Özet Seçenekleri](media/data-flow/pivot2.png "Özet 2")
 

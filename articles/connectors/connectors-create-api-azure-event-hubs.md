@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 882bae14678d8bfff15b35c63c666a20aeee3d1d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720046"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>İzleme, alabilir ve olayları Azure Event Hubs ve Azure Logic Apps ile gönderme
@@ -95,7 +95,7 @@ Bu örnek nasıl yeni olayları olay Hub'ınıza gönderildiğinde bir mantıksa
    | **En düşük bölüm anahtarı** | Hayır | En düşük girin [bölüm](../event-hubs/event-hubs-features.md#partitions) okumak için kimliği. Varsayılan olarak, tüm bölümleri okunur. |
    | **En yüksek bölüm anahtarı** | Hayır | En yüksek girin [bölüm](../event-hubs/event-hubs-features.md#partitions) okumak için kimliği. Varsayılan olarak, tüm bölümleri okunur. |
    | **Saat dilimi** | Hayır | Bu tetikleyiciyi UTC farkı kabul etmez çünkü yalnızca başlangıç zamanı belirttiğinizde geçerlidir. Uygulamak istediğiniz saat dilimini seçin. <p>Daha fazla bilgi için [oluşturma ve çalıştırma yinelenen görevleri ve Azure Logic Apps ile iş akışlarını](../connectors/connectors-native-recurrence.md). |
-   | **Başlangıç saati** | Hayır | Bir başlangıç zamanı şu biçimde belirtin: <p>YYYY-MM-ddTHH bir saat dilimi seçerseniz<p>-veya-<p>YYYY-AA-saat dilimi seçmezseniz ssZ<p>Daha fazla bilgi için [oluşturma ve çalıştırma yinelenen görevleri ve Azure Logic Apps ile iş akışlarını](../connectors/connectors-native-recurrence.md). |
+   | **Başlangıç saati** | Hayır | Bir başlangıç zamanı şu biçimde belirtin: <p>YYYY-MM-ddTHH bir saat dilimi seçerseniz<p>veya<p>YYYY-AA-saat dilimi seçmezseniz ssZ<p>Daha fazla bilgi için [oluşturma ve çalıştırma yinelenen görevleri ve Azure Logic Apps ile iş akışlarını](../connectors/connectors-native-recurrence.md). |
    ||||
 
 1. Tasarımcı araç çubuğunda, işiniz bittiğinde seçin **Kaydet**.
@@ -120,7 +120,7 @@ Azure Logic apps'te bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-c
 1. Tetikleyici veya eylem altında seçin **yeni adım**.
 
    Var olan adımlar arasında bir eylem eklemek için bağlantı okun üzerine fareyi hareket ettirin. 
-   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+   Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
 
 1. Arama kutusuna filtreniz olarak "event hubs" girin.
 Eylem listesinden şu eylemi seçin: **Event Hubs - olay gönderme**
@@ -136,7 +136,7 @@ Eylem listesinden şu eylemi seçin: **Event Hubs - olay gönderme**
    | Özellik | Gerekli | Açıklama |
    |----------|----------|-------------|
    | **Olay hub'ı adı** | Evet | Olay göndermek için istediğiniz olay hub'ı |
-   | **İçerik** | Hayır | Göndermek istediğiniz içeriği olayı |
+   | **İçeriği** | Hayır | Göndermek istediğiniz içeriği olayı |
    | **Özellikleri** | Hayır | Uygulama özelliklerini ve değerlerini göndermek için |
    | **Bölüm anahtarı** | Hayır | [Bölüm](../event-hubs/event-hubs-features.md#partitions) olayın gönderileceği kimliği |
    ||||
@@ -170,7 +170,7 @@ Eylem listesinden şu eylemi seçin: **Event Hubs - olay gönderme**
 
 2. Zaten seçili değilse kullanmak için Event hubs'ı ilkesi seçin. **Oluştur**’u seçin.
 
-   ![2. Bölüm olay hub'ı bağlantı oluşturma](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
+   ![2\. Bölüm olay hub'ı bağlantı oluşturma](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
 
 3. Bağlantınızı oluşturduktan sonra devam [ekleme olay hub'ları tetiklemek](#add-trigger) veya [Event Hubs ekleme eylemi](#add-action).
 

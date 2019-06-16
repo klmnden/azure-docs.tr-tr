@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457660"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Ses ve SMS özellikleri, Ruby için Twilio kullanma
@@ -52,16 +52,16 @@ Twilio fiilleri Twilio ne bildiren XML etiketleri olan **yapmak**. Örneğin, **
 
 Twilio fiillerin listesi verilmiştir.
 
-* **&lt;Arama&gt;**: Çağıran, başka bir telefonu bağlanır.
-* **&lt;Gather&gt;**: Telefon tuş takımında girilen sayı toplar.
-* **&lt;Kapat&gt;**: Bir çağrı sona erer.
-* **&lt;Play&gt;**: Ses dosyası yürütülür.
-* **&lt;Duraklatma&gt;**: Sessiz bir şekilde belirtilen sayıda saniye bekler.
-* **&lt;Kayıt&gt;**: Arayanın ses kayıtlarını ve kayıt içeren dosyanın URL'sini döndürür.
-* **&lt;Yeniden yönlendirme&gt;**: Arama veya SMS için farklı bir URL'de TwiML aktarımları denetim.
-* **&lt;Reddetme&gt;**: Twilio numaranızı gelen bir arama faturalama olmadan reddeder.
-* **&lt;Söyleyin&gt;**: Metin, üzerinde bir çağrı yapılır okuma dönüştürür.
-* **&lt;SMS&gt;**: Bir SMS mesajı gönderir.
+* **&lt;Arama&gt;** : Çağıran, başka bir telefonu bağlanır.
+* **&lt;Gather&gt;** : Telefon tuş takımında girilen sayı toplar.
+* **&lt;Kapat&gt;** : Bir çağrı sona erer.
+* **&lt;Play&gt;** : Ses dosyası yürütülür.
+* **&lt;Duraklatma&gt;** : Sessiz bir şekilde belirtilen sayıda saniye bekler.
+* **&lt;Kayıt&gt;** : Arayanın ses kayıtlarını ve kayıt içeren dosyanın URL'sini döndürür.
+* **&lt;Yeniden yönlendirme&gt;** : Arama veya SMS için farklı bir URL'de TwiML aktarımları denetim.
+* **&lt;Reddetme&gt;** : Twilio numaranızı gelen bir arama faturalama olmadan reddeder.
+* **&lt;Söyleyin&gt;** : Metin, üzerinde bir çağrı yapılır okuma dönüştürür.
+* **&lt;SMS&gt;** : Bir SMS mesajı gönderir.
 
 Twilio fiilleri, öznitelikleri ve TwiML hakkında daha fazla bilgi için bkz: [TwiML][twiml]. Twilio API'si hakkında ek bilgi için bkz: [Twilio API'si][twilio_api].
 

@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704834"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569830"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'nde Olayları ve Uyarıları Araştırma (Önizleme)
 Bu belge Azure Güvenlik Merkezi'ndeki araştırma özelliğini kullanarak güvenlik olaylarını ve uyarılarını araştırmanıza yardımcı olur.
+
+> [!NOTE]
+> Uyarıları ve olaylarının araştırma deneyimi, 31 Temmuz 2019 üzerinde kullanımdan kaldırılacaktır. Daha fazla bilgi ve diğer hizmetler için bkz. [devre dışı bırakılması, Güvenlik Merkezi özelliklerini (Temmuz 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>Güvenlik Merkezi'ndeki araştırma özelliği nedir?
 Güvenlik Merkezi'ndeki araştırma özelliği olası bir [güvenlik olayını](https://docs.microsoft.com/azure/security-center/security-center-incident) önceliklendirmenizi, kapsamını anlamanızı ve kök nedenini tespit etmenizi sağlar.
@@ -62,11 +65,11 @@ Bir olay yalnızca kullanıcı belirli bir uyarı için **Araştırma başlat** 
 
 ![Varlıklar](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>Arama
+### <a name="search"></a>Ara
 
 **Arama** sekmesi varlık için var olan tüm günlük türlerini sunar. Her bir günlük türünde var olan kayıt sayısını görebilirsiniz. Kayıt türlerinden birine tıkladığınızda arama ekranı açılır. Arama ekranında aramanıza filtre uygulayabilir ve uyarı ayarlama gibi çeşitli arama özelliklerinden faydalanabilirsiniz. Mevcut sürümde arama sekmesi yalnızca kullanıcı ve bilgisayar varlıkları için kullanılabilmektedir.
 
-![Arama](./media/security-center-investigation/security-center-investigation-fig5.png)
+![Ara](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>Araştırma
 

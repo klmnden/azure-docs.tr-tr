@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
 ms.openlocfilehash: b066296ca52d3067f8985245161eb4fa7b484a07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60720136"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Durum bilgisi olan hizmetler için birim testleri oluşturma
@@ -31,7 +31,7 @@ Birim testi Service Fabric durum bilgisi olan hizmetler mutlaka geleneksel uygul
 Bu makalede varsayar [birim Service Fabric durum bilgisi olan hizmetler testi](service-fabric-concepts-unit-testing.md) okunmuş.
 
 ## <a name="the-servicefabricmocks-library"></a>ServiceFabric.Mocks kitaplığı
-3.3.0, Sürüm'den itibaren [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) orchestration çoğaltmaları durum yönetimi ve sahte işlem için bir API sağlar. Bu örneklerde kullanılır.
+3\.3.0, Sürüm'den itibaren [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) orchestration çoğaltmaları durum yönetimi ve sahte işlem için bir API sağlar. Bu örneklerde kullanılır.
 
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
 [GitHub](https://github.com/loekd/ServiceFabric.Mocks)

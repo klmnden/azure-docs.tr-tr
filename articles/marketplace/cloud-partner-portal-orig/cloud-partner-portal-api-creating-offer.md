@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 55f6aa60c836d55333e1c5b02a44114b91df822d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935515"
 ---
 <a name="create-or-modify-an-offer"></a>Oluşturun veya bir teklife değiştirin
@@ -28,16 +28,16 @@ Bu çağrı, belirli bir teklif yayımcı ad alanı içindeki güncelleştirir v
 |  **Ad**         |  **Açıklama**                      |  **Veri türü**  |
 |  --------         |  ----------------                     |  -------------  |
 | publisherId       |  Örneğin, yayımcı tanımlayıcısı `contoso` |   String |
-| offerId           |  Teklif tanımlayıcısı                     |   String        |
+| OfferId           |  Teklif tanımlayıcısı                     |   String        |
 | API sürümü       |  API'nin en son sürümü            |   Tarih           |
 |  |  |  |
 
-<a name="header"></a>Üst bilgi
+<a name="header"></a>Üstbilgi
 ------
 
 |  **Ad**        |  **Değer**               |
 |  ---------       |  ----------              | 
-| Content-Type     | `application/json`       |
+| İçerik türü     | `application/json`       |
 | Yetkilendirme    | `Bearer YOUR_TOKEN`      |
 |  |  |
 

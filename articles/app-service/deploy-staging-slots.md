@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
 ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955808"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service ortamlarında hazırlık ayarlama
@@ -46,7 +46,7 @@ Uygulama çalıştırmalıdır **standart**, **Premium**, veya **yalıtılmış*
 
 2. Sol gezinti bölmesinde seçin **dağıtım yuvaları (Önizleme)** seçeneğini belirleyin, ardından tıklayın **yuva Ekle**.
    
-    ![Yeni bir dağıtım yuvası ekle](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Yeni bir dağıtım yuvası Ekle](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
    > Uygulamayı hala kullanımda değilse **standart**, **Premium**, veya **yalıtılmış** katmanı, aşamalı yayımlamayı etkinleştirmeye desteklenen katmanları belirten bir ileti alırsınız. Bu noktada, tercih yapma seçeneğine sahip **yükseltme** gidin **ölçek** sekmesinde devam etmeden önce uygulama.
@@ -54,7 +54,7 @@ Uygulama çalıştırmalıdır **standart**, **Premium**, veya **yalıtılmış*
 
 3. İçinde **bir yuva Ekle** iletişim kutusunda, yuva bir ad verin ve mevcut olan başka bir dağıtım yuvası uygulama yapılandırmasından kopyalamak seçin. Tıklayın **Ekle** devam etmek için.
    
-    ![Yapılandırma Kaynağı](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+    ![Yapılandırma kaynağı](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     Tüm mevcut yuvasından yapılandırma kopyalayabilirsiniz. Uygulama ayarları, bağlantı dizeleri, dil framework sürümü, web yuvaları, HTTP sürümü ve platform bit genişliği kopyalanabilir ayarları içerir.
 
@@ -93,13 +93,13 @@ Başka bir dağıtım yuvasından yapılandırma kopyaladığınızda, kopyalana
 
 **Takas olmayan ayarlarını**:
 
-* Yayımlama uç noktaları
-* Özel Etki Alanı Adları
+* Uç noktalarını yayımlama
+* Özel etki alanı adları
 * Özel sertifikaları ve SSL bağlamaları
 * Ölçek ayarları
 * WebJobs zamanlayıcılar
 * IP kısıtlamaları
-* Daima Açık
+* Her Zaman Açık
 * Protokol ayarları (HTTP**S**, TLS sürümü, istemci sertifikaları)
 * Tanılama günlüğü ayarları
 * CORS
@@ -132,7 +132,7 @@ Dağıtım yuvalarını değiştirmek için aşağıdaki adımları izleyin:
 
 2. İstenen seçin **kaynak** ve **hedef** yuvası. Genellikle, hedefi üretim yuvasıdır. Ayrıca, **kaynak değişiklikleri** ve **hedef değişiklikleri** sekmeler ve yapılandırma değişikliklerini beklendiğini doğrulayın. İşiniz bittiğinde, hemen tıklayarak Yuvalar **takas**.
 
-    ![Değiştirmeyi tamamla](./media/web-sites-staged-publishing/SwapImmediately.png)
+    ![Değiştirmeyi Tamamla](./media/web-sites-staged-publishing/SwapImmediately.png)
 
     Takas gerçekten gerçekleşmeden önce hedef yuvadaki yeni ayarlar ile nasıl çalışır görmek için tıklamayın **takas**, ancak yönergeleri [Önizleme ile değiştirme](#Multi-Phase).
 
@@ -165,7 +165,7 @@ Ayrı bir adım değiştirmeyi tamamlamak, App Service, hedef yuvadaki warmed yu
 
 2. Hazır olduğunuzda takas başlatmak tıklatın **Başlat takas**.
 
-    1. Aşama tamamlandıktan sonra iletişim kutusunda bildirim alırsınız. Değiştirme kaynağı yuvasındaki giderek Önizleme `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
+    1\. Aşama tamamlandıktan sonra iletişim kutusunda bildirim alırsınız. Değiştirme kaynağı yuvasındaki giderek Önizleme `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
 
 3. Hazır bekleyen değiştirme işlemini tamamlamak bittiğinde **değiştirmeyi Tamamla** içinde **değiştirme eylemi** tıklatıp **değiştirmeyi Tamamla**.
 
@@ -195,7 +195,7 @@ Otomatik Takas için uygulamanın son müşterilere sürekli olarak sıfır haz�
 
 Otomatik değiştirme yapılandırmak için aşağıdaki adımları izleyin:
 
-1. Uygulamanızın kaynak sayfasına gidin. Seçin **dağıtım yuvaları (Önizleme)** > *\<istenen kaynak yuvaya >* > **uygulama ayarları**.
+1. Uygulamanızın kaynak sayfasına gidin. Seçin **dağıtım yuvaları (Önizleme)**  >  *\<istenen kaynak yuvaya >*  > **uygulama ayarları**.
    
 2. İçinde **otomatik değiştirme**seçin **üzerinde**, istenen hedef yuvada seçip **otomatik takas yuvası**, tıklatıp **Kaydet** komut çubuğunda. 
    
@@ -238,7 +238,7 @@ Varsayılan olarak, tüm istemci isteklerini uygulamanın üretim URL'si (`http:
 
 Üretim trafiği otomatik olarak yönlendirmek için bu adımları izleyin:
 
-1. Uygulamanızın kaynak sayfasına gidin ve seçin **dağıtım yuvaları (Önizleme)**.
+1. Uygulamanızın kaynak sayfasına gidin ve seçin **dağıtım yuvaları (Önizleme)** .
 
 2. İçinde **trafik %** sütun yuvasının istediğiniz yönlendirmek istediğiniz yönlendirmek için toplam trafik miktarı temsil etmek için (0 ile 100 arasında) bir yüzde belirtin. **Kaydet**’e tıklayın.
 
@@ -272,7 +272,7 @@ Varsayılan olarak, yeni bir yuva yönlendirme kuralını verilen `0%`gri göste
 
 ## <a name="delete-slot"></a>Yuvasını Sil
 
-Uygulamanızın kaynak sayfasına gidin. Seçin **dağıtım yuvaları (Önizleme)** > *\<silmek için yuva >* > **genel bakış**. Tıklayın **Sil** komut çubuğunda.  
+Uygulamanızın kaynak sayfasına gidin. Seçin **dağıtım yuvaları (Önizleme)**  >  *\<silmek için yuva >*  > **genel bakış**. Tıklayın **Sil** komut çubuğunda.  
 
 ![Dağıtım yuvasını Sil](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -289,7 +289,7 @@ Azure PowerShell, Azure App Service'te dağıtım yuvalarını yönetmek için d
 Yükleme ve yapılandırma Azure PowerShell ve Azure PowerShell, Azure aboneliğiniz ile kimlik doğrulaması için bilgi [nasıl Microsoft Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).  
 
 - - -
-### <a name="create-web-app"></a>Web uygulaması oluştur
+### <a name="create-web-app"></a>Web uygulaması oluşturma
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

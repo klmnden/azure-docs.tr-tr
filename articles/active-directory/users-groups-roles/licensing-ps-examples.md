@@ -14,16 +14,16 @@ ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fc6e31afbb7ced4699afef38b67b637914198e4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f95c0596d7a2b55867cdb7ed9355006500e89242
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192426"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065506"
 ---
-# <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD'de grup tabanlı lisanslama için PowerShell örnekleri
+# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD'de grup tabanlı lisanslama için PowerShell ve Graph örnekleri
 
-Grup tabanlı lisanslama için tam işlevsellik aracılığıyla [Azure portalında](https://portal.azure.com), ve şu anda PowerShell ve Microsoft Graph desteği sınırlıdır. Ancak, varolan kullanılarak gerçekleştirilebilir faydalı bazı görevler vardır [MSOnline PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) ve Microsoft Graph. Bu belge, nelerin mümkün olduğunu örnekler sağlar.
+Grup tabanlı lisanslama için tam işlevsellik aracılığıyla [Azure portalında](https://portal.azure.com), ve şu anda salt okunur işlemler için PowerShell ve Microsoft Graph desteği sınırlıdır. Ancak, varolan kullanılarak gerçekleştirilebilir faydalı bazı görevler vardır [MSOnline PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) ve Microsoft Graph. Bu belge, nelerin mümkün olduğunu örnekler sağlar.
 
 > [!NOTE]
 > Cmdlet'leri çalıştırmadan başlamadan önce bağlandığınız kuruluşunuz için ilk olarak çalıştırarak emin `Connect-MsolService`  cmdlet'i.
@@ -39,7 +39,7 @@ Grup tabanlı lisanslama için tam işlevsellik aracılığıyla [Azure portalı
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
-Çıkış:
+Çıktı:
 ```
 SkuPartNumber
 -------------
@@ -55,7 +55,7 @@ Microsoft Graph'ten aynı verileri almak için aşağıdaki örneği kullanın.
 ```
 GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
 ```
-Çıkış:
+Çıktı:
 ```
 HTTP/1.1 200 OK
 {
@@ -92,7 +92,7 @@ Get-MsolGroup | Where {$_.Licenses} | Select `
     @{Name="Licenses";Expression={$_.Licenses | Select -ExpandProperty SkuPartNumber}}
 ```
 
-Çıkış:
+Çıktı:
 ```
 ObjectId                             DisplayName              Licenses
 --------                             -----------              --------
@@ -146,7 +146,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
 ```
 
 
-Çıkış:
+Çıktı:
 ```
 GroupName         GroupId                              GroupLicenses       TotalUserCount LicensedUserCount LicenseErrorCount
 ---------         -------                              -------------       -------------- ----------------- -----------------
@@ -165,7 +165,7 @@ Kendisi için lisanslar atanamadı bazı kullanıcıları içeren gruplar bulmak
 ```powershell
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
-Çıkış:
+Çıktı:
 ```
 ObjectId                             DisplayName             GroupType Description
 --------                             -----------             --------- -----------
@@ -175,7 +175,7 @@ Microsoft Graph'ten aynı verileri almak için aşağıdaki'ı kullanın
 ```
 GET https://graph.microsoft.com/v1.0/groups?$filter=hasMembersWithLicenseErrors+eq+true
 ```
-Çıkış:
+Çıktı:
 ```
 HTTP/1.1 200 OK
 {
@@ -219,7 +219,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
            @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId} | Select -ExpandProperty Error}}
 ```
 
-Çıkış:
+Çıktı:
 
 ```powershell
 ObjectId                             DisplayName      License Error
@@ -233,7 +233,7 @@ Microsoft Graph'ten aynı verileri almak için aşağıdakileri kullanın:
 GET https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
 ```
 
-Çıkış:
+Çıktı:
 ```powershell
 HTTP/1.1 200 OK
 {
@@ -271,7 +271,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
     }  
 ```
 
-Çıkış:
+Çıktı:
 
 ```powershell
 UserName         UserId                               GroupId                              LicenseError
@@ -378,7 +378,7 @@ Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID
     @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
 ```
 
-Çıkış:
+Çıktı:
 
 ```powershell
 ObjectId                             SkuId       AssignedDirectly AssignedFromGroup
@@ -394,7 +394,7 @@ Graf sonucu göstermek için basit bir yol yoktur, ancak bu API'SİNDEN görüle
 GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
 ```
 
-Çıkış:
+Çıktı:
 
 ```powershell
 HTTP/1.1 200 OK
@@ -607,7 +607,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId | Get-MsolUser -ObjectId {$_.Ob
 #END: executing the script
 ```
 
-Çıkış:
+Çıktı:
 
 ```powershell
 UserId                               OperationResult

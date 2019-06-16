@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545289"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Çoklu oturum açma SAML Protokolü
@@ -60,7 +60,7 @@ Diğer tüm `AuthnRequest` onay, hedef, AssertionConsumerServiceIndex, Attribute
 
 Azure AD ayrıca yoksayar `Conditions` öğesinde `AuthnRequest`.
 
-### <a name="issuer"></a>Sertifikayı Veren
+### <a name="issuer"></a>Veren
 
 `Issuer` Öğesinde bir `AuthnRequest` biriyle tam olarak eşleşmelidir **ServicePrincipalNames** Azure ad'deki bulut hizmetinde. Genellikle, bu ayar **uygulama kimliği URI'si** uygulama kaydı sırasında belirtilir.
 
@@ -156,7 +156,7 @@ Bir istenen oturum açma başarıyla tamamlandığında, Azure AD bulut hizmeti 
 * `Destination`: Oturum açma başarıyla tamamlandığında, bu ayar `RedirectUri` hizmet sağlayıcısının (bulut hizmeti).
 * `InResponseTo`: Bu ayar `ID` özniteliği `AuthnRequest` yanıt başlatılan öğesi.
 
-### <a name="issuer"></a>Sertifikayı Veren
+### <a name="issuer"></a>Veren
 
 Azure AD kümeleri `Issuer` öğesine `https://login.microsoftonline.com/<TenantIDGUID>/` burada \<TenantIDGUID > Azure AD kiracısını Kiracı Kimliğini gösterir.
 
@@ -191,7 +191,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 Ek olarak `ID`, `IssueInstant` ve `Version`, Azure AD şu öğeleri ayarlar `Assertion` yanıtın öğesi.
 
-#### <a name="issuer"></a>Sertifikayı Veren
+#### <a name="issuer"></a>Veren
 
 Bu ayar `https://sts.windows.net/<TenantIDGUID>/`burada \<TenantIDGUID > Azure AD kiracısını Kiracı Kimliğini gösterir.
 

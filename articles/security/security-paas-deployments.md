@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231127"
 ---
 # <a name="securing-paas-deployments"></a>PaaS dağıtımlarının güvenliğini sağlama
@@ -115,7 +115,7 @@ Aşağıdaki tabloda STRIDE tehditler listesi ve Azure özelliklerini kullanmak 
 | --- | --- | --- |
 | Kimlik sahtekarlığı | Kimlik Doğrulaması | HTTPS bağlantıları gerektirir. |
 | Kurcalama | Bütünlük | SSL sertifikaları doğrulayın. |
-| Red | İnkar edilemez | Azure'ı etkinleştirme [izleme ve tanılama](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
+| Red | İnkar | Azure'ı etkinleştirme [izleme ve tanılama](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Bilgilerin açığa çıkması | Gizliliği | Bekleyen hassas verileri kullanarak şifrelenip şifrelenmeyeceğinizi [hizmet sertifikaları](https://docs.microsoft.com/rest/api/appservice/certificates). |
 | Hizmet reddi | Kullanılabilirlik | Olası hizmet reddi koşulları için performans ölçümlerini izleyin. Bağlantı filtreleri uygulayın. |
 | Ayrıcalık yükseltme | Yetkilendirme | Kullanım [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |

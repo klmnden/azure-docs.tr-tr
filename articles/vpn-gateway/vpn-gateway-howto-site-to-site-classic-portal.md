@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a2d714cae187e4ebcf2eefd37c61484dc48495e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105965"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure portalını (klasik) kullanarak Siteden Siteye bağlantı oluşturma
@@ -166,7 +166,7 @@ Bu adımda, paylaşılan anahtarı ayarlayabilir ve bağlantıyı oluşturabilir
 > Şu anda, bu yapılandırma Azure portalında mevcut değildir. Azure PowerShell cmdlet’lerinin Hizmet Yönetimi (SM) sürümünü kullanmanız gerekir.
 >
 
-### <a name="step-1-connect-to-your-azure-account"></a>1. Adım Azure hesabınıza bağlanma
+### <a name="step-1-connect-to-your-azure-account"></a>1\.Adım Azure hesabınıza bağlanma
 
 1. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
@@ -184,7 +184,7 @@ Bu adımda, paylaşılan anahtarı ayarlayabilir ve bağlantıyı oluşturabilir
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
    ```
 
-### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>2. Adım Paylaşılan anahtarı ayarlama ve bağlantıyı oluşturma
+### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>2\.Adım Paylaşılan anahtarı ayarlama ve bağlantıyı oluşturma
 
 PowerShell ve klasik dağıtım modeli ile çalışırken, portaldaki kaynakların adları bazı durumlarda Azure’un PowerShell kullanırken görmeyi beklediği adlar olmaz. Aşağıdaki adımlar, adların tam değerlerini almak için ağ yapılandırma dosyasını dışarı aktarmanıza yardımcı olur.
 

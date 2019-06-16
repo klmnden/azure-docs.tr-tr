@@ -2,21 +2,20 @@
 title: Azure Traffic Manager ayarlarını doğrulama
 description: Bu makalede, Traffic Manager ayarlarınızı doğrulamanıza yardımcı olur.
 services: traffic-manager
-author: rockboyfor
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/16/2017
-ms.date: 02/18/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1e954e3c4ebba245d91cfb84ab583b314150e5b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/16/2017
+ms.author: allensu
+ms.openlocfilehash: 19ef08a40d0a84aecb070e71bbb8c9b6a88ae059
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771626"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070934"
 ---
 # <a name="verify-traffic-manager-settings"></a>Traffic Manager ayarlarını doğrulama
 
@@ -34,9 +33,9 @@ Aşağıdaki örnekler Traffic Manager profilinizin test etmenize yardımcı olu
 
 1. Bir komut veya Windows PowerShell istemini yönetici olarak açın.
 2. Tür `ipconfig /flushdns` DNS çözümleyicisi önbelleğini temizlemek için.
-3. `nslookup <your Traffic Manager domain name>` yazın. Örneğin, aşağıdaki komutu bir etki alanı adı ön eki denetler *myapp.contoso*
+3. `nslookup <your Traffic Manager domain name>`yazın. Örneğin, aşağıdaki komutu bir etki alanı adı ön eki denetler *myapp.contoso*
 
-        nslookup myapp.contoso.trafficmanager.cn
+        nslookup myapp.contoso.trafficmanager.net
 
     Tipik bir sonuç, aşağıdaki bilgileri gösterir:
 
@@ -72,5 +71,3 @@ Alternatif olarak, ücretsiz web tabanlı DNS araması ve vardır dig Hizmetleri
 * [Traffic Manager trafik yönlendirme yöntemleri hakkında](traffic-manager-routing-methods.md)
 * [Traffic Manager için performans konuları](traffic-manager-performance-considerations.md)
 * [Düzeyi düşürülmüş Traffic Manager durumu için sorun giderme](traffic-manager-troubleshooting-degraded.md)
-
-<!-- Update_Description: update meta properties -->

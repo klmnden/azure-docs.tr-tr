@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: a5efe946000eb00e65d314ae53d7136761e2109d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557231"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Azure Data factory'de değişken etkinlik ekleme
@@ -26,9 +26,9 @@ Değişken Ekle etkinliği, bir veri fabrikası ardışık düzeninde tanımlana
 
 Özellik | Açıklama | Gerekli
 -------- | ----------- | --------
-ad | İşlem hattındaki etkinliğin adı | Evet
-açıklama | Etkinliğin ne yaptığını açıklayan metin | hayır
-type | Etkinlik AppendVariable türüdür | evet
+name | İşlem hattındaki etkinliğin adı | Evet
+description | Etkinliğin ne yaptığını açıklayan metin | hayır
+türü | Etkinlik AppendVariable türüdür | evet
 value | Belirtilen bir değişkene eklemek için kullanılan dize değişmez değer veya ifade nesne değeri | evet
 Değişkenadı | Etkinlik, değişkeni değiştirilecek değişkeni adı 'Array' türünde olmalıdır | evet
 

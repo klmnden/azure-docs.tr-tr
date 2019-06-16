@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 30f431c1806c6a0697a6b74b43f1cc35660fc85e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e2842561a6ee16cca42e59cb42f49238849537c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Öğretici: Pantheon ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Pantheon tümleştirmesini yapılandırmak için Pantheon Galeriden 
 
 **Galeriden Pantheon eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

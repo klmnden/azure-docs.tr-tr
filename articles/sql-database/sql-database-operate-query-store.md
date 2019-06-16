@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 3ceb8569d952f2947870ce7314f869623b2d87f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584752"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Azure SQL veritabanında Query Store çalıştırma
@@ -32,7 +32,7 @@ Query Store oluştu [küresel olarak kullanılabilir](https://azure.microsoft.co
 
 Bu bölümde Query Store ve bağımlı özelliklerini güvenilir işlemi gibi emin olmak için tasarlanan en uygun yapılandırma Varsayılanları açıklar [SQL veritabanı Danışmanı ve performansını Pano](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Varsayılan yapılandırma, OFF/READ_ONLY durumlarda harcanan minimum süre olan sürekli veri toplama için optimize edilmiştir.
 
-| Yapılandırma | Açıklama | Varsayılan | Açıklama |
+| Yapılandırma | Açıklama | Varsayılan | Yorum |
 | --- | --- | --- | --- |
 | MAX_STORAGE_SIZE_MB |Query Store, müşteri veritabanının içinde sürebilir veri alanı için sınır belirtir |100 |Yeni veritabanları için zorunlu |
 | INTERVAL_LENGTH_MINUTES |Zaman penceresi boyunca toplanan çalışma zamanı istatistikleri sorgu planlarına için toplanır ve kalıcı boyutunu tanımlar. Her etkin sorgu planı, bu yapılandırma ile tanımlanan bir süre için en fazla bir satır var. |60 |Yeni veritabanları için zorunlu |

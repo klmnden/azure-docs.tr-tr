@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60329500"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Ses ve azure'dan SMS özellikleri için Twilio kullanma
@@ -176,7 +176,7 @@ catch (TwilioException ex)
 Ne zaman uygulamanızı başlatan Twilio API'si - Örneğin, bir çağrı aracılığıyla **CallResource.Create** yöntem - Twilio gönderir isteğiniz TwiML yanıt dönmesi beklenen bir URL. Örnekte [nasıl yapılır: Giden bir çağrı yapmak](#howto_make_call) Twilio tarafından sağlanan URL'yi kullanır [ https://twimlets.com/message ] [ twimlet_message_url] yanıtta döndürülecek.
 
 > [!NOTE]
-> TwiML web hizmetleri tarafından kullanılmak üzere tasarlandığından, tarayıcınızda TwiML görüntüleyebilirsiniz. Örneğin, [ https://twimlets.com/message ] [ twimlet_message_url] boş görmek için `<Response>` öğesi; başka bir örnek olarak, tıklayın [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) görmek için bir `<Response>` öğesini içeren bir &lt;Say&gt; öğesi.
+> TwiML web hizmetleri tarafından kullanılmak üzere tasarlandığından, tarayıcınızda TwiML görüntüleyebilirsiniz. Örneğin, [ https://twimlets.com/message ] [ twimlet_message_url] boş görmek için `<Response>` öğesi; başka bir örnek olarak, tıklayın [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) görmek için bir `<Response>` öğesini içeren bir &lt; Say&gt; öğesi.
 >
 
 Twilio tarafından sağlanan URL üzerinde işlemine güvenmek yerine, HTTP yanıtlarını döndürür kendi URL site oluşturabilirsiniz. HTTP yanıtlarını döndüren herhangi bir dilde site oluşturabilirsiniz. Bu konuda, bir ASP.NET genel işleyicisi URL'den barındırma varsayılır.

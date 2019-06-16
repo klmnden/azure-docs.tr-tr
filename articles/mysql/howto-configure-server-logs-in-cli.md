@@ -1,33 +1,33 @@
 ---
-title: Erişim sunucusu, Azure CLI kullanarak MySQL için Azure veritabanı'nda oturum
-description: Bu makalede, Azure CLI komut satırı yardımcı programını kullanarak MySQL için Azure veritabanı'nda sunucu günlüklerini erişmeye açıklar.
-author: rachel-msft
-ms.author: raagyema
+title: MySQL için Azure veritabanı'nda Azure CLI kullanarak erişim yavaş sorgu günlüklerini
+description: Bu makalede, Azure CLI kullanarak MySQL için Azure veritabanı'nda yavaş sorgu günlüklerini erişmeye açıklar.
+author: andrela
+ms.author: ajlam
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/12/219
+ms.openlocfilehash: 740dbce579fba6347b1a7f2cfc6bcae40d3503ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525473"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052701"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Yapılandırma ve Azure CLI kullanarak sunucu günlüklerine erişme
-Sunucu günlükleri MySQL için Azure veritabanı Azure CLI, Azure komut satırı yardımcı programını kullanarak indirebilirsiniz.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Yapılandırma ve Azure CLI kullanarak yavaş sorgu günlüklerini erişin
+MySQL yavaş sorgu günlüklerini için Azure veritabanı Azure CLI, Azure komut satırı yardımcı programını kullanarak indirebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
 - [MySQL sunucusu için Azure veritabanı](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) veya tarayıcıda Azure Cloud Shell
 
-## <a name="configure-logging-for-azure-database-for-mysql"></a>MySQL için Azure veritabanı için günlük tutmayı yapılandırma
+## <a name="configure-logging"></a>Günlük tutmayı yapılandırma
 MySQL yavaş sorgu günlüğü aşağıdaki adımları izleyerek erişmek için sunucu yapılandırabilirsiniz:
-1. Günlük özelliğini açar ayarlayarak **yavaş\_sorgu\_günlük** on parametresi.
+1. Yavaş sorgu günlüğü ayarlayarak etkinleştirirseniz **yavaş\_sorgu\_günlük** on parametresi.
 2. Diğer parametreler gibi ayarlayın **uzun\_sorgu\_zaman** ve **günlük\_yavaş\_yönetici\_deyimleri**.
 
-Azure CLI aracılığıyla bu parametre değeri hakkında bilgi edinmek için bkz: [sunucu parametrelerini yapılandırma](howto-configure-server-parameters-using-cli.md). 
+Azure CLI aracılığıyla bu parametre değeri hakkında bilgi edinmek için bkz: [sunucu parametrelerini yapılandırma](howto-configure-server-parameters-using-cli.md).
 
 Örneğin, aşağıdaki CLI komutunu yavaş sorgu oturum açar, uzun sorgu süresi 10 saniye olarak ayarlar ve ardından yavaş yönetici deyiminin günlüğünü kapatır. Son olarak, gözden geçirmeniz için yapılandırma seçeneklerini listeler.
 ```azurecli-interactive
@@ -38,7 +38,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>MySQL sunucusu için Azure veritabanı için liste günlükleri
-Sunucunuz için kullanılabilir günlük dosyaları için Çalıştır [az mysql server-logs listesi](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) komutu.
+Sunucunuzun kullanılabilir yavaş sorgu günlük dosyalarını listelemek için çalıştırma [az mysql server-logs listesi](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) komutu.
 
 Sunucu için günlük dosyalarını listeleyebilirsiniz **demosunucum.MySQL.Database.Azure.com** kaynak grubu altında **myresourcegroup**. Ardından adlı bir metin dosyasına günlük dosyalarının listesi doğrudan **günlük\_dosyaları\_list.txt**.
 ```azurecli-interactive
@@ -53,4 +53,4 @@ az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Hakkında bilgi edinin [server, MySQL için Azure veritabanı'nda oturum](concepts-server-logs.md).
+- Hakkında bilgi edinin [yavaş sorgu, MySQL için Azure veritabanı'nda oturum](concepts-server-logs.md).

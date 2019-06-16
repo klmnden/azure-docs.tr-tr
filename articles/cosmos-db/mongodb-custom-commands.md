@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925647"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB için Azure Cosmos DB'nin API'SİNDE depolanan verileri yönetmek için MongoDB uzantı komutları kullanma 
@@ -163,7 +163,7 @@ Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 |**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 | Özel    | string | Özel komut adı. "CreateCollection" olmalıdır     |
-| koleksiyon      | string | Koleksiyon adı                                   |
+| Koleksiyon      | string | Koleksiyon adı                                   |
 | offerThroughput | int    | Veritabanını ayarlamak için sağlanan aktarım hızı'ı seçin. İsteğe bağlı bir parametredir |
 | shardKey        | string | Parçalı koleksiyon oluşturmak için parça anahtarı yolu. İsteğe bağlı bir parametredir |
 
@@ -208,7 +208,7 @@ Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 |**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 |  Özel   |   string      |   Özel komut adı. "UpdateCollection" olmalıdır.      |
-|  koleksiyon   |   string      |   Koleksiyonun adı.       |
+|  Koleksiyon   |   string      |   Koleksiyonun adı.       |
 | offerThroughput   |int|   Koleksiyonda ayarlamak için sağlanan aktarım hızı'ı seçin.|
 
 ## <a name="output"></a>Çıktı
@@ -243,7 +243,7 @@ Komut içinde Parametreler aşağıdaki tabloda açıklanmaktadır:
 |**Alan**|**Tür** |**Açıklama** |
 |---------|---------|---------|
 | Özel    |   string      |   Özel komut adı. "Belirtilmiş" olmalıdır.      |
-| koleksiyon    |    string     |    Koleksiyonun adı.     |
+| Koleksiyon    |    string     |    Koleksiyonun adı.     |
 
 ### <a name="output"></a>Çıktı
 

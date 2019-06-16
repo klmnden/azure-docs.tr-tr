@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 478c261bb909cbc931a7dbbaa9cb6c61152970e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878979"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Azure Data Lake depolama Gen1 ve Azure Blob Depolama ile karşılaştırma
@@ -28,7 +28,7 @@ Bu makalede tabloda büyük veri işleme önemli bazı yönlerini boyunca Azure 
 |  | Azure Data Lake Storage Gen1 | Azure Blob Depolama |
 | --- | --- | --- |
 | Amaç |Büyük veri analizi iş yükleri için iyileştirilmiş depolama |Genel amaçlı depolama senaryolarında, büyük veri analizi dahil olmak üzere çok çeşitli için nesne deposu |
-| Kullanım Örnekleri |Toplu iş, etkileşimli, günlük dosyaları, IOT verileri, tıklama akışlarından, büyük veri kümeleri gibi analiz ve makine öğrenme veri akışı |Herhangi bir uygulama gibi bir metin veya ikili veri türü, son yedekleme verileri, akış ve genel amaçlı veriler için medya depolama yedekleyin. Buna ek olarak, destek analizi iş yükleri için tam; Toplu iş, etkileşimli, günlük dosyaları, IOT verileri, tıklama akışlarından, büyük veri kümeleri gibi analiz ve makine öğrenme veri akışı |
+| Kullanım örnekleri |Toplu iş, etkileşimli, günlük dosyaları, IOT verileri, tıklama akışlarından, büyük veri kümeleri gibi analiz ve makine öğrenme veri akışı |Herhangi bir uygulama gibi bir metin veya ikili veri türü, son yedekleme verileri, akış ve genel amaçlı veriler için medya depolama yedekleyin. Buna ek olarak, destek analizi iş yükleri için tam; Toplu iş, etkileşimli, günlük dosyaları, IOT verileri, tıklama akışlarından, büyük veri kümeleri gibi analiz ve makine öğrenme veri akışı |
 | Önemli Kavramlar |Data Lake depolama Gen1 hesabı sırayla dosyaları olarak depolanan veriler içeren klasör içerir |Depolama hesabı kapsayıcıları, blobları biçiminde veri sırayla olan içeriyor |
 | Yapı |Hiyerarşik dosya sistemi |Düz ad alanına sahip nesne deposu |
 | API |HTTPS üzerinden REST API |HTTP/HTTPS üzerinden REST API |

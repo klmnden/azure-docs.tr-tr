@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125806"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>StorSimple sanal dizisi birimlerde yönetmek için StorSimple cihaz Yöneticisi'ni kullanın hizmeti
@@ -133,7 +133,7 @@ Bir birimi silmek için aşağıdaki adımları tamamlayın.
 1. Gelen **birimleri** , silmek istediğiniz birim bulunduğu sanal diziyi StorSimple hizmeti Özet dikey penceresinde ayarını seçin.
 2. **Seçin** tıklatın ve birim **...**  (Alternatif olarak bu satıra sağ tıklayın) ve bağlam menüsünden **Sil**.
    
-    ![Birimini sil](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
+    ![Birim Sil](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
 3. Silmek istediğiniz birim durumunu denetleyin. Silmek istediğiniz birim çevrimdışı değilse, ilk olarak yer alan adımları uygulayarak çevrimdışına [bir birimi çevrimdışı duruma](#take-a-volume-offline).
 4. İçinde onaylamanız istendiğinde **Sil** dikey penceresinde, onayı kabul edin ve tıklayın **Sil**. Birim artık silinir ve **birimleri** dikey güncelleştirilmiş sanal dizi içinde birimlerin listesini gösterir.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4f917c45030ad70a2ab76fed877bd822d1902f82
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64927290"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
@@ -179,11 +179,11 @@ Aşağıdaki tablo, değişiklik izleme için makine başına izlenen öğe sın
 | **Kaynak** | **Sınırı**| **Notlar** |
 |---|---|---|
 |Dosya|500||
-|Kayıt Defteri|250||
+|Kayıt defteri|250||
 |Windows yazılım|250|Yazılım güncelleştirmeleri dahil değildir|
 |Linux paketleri|1250||
 |Hizmetler|250||
-|Program|250||
+|Daemon|250||
 
 Log Analytics veri kullanımı değişiklik izleme ve stok kullanarak bir makine için yaklaşık 40 MB / ay ortalamadır. Bu değer yalnızca yaklaşık ve ortamınıza bağlı değiştirilebilir. Ortamınızı sahip olduğunuz tam kullanımını görmek için izlemeniz önerilir.
 
@@ -263,7 +263,7 @@ Bir değişiklik veya olay'ı tıklatarak bu değişiklik hakkında ayrıntılı
 
 ![değişiklik ayrıntıları izleme görüntüsü](./media/change-tracking/change-tracking-details.png)
 
-## <a name="search-logs"></a>Günlük ara
+## <a name="search-logs"></a>Günlüklerinde arama yapma
 
 Portalda sağlanan Ayrıntılar ek olarak, arama günlüklerine karşı yapılabilir. İle **değişiklik izleme** sayfası açıldığında, tıklayın **Log Analytics**, bu açılır **günlükleri** sayfası.
 

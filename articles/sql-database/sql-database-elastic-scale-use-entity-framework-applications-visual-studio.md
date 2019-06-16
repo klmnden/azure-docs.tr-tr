@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
 ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331931"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Entity Framework ile esnek veritabanı istemci kitaplığı
@@ -36,8 +36,8 @@ Bu makalede kodu indirmek için:
 Örneği çalıştırmak için Azure SQL veritabanı'nda üç boş veritabanı oluşturma gerekir:
 
 * Parça eşleme Yöneticisi veritabanı
-* 1. parça veritabanı
-* 2. parça veritabanı
+* 1\. parça veritabanı
+* 2\. parça veritabanı
 
 Bu veritabanları oluşturduktan sonra yer tutucu doldurun **Program.cs** Azure SQL veritabanı sunucu adınız, veritabanı adları ve veritabanlarına bağlanmak için kimlik bilgilerinizi. Visual Studio çözümü oluşturun. Visual Studio gerekli NuGet paketlerini elastik veritabanı istemci kitaplığı, Entity Framework ve geçici hata işleme yapı işleminin bir parçası olarak indirir. NuGet paketlerini geri yüklemek için çözümünüzün etkinleştirildiğinden emin olun. Visual Studio Çözüm Gezgini'nde çözüme sağ tıklayarak, bu ayarı etkinleştirebilirsiniz. 
 

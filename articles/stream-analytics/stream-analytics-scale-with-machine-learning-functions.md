@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479158"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Stream Analytics işinizi Azure Machine Learning işlevleriyle ölçeklendirme
@@ -72,14 +72,14 @@ Machine Learning web hizmetini yaklaşım analizi gecikme süresini 200 ms 1000 
 
 Stream Analytics işi, aktarım hızı için bir tablo farklı SUs ve batch boyutları (saniye başına olay sayısı) aşağıdadır.
 
-| Toplu iş boyutu (ML gecikme) | 500 (200 ms) | 1.000 (200 ms) | 5.000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
+| Toplu iş boyutu (ML gecikme) | 500 (200 ms) | 1\.000 (200 ms) | 5\.000 (250 ms) | 10\.000 (300 ms) | 25\.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
-| **12 SUs** |5.000 |10,000 |40,000 |60,000 |100.000 |
-| **18 SUs** |7.500 |15,000 |60,000 |90,000 |150,000 |
-| **24 SUs** |10,000 |20.000 |80,000 |120,000 |200,000 |
+| **12 SUs** |5,000 |10,000 |40,000 |60,000 |100,000 |
+| **18 SUs** |7,500 |15,000 |60,000 |90,000 |150,000 |
+| **24 SUs** |10,000 |20\.000 |80,000 |120,000 |200,000 |
 | **…** |… |… |… |… |… |
 | **60 SUs** |25,000 |50,000 |200,000 |300,000 |500,000 |
 

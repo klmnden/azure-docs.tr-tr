@@ -13,13 +13,13 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922979"
 ---
-# <a name="configure-application-insights-profiler"></a>Application Insights Profiler'ı Yapılandır
+# <a name="configure-application-insights-profiler"></a>Application Insights Profiler ' ı yapılandırma
 
 ## <a name="profiler-settings-pane"></a>Profiler ayarları bölmesi
 
@@ -47,7 +47,7 @@ Profiler tek bir tıklamayla el ile tetikleyebilirsiniz. Web performans testini 
 
 Sonraki bölümlerde, bu senaryoda nasıl çalıştığını göstermektedir:
 
-### <a name="step-1-optional-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>1. Adım: (İsteğe bağlı) Web performans testi başlatarak web uygulamanıza trafiği oluşturur
+### <a name="step-1-optional-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>1\. adım: (İsteğe bağlı) Web performans testi başlatarak web uygulamanıza trafiği oluşturur
 
 Web uygulamanıza gelen trafik varsa veya trafiği el ile oluşturmak istiyorsanız, bu bölümü atlayın ve adım 2'ye geçin.
 
@@ -67,14 +67,14 @@ Web uygulamanıza gelen trafik varsa veya trafiği el ile oluşturmak istiyorsan
 
     ![devam eden yük testi çalışırken][load-test-in-progress]
 
-### <a name="step-2-start-a-profiler-on-demand-session"></a>2. Adım: Profiler isteğe bağlı oturum başlatma
+### <a name="step-2-start-a-profiler-on-demand-session"></a>2\. adım: Profiler isteğe bağlı oturum başlatma
 
 1. Yük testi çalışırken yük alırken web uygulamasında izlemeleri yakalamak amacıyla Profiler'ı başlatın.
 
 1. Git **yapılandırma Profiler** bölmesi.
 
 
-### <a name="step-3-view-traces"></a>3. Adım: Görünüm izlemeleri
+### <a name="step-3-view-traces"></a>3\. adım: Görünüm izlemeleri
 
 Profiler çalışmayı tamamladıktan sonra performans bölmesi ve görünüm izlemeleri gitmek için bildirim yönergeleri izleyin.
 

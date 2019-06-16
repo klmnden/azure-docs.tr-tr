@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873275"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL veri ambarı ile Azure Stream Analytics'i kullanma
@@ -33,13 +33,13 @@ Aşağıdaki adımlarda ilk olarak, üzerinde işlem [Azure Stream Analytics'i k
 Ardından, bir Azure SQL Data Warehouse veritabanı oluşturma
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>İş çıktısı belirtin: Azure SQL veri ambarı veritabanı
-### <a name="step-1"></a>Adım 1
+### <a name="step-1"></a>1\. Adım
 Stream Analytics işinizi tıklayın **çıkış** sayfasının ve ardından üst **ekleme**.
 
-### <a name="step-2"></a>Adım 2
+### <a name="step-2"></a>2\. Adım
 SQL veritabanı'nı seçin.
 
-### <a name="step-3"></a>Adım 3
+### <a name="step-3"></a>3\. Adım
 Sonraki sayfasında aşağıdaki değerleri girin:
 
 * *Çıkış diğer adı*: Bu iş çıktısı için bir kolay ad girin.
@@ -57,7 +57,7 @@ Sonraki sayfasında aşağıdaki değerleri girin:
 
 ![][add-database]
 
-### <a name="step-4"></a>4. Adım
+### <a name="step-4"></a>4\. Adım
 Bu iş çıktısı eklemek ve Stream Analytics, veritabanına başarıyla bağlantı kurabildiğimizi doğrulamak için onay işaretine tıklayın.
 
 Veritabanı bağlantısı başarılı olduğunda, portalda bir bildirim görürsünüz. Veritabanı bağlantısını test etmek için Test tıklayabilirsiniz.

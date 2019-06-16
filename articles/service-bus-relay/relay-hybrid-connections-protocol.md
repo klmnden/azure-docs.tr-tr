@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420054"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706085"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure geçiş karma bağlantılar Protokolü
 
@@ -158,7 +158,7 @@ WebSocket bağlantısı kaydedilmemiş, karma bağlantı yolu veya eksik veya ge
 | 404  | Bulunamadı      | Karma bağlantı yolu geçersiz veya temel URL yanlış biçimlendirilmiş.
 | 401  | Yetkilendirilmemiş   | Güvenlik belirteci eksik veya hatalı biçimlendirilmiş veya geçersiz.
 | 403  | Yasak      | Güvenlik belirteci, bu yol için bu eylem için geçerli değil.
-| 500  | İç Hata | Hizmette bir sorun oluştu.
+| 500  | İç hata | Hizmette bir sorun oluştu.
 
 Bu ilk yedekleme izleme kimliğini de içeren bir açıklayıcı hata iletisi ile birlikte uygun bir WebSocket protokolü hatası kodu kullanarak bildiriliyor böylece nedeni ayarlandıktan sonra WebSocket bağlantısı kasıtlı olarak hizmet tarafından kapatılırsa Hizmet denetim kanalı bir hata koşulu karşılaşılmadan kapatacak değil. Herhangi bir temiz kapatma denetlenen istemcisidir.
 
@@ -222,7 +222,7 @@ Varsa bir hata, bir hizmet gibi yanıtlayabilir:
 | Kod | Hata          | Açıklama
 | ---- | -------------- | -----------------------------------
 | 403  | Yasak      | URL geçerli değil.
-| 500  | İç Hata | Hizmette bir sorun oluştu
+| 500  | İç hata | Hizmette bir sorun oluştu
 
  Bağlantı kurulduktan sonra sunucu WebSocket göndereni aşağı veya aşağıdaki durum kapattığında WebSocket kapatan:
 
@@ -253,7 +253,7 @@ Hiçbir WebSocket kurulduktan sonra doğru tamamlarken, bu el sıkışması kas�
 | Kod | Hata          | Açıklama                          |
 | ---- | -------------- | ------------------------------------ |
 | 403  | Yasak      | URL geçerli değil.                |
-| 500  | İç Hata | Hizmette bir sorun oluştu. |
+| 500  | İç hata | Hizmette bir sorun oluştu. |
 
 #### <a name="request-message"></a>İstek iletisi
 
@@ -384,9 +384,9 @@ Varsa bir hata, bir hizmet gibi yanıtlayabilir:
 
 | Kod | Hata           | Açıklama
 | ---- | --------------- | -----------------------------------
-| 400  | Geçersiz İstek | Tanınmayan bir eylem veya URL geçerli değil.
+| 400  | Geçersiz istek | Tanınmayan bir eylem veya URL geçerli değil.
 | 403  | Yasak       | URL'nin süresi doldu.
-| 500  | İç Hata  | Hizmette bir sorun oluştu
+| 500  | İç hata  | Hizmette bir sorun oluştu
 
  Bağlantı kurulduktan sonra sunucu istemcinin HTTP yuva kapatıldığında veya aşağıdaki durum WebSocket kapatan:
 
@@ -456,7 +456,7 @@ WebSocket bağlantısı kayıtlı karma bağlantı yolu, geçersiz veya eksik bi
 | 404  | Bulunamadı      | Karma bağlantı yolu geçersiz veya temel URL yanlış biçimlendirilmiş.
 | 401  | Yetkilendirilmemiş   | Güvenlik belirteci eksik veya hatalı biçimlendirilmiş veya geçersiz.
 | 403  | Yasak      | Güvenlik belirteci, bu yol için ve bu eylem için geçerli değil.
-| 500  | İç Hata | Hizmette bir sorun oluştu.
+| 500  | İç hata | Hizmette bir sorun oluştu.
 
 Kurulum, izleme kimliği de içeren bir açıklayıcı hata iletisi ile birlikte uygun bir WebSocket protokolü hatası kodu kullanarak bildiriliyor böylece nedeni başlangıçta ayarlandıktan sonra WebSocket bağlantısı kasıtlı olarak hizmet tarafından kapatılırsa .
 
@@ -491,10 +491,10 @@ Belirteç de ya da aktarılabilen `ServiceBusAuthorization` veya `Authorization`
 Bile ya da ekler değil gerçek HTTP proxy olarak hizmet etkili bir şekilde bir proxy olarak çalışır çünkü bir `Via` üst bilgi veya var olan açıklama ekler `Via` üst bilgisi ile uyumlu [RFC7230, bölüm 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
 Geçiş ad alanı ana bilgisayar adı için bir hizmet ekler `Via`.
 
-| Kod | İleti  | Açıklama                    |
+| Kod | `Message`  | Açıklama                    |
 | ---- | -------- | ------------------------------ |
 | 200  | Tamam       | İstek, en az bir dinleyici tarafından işlendi.  |
-| 202  | Kabul Edildi | En az bir dinleyici tarafından istek kabul edildi. |
+| 202  | Kabul edildi | En az bir dinleyici tarafından istek kabul edildi. |
 
 Varsa bir hata, hizmet gibi yanıtlayabilir. Yanıt hizmetinden veya dinleyici olup gelmektedir varlığını tanımlanabilir `Via` başlığı. Yanıt üstbilgisi mevcutsa, dinleyicisinden.
 
@@ -503,9 +503,9 @@ Varsa bir hata, hizmet gibi yanıtlayabilir. Yanıt hizmetinden veya dinleyici o
 | 404  | Bulunamadı       | Karma bağlantı yolu geçersiz veya temel URL yanlış biçimlendirilmiş.
 | 401  | Yetkilendirilmemiş    | Güvenlik belirteci eksik veya hatalı biçimlendirilmiş veya geçersiz.
 | 403  | Yasak       | Güvenlik belirteci, bu yol için ve bu eylem için geçerli değil.
-| 500  | İç Hata  | Hizmette bir sorun oluştu.
+| 500  | İç hata  | Hizmette bir sorun oluştu.
 | 503  | Hatalı Ağ Geçidi     | İstek için tüm dinleyici yönlendirilmesini değil.
-| 504  | Ağ Geçidi Zaman Aşımı | İstek için bir dinleyici yönlendirildi ancak dinleyicisi giriş gerekli zamanında kabul etmez.
+| 504  | Ağ geçidi zaman aşımı | İstek için bir dinleyici yönlendirildi ancak dinleyicisi giriş gerekli zamanında kabul etmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

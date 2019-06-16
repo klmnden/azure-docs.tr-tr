@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/15/2019
 ms.author: aljo
 ms.openlocfilehash: c02e38880fdf8e8f1a2229f009b343d6431af853
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125145"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>İstemci kimlik doğrulaması için Azure Active Directory ayarlayın
@@ -85,7 +85,7 @@ Başarılı bir şekilde Azure AD'ye Service Fabric Explorer'da oturum açtıkta
 
 ![SFX sertifika iletişim kutusu][sfx-select-certificate-dialog]
 
-#### <a name="reason"></a>Neden
+#### <a name="reason"></a>Reason
 Kullanıcı Azure AD küme uygulaması bir rol atanmamıştır. Bu nedenle, Service Fabric kümesinde Azure AD kimlik doğrulaması başarısız olur. Service Fabric Explorer, sertifika kimlik doğrulaması için geri döner.
 
 #### <a name="solution"></a>Çözüm
@@ -104,7 +104,7 @@ Service Fabric Explorer'ın Azure AD'de oturum açmaya çalıştığınızda, sa
 
 ![SFX yanıt adresi eşleşmiyor][sfx-reply-address-not-match]
 
-#### <a name="reason"></a>Neden
+#### <a name="reason"></a>Reason
 Service Fabric Explorer'ı temsil eden bir küme (web) uygulaması, Azure AD'de bir kimlik doğrulama girişiminde ve isteğe bağlı olarak, isteğin bir parçası yeniden yönlendirme dönüş URL'si sağlar. Ancak Azure AD uygulama URL'sini listelenmeyen **yanıt URL'si** listesi.
 
 #### <a name="solution"></a>Çözüm

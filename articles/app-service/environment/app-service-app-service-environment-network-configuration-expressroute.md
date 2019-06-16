@@ -16,10 +16,10 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130679"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute ile PowerApps için App Service ortamı için ağ yapılandırma ayrıntıları
@@ -102,17 +102,17 @@ Bu bölümde, App Service ortamı için örnek bir UDR yapılandırma gösterilm
 > [!IMPORTANT]
 > Yapılandırma adımları tamamladıktan sonra yalnızca App Service ortamı dağıtın. Adımları, özel olarak App Service ortamı dağıtmayı denemeden önce giden ağ bağlantısını kullanılabilir olduğundan emin olun.
 
-### <a name="step-1-create-a-route-table"></a>1. Adım: Yönlendirme tablosu oluşturma
+### <a name="step-1-create-a-route-table"></a>1\. adım: Yönlendirme tablosu oluşturma
 
 Adlı bir yönlendirme tablosu oluşturma **DirectInternetRouteTable** Bu kod parçacığında gösterildiği gibi batı ABD Azure bölgesi:
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-### <a name="step-2-create-routes-in-the-table"></a>2. Adım: Yol tablosu oluşturma
+### <a name="step-2-create-routes-in-the-table"></a>2\. adım: Yol tablosu oluşturma
 
 Giden internet erişimi etkinleştirmek için yol tablosu yolları ekleyin.  
 
-Giden internet erişimi yapılandırın. 0.0.0.0/0 için bir rota Bu kod parçacığında gösterildiği gibi tanımlayın:
+Giden internet erişimi yapılandırın. 0\.0.0.0/0 için bir rota Bu kod parçacığında gösterildiği gibi tanımlayın:
 
 `Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet`
 
@@ -127,13 +127,13 @@ Alternatif olarak, Azure tarafından kullanılan CIDR aralıkları geçerli, kap
 > Tek bir UDR 100 yolların varsayılan bir üst sınırı vardır. "Azure IP adresi aralığı içinde 100-route sınırını aşmayacak şekilde özetlemek" gerekir. UDR tanımlı yollar, ExpressRoute bağlantınızı tarafından tanıtılan rotaları daha belirli gerekecektir.
 > 
 
-### <a name="step-3-associate-the-table-to-the-subnet"></a>3. Adım: Alt ağa tablosunu ilişkilendirme
+### <a name="step-3-associate-the-table-to-the-subnet"></a>3\. adım: Alt ağa tablosunu ilişkilendirme
 
 Burada, App Service ortamı dağıtmak istediğiniz alt ağ için rota tablosu ilişkilendirin. Bu komut ilişkilendirir **DirectInternetRouteTable** tablo **ASESubnet** App Service ortamını içeren alt ağ.
 
 `Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'`
 
-### <a name="step-4-test-and-confirm-the-route"></a>4. Adım: Test ve rota onaylayın
+### <a name="step-4-test-and-confirm-the-route"></a>4\. Adım: Test ve rota onaylayın
 
 Rota tablosunu alt ağa bağlandıktan sonra test ve rota onaylayın.
 

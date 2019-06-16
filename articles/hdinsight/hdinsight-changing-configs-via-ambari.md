@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60698989"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>HDInsight küme yapılandırmalarını en iyi duruma getirmek için Apache Ambari kullanın
@@ -57,7 +57,7 @@ NameNode Java yığın boyutu değiştirmek için:
 
 1. Yeşil tıklayarak yaptığınız değişiklikleri kaydetmek **Kaydet** yapılandırma ekranın üst kısmındaki düğmesi.
 
-    ![Değişiklikleri kaydet](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
+    ![Değişiklikleri Kaydet](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
 ## <a name="apache-hive-optimization"></a>Apache Hive en iyi duruma getirme
 
@@ -176,7 +176,7 @@ Hadoop işleri genellikle g/ç performansı düşürdüğünü gösterir. Veri s
 
 Kullanılabilir sıkıştırma türleri şunlardır:
 
-| Biçimlendir | Tool | Algoritma | Dosya uzantısı | Bölünebilir mi? |
+| Biçimi | Aracı | Algoritması | Dosya uzantısı | Bölünebilir mi? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | SÖNDÜR | .gz | Hayır |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Evet |
@@ -204,7 +204,7 @@ Genel bir kural olarak bölümlenebilir sıkıştırma yöntemi olması önemlid
 
     d. Özellik Ekle penceresinde girin `mapred.map.output.compression.codec` anahtar olarak ve `org.apache.hadoop.io.compress.SnappyCodec` değeri.
 
-    e. **Ekle**'ye tıklayın.
+    e. **Ekle**'yi tıklatın.
 
     ![Hive özel özellik](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -269,7 +269,7 @@ Aşağıdaki bölümlerde ayarlayabileceğiniz ek Hive ile ilgili iyileştirmele
 
 Hive varsayılan birleştirme türü olan bir *shuffle birleştirme*. Hive, özel azaltıcının giriş okuyun ve join anahtar/değer çifti için bir ara dosya yayma. Hadoop, sıralar ve bu çiftler shuffle aşamasında birleştirir. Bu shuffle aşama pahalıdır. Verilerinizi temel alan sağ birleştirme seçerek performansını önemli ölçüde artırabilir.
 
-| Katılım Türü | Zaman | Nasıl | Hive ayarları | Yorumlar |
+| Katılım Türü | Ne zaman | Nasıl | Hive ayarları | Açıklamalar |
 | -- | -- | -- | -- | -- |
 | Shuffle birleştirme | <ul><li>Varsayılan seçenek</li><li>Her zaman çalışır</li></ul> | <ul><li>Tablolardan birinin bölümünden okur</li><li>Demetleri ve birleştirme anahtarı sıralar</li><li>Tek bir demet her reduce'a gönderir.</li><li>Birleştirme azaltın tarafında gerçekleştirilir</li></ul> | Gerekli ayarı yok önemli Hive | Her zaman çalışır. |
 | Harita birleştirme | <ul><li>Bir tablo belleğe sığması</li></ul> | <ul><li>Küçük bir tablo bellek karma tabloya okur</li><li>Akışları aracılığıyla büyük dosya</li><li>Karma tablosundaki her kayıt birleştirir</li><li>Birleştirmeler Eşleyicisi tarafından olan</li></ul> | `hive.auto.confvert.join=true` | Çok hızlı ancak sınırlı |
@@ -384,7 +384,7 @@ Aşağıdaki yapılandırmalar okuma yoğunluklu iş yüklerinin performansını
 
 Okuma önbelleği blok önbelleğidir. Boyutuna göre denetlenir `hfile.block.cache.size` parametresi. Varsayılan 0.4, yüzde 40'a toplam bölge sunucu belleği olan değerdir. Büyük blok önbelleği boyutu, rastgele okuma daha hızlı olacaktır.
 
-1. Bu parametreyi değiştirmek için gidin **ayarları** HBase sekmede **yapılandırmaları** sekmesine ve ardından bulun **RegionServer ayrılmış Okuma arabelleği için %**.
+1. Bu parametreyi değiştirmek için gidin **ayarları** HBase sekmede **yapılandırmaları** sekmesine ve ardından bulun **RegionServer ayrılmış Okuma arabelleği için %** .
 
     ![HBase blok önbellek boyutu](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
  

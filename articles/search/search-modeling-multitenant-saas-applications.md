@@ -11,10 +11,10 @@ ms.date: 07/30/2018
 ms.author: liamca
 ms.custom: seodec2018
 ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61288731"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Çok kiracılı SaaS uygulamaları ve Azure Search için desenler tasarlama
@@ -39,7 +39,7 @@ Bölümler ve çoğaltmalar, ekleme ve kaldırma kapasitesini veri miktarı ile 
 ### <a name="service-and-index-limits-in-azure-search"></a>Azure Search hizmeti ve dizin sınırları
 Birkaç farklı [fiyatlandırma katmanları](https://azure.microsoft.com/pricing/details/search/) Azure Search'te, her katman farklı sahip [limitler ve kotalar](search-limits-quotas-capacity.md). Bu sınırlar hizmet düzeyinde bazıları dizin düzeyinde bazıları ve bölüm düzeyinde bazılarıdır.
 
-|  | Temel | Standard1 | Standart2 | Standart3 | Standart3 HD |
+|  | Temel | Standard1 | Standard2 | Standart3 | Standart3 HD |
 | --- | --- | --- | --- | --- | --- |
 | Hizmet başına en fazla yineleme |3 |12 |12 |12 |12 |
 | Hizmet başına en fazla bölüm |1 |12 |12 |12 |3 |

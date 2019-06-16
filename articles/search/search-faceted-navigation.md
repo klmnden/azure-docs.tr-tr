@@ -10,10 +10,10 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65793634"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Arama'da çok yönlü navigasyon
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 Modeli sorgu parametresi için bir alan olarak ayarlanır ve bağlı veri türü, daha fazla parametreli içeren virgülle ayrılmış liste tarafından `count:<integer>`, `sort:<>`, `interval:<integer>`, ve `values:<list>`. Değerler listesinde aralıkları ayarlarken sayısal veriler için desteklenir. Bkz: [Search belgeleri (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) kullanım ayrıntıları için.
 
-Modelleri yanı sıra, uygulamanız tarafından şeklide isteği ayrıca bir model değeri seçimi temel alınarak aday belge kümesini daraltmak için filtre oluşturması gerekir. Soruların ipuçları ister bisiklet deposu için çok yönlü gezinme sağlar *hangi renkleri, üreticiler ve bisiklet türleri mevcuttur?*. Filtreleme gibi soruların yanıtları *hangi tam bir bisiklet kırmızı, dağ bisikleti bu aralığı fiyat?*. Yalnızca kırmızı ürünlerini gösterilecek belirtmek için "Red"'a tıkladığınızda uygulamanın gönderdiği sonraki sorgu içeren `$filter=Color eq ‘Red’`.
+Modelleri yanı sıra, uygulamanız tarafından şeklide isteği ayrıca bir model değeri seçimi temel alınarak aday belge kümesini daraltmak için filtre oluşturması gerekir. Soruların ipuçları ister bisiklet deposu için çok yönlü gezinme sağlar *hangi renkleri, üreticiler ve bisiklet türleri mevcuttur?* . Filtreleme gibi soruların yanıtları *hangi tam bir bisiklet kırmızı, dağ bisikleti bu aralığı fiyat?* . Yalnızca kırmızı ürünlerini gösterilecek belirtmek için "Red"'a tıkladığınızda uygulamanın gönderdiği sonraki sorgu içeren `$filter=Color eq ‘Red’`.
 
 Aşağıdaki kod parçacığı `JobsSearch.cs` iş başlık modeli bir değer seçerseniz sayfayı Seçili iş başlığı filtresi ekler.
 

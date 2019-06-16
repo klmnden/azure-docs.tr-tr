@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0295162acdf358bd798e86bd7d3479f5e78d72
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: eded8eb446d36a321acf46231eee3e764ba41504
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407914"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Öğretici: Azure Active Directory Tümleştirmesi ile TOPdesk - güvenli
 
@@ -53,7 +53,7 @@ Güvenli TOPdesk - tümleştirmesini yapılandırmak için Azure AD ile Galeride
 
 **TOPdesk - eklemek için galerideki güvenli, aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -178,13 +178,13 @@ Azure AD çoklu oturum açma - TOPdesk ile yapılandırmak için güvenli, aşa�
 
     a. Azure portalından indirilen meta verileri dosyanızı altında karşıya yüklemek için **Federasyon meta verileri**, tıklayın **Gözat**.
 
-    b. Altında sertifika dosyası karşıya **sertifika (RSA)**, tıklayın **Gözat**.
+    b. Altında sertifika dosyası karşıya **sertifika (RSA)** , tıklayın **Gözat**.
 
-    c. İçin **özel anahtarı (RSA, PKCS8, DER)**, özel anahtarınızı karşıya yükleyebilirsiniz ya da iletişime geçebilirsiniz [TOPdesk - güvenli istemci Destek ekibine](https://www.topdesk.com/us/support) özel anahtarı alınamıyor.
+    c. İçin **özel anahtarı (RSA, PKCS8, DER)** , özel anahtarınızı karşıya yükleyebilirsiniz ya da iletişime geçebilirsiniz [TOPdesk - güvenli istemci Destek ekibine](https://www.topdesk.com/us/support) özel anahtarı alınamıyor.
 
     d. Aldığınız TOPdesk destek ekibinden altında logosu dosyayı karşıya yüklemeyi **logosu simgesi**, tıklayın **Gözat**.
 
-    e. İçinde **kullanıcı adı özniteliği** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. İçinde **kullanıcı adı özniteliği** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     f. İçinde **görünen adı** metin yapılandırmanız için bir ad yazın.
 

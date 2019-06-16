@@ -14,10 +14,10 @@ ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104842"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics ekleme aramaları ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
@@ -83,7 +83,7 @@ Kayıtlı bir aramayı her bir özellik aşağıdaki tabloda açıklanmıştır.
 | sorgu | Çalıştırılacak sorgu. |
 
 > [!NOTE]
-> JSON olarak yorumlanabilecek karakterler içeriyorsa, kaçış karakterleri sorguda kullanmanız gerekebilir. Örneğin, sorgunuz varsa **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, çözüm dosyasındaki yazılmalıdır **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"**.
+> JSON olarak yorumlanabilecek karakterler içeriyorsa, kaçış karakterleri sorguda kullanmanız gerekebilir. Örneğin, sorgunuz varsa **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** , çözüm dosyasındaki yazılmalıdır **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"** .
 
 ## <a name="alerts"></a>Uyarılar
 [Azure günlük uyarılarını](../../azure-monitor/platform/alerts-unified-log.md) düzenli aralıklarla belirtilen günlük sorguları çalıştıran Azure uyarı kuralları tarafından oluşturulur. Sorgu sonuçlarını belirtilen ölçütlerle eşleşen, bir uyarı kaydı oluşturulur ve bir veya daha fazla eylem kullanarak çalıştırılır [Eylem grupları](../../azure-monitor/platform/action-groups.md).
@@ -272,7 +272,7 @@ Web kancası eylemi kaynakların özellikleri aşağıdaki tablolarda açıklanm
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
 | type | Evet | Eylem türü. Bu **Web kancası** Web kancası işlemleri için. |
-| ad | Evet | Eylem görünen adı. Bu konsolunda görüntülenmez. |
+| name | Evet | Eylem görünen adı. Bu konsolunda görüntülenmez. |
 | webhookUri | Evet | Web kancası için URI. |
 | customPayload | Hayır | Web kancası'na gönderilecek özel yükü. Biçim, Web kancası bekleniyor üzerinde bağlıdır. |
 
@@ -282,7 +282,7 @@ Aşağıdaki kaynakları içeren bir çözümü bir örnek aşağıda verilmişt
 
 - Kayıtlı arama
 - Zamanlama
-- Eylem grubu
+- eylem grubu
 
 Örnek kullanır [standart çözüm parametreleri]( solutions-solution-file.md#parameters) yaygın olarak kaynak tanımlarında runbook'a kod değerleri aksine bir çözümde kullanılan değişkenler.
 

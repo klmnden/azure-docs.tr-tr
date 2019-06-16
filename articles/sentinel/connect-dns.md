@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 6429568b33ece3ed4f26614e55e8c3069dd65d71
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204394"
 ---
 # <a name="connect-your-domain-name-server"></a>Etki alanı adı server'ınıza bağlanın
@@ -51,7 +51,7 @@ DNS bağlantı DNS makinede bir aracı yükleyerek gerçekleştirilir. Aracı ol
 
 2. DNS makinenizi Azure VM'deki değilse:
     1. Tıklayın **indirin ve Windows Azure olmayan makineler için aracıyı yükleme**.
-    1. İçinde **doğrudan aracı** penceresinde seçin **indirme Windows aracısını (64 bit)** veya **indirme Windows aracısını (32 bit)**.
+    1. İçinde **doğrudan aracı** penceresinde seçin **indirme Windows aracısını (64 bit)** veya **indirme Windows aracısını (32 bit)** .
     1. Aracıyı DNS makinenize yükleyin. Kopyalama **çalışma alanı kimliği**, **birincil anahtar**, ve **ikincil anahtar** ve yükleme sırasında istendiğinde kullanabilirsiniz.
 
 3. İlgili şema için DNS günlükleri Log Analytics'te kullanmak için arama **DnsEvents**.

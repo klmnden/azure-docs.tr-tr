@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60579967"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN ile geliştirmeye başlama
@@ -42,7 +42,7 @@ Bu öğreticiyi tamamlamak için Visual Studio 2015 ihtiyacınız vardır.  [Vis
 ## <a name="create-your-project-and-add-nuget-packages"></a>Projenizi oluşturmak ve Nuget paketleri Ekle
 Size sunduğumuz CDN profili için bir kaynak grubu oluşturduğunuz ve CDN profili ve uç noktaları grubu içindeki yönetmek için Azure AD uygulama izin verilen göre biz uygulamamızı oluşturmaya başlayabilir.
 
-İçinde Visual Studio 2015 ' i **dosya**, **yeni**, **proje...**  yeni proje iletişim kutusunu açın.  Genişletin **Visual C#**, ardından **Windows** soldaki bölmede.  Tıklayın **konsol uygulaması** Orta bölmedeki.  Projenizi adlandırın ve ardından tıklayın **Tamam**.  
+İçinde Visual Studio 2015 ' i **dosya**, **yeni**, **proje...**  yeni proje iletişim kutusunu açın.  Genişletin **Visual C#** , ardından **Windows** soldaki bölmede.  Tıklayın **konsol uygulaması** Orta bölmedeki.  Projenizi adlandırın ve ardından tıklayın **Tamam**.  
 
 ![Yeni Proje](./media/cdn-app-dev-net/cdn-new-project.png)
 
@@ -51,7 +51,7 @@ Projemizin Nuget paketleri içinde yer alan bazı Azure kitaplıkları kullanmay
 1. Tıklayın **Araçları** menüsünde **Nuget Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**.
    
     ![Nuget paketlerini Yönet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. Paket Yöneticisi Konsolu'nda yüklemek için aşağıdaki komutu yürütün **Active Directory Authentication Library (ADAL)**:
+2. Paket Yöneticisi Konsolu'nda yüklemek için aşağıdaki komutu yürütün **Active Directory Authentication Library (ADAL)** :
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. Yüklemek için aşağıdakileri yürütün **Azure CDN Yönetim kitaplığı**:
@@ -73,7 +73,7 @@ Yazılan programımız temel yapısını geçelim.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Bizim yöntemleri kullanacaksınız bazı sabitleri tanımlamak ihtiyacımız var.  İçinde `Program` sınıfı, ancak önce `Main` yöntemi aşağıdakileri ekleyin.  Dahil olmak üzere, yer tutucuları değiştirdiğinizden emin olun  **&lt;açılı ayraçlar&gt;**, gerektiğinde kendi değerlerinizle.
+2. Bizim yöntemleri kullanacaksınız bazı sabitleri tanımlamak ihtiyacımız var.  İçinde `Program` sınıfı, ancak önce `Main` yöntemi aşağıdakileri ekleyin.  Dahil olmak üzere, yer tutucuları değiştirdiğinizden emin olun  **&lt;açılı ayraçlar&gt;** , gerektiğinde kendi değerlerinizle.
    
     ```csharp
     //Tenant app constants

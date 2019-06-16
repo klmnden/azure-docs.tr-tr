@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 407b8ba2fda35d3acbf1b425bb15fe20778613d7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146011"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Azure Data factory'de sınırlandırılmış metin biçimi
@@ -28,10 +28,10 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 
 | Özellik         | Açıklama                                                  | Gerekli |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | Dataset öğesinin type özelliği ayarlanmalıdır **DelimitedText**. | Evet      |
+| türü             | Dataset öğesinin type özelliği ayarlanmalıdır **DelimitedText**. | Evet      |
 | location         | Dosya konumunu ayarlar. Her dosya tabanlı bağlayıcı kendi konum türü ve desteklenen özellikleri altında `location`. **Makale bağlayıcı -> veri kümesi özellikleri bölümündeki ayrıntılara bakın**. | Evet      |
 | columnDelimiter  | Bir dosyadaki sütunları ayırmak için kullanılan karakter. Şu anda çok char sınırlayıcısı, yalnızca veri akışı eşleme ancak kopyalama etkinliği için desteklenir. <br>Varsayılan değer **virgülle `,`** , sütun sınırlayıcısı anlamına sınırlayıcı, satırın tamamını tek bir sütun olarak alınır boş dize olarak tanımlanır. | Hayır       |
-| rowDelimiter     | Tek bir karakter veya "\r\n" bir dosyadaki satırları ayırmak için kullanılır.<br>Aşağıdaki değerlerden herhangi birini varsayılan değer: **okunur: ["\r\n", "\r", "\n"]**, ve **"\n" veya "\r\n" yazma** eşleme veri akışı ve kopyalama etkinliği. <br>Zaman `rowDelimiter` yok (boş dize), sınırlayıcı kümesi `columnDelimiter` de tüm içeriği tek bir değer değerlendirilecek yani olarak sınırlayıcı (boş dize) olarak ayarlanmalıdır. | Hayır       |
+| rowDelimiter     | Tek bir karakter veya "\r\n" bir dosyadaki satırları ayırmak için kullanılır.<br>Aşağıdaki değerlerden herhangi birini varsayılan değer: **okunur: ["\r\n", "\r", "\n"]** , ve **"\n" veya "\r\n" yazma** eşleme veri akışı ve kopyalama etkinliği. <br>Zaman `rowDelimiter` yok (boş dize), sınırlayıcı kümesi `columnDelimiter` de tüm içeriği tek bir değer değerlendirilecek yani olarak sınırlayıcı (boş dize) olarak ayarlanmalıdır. | Hayır       |
 | quoteChar        | Sütun sınırlayıcısı içeriyorsa sütun değerleri alıntılamak tek karakter. <br>Varsayılan değer **çift tırnak** `"`. <br>Eşleme, veri akışı için `quoteChar` boş bir dize olamaz. <br>Kopyalama etkinliği için zaman `quoteChar` tanımlanan boş bir dize hiçbir tırnak işareti karakteri var ve sütun değeri değil teklif geldiğini ve `escapeChar` sütun sınırlayıcısı ile kendisi kaçış için kullanılır. | Hayır       |
 | escapeChar       | Tırnak işaretleri içinde tırnak içine alınmış bir değer kaçış tek karakter.<br>Varsayılan değer **ters eğik çizgi `\`** . <br>Eşleme, veri akışı için `escapeChar` boş bir dize olamaz. <br/>Kopyalama etkinliği için zaman `escapeChar` boş dize olarak tanımlanır `quoteChar` da boş dize ayarlamak, bu durumda tüm sütun değerleri sınırlayıcılar içermeyen emin olun olmalıdır. | Hayır       |
 | firstRowAsHeader | Kabul/ilk satırı üst bilgi satırı sütunların adlarıyla oluşturmak belirtir.<br>İzin verilen değerler **true** ve **false** (varsayılan). | Hayır       |
@@ -77,7 +77,7 @@ Kopyalama etkinliği aşağıdaki özellikler desteklenir ***\*kaynak\**** böl�
 
 | Özellik       | Açıklama                                                  | Gerekli |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **DelimitedTextSource**. | Evet      |
+| türü           | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **DelimitedTextSource**. | Evet      |
 | formatSettings | Özellikler grubu. Başvurmak **sınırlandırılmış metin okuma ayarları** aşağıdaki tabloda. | Hayır       |
 | storeSettings  | Bir veri deposundan veri okuma özellikleri grubudur. Her dosya tabanlı kendi desteklenen bir okuma ayarlarında bağlayıcının `storeSettings`. **Kopyalama etkinliği özellikler bölümü -> bağlayıcı makalede ayrıntılara bakın**. | Hayır       |
 
@@ -85,7 +85,7 @@ Desteklenen **sınırlandırılmış metin okuma ayarları** altında `formatSet
 
 | Özellik      | Açıklama                                                  | Gerekli |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | FormatSettings türünü ayarlamak **DelimitedTextReadSetting**. | Evet      |
+| türü          | FormatSettings türünü ayarlamak **DelimitedTextReadSetting**. | Evet      |
 | skipLineCount | Sayısını gösteren **boş** veri giriş dosyalarından okuma sırasında atlanacak satır. <br>Hem skipLineCount hem de firstRowAsHeader parametresi belirtilirse önce satırlar atlanır, ardından giriş dosyasındaki üst bilgi bilgileri okunur. | Hayır       |
 
 ### <a name="delimited-text-as-sink"></a>Havuz olarak sınırlandırılmış metin
@@ -94,7 +94,7 @@ Kopyalama etkinliği aşağıdaki özellikler desteklenir ***\*havuz\**** bölü
 
 | Özellik       | Açıklama                                                  | Gerekli |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **DelimitedTextSink**. | Evet      |
+| türü           | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **DelimitedTextSink**. | Evet      |
 | formatSettings | Özellikler grubu. Başvurmak **sınırlandırılmış metin yazma ayarları** aşağıdaki tabloda. |          |
 | storeSettings  | Bir veri deposuna veri yazmaya yönelik özellikler grubu. Her dosya tabanlı kendi desteklenen yazma ayarlarında bağlayıcının `storeSettings`. **Kopyalama etkinliği özellikler bölümü -> bağlayıcı makalede ayrıntılara bakın**. | Hayır       |
 
@@ -102,7 +102,7 @@ Desteklenen **sınırlandırılmış metin yazma ayarları** altında `formatSet
 
 | Özellik      | Açıklama                                                  | Gerekli                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | FormatSettings türünü ayarlamak **DelimitedTextWriteSetting**. | Evet                                                   |
+| türü          | FormatSettings türünü ayarlamak **DelimitedTextWriteSetting**. | Evet                                                   |
 | fileExtension | Örneğin çıkış dosyalarının adı için kullanılan dosya uzantısı `.csv`, `.txt`. Olmalıdır belirtilen `fileName` çıktısında belirtilmemiş DelimitedText veri kümesi. | Çıkış veri kümesinde dosya adı belirtilmemişse, Evet |
 
 ## <a name="mapping-data-flow-properties"></a>Veri akışı özellikleri eşleme

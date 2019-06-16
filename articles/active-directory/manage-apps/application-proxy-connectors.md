@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113095"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama ara sunucusu bağlayıcıları anlama
@@ -91,7 +91,7 @@ Beklenen trafik hacmini işlemeye yetecek bağlayıcılar arasında yeterli kapa
 
 Genel, sahip olduğunuz daha fazla kullanıcı, daha büyük içinde bir makine gerekir. Aşağıda farklı makineler işleyebilir beklenen gecikme süresi ve birimi bir özetini veren bir tablodur. Tüm beklenen işlem başına ikinci (TPS üzerinde) temel kullanım bu yana bir kullanıcı tarafından desenleri değişir ve yük tahmin kullanılamaz yerine unutmayın. Ayrıca yanıtları ve arka uç uygulama yanıt süresini boyutuna bağlı olarak bazı farklılıklar da olacaktır - büyük yanıt boyutu ve daha yavaş yanıt süresi daha düşük bir maksimum TPS neden olur. Dağıtılmış yük makinelerdeki her zaman geniş bir arabellek sağlar, böylece ek makineler sahip öneririz. Ek kapasite, yüksek kullanılabilirlik ve dayanıklılığı sahip olmanızı sağlar.
 
-|Çekirdekler|RAM|Gecikme süresi (MS) bekleniyordu-P99|En fazla TPS|
+|Çekirdek|RAM|Gecikme süresi (MS) bekleniyordu-P99|En fazla TPS|
 | ----- | ----- | ----- | ----- |
 |2|8|325|586|
 |4|16|320|1150|

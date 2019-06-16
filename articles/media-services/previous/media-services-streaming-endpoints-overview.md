@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573048"
 ---
 # <a name="streaming-endpoints-overview"></a>Akış uç noktalarına genel bakış  
@@ -77,7 +77,7 @@ Varsa, **sürüm "1.0"** akış uç noktası olan > = 1 premium akış birimleri
 
 |Tür|StreamingEndpointVersion|ScaleUnits|CDN|Faturalandırma|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Klasik|1.0|0|NA|Ücretsiz|
+|Klasik|1.0|0|NA|Boş|
 |Standart akış uç noktası (Önizleme)|2.0|0|Evet|Ücretli|
 |Premium Akış Birimleri|1.0|>0|Evet|Ücretli|
 |Premium Akış Birimleri|2.0|>0|Evet|Ücretli|
@@ -104,7 +104,7 @@ SLA bilgileri için bkz. [fiyatlandırma ve SLA](https://azure.microsoft.com/pri
 
 ## <a name="migration-between-types"></a>Türler arasında geçiş
 
-Başlangıç fiyatı | Alıcı | Eylem
+Başlangıç | Bitiş | Eylem
 ---|---|---
 Klasik|Standart|Kabul etme gerekir
 Klasik|Premium| Ölçek (ek akış birimleri)

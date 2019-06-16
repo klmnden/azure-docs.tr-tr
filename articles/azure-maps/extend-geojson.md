@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: be3c31951c4721a861f9239c5220419dec11b6bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60799142"
 ---
 # <a name="extending-geojson-geometries"></a>GeoJSON geometriler genişletme
@@ -40,10 +40,10 @@ Bu makalede Azure haritalar nasıl genişlettiğini ayrıntılı bir açıklama 
 
 A `Circle` geometrisini kullanılarak temsil edilir; `GeoJSON Feature` nesne __gerekir__ aşağıdakileri içerir:
 
-1. Orta
+1. Merkezi
    >Orta dairenin kullanılarak temsil edilir bir `GeoJSON Point` türü.
 
-2. Yarıçap
+2. RADIUS
    >Dairenin `radius` kullanılarak temsil edilir `GeoJSON Feature`ait özellikleri. Yarıçap değeri bulunduğu _ölçümleri_ ve türünde olmalıdır `double`.
 
 3. SubType

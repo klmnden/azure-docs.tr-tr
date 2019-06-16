@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332338"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Veritabanları parça eşleme Yöneticisi ile ölçeklendirme
@@ -55,11 +55,11 @@ Esnek ölçek, parçalama anahtarı olarak aşağıdaki türlerini destekler:
 | .NET | Java |
 | --- | --- |
 | integer |integer |
-| uzun |uzun |
+| long |long |
 | GUID |uuid |
 | byte[]  |byte[] |
 | datetime | timestamp |
-| TimeSpan | süre|
+| TimeSpan | Süresi|
 | Datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Liste ve aralık parça eşlemesi
@@ -98,8 +98,8 @@ Yukarıda gösterilen tabloların her biri kavramsal bir örneği olan bir **Sha
 
 İstemci Kitaplığı'ndaki parça eşleme Yöneticisi, parça eşlemesi bir koleksiyonudur. Tarafından yönetilen veri bir **ShardMapManager** örnek, üç yerde tutulur:
 
-1. **Genel parça eşleme (GSM)**: Tüm parça eşlemesi ve eşlemeler için deposu olarak görev yapacak bir veritabanı belirtin. Özel tablolarına ve depolanmış yordamlarına bilgilerini yönetmek için otomatik olarak oluşturulur. Bu genellikle küçük bir veritabanıdır ve az erişilen ve diğer uygulama gereksinimleri için kullanılmamalıdır. Adlı özel bir şemada tablolarıdır **__ShardManagement**.
-2. **Yerel parça eşlemesinin (LSM)**: Bir parça olarak belirttiğiniz her veritabanı, birkaç küçük tablolar ve parça eşlemesi bilgilerini bu parçaya belirli yönetmek ve içeren özel saklı yordamlar içerecek biçimde değiştirilir. Bu bilgileri, bilgilerle gsm'deki gereksizdir ve GSM üzerinde her türlü yük getirmeden önbelleğe alınmış parça eşleme bilgileri doğrulamak için uygulamayı verir; Uygulama LSM önbelleğe alınmış bir eşleme hala geçerli olup olmadığını belirlemek için kullanır. Her parça üzerinde LSM karşılık gelen tablolar da şemasında bulunan **__ShardManagement**.
+1. **Genel parça eşleme (GSM)** : Tüm parça eşlemesi ve eşlemeler için deposu olarak görev yapacak bir veritabanı belirtin. Özel tablolarına ve depolanmış yordamlarına bilgilerini yönetmek için otomatik olarak oluşturulur. Bu genellikle küçük bir veritabanıdır ve az erişilen ve diğer uygulama gereksinimleri için kullanılmamalıdır. Adlı özel bir şemada tablolarıdır **__ShardManagement**.
+2. **Yerel parça eşlemesinin (LSM)** : Bir parça olarak belirttiğiniz her veritabanı, birkaç küçük tablolar ve parça eşlemesi bilgilerini bu parçaya belirli yönetmek ve içeren özel saklı yordamlar içerecek biçimde değiştirilir. Bu bilgileri, bilgilerle gsm'deki gereksizdir ve GSM üzerinde her türlü yük getirmeden önbelleğe alınmış parça eşleme bilgileri doğrulamak için uygulamayı verir; Uygulama LSM önbelleğe alınmış bir eşleme hala geçerli olup olmadığını belirlemek için kullanır. Her parça üzerinde LSM karşılık gelen tablolar da şemasında bulunan **__ShardManagement**.
 3. **Uygulama önbelleği**: Her örnek uygulamaya erişirken bir **ShardMapManager** nesnesi, yerel bir bellek içi önbellek, eşlemeleri tutar. Bu, son alınan yönlendirme bilgilerini depolar.
 
 ## <a name="constructing-a-shardmapmanager"></a>Bir ShardMapManager oluşturma

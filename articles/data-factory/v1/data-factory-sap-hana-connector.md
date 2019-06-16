@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61258445"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Gelen SAP, HANA Azure Data Factory ile veri taşıma
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](data-factory-sap-hana-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-sap-hana.md)
 
@@ -284,14 +284,14 @@ SAP HANA'dan veri taşıma, aşağıdaki eşlemeler SAP HANA türlerinden .NET t
 
 SAP HANA türü | .NET türüne göre
 ------------- | ---------------
-MİNİ TAMSAYI | Byte
-TAMSAYI | Int16
+TINYINT | Byte
+SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-GERÇEK | Single
-ÇİFT | Single
+REAL | Single
+DOUBLE | Single
 DECIMAL | Decimal
-BOOLE DEĞERİ | Byte
+BOOLEAN | Byte
 VARCHAR | String
 NVARCHAR | String
 CLOB | Byte[]
@@ -299,7 +299,7 @@ ALPHANUM | String
 BLOB | Byte[]
 DATE | DateTime
 TIME | TimeSpan
-ZAMAN DAMGASI | DateTime
+TIMESTAMP | DateTime
 SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Bilinen sınırlamalar

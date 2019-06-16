@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
 ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64682048"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Bir Azure sanal ağ topolojisini görüntüleme
@@ -37,14 +37,14 @@ Kullanabileceğiniz [Azure portalında](#azure-portal), [Azure CLI](#azure-cli),
 4. Seçin **topolojisi**. Bir topoloji oluşturma topolojisini oluşturmak istediğiniz sanal ağın içinde bulunduğu aynı bölgede bir Ağ İzleyicisi gerektirir. Bir topoloji için oluşturmak istediğiniz sanal ağ bölgesinde etkin bir Ağ İzleyicisi yoksa, Ağ İzleyicisi otomatik olarak sizin için tüm bölgelerde oluşturulur. Ağ izleyicileri adlı bir kaynak grubunda oluşturulan **NetworkWatcherRG**.
 5. Bir abonelik topolojisini, görüntülemek istediğiniz bir sanal ağın kaynak grubu seçin ve ardından sanal ağ'ı seçin. Aşağıdaki resimde, bir topoloji adlı bir sanal ağ için gösterilen *MyVnet*, adlı kaynak grubunda *MyResourceGroup*:
 
-    ![Topolojiyi görüntüle](./media/view-network-topology/view-topology.png)
+    ![Topolojisini görüntüleme](./media/view-network-topology/view-topology.png)
 
     Önceki resimde görebileceğiniz gibi sanal ağ üç alt ağ içerir. Bir alt ağ içinde dağıtılan bir sanal makine var. VM olarak bağlanmış bir ağ arabirimi ve ilişkili bir genel IP adresi vardır. Diğer iki alt avantajlarla ilişkili bir yol tablosu var. Her bir yol tablosu iki yolları içerir. Bir alt ağ ile ilişkili ağ güvenlik grubu vardır. Topoloji bilgilerini olan kaynaklar için yalnızca gösterilmektedir:
     
     - Aynı kaynak grubunda ve bölgede içinde *myVnet* sanal ağ. Örneğin, bir kaynak grubunda dışındaki mevcut bir ağ güvenlik grubu *MyResourceGroup*, bir alt ağda ilişkili ağ güvenlik grubu olsa bile, gösterilmiyor *MyVnet* sanal ağ .
     - İçinde ya da kaynaklara, içine ilişkili *myVnet* sanal ağ. Örneğin, bir alt ağ veya ağ arabirimi ile ilişkili olmayan bir ağ güvenlik grubu *myVnet* sanal ağ göremiyorsanız, ağ güvenlik grubu olmasa dahi *MyResourceGroup* kaynak grubu.
 
-   Resimde gösterilen dağıttıktan sonra oluşturduğunuz sanal ağı için topolojidir **yönlendirme trafiği ağ sanal Gereci betik örneği-**, kullanarak dağıtabileceğiniz [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), veya [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+   Resimde gösterilen dağıttıktan sonra oluşturduğunuz sanal ağı için topolojidir **yönlendirme trafiği ağ sanal Gereci betik örneği-** , kullanarak dağıtabileceğiniz [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), veya [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 6. Seçin **indirme topolojisi** svg biçiminde düzenlenebilir bir dosya olarak kullanmak üzere görüntüyü indirmek için.
 

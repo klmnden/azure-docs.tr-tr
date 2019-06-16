@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318413"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights’ı kullanma
@@ -86,7 +86,7 @@ Bu senaryo, bir özel performans sayacı yakalama ağ izleme ile birlikte çalı
 | Aktarım hızı   | Veri bayt/sn                |
 |              | Okuma Bayt/sn                |
 |              | Yazma Bayt/sn               |
-| Kuyruk Uzunluğu | Ort. Okuma kuyruğu uzunluğu        |
+| Kuyruk uzunluğu | Ort. Okuma kuyruğu uzunluğu        |
 |              | Ort. Kuyruk uzunluğu yazma       |
 |              | Ort. Veri sırası uzunluğu        |
 
@@ -109,7 +109,7 @@ Windows VM, disk veya depolama havuzlarını yapılandırma, performans sayaçla
 | Sistem bilgileri                | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
 | Birim eşleme                        | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
 | Disk eşleme                          | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
-| Çalışan görevler                     | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Çalışan görevleri                     | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
 | Depolama güvenilirliği sayaçları      | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
 | Depolama bilgileri               | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
 | Fsutil çıkış                     | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
@@ -167,7 +167,7 @@ Diskspd g/ç iş yükü testleri (işletim sistemi diski [yazma] ve havuzu sür�
 
 -  Bu araç, performans sorunu olan VM üzerinde çalıştırmanız gerekir. 
 
--  Aşağıdaki işletim sistemleri desteklenmektedir: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016; Windows 8.1 ve Windows 10.
+-  Aşağıdaki işletim sistemleri desteklenir: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016; Windows 8.1 ve Windows 10.
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Üretim Vm'lerinde aracı çalıştırdığınızda olası sorunlar
 

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726553"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>R programlama dili Azure Machine Learning Studio'da kullanmaya başlama
@@ -930,7 +930,7 @@ outframe
 
 Kodun ilk satırını biraz zor ve bazı açıklaması, anlamanıza yardımcı olabilir. Inside out çalışma şunları sunuyoruz:
 
-1. '**[[**'Bağımsız değişkeni işlecini'**1**' aksamalar, bağıntılar vektörü ccf nesne listesinin ilk öğeyi seçer.
+1. ' **[[** 'Bağımsız değişkeni işlecini'**1**' aksamalar, bağıntılar vektörü ccf nesne listesinin ilk öğeyi seçer.
 2. `do.call()` İşlevi uygular `rbind()` işlevi listedeki öğeleri üzerinde döndürür tarafından `lapply()`.
 3. `data.frame()` İşlevi tarafından üretilen sonuç olacak şekilde zorlar `do.call()` bir veri çerçevesi için.
 

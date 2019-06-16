@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60946584"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code için Service Fabric
@@ -70,7 +70,7 @@ VS Code için Service Fabric güvenilir hizmetler uzantısı oluşturun ve Servi
 * Service Fabric: Uygulama oluşturma 
 * Service Fabric: Uygulama yayımlama 
 * Service Fabric: Uygulamayı dağıtma 
-* Service Fabric: Uygulamayı Kaldır  
+* Service Fabric: Uygulamayı kaldırma  
 * Service Fabric: Uygulama oluşturma 
 * Service Fabric: Uygulamayı Temizle 
 
@@ -113,7 +113,7 @@ VS Code için Service Fabric güvenilir hizmetler uzantısı oluşturun ve Servi
 > [!NOTE]
 > Java uygulamalarını yerel kümeye dağıtma Windows makinelerde desteklenmiyor.
 
-### <a name="service-fabric-remove-application"></a>Service Fabric: Uygulamayı Kaldır
+### <a name="service-fabric-remove-application"></a>Service Fabric: Uygulamayı kaldırma
 **Service Fabric: Uygulamayı kaldırma** komut bir Service Fabric uygulaması, daha önce VS Code uzantısı kullanarak dağıtıldığı kümeden kaldırır. 
 
 1.  Seçin **Service Fabric: Uygulamayı kaldırma** komutu.

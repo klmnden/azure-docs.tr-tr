@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: f72d49a3ab204ce64eb89d0f05630b640c138e0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61390392"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure'da Linux VHD'si indirin
@@ -34,7 +34,7 @@ Zaten yapmadıysanız, yükleme [Azure CLI](https://docs.microsoft.com/cli/azure
 
 VHD, diğer sanal makineler oluşturmak için bir görüntü olarak kullanmak için aşağıdaki adımları tamamlayın:
 
-1. SSH, hesap adı ve VM'nin genel IP adresini buna bağlanmaya ve onu sağlamasını kaldırmak için kullanın. Genel IP adresiyle bulabilirsiniz [az ağ public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). + Kullanıcı parametresi, son sağlanan kullanıcı hesabı da kaldırır. Hesap kimlik bilgilerini VM'ye saklanacağı bu tutulacaksa + kullanıcı parametresi. Aşağıdaki örnek, son sağlanan kullanıcı hesabı kaldırır:
+1. SSH, hesap adı ve VM'nin genel IP adresini buna bağlanmaya ve onu sağlamasını kaldırmak için kullanın. Genel IP adresiyle bulabilirsiniz [az ağ public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). \+ Kullanıcı parametresi, son sağlanan kullanıcı hesabı da kaldırır. Hesap kimlik bilgilerini VM'ye saklanacağı bu tutulacaksa + kullanıcı parametresi. Aşağıdaki örnek, son sağlanan kullanıcı hesabı kaldırır:
 
     ```bash
     ssh azureuser@<publicIpAddress>

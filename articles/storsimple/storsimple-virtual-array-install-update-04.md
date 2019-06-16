@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
 ms.openlocfilehash: b67fcb82bdcc94d7faeceedb7420a869e6578cad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436469"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>StorSimple sanal dizisi üzerinde güncelleştirme 0.4 yükleyin
@@ -58,7 +58,7 @@ Microsoft Update Kataloğu'ndan yazılım güncelleştirmesi indirmek için aşa
    
     ![Katalogda arama](./media/storsimple-virtual-array-install-update-04/download1.png)
 
-4. **Ekle**'ye tıklayın. Güncelleştirme sepete eklenir.
+4. **Ekle**'yi tıklatın. Güncelleştirme sepete eklenir.
 
 5. **Sepeti Görüntüle**’ye tıklayın.
 

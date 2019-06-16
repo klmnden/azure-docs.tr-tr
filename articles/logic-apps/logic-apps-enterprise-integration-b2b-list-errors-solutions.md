@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60998837"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>B2B hatalar ve çözümleri için Azure Logic Apps
@@ -119,7 +119,7 @@ Bu makalede Logic Apps B2B senaryolarda oluşabilir ve bu hataları düzeltmek i
 
 |   |   | 
 |---|---| 
-| Hata açıklaması | Yinelenen Denetim Numarası |
+| Hata açıklaması | Yinelenen denetim numarası |
 | Bir kullanıcı eylemi | Bu hata, alınan ileti yinelenen denetim numaralarına sahip olduğunu gösterir. </br>Denetim numarası düzeltin ve iletisini yeniden gönder. |
 |   |   |
 
@@ -135,7 +135,7 @@ Bu makalede Logic Apps B2B senaryolarda oluşabilir ve bu hataları düzeltmek i
 
 |   |   | 
 |---|---| 
-| Hata açıklaması | İletinin belge türü bilinmiyor ve ileti, sözleşmede yapılandırılan mevcut şemalardan hiçbirine çözümlenmedi. |
+| Hata açıklaması | İleti bir belge türü bilinmiyor ve sözleşmede yapılandırılan mevcut şemalardan hiçbirine çözümlenmedi. |
 | Bir kullanıcı eylemi | Doğru şemayı sözleşmesi ayarları yapılandırın. |
 |   |   |
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
 ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60999686"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>B2B çözümleri logic apps ile tümleştirme hesapları oluşturma ve yönetme
@@ -57,7 +57,7 @@ Azure hesabınızın kimlik bilgileriyle <a href="https://portal.azure.com" targ
    | Name | Evet | Test Tümleştirme hesabı | Tümleştirme hesabı adı. Bu örnekte, belirtilen adı kullanın. | 
    | Abonelik | Evet | <*Azure-subscription-name*> | Kullanılacak Azure aboneliği adı | 
    | Kaynak grubu | Evet | Tümleştirme hesabı rg test | Adı [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ilgili kaynakların düzenlenmesi için kullanılır. Bu örnekte, belirtilen ada sahip yeni bir kaynak grubu oluşturun. | 
-   | Fiyatlandırma Katmanı | Evet | Ücretsiz | Kullanmak istediğiniz fiyatlandırma katmanı. Bu örnekte, seçin **ücretsiz**, ancak daha fazla bilgi için [Logic Apps limitler ve yapılandırma](../logic-apps/logic-apps-limits-and-config.md) ve [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/). | 
+   | Fiyatlandırma Katmanı | Evet | Boş | Kullanmak istediğiniz fiyatlandırma katmanı. Bu örnekte, seçin **ücretsiz**, ancak daha fazla bilgi için [Logic Apps limitler ve yapılandırma](../logic-apps/logic-apps-limits-and-config.md) ve [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/). | 
    | Location | Evet | Batı ABD | Bölge tümleştirme hesap bilgilerinizin depolanacağı konumu. Mantıksal uygulamanızı aynı konumu seçin veya bir mantıksal uygulama tümleştirme hesabınız ile aynı konumda oluşturun. | 
    | Log Analytics çalışma alanı | Hayır | Kapalı | Tanılama günlüğüne kaydetme ayarını **Kapalı** durumda bırakın. | 
    ||||| 

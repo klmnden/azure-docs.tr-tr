@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/18/2017
-ms.date: 01/15/2019
-ms.author: v-junlch
+ms.date: 07/18/2017
+ms.author: amsriva
 ms.openlocfilehash: d05d509b67fd26c958e0e2fa2bbd877db26e6521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831760"
 ---
 # <a name="application-gateway-redirect-overview"></a>Application Gateway yeniden yönlendirmeye genel bakış
@@ -37,5 +36,3 @@ Bu değişiklik, müşterilere bir hedef dinleyici belirten yeni yeniden yönlen
 ### <a name="next-steps"></a>Sonraki adımlar
 
 [Bir uygulama ağ geçidinde HTTPS yeniden yönlendirmesi için HTTP yapılandırın](redirect-http-to-https-portal.md)
-
-<!-- Update_Description: wording update -->

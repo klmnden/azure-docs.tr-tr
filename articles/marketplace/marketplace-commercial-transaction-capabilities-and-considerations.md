@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: bd8cdbec42ea7df34ceee3ab82a1c6cac60ab59e
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65849712"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Market ticari işlem özelliklerini ve dikkat edilmesi gerekenler
@@ -141,7 +141,7 @@ Bu seçeneği Microsoft satmak üzere yapılandırılmalıdır ve kullanarak fiy
 
 |Microsoft faturalar  | Aylık 100,00 $  |
 |---------|---------|
-|Microsoft, lisans maliyeti 80 oranında öder <br> \* Microsoft herhangi bir tam SaaS uygulamaları için lisans maliyetinizin %90 öder   |   80.00 başına aylık <br> \* 90.00 başına aylık    |
+|Microsoft, lisans maliyeti 80 oranında öder <br> \* Microsoft herhangi bir tam SaaS uygulamaları için lisans maliyetinizin %90 öder   |   80\.00 başına aylık <br> \* 90.00 başına aylık    |
 |Microsoft, lisans maliyeti %20 tutar. <br> \* Microsoft, herhangi bir tam SaaS uygulamaları için lisans maliyeti %10 tutar.  |  20,00 başına aylık <br> \* $10.00     |
 
 * **Sınırlı bir Market hizmeti ücreti:** Belirli ticari Market'e yayımlamak SaaS ürünler, Microsoft, Market hizmeti ücreti %20 değerinden (Microsoft yayımcı anlaşması'nda açıklandığı gibi) % 10 azaltır.  Nitelemek ürününüzün sırayla ürünlerinizi en az biri Microsoft tarafından olarak ya da IP belirlenmesi gerekir ortak satışa hazır ya da IP ortak satış önceliklendirilir. Bu sınırlı bir Market hizmeti ücreti ay için almak için uygunluk en az beş (5) iş günü, takvim ayının sonundan önce karşılanması gerekir. Daha az Market hizmeti ücreti VM'ler, yönetilen uygulamalar veya ticari Marketimizden kullanıma sunulan diğer ürünler için geçerli değildir.  Bu sınırlı bir Market hizmeti ücreti lisans ücretleri 1 Mayıs 2019 ve 30 Haziran 2020 arasındaki Microsoft tarafından toplanan tam teklifler için kullanıma sunulacaktır.  Bu tarihten sonra Market hizmeti ücreti, normal tutara döndürür.
@@ -162,7 +162,7 @@ Müşteriler ayrıca kredi kartı ve bir aylık fatura kullanarak ödeme yapabil
 
 Örneğin, müşterinin kredi kartıyla satın alıyorsa:
 
-|Açıklama    |    Date  |
+|Açıklama    |    Tarih  |
 |----------|----------|
 |Siparişi dönemi   | 15 Ağu 2018'den itibaren-30 Ağu 2018 |
 |Terim bitiş (ay)   | 30 Ağu 2018 |
@@ -176,7 +176,7 @@ Müşteriler ayrıca kredi kartı ve bir aylık fatura kullanarak ödeme yapabil
 
 Bir Kurumsal Sözleşmesi'ni kullanarak müşterinin satın alıyorsa:
 
-| Açıklama |    Date  |
+| Açıklama |    Tarih  |
 |----------|----------|
 |Siparişi dönemi | 15 Ağu 2018'den itibaren-30 Ağu 2018 |
 |Terim bitiş (üç ay) | 30 Eylül 2018'e |

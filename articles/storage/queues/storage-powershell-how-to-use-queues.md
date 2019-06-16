@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 6e8640b136c52f500de010f842ab73678acdce4f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991349"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure kuyruk depolama işlemleri
@@ -22,7 +22,7 @@ Azure kuyruk depolama, çok sayıda herhangi bir HTTP veya HTTPS aracılığıyl
 
 > [!div class="checklist"]
 >
-> * Kuyruk oluştur
+> * Bir kuyruk oluşturma
 > * Bir kuyruğa alma
 > * Bir ileti ekleyin
 > * Bir ileti okuma
@@ -35,7 +35,7 @@ Hiçbir veri düzlemi için kuyrukları için PowerShell cmdlet'leri vardır. Bi
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 `Connect-AzAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
@@ -52,7 +52,7 @@ Get-AzLocation | select Location
 $location = "eastus"
 ```
 
-## <a name="create-resource-group"></a>Kaynak grubu oluştur
+## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
 Bir kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu.
 
@@ -77,7 +77,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-queue"></a>Kuyruk oluştur
+## <a name="create-a-queue"></a>Bir kuyruk oluşturma
 
 Aşağıdaki örnek, ilk Azure depolama hesabı adını ve erişim anahtarını içeren depolama hesabı bağlamını kullanarak depolama bağlantı kurar. Ardından, çağıran [yeni AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet'ini 'queuename' adında bir kuyruk oluşturun.
 
@@ -186,7 +186,7 @@ Nasıl yapılır bu makalede PowerShell ile temel kuyruk Depolama Yönetimi hakk
 
 > [!div class="checklist"]
 >
-> * Kuyruk oluştur
+> * Bir kuyruk oluşturma
 > * Bir kuyruğa alma
 > * Bir ileti ekleyin
 > * Sonraki iletiyi okuyun

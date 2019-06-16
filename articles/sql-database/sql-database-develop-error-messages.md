@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723519"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL veritabanı istemci uygulamaları için SQL hata kodları: Veritabanı bağlantı hataları ve diğer sorunlar
@@ -93,7 +93,7 @@ Azure SQL veritabanı ile çalışırken kaynakların aşırı kullanımı şu h
 * Uygulamanın çok fazla bellek tüketiyor.
 * Uygulamanın çok fazla tüketen `TempDb` alanı.
 
-İlgili konu başlıkları:
+İlgili Konular:
 
 * Daha fazla bilgi için bkz.
   * [Veritabanı sunucusu kaynak sınırları](sql-database-resource-limits-database-server.md)
@@ -141,7 +141,7 @@ Oluşturma ve elastik havuzlar kullanarak şu hatalarla ilgili:
 | 40891 | 16 |(%D) veritabanı başına minimum DTU (%d) veritabanı başına maksimum DTU'yu aşamaz. Veritabanı başına en fazla DTU daha yüksek veritabanı başına minimum DTU yapılmaya çalışılıyor. |Veritabanı başına minimum DTU, veritabanı başına en fazla DTU aşmadığından emin olun. |
 | TBD | 16 |Bir elastik havuzdaki tek bir veritabanı depolama alanı boyutu tarafından izin verilen en büyük boyutu aşamaz ' %. * ls hizmet katmanı elastik havuz. Veritabanı için en büyük boyutu esnek havuz hizmet katmanı tarafından izin verilen en büyük boyutu aşıyor. |Esnek havuz hizmet katmanı tarafından izin verilen en büyük boyutu sınırları dahilinde veritabanının maksimum boyutunu ayarlayın. |
 
-İlgili konu başlıkları:
+İlgili Konular:
 
 * [Elastik havuz (C#) oluşturma](sql-database-elastic-pool-manage-csharp.md)
 * [Bir esnek havuzunu yönetme (C#)](sql-database-elastic-pool-manage-csharp.md)
@@ -155,7 +155,7 @@ Aşağıdaki hatalar, önceki tüm kategoriye ayrılır değil.
 | Hata kodu | Severity | Açıklama |
 | ---:| ---:|:--- |
 | [15006](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-15000-to-15999) |16 |(AdministratorLogin), geçersiz karakterler içerdiğinden geçerli bir ad değil.|
-| [18452](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Oturum açma başarısız. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%.&#x2a;ls ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |
+| [18452](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Oturum açma başarısız oldu. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%.&#x2a;ls ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |
 | [18456](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Oturum açma başarısız oldu, kullanıcı için ' %. &#x2a;ls'.%. &#x2a;ls %. &#x2a;ls (kullanıcısı için oturum açılamadı "%.&#x2a; ls".) |
 | [18470](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Kullanıcı için oturum açma başarısız '%.&#x2a;ls'. Neden: Disabled.% hesaptır. &#x2a;ls |
 | 40014 |16 |Birden fazla veritabanı aynı işlemde kullanılamaz. |
@@ -216,7 +216,7 @@ Aşağıdaki hatalar, önceki tüm kategoriye ayrılır değil.
 | 40652 |16 |Taşınamıyor veya sunucu oluşturulamıyor. Abonelik (subscrıptıon-ID) sunucu kotasını aşacak. |
 | 40671 |17 |Ağ geçidi ve yönetim hizmeti arasında bağlantı hatası oluştu. Lütfen daha sonra yeniden deneyin. |
 | 40852 |16 |Veritabanı açılamıyor. ' %. \*ls sunucusundaki ' %. \*ls, oturum açma tarafından istenen. Veritabanına erişimi yalnızca güvenli bağlantı dizesi kullanarak izin verilir. Bu veritabanına erişmek için bağlantı dizeleri içerecek şekilde değiştirin. 'güvenli' sunucu FQDN'SİNDE - 'sunucu adı'.database.windows .net 'sunucu adı'.database için değiştirilmesi gerekir. `secure`. windows.net. |
-| 40914 | 16 | Sunucu açamıyor '*[sunucu-adı]*' oturum açma tarafından istenen. İstemcinin sunucuya erişmesine izin verilmiyor.<br /><br />Sorunu gidermek için eklemeyi göz önünde bulundurun bir [sanal ağ kuralı](sql-database-vnet-service-endpoint-rule-overview.md). |
+| 40914 | 16 | Sunucu açamıyor ' *[sunucu-adı]* ' oturum açma tarafından istenen. İstemcinin sunucuya erişmesine izin verilmiyor.<br /><br />Sorunu gidermek için eklemeyi göz önünde bulundurun bir [sanal ağ kuralı](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |SQL Azure sistem yük altındayken ve eş zamanlı DB CRUD işlemleri tek bir SQL veritabanı sunucusu için üst sınır yerleştirerek (örneğin, veritabanı oluşturma). Hata iletisinde belirtilen sunucu, en fazla eş zamanlı bağlantı sayısını aştı. Daha sonra tekrar deneyin. |
 | 45169 |16 |Azure SQL sistem yük altındayken ve eş zamanlı sunucu CRUD işlemleri için tek bir abonelik sayısı üst sınırını yerleştirme (örneğin, sunucu oluşturma). Hata iletisinde belirtilen aboneliği en fazla eş zamanlı bağlantı sayısını aştı ve istek reddedildi. Daha sonra tekrar deneyin. |
 

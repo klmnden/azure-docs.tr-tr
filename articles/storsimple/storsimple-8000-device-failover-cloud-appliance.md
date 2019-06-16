@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 45c521fd044fa258b8052a3f0de48784cf4160e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584441"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>StorSimple Cloud Appliance'ınız için yük devretme
@@ -46,15 +46,15 @@ Bir hedef StorSimple Cloud Appliance cihazı geri yüklemek için aşağıdaki a
     ![Cihaz seçin](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. Seçin ve kaynak cihazınız tıklayın. Kaynak cihaz yük devretmek istediğiniz birim kapsayıcıları sahiptir. Git **Ayarları > birim kapsayıcıları**.
 
-    ![Cihaz seç](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
+    ![Cihaz seçin](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
     
 4. Başka bir cihaza yük devretmek istediğiniz bir birim kapsayıcısı seçin. Birim kapsayıcısı, bu kapsayıcıdaki birimlerin listesini görüntülemek için tıklayın. Bir birim, sağ tıklatın ve tıklatın seçin **Çevrimdışına Al** birimi çevrimdışı duruma getirmek için.
 
-    ![Cihaz seç](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
+    ![Cihaz seçin](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
 
 5. Birim kapsayıcısındaki tüm birimler için bu işlemi yineleyin.
 
-     ![Cihaz seç](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
+     ![Cihaz seçin](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
 
 6. Başka bir cihaza yük devretmek istediğiniz tüm birim kapsayıcıları için önceki adımı yineleyin.
 
@@ -81,7 +81,7 @@ Bir hedef StorSimple Cloud Appliance cihazı geri yüklemek için aşağıdaki a
 
     1. Yük devretme için hedef olarak kullanılan bir cihaz seçin.
 
-       ![Cihaz seç](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Cihaz seçin](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
     2. Tıklayın **birim kapsayıcıları**. Eski bir CİHAZDAN birimleri ile birlikte tüm birim kapsayıcıları, listelenmelidir.
 

@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346352"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data factory'de etkinlik Sil
@@ -83,11 +83,11 @@ Silme etkinliği kullanmak için bazı öneriler şunlardır:
 | --- | --- | --- |
 | Veri kümesi | Hangi dosya veya klasör, silinecek belirlemek için veri kümesi başvurusu sağlar | Evet |
 | özyinelemeli | Dosya silinmiş yinelemeli olarak alt klasörleri veya yalnızca belirtilen klasör olup olmadığını gösterir.  | Hayır. Varsayılan değer: `false`. |
-| MaxConcurrentConnections | Depolama deposu, klasör veya dosyaları silmek için eşzamanlı olarak bağlanmak için bağlantı sayısı.   |  Hayır. Varsayılan değer: `1`. |
+| maxConcurrentConnections | Depolama deposu, klasör veya dosyaları silmek için eşzamanlı olarak bağlanmak için bağlantı sayısı.   |  Hayır. Varsayılan değer: `1`. |
 | EnableLogging | Silinmiş bir klasör veya dosya adlarını kaydedin gerekip gerekmediğini gösterir. TRUE ise silme etkinliği davranışlarını günlük dosyasını okuyarak izleyebilmeniz için daha fazla günlük dosyasını kaydetmek için bir depolama hesabı sağlamak gerekir. | Hayır |
 | logStorageSettings | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Silme etkinliği tarafından silinmiş klasör veya dosya adlarını içeren bir günlük dosyasını kaydetmek istediğiniz bir grup olabilir depolama özellik belirtilmiş. | Hayır |
 | linkedServiceName | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Bağlı hizmetin adı [Azure depolama](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake depolama Gen1](connector-azure-data-lake-store.md#linked-service-properties), veya [Azure Data Lake depolama Gen2](connector-azure-data-lake-storage.md#linked-service-properties) günlük dosyasının depolanacağı klasörü içeren veya dosya adları Silme etkinliği tarafından silindi. | Hayır |
-| path | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Günlük dosyasını depolama hesabınızdaki kaydetmek istediğiniz yola gözatın. Bir yol belirtmezseniz, hizmet sizin için bir kapsayıcı oluşturur. | Hayır |
+| yol | Yalnızca uygun olduğunda enablelogging = true.<br/><br/>Günlük dosyasını depolama hesabınızdaki kaydetmek istediğiniz yola gözatın. Bir yol belirtmezseniz, hizmet sizin için bir kapsayıcı oluşturur. | Hayır |
 
 ## <a name="monitoring"></a>İzleme
 
@@ -117,10 +117,10 @@ Burada görmek ve sonuçları Sil etkinliğinin izleme iki yerde vardır:
 
 | Ad | Kategori | Durum | Hata |
 |:--- |:--- |:--- |:--- |
-| Test1/yyy.JSON | Dosya | Silinen |  |
-| Test2/hello789.txt | Dosya | Silinen |  |
-| Test2/test3/hello000.txt | Dosya | Silinen |  |
-| test2/test3/zzz.json | Dosya | Silinen |  |
+| Test1/yyy.JSON | Dosya | Silme |  |
+| Test2/hello789.txt | Dosya | Silme |  |
+| Test2/test3/hello000.txt | Dosya | Silme |  |
+| test2/test3/zzz.json | Dosya | Silme |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Silme etkinliği kullanma örnekleri
 
@@ -143,7 +143,7 @@ Kök /<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1 /<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbs
 
 Saat bölümlenmiş klasör veya dosyaları düzenli aralıklarla temizlemek için bir işlem hattı oluşturabilirsiniz.  Örneğin, klasör yapısı olarak benzerdir: `/mycontainer/2018/12/14/*.csv`.  Zamanlama tetikleyicisi hangi klasöre veya dosyalara her işlem hattı silinmesi gerektiğini belirlemek için ADF sistem değişkeninden yararlanabilirsiniz. 
 
-#### <a name="sample-pipeline"></a>Örnek ardışık düzen
+#### <a name="sample-pipeline"></a>Örnek işlem hattı
 
 ```json
 {
@@ -259,11 +259,11 @@ Saat bölümlenmiş klasör veya dosyaları düzenli aralıklarla temizlemek iç
 }
 ```
 
-### <a name="clean-up-the-expired-files-that-were-last-modified-before-201811"></a>2018.1.1 önce en son değiştirilen süresi sona eren dosyaların Temizle
+### <a name="clean-up-the-expired-files-that-were-last-modified-before-201811"></a>2018\.1.1 önce en son değiştirilen süresi sona eren dosyaların Temizle
 
 Dosya öznitelik filtresi yararlanarak eski veya süresi dolmuş dosyaları temizlemek için bir işlem hattı oluşturabilirsiniz: "Veri"LastModified.  
 
-#### <a name="sample-pipeline"></a>Örnek ardışık düzen
+#### <a name="sample-pipeline"></a>Örnek işlem hattı
 
 ```json
 {
@@ -328,7 +328,7 @@ Bir dosyayı dosya kopyalamak için kopyalama etkinliği ve bir işlem hattında
 > [!NOTE]
 > Yalnızca bir klasör yolu içeren bir veri kümesini tanımlama ve ardından bir kopyalama etkinliği'ni kullanarak tüm klasör taşımak istiyorsanız ve aynı veri kümesine bir klasörü temsil eden başvurmak için silme etkinliği çok dikkatli olmanız gerekir. Yeni dosyalar klasörüne silme işlemi ve kopyalama işlemi arasında gelen olmayacaktır emin olmak sahip olmasıdır.  Klasör kullandığınızda, kopyalama etkinliği yalnızca kopyalama işi tamamlandı ancak silme etkinliği değil stared şu anda gelen yeni dosyalar varsa destinati için kopyalanmaz bu gelen dosya silme etkinliği sileceğini mümkündür henüz klasörün tamamını silerek şirket. 
 
-#### <a name="sample-pipeline"></a>Örnek ardışık düzen
+#### <a name="sample-pipeline"></a>Örnek işlem hattı
 
 ```json
 {
@@ -573,4 +573,4 @@ Kopyalama etkinliği tarafından kullanılan verileri hedef veri kümesi.
 
 Azure Data Factory'de dosyaları taşıma hakkında daha fazla bilgi edinin.
 
--   [Azure Data Factory'de veri aracı kopyalayın](copy-data-tool.md)
+-   [Azure Data Factory'deki Veri Kopyalama aracı](copy-data-tool.md)

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
 ms.openlocfilehash: 8ad3f09bf46caf426b2008b583ebd2ff78522462
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302526"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64713053"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>İşletimsel bir StorSimple cihazı sorunlarını giderme
 > [!NOTE]
@@ -47,7 +47,7 @@ Hataları programını çalıştırdığınızda Kurulum Sihirbazı işlemsel bi
 
 | Hayır. | Hata iletisi veya koşul | Olası nedenler | Önerilen eylem |
 |:--- |:--- |:--- |:--- |
-| 1 |350032. hata: Bu cihaz zaten devre dışı bırakıldı. |Devre dışı bir cihazda Kurulum sihirbazını çalıştırırsanız, bu hatayı görürsünüz. |Sonraki adımlar için [Microsoft Desteği](storsimple-contact-microsoft-support.md)'ne başvurun. Devre dışı bırakılmış bir cihaz hizmetinde konulamaz. Fabrika sıfırlaması, cihaz yeniden etkinleştirilmeden önce gerekli olabilir. |
+| 1 |350032\. hata: Bu cihaz zaten devre dışı bırakıldı. |Devre dışı bir cihazda Kurulum sihirbazını çalıştırırsanız, bu hatayı görürsünüz. |Sonraki adımlar için [Microsoft Desteği](storsimple-contact-microsoft-support.md)'ne başvurun. Devre dışı bırakılmış bir cihaz hizmetinde konulamaz. Fabrika sıfırlaması, cihaz yeniden etkinleştirilmeden önce gerekli olabilir. |
 | 2 |Invoke-hcssetupwizard'ı: ERROR_INVALID_FUNCTION (HRESULT özel durum: 0x80070001) |DNS sunucusu güncelleştirmesi başarısız oluyor. DNS ayarları genel ayarlardır ve tüm etkin ağ arabirimleri arasında uygulanır. |Arabirimi etkinleştirmek ve DNS ayarlarını yeniden uygulayın. Bu ayarlar geneldir çünkü bu diğer etkin arabirimleri için ağ bozabilir. |
 | 3 |Cihaz StorSimple Yöneticisi hizmeti Portalı'nda çevrimiçi görünüyor, ancak en az Kurulumu tamamlayın ve yapılandırmayı kaydetmek denediğinizde işlem başarısız olur. |Oluştu rağmen gerçek bir proxy sunucu yerinde ilk kurulum sırasında web Ara sunucusu, yapılandırılmamış. |Kullanım [Test-HcsmConnection cmdlet'ini] [ 2] hata bulunacak. [Microsoft Support başvurun](storsimple-contact-microsoft-support.md) sorunu çözmek mümkün değilse. |
 | 4 |Invoke-hcssetupwizard'ı: Değer beklenen aralıkta değil. |Yanlış alt ağ maskesi, bu hatayı üretir. Olası nedenler şunlardır: <ul><li> Alt ağ maskesi eksik veya boş.</li><li>IPv6 ön eki biçimi doğru değil.</li><li>Arabirim bulut etkindir, ancak eksik veya hatalı ağ geçidi.</li></ul>DATA 0 otomatik olarak bulut Kurulum Sihirbazı'nı yapılandırdıysanız etkin olduğunu unutmayın. |Sorunu tanılamak için 0.0.0.0 veya 256.256.256.256 alt ağ kullanın ve sonra çıktıyı bakın. Doğru değerleri gerektiği gibi alt ağ maskesi, ağ geçidi ve IPv6 öneki girin. |

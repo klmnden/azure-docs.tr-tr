@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: a620b592a33f9de11de53d623d257f203da2157b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61370365"
 ---
 # <a name="door-monitor"></a>Kapı İzleyicisi          
@@ -160,7 +160,7 @@ Ardından, cihaz için kodu yükleyin.
 
 2. Terminal yapılandırma modunu girmenizi ister. Bunu yapmak için A düğmesini basılı anında iletme ve Sıfırla düğmesini bırakın. Ekran DevKit kimlik numarasını ve word görüntüler *yapılandırma*.
 
-#### <a name="macos"></a>macOS
+#### <a name="macos"></a>Mac OS
 
 1. DevKit yapılandırma moduna: A tuşunu basılı tutun, sonra anında iletme ve Sıfırla düğmesini bırakın. Ekran 'Configuration' görüntüler.
 

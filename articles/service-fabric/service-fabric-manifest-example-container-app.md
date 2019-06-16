@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 622e6f7552d91cdb9ccf3668c302496c68a5920f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60719252"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Birden çok kapsayıcılı uygulama ve hizmet bildirimi örnekleri
@@ -26,7 +26,7 @@ ms.locfileid: "60719252"
 
 Aşağıdaki özellikleri gösterilmiştir:
 
-|Bildirim|Özellikler|
+|Bildirimi|Özellikler|
 |---|---|
 |[Uygulama bildirimi](#application-manifest)| [ortam değişkenlerini geçersiz kılmak](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [kapsayıcı bağlantı noktasından konak eşlemeyi yapılandırma](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [kapsayıcı kayıt defteri kimlik doğrulamasını yapılandırma](service-fabric-get-started-containers.md#configure-container-registry-authentication), [kaynak İdaresi](service-fabric-resource-governance.md), [yalıtım modunu](service-fabric-get-started-containers.md#configure-isolation-mode), [işletim sistemi derleme özgü kapsayıcı görüntüleri belirtme](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[FrontEndService hizmet bildirimi](#frontendservice-service-manifest)| [ortam değişkenlerini ayarlama](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [bir uç nokta yapılandırma](service-fabric-get-started-containers.md#configure-communication), komutları kapsayıcıya geçirmek [sertifika bir kapsayıcıya alma](service-fabric-securing-containers.md)| 

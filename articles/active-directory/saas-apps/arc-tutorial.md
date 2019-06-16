@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eec05507cd66e2b856e3110bfb60f24c87dfdf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb088af37133269977c1f8ae9a5ad19a3b3e4513
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60283850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Öğretici: Yayımlama yay - SSO ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Yayımlama yay - Azure AD'ye SSO tümleştirmesini yapılandırmak için yayıml
 
 **Galeriden SSO yay yayımlama - eklemek için aşağıdaki adımları uygulayın:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -129,8 +129,8 @@ Azure AD çoklu oturum açma yay yayımlama ile - SSO yapılandırmak için aşa
     | ---------------| --------------- |    
     | FirstName | User.givenName |
     | Soyadı | User.surname |
-    | e-posta | User.Mail |
-    | gruplar | User.assignedroles |
+    | email | User.Mail |
+    | groups | User.assignedroles |
 
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

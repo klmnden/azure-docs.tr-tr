@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505470"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM'de konuk işletim sistemi Güvenlik Duvarını devre dışı bırakma
@@ -33,7 +33,7 @@ Bu makalede açıklanan işlem, doğru güvenlik duvarı kurallarını ayarlama,
 
 Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir sanal Makineye erişilebildiğinden ve diğer sanal makine kullanarak bu risk azaltma işlemleri yapabilirsiniz.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>1. azaltma: Özel betik uzantısı veya Çalıştır komutu özelliği
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>1\. azaltma: Özel betik uzantısı veya Çalıştır komutu özelliği
 
 Çalışan bir Azure aracısı varsa, kullanabileceğiniz [özel betik uzantısı](../extensions/custom-script-windows.md) veya [komutlarını Çalıştır](../windows/run-command.md) uzaktan aşağıdaki betikler çalıştırmak için (yalnızca Resource Manager Vm'lerinde) özelliği.
 
@@ -72,7 +72,7 @@ Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir sanal Mak
 > [!Note]
 > Güvenlik Duvarı bir Grup İlkesi nesnesi olarak ayarlanırsa, bu komut yalnızca yerel kayıt defteri girişlerini değiştiğinden bu yöntemin çalışmayabilir. Bir ilke yerinde olduğundan bu değişikliği geçersiz kılar. 
 
-#### <a name="mitigation-3-pstools-commands"></a>3. azaltma: PSTools komutları
+#### <a name="mitigation-3-pstools-commands"></a>3\. azaltma: PSTools komutları
 
 1.  Sorun giderme sanal makinede indirme [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
@@ -104,11 +104,11 @@ Bu adımları izleyin [uzak kayıt defteri](https://support.microsoft.com/help/3
 
 4.  Bir örneği açın **Services.msc**.
 
-5.  Tıklayın **hizmetler (yerel)**.
+5.  Tıklayın **hizmetler (yerel)** .
 
 6.  Seçin **başka bir bilgisayara bağlan**.
 
-7.  Girin **özel IP adresi (DIP)** sorunun VM.
+7.  Girin **özel IP adresi (DIP)**  sorunun VM.
 
 8.  Yerel Güvenlik Duvarı ilkesini yeniden başlatın.
 

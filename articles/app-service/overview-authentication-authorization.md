@@ -16,10 +16,10 @@ ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
 ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835609"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde kimlik doğrulaması ve yetkilendirme
@@ -132,7 +132,7 @@ Kimlik doğrulama ve yetkilendirme ihtiyacınız yoksa veya kendi kimlik doğrul
 
 ### <a name="allow-only-authenticated-requests"></a>Yalnızca kimliği doğrulanmış isteklere izin ver
 
-Seçenek **oturum açmada \<sağlayıcısı >**. App Service, tüm anonim isteklere yönlendiren `/.auth/login/<provider>` seçtiğiniz sağlayıcısı. Anonim İstek yerel mobil uygulamadan geliyorsa, döndürülen yanıt bir `HTTP 401 Unauthorized`.
+Seçenek **oturum açmada \<sağlayıcısı >** . App Service, tüm anonim isteklere yönlendiren `/.auth/login/<provider>` seçtiğiniz sağlayıcısı. Anonim İstek yerel mobil uygulamadan geliyorsa, döndürülen yanıt bir `HTTP 401 Unauthorized`.
 
 Bu seçenek belirtilmişse, uygulamanızda kimlik doğrulaması kod yazmaya gerek yoktur. Role özgü yetkilendirme gibi hassas yetkilendirme, kullanıcı talepleri inceleyerek işlenebilir (bkz [erişim kullanıcı taleplerini](app-service-authentication-how-to.md#access-user-claims)).
 
@@ -142,7 +142,7 @@ Seçenek **Anonime istekleri**. Bu seçenek, kimlik doğrulama ve yetkilendirme 
 
 Bu seçenek, anonim isteklerin işlenmesinden daha fazla esneklik sağlar. Örneğin, sağlar [birden çok oturum açma sağlayıcısı sunmak](app-service-authentication-how-to.md#use-multiple-sign-in-providers) kullanıcılarınıza. Ancak, kod yazmanız gerekir. 
 
-## <a name="more-resources"></a>Diğer kaynaklar
+## <a name="more-resources"></a>Daha fazla kaynak
 
 [Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca (Windows) Azure App Service'te yetkilendirme](app-service-web-tutorial-auth-aad.md)  
 [Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Azure App Service'te Linux için yetkilendirme](containers/tutorial-auth-aad.md)  

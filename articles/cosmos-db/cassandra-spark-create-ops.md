@@ -1,24 +1,22 @@
 ---
 title: Oluştur/Veri Azure Cosmos DB Cassandra API'SİNİN spark'tan içine Ekle
 description: Bu makalede Azure Cosmos DB Cassandra API'SİNİN tablolara örnek veriler ekleme işlemi açıklanmaktadır
-author: rockboyfor
-ms.author: v-yeche
+author: kanshiG
+ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 03/18/2019
+ms.date: 09/24/2018
 ms.openlocfilehash: aea646e7a390d5b53f0d4b388cfecd0c80fb19da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60894054"
 ---
-<!--Verify sucessfully-->
 # <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Oluştur/Veri Azure Cosmos DB Cassandra API'SİNİN spark'tan içine Ekle
-
+ 
 Bu makalede, Azure Cosmos DB Cassandra API'SİNİN spark'tan bir tabloya örnek veri eklemek açıklar.
 
 ## <a name="cassandra-api-configuration"></a>Cassandra API configuration
@@ -33,7 +31,7 @@ import com.datastax.spark.connector.cql.CassandraConnector
 import com.microsoft.azure.cosmosdb.cassandra
 
 //Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.cn")
+spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
 spark.conf.set("spark.cassandra.connection.port","10350")
 spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
 spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
@@ -139,13 +137,10 @@ select * from books;
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Cosmos DB Cassandra API'si, depolanan veriler üzerinde başka işlemler gerçekleştirmek için aşağıdaki makaleleri, Azure Cosmos DB Cassandra API'SİNİN tablosuna veri ekleme sonra devam edin:
-
+ 
 * [okuma işlemleri](cassandra-spark-read-ops.md)
 * [Upsert işlem](cassandra-spark-upsert-ops.md)
 * [Silme işlemleri](cassandra-spark-delete-ops.md)
 * [Toplama işlemleri](cassandra-spark-aggregation-ops.md)
 * [Tablo kopyalama işlemleri](cassandra-spark-table-copy-ops.md)
 
-<!--Verify sucessfully-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->

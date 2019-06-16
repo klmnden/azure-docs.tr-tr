@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60577907"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Toplama dağıtılmış izlemelerinden Git (Önizleme)
@@ -32,7 +32,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 [Azure Portal](https://portal.azure.com/) oturum açın.
 
-## <a name="create-application-insights-resource"></a>Application Insights kaynağı oluştur
+## <a name="create-application-insights-resource"></a>Application Insights kaynağı oluşturun
 
 Öncelikle, bir izleme anahtarını (ikey) oluşturacak bir Application Insights kaynağı oluşturmanız gerekir. İkey sonra Application Insights için izleme eklenmiş OpenCensus uygulamanızdan dağıtılmış izlemeleri göndermek için yerel ileticisi yapılandırmak için kullanılır.   
 

@@ -10,10 +10,10 @@ ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65070861"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container ınstances'da yaygın sorunlarını giderme
@@ -28,7 +28,7 @@ Kapsayıcı kuruluma tanımlarken belirli parametreleri için adlandırma kısı
 | --- | --- | --- | --- | --- | --- |
 | Kapsayıcı grubu adı | 1-64 |Büyük/Küçük harfe duyarsız |İlk veya son karakter alfasayısal ve kısa çizgi herhangi bir yere hariç |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Kapsayıcı adı | 1-64 |Büyük/Küçük harfe duyarsız |İlk veya son karakter alfasayısal ve kısa çizgi herhangi bir yere hariç |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Kapsayıcı bağlantı noktaları | 1 ile 65535 arasında |Tamsayı |1 ile 65535 arasında bir tamsayı |`<port-number>` |`443` |
+| Kapsayıcı bağlantı noktaları | 1 ile 65535 arasında |Integer |1 ile 65535 arasında bir tamsayı |`<port-number>` |`443` |
 | DNS ad etiketi | 5-63 |Büyük/Küçük harfe duyarsız |İlk veya son karakter alfasayısal ve kısa çizgi herhangi bir yere hariç |`<name>` |`frontend-site1` |
 | Ortam değişkeni | 1-63 |Büyük/Küçük harfe duyarsız |İlk veya son karakter alfasayısal ve alt çizgi (_) herhangi bir yere hariç |`<name>` |`MY_VARIABLE` |
 | Birim adı | 5-63 |Büyük/Küçük harfe duyarsız |Küçük harf ve sayı ve kısa çizgi herhangi bir yere ilk veya son karakter hariç. Art arda iki kısa çizgi içeremez. |`<name>` |`batch-output-volume` |

@@ -14,15 +14,15 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462420"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Oracle şirket içi veri kopyalayın
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](data-factory-onprem-oracle-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-oracle.md)
 
@@ -102,7 +102,7 @@ Aşağıdaki tabloda, Oracle bağlantılı hizmete özgü JSON öğeleri açıkl
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |**Türü** özelliği ayarlanmalıdır **OnPremisesOracle**. |Evet |
+| türü |**Türü** özelliği ayarlanmalıdır **OnPremisesOracle**. |Evet |
 | driverType | Ya da bir Oracle veritabanına veri kopyalamak için kullanılacak sürücüyü belirtin. İzin verilen değerler **Microsoft** ve **ODP** (varsayılan). Bkz: [desteklenen sürümü ve yükleme](#supported-versions-and-installation) için sürücü ayrıntıları. | Hayır |
 | connectionString | Oracle veritabanı örneği için bağlanmak için gereken bilgileri belirtin **connectionString** özelliği. | Evet |
 | gatewayName | Şirket içi Oracle sunucusuna bağlanmak için kullanılan ağ geçidi adı. |Evet |
@@ -183,7 +183,7 @@ Kopya etkinlikteki kaynak olduğunda, **OracleSource** türü, aşağıdaki öze
 | writeBatchTimeout |Batch için bekleme süresi, işlemin zaman aşımına uğramadan önce tamamlanması ekleyin. |**Zaman aralığı**<br/><br/> Örnek: 00:30:00 (30 dakika) |Hayır |
 | writeBatchSize |Arabellek boyutu değerini ulaştığında veri SQL tablosuna ekler **writeBatchSize**. |Tamsayı (satır sayısı) |Hayır (varsayılan: 100) |
 | sqlWriterCleanupScript |Böylece belirli bir dilimle verilerinin temizlenmesini yürütmek kopyalama etkinliği için bir sorguyu belirtir. |Bir sorgu deyimi. |Hayır |
-| sliceIdentifierColumnName |Kopyalama etkinliği'nin bir otomatik olarak oluşturulan dilim tanımlayıcı ile doldurmak için sütun adı belirtir. Değeri **Sliceıdentifiercolumnname** ne zaman yeniden çalıştırılacağını belirli bir dilimin verileri temizlemek için kullanılır. |Bir sütunun veri türüne sahip sütun adı **binary(32)**. |Hayır |
+| sliceIdentifierColumnName |Kopyalama etkinliği'nin bir otomatik olarak oluşturulan dilim tanımlayıcı ile doldurmak için sütun adı belirtir. Değeri **Sliceıdentifiercolumnname** ne zaman yeniden çalıştırılacağını belirli bir dilimin verileri temizlemek için kullanılır. |Bir sütunun veri türüne sahip sütun adı **binary(32)** . |Hayır |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON örnekler ve Oracle veritabanından veri kopyalamak için
 
@@ -553,7 +553,7 @@ Veri alındığından yeni blobundan saatte (**sıklığı**: **saat**, **aralı
 
 ## <a name="troubleshooting-tips"></a>Sorun giderme ipuçları
 
-### <a name="problem-1-net-framework-data-provider"></a>1. sorun: .NET Framework veri sağlayıcısı
+### <a name="problem-1-net-framework-data-provider"></a>1\. sorun: .NET Framework veri sağlayıcısı
 
 **hata iletisi**
 
@@ -571,7 +571,7 @@ Veri alındığından yeni blobundan saatte (**sıklığı**: **saat**, **aralı
     1. .NET 2.0 klasöründen makine yapılandırma dosyasını aç < sistem diski\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Arama **.NET için Oracle veri sağlayıcısı**. Altında aşağıdaki örnekte gösterildiği gibi bir giriş bulunacak erişebileceğinizi **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Aşağıdaki .NET 4.0 klasörü machine.config dosyasında bu girdi kopyalayın: < sistem diski\>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Ardından, sürüm için 4.xxx.x.x değiştirin.
-* Yükleme < ODP.NET yüklü yolu\>çalıştırarak genel derleme önbelleğinde (GAC) \11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll **gacutil /i [sağlayıcı yolu]**.
+* Yükleme < ODP.NET yüklü yolu\>çalıştırarak genel derleme önbelleğinde (GAC) \11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll **gacutil /i [sağlayıcı yolu]** .
 
 ### <a name="problem-2-datetime-formatting"></a>Sorun 2: Tarih/saat biçimlendirmesi
 
@@ -597,27 +597,27 @@ Verileri Oracle'dan taşıdığınızda, aşağıdaki eşlemeler Oracle veri tü
 
 | Oracle veri türü | .NET framework veri türü |
 | --- | --- |
-| BDOSYA |Byte[] |
+| BFILE |Byte[] |
 | BLOB |Byte[]<br/>(Microsoft sürücüsü kullandığınızda yalnızca Oracle 10 g ve sonraki sürümlerde desteklenir) |
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| KAYAN NOKTA |Ondalık, dize (olursa hassasiyet > 28) |
-| INTEGER |Ondalık, dize (olursa hassasiyet > 28) |
+| FLOAT |Decimal, String (olursa hassasiyet > 28) |
+| INTEGER |Decimal, String (olursa hassasiyet > 28) |
 | YIL AY ARALIĞI |Int32 |
 | İKİNCİ GÜN ARALIĞI |TimeSpan |
-| UZUN |String |
+| LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| SAYI |Ondalık, dize (olursa hassasiyet > 28) |
+| NUMBER |Decimal, String (olursa hassasiyet > 28) |
 | NVARCHAR2 |String |
-| HAM |Byte[] |
-| SATIR KİMLİĞİ |String |
-| ZAMAN DAMGASI |DateTime |
-| YEREL SAAT DİLİMİ İLE ZAMAN DAMGASI |DateTime |
-| SAAT DİLİMİ İLE ZAMAN DAMGASI |DateTime |
-| İŞARETSİZ TAMSAYI |Sayı |
+| RAW |Byte[] |
+| ROWID |String |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 

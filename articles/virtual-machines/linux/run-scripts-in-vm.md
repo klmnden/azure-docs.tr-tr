@@ -9,10 +9,10 @@ ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: 3881a6d0ee1139fa481908f09b6e96efda24a5cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60542552"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Linux VM'nizi betikleri çalıştırma
@@ -29,7 +29,7 @@ Görevleri otomatikleştirmenize ve sorunlarını gidermek için VM ile komutlar
 * Windows makinelerinde PowerShell betiğini çalıştırın ve Bash betiği Linux makinelerinde.
 * Dağıtım sonrası yapılandırma, yazılım yükleme ve diğer yapılandırma veya yönetim görevleri için kullanışlıdır.
 
-## <a name="run-command"></a>Komut çalıştırma
+## <a name="run-command"></a>Komutu çalıştırın
 
 [Komutu Çalıştır](run-command.md) özellik sanal makine ve uygulama yönetimi ve betikleri kullanarak sorun giderme sağlar ve hatta makine Konuk güvenlik duvarı RDP veya SSH bağlantı noktası yoksa, örneğin ulaşılabilir olmadığında kullanılabilir açın.
 

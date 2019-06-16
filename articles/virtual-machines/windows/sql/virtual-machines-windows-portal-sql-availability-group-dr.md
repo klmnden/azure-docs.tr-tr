@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571738"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Farklı bölgelerdeki Azure sanal makinelerinde Always On kullanılabilirlik grubu yapılandırma
@@ -167,21 +167,21 @@ Bağlantı test ediliyor sonra birincil çoğaltmayı birincil veri merkeziniz d
 
 | Location | Sunucu örneği | Rol | Kullanılabilirlik modu | Yük devretme modu
 | ----- | ----- | ----- | ----- | -----
-| Birincil veri merkezi | SQL-1 | Birincil | Zaman uyumlu | Automatic
-| Birincil veri merkezi | SQL-2 | İkincil | Zaman uyumlu | Automatic
+| Birincil veri merkezi | SQL-1 | Birincil | Zaman uyumlu | Otomatik
+| Birincil veri merkezi | SQL-2 | İkincil | Zaman uyumlu | Otomatik
 | İkincil veya uzak veri merkezi | SQL-3 | İkincil | Zaman uyumsuz | Manual
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Planlanmış ve zorla el ile yük devretme hakkında daha fazla bilgi
 
-Daha fazla bilgi edinmek için aşağıdaki kaynaklara bakın:
+Daha fazla bilgi için aşağıdaki konulara bakın:
 
 - [Bir kullanılabilirlik grubuna (SQL Server) planlanan el ile Yük Devretmesini gerçekleştirin.](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Bir kullanılabilirlik grubuna (SQL Server) zorla el ile Yük Devretmesini gerçekleştirin.](https://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Ek Bağlantılar
+## <a name="additional-links"></a>Ek bağlantılar
 
 * [Always On kullanılabilirlik grupları](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure Sanal Makineler](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Azure sanal makineleri](https://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load balancer'ları](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure kullanılabilirlik kümeleri](../manage-availability.md)

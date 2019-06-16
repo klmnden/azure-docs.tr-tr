@@ -16,10 +16,10 @@ ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60767007"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Sağlayın ve tahmin edilebilir bir biçimde azure'da mikro Hizmetleri dağıtın
@@ -193,7 +193,7 @@ Yeniden iç içe geçmiş kaynaklar JSON şablon dosyanızda Kullanılanlara ço
 **Azure'a Dağıt** düğmesidir harika, ancak bunu yalnızca, zaten azuredeploy.json github'a durumunda kaynak grubu şablon azuredeploy.json dağıtmanıza olanak tanır. Azure .NET SDK'sını da yerel makinenizden doğrudan herhangi bir JSON şablon dosyasını dağıtmak araçlar sağlar. Bunu yapmak için aşağıdaki adımları izleyin:
 
 1. Visual Studio’da, **Dosya** > **Yeni** > **Proje**’ye tıklayın.
-2. Tıklayın **Visual C#** > **bulut** > **Azure kaynak grubu**, ardından **Tamam**.
+2. Tıklayın **Visual C#**  > **bulut** > **Azure kaynak grubu**, ardından **Tamam**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. İçinde **Azure şablonunu Seç**seçin **boş şablonu** tıklatıp **Tamam**.
@@ -259,7 +259,7 @@ DevOps, Yinelenebilirlik ve tahmin edilebilirlik mikro hizmetlerden oluşan yük
 
 <a name="resources"></a>
 
-## <a name="more-resources"></a>Diğer kaynaklar
+## <a name="more-resources"></a>Daha fazla kaynak
 * [Azure Resource Manager şablonu dili](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager şablonu işlevleri](../azure-resource-manager/resource-group-template-functions.md)

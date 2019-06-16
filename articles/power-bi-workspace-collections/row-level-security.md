@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715204"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI Çalışma Alanı Koleksiyonları ile satır düzeyinde güvenlik
@@ -48,7 +48,7 @@ Bu şemada dikkat gereken bazı noktalar şunlardır:
 
 * Gibi tüm ölçüler **Total Sales**, depolanan **satış** Olgu Tablosu.
 * Dört ek ilgili boyut tablolarının vardır: **Öğe**, **zaman**, **Store**, ve **bölge**.
-* Filtreler bir tablodan diğerine akabilir çizgilerindeki oklar ilişki gösterir. Örneğin, bir filtre yerleştirildiği **Time [Date]**, geçerli şemada, yalnızca değerler filtreler **satış** tablo. Tüm ilişki oklar sales tablosunu işaret olduğundan başka tablo yoktur bu filtreden etkilenecek.
+* Filtreler bir tablodan diğerine akabilir çizgilerindeki oklar ilişki gösterir. Örneğin, bir filtre yerleştirildiği **Time [Date]** , geçerli şemada, yalnızca değerler filtreler **satış** tablo. Tüm ilişki oklar sales tablosunu işaret olduğundan başka tablo yoktur bu filtreden etkilenecek.
 * **Bölge** tablo için her bir district manager olan gösterir:
   
   ![Bölge tablo satırları](media/row-level-security/district-table-4.png)

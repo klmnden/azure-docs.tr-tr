@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
 ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776533"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Batch havuzları, RDMA veya GPU örnekleri kullan
@@ -37,7 +37,7 @@ Bu makalede, rehberlik ve Azure'nın özel boyutları bazıları Batch havuzlar�
 > [!NOTE]
 > Belirli VM boyutları, Batch hesabınızı oluşturduğunuz yerdir bölgelerde kullanılabilir olmayabilir. Bir boyut kullanılabilir olduğunu denetlemek için bkz: [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/regions/services/) ve [bir Batch havuzu için bir VM boyutu seçme](batch-pool-vm-sizes.md).
 
-## <a name="dependencies"></a>Bağımlılıklar
+## <a name="dependencies"></a>Bağımlılıkları
 
 Batch'te işlem yoğunluklu boyutları RDMA veya GPU yeteneklerini, yalnızca belirli işletim sistemlerinde desteklenir. (Desteklenen işletim sistemlerinin listesi bu boyutları içinde oluşturulan sanal makineleri için desteklenen bir alt kümesidir.) Batch havuzu oluşturma nasıl bağlı olarak, yükleme veya düğümler üzerinde daha fazla sürücü veya diğer yazılım yapılandırma gerekebilir. Aşağıdaki tablolarda, bu bağımlılıklar özetlenmektedir. Ayrıntılar için bağlantısı verilen makalelerden bakın. Batch havuzları yapılandırmak daha fazla seçenek için bu makalenin ilerleyen bölümlerinde bkz.
 

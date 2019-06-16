@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: reference
 ms.date: 05/13/2019
 ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596953"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımlama dili tetikleyicisi ve eylem türleri için başvuru
@@ -157,7 +157,7 @@ Bu tetikleyiciyi denetler veya *yoklamalar* kullanarak bir uç nokta [Microsoft 
 | Öğe | Tür | Açıklama |
 |---------|------|-------------|
 | Üst bilgileri | JSON nesnesi | Yanıt üst bilgiler |
-| body | JSON nesnesi | Yanıt gövdesinden |
+| Gövde | JSON nesnesi | Yanıt gövdesinden |
 | Durum kodu | Integer | Yanıt durum kodu |
 |||| 
 
@@ -330,7 +330,7 @@ Bu tetikleyiciyi veya belirtilen yinelenme zamanlamasına göre belirtilen uç n
 | Öğe | Tür | Açıklama |
 |---------|------|-------------| 
 | Üst bilgileri | JSON nesnesi | Yanıt üst bilgiler | 
-| body | JSON nesnesi | Yanıt gövdesinden | 
+| Gövde | JSON nesnesi | Yanıt gövdesinden | 
 | Durum kodu | Integer | Yanıt durum kodu | 
 |||| 
 
@@ -425,7 +425,7 @@ Gibi bazı değerler <*yöntem türü*>, her ikisi için de kullanılabilir `"su
 | Öğe | Tür | Açıklama |
 |---------|------|-------------| 
 | Üst bilgileri | JSON nesnesi | Yanıt üst bilgiler | 
-| body | JSON nesnesi | Yanıt gövdesinden | 
+| Gövde | JSON nesnesi | Yanıt gövdesinden | 
 | Durum kodu | Integer | Yanıt durum kodu | 
 |||| 
 
@@ -1014,7 +1014,7 @@ Eylemin çıkış diğer eylemleri daha sonra kullanabilirsiniz.
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*compose girişleri*> | Herhangi | Tek bir çıktı oluşturmak için girişleri | 
+| <*compose girişleri*> | Tüm | Tek bir çıktı oluşturmak için girişleri | 
 |||| 
 
 *Örnek 1*
@@ -1645,7 +1645,7 @@ Sütun üst bilgilerini ve değerleri özelleştirmenize veya belirtmek için ku
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
 | <*sütun adı*> | String | Bir sütun için üst bilgi adı | 
-| <*Sütun değeri*> | Herhangi | Bu sütunda değeri | 
+| <*Sütun değeri*> | Tüm | Bu sütunda değeri | 
 |||| 
 
 *Örnek 1*

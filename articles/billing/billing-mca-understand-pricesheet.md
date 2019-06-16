@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371368"
 ---
 # <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Bir Microsoft Müşteri sözleşmesi, fiyat koşullarını anlama
@@ -42,13 +42,13 @@ Aşağıdaki bölümde, Microsoft Müşteri sözleşmesi fiyat listesinde göste
 | serviceFamily  | Azure hizmet türü. Örn: İşlem, analiz, güvenlik |
 | Product  | Ücretler tahakkuk ürün adı. Örn: Temel SQL veritabanı ile standart SQL veritabanı  |
 | productId  | Ölçüm, kullanılan ürün için benzersiz tanımlayıcı. |
-| unitOfMeasure  | Faturalama hizmeti için ölçü tanımlar. Örneğin, işlem Hizmetleri, saat başına faturalandırılır. |
-| meterId  | Ölçüm için benzersiz tanımlayıcı. |
-| meterName  | Ölçüm adı. Ölçüm, bir Azure hizmetinin dağıtılabilir kaynağa temsil eder. |
-| meterCategory  | Ölçüm için sınıflandırma kategorisi adı. Örneğin, _bulut Hizmetleri_, _ağ_vb. |
+| UnitOfMeasure  | Faturalama hizmeti için ölçü tanımlar. Örneğin, işlem Hizmetleri, saat başına faturalandırılır. |
+| MeterId  | Ölçüm için benzersiz tanımlayıcı. |
+| MeterName  | Ölçüm adı. Ölçüm, bir Azure hizmetinin dağıtılabilir kaynağa temsil eder. |
+| MeterCategory  | Ölçüm için sınıflandırma kategorisi adı. Örneğin, _bulut Hizmetleri_, _ağ_vb. |
 | meterType  |  Ölçer türü adı. |
-| meterSubCategory  | Ölçüm alt sınıflandırma kategorisi adı.  |
-| meterRegion  | Ölçüm hizmeti için kullanılabilir olduğu bölge adı. Veri merkezi konumuna bağlı olarak ücretlendirilen belirli hizmetler için veri merkezinin konumunu belirtir.    |
+| MeterSubCategory  | Ölçüm alt sınıflandırma kategorisi adı.  |
+| MeterRegion  | Ölçüm hizmeti için kullanılabilir olduğu bölge adı. Veri merkezi konumuna bağlı olarak ücretlendirilen belirli hizmetler için veri merkezinin konumunu belirtir.    |
 | tierId  | Uygun olduğunda fiyatlandırma katmanını tanımlar. Bu, tierMinimumUnits fiyatları farklılık, katmanlı fiyatları tüketilen birim sayısına göre ayarı ile birlikte çalışır.    |
 | tierMinimumUnits  | Fiyatlar kendisi için tanımlanan katmanı aralığının alt sınırı tanımlar. Örneğin, 0-100 aralığında ise tierMinimumUnits 0 olacaktır.  |
 | effectiveStartDate  | Başlangıç tarihi fiyat ne zaman etkin hale gelir. |
@@ -59,7 +59,7 @@ Aşağıdaki bölümde, Microsoft Müşteri sözleşmesi fiyat listesinde göste
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

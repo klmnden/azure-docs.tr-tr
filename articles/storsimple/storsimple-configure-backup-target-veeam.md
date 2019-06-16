@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 ms.openlocfilehash: e7659cca9081834d41f64ef0fbd8ea3686044bfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60634085"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>Yedekleme hedefi olarak Veeam ile StorSimple
@@ -184,7 +184,7 @@ Bu bölümde, bazı yapılandırma örneği gösterilmektedir. Aşağıdaki örn
 
 ### <a name="set-up-storsimple"></a>StorSimple ' ayarlayın
 
-| StorSimple dağıtım görevleri  | Ek açıklamalar |
+| StorSimple dağıtım görevleri  | Ek Açıklamalar |
 |---|---|
 | Şirket içi StorSimple Cihazınızı dağıtın. | Desteklenen sürümler: Güncelleştirme 3 ve sonraki sürümler. |
 | Yedekleme hedefi üzerinde açın. | Yedekleme hedefi modunu devre dışı bırakmak veya etkinleştirmek ve durumu almak için şu komutları kullanın. Daha fazla bilgi için [bir StorSimple cihazı uzaktan bağlanma](storsimple-remote-connect.md).</br> Yedekleme modunu açmak için: `Set-HCSBackupApplianceMode -enable`. </br> Yedekleme modunu devre dışı bırakmak için: `Set-HCSBackupApplianceMode -disable`. </br> Yedekleme modu ayarları geçerli durumunu almak için: `Get-HCSBackupApplianceMode`. |
@@ -320,7 +320,7 @@ Dört hafta, aylık ve yıllık GFS döndürme tablosunun bir örnek aşağıda 
 |---|---|---|
 | Haftalık (hafta 1-4) | Cumartesi | Pazartesi-Cuma |
 | Aylık  | Cumartesi  |   |
-| Yıllık | Cumartesi  |   |
+| Yıllık yedekleme | Cumartesi  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Veeam yedekleme işi için StorSimple birimlerini atayın
@@ -380,10 +380,10 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalıştı
 
 | Yedekleme türü ve saklama | Yapılandırılmış depolama | Boyut (TiB) | GFS çarpanı | Toplam Kapasite\* (TiB) |
 |---|---|---|---|---|
-| Hafta 1 (tam ve artımlı) |Yerel disk (kısa vadeli)| 1 | 1. | 1 |
+| Hafta 1 (tam ve artımlı) |Yerel disk (kısa vadeli)| 1 | 1\. | 1 |
 | StorSimple hafta 2-4 |StorSimple disk (uzun süreli) | 1 | 4 | 4 |
 | Aylık tam |StorSimple disk (uzun süreli) | 1 | 12 | 12 |
-| Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1. | 1 |
+| Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1\. | 1 |
 |GFS birim boyutu gereksinimini |  |  |  | 18*|
 
 \* Toplam Kapasite 17 TiB StorSimple'nın, diskler ve yerel RAID birimi 1 TiB içerir.
@@ -400,7 +400,7 @@ GFS döndürme haftalık, aylık ve yıllık zamanlama
 | 3 hafta | StorSimple hafta 2-4 |   |   |   |   |   |
 | 4 hafta | StorSimple hafta 2-4 |   |   |   |   |   |
 | Aylık | StorSimple aylık |   |   |   |   |   |
-| Yıllık | Yıllık StorSimple  |   |   |   |   |   |
+| Yıllık yedekleme | Yıllık StorSimple  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>StorSimple birim atamak için bir Veeam kopyalama işi
 
@@ -500,7 +500,7 @@ Veeam ile hızlı, ayrıntılı, dosya düzeyinde Kurtarma ile StorSimple Veeam 
 
 Olağanüstü bir durum tarafından çeşitli etkenler neden olabilir. Aşağıdaki tabloda olağanüstü durum kurtarma senaryoları listelenmektedir.
 
-| Senaryo | Etki | Kurtarma | Notlar |
+| Senaryo | Etkisi | Kurtarma | Notlar |
 |---|---|---|---|
 | StorSimple cihaz arızası | Yedekleme ve geri yükleme işlemlerini kesintiye uğramaz. | Başarısız aygıt değiştirin ve gerçekleştirme [StorSimple yük devretme ve olağanüstü durum kurtarma](storsimple-device-failover-disaster-recovery.md). | Bir geri yüklemeden sonra cihaz kurtarma gerçekleştirmeniz gerekirse, tam veri çalışma kümeleri için yeni cihaz buluttan alınır. Bulut hızlarda tüm işlemlerdir. Dizin ve işlemi yeniden tarama işlemi katalog taranır ve zaman alan bir işlem olabilir yerel cihaz katmanı için bulut katmanı çekilen tüm yedekleme kümelerini neden olabilir. |
 | Veeam sunucu hatası | Yedekleme ve geri yükleme işlemlerini kesintiye uğramaz. | Yedekleme sunucusuna yeniden oluşturun ve veritabanı geri yükleme ayrıntılı olarak açıklandığı gibi gerçekleştirin [Veeam Yardım Merkezi (teknik belgeler)](https://www.veeam.com/documentation-guides-datasheets.html).  | Yeniden oluşturmanız veya olağanüstü durum kurtarma siteniz Veeam sunucuda geri gerekir. Veritabanını geri yüklemek için en son noktası. Geri yüklenen Veeam veritabanını en son yedekleme işleriniz ile eşitlenmiş durumda değilse, dizin oluşturma ve Katalog gereklidir. Bu dizin ve işlemi yeniden tarama işlemi katalog taranır ve yerel cihaz katmana bulut katmandan oluşan bir derleme tüm yedekleme kümelerini neden olabilir. Bu, daha fazla zaman yoğun kolaylaştırır. |
@@ -512,7 +512,7 @@ Olağanüstü bir durum tarafından çeşitli etkenler neden olabilir. Aşağıd
 Aşağıdaki belgeler, bu makale için başvurulan:
 
 - [StorSimple çok yollu g/ç Kurulumu](storsimple-configure-mpio-windows-server.md)
-- [Depolama senaryoları: ölçülü kaynak sağlama](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Depolama senaryoları: Ölçülü kaynak sağlama](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [GPT kullanarak sürücüleri](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Paylaşılan klasörler için gölge kopyaları ayarlama](https://technet.microsoft.com/library/cc771893.aspx)
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.openlocfilehash: f6c317cc1281a5a9bc18a2057fa12b7b61bb7689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61372042"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Bilgi Bankası içerikleri soru-cevap Oluşturucu için dil desteği
@@ -34,7 +34,7 @@ Dil ayıklanırken veri kaynaklarının içeriği otomatik olarak kabul edilir. 
 
 4. Seçin **alanları** testkb ayrıntılarını gösteren bölüm.
 
-    ![Alanları Seçin](../media/qnamaker-how-to-language-kb/selectfields.png)
+    ![Alanları seçin](../media/qnamaker-how-to-language-kb/selectfields.png)
 
 5. İçin kutuyu **Çözümleyicisi** dil ayrıntılarını görmek için.
 

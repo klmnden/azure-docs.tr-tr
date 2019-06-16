@@ -7,10 +7,10 @@ ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
 ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720387"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Azure portalı üzerinden Web uygulaması güvenlik duvarı kurallarını özelleştirme
@@ -50,7 +50,7 @@ Kuralları devre dışı bırakmak, tüm kural grubu ya da bir veya daha fazla k
    2. Devre dışı bırakmak istediğiniz kuralları için onay kutularını temizleyin. 
    2. **Kaydet**’i seçin. 
 
-![Değişiklikleri kaydet][3]
+![Değişiklikleri Kaydet][3]
 
 ## <a name="mandatory-rules"></a>Zorunlu kuralları
 

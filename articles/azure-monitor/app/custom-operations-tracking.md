@@ -13,10 +13,10 @@ ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900898"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK ile özel işlemleri izleme
@@ -28,7 +28,7 @@ Genel olarak desteklenen uygulama desenleri sınıfının yoktur. Uygun tür des
 Bu belge, Application Insights SDK'sı ile özel işlemleri izleme konusunda rehberlik sağlar. Bu belge için geçerlidir:
 
 - .NET (Temel SDK olarak da bilinir) sürüm 2.4 + için Application Insights.
-- 2.4 + web uygulamaları (ASP.NET çalışan) sürümü için Application Insights.
+- 2\.4 + web uygulamaları (ASP.NET çalışan) sürümü için Application Insights.
 - ASP.NET Core 2.1 + sürümü için Application Insights.
 
 ## <a name="overview"></a>Genel Bakış
@@ -124,7 +124,7 @@ Bağıntı için HTTP protokolü ayrıca bildirir `Correlation-Context` başlı�
 ## <a name="queue-instrumentation"></a>Kuyruk izleme
 Varken [HTTP protokolü için bağıntı](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) HTTP isteği ile bağıntı ayrıntıları geçirmek için kuyruk iletisi aynı ayrıntılarını nasıl geçirilir tanımlamak her kuyruk Protokolü vardır. İleti yükü kodlanacak bağlamı geçirme ek meta veriler ve bazıları (gibi Azure depolama kuyruğu) gerektiren bazı kuyruk protokolündeki (AMQP) sağlar.
 
-### <a name="service-bus-queue"></a>Service Bus Kuyruğu
+### <a name="service-bus-queue"></a>Service Bus kuyruğu
 Application Insights, Service Bus Mesajlaşması çağrıları yeni izler [.NET için Microsoft Azure Service Bus istemci](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) sürüm 3.0.0 ve daha yüksek.
 Kullanırsanız [ileti işleyicisi deseni](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) iletileri işlemek üzere işiniz: hizmetiniz tarafından yapılan tüm Service Bus çağrıları otomatik olarak izlenir ve diğer telemetriyi öğeleriyle ilişkili. Başvurmak [Microsoft Application Insights ile izleme Service Bus istemci](../../service-bus-messaging/service-bus-end-to-end-tracing.md) el ile iletilerinin işlenme.
 
@@ -170,7 +170,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>İşlem
+#### <a name="process"></a>Process
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -335,7 +335,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>İşlem
+#### <a name="process"></a>Process
 
 Aşağıdaki örnekte, bir gelen iletiyi bir şekilde benzer şekilde gelen HTTP isteği izlenir:
 

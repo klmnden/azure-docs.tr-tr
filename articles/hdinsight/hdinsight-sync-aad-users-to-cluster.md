@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 2be67c604bebbe9b4c4356e241d1480ca0778d4a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64688557"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory kullanıcılarını HDInsight kümesine eşitleme
@@ -47,7 +47,7 @@ Aşağıdaki yöntemi POST Ambari REST API ile kullanır. Daha fazla bilgi için
 
 1. [Kümenizin SSH ile bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md). Azure portalında kümenizin genel bakış bölmesinden seçin **güvenli Kabuk (SSH)** düğmesi.
 
-    ![Secure Shell (SSH)](./media/hdinsight-sync-aad-users-to-cluster/ssh.png)
+    ![Güvenli Kabuk (SSH)](./media/hdinsight-sync-aad-users-to-cluster/ssh.png)
 
 2. Görüntülenen kopyalama `ssh` komut ve SSH istemciniz yapıştırın. Girin ssh istendiğinde kullanıcı parolası.
 
@@ -127,7 +127,7 @@ Aşağıdaki yöntemi POST Ambari REST API ile kullanır. Daha fazla bilgi için
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Yeni eklenen doğrulayın Azure AD kullanıcısı
 
-Açık [Apache Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md) doğrulamak için yeni Azure AD kullanıcı eklendi. Ambari Web kullanıcı arabirimini göz atarak erişim **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Küme Yöneticisi kullanıcı adı ve parolayı girin.
+Açık [Apache Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md) doğrulamak için yeni Azure AD kullanıcı eklendi. Ambari Web kullanıcı arabirimini göz atarak erişim **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Küme Yöneticisi kullanıcı adı ve parolayı girin.
 
 1. Ambari Panoda **yönetme Ambari** altında **yönetici** menüsü.
 

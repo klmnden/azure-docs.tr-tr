@@ -13,10 +13,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/20/2019
 ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387409"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL kimlik doğrulaması için Azure Active Directory kimlik doğrulaması kullanın.
@@ -137,7 +137,7 @@ Azure AD sunucu sorumlusu (oturum açma bilgileri) için aşağıdaki kimlik do�
 - Yalnızca SQL Server için Azure AD Yöneticisi, başlangıçta Azure SQL veritabanı sunucusu, yönetilen örneği veya Azure Active Directory hesabını kullanarak Azure SQL veri ambarı bağlanabilirsiniz. Active Directory Yöneticisi sonraki Azure AD'yi yapılandırabilirsiniz veritabanı kullanıcılar.   
 - 30 saniye olarak bağlantı zaman aşımı ayarını öneririz.   
 - SQL Server 2016 Management Studio ve Visual Studio 2015 (sürüm 14.0.60311.1April 2016 veya üzeri) için SQL Server veri araçları, Azure Active Directory kimlik doğrulamasını destekler. (Azure AD kimlik doğrulaması tarafından desteklenen **SqlServer için .NET Framework veri sağlayıcısı**; en az .NET Framework 4.6 sürümü). Bu nedenle en son sürümleri bu araçlar ve veri katmanı uygulamaları (DAC ve. BACPAC), Azure AD kimlik doğrulaması kullanabilirsiniz.   
-- 15.0.1, sürümünden başlayarak [sqlcmd yardımcı programını](/sql/tools/sqlcmd-utility) ve [bcp yardımcı programının](/sql/tools/bcp-utility) MFA ile Active Directory etkileşimli kimlik doğrulaması desteği.
+- 15\.0.1, sürümünden başlayarak [sqlcmd yardımcı programını](/sql/tools/sqlcmd-utility) ve [bcp yardımcı programının](/sql/tools/bcp-utility) MFA ile Active Directory etkileşimli kimlik doğrulaması desteği.
 - SQL Server veri araçları, Visual Studio 2015 için en az bir veri Araçları (sürüm 14.0.60311.1) Nisan 2016 sürümünü gerektirir. Şu anda Azure AD kullanıcılarının SSDT nesne Gezgini'nde gösterilmez. Geçici çözüm olarak, kullanıcılar görüntülemek [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 - [SQL Server için Microsoft JDBC sürücüsü 6.0](https://www.microsoft.com/download/details.aspx?id=11774) destekleyen Azure AD kimlik doğrulaması. Ayrıca bkz [bağlantı özelliklerini ayarlama](https://msdn.microsoft.com/library/ms378988.aspx).   
 - PolyBase, Azure AD kimlik doğrulamasını kullanarak kimlik doğrulaması yapamaz.   

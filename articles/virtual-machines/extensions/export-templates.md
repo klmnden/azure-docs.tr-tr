@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: roiyz
 ms.openlocfilehash: f56cfeeede393dbdb9632ea4120d3a81e89f3f7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484049"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>VM uzantıları içeren kaynak grupları dışarı aktarma
@@ -103,7 +103,7 @@ Her korunan ayarın gerekli özellikler kümesi olduğundan, bu özelliklerin bi
 }
 ```
 
-### <a name="step-3---re-create-the-protected-configuration"></a>3. adım - korumalı yapılandırmayı yeniden oluşturma
+### <a name="step-3---re-create-the-protected-configuration"></a>3\. adım - korumalı yapılandırmayı yeniden oluşturma
 
 Dışarı aktarılan şablona arama `protectedSettings` ve gerekli bir uzantı parametrelerinden ve her biri için bir değer içeren yeni bir tane dışarı aktarılan korumalı ayar nesnesini değiştirin.
 

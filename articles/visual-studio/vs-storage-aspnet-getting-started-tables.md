@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122999"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Azure tablo depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
@@ -171,7 +171,7 @@ Aşağıdaki adımlar, bir tablo oluşturma işlemini göstermektedir:
 
 1. Uygulamayı çalıştırmak ve seçmek **Oluştur tablo** aşağıdaki ekran görüntüsüne benzer bir sonuç görmek için:
   
-    ![Tablo oluştur](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
+    ![Tablo oluşturma](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
     Daha önce de belirtildiği **CloudTable.CreateIfNotExists** yöntemi döndürür **true** yalnızca tablo mevcut değil ve oluşturulur. Bu nedenle, tablo varsa, uygulamayı çalıştırırsanız, yöntem döndürür **false**. Uygulama birden çok kez çalıştırmak için uygulamayı yeniden çalıştırmadan önce tabloda silmeniz gerekir. Aracılığıyla tablo silme yapılabilir **CloudTable.Delete** yöntemi. Tabloyu kullanarak silebilirsiniz [Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 

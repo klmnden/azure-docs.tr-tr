@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: a5099feee34eb5497b68987485412e29ad5d5365
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60480355"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Klasik kapsayıcı kayıt defterini yükseltme
@@ -37,7 +37,7 @@ Yönetilen kayıt defteri depolamasını aşağıdaki avantajları sağlar:
 
 ACR görüntü depolama ile ilgili ek ayrıntılar için bkz. [kapsayıcı görüntüsü Azure Container Registry depolamada](container-registry-storage.md).
 
-## <a name="migration-considerations"></a>Geçiş konuları
+## <a name="migration-considerations"></a>Geçiş sırasında dikkat edilmesi gerekenler
 
 Yönetilen kayıt defteri için Klasik kayıt defterini yükseltme yaptığınızda, Azure var olan tüm kapsayıcı görüntülerini aboneliğinizdeki ACR oluşturulan depolama hesabından Azure tarafından yönetilen bir depolama hesabına kopyalamanız gerekir. Kayıt defterinizin boyutuna bağlı olarak, bu işlem birkaç saat için birkaç dakika sürebilir. Dakika başına yaklaşık 0,5 GiB geçiş süresini tahmin amacıyla bekler.
 

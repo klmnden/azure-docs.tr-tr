@@ -11,10 +11,10 @@ ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ebbcbcc3d0934800980b7d8e00895b11ff2747b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310439"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Azure SQL veri ambarı geri yükleme 
@@ -220,7 +220,7 @@ Kaynak veritabanı TDE etkinse kurtarılmış veritabanını TDE etkin olacaktı
 
 3. Genel Bakış dikey pencerenin en üstünde seçin **+ yeni geri yükleme noktası**.
 
-    ![Yeni Geri Yükleme Noktası](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
+    ![Yeni geri yükleme noktası](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
 
 4. Geri yükleme noktası için bir ad belirtin.
 
@@ -235,7 +235,7 @@ Kaynak veritabanı TDE etkinse kurtarılmış veritabanını TDE etkin olacaktı
 
 4. Şunlardan birini seçin **otomatik geri yükleme noktaları** veya **kullanıcı tanımlı bir geri yükleme noktaları**.
 
-    ![Otomatik Geri Yükleme Noktaları](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
+    ![Otomatik geri yükleme noktaları](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
 
 5. Kullanıcı tanımlı noktaları, geri yüklemek için **geri yükleme noktası seçin** veya **yeni bir kullanıcı tanımlı bir geri yükleme noktası oluşturma**.
 

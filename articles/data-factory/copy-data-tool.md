@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787738"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory'de veri aracı kopyalayın
@@ -78,7 +78,7 @@ Aşağıdaki ekran görüntüsünde, verilere filtre uygulamak için bir SQL sor
 ![Bir veritabanındaki verileri filtreleme](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Bir Azure blob klasördeki verileri filtreleme
-Bir klasöre veri kopyalamak için klasör yoluna değişkenleri kullanabilirsiniz. Desteklenen değişkenler: **{year}**, **{month}**, **{day}**, **{hour}**, ve **{minute}**. Örneğin: inputfolder / {year} / {month} / {day}. 
+Bir klasöre veri kopyalamak için klasör yoluna değişkenleri kullanabilirsiniz. Desteklenen değişkenler: **{year}** , **{month}** , **{day}** , **{hour}** , ve **{minute}** . Örneğin: inputfolder / {year} / {month} / {day}. 
 
 Klasörleri aşağıdaki biçimde giriş varsayalım: 
 
@@ -91,7 +91,7 @@ Klasörleri aşağıdaki biçimde giriş varsayalım:
 
 Tıklayın **Gözat** için düğme **dosya veya klasör**, bu klasörlerden birine göz atın (örneğin, 2016 03 -> -> 01 -> 02), tıklatıp **Seç**. 2016/03/01/02 metin kutusundaki görmeniz gerekir. 
 
-Ardından, **2016** ile **{year}**, **03** ile **{month}**, **01** ile **{day}** , ve **02** ile **{hour}** basın **sekmesini** anahtarı. Bu dört değişkenler biçimini seçmek için aşağı açılır listeler görmeniz gerekir:
+Ardından, **2016** ile **{year}** , **03** ile **{month}** , **01** ile **{day}** , ve **02** ile **{hour}** basın **sekmesini** anahtarı. Bu dört değişkenler biçimini seçmek için aşağı açılır listeler görmeniz gerekir:
 
 ![Filtre dosyası veya klasörü](./media/copy-data-tool/filter-file-or-folder.png)
 

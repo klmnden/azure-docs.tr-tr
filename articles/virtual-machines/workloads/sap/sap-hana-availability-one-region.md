@@ -17,11 +17,11 @@ ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 687012e73b4b0c869b491ac1c9ea128662b23510
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391506"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64680884"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Bir Azure bölgesi içinde SAP HANA kullanılabilirliği
 Bu makalede bir Azure bölgesi içinde birden fazla kullanılabilirlik senaryoları açıklar. Azure, dünyanın her yerinde yayılan birçok bölgedeki sahiptir. Azure bölgelerinin listesi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/). Microsoft, SAP HANA vm'lerinde bir Azure bölgesi içinde dağıtmak için bir HANA örneği ile tek bir VM dağıtımı sunar. Yüksek kullanılabilirlik için iki VM içindeki iki HANA örnekleri ile dağıtabileceğiniz bir [Azure kullanılabilirlik kümesine](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) , HANA sistem çoğaltması kullanılabilirlik için kullanır. 

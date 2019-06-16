@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 354a68d7d4d07657baa7044566dde8b7ed77ca63
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400064"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fiziksel sunucuya Azure olağanüstü durum kurtarma mimarisi
@@ -69,9 +69,9 @@ Gerektiği şekilde çoğaltma ayarlanır ve her şeyin beklendiği gibi çalı�
     - **Yeniden çalışma ilkesi**: Şirket içi siteye geri çoğaltılması için bir yeniden çalışma ilkesi gerekir. Şirket içinden Azure'a çoğaltma ilkenizi oluşturduğunuzda otomatik olarak oluşturuldu.
     - **VMware altyapısı**: Yeniden çalışma için bir VMware altyapısı gerekir. Bir fiziksel sunucuda yeniden çalışamazsınız.
 - Bileşenleri hazır olduktan sonra yeniden çalışma üç aşamada gerçekleşir:
-    - 1. Aşama: Böylece bunlar Azure'dan çoğaltma Azure Vm'lerini yeniden koruma şirket içi VMware Vm'lerini geri dönün.
-    - 2. Aşama: Şirket içi siteye yük devretme çalıştırın.
-    - 3. Aşama: İş yüklerini geri başarısız olduktan sonra çoğaltmayı yeniden etkinleştirin.
+    - 1\. Aşama: Böylece bunlar Azure'dan çoğaltma Azure Vm'lerini yeniden koruma şirket içi VMware Vm'lerini geri dönün.
+    - 2\. Aşama: Şirket içi siteye yük devretme çalıştırın.
+    - 3\. Aşama: İş yüklerini geri başarısız olduktan sonra çoğaltmayı yeniden etkinleştirin.
 
 **Azure'dan VMware**
 

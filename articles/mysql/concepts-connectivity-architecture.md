@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: fa92c836fc967f67b46f0417ec5182b41e980b18
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 7a7ac843960e253b3172d1ed22fe5b59633897dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735414"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062471"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda bağlantı mimarisi
 Bu makalede, trafiği Azure veritabanınızı MySQL örneği için hem içinde hem de Azure dışındaki istemcilerden yönlendirildiği nasıl bağlantı mimarisi de MySQL için Azure veritabanı açıklanmaktadır.
 
 ## <a name="connectivity-architecture"></a>Bağlantı mimarisi
-Azure veritabanınızı MySQL SQL Bağlantısı sunucunuzun bizim kümelerdeki fiziksel konuma yönlendirme gelen bağlantıları sorumlu olduğu bir ağ geçidi üzerinden kurulur. Aşağıdaki diyagram, trafik akışını gösterir.
+MySQL için Azure veritabanınıza bağlantı sunucunuzun bizim kümelerdeki fiziksel konuma yönlendirme gelen bağlantıları sorumlu olduğu bir ağ geçidi üzerinden kurulur. Aşağıdaki diyagram, trafik akışını gösterir.
 
 ![Bağlantı mimarisine genel bakış](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 

@@ -11,10 +11,10 @@ ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: rkarlin
 ms.openlocfilehash: 7f23856363b337a361f329ed54e2152842faf26e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64705136"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Power BI Çalışma Alanı Koleksiyonları nedir?
@@ -60,7 +60,7 @@ A **çalışma** bir Power BI'ın aşağıdakileri içeren veri kümeleri ve rap
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>Kimlik doğrulaması ve yetkilendirme ile uygulama belirteçleri
 
-**Microsoft Power BI çalışma alanı koleksiyonları** gerçekleştirmek için gerekli kullanıcı kimlik doğrulaması ve yetkilendirme uygulamanıza erteler. Son kullanıcılarınızın Azure Active Directory (Azure AD) müşterileri olmasını açık gereksinimi yoktur.  Bunun yerine, uygulamanız için uygulamayı yoğunlaştıracaklardır **Microsoft Power BI çalışma alanı koleksiyonları** kullanarak Power BI raporu oluşturmak için yetkilendirme **uygulama kimlik doğrulama belirteçleri (uygulama belirteçlerini)**.  Bunlar **uygulama belirteçlerini** uygulamanıza bir rapor oluşturmak istediğinde gerektiğinde oluşturulur.
+**Microsoft Power BI çalışma alanı koleksiyonları** gerçekleştirmek için gerekli kullanıcı kimlik doğrulaması ve yetkilendirme uygulamanıza erteler. Son kullanıcılarınızın Azure Active Directory (Azure AD) müşterileri olmasını açık gereksinimi yoktur.  Bunun yerine, uygulamanız için uygulamayı yoğunlaştıracaklardır **Microsoft Power BI çalışma alanı koleksiyonları** kullanarak Power BI raporu oluşturmak için yetkilendirme **uygulama kimlik doğrulama belirteçleri (uygulama belirteçlerini)** .  Bunlar **uygulama belirteçlerini** uygulamanıza bir rapor oluşturmak istediğinde gerektiğinde oluşturulur.
 
 ![Uygulama belirteç kullanımı diyagramı](media/what-are-power-bi-workspace-collections/app-tokens.png)
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630011"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Bulut çözümü sağlayıcısı programı için StorSimple sanal Dizini'ni dağıtma
@@ -54,7 +54,7 @@ Bir müşteri eklerseniz, bir aboneliği otomatik olarak oluşturulur. Bir müş
                               
 4. Bilgileri gözden geçirin ve tıklayın **Gönder**.
 
-    ![Aboneliği gönder](./media/storsimple-partner-csp-deploy/image4.png)
+    ![Aboneliği Gönder](./media/storsimple-partner-csp-deploy/image4.png)
 
 5. Gelecek başvurular için onay bilgileri kaydedin.
 
@@ -87,7 +87,7 @@ Bazı durumlarda, varolan bir müşteri olabilir ve bir abonelik eklemeniz gerek
 
 3. Denetleme **Microsoft Azure** için **üst teklifler** abonelik tıklayıp **Gönder**. Bu, yeni bir abonelik oluşturur.
 
-    ![Yeni abonelik ekle](./media/storsimple-partner-csp-deploy/image11.png)
+    ![Yeni Abonelik Ekle](./media/storsimple-partner-csp-deploy/image11.png)
 
 6. Yeni bir abonelik oluşturduktan sonra tıklayın **<--müşteriler** dönmek için sol bölmesinde **müşteriler** sayfası. Kendisi için bir abonelik oluşturduğunuz müşteri arayın. Tıklayın **şirket adı** ayrıntılarına detaya gitmek için.
 

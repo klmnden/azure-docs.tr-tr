@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 1/3/2019
 ms.author: aljo
 ms.openlocfilehash: 4ed76b207db4712058b5524cd1b31fd65b0e19a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773640"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric durum bilgisi olan hizmetler güvenilir koleksiyonlar giriş
@@ -63,7 +63,7 @@ Bugün, **Microsoft.ServiceFabric.Data.Collections** üç koleksiyonu içerir:
 * [İşlemler ve kilitler](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Verileri yönetme
   * [Yedekleme ve Geri Yükleme](service-fabric-reliable-services-backup-restore.md)
-  * [Bildirimler](service-fabric-reliable-services-notifications.md)
+  * [Bildirimleri](service-fabric-reliable-services-notifications.md)
   * [Güvenilir Koleksiyonu serileştirme](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Seri hale getirme ve yükseltme](service-fabric-application-upgrade-data-serialization.md)
   * [Güvenilir durum Yöneticisi'ni yapılandırma](service-fabric-reliable-services-configuration.md)

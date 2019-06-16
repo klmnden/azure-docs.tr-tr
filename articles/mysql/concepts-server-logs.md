@@ -1,25 +1,25 @@
 ---
 title: MySQL için Azure veritabanı sunucusu günlükleri
-description: Farklı günlüğe kaydetme düzeylerini etkinleştirmek için kullanılabilir parametrelerde ve MySQL için Azure veritabanı'nda kullanılabilir günlükleri açıklar.
+description: Farklı günlüğe kaydetme düzeylerini etkinleştirmek için kullanılabilir parametrelerde ve MySQL için Azure veritabanı'nda kullanılabilir yavaş sorgu günlüklerini açıklar.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: 1a8956d40ef30e8d52fbdded3448019e14ab16a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525836"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062409"
 ---
-# <a name="server-logs-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda sunucu günlüklerini
-MySQL için Azure veritabanı'nda yavaş sorgu günlüğü kullanıcılar tarafından kullanılabilir. İşlem günlüğü erişimi desteklenmiyor. Yavaş sorgu günlüğü, sorun giderme için performans sorunlarını tanımlamak için kullanılabilir. 
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Yavaş sorgu, MySQL için Azure veritabanı'nda günlüğe kaydeder
+MySQL için Azure veritabanı'nda yavaş sorgu günlüğü kullanıcılar tarafından kullanılabilir. İşlem günlüğü erişimi desteklenmiyor. Yavaş sorgu günlüğü, sorun giderme için performans sorunlarını tanımlamak için kullanılabilir.
 
 MySQL yavaş sorgu günlüğü hakkında daha fazla bilgi için bkz: MySQL Başvuru Kılavuzu'nın [yavaş sorgu günlüğü bölümü](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
 
-## <a name="access-server-logs"></a>Sunucu günlüklerine erişme
-Liste ve Azure portalı ve Azure CLI kullanarak MySQL sunucusu günlükleri için Azure veritabanı indirin.
+## <a name="access-slow-query-logs"></a>Yavaş sorgu günlüklerine erişme
+Liste ve Azure portalı ve Azure CLI kullanarak MySQL yavaş sorgu günlüklerini için Azure veritabanı indirin.
 
 Azure portalında MySQL için Azure veritabanı sunucunuza seçin. Altında **izleme** başlığı seçin **sunucu günlükleri** sayfası.
 
@@ -30,8 +30,7 @@ Günlükleri, bunların oluşturma yedi güne kadar kullanılabilir. Kullanılab
 
 Günlükleri Döndürülmüş her 24 saat veya 7 GB, hangisi gelir önce.
 
-
-## <a name="configure-logging"></a>Günlük tutmayı yapılandırma 
+## <a name="configure-slow-query-logging"></a>Yavaş sorgu günlük tutmayı yapılandırma 
 Yavaş sorgu günlüğü varsayılan olarak devre dışıdır. Bunu etkinleştirmek için slow_query_log açık olarak ayarlayın.
 
 Ayarlayabileceğiniz diğer parametreler şunlardır:
@@ -76,7 +75,7 @@ Aşağıdaki tabloda, her oturum açma yenilikler açıklanır. Yer alan alanlar
 | `insert_id_s` | Kimliği Ekle |
 | `sql_text_s` | Tam sorgu |
 | `server_id_s` | Sunucunun kimliği |
-| `thread_id_s` | iş parçacığı kimliği |
+| `thread_id_s` | İş parçacığı kimliği |
 | `\_ResourceId` | Kaynak URI'si |
 
 ## <a name="next-steps"></a>Sonraki Adımlar

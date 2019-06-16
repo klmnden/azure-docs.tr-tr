@@ -10,10 +10,10 @@ ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: 1b37b3c52abd3750c3452a46bdf5b0c5954de4dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61289213"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Node.js'de Azure Search kullanmaya başlama
@@ -81,7 +81,7 @@ Aşağıdaki komutlar için PowerShell penceresi kullanın.
 ## <a name="build-the-index-and-run-the-application"></a>Dizini derleme ve uygulamayı çalıştırma
 1. `npm run indexDocuments` yazın.
 2. `npm run build` yazın.
-3. `npm run start_server` yazın.
+3. `npm run start_server`yazın.
 4. Tarayıcınızı `http://localhost:8080/index.html` adresine yönlendirin
 
 ## <a name="search-on-usgs-data"></a>USGS verilerinde arama

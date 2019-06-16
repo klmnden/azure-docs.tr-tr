@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: 5f55228c80142b2a21af585cb04d16f148460af0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65149091"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Geliştirme ve test için Azure depolama öykünücüsü kullanma
@@ -172,7 +172,7 @@ Seçenek listesini görüntülemek için komut satırına `/help` yazın.
 | --- | --- | --- | --- |
 | **Start** |Depolama öykünücüsü'kurmak başlatır. |`AzureStorageEmulator.exe start [-inprocess]` |*-InProcess*: Yeni bir işlem oluşturmak yerine geçerli işlemdeki öykünücüyü başlatın. |
 | **Durdur** |Depolama öykünücüsü durdurur. |`AzureStorageEmulator.exe stop` | |
-| **Durum** |Depolama öykünücüsü durumunu yazdırır. |`AzureStorageEmulator.exe status` | |
+| **Durumu** |Depolama öykünücüsü durumunu yazdırır. |`AzureStorageEmulator.exe status` | |
 | **Temizle** |Komut satırında belirtilen tüm hizmetleri verileri temizler. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*BLOB*: Blob verileri temizler. <br/>*Kuyruk*: Kuyruk verileri temizler. <br/>*Tablo*: Temizler, veri tablosu. <br/>*Tüm*: Tüm hizmetlerdeki tüm verileri temizler. |
 | **Init** |Öykünücünün kurulumunu için tek seferlik başlatma gerçekleştirir. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server Sunucuadı\örnekadı*: SQL örneğini barındıran sunucuyu belirtir. <br/>*-sqlınstance InstanceName*: Varsayılan sunucu örneğinde kullanılacak SQL örneğinin adını belirtir. <br/>*-forcecreate*: Zaten mevcut olsa bile, SQL veritabanı oluşturulmasını zorlar. <br/>*-skipcreate*: SQL veritabanı oluşturma atlanıyor. Bu,-forcecreate öncelik kazanır.<br/>*-reserveports*: Hizmetleri ile ilişkili HTTP bağlantı noktalarını ayırma dener.<br/>*-unreserveports*: Hizmetleri ile ilişkili HTTP bağlantı noktaları için ayırmaları kaldırmayı dener. Bu,-reserveports öncelik kazanır.<br/>*-InProcess*: Yeni bir işlem UNICODE yerine geçerli işlemdeki başlatma gerçekleştirir. Geçerli işlem, bağlantı noktası ayırmaları değişiyorsa yükseltilmiş izinlerle başlatılmalıdır. |
 
@@ -182,7 +182,7 @@ Depolama öykünücüsü yerel bir SQL örneğinde çalışan benzetilmiş bir o
 * Depolama öykünücüsü yalnızca tek bir sabit hesap ve iyi bilinen bir kimlik doğrulama anahtarı'nı destekler.
 * Depolama öykünücüsü ölçeklenebilir depolama hizmeti ve çok sayıda eşzamanlı istemciler desteklemez.
 * Bölümünde anlatıldığı gibi [depolama öykünücüsü kaynaklarını adreslemek](#addressing-resources-in-the-storage-emulator), kaynakları ele farklı bir Azure depolama hesabı ve depolama öykünücüsü. Etki alanı adı çözümlemesi kullanılabilir olmadığından bu farktır bulutta ancak yerel bilgisayarda değil.
-* 3.1 sürümünden başlayarak depolama öykünücüsü hesabı okuma erişimli coğrafi olarak yedekli çoğaltma (RA-GRS) destekler. Öykünücü RA-GRS etkin tüm hesapları sahip ve birincil ve ikincil çoğaltmalar arasında hiçbir zaman herhangi bir gecikme yoktur. Blob hizmeti istatistikleri alın, sıra hizmet istatistikleri alın ve tablo hizmet istatistikleri alma işlemleri ikincil hesabı desteklenir ve her zaman değerini döndürür `LastSyncTime` temel alınan SQL veritabanına göre geçerli saat olarak yanıt öğesi.
+* 3\.1 sürümünden başlayarak depolama öykünücüsü hesabı okuma erişimli coğrafi olarak yedekli çoğaltma (RA-GRS) destekler. Öykünücü RA-GRS etkin tüm hesapları sahip ve birincil ve ikincil çoğaltmalar arasında hiçbir zaman herhangi bir gecikme yoktur. Blob hizmeti istatistikleri alın, sıra hizmet istatistikleri alın ve tablo hizmet istatistikleri alma işlemleri ikincil hesabı desteklenir ve her zaman değerini döndürür `LastSyncTime` temel alınan SQL veritabanına göre geçerli saat olarak yanıt öğesi.
 * Şu anda SMB protokolü hizmet uç noktaları ve dosya hizmeti depolama öykünücüsünde desteklenmez.
 * Depolama Hizmetleri öykünücüsü tarafından henüz desteklenmeyen bir sürümünü kullanıyorsanız, depolama öykünücüsü VersionNotSupportedByEmulator hatası (HTTP durum kodu 400 - bozuk istek) döndürür.
 
@@ -212,20 +212,20 @@ Kuyruk depolama öykünücüsünde özgü hiçbir fark yoktur.
 ### <a name="version-57"></a>Sürüm 5.7
 Günlüğe kaydetme etkinleştirilmişse, kilitlenmeye neden bir hata düzeltildi.
 
-### <a name="version-56"></a>5.6 sürümü
+### <a name="version-56"></a>5\.6 sürümü
 * Depolama öykünücüsü artık sürümü 2018-03-28 depolama hizmeti Blob, kuyruk ve tablo Hizmeti uç noktaları üzerinde destekler.
 
-### <a name="version-55"></a>5.5 sürümü
+### <a name="version-55"></a>5\.5 sürümü
 * Depolama öykünücüsü artık sürüm 2017-11-09 depolama hizmeti Blob, kuyruk ve tablo Hizmeti uç noktaları üzerinde destekler.
 * Blob için destek eklenmiştir **oluşturulan** blobun oluşturulma zamanı döndüren özellik.
 
-### <a name="version-54"></a>5.4 sürümü
+### <a name="version-54"></a>5\.4 sürümü
 Yükleme kararlılığını geliştirmek üzere öykünücüyü artık yükleme sırasında bağlantı noktalarını ayırma dener. Bağlantı noktası ayırmaları isterseniz kullanın *- reserveports* seçeneği **init** bunları belirtmek için komutu.
 
 ### <a name="version-53"></a>Sürüm 5.3
 Depolama öykünücüsü sürüm 2017-07-29 depolama hizmeti Blob, kuyruk ve tablo Hizmeti uç noktaları üzerinde artık desteklemektedir.
 
-### <a name="version-52"></a>5.2 sürümü
+### <a name="version-52"></a>5\.2 sürümü
 * Depolama öykünücüsü artık sürüm 2017-04-17 depolama hizmeti Blob, kuyruk ve tablo Hizmeti uç noktaları üzerinde destekler.
 * Burada tablo özellik değerlerini düzgün şekilde kodlanmamış hata düzeltildi.
 
@@ -241,7 +241,7 @@ Depolama öykünücüsü burada döndürdü düzeltildi `DataServiceVersion` hiz
 * Sistem tepsisi simgesi depolama öykünücüsü kullanıcı Arabirimi seçeneği artık komut satırı arabirimi başlatır. Eski GUI artık kullanılamıyor.
 * Bazı DLL'lerin kaldırılmış veya yeniden adlandırılamaz.
 
-### <a name="version-46"></a>4.6 sürümü
+### <a name="version-46"></a>4\.6 sürümü
 * Depolama öykünücüsü artık sürüm 2016-05-31 depolama hizmeti Blob, kuyruk ve tablo Hizmeti uç noktaları üzerinde destekler.
 
 ### <a name="version-45"></a>Sürüm 4.5
@@ -256,7 +256,7 @@ Depolama öykünücüsü burada döndürdü düzeltildi `DataServiceVersion` hiz
 ### <a name="version-43"></a>Sürümü 4.3
 * Depolama öykünücüsü artık sürümü 2015-07-08 depolama hizmeti Blob, kuyruk ve tablo Hizmeti uç noktaları üzerinde destekler.
 
-### <a name="version-42"></a>4.2 sürümü
+### <a name="version-42"></a>4\.2 sürümü
 * Depolama öykünücüsü artık sürümü 2015-04-05 depolama hizmeti Blob, kuyruk ve tablo Hizmeti uç noktaları üzerinde destekler.
 
 ### <a name="version-41"></a>Sürüm 4.1

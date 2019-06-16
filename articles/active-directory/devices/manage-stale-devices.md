@@ -17,12 +17,12 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c4aa4d3a4425c93cb495d27d0fe38d329ddea7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c61c62555b3712983d7eb5c1478ed193730ed9b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110582"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Nasıl Yapılır: Azure AD'de eski cihazları yönetme
 
@@ -54,7 +54,7 @@ Eski cihaz, belirli bir zaman çerçevesinde hiçbir bulut uygulamasına erişme
 
 Etkinlik zaman damgasının hesaplanması, bir cihazın kimlik doğrulama girişimiyle tetiklenir. Azure AD aşağıdaki durumlarda etkinlik zaman damgasını hesaplar:
 
-- [Yönetilen cihazları](../conditional-access/require-managed-devices.md) veya [onaylanmış istemci uygulamalarını](../conditional-access/app-based-conditional-access.md) gerektiren koşullu erişim ilkeleri tetiklendiğinde.
+- Gerektiren bir koşullu erişim ilkeleri [yönetilen cihazlar](../conditional-access/require-managed-devices.md) veya [onaylı istemci uygulamalar](../conditional-access/app-based-conditional-access.md) tetiklendi.
 
 - Azure AD'ye katılmış veya hibrit Azure AD'ye katılmış Windows 10 cihazları ağda etkin olduğunda. 
 

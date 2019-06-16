@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
 ms.openlocfilehash: 616e342f1d52179c40c225c5dafc9de13ce85e06
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028223"
 ---
 # <a name="how-to-configure-azure-active-directory-access"></a>Azure Active Directory erişimini yapılandırma
@@ -45,7 +45,7 @@ Azure AD bulut tabanlı kimlik yönetimi sağlar ve tüm kurumsal ve erişim uyg
     | Azure AD grubu  | `sales@contoso.onmicrosoft.com` |
     | Uygulama Kimliği  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
 
-    ![Rol ataması ekle](./media/configure-aad/add-role-assignment.png)
+    ![Rol ataması Ekle](./media/configure-aad/add-role-assignment.png)
 
 1. **Kaydet**’i seçin.
 

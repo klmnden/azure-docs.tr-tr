@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62124042"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Portalı kullanarak farklı dağıtım modellerindeki sanal ağları bağlama
@@ -76,7 +76,7 @@ Bu yapılandırma için sanal ağlar arasında bir IPSec/IKE VPN tüneli üzerin
 
 Aşağıdaki tabloda örnek sanal ağlar ve yerel siteleri nasıl tanımlandığı bir örnek gösterilmektedir:
 
-| Sanal Ağ | Adres Alanı | Bölge | Yerel ağ alanına bağlanır. |
+| Sanal Ağ | Adres alanı | Bölge | Yerel ağ alanına bağlanır. |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Batı ABD | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Doğu ABD |ClassicVNetLocal (10.0.0.0/24) |
@@ -175,7 +175,7 @@ Bir sanal ağ geçidi oluşturmadan önce ilk olarak ağ geçidi alt ağını ol
 
 **Örnek değerler:** Yerel ağ geçidi ClassicVNetLocal =
 
-| Sanal Ağ | Adres Alanı | Bölge | Yerel ağ alanına bağlanır. |Ağ geçidi genel IP adresi|
+| Sanal Ağ | Adres alanı | Bölge | Yerel ağ alanına bağlanır. |Ağ geçidi genel IP adresi|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Batı ABD | RMVNetLocal (192.168.0.0/16) |ClassicVNet ağ geçidine atanan genel IP adresi|
 | RMVNet | (192.168.0.0/16) |Doğu ABD |ClassicVNetLocal (10.0.0.0/24) |RMVNet ağ geçidine atanan genel IP adresi.|

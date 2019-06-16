@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60617971"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Microsoft Azure faturanızı görüntüleme ve indirme
@@ -55,7 +55,7 @@ Faturanızı hakkında daha fazla bilgi için bkz: [Microsoft Azure için fatura
 Faturalar her biri için oluşturulur [profili faturalama](billing-mca-overview.md#understand-billing-profiles) Microsoft Müşteri sözleşmesi. Bir faturalandırma profili sahibi, katkıda bulunan, okuyucu veya faturalama yöneticisi, Azure portalından faturaları indirmesine izin gerekir.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. **Maliyet Yönetimi + Faturalama** araması yapın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
 1. Faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.
 1. **Faturalar**'ı seçin.
 1. Fatura kılavuzunda, indirmek istediğiniz fatura satırını bulur.
@@ -98,7 +98,7 @@ Yukarıdaki ve tıklayarak adımları izleyerek e-posta ile faturanızı alma d�
 Microsoft Müşteri sözleşmesi varsa, bir e-postada faturanızı almak için de seçebilirsiniz. Tüm faturalandırma profili sahipleri, Katkıda Bulunanlar, okuyucular ve fatura yöneticilerinin e-posta ile fatura alırsınız. Okuyucu, e-posta fatura tercih güncelleştirilemiyor.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. **Maliyet Yönetimi + Faturalama** araması yapın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
 1. Faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.
 1. Altında **ayarları**seçin **özellikleri**.
 1. Altında **e-posta fatura**seçin **güncelleştirme e-posta fatura tercih**.
@@ -127,7 +127,7 @@ Bir faturayı görmemenizin birden fazla nedeni olabilir:
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi erişiminizi kontrol edin
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

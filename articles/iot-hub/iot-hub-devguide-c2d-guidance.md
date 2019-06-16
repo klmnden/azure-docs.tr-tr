@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 4b738f34ae75478c0120832e7ad2b6a6a83dbf69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61224787"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Bulut buluttan cihaza iletişim Kılavuzu
@@ -37,7 +37,7 @@ IOT hub'ı, arka uç uygulaması için işlevselliği göstermek cihaz uygulamal
 | Hedefler | Tek bir cihaz kullanarak **DeviceID**, veya birden çok cihazı kullanarak [işleri](iot-hub-devguide-jobs.md). | Tek bir cihaz kullanarak **DeviceID**, veya birden çok cihazı kullanarak [işleri](iot-hub-devguide-jobs.md). | Tek bir cihaz tarafından **DeviceID**. |
 | Boyut | En fazla bir doğrudan yöntem yükünün boyutu 128 KB ' dir. | En fazla 8 KB'lık özellikleri boyutudur istenen. | En fazla 64 KB iletileri. |
 | Sıklık | Yüksek. Daha fazla bilgi için [IOT hub'ı sınırlar](iot-hub-devguide-quotas-throttling.md). | Orta. Daha fazla bilgi için [IOT hub'ı sınırlar](iot-hub-devguide-quotas-throttling.md). | Düşük. Daha fazla bilgi için [IOT hub'ı sınırlar](iot-hub-devguide-quotas-throttling.md). |
-| Protokol | MQTT veya AMQP kullanarak kullanılabilir. | MQTT veya AMQP kullanarak kullanılabilir. | Tüm protokoller kullanılabilir. Cihaz, HTTPS kullanırken yoklaması gerekir. |
+| Protocol | MQTT veya AMQP kullanarak kullanılabilir. | MQTT veya AMQP kullanarak kullanılabilir. | Tüm protokoller kullanılabilir. Cihaz, HTTPS kullanırken yoklaması gerekir. |
 
 Aşağıdaki öğreticilerde doğrudan yöntemler, istenen özellikleri ve bulut-cihaz iletilerini kullanmayı öğrenin:
 

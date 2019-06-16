@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
 ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001751"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Depolama yaşam döngüsünü yönetme
@@ -251,7 +251,7 @@ Filtreler, BLOB Depolama hesabında bir alt kural eylemi sınırlayın. Birden f
 
 Filtreler aşağıdakileri içerir:
 
-| Filtre adı | Filtre türü | Notlar | Gerekli |
+| Filtre adı | Filtre türü | Notlar | Gereklidir |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Önceden tanımlanmış bir sabit listesi değerleri dizisi. | Geçerli yayın destekler `blockBlob`. | Evet |
 | prefixMatch | Olması eşleşecek şekilde ön ekleri için dize dizisi. Her kural için 10 adede kadar ön ekleri tanımlayabilirsiniz. Bir önek dizesi, bir kapsayıcı adı ile başlamalıdır. Örneğin, tüm BLOB'ları altındaki eşleştirmek istiyorsanız `https://myaccount.blob.core.windows.net/container1/foo/...` prefixMatch bir kural için olan `container1/foo`. | PrefixMatch tanımlamazsanız, kural, depolama hesabındaki tüm bloblar için geçerlidir.  | Hayır |
@@ -262,11 +262,11 @@ Filtreler aşağıdakileri içerir:
 
 Yaşam döngüsü yönetimi, katmanlama ve silme BLOB ve blob anlık görüntüleri silme işlemi destekler. BLOB'ları veya blob anlık görüntüleri, her kural için en az bir eylem tanımlayın.
 
-| Eylem        | Temel Blob                                   | Anlık görüntü      |
+| Eylem        | Temel Blob                                   | Anlık Görüntü      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Sık erişimli katmanı şu anda bloblarını destekler         | Desteklenmiyor |
 | tierToArchive | Seyrek veya sık erişimli katmanı şu anda bloblarını destekler | Desteklenmiyor |
-| sil        | Desteklenen                                   | Desteklenen     |
+| delete        | Desteklenen                                   | Desteklenen     |
 
 >[!NOTE]
 >Aynı bloba birden fazla eylem tanımlarsanız, yaşam döngüsü yönetimi için blob ucuz eylemini uygular. Örneğin, eylem `delete` eyleminden daha ucuz `tierToArchive`. Eylem `tierToArchive` eyleminden daha ucuz `tierToCool`.

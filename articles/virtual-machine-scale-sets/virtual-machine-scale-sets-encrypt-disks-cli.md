@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: cynthn
 ms.openlocfilehash: 1264c7e4ebaf5e948e624fa49dc5fb0b4cdb31f0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869048"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>İşletim sistemi ve sanal makine ölçek kümesi Azure CLI ile bağlı veri diskleri şifreleme
@@ -96,7 +96,7 @@ keyvault_name=myuniquekeyvaultname
 az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 ```
 
-## <a name="enable-encryption"></a>Şifrelemeyi etkinleştir
+## <a name="enable-encryption"></a>Şifrelemeyi etkinleştirme
 
 Bir ölçek kümesindeki sanal makine örnekleri şifrelemek için ilk Key Vault kaynak kimliği ile hakkında bazı bilgileri alın [az keyvault show](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Bu değişkenler ardından ile şifreleme işlemi başlatmak için kullanılan [az vmss şifrelemeyi etkinleştirme](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
 

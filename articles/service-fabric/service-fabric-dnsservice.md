@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/20/2018
 ms.author: aljo
 ms.openlocfilehash: 3b3262eadc732c23000a66f24aaeeed4d9794db0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60947682"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service fabric'te DNS hizmeti
@@ -192,7 +192,7 @@ Aşağıdaki örnekler için varsayılan ayarlara sahip bir kümede çalışan b
 DNS hizmetinin birincil çoğaltmasını IP adresini döndürür. Bölüm belirtilirse, hizmeti birincil çoğaltması rastgele seçilen bölüm IP adresini döndürür.
 
 ## <a name="using-dns-in-your-services"></a>Hizmetlerinizde DNS kullanma
-Birden fazla hizmet dağıtırsanız, uç noktaları ile bir DNS adını kullanarak iletişim kurmak için başka bir hizmetler bulabilirsiniz. Durum bilgisi olmayan hizmetler için ve sürüm 6,3 ve daha sonra durum bilgisi olan hizmetler için Service Fabric DNS hizmeti çalışır. 6.3 önce Service Fabric sürümlerinde çalışan durum bilgisi olan hizmetler için yerleşik kullanabileceğiniz [ters proxy hizmeti](./service-fabric-reverseproxy.md) belirli hizmet bölüm çağırmak http çağrıları için. 
+Birden fazla hizmet dağıtırsanız, uç noktaları ile bir DNS adını kullanarak iletişim kurmak için başka bir hizmetler bulabilirsiniz. Durum bilgisi olmayan hizmetler için ve sürüm 6,3 ve daha sonra durum bilgisi olan hizmetler için Service Fabric DNS hizmeti çalışır. 6\.3 önce Service Fabric sürümlerinde çalışan durum bilgisi olan hizmetler için yerleşik kullanabileceğiniz [ters proxy hizmeti](./service-fabric-reverseproxy.md) belirli hizmet bölüm çağırmak http çağrıları için. 
 
 Dinamik bağlantı noktaları, DNS hizmeti tarafından desteklenmez. Dinamik bağlantı noktalarını kullanacak hizmetlerin çözümlenmesi için ters proxy hizmetini kullanabilirsiniz.
 

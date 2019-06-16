@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: de24b64ecd95eec79d7508f978acda9f0ae5a8d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097537"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Xamarin.iOS uygulamanıza anında iletme bildirimleri ekleme
@@ -147,8 +147,8 @@ Uygulamanızı anında iletme bildirimlerini desteklemek için güncelleştirilm
    > [!NOTE]
    > Anında iletme bildirimleri uygulamanızdan açıkça kabul etmeniz gerekir. Bu istek, yalnızca uygulamayı çalıştıran ilk kez oluşur.
 
-2. Uygulamasında, bir görev yazın ve ardından artı (**+**) simgesi.
+2. Uygulamasında, bir görev yazın ve ardından artı ( **+** ) simgesi.
 3. Bir bildirim alındıktan sonra tıklayın doğrulayın **Tamam** bildirimi kapatmak için.
-4. 2. adımı yineleyin, hemen uygulamayı kapatın ve sonra bir bildirim gösterildiğini doğrulayın.
+4. 2\. adımı yineleyin, hemen uygulamayı kapatın ve sonra bir bildirim gösterildiğini doğrulayın.
 
 Bu öğreticiyi tamamladınız.

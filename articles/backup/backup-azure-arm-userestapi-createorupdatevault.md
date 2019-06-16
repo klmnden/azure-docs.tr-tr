@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646716"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>REST API kullanarak Azure kurtarma Hizmetleri kasası oluşturma
@@ -27,7 +27,7 @@ Azure kurtarma Hizmetleri kasası oluşturma veya güncelleştirme için aşağ�
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}?api-version=2016-06-01
 ```
 
-## <a name="create-a-request"></a>İstek oluştur
+## <a name="create-a-request"></a>Bir isteği oluştur
 
 Oluşturulacak *PUT* isteği `{subscription-id}` parametresi gereklidir. Birden fazla aboneliğiniz varsa, bkz. [birden çok abonelik ile çalışma](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Tanımladığınız bir `{resourceGroupName}` ve `{vaultName}` kaynaklarınız için birlikte `api-version` parametresi. Bu makalede `api-version=2016-06-01`.
 
@@ -35,8 +35,8 @@ Aşağıdaki üst bilgiler gereklidir:
 
 | İstek üstbilgisi   | Açıklama |
 |------------------|-----------------|
-| *İçerik türü:*  | Gereklidir. Kümesine `application/json`. |
-| *Yetkilendirme:* | Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Content-Type:*  | Gereklidir. Kümesine `application/json`. |
+| *Authorization:* | Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 İstek oluşturma hakkında daha fazla bilgi için bkz. [bir REST API istek/yanıt bileşenleri](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -49,8 +49,8 @@ Aşağıdaki ortak tanımları, istek gövdesi oluşturmak için kullanılır:
 |eTag     |         |   String      |  İsteğe bağlı bir eTag       |
 |location     |  true       |String         |   Kaynak konumu      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Kasa Özellikleri       |
-|sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Her Azure kaynağı için benzersiz sistem tanımlayıcıyı belirtir     |
-|etiketler     |         | Object        |     Kaynak etiketleri    |
+|SKU     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Her Azure kaynağı için benzersiz sistem tanımlayıcıyı belirtir     |
+|tags     |         | Object        |     Kaynak etiketleri    |
 
 Kasa adı ve kaynak grubu adı PUT URI'SİNDE verildiğini unutmayın. İstek gövdesi konumunu tanımlar.
 
@@ -68,14 +68,14 @@ Aşağıdaki örnek gövdesi bir kasada "Batı ABD" oluşturmak için kullanıl�
 }
 ```
 
-## <a name="responses"></a>Yanıtlar
+## <a name="responses"></a>Responses
 
 Bir kurtarma Hizmetleri kasası oluşturma veya güncelleştirme işlemi iki başarılı yanıtlar vardır:
 
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
 |200 TAMAM     |   [Kasa](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | Tamam        |
-|201 oluşturuldu     | [Kasa](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Oluşturulan      |
+|201 oluşturuldu     | [Kasa](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Oluşturuldu      |
 
 REST API yanıtları hakkında daha fazla bilgi için bkz: [yanıt iletisini işlemek](/rest/api/azure/#process-the-response-message).
 

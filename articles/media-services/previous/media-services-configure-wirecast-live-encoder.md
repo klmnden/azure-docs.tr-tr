@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232141"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Wirecast Kodlayıcı tek bit hızlı canlı akış göndermektir. 
@@ -94,7 +94,7 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
 3. **Tamam** düğmesine tıklayın.
 4. Ayarlar sayfasında, ayarlama **hedef** olmasını alan **Azure Media Services**.
 
-    Kodlama profili için önceden seçilmiş **Azure H.264 720 p 16:9 (1280 x 720)**. Bu ayarları özelleştirmek için açılan sağındaki dişli simgesini seçin ve ardından **yeni önceden**.
+    Kodlama profili için önceden seçilmiş **Azure H.264 720 p 16:9 (1280 x 720)** . Bu ayarları özelleştirmek için açılan sağındaki dişli simgesini seçin ve ardından **yeni önceden**.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Encoder hazır ayarlarını yapılandırın.

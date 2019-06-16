@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371465"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için fatura hesabınıza ile çalışmaya başlama
@@ -58,8 +58,8 @@ Her fatura profili, fatura ödemek için kullanılan, kendi ödeme yöntemleri v
 
 | Tür             | Tanım  |
 |------------------|-------------|
-|Azure kredileri    |  Krediler, faturayla ödeme yapmam gerekiyor tutarı hesaplamak için toplam faturalandırılan miktar otomatik olarak uygulanır. Daha fazla bilgi için [fatura profiliniz için Azure kredi bakiyesi izlemek](billing-mca-check-azure-credits-balance.md). |
-|Çek veya havale | Alacak miktarı ödeyebilirsiniz faturası için onay veya kablo üzerinden aktarım. Fatura ödeme yönergeleri verilir. |
+|Azure KREDİLERİ    |  Krediler, faturayla ödeme yapmam gerekiyor tutarı hesaplamak için toplam faturalandırılan miktar otomatik olarak uygulanır. Daha fazla bilgi için [fatura profiliniz için Azure kredi bakiyesi izlemek](billing-mca-check-azure-credits-balance.md). |
+|Onay veya kablo aktarımı | Alacak miktarı ödeyebilirsiniz faturası için onay veya kablo üzerinden aktarım. Fatura ödeme yönergeleri verilir. |
 
 ### <a name="control-azure-marketplace-and-reservation-purchases-by-applying-policies"></a>İlkeleri uygulayarak denetimi Azure Market ve rezervasyon satın alma
 
@@ -71,8 +71,8 @@ Azure planları, faturalandırma profili oluşturduğunuzda otomatik olarak etki
 
 | Planlama             | Tanım  |
 |------------------|-------------|
-|Microsoft Azure Planı   | Kullanıcıların herhangi bir iş yükünü çalıştırmak üzere abonelik oluşturmasına izin verin. Daha fazla bilgi için [Microsoft Azure planlama](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Geliştirme ve Test için Microsoft Azure Planı | Geliştirme için kısıtlı abonelikler oluşturmak Visual Studio aboneleri izin verin veya test iş yükleri. Bu abonelik, Azure portalında daha düşük fiyatlar ve özel sanal makine görüntülerine erişim gibi avantajlardan yararlanabilirsiniz. Daha fazla bilgi için [Microsoft Azure geliştirme ve test için planlama](https://azure.microsoft.com/offers/ms-azr-0148g/)|
+|Microsoft Azure-planı   | Kullanıcıların herhangi bir iş yükünü çalıştırmak üzere abonelik oluşturmasına izin verin. Daha fazla bilgi için [Microsoft Azure planlama](https://azure.microsoft.com/offers/ms-azr-0017g/) |
+|Microsoft Azure geliştirme ve Test planlama | Geliştirme için kısıtlı abonelikler oluşturmak Visual Studio aboneleri izin verin veya test iş yükleri. Bu abonelik, Azure portalında daha düşük fiyatlar ve özel sanal makine görüntülerine erişim gibi avantajlardan yararlanabilirsiniz. Daha fazla bilgi için [Microsoft Azure geliştirme ve test için planlama](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>Fatura bölümleri anlama
 
@@ -85,7 +85,7 @@ Fatura bölümünde rolleri Azure abonelikleri oluşturan Denetim izinlerine sah
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
 Yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
 

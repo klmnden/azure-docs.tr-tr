@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
 ms.openlocfilehash: d7d76458601b2afecafc1313e334215bf08b6545
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713842"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI ile anahtar Kasası'nı yönetme 
@@ -147,7 +147,7 @@ az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-Artık oluşturduğunuz veya Azure anahtar Kasası'na URI'sini kullanarak yüklediğiniz anahtar başvurabilirsiniz. Kullanım **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** her zaman geçerli sürümü almak için. Kullanım https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] bu belirli sürümü almak için. Örneğin, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
+Artık oluşturduğunuz veya Azure anahtar Kasası'na URI'sini kullanarak yüklediğiniz anahtar başvurabilirsiniz. Kullanım **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** her zaman geçerli sürümü almak için. Kullanım https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] bu belirli sürümü almak için. Örneğin, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** . 
 
 SQLPassword adlı bir paroladır, kasaya bir gizli dizi eklemek ve Azure anahtar kasaları için "hVFkk965BuUv" değerine sahip. 
 
@@ -155,7 +155,7 @@ SQLPassword adlı bir paroladır, kasaya bir gizli dizi eklemek ve Azure anahtar
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-Bu parola, URI'sini kullanarak başvuru. Kullanım **https://ContosoVault.vault.azure.net/secrets/SQLPassword** her zaman geçerli sürümü ve https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id almak için] bu belirli sürümü almak için. Örneğin, **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Bu parola, URI'sini kullanarak başvuru. Kullanım **https://ContosoVault.vault.azure.net/secrets/SQLPassword** her zaman geçerli sürümü ve https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id almak için] bu belirli sürümü almak için. Örneğin, **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** .
 
 Sertifika .pem veya .pfx kullanarak kasaya içeri aktarın.
 

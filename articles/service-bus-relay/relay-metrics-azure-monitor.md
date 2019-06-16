@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
 ms.openlocfilehash: bd62624406adb006fdcd7d59f72db3fb5e1848a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60421819"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme), Azure geçişi ölçümleri
@@ -41,7 +41,7 @@ Zaman içinde ölçümleri izleyebilirsiniz [Azure portalında](https://portal.a
 
 ![][1]
 
-Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanını seçin ve ardından **ölçümler (Önizleme)**. 
+Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanını seçin ve ardından **ölçümler (Önizleme)** . 
 
 Boyutlar destekleyen ölçümler için istenen boyut değeri ile filtrelemesi gerekir.
 
@@ -64,10 +64,10 @@ Azure İzleyici, tüm ölçüm değerleri dakikada gönderilir. Zaman ayrıntı 
 |Microsoft.Relay-Senderconnections'da (Önizleme)|Belirli bir dönem boyunca dinleyici bağlantılarında istemci hataları sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |Microsoft.Relay-ServerError (Önizleme)|Belirli bir dönem boyunca dinleyici bağlantılarda sunucu hataları sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |Microsoft.Relay SenderConnections başarılı (Önizleme)|Belirtilen bir zaman dilimi içerisinde yapılan başarılı gönderen bağlantılarının sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
-|Microsoft.Relay SenderConnections-Senderconnections'da (Önizleme)|Belirli bir dönem boyunca gönderen bağlantılarında istemci hataları sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
-|Microsoft.Relay SenderConnections-ServerError (Önizleme)|Gönderen bağlantısı belirli bir süre içinde sunucu hataları sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Microsoft.Relay SenderConnections-Senderconnections'da (Önizleme)|Belirli bir dönem boyunca gönderen bağlantılarında istemci hataları sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Microsoft.Relay SenderConnections-ServerError (Önizleme)|Gönderen bağlantısı belirli bir süre içinde sunucu hataları sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |Microsoft.Relay-TotalRequests (Önizleme)|Dinleyici bağlantı belirli bir dönem boyunca toplam sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
-|Microsoft.Relay SenderConnections-TotalRequests (Önizleme)|Belirtilen bir süredeki Gönderenler tarafından yapılan bağlantı istekleri.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Microsoft.Relay SenderConnections-TotalRequests (Önizleme)|Belirtilen bir süredeki Gönderenler tarafından yapılan bağlantı istekleri.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |ActiveConnections (Önizleme)|Belirtilen bir süre boyunca etkin bağlantı sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |ActiveListeners (Önizleme)|Belirtilen bir süre boyunca etkin dinleyiciler sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |ListenerDisconnects (Önizleme)|Belirli bir dönem boyunca bağlantısı kesilmiş dinleyicileri sayısı.<br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Boyut: EntityName|

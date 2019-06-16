@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.openlocfilehash: dcd51756a9c5a5a24a082862bb911cc2d2605d61
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954366"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'deki tutarlılık düzeyleri
@@ -60,8 +60,8 @@ Beyzbol oyun senaryoya örnek olarak alalım. Beyzbol oyunu baştan puanı temsi
 
 | | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Çalıştırmalar** |
 | - | - | - | - | - | - | - | - | - | - | - |
-| **Ziyaretçiler** | 0 | 0 | 1. | 0 | 1. | 0 | 0 |  |  | 2 |
-| **Giriş** | 1 | 0 | 1. | 1 | 0 | 2 |  |  |  | 5 |
+| **Ziyaretçiler** | 0 | 0 | 1\. | 0 | 1\. | 0 | 0 |  |  | 2 |
+| **Giriş** | 1 | 0 | 1\. | 1 | 0 | 2 |  |  |  | 5 |
 
 Bir Azure Cosmos kapsayıcı giriş takımlar ve ziyaretçiler için çalıştırma toplam tutar. Garanti farklı puanları okuma istemcilerle sonuçlanabilir oyun devam ederken, farklı okuyun. Aşağıdaki tabloda her beş tutarlılık garantileri giriş puanları ve ziyaretçilerinizin okuyarak döndürülebilir puanları tam kümesini listeler. Ziyaretçilerinizin puanı önce listelenir. Farklı olası dönüş değerleri virgülle ayrılır.
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
 ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60329760"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Sorun giderme durumu Azure Traffic Manager'da düşürülmüş
@@ -86,7 +86,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Cloud Services](https://go.microsoft.com/fwlink/?LinkId=314074)
 
-[Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
+[Azure uygulama hizmeti](https://azure.microsoft.com/documentation/services/app-service/web/)
 
 [Traffic Manager üzerindeki işlemler (REST API Başvurusu)](https://go.microsoft.com/fwlink/?LinkId=313584)
 

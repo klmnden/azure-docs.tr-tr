@@ -14,10 +14,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60522507"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Nasıl bir zamanlamaya göre Azure-SSIS tümleştirme çalışma zamanını durdurmak ve başlatmak
@@ -109,7 +109,7 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
 
    ![İsteğe bağlı olarak SSIS IR ADF Web etkinliği](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png)
 
-5. Yönetilen kimlik atamak için ADF bir **katkıda bulunan** rol kendisi, işlem hatları Web etkinliği içinde sağlanan Azure-SSIS Ir'ler Başlat/Durdur için REST API çağırabilmek için.  Azure portalında ADF sayfasında, tıklayın **erişim denetimi (IAM)**, tıklayın **+ rol ataması Ekle**ve ardından **rol ataması Ekle** dikey penceresinde aşağıdaki eylemleri gerçekleştirin.
+5. Yönetilen kimlik atamak için ADF bir **katkıda bulunan** rol kendisi, işlem hatları Web etkinliği içinde sağlanan Azure-SSIS Ir'ler Başlat/Durdur için REST API çağırabilmek için.  Azure portalında ADF sayfasında, tıklayın **erişim denetimi (IAM)** , tıklayın **+ rol ataması Ekle**ve ardından **rol ataması Ekle** dikey penceresinde aşağıdaki eylemleri gerçekleştirin.
 
     1. İçin **rol**seçin **katkıda bulunan**. 
     2. İçin **erişim Ata**seçin **Azure AD kullanıcı, Grup veya hizmet sorumlusu**. 
@@ -131,7 +131,7 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
 2. Üçüncü bir işlem hattı test etmek için SQL Server Management Studio (SSMS) başlatın. İçinde **sunucuya Bağlan** penceresinde aşağıdaki eylemleri gerçekleştirin. 
 
     1. İçin **sunucu adı**, girin  **&lt;Azure SQL veritabanı sunucu adınız&gt;. database.windows.net**.
-    2. Seçin **Seçenekleri >>**.
+    2. Seçin **Seçenekleri >>** .
     3. İçin **veritabanına bağlan**seçin **SSISDB**.
     4. **Bağlan**’ı seçin. 
     5. Genişletin **tümleştirme hizmetleri katalogları** -> **SSISDB** klasörünüze -> -> **projeleri** -> uygulamanızın SSIS Proje -> **paketleri** . 
@@ -156,7 +156,7 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
 
     1. İçin **adı**, tetikleyici için bir ad girin. Aşağıdaki örnekte, **günlük olarak çalıştırılması** Tetikleyici adı. 
     2. İçin **türü**seçin **zamanlama**. 
-    3. İçin **başlangıç tarihi (UTC)**, başlangıç tarihini girin ve UTC saat. 
+    3. İçin **başlangıç tarihi (UTC)** , başlangıç tarihini girin ve UTC saat. 
     4. İçin **yinelenme**, tetikleyici için bir temposu girin. Aşağıdaki örnekte olduğu **günlük** sonra. 
     5. İçin **son**seçin **Hayır son** veya bir bitiş tarihi ve saati seçtikten sonra girin **tarih**. 
     6. Seçin **etkinleştirildi** hemen tüm ADF ayarları yayımladıktan sonra tetikleyici etkinleştirmek için. 
@@ -340,11 +340,11 @@ Aşağıdaki bölümde, bir PowerShell runbook'u oluşturmak için adımları sa
 
    ![Runbook penceresi başlatın](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png)
    
-6. İş penceresinde **çıkış** Döşe. Çıkış penceresinde öğesinin ileti beklemesi **### tamamlandı ###** gördükten sonra **### başlangıç ###**. Azure-SSIS IR başlangıç yaklaşık 20 dakika sürer. Kapat **iş** penceresi ve geri alma için **Runbook** penceresi.
+6. İş penceresinde **çıkış** Döşe. Çıkış penceresinde öğesinin ileti beklemesi **### tamamlandı ###** gördükten sonra **### başlangıç ###** . Azure-SSIS IR başlangıç yaklaşık 20 dakika sürer. Kapat **iş** penceresi ve geri alma için **Runbook** penceresi.
 
    ![Azure SSIS IR - başlatıldı](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
-7. Kullanarak önceki iki adımı yineleyin **Durdur** değeri olarak **işlemi**. Runbook uygulamanızı tekrar seçerek başlayın **Başlat** araç çubuğunda. Kaynak grubu, ADF ve Azure-SSIS IR girin adları. İçin **işlemi**, girin **Durdur**. Çıkış penceresinde öğesinin ileti beklemesi **### tamamlandı ###** gördükten sonra **### durdurma ###**. Azure-SSIS IR'yi durdurma başlangıç olarak gibi uzun sürmez. Kapat **iş** penceresi ve geri alma için **Runbook** penceresi.
+7. Kullanarak önceki iki adımı yineleyin **Durdur** değeri olarak **işlemi**. Runbook uygulamanızı tekrar seçerek başlayın **Başlat** araç çubuğunda. Kaynak grubu, ADF ve Azure-SSIS IR girin adları. İçin **işlemi**, girin **Durdur**. Çıkış penceresinde öğesinin ileti beklemesi **### tamamlandı ###** gördükten sonra **### durdurma ###** . Azure-SSIS IR'yi durdurma başlangıç olarak gibi uzun sürmez. Kapat **iş** penceresi ve geri alma için **Runbook** penceresi.
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Azure-SSIS IR Başlat/Durdur için runbook'unuzda için zamanlamaları oluşturma
 

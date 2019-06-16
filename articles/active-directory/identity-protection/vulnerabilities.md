@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b481030c5d2d8e7d5e7061cdf256a202e08d6cbf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113118"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108782"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması tarafından algılanan güvenlik açıklarını
 
@@ -33,11 +33,11 @@ Bu güvenlik açığını Azure multi-Factor Authentication'ın dağıtım kurul
 Azure multi-Factor Authentication ikinci bir kullanıcı kimlik doğrulaması için güvenlik katmanı sağlar. Bu basit bir oturum açma işlemi için kullanıcı taleplerini karşılarken, verilere ve uygulamalara erişimi korunmasına yardımcı. Azure multi-Factor Authentication gibi kullanımı kolay doğrulama seçenekleri sağlar:
 
 * Telefon araması
-* SMS Mesajı
+* Kısa mesaj
 * Mobil uygulama bildirimi
 * OTP doğrulama kodu
 
-Azure multi-Factor Authentication kullanıcı oturum açma işlemleri için ihtiyacınız olan öneririz. Çok faktörlü kimlik doğrulaması risk tabanlı koşullu erişim ilkeleri kimlik koruması kullanılabilen önemli bir rol oynar.
+Azure multi-Factor Authentication kullanıcı oturum açma işlemleri için ihtiyacınız olan öneririz. Çok faktörlü kimlik doğrulaması, kimlik koruması kullanılabilir risk tabanlı koşullu erişim ilkeleri önemli bir rol oynar.
 
 Daha fazla bilgi için bkz. [Azure Multi-Factor Authentication nedir?](../authentication/multi-factor-authentication.md)
 

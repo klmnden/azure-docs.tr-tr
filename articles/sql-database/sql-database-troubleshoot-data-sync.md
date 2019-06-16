@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: 4e2808378834a0270586ce674e1043ca443320c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331205"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL Data Sync ile ilgili sorunları giderme
@@ -197,7 +197,7 @@ Eşitleme grubunu silme denemesi başarısız olur. Aşağıdaki senaryolardan h
   1. Git **Başlat** > **Denetim Masası** > **Yönetimsel Araçlar** > **yerel güvenlik ilkesi**  >  **Yerel ilke** > **Kullanıcı Hakları Yönetimi**.
   1. Seçin **hizmet oturum açma**.
   1. İçinde **özellikleri** iletişim kutusunda, kullanıcı hesabını ekleyin.
-  1. **Uygula**’yı ve sonra **Tamam**’ı seçin.
+  1. Seçin **Uygula**ve ardından **Tamam**.
   1. Tüm pencereleri kapatın.
 
 ### <a name="setup-date"></a> Bir veritabanı "Süresi geçmiş" durumunda

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/12/2018
 ms.author: shlo
 ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764760"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Azure Data Factory'de yürütme bekleme etkinliği
@@ -39,9 +39,9 @@ ms.locfileid: "60764760"
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-ad | Adını `Wait` etkinlik. | String | Evet
-type | Ayarlanmalıdır **bekleyin**. | String | Evet
-waitTimeInSeconds | Ardışık Düzen işleme devam etmeden önce bekleyeceği saniye sayısı. | Tamsayı | Evet
+name | Adını `Wait` etkinlik. | String | Evet
+türü | Ayarlanmalıdır **bekleyin**. | String | Evet
+waitTimeInSeconds | Ardışık Düzen işleme devam etmeden önce bekleyeceği saniye sayısı. | Integer | Evet
 
 ## <a name="example"></a>Örnek
 

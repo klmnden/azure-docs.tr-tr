@@ -10,10 +10,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453825"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Kullanım ve Tahmini maliyetler Azure İzleyici'de izleme
@@ -68,7 +68,7 @@ Sayfa, yeni fiyatlandırma modeline karşılık gelen ölçümleri farklı bir k
 
 Yeni fiyatlandırma modelinin düğüm tabanlı dahil edilen veri ayırma yok. Bu nedenle, bu veri alımı ölçümlerine adlı yeni ortak veri alımı bir ölçüm birleştirilir **paylaşılan Services\Data alımı**. 
 
-Log Analytics veya Application ınsights'ı daha yüksek maliyetleri bölgelerde alınan verileri başka bir değişiklik yoktur. Bu yüksek maliyetli bölgelere verilerini yeni bölgesel ölçümlere ile gösterilir. Bir örnek **veri alımı (ABD Orta Batı)**.
+Log Analytics veya Application ınsights'ı daha yüksek maliyetleri bölgelerde alınan verileri başka bir değişiklik yoktur. Bu yüksek maliyetli bölgelere verilerini yeni bölgesel ölçümlere ile gösterilir. Bir örnek **veri alımı (ABD Orta Batı)** .
 
 > [!NOTE]
 > Abonelik başına maliyetleri değil hesap düzeyinde düğüm yetkilendirmelerini Operations Management Suite (OMS) abonelik başına içine faktörü tahmini. Hesap temsilcinizle için daha ayrıntılı bir tartışma yeni fiyatlandırma modeli, bu durumda başvurun.

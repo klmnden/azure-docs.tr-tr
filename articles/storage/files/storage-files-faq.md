@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190061"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
@@ -23,7 +23,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 1. Bu makalede Açıklamalar bölümü.
 2. [Azure depolama Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft Desteği. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesinde **Yardım + Destek** düğmesini ve ardından **yeni destek isteği**.
+4. Microsoft desteği. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesinde **Yardım + Destek** düğmesini ve ardından **yeni destek isteği**.
 
 ## <a name="general"></a>Genel
 * <a id="why-files-useful"></a>
@@ -360,8 +360,8 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
     Hayır. Bir Azure dosya paylaşımı boyutu üst sınırı 5 TiB ' dir. Şu anda, biz ayarlayamaz sabit bir sınır budur. Paylaşım boyutu 100 TiB artırmak için bir çözüm üzerinde çalışıyoruz, ancak biz şu anda paylaşmak için zaman çizelgesi yok.
 
 * <a id="open-handles-quota"></a>
-**Kaç adet istemcinin aynı dosyayı aynı anda erişebilir miyim?**   
-    Tek bir dosya çubuğunda 2.000 açık tanıtıcıları kotası yoktur. 2.000 açık tanıtıcıları olduğunda kotasına ulaşıldığında belirten bir hata iletisi görüntülenir.
+**Kaç adet istemcinin aynı dosyayı aynı anda erişebilir miyim?**    
+    Tek bir dosya çubuğunda 2.000 açık tanıtıcıları kotası yoktur. 2\.000 açık tanıtıcıları olduğunda kotasına ulaşıldığında belirten bir hata iletisi görüntülenir.
 
 * <a id="zip-slow-performance"></a>
 **Ben Azure dosyaları sıkıştırmasını olduğunda performansta yavaştır. Ne yapmalıyım?**  

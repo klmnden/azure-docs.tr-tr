@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a064fc67bf94ba6aa443e429fe83179d84cada84
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602537"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>PIM Azure kaynak rol atamalarını yenileme veya genişletme
@@ -84,7 +84,7 @@ Yönetici seçtiğinde **Onayla** veya **Reddet**, isteğin ayrıntılarını bi
 
 Rol atamasını genişletme isteği onaylama sırasında kaynak yöneticileri yeni başlangıç tarihi, bitiş tarihi ve atama türü seçebilirsiniz. Atama türü değiştirme (örneğin bir gün) belirli bir görevi tamamlamak için sınırlı erişim sağlamak yönetici istiyorsa, gerekli olabilir. Bu örnekte, yönetici atamadan değiştirebilir **uygun** için **etkin**. Başka bir deyişle, bunlar etkinleştirmeye gerek kalmadan istek sahibine erişim sağlayabilir.
 
-### <a name="admin-extend"></a>Yöneticiyi genişlet
+### <a name="admin-extend"></a>Yöneticiyi Genişlet
 
 Bir rol üyesi unutması veya bir rolü üyeliği uzantı isteği gönderemedi, yönetici atama üye adına genişletebilirsiniz. Rol üyeliğini yönetim uzantıları onay gerektirmez, ancak rol genişletilmiş sonra diğer yöneticiler için bildirimler gönderilir.
 
@@ -96,7 +96,7 @@ Rol üyeliği genişletmek için kaynak rolü veya üye görünümünü PIM göz
 
 Kavramsal olarak benzer bir uzantı isteme işlemi sırasında süresi dolmuş bir rol atamasını yenileme işlemi farklıdır. Aşağıdaki adımları kullanarak, üyeleri ve Yöneticiler, süresi dolan roller gerektiğinde erişim yenileyebilirsiniz.
 
-### <a name="member-renew"></a>Üye yenileme
+### <a name="member-renew"></a>Üye Yenile
 
 En çok 30 gün süresi dolmuş atama geçmişi kaynaklarına artık erişemez üyeleri erişebilir. Bunu yapmak için bunlar için Gözat **My rolleri** sol bölmesi ve ardından **rolleri süresi** Azure kaynak rolleri bölümünün sekmesinde.
 
@@ -114,7 +114,7 @@ Herhangi birinin listesinde rol atamalarını yenileme isteği için seçin **ye
 
 Kaynak yöneticileri yenileme isteği e-posta bildirimi veya Azure portalından PIM erişme ve seçerek bağlantıdan erişebileceğiniz **istekleri onaylama** sol bölmeden.
 
-![İstekleri onayla](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-grid.png)
+![İstekleri onaylama](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-grid.png)
 
 Yönetici seçtiğinde **Onayla** veya **Reddet**, isteğinin ayrıntılarını denetim günlükleri için gerekçe göstermesi bir alanı ile birlikte gösterilir.
 
@@ -122,7 +122,7 @@ Yönetici seçtiğinde **Onayla** veya **Reddet**, isteğinin ayrıntılarını 
 
 Rol atamasını yenileme isteği onaylama sırasında kaynak yöneticileri yeni başlangıç tarihi, bitiş tarihi ve atama türü girmeniz gerekir. 
 
-### <a name="admin-renew"></a>Yöneticiyi yenile
+### <a name="admin-renew"></a>Yöneticiyi Yenile
 
 Kaynak yöneticileri süresi dolmuş rol atamaları yenilemek **üyeleri** kaynağın sol gezinti menüsünde sekmesi. Süresi dolan rol atamaları içinden de yenileyebilirsiniz **süresi dolan** kaynak rolünün rol sekmesi.
 

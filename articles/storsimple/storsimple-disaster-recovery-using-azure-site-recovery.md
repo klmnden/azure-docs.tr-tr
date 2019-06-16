@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150650"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple üzerinde barındırılan dosya paylaşımları için Azure Site Recovery kullanarak otomatik olağanüstü durum kurtarma çözümü
@@ -136,7 +136,7 @@ Böylece yük devretme sonrasında VM ağlarının doğru DR ağa bağlı dosya 
 
 VM'yi seçebileceğiniz **çoğaltılan öğeler** aşağıdaki çizimde gösterildiği gibi ağ ayarlarını yapılandırmak için sekmesinde.
 
-![İşlem ve Ağ](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
+![İşlem ve ağ](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
 
 ## <a name="create-a-recovery-plan"></a>Kurtarma planı oluşturma
 Dosya paylaşımlarının yük devretme işlemini otomatikleştirmek ASR'deki bir kurtarma planı oluşturabilirsiniz. Bir kesinti oluşursa, dosya paylaşımları yalnızca tek bir tıklama ile birkaç dakika içinde kutusunu görüntüleyebilirsiniz. Bu Otomasyon etkinleştirmek için bir Azure Otomasyonu hesabı gerekir.
@@ -171,16 +171,16 @@ Dosya paylaşımlarının yük devretme işlemini otomatikleştirmek ASR'deki bi
 1. Otomasyon hesabı'nda tıklatın **değişkenleri** &gt; **değişken Ekle** ve aşağıdaki değişkenleri ekleyin. Bu varlıklar şifrelemeyi seçebilirsiniz. Bu kurtarma planı belirli değişkenlerdir. Kurtarma planı, değişkenlerinizi TestPlan StorSimRegKey, TestPlan-AzureSubscriptionName olması ve benzeri sonraki adımda oluşturacağınız TestPlan, adıdır.
 
    - **BaseUrl**: Azure bulut Kaynak Yöneticisi URL'si. Kullanarak başlayın **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet'i.
-   - * RecoveryPlanName ***- ResourceGroupName**: Resource Manager Grup StorSimple kaynak vardır.
-   - * RecoveryPlanName ***- ManagerName**: StorSimple cihazı olan StorSimple kaynağıdır.
-   - * RecoveryPlanName ***- DeviceName**: Devredilecek olan StorSimple cihaz.
-   - * RecoveryPlanName ***- DeviceIpAddress**: Cihazın IP adresi (Bu bulunabilir **cihazları** sekmesini StorSimple cihaz Yöneticisi bölümünde &gt; **ayarları** &gt; **ağ** &gt; **DNS ayarlarını** grup).
-   - * RecoveryPlanName ***- VolumeContainers**: Virgülle ayrılmış bir dize birim kapsayıcılarının yük devretmesi için gereken cihaz üzerinde mevcut; Örneğin: volcon1, volcon2, volcon3.
-   - * RecoveryPlanName ***- TargetDeviceName**: Üzerinde başarısız olan kapsayıcılar StorSimple Cloud Appliance.
-   - *RecoveryPlanName***-TargetDeviceIpAddress**: Hedef cihazın IP adresi (Bu bulunabilir **sanal makine** bölümü &gt; **ayarları** grubu &gt; **ağ** sekmesi).
-   - * RecoveryPlanName ***- StorageAccountName**: (Bu VM üzerinde başarısız üzerinde çalıştırılacak olan) betik depolanacağı depolama hesabı adı. Bu betik geçici olarak depolamak için bazı alana sahip herhangi bir depolama hesabı olabilir.
-   - * RecoveryPlanName ***- StorageAccountKey**: Yukarıdaki depolama hesabı için erişim anahtarı.
-   - * RecoveryPlanName ***- VMGUIDS**: Bir VM koruma sırasında Azure Site Recovery VM üzerinde başarısız ayrıntılarını sağlayan benzersiz bir kimliği her VM atar. VMGUID elde etmek için seçin **kurtarma Hizmetleri** sekmesine **korumalı öğesi** &gt; **koruma grupları** &gt;  **Makineleri** &gt; **özellikleri**. Birden fazla VM varsa, GUID'leri virgülle ayrılmış bir dize olarak ekleyin.
+   - \* RecoveryPlanName * **- ResourceGroupName**: Resource Manager Grup StorSimple kaynak vardır.
+   - \* RecoveryPlanName * **- ManagerName**: StorSimple cihazı olan StorSimple kaynağıdır.
+   - \* RecoveryPlanName * **- DeviceName**: Devredilecek olan StorSimple cihaz.
+   - \* RecoveryPlanName * **- DeviceIpAddress**: Cihazın IP adresi (Bu bulunabilir **cihazları** sekmesini StorSimple cihaz Yöneticisi bölümünde &gt; **ayarları** &gt; **ağ** &gt; **DNS ayarlarını** grup).
+   - \* RecoveryPlanName * **- VolumeContainers**: Virgülle ayrılmış bir dize birim kapsayıcılarının yük devretmesi için gereken cihaz üzerinde mevcut; Örneğin: volcon1, volcon2, volcon3.
+   - \* RecoveryPlanName * **- TargetDeviceName**: Üzerinde başarısız olan kapsayıcılar StorSimple Cloud Appliance.
+   - *RecoveryPlanName* **-TargetDeviceIpAddress**: Hedef cihazın IP adresi (Bu bulunabilir **sanal makine** bölümü &gt; **ayarları** grubu &gt; **ağ** sekmesi).
+   - \* RecoveryPlanName * **- StorageAccountName**: (Bu VM üzerinde başarısız üzerinde çalıştırılacak olan) betik depolanacağı depolama hesabı adı. Bu betik geçici olarak depolamak için bazı alana sahip herhangi bir depolama hesabı olabilir.
+   - \* RecoveryPlanName * **- StorageAccountKey**: Yukarıdaki depolama hesabı için erişim anahtarı.
+   - \* RecoveryPlanName * **- VMGUIDS**: Bir VM koruma sırasında Azure Site Recovery VM üzerinde başarısız ayrıntılarını sağlayan benzersiz bir kimliği her VM atar. VMGUID elde etmek için seçin **kurtarma Hizmetleri** sekmesine **korumalı öğesi** &gt; **koruma grupları** &gt;  **Makineleri** &gt; **özellikleri**. Birden fazla VM varsa, GUID'leri virgülle ayrılmış bir dize olarak ekleyin.
 
      Kurtarma planı fileServerpredayRP, adıdır, örneğin, ardından, **değişkenleri**, **bağlantıları** ve **sertifikaları** sekmesi, ekledikten sonra aşağıdaki gibi görünmelidir Tüm varlıklar için.
 
@@ -241,7 +241,7 @@ Dosya paylaşımlarının yük devretme işlemini otomatikleştirmek ASR'deki bi
    
    - Tıklayın **+ kurtarma planı** düğmesi, aşağıda dikey penceresi açılır.
       
-      ![Kurtarma planı oluştur](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
+      ![Kurtarma planı oluşturma](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
       
    - Kurtarma planı adı girin, kaynak, hedef & dağıtım modeli değerlerini seçin.
    

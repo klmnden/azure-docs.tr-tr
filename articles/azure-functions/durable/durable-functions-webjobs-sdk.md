@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 39a757900b4307d702a0ce0ce1c20694418aa8dd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872829"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Dayanıklı işlevler Web işleri çalıştırma
@@ -53,9 +53,9 @@ Bu makalede, WebJobs SDK 2.x projeyi geliştirmek üzere açıklanmaktadır (Azu
 
 Dayanıklı işlevler Web işleri çalıştırmak için bir konsol uygulaması oluşturmanız gerekir. Yeni bir konsol uygulama projesi yüklü uygun NuGet paketleri ile bir Web işleri SDK'sı projesidir.
 
-Visual Studio **yeni proje** iletişim kutusunda **Windows Klasik Masaüstü** > **konsol uygulaması (.NET Framework)**. Proje dosyasında `TargetFrameworkVersion` olmalıdır `v4.6.1`.
+Visual Studio **yeni proje** iletişim kutusunda **Windows Klasik Masaüstü** > **konsol uygulaması (.NET Framework)** . Proje dosyasında `TargetFrameworkVersion` olmalıdır `v4.6.1`.
 
-Visual Studio seçerek kullanabileceğiniz bir WebJob proje şablonunu da olan **bulut** > **Azure webjob'ı (.NET Framework)**. Bu şablon, bazıları gerekmeyen birçok paketi yükler.
+Visual Studio seçerek kullanabileceğiniz bir WebJob proje şablonunu da olan **bulut** > **Azure webjob'ı (.NET Framework)** . Bu şablon, bazıları gerekmeyen birçok paketi yükler.
 
 ## <a name="install-nuget-packages"></a>NuGet paketlerini yükleme
 
@@ -222,7 +222,7 @@ Bu makalede, WebJobs SDK 2.x projeyi geliştirmek açıklanmaktadır. Geliştiri
 
 Tanıtılan ana değişiklik .NET Core, .NET Framework yerine kullanılır. WebJobs SDK 3.x projesi oluşturmak için yönergeler bu özel durumları ile aynıdır:
 
-1. .NET Core konsol uygulaması oluşturacaksınız. Visual Studio **yeni proje** iletişim kutusunda **.NET Core** > **konsol uygulaması (.NET Core)**. Proje dosyasını belirten `TargetFramework` olduğu `netcoreapp2.x`.
+1. .NET Core konsol uygulaması oluşturacaksınız. Visual Studio **yeni proje** iletişim kutusunda **.NET Core** > **konsol uygulaması (.NET Core)** . Proje dosyasını belirten `TargetFramework` olduğu `netcoreapp2.x`.
 
 1. Web işleri SDK'sı sürümünü seçin şu paketlerin 3.x:
 

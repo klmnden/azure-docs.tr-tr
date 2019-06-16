@@ -8,10 +8,10 @@ ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991394"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Azure Application Gateway Web uygulaması güvenlik duvarı
@@ -133,7 +133,7 @@ Güvenlik Duvarı önleme modunda olduğunda Anomali Puanlama modunda hemen herh
 |Kritik     |5|
 |Hata        |4|
 |Uyarı      |3|
-|Bildirim       |2|
+|Bildirimi       |2|
 
 Bir Anomali puanı trafiği engellemek için 5 eşiğinin yoktur. Bunu, tek bir *kritik* kural eşleşmedir önleme modunda bile bir istek engellemek Application Gateway WAF için yeterli. Ancak bir *uyarı* kural eşleşme, yalnızca tek başına trafiği engellemek için yeterli değildir Anomali puanı 3 artırır.
 

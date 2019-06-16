@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122933"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı hizmetler (WebJob Proje)
@@ -144,7 +144,7 @@ Yeniden deneme sayısı yapılandırılabilir. Aynı **MaxDequeueCount** ayarı 
 
 Kuyruk iletisi zehirli bloblar için aşağıdaki özellikleri içeren bir JSON nesnesidir:
 
-* FunctionId (biçimde *{WebJob adı}*. İşlevler. *{İşlev adı}*, örneğin: WebJob1.Functions.CopyBlob)
+* FunctionId (biçimde *{WebJob adı}* . İşlevler. *{İşlev adı}* , örneğin: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" veya "PageBlob")
 * ContainerName
 * BlobName
@@ -193,7 +193,7 @@ Xenapp'i WebJobs SDK hiçbir **BlobTrigger** işlevi aynı yeni veya güncelleş
 
 BLOB giriş adlı bir kapsayıcıda depolanan *azure webjobs konakları* AzureWebJobsStorage bağlantı dizesi tarafından belirtilen Azure depolama hesabında. Bir blob giriş bölümünde aşağıdaki bilgiler bulunur:
 
-* Blob için çağrılan işlev ("*{WebJob adı}*. İşlevler. *{İşlev adı}*", örneğin: "WebJob1.Functions.CopyBlob")
+* Blob için çağrılan işlev (" *{WebJob adı}* . İşlevler. *{İşlev adı}* ", örneğin: "WebJob1.Functions.CopyBlob")
 * Kapsayıcı adı
 * Blob türü ("BlockBlob" veya "PageBlob")
 * Blob adı

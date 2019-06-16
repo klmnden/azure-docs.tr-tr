@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61438196"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification hubs'ı çıkışı bağlama için Azure işlevleri
@@ -257,7 +257,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type** |yok| "NotificationHub için" olarak ayarlanmalıdır. |
 |**direction** |yok| "Out" ayarlanmalıdır. | 
-|**Adı** |yok| İşlev kodu bildirim hub'ı iletide kullanılan değişken adı. |
+|**name** |yok| İşlev kodu bildirim hub'ı iletide kullanılan değişken adı. |
 |**tagExpression** |**TagExpression** | Etiket ifadeleri bir etiket ifadeyle eşleşecek bildirimleri almak için kayıtlı cihazlar kümesine bildirimleri teslim edilmesini belirtmenizi sağlar.  Daha fazla bilgi için [Yönlendirme ve etiket ifadeleri](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**HubName** | **HubName** | Azure Portalı'ndaki bildirim hub'ı kaynağının adı. |
 |**bağlantı** | **connectionStringSetting** | Notification hubs'ı bağlantı dizesi içeren bir uygulama ayarı adı.  Bağlantı dizesini ayarlamak *DefaultFullSharedAccessSignature* bildirim hub'ınız için bir değer. Bkz: [bağlantı dizesi kurulumu](#connection-string-setup) bu makalenin ilerleyen bölümlerinde.|
@@ -304,7 +304,7 @@ Mevcut bir bildirim hub'ına bağlantı dizesini yapılandırmak için:
 
 | Bağlama | Başvuru |
 |---|---|
-| Notification Hub'ı | [İşlemler Kılavuzu](https://docs.microsoft.com/rest/api/notificationhubs/) |
+| Bildirim hub'ı | [İşlemler Kılavuzu](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

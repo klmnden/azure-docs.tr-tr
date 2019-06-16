@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
 ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846234"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps ve Enterprise Integration Pack ile tümleştirme hesaplarındaki yapıt meta verileri yönetme
@@ -87,7 +87,7 @@ Tümleştirme hesapları yapıtlar için özel meta verileri tanımlamak ve kull
 
       | Özellik | Gereklidir | Value | Açıklama | 
       |----------|----------|-------|-------------| 
-      | **Yöntem** | Evet | <*işlem çalıştırma*> | Yapıt üzerinde çalıştırmak için HTTP işlemi. Örneğin, bu HTTP eylemi kullanır **alma** yöntemi. | 
+      | **Yöntemi** | Evet | <*işlem çalıştırma*> | Yapıt üzerinde çalıştırmak için HTTP işlemi. Örneğin, bu HTTP eylemi kullanır **alma** yöntemi. | 
       | **URI** | Evet | <*meta verilerinin konumu*> | Erişim için `routingUrl` yapıdan meta veri değeri alınmış bir ifade, örneğin kullanabilirsiniz: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
       | **Üst Bilgiler** | Hayır | <*Üstbilgi değerleri*> | Herhangi bir üst bilgisi, HTTP eyleme geçirmek istediğiniz tetikleyiciden çıkarır. Örneğin, tetikleyicinin içinde geçirilecek `headers` özellik değeri: Örneğin bir ifade kullanabilirsiniz: <p>`@triggeroutputs()['headers']` | 
       | **Gövde** | Hayır | <*Gövde içeriği*> | HTTP eylem geçirmek istediğiniz diğer içerikleri `body` özelliği. Bu örnek yapı'nın geçirir `properties` HTTP eyleme değerleri: <p>1. İçine tıklayın **gövdesi** özelliğini dinamik içerik listesi görüntülenir. Hiçbir özellik görünüyorsa, seçin **daha fazla bilgi bkz**. <br>2. Dinamik içerik listesinden, altında **tümleştirme hesabı Yapıt arama**seçin **özellikleri**. | 

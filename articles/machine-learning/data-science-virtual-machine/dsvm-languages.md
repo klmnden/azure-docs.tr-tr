@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502275"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Veri bilimi sanal makinesi üzerinde desteklenen diller 
@@ -234,12 +234,12 @@ Julia konumu tüm kullanıcılar tarafından okunabilir ortam bir genel varsayı
 
 ## <a name="other-languages"></a>Diğer diller
 
-**C#**: Windows üzerinde kullanılabilen ve erişilebilen veya Visual Studio Community sürümü üzerinden bir `Developer Command Prompt for Visual Studio` az önce çalıştırdığınız `csc` komutu. 
+**C#** : Windows üzerinde kullanılabilen ve erişilebilen veya Visual Studio Community sürümü üzerinden bir `Developer Command Prompt for Visual Studio` az önce çalıştırdığınız `csc` komutu. 
 
 **Java**: OpenJDK hem Linux hem de Windows sürümü DSVM ve yolun kümesinde kullanılabilir. Yazabilirsiniz `javac` veya `java` Windows komut istemi veya bash Kabuğu'nda Linux Java kullanma komutu. 
 
 **node.js**: node.js DSVM ve yolun kümesinde hem Linux hem de Windows Edition'da kullanılabilir. Yazabilirsiniz `node` veya `npm` Windows komut istemi veya bash Kabuğu'nda node.js erişmek için Linux komutu. Windows üzerinde Visual Studio uzantısı için Node.js araçları, node.js uygulaması geliştirmeye yönelik bir grafik IDE sağlamak için yüklenir. 
 
-**F#**: Windows üzerinde kullanılabilen ve erişilebilen veya Visual Studio Community sürümü üzerinden bir `Developer Command Prompt for Visual Studio` az önce çalıştırdığınız `fsc` komutu. 
+**F#** : Windows üzerinde kullanılabilen ve erişilebilen veya Visual Studio Community sürümü üzerinden bir `Developer Command Prompt for Visual Studio` az önce çalıştırdığınız `fsc` komutu. 
 
 

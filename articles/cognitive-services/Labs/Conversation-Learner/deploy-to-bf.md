@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ms.openlocfilehash: 5522f762f3893f1d67cd3755b1e022f0118cc004
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66385311"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Konuşma Öğrenici bot dağıtma
@@ -53,7 +53,7 @@ Model kimliği almak nasıl aşağıda verilmiştir:
 
 5. "Model kimliği" GUID, sayfanın üst kısımda görüntülenir.
 
-## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>1. seçenek: Yerel olarak çalıştırmak için bir konuşma Öğrenici bot dağıtma
+## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>1\. seçenek: Yerel olarak çalıştırmak için bir konuşma Öğrenici bot dağıtma
 
 Bu yerel makinenize bir bot dağıtır ve Bot Framework öykünücüsü'nü kullanarak nasıl erişeceği gösterilmektedir.
 
@@ -90,7 +90,7 @@ Bot artık yerel olarak çalışıyor.  Bot Framework öykünücü ile erişebil
 
 2. Şimdi, botunuzun ile konuşmaya.
 
-## <a name="option-2-deploy-to-azure"></a>2. seçenek: Azure’a dağıtma
+## <a name="option-2-deploy-to-azure"></a>2\. seçenek: Azure’a dağıtma
 
 Konuşma Öğrenici botunuzun benzer şekilde aynı diğer herhangi bir bot yayımlamak istediğiniz yayımlayın. Yüksek bir düzeyde kodunuzu barındırılan bir Web sitesine yükleme, uygun yapılandırma değerleri ayarlayın ve ardından çeşitli kanallarla bot kaydetme. Ayrıntılı yönergeleri kullanarak Azure Bot hizmeti botunuza yayımlama gösteren Bu videoda verilmiştir.
 
