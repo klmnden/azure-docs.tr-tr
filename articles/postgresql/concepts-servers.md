@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067152"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı
@@ -39,7 +39,7 @@ Aşağıdaki öğeleri veritabanınıza güvenli erişimi yardımcı olur:
 |||
 |:--|:--|
 | **Kimlik doğrulama ve yetkilendirme** | PostgreSQL sunucusu için Azure veritabanı, yerel PostgreSQL kimlik doğrulamasını destekler. Bağlanın ve Sunucu Yöneticisi oturum açma sunucusuyla kimlik doğrulaması. |
-| **Protokol** | Hizmet PostgreSQL kullanılan ileti tabanlı bir protokol destekler. |
+| **Protokolü** | Hizmet PostgreSQL kullanılan ileti tabanlı bir protokol destekler. |
 | **TCP/IP** | Protokol, TCP/IP'yi üzerinden ve UNIX etki alanı Yuva üzerinden desteklenir. |
 | **Güvenlik duvarı** | Hangi bilgisayarların izinli olduğunu belirtmenize kadar verilerinizi korumak için bir güvenlik duvarı kuralı tüm erişim sunucunuza ve veritabanlarına, engeller. Bkz: [PostgreSQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](concepts-firewall-rules.md). |
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: shlo
 ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60717070"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure veri fabrikalarını görsel olarak izleme
@@ -39,15 +39,15 @@ Data Factory v2 işlem hatlarınız için her işlem hattı çalıştırmasını
 
 | **Sütun adı** | **Açıklama** |
 | --- | --- |
-| İşlem Hattı Adı | İşlem hattının adı. |
+| İşlem hattı adı | İşlem hattının adı. |
 | Eylemler | Tek eylem etkinlik çalıştırmalarını görüntülemek kullanılabilir. |
 | Başlangıç çalıştırın | İşlem hattı çalıştırma başlangıç tarih saat (GG/AA/YYYY, ss: dd: SS AM/PM) |
 | Süre | Çalışma süresi (ss) |
-| Tetikleyen | El ile tetikleyici, zamanlama tetikleyicisi |
+| Tetikleyen: | El ile tetikleyici, zamanlama tetikleyicisi |
 | Durum | Başarılı, sürüyor, başarısız |
 | Parametreler | İşlem hattı çalıştırma parametreleri (ad, değer çiftleri) |
 | Hata | İşlem hattı çalıştırma hatası (if/any) |
-| Çalışma Kimliği | İşlem hattı çalıştırma kimliği |
+| Çalıştırma kimliği | İşlem hattı çalıştırma kimliği |
 
 ![İşlem hattı çalıştırmalarını izleme](media/monitor-visually/pipeline-runs.png)
 
@@ -56,8 +56,8 @@ Her işlem hattı çalıştırmasına karşılık gelen etkinlik çalıştırmal
 
 | **Sütun adı** | **Açıklama** |
 | --- | --- |
-| Etkinlik Adı | İşlem hattı içindeki etkinliğin adı. |
-| Etkinlik Türü | Kopyalama, vb. HDInsightSpark, Hdınsighthive etkinliği türü. |
+| Etkinlik adı | İşlem hattı içindeki etkinliğin adı. |
+| Etkinlik türü | Kopyalama, vb. HDInsightSpark, Hdınsighthive etkinliği türü. |
 | Başlangıç çalıştırın | Etkinlik çalıştırma başlangıç tarih saat (GG/AA/YYYY, ss: dd: SS AM/PM) |
 | Süre | Çalışma süresi (ss) |
 | Durum | Başarılı, sürüyor, başarısız |
@@ -85,7 +85,7 @@ Her işlem hattı çalıştırmasına karşılık gelen etkinlik çalıştırmal
 
 | **Sütun adı** | **Açıklama** |
 | --- | --- |
-| İşlem Hattı Adı | İşlem hattının adı. Seçenekler Hızlı filtreler 'Son 24 saat' için 'Son week', 'son 30 gün' eklemek veya özel bir tarih seçin. |
+| İşlem hattı adı | İşlem hattının adı. Seçenekler Hızlı filtreler 'Son 24 saat' için 'Son week', 'son 30 gün' eklemek veya özel bir tarih seçin. |
 | Başlangıç çalıştırın | İşlem hattı çalıştırması başlatma tarih saat |
 | Çalıştırma durumu | Filtre tarafından başarılı oldu, durum - başarısız oldu, devam eden çalıştırır. |
 

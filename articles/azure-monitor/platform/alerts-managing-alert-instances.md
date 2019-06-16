@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: cb93f38c05156d7ab5acb89ffff810949583e507
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551881"
 ---
 # <a name="manage-alert-instances"></a>Uyarı örneklerini yönetme
@@ -36,7 +36,7 @@ ms.locfileid: "60551881"
  
 1. Üzerinde ulaşırsınız **tüm uyarıları** sayfasında göreceğiniz uyarı tüm örnekleri kullanıma listelenen Azure. Bir uyarı bildirimine portala gelen, hakkında uyarı örneğinin daraltmak kullanılabilir filtreleri kullanabilirsiniz. (**Not**: herhangi bir önem derecesi bantları tıklayarak sayfaya geliyorsa, geldiğinde listesi için önem derecesi önceden filtre uygulanmış olacaktır). Önceki sayfada kullanılabilir filtreleri dışında şimdi de izleme hizmeti (örneğin, ölçümler için Platform), (tetiklenen veya çözülmüş) izleme koşulu, önem derecesi, uyarı durumu (yeni/onaylanır/kapalı) veya akıllı grubu kimliğini temel alarak filtreleyebilirsiniz
 
-   ![Tüm Uyarılar](media/alerts-managing-alert-instances/all-alerts.jpg)
+   ![Tüm uyarılar](media/alerts-managing-alert-instances/all-alerts.jpg)
 
    > [!NOTE]
    >  Herhangi bir önem derecesi bantları tıklayarak sayfaya geliyorsa, bu sayfada geldiğinde listesi için önem derecesi önceden filtre uygulanmış olacaktır.

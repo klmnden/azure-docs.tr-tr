@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6b74f217d296b5de8886f608b1bc92e908b5d8b4
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866461"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data factory'deki veri kümelerini
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-create-datasets.md)
 > * [Geçerli sürüm](concepts-datasets-linked-services.md)
 
@@ -69,9 +69,9 @@ Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 
 Özellik | Açıklama | Gerekli |
 -------- | ----------- | -------- |
-ad | Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
-type | Veri kümesi türü. Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türleri](#dataset-type). | Evet |
-yapısı | Şema kümesi. Ayrıntılar için bkz [veri kümesi şemasını](#dataset-structure-or-schema). | Hayır |
+name | Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
+türü | Veri kümesi türü. Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türleri](#dataset-type). | Evet |
+structure | Şema kümesi. Ayrıntılar için bkz [veri kümesi şemasını](#dataset-structure-or-schema). | Hayır |
 typeProperties | Tür özellikleri her türü için farklı (örneğin: Azure Blob, Azure SQL tablosu). Desteklenen türler ve özellikleri hakkında daha fazla bilgi için bkz: [veri kümesi türü](#dataset-type). | Evet |
 
 ### <a name="data-flow-compatible-dataset"></a>Veri akışı uyumlu veri kümesi
@@ -114,9 +114,9 @@ Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 
 Özellik | Açıklama | Gerekli |
 -------- | ----------- | -------- |
-ad | Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
-type | Veri kümesi türü. Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türleri](#dataset-type). | Evet |
-Şema | Şema kümesi. Ayrıntılar için bkz [uyumlu veri kümeleri veri akışı](#dataset-type). | Hayır |
+name | Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
+türü | Veri kümesi türü. Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türleri](#dataset-type). | Evet |
+schema | Şema kümesi. Ayrıntılar için bkz [uyumlu veri kümeleri veri akışı](#dataset-type). | Hayır |
 typeProperties | Tür özellikleri her türü için farklı (örneğin: Azure Blob, Azure SQL tablosu). Desteklenen türler ve özellikleri hakkında daha fazla bilgi için bkz: [veri kümesi türü](#dataset-type). | Evet |
 
 
@@ -184,8 +184,8 @@ Her sütunda yapısı aşağıdaki özellikleri içerir:
 -------- | ----------- | --------
 ad | Sütunun adı. | Evet
 type | Sütunun veri türü. Data Factory izin verilen değerler aşağıdaki geçici veri türlerini destekler: **Int16, Int32, Int64, tek, Double, ondalık, bayt [], Boolean, dize, Guid, Datetime, Datetimeoffset ve Timespan** | Hayır
-Kültür | . Türü bir .NET türü olduğunda kullanılacak kültürü NET tabanlı: `Datetime` veya `Datetimeoffset`. Varsayılan değer: `en-us`. | Hayır
-biçim | Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. Başvurmak [özel tarih ve saat biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) datetime biçimine üzerinde. | Hayır
+culture | . Türü bir .NET türü olduğunda kullanılacak kültürü NET tabanlı: `Datetime` veya `Datetimeoffset`. Varsayılan değer: `en-us`. | Hayır
+format | Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. Başvurmak [özel tarih ve saat biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) datetime biçimine üzerinde. | Hayır
 
 ### <a name="example"></a>Örnek
 Aşağıdaki örnekte, kaynak Blob verilerini CSV biçiminde ve üç sütun içeren varsayalım: kullanıcı kimliği, adı ve lastlogindate. Bunlar Int64, dize ve Datetime haftanın günü için Fransızca kısaltılmış kullanarak özel bir tarih saat biçiminde türüdür.

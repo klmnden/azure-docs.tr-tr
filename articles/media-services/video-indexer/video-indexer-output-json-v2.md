@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799077"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>API tarafından üretilen Video dizinleyici çıktısını İnceleme
@@ -23,7 +23,7 @@ ms.locfileid: "65799077"
 
 Videonun özetlenen ınsights tuşlarına basarak da görsel olarak inceleyebilirsiniz **Play** düğmesine video [Video Indexer](https://www.videoindexer.ai/) Web sitesi. Daha fazla bilgi için [görüntüleme ve düzenleme video öngörüleri](video-indexer-view-edit.md).
 
-![İçgörüler](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
 Bu makalede tarafından döndürülen JSON içeriği inceler **alma Video dizini** API. 
 
@@ -36,19 +36,19 @@ Bu makalede tarafından döndürülen JSON içeriği inceler **alma Video dizini
 |Ad|Açıklama|
 |---|---|
 |Hesap Kimliği|Çalma listesi'nın VI hesap kimliği.|
-|kimlik|Çalma listesi'nın kimliği.|
+|id|Çalma listesi'nın kimliği.|
 |name|Çalma listesi'nın adı.|
-|açıklama|Çalma listesi'nın açıklaması.|
+|description|Çalma listesi'nın açıklaması.|
 |userName|Çalma listesini oluşturan kullanıcının adı.|
-|oluşturuldu|Çalma listesi'nın oluşturma zamanı.|
+|Oluşturulan|Çalma listesi'nın oluşturma zamanı.|
 |privacyMode|Çalma listesi'nın Gizlilik modu (Private/Public).|
-|durum|Çalma listesi'nın (karşıya yüklenen, işleme, işlenen, başarısız, karantinaya alınmış).|
+|state|Çalma listesi'nın (karşıya yüklenen, işleme, işlenen, başarısız, karantinaya alınmış).|
 |isOwned|Çalma listesi geçerli kullanıcı tarafından oluşturulmuş olup olmadığını gösterir.|
 |Iseditable|Geçerli kullanıcının çalma düzenlemek için yetki verilip verilmediğini belirtir.|
 |isBase|Çalma listesi temel bir çalma listesi (video) veya bir çalma listesi (türetilmiş) diğer videoları yapılan olup olmadığını gösterir.|
 |Durationınseconds|Çalma listesi toplam süresi.|
 |summarizedInsights|Bir tane var. [summarizedInsights](#summarizedinsights).
-|videolar|Listesini [videoları](#videos) çalma listesi oluşturmak.<br/>Bu çalma listesini bu listedeki videoları (türetilmiş), diğer videoları zaman aralıklarının oluşturulan, yalnızca dahil edilen zaman aralıkları verilerini içerir.|
+|Videoları|Listesini [videoları](#videos) çalma listesi oluşturmak.<br/>Bu çalma listesini bu listedeki videoları (türetilmiş), diğer videoları zaman aralıklarının oluşturulan, yalnızca dahil edilen zaman aralıkları verilerini içerir.|
 
 ```json
 {
@@ -76,14 +76,14 @@ Bu bölümde, içgörüler özetini gösterir.
 |Öznitelik | Açıklama|
 |---|---|
 |name|Videonun adı. Örneğin, Azure İzleyici.|
-|kimlik|Video kimliği. Örneğin, 63c6d532ff.|
+|id|Video kimliği. Örneğin, 63c6d532ff.|
 |privacyMode|Döküm şu modlardan birine sahip olabilir: **Özel**, **genel**. **Genel** -video herkes hesabınızı ve videoya bir bağlantı olan herkes tarafından görülebilir. **Özel** -video hesabınızdaki herkes tarafından da görülebilir.|
-|süre|Bir öngörü gerçekleştiği zaman açıklayan bir süresini içerir. Saniyeler içinde süresidir.|
+|Süresi|Bir öngörü gerçekleştiği zaman açıklayan bir süresini içerir. Saniyeler içinde süresidir.|
 |thumbnailVideoId|Küçük resim alınmış videonun kimliği.
 |thumbnailId|Video küçük resim kimliği. Gerçek küçük resim alma, çağrısı [Get-küçük resim](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) thumbnailVideoId ve thumbnailId geçirin.|
 |yüzleri|Sıfır veya daha fazla yüzleri içerebilir. Daha ayrıntılı bilgi için bkz. [yüzleri](#faces).|
 |anahtar sözcükler|Sıfır veya daha fazla anahtar sözcükler içerebilir. Daha ayrıntılı bilgi için bkz. [anahtar sözcükleri](#keywords).|
-|yaklaşımlar|Sıfır veya daha fazla yaklaşımları içerebilir. Daha ayrıntılı bilgi için bkz. [yaklaşımları](#sentiments).|
+|yaklaşımları|Sıfır veya daha fazla yaklaşımları içerebilir. Daha ayrıntılı bilgi için bkz. [yaklaşımları](#sentiments).|
 |audioEffects| Sıfır veya daha fazla audioEffects içerebilir. Daha ayrıntılı bilgi için bkz. [audioEffects](#audioEffects).|
 |etiketleri| Sıfır veya daha fazla etiket içerebilir. Daha fazla ayrıntı için bkz [etiketleri](#labels).|
 |markalar| Sıfır veya daha fazla markaları içerebilir. Daha ayrıntılı bilgi için bkz. [markaları](#brands).|
@@ -91,14 +91,14 @@ Bu bölümde, içgörüler özetini gösterir.
 |duyguları| Sıfır veya daha fazla duyguları içerebilir. Daha ayrıntılı bilgi için bkz. [duyguları](#emotions).|
 |konuları|Sıfır veya daha fazla konuları içerebilir. [Konuları](#topics) boyut.|
 
-## <a name="videos"></a>videolar
+## <a name="videos"></a>Videoları
 
 |Ad|Açıklama|
 |---|---|
 |Hesap Kimliği|Videonun VI hesap kimliği.|
-|kimlik|Videonun kimliği.|
+|id|Videonun kimliği.|
 |name|Videonun adı.
-|durum|Videonun durumuna (karşıya yüklenen, işleme, işlenen, başarısız, karantinaya alınmış).|
+|state|Videonun durumuna (karşıya yüklenen, işleme, işlenen, başarısız, karantinaya alınmış).|
 |processingProgress|İlerleme durumunu işlenirken (örneğin, % 20).|
 |failureCode|(Örneğin, ' UnsupportedFileType') işlemi başarısız olursa hata kodu.|
 |failureMessage|İşlem başarısız olursa hata iletisi.|
@@ -106,13 +106,13 @@ Bu bölümde, içgörüler özetini gösterir.
 |externalUrl|(Kullanıcı tarafından belirtilmişse) videonun dış url.|
 |meta veriler|(Kullanıcı tarafından belirtilmişse) videonun dış meta verileri.|
 |isAdult|Video el ile inceleme ve yetişkinlere yönelik bir video olarak tanımlanmış olup olmadığını gösterir.|
-|görüşler|Insights nesne. Daha fazla bilgi için [ınsights](#insights).|
+|Insights|Insights nesne. Daha fazla bilgi için [ınsights](#insights).|
 |thumbnailId|Video küçük resim kimliği. Küçük resim gerçek çağrısını almak için [Get-küçük resim](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) ve video kimliği ve thumbnailId geçirin.|
 |publishedUrl|Video akışı için bir url.|
 |publishedUrlProxy|Videodan (Apple cihazlar için) akış URL'si.|
 |viewToken|Video akışı için bir kısa süreli görünümü belirteci.|
 |sourceLanguage|Video kaynak dili.|
-|dil|Videonun gerçek dili (çeviri).|
+|language|Videonun gerçek dili (çeviri).|
 |indexingPreset|Videonun dizini oluşturmak için kullanılan hazır.|
 |streamingPreset|Videoyu yayımlama için kullanılan hazır.|
 |linguisticModelId|CRI model video özelliği kullanılır.|
@@ -143,7 +143,7 @@ Bu bölümde, içgörüler özetini gösterir.
     }],
 }
 ```
-### <a name="insights"></a>görüşler
+### <a name="insights"></a>Insights
 
 Öngörüler (örneğin, döküm satırları, yüzleri, markalar, vb.), burada her boyut (örneğin, face1 face2, Yüz3) benzersiz öğelerin listesini ve her öğe kendi meta verileri ve onun örneklerinin listesini sahip boyutları kümesidir (olduğu zaman aralığı ile ek isteğe bağlı meta veriler).
 
@@ -152,7 +152,7 @@ Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı
 |Version|Kod sürümü|
 |---|---|
 |sourceLanguage|Video kaynak dili (bir ana dil varsayılarak). Biçiminde bir [BCP-47](https://tools.ietf.org/html/bcp47) dize.|
-|dil|Insights dili (kaynak dili çevrilir). Biçiminde bir [BCP-47](https://tools.ietf.org/html/bcp47) dize.|
+|language|Insights dili (kaynak dili çevrilir). Biçiminde bir [BCP-47](https://tools.ietf.org/html/bcp47) dize.|
 |transkript|[Döküm](#transcript) boyut.|
 |OCR|[OCR](#ocr) boyut.|
 |anahtar sözcükler|[Anahtar sözcükleri](#keywords) boyut.|
@@ -162,7 +162,7 @@ Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı
 |anlık görüntüleri|[Görüntüleri](#shots) boyut.|
 |markalar|[Markaları](#brands) boyut.|
 |audioEffects|[AudioEffects](#audioEffects) boyut.|
-|yaklaşımlar|[Yaklaşımları](#sentiments) boyut.|
+|yaklaşımları|[Yaklaşımları](#sentiments) boyut.|
 |visualContentModeration|[VisualContentModeration](#visualcontentmoderation) boyut.|
 |textualContentModeration|[TextualContentModeration](#textualcontentmoderation) boyut.|
 |duyguları| [Duyguları](#emotions) boyut.|
@@ -193,17 +193,17 @@ Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı
 
 Öznitelik | Açıklama
 ---|---
-kimlik|Blok kimliği.|
-Örnekler|Bu bloğu zaman aralıklarının listesi.|
+id|Blok kimliği.|
+örnekler|Bu bloğu zaman aralıklarının listesi.|
 
 #### <a name="transcript"></a>transkript
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Satır kimliği|
+|id|Satır kimliği|
 |metin|Transkripti kendisi.|
-|dil|Döküm dili. Transkript desteklemek her satırı farklı bir dil sahip olduğu yöneliktir.|
-|Örnekler|Bu satırı nerede göründüğü zaman aralıkları listesi. Transkript örneğiyse yalnızca 1 örneğin olacaktır.|
+|language|Döküm dili. Transkript desteklemek her satırı farklı bir dil sahip olduğu yöneliktir.|
+|örnekler|Bu satırı nerede göründüğü zaman aralıkları listesi. Transkript örneğiyse yalnızca 1 örneğin olacaktır.|
 
 Örnek:
 
@@ -238,11 +238,11 @@ kimlik|Blok kimliği.|
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|OCR satır kimliği|
+|id|OCR satır kimliği|
 |metin|OCR metin.|
 |güven|Tanıma güvenilirlik.|
-|dil|OCR dili.|
-|Örnekler|Bu OCR nerede göründüğü zaman aralıkları listesi (aynı OCR birden çok kez görünebilir).|
+|language|OCR dili.|
+|örnekler|Bu OCR nerede göründüğü zaman aralıkları listesi (aynı OCR birden çok kez görünebilir).|
 |Yükseklik|OCR dikdörtgenin yüksekliğini|
 |Sayfanın Üstü|Piksel üst konumu|
 |Sol| Piksel sol konumunda|
@@ -273,11 +273,11 @@ kimlik|Blok kimliği.|
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Anahtar sözcük kimliği.|
+|id|Anahtar sözcük kimliği.|
 |metin|Anahtar sözcüğü metin.|
 |güven|Anahtar sözcüğü'nın tanıma güvenilirlik.|
-|dil|Anahtar sözcüğü (çevrildiğinde) dili.|
-|Örnekler|Bu anahtar sözcük nerede göründüğü zaman aralıkları listesi (bir anahtar sözcüğü, birden çok kez görünebilir).|
+|language|Anahtar sözcüğü (çevrildiğinde) dili.|
+|örnekler|Bu anahtar sözcük nerede göründüğü zaman aralıkları listesi (bir anahtar sözcüğü, birden çok kez görünebilir).|
 
 ```json
 {
@@ -304,17 +304,17 @@ kimlik|Blok kimliği.|
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Face ID|
+|id|Face ID|
 |name|Yüz tanıma adı. Bu olabilir ' Bilinmeyen #0, tanımlanan bir ünlü veya müşteri eğitilen kişi.|
 |güven|Yüz tanıma güvenilirlik.|
-|açıklama|Ünlü açıklaması. |
+|description|Ünlü açıklaması. |
 |thumbnailId|Yüz tanıma, küçük resim kimliği.|
 |knownPersonId|Bilinen bir kişi, kendi iç kimliği ise|
 |Başvuru Kimliği|Bir Bing ünlü Bing kimliği ise|
 |referenceType|Şu anda yalnızca Bing.|
-|başlık|Ünlü, alt başlık (örneğin "CEO Microsoft'un") ise.|
+|title|Ünlü, alt başlık (örneğin "CEO Microsoft'un") ise.|
 |ImageUrl|Ünlü, görüntü URL'sini ise.|
-|Örnekler|Bunlar örnekleri, burada belirtilen zaman aralığında yüzü göründü. Her örnek, bir thumbnailsId de vardır. |
+|örnekler|Bunlar örnekleri, burada belirtilen zaman aralığında yüzü göründü. Her örnek, bir thumbnailsId de vardır. |
 
 ```json
 "faces": [{
@@ -349,10 +349,10 @@ kimlik|Blok kimliği.|
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Etiket Kimliği|
+|id|Etiket Kimliği|
 |name|Etiket adı (örneğin, 'Bilgisayara', 'TV').|
-|dil|Etiket adı (çevrildiğinde) dili. BCP-47|
-|Örnekler|Bu etiket nerede göründüğü zaman aralıkları listesi (bir etiket birden çok kez görünebilir). Her örnek güvenle alana sahiptir. |
+|language|Etiket adı (çevrildiğinde) dili. BCP-47|
+|örnekler|Bu etiket nerede göründüğü zaman aralıkları listesi (bir etiket birden çok kez görünebilir). Her örnek güvenle alana sahiptir. |
 
 
 ```json
@@ -408,8 +408,8 @@ kimlik|Blok kimliği.|
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Sahne kimliği.|
-|Örnekler|Zaman aralıkları (Sahne yalnızca 1 örnek olabilir) bu sahnenin listesi.|
+|id|Sahne kimliği.|
+|örnekler|Zaman aralıkları (Sahne yalnızca 1 örnek olabilir) bu sahnenin listesi.|
 
 ```json
 "scenes":[  
@@ -441,9 +441,9 @@ kimlik|Blok kimliği.|
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Görüntüsü kimliği.|
+|id|Görüntüsü kimliği.|
 |ana kareler|Ana kareleri (her bir kimlik ve örnekleri zaman aralıkları listesi vardır) görüntüsü içindeki bir listesi. Ana kare ait küçük resmi tutan bir thumbnailId alan her bir ana kare örneği olan kimliği|
-|Örnekler|Zaman aralığı (1 örnek bir görüntüsü yalnızca olabilir) bu kararlı bir listesi.|
+|örnekler|Zaman aralığı (1 örnek bir görüntüsü yalnızca olabilir) bu kararlı bir listesi.|
 
 ```json
 "shots":[  
@@ -491,14 +491,14 @@ kimlik|Blok kimliği.|
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Marka kimliği|
+|id|Marka kimliği|
 |name|Markaları adı.|
 |Başvuru Kimliği | Marka wikipedia URL'si son eki. Örneğin, "Target_Corporation" soneki eklenir [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | Marka, Wikipedia URL'si, kullanıcının bulunmaktadır. Örneğin, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|açıklama|Markaları açıklaması.|
+|description|Markaları açıklaması.|
 |tags|Bu marka ile ilişkili önceden tanımlanmış Etiketler listesi.|
 |güven|Video Indexer marka algılayıcısı (0-1) güvenle değeri.|
-|Örnekler|Bu marka zaman aralıklarının listesi. Her örnek, bu marka transkripti veya OCR görünen olup olmadığını gösteren bir brandType sahiptir.|
+|örnekler|Bu marka zaman aralıklarının listesi. Her örnek, bu marka transkripti veya OCR görünen olup olmadığını gösteren bir brandType sahiptir.|
 
 ```json
 "brands": [
@@ -560,9 +560,9 @@ kimlik|Blok kimliği.|
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Ses efekti kimliği.|
-|type|Ses efekti türü (örneğin, Clapping, okuma, sessizlik).|
-|Örnekler|Bu ses efekti nerede göründüğü zaman aralıkları listesi.|
+|id|Ses efekti kimliği.|
+|türü|Ses efekti türü (örneğin, Clapping, okuma, sessizlik).|
+|örnekler|Bu ses efekti nerede göründüğü zaman aralıkları listesi.|
 
 ```json
 "audioEffects": [
@@ -583,15 +583,15 @@ kimlik|Blok kimliği.|
 ]
 ```
 
-#### <a name="sentiments"></a>yaklaşımlar
+#### <a name="sentiments"></a>yaklaşımları
 
 Yaklaşımları sentimentType alanı (nötr/olumlu/olumsuz) tarafından toplanır. Örneğin, 0-0.1, 0.2 0,1.
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Yaklaşım kimliği.|
+|id|Yaklaşım kimliği.|
 |Ortalama Not karşılaştırması |Bu yaklaşım türdeki - nötr/olumlu/olumsuz tüm örneklerin tüm puanları ortalaması|
-|Örnekler|Bu yaklaşım nerede göründüğü zaman aralıkları listesi.|
+|örnekler|Bu yaklaşım nerede göründüğü zaman aralıkları listesi.|
 |sentimentType |Türü 'Pozitif', 'Nötr' veya 'Negatif' olabilir.|
 
 ```json
@@ -628,10 +628,10 @@ Yetişkinlere yönelik veya müstehcen içerikleri bulunan videoları yalnızca 
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Görsel içerik denetleme kimliği.|
+|id|Görsel içerik denetleme kimliği.|
 |adultScore|Yetişkinlere yönelik içerik puanı (Başlangıç, content moderator).|
 |racyScore|Müstehcenlik puanı (Başlangıç, içerik denetleme).|
-|Örnekler|Bu görsel içerik denetleme nerede göründüğü zaman aralıkları listesi.|
+|örnekler|Bu görsel içerik denetleme nerede göründüğü zaman aralıkları listesi.|
 
 ```json
 "VisualContentModeration": [
@@ -664,7 +664,7 @@ Yetişkinlere yönelik veya müstehcen içerikleri bulunan videoları yalnızca 
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Metinsel içerik denetleme kimliği.|
+|id|Metinsel içerik denetleme kimliği.|
 |bannedWordsCount |Yasaklı bir sözcük sayısı.|
 |bannedWordsRatio |Sözcükleri toplam sayısına oranı.|
 
@@ -674,9 +674,9 @@ Video Indexer, konuşma tanıma ve ses ipuçları üzerinde bağlı olarak duygu
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Duygu tanıma kimliği.|
-|type|Konuşma tanıma ve ses ipuçları göre tanımlanan duygu tanıma şu. Şu duygular belirlenebilir: sevinç, üzüntü, kızgınlık ve korku.|
-|Örnekler|Bu duygu tanıma nerede göründüğü zaman aralıkları listesi.|
+|id|Duygu tanıma kimliği.|
+|türü|Konuşma tanıma ve ses ipuçları göre tanımlanan duygu tanıma şu. Şu duygular belirlenebilir: sevinç, üzüntü, kızgınlık ve korku.|
+|örnekler|Bu duygu tanıma nerede göründüğü zaman aralıkları listesi.|
 
 ```json
 "emotions": [{
@@ -764,13 +764,13 @@ Video Indexer dökümleri ana konulardan biri çıkarımı yapar. Mümkün oldu�
 
 |Ad|Açıklama|
 |---|---|
-|kimlik|Konu kimliği.|
+|id|Konu kimliği.|
 |name|Konu adı, örneğin: "Eczacılık".|
 |Başvuru Kimliği|Konuları hiyerarşi yansıtan bir içerik haritası. Örneğin: "Sistem durumu ve wellbeing / TIP ve sağlık hizmetleri / Eczacılık".|
 |güven|[0,1] aralığındaki güvenilirlik puanı. Daha fazla emindir.|
-|dil|Bu konuda kullanılan dil.|
+|language|Bu konuda kullanılan dil.|
 |iptcName|IPTC ortam adı algılanırsa kod.|
-|Örnekler |Bu nedenle tüm video ve aralık olarak kullanılır. şu anda, Video Indexer zaman aralıkları için bir konu dizinini oluşturmaz.|
+|örnekler |Bu nedenle tüm video ve aralık olarak kullanılır. şu anda, Video Indexer zaman aralıkları için bir konu dizinini oluşturmaz.|
 
 ```json
 "topics": [{

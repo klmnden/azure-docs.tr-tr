@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60718130"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>VMware olağanüstü durum kurtarma için Azure CSP ile çok kiracılı desteği'ne genel bakış
@@ -24,11 +24,11 @@ Bu makalede, uygulama ve çok kiracılı Vmware'den Azure'a çoğaltma yönetmey
 
 Üç ana çok kiracılı modeli vardır:
 
-* **Paylaşılan barındırma hizmet sağlayıcısı (HSP)**: İş ortağı fiziksel altyapı sahip ve aynı altyapıda paylaşılan kaynaklar (vCenter, veri merkezleri, fiziksel depolama alanı ve benzeri) birden çok Kiracı Vm'leri barındırmak için kullanır. İş ortağı, yönetilen bir hizmet olarak olağanüstü durum kurtarma Yönetimi sağlayabilir veya Kiracı Self Servis bir çözüm olarak olağanüstü durum kurtarma sahip olabilir.
+* **Paylaşılan barındırma hizmet sağlayıcısı (HSP)** : İş ortağı fiziksel altyapı sahip ve aynı altyapıda paylaşılan kaynaklar (vCenter, veri merkezleri, fiziksel depolama alanı ve benzeri) birden çok Kiracı Vm'leri barındırmak için kullanır. İş ortağı, yönetilen bir hizmet olarak olağanüstü durum kurtarma Yönetimi sağlayabilir veya Kiracı Self Servis bir çözüm olarak olağanüstü durum kurtarma sahip olabilir.
 
 * **Barındırma hizmet sağlayıcısı adanmış**: İş ortağı fiziksel altyapı sahip, ancak ayrı bir altyapı üzerinde her bir kiracının sanal makineleri barındırmak için adanmış kaynaklar (birden çok vCenters, fiziksel veri depoları vb.) kullanır. İş ortağı, yönetilen bir hizmet olarak olağanüstü durum kurtarma Yönetimi sağlayabilir veya Kiracı Self Servis bir çözüm olarak bulunabilir.
 
-* **Yönetilen Hizmetler Sağlayıcısı (MSP)**: Müşteri sanal makineleri barındıran fiziksel altyapı sahip olan ve iş ortağı olağanüstü durum kurtarma etkinleştirme ve yönetimi sağlar.
+* **Yönetilen Hizmetler Sağlayıcısı (MSP)** : Müşteri sanal makineleri barındıran fiziksel altyapı sahip olan ve iş ortağı olağanüstü durum kurtarma etkinleştirme ve yönetimi sağlar.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Paylaşılan barındırma hizmet sağlayıcısı (HSP)
 
@@ -91,7 +91,7 @@ Yapılandırma sunucusu, özel bir rol atanmış olan bir hesap ile yapılandır
 
 >| Object | Rol | Açıklamalar |
 >| --- | --- | --- |
->| vCenter | Salt Okunur | Yalnızca farklı nesneleri yönetmek için vCenter erişime izin vermek gerekli. Tüm yönetim işlemleri vcenter için kullanılan veya hesabı bir kiracıya sağlanacak hiçbir zaman edecekse bu izni kaldırabilirsiniz. |
+>| vCenter | Salt okunur | Yalnızca farklı nesneleri yönetmek için vCenter erişime izin vermek gerekli. Tüm yönetim işlemleri vcenter için kullanılan veya hesabı bir kiracıya sağlanacak hiçbir zaman edecekse bu izni kaldırabilirsiniz. |
 >| Veri merkezi | Azure_Site_Recovery |  |
 >| Konak ve konak kümesi | Azure_Site_Recovery | Böylece yalnızca erişilebilir ana Kiracı Vm'leri yük devretmeden önce ve sonra yeniden çalışma nesne düzeyinde erişim olmasını yeniden sağlar. |
 >| Veri deposu ve veri deposu küme | Azure_Site_Recovery | Önceki aynıdır. |
@@ -110,7 +110,7 @@ Yalnızca Yük devretme gönderinizi olağanüstü durum kurtarma işlemlerini k
 ### <a name="deploy-resources-to-the-tenant-subscription"></a>Kiracı aboneliği için kaynakları dağıtma
 
 1. Azure portalında bir kaynak grubu oluşturun ve sonra bir kurtarma Hizmetleri kasası normal işlem başına dağıtın.
-2. Kasa kayıt anahtarını indirin.
+2. Kasa kayıt anahtarını indir
 3. CS, Kiracı için kasa kayıt anahtarını kullanarak kaydedin.
 4. İki erişim hesapları, vCenter sunucusuna erişmek için hesabınız ve sanal Makineye erişmek için hesap kimlik bilgilerini girin.
 

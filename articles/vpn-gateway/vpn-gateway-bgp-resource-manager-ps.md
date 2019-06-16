@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.openlocfilehash: c65ea038fc39702affae93cb68b8cf644393c62e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150221"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>PowerShell kullanarak Azure VPN Gateways üzerinde BGP yapılandırma
@@ -37,7 +37,7 @@ Bkz: [Azure VPN Gateways ile BGP'ye genel bakış](vpn-gateway-bgp-overview.md) 
 Bu makalede, aşağıdaki görevleri gerçekleştirmek için adımları gösterilmektedir:
 
 * [Bölüm 1 - etkinleştirin, Azure VPN Gateway'deki BGP](#enablebgp)
-* 2. Kısım - BGP ile şirketler arası bağlantı kurun
+* 2\. Kısım - BGP ile şirketler arası bağlantı kurun
 * [3. Kısım - BGP ile VNet-VNet bağlantı kurun](#v2vbgp)
 
 Ağ bağlantınızı BGP etkinleştirmek için yapı taşlarından yönergeleri her bir parçasını oluşturur. Üç tüm bölümleri tamamlayın, aşağıdaki diyagramda gösterildiği gibi topoloji derleme:
@@ -55,7 +55,7 @@ Yapılandırma adımları aşağıdaki diyagramda gösterildiği gibi Azure VPN 
 * Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 * Azure Resource Manager PowerShell cmdlet'lerini yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview). 
 
-### <a name="step-1---create-and-configure-vnet1"></a>1. adım - oluşturma ve VNet1'i yapılandırma
+### <a name="step-1---create-and-configure-vnet1"></a>1\. adım - oluşturma ve VNet1'i yapılandırma
 #### <a name="1-declare-your-variables"></a>1. Değişkenlerinizi bildirme
 Bu alıştırmada değişkenlerimizi bildirerek başlayın. Aşağıdaki örnek bu alıştırma için değerleri kullanan değişkenler bildirilmektedir. Üretim için yapılandırma sırasında bu değerleri kendi değerlerinizle değiştirdiğinizden emin olun. Bu tür yapılandırmaları tanımaya başlamak için adımları gözden geçiriyorsanız bu değişkenleri kullanabilirsiniz. Değişkenleri değiştirin, daha sonra kopyalayın ve PowerShell konsolunuza yapıştırın.
 
@@ -102,7 +102,7 @@ $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWS
 New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
 ```
 
-### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>2. adım - BGP parametrelerle TestVNet1 için VPN ağ geçidi oluşturun
+### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>2\. adım - BGP parametrelerle TestVNet1 için VPN ağ geçidi oluşturun
 #### <a name="1-create-the-ip-and-subnet-configurations"></a>1. IP ve alt ağ yapılandırmalarını oluşturun
 Sanal ağınız için oluşturacağınız ağ geçidine ayrılacak genel IP adresi isteyin. Ayrıca, gerekli bir alt ağ ve IP yapılandırmaları tanımlarsınız.
 
@@ -150,7 +150,7 @@ Ağ geçidi oluşturulduktan sonra şirket içi veya BGP ile VNet-VNet bağlant�
 
 Devam etmeden önce tamamladığınızdan emin olun [bölüm 1](#enablebgp) Bu alıştırmada.
 
-### <a name="step-1---create-and-configure-the-local-network-gateway"></a>1. adım - oluşturma ve yerel ağ geçidi yapılandırma
+### <a name="step-1---create-and-configure-the-local-network-gateway"></a>1\. adım - oluşturma ve yerel ağ geçidi yapılandırma
 
 #### <a name="1-declare-your-variables"></a>1. Değişkenlerinizi bildirme
 
@@ -184,7 +184,7 @@ New-AzResourceGroup -Name $RG5 -Location $Location5
 New-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 ```
 
-### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>2. adım - sanal ağ geçidi ve yerel ağ geçidine bağlanma
+### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>2\. adım - sanal ağ geçidi ve yerel ağ geçidine bağlanma
 
 #### <a name="1-get-the-two-gateways"></a>1. İki ağ geçidi Al
 
@@ -224,7 +224,7 @@ Bu bölümde, aşağıdaki diyagramda gösterildiği gibi bir VNet-VNet bağlant
 
 Aşağıdaki yönergeler, önceki adımlardan devam edin. Tamamlamanız gereken [bölüm ı](#enablebgp) oluşturma ve TestVNet1 ve VPN ağ geçidi, BGP ile yapılandırın. 
 
-### <a name="step-1---create-testvnet2-and-the-vpn-gateway"></a>1. adım - TestVNet2 ve VPN ağ geçidi oluşturma
+### <a name="step-1---create-testvnet2-and-the-vpn-gateway"></a>1\. adım - TestVNet2 ve VPN ağ geçidi oluşturma
 
 IP adres alanı yeni sanal ağ TestVNet2, tüm sanal ağ Aralıklarınızın çakışmadığını emin olmak önemlidir.
 
@@ -285,7 +285,7 @@ VPN ağ geçidi AS numarası ile oluşturun. ASN varsayılan Azure VPN ağ geçi
 New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gwipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard -Asn $VNet2ASN
 ```
 
-### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>2. adım - TestVNet1 ve TestVNet2 ağ geçitlerini bağlama
+### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>2\. adım - TestVNet1 ve TestVNet2 ağ geçitlerini bağlama
 
 Bu örnekte, iki ağ geçidi için aynı abonelikte ' dir. Bu adım aynı PowerShell oturumunda tamamlayabilirsiniz.
 

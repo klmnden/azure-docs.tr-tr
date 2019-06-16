@@ -19,10 +19,10 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 622525705979cd6a7a088c606ac167d28f8f6482
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951007"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Nasıl yapılır: Kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme
@@ -114,9 +114,9 @@ Talep dönüştürmeleri işlevleri de kullanabilirsiniz.
 | **Join()** | İki öznitelik birleştirerek yeni bir değer oluşturur. İsteğe bağlı olarak, iki öznitelikleri arasında bir ayırıcı kullanabilirsiniz. |
 | **ToLower()** | Seçilen özniteliğin karakterleri, küçük harf karakterlere dönüştürür. |
 | **ToUpper()** | Seçilen özniteliğin karakterleri büyük harf karakterlere dönüştürür. |
-| **Contains()** | Giriş belirtilen değerle eşleşiyorsa, öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>Örneğin, bir talep değeri olduğu kullanıcının e-posta adresi etki alanını içeriyorsa yayma istiyorsanız "@contoso.com", kullanıcı asıl adı çıktısını almak istediğiniz Aksi takdirde. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)*: user.email<br/>*Değer*: "@contoso.com"<br/>Parametre 2 (çıkış): user.email<br/>Parametre 3 (eşleşme yoksa çıkış): user.userprincipalname |
-| **EndWith()** | Belirtilen değerle giriş sona ererse, öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>EmployeeID "000" ile bitiyorsa değerin kullanıcının EmployeeID olduğu bir talep yayma istiyorsanız, örneğin, aksi takdirde uzantısı özniteliği çıkış istediğiniz. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)*: user.employeeid<br/>*Değer*: "000"<br/>Parametre 2 (çıkış): user.employeeid<br/>Parametre 3 (eşleşme yoksa çıkış): user.extensionattribute1 |
-| **StartWith()** | Giriş belirtilen değerle başlayıp başlamadığını öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>Ülke/bölge "ABD" ile başlıyorsa değerin kullanıcının EmployeeID olduğu bir talep yayma istiyorsanız, örneğin, aksi takdirde uzantısı özniteliği çıkış istediğiniz. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)*: Resource.country<br/>*Değer*: "BİZE"<br/>Parametre 2 (çıkış): user.employeeid<br/>Parametre 3 (eşleşme yoksa çıkış): user.extensionattribute1 |
+| **Contains()** | Giriş belirtilen değerle eşleşiyorsa, öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>Örneğin, bir talep değeri olduğu kullanıcının e-posta adresi etki alanını içeriyorsa yayma istiyorsanız "@contoso.com", kullanıcı asıl adı çıktısını almak istediğiniz Aksi takdirde. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)* : user.email<br/>*Değer*: "@contoso.com"<br/>Parametre 2 (çıkış): user.email<br/>Parametre 3 (eşleşme yoksa çıkış): user.userprincipalname |
+| **EndWith()** | Belirtilen değerle giriş sona ererse, öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>EmployeeID "000" ile bitiyorsa değerin kullanıcının EmployeeID olduğu bir talep yayma istiyorsanız, örneğin, aksi takdirde uzantısı özniteliği çıkış istediğiniz. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)* : user.employeeid<br/>*Değer*: "000"<br/>Parametre 2 (çıkış): user.employeeid<br/>Parametre 3 (eşleşme yoksa çıkış): user.extensionattribute1 |
+| **StartWith()** | Giriş belirtilen değerle başlayıp başlamadığını öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>Ülke/bölge "ABD" ile başlıyorsa değerin kullanıcının EmployeeID olduğu bir talep yayma istiyorsanız, örneğin, aksi takdirde uzantısı özniteliği çıkış istediğiniz. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)* : Resource.country<br/>*Değer*: "BİZE"<br/>Parametre 2 (çıkış): user.employeeid<br/>Parametre 3 (eşleşme yoksa çıkış): user.extensionattribute1 |
 | **Extract() - After matching** | Belirtilen değerle eşleşen sonra alt dizeyi döndürür.<br/>Örneğin, girdinin değer "Finance_BSimon" ise, eşleşen değeri olan "Finance_" sonra "BSimon" talebin çıkışı yapılır. |
 | **Extract() - Before matching** | Belirtilen değerle eşleşen kadar alt dizeyi döndürür.<br/>Örneğin, girdinin değer "BSimon_US" ise, eşleşen değeri olan "_US" sonra "BSimon" talebin çıkışı yapılır. |
 | **Extract() - Between matching** | Belirtilen değerle eşleşen kadar alt dizeyi döndürür.<br/>Örneğin, girdinin değer "Finance_BSimon_US" ise, ilk eşleşen değeri olan "Finance_", ikinci eşleşen değeri olan "_US" ve ardından "BSimon" talebin çıkışı yapılır. |

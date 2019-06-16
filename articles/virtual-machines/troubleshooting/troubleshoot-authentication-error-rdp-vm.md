@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60594917"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Azure VM'ye bağlanmak için RDP kullandığınızda, kimlik doğrulama hatalarını giderme
@@ -29,7 +29,7 @@ Bu makalede, bir Azure sanal makinesine (VM) bağlamak için Uzak Masaüstü Pro
 
 Karşılama ekranı gösterilir ve işletim sisteminin çalıştığını gösteren bir Azure VM görüntüsü yakalayın. VM'ye Uzak Masaüstü bağlantısı kullanarak bağlanmaya çalıştığınızda, ancak aşağıdaki hata iletilerinden birini alırsınız.
 
-### <a name="error-message-1"></a>1. hata iletisi
+### <a name="error-message-1"></a>1\. hata iletisi
 
 **Bir kimlik doğrulama hatası oluştu. Yerel Güvenlik Yetkilisi iletişim kurulamıyor.**
 
@@ -101,7 +101,7 @@ gpupdate /force
 
 Değişiklik geri alınır, bir Active Directory ilkesini soruna neden olan anlamına gelir. 
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 Bu sorunu çözmek için NLA devre dışı bırakmak için komut penceresinde aşağıdaki komutları çalıştırın:
 

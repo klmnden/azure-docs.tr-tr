@@ -11,10 +11,10 @@ ms.date: 10/30/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 573463d91fc7a4119bd1bc30182588ff9dfdecb7
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510698"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>JWT belirteci veren bir Azure Active Directory B2C özel ilkesindeki için teknik profil tanımlama
@@ -48,8 +48,8 @@ Aşağıdaki örnek, teknik profil gösterir `JwtIssuer`:
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Evet | Kullanıcı kimliği olarak kullanılacak talep talep içinde OAuth2 yetkilendirme kodları ve yenileme belirteçlerini. Varsayılan olarak, bu ayarlamalısınız `objectId`sürece farklı SubjectNamingInfo talep türü belirtin. | 
 | SendTokenResponseBodyWithJsonNumbers | Hayır | Her zaman `true`. Burada sayısal değerleri verilmiş JSON sayı yerine dize olarak eski biçimi için ayarlanmış `false`. Bu öznitelik, bir bağımlılık gibi özellikleri dizeler olarak döndürülen önceki uygulaması üzerinde gerçekleştirilen istemciler için gereklidir. | 
-| token_lifetime_secs | Hayır | Belirteç ömürleri erişim. Korunan bir kaynağa erişmek için kullanılan OAuth 2.0 taşıyıcı belirtecinin ömrü. 3.600 saniye (1 saat) varsayılandır. En az (sınırlar dahil), 300 saniyedir (5 dakika) olmalıdır. En fazla (sınırlar dahil) 86.400 saniyedir (24 saat) ' dir. | 
-| id_token_lifetime_secs | Hayır | Belirteç ömürleri kimliği. 3.600 saniye (1 saat) varsayılandır. En az (sınırlar dahil), 300 saniyedir (5 dakika) olmalıdır. En fazla (sınırlar dahil) 86,400 (24 saat) saniyedir. | 
+| token_lifetime_secs | Hayır | Belirteç ömürleri erişim. Korunan bir kaynağa erişmek için kullanılan OAuth 2.0 taşıyıcı belirtecinin ömrü. 3\.600 saniye (1 saat) varsayılandır. En az (sınırlar dahil), 300 saniyedir (5 dakika) olmalıdır. En fazla (sınırlar dahil) 86.400 saniyedir (24 saat) ' dir. | 
+| id_token_lifetime_secs | Hayır | Belirteç ömürleri kimliği. 3\.600 saniye (1 saat) varsayılandır. En az (sınırlar dahil), 300 saniyedir (5 dakika) olmalıdır. En fazla (sınırlar dahil) 86,400 (24 saat) saniyedir. | 
 | refresh_token_lifetime_secs | Hayır | Belirteç ömürleri yenileyin. Uygulamanızı offline_access kapsamı verildiğini, önce bir yenileme belirteci yeni bir erişim belirteci almak için kullanılabilecek en uzun süre. 120,9600 saniye (14 gün) varsayılandır. En azından (sınırlar dahil) 86.400 saniyedir (24 saat) gereklidir. En fazla (sınırlar dahil) 7,776,000 (90 gün) saniyedir. | 
 | rolling_refresh_token_lifetime_secs | Hayır | Yenileme belirteci kayan pencere ömrü. Belirtilen sürenin geçmesinden sonra kullanıcının kimliğinin yeniden kimlik doğrulaması yapın, uygulama tarafından alınan belirteç bağımsız olarak en son geçerlilik süresini yenileyin. Bir kayan pencere ömrü uygulamak istemiyorsanız allow_infinite_rolling_refresh_token için değerini `true`. 7,776,000 saniye (90 gün) varsayılandır. En azından (sınırlar dahil) 86.400 saniyedir (24 saat) gereklidir. En fazla (sınırlar dahil) 31,536,000 (365 gün) saniyedir. | 
 | allow_infinite_rolling_refresh_token | Hayır | Varsa kümesine `true`, yenileme belirteci kayan pencere ömrü her zaman geçerli olsun. |

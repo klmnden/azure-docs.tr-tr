@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 9d0e27c2427d53554b454e0c319ce9cf180f1633
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 64f7e614b72d7d966eaec7acb84a68e8df3698a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820799"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64691053"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Ortak PowerShell komutları için oluşturma ve Azure sanal makineleri yönetme
 
 Bu makale, oluşturma ve Azure aboneliğinizdeki sanal makineleri yönetmek için kullanabileceğiniz Azure PowerShell komutlarının bazı kapsar.  Daha ayrıntılı belirli komut satırı anahtarları ve seçenekleri konusunda yardım için kullanabileceğiniz **Get-Help** *komut*.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 Birden fazla komutlar bu makaledeki çalışıyorsa bu değişkenler için yararlı olabilir:
 

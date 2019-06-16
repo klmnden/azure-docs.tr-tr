@@ -10,10 +10,10 @@ ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779475"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET ile Azure Dosyaları için geliştirme
@@ -46,7 +46,7 @@ API | Kullanılması gereken durumlar | Notlar
 Visual Studio'da yeni bir Windows konsol uygulaması oluşturun. Aşağıdaki adımlar Visual Studio 2017’de konsol uygulaması oluşturmayı gösterir, ancak adımlar, diğer Visual Studio sürümlerindekilerle aynıdır.
 
 1. **Dosya** > **Yeni** > **Proje**’yi seçin
-2. **Yüklü** > **Şablonlar** > **Visual C#** > **Windows Klasik Masaüstü** öğesini seçin
+2. **Yüklü** > **Şablonlar** > **Visual C#**  > **Windows Klasik Masaüstü** öğesini seçin
 3. **Konsol Uygulaması (.NET Framework)** öğesini seçin
 4. **Ad:** alanına uygulamanız için bir ad girin
 5. **Tamam**’ı seçin
@@ -233,7 +233,7 @@ Bir dosyayı diğer bir dosyaya veya bir blobu bir dosyaya ya da tam tersini yap
 > 
 > 
 
-**Dosyayı başka bir dosyaya kopyalama** Aşağıdaki örnekte, bir dosya aynı paylaşımdaki başka bir dosyaya kopyalanır. Bu kopyalama işlemi aynı depolama hesabındaki dosyaları kopyaladığı için, kopyalama işlemini gerçekleştirmek üzere Paylaşılan Anahtar kimlik doğrulaması kullanabilirsiniz. 
+**Dosyayı başka bir dosyaya kopyalama** Aşağıdaki örnekte, bir dosya aynı paylaşımdaki başka bir dosyaya kopyalanır. Bu kopyalama işlemi aynı depolama hesabındaki dosyaları kopyaladığı için, kopyalama işlemini gerçekleştirmek üzere Paylaşılan Anahtar kimlik doğrulaması kullanabilirsiniz.
 
 ```csharp
 // Parse the connection string for the storage account.

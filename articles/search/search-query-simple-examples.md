@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024542"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>"Basit" arama söz dizimi kullanarak Azure Search'te sorgu örnekleri
@@ -63,7 +63,7 @@ Bu URL'yi bir doğrulama adımı olarak ve belge yapısı görüntülemek için 
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-Sorgu dizesi **`search=*`**, belirtilmeyen bir arama null veya boş aramaya eşdeğerdir. Özellikle kullanışlı değildir, ancak yapabileceğiniz basit arama olur.
+Sorgu dizesi **`search=*`** , belirtilmeyen bir arama null veya boş aramaya eşdeğerdir. Özellikle kullanışlı değildir, ancak yapabileceğiniz basit arama olur.
 
 İsteğe bağlı olarak ekleyebileceğiniz **`$count=true`** arama ölçütleriyle eşleşen belgelerin sayısını döndürmek için URL. Üzerinde bir boş bir arama dizesi (yaklaşık 2800 NYC işleri söz konusu olduğunda) dizindeki tüm belgelerin budur.
 
@@ -260,7 +260,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ```
   ![Tüm arama modu](media/search-query-simple-examples/searchmodeall.png)
 
-## <a name="example-8-structuring-results"></a>8. örnek: Yapılandırma sonuçları
+## <a name="example-8-structuring-results"></a>8\. örnek: Yapılandırma sonuçları
 
 Her batch ve sıralama düzeni döndürülen belgelerin sayısını alanlar aramaya olan birkaç parametre denetimi sonuçlanır. Bu örnek, önceki örneklerde, birkaçını sonuçları belirli alanlara kullanarak sınırlama resurfaces **$select** deyimi ve 82 eşleşme dönmeden verbatim arama ölçütü 
 

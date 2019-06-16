@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764957"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure İzleyici'de Linux aracıları hakkında toplanan veri topla
@@ -114,7 +114,7 @@ Linux için Log Analytics aracısını yeni ölçümler ile toplanmış altyapı
 |:--|:--|
 | `host` | Computer |
 | `plugin` | None |
-| `plugin_instance` | Örnek Adı<br>Varsa **plugin_instance** olduğu *null* ardından InstanceName = "*_Total*" |
+| `plugin_instance` | Örnek adı<br>Varsa **plugin_instance** olduğu *null* ardından InstanceName = " *_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Varsa **type_instance** olduğu *null* ardından CounterName =**boş** |
 | `dsnames[]` | CounterName |

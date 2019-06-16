@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 7725563a80182be8f8c02d94ef1e6cfa382c04d3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924861"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server için olağanüstü durum kurtarmayı ayarlayın
@@ -59,7 +59,7 @@ Bu SQL Server sürümleri için desteklenen senaryolar desteklenir:
 
 Site kurtarma, olağanüstü durum kurtarma çözümü sağlamak için tabloda özetlenen yerel SQL Server BCDR teknolojileriyle tümleştirilebilir.
 
-**Özellik** | **Ayrıntılar** | **SQL Server** |
+**Özelliği** | **Ayrıntılar** | **SQL Server** |
 --- | --- | ---
 **AlwaysOn kullanılabilirlik grubu** | Tek başına birden fazla SQL Server'ın birden fazla düğüme sahip bir yük devretme kümesinde çalıştırın.<br/><br/>Veritabanları, SQL Server örneklerinde (yansıtılmış) kopyalanabilir ve böylece hiçbir paylaşılan depolama gerekli yük devretme grupları gruplandırılabilir.<br/><br/>Bir birincil site ve bir veya daha fazla ikincil site arasında olağanüstü durum kurtarma sağlar. İki düğüm bir paylaşılan SQL Server veritabanlarını kümeyle zaman uyumlu çoğaltma ve otomatik yük devretme ile bir kullanılabilirlik grubunda yapılandırılmış hiçbir şey ayarlanabilir. | SQL Server 2016, SQL Server 2014 ve SQL Server 2012 Enterprise edition
 **Yük Devretme Kümelemesi (her zaman şirket FCI)** | SQL Server şirket içi SQL Server iş yükleri için yüksek kullanılabilirlik Windows Yük devretme yararlanır.<br/><br/>Paylaşılan disk ile SQL Server örneklerini çalıştıran düğümlerin bir yük devretme kümesinde yapılandırılabilir. Kapalı örneğini ise küme için farklı bir devreder.<br/><br/>Küme hatası veya paylaşılan depolama kesintilerine karşı koruma sağlamaz. Paylaşılan disk iSCSI, fiber kanal uygulanabilir veya paylaşılan Vhdx'ler. | SQL Server Enterprise sürümleri<br/><br/>SQL Server Standard sürümü (yalnızca iki düğüm sınırlı)
@@ -70,7 +70,7 @@ Site kurtarma, olağanüstü durum kurtarma çözümü sağlamak için tabloda �
 
 Bu tablo, Site Recovery ile SQL Server BCDR teknolojileriyle tümleştirme için önerilerimizle özetler.
 
-| **Sürüm** | **Sürüm** | **Dağıtım** | **Şirket içinden şirket içi** | **Şirket içinden Azure** |
+| **Sürüm** | **Sürümü** | **Dağıtım** | **Şirket içinden şirket içi** | **Şirket içinden Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016, 2014 veya 2012 |Enterprise |Yük devretme kümesi örneği |Always On kullanılabilirlik grupları |Always On kullanılabilirlik grupları |
 || Enterprise |Always On kullanılabilirlik grupları için yüksek kullanılabilirlik |Always On kullanılabilirlik grupları |Always On kullanılabilirlik grupları |
@@ -179,7 +179,7 @@ SQL Server Standard edition veya SQL Server 2008 R2 çalıştıran bir küme iç
 * Dağıtılmış işlemler uygulamayı kullanıyorsa, dağıttığınız öneririz [Site Recovery SAN çoğaltması ile](site-recovery-vmm-san.md) için bir Hyper-V ortamına veya [VMware VMware/fiziksel sunucuya](site-recovery-vmware-to-vmware.md) VMware ortamı için.
 * DTC olmayan uygulamalar için yerel yüksek güvenilirlik DB yansıtma yararlanarak bir tek başına sunucu olarak kümeyi kurtarmak için yukarıdaki yaklaşımı kullanın.
 
-### <a name="on-premises-to-azure"></a>Şirket içinden Azure'a
+### <a name="on-premises-to-azure"></a>Şirket içinden azure'a
 
 Site Recovery, Konuk sunmaz Azure'a çoğaltırken küme desteği. SQL Server, Standard edition için düşük maliyetli olağanüstü durum kurtarma çözümü de sağlamaz. Bu senaryoda, bir tek başına SQL Server şirket içi SQL Server kümesini koruma ve Azure'da kurtarma öneririz.
 

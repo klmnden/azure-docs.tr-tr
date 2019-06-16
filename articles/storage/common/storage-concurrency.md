@@ -10,10 +10,10 @@ ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
 ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728308"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure Depolama'da Eşzamanlılığı Yönetme
@@ -106,7 +106,7 @@ Aşağıdaki tabloda özetlenmiştir koşullu üst bilgileri gibi kabul blob iş
 | Get Blob |Evet |Evet |
 | BLOB özelliklerini alma |Evet |Evet |
 | Blob özelliklerini ayarlama |Evet |Evet |
-| Blob Meta Verilerini al |Evet |Evet |
+| BLOB meta verilerini al |Evet |Evet |
 | BLOB meta verileri ayarlama |Evet |Evet |
 | Kira blob'u (*) |Evet |Evet |
 | Blob anlık görüntüsü |Evet |Evet |
@@ -163,7 +163,7 @@ Aşağıdaki blob işlemleri kiraları kötümser eşzamanlılık yönetmek içi
 * Get Blob
 * BLOB özelliklerini alma
 * Blob özelliklerini ayarlama
-* Blob Meta Verilerini al
+* BLOB meta verilerini al
 * BLOB meta verileri ayarlama
 * BLOB silme
 * Blok yerleştirme
@@ -240,10 +240,10 @@ Tablo varlık işlemleri ETag değerlerini kullanma, aşağıdaki tabloda özetl
 | Varlıkları sorgulayın |Evet |Hayır |
 | Varlık Ekle |Evet |Hayır |
 | Varlık güncelleştir |Evet |Evet |
-| Varlığı Birleştir |Evet |Evet |
+| Varlık Birleştir |Evet |Evet |
 | Varlığı Sil |Hayır |Evet |
-| Varlık Ekle veya Değiştir |Evet |Hayır |
-| Varlık Ekle veya Birleştir |Evet |Hayır |
+| Varlığı değiştirme veya ekleme |Evet |Hayır |
+| INSERT veya birleştirme varlık |Evet |Hayır |
 
 Unutmayın **Ekle veya Değiştir varlık** ve **Ekle ya da birleştirme varlık** işlemleri yapıp *değil* tabloya bir ETag değeri göndermeyin herhangi bir eşzamanlılık denetimlerinin gerçekleştirilemiyor hizmeti.  
 

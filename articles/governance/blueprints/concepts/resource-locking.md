@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719764"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Kaynak Azure şemaları kilitleme anlama
@@ -26,7 +26,7 @@ Modları kilitleme, ancak dışında bir Blueprint'i değiştirilemez.
 
 Şema atamasını yapıları tarafından oluşturulan kaynakları dört durumlarına sahiptir: **Kilitli**, **salt okunur**, **silme / yapamazsınız düzenlemek**, veya **Nelze Odstranit**. Her bir yapıt türü olabilir **kilitli** durumu. Aşağıdaki tabloda, bir kaynak durumunu belirlemek için kullanılabilir:
 
-|Mod|Yapıt kaynağı türü|Durum|Açıklama|
+|Mod|Yapıt kaynağı türü|Eyalet|Açıklama|
 |-|-|-|-|
 |Kilitleme|*|Kilitli değil|Kaynakları planlar tarafından korunmayan. Bu durum ayrıca eklenen kaynaklar için kullanılan bir **salt okunur** veya **silmeyin** şema atamasını dışında kaynak grubu yapıt.|
 |Salt Okunur|Kaynak grubu|Cannot Edit / Delete|Kaynak grubu salt okunur ve kaynak grubunda etiketlerin değiştirilemez. **Kilitli** kaynakları eklenebilir, taşınabilir, değiştirildi veya bu kaynak grubundan silindi.|

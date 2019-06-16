@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 1c3996c3f40da496af0cd795d0873864667a1f19
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160281"
 ---
 ## <a name="use-the-azure-portal"></a>Azure portalı kullanma
@@ -26,5 +26,5 @@ ms.locfileid: "66160281"
     ![VM başlatılıyor](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
 5. Sanal Makinenin önyükleme işlemi tamamlandıktan sonra **durumu** ardından döndürür *çalıştıran*, VM belirten başarıyla yeniden dağıtıldı:
    
-    ![VM çalışıyor](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
+    ![VM çalıştırma](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 

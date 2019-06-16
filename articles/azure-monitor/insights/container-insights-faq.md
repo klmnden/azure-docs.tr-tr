@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65780000"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure İzleyici kapsayıcılar hakkında sık sorulan sorular için
@@ -71,7 +71,7 @@ Sorunun ayrıntılı bilgi için aşağıdakileri gözden geçirin [github bağl
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Ben Canlı günlükler etkinleştirdiğinizde, Azure AD hataları nasıl giderebilirim? 
 
-Şu hatayı görebilirsiniz: **Yanıt URL'si istekte belirtilen uygulama için yapılandırılan yanıt URL'lerinden eşleşmiyor: ' < Uygulama Kimliği\>'**. Bunu çözmek için çözüm makalesinde bulunabilir [kapsayıcılar için Azure İzleyici ile kapsayıcı günlükleri gerçek zamanlı görüntüleme](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+Şu hatayı görebilirsiniz: **Yanıt URL'si istekte belirtilen uygulama için yapılandırılan yanıt URL'lerinden eşleşmiyor: ' < Uygulama Kimliği\>'** . Bunu çözmek için çözüm makalesinde bulunabilir [kapsayıcılar için Azure İzleyici ile kapsayıcı günlükleri gerçek zamanlı görüntüleme](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Neden ı ekledikten sonra küme yükseltemiyorum?
 

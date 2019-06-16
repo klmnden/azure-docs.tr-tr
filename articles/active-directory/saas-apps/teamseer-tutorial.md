@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: ef11011ec37f72003dd6c238ce748d417bfcd505
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e505e4823db8c9f42bbff216f30326081110dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60315921"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088974"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Öğretici: TeamSeer ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de TeamSeer tümleştirmesini yapılandırmak için TeamSeer Galeriden 
 
 **Galeriden TeamSeer eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 7082ebc4ca3066f84ca9790797cfa04e437f78a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626188"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Başvuru - iletişim protokolü seçme
@@ -29,7 +29,7 @@ Bu protokollerin belirli IOT hub'ı özelliklerinden nasıl desteklediği hakkı
 
 Aşağıdaki tabloda, Protokolü seçiminize yönelik üst düzey öneriler verilmiştir:
 
-| Protokol | Bu protokol seçtiğinizde |
+| Protocol | Bu protokol seçtiğinizde |
 | --- | --- |
 | MQTT <br> WebSocket üzerinden MQTT |Birden çok (her biri kendi cihaz başına kimlik bilgilerini) aynı TLS bağlantısı üzerinden bağlıyorsunuz gerekmez, tüm cihazlarda kullanın. |
 | AMQP <br> WebSocket üzerinden AMQP |Cihaz üzerinden çoğullama bağlantı yararlanmak için alan ve bulut ağ geçidi'ni kullanın. |
@@ -54,7 +54,7 @@ Aygıt tarafı iletişimleri protokolünüzü seçtiğinizde aşağıdaki noktal
 
 Cihazlar, çeşitli protokoller kullanarak Azure IOT Hub ile iletişim kurabilir. Genellikle, Protokol seçimi belirli gereksinimlerine çözüm tarafından yönetilir. Aşağıdaki tabloda, bir cihazın belirli bir protokol kullanabilmek için açık olmalıdır giden bağlantı noktaları listelenmektedir:
 
-| Protokol | Bağlantı noktası |
+| Protocol | Port |
 | --- | --- |
 | MQTT |8883 |
 | WebSockets üzerinden MQTT |443 |

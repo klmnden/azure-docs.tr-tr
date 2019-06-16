@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4dbbaeea736dd46478ad9992201ea28bd7bfc2ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457847"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Dağıtma ve PowerShell kullanarak notification hubs'ı yönetme
@@ -28,7 +28,7 @@ ms.locfileid: "61457847"
 Bu makale oluşturma ve yönetme Azure PowerShell kullanarak Notification Hubs nasıl kullanılacağını gösterir. Bu makalede aşağıdaki genel otomasyon görevleri gösterilmektedir.
 
 - Bildirim hub'ı oluşturma
-- Kimlik Bilgilerini Ayarla
+- Kimlik bilgilerini ayarla
 
 Ayrıca, bildirim hub'ları için yeni bir service bus ad alanı oluşturmak ihtiyacınız varsa bkz [PowerShell ile Service Bus'ı yönetme](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
 

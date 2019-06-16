@@ -14,10 +14,10 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1130885cc3168582935264ffaad9fd7a8ba3c60b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64920255"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Azure Active Directory'de LinkedIn hesabı bağlantıları tümleştirin
@@ -96,7 +96,7 @@ Azure AD Yönetim merkezinde ayarı LinkedIn hesabı bağlantıları seçili gru
 1. Aşağıdaki ayarlarla bir Grup İlkesi nesnesi oluşturun: **Kullanıcı Yapılandırması** > **Yönetim Şablonları** > **Microsoft Office 2016** > **çeşitli**  >  **Göster LinkedIn özellikleri Office uygulamalarında**.
 1. Seçin **etkin** veya **devre dışı bırakılmış**.
   
-   Durum | Etki
+   Eyalet | Etki
    ------ | ------
    **Etkin** | **Göster LinkedIn özellikleri Office uygulamalarında** Office 2016 seçeneklerinde seçeneği etkinleştirilmiştir. Kuruluşunuzdaki kullanıcılar, Office 2016 uygulamalarında LinkedIn özelliklerini kullanabilirsiniz.
    **Devre dışı** | **Göster LinkedIn özellikleri Office uygulamalarında** Office 2016 seçenekleri ayarı devre dışı bırakıldı ve son kullanıcılar, bu ayar değiştirilemez. Kuruluşunuzdaki kullanıcılar, Office 2016 uygulamalarında LinkedIn özellikleri kullanamaz.

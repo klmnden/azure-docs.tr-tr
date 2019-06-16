@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4f8fd0b317c17f142664d22291c23442dd49f970
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60898925"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053298"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights dışa aktarma veri modeli
 Bu tabloda gönderilen telemetri özelliklerinin [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK'ları portalı.
@@ -114,7 +114,7 @@ Dikkat edilecek noktalar:
 ## <a name="context"></a>Bağlam
 Tüm telemetri türlerini içerik bölümü tarafından yayımlanır. Tüm bu alanlar her veri noktası ile aktarılır.
 
-| Yol | Tür | Notlar |
+| `Path` | Tür | Notlar |
 | --- | --- | --- |
 | context.custom.dimensions [0] |Nesne] |Anahtar-değer çiftleri özel özellikler parametresiyle ayarlayın. Anahtar uzunluğu en fazla 100, en fazla uzunluğu 1024 değerleri. 100'den fazla benzersiz değerleri özelliği aranabilir ancak segmentlere ayırma için kullanılamaz. İkey başına en fazla 200 anahtarları. |
 | Context.Custom.Metrics [0] |Nesne] |Anahtar-değer çiftleri özel ölçümleri parametresi ve TrackMetrics göre ayarlayın. Anahtar en büyük uzunluğunu 100, sayısal değerler olabilir. |
@@ -158,10 +158,10 @@ Tüm telemetri türlerini içerik bölümü tarafından yayımlanır. Tüm bu al
 | internal.data.documentVersion |string | |
 | internal.Data.id |string | Bir öğe alınan zaman Application Insights'a atanan benzersiz kimliği |
 
-## <a name="events"></a>Olaylar
+## <a name="events"></a>Events
 Tarafından oluşturulan özel olaylar [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
-| Yol | Tür | Notlar |
+| `Path` | Tür | Notlar |
 | --- | --- | --- |
 | [0] olay sayısı |integer |100 / ([örnekleme](../../azure-monitor/app/sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
 | [0] olay adı |string |Olay adı.  Maks. uzunluk 250. |
@@ -172,7 +172,7 @@ Tarafından oluşturulan özel olaylar [TrackEvent()](../../azure-monitor/app/ap
 ## <a name="exceptions"></a>Özel durumlar
 Raporları [özel durumları](../../azure-monitor/app/asp-net-exceptions.md) sunucunun ve tarayıcı.
 
-| Yol | Tür | Notlar |
+| `Path` | Tür | Notlar |
 | --- | --- | --- |
 | basicException [0] derlemesi |string | |
 | [0] basicException sayısı |integer |100 / ([örnekleme](../../azure-monitor/app/sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
@@ -198,10 +198,10 @@ Raporları [özel durumları](../../azure-monitor/app/asp-net-exceptions.md) sun
 | [0] basicException yığını |string |En çok 10k |
 | typeName basicException [0] |string | |
 
-## <a name="trace-messages"></a>İzleme İletileri
+## <a name="trace-messages"></a>İzleme iletileri
 Tarafından gönderilen [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)ve bunun [günlük bağdaştırıcıları](../../azure-monitor/app/asp-net-trace-logs.md).
 
-| Yol | Tür | Notlar |
+| `Path` | Tür | Notlar |
 | --- | --- | --- |
 | ileti [0] GünlükçüAdı |string | |
 | [0] ileti parametreleri |string | |
@@ -211,7 +211,7 @@ Tarafından gönderilen [TrackTrace](../../azure-monitor/app/api-custom-events-m
 ## <a name="remote-dependency"></a>Uzak bağımlılık
 TrackDependency tarafından gönderilir. Rapor performansını ve kullanımını için kullanılan [bağımlılıklara yapılan çağrıları](../../azure-monitor/app/asp-net-dependencies.md) sunucu ve tarayıcıda AJAX çağrıları.
 
-| Yol | Tür | Notlar |
+| `Path` | Tür | Notlar |
 | --- | --- | --- |
 | [0] remoteDependency zaman uyumsuz |boole | |
 | [0] remoteDependency baseName |string | |
@@ -232,7 +232,7 @@ TrackDependency tarafından gönderilir. Rapor performansını ve kullanımını
 ## <a name="requests"></a>İstekler
 Tarafından gönderilen [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Standart modülleri bu sunucuda ölçülen raporları sunucu yanıt süresi için kullanın.
 
-| Yol | Tür | Notlar |
+| `Path` | Tür | Notlar |
 | --- | --- | --- |
 | [0] istek sayısı |integer |100 / ([örnekleme](../../azure-monitor/app/sampling.md) oranı). Örneğin: 4 =&gt; 25%. |
 | İstek [0] durationMetric.value |number |İstekten gelen yanıt süresi. 1e7 1s == |
@@ -250,7 +250,7 @@ Tarayıcı tarafından gönderilir. Bir sayfadan (zaman uyumsuz AJAX çağrılar
 
 Bağlam değerleri, istemci işletim sistemi ve tarayıcı sürümü gösterir.
 
-| Yol | Tür | Notlar |
+| `Path` | Tür | Notlar |
 | --- | --- | --- |
 | [0] clientPerformance clientProcess.value |integer |Son sayfa görüntüleme için HTML alma süresi. |
 | [0] clientPerformance adı |string | |
@@ -264,10 +264,10 @@ Bağlam değerleri, istemci işletim sistemi ve tarayıcı sürümü gösterir.
 | clientPerformance [0] urlData.host |string | |
 | [0] clientPerformance urlData.protocol |string | |
 
-## <a name="page-views"></a>Sayfa Görüntülemeleri
+## <a name="page-views"></a>Sayfa görüntülemeleri
 TrackPageView() tarafından gönderilen veya [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
 
-| Yol | Tür | Notlar |
+| `Path` | Tür | Notlar |
 | --- | --- | --- |
 | [0] görüntüleme sayısı |integer |100 / ([örnekleme](../../azure-monitor/app/sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
 | [0] durationMetric.value görüntüleyin |integer |Değeri trackPageView() veya startTrackPage() - isteğe bağlı olarak ayarlanmış stopTrackPage(). Aynı clientPerformance değerleri. |
@@ -280,7 +280,7 @@ TrackPageView() tarafından gönderilen veya [stopTrackPage](../../azure-monitor
 ## <a name="availability"></a>Kullanılabilirlik
 Raporları [kullanılabilirlik web testleri](../../azure-monitor/app/monitor-web-app-availability.md).
 
-| Yol | Tür | Notlar |
+| `Path` | Tür | Notlar |
 | --- | --- | --- |
 | Kullanılabilirlik [0] availabilityMetric.name |string |availability |
 | Kullanılabilirlik [0] availabilityMetric.value |number |1.0 ya da 0.0 |

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.openlocfilehash: 26ddb0cdd2728f9dff5d45494a14841cdc1a20cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922877"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Configuration Manager'a bağlanmak için Azure İzleyici
@@ -27,7 +27,7 @@ System Center Configuration Manager ortamınızı Azure İzleyici eşitleme ciha
 
 Azure İzleyici, System Center Configuration Manager geçerli dal sürümü 1606 ve üstünü destekler.  
 
-## <a name="configuration-overview"></a>Yapılandırmaya genel bakış
+## <a name="configuration-overview"></a>Yapılandırmasına genel bakış
 Aşağıdaki adımlar, Azure İzleyici ile Configuration Manager tümleştirmesini yapılandırma adımlarını özetler.  
 
 1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydetmek ve istemci Kimliğini ve istemci gizli anahtarını kaydı Azure Active Directory'den olduğundan emin olun. Bkz: [Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma](../../active-directory/develop/howto-create-service-principal-portal.md) bu adımı tamamlamak hakkında ayrıntılı bilgi için.
@@ -49,7 +49,7 @@ Aşağıdaki yordamda vermesi *katkıda bulunan* Log Analytics çalışma alanı
 
 1. Azure portalının sol alt köşesinde bulunan **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 2. Log Analytics çalışma alanlarınızın listesinde değiştirmek için çalışma alanı seçin.
-3. Sol bölmeden **erişim denetimi (IAM)**.
+3. Sol bölmeden **erişim denetimi (IAM)** .
 4. Erişim denetimi (IAM) sayfası, tıklayın **rol ataması Ekle** ve **rol ataması Ekle** bölmesi görünür.
 5. İçinde **rol ataması Ekle** bölmesi altında **rol** açılan listesini seçin **katkıda bulunan** rol.  
 6. Altında **erişim Ata** aşağı açılan listesinde, AD'de daha önce oluşturduğunuz Configuration Manager uygulaması'nı seçin ve ardından **Tamam**.  

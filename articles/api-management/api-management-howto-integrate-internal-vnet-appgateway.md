@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
 ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141660"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API yönetimi bir iç sanal ağ'ı Application Gateway ile tümleştirme
@@ -88,7 +88,7 @@ Bu kılavuzda biz de açığa çıkarır **Geliştirici Portalı** uygulama ağ 
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager için kaynak grubu oluşturun
 
-### <a name="step-1"></a>Adım 1
+### <a name="step-1"></a>1\. Adım
 
 Azure'da oturum açma
 
@@ -98,7 +98,7 @@ Connect-AzAccount
 
 Kimlik bilgilerinizle kimliğinizi.
 
-### <a name="step-2"></a>Adım 2
+### <a name="step-2"></a>2\. Adım
 
 İstediğiniz aboneliği seçin.
 
@@ -107,7 +107,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000" # GUID of your Azure su
 Get-AzSubscription -Subscriptionid $subscriptionId | Select-AzSubscription
 ```
 
-### <a name="step-3"></a>Adım 3
+### <a name="step-3"></a>3\. Adım
 
 Bir kaynak grubu oluşturun (mevcut bir kaynak grubu kullanıyorsanız bu adımı atlayın).
 
@@ -123,15 +123,15 @@ Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerekti
 
 Aşağıdaki örnek, kaynak kullanarak sanal bir ağ yöneticisi oluşturma işlemi gösterilmektedir.
 
-### <a name="step-1"></a>Adım 1
+### <a name="step-1"></a>1\. Adım
 
-10.0.0.0/24 adres aralığını, sanal ağ oluşturulurken Application Gateway için kullanılacak alt ağ değişkenine atayın.
+10\.0.0.0/24 adres aralığını, sanal ağ oluşturulurken Application Gateway için kullanılacak alt ağ değişkenine atayın.
 
 ```powershell
 $appgatewaysubnet = New-AzVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
 ```
 
-### <a name="step-2"></a>Adım 2
+### <a name="step-2"></a>2\. Adım
 
 Adres aralığı 10.0.1.0/24 bir sanal ağ oluşturulurken API yönetimi için kullanılacak alt ağ değişkenine atayın.
 
@@ -139,7 +139,7 @@ Adres aralığı 10.0.1.0/24 bir sanal ağ oluşturulurken API yönetimi için k
 $apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
 ```
 
-### <a name="step-3"></a>Adım 3
+### <a name="step-3"></a>3\. Adım
 
 Adlı bir sanal ağ oluşturma **appgwvnet** kaynak grubundaki **apim-appGw-RG** Batı ABD bölgesi için. Önek 10.0.0.0/16 kullanın 10.0.0.0/24 alt ağlar ve 10.0.1.0/24.
 
@@ -147,7 +147,7 @@ Adlı bir sanal ağ oluşturma **appgwvnet** kaynak grubundaki **apim-appGw-RG**
 $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
 ```
 
-### <a name="step-4"></a>4. Adım
+### <a name="step-4"></a>4\. Adım
 
 Sonraki adımlar için alt ağ değişkenine atayın
 
@@ -160,7 +160,7 @@ $apimsubnetdata = $vnet.Subnets[1]
 
 Aşağıdaki örnek, bir API Management hizmeti yalnızca iç erişimi için yapılandırılmış bir sanal ağ oluşturma işlemi gösterilmektedir.
 
-### <a name="step-1"></a>Adım 1
+### <a name="step-1"></a>1\. Adım
 
 Yukarıda oluşturulan $apimsubnetdata alt ağı kullanarak bir API Yönetim sanal ağ nesnesi oluşturun.
 
@@ -168,7 +168,7 @@ Yukarıda oluşturulan $apimsubnetdata alt ağı kullanarak bir API Yönetim san
 $apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
 ```
 
-### <a name="step-2"></a>Adım 2
+### <a name="step-2"></a>2\. Adım
 
 Sanal ağ içinde bir API Management hizmeti oluşturun.
 
@@ -183,7 +183,7 @@ Yukarıdaki komut başarılı olduktan sonra başvurmak [DNS yapılandırması g
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>API Management özel etki alanı Kurulumu
 
-### <a name="step-1"></a>Adım 1
+### <a name="step-1"></a>1\. Adım
 
 Etki alanları için özel anahtarları olan sertifikaları, ayrıntılarla aşağıdaki değişkenleri başlatır. Bu örnekte, kullanacağız `api.contoso.net` ve `portal.contoso.net`.  
 
@@ -200,7 +200,7 @@ $certPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -
 $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
 ```
 
-### <a name="step-2"></a>Adım 2
+### <a name="step-2"></a>2\. Adım
 
 Oluşturun ve ana bilgisayar yapılandırma nesnelerini proxy için portalı için ayarlayın.  
 
@@ -227,7 +227,7 @@ Hizmet başlatıldığında uygulama ağ geçidine bir IP adresi atanır.
 
 Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturulmadan önce ayarlanmalıdır. Aşağıdaki adımlar uygulama ağ geçidi kaynağı için gerekli yapılandırma öğelerini oluşturur.
 
-### <a name="step-1"></a>Adım 1
+### <a name="step-1"></a>1\. Adım
 
 **gatewayIP01** adlı bir uygulama ağ geçidi IP yapılandırması oluşturun. Application Gateway başladığında, yapılandırılan alt ağdan bir IP adresi alır ve ağ trafiğini arka uç IP havuzundaki IP adreslerine yönlendirir. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
 
@@ -235,7 +235,7 @@ Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturulmadan önce ayarla
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
 ```
 
-### <a name="step-2"></a>Adım 2
+### <a name="step-2"></a>2\. Adım
 
 Genel IP uç noktası için ön uç IP bağlantı noktasını yapılandırın. Bu bağlantı noktası, son kullanıcılarının bağlantı noktasıdır.
 
@@ -243,7 +243,7 @@ Genel IP uç noktası için ön uç IP bağlantı noktasını yapılandırın. B
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 ```
 
-### <a name="step-3"></a>Adım 3
+### <a name="step-3"></a>3\. Adım
 
 Ön uç IP’sini genel IP uç noktası ile yapılandırın.
 
@@ -251,7 +251,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
 ```
 
-### <a name="step-4"></a>4. Adım
+### <a name="step-4"></a>4\. Adım
 
 Üzerinden geçen trafiğin yeniden şifrelemek ve şifresini çözmek için kullanılan Application Gateway için sertifikaları yapılandırın.
 
@@ -260,7 +260,7 @@ $cert = New-AzApplicationGatewaySslCertificate -Name "cert01" -CertificateFile $
 $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -CertificateFile $portalCertPfxPath -Password $certPortalPwd
 ```
 
-### <a name="step-5"></a>5. Adım
+### <a name="step-5"></a>5\. Adım
 
 HTTP dinleyicileri için uygulama ağ geçidi oluşturun. Ön uç IP yapılandırması, bağlantı noktası ve ssl sertifikaları atayabilirsiniz.
 
@@ -269,7 +269,7 @@ $listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "H
 $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $certPortal -HostName $portalHostname -RequireServerNameIndication true
 ```
 
-### <a name="step-6"></a>6. Adım
+### <a name="step-6"></a>6\. Adım
 
 API Management hizmeti için özel araştırmalara oluşturma `ContosoApi` proxy etki alanı uç noktası. Yolun `/status-0123456789abcdef` olan API Management services üzerinde barındırılan bir varsayılan sistem durumu uç nokta. Ayarlama `api.contoso.net` SSL sertifikası ile güvenli hale getirmek için bir özel araştırma konak adı olarak.
 
@@ -282,7 +282,7 @@ $apimprobe = New-AzApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protoco
 $apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/signin" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
 ```
 
-### <a name="step-7"></a>7. Adım
+### <a name="step-7"></a>7\. Adım
 
 SSL etkin arka uç havuzu kaynaklar üzerinde kullanılacak sertifikayı yükleyin. Bu, adım 4'te sağlanan aynı sertifikadır.
 
@@ -290,7 +290,7 @@ SSL etkin arka uç havuzu kaynaklar üzerinde kullanılacak sertifikayı yükley
 $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath
 ```
 
-### <a name="step-8"></a>8. Adım
+### <a name="step-8"></a>8\. Adım
 
 Application Gateway için HTTP arka uç ayarlarını yapılandırın. Bu bir sonra bunlar istek iptal edildi arka uç, zaman aşımı sınırını ayarlama içerir. Bu değer, yoklama zaman aşımı farklıdır.
 
@@ -299,7 +299,7 @@ $apimPoolSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolSe
 $apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolPortalSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimPortalProbe -AuthenticationCertificates $authcert -RequestTimeout 180
 ```
 
-### <a name="step-9"></a>9. Adım
+### <a name="step-9"></a>9\. Adım
 
 Adlı bir arka uç IP adresi havuzu yapılandırmak **apimbackend** iç sanal IP adresi API Management hizmetinin, yukarıda oluşturulan.
 
@@ -307,7 +307,7 @@ Adlı bir arka uç IP adresi havuzu yapılandırmak **apimbackend** iç sanal IP
 $apimProxyBackendPool = New-AzApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.PrivateIPAddresses[0]
 ```
 
-### <a name="step-10"></a>10. adım
+### <a name="step-10"></a>10\. adım
 
 Application Gateway, temel yönlendirmeyi kullanmak kurallar oluşturun.
 
@@ -319,7 +319,7 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Bas
 > [!TIP]
 > -Kural türü değiştirebilir ve geliştirici portalının belirli sayfalara erişimi kısıtlamak için yönlendirme.
 
-### <a name="step-11"></a>11. adım
+### <a name="step-11"></a>11\. adım
 
 Application Gateway için örnek sayısını ve boyutu yapılandırın. Bu örnekte, kullanıyoruz [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) API Management kaynağının güvenliği artırmak için.
 
@@ -327,7 +327,7 @@ Application Gateway için örnek sayısını ve boyutu yapılandırın. Bu örne
 $sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
 ```
 
-### <a name="step-12"></a>12. adım
+### <a name="step-12"></a>12\. adım
 
 WAF "Önleme" modunda olacak şekilde yapılandırın.
 

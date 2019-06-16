@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: kumud
 ms.openlocfilehash: 8c8fe6125d9c638fedadc3d299ff0ac0d601fd61
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685692"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Ağ İzleyicisi özellikleri kullanmak için gereken rol tabanlı erişim denetimi izinleri
@@ -48,7 +48,7 @@ Azure rol tabanlı erişim denetimi (RBAC), yalnızca belirli eylemler atanan so
 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Test sorgu sonuçlarının bir bağlantı sorunlarını giderme                |
 | Microsoft.Network/networkWatchers/troubleshoot/action               | Çalıştırma bağlantı testi sorunlarını giderme                             |
 
-## <a name="connection-monitor"></a>Bağlantı izleyicisi
+## <a name="connection-monitor"></a>Bağlantı İzleyicisi
 
 | Eylem                                                              | Ad                                                           |
 | ---------                                                           | -------------                                                  |

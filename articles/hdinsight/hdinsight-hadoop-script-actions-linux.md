@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687442"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight ile betik eylemi geliştirme
@@ -75,7 +75,7 @@ fi
 
 ### <a name="bps10"></a> Hedef işletim sistemi sürümü
 
-Linux tabanlı HDInsight, Ubuntu Linux dağıtımı temel alır. HDInsight'ın farklı sürümlerini, kodunuzu nasıl davranacağını değişebilir Ubuntu, farklı sürümlerinde kullanır. Örneğin, HDInsight 3.4 ve önceki Upstart kullanan Ubuntu sürümlerinde bağlıdır. 3.5 ve üzeri sürümleri kullanan Systemd Ubuntu 16.04 üzerinde temel alır. Betiğinizi ikisiyle iş yazılması gerektiğini şekilde Systemd ve Upstart farklı komutları kullanır.
+Linux tabanlı HDInsight, Ubuntu Linux dağıtımı temel alır. HDInsight'ın farklı sürümlerini, kodunuzu nasıl davranacağını değişebilir Ubuntu, farklı sürümlerinde kullanır. Örneğin, HDInsight 3.4 ve önceki Upstart kullanan Ubuntu sürümlerinde bağlıdır. 3\.5 ve üzeri sürümleri kullanan Systemd Ubuntu 16.04 üzerinde temel alır. Betiğinizi ikisiyle iş yazılması gerektiğini şekilde Systemd ve Upstart farklı komutları kullanır.
 
 HDInsight 3.4 ve 3.5 arasında başka bir önemli fark `JAVA_HOME` artık Java 8 işaret eder. Aşağıdaki kodu betik Ubuntu 14 ya da 16 üzerinde çalışıp çalışmadığı belirlenemedi gösterilmektedir:
 

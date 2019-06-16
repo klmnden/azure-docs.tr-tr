@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60314227"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Azure Logic Apps ile IBM DB2 kaynaklarını yönetme
@@ -42,12 +42,12 @@ IBM DB2 Bağlayıcısı bağlayıcı ilgili eylemler için harita veritabanı i�
 
 | Veritabanı işlemi | Bağlayıcı eylemi |
 |--------------------|------------------|
-| Liste veritabanı tabloları | Tabloları al |
-| SELECT kullanarak bir satırı okuyun | Satırı al |
-| Tüm Satırları Seç kullanarak okuma | Satırları al |
-| INSERT kullanarak bir satır Ekle | Satır ekle |
+| Liste veritabanı tabloları | Tabloları Al |
+| SELECT kullanarak bir satırı okuyun | Satırı Al |
+| Tüm Satırları Seç kullanarak okuma | Satırları Al |
+| INSERT kullanarak bir satır Ekle | Satır Ekle |
 | Güncelleştirme kullanarak bir satırı düzenleyin | Satırı güncelleştir |
-| DELETE kullanma bir satırı Kaldır | Satırı sil |
+| DELETE kullanma bir satırı Kaldır | Satırı Sil |
 |||
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -109,7 +109,7 @@ Bağlantınızı oluşturmadan önce zaten yüklü, şirket içi veri ağ geçid
 | **Bağlantı Adı** | Evet | Örneğin, "MyLogicApp-DB2-connection" bağlantınız için bir ad | 
 | **Sunucu** | Evet | DB2 sunucunuz, örneğin, "myDB2server:50000" için adres veya diğer adı iki nokta üst üste bağlantı noktası numarası <p><p>**Not**: Bu değer bir TCP/IP adresi temsil eden bir dize ya da IPv4 veya IPv6 biçiminde ya da diğer adını ardından bir iki nokta üst üste ve bir TCP/IP bağlantı noktası numarası. |
 | **Veritabanı** | Evet | Veritabanı adı <p><p>**Not**: Bir DRDA ilişkisel veritabanı adı (RDBNAM) temsil eden bir dize değeridir: <p>-DB2 z/OS için burada veritabanı bir "Z/OS için IBM DB2" konumu olarak bilinen bir 16 bayt dizesini kabul eder. <br>-DB2 i burada veritabanı olarak bilinen bir 18 bayt dizesini kabul eder için bir "için IBM DB2 miyim" ilişkisel veritabanı. <br>-LUW DB2 8 baytlık dizisi kabul eder. |
-| **Kimlik doğrulaması** | Evet | Bağlantınız için örneğin, "Temel" kimlik doğrulaması türü <p><p>**Not**: Bu değer, temel veya Windows (Kerberos) içeren listeden seçin. |
+| **Kimlik Doğrulaması** | Evet | Bağlantınız için örneğin, "Temel" kimlik doğrulaması türü <p><p>**Not**: Bu değer, temel veya Windows (Kerberos) içeren listeden seçin. |
 | **Kullanıcı Adı** | Evet | Veritabanı kullanıcı adı <p><p>**Not**: Bu değer, uzunluğu belirli bir veritabanını temel alan bir dizedir: <p><p>-Z/OS için DB2 8 baytlık dizisi kabul eder. <br>-DB2 için i bir 10 bayt dizesini kabul eder. <br>-Linux veya UNIX için DB2 8 baytlık dizisi kabul eder. <br>-Windows için DB2 30-bayt dizesini kabul eder. |
 | **Parola** | Evet | Veritabanı parolası |
 | **Ağ geçidi** | Evet | Yüklü şirket içi veri ağ geçidi adı <p><p>**Not**: Listeden Azure aboneliğinizi ve kaynak grubu içindeki tüm yüklenen veri ağ geçitlerini içerir. Bu değeri seçin. |
@@ -142,7 +142,7 @@ Genişletin **tabloları Al** eylem.
 
    ![Görünüm çıkış tabloları](./media/connectors-create-api-db2/db2-connector-get-tables-outputs.png)
 
-## <a name="get-row"></a>Satırı al
+## <a name="get-row"></a>Satırı Al
 
 Bir DB2 veritabanı tablosundaki tek bir kayıtta getirilecek kullanın **Get satır** mantıksal uygulamanızda eylem. Bu eylem bir DB2 çalıştırır `SELECT WHERE` deyimi, örneğin, `SELECT FROM AREA WHERE AREAID = '99999'`.
 
@@ -183,7 +183,7 @@ Genişletin **Get satır** eylem.
 
    ![Çıkış satır görünümü](./media/connectors-create-api-db2/db2-connector-get-row-outputs.png)
 
-## <a name="get-rows"></a>Satırları al
+## <a name="get-rows"></a>Satırları Al
 
 Bir DB2 veritabanı tablosundaki tüm kayıtlar getirilecek kullanın **satırları Al** mantıksal uygulamanızda eylem. Bu eylem bir DB2 çalıştırır `SELECT` deyimi, örneğin, `SELECT * FROM AREA`.
 
@@ -220,7 +220,7 @@ Genişletin **satırları Al** eylem.
 
    ![Çıktı satırları görüntüleyin](./media/connectors-create-api-db2/db2-connector-get-rows-outputs.png)
 
-## <a name="insert-row"></a>Satır ekle
+## <a name="insert-row"></a>Satır Ekle
 
 DB2 veritabanından tek bir kayıt eklemek için **Satır Ekle** mantıksal uygulamanızda eylem. Bu eylem bir DB2 çalıştırır `INSERT` deyimi, örneğin, `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
@@ -315,7 +315,7 @@ Genişletin **satırı Güncelleştir** eylem.
 
    ![Güncelleştirilen satır görünümü çıkış](./media/connectors-create-api-db2/db2-connector-update-row-outputs.png)
 
-## <a name="delete-row"></a>Satırı sil
+## <a name="delete-row"></a>Satırı Sil
 
 DB2 veritabanı tablosundan tek bir kaydı silmek için kullanın **Satır Sil** mantıksal uygulamanızda eylem. Bu eylem bir DB2 çalıştırır `DELETE` deyimi, örneğin, `DELETE FROM AREA WHERE AREAID = '99999'`.
 

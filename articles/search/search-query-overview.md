@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595970"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search'te bir sorgu oluşturmak nasıl
@@ -51,7 +51,7 @@ Aşağıdaki tabloda sorguları gönderme aracı tabanlı yaklaşımlar ve API'l
 
 + **`queryType`** Azure Search'te olabilir ve Ayrıştırıcıyı ayarlar [varsayılan Basit Sorgu ayrıştırıcı](search-query-simple-examples.md) (tam metin araması için ideal), veya [tam Lucene sorgu ayrıştırıcısına](search-query-lucene-examples.md) normal ifadeler gibi gelişmiş sorgu yapıları için kullanılan , yakınlık araması, belirsiz ve joker karakter search.
 
-+ **`search`** eşleşme ölçütlerini, genellikle metnin genellikle eşlik Boole işleçleri tarafından sağlar. Tek tek başına koşulları *terimi* sorgular. Tırnak işareti içine alınmış çok parçalı sorgular *anahtar tümcecik* sorgular. Arama olarak tanımlanmamış olabilir **`search=*`**, ancak büyük olasılıkla koşulları, ifadeler ve işleçler örnekte görünen ne benzer oluşur.
++ **`search`** eşleşme ölçütlerini, genellikle metnin genellikle eşlik Boole işleçleri tarafından sağlar. Tek tek başına koşulları *terimi* sorgular. Tırnak işareti içine alınmış çok parçalı sorgular *anahtar tümcecik* sorgular. Arama olarak tanımlanmamış olabilir **`search=*`** , ancak büyük olasılıkla koşulları, ifadeler ve işleçler örnekte görünen ne benzer oluşur.
 
 + **`searchFields`** sorgu yürütme belirli alanlarla sınırlandırmak için isteğe bağlı, kullanılır.
 
@@ -86,8 +86,8 @@ Gerekli bir sorgu isteği öğelerinde bulunan aşağıdaki bileşenleri içerir
 
 + Sabit ve kullanıcı tanımlı bileşenlerini içeren bir URL ifade edilen hizmet uç noktası ve dizin belge koleksiyonu: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (Yalnızca REST) API'ın birden fazla sürümü her zaman kullanılabilir olduğu için gereklidir. 
-+ **`api-key`**, bir sorgu veya yönetici api anahtarını hizmetiniz için istek kimliğini doğrular.
-+ **`queryType`**, basit veya tam yerleşik varsayılan basit söz dizimi kullanılıyorsa, atlanabilir.
++ **`api-key`** , bir sorgu veya yönetici api anahtarını hizmetiniz için istek kimliğini doğrular.
++ **`queryType`** , basit veya tam yerleşik varsayılan basit söz dizimi kullanılıyorsa, atlanabilir.
 + **`search`** veya **`filter`** eşleşme ölçütlerini boş bir arama gerçekleştirmek istiyorsanız, belirtilmemiş olabilen sağlar. Her iki sorgu türleri basit ayrıştırıcının açısından ele alınmıştır, ancak daha gelişmiş sorgular, karmaşık sorgu ifadeleri geçirmek için arama parametresi gerektirir.
 
 Diğer tüm arama parametreleri isteğe bağlıdır. Öznitelikleri tam listesi için bkz. [dizin oluşturma (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). İşleme sırasında parametre nasıl kullanıldığı bir daha yakından bakış için bkz: [Azure Search'te tam metin araması nasıl çalışır](search-lucene-query-architecture.md).
@@ -160,7 +160,7 @@ Azure Search arama puanı dışında bir değere göre sıralı kullanabileceği
 
 
 ### <a name="hit-highlighting"></a>İsabet vurgulama
-Azure Search'te arama sonuçlarının arama sorgusuyla eşleşen tam bölümü vurgulama kullanarak kolaylaştırılmıştır **`highlight`**, **`highlightPreTag`**, ve **`highlightPostTag`** parametreleri. Hangi *aranabilir* alanların eşleşen metninin vurgulanacağının yanı sıra Azure Search'ün döndürdüğü eşleşen metnin başına ve sonuna eklenecek dize etiketlerini tam olarak belirtebilirsiniz.
+Azure Search'te arama sonuçlarının arama sorgusuyla eşleşen tam bölümü vurgulama kullanarak kolaylaştırılmıştır **`highlight`** , **`highlightPreTag`** , ve **`highlightPostTag`** parametreleri. Hangi *aranabilir* alanların eşleşen metninin vurgulanacağının yanı sıra Azure Search'ün döndürdüğü eşleşen metnin başına ve sonuna eklenecek dize etiketlerini tam olarak belirtebilirsiniz.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

@@ -12,10 +12,10 @@ ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
 ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232639"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Görüntü işleme özelliklerini REST API ve Java ile kullanma
@@ -63,8 +63,8 @@ NetBeans, .zip dosyasından projeyi içeri aktardığından, .zip dosyasının i
 1. NetBeans’te **Dosya** > **Projeyi İçeri Aktar** > **ZIP’ten...** seçeneklerine tıklayın. **ZIP’ten Projeleri İçeri Aktar** iletişim kutusu görüntülenir.
 1. **ZIP Dosyası:** alanında **Gözat** düğmesine tıklayarak **cognitive-services-java-computer-vision-tutorial-master.zip** dosyasını bulun ve **Aç**’a tıklayın.
 1. **ZIP’ten Projeleri İçeri Aktar** iletişim kutusundan **İçeri Aktar**’a tıklayın.
-1. **Projeler** panelinde **ComputerVision** > **Kaynak Paketleri** > **&lt;varsayılan paket&gt;** seçeneklerini genişletin. 
-   Bazı NetBeans sürümleri, **Kaynak Paketleri** > **&lt;varsayılan paket&gt;** yerine **src** öğesini kullanır. Bu durumda, **src** öğesini genişletin.
+1. **Projeler** panelinde **ComputerVision** > **Kaynak Paketleri** >  **&lt;varsayılan paket&gt;** seçeneklerini genişletin. 
+   Bazı NetBeans sürümleri, **Kaynak Paketleri** >  **&lt;varsayılan paket&gt;** yerine **src** öğesini kullanır. Bu durumda, **src** öğesini genişletin.
 1. **MainFrame.java** seçeneğine çift tıklayarak dosyayı NetBeans düzenleyiciye yükleyin. **MainFrame.java** dosyasının **Tasarım** sekmesi görüntülenir.
 1. Java kaynak kodunu görüntülemek için **Kaynak** sekmesine tıklayın.
 

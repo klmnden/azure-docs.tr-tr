@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65916882"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Özel ayırma ilkelerini kullanma
@@ -102,7 +102,7 @@ Bu bölümde, özel ayırma ilkesini kullanan yeni bir kayıt grubu oluşturur. 
 
     **Anahtarları otomatik olarak oluştur**: Bu onay kutusu zaten işaretlenmelidir.
 
-    **Hub'lara cihazları atamak istediğiniz seçin**: Seçin **özel (Azure işlevi kullanın)**.
+    **Hub'lara cihazları atamak istediğiniz seçin**: Seçin **özel (Azure işlevi kullanın)** .
 
     ![Simetrik anahtar kanıtı için özel ayırma kayıt grubu Ekle](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -511,7 +511,7 @@ Aşağıdaki tabloda, beklenen senaryoları ve karşılaşabileceğiniz sonuçla
 | Web kancası 200 Tamam 'geçerli bir IOT hub konak adına ayarlayın iotHubHostName' döndürür | Sonuç durumu: Atanan  | SDK'sı PROV_DEVICE_RESULT_OK yanı sıra hub bilgilerini döndürür. |
 | Web kancası 200 Tamam 'iotHubHostName' yanıtta sunmak, ancak bir boş dize veya null döndürür. | Sonuç durumu: Başarısız<br><br> Hata kodu: CustomAllocationIotHubNotSpecified (400208) | SDK'sı PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED döndürür |
 | Web kancası 401 Yetkisiz döndürür | Sonuç durumu: Başarısız<br><br>Hata kodu: CustomAllocationUnauthorizedAccess (400209) | SDK returns PROV_DEVICE_RESULT_UNAUTHORIZED |
-| Cihaz devre dışı bırakmak için bireysel kayıt oluşturuldu | Sonuç durumu: Devre Dışı Bırakıldı | SDK'sı PROV_DEVICE_RESULT_DISABLED döndürür |
+| Cihaz devre dışı bırakmak için bireysel kayıt oluşturuldu | Sonuç durumu: Devre dışı | SDK'sı PROV_DEVICE_RESULT_DISABLED döndürür |
 | Web kancası hata kodu döndürür > 429 = | DPS düzenleme için birkaç kez yeniden deneyecek. Yeniden deneme ilkesi şu anda şöyledir:<br><br>&nbsp;&nbsp;-Yeniden deneme sayısı: 10<br>&nbsp;&nbsp;-Başlangıç aralığı: 1s<br>&nbsp;&nbsp;-Artış: 9s | SDK'sı hatasını görmezden Gel ve belirtilen süre içinde başka bir get durum iletisi gönderin |
 | Web kancası herhangi bir durum kodu döndürür. | Sonuç durumu: Başarısız<br><br>Hata kodu: CustomAllocationFailed (400207) | SDK'sı PROV_DEVICE_RESULT_DEV_AUTH_ERROR döndürür |
 

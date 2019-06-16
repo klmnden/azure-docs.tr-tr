@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900265"
 ---
 # <a name="using-search-in-application-insights"></a>Uygulama anlayışları'nda arama kullanma
@@ -114,7 +114,7 @@ Arama için tam sözcük, alt dizeler değil. Özel karakterleri için tırnak i
 
 | string | olan *değil* tarafından bulunamadı | ancak bunlar Bul |
 | --- | --- | --- |
-| HomeController.About |giriş sayfası<br/>Denetleyici<br/>Çıkış | homecontroller<br/>hakkında<br/>"homecontroller.about"|
+| HomeController.About |Giriş<br/>Denetleyici<br/>Çıkış | homecontroller<br/>hakkında<br/>"homecontroller.about"|
 |Amerika Birleşik Devletleri|UNI<br/>ted|Birleşik<br/>durumları<br/>VE Birleşik Devletleri<br/>"ABD"
 
 Kullanabileceğiniz arama ifadeleri şunlardır:
@@ -131,7 +131,7 @@ Uygulamanız çok sayıda telemetri oluşturuyorsa (ve ASP.NET SDK sürüm 2.0.0
 
 [Örnekleme hakkında bilgi edinin](../../azure-monitor/app/sampling.md).
 
-## <a name="create-work-item"></a>İş öğesi oluştur
+## <a name="create-work-item"></a>İş öğesi oluşturma
 Tüm telemetri öğesinin Ayrıntıları ile GitHub ya da Azure DevOps bir hata oluşturabilirsiniz. 
 
 ![Yeni iş öğesini, alanları düzenleyin ve sonra Tamam'a tıklayın.](./media/diagnostic-search/42.png)

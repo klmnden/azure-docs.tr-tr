@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61464955"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>.NET ile Azure Media Services telemetri yapılandırma 
@@ -32,7 +32,7 @@ Telemetri verileri aşağıdaki yollardan birini kullanabilir:
 
 - Verileri doğrudan Azure tablo depolama (örneğin, depolama SDK'sını kullanarak) okuyabilir. Telemetri depolama tabloları açıklaması için bkz: **telemetri bilgilerini kullanan** içinde [bu](https://msdn.microsoft.com/library/mt742089.aspx) makalesi.
 
-Veya
+Or
 
 - Destek, Media Services .NET SDK depolama veri okumak için kullanın. Bu makalede, belirtilen bir AMS hesabının için telemetri etkinleştirme ve nasıl Azure Media Services .NET SDK kullanarak ölçümlerin sorgulanacağı gösterilmektedir.  
 

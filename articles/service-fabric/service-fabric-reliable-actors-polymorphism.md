@@ -15,21 +15,21 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: c14b3006184f7bd6dcd1eb67be11bd0214957d72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725508"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Reliable Actors Framework çok biçimlilik
 Reliable Actors framework birçok nesne yönelimli tasarım kullanacağınız aynı teknikleri kullanarak aktörler oluşturmanıza olanak tanır. Bu teknikler biri türlerine izin verir ve daha birçok devralmak için arabirimleri çok biçimlilik üst genelleştirilmiş. Reliable Actors Framework'te devralma genellikle birkaç ek kısıtlamalar ile .NET modelini izler. Java/Linux olması durumunda, Java modelini izler.
 
-## <a name="interfaces"></a>Arabirimler
+## <a name="interfaces"></a>Arabirimleri
 Reliable Actors framework tarafından aktör türünüzün uygulanacak en az bir arabirim tanımlamanızı gerektirir. Bu arabirim, aktör ile iletişim kurmak için istemciler tarafından kullanılan bir proxy sınıfı oluşturmak için kullanılır. Arabirimleri IActor sonuçta bir aktör türü tarafından uygulanan her arabirim ve tüm üst öğelerinden türetilen sürece diğer arabirimlerinden devralır (C#) veya Actor(Java). IActor (C#) ve Actor(Java) .NET ve Java'dan çerçeveleri düzenindeki aktörler için platform tanımlı temel arabirimleri sırasıyla. Bu nedenle, Şekil kullanarak Klasik çok biçimlilik örnek şuna benzeyebilir:
 
 ![Şekil aktörler için hiyerarşi arabirimi][shapes-interface-hierarchy]
 
-## <a name="types"></a>Türler
+## <a name="types"></a>Türleri
 Ayrıca platform tarafından sağlanan temel aktör sınıftan türetilen aktör türlerin hiyerarşisi oluşturabilirsiniz. Şekiller söz konusu olduğunda, bir taban sahip olabileceğiniz `Shape`(C#) veya `ShapeImpl`(Java) türü:
 
 ```csharp

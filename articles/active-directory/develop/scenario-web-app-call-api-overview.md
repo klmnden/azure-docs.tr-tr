@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce45f11a697b72ebdd0fe01166a70e7b47aa8e9f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65076308"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>Senaryo: Web uygulaması web API'leri çağrıları
+# <a name="scenario-web-app-that-calls-web-apis"></a>Senaryo: Web API'lerini çağıran web uygulaması
 
 Bir web uygulaması Microsoft kimlik platformu üzerinde oturum açma kullanıcı oluşturmayı öğrenin ve web API'leri oturum açmış kullanıcının adına çağırır.
 
@@ -39,7 +39,7 @@ Bu senaryo, aşağıdaki senaryoyu adım incelediğinize supposes:
 
 Bu nedenle kullanıcılar oturum açabilir ve oturum açmış kullanıcı adına bir web API'si çağıran Web uygulamanıza, kimlik doğrulaması ekleyin.
 
-![Web uygulaması web API'leri çağrıları](./media/scenario-webapp/web-app.svg)
+![Web API'lerini çağıran web uygulaması](./media/scenario-webapp/web-app.svg)
 
 Web API'leri çağıran web uygulamaları:
 

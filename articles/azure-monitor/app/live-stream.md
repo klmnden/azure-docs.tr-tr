@@ -14,10 +14,10 @@ ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721081"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri Stream: İzleme ve tanılama 1 saniyelik gecikme süresi
@@ -65,7 +65,7 @@ Denetleme [Canlı ölçümleri Stream için giden bağlantı noktalarının](../
 |Gecikme süresi|Bir saniye içinde görüntülenen verileri|Dakika boyunca toplanır.|
 |Hiçbir bekletme|Grafik üzerinde olduğundan ve ardından atılır ancak veri devam ettirir.|[Veriler 90 gün boyunca saklanır.](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |İsteğe bağlı|Canlı ölçümler açarken veriler akışla|SDK'ın yüklü ve etkin olduğunda, veriler gönderilir|
-|Ücretsiz|Canlı Stream veri için ücret alınmaz|Konusu [fiyatlandırması](../../azure-monitor/app/pricing.md)
+|Boş|Canlı Stream veri için ücret alınmaz|Konusu [fiyatlandırması](../../azure-monitor/app/pricing.md)
 |Örnekleme|Tüm seçili ölçümlerini ve sayaçlarını aktarılır. Hataları ve Yığın izlemeleri örneklenir. TelemetryProcessors uygulanmaz.|Olayları olabilir [örneklenir](../../azure-monitor/app/api-filtering-sampling.md)|
 |Denetim kanalı|Filtre denetimi sinyalleri için SDK'sı gönderilir. Bu kanal güvenli öneririz.|Portala tek yönlü iletişim|
 

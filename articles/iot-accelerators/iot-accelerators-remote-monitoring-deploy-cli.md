@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447021"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI kullanarak Uzaktan izleme çözüm Hızlandırıcısını dağıtma
@@ -23,7 +23,7 @@ Bu nasıl yapılır kılavuzunda, Uzaktan izleme çözüm Hızlandırıcısını
 
 Uzaktan izleme çözüm Hızlandırıcısını dağıtma için bir etkin Azure aboneliği gerekir.
 
-Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 CLI'yı çalıştırmak için ihtiyacınız [Node.js](https://nodejs.org/) yerel makinenizde yüklü.
 
@@ -68,7 +68,7 @@ Temel dağıtım, çözümü sergilemeye yöneliktir. Maliyetleri azaltmak için
 
 Temel dağıtımı aşağıdaki hizmetleri Azure aboneliğinize oluşturur:
 
-| Sayı | Kaynak                       | Tür         | İçin kullanılan |
+| Count | Resource                       | Tür         | İçin kullanılan |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux sanal makinesi](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Mikro hizmet barındırma |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – standart katman | Cihaz yönetimi ve iletişim |
@@ -77,7 +77,7 @@ Temel dağıtımı aşağıdaki hizmetleri Azure aboneliğinize oluşturur:
 | 1     | [Web uygulaması](https://azure.microsoft.com/services/app-service/web/)        |                 | Ön uç web uygulamasını barındırma |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Kullanıcı kimliklerini ve güvenliği yönetme |
 | 1     | [Azure Haritalar](https://azure.microsoft.com/services/azure-maps/)        | Standart                | Varlık konumları görüntüleme |
-| 1     | [Azure Akış Analizi](https://azure.microsoft.com/services/stream-analytics/)        |   3 birim              | Gerçek zamanlı analiz etkinleştirme |
+| 1     | [Azure Akış Analizi](https://azure.microsoft.com/services/stream-analytics/)        |   3 adet              | Gerçek zamanlı analiz etkinleştirme |
 | 1     | [Azure cihaz sağlama hizmeti](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Cihazları uygun ölçekte sağlama |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 birim              | Depolama için iletileri veri ve etkinleştirir yakından telemetri analizi |
 
@@ -89,7 +89,7 @@ Bir standart dağıtım, bir geliştirici özelleştirmek ve genişletmek üreti
 
 Standart bir dağıtım aşağıdaki hizmetleri Azure aboneliğinize oluşturur:
 
-| Sayı | Kaynak                                     | SKU / boyutu      | İçin kullanılan |
+| Sayı | Resource                                     | SKU / boyutu      | İçin kullanılan |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Bir tam olarak yönetilen Kubernetes kapsayıcı düzenleme hizmeti, 3 aracılara varsayılanları kullanın|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – standart katman | Cihaz yönetimi, komut ve Denetim |
@@ -98,7 +98,7 @@ Standart bir dağıtım aşağıdaki hizmetleri Azure aboneliğinize oluşturur:
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standart     | Application Gateway'de SSL üzerinden |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Kullanıcı kimliklerini ve güvenliği yönetme |
 | 1     | [Azure Haritalar](https://azure.microsoft.com/services/azure-maps/)        | Standart                | Varlık konumları görüntüleme |
-| 1     | [Azure Akış Analizi](https://azure.microsoft.com/services/stream-analytics/)        |   3 birim              | Gerçek zamanlı analiz etkinleştirme |
+| 1     | [Azure Akış Analizi](https://azure.microsoft.com/services/stream-analytics/)        |   3 adet              | Gerçek zamanlı analiz etkinleştirme |
 | 1     | [Azure cihaz sağlama hizmeti](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Cihazları uygun ölçekte sağlama |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 birim              | Depolama için iletileri veri ve etkinleştirir yakından telemetri analizi |
 

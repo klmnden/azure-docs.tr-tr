@@ -13,10 +13,10 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: c72c4d21f948d6d6c4d1d4598efa0e13de9705a6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926207"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Bir Azure SQL veritabanı yönetilen örnek veritabanında çoğaltmayı yapılandırma
@@ -51,7 +51,7 @@ Bir yayımcı ve/veya bir dağıtıcı olarak çalışması için bir yönetilen
 
 ## <a name="features"></a>Özellikler
 
-Desteklediği Özel Uygulamalar:
+Destekler:
 
 - Şirket içi SQL Server ve Azure SQL veritabanı yönetilen örnekleri karışımını işlem ve anlık görüntü çoğaltma.
 - Aboneler, şirket içi SQL Server veritabanları, Azure SQL veritabanı veya Azure SQL veritabanı elastik havuzları havuza alınmış veritabanlarını tek veritabanı/yönetilen örnekleri olabilir.

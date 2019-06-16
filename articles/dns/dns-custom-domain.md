@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62096257"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Bir Azure hizmeti için özel etki alanı ayarları sağlamak için Azure DNS kullanma
@@ -44,7 +44,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 |Tür     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor.        |
 |TTL     | 1        | 1 saat boyunca 1 kullanılır        |
 |TTL birimi     | Saat        | Saatleri zaman ölçümü kullanılır         |
-|Diğer ad     | adatumfunction.azurewebsites.net        | DNS adı varsayılan olarak işlev uygulaması için sağlanan adatumfunction.azurewebsites.net DNS adı olduğu Bu örnekte, diğer oluşturuyorsunuz.        |
+|Alias     | adatumfunction.azurewebsites.net        | DNS adı varsayılan olarak işlev uygulaması için sağlanan adatumfunction.azurewebsites.net DNS adı olduğu Bu örnekte, diğer oluşturuyorsunuz.        |
 
 İşlev uygulamanıza geri gidin, tıklayın **Platform özellikleri**, altında **ağ** tıklayın **özel etki alanları**, altında **özel ana bilgisayar adları** tıklayın **+ konak adı Ekle**.
 
@@ -96,7 +96,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 |Tür     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor. Kaynak IP adresi kullandıysanız, bir A kaydı kullanılabilir.        |
 |TTL     | 1        | 1 saat boyunca 1 kullanılır        |
 |TTL birimi     | Saat        | Saatleri zaman ölçümü kullanılır         |
-|Diğer ad     | webserver.azurewebsites.net        | DNS adı varsayılan olarak web uygulaması için sağlanan webserver.azurewebsites.net DNS adı olduğu Bu örnekte, diğer oluşturuyorsunuz.        |
+|Alias     | webserver.azurewebsites.net        | DNS adı varsayılan olarak web uygulaması için sağlanan webserver.azurewebsites.net DNS adı olduğu Bu örnekte, diğer oluşturuyorsunuz.        |
 
 
 ![bir CNAME kaydı oluşturun](./media/dns-custom-domain/createcnamerecord.png)
@@ -117,7 +117,7 @@ App Service özel etki alanı eşleme hakkında daha fazla bilgi edinmek için [
 
 Aşağıdaki adımları asverify yöntemi kullanarak blob depolama hesabı için bir CNAME kaydı nasıl yapılandıracağınız uygulayın. Bu yöntem, kapalı kalma süresi sağlar.
 
-Gidin **depolama** > **depolama hesapları**, depolama hesabınızı seçin ve tıklayın **özel etki alanı**. 2. adım altında FQDN bildirmek, bu değer, ilk CNAME kaydı oluşturmak için kullanılır
+Gidin **depolama** > **depolama hesapları**, depolama hesabınızı seçin ve tıklayın **özel etki alanı**. 2\. adım altında FQDN bildirmek, bu değer, ilk CNAME kaydı oluşturmak için kullanılır
 
 ![BLOB Depolama özel etki alanı](./media/dns-custom-domain/blobcustomdomain.png)
 
@@ -130,7 +130,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 |Tür     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor.        |
 |TTL     | 1        | 1 saat boyunca 1 kullanılır        |
 |TTL birimi     | Saat        | Saatleri zaman ölçümü kullanılır         |
-|Diğer ad     | asverify.adatumfunctiona9ed.blob.core.windows.net        | DNS adı Bu örnekte, varsayılan depolama hesabı tarafından sağlanan asverify.adatumfunctiona9ed.blob.core.windows.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
+|Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | DNS adı Bu örnekte, varsayılan depolama hesabı tarafından sağlanan asverify.adatumfunctiona9ed.blob.core.windows.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
 
 Tıklayarak, depolama hesabınıza gidin **depolama** > **depolama hesapları**, depolama hesabınızı seçin ve tıklayın **özel etki alanı**. Metin kutusundaki onay asverify öneki olmadan oluşturduğunuz diğer ad türü ** dolaylı CNAME doğrulaması kullan öğesini tıklatıp **Kaydet**. Bu adım tamamlandıktan sonra DNS bölgenizi dönün ve asverify öneki olmadan bir CNAME kaydı oluşturun.  Ondan sonra ön eki cdnverify CNAME kaydını silmek güvenlidir.
 
@@ -158,7 +158,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 |Tür     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor.        |
 |TTL     | 1        | 1 saat boyunca 1 kullanılır        |
 |TTL birimi     | Saat        | Saatleri zaman ölçümü kullanılır         |
-|Diğer ad     | cdnverify.adatumcdnendpoint.azureedge.net        | DNS adı Bu örnekte, varsayılan depolama hesabı tarafından sağlanan cdnverify.adatumcdnendpoint.azureedge.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
+|Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | DNS adı Bu örnekte, varsayılan depolama hesabı tarafından sağlanan cdnverify.adatumcdnendpoint.azureedge.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
 
 Tıklayarak, CDN uç noktasına gidin **ağ** > **CDN profilleri**, CDN profilinizi seçin. Tıklayın **+ özel etki alanı** cdnverify öneki olmadan CNAME kaydı diğer adınızı girip __iade **Ekle**.
 

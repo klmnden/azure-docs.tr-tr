@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8b76e1a168d39d2f39098754f43bae73c21c2049
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ac1a6136eae79700c427b27c8869bc9241c62abc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799828"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717792"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Resource Manager modunda Azure CLI komutları
 Bu makalede, Azure komut satırı arabirimi (CLI) komutlarını Azure Resource Manager dağıtım modelinde Azure kaynaklarını oluşturmak ve yönetmek için yaygın olarak kullanacağınız için sözdizimini ve seçenekleri sağlar. Bu komutlar, CLI'yı Resource Manager (arm) modunda çalıştırarak erişin. Bu tam bir başvuru değildir ve CLI sürümünüzü biraz farklı komutları ya da parametreler gösterebilir. Azure kaynaklarını ve kaynak gruplarını genel bir bakış için bkz. [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).  
@@ -969,7 +969,8 @@ Parametre seçenekleri:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    Ağ lb adres havuzu silme [Seçenekler] < resource-group >< lb-adı > <name>
+
+    network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Arka uç IP havuzu aralığına kaynak yük dengeleyiciden kaldırır.
 
@@ -1333,7 +1334,9 @@ Parametre seçenekleri:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    Ağ public-ip list [Seçenekler] < resource-group >, bir kaynak grubu içindeki tüm genel IP kaynakları listeler.
+
+    network public-ip list [options] <resource-group>
+Bir kaynak grubu içindeki tüm genel IP kaynakları listeler.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1353,8 +1356,10 @@ Parametre seçenekleri:
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
+
 <BR>
-    Ağ public-ip show [Seçenekler] < resource-group > <name>
+
+    network public-ip show [options] <resource-group> <name>
 
 Bir kaynak grubu içindeki bir genel IP kaynağı için genel IP özellikleri görüntüler.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
 ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65921208"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management erişim kısıtlama ilkeleri
@@ -122,14 +122,14 @@ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.micro
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | sınırını ayarlama | Kök öğe.                                                                                                                                                                                                                                                                                            | Evet      |
 | api       | Bir veya daha fazla ürün içinde çağrı hızı sınırını API'lerini dayatmak için bu öğeleri ekleyin. Oran sınırları bağımsız olarak uygulanır, ürün ve API çağırın. API olabilir yoluyla başvurulan `name` veya `id`. Her iki öznitelik sağlanırsa, `id` kullanılacak ve `name` göz ardı edilir.                    | Hayır       |
-| işlem | Bir veya daha fazla API işlemlerini bir çağrı hızı sınırı dayatmak için bu öğeleri ekleyin. Oran sınırları bağımsız olarak uygulanır, ürün, API ve işleme çağırın. İşlem olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik sağlanırsa, `id` kullanılacak ve `name` göz ardı edilir. | Hayır       |
+| İşlemi | Bir veya daha fazla API işlemlerini bir çağrı hızı sınırı dayatmak için bu öğeleri ekleyin. Oran sınırları bağımsız olarak uygulanır, ürün, API ve işleme çağırın. İşlem olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik sağlanırsa, `id` kullanılacak ve `name` göz ardı edilir. | Hayır       |
 
 ### <a name="attributes"></a>Öznitelikler
 
 | Ad           | Açıklama                                                                                           | Gerekli | Varsayılan |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Hız sınırını uygulanacağı API adı.                                                | Evet      | Yok     |
-| çağrı          | Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`. | Evet      | Yok     |
+| çağrıları          | Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`. | Evet      | Yok     |
 | yenileme dönemi | Kota sonra sıfırlayan saniye cinsinden süre.                                              | Evet      | Yok     |
 
 ### <a name="usage"></a>Kullanım
@@ -191,7 +191,7 @@ Aşağıdaki örnekte, Hız sınırını çağıran IP adresine göre anahtarlan
 
 | Ad                | Açıklama                                                                                           | Gerekli | Varsayılan |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| çağrı               | Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`. | Evet      | Yok     |
+| çağrıları               | Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`. | Evet      | Yok     |
 | Tamamlayıcı anahtarı         | Hız sınırı ilkesi için kullanılacak anahtarı.                                                             | Evet      | Yok     |
 | Koşul artırma | İstek kota hesaplamanıza dahil sayılan olmadığını belirten bir Boole ifadesi (`true`).        | Hayır       | Yok     |
 | yenileme dönemi      | Kota sonra sıfırlayan saniye cinsinden süre.                                              | Evet      | Yok     |
@@ -233,7 +233,7 @@ Aşağıdaki örnekte, ilke yalnızca tek bir IP adresi ya da belirtilen IP adre
 | Ad                                      | Açıklama                                         | Gerekli                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | IP Filtresi                                 | Kök öğe.                                       | Evet                                                            |
-| adres                                   | Filtre uygulamak tek bir IP adresini belirtir.   | En az bir `address` veya `address-range` öğesi gereklidir. |
+| Adresi                                   | Filtre uygulamak tek bir IP adresini belirtir.   | En az bir `address` veya `address-range` öğesi gereklidir. |
 | adres aralığı adresinden ="" için "address" = | Filtre uygulamak bir dizi IP adresini belirtir. | En az bir `address` veya `address-range` öğesi gereklidir. |
 
 ### <a name="attributes"></a>Öznitelikler
@@ -289,15 +289,15 @@ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.micro
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | kota     | Kök öğe.                                                                                                                                                                                                                                                                                | Evet      |
 | api       | Bir veya daha fazla API çağrısı kotasını ürün içinde dayatmak için bu öğeleri ekleyin. Ürün ve API çağrısı kotalar bağımsız olarak uygulanır. API olabilir yoluyla başvurulan `name` veya `id`. Her iki öznitelik sağlanırsa, `id` kullanılacak ve `name` göz ardı edilir.                    | Hayır       |
-| işlem | Bir veya daha fazla API işlemlerini çağrı kota koymak için bu öğeleri ekleyin. Ürün, API ve işleme çağrı kotalar bağımsız olarak uygulanır. İşlem olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik sağlanırsa, `id` kullanılacak ve `name` göz ardı edilir. | Hayır       |
+| İşlemi | Bir veya daha fazla API işlemlerini çağrı kota koymak için bu öğeleri ekleyin. Ürün, API ve işleme çağrı kotalar bağımsız olarak uygulanır. İşlem olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik sağlanırsa, `id` kullanılacak ve `name` göz ardı edilir. | Hayır       |
 
 ### <a name="attributes"></a>Öznitelikler
 
 | Ad           | Açıklama                                                                                               | Gerekli                                                         | Varsayılan |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | name           | API veya kota geçerli olduğu için işlem adıdır.                                             | Evet                                                              | Yok     |
-| bant genişliği      | Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`. | Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir. | Yok     |
-| çağrı          | Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.     | Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir. | Yok     |
+| Bant genişliği      | Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`. | Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir. | Yok     |
+| çağrıları          | Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.     | Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir. | Yok     |
 | yenileme dönemi | Kota sonra sıfırlayan saniye cinsinden süre.                                                  | Evet                                                              | Yok     |
 
 ### <a name="usage"></a>Kullanım
@@ -355,8 +355,8 @@ Aşağıdaki örnekte, kota çağıran IP adresine göre anahtarlanır.
 
 | Ad                | Açıklama                                                                                               | Gerekli                                                         | Varsayılan |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
-| bant genişliği           | Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`. | Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir. | Yok     |
-| çağrı               | Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.     | Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir. | Yok     |
+| Bant genişliği           | Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`. | Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir. | Yok     |
+| çağrıları               | Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.     | Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir. | Yok     |
 | Tamamlayıcı anahtarı         | Kota ilkesinde kullanmak üzere anahtarı.                                                                      | Evet                                                              | Yok     |
 | Koşul artırma | İstek kota hesaplamanıza dahil sayılan olmadığını belirten bir Boole ifadesi (`true`)             | Hayır                                                               | Yok     |
 | yenileme dönemi      | Kota sonra sıfırlayan saniye cinsinden süre.                                                  | Evet                                                              | Yok     |
@@ -539,8 +539,8 @@ Bu örnek nasıl kullanılacağını gösterir [doğrulamak için JWT](api-manag
 | üst bilgi adı                     | Belirteci tutarak HTTP üstbilgisinin adı.                                                                                                                                                                                                                                                                                                                                                                                                         | Aşağıdakilerden birini `header-name`, `query-parameter-name` veya `token-value` belirtilmesi gerekir. | Yok                                                                               |
 | sorgu parametresi adı            | Belirteci tutarak sorgu parametresinin adı.                                                                                                                                                                                                                                                                                                                                                                                                     | Aşağıdakilerden birini `header-name`, `query-parameter-name` veya `token-value` belirtilmesi gerekir. | Yok                                                                               |
 | Belirteç değeri                     | JWT belirteci içeren bir dize döndüren bir ifade                                                                                                                                                                                                                                                                                                                                                                                                     | Aşağıdakilerden birini `header-name`, `query-parameter-name` veya `token-value` belirtilmesi gerekir. | Yok                                                                               |
-| kimlik                              | `id` Özniteliği `key` öğesi karşı eşleşen dizeyi belirtmenize olanak verir `kid` belirteçteki imza doğrulaması için kullanılacak uygun anahtarı bulmak (varsa) talep.                                                                                                                                                                                                                                           | Hayır                                                                               | Yok                                                                               |
-| eşleşme                           | `match` Özniteliği `claim` öğesi ilkesindeki her talep değeri doğrulamanın başarılı olması için belirteçteki mevcut olması gerekip gerekmediğini belirtir. Olası değerler şunlardır:<br /><br /> - `all` -her talep değeri ilkesinde doğrulamanın başarılı olması için belirteci mevcut olmalıdır.<br /><br /> - `any` -en az bir talep değeri başarılı olması doğrulama için belirteçteki mevcut olmalıdır.                                                       | Hayır                                                                               | tümü                                                                               |
+| id                              | `id` Özniteliği `key` öğesi karşı eşleşen dizeyi belirtmenize olanak verir `kid` belirteçteki imza doğrulaması için kullanılacak uygun anahtarı bulmak (varsa) talep.                                                                                                                                                                                                                                           | Hayır                                                                               | Yok                                                                               |
+| Eşleşme                           | `match` Özniteliği `claim` öğesi ilkesindeki her talep değeri doğrulamanın başarılı olması için belirteçteki mevcut olması gerekip gerekmediğini belirtir. Olası değerler şunlardır:<br /><br /> - `all` -her talep değeri ilkesinde doğrulamanın başarılı olması için belirteci mevcut olmalıdır.<br /><br /> - `any` -en az bir talep değeri başarılı olması doğrulama için belirteçteki mevcut olmalıdır.                                                       | Hayır                                                                               | tümü                                                                               |
 | gerekli-sona erme-saati         | Boole değeri. Belirteç süre sonu talebi gerekip gerekmediğini belirtir.                                                                                                                                                                                                                                                                                                                                                                               | Hayır                                                                               | true                                                                              |
 | gerekli düzeni                  | Belirteç adı şeması, örneğin "Bearer". Bu öznitelik ayarlandığında, yetkilendirme üst bilgisi değeri, belirtilen şema varsa ilkeyi sağlayacaktır.                                                                                                                                                                                                                                                                                    | Hayır                                                                               | Yok                                                                               |
 | gerekli imzalı-belirteçleri           | Boole değeri. Bir belirteç imzalanmasını gerekli olup olmadığını belirtir.                                                                                                                                                                                                                                                                                                                                                                                           | Hayır                                                                               | true                                                                              |

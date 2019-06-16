@@ -9,17 +9,17 @@ ms.service: site-recovery
 ms.date: 04/24/2019
 ms.author: dapatil
 ms.openlocfilehash: 2edf7ce3be1402a497ceab5b826a89ee43c5c39b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64927380"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Azure Site Recovery dağıtım Planlayıcısı sürüm geçmişi
 
 Bu makalede, Azure Site Recovery dağıtım Planlayıcısı bilinen sınırlamalar her ve bunların yayın tarihleri düzeltmelerin yanı sıra tüm sürümlerini geçmişini sağlar.
 
-## <a name="version-24"></a>2.4 sürüm
+## <a name="version-24"></a>2\.4 sürüm
 
 **Yayın Tarihi: 17 Nisan 2019**
 
@@ -33,7 +33,7 @@ Bu makalede, Azure Site Recovery dağıtım Planlayıcısı bilinen sınırlamal
 
 
 
-## <a name="version-23"></a>2.3 sürümü
+## <a name="version-23"></a>2\.3 sürümü
 
 **Yayın Tarihi: 3 Aralık 2018'e**
 
@@ -104,7 +104,7 @@ Bu makalede, Azure Site Recovery dağıtım Planlayıcısı bilinen sınırlamal
 - Rapor oluşturma büyük diskler (> 1 TB) için destek eklendi. 1 TB'den büyük disk boyutlarına sahip sanal makineler için çoğaltma planlamak için dağıtım Planlayıcısı'nı kullanabilir (4095 GB'ye kadar).
 [Azure Site Recovery'de büyük disk desteği](https://azure.microsoft.com/blog/azure-site-recovery-large-disks/)
 
-## <a name="version-13"></a>1.3 sürümü
+## <a name="version-13"></a>1\.3 sürümü
 
 **Yayın Tarihi: 9 Mayıs 2017**
 

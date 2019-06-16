@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5f3b70a2dd9816210ed61280be38504a3980d205
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515378"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Hızlı Başlangıç: C'de Bing konuşma tanıma API'si kullanan&#35; Windows üzerinde .NET için
@@ -47,7 +47,7 @@ Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir par
 >
 > * Abonelik anahtarınızı kullanın. Örneği çalıştırdığında sağlanan C# Masaüstü örnek uygulama ile birlikte abonelik anahtarınızı metin kutusuna yapıştırın. Daha fazla bilgi için [örnek uygulamayı çalıştırma](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>1. Adım: Örnek uygulamayı yüklemek
+## <a name="step-1-install-the-sample-application"></a>1\. adım: Örnek uygulamayı yüklemek
 
 1. Visual Studio 2015'i başlatın ve **dosya** > **açık** > **proje/çözüm**.
 
@@ -55,7 +55,7 @@ Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir par
 
 3. SpeechToText WPF Samples.sln adlı Visual Studio 2015 çözümü (.sln) dosyasını açmak için çift tıklayın. Çözüm, Visual Studio'da açılır.
 
-## <a name="step-2-build-the-sample-application"></a>2. Adım: Örnek uygulaması oluşturma
+## <a name="step-2-build-the-sample-application"></a>2\. adım: Örnek uygulaması oluşturma
 
 1. Kullanmak istiyorsanız *tanıma amacıyla*, önce kaydolmanız gerekir [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). LUIS uygulamanızı uç nokta URL'sini anahtarının değerini ayarlayın kullanılacağını `LuisEndpointUrl` samples/SpeechRecognitionServiceExample klasöründeki app.config dosyasında. LUIS uygulaması uç nokta URL'sini hakkında daha fazla bilgi için bkz. [uygulamanızı yayımlayın](../../luis/luis-get-started-create-app.md#publish-your-app).
 
@@ -64,7 +64,7 @@ Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir par
 
 2. Ctrl + Shift + B tuşuna basın veya **derleme** Şerit menüsünde. Ardından **Çözümü Derle**.
 
-## <a name="step-3-run-the-sample-application"></a>3. Adım: Örnek uygulamayı çalıştırın
+## <a name="step-3-run-the-sample-application"></a>3\. adım: Örnek uygulamayı çalıştırın
 
 1. Derleme tamamlandıktan sonra F5 tuşuna basın veya seçin **Başlat** örneği çalıştırmak için Şerit menüsünde.
 

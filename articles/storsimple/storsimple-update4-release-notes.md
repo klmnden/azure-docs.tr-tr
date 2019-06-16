@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60530985"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64698633"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 serisi güncelleştirme 4 sürüm notları
 
@@ -70,7 +70,7 @@ Aşağıdaki tabloda, güncelleştirme 4'te düzeltilen sorunlara ilişkin bir �
 | --- | --- | --- | --- | --- |
 | 1 |Yük devretme |Önceki sürümde, yük devretme sonrasında müşteri sitesinde gözlemlenen temizleme ilgili bir sorun oluştu. Bu sürümde bu sorun düzeltilmiştir. |Evet |Evet |
 | 2 |Yerel olarak sabitlenmiş birimler |Önceki sürümde, birim oluşturma hatalarına neden olan yerel olarak sabitlenmiş birimler için ilgili birim oluşturma için bir sorun oluştu. Bu sorun, kök neden ve bu sürümde giderilen. |Evet |Hayır |
-| 3 |Destek paketi |Önceki bir sürümde System.OutOfMemory özel durumu veya bir destek paketi oluşturma hatasıyla sonuçlanan diğer hataları neden olacağından destek paketi ile ilgili sorunlar oluştu. Bu hatalar, bu sürümde giderilen. |Evet |Evet |
+| 3 |Destek Paketi |Önceki bir sürümde System.OutOfMemory özel durumu veya bir destek paketi oluşturma hatasıyla sonuçlanan diğer hataları neden olacağından destek paketi ile ilgili sorunlar oluştu. Bu hatalar, bu sürümde giderilen. |Evet |Evet |
 | 4 |İzleme |Önceki bir sürümde var grafikler için yerel olarak izleme ile ilgili bir sorun tüketim EB burada gösterilen sabitlenmiş birimler. Bu hata, bu sürümde çözülür. |Evet |Evet |
 | 5 |Geçiş |Önceki bir sürümde 8000 serisi cihazlar için 5000-7000 serisinden geçiş güvenilirliğini ilgili çeşitli sorunlar oluştu. Bu sürümde bu sorun çözüldü. |Evet |Evet |
 | 6 |Güncelleştirme |Önceki sürümlerde, bir güncelleştirme hatası olduysa, denetleyiciler kurtarma moduna gitmesi gerekiyordu ve bu nedenle kullanıcı güncelleştirme ile devam edilemedi Microsoft Support iletişime geçmeniz. <br> Bu sürümde bu davranış değiştirilmiştir. Her iki denetleyici aynı sürümünü (güncelleştirme 4) çalıştırıldıktan sonra kullanıcının bir güncelleştirme hatası varsa, denetleyiciler kurtarma moduna girmemektedir. Kullanıcı bu hatayla karşılaşılırsa, bunlar için biraz bekleyin ve ardından güncelleştirmeyi yeniden öneririz. Yeniden deneme başarılı olabilir. Daha sonra yeniden deneme başarısız olursa, Microsoft Support başvurmalısınız. |Evet |Evet |

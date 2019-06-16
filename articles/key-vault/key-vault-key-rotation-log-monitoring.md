@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
 ms.openlocfilehash: 20a170963ff4a8ff9cb69d3397e66e12c1047d16
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65561198"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Azure anahtar kasası anahtar döndürme ve denetleme ile ayarlama
 
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 
 Bir anahtar kasası oluşturduktan sonra anahtarları ve parolaları saklamak için kullanmaya başlayabilirsiniz. Uygulamalarınız artık anahtarları veya gizli kalıcı hale getirmek gerekmez ancak bunları gerektiği şekilde kasadan talep edebilir. Bir anahtar kasasına bir anahtar ve gizli dizi Yönetimi kapsamını ayarlama açılır uygulamanızın davranışını etkilemeden, anahtarları ve gizli anahtarları güncelleştirme sağlar.
 

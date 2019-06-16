@@ -11,10 +11,10 @@ ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0809423472bde0240145d43f4c28d9594b517928
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518683"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikleri destekleyen hizmetler
@@ -28,12 +28,12 @@ Azure kaynakları için yönetilen kimlikleri Azure Active Directory'de otomatik
 
 Aşağıdaki Azure Hizmetleri, Azure kaynakları için yönetilen kimlikleri destekler:
 
-### <a name="azure-virtual-machines"></a>Azure Sanal Makineler
+### <a name="azure-virtual-machines"></a>Azure sanal makineleri
 
 | Yönetilen kimlik türü | Genel olarak kullanılabilir<br>Küresel Azure bölgeleri | Azure Kamu | Azure Almanya | Azure Çin 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistem tarafından atanmış | Kullanılabilir | Preview | Preview | Preview | 
-| Kullanıcı tarafından atanmış | Preview | Preview | Preview | Preview |
+| Sistem tarafından atanan | Kullanılabilir | Önizleme | Önizleme | Önizleme | 
+| Atanan kullanıcı | Önizleme | Önizleme | Önizleme | Önizleme |
 
 Azure sanal makineler için yönetilen kimlik yapılandırmak için aşağıdaki listeye bakın (bölgede kullanılabiliyorsa):
 
@@ -47,8 +47,8 @@ Azure sanal makineler için yönetilen kimlik yapılandırmak için aşağıdaki
 
 |Yönetilen kimlik türü | Genel olarak kullanılabilir<br>Küresel Azure bölgeleri | Azure Kamu | Azure Almanya | Azure Çin 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistem tarafından atanmış | Kullanılabilir | Preview | Preview | Preview |
-| Kullanıcı tarafından atanmış | Preview | Preview | Preview | Preview |
+| Sistem tarafından atanan | Kullanılabilir | Önizleme | Önizleme | Önizleme |
+| Atanan kullanıcı | Önizleme | Önizleme | Önizleme | Önizleme |
 
 Azure sanal makine ölçek kümeleri için yönetilen kimlik yapılandırmak için aşağıdaki listeye bakın (bölgede kullanılabiliyorsa):
 
@@ -58,12 +58,12 @@ Azure sanal makine ölçek kümeleri için yönetilen kimlik yapılandırmak iç
 - [Azure Resource Manager şablonları](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
-### <a name="azure-app-service"></a>Azure App Service
+### <a name="azure-app-service"></a>Azure uygulama hizmeti
 
 | Yönetilen kimlik türü | Genel olarak kullanılabilir<br>Küresel Azure bölgeleri | Azure Kamu | Azure Almanya | Azure Çin 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistem tarafından atanmış | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
-| Kullanıcı tarafından atanmış | Preview | Yok | Yok | Yok |
+| Sistem tarafından atanan | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
+| Atanan kullanıcı | Önizleme | Kullanılamaz | Kullanılamaz | Kullanılamaz |
 
 Azure App Service için yönetilen kimlik yapılandırmak için aşağıdaki listeye bakın (bölgede kullanılabiliyorsa):
 
@@ -76,8 +76,8 @@ Azure App Service için yönetilen kimlik yapılandırmak için aşağıdaki lis
 
 |Yönetilen kimlik türü | Genel olarak kullanılabilir<br>Küresel Azure bölgeleri | Azure Kamu | Azure Almanya | Azure Çin 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistem tarafından atanmış | Preview | Yok | Yok | Yok |
-| Kullanıcı tarafından atanmış | Preview | Yok | Yok | Yok |
+| Sistem tarafından atanan | Önizleme | Kullanılamaz | Kullanılamaz | Kullanılamaz |
+| Atanan kullanıcı | Önizleme | Kullanılamaz | Kullanılamaz | Kullanılamaz |
 
 Yönetilen bir kimlik ile kullanmak için aşağıdaki listeye bakın [Azure şemaları](../../governance/blueprints/overview.md):
 
@@ -88,8 +88,8 @@ Yönetilen bir kimlik ile kullanmak için aşağıdaki listeye bakın [Azure şe
 
 Yönetilen kimlik türü |Genel olarak kullanılabilir<br>Küresel Azure bölgeleri | Azure Kamu | Azure Almanya | Azure Çin 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistem tarafından atanmış | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
-| Kullanıcı tarafından atanmış | Preview | Yok | Yok | Yok |
+| Sistem tarafından atanan | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
+| Atanan kullanıcı | Önizleme | Kullanılamaz | Kullanılamaz | Kullanılamaz |
 
 Azure işlevleri için yönetilen kimlik yapılandırmak için aşağıdaki listeye bakın (bölgede kullanılabiliyorsa):
 
@@ -102,8 +102,8 @@ Azure işlevleri için yönetilen kimlik yapılandırmak için aşağıdaki list
 
 Yönetilen kimlik türü | Genel olarak kullanılabilir<br>Küresel Azure bölgeleri | Azure Kamu | Azure Almanya | Azure Çin 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistem tarafından atanmış | Preview | Preview | Yok | Preview |
-| Kullanıcı tarafından atanmış | Yok | Yok | Yok | Yok |
+| Sistem tarafından atanan | Önizleme | Önizleme | Kullanılamaz | Önizleme |
+| Atanan kullanıcı | Kullanılamaz | Kullanılamaz | Kullanılamaz | Kullanılamaz |
 
 Azure Logic Apps için yönetilen kimlik yapılandırmak için aşağıdaki listeye bakın (bölgede kullanılabiliyorsa):
 
@@ -114,8 +114,8 @@ Azure Logic Apps için yönetilen kimlik yapılandırmak için aşağıdaki list
 
 Yönetilen kimlik türü | Genel olarak kullanılabilir<br>Küresel Azure bölgeleri | Azure Kamu | Azure Almanya | Azure Çin 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistem tarafından atanmış | Kullanılabilir | Yok | Yok | Yok |
-| Kullanıcı tarafından atanmış | Yok | Yok | Yok | Yok |
+| Sistem tarafından atanan | Kullanılabilir | Kullanılamaz | Kullanılamaz | Kullanılamaz |
+| Atanan kullanıcı | Kullanılamaz | Kullanılamaz | Kullanılamaz | Kullanılamaz |
 
 Azure Data Factory V2 için yönetilen kimlik yapılandırmak için aşağıdaki listeye bakın (bölgede kullanılabiliyorsa):
 
@@ -124,12 +124,12 @@ Azure Data Factory V2 için yönetilen kimlik yapılandırmak için aşağıdaki
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
-### <a name="azure-api-management"></a>Azure API Yönetimi
+### <a name="azure-api-management"></a>Azure API Management
 
 Yönetilen kimlik türü | Genel olarak kullanılabilir<br>Küresel Azure bölgeleri | Azure Kamu | Azure Almanya | Azure Çin 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistem tarafından atanmış | Kullanılabilir | Kullanılabilir | Yok | Yok |
-| Kullanıcı tarafından atanmış | Yok | Yok | Yok | Yok |
+| Sistem tarafından atanan | Kullanılabilir | Kullanılabilir | Kullanılamaz | Kullanılamaz |
+| Atanan kullanıcı | Kullanılamaz | Kullanılamaz | Kullanılamaz | Kullanılamaz |
 
 Azure API Management için yönetilen kimlik yapılandırmak için aşağıdaki listeye bakın (bölgede kullanılabiliyorsa):
 
@@ -139,8 +139,8 @@ Azure API Management için yönetilen kimlik yapılandırmak için aşağıdaki 
 
 Yönetilen kimlik türü | Genel olarak kullanılabilir<br>Küresel Azure bölgeleri | Azure Kamu | Azure Almanya | Azure Çin 21Vianet |
 | --- | --- | --- | --- | --- |
-| Sistem tarafından atanmış | Linux: Preview<br>Windows: Yok | Yok | Yok | Yok |
-| Kullanıcı tarafından atanmış | Linux: Preview<br>Windows: Yok | Yok | Yok | Yok |
+| Sistem tarafından atanan | Linux: Önizleme<br>Windows: Kullanılamaz | Kullanılamaz | Kullanılamaz | Kullanılamaz |
+| Atanan kullanıcı | Linux: Önizleme<br>Windows: Kullanılamaz | Kullanılamaz | Kullanılamaz | Kullanılamaz |
 
 Azure Container Instances için yönetilen kimlik yapılandırmak için aşağıdaki listeye bakın (bölgede kullanılabiliyorsa):
 
@@ -182,9 +182,9 @@ Azure Resource Manager'a erişimi yapılandırmak için aşağıdaki listeye bak
 | Bulut | Kaynak Kimliği | Durum |
 |--------|------------|--------|
 | Azure genel | `https://datalake.azure.net/` | Kullanılabilir |
-| Azure Kamu |  | Kullanılamaz |
-| Azure Almanya |   | Kullanılamaz |
-| Azure Çin 21Vianet |  | Kullanılamaz |
+| Azure Kamu |  | Yok |
+| Azure Almanya |   | Yok |
+| Azure Çin 21Vianet |  | Yok |
 
 ### <a name="azure-sql"></a>Azure SQL 
 
@@ -199,19 +199,19 @@ Azure Resource Manager'a erişimi yapılandırmak için aşağıdaki listeye bak
 
 | Bulut | Kaynak Kimliği | Durum |
 |--------|------------|--------|
-| Azure genel | `https://eventhubs.azure.net` | Preview |
-| Azure Kamu |  | Kullanılamaz |
-| Azure Almanya |   | Kullanılamaz |
-| Azure Çin 21Vianet |  | Kullanılamaz |
+| Azure genel | `https://eventhubs.azure.net` | Önizleme |
+| Azure Kamu |  | Yok |
+| Azure Almanya |   | Yok |
+| Azure Çin 21Vianet |  | Yok |
 
 ### <a name="azure-service-bus"></a>Azure Service Bus
 
 | Bulut | Kaynak Kimliği | Durum |
 |--------|------------|--------|
-| Azure genel | `https://servicebus.azure.net`  | Preview |
-| Azure Kamu |  | Kullanılamaz |
-| Azure Almanya |   | Kullanılamaz |
-| Azure Çin 21Vianet |  | Kullanılamaz |
+| Azure genel | `https://servicebus.azure.net`  | Önizleme |
+| Azure Kamu |  | Yok |
+| Azure Almanya |   | Yok |
+| Azure Çin 21Vianet |  | Yok |
 
 ### <a name="azure-storage-blobs-and-queues"></a>Azure depolama BLOB'ları ve Kuyruklar
 

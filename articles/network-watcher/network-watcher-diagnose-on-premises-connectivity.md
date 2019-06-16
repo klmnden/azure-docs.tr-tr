@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754054"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN ağ geçitleri üzerinden şirket içi bağlantıyı tanılama
@@ -52,7 +52,7 @@ Kritik yapılandırma adımlarının birini IPSec iletişimi parametreleri yapı
 | Kimlik Doğrulama Yöntemi |Önceden Paylaşılan Anahtar |Önceden Paylaşılan Anahtar |
 | Şifreleme Algoritmaları |AES256 AES128 3DES |AES256 3DES |
 | Karma Algoritma |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Aşama 1 Güvenlik İlişkisi (SA) Yaşam Süresi (Zaman) |28.800 saniye |10.800 saniye |
+| Aşama 1 Güvenlik İlişkisi (SA) Yaşam Süresi (Zaman) |28\.800 saniye |10\.800 saniye |
 
 Bir kullanıcı olarak, FortiGate yapılandırmak için gerekli olacak, bir örnek yapılandırma bulunabilir [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Farkında olmadan, FortiGate karma algoritması SHA-512 kullanmak için yapılandırılmış. Bu algoritma, ilke tabanlı bağlantıları için desteklenen bir algoritması değil olarak VPN bağlantınızı çalışır.
 

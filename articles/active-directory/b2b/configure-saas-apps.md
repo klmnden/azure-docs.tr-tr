@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35dad420aa004e27ec974c494dc66e9b8e13c733
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65811937"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>SaaS uygulamalarını B2B işbirliği için yapılandırma
@@ -72,7 +72,7 @@ Kendi kuruluş hesabını kullanarak oturum açmasına etkinleştirmek için bir
 
 Dropbox uygulamada konuk veya üye kullanıcı ayarlanan sonra Dropbox'tan ayrı bir davet alırsınız. Dropbox çoklu oturum açmayı kullanmak için davetlilerin daveti bir bağlantıya tıklayarak kabul etmeniz gerekir.
 
-## <a name="box"></a>Kutu
+## <a name="box"></a>Box
 SAML Protokolü temelinde Federasyon kutusuna Konuk kullanıcıları Azure AD hesabıyla kimliğini açabileceğinizi bilirsiniz. Bu yordamda, meta verileri için Box.com yükleyin.
 
 1. Box uygulamasına Kurumsal uygulamaları ekleyin.
@@ -81,7 +81,7 @@ SAML Protokolü temelinde Federasyon kutusuna Konuk kullanıcıları Azure AD he
 
    ![Çoklu oturum açma yapılandırması ayarları gösteren ekran görüntüsü](media/configure-saas-apps/configure-box-sso.png)
 
-   a. İçinde **oturum açma URL'si** kutusuna, Azure portalında kutusunu, oturum açma URL'si uygun şekilde ayarlandığından emin olun. Bu URL'yi Box.com kiracınızın URL'dir. Bu adlandırma kuralını uygulamalıdır *https://.box.com*.  
+   a. İçinde **oturum açma URL'si** kutusuna, Azure portalında kutusunu, oturum açma URL'si uygun şekilde ayarlandığından emin olun. Bu URL'yi Box.com kiracınızın URL'dir. Bu adlandırma kuralını uygulamalıdır *https://.box.com* .  
    **Tanımlayıcı** bu uygulama için geçerli değildir ancak yine de zorunlu bir alan olarak görünür.
 
    b. İçinde **kullanıcı tanımlayıcısı** kutusuna **user.mail** (için SSO Konuk hesapları için).

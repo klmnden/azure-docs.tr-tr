@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ccb6944227208cee8601751cf43a53c111c09c6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65021637"
 ---
 # <a name="add-scoring-profiles-to-an-azure-search-index"></a>Azure Search dizini için Puanlama profilleri ekleyin
@@ -247,7 +247,7 @@ Arama puanı istatistiksel veriler ve sorgu özelliklerini göre hesaplanır. Az
 |`magnitude` &#124; `boostingRangeEnd`|Üzerinde büyüklüğün puanlandığı aralığın bitiş değerini ayarlar. Değer bir tamsayı veya kayan noktalı sayı olmalıdır. 1 ile 4 arasındaki yıldız değerlendirmelerinde için bu 4 olur.|  
 |`magnitude` &#124; `constantBoostBeyondRange`|Geçerli değerler true veya false (varsayılan) olmalı. Ayarlandığında true, tam artırma aralığının üst son'dan büyük hedef alan için bir değere sahip belgelere uygulanmaya devam edecek. False ise, bu işlevin artırma özelliği hedef alanın aralığın dışında bir değere sahip belgelere uygulanmaz.|  
 |`freshness`|Puanlama işlevi güncellik değerlere göre öğeleri ait derecelendirme puanlarını değiştirmek için kullanılan `DateTimeOffset` alanları. Örneğin, son tarihi olan bir öğe eski öğeleri daha yüksek sıralanabilir.<br /><br /> Mevcut yakın öğelere öğeleri gelecekte daha çok daha yüksek dereceye sahip olacağı şekilde da gelecek tarihler içeren Takvim etkinlikleri gibi derece öğeleri için mümkündür.<br /><br /> Geçerli Hizmet sürümü, geçerli saate bir aralığın sonuna düzeltilecektir. Diğer ucuna göre daha önce bir zamandır `boostingDuration`. Negatif bir kez gelecekte bir dizi artırmak üzere kullanmak `boostingDuration`.<br /><br /> Puanlama profili için en fazla değişiklikleri artırma ve en küçük aralık ilişkilendirme ile belirlenen oranı uygulanır (aşağıdaki şekilde bakın). Uygulanan artırırken faktörü tersine çevirmek için 1'den küçük boost faktörü seçin.|  
-|`freshness` &#124; `boostingDuration`|Belirli bir belge için artırma işleminin duracağı sona erme dönemini belirler. Bkz: [ayarlamak boostingDuration](#bkmk_boostdur) söz dizimi ve örnekler için aşağıdaki bölümde yer.|  
+|`freshness` &#124; `boostingDuration`|Ayarlar, belirli bir belge için duracağı sona erme dönemini durdurur. Bkz: [ayarlamak boostingDuration](#bkmk_boostdur) söz dizimi ve örnekler için aşağıdaki bölümde yer.|  
 |`distance`|Puanlama işlevi etkilemek için kullanılan uzaklık bağlı belgeleri puanı kapatın veya bir başvuru coğrafi konumu göreli oldukları kadar. Başvuru konum bir parametre sorguda bir parçası olarak verilir (kullanarak `scoringParameterquery` dize seçeneği) bir lon lat bağımsız değişken olarak.|  
 |`distance` &#124; `referencePointParameter`|Sorgularda başvuru konumu olarak kullanılacak iletilecek parametre. `scoringParameter` bir sorgu parametresidir. Bkz: [arama belgeleri &#40;Azure arama hizmeti REST API'si&#41; ](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) Sorgu parametrelerinin açıklamaları.|  
 |`distance` &#124; `boostingDistance`|Burada artırma aralığının bittiği başvuru konumundan olan mesafeyi kilometre cinsinden gösteren bir sayı.|  

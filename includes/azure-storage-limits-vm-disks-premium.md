@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148173"
 ---
 **Premium yönetilmeyen sanal makine diskleri: Hesap başına limitler**
@@ -25,8 +25,8 @@ ms.locfileid: "66148173"
 
 | Premium depolama diski türü | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
-| Disk boyutu |128 GiB |512 GiB |1.024 giB (1 TB) |2.048 giB (2 TB)|4.095 giB (4 TB)|
-| Disk başına maksimum IOPS |500 |2,300 |5.000 |7.500 |7,500 |
+| Disk boyutu |128 GiB |512 GiB |1\.024 giB (1 TB) |2\.048 giB (2 TB)|4\.095 giB (4 TB)|
+| Disk başına maksimum IOPS |500 |2,300 |5\.000 |7\.500 |7,500 |
 | Disk başına en fazla aktarım hızı |100 MB/sn | 150 MB/sn |200 MB/sn |250 MB/sn |250 MB/sn |
 | Depolama hesabı başına disk sayısı |280 |70 |35 | 17 | 8 |
 

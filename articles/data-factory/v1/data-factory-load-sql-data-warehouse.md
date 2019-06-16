@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825447"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB 15 dakika Data Factory ile Azure SQL Data Warehouse'a veri yükleme
@@ -62,7 +62,7 @@ Bu makalede, kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri
   > [!NOTE]
   > Azure Blobundan yüklenirken, yükleme performansını verileri SQL veri ambarı yapılandırma Dwu sayısı orantılıdır:
   >
-  > 1. 000'içinde 1 TB yükleme DWU SQL veri ambarı 87 dakika (yaklaşık 200 MB/sn Aktarım Hızı) yüklenirken 1 TB alır 46 dakika (~ 380 MB/sn Aktarım Hızı) yüklenirken 1 TB 6000 DWU SQL veri ambarı'na 14 dakika (~1.2 GB/sn Aktarım Hızı) sürer 2.000 DWU SQL Data Warehouse'a alır
+  > 1\. 000'içinde 1 TB yükleme DWU SQL veri ambarı 87 dakika (yaklaşık 200 MB/sn Aktarım Hızı) yüklenirken 1 TB alır 46 dakika (~ 380 MB/sn Aktarım Hızı) yüklenirken 1 TB 6000 DWU SQL veri ambarı'na 14 dakika (~1.2 GB/sn Aktarım Hızı) sürer 2.000 DWU SQL Data Warehouse'a alır
   >
   >
 
@@ -135,7 +135,7 @@ Bu makalede, kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri
    >
    >
 
-## <a name="step-1-configure-data-loading-schedule"></a>1. Adım: Zamanlama yükleniyor verilerini Yapılandır
+## <a name="step-1-configure-data-loading-schedule"></a>1\. adım: Zamanlama yükleniyor verilerini Yapılandır
 İlk adım, veri yükleme zamanlaması yapılandırmaktır.  
 
 **Özellikler** sayfasında:
@@ -146,7 +146,7 @@ Bu makalede, kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri
 
     ![Kopyalama Sihirbazı - Özellikler sayfası](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
-## <a name="step-2-configure-source"></a>2. Adım: Kaynağı yapılandırma
+## <a name="step-2-configure-source"></a>2\. adım: Kaynağı yapılandırma
 Bu bölümde, kaynak yapılandırma adımları gösterilir: Azure Blob içeren 1 TB TPC-H satır öğesi dosyaları.
 
 1. Seçin **Azure Blob Depolama** verileri depolamak ve tıklayın **sonraki**.
@@ -165,7 +165,7 @@ Bu bölümde, kaynak yapılandırma adımları gösterilir: Azure Blob içeren 1
 
     ![Kopyalama Sihirbazı'nı - dosya biçimi ayarları](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
-## <a name="step-3-configure-destination"></a>3. Adım: Hedef yapılandırma
+## <a name="step-3-configure-destination"></a>3\. adım: Hedef yapılandırma
 Bu bölümde, hedef yapılandırma işlemini göstermektedir: `lineitem` Azure SQL veri ambarı veritabanındaki tablo.
 
 1. Seçin **Azure SQL veri ambarı** hedef olarak depolamak ve tıklayın **sonraki**.
@@ -182,13 +182,13 @@ Bu bölümde, hedef yapılandırma işlemini göstermektedir: `lineitem` Azure S
 
 4. Şema eşleme sayfası içinde "Sütun eşlemesi uygulama" seçeneği işaretlemeden bırakıp tıklayın **sonraki**.
 
-## <a name="step-4-performance-settings"></a>4. Adım: Performans ayarları
+## <a name="step-4-performance-settings"></a>4\. Adım: Performans ayarları
 
 **Polybase izin** varsayılan olarak işaretlidir.  **İleri**’ye tıklayın.
 
 ![Kopyalama Sihirbazı - şema eşleme sayfası](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
-## <a name="step-5-deploy-and-monitor-load-results"></a>5. Adım: Dağıtma ve yükleme sonuçları izleme
+## <a name="step-5-deploy-and-monitor-load-results"></a>5\. Adım: Dağıtma ve yükleme sonuçları izleme
 1. Tıklayın **son** dağıtmak için düğme.
 
     ![Kopyalama Sihirbazı - Özet sayfası](media/data-factory-load-sql-data-warehouse/summary-page.png)

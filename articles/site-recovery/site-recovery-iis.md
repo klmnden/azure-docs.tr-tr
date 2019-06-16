@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480302"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Çok katmanlı bir IIS tabanlı web uygulamasının olağanüstü durum kurtarmayı ayarlayın
@@ -84,7 +84,7 @@ Tipik bir çok katmanlı IIS web uygulamasını aşağıdaki bileşenlerden olu�
 Sanal makineleri katmanını temel alan farklı gruplara ekleyin:
 
 1. Bir kurtarma planı oluşturun. Grup 1 altında veritabanı katmanı sanal makine ekleyin. Bu, veritabanı katmanı sanal makinelerinin Kapat son ve ilk duruma sağlar.
-1. 2. Grup altında uygulama katmanı sanal makine ekleyin. Bu, veritabanı katmanı olana sonra uygulama katmanı sanal makineler getirilir, sağlar.
+1. 2\. Grup altında uygulama katmanı sanal makine ekleyin. Bu, veritabanı katmanı olana sonra uygulama katmanı sanal makineler getirilir, sağlar.
 1. Web katmanı sanal makinelerinin grubu 3'te ekleyin. Bu uygulama katmanı olana sonra web katmanı sanal makineler getirilir, sağlar.
 1. Yük Dengeleme sanal makine grubu 4'te ekleyin. Bu, web katmanı olana sonra sanal makinelerin yük dengelemesini yük getirilir olmasını sağlar.
 

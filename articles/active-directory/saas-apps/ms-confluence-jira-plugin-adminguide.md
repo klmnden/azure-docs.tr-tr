@@ -15,10 +15,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60935788"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory için Atlassian Jıra ve Confluence Yönetici Kılavuzu
@@ -112,11 +112,11 @@ Aşağıdaki görüntüde, Jıra hem Confluence yapılandırma ekranında göste
 
 * **Meta veri URL'si**: Azure AD Federasyon meta verilerini almak için URL.
 
-* **Tanımlayıcıları**: İstek kaynağı doğrulamak için Azure AD kullanan URL. Eşlendiği **tanımlayıcı** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen*\<etki alanı: bağlantı noktası >*/.
+* **Tanımlayıcıları**: İstek kaynağı doğrulamak için Azure AD kullanan URL. Eşlendiği **tanımlayıcı** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen *\<etki alanı: bağlantı noktası >* /.
 
-* **Yanıt URL'si**: SAML oturum açma başlatır, kimlik sağlayıcısı (IDP) ' yanıt URL'si. Eşlendiği **yanıt URL'si** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen*\<etki alanı: bağlantı noktası >*/plugins/servlet/saml/auth.
+* **Yanıt URL'si**: SAML oturum açma başlatır, kimlik sağlayıcısı (IDP) ' yanıt URL'si. Eşlendiği **yanıt URL'si** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen *\<etki alanı: bağlantı noktası >* /plugins/servlet/saml/auth.
 
-* **Oturum açma URL'si**: Oturum açma URL'SİNDE Idp'nizi SAML oturum açma işlemini başlatır. Eşlendiği **oturum açma** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen*\<etki alanı: bağlantı noktası >*/plugins/servlet/saml/auth.
+* **Oturum açma URL'si**: Oturum açma URL'SİNDE Idp'nizi SAML oturum açma işlemini başlatır. Eşlendiği **oturum açma** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen *\<etki alanı: bağlantı noktası >* /plugins/servlet/saml/auth.
 
 * **IDP varlık kimliği**: Idp'nizi kullanan varlık kimliği. Meta veri URL'sini çözümlendiğinde bu kutuyu doldurulur.
 

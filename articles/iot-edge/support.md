@@ -4,17 +4,17 @@ description: Azure IOT Edge arka plan programı ve çalışma zamanı ve üretim
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/06/2019
+ms.date: 06/12/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1db999f5d3172734311ecc7dbec72214a1e07e91
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 178cbf930c946170834eb1f7de17e6d5bc0dda48
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058298"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IOT Edge desteklenen sistemleri
 
@@ -61,20 +61,21 @@ Genel kullanıma sunuldu
 | Ubuntu Server 16.04 | Evet | Hayır |
 | Ubuntu Server 18.04 | Evet | Hayır |
 | Windows 10 IOT Enterprise, derleme 17763 | Evet | Hayır |
+| Windows Server 2019, derleme 17763 | Evet | Hayır |
+| Windows Server IOT 2019 17763 derleme | Evet | Hayır |
 
 Genel önizleme
 
-| İşletim Sistemi | AMD64 | ARM32v7 |
+| İşletim sistemi | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core derleme 17763 | Evet | Hayır |
-| Windows Server 2019, derleme 17763 | Evet | Hayır |
-| Windows Server IOT 2019 17763 derleme | Evet | Hayır |
+
 
 Yukarıda listelenen Windows işletim sistemleri, Windows kapsayıcıları üzerinde Windows çalıştıran cihazlar için gereksinimleridir. Bu yapılandırmayı üretim için yalnızca desteklenen yapılandırmadır. Windows için Azure IOT Edge yükleme paketleri, Windows üzerinde Linux kapsayıcıları kullanılmasına izin verin; Ancak, bu yalnızca geliştirme ve test için bir yapılandırmadır. Windows üzerinde Linux kapsayıcıları kullanımını üretim için desteklenen bir yapılandırma değildir. Bu geliştirme senaryosu için herhangi bir Windows 10 derleme 14393 ya da daha yeni ve Windows Server 2016 veya daha yeni sürümü kullanılabilir.
 
 ### <a name="tier-2"></a>Katman 2
 
-| İşletim Sistemi | AMD64 | ARM32v7 |
+| İşletim sistemi | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | CentOS 7.5 | Evet | Evet |
 | Debian 8 | Evet | Evet |

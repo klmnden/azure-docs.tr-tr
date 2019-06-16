@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
 ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126855"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Kurumsal Anlaşma ayırma maliyetleri ve kullanım bilgilerini alma
@@ -104,11 +104,11 @@ Aşağıdaki bölümlerde ayırma maliyet ve kullanım verilerini görüntüleme
 
 ### <a name="get-reservation-purchase-costs"></a>Rezervasyon satın alma maliyetleri alın
 
-Gerçek maliyet verileri, rezervasyon satın alma maliyetleri kullanılabilir. Filtre _ChargeType satın alma =_. Satın alma için hangi rezervasyon siparişi belirlemek için ProductOrderID bakın.
+Gerçek maliyet verileri, rezervasyon satın alma maliyetleri kullanılabilir. Filtre _ChargeType satın alma =_ . Satın alma için hangi rezervasyon siparişi belirlemek için ProductOrderID bakın.
 
 ### <a name="get-underutilized-reservation-quantity-and-costs"></a>Az kullanılan ayırma miktarını ve maliyetleri alın
 
-Amorti edilmiş maliyet veri almak ve filtre _ChargeType_ _UnusedReservation =_. Günlük kullanılmamış ayırma miktarını ve maliyet olursunuz. Verileri için bir ayırma veya rezervasyon siparişi kullanarak filtreleyebilirsiniz _Reservationıd_ ve _ProductOrderId_ alanlar, sırasıyla. Rezervasyon kullanılan % 100 idiyse, kaydı bir miktar 0 ' var.
+Amorti edilmiş maliyet veri almak ve filtre _ChargeType_ _UnusedReservation =_ . Günlük kullanılmamış ayırma miktarını ve maliyet olursunuz. Verileri için bir ayırma veya rezervasyon siparişi kullanarak filtreleyebilirsiniz _Reservationıd_ ve _ProductOrderId_ alanlar, sırasıyla. Rezervasyon kullanılan % 100 idiyse, kaydı bir miktar 0 ' var.
 
 ### <a name="amortize-reservation-costs"></a>Ayırma maliyetleri İtfası
 
@@ -147,7 +147,7 @@ Ayrılmış örnek maliyeti kullanılabilir [Azure maliyet analizi Önizleme mod
 
 Bir ayırma veya ücret türüne göre ücretlerinizi görmek için filtre uygulayın. Ayırma adı ayırmaları tarafından ayrılmış maliyetleri görmek üzere gruplandırma.
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

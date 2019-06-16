@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477094"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Doğrulayın ve SLES 12 SP3 üzerinde SAP HANA genişleme yüksek kullanılabilirlik Kurulumu sorunlarını giderme 
@@ -74,7 +74,7 @@ Kullanırken **crm geçirme** komutu, küme yapılandırmayı Temizle emin olun.
 | | | |
 | Ana düğüm sitesinde 2 | hso-hana-vm-s2-0 | 10.0.0.40 |
 | 1 sitesinde 2 çalışan düğümü | hso-hana-vm-s2-1 | 10.0.0.41 |
-| 2. site 2 çalışan düğümü | hso-hana-vm-s2-2  | 10.0.0.42 |
+| 2\. site 2 çalışan düğümü | hso-hana-vm-s2-2  | 10.0.0.42 |
 | | | |
 | Temel oluşturucu düğüm | hso hana dm | 10.0.0.13 |
 | SBD aygıt sunucusu | hso hana sbd | 10.0.0.19 |
@@ -411,7 +411,7 @@ Timeout (msgwait)  : 120
 ==Header on disk /dev/sdd is dumped
 </code></pre>
 
-Bir daha fazla onay SBD için başka bir düğüme bir ileti göndermek için olasılıktır. 2. site 2 çalışan düğümü bir ileti göndermek için sitesinde 2 çalışan düğümü 1 üzerinde aşağıdaki komutu çalıştırın:
+Bir daha fazla onay SBD için başka bir düğüme bir ileti göndermek için olasılıktır. 2\. site 2 çalışan düğümü bir ileti göndermek için sitesinde 2 çalışan düğümü 1 üzerinde aşağıdaki komutu çalıştırın:
 
 <pre><code>
 sbd -d /dev/sdm message hso-hana-vm-s2-2 test
@@ -473,7 +473,7 @@ Her şeyin doğru şekilde ayarlandıktan sonra her düğüm üzerinde Pacemaker
 systemctl status pacemaker
 </code></pre>
 
-Çıkış en üstüne aşağıdaki örneğe benzer görünmelidir. Önemli olduğu, sonra durum **etkin** olarak gösterilen **yüklenen** ve **etkin (çalışan)**. Sonraki durum **Loaded** olarak gösterilmelidir **etkin**.
+Çıkış en üstüne aşağıdaki örneğe benzer görünmelidir. Önemli olduğu, sonra durum **etkin** olarak gösterilen **yüklenen** ve **etkin (çalışan)** . Sonraki durum **Loaded** olarak gösterilmelidir **etkin**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -802,7 +802,7 @@ Komutlar **SAPHanaSR showAttr** ve **crm durumu** kaynak geçiş tarafından olu
 crm configure show
 </code></pre>
 
-Küme Yapılandırması içinde önceki el ile kaynak geçiş işleminin neden yeni bir konum kısıtlaması bulun. Bu örnek girişi ile başlayan **konumu CLI -**:
+Küme Yapılandırması içinde önceki el ile kaynak geçiş işleminin neden yeni bir konum kısıtlaması bulun. Bu örnek girişi ile başlayan **konumu CLI -** :
 
 <pre><code>
 location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0

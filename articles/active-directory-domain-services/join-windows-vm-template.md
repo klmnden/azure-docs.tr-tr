@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: e4ca613059e10755056616b964cc500625fef187
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66245962"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Bir Windows Server sanal makinesi bir Resource Manager şablonu kullanarak bir yönetilen etki alanına ekleme
@@ -42,7 +42,7 @@ Bu belgede özetlenen adımları gerçekleştirmek için aşağıdaki seçenekle
 * **Azure CLI**: [Yükleme ve yapılandırma](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
-## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>1. seçenek: Yeni bir Windows Server VM'si sağlama ve yönetilen bir etki alanına katılma
+## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>1\. seçenek: Yeni bir Windows Server VM'si sağlama ve yönetilen bir etki alanına katılma
 **Hızlı Başlangıç şablonu adı**: [201-vm-etki alanına katılma](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 
 Bir Windows Server sanal makinesini dağıtmak ve yönetilen bir etki alanına katılmak için aşağıdaki adımları gerçekleştirin:
@@ -73,7 +73,7 @@ Bir Windows Server sanal makinesini dağıtmak ve yönetilen bir etki alanına k
 Dağıtım başarıyla tamamlandıktan sonra yeni sağlanan Windows sanal makinenizi yönetilen etki alanına katıldı.
 
 
-## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>2. seçenek: Mevcut bir Windows Server sanal Makinesini yönetilen etki alanına katılın
+## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>2\. seçenek: Mevcut bir Windows Server sanal Makinesini yönetilen etki alanına katılın
 **Hızlı Başlangıç şablonu**: [201-vm-etki-birleştirme-mevcut](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 
 Varolan bir Windows Server sanal makinesini yönetilen etki alanına katılmak için aşağıdaki adımları gerçekleştirin:

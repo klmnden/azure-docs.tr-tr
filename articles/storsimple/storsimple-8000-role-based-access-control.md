@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159084"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple için rol tabanlı erişim denetimi
@@ -165,7 +165,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden erişim verebilirsiniz. Erişim sağlarken, üst düğümüne erişim izni unutmayın alt tarafından devralınır. Daha fazla bilgi için Git [rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
 
-1. Git **erişim denetimi (IAM)**. Tıklayın **+ Ekle** erişim denetimi dikey penceresinde.
+1. Git **erişim denetimi (IAM)** . Tıklayın **+ Ekle** erişim denetimi dikey penceresinde.
 
     ![Erişim için RBAC rolü Ekle](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94b35f0530dacfadb799f1d44d7a9eb666def6c9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65891990"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google B2B Konuk kullanıcılar için kimlik sağlayıcısı Ekle
@@ -34,9 +34,9 @@ Konuk kullanıcı bir "çok uzun üstbilgi" hatası görürse, kendi tanımlama 
 
 ![Google oturum açma sayfasını gösteren ekran görüntüsü](media/google-federation/google-sign-in.png)
 
-## <a name="step-1-configure-a-google-developer-project"></a>1. Adım: Bir Google developer proje yapılandırma
+## <a name="step-1-configure-a-google-developer-project"></a>1\. adım: Bir Google developer proje yapılandırma
 İlk olarak bir istemci kimliği ve daha sonra Azure AD'ye ekleyebileceğiniz bir istemci gizli anahtarını almak amacıyla Google geliştiriciler konsolunda yeni bir proje oluşturun. 
-1. Google API'leri Git https://console.developers.google.comve Google hesabınızla oturum açın. Paylaşılan bir takım Google hesabı kullanmanızı öneririz.
+1. Google API'leri Git https://console.developers.google.com ve Google hesabınızla oturum açın. Paylaşılan bir takım Google hesabı kullanmanızı öneririz.
 2. Yeni bir proje oluşturun: Panoda seçin **proje oluştur**ve ardından **Oluştur**. Yeni Proje sayfa üzerinde girin bir **proje adı**ve ardından **Oluştur**.
    
    ![Yeni Proje sayfa için Google gösteren ekran görüntüsü](media/google-federation/google-new-project.png)
@@ -64,7 +64,7 @@ Konuk kullanıcı bir "çok uzun üstbilgi" hatası görürse, kendi tanımlama 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(burada `<directory id>` , dizin kimliği)
    
      > [!NOTE]
-     > Dizin Kimliğinizi bulmak için Git https://portal.azure.com, altında **Azure Active Directory**, seçin **özellikleri** ve kopyalama **dizin kimliği**.
+     > Dizin Kimliğinizi bulmak için Git https://portal.azure.com , altında **Azure Active Directory**, seçin **özellikleri** ve kopyalama **dizin kimliği**.
 
    ![Yetkili gösteren ekran görüntüsü yeniden yönlendirme URI'leri bölümü](media/google-federation/google-create-oauth-client-id.png)
 
@@ -72,7 +72,7 @@ Konuk kullanıcı bir "çok uzun üstbilgi" hatası görürse, kendi tanımlama 
 
    ![OAuth istemcisi Kimliğini ve istemci gizli anahtarı gösteren ekran görüntüsü](media/google-federation/google-auth-client-id-secret.png)
 
-## <a name="step-2-configure-google-federation-in-azure-ad"></a>2. Adım: Azure AD'de Google Federasyonu yapılandırma 
+## <a name="step-2-configure-google-federation-in-azure-ad"></a>2\. adım: Azure AD'de Google Federasyonu yapılandırma 
 Artık Azure AD portalında girerek veya PowerShell kullanarak Kimliğini ve istemci gizli anahtarı, Google istemci ayarlarsınız. Kendiniz bir Gmail adresi kullanarak ve çalışırken davetini davet edilen Google hesabınızla davet ederek Google Federasyon yapılandırmanızı test etmeyi unutmayın. 
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Azure AD portalında Google Federasyon yapılandırmak için 
@@ -101,7 +101,7 @@ Google Federasyon kurulumunuzu silebilirsiniz. Bunu yaparsanız, davetini zaten 
 1. [Azure Portal](https://portal.azure.com) gidin. Sol bölmede **Azure Active Directory**’yi seçin. 
 2. Seçin **kuruluş ilişkileri**.
 3. Seçin **kimlik sağlayıcıları**.
-4. Üzerinde **Google** satır, bağlam menüsünü (**...** ) ve ardından **Sil**. 
+4. Üzerinde **Google** satır, bağlam menüsünü ( **...** ) ve ardından **Sil**. 
    
    ![Sosyal kimlik sağlayıcısı silme seçeneğini gösteren ekran görüntüsü](media/google-federation/google-social-identity-providers.png)
 

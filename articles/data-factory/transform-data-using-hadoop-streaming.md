@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848257"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Hadoop akış etkinliğinde, Azure Data Factory kullanarak verileri dönüştürme
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Geçerli sürüm](transform-data-using-hadoop-streaming.md)
 
@@ -70,9 +70,9 @@ Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'
 
 | Özellik          | Açıklama                              | Gerekli |
 | ----------------- | ---------------------------------------- | -------- |
-| ad              | Etkinliğin adı                     | Evet      |
-| açıklama       | Etkinliğin ne için kullanıldığını açıklayan metin | Hayır       |
-| type              | Hadoop akış etkinliğinde'için Hdınsightstreaming etkinlik türüdür | Evet      |
+| name              | Etkinliğin adı                     | Evet      |
+| description       | Etkinliğin ne için kullanıldığını açıklayan metin | Hayır       |
+| türü              | Hadoop akış etkinliğinde'için Hdınsightstreaming etkinlik türüdür | Evet      |
 | linkedServiceName | Data Factory öğesinde bağlantılı hizmet olarak HDInsight kümesine başvuru kayıtlı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
 | Eşleyici            | Yürütülebilir Eşleyici adını belirtir | Evet      |
 | Azaltıcı           | Yürütülebilir Azaltıcı adını belirtir | Evet      |
@@ -82,8 +82,8 @@ Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'
 | giriş             | Giriş dosyası WASB yolu Eşleştiricisi belirtir. | Evet      |
 | çıkış            | Çıkış dosyası WASB yolu için Azaltıcı belirtir. | Evet      |
 | getDebugInfo      | Günlük dosyaları Azure depolama için ne zaman kopyalanır belirtir HDInsight küme tarafından kullanılan (veya) scriptLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
-| bağımsız değişkenler         | Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenleri, her görev için komut satırı bağımsız değişkenleri geçirilir. | Hayır       |
-| tanımlar           | Parametreler içinde Hive betiğine başvurmak için anahtar/değer çiftleri belirtin. | Hayır       | 
+| arguments         | Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenleri, her görev için komut satırı bağımsız değişkenleri geçirilir. | Hayır       |
+| defines           | Parametreler içinde Hive betiğine başvurmak için anahtar/değer çiftleri belirtin. | Hayır       | 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Anlatan farklı yollarla verileri dönüştürmek aşağıdaki makalelere bakın: 

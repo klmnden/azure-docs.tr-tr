@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570649"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısı kullanarak VPN altyapınız ile Azure mfa'yı tümleştirme
@@ -153,7 +153,7 @@ Bu senaryoda düzgün çalışması için Active Directory'de NPS sunucusunun ka
 
 Standart (Sihirbaz tabanlı) kullanabilirsiniz veya Gelişmiş RADIUS sunucusunu yapılandırmak için yapılandırma seçeneği. Bu bölümde, sihirbaz tabanlı standart yapılandırma seçeneği kullandığınız varsayılır.
 
-1. Ağ İlkesi Sunucusu konsolunda seçin **NPS (yerel)**.
+1. Ağ İlkesi Sunucusu konsolunda seçin **NPS (yerel)** .
 
 2. Altında **standart yapılandırma**seçin **çevirmeli veya VPN bağlantıları için RADIUS sunucusu**ve ardından **yapılandırma VPN veya çevirmeli**.
 
@@ -269,7 +269,7 @@ Bu bölümde, VPN istemci kimlik doğrulaması ve VPN sanal bağlantı noktasın
 
 4. Seçin **bir VPN bağlantısı Ekle**.
 
-5. İçinde **bir VPN bağlantısı Ekle** penceresi içinde **VPN sağlayıcı** kutusunda **Windows (yerleşik)**, uygun şekilde kalan alanları doldurun ve ardından seçin**Kaydet**.
+5. İçinde **bir VPN bağlantısı Ekle** penceresi içinde **VPN sağlayıcı** kutusunda **Windows (yerleşik)** , uygun şekilde kalan alanları doldurun ve ardından seçin**Kaydet**.
 
     !["Bir VPN bağlantısı Ekle" penceresi](./media/howto-mfa-nps-extension-vpn/image17.png)
 

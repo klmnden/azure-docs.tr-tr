@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: 1639b8066f3c9943bc42f5151fcb456585441baf
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866240"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Bing görsel arama API'sine dil ve bölge desteği
@@ -34,7 +34,7 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 > - Tarif, alışveriş ve sayfalar dahil ınsights yalnızca en-US pazarında kullanılabilir.
 
 
-## <a name="countriesregions"></a>Ülkeler/Bölgeler
+## <a name="countriesregions"></a>Ülkeler/bölgeler
 
 |Ülke/bölge|Kod|
 |-------|----|
@@ -49,7 +49,7 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 |Finlandiya|FI|
 |Fransa|GS|
 |Almanya|DE|
-|Hong Kong Çin ÖİB|HK|
+|Hong Kong SAR|HK|
 |Hindistan|IN|
 |Endonezya|Kimlik|
 |İtalya|BT|
@@ -80,27 +80,27 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 
 |Ülke/bölge|Dil|Pazar kod|
 |-------|--------|-----------|
-|Arjantin|İspanyolca |es-AR|
+|Arjantin|İspanyolca|es-AR|
 |Avustralya|Türkçe|tr-AU|
-|Avusturya|Almanca |de-AT|
+|Avusturya|Almanca|de-AT|
 |Belçika|Felemenkçe|NL-olabilir|
-|Belçika|Fransızca |FR-olabilir|
+|Belçika|Fransızca|FR-olabilir|
 |Brezilya|Portekizce|pt-BR|
 |Kanada|Türkçe|CA tr|
-|Kanada|Fransızca |fr-CA|
-|Şili|İspanyolca |ES-CL|
+|Kanada|Fransızca|fr-CA|
+|Şili|İspanyolca|ES-CL|
 |Danimarka|Danca|v-DK|
 |Finlandiya|Fince|FI-FI|
-|Fransa|Fransızca |fr-FR|
-|Almanya|Almanca |de-DE|
-|Hong Kong Çin ÖİB|Geleneksel Çince|zh-HK|
+|Fransa|Fransızca|fr-FR|
+|Almanya|Almanca|de-DE|
+|Hong Kong SAR|Geleneksel Çince|zh-HK|
 |Hindistan|Türkçe|tr-giriş|
 |Endonezya|Türkçe|tr kimliği|
 |İtalya|İtalyanca|İt-IT|
 |Japonya|Japonca|ja-JP|
 |Güney Kore|Korece|ko-KR|
 |Malezya|Türkçe|MY tr|
-|Meksika|İspanyolca |es-MX|
+|Meksika|İspanyolca|es-MX|
 |Hollanda|Felemenkçe|NL-NL|
 |Yeni Zelanda|Türkçe|tr NZ|
 |Çin|Çince|zh-CN|
@@ -110,12 +110,12 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 |Rusya|Rusça|ru-RU|
 |Suudi Arabistan|Arapça|ar-SA|
 |Güney Afrika|Türkçe|tr-ZA|
-|İspanya|İspanyolca |es-ES|
+|İspanya|İspanyolca|es-ES|
 |İsveç|İsveççe|sv-SE|
-|İsviçre|Fransızca |FR-CH|
-|İsviçre|Almanca |de-CH|
+|İsviçre|Fransızca|FR-CH|
+|İsviçre|Almanca|de-CH|
 |Tayvan|Geleneksel Çince|zh-TW|
 |Türkiye|Türkçe|tr-TR|
 |Birleşik Krallık|Türkçe|en-GB|
 |Amerika Birleşik Devletleri|Türkçe|en-US|
-|Amerika Birleşik Devletleri|İspanyolca |ES-ABD|
+|Amerika Birleşik Devletleri|İspanyolca|ES-ABD|

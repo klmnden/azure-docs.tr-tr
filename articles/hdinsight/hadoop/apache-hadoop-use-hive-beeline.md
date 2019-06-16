@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.openlocfilehash: dcfcd4b55f848e1725e286e6ef2a87a2c36e5a71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684922"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive ile Apache Beeline istemcisini kullanma
@@ -100,9 +100,9 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 * Bildirim [URI şeması](../hdinsight-hadoop-linux-information.md#URI-and-scheme) kümenizin birincil depolama. Örneğin, `wasb://` Azure depolama için `abfs://` için Azure Data Lake depolama Gen2 veya `adl://` Azure Data Lake depolama Gen1 için. Güvenli aktarım, Azure Depolama'da veya Data Lake depolama Gen2 için etkinse URI'dir `wasbs://` veya `abfss://`sırasıyla. Daha fazla bilgi için [güvenli aktarım](../../storage/common/storage-require-secure-transfer.md).
 
 
-* 1. seçenek: Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md). Bu belgedeki adımlarda çoğunu Beeline kümeye bir SSH oturumundan kullandığınız varsayılır.
+* 1\. seçenek: Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md). Bu belgedeki adımlarda çoğunu Beeline kümeye bir SSH oturumundan kullandığınız varsayılır.
 
-* 2. seçenek:  Yerel Beeline istemci.
+* 2\. seçenek:  Yerel Beeline istemci.
 
 
 ## <a id="beeline"></a>Bir Hive sorgusu çalıştırma
@@ -187,7 +187,7 @@ Bu örnek, bir SSH bağlantısı Beeline istemciden kullanarak temel alır.
 
     * `STORED AS TEXTFILE LOCATION` -Veri depolandığı ve hangi dosya biçimi.
 
-    * `SELECT` -Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu sorgunun döndürdüğü değeri **3** olarak bu değeri içeren üç satır.
+    * `SELECT` -Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]** . Bu sorgunun döndürdüğü değeri **3** olarak bu değeri içeren üç satır.
 
     * `INPUT__FILE__NAME LIKE '%.log'` -Hive, dizindeki tüm dosyaları şema uygulamak çalışır. Bu durumda, dizin şemasını eşleşmeyen dosyalarını içerir. Çöp veri sonuçları engellemek için bu bildirimi Hive, yalnızca veri sonu dosyalarından dönmesi gerektiğini söyler. günlük.
 
@@ -243,12 +243,12 @@ Bu örnek, bir SSH bağlantısı Beeline istemciden kullanarak temel alır.
 
    * **OLUŞTURMA IF NOT TABLOSUNUN VAROLDUĞUNU** -tablo zaten mevcut değilse oluşturulur. Bu yana **dış** anahtar sözcüğü kullanılmazsa, bu deyimi iç tablo oluşturur. İç tablolar Hive veri ambarı'nda depolanır ve yığın tarafından tamamen yönetilir.
    * **DEPOLANAN AS ORC** -en iyi duruma getirilmiş satır sütunlu (ORC) biçiminde veri depolar. ORC biçimi, Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
-   * **INSERT ÜZERİNE... SEÇİN** -satırları seçer **log4jLogs** içeren tablo **[Hata]**, ardından verileri ekler **günlüklerini** tablo.
+   * **INSERT ÜZERİNE... SEÇİN** -satırları seçer **log4jLogs** içeren tablo **[Hata]** , ardından verileri ekler **günlüklerini** tablo.
 
     > [!NOTE]  
     > Dış tablolar, iç tablo bırakılırken, temel alınan verileri de siler.
 
-3. Dosyayı kaydetmek için kullanın **Ctrl**+**_X**, enter **Y**ve son olarak **Enter**.
+3. Dosyayı kaydetmek için kullanın **Ctrl**+ **_X**, enter **Y**ve son olarak **Enter**.
 
 4. Beeline'ı kullanarak dosyayı çalıştırmak için aşağıdakileri kullanın:
 

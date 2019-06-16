@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979000"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI Bağlayıcısı'nı kullanarak Azure Cosmos DB verileri Görselleştir
@@ -48,7 +48,7 @@ Power BI öğreticideki yönergeleri izlemeden önce aşağıdaki kaynaklara eri
 
 PowerBI.com raporlarınızda paylaşmak için Powerbı.com'daki hesabınız olmalıdır.  Power BI ve Power BI Pro hakkında daha fazla bilgi için bkz: [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 
-## <a name="lets-get-started"></a>Kullanmaya başlayın
+## <a name="lets-get-started"></a>Başlayalım
 Şimdi bu öğreticide, dünyanın dört bir yanındaki volkanlar Çincesi bir geologist olduğunu hayal edin. Bir Azure Cosmos DB hesabını volkan veriler ve JSON belge biçimi aşağıdaki gibidir:
 
     {

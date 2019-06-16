@@ -16,10 +16,10 @@ ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5104d630e2b4e97b80a6fedfb6d863061c2722fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61416335"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>StorSimple sanal dizisi - Hyper-V'de sağlama dağıtma
@@ -67,7 +67,7 @@ Sağlama ve bir sanal diziye bağlamak için aşağıdaki adımları gerçekleş
 
 Bu adımların her biri, aşağıdaki bölümlerde açıklanmıştır.
 
-## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements"></a>1. Adım: Ana bilgisayar sistemi en düşük sanal dizi gereksinimleri karşıladığından emin olun
+## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements"></a>1\. adım: Ana bilgisayar sistemi en düşük sanal dizi gereksinimleri karşıladığından emin olun
 Bir sanal dizin oluşturmak için ihtiyacınız vardır:
 
 * Hyper-V rolü yüklü Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 SP1.
@@ -80,7 +80,7 @@ Sanal dizi oluşturmakta olduğunuz temel donanımın (ana bilgisayar sistemi) s
 * Bir ağ arabirimi.
 * Sistem verileri için 500 GB sanal disk.
 
-## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>2. Adım: Hiper yönetici olarak bir sanal dizin sağlayın
+## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>2\. adım: Hiper yönetici olarak bir sanal dizin sağlayın
 Hiper yöneticinizde cihaz sağlamak için aşağıdaki adımları gerçekleştirin.
 
 #### <a name="to-provision-a-virtual-array"></a>Sanal diziyi sağlamak için
@@ -150,7 +150,7 @@ Hiper yöneticinizde cihaz sağlamak için aşağıdaki adımları gerçekleşti
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image20.png)
 
-## <a name="step-3-start-the-virtual-array-and-get-the-ip"></a>3. Adım: Sanal diziyi başlatın ve IP'yi alın
+## <a name="step-3-start-the-virtual-array-and-get-the-ip"></a>3\. adım: Sanal diziyi başlatın ve IP'yi alın
 Sanal diziyi başlatın ve buna bağlanmak için aşağıdaki adımları gerçekleştirin.
 
 #### <a name="to-start-the-virtual-array"></a>Sanal dizi başlatmak için

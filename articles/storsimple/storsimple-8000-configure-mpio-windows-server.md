@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60363402"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Çok yollu g/ç StorSimple cihazınız için yapılandırma
@@ -35,14 +35,14 @@ MPIO, Windows Server'da isteğe bağlı bir özelliktir ve varsayılan olarak y�
 
 MPIO, StorSimple Cihazınızı yapılandırmak için aşağıdaki adımları izleyin:
 
-* 1. Adım: Windows Server ana bilgisayarında MPIO yükleme
-* 2. Adım: StorSimple birimlerini için MPIO yapılandırma
-* 3. Adım: Konaktaki bağlama StorSimple birimlerini
-* 4. Adım: Yük Dengeleme ve yüksek kullanılabilirlik için MPIO yapılandırma
+* 1\. adım: Windows Server ana bilgisayarında MPIO yükleme
+* 2\. adım: StorSimple birimlerini için MPIO yapılandırma
+* 3\. adım: Konaktaki bağlama StorSimple birimlerini
+* 4\. Adım: Yük Dengeleme ve yüksek kullanılabilirlik için MPIO yapılandırma
 
 Yukarıdaki adımların her biri, aşağıdaki bölümlerde ele alınmıştır.
 
-## <a name="step-1-install-mpio-on-the-windows-server-host"></a>1. Adım: Windows Server ana bilgisayarında MPIO yükleme
+## <a name="step-1-install-mpio-on-the-windows-server-host"></a>1\. adım: Windows Server ana bilgisayarında MPIO yükleme
 
 Bu özellik Windows Server ana bilgisayarınıza yüklemek için aşağıdaki yordamı tamamlayın.
 
@@ -66,14 +66,14 @@ Bu özellik Windows Server ana bilgisayarınıza yüklemek için aşağıdaki yo
    5. Üzerinde **özellikleri seçin** sayfasında **çok yollu g/ç**, tıklatıp **sonraki**.
    
        ![Rol ve Özellik Ekleme Sihirbazı 5 Ekle](./media/storsimple-configure-mpio-windows-server/IC741000.png)
-   6. Üzerinde **yükleme seçimlerini onaylayın** sayfasında seçimi onaylayın ve ardından **gerekirse hedef sunucuyu otomatik olarak yeniden**, aşağıda gösterildiği gibi. **Yükle**'ye tıklayın.
+   6. Üzerinde **yükleme seçimlerini onaylayın** sayfasında seçimi onaylayın ve ardından **gerekirse hedef sunucuyu otomatik olarak yeniden**, aşağıda gösterildiği gibi. **Yükle**'ye tıklatın.
    
        ![Rol ve Özellik Ekleme Sihirbazı 8 Ekle](./media/storsimple-configure-mpio-windows-server/IC741001.png)
    7. Yükleme tamamlandığında size bildirilir. Sihirbazı kapatmak için **Kapat**'a tıklayın.
    
        ![Rol ve Özellik Ekleme Sihirbazı 9 Ekle](./media/storsimple-configure-mpio-windows-server/IC741002.png)
 
-## <a name="step-2-configure-mpio-for-storsimple-volumes"></a>2. Adım: StorSimple birimlerini için MPIO yapılandırma
+## <a name="step-2-configure-mpio-for-storsimple-volumes"></a>2\. adım: StorSimple birimlerini için MPIO yapılandırma
 
 MPIO, StorSimple birimlerini tanımlamak için yapılandırılmalıdır. MPIO, StorSimple birimlerini tanıyacak şekilde yapılandırmak için aşağıdaki adımları gerçekleştirin.
 
@@ -84,14 +84,14 @@ MPIO, StorSimple birimlerini tanımlamak için yapılandırılmalıdır. MPIO, S
 3. Seçin **iSCSI cihazlar için destek eklenecek**ve ardından **Ekle**.  
    ![MPIO özellikleri çoklu yolları Bul](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. İstendiğinde sunucuyu yeniden başlatın.
-5. İçinde **MPIO Özellikleri** iletişim kutusu, tıklayın **MPIO cihazları** sekmesi. **Ekle**'ye tıklayın.
+5. İçinde **MPIO Özellikleri** iletişim kutusu, tıklayın **MPIO cihazları** sekmesi. **Ekle**'yi tıklatın.
     </br>![MPIO özellikleri MPIO cihazları](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. İçinde **MPIO desteği Ekle** iletişim kutusunun **cihaz donanım kimliği**, cihaz seri numaranızı girin. Cihaz seri numarasını almak için StorSimple cihaz Yöneticisi hizmetine erişin. Gidin **cihazlar > Pano**. Cihaz seri numarasını sağa görüntülenen **Hızlı Bakış** cihaz panonun bölmesi.
     </br>
     ![MPIO desteği Ekle](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. İstendiğinde sunucuyu yeniden başlatın.
 
-## <a name="step-3-mount-storsimple-volumes-on-the-host"></a>3. Adım: Konaktaki bağlama StorSimple birimlerini
+## <a name="step-3-mount-storsimple-volumes-on-the-host"></a>3\. adım: Konaktaki bağlama StorSimple birimlerini
 
 Windows Server'da MPIO yapılandırdıktan sonra oluşturulan StorSimple cihazında birim bağlanabilir ve ardından MPIO artıklık yararlanabilirsiniz. Bir birimi bağlamak için aşağıdaki adımları gerçekleştirin.
 
@@ -148,7 +148,7 @@ Windows Server'da MPIO yapılandırdıktan sonra oluşturulan StorSimple cihazı
 > **Varsayılan parametreleri değiştirmeyin.**
 
 
-## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>4. Adım: Yük Dengeleme ve yüksek kullanılabilirlik için MPIO yapılandırma
+## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>4\. Adım: Yük Dengeleme ve yüksek kullanılabilirlik için MPIO yapılandırma
 
 Yüksek kullanılabilirlik ve Yük Dengeleme çok yollu tabanlı için kullanılabilen farklı yolları bildirmek için birden çok oturumu el ile eklenmesi gerekir. Örneğin, konak iki arabirim iSCSI ağa bağlı ve cihazın iSCSI ağa bağlı iki arabirim sahip ve ardından uygun yolu permütasyon ile yapılandırılmış dört oturumları gerekir (her, yalnızca iki oturumları gerekli olacak veri arabirimi ve konak farklı bir IP alt ağda bulunan ve arabirimi yönlendirilemez).
 

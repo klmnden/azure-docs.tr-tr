@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967897"
 ---
 # <a name="working-with-security-policies"></a>Güvenlik ilkeleriyle çalışma
@@ -238,7 +238,7 @@ Bu örnek, bir atamayı silmeyi işlemini göstermektedir:
 |Güvenlik yapılandırmaları |Azure Güvenlik Merkezi'nde işletim sistemi güvenlik açıklarını izleyin |systemConfigurationsMonitoringEffect| 
 |Uç nokta koruması |Azure Güvenlik Merkezi'nde eksik Endpoint Protection'ı izleme |endpointProtectionMonitoringEffect |
 |Disk şifrelemesi |Azure Güvenlik Merkezi'nde şifrelenmemiş VM disklerini izleyin |diskEncryptionMonitoringEffect|
-|Güvenlik açığı değerlendirmesi |Azure Güvenlik Merkezi'nde VM Güvenlik Açıklarını İzleme |vulnerabilityAssessmentMonitoringEffect|
+|Güvenlik açığı değerlendirmesi |Azure Güvenlik Merkezi'nde izleme VM güvenlik açıklarını |vulnerabilityAssessmentMonitoringEffect|
 |Web uygulaması güvenlik duvarı |Azure Güvenlik Merkezi'nde korumasız web uygulamasını izleme |webApplicationFirewallMonitoringEffect |
 |Yeni nesil güvenlik duvarı |Azure Güvenlik Merkezi'nde korumasız ağ uç noktalarını izleme| |
 

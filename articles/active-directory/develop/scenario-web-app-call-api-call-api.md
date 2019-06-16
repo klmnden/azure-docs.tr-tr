@@ -16,17 +16,17 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dd44dda06b2f6fc48538f2fb74c0bf8e04d0362b
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074643"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Web API - çağıran bir web uygulaması web API'si çağırma
 
 Bir belirteç olduğuna göre korumalı web API'si çağırabilirsiniz.
 
-## <a name="aspnet-core"></a>ASP.NET Çekirdeği
+## <a name="aspnet-core"></a>ASP.NET Core
 
 Basitleştirilmiş bir kod eylemini işte `HomeController`. Bu kod Microsoft Graph'i çağırmaya yönelik bir belirteç alır. REST API olarak Microsoft Graph'i çağırmaya yönelik gösteren bu zaman kod eklendi.
 

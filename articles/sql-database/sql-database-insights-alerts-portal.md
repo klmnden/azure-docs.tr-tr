@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
 ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036074"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Azure SQL veritabanı ve Azure portalı kullanarak veri ambarı için uyarılar oluşturun
@@ -75,11 +75,11 @@ Bir uyarı oluşturulduktan sonra bunu seçebilirsiniz ve:
 
 ## <a name="sql-database-alert-values"></a>SQL veritabanı uyarı değerleri
 
-| Kaynak Türü | Ölçüm Adı | Kolay Ad | Toplama Türü | En düşük uyarı zaman penceresi|
+| Kaynak Türü | Ölçüm Adı | Kolay ad | Toplama Türü | En düşük uyarı zaman penceresi|
 | --- | --- | --- | --- | --- |
 | SQL veritabanı | cpu_percent | CPU yüzdesi | Ortalama | 5 dakika |
 | SQL veritabanı | physical_data_read_percent | Veri G/Ç yüzdesi | Ortalama | 5 dakika |
-| SQL veritabanı | log_write_percent | Günlük G/Ç yüzdesi | Ortalama | 5 dakika |
+| SQL veritabanı | log_write_percent | Günlük g/ç yüzdesi | Ortalama | 5 dakika |
 | SQL veritabanı | dtu_consumption_percent | DTU yüzdesi | Ortalama | 5 dakika |
 | SQL veritabanı | depolama | Toplam veritabanı boyutu | Maksimum | 30 dakika |
 | SQL veritabanı | connection_successful | Başarılı bağlantılar | Toplam | 10 dakika |
@@ -88,31 +88,31 @@ Bir uyarı oluşturulduktan sonra bunu seçebilirsiniz ve:
 | SQL veritabanı | Kilitlenme | Kilitlenmeler | Toplam | 10 dakika |
 | SQL veritabanı | storage_percent | Veri boyutu yüzdesi | Maksimum | 30 dakika |
 | SQL veritabanı | xtp_storage_percent | Bellek içi OLTP depolama percent(Preview) | Ortalama | 5 dakika |
-| SQL veritabanı | workers_percent | Çalışan yüzdesi | Ortalama | 5 dakika |
+| SQL veritabanı | workers_percent | Çalışan yüzde | Ortalama | 5 dakika |
 | SQL veritabanı | sessions_percent | Oturumlarının yüzde | Ortalama | 5 dakika |
 | SQL veritabanı | dtu_limit | DTU sınırı | Ortalama | 5 dakika |
 | SQL veritabanı | dtu_used | Kullanılan DTU | Ortalama | 5 dakika |
 ||||||
 | Elastik havuz | cpu_percent | CPU yüzdesi | Ortalama | 10 dakika |
 | Elastik havuz | physical_data_read_percent | Veri G/Ç yüzdesi | Ortalama | 10 dakika |
-| Elastik havuz | log_write_percent | Günlük G/Ç yüzdesi | Ortalama | 10 dakika |
+| Elastik havuz | log_write_percent | Günlük g/ç yüzdesi | Ortalama | 10 dakika |
 | Elastik havuz | dtu_consumption_percent | DTU yüzdesi | Ortalama | 10 dakika |
 | Elastik havuz | storage_percent | Depolama yüzdesi | Ortalama | 10 dakika |
-| Elastik havuz | workers_percent | Çalışan yüzdesi | Ortalama | 10 dakika |
+| Elastik havuz | workers_percent | Çalışan yüzde | Ortalama | 10 dakika |
 | Elastik havuz | eDTU_limit | eDTU sınırı | Ortalama | 10 dakika |
 | Elastik havuz | storage_limit | Depolama sınırı | Ortalama | 10 dakika |
 | Elastik havuz | eDTU_used | kullanılan eDTU | Ortalama | 10 dakika |
 | Elastik havuz | storage_used | Kullanılan depolama | Ortalama | 10 dakika |
 ||||||               
-| SQL Veri Ambarı | cpu_percent | CPU yüzdesi | Ortalama | 10 dakika |
-| SQL Veri Ambarı | physical_data_read_percent | Veri G/Ç yüzdesi | Ortalama | 10 dakika |
-| SQL Veri Ambarı | connection_successful | Başarılı bağlantılar | Toplam | 10 dakika |
-| SQL Veri Ambarı | connection_failed | Başarısız Bağlantılar | Toplam | 10 dakika |
-| SQL Veri Ambarı | blocked_by_firewall | Güvenlik Duvarı tarafından engellendi | Toplam | 10 dakika |
-| SQL Veri Ambarı | service_level_objective | Bir veritabanının Hizmet katmanını | Toplam | 10 dakika |
-| SQL Veri Ambarı | dwu_limit | dwu limiti | Maksimum | 10 dakika |
-| SQL Veri Ambarı | dwu_consumption_percent | DWU yüzdesi | Ortalama | 10 dakika |
-| SQL Veri Ambarı | dwu_used | Kullanılan DWU | Ortalama | 10 dakika |
+| SQL veri ambarı | cpu_percent | CPU yüzdesi | Ortalama | 10 dakika |
+| SQL veri ambarı | physical_data_read_percent | Veri G/Ç yüzdesi | Ortalama | 10 dakika |
+| SQL veri ambarı | connection_successful | Başarılı bağlantılar | Toplam | 10 dakika |
+| SQL veri ambarı | connection_failed | Başarısız Bağlantılar | Toplam | 10 dakika |
+| SQL veri ambarı | blocked_by_firewall | Güvenlik Duvarı tarafından engellendi | Toplam | 10 dakika |
+| SQL veri ambarı | service_level_objective | Bir veritabanının Hizmet katmanını | Toplam | 10 dakika |
+| SQL veri ambarı | dwu_limit | dwu limiti | Maksimum | 10 dakika |
+| SQL veri ambarı | dwu_consumption_percent | DWU yüzdesi | Ortalama | 10 dakika |
+| SQL veri ambarı | dwu_used | Kullanılan DWU | Ortalama | 10 dakika |
 ||||||
 
 

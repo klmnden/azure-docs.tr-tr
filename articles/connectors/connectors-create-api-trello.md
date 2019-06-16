@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 31357fa313cfa31c0f8a90c0f7722f627e4394d1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106176"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>İzleme ve Trello Azure Logic Apps ile yönetme
@@ -50,14 +50,14 @@ Trello hesabınızdan yanıtlar almak ve çıkış diğer eylemler için kullan�
 
 1. Boş mantıksal uygulama için arama kutusuna filtreniz olarak "trello" girin. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
 
-   -veya-
+   veya
 
    Var olan mantıksal uygulamalar, son adım, bir eylem eklemek istediğiniz altında seçin için **yeni adım**. 
    Arama kutusuna filtreniz olarak "trello" girin. 
    Eylemler listesinde, istediğiniz eylemi seçin.
 
    Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. 
-   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+   Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
 
 1. Trello için oturum açmanız istenirse, mantıksal uygulamanız için erişimi yetkilendirmeniz ve oturum açın.
 

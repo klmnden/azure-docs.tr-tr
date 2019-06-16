@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: genli
 ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475963"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Sorun giderme: Azure noktadan siteye bağlantı sorunları
@@ -258,7 +258,7 @@ Bu sorunu gidermek için yeniden indirin ve tüm istemcilerde Site paket noktas�
 
 VPN istemcisi, noktadan siteye istemci VPN bağlantısıyla çevirdiğinizde, Azure sanal ağı doğru bir yol eklemeniz gerekir. IP yardımcı hizmeti, VPN istemcilerinin bir alt ağ için bir rota eklemeniz gerekir. 
 
-10.0.0.0/8, 10.0.12.0/24 gibi daha küçük bir alt ağı için VPN istemci aralığı aittir. 10.0.12.0/24 için bir yol yerine, daha yüksek önceliğe sahip 10.0.0.0/8 için bir yol eklenir. 
+10\.0.0.0/8, 10.0.12.0/24 gibi daha küçük bir alt ağı için VPN istemci aralığı aittir. 10\.0.12.0/24 için bir yol yerine, daha yüksek önceliğe sahip 10.0.0.0/8 için bir yol eklenir. 
 
 Bu yanlış bir yol tanımlanan belirli bir yol olmayan 10.0.0.0/8 aralıkta 10.50.0.0/24 gibi başka bir alt ağa ait olabilir diğer şirket içi ağlar ile bağlantısını keser. 
 

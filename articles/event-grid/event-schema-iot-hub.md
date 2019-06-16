@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 4e96276a862844cea1d0800eafb952d4a0df97ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076348"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IOT hub'ın Azure Event Grid olay şeması
 
@@ -35,7 +35,7 @@ Azure IOT Hub aşağıdaki olay türlerini gösterir:
 | Microsoft.Devices.DeviceDisconnected | Bir cihaz IOT hub'ından kesildiğinde yayımladı. | 
 | Microsoft.Devices.DeviceTelemetry | Bir IOT hub'ına telemetri ileti gönderildiğinde yayımladı. |
 
-Cihazın telemetri olayları hariç tüm cihaz olayları Event Grid tarafından desteklenen tüm bölgelerde genel kullanıma sunulmuştur. Cihazın telemetri olayı genel Önizleme aşamasındadır ve Doğu ABD, Batı ABD, Batı Avrupa dışındaki tüm bölgelerde kullanılabilir [Azure kamu](/azure-government/documentation-government-welcome.md), [Azure Çin 21Vianet](/azure/china/china-welcome.md), ve [Azure Almanya](https://azure.microsoft.com/global-infrastructure/germany/).
+Cihazın telemetri olayları hariç tüm cihaz olayları Event Grid tarafından desteklenen tüm bölgelerde genel kullanıma sunulmuştur. Cihazın telemetri olayı genel Önizleme aşamasındadır ve Doğu ABD, Batı ABD, Batı Avrupa dışındaki tüm bölgelerde kullanılabilir [Azure kamu](../azure-government/documentation-government-welcome.md), [Azure Çin 21Vianet](/azure/china/china-welcome), ve [Azure Almanya](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>Örnek olay
 

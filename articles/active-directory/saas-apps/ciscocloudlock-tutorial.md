@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c43a38a456eb0fce3f46409bd256f0fc42e8ade
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 70f4b900a1ccc2769e397c32b452ef939da00099
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105530"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-security-fabric"></a>Öğretici: Bulut güvenlik yapısı ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD bulut güvenlik yapısı tümleştirilmesi yapılandırmak için bulut 
 
 **Bulut güvenlik yapısı Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

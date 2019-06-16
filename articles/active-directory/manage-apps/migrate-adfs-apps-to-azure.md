@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f77e322ffd7eec78fe13650f40c93f914706d557
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 272d5194b2922e57aca0d63fd62c222e17a29c53
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824619"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108247"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Uygulamalar AD FS'den Azure AD'ye taşıma 
 
@@ -46,7 +46,7 @@ Birçok kuruluşun doğrudan Active Directory Federation Service (AD FS) gibi bi
 Zaten AD FS, Ping veya başka bir şirket içi kimlik doğrulama sağlayıcısı kullanan bir kuruluş için uygulamaları Azure AD'ye taşınıyor, aşağıdaki avantajları sağlar:
 
 **Daha güvenli erişim**
-- [Azure AD koşullu erişim](../active-directory-conditional-access-azure-portal.md) kullanarak Azure Multi-Factor Authentication dahil ayrıntılı uygulama başına erişim denetimlerini yapılandırın. İlkeler, aynı bugün Office 365'le uyguluyor olabileceğiniz şekilde SaaS uygulamalarına ve özel uygulamalara da uygulanabilir.
+- Azure multi-Factor Authentication dahil ayrıntılı uygulama başına erişim denetimlerini yapılandırın [Azure AD koşullu erişim](../active-directory-conditional-access-azure-portal.md). İlkeler, aynı bugün Office 365'le uyguluyor olabileceğiniz şekilde SaaS uygulamalarına ve özel uygulamalara da uygulanabilir.
 - Tehditleri algılamak ve riskli trafiği tanımlayan makine öğrenme ve buluşsal yöntemler temelinde oturum açma bilgilerini korumaya yardımcı olmak için, [Azure AD Kimlik Koruması](../active-directory-identityprotection.md)'ndan yararlanın.
 
 **Azure AD B2B işbirliği**
@@ -155,7 +155,7 @@ Bugün kolayca taşıyabilirsiniz uygulamalar standart yapılandırma öğelerin
 - Özel talepler. Desteklenen talep eşlemeleri hakkında bilgi için bkz. [Azure Active Directory'de talep eşlemesi](../develop/active-directory-claims-mapping.md) ve [Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme](../develop/active-directory-saml-claims-customization.md).
 
 Özel taleplere ve **NameID** öğelerine ek olarak, geçiş işlemi kapsamında Azure AD'de başka yapılandırma adımları gerektiren yapılandırmalar:
-- AD FS'de özel yetkilendirme veya Multi-Factor Authentication kuralları. Bunları [Azure AD koşullu erişim](../active-directory-conditional-access-azure-portal.md) özelliğini kullanarak yapılandırırsınız.
+- AD FS'de özel yetkilendirme veya Multi-Factor Authentication kuralları. Bunları kullanarak yapılandırma [Azure AD koşullu erişim](../active-directory-conditional-access-azure-portal.md) özelliği.
 - Birden çok SAML uç noktası olan uygulamalar. Bunları Azure AD'de PowerShell kullanarak yapılandırırsınız. (Bu özellik portalda sağlanmaz.)
 - SAML sürüm 1.1 belirteçlerini gerektiren SharePoint uygulamaları gibi WS-Federasyon uygulamaları. Bunları PowerShell kullanarak el ile yapılandırmanız gerekir.
 

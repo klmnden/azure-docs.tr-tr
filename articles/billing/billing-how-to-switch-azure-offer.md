@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
 ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570988"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Azure Kullandıkça Öde aboneliğinizi farklı bir teklif için değiştirin
@@ -30,7 +30,7 @@ Olarak bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/
 
 ## <a name="whats-supported"></a>Ne desteklenir:
 
-| Başlangıç fiyatı | Alıcı |
+| Başlangıç | Bitiş |
 | --- | --- |
 | Kullandıkça Öde |[Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |
 | Kullandıkça Öde |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
@@ -114,6 +114,6 @@ Gün, geçiş, fatura için ödenmemiş tüm oluşturulur. Sonra aboneliğinizi 
 * Kaynakların doğrudan yeni bir aboneliğe geçirme, bkz: [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../azure-resource-manager/resource-group-move-resources.md).
 * Bir Azure aboneliği ve içindeki her şeyi sahipliğini başka bir kişiye aktarmak için bkz: [Azure aboneliğinin sahipliğini devretme](billing-subscription-transfer.md)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

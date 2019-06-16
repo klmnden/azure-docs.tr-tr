@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
 ms.openlocfilehash: f907ebcfc1efc2e6eb9b458f83ab11d868871946
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615841"
 ---
 # <a name="create-an-additional-subscription-in-the-azure-portal"></a>Azure portalında başka bir abonelik oluşturun
@@ -48,6 +48,6 @@ Ek Abonelikleriniz programlı olarak da oluşturabilirsiniz. Daha fazla bilgi i�
 - [Kaynak kuruluşta ve Yönetim için Yönetim grupları oluşturma](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
 - [Azure aboneliğiniz iptal et](billing-how-to-cancel-azure-subscription.md)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

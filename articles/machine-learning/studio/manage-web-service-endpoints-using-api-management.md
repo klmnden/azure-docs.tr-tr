@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347388"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Yönetimi'ni kullanarak Azure Machine Learning Studio web hizmetlerini yönetme
@@ -150,7 +150,7 @@ API oluşturmak için:
 
 4. İçin **parametreleri**, türü, **çalışma** ve **hizmet**, tür "için 2.0 **apiversion**, için"doğru"**ayrıntıları**. Bulabilirsiniz, **çalışma** ve **hizmet** AzureML web hizmeti panosundaki (bkz **web hizmetini Test** A ek olarak).
 
-   İçin **istek üst**, tıklayın **üst bilgi Ekle** "Content-Type" ve "application/json" yazın. Tıklayın **üst bilgi Ekle** yeniden ve "Yetkilendirme" yazın ve "taşıyıcı  *\<API ANAHTARINI hizmetiniz\>*". AzureML web hizmeti panosundaki API anahtarı bulabilirsiniz (bkz **web hizmetini Test** A ek olarak).
+   İçin **istek üst**, tıklayın **üst bilgi Ekle** "Content-Type" ve "application/json" yazın. Tıklayın **üst bilgi Ekle** yeniden ve "Yetkilendirme" yazın ve "taşıyıcı  *\<API ANAHTARINI hizmetiniz\>* ". AzureML web hizmeti panosundaki API anahtarı bulabilirsiniz (bkz **web hizmetini Test** A ek olarak).
 
    İçin **istek gövdesi**, türü `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 

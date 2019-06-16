@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 6/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 421f255353a3cf0b6cc000677c91d0f8c84cbc73
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c90e466bb7798fae3008dd72a4a4a0e2a0e7a0b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125744"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure dosya eşitleme Aracısı sürüm notları
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Windows Server yüklemeleriniz, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürülür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilirsiniz. Dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -25,7 +25,8 @@ Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 
 | Kilometre Taşı | Aracı sürüm numarası | Sürüm tarihi | Durum |
 |----|----------------------|--------------|------------------|
-| Güncelleştirme paketi - Mayıs 2019 [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 Mayıs 2019 | Desteklenen (önerilen sürüm) |
+| Güncelleştirme paketi - Haziran 2019 [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 Haziran 2019 | Desteklenen (önerilen sürüm) |
+| Güncelleştirme paketi - Mayıs 2019 [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 Mayıs 2019 | Desteklenen |
 | V6 Yayın - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 Nisan 2019 | Desteklenen |
 | Güncelleştirme paketi - Nisan 2019 [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 Nisan 2019 | Desteklenen |
 | Güncelleştirme paketi - Mart 2019 [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 Mart 2019 | Desteklenen |
@@ -41,6 +42,14 @@ Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure Dosya Eşitleme aracısı güncelleştirme ilkesi
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-6200"></a>Aracı sürümü 6.2.0.0
+Aşağıdaki sürüm notları 13 Haziran 2019 yayımlanan Azure dosya eşitleme aracısının sürümü için 6.2.0.0 ' dir. Bu Notlar 6.0.0.0 sürümü için listelenen sürüm notlarına ek olarak var.
+
+Bu sürümde giderilen sorunlar listesi:  
+- Arka plan geri çağırma dosya sunucusuna yüklerken, sunucu uç noktası oluşturduktan sonra yüksek CPU kullanımı ortaya çıkabilir
+- Eşitleme ve bulut katmanlandırma işlemlerini belirteci süre sonu nedeniyle ECS_E_SERVER_CREDENTIAL_NEEDED hatasıyla başarısız olabilir
+- Dosyayı indirmek için URL ayrılmış karakterleri içeriyorsa, bir dosya geri çağırma başarısız olabilir 
 
 ## <a name="agent-version-6100"></a>Aracı sürümü 6.1.0.0
 Aşağıdaki sürüm notları 6 Mayıs 2019 yayımlanan Azure dosya eşitleme aracısının sürümü için 6.1.0.0 ' dir. Bu Notlar 6.0.0.0 sürümü için listelenen sürüm notlarına ek olarak var.
@@ -90,7 +99,7 @@ Yükleme ve Azure dosya eşitleme aracısını Windows Server ile yapılandırma
 Aşağıdaki öğeler eşitlenmez ancak sistem normal şekilde çalışmaya devam eder:
 - Desteklenmeyen karakterler olan dosyalar. Bkz: [sorun giderme kılavuzu](storage-sync-files-troubleshoot.md#handling-unsupported-characters) desteklenmeyen karakterler listesi.
 - Dosyaları ya da bir nokta ile biten dizinleri.
-- 2.048 karakterden uzun yollar.
+- 2\.048 karakterden uzun yollar.
 - 2 KB2den büyük olması durumunda bir güvenlik tanımlayıcısının isteğe bağlı erişim denetim listesi (DACL) kısmı. (Bu sorun yalnızca tek bir öğe üzerinde yaklaşık 40'tan fazla erişim denetimi girişi (ACE) olduğunda geçerlidir.)
 - Denetim için kullanılan bir güvenlik tanımlayıcısının sistem erişim denetim listesi (SACL) kısmı.
 - Genişletilmiş öznitelikler.
@@ -188,7 +197,7 @@ Yükleme ve Azure dosya eşitleme aracısını Windows Server ile yapılandırma
 Aşağıdaki öğeler eşitlenmez ancak sistem normal şekilde çalışmaya devam eder:
 - Desteklenmeyen karakterler olan dosyalar. Bkz: [sorun giderme kılavuzu](storage-sync-files-troubleshoot.md#handling-unsupported-characters) desteklenmeyen karakterler listesi.
 - Dosyaları ya da bir nokta ile biten dizinleri.
-- 2.048 karakterden uzun yollar.
+- 2\.048 karakterden uzun yollar.
 - 2 KB2den büyük olması durumunda bir güvenlik tanımlayıcısının isteğe bağlı erişim denetim listesi (DACL) kısmı. (Bu sorun yalnızca tek bir öğe üzerinde yaklaşık 40'tan fazla erişim denetimi girişi (ACE) olduğunda geçerlidir.)
 - Denetim için kullanılan bir güvenlik tanımlayıcısının sistem erişim denetim listesi (SACL) kısmı.
 - Genişletilmiş öznitelikler.
@@ -273,7 +282,7 @@ Yükleme ve Azure dosya eşitleme aracısını Windows Server ile yapılandırma
 Aşağıdaki öğeler eşitlenmez ancak sistem normal şekilde çalışmaya devam eder:
 - Desteklenmeyen karakterler olan dosyalar. Bkz: [sorun giderme kılavuzu](storage-sync-files-troubleshoot.md#handling-unsupported-characters) desteklenmeyen karakterler listesi.
 - Dosyaları ya da bir nokta ile biten dizinleri.
-- 2.048 karakterden uzun yollar.
+- 2\.048 karakterden uzun yollar.
 - 2 KB2den büyük olması durumunda bir güvenlik tanımlayıcısının isteğe bağlı erişim denetim listesi (DACL) kısmı. (Bu sorun yalnızca tek bir öğe üzerinde yaklaşık 40'tan fazla erişim denetimi girişi (ACE) olduğunda geçerlidir.)
 - Denetim için kullanılan bir güvenlik tanımlayıcısının sistem erişim denetim listesi (SACL) kısmı.
 - Genişletilmiş öznitelikler.
@@ -346,7 +355,7 @@ Yükleme ve Azure dosya eşitleme aracısını Windows Server ile yapılandırma
 
 ### <a name="sync-limitations"></a>Eşitleme sınırlamaları
 Aşağıdaki öğeler eşitlenmez ancak sistem normal şekilde çalışmaya devam eder:
-- 2.048 karakterden uzun yollar.
+- 2\.048 karakterden uzun yollar.
 - 2 KB2den büyük olması durumunda bir güvenlik tanımlayıcısının isteğe bağlı erişim denetim listesi (DACL) kısmı. (Bu sorun yalnızca tek bir öğe üzerinde yaklaşık 40'tan fazla erişim denetimi girişi (ACE) olduğunda geçerlidir.)
 - Denetim için kullanılan bir güvenlik tanımlayıcısının sistem erişim denetim listesi (SACL) kısmı.
 - Genişletilmiş öznitelikler.

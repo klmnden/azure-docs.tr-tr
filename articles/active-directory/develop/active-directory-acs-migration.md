@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84a8c2954473401a9e57cba045907c60862ed61f
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546230"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Nasıl yapılır: Azure Access Control Service'ten geçiş yapma
@@ -129,7 +129,7 @@ Aşağıdaki bölümlerde, diğer Microsoft teknolojileri için erişim denetimi
 
 Access Control tarafından artık verilen belirteçleri kabul eden her bir Microsoft bulut hizmeti, en az bir alternatif kimlik doğrulama biçimi destekler. Her hizmet için doğru kimlik doğrulama mekanizması değişir. Resmi rehberlik için her bir hizmet için belirli belgelere başvurmak öneririz. Kolaylık olması için her bir belge kümesi verilmiştir:
 
-| Hizmet | Rehberlik |
+| Hizmet | Rehber |
 | ------- | -------- |
 | Azure Service Bus | [Paylaşılan erişim imzaları geçirme](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus geçişi | [Paylaşılan erişim imzaları geçirme](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
@@ -150,7 +150,7 @@ Access Control tarafından artık verilen belirteçleri kabul eden her bir Micro
 
 SharePoint 2013, 2016 ve SharePoint Online müşterilerine uzun ACS kimlik doğrulaması amacıyla kullanılan bulut, şirket içi ve karma senaryoları. Bazıları taşınmaz sırasında bazı SharePoint özelliklerini ve kullanım örnekleri tarafından ACS devre dışı bırakılması, etkilenecek. En popüler SharePoint bazıları bu Dengeleme ACS özellik için Geçiş Kılavuzu aşağıdaki tabloda özetlenmiştir:
 
-| Özellik | Rehberlik |
+| Özellik | Rehber |
 | ------- | -------- |
 | Azure ad kullanıcıların kimliklerinin doğrulanması | Daha önce Azure AD kimlik doğrulaması için SharePoint'e gereken SAML 1.1 belirteçleri desteklemiyor ve ACS SharePoint ile Azure AD belirteç biçimlerini uyumlu olarak yapılan bir aracı olarak kullanıldı. Artık, [SharePoint şirket içi uygulama Azure AD uygulama galerisinde SharePoint kullanarak doğrudan Azure AD'ye bağlama](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Uygulama kimlik doğrulaması ve SharePoint şirket içi sunucudan sunucuya kimlik doğrulaması](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS emeklilik tarafından etkilenen değil; Gerekli değişiklik yok. | 
@@ -204,7 +204,7 @@ Yüksek bir düzeyde *Azure Active Directory büyük olasılıkla en iyi seçene
 | WS-Güven | Desteklenen | Desteklenmiyor |
 | **Belirteç biçimleri** | | |
 | JWT | Beta sürümünde desteklenir | Desteklenen |
-| SAML 1.1 | Desteklenen | Preview |
+| SAML 1.1 | Desteklenen | Önizleme |
 | SAML 2.0 | Desteklenen | Desteklenen |
 | SWT | Desteklenen | Desteklenmiyor |
 | **Özelleştirmeleri** | | |
@@ -324,7 +324,7 @@ Ayrıca, Azure AD OAuth istemci kimlik bilgileri verme Azure AD uygulaması kull
 | Bir web hizmetine kaydetme | Bir bağlı olan tarafa erişim denetimi Yönetim Portalı'nda oluşturma | Azure portalında bir Azure AD web uygulaması oluşturma |
 | Bir istemci kaydetme | Erişim denetimi Yönetim Portalı'nda hizmet kimliği oluşturma | Azure portalını kullanarak başka bir Azure AD web uygulaması oluşturma |
 | Kullanılan protokolü |-OAuth kaydırma Protokolü<br />-OAuth 2.0 taslak 13 istemci kimlik bilgileri verme | OAuth 2.0 istemci kimlik bilgileri verme |
-| İstemci kimlik doğrulaması yöntemleri |-Basit parola<br />-İmzalı SWT<br />-Federe kimlik sağlayıcısından gelen SAML belirteci |-Basit parola<br />-İmzalı JWT |
+| İstemci kimlik doğrulama yöntemleri |-Basit parola<br />-İmzalı SWT<br />-Federe kimlik sağlayıcısından gelen SAML belirteci |-Basit parola<br />-İmzalı JWT |
 | Belirteç biçimleri |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />-SWT<br /> | Yalnızca JWT |
 | Belirteç dönüştürme |-Özel talep ekleme<br />-İf-then basit talep verme mantığı | Özel talep ekleme | 
 | Yapılandırma ve yönetim görevlerini otomatikleştirin | Erişim denetimi yönetim hizmeti desteklenir | Microsoft Graph ve Azure AD Graph API desteklenen |

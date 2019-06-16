@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
 ms.openlocfilehash: fa38c492530cb8938e49bc15e13fdd39ed5b6f1c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65890889"
 ---
 # <a name="face-recognition-concepts"></a>Yüz tanıma kavramları
@@ -37,7 +37,7 @@ Tanıma işlemleri genellikle aşağıdaki veri yapılarını kullanın. Bu nesn
 
 Bu bölümde, dört tanıma işlemleri daha önce açıklanan veri yapılarını kullanma açıklanmaktadır. Her tanıma işleminin geniş bir açıklaması için bkz [genel bakış](../Overview.md).
 
-### <a name="verify"></a>Doğrula
+### <a name="verify"></a>Doğrulama
 
 [Doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) işlemi face ID DetectedFace veya PersistedFace ve başka bir face ID veya kişi nesnesini alır ve aynı kişiye ait olup olmadığını belirler. Bir kişi nesnesi içinde geçirin, performansı artırmak için bu kişiye ait olduğu bir PersonGroup isteğe bağlı olarak geçirebilirsiniz.
 

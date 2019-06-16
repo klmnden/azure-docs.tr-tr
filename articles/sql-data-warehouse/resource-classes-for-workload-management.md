@@ -11,10 +11,10 @@ ms.date: 05/22/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.openlocfilehash: 1c15778eb2ce38efb65e777578008b61e7066d67
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244516"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda kaynak sınıfları ile iş yükü yönetimi
@@ -584,7 +584,7 @@ SELECT  CASE
 GO
 ```
 
-### <a name="stored-procedure-definition-for-gen2"></a>2. nesil için saklı yordam tanımı
+### <a name="stored-procedure-definition-for-gen2"></a>2\. nesil için saklı yordam tanımı
 
 ```sql
 -------------------------------------------------------------------------------

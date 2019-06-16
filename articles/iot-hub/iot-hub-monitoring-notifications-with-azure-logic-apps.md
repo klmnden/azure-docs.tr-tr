@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/19/2019
 ms.author: robinsh
 ms.openlocfilehash: 26637468f44e12f7ad66f907e0f6be3d907e578f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126282"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64719314"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>IOT Uzaktan izleme ve IOT hub ve posta kutusu bağlanan Azure Logic Apps ile bildirimleri
 
@@ -78,7 +78,7 @@ Service Bus ad alanı ve kuyruğu oluşturun. Bu konuda daha sonra bir mantıksa
 
    ![Azure portalında bir service bus kuyruğu ekleme](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. Yeniden **Service Bus Namespace** bölmesi altında **varlıkları**seçin **kuyrukları**. Service Bus kuyruğuna açın ve ardından **paylaşılan erişim ilkeleri** > **+ Ekle**.
+1. Yeniden **Service Bus Namespace** bölmesi altında **varlıkları**seçin **kuyrukları**. Service Bus kuyruğuna açın ve ardından **paylaşılan erişim ilkeleri** >  **+ Ekle**.
 
 1. Onay ilkesine bir ad girin **Yönet**ve ardından **Oluştur**.
 
@@ -214,7 +214,7 @@ IOT hub'ınıza Service Bus kuyruğu için özel bir uç nokta ekleyin ve burada
 
    1. Üzerinde **smtp API bağlantısı** bölmesi altında **genel**seçin **Düzenle API bağlantısı**.
 
-   1. Üzerinde **Düzenle API bağlantısı** bölmesinde **SSL'yi etkinleştir?**, e-posta hesabı için parolayı yeniden girin ve seçin **Kaydet**.
+   1. Üzerinde **Düzenle API bağlantısı** bölmesinde **SSL'yi etkinleştir?** , e-posta hesabı için parolayı yeniden girin ve seçin **Kaydet**.
 
       ![Azure portalında mantıksal uygulamanızda SMTP API bağlantısını düzenleme](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
 

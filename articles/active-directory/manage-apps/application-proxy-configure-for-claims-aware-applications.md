@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c97729cf7d88ebdeefb44c83eb571bb6d7ebd0ed
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825591"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uygulama proxy'sinde talep kullanan uygulamalar ile çalışma
@@ -38,11 +38,11 @@ Talep kullanan uygulamaya yönlendirilir STS şirket içi ağınızın dışınd
 
 İki yoldan biriyle talep kullanan uygulamalar için ADFS yapılandırabilirsiniz. İlk özel etki alanları kullanmaktır. WS-Federasyon ile saniyedir. 
 
-### <a name="option-1-custom-domains"></a>1. seçenek: Özel etki alanları
+### <a name="option-1-custom-domains"></a>1\. seçenek: Özel etki alanları
 
 Tüm uygulamalarınız için iç URL tam olarak nitelikli etki alanı adlarını (FQDN) sonra yapılandırabileceğiniz [özel etki alanları](application-proxy-configure-custom-domain.md) uygulamalarınız için. İç URL ile aynıdır, dış URL'leri oluşturmak için özel etki alanları kullanın. Ardından, dış URL'leri iç URL'nizde eşleştiğinde, kullanıcılarınızın şirket içi veya uzak olup STS yeniden yönlendirmeleri çalışır. 
 
-### <a name="option-2-ws-federation"></a>2. seçenek: WS-Federation
+### <a name="option-2-ws-federation"></a>2\. seçenek: WS-Federation
 
 1. AD FS Yönetimi'ni açın.
 2. Git **bağlı olan taraf güvenleri**uygulaması Ara sunucusu ile yayımlama, uygulamayı sağ tıklatın ve seçin **özellikleri**.  

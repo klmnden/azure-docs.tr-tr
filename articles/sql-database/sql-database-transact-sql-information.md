@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
 ms.openlocfilehash: 84b93005941acf625d05a48f0df7b685e1bea0bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785507"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>SQL veritabanına geçiş sırasında Transact-SQL farklılıklarını çözümleme
@@ -83,7 +83,7 @@ Transact-SQL dil bilgisi, kullanım ve örnekleri hakkında daha fazla bilgi iç
 
 ### <a name="about-the-applies-to-tags"></a>"Uygulandığı öğe" etiketleri hakkında
 
-Transact-SQL Başvurusu için mevcut SQL Server sürümleri 2008 ilgili makaleler içerir. Makale başlığının altındaki simge çubuğunda dört SQL Server Platformu listeleme ve uygulanabilirliği. Örneğin kullanılabilirlik grupları SQL Server 2012'de tanıtılmıştır.  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) makale belirten deyim için geçerli olduğunu  **SQL Server (2012'den itibaren)**. Deyim SQL Server 2008, SQL Server 2008 R2, Azure SQL Veritabanı, Azure SQL Veri Ambarı veya Paralel Veri Ambarı için geçerli değildir.
+Transact-SQL Başvurusu için mevcut SQL Server sürümleri 2008 ilgili makaleler içerir. Makale başlığının altındaki simge çubuğunda dört SQL Server Platformu listeleme ve uygulanabilirliği. Örneğin kullanılabilirlik grupları SQL Server 2012'de tanıtılmıştır.  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) makale belirten deyim için geçerli olduğunu  **SQL Server (2012'den itibaren)** . Deyim SQL Server 2008, SQL Server 2008 R2, Azure SQL Veritabanı, Azure SQL Veri Ambarı veya Paralel Veri Ambarı için geçerli değildir.
 
 Bazı durumlarda, bir makalenin Genel konu bir üründe kullanılıyor ancak ürünler arasında küçük farklar vardır. Farklar başlığının içinde uygun şekilde makaleyi sırasında belirtilir. Bazı durumlarda, bir makalenin Genel konu bir üründe kullanılıyor ancak ürünler arasında küçük farklar vardır. Farklar başlığının içinde uygun şekilde makaleyi sırasında belirtilir. Örneğin CREATE TRIGGER makale SQL veritabanı'nda kullanılabilir. Ancak **tüm sunucu** seçeneği sunucu düzeyi Tetikleyiciler için SQL veritabanı'nda sunucu düzeyinde tetikleyici kullanılamayacağını belirtir. Bunun yerine veritabanı düzeyinde Tetikleyicileri kullanın.
 

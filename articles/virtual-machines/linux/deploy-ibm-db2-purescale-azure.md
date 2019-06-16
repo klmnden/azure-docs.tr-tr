@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
 ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60716056"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale azure'da dağıtma
@@ -120,7 +120,7 @@ GitHub deposunu DB2server.rsp, DB2 pureScale yükleme için otomatik bir betik o
 
 - Kurulum betiğini d0 üzerinde çalıştırdığınızda **/dev/dm -\***  değerleri d1, cf0 ve cf1 farklı olabilir. Değerleri fark DB2 pureScale Kurulum etkilemez.
 
-## <a name="troubleshooting-and-known-issues"></a>Sorun giderme ve bilinen sorunlar
+## <a name="troubleshooting-and-known-issues"></a>Sorun çözümü ve bilinen sorunlar
 
 GitHub deposunu yazarlar bakımını yapan bir Bilgi Bankası içerir. Bu, sahip olduğunuz olası sorunlar ve çözümleri deneyebilirsiniz listeler. Örneğin, sorunları oluşabilir bilinen olduğunda:
 

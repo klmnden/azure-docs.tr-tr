@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37a58cb9f9d1082d02854f43e511e5431d90c13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a3523a050a021f3a98c144efe14d692704fba63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302338"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112207"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Hızlı Başlangıç: Bulut uygulamaları erişmeden önce kabul edilmesi için kullanım koşullarını gerektirir
 
@@ -35,7 +35,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu hızlı başlangıçta senaryoyu tamamlamak için gerekir:
 
-- **Bir Azure AD Premium sürümü için erişim** -Azure AD koşullu erişimi olan bir Azure AD Premium özelliği.
+- **Bir Azure AD Premium sürümü için erişim** -Azure AD koşullu erişim, bir Azure AD Premium özelliği.
 - **Adlı bir test hesabı Isabella Simonsen** - bir test hesabı oluşturmak için bkz bilmiyorsanız [bulut tabanlı kullanıcılar eklemek](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Oturum açma testi
@@ -57,7 +57,7 @@ Bu bölümde örnek bir ToU oluşturma adımlarını sağlar. İçin bir değer 
 
 1. Tür **My kullanım koşullarını**ve belge olarak bilgisayarınıza kaydedin **mytou.pdf**.
 
-1. [Azure portalınızda](https://portal.azure.com) genel yönetici, güvenlik yöneticisi veya koşullu erişim yöneticisi olarak oturum açın.
+1. Oturum açın, [Azure portalında](https://portal.azure.com) genel yönetici, güvenlik yöneticisi veya koşullu erişim Yöneticisi olarak.
 
 1. Azure portalında sol gezinti çubuğunda tıklatın **Azure Active Directory**.
 
@@ -65,7 +65,7 @@ Bu bölümde örnek bir ToU oluşturma adımlarını sağlar. İçin bir değer 
 
 1. Üzerinde **Azure Active Directory** sayfasında **güvenlik** bölümünde **koşullu erişim**.
 
-   ![Koşullu erişim](./media/require-tou/03.png)
+   ![Koşullu Erişim](./media/require-tou/03.png)
 
 1. İçinde **Yönet** bölümünde **kullanım koşullarını**.
 
@@ -154,7 +154,7 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 
 1. Üzerinde **Grant** sayfası:
 
-   ![Erişim İzni Verme](./media/require-tou/111.png)
+   ![Verme](./media/require-tou/111.png)
 
    1. Seçin **erişim ver**.
 
@@ -164,13 +164,13 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 
 1. İçinde **ilkesini etkinleştir** bölümünde **üzerinde**.
 
-   ![İlkeyi etkinleştir](./media/require-tou/18.png)
+   ![İlkeyi etkinleştirme](./media/require-tou/18.png)
 
 1. **Oluştur**’a tıklayın.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Bir sanal oturum değerlendir
 
-Koşullu erişim ilkenizi yapılandırdığınıza göre şimdi beklenen şekilde çalışıp çalışmadığını kontrol etmek isteyebilirsiniz. İlk adım, koşullu erişim ilkesi durum aracı bir oturum açma, test kullanıcının benzetimini yapmak için kullanın. Benzetim, bu oturum açma işleminin ilkeleriniz üzerindeki etkisini tahmin eder ve bir benzetim raporu oluşturur.  
+Koşullu erişim ilkenizi yapılandırdığınıza göre büyük olasılıkla beklenen şekilde çalışıp çalışmadığını bilmek ister. İlk adım, koşullu erişim ilkesi durum aracı bir oturum açma, test kullanıcının benzetimini yapmak için kullanın. Benzetim, bu oturum açma işleminin ilkeleriniz üzerindeki etkisini tahmin eder ve bir benzetim raporu oluşturur.  
 
 İlke değerlendirmesi aracı, ayarlarsanız ne başlatmak için:
 
@@ -188,7 +188,7 @@ Tıklayarak **ne** gösteren bir simülasyon raporu oluşturur:
 
 1. Üzerinde [koşullu erişim - ilkeleri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) sayfasında, üstteki menüde **ne**.  
 
-   ![What If](./media/require-tou/14.png)
+   ![Ya](./media/require-tou/14.png)
 
 1. Tıklayın **kullanıcılar**seçin **Isabella Simonsen**ve ardından **seçin**.
 
@@ -210,7 +210,7 @@ Tıklayarak **ne** gösteren bir simülasyon raporu oluşturur:
 
 1. Tıklayın **ne**.
 
-## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test etme
+## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test
 
 Önceki bölümde, bir sanal oturum değerlendirilecek öğrendiniz. Bir simülasyon ek olarak, koşullu erişim ilkenizi, beklendiği gibi çalıştığından emin olmak için sınamalısınız.
 

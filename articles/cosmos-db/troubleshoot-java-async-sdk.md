@@ -10,10 +10,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519973"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Async Java SDK'sı ile Azure Cosmos DB SQL API hesabı kullandığınızda sorunlarını giderme
@@ -246,7 +246,7 @@ Yalnızca Azure Cosmos DB uç noktası bağlantıları sonucu filtreleyin.
 
 Azure Cosmos DB uç noktası için bağlantı sayısını `ESTABLISHED` durumu, yapılandırılan bağlantı havuzu boyutu büyük olamaz.
 
-Azure Cosmos DB uç noktası bağlantı sayısı olabilir `CLOSE_WAIT` durumu. 1. 000'den fazla olabilir. Bu yüksek bir sayı, bağlantı kurulan ve hızlı bir şekilde bozuk belirtir. Bu durumun olası sorunlara neden olur. Daha fazla bilgi için [genel sorunlar ve çözümleri] bölümü.
+Azure Cosmos DB uç noktası bağlantı sayısı olabilir `CLOSE_WAIT` durumu. 1\. 000'den fazla olabilir. Bu yüksek bir sayı, bağlantı kurulan ve hızlı bir şekilde bozuk belirtir. Bu durumun olası sorunlara neden olur. Daha fazla bilgi için [genel sorunlar ve çözümleri] bölümü.
 
  <!--Anchors-->
 [Genel sorunlar ve çözümleri]: #common-issues-workarounds

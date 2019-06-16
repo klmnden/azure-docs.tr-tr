@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
 ms.openlocfilehash: ae8dc263e08528c6e3b3bae8c779162c96d51f43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61324637"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IOT DevKit Azure IOT Uzaktan izleme çözüm hızlandırıcısına bağlamayı
@@ -48,7 +48,7 @@ Etkin bir Azure aboneliği. Biri yoksa, bu iki yöntemden biri kaydedebilirsiniz
 
 3. Çözüm adını girin, bir abonelik ve bir bölge seçin ve ardından **çözüm oluşturma**. Çözüm sağlanacak biraz sürebilir.
   
-   ![Çözüm oluştur](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
+   ![Çözüm oluşturma](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
 
 4. Tamamlandığında sağladıktan sonra tıklayın **başlatma**. Bazı sanal cihazlar çözüm için sağlama işlemi sırasında oluşturulur. Tıklayın **CİHAZLARI** için bunları gözden geçirin.
 

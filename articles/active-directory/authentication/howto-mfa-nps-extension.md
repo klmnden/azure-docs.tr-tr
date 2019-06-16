@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 080a37a88e46117a9963f07c14d64f00c6bae6d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 19bcac68084c4817e0dc0e67f31ab62244db5a2a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113412"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Mevcut NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -47,7 +47,7 @@ Yeni Azure mfa'yı etkin NPS sunucularında bilmeniz gerekir böylece VPN sunucu
 
 NPS uzantısı, var olan altyapınızla çalışacak şekilde tasarlanmıştır. Başlamadan önce aşağıdaki önkoşulların karşılandığından emin olun.
 
-### <a name="licenses"></a>Lisanslar
+### <a name="licenses"></a>Lisansları
 
 Azure MFA NPS uzantısı ile müşteriler için kullanılabilir [Azure multi-Factor Authentication için lisans](multi-factor-authentication.md) (Azure AD Premium, EMS veya tek başına bir MFA lisans dahil). Tüketim tabanlı lisans kullanıcı başına veya kimlik doğrulaması lisans başına gibi Azure mfa NPS uzantısı ile uyumlu değildir. 
 

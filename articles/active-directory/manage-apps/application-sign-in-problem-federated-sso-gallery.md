@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825203"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Federasyon çoklu oturum açma için yapılandırılmış bir galeri uygulamasında oturum açma sorunları
@@ -61,7 +61,7 @@ Emin `Issuer` Azure AD'de yapılandırılan tanımlayıcı değerini SAML isteğ
 
 
 
-## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Yanıt adresi, uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Yanıt adresi, uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor.
 
 *Hata AADSTS50011: Yanıt adresi ' https:\//contoso.com' uygulaması için yapılandırılan yanıt adresleriyle eşleşmiyor*
 
@@ -146,7 +146,7 @@ Bir kısa süre sonra seçtiğiniz kullanıcıların çözüm Açıklama bölüm
 Azure AD çoklu oturum açma için uygulama tarafından gönderilen SAML isteğini desteklemiyor. Bazı yaygın sorunlar şunlardır:
 
 -   SAML isteğinde gerekli alanlar eksik
--   SAML isteği kodlama yöntemi
+-   SAML isteği kodlanmış yöntem
 
 **Çözümleme**
 
@@ -263,7 +263,7 @@ Uygulama için yapılandırılan kullanılmayan yanıt URL'lerinden silin.
 
 6.  Çoklu oturum açma için yapılandırmak istediğiniz uygulamayı seçin.
 
-7.  Uygulama yüklendikten sonra **Temel SAML yapılandırması**'nı açın. İçinde **yanıt URL'si (onay belgesi tüketici hizmeti URL'si)**, kullanılmayan Sil veya varsayılan yanıt URL'leri, sistem tarafından oluşturulan. Örneğin, `https://127.0.0.1:444/applications/default.aspx`.
+7.  Uygulama yüklendikten sonra **Temel SAML yapılandırması**'nı açın. İçinde **yanıt URL'si (onay belgesi tüketici hizmeti URL'si)** , kullanılmayan Sil veya varsayılan yanıt URL'leri, sistem tarafından oluşturulan. Örneğin, `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Bir uygulama için gönderilen SAML talepleri özelleştirme sırasında sorun
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198335"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 depolanan verilerin güvenliğini sağlama
@@ -55,7 +55,7 @@ Data Lake depolama Gen1 hesaplarına kullanıcıların veya güvenlik grupların
 
 1. Bir Data Lake depolama Gen1 hesabınızı açın. Sol bölmeden tıklayın **tüm kaynakları**ve ardından tüm kaynaklar dikey penceresinden bir kullanıcı veya güvenlik grubu atamak istediğiniz hesabın adına tıklayın.
 
-2. Data Lake depolama Gen1 hesabı dikey penceresinde **erişim denetimi (IAM)**. Varsayılan olarak dikey abonelik sahipleri sahibi olarak listeler.
+2. Data Lake depolama Gen1 hesabı dikey penceresinde **erişim denetimi (IAM)** . Varsayılan olarak dikey abonelik sahipleri sahibi olarak listeler.
    
     ![Azure Data Lake depolama Gen1 hesabı için güvenlik grubu atayın](./media/data-lake-store-secure-data/adl.select.user.icon1.png "Azure Data Lake depolama Gen1 hesabı güvenlik grubuna atayın")
 
@@ -127,7 +127,7 @@ Data Lake depolama Gen1 hesaplarından güvenlik grupları kaldırdığınızda,
 
 Veri erişimi değiştirilmez ve yine de erişim ACL'leri tarafından yönetilir.  Bunun özel durumu olan sahipleri rolündeki kullanıcılar/gruplar.  Kullanıcılar/Gruplar sahipleri rolden Süper kullanıcılar artık olmayan ve erişimleri erişim ACL'si ayarlarına geri döner. 
 
-1. Data Lake depolama Gen1 hesabı dikey penceresinde **erişim denetimi (IAM)**. 
+1. Data Lake depolama Gen1 hesabı dikey penceresinde **erişim denetimi (IAM)** . 
    
     ![Data Lake depolama Gen1 hesabı için güvenlik grubu atayın](./media/data-lake-store-secure-data/adl.select.user.icon.png "Data Lake depolama Gen1 hesabı güvenlik grubuna atayın")
 2. İçinde **erişim denetimi (IAM)** dikey penceresinde, kaldırmak istediğiniz güvenlik grupları'nı tıklatın. Tıklayın **Kaldır**.

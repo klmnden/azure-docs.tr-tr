@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5e691dde92ac05b653cdafb22db9276c7a566008
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258962"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
@@ -90,7 +90,7 @@ A [Geliştirme Merkezi](https://developer.microsoft.com/store/register) hesabı 
 
 [Geliştirme Merkezi](https://developer.microsoft.com/store/register) kayıt işlemini bulut iş ortağı Portalı'nda teklifinizi oluşturmadan önce başlatılabilir, ancak Market teklifinizi yayımlamadan önce tamamlanmış olması gerekir. Bu adım 5-10 gün tipik süresini göz önünde bulundurulduğunda, transact yayımlama seçeneğini kullanmak istiyorsanız bu işlemi hemen başlamanızı öneririz. 
 
-İçinde tek tek kaydetme [Geliştirme Merkezi](https://developer.microsoft.com/store/register) kuruluşunuzun geçerli bir temsilcisi olması ve kullanıcıların kimliğini doğrulamak için kişisel bilgilerini sağlamanız gerekir. 2. adımda oluşturduğunuz Microsoft hesabınız ile kaydedin ve bulut iş ortağı portalına erişmek için kullandığınız aynı Microsoft hesabını kullanın.
+İçinde tek tek kaydetme [Geliştirme Merkezi](https://developer.microsoft.com/store/register) kuruluşunuzun geçerli bir temsilcisi olması ve kullanıcıların kimliğini doğrulamak için kişisel bilgilerini sağlamanız gerekir. 2\. adımda oluşturduğunuz Microsoft hesabınız ile kaydedin ve bulut iş ortağı portalına erişmek için kullandığınız aynı Microsoft hesabını kullanın.
 
 *   Kaydolmak için bir [Geliştirme Merkezi](https://developer.microsoft.com/store/register) hesabı [kaydolma işlemini başlatmak](https://developer.microsoft.com/store/register).
 *   Bir Microsoft hesabı oluşturma hakkında daha fazla bilgi için ziyaret *Microsoft hesabı oluşturmanızda* bölümü.

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119359"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
@@ -30,7 +30,7 @@ Microsoft, birine erişiminizin olmadığı durumda birden çok kimlik doğrulam
 | --- | --- |
 | Parola | MFA ve SSPR |
 | Güvenlik soruları | SSPR yalnızca |
-| E-posta Adresi | SSPR yalnızca |
+| E-posta adresi | SSPR yalnızca |
 | Microsoft Authenticator uygulaması | MFA ve SSPR için genel önizlemeye sunuldu |
 | OATH donanım belirteci | MFA ve SSPR için genel önizlemeye sunuldu |
 | SMS | MFA ve SSPR |
@@ -60,41 +60,41 @@ Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlik
 
 ### <a name="predefined-questions"></a>Önceden tanımlanmış soruları
 
-* Eşiniz/partneriniz ile hangi şehirde tanıştınız?
-* Anneniz ve babanız hangi şehirde tanışmış?
-* Size en yakın kardeşiniz hangi şehirde yaşıyor?
-* Babanız hangi şehirde doğdu?
-* İlk işiniz hangi şehirdeydi?
+* Hangi şehirde, uygulamanızın ilk eşiniz/partneriniz?
+* Hangi şehirde çılgın amcanız karşılar?
+* Hangi şehirde, en yakın eşdüzey Canlı?
+* Hangi şehirde doğdu?
+* Hangi şehirde ilk işiniz neydi?
 * Anneniz hangi şehirde doğmuş?
-* 2000 yılına girilen yılbaşında hangi şehirdeydiniz?
-* Lisede en sevdiğiniz öğretmeninizin soyadı neydi?
-* Başvurduğunuz ancak gitmediğiniz üniversitenin adı nedir?
-* İlk evlilik davetinizi verdiğiniz yerin adı nedir?
+* Hangi şehirde size yeni yılda üzerinde olan 2000?
+* Lisede sevdiğiniz öğretmeninizin soyadı nedir?
+* Başvurduğunuz ancak gitmediğiniz bir okul adı nedir?
+* İçinde ilk Evlilik alma tutulan yerin adı nedir?
 * Babanızın ikinci adı nedir?
 * En sevdiğiniz yemek nedir?
-* Annenizin annesinin adı ve soyadı nedir?
+* Annenizin annesinin nedir, adı ve Soyadı?
 * Annenizin ikinci adı nedir?
 * En büyük kardeşinizin doğduğu ay ve yıl nedir? (örn. Kasım 1985)
 * En büyük kardeşinizin ikinci adı nedir?
-* Babanızın babasının adı ve soyadı nedir?
+* Babanızın babasının nedir, adı ve Soyadı?
 * En küçük kardeşinizin ikinci adı nedir?
-* Altıncı sınıfta hangi okula gittiniz?
-* Çocukluğunuzdaki en iyi arkadaşınızın adı ve soyadı neydi?
-* İlk partnerinizin adı ve soyadı neydi?
-* En sevdiğiniz ilkokul öğretmeninizin soyadı neydi?
-* İlk arabanızın veya motosikletinizin markası ve modeli neydi?
-* İlk gittiğiniz okulun adı neydi?
-* Doğduğunuz hastanenin adı neydi?
-* Çocukluğunuzda oturduğunuz ilk evin sokak adı neydi?
+* Hangi okula altıncı sınıfta katıldığını?
+* En iyi çocukluk arkadaşınız, adı ve Soyadı neydi?
+* İlk partnerinizin adı ve Soyadı neydi?
+* En sevdiğiniz ilkokul öğretmeninizin Soyadı neydi?
+* Marka ve model ilk arabanızın veya motosikletinizin markası neydi?
+* Katıldığınız ilk okulun adı neydi?
+* İçinde Doğduğunuz Hastanenin adı neydi?
+* Oturduğunuz ilk evin sokak adı neydi?
 * Çocukluk kahramanınızın adı neydi?
 * En sevdiğiniz doldurulmuş hayvanınızın adı neydi?
-* İlk evcil hayvanınızın adı neydi?
+* İlk Evcil hayvanınızın adı neydi?
 * Çocukluğunuzdaki takma adınız neydi?
-* Lisede en sevdiğiniz spor neydi?
+* Lisede en sevdiğiniz Spor neydi?
 * İlk işiniz neydi?
-* Çocukluğunuzda kullandığınız telefon numarasının son dört rakamı neydi?
-* Küçükken, büyüdüğünüzde ne olmak istiyordunuz?
-* Tanıştığınız en ünlü kişi kim?
+* Nelerin sizin Çocukluğunuzda kullandığınız telefon numarasının son dört hanesi kaldınız?
+* Küçükken, size olmak istediğiniz?
+* Tanıştığınız En ünlü kişi kim?
 
 Tüm önceden tanımlı güvenlik soruları çevrilir ve kullanıcının tarayıcı yerel ayarları temel alarak Office 365 dilleri kümesinin içine yerelleştirilmiş.
 
@@ -113,7 +113,7 @@ Bir özel Güvenlik sorusu uzunluğu en fazla 200 karakter olabilir.
 * Herhangi bir karakter kümesi, soruları ve yanıtları Unicode karakterleri dahil olmak üzere, tanımlamak için kullanılabilir.
 * Tanımlanan sorusu kaydetmek için gereken soru sayısına eşit veya daha büyük olmalıdır.
 
-## <a name="email-address"></a>E-posta Adresi
+## <a name="email-address"></a>E-posta adresi
 
 E-posta adresi kullanılabilir **yalnızca Azure AD Self Servis parola sıfırlama**.
 
@@ -180,7 +180,7 @@ Hataları giderdikten sonra yönetici ardından her anahtar tıklayarak etkinle�
 
 Kullanıcılar, en fazla beş OATH donanım belirteçleri veya kimlik doğrulayıcı uygulamalar herhangi bir zamanda kullanılmak üzere yapılandırılmış Microsoft Authenticator uygulaması gibi bir birleşimi olabilir.
 
-## <a name="mobile-phone"></a>Mobil telefon
+## <a name="mobile-phone"></a>Cep telefonu
 
 İki seçenek, kullanıcılar cep telefonları ile kullanılabilir.
 
@@ -193,7 +193,7 @@ Düzgün çalışması için telefon numaraları biçiminde olmalıdır *+ Count
 >
 > Parola sıfırlama telefon dahili numaralarına desteklemez. Kurulmadan önce bile X + 1 4255551234 12345 biçiminde uzantılar kaldırılır.
 
-### <a name="text-message"></a>SMS Mesajı
+### <a name="text-message"></a>Kısa mesaj
 
 SMS doğrulama kodu içeren bir cep telefonu numarası için gönderilir. Devam etmek için oturum açma arabiriminde sağlanan doğrulama kodunu girin.
 
@@ -220,7 +220,7 @@ Office telefon özniteliğinin yöneticiniz tarafından yönetilir.
 >
 > Parola sıfırlama telefon dahili numaralarına desteklemez. Kurulmadan önce bile X + 1 4255551234 12345 biçiminde uzantılar kaldırılır.
 
-## <a name="app-passwords"></a>Uygulama Parolaları
+## <a name="app-passwords"></a>Uygulama parolaları
 
 Belirli tarayıcı olmayan uygulamaları olmayan bir kullanıcı için multi-Factor authentication etkinleştirildiğinde multi-Factor authentication desteği ve tarayıcı olmayan uygulamaları kullanmaya çalışır, bunlar kimliğini doğrulayamıyor. Bir uygulama parolası kullanıcıların kimliğini doğrulamak devam etmesini sağlar.
 

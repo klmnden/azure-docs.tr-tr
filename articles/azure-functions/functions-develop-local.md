@@ -10,11 +10,11 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 1f430454bf994f9aac4ad6c113937f3798392319
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 4721d87ab932f2e61346af3a48193e7075128622
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66492851"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kod ve Azure işlevleri yerel olarak test etme
@@ -39,7 +39,7 @@ Bu yerel geliştirme ortamların her birinde işlevi uygulaması projeleri oluş
 ## <a name="next-steps"></a>Sonraki adımlar
 
 + Yerel geliştirme hakkında daha fazla bilgi edinmek için derlenmiş C# işlevleri kullanarak Visual Studio 2019 [geliştirme Visual Studio kullanarak Azure işlevleri](functions-develop-vs.md).
-+ VS Code kullanarak Mac, Linux veya Windows bilgisayarda işlevlerinin yerel geliştirme hakkında daha fazla bilgi için bkz: [Azure işlevleri için VS Code belgeleri](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started).
++ VS Code kullanarak Mac, Linux veya Windows bilgisayarda işlevlerinin yerel geliştirme hakkında daha fazla bilgi için bkz: [Azure işlevleri için VS Code belgeleri](https://code.visualstudio.com/tutorials/functions-extension/getting-started).
 + Komut istemi veya terminal işlevleri geliştirme hakkında daha fazla bilgi için bkz. [iş ile Azure işlevleri çekirdek Araçları](functions-run-local.md).
 
 <!-- LINKS -->

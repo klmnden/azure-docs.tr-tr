@@ -14,10 +14,10 @@ ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123145"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>İzleme ve Azure portalı ve PowerShell kullanarak Azure Data Factory işlem hatlarını yönetme
@@ -89,10 +89,10 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan birine sahip olabil
 
 <table>
 <tr>
-    <th align="left">Eyalet</th><th align="left">Alt durum</th><th align="left">Açıklama</th>
+    <th align="left">Eyalet</th><th align="left">Alt durumu eşleştirildi</th><th align="left">Açıklama</th>
 </tr>
 <tr>
-    <td rowspan="8">Bekliyor</td><td>ScheduleTime</td><td>Dilimin çalıştırılma zamanı gelen edilmemiş.</td>
+    <td rowspan="8">Bekleniyor</td><td>ScheduleTime</td><td>Dilimin çalıştırılma zamanı gelen edilmemiş.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>Yukarı Akış bağımlılıkları hazır değil.</td>
@@ -101,7 +101,7 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan birine sahip olabil
 <td>ComputeResources</td><td>İşlem kaynakları kullanılamıyor.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>Diğer tüm etkinlik örnekleri diğer dilimleri çalıştırıyor.</td>
+<td>ConcurrencyLimit</td> <td>Tüm etkinlik örnekleri diğer dilimleri çalıştırıyor.</td>
 </tr>
 <tr>
 <td>ActivityResume</td><td>Etkinlik duraklatıldı ve etkinlik sürdürülene kadar dilimler çalıştırılamaz.</td>
@@ -117,7 +117,7 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan birine sahip olabil
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Devam Ediyor</td><td>Doğrulanıyor</td><td>Doğrulama işlemi devam ediyor.</td>
+<td rowspan="2">Devam ediyor</td><td>Doğrulama</td><td>Doğrulama işlemi devam ediyor.</td>
 </tr>
 <td>-</td>
 <td>Dilim işleniyor.</td>
@@ -134,7 +134,7 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan birine sahip olabil
 <tr>
 <td>-</td><td>Dilim oluşturulan doğrulandı ve/veya başarısız oldu.</td>
 </tr>
-<td>Hazır</td><td>-</td><td>Dilim kullanıma hazır.</td>
+<td>Hazır</td><td>-</td><td>Dilim kullanıma hazır olur.</td>
 </tr>
 <tr>
 <td>Atlandı</td><td>None</td><td>Dilimin işlenmekte olan değildir.</td>
@@ -156,7 +156,7 @@ Dilim birden çok kez yürütüldü birden çok satır görürsünüz **etkinlik
 
 Dilim değilse **hazır** durumu, hazır değil ve geçerli dilimin yürütülmesini engelleyen Yukarı Akış dilimleri görebilirsiniz **hazır olmayan Yukarı Akış dilimleri** listesi. Bu özellik, dilim olduğunda yararlıdır **bekleyen** duruma ve istediğinizde dilimi bekliyor Yukarı Akış bağımlılıkları anlamak.
 
-![Hazır olmayan yukarı akış dilimleri](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
+![Hazır olmayan Yukarı Akış dilimleri](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
 ### <a name="dataset-state-diagram"></a>Veri kümesi durum diyagramı
 Veri Fabrikası dağıtabiliyorum ve işlem hatlarını geçerli etkin bir süre sonra veri kümesi geçiş bir durumdan diğerine böler. Dilim durumu şu anda aşağıdaki durum diyagramı aşağıdaki gibidir:

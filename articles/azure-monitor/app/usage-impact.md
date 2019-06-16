@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604184"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights ile Etkisi Analizi
@@ -51,7 +51,7 @@ Etkisi aracıyla soruyu yanıtlayarak başlamak için bir ilk sayfa görüntüle
 
 ![Sonuç görüntüsü](./media/usage-impact/0003-results.png)
 
-Bu örnekte **ürün sayfası** yükleme süresi için dönüştürme oranını artırır **satın alma tıklandığında ürün** arıza. Yukarıdaki dağıtım bağlı olarak, bir en iyi sayfa yükleme süresi 3.5 saniye olası bir %55 dönüştürme oranı elde etmek için hedeflenecek. 3.5 saniye aşağıda yükleme süresini azaltmak için daha fazla performans geliştirmeleri ile ek dönüştürme avantajları şu anda bağıntılı mı.
+Bu örnekte **ürün sayfası** yükleme süresi için dönüştürme oranını artırır **satın alma tıklandığında ürün** arıza. Yukarıdaki dağıtım bağlı olarak, bir en iyi sayfa yükleme süresi 3.5 saniye olası bir %55 dönüştürme oranı elde etmek için hedeflenecek. 3\.5 saniye aşağıda yükleme süresini azaltmak için daha fazla performans geliştirmeleri ile ek dönüştürme avantajları şu anda bağıntılı mı.
 
 ## <a name="what-if-im-tracking-page-views-or-load-times-in-custom-ways"></a>Ne sayfa görünümleri izleme veya özel yollarla yükleme süreleri?
 

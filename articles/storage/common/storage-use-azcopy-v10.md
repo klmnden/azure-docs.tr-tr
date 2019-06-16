@@ -9,10 +9,10 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735024"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy’i kullanmaya başlama
@@ -63,7 +63,7 @@ Bu tabloyu kılavuz olarak kullanın:
 |**BLOB Depolama (hiyerarşik ad alanı)** | Yalnızca Azure AD |
 |**Dosya depolama** | Yalnızca SAS |
 
-### <a name="option-1-use-azure-ad"></a>1. seçenek: Azure AD kullanma
+### <a name="option-1-use-azure-ad"></a>1\. seçenek: Azure AD kullanma
 
 Gereksinim duyduğunuz yetkilendirme düzeyi, dosyaları karşıya yükleme veya yalnızca karşıdan yüklemek planladığınız temel alır.
 
@@ -122,7 +122,7 @@ Bu komut, kimlik doğrulaması kodu ve bir Web sitesinin URL'sini döndürür. W
 
 Bir oturum açma penceresi görünür. Bu pencerede, Azure hesabı kimlik bilgilerinizi kullanarak Azure hesabınızda oturum açın. Oturumunuz başarıyla açıldıktan sonra tarayıcı penceresini kapatın ve AzCopy kullanarak başlayın.
 
-### <a name="option-2-use-a-sas-token"></a>2. seçenek: Bir SAS belirteci kullanabilir
+### <a name="option-2-use-a-sas-token"></a>2\. seçenek: Bir SAS belirteci kullanabilir
 
 Her kaynak veya hedef URL'si için bir SAS belirteci, AzCopy komutları ekleyebilirsiniz.
 

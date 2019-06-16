@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067193"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Query Store ile performans izleme
@@ -86,7 +86,7 @@ Query Store parametreleri yapılandırmak için aşağıdaki seçenekler kullan�
 
 | **Parametre** | **Açıklama** | **Varsayılan** | **Aralığı**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Hangi deyimleri izlenen ayarlar. | yok | Hiçbiri, üst, tüm |
+| pg_qs.query_capture_mode | Hangi deyimleri izlenen ayarlar. | Yok | Hiçbiri, üst, tüm |
 | pg_qs.max_query_text_length | Kaydedilebilmesi için en yüksek sorgu uzunluğu ayarlar. Uzun sorguları kesilecek. | 6000 | 100 - 10 BİN |
 | pg_qs.retention_period_in_days | Saklama süresi ayarlar. | 7 | 1 - 30 |
 | pg_qs.track_utility | Yardımcı programı komutları izlenip izlenmeyeceğini ayarlar | açık | açık, kapalı |
@@ -95,7 +95,7 @@ Query Store parametreleri yapılandırmak için aşağıdaki seçenekler kullan�
 
 | **Parametre** | **Açıklama** | **Varsayılan** | **Aralığı**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Deyimleri için izlenen kümelerini istatistikleri bekleyin. | yok | None, tüm|
+| pgms_wait_sampling.query_capture_mode | Deyimleri için izlenen kümelerini istatistikleri bekleyin. | Yok | None, tüm|
 | Pgms_wait_sampling.history_period | Sıklık, hangi bekleme sırasında olayları örneklenen milisaniye cinsinden ayarlayın. | 100 | 1-600000 |
 
 > [!NOTE] 
@@ -115,20 +115,20 @@ Bu görünüm Query Store tüm verileri döndürür. Her ayrı bir veritabanı k
 |**Ad**   |**Tür** | **Başvuruları**  | **Açıklama**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | Runtime_stats_entries tablosundan kimliği|
-|user_id    |OID    |pg_authid.oid  |Deyim yürüten kullanıcının nesne kimliği|
-|db_id  |OID    |pg_database.oid    |Deyimi içinde yürütüldüğü veritabanının OID|
+|user_id    |oid    |pg_authid.oid  |Deyim yürüten kullanıcının nesne kimliği|
+|db_id  |oid    |pg_database.oid    |Deyimi içinde yürütüldüğü veritabanının OID|
 |query_id   |bigint  || Deyimin ayrıştırma ağacından hesaplanan iç karma kodu|
 |query_sql_text |VARCHAR(10000)  || Temsilci bildirimi metni. Aynı yapıya sahip farklı sorgular birlikte kümelenmiş; Bu metin sorguların kümedeki ilk alınmıştır.|
 |plan_id    |bigint |   |Bu sorguya kullanılamıyor henüz karşılık gelen bir plan kimliği|
 |start_time |timestamp  ||  Sorguları zaman demetlere göre toplanır - bir demet zaman aralığını varsayılan değer 15 dakikadır. Bu giriş süresi Demetin karşılık gelen başlangıç zamanı budur.|
 |end_time   |timestamp  ||  Bu giriş süresi Demetin karşılık gelen bitiş saati.|
-|çağrı  |bigint  || Sorgu çalıştırılmış sayısı|
+|çağrıları  |bigint  || Sorgu çalıştırılmış sayısı|
 |TOTAL_TIME |çift duyarlık   ||  Milisaniye cinsinden toplam sorgu yürütme süresi|
 |min_time   |çift duyarlık   ||  Milisaniye cinsinden en düşük sorgu yürütme süresi|
 |max_time   |çift duyarlık   ||  Milisaniye cinsinden en yüksek sorgu yürütme süresi|
 |mean_time  |çift duyarlık   ||  Sorgu yürütme süresi, milisaniye cinsinden ortalama|
 |stddev_time|   çift duyarlık    ||  Sorgu yürütme süresi, milisaniye cinsinden standart sapma |
-|satırlar   |bigint ||  Toplam alınan veya deyiminden etkilenen satır sayısı|
+|Satırları   |bigint ||  Toplam alınan veya deyiminden etkilenen satır sayısı|
 |shared_blks_hit|   bigint  ||  Toplam deyimi tarafından paylaşılan blok önbellek isabet sayısı|
 |shared_blks_read|  bigint  ||  Bildirimi tarafından paylaşılan bloğu sayısı.|
 |shared_blks_dirtied|   bigint   || Deyim tarafından kirlenmiş paylaşılan bloğu sayısı. |
@@ -155,12 +155,12 @@ Bu görünüm, Query Store olayları verileri döndürür bekleyin. Her farklı 
 
 |**Ad**|  **Tür**|   **Başvuruları**| **Açıklama**|
 |---|---|---|---|
-|user_id    |OID    |pg_authid.oid  |Deyim yürüten kullanıcının nesne kimliği|
-|db_id  |OID    |pg_database.oid    |Deyimi içinde yürütüldüğü veritabanının OID|
+|user_id    |oid    |pg_authid.oid  |Deyim yürüten kullanıcının nesne kimliği|
+|db_id  |oid    |pg_database.oid    |Deyimi içinde yürütüldüğü veritabanının OID|
 |query_id   |bigint     ||Deyimin ayrıştırma ağacından hesaplanan iç karma kodu|
 |event_type |metin       ||Arka uç olarak bekleyen olay türü|
-|event  |metin       ||Arka uç şu anda bekliyorsa bekleme olay adı|
-|çağrı  |Tamsayı        ||Yakalanan aynı olay sayısı|
+|olay  |metin       ||Arka uç şu anda bekliyorsa bekleme olay adı|
+|çağrıları  |Integer        ||Yakalanan aynı olay sayısı|
 
 
 ### <a name="functions"></a>İşlevler

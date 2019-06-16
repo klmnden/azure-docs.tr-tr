@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: alkohli
 ms.openlocfilehash: ea7e4801dfaad533403c0f927a03735ae409cc52
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66420611"
 ---
 # <a name="storsimple-virtual-array-update-12-release-notes"></a>StorSimple sanal dizisi güncelleştirme 1.2 sürüm notları
@@ -33,7 +33,7 @@ Bu güncelleştirme, aşağıdaki hata düzeltmeleri içerir:
 - İşleme sırasında geliştirilmiş dayanıklılık dosyaları silindi.
 - Geliştirilmiş işleme özel durumlar için önde gelen kod başlangıç yolunda yedeklemeler, geri yükleme, buluttan okuma hataları azalır ve alan geri kazanma otomatik.
 
-## <a name="download-update-12"></a>1.2 güncelleştirmesini indirme
+## <a name="download-update-12"></a>1\.2 güncelleştirmesini indirme
 
 Bu güncelleştirmeyi indirmek için Git [Microsoft Update Kataloğu](https://www.catalog.update.microsoft.com/Home.aspx) sunucusu ve KB4502035 indirme paketi. Bu paket, aşağıdaki paketler içeriyor:
 

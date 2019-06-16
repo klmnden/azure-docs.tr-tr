@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66145898"
 ---
 Paylaşılan resim galerileri, RBAC kullanarak paylaşım görüntüleri sağlar. Görüntüleri kiracınızdaki ve hatta kişiler, kiracınızın dışında paylaşmak için RBAC kullanabilirsiniz. Ancak, uygun ölçekte, Azure kiracınızın dışındaki görüntülerin paylaşmak istiyorsanız, paylaşımını kolaylaştırmak için bir uygulama kaydı oluşturmanız gerekir.  Bir uygulama kaydı kullanarak gibi daha karmaşık paylaşım senaryolarını etkinleştirebilirsiniz: 
@@ -40,7 +40,7 @@ Paylaşılan görüntü Galerisi kullanmak için uygulama kaydı izin verin.
 1. Azure portalında, başka bir kiracıyla paylaşmak istediğiniz paylaşılan görüntü Galerisi seçin.
 1. Seçin **erişim denetimi (IAM) seçin**, altında **rol ataması Ekle** seçin *Ekle*. 
 1. Altında **rol**seçin **okuyucu**.
-1. Altında **erişim ata:**, bu olarak bırakın **Azure AD kullanıcı, Grup veya hizmet sorumlusu**.
+1. Altında **erişim ata:** , bu olarak bırakın **Azure AD kullanıcı, Grup veya hizmet sorumlusu**.
 1. Altında **seçin**, türü *myGalleryApp* ve listede görünür olduğunda bu seçeneği belirleyin. İşiniz bittiğinde **Kaydet**.
 
 
@@ -54,9 +54,9 @@ https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Appl
 
 İçinde [Azure portalında](https://portal.azure.com) Kiracı 2 olarak oturum açın ve VM'yi oluşturmak istediğiniz kaynak grubunu uygulama kayıt erişim verin.
 
-1. Kaynak grubunu seçin ve ardından **erişim denetimi (IAM)**. Altında **rol ataması Ekle** seçin **Ekle**. 
+1. Kaynak grubunu seçin ve ardından **erişim denetimi (IAM)** . Altında **rol ataması Ekle** seçin **Ekle**. 
 1. Altında **rol**, türü **katkıda bulunan**.
-1. Altında **erişim ata:**, bu olarak bırakın **Azure AD kullanıcı, Grup veya hizmet sorumlusu**.
+1. Altında **erişim ata:** , bu olarak bırakın **Azure AD kullanıcı, Grup veya hizmet sorumlusu**.
 1. Altında **seçin** türü *myGalleryApp* listede görünür olduğunda seçin. İşiniz bittiğinde **Kaydet**.
 
 > [!NOTE]

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/13/2018
 ms.author: kumud
 ms.openlocfilehash: 41e9d88df49d153089e6dc7a12c5873ccc167279
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209454"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS koruması standart genel bakış
@@ -64,7 +64,7 @@ DDoS koruması standart özellikler şunlardır:
 
 DDoS koruması standart gerçek trafik kullanımını izler ve sürekli DDoS ilkede tanımlanan eşiklere göre karşılaştırır. Trafik eşiği aşıldığında, DDoS saldırılarının otomatik olarak başlatılır. Risk azaltma trafiği eşiğin altında döndüğünde kaldırılır.
 
-![Azaltma](./media/ddos-protection-overview/mitigation.png)
+![Risk azaltma](./media/ddos-protection-overview/mitigation.png)
 
 Azaltma, korumalı kaynağa gönderilen trafik DDoS koruması hizmeti tarafından yönlendirilir ve birkaç önleme denetimleri yapıldıktan, aşağıdaki denetimleri gibi:
 

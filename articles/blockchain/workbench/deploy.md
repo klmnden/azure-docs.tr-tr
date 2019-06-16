@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154635"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench'i dağıtma
@@ -23,7 +23,7 @@ Azure Blockchain Workbench, Azure Market'te çözüm şablonu kullanılarak dağ
 
 Blockchain Workbench'i bileşenleri hakkında daha fazla bilgi için bkz. [Azure Blockchain Workbench mimarisi](architecture.md).
 
-## <a name="prepare-for-deployment"></a>Dağıtım için hazırlanma
+## <a name="prepare-for-deployment"></a>Dağıtıma hazırlanma
 
 Blockchain Workbench'i, ilgili Azure Hizmetleri blok zinciri tabanlı bir uygulama oluşturmak için en sık kullanılan bir dizi ile birlikte bir blok zinciri defter dağıtmanıza olanak tanır. Blockchain Workbench'i dağıtma, Azure aboneliğinizde bir kaynak grubu içinde sağlanan aşağıdaki Azure Hizmetleri ile sonuçlanır.
 
@@ -214,7 +214,7 @@ Ardından, uygulama rolleri Blockchain Workbench'i yöneticileri belirlemek içi
 2. Bir GUID oluşturun. [GUID] PowerShell komutunu kullanarak bir GUID oluşturabilirsiniz: NewGuid (') veya GUID yeni cmdlet. Başka bir seçenek, bir GUID generator Web sitesi kullanmaktır.
 3. Güncelleştirilecek **appRoles** bildiriminin. Düzenleme bildirim bölmesinde seçin **Düzenle** değiştirin `"appRoles": []` sağlanan JSON ile. Değerini değiştirdiğinizden emin olun **kimliği** , oluşturulan GUID ile alan. 
 
-    ![Bildirimi düzenle](media/deploy/edit-manifest.png)
+    ![Bildirimi Düzenle](media/deploy/edit-manifest.png)
 
     ``` json
     "appRoles": [

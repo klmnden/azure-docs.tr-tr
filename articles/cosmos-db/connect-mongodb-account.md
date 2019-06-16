@@ -9,10 +9,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: dabce19d60a380b47d3583dedb5c11303f416ce7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978718"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Bir MongoDB uygulamasını Azure Cosmos DB'ye bağlanma
@@ -32,7 +32,7 @@ Bu öğreticide, bağlantı dizesi bilgilerini almak için iki yol sunar:
 1. Bir Internet tarayıcısında oturum açın [Azure portalında](https://portal.azure.com).
 2. İçinde **Azure Cosmos DB** dikey penceresinde, API'yi seçin. 
 3. Hesap dikey penceresinin sol bölmesinde **Hızlı Başlangıç**. 
-4. Platformunuzu seçin (**.NET**, **Node.js**, **MongoDB Kabuğu**, **Java**, **Python**). Sürücünüz veya aracınızı listede, endişelenmeyin--görmüyorsanız, biz sürekli bağlantı kod parçacıklarını belge. Lütfen aşağıda ne görmek istediğiniz üzerinde yorum. Kendi bağlantısı oluşturabilir öğrenmek için okuyun [hesabının bağlantı dizesi bilgilerini alın](#GetCustomConnection).
+4. Platformunuzu seçin ( **.NET**, **Node.js**, **MongoDB Kabuğu**, **Java**, **Python**). Sürücünüz veya aracınızı listede, endişelenmeyin--görmüyorsanız, biz sürekli bağlantı kod parçacıklarını belge. Lütfen aşağıda ne görmek istediğiniz üzerinde yorum. Kendi bağlantısı oluşturabilir öğrenmek için okuyun [hesabının bağlantı dizesi bilgilerini alın](#GetCustomConnection).
 5. Kopyalayıp MongoDB uygulamanıza kod parçacığını yapıştırın.
 
     ![Hızlı Başlangıç dikey penceresi](./media/connect-mongodb-account/QuickStartBlade.png)

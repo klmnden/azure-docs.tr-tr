@@ -10,25 +10,25 @@ ms.date: 11/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: mvc
-ms.openlocfilehash: e5be86f9f7fbaedeb8fbb10b89926644dcf8aac2
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 612c0b48faac365623fe36d6d2435c1c79566d9b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071317"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Öğretici: Azure Depolama ile buluta görüntü verileri yükleme
 
 Bu öğretici, bir dizinin birinci bölümüdür. Bu öğreticide, bir depolama hesabına görüntü yüklemek için Azure depolama istemci kitaplığı kullanan web uygulamasının nasıl dağıtılacağını öğreneceksiniz. İşlemi tamamladığınızda, depolar ve Azure depolamadaki görüntüleri görüntüleyen bir web uygulaması oluşturmuş olacaksınız.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
-![Görüntüler kapsayıcı görünümü](media/storage-upload-process-images/figure2.png)
+![.NET uygulamasında görüntü Boyutlandırıcı](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[node.js V2 SDK'sı](#tab/nodejs)
-![Görüntüler kapsayıcı görünümü](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Görüntü Boyutlandırıcı uygulamasında Node.js V2](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
-![Görüntüler kapsayıcı görünümü](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Görüntü Boyutlandırıcı uygulamasında Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -211,7 +211,7 @@ Web uygulamasını test etmek için, yayımlanan uygulamanızın URL'sine gidin.
 
 Seçin **fotoğrafları karşıya yükle** bölgeyi seçin ve bir dosyayı karşıya yükleyin veya bir dosyayı bölgenin sürükleyin. Görüntü başarıyla karşıya yüklenirse kaybolur. **Oluşturulan küçük resimler** bu konunun ilerleyen bölümlerinde test edebiliriz kadar bölümü boş kalır.
 
-![ImageResizer uygulaması](media/storage-upload-process-images/figure1.png)
+![. NET'te fotoğraf yükleyin](media/storage-upload-process-images/figure1.png)
 
 Örnek kodda `UploadFiletoStorage` görevi *Storagehelper.cs* görüntüleri karşıya yüklemek için kullanılan dosya *görüntüleri* kullanarak depolama hesabı içinde kapsayıcı [ UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) yöntemi. Aşağıdaki kod örneği `UploadFiletoStorage` görevini içerir.
 
@@ -254,7 +254,7 @@ Aşağıdaki sınıflar ve yöntemler, yukarıdaki görevde kullanılır:
 
 Seçin **Dosya Seç** bir dosya seçmek için ardından **karşıya resim**. **Oluşturulan küçük resimler** bu konunun ilerleyen bölümlerinde test edebiliriz kadar bölümü boş kalır. 
 
-![Görüntü Karşıya Yükleme Uygulaması](media/storage-upload-process-images/upload-app-nodejs.png)
+![Node.js V2'de fotoğraf yükleyin](media/storage-upload-process-images/upload-app-nodejs.png)
 
 Örnek kodda `post` yolu, görüntüyü blob kapsayıcısına yüklemeden sorumludur. Yol, modülleri karşıya yükleme işlemine yardımcı olması için kullanır:
 
@@ -318,7 +318,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 Seçin **Dosya Seç** bir dosya seçmek için ardından **karşıya resim**. **Oluşturulan küçük resimler** bu konunun ilerleyen bölümlerinde test edebiliriz kadar bölümü boş kalır. 
 
-![Görüntü Karşıya Yükleme Uygulaması](media/storage-upload-process-images/upload-app-nodejs.png)
+![Node.js V10 fotoğrafları karşıya yükle](media/storage-upload-process-images/upload-app-nodejs.png)
 
 Örnek kodda `post` yolu, görüntüyü blob kapsayıcısına yüklemeden sorumludur. Yol, modülleri karşıya yükleme işlemine yardımcı olması için kullanır:
 
@@ -400,7 +400,7 @@ router.post('/', uploadStrategy, async (req, res) => {
 
 Kapsayıcıda görüntünün gösterildiğini doğrulayın.
 
-![Görüntüler kapsayıcı görünümü](media/storage-upload-process-images/figure13.png)
+![Kapsayıcı görüntülerini Azure portalı listesi](media/storage-upload-process-images/figure13.png)
 
 ## <a name="test-thumbnail-viewing"></a>Küçük resim görüntülemeyi test etme
 
@@ -413,13 +413,13 @@ Dosya Seçici ile bir dosya seçip seçin **karşıya**.
 **thumbnails** kapsayıcısına yüklenen görüntünün görünür olduğunu doğrulamak için uygulamanıza geri gidin.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
-![Görüntüler kapsayıcı görünümü](media/storage-upload-process-images/figure2.png)
+![Görüntülenen yeni bir görüntü ile .NET görüntü Boyutlandırıcı uygulaması](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[node.js V2 SDK'sı](#tab/nodejs)
-![Görüntüler kapsayıcı görünümü](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Görüntülenen yeni bir görüntü ile node.js V2 görüntü Boyutlandırıcı uygulaması](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
-![Görüntüler kapsayıcı görünümü](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Görüntülenen yeni bir görüntü ile node.js V10 görüntü Boyutlandırıcı uygulaması](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 

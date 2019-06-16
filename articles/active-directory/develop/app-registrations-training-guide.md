@@ -18,10 +18,10 @@ ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 118c6ecb16d325a384246a0b3d9e685f6f6f04ee
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870125"
 ---
 # <a name="training-guide-app-registrations-in-the-azure-portal"></a>Eğitim Kılavuzu: Azure portalında uygulama kayıtları  
@@ -34,7 +34,7 @@ ms.locfileid: "64870125"
 - Oturum eski deneyimi desteklenen uygulamalar yalnızca kuruluş (Azure AD) hesaplar. Tek kiracılı (yalnızca Kurumsal hesapları uygulama kaydedildi dizininden destekleme) olarak kayıtlı uygulamalar ve çok kiracılı (destekleyen tüm kurumsal hesaplar) olacak şekilde değiştirilmesi. Yeni deneyimi destek bu seçeneklerin yanı sıra üçüncü bir seçenek uygulamaları kaydetme sağlar: Kişisel Microsoft hesaplarının yanı sıra tüm kurumsal hesaplar.
 - Eski deneyimi yalnızca bir kurumsal hesap kullanarak Azure portalında oturum olduğunda kullanılabilir. Yeni deneyimi, bir dizin ile ilişkili olmayan kişisel Microsoft hesapları kullanabilirsiniz.
 
-## <a name="list-of-applications"></a>Uygulama listesi
+## <a name="list-of-applications"></a>Uygulamaların listesi
 
 - Yeni uygulama listesini eski uygulama üzerinden kaydedilen uygulamalar gösterilmektedir ancak kayıtlı uygulamaların yanı sıra Azure portal (Azure AD hesaplarının oturum uygulamaları) kaydı deneyimi [uygulama kayıt portalı](https://apps.dev.microsoft.com/) (Azure AD'de oturum uygulamaları ve kişisel Microsoft hesapları).
 - Yeni uygulama listesinde yok bir **uygulama türü** (tek uygulama kaydı birden fazla olabileceği) sütun ve iki ek sütunlar vardır: bir **oluşturulan** sütun ve **sertifikaları & Gizli dizileri** uygulamanın kayıtlı kimlik bilgileri, durum (geçerli, süresi yakında dolacak ve süresi) gösteren bir sütun.

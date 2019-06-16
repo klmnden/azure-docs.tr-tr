@@ -7,10 +7,10 @@ ms.date: 4/9/2019
 ms.topic: article
 ms.service: security
 ms.openlocfilehash: 017a26d5672f666d4d8eaf629a0f53fe0cfe517f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963238"
 ---
 # <a name="secure-azure-computing-architecture"></a>Güvenli Azure Bilgi İşlem Mimarisi
@@ -163,9 +163,9 @@ SCCA gereksinimlerini karşılayan çünkü bu mimari öneririz. Bu, kolayca öl
     - Bunlar ortamın bant dışı yönetimi için kullanılır.
 - Ağ sanal Gereçleri
     - Her iki Citrix kullanın veya şablona göre dağıttığınız F5'e bağlı.
-- Ortak IP'ler
+- Genel IP'ler
     - ExpressRoute çevrimiçi duruma getirilene kadar ön uç için kullanılır. Bu IP'ler, arka uç Azure özel adres alanınızı çevir.
-- Rota tabloları 
+- Yol tabloları 
     - Otomasyon işlemi sırasında uygulanan bu tablolar zorlamalı tünel tüm trafiği sanal gereçten yönlendirilen.
 - Azure yük dengeleyicileri - standart SKU
     - Cihazları arasında trafiğin yükünü dengelemek için kullanılırlar.

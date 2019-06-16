@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
 ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148811"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure işlevleri'nde desteklenen diller
@@ -45,7 +45,7 @@ Sürüm 2.x çalışma zamanı, Deneysel dilleri desteklemez. Yalnızca dil üre
 
 ### <a name="language-extensibility"></a>Dil genişletilebilirliği
 
-2.x çalışma zamanı sunmak üzere tasarlanmıştır [dil genişletilebilirlik](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). 2.x çalışma zamanı JavaScript ve Java dillerinde bu genişletilebilirlik ile oluşturulur.
+2\.x çalışma zamanı sunmak üzere tasarlanmıştır [dil genişletilebilirlik](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). 2\.x çalışma zamanı JavaScript ve Java dillerinde bu genişletilebilirlik ile oluşturulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

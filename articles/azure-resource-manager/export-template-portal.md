@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65515392"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Azure portalında şablon için tek ve birden çok kaynak dışarı aktarma
@@ -62,7 +62,7 @@ Bir veya daha fazla kaynak bir kaynak grubundan dışarı aktarmak için:
 
 1. Dışarı aktarılan şablon, görüntülenir ve indirilebilir.
 
-   ![Şablonu göster](./media/export-template-portal/show-template.png)
+   ![Şablonu Göster](./media/export-template-portal/show-template.png)
 
 ## <a name="export-template-from-resource"></a>Şablonu kaynak grubundan dışarı aktarma
 
@@ -88,11 +88,11 @@ Bir kaynak dışarı aktarmak için:
 
 1. Doğrulama geçirmeden sonra ancak dağıtıma başlamadan önce seçin **Otomasyon için bir şablonunu indirebilirsiniz**.
 
-   ![Şablonu indir](./media/export-template-portal/download-before-deployment.png)
+   ![Şablon indirme](./media/export-template-portal/download-before-deployment.png)
 
 1. Şablon görüntülenir ve indirme için kullanılabilir.
 
-   ![Şablonu göster](./media/export-template-portal/show-template-before-deployment.png)
+   ![Şablonu Göster](./media/export-template-portal/show-template-before-deployment.png)
 
 ## <a name="export-template-after-deployment"></a>Dağıtımdan sonra şablonu dışarı aktarma
 
@@ -110,7 +110,7 @@ Var olan kaynakları dağıtmak için kullanılan şablonu dışarı aktarabilir
 
 1. Seçin **şablon**. Bu dağıtım için kullanılan şablon görüntülenir ve indirme için kullanılabilir.
 
-   ![Şablon seçin](./media/export-template-portal/show-template-from-history.png)
+   ![Şablonu seçin](./media/export-template-portal/show-template-from-history.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

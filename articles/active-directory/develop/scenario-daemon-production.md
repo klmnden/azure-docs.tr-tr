@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 627dab0cb23800664c5fb5b3df9c61f5071d4b87
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545396"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Web çağıran arka plan programı uygulama API'ler - üretim ortamına taşıyın
@@ -51,15 +51,15 @@ Daha fazla bilgi edinmek için birkaç bağlantıları aşağıda verilmiştir:
 - Diğer örnekler/öğreticiler:
   - [Microsoft-kimlik-platform-konsol-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) Microsoft Graph sorgulama Kiracı kullanıcıları görüntüler basit bir .NET Core arka plan programı konsol uygulaması sunar.
 
-    ![topoloji](media/scenario-daemon-app/daemon-app-sample.svg)
+    ![topology](media/scenario-daemon-app/daemon-app-sample.svg)
 
     Aynı örnek sertifikalarla değişim de gösterir.
 
-    ![topoloji](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
+    ![topology](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
 
   - [Microsoft-identity-Platform-ASPNET-WebApp-Daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) verileri Microsoft Graph kullanıcı adına yerine uygulama kimliğini kullanarak bir ASP.NET MVC web uygulaması özellikleri. Örnek ayrıca, yönetici onayı işlemi gösterilmektedir.
 
-    ![topoloji](media/scenario-daemon-app/damon-app-sample-web.svg)
+    ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 
 ### <a name="python"></a>Python
 

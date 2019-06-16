@@ -9,10 +9,10 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254677"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Azure Danışmanı ile uygulamanızın kullanılabilirliğini artırın
@@ -30,7 +30,7 @@ Uygulamanıza yedeklilik sağlamak için bir kullanılabilirlik kümesinde iki v
 
 Uygulamanıza yedeklilik sağlamak için bir kullanılabilirlik kümesinde iki veya daha fazla sanal makinenin gruplandırılması önerilir. Danışman, tek bir sanal makine içeren kullanılabilirlik kümeleri tanımlar ve bir veya daha fazla sanal makine eklemeyi önerir. Bu yapılandırma ya da bir planlı veya Plansız bakım olayı sırasında en az bir sanal makinenin kullanılabilir ve Azure sanal makine SLA'sına sağlar. Bir sanal makine oluşturun veya mevcut bir sanal makine kullanılabilirlik kümesine eklemek için seçebilirsiniz.  
 
-## <a name="use-managed-disks-to-improve-data-reliability"></a>Veri güvenilirliğini geliştirmek için yönetilen diskleri kullanma
+## <a name="use-managed-disks-to-improve-data-reliability"></a>Veri güvenilirliğini geliştirmek için Yönetilen Diskler kullanın
 
 Bir kullanılabilirlik kümesinde depolama hesaplarını veya depolama ölçek birimlerini paylaşan diskler ile olan sanal makineler kesintiler sırasında tek bir depolama ölçek birimi hatalarına karşı dayanıklı değildir. Danışman bu kullanılabilirlik kümeleri tanımlar ve Azure yönetilen diskler için geçiş yapmanızı öneririz. Bu işlem, kullanılabilirlik kümesindeki farklı sanal makinelerin diskleri bir tek hata noktasını önlemek için ayrı tutulmasını garanti eder. 
 
@@ -60,7 +60,7 @@ Traffic Manager profili devre dışı coğrafi yönlendirme için yapılandırı
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Geçici silme kaydedip yanlışlıkla üzerine yazma veya silme sonra verileri kurtarmak için Azure depolama hesabınızda kullanın.
 
-Etkinleştirme [geçici silme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) silinen blobları geçiş kalıcı olan yerine geçici silinen durumuna, depolama hesabınız silindi. Verilerin üzerine, verilerin üzerine yazılması durumunu kaydetmek için geçici silinen bir anlık görüntü oluşturulur. Geçici silmeyi kullanma, yanlışlıkla silinmekten varsa kurtarmanıza olanak tanır veya üzerine yazar. Advisor geçici silme etkinleştirilebilir sahip değilseniz Azure depolama hesaplarını tanımlar ve bu etkinleştirmenizi önerir.
+Etkinleştirme [geçici silme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) silinen blobları geçiş kalıcı olan yerine geçici silinen durumuna, depolama hesabınız silindi. Verilerin üzerine yazıldığında, üzerine yazılan verilerin durumunu kaydetmek için geçici silinen bir anlık görüntü oluşturulur. Geçici silmeyi kullanma, yanlışlıkla silinmekten varsa kurtarmanıza olanak tanır veya üzerine yazar. Advisor geçici silme etkinleştirilebilir sahip değilseniz Azure depolama hesaplarını tanımlar ve bu etkinleştirmenizi önerir.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Etkin-etkin VPN ağ geçidinizi yapılandırma bağlantı dayanıklılığı
 
@@ -72,25 +72,25 @@ Azure Danışmanı'nı temel SKU olan bir VPN ağ geçitleri için denetleyin ve
 
 ## <a name="repair-invalid-log-alert-rules"></a>Onarım geçersiz günlük uyarı kuralları
 
-Azure Danışmanı kendi koşul bölümünde belirtilen geçersiz sorgular sahip uyarı kuralları algılar. Günlük uyarı kuralları, Azure İzleyici'de oluşturulur ve belirli aralıklarla analiz sorguları çalıştırmak için kullanılır. Sorgunun sonuçlarının bir uyarı tetiklenmesi gerekip gerekmediğini belirleyin. Analiz sorguları, başvurulan kaynakları, tablolar veya komutları değişiklikleri nedeniyle geçersiz mesai hale gelebilir. Danışman, otomatik-devre dışı iken önlemek ve Azure kaynaklarınızı izleme kapsamını emin olmak için uyarı kuralı sorguyu düzeltin önerir. [Uyarı kuralları sorun giderme hakkında daha fazla bilgi edinin](https://aka.ms/aa_logalerts_queryrepair)
+Azure Danışmanı kendi koşul bölümünde belirtilen geçersiz sorgular sahip uyarı kuralları algılar. Günlük uyarı kuralları Azure İzleyici'de oluşturulur ve belirtilen zaman aralıklarında analiz sorguları çalıştırmak için kullanılır. Sorgu sonuçları, uyarıyı tetiklemenin gerekip gerekmediğini belirler. Başvurulan kaynaklarda, tablolarla veya komutlarda zamanla değişiklik oldukça analiz sorguları geçersiz hale gelir. Danışman, otomatik-devre dışı iken önlemek ve Azure kaynaklarınızı izleme kapsamını emin olmak için uyarı kuralı sorguyu düzeltin önerir. [Uyarı kuralları sorun giderme hakkında daha fazla bilgi edinin](https://aka.ms/aa_logalerts_queryrepair)
 
 ## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Cosmos DB koleksiyonunuza tutarlı dizin oluşturma modunu yapılandırma
 
 Azure Cosmos DB kapsayıcıları yavaş dizin oluşturma modu ile yapılandırılmış sorgu sonuçları güncellik etkileyebilir. Advisor kapsayıcıları bu şekilde yapılandırılan algılanır ve tutarlı moduna önerilir. [İlkeleri Cosmos DB'de dizinleme hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
 
-## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Azure Cosmos DB kapsayıcıları bir bölüm anahtarı ile yapılandırma
+## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Azure Cosmos DB kapsayıcılarınızı bölüm anahtarı ile yapılandırın
 
 Azure Danışmanı sağlanan depolama kotasını yaklaşan Azure Cosmos DB bölümlenmemiş koleksiyonlarını tanımlar. Böylece bunlar otomatik olarak hizmet tarafından genişletilebilir bir bölüm anahtarı tanımıyla yeni koleksiyonlar için bu koleksiyonları geçirme önerir. [Bir bölüm anahtarı seçme hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/choose-partitionkey)
 
-## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Azure Cosmos DB .NET SDK'nızı Nuget'ten en son sürüme yükseltin.
+## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Azure Cosmos DB .NET SDK'nızı Nuget'ten en son sürüme yükseltin
 
 Azure Danışmanı, eski sürümlerini .NET SDK kullanarak ve en son düzeltmeler, performans geliştirmeleri ve yeni özellikler Nuget'ten en son sürüme yükseltme önerilir Azure Cosmos DB hesapları tanımlar. [Cosmos DB .NET SDK'sı hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
-## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Azure Cosmos DB Java SDK'nızı Maven'dan en son sürüme yükseltin.
+## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Azure Cosmos DB Java SDK'nızı Maven'dan en son sürüme yükseltin
 
 Azure Danışmanı Java SDK'sı eski sürümlerini kullanan ve en son düzeltmeler, performans geliştirmeleri ve yeni özellikler Maven'dan en son sürüme yükseltme önerilir Azure Cosmos DB hesapları tanımlar. [Cosmos DB Java SDK'sı hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
-## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Azure Cosmos DB Spark Bağlayıcısı Maven'dan en son sürüme yükseltin.
+## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Azure Cosmos DB Spark Bağlayıcınızı Maven'dan en son sürüme yükseltin
 
 Azure Danışmanı Maven'dan, en son düzeltmeler, performans geliştirmeleri ve yeni özellikler için en son sürümüne yükseltmeniz önerilir ve Cosmos DB Spark Bağlayıcısı'nün eski sürümlerini kullanan Azure Cosmos DB hesapları tanımlar. [Cosmos DB Spark Bağlayıcısı hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/spark-connector)
 

@@ -13,11 +13,11 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306691"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511794"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure işlevleri için Twilio bağlama
 
@@ -403,12 +403,12 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|---------|----------------------|
 |**type**|**type**| Ayarlanmalıdır `twilioSms`.|
 |**direction**|**direction**| Ayarlanmalıdır `out`.|
-|**Adı**|**Adı**| İşlev kodu için Twilio SMS mesajı kullanılan değişken adı. |
+|**name**|**name**| İşlev kodu için Twilio SMS mesajı kullanılan değişken adı. |
 |**accountSid**|**accountSidSetting**| **accountSidSetting**| Bu değer, örneğin, Twilio hesap SID'si tutan bir uygulama ayarı adı için TwilioAccountSid ayarlanmalıdır. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsTwilioAccountSid" dir. |
 |**authToken**|**authTokenSetting**|**authTokenSetting**| Bu değer, örneğin Twilio kimlik doğrulama belirtecinizi içeren uygulama ayarı adı için TwilioAccountAuthToken ayarlanmalıdır. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsTwilioAuthToken" dir. |
-|**Hedef**| Yok - kodda belirtme | **Alıcı**| Bu değer, telefon numarasına gönderilen SMS metni ayarlanır.|
-|**Kaynak**|**Kaynak** | **Kaynak**| SMS metni gönderildiği telefon numarası için bu değeri ayarlayın.|
-|**Gövde**|**Gövde** | **Gövde**| Bu değer, işleviniz için kodda dinamik olarak ayarlamak gerekmiyorsa, SMS mesajı sabit kod için kullanılabilir. |  
+|**to**| Yok - kodda belirtme | **Alıcı**| Bu değer, telefon numarasına gönderilen SMS metni ayarlanır.|
+|**from**|**from** | **From**| SMS metni gönderildiği telefon numarası için bu değeri ayarlayın.|
+|**body**|**body** | **Gövde**| Bu değer, işleviniz için kodda dinamik olarak ayarlamak gerekmiyorsa, SMS mesajı sabit kod için kullanılabilir. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66139875"
 ---
 Varsayılan olarak, Mobile Apps arka uç API'leri anonim olarak çağrılabilir. Ardından, yalnızca kimliği doğrulanmış kullanıcıların erişimini kısıtlamak gerekir.  
@@ -16,7 +16,7 @@ Varsayılan olarak, Mobile Apps arka uç API'leri anonim olarak çağrılabilir.
 * **Node.js geri bitiş (Azure portalı)** :  
 
     Mobile Apps ayarlarınızda tıklayın **kolay tablolar** ve tablonuzu seçme. Tıklayın **izinleri değiştirme**seçin **kimlik doğrulamalı erişim yalnızca** tüm izinleri ve ardından **Kaydet**.
-* **.NET arka ucu (C#)**:  
+* **.NET arka ucu (C#)** :  
 
     Sunucu projesinde gidin **denetleyicileri** > **TodoItemController.cs**. Ekleme `[Authorize]` özniteliğini **TodoItemController** sınıfına aşağıdaki gibi. Yalnızca belirli metotlar için erişimi kısıtlamak için yalnızca sınıf yerine bu yöntemleri için bu öznitelik uygulayabilirsiniz. Sunucu projesini yeniden yayımlayın.
 

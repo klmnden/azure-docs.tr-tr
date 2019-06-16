@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 2a669f5b46db4d5de7d1d6863b94e6c117667aee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2b57ec7727e8f5b648bcb97e5fae26c63724411c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153232"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127203"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure kimlik yönetimi ve erişim en iyi güvenlik denetimi
 Bu makalede, Azure kimlik yönetimi ve erişim denetimi en iyi güvenlik uygulamaları koleksiyonu ele alır. Bu en iyi uygulamaları ile deneyimimizi türetilmiştir [Azure AD'ye](../active-directory/fundamentals/active-directory-whatis.md) ve müşteri deneyimleri bulunun.
@@ -39,7 +39,7 @@ Bu makalede ele alınan azure kimlik yönetimi ve erişim denetimi güvenlik en 
 * Kimlik birincil güvenlik çevresi olarak değerlendir
 * Kimlik yönetimini merkezden gerçekleştirin
 * Bağlı kiracılarını yönetme
-* Çoklu oturum açmayı etkinleştir
+* Çoklu oturum açmayı etkinleştirin
 * Koşullu erişimi etkinleştirmek
 * Parola yönetimini etkinleştirme
 * Kullanıcılar için çok faktörlü doğrulama zorla
@@ -96,7 +96,7 @@ Kuruluşunuzun güvenlik riskini değerlendirmek için ve ilkeleri, kuruluşunuz
 
 Bkz: [tüm Azure aboneliklerini ve Yönetim gruplarını yönetmek için erişimini yükseltme](../role-based-access-control/elevate-access-global-admin.md) ortamınıza bağlı ve güvenlik grubunuz tüm abonelikleri veya yönetim gruplarıyla görebilmelerini sağlamak için. Riskleri değerlendirdikten sonra bu yükseltilmiş erişim kaldırmanız gerekir.
 
-## <a name="enable-single-sign-on"></a>Çoklu oturum açmayı etkinleştir
+## <a name="enable-single-sign-on"></a>Çoklu oturum açmayı etkinleştirin
 
 Bir mobil öncelikli ve bulut öncelikli dünyada, kullanıcılarınız ne zaman ve yerde üretken olabilmeleri çoklu oturum açma (SSO) cihazları, uygulamaları ve Hizmetleri için her yerden etkinleştirmek istiyorsunuz. Yönetmek için birden çok kimlik çözümleri varsa, bu değil yalnızca yönetimsel bir sorun haline BT aynı zamanda birden fazla parolayı hatırlamak zorunda kullanıcılar için.
 
@@ -113,7 +113,7 @@ Kendi kullanıcıları ve uygulamaları için SSO kurmak için ortak bir kimlik 
 
 Kullanıcıların çeşitli cihazlar ve uygulamalar her yerden kullanarak, kuruluşunuzun kaynaklarına erişim sağlayabilir. BT yöneticisi, bu cihazlar için güvenlik ve uyumluluk standartlarınızı karşılayan emin olmanız gerekir. Kimin bir kaynağa erişmek için yalnızca odaklanarak artık yeterli değildir.
 
-Güvenlik ve üretkenlik dengelemek için erişim denetimi hakkında bir karar yapabilmeniz için önce bir kaynak nasıl erişildiği düşünmeniz gerekir. Azure AD'nin koşullu erişim özelliği sayesinde bu gereksinimi karşılayabilirsiniz. Koşullu erişim ile bulut uygulamalarınıza erişen koşulları dayalı otomatik erişim denetimi kararları yapabilirsiniz.
+Güvenlik ve üretkenlik dengelemek için erişim denetimi hakkında bir karar yapabilmeniz için önce bir kaynak nasıl erişildiği düşünmeniz gerekir. Azure AD koşullu erişim ile bu gereksinimleri karşılayabilirsiniz. Koşullu erişim ile bulut uygulamalarınıza erişen koşulları dayalı otomatik erişim denetimi kararları yapabilirsiniz.
 
 **En iyi yöntem**: Yönetme ve şirket kaynaklarına erişimi denetleyebilirsiniz.  
 **Ayrıntı**: Azure AD'yi yapılandırma [koşullu erişim](../active-directory/active-directory-conditional-access-azure-portal.md) grubu, konum ve SaaS uygulamaları ve Azure AD bağlı uygulamalar için uygulama hassaslığı göre.

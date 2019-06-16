@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: fb219316afa798dfda777c4d0d406d5b8cabf7f9
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66472371"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure işlevleri HTTP Tetikleyicileri ve bağlamaları
@@ -28,7 +28,7 @@ Yanıt için HTTP tetikleyicisi özelleştirilebilir [Web kancaları](https://en
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-Bu makalede kod, .NET Core kullanan işlevler 2.x sözdizimi için varsayılan olarak. 1.x söz dizimi hakkında daha fazla bilgi için bkz: [1.x işlev şablonları](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
+Bu makalede kod, .NET Core kullanan işlevler 2.x sözdizimi için varsayılan olarak. 1\.x söz dizimi hakkında daha fazla bilgi için bkz: [1.x işlev şablonları](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 

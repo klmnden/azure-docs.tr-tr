@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 74c24e05d974c4b3bb15a242185b645231f74580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792775"
 ---
 # <a name="azure-storage-security-overview"></a>Azure depolama güvenliğine genel bakış
@@ -34,11 +34,11 @@ Bu makalede, Azure depolama için kullanabileceğiniz Azure güvenlik özellikle
 
 Azure depolama güvenlik daha ayrıntılı bilgi için bkz: [Azure depolama Güvenlik Kılavuzu](../storage/common/storage-security-guide.md). Bu kılavuz, Azure depolama güvenlik özellikleri hakkında ayrıntılı bir inceleme sunar. Bu özellikler, depolama hesabı anahtarları, veri şifreleme Aktarımdaki ve rest ve depolama analizi içerir.
 
-## <a name="role-based-access-control"></a>Rol Tabanlı Erişim Denetimi
+## <a name="role-based-access-control"></a>Rol Tabanlı Access Control
 
 Rol tabanlı erişim denetimi kullanarak depolama hesabınızın güvenliğini sağlayabilirsiniz. Erişimi kısıtlama temel alarak [bilmeniz gereken](https://en.wikipedia.org/wiki/Need_to_know) ve [en az ayrıcalık](https://en.wikipedia.org/wiki/Principle_of_least_privilege) güvenlik ilkeleri, veri erişimi için güvenlik ilkelerini zorlamak istediğinizde kuruluşlar için zorunlu. Bu erişim hakları, gruplara ve uygulamalara belirli bir kapsama uygun RBAC rolü atanarak verilir. Kullanabileceğiniz [yerleşik RBAC rolleri](../role-based-access-control/built-in-roles.md), ayrıcalıkları kullanıcılara atamak için depolama hesabı katılımcısı gibi.
 
-Daha fazla bilgi:
+Daha fazla bilgi edinin:
 
 * [Azure Active Directory rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md)
 
@@ -48,7 +48,7 @@ Paylaşılan erişim imzası, depolama hesabınızdaki kaynaklara temsilci eriş
 
 SAS depolama kaynak kimliği doğrulanmış erişim için gerekli tüm bilgileri sorgu parametrelerini kapsayan bir URI'dir. SAS ile depolama kaynaklarına erişmek için istemcinin yalnızca uygun oluşturucuyu veya yöntem SAS sağlaması gerekir.
 
-Daha fazla bilgi:
+Daha fazla bilgi edinin:
 
 * [SAS modelini anlama](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 * [Oluşturma ve bir SAS ile Blob Depolama kullanma](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
@@ -103,7 +103,7 @@ Data Box, Data Box Disk ve Data Box Heavy cihazları, ağ seçeneğinin olmadı�
 
 Data Box Edge ve Data Box Gateway, verilerin siteniz ile Azure arasında yönetilmesi için ağ depolama geçitleri olarak çalışan çevrimiçi veri aktarımı ürünleridir. Şirket içi bir ağ cihazı olan Data Box Edge, Azure’ın içine ve dışına veri aktarımı gerçekleştirmesinin yanı sıra verileri işlemek için yapay zeka (AI) özellikli uç işlemini kullanır. Data Box Gateway, depolama ağ geçidi özelliklerine sahip sanal bir gereçtir.
 
-Daha fazla bilgi:
+Daha fazla bilgi edinin:
 
 * [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
 * [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
@@ -115,7 +115,7 @@ Azure depolama, ek bir erişim veya depolama hesabınıza yararlanma olağan dı
 
 Gelişmiş tehdit koruması uyarıları görüntülenebilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/). Azure Güvenlik Merkezi şüpheli etkinliği ayrıntıları algılandı ve olası tehdit düzeltilmesi için Eylemler önerir sağlar.
 
-Daha fazla bilgi:
+Daha fazla bilgi edinin:
 
 * [Azure depolama Gelişmiş tehdit koruması genel bakış](../storage/common/storage-advanced-threat-protection.md)
 

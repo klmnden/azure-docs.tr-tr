@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 5/29/2019
 ms.openlocfilehash: f0840b90e1036c23fa58d94515bfeb035299c07f
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66358191"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-sisense"></a>Azure veri Gezgini'nde Sisense verileri görselleştirin
@@ -32,7 +32,7 @@ Bu makalede tamamlamak için şunlara ihtiyacınız vardır:
 
 1. İndirmek ve kopyalamak için aşağıdaki jar dosyalarının en son sürümleri *... \Sisense\DataConnectors\jdbcdrivers\adx* 
 
-    * 1.1.jar etkinleştirme
+    * 1\.1.jar etkinleştirme
     * adal4j 1.6.0.jar
     * Commons codec 1.10.jar
     * Commons collections4 4.1.jar

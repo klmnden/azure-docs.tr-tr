@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399589"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack sanal makinelerini Azure'a çoğaltma
@@ -46,7 +46,7 @@ Adımları ile tam olarak azure'a ve gerektiğinde bir tam yük devretme çalı�
 **Konum** | **Bileşen** |**Ayrıntılar**
 --- | --- | ---
 **Yapılandırma sunucusu** | Tek bir Azure Stack VM üzerinde çalışır. | Her abonelikte bir VM yapılandırma sunucusunu ayarlayın. Bu VM, aşağıdaki Site Recovery bileşenlerini çalıştıran:<br/><br/> -Yapılandırma sunucusu: Şirket içi ile Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir. -İşlem sunucusu: Çoğaltma ağ geçidi olarak davranır. Bu çoğaltma verilerini alıp, önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir. ve Azure depolamaya gönderir.<br/><br/> Çoğaltmak istediğiniz Vm'leri aşağıda belirtilen sınırları aşarsanız, ayrı bir tek başına bir işlem sunucusu ayarlamadıysanız ayarlayabilirsiniz. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
-**Mobility hizmeti** | Çoğaltmak istediğiniz her sanal makinede yüklü. | Bu makaledeki adımlarda, çoğaltma etkinleştirildiğinde Mobility hizmeti VM üzerinde otomatik olarak yüklenir, böylece biz bir hesap hazırlama. Hizmetini otomatik olarak yüklemek istemiyorsanız, bir dizi kullanabileceğiniz diğer yöntemler vardır. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
+**Ulaşım hizmeti** | Çoğaltmak istediğiniz her sanal makinede yüklü. | Bu makaledeki adımlarda, çoğaltma etkinleştirildiğinde Mobility hizmeti VM üzerinde otomatik olarak yüklenir, böylece biz bir hesap hazırlama. Hizmetini otomatik olarak yüklemek istemiyorsanız, bir dizi kullanabileceğiniz diğer yöntemler vardır. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
 **Azure** | Azure'da bir kurtarma Hizmetleri kasası, bir depolama hesabı ve bir sanal ağa ihtiyacınız vardır. |  Çoğaltılan veriler depolama hesabında depolanır. Azure sanal makineler, yük devretme gerçekleştiğinde Azure ağına eklenir. 
 
 
@@ -78,7 +78,7 @@ Bu senaryoyu ayarlamak için ihtiyacınız olanlar aşağıda verilmiştir.
 
 
  
-## <a name="step-1-prepare-azure-stack-vms"></a>1. adım: Azure Stack Vm'leri hazırlama
+## <a name="step-1-prepare-azure-stack-vms"></a>1\. adım: Azure Stack Vm'leri hazırlama
 
 ### <a name="verify-the-operating-system"></a>İşletim sistemini doğrulayın
 
@@ -140,7 +140,7 @@ VM'ler tabloda özetlenen işletim sistemlerinden birini çalıştırdığından
     ![Özel IP adresi](./media/azure-stack-site-recovery/private-ip.png)
 
 
-## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>2. adım: Kasa oluşturma ve çoğaltma hedefi seçme
+## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>2\. adım: Kasa oluşturma ve çoğaltma hedefi seçme
 
 1. Azure portalında **kaynak Oluştur** > **Yönetim Araçları** > **Backup ve Site Recovery**.
 2. **Ad** alanına kasayı tanımlamak için kolay bir ad girin. 
@@ -162,7 +162,7 @@ VM'ler tabloda özetlenen işletim sistemlerinden birini çalıştırdığından
 
     ![Koruma hedefi](./media/azure-stack-site-recovery/protection-goal.png)
 
-## <a name="step-3-set-up-the-source-environment"></a>3. adım: Kaynak ortamı ayarlama
+## <a name="step-3-set-up-the-source-environment"></a>3\. adım: Kaynak ortamı ayarlama
 
 Yapılandırma sunucusu makinesini ayarlama, kasaya kaydedin ve çoğaltmak istediğiniz makineleri bulma.
 
@@ -193,7 +193,7 @@ Artık yapılandırma sunucusunu yükleyin:
 > 
 > Hesap adının portalda görünmesi 15 dakika veya daha fazla sürebilir. Hemen güncelleştirme yapmak için **Yapılandırma Sunucuları** > ***sunucu adı*** > **Sunucuyu Yenile** seçeneğini belirleyin.
 
-## <a name="step-4-set-up-the-target-environment"></a>4. Adım: Hedef ortamı ayarlama
+## <a name="step-4-set-up-the-target-environment"></a>4\. Adım: Hedef ortamı ayarlama
 
 Hedef kaynaklarını seçin ve doğrulayın.
 
@@ -202,7 +202,7 @@ Hedef kaynaklarını seçin ve doğrulayın.
 3. Site Recovery, bir veya birden çok uyumlu Azure depolama hesabınızın ve ağınızın olup olmadığını denetler. Bunları bulmuyorsa, Sihirbazı tamamlamak için en az bir depolama hesabı ve sanal ağ oluşturmak gerekir.
 
 
-## <a name="step-5-enable-replication"></a>5. Adım: Çoğaltmayı etkinleştirme
+## <a name="step-5-enable-replication"></a>5\. Adım: Çoğaltmayı etkinleştirme
 
 ### <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
 
@@ -255,7 +255,7 @@ Tüm görevleri tamamladığınızdan emin olun [1. adım: Makinesini hazırlama
 > Eklediğiniz VM’leri izlemek için **Configuration Servers** > **Last Contact At** bölümünde VM’lerin son bulunma zamanını kontrol edin. Zamanlanan bulma işlemini beklemeden VM’leri eklemek için yapılandırma sunucusunu vurgulayın (seçmeyin) ve **Yenile**’yi seçin.
 
 
-## <a name="step-6-run-a-disaster-recovery-drill"></a>6. Adım: Olağanüstü durum kurtarma tatbikatı çalıştırma
+## <a name="step-6-run-a-disaster-recovery-drill"></a>6\. Adım: Olağanüstü durum kurtarma tatbikatı çalıştırma
 
 Her şeyin beklendiği gibi çalıştığından emin olmak için Azure'a yük devretme testi çalıştırın. Bu yük devretme üretim ortamınızı etkilemez.
 

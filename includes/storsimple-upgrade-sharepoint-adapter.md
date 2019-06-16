@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155826"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>SharePoint 2010, SharePoint 2013'e yükseltin ve ardından StorSomple bağdaştırıcısı SharePoint için yükleyin
@@ -22,7 +22,7 @@ ms.locfileid: "66155826"
 2. Yükleyin ve yeni SharePoint 2013 grubuna yapılandırın. 
 3. Veritabanları, uygulamalar ve site koleksiyonları, SharePoint 2010 gruptan yeni SharePoint 2013 grubuna taşıyın. Yönergeler için Git [SharePoint 2013'e yükseltme işlemine genel bakış](https://technet.microsoft.com/library/cc262483.aspx).
 4. Yeni gruptaki SharePoint için StorSimple bağdaştırıcısını yükleyin. Git [SharePoint için StorSimple bağdaştırıcısı](#install-the-storsimple-adapter-for-sharepoint) yordamlar.
-5. 1. adımda not ettiğiniz bilgileri kullanarak, içerik veritabanları için aynı kümesi KKY etkinleştirmek ve SharePoint 2010 yüklemesinde kullanılan BLOB deposu yolu sağlayın. Git [yapılandırma KKY](#configure-rbs) yordamlar. Bu adımı tamamladıktan sonra daha önce te dış dosyaları yeni grubundan erişilebilir olması gerekir. 
+5. 1\. adımda not ettiğiniz bilgileri kullanarak, içerik veritabanları için aynı kümesi KKY etkinleştirmek ve SharePoint 2010 yüklemesinde kullanılan BLOB deposu yolu sağlayın. Git [yapılandırma KKY](#configure-rbs) yordamlar. Bu adımı tamamladıktan sonra daha önce te dış dosyaları yeni grubundan erişilebilir olması gerekir. 
 
 ### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>SharePoint için StorSimple bağdaştırıcısını yükseltme
 > [!IMPORTANT]

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
 ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65237815"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Bir SAP HANA veritabanını yedekleme
@@ -27,7 +27,7 @@ ms.locfileid: "65237815"
 
 **Destek** | **Ayrıntılar**
 --- | ---
-**Desteklenen coğrafi bölgeler** | Avustralya Güneydoğu, Doğu Avustralya <br> Brezilya Güney <br> Kanada Orta, Kanada Doğu <br> Güney Doğu Asya, Doğu Asya <br> Doğu ABD, Doğu ABD 2, Batı Orta ABD, Batı ABD, Batı ABD 2, Kuzey Orta ABD, Orta ABD, Güney Orta ABD<br> Hindistan Orta Hindistan, Güney Hindistan <br> Doğu Japonya, Batı Japonya<br> Kore Orta, Kore Güney <br> Kuzey Avrupa, Batı Avrupa <br> UK Güney, UK Batı
+**Desteklenen coğrafi bölgeler** | Avustralya Güneydoğu, Doğu Avustralya <br> Güney Brezilya <br> Kanada Orta, Kanada Doğu <br> Güney Doğu Asya, Doğu Asya <br> Doğu ABD, Doğu ABD 2, Batı Orta ABD, Batı ABD, Batı ABD 2, Kuzey Orta ABD, Orta ABD, Güney Orta ABD<br> Hindistan Orta Hindistan, Güney Hindistan <br> Doğu Japonya, Batı Japonya<br> Kore Orta, Kore Güney <br> Kuzey Avrupa, Batı Avrupa <br> UK Güney, UK Batı
 **Desteklenen VM işletim sistemleri** | SLES 12 SP2 veya SP3.
 **Desteklenen HANA sürümleri** | SSDC on HANA 1.x, MDC on HANA 2.x <= SPS03
 
@@ -40,7 +40,7 @@ ms.locfileid: "65237815"
 - 15 dakikada bir veritabanı günlüklerini yedekleyebilirsiniz. Günlük yedeklerinin, yalnızca veritabanı için başarılı bir tam yedekleme tamamlandıktan sonra akışı başlar.
 - Tam ve farklı yedeklemelerini alabilir. Artımlı yedekleme şu anda desteklenmemektedir.
 - SAP HANA yedeklemeler için uygulandıktan sonra yedekleme ilkesini değiştiremezsiniz. Farklı ayarlarla yedeklemek istiyorsanız, yeni bir ilke oluşturun veya farklı bir ilke atayabilirsiniz. 
-    - Yeni bir ilke oluşturmak için kasaya tıklayın **ilkeleri** > **yedekleme ilkeleri** > **+ Ekle** > **SAP HANA'da Azure VM**, ilke ayarlarını belirtin.
+    - Yeni bir ilke oluşturmak için kasaya tıklayın **ilkeleri** > **yedekleme ilkeleri** >  **+ Ekle** > **SAP HANA'da Azure VM**, ilke ayarlarını belirtin.
     - Veritabanı çalıştıran sanal Makinenin özelliklerinde farklı bir ilke atamak için geçerli ilke adına tıklayın. Ardından **yedekleme İlkesi** sayfa yedekleme için kullanılacak farklı bir ilke seçin.
 
 

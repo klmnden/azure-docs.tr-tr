@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
 ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60724089"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C ve C++ kullanarak SQL veritabanına bağlanma
@@ -69,7 +69,7 @@ Veritabanı bağlantı dizesini bir parçası olarak veritabanınız için doğr
 
 Derlemek için uygulamayı başlatın. Doğrulama başarılı bir bağlantı aşağıdaki pencere görmeniz gerekir. Hatta gibi bazı temel SQL komutlarını çalıştırabilirsiniz **tablosu oluşturma** , veritabanı bağlantısını doğrulamak için:
 
-![SQL Komutları](./media/sql-database-develop-cplusplus-simple/sqlcommands.png)
+![SQL komutları](./media/sql-database-develop-cplusplus-simple/sqlcommands.png)
 
 Alternatif olarak, komut satırı bağımsız değişkenlerini sağlandığında, başlatılan Sihirbazı'nı kullanarak bir DSN dosyası oluşturabilirsiniz. Bu seçenek de deneyin öneririz. Otomasyon ve kimlik doğrulama ayarlarınızı korumak için bu DSN dosyası kullanabilirsiniz:
 

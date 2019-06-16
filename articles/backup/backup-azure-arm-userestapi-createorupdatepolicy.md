@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648814"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API kullanarak Azure kurtarma Hizmetleri yedekleme ilkeleri oluşturma
@@ -53,7 +53,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 |Ad  |Gerekli  |Tür  |Açıklama  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource özellikleri        |
-|etiketler     |         | Object        |  Kaynak etiketleri       |
+|tags     |         | Object        |  Kaynak etiketleri       |
 
 İstek gövdesi tanımlarında tam listesi için başvurmak [yedekleme İlkesi REST API belge](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 
@@ -152,7 +152,7 @@ Aşağıdaki istek gövdesi, Azure VM yedeklemeleri için yedekleme İlkesi tan�
 > [!IMPORTANT]
 > Zamanlama ve bekletme için saat biçimleri yalnızca DateTime destekler. Saat biçimi tek başına desteklemez.
 
-## <a name="responses"></a>Yanıtlar
+## <a name="responses"></a>Responses
 
 Yedekleme ilkesi oluşturma/güncelleştirme bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 
@@ -161,7 +161,7 @@ Yedekleme ilkesi oluşturma/güncelleştirme bir [zaman uyumsuz işlem](https://
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
 |200 TAMAM     |    [Koruma PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  Tamam       |
-|202 kabul edildi     |         |     Kabul Edildi    |
+|202 kabul edildi     |         |     Kabul edildi    |
 
 ### <a name="example-responses"></a>Örnek yanıt
 

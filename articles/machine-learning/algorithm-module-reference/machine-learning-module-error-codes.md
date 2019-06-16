@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029768"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Özel durumlar ve algoritma ve modül başvurusu için hata kodları
@@ -1192,7 +1192,7 @@ Hive sorguları için machine learning ile ilgili Yardım için aşağıdaki mak
   
  Bildirilen özel durum modülü tarafından oluşturulan SQL ileti varsa, bildirilen hataya göre eylemde. Örneğin, hata iletileri, büyük olasılıkla hata ilişkin yönergeler şunlardır:
 + *Böyle bir sütun veya eksik veritabanı*, gösteren bir sütun adı yanlış yazmış olabilirsiniz. Sütun adının doğru olduğundan emin olup, köşeli ayraç veya tırnak işaretleri içine sütun kimliği kullanmayı deneyin.
-+ *SQL mantık hatası yakın \<SQL anahtar sözcüğü\>*, belirtilen anahtar sözcüğü önce bir sözdizimi hatası olabilir belirten
++ *SQL mantık hatası yakın \<SQL anahtar sözcüğü\>* , belirtilen anahtar sözcüğü önce bir sözdizimi hatası olabilir belirten
 
   
 |Özel durum iletileri|  

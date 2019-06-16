@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372031"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için ek bir Azure aboneliği oluşturun
@@ -59,7 +59,7 @@ Kullanıcıları, bunları Azure abonelikleri oluşturabilmesi için izin vermek
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. **Maliyet Yönetimi + Faturalama** araması yapın.
+2. Arama **maliyet Yönetimi + faturalandırma**.
 
    ![Abonelik Portalı'nda arama gösteren ekran görüntüsü](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
@@ -80,7 +80,7 @@ Kullanıcıları, bunları Azure abonelikleri oluşturabilmesi için izin vermek
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

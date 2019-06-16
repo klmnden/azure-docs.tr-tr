@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: c31fc43729bcb58c755959db0c8bc5185b8197f4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66471403"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Windows Azure Service Fabric küme düğümleri için disk şifrelemeyi etkinleştirme 
@@ -61,7 +61,7 @@ Sanal makine ölçek kümesi için disk şifreleme Önizleme kendi kendine kayı
 2. En son sürümünü yükleyin [Azure CLI](/cli/azure/install-azure-cli), yeni şifreleme komutlar vardır.
 3. En son sürümünü yükleyin [Azure SDK'sı Azure powershell'den](https://github.com/Azure/azure-powershell/releases) bırakın. Aşağıda sanal makine ölçek kümesi etkinleştirmek için Azure Disk şifrelemesi cmdlet'leri ([ayarlayın](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) şifreleme, almak ([alma](/powershell/module/az.compute/get-azvmssvmdiskencryption)) şifreleme durum ve remove ([devre dışı](/powershell/module/az.compute/disable-azvmssdiskencryption)) Şifreleme ölçek kümesi örneği.
 
-| Komut | Version |  Kaynak  |
+| Komut | Version |  source  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 veya sonraki bir sürümü | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 veya sonraki bir sürümü | Az.Compute |

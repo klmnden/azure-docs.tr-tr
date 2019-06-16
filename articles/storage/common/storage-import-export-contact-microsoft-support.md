@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
 ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604232"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>İçeri/dışarı aktarma işi için bir destek bileti açın
@@ -22,13 +22,13 @@ ms.locfileid: "65604232"
 * Bir destek isteği oluşturma
 * Nasıl bir destek isteği döngüsü portalında yönetilir.
 
-## <a name="create-a-support-request"></a>Destek isteği oluşturun
+## <a name="create-a-support-request"></a>Destek isteği oluşturma
 
 Bir destek isteği oluşturmak için aşağıdaki adımları gerçekleştirin:
 
 1. İçeri/dışarı aktarma işinize gidin. Gidin **destek + sorun giderme** bölümüne ve ardından **yeni destek isteği**.
      
-    ![Temel](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Temel Bilgiler](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. İçinde **yeni destek isteği**seçin **Temelleri**. İçinde **Temelleri**, aşağıdaki adımları uygulayın:
     
@@ -74,15 +74,15 @@ Bir destek bileti oluşturduktan sonra portal üzerinden bu biletin yaşam döng
 
 1. Yardım ve Destek sayfasına ulaşmak için gidin **Gözat > Yardım + Destek**.
 
-    ![Destek isteklerini yönet](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![Destek isteklerini yönetin](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
 2. Bir tablosal **son destek istekleri** görüntülenen **Yardım + Destek**.
 
-    ![Destek isteklerini yönet](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![Destek isteklerini yönetin](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
 3. Seçin ve bir destek isteği tıklayın. Durum ve bu istek için ayrıntılarını görüntüleyebilirsiniz. Tıklayın **+ yeni ileti** bu istekte izlemek istiyorsanız.
 
-    ![Destek isteklerini yönet](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![Destek isteklerini yönetin](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

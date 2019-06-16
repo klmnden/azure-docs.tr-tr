@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772424"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure ExpressRoute, Azure Vm'leri için olağanüstü durum kurtarma ile tümleştirin
@@ -107,7 +107,7 @@ Kuruluş dağıtımları genellikle iş yükleri merkezi bağlantı hub için İ
 **Yön** | **Ayar** | **State**
 --- | --- | ---
 Uçtan merkeze | Sanal ağ adresi izin ver | Enabled
-Uçtan merkeze | Yönlendirilen trafiğe izin ver | Enabled
+Uçtan merkeze | İletilen trafiğe izin ver | Enabled
 Uçtan merkeze | Ağ geçidi aktarımına izin ver | Devre dışı
 Uçtan merkeze | Remove-ağ geçitlerini kullan | Enabled
 
@@ -118,7 +118,7 @@ Uçtan merkeze | Remove-ağ geçitlerini kullan | Enabled
 **Yön** | **Ayar** | **State**
 --- | --- | ---
 Merkezden uca | Sanal ağ adresi izin ver | Enabled
-Merkezden uca | Yönlendirilen trafiğe izin ver | Enabled
+Merkezden uca | İletilen trafiğe izin ver | Enabled
 Merkezden uca | Ağ geçidi aktarımına izin ver | Enabled
 Merkezden uca | Remove-ağ geçitlerini kullan | Devre dışı
 
@@ -164,11 +164,11 @@ Bu yapılandırma birincil ise ExpressRoute bağlantı hattının hatasına kar�
 
 ### <a name="access-with-a-single-circuit"></a>Tek bir bağlantı hattı ile erişim
 
-Bu yapılandırmada yalnızca bir Expressroute bağlantı hattı yoktur. Bir arıza durumunda devre yedekli bağlantı sahip olsa da, bir tek route bağlantı hattı eşleme bölgenizi kalırsa dayanıklılık sağlamaz. Şunlara dikkat edin:
+Bu yapılandırmada yalnızca bir Expressroute bağlantı hattı yoktur. Bir arıza durumunda devre yedekli bağlantı sahip olsa da, bir tek route bağlantı hattı eşleme bölgenizi kalırsa dayanıklılık sağlamaz. Aşağıdakilere dikkat edin:
 
 - Azure Vm'leri, herhangi bir Azure bölgesine çoğaltabilirsiniz [aynı coğrafi konumda](azure-to-azure-support-matrix.md#region-support). ' % S'hedef Azure bölgeniz kaynak ile aynı konumda değilse, tek bir ExpressRoute bağlantı hattı kullanıyorsanız, ExpressRoute Premium etkinleştirmeniz gerekir. Hakkında bilgi edinin [ExpressRoute konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırması](https://azure.microsoft.com/pricing/details/expressroute/).
 - Hedef bölge üzerinde aynı IP adresi alanını kullanılıyorsa, kaynak ve hedef sanal ağlar bağlantı hattına aynı anda bağlanamıyor. Bu senaryoda:    
-    -  Kaynak tarafı bağlantısını kesmek ve ardından hedef tarafı bağlantısı oluşturmalıdır. Site Recovery kurtarma planının bir parçası Bu bağlantı değişiklik yazılabilir. Şunlara dikkat edin:
+    -  Kaynak tarafı bağlantısını kesmek ve ardından hedef tarafı bağlantısı oluşturmalıdır. Site Recovery kurtarma planının bir parçası Bu bağlantı değişiklik yazılabilir. Aşağıdakilere dikkat edin:
         - Birincil bölge erişilemiyorsa, bölgesel bir hata, bağlantıyı kesme işlemi başarısız olabilir. Bu bağlantı oluşturma için hedef bölgede etkileyebilir.
         - İki eşzamanlı bağlantı aynı adres alanına bağlanmaya çalışırsanız bağlantı hedef bölgede oluşturulur ve birincil bölgenin daha sonra kurtarır, paket düşme karşılaşabilirsiniz.
         - Bunu önlemek için birincil bağlantı hemen sonlandırır.

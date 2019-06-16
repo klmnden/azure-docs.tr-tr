@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
 ms.openlocfilehash: ec43b79109181457f8ef8e214e296969db5dcb26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122375"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Bir iç load balancer için yüksek kullanılabilirliğe sahip bağlantı noktalarını yapılandırma
@@ -95,7 +95,7 @@ lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfigurati
 
 ### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Azure CLI ile yüksek kullanılabilirliğe sahip bağlantı noktalarını yük dengeleyici kuralı yapılandırma
 
-4. adımda [iç yük dengeleyici kümesi oluşturma](load-balancer-get-started-ilb-arm-cli.md), yüksek kullanılabilirlik bağlantı noktaları yük dengeleyici kuralı oluşturmak için aşağıdaki komutu kullanın:
+4\. adımda [iç yük dengeleyici kümesi oluşturma](load-balancer-get-started-ilb-arm-cli.md), yüksek kullanılabilirlik bağlantı noktaları yük dengeleyici kuralı oluşturmak için aşağıdaki komutu kullanın:
 
 ```azurecli
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb

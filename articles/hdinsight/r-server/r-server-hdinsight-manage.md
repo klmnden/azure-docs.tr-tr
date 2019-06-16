@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 607f85c10183366e88d597d84090f49fc30aff48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687976"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight kümesinde ML Hizmetleri yönetme
@@ -49,11 +49,11 @@ Kümenin kenar düğümünde RStudio çalıştığı için burada birkaç adım 
 2. Kenar düğümüne daha fazla Linux kullanıcısı ekleme
 3. RStudio Topluluk sürümünü oluşturulan kullanıcıyla kullanma
 
-### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>1. Adım: Kenar düğümde oturum açmak için oluşturulan SSH kullanıcısını kullanma
+### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>1\. adım: Kenar düğümde oturum açmak için oluşturulan SSH kullanıcısını kullanma
 
 Konumundaki yönergeleri [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md) kenar düğümüne erişin. HDInsight kümesinde ML Hizmetleri için uç düğüm adresi olan `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
-### <a name="step-2-add-more-linux-users-in-edge-node"></a>2. Adım: Kenar düğümüne daha fazla Linux kullanıcısı ekleme
+### <a name="step-2-add-more-linux-users-in-edge-node"></a>2\. adım: Kenar düğümüne daha fazla Linux kullanıcısı ekleme
 
 Kenar düğümüne bir kullanıcı eklemek için şu komutları çalıştırın:
 
@@ -69,7 +69,7 @@ Aşağıdaki ekran görüntüsünde çıktıları gösterir.
 
 İstendiğinde "geçerli Kerberos parolası:", tuşuna basarak **Enter** atlayın. `useradd` komutundaki `-m` seçeneği, sistemin RStudio Topluluk sürümü için gerekli olan kullanıcı ana klasörünü oluşturacağını belirtir.
 
-### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>3. Adım: RStudio Topluluk sürümünü oluşturulan kullanıcıyla kullanma
+### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>3\. adım: RStudio Topluluk sürümünü oluşturulan kullanıcıyla kullanma
 
 RStudio gelen erişim https://CLUSTERNAME.azurehdinsight.net/rstudio/. Kümeyi oluşturduktan sonra ilk kez oturum açmayı oluşturduğunuz SSH kullanıcısı kimlik bilgilerini tarafından izlenen Küme Yöneticisi kimlik bilgilerini girin. Yalnızca bu ilk oturum açma bilgilerinizi değilse, oluşturduğunuz SSH kullanıcısının kimlik bilgilerini girin.
 

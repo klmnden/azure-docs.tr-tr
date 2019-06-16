@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
 ms.openlocfilehash: b2ae24c0449b009db6fcecdd8a1366ea5154629a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257812"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight, Apache Spark kümeleri Jupyter not defteri için çekirdekler 
@@ -72,7 +72,7 @@ HDInsight Spark kümeleri Jupyter not defteri ile yeni çekirdekler kullanmanın
    | Magic | Örnek | Açıklama |
    | --- | --- | --- |
    | Yardım |`%%help` |Örnek ve açıklaması ile kullanılabilir tüm işlevlerini bir tablo oluşturur |
-   | Bilgileri |`%%info` |Çıkışlar oturum bilgilerini geçerli Livy uç noktası |
+   | info |`%%info` |Çıkışlar oturum bilgilerini geçerli Livy uç noktası |
    | Yapılandırma |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Oturum oluşturmak için parametreler yapılandırır. Force bayrağını (-f) bir oturum zaten, oturum bırakılan ve yeniden sağlayan oluşturulduysa zorunludur. Bakmak [Livy'nın POST /sessions istek gövdesi](https://github.com/cloudera/livy#request-body) için geçerli parametrelerin bir listesi. Parametreler, içinde bir JSON dizesi geçirilmelidir ve sonraki satırda Sihirli sonra örnek sütununda gösterildiği gibi olması gerekir. |
    | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Bir Hive sorgusu sqlContext karşı yürütür. Varsa `-o` parametresi geçirilir, sorgu sonucu kalıcı hale getirilir %% yerel Python bağlamı olarak bir [Pandas](https://pandas.pydata.org/) veri çerçevesi. |
    | Yerel |`%%local`<br>`a=1` |Sonraki satırların tüm kodu yerel olarak yürütülür. Kod bile kullandığınız çekirdek bağımsız olarak geçerli Python2 kodu olmalıdır. Bu nedenle, seçtiyseniz, **PySpark3** veya **Spark** kullanırsanız, Not defterini oluşturulurken çekirdekler `%%local` Sihirli bir hücre, söz konusu hücrenin yalnızca geçerli Python2 kodunuz olmalıdır. |
