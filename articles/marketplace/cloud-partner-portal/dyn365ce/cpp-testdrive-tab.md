@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 5bb5f39ef5f5bce09a8639ba9eedc6d042e60c1d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942393"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Dynamics 365 müşteri katılımı uygulama Test Sürüşü sekmesi
@@ -54,7 +54,7 @@ Alanları aşağıdaki amaçlara sahip olduğu.  Gerekli alanlar yıldız (*) in
 
 |      Alan                    |    Açıklama                  |
 |    ---------                  |  ---------------                |
-| Test Sürüşü türü\*            | Seçin **Microsoft barındırılan (Dynamics 365 müşteri katılımı için)**.  |
+| Test Sürüşü türü\*            | Seçin **Microsoft barındırılan (Dynamics 365 müşteri katılımı için)** .  |
 | Maksimum eşzamanlı Test Sürüşleri\*    | Herhangi bir anda zaman etkin bir Test Sürüşü eş zamanlı örnekleri sayısı. Test Sürüşü kullanıcılar için kullanılabilir olan en az bu kadar çok Dynamics lisans olduğundan emin olmak ihtiyacınız olacak şekilde, Test Sürüşü etkin olduğu sürece her kullanıcı bir Dynamics lisansı kullanacaktır. Önerilen değeri 3-5.  |
 | Test sürücü süresi (saat)\*   | En fazla saat sayısı kullanıcının Test Sürüşü örneği için etkin olacaktır. Bu süre aşılırsa sonra örnek kiracınızdan sağlaması. Uygulamanızı karmaşıklığına bağlı olarak 2-24 saat değerini önerilir. Çalışma zamanı dışında ve yeniden değerlendirmek istediğiniz başka bir Test Sürüşü kullanıcı her zaman talep edebilir.  |
 | Örnek URL'si\*                  | Test Sürüşü başlangıçta gideceği URL'yi. Uygulamanızın vardır, Dynamics 365 örneğinizin URL'si genellikle budur ve örnek veriler üzerinde yüklü.  |
@@ -62,7 +62,7 @@ Alanları aşağıdaki amaçlara sahip olduğu.  Gerekli alanlar yıldız (*) in
 | Azure AD uygulama kimliği\*               | Azure AD uygulamanızın GUID  |
 | Azure AD uygulama anahtarı\*              | Örneğin, Azure AD uygulamanızın gizli anahtarı: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` |
 | Azure AD Kiracı adı\*          | Dynamics 365 örneğinizin Azure Kiracı adı. Örneğin < kiracıadı. > onmicrosoft.com, biçimi kullanın: `testdrive.onmicrosoft.com`  |
-| Örnek Web API URL'si\*          | Dynamics 365 Örneğiniz için Web API URL'si. Bu değer, Microsoft Dynamics 365 örneğine günlüğe kaydetme ve giderek alabilirsiniz **ayarları** > **özelleştirme** > **Geliştirici Kaynakları** > **örnek Web API'si (kopya bu URL'yi)**. Örnek değer: `https://testdrive.crm.dynamics.com/api/data/v9.0`  |
+| Örnek Web API URL'si\*          | Dynamics 365 Örneğiniz için Web API URL'si. Bu değer, Microsoft Dynamics 365 örneğine günlüğe kaydetme ve giderek alabilirsiniz **ayarları** > **özelleştirme** > **Geliştirici Kaynakları** > **örnek Web API'si (kopya bu URL'yi)** . Örnek değer: `https://testdrive.crm.dynamics.com/api/data/v9.0`  |
 | Rol adı\*                     | Test Sürüşünüz oluşturdunuz ve kullanıcılara, örneğin çalıştırdıklarında atanacak özel Dynamics 365 güvenlik rolünün adı `testdriveuser`. |
 |  |  |
 

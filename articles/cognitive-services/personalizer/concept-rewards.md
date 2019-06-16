@@ -1,21 +1,21 @@
 ---
 title: Ödül puan - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Ödül puanı, kullanıcının sonuçlandı ne kadar iyi kişiselleştirme tercih ettiğiniz RewardActionID, gösterir. Ödül puanı değeri gözlemlere kullanıcı davranışına dayalı iş mantığınızı tarafından belirlenir. Personalizer ödül değerlendirerek, makine öğrenimi modelleri eğitir.
+description: Ödül puanı, kullanıcının sonuçlandı ne kadar iyi kişiselleştirme tercih ettiğiniz RewardActionID, gösterir. Ödül puanı değeri gözlemlere kullanıcı davranışına dayalı iş mantığınızı tarafından belirlenir. Kendi makine öğrenimi modellerini ödül değerlendirerek personalizer eğitir.
 services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/13/2019
+ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c64d43301fd173203bd1625b8d37120b71c22805
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244244"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077408"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Kişiselleştirme başarısını ödül puanlar
 
@@ -30,6 +30,18 @@ Kendi makine öğrenimi modellerini ödül değerlendirerek personalizer eğitir
 Ödül kullanıcı davranışı, gün sonra olabilecek oluştuktan sonra gönderilir. Bir olay yok ödül sahip olduğu kabul edildiği veya varsayılan ödül yapılandırılmış kadar Personalizer bekleyeceği en uzun süreyi [ödül bekleme süresi](#reward-wait-time) Azure portalında.
 
 İçinde bir olay için ödül puanı alınan edilmemiş varsa **ödül bekleme süresi**, ardından **varsayılan ödül** uygulanır. Genellikle, **[varsayılan ödül](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** sıfır olarak yapılandırılır.
+
+
+## <a name="behaviors-and-data-to-consider-for-rewards"></a>Davranışları ve ödüller için dikkate alınması gereken veri
+
+Bu sinyalleri ve davranışları ödül score bağlamı için göz önünde bulundurun:
+
+* Öneriler kullanıcı girişini seçenekleri söz konusu olduğunda doğrudan ("X şunu mu demek musunuz?").
+* Oturum uzunluğu.
+* Oturumlar arasındaki süre.
+* Yaklaşım analizi kullanıcının etkileşimler dizesi.
+* Doğrudan sorular ve mini anketler doğruluğu fayda hakkında burada yakmasını kullanıcı için geri bildirim ister.
+* Uyarıları veya gecikmesi uyarılara yanıt olarak verilen yanıt.
 
 ## <a name="composing-reward-scores"></a>Ödül puanları oluşturma
 

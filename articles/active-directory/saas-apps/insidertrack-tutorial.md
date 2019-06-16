@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 876e9f95c5f1cdca3e0b41a16d77aee52fccb837
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 414b2862d91f54ed5df96e4e814c7a634dfc7cbe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60271878"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Öğretici: Azure Active Directory Insider izleme ile tümleştirmesi
 
@@ -53,7 +53,7 @@ Azure AD'de Insider izleme tümleştirmesini yapılandırmak için Insider izlem
 
 **Galeriden Insider izleme eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

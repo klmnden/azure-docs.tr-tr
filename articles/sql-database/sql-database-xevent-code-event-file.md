@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: ce559e50d5a34ebad9113f0e21dcb732adc40dd2
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233772"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL veritabanı'nda genişletilmiş olaylar için olay dosyası hedef kodu
@@ -54,9 +54,9 @@ Bu konuda, bir iki aşamalı bir kod örneği sunar:
   
   * Modüller komutları gibi - sağlayan **yeni AzStorageAccount**.
 
-## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1. Aşama: Azure depolama kapsayıcısı için PowerShell kodu
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1\. Aşama: Azure depolama kapsayıcısı için PowerShell kodu
 
-1. Aşama iki aşamalı kod örneğinin powershell'dir.
+1\. Aşama iki aşamalı kod örneğinin powershell'dir.
 
 Betik, olası bir önceki çalıştırma ve rerunnable sonra temizlemek için komutları ile başlar.
 
@@ -234,7 +234,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 
 PowerShell betiğini sona erdiğinde yazdıran birkaç adlandırılmış değerleri not alın. Bu değerler, Aşama 2 aşağıdaki Transact-SQL komut dosyası içine düzenlemeniz gerekir.
 
-## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>2. Aşama: Azure depolama kapsayıcısı kullanan transact-SQL kodu
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>2\. Aşama: Azure depolama kapsayıcısı kullanan transact-SQL kodu
 
 * Bu kod örneği, 1 aşamasında, bir Azure depolama kapsayıcısı oluşturmak için bir PowerShell Betiği çalıştırdınız.
 * Sonraki aşama 2'de, aşağıdaki Transact-SQL betiğini kapsayıcı kullanmanız gerekir.

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9dd3ff2f24660404a1ab0440668c4d4da1e7319
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451875"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080528"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT çözüm hızlandırıcıları nedir?
 
@@ -42,7 +42,7 @@ Uzaktan izleme panosunu kullanarak bağlı cihazlarınızdan gelen telemetri ver
 
 ### <a name="connected-factory"></a>Bağlı Fabrika
 
-Kullanım [bağlı Fabrika Çözüm Hızlandırıcısı](iot-accelerators-connected-factory-sample-walkthrough.md) endüstriyel varlıklarla telemetri toplamak için bir [OPC birleşik mimarisi](https://opcfoundation.org/about/opc-technologies/opc-ua/) arabirimi ve bunları denetlemek için. Endüstriyel varlıklar arasında bir fabrikanın üretim hattındaki montaj ve test istasyonları olabilir.
+Kullanım [bağlı Fabrika Çözüm Hızlandırıcısı](iot-accelerators-connected-factory-features.md) endüstriyel varlıklarla telemetri toplamak için bir [OPC birleşik mimarisi](https://opcfoundation.org/about/opc-technologies/opc-ua/) arabirimi ve bunları denetlemek için. Endüstriyel varlıklar arasında bir fabrikanın üretim hattındaki montaj ve test istasyonları olabilir.
 
 Bağlı fabrika panonuzu kullanarak endüstriyel cihazlarınızı izleyebilir ve yönetebilirsiniz:
 

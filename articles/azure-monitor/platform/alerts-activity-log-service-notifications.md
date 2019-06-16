@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3157cef6952f01d689d3cb4a30c9d7c843095809
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405689"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071691"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -92,7 +92,7 @@ Bilgi edinmek için nasıl [mevcut sorun yönetim sistemleri için Web kancası 
 
 ## <a name="alert-with-existing-action-group-using-azure-portal"></a>Azure portalını kullanarak var olan eylem grubu ile uyar
 
-1. 1 ile 7, hizmet durumu bildirimi oluşturmak için önceki bölümdeki adımları izleyin. 
+1. 1-6, hizmet durumu bildirimi oluşturmak için önceki bölümdeki adımları izleyin. 
 
 1. Altında **tanımla eylem grubu**, tıklayın **seçme eylemini grubu** düğmesi. Uygun bir eylem grubu seçin.
 

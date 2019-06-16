@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: bc939011f87f03ef1de7e728fc52fc0c9887dd31
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935398"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>İOS için çevrimdışı FairPlay Streaming 
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Media Services, kullanmakta olduğunuz sürümünü seçin:"]
 > * [Sürüm 3](../latest/offline-fairplay-for-ios.md)
 > * [Sürüm 2](media-services-protect-hls-with-offline-fairplay.md)
 
@@ -207,7 +207,7 @@ Aşağıdaki sık sorulan sorular sorun giderme Yardımı sağlarız:
 - **Neden hala oynatmak video yalnızca ses sırasında çevrimdışı modu yalnızca ses ekleyebilirim sonra = false?** İçerik teslim ağı (CDN) önbellek temel tasarım bağlı olarak, içeriği önbelleğe alınabilir. Önbellek temizleme.
 - **İOS 10 yanı sıra iOS 11 FPS Çevrimdışı mod da destekleniyor mu?** Evet. FPS çevrimdışı modu iOS 10 ve 11 iOS için desteklenir.
 - **Belgenin "Çevrimdışı kayıttan yürütme ile FairPlay akış ve HTTP canlı akış" FPS sunucu SDK'ın neden bulamıyorum?** FPS sunucu SDK sürüm 4 itibaren bu belgede "FairPlay akış programlama kılavuzu." birleştirildiği
-- **Ne son parametre FPS çevrimdışı modu aşağıdaki API bekleme?**
+- **Ne son parametre FPS çevrimdışı modu aşağıdaki API bekleme?** 
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     Bu API için belgeler için bkz [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Parametre birimi olarak saati ile çevrimdışı kiralama süresini temsil eder.

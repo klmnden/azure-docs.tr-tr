@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46fa85581829f82da9a137315e1f890aa481408d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ee28d5a9ec3a8df694cd1971be8a73ff8e976cc3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898908"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Öğretici: Etouches ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de etouches tümleştirmesini yapılandırmak için etouches Galeriden 
 
 **Galeriden etouches eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -121,7 +121,7 @@ Azure AD çoklu oturum açma ile etouches yapılandırmak için aşağıdaki ad�
 
     | Ad | Kaynak özniteliği|
     | ------------------- | -------------------- |
-    | E-posta | User.Mail | 
+    | Email | User.Mail | 
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

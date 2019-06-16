@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/18/2019
+ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: fb3c0e46324a22bdd95bf7d93c28e69c195927e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b40f62a90dbe7c822b95476abe6ec25cf3fb21d6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542450"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070025"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure'da Red Hat Enterprise Linux görüntüleri
 Bu makalede Azure Market'te kendi adlandırma ve saklama ilkeleri ile birlikte kullanılabilir Red Hat Enterprise Linux (RHEL) görüntüler.
@@ -63,9 +63,9 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 > Genel olarak, en son belirlemek için sürümleri karşılaştırma, kurallara [CompareTo yöntemi](https://msdn.microsoft.com/library/a5ts8tb6.aspx).
 
 ### <a name="current-naming-convention"></a>Geçerli adlandırma kuralları
-Şu anda yayımlanan RHEL görüntüleri tüm Kullandıkça Öde modeli kullanır ve bağlı [azure'da Red Hat Update Infrastructure'a (RHUI)](https://aka.ms/rhui-update). RHUI bir tasarım sınırlamaları nedeniyle, RHEL 7 ailesi görüntüler için yeni bir adlandırma kuralı tarafından benimsenmiştir. Şu anda ailesi adlandırma değiştirilmediği RHEL 6.
+Şu anda yayımlanan RHEL görüntüleri tüm Kullandıkça Öde modeli kullanır ve bağlı [azure'da Red Hat Update Infrastructure'a (RHUI)](https://aka.ms/rhui-update). RHEL 7 ailesi görüntüler, disk bölümleme şeması için yeni bir adlandırma kuralı tarafından benimsenmiştir (ham LVM) sürümü yerine SKU belirtilir. RHEL görüntüsü sürümü ya da içerecek 7 ham veya 7 LVM. Şu anda ailesi adlandırma değiştirilmediği RHEL 6.
 
-Aslında sınırlamasıdır olduğunda olmayan-Seçici `yum update` karşı bir VM çalıştırma RHUI bağlı RHEL sürüm en son geçerli ailesindeki güncelleştirilir. Daha fazla bilgi için [bu bağlantıyı](https://aka.ms/rhui-update). Sağlanan bir RHEL 7.2 görüntüsü RHEL 7.6 sonra bir güncelleştirme olduğunda bu içinde karışıklığa neden olabilir. Gerekli sürümü açıkça belirterek örneklerde gösterildiği gibi daha eski bir görüntüden sağlayabilirsiniz. Gerekli sürümü yeni bir RHEL 7 görüntüsü sağlanırken belirtilmezse, en son görüntü sağlanır.
+Bu adlandırma SKU'ları görüntüde RHEL 7 2 tür olacaktır: Alt sürüm listesi SKU'ları ve SKU'ları yok. Bir 7 RAW kullanın veya 7 LVM SKU istiyorsanız, RHEL podverze sürümünde dağıtmak istediğinizi belirtebilirsiniz. "Son" sürümünü seçerseniz, olmayacak RHEL küçük en son sürümünü sağlandı.
 
 >[!NOTE]
 > Görüntü SAP kümesi için RHEL, RHEL sürüm sabit kalır. Bu nedenle, kendi adlandırma kuralı belirli bir sürümü SKU'da içerir.
@@ -73,28 +73,65 @@ Aslında sınırlamasıdır olduğunda olmayan-Seçici `yum update` karşı bir 
 >[!NOTE]
 > Görüntü RHEL 6 kümesi taşınmadı yeni adlandırma kuralı için.
 
+## <a name="extended-update-support-eus"></a>Genişletilmiş güncelleştirme desteği (EUS)
+RHEL görüntüleri Nisan 2019 ' kullanılabilir olduğu gibi genişletilmiş güncelleştirme desteği (EUS) depolar için varsayılan olarak eklenir. RHEL EUS hakkında daha fazla ayrıntı kullanılabilir [Red Hats belgeleri](https://access.redhat.com/articles/rhel-eus).
+
+Sanal makinenizin EUS ve EUS destek ömrü son tarihleri hakkında daha fazla ayrıntı için geçiş yapmak yönergeler kullanılabilir [burada](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+
+>[!NOTE]
+> EUS RHEL ek özellikler üzerinde desteklenmiyor. Bu, RHEL ek özellikler kanaldan genellikle kullanılabilir olan bir paket yüklüyorsanız, EUS sırada üzerinde bunu mümkün olmayacağını anlamına gelir. Red Hat ek özellikler ürün yaşam döngüsü ayrıntılı [burada](https://access.redhat.com/support/policy/updates/extras/).
+
+### <a name="for-customers-that-want-to-use-eus-images"></a>EUS görüntüleri kullanmak istediğiniz müşterileri için:
+EUS depolara bağlı görüntüleri kullanmak istediğiniz müşteriler sku'daki RHEL küçük versiyon numarasını içeren RHEL görüntüsü kullanmanız gerekir. Bu görüntüleri bölümlenmiş ham (yani değil LVM).
+
+Örneğin, aşağıdaki 2 RHEL 7.4 sağlanan görüntülerin görebilirsiniz:
+```bash
+RedHat:RHEL:7-RAW:7.4.2018010506
+RedHat:RHEL:7.4:7.4.2019041718
+```
+Bu durumda, `RedHat:RHEL:7.4:7.4.2019041718` EUS depolar için varsayılan olarak eklenir ve `RedHat:RHEL:7-RAW:7.4.2018010506` EUS olmayan depolar için varsayılan olarak eklenir.
+
+### <a name="for-customers-that-dont-want-to-use-eus-images"></a>EUS görüntüleri kullanmak istemiyorsanız müşteriler için:
+Varsayılan olarak EUS için bağlı bir görüntüyü kullanmak istemiyorsanız, küçük versiyon numarasını sku'daki içermeyen bir görüntü kullanarak dağıtın.
+
+#### <a name="rhel-images-with-eus"></a>RHEL görüntüleri EUS ile
+Aşağıdaki tabloda, bir ikincil sürüm sku'daki içeren RHEL görüntüleri için geçerli olur.
+
+>[!NOTE]
+> Makalenin yazıldığı sırada, yalnızca RHEL 7.4 ve sonraki ikincil sürümleri desteği EUS sahip. EUS RHEL için artık desteklenmeyen < 7.3 =.
+
+Alt sürüm |EUS resim örneği              |EUS durumu                                                   |
+:-------------|:------------------------------|:------------------------------------------------------------|
+RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | Görüntüleri Nisan 2019 yayımlanan ve daha sonra varsayılan olarak EUS olacaktır|
+RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | Görüntüleri Haziran 2019 yayımlanan ve daha sonra varsayılan olarak EUS olacaktır |
+RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | Görüntüleri Mayıs 2019 yayımlanan ve daha sonra varsayılan olarak EUS olacaktır  |
+RHEL 8.0      |Yok                            | Hiçbir EUS şu anda sunulmakta olan görüntülerin                 |
+
+
+## <a name="list-of-rhel-images-available"></a>RHEL görüntüleri kullanılabilir
 SKU'ları şu anda genel kullanıma açık aşağıdaki teklifler şunlardır:
 
 Sunduğu| SKU | Bölümleme | Sağlama | Notlar
 :----|:----|:-------------|:-------------|:-----
-RHEL | HAM 7 | HAM | Linux Aracısı | Görüntüleri RHEL 7 ailesi
-| | 7-LVM | LVM | Linux Aracısı | Görüntüleri RHEL 7 ailesi
-| | 7-RAW-CI | HAM CI | Cloud-init | Görüntüleri RHEL 7 ailesi
-| | 6.7 | HAM | Linux Aracısı | RHEL 6.7 görüntüleri, eski adlandırma kuralı
-| | 6.8 | HAM | Linux Aracısı | RHEL 6,8 için yukarıdaki gibi aynı
-| | 6.9 | HAM | Linux Aracısı | RHEL 6.9 için yukarıdaki gibi aynı
-| | 6.10 | HAM | Linux Aracısı | RHEL 6.10 için yukarıdaki gibi aynı
-| | 7.2 | HAM | Linux Aracısı | RHEL 7.2 için yukarıdaki gibi aynı
-| | 7.3 | HAM | Linux Aracısı | RHEL 7.3 için yukarıdaki gibi aynı
-| | 7.4 | HAM | Linux Aracısı | RHEL 7.4 için yukarıdaki gibi aynı
-| | 7.5 | HAM | Linux Aracısı | RHEL 7.5 için yukarıdaki gibi aynı
-RHEL-SAP | 7.4 | LVM | Linux Aracısı | SAP HANA ve iş kolu uygulamaları için RHEL 7.4
-| | 7.5 | LVM | Linux Aracısı | SAP HANA ve iş kolu uygulamaları için RHEL 7.5
-RHEL-SAP-HANA | 6.7 | HAM | Linux Aracısı | SAP HANA için RHEL 6.7
-| | 7.2 | LVM | Linux Aracısı | SAP HANA için RHEL 7.2
-| | 7.3 | LVM | Linux Aracısı | SAP HANA için RHEL 7.3
-RHEL-SAP-APPS | 6.8 | HAM | Linux Aracısı | 6,8 RHEL for SAP Business Applications
-| | 7.3 | LVM | Linux Aracısı | 7.3 RHEL for SAP Business Applications
+RHEL          | HAM 7    | RAW    | Linux Aracısı | RHEL 7 ailesi görüntüler. <br> EUS depolar için varsayılan olarak bağlı değil.
+|             | 7-LVM    | LVM    | Linux Aracısı | RHEL 7 ailesi görüntüler. <br> EUS depolar için varsayılan olarak bağlı değil.
+|             | 7-RAW-CI | HAM CI | Cloud-init  | RHEL 7 ailesi görüntüler. <br> EUS depolar için varsayılan olarak bağlı değil.
+|             | 6.7      | RAW    | Linux Aracısı | RHEL 6.7 görüntüleri, eski adlandırma kuralı
+|             | 6.8      | RAW    | Linux Aracısı | RHEL 6,8 için yukarıdaki gibi aynı
+|             | 6.9      | RAW    | Linux Aracısı | RHEL 6.9 için yukarıdaki gibi aynı
+|             | 6.10     | RAW    | Linux Aracısı | RHEL 6.10 için yukarıdaki gibi aynı
+|             | 7.2      | RAW    | Linux Aracısı | RHEL 7.2 için yukarıdaki gibi aynı
+|             | 7.3      | RAW    | Linux Aracısı | RHEL 7.3 için yukarıdaki gibi aynı
+|             | 7.4      | RAW    | Linux Aracısı | RHEL 7.4 için yukarıdaki gibi aynı. <br> Varsayılan olarak Nisan 2019 tarihinde EUS depolara bağlı
+|             | 7.5      | RAW    | Linux Aracısı | RHEL 7.5 için yukarıdaki gibi aynı. <br> Varsayılan olarak Haziran 2019 tarihinde EUS depolara bağlı
+|             | 7.6      | RAW    | Linux Aracısı | RHEL 7.6 için yukarıdaki gibi aynı. <br> Varsayılan olarak Mayıs 2019 tarihinde EUS depolara bağlı
+RHEL-SAP      | 7.4      | LVM    | Linux Aracısı | SAP HANA ve iş kolu uygulamaları için RHEL 7.4
+|             | 7.5      | LVM    | Linux Aracısı | SAP HANA ve iş kolu uygulamaları için RHEL 7.5
+RHEL-SAP-HANA | 6.7      | RAW    | Linux Aracısı | SAP HANA için RHEL 6.7
+|             | 7.2      | LVM    | Linux Aracısı | SAP HANA için RHEL 7.2
+|             | 7.3      | LVM    | Linux Aracısı | SAP HANA için RHEL 7.3
+RHEL-SAP-APPS | 6.8      | RAW    | Linux Aracısı | 6,8 RHEL for SAP Business Applications
+|             | 7.3      | LVM    | Linux Aracısı | 7\.3 RHEL for SAP Business Applications
 
 ### <a name="old-naming-convention"></a>Eski adlandırma kuralı
 Adlandırma kuralı değişiklik yukarıda açıklanan kadar belirli sürümler görüntüleri RHEL 7 ailesi ve görüntüleri RHEL 6 ailesi içinde SKU'larını kullanılır.

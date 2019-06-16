@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1e014bb14b2b5c1ae924f4371e08aa8bf8698f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056481"
 ---
 # <a name="about-point-to-site-vpn"></a>Noktadan siteye VPN hakkında
 
@@ -22,9 +22,9 @@ Noktadan Siteye (P2S) VPN ağ geçidi bağlantısı, ayrı bir istemci bilgisaya
 
 Noktadan siteye VPN aşağıdaki protokollerden birini kullanarak şunları yapabilirsiniz:
 
-* **OpenVPN® Protokolü**, SSL/TLS tabanlı VPN protokolü. Bir SSL VPN çözümü, güvenlik duvarları, SSL kullanan TCP bağlantı noktası 443 de çoğu güvenlik duvarı açık olduğundan duvarlarından geçebildiği. OpenVPN, Android, iOS bağlanmak için kullanılabilir (sürüm 11.0 ve üstü), Windows, Linux ve Mac cihazları (OSX sürüm 10.13 ve üstü).
+* **OpenVPN® Protokolü**, SSL/TLS tabanlı VPN protokolü. Bir SSL VPN çözümü, güvenlik duvarları, SSL kullanan TCP 443 giden bağlantı noktası, çoğu güvenlik duvarı açık olduğundan duvarlarından geçebildiği. OpenVPN, Android, iOS bağlanmak için kullanılabilir (sürüm 11.0 ve üstü), Windows, Linux ve Mac cihazları (OSX sürüm 10.13 ve üstü).
 
-* Yuva Tünel Protokolü (SSTP), bir özel SSL tabanlı VPN Protokolü güvenliğini sağlayın. Bir SSL VPN çözümü, güvenlik duvarları, SSL kullanan TCP bağlantı noktası 443 de çoğu güvenlik duvarı açık olduğundan duvarlarından geçebildiği. SSTP yalnızca Windows cihazlarda desteklenir. Azure, SSTP (Windows 7 ve üzeri) yüklü Windows'ın tüm sürümlerini destekler.
+* Yuva Tünel Protokolü (SSTP), bir özel SSL tabanlı VPN Protokolü güvenliğini sağlayın. Bir SSL VPN çözümü, güvenlik duvarları, SSL kullanan TCP 443 giden bağlantı noktası, çoğu güvenlik duvarı açık olduğundan duvarlarından geçebildiği. SSTP yalnızca Windows cihazlarda desteklenir. Azure, SSTP (Windows 7 ve üzeri) yüklü Windows'ın tüm sürümlerini destekler.
 
 * IKEv2 VPN, standart tabanlı bir IPsec VPN çözümüdür. IKEv2 VPN, Mac cihazlardan (OSX sürüm 10.11 ve üzeri) bağlantı kurmak için kullanılabilir.
 
@@ -86,6 +86,68 @@ Zip dosyası ayrıca, bu cihazlar için kendi profili oluşturmak için kullanab
 >Temel SKU, IKEv2 veya RADIUS kimlik doğrulamasını desteklemez.
 >
 
+## <a name="IKE/IPsec policies"></a>Hangi IKE/IPSec ilkeleri için P2S VPN ağ geçitlerinde yapılandırılır?
+
+
+**Ikev2**
+
+|**Şifreleme** | **Bütünlüğü** | **PRF** | **DH grubu** |
+|---        | ---           | ---       | ---   |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_24 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_14 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_ECP384 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_ECP256 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_24 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_14 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_ECP384 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_ECP256 |
+|AES256     |   SHA384      | SHA384    | GROUP_24 |
+|AES256     |   SHA384      | SHA384    | GROUP_14 |
+|AES256     |   SHA384      | SHA384    | GROUP_ECP384 |
+|AES256     |   SHA384      | SHA384    | GROUP_ECP256 |
+|AES256     |   SHA256      | SHA256    | GROUP_24 |
+|AES256     |   SHA256      | SHA256    | GROUP_14 |
+|AES256     |   SHA256      | SHA256    | GROUP_ECP384 |
+|AES256     |   SHA256      | SHA256    | GROUP_ECP256 |
+|AES256     |   SHA256      | SHA256    | GROUP_2 |
+
+**IPSec**
+
+|**Şifreleme** | **Bütünlüğü** | **PFS Grubu** |
+|---        | ---           | ---       |
+|GCM_AES256 | GCM_AES256 | GROUP_NONE |
+|GCM_AES256 | GCM_AES256 | GROUP_24 |
+|GCM_AES256 | GCM_AES256 | GROUP_14 |
+|GCM_AES256 | GCM_AES256 | GROUP_ECP384 |
+|GCM_AES256 | GCM_AES256 | GROUP_ECP256 |
+| AES256    | SHA256 | GROUP_NONE |
+| AES256    | SHA256 | GROUP_24 |
+| AES256    | SHA256 | GROUP_14 |
+| AES256    | SHA256 | GROUP_ECP384 |
+| AES256    | SHA256 | GROUP_ECP256 |
+| AES256    | SHA1 | GROUP_NONE |
+
+## <a name="TLS policies"></a>Hangi TLS ilkeleri için P2S VPN ağ geçitlerinde yapılandırılır?
+**TLS**
+
+|**İlkeler** |
+|---| 
+|TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 |
+|TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 |
+|TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 |
+|TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 |
+|TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 |
+|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 |
+|TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 |
+|TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
+|TLS_RSA_WITH_AES_128_GCM_SHA256 |
+|TLS_RSA_WITH_AES_256_GCM_SHA384 |
+|TLS_RSA_WITH_AES_128_CBC_SHA256 |
+|TLS_RSA_WITH_AES_256_CBC_SHA256 |
+
+
+
+
 ## <a name="configure"></a>P2S bağlantısı nasıl yapılandırabilirim?
 
 P2S yapılandırması oldukça birkaç belirli adım gerektirir. Aşağıdaki makaleler, P2S yapılandırması ve VPN istemci cihazları yapılandırmak için bağlantıları yürütmek için adımları içerir:
@@ -96,6 +158,12 @@ P2S yapılandırması oldukça birkaç belirli adım gerektirir. Aşağıdaki ma
 
 * [OpenVPN yapılandırın](vpn-gateway-howto-openvpn.md)
 
+## <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a>P2S bağlantısı yapılandırmasını nasıl kaldırabilirim?
+
+Az CLI ve aşağıdaki komutu kullanarak bir P2S yapılandırması kaldırılabilir: 
+
+`az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"`
+ 
 ## <a name="faqcert"></a>Yerel Azure sertifika doğrulaması hakkında SSS
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]

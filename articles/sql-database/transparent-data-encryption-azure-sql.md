@@ -12,16 +12,16 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: b09182ef06c708e9c606173f02b006e7802f29ed
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7066b600cf50df583fbf8e9e674ef17d77b86183
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477813"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061376"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL veritabanı ve veri ambarı için saydam veri şifrelemesi
 
-Saydam veri şifrelemesi (TDE), Azure SQL veritabanı, Azure SQL yönetilen örneği ve Azure veri ambarı, kötü amaçlı etkinlik tehditlerine karşı koruma yardımcı olur. Bu gerçek zamanlı şifreleme ve şifre çözme veritabanını, ilişkili yedeklemeler ve işlem günlük dosyaları bekleme sırasında uygulamada değişiklik gerektirmeden gerçekleştirir. Varsayılan olarak, tüm yeni dağıtılan Azure SQL veritabanları için TDE etkin. TDE, mantıksal şifrelemek için kullanılamaz **ana** SQL veritabanı.  **Ana** veritabanı kullanıcı veritabanlarında TDE işlemlerin gerçekleştirilmesi için gereken nesneleri içerir.
+Saydam veri şifrelemesi (TDE), Azure SQL veritabanı, Azure SQL yönetilen örneği ve Azure veri ambarı çevrimdışı kötü amaçlı etkinlik tehditlerine karşı bekleyen verileri şifreleyerek koruma yardımcı olur. Bu gerçek zamanlı şifreleme ve şifre çözme veritabanını, ilişkili yedeklemeler ve işlem günlük dosyaları bekleme sırasında uygulamada değişiklik gerektirmeden gerçekleştirir. Varsayılan olarak, tüm yeni dağıtılan Azure SQL veritabanları için TDE etkin. TDE, mantıksal şifrelemek için kullanılamaz **ana** SQL veritabanı.  **Ana** veritabanı kullanıcı veritabanlarında TDE işlemlerin gerçekleştirilmesi için gereken nesneleri içerir.
 
 TDE Azure SQL yönetilen örnek için Azure SQL veritabanı veya Azure SQL veri ambarı eski veritabanlarını el ile etkinleştirilmesi gerekir.  
 

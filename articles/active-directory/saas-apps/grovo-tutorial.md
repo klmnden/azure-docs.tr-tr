@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: fc0ef38193bbd6e5044764a26a5793a4d115348d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c97b09690885057370910c0c1ec062d6b3f37363
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277259"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Öğretici: Grovo ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Grovo tümleştirmesini yapılandırmak için Grovo Galeriden yönet
 
 **Galeriden Grovo eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

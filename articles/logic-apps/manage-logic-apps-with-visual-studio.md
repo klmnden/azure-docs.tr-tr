@@ -11,10 +11,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
 ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467415"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio ile mantıksal uygulamaları yönetme
@@ -82,7 +82,7 @@ Visual Studio'da Azure aboneliğinizle ilişkili ve Cloud Explorer'ı kullanarak
 
 <a name="open-designer"></a>
 
-## <a name="open-in-visual-studio"></a>Visual Studio'da aç
+## <a name="open-in-visual-studio"></a>Visual Studio'da Aç
 
 Visual Studio'da mantıksal uygulamalar daha önce oluşturulan ve doğrudan Azure portalından veya Azure Resource Manager projeleri Visual Studio ile olarak dağıtılan açabilirsiniz.
 

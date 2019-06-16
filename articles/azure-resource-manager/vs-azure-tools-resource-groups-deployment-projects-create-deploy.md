@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Azure kaynak grubu projeleri | Microsoft Belgeleri
+title: Visual Studio Azure kaynak grubu projeleri dağıtma & Oluştur
 description: Bir Azure kaynak grubu projesi oluşturma ve kaynakları Azure'a dağıtmak için Visual Studio'yu kullanın.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: ca7cccb1d4f17ff9f80ca006da0ef7ce77109227
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 4b54a1c234eb2211884fede1c059e4c20cda137e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595531"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053284"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio aracılığıyla Azure kaynak grupları oluşturma ve dağıtma
 
@@ -37,7 +37,7 @@ Bu bölümde, bir **Web uygulaması + SQL** şablonu ile Azure Kaynak Grubu proj
     ![Bulut Dağıtım Projesi](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 2. Azure Resource Manager’da dağıtmak istediğiniz şablonu seçin. Dağıtmak istediğiniz proje türüne bağlı olarak çok sayıda farklı seçeneğiniz olduğunu unutmayın. Bu makale için **Web uygulaması + SQL** şablonunu seçin.
    
-    ![Şablon seçin](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
+    ![Şablon seçme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
     Seçtiğiniz şablon sadece başlangıçtır; senaryonuzun gereksinimlerini karşılamak üzere kaynak ekleyebilir ve kaldırabilirsiniz.
    

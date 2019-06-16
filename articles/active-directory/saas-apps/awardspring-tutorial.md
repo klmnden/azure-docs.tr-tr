@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b99c5c68c2dc01537a0c4360286b922130e64bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db00e0b6ea14e956fc75c2c7cff5d018d9c6bb84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60283841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-awardspring"></a>Öğretici: AwardSpring ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de AwardSpring tümleştirmesini yapılandırmak için AwardSpring Gale
 
 **Galeriden AwardSpring eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

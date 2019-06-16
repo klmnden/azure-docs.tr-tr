@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d84a7060fadcb3f3d80b7fbbff9d91f8812388b2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 10ebe796f5aed827a4934a94d568aedbef704503
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920622"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088225"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Öğretici: T & E Express ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de T & E Express tümleştirmesini yapılandırmak için T & E Express 
 
 **T & E Express Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -134,7 +134,7 @@ Azure AD çoklu oturum açma T & E Express ile yapılandırmak için aşağıdak
 
     ![Çoklu oturum açmayı yapılandırın](./media/tyeexpress-tutorial/tye-SAML.png)
 
-1. Seçin **Activar(Activate)** seçeneğini **Hayır** için **SI(Yes)**. İçinde **kimlik sağlayıcısı meta verileri** metin meta veriler, Azure portalından indirdiğiniz XML yapıştırın.
+1. Seçin **Activar(Activate)** seçeneğini **Hayır** için **SI(Yes)** . İçinde **kimlik sağlayıcısı meta verileri** metin meta veriler, Azure portalından indirdiğiniz XML yapıştırın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/tyeexpress-tutorial/tyeAdmin.png)
 

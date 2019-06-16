@@ -2,7 +2,7 @@
 title: Azure Active Directory (Azure AD) koşullu erişim ile güvenilmeyen ağlara erişim için çok faktörlü kimlik doğrulaması (MFA) gerektirme | Microsoft Docs
 description: Azure Active Directory'de (Azure AD) koşullu erişim ilkesi için erişim denemesi için güvenilmeyen ağlardan yapılandırmayı öğrenin.
 services: active-directory
-keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
+keywords: Koşullu erişim uygulamalara, Azure AD koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim ile koşullu erişim
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 12/10/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebf8cb1c3b49975356389c7c9444aff319326f74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: fa9760c44df13c33687c279478935600325dd085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60301133"
+ms.locfileid: "67111873"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Nasıl yapılır: Koşullu erişim ile güvenilmeyen ağlara erişim için MFA gerektirme   
 
@@ -73,11 +73,11 @@ Güvenilir olmayan tüm konumlara nelerdir tanımlamak çalışmak yerine, şunl
 
 - Herhangi bir yere ekleyin 
 
-    ![Koşullu erişim](./media/untrusted-networks/02.png)
+    ![Koşullu Erişim](./media/untrusted-networks/02.png)
 
 - Tüm güvenilen konumları hariç tut 
 
-    ![Koşullu erişim](./media/untrusted-networks/01.png)
+    ![Koşullu Erişim](./media/untrusted-networks/01.png)
 
 
 
