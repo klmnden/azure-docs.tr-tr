@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: lahugh
 ms.openlocfilehash: 0f6db6d9c86e6da047c45ae7b1c43cf5f55c7e2b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922846"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Batch yönetimi çözümleri Active Directory ile kimlik doğrulaması
@@ -57,8 +57,8 @@ Azure portalında aşağıdaki adımları izleyin:
 
 3. Görüntü **ayarları** dikey penceresi. İçinde **API erişimi** bölümünden **gerekli izinler**.
 4. Tıklayın **Ekle** için yeni bir gerekli izni ekleyin. 
-5. 1. adımda girin **Windows Azure Hizmet Yönetimi API'si**, bu API sonuçlar listesinden seçin ve tıklayın **seçin** düğmesi.
-6. 2. adımda yanındaki onay kutusunu işaretleyin **kuruluş kullanıcıları olarak erişim Azure Klasik dağıtım modeli**, tıklatıp **seçin** düğmesi.
+5. 1\. adımda girin **Windows Azure Hizmet Yönetimi API'si**, bu API sonuçlar listesinden seçin ve tıklayın **seçin** düğmesi.
+6. 2\. adımda yanındaki onay kutusunu işaretleyin **kuruluş kullanıcıları olarak erişim Azure Klasik dağıtım modeli**, tıklatıp **seçin** düğmesi.
 7. Tıklayın **Bitti** düğmesi.
 
 **Gerekli izinler** dikey penceresi artık gösterir hem ADAL hem de Resource Manager API'leri için uygulamanıza izin verilir. İlk uygulamanızı Azure AD'ye kaydetme izinleri için ADAL varsayılan olarak verilir.

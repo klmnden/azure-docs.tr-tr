@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61280680"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Azure Site Recovery Aracısı ile ilgili sorunları giderme
@@ -26,14 +26,14 @@ Hata kodu: "151076"
 
  Azure Site Recovery, sanal makinede korumayı etkinleştirme işini bir parçası olarak bir uzantı yükleyin. Aşağıdaki koşullardan herhangi biri işinin başarısız olmasına ve tetiklenmekte karşı koruma engelleyebilir. Aşağıdaki sorun giderme adımlarını tamamlayın ve sonra işlemi yeniden deneyin:
 
-**1. neden: [VM Aracısı yüklendi, ancak (Windows VM'ler için) yanıt vermiyor](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**1. neden: [VM Aracısı yüklendi, ancak (Windows VM'ler için) yanıt vermiyor](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **2. neden: [Sanal Makineye yüklenen Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **3. neden: [Site Recovery uzantısı yükleme veya güncelleştirme başarısız](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 Hata iletisi: "Önceki site recovery uzantısı işlemi beklenenden uzun sürüyor."<br>
 Hata kodu: "150066"<br>
 
-**1. neden: [VM Aracısı yüklendi, ancak (Windows VM'ler için) yanıt vermiyor](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**1. neden: [VM Aracısı yüklendi, ancak (Windows VM'ler için) yanıt vermiyor](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **2. neden: [Sanal Makineye yüklenen Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **3. neden: [Site Recovery uzantı durumu yanlış](#the-site-recovery-extension-fails-to-update-or-load)**  
 
@@ -45,7 +45,7 @@ Hata kodu: "151099"<br>
 Azure Konuk Aracısı sanal makinede hazır durumda değilse, bu hata oluşabilir.
 Azure Konuk aracı durumunu kontrol edebilirsiniz [Azure portalında](https://portal.azure.com/). Koruma ve durum iade aktarmaya çalıştığınız sanal makineye gidin "VM > Ayarlar > Özellikler > aracı durumu". Çoğu zaman aracının durumunu haline hazır sanal makine yeniden başlatıldıktan sonra. Ancak, yeniden başlatma, olası bir seçenek değil veya sorunu hala karşılaştığınız, ardından aşağıdaki sorun giderme adımlarını tamamlayın.
 
-**1. neden: [VM Aracısı yüklendi, ancak (Windows VM'ler için) yanıt vermiyor](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**1. neden: [VM Aracısı yüklendi, ancak (Windows VM'ler için) yanıt vermiyor](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **2. neden: [Sanal Makineye yüklenen Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 

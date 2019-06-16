@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575339"
 ---
 # <a name="glossary"></a>Sözlük
@@ -37,11 +37,11 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="antimeridian"></a> **Antimeridian**: Olarak da bilinen 180<sup>th</sup> Meridyen nerede-180 derece ve boylam 180 derece karşılamak noktasıdır. Dünya üzerindeki asal meridyen ters olduğu.
 
-<a name="application-programming-interface-api"></a> **Uygulama programlama arabiriminin (API)**: Geliştiricilerin uygulamalar oluşturmasına olanak sağlayan belirtim.
+<a name="application-programming-interface-api"></a> **Uygulama programlama arabiriminin (API)** : Geliştiricilerin uygulamalar oluşturmasına olanak sağlayan belirtim.
 
 <a name="api-key"></a> **API anahtarı**: Azure haritalar anahtarını bakın.
 
-<a name="area-of-interest-aoi"></a> **İlgi alanı (AOI)**: Odak alanı eşlemesi veya veritabanı üretim için tanımlamak için kullanılan uzantı.
+<a name="area-of-interest-aoi"></a> **İlgi alanı (AOI)** : Odak alanı eşlemesi veya veritabanı üretim için tanımlamak için kullanılan uzantı.
 
 <a name="asset-tracking"></a> **Varlık İzleme**: Bir kişi, araç veya başka bir nesne gibi bir varlığın konum izleme işlemi.
 
@@ -51,7 +51,7 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="autosuggest"></a> **Otomatik öneri**: Bir özellik, bir uygulamanın hangi kullanıcı yazmak için mantıksal olasılıklar tahmin eder.
 
-<a name="azure-location-based-services-lbs"></a> **Azure konum tabanlı hizmetler (LBS)**: Azure Önizleme aşamasında olduğu zaman haritalar önceki adı.
+<a name="azure-location-based-services-lbs"></a> **Azure konum tabanlı hizmetler (LBS)** : Azure Önizleme aşamasında olduğu zaman haritalar önceki adı.
 
 <a name="azure-maps-key"></a> **Azure haritalar anahtarını**: Bir Azure haritalar anahtarını, bir kullanıcının Azure haritalar uygulaması veya hizmeti istek kimliğini doğrulamak için kullanılan benzersiz bir dizedir. 
 
@@ -117,7 +117,7 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="destination"></a> **Hedef**: Bir uç noktası veya, birisi için seyahatindeki konum.
 
-<a name="digital-elevation-model-dem"></a> **Dijital yükseltme modeli (DEM)**: Değerleri, ortak bir veri kullanarak düzenli aralıklarla bir alanda üzerinden yakalanan bir yüzeyi için ilgili yükseltme bir veri kümesi. DEMs genellikle Arazi Tahliye temsil etmek için kullanılır.
+<a name="digital-elevation-model-dem"></a> **Dijital yükseltme modeli (DEM)** : Değerleri, ortak bir veri kullanarak düzenli aralıklarla bir alanda üzerinden yakalanan bir yüzeyi için ilgili yükseltme bir veri kümesi. DEMs genellikle Arazi Tahliye temsil etmek için kullanılır.
 
 <a name="dijkstra's-algorithm"></a> **Dijkstra'nın algoritması**: İki nokta arasındaki en kısa yolu bulmak için bir ağ bağlantısı inceler bir algoritma.
 
@@ -185,7 +185,7 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="great-circle-distance"></a> **Büyük daire uzaklık**: Kısa uzaklığı kürenin yüzeyinde iki nokta arasındaki.
 
-<a name="greenwich-mean-time-gmt"></a> **Greenwich saati (GMT)**: Greenwich, İngiltere'deki Kraliyet Rasathanesi üzerinden çalışan asal meridyen zamanında.
+<a name="greenwich-mean-time-gmt"></a> **Greenwich saati (GMT)** : Greenwich, İngiltere'deki Kraliyet Rasathanesi üzerinden çalışan asal meridyen zamanında.
 
 <a name="guid"></a> **GUID**: Genel olarak benzersiz bir tanımlayıcı. Bir arabirim, sınıf, tür kitaplığı, bileşen kategorisine veya kaydı benzersiz olarak tanımlamak için kullanılan bir dize.
 
@@ -297,7 +297,7 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="quadtree"></a> **Önce Quadtree**: Her düğümü tam olarak dört alt öğeleri olan bir veri yapısı. Bir kullanıcı bir düzey yakınlaştırır gibi her bir harita kutucuğunu alt dört kutucuğa sonlarını, Azure haritalar içinde kullanılan döşeme sistemi quadtree yapısı kullanır.  Daha fazla bilgi için [yakınlaştırma düzeyleri ve döşeme Kılavuzu](zoom-levels-and-tile-grid.md) daha fazla bilgi için belgelere bakın.
 
-<a name="queries-per-second-qps"></a> **Sorgular / saniye (QPS)**: Sorguları veya bir hizmeti veya platformu için bir saniye içinde yapılan isteklerinin sayısı. 
+<a name="queries-per-second-qps"></a> **Sorgular / saniye (QPS)** : Sorguları veya bir hizmeti veya platformu için bir saniye içinde yapılan isteklerinin sayısı. 
 
 ## <a name="r"></a>R
 
@@ -329,9 +329,9 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="satellite-imagery"></a> **Uydu tanımayı**: Düzlemleri ve düz aşağıyı Uyduları tarafından yakalanan görüntüler.
 
-<a name="software-development-kit-sdk"></a> **Yazılım Geliştirme Seti (SDK)**: Belge, örnek kod ve geliştirici kullanım uygulamalar oluşturmak için bir API yardımcı olmak için örnek uygulamaları koleksiyonu.
+<a name="software-development-kit-sdk"></a> **Yazılım Geliştirme Seti (SDK)** : Belge, örnek kod ve geliştirici kullanım uygulamalar oluşturmak için bir API yardımcı olmak için örnek uygulamaları koleksiyonu.
 
-<a name="shapefile-shp"></a> **Şekil dosyası (SHP)**: Olarak da bilinen bir ESRI şekil dosyasının konumu, Şekil ve coğrafi özelliklerinin öznitelikleri depolamak için bir vektör veri depolama biçimi olur. Bir şekil dosyası ilişkili dosyaları kümesi içinde depolanır.
+<a name="shapefile-shp"></a> **Şekil dosyası (SHP)** : Olarak da bilinen bir ESRI şekil dosyasının konumu, Şekil ve coğrafi özelliklerinin öznitelikleri depolamak için bir vektör veri depolama biçimi olur. Bir şekil dosyası ilişkili dosyaları kümesi içinde depolanır.
 
 <a name="spherical-mercator-projection"></a> **Küresel Mercator izdüşümünü**: Bkz: [Mercator Web](#web-mercator). 
 
@@ -364,7 +364,7 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="transformation"></a> **Dönüştürme**: Farklı coğrafi koordinat sistemi arasında veri dönüştürme işlemidir. Örneğin, Birleşik Krallık'ta yakalanan ve OSGB 1936 coğrafi koordinat sistemini temel alan bazı veriler olabilir. Azure haritalar kullanan [EPSG:3857](https://epsg.io/3857) WGS84 koordinat başvuru sistemi değişken. Bu nedenle doğru verileri görüntülemek için başka bir sistemden dönüştürülmüş koordinatları sahip gerekecektir.
 
-<a name="traveling-salesmen-problem-tsp"></a> **Gezici satıcı sorun (TSP)**:  Bir satış temsilcisi durdurur, bir dizi ziyaret etmek için en verimli şekilde bulmalıdır Hamiltonian devre sorun ardından başlangıç konumu döndürür.  
+<a name="traveling-salesmen-problem-tsp"></a> **Gezici satıcı sorun (TSP)** :  Bir satış temsilcisi durdurur, bir dizi ziyaret etmek için en verimli şekilde bulmalıdır Hamiltonian devre sorun ardından başlangıç konumu döndürür.  
 
 <a name="trilateration"></a> **Trilateration**: Tüm üç nokta arasındaki uzaklıkları ölçerek yeryüzünün diğer iki nokta ile ilgili bir noktasında konumunu belirleme işlemi.
 
@@ -376,7 +376,7 @@ Azure Haritalar ile kullanılan ortak kelimeler listesi verilmiştir.
 
 <a name="vector-tile"></a> **Vektör kutucuk**: Harita denetiminin aynı döşeme sistemini kullanarak Jeo-uzamsal vektör verilerini depolamak için bir açık veri belirtimi. Ayrıca bkz: [döşeme katmanı](#tile-layer).
 
-<a name="vehicle-routing-problem-vrp"></a> **Araç yönlendirme sorununu (VRP)**: Bir sınıf kümesi taşıtlardan filosundan için sıralı rota kısıtlamaları kümesini olarak dikkate alma sırasında hesaplandığı sorunları. Bu kısıtlamalar, teslim zaman pencereleri, birden çok yol kapasiteler gibi şeyler dahil ve seyahat süresi kısıtlamaları.
+<a name="vehicle-routing-problem-vrp"></a> **Araç yönlendirme sorununu (VRP)** : Bir sınıf kümesi taşıtlardan filosundan için sıralı rota kısıtlamaları kümesini olarak dikkate alma sırasında hesaplandığı sorunları. Bu kısıtlamalar, teslim zaman pencereleri, birden çok yol kapasiteler gibi şeyler dahil ve seyahat süresi kısıtlamaları.
 
 <a name="voronoi-diagram"></a> **Voronoi diyagram**: Alanlar veya hücre alanına ilişkin bir bölüm, geometrik bir nesne (genellikle noktası özellikleri) içine alın. Bu hücre veya çokgenler Delaunay üçgenler ölçütleri karşılaması gerekir. Bir alanı içindeki tüm konumları, kümedeki herhangi bir nesneye daha çevreleyen nesnesine yakındır. Voronoi diyagramları, genellikle coğrafi özellikler etrafında etki alanlarını ayırmak için kullanılır. 
 

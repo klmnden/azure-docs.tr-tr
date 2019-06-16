@@ -6,14 +6,13 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-origin.date: 08/06/2018
-ms.date: 04/16/2019
-ms.author: v-junlch
+ms.date: 8/6/2018
+ms.author: victorh
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135206"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Uygulama ağ geçidi sistem durumu izlemeye genel bakış
@@ -57,10 +56,10 @@ Eşleşme ölçütlerini belirtilen sonra bu yapılandırmayı kullanarak araşt
 
 | Araştırma özelliği | Değer | Açıklama |
 | --- | --- | --- |
-| Yoklama URL'si |http://127.0.0.1:\<port\>/ |URL yolu |
+| Araştırma URL'si |http://127.0.0.1:\<port\>/ |URL yolu |
 | Interval |30 |Sonraki durum araştırması önce beklenecek saniye cinsinden süreyi gönderilir.|
 | Zaman aşımı |30 |Süreyi saniye cinsinden, uygulama ağ geçidi araştırma sağlıksız olarak işaretlemek için bir araştırma yanıt bekler. Bir araştırma sağlıklı olarak döndürürse, karşılık gelen arka uç hemen sağlıklı olarak işaretlenir.|
-| İyi durumda olmayan eşik |3 |Kaç yoktur normal durum yoklaması bir arıza durumunda gönderilecek araştırmaları yönetir. Bu ek sistem durumu araştırmaları, sayfayı hızlı bir şekilde arka uç durumunu hızlı bir şekilde belirlemek için gönderilir ve araştırma aralığı için beklemez. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
+| Sağlıksız durum eşiği |3 |Kaç yoktur normal durum yoklaması bir arıza durumunda gönderilecek araştırmaları yönetir. Bu ek sistem durumu araştırmaları, sayfayı hızlı bir şekilde arka uç durumunu hızlı bir şekilde belirlemek için gönderilir ve araştırma aralığı için beklemez. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
 
 > [!NOTE]
 > Bağlantı noktasını arka uç HTTP ayarları olarak aynı bağlantı noktasıdır.
@@ -85,11 +84,11 @@ Aşağıdaki tabloda, bir özel durum araştırması özelliklerini tanımların
 | --- | --- |
 | Ad |Araştırma adı. Bu ad, arka uç HTTP ayarlarında araştırma başvurmak için kullanılır. |
 | Protocol |Araştırma göndermek için kullanılan protokol. Araştırma arka uç HTTP Ayarları'nda tanımlanan protokolünü kullanır. |
-| Konak |Araştırma göndermek için ana bilgisayar adı. Geçerli çok siteli, yalnızca uygulama ağ geçidinde yapılandırılan, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM'nin ana bilgisayar adından farklıdır. |
+| Ana bilgisayar |Araştırma göndermek için ana bilgisayar adı. Geçerli çok siteli, yalnızca uygulama ağ geçidinde yapılandırılan, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM'nin ana bilgisayar adından farklıdır. |
 | `Path` |Araştırma göreli yolu. Geçerli yol başlatılır '/'. |
 | Interval |Aralık saniye cinsinden araştırma. İki ardışık araştırmaları arasındaki zaman aralığını değerdir. |
 | Zaman aşımı |Zaman aşımını saniye cinsinden araştırma. Bu zaman aşımı süresi içinde geçerli bir yanıt alınmazsa, araştırma başarısız olarak işaretlenir.  |
-| İyi durumda olmayan eşik |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
+| Sağlıksız durum eşiği |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
 
 > [!IMPORTANT]
 > Application Gateway için tek bir site yapılandırdıysanız, varsayılan olarak ana bilgisayar adı '127.0.0.1' özel araştırma aksi şekilde yapılandırılmadıkça belirtilmelidir.
@@ -105,5 +104,3 @@ Buna ek olarak, giden Internet bağlantısı engellenemez ve AzureLoadBalancer e
 Uygulama ağ geçidi sistem durumu izleme hakkında daha fazla edindikten sonra yapılandırdığınız bir [özel durum araştırması](application-gateway-create-probe-portal.md) Azure portalında veya [özel durum araştırması](application-gateway-create-probe-ps.md) PowerShell ve Azure Resource Manager kullanarak dağıtım modeli.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
-
-<!-- Update_Description: wording update -->

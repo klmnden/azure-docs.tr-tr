@@ -11,10 +11,10 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 050a0183fd73e64a08550fede440a9bce138a98c
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65850566"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Tasarım Kılavuzu, Azure SQL veri ambarı'nda çoğaltılmış tablolar'ı kullanma
@@ -138,21 +138,21 @@ Veri hemen değiştirildikten sonra yeniden oluşmaz. Bunun yerine, yeniden ilk 
 
 Örneğin, bu yük düzeni dört kaynaktan verileri yükler ve dört yeniden başlatır. 
 
-- 1. kaynaktan yükleyin.
+- 1\. kaynaktan yükleyin.
 - SELECT deyimi Tetikleyicileri 1 yeniden oluşturun.
 - 2 kaynaktan yükleyin.
 - SELECT deyimi Tetikleyicileri 2 yeniden oluşturun.
-- 3. kaynaktan yükleyin.
+- 3\. kaynaktan yükleyin.
 - SELECT deyimi Tetikleyicileri 3 yeniden oluşturun.
-- 4. kaynaktan yükleyin.
+- 4\. kaynaktan yükleyin.
 - SELECT deyimi Tetikleyicileri 4 yeniden oluşturun.
 
 Örneğin, bu yük düzeni, dört kaynaktan verileri yükler, ancak yalnızca bir yeniden başlatır.
 
-- 1. kaynaktan yükleyin.
+- 1\. kaynaktan yükleyin.
 - 2 kaynaktan yükleyin.
-- 3. kaynaktan yükleyin.
-- 4. kaynaktan yükleyin.
+- 3\. kaynaktan yükleyin.
+- 4\. kaynaktan yükleyin.
 - SELECT deyimi Tetikleyicileri yeniden oluşturun.
 
 

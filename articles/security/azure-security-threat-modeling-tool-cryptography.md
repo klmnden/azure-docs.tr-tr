@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 608792d8389a87bad3521d3a48947b20dd036d67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121226"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Güvenlik çerçevesi: Şifreleme | Risk azaltma işlemleri 
@@ -169,7 +169,7 @@ ms.locfileid: "62121226"
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | IoT Cihazı | 
+| **Bileşen**               | IOT cihaz | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Cihaz işletim sistemi - Windows IOT Core, cihaz bağlantısı - Azure IOT cihaz SDK'ları |

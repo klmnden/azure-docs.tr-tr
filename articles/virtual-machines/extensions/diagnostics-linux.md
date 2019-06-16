@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
 ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710401"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Ölçüm ve günlükleri izlemek için Linux tanılama uzantısı kullanma
@@ -21,7 +21,7 @@ ms.locfileid: "64710401"
 Bu belgede, 3.0 ve Linux tanılama uzantısı'nın daha yeni sürümü açıklanmaktadır.
 
 > [!IMPORTANT]
-> 2.3 ve eski sürümü hakkında daha fazla bilgi için bkz: [bu belgeyi](../linux/classic/diagnostic-extension-v2.md).
+> 2\.3 ve eski sürümü hakkında daha fazla bilgi için bkz: [bu belgeyi](../linux/classic/diagnostic-extension-v2.md).
 
 ## <a name="introduction"></a>Giriş
 
@@ -102,7 +102,7 @@ Uzantının en son sürüm **3.0**. **Tüm eski sürümlerini (2.x) kullanım d�
 > [!IMPORTANT]
 > Bu uzantı uzantısı yapılandırmanız için bozucu değişiklikler yapılmıştır. Böyle bir değişiklik, uzantı güvenliğini geliştirmek üzere yapılmıştır; Sonuç olarak, geriye dönük uyumluluk 2.x ile tutulması değil. Ayrıca, bu uzantının uzantı yayımcısı yayımcı 2.x sürümleri için farklıdır.
 >
-> 2.x uzantısı'nın bu yeni sürüme geçirmek için (eski Yayımcı adı altında) eski uzantıyı kaldırın, sonra uzantıyı 3 sürümünü yükleyin.
+> 2\.x uzantısı'nın bu yeni sürüme geçirmek için (eski Yayımcı adı altında) eski uzantıyı kaldırın, sonra uzantıyı 3 sürümünü yükleyin.
 
 Öneriler:
 
@@ -169,8 +169,8 @@ Bu isteğe bağlı bir bölüm, uzantı topladığı bilgileri gönderdiği ek h
 
 Öğe | Değer
 ------- | -----
-ad | Bu havuzu genişletmesinin içindeki başka bir yerde başvurmak için kullanılan bir dize.
-type | Tanımlanan Havuz türü. Diğer değerleri, bu tür durumlarda (varsa) belirler.
+name | Bu havuzu genişletmesinin içindeki başka bir yerde başvurmak için kullanılan bir dize.
+türü | Tanımlanan Havuz türü. Diğer değerleri, bu tür durumlarda (varsa) belirler.
 
 Linux tanılama uzantısının 3.0 sürümü iki havuz türlerini destekler: EventHub ve JsonBlob.
 
@@ -231,7 +231,7 @@ Bu yapı, çeşitli bloklarını uzantısı tarafından toplanan bilgiler denetl
 
 Öğe | Değer
 ------- | -----
-StorageAccount | Veri uzantısı tarafından yazıldığı depolama hesabının adıdır. Belirtilen adın aynısını olmalıdır [korumalı ayarlarından](#protected-settings).
+Depolama hesabı | Veri uzantısı tarafından yazıldığı depolama hesabının adıdır. Belirtilen adın aynısını olmalıdır [korumalı ayarlarından](#protected-settings).
 mdsdHttpProxy | (isteğe bağlı) Olarak aynı [korumalı ayarlarından](#protected-settings). Genel değer özel değere göre geçersiz kılınan ayarlayın. Yerleştirin, parola gibi bir gizli dizi içerdiğini proxy ayarlarını [korumalı ayarlarından](#protected-settings).
 
 Kalan öğeler aşağıdaki bölümlerde ayrıntılı olarak açıklanmıştır.
@@ -312,13 +312,13 @@ Bu isteğe bağlı bir bölüm ölçüm toplanmasını denetler. Ham örnekleri 
 Öğe | Değer
 ------- | -----
 havuzlar | (isteğe bağlı) Havuzlar için hangi LAD gönderdiği toplu ölçüm sonuçları adlarını virgülle ayrılmış listesi. Tüm toplanan ölçümler için listelenen her havuz yayımlanır. Bkz: [sinksConfig](#sinksconfig). Örnek: `"EHsink1, myjsonsink"`.
-type | Ölçüm gerçek sağlayıcısı tanımlar.
+türü | Ölçüm gerçek sağlayıcısı tanımlar.
 sınıf | Sağlayıcının ad alanındaki belirli ölçüm "sayaç" ile birlikte tanımlar.
 counter | "Class" ile birlikte, belirli bir ölçüm sağlayıcının ad alanı içinde tanımlar.
 counterSpecifier | Azure ölçümleri ad alanındaki belirli ölçüm tanımlar.
-koşul | (isteğe bağlı) Belirli bir ölçüm uygular veya toplama söz konusu nesne tüm örneklerinde seçer nesne örneğini seçer. Daha fazla bilgi için `builtin` ölçüm tanımları.
+condition | (isteğe bağlı) Belirli bir ölçüm uygular veya toplama söz konusu nesne tüm örneklerinde seçer nesne örneğini seçer. Daha fazla bilgi için `builtin` ölçüm tanımları.
 sampleRate | Bu ölçüm için ham örnekleri toplanan oranı ayarlayan 8601 ARALIĞIDIR. Ayarlı değil, toplama aralığı değeri olarak ayarlanıp ayarlanmadığını [sampleRateInSeconds](#ladcfg). Kısa desteklenen Örnek 15 saniye (PT15S) oranıdır.
-birim | Bu dizelerin biri olmalıdır: "Say", "Bayt", "Saniye", "Yüzde", "CountPerSecond", "BytesPerSecond", "Milisaniyelik". Ölçüm için birimi tanımlar. Toplanan veri tüketicileri bu birimi eşleştirmek için toplanan verileri değerleri bekler. Bu alan LAD yoksayar.
+Birim | Bu dizelerin biri olmalıdır: "Say", "Bayt", "Saniye", "Yüzde", "CountPerSecond", "BytesPerSecond", "Milisaniyelik". Ölçüm için birimi tanımlar. Toplanan veri tüketicileri bu birimi eşleştirmek için toplanan verileri değerleri bekler. Bu alan LAD yoksayar.
 displayName | Etiket (ilişkili yerel ayar tarafından belirtilen dilde) bu verileri Azure ölçümleri eklenecek. Bu alan LAD yoksayar.
 
 CounterSpecifier rastgele bir tanımlayıcıdır. Ölçüm, Tüketicileri, Azure portal grafik ister ve özelliği, uyarı counterSpecifier "bir ölçüm veya bir ölçüm örneğini tanımlayan anahtar" kullanın. İçin `builtin` ölçümleri, kullanmanızı öneririz, ile başlayan counterSpecifier değerler `/builtin/`. Size bir ölçüm belirli bir örneğini kullanıyorsanız, counterSpecifier değerine örneğinin tanımlayıcısı ekleme öneririz. Bazı örnekler:
@@ -388,7 +388,7 @@ Bu isteğe bağlı bir bölüm rastgele yürütülmesini denetimleri [OMI](https
 ------- | -----
 ad alanı | (isteğe bağlı) İçinde sorgunun yürütülmesi gereken OMI ad alanı. Belirtilmemişse, varsayılan değer "kök/tarafından uygulanan scx",: [System Center platformlar arası sağlayıcıları](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 sorgu | Yürütülecek OMI sorgu.
-tablo | (isteğe bağlı) Belirtilen depolama hesabında bir Azure depolama tablosu (bkz [korumalı ayarlarından](#protected-settings)).
+table | (isteğe bağlı) Belirtilen depolama hesabında bir Azure depolama tablosu (bkz [korumalı ayarlarından](#protected-settings)).
 frequency | (isteğe bağlı) Sorgu yürütme arasındaki saniye sayısı. 300 (5 dakika); varsayılan değer: en düşük değer 15 saniyedir.
 havuzlar | (isteğe bağlı) Ham örnek ölçüm sonuçlarını yayımlanmasına ek havuzlarını adlarının virgülle ayrılmış listesi. Bu ham örnekleri toplama yoktur, Azure ölçümleri veya uzantısı tarafından hesaplanır.
 
@@ -410,8 +410,8 @@ Günlük dosyalarının yakalama denetler. LAD dosyaya yazılırken yeni metin s
 
 Öğe | Değer
 ------- | -----
-dosya | İzlenen ve yakalanan günlük dosyasının tam yol adı. Yol, tek bir dosya adı olmalıdır; bir dizin adı veya joker karakterlerini içermelidir.
-tablo | (isteğe bağlı) Belirtilen depolama hesabında içine dosya "kuyruğunu" Yeni satırlardan yazılır (belirtildiği gibi korumalı yapılandırma), Azure depolama tablosu.
+file | İzlenen ve yakalanan günlük dosyasının tam yol adı. Yol, tek bir dosya adı olmalıdır; bir dizin adı veya joker karakterlerini içermelidir.
+table | (isteğe bağlı) Belirtilen depolama hesabında içine dosya "kuyruğunu" Yeni satırlardan yazılır (belirtildiği gibi korumalı yapılandırma), Azure depolama tablosu.
 havuzlar | (isteğe bağlı) Gönderilen günlük satırları için ek havuzlarını adlarının virgülle ayrılmış listesi.
 
 "Tablo" veya "havuzlarını" veya her ikisi de belirtilmelidir.
@@ -423,7 +423,7 @@ Yerleşik ölçüm sağlayıcısı bir ölçüm en çok sayıda kullanıcı içi
 * İşlemci
 * Bellek
 * Ağ
-* Dosya sistemi
+* dosya sistemi
 * Disk
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>Yerleşik ölçümleri işlemci sınıfı

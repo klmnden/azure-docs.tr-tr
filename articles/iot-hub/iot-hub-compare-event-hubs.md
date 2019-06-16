@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 7a589ba80b61ea5ef9ea1c941e9a0218a1653c99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60735536"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>IOT cihazları Azure'a bağlanıyor: IOT Hub ile Event Hubs
@@ -29,16 +29,16 @@ Aşağıdaki tabloda, IOT özelliklerini değerlendirirken nasıl IOT Hub'ın ik
 
 | IOT özelliği | IOT hub'ı standart katman | IOT hub'ı temel katman | Event Hubs |
 | --- | --- | --- | --- |
-| CİHAZDAN buluta ileti gönderme | ![İşaretli][checkmark] | ![İşaretli][checkmark] | ![İşaretli][checkmark] |
-| Protokoller: HTTPS, AMQP, AMQP webSockets üzerinden | ![İşaretli][checkmark] | ![İşaretli][checkmark] | ![İşaretli][checkmark] |
-| Protokoller: MQTT, MQTT webSockets üzerinden | ![İşaretli][checkmark] | ![İşaretli][checkmark] |  |
-| Cihaz kimliği başına | ![İşaretli][checkmark] | ![İşaretli][checkmark] |  |
-| Cihazlardan karşıya dosya yükleme | ![İşaretli][checkmark] | ![İşaretli][checkmark] |  |
-| Cihaz Sağlama Hizmeti | ![İşaretli][checkmark] | ![İşaretli][checkmark] |  |
-| Buluttan cihaza ileti gönderme | ![İşaretli][checkmark] |  |  |
-| Cihaz ikizi ve cihaz Yönetimi | ![İşaretli][checkmark] |  |  |
-| Cihaz akışları (Önizleme) | ![İşaretli][checkmark] |  |  |
-| IoT Edge | ![İşaretli][checkmark] |  |  |
+| CİHAZDAN buluta ileti gönderme | ![Onay][checkmark] | ![Onay][checkmark] | ![Onay][checkmark] |
+| Protokoller: HTTPS, AMQP, AMQP webSockets üzerinden | ![Onay][checkmark] | ![Onay][checkmark] | ![Onay][checkmark] |
+| Protokoller: MQTT, MQTT webSockets üzerinden | ![Onay][checkmark] | ![Onay][checkmark] |  |
+| Cihaz kimliği başına | ![Onay][checkmark] | ![Onay][checkmark] |  |
+| Cihazlardan karşıya dosya yükleme | ![Onay][checkmark] | ![Onay][checkmark] |  |
+| Cihaz sağlama hizmeti | ![Onay][checkmark] | ![Onay][checkmark] |  |
+| Buluttan cihaza ileti gönderme | ![Onay][checkmark] |  |  |
+| Cihaz ikizi ve cihaz Yönetimi | ![Onay][checkmark] |  |  |
+| Cihaz akışları (Önizleme) | ![Onay][checkmark] |  |  |
+| IoT Edge | ![Onay][checkmark] |  |  |
 
 CİHAZDAN buluta veri alımı yalnızca kullanım örneği olsa bile, IOT cihaz bağlantısı için tasarlanmış bir hizmet sağladığı gibi IOT hub'ı kullanarak öneririz. 
 

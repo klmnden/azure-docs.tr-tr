@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 66aca7be9a2df93d846d7e78bc64c93279afc2d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160703"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>IOT Edge azure'da Kubernetes (Önizleme) yükleme
@@ -78,7 +78,7 @@ Edge dağıtımı her bileşeninin birden çok uç cihazlarında ve dağıtımla
     minikube dashboard
     ```
 
-    Küme ad alanları altında kuralının IOT Edge cihazı için bir tane görürsünüz *msiot -\<iothub-adı >-\<edgedevice-name >*. IOT Edge aracısı ve iotedged pod, bu ad alanında ve çalışıyor olması gerekir.
+    Küme ad alanları altında kuralının IOT Edge cihazı için bir tane görürsünüz *msiot -\<iothub-adı >-\<edgedevice-name >* . IOT Edge aracısı ve iotedged pod, bu ad alanında ve çalışıyor olması gerekir.
 
 1. İçindeki adımları kullanarak bir sanal sıcaklık algılayıcısı Modül Ekle [modül dağıtma](quickstart-linux.md#deploy-a-module) hızlı başlangıç bölümünde. IOT Edge modülü yönetimi gibi başka bir IOT Edge cihazı IOT hub'ı portalından gerçekleştirilir. Üzerine olarak Kubernetes araçları aracılığıyla modül yapılandırması yerel değişiklik önerilmez.
 

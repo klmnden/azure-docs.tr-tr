@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: b62b35320ba1f4473e9b3a039d181d6a2fb58257
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 9dd7f7d07b34ed3c1076b46c0bf5185d6c8cd31a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743628"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074225"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle VM görüntülerinin ve dağıtım üzerinde Microsoft Azure
 
@@ -68,6 +68,18 @@ Oracle, Oracle Linux tabanlı sanal makine görüntülerinde, Azure'da çalışt
 ### <a name="attached-disk-configuration-options"></a>Bağlı disk yapılandırma seçenekleri
 
 Kullanıma açılan diskler Azure Blob Depolama hizmetinin avantajlarından yararlanın. Her standart disk, yaklaşık 500 giriş/çıkış işlemi (IOPS) saniyede teorik üst sınırı yeteneğine sahiptir. Premium disk teklifimize yüksek performanslı veritabanı iş yükleri için tercih edilir ve disk başına en fazla 5000 IOPS değerlerine ulaşabilir. Performans gereksinimlerinizi karşılayan tek bir disk kullanabilirsiniz. Ancak, birden çok kullanıma açılan diskler kullanmak, veritabanı verileri bunların arasında yaymaktır ve Oracle otomatik Depolama Yönetimi (ASM) kullanın, maliyetli IOPS performansı artırabilir. Bkz: [Oracle otomatik depolama genel bakış](https://www.oracle.com/technetwork/database/index-100339.html) daha fazla Oracle ASM belirli bilgi. Yükleme ve Linux Azure sanal makinesinde Oracle ASM yapılandırma örneği için bkz. [yükleme ve Oracle otomatik Depolama Yönetimi yapılandırma](configure-oracle-asm.md) öğretici.
+
+### <a name="shared-storage-configuration-options"></a>Paylaşılan depolama alanı yapılandırma seçenekleri
+
+Azure NetApp dosyaları, veritabanları gibi yüksek performanslı iş yükleri bulutta çalışan çekirdek gereksinimlerini karşılamak üzere tasarlanmıştır ve sağlar;
+- Azure yerel paylaşılan VM yerel NFS İstemcisi veya Oracle dNFS veya Oracle iş yüklerini çalıştırmak için NFS depolama hizmeti
+- Gerçek aralık IOPS taleplerini yansıtan Ölçeklenebilir performans katmanları
+- Düşük gecikme süresi
+- Yüksek kullanılabilirlik, yüksek bir dayanıklılık düzeyi ve uygun ölçekte, genellikle talep eden iş açısından kritik kurumsal iş yükleri (örneğin, SAP ve Oracle) yönetilebilirliği
+- Hızlı ve verimli yedekleme ve kurtarma, en agresif RTO ve RPO SLA'lara elde etmek için
+
+Bu özellikler Azure NetApp dosyaları – Azure yerel bir hizmet olarak Azure veri merkezi ortamında çalışan NetApp ONTAP® tamamen flash sistemler bağlı olduğu mümkündür. Sonuç, sağlanan ve tüketilen gibi diğer Azure depolama seçenekleri yalnızca ideal veritabanı depolama teknolojisidir. Bkz: [Azure NetApp dosyaları belgeleri](https://docs.microsoft.com/azure/azure-netapp-files/) dağıtma ve Azure NetApp dosya NFS birimleri erişim hakkında daha fazla bilgi için. Bkz: [Oracle Azure dağıtım en iyi uygulama kılavuzu kullanarak Azure NetApp dosya çubuğunda](https://www.netapp.com/us/media/tr-4780.pdf) Azure NetApp dosya çubuğunda bir Oracle veritabanına işletme için en iyi yöntem önerileri için.
+
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle gerçek uygulama kümesi (Oracle RAC)
 Oracle RAC, bir şirket içi çok düğümlü küme yapılandırmasında tek bir düğümün hatalarını azaltmak için tasarlanmıştır. Hiper ölçekli genel bulut ortamları için yerel olmayan iki şirket içi teknolojisi kullanır: ağ çok noktaya yayın ve paylaşılan disk. Veritabanı çözümünüze azure'da Oracle RAC gerektiriyorsa, üçüncü gerekir bu teknolojiler etkinleştirmek için taraf yazılım. Oracle RAC hakkında daha fazla bilgi için bkz. [FlashGrid SkyCluster sayfa](https://www.flashgrid.io/oracle-rac-in-azure/).

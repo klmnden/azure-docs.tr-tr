@@ -7,17 +7,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
-ms.date: 04/09/2018
+ms.date: 06/05/2019
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 80977c13aa9851ea5df9a15f5b9580dd1a931259
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5aa2616bfbfd4b31d3e5e5aeee71da8fd511faed
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60762159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066749"
 ---
-# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics işlerinden Azure İşlevleri’ni çalıştırma 
+# <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Öğretici: Azure Stream Analytics işlerinden Azure İşlevleri’ni çalıştırma 
 
 İşlevleri Stream Analytics işinin çıktı havuzlarından biri olarak yapılandırarak, Azure Stream Analytics'ten Azure İşlevleri’ni çalıştırabilirsiniz. İşlevler, Azure veya üçüncü taraf hizmetlerinde gerçekleşen olayların tetiklediği kodu uygulamanıza olanak tanıyan olay odaklı, isteğe bağlı bir işlem deneyimidir. İşlevlerin tetikleyicilere yanıt vermeye yönelik bu özelliği, hizmeti Stream Analytics işleri için doğal bir çıktı haline getirmektedir.
 
@@ -26,9 +26,10 @@ Stream Analytics, HTTP tetikleyicileri aracılığıyla İşlevleri çağırır.
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Akış Analizi işi oluşturma
-> * Azure işlevi oluşturma
-> * Azure işlevini işinizin çıktısı olarak yapılandırma
+> * Oluşturma ve bir Stream Analytics işi çalıştırma
+> * Redis örneği için bir Azure önbelleği oluşturma
+> * Azure İşlevi oluşturma
+> * Azure önbelleği için Redis için sonuçları denetleyin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -38,16 +39,9 @@ Bu bölümde, Azure önbelleği için Redis veri yazan bir işlev çalıştırma
 
 ![Azure hizmetleri arasındaki ilişkileri gösteren diyagram](./media/stream-analytics-with-azure-functions/image1.png)
 
-Bu görevi gerçekleştirmek için aşağıdaki adımlar gereklidir:
-* [Girdi olarak Event Hubs ile bir Stream Analytics işi oluşturma](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* Redis örneği için bir Azure önbelleği oluşturma  
-* Azure işlevleri, verileri Azure önbelleği için Redis için yazabilen bir işlev oluşturun    
-* [Çıktı olarak işlevle Stream Analytics işini güncelleştirme](#update-the-stream-analytics-job-with-the-function-as-output)  
-* Azure önbelleği için Redis için sonuçları denetleyin.  
-
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Girdi olarak Event Hubs ile bir Stream Analytics işi oluşturma
 
-Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir Stream Analytics işi oluşturmak için [Gerçek zamanlı sahtekarlık algılama](stream-analytics-real-time-fraud-detection.md) öğreticisini takip edin. (Sorgu ve çıktı oluşturma adımlarını atlayın. Bunun yerine, İşlevler çıkışını ayarlamak için aşağıdaki bölümlere bakın.)
+Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir Stream Analytics işi oluşturmak için [Gerçek zamanlı sahtekarlık algılama](stream-analytics-real-time-fraud-detection.md) öğreticisini takip edin. Sorgu ve çıktı oluşturma adımlarını atlayın. Bunun yerine, bir Azure işlevler çıkışını ayarlamak için aşağıdaki bölümlere bakın.
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Redis örneği için bir Azure önbelleği oluşturma
 
@@ -61,7 +55,7 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
 
 1. İşlevler belgesinin [İşlev uygulaması oluşturma](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) bölümüne bakın. Bu bölümde CSharp dili kullanılarak bir işlev uygulaması ve [Azure İşlevleri’nde HTTP ile tetiklenen işlev](../azure-functions/functions-create-first-azure-function.md#create-function) oluşturma adımları gösterilir.  
 
-2. **run.csx** işlevine göz atın. Aşağıdaki kodla güncelleştirin. (Değiştirdiğinizden emin olun "\<, Azure önbelleği için Redis bağlantı dizesi buraya\>" Azure Cache önceki bölümde aldığınız Redis birincil bağlantı dizesi ile.)  
+2. **run.csx** işlevine göz atın. Aşağıdaki kodla güncelleştirin. Değiştirin **"\<, Azure önbelleği için Redis bağlantı dizesi buraya\>"** Azure Cache önceki bölümde aldığınız Redis birincil bağlantı dizesi ile. 
 
     ```csharp
     using System;
@@ -112,7 +106,7 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
 
    ```
 
-   Stream Analytics işlevden "HTTP İstek Varlığı Çok Büyük" özel durumunu aldığında İşlevler’e gönderdiği toplu işlerin boyutunu azaltır. İşlevinizde Stream Analytics’in aşırı büyük toplu işler göndermediğinden emin olmak için aşağıdaki kodu kullanın. İşlevde kullanılan en büyük toplu iş sayı ve boyut değerlerinin Stream Analytics portalına girilen değerlerle tutarlı olduğundan emin olun.
+   Stream Analytics işlevden "HTTP İstek Varlığı Çok Büyük" özel durumunu aldığında İşlevler’e gönderdiği toplu işlerin boyutunu azaltır. Aşağıdaki kod, Stream Analytics toplu işler göndermediğinden göndermez sağlar. İşlevde kullanılan en büyük toplu iş sayı ve boyut değerlerinin Stream Analytics portalına girilen değerlerle tutarlı olduğundan emin olun.
 
     ```csharp
     if (dataArray.ToString().Length > 262144)
@@ -121,7 +115,7 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
         }
    ```
 
-3. Tercih ettiğiniz bir metin düzenleyicisinde **project.json** adlı bir JSON dosyası oluşturun. Aşağıdaki kodu kullanın ve yerel bilgisayarınıza kaydedin. Bu dosya, C# işlevinin gerektirdiği NuGet paket bağımlılıklarını içerir.  
+3. Tercih ettiğiniz bir metin düzenleyicisinde **project.json** adlı bir JSON dosyası oluşturun. Aşağıdaki kodu yapıştırın ve dosyayı yerel bilgisayarınıza kaydedin. Bu dosya, C# işlevinin gerektirdiği NuGet paket bağımlılıklarını içerir.  
    
     ```json
     {
@@ -145,8 +139,6 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
 
    ![App Service Düzenleyicisi ekran görüntüsü](./media/stream-analytics-with-azure-functions/image4.png)
 
- 
-
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Çıktı olarak işlevle Stream Analytics işini güncelleştirme
 
 1. Stream Analytics işinizi Azure portalında açın.  
@@ -163,9 +155,9 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
    |En Büyük Toplu İş Sayısı|İşleve gönderilen her toplu işteki en büyük olay sayısını belirtir. Varsayılan değer 100’dür. Bu özellik isteğe bağlıdır.|
    |Anahtar|Başka bir abonelikteki işlevi kullanmanıza olanak sağlar. İşlevinize erişmek için anahtar değerini sağlayın. Bu özellik isteğe bağlıdır.|
 
-3. Çıktı diğer adı için bir ad belirtin. Bu öğreticide bu adı **saop1** olarak belirttik (tercih ettiğiniz herhangi bir adı kullanabilirsiniz). Diğer ayrıntıları girin.  
+3. Çıktı diğer adı için bir ad belirtin. Bu öğreticide, adlı **saop1**, ancak kendi tercih ettiğiniz herhangi bir ad kullanabilirsiniz. Diğer ayrıntıları girin.
 
-4. Stream Analytics işinizi açın ve sorguyu aşağıdaki gibi güncelleştirin. (Çıktı havuzunu farklı şekilde adlandırdıysanız “saop1” metnini değiştirmeyi unutmayın.)  
+4. Stream Analytics işinizi açın ve sorguyu aşağıdaki gibi güncelleştirin. Çıkış havuz adı değil **saop1**, sorguda değiştirmeyi unutmayın.  
 
    ```sql
     SELECT
@@ -178,9 +170,11 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Komut satırında aşağıdaki komutu çalıştırarak telcodatagen.exe uygulamasını başlatın (`telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]` biçimini kullanın):  
+5. Komut satırında aşağıdaki komutu çalıştırarak telcodatagen.exe uygulamasını başlatın. Komut biçimi kullanır `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
    
-   **telcodatagen.exe 1000 .2 2**
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
     
 6.  Stream Analytics işini başlatın.
 

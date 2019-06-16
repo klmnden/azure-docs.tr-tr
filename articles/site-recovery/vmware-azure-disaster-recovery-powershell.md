@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: 5490149f199c2d7887716ceae3f035527ad33961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170047"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Azure PowerShell ile VMware vm'lerinin olağanüstü durum kurtarmayı ayarlama
@@ -348,7 +348,7 @@ Bulunan bir sanal makineyi korumak için aşağıdaki ayrıntıları ihtiyacın�
 Artık bu tabloda belirtilen ayarları kullanarak şu sanal makineleri çoğaltma
 
 
-|Sanal makine  |Process Server        |Depolama Hesabı              |Günlük depolama hesabına  |İlke           |Mobility hizmeti yüklemesi için hesabı|Hedef kaynak grubu  | Hedef sanal ağ  |Hedef alt ağ  |
+|Sanal makine  |İşlem sunucusu        |Depolama Hesabı              |Günlük depolama hesabına  |İlke           |Mobility hizmeti yüklemesi için hesabı|Hedef kaynak grubu  | Hedef sanal ağ  |Hedef alt ağ  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |Win2K12VM1       |Genişletme dosya|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |
 |CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| Yok                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |   

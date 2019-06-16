@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1018b449047e40a67ea843e8506fb43f6e1093a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9e074282b477fe620170cd8672dc3d050fce6afe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239064"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061633"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Azure Portal’da yeni Zaman Serisi Görüşleri ortamı oluşturma
 
@@ -51,7 +51,7 @@ Bir ortam oluşturmak için aşağıdaki adımları izleyin:
    Fiyatlandırma katmanı | S1 | Gerekli aktarım hızını seçin. Düşük maliyetler ve başlangıç kapasitesi, S1'i seçin.
    Kapasite | 1 | Giriş oranı, depolama kapasitesi ve seçilen SKU ile ilişkili maliyeti çarpan uygulandığı kapasitesidir.  Oluşturduktan sonra ortam kapasitesini değiştirebilirsiniz. En düşük maliyetleri için kapasitesi 1'i seçin. 
   
-1. Denetleme **panoya Sabitle** en iyi şekilde kolayca, zaman serisi ortamı gelecekte de erişmek için.
+1. Denetleme **panoya Sabitle** kolayca, zaman serisi ortamı gelecekte de erişmek için.
 
    ![Zaman Serisi Görüşleri oluşturma panoya sabitleme](media/time-series-insights-get-started/3-pin-create.png)
 

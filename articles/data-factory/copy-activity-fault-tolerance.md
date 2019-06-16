@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
 ms.openlocfilehash: ef0bb3716a32a0f25b90e74bc44d7291c146b431
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808822"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory’de kopyalama etkinliğinin hataya dayanıklılığı
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Geçerli sürüm](copy-activity-fault-tolerance.md)
 
@@ -73,10 +73,10 @@ Aşağıdaki örnek, kopyalama etkinliğinde uyumsuz satırları yapılandırmak
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | -------- 
-Enableskipıncompatiblerow | Veya kopyalama sırasında uyumsuz satırların atlanmayacağını belirtir. | True<br/>False (varsayılan) | Hayır
-Redirectıncompatiblerowsettings | Zaman uyumsuz satırları günlüğe kaydetmek istediğiniz bir grup olabilir özellik belirtildi. | &nbsp; | Hayır
+enableskipıncompatiblerow | Veya kopyalama sırasında uyumsuz satırların atlanmayacağını belirtir. | True<br/>False (varsayılan) | Hayır
+redirectıncompatiblerowsettings | Zaman uyumsuz satırları günlüğe kaydetmek istediğiniz bir grup olabilir özellik belirtildi. | &nbsp; | Hayır
 linkedServiceName | Bağlı hizmetin adı [Azure depolama](connector-azure-blob-storage.md#linked-service-properties) veya [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) Atlanan satır içeren günlüğü depolamak için. | Adı bir `AzureStorage` veya `AzureDataLakeStore` günlük dosyasını depolamak için kullanmak istediğiniz örneğine başvurur bağlantılı hizmet türü. | Hayır
-path | Atlanan satır içeren bir günlük dosyası yolu. | Uyumsuz verilerini günlüğe kaydetmek için kullanmak istediğiniz yolu belirtin. Bir yol belirtmezseniz, hizmet sizin için bir kapsayıcı oluşturur. | Hayır
+yol | Atlanan satır içeren bir günlük dosyası yolu. | Uyumsuz verilerini günlüğe kaydetmek için kullanmak istediğiniz yolu belirtin. Bir yol belirtmezseniz, hizmet sizin için bir kapsayıcı oluşturur. | Hayır
 
 ## <a name="monitor-skipped-rows"></a>Atlanan satır izleyin
 Kopyalama etkinliği çalıştırmasının tamamlandıktan sonra kopyalama etkinliği çıkışında Atlanan satır sayısını görebilirsiniz:

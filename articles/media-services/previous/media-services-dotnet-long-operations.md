@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 752c502268ef53d3c0575d92e75ce6a965fccd9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61464989"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Azure Media Services ile canlı akış sunma
@@ -30,7 +30,7 @@ Microsoft Azure Media Services istekleri gönderme işlemleri başlatmak için M
 Media Services .NET SDK'sı, istek gönderebilir ve işlemin tamamlanmasını bekleyin API'ler sağlar (dahili olarak, API işlem ilerleme durumunu için bazı aralıklarla yoklama). Örneğin, kanal çağırdığınızda. Kanal başlatıldıktan sonra Start() yöntemi döndürür. Zaman uyumsuz sürümü de kullanabilirsiniz: kanal bekler. StartAsync() (görev tabanlı zaman uyumsuz desen hakkında daha fazla bilgi için bkz. [DOKUNUN](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). Bir operation isteğini gönderin ve ardından, işlemi tamamlanana kadar durumunu yoklamak API'leri "yoklama yöntemleri" adı verilir. Bu yöntemler (özellikle zaman uyumsuz sürümü) zengin istemci uygulamaları ve/veya durum bilgisi olan hizmetler için önerilir.
 
 Burada bir uygulamayı uzun süre çalışan bir http isteği için sabırsızlanıyoruz ve işlemi ilerleme durumu el ile yoklamaya istediği senaryo vardır. Örnek durum bilgisi olmayan web hizmetiyle etkileşim kurmanın bir tarayıcı olacaktır: tarayıcı bir kanal oluşturmak istediğinde, web hizmeti uzun süren bir işlem başlatır ve işlem kimliği tarayıcıya döndürür. Tarayıcı kimliğini temel alan işlem durumunu almak için web hizmeti ardından sorabilirsiniz Media Services .NET SDK, bu senaryo için faydalı olan API'leri sağlar. Bu API'ler, "yoklama olmayan yöntemleri" adı verilir.
-"Yoklama olmayan yöntemler" aşağıdaki adlandırma deseni sahiptir: Gönderme*OperationName*işlemi (örneğin, SendCreateOperation). Gönderme*OperationName*işlemi yöntemleri dönüş **IOperation** nesne; döndürülen nesnesi işlemi izlemek için kullanılan bilgileri içerir. Gönderme*OperationName*OperationAsync yöntemleri dönüş **görev\<IOperation >**.
+"Yoklama olmayan yöntemler" aşağıdaki adlandırma deseni sahiptir: Gönderme*OperationName*işlemi (örneğin, SendCreateOperation). Gönderme*OperationName*işlemi yöntemleri dönüş **IOperation** nesne; döndürülen nesnesi işlemi izlemek için kullanılan bilgileri içerir. Gönderme*OperationName*OperationAsync yöntemleri dönüş **görev\<IOperation >** .
 
 Şu anda aşağıdaki sınıflar, yoklama olmayan yöntemleri destekler:  **Kanal**, **StreamingEndpoint**, ve **Program**.
 

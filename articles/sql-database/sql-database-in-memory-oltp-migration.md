@@ -13,10 +13,10 @@ ms.reviewer: MightyPen
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: 03e5540e34cd99d2b201bc763f13b42c7fa20bf7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785310"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>SQL veritabanı'nda, uygulama performansını artırmak için kullanım bellek içi OLTP
@@ -29,7 +29,7 @@ ms.locfileid: "65785310"
 
 Mevcut veritabanınızda bellek içi OLTP'yi benimseme için bu adımları izleyin.
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>1. Adım: Premium ve iş açısından kritik katmanında veritabanı kullandığınızdan emin olun
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>1\. adım: Premium ve iş açısından kritik katmanında veritabanı kullandığınızdan emin olun
 
 Bellek içi OLTP yalnızca Premium ve iş açısından kritik katman veritabanlarında desteklenir. Bellek içi döndürülen sonuç 1 ise desteklenir (0):
 
@@ -41,7 +41,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>2. Adım: Bellek içi OLTP geçirilecek nesneleri tanımlar
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>2\. adım: Bellek içi OLTP geçirilecek nesneleri tanımlar
 SSMS içeren bir **işlem Performans Analizi genel bakış** etkin bir iş yüküne sahip bir veritabanında çalıştırmak üzere bir rapor. Rapor, tablolar ve bellek içi OLTP geçiş için aday niteliği taşıyan saklı yordamlar tanımlar.
 
 SSMS'de, raporu oluşturmak için şunu yazın:
@@ -51,7 +51,7 @@ SSMS'de, raporu oluşturmak için şunu yazın:
 
 Daha fazla bilgi için [belirleme bir tablo veya saklı yordam gereken olması Unity'nin bellek içi OLTP için](https://msdn.microsoft.com/library/dn205133.aspx).
 
-## <a name="step-3-create-a-comparable-test-database"></a>3. adım: Karşılaştırılabilir test veritabanı oluşturma
+## <a name="step-3-create-a-comparable-test-database"></a>3\. adım: Karşılaştırılabilir test veritabanı oluşturma
 Veritabanı bellek için iyileştirilmiş bir tabloya dönüştürülür avantaj elde edecektir tablolu raporu gösterir varsayalım. İlk test ederek göstergesi onaylamak için test etmenizi öneririz.
 
 Size, üretim veritabanınızı test bir kopyasına ihtiyacınız vardır. Test veritabanı, üretim veritabanınız olarak aynı hizmet katmanında düzeyinde olması gerekir.
@@ -67,7 +67,7 @@ Test kolaylaştırmak için test veritabanınızı gibi ince ayar:
         MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
    ```
 
-## <a name="step-4-migrate-tables"></a>4. Adım: Tabloları geçirme
+## <a name="step-4-migrate-tables"></a>4\. Adım: Tabloları geçirme
 Oluşturma ve test etmek istediğiniz tablosu bellek için iyileştirilmiş bir kopyasını doldurulması gerekir. Kullanarak oluşturabilirsiniz:
 
 * Ssms'de kullanışlı bellek iyileştirme Sihirbazı.
@@ -151,7 +151,7 @@ Geçiş adımları şunlardır:
 4. Eski bir saklı yordam sp_rename seçeneğini kullanarak yeniden adlandırın. Veya yalnızca sürükleyip bırakın.
 5. Düzenlenen oluşturma yordamı T-SQL betiğinizi çalıştırmak.
 
-## <a name="step-6-run-your-workload-in-test"></a>6. Adım: İş yükünüz testi çalıştırın
+## <a name="step-6-run-your-workload-in-test"></a>6\. Adım: İş yükünüz testi çalıştırın
 Bir iş yükü, üretim veritabanınız çalışan iş yüküne benzer test veritabanınızda çalıştırın. Bu, bellek içi özellik kullanımınız için tablolarına ve depolanmış yordamlarına tarafından gerçekleştirilen performans kazancı ortaya.
 
 İş yükü önemli öznitelikleri şunlardır:
@@ -163,7 +163,7 @@ Uyumlu hale getirmenizi ve test iş yükü çalıştırmak için gösterilen kul
 
 Ağ gecikmesini en aza indirmek için veritabanının mevcut olduğu aynı Azure coğrafi bölgesinde testinizi çalıştırın.
 
-## <a name="step-7-post-implementation-monitoring"></a>7. Adım: Uygulama sonrası izleme
+## <a name="step-7-post-implementation-monitoring"></a>7\. Adım: Uygulama sonrası izleme
 İzleme, bir bellek içi üretim uygulamalarında performans etkilerini göz önünde bulundurun:
 
 * [Bellek içi depolama alanı izleme](sql-database-in-memory-oltp-monitoring.md).

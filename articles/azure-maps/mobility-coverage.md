@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 11ebaec75b1220f39fe059ea7825cdccafda2f5d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735624"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure haritalar Mobility kapsamı
@@ -47,7 +47,7 @@ Aşağıdaki tabloda Azure haritalar Mobility hizmeti için kapsamı bilgileri s
 | Porto Riko | San Juan |
 | Uruguay | Montevideo, Punta del Este |
 | Amerika Birleşik Devletleri | <p>Albany (NY), Adana'daki (sayı) (AK) Anchorage Appleton Oshkosh Neenah (WI), Asheville (NC), (OH) Atina, Atlanta (GA), (TX) Austin, Bakersfield (CA), Baltimore), Bellevue (WA), Berkshire ilçe (MA), (AL) Birmingham, Bloomington (İNÇ), Boise (ID) Boston () MA) Boulder (CO) Brevard ilçe (FL), İstanbul (NY), Butte (MT), Cape Cod), merkezi ilçe (PA) Champaign'deki-Urbana (IL), Charleston (SC), Charleston (WV), Charlotte (NC), Charlottesville (VA), Chattanooga (TN), Cheyenne (WY), Şikago'ya (IL), Cincinnati (OH) Citrus ilçe (FL), Clevaland (OH), Coachella vadisi (CA), Colorado yaylar (CO), Columbia (TN), Kolomb (OH), gövde Christi (TX), Dallas/işleyerek (TX) değerinde, Dayton (OH), Delaware, Denver (CO), Des Moines (IA), Detroit (mı), Duluth (MN), El Paso (TX), Eugene (veya ), Fairbanks'dır (AK), Fargo (ND), Fayetteville (NC), Flagstaff (AZ), Flint (mı) Fort Collins (CO), Fort Wayne (İNÇ), Fresno (CA), Gainesville (FL), genel çatalları (ND) genel Rapids (mı), yeşil Bay (WI), Greensboro (NC), Greenville (SC), Gunnison (CO), Hampton yollar (VA ), Hanford (CA), Hartford "(" u "), Hernando ilçe (FL), Honolulu (yüksek), Houston (TX), Humboldt ilçe (CA), Huntsville (AL), Indianapolis (İNÇ), Ithaca (NY), Jackson (MS), Jackson (TN), Jacksonville - St. John's ilçe (FL) Johnson Şehir (TN) Jonesboro (AR) Joplin (ay) Juneau'dır (AK), Kalamazoo (mı), Kansas Şehir (ay), Kauai (yüksek), Ketchum (ID), Knoxville (TN), Lafayette (İNÇ), Lancaster (PA), Lansing (mı), Las Vegas (geçici), Lawrence (görevleri), Eser ilçe (FL), Lexington (KY), Lincoln ilçe (veya), Little Rock (AR), Los Angeles ( CA) Louisville (KY), Madison (WI), McAllen (TX), Memphis (TN), Miami (FL), Milwaukee/Waukesha (WI), St. Minneapolis'te Paul (MN), Missoula (MT), (ABD) Modesto, Moline (IL), Monroe ilçe (PA), Montgomery (AL), Morgantown (WV), Nashville (TN), Navaho Ulus), (Tümünü) yeni başlattıysanız, New Orleans (on) NYC NJ) Ocala (FL), Okaloosa ilçe (FL), Oklahoma Şehir (Tamam), Omaha (NE), (FL) Orlando, Panama Şehir (FL), Pensacola (FL), Peoria (IL), Philadelphia (PA), Phoenix (AZ), Pittsburgh (PA), Portland (BANA), Portland (veya), Racine (WI) Raleigh (NC) Redding (CA), Reno & Lake Tahoe (geçici), Roanoke vadisi (VA - Lynchburg), Rochester (NY) Rocky Sıradağlar Ulusal parkı), standart dışı vadisi (veya), Roseburg (veya), Roseville (CA), Sacramento (CA), Salem (veya), güvenlik değeri Lake Şehir (sınama), San Antonio (TX) San Diego) CA), San Luıs Obispo (CA), Santa Banu (CA), Santa Fe (sayı), Sarasota (FL), Savannah (GA), Seacoast bölge (NH) Seattle Ankara Bellevue (WA), BT yuvası (CA) alanında, Sioux Şehir (IA), Sioux düştüğünde (SD), Sitka'dır (AK), Spokane (WA), Springfield (IL), Springfield (yığın) St. George (sınama), St. Louis (ay), Stockton (CA) Syracuse-Utica (NY), Tallahassee (FL), (FL) Tampa St. Petersburg, Terre Haute (İNÇ), Toledo (OH), Topeka (görevleri), çapraz Şehir (mı), Tucson (AZ), Tulsa (Tamam), Vermont, Victorville (CA), Volusia ilçe (FL) Waco (TX) Washington (DC), Waterbury (CT), Wichita (görevleri), Wilmington (NC), Yakima (WA), York ilçe (PA), Yuma ilçe (AZ)</p>|
-| + ABD Virgin Adaları | ABD Virgin Adaları * |
+| \+ ABD Virgin Adaları | ABD Virgin Adaları * |
 
 
 ## <a name="asia-pacific"></a>Asya Pasifik
@@ -90,8 +90,8 @@ Aşağıdaki tabloda Azure haritalar Mobility hizmeti için kapsamı bilgileri s
 | Estonya   | Estonya * |   
 | Finlandiya   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola - Kotka, Kuopio, Lappeenranta Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
 | Fransa    | <p>Amberieu tr Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, cannes, Châlons tr Şampanya, Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Odağı, Lille, Lorient, Lyon, Mac bilgisayarları, Marsilya'daki & Provence, yönettiği, Millau, a de Marsan, Montpellier, Mulhouse, Nancy mans Nantes güzel, Nimes, Normandy, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint Étienne, Saint-Nazaire, Saintes, Sarrebourg, Sete, Strasbourg, Tarbes, Toulouse, tur</P> | 
-| + Fransız Guyanası | Cayenne |
-| + Yeni Kaledonya | Nouméa  |
+| \+ Fransız Guyanası | Cayenne |
+| \+ Yeni Kaledonya | Nouméa  |
 | Gürcistan | Tbilisi | 
 | Almanya | <p>Berlin, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, Hamburg, Karlsruhe, Mainz, München - Münih, Rhein Neckar bölge Rhein Ruhr Stuttgart, bölge Titisee-Neustadt, Ulm</P> | 
 | Yunanistan | <p>Atina, Arta, Amorgos, Chania, Corfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Mykonos, Patra, Rethimno, Rhodes, Santorini'de, Serres, Syros, Tinos, Thessaloniki, Veria, Volos, Xanthi </P> |

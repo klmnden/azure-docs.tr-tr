@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 144fd11e9c1ee3e00412320840e864a3190ccdb0
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833981"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynakları oluşturma
@@ -99,7 +99,7 @@ Bir Azure Resource Manager şablon deposu laboratuvarda yapılandırıldıktan s
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. İstenen Laboratuvar labs listesinden seçin.   
-1. Laboratuvar bölmeden **Ekle +**.
+1. Laboratuvar bölmeden **Ekle +** .
 1. **Temel seçin** bölmesinde listelenen ilk Azure Resource Manager şablonları ile kullanabileceğiniz temel görüntüleri görüntüler. İstenen Azure Resource Manager şablonu seçin.
 
     ![Bir temel seçin](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)

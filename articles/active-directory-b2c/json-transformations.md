@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 9a026d205d3ab855ecbb51048e7464df6fb4a094
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510760"
 ---
 # <a name="json-claims-transformations"></a>JSON dönüştürmeleri talep
@@ -121,7 +121,7 @@ Belirtilen bir sayısal (uzun) öğesi bir JSON verilerini alır.
 | ---- | ----------------------- | --------- | ----- |
 | Inputclaim | inputJson | string | Talep dönüştürme tarafından talep almak için kullanılan ClaimTypes. |
 | InputParameter | claimToExtract | string | Ayıklanacak JSON öğesi adı. |
-| outputClaim | extractedClaim | uzun | Öğesinin değeri belirtilen bu ClaimsTransformation çağrıldıktan sonra üreten ClaimType _claimToExtract_ giriş parametreleri. |
+| outputClaim | extractedClaim | long | Öğesinin değeri belirtilen bu ClaimsTransformation çağrıldıktan sonra üreten ClaimType _claimToExtract_ giriş parametreleri. |
 
 Aşağıdaki örnekte, talep dönüştürme ayıklar `id` JSON verilerini öğesinden.
 

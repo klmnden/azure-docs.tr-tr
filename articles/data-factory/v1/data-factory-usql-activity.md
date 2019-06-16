@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248156"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betikleri çalıştırarak verileri dönüştürme 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](data-factory-usql-activity.md)
 > * [Sürüm 2 (geçerli sürüm)](../transform-data-using-data-lake-analytics.md)
 
@@ -208,7 +208,7 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özel
 
 | Özellik            | Açıklama                              | Gerekli                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| type                | Type özelliği ayarlanmalıdır **DataLakeAnalyticsU SQL**. | Evet                                      |
+| türü                | Type özelliği ayarlanmalıdır **DataLakeAnalyticsU SQL**. | Evet                                      |
 | linkedServiceName   | Data Factory, bağlı hizmet olarak Azure Data Lake Analytics başvuru kaydedildi | Evet                                      |
 | ScriptPath          | U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harfe duyarlıdır. | Hayır (komut dosyası kullanırsanız)                   |
 | scriptLinkedService | Bağlantılar için veri komut dosyasını içeren depolama bağlı hizmeti | Hayır (komut dosyası kullanırsanız)                   |

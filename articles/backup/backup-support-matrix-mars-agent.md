@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922997"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure kurtarma Hizmetleri (MARS) aracısı ile yedekleme destek matrisi
@@ -64,7 +64,7 @@ MARS Aracısı şu URL'lere erişimi olmalıdır:
 
 ### <a name="throttling-support"></a>Azaltma desteği
 
-**Özellik** | **Ayrıntılar**
+**Özelliği** | **Ayrıntılar**
 --- | ---
 Bant genişliği denetimi | Destekleniyor. MARS aracısı kullanmak **özelliklerini değiştirme** bant genişliğini ayarlamak için.
 Ağ kapasitesi azaltma | Windows Server 2008 R2, Windows Server 2008 SP2 veya Windows 7 çalıştıran yedeklenen makine için kullanılamaz.
@@ -94,10 +94,10 @@ Azure yedekleme yedeklenebilecek bir dosya veya klasör veri kaynağı boyutu s�
 
 **İşletim sistemi** | **Boyut sınırı**
 --- | ---
-Windows Server 2012 veya üzeri |  54.400 GB
+Windows Server 2012 veya üzeri |  54\.400 GB
 Windows Server 2008 R2 SP1 |    1700 GB
 Windows Server 2008 SP2 | 1700 GB
-Windows 8 veya üzeri  | 54.400 GB
+Windows 8 veya üzeri  | 54\.400 GB
 Windows 7   | 1700 GB
 
 

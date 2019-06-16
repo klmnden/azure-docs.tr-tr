@@ -11,10 +11,10 @@ ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236442"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup iş yüklerini izleme
@@ -34,7 +34,7 @@ Aşağıdaki Azure Backup çözümleri işlerden burada gösterilir:
   - Azure VM yedeklemesi
   - Azure dosya yedekleme
   - SQL gibi Azure iş yükü yedekleme
-  - Azure Backup Aracısı'nı (MAB)
+  - Azure Backup aracısı (MAB)
 
 System Center veri koruma Yöneticisi'nden (SC-DPM), Microsoft Azure Backup sunucusu (MABS) işleri görüntülenmez.
 
@@ -48,8 +48,8 @@ Uyarılar, öncelikli olarak kullanıcılar, ilgili eylem yararlanabilmeniz bura
 ### <a name="alert-scenarios"></a>Uyarı senaryoları
 Aşağıdaki senaryolarda alertable senaryoları hizmeti tarafından tanımlanır.
 
-  - Yedekleme/geri yükleme hataları
-  - Yedekleme Azure Yedekleme aracısı (MAB) uyarılarla başarılı oldu
+  - Yedekleme/Geri Yükleme hataları
+  - Azure Backup Aracısı (MAB) için yedekleme uyarılarla başarılı oldu
   - Veri/durdurmayı silinecek verileri bekleterek korumayı durdurun
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Bir uyarı olduğunda özel durumlar
@@ -64,9 +64,9 @@ Yukarıdaki özel durumları (öncelikle tetikleyen kullanıcı) bu işlemlerin 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aşağıdaki Azure Backup çözümlerinden gelen uyarılar burada gösterilir:
 
   - Azure VM yedeklemeleri
-  - Azure dosya yedekleri
-  - SQL gibi Azure iş yükü yedekleme
-  - Azure Backup Aracısı'nı (MAB)
+  - Azure Dosya yedeklemeleri
+  - Azure iş yükü yedeklemeleri, örneğin SQL
+  - Azure Backup aracısı (MAB)
 
 > [!NOTE]
 > System Center veri koruma Yöneticisi'nden (SC-DPM), Microsoft Azure Backup sunucusu (MABS) uyarıları burada görüntülenmez.

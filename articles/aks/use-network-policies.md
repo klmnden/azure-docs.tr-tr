@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
 ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65229998"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) ağ ilkeleri kullanılarak pod'ları arasındaki trafiğin güvenliğini sağlama
@@ -62,7 +62,7 @@ Ağ İlkesi yalnızca Azure CNI (Gelişmiş) seçeneği ile çalışır. Uygulam
 | Desteklenen platformlar                      | Linux                      | Linux                       |
 | Desteklenen ağ seçenekleri             | Azure CNI                  | Azure CNI                   |
 | Kubernetes belirtimi ile uyumluluk | Desteklenen tüm ilke türleri |  Desteklenen tüm ilke türleri |
-| Ek özellikler                      | None                       | Genel ağ ilkesi, genel ağ ayarlayın ve ana bilgisayar bitiş noktası oluşan ilke modeli genişletilmiş. Kullanma hakkında daha fazla bilgi için `calicoctl` bu özellikler, genişletilmiş yönetmek için CLI bkz [calicoctl kullanıcı başvurusu][calicoctl]. |
+| Ek Özellikler                      | None                       | Genel ağ ilkesi, genel ağ ayarlayın ve ana bilgisayar bitiş noktası oluşan ilke modeli genişletilmiş. Kullanma hakkında daha fazla bilgi için `calicoctl` bu özellikler, genişletilmiş yönetmek için CLI bkz [calicoctl kullanıcı başvurusu][calicoctl]. |
 | Destek                                  | Azure destek ve mühendislik ekibi tarafından desteklenir | Calico topluluk desteği. Ek Ücretli destek hakkında daha fazla bilgi için bkz. [proje Calico destek seçenekleri][calico-support]. |
 | Günlüğe kaydetme                                  | Eklenen / silindi IPTables kurallarını her konak altında oturum */var/log/azure-npm.log* | Daha fazla bilgi için [Calico bileşeni günlükleri][calico-logs] |
 
@@ -332,7 +332,7 @@ kubectl create namespace production
 kubectl label namespace/production purpose=production
 ```
 
-Bir test pod içinde zamanlamak *üretim* olarak etiketli bir ad alanı *app = webapp, rol ön uç =*. Terminal oturumu ekleyin:
+Bir test pod içinde zamanlamak *üretim* olarak etiketli bir ad alanı *app = webapp, rol ön uç =* . Terminal oturumu ekleyin:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1

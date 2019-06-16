@@ -11,10 +11,10 @@ ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: a706fca7f7653c6916efc72d07988e79c9015a43
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244494"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Verileri Azure Data Lake depolama alanından SQL Data Warehouse'a veri yükleme
@@ -43,7 +43,7 @@ Bu öğreticide çalıştırmak için ihtiyacınız vardır:
 * Bir Data Lake Store hesabı. Bkz: [Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md). 
 
 ##  <a name="create-a-credential"></a>Bir kimlik bilgisi oluşturma
-Data Lake Storage hesabınıza erişmek için kullanılan bir sonraki adımda, kimlik bilgisi gizli anahtarını şifrelemek için bir veritabanı ana anahtarı oluşturmanız gerekecektir. Daha sonra Database Scoped CREDENTIAL oluşturursunuz. Gen1 için Database Scoped CREDENTIAL AAD'de ayarlanmış hizmet sorumlusu kimlik bilgileri depolar. 2. nesil için Database Scoped CREDENTIAL içinde depolama hesabı anahtarını kullanmanız gerekir. 
+Data Lake Storage hesabınıza erişmek için kullanılan bir sonraki adımda, kimlik bilgisi gizli anahtarını şifrelemek için bir veritabanı ana anahtarı oluşturmanız gerekecektir. Daha sonra Database Scoped CREDENTIAL oluşturursunuz. Gen1 için Database Scoped CREDENTIAL AAD'de ayarlanmış hizmet sorumlusu kimlik bilgileri depolar. 2\. nesil için Database Scoped CREDENTIAL içinde depolama hesabı anahtarını kullanmanız gerekir. 
 
 Data Lake depolama Gen1 için bağlanmak için şunları yapmanız gerekir **ilk** Azure Active Directory uygulaması oluşturma, bir erişim anahtarı oluşturmak ve Data Lake depolama Gen1 kaynak erişim verin. Yönergeler için [doğrulaması için Azure Data Lake depolama Gen1 kullanarak Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: mbullwin
 ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518834"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
@@ -193,7 +193,7 @@ Açıkça sürece yalnızca TLS 1.2 kullanmak için uygulamanızı otomatik olar
 
 ### <a name="platformlanguage-specific-guidance"></a>Platform/dil özel Kılavuzu
 
-|Platform/dili | Destek | Ek bilgiler |
+|Platform/dili | Destek | Daha Fazla Bilgi |
 | --- | --- | --- |
 | Azure Uygulama Hizmetleri  | Desteklenen yapılandırması gerekli olabilir. | Destek Nisan 2018'de Duyuruldu. İçin duyuruyu okuyun [yapılandırma ayrıntılarını](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
 | Azure işlev uygulamaları | Desteklenen yapılandırması gerekli olabilir. | Destek Nisan 2018'de Duyuruldu. İçin duyuruyu okuyun [yapılandırma ayrıntılarını](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
@@ -240,9 +240,9 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 
 | Eylem | (Sonraki tabloya bakın) toplanan veri sınıfları |
 | --- | --- |
-| [.NET web projeye Application Insights SDK'sı ekleme][greenbrown] |ServerContext<br/>Olayla<br/>Performans sayaçları<br/>İstekler<br/>**Özel durumlar**<br/>Oturum<br/>kullanıcı |
-| [IIS Durum İzleyicisi'ni yükleyin][redfield] |Bağımlılıklar<br/>ServerContext<br/>Olayla<br/>Performans sayaçları |
-| [Java web uygulaması için Application Insights SDK'sını ekleyin][java] |ServerContext<br/>Olayla<br/>İste<br/>Oturum<br/>kullanıcı |
+| [.NET web projeye Application Insights SDK'sı ekleme][greenbrown] |ServerContext<br/>Olayla<br/>Performans sayaçları<br/>İstekler<br/>**Özel durumlar**<br/>Oturum<br/>kullanıcılar |
+| [IIS Durum İzleyicisi'ni yükleyin][redfield] |Bağımlılıkları<br/>ServerContext<br/>Olayla<br/>Performans sayaçları |
+| [Java web uygulaması için Application Insights SDK'sını ekleyin][java] |ServerContext<br/>Olayla<br/>İstek<br/>Oturum<br/>kullanıcılar |
 | [Web sayfası için JavaScript SDK'sını ekleyin][client] |ClientContext <br/>Olayla<br/>Sayfa<br/>ClientPerf<br/>Ajax |
 | [Varsayılan özellikleri tanımlama][apiproperties] |**Özellikleri** tüm standart ve özel olaylar |
 | [Çağrı TrackMetric][api] |Sayısal değerleri<br/>**Özellikleri** |
@@ -263,12 +263,12 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 | ServerContext |Makine adı, yerel ayar, işletim sistemi, cihaz, kullanıcı oturum, kullanıcı bağlamı, işlemi |
 | Olayla |IP adresi, zaman damgası, işletim sistemi, tarayıcı coğrafi konumdan |
 | Ölçümler |Ölçüm adı ve değeri |
-| Olaylar |Olay ad ve değer |
+| Events |Olay ad ve değer |
 | PageViews |URL ve sayfa adı veya ekran adı |
 | İstemci performans |URL/sayfa adına, tarayıcı yükleme süresi |
 | Ajax |Sunucusuna HTTP çağrıları web sayfasından |
 | İstekler |URL'ye, süresini, yanıt kodu |
-| Bağımlılıklar |Türü (SQL, HTTP,...), bağlantı dizesi veya URI, eşitleme/zaman uyumsuz, süre, başarı, SQL deyimiyle (Durum İzleyicisi) |
+| Bağımlılıkları |Türü (SQL, HTTP,...), bağlantı dizesi veya URI, eşitleme/zaman uyumsuz, süre, başarı, SQL deyimiyle (Durum İzleyicisi) |
 | **Özel durumlar** |Tür, **ileti**, çağrı yığınlarını, kaynak dosya ve satır numarası, iş parçacığı kimliği |
 | Kilitlenmeleri |İşlem kimliği, üst işlem kimliği, kilitlenme iş parçacığı kimliği; uygulama düzeltme eki, kimliği, derleme;  özel durum türü, adres, nedeni; Karıştırılmış simgeleri ve kayıtları, ikili başlangıç ve bitiş adreslerini, ikili dosya adı ve yolu, cpu türü |
 | İzleme |**İleti** ve önem derecesi |

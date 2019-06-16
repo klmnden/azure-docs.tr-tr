@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 61bd230ffdb79b31390e96179e5beb3646902142
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796739"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Bing yerel iş arama API'si için kategorilerde Ara
@@ -26,7 +26,7 @@ Bing yerel iş arama API'si, bir kullanıcının konumuna yakın sonuçları ver
 Aşağıdaki türleri arama başlıca birçok kategorisi tanımlar.  Birden fazla kategori, atanan bir virgülle ayrılmış liste kullanılarak belirtilebilir `localCategories` parametresi.  
 - EatDrink 
 - SeeDo 
-- Atölye 
+- Satın alın 
 - HotelsAndMotels 
 - BanksAndCreditUnions 
 - Park 
@@ -66,7 +66,7 @@ Alt kategoriler, aynı şekilde geçirilir `localCategories`. Alt kategoriler da
 | MovieTheaters | Müzelerin | Park |
 | SightseeingTours | TouristInformation | Hayvanat |
  
-### <a name="shop"></a>Atölye 
+### <a name="shop"></a>Satın alın 
 |  |  |  |
 | -- | -- | -- |
 | AntiqueStores | Kitap mağazalarını | CDAndRecordStores |

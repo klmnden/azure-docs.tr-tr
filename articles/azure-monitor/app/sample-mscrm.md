@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
 ms.openlocfilehash: 6119f1116d255f7cd2a2bfc20e86eeca9e5dfe82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60523107"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Çözüm: Microsoft Dynamics CRM Online Application Insights ile Telemetri etkinleştirme
@@ -62,7 +62,7 @@ Uygulamanızı izlemek için bir Application Insights SDK'sını uygulamanıza e
     Kod, Application ınsights kaynağınızı tanımlayan izleme anahtarını içerir.
 3. Kaydedin ve yayımlayın.
 
-    ![Kaydet ve yayımla](./media/sample-mscrm/00006.png)
+    ![Kaydet ve Yayımla](./media/sample-mscrm/00006.png)
 
 ### <a name="instrument-forms"></a>Gereç formlar
 1. Microsoft CRM Online içinde hesabı formunu açın

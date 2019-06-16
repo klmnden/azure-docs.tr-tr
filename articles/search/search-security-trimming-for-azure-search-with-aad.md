@@ -10,10 +10,10 @@ ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61282228"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory kimlikleri kullanarak Azure Search Sonuçları kırpma için güvenlik filtreleri
@@ -64,7 +64,7 @@ Ancak, varolan kullanıcı yoksa, güvenlik sorumluları oluşturmak için Micro
 
 Kullanıcı ve grup üyeliği, özellikle büyük kuruluşlarda çok akıcı olabilir. Kullanıcı ve grup kimlikleri oluşturan kod sıklıkta kuruluş üyelik değişiklikleri alması için çalıştırmanız gerekir. Benzer şekilde, Azure Search dizininizi izin verilen kullanıcılar ve kaynaklar geçerli durumu yansıtacak şekilde benzer bir güncelleştirme zamanlaması gerektirir.
 
-### <a name="step-1-create-aad-grouphttpsdocsmicrosoftcomgraphapigroup-post-groupsviewgraph-rest-10"></a>1. Adım: Oluşturma [AAD grubu](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
+### <a name="step-1-create-aad-grouphttpsdocsmicrosoftcomgraphapigroup-post-groupsviewgraph-rest-10"></a>1\. adım: Oluşturma [AAD grubu](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -78,7 +78,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdocsmicrosoftcomgraphapiuser-post-usersviewgraph-rest-10"></a>2. Adım: Oluşturma [AAD kullanıcısı](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+### <a name="step-2-create-aad-userhttpsdocsmicrosoftcomgraphapiuser-post-usersviewgraph-rest-10"></a>2\. adım: Oluşturma [AAD kullanıcısı](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -93,12 +93,12 @@ User user = new User()
 User newUser = await graph.Users.Request().AddAsync(user);
 ```
 
-### <a name="step-3-associate-user-and-group"></a>3. Adım: Kullanıcı ve Grup ilişkilendirme
+### <a name="step-3-associate-user-and-group"></a>3\. adım: Kullanıcı ve Grup ilişkilendirme
 ```csharp
 await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
-### <a name="step-4-cache-the-groups-identifiers"></a>4. Adım: Grupları tanımlayıcılar önbelleğe alma
+### <a name="step-4-cache-the-groups-identifiers"></a>4\. Adım: Grupları tanımlayıcılar önbelleğe alma
 İsteğe bağlı olarak, ağ gecikme süresini azaltmak için bir arama talebi, grupları önbellekten bir gidiş dönüş AAD'ye kaydetme getirilir, böylece kullanıcı grubu ilişkilendirmeleri önbelleğe alabilir. Kullanabileceğiniz [AAD Batch API'sini](https://developer.microsoft.com/graph/docs/concepts/json_batching) birden çok kullanıcıya sahip tek bir Http isteği gönderip önbelleği oluşturacak.
 
 Microsoft Graph, büyük hacimde istekleri işlemek için tasarlanmıştır. Büyük bir istek sayısı meydana gelirse, Microsoft Graph İstek HTTP durum kodu 429 ile başarısız olur. Daha fazla bilgi için [Microsoft Graph azaltma](https://developer.microsoft.com/graph/docs/concepts/throttling).
@@ -137,7 +137,7 @@ Güvenlik kırpma amacıyla statik değerleri dahil olmak üzere veya arama sonu
 
 Talep verme kullanıcı gruplarını temel alan arama sonuçlarında döndürülen belgelerin filtre uygulamak için aşağıdaki adımları gözden geçirin.
 
-### <a name="step-1-retrieve-users-group-identifiers"></a>1. Adım: Kullanıcının grup kimlikleri alma
+### <a name="step-1-retrieve-users-group-identifiers"></a>1\. adım: Kullanıcının grup kimlikleri alma
 
 Kullanıcının grupları zaten önbelleğe alınmazsa veya önbellek süresi doldu, sorun [grupları](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0) isteği
 ```csharp
@@ -165,7 +165,7 @@ private static async Task<List<string>> GetGroupIdsForUser(string userPrincipalN
 }
 ``` 
 
-### <a name="step-2-compose-the-search-request"></a>2. Adım: Arama isteği oluştur
+### <a name="step-2-compose-the-search-request"></a>2\. adım: Arama isteği oluştur
 
 Kullanıcının grup üyeliği olduğunu varsayarsak, uygun filtre değerleriyle arama isteği gönderebilir.
 
@@ -179,7 +179,7 @@ SearchParameters parameters = new SearchParameters()
 
 DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<SecuredFiles>("*", parameters);
 ```
-### <a name="step-3-handle-the-results"></a>3. Adım: Sonuçlarını işleme
+### <a name="step-3-handle-the-results"></a>3\. adım: Sonuçlarını işleme
 
 Yanıt, belgeler, kullanıcı görüntüleme iznine sahip olanlar oluşan filtrelenmiş bir listesini içerir. Arama sonuçları sayfasını nasıl oluşturmak bağlı olarak, filtrelenmiş sonuç kümesinde yansıtacak şekilde görsel ipuçları eklemek isteyebilirsiniz.
 

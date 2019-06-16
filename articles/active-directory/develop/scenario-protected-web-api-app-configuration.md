@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e206cb29338445e30a7462bcbaf0079236e75510
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bdd68d9ec5d0dd83df4628f39785ce255482245d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074973"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111162"
 ---
 # <a name="protected-web-api---code-configuration"></a>Korumalı web API'si - kod yapılandırma
 
@@ -159,4 +159,4 @@ Doğrulayıcıları özellikleri ile ilişkili tüm `TokenValidationParameters` 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Üretim aşamasına geçme](scenario-protected-web-api-production.md)
+> [Kapsamlar ve uygulama rolleri kodunuzda doğrulayın](scenario-protected-web-api-verification-scope-app-roles.md)

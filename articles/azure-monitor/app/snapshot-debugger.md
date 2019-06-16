@@ -13,10 +13,10 @@ ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595575"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET uygulamalarında özel durumlarda anlık görüntü hata ayıklama
@@ -44,7 +44,7 @@ Anlık görüntü koleksiyonu için kullanılabilir:
 
 Snapshot Debugger etkinleştirildi, ancak anlık görüntüleri görmüyorsanız, kontrol bizim [sorun giderme kılavuzu](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
-## <a name="grant-permissions"></a>İzin ver
+## <a name="grant-permissions"></a>İzinleri verme
 
 Anlık görüntüleri erişim, rol tabanlı erişim denetimi (RBAC) tarafından korunur. Bir anlık görüntü incelemek için önce gerekli rol için bir abonelik sahibi tarafından eklenmelidir.
 
@@ -54,7 +54,7 @@ Anlık görüntüleri erişim, rol tabanlı erişim denetimi (RBAC) tarafından 
 Abonelik sahipleri Ata `Application Insights Snapshot Debugger` rol kullanıcılara anlık görüntülerini inceler. Bu rol, bireysel kullanıcılar veya gruplar için Application Insights kaynağı hedef abonelik sahipleri tarafından veya kendi kaynak grubuna veya aboneliğe atanabilir.
 
 1. Azure portalında Application Insights kaynağına gidin.
-1. Tıklayın **erişim denetimi (IAM)**.
+1. Tıklayın **erişim denetimi (IAM)** .
 1. Tıklayın **+ rol ataması Ekle** düğmesi.
 1. Seçin **Application Insights Snapshot Debugger** gelen **rolleri** aşağı açılan listesi.
 1. Arayın ve kullanıcı eklemek için bir ad girin.

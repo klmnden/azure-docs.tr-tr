@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736810"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>İzleme ölçümlerini ve günlüklerini Azure ön kapısı hizmetinde
@@ -35,10 +35,10 @@ Azure ön kapısı hizmetini kullanarak, aşağıdaki yollarla kaynaklarını iz
 | RequestSize | İstek boyutu | Bayt | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | İstekleri olarak ön kapısı istemcilerden gönderilen bayt sayısı. |
 | ResponseSize | Yanıt boyutu | Bayt | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | İstemcilere ön kapısı yanıt gönderilen bayt sayısı. |
 | TotalLatency | Toplam gecikme süresi | Milisaniye | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | İstemci ön kapısı son yanıt bayttan onaylanır kadar ön kapısı tarafından alınan istemci isteği zaman hesaplanır. |
-| BackendRequestCount | Arka uç istek sayısı | Sayı | Httpstatus'a</br>HttpStatusGroup</br>Arka uç | Arka uçları için ön kapı gönderilen isteklerin sayısı. |
+| BackendRequestCount | Arka uç istek sayısı | Count | Httpstatus'a</br>HttpStatusGroup</br>Arka uç | Arka uçları için ön kapı gönderilen isteklerin sayısı. |
 | BackendRequestLatency | Arka uç istek gecikme süresi | Milisaniye | Arka uç | Zaman zaman ön kapısı son yanıt bayt arka uçtan alınan kadar isteği arka uca ön kapısı tarafından gönderildiği hesaplanır. |
 | BackendHealthPercentage | Arka uç sistem durumu yüzdesi | Yüzde | Arka uç</br>BackendPool | Başarılı sistem durumu yüzdesi arka uçları için ön kapı araştırmaları. |
-| WebApplicationFirewallRequestCount | Web uygulaması güvenlik duvarı istek sayısı | Sayı | PolicyName</br>RuleName</br>Eylem | Ön kapısı uygulama katman güvenlik tarafından işlenen istemci isteklerinin sayısı. |
+| WebApplicationFirewallRequestCount | Web uygulaması güvenlik duvarı istek sayısı | Count | PolicyName</br>RuleName</br>Eylem | Ön kapısı uygulama katman güvenlik tarafından işlenen istemci isteklerinin sayısı. |
 
 ## <a name="activity-log"></a>Etkinlik günlükleri
 

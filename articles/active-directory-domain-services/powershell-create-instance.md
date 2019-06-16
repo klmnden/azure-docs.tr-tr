@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: ergreenl
 ms.openlocfilehash: f2c4f73af00e0093ce98f2de37e9c3a0ba381eda
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246862"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Azure Active Directory etki alanı PowerShell kullanarak Services'i etkinleştirme
@@ -27,7 +27,7 @@ Bu makalede, PowerShell kullanarak Azure Active Directory (AD) etki alanı Hizme
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-## <a name="task-1-install-the-required-powershell-modules"></a>1. Görev: Gerekli PowerShell modüllerini yükleyin
+## <a name="task-1-install-the-required-powershell-modules"></a>1\. Görev: Gerekli PowerShell modüllerini yükleyin
 
 ### <a name="install-and-configure-azure-ad-powershell"></a>Azure AD PowerShell'i yükleme ve yapılandırma
 İçin makaledeki yönergeleri [Azure AD PowerShell modülünü yüklemek ve Azure AD'ye bağlanma](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
@@ -36,14 +36,14 @@ Bu makalede, PowerShell kullanarak Azure Active Directory (AD) etki alanı Hizme
 İçin makaledeki yönergeleri [Azure PowerShell modülünü yüklemek ve Azure aboneliğinize bağlayın](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
-## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>2. Görev: Azure AD dizininizde gerekli hizmet sorumlusu oluşturma
+## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>2\. Görev: Azure AD dizininizde gerekli hizmet sorumlusu oluşturma
 Azure AD dizininizde Azure AD Domain Services için gereken hizmet sorumlusu oluşturmak için aşağıdaki PowerShell komutunu yazın.
 ```powershell
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>3. Görev: 'AAD DC Administrators' grubu oluşturmak ve yapılandırmak
+## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>3\. Görev: 'AAD DC Administrators' grubu oluşturmak ve yapılandırmak
 Sıradaki görev, yönetilen etki alanınızda yönetim görevleri için temsilci seçmek için kullanılacak Yönetici grubu oluşturmaktır.
 ```powershell
 # Create the delegated administration group for AAD Domain Services.
@@ -69,14 +69,14 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
-## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>4. Görev: Azure AD Domain Services kaynak sağlayıcısını kaydetme
+## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>4\. Görev: Azure AD Domain Services kaynak sağlayıcısını kaydetme
 Azure AD Domain Services için kaynak sağlayıcısını kaydetmek için aşağıdaki PowerShell komutunu yazın:
 ```powershell
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-## <a name="task-5-create-a-resource-group"></a>5. Görev: Kaynak grubu oluşturma
+## <a name="task-5-create-a-resource-group"></a>5\. Görev: Kaynak grubu oluşturma
 Bir kaynak grubu oluşturmak için aşağıdaki PowerShell komutunu yazın:
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"
@@ -91,7 +91,7 @@ New-AzResourceGroup `
 Bu kaynak grubunda sanal ağ ve Azure AD Domain Services yönetilen etki alanı oluşturabilirsiniz.
 
 
-## <a name="task-6-create-and-configure-the-virtual-network"></a>6. Görev: Oluşturma ve sanal ağ yapılandırma
+## <a name="task-6-create-and-configure-the-virtual-network"></a>6\. Görev: Oluşturma ve sanal ağ yapılandırma
 Şimdi, Azure AD Domain Services'i etkinleştirdiğiniz sanal ağı oluşturun. Azure AD Domain Services için ayrılmış alt ağında oluşturduğundan emin olun. İş yükü Vm'leri bu ayrılmış bir alt ağa dağıtmayın.
 
 Azure AD Domain Services için ayrılmış bir alt ağ ile sanal ağ oluşturmak için aşağıdaki PowerShell komutlarını yazın.

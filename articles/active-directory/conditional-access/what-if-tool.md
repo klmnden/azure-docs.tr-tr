@@ -2,7 +2,7 @@
 title: Ne olursa nedir, Azure Active Directory koşullu erişim aracı?
 description: Koşullu erişim ilkelerinizi etkisini ortamınızda nasıl anlayabilirsiniz öğrenin.
 services: active-directory
-keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
+keywords: Koşullu erişim uygulamalara, Azure AD koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim ile koşullu erişim
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 11/20/2018
 ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6271c7a99e82fb1fff2815167b0149c74212f260
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 6a0f1fa0630a58054a138b730141b982af427475
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60354341"
+ms.locfileid: "67111929"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Ne olursa nedir, Azure Active Directory koşullu erişim aracı?
 
@@ -33,7 +33,7 @@ Bu makalede, koşullu erişim ilkelerinizi test etmek için bu aracı nasıl kul
 
 ## <a name="what-it-is"></a>Nedir?
 
-**Ne koşullu erişim ilkesi aracı** koşullu erişim ilkelerinizi ortamınızda etkisini anlamanıza olanak tanır. İlkelerinizi test etmek için elle birden fazla oturum açma işlemi gerçekleştirmek yerine, bu aracı kullanarak bir kullanıcının oturum açmasının simülasyonunu yapabilirsiniz. Benzetim, bu oturum açma işleminin ilkeleriniz üzerindeki etkisini tahmin eder ve bir benzetim raporu oluşturur. Rapor yalnızca uygulanan koşullu listelemez erişim ilkeleri de [Klasik ilkeleri](policy-migration.md#classic-policies) varsa.    
+**Ne koşullu erişim ilkesi aracı** koşullu erişim ilkelerinizi ortamınızda etkisini anlamanıza olanak tanır. İlkelerinizi test etmek için elle birden fazla oturum açma işlemi gerçekleştirmek yerine, bu aracı kullanarak bir kullanıcının oturum açmasının simülasyonunu yapabilirsiniz. Benzetim, bu oturum açma işleminin ilkeleriniz üzerindeki etkisini tahmin eder ve bir benzetim raporu oluşturur. Rapora uygulanan koşullu erişim ilkelerini yalnızca listelenmez, ancak aynı zamanda [Klasik ilkeleri](policy-migration.md#classic-policies) varsa.    
 
 Araçlar da sağlar bir şekilde hızlı bir şekilde yenilikler belirli bir kullanıcı için uygulanan tüm ilkeler belirleyin. Bir sorunu gidermek gerekiyorsa, örneğin, bilgileri kullanabilirsiniz.  
 
@@ -123,8 +123,8 @@ Kullanıcı için uygulama ilkeleri listesinde, oluşturabilir ve neden bu ilkel
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](app-based-mfa.md).
+- Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [gerektiren MFA belirli uygulamalar için Azure Active Directory koşullu erişim ile](app-based-mfa.md).
 
-- Ortamınızda koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz. [Azure Active Directory'de koşullu erişim için en iyi yöntemler](best-practices.md). 
+- Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi uygulamalar](best-practices.md). 
 
 - Klasik ilkeleri geçirme istiyorsanız bkz [Azure portalında Klasik ilkeleri geçirme](policy-migration.md)  

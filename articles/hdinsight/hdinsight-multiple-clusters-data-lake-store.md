@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700282"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Birden çok HDInsight kümesi ile bir Azure Data Lake Storage hesabını kullanın.
@@ -50,10 +50,10 @@ Tabloda,
 
 Dikkate alınması gereken bazı önemli noktalar.
 
-- İki düzey klasör yapısı (**/kümeleri/Finans/**) oluşturulmalı ve uygun izinlere sahip Data Lake Storage yönetici tarafından sağlanan **önce** kümeleri için depolama hesabı kullanarak. Bu yapı, küme oluşturulurken otomatik olarak oluşturulmaz.
+- İki düzey klasör yapısı ( **/kümeleri/Finans/** ) oluşturulmalı ve uygun izinlere sahip Data Lake Storage yönetici tarafından sağlanan **önce** kümeleri için depolama hesabı kullanarak. Bu yapı, küme oluşturulurken otomatik olarak oluşturulmaz.
 - Yukarıdaki örnek grubu ayarını önerir **/kümeleri/Finans** olarak **FINGRP** ve sorgulamasına **r-x** başlangıç klasörün tamamını hiyerarşisine FINGRP erişimi kök dizini. Bu, FINGRP üyelerinin kökünden başlayarak klasör yapısını gidebilirsiniz sağlar.
 - Farklı AAD hizmet sorumlusu altında kümeleri oluşturabilir, bu durumda **/kümeleri/Finans**, Yapışkan bit (belirlendiğinde **Finans** klasör) klasörleri bir hizmet sorumlusu tarafından oluşturulan sağlar tarafından silinemiyor.
-- İzinleri ve klasör yapısı yerinde olduğunda, HDInsight kümesi oluşturma işlemi bir kümeye özgü depolama konumu altında oluşturur **/kümeleri/Finans/**. Örneğin, depolama alanı için bir küme adı fincluster01 olabilir **/clusters/finance/fincluster01**. HDInsight kümesi tarafından oluşturulan klasörler için izinleri ve sahiplik tabloda burada gösterilir.
+- İzinleri ve klasör yapısı yerinde olduğunda, HDInsight kümesi oluşturma işlemi bir kümeye özgü depolama konumu altında oluşturur **/kümeleri/Finans/** . Örneğin, depolama alanı için bir küme adı fincluster01 olabilir **/clusters/finance/fincluster01**. HDInsight kümesi tarafından oluşturulan klasörler için izinleri ve sahiplik tabloda burada gösterilir.
 
     |Klasör  |İzinler  |Sahip olan kullanıcı  |Sahip olan grup  | Adlandırılmış kullanıcılar | Adlandırılmış kullanıcı izinleri | Adlandırılmış Grup | Adlandırılmış grup izinleri |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -87,8 +87,8 @@ Bu ayarlar bir belirli HDInsight kullanım örneği yakalanan içinde etkileyen 
 
 Daha önce ortak kaynaklara yerelleştirilirken bağlı YARN jıra'da belirtildiği gibi uzak dosya sistemi izinlerini kontrol ederek istenen tüm kaynakları gerçekte herkese açık yerelleştiriciye doğrular. Bu koşul uymayan herhangi LocalResource yerelleştirme için reddedilir. İzinleri denetleme içerir dosya için okuma erişimi "başkaları için". Bu senaryo kullanıma hazır Azure Data Lake "diğerleri" tüm erişimi engeller beri Azure Data Lake, HDInsight kümelerinde barındırırken kök klasör düzeyinde çalışmaz.
 
-#### <a name="workaround"></a>Geçici çözüm
-Küme yürütme Okuma izinlerini **başkalarının** hiyerarşisi aracılığıyla örneğin **/**, **/kümeleri** ve   **/kümeleri/Finans** yukarıdaki tabloda gösterildiği gibi.
+#### <a name="workaround"></a>Geçici Çözüm
+Küme yürütme Okuma izinlerini **başkalarının** hiyerarşisi aracılığıyla örneğin **/** , **/kümeleri** ve   **/kümeleri/Finans** yukarıdaki tabloda gösterildiği gibi.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60321826"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>StorSimple 8000 serisi Cihazınızda bir donanım bileşenini değiştirme
@@ -104,7 +104,7 @@ Hem birincil kasası hem de EBOD muhafazası sürücü taşıyıcı modüller va
 
 | Etiket | Açıklama |
 |:--- |:--- |
-| 1 |PCM 0'DA |
+| 1 |PCM 0 |
 | 2 |PCM 1 |
 | 3 |Denetleyici 0 |
 | 4 |Denetleyici 1 |
@@ -115,7 +115,7 @@ Hem birincil kasası hem de EBOD muhafazası sürücü taşıyıcı modüller va
 
 | Etiket | Açıklama |
 |:--- |:--- |
-| 1 |PCM 0'DA |
+| 1 |PCM 0 |
 | 2 |PCM 1 |
 | 3 |EBOD Denetleyicisi 0 |
 | 4 |EBOD denetleyicisi 1 |

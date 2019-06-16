@@ -17,10 +17,10 @@ ms.date: 06/28/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 6215230a52bcb5c44f54747b447dc5f64e6af650
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130390"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Etkin DNS adını Azure App Service'e geçirme
@@ -41,7 +41,7 @@ Bu nasıl yapılır tamamlamak için:
 
 Özel bir etki alanı sıd'lerde bağladığınızda, DNS kayıtlarınızı herhangi bir değişiklik yapmadan önce aşağıdaki her iki gerçekleştirirsiniz:
 
-- Etki alanı sahipliğini doğrulama
+- Etki alanı sahipliğini doğrulayın
 - Uygulamanız için etki alanı adını etkinleştirme
 
 Son olarak, özel DNS adını eski sitesinden App Service uygulamasına geçiş yaptığınızda, DNS çözümlemesi kapalı kalma süresi olmadan olacaktır.
@@ -121,7 +121,7 @@ Geri DNS kayıtları sayfasında etki alanı sağlayıcınızın yeniden eşleme
 
 İçin `contoso.com` kök etki alanı örneğinde, aşağıdaki tabloda örnek gibi A veya CNAME kaydını yeniden eşleyin: 
 
-| FQDN örneği | Kayıt türü | Host | Değer |
+| FQDN örneği | Kayıt türü | Ana bilgisayar | Değer |
 | - | - | - | - |
 | contoso.com (kök) | A | `@` | [Uygulamanın IP adresini kopyalama](#info) bölümünden IP adresi |
 | www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |

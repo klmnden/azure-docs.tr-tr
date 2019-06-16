@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 9aeae0ab68d809b36a3316054f12a5a9657721f1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65468612"
 ---
 # <a name="return-your-azure-data-box-edge-device"></a>Azure veri kutusu Edge Cihazınızı döndürür
@@ -38,7 +38,7 @@ Yerel web kullanıcı arabirimini kullanarak Cihazınızı sıfırlamak için a�
 1. Yerel web kullanıcı Arabirimi, Git **Bakım > Cihazınızı sıfırladığınızda**.
 2. Seçin **sıfırlama cihaz**.
 
-    ![Cihazı sıfırla](media/data-box-edge-return-device/device-reset-1.png)
+    ![Cihaz sıfırlama](media/data-box-edge-return-device/device-reset-1.png)
 
 3. Onayınız istendiğinde seçin ve uyarı gözden **Evet** devam etmek için.
 

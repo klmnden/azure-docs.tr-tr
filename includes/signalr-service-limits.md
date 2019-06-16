@@ -14,10 +14,10 @@ ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: zhshang
 ms.openlocfilehash: 1d87439b7afeb946fd37c468a0853adcb674ee5a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238620"
 ---
 | Resource | Varsayılan limit | Üst sınır | 
@@ -28,7 +28,7 @@ ms.locfileid: "66238620"
 | Bölge başına abonelik başına toplam Azure SignalR hizmeti birim sayısı |150 |Sınırsız |
 | Günlük birim başına bağlantılar ücretsiz katmanı |20 |20 |
 | Standart katman için günde birim başına bağlantılar |1000 |1000|
-| Günlük birim başına dahil edilen iletileri ücretsiz katmanı|20.000 |20.000 |
-| Standart katman için günde birim başına dahil edilen iletileri|1.000.000 |1.000.000 |
+| Günlük birim başına dahil edilen iletileri ücretsiz katmanı|20\.000 |20\.000 |
+| Standart katman için günde birim başına dahil edilen iletileri|1\.000.000 |1\.000.000 |
 
 Aboneliğinizin varsayılan sınırlarının güncelleştirme isteği için bir destek bileti açın. 

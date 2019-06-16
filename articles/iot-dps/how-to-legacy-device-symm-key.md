@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65914307"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Simetrik anahtarlar kullanarak eski cihazları sağlamasını yapma
@@ -268,7 +268,7 @@ Bu örnek kod, cihaz sağlama hizmeti örneğinizi sağlama isteği gönderdiği
 
 
 
-## <a name="security-concerns"></a>Güvenlik sorunları
+## <a name="security-concerns"></a>Güvenlik konuları
 
 Bu önerilen bir güvenlik en iyi uygulaması değildir görüntünün bir parçası olarak dahil edilen türetilen cihaz anahtarı bırakır dikkat edin. Güvenlik ve kullanım kolaylığı ödünler neden olan bir nedeni budur. 
 

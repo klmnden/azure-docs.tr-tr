@@ -12,14 +12,14 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522357"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 için LUIS uygulamaları v2 Geçiş Kılavuzu
-Sürüm 1 [uç nokta](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanım dışı bırakılmıştır. 2. sürüme geçirme anlamak için bu kılavuzu kullanın [uç nokta](https://go.microsoft.com/fwlink/?linkid=2092356) ve [yazma](https://go.microsoft.com/fwlink/?linkid=2092087) API'leri. 
+Sürüm 1 [uç nokta](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanım dışı bırakılmıştır. 2\. sürüme geçirme anlamak için bu kılavuzu kullanın [uç nokta](https://go.microsoft.com/fwlink/?linkid=2092356) ve [yazma](https://go.microsoft.com/fwlink/?linkid=2092087) API'leri. 
 
 ## <a name="new-azure-regions"></a>Yeni Azure bölgeleri
 LUIS sahip yeni [bölgeleri](https://aka.ms/LUIS-regions) LUIS API'leri için sağlanan. LUIS, bölge grupları için farklı bir portal sağlar. Uygulama sorgu beklediğiniz aynı bölgede yazılması gerekir. Uygulamaları bölgeleri otomatik olarak geçirilmez. Tek bir bölge sonra almak üzere başka bir yeni bölgede kullanılabilir olması için uygulamanın verilecek.
@@ -152,7 +152,7 @@ LUIS önerir mevcut konuşma [konuşma uç noktası](luis-how-to-review-endpoint
 |/luis/api/v2.0/Apps/customprebuiltdomains  |GET, post|
 |/ luis/api/v2.0/apps/customprebuiltdomains/{culture}  |Al|
 
-## <a name="importing-1x-app-into-2x"></a>1.x uygulama 2.x alma
+## <a name="importing-1x-app-into-2x"></a>1\.x uygulama 2.x alma
 Dışarı aktarılan 1.x uygulamanın JSON içine aktarmadan önce değiştirmeniz gereken bazı alanlar vardır [LUIS] [ LUIS] 2.0. 
 
 ### <a name="prebuilt-entities"></a>Önceden oluşturulmuş varlıklar 

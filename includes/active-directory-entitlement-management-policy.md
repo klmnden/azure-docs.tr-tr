@@ -9,10 +9,10 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113401"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>İlke: Dizininizdeki kullanıcılar için
@@ -69,7 +69,7 @@ ms.locfileid: "66113401"
 
 1. Aşağı atla [İlkesi: Sona erme](#policy-expiration) bölümü.
 
-### <a name="policy-request"></a>İlke: İste
+### <a name="policy-request"></a>İlke: İstek
 
 Kullanıcıların erişim paket istediğinde isteği bölümünde onay ayarlarını belirtin.
 
@@ -95,7 +95,7 @@ Kullanıcıların erişim paket istediğinde isteği bölümünde onay ayarları
 
 1. İçinde **onay isteği zaman aşımı (gün)** kutusunda, onaylayanlar sahip bir isteği gözden geçirmek için süreyi belirtin. Bu gün sayısı içinde hiçbir onaylayan gözden geçirin, isteğin süresi dolar ve kullanıcının erişim paket için başka bir istek göndermeniz gerekir.
 
-### <a name="policy-expiration"></a>İlke: Süre sonu
+### <a name="policy-expiration"></a>İlke: süre sonu
 
 Sona erme bölümünde, bir kullanıcının erişim paket atamaya süresinin sona erdiği belirtin.
 
@@ -115,7 +115,7 @@ Sona erme bölümünde, bir kullanıcının erişim paket atamaya süresinin son
 
     ![Erişim package - ilkeyi - sona erme tarihi](./media/active-directory-entitlement-management-policy/policy-expiration.png)
 
-### <a name="policy-enable-policy"></a>İlke: İlkeyi etkinleştir
+### <a name="policy-enable-policy"></a>İlke: İlkeyi etkinleştirme
 
 1. Erişim paket ilke ile kullanıcılara için hemen kullanılabilir olmasını isterseniz **Evet** ilkesini etkinleştirmek üzere.
 

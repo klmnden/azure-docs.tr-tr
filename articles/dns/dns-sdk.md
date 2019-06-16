@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
 ms.openlocfilehash: a06d629087e853c2578e6d35a2ea90c5a8eff840
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60308952"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>DNS bölgelerini ve kayıt kümelerini .NET SDK kullanarak oluşturma
@@ -34,7 +34,7 @@ Genellikle, kendi kullanıcı kimlik bilgileri yerine özel bir hesap Azure kayn
 4. Azure DNS SDK'sı örnek proje kullanıyorsanız, 'program.cs' dosyası şu şekilde düzenleyin:
 
    * Eklemek için doğru değerleri `tenantId`, `clientId` (diğer adıyla hesap kimliği), `secret` (hizmet sorumlusu hesabı parola) ve `subscriptionId` 1. adımda kullanılır.
-   * 2. adımda seçilen kaynak grubu adı girin.
+   * 2\. adımda seçilen kaynak grubu adı girin.
    * Tercih ettiğiniz bir DNS bölge adı girin.
 
 ## <a name="nuget-packages-and-namespace-declarations"></a>NuGet paketleri ve ad alanı bildirimi

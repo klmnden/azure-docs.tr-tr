@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
 ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957477"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure standart Load Balancer'a genel bakış
 
-Azure Load Balancer, uygulamalarınızı ölçeklendirmenize ve hizmetleriniz için yüksek kullanılabilirlik oluşturmanıza olanak sağlar. Yük Dengeleyici gelen yanı sıra giden senaryoları için kullanılabilir ve düşük gecikme süreli, yüksek aktarım hızı sağlar ve en fazla akışlar tüm TCP ve UDP uygulamaları için milyonlarca ölçeklendirir. 
+Azure Load Balancer, uygulamalarınızı ölçeklendirmenize ve hizmetleriniz için yüksek kullanılabilirlik sağlar. Yük Dengeleyici gelen yanı sıra giden senaryoları için kullanılabilir ve düşük gecikme süreli, yüksek aktarım hızı sağlar ve en fazla akışlar tüm TCP ve UDP uygulamaları için milyonlarca ölçeklendirir. 
 
 Bu makalede standart yük dengeleyici üzerinde odaklanır.  Azure Load Balancer için daha genel bir bakış için gözden [yük dengeleyiciye genel bakış](load-balancer-overview.md) de.
 

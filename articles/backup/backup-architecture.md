@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
 ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60647450"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup mimarisi
@@ -49,8 +49,8 @@ Kurtarma Hizmetleri kasaları, aşağıdaki özelliklere sahiptir:
 - Şirket içi ve Azure sanal makineler dahil olmak üzere bir kasadaki yedekleme öğeleri izleyebilirsiniz.
 - Azure kasası erişimi yönetebilirsiniz [rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 - Kasadaki veri yedekliliği nasıl çoğaltıldığını belirtirsiniz:
-    - **Yerel olarak yedekli depolama (LRS)**: Bir veri merkezinde arızasına karşı korumak için LRS kullanabilirsiniz. LRS, verileri bir depolama Ölçek birimine çoğaltır. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-    - **Coğrafi olarak yedekli depolama (GRS)**: Bölge çapında kesintilerden karşı korumak için GRS kullanabilirsiniz. GRS, verilerinizi ikincil bölgeye çoğaltır. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
+    - **Yerel olarak yedekli depolama (LRS)** : Bir veri merkezinde arızasına karşı korumak için LRS kullanabilirsiniz. LRS, verileri bir depolama Ölçek birimine çoğaltır. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+    - **Coğrafi olarak yedekli depolama (GRS)** : Bölge çapında kesintilerden karşı korumak için GRS kullanabilirsiniz. GRS, verilerinizi ikincil bölgeye çoğaltır. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
     - Varsayılan olarak, Kurtarma Hizmetleri kasaları GRS kullanın. 
 
 ## <a name="backup-agents"></a>Yedekleme aracıları
@@ -97,7 +97,7 @@ Depolama alanı tüketimi, Kurtarma süresi hedefi (RTO) ve ağ tüketimi yedekl
 
 Aşağıdaki tabloda farklı yedekleme türleri için desteklenen özellikler özetlenmiştir:
 
-**Özellik** | **Şirket içi Windows Server makineleri (doğrudan)** | **Azure Vm'leri** | **Makineler veya DPM/MABS uygulamalarını**
+**Özelliği** | **Şirket içi Windows Server makineleri (doğrudan)** | **Azure Vm'leri** | **Makineler veya DPM/MABS uygulamalarını**
 --- | --- | --- | ---
 Kasa için yedekleme | ![Evet][green] | ![Evet][green] | ![Evet][green] 
 DPM/MABS diske, ardından Azure yedekleme | | | ![Evet][green] 
@@ -178,7 +178,7 @@ Sanal makineler için disk depolama alanı ve kullanılabilir disk türleri hakk
 
 Azure Backup ile premium Depolama'yı kullanarak Azure sanal makinelerini yedekleyebilirsiniz:
 
-- Premium depolama ile Vm'leri yedekleme işlemi sırasında Backup hizmeti adlı geçici bir hazırlama konumu oluşturur. *AzureBackup -*, depolama hesabındaki. Hazırlama konumunun boyutu, kurtarma noktası anlık görüntüsünü boyutuna eşittir.
+- Premium depolama ile Vm'leri yedekleme işlemi sırasında Backup hizmeti adlı geçici bir hazırlama konumu oluşturur. *AzureBackup -* , depolama hesabındaki. Hazırlama konumunun boyutu, kurtarma noktası anlık görüntüsünü boyutuna eşittir.
 - Premium depolama hesabında geçici hazırlama konumu barındırmak için yeterli boş alan olduğundan emin olun. [Daha fazla bilgi edinin](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Hazırlama konumunu değiştirmeyin.
 - Yedekleme işi tamamlandıktan sonra hazırlama konumu silinir.
 - Hazırlama konumu için kullanılan depolama alanının fiyatı tutarlıdır [premium depolama fiyatlandırması](../virtual-machines/windows/disks-types.md#billing).

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606417"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
@@ -295,14 +295,14 @@ Oluşturma bir [Databricks kümesine](https://docs.microsoft.com/azure/azure-dat
 
 Bu ayarları kullanın:
 
-| Ayar |Uygulandığı öğe| Değer |
+| Ayar |Şunlara uygulanacaktır:| Değer |
 |----|---|---|
-| Küme adı |her zaman| yourclustername |
-| Databricks Çalışma Zamanı |her zaman| Tüm olmayan ML çalışma zamanı (olmayan ML 4.x, 5.x) |
-| Python sürümü |her zaman| 3 |
-| Çalışanlar |her zaman| 2 veya üzeri |
-| Çalışan düğümü VM türleri <br>(en fazla eş zamanlı yineleme sayısı belirler) |Otomatik ML<br>Yalnızca| Tercih edilen VM bellek için iyileştirilmiş |
-| Otomatik Ölçeklendirmeyi Etkinleştirme |Otomatik ML<br>Yalnızca| Seçeneğinin işaretini kaldırın |
+| Küme adı |Her zaman| yourclustername |
+| Databricks Çalışma Zamanı |Her zaman| Tüm olmayan ML çalışma zamanı (olmayan ML 4.x, 5.x) |
+| Python sürümü |Her zaman| 3 |
+| Çalışanlar |Her zaman| 2 veya üzeri |
+| Çalışan düğümü VM türleri <br>(en fazla eş zamanlı yineleme sayısı belirler) |Otomatikleştirilmiş ML<br>Yalnızca| Tercih edilen VM bellek için iyileştirilmiş |
+| Otomatik Ölçeklendirmeyi Etkinleştirme |Otomatikleştirilmiş ML<br>Yalnızca| Seçeneğinin işaretini kaldırın |
 
 Devam etmeden önce küme çalışan kadar bekleyin.
 
@@ -311,7 +311,7 @@ Küme çalışmaya başladıktan sonra [bir kitaplığı oluşturma](https://doc
 
 1. Seçin **tek** seçeneği (diğer bir SDK yüklemesi desteklenir)
 
-   |SDK'sı&nbsp;paket&nbsp;ek özellikler|Kaynak|Pypı&nbsp;adı&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK'sı&nbsp;paket&nbsp;ek özellikler|source|Pypı&nbsp;adı&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Databricks için| Python yükleme Yumurta veya Pypı | azureml-sdk[databricks]|
    |-With - için Databricks<br> Otomatik ML özellikleri| Python yükleme Yumurta veya Pypı | azureml-sdk[automl_databricks]|
@@ -378,7 +378,7 @@ Bu dosyadan kodunuzu kullanmak için `ws=Workspace.from_config()`. Bu kod, bilgi
 
 Yapılandırma dosyası üç şekilde oluşturabilirsiniz:
 
-* **Bağlantısındaki [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md#sdk)**: A *config.json* Azure not defterleri kitaplığınızda dosyası oluşturulur. Dosyanın çalışma alanınız için yapılandırma bilgilerini içerir. İndirin veya kopyalayın *config.json* diğer geliştirme ortamlarıyla.
+* **Bağlantısındaki [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md#sdk)** : A *config.json* Azure not defterleri kitaplığınızda dosyası oluşturulur. Dosyanın çalışma alanınız için yapılandırma bilgilerini içerir. İndirin veya kopyalayın *config.json* diğer geliştirme ortamlarıyla.
 
 * **Dosya indirme**: İçinde [Azure portalında](https://ms.portal.azure.com)seçin **config.json indirme** gelen **genel bakış** çalışma alanınızın bir bölümü.
 

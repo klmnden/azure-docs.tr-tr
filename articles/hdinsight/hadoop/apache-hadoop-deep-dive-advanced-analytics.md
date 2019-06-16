@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: ac0edf2de4337154b665b8f3898134a7c2fd1f4c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712402"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Derin Dalış - Gelişmiş analiz
@@ -23,7 +23,7 @@ HDInsight, yapılandırılmış, yapılandırılmamış büyük miktarlardaki de
 
 ## <a name="advanced-analytics-process"></a>Gelişmiş analiz işlem
 
-![İşlem](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Process](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
 
 İşinizdeki sorunu tespit ettik ve toplama başlatıldı, veri işleme, soru temsil eden bir model oluşturmak ihtiyacınız ve sonra tahmin etmek istiyor. Modelinizi, iş gereksinimlerinize en uygun tahmin türünü yapmak için bir veya daha fazla makine öğrenimi algoritmaları kullanır.  Verilerinizi çoğu, test etmek veya onu değerlendirmek için kullanılan rest ile modeli eğitmek için kullanılmalıdır. 
 
@@ -96,7 +96,7 @@ Bu gelişmiş analiz senaryoda üç önemli görevler şunlardır:
 2. Microsoft Bilişsel araç seti, bir Azure HDInsight Spark kümesinin tüm düğümlerine yüklemek için özel bir betik çalıştırın. 
 3. Önceden oluşturulmuş bir Jupyter Not Defteri, HDInsight Spark kümenize bir eğitilen Microsoft Bilişsel Araç Seti derin öğrenme modeli Spark Python API'si (PySpark) kullanarak bir Azure Blob Depolama hesabı içindeki dosyalara uygulamak için karşıya yükleyin. 
 
-Bu örnek, derlenmiş ve dağıtılmış Alex Krizhevsky Vinod Nair ve Geoffrey Hinton tarafından ayarlanan CIFAR 10 görüntünün kullanır. 60.000 32 x 32 CIFAR 10 veri kümesini içeren 10 birbirini dışlayan sınıflarına ait görüntüleri rengi:
+Bu örnek, derlenmiş ve dağıtılmış Alex Krizhevsky Vinod Nair ve Geoffrey Hinton tarafından ayarlanan CIFAR 10 görüntünün kullanır. 60\.000 32 x 32 CIFAR 10 veri kümesini içeren 10 birbirini dışlayan sınıflarına ait görüntüleri rengi:
 
 ![Görüntüler](./media/apache-hadoop-deep-dive-advanced-analytics/ml-images.png)
 

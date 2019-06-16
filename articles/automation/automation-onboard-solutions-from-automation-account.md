@@ -10,17 +10,17 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: a1bb5534d2f98a4e5143038ab1d5fbbcc76184fe
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133197"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri
 
 Azure Otomasyonu, stok bilgisayarlarınızda yüklü işletim sistemi güvenlik güncelleştirmelerini yönetmek ve değişiklikleri izlemek için çözümler sağlar. Makine birçok yolu vardır, bu çözüme ekleyebilir [bir sanal makineden](automation-onboard-solutions-from-vm.md), [birden çok makine gözatma gelen](automation-onboard-solutions-from-browse.md), Otomasyon hesabınızdan veya göre [runbook](automation-onboard-solutions.md). Bu makalede onboarding Bu çözümler Otomasyon hesabınızdan kapsar.
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 https://portal.azure.com adresinden Azure'da oturum açın
 
@@ -47,7 +47,7 @@ Seçin **güncelleştirme yönetimi** altında **güncelleştirme yönetimi**. S
 
 ![Güncelleştirme çözümü](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-## <a name="scope-configuration"></a>Kapsam Yapılandırması
+## <a name="scope-configuration"></a>Kapsam yapılandırması
 
 Her bir çözümün kapsam yapılandırması çözümünü edinme bilgisayarları hedeflemek için bir çalışma alanı içinde kullanır. Kapsam yapılandırması belirli bilgisayarlara çözüm kapsamını sınırlamak için kullanılan bir veya daha fazla kayıtlı aramalar grubudur. Kapsam yapılandırmaları, Otomasyon hesabınız kapsamında erişmeye **ilgili kaynakları**seçin **çalışma**. Ardından çalışma alanı altındaki **çalışma alanı veri kaynakları**seçin **kapsam yapılandırmaları**.
 
@@ -65,7 +65,7 @@ Bir bilgisayarı güncelleştirme yönetimi veya değişiklik izleme ve sayım �
 
 Otomasyon hesabınıza gidin ve seçin **kayıtlı aramalar** altında **genel**. Aşağıdaki tabloda bu çözüm tarafından kullanılan iki kayıtlı aramalar görülebilir:
 
-|Ad     |Category  |Diğer Ad  |
+|Ad     |Kategori  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  Değişiklik izleme       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Güncelleştirmeler        | Updates__MicrosoftDefaultComputerGroup         |
@@ -104,7 +104,7 @@ Tüm kullanılabilir makineleri çözümü etkinleştirmek için işaretleyin **
 
 Tüm kullanılabilir makinelerde ve gelecekteki makinelerde çözümü etkinleştirmek için seçin **tüm mevcut ve gelecekteki makinelerde etkinleştir**. Bu seçenek kayıtlı aramalar ve kapsam yapılandırmaları çalışma alanından siler. Bu eylem, tüm Azure ve Azure olmayan makineler, çalışma alanına raporlama çözümü açar. Bu eylem, seçili olduğunda, devre dışı bırakır **makinelerini yönetme** sol hiçbir kapsam yapılandırması olduğundan kalıcı olarak düğmesi.
 
-### <a name="selected-machines"></a>Seçilen makineler
+### <a name="selected-machines"></a>Seçili makineler
 
 Bir veya daha fazla makine için çözümü etkinleştirmek için seçin **seçili makinelerde etkinleştir** tıklatıp **ekleme** çözüme eklemek istediğiniz her makineyi yanında. Bu görev seçili makine adları kaydedilen arama sorgu çözümü bilgisayar grubuna ekler.
 
@@ -127,7 +127,7 @@ Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kald
 
 2. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
 
-   ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png):
+   ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    Devam etmek istediğinizi doğrulayan bir ileti alırsınız.
 

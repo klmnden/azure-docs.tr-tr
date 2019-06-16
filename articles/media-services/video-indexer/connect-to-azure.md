@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799839"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabı oluşturun
@@ -139,13 +139,13 @@ Bir Azure bağlantısı başarısız olursa, el ile bağlanarak sorunu gidermek 
 
 |Ayar|Açıklama|
 |---|---|
-|Video Indexer hesabının bölgesi|Video Indexer hesap bölgesi adı. Daha iyi performans ve düşük maliyetlerden için Azure Media Services kaynağınız ve Azure depolama hesabının bulunduğu bölge adını belirtmek için önemle tavsiye edilir. |
+|Video Indexer hesap bölgesi|Video Indexer hesap bölgesi adı. Daha iyi performans ve düşük maliyetlerden için Azure Media Services kaynağınız ve Azure depolama hesabının bulunduğu bölge adını belirtmek için önemle tavsiye edilir. |
 |Azure Active Directory (AAD) kiracısı|Azure AD kiracısı, örneğin "contoso.onmicrosoft.com" adı. Kiracı bilgileri, Azure portalından alınabilir. Sağ üst köşedeki oturum açan kullanıcı adının üzerine imleci yerleştirin. Sağındaki adını bulma **etki alanı**.|
-|Abonelik kimliği|Azure aboneliği altında bu bağlantının oluşturulması. Abonelik kimliği, Azure portalından alınabilir. Tıklayarak **tüm hizmetleri** sol bölme ve "abonelikler" arayın. Seçin **abonelikleri** ve istenen kimliği aboneliklerinizi listesinden seçin.|
+|Abonelik Kimliği|Azure aboneliği altında bu bağlantının oluşturulması. Abonelik kimliği, Azure portalından alınabilir. Tıklayarak **tüm hizmetleri** sol bölme ve "abonelikler" arayın. Seçin **abonelikleri** ve istenen kimliği aboneliklerinizi listesinden seçin.|
 |Azure Media Services kaynak grubu adı|Media Services hesabı oluşturduğunuz kaynak grubunun adı.|
 |Medya hizmeti kaynak adı|Önceki bölümde oluşturduğunuz Azure Media Services hesabı adı.|
 |Uygulama Kimliği|Önceki bölümde oluşturduğunuz Azure AD uygulama kimliği (ile belirtilen Media Services hesabı için izinler).|
-|Uygulama Anahtarı|Önceki bölümde oluşturduğunuz Azure AD uygulama anahtarı. |
+|Uygulama anahtarı|Önceki bölümde oluşturduğunuz Azure AD uygulama anahtarı. |
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 

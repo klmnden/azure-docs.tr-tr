@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: resources
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1f2b4d25b39e9b3ebc6659e736d47640964251dc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61335339"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693891"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Proje akustik sık sorulan sorular
 
@@ -27,7 +27,7 @@ Eklenti projesi akustik paketini ses wave davranışı önce çalışma zamanı 
 
 İndirebileceğiniz [proje akustik Unity eklentisi](https://www.microsoft.com/download/details.aspx?id=57346) veya [proje akustik Unreal eklentisi](https://www.microsoft.com/download/details.aspx?id=58090).
 
-## <a name="does-project-acoustics-support-x-platform"></a>Proje akustik desteklemiyor <x> platform?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>Proje akustik desteklemiyor &lt;x&gt; platform?
 
 Platform desteği geliştikçe akustik müşteri gereksinimlerine göre proje. Lütfen bize ulaşın [proje akustik forumları](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) desteği hakkında ek platformlar için sorgulamak için.
 

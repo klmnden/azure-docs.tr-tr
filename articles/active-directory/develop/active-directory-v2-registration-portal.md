@@ -19,10 +19,10 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec615e1c6229539958f66d0dca15cf7eb788e597
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546105"
 ---
 # <a name="app-registration-reference"></a>Uygulama kayıt başvurusu
@@ -34,13 +34,13 @@ Bu belgede bağlam sağlar ve çeşitli özelliklerin açıklamaları bulunan [u
 ## <a name="my-applications-or-converged-applications"></a>Uygulamalarım veya hiper yakınsanmış uygulamalar
 Bu liste tüm uygulamalarınızı Azure AD v2.0 uç noktası ile kullanılması için kaydedilen içerir. Bu uygulamaların kullanıcıların hem kişisel Microsoft hesapları hem de iş/Okul hesapları Azure Active Directory ile oturum açma olanağı vardır. Azure AD v2.0 uç noktası hakkında daha fazla bilgi için bkz: [v2.0 genel bakış](active-directory-appmodel-v2-overview.md). Bu uygulamalar Microsoft hesabı kimlik doğrulaması uç nokta ile tümleştirmek için de kullanılabilir `https://login.live.com`.
 
-## <a name="azure-ad-only-applications"></a>Yalnızca Azure AD'yi kullanan uygulamalar
+## <a name="azure-ad-only-applications"></a>Yalnızca Azure AD uygulamaları
 Bu liste tüm uygulamalarınızı Azure AD v1.0 uç noktası ile kullanılması için kaydedilen içerir. Bu uygulamalar, kullanıcılar Azure Active Directory'den iş/Okul hesaplarıyla oturum açma olanağı yeterlidir. Bu liste kullanılarak kaydedilmiş uygulamaları içerir **uygulama kayıtları** deneyimini [Azure portalı](https://portal.azure.com).
 
 ## <a name="live-sdk-applications"></a>Live SDK uygulamaları
 Bu liste tüm uygulamalarınızı, yalnızca Microsoft hesabı ile kullanmak için kayıtlı içerir. Azure Active Directory ile kullanmak için etkinleştirilmedi. MSA Geliştirici portalında ile daha önce kaydolan tüm uygulamaları nerede budur `https://account.live.com/developers/applications`. Daha önce sırasında gerçekleştirilen tüm işlevleri `https://account.live.com/developers/applications` artık bu yeni portalda gerçekleştirilebilir `https://apps.dev.microsoft.com`.
 
-## <a name="application-secrets"></a>Uygulama Sırları
+## <a name="application-secrets"></a>Uygulama gizli dizilerini
 Uygulama gizli dizilerini gerçekleştirmek, uygulamanızın güvenilir izin veren kimlik bilgileri olan [istemci kimlik doğrulaması](https://tools.ietf.org/html/rfc6749#section-2.3) Azure AD ile. OAuth ve Openıd Connect bir uygulama gizli anahtarı yaygın olarak adlandırılır bir `client_secret`. Bir web adreslenebilir konumda bir güvenlik belirteci alan herhangi bir uygulama v2.0 protokolündeki (kullanarak bir `https` düzeni) bu güvenlik belirtecinin kullanım sırasında Azure AD'ye kendisini tanımlamak için bir uygulama gizli anahtarı kullanmanız gerekir. Ayrıca, belirteçleri bir cihazda alan herhangi bir yerel istemcisi istemci kimlik doğrulaması gerçekleştirmek için bir uygulama gizli anahtarı kullanarak Yasak. Bu, gizli dizileri güvenli olmayan ortamlarda depolanmasını gerçekleştirilmesini önler.
 
 Her uygulama, belirli bir zamanda iki geçerli uygulama gizli dizilerini içerebilir. İki gizli dizileri tutarak, uygulamanızın tüm ortam genelinde düzenli anahtar geçişi gerçekleştirme imkanına sahip olursunuz. Uygulamanızın yeni bir gizli dizi tamamen geçiş yaptıktan sonra eski gizli anahtarı silme ve yeni bir tane sağlayın.
@@ -49,7 +49,7 @@ Her uygulama, belirli bir zamanda iki geçerli uygulama gizli dizilerini içereb
 Bir ortak anahtar içeren bir sertifikayı karşıya yüklemek için gereklidir.
 
 ## <a name="profile"></a>Profil
-Uygulama kayıt portalı profili bölümünü, uygulamanız için oturum açma sayfasını özelleştirmek için kullanılabilir. Şu anda oturum açma sayfasının uygulama logosu, alter koşulları hizmet URL'sini ve gizlilik bildirimi URL'si. Logo; saydam, 48 x 48 veya 50 x 50 piksel boyutunda, 15 KB veya daha küçük bir GIF, PNG veya JPEG dosyası olmalıdır. Deneyin değiştirerek ve sonuçta elde edilen oturum açma sayfası görüntüleme!
+Uygulama kayıt portalı profili bölümünü, uygulamanız için oturum açma sayfasını özelleştirmek için kullanılabilir. Şu anda oturum açma sayfasının uygulama logosu, alter koşulları hizmet URL'sini ve gizlilik bildirimi URL'si. Logo, saydam bir 48 x 48 veya 50 x 50 piksel boyutunda, 15 KB bir GIF, PNG veya JPEG dosyası içinde olmalıdır ya da daha küçük. Deneyin değiştirerek ve sonuçta elde edilen oturum açma sayfası görüntüleme!
 
 ## <a name="live-sdk-support"></a>Canlı SDK desteği
 "Canlı SDK desteği" etkinleştirdiğinizde, hem Azure AD ile oluşturduğunuz herhangi bir uygulama gizli dizilerini sağlanacak ve Microsoft Account veri depoları. Bu, uygulamanızın doğrudan Microsoft Account hizmetini ile (login.live.com) tümleştirme sağlar. Microsoft Account doğrudan (Azure AD v2.0 uç noktası aksine) kullanarak bir uygulama oluşturmak istiyorsanız, Canlı SDK desteği etkin olduğundan emin olun.

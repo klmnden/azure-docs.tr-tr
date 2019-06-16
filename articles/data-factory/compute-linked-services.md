@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 0e7405e48307091ff5df12096d49a00c011e2de3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480437"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen ortam işlem
@@ -388,7 +388,7 @@ Bir Machine Learning batch Puanlama uç noktası bir data factory'ye kaydetmeniz
 | updateResourceEndpoint | Tahmine dayalı Web hizmeti ile eğitilmiş model dosyasını güncelleştirmek için kullanılan bir Azure ML Web Hizmeti uç noktası güncelleştirme kaynak URL'si | Hayır                                       |
 | servicePrincipalId     | Uygulamanın istemci kimliği belirtin.     | UpdateResourceEndpoint belirttiyseniz gereklidir |
 | serviceprincipalkey değerleri    | Uygulama anahtarını belirtin.           | UpdateResourceEndpoint belirttiyseniz gereklidir |
-| kiracı                 | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Azure portalının sağ üst köşedeki fare getirerek geri alabilirsiniz. | UpdateResourceEndpoint belirttiyseniz gereklidir |
+| tenant                 | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Azure portalının sağ üst köşedeki fare getirerek geri alabilirsiniz. | UpdateResourceEndpoint belirttiyseniz gereklidir |
 | connectVia             | Bu bağlı hizmeti için etkinlikler gönderilmesi için kullanılacak Integration Runtime. Azure tümleştirme çalışma zamanı veya şirket içinde barındırılan Integration Runtime'ı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır                                       |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics bağlı hizmeti

@@ -11,10 +11,10 @@ ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1697f479cf013f2ef94dd5a8a2fc637d72e6e18a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740016"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>İlk PowerShell İş Akışı runbook uygulamam
@@ -35,7 +35,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * Runbook’u tutacak ve Azure kaynaklarında kimlik doğrulamasını yapacak bir [Automation hesabı](automation-offering-get-started.md).  Bu hesabın sanal makineyi başlatma ve durdurma izni olmalıdır.
 * Azure sanal makinesi. Üretime yönelik bir VM olmaması için bu makineyi durdurup.
 
-## <a name="step-1---create-new-runbook"></a>1. Adım - Yeni runbook oluşturma
+## <a name="step-1---create-new-runbook"></a>1\. Adım - Yeni runbook oluşturma
 
 Metnini veren basit bir runbook oluşturmaya başlayın *Hello World*.
 
@@ -49,7 +49,7 @@ Metnini veren basit bir runbook oluşturmaya başlayın *Hello World*.
 1. Bu durumda, oluşturacağız bir [PowerShell iş akışı runbook'u](automation-runbook-types.md#powershell-workflow-runbooks) seçin **Powershell iş akışı** için **Runbook türü**.
 1. Runbook’u oluşturmak için **Oluştur**’a tıklayın ve metin düzenleyicisini açın.
 
-## <a name="step-2---add-code-to-the-runbook"></a>2. Adım - Runbook'a kod ekleme
+## <a name="step-2---add-code-to-the-runbook"></a>2\. Adım - Runbook'a kod ekleme
 
 Kodu doğrudan runbook’a yazabilir veya Kitaplık denetiminde cmdlet’leri, runbook’ları ve varlıkları seçebilir ve ilgili parametrelerle bunların runbook’a eklenmesini sağlayabilirsiniz. Bu kılavuzda doğrudan runbook'a yazın.
 
@@ -72,7 +72,7 @@ Kodu doğrudan runbook’a yazabilir veya Kitaplık denetiminde cmdlet’leri, r
 
 1. **Kaydet**’e tıklayarak runbook’u kaydedin.
 
-## <a name="step-3---test-the-runbook"></a>3. Adım - Runbook'u test etme
+## <a name="step-3---test-the-runbook"></a>3\. Adım - Runbook'u test etme
 
 Runbook’u üretimde kullanılabilir hale getirmek üzere yayımlamadan önce düzgün çalıştığından emin olmak için test etmeniz gerekir. Bir runbook'u test ettiğinizde, bunun **Taslak** sürümünü çalıştırır ve çıktısını etkileşimli olarak görüntülersiniz.
 
@@ -88,7 +88,7 @@ Runbook’u üretimde kullanılabilir hale getirmek üzere yayımlamadan önce d
 
 1. Tuvale geri dönmek için Test bölmesini kapatın.
 
-## <a name="step-4---publish-and-start-the-runbook"></a>4. Adım - Runbook’u yayımlama ve başlatma
+## <a name="step-4---publish-and-start-the-runbook"></a>4\. Adım - Runbook’u yayımlama ve başlatma
 
 Oluşturduğunuz runbook hala Taslak modundadır. Üretimde çalıştırılabilmesi için önce yayınlamanız gerekir. Bir runbook yayımladığınızda, Taslak sürümü mevcut Yayımlanmış sürümün üzerine yazarsınız. Henüz runbook yalnızca oluşturduğundan sizin durumunuzda, yayımlanmış sürümünüz yok.
 
@@ -121,7 +121,7 @@ Oluşturduğunuz runbook hala Taslak modundadır. Üretimde çalıştırılabilm
 
 1. Runbook'u başlattığımızda, görüntülediğiniz iş sayfasını açmak için bu işe tıklayabilirsiniz. Bu eylem, zaman içinde geri dönün ve belirli bir runbook için oluşturulan herhangi bir işin ayrıntılarını görüntülemek sağlar.
 
-## <a name="step-5---add-authentication-to-manage-azure-resources"></a>5. Adım- Azure kaynaklarını yönetmek için kimlik doğrulaması ekleme
+## <a name="step-5---add-authentication-to-manage-azure-resources"></a>5\. Adım- Azure kaynaklarını yönetmek için kimlik doğrulaması ekleme
 
 Runbook uygulamanızı test ettiniz ve yayımladınız, ancak şu ana kadar faydalı bir şey yapmadı. Bu runbook’un Azure kaynaklarını yönetmesini istiyorsunuz. Başvurulan kimlik bilgilerini kullanarak kimlik doğrulaması yaptınız sürece, ancak bunu yapamazsınız [önkoşulları](#prerequisites). Bunu şu şekilde **Connect-AzureRmAccount** cmdlet'i.
 
@@ -152,7 +152,7 @@ Runbook uygulamanızı test ettiniz ve yayımladınız, ancak şu ana kadar fayd
 
    ![Kimlik doğrulaması](media/automation-first-runbook-textual/runbook-auth-output.png)
 
-## <a name="step-6---add-code-to-start-a-virtual-machine"></a>6. Adım - Sanal makineyi başlatmak için kod ekleme
+## <a name="step-6---add-code-to-start-a-virtual-machine"></a>6\. Adım - Sanal makineyi başlatmak için kod ekleme
 
 Azure aboneliğinize, runbook kimlik doğrulaması, kaynakları yönetebilir. Bir sanal makineyi başlatmak için bir komut ekleyin. Azure aboneliğinizdeki herhangi bir sanal makineyi seçebilir ve şimdilik bu adı cmdlet'e kod işiniz. Kaynakları birden çok farklı abonelikler arasında yönetiyorsanız, kullanmanız gerekir **- AzureRmContext** parametresi ile birlikte [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
 
@@ -176,7 +176,7 @@ Azure aboneliğinize, runbook kimlik doğrulaması, kaynakları yönetebilir. Bi
 1. Runbook'u kaydedin ve ardından **Test bölmesi** böylece test edebilirsiniz.
 1. Testi başlatmak için **Başlat**’a tıklayın. Tamamlandığında, sanal makinenin başlatıldığını kontrol edin.
 
-## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>7. Adım - Runbook'a girdi parametresi ekleme
+## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>7\. Adım - Runbook'a girdi parametresi ekleme
 
 runbook'unuzda sanal makine şu anda runbook'ta o, kodlanmış başlatmaz, bunun runbook başlatılırken sanal makineyi belirtebilirsiniz daha kullanışlı olurdu. Bu işlevi sağlamak için runbook'a girdi parametreleri ekleyin.
 

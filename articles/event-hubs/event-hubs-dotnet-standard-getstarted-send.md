@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 001abd15c88ae717fa0fb91605b2f0822a38973d
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603552"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>Olayları göndermek veya .NET Core kullanarak Azure Event Hubs'tan gelen olayları alma
@@ -213,7 +213,7 @@ Aşağıdaki adımları izleyerek [**Microsoft.Azure.EventHubs**](https://www.nu
 
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
 2. **Gözat** sekmesine tıklayın, **Microsoft.Azure.EventHubs** için arama yapın ve **Microsoft.Azure.EventHubs** paketini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
-3. 1. ve 2. adımları yineleyin, **Microsoft.Azure.EventHubs.Processor** paketini yükleyin.
+3. 1\. ve 2. adımları yineleyin, **Microsoft.Azure.EventHubs.Processor** paketini yükleyin.
 
 ### <a name="implement-the-ieventprocessor-interface"></a>IEventProcessor arabirimini gerçekleştirme
 

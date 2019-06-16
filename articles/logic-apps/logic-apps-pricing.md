@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299098"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075055"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps fiyatlandırma modeli
 
@@ -89,7 +89,7 @@ Mantıksal uygulama devre dışı bıraktıktan sonra şu anda çalışan örnek
 
 ## <a name="integration-accounts"></a>Tümleştirme hesapları
 
-Kullanım fiyatlandırması uygulanır [tümleştirme hesapları](logic-apps-enterprise-integration-create-integration-account.md) nerede keşfedin, geliştirebilir ve test [B2B ve EDI](logic-apps-enterprise-integration-b2b.md) ve [XML işleme](logic-apps-enterprise-integration-xml.md) olmadan Azure Logic Apps özellikleri ek bir maliyet.
+Sabit fiyatlandırma modeli uygulanır [tümleştirme hesapları](logic-apps-enterprise-integration-create-integration-account.md) nerede keşfedin, geliştirebilir ve test [B2B ve EDI](logic-apps-enterprise-integration-b2b.md) ve [XML işleme](logic-apps-enterprise-integration-xml.md) olmadan Azure Logic Apps özellikleri ek bir maliyet.
 Her bir Azure bölgesinde bir tümleştirme hesabı olabilir. Her tümleştirme hesabı belirli depolayabilirsiniz [yapıtları sayıda](../logic-apps/logic-apps-limits-and-config.md), iş ortakları, anlaşmalar, haritalar, şemalar, derlemeleri, sertifikaları, toplu iş yapılandırması ve benzeri ticari içerir.
 
 Azure Logic Apps, ücretsiz, temel ve standart tümleştirme hesapları sunar. Ücretsiz katmanda SLA tarafından desteklenmiyor ve bir üst sınırı temel ve standart Katmanlar Logic Apps hizmet düzeyi sözleşmesi (SLA), aktarım hızı ve kullanımı desteklenir.

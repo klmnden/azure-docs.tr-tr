@@ -19,10 +19,10 @@ ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001226"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Uygulama kimlik doğrulaması için sertifika kimlik bilgileri
@@ -34,7 +34,7 @@ Bir form kimlik doğrulaması için bir uygulama kullanan kimlik bilgisinin, uyg
 ## <a name="assertion-format"></a>Onaylama işlemi biçimi
 Onaylama hesaplamak için çok birini kullanabilirsiniz [JSON Web belirteci](https://jwt.ms/) tercih ettiğiniz dilde kitaplıkları. Belirteç tarafından taşınan bilgi aşağıdaki gibidir:
 
-### <a name="header"></a>Üst bilgi
+### <a name="header"></a>Üstbilgi
 
 | Parametre |  Açıklama |
 | --- | --- |

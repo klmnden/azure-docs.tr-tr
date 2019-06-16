@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799529"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabına yönetme
@@ -56,17 +56,17 @@ Hesabınızda bazı ayarlamalar gerekiyorsa ilgili hatalar ve uyarılar hakkınd
 
 Otomatik ölçeklendirme, 1 ölçeklendirme değil RU veya Media Services hesabı varsayılan sınırının üzerinde. Sınırı artırmak için bir hizmet isteği oluşturun. Kotalar ve sınırlamalar ve Destek bileti açmak nasıl hakkında daha fazla bilgi için bkz. [kotaları ve sınırlamaları](../../media-services/previous/media-services-quotas-and-limitations.md).
 
-![Kaydolun](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![Kaydolma](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Hatalar ve uyarılar
 
 Hesabınızda bazı ayarlamalar gerekiyorsa ilgili hatalar ve uyarılar, hesap yapılandırması hakkında gördüğünüz **ayarları** sayfası. İletileri Azure portalında tam basamak değişiklik gerek duyduğunuz senaryolara bağlantılar içerir. Bu bölüm, hata ve uyarı iletilerini hakkında daha fazla ayrıntı sağlar.
 
-* Olay Kılavuzu
+* Event Grid
 
     Azure portalını kullanarak EventGrid kaynak sağlayıcısını kaydetmeniz gerekir. İçinde [Azure portalında](https://portal.azure.com/)Git **abonelikleri** > [. abonelik] > **ResourceProviders** > **Microsoft.EventGrid**. Değilse de **kayıtlı** durumu, tıklayın **kaydetme**. Bu işlem birkaç dakika kaydedilecek götürür. 
 
-* Akış Uç Noktası
+* Akış uç noktası
 
     Varsayılan temel Media Services hesabı olduğundan emin olun **akış uç noktası** başlatılmış bir durumda. Aksi takdirde, bu Media Services hesabı veya Video Indexer videoları mümkün olmayacaktır.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66019763"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure DevOps hizmetlerinde, Azure kaynak grubu dağıtım projeleri kullanarak sürekli tümleştirme
@@ -49,7 +49,7 @@ PowerShell Betiği, Azure işlem hatlarında çağırmak için derleme işlem ha
 3. PowerShell Betiği, Azure kaynak grubu dağıtım projesi başvuran bir Azure PowerShell derleme adımını ekleyin.
 4. Değerini *- ArtifactsStagingDirectory* Azure işlem hatlarında yerleşik bir proje ile çalışmak için parametre.
 
-### <a name="detailed-walkthrough-for-option-1"></a>1. seçenek için ayrıntılı kılavuz
+### <a name="detailed-walkthrough-for-option-1"></a>1\. seçenek için ayrıntılı kılavuz
 Aşağıdaki yordamları, Azure DevOps Services projenizde PowerShell Betiği çalıştıran tek bir görevi kullanılarak sürekli dağıtımı yapılandırmak gereken adımlarda size yol. 
 
 1. Azure DevOps Hizmetleri derleme işlem hattınızı düzenleyin ve bir Azure PowerShell derleme adımı ekleme. Derleme işlem hattı altında seçin **derleme işlem hatlarını** kategori seçip **Düzenle** bağlantı.
@@ -79,10 +79,10 @@ Aşağıdaki yordamları, Azure DevOps Services projenizde PowerShell Betiği ç
    5. Azure aboneliği bilgilerinizi ekleyin **Azure aboneliği Ekle** iletişim kutusu. Aşağıdaki öğeler sağlamanız gerekir:
       
       * Abonelik Kimliği
-      * Abonelik Adı
-      * Hizmet Sorumlusu Kimliği
+      * Abonelik adı
+      * Hizmet sorumlusu kimliği
       * Hizmet sorumlusu anahtarı
-      * Kiracı Kimliği
+      * Kiracı kimliği
    6. İçin tercih ettiğiniz bir ad eklemek **abonelik** adı kutusuna. Bu değer daha sonra da görünür **Azure abonelik** aşağı açılan listeden Azure DevOps Hizmetleri. 
 
    7. Azure abonelik Kimliğinizi bilmiyorsanız, bu almak için aşağıdaki komutlardan birini kullanabilirsiniz.
@@ -111,7 +111,7 @@ Aşağıdaki yordamları, Azure DevOps Services projenizde PowerShell Betiği ç
    
    | Parametre | Açıklama |
    | --- | --- |
-   | -ResourceGroupLocation |Kaynak grubunun bulunduğu, gibi coğrafi konum değeri **eastus** veya **'Doğu ABD'**. (Adın bir boşluk ise tek tırnak işareti ekleyin.) Bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/) daha fazla bilgi için. |
+   | -ResourceGroupLocation |Kaynak grubunun bulunduğu, gibi coğrafi konum değeri **eastus** veya **'Doğu ABD'** . (Adın bir boşluk ise tek tırnak işareti ekleyin.) Bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/) daha fazla bilgi için. |
    | -ResourceGroupName |Bu dağıtım için kullanılan kaynak grubunun adı. |
    | -UploadArtifacts |Bu parametre, mevcut olduğunda belirten yapıtlarını Azure'a yerel sistemden yüklenmesi gerekir. Bu anahtar, şablon dağıtımı hazırlama (örneğin, yapılandırma betiklerini veya iç içe geçmiş şablonlar) PowerShell betiğini kullanarak istediğiniz ek yapıtları gerektiriyorsa ayarlamak yeterlidir. |
    | -StorageAccountName |Aşama yapıtları için bu dağıtım için kullanılan depolama hesabı adı. Yapıtlar dağıtım için hazırlama, bu parametre yalnızca kullanılır. Bu parametre sağlanmazsa betik önceki dağıtım sırasında bir oluşturmuş olmayan yeni bir depolama hesabı oluşturulur. Parametre belirtilmezse, depolama hesabı zaten mevcut olmalıdır. |
@@ -172,8 +172,8 @@ Aşağıdaki yordamları, Azure DevOps yerleşik görevleri kullanarak Hizmetler
    * Eylem - select **oluşturma veya güncelleştirme kaynak grubu**
    * Kaynak grubu - kaynak grubunu seçin veya dağıtım için yeni bir kaynak grubu adını girin
    * Konum - kaynak grubunun konumunu seçin
-   * Şablon - dağıtılacak şablonunun adını ve yolunu girin eklenmesini **$(Build.StagingDirectory)**, örneğin: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
-   * Şablon parametreleri - girin kullanılacak parametre adı ve yolu eklenmesini **$(Build.StagingDirectory)**, örneğin: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
+   * Şablon - dağıtılacak şablonunun adını ve yolunu girin eklenmesini **$(Build.StagingDirectory)** , örneğin: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
+   * Şablon parametreleri - girin kullanılacak parametre adı ve yolu eklenmesini **$(Build.StagingDirectory)** , örneğin: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
    * Şablon parametrelerini geçersiz kıl - girin veya aşağıdaki kodu kopyalayıp yapıştırın:
      
      ```    

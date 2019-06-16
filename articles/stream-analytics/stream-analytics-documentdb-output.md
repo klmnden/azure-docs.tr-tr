@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
 ms.openlocfilehash: 734cf09869e5a2df5f9a505a3cb8ccc7bc2338d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60402318"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB için Azure Stream Analytics çıkışı  
@@ -39,7 +39,7 @@ Uygulama gereksinimlerinize eşleştirmek için Azure Cosmos DB veritabanı ve k
 ## <a name="upserts-from-stream-analytics"></a>Stream Analytics'ten alınan upsert eder
 Azure Cosmos DB ile Stream Analytics tümleştirmesi ekleme veya güncelleştirme belirli bir belge kimliği sütunu temel alarak koleksiyonunuzdaki kayıtlarını sağlar. Bu da verilir bir *Upsert*.
 
-Stream Analytics ile belge kimliği çakışması ekleme başarısız olduğunda burada güncelleştirmeleri yalnızca işiniz bir iyimser upsert yaklaşımı kullanır. Uyumluluk düzeyi 1.0 ile bu güncelleştirme düzeltme ekini, diğer bir deyişle belgeye kısmi güncelleştirmeler etkinleştirir, yeni özellikler veya varolan bir özellik kademeli olarak gerçekleştirilen değiştirme ek gerçekleştirilir. Ancak, değişiklikler, JSON belge sonucu üzerine tüm dizi diğer bir deyişle, dizi içinde dizi özelliklerin değerlerini değil birleştirilir. 1.2 ile upsert davranışı eklemek veya belgeyi değiştirmek için değiştirildi. Bu uyumluluk düzeyi 1.2 bölümünde daha ayrıntılı açıklanmıştır.
+Stream Analytics ile belge kimliği çakışması ekleme başarısız olduğunda burada güncelleştirmeleri yalnızca işiniz bir iyimser upsert yaklaşımı kullanır. Uyumluluk düzeyi 1.0 ile bu güncelleştirme düzeltme ekini, diğer bir deyişle belgeye kısmi güncelleştirmeler etkinleştirir, yeni özellikler veya varolan bir özellik kademeli olarak gerçekleştirilen değiştirme ek gerçekleştirilir. Ancak, değişiklikler, JSON belge sonucu üzerine tüm dizi diğer bir deyişle, dizi içinde dizi özelliklerin değerlerini değil birleştirilir. 1\.2 ile upsert davranışı eklemek veya belgeyi değiştirmek için değiştirildi. Bu uyumluluk düzeyi 1.2 bölümünde daha ayrıntılı açıklanmıştır.
 
 Gelen JSON belgesini alan otomatik olarak Cosmos DB belge kimliği sütunu olarak kullanılır ve herhangi bir sonraki yazma, bu nedenle, bunlardan biri için önde gelen işlenir varolan bir kimliği alanı, varsa:
 - eklemek için benzersiz bir kimlik sağlama
@@ -58,9 +58,9 @@ Sabit Azure Cosmos DB koleksiyonları için Stream Analytics tam olduğunuzda ar
 Birden çok sabit kapsayıcı yazma kullanımdan kaldırılıyor ve Stream Analytics işinizi ölçeklendirmeye yönelik önerilen yaklaşım değildir. Makaleyi [bölümleme ve ölçeklendirme Cosmos DB'de](../cosmos-db/sql-api-partition-data.md) hakkında daha fazla ayrıntı sağlar.
 
 ## <a name="improved-throughput-with-compatibility-level-12"></a>Uyumluluk düzeyi 1.2 ile iyi aktarım hızı
-Stream Analytics destekler yerel tümleştirme toplu uyumluluk düzeyi 1.2 ile Cosmos DB'ye yazın. Bu Cosmos DB, aktarım hızı ve verimli bir şekilde tanıtıcı azaltma istekleri en üst düzeye ile etkili bir şekilde yazılmasını sağlar. Geliştirilmiş yazma mekanizması upsert bir davranışı fark nedeniyle yeni bir uyumluluk düzeyi altında kullanılabilir.  1.2 önce upsert ekleyin veya belgeyi birleştirmek için bir davranıştır. 1.2 ile upsert eder davranışı eklemek veya belgeyi değiştirmek için değiştirildi. 
+Stream Analytics destekler yerel tümleştirme toplu uyumluluk düzeyi 1.2 ile Cosmos DB'ye yazın. Bu Cosmos DB, aktarım hızı ve verimli bir şekilde tanıtıcı azaltma istekleri en üst düzeye ile etkili bir şekilde yazılmasını sağlar. Geliştirilmiş yazma mekanizması upsert bir davranışı fark nedeniyle yeni bir uyumluluk düzeyi altında kullanılabilir.  1\.2 önce upsert ekleyin veya belgeyi birleştirmek için bir davranıştır. 1\.2 ile upsert eder davranışı eklemek veya belgeyi değiştirmek için değiştirildi. 
 
-1.2 önce toplu işlem olarak yazıldığı, Cosmos DB içine toplu upsert belgelere bölüm anahtarı başına özel saklı yordam kullanır. Tek bir kaydı geçici bir hata (azaltma) ulaştığında, bile, tüm toplu işlem yeniden denenmelidir. Bu senaryolar bile makul nispeten daha yavaş azaltma ile yapılan. Karşılaştırma aşağıdaki gibi işler 1.2 ile nasıl davranacaktır gösterir.
+1\.2 önce toplu işlem olarak yazıldığı, Cosmos DB içine toplu upsert belgelere bölüm anahtarı başına özel saklı yordam kullanır. Tek bir kaydı geçici bir hata (azaltma) ulaştığında, bile, tüm toplu işlem yeniden denenmelidir. Bu senaryolar bile makul nispeten daha yavaş azaltma ile yapılan. Karşılaştırma aşağıdaki gibi işler 1.2 ile nasıl davranacaktır gösterir.
 
 Kurulum aynı giriş (event hub) okuma iki özdeş Stream Analytics işi gösterir. Her iki Stream Analytics işleri, [tam olarak bölümlenmiş](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) geçiş sorgu ve aynı CosmosDB koleksiyonlara yazma. Uyumluluk düzeyi 1.0 ile yapılandırılmış iş ölçümleri soldaki arasındadır ve sağ taraftaki olanlara 1.2 ile yapılandırılır. Cosmos DB koleksiyonları bölüm anahtarı, giriş olaydan gelen benzersiz bir GUID değeridir.
 
@@ -70,8 +70,8 @@ Olay Hub'ındaki gelen olay hızı azaltma Cosmos DB'de beklendiği şekilde Cos
 
 ![cosmos db ölçümleri karşılaştırma](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
-1.2 ile Stream Analytics'in Cosmos DB'de kullanılabilen aktarım hızı azaltma hız sınırlaması gelen çok az sayıda resubmissions ile % 100'ü kullanarak daha akıllı bulunur. Bu koleksiyonu aynı anda çalışan sorgular gibi diğer iş yükleri için daha iyi bir deneyim sağlar. Bir havuz için 1 k için 10 k iletiler/saniye olarak nasıl ASA kullanıma Cosmos DB ile ölçeklenir kullanıma denemek gerektiği durumlarda, işte bir [azure örnekleri proje](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) olanak tanıyan, yapın.
-Cosmos DB çıkış aktarım hızı 1.0 ve 1.1 ile aynı olduğunu unutmayın. 1.2 şu anda varsayılan olmadığından yapabilecekleriniz [uyumluluk düzeyi ayarlayın](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) portalını kullanarak ya da kullanarak bir Stream Analytics işine ilişkin [oluşturma işi REST API çağrısı](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Sahip *önemle tavsiye* Cosmos DB ile uyumluluk düzeyini 1.2 ASA ile kullanılacak. 
+1\.2 ile Stream Analytics'in Cosmos DB'de kullanılabilen aktarım hızı azaltma hız sınırlaması gelen çok az sayıda resubmissions ile % 100'ü kullanarak daha akıllı bulunur. Bu koleksiyonu aynı anda çalışan sorgular gibi diğer iş yükleri için daha iyi bir deneyim sağlar. Bir havuz için 1 k için 10 k iletiler/saniye olarak nasıl ASA kullanıma Cosmos DB ile ölçeklenir kullanıma denemek gerektiği durumlarda, işte bir [azure örnekleri proje](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) olanak tanıyan, yapın.
+Cosmos DB çıkış aktarım hızı 1.0 ve 1.1 ile aynı olduğunu unutmayın. 1\.2 şu anda varsayılan olmadığından yapabilecekleriniz [uyumluluk düzeyi ayarlayın](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) portalını kullanarak ya da kullanarak bir Stream Analytics işine ilişkin [oluşturma işi REST API çağrısı](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Sahip *önemle tavsiye* Cosmos DB ile uyumluluk düzeyini 1.2 ASA ile kullanılacak. 
 
 
 

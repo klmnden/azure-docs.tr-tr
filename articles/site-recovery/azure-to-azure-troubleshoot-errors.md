@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
 ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796419"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
@@ -177,7 +177,7 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
 > [!NOTE]
 > Sanal makineler arkasında olsa **standart** iç yük dengeleyici sonra O365 IP'ler yani erişimi sahip değil Varsayılan olarak Login.micorsoftonline.com. Olarak değiştirin ya da **temel** iç yük dengeleyici türü veya dışarı bağlanan erişime belirtildiği gibi oluşturma [makale](https://aka.ms/lboutboundrulescli).
 
-### <a name="issue-3-site-recovery-configuration-failed-151197"></a>3. sorun: Site Recovery yapılandırması başarısız oldu (151197)
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>3\. sorun: Site Recovery yapılandırması başarısız oldu (151197)
 - **Olası nedeni** </br>
   - Azure Site Recovery Hizmeti uç noktalarına bağlantı kurulamıyor.
 
@@ -185,7 +185,7 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
   - Azure Site Recovery gerekli erişim [Site kurtarma IP aralıkları](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) bölgeye bağlı olarak. Bu gerekli IP aralıkları sanal makineden erişilebilir olduğundan emin olun.
 
 
-### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>4. sorun: Ağ trafiği şirket içi proxy sunucusu üzerinden (151072) çıktığında A2A çoğaltması başarısız oldu.
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>4\. sorun: Ağ trafiği şirket içi proxy sunucusu üzerinden (151072) çıktığında A2A çoğaltması başarısız oldu.
 - **Olası nedeni** </br>
   - Özel ara sunucu ayarlarını geçersiz ve ASR Mobility Hizmeti Aracısı otomatik-IE proxy ayarları algılamadı
 

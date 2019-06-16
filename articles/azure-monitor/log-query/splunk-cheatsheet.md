@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425143"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Azure İzleyici günlük sorgusu için Splunk
@@ -28,23 +28,23 @@ Bu makale, Azure İzleyici'de günlük sorguları yazma Kusto sorgu dili öğren
 
 Aşağıdaki tabloda, kavramlar ve veri yapıları Splunk ve Azure İzleyici günlüklerine arasında karşılaştırır.
 
- | Kavram  | Splunk | Azure İzleyici |  Açıklama
+ | Kavram  | Splunk | Azure İzleyici |  Yorum
  | --- | --- | --- | ---
- | Dağıtım birimi  | küme |  küme |  Azure İzleyici, küme sorguları rastgele sağlar. Splunk izin vermez. |
+ | Dağıtım birimi  | Küme |  Küme |  Azure İzleyici, küme sorguları rastgele sağlar. Splunk izin vermez. |
  | Veri önbelleklerini |  Demet  |  Önbelleğe alma ve elde tutma ilkeleri |  Dönem ve veri düzeyi önbelleğe alma denetler. Doğrudan bu ayarı, sorguların performansını ve dağıtım maliyetini etkiler. |
- | Mantıksal bölüm veri  |  index  |  veritabanı  |  Mantıksal ayrılığı veri sağlar. Hem uygulamalar, birleşimler ve bu bölümler arasında birleştirme izin verir. |
- | Yapılandırılmış olay meta verileri | Yok | tablo |  Splunk olay meta verilerinin arama dilinin kullanıma sunulan kavramı yoktur. Azure İzleyici günlüklerine sütuna sahip bir tablo kavramı vardır. Her olay örneği bir satıra eşlendi. |
- | Veri kaydı | event | satır |  Yalnızca terminolojisi değiştirin. |
+ | Mantıksal bölüm veri  |  index  |  database  |  Mantıksal ayrılığı veri sağlar. Hem uygulamalar, birleşimler ve bu bölümler arasında birleştirme izin verir. |
+ | Yapılandırılmış olay meta verileri | Yok | table |  Splunk olay meta verilerinin arama dilinin kullanıma sunulan kavramı yoktur. Azure İzleyici günlüklerine sütuna sahip bir tablo kavramı vardır. Her olay örneği bir satıra eşlendi. |
+ | Veri kaydı | olay | Satır |  Yalnızca terminolojisi değiştirin. |
  | Veri kaydı özniteliği | Alan |  Sütun |  Azure İzleyici'de, bu tablo yapısı bir parçası olarak önceden tanımlanmıştır. Splunk içinde her olay alan kendi kümesine sahiptir. |
- | Türler | veri türü |  veri türü |  Azure İzleyici türleri sütunlarda ayarlarken daha açık. Hem de veri türleri ve JSON desteği dahil olmak üzere veri türleri kabaca kümesini dinamik olarak çalışmak üzere sahipsiniz. |
- | Sorgu ve arama  | ara | sorgu |  Kavramları temelde hem Azure İzleyici hem de Splunk arasında aynıdır. |
+ | Türleri | veri türü |  veri türü |  Azure İzleyici türleri sütunlarda ayarlarken daha açık. Hem de veri türleri ve JSON desteği dahil olmak üzere veri türleri kabaca kümesini dinamik olarak çalışmak üzere sahipsiniz. |
+ | Sorgu ve arama  | search | sorgu |  Kavramları temelde hem Azure İzleyici hem de Splunk arasında aynıdır. |
  | Olay alma saati | Sistem saati | ingestion_time() |  Splunk içinde her olay bir sistem zaman damgası olay dizini zaman alır. Azure İzleyici'de ingestion_time() işlevi ile başvurulan bir sistem sütunu gösteren ingestion_time adlı bir ilke tanımlayabilirsiniz. |
 
 ## <a name="functions"></a>İşlevler
 
 Aşağıdaki tabloda Azure İzleyici'de Splunk işlevleri için eşdeğer işlevleri belirtir.
 
-|Splunk | Azure İzleyici |Açıklama
+|Splunk | Azure İzleyici |Yorum
 |---|---|---
 |strcat | strcat()| (1) |
 |split  | split() | (1) |
@@ -55,8 +55,8 @@ Aşağıdaki tabloda Azure İzleyici'de Splunk işlevleri için eşdeğer işlev
 | substr | substring() | (1)<br>Ayrıca Splunk tabanlı dizinleri kullandığına dikkat edin. Azure İzleyici, sıfır tabanlı dizin notlar. |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
-| eşleşme | Normal ifade ile eşleşir |  (2)  |
-| regex | Normal ifade ile eşleşir | Splunk'ta, `regex` işleçtir. Azure İzleyici'de, ilişkisel bir işlecidir. |
+| Eşleşme | Normal ifade ile eşleşir |  (2)  |
+| Normal ifade | Normal ifade ile eşleşir | Splunk'ta, `regex` işleçtir. Azure İzleyici'de, ilişkisel bir işlecidir. |
 | searchmatch | == | Splunk'ta, `searchmatch` tam dize için arama sağlar.
 | rastgele | rand()<br>rand(n) | Splunk'ın işlevi, 2 sıfırdan bir sayıyı döndürür<sup>31</sup>-1. Azure İzleyici ' 0,0 ile 1,0, arasında bir sayı döndürür veya 0 ile n-1 arasında sağlanan bir parametre değilse.
 | şimdi | now() | (1)
@@ -72,7 +72,7 @@ Aşağıdaki bölümlerde, Azure İzleyici ile Splunk arasındaki farklı işle�
 > [!NOTE]
 > Aşağıdaki örnekte, Splunk alanın amacıyla _kural_ Azure İzleyici'de bir tablo eşlenir ve günlükleri analiz Splunk'ın varsayılan zaman damgası eşlenir _ingestion_time()_ sütun.
 
-### <a name="search"></a>Arama
+### <a name="search"></a>Ara
 Splunk içinde atlayabilirsiniz `search` anahtar sözcüğü tırnak işareti olmayan bir dize belirtin. Azure İzleyici'de her sorgu ile başlamalıdır `find`, bir sütun adı tırnak işareti olmayan bir dizedir ve arama değeri tırnak içine alınmış bir dize olmalıdır. 
 
 | |  | |
@@ -158,7 +158,7 @@ Bkz: [toplamalar Azure İzleyici'de oturum sorguları](aggregations.md) farklı 
 
 
 
-### <a name="join"></a>Birleştir
+### <a name="join"></a>Katıl
 Splunk birleştirme önemli sınırlamaları vardır. Alt sorgu 10000 sonuçları (dağıtım yapılandırma dosyasında ayarlanır) sınırı vardır ve sınırlı sayıda birleştirme özellikleri vardır.
 
 | |  | |

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723876"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Yedekleme ve Reliable Services ve Reliable Actors geri yükleme
@@ -106,7 +106,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 
 Önceki örnekte `ExternalBackupStore` kullanılan örnek sınıfı, Azure Blob Depolama ile arabirim oluşturmak için ve `UploadBackupFolderAsync` klasörü sıkıştırır ve Azure Blob deposuna yerleştirir yöntemidir.
 
-Şunlara dikkat edin:
+Aşağıdakilere dikkat edin:
 
   - Olabilir yalnızca bir yedekleme işlemi çoğaltma uçuşan herhangi bir zamanda. Birden fazla `BackupAsync` çağrısı aynı anda oluşturur `FabricBackupInProgressException` bir hareket halindeki yedeklemeleri sınırlamak için.
   - Bir yedekleme işlemi devam ederken bir çoğaltma üzerinde başarısız olursa, yedekleme tamamlanmamış. Bu nedenle, yük devretme bittikten sonra çağırarak yedeklemeyi yeniden başlatmak için hizmetin sorumluluğu gelir `BackupAsync` gerektiği şekilde.
@@ -175,7 +175,7 @@ Hangi yedeklemeleri bozuk olduğundan emin değilseniz, yeni bir Service Fabric 
 
 Şimdi, adımları "silinmiş veya kayıp hizmet içinde" bölümü hatalı kod durumu bozulmuş önce hizmetinin durumunu durumuna geri yüklemek için kullanılabilir.
 
-Şunlara dikkat edin:
+Aşağıdakilere dikkat edin:
 
   - Geri yüklendiğinde, veriler kayboldu önce geri yüklenen yedekleme bölüm durumunu eski bir fırsat yoktur. Bu nedenle, mümkün olduğunca verileri kurtarmak için son çare olarak geri yüklemeniz gerekir.
   - Yedekleme klasörü yolunu ve yedekleme klasörün içindeki dosyaların yollarını temsil eden dize FabricDataRoot yol ve uygulama türü adı'nın uzunluğu 255 karakterden daha uzun olabilir. Bu gibi bazı .NET yöntemleri neden `Directory.Move`, throw `PathTooLongException` özel durum. Bir geçici çözüm olduğu gibi doğrudan kernel32 API'leri çağırmak için `CopyFile`.

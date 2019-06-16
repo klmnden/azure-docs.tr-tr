@@ -17,10 +17,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 087b52bd603e8aed6078ab340e84c1f6bd0e8082
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60748520"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>PowerShell kullanarak birden çok NIC ile VM (Klasik) oluşturma
@@ -49,7 +49,7 @@ Arka uç sanal makinelerin oluşturulmasını aşağıdaki kaynaklar üzerinde b
 * **Veri diskleri için depolama hesabı**. Daha iyi performans için veritabanı sunucularında veri diskleri gerektiren bir premium depolama hesabı, katı hal sürücüsü (SSD) teknolojisi kullanır. Premium depolamayı destekler dağıttığınız Azure konumu emin olun.
 * **Kullanılabilirlik kümesi**. Tüm veritabanı sunucuları, sanal makinelerin en az biri çalışır durumda emin olmak için ayarlayabilir ve bakım sırasında çalışan tek bir kullanılabilirlik eklenir.
 
-### <a name="step-1---start-your-script"></a>1. adım - betiğinizi Başlat
+### <a name="step-1---start-your-script"></a>1\. adım - betiğinizi Başlat
 Kullanılan tam PowerShell betiğini indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Ortamınızda çalışması için komut dosyasını değiştirmek için aşağıdaki adımları izleyin.
 
 1. Yukarıda dağıtılmış mevcut kaynak grubunuzun göre aşağıdaki değişkenlerin değerlerini değiştirmek [önkoşulları](#prerequisites).
@@ -74,7 +74,7 @@ Kullanılan tam PowerShell betiğini indirebilirsiniz [burada](https://raw.githu
     $numberOfVMs           = 2
     ```
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>2. adım - sanal makineleriniz için gerekli kaynakları oluşturma
+### <a name="step-2---create-necessary-resources-for-your-vms"></a>2\. adım - sanal makineleriniz için gerekli kaynakları oluşturma
 Tüm VM'ler için yeni bir bulut hizmeti ve veri diskleri için depolama hesabı oluşturmanız gerekir. VM'ler için bir görüntü ve yerel yönetici hesabı belirtmeniz gerekir. Bu kaynakları oluşturmak için aşağıdaki adımları tamamlayın:
 
 1. Yeni bir bulut hizmeti oluşturun.
@@ -112,7 +112,7 @@ Tüm VM'ler için yeni bir bulut hizmeti ve veri diskleri için depolama hesabı
     $cred = Get-Credential -Message "Enter username and password for local admin account"
     ```
 
-### <a name="step-3---create-vms"></a>3. adım - VM oluşturma
+### <a name="step-3---create-vms"></a>3\. adım - VM oluşturma
 Bir döngü ve döngü içinde gerekli NIC'ler ve VM'ler oluşturma gibi birçok VM oluşturmak için kullanmanız gerekir. NIC'ler ve VM'ler oluşturmak için aşağıdaki adımları uygulayın.
 
 1. Başlangıç bir `for` değerine göre bir VM ile gerekli sayıda iki NIC oluşturmak için komutları yinelemek için döngü `$numberOfVMs` değişkeni.
@@ -197,7 +197,7 @@ Bir döngü ve döngü içinde gerekli NIC'ler ve VM'ler oluşturma gibi birçok
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
-### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>5. adım - sanal makinenin işletim sistemi içinde yönlendirmeyi yapılandırma
+### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>5\. adım - sanal makinenin işletim sistemi içinde yönlendirmeyi yapılandırma
 
 Azure DHCP, varsayılan bir ağ geçidi sanal makinesine bağlı ilk (birincil) ağ arabirimine atar. Azure, bir sanal makineye bağlı ek (ikincil) ağ arabirimlerine varsayılan ağ geçidi atamaz. Bu nedenle varsayılan olarak, alt ağın dışında kalan ve ikincil bir ağ arabirimi içeren kaynaklarla iletişim kurulamaz. Ancak, ikincil ağ arabirimleri kendi alt ağlarının dışında kalan kaynaklarla iletişim kurabilir. İkincil ağ arabirimleri için yönlendirmeyi yapılandırmak için aşağıdaki makalelere bakın:
 

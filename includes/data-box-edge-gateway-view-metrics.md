@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161337"
 ---
 Ayrıca, cihaz ve cihaz sorunlarını gidermek için bazı durumlarda performansını izlemek için ölçümleri görüntüleyebilir.
@@ -17,7 +17,7 @@ Seçili cihaz ölçümler için bir grafik oluşturmak için Azure portalında a
 
 1. Azure portalında, kaynak için Git **İzleme > ölçümleri** seçip **ölçüm Ekle**.
 
-    ![Ölçüm ekle](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
+    ![Ölçüm ekleme](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
 
 2. Kaynak otomatik olarak doldurulur.  
 
@@ -53,11 +53,11 @@ Seçili cihaz ölçümler için bir grafik oluşturmak için Azure portalında a
 
 5. Seçtiğiniz ölçüm birden çok örneği varsa, prosedürün seçeneği kullanılabilir. Seçin **uygulamak bölme** ve ardından istediğiniz dökümünü görmek bir değer seçin.
 
-    ![Bölme uygula](media/data-box-edge-gateway-view-metrics/view-metrics-5.png)
+    ![Bölme Uygula](media/data-box-edge-gateway-view-metrics/view-metrics-5.png)
 
 6. Artık yalnızca birkaç örnekleri için dökümünü görmek istiyorsanız, verileri filtreleyebilirsiniz. Yalnızca iki bağlı ağ arabirimleri için ağ verimi, Cihazınızda görmek istiyorsanız, örneğin, bu durumda, bu arabirimleri filtre uygulayabilirsiniz. Seçin **Filtre Ekle** ve filtreleme için ağ arabirimi adı belirtin.
 
-    ![Filtre ekle](media/data-box-edge-gateway-view-metrics/view-metrics-6.png)
+    ![Filtre Ekle](media/data-box-edge-gateway-view-metrics/view-metrics-6.png)
 
 7. Ayrıca kolay erişim için panoya grafik sabitleme.
 
@@ -65,4 +65,4 @@ Seçili cihaz ölçümler için bir grafik oluşturmak için Azure portalında a
 
 8. Grafik verileri bir Excel elektronik tablosuna dışarı aktarma veya paylaşabileceğiniz grafik bağlantısını almak için komut çubuğundan paylaş seçeneğini seçin.
 
-    ![Verileri dışarı aktar](media/data-box-edge-gateway-view-metrics/view-metrics-8.png)
+    ![Verileri dışarı aktarma](media/data-box-edge-gateway-view-metrics/view-metrics-8.png)

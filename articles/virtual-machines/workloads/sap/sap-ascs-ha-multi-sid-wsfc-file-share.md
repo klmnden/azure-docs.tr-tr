@@ -18,10 +18,10 @@ ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60651769"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -327,7 +327,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Farklı bir SAP genel konak kullanarak SOFS kümesindeki altyapıyı hazırlama
 
-İkinci SOFS yapılandırabilirsiniz (örneğin, ikinci SOFS rolüyle küme  **\<SAPGlobalHost2 >** ve farklı bir **birim2** ikinci  **\< SID2 >**).
+İkinci SOFS yapılandırabilirsiniz (örneğin, ikinci SOFS rolüyle küme  **\<SAPGlobalHost2 >** ve farklı bir **birim2** ikinci  **\< SID2 >** ).
 
 ![Şekil 4: Çoklu SID SOFS SAP genel ana bilgisayar adı 2 ile aynıdır][sap-ha-guide-figure-8015]
 

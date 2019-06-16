@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62111001"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Cordova mobil uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
@@ -128,7 +128,7 @@ Bu öğretici, Mobile Apps için öğreticiyi tamamladığınızda, oluşturduğ
           syncContext.pull(new WindowsAzure.Query('todoitem'));
         }
 
-    Çağırarak mobil uygulama arka ucuna değişiklikleri göndermek ne zaman karar **syncContext.push()**. Örneğin, çağırabilir **syncBackend** düğmesi olay işleyicisi bir eşitleme düğmeye bağlı.
+    Çağırarak mobil uygulama arka ucuna değişiklikleri göndermek ne zaman karar **syncContext.push()** . Örneğin, çağırabilir **syncBackend** düğmesi olay işleyicisi bir eşitleme düğmeye bağlı.
 
 ## <a name="offline-sync-considerations"></a>Çevrimdışı eşitleme konuları
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596084"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Dayanıklı işlevler 2.0 Önizleme (Azure işlevleri)
@@ -26,7 +26,7 @@ Dayanıklı İşlevler, Azure işlevleri, genel kullanım (genel kullanıma sunu
 > [!NOTE]
 > Bu önizleme özellikleri şu anda bir dayanıklı işlevler 2.0 sürümünün bir parçası olan bir **alfa kalite yayın** ile çeşitli önemli değişiklikler. Azure işlevleri uzantı paketi derlemeleri kalıcı biçiminde sürümleriyle nuget.org bulunabilir **2.0.0-alpha**. Bu yapılar, tüm üretim iş yükleri için uygun değildir ve sonraki sürümlerde ek bozucu değişiklikleri içerebilir.
 
-## <a name="breaking-changes"></a>Hataya neden olan değişiklikler
+## <a name="breaking-changes"></a>Yeni değişiklikler
 
 Birkaç önemli değişiklikler dayanıklı işlevler 2.0 sürümünde kullanıma sunulmuştur. Mevcut uygulamaları kod değişikliği yapmadan dayanıklı işlevler 2.0 ile uyumlu olması beklenmez. Bu bölümde, bazı değişiklikler listelenmiştir:
 
@@ -154,8 +154,8 @@ Bazı önemli farklar vardır ancak olan çıkarabileceğini:
 Bir işlem bir varlığın yürütülmesi bağlam nesnesi üzerinde bu üyeleri çağırabilirsiniz (`IDurableEntityContext` . NET'te):
 
 * **OperationName**: işlem adını alır.
-* **GetInput\<T >**: işlem için giriş alır.
-* **GetState\<T >**: varlığın geçerli durumunu alır.
+* **GetInput\<T >** : işlem için giriş alır.
+* **GetState\<T >** : varlığın geçerli durumunu alır.
 * **SetState**: Varlık durumunu güncelleştirir.
 * **SignalEntity**: bir varlık için tek yönlü bir ileti gönderir.
 * **Kendi kendine**: Varlık Kimliğini alır.
@@ -172,7 +172,7 @@ Bir işlem bir varlığın yürütülmesi bağlam nesnesi üzerinde bu üyeleri 
 
 Dayanıklı varlıklar ile normal İşlevler'den çağrılacak `orchestrationClient` bağlama (`IDurableOrchestrationClient` .NET içinde). Aşağıdaki yöntemleri destekler:
 
-* **ReadEntityStateAsync\<T >**: bir varlık durumunu okur.
+* **ReadEntityStateAsync\<T >** : bir varlık durumunu okur.
 * **SignalEntityAsync**: bir varlık için tek yönlü bir ileti gönderir ve sıraya alınan olmasını bekler.
 
 Bu yöntemler performans tutarlılığa öncelik: `ReadEntityStateAsync` eski bir değer döndürebilir ve `SignalEntityAsync` işlemi bitmeden önce döndürebilir. Buna karşılık, varlıkları (sonraki bölümde açıklandığı gibi) düzenlemeleri çağırma kesinlikle tutarlı olur.
@@ -183,7 +183,7 @@ Düzenlemeleri bağlam nesnesini kullanarak varlıkları erişebilirsiniz. Bunla
 
 * **SignalEntity**: bir varlık için tek yönlü bir ileti gönderir.
 * **CallEntityAsync**: bir varlık için bir ileti gönderir ve yanıt işleminin tamamlandığını belirten bir için bekler.
-* **CallEntityAsync\<T >**: bir varlık için bir ileti gönderir ve bir sonuç t türü içeren bir yanıt bekler
+* **CallEntityAsync\<T >** : bir varlık için bir ileti gönderir ve bir sonuç t türü içeren bir yanıt bekler
 
 Çift yönlü iletişimi kullanırken, işlemin yürütülmesi sırasında oluşturulan özel durumlar da için geri çağırma düzenleme aktarılan ve işlenemezse. Buna karşılık, Başlat ve unut kullanırken, özel durumlar gözlenmiştir değil.
 

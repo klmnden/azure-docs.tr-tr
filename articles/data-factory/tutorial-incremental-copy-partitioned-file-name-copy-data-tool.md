@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61099077"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Artımlı olarak veri kopyalama aracını kullanarak zaman bölümlenmiş dosya adına göre yeni dosyaları kopyalama
@@ -48,7 +48,7 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
     ![Dosyaları karşıya yükleme](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
-    > Lütfen bir klasör adı, UTC saati ile ayarlayın.  Örneğin, geçerli UTC saat 2: 03'te 26 Şubat 2019 tarihinde ise klasör yolu olarak oluşturabilirsiniz **kaynak/2019/02/26/14/** kuralına göre **kaynak / {Year} / {Month} / {Day} / {Hour} /**.
+    > Lütfen bir klasör adı, UTC saati ile ayarlayın.  Örneğin, geçerli UTC saat 2: 03'te 26 Şubat 2019 tarihinde ise klasör yolu olarak oluşturabilirsiniz **kaynak/2019/02/26/14/** kuralına göre **kaynak / {Year} / {Month} / {Day} / {Hour} /** .
 
 2. Adlı bir kapsayıcı oluşturun **hedef**. Bu görevleri [Azure Depolama Gezgini](https://storageexplorer.com/) gibi çeşitli araçlar kullanarak gerçekleştirebilirsiniz.
 
@@ -66,7 +66,7 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
    
    ![Yeni veri fabrikası hata iletisi](./media/tutorial-copy-data-tool/name-not-available-error.png)
    
-   Ad değeriyle ilgili bir hata iletisi alırsanız, veri fabrikası için farklı bir ad girin. Örneğin, _**adınız**_**ADFTutorialDataFactory** adını kullanın. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
+   Ad değeriyle ilgili bir hata iletisi alırsanız, veri fabrikası için farklı bir ad girin. Örneğin, _**adınız**_ **ADFTutorialDataFactory** adını kullanın. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
 3. Yeni veri fabrikasının oluşturulacağı Azure **aboneliğini** seçin. 
 4. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
      
@@ -184,7 +184,7 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     
     > [!NOTE]
-    > Yeni bir klasör yolu oluşturulması için gerekli olduğunu unutmayın. Lütfen bir klasör adı, UTC saati ile ayarlayın.  Örneğin, geçerli UTC saati 3:20 üzerinde 26 Şubat 2019'te ise klasör yolu olarak oluşturabilirsiniz **kaynak/2019/02/26/15/** kuralına göre **{Year} / {Month} / {Day} / {Hour} /**.
+    > Yeni bir klasör yolu oluşturulması için gerekli olduğunu unutmayın. Lütfen bir klasör adı, UTC saati ile ayarlayın.  Örneğin, geçerli UTC saati 3:20 üzerinde 26 Şubat 2019'te ise klasör yolu olarak oluşturabilirsiniz **kaynak/2019/02/26/15/** kuralına göre **{Year} / {Month} / {Day} / {Hour} /** .
     
 13. Dönmek için **işlem hattı çalıştırmaları** görüntülenecek **tüm işlem hattı çalıştırmaları**, yeniden tetiklenmesi için aynı işlem hattı bekleyin başka bir saat sonra otomatik olarak.  
 

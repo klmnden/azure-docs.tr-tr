@@ -18,10 +18,10 @@ ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473918"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure’da Linux VM’nizi iyileştirme
@@ -31,7 +31,7 @@ Bir Linux sanal makinesini (VM) oluşturma, komut satırından veya portalından
 Bu konu, çalışan bir Azure aboneliği zaten sahip olduğunuzu varsayar ([ücretsiz denemeye kaydolmayla](https://azure.microsoft.com/pricing/free-trial/)) ve Azure Aboneliğinize bir VM zaten sağladınız. En son sahip olduğunuzdan emin olun [Azure CLI](/cli/azure/install-az-cli2) yüklü ve Azure aboneliğinizde oturum [az login](/cli/azure/reference-index) , önce [VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure işletim sistemi diski
-Azure'da bir Linux VM oluşturduktan sonra onunla ilişkili iki disk var. **/ dev/sda** , işletim sistemi diski **/dev/sdb** , geçici disk.  Ana işletim sistemi diski kullanmayın (**/dev/sda**) olarak işletim sistemi dışındaki her şey için optimize için hızlı VM önyükleme saati ve iş yükleriniz için iyi bir performans sağlamaz. VM'nize kalıcı almak için bir veya daha fazla disk eklemek istediğiniz ve depolama için verilerinizi en iyi duruma getirilmiş. 
+Azure'da bir Linux VM oluşturduktan sonra onunla ilişkili iki disk var. **/ dev/sda** , işletim sistemi diski **/dev/sdb** , geçici disk.  Ana işletim sistemi diski kullanmayın ( **/dev/sda**) olarak işletim sistemi dışındaki her şey için optimize için hızlı VM önyükleme saati ve iş yükleriniz için iyi bir performans sağlamaz. VM'nize kalıcı almak için bir veya daha fazla disk eklemek istediğiniz ve depolama için verilerinizi en iyi duruma getirilmiş. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Boyut ve performans hedefleri için disk ekleme
 VM boyutuna göre A serisi, D serisi 32 disklerde en fazla 16 ek disklerde ekleyebilirsiniz ve G serisi 64 disklerde makine - boyutu 1 TB'ye kadar her. Ek disk IOPS gereksinimleri ve alan gerektiği gibi ekleyin. Her disk için Premium depolama standart depolama ve disk başına 5000 Iops'yi kadar 500 IOPS performans hedefinin sahiptir.
@@ -51,7 +51,7 @@ Diskleriniz için standart depolama yüksek IOPS kullanan iş yüklerinin ve uğ
  
 
 ## <a name="your-vm-temporary-drive"></a>Sanal makine geçici drive'ınızdaki
-Bir VM oluşturduğunuzda varsayılan olarak Azure, bir işletim sistemi diski ile sağlar (**/dev/sda**) ve geçici bir diskle (**/dev/sdb**).  Tüm ek diskler, ekleme Göster olarak **/dev/sdc**, **/dev/sdd**, **/dev/sde** ve benzeri. Geçici diskteki tüm verilerin (**/dev/sdb**) kalıcı değildir ve Bakım, sanal Makinenizin yeniden başlatılmasını zorlar veya belirli olayları gibi VM yeniden boyutlandırma, yeniden dağıtım, kayıp olabilir.  Geçici, disk türü ve boyutu, dağıtım sırasında seçtiğiniz VM boyutuna ilgilidir. Geçici sürücü en fazla 48 k ek performans için bir yerel SSD destekli Vm'leri (DS, G ve DS_V2 serisi) tüm premium boyut IOPS. 
+Bir VM oluşturduğunuzda varsayılan olarak Azure, bir işletim sistemi diski ile sağlar ( **/dev/sda**) ve geçici bir diskle ( **/dev/sdb**).  Tüm ek diskler, ekleme Göster olarak **/dev/sdc**, **/dev/sdd**, **/dev/sde** ve benzeri. Geçici diskteki tüm verilerin ( **/dev/sdb**) kalıcı değildir ve Bakım, sanal Makinenizin yeniden başlatılmasını zorlar veya belirli olayları gibi VM yeniden boyutlandırma, yeniden dağıtım, kayıp olabilir.  Geçici, disk türü ve boyutu, dağıtım sırasında seçtiğiniz VM boyutuna ilgilidir. Geçici sürücü en fazla 48 k ek performans için bir yerel SSD destekli Vm'leri (DS, G ve DS_V2 serisi) tüm premium boyut IOPS. 
 
 ## <a name="linux-swap-file"></a>Linux takas dosyası
 Azure VM, Ubuntu veya CoreOS görüntüden ise, bir bulut yapılandırma için cloud-init göndermek için CustomData kullanabilirsiniz. Varsa, [özel bir Linux görüntüsü karşıya](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) cloud-init kullanan, cloud-init kullanarak takas bölümleri de yapılandırın.
@@ -78,7 +78,7 @@ Swap:       524284          0     524284
 ```
 
 ## <a name="io-scheduling-algorithm-for-premium-storage"></a>Premium depolama g/ç zamanlama algoritması
-2.6.18 ile Linux çekirdek algoritması zamanlama g/ç son değiştirildiği CFQ (tamamen adil Sıralama algoritması) için varsayılan. Rastgele erişim g/ç modelleri için göz ardı edilebilir performans farklarını CFQ ve son tarih arasındaki farkı yoktur.  SSD tabanlı diskler disk g/ç deseni genellikle sıralı olduğu için geri NOOP veya son algoritmaya geçiş daha iyi g/ç performansı elde edebilirsiniz.
+2\.6.18 ile Linux çekirdek algoritması zamanlama g/ç son değiştirildiği CFQ (tamamen adil Sıralama algoritması) için varsayılan. Rastgele erişim g/ç modelleri için göz ardı edilebilir performans farklarını CFQ ve son tarih arasındaki farkı yoktur.  SSD tabanlı diskler disk g/ç deseni genellikle sıralı olduğu için geri NOOP veya son algoritmaya geçiş daha iyi g/ç performansı elde edebilirsiniz.
 
 ### <a name="view-the-current-io-scheduler"></a>Geçerli g/ç Zamanlayıcısını görüntüleyin
 Aşağıdaki komutu kullanın:  

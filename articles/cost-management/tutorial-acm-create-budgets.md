@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: eab45948b5f931377396d93d93e8955ba0f3e767
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792847"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Öğretici: Oluşturma ve Azure bütçelerini yönetin
@@ -70,7 +70,7 @@ Bütçe oluşturduktan sonra bunlar geçerli bunlara karşı harcamalarınızı 
 
 Bir Kullandıkça Öde, MSDN veya Visual Studio aboneliğiniz varsa, fatura fatura döneminize Takvim ayına hizalanmıyor Abonelikler ve kaynak gruplarını bu tür için fatura döneminize veya takvim ayı hizalanmış bir bütçe oluşturabilirsiniz. Fatura döneminize hizalanmış bir bütçe oluşturmak için bir faturalandırma ayı, faturalandırma üç aylık dönem veya faturalama yıl sıfırlama süresini seçin. Takvim ayına göre bir bütçe oluşturmak için bir sıfırlama süre aylık, üç aylık veya yıllık seçin.
 
-4.500 için aylık bir bütçe oluşturma örneği aşağıda verilmiştir. %90 bütçenin ulaşıldığında bir e-posta uyarısı oluşturulan.
+4\.500 için aylık bir bütçe oluşturma örneği aşağıda verilmiştir. %90 bütçenin ulaşıldığında bir e-posta uyarısı oluşturulan.
 
 ![Oluştur bütçe kutusunda gösterilen örnek bilgileri](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 

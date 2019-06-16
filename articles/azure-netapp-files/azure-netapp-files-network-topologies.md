@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
 ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826481"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files ağ planlaması yönergeleri
@@ -95,7 +95,7 @@ Aşağıdaki diyagramda bir Azure-yerel ortam gösterilmektedir:
 
 Oluşturun veya aynı VNet içindeki bir sanal makineden (VM) bir Azure NetApp dosyaları birimine bağlanmak için temel bir senaryodur. Yukarıdaki diyagramda VNet 2 birim 1 yetkilendirilmiş bir alt ağ içinde oluşturulur ve VM 1'de varsayılan alt ağında bağlanabilir.
 
-### <a name="vnet-peering"></a>Sanal ağ eşleme
+### <a name="vnet-peering"></a>VNet eşlemesi
 
 Ek sanal ağlar aynı bölgede birbirlerinin kaynaklara erişmesi gereken varsa, sanal ağlar kullanarak bağlanabilir [VNet eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) Azure altyapısı aracılığıyla güvenli bağlantıyı etkinleştirmek için. 
 

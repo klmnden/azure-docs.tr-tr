@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
 ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789614"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup sunucusu ile VMware sanal makinelerini yedekleme
@@ -128,7 +128,7 @@ V-Center sunucusu erişim izinleri olan bir kullanıcı hesabı Azure yedekleme 
 
 3. İçinde **Yönetim** > **rolleri**, Rol Ekle simgesini (+ simgesi).
 
-    ![Rol ekle](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
+    ![Rol Ekle](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
 
 4. İçinde **Rol Oluştur** > **rol adı**, girin *BackupAdminRole*. Rol adı dilediğiniz olabilir ancak rolün amaçla tanınabilir olmalıdır.
@@ -245,7 +245,7 @@ VCenter Server için Azure Backup sunucusu ekleyin.
 
      ![Üretim Sunucusu Ekleme Sihirbazı](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
-3. İçinde **bilgisayarları seçin****sunucu adı/IP adresi**, VMware sunucusu için FQDN veya IP adresini belirtin. Tüm ESXi sunucuları aynı vCenter tarafından yönetiliyorsa, vCenter adını belirtin. Aksi takdirde ESXi ana bilgisayar ekleyin.
+3. İçinde **bilgisayarları seçin** **sunucu adı/IP adresi**, VMware sunucusu için FQDN veya IP adresini belirtin. Tüm ESXi sunucuları aynı vCenter tarafından yönetiliyorsa, vCenter adını belirtin. Aksi takdirde ESXi ana bilgisayar ekleyin.
 
     ![VMware sunucusu belirtin](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
@@ -290,7 +290,7 @@ VMware Vm'leri için yedekleme ekleyin. Koruma grupları, birden çok VM toplay�
 1. İçinde **grup üyelerini seçin** > Vm'leri seçin (veya VM klasörler), yedeklemek istediğiniz. Ardından **İleri**'ye tıklayın.
 
     - Ne zaman bir klasör seçin veya sanal makineleri veya klasör bu klasörün içinde yedekleme için seçilir. Klasörleri veya yedekleme istemediğiniz Vm'leri işaretini kaldırabilirsiniz.
-1. Bir VM veya klasör zaten yedeklenen, seçemezsiniz. Bu garanti yinelenen kurtarma noktaları bir VM'nin oluşturulmayacak. :
+1. Bir VM veya klasör zaten yedeklenen, seçemezsiniz. Bu garanti yinelenen kurtarma noktaları bir VM'nin oluşturulmayacak. .
 
      ![Grup üyelerini seçin](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 

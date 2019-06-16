@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: kasinh
 ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782081"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Azure ile Azure Backup sunucusu için SQL Server'ı yedekleme
@@ -53,7 +53,7 @@ Başlamadan önce sahip olduğunuzdan emin olun [yüklü ve Azure Backup sunucus
    >
    >
 
-8. **İleri**’ye tıklayın
+8. **İleri**'ye tıklayın.
 
     MABS, kullanılabilir depolama alanı ve olası disk alanı kullanımını gösterir.
 
@@ -92,7 +92,7 @@ Başlamadan önce sahip olduğunuzdan emin olun [yüklü ve Azure Backup sunucus
 
 13. Bekletme İlkesi zamanlamayı seçin. Bekletme İlkesi birlikte nasıl çalıştığı hakkında ayrıntılar, sağlanan [kullanımı Azure Backup'ın bant altyapısı makale değiştirin](backup-azure-backup-cloud-as-tape.md).
 
-    ![Saklama İlkesi](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Bekletme İlkesi](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Bu örnekte:
 

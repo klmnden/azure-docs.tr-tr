@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 06/11/2019
 ms.author: edjez
-ms.openlocfilehash: a7f6c6fe25bf9dff2f102080f93fc1e0024ac660
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 2f2e3d01b02f7c06d69a09374528475301952179
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478634"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055499"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Hızlı Başlangıç: İçerik kullanarak kişiselleştirmeC# 
 
@@ -54,6 +54,7 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 
 1. Visual Studio'da yeni bir Visual C# Konsol Uygulaması oluşturun.
 1. Personalizer istemci kitaplığı NuGet paketini yükleyin. Menüsünde **Araçları**seçin **Nuget Paket Yöneticisi**, ardından **çözüm için NuGet paketlerini Yönet**.
+1. Denetleme **ön sürümü dahil et**.
 1. Seçin **Gözat** sekmesinde ve **arama** kutusuna `Microsoft.Azure.CognitiveServices.Personalizer`.
 1. Seçin **Microsoft.Azure.CognitiveServices.Personalizer** zaman görüntüler.
 1. Projenizin adına yanındaki onay kutusunu seçip **yükleme**.

@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584863"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Azure'da SQL Server seçeneği sağ seçin
@@ -25,7 +25,7 @@ ms.locfileid: "60584863"
 Azure'da barındırılan bir altyapı (Iaas) içinde çalışan veya barındırılan bir hizmet olarak çalışan SQL Server iş yüklerinizi olabilir ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)). PaaS içinde birden çok dağıtım seçenekleri ve her dağıtım seçeneğinin içinde hizmet katmanlarına sahip. Veritabanınızı yönetme, düzeltme ekleri uygulama, yedeklemeler almak istiyorsunuz veya bu işlemleri Azure için temsilci atamak istediğiniz önemli sorulardan biri PaaS veya Iaas arasında karar verirken sormanız gerekir mi?
 Yanıt bağlı olarak aşağıdaki seçenekleriniz vardır:
 
-- [Azure SQL veritabanı](sql-database-technical-overview.md): En son kararlı Kurumsal SQL Server sürümü üzerinde temel bir tam olarak yönetilen SQL veritabanı altyapısı. Bu, bir ilişkisel veritabanı olarak-endüstri kategorisine girer Azure bulutunda barındırılan hizmet (DBaaS) *olarak bir-hizmet Platform (PaaS)*. SQL veritabanı, her biri, sahip olduğu, barındırdığı ve Microsoft tarafından yönetilen, standartlaştırılmış donanım ve yazılım üzerine inşa edilmiştir, birden çok dağıtım seçenekleri vardır. SQL veritabanı ile yerleşik özellikleri ve SQL Server kullanıldığında kapsamlı yapılandırma gerektiren işlevleri kullanabilirsiniz (şirket içinde veya bir Azure sanal makinesinde). SQL Database'i kullandığınızda, kesinti olmadan daha fazla güç için ölçeğinizi artırmaya veya genişletmeye yönelik seçeneklerle kullandıkça ödersiniz. SQL veritabanı, SQL Server'da yerleşik yüksek kullanılabilirlik, zeka ve yönetimi gibi mevcut olmayan ek özellikler vardır. Azure SQL veritabanı, aşağıdaki dağıtım seçeneklerinden sunar:
+- [Azure SQL veritabanı](sql-database-technical-overview.md): En son kararlı Kurumsal SQL Server sürümü üzerinde temel bir tam olarak yönetilen SQL veritabanı altyapısı. Bu, bir ilişkisel veritabanı olarak-endüstri kategorisine girer Azure bulutunda barındırılan hizmet (DBaaS) *olarak bir-hizmet Platform (PaaS)* . SQL veritabanı, her biri, sahip olduğu, barındırdığı ve Microsoft tarafından yönetilen, standartlaştırılmış donanım ve yazılım üzerine inşa edilmiştir, birden çok dağıtım seçenekleri vardır. SQL veritabanı ile yerleşik özellikleri ve SQL Server kullanıldığında kapsamlı yapılandırma gerektiren işlevleri kullanabilirsiniz (şirket içinde veya bir Azure sanal makinesinde). SQL Database'i kullandığınızda, kesinti olmadan daha fazla güç için ölçeğinizi artırmaya veya genişletmeye yönelik seçeneklerle kullandıkça ödersiniz. SQL veritabanı, SQL Server'da yerleşik yüksek kullanılabilirlik, zeka ve yönetimi gibi mevcut olmayan ek özellikler vardır. Azure SQL veritabanı, aşağıdaki dağıtım seçeneklerinden sunar:
   
   - Olarak bir [tek veritabanı](sql-database-single-database.md) kendi kaynak kümesi ile yönetilen bir SQL veritabanı sunucusu. Tek bir veritabanı benzer bir [içerdiği veritabanları](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) SQL Server'da. Bu seçenek, yeni uygulamaları buluttan kaynaklanan modern uygulama geliştirme için optimize edilmiştir.
   - Bir [elastik havuz](sql-database-elastic-pool.md), kaynak SQL veritabanı sunucusu yönetilen paylaşılan bir grup veritabanı koleksiyonu. Tek veritabanları, içine ve elastik havuz dışına taşınabilir. Bu seçenek, çok kiracılı SaaS uygulaması kullanılarak yeni bulut kaynaklı uygulamaların modern uygulama geliştirme için optimize edilmiştir.

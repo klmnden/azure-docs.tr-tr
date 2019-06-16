@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: ae7556eda817b9eb7be84f9d4a23ea91d3d5440d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64680292"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Özel görüntüleri ve formülleri DevTest Labs ile karşılaştırma
 Her ikisi de [özel görüntüleri](devtest-lab-create-template.md) ve [formülleri](devtest-lab-manage-formulas.md) bankaları için olarak kullanılabilir [oluşturulan yeni VM](devtest-lab-add-vm.md). Ancak, özel görüntüleri ve formülleri arasındaki temel fark özel bir görüntü yalnızca bir formülü bir VHD'de temel alan bir görüntü olduğu sürece bir VHD'de temel alan bir görüntü olmasıdır *ek olarak* ayarları - VM boyutunu, sanal ağ gibi önceden yapılandırılmış alt ağ ve yapıtları. Bu önceden yapılandırılmış ayarları ile VM oluşturma sırasında geçersiz kılınabilir varsayılan değerler ayarlanır. Bu makalede bazı (olumlu) olumlu ve olumsuz yönleri (olumsuz) formülleri kullanarak karşı özel görüntüleri kullanarak açıklanır.

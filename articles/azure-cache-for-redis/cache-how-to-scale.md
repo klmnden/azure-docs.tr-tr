@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
 ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132952"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure önbelleği için Redis ölçeklendirme
@@ -29,10 +29,10 @@ Kullanabileceğiniz [izleme](cache-how-to-monitor.md) Azure önbelleği için Re
 
 Ölçeği artırmanız gerekiyorsa belirlemeye yardımcı olması için aşağıdaki ölçümleri izleyebilirsiniz.
 
-* Redis Sunucu Yükü
-* Bellek Kullanımı
-* Ağ Bant Genişliği
-* CPU Kullanımı
+* Redis sunucu yükü
+* Bellek kullanımı
+* Ağ bant genişliği
+* CPU kullanımı
 
 Önbelleğinizi artık uygulamanızın gereksinimlerini karşılıyor mu olduğunu belirlerseniz, uygulamanız için en uygun fiyatlandırma daha büyük veya küçük bir önbellek ölçeklendirebilirsiniz. Fiyatlandırma katmanı kullanmak için hangi önbellek belirleme hakkında daha fazla bilgi için bkz. [hangi Azure önbelleği için Redis teklifini ve boyutunu kullanmalıyım](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 5d20adc11e0d679e12fd060e719593a50180db8e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834764"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Cihaz benzetimi çözüm hızlandırıcıdan gönderilen telemetri görselleştirmek için Time Series Insights'ı kullanın
@@ -98,13 +98,13 @@ IOT hub'ınıza bağlanmak için yeni bir olay kaynağı oluşturun. Önceki ad�
     | Ayar | Değer |
     | ------- | ----- |
     | Olay kaynağı adı | Aşağıdaki ekran adı kullanan **contoso IOT hub**. Bu adımı tamamladığınızda, kendi benzersiz bir ad kullanın. |
-    | Kaynak | **IoT Hub’ı** |
+    | source | **IoT Hub’ı** |
     | İçeri aktarma seçeneği | **Mevcut aboneliklerden IOT hub'ı kullanın** |
-    | Abonelik kimliği | Açılan listeden Azure aboneliğinizi seçin. |
-    | Iot hub'ı adı | **contoso simulation7d894**. Cihaz benzetimi çözüm hızlandırıcınız gelen IOT hub'ınızın adını kullanın. |
-    | Iot hub'ı ilke adı | **iothubowner** |
-    | Iot hub'ı ilke anahtarı | Bu alan otomatik olarak doldurulur. |
-    | Iot hub'ı tüketici grubu | **devicesimulationtsi** |
+    | Abonelik Kimliği | Açılan listeden Azure aboneliğinizi seçin. |
+    | IOT hub'ı adı | **contoso simulation7d894**. Cihaz benzetimi çözüm hızlandırıcınız gelen IOT hub'ınızın adını kullanın. |
+    | IOT hub'ı ilke adı | **iothubowner** |
+    | IOT hub'ı ilke anahtarı | Bu alan otomatik olarak doldurulur. |
+    | IOT hub tüketici grubu | **devicesimulationtsi** |
     | Olay serileştirme biçimi | **JSON** |
     | Zaman damgası özellik adı | Boş bırakın |
 

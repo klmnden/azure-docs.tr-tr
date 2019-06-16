@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: efa10cc78d432e471e7c4b7a7360c41adad22640
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116883"
 ---
 Azure Virtual Network (VNet) buluttaki kendi ağınızın bir gösterimidir. Azure ağ ayarlarınızı kontrol edebilir ve DHCP adres bloklarını, DNS ayarlarını, güvenlik ilkelerini ve yönlendirmeyi tanımlayabilirsiniz. Ayrıca, VNet’inizi alt ağlar biçiminde segmentlere ayırıp, aynı fiziksel ve sanal makinelerinizi şirket içi veri merkezine dağıttığınız gibi Azure IaaS sanal makinelerine (VM) ve PaaS rol örneklerine de dağıtabilirsiniz. Esas olarak, kendi IP adres bloklarınızı taşıyarak ağınızı Azure’a genişletebilirsiniz. VNet’leri yeterince tanımıyorsanız [sanal ağa genel bakışı](../articles/virtual-network/virtual-networks-overview.md) okuyun.

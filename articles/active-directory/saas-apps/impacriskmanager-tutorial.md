@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 73a19fa97a898e2c51912a18f46751e855ee0303
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2c153d8e67ff952add177d8a98b7561c3165774
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60273325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100375"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Öğretici: Azure Active Directory Tümleştirmesi ile IMPAC Risk Yöneticisi
 
@@ -53,7 +53,7 @@ Azure AD'de IMPAC Risk Manager'ın tümleştirmesini yapılandırmak için IMPAC
 
 **Galeriden IMPAC Risk Yöneticisi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -111,9 +111,9 @@ Azure AD çoklu oturum açma IMPAC Risk Yöneticisi ile yapılandırmak için a�
 
     | Ortam | URL deseni |
     | ---------------|--------------- |
-    | Üretim İçin |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
+    | Üretim için |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Hazırlama ve eğitim  |`https://staging.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
-    | Geliştirme İçin  |`https://dev.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
+    | Geliştirme için  |`https://dev.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | QA için |`https://QA.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Test için |`https://test.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | | |
@@ -126,9 +126,9 @@ Azure AD çoklu oturum açma IMPAC Risk Yöneticisi ile yapılandırmak için a�
 
     | Ortam | URL deseni |
     | ---------------|--------------- |
-    | Üretim İçin |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
+    | Üretim için |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | Hazırlama ve eğitim  |`https://staging.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
-    | Geliştirme İçin  |`https://dev.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
+    | Geliştirme için  |`https://dev.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | QA için |`https://QA.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | Test için |`https://test.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | | |

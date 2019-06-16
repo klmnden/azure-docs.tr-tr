@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726391"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors hizmetini kullanmaya başlama
@@ -50,11 +50,11 @@ Oluşturulan proje aşağıdaki yapısını gösterir:
 
 Çözüm, üç projeler içeriyor:
 
-* **Uygulama projesi (MyApplication)**. Bu projenin tüm hizmetlerin birlikte dağıtım paketleri. İçerdiği *ApplicationManifest.xml* ve uygulamayı yönetmek için PowerShell betikleri.
+* **Uygulama projesi (MyApplication)** . Bu projenin tüm hizmetlerin birlikte dağıtım paketleri. İçerdiği *ApplicationManifest.xml* ve uygulamayı yönetmek için PowerShell betikleri.
 
-* **Arabirim projesi (HelloWorld.Interfaces)**. Bu proje, aktör arabirimi tanımını içerir. Aktör arabirimi, herhangi bir projede herhangi bir ad ile tanımlanabilir.  Arabirim aktör uygulaması ve aktörü çağıran istemciler tarafından paylaşılan aktör anlaşmasını tanımlar.  İstemci projeler üzerinde bağlı olabileceği için genellikle aktör uygulamasından ayrı bir derleme tanımlamak için mantıklıdır.
+* **Arabirim projesi (HelloWorld.Interfaces)** . Bu proje, aktör arabirimi tanımını içerir. Aktör arabirimi, herhangi bir projede herhangi bir ad ile tanımlanabilir.  Arabirim aktör uygulaması ve aktörü çağıran istemciler tarafından paylaşılan aktör anlaşmasını tanımlar.  İstemci projeler üzerinde bağlı olabileceği için genellikle aktör uygulamasından ayrı bir derleme tanımlamak için mantıklıdır.
 
-* **Aktör hizmeti projesini (HelloWorld)**. Bu proje, aktör barındırmak için giderek Service Fabric hizmeti tanımlar. Aktör uygulamasını içerir *: HelloWorld.cs'ye*. Aktör temel türünden türetilen bir sınıf uygulamasıdır `Actor` ve içinde tanımlanan arabirimlerini uygular *MyActor.Interfaces* proje. Aktör sınıfı da kabul eden bir oluşturucu uygulamalıdır bir `ActorService` örneği ve bir `ActorId` ve bunları tabanına geçirir `Actor` sınıfı.
+* **Aktör hizmeti projesini (HelloWorld)** . Bu proje, aktör barındırmak için giderek Service Fabric hizmeti tanımlar. Aktör uygulamasını içerir *: HelloWorld.cs'ye*. Aktör temel türünden türetilen bir sınıf uygulamasıdır `Actor` ve içinde tanımlanan arabirimlerini uygular *MyActor.Interfaces* proje. Aktör sınıfı da kabul eden bir oluşturucu uygulamalıdır bir `ActorService` örneği ve bir `ActorId` ve bunları tabanına geçirir `Actor` sınıfı.
     
     Bu proje de içeren *Program.cs*, yapan aktör sınıfları kullanarak Service Fabric çalışma zamanı `ActorRuntime.RegisterActorAsync<T>()`. `HelloWorld` Sınıf zaten kayıtlı. Projeye eklenen herhangi bir ek aktör uygulamaları da kayıtlı olması gerekir `Main()` yöntemi.
 
@@ -97,7 +97,7 @@ Aktör hizmeti çağırmak için basit bir konsol uygulaması oluşturun.
 
 1. Çözüm Gezgini'nde çözüme sağ tıklayın > **Ekle** > **yeni proje...** .
 
-2. Altında **.NET Core** projesinin türleri **konsol uygulaması (.NET Core)**.  Projeyi adlandırın *ActorClient*.
+2. Altında **.NET Core** projesinin türleri **konsol uygulaması (.NET Core)** .  Projeyi adlandırın *ActorClient*.
     
     ![Yeni Proje iletişim kutusu Ekle][6]    
     

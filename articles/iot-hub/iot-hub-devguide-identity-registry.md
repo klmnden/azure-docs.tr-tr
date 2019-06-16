@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61363190"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IOT hub'ınızdaki kimlik kayıt defterinde anlama
@@ -112,12 +112,12 @@ Cihaz için bildirim iletisi:
 |$iothub-message-kaynak | deviceLifecycleEvents |
 |$content-encoding | UTF-8 |
 |opType | **createDeviceIdentity** veya **deleteDeviceIdentity** |
-|HubName | IOT hub'ı adı |
+|hubName | IOT hub'ı adı |
 |deviceId | Cihaz kimliği |
 |operationTimestamp | İşlemin ISO8601 zaman damgası |
 |ıothub ileti şeması | deviceLifecycleNotification |
 
-Gövde: Bu bölümde, JSON biçimindedir ve ikizi oluşturulmuş cihaz kimliğini temsil eder. Örneğin,
+Gövdesi: Bu bölümde, JSON biçimindedir ve ikizi oluşturulmuş cihaz kimliğini temsil eder. Örneğin,
 
 ```json
 {
@@ -148,12 +148,12 @@ $iothub-enqueuedtime |  Bildirim zaman gönderildiği zaman |
 $iothub-message-kaynak | moduleLifecycleEvents |
 $content-encoding | UTF-8 |
 opType | **createModuleIdentity** veya **deleteModuleIdentity** |
-HubName | IOT hub'ı adı |
+hubName | IOT hub'ı adı |
 Modül kimliği | Modül kimliği |
 operationTimestamp | İşlemin ISO8601 zaman damgası |
 ıothub ileti şeması | moduleLifecycleNotification |
 
-Gövde: Bu bölümde, JSON biçimindedir ve ikizi oluşturulan modülü kimliğini temsil eder. Örneğin,
+Gövdesi: Bu bölümde, JSON biçimindedir ve ikizi oluşturulan modülü kimliğini temsil eder. Örneğin,
 
 ```json
 {
@@ -185,11 +185,11 @@ Cihaz kimliklerini aşağıdaki özelliklerle JSON belgeleri olarak temsil edili
 | --- | --- | --- |
 | deviceId |gerekli, salt okunur güncelleştirmeleri |ASCII 7 bit alfasayısal karakterlerin yanı sıra belirli özel karakterler büyük küçük harfe duyarlı bir dize (en çok 128 karakterden uzun): `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | Generationıd |gerekli, salt okunur |Bir IOT hub tarafından oluşturulan, büyük küçük harfe duyarlı dize en fazla 128 karakter. Bu değer aynı cihazlar ayrım yapmak için kullanılan **DeviceID**silinmesi ve yeniden oluşturulacak. |
-| Etag |gerekli, salt okunur |Bir cihaz kimliği için zayıf bir ETag başına olarak temsil eden bir dize [RFC7232](https://tools.ietf.org/html/rfc7232). |
-| kimlik doğrulama |isteğe bağlı |Kimlik bilgileri ve güvenlik malzemeleri içeren bir bileşik nesne. |
-| auth.symkey |isteğe bağlı |Base64 biçiminde depolanan birincil ve ikincil bir anahtar içeren bir bileşik nesne. |
-| durum |gerekli |Bir erişim göstergesi. Olabilir **etkin** veya **devre dışı bırakılmış**. Varsa **etkin**, cihaz bağlanmasına izin verilir. Varsa **devre dışı bırakılmış**, bu cihaz herhangi bir cihaz'e yönelik uç noktaya erişilemiyor. |
-| statusReason |isteğe bağlı |Cihaz kimlik durumun nedenini depolar 128 karakter uzunluğundaki dize. Tüm UTF-8 karakterlere izin verilir. |
+| etag |gerekli, salt okunur |Bir cihaz kimliği için zayıf bir ETag başına olarak temsil eden bir dize [RFC7232](https://tools.ietf.org/html/rfc7232). |
+| kimlik doğrulama |İsteğe bağlı |Kimlik bilgileri ve güvenlik malzemeleri içeren bir bileşik nesne. |
+| auth.symkey |İsteğe bağlı |Base64 biçiminde depolanan birincil ve ikincil bir anahtar içeren bir bileşik nesne. |
+| status |Gerekli |Bir erişim göstergesi. Olabilir **etkin** veya **devre dışı bırakılmış**. Varsa **etkin**, cihaz bağlanmasına izin verilir. Varsa **devre dışı bırakılmış**, bu cihaz herhangi bir cihaz'e yönelik uç noktaya erişilemiyor. |
+| statusReason |İsteğe bağlı |Cihaz kimlik durumun nedenini depolar 128 karakter uzunluğundaki dize. Tüm UTF-8 karakterlere izin verilir. |
 | statusUpdateTime |salt okunur |Son durum güncelleştirme saati ve tarihi gösteren bir zamana bağlı göstergesi. |
 | connectionState |salt okunur |Bağlantı durumu gösteren bir alan: ya da **bağlı** veya **bağlantısı kesilmiş**. Bu alan, cihaz bağlantı durumunun IOT Hub görünümünü temsil eder. **Önemli**: Bu alan yalnızca geliştirme/hata ayıklama amacıyla kullanılmalıdır. Bağlantı durumu yalnızca MQTT veya AMQP kullanan cihazlar için güncelleştirilir. Ayrıca, protokol düzeyinde ping (ping MQTT veya AMQP ping) dayalıdır ve yalnızca 5 dakikada en fazla gecikme olabilir. Bu nedenlerden dolayı olabilir hatalı pozitif sonuçları gibi cihazları bağlı olarak bildirilen ancak, kesilir. |
 | connectionStateUpdatedTime |salt okunur |Bağlantı durumu son bir saat ve tarihi gösteren bir zamana bağlı göstergesi güncelleştirildi. |
@@ -210,11 +210,11 @@ Modül kimlikleri, aşağıdaki özelliklere sahip JSON belgeleri olarak temsil 
 | deviceId |gerekli, salt okunur güncelleştirmeleri |ASCII 7 bit alfasayısal karakterlerin yanı sıra belirli özel karakterler büyük küçük harfe duyarlı bir dize (en çok 128 karakterden uzun): `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | Modül kimliği |gerekli, salt okunur güncelleştirmeleri |ASCII 7 bit alfasayısal karakterlerin yanı sıra belirli özel karakterler büyük küçük harfe duyarlı bir dize (en çok 128 karakterden uzun): `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | Generationıd |gerekli, salt okunur |Bir IOT hub tarafından oluşturulan, büyük küçük harfe duyarlı dize en fazla 128 karakter. Bu değer aynı cihazlar ayrım yapmak için kullanılan **DeviceID**silinmesi ve yeniden oluşturulacak. |
-| Etag |gerekli, salt okunur |Bir cihaz kimliği için zayıf bir ETag başına olarak temsil eden bir dize [RFC7232](https://tools.ietf.org/html/rfc7232). |
-| kimlik doğrulama |isteğe bağlı |Kimlik bilgileri ve güvenlik malzemeleri içeren bir bileşik nesne. |
-| auth.symkey |isteğe bağlı |Base64 biçiminde depolanan birincil ve ikincil bir anahtar içeren bir bileşik nesne. |
-| durum |gerekli |Bir erişim göstergesi. Olabilir **etkin** veya **devre dışı bırakılmış**. Varsa **etkin**, cihaz bağlanmasına izin verilir. Varsa **devre dışı bırakılmış**, bu cihaz herhangi bir cihaz'e yönelik uç noktaya erişilemiyor. |
-| statusReason |isteğe bağlı |Cihaz kimlik durumun nedenini depolar 128 karakter uzunluğundaki dize. Tüm UTF-8 karakterlere izin verilir. |
+| etag |gerekli, salt okunur |Bir cihaz kimliği için zayıf bir ETag başına olarak temsil eden bir dize [RFC7232](https://tools.ietf.org/html/rfc7232). |
+| kimlik doğrulama |İsteğe bağlı |Kimlik bilgileri ve güvenlik malzemeleri içeren bir bileşik nesne. |
+| auth.symkey |İsteğe bağlı |Base64 biçiminde depolanan birincil ve ikincil bir anahtar içeren bir bileşik nesne. |
+| status |Gerekli |Bir erişim göstergesi. Olabilir **etkin** veya **devre dışı bırakılmış**. Varsa **etkin**, cihaz bağlanmasına izin verilir. Varsa **devre dışı bırakılmış**, bu cihaz herhangi bir cihaz'e yönelik uç noktaya erişilemiyor. |
+| statusReason |İsteğe bağlı |Cihaz kimlik durumun nedenini depolar 128 karakter uzunluğundaki dize. Tüm UTF-8 karakterlere izin verilir. |
 | statusUpdateTime |salt okunur |Son durum güncelleştirme saati ve tarihi gösteren bir zamana bağlı göstergesi. |
 | connectionState |salt okunur |Bağlantı durumu gösteren bir alan: ya da **bağlı** veya **bağlantısı kesilmiş**. Bu alan, cihaz bağlantı durumunun IOT Hub görünümünü temsil eder. **Önemli**: Bu alan yalnızca geliştirme/hata ayıklama amacıyla kullanılmalıdır. Bağlantı durumu yalnızca MQTT veya AMQP kullanan cihazlar için güncelleştirilir. Ayrıca, protokol düzeyinde ping (ping MQTT veya AMQP ping) dayalıdır ve yalnızca 5 dakikada en fazla gecikme olabilir. Bu nedenlerden dolayı olabilir hatalı pozitif sonuçları gibi cihazları bağlı olarak bildirilen ancak, kesilir. |
 | connectionStateUpdatedTime |salt okunur |Bağlantı durumu son bir saat ve tarihi gösteren bir zamana bağlı göstergesi güncelleştirildi. |

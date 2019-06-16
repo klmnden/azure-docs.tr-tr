@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: 122a1585abf43d1aedc7f329cd7e41a6228f8c3e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200663"
 ---
 # <a name="security-recommendations"></a>Güvenlik önerileri
@@ -37,7 +37,7 @@ Cihaz öneriler, Öngörüler ve cihaz güvenliğini artırmak için önerileri 
 
 | Severity | Ad                                                      | Veri Kaynağı | Açıklama                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Orta   | Cihaz üzerindeki bağlantı noktalarını Aç                                      | Aracı       | Cihazda bir dinleme uç noktası bulundu                                                                                                                                                          |
+| Orta   | Cihaz üzerindeki bağlantı noktalarını Aç                                      | Aracı       | Cihazda dinleyen bir uç noktası bulunamadı                                                                                                                                                          |
 | Orta   | Esnek güvenlik duvarı ilkesi zincirleri biri bulunamadı. | Aracı       | Güvenlik duvarı ilkesi bulunamadı (girdi/çıktı) izin verilir. Güvenlik Duvarı İlkesi varsayılan olarak tüm trafiği engellemek ve cihaz öğesine/öğesinden gerekli iletişime izin vermek için kuralları tanımlar gerekir.                               |
 | Orta   | Giriş zincirindeki izin veren güvenlik duvarı kuralı bulunamadı     | Aracı       | Çok çeşitli IP adres veya bağlantı noktası için esnek bir düzen içeren bir güvenlik duvarı kuralında bulundu.                                                                                    |
 | Orta   | Çıkış zincirindeki izin veren güvenlik duvarı kuralı bulunamadı    | Aracı       | Çok çeşitli IP adres veya bağlantı noktası için esnek bir düzen içeren bir güvenlik duvarı kuralında bulundu.                                                                                   |
@@ -63,5 +63,5 @@ Cihaz öneriler, Öngörüler ve cihaz güvenliğini artırmak için önerileri 
 | Yüksek     | Birden çok cihazlar tarafından kullanılan aynı kimlik doğrulama kimlik bilgileri | IoT Hub     | IOT Hub kimlik doğrulama bilgilerini birden çok cihaz tarafından kullanılır. Bu yasal bir cihaz kimliğine bürünme aykırı bir cihaz gösterebilir. Yinelenen kimlik bilgisi kullanımı tarafından kötü amaçlı bir aktör cihaz kimliğe bürünme riskini artırır. |
 | Orta   | Varsayılan IP Filtresi İlkesi olması Reddet                  | IoT Hub     | IP Filtresi yapılandırmasını, trafiğe izin verilmiyor ve varsayılan olarak gereken tanımlanmış kuralınız yok, varsayılan olarak diğer tüm trafiği reddetmeye.                                                                                                     |
 | Orta   | IP filtresi kuralı büyük IP aralığı içerir                   | IoT Hub     | Bir izin IP filtresi kuralı kaynak IP aralığı çok büyük. Aşırı izin veren kuralları kötü amaçlı aktörler için IOT hub'ınıza kullanıma sunabilirsiniz.                                                                                       |
-| Düşük      | IoT Hub'da tanılama günlüklerini etkinleştirin                       | IoT Hub     | Günlükleri etkinleştirmek ve bunlar için bir yıla kadar Beklet. Günlük tutma bir güvenlik olayı ortaya veya ağınızın tehlikeye araştırma amacıyla etkinlik kayıtlarını yeniden olanak tanır.                                       |
+| Düşük      | IOT hub'ında tanılama günlüklerini etkinleştirme                       | IoT Hub     | Günlükleri etkinleştirmek ve bunlar için bir yıla kadar Beklet. Günlük tutma bir güvenlik olayı ortaya veya ağınızın tehlikeye araştırma amacıyla etkinlik kayıtlarını yeniden olanak tanır.                                       |
 |

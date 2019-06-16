@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964119"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Market ve Appsource'ta yönelik Danışmanlık Hizmetleri
@@ -100,7 +100,7 @@ Kayıt, öncesinde toplamaya başlamak ve ortaya çıkaran hizmet ve çözüm he
 |Yeni teklifleri için ayarlama  |
 |---------|
 |(200 karakter) adı ve açıklaması (2000 karakter)    |
-|Yetkinlikler     |
+|Uzmanlıklar     |
 |Ülke/bölge kullanılabilirliği     |
 |Engagement'ın süresi     |
 |Geçerli sektörlerde, kategoriler ve arama anahtar sözcükleri     |
@@ -166,7 +166,7 @@ Bulut iş ortağı portalını kullanarak, liste için biçimlendirme ekleyebili
 * ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>Başlık alanı (örn: ###(space)Agenda/Deliverables)
 * Başlık sonra satır sonu
 * ** = Kalın 
-* * İtalik teklif özeti
+* \* İtalik teklif özeti
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

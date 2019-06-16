@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951302"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS'yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama
@@ -74,7 +74,7 @@ Bu makalenin geri kalanında ele alınacaktır diğer değerlendirmeler şunlard
 
 *   Sonunda tutarlı veri ve son eşitleme zamanı
 
-*   Test ediliyor
+*   Test Etme
 
 ## <a name="running-your-application-in-read-only-mode"></a>Uygulamanız salt okunur modda çalışan
 
@@ -202,18 +202,18 @@ Aşağıdaki tablo bir örnek üyesi olacak şekilde bir çalışan ayrıntılar
 | **saat** | **İşlem**                                            | **Çoğaltma**                       | **Son eşitleme zamanı** | **Sonuç** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | İşlem y: <br> Çalışan Ekle <br> birincil varlık |                                   |                    | Birincil bölgeye eklenen bir işlem<br> henüz çoğaltılmamış. |
-| T1       |                                                            | Bir işlem <br> çoğaltılır<br> ikincil | T1 | İşlem bir ikincil siteden çoğaltılan. <br>Son eşitleme zamanı güncelleştirildi.    |
-| T2       | İşlem B:<br>Güncelle<br> Çalışan varlık<br> birincil  |                                | T1                 | Birincil veritabanına yazılan B işlem<br> henüz çoğaltılmamış.  |
-| T3       | İşlem C:<br> Güncelle <br>yönetici<br>Rol varlık<br>birincil |                    | T1                 | C birincil veritabanına yazılan işlem<br> henüz çoğaltılmamış.  |
-| *T4*     |                                                       | İşlem C <br>çoğaltılır<br> ikincil | T1         | İşlem için ikincil çoğaltılan C.<br>LastSyncTime olduğundan güncelleştirilmedi <br>işlem B henüz çoğaltılmamış.|
+| T1       |                                                            | Bir işlem <br> çoğaltılır<br> İkincil | T1 | İşlem bir ikincil siteden çoğaltılan. <br>Son eşitleme zamanı güncelleştirildi.    |
+| T2       | İşlem B:<br>Güncelleştirme<br> Çalışan varlık<br> birincil  |                                | T1                 | Birincil veritabanına yazılan B işlem<br> henüz çoğaltılmamış.  |
+| T3       | İşlem C:<br> Güncelleştirme <br>Yönetici<br>Rol varlık<br>Birincil |                    | T1                 | C birincil veritabanına yazılan işlem<br> henüz çoğaltılmamış.  |
+| *T4*     |                                                       | İşlem C <br>çoğaltılır<br> İkincil | T1         | İşlem için ikincil çoğaltılan C.<br>LastSyncTime olduğundan güncelleştirilmedi <br>işlem B henüz çoğaltılmamış.|
 | *T5*     | Varlıkları okuma <br>İkincil bölgeden                           |                                  | T1                 | Çalışana ait eski değeri Al <br> Varlık işlem B taşınmadığından çünkü <br> henüz çoğaltılır. Yeni değeri Al<br> yönetici rol varlığını C olduğundan<br> Çoğaltılmış. Son eşitleme zamanı hala henüz<br> Silinmiş olduğundan güncelleştirilmiş işlem B<br> Çoğaltılmış edilmemiş. Söyleyin<br>yönetici rol varlığını tutarsız. <br>Varlık tarih/saat sonra olduğu için <br>Son eşitleme zamanı. |
-| *T6*     |                                                      | İşlem B<br> çoğaltılır<br> ikincil | T6                 | *T6* – C aracılığıyla tüm işlemlerin <br>edilmiş çoğaltılan, son eşitleme zamanı<br> güncelleştirilir. |
+| *T6*     |                                                      | İşlem B<br> çoğaltılır<br> İkincil | T6                 | *T6* – C aracılığıyla tüm işlemlerin <br>edilmiş çoğaltılan, son eşitleme zamanı<br> güncelleştirilir. |
 
 Bu örnekte, istemci T5 konumunda ikincil bölgeden okuma için anahtarları varsayılır. Başarılı bir şekilde okuyabilir **Yönetici rolü** varlık şu anda, ancak varlık sayısı ile tutarlı değil yönetici sayısı için bir değer içeren **çalışan** olan varlıklar Yöneticiler, ikincil bölgede şu anda işaretli. İstemci, yalnızca bu değerle tutarsız bilgiler olduğunu risk görüntüleyebilirsiniz. Alternatif olarak, istemci belirleyen yararlanmaya **Yönetici rolü** güncelleştirmeleri sıralama dışında gerçekleşen ve ardından bu olayının kullanıcıyı bilgilendirmeniz büyük olasılıkla tutarsız bir durumda olmasıdır.
 
 Büyük olasılıkla tutarsız veri, değerinin istemcinin kullanabileceği tanımak için *son eşitleme zamanı* herhangi bir zamanda depolama hizmeti sorgulayarak alabilirsiniz. Bu, verileri ikincil bölgedeki son zaman bildirir tutarlı ve ne zaman hizmeti uygulanan o noktadan önce tüm işlemlerin zaman. Hizmet ekledikten sonra yukarıda gösterilen örnekte **çalışan** ikincil bölgede, son eşitleme zamanı varlık kümesine *T1*. Kalır *T1* hizmet güncelleştirmeleri kadar **çalışan** varlık ayarlandığında ikincil bölgedeki *T6*. İstemcinin okuduğu karşı tarafındaki varlığın ne zaman son eşitleme zamanı alır, *T5*, bu varlık üzerinde zaman damgası ile karşılaştırabilirsiniz. Varlık üzerinde zaman damgası, son eşitleme zamanından daha sonra ise, varlık büyük olasılıkla tutarsız bir durumda ise ve uygulamanız için uygun eylemi ne olursa olsun alabilir. Bu alanı kullanarak birincil son güncelleştirmeye tamamlandığı bilmeniz gerekir.
 
-## <a name="testing"></a>Test ediliyor
+## <a name="testing"></a>Test Etme
 
 Uygulamanızı yeniden denenebilir bir hata ile karşılaştığında beklediğiniz gibi davrandığını test etmek önemlidir. Örneğin, birincil bölge tekrar kullanılabilir hale geldiğinde uygulama anahtarları ikincil ve bir sorun algılar ve anahtarları salt okunur moduna geri test etmek gerekir. Bunu yapmak için yeniden denenebilir hata ve ne sıklıkta ortaya denetim benzetimini yapmak için bir yol gerekir.
 

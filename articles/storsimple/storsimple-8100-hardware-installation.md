@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631235"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Cihazınızı kutusundan çıkarma, rafa monte ve StorSimple 8100 cihazınızın kablolarını bağlama
@@ -203,7 +203,7 @@ Bu yedekli denetleyici yük devretmesi desteklemek için aşağıdaki adımlarda
    |----- | ----------- |
    | A    | Internet erişimi olan LAN |
    | B    | Denetleyici 0 |
-   | C    | PCM 0'DA |
+   | C    | PCM 0 |
    | D    | Denetleyici 1 |
    | E    | PCM 1 |
    | F, G | Ana bilgisayarlar |

@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306758"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511864"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
@@ -503,7 +503,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type** | yok | Ayarlanmalıdır `table`. Bu özellik, Azure portalında bağlamayı oluşturduğunuzda otomatik olarak ayarlanır.|
 |**direction** | yok | Ayarlanmalıdır `in`. Bu özellik, Azure portalında bağlamayı oluşturduğunuzda otomatik olarak ayarlanır. |
-|**Adı** | yok | Tablo veya varlık işlev kodunu temsil eden değişken adı. | 
+|**name** | yok | Tablo veya varlık işlev kodunu temsil eden değişken adı. | 
 |**TableName** | **TableName** | Tablonun adı.| 
 |**partitionKey** | **partitionKey** |İsteğe bağlı. Okunacak tablo varlığın bölüm anahtarı. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
 |**RowKey** |**RowKey** | İsteğe bağlı. Okunacak tablo varlığın satır anahtarı. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
@@ -763,7 +763,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type** | yok | Ayarlanmalıdır `table`. Bu özellik, Azure portalında bağlamayı oluşturduğunuzda otomatik olarak ayarlanır.|
 |**direction** | yok | Ayarlanmalıdır `out`. Bu özellik, Azure portalında bağlamayı oluşturduğunuzda otomatik olarak ayarlanır. |
-|**Adı** | yok | Tablo veya varlıktan temsil eden işlevi kod içinde kullanılan değişken adı. Kümesine `$return` işlev dönüş değeri başvurmak için.| 
+|**name** | yok | Tablo veya varlıktan temsil eden işlevi kod içinde kullanılan değişken adı. Kümesine `$return` işlev dönüş değeri başvurmak için.| 
 |**TableName** |**TableName** | Tablonun adı.| 
 |**partitionKey** |**partitionKey** | Tablo varlığı yazmak için bölüm anahtarı. Bkz: [kullanım bölümüne](#output---usage) bu özelliği kullanmak hakkında yönergeler için.| 
 |**RowKey** |**RowKey** | Yazılacak tablo varlığın satır anahtarı. Bkz: [kullanım bölümüne](#output---usage) bu özelliği kullanmak hakkında yönergeler için.| 

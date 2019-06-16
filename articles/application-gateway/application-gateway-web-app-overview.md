@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8434340bb7ed95cc36115c05048b2b67682b5796
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256fb42be8fec056ed7d10cfc4197a1b5a33fac1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831340"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807171"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>App service gibi çok kiracılı arka için Application Gateway desteği sona erer
 
 Çok kiracılı mimari tasarımlarında web sunucuları, birden fazla Web sitesi web sunucusu örneğinde çalışıyor. Ana bilgisayar adları, barındırılan farklı uygulamalar arasında ayırt etmek için kullanılır. Varsayılan olarak, application gateway istemciden gelen HTTP ana bilgisayar üst bilgisini değiştirmez ve üst bilgiyi değiştirilmemiş halde arka uca gönderir. NIC gibi arka uç havuzu üyeleri için bu çalışır, sanal makine ölçek kümeleri, genel IP adresleri, iç IP adreslerini ve FQDN gibi bunlar bir belirli ana bilgisayar üst bilgisini veya SNI uzantısını doğru uç noktaya çözümlemek için kullanmayın. Ancak, Azure App service web apps ve Azure API management gibi çok kiracılı ve özel ana bilgisayar üst bilgisini veya SNI uzantısını doğru uç noktaya çözümlemek için dayanır, çok sayıda hizmet vardır. Genellikle, sırayla DNS adını uygulama ağ geçidi ile ilişkili olan uygulama, DNS adını arka uç hizmeti etki alanı adından farklıdır. Bu nedenle, uygulama ağ geçidi tarafından alınan özgün istek ana bilgisayar üstbilgisi arka uç hizmeti ana bilgisayar adı ile aynı değil. Ana bilgisayar üstbilgisi arka uç uygulama ağ geçidi'ndeki istekteki arka uç hizmeti ana bilgisayar adını değiştirilmediği sürece bu nedenle, çok kiracılı arka uçlar istek doğru uç noktaya çözümlemek mümkün değildir. 
 
-Application gateway, arka uç ana bilgisayar adına göre istekteki HTTP ana bilgisayar üst bilgisi geçersiz kılma olanağı tanıyan bir özellik sunar. Bu özellik, Azure App service web apps ve API yönetimi gibi çok kiracılı arka uçlar için destek sağlar. Bu özellik hem v1 ve v2 standart hem de WAF SKU'ları için kullanılabilir. 
+Application Gateway kullanıcılara, arka ucun ana bilgisayar adına göre istekteki HTTP barındırma üst bilgisini geçersiz kılma olanağı tanıyan bir özellik sunar. Bu özellik Azure App Service web uygulamaları ve API Management gibi çok kiracılı arka uçlar için destek sağlar. Bu özellik hem v1 ve v2 standardı hem de WAF SKU’larında kullanılabilir. 
 
 ![Ana bilgisayar geçersiz kılma](./media/application-gateway-web-app-overview/host-override.png)
 
@@ -31,7 +31,7 @@ Bir ana bilgisayar geçersiz kılma işlemi belirtme olanağı tanımlanan [HTTP
 
 - Ana bilgisayar adı açık bir şekilde girilmemişse HTTP ayarlarında sabit bir değere ayarlama yeteneği. Bu özellik, ana bilgisayar üstbilgisi burada belirli HTTP ayarlarının uygulandığı arka uç havuzu için tüm trafik için şu değer kılınır sağlar. Uçtan uca SSL kullanılırken, geçersiz kılınan bu ana bilgisayar adı SNI uzantısında kullanılır. Bu özellik, burada bir arka uç havuzu grubunun gelen müşteri ana bilgisayar üst bilgisinden farklı bir ana bilgisayar üst bilgisi beklediği senaryolara olanak sağlar.
 
-- IP veya FQDN arka uç havuzu üyelerinin ana bilgisayar adı türetme olanağını. HTTP ayarları ayrıca bir bağımsız arka uç havuzu üyesinden ana bilgisayar adı türetme seçeneğiyle yapılandırdıysanız ana bilgisayar adı FQDN'den bir arka uç havuzu üyesinin dinamik olarak çekmek için bir seçenek sağlar. Uçtan uca SSL kullanılırken, bu ana bilgisayar adı FQDN’den türetilir ve SNI uzantısında kullanılır. Bu özellik, burada bir arka uç havuzunun Azure web apps gibi iki veya daha fazla çok kiracılı PaaS hizmetine sahip olabilir ve her üyesine isteğin ana bilgisayar üstbilgisi, FQDN'den türetilmiş ana bilgisayar adını içeren senaryolara olanak sağlar. Bu senaryoyu uygulamak için bir anahtar olarak adlandırılan HTTP ayarlarında kullandığımız [çekme arka uç adresi ana bilgisayar adını](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-backend-address) , dinamik olarak geçersiz özgün istek arka uç havuzunda belirtilen bir ana bilgisayar üstbilgisi.  Arka uç havuzu FQDN "contoso11.azurewebsites.net" ve "contoso22.azurewebsites.net" içeriyorsa, örneğin, contoso.com olan özgün isteğin ana bilgisayar üst bilgisini contoso11.azurewebsites.net veya contoso22.azurewebsites.net geçersiz kılınır ne zaman isteği uygun arka uç sunucusuna gönderilir. 
+- IP veya FQDN arka uç havuzu üyelerinin ana bilgisayar adı türetme olanağını. HTTP ayarları ayrıca bir bağımsız arka uç havuzu üyesinden ana bilgisayar adı türetme seçeneğiyle yapılandırdıysanız ana bilgisayar adı FQDN'den bir arka uç havuzu üyesinin dinamik olarak çekmek için bir seçenek sağlar. Uçtan uca SSL kullanılırken, bu ana bilgisayar adı FQDN’den türetilir ve SNI uzantısında kullanılır. Bu özellik, burada bir arka uç havuzunun Azure web apps gibi iki veya daha fazla çok kiracılı PaaS hizmetine sahip olabilir ve her üyesine isteğin ana bilgisayar üstbilgisi, FQDN'den türetilmiş ana bilgisayar adını içeren senaryolara olanak sağlar. Bu senaryoyu uygulamak için bir anahtar olarak adlandırılan HTTP ayarlarında kullandığımız [çekme arka uç adresi ana bilgisayar adını](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) , dinamik olarak geçersiz özgün istek arka uç havuzunda belirtilen bir ana bilgisayar üstbilgisi.  Arka uç havuzu FQDN "contoso11.azurewebsites.net" ve "contoso22.azurewebsites.net" içeriyorsa, örneğin, contoso.com olan özgün isteğin ana bilgisayar üst bilgisini contoso11.azurewebsites.net veya contoso22.azurewebsites.net geçersiz kılınır ne zaman isteği uygun arka uç sunucusuna gönderilir. 
 
   ![web uygulaması senaryosu](./media/application-gateway-web-app-overview/scenario.png)
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814865"
 ---
 # <a name="grammar-format"></a>Dil bilgisi biçimi
@@ -126,11 +126,11 @@ before <attrref uri="academic#Year" op="lt" name="year"/
 
 Aşağıdaki tablo desteklenen listeler `op` her bir öznitelik türü için değer.  Kullanımları şema öznitelik tanımını dahil edilecek karşılık gelen dizin işlemi gerektirir.
 
-| Öznitelik Türü | OP değeri | Açıklama | Dizin işlemi
+| Öznitelik türü | OP değeri | Açıklama | Dizin işlemi
 |----|----|----|----|
-| String | EQ | Dize tam eşleşme | şuna eşittir: |
+| String | EQ | Dize tam eşleşme | eşittir |
 | String | starts_with | Dize ön ek eşleştirmesi | starts_with |
-| Int32, Int64, çift | EQ |  Sayısal eşitlik eşleştir | şuna eşittir: |
+| Int32, Int64, çift | EQ |  Sayısal eşitlik eşleştir | eşittir |
 | Int32, Int64, çift | lt, le, gt, ge | Sayısal eşitsizlik eşleştir (<, < =, >, > =) | is_between |
 | Int32, Int64, çift | starts_with | Değer ondalık gösteriminde ön ek eşleştirmesi | starts_with |
 

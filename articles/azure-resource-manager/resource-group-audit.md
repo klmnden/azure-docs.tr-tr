@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606591"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Kaynaklar üzerinde işlemleri izlemek için etkinlik günlüklerini görüntüleme
@@ -53,7 +53,7 @@ Portal, PowerShell, Azure CLI, Insights REST API aracılığıyla etkinlik günl
 
 1. Filtreler dağıtım hataları odaklanmak için son 24 saat içindeki değiştirilmiş dikkat edin. Filtrelerle eşleşen işlemler görüntülenir.
 
-    ![Görünüm filtreleri](./media/resource-group-audit/view-filters.png)
+    ![Filtreleri görüntüleme](./media/resource-group-audit/view-filters.png)
 
 1. Belirli işlemleri odaklanmak için filtreleri değiştirebilir veya yenilerini uygulayın. Örneğin, aşağıdaki görüntüde için yeni bir değer gösterir **Timespan** ve **kaynak türü** depolama hesapları için ayarlanır. 
 
@@ -139,7 +139,7 @@ Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq
 
 Bir kaynak için değişiklik geçmişini görmek için Kaynak Grafiği'ni kullanabilirsiniz. Daha fazla bilgi için [alma kaynak değişiklikleri](../governance/resource-graph/how-to/get-resource-changes.md).
 
-## <a name="azure-cli"></a>Azure CLI'si
+## <a name="azure-cli"></a>Azure CLI
 
 Günlük girişlerini almak için çalıştırın [az İzleyici etkinlik günlüğü listesi](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) komutunu zaman aralığını belirtmek için bir uzaklık.
 

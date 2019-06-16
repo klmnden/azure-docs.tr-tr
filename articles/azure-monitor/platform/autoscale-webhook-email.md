@@ -9,10 +9,10 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787310"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>E-posta ve Web kancası, Azure İzleyici'de uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemleri kullanın
@@ -62,7 +62,7 @@ REST API veya Resource Manager şablonu kullanarak, aşağıdaki seçeneklerle b
 
 | Alan | Zorunlu? | Açıklama |
 | --- | --- | --- |
-| işlem |evet |"Ölçek" değeri olmalıdır |
+| İşlemi |evet |"Ölçek" değeri olmalıdır |
 | sendToSubscriptionAdministrator |evet |değer "true" veya "false" olmalıdır. |
 | sendToSubscriptionCoAdministrators |evet |değer "true" veya "false" olmalıdır. |
 | customEmails |evet |değer null [] veya e-postaları dize dizisi olabilir |
@@ -105,13 +105,13 @@ Otomatik ölçeklendirme bildirim oluşturulduğunda, aşağıdaki meta verileri
 
 | Alan | Zorunlu? | Açıklama |
 | --- | --- | --- |
-| durum |evet |Otomatik ölçeklendirme eylemi oluşturulduğunu gösteren durum |
-| işlem |evet |Bir artış örnekleri için "Ölçeği genişletme" olacaktır ve durumlarda bir azaltmak için "ölçek" olacaktır |
+| status |evet |Otomatik ölçeklendirme eylemi oluşturulduğunu gösteren durum |
+| İşlemi |evet |Bir artış örnekleri için "Ölçeği genişletme" olacaktır ve durumlarda bir azaltmak için "ölçek" olacaktır |
 | Bağlam |evet |Otomatik ölçeklendirme eylem bağlamı |
 | timestamp |evet |Otomatik ölçeklendirme eylemi tetiklendiğinde zaman damgası |
 | id |Evet |Resource Manager Kimliğini otomatik ölçeklendirme ayarı |
-| ad |Evet |Otomatik ölçeklendirme ayarının adı |
-| ayrıntılar |Evet |Otomatik ölçeklendirme hizmeti sürdü eylem ve örnek sayısını değişiklik açıklaması |
+| name |Evet |Otomatik ölçeklendirme ayarının adı |
+| Ayrıntıları |Evet |Otomatik ölçeklendirme hizmeti sürdü eylem ve örnek sayısını değişiklik açıklaması |
 | subscriptionId |Evet |Abonelik kimliği ölçeklendirilir hedef kaynak |
 | resourceGroupName |Evet |Ölçeklendirilen hedef kaynağın kaynak grubu adı |
 | resourceName |Evet |Ölçeklendirilen hedef kaynağın adı |

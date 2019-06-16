@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud;anavin
 ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694722"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Oluşturma bir sanal ağ eşlemesi - farklı dağıtım modelleri, aynı abonelik
@@ -31,8 +31,8 @@ Sanal ağlar aynı veya farklı olup, abonelikleri ve hangi bağlı olarak farkl
 |Azure dağıtım modeli  | Azure aboneliği  |
 |--------- |---------|
 |[Her iki kaynak yöneticisi](tutorial-connect-virtual-networks-portal.md) |Aynı|
-|[Her iki kaynak yöneticisi](create-peering-different-subscriptions.md) |Fark|
-|[Bir Resource Manager, diğeri Klasik](create-peering-different-deployment-models-subscriptions.md) |Fark|
+|[Her iki kaynak yöneticisi](create-peering-different-subscriptions.md) |Farklı|
+|[Bir Resource Manager, diğeri Klasik](create-peering-different-deployment-models-subscriptions.md) |Farklı|
 
 Bir sanal ağ eşlemesi iki sanal ağı Klasik dağıtım modeliyle dağıtılan arasında oluşturulamıyor. Klasik dağıtım modeliyle her ikisi de oluşturulan sanal ağlar bağlanmanız gerekirse, bir Azure kullanabileceğiniz [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağları bağlamak için.
 

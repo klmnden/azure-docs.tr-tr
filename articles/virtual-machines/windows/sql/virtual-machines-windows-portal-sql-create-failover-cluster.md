@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591564"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure sanal makinelerinde SQL Server Yük devretme kümesi örneğini yapılandırma
@@ -74,7 +74,7 @@ Aşağıdaki teknolojileri işletimsel bir anlayışa sahip olmalıdır:
 - [Windows Küme teknolojilerini](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server Yük devretme kümesi örnekleri](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Önemli bir fark, bir Azure Iaas VM Konuk yük devretme kümesinde (düğüm) sunucusu ve tek bir alt ağ başına tek bir NIC'ye öneririz, ' dir. Azure ağı Ek NIC ve alt ağları gereksiz bir Azure Iaas VM Konuk kümede olmasını sağlayan fiziksel yedeklilik sahiptir. Küme doğrulama raporunu düğümlere yalnızca tek bir ağda erişilebilir durumda bir uyarı verir ancak Azure Iaas VM Konuk yük devretme kümelerinde bu uyarıyı güvenle yoksayılabilir. 
+Önemli bir fark, bir Azure Iaas VM Konuk yük devretme kümesinde (düğüm) sunucusu ve tek bir alt ağ başına tek bir NIC'ye öneririz, ' dir. Azure ağındaki fiziksel yedeklilik nedeniyle Azure IaaS VM konuk kümesinde ek NIC ve alt ağ kullanılmasına gerek yoktur. Küme doğrulama raporu, düğümlerin yalnızca tek bir ağ üzerinde erişilebilir durumda olduğuna dair bir uyarı gösterse de bu uyarı Azure IaaS VM konuk yük devretme kümelerinde güvenli bir şekilde yoksayılabilir. 
 
 Ayrıca, aşağıdaki teknolojileri genel bir anlayışa sahip olmalıdır:
 
@@ -99,7 +99,7 @@ Bu makaledeki yönergeleri izlemeden önce olmanız gerekir:
 
 Bu önkoşulları yerine getirilince, yük devretme kümeniz oluşturmaya devam edebilirsiniz. İlk adım, sanal makineleri oluşturmaktır.
 
-## <a name="step-1-create-virtual-machines"></a>1. Adım: Sanal makineler oluşturma
+## <a name="step-1-create-virtual-machines"></a>1\. adım: Sanal makineler oluşturma
 
 1. Oturum [Azure portalında](https://portal.azure.com) aboneliğinizle.
 
@@ -175,7 +175,7 @@ Bu önkoşulları yerine getirilince, yük devretme kümeniz oluşturmaya devam 
 
    Her sanal makinede aşağıdaki Windows Güvenlik Duvarı bağlantı noktalarını açın.
 
-   | Amaç | TCP bağlantı noktası | Notlar
+   | Amaç | TCP Bağlantı Noktası | Notlar
    | ------ | ------ | ------
    | SQL Server | 1433 | Varsayılan SQL Server örnekleri için normal bağlantı noktası. Galeriden bir görüntü kullandıysanız, bu bağlantı noktasını otomatik olarak açılır.
    | Durum yoklaması | 59999 | Tüm TCP bağlantı noktasını açın. Daha sonraki bir adımda yük dengeleyici yapılandırma [durum araştırması](#probe) ve bu bağlantı noktasını kullanacak şekilde kümesi.  
@@ -198,7 +198,7 @@ Bu önkoşulları yerine getirilince, yük devretme kümeniz oluşturmaya devam 
 
 Sanal makine oluşturulup yapılandırıldıktan sonra Yük devretme kümesini yapılandırabilirsiniz.
 
-## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>2. Adım: Windows Yük devretme kümesi ile s2d'yi yapılandırma
+## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>2\. adım: Windows Yük devretme kümesi ile s2d'yi yapılandırma
 
 Sonraki adım, yük devretme kümesi ile S2D yapılandırmaktır. Bu adımda, aşağıdaki alt adımların yaparsınız:
 
@@ -314,11 +314,11 @@ S2D için diskler boş ve bölümler veya başka veri içermemesi gerekir. Temiz
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-failover-cluster-failover"></a>3. Adım: Test yük devretme küme yük devretmesi
+## <a name="step-3-test-failover-cluster-failover"></a>3\. adım: Test yük devretme küme yük devretmesi
 
 Yük Devretme Kümesi Yöneticisi'nde bir küme düğümü için depolama kaynağı taşıyabilirsiniz doğrulayın. Yük devretme kümesine ile bağlanabiliyorsa **yük devretme kümesi Yöneticisi** ve depolama, bir düğümden diğerine taşımak, FCI yapılandırmaya hazır olursunuz.
 
-## <a name="step-4-create-sql-server-fci"></a>4. Adım: SQL Server FCI oluşturun
+## <a name="step-4-create-sql-server-fci"></a>4\. Adım: SQL Server FCI oluşturun
 
 Yük devretme kümesi ve depolama da dahil olmak üzere tüm küme bileşenleri yapılandırdıktan sonra SQL Server FCI oluşturabilirsiniz.
 
@@ -347,7 +347,7 @@ Yük devretme kümesi ve depolama da dahil olmak üzere tüm küme bileşenleri 
    >[!NOTE]
    >SQL Server ile Azure Market Galerisi görüntüye kullandıysanız, SQL Server araçları görüntüsüne dahil. Bu görüntü kullanmadıysanız, SQL Server araçlarını ayrı olarak yükleyin. Bkz: [SQL Server Management Studio'yu (SSMS) indirme](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-5-create-azure-load-balancer"></a>5. Adım: Azure yük dengeleyici oluşturma
+## <a name="step-5-create-azure-load-balancer"></a>5\. Adım: Azure yük dengeleyici oluşturma
 
 Azure sanal makinelerinde kümeleri aynı anda bir küme düğümünde olması gereken IP adresi tutmak için bir yük dengeleyici kullanın. Bu çözümde, SQL Server FCI için IP adresini yük dengeleyici tutar.
 
@@ -416,16 +416,16 @@ Yük Dengeleyici oluşturmak için:
    - **Ad**: Yük Dengeleme kuralları için bir ad.
    - **Ön uç IP adresi**: IP adresi için SQL Server FCI küme ağ kaynağı kullanın.
    - **Bağlantı noktası**: SQL Server FCI TCP bağlantı noktasını ayarlayın. Varsayılan örneği bağlantı noktası 1433'dür.
-   - **Arka uç bağlantı noktası**: Aynı bağlantı noktası olarak bu değeri kullanır **bağlantı noktası** değeri, etkinleştirdiğinizde **kayan IP (doğrudan sunucu dönüşü)**.
+   - **Arka uç bağlantı noktası**: Aynı bağlantı noktası olarak bu değeri kullanır **bağlantı noktası** değeri, etkinleştirdiğinizde **kayan IP (doğrudan sunucu dönüşü)** .
    - **Arka uç havuzu**: Daha önce yapılandırılmış arka uç havuzu adı kullanın.
    - **Durum araştırması**: Daha önce yapılandırılmış durum araştırması kullanabilirsiniz.
    - **Oturum kalıcılığı**: Yok.
-   - **Boşta kalma zaman aşımı (dakika)**: 4.
-   - **Kayan IP (doğrudan sunucu dönüşü)**: Enabled
+   - **Boşta kalma zaman aşımı (dakika)** : 4.
+   - **Kayan IP (doğrudan sunucu dönüşü)** : Enabled
 
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**'ı tıklatın.
 
-## <a name="step-6-configure-cluster-for-probe"></a>6. Adım: Araştırma için küme yapılandırma
+## <a name="step-6-configure-cluster-for-probe"></a>6\. Adım: Araştırma için küme yapılandırma
 
 PowerShell'de küme araştırma bağlantı noktası parametresini ayarlayın.
 
@@ -461,7 +461,7 @@ Küme araştırma ayarladıktan sonra PowerShell'de küme parametrelerin tümü 
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## <a name="step-7-test-fci-failover"></a>7. Adım: FCI yük devretme testi
+## <a name="step-7-test-fci-failover"></a>7\. Adım: FCI yük devretme testi
 
 Yük devretme küme işlevselliğini doğrulamak için FCI testi. Aşağıdaki adımları uygulayın:
 

@@ -16,10 +16,10 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147488"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Yüksek oranda kullanılabilir bir Service Fabric Mesh uygulaması Service Fabric güvenilir temel alan Disk biriminde bağlama 
@@ -36,7 +36,7 @@ Bu örnekte, bir sayaç değeri bir tarayıcıda gösteren bir web sayfası ASP.
 
 Bu görevi tamamlamak için Azure Cloud Shell veya Azure CLI'ın yerel bir yüklemesi'ni kullanabilirsiniz. Bu makalede Azure CLI kullanmak için emin olun `az --version` en az döndürür `azure-cli (2.0.43)`.  İzleyerek Azure Service Fabric CLI'sını Mesh uzantısı modülü yüklemek (veya güncelleştirmek) [yönergeleri](service-fabric-mesh-howto-setup-cli.md).
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 Azure'da oturum açın ve aboneliğinizi ayarlayın.
 
@@ -45,7 +45,7 @@ az login
 az account set --subscription "<subscriptionID>"
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Uygulamanın dağıtılacağı kaynak grubunu oluşturun. Aşağıdaki komut adlı bir kaynak grubu oluşturur `myResourceGroup` Doğu Amerika Birleşik Devletleri'nde bulunan bir konumda. Kaynak grubu adı aşağıdaki komutu değiştirirseniz, izleyen tüm komutları değiştirmeyi unutmayın.
 

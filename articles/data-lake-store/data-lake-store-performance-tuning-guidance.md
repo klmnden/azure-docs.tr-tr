@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/30/2017
 ms.author: stewu
 ms.openlocfilehash: a8a50db5ece242bc00a28e66e21c863388950d6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61437636"
 ---
 # <a name="tuning-azure-data-lake-storage-gen1-for-performance"></a>Azure Data Lake depolama Gen1 için performans ayarlama
@@ -47,7 +47,7 @@ Veri kaynağı ile Data Lake depolama Gen1 arasında ağ bağlantısı sorunu ba
 
 Kaynak donanım giderdik ve ağ bağlantısı sorunları yukarıdaki sonra alımı araçlarınızı yapılandırmaya hazır olursunuz. Aşağıdaki tabloda, çeşitli popüler alma araçları için anahtar ayarları özetlenmekte ve ayrıntılı performans makaleler için bunları ayarlama sağlar.  Senaryonuz için kullanmak için hangi aracı hakkında daha fazla bilgi edinmek için bu ziyaret [makale](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
 
-| Tool               | Ayarlar     | Diğer Ayrıntılar                                                                 |
+| Aracı               | Ayarlar     | Daha fazla ayrıntı                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Bağlantı](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
 | AdlCopy    | Azure Data Lake Analytics birimi  |   [Bağlantı](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |

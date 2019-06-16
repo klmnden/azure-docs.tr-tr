@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956894"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantıları yeniden yönlendirin
@@ -47,13 +47,13 @@ Bu üç özellik, kullanıcılarınızın nerede olursa olsun çalışma bağlan
 > Veya uygulamayı yapılandırmak gerekirse bağlantıyla çeviri SharePoint için bkz. [SharePoint 2013 için alternatif erişim eşlemelerini yapılandırma](https://technet.microsoft.com/library/cc263208.aspx) eşleme bağlantıları için başka bir yaklaşım. 
 
  
-### <a name="option-1-intune-managed-browser-integration"></a>1. seçenek: Intune yönetilen tarayıcı tümleştirme 
+### <a name="option-1-intune-managed-browser-integration"></a>1\. seçenek: Intune yönetilen tarayıcı tümleştirme 
 
 Daha fazla uygulama ve içerik korumak için Intune Managed Browser'ı kullanabilirsiniz. Bu çözümü kullanmak için kullanıcı erişimi Intune Managed Browser üzerinden uygulama gerektir/öneri gerekir. Uygulama Ara sunucusu ile yayımlanan tüm iç URL'lerin Managed Browser tarafından tanınan ve karşılık gelen dış URL'ye yeniden yönlendirilen. Bu, tüm sabit kodlanmış iç URL'leri çalışır ve bir kullanıcı, tarayıcıya gider ve doğrudan İç URL türleri kullanıcı uzak olsa bile çalıştığını sağlar.  
 
 Bu seçenek, yapılandırma dahil olmak üzere daha fazla bilgi için lütfen bkz [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) belgeleri.  
 
-### <a name="option-2-myapps-browser-extension"></a>2. seçenek: MyApps tarayıcı uzantısı 
+### <a name="option-2-myapps-browser-extension"></a>2\. seçenek: MyApps tarayıcı uzantısı 
 
 MyApps tarayıcı uzantısı ile uygulama ara sunucusu ile yayımlanan tüm iç URL'leri uzantısı tarafından tanınan ve karşılık gelen bir dış URL'ye yeniden yönlendirildi. Bu, tüm sabit kodlanmış iç URL'leri çalışır ve bir kullanıcı, tarayıcının adres çubuğuna gider ve doğrudan İç URL türleri kullanıcı uzak olsa bile çalıştığını sağlar.  
 
@@ -97,10 +97,10 @@ Uygulama proxy'si için ekleme bağlantısı çeviri destekler HTML kod etiketle
 * iframe
 * görüntü
 * giriş
-* bağlantı
+* Bağlantı
 * MenuItem
 * Meta
-* nesne
+* object
 * script
 * source
 * İzleme
@@ -142,7 +142,7 @@ Bağlantı çeviri ile çalışmaya başlama, bir düğmeye tıklatmak kadar kol
 
 Kullanıcılarınızın bu uygulamaya eriştiğinde, artık proxy otomatik olarak kiracınızda uygulama proxy'si aracılığıyla yayımlanan iç URL'ler için tarar.
 
-## <a name="send-feedback"></a>Seslenme iber
+## <a name="send-feedback"></a>Geri bildirim gönder
 
 Bu özellik tüm uygulamalar için çalışır hale getirmek için yardımınıza istiyoruz. 30'dan etiketleri HTML ve CSS arayın. Bir örnek çevrildiğini olmayan oluşturulan bağlantı varsa, bir kod parçacığı için gönderme [uygulama Proxy geri bildirimi](mailto:aadapfeedback@microsoft.com). 
 

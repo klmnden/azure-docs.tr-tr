@@ -10,10 +10,10 @@ ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
 ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602124"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Ekleme ve kod parçacıkları, Azure Logic Apps'te satır içi kod kullanarak çalıştırma
@@ -204,7 +204,7 @@ Bu konunun örnekte `workflowContext` nesne kodunuzu erişebileceği şu özelli
 
 <a name="add-parameters"></a>
 
-## <a name="add-parameters"></a>Parametre ekle
+## <a name="add-parameters"></a>Parametre ekleme
 
 Bazı durumlarda, açıkça gerektiren gerekebilir **satır içi kod** eylem sonuçlardan ekleyerek kod bağımlılıkları olarak başvuran tetikleyicisi veya belirli eylemler içeriyorsa **tetikleyici** veya **Eylemleri** parametreleri. Bu seçenek, çalışma zamanında başvurulan sonuçları bulunduğu olmayan senaryolar için kullanışlıdır.
 
@@ -215,7 +215,7 @@ Bazı durumlarda, açıkça gerektiren gerekebilir **satır içi kod** eylem son
 
 Bu parametre eklemek için açık **yeni parametre Ekle** listelemek ve istediğiniz parametreleri seçin:
 
-   ![Parametre ekle](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
+   ![Parametre ekleme](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
    | Parametre | Açıklama |
    |-----------|-------------|

@@ -13,10 +13,10 @@ ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
 ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60699345"
 ---
 # <a name="local-forwarder-preview"></a>Yerel ileticisi'ni (Önizleme)
@@ -29,13 +29,13 @@ Yerel ileticinin olduğu bir [GitHub üzerinde açık kaynaklı proje](https://g
 
 ### <a name="windows"></a>Windows
 
-#### <a name="windows-service"></a>Windows Hizmeti
+#### <a name="windows-service"></a>Windows hizmeti
 
 Yerel ileticisi Windows altında çalışan en kolay yolu, bir Windows hizmeti olarak yükleyerek ' dir. Sürüm bir Windows hizmeti yürütülebilir dosyası ile birlikte gelir (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*), kolayca kaydedilebilir işletim sistemi.
 
 > [!NOTE]
 > Yerel ileticisi hizmetinin en az .NET Framework 4.7 gerektirir. Hizmet .NET Framework 4.7 yoksa yükleme, ancak başlatılamıyor. .NET Framework'ün en son sürümüne erişim sağlamak **[.NET Framework Yükleme sayfasını ziyaret edin](
-https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
+https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. LF indirin. WindowsServiceHost.zip dosyasından [yerel ileticisi sürüm sayfası](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) GitHub üzerinde.
 
@@ -146,7 +146,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* Hizmet inceleyerek izleyin **.log* /home/SAMPLE_USER/LOCALFORWARDER_DIR dizindeki dosyaları.
+* Hizmet inceleyerek izleyin * *.log* /home/SAMPLE_USER/LOCALFORWARDER_DIR dizindeki dosyaları.
 
 ### <a name="mac"></a>Mac
 Yerel ileticisi macOS ile çalışabilir, ancak bunu şu anda resmi olarak desteklenmez.
@@ -177,7 +177,7 @@ host.Stop();
 
 ## <a name="monitoring-local-forwarder"></a>Yerel ileticisi izleme
 
-İzlemeleri yazılır yanındaki yerel ileticisi çalışan yürütülebilir dosya sistemi (Ara **.log* dosyaları). Adıyla bir dosya yerleştirebilirsiniz *NLog.config* yanındaki varsayılanın yerine kendi yapılandırmasını sağlamak için çalıştırılabilir. Bkz: [belgeleri](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) biçimi açıklaması.
+İzlemeleri yazılır yanındaki yerel ileticisi çalışan yürütülebilir dosya sistemi (Ara * *.log* dosyaları). Adıyla bir dosya yerleştirebilirsiniz *NLog.config* yanındaki varsayılanın yerine kendi yapılandırmasını sağlamak için çalıştırılabilir. Bkz: [belgeleri](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) biçimi açıklaması.
 
 Herhangi bir yapılandırma dosyası (varsayılan değer olan) sağlanıyorsa, yerel ileticisi bulunabilir varsayılan yapılandırmayı kullanacağı [burada](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
 
