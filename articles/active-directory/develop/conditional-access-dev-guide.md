@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0674934f7105df3874048308e98fd582d32e72bc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9e4e0eb830d5ede910e72ec3193cfd613561811b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962846"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111531"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim için Geliştirici Kılavuzu
 
@@ -32,7 +32,7 @@ Azure Active Directory'de (Azure AD) koşullu erişim özelliğini, uygulamanız
 
 Koşullu erişim tam özellikleri hakkında daha fazla bilgi için bkz. [Azure Active Directory'de koşullu erişim](../active-directory-conditional-access-azure-portal.md).
 
-Azure AD için uygulamalar oluşturan geliştiriciler, bu makalede, koşullu erişim nasıl kullanabileceğinizi gösterir ve üzerinde koşullu erişim ilkelerinin uygulandığı denetiminiz sahip olmayan kaynaklara erişim etkisini hakkında öğreneceksiniz. Makale ayrıca etkilerini on-behalf-of akışı içinde koşullu erişim ve web uygulamaları, Microsoft Graph erişme ve API'leri çağırma keşfediyor.
+Azure AD için uygulama oluşturmaya, geliştiriciler için nasıl koşullu erişimle kullanabilirsiniz ve üzerinde koşullu erişim ilkelerinin uygulandığı denetiminiz sahip olmayan kaynaklara erişim etkisini hakkında öğreneceksiniz bu makalede açıklanır. Makale ayrıca koşullu erişim uygulamaları Microsoft Graph erişme ve API'leri çağırma web uygulamaları, on-behalf-of akışı içinde keşfediyor.
 
 Bilgi [tek](quickstart-v1-integrate-apps-with-azure-ad.md) ve [çok kiracılı](howto-convert-app-to-be-multi-tenant.md) uygulamalar ve [ortak kimlik doğrulaması desenleri](authentication-scenarios.md) varsayılır.
 
@@ -40,20 +40,20 @@ Bilgi [tek](quickstart-v1-integrate-apps-with-azure-ad.md) ve [çok kiracılı](
 
 ### <a name="app-types-impacted"></a>Etkilenen uygulama türleri
 
-Koşullu erişim, en yaygın durumlarda, bir uygulamanın davranışını değiştirmez veya geliştiriciden herhangi bir değişiklik gerektirmez. Bir uygulamayı bir hizmet için bir belirteç dolaylı olarak ya da sessizce istediğinde yalnızca belirli durumlarda uygulama koşullu erişimi "zorlukları" işlemek için kod değişiklikleri gerektirir. Etkileşimli bir oturum açma isteği gerçekleştirmek kadar basit olabilir.
+Koşullu erişim, en yaygın durumlarda, bir uygulamanın davranışını değiştirmez veya geliştiriciden herhangi bir değişiklik gerektirmez. Bir uygulamayı bir hizmet için bir belirteç dolaylı olarak ya da sessizce istediğinde yalnızca belirli durumlarda koşullu erişim "zorluklarını" işlemek üzere kod değişikliklerini uygulama gerektirir. Etkileşimli bir oturum açma isteği gerçekleştirmek kadar basit olabilir.
 
-Özellikle aşağıdaki senaryolarda, koşullu erişim "zorlukları" işlemek için kod gerektirir:
+Özellikle aşağıdaki senaryolarda, koşullu erişim "zorluklarını" işlemek için kod gerektirir:
 
 * Uygulamaları üzerinde-behalf-of akışı gerçekleştirme
 * Birden çok Hizmetleri/kaynaklarına erişen uygulamaları
 * ADAL.js kullanarak tek sayfa uygulamaları
 * Web Apps kaynak çağırma
 
-İlkeleri uygulamaya uygulanabilir, ancak bir web API'sine de uygulanabilir koşullu erişim, uygulamanızı erişir. Koşullu erişim ilkesini yapılandırma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: Azure Active Directory koşullu erişimiyle belirli uygulamalar için mfa'yı gerekli](../conditional-access/app-based-mfa.md).
+İlkeleri uygulamaya uygulanabilir, ancak bir web API'sine de uygulanabilir koşullu erişim, uygulamanızı erişir. Koşullu erişim ilkesini yapılandırma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: Azure Active Directory koşullu erişimiyle birlikte belirli uygulamalar için mfa'yı gerekli](../conditional-access/app-based-mfa.md).
 
 Kurumsal bir müşteri senaryosuna bağlı olarak, uygulamak ve herhangi bir zamanda koşullu erişim ilkelerini kaldırın. Uygulamanızı yeni bir ilke uygulandığında çalışmaya devam edebilmesi "özel" işleme uygulamak gerekir. Aşağıdaki örnekler, sınama işleme gösterir.
 
-### <a name="conditional-access-examples"></a>Koşullu erişim ile ilgili örnekler
+### <a name="conditional-access-examples"></a>Koşullu erişim örnekleri
 
 Bazı senaryolar olduğu gibi diğer iş ise, koşullu erişimi işlemek için kod değişiklikleri gerektirir. Fark bazı Öngörüler sunan çok faktörlü kimlik doğrulaması yapmak için koşullu erişim kullanarak bazı senaryolar aşağıda verilmiştir.
 
@@ -102,7 +102,7 @@ Aşağıdaki bilgiler, yalnızca bu koşullu erişim senaryolarda geçerlidir:
 
 Aşağıdaki bölümlerde, daha karmaşık yaygın senaryolar açıklanmaktadır. Koşullu erişim ilkeleri, belirteç istediği zaman uygulanan bir koşullu erişim ilkesi olan hizmetinde değerlendirilir İlkesi işletim çekirdeği olur.
 
-## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Senaryo: Uygulama üzerinde-behalf-of akışı gerçekleştirme
+## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Senaryo: Kullanıcı adına akışını gerçekleştiren uygulama
 
 Bu senaryoda, yerel bir uygulama bir web hizmetini/API'sini çağıran vakası inceleyeceğiz. Sırayla bu hizmet bir aşağı akış hizmeti çağırmak amacıyla "on-behalf-of" akışını yapar. Bizim durumumuzda, bizim koşullu erişim ilkesi aşağı akış hizmetine (Web API 2) uyguladığınız ve bir sunucu/daemon uygulamasının yerine yerel bir uygulama kullanma. 
 

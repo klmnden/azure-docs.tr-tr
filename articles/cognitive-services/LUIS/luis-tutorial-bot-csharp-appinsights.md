@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 56ceb48be9d5cc9d1cdceed7505e2e3e918a7286
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 6dbaa24df8b2917dd3f68d3851ca4662554ad00a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053261"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Application Insights içinde bir Bot ile LUIS sonuçları ekleyinC#
 
 Bu öğreticide LUIS yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur.
 
-Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu. A [Bot Framework 4.x LUIS öğreticisiyle](luis-csharp-tutorial-bf-v4.md) de kullanılabilir.
+Bot, Bot Framework ile derlenir 4.x ve Azure Web app botu. A [Bot Framework 4.x LUIS öğreticisiyle](luis-csharp-tutorial-bf-v4.md) de kullanılabilir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -33,7 +33,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Öğesinden, LUIS web app botu **[önceki öğreticide](luis-csharp-tutorial-build-bot-framework-sample.md)** açık Application Insights ile.
+* Bir LUIS web app botu gelen **tutorial](luis-csharp-tutorial-bf-v4.md)** açık Application Insights ile.
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) yerel olarak bilgisayarınızda yüklü.
 
 > [!Tip]
@@ -43,7 +43,7 @@ Bu öğreticideki kod tüm kullanılabilir [Azure örnekleri GitHub deposunda](h
 
 ## <a name="review-luis-web-app-bot"></a>LUIS web app botu gözden geçirin
 
-Bu öğreticide kod aşağıdaki gibi görünüyor veya tamamladığınızdan emin olduğunuz varsayılır [diğer öğretici](luis-csharp-tutorial-build-bot-framework-sample.md):
+Bu öğreticide kod aşağıdaki gibi görünüyor veya tamamladığınızdan emin olduğunuz varsayılır [diğer öğretici](luis-csharp-tutorial-bf-v4.md):
 
    [!code-csharp[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs "Web app bot with LUIS")]
 

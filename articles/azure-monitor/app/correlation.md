@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 030259f7773435760c09afd25ca674b63bb1b3ca
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901128"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073250"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application ınsights telemetri bağıntısı
 
@@ -35,7 +35,7 @@ Başka bir bileşen için HTTP çağrısı gibi her giden işlem [bağımlılık
 
 Kullanarak dağıtılmış mantıksal işlemi bir görünümünü oluşturabilirsiniz `operation_Id`, `operation_parentId`, ve `request.id` ile `dependency.id`. Bu alanlar da telemetri çağrıları nedensellik ilişkilerini sırasını tanımlar.
 
-Bir mikro hizmetler ortamında farklı depolama öğelerine bileşenleri izlemelerinden gidebilirsiniz. Her bileşen kendi izleme anahtarı, Application Insights'ta sahip olabilir. Mantıksal işlem için telemetri almak için her depolama öğesinden veri sorgulaması gerekir. Depolama öğe sayısı çok büyük olduğunda, sonraki aranacağı hakkında ipucu gerekir. Bu sorunu çözmek için iki alan Application Insights veri modelini tanımlar: `request.source` ve `dependency.target`. İlk alanı, bağımlılık istek başlatılan bileşeni belirtir ve saniye bileşeni bağımlılık çağrısının bir yanıt döndürdü tanımlar.
+Bir mikro hizmetler ortamında farklı depolama öğelerine bileşenleri izlemelerinden gidebilirsiniz. Her bileşen kendi izleme anahtarı, Application Insights'ta sahip olabilir. Mantıksal işlem için telemetri almak için Application Insights UX her depolama öğe verileri sorgular. Depolama öğe sayısı çok büyük olduğunda, sonraki aranacağı hakkında ipucu gerekir. Bu sorunu çözmek için iki alan Application Insights veri modelini tanımlar: `request.source` ve `dependency.target`. İlk alanı, bağımlılık istek başlatılan bileşeni belirtir ve saniye bileşeni bağımlılık çağrısının bir yanıt döndürdü tanımlar.
 
 ## <a name="example"></a>Örnek
 
@@ -51,12 +51,12 @@ Bir sorgu çalıştırılarak elde edilen telemetri çözümleyebilirsiniz:
 
 Sonuçlarda tüm telemetri öğelerinin kök paylaşmak Not `operation_Id`. Ne zaman bir Ajax çağrısı yapıldığında sayfasından yeni bir benzersiz kimliği (`qJSXU`) için bağımlılık telemetrisi atanır ve sayfa görüntülemesi kimliği olarak kullanılan `operation_ParentId`. Sunucu isteği daha sonra Ajax kimlik olarak kullanır `operation_ParentId`.
 
-| Itemtype   | ad                      | Kimlik           | operation_ParentId | operation_ıd |
+| Itemtype   | name                      | Kimlik           | operation_ParentId | operation_ıd |
 |------------|---------------------------|--------------|--------------------|--------------|
 | Sayfa görünümü   | Stok sayfası                |              | STYz               | STYz         |
-| bağımlılık | GET /Home/stok           | qJSXU        | STYz               | STYz         |
-| istek    | GET Home/stok            | KqKwlrSt9PA= | qJSXU              | STYz         |
-| bağımlılık | /Api/Stock/Value Al      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
+| Bağımlılık | GET /Home/stok           | qJSXU        | STYz               | STYz         |
+| request    | GET Home/stok            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| Bağımlılık | /Api/Stock/Value Al      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
 Zaman çağrı `GET /api/stock/value` yapılan bir dış hizmet için ayarlayabilirsiniz bu nedenle sunucu kimliğini bilmek istiyorsunuz `dependency.target` uygun şekilde alanı. İzleme, dış hizmete desteklemediğinde `target` hizmetin konak adını ayarlayın (örneğin, `stock-prices-api.com`). Ancak, hizmeti önceden tanımlanmış bir HTTP üstbilgisi döndürerek kendisini tanımlar `target` sağlayan bir dağıtılmış izleme telemetrisi, hizmetten sorgulayarak oluşturmak Application Insights hizmet kimliğini içerir.
 

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mstephen
 ms.openlocfilehash: 295a991e610e76971413a2abdba1e2fcc5f9eba6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246697"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services yönetilen etki alanı eşitleme
@@ -60,7 +60,7 @@ Aşağıdaki nesneler veya öznitelikleri, Azure AD kiracınız veya yönetilen 
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Yönetilen etki alanınızla eşitlenen belirli öznitelikler nasıl
 Aşağıdaki tabloda, bazı ortak öznitelikleri listeler ve yönetilen Etki Alanınızla nasıl eşitleneceğini açıklar.
 
-| Yönetilen etki alanınızda özniteliği | Kaynak | Notlar |
+| Yönetilen etki alanınızda özniteliği | source | Notlar |
 |:--- |:--- |:--- |
 | UPN |Azure AD kiracınızda kullanıcının UPN özniteliği |Azure AD kiracınızdan UPN özniteliğini, yönetilen Etki Alanınızla olarak eşitlenir. Bu nedenle, yönetilen Etki Alanınızla oturum açmak için en güvenilir yol UPN'nizi kullanıyor. |
 | SAMAccountName |Kullanıcının mailNickname Azure AD kiracınızda özniteliği veya otomatik olarak oluşturulan |SAMAccountName özniteliğinin Azure AD kiracınızda mailNickname özniteliğinden kaynaklanıyor. Birden çok kullanıcı hesapları aynı mailNickname özniteliğine sahipse, SAMAccountName otomatik olarak üretilir. Kullanıcının mailNickname veya UPN önek 20 karakterden uzun ise, SAMAccountName SAMAccountName özniteliklerde 20 karakter sınırını karşılamak için otomatik oluşturulmuş olur. |
@@ -94,7 +94,7 @@ Aşağıdaki tabloda, Azure AD kiracınızda nesneleri yönetilen etki alanını
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | posta kodu |posta kodu |
 | preferredLanguage |preferredLanguage |
-| durum |St |
+| state |St |
 | streetAddress |streetAddress |
 | Soyadı |sn |
 | telephoneNumber |telephoneNumber |

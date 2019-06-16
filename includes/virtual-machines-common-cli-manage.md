@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117255"
 ---
 Azure CLI, macOS, Linux ve Windows, Azure kaynaklarını oluşturmak ve yönetmek sağlar. Bu makalede oluşturmak ve sanal makineleri (VM'ler) yönetmek için en yaygın komutlardan bazıları ayrıntılı olarak açıklanmaktadır.
@@ -21,9 +21,9 @@ Daha ayrıntılı belirli komut satırı anahtarları ve seçenekleri konusunda 
 ### <a name="create-vms"></a>VM oluşturma
 | Görev | Azure CLI komutları |
 | --- | --- |
-| Kaynak grubu oluşturun | `az group create --name myResourceGroup --location eastus` |
-| Linux VM'i oluşturma | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
-| Bir Windows Sanal Makinesi oluşturun | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
+| Kaynak grubu oluşturma | `az group create --name myResourceGroup --location eastus` |
+| Linux VM oluşturma | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
+| Windows VM oluşturma | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
 ### <a name="manage-vm-state"></a>VM durumunu yönetme
 | Görev | Azure CLI komutları |
@@ -38,7 +38,7 @@ Daha ayrıntılı belirli komut satırı anahtarları ve seçenekleri konusunda 
 ### <a name="get-vm-info"></a>VM bilgilerini alma
 | Görev | Azure CLI komutları |
 | --- | --- |
-| VM'leri listele | `az vm list` |
+| VM'leri listeleme | `az vm list` |
 | VM hakkında bilgi alma | `az vm show --resource-group myResourceGroup --name myVM` |
 | VM kaynaklarının kullanımını alma | `az vm list-usage --location eastus` |
 | Tüm kullanılabilir VM boyutlarını alma | `az vm list-sizes --location eastus` |

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9190d288902a100313150688a767ecb452191447
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f3f4359570cdf701b11ee468b43068f6a1ead429
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284674"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106922"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Öğretici: Azure Active Directory tümleştirmesiyle & Açıkçası
 
@@ -53,7 +53,7 @@ Eklemenize gerek & Açıkçası, Azure AD ile tümleştirme yapılandırmak içi
 
 **Ekleme ve Açıkçası galerideki, aşağıdaki adımları gerçekleştirmek için:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

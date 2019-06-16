@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e020cbc9c18db2142ee7f52cdac22a3518683fce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82e08a8eeeb86d407be61c299656abe79a6f90f4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078342"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST kullanarak HDInsight, Apache Hadoop ile Apache Hive sorguları çalıştırma
 
@@ -24,9 +24,6 @@ Azure HDInsight kümesinde Apache Hadoop ile Apache Hive sorguları çalıştır
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Linux tabanlı Hadoop HDInsight kümesi sürüm 3.4 üzerindeki.
-
-  > [!IMPORTANT]  
-  > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Bir REST istemcisi. Bu belge Windows PowerShell'i kullanır ve [Curl](https://curl.haxx.se/) örnekler.
 
@@ -141,7 +138,7 @@ Bu belge de Windows PowerShell kullanır ve [Jq](https://stedolan.github.io/jq/)
 
    * `ROW FORMAT` -Nasıl veri biçimlendirilir. Her günlük alanlar boşlukla ayrılır.
    * `STORED AS TEXTFILE LOCATION` -Verilerin depolandığı (örnek/veri dizini) ve metin olarak depolanır.
-   * `SELECT` -Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu bildirimi bir değeri döndürür **3** olarak bu değeri içeren üç satır.
+   * `SELECT` -Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]** . Bu bildirimi bir değeri döndürür **3** olarak bu değeri içeren üç satır.
 
      > [!NOTE]  
      > HiveQL ifadelerini arasındaki boşluklar değiştirilir bildirimi `+` Curl ile kullanılan karakter. Sınırlayıcı gibi bir alanı içeren tırnak içine alınmış değerler değil yerine `+`.

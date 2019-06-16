@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 01/19/2019
-ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/13/2019
+ms.openlocfilehash: 2ea1d116de2c435e873c653bbfa0571377c4f5ef
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60585719"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067067"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL veritabanı esnek sorgu genel bakış (Önizleme)
 
@@ -140,7 +140,7 @@ Esnek sorgu, Azure SQL veritabanı veritabanları maliyetini dahil edilir. Uzak 
 * Dış veri kaynaklarına veya dış tablolar SSMS veya SSDT betik henüz desteklenmiyor.
 * İçeri/dışarı aktarma SQL DB, dış veri kaynakları ve dış tablolar henüz desteklemiyor. İçeri/dışarı aktarma kullanmanız gerekiyorsa, dışarı aktarmadan önce bu nesneleri bırakın ve sonra bunları içeri aktardıktan sonra yeniden oluşturun.
 * Esnek sorgu şu anda yalnızca dış tablolar yalnızca okuma erişimi destekler. Ancak, tüm T-SQL işlevleri veritabanında dış tablo tanımlandığı kullanabilirsiniz. Örneğin, geçici sonuçları kullanarak, örneğin kalıcı, < local_table > < column_list >'i seçin, veya dış tablolara başvuran esnek sorgu veritabanında saklı yordamlar tanımlamak için yararlı olabilir.
-* Nvarchar(max) dışında dış tablo tanımlarında LOB türleri desteklenmez. Geçici bir çözüm olarak, nvarchar(max) LOB türü bıraktığı Uzak veritabanı üzerinde bir görünüm oluşturun, bir görünüm yerine temel tablo üzerinden, dış tablo tanımlayabilir ve ardından sorgularınızdaki özgün LOB türe geri dönüştürme.
+* Nvarchar(max) dışında dış tablo tanımlarında LOB türleri (uzamsal türler dahil) desteklenmez. Geçici bir çözüm olarak, nvarchar(max) LOB türü bıraktığı Uzak veritabanı üzerinde bir görünüm oluşturun, bir görünüm yerine temel tablo üzerinden, dış tablo tanımlayabilir ve ardından sorgularınızdaki özgün LOB türe geri dönüştürme.
 * Sonuç kümesi devre dışı olarak nvarchar(Maks.) veri türü sütunlar büyüklük kertesinde için sorgu performansını etkileyebilir ve esnek sorgu uygulamasında kullanılan teknikleri toplu işleme Gelişmiş ya da büyük olduğunda bile iki kat kurallı olmayan, kullanım örnekleri miktarı Toplu olmayan veriler sorgu sonucu olarak aktarılır.
 * Dış tablolara sütun istatistikleri şu anda desteklenmemektedir. Tablo istatistikleri desteklenir, ancak el ile oluşturulması gerekir.
 

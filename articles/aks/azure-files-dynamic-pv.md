@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65072215"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061089"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dinamik olarak oluşturabilen ve Azure dosyaları Azure Kubernetes Service (AKS) ile kalıcı hacim kullanma
 
@@ -35,7 +35,7 @@ Bir depolama sınıfı, bir Azure dosya paylaşımı nasıl oluşturulduğunu ta
 * *Standard_RAGRS* -standart okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)
 
 > [!NOTE]
-> Azure, şu anda yalnızca standart depolama ile çalışma dosyaları. Premium depolama kullanırsanız, birim sağlamak başarısız olur.
+> Azure dosyaları, Kubernetes 1.13 veya üzeri çalıştıran AKS kümeleri premium depolamayı destekler.
 
 Azure dosyaları için Kubernetes depolama sınıfları hakkında daha fazla bilgi için bkz. [Kubernetes depolama sınıfları][kubernetes-storage-classes].
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65561202"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Service fabric kümesi açıklayan
@@ -130,7 +130,7 @@ Artık bir TargetReplicaSetSize ile (veya Instancecount bir durum bilgisi olmaya
 | **UD2** | | |R3 | | |1 |
 | **UD3** | | | |R4 | |1 |
 | **UD4** | | | | |R5 |1 |
-| **FDTotal** |1 |1. |1. |1. |1 |- |
+| **FDTotal** |1 |1\. |1\. |1\. |1 |- |
 
 *Düzen 1*
 
@@ -146,7 +146,7 @@ Bu düzen, hata etki alanı ve yükseltme etki alanı başına düğüm açısı
 | **UD2** | | |R2 | | |1 |
 | **UD3** | | | |R3 | |1 |
 | **UD4** | | | | |R4 |1 |
-| **FDTotal** |2 |0 |1. |1. |1 |- |
+| **FDTotal** |2 |0 |1\. |1\. |1 |- |
 
 *Düzen 2*
 
@@ -160,7 +160,7 @@ Bu düzen, hata etki alanı kısıtlaması için "en büyük fark" garantisi, bi
 | **UD2** | | |R2 | | |1 |
 | **UD3** | | | |R3 | |1 |
 | **UD4** | | | | |R4 |1 |
-| **FDTotal** |1 |1. |1. |1. |1 |- |
+| **FDTotal** |1 |1\. |1\. |1\. |1 |- |
 
 *Düzen 3*
 
@@ -238,7 +238,7 @@ Geri dördüncü düzenini ve beş TargetReplicaSetSize aranıyor. N1 kümeden k
 | **UD2** | |R3 |R4 | | |2 |
 | **UD3** | | | |R1 | |1 |
 | **UD4** | | | | |R5 |1 |
-| **FDTotal** |1 |1. |1. |1. |1 |- |
+| **FDTotal** |1 |1\. |1\. |1\. |1 |- |
 
 *Düzen 5*
 
@@ -369,7 +369,7 @@ Düğüm özelliği için belirtilen değer bir dize, bool, olabilir veya signed
 
 1) belirli ifadeler oluşturmak için koşullu denetimler
 
-| Bildirim | Sözdizimi |
+| Deyimi | Sözdizimi |
 | --- |:---:|
 | "equal" | "==" |
 | "eşit değildir" | "!=" |
@@ -380,7 +380,7 @@ Düğüm özelliği için belirtilen değer bir dize, bool, olabilir veya signed
 
 2) gruplandırma ve mantıksal işlemler için Boolean ifadeleri
 
-| Bildirim | Sözdizimi |
+| Deyimi | Sözdizimi |
 | --- |:---:|
 | "ve" | "&&" |
 | "veya" | "&#124;&#124;" |

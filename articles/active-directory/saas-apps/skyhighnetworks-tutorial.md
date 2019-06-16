@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 4836cdec546b7da7351d18d5217e4f87d749aa79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92f3f101807171e71d40171dfa2bd3f006363ae0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867226"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Öğretici: Skyhigh ağlar ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Skyhigh ağları tümleştirmesini yapılandırmak için Skyhigh ağ
 
 **Galeriden Skyhigh ağlar eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

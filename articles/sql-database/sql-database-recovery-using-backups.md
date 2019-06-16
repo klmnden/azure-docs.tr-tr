@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/30/2019
 ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232652"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
@@ -97,7 +97,7 @@ Silinen bir veritabanını silme işlemi süresi veya daha önceki bir noktaya z
 > [!TIP]
 > Silinen bir veritabanını geri yükleme işlemini gösteren bir örnek PowerShell Betiği için bkz: [PowerShell kullanarak bir SQL veritabanını geri](scripts/sql-database-restore-database-powershell.md).
 > [!IMPORTANT]
-> Bir Azure SQL veritabanı sunucusu örneğine silerseniz, tüm veritabanlarını da silinir ve kurtarılamaz. Şu anda silinen sunucunun geri yüklenmesi desteklenmez.
+> Bir Azure SQL veritabanı sunucusu örneğine silerseniz, tüm veritabanlarını da silinir ve kurtarılamaz. Silinen sunucuları geri yükleme işlemi şu an için desteklenmemektedir.
 
 ### <a name="deleted-database-restore-using-the-azure-portal"></a>Azure portalını kullanarak silinen veritabanını geri yükleme
 
@@ -172,7 +172,7 @@ REST API kullanarak bir tek veya havuza alınmış veritabanını geri yüklemek
 | [REST (createMode kurtarma =)](https://docs.microsoft.com/rest/api/sql/databases) |Bir veritabanını geri yükler |
 | [Alma oluşturma veya güncelleştirme veritabanı durumu](https://docs.microsoft.com/rest/api/sql/operations) |Durumu geri yükleme işlemi sırasında döndürür |
 
-### <a name="azure-cli"></a>Azure CLI'si
+### <a name="azure-cli"></a>Azure CLI
 
 - Azure CLI kullanarak tek veya havuza alınmış veritabanını geri yüklemek için bkz: [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
 - Azure CLI kullanarak bir yönetilen örneğine geri yüklemek için bkz: [az sql ORTAB geri yükleme](/cli/azure/sql/midb#az-sql-midb-restore)

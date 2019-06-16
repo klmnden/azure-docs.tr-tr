@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b0b3921640ebf6ed21860cfac75ffca195096db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e8b61bc01e729472c140253f8f936b6ec0dd1b0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863072"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104242"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Öğretici: Azure Active Directory Tümleştirmesi ile operasyon müdür Yardımcısı
 
@@ -53,7 +53,7 @@ Azure AD'ye operasyon tümleştirmesini yapılandırmak için operasyon müdür 
 
 **Galeriden operasyon eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

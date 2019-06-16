@@ -9,10 +9,10 @@ ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389569"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure İzleyici uyarılarıyla karmaşık eylemleri tetiklemek nasıl
@@ -221,7 +221,7 @@ Azure hizmet durumu girişleri etkinlik günlüğü bir parçasıdır. Uyarı ol
 
        !["Hizmet durumu yanlış koşul sonrası eylemi"](media/action-groups-logic-app/service-health-false-condition-post-action.png "hizmet durumu yanlış koşul sonrası eylemi")
 
-- 15. adımına aynıdır. Mantıksal uygulamanızı kaydedin ve kendi eylem grubu için yönergeleri izleyin.
+- 15\. adımına aynıdır. Mantıksal uygulamanızı kaydedin ve kendi eylem grubu için yönergeleri izleyin.
 
 ## <a name="create-a-metric-alert"></a>Ölçüm uyarısı oluşturma
 
@@ -289,7 +289,7 @@ Azure hizmet durumu girişleri etkinlik günlüğü bir parçasıdır. Uyarı ol
 
       !["Ölçüm uyarı false koşulu sonrası eylemi"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "ölçüm uyarı false koşulu sonrası eylemi")
 
-- 15. adımına aynıdır. Mantıksal uygulamanızı kaydedin ve kendi eylem grubu için yönergeleri izleyin.
+- 15\. adımına aynıdır. Mantıksal uygulamanızı kaydedin ve kendi eylem grubu için yönergeleri izleyin.
 
 ## <a name="calling-other-applications-besides-microsoft-teams"></a>Microsoft Teams yanı sıra diğer uygulamalar
 Logic Apps tetikleyici eylemlere uygulamaları ve veritabanlarının geniş bir aralıktaki izin farklı bağlayıcıları birçok vardır. Slack, SQL Server, Oracle, Salesforce, yalnızca bazı örnekler verilmiştir. Bağlayıcılar hakkında daha fazla bilgi için bkz. [Logic App bağlayıcıları](../../connectors/apis-list.md).  

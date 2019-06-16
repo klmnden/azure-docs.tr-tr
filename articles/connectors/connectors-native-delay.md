@@ -11,10 +11,10 @@ tags: connectors
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 27475fb3f086dbc5166a473e9d657d2dab723938
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297669"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Azure Logic Apps'te sonraki eylem çalıştırma gecikmesi
@@ -55,7 +55,7 @@ Bu eylemler için bazı örnek yöntemler şunlardır:
 
    | Özellik | JSON adı | Gerekli | Tür | Açıklama |
    |----------|-----------|----------|------|-------------|
-   | Count | count | Evet | Tamsayı | Gecikme zaman birimlerinin sayısı |
+   | Count | count | Evet | Integer | Gecikme zaman birimlerinin sayısı |
    | Birim | Birim | Evet | String | Örneğin, zaman birimi: `Second`, `Minute`, `Hour`, `Day`, `Week`, veya `Month` |
    ||||||
 
@@ -81,7 +81,7 @@ Bu eylemler için bazı örnek yöntemler şunlardır:
 
    | Özellik | JSON adı | Gerekli | Tür | Açıklama |
    |----------|-----------|----------|------|-------------|
-   | Timestamp | timestamp | Evet | String | Bitiş tarihi ve saati şu biçimi kullanarak iş akışını sürdürme için: <p>YYYY-AA-ssZ <p>Örneğin, 18 Eylül 2017 2: 00'da isterseniz belirtin "2017-09-18T14:00:00Z". <p>**Not:** Bu saat biçimi izlemelidir [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) içinde [UTC tarih saat biçiminde](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), olmadan bir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Bir saat dilimi en sonda boşluk olmadan "Z" harfi eklemeniz gerekir. Bu "Z" eş değeri başvuruyor [Denizcilik zaman](https://en.wikipedia.org/wiki/Nautical_time). |
+   | Zaman damgası | timestamp | Evet | String | Bitiş tarihi ve saati şu biçimi kullanarak iş akışını sürdürme için: <p>YYYY-AA-ssZ <p>Örneğin, 18 Eylül 2017 2: 00'da isterseniz belirtin "2017-09-18T14:00:00Z". <p>**Not:** Bu saat biçimi izlemelidir [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) içinde [UTC tarih saat biçiminde](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), olmadan bir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Bir saat dilimi en sonda boşluk olmadan "Z" harfi eklemeniz gerekir. Bu "Z" eş değeri başvuruyor [Denizcilik zaman](https://en.wikipedia.org/wiki/Nautical_time). |
    ||||||
 
 1. İş akışınızı çalıştırmak istediğiniz diğer tüm eylemler ekleyin.

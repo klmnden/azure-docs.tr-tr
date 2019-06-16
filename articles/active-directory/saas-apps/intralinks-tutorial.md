@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f72d00878e510a420b6974a7564ebc01fc09dcc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4a3b525cd2f9c4f28ad27154be2590fa6a96691
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60270959"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Öğretici: Intralinks ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Intralinks tümleştirmesini yapılandırmak için Intralinks Galeri
 
 **Galeriden Intralinks eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

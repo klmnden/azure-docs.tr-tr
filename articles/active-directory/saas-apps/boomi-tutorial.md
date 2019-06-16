@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fe436632eee12157dde2b082a5c77e67e7977cc
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 114d29d11e51209d5ac788ae25413b5b989b84f4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957174"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Öğretici: Boomi ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Boomi tümleştirmesini yapılandırmak için Boomi Galeriden yönet
 
 **Galeriden Boomi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

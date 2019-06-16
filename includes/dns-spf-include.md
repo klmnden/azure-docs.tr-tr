@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: 9cc650cea17acb8d89933c819c4ca60e2c459d1c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66149964"
 ---
 Gönderen ilke framework (SPF) kayıtları hangi e-posta sunucuları bir etki alanı adı adına e-posta gönderebilir belirtmek için kullanılır. Alıcılara e-postanızı önemsiz olarak işaretlemenizi önlemek SPF kayıtlarının doğru yapılandırılması önemlidir.

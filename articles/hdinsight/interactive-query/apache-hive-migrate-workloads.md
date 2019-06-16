@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/24/2019
 ms.openlocfilehash: b39279e560cb1738ff9b33ec587562efd2ed4e8d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800945"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive iş yükleri için HDInsight 4.0 geçirme
@@ -95,7 +95,7 @@ Yürütme ve Hive/LLAP sorguları bir HDInsight 3.6 kümesi içinde hata ayıkla
 
 HDInsight 4. 0'da, HiveCLI Beeline ile değiştirilmiştir. HiveCLI Hiveserver 1 için bir thrift istemcisi ve Beeline Hiveserver 2'ye erişim sağlayan bir JDBC istemcidir. Beeline herhangi diğer JDBC uyumlu veritabanı uç noktaya bağlanmak için de kullanılabilir. Beeline kullanılabilir kullanıma hazır HDInsight 4.0 gerekli herhangi bir kurulum olmadan ' dir.
 
-HDInsight 3.6 Hive sunucusu ile etkileşim için GUI Ambari Hive görünümünü istemcisidir. 4.0 HDInsight Hive görünümü Hortonworks Data Analytics Studio (DAS) ile değiştirir. DAS HDInsight kümeleri kullanıma hazır sevk değil ve resmi olarak desteklenen bir paket değil. Ancak, DAS küme üzerinde aşağıdaki gibi yüklenebilir:
+HDInsight 3.6 Hive sunucusu ile etkileşim için GUI Ambari Hive görünümünü istemcisidir. 4\.0 HDInsight Hive görünümü Hortonworks Data Analytics Studio (DAS) ile değiştirir. DAS HDInsight kümeleri kullanıma hazır sevk değil ve resmi olarak desteklenen bir paket değil. Ancak, DAS küme üzerinde aşağıdaki gibi yüklenebilir:
 
 Kümenizde "Baş düğüm" ile betik eylemi yürütme için düğüm türü olarak başlatın. Aşağıdaki URI "Bash betiği URI'si" ile işaretlenmiş aşağıdaki metin kutusuna yapıştırın: https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 

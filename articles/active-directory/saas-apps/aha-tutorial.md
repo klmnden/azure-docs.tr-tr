@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90d4cdcecd08ae87b3a2ae6023b8a2557a515fb1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: de27afabe024f08cb80a7b31cfb1b664684315a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107239"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Aha!
 
@@ -54,7 +54,7 @@ Aha tümleştirmesini yapılandırmak için! Azure AD ile Aha eklemeniz gerekir!
 
 **AHA eklemek için! Galeriden, aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -188,11 +188,11 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için Aha erişim vererek Britta Simon etkinleştirin!.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Aha!**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Aha!** .
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **Aha!**.
+2. Uygulamalar listesinde **Aha!** .
 
     ![Aha! Uygulamalar listesinde bağlantı](common/all-applications.png)
 

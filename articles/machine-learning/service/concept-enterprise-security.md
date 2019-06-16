@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059344"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için Kurumsal güvenlik
 
@@ -54,15 +54,15 @@ print(primary)
 ## <a name="authorization"></a>Yetkilendirme
 
 Her bir çalışma alanı birden çok kişi tarafından paylaşılabilir ve birden çok çalışma alanı oluşturabilirsiniz. Bir çalışma alanı paylaştığınızda, kullanıcılara aşağıdaki rolleri atayarak erişim iznini kontrol edebilirsiniz:
-* Sahibi
+* Sahip
 * Katılımcı
 * Okuyucu
     
 Aşağıdaki tabloda ana Azure Machine Learning hizmeti işlemleri ve bunları gerçekleştirebileceği rolleri bazılarını listeler:
 
-| Azure Machine Learning hizmeti işlemi | Sahibi | Katılımcı | Okuyucu |
+| Azure Machine Learning hizmeti işlemi | Sahip | Katılımcı | Okuyucu |
 | ---- |:----:|:----:|:----:|
-| Çalışma Alanı Oluştur | ✓ | ✓ | |
+| Çalışma alanı oluşturma | ✓ | ✓ | |
 | Çalışma alanı paylaşın | ✓ | |  |
 | İşlem oluşturma | ✓ | ✓ | |
 | İşlem ekleme | ✓ | ✓ | |
@@ -70,12 +70,12 @@ Aşağıdaki tabloda ana Azure Machine Learning hizmeti işlemleri ve bunları g
 | Bir denemeyi çalıştırma | ✓ | ✓ | |
 | Çalıştırmaları/ölçümlerini görüntüleme | ✓ | ✓ | ✓ |
 | Modeli kaydetme | ✓ | ✓ | |
-| Görüntü oluştur | ✓ | ✓ | |
+| Görüntü oluşturma | ✓ | ✓ | |
 | Web hizmetini dağıtma | ✓ | ✓ | |
 | Görünüm modelleri/görüntüleri | ✓ | ✓ | ✓ |
 | Web hizmeti çağrısı | ✓ | ✓ | ✓ |
 
-Yerleşik roller gereksinimleriniz için yeterli değil, ayrıca özel roller oluşturabilirsiniz. Çalışma alanını ve Machine Learning işlem işlemleri için destekliyoruz yalnızca özel roller olduğunu unutmayın. Özel roller bulunabilir okuma, yazma veya çalışma alanını ve bu çalışma alanındaki işlem kaynağı izinlerini silme. Rol kullanılabilir belirli bir çalışma alanı düzeyinde, belirli bir kaynak grubu düzeyinde veya belirli bir abonelik düzeyinde yapabilirsiniz. Daha fazla bilgi için [kullanıcıları ve rolleri bir Azure Machine Learning çalışma alanı yönetme](how-to-assign-roles.md)
+Yerleşik roller gereksinimleriniz için yeterli değil, ayrıca özel roller oluşturabilirsiniz. Çalışma alanı ve Machine Learning işlem işlemlerin destekliyoruz yalnızca özel roller içindir. Özel roller bulunabilir okuma, yazma veya çalışma alanını ve bu çalışma alanındaki işlem kaynağı izinlerini silme. Rol kullanılabilir belirli bir çalışma alanı düzeyinde, belirli bir kaynak grubu düzeyinde veya belirli bir abonelik düzeyinde yapabilirsiniz. Daha fazla bilgi için [kullanıcıları ve rolleri bir Azure Machine Learning çalışma alanı yönetme](how-to-assign-roles.md)
 
 ### <a name="securing-compute-and-data"></a>İşlem ve veri güvenliğini sağlama
 Sahipleri ve katkıda bulunanlar çalışma alanına bağlı olan tüm işlem hedefleri ve veri depoları da kullanabilirsiniz.  
@@ -86,7 +86,7 @@ Yönetilen kimlikleri hakkında daha fazla bilgi için bkz. [kimliklerini Azure 
 | Resource | İzinler |
 | ----- | ----- |
 | Çalışma alanı | Katılımcı | 
-| Depolama Hesabı | Depolama Blob Verileri Katkıda Bulunanı | 
+| Depolama Hesabı | Depolama Blob verileri katkıda bulunan | 
 | Key Vault | Tüm anahtarları, parolaları, sertifikaları erişimi | 
 | Azure Container Registry | Katılımcı | 
 | Çalışma alanı içeren bir kaynak grubu | Katılımcı | 
@@ -94,7 +94,7 @@ Yönetilen kimlikleri hakkında daha fazla bilgi için bkz. [kimliklerini Azure 
 
 Yöneticiler yönetilen kimlik yukarıda belirtilen kaynaklara erişimini iptal etmeyin önerilir. Erişim anahtarlarını yeniden eşitleme işlemi geri yüklenebilir.
 
-Azure Machine Learning hizmeti aboneliğinizde katkıda bulunan düzeyinde erişim her çalışma alanı bölgesi için ek bir uygulama (adı aml - şununla başlar) oluşturur. İçin örn. bir çalışma alanı Doğu ABD ve Kuzey Avrupa'da başka bir çalışma alanı ile aynı abonelikte varsa, bu tür uygulamalar 2 görürsünüz. Hizmet yönetmenize yardımcı olan Azure Machine Learning işlem kaynakları, bu gereklidir.
+Azure Machine Learning hizmeti, ek bir uygulama oluşturur (adı ile başlayan `aml-`) aboneliğinizde katkıda bulunan düzeyinde erişim her çalışma alanı bölgesi için. İçin örn. bir çalışma alanı Doğu ABD ve Kuzey Avrupa'da başka bir çalışma alanı ile aynı abonelikte varsa, iki tür uygulamalar görürsünüz. Hizmet yönetmenize yardımcı olan Azure Machine Learning işlem kaynakları, bu gereklidir.
 
 
 ## <a name="network-security"></a>Ağ güvenliği
@@ -103,7 +103,7 @@ Azure Machine Learning hizmeti aboneliğinizde katkıda bulunan düzeyinde eriş
 
 Daha fazla bilgi için [denemeleri ve çıkarım bir sanal ağ içinde çalıştırma](how-to-enable-virtual-network.md).
 
-## <a name="data-encryption"></a>Veri şifreleme
+## <a name="data-encryption"></a>Veri şifrelemesi
 
 ### <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme
 #### <a name="azure-blob-storage"></a>Azure Blob Depolama
@@ -113,13 +113,15 @@ Azure Blob Depolama'da depolanan veriler için kendi anahtarlarınızı hale get
 
 Eğitim işlem için erişilebilir olduğundan emin eğitim verileri genellikle aynı zamanda Azure Blob Depolama alanında depolanır. Bu depolama değil Azure Machine Learning tarafından yönetilen ancak bağlanan bir uzak dosya sistemi olarak hesaplamak için.
 
+Çalışma alanınız ile kullanılan Azure depolama hesapları için erişim anahtarlarını yeniden oluşturma hakkında daha fazla bilgi için bkz: [depolama erişim anahtarlarını yeniden](how-to-change-storage-access-key.md) makalesi.
+
 #### <a name="cosmos-db"></a>Cosmos DB
 Azure Machine Learning hizmeti, Azure Machine Learning hizmeti tarafından yönetilen bir Microsoft abonelikte ölçümleri ve yaşadığı Cosmos DB için meta verileri depolar. Cosmos DB'de depolanan tüm veriler, bekleme durumunda Microsoft tarafından yönetilen anahtarlar kullanılarak şifrelenir.
 
 #### <a name="azure-container-registry-acr"></a>Azure Container Registry (ACR)
 Tüm kapsayıcı görüntülerini (ACR) kayıt defterinizde bekleme durumundayken şifrelenir. Azure, otomatik olarak bir görüntü depolamadan önce şifreler ve Azure Machine Learning hizmeti görüntü alınır, üzerinde halindeyken şifresini çözer.
 
-#### <a name="machine-learning-compute"></a>Machine Learning İşlemi
+#### <a name="machine-learning-compute"></a>Machine Learning işlemi
 Her işlem düğümü, Azure Depolama'da depolanan için işletim sistemi diski, Azure Machine Learning hizmeti depolama hesaplarında Microsoft yönetilen anahtarları kullanılarak şifrelenir. Bu işlem, kısa ömürlü ve kümeleri genellikle ölçeklendirilir çalıştırma yok olduğunda kuyruğa alınmış. Temel sanal makine serbest sağlanan ve işletim sistemi diski silindi. Azure disk şifrelemesi, işletim sistemi diski için desteklenmiyor.
 Her bir sanal makine yerel geçici disk için işletim sistemi işlemlerini de vardır. Bu disk, aşaması için eğitim verilerini de bir isteğe bağlı olarak kullanılabilir. Bu disk şifreli değil. Azure'da bekleyen şifreleme birlikte nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure veri şifreleme bekleyen](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest). 
 
@@ -149,7 +151,7 @@ Puanlama isteği ayrıntıları, kullanıcının abonelikte çalışma alanı ol
 
 ## <a name="data-flow-diagram"></a>Veri akış diyagramı
 
-### <a name="create-workspace"></a>Çalışma Alanı Oluştur
+### <a name="create-workspace"></a>Çalışma alanı oluşturma
 Aşağıdaki diyagramda oluşturma çalışma iş akışı gösterilmektedir.
 Kullanıcı, desteklenen Azure Machine Learning hizmeti (CLI, Python SDK'sı, Azure portalı) istemcilerden herhangi biri Azure AD'den oturum açtığı ve uygun Azure Resource Manager belirteci ister.  Kullanıcı daha sonra çalışma alanı oluşturmak için Azure Resource Manager çağırır.  Azure Resource Manager kişiler Azure Machine Learning çalışma alanı sağlamak için kaynak sağlayıcısı hizmeti.  Çalışma alanı oluşturma sırasında müşterinin aboneliğindeki ek kaynaklar oluşturulur:
 * KeyVault (gizli dizileri depolamak için)

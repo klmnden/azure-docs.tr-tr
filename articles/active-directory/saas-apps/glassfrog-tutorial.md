@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c2b32d1c96a01282aa8cdbae1d55976a89abea81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a816cd6df8351a9b9daefd569d1fad2ec0763832
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277751"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101554"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Öğretici: GlassFrog ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de GlassFrog tümleştirmesini yapılandırmak için GlassFrog Galeride
 
 **Galeriden GlassFrog eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

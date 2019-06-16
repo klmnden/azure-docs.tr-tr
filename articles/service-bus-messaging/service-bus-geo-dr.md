@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a0581ef43e8a3c02126612a21122db559a941370
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2b92b7673ed852e203ca0926421be6ee8cf977d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311224"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058181"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-olağanüstü durum kurtarma
 
@@ -120,7 +120,7 @@ Bu sürümle birlikte göz önünde tutmak için aşağıdaki konuları göz ön
 
 2. Hiçbir veri çoğaltılır şu anda etkin oturumları değil çoğaltıldığından emin anlamına gelir. Ayrıca, yinelenen algılama ve zamanlanmış iletileri çalışmayabilir. Yeni oturumlar, yeni zamanlanmış iletileri ve yeni yinelenen çalışır. 
 
-3. Karmaşık dağıtılmış bir altyapı yük devrediliyor olmalıdır [prova](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) en az bir kez.
+3. Karmaşık dağıtılmış bir altyapı yük devrediliyor olmalıdır [prova](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) en az bir kez.
 
 4. Varlık eşitleme dakika başına yaklaşık 50-100 varlık biraz zaman alabilir. Abonelikler ve kuralları da varlıklar olarak sayılır.
 

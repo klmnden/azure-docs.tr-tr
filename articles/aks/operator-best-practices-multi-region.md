@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
 ms.openlocfilehash: 4afc1231e6c9fa49c04c7bf6dfe26ee5eb87cc31
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475173"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>İş sürekliliği ve olağanüstü durum kurtarma Azure Kubernetes Service (AKS) için en iyi uygulamalar
@@ -57,7 +57,7 @@ Traffic Manager DNS araması gerçekleştirir ve bir kullanıcının en uygun u�
 
 Uç noktalar ve yönlendirme ayarlama hakkında daha fazla bilgi için bkz: [Traffic Manager'ı kullanarak coğrafi trafik yönlendirme yöntemini yapılandırma](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>7. Katman Azure ön kapısı hizmetle uygulama yönlendirme
+### <a name="layer-7-application-routing-with-azure-front-door-service"></a>7\. Katman Azure ön kapısı hizmetle uygulama yönlendirme
 
 Traffic Manager DNS (Katman 3) şekli trafiği kullanır. [Azure ön kapısı hizmet](https://docs.microsoft.com/azure/frontdoor/front-door-overview) HTTP/HTTPS (katman 7) yönlendirme seçeneği sunar. SSL sonlandırma, özel etki alanı, web uygulaması güvenlik duvarı, URL yeniden yazma ve oturum benzeşimi Azure ön kapısı hizmetinin ek özellikler. Hangi çözümünün en uygun olduğunu anlamak için uygulama trafiğinizi gereksinimlerini gözden geçirin.
 

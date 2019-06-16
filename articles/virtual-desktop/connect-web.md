@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: helohr
 ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834024"
 ---
 # <a name="connect-from-a-web-browser"></a>Web tarayıcısından bağlanma
@@ -29,7 +29,7 @@ HTML5 özellikli bir tarayıcıya çalışır ancak resmi olarak aşağıdaki i�
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |
-| Apple Safari      | macOS                            |                     |
+| Apple Safari      | Mac OS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Sürüm 55 veya üzeri |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
 

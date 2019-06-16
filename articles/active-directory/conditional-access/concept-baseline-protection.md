@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca062f4024bb5b0946812e00c8ccc1254b56d333
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003304"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112584"
 ---
 # <a name="what-are-baseline-policies"></a>Temel ilkeleri nelerdir?
 
 Temel ilkeler, kuruluş pek çok ortak saldırılarına karşı korumaya yardımcı olmak önceden tanımlanmış ilkeleri kümesidir. Bu ortak saldırıları parola ilaç, yeniden yürütme ve kimlik avı içerebilir. Temel ilkeleri, Azure AD tüm sürümlerinde kullanılabilir. Kimlik tabanlı saldırılar, son birkaç yılda artarken silinmiş olduğundan Microsoft bu temel koruma ilkeleri herkesin kullanımına. Tüm kuruluşlar, güvenliği etkinleştirilmiş olarak temel düzeyde olmasını sağlamak için bu dört ilkeler amacı olan ek bir maliyet.  
 
-Özelleştirilmiş bir koşullu erişim ilkelerini yönetme, bir Azure AD Premium lisansı gerektirir.
+Özelleştirilmiş koşullu erişim ilkelerini yönetme, bir Azure AD Premium lisansı gerektirir.
 
 ## <a name="baseline-policies"></a>Ana hat ilkeleri
 
@@ -45,12 +45,12 @@ Güç ve Yönetici hesaplarına sahip erişim nedeniyle özel dikkatlice değerl
 
 * Genel yönetici
 * SharePoint yöneticisi
-* Exchange yöneticisi
-* Koşullu erişim yöneticisi
+* Exchange Yöneticisi
+* Koşullu Erişim Yöneticisi
 * Güvenlik yöneticisi
 * Yardım Masası Yöneticisi / parola Yöneticisi
 * Faturalama yöneticisi
-* Kullanıcı yöneticisi
+* Kullanıcı Yöneticisi
 
 Kuruluşunuz, betikleri veya kodları kullanımda bu hesapları varsa, bunları ile değiştirmeyi göz önüne alın [yönetilen kimlikleri](../managed-identities-azure-resources/overview.md). Geçici bir çözüm, belirli kullanıcı hesaplarını temel ilkesinden hariç tutabilirsiniz.
 
@@ -74,7 +74,7 @@ Kuruluşlar, çeşitli Azure hizmetlerini kullanın ve bunları Azure Resource M
 
 * Azure portal
 * Azure PowerShell
-* Azure CLI'si
+* Azure CLI
 
 Kaynak yönetimi gerçekleştirmek için bu araçlardan herhangi birini kullanarak üst düzeyde ayrıcalıklı bir işlemdir. Bu araçlar, hizmet ayarları ve abonelik faturalama gibi abonelik genelindeki yapılandırmaların değiştirebilirsiniz.
 

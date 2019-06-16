@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 2148d1bd79a858bec37e6c574c2a6b6e2009fe46
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 1828cdce66104424cc7845fea89127219e6b77a0
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190409"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137258"
 ---
 # <a name="why-use-batch-transcription"></a>Batch transkripsiyonu neden kullanmalısınız?
 
@@ -24,7 +24,7 @@ Batch transkripsiyonu, depolama, Azure BLOB'ları gibi ses büyük bir miktarın
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-### <a name="subscription-key"></a>Abonelik Anahtarı
+### <a name="subscription-key"></a>Abonelik anahtarı
 
 Konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluştururken [Azure portalında](https://portal.azure.com) izleyerek bizim [Başlarken Kılavuzu](get-started.md). Bizim temel modellerinden döküm almak planlıyorsanız, bir anahtar oluşturmak tek yapmanız gereken bir işlemdir.
 
@@ -66,8 +66,8 @@ Yapılandırma parametreleri JSON olarak sağlanır:
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<local to us, for example en-US>",
-  "name": "<user define name of the transcription batch>",
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
     "ProfanityFilterMode": "Masked",
@@ -83,12 +83,14 @@ Yapılandırma parametreleri JSON olarak sağlanır:
 
 ### <a name="configuration-properties"></a>Yapılandırma özellikleri
 
-| Parametre | Açıklama | Gerekli / isteğe bağlı |
-|-----------|-------------|---------------------|
-| `ProfanityFilterMode` | Tanıma sonuçları küfür nasıl ele alınacağını belirtir. Kabul edilen değerler `none` , devre dışı bırakır küfür filtresi `masked` yıldız işareti ile küfür değiştirir `removed` sonuç, tüm küfür kaldırır veya `tags` "küfür" etiketleri ekler. Varsayılan ayar `masked`. | İsteğe bağlı |
-| `PunctuationMode` | Noktalama işaretleri tanıma sonuçları nasıl ele alınacağını belirtir. Değerler kabul `none` , devre dışı bırakır, noktalama `dictated` açık noktalama gelir `automatic` noktalama işaretleri ile uğraşmak kod çözücü olanak tanıyan veya `dictatedandautomatic` dikte noktalama işaretleri veya otomatik olduğu anlamına gelir. | İsteğe bağlı |
- | `AddWordLevelTimestamps` | Word düzeyi zaman damgası çıkışı eklenip eklenmeyeceğini belirtir. Kabul edilen değerler `true` word düzeyi zaman damgaları sağlar ve `false` (devre dışı bırakmak için varsayılan değer). | İsteğe bağlı |
- | `AddSentiment` | Yaklaşım için utterance eklenmesi gerektiğini belirtir. Kabul edilen değerler `true` utterance başına yaklaşım sağlar ve `false` (devre dışı bırakmak için varsayılan değer). | İsteğe bağlı |
+Döküm yapılandırmak için bu isteğe bağlı özellikleri kullanın:
+
+| Parametre | Açıklama |
+|-----------|-------------|
+| `ProfanityFilterMode` | Tanıma sonuçları küfür nasıl ele alınacağını belirtir. Kabul edilen değerler `none` , devre dışı bırakır küfür filtresi `masked` yıldız işareti ile küfür değiştirir `removed` sonuç, tüm küfür kaldırır veya `tags` "küfür" etiketleri ekler. Varsayılan ayar `masked`. |
+| `PunctuationMode` | Noktalama işaretleri tanıma sonuçları nasıl ele alınacağını belirtir. Değerler kabul `none` , devre dışı bırakır, noktalama `dictated` açık noktalama gelir `automatic` noktalama işaretleri ile uğraşmak kod çözücü olanak tanıyan veya `dictatedandautomatic` dikte noktalama işaretleri veya otomatik olduğu anlamına gelir. |
+ | `AddWordLevelTimestamps` | Word düzeyi zaman damgası çıkışı eklenip eklenmeyeceğini belirtir. Kabul edilen değerler `true` word düzeyi zaman damgaları sağlar ve `false` (devre dışı bırakmak için varsayılan değer). |
+ | `AddSentiment` | Yaklaşım için utterance eklenmesi gerektiğini belirtir. Kabul edilen değerler `true` utterance başına yaklaşım sağlar ve `false` (devre dışı bırakmak için varsayılan değer). |
 
 ### <a name="storage"></a>Depolama
 
@@ -100,6 +102,40 @@ Döküm durumu için yoklama değil en yüksek performanslı olabilir ya da en i
 
 Daha fazla ayrıntı için [Web kancaları](webhooks.md).
 
+## <a name="speaker-separation-diarization"></a>Konuşmacı ayırma (Diarization)
+
+Diarization konuşmacıları ses parçası olarak ayırma işlemidir. Bizim toplu işlem hattı Diarization destekler ve mono kanal kayıtlar iki Konuşmacı tanıma özelliğine sahiptir.
+
+Ses tanıma isteğiniz için diarization işlenir istemek için yalnızca ilgili parametreyi aşağıda gösterildiği gibi HTTP isteğinde eklemeniz gerekir.
+
+ ```json
+{
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
+  "description": "<optional description of the transcription>",
+  "properties": {
+    "AddWordLevelTimestamps" : "True",
+    "AddDiarization" : "True"
+  }
+}
+```
+
+Yukarıdaki istek parametrelerini belirtmeniz Word düzeyi zaman damgaları 'açık olması ' de gerekir. 
+
+Bir sayı tarafından tanımlanan konuşmacıları ilgili ses içerecektir (Konuşmacı olarak tanımlanan şekilde şu anda yalnızca iki kişilerden daha fazlasını destekliyoruz ' Konuşmacı 1 ' ve 'Konuşmacı 2') transkripsiyonu çıktı tarafından takip.
+
+Ayrıca Diarization Stereo kayıtlarını kullanılabilir olmadığını unutmayın. Ayrıca, tüm JSON çıkış Konuşmacı etiketi içerir. Diarization kullanılmıyorsa Göster ' Konuşmacı: Null' JSON biçiminde çıktı.
+
+Desteklenen yerel ayarlar aşağıda listelenmiştir.
+
+| Dil | Yerel ayar |
+|--------|-------|
+| Türkçe | en-US |
+| Çince | zh-CN |
+| Deutsch | de-DE |
+
 ## <a name="sentiment"></a>Yaklaşım
 
 Metninizdeki yaklaşımları, Batch tanıma API'sini yeni bir özelliktir ve çağrı merkezi etki alanındaki önemli bir özelliğidir. Müşteriler `AddSentiment` kendi isteklerini parametreleri 
@@ -110,7 +146,7 @@ Metninizdeki yaklaşımları, Batch tanıma API'sini yeni bir özelliktir ve ça
 4.  Neyin de negatif çağrıları pozitif etkinleştirilirken gittiğini sabitleme
 5.  Ve hangi bunlar bir ürün veya hizmet hakkında gitmeyen şeyler neler gibi müşterilerin tanımlayın
 
-Yaklaşım, bir ses segment utterance (kaydırma) başlangıç ve bitiş bayt akışının algılama sessizlik arasındaki zaman lapse olarak tanımlandığı ses segmente göre puanlanır. Bu kesimin içindeki tüm metni yaklaşım hesaplamak için kullanılır. Biz yok, tüm arama veya tüm konuşma her kanal için herhangi bir toplama yaklaşım değeri hesaplayın. Bu, daha fazla uygulamak için etki alanı sahibi olarak kalır.
+Yaklaşım, bir ses segment utterance (kaydırma) başlangıç ve bitiş bayt akışının algılama sessizlik arasındaki zaman lapse olarak tanımlandığı ses segmente göre puanlanır. Bu kesimin içindeki tüm metni yaklaşım hesaplamak için kullanılır. Biz yok, tüm arama veya tüm konuşma her kanal için herhangi bir toplama yaklaşım değeri hesaplayın. Daha fazla uygulamak için etki alanı sahibi bu toplamalara bırakılır.
 
 Yaklaşım sözcük temelli form üzerinde uygulanır.
 
@@ -149,11 +185,11 @@ Bir JSON çıkışı örneği aşağıdaki gibi görünür:
   ]
 }
 ```
-Özellikleri, şu anda Beta sürümünde olan bir yaklaşım modeli kullanır.
+Bu özellik şu anda Beta sürümünde olan bir yaklaşım modeli kullanır.
 
 ## <a name="sample-code"></a>Örnek kod
 
-Tam örnek kullanılabilir [GitHub örnek deposundan](https://aka.ms/csspeech/samples) içinde `samples/batch` alt.
+Tam örnekler kullanılabilir [GitHub örnek deposundan](https://aka.ms/csspeech/samples) içinde `samples/batch` alt.
 
 Örnek kod, abonelik bilgilerinizi hizmeti bölge, konuşmaların ve durumda özel bir dil ve akustik model kullanmak istediğiniz kimlik modeli için SAS ses dosyasına işaret eden URI ile özelleştirmeniz gerekir. 
 

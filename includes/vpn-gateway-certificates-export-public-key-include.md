@@ -9,10 +9,10 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: afd4836229c60ebef1536d4fa1ca4206a492e56d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150314"
 ---
 Otomatik olarak imzalanan kök sertifika oluşturduktan sonra kök sertifika ortak anahtar .cer dosyasını (özel anahtarı değil) dışarı aktarın. Daha sonra bu dosya Azure'a yükler. Aşağıdaki adımları otomatik olarak imzalanan kök sertifikanız için .cer dosyasını dışarı aktarmanıza yardımcı olur:
@@ -31,16 +31,16 @@ Otomatik olarak imzalanan kök sertifika oluşturduktan sonra kök sertifika ort
    ![Base-64 kodlamalı](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
 5. İçin **dışarı aktarılan dosya**, **Gözat** sertifikasını dışarı aktarmak istediğiniz konum için. **Dosya adı** alanına, sertifika dosyası için bir ad girin. Ardından **İleri**'ye tıklayın.
 
-   ![Gözat](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
+   ![Göz at](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Sertifikayı dışarı aktarmak için **Son**'a tıklayın.
 
-   ![Bitir](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
+   ![Son](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. Sertifikanızı başarıyla dışarı aktarıldı.
 
-   ![Başarı](./media/vpn-gateway-certificates-export-public-key-include/success.png)
+   ![Başarılı](./media/vpn-gateway-certificates-export-public-key-include/success.png)
 8. Dışarı aktarılan sertifika şuna benzer:
 
-   ![Dışa Aktarıldı](./media/vpn-gateway-certificates-export-public-key-include/exported.png)
+   ![Dışarı aktarılan](./media/vpn-gateway-certificates-export-public-key-include/exported.png)
 9. Not Defteri'ni kullanarak dışarı aktarılan sertifikası açarsanız, bu örnektekine benzer bir şey görürsünüz. Mavi bölümünde Azure'a yüklenmiş bilgileri içerir. Sertifikanızı Not Defteri'nde açın ve buna benzer aramaz, genellikle Bunun anlamı vermeden değil kullanarak Base-64 kodlanmış X.509 (. CER) biçimi. Ayrıca, farklı bir metin Düzenleyicisi kullanmak istiyorsanız, bazı düzenleyiciler istenmeyen arka planda biçimlendirme çıkarabilir anlayın. Bu, bu sertifika metinden azure'a karşıya sorunlar oluşturabilir.
 
    ![Not Defteri ile açın](./media/vpn-gateway-certificates-export-public-key-include/notepad.png)

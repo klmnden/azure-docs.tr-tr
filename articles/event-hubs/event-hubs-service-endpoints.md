@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15912ce2e100a4317e775d72972ca6eacfac0d42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343452"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080531"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs ile sanal ağ hizmet uç noktaları kullanma
 
@@ -71,13 +71,13 @@ Aşağıdaki Resource Manager şablonu var olan bir Event Hubs ad alanı için b
 
 * **namespaceName**: Event Hubs ad alanı.
 * **vnetRuleName**: Oluşturulacak sanal ağ kuralı adı.
-* **virtualNetworkingSubnetId**: Sanal ağ alt ağı için Resource Manager tam yolunu; Örneğin, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` sanal ağ varsayılan alt ağ.
+* **virtualNetworkingSubnetId**: Sanal ağ alt ağı için Resource Manager tam yolunu; Örneğin, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` sanal ağ varsayılan alt ağ.
 
 > [!NOTE]
 > Olası hiçbir Reddet kural varken, Azure Resource Manager şablonu ayarlanmış varsayılan eylem sahip **"İzin ver"** hangi bağlantıları kısıtlama yoktur.
 > Sanal ağ veya güvenlik duvarı kuralları yaparken, ki değiştirmeli ***"Defaultactıon"***
 > 
-> başlangıç
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```

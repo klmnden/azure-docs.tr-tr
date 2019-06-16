@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6e0adc6b4abbb58504b6f56c8def72440ad370d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61414378"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061407"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Excel Azure SQL veritabanı'nda tek bir veritabanına bağlanma ve rapor oluşturma
 
@@ -37,9 +37,9 @@ Ayrıca, bir Excel kopyanızın olması gerekir. Bu makalede [Microsoft Excel 20
    ![Veri kaynağı seçin: Excel, SQL veritabanı'na bağlanın.](./media/sql-database-connect-excel/excel_data_source.png)
 
    Veri Bağlantı Sihirbazı açılır.
-3. **Veritabanı Sunucusuna Bağlan** iletişim kutusunda, bağlanmak istediğiniz SQL Database **Sunucu adını** şu biçimde girin: <*sunucuadı*>**.database.windows.net**. Örneğin, **msftestserver.database.windows.net**. İsteğe bağlı olarak, veritabanınızın adını girin. Seçin **Tamam** kimlik bilgilerini penceresini açın. 
+3. **Veritabanı Sunucusuna Bağlan** iletişim kutusunda, bağlanmak istediğiniz SQL Database **Sunucu adını** şu biçimde girin: <*sunucuadı*> **.database.windows.net**. Örneğin, **msftestserver.database.windows.net**. İsteğe bağlı olarak, veritabanınızın adını girin. Seçin **Tamam** kimlik bilgilerini penceresini açın. 
 
-   ![Sunucu name.png](media/sql-database-connect-excel/server-name.png)
+   ![Veritabanı sunucusu iletişim kutusuna bağlanın](media/sql-database-connect-excel/server-name.png)
 
 4. İçinde **SQL Server veritabanı** iletişim kutusunda **veritabanı** sol tarafında ve ardından girin, **kullanıcı adı** ve **parola** için Bağlanmak istediğiniz SQL veritabanı sunucusu. Seçin **Connect** açmak için **Gezgin**. 
 
@@ -68,7 +68,7 @@ Bağlantı kurduktan sonra veri yükleme ile birkaç farklı seçeneğiniz vard�
 
 > [!TIP]
 > Diğer Excel çalışma kitaplarını ve çalışma sayfalarını veritabanına bağlanmak istiyorsanız seçin **veri** sekmesine tıklayın ve **son kaynaklar** başlatmak için **son kaynaklar** iletişim kutusu. Buradan, listeden oluşturduğunuz bağlantıyı seçin ve ardından **açık**.
-> ![Son bağlantılar](media/sql-database-connect-excel/recent-connections.png)
+> ![Son kaynakları iletişim kutusu](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>.Odc dosyası kullanarak kalıcı bir bağlantı oluşturma
 
@@ -78,7 +78,7 @@ Bağlantı ayrıntıları kalıcı olarak kaydetmek için bir .odc dosyası olu�
    1. Seçin **daha fazlası için Gözat** açmak için **veri kaynağı Seç** iletişim kutusu.   
    2. Seçin **+NewSqlServerConnection.odc** dosya ve ardından **açın** açmak için **Veri Bağlantı Sihirbazı'nı**.
 
-      ![Yeni Bağlantı](media/sql-database-connect-excel/new-connection.png)
+      ![Yeni bağlantı iletişim kutusu](media/sql-database-connect-excel/new-connection.png)
 
 2. İçinde **Veri Bağlantı Sihirbazı**, sunucu adınız ve SQL veritabanı kimlik bilgilerinizi yazın. **İleri**’yi seçin. 
    1. Açılır listeden verilerinizi içeren veritabanını seçin. 
@@ -93,7 +93,7 @@ Bağlantı ayrıntıları kalıcı olarak kaydetmek için bir .odc dosyası olu�
 
 4. Nasıl verilerinizi içeri aktarmak istediğinizi seçin. Bir PivotTable yapmak seçtik. Bağlantı özelliklerini seçerek değiştirebilirsiniz **özellikleri**. Seçin **Tamam** ne zaman hazır. Ardından parolayı dosyasıyla kaydetmek belirlemediyseniz, kimlik bilgilerinizi girmeniz istenir. 
 
-    ![Verileri İçeri Aktar](media/sql-database-connect-excel/import-data2.png)
+    ![Verileri İçeri Aktarma](media/sql-database-connect-excel/import-data2.png)
 
 5. Yeni bağlantınızı genişleterek kaydedildiğini doğrulayın **veri** sekme ve seçerek **varolan bağlantılar**. 
 

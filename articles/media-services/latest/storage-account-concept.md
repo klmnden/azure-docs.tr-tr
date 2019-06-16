@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/11/2019
 ms.author: juliako
 ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550162"
 ---
 # <a name="cloud-upload-and-storage"></a>Bulutta karşıya yükleme ve depolama
@@ -54,14 +54,14 @@ Bekleyen veri varlıklarınızı korumanın varlıklar tarafından depolama tara
 
 ## <a name="storage-account-errors"></a>Depolama hesabı hataları
 
-Media Services hesabı için "Bağlantı kesildi" durumu, hesap erişim için bir veya daha fazla bağlı depolama hesabını bir değişiklikten dolayı depolama erişim anahtarlarını artık sahip olduğunu gösterir. Güncel depolama erişim anahtarlarını, Media Services tarafından hesabında çok sayıda görevi gerçekleştirmek için gereklidir.
+Media Services hesabının durumunun "Bağlantı kesildi" olması, depolama erişim anahtarlarının değiştirilmesi nedeniyle hesabın bağlı depolama hesaplarından birine veya daha fazlasına erişim sahibi olmadığını gösterir. Media Services hesabındaki birçok görevin gerçekleştirilmesi için güncel depolama erişim anahtarlarına ihtiyaç duyulur.
 
-Bir Media Services hesabında bağlı depolama hesaplarına erişim olmaması ortaya çıkabilecek birincil senaryolar aşağıda verilmiştir. 
+Media Services hesabının bağlı depolama hesaplarına erişim sahibi olmamasına neden olabilecek temel senaryolar aşağıda verilmiştir. 
 
 |Sorun|Çözüm|
 |---|---|
-|Media Services hesabı ya da bağlı depolama hesapları, abonelikleri ayırmak için geçirildi. |Tümü aynı abonelikte olmasını sağlamak ve depolama hesapları Media Services hesabına geçirin. |
-|Burada destekleniyordu erken bir Media Services hesabı olduğu gibi Media Services hesabı farklı bir abonelikte bağlı depolama hesabını kullanıyor. Tüm erken Media Services hesapları modern Azure Kaynak Yöneticisi (ARM) tabanlı hesaplarına dönüştürüldü ve bağlantı kesildi durumunda olacaktır. |Tümü aynı abonelikte olmasını sağlamak, Media Services hesabı ve depolama hesabını geçirin.|
+|Media Services hesabı veya bağlı depolama hesapları ayrı aboneliklere geçirildi. |Depolama hesaplarını veya Media Services hesabını geçirerek ikisinin aynı abonelikte olmasını sağlayın. |
+|Media Services hesabı, farklı bir abonelikteki bağlı depolama hesabını kullanıyor ve bu duruma eski Media Services hesaplarında izin veriliyordu. Tüm eski Media Services hesapları modern Azure Resource Manager (ARM) tabanlı hesaplara dönüştürüldü ve durumları "Bağlantı kesildi" şeklinde olacak. |Depolama hesabını veya Media Services hesabını geçirerek ikisinin aynı abonelikte olmasını sağlayın.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mbullwin
 ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497159"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights Genel Bakış Panosu
@@ -37,7 +37,7 @@ Zaman aralığı seçimi için basit bir tek tıklamayla arabirimi basitleştiri
 
 Genel performans büyük ölçüde artırıldı. Tek tıklamayla erişim gibi popüler özelliklere sahip **arama** ve **Analytics**. Dinamik olarak KPI kutucuk güncelleştirme her varsayılan karşılık gelen Application Insights özellikleri hakkında Öngörüler sağlar. Hakkında daha fazla bilgi edinmek için istekleri seçin başarısız **hataları** altında **Araştır** üst bilgi:
 
-![hataları](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
+![Hatalar](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Uygulama panosu
 

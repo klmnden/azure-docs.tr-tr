@@ -11,10 +11,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65950108"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Görevler için veri bilimi takım projesi üzerinde Grup Yöneticisi
@@ -86,7 +86,7 @@ Oturum açtıktan sonra tıklayın **yeni hesap oluştur** aşağıdaki görünt
 Oluşturmak istediğiniz Azure DevOps Hizmetleri için bilgileri doldurun **hesabınızı oluşturun** aşağıdaki değerlerle Sihirbazı:
 
 - **Sunucu URL'si**: Değiştirin *mysamplegroup* ile kendi *sunucu adı*. Sunucunuzun URL'sini olacağı: *https://\<servername\>. visualstudio.com*.
-- **Kodu şunu kullanarak Yönet:** Seçin  **_Git_**.
+- **Kodu şunu kullanarak Yönet:** Seçin  **_Git_** .
 - **Proje adı:** Girin *GroupCommon*.
 - **Şunu kullanarak çalışmayı Düzenle:** Seçin *Çevik*.
 - **Projelerinizi barındırın:** Coğrafi konumu seçin. Bu örnekte, Seçtiğimiz *Orta Güney ABD*.

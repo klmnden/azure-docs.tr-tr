@@ -6,10 +6,10 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111450"
 ---
 Standart sanal makine (VM) görüntülerini kuruluşların buluta taşımayı ve dağıtımlarında tutarlılığı sağlar. Görüntüler genellikle önceden tanımlı güvenlik ve yapılandırma ayarlarını ve gerekli yazılımı da içerir. Kendi görüntü işlem hattı ayarlama süresi, altyapı ve Kurulum gerektirir ancak Azure VM Görüntü Oluşturucu ile yalnızca görüntünüzü açıklayan basit bir yapılandırma sağlayın, hizmete gönderme ve görüntü oluşturulan dağıtılmış ve.
@@ -37,7 +37,7 @@ Azure VM Görüntü Oluşturucu (Azure Görüntü Oluşturucu), bir Windows veya
 Azure Görüntü Oluşturucu hizmeti bu bölgelerde Önizleme için kullanıma sunulacaktır. Bu bölgeler dışında görüntüleri dağıtılabilir.
 - Doğu ABD
 - Doğu ABD 2
-- Orta Batı ABD
+- Batı Orta ABD
 - Batı ABD
 - Batı ABD 2
 

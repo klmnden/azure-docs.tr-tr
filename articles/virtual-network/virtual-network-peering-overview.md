@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 100bbb6e0ed8e2ea5b35e30e7759a3b11c169b60
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077636"
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
@@ -90,7 +90,7 @@ Bir sanal ağ eşlemesi oluşturmak için gereken izinler hakkında bilgi edinme
 
 Sanal ağ eşleme bağlantısı kullanan girdi ve çıkış trafiği için nominal bir ücret uygulanır. Sanal Ağ Eşleme ve Genel Sanal Ağ eşleme fiyatlandırması hakkında daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Ağ geçidi aktarımı, bir sanal ağın şirket içi ve dışı karışık bağlantı ya da sanal ağlar arası bağlantı için eşlenmiş sanal ağdaki bir VPN ağ geçidinden yararlanmasını sağlayan bir eşleme özelliğidir. Bu senaryoda uzak ağ geçidinden geçen trafik [VPN ağ geçidi ücretlerine](https://azure.microsoft.com/pricing/details/vpn-gateway/) tabidir ve [Sanal ağ eşleme ücretleri](https://azure.microsoft.com/pricing/details/virtual-network) alınmaz. Örneğin, Sanalağa şirket içi bağlantı için bir VPN ağ geçidi varsa ve Sanalağb Sanalağa için yapılandırılmış uygun özellikleri ile eşlenmişse, şirket içi Sanalağb gelen trafiği yalnızca VPN ağ geçidi fiyatlandırması çıkışı ücretlendirilir. Sanal ağ eşleme ücretleri uygulanmaz. [Sanal ağ eşlemesi için VPN ağ geçidi aktarımını yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) hakkında bilgi edinin.
+Ağ geçidi geçişinin sağlayan bir şirket içi veya VNet-VNet bağlantısı çapraz eşlenen sanal ağ için VPN/ExpressRoute ağ geçidi kullanmak bir sanal ağ eşleme bir özelliktir. Bu senaryoda uzak bir ağ geçidi üzerinden geçen trafiğin olan konusu [VPN ağ geçidi ücretleri](https://azure.microsoft.com/pricing/details/vpn-gateway/) veya ExpressRoute ağ geçidi ücretler ve tabi olmayan [VNet eşleme ücretleri.](https://azure.microsoft.com/pricing/details/virtual-network) Örneğin, Sanalağa şirket içi bağlantı için bir VPN ağ geçidi varsa ve Sanalağb Sanalağa için yapılandırılmış uygun özellikleri ile eşlenmişse, şirket içi Sanalağb gelen trafiği yalnızca çıkışı VPN gateway fiyatlandırması veya ExpressRoute fiyatlandırması başına ücretlendirilir. Sanal ağ eşleme ücretleri uygulanmaz. [Sanal ağ eşlemesi için VPN ağ geçidi aktarımını yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) hakkında bilgi edinin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

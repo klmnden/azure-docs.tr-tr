@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833515"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065489"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure işlevleri PowerShell Geliştirici Kılavuzu
 
@@ -60,7 +60,7 @@ Proje kök dizininde yok paylaşılan [ `host.json` ](functions-host-json.md) i�
 
 Bazı bağlamalar bulunması gerekir. bir `extensions.csproj` dosya. Uzantılar, gerekli bağlama [sürüm 2.x](functions-versions.md) işlevler çalışma zamanını, şurada tanımlanan `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 
-PowerShell işlevi uygulamalarda, isteğe bağlı olarak olabilir bir `profile.ps1` çalıştırılacak bir işlev uygulaması başlatıldığında çalışır (Aksi halde olarak biliyor bir  *[hazırlıksız başlatma](#cold-start)*. Daha fazla bilgi için [PowerShell profiliniz](#powershell-profile).
+PowerShell işlevi uygulamalarda, isteğe bağlı olarak olabilir bir `profile.ps1` çalıştırılacak bir işlev uygulaması başlatıldığında çalışır (Aksi halde olarak biliyor bir  *[hazırlıksız başlatma](#cold-start)* . Daha fazla bilgi için [PowerShell profiliniz](#powershell-profile).
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>Bir PowerShell Betiği bir işlev olarak tanımlama
 
@@ -84,7 +84,7 @@ $TriggerMetadata.sys
 | Özellik   | Description                                     | Tür     |
 |------------|-------------------------------------------------|----------|
 | utcNow     | UTC biçiminde işlevi, tetiklendi.        | DateTime |
-| MethodName | Tetiklendi işlevin adı     | string   |
+| methodName | Tetiklendi işlevin adı     | string   |
 | RandGuid   | Bu işlev yürütmesi için benzersiz bir GUID | string   |
 
 Her tetikleyici türü meta verileri farklı bir dizi vardır. Örneğin, `$TriggerMetadata` için `QueueTrigger` içeren `InsertionTime`, `Id`, `DequeueCount`, başka şeylerin yanında. Kuyruk tetikleyicinin meta veriler hakkında daha fazla bilgi için Git [Sırası Tetikleyicileri resmi belgelerine](functions-bindings-storage-queue.md#trigger---message-metadata). Belgeleri kontrol [Tetikleyicileri](functions-triggers-bindings.md) tetikleyici meta verileri içinde ne geldiğini görmek için birlikte çalışıyoruz.
@@ -243,7 +243,7 @@ PowerShell işlevlerde günlüğü normal PowerShell günlükleri gibi çalış�
 | Hata | **`Write-Error`** |
 | Uyarı | **`Write-Warning`**  | 
 | Bilgi | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Bilgi | Yazar _bilgi_ düzeyinde günlüğe kaydetme. |
-| Hata Ayıklama | **`Write-Debug`** |
+| Hata ayıklama | **`Write-Debug`** |
 | İzleme | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Bu cmdlet'lerinin yanı sıra, herhangi bir şey işlem hattının yazılan yönlendireceği `Information` günlük düzeyi ve görüntülenen varsayılan biçimlendirme PowerShell ile.
@@ -253,7 +253,7 @@ Bu cmdlet'lerinin yanı sıra, herhangi bir şey işlem hattının yazılan yön
 
 ### <a name="configure-the-function-app-log-level"></a>İşlev uygulaması günlük düzeyini yapılandırma
 
-İşlevleri denetimi yolu işlevleri Yazar günlüklere kolaylaştırmak için eşik düzeyi tanımlamanıza olanak sağlar. Konsoluna yazılan tüm izlemeleri eşiği ayarlamak için kullanın `logging.logLevel.default` özelliğinde [ `host.json` dosya][host.json başvurusu]. Bu ayar, işlev uygulamanızdaki tüm işlevler için geçerlidir.
+Azure işlevleri denetimi yolu işlevleri Yazar günlüklere kolaylaştırmak için eşik düzeyi tanımlamanıza olanak sağlar. Konsoluna yazılan tüm izlemeleri eşiği ayarlamak için kullanın `logging.logLevel.default` özelliğinde [ `host.json` dosya][host.json başvurusu]. Bu ayar, işlev uygulamanızdaki tüm işlevler için geçerlidir.
 
 Aşağıdaki örnek, tüm işlevler için ayrıntılı günlük kaydını etkinleştirmek için yönelik eşiği ayarlayan ancak adlı bir işlev için hata ayıklama günlük kaydını etkinleştirme eşiği ayarlayan `MyFunction`:
 
@@ -304,7 +304,7 @@ Betiğe geçirilen istek nesnesi türüdür `HttpRequestContext`, aşağıdaki �
 
 | Özellik  | Description                                                    | Tür                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | İstek gövdesini içeren bir nesne. `Body` verilere göre en iyi türü seri hale getirilir. Verileri JSON ise, örneğin, karma tablosu olarak geçirilir. Verileri bir dize ise, bunu bir dize olarak geçirilir. | nesne |
+| **`Body`**    | İstek gövdesini içeren bir nesne. `Body` verilere göre en iyi türü seri hale getirilir. Verileri JSON ise, örneğin, karma tablosu olarak geçirilir. Verileri bir dize ise, bunu bir dize olarak geçirilir. | object |
 | **`Headers`** | İstek üst bilgilerini içeren bir sözlük.                | Sözlük < string, string ><sup>*</sup> |
 | **`Method`** | İsteğin HTTP yöntemi.                                | string                    |
 | **`Params`**  | İstek yönlendirme parametrelerini içeren bir nesne. | Sözlük < string, string ><sup>*</sup> |
@@ -319,7 +319,7 @@ Yanıt nesnesini geri göndermesi gerektiğini türüdür `HttpResponseContext`,
 
 | Özellik      | Description                                                 | Tür                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Yanıtın gövdesini içeren bir nesne.           | nesne                    |
+| **`Body`**  | Yanıtın gövdesini içeren bir nesne.           | object                    |
 | **`ContentType`** | Yanıtın içerik türünü ayarlamak için bir kısa el. | string                    |
 | **`Headers`** | Yanıt üst bilgilerini içeren bir nesne.               | Sözlük veya karma tablosu   |
 | **`StatusCode`**  | Yanıtın HTTP durum kodu.                       | dize veya tamsayı             |
@@ -485,7 +485,7 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 Uygulama ayarlarını okuma yerel olarak çalıştırılırken [local.settings.json](functions-run-local.md#local-settings-file) proje dosyası.
 
-## <a name="concurrency"></a>Eş Zamanlılık
+## <a name="concurrency"></a>Eşzamanlılık
 
 Varsayılan olarak, işlevleri PowerShell çalışma zamanı yalnızca bir işlevin bir çağrı birer birer işleyebilirsiniz. Ancak, bu eşzamanlılık düzeyi aşağıdaki durumlarda yeterli olmayabilir:
 
@@ -598,7 +598,7 @@ Azure işlevleri'nde geliştirirken [sunucusuz barındırma modeli](functions-sc
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Kullanmak yerine paket modülleri `Install-Module`
 
-Betiğinizi her çağrıda çalıştırılır. Kullanmaktan kaçının `Install-Module` betiğinizde. Bunun yerine kullanın `Save-Module` yayımlamadan önce işlevinizi modülü indiriliyor boşa gerek kalmaz. Hazırlıksız başlatma işlemlerinden doğan işlevlerinizi etkileyen, işlev uygulamanızı dağıtmayı göz önünde bulundurun bir [App Service planı](functions-scale.md#app-service-plan) kümesine *her zaman açık* veya bir [Premium planı](functions-scale.md#premium-plan-public-preview).
+Betiğinizi her çağrıda çalıştırılır. Kullanmaktan kaçının `Install-Module` betiğinizde. Bunun yerine kullanın `Save-Module` yayımlamadan önce işlevinizi modülü indiriliyor boşa gerek kalmaz. Hazırlıksız başlatma işlemlerinden doğan işlevlerinizi etkileyen, işlev uygulamanızı dağıtmayı göz önünde bulundurun bir [App Service planı](functions-scale.md#app-service-plan) kümesine *her zaman açık* veya bir [Premium planı](functions-scale.md#premium-plan).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

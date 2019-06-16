@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 6a25444f0207ec5eceb029c5d31d222a31813e22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431160"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066833"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure Deployment Manager (genel Önizleme) ile güvenli dağıtım uygulamalarını etkinleştirme
 
 Birçok bölgede hizmetinizi dağıtmadan ve her bölgede beklendiği gibi çalıştığından emin olmak için Azure Deployment Manager hizmetinin aşamalı bir sunum koordine etmek için kullanabilirsiniz. Tüm Azure dağıtımı için yaptığınız gibi kaynakları hizmetinizde tanımladığınız [Resource Manager şablonları](resource-group-authoring-templates.md). Şablonları oluşturduktan sonra Dağıtım Yöneticisi hizmetiniz için topoloji ve nasıl, alınması açıklamak için kullanın.
 
-Dağıtım Yöneticisi Kaynak Yöneticisi'nin bir özelliktir. Bu, dağıtım sırasında yeteneklerinizi genişletir. Karmaşık bir servis olduğunda Dağıtım Yöneticisi'ni kullanın, çeşitli bölgelere dağıtılması gerekiyor. Hizmetinizi aşamalı kullanıma sunarak, tüm bölgelere dağıtılmadan önce olası sorunları bulabilirsiniz. Aşamalı dağıtım, ek güvenlik önlemleri gerekmiyorsa, standart kullanma [dağıtım seçenekleri](resource-group-template-deploy-portal.md) için Resource Manager. Dağıtım Yöneticisi, sürekli tümleştirme ve sürekli teslim (CI/CD) teklifleri gibi Resource Manager dağıtımlarını destekleyen tüm mevcut üçüncü taraf araçları sorunsuzca tümleştirilir. 
+Dağıtım Yöneticisi Kaynak Yöneticisi'nin bir özelliktir. Bu, dağıtım sırasında yeteneklerinizi genişletir. Karmaşık bir servis olduğunda Dağıtım Yöneticisi'ni kullanın, çeşitli bölgelere dağıtılması gerekiyor. Hizmetinizi aşamalı kullanıma sunarak, tüm bölgelere dağıtılmadan önce olası sorunları bulabilirsiniz. Aşamalı dağıtım, ek güvenlik önlemleri gerekmiyorsa, standart kullanma [dağıtım seçenekleri](resource-group-template-deploy-portal.md) için Resource Manager. Dağıtım Yöneticisi, sürekli tümleştirme ve sürekli teslim (CI/CD) teklifleri gibi Resource Manager dağıtımlarını destekleyen tüm mevcut üçüncü taraf araçları sorunsuzca tümleştirilir.
 
 Azure Deployment Manager Önizleme aşamasındadır. Özellik sağlayarak geliştirmemize yardımcı olun [geri bildirim](https://aka.ms/admfeedback).
 
@@ -31,7 +31,12 @@ Deployment Manager'ı kullanmak için dört dosyaları oluşturmak gerekir:
 
 Topoloji şablon, dağıtım şablonu dağıtmadan önce dağıtın.
 
-Azure Deployment Manager REST API Başvurusu bulunabilir [burada](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Ek kaynaklar:
+
+- [Azure Deployment Manager REST API'si başvurusunda](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Öğretici: Deployment Manager'ı Azure Resource Manager şablonlarıyla kullanma](./deployment-manager-tutorial.md).
+- [Öğretici: Azure Dağıtım Yöneticisi'nde sistem durumu denetimi kullanın](./deployment-manager-tutorial-health-check.md).
+- [Azure Deployment Manager örnek](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Kimlik ve erişim
 
@@ -191,7 +196,7 @@ Dağıtım şablonu ve hizmeti dağıtmak için ihtiyacınız ikililer için yap
 
 ### <a name="steps"></a>Adımlar
 
-Önce veya sonra dağıtım işlemi gerçekleştirmek için bir adım tanımlayabilirsiniz. Şu anda yalnızca `wait` adım ve 'healthCheck' adım vardır. 
+Önce veya sonra dağıtım işlemi gerçekleştirmek için bir adım tanımlayabilirsiniz. Şu anda yalnızca `wait` adım ve 'healthCheck' adım vardır.
 
 Devam etmeden önce dağıtım bekleme adım duraklatır. Hizmetiniz bir sonraki hizmet birimi dağıtmadan önce beklendiği gibi çalıştığını doğrulamak sağlar. Aşağıdaki örnek, bir bekleme adımı genel biçimi gösterir.
 
@@ -262,13 +267,13 @@ Daha fazla bilgi için [piyasaya çıkarma şablon başvurusu](/azure/templates/
 
 ## <a name="parameter-file"></a>Parametre dosyası
 
-İki parametre dosyası oluşturun. Bir parametre dosyası service topolojisi dağıtırken kullanılır ve diğer ürün dağıtımı için kullanılır. Bazı değerler emin olmanız gerekir, her iki parametre dosyaları aynı vardır.  
+İki parametre dosyası oluşturun. Bir parametre dosyası service topolojisi dağıtırken kullanılır ve diğer ürün dağıtımı için kullanılır. Bazı değerler emin olmanız gerekir, her iki parametre dosyaları aynı vardır.
 
 ## <a name="containerroot-variable"></a>containerRoot değişkeni
 
 Tutulan dağıtımlarda, her yeni sürümle yapıtlarınızı yolunu değiştirir. İlk kez yolun bir dağıtım çalıştırdığınızda olabilir `https://<base-uri-blob-container>/binaries/1.0.0.0`. İkinci kez olabilir `https://<base-uri-blob-container>/binaries/1.0.0.1`. Dağıtım Yöneticisi'ni kullanarak geçerli dağıtım için doğru kök yolunu alma basitleştirir `$containerRoot` değişkeni. Bu değer, her sürümü ile değiştirir ve dağıtımdan önce bilinen değil.
 
-Kullanım `$containerRoot` Azure kaynakları dağıtmak şablonu parametre dosyasında değişken. Dağıtım sırasında bu değişken, piyasaya çıkma gerçek değerlerle değiştirilir. 
+Kullanım `$containerRoot` Azure kaynakları dağıtmak şablonu parametre dosyasında değişken. Dağıtım sırasında bu değişken, piyasaya çıkma gerçek değerlerle değiştirilir.
 
 Örneğin, dağıtım sırasında ikili yapıtlar için yapıt kaynağı oluşturun.
 

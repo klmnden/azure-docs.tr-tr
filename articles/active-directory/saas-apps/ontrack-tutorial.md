@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 570200a3befbe6205025a2410c4083d38dd11eb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1da9ec6098864d4f17ac668db6411c1dd0e3afe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247492"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Öğretici: OnTrack ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de OnTrack tümleştirmesini yapılandırmak için OnTrack Galeriden y�
 
 **Galeriden OnTrack eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

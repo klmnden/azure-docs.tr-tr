@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473765"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile SharePoint uzaktan erişimi etkinleştirme
@@ -39,7 +39,7 @@ Bu makalede, ortamınızda SharePoint 2013 veya daha yeni zaten sahibi olduğunu
 
 * Yayımlanmış URL'sini SSL zorunlu kılarız. SSL iç URL'SİNDE gönderilen/eşlenen bağlantıları doğru olduğundan emin olmak için de gereklidir.
 
-## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>1. adım: Kerberos'u yapılandırma Kısıtlı temsilci (KCD)
+## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>1\. adım: Kerberos'u yapılandırma Kısıtlı temsilci (KCD)
 
 Windows kimlik doğrulaması kullanan şirket içi uygulamalar için çoklu oturum açma (SSO) ile Kerberos kimlik doğrulama protokolünü ve Kerberos Kısıtlı temsilci (KCD) adlı bir özellik elde edebilirsiniz. Kullanıcı için Windows doğrudan oturum henüz bile yapılandırıldığında, KCD, bir kullanıcı için bir Windows belirteç almak uygulama Proxy Bağlayıcısı sağlar. KCD hakkında daha fazla bilgi için bkz: [Kerberos Kısıtlı temsilci seçmeye genel bakış](https://technet.microsoft.com/library/jj553400.aspx).
 
@@ -110,7 +110,7 @@ KCD yapılandırmak için her bir bağlayıcı makine için aşağıdaki adımla
   
    ![Temsilci seçme ayarları](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
 
-## <a name="step-2-configure-azure-ad-proxy"></a>2. adım: Azure AD Proxy Yapılandırma
+## <a name="step-2-configure-azure-ad-proxy"></a>2\. adım: Azure AD Proxy Yapılandırma
 
 KCD yapılandırdığınıza göre Azure AD uygulama proxy'si yapılandırmaya hazırsınız.
 
@@ -135,7 +135,7 @@ KCD yapılandırdığınıza göre Azure AD uygulama proxy'si yapılandırmaya h
 
 3. Uygulamanızı ayarlama işlemini sonlandırmak için şuraya gidin: **kullanıcılar ve gruplar** bölümünde ve bu uygulamaya erişmek için kullanıcı atama. 
 
-## <a name="step-3-configure-sharepoint-to-use-kerberos-and-azure-ad-proxy-urls"></a>3. adım: Kerberos ve Azure AD Proxy URL'ler kullanmak için SharePoint'i yapılandırma
+## <a name="step-3-configure-sharepoint-to-use-kerberos-and-azure-ad-proxy-urls"></a>3\. adım: Kerberos ve Azure AD Proxy URL'ler kullanmak için SharePoint'i yapılandırma
 
 Sonraki adım, SharePoint web uygulaması İç URL için gönderilen gelen istekleri işlemek için Kerberos ve uygun bir alternatif erişim eşlemeyi SharePoint izin verecek şekilde yapılandırılmış yeni bir bölge için genişletme ve bağlantılar için dış URL'yi yerleşik yanıt sağlamaktır.
 
@@ -163,7 +163,7 @@ Sonraki adım, SharePoint web uygulaması İç URL için gönderilen gelen istek
 
     ![Alternatif erişim eşlemelerini düzeltin](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
 
-## <a name="step-4-ensure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>4. Adım: Bir HTTPS sertifikası Extranet bölgenin IIS site için yapılandırılmış olduğundan emin olun
+## <a name="step-4-ensure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>4\. Adım: Bir HTTPS sertifikası Extranet bölgenin IIS site için yapılandırılmış olduğundan emin olun
 
 SharePoint yapılandırması olan artık tamamlandı, ancak iç URL Extranet bölgenin olduğundan <https://SharePoint/>, bu site için bir sertifika ayarlamanız gerekir.
 

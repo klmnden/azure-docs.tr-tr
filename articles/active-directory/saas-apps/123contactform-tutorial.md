@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 768afe007141eacbcea1560d3ec1676d9a7d2867
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66e15d58f0c9d82d9ac73747cbd995d8de5cdf97
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Öğretici: 123ContactForm ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de 123ContactForm tümleştirmesini yapılandırmak için 123ContactFor
 
 **Galeriden 123ContactForm eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

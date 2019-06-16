@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ce65d87142df64a9f0c27f3acdb4d6f25e86fb8a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244900"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071620"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Nasıl iş ölçüm uyarıları anlamak Azure İzleyici'de
 
@@ -36,6 +36,8 @@ Bir basit statik eşik ölçüm uyarısı kuralının gibi oluşturduğunuz vars
 - Eşiği: 70
 
 Uyarı kuralı oluşturulur zamandan İzleyici her 1 dakikada bir çalışır ve son 5 dakika için ölçüm değerlerinde görünümünü ve bu değerlerin ortalamasını 70 aşıp aşmadığını denetler. Koşul diğer bir deyişle, son 5 dakika için ortalama CPU yüzdesi 70 aşıyor, etkin bir bildirim uyarı kuralı tetikler. Uyarı kuralı ile ilişkili eylem grubundaki bir e-posta veya bir web kancası eylemi yapılandırdıysanız, hem de etkin bir bildirim alırsınız.
+
+Birden çok koşulu bir kuralı, "Equal" koşul kuralı birlikte kullandığınızda.  Diğer bir deyişle, uyarının tüm koşulların true değerlendirmek ve koşullardan biri artık true olduğunda çözmek uyarı tetikler. Ve bu tür bir uyarı olarak ne zaman uyarı "% 90 ' daha yüksek CPU" ve "kuyruk uzunluğu, 300'den öğedir". 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Dinamik koşul türü ile uyarı kuralı
 

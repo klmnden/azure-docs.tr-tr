@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 242926c0821e4951d2a2bd2f858f63691baf1017
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ae7c823b9aea262556081354a108ac9509a284ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307235"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110680"
 ---
 # <a name="deploy-a-secure-workstation"></a>Güvenli bir iş istasyonu dağıtma
 
@@ -102,7 +102,7 @@ Cihazları Azure AD'ye katılma işlemini daha da güçlendirmek için Gözat **
 
 Azure portalından göz atın **Azure Active Directory** > **Mobility (MDM ve MAM)**  > **Intune**. Ayarını **MDM kullanıcı kapsamı** için **tüm** ve **Kaydet** Biz bu senaryoda, Intune tarafından yönetilecek herhangi bir CİHAZDAN izin verdiği. Daha fazla bilgi makalesinde bulunabilir [Intune hızlı başlangıç: Windows 10 cihazları için otomatik kaydını ayarlama](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment). Intune, yapılandırma ve uyumluluk ilkeleri bir sonraki adımda oluşturacağız.
 
-#### <a name="azure-ad-conditional-access"></a>Azure AD koşullu erişim
+#### <a name="azure-ad-conditional-access"></a>Azure AD Koşullu Erişim
 
 Azure AD koşullu erişim, uyumlu cihazlarda bu ayrıcalıklı yönetim görevlerini korunmasına yardımcı olabilirsiniz. Tanımladığımız üyeleri olarak kullanıcılar **güvenli iş istasyonu kullanıcıları** grubu gerekir uygulamaları bulut oturum açarken çok faktörlü kimlik doğrulaması gerçekleştirmek için. En iyi uygulama kılavuzunu izleyin ve bizim Acil Durum erişim hesapları ilkeden dışlamak ederiz. Makalesinde ek bilgiler bulunabilir [Azure AD'de Acil Durum erişim hesapları yönetme](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 
@@ -122,7 +122,7 @@ Azure portalında koşullu erişim yapılandırmak için Gözat **Azure Active D
       * Birden fazla denetimin - **seçilen tüm denetimleri gerekli kıl**
 * İlke - etkinleştirme **üzerinde**
 
-Kuruluşlar, isteğe bağlı olarak kullanıcıların şirket kaynaklarına burada eriştiğiniz değil blok ülkelere ilkeleri oluşturabilirsiniz. IP konum tabanlı koşullu erişim ilkeleri hakkında daha fazla bilgi makalesinde bulunabilir [konum koşulu Azure Active Directory koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
+Kuruluşlar, isteğe bağlı olarak kullanıcıların şirket kaynaklarına burada eriştiğiniz değil blok ülkelere ilkeleri oluşturabilirsiniz. IP konum tabanlı koşullu erişim ilkeleri hakkında daha fazla bilgi makalesinde bulunabilir [konum koşulu, Azure Active Directory koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
 
 ## <a name="intune-configuration"></a>Intune yapılandırma
 

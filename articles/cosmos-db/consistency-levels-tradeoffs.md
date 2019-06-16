@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65990218"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Tutarlılık, kullanılabilirlik ve performans dengeleri 
@@ -32,7 +32,7 @@ Her model, kullanılabilirlik ve performans seçenekleri sağlar ve kapsamlı SL
 
 Okuma gecikme süresi tüm tutarlılık düzeyi için her zaman 10 milisaniyeden kısa 99. yüzdebirlik olması sağlanır. Bu okuma gecikme süresi, SLA ile desteklenir. Okuma gecikme süresi, 50. yüzdebirlik ortalama genellikle 2 milisaniyeden kısadır veya daha az. Çeşitli bölgeleri kapsayan ve güçlü tutarlılık ile yapılandırılmış olan azure Cosmos hesapları bu garantisi için bir özel durumdur.
 
-Yazma gecikme süresi tüm tutarlılık düzeyi için her zaman 10 milisaniyeden kısa 99. yüzdebirlik olması sağlanır. Bu yazma gecikme süresi, SLA ile desteklenir. 50. yüzdebirlik ortalama yazma gecikme süresi, genellikle 5 mili saniye olan veya daha az.
+Yazma gecikme süresi tüm tutarlılık düzeyi için her zaman 10 milisaniyeden kısa 99. yüzdebirlik olması sağlanır. Bu yazma gecikme süresi, SLA ile desteklenir. 50\. yüzdebirlik ortalama yazma gecikme süresi, genellikle 5 mili saniye olan veya daha az.
 
 Güçlü tutarlılık ile birden fazla bölge ile yapılandırılmış Azure Cosmos hesapları için yazma gecikme süresi kısa iki kez gidiş dönüş süresini (RTT) herhangi birini en uzak iki bölgeleri yanı sıra, 99. yüzdebirlik dilimde 10 mili saniye arasında garanti.
 

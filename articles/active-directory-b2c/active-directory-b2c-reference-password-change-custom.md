@@ -11,10 +11,10 @@ ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: a49f62b6fc1ea00084266d4c5405f8bf96d034cb
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509251"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de özel ilkeleri kullanarak parola değişikliği yapılandırın
@@ -171,7 +171,7 @@ Uygulamalarınızı Azure AD B2C'de test etme, döndürülen Azure AD B2C belirt
 5. Özel ilkeler sayfasında tıklayın **karşıya yükleme İlkesi**.
 6. Seçin **ilke varsa üzerine**, arayın ve seçin *TrustframeworkExtensions.xml* dosya.
 7. **Karşıya Yükle**'ye tıklayın.
-8. 5. adım-7 gibi bağlı olan taraf dosyası için yineleyin *ProfileEditPasswordChange.xml*.
+8. 5\. adım-7 gibi bağlı olan taraf dosyası için yineleyin *ProfileEditPasswordChange.xml*.
 
 ### <a name="run-the-policy"></a>İlke çalıştırın
 

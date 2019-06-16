@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: kumud,steveesp, mareat
 ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153714"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Sanal makine ağ bant genişliği
@@ -35,7 +35,7 @@ Azure sanal makineleri, Mayıs ancak birkaç, ağ arabirimleri bağlı olması g
 
 ## <a name="expected-network-throughput"></a>Beklenen ağ aktarım hızı
 
-Giden beklenen aktarım hızıyla ve her sanal makine boyutu tarafından desteklenen ağ arabirimlerinin sayısını Azure'da ayrıntılı [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM boyutları. Genel amaçlı gibi bir türü ardından boyutu serisi Dv2 serisi gibi elde edilen sayfasında seçin. Her bir seri olan bir tablo, belirtimleri başlıklı son sütunda ağ ile **Maks NIC / beklenen ağ performansı (Mbps)**. 
+Giden beklenen aktarım hızıyla ve her sanal makine boyutu tarafından desteklenen ağ arabirimlerinin sayısını Azure'da ayrıntılı [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM boyutları. Genel amaçlı gibi bir türü ardından boyutu serisi Dv2 serisi gibi elde edilen sayfasında seçin. Her bir seri olan bir tablo, belirtimleri başlıklı son sütunda ağ ile **Maks NIC / beklenen ağ performansı (Mbps)** . 
 
 Aktarım hızı sınırı, sanal makine için geçerlidir. Aktarım hızı, aşağıdaki faktörlerden etkilenmez:
 - **Ağ arabirimleri sayısı**: Bant genişliği sınırı, sanal makineden giden tüm trafik toplu.

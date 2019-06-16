@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
 ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135294"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure portalını kullanarak yol tabanlı yönlendirme kurallarıyla bir uygulama ağ geçidi oluşturma
@@ -61,7 +61,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
    - *myAGSubnet* - Alt ağın adı.
    - *10.0.0.0/24* - Alt ağın adres alanı.
 
-     ![Sanal ağ oluştur](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+     ![Sanal ağ oluşturma](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Sanal ağı ve alt ağı oluşturmak için **Tamam**’a tıklayın.
 7. Tıklayın **genel bir IP adresi seçin**, tıklayın **Yeni Oluştur**ve ardından genel IP adresini adını girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
@@ -73,7 +73,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 1. Sol taraftaki menüde **Tüm kaynaklar**’a ve sonra kaynaklar listesinden **myVNet** öğesine tıklayın.
 2. Tıklayın **alt ağlar**ve ardından **alt**.
 
-    ![Alt ağ oluştur](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
+    ![Alt ağ oluşturma](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
 3. Alt ağ adı için *myBackendSubnet* girin ve sonra **Tamam**’a tıklayın.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
 ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388574"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing özel arama API'si için dil ve bölge desteği
@@ -73,19 +73,19 @@ Kullanarak bir ülke/bölge belirtin `cc` sorgu parametresi. Bir ülke/bölge be
 
 |Ülke/bölge|Dil|Pazar kod|
 |-------|--------|-----------|
-|Arjantin|İspanyolca |es-AR|
+|Arjantin|İspanyolca|es-AR|
 |Avustralya|Türkçe|tr-AU|
-|Avusturya|Almanca |de-AT|
+|Avusturya|Almanca|de-AT|
 |Belçika|Felemenkçe|NL-olabilir|
-|Belçika|Fransızca |FR-olabilir|
+|Belçika|Fransızca|FR-olabilir|
 |Brezilya|Portekizce|pt-BR|
 |Kanada|Türkçe|CA tr|
-|Kanada|Fransızca |fr-CA|
-|Şili|İspanyolca |ES-CL|
+|Kanada|Fransızca|fr-CA|
+|Şili|İspanyolca|ES-CL|
 |Danimarka|Danca|v-DK|
 |Finlandiya|Fince|FI-FI|
-|Fransa|Fransızca |fr-FR|
-|Almanya|Almanca |de-DE|
+|Fransa|Fransızca|fr-FR|
+|Almanya|Almanca|de-DE|
 |Hong Kong, SAR|Geleneksel Çince|zh-HK|
 |Hindistan|Türkçe|tr-giriş|
 |Endonezya|Türkçe|tr kimliği|
@@ -93,7 +93,7 @@ Kullanarak bir ülke/bölge belirtin `cc` sorgu parametresi. Bir ülke/bölge be
 |Japonya|Japonca|ja-JP|
 |Güney Kore|Korece|ko-KR|
 |Malezya|Türkçe|MY tr|
-|Meksika|İspanyolca |es-MX|
+|Meksika|İspanyolca|es-MX|
 |Hollanda|Felemenkçe|NL-NL|
 |Yeni Zelanda|Türkçe|tr NZ|
 |Norveç|Norveççe|no-NO|
@@ -104,12 +104,12 @@ Kullanarak bir ülke/bölge belirtin `cc` sorgu parametresi. Bir ülke/bölge be
 |Rusya|Rusça|ru-RU|
 |Suudi Arabistan|Arapça|ar-SA|
 |Güney Afrika|Türkçe|tr-ZA|
-|İspanya|İspanyolca |es-ES|
+|İspanya|İspanyolca|es-ES|
 |İsveç|İsveççe|sv-SE|
-|İsviçre|Fransızca |FR-CH|
-|İsviçre|Almanca |de-CH|
+|İsviçre|Fransızca|FR-CH|
+|İsviçre|Almanca|de-CH|
 |Tayvan|Geleneksel Çince|zh-TW|
 |Türkiye|Türkçe|tr-TR|
 |Birleşik Krallık|Türkçe|en-GB|
 |Amerika Birleşik Devletleri|Türkçe|en-US|
-|Amerika Birleşik Devletleri|İspanyolca |ES-ABD|
+|Amerika Birleşik Devletleri|İspanyolca|ES-ABD|

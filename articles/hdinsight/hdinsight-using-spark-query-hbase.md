@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: e3f5cb726dddbdbfbd1b1f48c800ac681e7a174c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/06/2019
+ms.openlocfilehash: e747f39ca84bb859b37550efef51e01cffd96876
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696542"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056741"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache HBase verilerini okuyup yazmak için Apache Spark kullanma
 
@@ -21,11 +21,11 @@ Apache HBase, genellikle düşük düzey API'si (taramaları, alır ve puts) vey
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* İki ayrı HDInsight kümeleri, bir HBase ve bir Spark ile en az Spark 2.1 yüklü (HDInsight 3.6).
-* Önerilen yapılandırma, aynı sanal ağdaki her iki küme dağıtımı için en düşük gecikme süresiyle HBase kümesi ile doğrudan iletişim kurmak Spark kümesi gerekir. Daha fazla bilgi için [Azure portalını kullanarak HDInsight oluşturma Linux tabanlı kümelerde](hdinsight-hadoop-create-linux-clusters-portal.md).
-* Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md).
-* [URI şeması](hdinsight-hadoop-linux-information.md#URI-and-scheme) kümeleri birincil depolama alanı için. Bu wasb olacaktır: / / abfs olan Azure Blob Depolama için: / / Azure Data Lake depolama Gen2'ye veya adl: / / Azure Data Lake depolama Gen1. Güvenli aktarım için Blob Depolama veya Data Lake depolama Gen2 etkinse, URI wasbs olacaktır: / / ya da abfss: / /, sırasıyla ayrıca bakın [güvenli aktarım](../storage/common/storage-require-secure-transfer.md).
+* İki ayrı HDInsight kümeleri aynı sanal ağda dağıtılır. Bir HBase ve bir Spark ile en az Spark 2.1 yüklü (HDInsight 3.6). Daha fazla bilgi için [Azure portalını kullanarak HDInsight oluşturma Linux tabanlı kümelerde](hdinsight-hadoop-create-linux-clusters-portal.md).
 
+* Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* [URI şeması](hdinsight-hadoop-linux-information.md#URI-and-scheme) kümeleri birincil depolama alanı için. Bu wasb olacaktır: / / abfs olan Azure Blob Depolama için: / / Azure Data Lake depolama Gen2'ye veya adl: / / Azure Data Lake depolama Gen1. Güvenli aktarım için Blob Depolama veya Data Lake depolama Gen2 etkinse, URI wasbs olacaktır: / / ya da abfss: / /, sırasıyla ayrıca bakın [güvenli aktarım](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="overall-process"></a>Genel işlem
 
@@ -40,38 +40,47 @@ HDInsight kümenizi sorgulamak Spark kümenizin etkinleştirmek için üst düze
 
 ## <a name="prepare-sample-data-in-apache-hbase"></a>Apache HBase, örnek verileri hazırlama
 
-Bu adımda, oluşturun ve Apache HBase, Spark'ı kullanarak ardından sorgulayabilirsiniz basit bir tablodaki doldurun.
+Bu adımda, oluşturun ve Apache HBase, Spark'ı kullanarak ardından sorgulayabilirsiniz tabloda doldurun.
 
-1. SSH kullanarak HBase kümenizin baş düğümüne bağlanın. Daha fazla bilgi için [SSH kullanarak HDInsight Bağlan](hdinsight-hadoop-linux-use-ssh-unix.md).  Aşağıdaki komutta değiştirerek Düzenle `HBASECLUSTER` HBase kümenizin adıyla `sshuser` ile ssh kullanıcı hesabı adı ve ardından komutu girin.
+1. Kullanım `ssh` HBase kümenize bağlanmak için komutu. Değiştirerek aşağıdaki komutu düzenleyin `HBASECLUSTER` adıyla, HBase kümesi ve ardından komutu girin:
 
-    ```
+    ```cmd
     ssh sshuser@HBASECLUSTER-ssh.azurehdinsight.net
     ```
 
-2. HBase Kabuğu'nu başlatmak için aşağıdaki komutu girin:
+2. Kullanım `hbase shell` HBase etkileşimli Kabuk başlatmak için komutu. SSH bağlantınızı aşağıdaki komutu girin:
 
-        hbase shell
+    ```bash
+    hbase shell
+    ```
 
-3. Oluşturmak için aşağıdaki komutu girin bir `Contacts` tablo sütun ailesi ile `Personal` ve `Office`:
+3. Kullanım `create` iki sütun ailesi ile bir HBase tablosu oluşturmak için komutu. Aşağıdaki komutu girin:
 
-        create 'Contacts', 'Personal', 'Office'
+    ```hbase
+    create 'Contacts', 'Personal', 'Office'
+    ```
 
-4. Birkaç örnek satırlar veri yüklemek için aşağıdaki komutları girin:
+4. Kullanım `put` değerleri belirtilen bir sütunda belirli bir tablodaki belirli bir satır eklemek için komutu. Aşağıdaki komutu girin:
 
-        put 'Contacts', '1000', 'Personal:Name', 'John Dole'
-        put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
-        put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
-        put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
-        put 'Contacts', '8396', 'Personal:Name', 'Calvin Raji'
-        put 'Contacts', '8396', 'Personal:Phone', '230-555-0191'
-        put 'Contacts', '8396', 'Office:Phone', '230-555-0191'
-        put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
+    ```hbase
+    put 'Contacts', '1000', 'Personal:Name', 'John Dole'
+    put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
+    put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
+    put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
+    put 'Contacts', '8396', 'Personal:Name', 'Calvin Raji'
+    put 'Contacts', '8396', 'Personal:Phone', '230-555-0191'
+    put 'Contacts', '8396', 'Office:Phone', '230-555-0191'
+    put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
+    ```
 
-5. HBase Kabuğu'ndan çıkmak için aşağıdaki komutu girin:
+5. Kullanım `exit` HBase etkileşimli Kabuk durdurmak için komutu. Aşağıdaki komutu girin:
 
-        exit 
+    ```hbase
+    exit
+    ```
 
 ## <a name="copy-hbase-sitexml-to-spark-cluster"></a>Hbase-site.xml Spark kümesine kopyalama
+
 Hbase-site.xml yerel depolama alanından Spark kümenizin varsayılan depolama kök dizinine kopyalayın.  Yapılandırmanızı yansıtacak şekilde aşağıdaki komutu düzenleyin.  Ardından, açık SSH oturumundan HBase kümesi için aşağıdaki komutu girin:
 
 | Söz dizimi değeri | Yeni değer|
@@ -80,9 +89,11 @@ Hbase-site.xml yerel depolama alanından Spark kümenizin varsayılan depolama k
 |`SPARK_STORAGE_CONTAINER`|Spark kümesi için kullanılan varsayılan depolama kapsayıcısı adı ile değiştirin.|
 |`SPARK_STORAGE_ACCOUNT`|Spark kümesi için kullanılan varsayılan depolama hesabı adı ile değiştirin.|
 
-```
+```bash
 hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
 ```
+
+Daha sonra çıkmak, ssh bağlantısı, HBase kümesi.
 
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Spark kümenizde hbase-site.xml yerleştirin
 
@@ -90,13 +101,15 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
 
 2. Kopyalamak için aşağıdaki komutu girin `hbase-site.xml` Spark 2 yapılandırma klasörü yerel kümenin depolama üzerinde Spark kümenizin varsayılan depolama biriminden:
 
-        sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
+    ```bash
+    sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
+    ```
 
 ## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Spark Shell başvuran HBase Spark Bağlayıcısı'nı çalıştırın
 
 1. Açık SSH oturumundan Spark kümesi için bir spark shell başlatmak için aşağıdaki komutu girin:
 
-    ```
+    ```bash
     spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
     ```  
 
@@ -185,12 +198,14 @@ Bu adımda, Apache HBase için Apache Spark şemadan eşleyen bir katalog nesnes
 
 9. Buna benzer sonuçları görmeniz gerekir:
 
-        +-------------+--------------------+
-        | personalName|       officeAddress|
-        +-------------+--------------------+
-        |    John Dole|1111 San Gabriel Dr.|
-        |  Calvin Raji|5415 San Gabriel Dr.|
-        +-------------+--------------------+
+    ```output
+    +-------------+--------------------+
+    | personalName|       officeAddress|
+    +-------------+--------------------+
+    |    John Dole|1111 San Gabriel Dr.|
+    |  Calvin Raji|5415 San Gabriel Dr.|
+    +-------------+--------------------+
+    ```
 
 ## <a name="insert-new-data"></a>Yeni veri Ekle
 
@@ -229,13 +244,21 @@ Bu adımda, Apache HBase için Apache Spark şemadan eşleyen bir katalog nesnes
 
 5. Şunun gibi bir çıktı görmeniz gerekir:
 
-        +------+--------------------+--------------+------------+--------------+
-        |rowkey|       officeAddress|   officePhone|personalName| personalPhone|
-        +------+--------------------+--------------+------------+--------------+
-        |  1000|1111 San Gabriel Dr.|1-425-000-0002|   John Dole|1-425-000-0001|
-        | 16891|        40 Ellis St.|  674-555-0110|John Jackson|  230-555-0194|
-        |  8396|5415 San Gabriel Dr.|  230-555-0191| Calvin Raji|  230-555-0191|
-        +------+--------------------+--------------+------------+--------------+
+    ```output
+    +------+--------------------+--------------+------------+--------------+
+    |rowkey|       officeAddress|   officePhone|personalName| personalPhone|
+    +------+--------------------+--------------+------------+--------------+
+    |  1000|1111 San Gabriel Dr.|1-425-000-0002|   John Dole|1-425-000-0001|
+    | 16891|        40 Ellis St.|  674-555-0110|John Jackson|  230-555-0194|
+    |  8396|5415 San Gabriel Dr.|  230-555-0191| Calvin Raji|  230-555-0191|
+    +------+--------------------+--------------+------------+--------------+
+    ```
+
+6. Aşağıdaki komutu girerek bir spark shell kapatın:
+
+    ```scala
+    :q
+    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

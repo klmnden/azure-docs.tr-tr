@@ -3,20 +3,20 @@ title: Kapsayıcıları yükleme ve çalıştırma
 titlesuffix: Face - Azure Cognitive Services
 description: İndirin, yükleyin ve bu izlenecek yol öğreticide yüz için kapsayıcıları çalıştırın.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 26ebeb463f42dce06c29a5bd3f69585430a2ee90
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 4d3f3e64e109d0b1dc010be39b62b4f0bdc0573d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306649"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063603"
 ---
 # <a name="install-and-run-face-containers"></a>Yükleme ve yüz kapsayıcıları çalıştırma
 
@@ -47,7 +47,7 @@ Yüz tanıma API'si kapsayıcıları kullanmadan önce aşağıdaki önkoşullar
 
 Aşağıdaki tabloda, en düşük ve önerilen CPU Çekirdeği ve her bir yüz tanıma API'si kapsayıcısı için ayrılacak bellek açıklanmaktadır.
 
-| Kapsayıcı | Minimum | Önerilen | Saniye başına işlem sayısı<br>(Minimum, maksimum)|
+| Kapsayıcı | Minimum | Önerilen | Saniye başına işlem<br>(Minimum, maksimum)|
 |-----------|---------|-------------|--|
 |Yüz | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |10, 20|
 
@@ -60,7 +60,7 @@ Aşağıdaki tabloda, en düşük ve önerilen CPU Çekirdeği ve her bir yüz t
 
 Yüz tanıma API'si için kapsayıcı görüntülerini kullanılabilir. 
 
-| Kapsayıcı | Depo |
+| Kapsayıcı | Havuz |
 |-----------|------------|
 | Yüz | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
@@ -135,7 +135,7 @@ Ana bilgisayarını kullanmak `https://localhost:5000`, kapsayıcı API'leri iç
 Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](./face-resource-container-config.md#mount-settings) ve günlüğe kaydetme etkinleştirildiğinde, başlatmak veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyaları kapsayıcı oluşturur. 
 
 
-## <a name="billing"></a>Faturalama
+## <a name="billing"></a>Faturalandırma
 
 Yüz tanıma API'si kapsayıcıları faturalandırma bilgileri, Azure hesabınızda bir yüz tanıma API'si kaynak'ı kullanarak Azure'a gönderin. 
 

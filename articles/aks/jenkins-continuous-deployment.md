@@ -7,11 +7,11 @@ author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073776"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Öğretici: Github'dan Azure Kubernetes Service (AKS) Jenkins sürekli tümleştirme ve dağıtım ile dağıtma
@@ -48,6 +48,9 @@ Bu öğreticiyi tamamlamak için bu öğeler gerekir:
 ## <a name="prepare-your-app"></a>Uygulamanızı hazırlama
 
 Bu makalede, bir veya daha fazla pod'ların ve geçici veri depolama için Redis barındıran ikinci bir pod içinde barındırılan bir web arabirimi içeren örnek Azure vote uygulamasını kullanın. Otomatik dağıtım için Jenkins ve AKS tümleştirmeden önce ilk el ile hazırlamak ve AKS kümenizi Azure vote uygulamayı dağıtın. Bu el ile dağıtım, bir uygulamanın sürüm ve uygulamayı eylem görmenizi sağlar.
+
+> [!NOTE]
+> Örnek Azure vote uygulamasını bir Linux düğümü üzerinde çalışacak şekilde zamanlanan bir Linux pod kullanır. Bu makalede açıklanan akış için zamanlanmış bir Windows Server düğümünde bir Windows Server pod de çalışır.
 
 -Örnek uygulama için aşağıdaki GitHub depo çatalı oluşturma [ https://github.com/Azure-Samples/azure-voting-app-redis ](https://github.com/Azure-Samples/azure-voting-app-redis). Depo için GitHub hesabınızda çatal oluşturmak üzere sağ üst köşedeki **Fork** (Çatal Oluştur) düğmesini seçin.
 
@@ -208,7 +211,7 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
 
 Rol ataması Azure'da oluşturulan ACR kimlik bilgilerinizi bir Jenkins kimlik bilgisi nesnesi artık depolayın. Bu kimlik bilgileri, Jenkins derleme işi sırasında başvurulur.
 
-Geri sol tarafında Jenkins portalında tıklayın **kimlik bilgilerini** > **Jenkins** > **(sınırsız) genel kimlik bilgileri**  >  **Kimlik bilgilerini ekleyin**
+Geri sol tarafında Jenkins portalında tıklayın **kimlik bilgilerini** > **Jenkins** >  **(sınırsız) genel kimlik bilgileri**  >  **Kimlik bilgilerini ekleyin**
 
 Kimlik bilgisi türü olduğundan emin olun **kullanıcı adıyla parola** ve aşağıdakileri girin:
 

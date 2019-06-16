@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 06/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 332f899f3502f34e46b4f158a6980dc96248140e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ba41132c93ebdb2578bafb100416ca3fe579298
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703157"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123286"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services içinde sınıf laboratuvarlarını yönetme 
 Bu makalede, oluşturma ve bir sınıf laboratuvarına silme açıklar. Ayrıca, bir laboratuvar hesabı tüm sınıf laboratuvarlarını görüntülemek nasıl gösterir. 
@@ -37,10 +37,10 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratu
 
         ![Sınıf laboratuvarı oluşturma](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. **Sanal makine özelliklerini seçin** sayfasında aşağıdaki adımları gerçekleştirin:
-    1. Laboratuvarda oluşturulan sanal makineler (VM) için bir **boyut** seçin. Şu anda **küçük**, **orta**, **büyük**, ve **GPU** boyutları izin verilir.
-    2. VM'lerin oluşturulmasını istediğiniz **bölgeyi** seçin. 
-    3. Laboratuvardaki VM'leri oluşturmak için kullanılacak **VM görüntüsünü** seçin. Bir Linux görüntüsü seçerseniz, Uzak Masaüstü bağlantı etkinleştirmek için bir seçenek görürsünüz. Ayrıntılar için bkz [Linux için Uzak Masaüstü Bağlantısı etkinleştirme](how-to-enable-remote-desktop-linux.md).
-    4. **İleri**’yi seçin.
+    1. Laboratuvarda oluşturulan sanal makineler (VM) için bir **boyut** seçin. Şu anda **küçük**, **orta**, **Orta (sanallaştırma)** , **büyük**, ve **GPU** boyutları izin verilir. Ayrıntılar için bkz [VM boyutları](#vm-sizes) bölümü.
+    1. VM'lerin oluşturulmasını istediğiniz **bölgeyi** seçin. 
+    1. Laboratuvardaki VM'leri oluşturmak için kullanılacak **VM görüntüsünü** seçin. Bir Linux görüntüsü seçerseniz, Uzak Masaüstü bağlantı etkinleştirmek için bir seçenek görürsünüz. Ayrıntılar için bkz [Linux için Uzak Masaüstü Bağlantısı etkinleştirme](how-to-enable-remote-desktop-linux.md).
+    1. **İleri**’yi seçin.
 
         ![VM özellikleri belirtme](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
 5. **Kimlik bilgilerini ayarla** sayfasında laboratuvardaki tüm VM'ler için varsayılan kimlik bilgilerini belirtin. 
@@ -49,7 +49,10 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratu
 
         > [!IMPORTANT]
         > Kullanıcı adını ve parolayı not edin. Bunlar tekrar gösterilmeyecektir.
-    3. **Oluştur**’u seçin. 
+    3. Devre dışı **tüm sanal makineler için kullanılan parolayı kullan** Öğrenciler kendi parolalarını ayarlamak için isterseniz seçeneği. Bu adım **isteğe bağlıdır**. 
+
+        Bir Öğretmen Laboratuvardaki tüm sanal makineler için aynı parolayı kullanın veya kendi Vm'leri için parolanın öğrencilerin izin seçebilirsiniz. Varsayılan olarak, Ubuntu hariç tüm Windows ve Linux görüntüleri için bu ayar etkinleştirilir. Seçtiğinizde, **Ubuntu** VM, bu ayarı devre dışıysa, böylece Öğrenciler ilk kez oturum açtığında bir parola ayarlamanız istenir.
+    1. **Oluştur**’u seçin. 
 
         ![Kimlik bilgilerini ayarlama](../media/tutorial-setup-classroom-lab/set-credentials.png)
 6. **Şablonu yapılandır** sayfasında laboratuvar oluşturma işleminin durumunu görebilirsiniz. Laboratuvar şablonunun oluşturulması 20 dakika sürebilir. Laboratuvardaki şablon, tüm kullanıcıların sanal makinelerinin oluşturulduğu bir temel sanal makine görüntüsüdür. Şablon sanal makinesini, tam olarak laboratuvar kullanıcılarına sağlamak istediklerinizle yapılandırılacak şekilde ayarlayın.  
@@ -59,13 +62,11 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratu
 
     ![Tamamlanmış şablon yapılandırma sayfası](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Bu öğreticide aşağıdaki adımlar isteğe bağlıdır: 
-    1. **Başlat**'ı seçerek şablon VM'sini başlatın.
     2. **Bağlan**'ı seçerek şablon VM'sine bağlanın. Linux VM şablon varsa (RDP etkinse), SSH veya RDP kullanarak bağlanmasını isteyip istemediğinizi seçin.
-    3. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin. 
-    4. VM'yi **durdurun**.  
-    5. Şablon için bir **açıklama** girin
-
-        ![Şablon yapılandırma sayfasında İleri](../media/tutorial-setup-classroom-lab/configure-template-next.png)
+    1. Seçin **parolayı Sıfırla** VM için parolayı sıfırlamak için. 
+    1. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin. 
+    1. VM'yi **durdurun**.  
+    1. Şablon için bir **açıklama** girin
 9. Şablon sayfasında **İleri**'yi seçin. 
 10. **Şablonu yayımla** sayfasında aşağıdaki işlemleri gerçekleştirin. 
     1. Şablonu hemen yayımlamak için *Şablonu yayımladıktan sonra değiştiremeyeceğimi anlıyorum. Bu işlem yalnızca bir kez gerçekleştirilebilir ve bir saat sürebilir* onay kutusunu işaretleyip **Yayımla**'yı seçin.  Şablon sanal makinesinin laboratuvar kullanıcılarınız tarafından kullanılabilmesi için şablonu yayımlayın.
@@ -88,6 +89,15 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratu
 
     ![Durdurulmuş durumdaki sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+### <a name="vm-sizes"></a>VM boyutları  
+
+| Boyut | Çekirdek | RAM | Açıklama | 
+| ---- | ----- | --- | ----------- | 
+| Küçük | 2 | 3,5 GB | Bu boyut komut satırı, web tarayıcısı, düşük trafikli web sunucuları, Orta boyutlu veritabanları küçük açmak için idealdir. |
+| Orta | 4 | 7 GB | Bu boyut ilişkisel veritabanları, bellek içi önbelleğe alma ve analiz için idealdir | 
+| Orta (iç içe sanallaştırma) | 4 | 16 GB | Bu boyut ilişkisel veritabanları, bellek içi önbelleğe alma ve analiz için idealdir. Bu boyut, iç içe sanallaştırmayı da destekler. <p>Bu boyut, her öğrencinin birden çok VM gereken yere senaryolarda kullanılabilir. Öğretmenler, iç içe sanallaştırma, birkaç küçük boyut iç içe sanal makineleri sanal makinenin içinde ayarlamak için kullanabilirsiniz. </p> |
+| Büyük | 8 | 32 GB | Bu boyut daha hızlı CPU'lar, daha iyi yerel disk performansı, büyük veritabanları, büyük bellek önbellekler gerek duyan uygulamalar için idealdir. Bu boyut iç içe sanallaştırmayı da destekler. |  
+| GPU | 12 | 112 GB | Bu boyut görselleştirme yoğun işlem gücü kullanımlı ve grafik kullanımlı iş yükleri için idealdir | 
 
 ## <a name="view-all-classroom-labs"></a>Tüm sınıf laboratuvarlarını görüntüleyin
 1. Gidin [Azure Lab Services portalı](https://labs.azure.com).

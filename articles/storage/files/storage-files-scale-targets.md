@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190025"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078157"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure dosyaları ölçeklenebilirlik ve performans hedefleri
 
@@ -49,9 +49,11 @@ Premium dosya paylaşımları olarak adlandırılan bir özel depolama hesabınd
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-file-sync-scale-targets"></a>Azure dosya eşitleme ölçek hedefleri
 
-Bu her zaman mümkün değildir, ancak Azure dosya eşitleme ile sınırsız kullanım için tasarlamak mümkün olduğunca çalıştık. Aşağıdaki tabloda test işlemlerimizi sınırları ve hangi hedeflerin gerçekten sabit limitlerdir gösterir:
+Azure dosya eşitleme ile sınırsız kullanım amacı tasarlanmıştır ancak sınırsız kullanım her zaman mümkün değildir. Aşağıdaki tabloda, Microsoft'un test sınırları gösterir ve de hangi hedeflerin sabit limitlerdir gösterir:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -82,7 +84,7 @@ Her aşamalar için dağıtım planlamanıza yardımcı olması için aşağıda
 | Aktarım hızı karşıya yükleme | saniye başına 20 nesneleri |
 | Namespace indirme aktarım hızı * | Saniyede 400 nesneleri |
 
-* Yeni bir sunucu uç noktası oluşturulduğunda, Azure dosya eşitleme aracısının dosya içeriği indirmez. İlk tam ad alanı eşitler ve ardından Tetikleyiciler ya da tamamen dosyaları indirmek için geri çağırma arka plan veya Bulut katmanlaması sunucu uç noktasında ayarlayın bulut katmanlama ilkesi etkinleştirilir.
+\* Yeni bir sunucu uç noktası oluşturulduğunda, Azure dosya eşitleme aracısının dosya içeriği indirmez. İlk tam ad alanı eşitler ve ardından Tetikleyiciler ya da tamamen dosyaları indirmek için geri çağırma arka plan veya Bulut katmanlaması sunucu uç noktasında ayarlayın bulut katmanlama ilkesi etkinleştirilir.
 
 | Devam eden eşitleme  |   |
 |-|--|
@@ -92,7 +94,7 @@ Her aşamalar için dağıtım planlamanıza yardımcı olması için aşağıda
 | Aktarım hızı karşıya yükleme | saniyede 30 nesneleri |
 | Tam yükleme verimi * | saniyede 60 nesneleri |
 
-* İse bulut katmanlama etkin olduğunda, muhtemelen yalnızca bazı veri karşıdan dosya olarak daha iyi performans gözlemleyin. Bunlar herhangi bir uç nokta değiştirildiğinde azure dosya eşitleme yalnızca verilerin önbelleğe alınmış dosyaları indirir. Aracı, tüm katmanlı veya yeni oluşturulan dosyalar için dosya verilerini indirmez ve bunun yerine, tüm sunucu uç noktaları için ad alanı yalnızca eşitleyebilir. Kullanıcı tarafından erişilen gibi aracı katmanlı dosyaların kısmi yüklemeleri de destekler. 
+\* İse bulut katmanlama etkin olduğunda, muhtemelen yalnızca bazı veri karşıdan dosya olarak daha iyi performans gözlemleyin. Bunlar herhangi bir uç nokta değiştirildiğinde azure dosya eşitleme yalnızca verilerin önbelleğe alınmış dosyaları indirir. Aracı, tüm katmanlı veya yeni oluşturulan dosyalar için dosya verilerini indirmez ve bunun yerine, tüm sunucu uç noktaları için ad alanı yalnızca eşitleyebilir. Kullanıcı tarafından erişilen gibi aracı katmanlı dosyaların kısmi yüklemeleri de destekler. 
 
 > [!Note]  
 > Yukarıdaki sayılar, yaşar performansı değildir. Gerçek performans, bu bölümün başında belirtildiği gibi pek çok unsura bağlıdır.

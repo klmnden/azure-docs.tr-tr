@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 20fd8a0bfccea579ddef5a605d65f5643d4849bd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 893b71d3a1cc6ece8272cb1a372302ff384003dd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693762"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure Marketi'nde Azure PowerShell ile Windows VM görüntüleri bulma
 
@@ -28,7 +28,7 @@ Bu makalede, sanal makine görüntüleri Azure Market'te bulmak için Azure Powe
 
 Kullanılabilir görüntüleri ve teklifler kullanarak göz atabilirsiniz [Azure Marketi](https://azuremarketplace.microsoft.com/) vitrini, [Azure portalında](https://portal.azure.com), veya [Azure CLI](../linux/cli-ps-findimage.md). 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -129,7 +129,7 @@ $pubName="MicrosoftWindowsServer"
 Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
 ```
 
-Çıkış:
+Çıktı:
 
 ```
 Offer
@@ -194,7 +194,7 @@ $version = "2016.127.20170406"
 Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
-Çıkış:
+Çıktı:
 
 ```
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2019.0.20190115
@@ -219,7 +219,7 @@ Aşağıdaki örnek, benzer bir komut için gösterir *veri bilimi sanal makines
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
 ```
 
-Çıkış:
+Çıktı:
 
 ```
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/microsoft-ads/ArtifactTypes/VMImage/Offers/windows-data-science-vm/Skus/windows2016/Versions/19.01.14
@@ -242,7 +242,7 @@ DataDiskImages   : []
 
 ```
 
-### <a name="accept-the-terms"></a>Koşulları kabul et
+### <a name="accept-the-terms"></a>Koşullarını kabul edin
 
 Lisans koşullarını görüntülemek için kullanın [Get-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/get-azmarketplaceterms) cmdlet'i ve geçişinde satın alma planı parametreleri. Çıkış koşullarını Market görüntüsü için bir bağlantı sağlar ve daha önce koşulları kabul olup olmadığını gösterir. Parametre değerlerini tamamen küçük harf kullandığınızdan emin olun.
 
@@ -250,7 +250,7 @@ Lisans koşullarını görüntülemek için kullanın [Get-AzMarketplaceterms](h
 Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
 ```
 
-Çıkış:
+Çıktı:
 
 ```
 Publisher         : microsoft-ads
@@ -271,7 +271,7 @@ $agreementTerms=Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "wind
 Set-AzMarketplaceTerms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016" -Terms $agreementTerms -Accept
 ```
 
-Çıkış:
+Çıktı:
 
 ```
 Publisher         : microsoft-ads

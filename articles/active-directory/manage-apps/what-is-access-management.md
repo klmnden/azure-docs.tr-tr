@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 851b9ab3604e851bcaf4f22d031c51558b15e0e6
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2f86dfd414309e8420dc19c92c1cd20c40a5a13a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108178"
 ---
 # <a name="managing-access-to-apps"></a>Uygulamalara erişimi yönetme
 Devam eden erişim yönetimi, kullanım değerlendirme ve raporlama bir uygulama, kuruluşunuzun kimlik sistemine tümleştirildikten sonra bir mücadele haline devam edin. Çoğu durumda, BT yöneticileri veya Yardım Masası sahip devam eden etkin bir rol, uygulamalara erişimi yönetme gerçekleştirilecek. Bazı durumlarda, atama, genel veya bölümsel BT ekibi tarafından gerçekleştirilir. Atama karar BT kolaylaştırır önce onay gerektiren iş karar mercii Devredilmiş olması sık yöneliktir atama.  Tümleştirme mevcut otomatik kimlik ve erişim yönetimi sistemi kullanarak, rol tabanlı erişim denetimi (RBAC) veya öznitelik tabanlı erişim denetimi (ABAC) gibi diğer kuruluşlar yaparlar. Tümleştirme ve kural geliştirme özelleştirilmiş ve pahalı olma eğilimindedir. İzleme veya her iki Yönetim yaklaşımını üzerinde raporlama kendi ayrı, yüksek maliyetli ve karmaşık bir yatırımdır.

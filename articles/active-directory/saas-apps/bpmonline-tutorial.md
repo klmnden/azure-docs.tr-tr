@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e2bc30a5b856cba5f1fcca254603c35dfd3764d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 937278f6a9261ca807f934718bc108bf125f44a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106021"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Öğretici: Bpm'online ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Bpm'online tümleştirmesini yapılandırmak için Bpm'online Galeri
 
 **Galeriden Bpm'online eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde  **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

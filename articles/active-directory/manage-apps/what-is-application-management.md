@@ -12,12 +12,12 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80680de6602b26488a8bade8a69fdd85b7f83ed1
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 9246d7bd48579def171986606e88c09593029aa2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729940"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108144"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Azure Active Directory ile uygulama yönetimi
 
@@ -40,8 +40,8 @@ Ekleyebileceğiniz uygulamaların dört ana türü vardır, **kurumsal uygulamal
 
 -   **Galeri dışı uygulamalar** – kendi uygulamalarınızı getirin! Çoklu oturum açma için diğer uygulamaları Azure AD'ye ekleyerek destekler. İstediğiniz herhangi bir web bağlantısına veya bir kullanıcı adı ve parola alanı işler, SAML veya Openıd Connect protokolleri destekler veya SCIM'yi destekleyen herhangi bir uygulama tümleştirebilirsiniz. Daha fazla bilgi için [galeri dışı uygulamalar için çoklu oturum açmayı yapılandırma](configure-single-sign-on-non-gallery-applications.md).
 
-## <a name="manage-risk-with-conditional-access-policies"></a>Koşullu erişim ilkeleriyle riski yönetme
-Azure AD çoklu oturum açma (SSO) ile eşlenmesiyle [koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) uygulamaları erişmek için yüksek düzeyde güvenlik sağlar. Güvenlik özellikleri arasında, bulut ölçeğinde kimlik koruması, riske dayalı erişim denetimi, yerel çok faktörlü kimlik doğrulaması ve koşullu erişim ilkeleri yer alır. Bu özellikler, uygulamalara veya yüksek düzeyde güvenlik gereken gruplara göre ayrıntılı denetim ilkelerine olanak sağlar.
+## <a name="manage-risk-with-conditional-access-policies"></a>Koşullu erişim ilkeleri ile risk yönetme
+Azure AD çoklu oturum açma (SSO) ile eşlenmesiyle [koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) uygulamaları erişmek için yüksek düzeyde güvenlik sağlar. Bulut ölçeğinde kimlik koruması, risk tabanlı erişim denetimi, yerel çok faktörlü kimlik doğrulama ve koşullu erişim ilkeleri, güvenlik özellikleri içerir. Bu özellikler, uygulamalara veya yüksek düzeyde güvenlik gereken gruplara göre ayrıntılı denetim ilkelerine olanak sağlar.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Çoklu oturum açma ile üretkenliği artırma
 Uygulamalar ve Office 365 arasında çoklu oturum açma (SSO) etkinleştirildiğinde, oturum açma istemleri azaltılarak veya ortadan kaldırılarak mevcut kullanıcılar için üstün bir oturum açma deneyimi sağlanır. Birden çok istem veya birden çok parolayı yönetme gereksinimi olmadan kullanıcının ortamı çok daha bütünlüklü ve daha az rahatsız edici olur. İş grubu, self servis ve dinamik üyelik aracılığıyla erişimi yönetebilir ve onaylayabilir. İşletmede doğru kişilerin bir uygulamaya erişmesine izin verilmesi, kimlik sisteminin güvenliğini artırır.

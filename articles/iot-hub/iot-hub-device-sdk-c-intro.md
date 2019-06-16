@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: yizhon
 ms.openlocfilehash: d758d761e560642de76e149c83fc6898aa78bafb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65910334"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C için Azure IOT cihaz SDK'sı
@@ -163,7 +163,7 @@ Bu işleve device explorer Aracı ' aldığınız cihaz bağlantı dizesini bir 
 
 Geçerli bir olduğunda **IOTHUB\_istemci\_İŞLEMEK**, için ve IOT Hub'ından iletiler gönderip almak için API'leri çağırma başlayabilirsiniz.
 
-### <a name="send-messages"></a>İleti gönder
+### <a name="send-messages"></a>İleti gönderme
 
 Örnek uygulama, IOT hub'ınıza ileti göndermek için bir döngü ayarlar. Aşağıdaki kod parçacığı:
 
@@ -226,7 +226,7 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 
 Çağrı unutmayın **IoTHubMessage\_Destroy** iletinin işiniz bittiğinde işlev. Bu işlev, ileti oluştururken ayrılan kaynakları serbest bırakır.
 
-### <a name="receive-messages"></a>İleti al
+### <a name="receive-messages"></a>İleti alma
 
 Bir mesaj bir zaman uyumsuz bir işlemdir. İlk olarak, cihaz bir ileti aldığında çağrılacak geri arama kaydedin:
 
@@ -414,7 +414,7 @@ Bu örnekte, adlı tek bir model yok **ContosoAnemometer**. Bu model, cihazını
 
 IOT Hub'ına ileti göndermek için kullanın ve cihaza gönderilen iletilere yanıt veren bir API yüzeyi veri ve modelde tanımlı eylemleri tanımlayın. Bu model kullanımını en iyi bir örnek anlaşılır.
 
-### <a name="send-messages"></a>İleti gönder
+### <a name="send-messages"></a>İleti gönderme
 
 IOT Hub'ına gönderebilirsiniz veri modelini tanımlar. Bu örnekte, iki veri öğelerinin anlaşılır biri kullanılarak tanımlanır **WITH_DATA** makrosu. Göndermek için gereken birkaç adım vardır **DeviceID** ve **WindSpeed** bir IOT hub'ına değerleri. Göndermek istediğiniz veri kümesi için ilk şöyledir:
 
@@ -483,7 +483,7 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 
 Tüm CİHAZDAN buluta iletileri göndermeye yoktur. İleti alma karşılamak için gereken tek şey var.
 
-### <a name="receive-messages"></a>İleti al
+### <a name="receive-messages"></a>İleti alma
 
 Yol iletileri iş benzer şekilde bir ileti works alma **sı: Iothubclient** kitaplığı. İlk olarak, bir ileti geri çağırma işlevini kaydedin:
 

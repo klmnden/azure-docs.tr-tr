@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
 ms.openlocfilehash: 1ae94718aa41c58f4d5e397942492ad8ed643ae3
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65556213"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarlar
@@ -70,11 +70,11 @@ Oluşturma ve anahtarınızı Azure anahtar kasası HSM'ye aktarma beş aşağı
 * [4. adım: Kiracı anahtarınızı aktarım için hazırlama](#step-4-prepare-your-key-for-transfer)
 * [5. adım: Azure Key Vault'a anahtar aktarma](#step-5-transfer-your-key-to-azure-key-vault)
 
-## <a name="step-1-prepare-your-internet-connected-workstation"></a>1. Adım: İnternet'e bağlı iş istasyonunuzu hazırlama
+## <a name="step-1-prepare-your-internet-connected-workstation"></a>1\. adım: İnternet'e bağlı iş istasyonunuzu hazırlama
 
 Birinci adım için Internet'e bağlı iş istasyonunuzu üzerinde aşağıdaki yordamları gerçekleştirin.
 
-### <a name="step-11-install-azure-powershell"></a>Adım 1.1: Azure PowerShell'i yükleyin
+### <a name="step-11-install-azure-powershell"></a>Adım 1.1: Azure PowerShell'i yükleme
 
 İnternet'e bağlı iş istasyonundan indirin ve Azure anahtar Kasası'nı yönetmek için cmdlet'ler içeren Azure PowerShell modülünü yükleyin. Yükleme yönergeleri için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
@@ -94,7 +94,7 @@ Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parola
 
 Azure PowerShell penceresini kapatmayın.
 
-### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>1.3. adım: İçin Azure anahtar kasası BYOK araç takımını indirin
+### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>1\.3. adım: İçin Azure anahtar kasası BYOK araç takımını indirin
 
 Microsoft Download Center gidin ve [Azure anahtar kasası BYOK araç takımını indirmek](https://www.microsoft.com/download/details.aspx?id=45345) coğrafi bölge veya Azure örneği. İndirme ve karşılık gelen, SHA-256'yı paket karmasını paket adını tanımlamak için aşağıdaki bilgileri kullanın:
 
@@ -228,11 +228,11 @@ Araç takımı içerir:
 
 Paketi bir USB sürücüye veya başka bir taşınabilir depolama kopyalayın.
 
-## <a name="step-2-prepare-your-disconnected-workstation"></a>2. Adım: Bağlantısı kesilmiş iş istasyonunuzu hazırlama
+## <a name="step-2-prepare-your-disconnected-workstation"></a>2\. adım: Bağlantısı kesilmiş iş istasyonunuzu hazırlama
 
 Bu ikinci adım için bir ağa (İnternet'e veya iç ağınıza) bağlı olmayan bir iş istasyonunda aşağıdaki yordamları gerçekleştirin.
 
-### <a name="step-21-prepare-the-disconnected-workstation-with-ncipher-nshield-hsm"></a>2.1. adım: Bağlantısı kesilmiş iş istasyonunuzu nCipher nShield HSM ile hazırlama
+### <a name="step-21-prepare-the-disconnected-workstation-with-ncipher-nshield-hsm"></a>2\.1. adım: Bağlantısı kesilmiş iş istasyonunuzu nCipher nShield HSM ile hazırlama
 
 Bir Windows bilgisayara nCipher destek yazılımını yükleyin ve ardından o bilgisayara nCipher nShield HSM ekleyin.
 
@@ -244,7 +244,7 @@ NCipher araçları yolunuzda olduğundan emin olun ( **%nfast_home%\bin**). Örn
 
 Daha fazla bilgi için HSM nShield ile kullanıcı kılavuzuna bakın.
 
-### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>2.2. adım: BYOK araç takımını, bağlantısı kesilmiş iş istasyonunda yükleyin
+### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>2\.2. adım: BYOK araç takımını, bağlantısı kesilmiş iş istasyonunda yükleyin
 
 USB sürücü veya başka bir taşınabilir depolama BYOK araç takımı paketini kopyalayın ve ardından aşağıdakileri yapın:
 
@@ -252,7 +252,7 @@ USB sürücü veya başka bir taşınabilir depolama BYOK araç takımı paketin
 2. Bu klasörden vcredist_x64.exe çalıştırın.
 3. Yönergeleri, Visual Studio 2013 için Visual C++ çalışma zamanı bileşenlerini yüklemeyi izleyin.
 
-## <a name="step-3-generate-your-key"></a>3. adım: Anahtarınızı
+## <a name="step-3-generate-your-key"></a>3\. adım: Anahtarınızı
 
 Bu üçüncü adım için bağlantısı kesilmiş iş istasyonunda aşağıdaki yordamları gerçekleştirin. Bu adımı tamamlamak için HSM tedarikçinize başlatma modunda olması gerekir. 
 
@@ -380,11 +380,11 @@ Bu simgeleştirilmiş anahtar dosyasını güvenli bir yere yedekleyin.
 
 Anahtarınızı Azure anahtar Kasası'na aktarmak artık hazırsınız.
 
-## <a name="step-4-prepare-your-key-for-transfer"></a>4. Adım: Kiracı anahtarınızı aktarım için hazırlama
+## <a name="step-4-prepare-your-key-for-transfer"></a>4\. Adım: Kiracı anahtarınızı aktarım için hazırlama
 
 Bu dördüncü adım için bağlantısı kesilmiş iş istasyonunda aşağıdaki yordamları gerçekleştirin.
 
-### <a name="step-41-create-a-copy-of-your-key-with-reduced-permissions"></a>4.1. adım: Sınırlı izinlerle anahtarınızın bir kopyasını oluşturma
+### <a name="step-41-create-a-copy-of-your-key-with-reduced-permissions"></a>4\.1. adım: Sınırlı izinlerle anahtarınızın bir kopyasını oluşturma
 
 Yeni bir komut istemi açın ve burada BYOK ZIP dosyasının sıkıştırması açılan geçerli dizine geçin. Anahtarınızı izinleri bir komut istemi'nden azaltmak için Azure örneği veya coğrafi bölgede bağlı olarak aşağıdakilerden birini çalıştırın:
 
@@ -453,7 +453,7 @@ Komut tamamlandığında, gördüğünüz **sonucu: Başarı** ve anahtarınız�
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
   Bu komutları çalıştırdıktan sonra belirttiğiniz değerle contosokey değiştirin **adım 3.5: Yeni anahtar oluştur** gelen [anahtarınızı](#step-3-generate-your-key) adım.
 
-### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4.2. adım: Microsoft'un anahtar değişim anahtarını kullanarak anahtarınızı şifreleme
+### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4\.2. adım: Microsoft'un anahtar değişim anahtarını kullanarak anahtarınızı şifreleme
 
 Azure örneği veya coğrafi bölgede bağlı olarak aşağıdaki komutlardan birini çalıştırın:
 
@@ -514,11 +514,11 @@ Bu komutu çalıştırdığınızda, aşağıdaki yönergeleri kullanın:
 
 Başarıyla tamamlandığında, bu görüntüler **sonucu: Başarı** ve geçerli klasörde şu ada sahip yeni bir dosya yok: KeyTransferPackage -*ContosoFirstHSMkey*.byok
 
-### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>4.3. adım: Anahtar aktarım paketinizi İnternet'e bağlı iş istasyonuna kopyalama
+### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>4\.3. adım: Anahtar aktarım paketinizi İnternet'e bağlı iş istasyonuna kopyalama
 
 Çıktı dosyasını (KeyTransferPackage-ContosoFirstHSMkey.byok) önceki adımdaki, İnternet'e bağlı iş istasyonunuzu kopyalamak için bir USB sürücü veya başka bir taşınabilir depolama kullanın.
 
-## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>5. Adım: Azure Key Vault'a anahtar aktarma
+## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>5\. Adım: Azure Key Vault'a anahtar aktarma
 
 Bu son adım İnternet'e bağlı iş istasyonunda, kullanın [Ekle AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet'i için Azure Key Vault HSM'SİNDE bağlantısı kesilmiş iş istasyonundan kopyaladığınız anahtar aktarma paketini karşıya yüklemek için:
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 06/11/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: fa79f519c8f3eb8baeaab04870f22a1cfefa59ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1792cf2359caef3211b4ce1ac86928eeb85d682b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053169"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Bilgi bankanızı dağıtmak için soru-cevap oluşturucu ve LUIS ile bot kullanın
 Soru-cevap Oluşturucu bankanızı büyük büyüdükçe, tek tek parça bir ayarlayın ve Bilgi Bankası daha küçük mantıksal parçalara bölmek için gerekir bakımını yapmak zor hale gelir.
@@ -27,7 +27,7 @@ Bu makalede, Bot Framework v3 SDK'sını kullanır. Lütfen bu makaleye [Bot Fra
 
 ## <a name="architecture"></a>Mimari
 
-![Soru-cevap Oluşturucu luıs mimarisi](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![Language Understanding mimarisi ile soru-cevap Oluşturucu](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 Yukarıdaki senaryoda soru-cevap Oluşturucu önce gelen soru amacı LUIS modelden alır ve doğru soru-cevap Oluşturucu Bilgi Bankası'na yönlendirmek için bunu kullanın.
 
@@ -51,7 +51,7 @@ Yukarıdaki senaryoda soru-cevap Oluşturucu önce gelen soru amacı LUIS modeld
 
 ## <a name="web-app-bot"></a>Web app Botu
 
-1. [Bir Web App botu oluşturun](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample) LUIS şablonuyla. SDK'sı 3.x ve C# programlama dili seçin.
+1. [Bir "Temel" Web App botu oluşturun](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) LUIS uygulaması otomatik olarak içerir. ' % S ' 4.x SDK'yı seçin ve C# programlama dilidir.
 
 1. Web app botu oluşturulduğunda, Azure portalında web app botu seçin.
 1. Seçin **uygulama ayarları** Web app botu hizmeti Gezinti ardından aşağı kaydırarak **uygulama ayarları** kullanılabilir Ayarlar bölümünde.

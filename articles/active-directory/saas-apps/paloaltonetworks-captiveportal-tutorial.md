@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3651e81cd3916bccc859bc3bc010511b2a114a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869948"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095270"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Öğretici: Palo Alto ağları Captive portalı ile Azure Active Directory Tümleştirme
 
@@ -78,12 +78,12 @@ Yapılandırma ve Palo Alto ağları Captive adlı bir test kullanıcı tabanlı
 
 Yapılandırma ve Azure AD çoklu oturum açma Palo Alto ağları Captive portalı ile test etmek için aşağıdaki görevleri tamamlayın:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on)**: Bu özelliği kullanmak kullanıcının etkinleştirir.
-2. **[Palo Alto ağları Captive portalı çoklu oturum açmayı yapılandırma](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Uygulamada çoklu oturum açma ayarları yapılandırın.
-3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**: Azure AD çoklu oturum açma kullanıcı ile test *Britta Simon*.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**: Britta Simon, Azure AD çoklu oturum açma kullanacak şekilde ayarlanmış.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on)** : Bu özelliği kullanmak kullanıcının etkinleştirir.
+2. **[Palo Alto ağları Captive portalı çoklu oturum açmayı yapılandırma](#configure-palo-alto-networks-captive-portal-single-sign-on)** : Uygulamada çoklu oturum açma ayarları yapılandırın.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)** : Azure AD çoklu oturum açma kullanıcı ile test *Britta Simon*.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)** : Britta Simon, Azure AD çoklu oturum açma kullanacak şekilde ayarlanmış.
 5. **Palo Alto ağları Captive portalı test kullanıcısı oluşturma**: Karşılık gelen kullanıcı oluşturma *Britta Simon* portalında Palo Alto ağları Captive için Azure AD kullanıcı bağlı.
-6. **[Çoklu oturum açmayı test](#test-single-sign-on)**: Yapılandırma çalıştığını doğrulayın.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)** : Yapılandırma çalıştığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -158,7 +158,7 @@ Ardından, adlı bir test kullanıcısı oluşturma *Britta Simon* Azure portal�
 
     1. İçin **adı**, girin **BrittaSimon**.
   
-    2. İçin **kullanıcı adı**, girin **BrittaSimon\@\<your_company_domain\>**. Örneğin, **BrittaSimon\@contoso.com**.
+    2. İçin **kullanıcı adı**, girin **BrittaSimon\@\<your_company_domain\>** . Örneğin, **BrittaSimon\@contoso.com**.
 
     3. İçin **parola**, bir parola girin. Girdiğiniz parola kaydı tutmanızı öneririz. Seçebileceğiniz **Göster parola** parolayı görüntülemek için onay kutusunu.
 

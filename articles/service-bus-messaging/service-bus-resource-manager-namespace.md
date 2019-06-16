@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111228"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir Service Bus ad alanı oluşturma
@@ -169,7 +169,7 @@ Azure PowerShell kullanarak kaynakları dağıtmak için JSON dosyalarını kayd
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Şablonu dağıtmak için Azure CLI kullanma
 
-### <a name="sign-in-to-azure"></a>Oturum açın: Azure
+### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 1. Azure'da oturum açmak için aşağıdaki komutu çalıştırın:
 
@@ -186,7 +186,7 @@ Azure PowerShell kullanarak kaynakları dağıtmak için JSON dosyalarını kayd
 Azure CLI kullanarak kaynakları dağıtmak için JSON dosyaları klasöre geçin ve aşağıdaki komutları çalıştırın:
 
 > [!IMPORTANT]
-> Komut az grubundaki Azure kaynak grubu oluşturmak için bir ad belirtin. :
+> Komut az grubundaki Azure kaynak grubu oluşturmak için bir ad belirtin. .
 
 1. Bir Azure kaynak grubu oluşturun. 
     ```azurecli

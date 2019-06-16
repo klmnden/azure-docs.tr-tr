@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0acef783b4877b5b1787f142aec6cc3588293f83
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111467"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft kimlik platformu tümleştirme denetim listesi
 
@@ -33,7 +33,7 @@ Yeni başlıyorsanız, kullanıma [belgeleri](index.yml) kimlik doğrulaması te
 
 Uygulamanız ile etkili bir şekilde tümleşiktir emin olmak için aşağıdaki denetim listesini kullanın [Microsoft kimlik platformu](https://docs.microsoft.com/azure/active-directory/develop/).
 
-### <a name="basics"></a>Temel
+### <a name="basics"></a>Temel Bilgiler
 
 |   |   |
 |---|---|
@@ -89,7 +89,7 @@ Uygulamanız ile etkili bir şekilde tümleşiktir emin olmak için aşağıdaki
 | ![Onay kutusu](./media/active-directory-integration-checklist/checkbox-two.svg) | Yöneticiler için kendi Kiracı kolayca onay verebilir böylece uygulamanız için gerekli izinler kümesini kaydedin. Kullanım [artımlı onay](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) ilgilendiriyor veya ilk Başlat menüsünde istendiğinde kullanıcı işlemlerini birbirine karıştırmaktadır izinleri isteyen kullanıcıların nedenini anlamasına yardımcı olmak için çalışma zamanında uygulamanızı. |
 | ![Onay kutusu](./media/active-directory-integration-checklist/checkbox-two.svg) | Uygulama bir [temiz çoklu oturum kapatma deneyimi](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). Gizlilik ve güvenlik gereksinimi ve bir iyi kullanıcı deneyimi sağlar. |
 
-### <a name="testing"></a>Test ediliyor
+### <a name="testing"></a>Test Etme
 
 |   |   |
 |---|---|

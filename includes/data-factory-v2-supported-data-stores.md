@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/24/2019
+ms.date: 06/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 0ea6fffcaf8dfcbfc293401b5efbb225b3f79938
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: cb22475a81de871c5c5dc26f676b1669f3fdc4cc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133862"
 ---
 | Kategori | Veri deposu | Kaynak olarak desteklenen | Havuz olarak desteklenen | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) tarafından desteklenen | [Şirket içinde barındırılan IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) tarafından desteklenen |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -28,7 +28,7 @@ ms.locfileid: "66249052"
 | &nbsp; |[PostgreSQL için Azure Veritabanı](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Azure Dosya Depolama](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Veritabanı](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure SQL veritabanı yönetilen örneği](../articles/data-factory/connector-azure-sql-database-managed-insance.md) | |✓ |✓ |✓  |
+| &nbsp; |[Azure SQL veritabanı yönetilen örneği](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Veri Ambarı](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Search Dizini](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Azure Tablo Depolama](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |

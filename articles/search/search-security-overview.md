@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024508"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure Search'teki güvenlik ve veri gizliliği
@@ -103,14 +103,14 @@ Aşağıdaki tablo, Azure Search'te izin verilen işlemleri özetler ve hangi an
 
 | İşlem | İzinler |
 |-----------|-------------------------|
-| Hizmet oluşturma | Azure aboneliği sahibi|
+| Bir hizmet oluşturma | Azure aboneliği sahibi|
 | Hizmet ölçeklendirme | RBAC sahibi veya katkıda bulunan kaynak üzerinde yönetici anahtarı  |
 | Bir hizmeti Sil | RBAC sahibi veya katkıda bulunan kaynak üzerinde yönetici anahtarı |
 | Oluşturma, değiştirme, hizmette nesneleri silin: <br>Dizinleri ve bileşen parçalarına (dahil olmak üzere Çözümleyicisi tanımları, Puanlama profillerini, CORS seçenekleri), dizin oluşturucular, veri kaynakları, eş anlamlılar, öneri araçları. | RBAC sahibi veya katkıda bulunan kaynak üzerinde yönetici anahtarı  |
 | Dizin sorgulama | Yönetici veya sorgu anahtarı (RBAC uygulanamaz) |
 | İstatistikleri, sayıları ve nesnelerin bir listesini döndüren gibi sistem bilgilerini sorgulayın. | Yönetici anahtarı, RBAC kaynak (sahibi, katkıda bulunan, okuyucu) |
 | Yönetici anahtarları yönetme | Yönetici anahtarı, RBAC sahibi veya katkıda bulunan kaynaklar. |
-| Sorgu anahtarlarını yönet |  Yönetici anahtarı, RBAC sahibi veya katkıda bulunan kaynaklar.  |
+| Sorgu anahtarlarını Yönet |  Yönetici anahtarı, RBAC sahibi veya katkıda bulunan kaynaklar.  |
 
 ## <a name="physical-security"></a>Fiziksel güvenlik
 

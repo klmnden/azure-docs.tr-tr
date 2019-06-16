@@ -16,12 +16,12 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f1972a870ac15e1ca8dde963eef6cf7f1caf3039
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 30ab8a3fec459bef1a85c44e9a7cdb91b541fa2d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544177"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111388"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Özel durum ve MSAL kullanarak hataları işleme
 Microsoft Authentication Library (MSAL) özel durum sorunlarını gidermek uygulama geliştiricileri için ve son kullanıcılara görüntülenemiyor içindir. Özel durum iletileri yerelleştirilmiş değil.
@@ -29,21 +29,21 @@ Microsoft Authentication Library (MSAL) özel durum sorunlarını gidermek uygul
 Özel durumlar ve hataları işleme sırasında özel durumlar arasında ayrım yapmak için özel durum türü ve hata kodu kullanabilirsiniz.  Hata kodlarının listesi için bkz. [kimlik doğrulama ve yetkilendirme hata kodları](reference-aadsts-error-codes.md).
 
 ## <a name="net-exceptions"></a>.NET özel durumları
-Özel durum işlenirken özel durum türü kullanın ve `ErrorCode` özel durumları arasında ayrım yapmak için üye. Değerlerini `ErrorCode` türünde sabitler [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet#fields).
+Özel durum işlenirken özel durum türü kullanın ve `ErrorCode` özel durumları arasında ayrım yapmak için üye. Değerlerini `ErrorCode` türünde sabitler [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
 
-Alanlarını göz bulundurabilirsiniz [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet#fields), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields), [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet#fields).
+Alanlarını göz bulundurabilirsiniz [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet), [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet).
 
 Varsa [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) oluşturulur, hata kodu bulabileceğiniz bir kod içerebilir [kimlik doğrulama ve yetkilendirme hata kodları](reference-aadsts-error-codes.md).
 
 ### <a name="common-exceptions"></a>Sık karşılaşılan özel durumlar
 Harekete geçirilebilirse ortak özel durumları ve bazı olası risk azaltmaları aşağıda verilmiştir.
 
-| Özel Durum | Hata kodu | Azaltma|
+| Özel durum | Hata kodu | Risk azaltma|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: Kullanıcı veya yönetici Kimliğine sahip '{AppID}', '{appName}' adlı uygulamayı kullanmak için izin verilmez. Bu kullanıcı ve kaynak için bir etkileşimli yetkilendirme isteği gönderin.| Kullanıcı onayı'nın ilk almanız gerekir. (Bu, herhangi bir Web UI olmayan) bir .NET Core kullanmıyorsanız (yalnızca bir kez) çağrı `AcquireTokeninteractive`. .NET core kullanarak veya yapmak istemediğiniz bir `AcquireTokenInteractive`, kullanıcı izni vermek için bir URL'ye gidebilir: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read . Çağrılacak `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: Kullanıcı, çok faktörlü kimlik doğrulaması kullanmak için gereklidir.| MFA kiracınız için yapılandırılmışsa, risk azaltma - olduğundan ve AAD karar bunu zorlamak, geri dönüş için etkileşimli bir akış aşağıdaki gibi ihtiyacınız `AcquireTokenInteractive` veya `AcquireTokenByDeviceCode`.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields) |AADSTS90010: İzin verme türü üzerinden desteklenmeyen */ortak* veya */consumers* uç noktaları. Kullanım */organizations* veya kiracıya özgü uç nokta. Kullanılan */ortak*.| Yetkilisi Azure AD'den ileti içinde açıklandığı şekilde, bir kiracı olması gerekir veya başka türlü */organizations*.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields) | AADSTS70002: İstek gövdesi şu parametre içermelidir: ' client_secret veya client_assertion'.| Uygulamanızı Azure AD'de bir genel istemci uygulaması olarak kayıtlı değil, bu durum oluşabilir. Azure portalında uygulama ve küme için bildirimi düzenleyin `allowPublicClient` için `true`. |
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010: İzin verme türü üzerinden desteklenmeyen */ortak* veya */consumers* uç noktaları. Kullanım */organizations* veya kiracıya özgü uç nokta. Kullanılan */ortak*.| Yetkilisi Azure AD'den ileti içinde açıklandığı şekilde, bir kiracı olması gerekir veya başka türlü */organizations*.|
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: İstek gövdesi şu parametre içermelidir: ' client_secret veya client_assertion'.| Uygulamanızı Azure AD'de bir genel istemci uygulaması olarak kayıtlı değil, bu durum oluşabilir. Azure portalında uygulama ve küme için bildirimi düzenleyin `allowPublicClient` için `true`. |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| unknown_user ileti: Oturum açmış olan kullanıcının tanımlanamıyor| Kitaplık geçerli Windows oturum açmış kullanıcının sorgulayamadı veya bu kullanıcı AD değil veya AAD birleştirilmiş (çalışma alanına katılmış kullanıcılar desteklenmez). Azaltma 1: UWP üzerinde uygulama aşağıdaki özelliklere sahip olduğunu denetleyin: Kurumsal kimlik, özel ağlar (istemci ve sunucu), kullanıcı hesabı bilgileri. Azaltma 2: Kullanıcı adını almak için kendi mantığını (örneğin, john@contoso.com) ve `AcquireTokenByIntegratedWindowsAuth` kullanıcı adında gereken form.|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| Bu yöntem Active Directory (AD tarafından) kullanıma sunulan bir protokolü kullanır. Bir kullanıcı Azure Active Directory'de AD ("yönetilen" kullanıcı), yedekleme oluşturulmuş olsa bile, bu yöntem başarısız olur. Kullanıcıların AD'de oluşturulmuş ve AAD ("birleştirilmiş" kullanıcılar) tarafından desteklenen bu etkileşimli olmayan kimlik doğrulama yönteminden yararlı olabilir. Azaltma: Etkileşimli kimlik doğrulaması kullanın.|
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fd68edcc727ab08ed9d3ba765bbe795e88de5fc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069263"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Öğretici: Azure Resource Manager şablon dağıtımları güvenli yapıları
 
@@ -75,9 +75,9 @@ Bir PowerShell Betiği kullanarak aşağıdaki adımları otomatikleştirmek iç
 
     * **Abonelik**: Azure aboneliğinizi seçin.
     * **Kaynak grubu**: Seçin **Yeni Oluştur** ve bir ad verin. Bir kaynak grubu bir Azure kaynakları için yönetim amaç için kapsayıcıdır. Bu öğreticide, depolama hesabı ve Azure SQL veritabanı için aynı kaynak grubunu kullanabilirsiniz. Bu kaynak grubu adını not edin, sonraki öğreticilerde Azure SQL veritabanı oluşturduğunuzda gerekir.
-    * **Konum**: Bölge seçin. Örneğin, **Orta ABD**. 
+    * **Konum**: Bir bölge seçin. Örneğin, **Orta ABD**.
     * **Depolama hesabı türü**: varsayılan değeri kullanın **Standard_LRS**.
-    * **Konum**: Varsayılan değeri kullanın **[resourceGroup () .location]**. Depolama hesabı için kaynak grubu konumunu kullanmak anlamına gelir.
+    * **Konum**: Varsayılan değeri kullanın **[resourceGroup () .location]** . Depolama hesabı için kaynak grubu konumunu kullanmak anlamına gelir.
     * **Koşulları kabul ediyorum ve koşullar çalışmaya yukarıda**: (Seçili)
 3. **Satın al**'ı seçin.
 4. Dağıtım durumunu görmek için portalının sağ üst köşesindeki bildirim simgesine (zil simgesi) seçin.
@@ -87,7 +87,7 @@ Bir PowerShell Betiği kullanarak aşağıdaki adımları otomatikleştirmek iç
 
 ### <a name="create-a-blob-container"></a>Blob kapsayıcısı oluşturma
 
-Dosyaları karşıya yükleyebilmeniz, bir Blob kapsayıcısı gereklidir. 
+Dosyaları karşıya yükleyebilmeniz, bir Blob kapsayıcısı gereklidir.
 
 1. Açmak için depolama hesabını seçin. Kaynak grubunda listelenen yalnızca bir depolama hesabı göreceksiniz. Depolama hesabınızın adını, aşağıdaki ekran görüntüsünde gösterildiği bir farklıdır.
 
@@ -99,8 +99,8 @@ Dosyaları karşıya yükleyebilmeniz, bir Blob kapsayıcısı gereklidir.
 3. Seçin **+ kapsayıcı** en yeni bir kapsayıcı oluşturun.
 4. Aşağıdaki değerleri girin:
 
-    * **Adı**: girin **sqlbacpac**. 
-    * **Genel erişim düzeyi**: varsayılan değeri kullanın **özel (anonim erişim yok)**.
+    * **Adı**: girin **sqlbacpac**.
+    * **Genel erişim düzeyi**: varsayılan değeri kullanın **özel (anonim erişim yok)** .
 5. **Tamam**’ı seçin.
 6. Seçin **sqlbacpac** yeni oluşturulan kapsayıcı açın.
 
@@ -237,7 +237,7 @@ Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir SQL veritabanı bir SQL sunucusu dağıttınız ve SAS belirteci kullanarak BACPAC dosyasını içeri aktarıldı. Azure kaynaklarını birden fazla bölgede dağıtma ve güvenli dağıtım uygulamalarını kullanma hakkında bilgi edinmek için bkz.
+Bu öğreticide, bir SQL veritabanı bir SQL sunucusu dağıttınız ve SAS belirteci kullanarak BACPAC dosyasını içeri aktarıldı. Sürekli olarak geliştirip Resource Manager şablonları dağıtmak için bir Azure ardışık oluşturmayı öğrenmek için bkz:
 
 > [!div class="nextstepaction"]
-> [Azure Deployment Manager’ı kullanma](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Azure işlem hattı ile sürekli tümleştirme](./resource-manager-tutorial-use-azure-pipelines.md)

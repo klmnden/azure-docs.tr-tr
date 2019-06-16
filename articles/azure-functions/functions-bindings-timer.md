@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 3b4ed6d1ba83e2adb96bcfac986381dccbbef56f
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 0a202621a9da031815ebbff3b121ea7f5e1eccfe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416190"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062175"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure işlevleri için Zamanlayıcı tetikleyicisi 
 
@@ -45,8 +45,9 @@ Dile özgü örneğe bakın:
 * [C#](#c-example)
 * [C# betiği (.csx)](#c-script-example)
 * [F#](#f-example)
-* [JavaScript](#javascript-example)
 * [Java](#java-example)
+* [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### <a name="c-example"></a>C# örneği
 
@@ -117,6 +118,21 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
     log.LogInformation(sprintf "F# function executed at %s!" now)
 ```
 
+### <a name="java-example"></a>Java örnek
+
+Aşağıdaki örnek işlevi tetikler ve beş dakikada çalıştırılır. `@TimerTrigger` İşlev üzerindeki ek açıklama tanımlar aynı dize biçimi kullanarak zamanlama [sıralanmış iş ifadeleri](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 ### <a name="javascript-example"></a>JavaScript örneği
 
 Aşağıdaki örnek, bir zamanlayıcı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlev, bu işlev çağrısını bir eksik zamanlama yinelenme nedeniyle olup olmadığını belirten bir günlüğe yazar. A [Zamanlayıcı nesne](#usage) işleve geçirilir.
@@ -148,19 +164,37 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="java-example"></a>Java örnek
+### <a name="python-example"></a>Python örnek
 
-Aşağıdaki örnek işlevi tetikler ve beş dakikada çalıştırılır. `@TimerTrigger` İşlev üzerindeki ek açıklama tanımlar aynı dize biçimi kullanarak zamanlama [sıralanmış iş ifadeleri](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+Aşağıdaki örnek, bir zamanlayıcı tetikleyicisi yapılandırmasını açıklanan bağlama kullanır *function.json* dosya. Gerçek [Python işlevi](functions-reference-python.md) kullanır, bağlama açıklanan  *__init__.py* dosya. İşleve geçirilen nesne türünde [azure.functions.TimerRequest nesne](/python/api/azure-functions/azure.functions.timerrequest). Geçerli çağrı nedeniyle bir eksik zamanlanan yinelemeler olup olmadığını gösteren günlükleri işlevi mantıksal yazar. 
 
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
+Veri bağlama işte *function.json* dosyası:
+
+```json
+{
+    "name": "mytimer",
+    "type": "timerTrigger",
+    "direction": "in",
+    "schedule": "0 */5 * * * *"
 }
+```
+
+Python kod aşağıdaki gibidir:
+
+```python
+import datetime
+import logging
+
+import azure.functions as func
+
+def main(mytimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.datetime.utcnow().replace(
+        tzinfo=datetime.timezone.utc).isoformat()
+
+    if mytimer.past_due:
+        logging.info('The timer is past due!')
+
+    logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
 ## <a name="attributes"></a>Öznitelikler

@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d41ad2518f885bbaa02dda3b01f0c02e9fc1d217
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074718"
 ---
 # <a name="web-app-that-signs-in-users---move-to-production"></a>Kullanıcılar - oturum açtığında taşımak için üretim web uygulaması
@@ -35,7 +35,7 @@ Web API'leri çağırmak için bir belirteç almak nasıl öğrendiğinize göre
 Bir kez oturum açtığında web uygulaması kullanıcılara oturum açmış kullanıcılar adına web API'leri çağırabilirsiniz. Web uygulamasından çağırmak web API'leri, şu senaryonun nesnedir:
 
 > [!div class="nextstepaction"]
-> [Web uygulaması web API'leri çağrıları](scenario-web-app-call-api-overview.md)
+> [Web API'lerini çağıran web uygulaması](scenario-web-app-call-api-overview.md)
 
 ### <a name="deep-dive---web-app-tutorial"></a>Derin Dalış - web uygulaması Öğreticisi
 

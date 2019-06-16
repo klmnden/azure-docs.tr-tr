@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 29b607f10c15ba35a515b55b059b7b55ff594fe6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135741"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak uygulama ağ geçidi oluşturma
@@ -193,7 +193,7 @@ Dağıtmak için tıkla, Azure Resource Manager şablonlarını kullanmanın ba�
 
 SSL ile bir şablonu kullanılırken, sertifikayı karşıya yüklenen yerine bir base64 dizesi sağlanması gerekir. Bir .pfx veya base64 dizesi için .cer dönüştürerek aşağıdaki komutlardan birini. Aşağıdaki komutları sertifika şablonu için sağlanan bir base64 dizesine dönüştürün. Beklenen çıktıyı bir değişkende depolanan ve şablonda yapıştırılan bir dizedir.
 
-### <a name="macos"></a>macOS
+### <a name="macos"></a>Mac OS
 ```bash
 cert=$( base64 <certificate path and name>.pfx )
 echo $cert
@@ -214,7 +214,7 @@ Bu makalede oluşturulan tüm kaynakları silmek için aşağıdaki adımlardan 
 Remove-AzResourceGroup -Name appgatewayRG
 ```
 
-### <a name="azure-cli"></a>Azure CLI'si
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az group delete --name appgatewayRG

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 491f1704cf08bd31a1b089d178afb3c281d636e6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 126bb05109e624fb1198ea16b07cd7836103f9e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898292"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Öğretici: Azure Active Directory tarafından Merces HR2day ile tümleştirmesi
 
@@ -53,7 +53,7 @@ Azure AD'de Merces tarafından HR2day tümleştirmesini yapılandırmak için Me
 
 **Galeriden HR2day Merces tarafından eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -163,7 +163,7 @@ Azure AD çoklu oturum açma HR2day Merces tarafından ile yapılandırmak için
 Çoklu oturum açmayı yapılandırma **HR2day Merces tarafından** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)** ve uygun Azure portalına kopyalanan URL'lerden [HR2day Merces desteğini Takım](mailto:servicedesk@merces.nl). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!NOTE]
-> Bahsetme Merces takıma Bu tümleştirme desen ile ayarlamak için varlık kimliği gerektiğini **https://hr2day.force.com/INSTANCENAME**.
+> Bahsetme Merces takıma Bu tümleştirme desen ile ayarlamak için varlık kimliği gerektiğini **https://hr2day.force.com/INSTANCENAME** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

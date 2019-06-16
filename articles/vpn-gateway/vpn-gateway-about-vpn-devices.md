@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: yushwang
 ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388862"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Siteden Siteye VPN Gateway bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında
@@ -133,7 +133,7 @@ Aşağıdaki tablolarda:
 | Diffie-Hellman Grubu  |Grup 2 (1024 bit) |Grup 2 (1024 bit) |
 | Kimlik Doğrulama Yöntemi |Önceden Paylaşılan Anahtar     |Önceden Paylaşılan Anahtar     |
 | Şifreleme ve Karma Algoritmaları |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
-| SA Yaşam Süresi           |28.800 saniye     |28.800 saniye     |
+| SA Yaşam Süresi           |28\.800 saniye     |28\.800 saniye     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE Aşama 2 (Hızlı Mod) parametreleri
 
@@ -141,8 +141,8 @@ Aşağıdaki tablolarda:
 | ---                           | ---           | ---                                         |
 | IKE Sürümü                   |IKEv1          |IKEv2                                        |
 | Şifreleme ve Karma Algoritmaları |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA Teklifleri](#RouteBasedOffers) |
-| SA Yaşam Süresi (Zaman)            |3.600 saniye  |27.000 saniye                                |
-| SA Yaşam Süresi (Bayt)           |102.400.000 KB | -                                           |
+| SA Yaşam Süresi (Zaman)            |3\.600 saniye  |27\.000 saniye                                |
+| SA Yaşam Süresi (Bayt)           |102\.400.000 KB | -                                           |
 | Kusursuz İletme Gizliliği (PFS) |Hayır             |[RouteBased QM SA Teklifleri](#RouteBasedOffers) |
 | Kullanılmayan Eş Algılama (DPD)     |Desteklenmiyor  |Desteklenen                                    |
 

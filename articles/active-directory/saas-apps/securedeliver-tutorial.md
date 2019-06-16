@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ca2e717e612973fa4c46c9ab4e70091d32fcf19
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7dbf96c3480f47e5f6b292759a949c9bbf36dc07
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902417"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>Öğretici: Güvenli teslim ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Güvenli teslim tümleştirmesini Azure AD'de yapılandırmak için güvenli tes
 
 **Galeriden güvenli teslim eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

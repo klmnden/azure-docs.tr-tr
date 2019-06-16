@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9b9922602218280d58331a755ed0dfed7df96f40
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155904"
 ---
 #### <a name="to-cable-your-device-for-power"></a>İçin cihazınızın güç bağlantısını yapın
@@ -40,7 +40,7 @@ ms.locfileid: "66155904"
     | Etiket | Açıklama |
     |:--- |:--- |
     | 1 |Birincil |
-    | 2 |PCM 0'DA |
+    | 2 |PCM 0 |
     | 3 |PCM 1 |
     | 4 |Denetleyici 0 |
     | 5 |Denetleyici 1 |

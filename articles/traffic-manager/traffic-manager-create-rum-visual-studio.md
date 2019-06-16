@@ -3,21 +3,22 @@ title: Gerçek kullanıcı ölçümleri için Azure Traffic Manager ile Visual S
 description: Traffic Manager gerçek kullanıcı ölçümleri göndermek için Visual Studio Mobile Center'ı kullanarak geliştirilen mobil uygulamanızı ayarlama
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95207cea5988a22b0b3caa23be39b481f9fd687b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884062"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071247"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Traffic Manager için Visual Studio Mobile Center ile gerçek kullanıcı ölçümleri gönderme
 
@@ -28,7 +29,7 @@ Visual Studio Mobile Center adımları izleyerek Traffic Manager'a gerçek kulla
 
 Gerçek kullanıcı ölçümleri'ni yapılandırmak için bir anahtarı almak ve uygulamanızı ÇALIŞTIRMA paket izleme gerekir.
 
-## <a name="step-1-obtain-a-key"></a>1. Adım: Bir anahtarı edinme
+## <a name="step-1-obtain-a-key"></a>1\. adım: Bir anahtarı edinme
     
 Olması ve Traffic Manager için istemci uygulamanızdan gönderilen ölçüleri gerçek kullanıcı ölçümleri (RUM) anahtarı adı benzersiz bir dize kullanarak hizmeti tarafından tanımlanır. Azure portalı, REST API kullanarak ÇALIŞTIRMA bir anahtar alabilirsiniz veya PowerShell'i kullanarak / CLI arabirimleri.
 
@@ -50,7 +51,7 @@ Aşağıdaki yordamı kullanarak, Azure portalını kullanarak RUM anahtarı alm
  
 6. Tıklayın **kopyalama** düğmesini RUM anahtarı kopyalayın. 
 
-## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>2. Adım: ÇALIŞTIRMA paketi Mobile Center SDK'sı ile uygulamanızı izleyin
+## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>2\. adım: ÇALIŞTIRMA paketi Mobile Center SDK'sı ile uygulamanızı izleyin
 
 Visual Studio Mobile Center'a yeniyseniz, ziyaret edin, [Web sitesi](https://mobile.azure.com). SDK tümleştirmesi hakkında ayrıntılı yönergeler için bkz: [Android SDK'sı ile çalışmaya başlama](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android).
 

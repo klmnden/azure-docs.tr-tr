@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 15cfa025bde3367c57255ce50f95c69293b63f92
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 59d61eda7002fe46cf99fac63822b2333b2d64b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905622"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087760"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Öğretici: UserEcho ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de UserEcho tümleştirmesini yapılandırmak için UserEcho Galeriden 
 
 **Galeriden UserEcho eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -138,7 +138,7 @@ Azure AD çoklu oturum açma ile UserEcho yapılandırmak için aşağıdaki ad�
    
     ![Çoklu oturum açmayı yapılandırın](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
-4. Tıklayın **Web sitesi**ve ardından **çoklu oturum açma (SAML2)**.
+4. Tıklayın **Web sitesi**ve ardından **çoklu oturum açma (SAML2)** .
    
     ![Çoklu oturum açmayı yapılandırın](./media/userecho-tutorial/tutorial_userecho_08.png) 
 

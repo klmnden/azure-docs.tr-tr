@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148466"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Stream Analytics yönetilen kimlik kullanarak Azure Data Lake depolama Gen1 için kimlik doğrulaması
@@ -180,7 +180,7 @@ Bu özellik, aşağıdakileri desteklemez:
 
 1. **Çok kiracılı erişim**: Belirli bir Stream Analytics iş için oluşturulan hizmet sorumlusu, Azure Active Directory kiracısı üzerinde iş oluşturuldu ve farklı bir Azure Active Directory kiracısı üzerinde bulunan bir kaynağa karşı kullanılamaz yer alacaktır. Bu nedenle, Azure Stream Analytics işinizi olarak aynı Azure Active Directory kiracısı içinde ADLS Gen 1 kaynaklar üzerinde yalnızca MSI kullanabilirsiniz. 
 
-2. **[Atanan kullanıcı kimlik](../active-directory/managed-identities-azure-resources/overview.md)**: desteklenmiyor. Başka bir deyişle, kullanıcı, Stream Analytics işi tarafından kullanılmak üzere kendi hizmet sorumlusu girmeniz mümkün değil. Hizmet sorumlusunu Azure Stream Analytics tarafından oluşturulur.
+2. **[Atanan kullanıcı kimlik](../active-directory/managed-identities-azure-resources/overview.md)** : desteklenmiyor. Başka bir deyişle, kullanıcı, Stream Analytics işi tarafından kullanılmak üzere kendi hizmet sorumlusu girmeniz mümkün değil. Hizmet sorumlusunu Azure Stream Analytics tarafından oluşturulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4ae2802c5f833f168385ef46d10b6a508fdf45a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de59ce587facb94728e0652f47c7cdfce0ab4388
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60261093"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098420"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Öğretici: LaunchDarkly ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ LaunchDarkly tümleştirmesi Azure AD'de yapılandırmak için LaunchDarkly Gale
 
 **Galeriden LaunchDarkly eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -159,7 +159,7 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
 
     c. İndirilen sertifikanın Not Defteri'ne Azure portalından açın, içeriği kopyalayın ve ardından yapıştırın **X.509 sertifikası** kutusu veya doğrudan yükleyebileceği sertifika tıklayarak **karşıya**.
 
-    d. **Kaydet**’e tıklayın
+    d. **Kaydet**'e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

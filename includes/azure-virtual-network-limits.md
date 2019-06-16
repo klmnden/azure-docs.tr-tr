@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 05/15/2019
+ms.date: 06/13/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: cb586be1a139b331c259a1197cc62e7ca4f25666
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 813c8e92907a60046c2e53f97d4dd05125076241
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238384"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133125"
 ---
 <a name="virtual-networking-limits-classic"></a>Yalnızca ağ aracılığıyla yönetilen kaynakları için aşağıdaki sınırlar geçerlidir **Klasik** abonelik başına dağıtım modeli. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -23,7 +23,7 @@ ms.locfileid: "66238384"
 | Yerel ağ siteleri |20 |Desteğe başvurun. |
 | Sanal ağ başına DNS sunucusu |20 |20 |
 | Sanal ağ başına özel IP adresleri |4,096 |4,096 |
-| Bir sanal makine veya rol örneği, bir NIC eş zamanlı TCP veya UDP akışlar |1.000.000 iki veya daha fazla NIC için en fazla 500.000. |1.000.000 iki veya daha fazla NIC için en fazla 500.000. |
+| Bir sanal makine veya rol örneği, bir NIC eş zamanlı TCP veya UDP akışlar |1\.000.000 iki veya daha fazla NIC için en fazla 500.000. |1\.000.000 iki veya daha fazla NIC için en fazla 500.000. |
 | Ağ güvenlik grupları (Nsg'ler) |200 |200 |
 | NSG başına NSG kuralları |1000 |1000 |
 | Kullanıcı tanımlı yol tabloları |200 |200 |
@@ -67,8 +67,8 @@ Yalnızca ağ aracılığıyla yönetilen kaynakları için aşağıdaki sınır
 #### <a name="publicip-address"></a>Genel IP adresi sınırlamaları
 | Resource | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
-| Genel IP adresi - dinamik | 1.000 temel. |Desteğe başvurun. |
-| Genel IP adresleri - statik | 1.000 temel. |Desteğe başvurun. |
+| Genel IP adresi - dinamik | 1\.000 temel. |Desteğe başvurun. |
+| Genel IP adresleri - statik | 1\.000 temel. |Desteğe başvurun. |
 | Genel IP adresleri - statik | Standart için 200.|Desteğe başvurun. |
 | Genel IP ön ek boyutu | /28 | Desteğe başvurun. |
 
@@ -79,13 +79,13 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | --- | --- |
 | Yük dengeleyiciler | 1000 | 
 | Her bir kaynak, temel kuralları | 250 |
-| Her bir kaynak, standart kuralları | 1.500 | 
+| Her bir kaynak, standart kuralları | 1\.500 | 
 | IP yapılandırması başına kuralları | 299 |
-| NIC başına kuralları | 500 |
+| NIC başına kuralları | 300 |
 | Ön uç IP yapılandırmaları, temel | 200 |
 | Ön uç IP yapılandırmaları, standart | 600 |
 | Arka uç havuzu, temel | 100, tek bir kullanılabilirlik kümesi |
-| Arka uç havuzu, standart | 1.000, tek bir sanal ağ |
+| Arka uç havuzu, standart | 1\.000, tek bir sanal ağ |
 | Standart yük dengeleyici başına arka uç kaynaklarına<sup>1</sup> | 150 |
 | Yüksek kullanılabilirlik bağlantı noktaları, standart | ön uç iç başına 1 |
 

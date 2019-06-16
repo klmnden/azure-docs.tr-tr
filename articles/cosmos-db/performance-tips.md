@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.openlocfilehash: c8907f1b1c8069a3a3e92d01a5fa6341c06ec952
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66688812"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB ile .NET için performans ipuçları
@@ -48,8 +48,8 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
      |Bağlantı modu  |Desteklenen protokol  |Desteklenen SDK'ları  |API/hizmet bağlantı noktası  |
      |---------|---------|---------|---------|
      |Ağ geçidi  |   HTTPS    |  Tüm SDK'lar    |   Mongo (10250, 10255 olarak, 10256), Table(443), Cassandra(10350), Graph(443) SQL(443)    |
-     |Doğrudan    |    HTTPS     |  .NET ve Java SDK'sı    |   10.000 20.000 aralıkta bağlantı noktaları    |
-     |Doğrudan    |     TCP    |  .NET SDK    | 10.000 20.000 aralıkta bağlantı noktaları |
+     |Doğrudan    |    HTTPS     |  .NET ve Java SDK'sı    |   10\.000 20.000 aralıkta bağlantı noktaları    |
+     |Doğrudan    |     TCP    |  .NET SDK    | 10\.000 20.000 aralıkta bağlantı noktaları |
 
      Azure Cosmos DB, HTTPS üzerinden bir basit ve açık RESTful programlama modeli sunar. Ayrıca, aynı zamanda RESTful kendi iletişim modelinde yer alır ve .NET İstemci SDK'sı kullanılabilen verimli bir TCP protokolü sunar. Hem doğrudan TCP hem de HTTPS, SSL ilk kimlik doğrulaması ve şifreleme trafiği için kullanın. En iyi performans için mümkün olduğunda'de TCP protokolünü kullanır.
 
@@ -121,7 +121,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
     Performans testi sırasında istekleri küçük bir oranını kısıtlanan kadar yük yükseltmeniz gerekir. Kısıtlanmış, istemci uygulama kısıtlama üzerinde geri alma için sunucu tarafından belirtilen yeniden deneme aralığı gerekir. Geri alma uyarak bekleme süresi yeniden denemeler arasındaki en az miktarda harcama sağlar. Yeniden deneme ilkesi desteği dahildir sürüm 1.8.0 ve sonraki sürümlerde SQL [.NET](sql-api-sdk-dotnet.md) ve [Java](sql-api-sdk-java.md), sürüm 1.9.0 ve üstü, [Node.js](sql-api-sdk-node.md) ve [Python](sql-api-sdk-python.md), ve tüm desteklenen sürümlerinde [.NET Core](sql-api-sdk-dotnet-core.md) SDK'ları. Daha fazla bilgi için [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
     
-    1.19 ve .NET SDK'sının daha yeni sürüm ile ek tanılama bilgilerini günlüğe kaydetme ve aşağıdaki örnekte gösterildiği gibi gecikme sorunlarını gidermek için bir mekanizma yoktur. Daha yüksek bir okuma gecikme süresi olan istekler için tanılama dize oturum açabilirsiniz. Yakalanan tanılama dize 429s belirli bir istek için gözlemlenen kaç kez anlamanıza yardımcı olur.
+    1\.19 ve .NET SDK'sının daha yeni sürüm ile ek tanılama bilgilerini günlüğe kaydetme ve aşağıdaki örnekte gösterildiği gibi gecikme sorunlarını gidermek için bir mekanizma yoktur. Daha yüksek bir okuma gecikme süresi olan istekler için tanılama dize oturum açabilirsiniz. Yakalanan tanılama dize 429s belirli bir istek için gözlemlenen kaç kez anlamanıza yardımcı olur.
     ```csharp
     ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
     readDocument.RequestDiagnosticsString 

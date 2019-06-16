@@ -11,10 +11,10 @@ ms.author: sawinark
 ms.reviewer: ''
 manager: craigg
 ms.openlocfilehash: 42c69653a002446552da998320a43730dfdaadf5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232510"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Yüksek performans için Azure-SSIS tümleştirme çalışma zamanı yapılandırma
@@ -118,7 +118,7 @@ Paketleri çalıştırmak için kullanabileceğiniz birçok seçenek mevcuttur v
 Paketleri çalıştırmak için zaten bir güçlü çalışan düğümü kullanırken, artan **AzureSSISMaxParallelExecutionsPerNode** Integration runtime'nın genel üretilen işi artırabilir. Standard_D1_v2 düğümlerde, düğüm başına 1-4 Paralel yürütme desteklenir. Tüm diğer türleri düğüm için düğüm başına 1-max(2 x number of cores, 8) paralel yürütme desteklenir. İsterseniz **AzureSSISMaxParallelExecutionsPerNode** biz desteklenen en büyük değer, bir destek bileti açabilirsiniz ve biz güncelleştirmek için Azure Powershell kullanma gereken en yüksek değer ve sonra artırabilir  **AzureSSISMaxParallelExecutionsPerNode**.
 Paketinizi ve çalışan düğümleri için aşağıdaki yapılandırmaları maliyeti temel alarak uygun değeri tahmin edebilirsiniz. Daha fazla bilgi için [genel amaçlı sanal makine boyutları](../virtual-machines/windows/sizes-general.md).
 
-| Boyutlandır             | vCPU | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / okuma MB/sn / yazma MB/sn | Maksimum veri diski / aktarım hızı: IOPS | Maks NIC / Beklenen ağ performansı (Mbps) |
+| Boyut             | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / okuma MB/sn / yazma MB/sn | Maksimum veri diski / aktarım hızı: IOPS | Maks NIC / Beklenen ağ performansı (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standart\_D1\_v2 | 1    | 3,5         | 50                     | 3000/46/23                                             | 2/2x500                         | 2 / 750                                        |
 | Standart\_D2\_v2 | 2    | 7           | 100                    | 6000/93/46                                             | 4/4x500                         | 2 / 1500                                       |

@@ -9,10 +9,10 @@ ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
 ms.openlocfilehash: 63f59d59712d851f9bb7ace27335fe665a598f9f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66477925"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure etkinlik günlüğü uyarıları için Web kancaları
@@ -171,7 +171,7 @@ Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlü
 
 | Öğe adı | Açıklama |
 | --- | --- |
-| durum |Ölçüm uyarıları için kullanılır. Her zaman "için etkinlik günlüğü uyarıları etkin" olarak ayarlayın. |
+| status |Ölçüm uyarıları için kullanılır. Her zaman "için etkinlik günlüğü uyarıları etkin" olarak ayarlayın. |
 | Bağlam |Olayın bağlamı. |
 | resourceProviderName |Etkilenen kaynak kaynak sağlayıcısı. |
 | Koşul türü |Her zaman "olay." |
@@ -184,19 +184,19 @@ Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlü
 | resourceGroupName |Etkilenen kaynak için kaynak grubunun adı. |
 | properties |Kümesi `<Key, Value>` çiftleri (diğer bir deyişle, `Dictionary<String, String>`), olay hakkındaki ayrıntıları içerir. |
 | olay |Olay hakkında meta veriler içeren öğe. |
-| Yetkilendirme |Olay rol tabanlı erişim denetimi özellikleri. Bu özellikler genellikle eylemi, rolü ve kapsamı içerir. |
+| authorization |Olay rol tabanlı erişim denetimi özellikleri. Bu özellikler genellikle eylemi, rolü ve kapsamı içerir. |
 | category |Olayın kategorisi. Desteklenen değerler, yönetim, uyarı, güvenlik, ServiceHealth ve öneri içerir. |
 | Çağıran |İşlem, UPN Talebi veya SPN talep kullanılabilirliğine göre gerçekleştiren kullanıcının e-posta adresi. Belirli sistem çağrıları için null olabilir. |
 | correlationId |Genellikle bir GUID dize biçiminde. Correlationıd olaylarla aynı büyük eyleme ait ve genellikle bir Correlationıd paylaşın. |
 | eventDescription |Olay açıklaması statik metin. |
 | eventDataId |Olayın benzersiz tanımlayıcısı. |
 | EventSource |Azure hizmeti veya olayı oluşturan altyapı adı. |
-| HTTP isteği |İstek Clientrequestıd'ye clientIpAddress ve HTTP yöntemi genellikle içerir (örneğin, PUT). |
+| httpRequest |İstek Clientrequestıd'ye clientIpAddress ve HTTP yöntemi genellikle içerir (örneğin, PUT). |
 | düzey |Aşağıdaki değerlerden biri: Kritik hata, uyarı ve bilgilendirici. |
 | operationId |Tek işlem için karşılık gelen olaylar arasında paylaşılan genellikle bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Olay Özellikleri. |
-| durum |dize. İşlemin durumu. Başlarken, sürüyor, başarılı, başarısız, etkin ve Çözümlenmiş ortak değerlerini içerir. |
+| status |dize. İşlemin durumu. Başlarken, sürüyor, başarılı, başarısız, etkin ve Çözümlenmiş ortak değerlerini içerir. |
 | alt durumu |Genellikle, karşılık gelen REST çağrısı HTTP durum kodunu içerir. Ayrıca, alt açıklayan diğer dizeleri de içerebilir. Ortak substatus değerler arasında Tamam (HTTP durum kodu: 200) oluşturuldu (HTTP durum kodu: 201) kabul edildi (HTTP durum kodu: 202), içerik yok (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400) bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu hatası (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503) ve ağ geçidi zaman aşımı (HTTP durum kodu: 504). |
 
 ## <a name="next-steps"></a>Sonraki adımlar

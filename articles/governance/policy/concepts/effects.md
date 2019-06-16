@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116197"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure İlkesi etkilerini anlama
@@ -118,7 +118,7 @@ Bir ekleme yalnızca etkisi bir **ayrıntıları** gerekli olan bir dizi. Olarak
 }
 ```
 
-## <a name="deny"></a>Engelle
+## <a name="deny"></a>Reddet
 
 Reddetme istek başarısız olur ve bir ilke tanımı ile tanımlanan standartları eşleşmiyor kaynak isteğiyle önlemek için kullanılır.
 

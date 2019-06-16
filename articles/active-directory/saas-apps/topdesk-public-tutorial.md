@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: c4052dd3b4c8f49b19193109eb5e8d2306646960
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a2a0ffd670a03aeaaa262b83127a385be9efc978
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088486"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Öğretici: Azure Active Directory Tümleştirmesi ile TOPdesk - genel
 
@@ -53,7 +53,7 @@ TOPdesk - genel Azure AD'ye tümleştirmesini yapılandırmak için genel Galeri
 
 **TOPdesk - genel Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Azure AD çoklu oturum açma - TOPdesk ile yapılandırmak için genel, aşağı
 
     a. Tıklayın **meta veri dosyasını karşıya yükleme**.
     
-    ![Meta veri dosyasını yükleyin](common/upload-metadata.png)
+    ![Meta veri dosyasını karşıya yükleyin](common/upload-metadata.png)
 
     b. Tıklayarak **klasör logosu** meta veri dosyası seçin ve **karşıya**.
 
@@ -189,7 +189,7 @@ Azure AD çoklu oturum açma - TOPdesk ile yapılandırmak için genel, aşağı
     
     a. Azure portalından indirilen meta verileri dosyanızı altında karşıya yüklemek için **Federasyon meta verileri**, tıklayın **Gözat**.
 
-    b. Altında sertifika dosyası karşıya **sertifika (RSA)**, tıklayın **Gözat**.
+    b. Altında sertifika dosyası karşıya **sertifika (RSA)** , tıklayın **Gözat**.
 
     c. Aldığınız TOPdesk destek ekibinden altında logosu dosyayı karşıya yüklemeyi **logosu simgesi**, tıklayın **Gözat**.
 

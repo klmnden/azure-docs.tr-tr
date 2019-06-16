@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 06/10/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 05d01851d0a3dc9df6c396e862ce93defd957c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91ee8b6e614cf12deccd1429ad67323c277954a0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461978"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061488"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Azure web uygulaması güvenlik duvarı için sık sorulan sorular
 
@@ -31,9 +31,6 @@ Bir WAF Azure İlkesi, uygulama ağ geçidi veya Azure ön kapısı services üz
 ## <a name="what-is-waf-for-azure-front-door-service"></a>WAF Azure ön kapısı hizmeti nedir? 
 
 Azure ön kapısı yüksek oranda ölçeklenebilir, Global olarak dağıtılmış bir uygulama ve içerik teslim ağı ' dir. Ön kapısı ile tümleştirildiğinde azure WAF, hizmet reddi durdurur ve hedef Azure ağı uç cihazlarında uygulama saldırılarına, sanal ağınıza girmeden önce yakın saldırı kaynakları koruma performanstan ödün vermeden sunar.
-
-## <a name="how-will-i-be-charged-for-azure-waf-for-front-door"></a>Nasıl Azure waf ön kapı için ücretlendirilirim?
-Genel Önizleme süresince, ön Kapıda WAF kullanım ücretsiz. Ön kapısı ücret ek olduğunu unutmayın. Ön kapısı hizmet fiyatlandırmaya [burada](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ## <a name="does-azure-waf-support-https"></a>Azure WAF HTTPS destekliyor mu?
 

@@ -3,18 +3,18 @@ title: Azure IoT Central'da yeni bir cihaz türü tanımlama | Microsoft Docs
 description: Bu öğreticide, bir oluşturucu olarak Azure IoT Central uygulamanızda yeni bir cihaz türünü nasıl tanımlayacağınız gösterilir. Türünüz için telemetriyi, durumu, özellikleri ve ayarları tanımlarsınız.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/28/2019
+ms.date: 06/07/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 884381cc3b9aaeec29f5697485cd90c28b2bd97e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54884728533aeff0472ed99660be00478227fbcd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748748"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056772"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Öğretici: Azure IOT Central, uygulamanızda yeni bir cihaz türünü tanımlayın
 
@@ -132,7 +132,7 @@ Aşağıdaki adımlar, uygulamanıza sıcaklık telemetrisi gönderen cihazlar i
 
      | Ayar              | Değer         |
      | -------------------- | -----------   |
-     | Görünen Ad         | Sıcaklık   |
+     | Görünen ad         | Sıcaklık   |
      | Alan Adı           | sıcaklık   |
      | Birimler                | F             |
      | Min                  | 60            |
@@ -174,7 +174,7 @@ Olaylar, bir hata veya bileşeni arızası gibi bir olay olduğunda, cihazın g�
 
      | Ayar              | Değer             |
      | -------------------- | -----------       |
-     | Görünen Ad         | Fan Motoru Hatası   |
+     | Görünen ad         | Fan Motoru Hatası   |
      | Alan Adı           | fanmotorerr       |
      | Severity             | Hata             |
 
@@ -212,7 +212,7 @@ Durum tanımlayın ve bir süre cihazı veya alt bileşen durumunu görselleşti
 
      | Ayar              | Değer             |
      | -------------------- | -----------       |
-     | Görünen Ad         | Fan Modu          |
+     | Görünen ad         | Fan Modu          |
      | Alan Adı           | fanmode           |
      | Değer                | 1                 |
      | Görünen etiket        | İşletim         |
@@ -257,7 +257,7 @@ Operatörün cihaza yapılandırma verilerini gönderebilmesini sağlamak için 
 
     | Alan                | Değer           |
     | -------------------- | -----------     |
-    | Görünen Ad         | Sıcaklığı Ayarla |
+    | Görünen ad         | Sıcaklığı Ayarla |
     | Alan Adı           | setTemperature  |
     | Ölçü Birimi      | F               |
     | Ondalık Basamak Sayısı       | 1               |
@@ -287,7 +287,7 @@ Operatörün cihaza yapılandırma verilerini gönderebilmesini sağlamak için 
 
     | Alan                | Değer                |
     | -------------------- | -------------------- |
-    | Görünen Ad         | Location             |
+    | Görünen ad         | Location             |
     | Alan Adı           | location             |
     | İlk Değer        | Seattle, WA          |
     | Açıklama          | Cihaz konumu      |
@@ -304,7 +304,7 @@ Operatörün cihaza yapılandırma verilerini gönderebilmesini sağlamak için 
 
     | Alan                | Değer                   |
     | -------------------- | ----------------------- |
-    | Görünen Ad         | Son Hizmet Tarihi       |
+    | Görünen ad         | Son Hizmet Tarihi       |
     | Alan Adı           | serviceDate             |
     | İlk Değer        | 1/1/2019                |
     | Açıklama          | Son hizmet tarihi           |
@@ -321,7 +321,7 @@ Operatörün cihaza yapılandırma verilerini gönderebilmesini sağlamak için 
 
     | Alan                | Değer                   |
     | -------------------- | ----------------------- |
-    | Görünen Ad         | Üretici yazılımı sürümü        |
+    | Görünen ad         | Üretici yazılımı sürümü        |
     | Alan Adı           | firmwareVersion         |
     | Veri Türü            | metin                    |
     | Açıklama          | Klimanın üretici yazılımı sürümü |
@@ -336,7 +336,7 @@ Operatörün cihaza yapılandırma verilerini gönderebilmesini sağlamak için 
 
     | Alan                | Değer                   |
     | -------------------- | ----------------------- |
-    | Görünen Ad         | Seri numarası           |
+    | Görünen ad         | Seri numarası           |
     | Alan Adı           | serialNumber            |
     | Veri Türü            | metin                    |
     | Açıklama          | Klimanın seri numarası  |
@@ -360,7 +360,7 @@ Operatörün doğrudan cihazda komut çalıştırabilmesi için _komutları_ kul
 
     | Alan                | Değer           |
     | -------------------- | -----------     |
-    | Görünen Ad         | Yankı Komutu    |
+    | Görünen ad         | Yankı Komutu    |
     | Alan Adı           | echo            |
     | Varsayılan Zaman Aşımı      | 30              |
     | Görüntüleme Türü         | metin            |

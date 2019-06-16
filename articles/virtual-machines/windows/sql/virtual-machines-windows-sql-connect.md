@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a33525e44b2e294b7ce85c7081864dbef0856588
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 70e478ac70b7ab53f1357394f3a3cb0d92f41f00
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130819"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075774"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure'da bir SQL Server sanal makinesine bağlanma
 
@@ -94,13 +94,15 @@ Server=mysqlvm;Integrated Security=true
 
 ## <a id="change"></a> SQL bağlantı ayarlarını değiştir
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 Azure portalında SQL Server sanal makineniz için bağlantı ayarları değiştirebilirsiniz.
 
-1. Azure portalında **sanal makineler**.
+1. Azure portalında **SQL sanal makineleri**.
 
 2. VM, SQL Server'ı seçin.
 
-3. Altında **ayarları**, tıklayın **SQL Server Yapılandırması**.
+3. Altında **ayarları**seçin **güvenlik**.
 
 4. Değişiklik **SQL bağlantı düzeyi** gerekli ayarınız için. İsteğe bağlı olarak, SQL Server bağlantı noktası veya SQL kimlik doğrulaması ayarlarını değiştirmek için bu alanı kullanabilirsiniz.
 

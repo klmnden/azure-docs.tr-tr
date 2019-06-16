@@ -18,10 +18,10 @@ ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d47075f9e18b299341a98983ffb8a47389fd7063
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540231"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Nasıl yapılır: Bir uygulamanın yayımcı etki alanı (Önizleme) yapılandırma
@@ -38,7 +38,7 @@ Aşağıdaki tabloda, yayımcı etki alanı değerinin varsayılan davranışın
 
 | Kiracı doğrulanmış etki alanları | Yayımcı etki alanının varsayılan değer |
 |-------------------------|----------------------------|
-| null  | null  |
+| Null | Null |
 | *.onmicrosoft.com | *.onmicrosoft.com |
 | - *.onmicrosoft.com<br/>-EtkiAlanı1.com<br/>-EtkiAlanı2.com (birincil) | EtkiAlanı2.com |
 
@@ -139,7 +139,7 @@ Ancak, geliştirici kök etki alanını açıkça eklerse, birlikte izin verilir
 "https://app2.contoso.com",
 ```
 
-### <a name="exceptions"></a>Özel Durumlar
+### <a name="exceptions"></a>Özel durumlar
 
 Aşağıdaki durumlarda tek bir kök etki alanı kısıtlaması tabi değildir:
 

@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
 ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158261"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarının Klasik modelden Azure Resource Manager'a Platform destekli geçiş
@@ -102,7 +102,7 @@ Bazı özellikleri ve yapılandırmalar şu anda desteklenmiyor; Aşağıdaki b�
 ### <a name="unsupported-features"></a>Desteklenmeyen özellikler
 Aşağıdaki özellikler şu anda desteklenmemektedir. İsteğe bağlı olarak bu ayarları kaldırabilir, Vm'leri geçirme ve Resource Manager dağıtım modelinde ayarlar'ı yeniden etkinleştirin.
 
-| Kaynak sağlayıcı | Özellik | Öneri |
+| Kaynak sağlayıcısı | Özellik | Öneri |
 | --- | --- | --- |
 | İşlem | İlişkilendirilmemiş sanal makine diskleri. | Depolama hesabı geçiş yaptığında bu diskleri arkasında VHD bloblarını geçişi |
 | İşlem | Sanal makine görüntüleri. | Depolama hesabı geçiş yaptığında bu diskleri arkasında VHD bloblarını geçişi |
@@ -127,8 +127,8 @@ Aşağıdaki yapılandırmalar şu anda desteklenmemektedir.
 | İşlem | VM yedekleme ya da anlık görüntü uzantısı | Bu uzantılar, Azure Backup hizmeti ile yapılandırılmış bir sanal makineye yüklenir. Bu VM'lerin geçişini desteklenmiyor olsa da yönergeleri [burada](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) geçişten önce alınan yedeklemeler korumak için.  |
 | Ağ |Sanal makineler ve web/çalışan rollerini içeren sanal ağlar |Bu şu anda desteklenmiyor. Lütfen Web/çalışan rollerini geçirmeden önce kendi sanal ağa taşıyın. Klasik sanal ağ geçirildikten sonra geçirilen Azure Resource Manager sanal ağı Klasik sanal benzer yapılandırmasını önceki gibi elde etmek için ağ ile eşlenebilir.|
 | Ağ | Klasik Express Route bağlantı hatları |Bu şu anda desteklenmiyor. Bu bağlantı hatları, Iaas geçişine başlamadan önce Azure Resource Manager'a geçirilmesi gerekir. Daha fazla bilgi için bkz. [Resource Manager dağıtım modeline taşıma ExpressRoute bağlantı hatlarını Klasikten](../articles/expressroute/expressroute-move.md).|
-| Azure App Service |App Service ortamları içeren sanal ağlar |Bu şu anda desteklenmiyor. |
+| Azure uygulama hizmeti |App Service ortamları içeren sanal ağlar |Bu şu anda desteklenmiyor. |
 | Azure HDInsight |HDInsight hizmetleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
 | Microsoft Dynamics yaşam döngüsü Hizmetleri |Dynamics yaşam döngüsü Hizmetleri tarafından yönetilen sanal makineleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
 | Azure AD Domain Services |Azure AD etki alanı hizmetleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
-| Azure API Yönetimi |Azure API Management dağıtımlarını içeren sanal ağlar |Bu şu anda desteklenmiyor. Iaas sanal ağ'ı geçirmek için herhangi bir kapalı kalma süresi işlemi API Management dağıtımınızın VNET değiştirin. |
+| Azure API Management |Azure API Management dağıtımlarını içeren sanal ağlar |Bu şu anda desteklenmiyor. Iaas sanal ağ'ı geçirmek için herhangi bir kapalı kalma süresi işlemi API Management dağıtımınızın VNET değiştirin. |

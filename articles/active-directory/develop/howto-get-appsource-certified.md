@@ -19,10 +19,10 @@ ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540281"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory için AppSource sertifikalı alma
@@ -40,7 +40,7 @@ Tümleştirme hakkında bilgi edinmek istiyorsanız Open ID kullanarak Azure AD 
 A *çok kiracılı uygulama* ayrı örneği, yapılandırma ve dağıtım gerek kalmadan Azure AD'si olan kullanıcıların herhangi bir şirket veya kuruluş oturum açma işlemlerini kabul eden bir uygulamadır. AppSource önerir uygulamaları etkinleştirmek için çok kiracılı uygulama *tek tıklamayla* ücretsiz deneme sürümü deneyimi.
 
 Uygulamanızda çok kiracılı modeli etkinleştirme için bu adımları izleyin:
-1. Ayarlama `Multi-Tenanted` özelliğini `Yes` içindeki uygulama kaydı 's bilgileri [Azure portalında](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Varsayılan olarak, Azure portalında oluşturulan uygulamaların olarak yapılandırılmış  *[tek kiracılı](#single-tenant-applications)*.
+1. Ayarlama `Multi-Tenanted` özelliğini `Yes` içindeki uygulama kaydı 's bilgileri [Azure portalında](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Varsayılan olarak, Azure portalında oluşturulan uygulamaların olarak yapılandırılmış  *[tek kiracılı](#single-tenant-applications)* .
 1. İstekler göndermek için kodunuzu güncelleştirin `common` uç noktası. Bunu yapmak için uç noktasından güncelleştirme `https://login.microsoftonline.com/{yourtenant}` için `https://login.microsoftonline.com/common*`.
 1. ASP .NET gibi bazı platformlar için de birden çok verenler kabul edecek şekilde güncelleştirmeniz gerekir.
 

@@ -1,7 +1,7 @@
 ---
 title: "Hızlı Başlangıç: Python ve REST API'ler - Azure Search'ü"
 description: Oluşturma, yükleme ve Python, Jupyter not defterleri ve Azure Search REST API'sini kullanarak dizin sorgulama.
-ms.date: 05/23/2019
+ms.date: 06/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c519cbd151ac3008593e3309930db4e9a9414e51
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244786"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056672"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Hızlı Başlangıç: Jupyter Python not defterlerini kullanarak bir Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
@@ -88,22 +88,19 @@ Bu görevde bir Jupyter not defteri ve Azure Search'e bağlanabildiğini doğrul
 
    Buna karşılık, bir boş dizin koleksiyonu bu yanıtı döndürür: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
-> [!Tip]
-> Ücretsiz bir hizmet üç dizin, dizin oluşturucular ve veri kaynakları için sınırlı olursunuz. Bu hızlı başlangıçta her birini oluşturur. Daha fazla işlenmesini önce yeni nesneler oluşturmak için yer olduğundan emin olun.
-
 ## <a name="1---create-an-index"></a>1 - Dizin oluşturma
 
 Portal kullanmıyorsanız, verileri yüklemeden önce bir dizin hizmette mevcut olması gerekir. Bu adımı kullanan [dizin REST API oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index) bir dizin şemasını hizmete gönderin.
 
 Bir dizinin gerekli öğeler, bir ad, bir alanlar koleksiyonu ve bir anahtar içerir. Alanlar koleksiyonu yapısını tanımlayan bir *belge*. Her alanın bir adı, türü ve alanın nasıl kullanıldığını belirleyen özniteliklere sahip (örneğin, tam metin olup aranabilir, filtrelenebilir veya arama sonuçlarında alınabilir). Bir dizinin türü alanlardan biri içinde `Edm.String` olarak belirlenmesi gerekir *anahtar* belge kimliği.
 
-Bu dizin, "hotels-py" olarak adlandırılır ve aşağıda gördüğünüz alan tanımlarına sahip. Daha büyük bir alt kümesidir [Oteller dizinini](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) diğer izlenecek yollarında kullanılır. Biz, bu hızlı başlangıçta kısaltma kırpılır.
+Bu dizin, "hotels-quickstart" olarak adlandırılır ve aşağıda gördüğünüz alan tanımı yok. Daha büyük bir alt kümesidir [Oteller dizinini](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) diğer izlenecek yollarında kullanılır. Biz, bu hızlı başlangıçta kısaltma kırpılır.
 
 1. Sonraki hücreye aşağıdaki örnekte şema sağlamak üzere bir hücreye yapıştırın. 
 
     ```python
     index_schema = {
-       "name": "hotels-py",  
+       "name": "hotels-quickstart",  
        "fields": [
          {"name": "HotelId", "type": "Edm.String", "key": "true", "filterable": "true"},
          {"name": "HotelName", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "true", "facetable": "false"},
@@ -236,10 +233,10 @@ Belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği 
     }
     ```   
 
-2. Başka bir hücreye istek düzenleyin. Bu POST isteği, Oteller-py dizini docs koleksiyonunu hedefleyen ve önceki adımda sağlanan belgelerinin gönderir.
+2. Başka bir hücreye istek düzenleyin. Bu POST isteği, Oteller hızlı başlangıç dizini docs koleksiyonunu hedefleyen ve önceki adımda sağlanan belgelerinin gönderir.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs/index" + api_version
+   url = endpoint + "indexes/hotels-quickstart/docs/index" + api_version
    response  = requests.post(url, headers=headers, json=documents)
    index_content = response.json()
    pprint(index_content)
@@ -253,56 +250,63 @@ Belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği 
 
 Bu adım bir dizin kullanarak nasıl sorgulanacağını gösterir [arama belgeleri REST API'si](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
+1. Boş bir arama yürüten bir sorgu ifadesinde bir hücreye sağlayın (arama = *), unranked bir listesini döndüren (arama puanı = 1.0) rastgele belgeleri. Varsayılan olarak, Azure Search, aynı anda 50 eşleşmesi döndürür. Yapılandırılmış olarak, bu sorgu tüm belge yapısı ve değerleri döndürür. $Count Ekle = tüm belgelerin sayısını sonuçları almak için true.
 
-1. Yeni bir hücreye bir sorgu ifadesini girin. Aşağıdaki örnek koşulları "hotels" ve "wifi" arar. Ayrıca döndürür bir *sayısı* eşleşen, belgelerin ve *seçer* hangi alanların arama sonuçlarına dahil.
+   ```python
+   searchstring = '&search=*&$count=true'
+   ```
+
+1. Yeni bir hücreye koşulları "hotels" ve "wifi" aramak için aşağıdaki örnekte sağlar. Hangi alanların arama sonuçlarına dahil edileceğini belirlemek için $select ekleyin.
 
    ```python
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. Başka bir hücreye bir istek düzenleyin. Bu GET isteği, Oteller-py dizini docs koleksiyonunu hedefleyen ve önceki adımda belirtilen sorgu ekler.
+1. Başka bir hücreye bir istek düzenleyin. Bu GET isteği hotels hızlı başlangıç dizini docs koleksiyonunu hedefleyen ve önceki adımda belirtilen sorgu ekler.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
    response  = requests.get(url, headers=headers, json=searchstring)
    query = response.json()
    pprint(query)
    ```
 
-3. Her adım çalıştırın. Sonuç aşağıdaki çıktıya benzer olmalıdır. 
+1. Her adım çalıştırın. Sonuç aşağıdaki çıktıya benzer olmalıdır. 
 
     ![Dizin arama](media/search-get-started-python/search-index.png "dizin arama")
 
-4. Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri deneyin. AramaDizesi Aşağıdaki örnekler ile değiştirin ve ardından arama isteği yeniden çalıştırın. 
+1. Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri deneyin. AramaDizesi Aşağıdaki örnekler ile değiştirin ve ardından arama isteği yeniden çalıştırın. 
 
    Bir filtre uygula: 
 
    ```python
-   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
    ```
 
    İlk iki sonucu alın:
 
    ```python
-   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
    ```
 
     Belirli bir alana göre sıralayın:
 
    ```python
-   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
 ## <a name="clean-up"></a>Temizleme 
 
-Artık ihtiyacınız kalmadığında, dizin silmeniz gerekir. Ücretsiz bir hizmet için üç dizin sınırlıdır. Etkin bir şekilde diğer öğreticiler için yer açmak için kullandığınız değil tüm dizinleri silmek isteyebilirsiniz.
+Artık ihtiyacınız kalmadığında, dizin silmeniz gerekir. Ücretsiz bir hizmet için üç dizin sınırlıdır. Etkin bir şekilde diğer öğreticiler için yer açmak için kullandığınız değil tüm dizinlerin silmeniz gerekir.
+
+Nesneleri silmek için en kolay yolu portalı kullanmaktır, ancak bu bir Python hızlı olduğundan, aşağıdaki sözdizimini aynı sonucu verir:
 
    ```python
-  url = endpoint + "indexes/hotels-py" + api_version
+  url = endpoint + "indexes/hotels-quickstart" + api_version
   response  = requests.delete(url, headers=headers)
    ```
 
-Dizin silme işlemi mevcut dizinler listesini döndüren ve doğrulayabilirsiniz. Hotels-py yoksa, istek başarılı bildirin.
+Dizin silme işlemi mevcut dizinler listesini isteyerek doğrulayabilirsiniz. Hotels-quickstart yoksa, istek başarılı bildirin.
 
 ```python
 url = endpoint + "indexes" + api_version + "&$select=name"

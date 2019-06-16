@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 5d6cce859aa26935f0b6007fe8e5ff2c2239b210
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60243711"
+ms.locfileid: "67109444"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect ve Azure AD Connect Health yükleme yol haritası
 
@@ -68,7 +68,7 @@ Azure AD Connect, isteğe bağlı olarak açabileceğiniz veya varsayılan olara
 
 [Parola geri yazma](../authentication/quickstart-sspr.md) özelliği, kullanıcılarınızın buluttaki parolalarını değiştirmelerine ve sıfırlamalarına olanak sağlamanın yanı sıra şirket içi parola ilkenizi uygular.
 
-[Cihaz geri yazma](how-to-connect-device-writeback.md) Azure AD'de kayıtlı cihazın şirket içi Active Directory'ye geri yazılmasına izin verir, bu sayede koşullu erişim için kullanılabilir.
+[Cihaz geri yazmayı](how-to-connect-device-writeback.md) şirket içi Active Directory'ye geri yazılması için koşullu erişim kullanılabilmesi için Azure AD'de kayıtlı cihazın izin verir.
 
 [Yanlışlıkla silmeleri engelle](how-to-connect-sync-feature-prevent-accidental-deletes.md) özelliği, varsayılan olarak açıktır ve bulut dizininizi aynı anda gerçekleştirilen çoklu silme işlemlerine karşı korur. Varsayılan olarak, her çalıştırma sırasında 500 silme işlemine izin verir. Kuruluşunuzun büyüklüğüne bağlı olarak bu ayarı değiştirebilirsiniz.
 

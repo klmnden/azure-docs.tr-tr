@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 464c6c6b554f093e0192641284dafe39cb2908ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34fdc3d97f6b4e785a9c6ec3d33e199978373d2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105865"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Öğretici: CA PPM ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de CA PPM tümleştirmesini yapılandırmak için CA PPM Galeriden yön
 
 **Galeriden CA PPM eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

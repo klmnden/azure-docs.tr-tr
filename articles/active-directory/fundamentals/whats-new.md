@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6a66aefec69a0551f85b11a380c90d1915bd776
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f57b0189708f48d1dc403ce778f5f9693b6dc702
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110388"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -357,7 +357,7 @@ Daha fazla bilgi için [koşullu erişim ile bulut uygulaması erişimi için uy
 
 ---
 
-### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Yeni Azure AD çoklu oturum açma ve koşullu erişimi Microsoft edge'de (genel Önizleme) desteği
+### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Yeni Azure AD çoklu oturum açma ve Microsoft Edge (genel Önizleme) içinde koşullu erişim desteği
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Koşullu Erişim  
@@ -477,7 +477,7 @@ Yeni hakkında daha fazla bilgi için **denetim günlükleri** sayfasında, bkz:
 **Hizmet kategorisi:** Koşullu Erişim  
 **Ürün özelliği:** Kimlik güvenliği ve koruması
 
-Yöneticilerin yanlışlıkla kendilerini yapılandırılmış koşullu erişim ilkeleri aracılığıyla kendi kiracılar dışında kilitlemelerini önlemek için yeni uyarılar ve güncelleştirilmiş yönergeler Azure Portalı'nda oluşturduk. Yeni bir kılavuz hakkında daha fazla bilgi için bkz: [Hizmet bağımlılıkları Azure Active Directory koşullu erişim nedir](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
+Yöneticilerin yanlışlıkla kendilerini yapılandırılmış koşullu erişim ilkeleri aracılığıyla kendi kiracılar dışında kilitlemelerini önlemek için yeni uyarılar ve güncelleştirilmiş yönergeler Azure Portalı'nda oluşturduk. Yeni bir kılavuz hakkında daha fazla bilgi için bkz: [Hizmet bağımlılıklarını Azure Active Directory koşullu erişim nedir](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
 
 ---
 
@@ -791,8 +791,8 @@ Aşağıdaki alanları, oturum açma şemada değiştiriyorsunuz:
 |Alan adı|Değişiklikler|Eski değer|Yeni değerleri|
 |----------|------------|----------|----------|
 |appliedConditionalAccessPolicies|Bu **conditionalaccessPolicies** alan. Artık **appliedConditionalAccessPolicies** alan.|Değişiklik yok|Değişiklik yok|
-|conditionalAccessStatus|Oturum açma işlemi sırasında koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
-|appliedConditionalAccessPolicies: sonuç|Oturum açma işlemi sırasında bireysel koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
+|conditionalAccessStatus|Oturum açma işlemi sırasında koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1\.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
+|appliedConditionalAccessPolicies: sonuç|Oturum açma işlemi sırasında bireysel koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1\.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
 
 Şeması hakkında daha fazla bilgi için bkz. [yorumlama Azure AD denetim günlükleri şema Azure İzleyici (Önizleme)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
 

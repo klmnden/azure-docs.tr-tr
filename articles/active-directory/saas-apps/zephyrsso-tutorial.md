@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 8340c409e6aa5b2bc98a5ac418b14908c21bd7a7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2ffc9f105f4e2429ac8add679511e9aec5875e0a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920406"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Öğretici: ZephyrSSO ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de ZephyrSSO tümleştirmesini yapılandırmak için ZephyrSSO Galeride
 
 **Galeriden ZephyrSSO eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

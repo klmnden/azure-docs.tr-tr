@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785725"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109493"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Cihaz geri yazma özelliğini etkinleştirme
 > [!NOTE]
@@ -40,10 +40,10 @@ Bu, ek güvenlik ve yalnızca güvenilen cihazlara verilen uygulamalara erişimi
 > <li>Cihazlar, kullanıcılar aynı ormandaki bulunması gerekir. Cihazları tek bir ormana geri yazılması gerekir olduğundan, bu özellik birden çok kullanıcı ormanı olan bir dağıtım şu anda desteklemiyor.</li>
 > <li>Şirket içi Active Directory ormanı için yalnızca bir cihaz kaydı yapılandırma nesnesi eklenebilir. Bu özellik şirket içi Active Directory birden çok Azure AD dizini için burada eşitlenmiş bir topoloji ile uyumlu değil.</li>
 
-## <a name="part-1-install-azure-ad-connect"></a>1. Bölüm: Azure AD Connect'i yükleme
+## <a name="part-1-install-azure-ad-connect"></a>1\. Bölüm: Azure AD Connect'i yükleme
 Azure AD Connect'i kullanarak özel veya hızlı ayarlar. Microsoft ile başlaması cihaz geri yazmayı etkinleştirme önce tüm kullanıcılar ve gruplar başarıyla eşitlendi önerir.
 
-## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>2. Bölüm: Azure AD CONNECT'te cihaz geri yazmayı etkinleştirme
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>2\. Bölüm: Azure AD CONNECT'te cihaz geri yazmayı etkinleştirme
 1. Yükleme Sihirbazı'nı yeniden çalıştırın. Seçin **cihaz seçeneklerini yapılandır** ek görevler sayfasında ve tıklayın **sonraki**. 
 
     ![Cihaz seçeneklerini yapılandır](./media/how-to-connect-device-writeback/deviceoptions.png)
@@ -125,7 +125,7 @@ Active Directory yapılandırmasını doğrulayın:
 
 ![Sorun giderme, cihaz kaydı yapılandırma üzerindeki izinleri doğrulayın](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Ek Bilgiler
+## <a name="additional-information"></a>Ek Bilgi
 * [Koşullu erişim ile risk yönetme](../active-directory-conditional-access-azure-portal.md)
 * [Azure Active Directory cihaz kaydı hizmetini kullanarak şirket içi koşullu erişim ayarlama](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 

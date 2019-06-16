@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
 ms.openlocfilehash: b881a645a42d92407aa39d0f4896629f799e6928
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66426931"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Önerileriniz veya otomatik tamamlama, Azure Search uygulamanıza ekleyin
@@ -198,7 +198,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 
 Suggest işlevi, arama terimi girişine ek olarak isabet vurgularının veya benzer öğe eşleştirme özelliğinin kullanılıp kullanılmadığını belirleyen iki parametre alır. Yöntemi oluşturur bir [SuggestParameters nesne](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), hangi sonra geçirilen Öner API için. Ardından alınan sonuç istemcide gösterilebilmesi için JSON biçimine dönüştürülür.
 
-69. satırda, Otomatik Tamamlama işlevi dikkat edin. Dayanır [DocumentsOperationsExtensions.Autocomplete yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
+69\. satırda, Otomatik Tamamlama işlevi dikkat edin. Dayanır [DocumentsOperationsExtensions.Autocomplete yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
 
 ```csharp
 public ActionResult AutoComplete(string term)

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/27/2019
 ms.author: anuragm
 ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306963"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure'da SQL Server Yedekleme sorunlarını giderme
@@ -82,7 +82,7 @@ Bir sanal makinede SQL Server veritabanı için koruma yapılandırılamadı **A
 
 | Hata iletisi | Olası nedenler | Önerilen eylem |
 |---|---|---|
-| Veritabanını çevrimdışı duruma getirilemiyor geri yükleme başarısız oldu. | Bir geri yükleme yaparken, hedef veritabanının çevrimdışı duruma getirilmesi gerekir. Azure Backup, bu veriyi çevrimdışı duruma getirmek mümkün değil. | Ek ayrıntılar Azure portal hata menüde nedenlerini daraltmak için kullanın. Daha fazla bilgi için [SQL belgeleri](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
+| Veritabanı çevrimdışına alınamadığından geri yükleme başarısız oldu. | Bir geri yükleme yaparken, hedef veritabanının çevrimdışı duruma getirilmesi gerekir. Azure Backup, bu veriyi çevrimdışı duruma getirmek mümkün değil. | Ek ayrıntılar Azure portal hata menüde nedenlerini daraltmak için kullanın. Daha fazla bilgi için [SQL belgeleri](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
 ##  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
@@ -94,14 +94,14 @@ Bir sanal makinede SQL Server veritabanı için koruma yapılandırılamadı **A
 
 | Hata iletisi | Olası nedenler | Önerilen eylem |
 |---|---|---|
-| Kurtarma için kullanılan günlük yedeği toplu günlüğe kaydedilen değişiklikler içeriyor. SQL yönergelerine göre zaman içindeki rastgele bir noktada durdurmak için kullanılamaz. | Bir veritabanında toplu günlüğe kaydedilen kurtarma modunda olduğunda, bir toplu işlem ve sonraki günlük işlem arasındaki verileri kurtarılamaz. | Farklı bir noktaya kurtarma için seçin. [Daha fazla bilgi edinin](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| Kurtarma için kullanılan günlük yedeklemesi toplu olarak günlüğe kaydedilen değişiklikler içeriyor. SQL yönergelerine göre zamanın rastgele bir noktasında durdurmak için kullanılamaz. | Bir veritabanında toplu günlüğe kaydedilen kurtarma modunda olduğunda, bir toplu işlem ve sonraki günlük işlem arasındaki verileri kurtarılamaz. | Farklı bir noktaya kurtarma için seçin. [Daha fazla bilgi edinin](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Hata iletisi | Olası nedenler | Önerilen eylem |
 |---|---|---|
-| SQL Always On kullanılabilirlik grubu için yedekleme tercihi, kullanılabilirlik grubu'nın bazı düğümleri kaydedilmediğinden karşılanamıyor. | Yedekleme gerçekleştirmek için gereken düğümleri kayıtlı değil veya ulaşılamıyor. | <ul><li>Bu veritabanının yedekleme gerçekleştirmek için gereken tüm düğümlerin kaydedildiğinden ve sağlıklı durumda ve sonra işlemi yeniden deneyin emin olun.</li><li>Değişiklik SQL Always On kullanılabilirlik grubu yedekleme tercihi.</li></ul> |
+| Kullanılabilirlik Grubunun bazı düğümleri kaydedilmediğinden SQL AlwaysOn Kullanılabilirlik Grubu yedekleme tercihi uygulanamadı. | Yedekleme gerçekleştirmek için gereken düğümleri kayıtlı değil veya ulaşılamıyor. | <ul><li>Bu veritabanının yedekleme gerçekleştirmek için gereken tüm düğümlerin kaydedildiğinden ve sağlıklı durumda ve sonra işlemi yeniden deneyin emin olun.</li><li>Değişiklik SQL Always On kullanılabilirlik grubu yedekleme tercihi.</li></ul> |
 
 ## <a name="vmnotinrunningstateusererror"></a>VMNotInRunningStateUserError
 

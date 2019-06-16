@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571354"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Mevcut bir kiracınız varsa
@@ -34,7 +34,7 @@ Bazı kullanıcılar şirket içi ve diğer bulutta yönetebilirsiniz. Bu yapıl
 Yönetilecek başlattıysanız da içinde olan kullanıcılar Azure AD'de şirket içi AD ve eğer göz önünde bulundurmanız gereken bazı ek konuları daha sonra Connect kullanmak istiyorsanız.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Mevcut kullanıcıların Azure AD'de eşitleme
-Azure AD Connect'i yüklemek ve Eşitlemeyi Başlat, Azure AD eşitleme hizmetini (Azure AD'de) her yeni nesne üzerinde bir denetimi yapar ve eşleştirmek için var olan bir nesneyi bulmak deneyin. Bu işlem için kullanılan üç öznitelikleri vardır: **userPrincipalName**, **proxyAddresses**, ve **sourceAnchor**/**Immutableıd** . Bir eşleşme **userPrincipalName** ve **proxyAddresses** olarak bilinen bir **yazılım eşleşme**. Bir eşleşme **sourceAnchor** olarak da bilinen **sabit eşleşme**. İçin **proxyAddresses** yalnızca değeri ile özniteliği **SMTP:**, diğer bir deyişle birincil e-posta adresi, değerlendirme için kullanılır.
+Azure AD Connect'i yüklemek ve Eşitlemeyi Başlat, Azure AD eşitleme hizmetini (Azure AD'de) her yeni nesne üzerinde bir denetimi yapar ve eşleştirmek için var olan bir nesneyi bulmak deneyin. Bu işlem için kullanılan üç öznitelikleri vardır: **userPrincipalName**, **proxyAddresses**, ve **sourceAnchor**/**Immutableıd** . Bir eşleşme **userPrincipalName** ve **proxyAddresses** olarak bilinen bir **yazılım eşleşme**. Bir eşleşme **sourceAnchor** olarak da bilinen **sabit eşleşme**. İçin **proxyAddresses** yalnızca değeri ile özniteliği **SMTP:** , diğer bir deyişle birincil e-posta adresi, değerlendirme için kullanılır.
 
 Eşleşme yalnızca Connect'ten yakında yeni nesneler için değerlendirilir. Bu öznitelikleri eşleşen şekilde var olan bir nesneyi değiştirin, ardından bir hata bunun yerine görürsünüz.
 

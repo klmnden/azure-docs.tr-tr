@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: e91351d4571eaa084865c5a179ed05e6c773b952
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2ddb8777a6470c0e739545e71867a694022d1723
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240418"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093593"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Öğretici: Promapp ile Azure Active Directory Tümleştirme
 
@@ -95,7 +95,7 @@ Azure AD çoklu oturum açma ile Promapp yapılandırmak için şu adımları uy
 
 2. İçinde **tek bir oturum açma yönteminizi seçmeniz** Seç iletişim kutusunda **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için:
 
-    ![Çoklu oturum açma yöntemi seçin](common/select-saml-option.png)
+    ![Tek bir oturum açma yöntemi seçin](common/select-saml-option.png)
 
 3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim kutusunda:
 
@@ -207,7 +207,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Promapp erişim vererek 
 
 2. Uygulamalar listesinde seçin **Promapp**.
 
-    ![Uygulama listesi](common/all-applications.png)
+    ![Uygulamaların listesi](common/all-applications.png)
 
 3. Sol bölmede seçin **kullanıcılar ve gruplar**:
 

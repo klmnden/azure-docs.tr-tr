@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.openlocfilehash: 10ec4b55bab741f19adaf193295659b7876fe02c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685214"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop kümesi ile güvenli aktarım depolama hesapları Azure HDInsight oluşturma
@@ -39,7 +39,7 @@ Bu bölümde, [Azure Resource Manager şablonu](../azure-resource-manager/resour
 
 2. Aşağıdaki özelliklerle kümeyi oluşturmak için yönergeleri izleyin: 
 
-    - HDInsight sürümü 3.6’yı belirtin. 3.6 veya daha yeni bir sürüm gereklidir.
+    - HDInsight sürümü 3.6’yı belirtin. 3\.6 veya daha yeni bir sürüm gereklidir.
     - Güvenli aktarım özellikli bir depolama hesabı belirtin.
     - Depolama hesabı için kısa bir ad kullanın.
     - Hem depolama hesabı hem de blob kapsayıcı önceden oluşturulmalıdır.

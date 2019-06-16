@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/23/2019
 ms.openlocfilehash: e824ac81f1336644fa70cc24539284feacee3199
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244527"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
@@ -35,7 +35,7 @@ Bir tek bir mantıksal uygulama tanımını sınırları şunlardır:
 | Geçiş kapsamı çalışmaları sınırı | 25 | |
 | İş akışı başına değişkenleri | 250 | |
 | Karakter başına ifadesi | 8,192 | |
-| En büyük boyutu `trackedProperties` | 16.000 karakter |
+| En büyük boyutu `trackedProperties` | 16\.000 karakter |
 | Adında `action` veya `trigger` | 80 karakter | |
 | Uzunluğu `description` | 256 karakter | |
 | En fazla `parameters` | 50 | |
@@ -95,7 +95,7 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
 | Ad | Sınır | Notlar |
 | ---- | ----- | ----- |
-| Eylem: Yürütme başına 5 dakika | 100.000 varsayılan sınır, ancak 300000 üst sınırı. | Varsayılan sınırı değiştirmek için bkz ["yüksek aktarım hızı" modunda mantıksal uygulamanızı çalıştırın](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), Önizleme aşamasında olduğu. Veya iş yükü, gerektiğinde birden fazla mantıksal uygulama arasında dağıtabilirsiniz. |
+| Eylem: Yürütme başına 5 dakika | 100\.000 varsayılan sınır, ancak 300000 üst sınırı. | Varsayılan sınırı değiştirmek için bkz ["yüksek aktarım hızı" modunda mantıksal uygulamanızı çalıştırın](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), Önizleme aşamasında olduğu. Veya iş yükü, gerektiğinde birden fazla mantıksal uygulama arasında dağıtabilirsiniz. |
 | Eylem: Eş zamanlı giden çağrılar | ~2,500 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. |
 | Çalışma zamanı uç noktası: Eş zamanlı gelen çağrılar | ~1,000 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. |
 | Çalışma zamanı uç noktası: Okuma çağrısı 5 dakika başına  | 60,000 | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. |
@@ -136,7 +136,7 @@ Bazı bağlayıcı işlemler zaman uyumsuz çağrıları yapmak veya bu işlemle
 |------|--------------------|---------------------------------------|-------|
 | İleti boyutu | 100 MB | 200 MB | Bu sınırını çözmek için bkz: [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. |
 | Öbekleme ile ileti boyutu | 1 GB | 5 GB | Bu limit, yerel olarak destekleyen parçalama veya çalışma zamanı yapılandırmalarını Öbekleme etkinleştirmenize izin eylemler için geçerlidir. <p>Tümleştirme hizmeti ortamı için Logic Apps altyapısı bu sınırı destekler, ancak bağlayıcıları örneğin altyapısı sınıra kadar kümeleme kendi sınırlara sahiptir, bkz: [Azure Blob Depolama Bağlayıcısı](/connectors/azureblob/). Daha fazla bilgi parçalama için bkz: [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). |
-| İfade değerlendirme limiti | 131.072 karakter | 131.072 karakter | `@concat()`, `@base64()`, `@string()` İfadeleri bu sınırdan daha uzun olamaz. |
+| İfade değerlendirme limiti | 131\.072 karakter | 131\.072 karakter | `@concat()`, `@base64()`, `@string()` İfadeleri bu sınırdan daha uzun olamaz. |
 |||||
 
 #### <a name="retry-policy"></a>Yeniden deneme ilkesi

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937215"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android için akış çevrimdışı Widevine
@@ -45,7 +45,7 @@ Android cihazlar için Widevine DRM çevrimdışı uygulamadan önce gerekir:
 
 - Windows'un Widevine DRM kullanarak çevrimiçi içerik koruma için tanıtılan kavramları öğrenin. Bu, aşağıdaki belgeleri/samples ayrıntılı ele alınmıştır:
     - [Erişim denetimi ile çoklu DRM'ye sahip içerik koruma sistemi tasarlama](design-multi-drm-system-with-access-control.md)
-    - [DRM dinamik şifreleme ve lisans teslim hizmetini kullanma](protect-with-drm.md)
+    - [DRM dinamik şifreleme ve lisans teslimat hizmeti kullanın](protect-with-drm.md)
 - Kopya https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git.
 
     Kodda değiştirmeniz gerekecektir [şifrele .NET kullanarak DRM ile](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) Widevine yapılandırmaları eklemek için.  
@@ -175,7 +175,7 @@ Google'nın içinde [Widevine DRM mimarisine genel bakış](https://storage.goog
 
 1.  Güvenlik düzeyi 1: Güvenilir Yürütme Ortamı'içinde (TEE), tüm içerik işleme, şifreleme ve denetimi gerçekleştirilir. Bazı uygulama modellerinde güvenlik işleme farklı yongalarda gerçekleştirilebilir.
 2.  Güvenlik düzeyi 2: TEE içinde şifreleme (ancak değil video işleme) gerçekleştirir: şifresi arabellek uygulama etki alanına döndürdü ve ayrı video donanım veya yazılım işlenir. Düzey 2, ancak şifreleme bilgileri yine de yalnızca TEE içinde işlenir.
-3.  Güvenlik düzeyi 3 bir TEE cihazda yok. Şifreleme bilgileri ve konak işletim sisteminde şifresi içeriği korumak için uygun önlemleri izlenebilir. 3. düzey uygulama ayrıca donanım şifreleme altyapısı içerebilir, ancak performans, güvenlik değil, yalnızca geliştirir.
+3.  Güvenlik düzeyi 3 bir TEE cihazda yok. Şifreleme bilgileri ve konak işletim sisteminde şifresi içeriği korumak için uygun önlemleri izlenebilir. 3\. düzey uygulama ayrıca donanım şifreleme altyapısı içerebilir, ancak performans, güvenlik değil, yalnızca geliştirir.
 
 Aynı anda, buna [Widevine lisans şablonu hakkında Azure Media Services belgeleri](widevine-license-template-overview.md), content_key_specs security_level özelliğini aşağıdaki beş farklı değerlere (kayıttan yürütme için istemci sağlamlık gereksinimleri) sahip olabilir:
 
@@ -190,8 +190,8 @@ Her iki güvenlik düzeyleri Google Widevine tarafından tanımlanır. İçindek
 | **Widevine mimaride tanımlanan güvenlik düzeyleri** |**Widevine API içinde kullanılan güvenlik düzeyleri**|
 |---|---| 
 | **Güvenlik düzeyi 1**: Güvenilir Yürütme Ortamı'içinde (TEE), tüm içerik işleme, şifreleme ve denetimi gerçekleştirilir. Bazı uygulama modellerinde güvenlik işleme farklı yongalarda gerçekleştirilebilir.|**security_level = 5**: Şifreleme, kod çözme ve tüm işleme (sıkıştırılmış ve sıkıştırılmamış) ortamının içinde işlenmeli donanım TEE desteklenir.<br/><br/>**security_level = 4**: Şifreleme ve kod çözme içerik içinde gerçekleştirilmelidir donanım TEE desteklenir.|
-**Güvenlik düzeyi 2**: TEE içinde şifreleme (ancak değil video işleme) gerçekleştirir: şifresi arabellek uygulama etki alanına döndürdü ve ayrı video donanım veya yazılım işlenir. Düzey 2, ancak şifreleme bilgileri yine de yalnızca TEE içinde işlenir.| **security_level 3 =**: Anahtar malzemesi ve şifreleme işlemleri içinde gerçekleştirilmelidir donanım TEE desteklenir. |
-| **Güvenlik düzeyi 3**: Bir TEE cihazda yok. Şifreleme bilgileri ve konak işletim sisteminde şifresi içeriği korumak için uygun önlemleri izlenebilir. 3. düzey uygulama ayrıca donanım şifreleme altyapısı içerebilir, ancak performans, güvenlik değil, yalnızca geliştirir. | **security_level = 2**: Yazılım şifreleme ve karıştırılmış bir kod çözücü gereklidir.<br/><br/>**security_level = 1**: Yazılım tabanlı whitebox crypto gereklidir.|
+**Güvenlik düzeyi 2**: TEE içinde şifreleme (ancak değil video işleme) gerçekleştirir: şifresi arabellek uygulama etki alanına döndürdü ve ayrı video donanım veya yazılım işlenir. Düzey 2, ancak şifreleme bilgileri yine de yalnızca TEE içinde işlenir.| **security_level 3 =** : Anahtar malzemesi ve şifreleme işlemleri içinde gerçekleştirilmelidir donanım TEE desteklenir. |
+| **Güvenlik düzeyi 3**: Bir TEE cihazda yok. Şifreleme bilgileri ve konak işletim sisteminde şifresi içeriği korumak için uygun önlemleri izlenebilir. 3\. düzey uygulama ayrıca donanım şifreleme altyapısı içerebilir, ancak performans, güvenlik değil, yalnızca geliştirir. | **security_level = 2**: Yazılım şifreleme ve karıştırılmış bir kod çözücü gereklidir.<br/><br/>**security_level = 1**: Yazılım tabanlı whitebox crypto gereklidir.|
 
 ### <a name="question"></a>Soru
 

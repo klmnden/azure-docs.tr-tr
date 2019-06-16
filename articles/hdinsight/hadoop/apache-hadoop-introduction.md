@@ -7,15 +7,15 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 05/28/2019
-ms.openlocfilehash: 6e7e07d130c8c4c8fa776dcad539398a004ecea0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 06/11/2019
+ms.openlocfilehash: 42bfa571818efa4d4a5ad96f62a47fb2b80dca3c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298906"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057555"
 ---
-# <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>Azure HDInsight ve Apache Hadoop teknoloji yığını nedir?
+# <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight, Apache Hadoop nedir?
 
 Bu makalede, Azure HDInsight üzerinde Apache Hadoop için bir tanıtım sunulmaktadır. Azure HDInsight kuruluşlara yönelik bulutta bir tam olarak yönetilen, tam spektrumlu ve açık kaynak analiz hizmetidir. Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R ve daha fazlası gibi açık kaynak çerçeveleri kullanabilirsiniz. 
 
@@ -25,7 +25,7 @@ Bu makalede, Azure HDInsight üzerinde Apache Hadoop için bir tanıtım sunulma
 Kümelerde büyük veri kümelerinin dağıtılmış işlenmesi ve analizine yönelik ilk açık kaynak çerçeve [Apache Hadoop](https://hadoop.apache.org/)’tu. Yazılımlar ve yardımcı programlar, Apache Hive, Apache HBase, Spark, Kafka ve diğer birçok dahil olmak üzere, Hadoop teknoloji yığını içerir.
 
 
-Azure HDInsight, [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/) tarafından sağlanan Hadoop bileşenlerinin bulut dağıtımıdır. Azure HDInsight, devasa miktarlardaki verileri işlemeyi kolay, hızlı ve uygun maliyetli hale getirir. Hadoop, Spark, Hive, LLAP, Kafka, Storm ve R gibi en popüler açık kaynak çerçeveleri kullanabilirsiniz. Bu çerçeveler sayesinde ayıklama, dönüştürme ve yükleme (ETL), veri ambarı, makine öğrenimi ve IoT gibi diğer birçok senaryoyu mümkün kılabilirsiniz.
+Azure HDInsight, Hadoop bileşenlerinin bulut dağıtımıdır. Azure HDInsight, devasa miktarlardaki verileri işlemeyi kolay, hızlı ve uygun maliyetli hale getirir. Hadoop, Spark, Hive, LLAP, Kafka, Storm ve R gibi en popüler açık kaynak çerçeveleri kullanabilirsiniz. Bu çerçeveler sayesinde ayıklama, dönüştürme ve yükleme (ETL), veri ambarı, makine öğrenimi ve IoT gibi diğer birçok senaryoyu mümkün kılabilirsiniz.
 
 HDInsight kullanılabilir Hadoop teknolojisi yığını bileşenlerini görmek için bkz: [bileşenleri ve sürümleri HDInsight ile kullanılabilen](../hdinsight-component-versioning.md). HDInsight'ta Hadoop hakkında daha fazla bilgi edinmek için bkz. [HDInsight için Azure özellikleri sayfası](https://azure.microsoft.com/services/hdinsight/).
 
@@ -104,7 +104,7 @@ Spark, HBase, Kafka ve Hadoop gibi HDInsight kümeleri birçok programlama dilin
 
 |Programlama dili  |Bilgi  |
 |---------|---------|
-|Varsayılan programlama dili desteği      | Varsayılan olarak, HDInsight kümeleri aşağıdakileri destekler:<ul><li>Java</li><li>Python</li><li>.NET</li><li>Git</li></ul>  |
+|Varsayılan programlama dili desteği     | Varsayılan olarak, HDInsight kümeleri aşağıdakileri destekler:<ul><li>Java</li><li>Python</li><li>.NET</li><li>Git</li></ul>  |
 |Java sanal makine (JVM) dilleri     | Java sanal makinelerinde (JVM) Java dışındaki birçok dil çalışabilir. Bununla birlikte, bu dillerden bazılarını çalıştırırsanız kümeye ek bileşenler yüklemeniz gerekebilir. Aşağıdaki JVM tabanlı diller HDInsight kümelerinde desteklenir: <ul><li>Clojure</li><li>Jython (Java için Python)</li><li>Scala</li></ul>     |
 |Hadoop’a özgü diller     | HDInsight kümeleri, Hadoop teknoloji yığınına özgü aşağıdaki dilleri destekler: <ul><li>Pig işleri için Pig Latin</li><li>Hive işleri için HiveQL ve SparkSQL</li></ul>        |
 
@@ -140,7 +140,4 @@ Bilinen iş zekası (BI) araçları, Power Query eklentisini veya Microsoft Hive
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure HDInsight’ın ne olduğunu ve Hadoop’u ve Azure’daki diğer küme türlerini nasıl sağladığını öğrendiniz. HDInsight’ta Apache Hadoop kümesinin nasıl oluşturulacağını öğrenmek için sonraki makaleye ilerleyin.
-
-> [!div class="nextstepaction"]
-> [HDInsight Apache Hadoop kümesi oluşturma](apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [HDInsight Apache Hadoop kümesi oluşturma](apache-hadoop-linux-create-cluster-get-started-portal.md)

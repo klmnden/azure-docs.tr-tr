@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: amsriva
 ms.openlocfilehash: 2a1c7e480e896da6852949c9d765d17290e4e9ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697156"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway'de hatalı ağ geçidi hatalarını giderme
@@ -84,10 +84,10 @@ Aşağıdaki tabloda, varsayılan sistem durumu araştırma URL'siyle ilişkili 
 
 | Araştırma özelliği | Değer | Açıklama |
 | --- | --- | --- |
-| Yoklama URL'si |`http://127.0.0.1/` |URL yolu |
+| Araştırma URL'si |`http://127.0.0.1/` |URL yolu |
 | Interval |30 |Saniye cinsinden yoklama aralığı |
 | Zaman aşımı |30 |Saniye cinsinden yoklama zaman aşımı |
-| İyi durumda olmayan eşik |3 |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
+| Sağlıksız durum eşiği |3 |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
 
 ### <a name="solution"></a>Çözüm
 
@@ -109,12 +109,12 @@ Aşağıdaki ek özellikler eklenir:
 | Araştırma özelliği | Açıklama |
 | --- | --- |
 | Ad |Araştırma adı. Bu ad, arka uç HTTP ayarlarında araştırma başvurmak için kullanılır. |
-| Protokol |Araştırma göndermek için kullanılan protokol. Araştırma arka uç HTTP Ayarları'nda tanımlanan protokolünü kullanır. |
-| Host |Araştırma göndermek için ana bilgisayar adı. Çok siteli uygulama ağ geçidinde yalnızca yapılandırıldığı durumlarda uygulanabilir. Bu VM ana bilgisayar adından farklıdır. |
-| Yol |Araştırma göreli yolu. Geçerli yol başlatılır '/'. Yoklama için gönderilen \<Protokolü\>://\<konak\>:\<bağlantı noktası\>\<yolu\> |
+| Protocol |Araştırma göndermek için kullanılan protokol. Araştırma arka uç HTTP Ayarları'nda tanımlanan protokolünü kullanır. |
+| Ana bilgisayar |Araştırma göndermek için ana bilgisayar adı. Çok siteli uygulama ağ geçidinde yalnızca yapılandırıldığı durumlarda uygulanabilir. Bu VM ana bilgisayar adından farklıdır. |
+| `Path` |Araştırma göreli yolu. Geçerli yol başlatılır '/'. Yoklama için gönderilen \<Protokolü\>://\<konak\>:\<bağlantı noktası\>\<yolu\> |
 | Interval |Aralık saniye cinsinden araştırma. İki ardışık araştırmaları arasındaki zaman aralığını budur. |
 | Zaman aşımı |Zaman aşımını saniye cinsinden araştırma. Bu zaman aşımı süresi içinde geçerli bir yanıt alınmazsa, araştırma başarısız olarak işaretlenir. |
-| İyi durumda olmayan eşik |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
+| Sağlıksız durum eşiği |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
 
 ### <a name="solution"></a>Çözüm
 

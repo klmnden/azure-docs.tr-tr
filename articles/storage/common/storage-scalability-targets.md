@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a61c2577f79f32f97fe2ef10a2ac67fdbbc1feda
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073754"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Depolama hesapları için Azure depolama ölçeklenebilirlik ve performans hedefleri
 
@@ -43,6 +43,9 @@ Uygulamanızın hangi iş yükünüz için bir bölüm işleyebilir, sınırına
 
 Azure dosyaları ve Azure dosya eşitleme için ölçek ve performans hedefleri hakkında daha fazla bilgi için bkz. [Azure dosyaları ölçeklenebilirlik ve performans hedefleri](../files/storage-files-scale-targets.md).
 
+> [!IMPORTANT]
+> Depolama hesabı sınırları, tüm paylaşımlar için geçerlidir. Kadar ölçeklendirme en yüksek depolama hesapları için yalnızca depolama hesabı başına yalnızca bir paylaşım ise ulaşılabilir eşittir.
+
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="premium-files-scale-targets"></a>Premium dosyalar hedefleri ölçeklendirin
@@ -53,27 +56,7 @@ Premium dosyalar için dikkate alınması gereken sınırlamalar üç kategoriye
 
 #### <a name="premium-file-share-limits"></a>Premium dosya paylaşımı sınırları
 
-> [!IMPORTANT]
-> Depolama hesabı sınırları, tüm paylaşımlar için geçerlidir. Kadar ölçeklendirme en yüksek depolama hesapları için yalnızca depolama hesabı başına yalnızca bir paylaşım ise ulaşılabilir eşittir.
-
-|Alan  |Hedef  |
-|---------|---------|
-|Sağlanan en küçük boyutu                        |100 GiB      |
-|En fazla sağlanan boyutunu                        |100 TiB      |
-|En küçük boyut artırma/azaltma    |1 giB      |
-|Temel IOPS    |100.000 adede kadar GiB başına 1 IOPS|
-|Patlaması IOPS    |100.000 adede kadar GiB başına 3 x IOPS|
-|Çıkış oranı         |60 MiB/sn + 0,06 * GiB sağlandı        |
-|Giriş oranı| 40 MiB/sn + 0.04 * GiB sağlandı |
-|Anlık görüntü sayısı        |200       |
-
-#### <a name="premium-file-limits"></a>Premium dosya sınırları
-
-|Alan  |Hedef  |
-|---------|---------|
-|Boyut                  |1 TiB         |
-|Dosya başına en fazla IOPS     |5.000         |
-|Eşzamanlı işler    |2,000         |
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure dosya eşitleme ölçek hedefleri
 

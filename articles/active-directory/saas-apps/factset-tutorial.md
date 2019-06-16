@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fa951e50a38b8bc63cc4e26ef54c013531bd7d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 27b154c5374fb16388e0ae72243fb7b32a400d96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898890"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>Öğretici: FactSet ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de FactSet tümleştirmesini yapılandırmak için FactSet Galeriden y�
 
 **Galeriden FactSet eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111101"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Azure portalında bir ad alanı oluşturma
@@ -35,7 +35,7 @@ Ad alanı oluşturmak için:
     6. İçin **konumu**, bölgeyi hangi ad alanınızın barındırılması seçin.
     7. **Oluştur**’u seçin. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
    
-        ![Ad alanı oluştur](./media/service-bus-create-namespace-portal/create-namespace.png)
+        ![ad alanı oluşturma](./media/service-bus-create-namespace-portal/create-namespace.png)
 4. Service bus ad alanı başarıyla dağıtıldığından emin olun. Bildirimleri görmek için seçin **zil simgesini (Uyarılar)** araç. Seçin **kaynak grubunun adı** görüntüde gösterildiği gibi bildirim. Service bus ad alanı içeren kaynak grubunu görürsünüz.
 
     ![Dağıtım Uyarısı](./media/service-bus-create-namespace-portal/deployment-alert.png)

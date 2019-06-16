@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 74eee3d164e7ee3831f292568da9cf0620e576e5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 23273084826775b47170753dff3e5cf5ed8ae45f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399297"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063570"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB ile yüksek kullanılabilirlik
 
@@ -76,7 +76,7 @@ Bu özellik aşağıdaki Azure bölgelerinde kullanılabilir:
 
 Aşağıdaki tabloda, çeşitli hesap yapılandırmasını, yüksek kullanılabilirlik özelliği özetlenmiştir: 
 
-|KPI  |Kullanılabilirlik alanları (AZ olmayan) olmadan tek bölge  |Kullanılabilirlik alanları (AZ) olan tek bölge  |Kullanılabilirlik alanları (AZ, 2 bölge) – en Önerilen ayar ile birden çok bölgeye |
+|KPI  |Kullanılabilirlik alanları (AZ olmayan) olmadan tek bölge  |Tek bölge ile kullanılabilirlik alanları (AZ)  |Kullanılabilirlik alanları (AZ, 2 bölge) ile çok bölgeli Yazar – çoğu Önerilen ayar |
 |---------|---------|---------|---------|
 |Kullanılabilirlik SLA'sı yazma     |   %99,99      |    %99,99     |  99.999%  |
 |Kullanılabilirlik SLA'sını okuyun   |   %99,99      |   %99,99      |  99.999%       |

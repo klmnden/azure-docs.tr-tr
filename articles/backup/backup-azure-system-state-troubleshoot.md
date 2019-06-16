@@ -9,16 +9,39 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 53b9f8fb58a6e70a4bd2cd02adb9ce824466d7de
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8a94994d697784fb9dab8027e5a43f24c135b32c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481602"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059773"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Sistem Durumu yedekleme sorunlarını giderme
 
 Bu makalede, sistem durumu yedeklemesi kullanırken karşılaşabileceğiniz sorunların çözümleri açıklanmaktadır.
+
+## <a name="basic-troubleshooting"></a>Temel sorun giderme
+Gerçekleştirmenizi öneririz doğrulama başlamadan önce sistem durumu yedekleme sorunlarını giderme:
+
+- [Microsoft Azure kurtarma Hizmetleri (MARS) Aracısı'nın güncel olduğundan emin olun.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [MARS aracısı ile Azure arasında ağ bağlantısı sağlandığından emin olun](https://aka.ms/AB-A4dp50)
+- Microsoft Azure Kurtarma Hizmetleri'nin çalıştığından emin olun (Hizmet konsolunda). Gerekirse yeniden başlatın ve işlemi yeniden deneyin
+- [Boş klasör konumunda %5-10 oranında kullanılabilir alan olduğundan emin olun](https://aka.ms/AB-AA4dwtt)
+- [Azure Backup ile çakışan başka bir işlem veya virüsten koruma yazılımı olup olmadığını kontrol edin](https://aka.ms/AB-AA4dwtk)
+- [Zamanlanmış yedekleme başarısız oluyor ancak el ile yedekleme çalışıyor](https://aka.ms/ScheduledBackupFailManualWorks)
+- İşletim sisteminizde en son güncelleştirmelerin yüklü olduğundan emin olun
+- [Desteklenmeyen sürücüleri ve desteklenmeyen öznitelikleri olan dosyaları yedeklemeden hariç tutulur emin olun.](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- Korumalı sistemdeki **Sistem Saatinin** doğru saat dilimine göre yapılandırıldığından emin olun <br>
+- [Sunucuda en az .Net Framework 4.5.2 ve üzeri bir sürümün yüklü olduğundan emin olun](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- **Sunucunuzu bir kasaya yeniden kaydetmeye** çalışıyorsanız: <br>
+  - Aracının sunucudan kaldırıldığından ve portaldan silindiğinden emin olun <br>
+  - Sunucu kaydedilirken kullanılan parolayı kullanın <br>
+- Çevrimdışı Yedekleme durumunda çevrimdışı yedekleme işlemi başlamadan önce Azure PowerShell sürüm 3.7.0 hem kaynak hem de kopya bilgisayarda yüklü olduğundan emin olun.
+- [Backup aracısını bir Azure sanal makinesi üzerinde çalışırken önemli noktalar](https://aka.ms/AB-AA4dwtr)
+
+### <a name="limitation"></a>Sınırlama
+- Sistem Durumu kurtarmayı kullanarak farklı donanımda kurtarma işlemi yapılması Microsoft tarafından önerilmez
+- Sistem Durumu yedekleme şu an "şirket içi" Windows sunucuları destekler, bu işlev, Azure Vm'leri için kullanılamıyor.
 
 ## <a name="pre-requisite"></a>Önkoşul
 

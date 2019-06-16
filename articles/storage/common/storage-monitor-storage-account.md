@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153627"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure portalında depolama hesabı izleme
@@ -94,7 +94,7 @@ Düzenlediğiniz seçtiğinize açılır ve grafik birim türünü hangi hizmet 
 
 Depolama kaynak ölçümleri için eşikler üst sınırına ulaştınız, bilgilendirmek üzere uyarılar oluşturabilirsiniz.
 
-1. Açmak için **uyarı kuralları dikey**, ekranı aşağı kaydırarak **izleme** bölümünü **menü dikey** seçip **uyarılar (Klasik)**.
+1. Açmak için **uyarı kuralları dikey**, ekranı aşağı kaydırarak **izleme** bölümünü **menü dikey** seçip **uyarılar (Klasik)** .
 2. Seçin **ölçüm uyarısı Ekle (Klasik)** açmak için **bir uyarı kuralı Ekle** dikey penceresi
 3. Girin bir **adı** ve **açıklama** , yeni bir uyarı kuralı.
 4. Seçin **ölçüm** , uyarı, bir uyarı eklemek istediğiniz için **koşul**ve **eşiği**. Eşik birim türü seçtiğiniz ölçüm bağlı olarak değiştirir. Örneğin, ölçü türü için "count" olan *ContainerCount*, while birimini *Percentnetworkerror'da* ölçüm yüzdesidir.

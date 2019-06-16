@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 4b73edd10521b23fb4befbe4fe7d9f0c7b496de3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204311"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Azure Information Protection'dan veri bağlama
@@ -49,7 +49,7 @@ Azure Information Protection dağıtılan ve veri alma, uyarı verileri kolayca 
 
 4. Hangi Azure Gözcü dağıttıysanız çalışma alanı seçin. 
 
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 
 6. İlgili şema Log Analytics'te Azure Information Protection uyarılarını kullanmak için arama **InformationProtectionLogs_CL**.
 

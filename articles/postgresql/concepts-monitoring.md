@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 5e03a3e33d618c393241a649be50fe78632caafe
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b7d69e0fe16f96b0e3886c3736f8b91d4c06b446
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063746"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>İzleme ve - tek bir sunucu PostgreSQL için Azure veritabanı ayarlama
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. PostgreSQL için Azure veritabanı sunucunuzu davranışını bir anlayış sağlamak için çeşitli izleme seçenekleri sağlar.
@@ -43,13 +43,13 @@ Bu ölçümler, PostgreSQL için Azure veritabanı için kullanılabilir:
 Sunucunuzda, günlüğe kaydetmeyi etkinleştirebilirsiniz. Bu günlükler Azure tanılama günlükleri aracılığıyla da kullanılabilir [Azure İzleyici günlükleri](../azure-monitor/log-query/log-query-overview.md), olay hub'ları ve depolama hesabı. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
 
 ## <a name="query-store"></a>Sorgu Deposu
-[Query Store](concepts-query-store.md) sorgu süresi dahil olmak üzere üzerinde performans sorgu çalışma zamanı istatistikleri ve olayları bekleyin ve genel Önizleme özelliğidir. Özellik adlı bir sistem veritabanında sorgu çalışma zamanı performans bilgilerini devam ederse **azure_sys** query_store şema altında. Çeşitli yapılandırma düğmelerini aracılığıyla veri depolama ve koleksiyon denetleyebilirsiniz.
+[Query Store](concepts-query-store.md) süresi dahil olmak üzere üzerinde performans sorgu çalışma zamanı istatistikleri ve olayları bekleyin sorgu izler. Özellik adlı bir sistem veritabanında sorgu çalışma zamanı performans bilgilerini devam ederse **azure_sys** query_store şema altında. Çeşitli yapılandırma düğmelerini aracılığıyla veri depolama ve koleksiyon denetleyebilirsiniz.
 
 ## <a name="query-performance-insight"></a>Sorgu Performansı İçgörüleri
-[Sorgu performansı İçgörüleri](concepts-query-performance-insight.md) Query Store, Azure portalından erişilebilir görselleştirmeleri sunmak için birlikte çalışır. Bu grafik, anahtar sorguları tanımlamak için performansı etkileyebilir olanak sağlar. Sorgu performansı İçgörüleri genel Önizleme aşamasındadır ve erişebileceğiniz **destek + sorun giderme** PostgreSQL sunucunuzun portal sayfası için Azure veritabanı bölümü.
+[Sorgu performansı İçgörüleri](concepts-query-performance-insight.md) Query Store, Azure portalından erişilebilir görselleştirmeleri sunmak için birlikte çalışır. Bu grafik, anahtar sorguları tanımlamak için performansı etkileyebilir olanak sağlar. Sorgu performansı Insightis erişilebilir **destek + sorun giderme** PostgreSQL sunucunuzun portal sayfası için Azure veritabanı bölümü.
 
 ## <a name="performance-recommendations"></a>Performans Önerileri
-[Performans önerileri](concepts-performance-recommendations.md) iş yükü performansı arttırmaya yönelik fırsatlar özelliği tanımlar. Genel Önizleme sürümü, performans, iş yüklerinizin performansını olanağına sahip yeni bir dizin oluşturmak için öneriler sağlar. Dizin önerileri üretmek için özelliği, şema ve sorgu Store tarafından bildirilen gibi iş yükü dahil olmak üzere, çeşitli veritabanı özelliklerini dikkate alır. Herhangi bir performans önerisi uyguladıktan sonra müşteriler bu değişikliklerin etkisini değerlendirmek için performans test etmeniz gerekir. 
+[Performans önerileri](concepts-performance-recommendations.md) iş yükü performansı arttırmaya yönelik fırsatlar özelliği tanımlar. Performans önerileri sağlar, iş yüklerinizin performansını olanağına sahip yeni bir dizin oluşturmak için öneriler. Dizin önerileri üretmek için özelliği, şema ve sorgu Store tarafından bildirilen gibi iş yükü dahil olmak üzere, çeşitli veritabanı özelliklerini dikkate alır. Herhangi bir performans önerisi uyguladıktan sonra müşteriler bu değişikliklerin etkisini değerlendirmek için performans test etmeniz gerekir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bkz: [uyarıları ayarlamak nasıl](howto-alert-on-metric.md) bir ölçüme göre bir uyarı oluşturma hakkında yönergeler için.

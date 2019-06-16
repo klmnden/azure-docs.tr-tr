@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e331ea54a290bc794b04bb0d8e0ea653ef12bc19
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ffee3b8fa1d152ce94513353c5c178adb5e3cc77
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898810"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Öğretici: Evidence.com ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Evidence.com tümleştirmesini yapılandırmak için Evidence.com Ga
 
 **Galeriden Evidence.com eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

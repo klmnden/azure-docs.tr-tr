@@ -1,39 +1,31 @@
 ---
 title: Azure tanılama günlüklerini arşivleme
 description: Azure tanılama günlükleriniz bir depolama hesabında uzun süreli saklama için Arşivlemeyi öğreneceksiniz.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: johnkem
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: bc1804e547bb1a29fc0dc680b948f1bb31af8307
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8ab8a0bcf0c2c00515e46f3e2bbdb55b42ff7a2a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244926"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071547"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure tanılama günlüklerini arşivleme
 
 Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri, CLI veya REST API'sini nasıl kullanabileceğinizi gösterir, [Azure tanılama günlükleri](diagnostic-logs-overview.md) bir depolama hesabında. Bu seçenek, Denetim, statik analiz veya yedekleme için bir isteğe bağlı bekletme ilkesi ile tanılama günlüklerini tutmak istiyorsanız yararlıdır. Ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan kaynak ile aynı abonelikte olması depolama hesabı yok.
 
-> [!WARNING]
-> Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce yapmanız [depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md) tanılama günlüklerinizi arşiv. İçinde depolanır, bu sayede daha iyi İzleme verilerine erişimi denetleyebilir, diğer izleme olmayan veriler içeren mevcut bir depolama hesabını kullanmamanızı öneririz. Ayrıca bir depolama hesabına tanılama ölçümleri ve Etkinlik günlüğünü arşivleme, ancak, tüm izleme verilerini merkezi bir konumda tutmak için de tanılama günlükleriniz için bu depolama hesabı kullanmak mantıklı olabilir.
 
-> [!NOTE]
->  Şu anda arşivlenemiyor verileri bir depolama hesabı, güvenli bir sanal ağda.
-
 ## <a name="diagnostic-settings"></a>Tanılama ayarları
 
-Aşağıdaki yöntemlerden birini kullanarak, tanılama günlüklerini arşivleme için ayarlamanız bir **tanılama ayarını** belirli bir kaynak için. Bir kaynağın tanılama ayarını günlükleri ve ölçüm verileri bir hedefe (depolama hesabı, Event Hubs ad alanı veya Log Analytics çalışma alanı) gönderilen kategorileri tanımlar. Ayrıca her bir kategori günlük ve ölçüm verileri bir depolama hesabında depolanan olayları için bekletme ilkesi (saklanacağı gün sayısı) tanımlar. Bir bekletme ilkesi, sıfır olarak ayarlanırsa, olay günlüğü kategori için (yani, sonsuza kadar söylemek) süresiz olarak depolanır. Bir bekletme ilkesi, aksi takdirde herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir. [Daha fazla tanılama ayarları hakkında](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silinecektir. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar. 
+Aşağıdaki yöntemlerden birini kullanarak, tanılama günlüklerini arşivleme için ayarlamanız bir **tanılama ayarını** belirli bir kaynak için. Bir kaynağın tanılama ayarını günlükleri ve ölçüm verileri bir hedefe (depolama hesabı, Event Hubs ad alanı veya Log Analytics çalışma alanı) gönderilen kategorileri tanımlar. Ayrıca her bir kategori günlük ve ölçüm verileri bir depolama hesabında depolanan olayları için bekletme ilkesi (saklanacağı gün sayısı) tanımlar. Bir bekletme ilkesi, sıfır olarak ayarlanırsa, olay günlüğü kategori için (yani, sonsuza kadar söylemek) süresiz olarak depolanır. Bir bekletme ilkesi, aksi takdirde herhangi bir sayıda gün 1 ile 365 arasında olabilir. [Daha fazla tanılama ayarları hakkında](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silinecektir. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar. 
 
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
@@ -71,17 +63,17 @@ Birkaç dakika sonra yeni ayar, bu kaynak için ayarların listesi görüntülen
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```
-Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
+Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Category networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
 | ResourceId |Evet |Kaynağın tanılama ayarını ayarlamak istediğiniz kaynak kimliği. |
 | StorageAccountId |Hayır |Tanılama günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
-| Categories |Hayır |Günlük kategorileri etkinleştirmek için virgülle ayrılmış listesidir. |
+| Kategori |Hayır |Günlük kategorileri etkinleştirmek için virgülle ayrılmış listesidir. |
 | Enabled |Evet |Tanılama etkin veya bu kaynak üzerinde devre dışı olup olmadığını gösteren bir Boole değeri. |
 | RetentionEnabled |Hayır |Bir bekletme ilkesi bu kaynak üzerinde etkin olmadığını belirten bir Boole değeri. |
-| Retentionındays |Hayır |Kendisi için olayları 1 ile 2147483647 arasında korunması gereken gün sayısı. Sıfır değeri, günlükler süresiz olarak depolar. |
+| Retentionındays |Hayır |Kendisi için olayları 1 ile 365 arasında korunması gereken gün sayısı. Sıfır değeri, günlükler süresiz olarak depolar. |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>Azure CLI aracılığıyla tanılama günlüklerini arşivleme
 

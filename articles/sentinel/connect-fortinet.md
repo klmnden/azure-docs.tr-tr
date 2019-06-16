@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 4418b11de4da7c69dd13ae74d94be90daadcb1f6
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390537"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Fortinet gerecinize bağlanma 
@@ -32,7 +32,7 @@ Azure Gözcü herhangi bir Fortinet gereç Syslog CEF günlük dosyalarını kay
 > [!NOTE]
 > - Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
-## <a name="step-1-connect-your-fortinet-appliance-using-an-agent"></a>1. adım: Fortinet gerecinize bir aracı kullanarak bağlanma
+## <a name="step-1-connect-your-fortinet-appliance-using-an-agent"></a>1\. adım: Fortinet gerecinize bir aracı kullanarak bağlanma
 
 Azure Gözcü için Fortinet cihazınıza bağlanmak için adanmış bir makinede bir aracı dağıtmak gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Aracı otomatik olarak veya el ile dağıtabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
 
@@ -97,7 +97,7 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
       1. Bu komutu kullanarak Syslog aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Hiçbir hata aracı günlüğünde şu komutu çalıştırarak onaylayın: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-fortinet-logs-to-the-syslog-agent"></a>2. adım: Fortinet günlükleri Syslog aracıya ilet
+## <a name="step-2-forward-fortinet-logs-to-the-syslog-agent"></a>2\. adım: Fortinet günlükleri Syslog aracıya ilet
 
 Fortinet Syslog aracı üzerinden Azure çalışma alanınıza CEF biçiminde Syslog iletilerini iletecek şekilde yapılandırın:
 
@@ -123,7 +123,7 @@ Fortinet Syslog aracı üzerinden Azure çalışma alanınıza CEF biçiminde Sy
  İlgili şema Fortinet olayları Log Analytics'te kullanmak için arama `CommonSecurityLog`.
 
 
-## <a name="step-3-validate-connectivity"></a>3. adım: Bağlantıyı doğrula
+## <a name="step-3-validate-connectivity"></a>3\. adım: Bağlantıyı doğrula
 
 Çalınıyor Log Analytics'te görünmesini günlüklerinizi başlatana kadar 20 dakika sürebilir. 
 
