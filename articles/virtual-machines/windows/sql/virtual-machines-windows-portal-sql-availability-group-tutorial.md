@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593794"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Öğretici: Yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile
@@ -75,7 +75,7 @@ Aşağıdaki tabloda, bu öğreticiye başlamadan önce tamamlanması gereken ö
 
    | Sayfa | Ayarlar |
    | --- | --- |
-   | Başlamadan önce |Varsayılanları kullan |
+   | Başlamadan önce |Varsayılanları Kullan |
    | Sunucuları seçin |İlk SQL sunucusunun adını yazın **sunucu adını girin** tıklatıp **Ekle**. |
    | Doğrulama uyarısı |Seçin **ben bu küme için Microsoft'tan destek gerektirmez ve bu nedenle doğrulama testlerini çalıştırmak istemiyorsanız Hayır. Ben İleri'ye tıkladığınızda, küme oluşturma devam**. |
    | Kümeyi yönetmek için kullanılan erişim noktası |Bir küme adı yazın, örneğin **SQLAGCluster1** içinde **küme adı**.|
@@ -148,7 +148,7 @@ Bu örnekte Windows Küme, Küme çekirdeğini oluşturmak için bir dosya payla
 
    ![Yeni paylaşım](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/50-filesharepermissions.png)
 
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**'ı tıklatın.
 
 1. İçinde **paylaşılan klasör izinleri**, tıklayın **son**. Tıklayın **son** yeniden.  
 
@@ -250,7 +250,7 @@ Repeat these steps on the second SQL Server.
 
    ![Yeni paylaşım](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/68-backupsharepermission.png)
 
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**'ı tıklatın.
 
 1. İçinde **paylaşılan klasör izinleri**, tıklayın **son**. Tıklayın **son** yeniden.  
 
@@ -299,7 +299,7 @@ Aşağıdaki adımları kullanarak bir kullanılabilirlik grubunu yapılandırma
 
     ![Yeni AG Sihirbazı, ilk veri eşitlemeyi seçin](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. İçinde **ilk veri eşitlemesini Seç** sayfasında **tam** ve paylaşılan bir ağ konumu belirtin. Konumu için [, oluşturduğunuz yedek paylaşımı](#backupshare). Olduğu, örnekte  **\\ \\ \<ilk SQL Server\>\Backup\\**. **İleri**’ye tıklayın.
+8. İçinde **ilk veri eşitlemesini Seç** sayfasında **tam** ve paylaşılan bir ağ konumu belirtin. Konumu için [, oluşturduğunuz yedek paylaşımı](#backupshare). Olduğu, örnekte  **\\ \\ \<ilk SQL Server\>\Backup\\** . **İleri**’ye tıklayın.
 
    >[!NOTE]
    >Tam eşitleme, SQL Server'ın ilk örneğinde veritabanının tam yedekleme gerçekleştirir ve ikinci örneğine geri yükler. Büyük veritabanları için tam eşitleme önerilmez uzun sürebilir. El ile bir veritabanının yedeğini almak ve ile geri bu süreyi kısaltabilirsiniz `NO RECOVERY`. Veritabanı zaten ile geri `NO RECOVERY` ikinci SQL kullanılabilirlik grubunu yapılandırmadan önce sunucuda seçin **sadece Birleştir**. Kullanılabilirlik grubu yapılandırıldıktan sonra yedekleme almak istiyorsanız seçin **ilk veri eşitlemeyi atla**.
@@ -403,7 +403,7 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir yoklama oluştur
    | Ayar | Açıklama | Örnek
    | --- | --- |---
    | **Ad** | Text | SQLAlwaysOnEndPointProbe |
-   | **Protokol** | TCP seçin | TCP |
+   | **Protokolü** | TCP seçin | TCP |
    | **Bağlantı Noktası** | Kullanılmayan herhangi bir bağlantı noktası | 59999 |
    | **Aralık**  | Saniye cinsinden araştırma girişimleri arasındaki süre |5 |
    | **Sağlıksız durum eşiği** | Bir sanal makinenin iyi durumda olmadığı kabul gerçekleşmesi gereken ardışık araştırma hatası sayısı  | 2 |
@@ -419,8 +419,8 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir yoklama oluştur
    | Ayar | Açıklama | Örnek
    | --- | --- |---
    | **Ad** | Text | SQLAlwaysOnEndPointListener |
-   | **Ön uç IP adresi** | Adres seçin |Yük Dengeleyici oluştururken oluşturduğunuz adresini kullanın. |
-   | **Protokol** | TCP seçin |TCP |
+   | **Ön uç IP adresi** | Bir adres seçin |Yük Dengeleyici oluştururken oluşturduğunuz adresini kullanın. |
+   | **Protokolü** | TCP seçin |TCP |
    | **Bağlantı Noktası** | Kullanılabilirlik grubu dinleyicisinin bağlantı noktası kullan | 1433 |
    | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarlandığında, bu alan kullanılmaz | 1433 |
    | **Araştırma** |Yoklama için belirtilen adı | SQLAlwaysOnEndPointProbe |
@@ -446,7 +446,7 @@ WSFC IP adresi aynı zamanda yük dengeleyicide olması gerekir.
    | Ayar | Açıklama | Örnek
    | --- | --- |---
    | **Ad** | Text | WSFCEndPointProbe |
-   | **Protokol** | TCP seçin | TCP |
+   | **Protokolü** | TCP seçin | TCP |
    | **Bağlantı Noktası** | Kullanılmayan herhangi bir bağlantı noktası | 58888 |
    | **Aralık**  | Saniye cinsinden araştırma girişimleri arasındaki süre |5 |
    | **Sağlıksız durum eşiği** | Bir sanal makinenin iyi durumda olmadığı kabul gerçekleşmesi gereken ardışık araştırma hatası sayısı  | 2 |
@@ -460,8 +460,8 @@ WSFC IP adresi aynı zamanda yük dengeleyicide olması gerekir.
    | Ayar | Açıklama | Örnek
    | --- | --- |---
    | **Ad** | Text | WSFCEndPoint |
-   | **Ön uç IP adresi** | Adres seçin |WSFC IP adresini yapılandırıldığında oluşturduğunuz adresini kullanın. Bu dinleyici IP adresi farklıdır |
-   | **Protokol** | TCP seçin |TCP |
+   | **Ön uç IP adresi** | Bir adres seçin |WSFC IP adresini yapılandırıldığında oluşturduğunuz adresini kullanın. Bu dinleyici IP adresi farklıdır |
+   | **Protokolü** | TCP seçin |TCP |
    | **Bağlantı Noktası** | Bağlantı noktası için küme IP adresini kullanın. Bu dinleyici araştırma bağlantı noktası için kullanılmaz kullanılabilir bir bağlantı noktasıdır. | 58888 |
    | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarlandığında, bu alan kullanılmaz | 58888 |
    | **Araştırma** |Yoklama için belirtilen adı | WSFCEndPointProbe |

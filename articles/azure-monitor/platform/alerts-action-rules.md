@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734906"
 ---
 # <a name="action-rules-preview"></a>Eylem kuralları (Önizleme)
@@ -161,20 +161,20 @@ En iyi yararlanarak günlük uyarıları için eylem kurallarla, biz ile günlü
 * S. Bir eylem kuralını yapılandırırken, böylece yinelenen bildirimler kaçınabilirim eylem çakışan tüm olası kuralları görmek istiyorum. Bunu yapmak mümkündür?
 
     A. Bir eylem kuralını yapılandırırken bir kapsam tanımlama sonra aynı kapsamda (varsa) çakışma eylem kurallarının bir listesini görebilirsiniz. Bu çakışma şunlardan biri olabilir:
-    * Tam bir eşleşme: Örneğin, aynı abonelikte tanımladığınız eylem kural ve çakışan Eylem kuralı vardır.
-    * Bir alt kümesi: Örneğin, tanımladığınız bir eylem kuralı bir abonelikte olduğundan ve abonelik içindeki kaynak grubu çakışan eylem kural etkindir.
-    * Bir üst kümesidir: Örneğin, tanımladığınız eylemi bir kaynak grubu üzerinde kuralıdır ve kaynak grubu içeren abonelik üzerinde çakışan eylem kuralıdır.
-    * Bir kesişime: Örneğin, tanımladığınız eylem 'VM1' ve 'VM2' kuralıdır ve çakışan eylem 'VM2' ve 'VM3' kuralıdır.
+    * Tam eşleşme: Örneğin, aynı abonelikte tanımladığınız eylem kural ve çakışan Eylem kuralı vardır.
+    * Alt küme: Örneğin, tanımladığınız bir eylem kuralı bir abonelikte olduğundan ve abonelik içindeki kaynak grubu çakışan eylem kural etkindir.
+    * Üst küme: Örneğin, tanımladığınız eylemi bir kaynak grubu üzerinde kuralıdır ve kaynak grubu içeren abonelik üzerinde çakışan eylem kuralıdır.
+    * Kesişim: Örneğin, tanımladığınız eylem 'VM1' ve 'VM2' kuralıdır ve çakışan eylem 'VM2' ve 'VM3' kuralıdır.
 
     ![Çakışan eylem kuralları](media/alerts-action-rules/action-rules-overlapping.png)
 
 * S. Bir uyarı kuralı yapılandırma olsa da mümkün olup olmadığını zaten işlem kuralları, tanımlanan bilmek tanımlama uyarı kuralı üzerinde hareket?
 
     A. Uyarı, kural için hedef kaynak tanımladıktan sonra aynı kapsamda (varsa) üzerinde davranan 'Actions' bölümünde 'Görünüm eylemleri yapılandırdığına' ı tıklatarak eylem kurallarının listesini görebilirsiniz. Bu liste, aşağıdaki senaryolar için kapsama göre doldurulur:
-    * Tam bir eşleşme: Örneğin, tanımladığınız bir uyarı kuralı ve Eylem kuralı aynı abonelikte olan.
-    * Bir alt kümesi: Örneğin, tanımladığınız bir uyarı kuralı bir abonelikte olduğundan ve abonelik içindeki kaynak grubuna eylem kural etkindir.
-    * Bir üst kümesidir: Örneğin, tanımladığınız bir uyarı kuralı olan bir kaynak grubu ve kaynak grubu içeren abonelik üzerinde eylem kuralıdır.
-    * Bir kesişime: Örneğin, tanımladığınız bir uyarı kuralı durumda 'VM1' ve 'VM2' ve 'VM2' ve 'VM3' eylem kuralıdır.
+    * Tam eşleşme: Örneğin, tanımladığınız bir uyarı kuralı ve Eylem kuralı aynı abonelikte olan.
+    * Alt küme: Örneğin, tanımladığınız bir uyarı kuralı bir abonelikte olduğundan ve abonelik içindeki kaynak grubuna eylem kural etkindir.
+    * Üst küme: Örneğin, tanımladığınız bir uyarı kuralı olan bir kaynak grubu ve kaynak grubu içeren abonelik üzerinde eylem kuralıdır.
+    * Kesişim: Örneğin, tanımladığınız bir uyarı kuralı durumda 'VM1' ve 'VM2' ve 'VM2' ve 'VM3' eylem kuralıdır.
     
     ![Çakışan eylem kuralları](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 

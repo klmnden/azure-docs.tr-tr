@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62112366"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları tarih saat değerleri ile çalışma
@@ -39,9 +39,9 @@ Timespans zaman birimi tarafından izlenen bir ondalık sayı olarak ifade edili
 |:---|:---|
 |g           | gün          |
 |h           | saat         |
-|m           | dakika       |
-|s           | second       |
-|ms          | Milisaniye  |
+|m           | Dakika       |
+|s           | Saniye       |
+|MS          | Milisaniye  |
 |mikrosaniye ölçeğinde | mikrosaniye ölçeğinde  |
 |değer çizgisi        | içerir   |
 

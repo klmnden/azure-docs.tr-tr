@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: b922e048b2787eedfc0bfc40e553e79f433277dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16b87018b86d9734a066d2cb5361602c9be0f00c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869266"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094384"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Öğretici: PlanGrid ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de PlanGrid tümleştirmesini yapılandırmak için PlanGrid Galeriden 
 
 **Galeriden PlanGrid eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

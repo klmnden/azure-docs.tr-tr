@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40ae634897361219c39e60d2161d3576cc44a400
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150862"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077508"
 ---
-Hızla bir VNet oluşturmak için "Try It" Bu makalede bir PowerShell konsolu açın tıklayabilirsiniz. Değerleri ayarlayın ve ardından komutları kopyalayıp konsol penceresine yapıştırabilirsiniz. Yeni Az modül ve AzureRM uyumluluğu hakkında daha fazla bilgi için bkz: [Karşınızda yeni Azure PowerShell Az modül](/powershell/azure/new-azureps-module-az). Az Modül yükleme yönergeleri için bkz. [Azure PowerShell yükleme](/powershell/azure/install-az-ps).
+Hızla bir VNet oluşturmak için "Try It" Azure Cloud Shell'de PowerShell konsolunu açmak için bu makaledeki tıklayabilirsiniz. Değerleri ayarlayın ve ardından komutları kopyalayıp konsol penceresine yapıştırabilirsiniz. 
 
 Oluşturduğunuz sanal ağın adres alanının bağlanmak istediğiniz diğer sanal ağların adres aralıklarıyla veya şirket içi ağ adres alanlarıyla çakışmadığından emin olun.
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Kullanmak istediğiniz bir kaynak grubu zaten yoksa, yeni bir tane oluşturun. Kullanmak istediğiniz kaynak grubu adı yansıtacak şekilde PowerShell komutlarını ayarlayın ve ardından aşağıdaki cmdlet'i çalıştırın:
 

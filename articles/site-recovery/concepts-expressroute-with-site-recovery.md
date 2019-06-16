@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/18/2019
 ms.author: mayg
 ms.openlocfilehash: bf4cce8a224db81b8db7fae6a69b8b578bb3d47a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772316"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery ile Azure ExpressRoute
@@ -21,7 +21,7 @@ Microsoft Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştır�
 
 Bu makalede, nasıl Azure ExpressRoute Azure Site Recovery ile olağanüstü durum kurtarma ve geçiş için kullanabileceğiniz açıklanır.
 
-## <a name="expressroute-circuits"></a>ExpressRoute bağlantı hatları
+## <a name="expressroute-circuits"></a>ExpressRoute devreleri
 
 Bir ExpressRoute bağlantı hattı, şirket içi altyapınızı ve bağlantı sağlayıcı üzerinden Microsoft bulut hizmetleri arasında mantıksal bağlantıyı temsil eder. Birden çok ExpressRoute bağlantı hattına sipariş edebilirsiniz. Her bağlantı hattı aynı veya farklı bölgelerde olabilir ve farklı bağlantı sağlayıcıları aracılığıyla şirket içinde bağlanabilir. ExpressRoute bağlantı hatları hakkında daha fazla bilgi [burada](../expressroute/expressroute-circuit-peerings.md).
 

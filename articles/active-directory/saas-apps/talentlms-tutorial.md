@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17c055b79b8b90bd56a1dcd6472cf74d2512137
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0243a3e0ed83abc1edead5ecece4fd5c6ff1cad9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901783"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Öğretici: TalentLMS ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de TalentLMS tümleştirmesini yapılandırmak için TalentLMS Galeride
 
 **Galeriden TalentLMS eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -139,7 +139,7 @@ Azure AD çoklu oturum açma ile TalentLMS yapılandırmak için aşağıdaki ad
 
     ![& Hesap ayarları](./media/talentlms-tutorial/IC777296.png "hesabı & ayarları")
 
-1. Tıklayın **çoklu oturum açma (SSO)**,
+1. Tıklayın **çoklu oturum açma (SSO)** ,
 
 1. Çoklu oturum açma bölümünde aşağıdaki adımları gerçekleştirin:
 

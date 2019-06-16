@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: tamram
 ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484284"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Azure portalında depolama hesabı ayarlarını yönetme
@@ -27,7 +27,7 @@ Azure depolama, Blob Depolama ve kuyruk depolama ile rol tabanlı erişim deneti
 > [!NOTE]
 > Kullanıcılar veya uygulamalar Azure AD kimlik bilgilerini kullanarak kimlik doğrulaması yetkilendirme başka bir yolla üstün güvenlik ve kullanım kolaylığı sağlar. Paylaşılan anahtar yetkilendirme uygulamalarınızı kullanmaya devam ederken, Azure AD kullanarak kodunuzu ile hesap erişim anahtarını depolamak için gereken bozar. Depolama hesabınızdaki kaynaklara ayrıntılı erişim vermek için paylaşılan erişim imzaları (SAS) kullanmaya devam edebilirsiniz, ancak Azure AD'ye SAS belirteçlerini yönetin veya güvenliği aşılmış bir SAS iptal etme hakkında endişelenmenize gerek kalmadan benzer özellikleri sunar. 
 
-## <a name="tags"></a>Etiketler
+## <a name="tags"></a>Tags
 
 Azure depolama, özelleştirilmiş bir taksonomi kullanarak Azure kaynaklarınızı düzenlemek için Azure Resource Manager etiketleri destekler. Böylece bunları mantıksal bir şekilde aboneliğinizde gruplandırabilirsiniz, depolama hesaplarınıza etiketler ekleyebilirsiniz. 
 
@@ -35,7 +35,7 @@ Depolama hesapları için bir etiket adı 128 karakterle sınırlıdır ve etike
 
 Daha fazla bilgi için [Azure kaynaklarınızı düzenlemek için etiketleri kullanma](../../azure-resource-manager/resource-group-using-tags.md).
 
-## <a name="access-keys"></a>Erişim tuşları
+## <a name="access-keys"></a>Erişim anahtarları
 
 Bir depolama hesabı oluşturduğunuzda, Azure, iki adet 512 bit depolama hesabı erişim anahtarlarını oluşturur. Bu anahtarları, depolama hesabınızın paylaşılan anahtar aracılığıyla erişim yetkisi vermek için kullanılabilir. Döndürme ve uygulamalarınızı kesinti olmadan anahtarları yeniden ve Microsoft bunu düzenli olarak yapmak önerir.
 

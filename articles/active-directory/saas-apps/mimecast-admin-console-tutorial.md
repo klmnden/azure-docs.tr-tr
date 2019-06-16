@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2019c61ccbffa1e68c1ef53c718d4839a604aa44
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123745"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097334"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Öğretici: Mimecast Yönetim Konsolu ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD Yönetici Konsolu Mimecast tümleştirilmesi yapılandırmak için Mime
 
 **Galeriden Mimecast Yönetici Konsolu eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -164,7 +164,7 @@ Azure AD çoklu oturum açma Mimecast Yönetici Konsolu ile yapılandırmak içi
     >[!NOTE]
     >Oturum açma URL'si ve oturum kapatma URL'si değerleri Mimecast Yönetici Konsolu için aynıdır.
     
-    g. Açık base-64 sertifikanızı indirilen Not Defteri'nde, Azure portalından ilk satırı Kaldır ("*--*") ve son satırı ("*--*"), kalan içeriği içine kopyalayın, Pano, kendisine yapıştırın **kimlik sağlayıcısı sertifikası (meta veriler)** metin.
+    g. Açık base-64 sertifikanızı indirilen Not Defteri'nde, Azure portalından ilk satırı Kaldır (" *--* ") ve son satırı (" *--* "), kalan içeriği içine kopyalayın, Pano, kendisine yapıştırın **kimlik sağlayıcısı sertifikası (meta veriler)** metin.
     
     h. Seçin **çoklu oturum açmaya izin ver**.
     

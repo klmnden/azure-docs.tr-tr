@@ -14,15 +14,15 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567440"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma
 
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Dönüştürme etkinlikleri"]
 > * [Hive etkinliği](data-factory-hive-activity.md)
 > * [Pig etkinliği](data-factory-pig-activity.md)
 > * [MapReduce etkinliği](data-factory-map-reduce.md)
@@ -303,7 +303,7 @@ Gitmenizi öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-
       }
       ```
 
-      Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçimi](https://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. **Son** zaman isteğe bağlıdır. İçin değer belirtmezseniz **son** özelliği olarak hesaplanır "**start + 48 hours.**" İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
+      Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçimi](https://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. **Son** zaman isteğe bağlıdır. İçin değer belirtmezseniz **son** özelliği olarak hesaplanır "**start + 48 hours.** " İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
 
       > [!NOTE]
       > AzureMLBatchExecution giriş belirterek etkinliği isteğe bağlıdır.
@@ -407,7 +407,7 @@ Okuyucu modülü kullanarak bir Azure Machine Learning deneme, Azure Blob girdi 
 Yukarıdaki JSON örneği:
 
 * Dağıtılan Azure Machine Learning Web hizmetini Azure SQL veritabanı ' / için veri okuma/yazma için bir okuyucu ve yazıcı modülü kullanır. Bu Web hizmetini aşağıdaki dört parametre sunar:  Veritabanı sunucusu adı, veritabanı adı, sunucu kullanıcı hesabı adını ve Server kullanıcı hesabı parolası.
-* Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçimi](https://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. **Son** zaman isteğe bağlıdır. İçin değer belirtmezseniz **son** özelliği olarak hesaplanır "**start + 48 hours.**" İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
+* Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçimi](https://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. **Son** zaman isteğe bağlıdır. İçin değer belirtmezseniz **son** özelliği olarak hesaplanır "**start + 48 hours.** " İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
 
 ### <a name="other-scenarios"></a>Diğer senaryolar
 #### <a name="web-service-requires-multiple-inputs"></a>Web hizmeti birden çok giriş gerektiriyor

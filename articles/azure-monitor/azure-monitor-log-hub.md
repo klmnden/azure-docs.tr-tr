@@ -11,10 +11,10 @@ ms.topic: hub-page
 ms.date: 01/29/2019
 ms.author: magoedte
 ms.openlocfilehash: ced88f973ff26f7c8990c1c80bf8532949ef9ae8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640115"
 ---
 <div id="main" class="v2">
@@ -133,7 +133,7 @@ ms.locfileid: "60640115"
                                                                     </div>
                                                                 </div>
                                                     <div class="cardText">
-                                                        <h3>Verileri çözümleme</h3>
+                                                        <h3>Verileri analiz etme</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/log-query/get-started-queries">Sorguları kullanmaya başlama</a><br/>
                                                             <a href="/azure/azure-monitor/log-query/search-queries">Günlük sorguları anlama</a><br/>

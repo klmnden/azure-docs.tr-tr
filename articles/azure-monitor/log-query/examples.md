@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759920"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure İzleyici günlük sorgu örnekleri
@@ -25,7 +25,7 @@ Bu makalede, çeşitli örneklerini içerir [sorguları](log-query-overview.md) 
 
 Bkz: [Kusto dil başvurusu](https://docs.microsoft.com/azure/kusto/query/) Bu örneklerde kullanılan farklı anahtar sözcükler hakkında ayrıntılı bilgi için. Git aracılığıyla bir [sorguları oluşturma Ders](get-started-queries.md) Azure İzleyici yeniyseniz.
 
-## <a name="events"></a>Olaylar
+## <a name="events"></a>Events
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Uygulama düzeyinde olaylar "Şifreli" açıklanan arama
 Bu örnekte arama **olayları** olduğu kayıtlar için tablo **EventLog** olduğu _uygulama_ ve **RenderedDescription** içerir _şifreleme_. Son 24 saat kayıtları içerir.

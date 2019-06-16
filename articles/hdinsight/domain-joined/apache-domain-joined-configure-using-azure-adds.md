@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: e1bc99cdc089050fbfa931bbbc7b9a6a316a3a75
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8699533cd64e6b1778c5e78b8c51eb1efe518c75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240185"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67126224"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'i kullanarak bir HDInsight kümesi ile Kurumsal Güvenlik Paketi yapılandırma
 
@@ -27,7 +27,7 @@ Bu makalede, Azure Active Directory etki alanı Hizmetleri (Azure AD DS) kullana
 ## <a name="enable-azure-ad-ds"></a>Azure'ı etkinleştirme AD DS
 
 > [!NOTE]  
-> Kiracı yöneticileri yalnızca Azure AD DS'yi etkinleştirme için ayrıcalıklara sahip. Küme depolama, Azure Data Lake Storage (ADLS) olup olmadığını Gen1 ya da 2. nesil, devre dışı bırakmanız multi-Factor Authentication (MFA) yalnızca temel Kerberos kimlik doğrulamaları kullanarak kümeye erişmek için gereken kullanıcılar. Kullanabileceğiniz [güvenilen IP'ler](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) veya [koşullu erişim](../../active-directory/conditional-access/overview.md) belirli kullanıcılar için mfa'yı devre dışı bırakmak için yalnızca zaman HDInsight küme sanal ağ IP aralığı eriştikleri. Koşullu kullanıyorsanız erişim lütfen emin olun, AD hizmet uç noktasında HDInsight VNET üzerinde etkin.
+> Kiracı yöneticileri yalnızca Azure AD DS'yi etkinleştirme için ayrıcalıklara sahip. Küme depolama, Azure Data Lake Storage (ADLS) olup olmadığını Gen1 ya da 2. nesil, devre dışı bırakmanız multi-Factor Authentication (MFA) yalnızca temel Kerberos kimlik doğrulamaları kullanarak kümeye erişmek için gereken kullanıcılar. Kullanabileceğiniz [güvenilen IP'ler](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) veya [koşullu erişim](../../active-directory/conditional-access/overview.md) belirli kullanıcılar için mfa'yı devre dışı bırakmak için yalnızca zaman HDInsight küme sanal ağ IP aralığı eriştikleri. Koşullu erişim Lütfen yapma emin AD hizmet uç noktasında etkinleştirilmiş HDInsight VNET üzerinde kullanıyorsanız.
 >
 > Küme depolama alanı Azure Blob Storage (WASB) ise, mfa'yı devre dışı bırakmayın.
 

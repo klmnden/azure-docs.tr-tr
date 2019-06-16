@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/12/2019
+ms.date: 06/11/2019
 ms.author: alkohli
-ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6e1870093dc89856e093267172418e9c7330c479
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755517"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080573"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Azure Data Box Edge nedir? 
 
@@ -34,7 +34,7 @@ Azure Data Box Edge ağ veri aktarımı yetenekleri olan, AI özellikli bir uç 
     - Bulutta daha derin analiz için gereken verilerin alt kümesini oluşturma ve aktarma.
     - IoT Olaylarını analiz etme ve bunlara yanıt verme. 
 
-- **Çıkarım Azure Machine Learning** - Data Box Edge ile, veriler buluta gönderilmeden önce üzerinde işlem yapılabilecek hızlı sonuçlar almak için Machine Learning (ML) modellerini çalıştırabilirsiniz. ML modellerinizi yeniden eğitmeye ve geliştirmeye devam etmek için tam veri kümesi aktarılır.
+- **Çıkarım Azure Machine Learning** - Data Box Edge ile, veriler buluta gönderilmeden önce üzerinde işlem yapılabilecek hızlı sonuçlar almak için Machine Learning (ML) modellerini çalıştırabilirsiniz. Tam veri kümesi, ML modelleri yeniden eğitme ve devam etmek için aktarılabilir. Data Box sınır cihazı, hızlandırılmış modellerde Azure ML donanım kullanma hakkında daha fazla bilgi için bkz: [Data Box Edge üzerinde Azure ML dağıtma donanım hızlandırılmış modelleri](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Verileri ağ üzerinden Azure'a aktarma** - Daha fazla işlem ve analiz yapmak için veya arşiv amacıyla Data Box Edge kullanarak verileri kolayca ve hızla Azure'a aktarın. 
 

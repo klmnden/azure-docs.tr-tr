@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: crdun
 ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859401"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android için Azure Mobile Apps SDK'sını kullanma
@@ -152,7 +152,7 @@ public class AzureServiceAdapter {
 
 Artık çağırabilirsiniz `AzureServiceAdapter.Initialize(this);` içinde `onCreate()` ana etkinliği yöntemi.  İstemci erişimi gerektiren diğer yöntemleri `AzureServiceAdapter.getInstance();` hizmeti bağdaştırıcısı için bir başvuru almak için.
 
-## <a name="data-operations"></a>Veri İşlemleri
+## <a name="data-operations"></a>Veri işlemleri
 
 Azure Mobile Apps SDK'sı setinin mobil uygulama arka uçta SQL Azure içinde depolanan verilere erişim sağlamaktır.  Türü kesin belirlenmiş sınıf (tercih edilir) kullanarak bu verilere erişmesinden veya türsüz sorgular (önerilmez).  Bu bölümün toplu kullanarak türü kesin belirlenmiş sınıf ile ilgilidir.
 
@@ -1112,7 +1112,7 @@ Kullanıcıların uygulamanızla Azure Active Directory'yi kullanarak oturum aç
     * Değiştirin **INSERT yetkilisi burada** uygulamanızı sağlanan Kiracı adı. Biçim olmalıdır https://login.microsoftonline.com/contoso.onmicrosoft.com.
     * Değiştirin **Ekle-RESOURCE-kimliği-Buraya** mobil uygulamanızın arka ucu için istemci kimliği. İstemci kimliği edinebilirsiniz **Gelişmiş** sekmesinde altında **Azure Active Directory ayarları** portalında.
     * Değiştirin **istemci kimliği burayı INSERT** yerel istemci uygulamasından kopyaladığınız istemci kimliği.
-    * Değiştirin **ekleme-yeniden yönlendirme-URI-Buraya** sitenizin ile */.auth/login/done* uç noktasını, HTTPS düzenini kullanarak. Bu değer, aşağıdakine benzer olmalıdır *https://contoso.azurewebsites.net/.auth/login/done*.
+    * Değiştirin **ekleme-yeniden yönlendirme-URI-Buraya** sitenizin ile */.auth/login/done* uç noktasını, HTTPS düzenini kullanarak. Bu değer, aşağıdakine benzer olmalıdır *https://contoso.azurewebsites.net/.auth/login/done* .
 
 ```java
 private AuthenticationContext mContext;

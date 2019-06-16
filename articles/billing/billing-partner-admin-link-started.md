@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694220"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure hesaplarınızdan bir iş ortağı kimliği Bağla
@@ -34,7 +34,7 @@ Bir iş ortağı olarak, müşterilerle yaşadığımız arasında etkisi izleye
 
 - **Hizmet sorumlusu**: Müşteri, kuruluşunuzdaki directory'lerinde bir uygulama veya betik ekleme ve herhangi bir RBAC rolü atayın. Uygulamanızı veya betiğinizi kimliğini bir hizmet sorumlusu olarak bilinir.
 
-## <a name="link-to-a-partner-id"></a>İş ortağı kimliğine bağlantı
+## <a name="link-to-a-partner-id"></a>İçin bir iş ortağı kimliği Bağla
 
 Müşterinin kaynaklarına erişiminiz olduğunda, kullanıcı kimliği veya hizmet sorumlusu, Microsoft iş ortağı ağ Kimliğini (MPN kimliği) bağlamak için Azure portalı, PowerShell veya Azure CLI'yı kullanın. Her bir müşterinin Kiracı İş ortağı kimliği Bağla.
 

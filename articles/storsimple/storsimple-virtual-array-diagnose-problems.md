@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 9d222097f9fb99a24f6213584a3419ed777f4a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61408447"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>StorSimple sanal dizisi sorunlarını gidermek için StorSimple cihaz Yöneticisi hizmetini kullanma
@@ -26,7 +26,7 @@ ms.locfileid: "61408447"
 
 StorSimple cihaz Yöneticisi'ni sağlayan bir **Tanıla ve problemleri çözmenize** sanal diziniz ve bunları çözmek nasıl oluşabilecek yaygın olarak karşılaşılan sorunlardan bazılarını vurgular hizmeti Özet Dikey içinde ayarlama. Bu öğretici, StorSimple cihaz Yöneticisi hizmeti içinde sağlanan Self Servis sorun giderme özelliği tanıtır.
 
-![Sorunları tanılama ve çözme](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-main.png)
+![Sorunları tanılayın ve çözün](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-main.png)
 
 ## <a name="diagnose-and-solve-issues"></a>Tanılama ve sorun çözme
 

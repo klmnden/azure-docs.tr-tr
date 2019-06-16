@@ -17,13 +17,13 @@ ms.date: 06/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d062b6fff9693d5bda75edd65b8fe88d834eff57
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735519"
 ---
-# <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure sanal makine depolama yapılandırmaları
+# <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure sanal makine depolama alanı yapılandırmaları
 
 Azure, Azure Vm'leri için SAP HANA çalıştırmayı uygun olan farklı depolama türlerini sağlar. SAP HANA dağıtım listesi gibi için kabul edilebilir bir Azure depolama türleri: 
 
@@ -179,12 +179,12 @@ UltraSSD, boyutu, IOPS ve disk aktarım hızı aralığı karşıladığı tek b
 | M64ls | 512 GiB | 1000 MB/sn | 600 GB | 500 MB/sn | 7500 | 512 GB | 500 MB/sn  | 2000 |
 | M64s | 1000 giB | 1000 MB/sn |  1200 GB | 500 MB/sn | 7500 | 512 GB | 500 MB/sn  | 2000 |
 | M64ms | 1750 giB | 1000 MB/sn | 2100 GB | 500 MB/sn | 7500 | 512 GB | 500 MB/sn  | 2000 |
-| M128s | 2000 giB | 2.000 MB/sn |2400 GB | 1200 MB/sn |9000 | 512 GB | 800 MB/sn  | 2000 | 
-| M128ms | 3800 giB | 2.000 MB/sn | 4800 GB | 1200 MB/sn |9000 | 512 GB | 800 MB/sn  | 2000 | 
+| M128s | 2000 giB | 2\.000 MB/sn |2400 GB | 1200 MB/sn |9000 | 512 GB | 800 MB/sn  | 2000 | 
+| M128ms | 3800 giB | 2\.000 MB/sn | 4800 GB | 1200 MB/sn |9000 | 512 GB | 800 MB/sn  | 2000 | 
 | M208s_v2 | 2850 GiB | 1000 MB/sn | 3500 GB | 1000 MB/sn | 9000 | 512 GB | 500 MB/sn  | 2000 | 
 | M208ms_v2 | 5700 GiB | 1000 MB/sn | 7200 GB | 1000 MB/sn | 9000 | 512 GB | 500 MB/sn  | 2000 | 
-| M416s_v2 | 5700 GiB | 2.000 MB/sn | 7200 GB | 1500 M / sn | 9000 | 512 GB | 800 MB/sn  | 2000 | 
-| M416ms_v2 | 11400 giB | 2.000 MB/sn | 14400 GB | 1500 MB/sn | 9000 | 512 GB | 800 MB/sn  | 2000 |   
+| M416s_v2 | 5700 GiB | 2\.000 MB/sn | 7200 GB | 1500 M / sn | 9000 | 512 GB | 800 MB/sn  | 2000 | 
+| M416ms_v2 | 11400 giB | 2\.000 MB/sn | 14400 GB | 1500 MB/sn | 9000 | 512 GB | 800 MB/sn  | 2000 |   
 
 M416xx_v2 VM türleri henüz Microsoft tarafından ortak olarak kullanılabilir duruma getirilmez. Listelenen değerler bir başlangıç noktası olacak şekilde tasarlanmıştır ve gerçek taleplerini karşı değerlendirilmesi gerekir. Azure Ultra SSD ile avantajı, IOPS ve aktarım hızı için değerler sanal makineyi gerek kalmadan uyarlanabilir veya iş yükü durdurma sisteme uygulanacak olmasıdır.   
 

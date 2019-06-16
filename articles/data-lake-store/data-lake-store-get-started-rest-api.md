@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877121"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Azure Data Lake depolama Gen1 hesap yönetim işlemlerini REST API'sini kullanma
@@ -32,7 +32,7 @@ Bu makalede, Azure Data Lake depolama Gen1 hesap yönetim işlemlerini REST API 
 ## <a name="prerequisites"></a>Önkoşullar
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](https://curl.haxx.se/)**. Bu makalede, bir Data Lake depolama Gen1 hesabına yönelik REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
+* **[cURL](https://curl.haxx.se/)** . Bu makalede, bir Data Lake depolama Gen1 hesabına yönelik REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak nasıl kimlik doğrulaması gerçekleştiririm?
 Azure Active Directory'yi kullanarak kimlik doğrulaması gerçekleştirmek üzere iki yaklaşımdan faydalanabilirsiniz:

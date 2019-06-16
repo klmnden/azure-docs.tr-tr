@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d0dbcda886b3a44917548e19b69ced1b59df9e3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cdc4420758b67dc3a578b9530fb7039ed53ee66
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868521"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Öğretici: Ödül ağ geçidi ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de ödül ağ geçidi tümleştirmesini yapılandırmak için ödül a�
 
 **Galeriden ödül ağ geçidi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

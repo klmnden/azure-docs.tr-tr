@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: f94d731fd7b9a9fa85ae42d22949c7ca4024aabe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61416518"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Sorguları izleme ve iş yükü performansı artırmak otomatik ayarlamayı etkinleştirme
@@ -39,7 +39,7 @@ Sunucu düzeyinde "Azure varsayılan olarak" den otomatik ayarlama yapılandırm
 
 Otomatik ayarlama Azure SQL veritabanı mantıksal etkinleştirmek için **sunucu**, Azure portalındaki sunucuya gidin ve ardından **otomatik ayarlama** menüsünde.
 
-![Sunucu](./media/sql-database-automatic-tuning-enable/server.png)
+![Sunucusu](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Lütfen unutmayın **DROP_INDEX** seçeneği şu anda bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu değildir ve bu gibi durumlarda etkinleştirilmemelidir.

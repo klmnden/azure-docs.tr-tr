@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098549"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070380"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Gelişmiş veri güvenliği, sanal ağlarla ve neredeyse % 100 uyumluluk SQL veritabanını kullan
 
@@ -78,7 +78,7 @@ Yönetilen örnek temel özellikleri aşağıdaki tabloda gösterilmiştir:
 Sanal çekirdek modeli içinde donanım Nesilleri arasında seçim yapabilirsiniz.
 
 - **4. nesil** mantıksal CPU'lar Intel E5-2673 v3 dayalı (Haswell) 2,4 GHz işlemcileri, ekli SSD fiziksel çekirdek olarak çekirdek ve bilgi işlem boyutlarına arasındaki 8 ila 24 sanal çekirdek başına 7 GB RAM.
-- **5. nesil** mantıksal CPU'lar Intel E5-2673 v4 dayalı (Broadwell) 2.3 GHz işlemcileri, hızlı NVMe SSD, mantıksal çekirdek, hiper iş parçacıklıdır ve boyutları 8 ila 80 çekirdeğine işlem.
+- **5. nesil** mantıksal CPU'lar Intel E5-2673 v4 dayalı (Broadwell) 2.3 GHz işlemcileri, hızlı NVMe SSD, hiper iş parçacıklı mantıksal çekirdek ve 4 ve 80 çekirdeğine boyutları işlem.
 
 İçinde donanım Nesilleri arasındaki fark hakkında daha fazla bilgi [yönetilen örnek kaynak sınırları](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -226,7 +226,7 @@ Yönetilen örnek dağıtım seçeneği Sistem Yöneticisi, SQL veritabanı hizm
 
 Aşağıdaki tabloda uygulamanız ile yönetilen örnek çalışıp çalışmadığını belirlemek için kullanabilir ve önemli özelliklerini almak Transact SQL erişilebilir çeşitli özellikleri gösterir.
 
-|Özellik|Değer|Açıklama|
+|Özellik|Değer|Yorum|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 2018-03-07 12.0.2000.8 Telif Hakkı (C) 2018 Microsoft Corporation.|Bu değer, SQL veritabanı olduğu gibi aynı olur.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Bu değer, SQL veritabanı olduğu gibi aynı olur.|
@@ -240,5 +240,5 @@ Aşağıdaki tabloda uygulamanız ile yönetilen örnek çalışıp çalışmad�
 - Sanal ağ yapılandırması hakkında daha fazla bilgi için bkz. [yönetilen örnek sanal ağ yapılandırması](sql-database-managed-instance-connectivity-architecture.md).
 - Yönetilen örnek oluşturup bir veritabanı yedekleme dosyasından geri yükleyen bir hızlı başlangıç için bkz: [yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
 - Geçiş için Azure veritabanı geçiş hizmeti (DMS) kullanan bir öğretici için bkz [yönetilen örnek geçişi DMS kullanarak](../dms/tutorial-sql-server-to-managed-instance.md).
-- Gelişmiş sorun giderme yerleşik zekaya sahip yönetilen örnek veritabanı performansını izleme için bkz: [kullanarak Azure SQL Analytics İzleyici Azure SQL veritabanı](../azure-monitor/insights/azure-sql.md)
+- Gelişmiş sorun giderme yerleşik zekaya sahip yönetilen örnek veritabanı performansını izleme için bkz: [İzleyici Azure SQL veritabanı kullanarak Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
 - Fiyatlandırma bilgileri için bkz: [SQL veritabanı yönetilen örneği fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/managed/).

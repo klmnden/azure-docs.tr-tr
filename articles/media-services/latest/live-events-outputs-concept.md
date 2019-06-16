@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/12/2019
 ms.author: juliako
-ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114661"
 ---
 # <a name="live-events-and-live-outputs"></a>Canlı Etkinlikler ve Canlı Çıkışlar
 
@@ -54,14 +54,14 @@ Bir .NET kod örneğinde bkz [MediaV3LiveApp](https://github.com/Azure-Samples/m
 
 ![gerçek zamanlı kodlama](./media/live-streaming/live-encoding.svg)
 
-Media Services ile gerçek zamanlı kodlama özelliğini kullandığınızda şirket içi gerçek zamanlı kodlayıcınızı Canlı Etkinliğe katılım akışı olarak tek bit hızına sahip video gönderecek şekilde (RTMP veya Bölünmüş Mp4 protokolünü kullanarak) yapılandırmanız gerekir. Canlı Etkinlik, gelen tek bit hızına sahip video akışını [birden çok bit hızına sahip video akışı](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) olarak kodlayarak MPEG-DASH, HLS ve Kesintisiz Akış gibi protokoller aracılığıyla cihazlarda kayıttan yürütmek üzere hazır hale getirir. Bu türde Canlı Etkinlik oluştururken kodlama türünü **Standart** (LiveEventEncodingType.Standard) olarak belirtmeniz gerekir.
+Media Services ile gerçek zamanlı kodlama özelliğini kullandığınızda şirket içi gerçek zamanlı kodlayıcınızı Canlı Etkinliğe katılım akışı olarak tek bit hızına sahip video gönderecek şekilde (RTMP veya Bölünmüş Mp4 protokolünü kullanarak) yapılandırmanız gerekir. Ardından, gelen tek bit hızlı kodlar, canlı bir olay ayarlamalı için akış bir [birden çok hızlı video akışına](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)ve çıkış MPEG-DASH, HLS, gibi protokolleri aracılığıyla cihazları kayıttan yürütme ve kesintisiz teslim için kullanılabilir hale getirir Akış.
 
-H.264/AVC video codec'i ve AAC (AAC-LC, HE-AACv1 veya HE-AACv2) ses codec'i ile katılım akışını en fazla 1080p çözünürlük ve 30 kare/saniye kare hızıyla gönderebilirsiniz. Ayrıntılı bilgi için [Canlı Etkinlik türlerinin karşılaştırması](live-event-types-comparison.md) makalesine bakın.
+Gerçek zamanlı kodlama kullandığınızda, yalnızca çözünürlüklerde 30 kare/saniye, H.264/AVC video codec ve AAC kare hızı 1080 p çözünürlükte akış katkı gönderebilirsiniz (AAC-LC, HE-AACv1 veya HE-AACv2) ses kodek bileşeni. Canlı geçiş olayları çözümleri avc'de 4 K en 60 kare/saniye sürümlerin desteklendiğini unutmayın. Ayrıntılı bilgi için [Canlı Etkinlik türlerinin karşılaştırması](live-event-types-comparison.md) makalesine bakın.
 
-Gerçek zamanlı kodlama (**Standart** Canlı Etkinlik ile) kullanıldığında gelen akışın birden fazla bit hızı veya katman halinde kodlanma biçimi, kodlama ön ayarı tarafından belirlenir. Bilgi edinmek için bkz. [Sistem ön ayarları](live-event-types-comparison.md#system-presets).
+Çözünürlüklerine ve bit hızlarına dönüştürme gerçek zamanlı Kodlayıcı çıkışı yer alan ön ayarı tarafından belirlenir. Kullanılıyorsa bir **standart** Canlı Kodlayıcı (LiveEventEncodingType.Standard) sonra *Default720p* hazır 3.5Mbps aşağı 200 Kbps 192 p konumunda 720 p gitmek 6 çözümleme/bit oranı çiftleri kümesi belirtir. Aksi takdirde kullanıyorsanız bir **Premium1080p** Canlı Kodlayıcı (LiveEventEncodingType.Premium1080p) sonra *Default1080p* hazır 1080 p konumunda 3.5Mbps gitmek 6 çözümleme/bit oranı çiftleri kümesi belirtir 200 Kbps 180 p gösteriyor. Bilgi edinmek için bkz. [Sistem ön ayarları](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
-> Şu anda Standart Canlı Etkinlik türü için izin verilen tek ön ayar, *Default720p* ayarıdır. Özel gerçek zamanlı kodlama ön ayarı kullanmanız gerekiyorsa lütfen amshelp@microsoft.com üzerinden bizimle iletişime geçin. İstediğiniz çözünürlüklerin ve bit hızlarının yer aldığı tabloyu paylaşmanız gerekir. 720p çözünürlükte yalnızca bir katman ve toplamda en fazla 6 katman bulunduğundan emin olun.
+> Canlı kodlama Önayarı özelleştirmek istiyorsanız lütfen Azure portalı üzerinden bir destek bileti açın. İstediğiniz çözünürlüklerin ve bit hızlarının yer aldığı tabloyu paylaşmanız gerekir. 720 p (standart bir gerçek zamanlı Kodlayıcı için bir ön ayarı isteyen olursa) veya 1080 p (önceden ayarlanmış bir Premium1080p gerçek zamanlı Kodlayıcı için isteyen olursa) yalnızca bir katmanı ve en fazla 6 katmanları olduğundan emin olun.
 
 ## <a name="live-event-creation-options"></a>Canlı olay oluşturma seçenekleri
 
@@ -93,6 +93,14 @@ Gösterim amaçlı olmayan URL'leri veya gösterim URL'lerini kullanabilirsiniz.
 
     Erişim belirteci, veri merkezinizde benzersiz olması gerekir. Gösterim URL'sini kullanmak üzere uygulamanız gerekiyorsa, her zaman erişim belirteciniz (yerine, herhangi bir mevcut GUID yeniden) için yeni bir GUID örneği oluşturmak için önerilir. 
 
+    Gösterim URL etkinleştirme ve erişim belirteci için geçerli bir GUID ayarlamak için aşağıdaki API'leri kullanın (örneğin `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    
+    |Dil|Gösterim URL'sini etkinleştir|Erişim belirteci ayarlama|
+    |---|---|---|
+    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--gösterim URL'si](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--erişim belirteci](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    
 ### <a name="live-ingest-url-naming-rules"></a>Canlı URL adlandırma kuralları alma
 
 Aşağıdaki *rastgele* dize, 128 bit bir onaltılık sayıdır (0-9 a-f arası 32 karakterden oluşur).<br/>

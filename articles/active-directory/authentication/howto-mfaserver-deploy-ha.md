@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ddf0885ce7615e06b78eccbd6424e63cc6103c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43154e428c3208f5d990688554407777d09f2f1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056038"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Azure multi-Factor Authentication sunucusu için yüksek kullanılabilirliği yapılandırma
 
 Azure sunucusu MFA dağıtımınız ile yüksek kullanılabilirlik elde etmek için birden çok MFA sunucusu dağıtmanız gerekir. Bu bölümde, Azure MFS sunucu dağıtımı, yüksek kullanılabilirlik hedeflerin elde etmek için yük dengeli bir tasarım bilgileri sağlar.
+
+> [!IMPORTANT]
+> 1 Temmuz 2019'dan itibaren Microsoft artık yeni dağıtımlar için MFA sunucusu sunacaktır. Bulut tabanlı Azure multi-Factor Authentication, kullanıcıların multi-Factor authentication gerektirmesine istediğiniz yeni müşteriler kullanmanız gerekir. MFA sunucusu 1 Temmuz'dan önce etkinleştirmiş olan mevcut müşteriler, Gelecekteki güncelleştirmelerin en son sürümü indirip zamanki etkinleştirme kimlik bilgileri oluştur mümkün olacaktır.
 
 ## <a name="mfa-server-overview"></a>MFA sunucusu genel bakış
 

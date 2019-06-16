@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685555"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Azure Logic apps'te kapsamları Grup durumuyla göre eylemleri çalıştırma
@@ -158,16 +158,16 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
 
 Ardından, böylece belirli eylemleri grup ve bunların durumunu değerlendirmek kapsam ekleyin.
 
-## <a name="add-a-scope"></a>"Kapsam" ekle
+## <a name="add-a-scope"></a>Kapsam Ekle
 
 1. Henüz yapmadıysanız, mantıksal uygulamanızı Logic Apps Tasarımcısı'nda açın. 
 
 1. Bir kapsam, istediğiniz iş akışı konumunda ekleyin. Örneğin, bir kapsamı arasında var olan mantıksal uygulama iş akışı adımları eklemek için aşağıdaki adımları izleyin: 
 
    1. İmlecinizi, kapsamı eklemek istediğiniz okun üzerine getirin. 
-   Seçin **artı** (**+**) > **Eylem Ekle**.
+   Seçin **artı** ( **+** ) > **Eylem Ekle**.
 
-      !["Kapsam" ekle](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+      ![Kapsam Ekle](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
    1. Arama kutusuna filtreniz olarak "scope" girin. 
    Seçin **kapsam** eylem.
