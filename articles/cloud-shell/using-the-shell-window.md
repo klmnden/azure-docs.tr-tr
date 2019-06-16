@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 2511f2c8fb706e232cde9ee4c02c7f8114bd3a2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60200709"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Azure Cloud Shell penceresini kullanma
@@ -28,11 +28,11 @@ Bu belge, Cloud Shell penceresini kullanmayı açıklar.
 ## <a name="swap-between-bash-and-powershell-environments"></a>Bash ve PowerShell ortamlar arasında değiştirme
 
 Ortam Seçici Cloud Shell araç çubuğundaki Bash ve PowerShell ortamlar arasında takas etmek için kullanın.  
-![Ortam seçin](media/using-the-shell-window/env-selector.png)
+![Ortamı seçin](media/using-the-shell-window/env-selector.png)
 
-## <a name="restart-cloud-shell"></a>Cloud Shell'i yeniden başlat
+## <a name="restart-cloud-shell"></a>Cloud Shell'i yeniden Başlat
 Makine durumunu sıfırlamak için Cloud Shell araç çubuğundaki yeniden simgeye tıklayın.  
-![Cloud Shell'i yeniden başlat](media/using-the-shell-window/restart.png)
+![Cloud Shell'i yeniden Başlat](media/using-the-shell-window/restart.png)
 > [!WARNING]
 > Cloud Shell'i yeniden başlatmak makinenin durumu sıfırlanır ve tüm dosyaları, Azure tarafından kalıcı değil dosya paylaşımı kaybolacak.
 

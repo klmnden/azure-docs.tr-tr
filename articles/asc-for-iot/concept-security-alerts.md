@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: db3a955cd9e572d1daca044aed75048e394e8457
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200748"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Güvenlik Merkezi için IOT güvenlik uyarıları
@@ -93,6 +93,6 @@ Daha fazla ayrıntı için [özel uyarılar oluşturabilirsiniz](quickstart-crea
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-- [Genel Bakış](overview.md)
+- [Genel bakış](overview.md)
 - [Güvenlik verilerinize erişin](how-to-security-data-access.md)
 - [Bir cihaz araştırın](how-to-investigate-device.md)

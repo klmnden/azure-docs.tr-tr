@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/01/2019
 tags: connectors
 ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312568"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Karşıya yükleme ve Azure Logic Apps kullanarak dropbox dosyalarını yönetme
@@ -31,7 +31,7 @@ Bu makalede, mantıksal uygulamanızdan Dropbox'a bağlanın ve Dropbox eklemek 
 
 * Hakkında temel bilgilere [mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bu örnekte, boş bir mantıksal uygulama gerekir.
 
-## <a name="add-trigger"></a>Tetikleyici ekle
+## <a name="add-trigger"></a>Tetikleyici ekleme
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -57,7 +57,7 @@ Eylem listesinden şu eylemi seçin: **Yolu kullanarak dosya içeriğini Al**
 
 1. Dropbox'a erişmek için Azure Logic Apps yetkilendirdiğiniz zaten yapmadıysanız, artık erişimi yetkisi verme.
 
-1. Yanında, kullanmak istediğiniz dosya yoluna göz atmak için **dosya yolu** kutusunda, elipsleri seçin (**...** ) düğmesi. 
+1. Yanında, kullanmak istediğiniz dosya yoluna göz atmak için **dosya yolu** kutusunda, elipsleri seçin ( **...** ) düğmesi. 
 
    İçinde de tıklayabilirsiniz **dosya yolu** kutusuna ve dinamik içerik listesinden **dosya yolu**, çıktı değeri olarak kullanılabilir tetikleyiciden önceki bölümde eklediğiniz.
 

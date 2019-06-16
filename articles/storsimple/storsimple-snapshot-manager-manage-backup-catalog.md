@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127199"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Yedekleme kataloğunu yönetmek için StorSimple anlık görüntü Yöneticisi'ni kullanın
@@ -92,7 +92,7 @@ Yinelenen (kopya) bir birim veya birim grubu oluşturmak için aşağıdaki yord
    
    1. İçinde **adı** metin kutusuna kopyalanan birim için bir ad yazın. Bu ad görünür **birimleri** düğümü. 
    2. (İsteğe bağlı) **sürücü**ve ardından bir sürücü harfi açılır listeden seçin.
-   3. (İsteğe bağlı) **klasörü (NTFS)**, bir klasör yolunu yazın veya Gözat'a tıklayın ve klasör için bir konum seçin. 
+   3. (İsteğe bağlı) **klasörü (NTFS)** , bir klasör yolunu yazın veya Gözat'a tıklayın ve klasör için bir konum seçin. 
    4. **Oluştur**’a tıklayın.
 5. Kopyalama işlemi tamamlandıktan sonra kopyalanan birim başlatmanız gerekir. Sunucu Yöneticisi'ni başlatın ve ardından Disk Yönetimi'ni başlatın. Ayrıntılı yönergeler için bkz. [bağlama birimleri](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Başlatıldıktan sonra birimi altında listelenen **birimleri** düğümünde **kapsam** bölmesi. Listelenen birimleri görmüyorsanız, birimlerin listesini yenile (sağ **birimleri** düğümünü ve ardından **Yenile**).
 

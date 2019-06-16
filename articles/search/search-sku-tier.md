@@ -11,10 +11,10 @@ ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539269"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
@@ -45,7 +45,7 @@ Aşağıdaki tabloda kullanılabilir Katmanlar listelenmektedir. Üzerinde çeş
 
 |Katman | Kapasite |
 |-----|-------------|
-|Ücretsiz | Diğer abonelerle paylaşılan. Ölçeklenebilir. Üç dizin ve 50 MB depolama alanı ile sınırlıdır. |
+|Boş | Diğer abonelerle paylaşılan. Ölçeklenebilir. Üç dizin ve 50 MB depolama alanı ile sınırlıdır. |
 |Temel | Bilgi işlem kaynaklarını daha küçük ölçekli üretim iş yükleri için ayrılmış. Bir 2 GB'lık bölümü ve üç kopyaya kadar. |
 |Standart 1 (S1) | S1 ve sonraki her düzeyde daha fazla depolama ve işleme kapasitesi makinelerle ayrılmış. S1 (hizmet başına en fazla 300 GB) ile 25 GB/bölüm bölüm boyutu var. |
 |Standart 2 (S2 için) | S1, ancak 100 GB'lık bölümleri (ve 1,2 TB hizmet başına en fazla) ile benzer. |
@@ -162,7 +162,7 @@ S1 ayrılmış kaynakları ve birden çok bölüm gereken müşteriler için ort
 
 Bölüm boyutu ve depolama portal ve fiyatlandırma sayfalarına odağı koyabilir, fakat, her bir katman için tüm özellikleri (disk kapasitesi, CPU hızı) işlem genellikle fiyatıyla doğrusal olarak artırın. S2 çoğaltma S1'den daha hızlıdır ve S3 S2 hızlıdır. S3 katmanlarından orantısız daha hızlı g/ç ile doğrusal işlem fiyatlandırma desenden bölün. G/ç iyileşti bekliyorsanız, S3 ile alt katmanları yapabileceğinizden daha fazla IOPS elde edebilirsiniz aklınızda bulundurun.
 
-S3 ve S3 HD aynı yüksek kapasiteli altyapısı tarafından desteklenir, ancak farklı şekilde kendi sınırlarını ulaşmadan. S3 hedefleyen çok büyük dizinler, daha az sayıda kaynak bağlı kendi üst sınırı olacak şekilde (her hizmet için 2,4 TB). S3 HD çok sayıda küçük dizinleri hedefler. 1.000 dizinleri S3 HD dizin kısıtlamalarını biçiminde sınırlarını ulaşır. Bir S3 HD müşterisi olduğunuz ve 1. 000'den fazla dizinleri ihtiyacınız varsa, nasıl ilerleyeceğiniz hakkında daha fazla bilgi için Microsoft Support başvurun.
+S3 ve S3 HD aynı yüksek kapasiteli altyapısı tarafından desteklenir, ancak farklı şekilde kendi sınırlarını ulaşmadan. S3 hedefleyen çok büyük dizinler, daha az sayıda kaynak bağlı kendi üst sınırı olacak şekilde (her hizmet için 2,4 TB). S3 HD çok sayıda küçük dizinleri hedefler. 1\.000 dizinleri S3 HD dizin kısıtlamalarını biçiminde sınırlarını ulaşır. Bir S3 HD müşterisi olduğunuz ve 1. 000'den fazla dizinleri ihtiyacınız varsa, nasıl ilerleyeceğiniz hakkında daha fazla bilgi için Microsoft Support başvurun.
 
 > [!NOTE]
 > Belge limitleri tek seferde bir durum olan, ancak artık yeni hizmetler için geçerlidir. Belge limitleri hala uygulandığı koşullar hakkında daha fazla bilgi için bkz: [belge sınırları](search-limits-quotas-capacity.md#document-limits).
@@ -189,7 +189,7 @@ Bir dizinin boyutunu belirlemek için gerekir [bir yapı](search-create-index-po
 > Dizinler ve depolama için gelecekteki gereksinimlerini tahmin etme gibi kararın düşünüyorsanız olsa da, bunun yapılması değer var. Çok düşük bir katmanın kapasitesini ettik, daha yüksek bir katmandan yeni bir hizmet sağlamak gerekir ve ardından [dizinlerinizi yeniden](search-howto-reindex.md). Herhangi bir SKU bir hizmetten diğerine yerinde yükseltmesini yoktur.
 >
 
-### <a name="step-1-develop-rough-estimates-by-using-the-free-tier"></a>1. Adım: Kaba tahminleri ücretsiz Katmanı'nı kullanarak geliştirme
+### <a name="step-1-develop-rough-estimates-by-using-the-free-tier"></a>1\. adım: Kaba tahminleri ücretsiz Katmanı'nı kullanarak geliştirme
 
 Ücretsiz katmanı ile kapasitesini tahmin etmek için bir yaklaşım başlamaktır. Ücretsiz hizmet en fazla üç dizin, 50 MB depolama alanına ve saat dizin oluşturma, 2 dakika sunduğunu unutmayın. Bu bir öngörülen dizin boyutu bu kısıtlamaları ile tahmin etmek zor olabilir. Uygulayabileceğiniz bir yaklaşım şöyledir:
 
@@ -199,7 +199,7 @@ Bir dizinin boyutunu belirlemek için gerekir [bir yapı](search-create-index-po
 
 Örnek, temsilci ve veri kaynağının tamamı % 10'u ise, tüm belgeler dizine yaklaşık 300 MB 30 MB dizin dönüşür. Bu ön numarasıyla kullanarak iki dizinler için (geliştirme ve üretim) bütçeye çift bu tutar olabilir. Bu, 600 MB Toplam depolama gereksinimleri sağlar. Burada başlar bu nedenle bu gereksinimi temel katmanı tarafından kolayca uyulmuş olur.
 
-### <a name="step-2-develop-refined-estimates-by-using-a-billable-tier"></a>2. Adım: Daraltılmış tahminleri, Faturalandırılabilir katmandan'ı kullanarak geliştirme
+### <a name="step-2-develop-refined-estimates-by-using-a-billable-tier"></a>2\. adım: Daraltılmış tahminleri, Faturalandırılabilir katmandan'ı kullanarak geliştirme
 
 Bazı müşteriler, daha büyük örnekleme ve işleme sürelerini uyum sağlayacak ve ardından dizin miktarı, boyutu ve sorgu birimleri gerçekçi tahminleri geliştirme sırasında geliştirme ayrılmış kaynakları başlatmak tercih eder. Başlangıçta, bir hizmet bir en iyi tahmin tahminine dayanarak sağlanır. Geliştirme projesinin geliştikçe daha sonra takımlar genellikle varolan hizmeti üzerinden veya öngörülen üretim iş yükleri için kapasite altında mı olduğunu.
 

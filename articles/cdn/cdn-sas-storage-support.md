@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60324173"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN ile SAS kullanma
@@ -48,7 +48,7 @@ Ayar parametreleri hakkında daha fazla bilgi için bkz. [SAS parametresi konula
 
 ![CDN SAS ayarları](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>1. seçenek: SAS ile doğrudan blob depolama alanına Azure CDN kullanma
+### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>1\. seçenek: SAS ile doğrudan blob depolama alanına Azure CDN kullanma
 
 Bu seçenek en basit olduğundan ve Azure CDN from kaynak sunucuya geçirilir tek bir SAS belirteci kullanır.
  
@@ -67,7 +67,7 @@ Bu seçenek en basit olduğundan ve Azure CDN from kaynak sunucuya geçirilir te
    
 3. Önbelleğe alma süresi, önbelleğe alma kuralları kullanarak veya ekleyerek ince ayar `Cache-Control` kaynak sunucudaki üst bilgileri. Azure CDN, SAS belirteci düz bir sorgu dizesi olarak davrandığı için en iyi uygulama, ya da SAS süre önce sona bir önbelleğe alma süresi ayarlamanız gerekir. Aksi takdirde, bir dosya SAS etkin olan daha uzun bir süre için önbelleğe alınmışsa SAS süre geçtikten sonra dosya Azure CDN kaynak sunucudan erişilebilir olarak olabilir. Bu durum oluşursa, ve, önbelleğe alınan dosyanızı erişilemez hale getirmek istediğiniz bir dosyanın önbellekten temizlemek için temizleme işlemi gerçekleştirmeniz gerekir. Azure CDN'de önbelleğe alma süresi ayarlama hakkında daha fazla bilgi için bkz: [denetimi Azure CDN önbelleğe alma kuralları ile önbelleğe alma davranışını](cdn-caching-rules.md).
 
-### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>2. seçenek: Bir yeniden yazma kuralı kullanarak gizli CDN SAS belirteci
+### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>2\. seçenek: Bir yeniden yazma kuralı kullanarak gizli CDN SAS belirteci
  
 Bu seçenek yalnızca kullanılabilir **verizon'dan Azure CDN Premium** profilleri. Bu seçenek belirtilmişse, kaynak sunucuda blob depolama güvenliğini sağlayabilirsiniz. Dosya için özel erişim kısıtlamaları gerekmez ancak kullanıcıların doğrudan Azure CDN boşaltma sürelerini geliştirmek için depolama kaynak erişimini engellemek istiyorsanız bu seçeneği kullanmak isteyebilirsiniz. Kaynak sunucu, belirtilen kapsayıcıdaki dosyalara erişen herkesin kullanıcıya bilinmiyor, SAS belirteci gereklidir. Ancak, URL yeniden yazma kuralı nedeniyle CDN uç noktasında bir SAS belirteci gerekli değildir.
  
@@ -136,7 +136,7 @@ Azure CDN, SAS parametreleri için Azure CDN görünür olmadığından, bunlar�
 | SAS parametre adı | Açıklama |
 | --- | --- |
 | Başlatma | Azure CDN blob dosyasına erişmek için başlayabilirsiniz süre. Saat nedeniyle (bir saat sinyal farklı bileşenleri için farklı zamanlarda geldiğinde) eğriltmek, varlık hemen kullanılabilir olmasını istiyorsanız, daha önce 15 dakika seçin. |
-| Bitiş | Saat sonra Azure CDN blob dosyası artık erişemez. Daha önce Azure cdn'de önbelleğe alınan dosyalar hala erişilebilir. Dosya süre sonu zamanı denetlemek için Azure CDN güvenlik belirteci üzerinde güncel uygun sona erme saati ayarlamak veya varlık temizleme. |
+| End | Saat sonra Azure CDN blob dosyası artık erişemez. Daha önce Azure cdn'de önbelleğe alınan dosyalar hala erişilebilir. Dosya süre sonu zamanı denetlemek için Azure CDN güvenlik belirteci üzerinde güncel uygun sona erme saati ayarlamak veya varlık temizleme. |
 | İzin verilen IP adresleri | İsteğe bağlı. Kullanıyorsanız **verizon'dan Azure CDN**, tanımlanan aralıklar için bu parametreyi ayarlayın [Azure CDN from Verizon uç sunucu IP aralıkları](/azure/cdn/cdn-pop-list-api). Kullanıyorsanız **akamai'den Azure CDN**, IP adreslerini statik olduğundan IP aralıkları parametresi ayarlanamıyor.|
 | İzin verilen protokoller | Hesap SAS'si ile yapılan bir istek için izin verilen protokoller:. HTTPS ayarı önerilir.|
 

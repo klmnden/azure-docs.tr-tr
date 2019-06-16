@@ -13,10 +13,10 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002655"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Sürekli tümleştirme ve teslim (CI/CD) Azure Data factory'de
@@ -938,7 +938,7 @@ Bu koşullar altında varsayılan Parametreleştirme şablonu geçersiz kılmak 
 
 ### <a name="explanation"></a>Açıklama:
 
-#### <a name="pipelines"></a>Ardışık düzenler
+#### <a name="pipelines"></a>İşlem hatları
     
 * Etkinlikler/typeProperties/waitTimeInSeconds yolu herhangi bir özelliği parametreli. Buna herhangi bir etkinliği adlı bir kod düzeyinde özelliğine sahip bir işlem hattı `waitTimeInSeconds` (örneğin, `Wait` etkinliği) varsayılan ada sahip bir sayı olarak parametreli. Ancak, Resource Manager şablonunda bir varsayılan değere sahip olmaz. Bu, Resource Manager dağıtım sırasında bir zorunlu giriş olacaktır.
 * Benzer şekilde, bir özelliğin çağırılır `headers` (örneğin, bir `Web` etkinliği) türüyle parametreli `object` (JObject). Kaynak fabrikası ile aynı değer bir varsayılan değer var.
@@ -958,7 +958,7 @@ Bu koşullar altında varsayılan Parametreleştirme şablonu geçersiz kılmak 
 * Önceki örnekte `connectionString` özellik parametreli olarak bir `securestring` değeri varsayılan değere sahip olmaz ve kısaltılmış parametre adları ile sonekine sahip olacaktır `connectionString`.
 * Özellik `secretAccessKey`, ancak özelleştirmede bir `AzureKeyVaultSecret` (örneğin, bir `AmazonS3` bağlı hizmet). Bu nedenle, otomatik olarak bir Azure Key Vault gizli parametreli ve kaynak fabrikada yapılandırılır anahtar kasasından getirildi. Ayrıca kendi key vault parametreleştirebilirsiniz.
 
-#### <a name="datasets"></a>Veri Kümeleri
+#### <a name="datasets"></a>Veri kümeleri
 
 * Türe özgü özelleştirme veri kümeleri için kullanılabilir olsa bile yapılandırma açıkça zorunda kalmadan sağlanabilir bir \*-düzeyi yapılandırma. Yukarıdaki örnekte, tüm veri kümesi özellikleri altında `typeProperties` Parametreleştirilen.
 

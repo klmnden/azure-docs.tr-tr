@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388651"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Azure SQL veritabanlarının ve havuzların bir çok kiracılı SaaS uygulaması performansını izleme ve yönetme
@@ -178,7 +178,7 @@ Havuz ölçeğini artırmanın alternatif bir yolu, ikinci bir havuz oluşturup 
    1. Tıklayın **veritabanı Ekle** eklenebilir sunucuda veritabanlarının listesini görmek için *Pool2*.
    1. Bu yeni havuza taşımak ve ardından 10 tüm veritabanlarını seçin **seçin**. Yük Oluşturucu çalıştırıyorsunuz ise hizmet, performans profili varsayılan 50 eDTU boyutundan daha büyük bir havuzu gerektirir ve bir 100 eDTU ayarı ile başlayan önerir zaten bilir.
 
-      ![öneri](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![Öneri](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
    1. Bu öğretici için varsayılan değeri bırakın 50 Edtu ve tıklayın **seçin** yeniden.
    1. Seçin **Tamam** yeni havuz oluşturun ve içine seçili veritabanlarını taşımak için.

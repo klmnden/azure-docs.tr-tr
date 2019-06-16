@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935856"
 ---
 <a name="create-a-microsoft-developer-account"></a>Microsoft Developer hesabı oluşturma
@@ -19,7 +19,7 @@ ms.locfileid: "64935856"
 
 Bu makalede, Azure Market'te yayımlamak için onaylanmış bir Microsoft Developer haline açıklar.
 
-## <a name="create-a-microsoft-account"></a>Microsoft hesabı oluşturma
+## <a name="create-a-microsoft-account"></a>Microsoft hesabı oluşturun
 
 Yayımlama işlemini başlatmak için tamamlanması gerekir **Microsoft Developer Center** kayıt. Kayıtlı hesap kullanacağınız **[bulut iş ortağı portalı](https://cloudpartner.azure.com/)** yayımlama işlemini başlatmak için.
 

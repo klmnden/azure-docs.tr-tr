@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236904"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP iş yüküne Azure planlama ve dağıtım denetim listesi 
@@ -157,7 +157,7 @@ Pilot proje planlama ve hazırlama için paralel ya da önce çalıştırabilirs
    3.  Şifrelenmesini gerektiren tüm kaynakları şifrelendiğinden emin olun. Tanımlayabilir ve sertifikalar, yedekleme depolamak ve bu sertifikalara erişen ve şifrelenmiş varlıkları geri yüklemek için işlemler yürütebilirsiniz. 
    4.  Kullanım [Azure Disk şifrelemesi](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) ve/veya işletim sistemi diskleri burada açısından olası bir işletim sisteminden desteklemek için
    5.  Çok fazla katmanları şifreleme kullanılmış denetleyin. Azure Disk şifrelemesi kullanın ve ardından şirket DBMS saydam veritabanı şifrelemesi yöntemlerinden biri olan üst sınırlı anlamlı yapar
-6. Performans Testi
+6. Performans testi
    1.  SAP izleme ve ölçümlere dayalı SAP en çok 10 çevrimiçi geçerli uygulama için uygunsa výkonu 
    2.  SAP izleme ve ölçümlere dayalı SAP içinde ilk 10 toplu işleri geçerli uygulama için uygunsa karşılaştırın 
    3.  SAP izleme ve ölçümlere dayalı SAP SAP sistemine arabirimleri aracılığıyla veri aktarımları karşılaştırın. Burada, aktarımı artık şirket içinden Azure'a giden gibi farklı konumları arasında bilmesi arabirimleri odaklanın 
@@ -183,7 +183,7 @@ Bu aşamada başarılı bir pilot veya PoC sonra üretim dışı SAP sistemlerin
 11. İş yükü uygulamadan önce kavram aşamasında listelendiği gibi tüm denetimleri gerçekleştirme
 12. İş yükü geçerli olduğundan, bu sistemlerin kaynak tüketimini Azure'da kaydetmek ve, eski bir platformdan diğerine aldığınız kayıtlarla karşılaştırın. Daha büyük bir fark olduğunu görürseniz, gelecekteki dağıtımlar VM boyutlandırması ayarlayın. De azalır, downsizing, depolama ve ağ bant genişlikleri VM olması durumunda göz önünde bulundurun:
     1.  [Azure'da Windows sanal makine boyutları](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 
-    2.  [Azure'da Linux sanal makine boyutları](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+    2.  [Azure'daki Linux sanal makinesi boyutları](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. Sistem kopyalama işlevselliği ve işlemler üzerinde çalışır. Proje ekipleri, geliştirme ortamına veya bu nedenle, bir test sistemini kopyalamak kolaylaştırmak için yeni sistemleri hızlı alabilirsiniz hedeftir. Göz önünde bulundurun [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) gibi görevleri gerçekleştiren bir araç olarak.
 14. En iyi duruma getirmek ve takımınızın Azure rol tabanlı erişim, izinleri ve işlemleri bir tarafındaki bir görev ayrımı sahip olduğunuzdan emin olmak için performansından. Diğer tarafta, Azure altyapısı görevlerini gerçekleştirmek için etkinleştirilmiş tüm takımlar istediğiniz.
 15. Alıştırma, test ve gibi görevleri yürütmek personelinizin etkinleştirmek için belgeyi yüksek kullanılabilirlik ve olağanüstü durum kurtarma yordamları. Eksiklikleri belirlemek ve uyum dağıtımlarınızı tümleştiriyoruz yeni Azure işlevi

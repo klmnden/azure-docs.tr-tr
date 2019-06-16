@@ -12,15 +12,15 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5762e934d7735dd9617cefc1f56105823d74312f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61343031"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511840"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Azure işlevleri çalışma zamanı sürümünü seçin: "]
 > * [Sürüm 1](functions-bindings-cosmosdb.md)
 > * [Sürüm 2](functions-bindings-cosmosdb-v2.md)
 
@@ -2345,7 +2345,7 @@ Bu bölümde sürümünde bu bağlama için kullanılabilen genel yapılandırma
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
 |GatewayMode|Ağ geçidi|Azure Cosmos DB hizmetine bağlanırken işlev tarafından kullanılan bağlantı modu. Seçenekler `Direct` ve `Gateway`|
-|Protocol|Https|İşlev tarafından kullanılan bağlantı protokolü, Azure Cosmos DB hizmetine bağlantı.  Okuma [burada her iki modun açıklaması](../cosmos-db/performance-tips.md#networking)| 
+|Protocol|HTTPS|İşlev tarafından kullanılan bağlantı protokolü, Azure Cosmos DB hizmetine bağlantı.  Okuma [burada her iki modun açıklaması](../cosmos-db/performance-tips.md#networking)| 
 |leasePrefix|yok|Bir uygulamadaki tüm işlevleri arasında kullanılacak kira öneki.| 
 
 ## <a name="next-steps"></a>Sonraki adımlar

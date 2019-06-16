@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
 ms.openlocfilehash: 637ad62744affa37630df9c841f3c7529674e788
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246337"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
@@ -52,7 +52,7 @@ Başlatmak için **etkinleştirin, Azure AD Domain Services** Sihirbazı, aşağ
 5. **Etkinleştirin, Azure AD Domain Services** Sihirbazı başlatılır.
 
 
-## <a name="task-1-configure-basic-settings"></a>1. Görev: Temel ayarları yapılandırma
+## <a name="task-1-configure-basic-settings"></a>1\. Görev: Temel ayarları yapılandırma
 İçinde **Temelleri** sayfasında sihirbazın, yönetilen etki alanı için DNS etki alanı adını belirtin. Ayrıca, kaynak grubunu ve yönetilen etki alanında dağıtılmalıdır Azure konum da seçebilirsiniz.
 
 ![Yapılandırma temelleri](./media/getting-started/domain-services-blade-basics.png)

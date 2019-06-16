@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511130"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure İşlevleri için SignalR Service bağlamaları
 
@@ -601,7 +601,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type**|| Ayarlanmalıdır `signalRConnectionInfo`.|
 |**direction**|| Ayarlanmalıdır `in`.|
-|**Adı**|| İşlev kodu bağlantı bilgisi nesnesi için kullanılan bir değişken adı. |
+|**name**|| İşlev kodu bağlantı bilgisi nesnesi için kullanılan bir değişken adı. |
 |**HubName**|**HubName**| Bu değer, bağlantı bilgilerini oluşturulduğu SignalR hub'ı adını ayarlamanız gerekir.|
 |**userId**|**Kullanıcı Kimliği**| İsteğe bağlı: Kullanıcı tanımlayıcısı değeri talep erişim anahtar belirtecinde ayarlanacak. |
 |**connectionStringSetting**|**connectionStringSetting**| SignalR hizmeti bağlantı dizesini (varsayılan olarak "AzureSignalRConnectionString") içeren uygulama ayarının adı |
@@ -614,7 +614,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type**|| Ayarlanmalıdır `signalR`.|
 |**direction**|| Ayarlanmalıdır `out`.|
-|**Adı**|| İşlev kodu bağlantı bilgisi nesnesi için kullanılan bir değişken adı. |
+|**name**|| İşlev kodu bağlantı bilgisi nesnesi için kullanılan bir değişken adı. |
 |**HubName**|**HubName**| Bu değer, bağlantı bilgilerini oluşturulduğu SignalR hub'ı adını ayarlamanız gerekir.|
 |**connectionStringSetting**|**connectionStringSetting**| SignalR hizmeti bağlantı dizesini (varsayılan olarak "AzureSignalRConnectionString") içeren uygulama ayarının adı |
 
@@ -626,4 +626,4 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 > [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Azure işlevleri geliştirme ve Azure SignalR hizmeti ile yapılandırma](../azure-signalr/signalr-concept-serverless-development-config.md)
+> [Azure SignalR Hizmeti ile Azure İşlevleri geliştirme ve yapılandırma](../azure-signalr/signalr-concept-serverless-development-config.md)

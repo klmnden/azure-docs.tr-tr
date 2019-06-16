@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606443"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Sürüşü
@@ -362,7 +362,7 @@ Burada Test sürücü Resource Manager şablonunuzu karşıya yükleyin ve nası
 
 **Test sürücü Resource Manager şablonu -** *gerekli* , Resource Manager şablonunuzu karşıya yükleyin. Bu, yukarıdaki önceki bölümde oluşturulan dosyasıdır. Ana şablon dosyası adı: "ana template.json" ve Resource Manager şablonunuzu çıkış parametreleri için gerekli olan anahtar değişkenleri içerdiğinden emin olun. (Bir .zip dosyası olması gerekir)
 
-**Erişim bilgileri -** *gerekli* bir müşteri, Test Sürüşü aldıktan sonra erişim bilgileri kullanıcılara sunulur. Bu yönergeler, Test sürücü Resource Manager şablonunuzu yararlı çıkış parametrelerini paylaşmak için yöneliktir. Çıktı parametreleri eklemek için çift kaşlı ayraçlar kullanın (örneğin, **{{outputname}}**), ve konumda doğru eklenir. (HTML biçimlendirme dizesi burada ön uç işleme için önerilir).
+**Erişim bilgileri -** *gerekli* bir müşteri, Test Sürüşü aldıktan sonra erişim bilgileri kullanıcılara sunulur. Bu yönergeler, Test sürücü Resource Manager şablonunuzu yararlı çıkış parametrelerini paylaşmak için yöneliktir. Çıktı parametreleri eklemek için çift kaşlı ayraçlar kullanın (örneğin, **{{outputname}}** ), ve konumda doğru eklenir. (HTML biçimlendirme dizesi burada ön uç işleme için önerilir).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Test Sürüşü dağıtım Abonelik Ayrıntıları
 
@@ -403,7 +403,7 @@ Kaydet’e tıklayın. Son adım, bu kayıtlı uygulama için uygulama Kimliğin
 Verilen kullanıyoruz uygulamayı aboneliğinize dağıtmak için biz uygulamanın abonelik üzerinde katkıda bulunan olarak eklemeniz gerekir. Bu yönergeleri olarak olan aşağıda:
 
 1. Abonelikler dikey penceresine gidin ve yalnızca Test Sürüşü için kullanmakta olduğunuz uygun aboneliği seçin.
-1. Tıklayın **erişim denetimi (IAM)**.
+1. Tıklayın **erişim denetimi (IAM)** .
 1. Tıklayın **rol atamaları** sekmesi.  ![Yeni bir erişim denetimi sorumlusu ekleme](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Tıklayın **rol ataması Ekle**.
 1. Rol olarak ayarla **katkıda bulunan**.

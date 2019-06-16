@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 95c24f74e9af4443db994a6655a82108de18efdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7ca163b93a68525e80018051baa626bc378c200
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60270788"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099763"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Öğretici: İQualify LMS ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de iQualify LMS tümleştirmesini yapılandırmak için iQualify LMS Ga
 
 **Galeriden iQualify LMS eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -139,7 +139,7 @@ Azure AD çoklu oturum açma LMS iQualify ile yapılandırmak için aşağıdaki
 
     | Ad | Kaynak özniteliği|
     | --- | --- |
-    | e-posta | User.userPrincipalName |
+    | email | User.userPrincipalName |
     | first_name | User.givenName |
     | Soyadı | User.surname |
     | person_id | "özniteliği" |

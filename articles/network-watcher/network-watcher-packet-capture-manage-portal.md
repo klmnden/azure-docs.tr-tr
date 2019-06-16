@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
 ms.openlocfilehash: 50092db9e2e3670168cbb3440b8cb99eb0c2ac20
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714721"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Portalı kullanarak Azure Ağ İzleyicisi ile paket yakalamayı yönetme
@@ -31,8 +31,8 @@ Bu makalede, Başlat, Durdur, indirmek ve bir paket yakalamasını Sil öğrenin
 
 Paket yakalaması aşağıdaki bağlantı gerektirir:
 * Bir depolama hesabı bağlantı noktası 443 üzerinden giden bağlantı.
-* 169.254.169.254 numaralı gelen ve giden bağlantı
-* 168.63.129.16 gelen ve giden bağlantı
+* 169\.254.169.254 numaralı gelen ve giden bağlantı
+* 168\.63.129.16 gelen ve giden bağlantı
 
 Ağ arabirimiyle ya da ağ arabiriminin bulunduğu alt ağ için ağ güvenlik grubu ilişkiliyse, önceki bağlantı noktalarına izin verecek kuralları olmadığından emin olun. 
 
@@ -54,7 +54,7 @@ Ağ arabirimiyle ya da ağ arabiriminin bulunduğu alt ağ için ağ güvenlik g
 
    - **Paket başına en fazla bayt**: Her paket yakalanan bayt sayısı. Tüm baytları boş bırakılırsa yakalanır.
    - **Oturum başına en fazla bayt**: Yakalanan bayt sayısı. Değer, paket yakalama durakları ulaşıldıktan sonra.
-   - **Süre (saniye)**: Paket yakalaması durdurulmadan önce zaman sınırını. Varsayılan 18, 000 saniyedir.
+   - **Süre (saniye)** : Paket yakalaması durdurulmadan önce zaman sınırını. Varsayılan 18, 000 saniyedir.
    - (İsteğe bağlı) filtrelemeyi. Seçin **+ Filtre Ekle**
      - **Protokol**: Paket yakalaması için filtre uygulamak için protokol. TCP, UDP ve değerleri kullanılabilir.
      - **Yerel IP adresi**: Paket yakalaması paketler için yerel IP adresi bu değer eşleştiği filtreler.

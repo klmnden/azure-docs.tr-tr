@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522955"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara Laboratuvar kullanıcı ekleme otomatikleştirin
@@ -104,7 +104,7 @@ Rol ataması adının kendisi, genel olarak benzersiz olması gerekir.  Atama ad
 ### <a name="role-assignment-resource-properties"></a>Rol ataması kaynak özellikleri
 Bir rol ataması üç özelliklerini tanımlar. İhtiyaç duyduğu `roleDefinitionId`, `principalId`, ve `scope`.
 
-### <a name="role-definition"></a>Rol Tanımı
+### <a name="role-definition"></a>Rol tanımı
 Rol tanımı kimliği mevcut rol tanımı dize tanımlayıcısıdır. Rolü kimliği biçiminde değil `/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}`. 
 
 Abonelik kimliği kullanılarak elde edilir `subscription().subscriptionId` şablon işlevi.  
@@ -121,7 +121,7 @@ Rol Kimliği değişkenler bölümünde tanımlanmış ve adlandırılmış `dev
 "devTestLabUserRoleId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/111111111-0000-0000-11111111111111111')]",
 ```
 
-### <a name="principal-id"></a>Sorumlu kimliği
+### <a name="principal-id"></a>Sorumlu Kimliği
 Active Directory kullanıcı, Grup veya Laboratuvar için bir laboratuvar kullanıcı olarak eklemek istediğiniz hizmet sorumlusu nesne kimliği asıl kimliğidir. Şablonu kullanan `ObjectId` bir parametre olarak.
 
 ObjectID kullanarak alabilirsiniz [Get-AzureRMADUser](/powershell/module/azurerm.resources/get-azurermaduser?view=azurermps-6.13.0), [Get-AzureRMADGroup veya [Get-AzureRMADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.13.0) PowerShell cmdlet'leri. Bu cmdlet'ler, tek bir ya da ihtiyacınız nesne kimliği bir kimlik özelliğine sahip Active Directory nesneleri listesini döndürür. Aşağıdaki örnek, tek bir kullanıcının nesne kimliği bir şirkette alma gösterir.

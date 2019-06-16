@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412827"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service'te uygulama sorunlarını giderme
@@ -684,7 +684,7 @@ Ayrıca, ASP.NET kullanmanız gerekmez veya `System.Diagnostics` akış izleme A
 Web sunucusu günlüklerini analiz etme hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
-  Web sunucusu günlüklerini verilerini görüntülemek için bir aracı (*.log* dosyaları).
+  Web sunucusu günlüklerini verilerini görüntülemek için bir aracı ( *.log* dosyaları).
 * [IIS performans sorunu veya uygulama LogParser kullanarak hataları giderme](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Web sunucusu günlükleri analiz etmek için kullanabileceğiniz günlük ayrıştırıcısı aracı giriş.
 * [LogParser kullanarak Robert McMurray'tarafından blog gönderileri](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>

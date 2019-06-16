@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
 ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60705296"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Azure Güvenlik Merkezi kapsayıcı önerilerini anlama
@@ -32,11 +32,11 @@ Azure Güvenlik Merkezi, kapsayıcıları güvenli hale getirmeye yardımcı ola
     ![kapsayıcı sekmesi](./media/security-center-container-recommendations/docker-recommendation.png)
 
 
-- **Docker için CIS Kıyaslama dayalı güvenlik önerileri**<br>Güvenlik Merkezi, Docker yapılandırmaları tarar ve değerlendirilen tüm başarısız kuralların listesi sağlayarak, yanlış yapılandırmalarını görünürlük sağlar. Güvenlik Merkezi, zamandan tasarruf edin ve bu sorunların hızla çözülmesine yardımcı olacak yönergeler sağlar. Güvenlik Merkezi, sürekli olarak Docker yapılandırmaları değerlendirir ve son durumlarını sağlar.
+- **Docker için CIS Kıyaslama dayalı güvenlik önerileri**<br>Güvenlik Merkezi, Docker yapılandırmalarınızı tarar ve değerlendirilen başarısız kuralların listesini sunarak hatalı yapılandırmalar konusunda görünürlük sağlar. Güvenlik Merkezi, zamandan tasarruf edin ve bu sorunların hızla çözülmesine yardımcı olacak yönergeler sağlar. Güvenlik Merkezi, Docker yapılandırmalarını sürekli değerlendirir ve son durumlar hakkında bilgi verir.
 
     ![kapsayıcı sekmesi](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Gerçek zamanlı kapsayıcı tehdit algılama**<br> Güvenlik Merkezi, gerçek zamanlı algılama için kapsayıcılarınızı AuditD bileşeni ile Linux makinelerinde sağlar. Konak, bir Docker kapsayıcısı ya da şifreleme madencilerinin kullanımını içinde çalışan güvenli Kabuk (SSH) sunucusunun göstergesidir ayrıcalıklı bir kapsayıcı oluşturma gibi birkaç şüpheli Docker etkinlik uyarıları belirleyin. Hızlı güvenlik sorunlarını düzeltmesine ve kapsayıcılarınızı güvenliğini artırmak için bu bilgileri kullanabilirsiniz.
+- **Gerçek zamanlı kapsayıcı tehdit algılama**<br> Güvenlik Merkezi, gerçek zamanlı algılama için kapsayıcılarınızı AuditD bileşeni ile Linux makinelerinde sağlar. Konak, bir Docker kapsayıcısı ya da şifreleme madencilerinin kullanımını içinde çalışan güvenli Kabuk (SSH) sunucusunun göstergesidir ayrıcalıklı bir kapsayıcı oluşturma gibi birkaç şüpheli Docker etkinlik uyarıları belirleyin. Bu bilgileri kullanarak güvenlik sorunlarını hızlı bir şekilde çözebilir ve kapsayıcılarınızın güvenlik düzeyini artırabilirsiniz.
 
     ![kapsayıcı sekmesi](./media/security-center-container-recommendations/docker-threat-detection.png)
 
@@ -45,13 +45,13 @@ Aşağıdaki tablolara, Iaas Linux makineleri ve Docker yapılandırmalarına g�
 
 | Öneri | Açıklama | Düzeltme |
 | --- | --- | --- |
-|Kapsayıcı güvenlik yapılandırmalarındaki güvenlik açıklarını düzeltin |Kapsayıcı güvenlik yapılandırmalarını yapılandırma en iyi uygulamalarına göre güvenlik açıklarını düzeltin.| Kapsayıcı güvenlik yapılandırmalarını güvenlik açıklarını düzeltme için:<br>1. Başarısız kurallar listesini gözden geçirin.<br>2. Her bir kural belirtilen yönergelere göre düzeltin.|
+|Kapsayıcı güvenlik yapılandırmaları güvenlik açıklarını düzeltin |Kapsayıcı güvenlik yapılandırmalarını yapılandırma en iyi uygulamalarına göre güvenlik açıklarını düzeltin.| Kapsayıcı güvenlik yapılandırmalarını güvenlik açıklarını düzeltme için:<br>1. Başarısız kurallar listesini gözden geçirin.<br>2. Her bir kural belirtilen yönergelere göre düzeltin.|
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Diğer Azure kaynak türü için geçerli öneriler hakkında daha fazla bilgi için aşağıdakilere bakın:
 
-* [Azure Güvenlik Merkezi'nde kimliği ve erişimi izleme](security-center-identity-access.md)
+* [Kimlik ve erişim Azure Güvenlik Merkezi'nde izleme](security-center-identity-access.md)
 * [Azure Güvenlik Merkezi'nde ağınızı koruma](security-center-network-recommendations.md)
 * [Azure Güvenlik Merkezi'nde Azure SQL hizmetinizi koruma](security-center-sql-service-recommendations.md)
 

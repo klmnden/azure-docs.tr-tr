@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408769"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Azure altyapı SAP yüksek kullanılabilirlik için bir Windows Yük devretme kümesi ve paylaşılan disk SAP ASCS/SCS kullanarak hazırlama
@@ -204,7 +204,7 @@ _**Şekil 1:** SAP yüksek kullanılabilirlik Azure Resource Manager parametrele
     * \<SAPSystemSID\>-nic-ascs-\<Number\>
     * \<SAPSystemSID\>- NIC-db -\<numarası\>
 
-  * **Azure depolama hesapları (yalnızca yönetilmeyen diskler)**:
+  * **Azure depolama hesapları (yalnızca yönetilmeyen diskler)** :
 
   * **Kullanılabilirlik grupları** için:
     * SAP uygulama sunucusu sanal makineler: \<SAPSystemSID\>- avset dı
@@ -526,7 +526,7 @@ SAP ASCS veya SCS örneği için farklı bir sayı kullanmak istiyorsanız, vars
 2. Tüm Yük Dengeleme SAP ASCS veya SCS örneğine ait kuralları için bu değerleri değiştirin:
 
    * Ad
-   * Bağlantı noktası
+   * Port
    * Arka uç bağlantı noktası
 
    Örneğin, varsayılan ASCS örnek numarasını 00-31 olarak değiştirmek isterseniz, Tablo 1'de listelenen tüm bağlantı noktaları için değişiklikler yapmanız gerekir.
@@ -677,7 +677,7 @@ Bir küme dosya paylaşım tanığı yapılandırma, bu görevleri kapsar:
    >
    >
 
-   Çekirdek sürücüde en az 1024 MB boş alan gerekir. 2.048 MB boş alan çekirdek sürücüsü için öneririz.
+   Çekirdek sürücüde en az 1024 MB boş alan gerekir. 2\.048 MB boş alan çekirdek sürücüsü için öneririz.
 
 2. Küme adı nesnesi ekleyin.
 

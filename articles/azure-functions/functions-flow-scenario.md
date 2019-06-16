@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787682"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow’dan işlev çağırma
@@ -50,7 +50,7 @@ Akış veri kaynağı olarak kullanan bir liste oluşturarak başlayın. Listesi
 | Liste sütunu     | Veri Türü           | Notlar                                    |
 |-----------------|---------------------|------------------------------------------|
 | **Başlık**           | Tek metin satırı | Türbinin adı                      |
-| **LastServiceDate** | Date                |                                          |
+| **LastServiceDate** | Tarih                |                                          |
 | **MaxOutput**       | Sayı              | Kwh türbinin çıktısı            |
 | **ServiceRequired** | Evet/Hayır              |                                          |
 | **EstimatedEffort** | Sayı              | Saat cinsinden onarım için tahmini süre |
@@ -122,17 +122,17 @@ Artık özel bağlayıcı ile oluşturduğunuz SharePoint listesi kullanan bir a
 
 2. SharePoint tetikleyicisini tıklayın **bir öğe oluşturulduğunda**.
 
-    ![Tetikleyici seçin](media/functions-flow-scenario/choose-trigger.png)
+    ![Bir tetikleyici seçin](media/functions-flow-scenario/choose-trigger.png)
 
     SharePoint ile henüz oturum açmadıysanız, bunu yapmak için istenir.
 
 3. İçin **Site adresi**, SharePoint site adınızı girin ve **liste adı**, türbinin verileri içeren bir liste girin.
 
-    ![Tetikleyici seçin](media/functions-flow-scenario/site-list.png)
+    ![Bir tetikleyici seçin](media/functions-flow-scenario/site-list.png)
 
 4. Tıklayın **yeni adım**, ardından **koşul Ekle**.
 
-    ![Koşul ekle](media/functions-flow-scenario/add-condition.png)
+    ![Koşul Ekle](media/functions-flow-scenario/add-condition.png)
 
     Microsoft Flow, akışı için iki dal ekler: **Yanıt Evet ise** ve **hiçbir**. Eşleştirmek istediğiniz koşulu tanımlandıktan sonra bir veya iki dalı için adımları ekleyin.
 
@@ -158,7 +158,7 @@ Artık Azure'da işlevi çağıran özel bağlayıcıyı ekleyin. Flow standart 
 
 1. İçinde **Evet ise** dal, tıklayın **Eylem Ekle**.
 
-    ![Eylem ekle](media/functions-flow-scenario/condition1-yes-add-action.png)
+    ![Eylem ekleme](media/functions-flow-scenario/condition1-yes-add-action.png)
 
 2. İçinde **eylem seçin** iletişim kutusu, arama `Turbine Repair`, eylemin ardından **Türbin onarımı - maliyetleri hesaplar**.
 
@@ -178,7 +178,7 @@ Artık Azure'da işlevi çağıran özel bağlayıcıyı ekleyin. Flow standart 
 
 4. Sayfanın alt kısmında **Evet ise** dal, tıklayın **daha fazla**, ardından **koşul Ekle**.
 
-    ![Koşul ekle](media/functions-flow-scenario/condition2-add.png)
+    ![Koşul Ekle](media/functions-flow-scenario/condition2-add.png)
 
 5. Üzerinde **koşul 2** kart, ilk kutuyu tıklayın ve ardından seçin **ileti** gelen **dinamik içerik** iletişim kutusu.
 
@@ -198,7 +198,7 @@ Bu noktada, işlevi flow'da döndürdü bir **ileti** değerini `Yes` veya `No` 
 
 1. İçinde **Evet ise** dal ikinci koşulu, tıklayın **Eylem Ekle**.
 
-    ![Eylem ekle](media/functions-flow-scenario/condition2-yes-add-action.png)
+    ![Eylem ekleme](media/functions-flow-scenario/condition2-yes-add-action.png)
 
 2. İçinde **eylem seçin** iletişim kutusu, arama `email`, ardından (Bu durum Outlook'ta) e-posta sistemine dayalı bir gönderme e-posta eylemini seçin.
 
@@ -246,7 +246,7 @@ Akış tamamlandı, SharePoint listesine bir satır ekleyin ve akışın nasıl 
 
 5. Altında **ÇALIŞTIRMA GEÇMİŞİ**, akış çalıştırması tıklayın.
 
-    ![Çalışt. geçm.](media/functions-flow-scenario/run-history.png)
+    ![Çalıştırma geçmişi](media/functions-flow-scenario/run-history.png)
 
     Çalıştırma başarılı olduysa, akış işlemleri bir sonraki sayfada inceleyebilirsiniz. Çalıştırma için herhangi bir nedenle başarısız olursa, sonraki sayfaya sorun giderme bilgileri sağlar.
 

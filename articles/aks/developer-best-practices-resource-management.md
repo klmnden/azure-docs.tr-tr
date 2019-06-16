@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: zarhoads
-ms.openlocfilehash: aebade14f3a8a1095925d17325ce99b78031dc32
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 69f60036bd718264174bf1befe832305e250e77c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073961"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) kaynaklarını yönetmek uygulama geliştiricileri için en iyi uygulamalar
@@ -74,6 +74,8 @@ Azure geliştirme alanları ile geliştirin, ayıklayın ve uygulamaları doğru
 
 Bu geliştirme alanları ile tümleşik geliştirme ve test işlemi yerel test ortamları gibi azaltır [minikube][minikube]. Bunun yerine, geliştirin ve test karşı bir AKS kümesi. Bu küme güvenli ve mantıksal olarak bir küme yalıtmak için ad alanları kullanımını önceki bölümünde belirtildiği gibi yalıtılmış. Uygulamalarınızı üretime dağıtmaya hazır olduğunuzda, gerçek bir AKS kümesinde tüm geliştirme yapıldığı güvenle dağıtabilirsiniz.
 
+Azure geliştirme alanları Linux pod'ların ve düğümler üzerinde çalışan uygulamalar ile kullanıma yöneliktir.
+
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Kubernetes için Visual Studio Code uzantısı kullanma
 
 **En iyi uygulama kılavuzunu** -yükleme ve kullanma YAML yazdığınızda Kubernetes için VS Code uzantısı bildirimleri. Uzantı, AKS kümesi ile sık etkileşimde bulunan uygulama sahipleri yardımcı olabilir ve tümleşik bir dağıtım çözümü için de kullanabilirsiniz.
@@ -87,6 +89,8 @@ Bu geliştirme alanları ile tümleşik geliştirme ve test işlemi yerel test o
 **En iyi uygulama kılavuzunu** -düzenli olarak en son sürümünü çalıştıran `kube-advisor` kümenizdeki sorunları algılamak için açık kaynak aracı. Mevcut bir AKS kümesinde kaynak kotaları çalıştırırsanız `kube-advisor` ilk kaynak isteklerini ve sınırları tanımlanmış olmayan pod'ların bulunamıyor.
 
 [Kube-advisor] [ kube-advisor] , bir Kubernetes kümesi tarar ve bulduğu sorunları ilişkili AKS açık kaynaklı proje bir araçtır. Yararlı bir onay kaynak isteklerini ve sınırları limitiniz olmadığı pod'ların belirlemektir.
+
+Kaynak isteği ve Linux uygulamaları yanı sıra PodSpecs için Windows uygulamaları eksik sınırları kube-Danışman aracı bildirebilirsiniz, ancak kube-Danışman aracı, bir Linux pod zamanlanmalıdır. Bir pod bir düğüm havuzunu kullanarak belirli bir işletim sistemi ile çalışacak şekilde zamanlayabilirsiniz bir [düğüm Seçicisi] [ k8s-node-selector] pod'ın yapılandırması.
 
 Birçok geliştirme ekipleri ve uygulamaları barındıran bir AKS kümesinde bu kaynağın ister ve kümesi sınırlar olmadan pod'ların izlenmesi zor olabilir. En iyi uygulama, düzenli olarak çalıştırılan `kube-advisor` AKS kümelerinizdeki.
 
@@ -110,3 +114,4 @@ Bazı bu en iyi yöntemleri uygulamak için aşağıdaki makalelere bakın:
 [dev-spaces]: ../dev-spaces/get-started-netcore.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

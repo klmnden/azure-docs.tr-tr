@@ -10,10 +10,10 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574113"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu’nda kaynak denetimi tümleştirmesi
@@ -49,7 +49,7 @@ Seçin **kaynak denetimi türü**, tıklayın **doğrulaması**. Bir tarayıcı 
 |---------|---------|
 |Kaynak denetimi adı     | Kaynak denetimi için bir kolay ad. *Bu ad yalnızca harf ve rakam içermelidir.*        |
 |Kaynak Denetim türü     | Kaynak denetimi türü. Kullanılabilen seçenekler:</br> GitHub</br>Azure depoları (Git)</br> Azure depoları (TFVC)        |
-|Depo     | Depo veya projenin adı. İlk 200 depoları döndürülür. Bir depo için arama yapmak için ad alanını yazın ve **arama github'da**.|
+|Havuz     | Depo veya projenin adı. İlk 200 depoları döndürülür. Bir depo için arama yapmak için ad alanını yazın ve **arama github'da**.|
 |Şube     | Kaynak dosyalarını çekmek için dal. Dal hedefleyen TFVC kaynak denetimi türü için kullanılamaz.          |
 |Klasör yolu     | Eşitleme için runbook'ları içeren klasör. Örnek: /Runbooks </br>*Belirtilen klasör yalnızca runbook'lar eşitlenir. Özyineleme desteklenmez.*        |
 |Auto Sync<sup>1</sup>     | Açar veya kaynak denetim deposunda bir işleme yapıldığında otomatik eşitleme devre dışı         |
@@ -93,7 +93,7 @@ Kaynak denetimi için kişisel erişim belirteçleri bazı minimum izinleri gere
 
 GitHub kişisel erişim belirteci oluşturma hakkında daha fazla bilgi için ziyaret [komut satırı için bir kişisel erişim belirteci oluşturma](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Kapsam  |Açıklama  |
+|`Scope`  |Açıklama  |
 |---------|---------|
 |**depo**     |         |
 |Depo: durumu     | Erişim yürütme durumu         |
@@ -107,7 +107,7 @@ GitHub kişisel erişim belirteci oluşturma hakkında daha fazla bilgi için zi
 
 Azure depolarda kişisel erişim belirteci oluşturma hakkında daha fazla bilgi için ziyaret [erişim kişisel erişim belirteçleri ile kimlik doğrulaması](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
-|Kapsam  |
+|`Scope`  |
 |---------|
 |Kod (okuma)     |
 |Proje ve takım (okuma)|

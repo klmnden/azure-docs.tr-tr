@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b049b6526b0053c79b313d3d51a94a7706d5f93c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd0c35d23541512e1ed021a57526ac50f7a68e26
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60271097"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>Öğretici: Azure Active Directory tümleştirmesiyle Insperity ExpensAble
 
@@ -53,7 +53,7 @@ Azure AD'de Insperity ExpensAble'nın tümleştirmesini yapılandırmak için In
 
 **Galeriden Insperity ExpensAble eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -11,26 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/19/2018
-ms.date: 04/17/2019
-ms.author: v-junlch
+ms.date: 3/19/2018
+ms.author: amsriva
 ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715811"
 ---
 # <a name="application-gateway-redirect-overview"></a>Application Gateway yeniden yönlendirmeye genel bakış
 
-Uygulama ağ geçidi trafiği yönlendirmek için kullanabilirsiniz.  Veren başka bir dinleyici veya dış bir siteye bir dinleyici geliş trafiği yönlendirmek için genel yönlendirme mekanizması var. Bu uygulama yapılandırmasını basitleştiren, kaynak kullanımını en iyi duruma getirir ve genel ve yol tabanlı yeniden yönlendirme de dahil olmak üzere yeni yeniden yönlendirme senaryoları destekler.
+Uygulama ağ geçidi trafiği yönlendirmek için kullanabilirsiniz.  Bir dinleyiciden alınan trafiği başka bir dinleyiciye veya bir dış siteye yeniden yönlendirmeyi sağlayan genel bir yeniden yönlendirme mekanizmasına sahiptir. Bu uygulama yapılandırmasını basitleştiren, kaynak kullanımını en iyi duruma getirir ve genel ve yol tabanlı yeniden yönlendirme de dahil olmak üzere yeni yeniden yönlendirme senaryoları destekler.
 
 HTTPS yeniden yönlendirmesi için otomatik HTTP şifrelenmiş bir yolu, kullanıcıların uygulama arasındaki tüm iletişimi sağlamak için birçok web uygulamaları için ortak bir yeniden yönlendirme senaryosu desteklemektir. Geçmişte, müşteriler, HTTP, HTTPS için aldığı isteklerini yeniden yönlendirmek için tek amacı olan bir adanmış arka uç havuzu oluşturma gibi teknikler kullandınız. Application Gateway'de yeniden yönlendirme desteği sayesinde, bunu powershell'inizi yazarak yeni bir yeniden yönlendirme yapılandırması için yönlendirme kuralı ekleme ve hedef dinleyici olarak HTTPS protokolüne sahip başka bir dinleyici belirterek gerçekleştirebilirsiniz.
 
 Yeniden yönlendirme aşağıdaki türleri desteklenir:
 
 - 301 kalıcı bir yeniden yönlendirme
-- 302 Bulundu
+- 302 bulundu
 - 303 diğerini gör
 - 307 geçici yeniden yönlendirme
 
@@ -51,5 +50,3 @@ Bu değişiklik, müşterilere bir hedef dinleyici belirten yeni yeniden yönlen
 ### <a name="next-steps"></a>Sonraki adımlar
 
 [Bir uygulama ağ geçidinde URL yeniden yönlendirmesini yapılandırma](tutorial-url-redirect-powershell.md)
-
-<!-- Update_Description: wording update -->

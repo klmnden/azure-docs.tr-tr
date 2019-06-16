@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fc638c515af59f6872f2dae262a6910318abdd0e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918827"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110770"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Nasıl yapılır: Azure AD katılımınızı uygulamayı planlama
 
@@ -44,13 +44,13 @@ Azure AD join sürecinizi planlamak için ile kendinizi alıştırın:
 
 |   |   |
 |---|---|
-|![İşaretli][1]|Senaryolarınız gözden geçirin|
-|![İşaretli][1]|Kimlik altyapınızı gözden geçirin|
-|![İşaretli][1]|Cihaz yönetimini değerlendirme|
-|![İşaretli][1]|Uygulamalar ve kaynaklar için yapılacak değerlendirmeleri anlamaktır|
-|![İşaretli][1]|Sağlama seçeneklerinizi anlayın|
-|![İşaretli][1]|Kurumsal durumda Dolaşım yapılandırın|
-|![İşaretli][1]|Koşullu erişimi yapılandırma|
+|![Onay][1]|Senaryolarınız gözden geçirin|
+|![Onay][1]|Kimlik altyapınızı gözden geçirin|
+|![Onay][1]|Cihaz yönetimini değerlendirme|
+|![Onay][1]|Uygulamalar ve kaynaklar için yapılacak değerlendirmeleri anlamaktır|
+|![Onay][1]|Sağlama seçeneklerinizi anlayın|
+|![Onay][1]|Kurumsal durumda Dolaşım yapılandırın|
+|![Onay][1]|Koşullu erişimi yapılandırma|
 
 
 
@@ -276,11 +276,11 @@ Bu seçenek kümesine **tüm** veya **seçili** dağıtımınızın kapsamına g
 
 ![Kullanıcılar cihazları Azure AD'ye ekleyebilir](./media/azureadjoin-plan/01.png)
 
-### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Azure AD'ye katılan cihazlarda ek yerel yöneticiler
+### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Ek yerel Yöneticiler Azure AD'ye katılmış cihazlar
 
 Seçin **seçili** ve tüm Azure AD'ye katılmış cihazlarda yerel Yöneticiler grubuna eklemek istediğiniz kullanıcıları seçer. 
 
-![Azure AD'ye katılan cihazlarda ek yerel yöneticiler](./media/azureadjoin-plan/02.png)
+![Ek yerel Yöneticiler Azure AD'ye katılmış cihazlar](./media/azureadjoin-plan/02.png)
 
 
 ### <a name="require-multi-factor-auth-to-join-devices"></a>Cihazları eklemek çok faktörlü kimlik doğrulaması gerektir

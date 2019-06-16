@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
 ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900434"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
@@ -42,7 +42,7 @@ Yükleme [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 ### <a name="export-an-analytics-query"></a>Bir Analytics sorgusunu dışarı aktarma
 1. [Analytics açın ve sorgunuzu yazma](../../azure-monitor/log-query/get-started-portal.md).
 2. Test ve Sonuçlardan memnun kadar sorgu daraltın. Vermeden önce sorgu Analytics'te düzgün çalıştığından emin olun.
-3. Üzerinde **dışarı** menüsünde seçin **Power BI (M)**. Metin dosyasını kaydedin.
+3. Üzerinde **dışarı** menüsünde seçin **Power BI (M)** . Metin dosyasını kaydedin.
    
     ![Ekran görüntüsü, analizi, vurgulanan dışarı aktarma menüsüyle](./media/export-power-bi/analytics-export-power-bi.png)
 4. Power BI Desktop'ta seçin **Veri Al** > **boş sorgu**. Ardından, sorgu Düzenleyicisi'nde altında **görünümü**seçin **Gelişmiş Düzenleyici**.

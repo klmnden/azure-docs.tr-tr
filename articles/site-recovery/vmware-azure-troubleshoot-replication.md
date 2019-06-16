@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: mayg
 ms.openlocfilehash: 3221b2bd18b8b0756f280d88fffc6016d0498b8f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924820"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için çoğaltma sorunlarını giderme
 
 Bu makalede bazı yaygın sorunlar ve şirket içi VMware Vm'leri ve fiziksel sunucuları azure'a çoğalttığınızda, çalıştırdığınızca belirli hataları [Site Recovery](site-recovery-overview.md).
 
-## <a name="step-1-monitor-process-server-health"></a>1. Adım: İşlem sunucusu durumunu izleme
+## <a name="step-1-monitor-process-server-health"></a>1\. adım: İşlem sunucusu durumunu izleme
 
 Site Recovery kullanan [işlem sunucusu](vmware-physical-azure-config-process-server-overview.md#process-server) alabilir ve çoğaltılan verileri En İyileştir ve Azure'a gönderin.
 
@@ -28,7 +28,7 @@ Portalında, bağlı olan ve işlem sunucusu ile ilişkili kaynak makinelerden i
 - [En iyi uygulamaları inceleme](vmware-physical-azure-troubleshoot-process-server.md#best-practices-for-process-server-deployment)
 - [Sorun giderme](vmware-physical-azure-troubleshoot-process-server.md#check-process-server-health) işlem sunucu durumu.
 
-## <a name="step-2-troubleshoot-connectivity-and-replication-issues"></a>2. Adım: Bağlantı ve çoğaltma sorunlarını giderme
+## <a name="step-2-troubleshoot-connectivity-and-replication-issues"></a>2\. adım: Bağlantı ve çoğaltma sorunlarını giderme
 
 İlk ve devam eden çoğaltma hatalarını genellikle işlem sunucusu ile Azure arasında veya kaynak sunucu ile işlem sunucusu arasında bağlantı sorunları nedeniyle oluşup. 
 
@@ -37,7 +37,7 @@ Bu sorunları çözmek için [bağlantı ve çoğaltma sorunlarını giderme](vm
 
 
 
-## <a name="step-3-troubleshoot-source-machines-that-arent-available-for-replication"></a>3. Adım: Çoğaltma için kullanılamayan kaynak makineler sorunlarını giderme
+## <a name="step-3-troubleshoot-source-machines-that-arent-available-for-replication"></a>3\. adım: Çoğaltma için kullanılamayan kaynak makineler sorunlarını giderme
 
 Site RECOVERY'yi kullanarak çoğaltmayı etkinleştirmek için kaynak makine seçmeye çalıştığınızda, makine aşağıdaki nedenlerden biri için kullanılabilir olmayabilir:
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.openlocfilehash: 3286ca3b9c85236ff322eb19324bc5ac7a904e22
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65605442"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks korumalı alanı ile Visual Studio için Azure Data Lake Araçları'nı kullanın
@@ -120,7 +120,7 @@ Ayrıca, birden çok Hive betiklerini içeren bir proje oluşturabilirsiniz. İl
 
 1. Visual Studio'da **dosya**, **yeni**, ardından **proje**.
 
-2. Projelerin listesinden genişletin **şablonları**, genişletme **Azure Data Lake**ve ardından **HIVE (HDInsight)**. Şablonlar listesinden **örnek Hive**. Bir ad ve konum girin ve ardından **Tamam**.
+2. Projelerin listesinden genişletin **şablonları**, genişletme **Azure Data Lake**ve ardından **HIVE (HDInsight)** . Şablonlar listesinden **örnek Hive**. Bir ad ve konum girin ve ardından **Tamam**.
 
     ![Yeni Proje ekran penceresiyle Azure Data Lake, HIVE, örnek Hive ve Tamam'ı vurgulanmış](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
@@ -130,7 +130,7 @@ Ayrıca, birden çok Hive betiklerini içeren bir proje oluşturabilirsiniz. İl
 
 Pig, Hive, yapılandırılmış verilerle çalışmak için SQL benzeri bir dil sağlarken, verilerinizde dönüşümler gerçekleştirerek çalışır. Pig, bir işlem hattı dönüşümlerinin geliştirmenize olanak veren bir dili (Pig Latin) sağlar. Yerel küme ile pig kullanma için bu adımları izleyin:
 
-1. Visual Studio'yu açın ve seçin **dosya**, **yeni**, ardından **proje**. Projelerin listesinden genişletin **şablonları**, genişletme **Azure Data Lake**ve ardından **Pig (HDInsight)**. Şablonlar listesinden **Pig uygulama**. Konum, bir ad girin ve ardından **Tamam**.
+1. Visual Studio'yu açın ve seçin **dosya**, **yeni**, ardından **proje**. Projelerin listesinden genişletin **şablonları**, genişletme **Azure Data Lake**ve ardından **Pig (HDInsight)** . Şablonlar listesinden **Pig uygulama**. Konum, bir ad girin ve ardından **Tamam**.
 
     ![Yeni Proje ekran penceresiyle Azure Data Lake, Pig, Pig uygulama ve Tamam'ı vurgulanmış](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61291918"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Örnek: Azure arama için stok AdventureWorks veritabanı modeli
@@ -43,7 +43,7 @@ Bu sorunu çözme konusunda hedef dizin ProductModel tabloya hareket ettirmek ka
 
 ## <a name="use-a-collection-data-type"></a>Bir koleksiyon veri türü kullanın
 
-Doğrudan bir paralel veritabanı modele sahip olmayan bir arama şeması özelliğini kullanmak için "doğru yaklaşım" şöyledir: **Collection(EDM.String)**. Bir koleksiyon veri türü bağımsız değişkenlerle yerine çok uzun bir listeniz kullanıldığında (tek) dizesi. Etiketleri veya anahtar sözcükler varsa, bu alan için bir koleksiyon veri türü kullanmanız gerekir.
+Doğrudan bir paralel veritabanı modele sahip olmayan bir arama şeması özelliğini kullanmak için "doğru yaklaşım" şöyledir: **Collection(EDM.String)** . Bir koleksiyon veri türü bağımsız değişkenlerle yerine çok uzun bir listeniz kullanıldığında (tek) dizesi. Etiketleri veya anahtar sözcükler varsa, bu alan için bir koleksiyon veri türü kullanmanız gerekir.
 
 Birden çok değerli dizin alanları tanımlayarak **Collection(Edm.String)** "renk", "boyutu" ve "image" bulunabilecek yinelenen girişler diziniyle kirletmesini olmadan tutulan için model oluşturma ve filtreleme bilgilerdir. Benzer şekilde, dizin oluşturma sayısal ürün alanları için toplama işlevleri uygulamak **minListPrice** her tek ürün yerine **listPrice**.
 

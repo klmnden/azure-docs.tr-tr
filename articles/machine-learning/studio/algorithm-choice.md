@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
 ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60752981"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için algoritma seçme
@@ -41,7 +41,7 @@ Bu, derlenmiş geri bildirim ve ipuçları birçok veri bilimcileri ve machine l
 
 ### <a name="how-to-use-the-cheat-sheet"></a>Kopya kağıdı kullanma
 
-Grafik olarak yolu ve algoritma etiketleri okuyun "için  *&lt;yol etiketinin&gt;*, kullanın  *&lt;algoritması&gt;*." Örneğin, "için *hızı*, kullanın *lojistik regresyon iki sınıf*." Bazen birden fazla dal için geçerlidir.
+Grafik olarak yolu ve algoritma etiketleri okuyun "için  *&lt;yol etiketinin&gt;* , kullanın  *&lt;algoritması&gt;* ." Örneğin, "için *hızı*, kullanın *lojistik regresyon iki sınıf*." Bazen birden fazla dal için geçerlidir.
 Bazen bunların hiçbiri tam olarak uygun değil. Bunlar tam olan bu konuda endişelenmeyin için thumb kural önerileri olacak şekilde tasarlanmıştır.
 İle söz konusu konuştuk birkaç veri bilimcileri en iyi algoritmayı bulmak için yalnızca emin tümünü denemek için yoludur.
 
@@ -73,7 +73,7 @@ Algoritma bunu temel alarak, yüksek ödül elde etmek için kendi stratejisi de
 
 ## <a name="considerations-when-choosing-an-algorithm"></a>Bir algoritma seçerken dikkat edilmesi gerekenler
 
-### <a name="accuracy"></a>Doğruluk
+### <a name="accuracy"></a>Doğruluğu
 
 En doğru yanıta olası alma her zaman gerekli değildir.
 Bazen bir yaklaştırma kullanmak istediğinize bağlı olarak, yeterli olur. Bu durumda, işleme süresini önemli ölçüde daha fazla yaklaşık yöntemleriyle kalmanız tarafından Kes mümkün olabilir. Daha fazla yaklaşık yöntemlerden başka bir avantajı, doğal olarak overfitting önlemek için eğilimindedir olmasıdır.

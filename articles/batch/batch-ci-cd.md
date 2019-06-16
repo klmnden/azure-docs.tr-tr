@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541737"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>HPC çözümleri oluşturma ve dağıtma için Azure işlem hatlarını kullanın
@@ -418,13 +418,13 @@ Altyapı dağıtımı olarak kullanılan birkaç adım vardır. Biz kullanılan 
     * **Eylem**: Kaynak grubu oluşturma veya güncelleştirme
     * **Kaynak grubu**: $(resourceGroupName)
     * **Konum**: $(location)
-    * **Şablon**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/storageAccount.json
+    * **Şablon**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
     * **Şablon parametrelerini geçersiz kıl**: - accountName $(storageAccountName)
 
 1. Kaynak denetiminden yapıtları depolama hesabına yükleyin. Bu işlemi gerçekleştirmeye yönelik bir Azure işlem hattı görev yoktur. Bu görev bir parçası olarak, depolama hesabı kapsayıcı URL'sini ve SAS belirteci Azure işlem hatları değişkene yüzdelik. Başka bir deyişle, bu aracı aşaması yeniden kullanılabilir.
 
     Ekleme **Azure dosya kopyalama** görev ve aşağıdaki özellikleri ayarlayın:
-    * **Kaynak:** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates /
+    * **Kaynak:** $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates /
     * **Azure bağlantı türü**: Azure Resource Manager
     * **Azure aboneliği:** Uygun Azure aboneliğini seçin
     * **Hedef türü**: Azure Blob
@@ -441,7 +441,7 @@ Altyapı dağıtımı olarak kullanılan birkaç adım vardır. Biz kullanılan 
     * **Eylem**: Kaynak grubu oluşturma veya güncelleştirme
     * **Kaynak grubu**: $(resourceGroupName)
     * **Konum**: $(location)
-    * **Şablon**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.json
+    * **Şablon**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
     * **Şablon parametrelerini geçersiz kıl**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 Azure Key Vault görevlerini kullanmak yaygın bir uygulamadır. Hizmet sorumlusu (Azure aboneliğinize bağlantı) belirlenen bir uygun erişim ilkeleri varsa, bir Azure Key Vault'tan gizli dizileri indirebilirsiniz ve işlem hattınızdaki değişkenleri olarak kullanılır. Gizli dizi adı ile ilişkili değer ayarlanır. Örneğin, bir gizli dizi sshPassword, yayın tanımındaki $(sshPassword) ile başvurulan.

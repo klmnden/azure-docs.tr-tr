@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790896"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Dil Çözümleyicileri için bir Azure Search dizini Ekle
@@ -67,18 +67,18 @@ Dizin özellikleri hakkında daha fazla bilgi için bkz: [Create Index &#40;Azur
 |Bask dili||eu.lucene|  
 |Bulgarca|bg.microsoft|BG.lucene|  
 |Katalanca|ca.microsoft|CA.lucene|  
-|Çince Basitleştirilmiş|zh-Hans.microsoft|zh-Hans.lucene|  
+|Basitleştirilmiş Çince|zh-Hans.microsoft|zh-Hans.lucene|  
 |Geleneksel Çince|zh-Hant.microsoft|zh-Hant.lucene|  
 |Hırvatça|hr.microsoft||  
 |Çekçe|cs.microsoft|cs.lucene|  
 |Danca|da.microsoft|da.lucene|  
 |Felemenkçe|nl.microsoft|NL.lucene|  
-|İngilizce|en.microsoft|en.lucene|  
+|Türkçe|en.microsoft|en.lucene|  
 |Estonca|et.microsoft||  
 |Fince|fi.microsoft|Fi.lucene|  
-|Fransızca |fr.microsoft|fr.lucene|  
+|Fransızca|fr.microsoft|fr.lucene|  
 |Galiçya dili||GL.lucene|  
-|Almanca |de.microsoft|de.lucene|  
+|Almanca|de.microsoft|de.lucene|  
 |Yunanca|el.microsoft|el.lucene|  
 |Gucerat dili|gu.microsoft||  
 |İbranice|he.microsoft||  
@@ -87,7 +87,7 @@ Dizin özellikleri hakkında daha fazla bilgi için bkz: [Create Index &#40;Azur
 |İzlanda dili|is.microsoft||  
 |Endonezya dili (Bahasa)|id.microsoft|id.lucene|  
 |İrlanda dili||GA.lucene|  
-|İtalyanca |it.microsoft|it.lucene|  
+|İtalyanca|it.microsoft|it.lucene|  
 |Japonca|ja.microsoft|ja.lucene|  
 |Kannada dili|kn.microsoft||  
 |Korece|ko.microsoft|Ko.lucene|  
@@ -95,7 +95,7 @@ Dizin özellikleri hakkında daha fazla bilgi için bkz: [Create Index &#40;Azur
 |Litvanca|lt.microsoft||  
 |Malayalam dili|ml.microsoft||  
 |Malay Dili (Latin)|ms.microsoft||  
-|Marathi dili|mr.microsoft||  
+|Marathi|mr.microsoft||  
 |Norveççe|nb.microsoft|No.lucene|  
 |Farsça||FA.lucene|  
 |Lehçe|pl.microsoft|PL.lucene|  
@@ -108,7 +108,7 @@ Dizin özellikleri hakkında daha fazla bilgi için bkz: [Create Index &#40;Azur
 |Sırpça (Latin)|sr-latin.microsoft||  
 |Slovakça|sk.microsoft||  
 |Slovence|sl.microsoft||  
-|İspanyolca |es.microsoft|Es.lucene|  
+|İspanyolca|es.microsoft|Es.lucene|  
 |İsveççe|sv.microsoft|sv.lucene|  
 |Tamil dili|ta.microsoft||  
 |Telugu dili|te.microsoft||  

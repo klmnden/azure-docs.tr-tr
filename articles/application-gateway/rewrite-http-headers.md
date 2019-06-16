@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
 ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476042"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Uygulama ağ geçidi ile yeniden yazma HTTP üstbilgileri
@@ -20,7 +20,7 @@ ms.locfileid: "66476042"
 
 HTTP üstbilgileri istemci ve sunucu bir istek veya yanıt ek bilgilerle geçmesine izin verin. Bu üst bilgilerini yazarak, güvenlikle ilgili üstbilgi alan HSTS gibi / X XSS koruma ekleme, hassas bilgileri açığa yanıt üstbilgi alanlarını kaldırma ve bağlantı noktası bilgilerini kaldırma gibi önemli görevler, gerçekleştirebilirsiniz X-iletilen-için üstbilgiler.
 
-Uygulama ağ geçidi eklemek, kaldırmak veya güncelleştirme isteği sırasında HTTP istek ve yanıt üstbilgileri sağlar ve yanıt paketi istemci ve arka uç havuzları arasında taşıyın. Ve yalnızca belirli koşullar karşılandığında belirtilen üst bilgiler yazılır emin olmak için koşullar eklemenize olanak tanır.
+Application Gateway, istek ve yanıt paketleri istemci ile arka uç havuzları arasında gidip gelirken HTTP istek ve yanıt üst bilgileri eklemenize ya da mevcut bilgileri kaldırmanıza veya güncelleştirmenize olanak tanır. Ayrıca, ancak bazı koşulların yerine getirilmesi durumunda belirtilen üst bilgilerin yeniden yazılmasını sağlamak için koşullar eklemenize de olanak tanır.
 
 Application Gateway de destekler. birkaç [sunucu değişkenleri](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) yardımcı olan isteklerini ve yanıtlarını hakkında ek bilgi depolar. Bu güçlü yeniden yazma kuralları oluşturmak için kolaylaştırır.
 

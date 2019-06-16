@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
 ms.openlocfilehash: 63852ccab842f11f30bcbe695206fedf72931911
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60706293"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme
@@ -49,7 +49,7 @@ Güvenlik Merkezi, sanal makinelerde ve üzerinde dış App Service ortamları (
 
    ![VM yapılandırması][4]
    
-8. Geri dönüp **yeni Web uygulaması güvenlik duvarı** seçip **WAF bilgileri**. Altında **WAF bilgileri**, WAF yapılandırın. 7. adım yapılandırmanıza olanak tanır, WAF sağlama WAF çalıştırır ve 8. adım bir sanal makine sağlar.
+8. Geri dönüp **yeni Web uygulaması güvenlik duvarı** seçip **WAF bilgileri**. Altında **WAF bilgileri**, WAF yapılandırın. 7\. adım yapılandırmanıza olanak tanır, WAF sağlama WAF çalıştırır ve 8. adım bir sanal makine sağlar.
 
 ## <a name="finalize-application-protection"></a>Uygulama korumasını sonlandırma
 1. Geri dönüp **önerileri**. Adlı bir WAF oluşturduktan sonra yeni bir girişin üretildiği **uygulama korumasını sonlandırma**. Bu giriş, uygulama koruyabilmesi WAF Azure sanal ağ içinde yukarı gerçekten bağlama işlemini tamamlamak ihtiyacınız bilmenizi sağlar.

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: f7b762d5502986c306de240519688aa639f58445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60756890"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-edge"></a>Azure veri kutusu Ucunuzdaki zamanlamalarda bant genişliğini yönetmek için Azure portalını kullanma  
@@ -46,7 +46,7 @@ Bir zamanlama eklemek için Azure portalında aşağıdaki adımları uygulayın
    4. Veri yükleme ve indirme işlemlerini kısıtlamak istemiyorsanız **Sınırsız** bant genişliğini seçin.
    5. **Add (Ekle)** seçeneğini belirleyin.
 
-      ![Zamanlama ekle](media/data-box-edge-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Zamanlama Ekle](media/data-box-edge-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. Belirtilen parametrelerle bir zamanlama oluşturulur. Bu zamanlama daha sonra portaldaki bant genişliği zamanlamaları listesinde görüntülenir.
 

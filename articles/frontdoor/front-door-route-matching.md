@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736301"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Ön kapısı istek yönlendirme kuralı için nasıl eşleşir?
@@ -48,7 +48,7 @@ Frontend ana eşleştirirken mantığı aşağıdaki gibi kullanırız:
 
 Bu işlem daha da açıklamak için örnek bir yapılandırma (yalnızca sol tarafı) ön kapısı yolların göz atalım:
 
-| Yönlendirme kuralı | Ön uç konaklar | Yol |
+| Yönlendirme kuralı | Frontend ana bilgisayar | `Path` |
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /Users/\* |
@@ -60,11 +60,11 @@ Aşağıdaki gelen istekler için ön kapı göndermediyse aşağıdaki Yönlend
 |---------------------|---------------|
 | foo.contoso.com | A, B |
 | www\.fabrikam.com | C |
-| images.fabrikam.com | 400. hata: Bozuk İstek |
+| images.fabrikam.com | 400\. hata: Bozuk İstek |
 | foo.Adventure Works.com'u | C |
-| contoso.com | 400. hata: Bozuk İstek |
-| www\.adventure works.com'u | 400. hata: Bozuk İstek |
-| www\.adının | 400. hata: Bozuk İstek |
+| contoso.com | 400\. hata: Bozuk İstek |
+| www\.adventure works.com'u | 400\. hata: Bozuk İstek |
+| www\.adının | 400\. hata: Bozuk İstek |
 
 ### <a name="path-matching"></a>Yol ile eşleşen
 Belirli bir ön uç konak belirleme ve filtreleme için yalnızca ön uç barındıran rotalarla olası yönlendirme kuralları sonra ön kapısı sonra isteği yola göre yönlendirme kurallarını filtreler. Ön uç ana bilgisayarları olarak benzer bir mantık kullanırız:
@@ -78,7 +78,7 @@ Belirli bir ön uç konak belirleme ve filtreleme için yalnızca ön uç barın
 
 Daha fazla açıklamak için başka bir örnekler kümesini göz atalım:
 
-| Yönlendirme kuralı | Ön uç konak    | Yol     |
+| Yönlendirme kuralı | Frontend ana bilgisayar    | `Path`     |
 |-------|---------|----------|
 | A     | www\.contoso.com | /        |
 | B     | www\.contoso.com | /\*      |
@@ -112,7 +112,7 @@ Bu yapılandırmayı göz önünde bulundurulduğunda, aşağıdaki örnek eşle
 >
 > Örnek yapılandırma:
 >
-> | Yol | Host             | Yol    |
+> | Yol | Ana bilgisayar             | `Path`    |
 > |-------|------------------|---------|
 > | A     | Profile.contoso.com | /api/\* |
 >
@@ -120,7 +120,7 @@ Bu yapılandırmayı göz önünde bulundurulduğunda, aşağıdaki örnek eşle
 >
 > | Gelen istek       | Eşleşen bir rota |
 > |------------------------|---------------|
-> | Profile.domain.com/Other | Yok. 400. hata: Bozuk İstek |
+> | Profile.domain.com/Other | Yok. 400\. hata: Bozuk İstek |
 
 ### <a name="routing-decision"></a>Yönlendirme karar
 Biz tek bir ön kapısı yönlendirme kural eşleşen sonra biz sonra isteği işlemek nasıl seçmeniz gerekir. Ardından, eşleşen yönlendirme kuralı için bir önbelleğe alınan yanıt kullanılabilir ön kapısı varsa aynı istemciye hizmet. Aksi takdirde, değerlendirilen bir sonraki şey mi yapılandırdığınıza olan [URL yeniden yazma (özel yönlendirme yolunu)](front-door-url-rewrite.md) eşleşen yönlendirme için kural ya da değil. Ardından tanımlanan özel iletme yol değilse, istek uygun arka uca olarak yapılandırılmış bir arka uç havuzundaki iletilen. Aksi takdirde istek yolu olarak başına güncelleştirilir [özel iletme yolu](front-door-url-rewrite.md) tanımlı ve ardından arka uç için iletme.

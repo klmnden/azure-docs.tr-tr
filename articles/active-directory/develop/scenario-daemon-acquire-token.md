@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075378"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Web API'leri - çağıran daemon uygulamasının bir belirteç Al
@@ -65,7 +65,7 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 > [!IMPORTANT]
 > V1.0 erişim belirteci kabul eden bir kaynak için bir erişim belirteci isteyen MSAL için (v2.0 uç noktası), Azure AD'ye son eğik çizgiden önce her şeyi alma ve kaynak tanımlayıcısı kullanılarak istenen hedef istenen kapsamından ayrıştırır.
-> Bu nedenle IF, Azure SQL gibi (**https://database.windows.net**) eğik çizgi ile biten bir hedef kitle kaynak bekliyor (Azure SQL: `https://database.windows.net/`), istek bir kapsam gerekir `https://database.windows.net//.default` (çift eğik çizgi unutmayın). Ayrıca, MSAL.NET bkz sorunu [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Sql kimlik doğrulama hatasına neden olan kaynak URL'nin sonunda eğik çizgi atlanır.
+> Bu nedenle IF, Azure SQL gibi ( **https://database.windows.net** ) eğik çizgi ile biten bir hedef kitle kaynak bekliyor (Azure SQL: `https://database.windows.net/` ), istek bir kapsam gerekir `https://database.windows.net//.default` (çift eğik çizgi unutmayın). Ayrıca, MSAL.NET bkz sorunu [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Sql kimlik doğrulama hatasına neden olan kaynak URL'nin sonunda eğik çizgi atlanır.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
@@ -128,7 +128,7 @@ CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
 AuthenticationResult result = future.get();
 ```
 
-### <a name="protocol"></a>Protokol
+### <a name="protocol"></a>Protocol
 
 Bir kitaplık için istediğiniz dilde Protokolü doğrudan kullanmak isteyebilirsiniz henüz sahip değilseniz varsa:
 
@@ -171,7 +171,7 @@ Geçersiz bir kapsam kullanılan, büyük olasılıkla kullanmadığını belirt
 
 ### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Yönetici onayı sağlamak unuttunuz mu? Arka plan programları ihtiyaç!
 
-API çağrılırken bir hata alırsanız **işlemi tamamlamak için yeterli ayrıcalık**, Kiracı Yöneticisi uygulamaya izinleri gerekiyor. 6. adım kaydının yukarıdaki istemci uygulaması bakın.
+API çağrılırken bir hata alırsanız **işlemi tamamlamak için yeterli ayrıcalık**, Kiracı Yöneticisi uygulamaya izinleri gerekiyor. 6\. adım kaydının yukarıdaki istemci uygulaması bakın.
 Genellikle görürsünüz ve hata gibi aşağıdaki hata açıklaması:
 
 ```JSon

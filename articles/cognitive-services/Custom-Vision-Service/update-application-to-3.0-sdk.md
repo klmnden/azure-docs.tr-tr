@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
 ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60816465"
 ---
-# <a name="migrate-to-the-30-api"></a>3. 0'geçirme API
+# <a name="migrate-to-the-30-api"></a>3\. 0'geçirme API
 
 Özel görüntü işleme artık genel kullanım sınırına ulaştı ve bir API'yi güncelleştirme gerçekleştirdi.
 Bu güncelleştirme birkaç yeni özellik ve daha önemlisi, birkaç önemli değişiklikler içerir:
@@ -37,10 +37,10 @@ API 2.x aynı tahmin çağrısı resim sınıflandırıcıları ve nesne algıla
 
 ## <a name="use-the-new-iteration-publishing-workflow"></a>Yeni yineleme yayımlama iş akışını kullanın
 
-API 2.x tahmin için kullanılacak yinelemeyi seçmek için varsayılan yineleme veya belirtilen yineleme kimliği kullanılır. 3. 0'dan başlayarak ilk yapabildiği eğitim API'sinden belirtilen bir adla yineleme yayımlama yayımlama akış benimsemiştir. Daha sonra kullanmak için hangi yineleme belirtmek için tahmin yöntemleri adı geçirin.
+API 2.x tahmin için kullanılacak yinelemeyi seçmek için varsayılan yineleme veya belirtilen yineleme kimliği kullanılır. 3\. 0'dan başlayarak ilk yapabildiği eğitim API'sinden belirtilen bir adla yineleme yayımlama yayımlama akış benimsemiştir. Daha sonra kullanmak için hangi yineleme belirtmek için tahmin yöntemleri adı geçirin.
 
 > [!IMPORTANT]
-> 3.0 API'leri varsayılan yineleme özelliğini kullanmayın. Biz daha eski API'lar kullanımdan kadar API 2.x varsayılan olarak bir yineleme geçiş yapmak için kullanmaya devam edebilirsiniz. Bu API'ler, bir süre için korunur ve çağırabilirsiniz **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** yineleme varsayılan olarak işaretlemek için yöntemi.
+> 3\.0 API'leri varsayılan yineleme özelliğini kullanmayın. Biz daha eski API'lar kullanımdan kadar API 2.x varsayılan olarak bir yineleme geçiş yapmak için kullanmaya devam edebilirsiniz. Bu API'ler, bir süre için korunur ve çağırabilirsiniz **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** yineleme varsayılan olarak işaretlemek için yöntemi.
 
 ### <a name="publish-an-iteration"></a>Bir yineleme yayımlama
 
@@ -55,7 +55,7 @@ Yineleme yayımlandıktan sonra uygulamaları bu tahmin için kendi tahmin API �
 
 ## <a name="additional-export-options"></a>Ek dışarı aktarma seçenekleri
 
-3.0 ile biz gösterme iki ek API'ler dışarı hedefleri: ARM mimarisi ve işleme yapay ZEKA Geliştirme Seti.
+3\.0 ile biz gösterme iki ek API'ler dışarı hedefleri: ARM mimarisi ve işleme yapay ZEKA Geliştirme Seti.
 
 * ARM kullanılacak sıkıştırılmış bir etki alanı seçin ve DockerFile'ı seçin ve ardından dışarı aktarma seçenekleri ARM yeterlidir.
 * İşleme yapay ZEKA Geliştirme Seti için proje ile oluşturulmalıdır __genel (CD)__ etki alanı hem de hedef VAIDK belirterek platformlar bağımsız değişken dışarı aktarma.

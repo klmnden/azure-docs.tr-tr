@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 23830d6ae2ba020a77402d3e2b7acc2f50f75733
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 027876e3d8d669d2ab41d37e24f4171c2349adaa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869911"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Öğretici: Panopto ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Panopto tümleştirmesini yapılandırmak için Panopto Galeriden y�
 
 **Galeriden Panopto eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 820eddff7da3bb52ca94ea0cb7e2361d89892a4a
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: de32ae16ea4d3c52b8017f35ae5af6009ab59205
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595313"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080923"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
@@ -32,12 +32,13 @@ Tek bir Batch hesabında birden fazla Batch iş yükü çalıştırabilir ya da 
 
 Batch'de üretim iş yükleri çalıştırmayı planlıyorsanız, bir veya daha üstüne varsayılan kotaları artırmak gerekebilir. Kotayı artırmak istiyorsanız, çevrimiçi açabilirsiniz [müşteri destek isteği](#increase-a-quota) ücret olmadan.
 
-> [!NOTE]
-> Kota kapasitesini garanti bir kredi sınırına ' dir. Büyük ölçekli kapasite gereksinimleriniz varsa, lütfen Azure desteğine başvurun.
-
 ## <a name="resource-quotas"></a>Kaynak kotaları
-[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+Kota kapasitesini garanti bir kredi sınırına ' dir. Büyük ölçekli kapasite gereksinimleriniz varsa, lütfen Azure desteğine başvurun.
+
+Kesin değerler de kotalar olmayan dikkat edin. Kotalar, Batch hizmeti ya da bir kota değeri değiştirmek için Kullanıcı isteği değişikliklerden göre değişebilir.
+
+[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Kullanıcı aboneliği modunda çekirdek kotaları
 
@@ -45,18 +46,22 @@ Havuz ayırma modu ayarlamak bir Batch hesabı oluşturduysanız **kullanıcı a
 
 ## <a name="pool-size-limits"></a>Havuz boyutu sınırları
 
+Havuz boyutu sınırları, Batch hizmeti tarafından ayarlanır. Farklı [kaynak kotaları](#resource-quotas), bu değerleri değiştirilemez. Düğümler arası iletişim ve özel görüntüler yalnızca havuzlarının standart kotada farklı kısıtlamaları vardır.
+
 | **Kaynak** | **Üst Sınır** |
 | --- | --- |
 | **İşlem düğümleri, [etkin düğümler arası iletişimin havuzu](batch-mpi.md)**  ||
 | Batch hizmeti Havuz ayırma modu | 100 |
 | Batch aboneliği Havuz ayırma modu | 80 |
-| **İşlem düğümleri, [havuzu ile özel VM görüntüsü oluşturulan](batch-custom-images.md)**<sup>1</sup> ||
-| Adanmış düğümler | 2000 |
+| **İşlem düğümleri, [havuzu ile özel VM görüntüsü oluşturulan](batch-custom-images.md)** <sup>1</sup> ||
+| Ayrılmış düğümler | 2000 |
 | Düşük öncelikli düğümler | 1000 |
 
 <sup>1</sup> düğümler arası iletişimin etkin olmayan havuzlar için.
 
 ## <a name="other-limits"></a>Diğer sınırlamaları
+
+Batch hizmeti tarafından ek sınırları ayarlayın. Farklı [kaynak kotaları](#resource-quotas), bu değerleri değiştirilemez.
 
 | **Kaynak** | **Üst Sınır** |
 | --- | --- |
@@ -84,7 +89,7 @@ Kota isteği için aşağıdaki adımları kullanarak veya Batch hesabınız iç
 
 ### <a name="increase-cores-quota-in-batch"></a>Toplu iş aboneliğindeki çekirdek kotasını artırma 
 
-1. Seçin **Yardım + Destek** kutucuğunu portal panonuza veya soru işareti (**?**) portalın sağ üst köşenin içinde.
+1. Seçin **Yardım + Destek** kutucuğunu portal panonuza veya soru işareti ( **?** ) portalın sağ üst köşenin içinde.
 1. Seçin **yeni destek isteği** > **Temelleri**.
 1. İçinde **Temelleri**:
    

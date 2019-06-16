@@ -8,10 +8,10 @@ ms.topic: conceptional
 ms.date: 04/22/2019
 ms.author: alzam
 ms.openlocfilehash: e54dadbda0582095e8152ea30376d369177bfd86
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65509900"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>VPN ağ geçidi ölçümler üzerinde uyarılar ayarlayın
@@ -21,10 +21,10 @@ Bu makalede Azure VPN ağ geçidi ölçümler ile ilgili uyarılar ayarlamanıza
 
 |**Ölçüm**   | **Birim** | **Ayrıntı düzeyi** | **Açıklama** | 
 |---       | ---        | ---       | ---            | ---       |
-|**AverageBandwidth**| Bayt/s  | 5 dakika| Ortalama ağ geçidine siteden siteye bağlantılarda tüm birleştirilmiş bant genişliği kullanımı.     |
-|**P2SBandwidth**| Bayt/s  | 1 dakika  | Ortalama ağ geçidi tüm noktadan siteye bağlantıları birleştirilmiş bant genişliği kullanımı.    |
-|**P2SConnectionCount**| Count  | 1 dakika  | Ağ geçidinde noktadan siteye bağlantıları sayısı.   |
-|**TunnelAverageBandwidth** | Bayt/s    | 5 dakika  | Ortalama ağ geçidi üzerinde oluşturulan tünelleri bant genişliği kullanımı. |
+|**AverageBandwidth**| Bayt/sn  | 5 dakika| Ortalama ağ geçidine siteden siteye bağlantılarda tüm birleştirilmiş bant genişliği kullanımı.     |
+|**P2SBandwidth**| Bayt/sn  | 1 dakika  | Ortalama ağ geçidi tüm noktadan siteye bağlantıları birleştirilmiş bant genişliği kullanımı.    |
+|**P2SConnectionCount**| Sayı  | 1 dakika  | Ağ geçidinde noktadan siteye bağlantıları sayısı.   |
+|**TunnelAverageBandwidth** | Bayt/sn    | 5 dakika  | Ortalama ağ geçidi üzerinde oluşturulan tünelleri bant genişliği kullanımı. |
 |**TunnelEgressBytes** | Bayt | 5 dakika | Giden trafiği ağ geçidi üzerinde oluşturulan tünelinde.   |
 |**TunnelEgressPackets** | Count | 5 dakika | Ağ geçidi üzerinde oluşturulan tünelinde giden paketlerin sayısı.   |
 |**TunnelEgressPacketDropTSMismatch** | Count | 5 dakika | Giden paketlerin sayısı tünelinde trafik seçicisini uyumsuzluğu nedeniyle bırakıldı. |
@@ -40,7 +40,7 @@ Aşağıdaki örnek adımlarda, bir ağ geçidi için bir uyarı oluşturacak:
 - **Ölçüm:** TunnelAverageBandwidth
 - **Koşul:** Bant genişliği > 10 bayt / saniye
 - **Penceresi:** 5 dakika
-- **Uyarı eylemi:** E-posta
+- **Uyarı eylemi:** Email
 
 
 

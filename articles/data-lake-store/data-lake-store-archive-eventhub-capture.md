@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bb67c1769510710b368bef4dc0b501f939b3427e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60879587"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Event Hubs verilerini yakalama için Azure Data Lake depolama Gen1 kullanın
@@ -62,7 +62,7 @@ Bu bölümde, Event Hubs verilerini yakalama için istediğiniz bir klasörü he
 
     ![Data Lake depolama Gen1 kök izinleri atamanız](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Data Lake depolama Gen1 kök için izin atama")
 
-    **Tamam** düğmesine tıklayın.
+    **Tamam**'ı tıklatın.
 
 1. Veri yakalamak istediğiniz Data Lake depolama Gen1 hesabı altındaki klasör için izinleri atayın.
 
@@ -80,7 +80,7 @@ Bu bölümde, Event Hubs verilerini yakalama için istediğiniz bir klasörü he
 
     ![Data Lake depolama Gen1 klasör izinlerini atamak](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Data Lake depolama Gen1 klasörü için izin atama")
     
-    **Tamam** düğmesine tıklayın. 
+    **Tamam**'ı tıklatın. 
 
 ## <a name="configure-event-hubs-to-capture-data-to-data-lake-storage-gen1"></a>Event Hubs'ı Data Lake depolama Gen1 verileri yakalamak için yapılandırma
 

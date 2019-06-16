@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1e47b1e548516960c6aab3c48d64255370c94a77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743317"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak birden çok NIC ile VM (Klasik) oluşturma
@@ -48,7 +48,7 @@ Arka uç sanal makinelerin oluşturulmasını aşağıdaki kaynaklar üzerinde b
 * **NIC**. Her VM veritabanı erişimi için iki NIC gerekir ve Yönetim için bir tane.
 * **Kullanılabilirlik kümesi**. Tüm veritabanı sunucuları, sanal makinelerin en az biri çalışır durumda emin olmak için ayarlayabilir ve bakım sırasında çalışan tek bir kullanılabilirlik eklenir.
 
-### <a name="step-1---start-your-script"></a>1. adım - betiğinizi Başlat
+### <a name="step-1---start-your-script"></a>1\. adım - betiğinizi Başlat
 Kullanılan tam bash betiğini indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Ortamınızda çalışması için komut dosyasını değiştirmek için aşağıdaki adımları tamamlayın:
 
 1. Yukarıda dağıtılmış mevcut kaynak grubunuzun göre aşağıdaki değişkenlerin değerlerini değiştirmek [önkoşulları](#prerequisites).
@@ -77,7 +77,7 @@ Kullanılan tam bash betiğini indirebilirsiniz [burada](https://raw.githubuserc
     numberOfVMs=2
     ```
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>2. adım - sanal makineleriniz için gerekli kaynakları oluşturma
+### <a name="step-2---create-necessary-resources-for-your-vms"></a>2\. adım - sanal makineleriniz için gerekli kaynakları oluşturma
 1. Tüm arka uç sanal makineler için yeni bir bulut hizmeti oluşturun. Kullanımına dikkat edin `$backendCSName` kaynak grubu adı için değişken ve `$location` Azure bölgesi.
 
     ```azurecli
@@ -93,7 +93,7 @@ Kullanılan tam bash betiğini indirebilirsiniz [burada](https://raw.githubuserc
         --type PLRS
     ```
 
-### <a name="step-3---create-vms-with-multiple-nics"></a>3. adım - birden çok NIC ile VM oluşturma
+### <a name="step-3---create-vms-with-multiple-nics"></a>3\. adım - birden çok NIC ile VM oluşturma
 1. Bir döngü göre birden fazla VM oluşturmak için başlangıç `numberOfVMs` değişkenleri.
 
     ```azurecli
@@ -190,6 +190,6 @@ Kullanılan tam bash betiğini indirebilirsiniz [burada](https://raw.githubuserc
         info:    Adding Data-Disk
         info:    vm disk attach-new command OK
 
-### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>5. adım - sanal makinenin işletim sistemi içinde yönlendirmeyi yapılandırma
+### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>5\. adım - sanal makinenin işletim sistemi içinde yönlendirmeyi yapılandırma
 
 Azure DHCP, varsayılan bir ağ geçidi sanal makinesine bağlı ilk (birincil) ağ arabirimine atar. Azure, bir sanal makineye bağlı ek (ikincil) ağ arabirimlerine varsayılan ağ geçidi atamaz. Bu nedenle varsayılan olarak, alt ağın dışında kalan ve ikincil bir ağ arabirimi içeren kaynaklarla iletişim kurulamaz. Ancak, ikincil ağ arabirimleri kendi alt ağlarının dışında kalan kaynaklarla iletişim kurabilir. İkincil ağ arabirimleri için yönlendirmeyi yapılandırmak için bkz: [birden çok ağ arabirimine sahip bir sanal makine işletim sistemi içinde yönlendirme](virtual-network-network-interface-vm.md).

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: bb296db0d97382deac984369704777de5d5cb362
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147682"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Çıkış noktaları arası kaynak paylaşımı (CORS) desteğiyle Azure depolama hizmetleri
@@ -130,7 +130,7 @@ Ardından, aşağıdaki CORS isteklerini göz önünde bulundurun:
 
 | İstek |  |  | Yanıt |  |
 | --- | --- | --- | --- | --- |
-| **Yöntem** |**Kaynak** |**İstek Üst Bilgileri** |**Kuralın eşleşmesi** |**Sonuç** |
+| **Yöntemi** |**Kaynak** |**İstek Üst Bilgileri** |**Kuralın eşleşmesi** |**Sonuç** |
 | **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |İlk kuralı |Başarılı |
 | **GET** |http:\//www.contoso.com |x-ms-blob-content-type |İkinci kuralı |Başarılı |
 | **GET** |http:\//www.contoso.com |x-ms-istemci-isteği-ID |İkinci kuralı |Hata |

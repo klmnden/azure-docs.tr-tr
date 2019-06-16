@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
 ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571199"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Kurumsal Anlaşma Azure faturanızı anlama
@@ -113,8 +113,8 @@ Hüküm ve fatura ve üzerinde gösterilen açıklamaları aşağıdaki tabloda 
 |Toplam miktarı genişletilmiş|Toplam Kullanım|Kredi uygulanmadan önce belirli bir dönem için toplam öncesi vergi kullanım ücreti.|
 |Taahhüt kullanımı|Taahhüt kullanımı|Belirli bir dönemde uygulanan alacak.|
 |Toplam satış|Toplam fazla kullanım|Kredi miktarını aşan toplam kullanım ücreti. Bu miktar, vergi dahil değildir.|
-|Vergi tutarı|Uygulanamaz|Belirli bir süre için toplam satış tutarı uygulanan vergiler.|
-|Toplam tutar|Uygulanamaz|Miktarı kredi uygulanır ve vergi eklendikten sonra Fatura için son.|
+|Vergi tutarı|Geçerli değil|Belirli bir süre için toplam satış tutarı uygulanan vergiler.|
+|Toplam tutar|Geçerli değil|Miktarı kredi uygulanır ve vergi eklendikten sonra Fatura için son.|
 
 ### <a name="marketplace-invoice"></a>Market faturasında
 
@@ -130,7 +130,7 @@ Toplam açık, Azure Market'ten karşılaştırma **raporları** > **Kullanım �
 1. Kullanım tabanlı ücretlerinizle ilgili daha fazla bilgi için Git **kullanımı indir**. Altında **Market ücretlerini**seçin **indirme**. Vergiler veya tek seferlik satın alma işlemleri bu rapora dahil değildir.  
      ![Market ücretlerini seçeneğinde indirin gösteren ekran görüntüsü.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-marketplace.png)
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

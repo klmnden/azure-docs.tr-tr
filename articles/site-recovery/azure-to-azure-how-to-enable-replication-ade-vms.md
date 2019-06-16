@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60791018"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk şifrelemesi etkinleştirilmiş sanal makineleri başka bir Azure bölgesine çoğaltma
@@ -29,18 +29,18 @@ Disk şifrelemesi özellikli VM'ler Azure portalından çoğaltmayı etkinleşti
 
 - Anahtar kasası izinleri
     - Liste
-    - Oluştur
+    - Create
     - Al
 
 -   Anahtar kasası gizli dizi izinleri
     - Liste
-    - Oluştur
+    - Create
     - Al
 
 - Anahtar kasası anahtar izinleri (yalnızca VM'lerin disk şifreleme anahtarlarını şifrelemek için anahtar şifreleme anahtarı kullanırsanız, gerekli)
     - Liste
     - Al
-    - Oluştur
+    - Create
     - Şifreleme
     - Şifre Çözme
 
@@ -98,8 +98,8 @@ Bu örnekte, Birincil Azure bölge Doğu Asya ve ikincil bölgeye Güneydoğu As
     - **Hedef abonelik**: Olağanüstü durum kurtarma için kullanılan hedef aboneliği. Varsayılan olarak, hedef abonelik kaynak abonelik ile aynıdır.
     - **Hedef kaynak grubu**: Kaynak grubu için tüm çoğaltılan sanal makinelerinize ait. Varsayılan olarak, Site Recovery, hedef bölgede yeni bir kaynak grubu oluşturur. "Asr" sonekine adını alır. Azure Site Recovery tarafından oluşturulan bir kaynak grubu zaten var, yeniden kullanılır. Ayrıca, özelleştirmek aşağıdaki bölümde gösterildiği gibi seçebilirsiniz. Hedef kaynak grubu konumunu, kaynak sanal makineleri barındırıldığı bölgeyi dışında tüm Azure bölgelerine olabilir.
     - **Hedef sanal ağ**: Varsayılan olarak, Site Recovery, hedef bölgede yeni bir sanal ağ oluşturur. "Asr" sonekine adını alır. Kaynak ağa eşlenen ve gelecekteki tüm koruma için kullanılan. [Daha fazla bilgi edinin](site-recovery-network-mapping-azure-to-azure.md) ağ eşlemesi hakkında.
-    - **Hedef depolama hesapları (VM kullanmaz, kaynak yönetilen diskleri kullanmıyorsa)**: Varsayılan olarak, Site Recovery, kaynak VM depolama yapılandırmanızı yakından taklit eden yeni bir hedef depolama hesabı oluşturur. Bir depolama hesabı zaten varsa, yeniden kullanılır.
-    - **Yönetilen çoğaltma diskleri (kaynak sanal makine yönetilen diskleri kullanıyorsa)**: Site Recovery, kaynak sanal makinenin yönetilen diskleri aynı depolama türü (standart veya premium) olarak kaynak sanal makinenin yönetilen disklerini yansıtmak için hedef bölgede yeni yönetilen çoğaltma diskleri oluşturur.
+    - **Hedef depolama hesapları (VM kullanmaz, kaynak yönetilen diskleri kullanmıyorsa)** : Varsayılan olarak, Site Recovery, kaynak VM depolama yapılandırmanızı yakından taklit eden yeni bir hedef depolama hesabı oluşturur. Bir depolama hesabı zaten varsa, yeniden kullanılır.
+    - **Yönetilen çoğaltma diskleri (kaynak sanal makine yönetilen diskleri kullanıyorsa)** : Site Recovery, kaynak sanal makinenin yönetilen diskleri aynı depolama türü (standart veya premium) olarak kaynak sanal makinenin yönetilen disklerini yansıtmak için hedef bölgede yeni yönetilen çoğaltma diskleri oluşturur.
     - **Önbellek depolama hesapları**: Site kurtarma adlı bir ek depolama hesabı gerekir *önbellek depolama* kaynak bölgede. Kaynak VM'lerin üzerindeki tüm değişiklikleri izlenir ve önbellek depolama hesabına gönderilir. Ardından hedef konuma çoğaltılır.
     - **Kullanılabilirlik kümesi**: Varsayılan olarak, Site Recovery, hedef bölgede yeni bir kullanılabilirlik oluşturur. Adı "asr" sonekine sahip. Site Recovery tarafından zaten oluşturulmuş bir kullanılabilirlik kümesi varsa, yeniden kullanılır.
     - **Disk şifreleme anahtar kasalarını**: Varsayılan olarak, Site Recovery, hedef bölgede yeni bir anahtar kasası oluşturur. Bu, kaynak VM disk şifreleme anahtara göre bir "asr" sonekine sahip. Azure Site Recovery tarafından zaten oluşturulmuş bir anahtar kasası zaten varsa, yeniden kullanılır.

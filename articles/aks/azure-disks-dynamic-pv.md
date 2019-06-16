@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956483"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dinamik olarak oluşturabilen ve Azure diskleri Azure Kubernetes Service (AKS) ile kalıcı hacim kullanma
@@ -88,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Kalıcı hacim kullanın
 
-Kalıcı hacim talep oluşturulduktan sonra başarıyla kaynak sağlandı, disk disk erişimi olan bir pod oluşturulabilir. Aşağıdaki bildirim adlı kalıcı hacim talep kullanan temel bir NGINX pod oluşturur *azure yönetilen diski* Azure diski yolda `/mnt/azure`. Kapsayıcılar (şu anda önizlemede AKS), Windows Server için belirtin bir *mountPath* gibi Windows yol kuralı kullanılarak *'D:'*.
+Kalıcı hacim talep oluşturulduktan sonra başarıyla kaynak sağlandı, disk disk erişimi olan bir pod oluşturulabilir. Aşağıdaki bildirim adlı kalıcı hacim talep kullanan temel bir NGINX pod oluşturur *azure yönetilen diski* Azure diski yolda `/mnt/azure`. Kapsayıcılar (şu anda önizlemede AKS), Windows Server için belirtin bir *mountPath* gibi Windows yol kuralı kullanılarak *'D:'* .
 
 Adlı bir dosya oluşturun `azure-pvc-disk.yaml`, aşağıdaki bildirim kopyalayın.
 

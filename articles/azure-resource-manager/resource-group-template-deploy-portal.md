@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60520427"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma
@@ -30,7 +30,7 @@ Bu makalede nasıl kullanılacağını gösterir [Azure portalında](https://por
 
 1. Kaynak grubu altında seçin **Ekle**.
 
-   ![Kaynak grubu ekle](./media/resource-group-template-deploy-portal/add-resource-group.png)
+   ![Kaynak Grubu Ekle](./media/resource-group-template-deploy-portal/add-resource-group.png)
 
 1. Bir ad ve konum verin ve gerekirse, bir abonelik seçin. Kaynak grubu, kaynaklarla ilgili meta verileri depoladığı için kaynak grubu için bir konum sağlamanız gerekir. Uyumluluk nedenleriyle, meta verilerin nerede depolanacağını belirtmek isteyebilirsiniz. Genel olarak, kaynaklarınızın en bulunacağı bir konum belirtmenizi öneririz. Konumun aynısını kullanarak şablonunuzu basitleştirebilir.
 
@@ -64,7 +64,7 @@ Bir kaynak grubu oluşturduktan sonra Market'ten için kaynakları dağıtabilir
 
    Alternatif olarak, kaynaklarınızı dağıtırken bir kaynak grubu oluşturmak karar verebilirsiniz. Seçin **Yeni Oluştur** ve kaynak grubuna bir ad verin.
 
-   ![Yeni kaynak grubu oluştur](./media/resource-group-template-deploy-portal/select-new-group.png)
+   ![Yeni kaynak grubu oluşturun](./media/resource-group-template-deploy-portal/select-new-group.png)
 
 1. Dağıtımınız başlar. Dağıtım birkaç dakika sürebilir. Dağıtım tamamlandığında, bir bildirim görür.
 
@@ -99,7 +99,7 @@ Bir dağıtım yürütülürler ancak şablonlardan herhangi birini Market'te ku
 
 1. JSON söz dizimi el ile düzenlemeniz veya önceden oluşturulmuş bir şablondan seçim [hızlı başlangıç Şablon Galerisi](https://azure.microsoft.com/resources/templates/). Ancak bu makalede kullanmanız **kaynak ekleme** seçeneği.
 
-   ![Şablonu düzenle](./media/resource-group-template-deploy-portal/select-add-resource.png)
+   ![Şablonu Düzenle](./media/resource-group-template-deploy-portal/select-add-resource.png)
 
 1. Seçin **depolama hesabı** ve bir ad sağlayın. Değerleri girmeyi bitirdiğinizde seçin **Tamam**.
 
@@ -107,7 +107,7 @@ Bir dağıtım yürütülürler ancak şablonlardan herhangi birini Market'te ku
 
 1. Düzenleyici JSON kaynak türü için otomatik olarak ekler. Depolama hesabı türünü tanımlamak için bir parametre içerdiğine dikkat edin. **Kaydet**’i seçin.
 
-   ![Şablonu göster](./media/resource-group-template-deploy-portal/show-json.png)
+   ![Şablonu Göster](./media/resource-group-template-deploy-portal/show-json.png)
 
 1. Artık, şablonda tanımlanan kaynakları dağıtma seçeneği var. Dağıtın, hüküm ve koşulları kabul ediyorum ve **satın alma**.
 

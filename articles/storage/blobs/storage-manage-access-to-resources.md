@@ -9,10 +9,10 @@ ms.date: 04/30/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: e0f93b0a95a228b26fae266129aea4b595b05e0f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148371"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Kapsayıcılara ve blob’lara anonim okuma erişimini yönetme
@@ -143,7 +143,7 @@ Aşağıdaki tabloda gösterilen bir kapsayıcı yapılandırıldığında hangi
 | Get Blob | Anonim isteklere izin | Anonim isteklere izin |
 | BLOB özelliklerini alma | Anonim isteklere izin | Anonim isteklere izin |
 | Blob özelliklerini ayarlama | Yalnızca yetkili istekleri | Yalnızca yetkili istekleri |
-| Blob Meta Verilerini al | Anonim isteklere izin | Anonim isteklere izin |
+| BLOB meta verilerini al | Anonim isteklere izin | Anonim isteklere izin |
 | BLOB meta verileri ayarlama | Yalnızca yetkili istekleri | Yalnızca yetkili istekleri |
 | Blok yerleştirme | Yalnızca yetkili istekleri | Yalnızca yetkili istekleri |
 | Engelleme listesi (yalnızca kaydedilmiş blokları) alma | Anonim isteklere izin | Anonim isteklere izin |
@@ -155,7 +155,7 @@ Aşağıdaki tabloda gösterilen bir kapsayıcı yapılandırıldığında hangi
 | Kira blob'u | Yalnızca yetkili istekleri | Yalnızca yetkili istekleri |
 | Sayfa yerleştirin | Yalnızca yetkili istekleri | Yalnızca yetkili istekleri |
 | Alma sayfası aralıkları | Anonim isteklere izin | Anonim isteklere izin |
-| Ekleme Blobu | Yalnızca yetkili istekleri | Yalnızca yetkili istekleri |
+| Ekleme blobu | Yalnızca yetkili istekleri | Yalnızca yetkili istekleri |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

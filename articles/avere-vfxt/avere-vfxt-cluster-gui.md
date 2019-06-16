@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794313"
 ---
 # <a name="access-the-vfxt-cluster"></a>Erişim vFXT küme
@@ -58,8 +58,8 @@ PuTTY içinde dolgu **ana bilgisayar adı** küme denetleyicisi kullanıcı adı
 1. Bir kaynak bağlantı noktası 8443 gibi girin. 
 1. Hedef için vFXT kümenin yönetim IP adresi ve bağlantı noktası 443'ü girin. 
    Örnek: ``203.0.113.51:443``
-1. **Ekle**'ye tıklayın.
-1. **Aç**'a tıklayın.
+1. **Ekle**'yi tıklatın.
+1. Tıklayın **açık**.
 
 ![Tünel eklemek için tıklatın nerede gösteren ekran görüntüsü, Putty uygulama](media/avere-vfxt-ptty-numbered.png)
 

@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826756"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>İzleme ve Azure Data Factory işlem hatlarını izleme ve yönetim uygulaması kullanarak yönetme
@@ -188,7 +188,7 @@ Etkinlik pencereleri aşağıdaki durumlardan biri olabilir:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Devam Ediyor</td><td>Doğrulanıyor</td><td>Doğrulama işlemi devam ediyor.</td>
+<td rowspan="2">Devam ediyor</td><td>Doğrulama</td><td>Doğrulama işlemi devam ediyor.</td>
 </tr>
 <td>-</td>
 <td>Etkinlik penceresi işleniyor.</td>
@@ -239,7 +239,7 @@ Takvim görünümünde üst tıklatarak için başka bir etkinlik penceresi aras
 
 Etkinlik penceresi yeniden veya ayrıntılar bölmesini yenilemek için alt bölmede araç çubuğu düğmelerini kullanabilirsiniz.
 
-### <a name="script"></a>Betik
+### <a name="script"></a>Komut Dosyası
 Kullanabileceğiniz **betik** (bağlı hizmet, veri kümesi veya işlem hattı) seçilen Data Factory varlığın JSON tanımını görüntüleme için sekmesinde.
 
 ![Komut dosyası sekmesi](./media/data-factory-monitor-manage-app/ScriptTab.png)

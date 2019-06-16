@@ -13,10 +13,10 @@ ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900536"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>İstek telemetrisi: Application Insights veri modeli
@@ -45,7 +45,7 @@ Tüm sorgu dizesi parametreleri ile istek URL'si.
 
 En fazla uzunluk: 2048 karakter
 
-## <a name="source"></a>Kaynak
+## <a name="source"></a>source
 
 İstek kaynağı. Arayanın izleme anahtarını veya IP adresini arayanın verilebilir. Daha fazla bilgi için [bağıntı](../../azure-monitor/app/correlation.md) sayfası.
 
@@ -63,7 +63,7 @@ En fazla uzunluk: 1024 karakter
 
 ## <a name="success"></a>Başarılı
 
-Başarılı veya başarısız çağrı göstergesi. Bu alan zorunludur. Açıkça ayarlandığında değil `false` -bir istek başarılı olarak kabul edilir. Bu değer kümesine `false` işlemi özel durum tarafından kesildi veya hata sonuç kodunu döndürdü.
+Başarılı veya başarısız çağrı göstergesi. Bu alan gereklidir. Açıkça ayarlandığında değil `false` -bir istek başarılı olarak kabul edilir. Bu değer kümesine `false` işlemi özel durum tarafından kesildi veya hata sonuç kodunu döndürdü.
 
 Yanıt kodu olduğunda web uygulamaları için Application Insights istek başarılı tanımlamak küçüktür `400` veya buna eşit `401`. Ancak bu varsayılan eşleme anlam uygulamanın eşleşmediğinde durumlar vardır. Yanıt kodu `404` "normal bir akışın parçası olabilecek hiç kayıt" gösterebilir. Bozuk bağlantı da işaret edebilir. Bozuk bağlantılar için bile daha gelişmiş mantığı uygulayabilir. Yalnızca bu bağlantıları aynı sitede url başvuran analiz ederek bulunduğunda bağlantıların hatalar olarak işaretleyebilirsiniz. Veya bunları şirketin mobil uygulamasından erişildiğinde hatası olarak işaretleyin. Benzer şekilde `301` ve `302` yeniden yönlendirme desteği olmayan istemciden erişildiğinde başarısız olduğunu gösterir.
 

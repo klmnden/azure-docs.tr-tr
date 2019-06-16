@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 9/24/2018
 ms.author: cherylmc
 ms.openlocfilehash: cb91c1364a91c101ecf8362acd7aab01440143fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685274"
 ---
 # <a name="office-365-control-plane-in-virtual-wan"></a>Sanal WAN Office 365 denetim düzlemi
 
@@ -26,7 +26,7 @@ Sanal WAN müşterilerle SDWAN cihazları seçin, Azure portalında güvenilir t
 Sanal WAN ' Bu özelliği kullanarak, müşteriler için doğrudan internet kırılımı güvendikleri Office 365 trafiği kategorileri artık belirtebilirsiniz. Başka bir güvenilir, O365 trafiği intranetlerinden proxy'leri ve en yakın POP Microsoft doğrudan kullanıcı konumu yolu. Bu, trafiği arka-stoklarını çekme ve pining, böylece en iyi kullanıcı deneyimi sağlamaya ve WAN maliyetlerini kaydetmeyi artı önler. 
 
 ### <a name="what-are-the-office-365-traffic-categories"></a>Office 365 trafiği kategorileri nelerdir?
-Office 365 uç noktaları, ağ adresleri ve alt ağlar temsil eder. Uç noktalar olabilir URL, IP adresi veya IP aralıkları. URL'leri olabilir bir FQDN gibi *account.office.net*, veya bir joker karakter URL **. office365.com*. Uç noktaları üç kategoriye - yinelenmeli **İyileştir**, **izin**, ve **varsayılan**derecesine göre. Uç nokta kategorileri hakkında daha fazla ayrıntıyı [burada](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
+Office 365 uç noktaları, ağ adresleri ve alt ağlar temsil eder. Uç noktalar olabilir URL, IP adresi veya IP aralıkları. URL'leri olabilir bir FQDN gibi *account.office.net*, veya bir joker karakter URL * *. office365.com*. Uç noktaları üç kategoriye - yinelenmeli **İyileştir**, **izin**, ve **varsayılan**derecesine göre. Uç nokta kategorileri hakkında daha fazla ayrıntıyı [burada](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
 
 ### <a name="which-office-365-traffic-category-is-recommended-by-microsoft-for-direct-internet-breakout"></a>Office 365 trafiği kategorisini Microsoft tarafından doğrudan internet kırılımı için tavsiye edilir?
 **İyileştir** kategorisi en kritik ağ uç noktaları ve SSL sonu atlamak ve incelemek için gerekli ve diğer güvenlik ağ. Bu, doğrudan Internet çıkış kullanıcılar yakın olması gerekir. Bu uç noktaları, ağ performansı, gecikme süresi ve kullanılabilirlik için en önemli olan Office 365 senaryolarını temsil eder. Bu kategori, URL'leri ve IP alt ağları tanımlı bir dizi Exchange Online, SharePoint Online, Skype gibi çekirdek Office 365 iş yükleri için çevrimiçi ve Microsoft Teams için ayrılmış bir anahtar (bazında ~ 10) küçük bir kümesini içerir. 

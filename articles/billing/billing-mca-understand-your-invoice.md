@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604047"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Microsoft Müşteri sözleşmesi faturanızla ilgili koşulları anlama
@@ -41,7 +41,7 @@ Aşağıdaki bölümlerde her dönem için fatura ve açıklamaları gördüğü
 
 ![Fatura Özeti bölümü](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
-| Dönem | Açıklama |
+| Terim | Açıklama |
 | --- | --- |
 | Kime Satıldı |Faturalama hesabı özellikleri bulunan varlığınız yasal adresi|
 | Fatura adresi |Faturayı almadan fatura profilinin adresi faturalandırma, profil özelliklerini faturalama bulunamadı|
@@ -57,12 +57,12 @@ Aşağıdaki bölümlerde her dönem için fatura ve açıklamaları gördüğü
 
 ![Fatura Özeti bölümü](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
-| Dönem | Açıklama |
+| Terim | Açıklama |
 | --- | --- |
-| Ücretler|Bu faturalandırma profili son fatura döneminden itibaren Microsoft ücretlendirir toplam sayısı |
+| Ücretleri|Bu faturalandırma profili son fatura döneminden itibaren Microsoft ücretlendirir toplam sayısı |
 | Jenerik |İadelerini aldığınız KREDİLERİ |
 | Uygulanan azure kredisine sahip olun | Azure ücretlerine her fatura döneminde otomatik olarak uygulanan azure kredisine sahip olun |
-| Alt toplam |Vergi öncesi tutarın |
+| Ara toplam |Vergi öncesi tutarın |
 | Vergi |Profilinizi faturalandırma ülke/bölge bağlı olarak ödeme vergi tutarı ve türü. Ardından Vergi ödenecek yoksa faturası vergisi görmezsiniz. |
 | Tahmini Toplam tasarruf |Etkili indirimlere kaydettiğiniz tahmini toplam tutar. Varsa, geçerli İndirim oranları ayrıntılarında satın alma satır öğeleri altında fatura bölümünde listelenir. |
 
@@ -82,7 +82,7 @@ Kalan ödenmemiş toplam tutar her hizmet ailesi çıkarılmasıyla hesaplanır 
 
 ![Fatura bölümünde ayrıntıları](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
-| Dönem |Açıklama |
+| Terim |Açıklama |
 | --- | --- |
 | Birim fiyatı | Geçerli birim fiyatı olan (para birimi fiyatlandırma) hizmeti kullanım oranı için kullanılır. Bu ürün, hizmet ailesi, ölçüm ve teklif için benzersizdir. |
 | Miktar | Satın alınan ya da fatura dönemi boyunca Tüketilen Miktar |
@@ -103,7 +103,7 @@ Fatura sayfanın en faturanızın ödeme yapmak için yönergeler de vardır. On
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

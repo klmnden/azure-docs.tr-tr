@@ -3,16 +3,16 @@ title: Hizmet, Azure IOT Hub cihazı sağlama hizmeti kavramları | Microsoft Do
 description: Hizmeti özgü cihaz sağlama hizmeti ve IOT Hub ile cihaz sağlama kavramları açıklar.
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60745817"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IOT Hub cihazı sağlama hizmeti kavramları
@@ -31,7 +31,7 @@ Hizmet işlemleri uç noktası için hizmet ayarlarını yönetme ve koruma kay�
 
 Cihaz sağlama uç noktası, tüm cihazlar için otomatik sağlamayı kullanın. uç noktasıdır. Tedarik zinciri senaryolarda cihazlar yeni bağlantı bilgileriyle reflash gereksinimini ortadan kaldırmak için tüm sağlama hizmeti örneklerini, URL aynıdır. Kimlik kapsamı Kiracı yalıtımı sağlar.
 
-## <a name="linked-iot-hubs"></a>IoT hub'larına bağlanıldı
+## <a name="linked-iot-hubs"></a>IOT hub'larına bağlanıldı
 
 Cihaz sağlama hizmeti, yalnızca kendisine bağlanmış olan IOT hub'ları cihazlarına sağlayabilirsiniz. Bir IOT hub cihaz sağlama hizmeti örneğine bağlanma, IOT hub'ınızın cihaz kayıt hizmeti okuma/yazma izni verir; bağlantı ile bir cihaz sağlama hizmeti cihaz kimliği kayıt ve cihaz ikizinde başlangıç yapılandırmasını ayarlayın. Bağlı IOT hub'ları dilediğiniz Azure bölgesinde olabilir. Diğer Aboneliklerdeki hub'ları sağlama hizmetinize bağlanabilir.
 

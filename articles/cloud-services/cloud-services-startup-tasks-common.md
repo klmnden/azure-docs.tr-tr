@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d78ab917589af0eae72eb70e3cdc2cc751072eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406404"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076436"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Bulut hizmeti genel başlangıç görevleri
 Bu makalede, bulut hizmetinizin gerçekleştirmek isteyebileceğiniz genel başlangıç görevleri bazı örnekler sağlar. Başlangıç görevleri rol başlamadan önce işlemleri gerçekleştirmek için kullanabilirsiniz. Gerçekleştirmek isteyebileceğiniz işlemler, bir bileşeni yükleniyor, COM bileşenleri kaydediliyor, kayıt defteri anahtarlarını ayarlamak veya uzun süre çalışan bir işlem başlatılıyor içerir. 
@@ -73,7 +73,7 @@ Tarafından döndürülen errorlevel *AppCmd.exe* wınerror dosyasında listelen
 ### <a name="example-of-managing-the-error-level"></a>Örnek hata düzeyini yönetme
 Bu örnek için JSON için bir sıkıştırma bölümü ve bir sıkıştırma giriş ekler *Web.config* dosyasıyla hata işleme ve günlüğe kaydetme.
 
-İlgili bölümleri [ServiceDefinition.csdef] dosya burada gösterilen, ayar içeren [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) özniteliğini `elevated` vermek *AppCmd.exe* ayarlarını değiştirmek için yeterli izinlere *Web.config* dosyası:
+İlgili bölümleri [ServiceDefinition.csdef] dosya burada gösterilen, ayar içeren [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) özniteliğini `elevated` vermek *AppCmd.exe* ayarlarını değiştirmek için yeterli izinlere *Web.config* dosyası:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 19666eb668dd120c1705c6a62a8ba1abd2321026
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61261861"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rolleri ve izinleri için Azure Data Factory
@@ -78,7 +78,7 @@ Bazı durumlarda farklı bir veri fabrikası kullanıcılar için farklı erişi
   Bu senaryo, iki rol atamalarını gerektirir.
 
   1. Yerleşik atama **katkıda bulunan** data factory düzeyde rolü.
-  2. Özel rol oluşturma izni olan **Microsoft.Resources/deployments/**. Kaynak grubu düzeyinde kullanıcı bu özel bir rol atayın.
+  2. Özel rol oluşturma izni olan **Microsoft.Resources/deployments/** . Kaynak grubu düzeyinde kullanıcı bu özel bir rol atayın.
 
 - Bir kullanıcı ya da Powershell'den SDK'sı, ancak Azure Portalı'nda bir veri fabrikası güncelleştirmesi olanak tanır.
 

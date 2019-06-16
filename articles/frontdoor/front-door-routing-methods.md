@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736233"
 ---
 # <a name="front-door-routing-methods"></a>Ön kapısı yönlendirme yöntemleri
@@ -39,7 +39,7 @@ Dünya çapında iki veya daha fazla konumu arka uçları dağıtmak, 'Son kulla
 
 Genel karar akış aşağıdadır:
 
-| Mevcut arka uçları | Öncelik | Gecikme süresi sinyal (sistem durumu araştırmaya dayalı) | Ağırlıklar |
+| Mevcut arka uçları | Öncelik | Gecikme süresi sinyal (sistem durumu araştırmaya dayalı) | Ağırlıkları |
 |-------------| ----------- | ----------- | ----------- |
 | İlk olarak, etkin ve iyi durumda döndürülen tüm arka uçlar seçin (200 Tamam) durum yoklaması için. Örneğin, A, B, C, D, E ve F, altı arka uçları vardır ve bunlar arasındaki C sağlıksız olduğunu ve E devre dışı bırakıldı. Mevcut arka uçları listesi A, bu nedenle, B ve D f  | Ardından, kullanılabilir olanlara arasından en yüksek önceliğiniz arka uçları seçilir. Örneğin, arka uç A, B ve D öncelik 1 varsa ve arka uç F bir öncelik 2. Seçilen arka uçlar ve böylece, B ve d| Arka uçları gecikme aralığıyla (en az gecikme süresi ve belirtilen MS gecikme duyarlılık) seçin. Söyleyin 15 MS'den A, B 30 ms olan ve D, a en yakın bir arka uç uzağa 30 ms ötesinde olduğundan burada isteği geldiğimizi, 30 ms gecikme duyarlılığı olan sonra arka ucunu A ve B, düşük gecikme süresi havuzu oluşur ön kapısı ortamı uzağa 60 ms D ise | Son olarak, ön kapısı olacak hepsini bir kez deneme trafiğini belirtilen ağırlıkları oranını arka uçları son seçilen havuzu arasında. Örneğin, bir arka uç varsa 8 ağırlığını 5 ve arka uç B ağırlığı olan ve ardından trafik 5:8 arka uçları A ve b arasında oranı olarak dağıtılmış |
 

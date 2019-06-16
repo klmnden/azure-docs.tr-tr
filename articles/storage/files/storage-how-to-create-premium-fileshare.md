@@ -9,10 +9,10 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190106"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Bir premium Azure dosya paylaşımı oluşturma
@@ -48,7 +48,7 @@ Her depolama hesabı bir Azure kaynak grubuna ait olmalıdır. Kaynak grubu, Azu
 1. Depolama hesabınız için bir konum seçin veya varsayılan konumu kullanın.
 1. İçin **performans** seçin **Premium**.
 1. Seçin **hesap türü** ve **dosya (Önizleme) deposundan**.
-1. Bırakın **çoğaltma** kendi varsayılan değerine ayarlanmasından **yerel olarak yedekli depolama (LRS)**.
+1. Bırakın **çoğaltma** kendi varsayılan değerine ayarlanmasından **yerel olarak yedekli depolama (LRS)** .
 
     ![Premium dosya paylaşımı için bir depolama hesabı oluşturma](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
 
@@ -59,7 +59,7 @@ Depolama hesabı kaynak oluşturulduktan sonra bu sayfaya gidin.
 
 ### <a name="create-a-premium-file-share"></a>Premium dosya paylaşımı oluşturma
 
-1. Depolama hesabı için sol taraftaki menüde kaydırarak **dosya hizmeti** bölümüne ve ardından **dosyalar (Önizleme)**.
+1. Depolama hesabı için sol taraftaki menüde kaydırarak **dosya hizmeti** bölümüne ve ardından **dosyalar (Önizleme)** .
 1. Seçin **+ dosya paylaşımı** premium dosya paylaşımı oluşturmak için.
 1. Dosya paylaşımınız için bir ad ve istenen kotayı girin ve ardından **Oluştur**.
 

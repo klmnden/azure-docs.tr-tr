@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: v-adgera
-ms.openlocfilehash: 31944c08bad503c20832ea7e4e682c0063ab0f9f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735043"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116561"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure dijital çiftleri için Postman'ı yapılandırma
 
@@ -41,7 +41,7 @@ OAuth 2.0 örtülü izin akışı kullanmak için Azure Active Directory uygulam
 
     [![Azure Active Directory Uygulama kayıtları API ekleme](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. Tıklayın **bildirim** uygulamanız için uygulama bildirimini açın. Ayarlama *oauth2AllowImplicitFlow* için `true`.
+1. Seçin **bildirim** uygulamanız için uygulama bildirimini açın. Ayarlama *oauth2AllowImplicitFlow* için `true`.
 
     [![Azure Active Directory örtük akış](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
@@ -111,7 +111,7 @@ Ardından, ayarlama ve Azure Active Directory belirteci almak için Postman'ı y
    > * Her parça için bu üstbilgileri belirtmek gerekmez.
    > * Seçmelisiniz `multipart/mixed` veya başka bir uygun **Content-Type** tüm istek için.
 
-1. Son olarak, tıklayın **Gönder** çok bölümlü HTTP POST isteğinizi gönderebilirsiniz.
+1. Son olarak, seçin **Gönder** çok bölümlü HTTP POST isteğinizi gönderebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae9db483e15197e6cdaaaa5981410630184cc6ca
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957234"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Python'dan (Önizleme) dağıtılmış izlemeleri toplamak
@@ -32,7 +32,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 [Azure Portal](https://portal.azure.com/) oturum açın.
 
-## <a name="create-application-insights-resource"></a>Application Insights kaynağı oluştur
+## <a name="create-application-insights-resource"></a>Application Insights kaynağı oluşturun
 
 İlk izleme key(ikey) oluşturacak bir Application Insights kaynağı oluşturmak gerekir. İkey sonra Application Insights için izleme eklenmiş OpenCensus uygulamanızdan dağıtılmış izlemeleri göndermek için yerel ileticisi yapılandırmak için kullanılır.   
 
@@ -183,7 +183,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
     Biz yalnızca bir yöntem çağrısının izleme olduğundan, bizim Uygulama Haritası olarak ilginç değil. Ancak, Uygulama Haritası daha dağıtılmış uygulamalar görselleştirmek için ölçeklendirebilirsiniz:
 
-   ![Uygulama Haritası](media/opencensus-python/application-map.png)
+   ![Uygulama Eşlemesi](media/opencensus-python/application-map.png)
 
 4. Seçin **araştırmak performans** ayrıntılı Performans Analizi gerçekleştirebilir ve performansın kök nedenini belirlemek için.
 

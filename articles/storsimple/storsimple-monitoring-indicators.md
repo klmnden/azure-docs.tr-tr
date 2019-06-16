@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630657"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>İzleme gösterge StorSimple Cihazınızı yönetmek için kullanın
@@ -53,7 +53,7 @@ Cihazın ön panelini LED'lerini hem de EBOD muhafazası arasındaki başlıca f
 ## <a name="front-panel-led-status"></a>Ön panelini LED durumu
 Cihaz veya EBOD muhafazası için ön panelini üzerinde LED'lerini tarafından belirtilen durum tanımlamak için aşağıdaki tabloyu kullanın.  
 
-| Sistem güç | Modül hatası | Mantıksal hata | Alarm | Durum |
+| Sistem güç | Modül hatası | Mantıksal hata | Uyarı | Durum |
 | --- | --- | --- | --- | --- |
 | Kırmızı-amber |KAPALI |KAPALI |Yok |Kayıp AC gücü yedek güç veya AC gücü üzerinde çalışan ve denetleyici modülleri kaldırıldı. |
 | Yeşil |AÇIK |AÇIK |Yok |OPS paneli gücüyle 5 (sn) test durumu |
@@ -219,7 +219,7 @@ Sesli uyarı ops panelinde sesini kapat düğmesine basarak sesi kapatmak. Sesi 
 Aşağıdaki tabloda, çeşitli uyarı koşullar açıklanmaktadır.
 
 ### <a name="alarm-conditions"></a>Uyarı koşulları
-| Durum | Severity | Alarm | OPS LED paneli |
+| Durum | Severity | Uyarı | OPS LED paneli |
 | --- | --- | --- | --- |
 | PCM uyarı – tek PCM DC Güç kaybı |Hata – yedeklilik kaybı olmadan |S1 |Modül hatası |
 | PCM uyarı – tek PCM DC Güç kaybı |Hata – yedeklilik kaybı |S1 |Modül hatası |
@@ -239,7 +239,7 @@ Aşağıdaki tabloda, çeşitli uyarı koşullar açıklanmaktadır.
 | Güç denetimi hata sürücü |Uyarı: sürücü güç kaybı olmadan |S1 |Modül hatası |
 | Güç denetimi hata sürücü |Hata – kritik; Sürücü güç kaybı |S1 |Modül hatası |
 | Sürücü kaldırıldı |Uyarı |None |Modül hatası |
-| Yeterli güç yok |Uyarı |yok |Modül hatası |
+| Yeterli güç yok |Uyarı |Yok |Modül hatası |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi edinin [StorSimple donanım bileşenleri ve durum](storsimple-8000-monitor-hardware-status.md).

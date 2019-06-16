@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602738"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları toplamaları
@@ -29,9 +29,9 @@ ms.locfileid: "65602738"
 
 Bu makalede, verilerinizi analiz etmek için faydalı sunan Azure İzleyici günlük sorguları toplama işlevleri açıklanmaktadır. Tüm bu işlevler çalışmak `summarize` işleci girdi tablosunun toplu sonuçları içeren bir tablo oluşturur.
 
-## <a name="counts"></a>Sayılan
+## <a name="counts"></a>Sayıları
 
-### <a name="count"></a>sayı
+### <a name="count"></a>count
 Tüm filtreler uygulandıktan sonra sonuç satır sayısı. Aşağıdaki örnek toplam satır sayısı döndürür _Perf_ son 30 dakika tablosundan. Adlı bir sütunu sonuç döndürülmeden *count_* sürece belirli bir ad atayın:
 
 

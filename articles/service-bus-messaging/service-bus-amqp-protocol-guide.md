@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60749453"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 protokol Kılavuzu Azure Service Bus ve Event Hubs
@@ -214,7 +214,7 @@ AMQP için 's tanımlar için uygulaması gereken herhangi bir özellik eşlenme
 | --- | --- | --- |
 | dayanıklı |- |- |
 | öncelik |- |- |
-| ttl |Bu iletinin yaşam süresi |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| TTL |Bu iletinin yaşam süresi |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | ilk alıcı |- |- |
 | Teslimat sayısı |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -225,7 +225,7 @@ AMQP için 's tanımlar için uygulaması gereken herhangi bir özellik eşlenme
 | ileti kimliği |Bu ileti için uygulama tanımlı, serbest biçimli tanımlayıcı. Yinelenen algılama için kullanılır. |[MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Kullanıcı Kimliği |Service Bus tarafından yorumlanır değil, uygulama tanımlı kullanıcı tanımlayıcısı. |Service Bus API'sini aracılığıyla erişilebilir değil. |
 | - |Service Bus tarafından yorumlanır değil, hedef uygulama tanımlı tanımlayıcısı. |[Alıcı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| konu |Service Bus tarafından yorumlanır değil, uygulama tarafından tanımlanan ileti amaçlı tanımlayıcısı. |[Etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Service Bus tarafından yorumlanır değil, uygulama tarafından tanımlanan ileti amaçlı tanımlayıcısı. |[Etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Yanıtla |Uygulama tanımlı yanıt yolu göstergesi, Service Bus tarafından yorumlanır değil. |[replyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Bağıntı Kimliği |Service Bus tarafından yorumlanır değil, uygulama tanımlı bağıntı tanımlayıcısı. |[Bağıntı Kimliği](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | içerik türü |İçerik türü, Service Bus tarafından yorumlanır değil gövdesi için uygulama tanımlı göstergesi. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -270,7 +270,7 @@ Bir işlem, iki veya daha fazla işlem yürütme kapsam birleştirerek grupland�
 | --- | --- | --- |
 | (ekleme<br/>adı = {bağlantı adı}<br/>... ,<br/>Rol =**gönderen**,<br/>Hedef =**Düzenleyicisi**<br/>) | ------> |  |
 |  | <------ | (ekleme<br/>adı = {bağlantı adı}<br/>... ,<br/>target=Coordinator()<br/>) |
-| Aktarım)<br/>teslim-id = 0,...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
+| Aktarım)<br/>teslim-id = 0,...)<br/>{ AmqpValue (**Declare()** )}| ------> |  |
 |  | <------ | Değerlendirme) <br/> İlk = 0, 0 = <br/>Durum =**Declared**()<br/>**işlemleri kimliği**{işlem kimliği} =<br/>))|
 
 #### <a name="discharging-a-transaction"></a>Bir işlem discharging
@@ -284,8 +284,8 @@ Denetleyici göndererek işlem tabanlı iş sonucuna bir `discharge` Düzenleyic
 | Aktarım)<br/>teslim-id = 0,...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | Değerlendirme) <br/> İlk = 0, 0 = <br/>Durum = bildirilen ()<br/>işlemleri kimliği = {işlem ID}<br/>))|
 | | . . . <br/>İşlem çalışma<br/>diğer bağlantılar<br/> . . . |
-| Aktarım)<br/>teslim-id = 57,...)<br/>{ AmqpValue (<br/>**Taburcu (işlemleri-id = 0,<br/>başarısız = false)**)}| ------> |  |
-| | <------ | Değerlendirme) <br/> first=57, last=57, <br/>Durum =**kabul()**)|
+| Aktarım)<br/>teslim-id = 57,...)<br/>{ AmqpValue (<br/>**Taburcu (işlemleri-id = 0,<br/>başarısız = false)** )}| ------> |  |
+| | <------ | Değerlendirme) <br/> first=57, last=57, <br/>Durum =**kabul()** )|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Bir işlemde bir ileti gönderme
 
@@ -295,8 +295,8 @@ Tüm işlem iş işlem teslim durumu ile yapılır `transactional-state` , işle
 | --- | --- | --- |
 | Aktarım)<br/>teslim-id = 0,...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | Değerlendirme) <br/> İlk = 0, 0 = <br/>Durum = bildirilen ()<br/>işlemleri kimliği = {işlem ID}<br/>))|
-| Aktarım)<br/>tanıtıcı = 1,<br/>teslim-id = 1, <br/>**Durum =<br/>TransactionalState (<br/>işlemleri-id = 0)**)<br/>{} Yükü| ------> |  |
-| | <------ | Değerlendirme) <br/> ilk = 1, 1 = <br/>Durum =**TransactionalState (<br/>işlemleri-id = 0,<br/>outcome=Accepted()**))|
+| Aktarım)<br/>tanıtıcı = 1,<br/>teslim-id = 1, <br/>**Durum =<br/>TransactionalState (<br/>işlemleri-id = 0)** )<br/>{} Yükü| ------> |  |
+| | <------ | Değerlendirme) <br/> ilk = 1, 1 = <br/>Durum =**TransactionalState (<br/>işlemleri-id = 0,<br/>outcome=Accepted()** ))|
 
 #### <a name="disposing-a-message-in-a-transaction"></a>Bir işlemde bir ileti ile atılıyor
 
@@ -307,7 +307,7 @@ Tüm işlem iş işlem teslim durumu ile yapılır `transactional-state` , işle
 | Aktarım)<br/>teslim-id = 0,...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | Değerlendirme) <br/> İlk = 0, 0 = <br/>Durum = bildirilen ()<br/>işlemleri kimliği = {işlem ID}<br/>))|
 | | <------ |Aktarım)<br/>tanıtıcı, 2 =<br/>teslim Kimliği 11 = <br/>Durum = null)<br/>{} Yükü|  
-| Değerlendirme) <br/> ilk 11 =, 11, son = <br/>Durum =**TransactionalState (<br/>işlemleri-id = 0,<br/>outcome=Accepted()**))| ------> |
+| Değerlendirme) <br/> ilk 11 =, 11, son = <br/>Durum =**TransactionalState (<br/>işlemleri-id = 0,<br/>outcome=Accepted()** ))| ------> |
 
 
 ## <a name="advanced-service-bus-capabilities"></a>Service Bus Gelişmiş Özellikler
@@ -361,9 +361,9 @@ Yönetim belirtimi tarafından tanımlanan istek/yanıt exchange Protokolü hare
 
 | Anahtar | İsteğe bağlı | Değer türü | Değer içeriği |
 | --- | --- | --- | --- |
-| işlem |Hayır |string |**PUT-token** |
-| type |Hayır |string |Put yöntemi uygulanan Belirtecin türü. |
-| ad |Hayır |string |Belirtecin geçerli olduğu "audience". |
+| İşlemi |Hayır |string |**PUT-token** |
+| türü |Hayır |string |Put yöntemi uygulanan Belirtecin türü. |
+| name |Hayır |string |Belirtecin geçerli olduğu "audience". |
 | süre sonu |Evet |timestamp |Belirteç süre sonu zamanı. |
 
 *Adı* özelliği ile belirteç olmalıdır ilişkili varlık tanımlar. Service Bus kuyruk veya konu/abonelik yoludur. *Türü* özelliği tanımlar belirteç türü:
@@ -380,7 +380,7 @@ Yanıt iletisi aşağıdaki sahip *uygulama özellikleri* değerleri
 
 | Anahtar | İsteğe bağlı | Değer türü | Değer içeriği |
 | --- | --- | --- | --- |
-| Durum kodu |Hayır |int |HTTP yanıt kodu **[RFC2616]**. |
+| Durum kodu |Hayır |int |HTTP yanıt kodu **[RFC2616]** . |
 | Durum açıklaması |Evet |string |Durum açıklaması. |
 
 İstemci çağırabilirsiniz *put belirteci* sürekli olarak ve mesajlaşma altyapısı herhangi bir varlık için. Belirteçleri geçerli istemci için kapsamlı ve bağlantılı geçerli bağlantıda bağlantı düştüğünde tutulan tarafından istenen belirteçleri sunucu bıraktığı anlamına gelir.
@@ -403,7 +403,7 @@ Bu işlevler sayesinde, bir gönderici oluşturun ve bağlantısını kurmak `vi
 
 | İstemci | | Service Bus |
 | --- | --- | --- |
-| (ekleme<br/>adı = {bağlantı adı}<br/>Rol göndereni =<br/>Kaynak = {istemci bağlantı kimliği}<br/>Hedef =**{aracılığıyla-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| (ekleme<br/>adı = {bağlantı adı}<br/>Rol göndereni =<br/>Kaynak = {istemci bağlantı kimliği}<br/>Hedef = **{aracılığıyla-entity}** ,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | (ekleme<br/>adı = {bağlantı adı}<br/>Rol alıcı =<br/>Kaynak = {istemci bağlantı kimliği}<br/>Hedef = {yoluyla varlık},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>Sonraki adımlar

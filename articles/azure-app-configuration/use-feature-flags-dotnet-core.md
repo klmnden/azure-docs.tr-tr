@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: fc5215f71af45d3273da437fc796bf0d396ba3f9
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 577cb55ce381976a6d623b272b920d0d1bf2eeb9
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393525"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144008"
 ---
-# <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Öğretici: .NET Core uygulamasında özellik bayraklarını kullanma
+# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Öğretici: Özellik bayrakları ASP.NET Core uygulaması kullanın.
 
 .NET Core özellik yönetim kitaplıkları, .NET veya ASP.NET Core uygulamasında özellik bayraklarını uygulamak için kullanılan deyimsel desteği sağlar. Bu kitaplıklar, tüm yazmak zorunda kalmazsınız bildirimli olarak özellik bayraklarını kodunuza eklemenize izin `if` deyimleri için bunları el ile.
 
@@ -109,7 +109,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(5);
+                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
            });
 });
 ```

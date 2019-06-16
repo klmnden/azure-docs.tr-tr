@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: rajanaki
 ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65922128"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure'dan Azure'a çoğaltma Mobility hizmetini otomatik güncelleştirme
@@ -520,7 +520,7 @@ Otomatik Güncelleştirmeler ile'ilgili bir sorun varsa, altında bir hata bildi
 
 Otomatik Güncelleştirmeler etkinleştirilemedi, aşağıdaki yaygın hatalar ve önerilen eylemler bakın:
 
-- **Hata**: Azure Farklı Çalıştır hesabı (hizmet sorumlusu) oluşturma ve hizmet sorumlusuna Katkıda Bulunan rolü verme izniniz yok.
+- **Hata**: Bir Azure farklı çalıştır hesabı (hizmet sorumlusu) oluşturma ve hizmet sorumlusu için katkıda bulunan rolü verme izniniz yok.
 
    **Önerilen eylem**: Oturum açma hesabını katkıda bulunan olarak atandığından emin olun ve yeniden deneyin. Gerekli izinler bölümünde başvurmak [Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) izinleri atama hakkında daha fazla bilgi için.
  

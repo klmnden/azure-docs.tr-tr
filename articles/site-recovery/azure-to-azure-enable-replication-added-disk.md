@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
 ms.openlocfilehash: 69122ffe9cefa3e1b9c6c8fbadfa80492ebebbde
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64928070"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Bir Azure VM'ye eklenen bir disk için çoğaltmayı etkinleştirme
@@ -36,7 +36,7 @@ Azure VM'deki başka bir Azure bölgesine çoğaltmak için yeni bir disk ekledi
 
 Bu makalede, disk eklediğiniz VM için olağanüstü durum kurtarma işlemini önceden ayarladığınız varsayılmaktadır. Siz yapmadıysanız izleyin [Azure'dan Azure'a olağanüstü durum kurtarma öğretici](azure-to-azure-tutorial-enable-replication.md). 
 
-## <a name="enable-replication-for-an-added-disk"></a>Eklenen bir disk için çoğaltmayı etkinleştirme 
+## <a name="enable-replication-for-an-added-disk"></a>Eklenen disk için çoğaltmayı etkinleştirme 
 
 Eklenen bir disk için çoğaltmayı etkinleştirmek için aşağıdakileri yapın:
 

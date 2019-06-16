@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 1ec6a174d05f8707bbffcc9fb013a98c2eb9196c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200554"
 ---
 # <a name="access-your-security-data"></a>Güvenlik verilerinize erişin 
@@ -69,7 +69,7 @@ SecurityAlert
 | take 3
 ```
 
-| TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Açıklama                                             | ExtendedProperties                                                                                                                                                             |
+| TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | displayName                           | Açıklama                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-11-18T18:10:29.000 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Yüksek          | Başarılı deneme yanılma saldırısı           | Cihazda bir deneme yanılma yoluyla yapılan zorla saldırısı başarılı oldu        |    {"Tam kaynak Address": "[\"10.165.12.18:\"]", "Kullanıcı adlarını": "[\"\"]", "DeviceId": "IOT-cihaz-Linux"}                                                                       |
 | 2018-11-19T12:40:31.000 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Yüksek          | Cihazda yerel başarılı oturum açma      | Cihaza başarılı bir yerel oturum algılandı     | {"Uzak adres": "?", "Uzak bağlantı noktası": "", "Yerel bağlantı noktası": "", "Oturum açma kabuğu": "/ bin/su", "Oturum açma işlemi Id": "28207", "kullanıcı adı": "saldırgan", "DeviceId": "IOT-cihaz-Linux"} |
@@ -92,7 +92,7 @@ SecurityAlert
     DisplayName
 ```
 
-| IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Count |
+| IoTHubId                                                                                                       | DeviceId      | AlertSeverity | displayName                           | Count |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Yüksek          | Başarılı deneme yanılma saldırısı           | 9   |   
 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Orta        | Cihazda yerel oturum açma denemesi başarısız oldu  | 242 |    
@@ -116,7 +116,7 @@ SecurityAlert
     DisplayName
 ```
 
-| IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
+| IoTHubId                                                                                                       | AlertSeverity | displayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | Yüksek          | Başarılı deneme yanılma saldırısı           | 1          |    
 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | Orta        | Cihazda yerel oturum açma denemesi başarısız oldu  | 1          | 
@@ -151,8 +151,8 @@ SecurityRecommendation
     
 | TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Açıklama | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Orta | Etkin | Giriş zincirindeki izin veren güvenlik duvarı kuralı bulunamadı | Güvenlik duvarında geniş bir IP adresi veya Bağlantı Noktası aralığı için esnek bir desen içeren bir kural bulundu | {"Kurallar": "[{\"SourceAddress\":\"\",\"KaynakBağlantıNoktası\":\"\",\"DestinationAddress\":\" \" \"Trafficdirection\":\"1337\"}] "} |
-| 2019-03-22T10:50:27.237 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Orta | Etkin | Giriş zincirindeki izin veren güvenlik duvarı kuralı bulunamadı | Güvenlik duvarında geniş bir IP adresi veya Bağlantı Noktası aralığı için esnek bir desen içeren bir kural bulundu | {"Kurallar": "[{\"SourceAddress\":\"\",\"KaynakBağlantıNoktası\":\"\",\"DestinationAddress\":\" \" \"Trafficdirection\":\"1337\"}] "} |
+| 2019-03-22T10:21:06.060 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Orta | Etkin | Giriş zincirindeki izin veren güvenlik duvarı kuralı bulunamadı | Çok çeşitli IP adres veya bağlantı noktası için esnek bir düzen içeren bir güvenlik duvarı kuralında bulundu | {"Kurallar": "[{\"SourceAddress\":\"\",\"KaynakBağlantıNoktası\":\"\",\"DestinationAddress\":\" \" \"Trafficdirection\":\"1337\"}] "} |
+| 2019-03-22T10:50:27.237 | /Subscriptions/ < subscription_id > /resourceGroups/ < resource_group > /providers/Microsoft.Devices/IotHubs/ < iot_hub > | < aygıt_adı > | Orta | Etkin | Giriş zincirindeki izin veren güvenlik duvarı kuralı bulunamadı | Çok çeşitli IP adres veya bağlantı noktası için esnek bir düzen içeren bir güvenlik duvarı kuralında bulundu | {"Kurallar": "[{\"SourceAddress\":\"\",\"KaynakBağlantıNoktası\":\"\",\"DestinationAddress\":\" \" \"Trafficdirection\":\"1337\"}] "} |
 
 ### <a name="device-summary"></a>Cihaz özeti
 

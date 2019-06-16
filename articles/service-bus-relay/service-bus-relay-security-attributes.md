@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66000160"
 ---
 # <a name="security-attributes-for-azure-service-bus-relay"></a>Azure Service Bus geçişi için güvenlik öznitelikleri

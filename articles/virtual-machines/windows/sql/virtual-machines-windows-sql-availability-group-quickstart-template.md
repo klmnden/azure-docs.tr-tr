@@ -16,10 +16,10 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591346"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure hızlı başlangıç şablonları, Azure VM'deki SQL Server Always On kullanılabilirlik grubu yapılandırmak için kullanın
@@ -48,7 +48,7 @@ Azure hızlı başlangıç şablonlarını kullanarak Always On kullanılabilirl
 - SQL Server hizmetini denetler etki alanı kullanıcı hesabı. 
 
 
-## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>1. adım - WSFC oluşturma ve SQL Server Vm'leri Hızlı Başlangıç şablonu kullanarak kümeye ekleyin. 
+## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>1\. adım - WSFC oluşturma ve SQL Server Vm'leri Hızlı Başlangıç şablonu kullanarak kümeye ekleyin. 
 SQL VM yeni kaynak sağlayıcısı ile SQL Server sanal makineleriniz üzere kaydettikten sonra SQL Server Vm'leri içine katılabilir *SqlVirtualMachineGroups*. Meta veri sürümü, sürüm, tam etki alanı adı, hem küme hem de SQL Hizmeti yönetmek için AD hesapları ve bulut depolama hesabı dahil olmak üzere Windows Yük devretme kümesi bu kaynak tanımlar Tanık. SQL Server Vm'leri için ekleme *SqlVirtualMachineGroups* kaynak grubu kümeyi oluşturmak için Windows Yük devretme Küme hizmetinin bootstraps ve ardından bu SQL Server Vm'leri bu kümeye birleştirir. Bu adım ile otomatik olarak **101-sql-vm-ag-setup** Hızlı Başlangıç şablonu ve aşağıdaki adımlarla uygulanabilir:
 
 1. Gidin [ **101-sql-vm-ag-setup** ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) Hızlı Başlangıç şablonu seçip **azure'a Dağıt** Hızlı Başlangıç şablonu Azure portalındaki başlatmak için.
@@ -80,13 +80,13 @@ SQL VM yeni kaynak sağlayıcısı ile SQL Server sanal makineleriniz üzere kay
    > Şablon dağıtımı sırasında sağlanan kimlik bilgileri yalnızca dağıtım uzunluğu için depolanır. Dağıtım tamamlandıktan sonra bu parolaları kaldırılır ve kümeye daha fazla SQL Server Vm'leri eklemelisiniz sağlayacağını yeniden istenir. 
 
 
-## <a name="step-2---manually-create-the-availability-group"></a>2. adım: kullanılabilirlik grubunu el ile oluşturma 
+## <a name="step-2---manually-create-the-availability-group"></a>2\. adım: kullanılabilirlik grubunu el ile oluşturma 
 Normalde, kullanarak yaptığınız gibi el ile kullanılabilirlik grubunu oluşturma [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell), veya [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
   >[!IMPORTANT]
   > Yapmak **değil** bir dinleyicisi bu tarafından otomatik olarak şu anda oluşturulamıyor **101-sql-vm-aglistener-setup** adım 4'te Hızlı Başlangıç şablonu. 
 
-## <a name="step-3---manually-create-the-internal-load-balancer-ilb"></a>3. adım - iç yük dengeleyici (ILB) el ile oluşturma
+## <a name="step-3---manually-create-the-internal-load-balancer-ilb"></a>3\. adım - iç yük dengeleyici (ILB) el ile oluşturma
 Always On kullanılabilirlik grubu (ağ) dinleyicisi, iç Azure yük dengeleyici (ILB) gerektirir. ILB daha hızlı yük devretme ve yeniden bağlanmayı sağlayan ağ dinleyicisi "kayan" IP adresi sunar. SQL Server Vm'leri bir kullanılabilirlik grubuna varsa aynı kullanılabilirlik kümesinin parçası ve ardından bir temel yük dengeleyici kullanabilirsiniz; Aksi takdirde, bir Standard Load Balancer'ı kullanmanız gerekir.  **ILB, SQL Server VM örnekleri ile aynı sanal ağda olmalıdır.** ILB yalnızca oluşturulabilir, yapılandırmayı geri kalanını gerekir (gibi bir arka uç havuzu, sistem durumu araştırması ve Yük Dengeleme kuralları) tarafından işlenen **101-sql-vm-aglistener-setup** adım 4'te Hızlı Başlangıç şablonu. 
 
 1. Azure portalında SQL Server sanal makineleri içeren kaynak grubunu açın. 
@@ -114,7 +114,7 @@ Always On kullanılabilirlik grubu (ağ) dinleyicisi, iç Azure yük dengeleyici
   >[!IMPORTANT]
   > Standart Load Balancer ile uyumlu olacak şekilde standart bir SKU her SQL Server VM için genel IP kaynağına sahip olmalıdır. Sanal makinenizin genel IP kaynağı SKU'su belirlemek için gidin, **kaynak grubu**seçin, **genel IP adresi** istenen SQL Server VM, kaynak ve değerin altında bulun **SKU**  , **genel bakış** bölmesi. 
 
-## <a name="step-4---create-the-ag-listener-and-configure-the-ilb-with-the-quickstart-template"></a>4. adım - AG dinleyiciyi oluşturun ve ILB ile Hızlı Başlangıç şablonu yapılandırma
+## <a name="step-4---create-the-ag-listener-and-configure-the-ilb-with-the-quickstart-template"></a>4\. adım - AG dinleyiciyi oluşturun ve ILB ile Hızlı Başlangıç şablonu yapılandırma
 
 Kullanılabilirlik grubu dinleyicisi oluşturun ve iç yük dengeleyici (ILB) ile otomatik olarak yapılandırma **101-sql-vm-aglistener-setup** Hızlı Başlangıç şablonu olarak Microsoft.SqlVirtualMachine/ sağlar SqlVirtualMachineGroups/AvailabilityGroupListener kaynak. **101-sql-vm-aglistener-setup** SQL VM kaynak sağlayıcısı aracılığıyla Hızlı Başlangıç şablonu aşağıdaki eylemleri yapar:
 
@@ -143,7 +143,7 @@ ILB yapılandırmak ve /AG dinleyicisi oluşturmak için aşağıdakileri yapın
    | **Dinleyici bağlantı noktası** | Dinleyici kullanmak istediğiniz bağlantı noktası. Genellikle, bu bağlantı noktası 1433 varsayılan bağlantı noktası olmalıdır ve bu nedenle, bu şablon tarafından belirtilen bağlantı noktası numarası budur. Varsayılan bağlantı noktasını değiştirdiyseniz ancak ardından dinleyicisi bağlantı noktası değeri yerine kullanmanız gerekir. | 
    | **Dinleyici IP** | IP kullanmak için dinleyici istersiniz.  Bu IP adresi, şablon dağıtımı sırasında oluşturulur, bu nedenle zaten kullanılmayan bir IP adresi sağlayın.  |
    | **Mevcut alt ağı** | *Adı* iç alt ağın SQL Server sanal makinelerinizin (örn: varsayılan). Giderek bu değeri belirlenebilir, **kaynak grubu**, seçme, **vNet**u seçerek **alt ağlar** altında **ayarları**bölmesi ve değerin altında kopyalama **adı**. |
-   | **Var olan bir iç yük dengeleyici** | 3. adımda oluşturulan ILB adı. |
+   | **Var olan bir iç yük dengeleyici** | 3\. adımda oluşturulan ILB adı. |
    | **Araştırma bağlantı noktası** | ILB kullanmak istediğiniz araştırma bağlantı noktası. Şablon, varsayılan olarak 59999 kullanır ancak bu değeri değiştirilebilir. |
    | &nbsp; | &nbsp; |
 

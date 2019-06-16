@@ -12,10 +12,10 @@ ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65020851"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Konuşma Hizmetleri dil ve bölge desteği
@@ -60,7 +60,7 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı
  TH TH | Tayca (Tayland) | Hayır | Hayır | Hayır
 
 
-## <a name="text-to-speech"></a>Metin Okuma
+## <a name="text-to-speech"></a>Metin okuma
 
 Her biri belirli bir dil ve yerel ayar tarafından tanımlanan diyalekti, destekler, bu seslerle metin okuma REST API destekler.
 
@@ -75,7 +75,7 @@ Sinir sesleri etkileşimleri sohbet robotları ve sanal Yardımcıları ile daha
 
 Sinir seslerle ve bölgesel kullanılabilirlik tam listesi için bkz: [bölgeleri](regions.md#standard-and-neural-voices).
 
-Yerel ayar | Dil | Cinsiyet | Tam hizmet adı eşleme | Kısa ses adı
+Yerel Ayar | Dil | Cinsiyet | Tam hizmet adı eşleme | Kısa ses adı
 --------|----------|--------|---------|------------
 de-DE | Almanca (Almanya) | Kadın | "Microsoft Server Konuşma metin konuşma ses (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
 en-US | English (US) | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, GuyNeural)" | "en-US-GuyNeural"
@@ -90,7 +90,7 @@ zh-CN | Çince (ana kara) | Kadın | "Microsoft Server Konuşma metin konuşma s
 
 75'den fazla standart sesleri üzerinde 45 diller ve Sentezlenen konuşmaya metin dönüştürmenize olanak sağlayan yerel ayarlar kullanılabilir. Bölgesel kullanılabilirlik hakkında daha fazla bilgi için bkz: [bölgeleri](regions.md#standard-and-neural-voices).
 
-Yerel ayar | Dil | Cinsiyet | Tam hizmet adı eşleme | Kısa ses adı
+Yerel Ayar | Dil | Cinsiyet | Tam hizmet adı eşleme | Kısa ses adı
 -------|----------|---------|----------|----------
 ar EG\* | Arapça (Mısır) | Kadın | "Microsoft sunucu konuşma Sesli konuşmayı metne (ar-Örneğin, Hoda)" | "ar-ÖRN-Hoda"
 ar-SA | Arapça (Suudi Arabistan) | Erkek | "Microsoft Server Konuşma metin konuşma ses (ar-SA, Naayf)" | "ar-SA-Naayf"
@@ -212,8 +212,8 @@ Ses özelleştirme, de-DE, en-GB, en-IN, en-US, es için kullanılabilir-MX, fr-
 | Fiji Adaları dili      | `fj`          |
 | Filipin dili      | `fil`          |
 | Fince      | `fi`          |
-| Fransızca       | `fr`          |
-| Almanca       | `de`          |
+| Fransızca      | `fr`          |
+| Almanca      | `de`          |
 | Yunanca      | `el`          |
 | Haiti Kreyolu      | `ht`          |
 | İbranice      | `he`          |
@@ -244,7 +244,7 @@ Ses özelleştirme, de-DE, en-GB, en-IN, en-US, es için kullanılabilir-MX, fr-
 | Sırpça (Latin)      | `sr-Latn`          |
 | Slovakça     | `sk`          |
 | Slovence      | `sl`          |
-| İspanyolca       | `es`          |
+| İspanyolca      | `es`          |
 | İsveççe      | `sv`          |
 | Tahitian      | `ty`          |
 | Tamil dili      | `ta`          |

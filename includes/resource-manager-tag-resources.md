@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128738"
 ---
 1. Bir kaynak veya kaynak grubunun etiketlerini görüntülemek için genel bakış mevcut etiketleri arar. Daha önce etiket uygulamadıysanız liste boştur.
@@ -33,7 +33,7 @@ ms.locfileid: "66128738"
    
 1. Bir etiketi silmek için Çöp Kutusu simgesini seçin. Ardından **Kaydet**’i seçin.
 
-     ![Etiketi sil](./media/resource-manager-tag-resources/delete-tag.png)
+     ![Etiketi Sil](./media/resource-manager-tag-resources/delete-tag.png)
 
 
 Ata birden çok kaynak etiketleri toplu olarak:
@@ -44,9 +44,9 @@ Ata birden çok kaynak etiketleri toplu olarak:
 
 1. Seçin **etiketleri Ata**
 
-     ![Etiketleri ata](./media/resource-manager-tag-resources/assign-tags.png)
+     ![Etiketler atama](./media/resource-manager-tag-resources/assign-tags.png)
 
-1. Her ad ve değer sonra seçin **+**. İşiniz bittiğinde, seçin **atama**.
+1. Her ad ve değer sonra seçin **+** . İşiniz bittiğinde, seçin **atama**.
 
      ![Ata seçin](./media/resource-manager-tag-resources/select-assign.png)
 

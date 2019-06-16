@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 02a863a4ddf59fb36c5f2ae7f3092896d2e1d860
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b166f70186b063782fb2c2245e351d6dfca6f978
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072150"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>El ile oluşturma ve birim Azure diskleri Azure Kubernetes Service (AKS) kullanma
@@ -41,12 +41,12 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Şimdi bir diski kullanarak oluşturmak [az disk oluşturma] [ az-disk-create] komutu. Önceki komutta ve ardından disk kaynağı için bir ad gibi elde düğüm kaynak grubunu adını belirtmelisiniz *myAKSDisk*. Aşağıdaki örnek, oluşturur bir *20*GiB disk ve oluşturulduktan sonra disk çıkışlarını kimliği:
+Şimdi bir diski kullanarak oluşturmak [az disk oluşturma] [ az-disk-create] komutu. Önceki komutta ve ardından disk kaynağı için bir ad gibi elde düğüm kaynak grubunu adını belirtmelisiniz *myAKSDisk*. Aşağıdaki örnek, oluşturur bir *20*GiB disk ve oluşturulduktan sonra disk çıkışlarını kimliği. Windows Server kapsayıcıları (şu anda önizlemede aks'deki) ile kullanmak için bir disk oluşturmak gerekiyorsa, ekleyin `--os-type windows` doğru diski biçimlendirmek için parametre.
 
 ```azurecli-interactive
 az disk create \
   --resource-group MC_myResourceGroup_myAKSCluster_eastus \
-  --name myAKSDisk  \
+  --name myAKSDisk \
   --size-gb 20 \
   --query id --output tsv
 ```
@@ -62,7 +62,7 @@ Komut başarıyla tamamlandıktan sonra disk kaynak kimliği aşağıdaki örnek
 
 ## <a name="mount-disk-as-volume"></a>Disk birimi olarak bağlama
 
-Azure disk pod bağlamak için birim kapsayıcı spec içinde yapılandırın. Adlı yeni bir dosya oluşturun `azure-disk-pod.yaml` aşağıdaki içeriğe sahip. Güncelleştirme `diskName` önceki adımda oluşturduğunuz disk adı ile ve `diskURI` disk çıktıda gösterilen disk kimliği ile komut oluşturma. İsterseniz, güncelleştirme `mountPath`, burada Azure disk bağlı pod yolu olduğu.
+Azure disk pod bağlamak için birim kapsayıcı spec içinde yapılandırın. Adlı yeni bir dosya oluşturun `azure-disk-pod.yaml` aşağıdaki içeriğe sahip. Güncelleştirme `diskName` önceki adımda oluşturduğunuz disk adı ile ve `diskURI` disk çıktıda gösterilen disk kimliği ile komut oluşturma. İsterseniz, güncelleştirme `mountPath`, burada Azure disk bağlı pod yolu olduğu. Kapsayıcılar (şu anda önizlemede AKS), Windows Server için belirtin bir *mountPath* gibi Windows yol kuralı kullanılarak *'D:'* .
 
 ```yaml
 apiVersion: v1

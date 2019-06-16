@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: 0ee40c3ad692deccbc185fa7f8e51dd25eeaf95d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66164513"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Her bölge için Hata Etki Alanı sayısı
@@ -22,13 +22,13 @@ ms.locfileid: "66164513"
 | Orta ABD          | 3                       |
 | Orta Kuzey ABD    | 3                       |
 | Orta Güney ABD    | 3                       |
-| Orta Batı ABD     | 2                       |
-| Kanada Orta      | 3                      |
-| Kanada Doğu         | 2                       |
+| Batı Orta ABD     | 2                       |
+| Orta Kanada      | 3                      |
+| Doğu Kanada         | 2                       |
 |                     |                         |
 | Kuzey Avrupa        | 3                       |
 | Batı Avrupa         | 3                       |
-| BK Güney            | 2                       |
+| Birleşik Krallık Güney            | 2                       |
 | Birleşik Krallık Batı             | 2                       |
 |                     |                         |
 | Doğu Asya           | 2                       |
@@ -44,10 +44,10 @@ ms.locfileid: "66164513"
 | Avustralya Doğu      | 2                       |
 | Avustralya Güneydoğu | 2                       |
 |                     |                         |
-| Brezilya Güney        | 2                       |
+| Güney Brezilya        | 2                       |
 |                     |                         |
-| US Gov Virginia     | 2                       |
-| US Gov Texas        | 2                       |
-| US Gov Arizona      | 2                       |
-| US DoD Merkez      | 2                       |
+| ABD Devleti Virginia     | 2                       |
+| ABD Devleti Texas        | 2                       |
+| ABD Devleti Arizona      | 2                       |
+| US DoD Orta      | 2                       |
 | US DoD Doğu         | 2                       |

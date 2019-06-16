@@ -9,10 +9,10 @@ ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366550"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute devre oluşturma ve değiştirme
@@ -83,7 +83,7 @@ Bu sayfada **sağlayıcısı durumu** hizmet sağlayıcı tarafında sağlama ge
 
 Yeni bir ExpressRoute bağlantı hattı'ı oluşturduğunuzda, bağlantı hattı şu durumda olur:
 
-Sağlayıcı Durumu: Hazırlanmadı<BR>
+Sağlayıcı Durumu: Sağlanmadı<BR>
 Bağlantı hattı durumu: Enabled
 
 ![Sağlama işlemini başlatın](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
@@ -95,7 +95,7 @@ Bağlantı hattı durumu: Enabled
 
 Bir ExpressRoute bağlantı hattı kullanabilmek için şu durumda olmalıdır:
 
-Sağlayıcı Durumu: Sağlandı<BR>
+Sağlayıcı Durumu: Sağlanan<BR>
 Bağlantı hattı durumu: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Durum ve bağlantı hattı tuşunun durumunu düzenli aralıklarla denetleyin

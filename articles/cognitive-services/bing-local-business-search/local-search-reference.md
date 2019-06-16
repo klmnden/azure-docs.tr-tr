@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 82b2f5ca70927856aeac889675b5ec4a54ae034f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796758"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing yerel iş arama API'si v7 başvurusu
@@ -49,9 +49,9 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ## <a name="headers"></a>Üst bilgiler  
 İstek ve yanıt içerebilecek üst bilgiler verilmiştir.  
   
-|Üst bilgi|Açıklama|  
+|Üstbilgi|Açıklama|  
 |------------|-----------------|  
-|Kabul|İsteğe bağlı istek üst bilgisi.<br /><br /> Varsayılan medya türü application/json şeklindedir. Yanıt kullandığını belirtmek için [JSON-LD](https://json-ld.org/), uygulama/ld + json Accept üst bilgisi ayarlayın.|  
+|Kabul et|İsteğe bağlı istek üst bilgisi.<br /><br /> Varsayılan medya türü application/json şeklindedir. Yanıt kullandığını belirtmek için [JSON-LD](https://json-ld.org/), uygulama/ld + json Accept üst bilgisi ayarlayın.|  
 |<a name="acceptlanguage" />Accept-Language|İsteğe bağlı istek üst bilgisi.<br /><br /> Kullanıcı arabirimi dizelerinde kullanılacak virgülle sınırlanmış bir dil listesi. Liste, tercih edilme durumuna göre azalan düzende sıralanır. Beklenen biçim de içinde olmak üzere daha fazla bilgi için bkz. [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Bu üst bilgi ve [setLang](#setlang) sorgu parametresi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin.<br /><br /> Bu üst bilginin ayarlarsanız, cc sorgu parametresini de belirtmeniz gerekir. Hangi pazardan sonuç döndürüleceğini belirlemek için, Bing listeden bulduğu ilk desteklenen dili kullanır ve bunu `cc` parametresinin değeriyle birleştirir. Liste desteklenen bir dil içermiyorsa, Bing isteği destekleyen en yakın dili ve pazarı bulur ya da sonuçlar için toplu veya varsayılan bir pazar kullanır. Bing'in kullandığı pazarı saptamak için BingAPIs-Market üst bilgisine bakın.<br /><br /> Ancak birden çok dil belirtirseniz bu üst bilgiyi ve `cc` sorgu parametresini kullanın. Aksi takdirde, [mkt](#mkt) ile [setLang](#setlang) sorgu parametrelerini kullanın.<br /><br /> Kullanıcı arabirimi dizesi, kullanıcı arabiriminde etiket olarak kullanılan dizedir. JSON yanıt nesnelerinde çok az kullanıcı arabirimi dizesi vardır. Yanıt nesnelerinde Bing.com özelliklerine yönelik bağlantılar da belirtilen dildedir.|  
 |<a name="market" />BingAPIs-Market|Yanıt üst bilgisi.<br /><br /> İstek tarafından kullanılan pazar. Biçimi şöyledir: \<languageCode\>-\<countryCode\>. Örneğin, tr-TR.|  
 |<a name="traceid" />BingAPIs-TraceId|Yanıt üst bilgisi.<br /><br /> İsteğin ayrıntılarını içeren günlük girdisinin kimliği. Hata oluştuğunda, bu kimliği yakalayın. Sorunu belirleyemez ve çözemezseniz, Destek ekibine diğer bilgilerle birlikte bu kimliği de sağlayın.|  
@@ -123,7 +123,7 @@ Altında bir metin veya resim kullanılabilir lisans tanımlar.
 |url|Kullanıcı Lisansı hakkında daha fazla bilgi edinebileceğiniz bir Web sitesi URL'si.<br /><br /> Köprü oluşturmak için adını ve URL'sini kullanın.|String|  
 
 
-### <a name="link"></a>Bağla  
+### <a name="link"></a>Bağlantı  
 Köprü bileşenlerinin tanımlar.  
   
 |Ad|Değer|Tür|  
@@ -153,7 +153,7 @@ Bir restoran veya otel gibi yerel bir iş hakkında bilgileri tanımlar.
 |Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |_type|Tür ipucu, aşağıdakilerden birini ayarlanabilir:<br /><br /><ul><li>Otel</li><li>LocalBusiness<br /></li><li>Restoran</ul><li>|String|  
-|adres|Varlığın bulunduğu, posta adresi.|PostalAddress|  
+|Adresi|Varlığın bulunduğu, posta adresi.|PostalAddress|  
 |entityPresentationInfo|Varlığın türü belirlemek için kullanabileceğiniz ipuçları gibi varlık hakkında ek bilgi. Örneğin, bir restoran veya otel olup. `entityScenario` Alan ListItem için ayarlanır.|entityPresentationInfo|  
 |name|Varlığın adı.|String|  
 |Telefon|Varlığın telefon numarası.|String|  
@@ -176,7 +176,7 @@ Bing istek için kullanılan sorgu bağlamı tanımlar.
 
 |Ad|Değer|Tür|  
 |-------------|-----------------|----------|
-|kimlik|Bir kaynak tanımlayıcısı|String|
+|id|Bir kaynak tanımlayıcısı|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Tanımlar grubu bir arama sonuçları, aşağıdaki gibi mainline.
@@ -220,7 +220,7 @@ Hizmet bir saldırı hizmet reddi şüphelenen, istek başarılı olduğunu unut
 
 Bir isteği döndüren olası HTTP durum kodları şunlardır:  
   
-|Durum Kodu|Açıklama|  
+|Durum kodu|Açıklama|  
 |-----------------|-----------------|  
 |200|Başarılı.|  
 |400|Sorgu parametrelerden biri eksik veya geçerli değil.|  
@@ -262,7 +262,7 @@ Olası hata kodu ve alt hata kodu değerleri şunlardır.
 
 |Kod|Alt|Açıklama
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Uygulanmadı|HTTP durum kodunu 500'dür.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP durum kodunu 500'dür.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Engellendi|Her isteğin herhangi bir bölümü geçerli değil Bing InvalidRequest döndürür. Örneğin, bir gerekli parametre eksik veya bir parametre değeri geçerli değil.<br/><br/>Hata ParameterMissing veya ParameterInvalidValue ise, HTTP durum kodu 400 ' dir.<br/><br/>HTTPS yerine HTTP protokolünü kullanıyorsanız, Bing HttpNotAllowed döndürür ve 410 HTTP durum kodudur.
 |RateLimitExceeded|Hiçbir alt kodları|/ Saniye (QPS) sorguları veya sorgu başına aylık (QPM) kota aştığında Bing RateLimitExceeded döndürür.<br/><br/>QPS aşarsanız, HTTP durum kodu 429 Bing döndürür ve QPM aşarsanız, Bing 403 döndürür.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing çağıran doğrulandığında Bing InvalidAuthorization döndürür. Örneğin, `Ocp-Apim-Subscription-Key` üstbilgisi eksik veya abonelik anahtarı geçerli değil.<br/><br/>Birden fazla kimlik doğrulama yöntemi belirtmek, yedeklilik meydana gelir.<br/><br/>Hata InvalidAuthorization ise, HTTP durum kodunu 401 ' dir.

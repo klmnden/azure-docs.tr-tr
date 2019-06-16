@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
 ms.openlocfilehash: 9c100bd6815e003d49efcdca65b16d7efa35ac34
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234247"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Güvenlik Hizmetleri ve teknolojileri Azure üzerinde kullanılabilir
@@ -69,7 +69,7 @@ Zamanla, bu liste değiştirin ve Azure gibi büyütün. Bu sayfada, güvenlikle
 | [Azure&nbsp;rol&nbsp;tabanlı&nbsp;erişim denetimi](../active-directory/role-based-access-control-configure.md)|Bir erişim denetimi özelliği, kullanıcıların yalnızca Yöneticiler kuruluştaki rollerine dayalı olarak erişimi için gerekli kaynakları erişmesine izin vermek için tasarlanmıştır.  |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|Bir çok kiracılı, bulut tabanlı dizin ve Azure içinde birden çok kimlik yönetimi hizmetlerini destekleyen bir bulut tabanlı kimlik doğrulama deposu.  |
 | [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|Nasıl denetlemenizi sağlayan bir kimlik yönetimi hizmetidir müşteriler kaydolma, oturum açma ve Azure tabanlı uygulamaları kullanırken profillerini yönetin.   |
-| [Azure Active Directory etki alanı Hizmetleri](../active-directory-domain-services/overview.md)| Active Directory Domain Services yönetilen ve bulut tabanlı sürümü. |
+| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)| Active Directory Domain Services yönetilen ve bulut tabanlı sürümü. |
 | [Azure çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md)| Kimlik doğrulaması ve güvenli bilgilerine erişime izin vermeden önce doğrulama birkaç farklı biçimleri kullanan güvenlik sağlama. |
 
 ## <a name="backup-and-disaster-recovery"></a>Yedekleme ve olağanüstü durum kurtarma

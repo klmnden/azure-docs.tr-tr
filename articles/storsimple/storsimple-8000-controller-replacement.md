@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61482915"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>StorSimple Cihazınızda bir Denetleyici Modülü değiştirin
@@ -36,7 +36,7 @@ Bu öğreticide, kaldırın ve StorSimple cihaz bir veya iki denetleyici modüll
 
 Aşağıdaki tabloda, desteklenen denetleyicisi değiştirme senaryoları gösterilmektedir.
 
-| Durum | Değiştirme senaryosu | Geçerli ilgili yordamı |
+| Servis talebi | Değiştirme senaryosu | Geçerli ilgili yordamı |
 |:--- |:--- |:--- |
 | 1 |Bir denetleyici başarısız durumda, diğer denetleyicinin sağlam ve etkin. |[Tek bir denetleyici değiştirme](#replace-a-single-controller), açıklayan [tek denetleyici değiştirme ardındaki mantığı](#single-controller-replacement-logic), hem de [değiştirme adımları](#single-controller-replacement-steps). |
 | 2 |Her iki denetleyici de başarısız olmuş ve değiştirme gerektirir. Kasa, diskleri ve disk kasası iyi durumda. |[Çift denetleyici değiştirme](#replace-both-controllers), açıklayan [çift denetleyici değiştirme ardındaki mantığı](#dual-controller-replacement-logic), hem de [değiştirme adımları](#dual-controller-replacement-steps). |
@@ -92,7 +92,7 @@ Microsoft Azure StorSimple cihazınızdaki denetleyicilerden biri başarısız o
    
    | Etiket | Açıklama |
    |:--- |:--- |
-   | 1 |PCM 0'DA |
+   | 1 |PCM 0 |
    | 2 |PCM 1 |
    | 3 |Denetleyici 0 |
    | 4 |Denetleyici 1 |

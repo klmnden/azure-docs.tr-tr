@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918827"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Ekleme, güncelleştirme veya Azure için bir kredi kartı veya banka kartı kaldırma
@@ -35,7 +35,7 @@ Azure portalında yeni bir kredi kartı eklemeniz, kullanılan mevcut kredi kart
 ## <a name="add-a-new-credit-or-debit-card-to-an-azure-subscription"></a>Yeni bir kredi kartı veya banka kartı için Azure aboneliği ekleme
 
 1. Oturum [Azure portalında](https://portal.azure.com) hesap yöneticisi olarak.
-1. **Maliyet Yönetimi + Faturalama** araması yapın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
 
     ![Arama gösteren ekran görüntüsü](./media/billing-how-to-change-credit-card/search.png)
 
@@ -44,12 +44,12 @@ Azure portalında yeni bir kredi kartı eklemeniz, kullanılan mevcut kredi kart
 
     ![Yönet ödeme yöntemleri seçeneği belirlenmiş gösteren ekran görüntüsü.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. Bir kartı eklemek için sol üst köşede, seçin "+". Bir kredi kartı formun sağ tarafta görüntülenir.
+1. Sol üst köşede “+” işaretini seçerek kartı ekleyin. Sağ tarafta bir kredi kartı formu görüntülenir.
 1. Kredi veya banka kartının bilgilerini girin.
 
     ![Yeni bir kart gösteren ekran görüntüsü.](./media/billing-how-to-change-credit-card/sub-add-new-x.png)
 
-1. Bunu etkin ödeme yönteminiz kartında, yanındaki kutuyu işaretleyin için **bunu etkin Ödeme Yöntemim yap** formun üstünde. Bu kart, seçili abonelik aynı kartı kullanan tüm abonelikler için etkin ödeme olur.
+1. Bunu etkin ödeme yönteminiz kartında, yanındaki kutuyu işaretleyin için **bunu etkin Ödeme Yöntemim yap** formun üstünde. Bu kart, seçilen abonelik olarak aynı kartı kullanan tüm aboneliklerde etkin ödeme aracınız olur.
 
 1. **İleri**’yi seçin.
 
@@ -60,7 +60,7 @@ Kredi kartı ekledikten sonra hata alırsanız bkz [Azure kayıt sırasında kre
 Kredi kartınız yenilenmiş ve sayı aynı kalır, sona erme tarihi gibi mevcut kredi kartı bilgileri güncelleştirin. Kart kaybolduğu için kredi kartı numarası değişikliklerinizi çalındıysa veya süresi dolduğunda, adımları izlerseniz, [bir ödeme yöntemi olarak kredi kartı eklemeniz](#addcard) bölümü. Kart doğrulama kodu güncelleştirmeniz gerekmez.
 
 1. Oturum [Azure portalında](https://portal.azure.com) hesap yöneticisi olarak.
-1. **Maliyet Yönetimi + Faturalama** araması yapın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
 
     ![Arama gösteren ekran görüntüsü](./media/billing-how-to-change-credit-card/search.png)
 
@@ -68,11 +68,11 @@ Kredi kartınız yenilenmiş ve sayı aynı kalır, sona erme tarihi gibi mevcut
 
     ![Yönet ödeme yöntemleri seçeneği belirlenmiş gösteren ekran görüntüsü.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. Düzenlemek istediğiniz kart banka veya kredili'ı tıklatın. Bir kredi kartı formun sağ tarafta görüntülenir.
+1. Düzenlemek istediğiniz kredi kartına veya banka kartına tıklayın. Sağ tarafta bir kredi kartı formu görüntülenir.
 
     ![Seçili kredi veya banka kartı gösteren ekran görüntüsü.](./media/billing-how-to-change-credit-card/edit-card-x.png)
 
-1. Kredi kartı veya banka kartı ayrıntıları güncelleştirin.
+1. Kredi kartının veya banka kartının ayrıntılarını güncelleştirin.
 1. **Kaydet**’i seçin.
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Azure aboneliği için farklı bir kredi kartı kullanın
@@ -80,7 +80,7 @@ Kredi kartınız yenilenmiş ve sayı aynı kalır, sona erme tarihi gibi mevcut
 Aynı etkin ödeme yöntemi birden fazla aboneliğiniz varsa, ardından bu aboneliklerden herhangi biri üzerinde etkin ödeme yöntemini değiştirme diğerleri üzerinde etkin ödeme yöntemi de güncelleştirir.
 
 1. Oturum [Azure portalında](https://portal.azure.com) hesap yöneticisi olarak.
-1. **Maliyet Yönetimi + Faturalama** araması yapın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
 
     ![Arama gösteren ekran görüntüsü](./media/billing-how-to-change-credit-card/search.png)
 
@@ -105,7 +105,7 @@ Aynı etkin ödeme yöntemi birden fazla aboneliğiniz varsa, ardından bu abone
     ![Yönet ödeme yöntemleri seçeneği belirlenmiş gösteren ekran görüntüsü.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
 1. Kaldırmak istediğiniz kartın yanındaki kutuyu işaretleyin.
-1. **Sil**'e tıklayın.
+1. Tıklayın **Sil**.
 
 Kredi kartınızdan herhangi bir Microsoft abonelikler için etkin ödeme yöntemi varsa, Azure hesabınızdan kaldıramazsınız. Bu kredi kartı veya banka kartı bağlı olan tüm abonelikler için etkin ödeme yöntemini değiştirme ve yeniden deneyin
 <!-- # Add, update, or remove a credit or debit card for Azure
@@ -187,6 +187,6 @@ Ne yazık ki Azure kredi ve banka kartları için şu anda tek seferlik ödemele
 
 Ekleme veya güncelleştirme vergi kimliği için şurayı ziyaret edin [ **profili** Azure hesap Merkezi'nde](https://account.azure.com/Profile), ardından **vergi kayıt**. Vergi numarası, vergi muafiyeti hesaplamaları için kullanılır ve faturanızda görünür.
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

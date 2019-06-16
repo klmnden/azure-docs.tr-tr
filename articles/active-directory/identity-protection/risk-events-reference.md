@@ -17,10 +17,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65191535"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory kimlik koruması, risk olayları başvurusu
@@ -69,7 +69,7 @@ Kullanıcıların geçerli parolalarını cybercriminals tehlikeye, Suçları ge
 Hizmet kullanıcı kimlik bilgilerini koyu web, Yapıştır siteler ya da yukarıdaki kaynakları edinme, bunlar geçerli eşleşiyor bulmak için Azure AD kullanıcılarının geçerli geçerli kimlik bilgilerine karşı denetlenir.
 
 
-## <a name="malware-linked-ip-address"></a>Kötü amaçlı yazılım bağlantısı içeren IP adresi
+## <a name="malware-linked-ip-address"></a>Kötü amaçlı yazılım bağlı IP adresi
 
 **Algılama türü:** Çevrimdışı  
 **Eski adı:** Bulaşma olan cihazlardan oturum açma işlemleri
@@ -78,7 +78,7 @@ Hizmet kullanıcı kimlik bilgilerini koyu web, Yapıştır siteler ya da yukar�
 Bu risk olayı türünü etkin bir bot sunucusuyla iletişim kurmak için bilinen kötü amaçlı yazılım bulaşmış IP adreslerinden oturum açma işlemleri gösterir. Bu, karşı bir bot sunucusu iletişim kurmayan bot sunucunun etkin olduğu sırada olan IP adresleri kullanıcı cihazının IP adreslerini karşılaştırılarak ilişkilendirilmesi yoluyla belirlenir.
 
 
-## <a name="unfamiliar-sign-in-properties"></a>Bilinmeyen oturum açma özellikleri
+## <a name="unfamiliar-sign-in-properties"></a>Alışılmadık oturum açma özellikleri
 
 **Algılama türü:** Gerçek zamanlı  
 **Eski adı:** Alışılmadık konumlardan oturum açma işlemleri

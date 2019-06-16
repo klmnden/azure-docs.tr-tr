@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: fd5a16334fff0319d7993fb2403a48d1777f6bce
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0691c35661a6d185a6aa5ed3383ad600653359d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058601"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>.NET Core ILogger günlükleri ApplicationInsightsLoggerProvider
 
@@ -77,7 +77,7 @@ Microsoft.ApplicationInsights.AspNet SDK'ın önceki bir sürümü kullanılıyo
    }
    ```
 
-2. adımda kod yapılandırır `ApplicationInsightsLoggerProvider`. Aşağıdaki kod örneği kullanan denetleyici sınıfı gösterir `ILogger` günlükleri göndermek için. Günlükler, Application Insights tarafından yakalanır.
+2\. adımda kod yapılandırır `ApplicationInsightsLoggerProvider`. Aşağıdaki kod örneği kullanan denetleyici sınıfı gösterir `ILogger` günlükleri göndermek için. Günlükler, Application Insights tarafından yakalanır.
 
 ```csharp
 public class ValuesController : ControllerBase
@@ -106,6 +106,9 @@ public class ValuesController : ControllerBase
 ```
 
 ### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>Startup.cs ve Program.cs içinde ASP.NET Core uygulamaları ILogger günlükleri yakalama
+
+> [!NOTE]
+> ASP.NET Core 3.0 ve sonraki sürümlerinde, artık eklemek mümkün değildir `ILogger` Startup.cs ve Program.cs. Bkz: https://github.com/aspnet/Announcements/issues/353 daha fazla ayrıntı için.
 
 Yeni ApplicationInsightsLoggerProvider günlüklerinden uygulama başlatma ardışık düzende erkenden yakalayabilir. ApplicationInsightsLoggerProvider Application ınsights'ı (sürüm 2.7.0-beta3 ile başlayarak) otomatik olarak etkin olsa da, bu kadar yukarı daha sonra işlem hattı ayarlayın. bir izleme anahtarı gerekli değildir. Bu nedenle, yalnızca oturumu **denetleyicisi**/ diğer sınıflar yakalanır. İle başlayarak her günlüğünü kaydetme amacıyla **Program.cs** ve **Startup.cs** kendisi, açıkça bir izleme anahtarı ApplicationInsightsLoggerProvider için etkinleştirmeniz gerekir. Ayrıca, *TelemetryConfiguration* 'oturumu tam olarak ayarlanmadı **Program.cs** veya **Startup.cs** kendisi. Bu nedenle bu günlükleri InMemoryChannel hiçbir örneklemeye ve hiçbir standart telemetri başlatıcılar veya işlemciler kullanan en az bir yapılandırma gerekir.
 
@@ -450,7 +453,7 @@ Her zaman TraceTelemetry göndermek isterseniz, bu kod parçacığı kullanın: 
 
 Application Insights uzantısını Azure Web apps'te eski sağlayıcısı kullanır. Filtreleme kuralları değiştirebilirsiniz *appsettings.json* uygulamanız için dosya. Yeni sağlayıcının yararlanmak için üzerinde SDK'sı bir NuGet bağımlılık yararlanarak derleme Araçları'nı kullanın. Yeni sağlayıcıyı kullanmak için uzantı geçiş yaptığında Bu makale güncelleştirilecektir.
 
-### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Tek başına paketin Microsoft.Extensions.Logging.ApplicationInsights kullanarak ve Application Insights sağlayıcısı çağırarak etkinleştirme **Oluşturucusu. AddApplicationInsights("ikey")**. Yapılandırmasından bir izleme anahtarı almak için bir seçenek var mı?
+### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Tek başına paketin Microsoft.Extensions.Logging.ApplicationInsights kullanarak ve Application Insights sağlayıcısı çağırarak etkinleştirme **Oluşturucusu. AddApplicationInsights("ikey")** . Yapılandırmasından bir izleme anahtarı almak için bir seçenek var mı?
 
 
 Program.cs ve appsettings.json aşağıdaki gibi değiştirin:

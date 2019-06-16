@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587486"
 ---
 # <a name="azure-network-security"></a>Azure ağ güvenliği
@@ -70,7 +70,7 @@ Bu yazıda, kurumsal özelliklere ağ aşağıdaki Azure kapak olacaktır:
 
 -   Karma bağlantı
 
--   Güvenlik Denetimleri
+-   Güvenlik denetimleri
 
 -   Ağ doğrulaması
 
@@ -215,7 +215,7 @@ Sanal ağınıza uzak bir konumdan örneğin ev veya bir konferans Merkezi'nden 
 
 P2S bağlantılarının bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısını istemci bilgisayardan kurarsınız. Bu nedenle, P2S yolu Azure ağınız birçok şirket içi cihazlar ve bilgisayarlar kalıcı bir bağlantı gerektiği durumlarda Azure'a bağlanmak için önerilmez.
 
-![Konumdan Konuma VPN](media/azure-network-security/azure-network-security-fig-6.png)
+![Siteden siteye VPN](media/azure-network-security/azure-network-security-fig-6.png)
 
 > [!Note]
 > Noktadan siteye bağlantılar hakkında daha fazla bilgi için bkz. [noktadan siteye FA v Q](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal).
@@ -284,9 +284,9 @@ Bir NSG farkında olmanız gereken bazı yerleşik kurallar ile birlikte gelir. 
 
 -   **Belirli bir sanal ağ içindeki tüm trafiğe izin ver:** Tüm VM'lerin aynı Azure sanal ağı üzerinde birbirleriyle iletişim kurabilir.
 
--   **Azure Yük Dengeleme için gelen izin ver:** bu kural Azure yük dengeleyici için herhangi bir hedef adresi herhangi bir kaynak adresinden gelen trafiği sağlar.
+-   **Azure Yük Dengeleme için gelen izin ver:**  bu kural Azure yük dengeleyici için herhangi bir hedef adresi herhangi bir kaynak adresinden gelen trafiği sağlar.
 
--   **Gelenlerin tümünü Reddet:** bu kural açıkça izin Internet'ten kaynağını tüm trafiği engeller.
+-   **Gelenlerin tümünü Reddet:**  bu kural açıkça izin Internet'ten kaynağını tüm trafiği engeller.
 
 -   **İnternet'e giden tüm trafiğe izin:** Bu kural, VM'lerin İnternet'e yönelik bağlantıları başlatmasını sağlar. Başlatılan bu bağlantıları istemiyorsanız, bu bağlantıları engelle veya zorlamalı tünel zorlamak için bir kural oluşturmanız gerekir.
 
@@ -509,7 +509,7 @@ Azure izleme, önleyin, algılayın ve ağ güvenlik olaylarına yanıt vermek i
 
 -   Azure İzleyici günlükleri
 
-### <a name="network-watcher"></a>Ağ izleyicisi
+### <a name="network-watcher"></a>Ağ İzleyicisi
 
 [Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) -senaryo tabanlı izleme Ağ İzleyicisi özellikleri ile birlikte sağlanır. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
 
@@ -547,7 +547,7 @@ Belirler [sonraki atlama](https://docs.microsoft.com/azure/network-watcher/netwo
 
 Sonraki atlama, ayrıca sonraki atlama ile ilişkili yol tablosuna döndürür. Yol, kullanıcı tanımlı bir yol tanımlanırsa, bir sonraki atlama sorgulanırken yönlendiren döndürülür. Aksi takdirde sonraki atlama "Sistem yolu" döndürür.
 
-#### <a name="security-group-view"></a>Güvenlik grubu görünümü
+#### <a name="security-group-view"></a>güvenlik grubu görünümü
 
 Bir VM'de uygulanan etkili ve uygulanan güvenlik kuralları alır. Ağ güvenlik grupları, bir alt ağ düzeyinde veya bir NIC düzeyinde ilişkilendirilir. Bir alt ağ düzeyinde ilişkilendirilmiş, alt ağdaki tüm VM örnekleri için geçerlidir. Ağ [güvenlik grubu görünümü](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) yapılandırılan Nsg'ler ve yapılandırma hakkında Öngörüler sağlayan bir sanal makine için NIC'te veya alt ağ düzeyinde ilişkilendirilmiş kuralları döndürür. Ayrıca, geçerli güvenlik kuralları, her bir sanal makinede NIC döndürülür. Kullanarak ağ güvenlik grubu görünümü, ağ güvenlik açıklarını açık bağlantı noktaları gibi sanal Makineyi değerlendirebilirsiniz. Siz de doğrulayabilir, ağ güvenlik grubu temel alarak beklendiği gibi çalışıp çalışmadığını bir [yapılandırılmış ve geçerli güvenlik kuralları arasında karşılaştırma](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
 
@@ -579,7 +579,7 @@ Ağ İzleyicisi sağlar bir [tanılama günlükleri](https://docs.microsoft.com/
 
 Aşağıdaki özellikler, kaynak düzeyi izleme için kullanılabilir:
 
-#### <a name="audit-log"></a>Denetleme günlüğü
+#### <a name="audit-log"></a>Denetim günlüğü
 
 Ağ yapılandırmasının bir parçası gerçekleştirilen işlemleri günlüğe kaydedilir. Bu denetim günlükleri çeşitli özellikleri oluşturmak için gereklidir. Bu günlükler, Azure portalında görüntülenebilir veya veya üçüncü taraf araçları gibi Power BI Microsoft araçlarını kullanarak alınır. Denetim günlükleri, portal, PowerShell, CLI ve Rest API kullanılabilir.
 

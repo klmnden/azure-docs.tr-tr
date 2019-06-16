@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.openlocfilehash: 6f3140f412f9d36ca36cef440bd4e60f1a9197d4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702233"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Apache Hive ve Apache Pig, HDInsight ile kullanmak Python kullanıcı tanımlı işlevler (UDF)
@@ -73,7 +73,7 @@ Bu örnekte yaptığı aşağıda verilmiştir:
 
 <a name="streamingpy"></a>
 
-### <a name="create-file"></a>Dosya oluştur
+### <a name="create-file"></a>Dosya oluşturma
 
 Geliştirme ortamınızı adlı bir metin dosyası oluşturun `hiveudf.py`. Dosyanın içeriğini aşağıdaki kodu kullanın:
 
@@ -316,7 +316,7 @@ Bu örnekte yaptığı aşağıda verilmiştir:
 3. Ardından, kayıtları üzerinden yinelenir `LOG` ve kullandığı `GENERATE` çağrılacak `create_structure` Python/Jython betiğinde yer yöntemi yüklü olarak `myfuncs`. `LINE` Geçerli kayıt işlevine geçirmek için kullanılır.
 4. Son olarak, çıkışları STDOUT atılır kullanarak `DUMP` komutu. Bu komut, işlemi tamamlandıktan sonra sonuçları görüntüler.
 
-### <a name="create-file"></a>Dosya oluştur
+### <a name="create-file"></a>Dosya oluşturma
 
 Geliştirme ortamınızı adlı bir metin dosyası oluşturun `pigudf.py`. Dosyanın içeriğini aşağıdaki kodu kullanın:
 

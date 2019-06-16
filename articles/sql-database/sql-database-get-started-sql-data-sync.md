@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60342245"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Öğretici: Şirket içi Azure SQL veritabanı ve SQL Server arasındaki SQL Data Sync'i ayarlama
@@ -45,7 +45,7 @@ SQL Data Sync yapılandırma PowerShell örnekleri için bkz [Azure SQL veritaba
 
 1. Üzerinde **diğer veritabanlarıyla Eşitle** sayfasında **yeni eşitleme grubu**. **Yeni eşitleme grubu** içeren sayfa açılır **eşitleme grubu oluşturma (1. adım)** vurgulanan.
 
-   ![1. adım ayarları](media/sql-database-get-started-sql-data-sync/stepone.png)
+   ![1\. adım ayarları](media/sql-database-get-started-sql-data-sync/stepone.png)
 
    Üzerinde **veri eşitleme grubu oluşturma** sayfasında, aşağıdaki ayarları değiştirin:
 
@@ -67,7 +67,7 @@ Yeni eşitleme grubu oluşturulur ve dağıtılır, sonra **(2. adım) eşitleme
 
 İçinde **Hub veritabanı** bölümünde, hub veritabanının bulunduğu SQL veritabanı sunucusu için var olan kimlik bilgilerini girin. Girmeyin *yeni* Bu bölümde kimlik bilgileri.
 
-![2. adım ayarları](media/sql-database-get-started-sql-data-sync/steptwo.png)
+![2\. adım ayarları](media/sql-database-get-started-sql-data-sync/steptwo.png)
 
 ### <a name="to-add-an-azure-sql-database"></a>Azure SQL veritabanı eklemek için
 
@@ -152,7 +152,7 @@ Yeni eşitleme grubu oluşturulur ve dağıtılır, sonra **(2. adım) eşitleme
 
 Yeni eşitleme grubu üyeleri oluşturulan ve dağıtılan, sonra **yapılandırma eşitleme grubu (3. adım)** vurgulanan **yeni eşitleme grubu** sayfası.
 
-![3. adım ayarları](media/sql-database-get-started-sql-data-sync/stepthree.png)
+![3\. adım ayarları](media/sql-database-get-started-sql-data-sync/stepthree.png)
 
 1. Üzerinde **tabloları** sayfasında bir veritabanı eşitleme grubuna üye listesinden seçin ve seçin **yenileme şema**.
 
@@ -172,16 +172,16 @@ Eşitlemeler arasındaki en düşük süre beş dakikadır.
 
 **SQL Data Sync tamamen tablolar oluşturur?**
 
-Hedef veritabanında Eşitleme şeması tabloları eksikse, SQL Data Sync bunları seçtiğiniz sütunları oluşturur. Ancak, bu tam uygunluklu şemada aşağıdaki nedenlerle neden değil:
+Hedef veritabanında eşitleme şeması tabloları eksikse SQL Data Sync seçtiğiniz sütunlarla o tabloları oluşturur. Ancak, bu tam uygunluklu şemada aşağıdaki nedenlerle neden değil:
 
-- Seçebileceğiniz sütun hedef tabloda oluşturulur. Seçili sütun yok sayılır.
-- Yalnızca seçili olan sütunda dizin hedef tabloda oluşturulur. Seçili sütunları için bu dizinler göz ardı edilir.
+- Hedef tabloda yalnızca seçtiğiniz sütunlar oluşturulmuştur. Seçilmeyen sütunlar yoksayılmıştır.
+- Hedef tabloda yalnızca seçili sütun dizinleri oluşturulmuştur. Seçili olmayan sütunların dizinleri yoksayılmıştır.
 - XML türü sütunlarda Dizin oluşturulmaz.
 - Denetim kısıtlamalarında oluşturulmaz.
 - Kaynak tablolarda Tetikleyicileri oluşturulmaz.
 - Görünüm ve saklı yordam oluşturulmaz.
 
-Bu kısıtlamalar nedeniyle, şunları öneririz:
+Bu sınırlamalar nedeniyle aşağıdakileri öneririz:
 
 - Üretim ortamları için tam uygunluklu şema kendiniz oluşturun.
 - Hizmet ile denemeler yaparken otomatik sağlama özelliğini kullanın.

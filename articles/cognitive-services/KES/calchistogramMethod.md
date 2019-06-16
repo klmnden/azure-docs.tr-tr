@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: aaa5b3a85c08f11d821557257de451b8ffc8a3fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814176"
 ---
 # <a name="calchistogram-method"></a>calchistogram yöntemi
@@ -28,7 +28,7 @@ Ad|Değer|Açıklama
 ifade | Metin dizesi | Dizin varlıkları histogramlar hesaplanacağı belirten yapılandırılmış sorgu ifade.
 Öznitelikleri | Metin dizesi (varsayılan = "") | Yanıta dahil edilmesi için öznitelik virgülle ayrılmış listesi.
 count   | Sayı (varsayılan = 10) | Döndürülecek sonuç sayısı.
-uzaklık  | Sayı (varsayılan = 0) | Döndürülecek ilk sonuç dizini.
+offset  | Sayı (varsayılan = 0) | Döndürülecek ilk sonuç dizini.
 
 ## <a name="response-json"></a>Yanıt (JSON)
 JSONPath | Açıklama

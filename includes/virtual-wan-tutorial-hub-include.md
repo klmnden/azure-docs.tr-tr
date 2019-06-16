@@ -9,10 +9,10 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150852"
 ---
 Bir hub ağ geçidi içerir. Hub oluşturulduktan sonra site eklemeseniz bile hub için ücretlendirilirsiniz. Hub ve ağ geçidi oluşturmak için 30 dakika sürer.
@@ -23,6 +23,6 @@ Bir hub ağ geçidi içerir. Hub oluşturulduktan sonra site eklemeseniz bile hu
 
    * Location
    * Ad
-   * Merkez özel adres alanı
+   * Hub özel adres alanı
 
 Hub’ı oluşturmak için **Onayla**'ya tıklayın. Tıklayın **Yenile** hub'ı görüntülemek için **Hubs** sayfası.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f9b9fc0a2939f601cbddafb6ac400130e794da2b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511092"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060870"
 ---
 # <a name="what-is-custom-speech"></a>Özel konuşma tanıma nedir?
 
@@ -52,7 +52,7 @@ Bir Azure hesabı ve bir konuşma Hizmetleri abonelik oluşturduktan sonra özel
 
 1. Azure portalından konuşma Hizmetleri abonelik anahtarınızı alın.
 2. Oturum açma için [özel konuşma tanıma portalı](https://aka.ms/custom-speech).
-3. Bir konuşma projesi oluşturma ve üzerinde çalışmak istediğiniz aboneliği seçin.
+3. Üzerinde çalışmak ve konuşma projesi oluşturmak için ihtiyaç duyduğunuz aboneliği seçin.
 4. Aboneliğinizi değiştirmek istiyorsanız, kullanın **dişli** simgesi bulunan üst gezintideki.
 
 ## <a name="how-to-create-a-project"></a>Bir proje oluşturma

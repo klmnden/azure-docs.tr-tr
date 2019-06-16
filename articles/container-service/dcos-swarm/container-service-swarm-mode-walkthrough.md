@@ -10,10 +10,10 @@ ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
 ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60721795"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(KULLANIM DIŞI) Docker CE kümesi dağıtma
@@ -38,7 +38,7 @@ Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myResourceGroup* içind
 az group create --name myResourceGroup --location westus2
 ```
 
-Çıkış:
+Çıktı:
 
 ```json
 {
@@ -76,7 +76,7 @@ Bu hızlı başlangıç boyunca hem Docker Swarm ana şablonunun hem de Docker a
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
-Çıkış:
+Çıktı:
 
 ```bash
 Master                                                               Agent
@@ -126,7 +126,7 @@ Azure Vote hizmetini oluşturmak için [docker stack deploy](https://docs.docker
 docker stack deploy azure-vote --compose-file azure-vote.yaml
 ```
 
-Çıkış:
+Çıktı:
 
 ```bash
 Creating network azure-vote_default

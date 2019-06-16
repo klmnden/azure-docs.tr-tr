@@ -9,15 +9,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.openlocfilehash: 0bfb66f54ec09e86b46a41499211e93a0083e8d1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779923"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IOT hub'ınızdaki X.509 güvenliği
 
-Bu öğreticide, Azure IOT hub'ı kullanarak güvenli hale getirmek için gereken adımlar benzetim *X.509 sertifika kimlik doğrulaması*. Gösterim amacıyla, OpenSSL açık kaynak aracı sertifikalar, Windows makinenizde yerel olarak oluşturmak için nasıl kullanılacağını göstereceğiz. Bu öğreticide yalnızca test amacıyla kullanmanızı öneririz. Üretim ortamı için sertifikaları satın almalıyım bir *kök sertifika yetkilisi (CA)*.
+Bu öğreticide, Azure IOT hub'ı kullanarak güvenli hale getirmek için gereken adımlar benzetim *X.509 sertifika kimlik doğrulaması*. Gösterim amacıyla, OpenSSL açık kaynak aracı sertifikalar, Windows makinenizde yerel olarak oluşturmak için nasıl kullanılacağını göstereceğiz. Bu öğreticide yalnızca test amacıyla kullanmanızı öneririz. Üretim ortamı için sertifikaları satın almalıyım bir *kök sertifika yetkilisi (CA)* .
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,7 +33,7 @@ IOT hub'ında X.509 sertifikası tabanlı güvenlik ile başlaması gerekir bir 
 
 Sertifikalarınızı almak için aşağıdaki yollardan birini seçebilirsiniz:
 
-* Satın X.509 sertifikasından bir *kök sertifika yetkilisi (CA)*. Bu, üretim ortamları için önerilir.
+* Satın X.509 sertifikasından bir *kök sertifika yetkilisi (CA)* . Bu, üretim ortamları için önerilir.
 
 * Gibi bir üçüncü taraf araç kullanarak kendi X.509 sertifikaları oluşturma [OpenSSL](https://www.openssl.org/). Bu, test ve geliştirme amacıyla yeterli olur. Bkz: [yönetme test CA sertifikaları için örnekler ve öğreticiler](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) oluşturma hakkında bilgi için CA sertifikalarını PowerShell veya Bash kullanarak test edin. Bu öğreticinin geri kalanını yönergelerini takip ederek oluşturulan test CA sertifikaları kullanan [yönetme test CA sertifikaları için örnekler ve öğreticiler](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
@@ -52,7 +52,7 @@ Bu adımlar Portalı aracılığıyla IOT hub'ınıza yeni bir sertifika yetkili
 
 4. Sertifikanızı başarıyla karşıya yüklendiğini bir bildirim alırsınız bitince **Kaydet**.
 
-    ![Karşıya sertifika yükleme](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
+    ![Sertifikayı karşıya yükleme](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
 
    Bu, sertifikanızın gösterir **sertifika Gezgini** listesi. Not **durumu** Bu sertifika *doğrulanmamış*.
 

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8d1f0f6ae3ffc123f1ae8318a6fbce4a9a3024fa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143414"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814915"
 ---
 ## <a name="access-the-virtual-machine"></a>Sanal makineye erişim
 
-Aşağıdaki adımları kullanın `az` Azure Cloud shell'de komutu. İsterseniz, aşağıdakileri yapabilirsiniz [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) geliştirme makinesi ve komutları yerel olarak çalıştırın.
+Azure CLI, aşağıdaki adımları Azure Cloud Shell'de kullanın. İsterseniz, aşağıdakileri yapabilirsiniz [Azure CLI'yı yükleme](/cli/azure/install-azure-cli) geliştirme makinesi ve komutları yerel olarak çalıştırın.
 
 İzin vermek için Azure sanal makineyi yapılandırmak nasıl bir aşağıdaki adımlarda **SSH** erişim. Gösterilen adımlar çözüm Hızlandırıcı için seçtiğiniz adı varsayar **contoso-simülasyon** --bu değer, dağıtımınızın adıyla değiştirin:
 

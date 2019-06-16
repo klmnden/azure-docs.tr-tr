@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
 ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411589"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>PHP için Azure SDK'sını indirme
@@ -29,8 +29,8 @@ PHP için Azure SDK'sı, geliştirmek, dağıtmak ve Azure için PHP uygulamalar
 
 * **Azure için PHP istemci kitaplıkları**. Bu sınıf kitaplıkları, Veri Yönetimi Hizmetleri gibi Azure özelliklere erişmek için bir arabirim sağlar ve bulut Hizmetleri.
 * **Mac, Linux ve Windows (Azure CLI) için Azure komut satırı arabirimi**. Bu, Azure Web siteleri ve Azure sanal makineler gibi Azure hizmetlerini dağıtıp yönetmeye yönelik komutlar kümesidir. Azure CLI iş Mac, Linux ve Windows dahil olmak üzere herhangi bir platformda.
-* **Azure PowerShell (yalnızca Windows)**. Bu, bulut Hizmetleri ve sanal makineler gibi Azure hizmetlerini dağıtıp yönetmeye yönelik PowerShell cmdlet'leri kümesidir.
-* **Azure Öykünücüleri (yalnızca Windows)**. İşlem ve depolama öykünücüsünü bulut Hizmetleri ve bir uygulamayı yerel olarak test olanak tanıyan veri yönetim hizmetlerinin yerel öykünücüleri ' dir. Azure Öykünücüleri yalnızca Windows üzerinde çalıştırın.
+* **Azure PowerShell (yalnızca Windows)** . Bu, bulut Hizmetleri ve sanal makineler gibi Azure hizmetlerini dağıtıp yönetmeye yönelik PowerShell cmdlet'leri kümesidir.
+* **Azure Öykünücüleri (yalnızca Windows)** . İşlem ve depolama öykünücüsünü bulut Hizmetleri ve bir uygulamayı yerel olarak test olanak tanıyan veri yönetim hizmetlerinin yerel öykünücüleri ' dir. Azure Öykünücüleri yalnızca Windows üzerinde çalıştırın.
 
 Aşağıdaki bölümler, yukarıda açıklanan bileşenlere karşıdan yüklenip kurulacak açıklanmaktadır.
 
@@ -73,7 +73,7 @@ Azure PowerShell ve Azure Öykünücüleri yüklemek için önerilen yöntem kul
 
 Azure PowerShell'in nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [Azure PowerShell kullanmak için nasıl][powershell-tools].
 
-## <a name="azure-cli"></a>Azure CLI'si
+## <a name="azure-cli"></a>Azure CLI
 
 Azure CLI, Azure Web siteleri ve Azure sanal makineler gibi Azure hizmetlerini dağıtıp yönetmeye yönelik komutlar kümesidir. Azure CLI yükleme hakkında daha fazla bilgi için bkz: [Azure CLI'yı yükleme](cli-install-nodejs.md).
 

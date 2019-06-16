@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 2c72c7c493c0a887adab147054c725a2e1c0659f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799133"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer nedir?
@@ -57,7 +57,7 @@ Kısmi bir kanal tarafından dizin oluşturulurken bu modelleri için sonuç kul
 
 - **Anahtar sözcükleri ayıklama**: Anahtar sözcükler, konuşma ve görsel metin ayıklar.
 - **Ayıklama markalar**: Markaları, konuşma ve görsel metin ayıklar.
-- **Konu çıkarımı**: Dökümler ana konulardan biri çıkarımı yapar. 1. düzey IPTC sınıflandırma dahil edilir.
+- **Konu çıkarımı**: Dökümler ana konulardan biri çıkarımı yapar. 1\. düzey IPTC sınıflandırma dahil edilir.
 - **Yapıtları**: "Sonraki ayrıntı düzeyini" zengin ayıklar yapıtlar modellerinin her biri için.
 - **Yaklaşım analizi**: Konuşma ve görsel metin pozitif, negatif ve nötr yaklaşımları tanımlar.
  

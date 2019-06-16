@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935772"
 ---
 <a name="retrieve-operations"></a>İşlemleri alma
@@ -34,19 +34,19 @@ Tüm işlemler teklif veya belirli bir işlem için belirtilen Operationıd alma
 |  **Ad**          |      **Açıklama**                                                                                           | **Veri türü** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
 |  publisherId       |  Örneğin, yayımcı tanımlayıcısı `Contoso`                                                                   |  String       |
-|  offerId           |  Teklif tanımlayıcısı                                                                                              |  String       |
+|  OfferId           |  Teklif tanımlayıcısı                                                                                              |  String       |
 |  operationId       |  Teklif işlemi benzersiz olarak tanımlayan GUID. Operationıd bu API kullanılarak alınabilir ve ayrıca herhangi bir uzun süre çalışan işlem için yanıtın HTTP üst bilgisindeki gibi döndürülür [Yayımla teklif](./cloud-partner-portal-api-publish-offer.md) API.  |   Guid   |
 |  filteredStatus    | Duruma göre filtrelemek için kullanılan isteğe bağlı bir sorgu parametresi (örneğin `running`) bu API'si tarafından döndürülen koleksiyonu.  |   String |
 |  API sürümü       | API'sının en son sürümü                                                                                           |    Tarih      |
 |  |  |  |
 
 
-<a name="header"></a>Üst bilgi
+<a name="header"></a>Üstbilgi
 ------
 
 |  **Ad**          |  **Değer**           |
 |  ---------------   | -------------------- |
-|  Content-Type      | `application/json`   |
+|  İçerik türü      | `application/json`   |
 |  Yetkilendirme     | `Bearer YOUR_TOKEN`  |
 |  |  |
 
@@ -180,9 +180,9 @@ Tüm işlemler teklif veya belirli bir işlem için belirtilen Operationıd alma
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | İşlem benzersiz olarak tanımlayan GUID                                                       |
 |  submissionType              | Teklif için örneğin bildirilen işlemi türünü tanımlar `Publish/GGoLive`      |
-|  createdDateTime             | İşlemi oluşturulduğunda UTC tarih/saat                                                       |
+|  oluşturma tarihi/saati             | İşlemi oluşturulduğunda UTC tarih/saat                                                       |
 |  lastActionDateTime          | Son güncelleştirme işlemi bittiğinde UTC tarih/saat                                       |
-|  durum                      | İşlemin durumu ya da `not started` \| `running` \| `failed` \| `completed`. Yalnızca tek bir işlem durumu olabilir `running` birer güncelleştirir. |
+|  status                      | İşlemin durumu ya da `not started` \| `running` \| `failed` \| `completed`. Yalnızca tek bir işlem durumu olabilir `running` birer güncelleştirir. |
 |  error                       | Başarısız işlemler için hata iletisi                                                               |
 |  |  |
 

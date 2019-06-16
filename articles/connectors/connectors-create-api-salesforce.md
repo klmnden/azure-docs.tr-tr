@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
 ms.openlocfilehash: 292d517f2c99974f4674a4c94472a0a320320ce4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106024"
 ---
 # <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>İzleme, oluşturma ve Azure Logic Apps'ı kullanarak Salesforce kaynaklarını yönetme
@@ -48,7 +48,7 @@ Salesforce'tan yanıtlar almak ve çıkış diğer eylemler için kullanılabili
    * Boş mantıksal uygulama için arama kutusuna filtreniz olarak "salesforce" girin. 
    Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
 
-     -veya-
+     veya
 
    * Var olan mantıksal uygulamalar, bir eylem eklemek istediğiniz adımı altında seçin için **yeni adım**. Arama kutusuna filtreniz olarak "salesforce" girin. Eylemler listesinde, istediğiniz eylemi seçin.
 

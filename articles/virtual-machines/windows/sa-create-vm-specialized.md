@@ -17,11 +17,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251067"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693824"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Bir depolama hesabında özelleştirilmiş bir VHD'den VM oluşturma
 
@@ -34,7 +34,7 @@ ms.locfileid: "60251067"
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
-## <a name="option-1-upload-a-specialized-vhd"></a>1. seçenek: Özelleştirilmiş bir VHD'yi karşıya yükleme
+## <a name="option-1-upload-a-specialized-vhd"></a>1\. seçenek: Özelleştirilmiş bir VHD'yi karşıya yükleme
 
 Hyper-V veya sanal makine başka bir buluttan dışarı gibi bir şirket içi sanallaştırma aracı ile oluşturulan özel bir VM VHD yükleyebilirsiniz.
 
@@ -106,7 +106,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 Ağ bağlantınızı ve VHD dosyasının boyutuna bağlı olarak, bu komutun tamamlanması biraz sürebilir.
 
 
-## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>2. seçenek: Mevcut bir Azure VM'den VHD'yi kopyalayın
+## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>2\. seçenek: Mevcut bir Azure VM'den VHD'yi kopyalayın
 
 Yeni ve yinelenen bir VM oluşturulurken kullanılacak başka bir depolama hesabına VHD kopyalayabilirsiniz.
 
@@ -126,7 +126,7 @@ Kopyalanacak VHD boşaltır VM'yi serbest bırakın.
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-**Durumu** Azure VM için portalı değişiklikleri **durduruldu** için **durduruldu (serbest bırakıldı)**.
+**Durumu** Azure VM için portalı değişiklikleri **durduruldu** için **durduruldu (serbest bırakıldı)** .
 
 ### <a name="get-the-storage-account-urls"></a>Depolama hesabı URL'lerini alma
 Kaynak ve hedef depolama hesapları URL'lerini ihtiyacınız vardır. Aşağıdaki gibi URL'leri görünür: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Depolama hesabı ve kapsayıcı adını biliyorsanız, yalnızca URL'nizi oluşturmak için köşeli ayraçlar arasındaki bilgileri değiştirebilirsiniz. 

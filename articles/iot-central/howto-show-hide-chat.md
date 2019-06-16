@@ -9,13 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a8d2b71899cdd6b7f9c8cb803732b760f3009811
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64513310"
 ---
-# <a name="toggle-live-chat"></a>İki durumlu canlı sohbet
+# <a name="toggle-live-chat"></a>Canlı sohbeti açma/kapatma
 
 Bu nasıl yapılır makalesi, IOT Central uygulamanızı Canlı sohbete geçiş işlemini göstermektedir. Canlı sohbet, teknik destek erişmek için kullanabilirsiniz.
 
@@ -32,17 +32,17 @@ Aşağıdaki ekran görüntüsünde gösterildiği gibi bir soru yazabilirsiniz:
 
 !["Cihaz ayrıntıları Yapılandır" form ayarlarına ve özelliklerine ilişkin ayrıntılı](media/howto-show-hide-chat/sample-chat.png)
 
-## <a name="hide-chat"></a>Sohbeti Gizle
+## <a name="hide-chat"></a>Sohbet Gizle
 
 Sohbet gizlemek için seçin **Gizle sohbet** içinde **yardımcı** paneli:
 
- ![Sohbeti Gizle](media/howto-show-hide-chat/hide-chat.png)
+ ![Sohbet Gizle](media/howto-show-hide-chat/hide-chat.png)
 
 ## <a name="enable-chat"></a>Sohbet etkinleştir
 
 Sohbet göstermek için **Göster sohbet** içinde **yardımcı** paneli:
 
- ![Sohbeti Göster](media/howto-show-hide-chat/show-chat.png)
+ ![Sohbet Göster](media/howto-show-hide-chat/show-chat.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

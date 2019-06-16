@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506861"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Bulut veritabanlarında dağıtılmış işlemler
@@ -42,7 +42,7 @@ SQL veritabanı elastik veritabanı işlemleri için özellikler System.Data.dll
 
 Yükleme sonrasında, SQL DB bağlantılarla içinde System.Transactions API'leri dağıtılmış işlem kullanabilirsiniz. Bu API'leri kullanarak mevcut MSDTC uygulamalar varsa, yalnızca .NET 4.6 için mevcut uygulamalarınızı 4.6.1 yükledikten sonra yeniden Framework. Projelerinizi .NET 4.6 hedefliyorsanız, otomatik olarak yeni Framework sürümünün güncelleştirilmiş DLL'leri kullanır ve SQL DB bağlantılarla birlikte API'sini çağırır dağıtılmış işlem artık başarılı olur.
 
-Elastik veritabanı işlem MSDTC yükleme gerektirmez unutmayın. Bunun yerine, elastik veritabanı işlemleri, doğrudan tarafından ve SQL DB içinde yönetilir. MSDTC dağıtımını dağıtılmış işlemler SQL DB ile kullanmak için gerekli olmadığından bu bulut senaryolarına önemli ölçüde basitleştirir. 4. Bölüm elastik veritabanı işlemleri ve bulut uygulamalarınıza Azure ile birlikte gerekli .NET framework dağıtma konusunda daha ayrıntılı olarak açıklanmaktadır.
+Elastik veritabanı işlem MSDTC yükleme gerektirmez unutmayın. Bunun yerine, elastik veritabanı işlemleri, doğrudan tarafından ve SQL DB içinde yönetilir. MSDTC dağıtımını dağıtılmış işlemler SQL DB ile kullanmak için gerekli olmadığından bu bulut senaryolarına önemli ölçüde basitleştirir. 4\. Bölüm elastik veritabanı işlemleri ve bulut uygulamalarınıza Azure ile birlikte gerekli .NET framework dağıtma konusunda daha ayrıntılı olarak açıklanmaktadır.
 
 ## <a name="development-experience"></a>Geliştirme deneyimi
 

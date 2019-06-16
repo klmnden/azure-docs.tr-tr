@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943080"
 ---
 <a name="seller-insights-faq"></a>Satıcı Insights SSS
@@ -35,19 +35,19 @@ Bu makalede, yaygın kullanıcı yordamlar ve satıcı Insights hakkında sorula
 <a name="calculate-my-open-accounts-receivable"></a>My Aç hesapları Hesapla
 -------------------------------------
 
-Ödeme modülünden işlemlerinizi indirdikten sonra etiketli sütununu bulun **ödeme durumu**ve yalnızca değeri "Gelecek ödeme" ve "İçin hazır değil ödeme." görüntülemek için filtre uygulayın Ardından etiketli sütunu Topla **ödeme tutarı (PC)**.
+Ödeme modülünden işlemlerinizi indirdikten sonra etiketli sütununu bulun **ödeme durumu**ve yalnızca değeri "Gelecek ödeme" ve "İçin hazır değil ödeme." görüntülemek için filtre uygulayın Ardından etiketli sütunu Topla **ödeme tutarı (PC)** .
 
 
 <a name="calculate-revenue-by-customer-usage-period"></a>Müşteri kullanım döneme göre gelir hesaplayın
 ------------------------------------------
 
-Ödeme modülünden işlemlerinizi indirdikten sonra etiketli sütununu bulun **işlem durumu**ve filtre "Ücretli" değeri.   Listelenen her işlem için etiketli sütun **ödeme tutarı (PC)** ödediğiniz tutar temsil eder.  Sütun işlemle ilişkili kullanım dönemi tahmin etmek için kullanmak **ödeme tarihi**, kullanım işlem geçerli olduğu dönemin son günü Kapat bir yaklaşığını olduğu.
+Ödeme modülünden işlemlerinizi indirdikten sonra etiketli sütununu bulun **işlem durumu**ve filtre "Ücretli" değeri.   Listelenen her işlem için etiketli sütun **ödeme tutarı (PC)**  ödediğiniz tutar temsil eder.  Sütun işlemle ilişkili kullanım dönemi tahmin etmek için kullanmak **ödeme tarihi**, kullanım işlem geçerli olduğu dönemin son günü Kapat bir yaklaşığını olduğu.
 
 
 <a name="calculate-your-bad-debt"></a>Hatalı borç hesaplayın
 ---------------------
 
-Ödeme modülünden işlemlerinizi indirdikten sonra etiketli sütununu bulun **son koleksiyon durumu**ve yalnızca görüntüleme değeri "yazma devre dışı." filtresini uygulayın. Ardından etiketli sütunu Topla **ödeme tutarı (PC)**.
+Ödeme modülünden işlemlerinizi indirdikten sonra etiketli sütununu bulun **son koleksiyon durumu**ve yalnızca görüntüleme değeri "yazma devre dışı." filtresini uygulayın. Ardından etiketli sütunu Topla **ödeme tutarı (PC)** .
 
 
 <a name="view-payout-or-customer-contact-information"></a>Ödeme veya müşteri irtibat bilgilerini görüntüleyin

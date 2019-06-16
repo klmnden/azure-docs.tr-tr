@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8cf8c84120f4c90d3943cfc31ffbf9aafcec0ba3
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873923"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Internet Explorer ve Microsoft Edge tarayıcılarda MSAL.js bilinen sorunlar
@@ -43,7 +43,7 @@ Internet Explorer JavaScript gösterir yerel olarak desteklemiyor olmasıdır.
 Uygulamanızı üretim ortamında (örneğin, Azure Web apps) normalde dağıtma düzgün çalışır, sağlanan son kullanıcının açılan pencereler kabul etti. Internet Explorer 11 ile bu test.
 
 ### <a name="running-locally"></a>Yerel olarak çalıştırma
-Çalıştırın ve yerel olarak da Internet Explorer'ın çalışan uygulamanızda hata ayıklamak istiyorsanız, aşağıdaki noktaları göz önünde bulundurmanız gerekir (uygulamanızı olarak çalıştırmak istediğini varsayın *http://localhost:1234*):
+Çalıştırın ve yerel olarak da Internet Explorer'ın çalışan uygulamanızda hata ayıklamak istiyorsanız, aşağıdaki noktaları göz önünde bulundurmanız gerekir (uygulamanızı olarak çalıştırmak istediğini varsayın *http://localhost:1234* ):
 
 - Internet Explorer "MSAL.js düzgün çalışmasını engeller. korumalı modunu" adlı bir güvenlik mekanizması vardır. Oturum açarken, sonra Belirtiler arasında sayfanın yönlendirilebilir http://localhost:1234/null.
 
@@ -51,7 +51,7 @@ Uygulamanızı üretim ortamında (örneğin, Azure Web apps) normalde dağıtma
 
     1. Internet Explorer'ı **Araçları** (dişli simgesi).
     1. Seçin **Internet Seçenekleri** ardından **güvenlik** sekmesi.
-    1. Tıklayarak **Internet** bölge ve işaretini kaldırın **korumalı modu etkinleştir (Internet Explorer'ı yeniden başlatma gerektirir)**. Internet Explorer, bilgisayar artık korumalı konusunda sizi uyarır. **Tamam** düğmesine tıklayın.
+    1. Tıklayarak **Internet** bölge ve işaretini kaldırın **korumalı modu etkinleştir (Internet Explorer'ı yeniden başlatma gerektirir)** . Internet Explorer, bilgisayar artık korumalı konusunda sizi uyarır. **Tamam**'ı tıklatın.
     1. Internet Explorer'ı yeniden başlatın.
     1. Uygulamanızda hata ayıklamak ve çalıştırın.
 

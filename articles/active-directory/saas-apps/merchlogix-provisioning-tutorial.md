@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8fecc5232b26c98c4027174454cf29b81b0ee41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263613"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060332"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için MerchLogix yapılandırın
 
@@ -44,7 +44,7 @@ Otomatik kullanıcı hazırlama ile Azure AD için MerchLogix yapılandırmadan 
 
 **Azure AD uygulama galerisinden MerchLogix eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, üzerinde sol gezinti bölmesinde, tıklayarak **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)** , üzerinde sol gezinti bölmesinde, tıklayarak **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -101,7 +101,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
     * İçinde **gizli belirteç** , MerchLogix teknik konular ilgili kişisi tarafından sağlanan gizli belirteç girin.
 
-6. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için MerchLogix bağlanabilirsiniz. Bağlantı başarısız olursa MerchLogix hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
+6. 5\. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için MerchLogix bağlanabilirsiniz. Bağlantı başarısız olursa MerchLogix hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
 7. İçinde **bildirim e-posta** alanında, bir kişi veya grubun ve sağlama hata bildirimleri almak - onay e-posta adresi girin **birhataoluşursa,bire-postabildirimigönder**.
 

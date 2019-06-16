@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
 ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952146"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Güvenlik Merkezi özelliklerini (Temmuz 2019) devre dışı bırakma
@@ -42,7 +42,7 @@ Güvenlik Merkezi, makinelerinizden güvenlik-ilgili çeşitli yapılandırmalar
 
 Bir çalışma alanı seçtiğinizde görünen olaylar Pano emekli ediyoruz:
 
-![Olaylar panosu][2]
+![Olaylar Panosu][2]
 
 ### <a name="events-dashboard---the-new-experience"></a>Olaylar Panosu - yeni deneyim
 
@@ -100,7 +100,7 @@ Biz kaldırma **güvenlik olayları eşlemesine Git** düğmesi ve çalışma al
 
 Seçtiğinizde, **güvenlik olayları eşlemesine Git** düğmesi, tehdit zekası panosunu açın. Tehdit zekası panosunu emekli ediyoruz.  
 
-![Tehdit Zekası panosu][11]
+![Tehdit bilgileri panosu][11]
 
 Tehdit zekası panosunu görüntülemek istediğiniz çalışma alanını seçtiğinizde, Log Analytics'te güvenlik uyarıları (Önizleme) map ekranı açın. Biz bu ekranı emekli.
 
@@ -110,7 +110,7 @@ Mevcut verilerinizi Log Analytics'e güvenlik çözümdeki kullanılabilir kalı
 
 ### <a name="security-events-map---the-new-experience"></a>Güvenlik olayları eşleme - yeni deneyim
 
-Güvenlik Merkezi ile oluşturulan uyarılar Haritası işlevini kullanmanızı öneririz: **Güvenlik Uyarıları harita (Önizleme)**. Bu işlev, iyileştirilmiş bir deneyim sağlar ve tüm abonelikleri ve ilişkili çalışma alanları arasında çalışır. Ortamınız genelinde üst düzey bir görünüm sağlar ve tek bir çalışma alanına odaklı değildir.
+Güvenlik Merkezi ile oluşturulan uyarılar Haritası işlevini kullanmanızı öneririz: **Güvenlik Uyarıları harita (Önizleme)** . Bu işlev, iyileştirilmiş bir deneyim sağlar ve tüm abonelikleri ve ilişkili çalışma alanları arasında çalışır. Ortamınız genelinde üst düzey bir görünüm sağlar ve tek bir çalışma alanına odaklı değildir.
 
 ## Özel uyarı kuralları (Önizleme)<a name="menu_customalerts"></a>
 
@@ -164,7 +164,7 @@ Azure Güvenlik Merkezi'nin izlediği güvenlik yapılandırmalarını bir dizi 
 
 Biz bu önizleme özelliğini devre dışı bırakma. O tarihten sonra güvenlik yapılandırmalarını geri varsayılan değerlerine sıfırlamak istiyorsanız, bunu API veya Powershell kullanarak aracılığıyla yapabilirsiniz [yönergeleri izleyin](https://aka.ms/ascresetsecurityconfigurations)
 
-![Güvenlik yapılandırmalarını düzenle][17]
+![Güvenlik yapılandırmalarını Düzenle][17]
 
 ### <a name="edit-security-configurations---the-new-experience"></a>Güvenlik yapılandırmalarını - yeni deneyime Düzenle
 

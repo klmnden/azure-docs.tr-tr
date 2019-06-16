@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: ''
 ms.openlocfilehash: 2553d08b55aff45e52b9d8c5a64db141a668eb62
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967121"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Cloudyn için bir destek isteği oluşturun
@@ -34,7 +34,7 @@ Aradığınız bilgileri bulamazsanız, bir destek isteği açabilirsiniz. Veya,
 9. İçinde **sorun türü** seçin **Cloudyn eski**ve ardından bir **kategori**.
 10. İçinde **başlık** kutusuna, isteğiniz açıklayan bir başlık girin.
 11. İçinde **ayrıntıları** kutusuna, tür ek bilgileri.
-12. İçin **sorun ne zaman başlar?**, yaklaşık bir tarihi seçin ve zaman ve ardından **sonraki**.  
+12. İçin **sorun ne zaman başlar?** , yaklaşık bir tarihi seçin ve zaman ve ardından **sonraki**.  
 14. İçinde **iletişim bilgilerini** tercih ettiğiniz iletişim yöntemi ve iletişim bilgilerinizi girin ve ardından tıklayın alanında **Oluştur**.  
 
 Destek bileti oluştururken bu destek kuyruğa eklenir. Yanıt süresi, destek planı ve sorunun önem derecesi (iş üzerinde etki) göre değişir. Daha fazla bilgi için [destek kapsamı ve yanıt hızını](https://azure.microsoft.com/support/plans/response/).

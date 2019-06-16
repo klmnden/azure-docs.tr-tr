@@ -12,10 +12,10 @@ ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
 ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790513"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
@@ -23,7 +23,7 @@ ms.locfileid: "60790513"
 İşte birkaç MSGEN'i Microsoft Genomics hizmeti kullanırken karşılaştığınız yaygın sorunlardan bazılarını için sorun giderme ipuçları.
 
  Sorun giderme için ilgili olmayan SSS için [sık sorulan sorular](frequently-asked-questions-genomics.md).
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>1. Adım: İş akışı ile ilişkili hata kodları bulun
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>1\. adım: İş akışı ile ilişkili hata kodları bulun
 
 İş akışı tarafından ile ilişkili hata iletileri bulabilirsiniz:
 
@@ -93,7 +93,7 @@ msgen status -w 1001 -f "config.txt"
 Sorun giderme için standardoutput.txt içeriğini incelemek ve görünen herhangi bir hata iletisi dikkat edin.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>2. Adım: Sık karşılaşılan sorunlar için önerilen adımları deneyin
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>2\. adım: Sık karşılaşılan sorunlar için önerilen adımları deneyin
 
 Bu bölümde kısaca Microsoft Genomics hizmeti (msgen'i) ve bunları gidermek için kullanabileceğiniz stratejiler yaygın hataları çıkış vurgular. 
 
@@ -116,7 +116,7 @@ Bu eyleme dönüştürülebilir kullanıcı hatalardır. Dosya ve hata kodu tür
 
 | Dosya türü | Hata kodu | Hata iletisi                                                                           | Önerilen sorun giderme adımları                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Herhangi biri          | 701        | Okuma [readId] [numberOfBases] tabanları var, ancak sınırı [maxReadLength]           | Bu hatanın en yaygın nedeni, iki okuma bir birleşimi için önde gelen dosyasının bozuk olmasıdır. Giriş dosyalarınızı denetleyin. |
+| Tüm          | 701        | Okuma [readId] [numberOfBases] tabanları var, ancak sınırı [maxReadLength]           | Bu hatanın en yaygın nedeni, iki okuma bir birleşimi için önde gelen dosyasının bozuk olmasıdır. Giriş dosyalarınızı denetleyin. |
 | BAM          | 200        |   '[YourFileName]' dosyası okunamıyor.                                                                                       | BAM dosyası biçimini denetleyin. İş akışı düzgün şekilde biçimlendirilmiş bir dosyayla yeniden gönderin.                                                                           |
 | BAM          | 201        |  [File_name] BAM dosyası okunamıyor.                                                                                      |BAM dosyası biçimini denetleyin.  İş akışı, doğru biçimlendirilmiş bir dosya ile gönderin.                                                                            |
 | BAM          | 202        | [File_name] BAM dosyası okunamıyor. Çok küçük ve eksik dosya üstbilgisi.                                                                                        | BAM dosyası biçimini denetleyin.  İş akışı, doğru biçimlendirilmiş bir dosya ile gönderin.                                                                            |
@@ -137,7 +137,7 @@ Bu eyleme dönüştürülebilir kullanıcı hatalardır. Dosya ve hata kodu tür
 | FASTQ        | 308        |  FASTQ okuma hatası. Okuma ikisinde'nın farklı bir şekilde yanıt verdi. Doğru FASTQ dosyası seçtiğiniz?                                                                                       | FASTQ dosya biçimi düzeltin ve iş akışını yeniden gönderin.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>3. Adım: Microsoft Genomiks desteğe başvurun
+## <a name="step-3-contact-microsoft-genomics-support"></a>3\. adım: Microsoft Genomiks desteğe başvurun
 
 İş hataları devam ederseniz veya diğer herhangi bir sorunuz varsa, Azure portalında Microsoft Genomiks desteğe başvurun. Bir destek talebi göndermek nasıl hakkında daha fazla bilgi bulunabilir [burada](file-support-ticket-genomics.md).
 

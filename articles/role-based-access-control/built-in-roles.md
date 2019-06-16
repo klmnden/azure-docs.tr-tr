@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
 ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755116"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
@@ -190,7 +190,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Açıklama** | Sağlayan her şeyi görüntüleyebilir ancak değişiklik yok. |
 > | **Kimlik** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Eylemler** |  |
-> | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
+> | \* / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
 > | **NotActions** |  |
 > | *Yok* |  |
 > | **DataActions** |  |
@@ -1578,7 +1578,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Açıklama** | Log Analytics katkıda bulunan tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenleyin. İzleme ayarlarını düzenleme Vm'lere VM uzantısı ekleme içerir; Azure Depolama'dan günlüklerin toplanmasını yapılandırma yapabilmek için depolama hesabı anahtarlarını okuma; oluşturma ve Otomasyon hesapları yapılandırma; çözümler eklenerek; ve tüm Azure kaynaklarında Azure tanılamayı yapılandırma. |
 > | **Kimlik** | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | **Eylemler** |  |
-> | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
+> | \* / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
 > | Microsoft.Automation/automationAccounts/* |  |
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Depolama hesaplarının erişim anahtarlarını listeler. |
@@ -1605,7 +1605,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Açıklama** | Log Analytics okuyucusu görüntüleyebilir ve tüm izleme verilerini ve ayarları, tüm Azure kaynaklarındaki Azure Tanılama yapılandırmasını görüntüleme dahil olmak üzere izleme görünümü yanı arayın. |
 > | **Kimlik** | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | **Eylemler** |  |
-> | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
+> | \* / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Yeni altyapıyı kullanarak arama yapın. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Arama sorgusu yürütür |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
@@ -1687,7 +1687,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Açıklama** | Okuma ve yönetilen uygulama kaynaklarında işlemleri sağlar |
 > | **Kimlik** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Eylemler** |  |
-> | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
+> | \* / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
 > | Microsoft.Solutions/applications/read | Uygulamaların bir listesini alır. |
 > | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
@@ -1704,7 +1704,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Açıklama** | Yönetilen bir uygulama ve istek JIT erişim kaynaklarında okumanıza olanak tanır. |
 > | **Kimlik** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | **Eylemler** |  |
-> | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
+> | \* / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
@@ -1798,7 +1798,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Açıklama** | Tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenleyin. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Kimlik** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **Eylemler** |  |
-> | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
+> | \* / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
@@ -1853,7 +1853,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Açıklama** | (Ölçümler, günlükler, vb.) tüm izleme verilerini okuyabilir. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Kimlik** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **Eylemler** |  |
-> | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
+> | \* / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Arama sorgusu yürütür |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | **NotActions** |  |
@@ -1950,7 +1950,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Açıklama** | (Önizleme) EA, kaynak ilkesi oluşturma/değiştirme haklarıyla Ea'dan kullanıcılar destek bileti oluşturun ve kaynakları/hiyerarşiyi okuma. |
 > | **Kimlik** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | **Eylemler** |  |
-> | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
+> | \* / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
 > | Microsoft.Authorization/policyassignments/* | Oluşturma ve ilke atamalarını yönetme |
 > | Microsoft.Authorization/policydefinitions/* | Oluşturma ve yönetme ilke tanımları |
 > | Microsoft.Authorization/policysetdefinitions/* | Oluşturma ve ilke kümelerini Yönet |
@@ -2688,7 +2688,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Açıklama** | Azure kaynaklarına kullanıcı erişimini yönetmenizi sağlar. |
 > | **Kimlik** | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
 > | **Eylemler** |  |
-> | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
+> | \* / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
 > | Microsoft.Authorization/* | Yetkilendirme yönetme |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | **NotActions** |  |

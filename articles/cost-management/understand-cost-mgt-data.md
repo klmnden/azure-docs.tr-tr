@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969061"
 ---
 # <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerini anlama
@@ -27,7 +27,7 @@ Maliyet yönetimi, tüm kullanım ve satın alma işlemleri, ayırmaları ve ü�
 
 Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sunduğu](https://azure.microsoft.com/support/legal/offer-details/) Azure maliyet Yönetimi'nde.  Bir Azure teklifi, sahip olduğunuz Azure aboneliğinin türüdür.
 
-| Category  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
+| Kategori  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
 | --- | --- | --- | --- |
 | **Azure Almanya** | [Azure Almanya Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Devlet Kurumları** | Azure kamu Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
@@ -51,7 +51,7 @@ Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sundu�
 
 Aşağıdaki tabloda, desteklenmeyen teklifler gösterilmektedir.
 
-| Category  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
+| Kategori  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
 | --- | --- | --- | --- |
 | **Bulut çözümü sağlayıcısı (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Bulut çözümü sağlayıcısı (CSP)** | Azure kamu CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |

@@ -9,17 +9,17 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: ffb29fc76313e8870b52cb0a63936da7853ea6ce
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131330"
 ---
 ## <a name="timeout"></a>İşlev uygulaması zaman aşımı süresi 
 
 Bir işlev uygulaması zaman aşımı süresini functionTimeout özelliği tarafından tanımlanan [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) proje dosyası. Aşağıdaki tabloda, her iki plan dakika ve her iki çalışma zamanı sürümleri varsayılan ve en yüksek değerleri gösterir:
 
-| Plan | Çalışma zamanı sürümü | Varsayılan | Maksimum |
+| Planlama | Çalışma zamanı sürümü | Varsayılan | Maksimum |
 |------|---------|---------|---------|
 | Tüketim | 1.x | 5 | 10 |
 | Tüketim | 2.x | 5 | 10 |

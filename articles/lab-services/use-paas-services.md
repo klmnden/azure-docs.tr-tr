@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833922"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Azure DevTest Labs'de olarak bir-hizmet Platform (PaaS) Hizmetleri kullanın
@@ -39,7 +39,7 @@ Büyük kuruluşlarda, geliştirme takımları, genellikle özelleştirilmiş ve
 
 ## <a name="customizations"></a>Özelleştirmeleri
 
-#### <a name="sandbox"></a>Korumalı Alan 
+#### <a name="sandbox"></a>Korumalı alan 
 Laboratuvar sahibi kullanıcı rolünden değiştirmek için laboratuvar ortamlarını özelleştirebilirsiniz **okuyucu** için **katkıda bulunan** kaynak grubu içinde. Bu özellik bulunduğu **Laboratuvar ayarları** altındaki **yapılandırması ve ilkelerini** laboratuvarı. Bu değişikliğe rol ortamdaki kaynak ekleme veya kaldırma izin verir. Erişimi daha da kısıtlamak istiyorsanız, Azure ilkelerini kullanın. Bu işlev kaynakları veya abonelik düzeyinde erişimi olmayan yapılandırma özelleştirmenizi sağlar.
 
 #### <a name="custom-tokens"></a>Özel belirteçler
@@ -60,7 +60,7 @@ DevTest Labs kullanılmasını desteklediği [Resource Manager şablonları iç 
 ## <a name="developer"></a>Geliştirici
 Geliştiriciler belirli bir ortam oluşturmak için bir VM oluşturmak için aynı iş akışını kullanın. Bunlar makine görüntüsü ve bir ortam seçin ve şablon tarafından gereken bilgileri girin. Her geliştirici bir ortama sahip dağıtımı değişikliklerini ve geliştirilmiş iç döngü hata ayıklama için izin verir. Ortam en son şablonu kullanarak herhangi bir zamanda oluşturulabilir.  Bu özelliği yok ve el ile sistem oluşturma veya hata testing'e kurtarma gerek kalmamasını kapalı kalma süresinin azaltılmasına yardımcı olmak için yeniden için ortamları sağlar.  
 
-### <a name="testing"></a>Test ediliyor
+### <a name="testing"></a>Test Etme
 DevTest Labs ortamları bağımsız belirli kod ve yapılandırmaları zaman uyumsuz olarak test etmek için izin verin. Çekme isteğinden kodla ortamı ayarlama ve otomatik bir testi başlatmak için yaygın uygulamadır bakın. Otomatikleştirilmiş test çalıştırılıp tamamlandıktan sonra herhangi bir el ile test ortamınıza karşı gerçekleştirilebilir. Bu işlem genellikle CI/CD işlem hattının bir parçası yapılır. 
 
 ## <a name="management-experience"></a>Yönetim deneyimi

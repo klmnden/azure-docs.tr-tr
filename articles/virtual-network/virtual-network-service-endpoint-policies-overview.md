@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
 ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61033909"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Sanal ağ hizmet uç noktası ilkeleri (Önizleme)
@@ -125,7 +125,7 @@ Sanal ağ hizmet uç noktası ilkeleri aşağıdaki avantajları sağlar:
 - Varsayılan olarak NSG'ler, Azure hizmetlerine sanal ağ trafiği de dahil olmak üzere giden İnternet trafiğine izin verir.
 - Giden İnternet trafiğinin tümünü reddetmek ve yalnızca belirli Azure hizmeti kaynaklarına giden trafiğe izin vermek istiyorsanız: 
 
-  1. Adım: Nsg'ler yalnızca kullanan Azure hizmetlerine uç nokta bölgelerde, giden trafiğe izin verecek şekilde yapılandırma *Azure hizmet etiketlerini*. Daha fazla bilgi için bkz. [NSG'ler için hizmet etiketleri](https://aka.ms/servicetags)
+  1\. adım: Nsg'ler yalnızca kullanan Azure hizmetlerine uç nokta bölgelerde, giden trafiğe izin verecek şekilde yapılandırma *Azure hizmet etiketlerini*. Daha fazla bilgi için bkz. [NSG'ler için hizmet etiketleri](https://aka.ms/servicetags)
       
   Örneğin, erişimi yalnızca uç nokta bölgeleriyle kısıtlayan ağ güvenlik grubu kuralları aşağıdaki örneğe benzer:
 
@@ -135,7 +135,7 @@ Sanal ağ hizmet uç noktası ilkeleri aşağıdaki avantajları sağlar:
   Deny all
   ```
 
-  2. Adım: Hizmet uç noktası İlkesi erişim yalnızca belirli bir Azure hizmet kaynakları için geçerlidir.
+  2\. adım: Hizmet uç noktası İlkesi erişim yalnızca belirli bir Azure hizmet kaynakları için geçerlidir.
 
   > [!WARNING]  
   > Ağ güvenlik grubu sanal ağın Azure hizmeti erişimini uç nokta bölgeleriyle sınırlayacak şekilde yapılandırılmadıysa, hizmet uç nokta ilkesi uygulanmış olsa bile diğer bölgelerdeki hizmet kaynaklarına erişebilirsiniz.
@@ -182,7 +182,7 @@ Hizmet uç noktası ilkelerinin kullanımından ek ücret alınmaz. Hizmet uç n
 
 Hizmet uç noktası ilkelerinde aşağıdaki limitler zorunlu tutulur: 
 
- |Kaynak | Varsayılan limit |
+ |Resource | Varsayılan limit |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
  |ServiceEndpintPoliciesPerSubnet|100 |

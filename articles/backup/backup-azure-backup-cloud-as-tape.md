@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
 ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146014"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Uzun vadeli depolama alanınızı banttan Azure bulutuna taşıyın.
@@ -35,7 +35,7 @@ Müşteriler ayrıca bir haftalık yedekleme zamanlayabilirsiniz. Örneğin, aş
 ## <a name="what-is-the-retention-policy"></a>Bekletme İlkesi nedir?
 Bekletme İlkesi, yedekleme depolanmalıdır süreyi belirtir. Müşteriler, yalnızca tüm yedekleme noktaları için "sabit ilke" belirtmek yerine, yedek zamanını temel alan farklı bekletme ilkeleri belirtebilirsiniz. Örneğin, bir operasyonel kurtarma noktası olarak hizmet veren, günlük, geçen yedekleme noktası 90 gün boyunca korunur. Denetim amacıyla her bir üç aylık dönemin sonunda alınan yedekleme noktası uzun bir süre için korunur.
 
-![Saklama İlkesi](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
+![Bekletme İlkesi](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
 "Bu ilkesinde belirtilen bekletme noktalarını" toplam sayısı: (günlük noktalarına) 90 + 40 (her biri Çeyrek 10 yıl) 130 =.
 

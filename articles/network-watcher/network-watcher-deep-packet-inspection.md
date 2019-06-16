@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 7f3fc69bbfd881a26ceb25705852558b66c60153
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64716909"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Azure Ağ İzleyicisi ile paket incelemesi
@@ -43,15 +43,15 @@ Bu senaryoda, iki uç nokta arasında gerçekleşen bir İletim Denetimi Protoko
 
 Bir TCP bağlantı kurulduğunda bağlantı gönderilen ilk üç paketler üç yönlü anlaşma adlandırılan deseni izler. Bu bağlantı oluşturulduğunda istemciden bir ilk istek ve yanıt sunucudan bu el sıkışması gönderilen ilk iki paket inceleyerek gecikme hesaplayabiliriz. Bu gecikme süresi, gidiş dönüş süresi (RTT) olarak adlandırılır. TCP protokolü ve üç yönlü anlaşma daha fazla bilgi için aşağıdaki kaynağa bakın. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1\. Adım
 
 WireShark başlatın
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2\. Adım
 
 Yük **.cap** dosyasını, paket yakalama. Bu dosya, kaydedildi BLOB bulunabilir bizim nasıl yapılandırdığınıza bağlı olarak sanal makine üzerinde yerel olarak.
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>3\. Adım
 
 TCP konuşmalardaki ilk gidiş dönüş süresi (RTT) görüntülemek için biz yalnızca ilk iki paketleri TCP el sıkışması dahil, arayacaktır. Biz [SYN] olan üç yönlü anlaşma ilk iki paketlerinde kullanacaklardır [SYN, ACK] paketler. TCP üstbilgisinde ayarlanan bayrakları için adlandırılır. Bu senaryoda, son pakette [ACK] paketini el sıkışması kullanılmaz. [SYN] paketi, istemci tarafından gönderilir. Sunucu [ACK] paketini aldıktan sonra bir bildirim SYN istemciden alma olarak gönderir. Sunucu yanıtı çok az ek yük gerektirdiğini yararlanarak, biz RTT zamanını çıkararak [SYN, ACK] hesaplamak paket alındı [SYN] zamanına göre istemcinin paket istemci tarafından gönderildi.
 
@@ -65,7 +65,7 @@ Tüm [SYN] üzerinde filtre arıyoruz olduğundan ve [SYN ACK] Syn biti 1 olarak
 
 ![Şekil 7][7]
 
-### <a name="step-4"></a>4. Adım
+### <a name="step-4"></a>4\. Adım
 
 Yalnızca [SYN] biti ayarlanmış olan paketler görmek için penceresini filtreledi, ilk RTT görüntülemek ilginizi çeken konuşmaları kolayca seçebilirsiniz. RTT WireShark içinde görüntülemek için basit bir yol tıklamanız yeterlidir "SEQ/ACK" analiz işaretlenmiş açılır. Ardından görüntülenen RTT görürsünüz. Bu durumda, RTT 0.0022114 saniye veya 2.211 ms idi.
 
@@ -77,7 +77,7 @@ Azure'da dağıtılmış bir sanal makine örneğinde çalışan birçok uygulam
 
 Bu örnekte, şimdi bir önceki gözden makinenizde çalışan bir uygulamadan yetkisiz iletişim gösterebilir istenmeyen protokoller için paket yakalaması çalıştı.
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1\. Adım
 
 Önceki senaryoda aynı yakalama kullanarak **istatistikleri** > **Protokolü hiyerarşisi**
 
@@ -93,13 +93,13 @@ Aşağıdaki ekran görüntüsünde görüldüğü gibi eşler arası dosya payl
 
 Trafiği, uç noktaları ve bağlantı noktaları üzerinden iletişim kurduğu türlerini anlama bir izleme ya da sorun giderme uygulamaları ve ağınızdaki kaynaklara önemlidir. Bir paket yakalama dosyası yukarıdaki yararlanarak, biz bizim VM ile iletişim kurduğu en çok kullanılan hedefler ve kullanılan bağlantı noktaları hızlıca bilgi edinebilirsiniz.
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1\. Adım
 
 Önceki senaryoda aynı yakalama kullanarak **istatistikleri** > **IPv4 istatistikleri** > **hedefler ve bağlantı noktaları**
 
 ![Paket yakalama penceresi][4]
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2\. Adım
 
 Bir satır belirginleştirmek sonuçları aracılığıyla baktığımızda gibi birden çok bağlantı noktasında 111 vardı. En çok kullanılan bağlantı noktası 3389, Uzak Masaüstü olduğu olduğu ve kalan RPC dinamik bağlantı noktaları değildir.
 
@@ -107,7 +107,7 @@ Bu trafiğe bir şey anlamına gelebilir, ancak birçok bağlantıları için ku
 
 ![Şekil 5][5]
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>3\. Adım
 
 Artık, bir çıkış bağlantı noktasına dayanarak bizim yakalama filtreleyeceğiz yerde bağlantı noktasının belirledik.
 

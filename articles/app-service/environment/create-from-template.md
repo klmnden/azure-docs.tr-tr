@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66137087"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir ASE oluşturma
@@ -69,12 +69,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 Bu işlem yaklaşık bir saat ASE, oluşturulmaya götürür. Ardından ASE Ase'ler listesi için dağıtım tetiklenen abonelik portalında gösterilir.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Karşıya yükleme ve "varsayılan" SSL sertifikası yapılandırma
-Uygulamalar için SSL bağlantıları kurmak için kullanılan "varsayılan" SSL sertifikası olarak bir SSL sertifikası ASE ile ilişkilendirilmiş olması gerekir. ASE'ın varsayılan DNS son eki ise *contoso.com iç*, bağlantı https://some-random-app.internal-contoso.com için geçerli bir SSL sertifikası gerektirir **.internal contoso.com*. 
+Uygulamalar için SSL bağlantıları kurmak için kullanılan "varsayılan" SSL sertifikası olarak bir SSL sertifikası ASE ile ilişkilendirilmiş olması gerekir. ASE'ın varsayılan DNS son eki ise *contoso.com iç*, bağlantı https://some-random-app.internal-contoso.com için geçerli bir SSL sertifikası gerektirir * *.internal contoso.com*. 
 
 İç sertifika yetkililerini kullanarak harici bir verenden sertifika satın alma veya otomatik olarak imzalanan bir sertifika kullanarak geçerli bir SSL sertifikası alın. SSL sertifikası kaynağı ne olursa olsun, aşağıdaki sertifika özniteliklerinin doğru şekilde yapılandırılması gerekir:
 
 * **Konu**: Bu öznitelik ayarlanmalıdır **kök etki alanı here.com .your*.
-* **Konu alternatif adı**: Bu öznitelik her ikisini de içermelidir **kök etki alanı here.com .your* ve **.Your-kök-etki-here.com*. Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantılarını biçiminde bir adres kullanın *your-app-name.scm.your-root-domain-here.com*.
+* **Konu alternatif adı**: Bu öznitelik her ikisini de içermelidir **kök etki alanı here.com .your* ve * *.Your-kök-etki-here.com*. Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantılarını biçiminde bir adres kullanın *your-app-name.scm.your-root-domain-here.com*.
 
 Geçerli bir SSL sertifikası ile elle, iki ek hazırlık adımları gereklidir. SSL sertifikasını .pfx dosyası olarak dönüştürün/kaydedin. .Pfx dosyası olmalıdır tüm ara ve kök sertifikaları içermelidir olduğunu unutmayın. Bir parola ile güvenli hale getirin.
 
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 Değişikliği uygulamak için ön uç ASE başına yaklaşık 40 dakika sürer. Örneğin, iki ön uçlar kullanan bir varsayılan boyutlu ASE'yi için tamamlanması yaklaşık bir saat ve 20 dakika şablonunu alır. Şablon çalışırken, ASE ölçeklendirilemez.  
 
-Şablon tamamlandıktan sonra ILB ASE apps'de HTTPS üzerinden erişilebilir. Bağlantılar, varsayılan SSL sertifikasını kullanarak güvenli hale getirilir. Uygulama adı ve varsayılan ana bilgisayar adını bir bileşimini kullanarak ILB ASE apps'de ele varsayılan SSL sertifikasını kullanılır. Örneğin, https://mycustomapp.internal-contoso.com için varsayılan SSL sertifikasını kullanan **.internal contoso.com*.
+Şablon tamamlandıktan sonra ILB ASE apps'de HTTPS üzerinden erişilebilir. Bağlantılar, varsayılan SSL sertifikasını kullanarak güvenli hale getirilir. Uygulama adı ve varsayılan ana bilgisayar adını bir bileşimini kullanarak ILB ASE apps'de ele varsayılan SSL sertifikasını kullanılır. Örneğin, https://mycustomapp.internal-contoso.com için varsayılan SSL sertifikasını kullanan * *.internal contoso.com*.
 
 Ancak, genel çok kiracılı bir hizmet üzerinde çalışan yeni uygulamalar gibi geliştiriciler tek tek uygulamalar için özel bir ana bilgisayar adları yapılandırabilirsiniz. Bunlar, benzersiz SNI SSL sertifikası bağlamaları tek tek uygulamalar için de yapılandırabilirsiniz.
 

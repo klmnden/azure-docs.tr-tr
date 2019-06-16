@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60905009"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Veri odaklı stili ifadeleri (Web SDK'sı)
@@ -754,7 +754,7 @@ Değişken bağlama ifadeleri, hesaplamanın sonuçlarını bir değişkende dep
 | İfade | Dönüş türü | Açıklama |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'let'<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: dize<br/>&nbsp;&nbsp;&nbsp;&nbsp;Değer1: herhangi biri<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: dize<br/>&nbsp;&nbsp;&nbsp;&nbsp;Value2: herhangi biri<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Bir veya daha fazla değer tarafından kullanılacak değişkenleri olarak depolayan `var` ifade alt ifadede sonucunu döndürür. |
-| `['var', name: string]` | herhangi biri | Kullanılarak oluşturulmuş bir değişkene başvuruyor `let` ifade. |
+| `['var', name: string]` | Tüm | Kullanılarak oluşturulmuş bir değişkene başvuruyor `let` ifade. |
 
 **Örnek**
 

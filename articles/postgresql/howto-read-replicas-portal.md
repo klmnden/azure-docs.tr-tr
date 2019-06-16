@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510373"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Oluşturma ve PostgreSQL - Azure portalında tek bir sunucu için Azure veritabanı'nda salt okunur çoğaltmalar yönetme
@@ -67,7 +67,7 @@ Salt okunur bir çoğaltma oluşturmak için aşağıdaki adımları izleyin:
 
 5. Çoğaltma için bir konum seçin. Bir çoğaltma, herhangi bir Azure bölgesinde oluşturabilirsiniz. Varsayılan konumu, ana sunucu ile aynıdır.
 
-    ![Konum seçin](./media/howto-read-replicas-portal/location-replica.png)
+    ![Bir konum seçin](./media/howto-read-replicas-portal/location-replica.png)
 
 6. Seçin **Tamam** oluşturma işlemini onaylamak için.
 
@@ -81,7 +81,7 @@ Salt okunur çoğaltma oluşturulduktan sonra bunu görüntülenebilir **çoğal
 ![Yeni çoğaltma çoğaltma penceresinde görüntüleme](./media/howto-read-replicas-portal/list-replica.png)
  
 
-## <a name="stop-replication"></a>Çoğaltmayı durdur
+## <a name="stop-replication"></a>Çoğaltmayı Durdur
 Bir ana sunucu ve bir salt okunur çoğaltma arasında çoğaltmayı durdurabilirsiniz.
 
 > [!IMPORTANT]

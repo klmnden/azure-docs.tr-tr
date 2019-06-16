@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b29dec76fb6b1f9883c5c594d4719c9f3032089e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3f80f3c6be747cf84aa9d8b2c386c0568a7511ad
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514633"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069391"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service ortamı ağ konuları #
 
@@ -58,24 +58,32 @@ Bir ASE barındırmak için kullanılan alt ağ boyutunu, ASE dağıtıldıktan 
 
 ### <a name="ase-inbound-dependencies"></a>ASE gelen bağımlılıklar ###
 
-ASE gelen bağımlılıklar erişim:
+Çalışması yalnızca ASE için ASE aşağıdaki bağlantı noktalarının açık olması gerekir:
 
 | Kullanım | Başlangıç | Bitiş |
 |-----|------|----|
 | Yönetim | App Service yönetim adresleri | ASE alt ağı: 454, 455 |
 |  ASE iç iletişimi | ASE alt ağı: Tüm bağlantı noktaları | ASE alt ağı: Tüm bağlantı noktaları
-|  Azure yük dengeleyici izin gelen | Azure yük dengeleyici | ASE alt ağı: Tüm bağlantı noktaları
-|  Uygulama atanmış IP adresleri | Uygulama atanmış adresleri | ASE alt ağı: Tüm bağlantı noktaları
+|  Azure yük dengeleyici izin gelen | Azure yük dengeleyici | ASE alt ağı: 16001
 
-Gelen yönetim trafiğinin komut ve denetim sistemi İzleme ek olarak ase'nin sağlar. Bu trafiğe ait kaynak adresleri listelenen [ASE yönetim adresleri] [ ASEManagement] belge. Tüm IP'lere 454 ve 455 bağlantı noktalarında gelen erişime izin vermek ağ güvenlik yapılandırması gerekir. Bu adreslerden gelen erişimi engellerseniz, ASE'nizi kötü hale gelir ve ardından askıya haline gelir.
+Bir bağlantı noktası tarama üzerinde 7654 ve 1221 açık olarak gösterebilirsiniz 2 bağlantı vardır. Bunlar, bir IP adresi ile hiçbir şey daha fazla yanıt. Bunlar, isterseniz engellenebilir. 
+
+Gelen yönetim trafiğinin komut ve denetim sistemi İzleme ek olarak ase'nin sağlar. Bu trafiğe ait kaynak adresleri listelenen [ASE yönetim adresleri] [ ASEManagement] belge. 454 ve 455 bağlantı noktalarında ASE yönetim adreslerinden erişime izin vermek ağ güvenlik yapılandırması gerekir. Bu adreslerden gelen erişimi engellerseniz, ASE'nizi kötü hale gelir ve ardından askıya haline gelir. 454 ve 455 bağlantı noktalarında gelen TCP trafiğine geri aynı belirtmediyseniz VIP'yi gider gerekir veya bir asimetrik yönlendirme sorununu olacaktır. 
 
 ASE alt ağ içinde iç bileşen iletişim için kullanılan birçok bağlantı noktaları vardır ve bunlar değiştirebilirsiniz. Bu, tüm bağlantı noktaları ASE alt ASE alt ağdan erişilebilir olmasını gerektirir. 
 
-Azure load balancer ile ASE alt arasındaki iletişimin açık olması gereken minimum bağlantı noktaları 454 ve 455 16001 içindir. 16001 bağlantı noktası, yük dengeleyiciden hem de ASE arasındaki Canlı canlı akış için kullanılır. ILB ASE kullanmakta olduğunuz sonra trafik 454, 455 16001 aşağı kilitleyebilirsiniz bağlantı noktaları.  Dış ASE kullanıyorsanız, normal uygulama erişim bağlantı noktaları dikkate almanız gerekir.  Uygulama atanmış adresleri kullanıyorsanız, tüm bağlantı noktalarını açmanız gerekir.  Belirli bir uygulama için bir adresi atandığında, yük dengeleyici, önceden ASE için HTTP ve HTTPS trafiğini göndermek için Bilinmeyen bağlantı noktalarını kullanın.
+Azure load balancer ile ASE alt arasındaki iletişimin açık olması gereken minimum bağlantı noktaları 454 ve 455 16001 içindir. 16001 bağlantı noktası, yük dengeleyiciden hem de ASE arasındaki Canlı canlı akış için kullanılır. ILB ASE kullanmakta olduğunuz sonra trafik 454, 455 16001 aşağı kilitleyebilirsiniz bağlantı noktaları.  Dış ASE kullanıyorsanız, normal uygulama erişim bağlantı noktaları dikkate almanız gerekir.  
 
-Uygulama atanmış IP adresleri kullanıyorsanız, uygulamalarınıza ASE alt ağına atanmış ıp'lerden trafiği izin vermeniz gerekir.
+Kendinizle ilgili gerek diğer bağlantı noktaları, uygulama bağlantı noktaları şunlardır:
 
-454 ve 455 bağlantı noktalarında gelen TCP trafiğine geri aynı belirtmediyseniz VIP'yi gider gerekir veya bir asimetrik yönlendirme sorununu olacaktır. 
+| Kullanım | Bağlantı Noktaları |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio uzaktan hata ayıklama  |  4020, 4022, 4024 |
+|  Web hizmeti dağıtma | 8172 |
+
+Bir uygulama bağlantı noktası engellerseniz, ASE'nizi çalışmaya devam ancak uygulama görünmeyebilir.  Dış ASE ile uygulama atanmış IP adresleri kullanıyorsanız, uygulamalarınıza ASE portalda gösterilen bağlantı noktalarında ASE alt ağına atanmış ıp'lerden trafiğine izin verecek şekilde gerekir > IP adresleri sayfasını.
 
 ### <a name="ase-outbound-dependencies"></a>ASE giden bağımlılıklar ###
 
@@ -83,15 +91,15 @@ Giden erişim için bir ASE birden çok dış sisteme bağlıdır. Bu sistem ba�
 
 ASE'yi internet erişilebilir adreslerine aşağıdaki bağlantı noktalarını kullanıma iletişim kurar:
 
-| Port | Kullanımlar |
+| Kullanımlar | Bağlantı Noktaları |
 |-----|------|
-| 53 | DNS |
-| 123 | NTP |
-| 80/443 | CRL Windows güncelleştirmeleri, Linux bağımlılıkları, Azure Hizmetleri |
-| 1433 | Azure SQL | 
-| 12000 | İzleme |
+| DNS | 53 |
+| NTP | 123 |
+| 8CRL, Windows güncelleştirmeleri, Linux bağımlılıkları, Azure Hizmetleri | 80/443 |
+| Azure SQL | 1433 | 
+| İzleme | 12000 |
 
-Tam listesi, giden bağımlılıklar açıklayan belgede listelenen [App Service ortamı giden trafiği kilitleme](./firewall-integration.md). ASE bağımlılıklarını erişimi kaybederse, çalışmayı durdurur. Yeterince başardığınızda, ASE askıya alınır. 
+Giden bağımlılıklar açıklayan belgede listelenen [App Service ortamı giden trafiği kilitleme](./firewall-integration.md). ASE bağımlılıklarını erişimi kaybederse, çalışmayı durdurur. Yeterince başardığınızda, ASE askıya alınır. 
 
 ### <a name="customer-dns"></a>Müşteri DNS ###
 
@@ -165,12 +173,12 @@ Nsg'ler, Azure portalı üzerinden veya PowerShell aracılığıyla yapılandır
 
 DNS trafiği, NSG kuralları tarafından etkilenmez olarak eklenecek DNS bağlantı noktası gerekmez. Bu bağlantı noktaları, başarılı kullanılmak üzere uygulamalarınızın gerektirdiği bağlantı noktalarını içermez. Normal uygulama erişim bağlantı noktaları şunlardır:
 
-| Kullanım | Başlangıç | Bitiş |
-|----------|---------|-------------|
-|  HTTP/HTTPS  | Kullanıcı tarafından yapılandırılabilir |  80, 443 |
-|  FTP/FTPS    | Kullanıcı tarafından yapılandırılabilir |  21, 990, 10001-10020 |
-|  Visual Studio uzaktan hata ayıklama  |  Kullanıcı tarafından yapılandırılabilir |  4020, 4022, 4024 |
-|  Web hizmeti dağıtma | Kullanıcı tarafından yapılandırılabilir | 8172 |
+| Kullanım | Bağlantı Noktaları |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio uzaktan hata ayıklama  |  4020, 4022, 4024 |
+|  Web hizmeti dağıtma | 8172 |
 
 Gelen ve giden gereksinimleri dikkate alındığında, Nsg'leri Bu örnekte gösterilen Nsg'ler benzemelidir. 
 

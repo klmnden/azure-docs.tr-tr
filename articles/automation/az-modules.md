@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a45a1fbe0d7a99c970d6f8f5626c1349f9d8b1ca
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61305427"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123687"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure automation'da az Modülü Desteği
 
@@ -63,7 +63,7 @@ Bu içeri aktarma işlemi üzerinden de yapılabilir [PowerShell Galerisi](https
 
 ## <a name="test-your-runbooks"></a>Runbook'larınızı test edin
 
-Bir kez `Az` Otomasyon hesabınızda modülünü içeri aktarmadınız, runbook'larınızı Az modül kullanmayı düzenleme şimdi başlayabilirsiniz. Cmdlet'lerin çoğu dışında aynı ada sahip `AzureRM` değiştirildi `Az`. Bu işlem izlemeyin modüller listesi için bkz. [özel durumların listesi](/powershell/azure/migrate-from-azurerm-to-az?view=azps-1.1.0#change-module-imports-and-cmdlet-names).
+Bir kez `Az` Otomasyon hesabınızda modülünü içeri aktarmadınız, runbook'larınızı Az modül kullanmayı düzenleme şimdi başlayabilirsiniz. Cmdlet'lerin çoğu dışında aynı ada sahip `AzureRM` değiştirildi `Az`. Bu işlem izlemeyin modüller listesi için bkz. [özel durumların listesi](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 Yeni cmdlet'lerle kullanmak için runbook değiştirme kullanarak önce runbook'larınızı test etmek için tek yönlü `Enable-AzureRMAlias -Scope Process` runbook başına. Runbook'unuzda bu runbook'a eklediğinizde, değişikliğe gerek kalmadan çalıştırılabilir.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: snehaa
 ms.openlocfilehash: 17cead93325da903161d95b315435d6e7b106dbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61292987"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
@@ -132,7 +132,7 @@ Bağımlılık aracısı tarafından toplanan veriler de içinde şifrelenmiş A
 
 ### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Toplayıcı, vCenter Server ve Azure geçişi hizmeti ile nasıl iletişim?
 
-Toplayıcı gereci, vCenter Server'a (443 numaralı bağlantı noktası) bağlanmak için kullanıcı tarafından gerece girilen kimlik bilgilerini kullanır. vCenter Server'ı VMware PowerCLI ile sorgulayarak vCenter Server tarafından yönetilen VM'ler hakkında meta veri toplar. vCenter Server'dan VM'lerin yapılandırma verilerinin (çekirdek, bellek, disk, NIC vb.) yanı sıra her bir VM'nin bir aylık performans geçmişini de alır. Toplanan meta veriler değerlendirilmek üzere Azure Geçişi hizmetine (internet üzerinden https ile) gönderilir. [Daha fazla bilgi](concepts-collector.md)
+Toplayıcı gereci, vCenter Server'a (443 numaralı bağlantı noktası) bağlanmak için kullanıcı tarafından gerece girilen kimlik bilgilerini kullanır. vCenter Server'ı VMware PowerCLI ile sorgulayarak vCenter Server tarafından yönetilen VM'ler hakkında meta veri toplar. vCenter Server'dan VM'lerin yapılandırma verilerinin (çekirdek, bellek, disk, NIC vb.) yanı sıra her bir VM'nin bir aylık performans geçmişini de alır. Toplanan meta veriler değerlendirilmek üzere Azure Geçişi hizmetine (internet üzerinden https ile) gönderilir. [Daha fazla bilgi edinin](concepts-collector.md)
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Birden fazla vCenter sunucunuz için aynı Toplayıcı gerecini bağlanabilir miyim?
 
@@ -169,7 +169,7 @@ Olarak şirket içi olarak boyutlandırma ölçütü belirttiğinizde boyutland�
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Boyut önerileri üzerinde performans geçmişi ve yüzdebirlik kullanımı nasıl bir etkisi var mı?
 
-Bu özellikler yalnızca performans tabanlı boyutlandırma için geçerlidir. Azure Geçişi, şirket içi makinelerin performans geçmişini toplar ve bunları Azure’da VM boyutu ve disk türü önermek için kullanır. Toplayıcı aleti, her 20 saniyede bir gerçek zamanlı kullanım verilerini toplamak için sürekli olarak şirket içi ortamın profilini oluşturur. Alet, 20 saniyelik örnekler toparlar ve her 15 dakika için tek bir veri noktası oluşturur. Tek veri noktasını oluşturmak için alet tüm 20 saniyelik örneklerden en yüksek değerleri seçer ve Azure’a gönderir. Azure’da bir değerlendirme oluşturduğunuzda, Azure Geçişi performans süresi ve performans geçmişi yüzdebirlik değerine bağlı olarak Azure Geçişi etkili kullanım değerini hesaplar ve boyutlandırma için bunu kullanır. Performans süresi 1 gün ve 95 yüzdelik dilim değeri olarak ayarlarsanız, örneğin, Azure geçişi noktaları artan düzende sıralar ve 95. yüzdebirlik etkili ut olarak seçer. bu toplayıcı tarafından son bir gün için gönderilen 15 dakika örnek kullanır ilization. 95. yüzdebirlik 99. yüzdebirlik dilimde seçerseniz, gelebilir herhangi bir aykırı değer yoksayıyorsunuz sağlar. Dönemin en yüksek kullanımını seçmek ve aykırı değerleri kaçırmamak istiyorsanız 99. yüzdebirliği seçmelisiniz.
+Bu özellikler yalnızca performans tabanlı boyutlandırma için geçerlidir. Azure Geçişi, şirket içi makinelerin performans geçmişini toplar ve bunları Azure’da VM boyutu ve disk türü önermek için kullanır. Toplayıcı aleti, her 20 saniyede bir gerçek zamanlı kullanım verilerini toplamak için sürekli olarak şirket içi ortamın profilini oluşturur. Alet, 20 saniyelik örnekler toparlar ve her 15 dakika için tek bir veri noktası oluşturur. Tek veri noktasını oluşturmak için alet tüm 20 saniyelik örneklerden en yüksek değerleri seçer ve Azure’a gönderir. Azure’da bir değerlendirme oluşturduğunuzda, Azure Geçişi performans süresi ve performans geçmişi yüzdebirlik değerine bağlı olarak Azure Geçişi etkili kullanım değerini hesaplar ve boyutlandırma için bunu kullanır. Performans süresi 1 gün ve 95 yüzdelik dilim değeri olarak ayarlarsanız, örneğin, Azure geçişi noktaları artan düzende sıralar ve 95. yüzdebirlik etkili ut olarak seçer. bu toplayıcı tarafından son bir gün için gönderilen 15 dakika örnek kullanır ilization. 95\. yüzdebirlik 99. yüzdebirlik dilimde seçerseniz, gelebilir herhangi bir aykırı değer yoksayıyorsunuz sağlar. Dönemin en yüksek kullanımını seçmek ve aykırı değerleri kaçırmamak istiyorsanız 99. yüzdebirliği seçmelisiniz.
 
 ## <a name="dependency-visualization"></a>Bağımlılık görselleştirme
 

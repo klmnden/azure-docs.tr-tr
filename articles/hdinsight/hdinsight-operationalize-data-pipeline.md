@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.openlocfilehash: 524386c046534b0ef0050e15d326118b84822822
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718035"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Veri analizi işlem hattını kullanıma hazır hale getirme
@@ -544,7 +544,7 @@ Günlük (veya bir tarih aralığındaki tüm gün) çalışır, böylece bu iş
 
 Gördüğünüz gibi Düzenleyici çoğunu yalnızca yapılandırma bilgileri için iş akışı örneği geçirme. Ancak, duyurmak için birkaç önemli öğe yok.
 
-* 1. noktası: `start` Ve `end` üzerinde öznitelikleri `coordinator-app` öğenin kendisinin denetim Düzenleyici üzerinde çalıştığı zaman aralığı.
+* 1\. noktası: `start` Ve `end` üzerinde öznitelikleri `coordinator-app` öğenin kendisinin denetim Düzenleyici üzerinde çalıştığı zaman aralığı.
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
@@ -565,7 +565,7 @@ Gördüğünüz gibi Düzenleyici çoğunu yalnızca yapılandırma bilgileri i�
 
     Boş `done-flag` öğesi Oozie kaldırmasını anda giriş veri varlığını denetlediğinde, Oozie veri kullanılabilir olup olmadığını bir dizin veya dosya varlığını tarafından belirlediğini gösterir. Bu durumda bir csv dosyasının varlığını olur. Bir csv dosyası varsa, Oozie varsayar: veri hazırdır ve dosyasını işlemek için bir iş akışı örneği başlatır. Mevcut herhangi bir csv dosyası varsa, Oozie değil hazır ve iş akışı çalıştıran gider henüz bir bekleme durumuna veri olduğunu varsayar.
 
-* 3. noktası: `data-in` Öğesi belirtir nominal kullanılacak belirli zaman damgası saat değerleri değiştirirken `uri-template` ilişkili veri kümesi için.
+* 3\. noktası: `data-in` Öğesi belirtir nominal kullanılacak belirli zaman damgası saat değerleri değiştirirken `uri-template` ilişkili veri kümesi için.
 
     ```
     <data-in name="event_input1" dataset="ds_input1">
@@ -577,11 +577,11 @@ Gördüğünüz gibi Düzenleyici çoğunu yalnızca yapılandırma bilgileri i�
 
 Düzenleyici kaynak verileri güne göre günlük bir biçimde işlenmesini olduğu zamanlar bir durum elde etmek üzere önceki üç noktanın birleştirin. 
 
-* 1. noktası: Düzenleyici, 2017-01-01 nominal tarihi ile başlar.
+* 1\. noktası: Düzenleyici, 2017-01-01 nominal tarihi ile başlar.
 
 * Noktası 2: Veri arar Oozie `sourceDataFolder/2017-01-FlightData.csv`.
 
-* 3. noktası: Oozie bu dosyayı bulduğunda, 2017-01-01 için veri işleme iş akışı örneği zamanlar. Oozie ardından 2017-01-02 işlenmeye devam eder. Bu değerlendirme kadar ancak 2017-01-05 içermeyen tekrarlar.
+* 3\. noktası: Oozie bu dosyayı bulduğunda, 2017-01-01 için veri işleme iş akışı örneği zamanlar. Oozie ardından 2017-01-02 işlenmeye devam eder. Bu değerlendirme kadar ancak 2017-01-05 içermeyen tekrarlar.
 
 İş akışları ile bir düzenleyici yapılandırmasını sınıfında tanımlandığı gibi bir `job.properties` bir üst kümesi olan dosya, iş akışı tarafından kullanılan ayarları.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60498844"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram yöntemi
@@ -65,7 +65,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime teevan after 2012
 ```
-<br>İfade yorumlama API döndürülen ilk yorumu içinde *ve (bileşik (AA. AuN == 'jaime teevan'), Y > 2012)*.
+<br>İfade yorumlama API döndürülen ilk yorumu içinde *ve (bileşik (AA. AuN == 'jaime teevan'), Y > 2012)* .
 <br>Bu ifade değeri içinde geçirilerek **calchistogram** API. *Attributes=Y,F.FN* parametre kağıt sayıları dağıtımlarını yıl ve çalışma alanı tarafından örneğin olması gerektiğini belirtir:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

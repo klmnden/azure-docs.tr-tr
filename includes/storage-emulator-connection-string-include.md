@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114668"
 ---
 Depolama öykünücüsü, tek bir sabit hesap ve iyi bilinen bir kimlik doğrulama anahtarı için paylaşılan anahtar kimlik doğrulamasını destekler. Bu hesap ve anahtar depolama öykünücüsü ile kullanmak için izin verilen, yalnızca paylaşılan anahtar kimlik bilgileridir. Bunlar:

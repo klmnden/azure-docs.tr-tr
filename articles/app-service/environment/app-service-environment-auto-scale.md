@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955972"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Otomatik ölçeklendirme ve App Service ortamı v1
@@ -93,7 +93,7 @@ Frank uygulama ile tanıdık. Bunlar, bu çalışanlar ofiste oldukları sırada
 |  | |
 | **Otomatik ölçek kuralını (ölçeği Artır)** |**Otomatik ölçek kuralını (ölçeği Artır)** |
 | **Kaynak:** Üretim (App Service ortamı) |**Kaynak:** Üretim (App Service ortamı) |
-| **Ölçüm:** CPU Yüzdesi |**Ölçüm:** CPU Yüzdesi |
+| **Ölçüm:** CPU % |**Ölçüm:** CPU % |
 | **İşlem:** % 60 daha büyük |**İşlem:** % 80 daha büyük |
 | **Süresi:** 5 Dakika |**Süresi:** 10 dakika |
 | **Zaman toplama:** Ortalama |**Zaman toplama:** Ortalama |
@@ -102,7 +102,7 @@ Frank uygulama ile tanıdık. Bunlar, bu çalışanlar ofiste oldukları sırada
 |  | |
 | **Otomatik ölçek kuralını (ölçeği aşağı)** |**Otomatik ölçek kuralını (ölçeği aşağı)** |
 | **Kaynak:** Üretim (App Service ortamı) |**Kaynak:** Üretim (App Service ortamı) |
-| **Ölçüm:** CPU Yüzdesi |**Ölçüm:** CPU Yüzdesi |
+| **Ölçüm:** CPU % |**Ölçüm:** CPU % |
 | **İşlem:** Değerinden % 30'luk |**İşlem:** % 20'den az |
 | **Süresi:** 10 dakika |**Süresi:** 15 dakika |
 | **Zaman toplama:** Ortalama |**Zaman toplama:** Ortalama |
@@ -209,7 +209,7 @@ Bu senaryo için hata oranı % 80 CPU kullanımı ön uçlar ulaştıktan sonra 
 |  |
 | **Otomatik ölçek kuralını (ölçeği Artır)** |
 | **Kaynak:** Ön uç havuzu |
-| **Ölçüm:** CPU Yüzdesi |
+| **Ölçüm:** CPU % |
 | **İşlem:** % 60 daha büyük |
 | **Süresi:** 20 dakika |
 | **Zaman toplama:** Ortalama |
@@ -218,7 +218,7 @@ Bu senaryo için hata oranı % 80 CPU kullanımı ön uçlar ulaştıktan sonra 
 |  |
 | **Otomatik ölçek kuralını (ölçeği aşağı)** |
 | **Kaynak:** Çalışan havuzu 1 |
-| **Ölçüm:** CPU Yüzdesi |
+| **Ölçüm:** CPU % |
 | **İşlem:** Değerinden % 30'luk |
 | **Süresi:** 20 dakika |
 | **Zaman toplama:** Ortalama |

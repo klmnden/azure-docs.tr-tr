@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
 ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956312"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure Active Directory kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme
@@ -34,7 +34,7 @@ Bu makalede Azure Active Directory'den (Azure AD) kullanıcıları için gelişt
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Azure AD'yi kullanarak Geliştirici hesaplarını yetkilendirme
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
-2. Seç ![oku seçin](./media/api-management-howto-aad/arrow.png):
+2. Seçim ![oku seçin](./media/api-management-howto-aad/arrow.png).
 3. Tür **API** arama kutusuna.
 4. Seçin **API Management Hizmetleri**.
 5. API Management hizmet örneğinizi seçin.

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
 ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114044"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Oluşturma ve yerel Azure sertifika doğrulaması P2S yapılandırmaları için VPN istemcisi yapılandırma dosyalarını yükleme
@@ -109,7 +109,7 @@ Yerel VPN istemcisini Mac üzerinde sertifika kimlik doğrulaması için yapıla
    ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. İçinde **yerel kimliği** alanında, (6. adım)'deki Sertifika adını belirtin. Bu örnekte, "ikev2Client.com" dir. ' A tıklayarak **Uygula** değişiklikleri kaydetmek için düğme.
 
-   ![uygula](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![Uygula](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. Üzerinde **ağ** iletişim kutusunda, tıklayın **Uygula** tüm değişiklikleri kaydedin. ' A tıklayarak **Connect** Azure vnet'e P2S bağlantısı başlatılamadı.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)

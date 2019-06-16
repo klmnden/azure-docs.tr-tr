@@ -13,10 +13,10 @@ ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
 ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038840"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins kullanarak Linux uygulamaları geliştirmek ve dağıtmak için kullanın
@@ -298,7 +298,7 @@ Geliştirme ve test ortamları için Azure kimlik bilgileri veya uygulamanızı 
 
 1. Azure Active Directory Hizmet sorumlusu oluşturma ve Azure aboneliğinizde izinleri atamak için adımları [Azure Active Directory uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Aşağıdakilere dikkat edin:
 
-   * Konu başlığındaki adımları uygulayarak sırasında kopyalayın ve aşağıdaki değerleri kaydedin emin olun: *Uygulama Kimliği*, *uygulama anahtarı*, *dizin kimliği (Kiracı kimliği)*, ve *abonelik kimliği*. Jenkins Azure kimlik bilgileri yapılandırmak için ihtiyaç.
+   * Konu başlığındaki adımları uygulayarak sırasında kopyalayın ve aşağıdaki değerleri kaydedin emin olun: *Uygulama Kimliği*, *uygulama anahtarı*, *dizin kimliği (Kiracı kimliği)* , ve *abonelik kimliği*. Jenkins Azure kimlik bilgileri yapılandırmak için ihtiyaç.
    * Öğeniz yoksa [gerekli izinler](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) dizininize izinleri verin ya da hizmet sorumlusu oluşturmak için bir yöneticiden gerekir ya da Yönetim uç noktası için yapılandırmanız gerekir, içindeki küme **derleme sonrası eylemlerde** jenkins'te işiniz için.
    * İçinde [bir Azure Active Directory uygulaması oluşturma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) bölümünde iyi biçimlendirilmiş bir URL için girebilirsiniz **oturum açma URL'si**.
    * İçinde [uygulamayı bir Role Atama](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) bölümünde, uygulamanız atayabilirsiniz *okuyucu* kümeniz için kaynak grubu üzerinde rol.
@@ -307,7 +307,7 @@ Geliştirme ve test ortamları için Azure kimlik bilgileri veya uygulamanızı 
 1. **Derleme Sonrası Eylemler** açılır listesinden **Service Fabric Projesini Dağıt**’ı seçin. 
 1. Altında **Service Fabric küme yapılandırması**seçin **Service Fabric kümesi seçin** radyo düğmesi. Tıklayın **Ekle** yanındaki **Azure kimlik bilgileri**. Tıklayın **Jenkins** Jenkins kimlik sağlayıcısı seçin.
 1. Jenkins kimlik sağlayıcısı seçin **Microsoft Azure hizmet sorumlusu** gelen **tür** açılır.
-1. 1. adımında aşağıdaki alanları ayarlamak için hizmet sorumlunuzu'kurmak ayarlarken kaydedilmiş değerleri kullanın:
+1. 1\. adımında aşağıdaki alanları ayarlamak için hizmet sorumlunuzu'kurmak ayarlarken kaydedilmiş değerleri kullanın:
 
    * **İstemci kimliği**: *Uygulama Kimliği*
    * **İstemci gizli anahtarı**: *Uygulama anahtarı*

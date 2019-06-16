@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d0960c749d74903acc778c0f21d5c49f380195ae
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: c8199c960229f9cc53cf57f9da3e1f17ebd9f5c7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734190"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074153"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Durum İzleyicisi'ni v2: Ayrıntılı yönergeler
 
@@ -128,7 +128,7 @@ Bu adımları sunucunuzun modülleri PowerShell Galerisi'nden yüklemek için ha
     Bu değişikliği onaylayın ve çalıştırarak tüm PSRepositories denetim `Get-PSRepository` komutu.
 
 4. PowerShellGet en yeni sürümünü yükleyin.
-    - Açıklama: Bu modül, diğer modülleri PowerShell Galerisi'nden almak için kullanılan araçları içerir. Sürüm 1.0.0.1 Windows 10 ve Windows Server ile birlikte gelir. 1.6.0 sürümü veya üzeri bir sürüm gereklidir. Hangi sürümünün yüklü olduğunu belirlemek için çalıştırın `Get-Command -Module PowerShellGet` komutu.
+    - Açıklama: Bu modül, diğer modülleri PowerShell Galerisi'nden almak için kullanılan araçları içerir. Sürüm 1.0.0.1 Windows 10 ve Windows Server ile birlikte gelir. 1\.6.0 sürümü veya üzeri bir sürüm gereklidir. Hangi sürümünün yüklü olduğunu belirlemek için çalıştırın `Get-Command -Module PowerShellGet` komutu.
     - Referans: [PowerShellGet yükleme](https://docs.microsoft.com/powershell/gallery/installing-psget).
     - Komut: `Install-Module -Name PowerShellGet`.
     - İsteğe bağlı parametreler:
@@ -171,7 +171,7 @@ Herhangi bir nedenle PowerShell modülüne bağlanamıyorsanız, el ile indirin 
 2. Dosyanın en son sürümü seçin **sürüm geçmişi** tablo.
 3. Altında **yükleme seçenekleri**seçin **el ile indirin**.
 
-### <a name="option-1-install-into-a-powershell-modules-directory"></a>1. seçenek: Bir PowerShell modülleri dizine yükleme
+### <a name="option-1-install-into-a-powershell-modules-directory"></a>1\. seçenek: Bir PowerShell modülleri dizine yükleme
 PowerShell oturumları tarafından bulunabilir olacaktır, böylece bir PowerShell dizinine el ile yüklenen PowerShell modülünü yükleyin.
 Daha fazla bilgi için [PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
 
@@ -202,9 +202,9 @@ Daha fazla bilgi için [PowerShell modülünü yükleme](https://docs.microsoft.
     Expand-Archive -LiteralPath $pathToNupkg -DestinationPath $pathInstalledModule
     ```
 
-### <a name="option-2-unzip-and-import-nupkg-manually"></a>2. seçenek: Sıkıştırmasını açın ve nupkg el ile içeri aktarma
+### <a name="option-2-unzip-and-import-nupkg-manually"></a>2\. seçenek: Sıkıştırmasını açın ve nupkg el ile içeri aktarma
 PowerShell oturumları tarafından bulunabilir olacaktır, böylece bir PowerShell dizinine el ile yüklenen PowerShell modülünü yükleyin.
-Daha fazla bilgi için [PowerShell modülünü yükleme](https://docs.mircrosoft.com/powershell/developer/module/installing-a-powershell-module).
+Daha fazla bilgi için [PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
 
 Başka bir dizine modülü yüklüyorsanız, el ile modülü kullanarak içeri aktarın [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 

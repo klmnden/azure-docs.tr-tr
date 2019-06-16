@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.openlocfilehash: 7e0dbb4c3cd8ae4bb552e7b7f0748f1bde2f51de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232790"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Surface hub'lar durumlarını izlemek için Azure İzleyici ile izleme
@@ -38,7 +38,7 @@ Ardından, mevcut bir Log Analytics çalışma alanı ekleyin veya yeni bir tane
 * Otomatik olarak Intune aracılığıyla
 * El ile **ayarları** Surface Hub Cihazınızda.
 
-## <a name="set-up-monitoring"></a>İlkenin trafiği çevrimdışı durumdaki barındırılan hizmetlere
+## <a name="set-up-monitoring"></a>İzlemeyi ayarlama
 Azure İzleyicisi'ni kullanarak, Surface Hub, etkinlik ve sistem durumu izleyebilirsiniz. Surface hub'ı kullanarak yerel olarak veya Intune kullanarak kaydedebilirsiniz **ayarları** Surface hub'da.
 
 ## <a name="connect-surface-hubs-to-azure-monitor-through-intune"></a>Surface hub'ları Azure İzleyici Intune aracılığıyla bağlanma

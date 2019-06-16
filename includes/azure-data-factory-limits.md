@@ -9,10 +9,10 @@ ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: ac0747dcff4e74363a58dc9aaf6da4dbd4c6a1c7
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427591"
 ---
 Azure Data Factory yerde müşteri aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için aşağıdaki varsayılan sınırlara sahip çok kiracılı bir hizmettir. Aboneliğiniz için en sınırları artırmak için desteğe başvurun.
@@ -38,10 +38,10 @@ Azure Data Factory yerde müşteri aboneliklerini birbirlerinin iş yüklerini k
 | En az bir atlayan pencere tetikleyicisi aralığı | 15 dakika | 15 dakika |
 | İşlem hattı etkinliği için en uzun zaman aşımı çalıştırır | 7 gün | 7 gün |
 | İşlem hattı nesneleri için nesne başına bayt<sup>3</sup> | 200 KB | 200 KB |
-| Ve bağlı hizmet nesneleri veri kümesi için nesne başına bayt<sup>3</sup> | 100 KB | 2. 000'KB |
+| Ve bağlı hizmet nesneleri veri kümesi için nesne başına bayt<sup>3</sup> | 100 KB | 2\. 000'KB |
 | Veri tümleştirme birimleri<sup>1</sup> kopyalama etkinliği çalıştırma başına | 256 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| API çağrıları yazma | 2.500/h<br/><br/> Azure Resource Manager, Azure Data Factory tarafından bu sınırı uygulanmaktadır. | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Okuma API çağrıları | 12.500/h<br/><br/> Azure Resource Manager, Azure Data Factory tarafından bu sınırı uygulanmaktadır. | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| API çağrıları yazma | 2\.500/h<br/><br/> Azure Resource Manager, Azure Data Factory tarafından bu sınırı uygulanmaktadır. | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Okuma API çağrıları | 12\.500/h<br/><br/> Azure Resource Manager, Azure Data Factory tarafından bu sınırı uygulanmaktadır. | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Dakika başına sorguları izleme | 1000 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Dakika başına varlık CRUD işlemleri | 50 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
@@ -66,7 +66,7 @@ Azure Data Factory yerde müşteri aboneliklerini birbirlerinin iş yüklerini k
 | Data factory içinde veri kümeleri |5,000 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Veri kümesi başına eşzamanlı dilimleri |10 |10 |
 | İşlem hattı nesneleri için nesne başına bayt<sup>1</sup> |200 KB |200 KB |
-| Veriler için nesne başına bayt kümesi ve bağlı hizmet nesneleri<sup>1</sup> |100 KB |2. 000'KB |
+| Veriler için nesne başına bayt kümesi ve bağlı hizmet nesneleri<sup>1</sup> |100 KB |2\. 000'KB |
 | Bir Abonelikteki Azure HDInsight talep üzerine küme çekirdek<sup>2</sup> |60 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Bulut kopyalama etkinliği çalıştırma başına veri taşıma birimleri<sup>3</sup> |32 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Yeniden deneme sayısı için işlem hattı etkinliği çalıştırmaları |1000 |MAXINT (32 bit) |

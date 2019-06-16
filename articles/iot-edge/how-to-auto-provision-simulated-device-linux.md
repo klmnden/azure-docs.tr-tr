@@ -3,18 +3,17 @@ title: DPS - Azure IOT Edge ile Linux cihazı otomatik olarak hazırlarsınız |
 description: Azure cihaz sağlama hizmeti, Azure IOT Edge için test etmek için bir Linux VM üzerinde sanal bir TPM kullanma
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 03/01/2019
-ms.date: 03/25/2019
+ms.author: kgremban
+ms.date: 03/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 9a549221a9e1864e1b7565f35139cb4c2a6ca65e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248122"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde sanal bir TPM ile IOT Edge cihazı oluşturma ve sağlama
@@ -63,7 +62,7 @@ Yeni sanal anahtar oluştururken hatalar görürseniz, diğer bir anahtarlar eth
 
 3. Tamamlamak **yeni sanal makine Sihirbazı** aşağıdaki yapılandırmalarla:
 
-   1. **Nesli belirtmeniz**: Seçin **2. nesil**. 2. nesil sanal makineler sanallaştırma etkinken bir sanal makine üzerinde IOT Edge çalıştırmak için gerekli olan iç içe geçmiş.
+   1. **Nesli belirtmeniz**: Seçin **2. nesil**. 2\. nesil sanal makineler sanallaştırma etkinken bir sanal makine üzerinde IOT Edge çalıştırmak için gerekli olan iç içe geçmiş.
    2. **Ağ Yapılandırma**: Değerini **bağlantı** , önceki bölümde oluşturduğunuz sanal anahtara. 
    3. **Yükleme Seçenekleri**: Seçin **bir önyükleme görüntü dosyasından bir işletim sistemini yüklemek** ve yerel olarak kaydettiğiniz disk görüntü dosyasına göz atın.
 

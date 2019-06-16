@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800294"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Azure özel betik uzantısı sürüm 1 ile Linux sanal makineleri kullanın.
@@ -40,7 +40,7 @@ Bu makalede, Azure clı'dan özel betik uzantısı kullanma ve bir Azure Resourc
 
 Lütfen yeni sürümü kullanmak için yeni ve mevcut dağıtımları geçin ([Microsoft.Azure.Extensions.CustomScript](custom-script-linux.md)) bunun yerine. Yeni sürüm, mongodb'nin olması amaçlanmıştır. Bu nedenle, geçiş adı ve sürümü değiştirirken oldukça kolaydır, uzantı yapılandırmanızı değiştirmeniz gerekmez.
 
-### <a name="operating-system"></a>İşletim Sistemi
+### <a name="operating-system"></a>İşletim sistemi
 
 Desteklenen Linux dağıtımları:
 
@@ -122,8 +122,8 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Yayımcı | Microsoft.OSTCExtensions | string |
-| type | CustomScriptForLinux | string |
+| publisher | Microsoft.OSTCExtensions | string |
+| türü | CustomScriptForLinux | string |
 | typeHandlerVersion | 1,5 | int |
 | fileUris (örn.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (örn.) | Python MyPythonScript.py \<param1 my\> | string |

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 283487eeb0f1f85940da4db8c932602e1b45efd3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737066"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64695797"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure işlevleri'nde işlev uygulamanız için kaynak dağıtımını otomatikleştirme
 
@@ -37,7 +37,7 @@ Bir işlev uygulaması dağıtmak için bir Azure Resource Manager şablonu kull
 
 Azure işlevleri dağıtım genellikle bu kaynaklardan oluşur:
 
-| Kaynak                                                                           | Gereksinim | Söz dizimi ve özellikleri başvurusu                                                         |   |
+| Resource                                                                           | Gereksinim | Söz dizimi ve özellikleri başvurusu                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | Bir işlev uygulaması                                                                     | Gerekli    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | Bir [Azure depolama](../storage/index.yml) hesabı                                   | Gerekli    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
@@ -663,6 +663,27 @@ HTML kullanan bir örnek aşağıda verilmiştir:
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
 ```
+
+### <a name="deploy-using-powershell"></a>PowerShell kullanarak dağıtma
+
+Aşağıdaki PowerShell komutlarını bir kaynak grubu oluşturun ve gerekli kaynaklarıyla birlikte bir işlev uygulaması oluşturan bir şablonu dağıtın. Yerel olarak çalıştırmak için olmalıdır [Azure PowerShell](/powershell/azure/install-az-ps) yüklü. Çalıştırma [ `Connect-AzAccount` ](/powershell/module/az.accounts/connect-azaccount) oturum açmak için.
+
+```powershell
+# Register Resource Providers if they're not already registered
+Register-AzResourceProvider -ProviderNamespace "microsoft.web"
+Register-AzResourceProvider -ProviderNamespace "microsoft.storage"
+
+# Create a resource group for the function app
+New-AzResourceGroup -Name "MyResourceGroup" -Location 'West Europe'
+
+# Create the parameters for the file, which for this template is the function app name.
+$TemplateParams = @{"appName" = "<function-app-name>"}
+
+# Deploy the template
+New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
+```
+
+Bu dağıtımını test etmek için kullanabileceğiniz bir [bunun gibi bir şablon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) Windows üzerinde bir tüketim planında bir işlev uygulaması oluşturur. Değiştirin `<function-app-name>` işlev uygulamanız için benzersiz bir ada sahip.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb0726fdddf6d20a9c8c5f20d6cec0cae68322ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587009"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119255"
 ---
 # <a name="azure-operational-security"></a>Azure çalışma güvenliği
 ## <a name="introduction"></a>Giriş
@@ -224,7 +224,7 @@ Ağ güvenlik denetimi, ağ güvenlik açıklarını algılama ve BT güvenlik v
 
 Ağ İzleyicisi şu anda aşağıdaki özellikleri içerir:
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Denetim günlükleri</a>**-ağ yapılandırmasının bir parçası gerçekleştirilen işlemleri günlüğe kaydedilir. Bu günlükler, Azure portalında görüntülenebilir veya veya üçüncü taraf araçları gibi Power BI Microsoft araçlarını kullanarak alınır. Denetim günlükleri, portal, PowerShell, CLI ve Rest API kullanılabilir. Denetim günlükleri hakkında daha fazla bilgi için bkz: Resource Manager ile işlemleri denetleme. Denetim günlükleri, tüm ağ kaynaklarında yapılan işlemler için kullanılabilir.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Denetim günlükleri</a>** -ağ yapılandırmasının bir parçası gerçekleştirilen işlemleri günlüğe kaydedilir. Bu günlükler, Azure portalında görüntülenebilir veya veya üçüncü taraf araçları gibi Power BI Microsoft araçlarını kullanarak alınır. Denetim günlükleri, portal, PowerShell, CLI ve Rest API kullanılabilir. Denetim günlükleri hakkında daha fazla bilgi için bkz: Resource Manager ile işlemleri denetleme. Denetim günlükleri, tüm ağ kaynaklarında yapılan işlemler için kullanılabilir.
 
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP akışı doğrular </a>**  -tabanlı akış bilgileri 5-tuple paket parametrelere (hedef IP, kaynak IP, hedef bağlantı noktası, kaynak bağlantı noktası ve protokol) bir paket izin verilip verilmediğini denetler. Paket bir ağ güvenlik grubu tarafından reddedilirse, kural ve paketi reddeden ağ güvenlik grubu döndürülür.
@@ -264,7 +264,7 @@ Depolama analizi tarafından gerçekleştirilen aşağıdaki eylemler Faturalana
 
 Aşağıdaki türde kimliği doğrulanmış ve anonim istekler kaydedilir.
 
-| Kimliği Doğrulandı  | Anonim|
+| Kimlik doğrulaması  | Anonim|
 | :------------- | :-------------|
 | Başarılı istekler | Başarılı istekler |
 |Başarısız istek, zaman aşımı, azaltma, ağ, yetkilendirme ve başka hatalar da dahil olmak üzere | Başarılı ve başarısız istekleri dahil olmak üzere paylaşılan erişim imzası (SAS), kullanarak istekleri |

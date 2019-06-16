@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 832be20f78d1e88a3bb6d1c25c7aaf5d7354e857
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753970"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Depolama'da belgelerin dizin oluşturma
@@ -38,7 +38,7 @@ Bir Azure Blob Depolama Dizin Oluşturucu kullanarak ayarlayabilirsiniz:
 
 Burada, REST API kullanarak akışı gösterilmektedir.
 
-### <a name="step-1-create-a-data-source"></a>1. adım: Bir veri kaynağı oluşturun
+### <a name="step-1-create-a-data-source"></a>1\. adım: Bir veri kaynağı oluşturun
 Bir veri kaynağı, hangi veri dizini için (yeni, değiştirilen veya Silinen satırlar) verilerdeki değişiklikleri verimli bir şekilde tanımlamak için ilkeler ve veri erişmek için gerekli kimlik bilgilerini belirtir. Bir veri kaynağı, aynı arama hizmetinde birden çok dizin oluşturucular tarafından kullanılabilir.
 
 Veri kaynağı, blob dizin oluşturma işlemi için aşağıdaki gerekli özelliklerde sahip olmanız gerekir:
@@ -77,7 +77,7 @@ Paylaşılan depolama hakkında daha fazla bilgi için erişim imzaları, bkz: [
 > [!NOTE]
 > SAS kimlik bilgileri kullanıyorsanız, veri kaynağı kimlik bilgileri düzenli aralıklarla yenilenen imzaları ile kendi zaman aşımını önlemek için güncelleştirme gerekir. SAS kimlik bilgilerinin süresi dolar, dizin oluşturucu için benzer bir hata iletisiyle başarısız olur `Credentials provided in the connection string are invalid or have expired.`.  
 
-### <a name="step-2-create-an-index"></a>2. adım: Dizin oluşturma
+### <a name="step-2-create-an-index"></a>2\. adım: Dizin oluşturma
 Bir belgede, öznitelikler, alanları dizinini belirtir ve arama şekil diğer yapıları karşılaşırsınız.
 
 Aranabilir bir dizin oluşturmak nasıl işte `content` bloblarından ayıklanan metinleri saklamak için alan:   
@@ -96,7 +96,7 @@ Aranabilir bir dizin oluşturmak nasıl işte `content` bloblarından ayıklanan
 
 Dizin oluşturma hakkında daha fazla bilgi için bkz. [dizin oluştur](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
-### <a name="step-3-create-an-indexer"></a>3. adım: Dizin oluşturucu oluşturma
+### <a name="step-3-create-an-indexer"></a>3\. adım: Dizin oluşturucu oluşturma
 Bir dizin oluşturucu, bir veri kaynağı ile bir hedef arama dizinine bağlar ve veri yenilemeyi otomatikleştirmek için bir zamanlama sağlar.
 
 Dizinin ve veri kaynağının oluşturulan dizin oluşturucu oluşturmaya hazırsınız:

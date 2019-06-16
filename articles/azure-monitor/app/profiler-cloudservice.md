@@ -13,18 +13,18 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 8ad472b9c92e3bc2164146191a63985fd26becab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306380"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profil Canlı Application ınsights'la Azure Cloud Services
 
 Ayrıca, bu hizmetler Application Insights Profiler dağıtabilirsiniz:
-* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure uygulama hizmeti](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric uygulamaları](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Sanal Makineler](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure sanal makineleri](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler Azure tanılama uzantısı ile yüklenir. Profiler'ı yükleyin ve Application Insights kaynağınıza profilleri göndermek için Azure Tanılama'yı yapılandırmak yeterlidir.
 

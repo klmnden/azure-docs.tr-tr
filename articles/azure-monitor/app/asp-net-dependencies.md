@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: 479b810c5a66917bde5754d32991fb489ea26c9b
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299286"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure Application Insights izleme bağımlılığı 
@@ -35,7 +35,7 @@ A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşen. Bu g
 |WCF çağrıları| HTTP tabanlı bağlamalar kullanıldığında yalnızca otomatik olarak izlenir.|
 |SQL | İle yapılan çağrılar `SqlClient`. Bkz: [bu](##advanced-sql-tracking-to-get-full-sql-query) SQL yakalamak için sorgu.  |
 |[Azure depolama (Blob, tablo, kuyruk)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Azure depolama istemci ile yapılan çağrılar. |
-|[EventHub istemci SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 sürümü ve üzeri. |
+|[EventHub istemci SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1\.1.0 sürümü ve üzeri. |
 |[Service Bus istemci SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Sürüm 3.0.0 ve üstü. |
 |Azure Cosmos DB | HTTP/HTTPS kullanılıyorsa yalnızca otomatik olarak izlenir. TCP modu, Application Insights tarafından yakalanan olmaz. |
 

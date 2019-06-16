@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318961"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Bir Azure VM'ye bağlanın, Uzak Masaüstü lisans sunucusu kullanılamıyor
@@ -63,7 +63,7 @@ Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapsho
 
     Yönetici oturumu kullanarak sanal Makineye bağlanamıyorsanız, kullanabileceğiniz [azure'da sanal makine seri Konsolu](serial-console-windows.md) gibi sanal Makineye erişmek için:
 
-    1. Seri konsol seçerek erişim **destek ve sorun giderme** > **seri konsol (Önizleme)**. VM'de özelliği etkinleştirilmişse, sanal makine başarıyla bağlanabilirsiniz.
+    1. Seri konsol seçerek erişim **destek ve sorun giderme** > **seri konsol (Önizleme)** . VM'de özelliği etkinleştirilmişse, sanal makine başarıyla bağlanabilirsiniz.
 
     2. CMD örneği için yeni bir kanal oluşturun. Girin **CMD** kanalı başlatmak ve kanal adını almak için.
 
@@ -127,6 +127,6 @@ Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapsho
 
 4. Uzak Masaüstü lisans sunucusu yapılandırılması ve iyi durumda ise, Uzak Masaüstü lisans sunucusu ile CAL'leri etkinleştirildiğinden emin olun.
 
-## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
 Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) çözümlenen sorununuzun için.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 973b0044844fbdf38eefde2072631586a8ace593
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192604"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Azure Güvenlik Merkezi IOT önkoşulları
@@ -62,7 +62,7 @@ Başlamadan önce hizmet kullanılabilirliğini doğrulamak için IOT hub'ı kon
 ASC IOT aracılar için artan cihaz ve platformları destekler. Bkz: [platform listesine desteklediği](how-to-deploy-agent.md) mevcut veya planlanan cihaz kitaplığınızı denetlemek için.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Genel Bakış](overview.md)
+- [Genel bakış](overview.md)
 - [Hizmeti etkinleştirme](quickstart-onboard-iot-hub.md)
 - [ASC için IOT hakkında SSS](resources-frequently-asked-questions.md)
 - [ASC IOT uyarılarını anlama](concept-security-alerts.md)

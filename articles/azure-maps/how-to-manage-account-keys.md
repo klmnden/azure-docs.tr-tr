@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957302"
 ---
 # <a name="manage-your-azure-maps-account"></a>Azure haritalar hesabınızı yönetin
@@ -21,7 +21,7 @@ Azure haritalar hesabınız Azure Portalı aracılığıyla yönetebilirsiniz. B
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="create-a-new-account"></a>Yeni hesap oluştur
+## <a name="create-a-new-account"></a>Yeni hesap oluşturun
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 

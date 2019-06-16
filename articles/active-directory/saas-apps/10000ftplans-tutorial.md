@@ -16,19 +16,19 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f231d3d966154c1ea5cca808eedad1051089fea
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 441c9345f92974c387429baac768dbccb03fc995
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897379"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107598"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Öğretici: 10.000 ft planları ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile 10.000 ft planları tümleştirme konusunda bilgi edinin.
-10.000 ft planları, Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+10\.000 ft planları, Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-* 10.000 ft planları erişimi, Azure AD'de kontrol edebilirsiniz.
+* 10\.000 ft planları erişimi, Azure AD'de kontrol edebilirsiniz.
 * Otomatik olarak Azure AD hesaplarına (çoklu oturum açma) 10.000 ft planlarla oturum, kullanıcıların etkinleştirebilirsiniz.
 * Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
@@ -40,14 +40,14 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 Azure AD tümleştirmesi 10.000 ft planlarıyla yapılandırmak için aşağıdaki öğeler gerekir:
 
 * Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
-* 10.000 ft planları çoklu oturum açmayı abonelik etkin.
+* 10\.000 ft planları çoklu oturum açmayı abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-* 10.000 ft planları Destek **SP** tarafından başlatılan
-* 10.000 ft planları Destek **zamanında** kullanıcı sağlama
+* 10\.000 ft planları Destek **SP** tarafından başlatılan
+* 10\.000 ft planları Destek **zamanında** kullanıcı sağlama
 
 ## <a name="adding-10000ft-plans-from-the-gallery"></a>Galeriden planları 10.000 ft ekleme
 
@@ -55,7 +55,7 @@ Azure AD'de 10.000 ft planları tümleştirmesini yapılandırmak için 10.000 f
 
 **Galeriden 10.000 ft planları eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde  **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Azure AD çoklu oturum açma 10.000 ft planlarıyla yapılandırmak için aşağ
 
 4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![10.000 ft planları etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+    ![10\.000 ft planları etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın: `https://app.10000ft.com`
 
@@ -166,7 +166,7 @@ Bu bölümde, 10.000 ft planlarıyla erişim vererek, Azure çoklu oturum açma 
 
 2. Uygulamalar listesinde **10.000 ft planları**.
 
-    ![10.000 ft planlar uygulamalar listesinde bağlayın.](common/all-applications.png)
+    ![10\.000 ft planlar uygulamalar listesinde bağlayın.](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
@@ -184,7 +184,7 @@ Bu bölümde, 10.000 ft planlarıyla erişim vererek, Azure çoklu oturum açma 
 
 ### <a name="create-10000ft-plans-test-user"></a>10000 ft planlarını test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon adlı bir kullanıcı 10.000 ft planlarında oluşturulur. 10.000 ft planları just-ın-time kullanıcı sağlamayı destekler, hangi varsayılan olarak etkindir. Bu bölümde, hiçbir eylem öğesini yoktur. Bir kullanıcı zaten 10.000 ft planlarında mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
+Bu bölümde, Britta Simon adlı bir kullanıcı 10.000 ft planlarında oluşturulur. 10\.000 ft planları just-ın-time kullanıcı sağlamayı destekler, hangi varsayılan olarak etkindir. Bu bölümde, hiçbir eylem öğesini yoktur. Bir kullanıcı zaten 10.000 ft planlarında mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
 
 > [!NOTE]
 > Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [10.000 ft planları istemci Destek ekibine](https://www.10000ft.com/plans/support).

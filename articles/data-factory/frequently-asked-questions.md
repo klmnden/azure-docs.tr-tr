@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61345763"
 ---
 # <a name="azure-data-factory-faq"></a>Azure veri fabrikası ile ilgili SSS
@@ -139,7 +139,7 @@ Bir veri kümesi, türü kesin olarak belirtilmiş bir parametre ve yeniden kull
 
 Bağlı hizmet de bir veri deposu ya da işlem ortamı ile bağlantı bilgilerini içeren bir türü kesin belirlenmiş parametredir. Bu ayrıca, yeniden kullanabilmek veya başvuru bir varlıktır.
 
-### <a name="control-flows"></a>Denetim akışı
+### <a name="control-flows"></a>Denetim akışları
 Denetim akışı zincirleme etkinlikleri sıradaki dallanma, bir işlem hattı düzeyinde tanımladığınız parametreleri içeren işlem hattı etkinliklerinin düzenleyin ve işlem hattı talep üzerine ya da bir tetikleyiciden geçirdiğiniz bağımsız değişkenler çağırın. Denetim akışı, geçirme ve döngü kapsayıcılarını (diğer bir deyişle, foreach yineleyicilerini) özel bir durum da içerir.
 
 

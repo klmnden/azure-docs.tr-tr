@@ -17,10 +17,10 @@ ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f96a7ad1c67fab9354daaafa129d15dfbff12064
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729384"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Ürün adları ve lisans için hizmet planı tanımlayıcıları
@@ -31,7 +31,7 @@ Lisansları yönetirken [Azure portalında](https://portal.azure.com/#blade/Micr
 - **Dize kimliği**: Lisans işlemlerini gerçekleştirirken PowerShell v1.0 cmdlet'leri tarafından kullanılan
 - **GUID**: Azure AD Graph ve Microsoft Graph tarafından kullanılan GUID
 - **Hizmet planları dahil**: Ürün kimliği dizesi ve GUID karşılık gelen hizmet planları listesi
-- **Hizmet planları dahil (kolay adları)**: Dize kimliği ve GUID karşılık gelen hizmet planlarını (kolay adları) ürün listesi
+- **Hizmet planları dahil (kolay adları)** : Dize kimliği ve GUID karşılık gelen hizmet planlarını (kolay adları) ürün listesi
 
 >[!NOTE]
 >Bu bilgiler, 15 Nisan 2019 itibariyle doğrudur.

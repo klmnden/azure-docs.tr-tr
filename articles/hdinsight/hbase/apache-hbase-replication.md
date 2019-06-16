@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707981"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan Apache HBase kümesi çoğaltma ayarlama
@@ -69,14 +69,14 @@ Yardımcı olması için ortamları ayarlama, bazı oluşturduk [Azure Resource 
 | Özellik | Değer |
 |----------|-------|
 | Location | Batı ABD |
-| Sanal ağ adı | &lt;ClusterNamePrevix >-vnet1 |
+| VNet adı | &lt;ClusterNamePrevix >-vnet1 |
 | Adres alanı ön eki | 10.1.0.0/16 |
 | Alt ağ adı | alt ağ 1 |
 | Alt ağ ön eki | 10.1.0.0/24 |
 | (Ağ geçidi) alt ağ adı | GatewaySubnet (değiştirilemez) |
 | (Ağ geçidi) alt ağ ön eki | 10.1.255.0/27 |
 | Ağ geçidi adı | vnet1gw |
-| Geçit türü | VPN |
+| Ağ geçidi türü | VPN |
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | Ağ geçidi IP | vnet1gwıp |
@@ -86,14 +86,14 @@ Yardımcı olması için ortamları ayarlama, bazı oluşturduk [Azure Resource 
 | Özellik | Değer |
 |----------|-------|
 | Location | Doğu ABD |
-| Sanal ağ adı | &lt;ClusterNamePrevix >-vnet2'den |
+| VNet adı | &lt;ClusterNamePrevix >-vnet2'den |
 | Adres alanı ön eki | 10.2.0.0/16 |
 | Alt ağ adı | alt ağ 1 |
 | Alt ağ ön eki | 10.2.0.0/24 |
 | (Ağ geçidi) alt ağ adı | GatewaySubnet (değiştirilemez) |
 | (Ağ geçidi) alt ağ ön eki | 10.2.255.0/27 |
 | Ağ geçidi adı | vnet2gw |
-| Geçit türü | VPN |
+| Ağ geçidi türü | VPN |
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | Ağ geçidi IP | vnet1gwıp |
@@ -105,7 +105,7 @@ Son bölümde, şablon bir Ubuntu sanal makinesi her iki sanal ağ oluşturur.  
 Bağlama yüklemek için yon iki DNS sanal makinelerin genel IP adresini bulmak gerekir.
 
 1. [Azure portalı](https://portal.azure.com) açın.
-2. DNS sanal makine seçerek açın **kaynak grupları > [kaynak grubu adı] > [vnet1DNS]**.  Kaynak grubu adı son yordamda oluşturduğunuz paroladır. Varsayılan DNS sanal makine adları *vnet1DNS* ve *vnet2NDS*.
+2. DNS sanal makine seçerek açın **kaynak grupları > [kaynak grubu adı] > [vnet1DNS]** .  Kaynak grubu adı son yordamda oluşturduğunuz paroladır. Varsayılan DNS sanal makine adları *vnet1DNS* ve *vnet2NDS*.
 3. Seçin **özellikleri** sanal ağın özellikleri sayfasını açın.
 4. Not **genel IP adresi**ve ayrıca doğrulayın **özel IP adresi**.  Özel IP adresi olmalıdır **10.1.0.4** vnet1DNS için ve **10.2.0.4** vnet2DNS için.  
 5. DNS sunucuları her iki sanal ağ için aşağıdaki adımlarda bağlama yüklenecek paketleri indirmek gelen ve giden erişime izin vermek için varsayılan (Azure tarafından sağlanan) DNS sunucuları kullanmak üzere değiştirin.
@@ -288,7 +288,7 @@ Aşağıdaki adımlar komut dosyası eylemi komut dosyası Azure portalından ç
 5. Seçin veya aşağıdaki bilgileri girin:
 
    1. **Ad**: Girin **çoğaltmayı etkinleştir**.
-   2. **Bash betiği URL'si**: Girin **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   2. **Bash betiği URL'si**: Girin **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
    3. **HEAD**: Bu seçili olduğundan emin olun. Bir düğüm türleri temizleyin.
    4. **Parametreleri**: Aşağıdaki örnek parametreleri mevcut tüm tablolar için çoğaltmayı etkinleştirin ve ardından tüm veri kaynağı kümeden hedef kümeye kopyalayın:
 
@@ -360,7 +360,7 @@ Açıklanan aynı yordamı izleyebilirsiniz [çoğaltmayı etkinleştir](#enable
 
 ### <a name="scenarios"></a>Senaryolar
 
-- **Şimdiye kadar düzenlenen tüm satırlar için belirli tablolar (test1 test2 ve test3) kopyalayın (geçerli zaman damgası)**:
+- **Şimdiye kadar düzenlenen tüm satırlar için belirli tablolar (test1 test2 ve test3) kopyalayın (geçerli zaman damgası)** :
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   veya:

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
 ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570558"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
@@ -50,7 +50,7 @@ Azure, uygulama geliştirme ve barındırma gereksinimlerini destekleyen hizmetl
 ![Azure uygulama barındırma seçenekleri](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
 
-#### <a name="azure-app-service"></a>Azure App Service 
+#### <a name="azure-app-service"></a>Azure uygulama hizmeti 
 
 Azure App Service, web tabanlı projelerinizi yayımlamak için en hızlı yolu istediğinizde düşünün. App Service mobil istemcilerinizle desteği ve REST API'leri kolayca tüketilen yayımlamak için web uygulamalarınızı genişletmenizi kolaylaştırır. Bu platform, üretim ve sürekli ve kapsayıcı tabanlı dağıtımlar test sosyal sağlayıcılar, trafiği tabanlı otomatik ölçeklendirme, kullanılarak kimlik doğrulaması sağlar.
 
@@ -68,7 +68,7 @@ Kullanarak mevcut uygulamalarınızı App Service'e geçirebilirsiniz [çevrimi�
 > 
 > **Şimdi deneyin**: App Service, Azure hesabı için kaydolun gerek kalmadan, platformu denemek için bir kısa süreli uygulaması sağlama sağlar. Platform deneyin ve [Azure App Service uygulamanızı oluşturma](https://tryappservice.azure.com/).
 
-#### <a name="azure-virtual-machines"></a>Azure Sanal Makineler
+#### <a name="azure-virtual-machines"></a>Azure sanal makineleri
 
 Olarak altyapı (Iaas) sağlayıcısı olarak, Azure, dağıtmak veya uygulamanızı Windows veya Linux sanal makineleri geçirme olanak tanır. Azure sanal ağ ile birlikte Azure sanal makineler, Windows veya Linux sanal makinelerinizi Azure'da dağıtılmasını destekler. Vm'leri, makinenin yapılandırması üzerinde tam denetim sahibi sahip. Sanal makineleri kullanırken, tüm sunucu yazılım yükleme, yapılandırma, Bakım ve işletim sistemi düzeltme ekleri için sorumlu olursunuz.
 
@@ -158,7 +158,7 @@ Azure kapsayıcılar uygulamalarınızda kullanmak için çeşitli yollar sunar.
 
 Uygulamalarınızı kullanan yalnızca bilmek ancak kaynaklarınıza yetkisiz erişimi önlemek için önemlidir. Azure, uygulama istemcilerin kimliğini doğrulamak için çeşitli yollar sunar.
 
-- **Azure Active Directory (Azure AD)**: Microsoft çok kiracılı, bulut tabanlı kimlik ve erişim yönetimi hizmeti. Azure AD ile tümleştirdiğinizde, çoklu oturum açma (SSO), uygulamalarınıza ekleyebilirsiniz. Dizin özellikleri, doğrudan Azure AD Graph API'si veya Microsoft Graph API'sini kullanarak erişebilirsiniz. OAuth2.0 yetkilendirme framework ve Open ID Connect desteği Azure AD ile yerel HTTP/REST uç noktaları ve çok platformlu Azure AD kimlik doğrulama kitaplıkları kullanarak tümleştirebilirsiniz.
+- **Azure Active Directory (Azure AD)** : Microsoft çok kiracılı, bulut tabanlı kimlik ve erişim yönetimi hizmeti. Azure AD ile tümleştirdiğinizde, çoklu oturum açma (SSO), uygulamalarınıza ekleyebilirsiniz. Dizin özellikleri, doğrudan Azure AD Graph API'si veya Microsoft Graph API'sini kullanarak erişebilirsiniz. OAuth2.0 yetkilendirme framework ve Open ID Connect desteği Azure AD ile yerel HTTP/REST uç noktaları ve çok platformlu Azure AD kimlik doğrulama kitaplıkları kullanarak tümleştirebilirsiniz.
 
   > **Ne zaman kullanılacağı**: SSO bir deneyim sağlamak istediğinizde, grafik tabanlı verilerle çalışmak veya kullanıcıların etki alanı tabanlı kimlik doğrulaması.
   > 
@@ -281,7 +281,7 @@ Azure kaynak Gezgini, aboneliğinizde zaten oluşturduğunuz kaynakları görsel
 
 Azure kaynaklarına erişime izin verdiğinizde, her zaman belirli bir görevi gerçekleştirmek için gereken en az ayrıcalık ile kullanıcılara sağlamak için en iyi uygulama olan.
 
-- **Rol tabanlı erişim denetimi (RBAC)**: Azure'da, belirli bir kapsamda kullanıcı hesapları (asıl hesaplar) erişimi verebilir: Abonelik, kaynak grubu veya tek tek kaynaklar. RBAC, bir kaynak grubunda bir kaynak kümesini dağıtmak ve belirli kullanıcı veya grup için izinler sağlar. Ayrıca hedef kaynak grubuna ait kaynaklara erişimini sağlar. Ayrıca, bir sanal makine veya sanal ağ gibi tek bir kaynağa erişim izni verebilirsiniz. Erişim vermek için kullanıcı, Grup veya hizmet sorumlusu için bir rol atayın. Birçok önceden tanımlı roller vardır ve kendi özel rollerinizi de tanımlayabilirsiniz. Daha fazla bilgi için bkz. [rol tabanlı erişim denetimi (RBAC) nedir?](../../role-based-access-control/overview.md).
+- **Rol tabanlı erişim denetimi (RBAC)** : Azure'da, belirli bir kapsamda kullanıcı hesapları (asıl hesaplar) erişimi verebilir: Abonelik, kaynak grubu veya tek tek kaynaklar. RBAC, bir kaynak grubunda bir kaynak kümesini dağıtmak ve belirli kullanıcı veya grup için izinler sağlar. Ayrıca hedef kaynak grubuna ait kaynaklara erişimini sağlar. Ayrıca, bir sanal makine veya sanal ağ gibi tek bir kaynağa erişim izni verebilirsiniz. Erişim vermek için kullanıcı, Grup veya hizmet sorumlusu için bir rol atayın. Birçok önceden tanımlı roller vardır ve kendi özel rollerinizi de tanımlayabilirsiniz. Daha fazla bilgi için bkz. [rol tabanlı erişim denetimi (RBAC) nedir?](../../role-based-access-control/overview.md).
 
   > **Ne zaman kullanılacağı**: Ayrıntılı erişim yönetimi, bir kullanıcı bir abonelik sahibi olmak gerektiğinde veya kullanıcılar ve gruplar için gerektiğinde.
   > 
@@ -291,7 +291,7 @@ Azure kaynaklarına erişime izin verdiğinizde, her zaman belirli bir görevi g
 
   > **Ne zaman kullanılacağı**: Ne zaman, program aracılığıyla Azure kaynaklarını yönetmek veya uygulamalar için erişim izni verme. Daha fazla bilgi için [oluşturma Active Directory uygulaması ve hizmet sorumlusu](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-#### <a name="tags"></a>Etiketler
+#### <a name="tags"></a>Tags
 
 Azure Resource Manager kaynakların için özel etiketler atama olanak sağlar. Faturalandırma veya izleme kaynakları düzenlemek gerektiğinde etiketleri, anahtar-değer çiftleridir yararlı olabilir. Etiketler, birden çok kaynak gruplarındaki kaynakların izlemek için bir yol sağlar. Portalında, Azure Resource Manager şablonunda veya programlama yoluyla, REST API, Azure CLI veya PowerShell kullanarak etiketler atayabilirsiniz. Her kaynak için birden çok etiket atayabilirsiniz. Daha fazla bilgi için bkz. [etiketleri kullanarak Azure kaynaklarınızı düzenleme](../../resource-group-using-tags.md).
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 91b61e88d876f481e74b8f2295b6fffced3f7902
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921357"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065565"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript'te dayanıklı ilk işlevinizi oluşturma
 
@@ -32,7 +32,7 @@ Bu öğreticiyi tamamlamak için:
 
 * Yükleme [Visual Studio Code'u](https://code.visualstudio.com/download).
 
-* [En son Azure İşlevleri araçlarınızın](../functions-develop-vs.md#check-your-tools-version) olduğundan emin olun.
+* En son sürümüne sahip olduğunuzdan emin olun [Azure işlevleri çekirdek Araçları](../functions-run-local.md).
 
 * Bir Windows bilgisayarda doğrulayın [Azure Storage öykünücüsü](../../storage/common/storage-use-emulator.md) yüklü ve çalışır. Bir Mac veya Linux bilgisayarda gerçek bir Azure depolama hesabı kullanmanız gerekir.
 
@@ -48,69 +48,61 @@ Bu öğreticiyi tamamlamak için:
 
 1. Yükleme `durable-functions` çalıştırarak npm paketini `npm install durable-functions` işlev uygulamasının kök dizininde.
 
-## <a name="create-a-starter-function"></a>Başlatıcı bir işlev oluşturma
+## <a name="creating-your-functions"></a>İşlevlerinizi oluşturma
+
+Artık dayanıklı işlevlerini kullanmaya başlamak için üç işlev oluşturacağız: HTTP başlatıcısı, bir orchestrator ve bir etkinlik işlevi. Tüm çözümünüz HTTP Başlatıcısı başlatır ve orchestrator çeşitli etkinlik işlevleri işi gönderir.
+
+### <a name="http-starter"></a>HTTP Başlatıcısı
 
 İlk olarak dayanıklı işlevi düzenleme başlatan bir HTTP ile tetiklenen işlevi oluşturun.
 
-1. Gelen **Azure: İşlevleri**, Create FUNCTION simgesini seçin.
+1. Gelen *Azure: İşlevleri*, seçin **Create FUNCTION** simgesi.
 
-    ![İşlev oluştur](./media/quickstart-js-vscode/create-function.png)
+    ![İşlev oluşturma](./media/quickstart-js-vscode/create-function.png)
 
-2. İşlev uygulaması projenizin yer aldığı klasörü seçin ve **HTTP tetikleyicisi** işlev şablonunu seçin.
+2. İşlev uygulaması projenizi içeren klasöre seçip **dayanıklı işlevler HTTP Başlatıcısı** işlev şablonu.
 
-    ![HTTP tetikleyicisi şablonunu seçin](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![HTTP Başlangıç şablonu seçin](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. İşlev adı için `HttpStart` yazın ve Enter tuşuna basın ve **Anonim** kimlik doğrulamasını seçin.
+3. Olarak varsayılan adı bırakın `DurableFunctionsHttpStart` basın *** Enter ** ardından **anonim** kimlik doğrulaması.
 
     ![Anonim kimlik doğrulamasını seçin](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
-    HTTP ile tetiklenen işlevin şablonu kullanılarak, seçtiğiniz dilde bir işlev oluşturulur.
-
-4. İle index.js değiştirin JavaScript aşağıda:
-
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
-
-5. İle Function.JSON değiştirin JSON aşağıda:
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
-
 Bir giriş noktası bizim dayanıklı işleve oluşturduk. Bir orchestrator ekleyelim.
 
-## <a name="create-an-orchestrator-function"></a>Bir düzenleyici işlevi oluşturma
+### <a name="orchestrator"></a>Orchestrator
 
-Ardından, orchestrator olacak şekilde başka bir işlev oluşturun. HTTP tetikleyici işlevi şablonu kolaylık sağlamak için kullanırız. İşlev kodunu orchestrator kod tarafından değiştirilir.
+Artık, etkinlik işlevlerini koordine etmek için bir orchestrator oluşturacağız.
 
-1. HTTP tetikleyicisi şablonunu kullanarak ikinci bir işlev oluşturmak için önceki bölümde yer alan adımları yineleyin. Bu süre işlev adı `OrchestratorFunction`.
+1. Gelen *Azure: İşlevleri*, seçin **Create FUNCTION** simgesi.
 
-2. Yeni işlev için index.js dosyasını açın ve içeriğini aşağıdaki kodla değiştirin:
+    ![İşlev oluşturma](./media/quickstart-js-vscode/create-function.png)
 
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+2. İşlev uygulaması projenizi içeren klasöre seçip **dayanıklı işlevler Düzenleyicisi** işlev şablonu. Adı "DurableFunctionsOrchestrator" varsayılan olarak bırakın.
 
-3. Function.json dosyasını açın ve aşağıdaki JSON ile değiştirin:
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
+    ![Orchestrator şablonu seçin](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 Etkinlik işlevlerini koordine etmek için bir düzenleyici ekledik. Artık başvurulan etkinlik işlevi ekleyelim.
 
-## <a name="create-an-activity-function"></a>Bir etkinlik işlevi oluşturma
+### <a name="activity"></a>Etkinlik
 
-1. HTTP tetikleyicisi şablonunu kullanarak, üçüncü bir işlev oluşturmak için önceki bölümlerde yer alan adımları yineleyin. Ancak bu kez işlev adı `E1_SayHello`.
+Aslında çözümün gerçekleştirmesi için bir etkinlik işlevi artık oluşturacağız.
 
-2. Yeni işlev için index.js dosyasını açın ve içeriğini aşağıdaki kodla değiştirin:
+1. Gelen *Azure: İşlevleri*, seçin **Create FUNCTION** simgesi.
 
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+    ![İşlev oluşturma](./media/quickstart-js-vscode/create-function.png)
 
-3. İle Function.JSON değiştirin JSON aşağıda:
+2. İşlev uygulaması projenizi içeren klasöre seçip **dayanıklı işlevler etkinliği** işlev şablonu. Adı "Hello" varsayılan olarak bırakın.
 
-    [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
+    ![Etkinlik şablonu seçin](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 Artık bir düzenleme ve zincirini birlikte etkinlik işlevleri devre dışı bırakmak başlatmak için gereken tüm bileşenler ekledik.
 
 ## <a name="test-the-function-locally"></a>İşlevi yerel olarak test etme
 
-Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirme bilgisayarınızda çalıştırmanıza olanak sağlar. Visual Studio Code'da ilk kez bir işlev başlattığınızda bu araçları yüklemeniz istenir.  
+Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirme bilgisayarınızda çalıştırmanıza olanak sağlar. Visual Studio Code'da ilk kez bir işlev başlattığınızda bu araçları yüklemeniz istenir.
 
-1. Bir Windows bilgisayarda, Azure depolama öykünücüsü'nü başlatmak ve emin olun **AzureWebJobsStorage** local.settings.json özelliği ayarlandığında `UseDevelopmentStorage=true`. 
+1. Bir Windows bilgisayarda, Azure depolama öykünücüsü'nü başlatmak ve emin olun **AzureWebJobsStorage** özelliği *local.settings.json* ayarlanır `UseDevelopmentStorage=true`.
 
     Emin olmak için depolama öykünücüsü 5.8 **AzureWebJobsSecretStorageType** local.settings.json özelliği ayarlandığında `files`. Bir Mac veya Linux bilgisayarda ayarlamalısınız **AzureWebJobsStorage** özelliğini mevcut bir Azure depolama hesabı bağlantı dizesi. Bu makalenin sonraki bölümlerinde'de bir depolama hesabı oluşturun.
 
@@ -123,7 +115,7 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 
     ![Azure yerel çıktısı](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. `{functionName}` yerine `OrchestratorFunction` yazın.
+4. `{functionName}` yerine `DurableFunctionsOrchestrator` yazın.
 
 5. Bir aracı gibi kullanarak [Postman](https://www.getpostman.com/) veya [cURL](https://curl.haxx.se/), URL uç noktasına bir HTTP POST isteği gönderin.
 
@@ -131,7 +123,7 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 
 6. URL değerini kopyalayın `statusQueryGetUri` tarayıcının adres çubuğuna yapıştırın ve isteği yürütün. Alternatif olarak da GET isteği için Postman'ı kullanmaya devam edebilirsiniz.
 
-   İstek orchestration örneği durumu için sorgular. Bize gösteren örnek tamamlandı ve çıktılar veya dayanıklı işlevinin sonuçlarını içeren son bir yanıt almanız gerekir. Bunu şu şekilde görünür: 
+   İstek orchestration örneği durumu için sorgular. Bize örneği tamamlandı ve çıktılar veya dayanıklı işlevinin sonuçlarını içeren gösterir nihai bir yanıt almanız gerekir. Bunu şu şekilde görünür: 
 
     ```json
     {

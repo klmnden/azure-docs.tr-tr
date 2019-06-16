@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811607"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL Programlama Kılavuzu
@@ -1067,11 +1067,11 @@ UDO genellikle açıkça U-SQL komut dosyasında aşağıdaki U-SQL deyimleri bi
 ## <a name="use-user-defined-extractors"></a>Kullanıcı tanımlı ayıklayıcıları kullanın
 U-SQL, dış veri ayıklama deyimi kullanılarak içeri aktarmanıza olanak sağlar. Bir ayıklama deyimi yerleşik UDO ayıklayıcıları kullanabilirsiniz:  
 
-* *Extractors.Text()*: Sınırlandırılmış metin dosyalarından farklı kodlamaları ayıklanmasıyla sağlar.
+* *Extractors.Text()* : Sınırlandırılmış metin dosyalarından farklı kodlamaları ayıklanmasıyla sağlar.
 
-* *Extractors.Csv()*: Ayıklama virgülle ayrılmış değer (CSV) dosyaların farklı kodlamaları sağlar.
+* *Extractors.Csv()* : Ayıklama virgülle ayrılmış değer (CSV) dosyaların farklı kodlamaları sağlar.
 
-* *Extractors.Tsv()*: Ayıklama sekmeyle ayrılmış değer (TSV) dosyaların farklı kodlamaları sağlar.
+* *Extractors.Tsv()* : Ayıklama sekmeyle ayrılmış değer (TSV) dosyaların farklı kodlamaları sağlar.
 
 Özel ayıklayıcı geliştirmek yararlı olabilir. Aşağıdaki görevlerden herhangi birini yapmak isterseniz bu verileri içeri aktarma sırasında yararlı olabilir:
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Kullanıcı tanımlı çıktı kullanın
 Kullanıcı tanımlı outputter yerleşik bir U-SQL işlevlerini genişletmek izin veren başka bir U-SQL UDO ' dir. Benzer şekilde ayıklayıcısı, vardır birkaç yerleşik çıktı.
 
-* *Outputters.Text()*: Verileri farklı kodlamaları sınırlandırılmış metin dosyasına yazar.
-* *Outputters.Csv()*: Verileri farklı kodlamaları virgülle ayrılmış değer (CSV) dosyasına yazar.
-* *Outputters.Tsv()*: Verileri farklı kodlamaları için sekmesinde ayrılmış değerler (TSV) dosyaları yazar.
+* *Outputters.Text()* : Verileri farklı kodlamaları sınırlandırılmış metin dosyasına yazar.
+* *Outputters.Csv()* : Verileri farklı kodlamaları virgülle ayrılmış değer (CSV) dosyasına yazar.
+* *Outputters.Tsv()* : Verileri farklı kodlamaları için sekmesinde ayrılmış değerler (TSV) dosyaları yazar.
 
 Özel outputter özel tanımlanmış bir biçimde veri yazmanıza olanak sağlar. Bu, aşağıdaki görevler için yararlı olabilir:
 

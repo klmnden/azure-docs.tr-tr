@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708800"
 ---
 # <a name="api-management-authentication-policies"></a>API Management kimlik doğrulama ilkeleri
@@ -57,7 +57,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|kullanıcı adı|Temel kimlik bilgisinin kullanıcı adını belirtir.|Evet|Yok|  
+|username|Temel kimlik bilgisinin kullanıcı adını belirtir.|Evet|Yok|  
 |password|Temel kimlik bilgisinin parolasını belirtir.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
@@ -132,7 +132,7 @@ Bu örnekte istemci sertifikası, kaynak adına göre tanımlanır.
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|kaynak|dize. Hedef web API'sine (güvenli kaynak) Azure Active Directory Uygulama Kimliği URI'si.|Evet|Yok|  
+|resource|dize. Hedef web API'sine (güvenli kaynak) Azure Active Directory Uygulama Kimliği URI'si.|Evet|Yok|  
 |Çıkış belirteci değişken adı|dize. Bir nesne türü olarak belirteç değeri alacak bağlam değişkeninin adı `string`.|Hayır|Yok|  
 |Hatayı Yoksay|Boole değeri. Varsa kümesine `true`, ilke işlem hattı bir erişim belirteci değil elde edilir olsa bile yürütülmeye devam eder.|Hayır|false|  
   
