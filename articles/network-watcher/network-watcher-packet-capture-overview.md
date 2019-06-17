@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 4cfbfc4bed5438ed901fca86d8c2939d3860c68e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8ef9da86377ac6f1b012cb0ebfd9d6866bc0c620
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684166"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061580"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Değişken paket yakalama Azure Ağ İzleyicisi'nde giriş
 
-Ağ İzleyicisi değişken paket yakalama, bir sanal makineye gelen ve giden trafiği izlemek için paket yakalama oturumu oluşturmanıza olanak sağlar. Ve proactivity her iki ağ anomalileri öngörülebiliyorsa tanılamak için paket Yakalama yardımcı olur. Diğer kullanımlar ağ izinsiz girişi, istemci-sunucu iletişimleri ve daha fazlasını hata ayıklamak için bilgi elde etme, ağ istatistikleri toplama içerir.
+Ağ İzleyicisi değişken paket yakalama, bir sanal makineye gelen ve giden trafiği izlemek için paket yakalama oturumu oluşturmanıza olanak sağlar. Paket yakalama ağ anomalileri öngörülebiliyorsa ve proaktif tanılamaya yardımcı olur. Diğer kullanımlar ağ izinsiz girişi, istemci-sunucu iletişimleri ve daha fazlasını hata ayıklamak için bilgi elde etme, ağ istatistikleri toplama içerir.
 
 Paket yakalaması Uzaktan Ağ İzleyicisi başlatılan bir sanal makine uzantısıdır. Bu özellik, bir paket yakalama değerli zaman kazandırır istenen sanal makineye üzerinde el ile çalıştırmayı yükünü kolaylaştırır. Paket yakalama, portal, PowerShell, CLI veya REST API tetiklenebilir. Paket yakalaması nasıl tetiklenebilir bir sanal makine uyarılara örnektir. Filtreler, izlemek istediğiniz trafik yakalama emin olmak yakalama oturumu için sağlanır. Filtreler 5 veri grubu üzerinde (protokol, yerel IP adresi, uzak IP adresi, yerel bağlantı noktası ve uzak bağlantı noktası) göre bilgi. Yakalanan veriler, yerel disk veya depolama blobu depolanır. Her Abonelikteki bölge başına 10 paket yakalama oturumu sınırı yoktur. Bu sınırı yalnızca oturumları için geçerlidir ve kaydedilen paket yakalama dosyalarını VM üzerinde yerel olarak veya bir depolama hesabı için geçerli değildir.
 
@@ -44,7 +44,7 @@ Yalnızca istediğiniz bilgileri yakalamak bilgi miktarını azaltmak için aşa
 
 |Özellik|Açıklama|
 |---|---|
-|**Protokol** | Paket yakalaması için filtre uygulamak için protokol. TCP, UDP ve tüm değerleri kullanılabilir.|
+|**Protokolü** | Paket yakalaması için filtre uygulamak için protokol. TCP, UDP ve tüm değerleri kullanılabilir.|
 |**Yerel IP adresi** | Bu değer, yerel IP adresi bu filtre değeri eşleştiği paketleri paket yakalaması filtreler.|
 |**Yerel bağlantı noktası** | Bu değer, yerel bağlantı noktası bu filtre değeri eşleştiği paketleri paket yakalaması filtreler.|
 |**Uzak IP adresi** | Bu değer, paket için paket yakalaması uzak IP Bu filtre değeri eşleştiği filtreler.|

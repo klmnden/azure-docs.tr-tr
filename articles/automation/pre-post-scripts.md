@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a11602919a8b68a078b0b2690411358b4b5f814
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65913867"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063504"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Yönetme öncesi ve sonrası betikleri
 
@@ -42,7 +42,7 @@ Güncelleştirme dağıtımınızı yapılandırma tamamlayın.
 
 Güncelleştirme dağıtımınıza tamamlandığında gidebilirsiniz **güncelleştirme dağıtımları** sonuçlarını görüntülemek için. Gördüğünüz gibi betik öncesi ve betik sonrası durumunu sağlanır.
 
-![Güncelleştirme Sonuçları](./media/pre-post-scripts/update-results.png)
+![Güncelleştirme sonuçları](./media/pre-post-scripts/update-results.png)
 
 Güncelleştirme dağıtımını çalıştırmak tıklayarak öncesi ve sonrası betikler için ek ayrıntılar sunulur. Çalışma zamanında betik kaynağı için bir bağlantı sağlanır.
 
@@ -68,7 +68,7 @@ Standart runbook parametrelerini ek olarak, ek bir parametre olarak sağlanır. 
 
 ## <a name="stopping-a-deployment"></a>Bir dağıtım durduruluyor
 
-Yapmanız gerekenler öncesi betiği tabanlı bir dağıtım durdurmak istiyorsanız [throw](automation-runbook-execution.md#throw) bir özel durum. Bir özel durum oluşturması beklenmiyor, dağıtım ve son betik çalışmaya devam edecektir. [Örnek runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) galeride Bunu yapmak nasıl gösterir. Bu runbook'tan bir parçacığı aşağıda verilmiştir.
+Bir dağıtım öncesi komut dosyasına dayalı durdurmak istiyorsanız, şunları yapmalısınız [throw](automation-runbook-execution.md#throw) bir özel durum. Bir özel durum yoksa, dağıtım ve son betik çalışmaya devam edecektir. [Örnek runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) galeride Bunu yapmak nasıl gösterir. Bu runbook'tan bir parçacığı aşağıda verilmiştir.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -210,7 +210,7 @@ Bir runbook Otomasyon hesabınızdaki ve doğrudan dağıtımınızdaki makinele
 
 ### <a name="interacting-with-azure-machines"></a>Azure makineleri ile etkileşim kurma
 
-Öncesi ve sonrası görevleri runbook'lar olarak çalıştırıldı ve dağıtımınızda Azure Vm'leriniz üzerinde yerel olarak çalışmaz. Azure Vm'leriniz ile etkileşimde bulunmak üzere, aşağıdaki öğelere sahip olmanız gerekir:
+Öncesi ve sonrası görevleri runbook'lar olarak çalışması ve dağıtımınızda Azure Vm'leriniz üzerinde yerel olarak çalışmaz. Azure Vm'leriniz ile etkileşimde bulunmak üzere, aşağıdaki öğelere sahip olmanız gerekir:
 
 * Bir farklı çalıştır hesabı
 * Çalıştırmak istediğiniz runbook'u
@@ -239,9 +239,10 @@ if (<My custom error logic>)
     throw "There was an error, abort deployment"
 }
 ```
+
 ## <a name="known-issues"></a>Bilinen sorunlar
 
-* Öncesi ve sonrası betikler kullanırken, parametreler için nesneleri veya diziler geçiremezsiniz. Runbook başarısız olur.
+* Öncesi ve sonrası betikler kullanırken, parametreleri için bir Boole değeri, nesneler ve diziler geçiremezsiniz. Runbook başarısız olur. Desteklenen türler tam bir listesi için bkz. [parametreleri](#passing-parameters).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

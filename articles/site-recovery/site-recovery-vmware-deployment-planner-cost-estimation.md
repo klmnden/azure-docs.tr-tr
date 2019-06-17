@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/14/2019
 ms.author: mayg
 ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471140"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için Site Recovery dağıtım Planlayıcısı maliyet tahmini raporunu gözden geçirin
@@ -122,17 +122,17 @@ Sanal makineleri el ile eklemek için:
 
 **VM sayısı**: Bu yapılandırmayla eşleşen sanal makine sayısı. Benzer yapılandırmadaki sanal makinelerin profili oluşturulmadıysa ancak bunlar korunacaksa, mevcut sanal makinelerin sayısını güncelleştirebilirsiniz.
 
-**Iaas boyutu (öneri)**: Uyumlu sanal makinenin araç tarafından önerilen sanal makine rolü boyutu var. 
+**Iaas boyutu (öneri)** : Uyumlu sanal makinenin araç tarafından önerilen sanal makine rolü boyutu var. 
 
-**Iaas boyutu (sizin seçiminiz)**: Varsayılan olarak, önerilen VM rolü boyutuyla aynıdır. İhtiyacınıza göre rolü değiştirebilirsiniz. İşlem maliyetinde seçtiğiniz sanal makine rolü boyutu temel alınır.
+**Iaas boyutu (sizin seçiminiz)** : Varsayılan olarak, önerilen VM rolü boyutuyla aynıdır. İhtiyacınıza göre rolü değiştirebilirsiniz. İşlem maliyetinde seçtiğiniz sanal makine rolü boyutu temel alınır.
 
 **Depolama türü**: Sanal makine tarafından kullanılan depolamanın türü. Bu, standart veya premium depolamadır.
 
-**VM toplam depolama alanı boyutu (GB)**: VM toplam depolama alanı.
+**VM toplam depolama alanı boyutu (GB)** : VM toplam depolama alanı.
 
 **Yıllık DR Tatbikatları sayısı**: Bir yılda gerçekleştirdiğiniz DR Tatbikatları sayısı. Varsayılan olarak, yılda 4 kez gerçekleştirilir. Belirli sanal makineler için süreyi değiştirebilir veya en üst satıra yeni bir değer girip 'Tümüne uygula' düğmesine tıklayarak yeni değerin tüm sanal makinelere uygulanmasını sağlayabilirsiniz. Yıllık DR Tatbikatları sayısı ve her DR Tatbikatının süresi temelinde, toplam DR Tatbikatı maliyeti hesaplanır.  
 
-**Her DR Tatbikatının süresi (gün)**: Her DR Tatbikatının süresi. Varsayılan olarak, [Disaster Recovery Yazılım Güvencesi avantajına](https://azure.microsoft.com/pricing/details/site-recovery) göre her 90 günde bir 7 gündür. Belirli sanal makineler için süreyi değiştirebilir veya en üst satıra yeni bir değer girip 'Tümüne uygula' düğmesine tıklayarak, yeni değerin tüm sanal makinelere uygulanmasını sağlayabilirsiniz. Toplam DR Tatbikatı maliyeti, yıllık DR Tatbikatlarının sayısıyla her DR Tatbikatının süresi temel alınarak hesaplanır.
+**Her DR Tatbikatının süresi (gün)** : Her DR Tatbikatının süresi. Varsayılan olarak, [Disaster Recovery Yazılım Güvencesi avantajına](https://azure.microsoft.com/pricing/details/site-recovery) göre her 90 günde bir 7 gündür. Belirli sanal makineler için süreyi değiştirebilir veya en üst satıra yeni bir değer girip 'Tümüne uygula' düğmesine tıklayarak, yeni değerin tüm sanal makinelere uygulanmasını sağlayabilirsiniz. Toplam DR Tatbikatı maliyeti, yıllık DR Tatbikatlarının sayısıyla her DR Tatbikatının süresi temel alınarak hesaplanır.
   
 **İşletim sistemi türü**: Sanal Makinenin işletim sistemi türü. Windows veya Linux'tır. İşletim sistemi türü Windows olduğunda, o sanal makineye Azure Hibrit Kullanım Teklifi uygulanabilir. 
 
@@ -144,7 +144,7 @@ Sanal makineleri el ile eklemek için:
 
 **Kararlı durum çoğaltma maliyeti**: Çoğaltmanın depolama maliyetini içerir.
 
-**Toplam DR Tatbikatı maliyeti (ortalama)**: İşlem ve depolama için DR Tatbikatı maliyeti de buna dahildir.
+**Toplam DR Tatbikatı maliyeti (ortalama)** : İşlem ve depolama için DR Tatbikatı maliyeti de buna dahildir.
 
 **ASR lisans maliyeti**: Azure Site Recovery lisans maliyeti.
 

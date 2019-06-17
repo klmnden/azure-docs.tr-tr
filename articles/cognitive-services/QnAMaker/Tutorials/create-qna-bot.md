@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 06/11/2019
 ms.author: tulasim
-ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b3bae01d65685aa9ea7bfc95d1f1454741d37b5e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263885"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053229"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Öğretici: Azure ile soru-cevap Robotu oluşturun v4 Bot hizmeti
 
@@ -52,12 +52,12 @@ Bilgi Bankası için bir istemci uygulaması olarak bir bot oluşturulabilir.
     |Robot adı|`my-tutorial-kb-bot`|Azure kaynağı adı için robot budur.|
     |Abonelik|Amaç bakın.|Aynı abonelik, soru-cevap Oluşturucu kaynakları oluşturmak için kullanılan seçin.|
     |Kaynak grubu|`my-tutorial-rg`|Tüm bot ile ilgili Azure kaynakları için kullanılan kaynak grubu.|
-    |Konum|`west us`|Botun Azure kaynak konumu.|
+    |Location|`west us`|Botun Azure kaynak konumu.|
     |Fiyatlandırma katmanı|`F0`|Ücretsiz katmanı için Azure bot hizmeti.|
     |Uygulama adı|`my-tutorial-kb-bot-app`|Bu yalnızca botunuzun desteklemek için bir web uygulamasıdır. Soru-cevap Oluşturucu hizmetinizi kullanır bu aynı uygulama adı olmamalıdır. Soru-cevap Oluşturucu'nın web uygulamasını başka bir kaynakla desteklenmiyor.|
-    |SDK dil|C#|Bot framework SDK'sı tarafından kullanılan temel programlama dili budur. Seçenekleriniz şunlardır C# veya Node.js.|
+    |SDK dil|C#|Bot framework SDK'sı tarafından kullanılan temel programlama dili budur. Seçenekleriniz şunlardır [ C# ](https://github.com/Microsoft/botbuilder-dotnet) veya [Node.js](https://github.com/Microsoft/botbuilder-js).|
     |Soru-cevap kimlik doğrulama anahtarı|**Değiştirmeyin.**|Bu değer sizin için doldurulur.|
-    |Uygulama hizmeti planı/Konumu|**Değiştirmeyin.**|Bu öğretici için konum önemli değildir.|
+    |App service planı/konumu|**Değiştirmeyin.**|Bu öğretici için konum önemli değildir.|
     |Azure Storage|**Değiştirmeyin.**|Konuşma verileri Azure depolama tablolarında depolanır.|
     |Application Insights|**Değiştirmeyin.**|Günlük kaydı Application Insights'a gönderilir.|
     |Microsoft uygulama kimliği|**Değiştirmeyin.**|Active directory kullanıcı adı ve parola gereklidir.|

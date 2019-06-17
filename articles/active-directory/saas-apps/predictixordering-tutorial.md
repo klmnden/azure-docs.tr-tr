@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 79e9952aefc44b7c490bb9fe375487c1a3335fc8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901498"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094131"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Öğretici: Predictix sıralama ile Azure Active Directory Tümleştirme
 
@@ -94,7 +94,7 @@ Azure AD çoklu oturum açma Predictix sıralama ile yapılandırmak için şu a
 
 2. İçinde **tek bir oturum açma yönteminizi seçmeniz** Seç iletişim kutusunda **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için:
 
-    ![Çoklu oturum açma yöntemi seçin](common/select-saml-option.png)
+    ![Tek bir oturum açma yöntemi seçin](common/select-saml-option.png)
 
 3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim kutusunda:
 
@@ -155,7 +155,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
     1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    1. İçinde **kullanıcı adı** kutusuna **@ BrittaSimon\<yourcompanydomain >.\< Uzantı >**. (Örneğin, BrittaSimon@contoso.com.)
+    1. İçinde **kullanıcı adı** kutusuna **@ BrittaSimon\<yourcompanydomain >.\< Uzantı >** . (Örneğin, BrittaSimon@contoso.com.)
 
     1. Seçin **Göster parola**ve ardından içinde bir değer yazın **parola** kutusu.
 
@@ -171,7 +171,7 @@ Bu bölümde, Azure AD çoklu oturum açma Predictix sıralama için erişim ver
 
 2. Uygulamalar listesinde seçin **Predictix sıralama**.
 
-    ![Uygulama listesi](common/all-applications.png)
+    ![Uygulamaların listesi](common/all-applications.png)
 
 3. Sol bölmede seçin **kullanıcılar ve gruplar**:
 

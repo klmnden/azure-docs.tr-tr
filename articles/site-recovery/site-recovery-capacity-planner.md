@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036784"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM'LERİNDE olağanüstü durum kurtarma için kapasite planlama 
@@ -54,7 +54,7 @@ Aracı iki modda çalıştırabilirsiniz:
 
    a. İçinde **senaryonuzu seçin**, seçin **Hyper-V'den azure'a** veya **VMware/Fizikselden azure'a**.
 
-   b. İçinde **ortalama günlük veri değişikliği oranı (%)**, bilgi toplayın kullanarak girin [Hyper-V kapasite planlama aracı](site-recovery-capacity-planning-for-hyper-v-replication.md) veya [Site Recovery dağıtım Planlayıcısı](./site-recovery-deployment-planner.md).
+   b. İçinde **ortalama günlük veri değişikliği oranı (%)** , bilgi toplayın kullanarak girin [Hyper-V kapasite planlama aracı](site-recovery-capacity-planning-for-hyper-v-replication.md) veya [Site Recovery dağıtım Planlayıcısı](./site-recovery-deployment-planner.md).
 
    c. **Sıkıştırma** ayarı, Hyper-V Vm'lerini Azure'a çoğaltırken kullanılmaz. Sıkıştırma, Riverbed gibi bir üçüncü taraf Gereci kullanın.
 
@@ -100,9 +100,9 @@ Aracı iki modda çalıştırabilirsiniz:
 
    e. İçinde **bağlı disk sayısı**, kaynak sunucunun disk toplam sayısını belirtin.
 
-   f. İçinde **Disk kapasitesine kullanımı (%)**, ortalama kullanım belirtin.
+   f. İçinde **Disk kapasitesine kullanımı (%)** , ortalama kullanım belirtin.
 
-   g. İçinde **günlük veri değişikliği oranı (%)**, günlük veri değişikliği oranı, kaynak sunucunun belirtin.
+   g. İçinde **günlük veri değişikliği oranı (%)** , günlük veri değişikliği oranı, kaynak sunucunun belirtin.
 
    h. İçinde **eşleme Azure VM boyutu**, eşlemek istediğiniz Azure VM boyutu girin. Bu el ile gerçekleştirmek istiyorsanız, seçin **işlem Iaas Vm'leri**. El ile bir ayar girin ve ardından **işlem Iaas Vm'leri**, el ile ayarlama üzerine yazılmış olabilir. İşlem işlem otomatik olarak Azure VM boyutu en iyi eşleşmeye tanımlar.
 
@@ -145,7 +145,7 @@ Tüm bilgileri girdikten sonra seçip **Planlayıcısı aracını veri gönderme
 
 2. Değişiklik yapmak istiyorsanız, değiştirmenize gerek **iş yükü nitelik** çalışma. Ardından **Planlayıcısı aracını veri göndermek** yeniden.
 
-   ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
+   ![Kapasite Planlayıcısı](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Çalıştırmayı öğrenin](site-recovery-capacity-planning-for-hyper-v-replication.md) kapasite planlama aracı.

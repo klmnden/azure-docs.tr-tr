@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
 ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61234984"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Verileri Azure Backup için log Analytics veri modeli
@@ -42,14 +42,14 @@ Bu tabloda uyarı ilgili alanları hakkındaki ayrıntılar verilmektedir.
 |AlertRaisedOn_s     |Text         |Varlık uyarı veriliş türü         |
 |AlertCode_s     |Text         |Bir uyarı türü benzersiz olarak tanımlanabilmesi için kod         |
 |RecommendedAction_s   |Text         |Uyarıyı çözmek için önerilen eylem         |
-| EventName_s |Text |Etkinliğin adı. Her zaman AzureBackupCentralReport |
+| EventName_s |Text |Olayın adı. Her zaman AzureBackupCentralReport |
 | BackupItemUniqueId_s |Text |Uyarıyla ilişkili yedekleme öğenin benzersiz tanıtıcısı |
 | SchemaVersion_s |Text |Geçerli örneğin şema sürümü **V2** |
 | State_s |Text |Örneğin, etkin, silinen uyarı nesnenin geçerli durumu |
 | BackupManagementType_s |Text |Bu uyarı için ait olduğu için yedekleme, örneğin, IaaSVM Dosyaklasörü gerçekleştirmek için sağlayıcı türü |
 | OperationName |Text |Geçerli işlem, örneğin, uyarı adı |
 | Kategori |Text |Tanılama veri kategorisini Azure İzleyici günlüklerine gönderildi. Her zaman AzureBackupReport |
-| Kaynak |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
+| Resource |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | ProtectedServerUniqueId_s |Text |Uyarıyla ilişkili korumalı sunucunun benzersiz tanıtıcısı |
 | VaultUniqueId_s |Text |Uyarıyla ilişkili korumalı kasa benzersiz tanıtıcısı |
 | SourceSystem |Text |Geçerli verileri - Azure'nın kaynak sistem |
@@ -65,7 +65,7 @@ Bu tablo, yedekleme öğesi ile ilgili alanlar hakkında ayrıntılar sağlar.
 
 | Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
-| EventName_s |Text |Etkinliğin adı. Her zaman AzureBackupCentralReport |  
+| EventName_s |Text |Olayın adı. Her zaman AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |Yedekleme öğenin benzersiz tanıtıcısı |
 | BackupItemId_s |Text |Yedekleme öğesi tanıtıcısı |
 | BackupItemName_s |Text |Yedekleme öğesinin adı |
@@ -79,7 +79,7 @@ Bu tablo, yedekleme öğesi ile ilgili alanlar hakkında ayrıntılar sağlar.
 | BackupManagementType_s |Text |Sağlayıcı türü için bu yedekleme öğesi ait olduğu için yedekleme, örneğin, IaaSVM Dosyaklasörü gerçekleştirmek için |
 | OperationName |Text |Örneğin, BackupItem işlemin adı |
 | Kategori |Text |Tanılama veri kategorisini Azure İzleyici günlüklerine gönderildi. Her zaman AzureBackupReport |
-| Kaynak |Text |Hangi veri kaynağı toplanır, örneğin, adı kurtarma Hizmetleri kasası |
+| Resource |Text |Hangi veri kaynağı toplanır, örneğin, adı kurtarma Hizmetleri kasası |
 | SourceSystem |Text |Geçerli verileri - Azure'nın kaynak sistem |
 | ResourceId |Text |Toplanmakta olan veriler için kaynak kimliği, kaynak kimliği, Kurtarma Hizmetleri kasası |
 | SubscriptionId |Text |Kaynak abonelik tanımlayıcısı (için örnek. Kurtarma Hizmetleri kasası) toplanmakta olan veriler için |
@@ -102,7 +102,7 @@ Bu tabloda, çeşitli varlıklar ile yedekleme öğesi ilişkilendirmeleri hakk�
 | BackupManagementServerUniqueId_s |Text | Yedekleme Yönetimi Sunucusu yedekleme öğesi benzersiz olarak tanımlanabilmesi için alan, varsa korunuyor |
 | Kategori |Text |Bu alan, Log Analytics'e gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
 | OperationName |Text |Bu alan geçerli işlem - BackupItemAssociation adını temsil eder. |
-| Kaynak |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
+| Resource |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | PolicyUniqueId_g |Text |Yedekleme öğesi ile ilişkilendirilen ilkesi için benzersiz tanımlayıcı |
 | ProtectedServerUniqueId_s |Text |Yedekleme öğesi ile ilişkilendirilen korumalı sunucu benzersiz tanıtıcısı |
 | VaultUniqueId_s |Text |Yedekleme öğesi içeren kasa benzersiz tanıtıcısı |
@@ -138,14 +138,14 @@ Bu tablo, projeyle ilgili alanlar hakkında ayrıntılar sağlar.
 
 | Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
-| EventName_s |Text |Etkinliğin adı. Her zaman AzureBackupCentralReport |
+| EventName_s |Text |Olayın adı. Her zaman AzureBackupCentralReport |
 | BackupItemUniqueId_s |Text |Yedekleme öğenin benzersiz tanıtıcısı |
 | SchemaVersion_s |Text |Bu gibi bir durumda şema sürümü **V2** |
 | State_s |Text |Örneğin, etkin, silinen iş nesnenin geçerli durumu |
 | BackupManagementType_s |Text |Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
 | OperationName |Text |Bu alan adı geçerli işlemin - işi temsil eder. |
 | Kategori |Text |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
-| Kaynak |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
+| Resource |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | ProtectedServerUniqueId_s |Text |İşi, korumalı sunucunun benzersiz tanımlayıcı ilişkili |
 | ProtectedContainerUniqueId_s |Text | İşin çalıştırıldığı korumalı kapsayıcı tanımlamak için benzersiz kimlik |
 | VaultUniqueId_s |Text |Korumalı kasa benzersiz tanıtıcısı |
@@ -180,7 +180,7 @@ Bu tablo, ilke ile ilgili alanlar hakkında ayrıntılar sağlar.
 | BackupManagementType_s |Text ||Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
 | OperationName |Text ||Bu alan geçerli işlem - ilke adını temsil eder. |
 | Kategori |Text ||Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
-| Kaynak |Text ||Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
+| Resource |Text ||Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | PolicyUniqueId_g |Text ||İlke tanımlamak için benzersiz kimlik |
 | PolicyName_s |Text ||Tanımlanan ilke adı |
 | BackupFrequency_s |Text ||Sıklık ile yedeklemeler çalıştırılır, örneğin, günlük, haftalık |
@@ -228,7 +228,7 @@ Bu tabloda, çeşitli varlıklar ile ilke ilişkilendirmesi hakkında ayrıntıl
 | BackupManagementType_s |Text ||Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
 | OperationName |Text ||Bu alan geçerli işlem - PolicyAssociation adını temsil eder. |
 | Kategori |Text ||Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
-| Kaynak |Text ||Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
+| Resource |Text ||Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | PolicyUniqueId_g |Text ||İlke tanımlamak için benzersiz kimlik |
 | VaultUniqueId_s |Text ||Bu ilkenin ait olduğu kasanın benzersiz kimliği |
 | BackupManagementServerUniqueId_s |Text |v2 |Yedekleme Yönetimi Sunucusu yedekleme öğesi benzersiz olarak tanımlanabilmesi için alan, varsa korunuyor        |
@@ -271,7 +271,7 @@ Bu tablo depolama ile ilgili alanlar hakkında ayrıntılar sağlar.
 | BackupManagementType_s |Text |Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
 | OperationName |Text |Bu alan geçerli işlem - depolama adını temsil eder. |
 | Kategori |Text |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
-| Kaynak |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
+| Resource |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | ProtectedServerUniqueId_s |Text |Korumalı sunucunun depolama hesaplandığı benzersiz kimliği |
 | VaultUniqueId_s |Text |Depolama kasasının benzersiz kimliği hesaplanır |
 | SourceSystem |Text |Geçerli verileri - Azure'nın kaynak sistem |
@@ -306,7 +306,7 @@ Bu tablo, kasa ile ilgili alanlar hakkında ayrıntılar sağlar.
 | State_s |Text |Örneğin, etkin, silinen kasa nesnenin geçerli durumu |
 | OperationName |Text |Bu alan geçerli işlem - kasa adını temsil eder. |
 | Kategori |Text |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
-| Kaynak |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
+| Resource |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
 | VaultUniqueId_s |Text |Kasa benzersiz kimliği |
 | VaultName_s |Text |Kasa adı |
 | AzureDataCenter_s |Text |Kasanın bulunduğu veri merkezi |

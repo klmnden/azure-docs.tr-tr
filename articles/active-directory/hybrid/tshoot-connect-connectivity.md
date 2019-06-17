@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64572789"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Azure AD bağlantısı sorunlarını giderme
@@ -43,14 +43,14 @@ Proxy sunucusu, ayrıca açılan gerekli URL olması gerekir. Resmi liste belgel
 
 Aşağıdaki tabloda bu URL'leri, Azure AD'ye hiç bağlanabilmesi için mutlak tam düşük düzeyde grup üyeliğidir. Bu liste, parola geri yazma ya da Azure AD Connect Health gibi isteğe bağlı özellikleri içermez. İçin başlangıç yapılandırmasını gidermenize yardımcı olması için burada belgelenmektedir.
 
-| URL'si | Bağlantı noktası | Açıklama |
+| URL'si | Port | Açıklama |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |CRL listelerini indirmek için kullanılır. |
 | \*. verisign.com |HTTP/80 |CRL listelerini indirmek için kullanılır. |
 | \*. entrust.net |HTTP/80 |CRL listeleri için mfa'yı indirmek için kullanılır. |
-| \*.windows.net |HTTPS/443 |Azure AD'de oturum açmak için kullanılır. |
+| \*. windows.net |HTTPS/443 |Azure AD'de oturum açmak için kullanılır. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |MFA için kullanılır. |
-| \*.microsoftonline.com |HTTPS/443 |Azure AD dizininizi yapılandırın ve verileri içeri/dışarı aktarma için kullanılır. |
+| \*. microsoftonline.com |HTTPS/443 |Azure AD dizininizi yapılandırın ve verileri içeri/dışarı aktarma için kullanılır. |
 
 ## <a name="errors-in-the-wizard"></a>Sihirbazdaki hataları
 Yükleme Sihirbazı'nı iki farklı güvenlik kapsamları kullanıyor. Sayfasında **Azure ad Connect**, şu anda oturum açmış kullanıcı kullanıyor. Sayfasında **yapılandırma**, için değiştirme [eşitleme altyapısı için hizmetini çalıştıran hesap](reference-connect-accounts-permissions.md#adsync-service-account). Bir sorun varsa, büyük olasılıkla zaten göründüğü **Azure ad Connect** proxy yapılandırmasını genel olduğundan Sihirbazı sayfası.
@@ -93,7 +93,7 @@ Alırsanız **uzak sunucuya bağlanılamıyor**, daha sonra PowerShell kullanara
 Proxy düzgün şekilde yapılandırılmadıysa, hata alırsınız: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
-| Hata | Hata metni | Açıklama |
+| Hata | Hata metni | Yorum |
 | --- | --- | --- |
 | 403 |Yasak |Proxy için istenen URL'yi açılmadı. Emin olun ve proxy yapılandırmasını yeniden ziyaret [URL'leri](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) açılmış olan. |
 | 407 |Proxy kimlik doğrulaması gerekli |Bir oturum açma proxy sunucusu gerekliyse ve sağlanmadı. Ara sunucunuz kimlik doğrulaması gerektiriyorsa, bu ayar Machine.config dosyasına yapılandırılmış olduğundan emin olun. Ayrıca etki alanı hesapları için Sihirbazı çalıştıran kullanıcı ve hizmet hesabı kullandığınızdan emin olun. |

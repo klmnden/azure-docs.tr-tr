@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736658"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Azure ön kapısı hizmetinde HTTP üstbilgileri için protokol desteği
@@ -33,9 +33,9 @@ Bu makalede çağrı yolun bir kısmı ile ön kapısı hizmetinin desteklediği
 
 Ön kapısı hizmet kısıtlamaları nedeniyle kaldırıldı sürece gelen bir istek üst bilgileri içerir. Ön kapısı, aşağıdaki üst bilgileri de ekler:
 
-| Üst bilgi  | Örnek ve açıklaması |
+| Üstbilgi  | Örnek ve açıklaması |
 | ------------- | ------------- |
-| Şunun aracılığıyla: |  Aracılığıyla: 1.1 azure </br> Ardından istemcinin HTTP sürümü ön kapısı ekler *Azure* Via üstbilgisinin değeri. Bu istemcinin HTTP sürümü gösterir ve bu ön kapısı istemci ve arka uç arasındaki istek için bir ara alıcı idi.  |
+| aracılığıyla |  Aracılığıyla: 1.1 azure </br> Ardından istemcinin HTTP sürümü ön kapısı ekler *Azure* Via üstbilgisinin değeri. Bu istemcinin HTTP sürümü gösterir ve bu ön kapısı istemci ve arka uç arasındaki istek için bir ara alıcı idi.  |
 | X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> İşlenmekte olan istek ile ilişkili istemci IP adresini temsil eder. Örneğin, bir proxy sunucudan gelen bir istek özgün arayan IP adresini belirtmek için X-iletilen-için üstbilgi ekleyebilirsiniz. |
 | X-Azure-SocketIP |  X-Azure-SocketIP: 127.0.0.1 </br> Geçerli İsteğin kaynaklandığı TCP bağlantısıyla ilişkili yuva IP adresini temsil eder. Bir isteğin istemci IP adresi, rasgele bir kullanıcı tarafından kılınabilir çünkü yuva IP adresine eşit olmayabilir.|
 | X-Azure-Ref |  X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> Ön kapısı tarafından sunulan bir isteği tanımlayan bir başvuru benzersiz dize. Erişim günlükleri aramak için kullanılır ve sorun giderme için kritik.|
@@ -48,7 +48,7 @@ Bu makalede çağrı yolun bir kısmı ile ön kapısı hizmetinin desteklediği
 
 Ön kapısı arka ucundan gönderilen üst bilgileri de istemciye geçirilecek. Ön kapısı istemcilere gönderilen üst bilgiler verilmiştir.
 
-| Üst bilgi  | Örnek |
+| Üstbilgi  | Örnek |
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Ön kapısı tarafından sunulan bir isteği tanımlayan benzersiz başvuru dize budur. Bu, erişim günlükleri aramak için kullanılan sorun giderme için önemlidir.|
 

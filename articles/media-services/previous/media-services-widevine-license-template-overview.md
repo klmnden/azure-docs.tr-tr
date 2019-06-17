@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d0bb72361e1bff3615f6785ac4c91a10ea773498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825587"
 ---
 # <a name="widevine-license-template-overview"></a>Widevine lisans şablonuna genel bakış 
@@ -61,9 +61,9 @@ Widevine lisans isteği bir JSON iletisi olarak biçimlendirilir.
 ## <a name="json-message"></a>JSON iletisi
 | Ad | Değer | Açıklama |
 | --- | --- | --- |
-| yük |Base64 ile kodlanmış bir dize |Bir istemci tarafından gönderilen lisans isteği. |
+| Yükü |Base64 ile kodlanmış bir dize |Bir istemci tarafından gönderilen lisans isteği. |
 | content_id |Base64 ile kodlanmış bir dize |Anahtar kimliği ve içerik türetmek için kullanılan tanımlayıcı her content_key_specs.track_type için anahtar. |
-| sağlayıcı |string |İçerik anahtarları ve ilkeleri bakmak için kullanılır. Microsoft anahtar teslim Widevine lisans teslim için kullanılıyorsa, bu parametre yoksayılır. |
+| Sağlayıcı |string |İçerik anahtarları ve ilkeleri bakmak için kullanılır. Microsoft anahtar teslim Widevine lisans teslim için kullanılıyorsa, bu parametre yoksayılır. |
 | policy_name |string |Önceden kaydedilmiş bir ilke adı. İsteğe bağlı. |
 | allowed_track_types |Sabit listesi |SD_ONLY veya SD_HD. Anahtarları içerik denetimleri bir lisans dahil edilir. |
 | content_key_specs |JSON dizisi yapıları "İçerik anahtarı özellikleri." bölümüne bakın  |Döndürülecek hangi içerik anahtarı üzerinde daha ayrıntılı denetim. Daha fazla bilgi için "İçerik anahtarı özellikleri." bölümüne bakın. Allowed_track_types ve content_key_specs değerleri yalnızca biri belirtilebilir. |

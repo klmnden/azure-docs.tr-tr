@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740816"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Otomasyonu'nda yazma grafik
@@ -44,7 +44,7 @@ Yakınlaştırma ve uzaklaştırma için tuvalin alt kısmında denetimleri kull
 
 Seçtiğiniz kitaplık denetimidir [etkinlikleri](#activities) runbook uygulamanıza eklenecek. Bunları diğer etkinlikler için bunları eriştiğiniz tuvaline ekleyin. Aşağıdaki tabloda açıklanan dört bölüm içerir:
 
-| Section | Açıklama |
+| `Section` | Açıklama |
 |:--- |:--- |
 | Cmdlet'ler |Runbook'ta kullanılabilecek tüm cmdlet'leri içerir. Cmdlet modülü tarafından düzenlenir. Tüm otomasyon hesabınızda yüklü modülleri mevcuttur. |
 | Runbook'lar |Runbook'ları, Otomasyon hesabınızda içerir. Bu runbook'ları, tuvalin alt runbook'lar olarak kullanılacak eklenebilir. Yalnızca düzenlenmekte olan runbook olarak aynı temel türündeki runbook'lar gösterilir. Grafik PowerShell iş akışı runbook'ları için yalnızca PowerShell iş akışı tabanlı runbook'ları gösterilmekte iken için grafik runbook'ları yalnızca PowerShell tabanlı runbook'ları gösterilir. |
@@ -67,7 +67,7 @@ Yalnızca bir grafik runbook yayımlanmış sürümü dışarı aktarabilirsiniz
 
 Seçerek bir grafik veya grafik PowerShell iş akışı runbook dosyası içeri aktarabilirsiniz **alma** runbook eklerken seçenek. İçeri aktarılacak dosyasını seçtiğinizde, aynı tutabilirsiniz **adı** veya yeni bir tane sağlayın. Runbook türü alan runbook türü seçilen dosyanın değerlendirir ve doğru değil, farklı bir tür seçmek çalışırsanız, bir ileti olası çakışmaları vardır ve dönüştürme sırasında olabilir söz dizimi hatalarının ayıklanabileceğini sunulacak sonra görüntüler hataları.
 
-![Runbook'u içeri aktar](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
+![Runbook'u İçeri Aktar](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 
 ### <a name="testing-a-graphical-runbook"></a>Grafik runbook'u test etme
 
@@ -111,7 +111,7 @@ Bir parametre için değer belirttiğinizde, değerin nasıl belirtildiğine bel
 
 | Veri Kaynağı | Açıklama |
 |:--- |:--- |
-| Sabit Değer |Parametre için bir değer yazın. Bu yalnızca aşağıdaki veri türleri için kullanılabilir. Int32, Int64, String, Boolean, DateTime, geçiş yapın. |
+| Sabit değer |Parametre için bir değer yazın. Bu yalnızca aşağıdaki veri türleri için kullanılabilir. Int32, Int64, String, Boolean, DateTime, geçiş yapın. |
 | Etkinlik çıkışı |İş akışında geçerli etkinliği önündeki bir etkinliğin çıkışı. Tüm geçerli etkinlikler listelenir. Çıktısını için parametre değeri kullanmak için yalnızca etkinliği seçin. Birden fazla özelliğe sahip bir nesne etkinlik çıkışı etkinlik seçtikten sonra özelliğin adını yazabilirsiniz. |
 | Runbook giriş |Bir runbook girdi parametreniz etkinlik parametresinde girdi olarak seçin. |
 | Değişken varlığı |Bir Otomasyon değişken giriş olarak seçin. |
@@ -119,11 +119,11 @@ Bir parametre için değer belirttiğinizde, değerin nasıl belirtildiğine bel
 | Sertifika varlığı |Bir Otomasyon sertifikası giriş olarak seçin. |
 | Bağlantı varlığı |Otomasyon bağlantısı, giriş olarak seçin. |
 | PowerShell ifadesi |Basit belirtin [PowerShell ifadesi](#powershell-expressions). İfade, etkinlik ve parametre değeri için kullanılan sonucu önce değerlendirilir. Bir etkinlik veya bir runbook girdi parametreniz çıkışına başvurmak için değişkenleri kullanabilirsiniz. |
-| Yapılandırılmamış |Önceden yapılandırılmış herhangi bir değer temizler. |
+| Yapılandırılmadı |Önceden yapılandırılmış herhangi bir değer temizler. |
 
 #### <a name="optional-additional-parameters"></a>İsteğe bağlı ek parametreler
 
-Tüm cmdlet'ler ek parametreleri sağlamak için seçeneğiniz vardır. PowerShell genel parametreleri veya diğer özel Parametreler şunlardır. Bir metin kutusu PowerShell söz dizimini kullanarak parametrelerini nerede sağlayabilir sunulur. Örneğin, kullanılacak **ayrıntılı** ortak parametresi belirtirsiniz **"-Verbose: $True"**.
+Tüm cmdlet'ler ek parametreleri sağlamak için seçeneğiniz vardır. PowerShell genel parametreleri veya diğer özel Parametreler şunlardır. Bir metin kutusu PowerShell söz dizimini kullanarak parametrelerini nerede sağlayabilir sunulur. Örneğin, kullanılacak **ayrıntılı** ortak parametresi belirtirsiniz **"-Verbose: $True"** .
 
 ### <a name="retry-activity"></a>Etkinliği yeniden deneyin
 
@@ -191,10 +191,10 @@ Kaynak etkinliği'ni seçip şeklin alt kısmındaki daire tıklayarak iki etkin
 
 Yapılandırma dikey penceresinde özelliklerini yapılandırmak için bağlantıyı seçin. Bu aşağıdaki tabloda açıklanan bağlantı türü içerir:
 
-| Bağlantı Türü | Açıklama |
+| Bağlantı türü | Açıklama |
 |:--- |:--- |
 | İşlem hattı |Hedef etkinlik, kaynak etkinliğinden her nesne çıkış için bir kez çalıştırılır. Kaynak etkinliği hiçbir çıkış sonuçlanırsa, hedef etkinlik çalıştırmaz. Kaynak etkinliği çıktısını bir nesne olarak kullanılabilir. |
-| Sequence |Hedef etkinlik yalnızca bir kez çalışır. Bu kaynak etkinliğinden nesnelerinin bir dizisini alır. Kaynak etkinliği çıktısını bir nesne dizisi kullanılabilir. |
+| Dizisi |Hedef etkinlik yalnızca bir kez çalışır. Bu kaynak etkinliğinden nesnelerinin bir dizisini alır. Kaynak etkinliği çıktısını bir nesne dizisi kullanılabilir. |
 
 ### <a name="starting-activity"></a>Başlangıç etkinliği
 
@@ -245,11 +245,11 @@ Aşağıdaki örnek, bir sanal makine kümesi, bu makinelere uygulanacak düzelt
 
 ![Birleşim](media/automation-graphical-authoring-intro/runbook-junction.png)
 
-### <a name="cycles"></a>Döngüler
+### <a name="cycles"></a>Döngüleri
 
 Hedef etkinlik bağlantıları geri kendi kaynak etkinliği veya sonunda kaynağına bağlantıları geri başka bir etkinlik olduğunda bir döngüsü elde edilir. Döngüleri grafik yazma şu anda izin verilmiyor. Bir döngü runbook'unuz varsa düzgün şekilde kaydeder ancak çalıştığında bir hata alır.
 
-![Aralıklı](media/automation-graphical-authoring-intro/runbook-cycle.png)
+![Döngüsü](media/automation-graphical-authoring-intro/runbook-cycle.png)
 
 ### <a name="sharing-data-between-activities"></a>Etkinlikler arasında veri paylaşımı
 

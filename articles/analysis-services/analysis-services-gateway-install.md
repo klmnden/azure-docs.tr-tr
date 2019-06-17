@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 629a97048ceba4ac02e3aa1dd59310980e5a0c95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55f68d777d291c7d12fcbae93884a5596b84c8ca
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327564"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062254"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Şirket içi veri ağ geçidini yükleme ve yapılandırma
 
@@ -40,7 +40,7 @@ Aynı bölgede bir veya daha fazla Azure Analysis Services sunucusu şirket içi
 * Ağ geçidi üzerinde kalır ve uyku moduna geçmeyecek bir bilgisayara yükleyin.
 * Ağ geçidi, kablosuz ağa bağlı bir bilgisayarda yüklemeyin. Performans yayınladıklarını.
 * Ağ geçidini yüklerken, bilgisayarınızda oturum açmadıysanız kullanıcı hesabı günlük hizmeti ayrıcalıklar olmalıdır. Yükleme tamamlandığında, şirket içi veri ağ geçidi hizmeti bir hizmet olarak oturum açma için NT servıce\pbıegwservice hesabını kullanır. Kurulum tamamlandıktan sonra farklı bir hesap kurulumu sırasında veya hizmetleri belirtilebilir. Olun Grup İlkesi ayarları ile yüklerken oturumunuz hesabı hem seçtiğiniz hizmet hesabı, günlük hizmet ayrıcalıklarına sahip izin verin.
-* Azure'da oturum aç sahip bir hesap için aynı Azure AD'de [Kiracı](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) aboneliğinde ağ geçidi kaydettirmekte olduğunuz. Azure B2B yüklerken ve bir ağ geçidi kaydediliyor (konuk) hesapları desteklenmez.
+* Azure'da oturum aç sahip bir hesap için aynı Azure AD'de [Kiracı](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) aboneliğinde ağ geçidi kaydettirmekte olduğunuz. Azure B2B yüklerken ve bir ağ geçidi kaydediliyor (konuk) hesapları desteklenmez.
 * Veri kaynakları, bir Azure sanal ağ (VNet) varsa, yapılandırmalısınız [AlwaysUseGateway](analysis-services-vnet-gateway.md) sunucu özelliği.
 * Burada açıklanan (Birleşik) ağ geçidi, Azure Almanya bölgelerinde desteklenmez. Bunun yerine, **Azure Analysis Services için ayrılmış şirket içi ağ geçidi**, sunucunuzun yüklü **Hızlı Başlangıç** portalında. 
 

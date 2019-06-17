@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d3e1995682569e5ef7b356bd85ad6c7dba6cdbdb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112526"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64689482"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini planlama
 Azure Resource Manager çok sayıda harika özellikleri sunarken, geçiş yolculuğunuza emin sorunsuz şeyler yapmak için planlamak için önemlidir. Harcadığınız zamanı planlama, sorunları geçiş etkinliklerini yürütülürken karşılaşmayacağınızdan emin olursunuz.
@@ -116,7 +116,7 @@ Birçok büyük geçişlerin bulunan sorunları yoktu. Bu kapsamlı bir liste de
 
 - **Web/çalışan rolü dağıtımları** -web ve çalışan rollerini içeren bulut Hizmetleri, Azure Resource Manager'a geçirme olamaz. Geçişi başlatmadan önce web/çalışan rollerini ilk sanal ağdan kaldırılmalıdır.  Tipik bir çözüm, ayrıca bir ExpressRoute bağlantı hattına bağlı olan ayrı bir Klasik sanal ağ web/çalışan rolü örnekleri yalnızca taşıyın ya da (Bu belgenin kapsamı dışındadır bu tartışma olduğu) daha yeni PaaS uygulama hizmetleri için geçiş kodu ' dir. Eski durum yeniden dağıtın, yeni bir Klasik sanal ağ oluşturma, taşıma/web/çalışan rollerini yeni bir sanal ağ için yeniden dağıtın ve ardından taşınan sanal ağdan dağıtımları silin. Gerekli bir kod değişikliği olmadan. Yeni [sanal ağ eşlemesi](../../virtual-network/virtual-network-peering-overview.md) birlikte web/çalışan rollerini içeren klasik sanal ağ ile eşleyebilme özelliği kullanılabilir ve diğer sanal ağlara olan sanal ağ gibi aynı Azure bölgesinde (geçişi**olarak eşlenmiş sanal ağlarda geçirilemiyor sanal ağ geçişi tamamlandıktan sonra**), bu nedenle performans kaybı olmadan ve herhangi bir gecikme süresi/bant genişliği yaptırımlara ile aynı özellikleri sağlama. Ayrıca, verilen [sanal ağ eşlemesi](../../virtual-network/virtual-network-peering-overview.md), web/çalışan rolü dağıtımları artık bir kolayca azaltılabilir ve Azure Resource Manager'a geçiş engellemediğinizden.
 
-- **Azure Resource Manager kotaları** -Azure bölgeleri hem Klasik hem de Azure Resource Manager için ayrı kota sınırları vardır. Bir geçiş senaryosunda, yeni donanım tüketilen değil olsa bile *(biz varolan Vm'leri Klasik modelden Azure Resource Manager'a takas)*, Azure Resource Manager kotalar hala yerinde önce yeterli kapasiteye sahip olması gerekir geçiş başlatabilirsiniz. Aşağıda listelenen gördük ana sınırları sorunlara neden olan.  Sınırları artırmak için bir kota destek bileti açın.
+- **Azure Resource Manager kotaları** -Azure bölgeleri hem Klasik hem de Azure Resource Manager için ayrı kota sınırları vardır. Bir geçiş senaryosunda, yeni donanım tüketilen değil olsa bile *(biz varolan Vm'leri Klasik modelden Azure Resource Manager'a takas)* , Azure Resource Manager kotalar hala yerinde önce yeterli kapasiteye sahip olması gerekir geçiş başlatabilirsiniz. Aşağıda listelenen gördük ana sınırları sorunlara neden olan.  Sınırları artırmak için bir kota destek bileti açın.
 
     > [!NOTE]
     > Bu sınırların geçirilmesi Geçerli ortamınız ile aynı bölgede oluşturulması gerekir.
@@ -124,7 +124,7 @@ Birçok büyük geçişlerin bulunan sorunları yoktu. Bu kapsamlı bir liste de
 
   - Ağ Arabirimleri
   - Yük Dengeleyiciler
-  - Ortak IP'ler
+  - Genel IP'ler
   - Statik genel IP'ler
   - Çekirdek
   - Ağ Güvenlik Grupları
@@ -132,7 +132,7 @@ Birçok büyük geçişlerin bulunan sorunları yoktu. Bu kapsamlı bir liste de
 
     Geçerli Azure Resource Manager kotanızı aşağıdaki komutları kullanarak en son Azure PowerShell sürümüyle denetleyebilirsiniz.
     
-    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+    [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
     **İşlem** *(çekirdek, kullanılabilirlik kümeleri)*
 

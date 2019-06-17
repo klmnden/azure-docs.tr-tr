@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2019
+ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 531e51fbddb99ebba11284d5291b4cca26559bc1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a370dcb349b61f3dda544d9c5a2030b6789e34c4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075404"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici ile AKS kümesi performansını anlama 
 Kapsayıcılar için Azure İzleyici ile sistem durumu ve performans grafiklerini doğrudan bir AKS kümesi veya Azure aboneliğindeki tüm AKS kümeleri, iki perspektiften, Azure Kubernetes Service (AKS) kümesinin ve iş yükünü izlemek için kullanabilirsiniz İzleyici. Belirli bir AKS kümesi izlerken Azure Container Instances'a (ACI) görüntüleme olanağı da sağlar.
@@ -61,7 +61,7 @@ Dahil edilen sistem durumu durumlar şunlardır:
 * **Nebyl nalezen** - ya da çalışma alanı, kaynak grubuna ya da silinmiş olan bu çözüm için çalışma alanı içeren bir abonelik.
 * **Yetkisiz** -kullanıcı, çalışma alanındaki verileri okumak için gerekli izinlere sahip değil.
 * **Hata** -çalışma alanından verileri okuma çalışılırken hata oluştu.
-* **Yapılandırılmış MIS** -kapsayıcılar için Azure İzleyici belirtilen çalışma alanı doğru yapılandırılmamış.
+* **Yanlış yapılandırılmış** -kapsayıcılar için Azure İzleyici belirtilen çalışma alanı doğru yapılandırılmamış.
 * **Hiçbir veri** -veri değil olarak son 30 dakika içerisinde çalışma alanına bildirdi.
 
 Sistem durumu olarak genel küme durumunu hesaplar *en kötü* üç bildiren bir özel durumla – üç durumdan birini ise *bilinmeyen*, genel küme durumunu gösterir **bilinmiyor**.  
@@ -102,19 +102,19 @@ Varsayılan sayfayı tıkladığınızda açılan **Insights** olduğu **küme**
 
 Performans grafiği dört performans ölçümlerini görüntüler:
 
-- **Düğüm CPU kullanımını&nbsp;%**: Toplu bir perspektif, tüm küme için CPU kullanımı. Zaman aralığı için sonuç seçerek filtreleyebilirsiniz **ortalama**, **Min**, **Max**, **50**, **90'ıncı**, ve **95** yüzdebirliklerini Seçici grafiğin içinde ya da tek tek veya birlikte. 
-- **Düğüm bellek kullanımını&nbsp;%**: Toplu bir perspektif, tüm küme için bellek kullanımı. Zaman aralığı için sonuç seçerek filtreleyebilirsiniz **ortalama**, **Min**, **Max**, **50**, **90'ıncı**, ve **95** yüzdebirliklerini Seçici grafiğin içinde ya da tek tek veya birlikte. 
+- **Düğüm CPU kullanımını&nbsp;%** : Toplu bir perspektif, tüm küme için CPU kullanımı. Zaman aralığı için sonuç seçerek filtreleyebilirsiniz **ortalama**, **Min**, **Max**, **50**, **90'ıncı**, ve **95** yüzdebirliklerini Seçici grafiğin içinde ya da tek tek veya birlikte. 
+- **Düğüm bellek kullanımını&nbsp;%** : Toplu bir perspektif, tüm küme için bellek kullanımı. Zaman aralığı için sonuç seçerek filtreleyebilirsiniz **ortalama**, **Min**, **Max**, **50**, **90'ıncı**, ve **95** yüzdebirliklerini Seçici grafiğin içinde ya da tek tek veya birlikte. 
 - **Düğüm sayısı**: Bir düğüm sayısı ve Kubernetes durumu. Durumlar temsil küme düğümlerinin *tüm*, *hazır*, ve *hazır değil* ve ayrı olarak filtrelenen veya grafiğin üstünde Seçici içinde birleştirilmiş. 
 - **Etkinlik pod sayısının**: Pod sayısı ve Kubernetes durumu. Temsil edilen pod'ları, durumlar *tüm*, *bekleyen*, *çalıştıran*, ve *bilinmeyen* ve ayrı olarak filtrelenen veya içinde birleşik grafiğin üstünde Seçici. 
 
-Her veri noktası anahtarları yüzdebirlik satırları arasında geçiş yapmak için yukarı/aşağı oka ve grafik geçiş yapmak için sol/sağ ok tuşlarını kullanabilirsiniz.
+Her veri noktası anahtarları yüzdebirlik satırları arasında geçiş yapmak için yukarı/aşağı oka ve grafik geçiş yapmak için sol/sağ ok tuşlarını kullanabilirsiniz. Grafikler herhangi birini sağ üst köşesinde, Raptiye simgesine tıklayarak, seçili grafik son görüntülediğiniz son Azure panosuna sabitleyin. Panodan, yeniden boyutlandırabilir ve grafiği yeniden konumlandırın. Grafik panodan seçme kapsayıcılar için Azure İzleyici için yeniden yönlendirme ve yük doğru kapsamı ve görünümü.
 
 Kapsayıcılar için Azure İzleyici, Azure İzleyici ayrıca destekler [ölçüm Gezgini](../platform/metrics-getting-started.md), burada kendi çizim grafikleri, performanstaki oluşturabilir ve eğilimleri araştırın ve panolara sabitleyin. Ölçüm Gezgini'nde ölçümlerinizi temel olarak görselleştirmek için ayarladığınız ölçütler de kullanabilirsiniz bir [ölçüm tabanlı uyarı kuralı](../platform/alerts-metric.md).  
 
 ## <a name="view-container-metrics-in-metrics-explorer"></a>Ölçüm Gezgini'nde kapsayıcı ölçümlerini görüntüleme
 Ölçüm Gezgini'nde toplanmış düğümü görüntüleyin ve kapsayıcılar için Azure İzleyici'den kullanım ölçümlerini pod. Ölçüm grafikleri kapsayıcı ölçümlerini görselleştirmek için nasıl kullanılacağını anlamanıza yardımcı olması için ayrıntıları aşağıdaki tabloda özetlenmiştir.
 
-|Ad alanı | Ölçüm |
+|Ad Alanı | Ölçüm |
 |----------|--------|
 | insights.Container/Nodes | |
 | | cpuUsageMillicores |
@@ -163,7 +163,7 @@ Azure kapsayıcı örnekleri sanal Linux işletim sistemini çalıştıran düğ
 Genişletilmiş bir düğümden pod veya filtre söz konusu denetleyici için performans verilerini görüntülemek için denetleyiciye düğümde çalışan kapsayıcı detaya gidebilirsiniz. Değerin altında tıklayın **denetleyicisi** sütun için belirli bir düğümün.   
 ![Örneği detaya gitme düğümünden performans görünümü denetleyicisi](./media/container-insights-analyze/drill-down-node-controller.png)
 
-Denetleyicileri veya sayfanın üstündeki kapsayıcılar'ı seçin ve bu nesneler için durumu ve kaynak kullanımını gözden geçirin.  Bunun yerine, bellek kullanımı, gözden geçirmek istiyorsanız **ölçüm** aşağı açılan listesinden **bellek RSS** veya **bellek çalışma kümesi**. **Bellek RSS** yalnızca Kubernetes sürüm 1.8 ve üzeri desteklenir. Aksi takdirde, değerlerini görüntüleyin **Min&nbsp; %**  olarak *NaN&nbsp;%*, tanımlanmamış bir temsil eden sayısal veri türü değeri olan veya çıkarıldığında değeri. 
+Denetleyicileri veya sayfanın üstündeki kapsayıcılar'ı seçin ve bu nesneler için durumu ve kaynak kullanımını gözden geçirin.  Bunun yerine, bellek kullanımı, gözden geçirmek istiyorsanız **ölçüm** aşağı açılan listesinden **bellek RSS** veya **bellek çalışma kümesi**. **Bellek RSS** yalnızca Kubernetes sürüm 1.8 ve üzeri desteklenir. Aksi takdirde, değerlerini görüntüleyin **Min&nbsp; %**  olarak *NaN&nbsp;%* , tanımlanmamış bir temsil eden sayısal veri türü değeri olan veya çıkarıldığında değeri. 
 
 ![Kapsayıcı düğümlerini performans görünümü](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -175,7 +175,7 @@ Varsayılan olarak, son altı saat üzerinde performans verilerini bağlıdır, 
 
 ![Çubuk grafik üzerine gelindiğinde kullanılacak örnek eğilimi](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
-Sonraki örnekte, - listedeki ilk Not düğüm *aks-nodepool1 -*, değeri **kapsayıcıları** toplu dağıtılan kapsayıcıların toplam sayısı: % 9, olmasıdır.
+Sonraki örnekte, - listedeki ilk Not düğüm *aks-nodepool1 -* , değeri **kapsayıcıları** toplu dağıtılan kapsayıcıların toplam sayısı: % 9, olmasıdır.
 
 ![Kapsayıcı düğümü örnek başına dökümü](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 
@@ -233,7 +233,7 @@ Durum alanı simgeleri kapsayıcıları çevrimiçi durumunu gösterir:
 | ![Son durum simgesi çalıştıran bildirdi.](./media/container-insights-analyze/containers-grey-icon.png) | Son çalıştırma bildirdi ancak 30 dakikadan fazla yanıt henüz|
 | ![Başarılı durum simgesi](./media/container-insights-analyze/containers-green-icon.png) | Başarılı bir şekilde durdurulmuş veya yanıt vermemesine başarısız|
 
-Durum simgesi ne pod sağlar göre sayısını görüntüler. İki en kötü durum gösterir ve durum geldiğinizde, kapsayıcıda tüm pod'ların bir toplama durumunu görüntüler. Hazır durumda değilse, durum değeri görüntüler **(0)**. 
+Durum simgesi ne pod sağlar göre sayısını görüntüler. İki en kötü durum gösterir ve durum geldiğinizde, kapsayıcıda tüm pod'ların bir toplama durumunu görüntüler. Hazır durumda değilse, durum değeri görüntüler **(0)** . 
 
 Seçicide seçin **kapsayıcıları**.
 
@@ -270,6 +270,20 @@ Durum alanı simgeleri, aşağıdaki tabloda açıklandığı gibi çevrimiçi, 
 | ![Son durum simgesi çalıştıran bildirdi.](./media/container-insights-analyze/containers-grey-icon.png) | Son çalıştırma bildirdi ancak 30 dakikadan fazla yanıt henüz|  
 | ![Sonlandırılan durum simgesi](./media/container-insights-analyze/containers-terminated-icon.png) | Başarılı bir şekilde durdurulmuş veya yanıt vermemesine başarısız|  
 | ![Başarısız durum simgesi](./media/container-insights-analyze/containers-failed-icon.png) | Durumu başarısız |  
+
+## <a name="disk-capacity-workbook"></a>Disk kapasitesi çalışma kitabı
+Çalışma kitapları, metin, birleştirme [oturum sorguları](../log-query/query-language.md), [ölçümleri](../platform/data-platform-metrics.md)ve zengin etkileşimli raporları parametreleri. Çalışma kitapları, aynı Azure kaynaklarına erişimi olan tüm diğer ekip üyeleri tarafından düzenlenebilir.
+
+Kapsayıcılar için Azure İzleyici içerir, başlamanız için bir çalışma kitabı **Disk kapasitesi**.  Bu çalışma kitabı, bir kapsayıcı içindeki düğümüne aşağıdaki Perspektifler tarafından sunulan her disk için etkileşimli bir disk kullanım grafikleri sunar:
+
+- Tüm diskler için disk kullanım yüzdesi
+- Tüm diskler için boş disk alanı
+- Her düğüm disk için % kullanılan alan gösteren bir tablo, % eğilimini kullanılan alanı, boş disk alanı (GiB) ve eğilim boş disk alanı (GiB). Tablodaki bir sütun seçiliyse, % kullanılan alan ve boş disk alanı (GiB) aşağıda verilmiştir 
+
+Seçerek bu çalışma kitabına erişmesi **Disk kapasitesi** gelen **görünümü çalışma kitapları** aşağı açılan listesi.  
+
+![Çalışma kitapları açılan listesini görüntüleme](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Gözden geçirme [performans uyarıları, kapsayıcılar için Azure İzleyici ile oluşturma](container-insights-alerts.md) DevOps veya çalışma süreçleri ve yordamları desteklemek yüksek CPU ve bellek kullanımı için uyarı oluşturma hakkında bilgi edinmek için. 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory koşullu erişim ayarları başvurusu | Microsoft Docs
-description: Desteklenen ayarlar genel bir bakış, Azure Active Directory koşullu erişim ilkesinde alın.
+description: Bir Azure Active Directory koşullu erişim ilkesinde desteklenen ayarlar özetini alın.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823559"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112117"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -93,7 +93,7 @@ Bir koşullu erişim ilkesini bir istemcide ilke işletim sistemine bağlamak i�
 - iOS
 - Windows Phone
 - Windows
-- macOS
+- Mac OS
 
 ![İstemci işletim sistemi için erişim ilkesi bağlayın](./media/technical-reference/41.png)
 
@@ -126,7 +126,7 @@ Bu ayar tüm tarayıcılarla çalışır. Ancak, bir cihaz uyumlu gereksinim gib
 | Windows Server 2016    | Chrome                                        |
 | Windows Server 2012 R2 | Internet Explorer, Chrome                     |
 | Windows Server 2008 R2 | Internet Explorer, Chrome                     |
-| macOS                  | Chrome, Safari                                |
+| Mac OS                  | Chrome, Safari                                |
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Tarayıcıda iste sertifika neden görüyorum
 
@@ -172,12 +172,12 @@ Bu ayar, aşağıdaki mobil uygulamalar ve masaüstü istemciler yapılan erişi
 | Microsoft Teams Hizmetleri - bu, Microsoft Teams ve tüm istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android ve macOS |
 | Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
 | Office 2016 uygulamaları, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan | Office 365 SharePoint Online | Windows 10 |
-| Office 2016 (Word, Excel, PowerPoint, OneNote). OneDrive for Business desteği gelecek için planlanan| Office 365 SharePoint Online| macOS|
+| Office 2016 (Word, Excel, PowerPoint, OneNote). OneDrive for Business desteği gelecek için planlanan| Office 365 SharePoint Online| Mac OS|
 | Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
 | Office mobil uygulamaları | Office 365 SharePoint Online | Android, iOS |
 | Office Yammer uygulaması | Office 365 Yammer | Windows 10, iOS, Android |
 | Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
-| Outlook 2016'ın (macOS için Office) | Office 365 Exchange Online | macOS |
+| Outlook 2016'ın (macOS için Office) | Office 365 Exchange Online | Mac OS |
 | Outlook 2016, Outlook 2013 (modern kimlik doğrulaması ile) Skype Kurumsal'a (ile modern kimlik doğrulaması) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
 | Outlook mobil uygulaması | Office 365 Exchange Online | Android, iOS |
 | Power BI uygulaması | Power BI hizmeti | Windows 10, Windows 8.1, Windows 7, Android ve iOS |
@@ -252,7 +252,7 @@ Bu ayar, aşağıdaki istemci uygulamaları için geçerlidir:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Koşullu erişim genel bakış için bkz. [Azure Active Directory'de koşullu erişim nedir?](../active-directory-conditional-access-azure-portal.md)
-- Ortamınızda koşullu erişim ilkeleri yapılandırmak hazırsanız bkz [Azure Active Directory'de koşullu erişim için önerilen yöntemleri](best-practices.md).
+- Ortamınızda koşullu erişim ilkeleri yapılandırmak hazırsanız bkz [Azure Active Directory'de koşullu erişim için önerilen uygulamalar](best-practices.md).
 
 <!--Image references-->
 [1]: ./media/technical-reference/01.png

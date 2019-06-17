@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
 ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899426"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights'tan telemetriyi dışarı aktarma
@@ -168,7 +168,7 @@ Sürekli dışarı aktarmayı yeniden başlatılır.
 
 Büyük ölçekleri üzerinde düşünün [HDInsight](https://azure.microsoft.com/services/hdinsight/) -Hadoop kümelerini bulutta. Çeşitli teknolojiler yönetmek ve büyük veri analizi için HDInsight sağlar ve Application Insights'tan dışarı aktarılan verileri işlemek için kullanabilirsiniz.
 
-## <a name="q--a"></a>Soru-Cevap
+## <a name="q--a"></a>Soru - Yanıt
 * *Ancak tüm istiyorum grafik tek seferlik bir indirme.*  
 
     Evet, bunu yapabilirsiniz. Dikey pencerenin en üstünde tıklayın **verileri dışarı aktarma**.

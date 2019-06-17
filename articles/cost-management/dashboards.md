@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
 ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002060"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Ölçümleri panolarla maliyet anahtarını görüntüle
@@ -42,7 +42,7 @@ Pano kullanılabilirlik panolar görüntülenirken kullanılan bulut hizmet sağ
 
 Özel bir Pano oluşturmak için:
 
-1. Giriş sayfasında tıklayın **yeni Ekle +**. Panom'u sayfası görüntülenir.  
+1. Giriş sayfasında tıklayın **yeni Ekle +** . Panom'u sayfası görüntülenir.  
     ![Yeni raporlar eklediğiniz my Pano sayfası](./media/dashboards/my-dashboard.png)
 2. Tıklayın **yeni bir rapor eklemek**. Rapor Ekle kutusu görüntülenir.
 3. Pano pencere öğesine eklemek istediğiniz raporu seçin. Pencere öğesinin panoya eklendi.

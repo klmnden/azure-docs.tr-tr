@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869989"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure haritalar işleme kapsamı
@@ -44,7 +44,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Kamerun                         | ✓ | ✓ |
 | Orta Afrika Cumhuriyeti         | ✓ | Ø |
 | Çad                             | ✓ | Ø |
-| Komorolar                          | ✓ | Ø |
+| Komorlar                          | ✓ | Ø |
 | Kongo Demokratik Cumhuriyeti | ✓ | ✓ |
 | Fildişi Sahili (Côte d’Ivoire)                    | ✓ | Ø |
 | Cibuti                         | ✓ | Ø |
@@ -53,10 +53,10 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Eritre                          | ✓ | Ø |
 | Etiyopya                         | ✓ | Ø |
 | Gabon                            | ✓ | ✓ |
-| Zambia                           | ✓ | Ø |
+| Gambia                           | ✓ | Ø |
 | Gana                            | ✓ | ✓ |
 | Gine                           | ✓ | Ø |
-| Gine Bissau                    | ✓ | Ø |
+| Gine-Bissau                    | ✓ | Ø |
 | Kenya                            | ✓ | ✓ |
 | Lesoto                          | ✓ | ✓ |
 | Liberya                          | ✓ | Ø |
@@ -83,7 +83,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Güney Sudan                      | ✓ | ✓ |
 | Sudan                            | ✓ | ✓ |
 | Svaziland                        | ✓ | ✓ |
-| Tanzanya Birleşik Cumhuriyeti      | ✓ | ✓ |
+| Tanzanya birleşik Cumhuriyeti      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
 | Tunus                          | ✓ | ✓ |
 | Uganda                           | ✓ | ✓ |
@@ -100,9 +100,9 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Aruba                     | ✓ | ✓ |
 | Bahamalar                   | ✓ | ✓ |
 | Barbados                  | ✓ | ✓ |
-| Beliz                    | ✓ | ✓ |
+| Belize                    | ✓ | ✓ |
 | Bermuda                   | ✓ | ✓ |
-| Çokuluslu Bolivya Devleti | ✓ | ✓ |
+| ' In Devleti durumu Bolivya | ✓ | ✓ |
 | Bonaire, Sint Eustatius ve Saba | ✓ | ✓ |
 | Brezilya                    | ✓ | ✓ |
 | Kanada                    | ✓ | ✓ |
@@ -112,7 +112,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Kosta Rika                | ✓ | ✓ |
 | Küba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
-| Dominika                  | ✓ | ✓ |
+| Dominica                  | ✓ | ✓ |
 | Dominik Cumhuriyeti        | ✓ | ✓ |
 | Ekvador                   | ✓ | ✓ |
 | Falkland Adaları (Malvinas) | ✓ | ✓ |
@@ -167,7 +167,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Cocos (Keeling) Adaları   |   | Ø |
 | Kore Demokratik Halk Cumhuriyeti |   | Ø |
 | Dokdo ve Takeshima       |   | Ø |
-| Hong Kong Çin ÖİB             | ✓ | ✓ |
+| Hong Kong SAR             | ✓ | ✓ |
 | Hindistan                     | Ø | ✓ | 
 | Endonezya                 | ✓ | ✓ |
 | İran                      |   | Ø |
@@ -215,7 +215,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Avustralya                 | ✓ | ✓ |
 | Cook Adaları              |   | Ø |
 | Fiji                      |   | Ø |
-| Fransız Polinezyası          |   | Ø |
+| FRANSIZ POLİNEZYASI          |   | Ø |
 | Guam                      | ✓ | ✓ |
 | Kiribati                  |   | Ø |
 | Marshall Adaları          |   | Ø |
@@ -262,7 +262,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Almanya                   | ✓ | ✓ |
 | Cebelitarık                 | ✓ | ✓ |
 | Yunanistan                    | ✓ | ✓ |
-| Guernsay                  | ✓ | ✓ |
+| Guernsey                  | ✓ | ✓ |
 | Macaristan                   | ✓ | ✓ |
 | İzlanda                   | ✓ | ✓ |
 | İrlanda                   | ✓ | ✓ |
@@ -297,7 +297,7 @@ Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağı
 | Türkiye                    | ✓ | ✓ |
 | Ukrayna                   | ✓ | ✓ |
 | Birleşik Krallık            | ✓ | ✓ |
-| Vatikan Şehri              | ✓ | ✓ |
+| Vatikan              | ✓ | ✓ |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

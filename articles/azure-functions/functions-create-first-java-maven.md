@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ab705b6131bd43a7ab70bab16cef81d33f07c055
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: e4aa5314811ceac9e1f9d1136fc8ae5557a3d71d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827404"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063262"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java ve Maven ile ilk işlevinizi oluşturma
 
@@ -79,7 +79,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven, şu örnekte _artifactId_ adlı yeni bir klasörde proje dosyalarını oluşturur: `fabrikam-functions`. Projedeki çalıştırılmaya hazır olarak oluşturulan bu kod, isteğin gövdesini yankılayan [HTTP tetiklemeli](/azure/azure-functions/functions-bindings-http-webhook) basit bir işlevdir:
+Maven, şu örnekte _artifactId_ adlı yeni bir klasörde proje dosyalarını oluşturur: `fabrikam-functions`. Projede oluşturulan kodu çalıştırmak için hazır bir [HTTP ile tetiklenen](/azure/azure-functions/functions-bindings-http-webhook) isteğin gövdesini yankılayan işlevi:
 
 ```java
 public class Function {
@@ -150,13 +150,13 @@ Hello LocalFunction!
 
 ## <a name="deploy-the-function-to-azure"></a>İşlevi Azure’a dağıtma
 
-Azure İşlevleri’ne dağıtım işlemi, Azure CLI’dan hesap kimlik bilgilerini kullanır. Devam etmeden önce [Azure CLI ile oturum açın](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+Azure İşlevleri’ne dağıtım işlemi, Azure CLI’dan hesap kimlik bilgilerini kullanır. [Azure CLI ile oturum](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) devam etmeden önce.
 
 ```azurecli
 az login
 ```
 
-`azure-functions:deploy` Maven hedefini kullanarak kodunuzu yeni bir İşlev uygulamasına dağıtın.
+`azure-functions:deploy` Maven hedefini kullanarak kodunuzu yeni bir İşlev uygulamasına dağıtın. Bunu gerçekleştiren bir [dağıtma Zip paketini çalıştırın](functions-deployment-technologies.md#zip-deploy) modu etkin.
 
 > [!NOTE]
 > İşlev uygulamanızı dağıtmak için Visual Studio Code kullandığınızda unutmayın olmayan ücretsiz bir abonelik seçin veya bir hata alırsınız. IDE'nin sol tarafında aboneliğinizi izleyebilirsiniz.

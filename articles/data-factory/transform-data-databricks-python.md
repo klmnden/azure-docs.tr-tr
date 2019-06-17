@@ -13,10 +13,10 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002841"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks üzerinde bir Python etkinliği çalıştırarak verileri dönüştürme
@@ -65,8 +65,8 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 |Özellik|Açıklama|Gerekli|
 |---|---|---|
 |name|İşlem hattındaki bir etkinliğin adı.|Evet|
-|açıklama|Etkinliğin ne yaptığını açıklayan metin.|Hayır|
-|tür|Databricks Python etkinliği için etkinlik DatabricksSparkPython türüdür.|Evet|
+|description|Etkinliğin ne yaptığını açıklayan metin.|Hayır|
+|türü|Databricks Python etkinliği için etkinlik DatabricksSparkPython türüdür.|Evet|
 |linkedServiceName|Databricks bağlı Python etkinliğin çalıştığı hizmetin adı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.|Evet|
 |pythonFile|Yürütülecek Python dosyası URI'si. Yalnızca DBFS yolları desteklenir.|Evet|
 |parametreler|Python dosyasına geçirilecek komut satırı parametreleri. Bu dizeler dizisidir.|Hayır|

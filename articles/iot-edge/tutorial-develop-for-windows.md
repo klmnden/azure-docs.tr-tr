@@ -4,17 +4,17 @@ description: Bu öğretici, Windows cihazları için Windows kapsayıcıları ku
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/20/2019
+ms.date: 06/06/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 81d660857eff63e0dfeeda400b168ea424152081
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 94a287cd996bd18b757620254540f8dc0df499e8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808610"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051872"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Öğretici: Windows cihazları için IoT Edge modülleri geliştirme
 
@@ -22,7 +22,7 @@ Geliştirip IOT Edge çalıştıran Windows cihazlar için kod dağıtmak için 
 
 Hızlı Başlangıç, bir Windows sanal makine kullanarak bir IOT Edge cihazı oluşturdunuz ve Azure Market'ten önceden oluşturulmuş bir modül dağıttınız. Bu öğreticide, geliştirme ve IOT Edge cihazına kendi kodunuzu dağıtmak için neler aracılığıyla açıklanmaktadır. Bu öğreticide, belirli programlama dilleri ya da Azure hizmetleri hakkında daha fazla ayrıntıya gider tüm diğer öğreticiler, kullanışlı bir önkoşuldur. 
 
-Bu öğreticide örnek dağıtma bir **C modülü bir Windows cihazına**. Böylece, doğru kitaplıkları yüklü olduğu konusunda endişelenmenize gerek kalmadan geliştirme araçları hakkında bilgi edinebilirsiniz Bu örnekte, kolaylık olması için seçilmiştir. Ardından geliştirme kavramları anladığınızda, tercih ettiğiniz dil veya ayrıntılara inin yönelik Azure hizmeti seçin. 
+Bu öğreticide örnek dağıtma bir  **C# modülü bir Windows cihazına**. En yaygın geliştirme senaryosu olduğundan bu örnek seçildi. Farklı bir dilde geliştirmeye ilginizi çeken ya da Azure hizmetlerini modüller olarak dağıtmayı, Bu öğretici geliştirme araçları hakkında bilgi edinmek yararlı olacaktır. Ardından geliştirme kavramları anladığınızda, tercih ettiğiniz dil veya ayrıntılara inin yönelik Azure hizmeti seçin. 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -49,9 +49,7 @@ Aşağıdaki tabloda desteklenen geliştirme senaryoları için **Windows kapsay
 | - | ------------------ | ------------------ |
 | **Azure Hizmetleri** | Azure İşlevleri <br> Azure Stream Analytics |   |
 | **Diller** | C#(desteklenen hata ayıklamaya değil) | C <br> C# |
-| **Daha fazla bilgi** | [Visual Studio Code için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IOT Edge için Visual Studio 2017 Araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IOT Edge için Visual Studio 2019 araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
-
-Bu öğretici için Visual Studio 2019 geliştirme adımlarını öğretir. Bunun yerine Visual Studio Code kullanmayı tercih ediyorsanız, yönergeleri başvurmak [kullanan Visual Studio geliştirme ve modülleri, Azure IOT Edge için hata ayıklama için kod](how-to-vs-code-develop-module.md). Visual Studio 2017 (sürüm 15.7 veya üzeri) kullanıyorsanız, plrease yükleyip [Visual Studio 2017 için Azure IOT Edge Araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
+| **Daha fazla bilgi** | [Visual Studio Code için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IOT Edge için Visual Studio 2017 araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IOT Edge için Visual Studio 2019 araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -60,17 +58,6 @@ Bir geliştirme makinesi:
 * Windows 10 1809 güncelleştirme ile ya da daha yeni.
 * Kendi bilgisayarınıza veya sanal makine, geliştirme tercihlerinize bağlı olarak kullanabilirsiniz.
 * [Git](https://git-scm.com/)'i yükleyin. 
-* Vcpkg aracılığıyla x64 Windows için Azure IOT C SDK'sını yükleyin:
-
-   ```powershell
-   git clone https://github.com/Microsoft/vcpkg
-   cd vcpkg
-   .\bootstrap-vcpkg.bat
-   .\vcpkg install azure-iot-sdk-c:x64-windows
-   .\vcpkg --triplet x64-windows integrate install
-   ```
-
-<!--vcpkg only required for C development-->
 
 Bir Windows Azure IOT Edge cihazında:
 
@@ -94,17 +81,23 @@ Geliştirme makinenizde yüklemek için Docker belgeleri kullanın:
 
 ## <a name="set-up-visual-studio-and-tools"></a>Visual Studio ve araçları ayarlama
 
-IOT Edge modülleri geliştirmek için Visual Studio 2019 IOT uzantıları kullanın. Bu uzantıları proje şablonları sağlar, dağıtım bildirimini oluşturulmasını otomatikleştirin ve izleyin ve IOT Edge cihazları yönetmenize olanak sağlar. Bu bölümde, Visual Studio'yu ve IOT Edge uzantısını yükleme ardından IOT Hub dahilindeki Visual Studio yönetmek için Azure hesabınızı ayarlayın. 
+IOT uzantıları Visual Studio için IOT Edge modülleri geliştirmenize yardımcı olur. Bu uzantıları proje şablonları sağlar, dağıtım bildirimini oluşturulmasını otomatikleştirin ve izleyin ve IOT Edge cihazları yönetmenize olanak sağlar. Bu bölümde, Visual Studio'yu ve IOT Edge uzantısını yükleme ardından IOT Hub dahilindeki Visual Studio yönetmek için Azure hesabınızı ayarlayın. 
 
-1. Geliştirme makinenizde Visual Studio yoksa [yükleme Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) aşağıdaki iş yükleri ile: 
+Bu öğretici için Visual Studio 2019 geliştirme adımlarını öğretir. Visual Studio 2017 (sürüm 15.7 veya üzeri) kullanıyorsanız, adımları oldukça benzerdir. Bunun yerine Visual Studio Code kullanmayı tercih ediyorsanız, yönergeleri başvurmak [kullanan Visual Studio geliştirme ve modülleri, Azure IOT Edge için hata ayıklama için kod](how-to-vs-code-develop-module.md). 
 
-   * Azure geliştirme
-   * C++ ile masaüstü geliştirme
-   * .NET core platformlar arası geliştirme
+1. Geliştirme makinenizde Visual Studio 2019 hazırlayın. 
 
-1. Visual Studio 2019 geliştirme makinenizde zaten varsa. Bağlantısındaki [değiştirme Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) zaten yoksa, gerekli iş yüklerini eklemek için.
+   * Geliştirme makinenizde Visual Studio yoksa [yükleme Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) aşağıdaki iş yükleri ile: 
+
+      * Azure geliştirme
+      * C++ ile masaüstü geliştirme
+      * .NET core platformlar arası geliştirme
+
+   * Visual Studio 2019 geliştirme makinenizde zaten yüklü ise adımları [değiştirme Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) gerekli iş yüklerini eklemek için.
 
 2. İndirme ve yükleme [Azure IOT Edge araçlarını](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) uzantısı için Visual Studio 2019. 
+
+   Visual Studio 2017 (sürüm 15.7 veya üzeri) kullanıyorsanız, indirme ve yükleme [Visual Studio 2017 için Azure IOT Edge Araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
 
 3. Tesislerinize tamamlandığında Visual Studio 2019 açıp seçin **kod olmadan devam**.
 
@@ -112,9 +105,9 @@ IOT Edge modülleri geliştirmek için Visual Studio 2019 IOT uzantıları kulla
 
 5. Cloud explorer'ın profili simgesini seçin ve zaten oturum açmadıysanız Azure hesabınızda oturum açın. 
 
-6. Oturum açtıktan sonra Azure abonelikleri listelenir. Cloud explorer ile erişme ve ardından istediğiniz abonelikleri seçin **Uygula**. 
+6. Oturum açtıktan sonra Azure abonelikleri listelenir. IOT hub'ınızı içeren aboneliği genişletin. 
 
-7. Aboneliğiniz, ardından genişletin **IOT hub'ları**, ardından IOT hub. IOT cihazlarınızı listesini görmeniz gerekir ve bunları yönetmek için bu Gezgini'ni kullanabilirsiniz. 
+7. Aboneliğiniz kapsamındaki genişletin **IOT hub'ları** ardından IOT hub. IOT cihazlarınızı listesini görmeniz gerekir ve bunları yönetmek için bu Gezgini'ni kullanabilirsiniz. 
 
    ![Cloud Explorer erişim IOT hub'ı kaynakları](./media/tutorial-develop-for-windows/cloud-explorer-view-hub.png)
 
@@ -126,11 +119,11 @@ Azure IOT Edge araçları uzantısı proje şablonları için desteklenen tüm I
 
 1. Seçin **dosya** > **yeni** > **proje...**
 
-2. Yeni Proje penceresinde, 2. Yeni Proje penceresinde, arama **IOT Edge** projesini ve ardından **Azure IOT Edge (Windows amd64)** proje. **İleri**’ye tıklayın. 
+2. Yeni Proje penceresini arayın **IOT Edge** ve **Azure IOT Edge (Windows amd64)** proje. **İleri**’ye tıklayın. 
 
    ![Yeni Azure IOT Edge projesi oluşturma](./media/tutorial-develop-for-windows/new-project.png)
 
-3. Yapılandırma, yeni proje penceresini benzer bir şey açıklayıcı projeyi ve çözümü yeniden adlandır **CTutorialApp**. Tıklayın **Oluştur** projeyi oluşturmak için.
+3. Yapılandırma, yeni proje penceresini benzer bir şey açıklayıcı projeyi ve çözümü yeniden adlandır **CSharpTutorialApp**. Tıklayın **Oluştur** projeyi oluşturmak için.
 
    ![Yeni bir Azure IOT Edge proje yapılandırma](./media/tutorial-develop-for-windows/configure-project.png)
  
@@ -139,20 +132,21 @@ Azure IOT Edge araçları uzantısı proje şablonları için desteklenen tüm I
 
    | Alan | Değer |
    | ----- | ----- |
+   | Bir şablon seçin | Seçin  **C# Modülü**. | 
+   | Modül proje adı | Varsayılan değerleri kabul **IoTEdgeModule1**. | 
+   | Docker görüntü deposu | Görüntü deposu, kapsayıcı kayıt defterinizin adını ve kapsayıcı görüntünüzün adını içerir. Kapsayıcı görüntünüzü modülü proje adı değerini doldurulur. **localhost:5000** yerine Azure kapsayıcı kayıt defterinizden alacağınız oturum açma sunucusu değerini yazın. Oturum açma sunucusunu Azure portalda kapsayıcı kayıt defterinizin Genel bakış sayfasından alabilirsiniz. <br><br> Son görüntü deposuna benzer \<kayıt defteri adı\>.azurecr.io/iotedgemodule1. |
 
-   | Bir şablon seçin | Seçin **C Modülü**. | | Modül proje adı | Varsayılan değerleri kabul **IoTEdgeModule1**. | | Docker görüntü deposuna | Görüntü deposu, kapsayıcı kayıt defterinizin adını ve kapsayıcı görüntünüzü adını içerir. Kapsayıcı görüntünüzü modülü proje adı değerini doldurulur. **localhost:5000** yerine Azure kapsayıcı kayıt defterinizden alacağınız oturum açma sunucusu değerini yazın. Oturum açma sunucusunu Azure portalda kapsayıcı kayıt defterinizin Genel bakış sayfasından alabilirsiniz. <br><br> Son görüntü deposuna benzer \<kayıt defteri adı\>.azurecr.io/iotedgemodule1. |
+   ![Hedef cihaz, modül türü ve kapsayıcı kayıt defteri için projenizi yapılandırın](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
-   ![Hedef cihaz, modül türü ve kapsayıcı kayıt defteri için projenizi yapılandırın](./media/tutorial-develop-for-windows/add-application-and-module.png)
-
-5. Seçin **Tamam** yaptığınız değişiklikleri uygulamak için. 
+5. Seçin **Evet** yaptığınız değişiklikleri uygulamak için. 
 
 Yeni projeniz Visual Studio penceresinde yüklendikten sonra oluşturduğu dosyaları tanımak için bir dakikanızı ayırın: 
 
-* IOT Edge projesinde adlı **AzureIoTEdgeApp1.Windows.Amd64**.
+* IOT Edge projesinde adlı **CSharpTutorialApp**.
     * **Modülleri** klasörü projeye dahil modülleri işaretçileri içerir. Bu durumda, yalnızca IoTEdgeModule1 olması gerekir. 
     * **Deployment.template.json** bir dağıtım bildirimi oluşturmanıza yardımcı olması için bir şablon dosyasıdır. A *dağıtım bildirimi* tam olarak bir cihaza dağıtılan istediğiniz modülleri, nasıl yapılandırılacağı ve birbirleriyle ve bulut ile nasıl kurabilmek tanımlayan bir dosyadır. 
 * Bir IOT Edge modülü proje **IoTEdgeModule1**.
-    * **Main.c** dosya proje şablonu ile birlikte gelen varsayılan C modülü kodunu içerir. Varsayılan modülü bir kaynaktan girdi olarak alır ve boyunca IOT Hub'ına geçirir. 
+    * **Program.cs** dosyasını içeren varsayılan C# modülü kod, proje şablonu ile birlikte gelir. Varsayılan modülü bir kaynaktan girdi olarak alır ve boyunca IOT Hub'ına geçirir. 
     * **Module.json** tam görüntü deposu dahil olmak üzere, modül dosyası tutma ayrıntılarını görüntü sürümü ve her biri için kullanılacak hangi Dockerfile desteklenen platform.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>IOT Edge Aracısı ile kayıt defteri kimlik bilgilerinizi sağlayın
@@ -183,17 +177,19 @@ Oluşturduğunuz çözüm şablonu, bir IOT Edge modülü için örnek kod içer
 
 Her modülü birden çok olabilir *giriş* ve *çıkış* kuyrukları bildirilen kodları. IOT Edge hub'ı kullanarak cihaz üzerinde çalışan bir modülün çıkışına iletilerden modüllerinin bir veya daha fazla giriş yönlendirir. Giriş ve çıkışları bildirmek için belirli bir dil diller arasında farklılık gösterir ancak tüm modüller arasında kavramı aynıdır. Modüller arasında yönlendirme hakkında daha fazla bilgi için bkz. [bildirmek yollar](module-composition.md#declare-routes).
 
-1. İçinde **main.c** dosya, bulma **SetupCallbacksForModule** işlevi.
+Örnek C# proje şablonu ile birlikte gelen kod [ModuleClient sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) .NET için IOT Hub SDK. 
 
-2. Bu işlev, gelen iletileri almak için bir giriş sırasını ayarlar. C SDK'sı modülü istemci işlevi çağırdığı [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback). Bu işlev gözden geçirin ve adlı bir giriş sırası başlatır bkz **input1**. 
+1. İçinde **program.cs** dosya, bulma **SetInputMessageHandlerAsync** yöntemi.
 
-   ![SetInputMessageCallback oluşturucuda giriş adını bulma](./media/tutorial-develop-for-windows/declare-input-queue.png)
+2. [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) yöntemi gelen iletileri almak için bir giriş sırasını ayarlar. Bu yöntem gözden geçirmek ve nasıl adlı bir giriş sırası başlatır bkz **input1**. 
 
-3. Ardından, bulma **InputQueue1Callback** işlevi.
+   ![SetInputMessageHandlserAsync oluşturucuda giriş adını bulma](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
-4. Bu işlev, alınan iletileri işler ve bunları birlikte geçirmek için bir çıkış sırasını ayarlar. C SDK'sı modülü istemci işlevi çağırdığı [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync). Bu işlev gözden geçirin ve adlı bir çıkış kuyruğuna başlatır bkz **output1**. 
+3. Ardından, bulma **SendEventAsync** yöntemi.
 
-   ![Çıkış adı SendEventToOutputAsync oluşturucuda Bul](./media/tutorial-develop-for-windows/declare-output-queue.png)
+4. [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) yöntemi alınan iletileri işler ve bunları birlikte geçirmek için bir çıkış sırasını ayarlar. Bu yöntem gözden geçirin ve adlı bir çıkış kuyruğuna başlatır bkz **output1**. 
+
+   ![Çıkış adı SendEventAsync oluşturucuda Bul](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
 5. Açık **deployment.template.json** dosya.
 
@@ -232,7 +228,7 @@ Kapsayıcı görüntünüzü kayıt defterinde depolanan gönderebilirsiniz, bö
 
 Geliştirme makinenizde kapsayıcı kayıt defterinizde artık erişimi olduğundan ve IOT Edge cihazlarınıza güncelleştirilecektir. Bu, bir kapsayıcı görüntüsüne proje kodunu etkinleştirmek zamanı geldi. 
 
-1. Sağ **AzureIotEdgeApp1.Windows.Amd64** proje klasörü ve select **derleme ve anında iletme IOT Edge modülleri**. 
+1. Sağ **CSharpTutorialApp** proje klasörü ve select **derleme ve anında iletme IOT Edge modülleri**. 
 
    ![Oluşturun ve IOT Edge modülleri gönderin](./media/tutorial-develop-for-windows/build-and-push-modules.png)
 
@@ -253,7 +249,7 @@ Geliştirme makinenizde kapsayıcı kayıt defterinizde artık erişimi olduğun
 
 6. Module.json dosyaya yaptığınız değişiklikleri kaydedin.
 
-7. Sağ **AzureIotEdgeApp1.Windows.Amd64** proje klasörü yeniden ve yeniden seçin **derleme ve anında iletme IOT Edge modülleri**. 
+7. Sağ **CSharpTutorialApp** proje klasörü yeniden ve seçin **derleme ve anında iletme IOT Edge modülleri** yeniden. 
 
 8. Açık **deployment.windows amd64.json** yeniden dosya. Derleme ve gönderme komutu yeniden çalıştırıldığında yeni bir dosya oluşturulmadıysa dikkat edin. Bunun yerine, aynı dosya değişiklikleri yansıtacak şekilde güncelleştirildi. IotEdgeModule1 görüntü artık 0.0.2 için işaret kapsayıcı sürümü. Bu dağıtım bildirimi içinde yeni bir sürümü çekmek için bir modülün IOT Edge cihazı nasıl size değişikliktir. 
 
@@ -283,7 +279,7 @@ Doğrulamanız yapıldı, oluşturulmuş kapsayıcı görüntüleri bir cihaz i�
    ![Tek bir cihaz için dağıtım oluşturma](./media/tutorial-develop-for-windows/create-deployment.png)
 
 
-3. Dosya Gezgini'nde, proje ve seçin config klasörüne gidin **deployment.windows amd64.json** dosya. Bu dosya genellikle bulunur `C:\Users\<username>\source\repos\AzureIotEdgeApp1\AzureIotEdgeApp1.Windows.Amd64\config\deployment.windows-amd64.json`
+3. Dosya Gezgini'nde, proje ve seçin config klasörüne gidin **deployment.windows amd64.json** dosya. Bu dosya genellikle bulunur `C:\Users\<username>\source\repos\CSharpTutorialApp\CSharpTutorialApp\config\deployment.windows-amd64.json`
 
    Tam Modül resim değerleri kaynakta yok deployment.template.json dosyanın kullanmayın. 
 

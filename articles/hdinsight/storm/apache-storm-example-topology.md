@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.openlocfilehash: b2407200b995ad956f233248f6cdd58488b583d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64688801"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Örnek Apache Storm topolojilerini ve HDInsight üzerinde Apache Storm bileşenleri
@@ -24,7 +24,7 @@ Bir liste oluşturulur ve ile kullanmak için Microsoft tarafından yönetilen �
 | [Apache Storm Azure Data Lake depolamaya yazma](apache-storm-write-data-lake-store.md) |Azure Data Lake depolamaya yazma |Java |
 | [Event Hubs Spout ve Bolt kaynağı](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Olay hub'ı Spout ve Bolt kaynağı |Java |
 | [HDInsight üzerinde Apache Storm için Java tabanlı topolojiler geliştirme][5797064f] |Maven |Java |
-| [Visual Studio kullanarak HDInsight üzerinde Apache Storm için C# topolojileri geliştirme][16fce2d1] |Visual Studio için HDInsight Araçları |C#, Java |
+| [Visual Studio kullanarak HDInsight üzerinde Apache Storm için C# topolojileri geliştirme][16fce2d1] |Visual Studio için HDInsight araçları |C#, Java |
 | [HDInsight üzerinde Apache Storm ile Azure Event hubs'tan olay işleme (C#)][844d1d81] |Event Hubs |C# ve Java |
 | [HDInsight üzerinde Storm ile Azure Event Hubs’tan olay işleme (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
 | [HDInsight üzerinde Apache Storm kullanarak Event hubs'tan vehicle sensör verisi işleme][246ee964] |Olay hub'ları, Cosmos DB, Azure depolama blobu (WASB) |C#, Java |

@@ -6,15 +6,15 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 01/17/2019
+ms.date: 06/12/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550046"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055289"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Önerilen canlı akış kodlayıcılar
 
@@ -24,7 +24,7 @@ Azure Media Services, bir [canlı olay](https://docs.microsoft.com/rest/api/medi
 
   > [!NOTE]
   > Doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur.
-
+ 
 * Bir şirket içi Canlı Kodlayıcı tek bit hızında akışa aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirildiği canlı olay gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Canlı olay gelen tek bit hızlı akışın Çoklu bit hızlı (Uyarlamalı) video akışına gerçek zamanlı kodlama gerçekleştirir.
 
 Media Services ile gerçek zamanlı kodlama hakkında ayrıntılı bilgi için bkz. [canlı akış ile Media Services v3](live-streaming-overview.md).
@@ -94,13 +94,13 @@ Bir Azure Media Services şirket içi Kodlayıcı iş ortağı olarak, Media Ser
 7. Oluşturma bir **akış Bulucu** yerleşik ile **akış ilke** türleri.
 8. Yolları listesini **akış Bulucu** kullanılacak URL'leri geri dönebilirsiniz.
 9. Ana bilgisayar adını alın **akış uç noktası** gelen akışla aktarmak istediğiniz.
-10. 8. adımdaki URL'yi, ana bilgisayar adı tam URL'sini almak için 9. adımda birleştirin.
+10. 8\. adımdaki URL'yi, ana bilgisayar adı tam URL'sini almak için 9. adımda birleştirin.
 11. Yaklaşık 10 dakika, gerçek zamanlı Kodlayıcı çalıştırın.
 12. Canlı etkinliği durdurmak. 
 13. Gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) , kayıttan yürütme yok görünür arızalardan tüm kalite düzeylerine sahip olduğundan emin olmak arşivlenmiş varlığı izlemek için. Veya, izleyin ve canlı oturumda Önizleme URL ile doğrulayın.
 14. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve yayımlanan akış URL'si varlık kimliği kaydedin.
 15. Her bir örnek oluşturduktan sonra canlı olay durumunu sıfırlayın.
-16. 5. adım-15 (ile ve ad sinyal, açıklamalı alt yazıları veya farklı bir kodlama hızlarını içermeyen), kodlayıcı tarafından desteklenen tüm yapılandırmalar için yineleyin.
+16. 5\. adım-15 (ile ve ad sinyal, açıklamalı alt yazıları veya farklı bir kodlama hızlarını içermeyen), kodlayıcı tarafından desteklenen tüm yapılandırmalar için yineleyin.
 
 ### <a name="live-encoding-live-event-verification"></a>Canlı kodlama canlı olay doğrulama
 
@@ -113,13 +113,13 @@ Bir Azure Media Services şirket içi Kodlayıcı iş ortağı olarak, Media Ser
 7. Oluşturma bir **akış Bulucu** yerleşik ile **akış ilke** türleri.
 8. Yolları listesini **akış Bulucu** kullanılacak URL'leri geri dönebilirsiniz.
 9. Ana bilgisayar adını alın **akış uç noktası** gelen akışla aktarmak istediğiniz.
-10. 8. adımdaki URL'yi, ana bilgisayar adı tam URL'sini almak için 9. adımda birleştirin.
+10. 8\. adımdaki URL'yi, ana bilgisayar adı tam URL'sini almak için 9. adımda birleştirin.
 11. Yaklaşık 10 dakika, gerçek zamanlı Kodlayıcı çalıştırın.
 12. Canlı etkinliği durdurmak.
 13. Gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) , kayıttan yürütme için tüm kalite düzeylerine görünür hiçbir arızalardan bulunmasını arşivlenmiş varlığı izlemek için. Veya, izleyin ve canlı oturumda Önizleme URL ile doğrulayın.
 14. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve yayımlanan akış URL'si varlık kimliği kaydedin.
 15. Her bir örnek oluşturduktan sonra canlı olay durumunu sıfırlayın.
-16. 5. adım-15 (ile ve ad sinyal, açıklamalı alt yazıları veya farklı bir kodlama hızlarını içermeyen), kodlayıcı tarafından desteklenen tüm yapılandırmalar için yineleyin.
+16. 5\. adım-15 (ile ve ad sinyal, açıklamalı alt yazıları veya farklı bir kodlama hızlarını içermeyen), kodlayıcı tarafından desteklenen tüm yapılandırmalar için yineleyin.
 
 ### <a name="longevity-verification"></a>Dayanıklılık doğrulama
 
@@ -127,7 +127,7 @@ Aynı adımları olarak [doğrudan canlı olay doğrulama](#pass-through-live-ev
 
 ### <a name="email-your-recorded-settings"></a>E-posta, kaydedilmiş ayarları
 
-Son olarak, kaydedilen ayarlarınızı e-posta ve arşiv parametreleri için Azure Media Services canlı amsstreaming@microsoft.com tüm kendi kendine doğrulama denetimleri başarılı bir bildirim olarak. Ayrıca, tüm izlemeler için iletişim bilgilerinizi ekleyin. Bu işlem hakkında herhangi bir sorunuz Azure Media Services ekibiyle iletişime geçebilirsiniz.
+Son olarak, kaydedilen ayarlarınızı e-posta ve arşiv parametreleri için Azure Media Services canlı amslived@microsoft.com tüm kendi kendine doğrulama denetimleri başarılı bir bildirim olarak. Ayrıca, tüm izlemeler için iletişim bilgilerinizi ekleyin. Bu işlem hakkında herhangi bir sorunuz Azure Media Services ekibiyle iletişime geçebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

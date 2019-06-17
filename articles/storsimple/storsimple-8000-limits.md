@@ -16,11 +16,11 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a0053f950b36351b06d08630cbf9977f53f2ed47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60319573"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721701"
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>StorSimple 8000 serisi sistem sınırları nelerdir?
 
@@ -28,7 +28,7 @@ ms.locfileid: "60319573"
 
 StorSimple, veri merkezi için ölçeklenebilir ve esnek depolama sağlar. Ancak, planlama, dağıtma ve StorSimple çözümünüzün çalışması, dikkat etmeniz gereken bazı sınırlamalar vardır. Aşağıdaki tabloda, bu sınırları açıklar ve bazı öneriler sunar, böylece en çok StorSimple çözümünüzün dışında alabilirsiniz.
 
-| Sınır tanımlayıcı | Sınır | Yorumlar |
+| Sınır tanımlayıcı | Sınır | Açıklamalar |
 | --- | --- | --- |
 | Depolama hesabı kimlik bilgileri sayısı |64 | |
 | Birim kapsayıcılarının sayısı |64 | |

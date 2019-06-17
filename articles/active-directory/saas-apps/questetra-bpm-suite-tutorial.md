@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33c2d211fad16a81a307a5c0f2a9d048ef07bf4d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f58d6cbc6ec04e51e105662dff31c60ff502584c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904208"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Öğretici: Questetra BPM Suite ile Azure Active Directory Tümleştirmesi
 
@@ -53,7 +53,7 @@ Azure AD'de Questetra BPM Suite tümleştirmesini yapılandırmak için Questetr
 
 **Galeriden Questetra BPM paketi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -134,7 +134,7 @@ Azure AD çoklu oturum açma Questetra BPM Suite ile yapılandırmak için aşa�
    
     ![Azure AD çoklu oturum açma][10]
 
-3. Açmak için **SingleSignOnSAML** sayfasında **SSO (SAML)**. 
+3. Açmak için **SingleSignOnSAML** sayfasında **SSO (SAML)** . 
    
     ![Azure AD çoklu oturum açma][11]
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 295fc80c0b6d9a4554dc08d24d9167bea627144f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 99b314fe34798099c73de419dc718c548fd5b623
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901748"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090081"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Öğretici: Spacio ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Spacio tümleştirmesini yapılandırmak için Spacio Galeriden yön
 
 **Galeriden Spacio eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi nedir?| Microsoft Docs
 description: Azure Güvenlik Merkezi, önemli işlevleri ve nasıl çalıştığı hakkında bilgi edinin.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 6/06/2019
+ms.author: v-mohabe
+ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910250"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064323"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Güvenlik Merkezi nedir?
 
@@ -125,6 +125,10 @@ Güvenlik Merkezi, deneme yanılma saldırılarına maruz kalma riskinizi sını
 ### <a name="protect-data-services"></a>Veri Hizmetleri koruyun
 
 Güvenlik Merkezi yardımcı olan özellikler içeren Azure SQL'de verileriniz otomatik sınıflandırma gerçekleştirin. Ayrıca, Azure SQL ve depolama hizmetleri ve bunların etkisini öğrenmek için öneriler değerlendirmeleri için olası güvenlik açıklarını elde edebilirsiniz.
+
+### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>IOT ve hibrit bulut iş yüklerini (Önizleme) koruma
+
+IOT (nesnelerin interneti) için Azure Güvenlik Merkezi hibrit iş yükü koruması edge, şirket içinde çalışan iş yükleri arasında birleşik görünürlük ve denetim, Uyarlamalı tehdit önleme ve akıllı tehdit algılama ve yanıt sunarak basitleştirir Azure ve diğer bulutlarda. Daha fazla bilgi için [IOT (Önizleme) için Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Daha hızlı, güvenli alın
 
