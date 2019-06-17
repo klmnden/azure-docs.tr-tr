@@ -111,13 +111,13 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute.Extensions | string |
-| türü | CustomScript | string |
+| type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (örn.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (örn.) | Python MyPythonScript.py \<param1 my > | string |
+| commandToExecute (örn.) | python MyPythonScript.py \<param1 my > | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
-| skipDos2Unix (örn.) | false | boole |
-| zaman damgası (örn.) | 123456789 | 32 bit tamsayı |
+| skipDos2Unix (örn.) | false | boolean |
+| timestamp (örn.) | 123456789 | 32 bit tamsayı |
 | storageAccountName (örn.) | examplestorageacct | string |
 | storageAccountKey (örn.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
