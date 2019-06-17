@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
 ms.openlocfilehash: 69ae1bd05b64912b3d53ca88b468a72a90ff5a74
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718320"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Kullanıcıları Apache Ambari Görünümleri için yetkilendirme
@@ -28,7 +28,7 @@ Zaten yapmadıysanız, izleyin [bu yönergeleri](./domain-joined/apache-domain-j
 
 ## <a name="access-the-ambari-management-page"></a>Ambari Yönetim sayfasına erişin
 
-Ulaşmak için **Ambari Yönetim sayfası** üzerinde [Apache Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md), Gözat **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Küme Yöneticisi kullanıcı adı ve kümeyi oluştururken tanımladığınız parola girin. Ardından, Ambari panodan seçin **yönetme Ambari** altında **yönetici** menüsü:
+Ulaşmak için **Ambari Yönetim sayfası** üzerinde [Apache Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md), Gözat **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Küme Yöneticisi kullanıcı adı ve kümeyi oluştururken tanımladığınız parola girin. Ardından, Ambari panodan seçin **yönetme Ambari** altında **yönetici** menüsü:
 
 ![Ambari ile yönetme](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 

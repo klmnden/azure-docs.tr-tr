@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335491"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Kaynak güncelleştirme etkinliği'ni kullanarak Azure Machine Learning modellerini güncelleştirme
@@ -59,9 +59,9 @@ Aşağıdaki JSON kod parçacığında, bir Azure Machine Learning Batch Executi
 
 | Özellik                      | Açıklama                              | Gerekli |
 | :---------------------------- | :--------------------------------------- | :------- |
-| ad                          | İşlem hattındaki etkinliğin adı     | Evet      |
-| açıklama                   | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
-| type                          | Azure Machine Learning kaynak güncelleştirme etkinliği için etkinlik türdür **AzureMLUpdateResource**. | Evet      |
+| name                          | İşlem hattındaki etkinliğin adı     | Evet      |
+| description                   | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
+| türü                          | Azure Machine Learning kaynak güncelleştirme etkinliği için etkinlik türdür **AzureMLUpdateResource**. | Evet      |
 | linkedServiceName             | Azure Machine Learning bağlı updateResourceEndpoint özelliği içeren hizmeti. | Evet      |
 | trainedModelName              | İçinde Web hizmeti denemesinde güncelleştirilecek olan eğitilen Model modülünün adını | Evet      |
 | trainedModelLinkedServiceName | Güncelleştirme işlemi tarafından karşıya yüklenen olan ilearner dosyasını barındıran Azure depolama bağlı hizmetin adı | Evet      |

@@ -3,20 +3,20 @@ title: Yükleme ve kapsayıcıları - görüntü işleme çalıştırın
 titlesuffix: Azure Cognitive Services
 description: İndirme, yükleme ve bu izlenecek yol öğreticide görüntü işleme için kapsayıcıları çalıştırmak nasıl.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
+ms.date: 06/10/2019
+ms.author: IEvangelist
 ms.custom: seodec18
-ms.openlocfilehash: 10e5060c06e1ebc591c7245ae588b5352a3328ca
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 49e3af546ffcf5be47c73bfe633223a4d968d887
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060918"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Yükleme ve metni tanı kapsayıcıları çalıştırma
 
@@ -63,7 +63,7 @@ Aşağıdaki tabloda, en düşük ve önerilen CPU Çekirdeği ve her bir metin 
 
 Kapsayıcı görüntülerini metin tanımak için kullanılabilir. 
 
-| Kapsayıcı | Depo |
+| Kapsayıcı | Havuz |
 |-----------|------------|
 |Metin tanıma | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
@@ -149,7 +149,7 @@ Kullanabileceğiniz `POST /vision/v2.0/recognizeTextDirect` görüntüdeki bası
 Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](./computer-vision-resource-container-config.md#mount-settings) ve günlüğe kaydetme etkin, kapsayıcı başlatma veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyalarını oluşturur. 
 
 
-## <a name="billing"></a>Faturalama
+## <a name="billing"></a>Faturalandırma
 
 Azure için fatura, kullanarak metni tanı kapsayıcıları Gönder bir _metni tanı_ Azure hesabınız kaynaktaki. 
 

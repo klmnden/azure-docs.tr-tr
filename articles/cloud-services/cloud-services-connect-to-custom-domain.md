@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 8bee2e2038ee39c777e1ca09994ad21872d2029a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337349"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services rolleri bir özel AD etki alanı denetleyicisi Azure'da barındırılan bağlanma
@@ -33,7 +33,7 @@ Bu adım adım kılavuzu izleyin ve herhangi bir sorunla karşılaşırsanız ç
 
 Bulut hizmeti tarafından başvurulan ağ olmalıdır bir **Klasik sanal ağ**.
 
-## <a name="create-a-virtual-network"></a>Sanal Ağ Oluştur
+## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 Azure portal veya PowerShell kullanarak Azure'da bir sanal ağ oluşturabilirsiniz. Bu öğreticide, PowerShell kullanılır. Azure portalını kullanarak bir sanal ağ oluşturmak için bkz [sanal ağ oluşturma](../virtual-network/quick-create-portal.md). Bu makalede, sanal ağ (Resource Manager) oluşturma yer almaktadır, ancak bulut Hizmetleri için sanal ağ (Klasik) oluşturmanız gerekir. Portalda Bunu yapmak için **kaynak Oluştur**, türü *sanal ağ* içinde **arama** kutusuna ve ardından basın **Enter**. Arama sonuçlarında altında **her şeyi**seçin **sanal ağ**. Altında **dağıtım modeli seçin**seçin **Klasik**, ardından **Oluştur**. Ardından, bu makaledeki adımları izleyebilirsiniz.
 
 ```powershell

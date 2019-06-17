@@ -13,24 +13,24 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2907b5be7f8d5fda3d510484179e80b065ab64b0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074886"
 ---
 # <a name="live-event-states-and-billing"></a>Canlı olay durumları ve faturalandırma
 
 Azure Media Services canlı bir olay durumuna geçer hemen sonra Fatura başlar **çalıştıran**. Faturalandırma canlı olay durdurmak için Canlı etkinliği durdurmak zorunda.
 
-Zaman **LiveEventEncodingType** üzerinde [canlı olay](https://docs.microsoft.com/rest/api/media/liveevents) standart, Media Services'ın otomatik kapatıldığında tüm Canlı hala olay devre dışı olarak ayarlanmış **çalıştıran** 12 saat sonra belirtin. Giriş akışı kaybolur ve başka hiçbir **Canlı çıkış**çalıştıran s. Ancak, yine de canlı olay, saat için faturalandırılırsınız **çalıştıran** durumu.
+Zaman **LiveEventEncodingType** üzerinde [canlı olay](https://docs.microsoft.com/rest/api/media/liveevents) standart veya Premium1080p, Media Services'ın otomatik kapatıldığında tüm Canlı hala olay devre dışı olarak ayarlanmış **çalıştıran** durum 12 saat sonra giriş akışı kaybolur ve başka hiçbir **Canlı çıkış**çalıştıran s. Ancak, yine de canlı olay, saat için faturalandırılırsınız **çalıştıran** durumu.
 
 ## <a name="states"></a>Durumlar
 
 Canlı olay şu durumlardan birinde olabilir.
 
-|Durum|Açıklama|
+|Eyalet|Açıklama|
 |---|---|
 |**Durduruldu**| Bu ilk canlı olay oluşturulduktan sonra durumudur (autostart sürece true.) Bu durumda hiçbir faturalandırma gerçekleşir. Bu durumda, canlı olay özellikleri güncelleştirilebilir ama akışa izin verilmiyor.|
 |**Başlatma**| Canlı olay başlatılır ve kaynakları ayrılır. Bu durumda hiçbir faturalandırma gerçekleşir. Güncelleştirmeleri veya akış, bu durum süresince verilmez. Canlı olay, bir hata oluşursa, durduruldu durumuna döndürülür.|

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60724521"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>Backup Exec ile yedekleme hedefi olarak StorSimple
@@ -182,7 +182,7 @@ Bu bölümde, bazı yapılandırma örneği gösterilmektedir. Aşağıdaki örn
 
 ### <a name="set-up-storsimple"></a>StorSimple ' ayarlayın
 
-| StorSimple dağıtım görevleri  | Ek açıklamalar |
+| StorSimple dağıtım görevleri  | Ek Açıklamalar |
 |---|---|
 | Şirket içi StorSimple Cihazınızı dağıtın. | Desteklenen sürümler: Güncelleştirme 3 ve sonraki sürümler. |
 | Yedekleme hedefi üzerinde açın. | Yedekleme hedefi modunu devre dışı bırakmak veya etkinleştirmek ve durumu almak için şu komutları kullanın. Daha fazla bilgi için [bir StorSimple cihazı uzaktan bağlanma](storsimple-remote-connect.md).</br> Yedekleme modunu açmak için: `Set-HCSBackupApplianceMode -enable`. </br> Yedekleme modunu devre dışı bırakmak için: `Set-HCSBackupApplianceMode -disable`. </br> Yedekleme modu ayarları geçerli durumunu almak için: `Get-HCSBackupApplianceMode`. |
@@ -314,7 +314,7 @@ Dört hafta, aylık ve yıllık GFS döndürme tablosunun bir örnek aşağıda 
 |---|---|---|
 | Haftalık (hafta 1-4) | Cumartesi | Pazartesi-Cuma |
 | Aylık  | Cumartesi  |   |
-| Yıllık | Cumartesi  |   |
+| Yıllık yedekleme | Cumartesi  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>StorSimple birim atamak için Backup Exec yedekleme işi
@@ -370,10 +370,10 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalıştı
 
 | Yedekleme türü ve saklama | Yapılandırılmış depolama | Boyut (TiB) | GFS çarpanı | Toplam Kapasite\* (TiB) |
 |---|---|---|---|---|
-| Hafta 1 (tam ve artımlı) |Yerel disk (kısa vadeli)| 1 | 1. | 1 |
+| Hafta 1 (tam ve artımlı) |Yerel disk (kısa vadeli)| 1 | 1\. | 1 |
 | StorSimple hafta 2-4 |StorSimple disk (uzun süreli) | 1 | 4 | 4 |
 | Aylık tam |StorSimple disk (uzun süreli) | 1 | 12 | 12 |
-| Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1. | 1 |
+| Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1\. | 1 |
 |GFS birim boyutu gereksinimini |  |  |  | 18*|
 
 \* Toplam Kapasite 17 TiB StorSimple'nın, diskler ve yerel RAID birimi 1 TiB içerir.
@@ -388,7 +388,7 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalıştı
 | 3 hafta | StorSimple hafta 2-4 |   |   |   |   |   |
 | 4 hafta | StorSimple hafta 2-4 |   |   |   |   |   |
 | Aylık | StorSimple aylık |   |   |   |   |   |
-| Yıllık | Yıllık StorSimple  |   |   |   |   |   |
+| Yıllık yedekleme | Yıllık StorSimple  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>StorSimple birim atamak için bir Backup Exec Arşiv ve iş yinelenenleri kaldırma
@@ -472,7 +472,7 @@ StorSimple cihaz iş herhangi bir blok depolama CİHAZDAN geri yüklemeler gibi 
 
 Olağanüstü bir durum tarafından çeşitli etkenler neden olabilir. Aşağıdaki tabloda olağanüstü durum kurtarma senaryoları listelenmektedir.
 
-| Senaryo | Etki | Kurtarma | Notlar |
+| Senaryo | Etkisi | Kurtarma | Notlar |
 |---|---|---|---|
 | StorSimple cihaz arızası | Yedekleme ve geri yükleme işlemlerini kesintiye uğramaz. | Başarısız aygıt değiştirin ve gerçekleştirme [StorSimple yük devretme ve olağanüstü durum kurtarma](storsimple-device-failover-disaster-recovery.md). | Bir geri yüklemeden sonra cihaz kurtarma gerçekleştirmeniz gerekirse, tam veri çalışma kümeleri için yeni cihaz buluttan alınır. Bulut hızlarda tüm işlemlerdir. Dizin oluşturma ve kataloglama rescanning işlem taranır ve zaman alan bir işlem olabilir yerel cihaz katmanı için bulut katmanı çekilen tüm yedekleme kümelerini neden olabilir. |
 | Yedekleme Exec sunucu hatası | Yedekleme ve geri yükleme işlemlerini kesintiye uğramaz. | Yedekleme sunucusuna yeniden oluşturun ve veritabanı geri yükleme ayrıntılı olarak açıklandığı gibi gerçekleştirin [el ile yedekleme ve geri yükleme, yedekleme Exec (BEDB) veritabanı nasıl](http://www.veritas.com/docs/000041083). | Yeniden oluşturmanız veya olağanüstü durum kurtarma siteniz Backup Exec sunucuda geri gerekir. Veritabanını geri yüklemek için en son noktası. Geri yüklenen veritabanı yedekleme Exec en son yedekleme işleriniz ile eşitlenmiş durumda değilse, dizin oluşturma ve Katalog gereklidir. Bu dizin ve işlemi yeniden tarama işlemi katalog taranır ve yerel cihaz katmana bulut katmandan oluşan bir derleme tüm yedekleme kümelerini neden olabilir. Bu, daha fazla zaman yoğun kolaylaştırır. |

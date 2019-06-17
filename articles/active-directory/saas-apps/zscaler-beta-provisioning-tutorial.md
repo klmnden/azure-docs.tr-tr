@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: 54cf2924a94dda1d29baf048c866f019b82e1402
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256847"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67049930"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Öğretici: Zscaler Beta için otomatik kullanıcı hazırlama yapılandırın
 
@@ -49,7 +49,7 @@ Zscaler Beta için otomatik kullanıcı hazırlama Azure AD'ye yapılandırmadan
 
 **Azure AD uygulama galerisinden Zscaler Beta eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -116,7 +116,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
     Seçin **Enable SCIM-Based sağlama** alınacak **temel URL** ve **taşıyıcı belirteci**, ayarları kaydedin. Kopyalama **temel URL** için **Kiracı URL'si**, ve **taşıyıcı belirteci** için **gizli belirteç** Azure portalında.
 
-7. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD Zscaler Beta bağlanabilirsiniz. Bağlantı başarısız olursa Zscaler Beta hesabınıza yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
+7. 5\. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD Zscaler Beta bağlanabilirsiniz. Bağlantı başarısız olursa Zscaler Beta hesabınıza yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
     ![Zscaler sağlama Beta](./media/zscaler-beta-provisioning-tutorial/test-connection.png)
 

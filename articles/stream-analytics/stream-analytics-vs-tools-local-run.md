@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: 1b86085a76f5ff87147db9dbd0a584784f5e4a2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64686501"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Stream Analytics sorguları Visual Studio ile yerel olarak test etme
 
@@ -28,15 +28,15 @@ Azure Stream Analytics projenizde, çift **Script.asaql** betik Düzenleyicisi'n
 
 ![Sorgu Düzenleyicisi](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-query-01.png)
  
-### <a name="add-local-input"></a>Yerel giriş ekle
+### <a name="add-local-input"></a>Yerel giriş Ekle
 
 Sorgunuz yerel statik veri karşı doğrulamak için seçin ve giriş sağ **yerel giriş Ekle**.
    
-![Yerel giriş ekle](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
+![Yerel giriş Ekle](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
 Açılır pencerede, örnek verileri, yerel yolu seçin ve **Kaydet**.
    
-![Yerel giriş ekle](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-02.png)
+![Yerel giriş Ekle](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-02.png)
    
 Adlı bir dosya **local_EntryStream.json** girişleri klasörünüze otomatik olarak eklenir.
    
@@ -44,7 +44,7 @@ Adlı bir dosya **local_EntryStream.json** girişleri klasörünüze otomatik ol
    
 Seçin **yerel olarak çalıştırma** sorgu Düzenleyicisi'nde. Veya F5 tuşuna basabilirsiniz.
    
-![Yerel Olarak Çalıştır](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
+![Yerel olarak çalıştırma](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
    
 Doğrudan Visual Studio'dan bir tablo biçiminde çıktı görüntülenebilir.
 

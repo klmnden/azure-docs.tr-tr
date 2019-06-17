@@ -9,11 +9,11 @@ ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
 ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541152"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67122227"
 ---
 * Azure SQL veritabanı kullanıyorsanız, altındaki adımları [Azure SQL veritabanına bağlanma](#connect-azure-sql-db). 
 
@@ -48,8 +48,8 @@ ms.locfileid: "60541152"
    | Özellik | Değer | Ayrıntılar | 
    |----------|-------|---------| 
    | Bağlantı Adı | <*sql bağlantısı My*> | Bağlantınız için bir ad | 
-   | SQL Sunucusu Adı | <*my-sql-server*> | SQL sunucunuzun adı |
-   | SQL Veritabanı Adı | <*sql veritabanı benim*>  | SQL veritabanınız için adı | 
+   | SQL Server Adı | <*my-sql-server*> | SQL sunucunuzun adı |
+   | SQL veritabanı adı | <*sql veritabanı benim*>  | SQL veritabanınız için adı | 
    | Kullanıcı adı | <*My-sql-username*> | Veritabanınıza erişmek için kullanıcı adı |
    | Parola | <*my-sql-password*> | Veritabanınıza erişmek için parola | 
    |||| 
@@ -100,11 +100,11 @@ Ağ geçidiniz seçmeden önce emin olun, zaten [veri ağ geçidinizi ayarlamak]
    |----------|-------|---------| 
    | Şirket içi ağ geçidi üzerinden Bağlan | Bu seçenek, önce SQL Server ayarlarını seçin. | | 
    | Bağlantı Adı | <*sql bağlantısı My*> | Bağlantınız için bir ad | 
-   | SQL Sunucusu Adı | <*my-sql-server*> | SQL sunucunuzun adı |
-   | SQL Veritabanı Adı | <*sql veritabanı benim*>  | SQL veritabanınız için adı |
+   | SQL Server Adı | <*my-sql-server*> | SQL sunucunuzun adı |
+   | SQL veritabanı adı | <*sql veritabanı benim*>  | SQL veritabanınız için adı |
    | Kullanıcı adı | <*My-sql-username*> | Veritabanınıza erişmek için kullanıcı adı |
    | Parola | <*my-sql-password*> | Veritabanınıza erişmek için parola | 
-   | Kimlik Doğrulama Türü | Windows veya temel | İsteğe bağlı: SQL server tarafından kullanılan kimlik doğrulama türü | 
+   | Kimlik doğrulaması türü | Windows veya temel | İsteğe bağlı: SQL server tarafından kullanılan kimlik doğrulama türü | 
    | Ağ geçitleri | <*data gateway My*> | Şirket içi veri ağ geçidi adı | 
    |||| 
 

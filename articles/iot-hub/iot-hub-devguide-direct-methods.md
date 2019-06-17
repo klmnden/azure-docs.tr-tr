@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
 ms.openlocfilehash: d7c63ffe5a318507053f59bf3a18242ee8c327a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61327763"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT Hub'ından doğrudan metotları çağırma
@@ -129,7 +129,7 @@ Aşağıdaki bölümde için MQTT protokolüdür.
 
 #### <a name="method-invocation"></a>Yöntem çağırma
 
-Cihaz, MQTT konusunda doğrudan yöntem isteklerini alır: `$iothub/methods/POST/{method name}/?$rid={request id}`. 5. abonelik başına cihaz sayısı sınırlıdır. Bu nedenle, doğrudan her yöntem için tek tek abone değil önerilir. Bunun yerine abone düşünün `$iothub/methods/POST/#` ve ardından teslim edilen iletiler, istenen yöntem adlarına göre filtreleyin.
+Cihaz, MQTT konusunda doğrudan yöntem isteklerini alır: `$iothub/methods/POST/{method name}/?$rid={request id}`. 5\. abonelik başına cihaz sayısı sınırlıdır. Bu nedenle, doğrudan her yöntem için tek tek abone değil önerilir. Bunun yerine abone düşünün `$iothub/methods/POST/#` ve ardından teslim edilen iletiler, istenen yöntem adlarına göre filtreleyin.
 
 Cihaz aldıktan gövdesi aşağıdaki biçimdedir:
 

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234054"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Yeniden eğitme ve klasik Studio web hizmeti dağıtma
@@ -53,7 +53,7 @@ Bu konuda sağlanan örnek kodu kullanarak Puanlama uç noktalar ekleyebilirsini
 
 ### <a name="retrieve-patch-url"></a>Düzeltme eki URL'sini alın
 
-### <a name="option-1-programmatically"></a>1. seçenek: Programlı olarak
+### <a name="option-1-programmatically"></a>1\. seçenek: Programlı olarak
 
 Düzeltme eki URL'sini doğru programlı olarak almak için şu adımları izleyin:
 
@@ -64,7 +64,7 @@ Düzeltme eki URL'sini doğru programlı olarak almak için şu adımları izley
 1. URL, Yardım bağlantıları için web hizmeti sağlayan bir sayfaya gitmek için bir tarayıcıya yapıştırın.
 1. Tıklayın **kaynak güncelleştirme** düzeltme eki Yardım sayfasını açmak için bağlantı.
 
-### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>2. seçenek: Azure Machine Learning Web Hizmetleri portalını kullanma
+### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>2\. seçenek: Azure Machine Learning Web Hizmetleri portalını kullanma
 
 Doğru düzeltme eki using the web portal URL almak için aşağıdaki adımları izleyin:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 066847ff8428a5080e655712c1a6bbe504c5cdbc
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bf4f1a08c4356a68db5315b7563adb3b6c884d41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904636"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Öğretici: Optimizely ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Optimizely tümleştirmesini yapılandırmak için Optimizely Galeri
 
 **Galeriden Optimizely eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

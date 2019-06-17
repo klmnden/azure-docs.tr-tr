@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 851b28d10bdf0b2df67e1c0782a683e790b711bc
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 29addcd62afd193af83196b2d942e9778ff3f031
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898008"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Öğretici: Jitbit Yardım Masası ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Jitbit Yardım Masası tümleştirmesini yapılandırmak için Jitbi
 
 **Galeriden Jitbit Yardım Masası eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -232,7 +232,7 @@ Yardım masasına Jitbit oturum açmak Azure AD kullanıcılarının etkinleşti
 
    a. İçinde **kullanıcıadı** metin kutusu, kullanıcının kullanıcı adı türü ister **BrittaSimon**.
 
-   b. İçinde **e-posta** metin kutusu, kullanıcının e-posta ister **BrittaSimon@contoso.com**.
+   b. İçinde **e-posta** metin kutusu, kullanıcının e-posta ister **BrittaSimon@contoso.com** .
 
    c. İçinde **ad** metin adı gibi kullanıcı türü **Britta**.
 

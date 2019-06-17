@@ -12,23 +12,24 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2019
+ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: 520961fb4bd126ef878a779c10fb5689b8692c73
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f1e7428bc0665cdd3f981bb9c2e7b1f564598f40
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683739"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074248"
 ---
-# <a name="eventstore-service-overview"></a>Eventstore'a hizmetine genel bakış
+# <a name="eventstore-overview"></a>Eventstore'a genel bakış
 
 >[!NOTE]
 >Service Fabric sürümü 6.4 itibaren. EventStore API'leri yalnızca yalnızca Azure üzerinde çalışan Windows kümeleri için kullanılabilir. Bu işlev, tek başına kümeler yanı sıra Linux taşıma üzerinde çalışıyoruz.
 
 ## <a name="overview"></a>Genel Bakış
 
-6.2 sürümünde sunulan Eventstore'a Service fabric'te izleme bir seçenek hizmetidir. Eventstore'a zaman küme veya iş yüklerini belirli bir noktada durumunu anlamak için bir yol sağlar. Eventstore'a kümeden olayları tutar durum bilgisi olan bir Service Fabric hizmeti ' dir. Olayı Service Fabric Explorer, REST ve API'ler aracılığıyla sunulur. Eventstore'a doğrudan herhangi bir varlık, kümenizdeki ilgili tanılama verilerini almak için küme sorgular ve yardımcı olmak için kullanılmalıdır:
+6\.2 sürümünde sunulan Eventstore'a Service fabric'te izleme bir seçenek hizmetidir. Eventstore'a zaman küme veya iş yüklerini belirli bir noktada durumunu anlamak için bir yol sağlar.
+Eventstore'a kümeden olayları tutar durum bilgisi olan bir Service Fabric hizmeti ' dir. Olayı Service Fabric Explorer, REST ve API'ler aracılığıyla sunulur. Eventstore'a doğrudan herhangi bir varlık, kümenizdeki ilgili tanılama verilerini almak için küme sorgular ve yardımcı olmak için kullanılmalıdır:
 
 * Geliştirme veya test sorunları tanılayın ve burada izleme bir işlem hattı kullanıyor olabilir
 * Yönetim eylemleri kümenizde sürüp işlenen doğru onaylayın
@@ -39,7 +40,7 @@ ms.locfileid: "64683739"
 Eventstore'a içinde kullanılabilir olayların tam listesi için bkz [Service Fabric olayları](service-fabric-diagnostics-event-generation-operational.md).
 
 >[!NOTE]
->Service Fabric 6.2 sürümü itibarıyla. EventStore API'leri şu anda yalnızca Azure üzerinde çalışan Windows kümeleri için Önizleme. Bu işlev, tek başına kümeler yanı sıra Linux taşıma üzerinde çalışıyoruz.
+>Service Fabric sürümü 6.4 itibaren. UX ve EventStore API'leri Azure Windows kümeleri için genel kullanıma sunulmuştur. Bu işlev, tek başına kümeler yanı sıra Linux taşıma üzerinde çalışıyoruz.
 
 Eventstore'a hizmet, her varlık ve kümenizde varlık türü için kullanılabilir olan olaylar için sorgulanabilir. Başka bir deyişle, olayları aşağıdaki düzeylerde sorgulayabilirsiniz:
 * Küme: kümenin kendisine (örneğin, Küme yükseltme) belirli olayları
@@ -70,9 +71,21 @@ Eventstore'a hizmeti, ayrıca, kümenizdeki olayları ilişkilendirmenize özell
     ],
 ```
 
-### <a name="azure-cluster"></a>Azure kümesine
+### <a name="azure-cluster-version-65"></a>Azure kümesine sürüm 6.5 +
+Azure kümenize 6.5 veya üzeri sürüme yükseltilmesi, Eventstore'a kümenizde otomatik olarak etkinleştirilecektir. Geri çevirmek için küme şablonunuza aşağıdakiyle güncelleştirin gerekir:
 
-Kümenizin Azure Resource Manager şablonunda gerçekleştirerek Eventstore'a hizmette kapatabilirsiniz bir [küme yapılandırma yükseltmesi](service-fabric-cluster-config-upgrade-azure.md) ve aşağıdaki kodu ekleyerek, Eventstore'a çoğaltmalarının koymak PlacementConstraints kullanabilirsiniz belirli bir NodeType örn sistem hizmetler için ayrılmış bir NodeType hizmeti. `upgradeDescription` Bölümü yeniden başlatma düğümlerinde tetiklemek için yapılandırma yükseltme yapılandırır. Başka bir güncelleştirmede bölüm kaldırabilirsiniz.
+* Bir API sürümünü kullanın `2019-03-01` ya da daha yeni 
+* Kümenizi, özellikleri bölümünde aşağıdaki kodu ekleyin
+  ```json  
+    "fabricSettings": [
+      …
+    ],
+    "eventStoreEnabled": false
+  ```
+
+### <a name="azure-cluster-version-64"></a>Azure kümesine sürüm 6.4
+
+6\.4 sürümü kullanıyorsanız, Azure Resource Manager şablonunuzu Eventstore'a Hizmeti'ni başlatmak için düzenleyebilirsiniz. Gerçekleştirerek bu yapılır bir [küme yapılandırma yükseltmesi](service-fabric-cluster-config-upgrade-azure.md) ve aşağıdaki kodu ekleyerek, çoğaltmaları Eventstore'a hizmetinin belirli bir NodeType örn sistem hizmetler için ayrılmış bir NodeType yerleştirmek için PlacementConstraints kullanabilirsiniz . `upgradeDescription` Bölümü yeniden başlatma düğümlerinde tetiklemek için yapılandırma yükseltme yapılandırır. Başka bir güncelleştirmede bölüm kaldırabilirsiniz.
 
 ```json
     "fabricSettings": [

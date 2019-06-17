@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 790d095cfb1b59aed1b9014fc474f9ad6e1b3328
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 19fd73dff045d6d784dd70d1f3ad539a22faf413
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131302"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075476"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Özel bir etki alanını işlev uygulaması ile eşleme
 
-Bu örnek betik App Service planında bir işlev uygulaması oluşturur ve ardından bunu sizin sağladığınız özel etki alanına eşler. İşlev uygulamanızı barındırılan bir [Premium planı](../functions-scale.md#premium-plan-public-preview) veya [App Service planı](../functions-scale.md#app-service-plan), bir CNAME ya da bir A kaydı kullanarak özel bir etki alanını eşleyebilirsiniz. [Tüketim planındaki](../functions-scale.md#consumption-plan) işlev uygulamalarında yalnızca CNAME seçeneği desteklenir. Bu örnekte, App Service planı oluşturulur ve etki alanını eşlemek için A kaydı gerekir. 
+Bu örnek betik App Service planında bir işlev uygulaması oluşturur ve ardından bunu sizin sağladığınız özel etki alanına eşler. İşlev uygulamanızı barındırılan bir [Premium planı](../functions-scale.md#premium-plan) veya [App Service planı](../functions-scale.md#app-service-plan), bir CNAME ya da bir A kaydı kullanarak özel bir etki alanını eşleyebilirsiniz. [Tüketim planındaki](../functions-scale.md#consumption-plan) işlev uygulamalarında yalnızca CNAME seçeneği desteklenir. Bu örnekte, App Service planı oluşturulur ve etki alanını eşlemek için A kaydı gerekir. 
 
 Bu örnek betiği çalıştırmak için, özel etki alanınızda web uygulamanızın varsayılan etki alanı adına işaret eden bir A kaydını zaten yapılandırmış olmalısınız. Daha fazla bilgi için bkz. [Azure App Service için özel etki alanını eşleme yönergeleri](https://aka.ms/appservicecustomdns). 
 

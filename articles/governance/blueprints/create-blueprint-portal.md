@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: acee2aabe94f5d015562bd697d08f657895d3b02
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 97d0615fcc4f86c295441ec6a0eb8b86ba6b11b5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789463"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059704"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Hızlı Başlangıç: Tanımlama ve Portalı'nda bir şema Ata
 
@@ -29,7 +29,7 @@ Planlar oluşturup öğrenin, Azure Resource Manager şablonları, ilke, güvenl
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturun.
 
-## <a name="create-a-blueprint"></a>Şema oluşturun
+## <a name="create-a-blueprint"></a>Şema oluşturma
 
 Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumdaki kaynaklardan bir şema oluşturmaktır. Bu örnekte, adlı yeni bir şema oluşturmak **MyBlueprint** abonelik için rol ve ilke atamaları yapılandırmak için. Ardından yeni bir kaynak grubu ekleyin ve yeni bir kaynak grubu üzerinde bir Resource Manager şablonu ve rol ataması oluşturun.
 
@@ -70,11 +70,11 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
    1. Değişiklik **türü** için **yerleşik**. İçinde **arama**, girin **etiketi**.
 
-   1. Filtrelemenin yapılması için **Ara**’ya tıklayın. Seçin **kaynak gruplarına etiketi ve varsayılan değerini Uygula**.
+   1. Filtrelemenin yapılması için **Ara**’ya tıklayın. Seçin **etiketi ve varsayılan değerini kaynak gruplarına ekleme**.
 
    1. Seçin **Ekle** blueprint'e yapıt bu eklemek için.
 
-1. İlke ataması satırı seçin **kaynak gruplarına etiketi ve varsayılan değerini Uygula**.
+1. İlke ataması satırı seçin **etiketi ve varsayılan değerini kaynak gruplarına ekleme**.
 
 1. Blueprint tanımının bir parçası yapı parametreleri sağlamak için bir pencere açılır ve parametreler için tüm atamaları (statik Parametreler) yerine bu şema ataması sırasında (dinamik parametreleri) göre ayarı sağlar. Bu örnek, blueprint ataması sırasında dinamik parametreler kullanır, böylece seçin ve varsayılan değerleri bırakın **iptal**.
 

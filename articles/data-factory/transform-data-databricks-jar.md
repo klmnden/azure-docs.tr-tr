@@ -13,10 +13,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860998"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Azure Databricks'te bir Jar etkinliği çalıştırarak verileri dönüştürme
@@ -58,9 +58,9 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 
 |Özellik|Açıklama|Gerekli|
 |:--|---|:-:|
-|ad|İşlem hattındaki bir etkinliğin adı.|Evet|
-|açıklama|Etkinliğin ne yaptığını açıklayan metin.|Hayır|
-|type|Databricks Jar etkinliği için etkinlik DatabricksSparkJar türüdür.|Evet|
+|name|İşlem hattındaki bir etkinliğin adı.|Evet|
+|description|Etkinliğin ne yaptığını açıklayan metin.|Hayır|
+|türü|Databricks Jar etkinliği için etkinlik DatabricksSparkJar türüdür.|Evet|
 |linkedServiceName|Databricks bağlı Jar etkinliğin çalıştığı hizmetin adı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.|Evet|
 |mainClassName|Yürütülecek main metodunu içeren sınıfın tam adı. Bu sınıf kitaplığı olarak sağlanan bir JAR bulunması gerekir.|Evet|
 |parametreler|Main yöntemi için geçirilecek parametreler.  Bu dizeler dizisidir.|Hayır|

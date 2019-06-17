@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e9ca9fa26e9744eb0a9bfafe692a096825b0b5
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 05d21910d1b3601346fbd038cbc25f8f2be61f99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110695"
 ---
 # <a name="building-secure-workstations"></a>Yapı güvenli iş istasyonları
 
 Güvenli yalıtılmış iş istasyonları, güvenlik yöneticileri, geliştiriciler ve kritik Hizmetleri işleçler gibi hassas rollerinin öneme sahiptir. Diğer birçok güvenlik denetimleri ve Güvenceleri başarısız veya temel alınan istemci iş istasyonu güvenliği ihlal edilmesi durumunda herhangi bir etkisi yoktur.
 
 Bu belgede, güvenlik denetimleri başlatılıyor ayarlama dahil ayrıntılı adım adım yönergeler içeren bir güvenli istemci iş istasyonu oluşturmak için neler açıklanmaktadır. Bu tür bir iş istasyonları bazen bu başvuruda kullanılan ve üzerine bir ayrıcalıklı erişim iş istasyonu (PAW) adı verilir. Kılavuz ancak teknoloji için bulut tabanlı hizmetini yönetmek için arar ve Windows 10RS5, Microsoft Defender ATP, Azure Active Directory ve Intune başlangıç sunulan güvenlik özellikleri sunar.
+
+> [!NOTE]
+> Bu makalede, güvenli bir iş istasyonu ve önem derecesini kavramını açıklar. Kavramına bilginiz ve dağıtımına atlamak istiyorsanız, lütfen okuma [güvenli bir iş istasyonu dağıtmayı](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
 
 ## <a name="why-securing-workstation-access-is-important"></a>İş istasyonu erişiminin güvenliğini sağlama neden önemli olduğunu
 

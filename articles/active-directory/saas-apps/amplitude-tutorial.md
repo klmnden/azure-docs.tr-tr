@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af8bba46bba103eae49ea26ffc0c653c2ccc8309
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5eba2aad0c758aeff189ba8638d92c46ed0902c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>Öğretici: Genliğe ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Genliğe tümleştirmesini yapılandırmak için Genliğe Galeriden 
 
 **Galeriden Genliğe eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -153,7 +153,7 @@ Azure AD çoklu oturum açma ile Genliğe yapılandırmak için aşağıdaki ad�
 
     b. Kopyalama **yanıt URL'si (ACS)** yapıştırın ve değer **yanıt URL'si** textbox'ın **temel SAML yapılandırma** Azure portalında.
 
-    c. **Kaydet**’e tıklayın
+    c. **Kaydet**'e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

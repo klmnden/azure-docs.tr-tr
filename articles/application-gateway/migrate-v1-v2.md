@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/5/2019
+ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 44d5ce3e194c873a564039934f518cb3a0e142e3
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: 2387f2546afa9d5af2cb909a1e6a2179548e3b5a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053337"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Azure uygulama ağ geçidi geçişi ve Web uygulaması Güvenlik Duvarı'nı v1'den v2
 
@@ -96,7 +96,7 @@ Betiği çalıştırmak için:
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [String]:  Gerekli** -yeni v2 ağ geçidi içeren yeni bir alt ağ için ayırmış olmanız (veya atamak istediğiniz) IP adresi alanını budur. Bu CIDR gösteriminde belirtilmelidir. Örneğin: 10.0.0.0/24. Bu alt ağı önceden oluşturmanız gerekmez. Mevcut değilse komut sizin için oluşturur.
+   * **subnetAddressRange: [String]:  Gerekli** -yeni v2 ağ geçidi içeren yeni bir alt ağ için ayırdığınızdan (veya atamak istediğiniz) IP adresi alanını budur. Bu CIDR gösteriminde belirtilmelidir. Örneğin: 10.0.0.0/24. Bu alt ağ önceden oluşturmanız gerekmez. Mevcut değilse komut sizin için oluşturur.
    * **appgwName: [String]: İsteğe bağlı**. Bu, yeni Standard_v2 veya WAF_v2 ağ geçidi adı olarak kullanmak için belirtin bir dizedir. Bu parametre belirtilirse, bu değilse mevcut v1 ağ geçidi adı soneki ile kullanılacak *_v2* eklenir.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: İsteğe bağlı**.  SSL sertifikaları v1 geçidinizden göstermek için oluşturabilir PSApplicationGatewaySslCertificate nesnelerin virgülle ayrılmış bir listesini yeni v2 ağ geçidine karşıya yüklenmelidir. Her standart v1 veya WAF v1 ağ geçidi için yapılandırılmış, SSL sertifikaları için yeni bir PSApplicationGatewaySslCertificate nesnesi aracılığıyla oluşturabilirsiniz `New-AzApplicationGatewaySslCertificate` burada gösterilen komutu. Yol, SSL sertifikası dosyanızı ve parola gerekir.
 
@@ -117,11 +117,11 @@ Betiği çalıştırmak için:
 
       PSApplicationGatewayTrustedRootCertificate nesnelerin bir listesini oluşturmak için bkz [yeni AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **Privateıpaddress: [String]: İsteğe bağlı**. Yeni v2 geçidinize ilişkilendirmek istediğiniz belirli bir özel IP adresi.  Bu, yeni v2 ağ geçidiniz için ayırdığınız aynı sanal ağda olması gerekir. Belirtilmezse, betik, v2 ağ geçidiniz için özel bir IP adresi ayırır.
-    * **publicIpResourceId: [String]: İsteğe bağlı**. ResourceId, aboneliğinizdeki yeni v2 ağ geçidine ayrılacak istediğiniz genel bir IP adresi kaynağı. Bu seçenek belirtilmezse, betik aynı kaynak grubunda yeni bir genel IP ayırır. V2 ağ geçidinin adı ile adıdır *- IP* eklenir.
+    * **publicIpResourceId: [String]: İsteğe bağlı**. Genel IP adresi (standart SKU) kaynak aboneliğinizdeki yeni v2 ağ geçidine ayrılacak istediğiniz ResourceId. Belirtilmezse, betik ile aynı kaynak grubunda yeni bir genel IP ayırır. V2 ağ geçidinin adı ile adıdır *- IP* eklenir.
    * **validateMigration: [geçiş]: İsteğe bağlı**. V2 ağ geçidi oluşturma ve yapılandırma kopya sonra karşılaştırma doğrulamaları bazı temel yapılandırmasını yapmak için betik istiyorsanız bu parametreyi kullanın. Varsayılan olarak, doğrulama gerçekleştirilir.
    * **enableAutoScale: [geçiş]: İsteğe bağlı**. Komut dosyası oluşturulduktan sonra yeni v2 ağ geçidi üzerinde otomatik ölçeklendirmeyi etkinleştirmek istiyorsanız bu parametreyi kullanın. Varsayılan olarak, otomatik ölçeklendirmeyi devre dışıdır. Yeni oluşturulan v2 ağ geçidini daha sonra her zaman el ile etkinleştirebilirsiniz.
 
-1. Uygun parametreleri kullanarak betiği çalıştırın.
+1. Uygun parametreleri kullanarak betiği çalıştırın. Bu beş ila yedi tamamlanması dakika sürebilir.
 
     **Örnek**
 
@@ -176,7 +176,11 @@ Hayır. Azure PowerShell Betiği, yalnızca yapılandırma geçirir. Gerçek tra
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Azure PowerShell betiği tarafından oluşturulan yeni v2 ağ geçidine tüm my v1 ağ geçidi tarafından şu anda sunulan trafiğini işlemek için uygun şekilde boyutlandırıldığından?
 
-Azure PowerShell Betiği, mevcut V1 geçidinizde trafiğini işlemek için uygun bir boyut ile yeni bir v2 ağ geçidi oluşturur. Otomatik ölçeklendirme varsayılan olarak devre dışıdır, ancak komut dosyasını çalıştırırken otomatik ölçeklendirmeyi etkinleştirebilirsiniz.
+Azure PowerShell Betiği, mevcut v1 geçidinizde trafiğini işlemek için uygun bir boyut ile yeni bir v2 ağ geçidi oluşturur. Otomatik ölçeklendirme varsayılan olarak devre dışıdır, ancak komut dosyasını çalıştırırken otomatik ölçeklendirmeyi etkinleştirebilirsiniz.
+
+### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>Günlükleri göndermek için Azure depolama için v1 ağ yapılandırdım. Betik de v2 için bu yapılandırmayı çoğaltmak mu?
+
+Hayır. Bu yapılandırma v2 için komut dosyasını kopyalamaz. Günlük yapılandırmasını ayrı olarak geçirilen v2 ağ geçidine eklemeniz gerekir.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Bu betik kullanarak bazı sorunlarla karşılaşıldı. Nasıl Yardım alabilirim?
   

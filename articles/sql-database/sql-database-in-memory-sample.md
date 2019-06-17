@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035771"
 ---
 # <a name="in-memory-sample"></a>Bellek içi örnek
@@ -303,7 +303,7 @@ Bir OLTP iş yükü, gerçek zamanlı analizler için kümelenmemiş bir columns
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>Anahtar sorguları, columnstore dizinini karşılaştırmak için
 
 
-Vardır [çalıştırabileceğiniz T-SQL sorgusu türlerinden](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) performans iyileştirmeleri öğrenin. 2. adımda T-SQL betiğindeki sorgular bu değer çiftini dikkat edin. Bunlar, yalnızca tek bir satırda farklılık gösterir:
+Vardır [çalıştırabileceğiniz T-SQL sorgusu türlerinden](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) performans iyileştirmeleri öğrenin. 2\. adımda T-SQL betiğindeki sorgular bu değer çiftini dikkat edin. Bunlar, yalnızca tek bir satırda farklılık gösterir:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`

@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: b494f6524e5105a95bc8a24a6fa2521abcca3f7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729404"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>AS2 iletilerini paylaşma için Enterprise Integration Pack ile Azure Logic apps'teki B2B Kurumsal tümleştirme
@@ -87,7 +87,7 @@ Bu makalede, AS2 kodlama ekleme ve var olan bir mantıksal uygulama kod çözme 
    |----------|-------------|
    | **AS2-gelen** | AS2 sözleşmenize tarafından belirtilen ileti gönderen tanımlayıcısı |
    | **AS2-için** | AS2 sözleşmenize tarafından belirtilen ileti alıcı tanımlayıcısı |
-   | **Gövde** | İleti yükü |
+   | **body** | İleti yükü |
    |||
 
    Örneğin:

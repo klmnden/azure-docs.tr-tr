@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.openlocfilehash: 51d572ac324d0bc875e7ed81879f2456eeea4fbb
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506609"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler'de SQL Server için Uygulama Desenleri ve Geliştirme Stratejileri
@@ -36,7 +36,7 @@ Her uygulama düzeni için bir şirket içi senaryo, ilgili bulut etkin çözüm
 
 **Teknik İnceleme:** Corey Sanders, Drew McDaniel, Narayan Annamalai, Ben Nir Mashkowski, Sanjay Mishra, Silvano Coriani, Stefan Schackow Tim Hickey, Tim Wieman Xin Jin
 
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 Farklı uygulama katmanları ayrı bileşenler olduğu gibi farklı makinelerde de bileşenlerinin ayrılarak türlerde n katmanlı uygulamalar geliştirebilirsiniz. Örneğin, istemci uygulaması yerleştirebilirsiniz ve bileşenleri bir makineye, ön uç web katmanı ve veri erişim katmanı bileşenleri başka bir makinede bulunan ve başka bir makinede bir arka uç veritabanı katmanı iş kuralları. Bu tür yapılandırma her bir katman birbirinden yalıtmaya yardımcı olur. Verilerin nereden geldiğini değiştirirseniz, istemci veya web uygulamasına ancak yalnızca veri erişim katmanı bileşenlerini değiştirmek gerekmez.
 
 Tipik bir *n katmanlı* sunu katmanı, iş katmanı ve veri katmanı uygulaması içerir:

@@ -1,8 +1,8 @@
 ---
-title: Azure Active Directory'de koşullu erişim için en iyi yöntemler | Microsoft Docs
-description: Bunun yapılması, koşullu erişim ilkeleri yapılandırırken kaçınmalısınız nedir ve bilmeniz gerekenler hakkında bilgi edinin.
+title: Azure Active Directory'de koşullu erişim için en iyi uygulamalar | Microsoft Docs
+description: Bilmeniz gerekenler hakkında bilgi edinin ve bunun ne olduğunu koşullu erişim ilkeleri yapılandırırken yapılması kaçınmalısınız.
 services: active-directory
-keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
+keywords: Koşullu erişim uygulamalara, Azure AD koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim ile koşullu erişim
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67811e03bfa87a991b9eeb6f80ddddd87f781335
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 8e7b77376989031dc1697d155cccf59954233a85
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305746"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112649"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim için en iyi uygulamalar
 
@@ -49,7 +49,7 @@ Yeni bir ilke oluşturduğunuzda, hiçbir kullanıcıları, grupları, uygulamal
 | Nesne           | Nasıl                                  | Neden |
 | :--            | :--                                  | :-- |
 | **Bulut uygulamaları** |Bir veya daha fazla uygulama seçin.  | Nasıl yetkili kullanıcıların denetim sağlamak için koşullu erişim ilkesi amacı olan bulut uygulamalarına erişebilirsiniz.|
-| **Kullanıcılar ve gruplar** | En az bir kullanıcı veya seçili bulut uygulamalarınıza erişimi için yetkilendirilmiş bir grup seçin. | Asla tetiklenmez, hiçbir atanan kullanıcıların ve grupların sahip bir koşullu erişim ilkesi. |
+| **Kullanıcılar ve gruplar** | En az bir kullanıcı veya seçili bulut uygulamalarınıza erişimi için yetkilendirilmiş bir grup seçin. | Hiçbir kullanıcıları ve atanan grupları bildiği bir koşullu erişim ilkesi asla tetiklenmez. |
 | **Erişim denetimleri** | En az bir erişim denetimi seçin. | Koşullarınızda sağlanırsa, ilke işlemciniz ne yapılacağını bilmesi gerekir. |
 
 
@@ -109,7 +109,7 @@ Her oturum açma, Azure Active Directory, tüm ilkeleri değerlendirir ve kullan
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Koşullu erişim, Exchange ActiveSync ile çalışır mı?
 
-Evet, Exchange ActiveSync koşullu erişim ilkesi bazı kullanabileceğiniz [sınırlamaları](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
+Evet, Exchange ActiveSync koşullu erişim ilkesi bazı kullanabileceğiniz [sınırlamaları](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Nasıl koşullu erişim ile Office 365 uygulamalarını yapılandırmamız gerekir mi?
 
@@ -117,7 +117,7 @@ Office 365 uygulamalarını birbirlerine bağlanış olduğundan, yaygın olarak
 
 Ortak birbirine bağlı uygulamalar, Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online ve Office 365 Yammer içerir.
 
-Bir oturum ya da görev başında denetimli erişimi olduğunda, çok faktörlü kimlik doğrulaması gibi Kullanıcı etkileşimlerine gerektiren ilkeleri için önemlidir. Bunu yapmazsanız, kullanıcılar uygulama içindeki bazı görevleri tamamlamak mümkün olmayacaktır. Örneğin, SharePoint erişmek için yönetilmeyen cihazlardaki ancak e-posta için çok faktörlü kimlik doğrulaması gerektiriyorsa, kendi e-posta ile çalışan kullanıcılar bir ileti için SharePoint dosya eklemek mümkün olmayacaktır. Daha fazla bilgi makalesinde bulunabilir [Hizmet bağımlılıkları Azure Active Directory koşullu erişim nedir?](service-dependencies.md).
+Bir oturum ya da görev başında denetimli erişimi olduğunda, çok faktörlü kimlik doğrulaması gibi Kullanıcı etkileşimlerine gerektiren ilkeleri için önemlidir. Bunu yapmazsanız, kullanıcılar uygulama içindeki bazı görevleri tamamlamak mümkün olmayacaktır. Örneğin, SharePoint erişmek için yönetilmeyen cihazlardaki ancak e-posta için çok faktörlü kimlik doğrulaması gerektiriyorsa, kendi e-posta ile çalışan kullanıcılar bir ileti için SharePoint dosya eklemek mümkün olmayacaktır. Daha fazla bilgi makalesinde bulunabilir [Hizmet bağımlılıklarını Azure Active Directory koşullu erişim nedir?](service-dependencies.md).
 
 
 
@@ -183,5 +183,5 @@ Daha fazla bilgi için [Azure portalında Klasik ilkeleri geçirme](policy-migra
 
 Bilmek istiyorsanız:
 
-- Koşullu erişim ilkesi yapılandırmak için bkz. nasıl [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](app-based-mfa.md).
+- Koşullu erişim ilkesi yapılandırmak için bkz. nasıl [gerektiren MFA belirli uygulamalar için Azure Active Directory koşullu erişim ile](app-based-mfa.md).
 - Koşullu erişim ilkelerinizi planlama nasıl [Azure Active Directory'de koşullu erişim dağıtımınızı planlamak nasıl](plan-conditional-access.md).

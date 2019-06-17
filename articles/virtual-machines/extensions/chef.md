@@ -70,18 +70,18 @@ Aşağıdaki JSON şema için Chef VM uzantısı gösterir. Uzantı, Chef sunucu
 
 | Ad | Değer / örnek | Veri Türü
 | ---- | ---- | ---- 
-| apiVersion | `2017-12-01` | dize (tarih) |
+| apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
-| typeHandlerVersion | `1210.12` | dize (çift) |
+| typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Ayarlar
 
 | Ad | Değer / örnek | Veri Türü | Gerekli mi?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | dize (url) | E |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | E |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | E |
-| ayarlar/çalışma | `recipe[mycookbook::default]` | string | E |
+| settings/runlist | `recipe[mycookbook::default]` | string | E |
 
 ### <a name="protected-settings"></a>Korumalı ayarları
 

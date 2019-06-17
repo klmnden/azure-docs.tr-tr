@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c9b07e7524488d0336a55af6e1d5f36af59a870
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c5ccc4ef6c095eacd29590504d46756ead856574
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729834"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058612"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri
 Bu makale, grupları oluşturmak için Azure Active Directory (Azure AD) PowerShell cmdlet'lerini kullanmaya yönelik yönergeler içerir. Bu içerik yalnızca (birleştirilmiş grupları denir) Office 365 grupları için geçerlidir. 
@@ -78,7 +78,7 @@ Bu adımları ayarları dizin düzeyinde dizindeki tüm Office 365 grupları iç
    ```
 6. Kullanarak değerlerini okuyabilirsiniz:
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```  
 ## <a name="update-settings-at-the-directory-level"></a>Dizin düzeyinde ayarlarını güncelleştirme
@@ -86,7 +86,7 @@ Değeri için UsageGuideLinesUrl ayarı şablonda güncelleştirmek için yalnı
 
 UsageGuideLinesUrl değerini kaldırmak için URL yukarıdaki adım 4 kullanarak boş bir dize olacak şekilde düzenleyin:
 
- ```powershell
+   ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
 Ardından 5. adım yeni değeri ayarlamak için gerçekleştirin.
@@ -112,7 +112,7 @@ Group.Unified SettingsTemplate içinde tanımlanan ayarlar aşağıda verilmişt
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Örnek: Dizin düzeyinde gruplar için konuk ilkesi yapılandırma
 1. Tüm ayarı şablonları alın:
-  ```powershell
+   ```powershell
    Get-AzureADDirectorySettingTemplate
    ```
 2. Konuk ilke gruplar için dizin düzeyinde ayarlamak için Group.Unified şablonun yüklü olmalıdır.
@@ -135,7 +135,7 @@ Group.Unified SettingsTemplate içinde tanımlanan ayarlar aşağıda verilmişt
    ```
 6. Kullanarak değerlerini okuyabilirsiniz:
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```   
 
@@ -143,9 +143,9 @@ Group.Unified SettingsTemplate içinde tanımlanan ayarlar aşağıda verilmişt
 
 Almak istediğiniz ayar adını biliyorsanız, kullanabileceğiniz aşağıdaki geçerli ayarları değerini almak için cmdlet'i. Bu örnekte, biz "UsageGuidelinesUrl." adlı bir ayarın değerini alma 
 
-  ```powershell
-  (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
-  ```
+   ```powershell
+   (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+   ```
 Bu adımlar, dizindeki tüm Office grupları için geçerli olan ayarları dizin düzeyinde okuyun.
 
 1. Tüm mevcut dizin ayarları okuyun:
@@ -188,11 +188,11 @@ Bu adımlar, dizindeki tüm Office grupları için geçerli olan ayarları dizin
 
 ## <a name="remove-settings-at-the-directory-level"></a>Dizin düzeyinde ayarlarını Kaldır
 Bu adım, dizindeki tüm Office grupları için geçerli olan ayarları dizin düzeyinde kaldırır.
-  ```powershell
-  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
-  ```
+   ```powershell
+   Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
+   ```
 
-## <a name="update-settings-for-a-specific-group"></a>Belirli bir grup için ayarları güncelleştir
+## <a name="create-settings-for-a-specific-group"></a>Belirli bir grup için ayarları oluşturma
 
 1. "Groups.Unified.Guest" adlı ayarları şablonunu Ara
    ```powershell
@@ -219,13 +219,49 @@ Bu adım, dizindeki tüm Office grupları için geçerli olan ayarları dizin d�
    ```powershell
    $SettingCopy["AllowToAddGuests"]=$False
    ```
-5. Gerekli grubu için yeni ayar dizinde oluşturun:
+5. Bu ayar için uygulamak istediğiniz Grup Kimliğini alın:
    ```powershell
-   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $SettingCopy
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
-6. Ayarları doğrulamak için şu komutu çalıştırın:
+6. Gerekli grubu için yeni ayar dizinde oluşturun:
    ```powershell
-   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups | fl Values
+   New-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -DirectorySetting $SettingCopy
+   ```
+7. Ayarları doğrulamak için şu komutu çalıştırın:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
+   ```
+
+## <a name="update-settings-for-a-specific-group"></a>Belirli bir grup için ayarları güncelleştir
+1. Ayar güncelleştirmek istediğiniz grubu Kimliğini alın:
+   ```powershell
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
+   ```
+2. Grup ayarları alın:
+   ```powershell
+   $Setting = Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+3. Örneğin gerek duyduğunuz grubu ayarını güncelleştirme
+   ```powershell
+   $Setting["AllowToAddGuests"] = $True
+   ```
+4. Ardından bu gruba özel ayarı Kimliğini alın:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+   Buna benzer bir yanıtı alırsınız:
+   ```powershell
+   Id                                   DisplayName            TemplateId                             Values
+   --                                   -----------            -----------                            ----------
+   2dbee4ca-c3b6-4f0d-9610-d15569639e1a Group.Unified.Guest    08d542b9-071f-4e16-94b0-74abb372e3d9   {class SettingValue {...
+   ```
+5. Ardından, bu ayar için yeni bir değer ayarlayabilirsiniz:
+   ```powershell
+   Set-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -Id 2dbee4ca-c3b6-4f0d-9610-d15569639e1a -DirectorySetting $Setting
+   ```
+6. Doğru bir şekilde güncelleştirildiğinden emin olmak için ayarın değerini okuyabilirsiniz:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Cmdlet'in söz dizimi başvurusu

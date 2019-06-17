@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 81aa38c1c7783c7e0357f8f69f4d4484d26873e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b68f7d0a6b5e60ffab2232a9d6ba502e37801410
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093084"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Öğretici: RealtimeBoard ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de RealtimeBoard tümleştirmesini yapılandırmak için RealtimeBoard 
 
 **Galeriden RealtimeBoard eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

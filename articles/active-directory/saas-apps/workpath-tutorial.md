@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 5524c59537f1657fddd626bd4c019f4f65b8390d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 39f62b82ed2716099a63e363c87fbac65d02ffb0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920338"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Öğretici: Workpath ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Workpath tümleştirmesini yapılandırmak için Workpath Galeriden 
 
 **Galeriden Workpath eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4893076da47528cb6765efc32f46e76819a915b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4f0d681c93ab7ac7fef941892a95282a2fd59b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793809"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075752"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines’de (Resource Manager) SQL Server için Otomatik Düzeltme Eki Uygulama
 > [!div class="op_single_selector"]
@@ -81,20 +81,20 @@ Sağlama sırasında veya var olan sanal makineler için otomatik düzeltme eki 
 ### <a name="new-vms"></a>Yeni VM'ler
 Otomatik düzeltme eki uygulama Resource Manager dağıtım modelinde yeni bir SQL Server sanal makine oluşturduğunuzda yapılandırmak için Azure portalını kullanın.
 
-İçinde **SQL Server ayarları** dikey penceresinde **otomatik düzeltme eki uygulama**. Aşağıdaki Azure portalı ekran görüntüsü gösterildiği **SQL otomatik düzeltme eki uygulama** dikey penceresi.
+İçinde **SQL Server ayarları** sekmesinde **Değiştir konfigürasyon** altında **otomatik düzeltme eki uygulama**. Aşağıdaki Azure portalı ekran görüntüsü gösterildiği **SQL otomatik düzeltme eki uygulama** dikey penceresi.
 
 ![SQL otomatik düzeltme eki Azure portalında](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
 
 Bağlam için tam üzerinde konusuna [azure'da bir SQL Server sanal makinesi sağlama](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="existing-vms"></a>Varolan Vm'leri
-Mevcut SQL Server sanal makineleri için SQL Server sanal makinenizi seçin. Ardından **SQL Server Yapılandırması** bölümünü **ayarları** dikey penceresi.
+
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Mevcut SQL Server sanal makineleri için açma, [SQL sanal makineleri kaynak](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) seçip **düzeltme eki uygulama** altında **ayarları**. 
 
 ![SQL otomatik düzeltme eki var olan VM'ler için](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 
-İçinde **SQL Server Yapılandırması** dikey penceresinde tıklayın **Düzenle** bölüm düzeltme eki uygulama otomatik olarak düğmesi.
-
-![SQL otomatik düzeltme eki uygulama, var olan VM'ler için yapılandırma](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-configuration.png)
 
 İşiniz bittiğinde tıklayın **Tamam** altındaki düğmesine **SQL Server Yapılandırması** yaptığınız değişiklikleri kaydetmek için dikey.
 
@@ -108,8 +108,7 @@ Aşağıdaki örnekte, PowerShell, otomatik düzeltme eki uygulama, var olan bir
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
     $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
-
-    Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+s Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
 > Uzantı zaten yüklü değilse, uzantının yüklenmesi, SQL Server hizmetini yeniden başlatır.

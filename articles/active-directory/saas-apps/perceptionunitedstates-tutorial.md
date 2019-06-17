@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Perception Amerika Birleşik Devletleri (UltiPro olmayan)
 
@@ -53,7 +53,7 @@ Azure AD ile tümleştirme, Perception Amerika Birleşik Devletleri (UltiPro olm
 
 **Galeriden Perception Amerika Birleşik Devletleri (UltiPro olmayan) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Azure AD çoklu oturum açma Perception Amerika Birleşik Devletleri (UltiPro ol
 
     b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. **Perception Amerika Birleşik Devletleri (UltiPro olmayan)** uygulama gerektirir **Azure AD tanımlayıcısı** gelen erişmenizi sağlayacak değer < entity_id > olarak **Perception Amerika Birleşik Devletleri (ayarlayın Non-UltiPro)** bölümünde URI olarak kodlanamadı için. URI ile kodlanacak değer almak için aşağıdaki bağlantıyı kullanın: **http://www.url-encode-decode.com/**.
+    c. **Perception Amerika Birleşik Devletleri (UltiPro olmayan)** uygulama gerektirir **Azure AD tanımlayıcısı** gelen erişmenizi sağlayacak değer < entity_id > olarak **Perception Amerika Birleşik Devletleri (ayarlayın Non-UltiPro)** bölümünde URI olarak kodlanamadı için. URI ile kodlanacak değer almak için aşağıdaki bağlantıyı kullanın: **http://www.url-encode-decode.com/** .
 
     d. URI aldıktan sonra kodlanmış değer birleştirme ile **yanıt URL'si** aşağıdaki - belirtildiği gibi
 
@@ -195,11 +195,11 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümde, Perception Amerika Birleşik Devletleri (UltiPro olmayan) için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Perception Amerika Birleşik Devletleri (UltiPro olmayan)**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Perception Amerika Birleşik Devletleri (UltiPro olmayan)** .
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **Perception Amerika Birleşik Devletleri (UltiPro olmayan)**.
+2. Uygulamalar listesinde **Perception Amerika Birleşik Devletleri (UltiPro olmayan)** .
 
     ![Uygulamalar listesinde Perception Amerika Birleşik Devletleri (UltiPro olmayan) bağlantısı](common/all-applications.png)
 

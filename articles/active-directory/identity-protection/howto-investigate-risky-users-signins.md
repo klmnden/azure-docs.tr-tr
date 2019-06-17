@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 4a90195a2d0899b0a157cc67badd2f9873164987
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60296053"
+ms.locfileid: "67108959"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Nasıl Yapılır: Riskli kullanıcıları ve oturum açma işlemlerini araştırma 
 
@@ -199,7 +199,7 @@ Riskli oturum açma işlemleri raporu aşağıdakileri gösteren bir varsayılan
 
 - Risk düzeyi (gerçek zamanlı)
 
-- Koşullu erişim
+- Koşullu Erişim
 
 - MFA gerekli  
  
@@ -228,7 +228,7 @@ Detaylarını gösterir:
 
 - MFA bilgileri
 
-- Koşullu erişim
+- Koşullu Erişim
 
 
 
@@ -257,7 +257,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 - Risk durumu
 - Risk düzeyi (toplam)
 - Risk düzeyi (gerçek zamanlı)
-- Koşullu erişim
+- Koşullu Erişim
 - Tarih
 - Risk düzeyi türü
 

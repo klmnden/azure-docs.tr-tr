@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7dab6f6b9215ead8cdcf513e226fd2fb8e59d8fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988089"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Öğretici: Leapsome ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Leapsome tümleştirmesini yapılandırmak için Leapsome Galeriden 
 
 **Galeriden Leapsome eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -124,11 +124,11 @@ Azure AD çoklu oturum açma ile Leapsome yapılandırmak için aşağıdaki ad�
 
 7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin: 
 
-    | Ad | Kaynak özniteliği | Ad alanı |
+    | Ad | Kaynak özniteliği | Ad Alanı |
     | ---------------| --------------- | --------- |  
     | firstName | User.givenName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | Soyadı | User.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | başlık | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | title | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | resmi | Çalışanın resim URL'si | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 

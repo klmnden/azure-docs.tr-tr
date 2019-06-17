@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 2cce7203d23d5de77200fdf75ab31042d9608352
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866368"
 ---
 # <a name="supported-languages"></a>Desteklenen diller
@@ -33,12 +33,12 @@ Microsoft konuşma tanıma API'si, aşağıdaki dilleri desteklemektedir `intera
 | v-DK | Danca (Danimarka) | ja-JP | Japonca (Japonya) |
 | de-DE | Almanca (Almanya) |ko-KR | Korece (Güney Kore) |
 | tr-AU | İngilizce (Avustralya) |NB-yok | Norveççe (Bokmal) (Norveç)  |
-| CA tr | İngilizce (Kanada) | NL-NL | Felemenkçe (Hollanda)   |
+| CA tr | İngilizce (Kanada) | NL-NL | Hollanda dili (Hollanda)   |
 | en-GB | İngilizce (Birleşik Krallık) |pl-PL | Lehçe (Polonya) |
 | tr-giriş | English (India) | pt-BR | Portekizce (Brezilya)  |
 | tr NZ | İngilizce (Yeni Zelanda) |pt-PT | Portekizce (Portekiz)  |
 | en-US | İngilizce (ABD) | ru-RU | Rusça (Rusya) |
-| es-ES | İspanyolca (İspanya) | sv-SE | İsveç dili (İsveç) |
+| es-ES | İspanyolca (İspanya) | sv-SE | İsveççe (İsveç) |
 | es-MX | İspanyolca (Meksika) |zh-CN | Çince (Basitleştirilmiş Mandarin)  |
 | FI-FI | Fince (Finlandiya) |zh-HK | Çince (Hong Kong ÖİB) |
 | fr-CA | Fransızca (Kanada) | zh-TW | Çince (Mandarin, Tayvanca)|

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362858"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple cihazınız için CHAP yapılandırma
@@ -59,7 +59,7 @@ Tek yönlü kimlik doğrulamasında başlatıcının hedef kimliğini doğrular.
    3. Parolayı onaylayın.
 
        ![CHAP Başlatıcı](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. **Kaydet**’e tıklayın. Bir onay iletisi görüntülenir. Değişiklikleri kaydetmek için **Tamam**’a tıklayın.
+3. **Kaydet**’e tıklayın. Bir onay iletisi görüntülenir. Değişiklikleri kaydetmek için **Tamam** 'a tıklayın.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Tek yönlü kimlik doğrulaması Windows ana bilgisayar sunucusunda yapılandırmak için
 1. Windows ana bilgisayarı sunucusunda, iSCSI Başlatıcısı'nı başlatın.
@@ -80,7 +80,7 @@ Tek yönlü kimlik doğrulamasında başlatıcının hedef kimliğini doğrular.
    1. Seçin **etkinleştirme CHAP oturum** onay kutusu.
    2. İçinde **adı** alan, Azure portalında CHAP Başlatıcısı için belirtilen kullanıcı adı sağlayın.
    3. İçinde **hedef gizli** alan, Azure portalında CHAP Başlatıcısı için belirttiğiniz parolayı girin.
-   4. **Tamam** düğmesine tıklayın.
+   4. **Tamam**'ı tıklatın.
       
        ![Gelişmiş ayarlar genel](./media/storsimple-configure-chap/IC740946.png)
 5. Üzerinde **hedefleri** sekmesinde **iSCSI başlatıcısı özellikleri** penceresinde cihazın durumu olarak görünmelidir **bağlı**. Bir StorSimple 1200 cihaz kullanıyorsanız, her birim bir iSCSI hedefi olarak bağlanır. Bu nedenle, 3-4 arası adımları her birim için yinelenen gerekir.
@@ -113,7 +113,7 @@ Windows ana bilgisayar sunucusunda CHAP yapılandırma hakkında daha fazla bilg
    3. Parolayı onaylayın.
 
        ![CHAP Başlatıcı](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. **Kaydet**’e tıklayın. Bir onay iletisi görüntülenir. Değişiklikleri kaydetmek için **Tamam**’a tıklayın.
+4. **Kaydet**’e tıklayın. Bir onay iletisi görüntülenir. Değişiklikleri kaydetmek için **Tamam** 'a tıklayın.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Windows ana bilgisayar sunucusunda çift yönlü kimlik doğrulaması yapılandırmak için
 

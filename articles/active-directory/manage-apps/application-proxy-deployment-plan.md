@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388319"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108478"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Bir Azure AD uygulama ara sunucusu dağıtımını planlama
 
@@ -64,7 +64,7 @@ Yapılandırma ve Azure AD uygulama proxy'si uygulamak için aşağıdaki temel 
 
 *  **Azure ekleme**: Uygulama proxy'si dağıtmadan önce kullanıcı kimliklerini bir şirket içi dizininizden eşitlenmiş veya gerekir doğrudan, Azure AD kiracıları içinde oluşturulur. Azure AD uygulama proxy'si için bunları erişim verme yayımlanan uygulamaları önce önceden kimlik doğrulamasını ve çoklu oturum açma (SSO) gerçekleştirmek için gerekli kullanıcı kimlik bilgilerini sağlamak için kimlik eşitleme sağlar.
 
-* **Koşullu erişim gereksinimleri**: Bu kullanıcıları etkileyen gecikme eklediğinden, intranet erişimi için uygulama proxy'si kullanarak önermiyoruz. Uygulama proxy'si internet'ten uzaktan erişim için ön kimlik doğrulama ve koşullu erişim ilkeleriyle birlikte kullanmanızı öneririz.  AAD ile kimlik doğrulaması diretly yapabilirler böylece uygulamaların modernize etme intranet kullanmak için koşullu erişim sağlamak için bir yaklaşım. Başvurmak [kaynakları geçirmek için AAD uygulamaları](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) daha fazla bilgi için. 
+* **Koşullu erişim gereksinimleri**: Bu kullanıcıları etkileyen gecikme eklediğinden, intranet erişimi için uygulama proxy'si kullanarak önermiyoruz. Uygulama proxy'si internet'ten uzaktan erişim için ön kimlik doğrulama ve koşullu erişim ilkeleriyle kullanmanızı öneririz.  AAD ile kimlik doğrulaması diretly yapabilirler böylece uygulamaların modernize etme intranet kullanmak için koşullu erişim sağlamak için bir yaklaşım. Başvurmak [kaynakları geçirmek için AAD uygulamaları](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) daha fazla bilgi için. 
 
 * **Hizmet sınırları**: Operasyonda ekstra tüketimi var. bireysel kiracılar tarafından kaynakların karşı korumak için uygulama ve Kiracı azaltma sınırları şunlardır. Başvurmak bu sınırları görmek için [Azure AD hizmet sınırlamaları ve kısıtlamaları](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Bu sınırları tipik kullanım hacmi üstünde Kıyaslama temel alır ve dağıtımların çoğunluğu için yeterli arabellek sağlar.
 
@@ -266,7 +266,7 @@ Aşağıdaki özellikleri, Azure AD uygulama ara sunucusunu desteklemek için ku
 
 * Cihaz tabanlı koşullu erişim: Şirket verilerini yalnızca kayıtlı, onaylanan ve uyumlu cihazların erişebildiğinden emin olmak [cihaz tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
 
-* Uygulama tabanlı koşullu erişim: İş, bir kullanıcı kurumsal ağ üzerinde bulunmadığında durdurmak zorunda değildir. [Kurumsal Bulut ve şirket içi uygulamalara güvenli](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) ve koşullu erişim ile denetimi korumak.
+* Uygulama tabanlı koşullu erişim: İş, bir kullanıcı kurumsal ağ üzerinde bulunmadığında durdurmak zorunda değildir. [Kurumsal Bulut ve şirket içi uygulamalara güvenli](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) ve Denetim ile koşullu erişim sağlayın.
 
 * Risk tabanlı koşullu erişim: Kötü amaçlı bir bilgisayar korsanları ile verilerinizi koruma bir [risk tabanlı koşullu erişim ilkesi](https://www.microsoft.com/cloud-platform/conditional-access) uygulanabilecek tüm uygulamalar ve tüm kullanıcılara olup şirket içi veya bulutta.
 

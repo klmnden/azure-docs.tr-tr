@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: f0ae734ac8814cc605ce03756fde5545c77c837d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 18aeaccef724ba94a9c18240fb77ea33897e8d26
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992062"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063865"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>PHP ile Service Bus konu başlıklarını ve aboneliklerini kullanma
 
@@ -51,7 +51,23 @@ Azure Blob hizmete erişen bir PHP uygulaması oluşturmak için sınıflar baş
 Bu makalede, yerel olarak PHP uygulaması içinde veya bir Azure web rolü, çalışan rolü veya Web sitesi içinde çalışan kod çağrılabilir service özelliklerini kullanmayı açıklar.
 
 ## <a name="get-the-azure-client-libraries"></a>Azure istemci kitaplıkları Al
-[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+
+### <a name="install-via-composer"></a>Oluşturucu yükleme
+1. Adlı bir dosya oluşturun **composer.json** projenizin kökünde ve aşağıdaki kodu ekleyin:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/windowsazure": "*"
+      }
+    }
+    ```
+2. İndirme **[composer.phar] [phar Oluşturucusu]** proje kökünüze içinde.
+3. Bir komut istemi açın ve proje kökünde aşağıdaki komutu yürütün
+   
+    ```
+    php composer.phar install
+    ```
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırma
 Service Bus API'lerine kullanmak için:
@@ -67,7 +83,7 @@ Aşağıdaki örnekte, başvuru ve otomatik yükleyici dosyasını içerecek şe
 > 
 
 ```php
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
@@ -101,7 +117,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageShare
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="create-a-topic"></a>Konu oluştur
+## <a name="create-a-topic"></a>Konu başlığı oluşturma
 Service Bus konu başlıklarını yönelik yönetim işlemlerini gerçekleştirebilirsiniz `ServiceBusRestProxy` sınıfı. A `ServiceBusRestProxy` nesnesi aracılığıyla oluşturulduğunda `ServicesBuilder::createServiceBusService` belirteci yönetme izni kapsülleyen bir uygun bir bağlantı dizesi ile fabrika yöntemi.
 
 Aşağıdaki örnek, örneği gösterilmiştir bir `ServiceBusRestProxy` ve çağrı `ServiceBusRestProxy->createTopic` adlı bir konu oluşturmak için `mytopic` içinde bir `MySBNamespace` ad alanı:
@@ -136,7 +152,7 @@ catch(ServiceException $e){
 > 
 > 
 
-## <a name="create-a-subscription"></a>Abonelik oluştur
+## <a name="create-a-subscription"></a>Abonelik oluşturma
 Konu abonelikleri ile de oluşturulur `ServiceBusRestProxy->createSubscription` yöntemi. Abonelikler adlandırılır ve aboneliğin sanal kuyruğuna gönderilen ileti kümesini sınırlayan isteğe bağlı bir filtre içerebilir.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Varsayılan (MatchAll) filtreyle abonelik oluşturma

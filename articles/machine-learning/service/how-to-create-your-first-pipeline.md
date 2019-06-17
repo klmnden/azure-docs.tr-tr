@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c87685673052d2cfbc961d3bb717c9cd274872af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165868"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059248"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Oluşturma ve Azure Machine Learning SDK'sını kullanarak bir makine öğrenimi işlem hattı çalıştırma
 
@@ -53,7 +53,7 @@ Bir işlem hattını çalıştırmak için gereken kaynakları oluşturun:
 
 * Yapılandırma bir `DataReference` kendini ya da bir veri deposu, erişilebilir veri işaret edecek şekilde nesne.
 
-* Ayarlanan [hedefleri işlem](concept-azure-machine-learning-architecture.md#compute-target) işlem hattı adımlarınızı çalıştırılacağı.
+* Ayarlanan [hedefleri işlem](concept-azure-machine-learning-architecture.md#compute-targets) işlem hattı adımlarınızı çalıştırılacağı.
 
 ### <a name="set-up-a-datastore"></a>Bir veri deposu ayarlayın
 Bir veri deposuna erişmek işlem hattının verileri depolar. Her bir çalışma alanı bir varsayılan veri deposu sahiptir. Ek veri depoları kaydedebilirsiniz. 
@@ -296,7 +296,7 @@ Daha fazla bilgi için [azure işlem hattı adımları paket](https://docs.micro
 > [!IMPORTANT]
 > Anlık görüntüde bulunan dosyaların önlemek için oluşturma bir [.gitignore](https://git-scm.com/docs/gitignore) veya `.amlignore` dosya dizin ve dosyaları ekleyin. `.amlignore` Dosyası aynı sözdizimini kullanır ve olarak desenleri [.gitignore](https://git-scm.com/docs/gitignore) dosya. Her iki dosya varsa, `.amlignore` dosya önceliklidir.
 >
-> Daha fazla bilgi için [anlık görüntüleri](concept-azure-machine-learning-architecture.md#snapshot).
+> Daha fazla bilgi için [anlık görüntüleri](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 # Submit the pipeline to be run
@@ -366,7 +366,7 @@ response = requests.post(published_pipeline1.endpoint,
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## <a name="view-results"></a>Sonuçları görüntüle
+## <a name="view-results"></a>Sonuçları görüntüleme
 
 Tüm işlem hatlarınızı ve çalıştırma ayrıntıları listesine bakın:
 1. [Azure Portal](https://portal.azure.com/) oturum açın.  

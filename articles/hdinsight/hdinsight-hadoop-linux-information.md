@@ -8,19 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: c52574485a62b081224a36ca5deb0fdae114f9bc
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: b00630354834897793bbf357be378051bcf74698
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65859653"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059385"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 
 Azure HDInsight kümeleri Apache Hadoop Azure bulutunda çalışan tanıdık bir Linux ortamı sağlar. Çoğu işlemler için tam olarak diğer Linux üzerinde Hadoop yükleme çalışması gerekir. Bu belge farkında olmanız gereken belirli farklılıkları çağırır.
-
-> [!IMPORTANT]  
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -55,7 +52,7 @@ Bu komut service açıklayan bir JSON belgesini döndürür ve ardından [jq](ht
 
 ## <a name="remote-access-to-services"></a>Uzaktan Erişim Hizmetleri
 
-* **Ambari (web)** - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (web)**  - https://CLUSTERNAME.azurehdinsight.net
 
     Küme Yöneticisi kullanıcı adı ve parola kullanarak kimlik doğrulaması ve Ambari için oturum açın.
 
@@ -66,14 +63,14 @@ Bu komut service açıklayan bir JSON belgesini döndürür ve ardından [jq](ht
     >
     > Ambari web kullanıcı Arabirimi tam işlevselliğini kullanmak için bir SSH tüneli küme baş düğümü için proxy web trafiği için kullanın. Bkz: [kullanım Apache Ambari web kullanıcı Arabirimi, ResourceManager, JobHistory, NameNode, Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
 
     > [!NOTE]  
     > Küme Yöneticisi kullanıcı adı ve parola kullanarak kimlik doğrulaması.
     >
     > Düz metin kimlik doğrulama - bağlantının güvenli olduğundan emin olmak için her zaman HTTPS kullanın.
 
-* **WebHCat (templeton olarak da)** - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (templeton olarak da)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
 
     > [!NOTE]  
     > Küme Yöneticisi kullanıcı adı ve parola kullanarak kimlik doğrulaması.
@@ -288,7 +285,6 @@ Bir bileşen farklı bir sürümünü kullanmanız gerekir ve işlerinizde kulla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Linux tabanlı Windows tabanlı HDInsight ' geçiş](hdinsight-migrate-from-windows-to-linux.md)
 * [Apache Ambari REST API'yi kullanarak HDInsight kümelerini yönetme](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
 * [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)

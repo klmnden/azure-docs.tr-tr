@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942706"
 ---
 # <a name="storefront-details-tab"></a>StoreFront Ayrıntıları sekmesi
@@ -26,7 +26,7 @@ Bu makalede, mağaza için ayrıntıları girin açıklanmaktadır. **Mağaza ay
 ![Yeni danışmanlık hizmet teklifi - vitrin Ayrıntılar sekmesi oluşturma](media/consultingoffer-storefront-details.png)
 
 
-## <a name="offer-details"></a>Teklif ayrıntıları
+## <a name="offer-details"></a>Teklif Ayrıntıları
 
 **Teklif Ayrıntıları** bölümü aşağıdaki kutuları içerir:
 
@@ -86,15 +86,15 @@ Aşağıdaki örnek, bir iyi oluşan teklif açıklaması ve ilgili adı ve öze
 
 Ajanda
 
-1. gün
+1\. gün
 
 -   Güvenli, ölçeklendirme ve Azure Data Lake, Azure HDInsight veya Azure SQL veri ambarı'nı kullanarak verileri Microsoft bulut dahilinde düzenleme nasıl ele alınmaktadır.
 
-2. gün
+2\. gün
 
 -   Yapılandırma ve Microsoft R ve Azure Machine Learning ile Gelişmiş analiz çözümleri dağıtmak nasıl etkinleştireceğinizi de açıklar.
 
-3. günde
+3\. günde
 
 -   Eyleme dönüştürülebilir içgörüler çizmek ve analytics Power BI ile kullanıma hazır hale getirmek nasıl etkinleştireceğinizi de açıklar ve bir Power BI Panosu cobuild için işbirliğine dayalı bir oturumu içerir.
 

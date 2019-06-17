@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 689d7dcd57c513479c7bc08a45094670242ef6a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153608"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075027"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Azure Machine Learning kullanarak tahmin modellerini eğitin
 
@@ -66,7 +66,7 @@ Parametre | Açıklama
 
 Oluşturucu adlı başka bir parametreye sahip `pip_packages` , gerekli herhangi bir pip paketleri kullanın
 
-Oluşturduğunuza göre `Estimator` nesne, bir çağrı ile uzak işlem üzerinde çalıştırılacak eğitim işini gönderme `submit` işlevini, [deneme](concept-azure-machine-learning-architecture.md#experiment) nesne `experiment`. 
+Oluşturduğunuza göre `Estimator` nesne, bir çağrı ile uzak işlem üzerinde çalıştırılacak eğitim işini gönderme `submit` işlevini, [deneme](concept-azure-machine-learning-architecture.md#experiments) nesne `experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -125,10 +125,10 @@ print(run.get_portal_url())
 Kaynak dizini yerel bir Git deposu olduğu çalıştırma eğitim başlattığınızda, depo bilgilerini çalıştırma geçmişinde depolanır. Örneğin, geçerli işleme kimliği depo için geçmiş bir parçası olarak günlüğe kaydedilir.
 
 ## <a name="examples"></a>Örnekler
-Tahmin deseni temelleri gösteren bir not defteri için bkz:
+Bir tahmin desen temelleri gösteren bir not defteri için bkz:
 * [How-to-use-azureml/Training-With-DEEP-Learning/How-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-Bir scikit eğitir bir not defteri için-bilgi modeli tahmin Aracı'nı kullanarak, bkz:
+Bir scikit eğitir bir not defteri için-tahmin Aracı'nı kullanarak model hakkında bilgi edinmek için bkz:
 * [öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 Derin öğrenme framework belirli estimators kullanarak modellerin eğitimi dizüstü bilgisayarlar için bkz:

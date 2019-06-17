@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c3e77a8ec46ae18cb9daa855d842969cc2ba4bb9
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237948"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137250"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Özel konuşma için verileri hazırlama
 
@@ -44,7 +44,7 @@ Karşıya yüklediğiniz her bir veri kümesi, seçtiğiniz veri türü için ge
 Veri kümeniz karşıya yüklendikten sonra birkaç seçeneğiniz vardır:
 
 * Gidebilirsiniz **test** sekmesini ve yalnızca ses veya ses + insan etiketli transkripsiyonu verileri görsel olarak inceleyin.
-* Gidebilirsiniz **eğitim** sekmesi ve bize ses + insan transkripsiyonu veri ilgili metin verilerini veya özel bir modeli eğitmek için.
+* Gidebilirsiniz **eğitim** sekmesini ve ilgili metin verilerini veya ses + insan transkripsiyonu verileri özel bir modeli eğitmek için kullanın.
 
 ## <a name="audio-data-for-testing"></a>Test için ses verisi
 
@@ -56,7 +56,7 @@ Ses verisi, Microsoft'un temel konuşma metin model veya özel bir model doğrul
 |----------|-------|
 | Dosya biçimi | RIFF (WAV) |
 | Örnek hızı | 8000 Hz veya 16.000 Hz |
-| Kanal Sayısı | 1 (mono) |
+| Kanallar | 1 (mono) |
 | Ses başına en fazla uzunluk | 2 saat |
 | Örnek Biçim | PCM, 16-bit |
 | Arşiv biçimi | .zip |
@@ -77,7 +77,7 @@ Ses dosyaları işlenirken Microsoft'un Konuşmayı metne doğruluğu doğruluğ
 |----------|-------|
 | Dosya biçimi | RIFF (WAV) |
 | Örnek hızı | 8000 Hz veya 16.000 Hz |
-| Kanal Sayısı | 1 (mono) |
+| Kanallar | 1 (mono) |
 | Ses başına en fazla uzunluk | 60 s |
 | Örnek Biçim | PCM, 16-bit |
 | Arşiv biçimi | .zip |
@@ -138,20 +138,20 @@ Kullanıcılarınızın kullanın veya düzenleyeceği karşılaştığınız st
 
 Bu konuşmada geçen bir utterance ve özel telaffuz örnekleri her biri için içerir:
 
-| Konuşulan formu | Kabul edilen ve görüntülenen form |
+| Kabul edilen ve görüntülenen form | Konuşulan formu |
 |--------------|--------------------------|
-| üç c p o | 3CPO |  
-| c n t k | CNTK |
-| i Üçlü e | IEEE |
+| 3CPO | üç c p o |  
+| CNTK | c n t k |
+| IEEE | i Üçlü e |
 
 İl fonetik sıra konuşulan biçimidir. Harf, sözcük, hece veya bir birleşiminde oluşabilir.
 
 Özelleştirilmiş telaffuz Almanca (de-DE) ve İngilizce (en-US) ile kullanılabilir. Bu tabloda dili tarafından desteklenen karakter gösterilmektedir:
 
-| Dil | Yerel ayar | Karakterler |
+| Dil | Yerel Ayar | Karakterler |
 |----------|--------|------------|
-| İngilizce | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
-| Almanca  | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Türkçe | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Almanca | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 İlgili verileri dosyanız Söyleniş doğru biçimlendirildiğinden emin olmak için bu tabloyu kullanın. Söyleniş dosyaları, küçük ve birkaç KB'leri aşmamalıdır.
 

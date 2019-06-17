@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
 ms.openlocfilehash: ed775bfca2db02b9bfddebb85bbd3f1f668cf3e0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142687"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server üzerinde çalışan tek başına küme oluşturma
@@ -61,7 +61,7 @@ Kurulum paketiyle birlikte birkaç örnek küme yapılandırma dosyası yükleni
 
 Bu makalede oluşturduğunuz küme güvenli değildir.  Herkes anonim olarak bağlanıp yönetim işlemleri gerçekleştirebileceğinden, üretim kümeleri her zaman X.509 sertifikaları veya Windows güvenliği kullanılarak güvenli hale getirilmelidir.  Güvenlik yalnızca küme oluşturma sırasında yapılandırılır ve küme oluşturulduktan sonra güvenliği etkinleştirmek mümkün değildir. Yapılandırma dosyası etkinleştirme güncelleştirme [sertifika güvenlik](service-fabric-windows-cluster-x509-security.md) veya [Windows Güvenlik](service-fabric-windows-cluster-windows-security.md). Service Fabric küme güvenliği hakkında daha fazla bilgi edinmek için [Küme güvenliğini sağlama](service-fabric-cluster-security.md) makalesini okuyun.
 
-### <a name="step-1-create-the-cluster"></a>1. Adım: Kümeyi oluşturma
+### <a name="step-1-create-the-cluster"></a>1\. adım: Kümeyi oluşturma
 
 #### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Senaryo A: Güvenli olmayan yerel geliştirme kümesi oluşturun
 Service Fabric dağıtılabilir bir makine geliştirme kümeye kullanarak *ClusterConfig.Unsecure.DevCluster.json* dahil dosya [örnekleri](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
@@ -126,7 +126,7 @@ Service Fabric çalışma zamanı paketi küme oluşturma sırasında otomatik o
 
 *.\ClusterConfig.JSON* ve *.\MicrosoftAzureServiceFabric.cab* küme yapılandırmasını ve çalışma zamanı .cab dosyası için sırasıyla yollardır.
 
-### <a name="step-2-connect-to-the-cluster"></a>2. Adım: Kümeye bağlanma
+### <a name="step-2-connect-to-the-cluster"></a>2\. adım: Kümeye bağlanma
 Kümenin çalışır ve kullanılabilir olup olmadığını doğrulamak için kümeye bağlanın. ServiceFabric PowerShell modülü çalışma zamanıyla birlikte yüklenir.  Küme düğümlerinin birinden veya Service Fabric çalışma zamanı ile uzak bir bilgisayardan, kümeye bağlanabilirsiniz.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet’i, kümeyle bir bağlantı kurar.
 
 Güvenli olmayan bir kümeye bağlanmak için aşağıdaki PowerShell komutunu çalıştırın:
@@ -152,7 +152,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
                      vm0      localhost       NodeType0 5.6.220.9494 0                     Up 00:02:43   00:00:00              OK
 ```
 
-### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>3. Adım: Service Fabric Explorer’ı kullanarak kümeyi görselleştirme
+### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>3\. adım: Service Fabric Explorer’ı kullanarak kümeyi görselleştirme
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), kümenizi görselleştirmek ve uygulamaları yönetmek için iyi bir araçtır.  Service Fabric Explorer giderek bir tarayıcı kullanarak erişim kümede çalışan bir hizmet olan [ http://localhost:19080/Explorer ](http://localhost:19080/Explorer).
 
 Küme panosu, kümenize uygulama ve düğüm durumunun özetini de içeren bir genel bakış sağlar. Düğüm görünümü, kümenin fiziksel düzenini gösterir. Belirli bir düğümde, hangi uygulamalara kod dağıtıldığını denetleyebilirsiniz.
@@ -188,12 +188,12 @@ Varsayılan olarak, ürün ürünü geliştirmek için Service Fabric kullanım 
 
 * Hizmet sayısı
 * ServiceTypes sayısı
-* Uygulama Sayısı
+* Uygulama sayısı
 * ApplicationUpgrades sayısı
 * FailoverUnits sayısı
 * Inbuildfailoverunit sayısı
 * UnhealthyFailoverUnits sayısı
-* Çoğaltma Sayısı
+* Çoğaltma sayısı
 * InBuildReplicas sayısı
 * StandByReplicas sayısı
 * OfflineReplicas sayısı

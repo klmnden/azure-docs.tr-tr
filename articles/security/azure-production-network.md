@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611352"
 ---
 # <a name="the-azure-production-network"></a>Azure üretim ağı
@@ -54,7 +54,7 @@ Azure, güçlü yazılım güvenliği ve güvenlik duvarı özellikleri genellik
 ### <a name="azure-security-features"></a>Azure güvenlik özellikleri
 Azure ana bilgisayar tabanlı bir yazılım güvenlik duvarları üretim ağı içinde uygular. Birkaç güvenlik çekirdek ve güvenlik duvarı özellikleri çekirdek Azure ortamı içinde bulunur. Bu güvenlik özellikleri Azure ortamındaki bir derinlemesine savunma stratejisi yansıtır. Azure'da müşteri verilerini aşağıdaki güvenlik duvarları tarafından korunur:
 
-**Hiper yönetici Güvenlik Duvarı (paket filtresi)**: Bu güvenlik duvarı hiper yönetici içine uygulanan ve yapı denetleme (FC) aracısı ile yapılandırılmış. Bu güvenlik duvarı Kiracı VM içinde çalışan yetkisiz erişime karşı korur. Varsayılan olarak, bir VM oluşturulduğunda, tüm trafik engellenir ve ardından FC Aracısı yetkili trafiğe izin verecek şekilde filtrede kurallar ve özel durumları ekler.
+**Hiper yönetici Güvenlik Duvarı (paket filtresi)** : Bu güvenlik duvarı hiper yönetici içine uygulanan ve yapı denetleme (FC) aracısı ile yapılandırılmış. Bu güvenlik duvarı Kiracı VM içinde çalışan yetkisiz erişime karşı korur. Varsayılan olarak, bir VM oluşturulduğunda, tüm trafik engellenir ve ardından FC Aracısı yetkili trafiğe izin verecek şekilde filtrede kurallar ve özel durumları ekler.
 
 Burada programlanan iki kural kategorisi:
 

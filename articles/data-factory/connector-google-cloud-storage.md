@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 9c9a4b41dbb9b9acc2982ae2af1f3a611f9d3beb
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228284"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Google bulut depolama, Azure Data Factory kullanarak veri kopyalama
@@ -38,7 +38,7 @@ Bu Google bulut depolama Bağlayıcısı için aşağıdaki etkinlikleri destekl
 
 Google bulut depolama alanından verileri kopyalamak için aşağıdaki izinleri verilmiş olan emin olun:
 
-- **Kopyalama etkinliği yürütme için:**: `s3:GetObject` ve `s3:GetObjectVersion` nesne işlemleri için.
+- **Kopyalama etkinliği yürütme için:** : `s3:GetObject` ve `s3:GetObjectVersion` nesne işlemleri için.
 - **Data Factory GUI yazma**: `s3:ListAllMyBuckets` ve `s3:ListBucket` / `s3:GetBucketLocation` bağlantıyı test et ve göz atma ve Git gibi işlemler dosya yolları için demet işlemleri için izinleri ayrıca gereklidir. Bu izin vermek istemiyorsanız, bağlı hizmet oluşturma sayfasındaki test bağlantısı atlayın ve doğrudan veri kümesi ayarlarında yolunu belirtin.
 
 ## <a name="getting-started"></a>Başlarken
@@ -56,7 +56,7 @@ Google bulut depolama bağlı hizmeti için aşağıdaki özellikleri destekler:
 | type | Type özelliği ayarlanmalıdır **AmazonS3**. | Evet |
 | accessKeyId | Gizli erişim anahtarı kimliği. Erişim anahtarı ve gizli anahtarını bulmak için Git **Google bulut depolama** > **ayarları** > **birlikte çalışabilirlik**. |Evet |
 | secretAccessKey | Gizli erişim anahtarı kendisi. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet |
-| serviceUrl | Özel S3 uç noktası olarak belirtmek **`https://storage.googleapis.com`**. | Evet |
+| serviceUrl | Özel S3 uç noktası olarak belirtmek **`https://storage.googleapis.com`** . | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel ağında bulunuyorsa), Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 Örnek aşağıda verilmiştir:

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: absha
-ms.openlocfilehash: 5b1c0212205575f1d40f320fb959d98e55d87fb9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: c5285ac95a2f5813949f22aae3849fd7f55b1ada
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65963599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052099"
 ---
 # <a name="service-connectivity-monitor"></a>Hizmet Bağlantısı İzleyicisi
 
@@ -129,7 +129,7 @@ Bir abnormality gözlemlerseniz, şu adımları izleyin:
 * Uygulamayı yavaş çalışıyorsa, kötü uygulama performansı ağ veya uygulama sağlayıcısının son bir sorun nedeniyle olup olmadığını belirler.
 
 ## <a name="gcc-office-urls-for-us-government-customers"></a>ABD kamu müşterilerine yönelik GCC Office URL'leri
-ABD Devleti Virginia bölge için yalnızca DOD URL'leri, yerleşik NPM noktalardır. GCC URL'leri kullanan müşteriler özel testleri oluşturun ve her URL inidividually eklemeniz gerekir.
+ABD Devleti Virginia bölge için yalnızca DOD URL'leri, yerleşik NPM noktalardır. GCC URL'leri kullanan müşteriler, özel testleri oluşturun ve her URL ayrı ayrı eklemeniz gerekir.
 
 | Alan | GCC |
 |:---   |:--- |

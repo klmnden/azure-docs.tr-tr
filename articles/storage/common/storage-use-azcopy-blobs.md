@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 140f2ec6252eac2958f236b2ffb48225fa16fe2b
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: fea9e79986e45127ad4918ed62bd8bf8dc782133
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688061"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125797"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>AzCopy ve Blob Depolama ile veri aktarma
 
@@ -191,10 +191,10 @@ Bu bölüm aşağıdaki örnekleri içerir:
 
 ## <a name="synchronize-files"></a>Dosyaları eşitle
 
-Bir blob kapsayıcısı için bir yerel dosya sistemi içeriğini eşitleyebilirsiniz. Bu gibi durumlarda, bir blob kapsayıcısına bir yerel dosya sistemi Ayrıca bilgisayarınızda eşitleyebilirsiniz. Eşitleme tek yönlüdür. Diğer bir deyişle, bu iki uç nokta kaynak olduğu ve hangi bağlantılardan hedef seçin.
+Bir yerel dosya sistemi içeriğini blob kapsayıcısı ile eşitleyebilirsiniz. Eşitleme tek yönlüdür. Diğer bir deyişle, bu iki uç nokta kaynak olduğu ve hangi bağlantılardan hedef seçin.
 
 > [!NOTE]
-> Güncel AzCopy sürümünü diğer kaynaklar ve hedefler arasında eşitleme değil (örneğin: Dosya depolama veya Amazon Web Services (AWS) S3 demet).
+> Şu anda, bu senaryo, bir hiyerarşik ad alanı olmayan hesapları desteklenir. Güncel AzCopy sürümünü diğer kaynaklar ve hedefler arasında eşitleme değil (örneğin: Dosya depolama veya Amazon Web Services (AWS) S3 demet).
 
 `sync` Karşılaştırır, dosya adları ve zaman damgaları son değiştirme komutu. Ayarlama `--delete-destination` isteğe bağlı bayrak değerini `true` veya `prompt` dosyaları artık kaynak dizininde mevcutsa hedef dizinde dosyaları silmek için.
 
@@ -203,26 +203,24 @@ Ayarlarsanız `--delete-destination` bayrak `true` AzCopy bir istem sağlamadan 
 > [!NOTE]
 > Yanlışlıkla silinmekten önlemek için etkinleştirdiğinizden emin olun [geçici silme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) kullanmadan önce özellik `--delete-destination=prompt|true` bayrağı.
 
-### <a name="synchronize-a-container-to-a-local-file-system"></a>Yerel dosya sisteminde bir kapsayıcıya Eşitle
+### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Bir yerel dosya sistemine yapılan değişikliklerle bir kapsayıcıyı güncelleştir
 
-Bu durumda, yerel dosya sistemine kaynağı haline gelir ve hedef kapsayıcıdır.
+Bu durumda, hedef kapsayıcısıdır ve kaynak yerel dosya sistemidir.
 
 |    |     |
 |--------|-----------|
 | **Söz dizimi** | `azcopy sync "<local-directory-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
 | **Örnek** | `azcopy sync "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
-| **Örnek** (hiyerarşik ad alanı) | `azcopy sync "C:\myDirectory" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive` |
 
+### <a name="update-a-local-file-system-with-changes-to-a-container"></a>Bir kapsayıcıya değişikliklerle bir yerel dosya sistemi güncelleştirme
 
-### <a name="synchronize-a-local-file-system-to-a-container"></a>Bir kapsayıcıya yerel dosya sistemi Eşitle
-
-Bu durumda, kapsayıcı kaynağı haline gelir ve hedef yerel dosya sistemidir.
+Bu durumda, hedef yerel dosya sistemidir ve kapsayıcı bir kaynaktır.
 
 |    |     |
 |--------|-----------|
 | **Söz dizimi** | `azcopy sync "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" "C:\myDirectory" --recursive` |
 | **Örnek** | `azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
-| **Örnek** (hiyerarşik ad alanı) | `azcopy sync "https://mystorageaccount.dfs.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
+|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

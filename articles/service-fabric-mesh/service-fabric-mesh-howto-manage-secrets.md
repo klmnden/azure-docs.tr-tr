@@ -2,7 +2,7 @@
 title: Azure Service Fabric Mesh uygulama parolalarını yönetme | Microsoft Docs
 description: Uygulama gizli dizilerini güvenli bir şekilde oluşturabilir ve bir Service Fabric Mesh uygulaması dağıtma şekilde yönetin.
 services: service-fabric-mesh
-keywords: gizli dizi
+keywords: Gizli dizileri
 author: aljo-microsoft
 ms.author: aljo
 ms.date: 4/2/2019
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
 ms.openlocfilehash: 251611e814f890e3cebf0fda2d33ab548a8ff213
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506442"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh uygulama parolalarını yönetme

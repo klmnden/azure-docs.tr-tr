@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 48a84520a61d19968b467091871459e21898dd5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564251"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN ile geliştirmeye başlama
@@ -86,7 +86,7 @@ Son olarak, Metin Düzenleyicisi'ni kullanarak ve bir boş metin dosyası oluşt
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. Bizim yöntemleri kullanacaksınız bazı sabitleri tanımlamak ihtiyacımız var.  Aşağıdakileri ekleyin.  Dahil olmak üzere, yer tutucuları değiştirdiğinizden emin olun  **&lt;açılı ayraçlar&gt;**, gerektiğinde kendi değerlerinizle.
+2. Bizim yöntemleri kullanacaksınız bazı sabitleri tanımlamak ihtiyacımız var.  Aşağıdakileri ekleyin.  Dahil olmak üzere, yer tutucuları değiştirdiğinizden emin olun  **&lt;açılı ayraçlar&gt;** , gerektiğinde kendi değerlerinizle.
    
     ``` javascript
     //Tenant app constants
@@ -358,7 +358,7 @@ Artık, bir uç nokta ekleyelim.
 
 Son olarak, bizim profili şimdi silin.
 
-![Profili sil](./media/cdn-app-dev-node/cdn-delete-profile.png)
+![Profili Sil](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Bu kılavuz, tamamlanan projeden görmek için [örneği indirin](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).

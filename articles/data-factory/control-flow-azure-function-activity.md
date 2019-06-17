@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727041"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data factory'de bir Azure işlev etkinliği
@@ -41,13 +41,13 @@ Geçerli bir Azure işlev dönüş türü olan `JObject`. (Aklınızda [JArray](
 
 | **Özellik**  | **Açıklama** | **İzin verilen değerler** | **Gerekli** |
 | --- | --- | --- | --- |
-| ad  | İşlem hattındaki etkinliğin adı  | String | evet |
-| type  | 'AzureFunctionActivity' etkinlik türünde | String | evet |
+| name  | İşlem hattındaki etkinliğin adı  | String | evet |
+| türü  | 'AzureFunctionActivity' etkinlik türünde | String | evet |
 | Bağlı hizmet | Azure bağlantılı işlev hizmet için karşılık gelen Azure işlev uygulaması  | Bağlı hizmet başvurusu | evet |
 | İşlev adı  | Azure işlev uygulaması bu etkinlik çağıran işlevin adı | String | evet |
 | method  | İşlev çağrısı için REST API yöntemi | Dize türleri desteklenir: "POST", "PUT GET"   | evet |
 | üst bilgi  | Gönderilen istek için üstbilgiler. Örneğin, türü ve dili, bir istek üzerinde ayarlanan için: "üst": {"Accept-Language": "en-us", "Content-Type": "application/json"} | Dize (veya dizenin ifadenin resulttype'ı ile) | Hayır |
-| body  | işlev API yöntemi istekle birlikte gönderilen gövdesi  | Dize (veya dizenin ifadenin resulttype'ı ile) veya nesne.   | PUT/POST yöntemleri için gerekli |
+| Gövde  | işlev API yöntemi istekle birlikte gönderilen gövdesi  | Dize (veya dizenin ifadenin resulttype'ı ile) veya nesne.   | PUT/POST yöntemleri için gerekli |
 |   |   |   | |
 
 İstek yükü şemayı [istek yükü şeması](control-flow-web-activity.md#request-payload-schema) bölümü.

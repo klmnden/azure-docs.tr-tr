@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
 ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64916752"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
@@ -37,7 +37,7 @@ Ağ Performansı İzleyicisi üç geniş özellikleri sunar:
 
     Bu özellik HTTP, HTTPS, TCP ve ICMP, neredeyse gerçek zamanlı veya geçmişe dönük olarak kullanılabilirlik ve yanıt süresi hizmetinizin izlemek için temel testleri gerçekleştirmenize yardımcı olur. Ağ paket kaybı ve gecikme katkısını da izleyebilirsiniz. Bir ağ topolojisi haritası ile ağ yavaşlamaları ayırabilirsiniz. Ağ yol boyunca her atlama gecikme verileriyle hizmetine düğümden oluşan sorun noktaları belirleyebilirsiniz. Yerleşik testler ile Office 365 ve Dynamics CRM tüm önceden yapılandırma olmadan ağ bağlantısı izleyebilirsiniz. Bu özellik sayesinde, Web siteleri, SaaS uygulamaları, PaaS uygulamalarının ve SQL veritabanları gibi tüm TCP özellikli uç noktası için ağ bağlantısı izleyebilirsiniz.
 
-* [ExpressRoute İzleyicisi](network-performance-monitor-expressroute.md): Şubeleriniz ve Azure arasındaki uçtan uca bağlantıyı ve performansı Azure ExpressRoute üzerinden izleyin.  
+* [ExpressRoute İzleyicisi](network-performance-monitor-expressroute.md): Uçtan uca bağlantıyı ve performansı arasında şubeleriniz ve Azure, Azure ExpressRoute üzerinden izleyin.  
 
 Tarafından desteklenen çeşitli özellikler hakkında daha fazla bilgi [Ağ Performansı İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview) çevrimiçi kullanılabilir.
  

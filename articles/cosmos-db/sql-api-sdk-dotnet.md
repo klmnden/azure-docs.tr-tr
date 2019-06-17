@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
 ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510715"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB SQL API'si için .NET SDK: İndirme ve sürüm notları
@@ -39,7 +39,7 @@ ms.locfileid: "65510715"
 |**Web uygulaması Öğreticisi**|[Azure Cosmos DB ile Web uygulaması geliştirme](sql-api-dotnet-application.md)|
 |**Geçerli desteklenen çerçevesi**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
-## <a name="release-notes"></a>Sürüm Notları
+## <a name="release-notes"></a>Sürüm notları
 
 ### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
 * 1 önizlemesi [sürüm 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) genel önizlemesi için .NET SDK'sının.
@@ -196,10 +196,10 @@ ms.locfileid: "65510715"
 *   SDK'ın bazı performans iyileştirmeleri yapıldı.
 
 ### <a name="a-name11341134"></a><a name="1.13.4"/>1.13.4
-* 1.13.3 işlevsel olarak aynıdır. İç bazı değişiklikler yaptınız.
+* 1\.13.3 işlevsel olarak aynıdır. İç bazı değişiklikler yaptınız.
 
 ### <a name="a-name11331133"></a><a name="1.13.3"/>1.13.3
-* 1.13.2 işlevsel olarak aynıdır. İç bazı değişiklikler yaptınız.
+* 1\.13.2 işlevsel olarak aynıdır. İç bazı değişiklikler yaptınız.
 
 ### <a name="a-name11321132"></a><a name="1.13.2"/>1.13.2
 * Toplam sorgularında FeedOptions içinde sağlanan PartitionKey değeri yok sayıldı bir sorun düzeltildi.

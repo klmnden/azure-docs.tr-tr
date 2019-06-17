@@ -3,19 +3,19 @@ title: Konuşma kapsayıcılara yükleme
 titleSuffix: Azure Cognitive Services
 description: Yükleme ve konuşma kapsayıcıları çalıştırın. Konuşma metin, ses akışları gerçek zamanlı olarak, uygulamalar, Araçlar veya cihazları kullanma veya görüntüleme metne dönüştürür. Metin okuma, giriş metni İnsan benzeri Sentezlenen konuşmaya dönüştürür.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 763e7bc9298eee1ab602968360bbc79a58243e5b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 93ae5dd00a7be929f7aa4ac8c35a30b856f0b3ad
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752433"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072465"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Yükleme ve konuşma hizmeti kapsayıcıları çalıştırma
 
@@ -23,7 +23,7 @@ Konuşma kapsayıcıları hem güçlü bulut özellikleri hem de edge yerleşim 
 
 İki konuşma kapsayıcılardır **konuşma metin** ve **metin okuma**. 
 
-|İşlev|Özellikler|En son|
+|İşlev|Özellikler|en son|
 |-|-|--|
 |Konuşmayı Metne Dönüştürme| <li>Sürekli gerçek zamanlı konuşma veya toplu ses kayıtları Ara sonuçlarla metne dönüştürür.|1.1.1|
 |Metin Okuma| <li>Metni, doğal sesli konuşmaya dönüştürür. düz metin girişi veya konuşma sentezi işaretleme dili (SSML'yi). |1.1.0|
@@ -71,14 +71,13 @@ Aşağıdaki tabloda, en düşük ve önerilen CPU Çekirdeği ve her bir konuş
 
 * Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
 
-
 Çekirdek ve bellek karşılık `--cpus` ve `--memory` parçası olarak kullanılan ayarları `docker run` komutu.
 
-**Not**; En düşük ve önerilen Docker sınırları dışına dayalı *değil* ana makine kaynakları. Örneğin, büyük dil modeli ve konuşma metin kapsayıcıları bellek eşlemesi bölümleri olan _önerilen_ dosyanın tamamı bir ek 4-6 GB bellekte uyar. Ayrıca, ilk çalıştırma ya da kapsayıcının belleğe modelleri havuzda olduğundan daha uzun sürebilir.
+**Not**; En düşük ve önerilen Docker sınırları dışına dayalı *değil* ana makine kaynakları. Örneğin, büyük dil modeli ve konuşma metin kapsayıcıları bellek eşlemesi bölümleri olan _önerilen_ dosyanın tamamı bir ek 4-6 GB bellekte uyar. Ayrıca, belleğe modelleri havuzda olduğundan ya da kapsayıcı ilk çalışması daha uzun sürebilir.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>İle kapsayıcı görüntüsünü Al `docker pull`
 
-Kapsayıcı görüntülerini konuşma için kullanılabilir. 
+Kapsayıcı görüntülerini konuşma için kullanılabilir.
 
 | Kapsayıcı | Havuz |
 |-----------|------------|
@@ -89,7 +88,7 @@ Kapsayıcı görüntülerini konuşma için kullanılabilir.
 
 ### <a name="language-locale-is-in-container-tag"></a>Kapsayıcı etikettir içinde dil yerel ayar
 
-`latest` Etiketi çeken `en-us` yerel ayar ve `jessarus` ses. 
+`latest` Etiketi çeken `en-us` yerel ayar ve `jessarus` ses.
 
 #### <a name="speech-to-text-locales"></a>Konuşma metin yerel ayarlar
 
@@ -118,7 +117,6 @@ Aşağıdaki tabloda desteklenen yerel ayarlar için **konuşma metin** 1.1.1, k
 |Korece|`ko-kr`|
 |Portekizce|`pt-br`|
 |İspanyolca|`es-es`<br>`es-mx`|
-
 
 #### <a name="text-to-speech-locales"></a>Metin okuma yerel ayarlar
 
@@ -171,8 +169,8 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 Kapsayıcı açıldığında [ana bilgisayar](#the-host-computer), kapsayıcı ile çalışmak için aşağıdaki işlemi kullanın.
 
-1. [Kapsayıcıyı çalıştırmak](#run-the-container-with-docker-run), gerekli, ancak kullanılmadı faturalama ayarları. Daha fazla [örnekler](speech-container-configuration.md#example-docker-run-commands) , `docker run` komutu kullanılabilir. 
-1. [Kapsayıcının tahmini uç nokta sorgu](#query-the-containers-prediction-endpoint). 
+1. [Kapsayıcıyı çalıştırmak](#run-the-container-with-docker-run), gerekli, ancak kullanılmadı faturalama ayarları. Daha fazla [örnekler](speech-container-configuration.md#example-docker-run-commands) , `docker run` komutu kullanılabilir.
+1. [Kapsayıcının tahmini uç nokta sorgu](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Kapsayıcı ile çalıştırma `docker run`
 
@@ -194,7 +192,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 ### <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
@@ -204,7 +202,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 Bu komut:
@@ -212,7 +210,7 @@ Bu komut:
 * Bir konuşma kapsayıcı kapsayıcı görüntüsünü çalıştırır.
 * 2 CPU Çekirdeği ve 2 gigabayt (GB) bellek ayırır.
 * 5000 numaralı TCP bağlantı noktasını kullanıma sunar ve sahte TTY için kapsayıcı ayırır.
-* Bunu çıktıktan sonra kapsayıcı otomatik olarak kaldırır. Kapsayıcı görüntüsü ana bilgisayarda kullanılabilir durumda kalır. 
+* Bunu çıktıktan sonra kapsayıcı otomatik olarak kaldırır. Kapsayıcı görüntüsü ana bilgisayarda kullanılabilir durumda kalır.
 
 > [!IMPORTANT]
 > `Eula`, `Billing`, Ve `ApiKey` kapsayıcıyı çalıştırmak için seçenekler belirtilmelidir; Aksi takdirde, kapsayıcı başlatılamıyor.  Daha fazla bilgi için [faturalama](#billing).
@@ -241,7 +239,9 @@ var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRe
 Bu çağrı, kapsayıcı uç noktasını kullanarak:
 
 ```C#
-var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1", "YourSubscriptionKey");
+var config = SpeechConfig.FromEndpoint(
+    new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
+    "YourSubscriptionKey");
 ```
 
 #### <a name="for-python"></a>Python için
@@ -262,9 +262,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 Kapsayıcı REST uç noktasını bulunabilir API'leri sağlar [burada](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) ve örnekler bulunabilir [burada](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
-
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
-
 
 ## <a name="stop-the-container"></a>Kapsayıcı Durdur
 
@@ -272,11 +270,11 @@ Kapsayıcı REST uç noktasını bulunabilir API'leri sağlar [burada](https://d
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Kapsayıcı çalıştırdığınızda, kapsayıcının kullanan **stdout** ve **stderr** başlatılıyor veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan çıkış bilgiler. 
+Kapsayıcı çalıştırdığınızda, kapsayıcının kullanan **stdout** ve **stderr** başlatılıyor veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan çıkış bilgiler.
 
 ## <a name="billing"></a>Faturalandırma
 
-Azure için fatura, kullanarak konuşma kapsayıcıları Gönder bir _konuşma_ Azure hesabınız kaynaktaki. 
+Azure için fatura, kullanarak konuşma kapsayıcıları Gönder bir _konuşma_ Azure hesabınız kaynaktaki.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

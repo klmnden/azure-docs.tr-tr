@@ -9,10 +9,10 @@ ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506965"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz yenileme
@@ -100,8 +100,8 @@ Parametreleri belirterek, gerekli değildir. Varsayılan olarak uygulanır.
 
 | Ad             | Tür  | Açıklama  |Varsayılan  |
 |------------------|-------|--------------|---------|
-| `Type`           | Sabit listesi  | İşlem türü. Türleri ile TMSL hizalanır [Yenile komut](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) türleri: tam, clearValues, dataOnly, otomatik, hesaplama ve birleştirin. Ekleme türü desteklenmiyor.      |   Otomatik      |
-| `CommitMode`     | Sabit listesi  | Nesneleri yalnızca tamamlandığında veya toplu kaydedilmiş olup olmayacağını belirler. Modları içerir: varsayılan, işlem partialBatch.  |  işlem       |
+| `Type`           | Enum  | İşlem türü. Türleri ile TMSL hizalanır [Yenile komut](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) türleri: tam, clearValues, dataOnly, otomatik, hesaplama ve birleştirin. Ekleme türü desteklenmiyor.      |   Otomatik      |
+| `CommitMode`     | Enum  | Nesneleri yalnızca tamamlandığında veya toplu kaydedilmiş olup olmayacağını belirler. Modları içerir: varsayılan, işlem partialBatch.  |  işlem       |
 | `MaxParallelism` | Int   | Bu değer, iş parçacıkları, paralel olarak işleme komutları çalıştırmak en fazla sayısını belirler. Bu değer hizalı TMSL ayarlanabilir MaxParallelism özelliği ile [Sequence komutu](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) veya diğer yöntemleri kullanarak.       | 10        |
 | `RetryCount`     | Int   | İşlem başarısız olmadan önce yeniden denenme sayısını gösterir.      |     0    |
 | `Objects`        | Dizi | İşlenecek nesne dizisi. Her bir nesne içerir: "Tablo" tüm tablo ya da "Tablo" ve "Bölüm" bölümü işlenirken işlerken. Nesne yok belirtilirse, modelin tamamını yenilenir. |   İşlem tüm modeli      |
@@ -189,7 +189,7 @@ Değerleri `syncstate`:
 - 0: Çoğaltılıyor. Veritabanı dosyaları hedef klasöre çoğaltılır.
 - 1: Dolduruluyor. Veritabanı salt okunur server örnekleri üzerinde rehydrated.
 - 2: Tamamlandı. Eşitleme işlemi başarıyla tamamlandı.
-- 3: Başarısız. Eşitleme işlemi başarısız oldu.
+- 3: Başarısız oldu. Eşitleme işlemi başarısız oldu.
 - 4: Sonlandırılıyor. Eşitleme işlemi tamamlandı ancak temizleme adımları gerçekleştiriyor.
 
 ## <a name="code-sample"></a>Kod örneği

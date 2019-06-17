@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: adsolank;juliako;
 ms.openlocfilehash: 304ecda320e1fdd9573bc961fde74efe03400aa3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712961"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure Media Indexer 2 Önizleme ile medya dosyalarının dizinini oluşturarak
@@ -43,7 +43,7 @@ Bu makalede, ilgili ayrıntıları verir. **Azure Media Indexer 2 Önizleme** ve
 ### <a name="input-files"></a>Giriş dosyaları
 Ses veya video dosyaları
 
-### <a name="output-files"></a>Çıkış dosyaları
+### <a name="output-files"></a>Çıktı dosyaları
 Bir dizin oluşturma işi kapalı açıklamalı alt yazı dosyaları aşağıdaki biçimlerde oluşturabilirsiniz:  
 
 * **SAMI**

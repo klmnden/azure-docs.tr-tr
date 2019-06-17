@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 5a3724729f85b7917b1559ce2ac3d859881e0de8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935134"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Bulut iş ortağı portalında kullanıcıları yönetme
@@ -22,17 +22,17 @@ Bulut iş ortağı portalı sanal makine teklifler için rol tabanlı erişimi o
 
 İçin **kullanıcı eklemesini ve rol atamasını** teklifi yayımlama için aşağıdaki adımları izleyin:
 
-<a name="step-1-to-add-users-and-assign-roles-click-the-users-tab-on-the-left-side-navigation-pane"></a>1. Adım Kullanıcı ekleme ve rolleri atamak için sol tarafındaki gezinti bölmesinde kullanıcılar sekmesine tıklayın.
+<a name="step-1-to-add-users-and-assign-roles-click-the-users-tab-on-the-left-side-navigation-pane"></a>1\.Adım Kullanıcı ekleme ve rolleri atamak için sol tarafındaki gezinti bölmesinde kullanıcılar sekmesine tıklayın.
 --------------------------------------------------------------------------------------------
 
 ![Kullanıcılar sekmesine](./media/cloud-partner-portal-how-to-manage-users/userstab.png)
 
-<a name="step-2-click-add-user"></a>2. Adım Kullanıcı Ekle seçeneğine tıklayın.
+<a name="step-2-click-add-user"></a>2\.Adım Kullanıcı Ekle seçeneğine tıklayın.
 -----------------------
 
 ![Kullanıcı Ekle seçeneğini belirleme](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
 
-<a name="step-3-type-email-address-and-select-a-role-assignment"></a>3. Adım E-posta adresini yazın ve bir rol atamasını seçin.
+<a name="step-3-type-email-address-and-select-a-role-assignment"></a>Adım 3. E-posta adresini yazın ve bir rol atamasını seçin.
 --------------------------------------------------------
 
 Yeni bir kullanıcı bir 'owner' veya 'katkıda bulunan' olarak ekleyebilirsiniz.
@@ -50,7 +50,7 @@ o kimlikleri bulut iş ortağı portalında sağlanan Microsoft gelen tüm ileti
 
 Şu anda yalnızca sahipler Insights Azure ödeme ve Azure müşteri sekmeleri erişebilirsiniz.
 
-<a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>4. Adım. Daha sonra kullanıcı ekleme tamamlamak için Ekle'yi tıklatın yeni kullanıcıyı eklemek istediğiniz yayımcı adını seçin.
+<a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>4\. adımı. Daha sonra kullanıcı ekleme tamamlamak için Ekle'yi tıklatın yeni kullanıcıyı eklemek istediğiniz yayımcı adını seçin.
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]

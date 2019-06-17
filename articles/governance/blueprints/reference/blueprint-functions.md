@@ -8,10 +8,10 @@ ms.topic: reference
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209425"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>İşlevler Azure şemaları ile kullanmak için
@@ -200,7 +200,7 @@ Ardından _principalIds_ bağımsız değişkeni olarak `parameters()` blueprint
 }
 ```
 
-## <a name="resourcegroup"></a>resourceGroup
+## <a name="resourcegroup"></a>Kaynak grubu
 
 `resourceGroup()`
 
@@ -324,7 +324,7 @@ Ardından `resourceGroups()` kaynak grubu yer tutucu nesnesine bir başvuru alma
 }
 ```
 
-## <a name="subscription"></a>abonelik
+## <a name="subscription"></a>aboneliği
 
 `subscription()`
 

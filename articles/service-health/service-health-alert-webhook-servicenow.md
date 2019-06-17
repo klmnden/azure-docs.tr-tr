@@ -1,23 +1,24 @@
 ---
-title: Azure hizmet durumu uyarıları ServiceNow ile yapılandırma | Microsoft Docs
+title: Azure hizmet durumu uyarıları ile Web kancalarını kullanan ServiceNow Gönder
 description: ServiceNow Örneğinize hizmet durumu olayları hakkında Kişiselleştirilmiş bildirimler alın.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: f17215a5695128bf2ea507efa0c12fdbba9467d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: e32a32e4961043e0cd967247c8c13420ca8a1969
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067113"
 ---
-# <a name="configure-service-health-alerts-with-servicenow"></a>ServiceNow ile hizmet sistem durumu uyarılarını yapılandırma
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Azure hizmet durumu uyarıları ile Web kancalarını kullanan ServiceNow Gönder
 
 Bu makalede, Azure hizmet durumu uyarıları ServiceNow ile tümleştirmek Web kancası kullanarak gösterilmektedir. Azure hizmet sorunlardan etkilendiğiniz durumlar Web kancası Tümleştirmesi ile ServiceNow Örneğinize kurduktan sonra uyarı mevcut bildirim altyapınızın alın. Bir Azure hizmet durumu uyarısı tetikler her seferinde, ServiceNow'ın Script REST API aracılığıyla bir Web kancası çağırır.
 
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Servicenow'ı içinde simgeleştirilmiş bir REST API'si oluşturma
+
 1.  Kaydolup ve oturum açmış emin olun, [ServiceNow](https://www.servicenow.com/) hesabı.
 
 1.  Gidin **System Web Hizmetleri** servicenow'ı seçip alt bölümünde **Script REST API'leri**.

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e8a68ca87307e1265c200f2e05464ff87983c1e6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 450e3b0a25f4be90aea26adfd4c35efc3077af57
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258417"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071382"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob depolamaya giriş
 
@@ -29,7 +29,7 @@ BLOB Depolama üç tür kaynak sunar:
 
 Aşağıdaki diyagramda bu kaynaklar arasındaki ilişki gösterilmektedir.
 
-![Blob Depolama mimarisi diyagramı](./media/storage-blob-introduction/blob1.png)
+![Hesap Blob kapsayıcı kaynak arasındaki ilişki](./media/storage-blob-introduction/blob1.png)
 
 ### <a name="storage-accounts"></a>Depolama hesapları
 

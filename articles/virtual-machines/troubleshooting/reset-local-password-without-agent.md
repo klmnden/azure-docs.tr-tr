@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
 ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708135"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Azure VM için çevrimdışı ile yerel Windows parola sıfırlama
@@ -69,7 +69,7 @@ Kullanarak parolalarını sıfırlamak her zaman deneyin [Azure portal veya Azur
    
    * Azure Portalı'nda sorun giderme sanal Makineyi seçin. Tıklayın *diskleri* | *iliştirme varolan*:
      
-     ![Var olan bir diski ekle](./media/reset-local-password-without-agent/disks_attach_existing.png)
+     ![Var olan bir diski kullanıma açın](./media/reset-local-password-without-agent/disks_attach_existing.png)
      
      Seçin *VHD dosyasını* ve kaynak VM'NİZİN içeren depolama hesabı seçin:
      
@@ -133,7 +133,7 @@ Kullanarak parolalarını sıfırlamak her zaman deneyin [Azure portal veya Azur
    * Azure Portalı'nda sorun giderme sanal makinesi seçin, *diskleri*.
    * Veri diski, 2. adımda eklenen seçin *ayırma*:
      
-     ![Diski kullanımdan çıkar](./media/reset-local-password-without-agent/detach_disk.png)
+     ![Disk ayırma](./media/reset-local-password-without-agent/detach_disk.png)
 8. VM oluşturmadan önce kaynak işletim sistemi diski için URI alın:
    
    * Azure portalında depolama hesabı seçin, *Blobları*.

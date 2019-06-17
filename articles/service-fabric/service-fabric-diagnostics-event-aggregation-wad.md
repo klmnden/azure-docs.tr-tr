@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: 641f9150d1135f4f214038150b95b6691a37ecc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393342"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyon
@@ -213,7 +213,7 @@ Diğer kanalları günlüklerinden de koleksiyonu için kullanılabilir olan, Az
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Veri ve ileti kanalı - oluşturun: Kritik günlükleri ve (şu anda yalnızca ReverseProxy) Mesajlaşma ve veri yolu, ayrıntılı işlevsel kanal günlüklerine ek olarak oluşturulan olayları. Bu, işlenen isteklerin yanı sıra, istek hataları ve diğer kritik sorunları Reverseproxy'ye işleme olaylardır. **Bu kapsamlı günlüğe kaydetme için Bizim önerimiz,**. Visual Studio Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000010" ETW sağlayıcıları listesi.
+* Veri ve ileti kanalı - oluşturun: Kritik günlükleri ve (şu anda yalnızca ReverseProxy) Mesajlaşma ve veri yolu, ayrıntılı işlevsel kanal günlüklerine ek olarak oluşturulan olayları. Bu, işlenen isteklerin yanı sıra, istek hataları ve diğer kritik sorunları Reverseproxy'ye işleme olaylardır. **Bu kapsamlı günlüğe kaydetme için Bizim önerimiz,** . Visual Studio Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000010" ETW sağlayıcıları listesi.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"

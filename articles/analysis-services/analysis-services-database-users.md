@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023640"
 ---
 # <a name="manage-database-roles-and-users"></a>Veritabanı rolleri ve kullanıcıları yönetme
@@ -134,7 +134,7 @@ Bir tablodaki satırları belirli bir rolü üyeleri tarafından sorgulanabilir 
   
 Satır filtreleri, yalnızca rolleri okuma ve okuma için tanımlanabilir ve işlem izinleri. Belirli bir tablo için bir satır filtresi tanımlanmazsa başka bir tablodan çapraz filtreleme uygulanır sürece varsayılan olarak, tablodaki tüm satırları üyeleri sorgulayabilirsiniz.
   
- Satır filtreleri, belirli bir rolü üyeleri tarafından sorgulanabilir satırları tanımlamak için bir TRUE/FALSE değeri değerlendirilmelidir bir DAX formülü gerektirir. DAX formülü bulunmayan satırları sorgulanamıyor. Örneğin, aşağıdaki satır ile Müşteriler tablosunu ifadeyi filtreler *müşteriler [Country] = "ABD" =*, satış rolünün üyeleri, yalnızca ABD müşterileri görebilir.  
+ Satır filtreleri, belirli bir rolü üyeleri tarafından sorgulanabilir satırları tanımlamak için bir TRUE/FALSE değeri değerlendirilmelidir bir DAX formülü gerektirir. DAX formülü bulunmayan satırları sorgulanamıyor. Örneğin, aşağıdaki satır ile Müşteriler tablosunu ifadeyi filtreler *müşteriler [Country] = "ABD" =* , satış rolünün üyeleri, yalnızca ABD müşterileri görebilir.  
   
 Satır filtreleri belirtilen satırları ve ilişkili satırları uygulanır. Bir tabloda birden çok ilişki varsa, güvenlik etkin ilişki için filtre uygulayın. Satır filtreleri ilişkili tablolar için örneğin tanımlanan diğer satır filtreleri ile kesiştiğinden:  
   

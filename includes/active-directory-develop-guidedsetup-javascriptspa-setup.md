@@ -14,49 +14,49 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: a00bc7a05af9e329494a11f9bee444827cbebf38
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5ce0f18c1ec7a0fcb6465ab20e774976552687f1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121764"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67132984"
 ---
-## <a name="setting-up-your-web-server-or-project"></a>Web sunucunuzda veya proje ayarlama
+## <a name="set-up-your-web-server-or-project"></a>Web sunucusu veya proje ayarlama
 
-> Bunun yerine bu örneği ait projeyi indirmek tercih ediyorsunuz?
-> - [Proje dosyalarını indirme](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) düğüm gibi bir yerel web sunucusu ile çalıştırmak için
+> Bunun yerine bu örneği ait projeyi indirmek tercih ediyorsunuz? Aşağıdakilerden birini yapın:
+> 
+> - Node.js gibi bir yerel web sunucusu ile projeyi çalıştırmak için [proje dosyalarını indirme](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
-> veya
-> - (İsteğe bağlı) [Visual Studio projeyi indirmek](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip) IIS sunucusu ile çalıştırmak için
+> - (İsteğe bağlı) IIS sunucusu ile projeyi çalıştırmak için [Visual Studio projeyi indirmek](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
 >
-> Ve ardından atlamak [yapılandırma adımı](#register-your-application) çalıştırmadan önce kodu örneği yapılandırmak için.
+> Ve ardından, yürütmeden önce onun kod örneği yapılandırmak için atlamak [yapılandırma adımı](#register-your-application).
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bir yerel web sunucusu gibi [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), ya da IIS Express tümleştirmesiyle [Visual Studio 2017](https://www.visualstudio.com/downloads/) Bu öğretici çalıştırmak için gereklidir.
 
-Projeyi çalıştırmak için node.js kullanarak, bir IDE gibi yükleyin [Visual Studio Code](https://code.visualstudio.com/download) proje dosyalarını düzenlemek için.
+* Bu öğreticide çalıştırmak için bir yerel web sunucusu aşağıdaki gibi ihtiyacınız [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), ya da IIS Express tümleştirmesiyle [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
-Bu kılavuzdaki yönergelere hem Node.js hem de Visual Studio 2017'yi temel alır, ancak herhangi bir geliştirme ortamı veya Web sunucusu kullanmaktan çekinmeyin.
+* Projeyi çalıştırmak için Node.js kullanıyorsanız, bir tümleşik geliştirme ortamı (IDE) gibi yükleyen [Visual Studio Code](https://code.visualstudio.com/download), proje dosyalarını düzenlemek için.
+
+* Bu kılavuzdaki yönergelere Node.js hem Visual Studio 2017'yi temel alır, ancak herhangi bir geliştirme ortamı veya web sunucusu kullanabilirsiniz.
 
 ## <a name="create-your-project"></a>Kendi projenizi oluşturun
 
-> ### <a name="option-1-node-other-web-servers"></a>1. seçenek: Düğüm / diğer web sunucuları
-> Yüklediğinizden emin olun [Node.js](https://nodejs.org/en/download/), ardından aşağıdaki adımları izleyin:
+> ### <a name="option-1-nodejs-or-other-web-servers"></a>1\. seçenek: Node.js veya diğer web sunucuları
+> Yüklediğinizden emin olun [Node.js](https://nodejs.org/en/download/), ve ardından aşağıdakileri yapın:
 > - Uygulamanızı barındırmak için bir klasör oluşturun.
+>
+> ### <a name="option-2-visual-studio"></a>2\. seçenek: Visual Studio
+> Visual Studio kullanıyorsanız ve yeni bir proje oluşturuyorsanız, aşağıdakileri yapın:
+> 1. Visual Studio'da **dosya** > **yeni** > **proje**.
+> 1. **Visual C#\Web** bölümünde **ASP.NET Web Uygulaması (.NET Framework)** girişini seçin.
+> 1. Uygulamanız için bir ad girin ve ardından **Tamam**.
+> 1. Altında **yeni ASP.NET Web uygulaması**seçin **boş**.
 
-<p><!-- -->
+## <a name="create-the-spa-ui"></a>SPA kullanıcı Arabirimi oluşturma
+1. Oluşturma bir *index.html* , JavaScript SPA'ya dosyası. Visual Studio kullanıyorsanız, proje (projenin kök klasöründe), sütuna sağ tıklayıp seçin **Ekle** > **yeni öğe** > **HTML sayfası**, ve Dosya adı *index.html*.
 
-> ### <a name="option-2-visual-studio"></a>2. seçenek: Visual Studio
-> Visual Studio kullanarak ve yeni bir proje oluşturuyorsanız, yeni bir Visual Studio çözümü oluşturmak için aşağıdaki adımları izleyin:
-> 1.    Visual Studio'da:  **Dosya > Yeni > Proje**
-> 2.    Altında **Visual C# \Web**seçin **ASP.NET Web uygulaması (.NET Framework)**
-> 3.    Uygulamanız için bir ad girin ve seçin **Tamam**
-> 4.    Altında **yeni ASP.NET Web uygulaması**seçin **boş**
+1. İçinde *index.html* dosyasında, aşağıdaki kodu ekleyin:
 
-## <a name="create-your-single-page-applications-ui"></a>Tek sayfalı uygulamanızın kullanıcı Arabirimi oluşturma
-1. Oluşturma bir `index.html` , JavaScript SPA'ya dosyası. Visual Studio kullanıyorsanız, ' % s'projesi (projenin kök klasöründe) seçin, sağ tıklatın ve seçin: **Ekle > Yeni Öğe > HTML sayfasını** index.html adlandırın.
-
-2. Sayfanız için aşağıdaki kodu ekleyin:
    ```html
    <!DOCTYPE html>
    <html>
@@ -78,4 +78,4 @@ Bu kılavuzdaki yönergelere hem Node.js hem de Visual Studio 2017'yi temel alı
    ```
 
    > [!TIP]
-   > Altında yayımlanan en son sürüm ile betik yukarıda MSAL.js sürümünü değiştirebilirsiniz [MSAL.js sürümleri](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
+   > Önceki komut MSAL.js sürümünde altında yayımlanan en son sürümle değiştirebilirsiniz [MSAL.js sürümleri](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).

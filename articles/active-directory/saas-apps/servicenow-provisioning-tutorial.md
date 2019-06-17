@@ -17,10 +17,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19b3e4cc5ba4bc0173721947bd1e1a680ca7b3a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60869851"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için servicenow'ı yapılandırma
@@ -75,7 +75,7 @@ Bu bölümde, Azure AD sağlama API'si ServiceNow'ın kullanıcı hesabına bağ
 
 1. Ayarlama **sağlama** moduna **otomatik**. 
 
-    ![sağlama](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![Sağlama](./media/servicenow-provisioning-tutorial/provisioning.png)
 
 1. Yönetici kimlik bilgileri bölümü altında aşağıdaki adımları gerçekleştirin:
    

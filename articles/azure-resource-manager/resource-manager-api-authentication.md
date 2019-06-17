@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 04/05/2019
 ms.author: dugill
 ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61063301"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Aboneliklere erişmek için Kaynak Yöneticisi'ni kullanın kimlik doğrulama API'si
@@ -65,7 +65,7 @@ Bağlı aboneliklerinizi yönetin:
 
 ![Abonelik'e bağlanma](./media/resource-manager-api-authentication/sample-ux-7.png)
 
-## <a name="register-application"></a>Uygulamayı kaydet
+## <a name="register-application"></a>Uygulamayı kaydetme
 Kodlama başlamadan önce web uygulamanızı Azure Active Directory (AD ile) kaydedin. Uygulama kaydı, Azure AD'de uygulamanız için merkezi bir kimliği oluşturur. Bu, uygulamanız OAuth istemci kimliği ve yanıt URL'leri, uygulamanızın kimlik doğrulaması ve Azure Resource Manager API'lerine erişmek için kullandığı kimlik bilgileri gibi ilgili temel bilgileri tutar. Uygulama kaydı için kullanıcının Microsoft APIs erişirken uygulamanızın çeşitli temsilci izinleri de kaydeder.
 
 Uygulamanızı kaydetmek için bkz: [hızlı başlangıç: Microsoft kimlik platformu bir uygulamayı kaydetme](../active-directory/develop/quickstart-register-app.md). Uygulamanıza bir ad verin ve seçin **herhangi bir kuruluş dizini hesaplarında** desteklenen hesap türleri için. Azure Active Directory ile ilişkili bir etki alanı yeniden yönlendirme URL'sini sağlayın.
@@ -287,11 +287,11 @@ Yaygın olarak kullanılan yerleşik roller tanımlayıcıların şunlardır:
 | --- | --- |
 | Okuyucu |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | Katılımcı |b24988ac-6180-42a0-ab88-20f7382dd24c |
-| Sanal Makine Katılımcısı |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+| Sanal makine Katılımcısı |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Sanal ağ Katılımcısı |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
-| Depolama Hesabı Katılımcısı |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
-| Web Sitesi Katılımcısı |de139f84-1756-47ae-9be6-808fbbe84772 |
-| Web Planı Katılımcısı |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+| Depolama hesabı Katılımcısı |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
+| Web sitesi Katılımcısı |de139f84-1756-47ae-9be6-808fbbe84772 |
+| Web planı Katılımcısı |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 | SQL Server Katılımcısı |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
 | SQL DB Katılımcısı |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28277f61885b574026b19305bef143f09e0ec69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9f6cdc782f091709ed00358dd309e9fd4ccfd0eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785224"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807699"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 dış paylaşım ve Azure Active Directory B2B işbirliği
 
@@ -32,7 +32,7 @@ OneDrive/SharePoint Online ayrı davet manager vardır. Dış OneDrive/SharePoin
 
 - Azure AD B2B işbirliği davet edilen kullanıcıların OneDrive/SharePoint Online'dan iletişim kutuları paylaşımı çekilebilir. Davet OneDrive/SharePoint Online kullanıcıları Ayrıca bunlar davetlerini pass'inizi sonra Azure AD'de gösterilir.
 
-- Lisanslama gereksinimleri farklılık gösterir. Her Ücretli Azure AD lisansı için en fazla 5 Konuk kullanıcı, ücretli erişim sağlayabilirsiniz. Azure AD özellikleri. Lisanslama hakkında daha fazla bilgi için bkz: [Azure AD B2B lisansı](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) ve ["Bir dış kullanıcının SharePoint Online'da paylaşmaya genel bakış dış nedir?"](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-is-an-external-user).
+- Lisanslama gereksinimleri farklılık gösterir. Her Ücretli Azure AD lisansı için en fazla 5 Konuk kullanıcı, ücretli erişim sağlayabilirsiniz. Azure AD özellikleri. Lisanslama hakkında daha fazla bilgi için bkz: [Azure AD B2B lisansı](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) ve ["Bir dış kullanıcının SharePoint Online'da paylaşmaya genel bakış dış nedir?"](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-happens-when-users-share).
 
 Dış OneDrive/SharePoint Online ile Azure AD B2B işbirliği paylaşımını yönetmek için OneDrive/SharePoint Online dış ayarına paylaşımı ayarlama **izin vermek kuruluşunuzun zaten yalnızca dış kullanıcılarla paylaşma Dizin**. Kullanıcılar, harici olarak paylaşılan sitelerine gidin ve yönetici eklemiştir dış ortak çalışanlar ' ı seçin. Yönetici, dış ortak çalışanlar B2B işbirliği davet API'leri aracılığıyla ekleyebilirsiniz.
 

@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
 ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190045"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure dosyaları performans sorunlarını giderme
@@ -21,7 +21,7 @@ Premium Azure dosya paylaşımları (Önizleme) ilgili bazı yaygın sorunlar bu
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Yüksek gecikme süresi, aktarım hızının düşük olmasını ve genel performans sorunları
 
-### <a name="cause-1-share-experiencing-throttling"></a>1. neden: Yaşayan azaltma paylaşın
+### <a name="cause-1-share-experiencing-throttling"></a>1\. neden: Yaşayan azaltma paylaşın
 
 Bir paylaşımı varsayılan kota (en fazla 300 veri bloğu için bir saat için olası) ile 100 temel IOPS sağlar 100 GiB ' dir. Sağlama ve IOPS ilişkisini hakkında daha fazla bilgi için bkz. [sağlanan paylaşımlar](storage-files-planning.md#provisioned-shares) Planlama Kılavuzu'nun bölümü.
 
@@ -47,7 +47,7 @@ Paylaşımınızın kısıtlanan, onaylamak için portalda Azure ölçümleri ya
 
 - Artış, paylaşımında daha yüksek bir kota belirterek sağlanan kapasiteyi paylaşın.
 
-### <a name="cause-2-metadatanamespace-heavy-workload"></a>2. neden: Meta veri/ad alanı ağır iş yükü
+### <a name="cause-2-metadatanamespace-heavy-workload"></a>2\. neden: Meta veri/ad alanı ağır iş yükü
 
 İsteklerinizin çoğunu ise meta veri merkezli (createfile/openfile/closefile/QueryInfo/querydirectory gibi) sonra gecikme süresini okuma/yazma işlemleri için karşılaştırıldığında daha zayıf olur.
 
@@ -55,11 +55,11 @@ Paylaşımınızın kısıtlanan, onaylamak için portalda Azure ölçümleri ya
 
 ![Ölçümlerinizin API adı için filtre](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 - Uygulama meta veri işlemi sayısını azaltmak için değiştirilip değiştirilmediğini denetleyin.
 
-### <a name="cause-3-single-threaded-application"></a>3. neden: Tek iş parçacıklı uygulama
+### <a name="cause-3-single-threaded-application"></a>3\. neden: Tek iş parçacıklı uygulama
 
 Müşteri tarafından kullanılmakta olan uygulamasının tek iş parçacıklı ise, bu önemli ölçüde daha düşük IOPS/işleme, sağlanan paylaşım boyutuna göre mümkün olan en yüksek değerinden neden olabilir.
 
@@ -82,7 +82,7 @@ Müşteri tarafından kullanılmakta olan uygulamasının tek iş parçacıklı 
 
 Olası bir nedeni, yetersiz olduğunu fo SMB çok kanal desteği. Şu anda, Azure dosya paylaşımları, yalnızca VM istemciden sunucuya yalnızca bir bağlantı olduğundan tek bir kanal destekler. Bir çekirdek tarafından ulaşılabilir bir VM'den en yüksek aktarım bağlı şekilde tek Bu bağlantı tek bir çekirdek VM, istemci üzerinde pegged.
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 - Bir VM ile daha büyük bir çekirdek edinme, aktarım hızını artırmanıza yardımcı olabilir.
 - İstemci uygulamasını çalıştıran birden fazla VM'den aktarım hızı artar.
@@ -94,7 +94,7 @@ Olası bir nedeni, yetersiz olduğunu fo SMB çok kanal desteği. Şu anda, Azur
 
 Bu, Linux üzerinde SMB istemci uygulama ile bilinen bir sorundur.
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 - Yükü birden çok VM arasında yayılabilir.
 - Aynı VM'de ile birden çok bağlama noktaları kullanan **nosharesock** seçeneği ve yayılan yük boyunca bu bağlama noktaları.
@@ -105,7 +105,7 @@ Bu, Linux üzerinde SMB istemci uygulama ile bilinen bir sorundur.
 
 Dizin kiralama desteği eksikliği.
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 - Mümkünse, kısa bir süre içinde aynı dizine aşırı açma/kapatma tutamacı kaçının.
 - Linux VM'ler için dizin girişi önbellek zaman aşımı belirterek artırmak **actimeo =<sec>**  bağlama seçeneği olarak. Üç veya beş gibi daha büyük bir değer yardımcı olabilecek şekilde varsayılan olarak, bir saniye olan.
@@ -117,7 +117,7 @@ Dizin kiralama desteği eksikliği.
 
 Birden fazla g/ç derinliği CentOS/RHEL üzerinde desteklenmiyor.
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 - CentOS 8 yükseltme / RHEL 8.
 - Ubuntu için değiştirin.
@@ -128,7 +128,7 @@ Birden fazla g/ç derinliği CentOS/RHEL üzerinde desteklenmiyor.
 
 İstemci uygulama, temel IOPS sürekli olarak aşıyor. Şu anda hiçbir hizmet tarafı yoktur istek yükünü düzgünleştirme, bu nedenle istemci IOPS, temel aşarsa, kısıtlanan hizmet tarafından. Bu kısıtlama dalgalanmalara/saw-tooth IOPS desen karşılaşan istemci neden olabilir. Bu durumda, istemci tarafından gerçekleştirilen ortalama IOPS, temel IOPS daha düşük olabilir.
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 - Paylaşım yok kısıtlanmazsınız böylece istemci uygulamadan istek yükünü azaltın.
 - Böylece paylaşımı olmayan kısıtlanmazsınız paylaşımının kotasını artırın.
@@ -139,7 +139,7 @@ Birden fazla g/ç derinliği CentOS/RHEL üzerinde desteklenmiyor.
 
 Varsa DirectoryOpen/DirectoryClose çağrılarının sayısı arasında ilk API çağrıları ve birçok çağrı, Azure VM istemcide yüklü virüsten koruma ile ilgili bir sorun olabilir, yapmak için istemci beklemiyoruz.
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 - Bu sorun için bir düzeltme kullanılabilir [için Nisan Platform güncelleştirmesi Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
 
@@ -149,7 +149,7 @@ Varsa DirectoryOpen/DirectoryClose çağrılarının sayısı arasında ilk API 
 
 Çok sayıda dosya oluşturmayı kullanan iş yükleri, premium dosya paylaşımlarının performansını ve standart dosya paylaşımları arasında önemli bir fark görmez.
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 - Yok.
 
@@ -159,6 +159,6 @@ Varsa DirectoryOpen/DirectoryClose çağrılarının sayısı arasında ilk API 
 
 Daha yüksek g/ç kullanımlı iş yükleri için Azure dosyaları erişim gecikme süresi bekleniyor.
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 
 - Kullanılabilir yükleme [düzeltme](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).

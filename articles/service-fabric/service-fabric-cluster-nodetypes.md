@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
 ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684683"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric düğüm türleri ve sanal makine ölçek kümeleri
@@ -34,7 +34,7 @@ Aşağıdaki şekil, ön uç ve arka uç adlı iki düğüm türleri olan bir k�
 Bir ölçek kümesi ölçeklediğinizde yeni bir örneği oluşturulur. Yeni ölçek kümesi örneği genellikle adına ve sonraki örnek numarası ölçek kümesi addır. Bizim örneğimizde, buna BackEnd_5 var.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Ölçek kümesi yük Dengeleyiciler düğüm türlerine eşlenir ve ölçek kümeleri
-Azure portalında kümenizin dağıtılan ya da örnek Azure Resource Manager şablonu kullanılır, tüm kaynaklar bir kaynak grubu altında listelenir. Her bir ölçek kümesi veya düğüm türü için yük Dengeleyiciler görebilirsiniz. Yük Dengeleyici adı şu biçimdedir: **LB -&lt;düğüm türü adı&gt;**. LB-sfcluster4doc-0, aşağıdaki resimde gösterildiği gibi örneğidir:
+Azure portalında kümenizin dağıtılan ya da örnek Azure Resource Manager şablonu kullanılır, tüm kaynaklar bir kaynak grubu altında listelenir. Her bir ölçek kümesi veya düğüm türü için yük Dengeleyiciler görebilirsiniz. Yük Dengeleyici adı şu biçimdedir: **LB -&lt;düğüm türü adı&gt;** . LB-sfcluster4doc-0, aşağıdaki resimde gösterildiği gibi örneğidir:
 
 ![Kaynaklar][Resources]
 
@@ -77,8 +77,8 @@ Service Fabric sanal makine uzantısı bir parçacığı aşağıda verilmiştir
 | **Ad** | **İzin verilen değerler** | ** --- ** | **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
 | name | string | --- | uzantı için benzersiz ad |
-| type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Tanımlayan işletim sistemi Service Fabric olduğu için önyükleniyor |
-| autoUpgradeMinorVersion | TRUE veya false | --- | SF çalışma zamanı ikincil sürümlerinin otomatik yükseltmeyi etkinleştir |
+| türü | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Tanımlayan işletim sistemi Service Fabric olduğu için önyükleniyor |
+| aynı autoUpgradeMinorVersion | TRUE veya false | --- | SF çalışma zamanı ikincil sürümlerinin otomatik yükseltmeyi etkinleştir |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Service Fabric uzantısı Yayımcı adı |
 | clusterEndpont | string | --- | Yönetim uç noktasına URI:Port |
 | nodeTypeRef | string | --- | nodeType adı |

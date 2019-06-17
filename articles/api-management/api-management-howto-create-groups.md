@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 5392cf5463dd0b11d1ce53856c8e4e2e788892b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60658469"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Oluşturma ve Azure API Management'ta Geliştirici hesaplarını yönetmek için grupları kullanma
@@ -87,10 +87,10 @@ Bu bölümde, grup üyeleriyle ilişkilendirme işlemi gösterilmektedir.
 1. Seçin **grupları** ekranın sol tarafındaki için sekmesinde.
 2. Seçin **üyeleri**.
 
-    ![Üye ekle](./media/api-management-howto-create-groups/groups005.png)
+    ![Üye ekleme](./media/api-management-howto-create-groups/groups005.png)
 3. Tuşuna **+ Ekle** ve bir üyesini seçin.
 
-    ![Üye ekle](./media/api-management-howto-create-groups/groups006.png)
+    ![Üye ekleme](./media/api-management-howto-create-groups/groups006.png)
 4. Tuşuna **seçin**.
 
 Geliştirici ve grubu ilişki eklendikten sonra onu görüntüleyebilir **kullanıcılar** sekmesi.

@@ -4,14 +4,14 @@ description: Etiketlerin hangi Azure kaynak türlerini destekleyen gösterir. Ay
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/10/2019
+ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7ef37323fb8150e3a6b52800bfafa2585ae328c2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8b7e6d234984e84f5b238d657281dd8b1b9ec423
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523230"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056872"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure kaynakları için etiketi desteği
 Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etiketleri](resource-group-using-tags.md). Etiketli sütun **etiketlerini destekler** kaynak türü etiket için bir özellik olup olmadığını gösterir. Etiketli sütun **Maliyet raporu etiketinde** bu kaynak türü Maliyet raporu etiket başarılı olup olmadığını gösterir.
@@ -40,10 +40,10 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | ------------- | ----------- | ----------- |
 | aadsupportcases | Hayır |  Hayır |
 | addsservices | Hayır |  Hayır |
-| aracılar | Hayır |  Hayır |
+| Aracıları | Hayır |  Hayır |
 | anonymousapiusers | Hayır |  Hayır |
 | yapılandırma | Hayır |  Hayır |
-| günlükler | Hayır |  Hayır |
+| logs | Hayır |  Hayır |
 | raporlar | Hayır |  Hayır |
 | services | Hayır |  Hayır |
 
@@ -52,14 +52,14 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | ------------- | ----------- | ----------- |
 | Yapılandırmaları | Hayır |  Hayır |
 | generateRecommendations | Hayır |  Hayır |
-| öneriler | Hayır |  Hayır |
+| Önerileri | Hayır |  Hayır |
 | gizlemeleri | Hayır |  Hayır |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
 | actionRules | Hayır |  Hayır |
-| uyarı | Hayır |  Hayır |
+| alerts | Hayır |  Hayır |
 | alertsList | Hayır |  Hayır |
 | alertsSummary | Hayır |  Hayır |
 | alertsSummaryList | Hayır |  Hayır |
@@ -70,7 +70,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| sunucu | Evet | Evet |
+| Sunucuları | Evet | Evet |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -238,8 +238,8 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | reservationOrders/return'e | Hayır |  Hayır |
 | reservationOrders/Böl | Hayır |  Hayır |
 | reservationOrders/değiştirme | Hayır |  Hayır |
-| rezervasyonlar | Hayır |  Hayır |
-| kaynaklar | Hayır |  Hayır |
+| ayırmalar | Hayır |  Hayır |
+| Kaynakları | Hayır |  Hayır |
 | validateReservationOrder | Hayır |  Hayır |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
@@ -301,8 +301,8 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
 | Özellikleri | Hayır |  Hayır |
-| diskler | Hayır |  Hayır |
-| görüntüler | Hayır |  Hayır |
+| Diskler | Hayır |  Hayır |
+| images | Hayır |  Hayır |
 | osImages | Hayır |  Hayır |
 | osPlatformImages | Hayır |  Hayır |
 | publicImages | Hayır |  Hayır |
@@ -316,7 +316,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -328,13 +328,13 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
 | availabilitySets | Evet | Evet |
-| diskler | Evet | Evet |
-| görüntüler | Evet | Evet |
+| Diskler | Evet | Evet |
+| images | Evet | Evet |
 | restorePointCollections | Evet | Evet |
 | restorePointCollections/restorePoints | Hayır |  Hayır |
 | sharedVMImages | Evet | Evet |
 | sharedVMImages/sürümleri | Evet | Evet |
-| anlık görüntüler | Evet | Evet |
+| Anlık görüntüleri | Evet | Evet |
 | virtualMachines | Evet | Evet |
 | virtualMachines/diagnosticSettings | Hayır |  Hayır |
 | virtualMachines ve uzantıları | Evet | Evet |
@@ -351,15 +351,15 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | AggregatedCost | Hayır |  Hayır |
 | Bakiyeler | Hayır |  Hayır |
 | Bütçeler | Hayır |  Hayır |
-| Ücretler | Hayır |  Hayır |
+| Ücretleri | Hayır |  Hayır |
 | CostTags | Hayır |  Hayır |
 | Krediler | Hayır |  Hayır |
-| olaylar | Hayır |  Hayır |
+| etkinlikler | Hayır |  Hayır |
 | Tahminler | Hayır |  Hayır |
 | çok sayıda | Hayır |  Hayır |
 | Pazar | Hayır |  Hayır |
 | Pricesheets | Hayır |  Hayır |
-| ürünler | Hayır |  Hayır |
+| Ürünleri | Hayır |  Hayır |
 | ReservationDetails | Hayır |  Hayır |
 | ReservationRecommendations | Hayır |  Hayır |
 | ReservationSummaries | Hayır |  Hayır |
@@ -415,7 +415,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -423,7 +423,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | Uyarılar | Hayır |  Hayır |
 | billingAccounts | Hayır |  Hayır |
 | Bağlayıcılar | Evet | Evet |
-| Bölümler | Hayır |  Hayır |
+| Departmanlar | Hayır |  Hayır |
 | Boyutlar | Hayır |  Hayır |
 | enrollmentAccounts | Hayır |  Hayır |
 | Sorgu | Hayır |  Hayır |
@@ -451,7 +451,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| işler | Evet | Evet |
+| İşleri | Evet | Evet |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -461,7 +461,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| çalışma alanı | Evet | Hayır |
+| Çalışma alanları | Evet | Hayır |
 | çalışma alanları/virtualNetworkPeerings | Hayır |  Hayır |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -486,7 +486,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 | hesapları/dataLakeStoreAccounts | Hayır |  Hayır |
 | hesapları/storageAccounts | Hayır |  Hayır |
 | hesapları/storageAccounts/kapsayıcılar | Hayır |  Hayır |
@@ -494,7 +494,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 | hesapları/eventGridFilters | Hayır |  Hayır |
 | hesapları/firewallRules | Hayır |  Hayır |
 
@@ -507,21 +507,21 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| sunucu | Evet | Evet |
+| Sunucuları | Evet | Evet |
 | sunucuları/recoverableServers | Hayır |  Hayır |
 | sunucuları/virtualNetworkRules | Hayır |  Hayır |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| sunucu | Evet | Evet |
+| Sunucuları | Evet | Evet |
 | sunucuları/recoverableServers | Hayır |  Hayır |
 | sunucuları/virtualNetworkRules | Hayır |  Hayır |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| sunucu | Evet | Evet |
+| Sunucuları | Evet | Evet |
 | sunucuları/danışmanları | Hayır |  Hayır |
 | sunucuları/queryTexts | Hayır |  Hayır |
 | sunucuları/recoverableServers | Hayır |  Hayır |
@@ -586,7 +586,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
 | Kümeleri | Evet | Hayır |
-| ad alanları | Evet | Hayır |
+| Ad alanları | Evet | Hayır |
 | ad/authorizationrules öğesine | Hayır |  Hayır |
 | ad/disasterrecoveryconfigs | Hayır |  Hayır |
 | ad/eventhubs | Hayır |  Hayır |
@@ -612,7 +612,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | myareas/alanlar/galleryitems | Hayır |  Hayır |
 | myareas/galleryitems | Hayır |  Hayır |
 | Kaydolun | Hayır |  Hayır |
-| kaynaklar | Hayır |  Hayır |
+| Kaynakları | Hayır |  Hayır |
 | retrieveresourcesbyid | Hayır |  Hayır |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
@@ -635,7 +635,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| işler | Evet | Evet |
+| İşleri | Evet | Evet |
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -654,7 +654,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | alertrules | Evet | Evet |
 | automatedExportSettings | Hayır |  Hayır |
 | autoscalesettings | Evet | Evet |
-| temel | Hayır |  Hayır |
+| Taban çizgisi | Hayır |  Hayır |
 | calculatebaseline | Hayır |  Hayır |
 | Bileşenleri | Evet | Evet |
 | bileşenleri/olaylar | Hayır |  Hayır |
@@ -667,7 +667,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | extendedDiagnosticSettings | Hayır |  Hayır |
 | logDefinitions | Hayır |  Hayır |
 | logprofiles | Hayır |  Hayır |
-| günlükler | Hayır |  Hayır |
+| logs | Hayır |  Hayır |
 | metricAlerts | Evet | Evet |
 | migrateToNewPricingModel | Hayır |  Hayır |
 | myWorkbooks | Hayır |  Hayır |
@@ -676,7 +676,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | scheduledqueryrules | Evet | Evet |
 | vmInsightsOnboardingStatuses | Hayır |  Hayır |
 | Web testleri | Evet | Evet |
-| çalışma kitapları | Evet | Evet |
+| Çalışma kitapları | Evet | Evet |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -714,22 +714,22 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
 | labaccounts | Evet | Evet |
-| kullanıcı | Hayır |  Hayır |
+| kullanıcılar | Hayır |  Hayır |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| günlükler | Hayır |  Hayır |
+| logs | Hayır |  Hayır |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -742,12 +742,12 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | ------------- | ----------- | ----------- |
 | commitmentPlans | Evet | Evet |
 | Veritabanınızdaki | Evet | Evet |
-| Çalışma Alanı | Evet | Evet |
+| Çalışma Alanları | Evet | Evet |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 | hesapları/çalışma alanları | Evet | Evet |
 | çalışma alanları/hesapları/projeleri | Evet | Evet |
 | teamAccounts | Evet | Evet |
@@ -757,18 +757,18 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| çalışma alanı | Evet | Evet |
+| Çalışma alanları | Evet | Evet |
 | çalışma alanları/işlemleri | Hayır |  Hayır |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.managedıdentity
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| Kimlikler | Hayır |  Hayır |
+| Kimlikleri | Hayır |  Hayır |
 | Userassignedıdentities | Evet | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
@@ -776,14 +776,14 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | ------------- | ----------- | ----------- |
 | getEntities | Hayır |  Hayır |
 | managementGroups | Hayır |  Hayır |
-| kaynaklar | Hayır |  Hayır |
+| Kaynakları | Hayır |  Hayır |
 | startTenantBackfill | Hayır |  Hayır |
 | tenantBackfillStatus | Hayır |  Hayır |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 | hesapları/eventGridFilters | Hayır |  Hayır |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -798,7 +798,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | offerTypes/yayımcılar/teklif/planları/yapılandırmalar | Hayır |  Hayır |
 | offerTypes/publishers/offers/plans/configs/importImage | Hayır |  Hayır |
 | privategalleryitems | Hayır |  Hayır |
-| ürünler | Hayır |  Hayır |
+| Ürünleri | Hayır |  Hayır |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -845,7 +845,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | azureFirewallFqdnTags | Hayır |  Hayır |
 | azureFirewalls | Evet | Hayır |
 | bgpServiceCommunities | Hayır |  Hayır |
-| bağlantılar | Evet | Evet |
+| Bağlantıları | Evet | Evet |
 | ddosCustomPolicies | Evet | Evet |
 | ddosProtectionPlans | Evet | Evet |
 | dnsOperationStatuses | Hayır |  Hayır |
@@ -902,7 +902,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| ad alanları | Evet | Hayır |
+| Ad alanları | Evet | Hayır |
 | ad/notificationHubs | Evet | Hayır |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -911,7 +911,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | cihazlar | Hayır |  Hayır |
 | linkTargets | Hayır |  Hayır |
 | storageInsightConfigs | Hayır |  Hayır |
-| çalışma alanı | Evet | Evet |
+| Çalışma alanları | Evet | Evet |
 | çalışma alanları/veri kaynakları | Hayır |  Hayır |
 | çalışma alanları/linkedServices | Hayır |  Hayır |
 | çalışma alanları/sorgu | Hayır |  Hayır |
@@ -922,7 +922,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | managementassociations | Hayır |  Hayır |
 | managementconfigurations | Evet | Evet |
 | çözümler | Evet | Evet |
-| görüntüleme | Evet | Evet |
+| Görünümler | Evet | Evet |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.policyınsights
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -952,7 +952,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| hesaplar | Evet | Evet |
+| accounts | Evet | Evet |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -963,7 +963,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| ad alanları | Evet | Evet |
+| Ad alanları | Evet | Evet |
 | ad/authorizationrules öğesine | Hayır |  Hayır |
 | ad/hybridconnections | Hayır |  Hayır |
 | ad/hybridconnections/authorizationrules öğesine | Hayır |  Hayır |
@@ -973,7 +973,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| kaynaklar | Hayır |  Hayır |
+| Kaynakları | Hayır |  Hayır |
 | subscriptionsStatus | Hayır |  Hayır |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
@@ -982,21 +982,21 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | availabilityStatuses | Hayır |  Hayır |
 | childAvailabilityStatuses | Hayır |  Hayır |
 | childResources | Hayır |  Hayır |
-| olaylar | Hayır |  Hayır |
+| etkinlikler | Hayır |  Hayır |
 | impactedResources | Hayır |  Hayır |
-| bildirimler | Hayır |  Hayır |
+| Bildirimleri | Hayır |  Hayır |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| dağıtımlar | Hayır |  Hayır |
+| Dağıtımları | Hayır |  Hayır |
 | Dağıtımları/işlemleri | Hayır |  Hayır |
 | Bağlantılar | Hayır |  Hayır |
 | notifyResourceJobs | Hayır |  Hayır |
 | sağlayıcıları | Hayır |  Hayır |
 | resourceGroups | Hayır |  Hayır |
-| kaynaklar | Hayır |  Hayır |
-| abonelik | Hayır |  Hayır |
+| Kaynakları | Hayır |  Hayır |
+| Abonelikler | Hayır |  Hayır |
 | Abonelikler/sağlayıcıları | Hayır |  Hayır |
 | Abonelikler/kaynak grupları | Hayır |  Hayır |
 | Abonelikler/resourcegroups/kaynaklar | Hayır |  Hayır |
@@ -1014,7 +1014,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| akışlar | Evet | Evet |
+| Akışlar | Evet | Evet |
 | eyleminde | Evet | Evet |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1027,7 +1027,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
 | advancedThreatProtectionSettings | Hayır |  Hayır |
-| uyarı | Hayır |  Hayır |
+| alerts | Hayır |  Hayır |
 | allowedConnections | Hayır |  Hayır |
 | cihazları | Hayır |  Hayır |
 | applicationWhitelistings | Hayır |  Hayır |
@@ -1038,11 +1038,11 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | externalSecuritySolutions | Hayır |  Hayır |
 | InformationProtectionPolicies | Hayır |  Hayır |
 | jitNetworkAccessPolicies | Hayır |  Hayır |
-| izleme | Hayır |  Hayır |
+| İzleme | Hayır |  Hayır |
 | İzleme/kötü amaçlı yazılımdan koruma | Hayır |  Hayır |
 | İzleme temel | Hayır |  Hayır |
 | İzleme/düzeltme eki | Hayır |  Hayır |
-| ilkeler | Hayır |  Hayır |
+| İlkeleri | Hayır |  Hayır |
 | fiyatları | Hayır |  Hayır |
 | securityContacts | Hayır |  Hayır |
 | securitySolutions | Hayır |  Hayır |
@@ -1067,7 +1067,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| ad alanları | Evet | Hayır |
+| Ad alanları | Evet | Hayır |
 | ad/authorizationrules öğesine | Hayır |  Hayır |
 | ad/disasterrecoveryconfigs | Hayır |  Hayır |
 | ad/eventgridfilters | Hayır |  Hayır |
@@ -1090,9 +1090,9 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | ------------- | ----------- | ----------- |
 | uygulamalar | Evet | Evet |
 | Ağ geçitleri | Evet | Evet |
-| ağlar | Evet | Evet |
-| gizli dizi | Evet | Evet |
-| birim | Evet | Evet |
+| Ağlar | Evet | Evet |
+| Gizli dizileri | Evet | Evet |
+| volumes | Evet | Evet |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -1121,7 +1121,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | managedInstances/anahtarları | Hayır | Hayır |
 | restorableDroppedDatabases/managedInstances/backupShortTermRetentionPolicies | Hayır | Hayır |
 | managedInstances/vulnerabilityAssessments | Hayır | Hayır |
-| sunucu | Evet | Evet |
+| Sunucuları | Evet | Evet |
 | sunucuları/yöneticileri | Hayır |  Hayır |
 | sunucuları/communicationLinks | Hayır |  Hayır |
 | sunucuları/veritabanları | Evet (aşağıdaki nota bakın) | Evet |
@@ -1194,7 +1194,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
 | providerRegistrations | Evet | Evet |
-| kaynaklar | Evet | Evet |
+| Kaynakları | Evet | Evet |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
@@ -1207,7 +1207,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Kaynak türü | Etiketleri destekler | Maliyet raporunda etiketi |
 | ------------- | ----------- | ----------- |
-| hesap | Evet | Evet |
+| account | Evet | Evet |
 | hesabı/uzantısı | Evet | Evet |
 | hesabı/proje | Evet | Evet |
 
@@ -1225,24 +1225,24 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [eti
 | apiManagementAccounts/connectionAcls | Hayır |  Hayır |
 | apiManagementAccounts/bağlantıları | Hayır |  Hayır |
 | billingMeters | Hayır |  Hayır |
-| sertifika | Evet | Evet |
+| Sertifikaları | Evet | Evet |
 | connectionGateways | Evet | Evet |
-| bağlantılar | Evet | Evet |
+| Bağlantıları | Evet | Evet |
 | customApis | Evet | Evet |
 | deletedSites | Hayır |  Hayır |
 | işlevler | Hayır |  Hayır |
-| hostingEnvironments | Evet | Hayır |
+| hostingEnvironments | Evet | Evet |
 | hostingEnvironments/multiRolePools | Hayır |  Hayır |
 | multiRolePools/hostingEnvironments/örnekleri | Hayır |  Hayır |
 | hostingEnvironments/workerPools | Hayır |  Hayır |
 | workerPools/hostingEnvironments/örnekleri | Hayır |  Hayır |
 | publishingUsers | Hayır |  Hayır |
-| öneriler | Hayır |  Hayır |
+| Önerileri | Hayır |  Hayır |
 | resourceHealthMetadata | Hayır |  Hayır |
 | Çalışma zamanları | Hayır |  Hayır |
 | serverFarms | Evet | Evet |
 | serverFarms/çalışanları | Hayır |  Hayır |
-| siteler | Evet | Evet |
+| Siteleri | Evet | Evet |
 | Site/domainOwnershipIdentifiers | Hayır |  Hayır |
 | Site/hostNameBindings | Hayır |  Hayır |
 | Site/örnekleri | Hayır |  Hayır |

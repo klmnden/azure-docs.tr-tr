@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
 ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615890"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure tüketim API genel bakış 
@@ -109,7 +109,7 @@ API içerir:
 
 -   **Azure rol tabanlı erişim denetimi** -yapılandırma erişim ilkeleri [Azure portalında](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) veya [Azure PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/azure/overview) belirtmek için kullanıcılar veya uygulamalar aboneliğin kullanım verilerine erişim elde edebilirsiniz. Çağıranlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Arayanın belirli bir Azure aboneliği için kullanım verilerine erişim elde etmek için faturalandırma okuyucusu, okuyucu, sahibi veya katkıda bulunan rolüne ekleyin. 
 -   **Filtreleme** -öneri sonuçlarınızı aşağıdaki filtreleri kullanarak uygun hale getirin:
-    - Kapsam
+    - `Scope`
     - Lookback süresi
 -   **Ayırma bilgilerini farklı teklif türlerinin** -ayırma bilgileri şu anda Enterprise ve Web Direct müşterileri için kullanılabilir.
 

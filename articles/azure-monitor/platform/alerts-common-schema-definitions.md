@@ -9,10 +9,10 @@ ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60775755"
 ---
 # <a name="common-alert-schema-definitions"></a>Ortak uyarı şeması tanımları
@@ -88,7 +88,7 @@ Herhangi bir uyarı örneği açıklar **etkilenen kaynak** ve **uyarının nede
 | originAlertId | Uyarı örneği olarak, oluşturma izleme hizmeti tarafından oluşturulan kimliği. |
 | firedDateTime | Uyarı örneği UTC zaman harekete geçirildi, tarih saat |
 | resolvedDateTime | Uyarı örneği için izleme koşulu 'Çözümlenmiş' UTC ayarlandığında, tarih saat. Şu anda yalnızca ölçüm uyarıları için geçerlidir.|
-| açıklama | Uyarı kuralda tanımlanan açıklaması |
+| description | Uyarı kuralda tanımlanan açıklaması |
 |essentialsVersion| Temel Parçalar bölümünde ilişkin sürüm numarasıdır.|
 |alertContextVersion | AlertContext bölümü için sürüm numarası |
 

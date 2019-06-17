@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 85a1579e32b4c216f234f77c76316bedeaea77b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119558"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814842"
 ---
 Bu özellik önizlemede. Bunu kullanmak için bir önizleme uzantısı veya modül yüklemeniz gerekir.
 
@@ -28,11 +28,9 @@ Azure CLI için gereksinim duyduğunuz [Event Grid uzantısı](/cli/azure/azure-
 
 Yerel bir yüklemesi için:
 
-1. Azure CLI'yi yerel olarak kaldırın.
-1. Yükleme [en son sürümü](/cli/azure/install-azure-cli) Azure CLI'ın.
-1. Komut penceresini başlatın.
+1. [Azure CLI yükleme](/cli/azure/install-azure-cli). İle kontrol ederek son sürüme sahip olduğunuzdan emin olun `az --version`.
 1. Uzantı'nın önceki sürümlerini kaldırma `az extension remove -n eventgrid`
-1. Uzantıyı yükleme `az extension add -n eventgrid`
+1. Yükleme `eventgrid` uzantısıyla `az extension add -n eventgrid`
 
 ### <a name="install-module-for-powershell"></a>İçin PowerShell modülünü yükleme
 

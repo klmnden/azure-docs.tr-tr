@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
 ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60809925"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure rol tabanlı erişim denetimi (Destek isteklerini oluşturmak ve yönetmek için RBAC) için erişim haklarını denetleme
@@ -67,7 +67,7 @@ Eşdüzey, ALi, oluşturma ve bu abonelik kapsamındaki kaynaklar için destek b
 
 1. Aboneliklere Git için ilk adımıdır ve "Ayarlar altında" kullanıcıların listesini görürsünüz. Kullanıcı abonelik üzerinde okuyucu erişimi olan Joe tıklayın ve şimdi kendisine yeni bir özel rol atayın.
 
-    ![Rol ekle](./media/create-manage-support-requests-using-access-control/add-role.png)
+    ![Rol Ekle](./media/create-manage-support-requests-using-access-control/add-role.png)
 
 2. "Ekle" altındaki "Kullanıcılar" dikey penceresinde'yi tıklatın. Özel rol "Destek isteği Katılımcısı" rol listesinden seçin
 
@@ -79,7 +79,7 @@ Eşdüzey, ALi, oluşturma ve bu abonelik kapsamındaki kaynaklar için destek b
 
 4. Devam etmek için "Tamam" düğmesini tıklatın
 
-    ![Erişim ekle](./media/create-manage-support-requests-using-access-control/add-access.png)
+    ![Erişim Ekle](./media/create-manage-support-requests-using-access-control/add-access.png)
 
 5. "Destek isteği Katılımcısı" sahip olduğunuz abonelik altında yeni eklenen özel rol ile kullanıcı göreceksiniz
 

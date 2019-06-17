@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 638c06e1854504dcb7ff34b1d9df56694556c421
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939787"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core, Azure Service Fabric güvenilir hizmetler
@@ -62,9 +62,9 @@ Bir güvenilir hizmet örneği öğesinden türetme, hizmet sınıfı tarafında
 `ICommunicationListener` Kestrel ve HTTP.sys içinde uygulamaları `Microsoft.ServiceFabric.AspNetCore.*` NuGet paketleri benzer kullanım desenleri sahiptir. Ancak bunlar her web sunucusuna belirli biraz farklı eylemleri gerçekleştirin. 
 
 Her iki iletişim dinleyicileri aşağıdaki bağımsız değişken alan bir oluşturucu sağlar:
- - **`ServiceContext serviceContext`**: Bu `ServiceContext` çalışan hizmeti hakkında bilgi içeren nesne.
- - **`string endpointName`**: Bu adı, bir `Endpoint` ServiceManifest.xml yapılandırması. Öncelikle, burada iki iletişim dinleyicileri farklı olduğu. HTTP.sys *gerektirir* bir `Endpoint` yapılandırması sırasında Kestrel değil.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: Bu oluşturup dönmek de uygulayan bir lambda, bir `IWebHost`. Yapılandırmanıza olanak sağlayan `IWebHost` bir ASP.NET Core uygulaması normalde olduğu gibi. Lambda sizin için oluşturulan bir URL sağlar, Service Fabric tümleştirmesi seçeneklere bağlı olarak kullanırsınız ve `Endpoint` sağladığınız yapılandırma. Ardından, değiştirin veya web sunucusunu başlatmak için bu URL'yi kullanın.
+ - **`ServiceContext serviceContext`** : Bu `ServiceContext` çalışan hizmeti hakkında bilgi içeren nesne.
+ - **`string endpointName`** : Bu adı, bir `Endpoint` ServiceManifest.xml yapılandırması. Öncelikle, burada iki iletişim dinleyicileri farklı olduğu. HTTP.sys *gerektirir* bir `Endpoint` yapılandırması sırasında Kestrel değil.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : Bu oluşturup dönmek de uygulayan bir lambda, bir `IWebHost`. Yapılandırmanıza olanak sağlayan `IWebHost` bir ASP.NET Core uygulaması normalde olduğu gibi. Lambda sizin için oluşturulan bir URL sağlar, Service Fabric tümleştirmesi seçeneklere bağlı olarak kullanırsınız ve `Endpoint` sağladığınız yapılandırma. Ardından, değiştirin veya web sunucusunu başlatmak için bu URL'yi kullanın.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric tümleştirme ara yazılımı
 `Microsoft.ServiceFabric.AspNetCore` NuGet paketini içeren `UseServiceFabricIntegration` genişletme yöntemini `IWebHostBuilder` , Service Fabric tanıyan ara yazılımı ekler. Bu ara yazılımın Kestrel veya HTTP.sys yapılandırır `ICommunicationListener` benzersiz bir hizmet URL'si Service Fabric adlandırma hizmetine kaydetmek için. Sonra istemciler doğru hizmetine bağlandığınızdan emin olmak için istemci istekleri doğrular. 
@@ -479,7 +479,7 @@ Kestrel'i harici, internet'e yönelik HTTP uç noktalarını kullanıma ön uç 
 |  |  | **Notlar** |
 | --- | --- | --- |
 | Web sunucusu | Kestrel'i | Windows ve Linux'ta desteklenen kestrel tercih edilen web sunucusudur. |
-| Bağlantı noktası yapılandırması | statik | İyi bilinen bir statik bağlantı noktası olarak yapılandırılmalıdır `Endpoints` yapılandırmasını ServiceManifest.xml, örneğin HTTP için 80 veya HTTPS için 443'tür. |
+| Bağlantı noktası yapılandırması | Statik | İyi bilinen bir statik bağlantı noktası olarak yapılandırılmalıdır `Endpoints` yapılandırmasını ServiceManifest.xml, örneğin HTTP için 80 veya HTTPS için 443'tür. |
 | ServiceFabricIntegrationOptions | None | Kullanım `ServiceFabricIntegrationOptions.None` seçeneğine Service Fabric tümleştirme ara yazılımı, yapılandırırken hizmete gelen istekler için benzersiz bir tanımlayıcı doğrulamak çalışmaz. Uygulamanızın dış kullanıcıları ara yazılım kullanan benzersiz tanımlayıcı bilgiler bilemezsiniz. |
 | Örnek Sayısı | -1 | Tipik kullanım durumlarında ayarı örnek sayısı ayarlanmalıdır *-1*. Bu, böylece yük dengeleyiciden trafiği alması tüm düğümlerde örneği kullanılabilir gerçekleştirilir. |
 
@@ -506,7 +506,7 @@ Yalnızca gelen küme içinde çağrılan durum bilgisi olmayan hizmetler ve bir
 | Web sunucusu | Kestrel'i | HTTP.sys iç durum bilgisi olmayan hizmetler için kullanabilirsiniz, ancak Kestrel bir konak paylaşmak birden çok hizmeti örneği izin vermek için en iyi sunucusudur.  |
 | Bağlantı noktası yapılandırması | dinamik olarak atanan | Durum bilgisi olan bir hizmet birden çok kopyasını, bir ana bilgisayar işlemi veya ana bilgisayar işletim sistemi paylaşabilir ve bu nedenle benzersiz bağlantı noktası gerekir. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Dinamik bağlantı noktası atama ile bu ayar, daha önce açıklanan hatalı kimlik sorununu önler. |
-| Instancecount | herhangi biri | Ayarlama örneği sayısı hizmeti çalıştırmak gerekli olarak herhangi bir değere ayarlanabilir. |
+| Instancecount | Tüm | Ayarlama örneği sayısı hizmeti çalıştırmak gerekli olarak herhangi bir değere ayarlanabilir. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Yalnızca iç durum bilgisi olan ASP.NET Core hizmeti
 Yalnızca gelen küme içinde çağrılan durum bilgisi olan hizmetler, birden çok hizmet arasında işbirliği sağlamak için dinamik olarak atanan bağlantı noktası kullanmanız gerekir. Aşağıdaki yapılandırmayı öneririz:

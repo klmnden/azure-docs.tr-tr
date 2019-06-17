@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
 ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64691425"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Trafik analizi şema ve veri toplama işlemleri
@@ -46,7 +46,7 @@ Trafik Analizi ile donatılmış ve uyarılar aynı veriler üzerinde özel sorg
 
 Şema ve bunlar geldiğiniz alanlara bazıları aşağıda listelenmiştir
 
-| Alan | Biçimlendir | Yorumlar | 
+| Alan | Biçimi | Açıklamalar | 
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | Trafik Anlaytics veri tablosu
 | SubType_s | FlowLog | Akış günlükleri için alt tür |
@@ -69,7 +69,7 @@ Trafik Analizi ile donatılmış ve uyarılar aynı veriler üzerinde özel sorg
 | NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Ağ güvenlik grubu (NSG) akışı ile ilişkilendirilmiş |
 | NSGRules_s | \<Dizin değeri 0) >< NSG_RULENAME >\<akış yönü >\<akış durumu >\<FlowCount ProcessedByRule > |  Bu akış izin verileceğini veya NSG kuralı |
 | NSGRuleType_s | * Kullanıcı tanımlı * varsayılan |   NSG akış tarafından kullanılan kural türü |
-| MACAddress_s | MAC Adresi | Akış yakalandığı NIC MAC adresi |
+| MACAddress_s | MAC adresi | Akış yakalandığı NIC MAC adresi |
 | Subscription_s | Abonelik Azure sanal ağ / ağ arabirimi / sanal makine, bu alanda doldurulur | Yalnızca FlowType uygulanabilir S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow ve UnknownPrivate akış türleri (akış türleri yalnızca bir tarafına azure olduğu) = |
 | Subscription1_s | Abonelik Kimliği | Abonelik kimliği, sanal ağ / ağ arabirimi / sanal makine kaynak IP akış ait olduğu |
 | Subscription2_s | Abonelik Kimliği | Abonelik kimliği, sanal ağ / ağ arabirimi / hedef IP akış ait olduğu sanal makine |
@@ -91,7 +91,7 @@ Trafik Analizi ile donatılmış ve uyarılar aynı veriler üzerinde özel sorg
 | LoadBalancer2_s | \<Subscriptionıd > /\<ResourceGroupName > /\<LoadBalancerName > | Yük Dengeleyici akışındaki hedef IP ile ilişkili |
 | LocalNetworkGateway1_s | \<Subscriptionıd > /\<ResourceGroupName > /\<LocalNetworkGatewayName > | Yerel ağ geçidi akıştaki kaynak IP ile ilişkili |
 | LocalNetworkGateway2_s | \<Subscriptionıd > /\<ResourceGroupName > /\<LocalNetworkGatewayName > | Yerel ağ geçidi akışındaki hedef IP ile ilişkili |
-| ConnectionType_s | Olası değerler şunlardır: VNetPeering VpnGateway ve ExpressRoute |    Bağlantı Türü |
+| ConnectionType_s | Olası değerler şunlardır: VNetPeering VpnGateway ve ExpressRoute |    Bağlantı türü |
 | ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Bağlantı Adı |
 | ConnectingVNets_s | Sanal ağ adlarının boşluklarla ayrılmış listesi | Hub ve bağlı bileşen topolojisi olması durumunda, hub sanal ağları burada doldurulur |
 | Country_s | İki harfli ülke kodu (ISO 3166 1 alfa-2) | Akış türü için ExternalPublic doldurulur. Tüm IP adresleri PublicIPs_s alanında aynı ülke kodunda paylaşır |

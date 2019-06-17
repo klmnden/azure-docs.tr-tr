@@ -12,10 +12,10 @@ ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 496f7c75e6633089d4ca88a9e3cd7c76ee415780
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922402"
 ---
 # <a name="language-support-for-qna-maker"></a>Soru-cevap Oluşturucu için dil desteği
@@ -28,10 +28,10 @@ Soru-cevap Oluşturucu, herhangi bir dil sayfanın soru/yanıt ayıklama destekl
 |Desteklenen diller| Yerel Ayar|
 |-----|----|
 |Türkçe|tr-*|
-|Fransızca |FR-*|
+|Fransızca|FR-*|
 |İtalyanca|BT-*|
-|Almanca |de-*|
-|İspanyolca |ES-*|
+|Almanca|de-*|
+|İspanyolca|ES-*|
 
 ## <a name="primary-language-detection"></a>Birincil dili algılama
 
@@ -73,9 +73,9 @@ Bengali|
 |Türkçe|
 |Estonca|
 |Fince|
-|Fransızca |
+|Fransızca|
 |Galiçya dili|
-|Almanca |
+|Almanca|
 |Yunanca|
 |Gucerat dili|
 |İbranice|
@@ -102,7 +102,7 @@ Bengali|
 |Serbian_Latin|
 |Slovakça|
 |Slovence|
-|İspanyolca |
+|İspanyolca|
 |İsveççe|
 |Tamil dili|
 |Telugu dili|

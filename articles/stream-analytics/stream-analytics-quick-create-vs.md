@@ -4,16 +4,15 @@ description: Bu hızlı başlangıçta Visual Studio ile bir Stream Analytics i�
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 12/20/2018
+ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: 9f62cd132e9aa969a804cd48d552baf9719a0eb6
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: bd27495266918063c65bf4648b3453e25767e293
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303008"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076197"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Hızlı Başlangıç: Visual Studio için Azure Stream Analytics araçları kullanarak bir Stream Analytics işi oluşturma
 
@@ -113,7 +112,7 @@ Azure Stream Analytics projesine dahil edilen öğelere dikkat edin.
    |---------|---------|---------|
    |Girdi Diğer Adı  |  Girdi   |  İşin girdisini tanımlamak için bir ad girin.   |
    |Kaynak Türü   |  Veri Akışı |  Uygun giriş kaynağı seçin: Veri Stream veya başvuru verileriyle.   |
-   |Kaynak  |  IoT Hub |  Uygun giriş kaynağını seçin.   |
+   |source  |  IoT Hub |  Uygun giriş kaynağını seçin.   |
    |Resource  | Geçerli hesaptaki veri kaynağını seçin | Verileri el ile girin veya var olan bir hesabı seçin.   |
    |Abonelik  |  \<Aboneliğiniz\>   | Oluşturduğunuz IOT Hub'ına Azure aboneliğini seçin.   |
    |IoT Hub  |  MyASAIoTHub   |  Seçin veya IOT Hub'ınızın adını girin. IOT hub'ı adları, aynı abonelikte oluşturulursa otomatik olarak algılanır.   |

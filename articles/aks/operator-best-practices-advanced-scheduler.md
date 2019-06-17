@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074193"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055622"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Gelişmiş Zamanlayıcı Özellikleri Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -157,11 +157,11 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: hardware
-          operator: In
-          values: highmem
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values: highmem
 ```
 
 *IgnoredDuringExecution* ayarı parça belirtir düğümü değişiklik etiketler, pod düğümden çıkarılacak olmamalıdır. Kubernetes Zamanlayıcı zamanlanması, yeni pod'ların zaten düğümler üzerinde zamanlanmış pod yalnızca güncelleştirilen düğüme etiketleri kullanır.
@@ -177,7 +177,7 @@ Mantıksal iş yüklerini yalıtmak Kubernetes Zamanlayıcı için son bir yakla
 | **Düğüm 1** | **Düğüm 2** | **Düğüm 3** |
 |------------|------------|------------|
 | WebApp-1   | WebApp-2   | WebApp-3   |
-| 1. önbellek    | Önbellek-2    | Önbellek 3    |
+| 1\. önbellek    | Önbellek-2    | Önbellek 3    |
 
 Daha karmaşık bir dağıtıma kullanımı göre düğüm Seçici veya düğüm benzeşim örnektir. Dağıtım sağlar, Kubernetes düğümlerinde pod'ların nasıl zamanlar üzerinde denetim ve mantıksal kaynakları yalıtma. Bu Azure Cache ile web uygulamasını Redis örneği için tam bir örnek için bkz: [birlikte bulundurma, aynı düğümdeki pod'ların][k8s-pod-affinity].
 

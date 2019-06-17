@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 2fbf29385b9a14cf5d4a9df621f0767a32079587
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61021005"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure işlev proxy'leri ile çalışma
@@ -81,8 +81,8 @@ Yol şablonunda kullanılan parametreleri adı tarafından başvurulan kullanıl
 Rota şablonu parametrelerine ek olarak, yapılandırma değerleri aşağıdaki değerler kullanılabilir:
 
 * **{request.method}** : Özgün istekte kullanılan HTTP yöntemi.
-* **{request.headers. \<HeaderName\>}**: Özgün istekteki okunabilir üstbilgisi. Değiştirin *\<HeaderName\>* okumak istediğiniz üst bilgi adı. İstek üst bilgisi dahil edilmemişse, değer boş dize olacaktır.
-* **{request.querystring. \<ParameterName\>}**: Özgün istekteki okunabilir bir sorgu dizesi parametresi. Değiştirin *\<ParameterName\>* ile okumak istediğiniz parametrenin adı. İstek parametre dahil edilmezse, boş bir dize değeri olacaktır.
+* **{request.headers. \<HeaderName\>}** : Özgün istekteki okunabilir üstbilgisi. Değiştirin *\<HeaderName\>* okumak istediğiniz üst bilgi adı. İstek üst bilgisi dahil edilmemişse, değer boş dize olacaktır.
+* **{request.querystring. \<ParameterName\>}** : Özgün istekteki okunabilir bir sorgu dizesi parametresi. Değiştirin *\<ParameterName\>* ile okumak istediğiniz parametrenin adı. İstek parametre dahil edilmezse, boş bir dize değeri olacaktır.
 
 ### <a name="response-parameters"></a>Başvuru arka uç yanıtı parametreleri
 
@@ -90,7 +90,7 @@ Yanıt parametrelerinin, yanıtı istemciye değiştirme işleminin parçası ol
 
 * **{backend.response.statusCode}** : Arka uç yanıtta döndürülen HTTP durum kodu.
 * **{backend.response.statusReason}** : Arka uç yanıtta döndürülen HTTP neden deyimi.
-* **{backend.response.headers. \<HeaderName\>}**: Arka uç yanıtı okuyabilen bir üst bilgisi. Değiştirin *\<HeaderName\>* okumak istediğiniz üst bilgi adı. Yanıt üst bilgisi dahil edilmemişse değeri boş dize olacaktır.
+* **{backend.response.headers. \<HeaderName\>}** : Arka uç yanıtı okuyabilen bir üst bilgisi. Değiştirin *\<HeaderName\>* okumak istediğiniz üst bilgi adı. Yanıt üst bilgisi dahil edilmemişse değeri boş dize olacaktır.
 
 ### <a name="use-appsettings"></a>Uygulama ayarları başvurusu
 
@@ -189,8 +189,8 @@ Proxy'leri oku tüm dizeler dışında bir JSON dosyası, kullanarak \ kaçış 
 RequestOverrides nesne isteği arka uç kaynağa çağrıldığında yapılan değişiklikleri tanımlar. Nesne, aşağıdaki özellikleri tarafından tanımlanır:
 
 * **backend.Request.Method**: Arka uç çağırmak için kullanılan HTTP yöntemi.
-* **backend.Request.QueryString. \<ParameterName\>**: Arka uca çağrısı için ayarlanabilir bir sorgu dizesi parametresi. Değiştirin *\<ParameterName\>* ile belirlemek istediğiniz parametrenin adı. Boş dize sağlanmazsa, parametre arka uç isteği dahil edilmez.
-* **backend.Request.Headers. \<HeaderName\>**: Arka uca çağrısı için ayarlanabilir üstbilgisi. Değiştirin *\<HeaderName\>* ayarlamak istediğiniz üst bilgi adı. Boş bir dize sağlayın, üst bilgi arka uç isteği dahil edilmez.
+* **backend.Request.QueryString. \<ParameterName\>** : Arka uca çağrısı için ayarlanabilir bir sorgu dizesi parametresi. Değiştirin *\<ParameterName\>* ile belirlemek istediğiniz parametrenin adı. Boş dize sağlanmazsa, parametre arka uç isteği dahil edilmez.
+* **backend.Request.Headers. \<HeaderName\>** : Arka uca çağrısı için ayarlanabilir üstbilgisi. Değiştirin *\<HeaderName\>* ayarlamak istediğiniz üst bilgi adı. Boş bir dize sağlayın, üst bilgi arka uç isteği dahil edilmez.
 
 Değerleri uygulama ayarları ve parametreleri özgün istemci istekten başvurabilirsiniz.
 
@@ -222,7 +222,7 @@ Değerleri uygulama ayarları ve parametreleri özgün istemci istekten başvura
 * **response.statusCode**: İstemciye döndürülecek HTTP durum kodu.
 * **response.statusReason**: İstemciye döndürülecek HTTP neden deyimi.
 * **Response.body**: İstemciye döndürülecek gövdesini dize gösterimi.
-* **Response.Headers. \<HeaderName\>**: Yanıtı istemciye için ayarlanabilir üstbilgisi. Değiştirin *\<HeaderName\>* ayarlamak istediğiniz üst bilgi adı. Boş bir dize sağlayın, üst bilgi yanıtta dahil edilmez.
+* **Response.Headers. \<HeaderName\>** : Yanıtı istemciye için ayarlanabilir üstbilgisi. Değiştirin *\<HeaderName\>* ayarlamak istediğiniz üst bilgi adı. Boş bir dize sağlayın, üst bilgi yanıtta dahil edilmez.
 
 Uygulama ayarları, özgün istemci İstek parametreleri ve parametre değerlerini arka uç yanıtı başvuruda bulunabilir.
 

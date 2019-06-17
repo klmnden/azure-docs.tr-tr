@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685181"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Oluşturun veya Azure Logic Apps'te iş akışı eylemi için paralel dallarından katılın
@@ -44,7 +44,7 @@ Mantıksal uygulamanızı tüm dallar, iş akışı devam etmeden önce tamamlan
 
 1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın.
 
-1. Paralel dalları eklemek istediğiniz Yukarıdaki adımı okun üzerinde işaretçiyi taşıyın. Seçin **yanı sıra** oturum (**+**), görünür ve ardından **parallel dal Ekle**. 
+1. Paralel dalları eklemek istediğiniz Yukarıdaki adımı okun üzerinde işaretçiyi taşıyın. Seçin **yanı sıra** oturum ( **+** ), görünür ve ardından **parallel dal Ekle**. 
 
    ![Paralel dal Ekle](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -56,7 +56,7 @@ Mantıksal uygulamanızı tüm dallar, iş akışı devam etmeden önce tamamlan
 
    ![Bulun ve istediğiniz eylemi seçin](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Şimdi her paralel bir dalda istediğiniz adımları ekleyin. Dala başka bir eylem eklemek için işaretçinizi eylem altında sıralı bir eylem eklemek istediğiniz taşıyın. Seçin **yanı sıra** (**+**) görünür ve ardından oturum **Eylem Ekle**.
+1. Şimdi her paralel bir dalda istediğiniz adımları ekleyin. Dala başka bir eylem eklemek için işaretçinizi eylem altında sıralı bir eylem eklemek istediğiniz taşıyın. Seçin **yanı sıra** ( **+** ) görünür ve ardından oturum **Eylem Ekle**.
 
    ![Paralel dal için sıralı bir eylem ekleme](media/logic-apps-control-flow-branches/add-sequential-action.png)
 

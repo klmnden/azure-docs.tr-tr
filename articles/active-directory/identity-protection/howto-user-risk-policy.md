@@ -17,16 +17,16 @@ ms.date: 03/14/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b94e9b7267c956c07f4171f8cce46c6159affd90
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60459782"
+ms.locfileid: "67108926"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Nasıl Yapılır: Kullanıcı riski ilkesini yapılandırma
 
-Kullanıcı riski ile Azure AD kullanıcı hesabının tehlikede olduğunu olasılık algılar. Bir yönetici olarak bir belirli bir kullanıcı risk düzeyi için otomatik olarak yanıt vermek için bir kullanıcı risk koşullu erişim ilkesi yapılandırabilirsiniz.
+Kullanıcı riski ile Azure AD kullanıcı hesabının tehlikede olduğunu olasılık algılar. Bir yönetici olarak bir kullanıcı risk bir belirli bir kullanıcı risk düzeyi için otomatik olarak yanıt vermek için koşullu erişim ilkesi yapılandırabilirsiniz.
  
 Bu makalede, bir kullanıcı risk İlkesi yapılandırmak için gereken bilgileri ile sunulmaktadır.
 

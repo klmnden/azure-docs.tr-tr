@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67faf268d265fd045c21b75b6f64840511a371d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067292"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Kullanım ayarları ve ilkeleri yapılandırma
 Bu makalede kullanıcıların laboratuvara ekleme, bunları laboratuvarla kayıtlı almak için VM ve daha fazlasını kullanabilirsiniz saat sayısını denetlemek nasıl açıklar. 
@@ -80,19 +80,24 @@ Seçin **kullanıcılar** kullanıcıların listesini görmek için sol taraftak
 Aşağıdaki adımları kullanarak, kullanıcı başına kotaları ayarlayabilirsiniz: 
 
 1. Seçin **kullanıcılar** sol menüsünde.
-2. Seçin **kullanıcı başına kota: sınırsız** araç. 
-3. Üzerinde **kullanıcı başına kotası** sayfasında, aşağıdaki seçeneklerden birini seçin: 
-    1. **None**. Kullanıcıların sanal makinelerinde yalnızca zamanlanmış süre boyunca veya Laboratuvar sahibi için sanal makinelerde döndüğünde kullanabilirsiniz.
-    2. **Sınırsız (varsayılan)**. Kullanıcılar, herhangi bir zaman kısıtlaması olmadan sanal makinelerini kullanabilirsiniz.
-    3. **Kullanıcı başına saat sayısını belirtin**. Kullanıcıların sanal makinelerinde kümesi kaç saat (aşağıda zamanlanan süreden ek olarak belirtilen) için kullanabilirsiniz. Bu seçeneği belirlerseniz, girin **saat sayısı** metin kutusuna. 
+2. Seçin **kullanıcı başına kota:** araç. 
+3. Üzerinde **kullanıcı başına kotası** sayfasında, her bir kullanıcı (Öğrenci) vermek istediğiniz süreyi belirtin: 
+    1. **0 saat (yalnızca zamanlama)** . Kullanıcılar Vm'lerini yalnızca zamanlanmış süre boyunca veya Laboratuvar sahibi olarak, Vm'lerde için bunları kullanabilirsiniz.
+
+        ![Sıfır saat - yalnızca zamanlanan saati](../media/how-to-configure-student-usage/zero-hours.png)
+    1. **Toplam Laboratuvar saat başına kullanıcı sayısı**. Kullanıcıların kümesi kaç saat (Bu alan için belirtilen) için Vm'lerini kullanabilir **zamanlanan süreden yanı sıra**. Bu seçeneği belirlerseniz, girin **saat sayısı** metin kutusuna. 
 
         ![Saat başına kullanıcı sayısı](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. **Kaydet**’i seçin. 
-5. Değiştirilmiş değerlere araç göreceksiniz: **Kullanıcı başına kota: &lt;saat sayısı&gt;**. 
+5. Değiştirilmiş değerlere araç göreceksiniz: **Kullanıcı başına kota: &lt;saat sayısı&gt;** . 
 
     ![Kullanıcı başına kotası](../media/how-to-configure-student-usage/quota-per-user.png)
 
+
+
 > [!IMPORTANT]
+> Öğrenciler için kayıt bağlantı göndermeden önce Öğretmenler gerekir 0 kota saat seçin veya Laboratuvar için kota saat belirtin sınıfı için zamanlamayı ayarlayın.
+>
 > [VM'lerin çalışmasını zamanlanmış](how-to-create-schedules.md) bir kullanıcı için ayrılan kota karşı sayılmaz. Bir öğrenci Vm'lerde geçirdiği zamanlama saatleri dışında saat kota içindir. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Bir CSV dosyasını karşıya yükleyerek kullanıcı ekleme

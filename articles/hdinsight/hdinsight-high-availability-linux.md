@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64704932"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Kullanılabilirliği ve güvenilirliği HDInsight Apache Hadoop kümelerini
@@ -112,7 +112,7 @@ Bir dizi durumunu göstermek için bir hizmet yanındaki görünebilir simgeler 
 
 Aşağıdaki uyarılar, bir kümenin kullanılabilirliğini izlemek yardımcı olur:
 
-| Uyarı Adı                               | Açıklama                                                                                                                                                                                  |
+| Uyarı adı                               | Açıklama                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ölçüm İzleyici durumu                    | Bu uyarı izleme durumu komut dosyası tarafından belirlenen şekilde ölçümleri izleme işleminin durumunu gösterir.                                                                                   |
 | Ambari aracı sinyali                   | Sunucu bir aracı kişiyle kaybederse, bu uyarı tetiklenir.                                                                                                                        |

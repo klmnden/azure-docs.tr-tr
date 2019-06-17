@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453827b42d12333fd4f27761e7f73484fb749532
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 730ff5ff12f18d1f85b3ca53adb42fee41e19fb4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865783"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088288"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Öğretici: Trello ile Azure Active Directory Tümleştirme
 
@@ -142,7 +142,7 @@ Azure AD çoklu oturum açma Trello ile yapılandırmak için aşağıdaki adım
 
     ![Kullanıcı talepleri iletişim kutusu](common/new-save-attribute.png)
 
-    ![Kullanıcı taleplerini yönet](common/new-attribute-details.png)
+    ![Kullanıcı taleplerini Yönet](common/new-attribute-details.png)
 
     b. İçinde **adı** kutusunda, ilgili satır için gösterilen öznitelik adını girin.
 

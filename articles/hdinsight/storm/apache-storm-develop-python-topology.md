@@ -9,19 +9,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: a5cbd54dd07143688b676c063133bb1a73bed01a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3b808a12c7a669a272bf6a1bbb253ed6b4625288
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694400"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078206"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Python kullanarak HDInsight üzerinde Apache Storm topolojileri geliştirme
 
 Oluşturmayı bir [Apache Storm](https://storm.apache.org/) Python bileşenlerini kullanan topolojisi. Apache Storm bile, bir topoloji çeşitli dillerde bileşenlerini birleştirmenize olanak sağlayan birden çok dili destekler. [Flux](https://storm.apache.org/releases/current/flux.html) framework (0.10.0 Storm ile sunulan) kolay Python bileşenlerini kullanan çözümleri oluşturmanıza imkan tanır.
 
 > [!IMPORTANT]  
-> Bu belgedeki bilgiler, Storm, HDInsight 3.6 üzerinde kullanılarak test edilmiştir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgedeki bilgiler, Storm, HDInsight 3.6 üzerinde kullanılarak test edilmiştir. 
 
 Bu proje için kod kullanılabilir [ https://github.com/Azure-Samples/hdinsight-python-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
@@ -73,7 +73,7 @@ Flux bekliyor olması için Python betiklerini `/resources` topoloji içeren jar
 
 Daha önce bahsedildiği gibi bir `storm.py` Storm için Thrift tanımıdır uygulayan dosyası. Flux framework içerir `storm.py` otomatik olarak zaman proje oluşturulduğuna göre dahil olmak üzere hakkında endişelenmeniz gerekmez.
 
-## <a name="build-the-project"></a>Projeyi derleme
+## <a name="build-the-project"></a>Proje derleme
 
 Proje kökünden aşağıdaki komutu kullanın:
 

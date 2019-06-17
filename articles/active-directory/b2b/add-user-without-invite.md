@@ -6,18 +6,18 @@ documentationcenter: ''
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: sasubram
+ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5db5eb9c0e0493d906345892fcc5f2872a3e0e14
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 81aad3ef9a4a53532d19fdb81bc48fc50931d49c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812451"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056071"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>B2B işbirliği Konuk kullanıcıları davet bağlantısı veya e-posta olmayan Ekle
 
@@ -29,7 +29,7 @@ Bu yeni bir yöntem yoktu önce bir davet eden (Kuruluşunuz veya bir iş ortağ
 2. Konak kuruluşun Yöneticisi [ilkeleri ayarlar](delegate-invitations.md) Sam tanımlamak ve iş ortağı kuruluştan (Litware) diğer kullanıcıları eklemek izin verin. (Sam eklenmelidir **Konuk davet eden** rol.)
 3. Artık, Sam diğer kullanıcıların Litware WoodGrove dizini, grupları veya uygulamalar için davet kullanılamadı gerek kalmadan ekleyebilirsiniz. SAM Litware uygun numaralandırma ayrıcalıkları varsa, otomatik olarak gerçekleşir.
  
-Bu özgün yöntem çalışır. Bununla birlikte, küçük bir davranışı fark yoktur. PowerShell kullanıyorsanız, davet edilen Konuk hesabı artık olduğunu fark edeceksiniz bir **PendingAcceptance** durumu hemen gösteren yerine **kabul edilen**. Durum bekleyen olsa da, Konuk kullanıcı hala oturum açabilir ve bir e-posta davetiyesi bağlantıya tıklamak olmadan uygulamayı erişebilir. Kullanıcı henüz geçtiğini değil, bekleme durumu anlamına gelir [deneyimi onay](redemption-experience.md#privacy-policy-agreement), burada bu kullanıcılar davet eden kuruluştan gizlilik koşullarını kabul edin. İlk kez oturum açtığında Konuk kullanıcı, bu onay ekranında görür. 
+Bu özgün yöntem çalışır. Bununla birlikte, küçük bir davranışı fark yoktur. PowerShell kullanıyorsanız, davet edilen Konuk hesabı artık olduğunu fark edeceksiniz bir **PendingAcceptance** durumu hemen gösteren yerine **kabul edilen**. Durum bekleyen olsa da, Konuk kullanıcı hala oturum açabilir ve bir e-posta davetiyesi bağlantıya tıklamak olmadan uygulamayı erişebilir. Kullanıcı henüz geçtiğini değil, bekleme durumu anlamına gelir [deneyimi onay](redemption-experience.md#consent-experience-for-the-guest), burada bu kullanıcılar davet eden kuruluştan gizlilik koşullarını kabul edin. İlk kez oturum açtığında Konuk kullanıcı, bu onay ekranında görür. 
 
 Dizine kullanıcı davet et varsa Konuk kullanıcı kaynak kiracıya özgü Azure portalına erişmek gerekir doğrudan URL (gibi https://portal.azure.com/ *resourcetenant*. onmicrosoft.com) görüntüleyebilir ve gizlilik koşullarını kabul etmiş olursunuz.
 

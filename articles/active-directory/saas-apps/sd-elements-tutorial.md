@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: a18971125724e6e2fdc6b37de15894efb8b9071a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e6deb8b31559b8c5add06f1771cd69df0c1f136
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867625"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091362"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Öğretici: SD öğeleri ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ SD öğelerinin Azure AD'de tümleştirmesini yapılandırmak için SD öğeleri
 
 **Galeriden SD öğeleri eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -249,7 +249,7 @@ Bu bölümün amacı, SD öğelerinde Britta Simon adlı bir kullanıcı oluştu
 
     ![SD öğeleri test kullanıcısı oluşturma](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
 
-    a. İçinde **e-posta** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com**.
+    a. İçinde **e-posta** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com** .
 
     b. İçinde **ad** metin gibi kullanıcı adını girin **Britta**.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da1fefcad3f79bcd394c7d742e9366fc9f0a359b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4cc1685f41f53b244281a13ada1faa21a0010a9f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60283195"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106638"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Öğretici: ASC sözleşmeleri ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de ASC sözleşmeleri tümleştirmesini yapılandırmak için ASC sözl
 
 **Galeriden ASC anlaşmaları eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

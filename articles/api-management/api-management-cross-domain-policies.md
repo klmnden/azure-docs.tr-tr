@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 871294703a4be36e274df1e34b9cc9bee7d19783
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657501"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071947"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management etki alanları arası ilkeler
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -145,7 +145,7 @@ Bu örnek özel üst bilgiler veya dışında GET ve POST yöntemleri olanlar gi
 Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **İlke bölümler:** gelen
-- **İlke kapsamları:** Genel API, işlemi
+- **İlke kapsamları:** genel, ürün, API, işlemi
 
 ## <a name="JSONP"></a> JSONP
 `jsonp` İlke için bir işlem veya JavaScript tarayıcı tabanlı istemcilerden etki alanları arası çağrılarına izin vermek için bir API (JSONP) doldurma desteğiyle JSON ekler. JSONP, farklı bir etki alanında bir sunucudan veri istemesine JavaScript programlarda kullanılan bir yöntemdir. JSONP burada web sayfalarına erişimi aynı etki alanında olması gerekir, çoğu web tarayıcısı tarafından zorlanan sınırlama atlar.

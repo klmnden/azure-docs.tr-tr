@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
 ms.openlocfilehash: 01430c40ec9fcf1af3a463f8f86d646d15b6dd49
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925948"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Tanılama ve güvenilir hizmet uzaktan iletişim için performans izleme
@@ -30,8 +30,8 @@ Güvenilir ServiceRemoting çalışma zamanı, aşağıdaki performans sayacı k
 
 | Kategori | Açıklama |
 | --- | --- |
-| Service Fabric Service |Azure Service Fabric Service uzaktan iletişim için özel sayaçlar isteği işlemek için harcanan süre gibi ortalama |
-| Service Fabric Service Metodu |Yöntemlere özel sayaçlar ne sıklıkta hizmet yöntemi çağrılır Service Fabric uzaktan iletişim hizmeti tarafından gibi uygulanır. |
+| Service Fabric hizmeti |Azure Service Fabric Service uzaktan iletişim için özel sayaçlar isteği işlemek için harcanan süre gibi ortalama |
+| Service Fabric Service metodu |Yöntemlere özel sayaçlar ne sıklıkta hizmet yöntemi çağrılır Service Fabric uzaktan iletişim hizmeti tarafından gibi uygulanır. |
 
 Yukarıdaki kategorilerden her biri bir veya daha fazla sayaca sahiptir.
 
@@ -85,19 +85,19 @@ Güvenilir hizmet çalışma zamanı hizmet yöntemleri çalıştırmayla ilgili
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Service Fabric Service Metodu |Çağrı/Sn |Hizmet yöntemi, saniye başına çağrılma sayısı |
-| Service Fabric Service Metodu |Çağrı başına ortalama süre (milisaniye) |Milisaniye cinsinden service metodunu yürütmek için harcanan süre |
-| Service Fabric Service Metodu |Saniye Başına Oluşturulan Özel Durum |Kaç kez hizmet yöntemi saniye başına özel durum oluşturdu |
+| Service Fabric Service metodu |Çağrıları/sn |Hizmet yöntemi, saniye başına çağrılma sayısı |
+| Service Fabric Service metodu |Çağrı başına ortalama milisaniye |Milisaniye cinsinden service metodunu yürütmek için harcanan süre |
+| Service Fabric Service metodu |Oluşturulan özel durumlar/sn |Kaç kez hizmet yöntemi saniye başına özel durum oluşturdu |
 
 ### <a name="service-request-processing-performance-counters"></a>Hizmet isteği işleme performans sayaçları
 Bir istemci bir hizmeti proxy nesnesi aracılığıyla bir yöntemi çağırdığında, ağ üzerinden uzaktan iletişim hizmetine gönderilen bir istek iletisi ile sonuçlanır. Hizmet isteği iletiyi işler ve istemcisine geri yanıt gönderir. Güvenilir ServiceRemoting çalışma zamanı hizmet isteği işlemiyle ilgili aşağıdaki performans sayaçları yayımlar.
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Service Fabric Service |Beklemedeki istek sayısı |Hizmette işlenmekte olan istek sayısı |
-| Service Fabric Service |İstek başına ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmeti tarafından bir isteği işlemek için harcanan süre |
-| Service Fabric Service |İsteğin seri durumdan çıkarılması için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmeti alındığında hizmet istek iletisi seri durumdan çıkarmak için harcanan süre |
-| Service Fabric Service |Yanıtın serileştirilmesi için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmetine hizmet yanıt iletisi yanıtı istemciye gönderilmeden önce seri hale getirmek için harcanan süre |
+| Service Fabric hizmeti |Beklemedeki istek sayısı |Hizmette işlenmekte olan istek sayısı |
+| Service Fabric hizmeti |İstek başına ortalama milisaniye |(Milisaniye cinsinden) hizmeti tarafından bir isteği işlemek için harcanan süre |
+| Service Fabric hizmeti |İsteğin seri durumdan çıkarılması için ortalama milisaniye |(Milisaniye cinsinden) hizmeti alındığında hizmet istek iletisi seri durumdan çıkarmak için harcanan süre |
+| Service Fabric hizmeti |Yanıtın serileştirilmesi için ortalama milisaniye |(Milisaniye cinsinden) hizmetine hizmet yanıt iletisi yanıtı istemciye gönderilmeden önce seri hale getirmek için harcanan süre |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Örnek kod](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)

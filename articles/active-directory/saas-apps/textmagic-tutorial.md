@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c919d02a72565f42c125e6d123b48e2cedaea508
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1184e282c8dc52cb616bcc47068d96fe61651da9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407970"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Öğretici: TextMagic ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de TextMagic tümleştirmesini yapılandırmak için TextMagic Galeride
 
 **Galeriden TextMagic eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -114,12 +114,12 @@ Azure AD çoklu oturum açma ile TextMagic yapılandırmak için aşağıdaki ad
 
 6. Yukarıdaki için ayrıca TextMagic uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
-    | Ad |   Kaynak özniteliği| Ad alanı  |
+    | Ad |   Kaynak özniteliği| Ad Alanı  |
     | --------------- | --------------- | --------------- |
-    | Şirket | User.CompanyName | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | FirstName               | User.givenName |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | Soyadı            | User.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | telefon               | User.telephoneNumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Şirket | User.CompanyName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | FirstName               | User.givenName |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Soyadı            | User.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Telefon               | User.telephoneNumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
@@ -166,13 +166,13 @@ Azure AD çoklu oturum açma ile TextMagic yapılandırmak için aşağıdaki ad
 
     ![TextMagic yapılandırma](./media/textmagic-tutorial/config2.png)
 
-    a. İçinde **kimlik sağlayıcısı varlık Tanıtıcısı:** metin değerini yapıştırın **Azure AD tanımlayıcısı**, hangi Azure Portalı'ndan kopyaladığınız.
+    a. İçinde **kimlik sağlayıcısı varlık Tanıtıcısı:**  metin değerini yapıştırın **Azure AD tanımlayıcısı**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    b. İçinde **kimlik sağlayıcısı SSO URL:** metin değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
+    b. İçinde **kimlik sağlayıcısı SSO URL:**  metin değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    c. İçinde **kimlik sağlayıcısı SLO URL:** metin değerini yapıştırın **oturum kapatma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
+    c. İçinde **kimlik sağlayıcısı SLO URL:**  metin değerini yapıştırın **oturum kapatma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    d. Açık, **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **x509 ortak sertifika:** metin.
+    d. Açık, **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **x509 ortak sertifika:**  metin.
 
     e. **Kaydet**’e tıklayın.
 
@@ -194,7 +194,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**. Örneğin, BrittaSimon@contoso.com
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension** . Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 

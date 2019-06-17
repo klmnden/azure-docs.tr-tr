@@ -10,10 +10,10 @@ ms.date: 06/05/2019
 ms.author: v-adgera
 ms.custom: seodec18
 ms.openlocfilehash: 9490772226ecdb90cdd2e0b98fe8336b91db6044
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754520"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure dijital İkizlerini nesnelerine BLOB Ekle
@@ -56,9 +56,9 @@ JSON blob meta verilerini aşağıdaki modele uyar:
 | **parentId** | String | Blob (boşluk, cihazları veya kullanıcıları ile) ilişkilendirilecek üst varlık |
 | **name** |String | Blob için bir insan kolay ad |
 | **type** | String | Blob - türünü kullanamaz *türü* ve *typeId*  |
-| **typeId** | Tamsayı | Blob türü kimliği - kullanamaz *türü* ve *typeId* |
+| **typeId** | Integer | Blob türü kimliği - kullanamaz *türü* ve *typeId* |
 | **subtype** | String | Blob alt - kullanamaz *alt* ve *subtypeId* |
-| **subtypeId** | Tamsayı | Alt tür kimliği - blob için kullanamaz *alt* ve *subtypeId* |
+| **subtypeId** | Integer | Alt tür kimliği - blob için kullanamaz *alt* ve *subtypeId* |
 | **description** | String | Blob özelleştirilmiş açıklaması |
 | **sharing** | String | Blob olup paylaşılabilir - sabit listesi [`None`, `Tree`, `Global`] |
 
@@ -114,9 +114,9 @@ Döndürülen tek tek bloblar için aşağıdaki JSON şeması uyar:
 | **name** |String | Blob için bir insan kolay ad |
 | **parentId** | String | Blob (boşluk, cihazları veya kullanıcıları ile) ilişkilendirilecek üst varlık |
 | **type** | String | Blob - türünü kullanamaz *türü* ve *typeId*  |
-| **typeId** | Tamsayı | Blob türü kimliği - kullanamaz *türü* ve *typeId* |
+| **typeId** | Integer | Blob türü kimliği - kullanamaz *türü* ve *typeId* |
 | **subtype** | String | Blob alt - kullanamaz *alt* ve *subtypeId* |
-| **subtypeId** | Tamsayı | Alt tür kimliği - blob için kullanamaz *alt* ve *subtypeId* |
+| **subtypeId** | Integer | Alt tür kimliği - blob için kullanamaz *alt* ve *subtypeId* |
 | **sharing** | String | Blob olup paylaşılabilir - sabit listesi [`None`, `Tree`, `Global`] |
 | **description** | String | Blob özelleştirilmiş açıklaması |
 | **contentInfos** | Dizi | Sürüm dahil olmak üzere yapılandırılmamış meta veri bilgilerini belirtir. |

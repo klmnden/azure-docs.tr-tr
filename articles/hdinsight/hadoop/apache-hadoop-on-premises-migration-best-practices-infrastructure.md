@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1bd06507bd8a20cf504c1ff4cd9fe7e3b9196a3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5bdd5049b7ddeaac4425734aa6f4d633b08cd3b4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057482"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Azure HDInsight - altyapı en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -36,7 +36,7 @@ Bkz: [varsayılan küme düğümü yapılandırması ve sanal makine boyutları]
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>HDInsight Hadoop bileşenlerinin kullanılabilirliğini denetleyin
 
-Her bir HDInsight sürüm sürümünün Hortonworks Data Platform (HDP) bir bulut dağıtımıdır ve Hadoop ekonomik sistemi bileşenlerinin kümesinden oluşur. Bkz: [HDInsight bileşen sürümü oluşturma](../hdinsight-component-versioning.md) tüm HDInsight bileşenleri ve bunların geçerli sürümleri hakkında ayrıntılı bilgi için.
+Her bir HDInsight sürüm ekonomik sistem bileşenleri Hadoop kümesinin bulut dağıtımıdır. Bkz: [HDInsight bileşen sürümü oluşturma](../hdinsight-component-versioning.md) tüm HDInsight bileşenleri ve bunların geçerli sürümleri hakkında ayrıntılı bilgi için.
 
 Hadoop bileşenleri ve HDInsight sürümleri denetlemek için Apache Ambari UI veya Ambari REST API de kullanabilirsiniz.
 
@@ -81,11 +81,11 @@ Betik kalıcı veya bir kez yürütülür. Kalıcı duruma getirilmiş betikleri
 
 HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için önceden yazılmış betik sağlar:
 
-- Azure Depolama hesabı ekleme
+- Bir Azure depolama hesabı ekleme
 - Hue yükleme
 - Presto yükleme
-- Solr Yükleme
-- Giraph Yükleme
+- Solr yükleme
+- Giraph yükleme
 - Hive kitaplıklarını önceden yükleme
 - Mono’yu yükleme veya güncelleştirme
 

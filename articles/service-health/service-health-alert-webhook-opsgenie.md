@@ -1,20 +1,19 @@
 ---
-title: Azure hizmet durumu uyarıları OpsGenie ile yapılandırma | Microsoft Docs
+title: Azure hizmet durumu uyarıları göndermek OpsGenie ile Web kancalarını kullanma
 description: OpsGenie Örneğiniz için hizmet durumu olayları hakkında Kişiselleştirilmiş bildirimler alın.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.workload: Supportability
-ms.date: 11/14/2017
-ms.openlocfilehash: 79a77fff206831c0f9b3bb73ad33f951d99e2c81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782212"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067158"
 ---
-# <a name="configure-service-health-alerts-with-opsgenie"></a>OpsGenie ile hizmet sistem durumu uyarılarını yapılandırma
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Azure hizmet durumu uyarıları göndermek OpsGenie ile Web kancalarını kullanma
 
 Bu makalede bir Web kancası kullanarak OpsGenie ile Azure hizmet durumu uyarıları ayarlamak nasıl gösterir. Kullanarak [OpsGenie](https://www.opsgenie.com/)ait Azure hizmet durumu tümleştirmesi, ilettiğinizde Azure hizmet durumu uyarıları için OpsGenie. OpsGenie bildirmek için doğru kişilere nöbet zamanlamalarını temel alan e-posta, kısa mesaj (SMS), telefon görüşmeleri, iOS ve Android anında iletme bildirimleri kullanarak ve uyarı onaylanır veya kadar uyarılar Etkinleºmesini belirleyebilirsiniz.
 

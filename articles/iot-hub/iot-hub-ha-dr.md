@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
 ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60779381"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IOT hub'ı yüksek kullanılabilirlik ve olağanüstü durum kurtarma
@@ -72,7 +72,7 @@ Microsoft tarafından başlatılan bir yük devretme kullandı Microsoft tarafı
 
 Büyük RTO, Microsoft, bu bölgede etkilenen tüm müşteriler adına yük devretme işlemi gerçekleştirmeniz gerekir çünkü. Bir gün kabaca bir kapalı kalma süresi karşılayabilir daha az kritik bir IOT çözümü çalıştırıyorsanız, bir bağımlılık, IOT çözümünüzün genel olağanüstü durum kurtarma hedefleri karşılamak için bu seçeneği yapmanıza gerek normaldir. Çalışma zamanı için toplam süreyi bu işlem tetiklendikten sonra tam olarak işlevsel hale işlemlerinin "kurtarmak için zaman" bölümünde açıklanmıştır.
 
-### <a name="manual-failover-preview"></a>El ile yük devretme (önizleme)
+### <a name="manual-failover-preview"></a>El ile yük devretme (Önizleme)
 
 Yük devretme sağlar, iş çalışma süresi hedeflerinizi Microsoft tarafından başlatılan bir RTO tarafından karşılanan olmayan, yük devretme işlemini kendiniz tetiklemek için el ile yük devretme kullanmayı düşünmeniz gerekir. Bu seçenek kullanılarak RTO, herhangi bir yere 10 dakika olarak birkaç saat arasında olabilir. RTO, yükü devredilen IOT hub örneği üzerinde kayıtlı cihaz sayısını şu anda bir işlevdir. RTO yaklaşık 100.000 cihaz barındırma hub için 15 dakikalık ballpark içinde olmasını bekleyebilirsiniz. Çalışma zamanı için toplam süreyi bu işlem tetiklendikten sonra tam olarak işlevsel hale işlemlerinin "kurtarmak için zaman" bölümünde açıklanmıştır.
 

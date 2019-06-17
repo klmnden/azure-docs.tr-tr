@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
 ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60620609"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify yeniden izlemesine Linux Aracısı uzantısı
@@ -192,7 +192,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Yükleme hatası | etkinleştirme anahtarı gereklidir |
 | 51 | Yükleme hatası | İşletim sistemi distro desteklenmiyor |
 | 60 | Yükleme hatası | ortam gereklidir |
-| 70 | Yükleme hatası | Bilinmeyen |
+| 70 | Yükleme hatası | Bilinmiyor |
 | 80 | Hata etkinleştir | Hizmet kurulumu başarısız oldu |
 | 90 | Hata etkinleştir | Hizmet başlatma başarısız oldu |
 | 100 | Hata devre dışı bırak | Hizmeti durdurma başarısız oldu |

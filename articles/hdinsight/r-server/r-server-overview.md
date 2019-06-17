@@ -6,20 +6,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 6fecd2278ddad4de3a2cff9035d60083101e873e
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 06/12/2019
+ms.openlocfilehash: d24686a094c524c5ce913eee4b711daf1c60100d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393848"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67130629"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight, ML Hizmetleri nedir
 
 Azure HDInsight kümeleri oluşturduğunuzda Microsoft Machine Learning sunucusu bir dağıtım seçeneği olarak kullanılabilir. Bu seçenek sağlayan küme türü olarak adlandırılır **ML Hizmetleri**. Bu özellik, veri uzmanlarının, istatistikçilerin ve R programcılarının ölçeklenebilir, isteğe bağlı erişim HDInsight üzerinde analitik yöntemlerine dağıtılmış sağlar.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 HDInsight üzerinde ML Hizmetleri, Azure Blob veya Data Lake depolama birimine yüklenen, neredeyse her boyuttaki veri kümelerinde R tabanlı analiz için en son özellikleri sağlar. ML Hizmetleri küme üzerinde açık kaynak R ile kurulu olduğundan, oluşturduğunuz R tabanlı uygulama 8000 + açık kaynak R paketlerinin hiçbirini yararlanabilirsiniz. ScaleR çalışmalarında, Microsoft'un büyük veri analizi paketi de mevcuttur.
 

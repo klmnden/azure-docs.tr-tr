@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 01020a23b102c896bbeb3d8cf455afabfc164917
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1e96431af575533566786341750e17e7a7f446e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165308"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075999"
 ---
 ## <a name="prepare-for-akv-integration"></a>AKV tümleştirme için hazırlama
 SQL Server VM'nize yapılandırmak için Azure anahtar kasası tümleştirmeyi kullanmak için birkaç önkoşul vardır: 
@@ -32,7 +32,7 @@ Aşağıdaki bölümlerde, bu önkoşulları ve daha sonra PowerShell cmdlet'ler
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ### <a id="install"></a> Azure PowerShell'i yükleme
-En son Azure PowerShell SDK'sını yüklediğinizden emin olun. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-az-ps).
+En son Azure PowerShell modülü yüklediğinizden emin olun. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-az-ps).
 
 ### <a id="register"></a> Azure Active Directory'niz içinde bir uygulamayı kaydetme
 

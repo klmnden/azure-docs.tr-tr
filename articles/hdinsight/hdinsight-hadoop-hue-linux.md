@@ -9,19 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: b0354803a117e8e2c2382ae888bde94a502f24c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 74ccf2af2d379b3c1966543885df6ebe5cf0f47a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724580"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059429"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Yükleme ve HDInsight Hadoop kümeler üzerinde Hue kullanma
 
 HDInsight kümelerinde Hue yüklemek ve istekleri için Hue yönlendirmek için tüneli kullanma hakkında bilgi edinin.
-
-> [!IMPORTANT]  
-> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-is-hue"></a>Hue nedir?
 Hue Web uygulamalarının bir Apache Hadoop kümesi ile etkileşim kurmak için kullanılan bir kümesidir. Bir Hadoop kümesi (HDInsight kümeleri söz konusu olduğunda, WASB) ile ilişkili depolama göz atmak için Hue kullanma, Hive işleri ve Pig betikleri çalıştırın ve benzeri. Aşağıdaki bileşenler Hue yüklemelerinde bir HDInsight Hadoop kümesi ile kullanılabilir.
@@ -31,7 +28,7 @@ Hue Web uygulamalarının bir Apache Hadoop kümesi ile etkileşim kurmak için 
 * Meta veri deposu Yöneticisi
 * Apache Oozie
 * (Bu WASB varsayılan kapsayıcıya konuşuyor) FileBrowser
-* İş Tarayıcısı
+* İş tarayıcı
 
 > [!WARNING]  
 > HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
@@ -64,9 +61,9 @@ Bu bölümde, Azure portalını kullanarak küme sağlanırken betiği kullanmak
    * **AD**: Betik eylemi için bir kolay ad girin.
    * **BETİK URI'Sİ**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **HEAD**: Bu seçeneği işaretleyin.
-   * **ÇALIŞAN**: Bunu boş bırakın.
-   * **ZOOKEEPER**: Bunu boş bırakın.
-   * **PARAMETRELERİ**: Bunu boş bırakın.
+   * **ÇALIŞAN**: Burayı boş bırakın.
+   * **ZOOKEEPER**: Burayı boş bırakın.
+   * **PARAMETRELERİ**: Burayı boş bırakın.
 3. Sayfanın alt kısmında **betik eylemleri**, kullanın **seçin** yapılandırmayı kaydetmek için düğme. Son olarak, **seçin** düğme alttaki **isteğe bağlı yapılandırma** isteğe bağlı yapılandırma bilgileri kaydetmek için dikey pencere.
 4. Açıklandığı gibi küme sağlama devam [sağlama HDInsight kümelerinde Linux üzerinde](hdinsight-hadoop-provision-linux-clusters.md).
 

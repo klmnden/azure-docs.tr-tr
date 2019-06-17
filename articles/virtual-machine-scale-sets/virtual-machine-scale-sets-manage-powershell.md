@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: c4684dd27aeed4fab4335a93ea5a458b4a9f5d80
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a6474320fd8b1545d61320cd43e155ab077ba310
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821192"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64683536"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Bir sanal makine ölçek kümesini Azure PowerShell ile yönetme
 
@@ -28,7 +28,7 @@ Sanal makine ölçek kümesinin yaşam döngüsü boyunca bir veya daha fazla y�
 
 Bir sanal makine ölçek kümesi oluşturmak için ihtiyacınız varsa, [Azure PowerShell ile bir ölçek kümesi oluşturma](quick-create-powershell.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="view-information-about-a-scale-set"></a>Bir ölçek kümesi hakkındaki bilgileri görüntüleme
 Bir ölçek kümesi hakkında genel bilgileri görüntülemek için kullanın [Get-AzVmss](/powershell/module/az.compute/get-azvmss). Aşağıdaki örnekte adlı ölçek kümesi hakkında bilgi alır *myScaleSet* içinde *myResourceGroup* kaynak grubu. Şu şekilde kendi adlarınızı girin:

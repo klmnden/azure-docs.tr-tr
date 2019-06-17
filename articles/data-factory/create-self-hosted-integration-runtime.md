@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967949"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
@@ -126,11 +126,11 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 
 ### <a name="scale-considerations"></a>Ölçek konuları
 
-#### <a name="scale-out"></a>Ölçeği genişlet
+#### <a name="scale-out"></a>Ölçeği genişletme
 
 Kendinden konak IR üzerinde kullanılabilir bellek düşükse ve CPU kullanımı yüksek olduğunda, yeni bir düğüm ekleme yük ölçeğinizi makinelerde yardımcı olur. Ağ geçidini bir düğüm ekleme, çünkü bunlar zaman aşımına uğruyor etkinlikleri başarısız oluyorsa ya da şirket içinde barındırılan IR düğümü çevrimdışı olduğu için yardımcı olur.
 
-#### <a name="scale-up"></a>Ölçeği artır
+#### <a name="scale-up"></a>Ölçeği artırma
 
 Kullanılabilir bellek ve CPU iyi kullanılmaz, ancak / eşzamanlı iş yürütme sınırına ulaştı, bir düğümde çalıştırılabilen eşzamanlı iş sayısını artırarak ölçeği. Kendinden konak IR aşırı yüklendiği etkinlikler zaman aşımına uğruyor. zaman ölçeği isteyebilirsiniz. Aşağıdaki görüntüde gösterildiği gibi bir düğüm için kapasite üst sınırı artırabilirsiniz:  
 
@@ -220,7 +220,7 @@ Simge veya bildirim alanında bir ileti üzerinden imlecinizi taşırsanız, şi
 ## <a name="ports-and-firewall"></a>Bağlantı noktaları ve güvenlik duvarı
 Dikkate alınması gereken iki güvenlik duvarı vardır: *Kurumsal güvenlik duvarınız* kuruluşun merkezi yönlendirici üzerinde çalışan ve *Windows Güvenlik Duvarı* yerel makinede bir arka plan olarak yapılandırılmış olduğu Şirket içinde barındırılan tümleştirme çalışma zamanı yüklenir.
 
-![Güvenlik Duvarı](media/create-self-hosted-integration-runtime/firewall.png)
+![Güvenlik duvarı](media/create-self-hosted-integration-runtime/firewall.png)
 
 Konumunda *Kurumsal güvenlik duvarınız* düzeyi, aşağıdaki etki alanları ve giden bağlantı noktalarını yapılandırmak gerekir:
 

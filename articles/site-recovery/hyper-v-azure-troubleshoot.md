@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
 ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719832"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Azure'a çoğaltma ve yük devretme için Hyper-V sorunlarını giderme
@@ -98,7 +98,7 @@ Uygulamayla tutarlı bir anlık görüntü, VM'nin içindeki uygulama verilerini
    - Çıktıyı denetleyin. Yazıcılarının hatalı durumda olduğundan, aşağıdakileri yapın:
        - VSS işlemi hataları için VM üzerindeki uygulama olay günlüğünü denetleyin.
    - Başarısız yazıcıyla birlikte ilgili hizmetlerin yeniden başlatmayı deneyin:
-     - Birim Gölge Kopyası
+     - Birim Gölge kopyası
        - Azure Site Recovery VSS sağlayıcısı
    - Bunu yaptıktan sonra birkaç uygulamayla tutarlı anlık görüntüleri başarıyla oluşturuldu, görmek için saat bekleyin.
    - Son çare olarak, sanal Makineyi yeniden başlatmayı deneyin. Bu, yanıt vermeyen durumda olan hizmetleri çözebilir.
@@ -114,7 +114,7 @@ Uygulamayla tutarlı bir anlık görüntü, VM'nin içindeki uygulama verilerini
         - Kategori: "Hyper-V sanal depolama cihazı"
         - Sayaç: "Yazma Bayt / sn"</br>
         - Bu veri değişim hızı artırmak veya VM veya uygulamalarına ne kadar meşgul olduğunu bağlı olarak yüksek bir düzeyde kalır.
-        - Ortalama kaynak disk veri değişim sıklığı, 2 MB/sn'lik Site Recovery için standart depolama için ' dir. [Daha fazla bilgi](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
+        - Ortalama kaynak disk veri değişim sıklığı, 2 MB/sn'lik Site Recovery için standart depolama için ' dir. [Daha fazla bilgi edinin](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - Buna ek olarak şunları yapabilirsiniz [depolama ölçeklenebilirlik hedefleri doğrulayın](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
 8. Çalıştırma [dağıtım Planlayıcısı](hyper-v-deployment-planner-run.md).
 9. Önerileri gözden [ağ](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) ve [depolama](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
@@ -145,7 +145,7 @@ Uygulamayla tutarlı bir anlık görüntü, VM'nin içindeki uygulama verilerini
 
 Tüm Hyper-V çoğaltma olay bulunan Hyper-V-VMMS\Admin günlüğüne kaydedilir **uygulama ve hizmet günlükleri** > **Microsoft** > **Windows**. Ayrıca, bir analitik günlüğü için Hyper-V sanal makine Yönetimi hizmeti, şu şekilde etkinleştirebilirsiniz:
 
-1. Analitik ve hata ayıklama günlükleri Olay Görüntüleyicisi'nde görüntülenebilir olun. Günlükleri Olay Görüntüleyicisi'nde kullanılabilir yapmak için tıklatın **görünümü** > **Analitik ve hata ayıklama günlüklerini göster.**. Analitik günlüğü altında görünür **Hyper-V-VMMS**.
+1. Analitik ve hata ayıklama günlükleri Olay Görüntüleyicisi'nde görüntülenebilir olun. Günlükleri Olay Görüntüleyicisi'nde kullanılabilir yapmak için tıklatın **görünümü** > **Analitik ve hata ayıklama günlüklerini göster.** . Analitik günlüğü altında görünür **Hyper-V-VMMS**.
 2. İçinde **eylemleri** bölmesinde tıklayın **günlüğü etkinleştir**. 
 
     ![Günlüğünü etkinleştir](media/hyper-v-azure-troubleshoot/enable-log.png)

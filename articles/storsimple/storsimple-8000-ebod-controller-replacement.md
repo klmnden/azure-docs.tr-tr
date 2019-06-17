@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60578700"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>StorSimple Cihazınızda bir EBOD denetleyicisini değiştirme
@@ -89,7 +89,7 @@ Aşağıdaki yordamı ve tabloyu kullanarak StorSimple Cihazınızı bir EBOD de
    | Etiket | Açıklama |
    |:--- |:--- |
    | 1 |Birincil |
-   | 2 |PCM 0'DA |
+   | 2 |PCM 0 |
    | 3 |PCM 1 |
    | 4 |Denetleyici 0 |
    | 5 |Denetleyici 1 |

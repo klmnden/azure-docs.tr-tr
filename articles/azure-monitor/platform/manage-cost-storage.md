@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 8eeb29b2d1fe17ae5581dab81c34d5c2c635a6c2
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496337"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061044"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Kullanımı ve Azure İzleyici günlüklerine ile maliyetleri yönetme
 
@@ -108,10 +108,12 @@ Aşağıdaki adımları ne kadar günlük verileri çalışma alanınızda taraf
 
 ## <a name="legacy-pricing-tiers"></a>Eski fiyatlandırma katmanları
 
-Abonelikleri olan ve Log Analytics çalışma alanı veya Application Insights kaynağı 2 Nisan 2018'den önce olduğunu veya 1 Şubat 2019'dan önce kullanmaya bir Kurumsal Anlaşma bağlantılı fiyatlandırma katmanları eski erişiminiz devam eder: Ücretsiz, tek başına (GB başına) ve düğüm başına (OMS).  Ücretsiz fiyatlandırma katmanı çalışma alanları, günlük veri alımı (hariç, Azure Güvenlik Merkezi tarafından toplanan güvenlik veri türleri) 500 MB ile sınırlı olacaktır ve veri saklama için 7 gün sınırlıdır. Ücretsiz fiyatlandırma katmanı, yalnızca değerlendirme amacıyla tasarlanmıştır. Çalışma alanları tek başına veya fiyatlandırma katmanları düğüm başına veri saklama için 2 yıl erişimi. 
+Abonelikleri olan ve Log Analytics çalışma alanı veya Application Insights kaynağı 2 Nisan 2018'den önce olduğunu veya 1 Şubat 2019'dan önce kullanmaya bir Kurumsal Anlaşma bağlantılı fiyatlandırma katmanları eski erişiminiz devam eder: **Ücretsiz**, **tek başına (GB başına)** ve **düğüm başına (OMS)** .  Ücretsiz fiyatlandırma katmanı çalışma alanları, günlük veri alımı (hariç, Azure Güvenlik Merkezi tarafından toplanan güvenlik veri türleri) 500 MB ile sınırlı olacaktır ve veri saklama için 7 gün sınırlıdır. Ücretsiz fiyatlandırma katmanı, yalnızca değerlendirme amacıyla tasarlanmıştır. Çalışma alanları tek başına veya fiyatlandırma katmanları düğüm başına en fazla 2 yıllık kullanıcı tarafından yapılandırılabilir saklama sahiptir. 
 
 > [!NOTE]
 > OMS E1 paketi, OMS E2 Suite veya System Center için OMS eklentisi satın alındıktan sonra sunulan destek haklarını kullanmak için Log Analytics seçin *düğüm başına* fiyatlandırma katmanı.
+
+Log analytics'in erken Benimseyenler Ayrıca özgün fiyatlandırma katmanları erişiminiz **standart** ve **Premium**, sabit veri saklama, 30 ila 365 gün sırasıyla. 
 
 ## <a name="changing-pricing-tier"></a>Fiyatlandırma katmanını değiştirme
 
@@ -410,6 +412,11 @@ Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için
 Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için var olan bir [Eylem Grubunu](action-groups.md) kullanın veya yeni bir tane oluşturun.
 
 Uyarı aldığınızda, kullanımın neden beklenenden fazla olduğu konusundaki sorunları gidermek için aşağıdaki bölümde yer alan adımları kullanın.
+
+## <a name="limits-summary"></a>Sınırları özeti
+
+Bazıları fiyatlandırma katmanında Log Analytics temelinde bağımlı bazı ek Log Analytics sınırı yoktur. Bunlar belgelenen [burada](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-limits).
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

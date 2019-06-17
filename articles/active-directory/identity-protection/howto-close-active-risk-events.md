@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e003aec8fa5aeab587fa07acdae3a13b370a535
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 55c56674b04c4359fba741d10176fc91e3a991eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60453502"
+ms.locfileid: "67109021"
 ---
 # <a name="how-to-close-active-risk-events"></a>Nasıl Yapılır: Etkin risk olaylarını kapatma
 
@@ -48,7 +48,7 @@ Etkin risk olayı kapatmak için aşağıdaki seçenekleriniz vardır:
 
 ## <a name="require-password-reset-with-a-user-risk-policy"></a>Parola sıfırlama kullanıcı riski İlkesi ile iste
 
-[Kullanıcı riski koşullu erişim ilkesini](howto-user-risk-policy.md) yapılandırarak belirli bir kullanıcı riski seviyesinin otomatik olarak algılanması durumunda parola değişikliği yapılmasını sağlayabilirsiniz. 
+Yapılandırarak [koşullu erişim ilkesi kullanıcı riski](howto-user-risk-policy.md), belirtilen kullanıcı risk düzeyi otomatik olarak algılanması durumunda bir parola değişikliği gerektirebilir. 
 
 ![Parola sıfırla](./media/howto-close-active-risk-events/13.png)
 

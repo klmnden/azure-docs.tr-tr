@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: b-juche
 ms.openlocfilehash: d4e06429aa1efec7c3301c7d0f0e7e17800fd520
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "63769444"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Azure NetApp Files Kaynak Sağlayıcısı hatalarını giderme
@@ -34,7 +34,7 @@ Azure Key Vault doğru kimlik bilgilerini alamadı veya kimlik bilgileri eksik.
 * Çözüm   
 Azure NetApp dosyaları hizmeti, Azure Key Vault'u kullanır. Azure Key Vault, Azure Active Directory'den bir belirteç kullanarak kimliğini doğrular. Bu nedenle, uygulama sahibi uygulama Azure Active Directory'ye kaydetmeniz gerekir.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Yok.  Azure Key Vault Azure NetApp dosyaları kullanmak için doğru şekilde ayarlanmalıdır.  
 
 <a name="error_02"></a>***Belirteç oluşturma değiştirilemez.***   
@@ -47,7 +47,7 @@ Birim, desteklenmeyen bir işlem değil oluşturulduktan sonra oluşturma belirt
 * Çözüm   
 Birim oluşturulduktan sonra hata iletisini yoksayın istekten parametreyi kaldırmayı göz önünde bulundurun.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Oluşturma belirteç değiştirmeniz gerekiyorsa, yeni bir oluşturma belirteci ile yeni bir birim oluşturmak ve sonra verileri yeni birime taşıyın.
 
 
@@ -60,7 +60,7 @@ Oluşturma belirteç uzunluk sınırı koşuluna uymuyor.  API'yi kullanarak bir
 * Çözüm   
 Oluşturma belirteç uzunluğunu artırın. Örneğin, başka bir sözcüğe başında ya da oluşturma belirteç sonuna ekleyebilirsiniz.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Gereken en düşük uzunluk oluşturma belirtecin geçilemez.  Belirteç oluşturma uzunluğunu artırmak için bir önek veya sonek kullanabilirsiniz.
 
 
@@ -73,7 +73,7 @@ Birim, silindikten sonra biraz zaman için portalda görüntülenen kalabilir. A
 * Çözüm   
 Açık tarayıcı önbelleğini portalı kullanıyorsanız. 10 dakikada bir yenilenir bir iç önbellek yoktur.  Yeniden önbelleğini temizlemek deneyebilirsiniz.  10 dakika sonra sorun devam ederse, destek bileti oluşturabilirsiniz.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Farklı bir birime sırada kullanın ve var olan bir yok sayın.
 
 
@@ -86,7 +86,7 @@ Birim, silindikten sonra biraz zaman için portalda görüntülenen kalabilir. A
 * Çözüm   
 Portalı kullanıyorsanız, birimin zaten oluşturuldu.  Birim otomatik olarak görünmelidir. Sorun devam ederse bir destek bileti oluşturabilirsiniz.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Farklı bir ad ve farklı oluşturma belirteci ile bir birim oluşturabilirsiniz.
 
 
@@ -99,7 +99,7 @@ Dosya yolu desteklenmeyen karakterler içeriyor. Örneğin, bir nokta ("."), vir
 * Çözüm   
 Alfabetik harf, rakam veya kısa çizgi olmayan karakterleri kaldırın ("-"), girdiğiniz dosya yolundan.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 (Örneğin, "yerine yeni birim" "NewVolume" kullanarak) yeni bir kelimelerin belirtmek için alanları yerine büyük/küçük harf kullanın ya da alt çizgi, kısa çizgi ile değiştirin.
 
 
@@ -112,7 +112,7 @@ Birim oluşturulduğunda dosya sistemi kimliği ayarlanır. Birim kimliği daha 
 * Çözüm   
 Yok.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Yok.  Birim oluşturulur ve sonradan değiştirilemez birim kimliği üretilir.
 
 
@@ -125,7 +125,7 @@ Giriş doğrulaması isteği aşağıdaki alanları en az biri için başarısı
 * Çözüm   
 Komut satırına tüm gerekli ve çakışmayan parametreleri ayarladığınızdan emin olun. Örneğin, hem UnixReadOnly hem de UnixReadWrite parametreleri aynı anda ayarlanamaz.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Çözüm bölümüne bakın.  
 
 
@@ -138,7 +138,7 @@ Giriş doğrulaması isteği aşağıdaki alanları en az biri için başarısı
 * Çözüm   
 Komut satırına tüm gerekli ve çakışmayan parametreleri ayarladığınızdan emin olun. Örneğin, aynı anda hem UnixReadOnly hem de UnixReadWrite parametreleri ayarlanamıyor.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Çözüm bölümüne bakın.  
 
 
@@ -151,7 +151,7 @@ Var olan bir birim olarak aynı olan bir ada sahip bir birim oluşturmak çalı�
 * Çözüm   
 Bir birim oluştururken benzersiz bir ad kullanın.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Yeni birim hedeflenen adı kullanabilmesi için gerekirse, mevcut birimin adını değiştirebilirsiniz.
 
 
@@ -164,7 +164,7 @@ Birim adı çok kısadır.
 * Çözüm   
 Birim adı uzunluğunu artırın.  
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Birim adı için ortak bir önek veya sonek ekleyebilirsiniz.
 
 
@@ -177,7 +177,7 @@ Temel alınan API, bir iç hata imzalanmayarak yanıt vermiyor. Bu hata geçici 
 * Çözüm   
 Bu sorunu geçici olarak olasıdır.  İstek, bir süre sonra başarılı olması gerekir.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Yok. Temel alınan API birimleri yönetmek için gereklidir.  
 
 
@@ -190,7 +190,7 @@ Geçersiz veya yanlış ayarlanmış bir kimlik bilgileri, birimleri yönetmek i
 * Çözüm   
 Kimlik bilgilerini ayarlamak ve komut satırında doğru girildiğinden emin olun.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Yok.  Doğru kimlik bilgilerini ayarlama, Azure NetApp dosyaları kullanmak için gereklidir.  
 
 
@@ -203,7 +203,7 @@ Bir iç hata oluştu ve işlemin tamamlanmasını engelledi.
 * Çözüm   
 Bu hata geçici olabilir.  Birkaç dakika bekleyin ve yeniden deneyin. Sorun devam ederse teknik destek sorunu araştırmak için bir bilet oluşturun.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Birkaç dakika bekleyin ve sorunun devam edip etmediğini denetleyin.
 
 
@@ -216,7 +216,7 @@ Abonelik veya kaynak için işlemi kullanılamaz.
 * Çözüm   
 Kullanmakta olduğunuz kaynak ve abonelik için kullanılabilir ve komut doğru girildiğinden emin olun.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Çözüm bölümüne bakın.  
 
 
@@ -229,7 +229,7 @@ Bağlama hedefi tanımlı oluşturulur ve daha sonra değiştirilemez.
 * Çözüm   
 Yok.  Bağlama hedefi birimin oluşturulduktan sonra değiştirilemez.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Yok.
 
 
@@ -242,7 +242,7 @@ Değiştirilemez bir parametre (örneğin, birim kimliği) değiştirileceğini 
 * Çözüm   
 Yok. Parametresi için birim kimliği değiştirilemez.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Birim kimliği değişiklik yapılması gerekmez.  Bu nedenle, geçici bir çözüm gerekli değildir.
 
 <a name="error_18"></a>***İstenen {0} bulunamadı.***   
@@ -254,7 +254,7 @@ Yanlış yazılmış kaynak adı zaten silinmiş veya var olmayan (örneğin, bi
 * Çözüm   
 İstek için doğru başvurulduğundan emin olmak yazım hatalarını denetleyin.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Çözüm bölümüne bakın.
 
 <a name="error_19"></a>***Abonelik için kimlik bilgileri alınamıyor '{0}'.***   
@@ -266,7 +266,7 @@ Geçersiz kimlik bilgileri veya hatalı abonelik kümesine erişimi engelle biri
 * Çözüm   
 Kimlik bilgilerini ayarlamak ve komut satırında doğru girildiğinden emin olun.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Yok.  Doğru kimlik bilgilerini ayarlama, Azure NetApp dosyaları kullanmak için gereklidir.
 
 <a name="error_20"></a>***Bilinmeyen Azure NetApp dosya hatası.***   
@@ -278,7 +278,7 @@ Temel alınan API bilinmeyen bir hata gönderir.  Bu hata geçici olabilir.
 * Çözüm   
 Büyük olasılıkla geçici bir sorundur ve bir süre sonra istek başarılı olması gerekir. Sorun devam ederse, sorunu araştırılması için bir destek bileti oluşturun.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Yok.  Temel alınan API birimleri yönetmek için gereklidir.
 
 <a name="error_21"></a>***Bilinmeyen bir özellik için alınan değeri '{0}'.***   
@@ -290,7 +290,7 @@ Var olmayan özellikler birim, anlık görüntü veya bağlama hedefi gibi bir k
 * Çözüm   
 Tüm özellik adlarının doğru yazıldığından ve Özellikler abonelik ve kaynak için kullanılabilir olduğundan emin olun.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Hataya neden olan özellik ortadan kaldırmak için istekte tanımlanan özellikler sayısını azaltın.
 
 
@@ -303,7 +303,7 @@ Güncelleştirmeye çalıştığınız kaynak güncelleştirme işlemi desteklem
 * Çözüm   
 Yok.  Güncelleştirmeye çalıştığınız kaynak güncelleştirme işlemi desteklemiyor. Bu nedenle değiştirilemez.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Bir birim için yerinde güncelleştirme ile yeni bir kaynak oluşturmak ve verileri geçirin.
 
 
@@ -316,7 +316,7 @@ Tanımladığınız verme ilkesi gerekli aralığı karşılamıyor.
 * Çözüm   
 Dizin zaten kullanılmadığını emin olun ve 1 ile 5 aralığında olmasıdır.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Verme İlkesi birimlere kullanmak için zorunlu değildir. Tamamen verme ilkesi kuralları olması gerekmiyorsa, bu nedenle, dışarı aktarma İlkesi atlayabilirsiniz.
 
 
@@ -329,7 +329,7 @@ Tanımlanmış bir dışarı aktarma ilkesi için verme ilkesi kuralları gereks
 * Çözüm   
 Dizin zaten kullanılmadığını ve 5-1 aralığında olduğundan emin olun.
 
-* Geçici çözüm   
+* Geçici Çözüm   
 Ayarlamaya çalıştığınız kural için farklı bir dizin kullanın.
 
 

@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752836"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>İş ortağı merkezi ticari Market hesabınızı yönetme 
@@ -84,7 +84,7 @@ Yalnızca ücretsiz teklifleri listesinde planlıyorsanız, hiçbir vergi formu 
 
 Microsoft Account ilişkili olduğundan, bir ödeme hesabı eklemek için gerekir:
 - **Bir ödeme yöntemi seçin**: Banka hesabı veya PayPal
-- **Ödeme bilgileri ekleyin**: Bu hesap türü (denetimi veya tasarruf) seçerek, hesap numarası, hesap sahibi adı girerek ve yönlendirme içerebilir numarası, fatura adresi, telefon numarası veya PayPal e-posta adresi. * PayPal hesabı ödeme yönteminiz olarak ve olup, Pazar bölgenizde desteklenip desteklenmediğini öğrenmek için kullanma hakkında daha fazla bilgi için [PayPal bilgisi](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+- **Ödeme bilgileri ekleyin**: Bu hesap türü (denetimi veya tasarruf) seçerek, hesap numarası, hesap sahibi adı girerek ve yönlendirme içerebilir numarası, fatura adresi, telefon numarası veya PayPal e-posta adresi. \* PayPal hesabı ödeme yönteminiz olarak ve olup, Pazar bölgenizde desteklenip desteklenmediğini öğrenmek için kullanma hakkında daha fazla bilgi için [PayPal bilgisi](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > Ödeme hesabınızı değiştirme, ödemeler tarafından en çok bir ödeme dönemi gecikmeye yol açabilir. Bu gecikme, ilk ödeme hesabınızı ayarlarken az önce yaptığımız gibi hesap değişikliğini doğrulamak ihtiyacımız oluşur. Hesabınızı doğrulandıktan sonra hala tam miktar için ücretli; son ödeme için geçerli ödeme döngüsü sonraki teste eklenir.  
@@ -174,7 +174,7 @@ Hesabınızın olması gerekir [ **yönetici düzeyinde** ](#define-user-roles-a
 
 1. Git **kullanıcılar** (altında **hesap ayarları**) seçip **kullanıcı ekleme**.
 2. Açılan listeden bir veya daha fazla kullanıcı seçin. Belirli kullanıcıları aramak için arama kutusunu kullanabilirsiniz.
-* İş ortağı merkezi hesabınıza eklemek için birden fazla kullanıcı seçerseniz, bunları aynı rol veya özel izinler kümesini atamanız gerekir. Farklı roller/izinlerine sahip birden çok kullanıcı eklemek için her rol ya da özel bir izin kümesi için bu adımları yineleyin.
+\* İş ortağı merkezi hesabınıza eklemek için birden fazla kullanıcı seçerseniz, bunları aynı rol veya özel izinler kümesini atamanız gerekir. Farklı roller/izinlerine sahip birden çok kullanıcı eklemek için her rol ya da özel bir izin kümesi için bu adımları yineleyin.
 3.  Kullanıcı seçme işlemini tamamladığınızda, tıklayın **seçili**.
 5.  İçinde **rolleri** bölümünde, seçili kullanıcılar için özelleştirilmiş izinleri ve rolleri belirtin.
 6.  **Kaydet**’i seçin.

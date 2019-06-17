@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
 ms.openlocfilehash: 7bcc1bf6b734abe202c5fec5d515604f4bf8e4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60398714"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IOT SDK'ları Platform desteği
@@ -89,7 +89,7 @@ Desteklenen çeşitli platformlar vardır.
 
 Müşteriler, platform desteğimiz genişletebilir SDK'ın (PAL) platform Soyutlama Katmanı oluşturma Azure IOT C SDK'yı özellikle taşıma. Microsoft genişletilmiş destek sağlamak üzere iş ortakları ile çalışmaktadır. İş ortaklarının listesini açın diğer platformlar ve PAL koruma C SDK'sı unity'nin.
 
-| İş ortağı             | Cihazlar                            | Bağlantı                     | Destek |
+| Partner             | Cihazlar                            | Bağlantı                     | Destek |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IOT Modem     | [Qualcomm LTE IOT SDK'sı](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

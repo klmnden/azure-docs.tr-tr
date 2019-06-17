@@ -8,14 +8,13 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2017
-ms.date: 02/21/2019
-ms.author: v-junlch
+ms.date: 12/07/2017
+ms.author: azfuncdf
 ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60730285"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri), görev hub'ları
@@ -30,11 +29,11 @@ Birden fazla işlev uygulaması, bir depolama hesabı, her işlev uygulaması pa
 
 Bir görev hub'ı aşağıdaki depolama kaynaklarını oluşur:
 
-- Bir veya daha fazla denetim sıralar.
-- Bir iş öğesi kuyruk.
-- Bir geçmiş tablosu.
-- Bir örnek tablo.
-- Bir veya daha fazla kira bloblarını içeren bir depolama kapsayıcısı.
+* Bir veya daha fazla denetim sıralar.
+* Bir iş öğesi kuyruk.
+* Bir geçmiş tablosu.
+* Bir örnek tablo.
+* Bir veya daha fazla kira bloblarını içeren bir depolama kapsayıcısı.
 
 Orchestrator veya etkinlik işlevlerini çalıştırdığınızda veya çalıştırmak için zamanlanan tüm bu kaynaklar varsayılan Azure depolama hesabında otomatik olarak oluşturulur. [Performansı ve ölçeği](durable-functions-perf-and-scale.md) makalede, bu kaynakları nasıl kullanıldığı açıklanmaktadır.
 
@@ -141,5 +140,3 @@ Görev hub adları bir harf ile başlamalı ve yalnızca harf ve sayı oluşur. 
 
 > [!div class="nextstepaction"]
 > [Sürüm oluşturma nasıl ele alınacağını öğrenin](durable-functions-versioning.md)
-
-<!-- Update_Description: wording update -->

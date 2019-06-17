@@ -17,18 +17,18 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822317"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Tanılama günlükleri için bir Azure olay hub'ı ayarlama
 
 Azure Event Hubs için iki tür günlüğü görüntüleyebilirsiniz:
 
-* **[Etkinlik günlükleri](../azure-monitor/platform/activity-logs-overview.md)**: Bu günlükler bir proje üzerinde gerçekleştirilen işlemler hakkında bilgi var. Günlükler her zaman etkindir.
-* **[Tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md)**: Gerçekleşen daha zengin bir görünüm her şeyin için tanılama günlükleri ile bir işi yapılandırabilirsiniz. Tanılama günlüklerine yönelik güncelleştirmeleri ve iş çalışırken gerçekleşen etkinlikler dahil olmak üzere iş silinene kadar iş oluşturulur zamanından kapak etkinlikler.
+* **[Etkinlik günlükleri](../azure-monitor/platform/activity-logs-overview.md)** : Bu günlükler bir proje üzerinde gerçekleştirilen işlemler hakkında bilgi var. Günlükler her zaman etkindir.
+* **[Tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md)** : Gerçekleşen daha zengin bir görünüm her şeyin için tanılama günlükleri ile bir işi yapılandırabilirsiniz. Tanılama günlüklerine yönelik güncelleştirmeleri ve iş çalışırken gerçekleşen etkinlikler dahil olmak üzere iş silinene kadar iş oluşturulur zamanından kapak etkinlikler.
 
 ## <a name="enable-diagnostic-logs"></a>Tanılama günlüklerini etkinleştirme
 

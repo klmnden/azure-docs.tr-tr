@@ -16,10 +16,10 @@ ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
 ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60853080"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>En iyi uygulamalar ve Azure App Service Windows üzerinde node.js uygulamaları için sorun giderme kılavuzu
@@ -262,7 +262,7 @@ Bu işlem daha hızlı hale getirmek için bazı çözümler vardır:
 
 Win32 hata kodu görmek uygulamanızın FREB etkinleştir (performansı artırmak için üretim dışı sitelerindeki yalnızca FREB etkinleştirdiğinizden emin olun).
 
-| Http Durumu | HTTP alt durum | Olası nedeni nedir? |
+| Http durumu | HTTP alt durum | Olası nedeni nedir? |
 | --- | --- | --- |
 | 500 |1000 |IISNODE isteği gönderme sorun oluştu: node.exe başlatılıp başlatılmadığını denetleyin. Node.exe başlatırken kilitlenmiş. Web.config yapılandırma hatalarını denetleyin. |
 | 500 |1001 |-Win32Error 0x2 - uygulama URL'si yanıt vermiyor. Express uygulamanızın tanımlanan doğru rotalar varsa URL yeniden yazma kuralları veya onay kontrol edin. -Win32Error 0x6d – adlandırılmış kanal meşgul – kanal meşgul olduğundan Node.exe isteklerini kabul etmiyor. Yüksek cpu kullanımını denetleyin. -Diğer hataları – denetleyin, node.exe kilitlendi. |
@@ -274,9 +274,9 @@ Win32 hata kodu görmek uygulamanızın FREB etkinleştir (performansı artırma
 | 503 |1002 |Gerçek bir nedenle – isteği onay win32 hata kodu için bir node.exe dağıtılamadı. |
 | 503 |1003 |Adlandırılmış kanal çok meşgul – node.exe aşırı CPU kullanmadığına doğrulayın |
 
-NODE.exe adlı bir ayar olan `NODE_PENDING_PIPE_INSTANCES`. Azure App Service, bu değer 5000 olarak ayarlanır. Bu node.exe kabul edebilir 5000 istekleri adlandırılmış kanal üzerinde bir seferde anlamına gelir. Bu değer, Azure App Service üzerinde çalışan düğümü uygulamalarının çoğu için yeterince iyi olmalıdır. 503.1003 üzerinde Azure App Service'te yüksek değeri nedeniyle görmelisiniz değil `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe adlı bir ayar olan `NODE_PENDING_PIPE_INSTANCES`. Azure App Service, bu değer 5000 olarak ayarlanır. Bu node.exe kabul edebilir 5000 istekleri adlandırılmış kanal üzerinde bir seferde anlamına gelir. Bu değer, Azure App Service üzerinde çalışan düğümü uygulamalarının çoğu için yeterince iyi olmalıdır. 503\.1003 üzerinde Azure App Service'te yüksek değeri nedeniyle görmelisiniz değil `NODE_PENDING_PIPE_INSTANCES`
 
-## <a name="more-resources"></a>Diğer kaynaklar
+## <a name="more-resources"></a>Daha fazla kaynak
 
 Azure App Service'te node.js uygulamaları hakkında daha fazla bilgi için aşağıdaki bağlantıları izleyin.
 

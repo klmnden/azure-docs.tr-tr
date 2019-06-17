@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 6efdb1c28777d9230727066fdba03d2850be62b0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935914"
 ---
 <a name="private-skus-and-plans"></a>Özel SKU'ları ve planlar
@@ -44,7 +44,7 @@ SKU özel olarak işaretlenmiş ve diğer SKU'lar reuseable disklerle teklif var
 >[!NOTE]
 >Yayımlandıktan sonra genel bir SKU özel yapılamaz.
 
-<a name="select-an-image"></a>Resim seçme
+<a name="select-an-image"></a>Bir görüntü seçin
 ------------------
 
 Zaten başka bir SKU fiyatlandırması yalnızca değiştirme, veya açıklama içinde sağlanan aynı diskleri yeniden ya da özel SKU için yeni diskler sağlar. Diskleri yeniden kullanmak için işaretleyin **Evet** "Bu SKU görüntü yeniden kullanımı genel bir SKU yok" istemine yanıt olarak.
@@ -55,7 +55,7 @@ SKU başka bir SKU görüntüleri yeniden onayladıktan sonra kaynak görüntül
 
 Sonraki ekranda istemleri özel SKU'yu belirleme seçilen SKU görüntülerden yeniden show Yakala:
 
-![Resim seçme](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
+![Bir görüntü seçin](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
 
 Teklif yayımladığınızda, seçilen SKU görüntülerden özel fiyatlar/koşullarına özel SKU kimliği altında kullanılabilir hale. Özel SKU yalnızca hedef kitleye görünür olur.
 

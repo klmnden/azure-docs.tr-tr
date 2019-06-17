@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621522"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052671"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric uygulama ve hizmet bildirimleri
 Bu makalede tanımlanan ve tutulan ApplicationManifest.xml ve ServiceManifest.xml dosyalarını kullanarak Service Fabric uygulamaları ve hizmetleri nasıl açıklar.  Daha ayrıntılı örnekler için bkz: [uygulama ve hizmet bildirimi örnekleri](service-fabric-manifest-examples.md).  Bu bildirim dosyaları için XML Şeması belgelenen [ServiceFabricServiceModel.xsd şema belgeleri](service-fabric-service-model-schema.md).
@@ -96,7 +96,7 @@ SetupEntryPoint yapılandırma hakkında daha fazla bilgi için bkz. [Hizmet Kur
 </Settings>
 ```
 
-Service Fabric hizmeti **uç nokta** bir Service Fabric kaynak; örneğidir Bir Service Fabric kaynak derlenmiş kodunu değiştirmeden, bildirilen/değiştirilmiş olabilir. Hizmet bildiriminde belirtilen Service Fabric kaynaklarına erişimi aracılığıyla denetlenebilir **IDAP** uygulama bildiriminde. Hizmet bildiriminde tanımlanan uç nokta kaynağı oluşturduğunuzda, Service Fabric açıkça bir bağlantı noktası belirtilmezse ayrılmış uygulama bağlantı noktası aralığından bağlantı noktaları atar. Daha fazla bilgi edinin [belirterek veya uç nokta kaynakları geçersiz kılma](service-fabric-service-manifest-resources.md).
+Service Fabric hizmeti **uç nokta** bir Service Fabric kaynak örneğidir. Bir Service Fabric kaynak derlenmiş kodunu değiştirmeden, bildirilen/değiştirilmiş olabilir. Hizmet bildiriminde belirtilen Service Fabric kaynaklarına erişimi aracılığıyla denetlenebilir **IDAP** uygulama bildiriminde. Hizmet bildiriminde tanımlanan uç nokta kaynağı oluşturduğunuzda, Service Fabric açıkça bir bağlantı noktası belirtilmezse ayrılmış uygulama bağlantı noktası aralığından bağlantı noktaları atar. Daha fazla bilgi edinin [belirterek veya uç nokta kaynakları geçersiz kılma](service-fabric-service-manifest-resources.md).
 
 
 <!--
@@ -163,7 +163,11 @@ Hizmet bildirimleri gibi **sürüm** öznitelikleri yapılandırılmamış dizel
 
 **Sertifikaları** (yukarıdaki örnekte ayarlanmadıysa) için kullanılan sertifikaları bildirir [Kurulum HTTPS uç noktaları](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) veya [uygulama bildiriminde parolaları şifrelemek](service-fabric-application-secret-management.md).
 
-**İlkeleri** (yukarıdaki örnekte ayarlanmadıysa) açıklayan günlük toplama [varsayılan Çalıştır](service-fabric-application-runas-security.md), [sistem durumu](service-fabric-health-introduction.md#health-policies), ve [güvenlik erişim](service-fabric-application-runas-security.md) ilkeleri en ayarlamak için Uygulama düzeyi.
+**İlkeleri** (yukarıdaki örnekte ayarlanmadıysa) açıklayan günlük toplama [varsayılan Çalıştır](service-fabric-application-runas-security.md), [sistem durumu](service-fabric-health-introduction.md#health-policies), ve [güvenlik erişim](service-fabric-application-runas-security.md) ilkeleri en ayarlamak için Service Fabric çalışma zamanı hizmetlere erişimi olup olmadığını da dahil olmak üzere uygulama düzeyi.
+
+> [!NOTE] 
+> Varsayılan olarak, Service Fabric uygulamaları Service Fabric çalışma zamanı, uygulamaya özgü istekleri ve konaktaki doku ve uygulamaya özgü dosyalarını içeren dosya yolları işaret ortam değişkenleri kabul eden bir uç nokta biçiminde erişebilir . Uygulama, güvenilmeyen kod (olan provenance bilinmiyor veya uygulama sahibi yürütmek güvenli olmaması bilir yani kod) barındırdığında bu erişimi devre dışı bırakmayı düşünün. Daha fazla bilgi için lütfen bkz [en iyi güvenlik uygulamaları Service fabric'te](service-fabric-best-practices-security.md#platform-isolation). 
+>
 
 **İlkeleri** (yukarıdaki örnekte ayarlı değil) tanımlamak için gereken güvenlik Sorumlular (kullanıcılar veya gruplar) [çalışma Hizmetleri ve güvenli hizmet kaynakları](service-fabric-application-runas-security.md).  İlkeleri başvurulan **ilkeleri** bölümler.
 

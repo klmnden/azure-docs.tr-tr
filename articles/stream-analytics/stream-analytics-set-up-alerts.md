@@ -7,20 +7,19 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
-ms.custom: seodec18
-ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 09a5c77c770f7709b90d4959da5be9134b0f0ad9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771982"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077675"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyarıları ayarlama
 
 İş sürekli olarak sorunsuz çalıştığından emin olmak için Azure Stream Analytics işinizi izlemek önemlidir. Bu makalede, izlenmesi gereken genel senaryolar için uyarıları ayarlama açıklar. 
 
-Kuralları, portal üzerinden ölçümler üzerinde ayarlanabilir ve yapılandırılabilir [program aracılığıyla](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) işlem günlükleri veriler üzerinde.
+Portal üzerinden işlem günlükleri verilerden ölçümlere ilişkin kurallar tanımlayabilirsiniz yanı [program aracılığıyla](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Azure portalında uyarıları ayarlama
 
@@ -30,7 +29,7 @@ Aşağıdaki örnek, işinizi başarısız durumda girdiğinde için uyarıları
 
 2. Üzerinde **iş** sayfasında, gitmek **izleme** bölümü.  
 
-3. Seçin **ölçümleri**ve ardından **yeni uyarı kuralı**.
+3. Seçin **ölçümleri**, ardından **yeni uyarı kuralı**.
 
    ![Azure portalında Stream Analytics uyarıları Kurulumu](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
@@ -38,7 +37,7 @@ Aşağıdaki örnek, işinizi başarısız durumda girdiğinde için uyarıları
 
    ![Stream Analytics uyarı için sinyal adı seçin](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. Altında **sinyal mantığını yapılandırma**, değiştirme **olay düzeyi** için **tüm** değiştirip **durumu** için **başarısız** . Bırakın **olayı başlatan tarafından** tıklayın ve boş **Bitti**.
+5. Altında **sinyal mantığını yapılandırma**, değiştirme **olay düzeyi** için **tüm** değiştirip **durumu** için **başarısız** . Bırakın **olayı başlatan tarafından** seçin ve boş **Bitti**.
 
    ![Stream Analytics uyarı için sinyal mantığını yapılandırma](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -58,7 +57,7 @@ Aşağıdaki örnek, işinizi başarısız durumda girdiğinde için uyarıları
 
 Stream Analytics işinizin performansını izlemek için aşağıdaki uyarıları önerilir. Bu ölçümler son 5 dakika boyunca dakika başı değerlendirilmelidir.
 
-|Ölçüm|Koşul|Zaman Toplama|Eşik|Düzeltme eylemleri|
+|Ölçüm|Koşul|Zaman toplama|Eşik|Düzeltme eylemleri|
 |-|-|-|-|-|
 |SU kullanım yüzdesi|Büyüktür|Maksimum|80|SU kullanım yüzdesi artıran çok etken vardır. Sorgu paralelleştirmesiyle ölçeklendirme veya akış birimi sayısını artırabilirsiniz. Daha fazla bilgi için bkz. [Azure Stream Analytics'te sorgu paralelleştirmesinden yararlanma](stream-analytics-parallelization.md).|
 |Çalışma zamanı hataları|Büyüktür|Toplam|0|Etkinlik veya tanılama günlüklerini inceleyin ve giriş, sorgu veya çıkış için uygun değişiklikleri yapın.|

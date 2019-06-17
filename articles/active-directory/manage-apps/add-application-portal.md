@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d3e79b00545f76dff9442a11864701d6d61f057
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1688cc9317306e7f524536754854b6147ad3dd5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784561"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108776"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Hızlı Başlangıç: Azure Active Directory kiracınız için uygulama ekleme
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD), önceden tümleştirilmiş binlerce uygulaman
 
 Bir uygulamayı Azure AD kiracınıza ekledikten sonra aşağıdaki işlemleri gerçekleştirebilirsiniz:
 
-- Koşullu erişim ilkesi ile uygulamaya kullanıcı erişimini yönetme.
+- Uygulama koşullu erişim ilkesi ile kullanıcı erişimini yönetin.
 - Kullanıcıları Azure AD hesapları ile uygulamada çoklu oturum açma özelliğini kullanacak şekilde yapılandırma.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
@@ -58,7 +58,7 @@ Azure AD kiracınıza galeri uygulaması eklemek için:
 
 1. Bir uygulama için altında aranacak **Galeriden Ekle**, eklemek istediğiniz uygulamanın adını girin. Uygulama sonuçları ve select seçin **Ekle**. Aşağıdaki örnekte gösterildiği **uygulama Ekle** github.com için aradıktan sonra görünen form.
 
-    ![Uygulama ekle](media/add-application-portal/add-an-application.png)
+    ![Uygulama ekleme](media/add-application-portal/add-an-application.png)
 
 1. Uygulamaya özgü formda özellik bilgilerini değiştirebilirsiniz. Örneğin uygulamanızın adını kuruluşunuzun gereksinimlerine göre düzenleyebilirsiniz. Bu örnekte **GitHub-test** adı kullanılmıştır.
 
@@ -72,7 +72,7 @@ Uygulamanızı ekleme işlemi tamamlandı. Şimdi biraz ara verebilirsiniz. Aşa
 
 İşlemi burada bırakmak zorunda kaldığınızı ve uygulamayı yapılandırmaya devam etmek için daha sonra tekrar geldiğinizi düşünelim. Yapılacak ilk şey, uygulamanızın bulmaktır.
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde seçin **Azure Active Directory**.
+1. İçinde  **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde seçin **Azure Active Directory**.
 
 1. İçinde **Azure Active Directory** bölmesinde **kurumsal uygulamalar**.
 
