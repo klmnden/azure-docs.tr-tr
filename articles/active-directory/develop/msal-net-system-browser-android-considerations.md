@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c57feb33967732481d78e0ddaba5e90f4f82f327
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544436"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Xamarin Android özgü MSAL.NET hakkında konuları
@@ -56,16 +56,16 @@ Aşağıdaki tabloda, sınanmış tarayıcılar ve cihazlar listeler.
 
 | | Tarayıcı&ast;     |  Sonuç  | 
 | ------------- |:-------------:|:-----:|
-| Huawei / bir + | Chrome&ast; | Geçiş|
-| Huawei / bir + | Edge&ast; | Geçiş|
-| Huawei / bir + | Firefox&ast; | Geçiş|
-| Huawei / bir + | Brave&ast; | Geçiş|
-| Bir + | Ecosia&ast; | Geçiş|
-| Bir + | Kivi&ast; | Geçiş|
-| Huawei / bir + | Opera | Geçiş|
-| Huawei | OperaMini | Geçiş|
-| Huawei / bir + | InBrowser | Geçiş|
-| Bir + | Maxthon | Geçiş|
+| Huawei / bir + | Chrome&ast; | Geçişi|
+| Huawei / bir + | Edge&ast; | Geçişi|
+| Huawei / bir + | Firefox&ast; | Geçişi|
+| Huawei / bir + | Brave&ast; | Geçişi|
+| Bir + | Ecosia&ast; | Geçişi|
+| Bir + | Kivi&ast; | Geçişi|
+| Huawei / bir + | Opera | Geçişi|
+| Huawei | OperaMini | Geçişi|
+| Huawei / bir + | InBrowser | Geçişi|
+| Bir + | Maxthon | Geçişi|
 | Huawei / bir + | DuckDuckGo | Kullanıcı iptal etti kimlik doğrulama|
 | Huawei / bir + | UC tarayıcı | Kullanıcı iptal etti kimlik doğrulama|
 | Bir + | Dolphin | Kullanıcı iptal etti kimlik doğrulama|

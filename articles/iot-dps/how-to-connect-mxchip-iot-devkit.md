@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122835"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>MXChip IOT DevKit IOT Hub'ınızla kaydolmak için Azure IOT Hub cihazı sağlama hizmeti otomatik sağlama kullanın
@@ -60,7 +60,7 @@ Bir UD üzerinde DevKit kaydetmek için:
 
 1. DevKit üzerinde basılı **bir düğme**, gönderme ve yayın **sıfırlama** düğmesini ve ardından sürüm **bir düğme**. Yapılandırma modu, DevKit girer.
 
-1. Tıklayın `F1` komut paletini açın için girin ve seçin **Azure IOT cihaz Workbench: Cihaz ayarlarını yapılandırma > yapılandırma benzersiz cihaz dizesi (UD)**.
+1. Tıklayın `F1` komut paletini açın için girin ve seçin **Azure IOT cihaz Workbench: Cihaz ayarlarını yapılandırma > yapılandırma benzersiz cihaz dizesi (UD)** .
   ![UD yapılandırın](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
 
 1. Oluşturulan UD dize unutmayın. X.509 sertifikası oluşturmak için ihtiyacınız. Tuşuna basarak `Enter`.

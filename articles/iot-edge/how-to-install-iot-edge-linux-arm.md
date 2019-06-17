@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65152722"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta yükleme
@@ -74,7 +74,7 @@ Arka plan programı, yapılandırma dosyası kullanılarak yapılandırılabilir
 
 Tek bir IOT Edge cihazı IOT Hub tarafından sağlanan cihaz bağlantı dizesini kullanarak el ile sağlanabilir. Veya, cihaz sağlama hizmeti sağlamak için birçok cihaz olduğunda kullanışlı olan cihazları otomatik olarak sağlamak için kullanabilirsiniz. Sağlama seçiminize bağlı olarak, uygun yükleme komut dosyasını seçin. 
 
-### <a name="option-1-manual-provisioning"></a>1. seçenek: El ile sağlama
+### <a name="option-1-manual-provisioning"></a>1\. seçenek: El ile sağlama
 
 El ile cihaz sağlama için ile sağlamak gereken bir [cihaz bağlantı dizesini](how-to-register-device-portal.md) IOT hub'ına yeni bir IOT Edge cihazı kaydederek oluşturabilirsiniz.
 
@@ -108,7 +108,7 @@ Yapılandırma dosyasında sağlama bilgilerini girdikten sonra Daemon programı
 sudo systemctl restart iotedge
 ```
 
-### <a name="option-2-automatic-provisioning"></a>2. seçenek: Otomatik sağlama
+### <a name="option-2-automatic-provisioning"></a>2\. seçenek: Otomatik sağlama
 
 Otomatik olarak bir cihazı sağlamak için [cihaz sağlama hizmetini ayarlama ve cihaz kayıt Kimliğinizi almak](how-to-auto-provision-simulated-device-linux.md). Otomatik sağlama, yalnızca Güvenilir Platform Modülü (TPM) yongasına sahip cihazlarla çalışır. Örneğin, Raspberry Pi cihazlar TPM ile varsayılan olarak gelmeyen. 
 

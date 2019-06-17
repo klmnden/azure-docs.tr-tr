@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 93376059dac2a8336e581269d8289d893779b291
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799104"
 ---
 # <a name="find-exact-moments-within-videos"></a>Videoların içinde belirli anları bulma
@@ -26,14 +26,14 @@ Bu konu, videolar için belirli anları bulmanıza olanak sağlamak arama seçen
 
     Aşağıdaki örnekte, biz Satya göründüğü içinde ve güvenlik hakkında konuşmak tüm videolar için arama yapın,
 
-    ![Arama](./media/video-indexer-search/video-indexer-search01.png)
+    ![Ara](./media/video-indexer-search/video-indexer-search01.png)
 3. Özetlenen ınsights video arayın.
 
     Ardından, tıklayarak videonun içindeki arayabilirsiniz **Play** videoyla ilgili. Ardından, seçerek video içinde arama yapabilirsiniz **arama** sekmesi. 
 
     Aşağıdaki örnekte, biz "" içinde seçili video arayın.
 
-    ![Arama](./media/video-indexer-search/video-indexer-search02.png)
+    ![Ara](./media/video-indexer-search/video-indexer-search02.png)
 
     Sonuçlardan birini tıklarsanız, oyuncunun, o an için videoda getirir. Uygulamanızda eşitleme ve oynatıcı/görünümü elde edebilirsiniz. Daha fazla bilgi için [uygulamanıza ekleme Video Indexer pencere öğeleri](video-indexer-embed-widgets.md). 
 4. Ayrıntılı bir dökümü video arayın.
@@ -44,7 +44,7 @@ Bu konu, videolar için belirli anları bulmanıza olanak sağlamak arama seçen
     
     Aşağıdaki örnekte, biz "karma gerçeklik" metnini aranır. Biz de ek filtreler, aşağıdaki ekranda gösterildiği gibi uygulanır.
     
-    ![Arama](./media/video-indexer-search/video-indexer-search03.png)
+    ![Ara](./media/video-indexer-search/video-indexer-search03.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 

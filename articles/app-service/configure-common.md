@@ -17,10 +17,10 @@ ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: bcc970375120f76e4ec8a90f487d251296f92dba
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957918"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure portalında bir App Service uygulaması yapılandırma
@@ -31,7 +31,7 @@ Bu konu başlığında, web uygulamaları, mobil arka uç veya API uygulamasın�
 
 App Service uygulama ayarları gibi ortam değişkenlerini kullanın. İçinde [Azure Portal], uygulamanızın Yönetim sayfasına gidin. Uygulamanın sol menüde **yapılandırma** > **uygulama ayarları**.
 
-![Uygulama Ayarları](./media/configure-common/open-ui.png)
+![Uygulama ayarları](./media/configure-common/open-ui.png)
 
 ASP.NET ve ASP.NET Core geliştiricileri için App Service uygulama ayarlarında ayarı bunları ayarlamak gibidir `<appSettings>` içinde *Web.config*, ancak dışındaki geçersiz kılma değerleri App Service'te *Web.config*. Geliştirme Ayarları (örneğin yerel MySQL parola) tutabilirsiniz *Web.config*, ancak üretim gizli (örneğin Azure MySQL veritabanı parolasını) App Service'te güvenli. Yerel olarak hata ayıklama ve üretim dizilerinizin Azure'a dağıtıldığında kullanır, geliştirme ayarlarınızı aynı kodu kullanır.
 
@@ -92,7 +92,7 @@ Uygulama ayarları, aşağıdaki JSON biçimlendirmeye sahip:
 
 İçinde [Azure Portal], uygulamanın Yönetim sayfasına gidin. Uygulamanın sol menüde **yapılandırma** > **uygulama ayarları**.
 
-![Uygulama Ayarları](./media/configure-common/open-ui.png)
+![Uygulama ayarları](./media/configure-common/open-ui.png)
 
 ASP.NET ve ASP.NET Core geliştiricileri için App Service ayarı bağlantı dizelerini ayarlama bölümünde gibidir `<connectionStrings>` içinde *Web.config*, ancak dışındaki App Service'te ayarlanan değerlerle geçersiz *Web.config*. Geliştirme Ayarları (örn. veritabanı dosyası) tutabilirsiniz *Web.config* ve üretim gizli (örneğin SQL veritabanı kimlik bilgileri) App Service'te güvenli. Yerel olarak hata ayıklama ve üretim dizilerinizin Azure'a dağıtıldığında kullanır, geliştirme ayarlarınızı aynı kodu kullanır.
 

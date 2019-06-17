@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
 ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964057"
 ---
 # <a name="marketplace-faqs"></a>Market hakkında SSS
@@ -35,7 +35,7 @@ Azure Market, BT uzmanları ve ticari BT yazılım ve Hizmetleri ile ilgilenen b
 Azure Market, Azure ürünlerini ve hizmetlerini genişletmek için oluşturulmuş Microsoft ve iş ortaklarının sağladığı teknik çözümleri ve hizmetleri sunar. Çözüm Kataloğu dahil ancak bunlarla sınırlı olmamak üzere birkaç kategorisine yayılır:
 
 * temel işletim sistemleri
-* veritabanı
+* veritabanları
 * güvenlik
 * identity
 * ağ iletişimi
@@ -202,7 +202,7 @@ MOSP - [Microsoft çevrimiçi abonelik programı](https://azure.microsoft.com/su
 
 Microsoft aboneliklerinin büyük bir bölümü kolayca Kurumsal sözleşmenize dönüştürülebilir, ancak bu Aboneliklerdeki Azure Marketi satın alımlarına dönüştürülemez.
 
-Diğer hizmetleri Azure Marketi'nden satın alınan bir Kurumsal Sözleşme aboneliğine taşımak için önce mevcut MOSP aboneliğinizden uygulamaları iptal edin ve bu uygulamaların Kurumsal Anlaşma abonelik içindeki Makinesi'ni. - Market hizmeti abonelikleri arasında çakışan kapsama ait aya sırasında para iadesi oluşturmak için Bunun yapılması, kredi isteği gönderebilirsiniz bir [destek bileti](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Diğer hizmetleri Azure Marketi'nden satın alınan bir Kurumsal Sözleşme aboneliğine taşımak için önce mevcut MOSP aboneliğinizden uygulamaları iptal edin ve bu uygulamaların Kurumsal Anlaşma abonelik içindeki Makinesi'ni. \- Market hizmeti abonelikleri arasında çakışan kapsama ait aya sırasında para iadesi oluşturmak için Bunun yapılması, kredi isteği gönderebilirsiniz bir [destek bileti](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 **Sanal makine için maliyet yapısında "Fiyat", "yazılım fiyatı" ve "Toplam Fiyat" arasındaki fark nedir, Azure Marketi'nde sunar?**
 
@@ -601,7 +601,7 @@ MOSP (yani doğrudan web) müşterileri, açık, Azure abonelik profillerindeki 
 
 Microsoft aboneliklerinin büyük bir bölümü kolayca Kurumsal Sözleşmenize dönüştürülebilir, ancak bu aboneliklerdeki Azure Marketi satın alma işlemleri dönüştürülemez.
 
-Diğer hizmetleri Azure Marketi'nden satın alınan bir Kurumsal Sözleşme aboneliğine taşımak için önce mevcut MOSP aboneliğinizden uygulamaları iptal edin.  Ardından bu uygulamaları Kurumsal Anlaşma abonelik içindeki Makinesi'ni.  - Market hizmeti abonelikleri arasında çakışan kapsama ait aya oluşturmak için bunu yaptıktan sonra kredi isteği gönderebilirsiniz bir [destek bileti](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Diğer hizmetleri Azure Marketi'nden satın alınan bir Kurumsal Sözleşme aboneliğine taşımak için önce mevcut MOSP aboneliğinizden uygulamaları iptal edin.  Ardından bu uygulamaları Kurumsal Anlaşma abonelik içindeki Makinesi'ni.  \- Market hizmeti abonelikleri arasında çakışan kapsama ait aya oluşturmak için bunu yaptıktan sonra kredi isteği gönderebilirsiniz bir [destek bileti](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 **"Fiyat", "yazılım fiyatı" arasındaki fark nedir ve Azure Marketi'nde "Toplam Fiyat" sanal makine için maliyet yapısında sunar?**
 

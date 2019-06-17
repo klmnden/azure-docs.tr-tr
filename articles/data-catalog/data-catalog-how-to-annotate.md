@@ -9,14 +9,14 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953179"
 ---
 # <a name="how-to-annotate-data-sources"></a>Veri kaynaklarına açıklama ekleme
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 **Microsoft Azure veri Kataloğu** kayıt ve kurumsal veri kaynakları için bulma sistemi olarak görev yapan tam yönetilen bir bulut hizmetidir. Diğer bir deyişle, tüm veri kaynakları ve yardımcı kuruluşların var olan verilerden daha fazla değer elde kullanacağınızı bulmak ve anlamak yardımcı hakkında veri Kataloğu. Bir veri kaynağı, veri Kataloğu'na kaydedildiğinde meta verilerini kopyalanır ve hizmet tarafından ancak bir hikayesi vardır sonlanmıyor. Veri Kataloğu, açıklamaları ve etiketleri – veri kaynağından ayıklanan meta verileri desteklemek ve veri kaynağı için daha fazla insana daha anlaşılır hale getirmek için gibi – kendi açıklayıcı meta verilerini sağlamak kullanıcıların sağlar.
 
 ## <a name="annotation-and-crowdsourcing"></a>Ek açıklama ve kitle kaynak
@@ -34,7 +34,7 @@ Bu perspektifler her değerlidir ve bir kitle kaynak yaklaşımı yakalanır ve 
 ## <a name="different-types-of-annotations"></a>Farklı tür ek açıklamaları
 Veri Kataloğu, ek açıklamaları aşağıdaki türlerini destekler:
 
-| Ek Açıklama | Notlar |
+| Ek açıklama | Notlar |
 | --- | --- |
 | Kolay ad |Kolay adlar veri varlıkları daha kolay anlaşılmasını sağlamak için veri varlık düzeyinde sağlanabilir. Temel alınan nesne adının şifreli, kısaltılmış veya aksi halde anlamlı kullanıcılara olduğunda kolay adlar ekseriyetle faydalıdır. |
 | Açıklama |Veri varlığına ve öznitelik tanımlarını sağlanabilir / sütun düzeyi. Açıklamaları olan kullanıcının açıklayan kısa serbest biçimli metin ek açıklamalar perspektif veri varlığı veya kullanımı. |

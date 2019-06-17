@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967229"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Kurumsal Sözleşme, Microsoft Müşteri sözleşmesi API'lerine geçiş
@@ -90,7 +90,7 @@ Mevcut bir EA API kullanıyorsanız, bunları MCA fatura hesapları desteklemek 
 - Bakiyeler
 - Yeni satın almalar
 - Azure Market hizmeti ücreti
-- Ayarlamalar
+- Düzeltmeler
 - Hizmet fazla kullanım ücretleri
 
 Tüm tüketim API'leri, Azure AD kimlik doğrulama ve yetkilendirme için kullanın. yerel Azure API'leri ile değiştirilir. Azure REST API'lerini çağırmayla ilgili daha fazla bilgi için bkz. [REST ile çalışmaya başlama](/rest/api/azure/#create-the-request).
@@ -129,7 +129,7 @@ Kullanım ayrıntılarını API'si tüm maliyet Yönetimi API'leri ile gibi bird
 | Tür | Kimliği biçimi |
 | --- | --- |
 | Fatura hesabı | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
-| Faturalama profili | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
+| Faturalandırma profili | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
 | Abonelik | `/subscriptions/{subscriptionId}` |
 | Kaynak grubu | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
 
@@ -172,59 +172,59 @@ Veri kullanım kayıtlarından oluşan bir diziyi içeren özellik adı değişt
 
 | Eski özelliği | Yeni özellik | Notlar |
 | --- | --- | --- |
-| Hesap kimliği | Yok | Aboneliği Oluşturucusu izlenen değil. İnvoiceSectionId (departmentId ile aynı) kullanın. |
+| Hesap Kimliği | Yok | Aboneliği Oluşturucusu izlenen değil. İnvoiceSectionId (departmentId ile aynı) kullanın. |
 | AccountNameAccountOwnerId ve AccountOwnerEmail | Yok | Aboneliği Oluşturucusu izlenen değil. İnvoiceSectionName (departmentName ile aynı) kullanın. |
-| Ek bilgi | additionalInfo | &nbsp;  |
+| Additionalınfo | Additionalınfo | &nbsp;  |
 | ChargesBilledSeparately | isAzureCreditEligible | Bu özellikler birbirinin zıttı olduğunu unutmayın. İsAzureCreditEnabled true ise, ChargesBilledSeparately false olur. |
-| Tüketilen miktar | quantity | &nbsp; |
-| Tüketilen hizmet | consumedService | Tam dize değerlerini gösterebilir. |
-| Tüketilen hizmet kimliği | None | &nbsp; |
-| Maliyet merkezi | costCenter | &nbsp; |
+| ConsumedQuantity | Miktar | &nbsp; |
+| ConsumedService | ConsumedService | Tam dize değerlerini gösterebilir. |
+| ConsumedServiceId | None | &nbsp; |
+| CostCenter | CostCenter | &nbsp; |
 | Tarih ve usageStartDate | date | &nbsp;  |
 | Gün | None | Başlangıç tarihi gün ayrıştırır. |
-| Bölüm kimliği | invoiceSectionId | Tam değerleri farklı. |
+| DepartmentId | invoiceSectionId | Tam değerleri farklı. |
 | Bölüm adı | invoiceSectionName | Tam dize değerlerini gösterebilir. Departmanlar, eşleştirilecek fatura bölümlerde gerekli olup olmadığını yapılandırın. |
 | ExtendedCost ve maliyet | costInBillingCurrency | &nbsp;  |
-| Örnek kimliği | resourceId | &nbsp;  |
-| Yinelenen Ücretlendirme | None | &nbsp;  |
-| Location | konum | &nbsp;  |
-| Ölçüm kategorisi | meterCategory | Tam dize değerlerini gösterebilir. |
-| Ölçüm kimliği | meterId | Tam dize değerleri farklı. |
-| Ölçüm adı | meterName | Tam dize değerlerini gösterebilir. |
-| Ölçüm bölgesi | meterRegion | Tam dize değerlerini gösterebilir. |
-| Ölçüm alt kategorisi | meterSubCategory | Tam dize değerlerini gösterebilir. |
+| InstanceId | resourceId | &nbsp;  |
+| Yinelenen ücreti | None | &nbsp;  |
+| Location | location | &nbsp;  |
+| MeterCategory | MeterCategory | Tam dize değerlerini gösterebilir. |
+| MeterId | MeterId | Tam dize değerleri farklı. |
+| MeterName | MeterName | Tam dize değerlerini gösterebilir. |
+| MeterRegion | MeterRegion | Tam dize değerlerini gösterebilir. |
+| MeterSubCategory | MeterSubCategory | Tam dize değerlerini gösterebilir. |
 | Ay | None | Tarihten itibaren ay ayrıştırır. |
 | Teklif Adı | None | PublisherName ve productOrderName kullanın. |
 | OfferId | None | &nbsp;  |
 | Sipariş numarası | None | &nbsp;  |
 | PartNumber | None | Fiyatlar benzersiz olarak tanımlanabilmesi için meterId ve productOrderName kullanın. |
-| Plan Adı | productOrderName | &nbsp;  |
+| Plan adı | productOrderName | &nbsp;  |
 | Product | Product |   |
-| Ürün kimliği | productId | Tam dize değerleri farklı. |
-| Yayımcı Adı | publisherName | &nbsp;  |
+| ProductID | productId | Tam dize değerleri farklı. |
+| Yayımcı adı | PublisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
-| Kaynak Guid'si | meterId | Tam dize değerleri farklı. |
-| Kaynak konumu | resourceLocation | &nbsp;  |
-| Kaynak konumu kimliği | None | &nbsp;  |
-| Kaynak fiyatı | effectivePrice | &nbsp;  |
-| Hizmet yöneticisi kimliği | Yok | &nbsp;  |
-| Hizmet bilgisi 1 | serviceInfo1 | &nbsp;  |
-| Hizmet bilgisi 2 | serviceInfo2 | &nbsp;  |
-| ServiceName | meterCategory | Tam dize değerlerini gösterebilir. |
-| ServiceTier | meterSubCategory | Tam dize değerlerini gösterebilir. |
-| Depolama hizmeti tanımlayıcısı | Yok | &nbsp;  |
-| Abonelik guid'i | subscriptionId | &nbsp;  |
+| ResourceGuid | MeterId | Tam dize değerleri farklı. |
+| resourceLocation | resourceLocation | &nbsp;  |
+| ResourceLocationId | None | &nbsp;  |
+| ResourceRate | effectivePrice | &nbsp;  |
+| ServiceAdministratorId | Yok | &nbsp;  |
+| ServiceInfo1 | ServiceInfo1 | &nbsp;  |
+| ServiceInfo2 | ServiceInfo2 | &nbsp;  |
+| serviceName | MeterCategory | Tam dize değerlerini gösterebilir. |
+| ServiceTier | MeterSubCategory | Tam dize değerlerini gösterebilir. |
+| StoreServiceIdentifier | Yok | &nbsp;  |
+| subscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
-| Abonelik adı | subscriptionName | &nbsp;  |
+| subscriptionName | subscriptionName | &nbsp;  |
 | Tags | tags | Etiketler özelliği kök nesnesi, iç içe özellikler özelliğine uygulanır. |
-| Ölçü birimi | unitOfMeasure | Tam dize değerleri farklı. |
+| UnitOfMeasure | UnitOfMeasure | Tam dize değerleri farklı. |
 | usageEndDate | date | &nbsp;  |
 | Yıl | None | Tarihinden itibaren bir yıl ayrıştırır. |
 | (yeni) | billingCurrency | Para birimi ücreti. |
 | (yeni) | billingProfileId | Faturalandırma profili (kayıt ile aynı) benzersiz kimliği. |
 | (yeni) | billingProfileName | Faturalandırma profili (kayıt ile aynı) adı. |
 | (yeni) | chargeType | Azure hizmet kullanımı, Market kullanım ve satın alma işlemleri ayırt etmek için kullanın. |
-| (yeni) | invoiceId | Fatura benzersiz kimliği. Geçerli ve açık ay için boş. |
+| (yeni) | Fatura kodu | Fatura benzersiz kimliği. Geçerli ve açık ay için boş. |
 | (yeni) | publisherType | Satın alma işlemleri için yayımcı türü. Kullanım için boş. |
 | (yeni) | serviceFamily | Satın alma türü. Kullanım için boş. |
 | (yeni) | servicePeriodEndDate | Satın alınan hizmet bitiş tarihi. |
@@ -370,13 +370,13 @@ Aşağıdaki tabloda, eski Kurumsal elde fiyat sayfası API'SİNDE alanları gö
 | Eski özelliği | Yeni özellik | Notlar |
 | --- | --- | --- |
 | billingPeriodId  | _Uygulanamaz_ | Geçerli değildir. Microsoft Müşteri sözleşmelerini billingPeriodId kavramı fatura ve ilişkili fiyat değiştirildi. |
-| meterId  | meterId | &nbsp;  |
-| unitOfMeasure  | unitOfMeasure | Tam dize değerlerini gösterebilir. |
+| MeterId  | MeterId | &nbsp;  |
+| UnitOfMeasure  | UnitOfMeasure | Tam dize değerlerini gösterebilir. |
 | includedQuantity  | includedQuantity | Microsoft Müşteri anlaşmalarını hizmetler için geçerli değildir. |
-| partNumber  | _Uygulanamaz_ | Bunun yerine, productOrderName (OfferId ile aynı) ve meterid bileşimini kullanın. |
+| PartNumber  | _Uygulanamaz_ | Bunun yerine, productOrderName (OfferId ile aynı) ve meterid bileşimini kullanın. |
 | UnitPrice  | UnitPrice | Birim fiyatı, Microsoft Müşteri sözleşmelerde kullanılan hizmetler için geçerlidir. |
 | currencyCode  | pricingCurrency | Microsoft Müşteri sözleşmesi, fiyatlandırma para birimi ve Fatura para birimi fiyat temsilleri olabilir. Microsoft Müşteri anlaşmalarla pricingCurrency currencyCode karşılık gelir. |
-| offerId | productOrderName | OfferId, yerine productOrderName kullanabilirsiniz ancak OfferId olarak aynı değildir. Ancak, productOrderName ve ölçüm Microsoft Müşteri sözleşmelerde fiyatlandırma meterId ve OfferId ilgili eski kayıtları belirleyin. |
+| OfferId | productOrderName | OfferId, yerine productOrderName kullanabilirsiniz ancak OfferId olarak aynı değildir. Ancak, productOrderName ve ölçüm Microsoft Müşteri sözleşmelerde fiyatlandırma meterId ve OfferId ilgili eski kayıtları belirleyin. |
 
 ## <a name="consumption-price-sheet-api-operations"></a>Tüketim fiyatı sayfası API işlemleri
 
@@ -431,17 +431,17 @@ Eski özelliklerini [Azure Resource Manager fiyat sayfası API'leri](/rest/api/c
 | Eski Azure Resource Manager fiyat sayfası API özelliği  | Yeni Microsoft Müşteri sözleşmesi fiyat listesi API'si özelliği   | Açıklama |
 | --- | --- | --- |
 | Ölçüm Kimliği | _meterId_ | Ölçüm için benzersiz tanımlayıcı. MeterId ile aynıdır. |
-| Ölçüm adı | meterName | Ölçüm adı. Ölçüm, Azure hizmet dağıtılabilir kaynağa temsil eder. |
+| Ölçüm adı | MeterName | Ölçüm adı. Ölçüm, Azure hizmet dağıtılabilir kaynağa temsil eder. |
 | Ölçüm kategorisi  | hizmet | Ölçüm için sınıflandırma kategorisi adı. Microsoft Müşteri sözleşmesi fiyat hizmette ile aynıdır. Tam dize değerleri farklı. |
-| Ölçüm alt kategorisi | meterSubCategory | Ölçüm subclassification kategorisi adı. Üst düzey özellik kümesi ayrıştırması hizmetinde sınıflandırmasını temel. Örneğin, temel SQL veritabanı ile standart SQL veritabanı. |
-| Ölçüm bölgesi | meterRegion | &nbsp;  |
+| Ölçüm alt kategorisi | MeterSubCategory | Ölçüm subclassification kategorisi adı. Üst düzey özellik kümesi ayrıştırması hizmetinde sınıflandırmasını temel. Örneğin, temel SQL veritabanı ile standart SQL veritabanı. |
+| Ölçüm bölgesi | MeterRegion | &nbsp;  |
 | Birim | _Uygulanamaz_ | UnitOfMeasure ayrıştırılamaz. |
-| Ölçü birimi | unitOfMeasure | &nbsp;  |
+| Ölçü birimi | UnitOfMeasure | &nbsp;  |
 | Parça numarası | _Uygulanamaz_ | PartNumber yerine productOrderName ve MeterId fiyat faturalandırma profili için benzersiz olarak tanımlanabilmesi için kullanın. Alanları MCA faturalar içinde partNumber yerine MCA fatura listelenir. |
 | Birim fiyatı | UnitPrice | Microsoft Müşteri sözleşmesi birim fiyatı. |
 | Para birimi kodu | pricingCurrency | Microsoft Müşteri sözleşmeleri, fiyatları para birimi fiyatlandırma ve Fatura para birimi temsil eder. Para birimi kodu, Microsoft Müşteri anlaşmalarla pricingCurrency ile aynıdır. |
 | Dahil edilen miktar | includedQuantity | Microsoft Müşteri anlaşmalarını Hizmetleri için geçerli değildir. İle sıfır değerleri gösterir. |
-|  Teklif Kimliği  | productOrderName | ProductOrderName OfferId yerine kullanın. Aynı OfferId, ancak Microsoft Müşteri sözleşmelerde fiyatlandırma productOrderName ve ölçüm belirleyebilir. Eski kayıtları içinde meterId ve OfferId ilgili. |
+|  Teklif kimliği  | productOrderName | ProductOrderName OfferId yerine kullanın. Aynı OfferId, ancak Microsoft Müşteri sözleşmelerde fiyatlandırma productOrderName ve ölçüm belirleyebilir. Eski kayıtları içinde meterId ve OfferId ilgili. |
 
 Microsoft Müşteri anlaşmalarını fiyatı Kurumsal sözleşmeler farklı tanımlanır. Kurumsal kayıt hizmetleri için fiyat, ürün, PartNumber, ölçüm ve teklif için benzersizdir. Microsoft Müşteri sözleşmelerde PartNumber kullanılmaz.
 
@@ -460,9 +460,9 @@ Aşağıdaki alanları olan Microsoft Müşteri sözleşmesi fiyat sayfası API'
 |Devre dışı bırakılan alan| Açıklama|
 |---|---|
 | billingPeriodId | Hayır, uygulanabilir. Fatura için kodu için MCA karşılık gelir. |
-| offerId | Geçerli değildir. ProductOrderName MCA içinde karşılık gelir. |
-| meterCategory  | Geçerli değildir. MCA hizmetinde karşılık gelir. |
-| birim | Geçerli değildir. UnitOfMeasure ayrıştırılamaz. |
+| OfferId | Geçerli değildir. ProductOrderName MCA içinde karşılık gelir. |
+| MeterCategory  | Geçerli değildir. MCA hizmetinde karşılık gelir. |
+| Birim | Geçerli değildir. UnitOfMeasure ayrıştırılamaz. |
 | currencyCode | PricingCurrency MCA içinde aynıdır. |
 | meterLocation | MeterRegion MCA içinde aynıdır. |
 | partNumber partnumber | Parça numarası MCA faturaları listede olduğundan geçerli değil. PartNumber yerine meterId ve productOrderName birleşimi fiyatları benzersiz olarak tanımlanabilmesi için kullanın. |

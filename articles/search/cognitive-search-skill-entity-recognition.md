@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f05161dbbfd9293cd7b1cbf447bb7ca1c313250c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023455"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Varlık tanıma bilişsel beceri
@@ -49,7 +49,7 @@ Bu, iyi bilinen ancak geçerli desteklenen "Kategoriler" bir parçası olarak s�
 
 ## <a name="skill-inputs"></a>Beceri girişleri
 
-| Giriş adı      | Açıklama                   |
+| Adı girin      | Açıklama                   |
 |---------------|-------------------------------|
 | languageCode  | İsteğe bağlı. `"en"` varsayılan değerdir.  |
 | metin          | Analiz edilecek metin.          |
@@ -62,14 +62,14 @@ Bu, iyi bilinen ancak geçerli desteklenen "Kategoriler" bir parçası olarak s�
 | Çıkış adı     | Açıklama                   |
 |---------------|-------------------------------|
 | Kişiler      | Her bir dizenin bir kişinin adını temsil ettiği bir dize dizisi. |
-| konumlar  | Her bir dizenin bir konumu temsil ettiği bir dize dizisi. |
+| locations  | Her bir dizenin bir konumu temsil ettiği bir dize dizisi. |
 | organizations  | Bir kuruluş temsil ettiği her bir dizenin dize dizisi. |
 | Miktar  | Her bir dizenin bir miktar temsil ettiği bir dize dizisi. |
 | tarih/saat  | Her bir dizenin temsil ettiği bir tarih/saat (metnin göründüğü gibi) dize dizisi değeri. |
 | URL'leri | Her dize bir URL temsil ettiği bir dize dizisi |
-| e-postalar | Her bir dizenin bir e-posta temsil ettiği bir dize dizisi |
+| e-postaları | Her bir dizenin bir e-posta temsil ettiği bir dize dizisi |
 | namedEntities | Aşağıdaki alanları içeren bir dizi karmaşık türleri: <ul><li>category</li> <li>değer (gerçek varlık adı)</li><li>uzaklık (Bu metnin bulunduğu konumu)</li><li>güvenle (şimdilik kullanılmayan. -1 değerine ayarlanır)</li></ul> |
-| varlıklar | Şu alanlara sahip bir metin ayıklanan varlıkları hakkında zengin bilgiler içeren karmaşık bir tür dizisi <ul><li> ad (gerçek varlık adı. Bu, "normalleştirilmiş" form temsil eder)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (Wikipedia sayfasında varlık için bir bağlantı)</li><li>bingId</li><li>türü (tanınan bir varlığın kategori)</li><li>alt tür (yalnızca belirli kategorileri için kullanılabilir, bu varlık türü daha ayrıntılı bir görünümünü sağlar)</li><li> (içeren karmaşık bir koleksiyon) eşleşir<ul><li>Metin (varlık için ham metin)</li><li>uzaklık (konum burada bulundu)</li><li>uzunluk (ham varlık metnin uzunluğunu)</li></ul></li></ul> |
+| Varlıklar | Şu alanlara sahip bir metin ayıklanan varlıkları hakkında zengin bilgiler içeren karmaşık bir tür dizisi <ul><li> ad (gerçek varlık adı. Bu, "normalleştirilmiş" form temsil eder)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (Wikipedia sayfasında varlık için bir bağlantı)</li><li>bingId</li><li>türü (tanınan bir varlığın kategori)</li><li>alt tür (yalnızca belirli kategorileri için kullanılabilir, bu varlık türü daha ayrıntılı bir görünümünü sağlar)</li><li> (içeren karmaşık bir koleksiyon) eşleşir<ul><li>Metin (varlık için ham metin)</li><li>uzaklık (konum burada bulundu)</li><li>uzunluk (ham varlık metnin uzunluğunu)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Örnek tanımı
 

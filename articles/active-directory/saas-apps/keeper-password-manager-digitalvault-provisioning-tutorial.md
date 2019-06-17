@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508510"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Keeper parola Yöneticisi & dijital kasa yapılandırma
@@ -45,7 +45,7 @@ Keeper parola Yöneticisi & dijital kasası Azure AD ile otomatik kullanıcı ha
 
 **Azure AD uygulama galerisinden Keeper parola Yöneticisi & dijital kasa eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde seçin **Azure Active Directory**.
+1. İçinde  **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde seçin **Azure Active Directory**.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -118,13 +118,13 @@ Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılara ve/veya gruplar�
 
     ![Keeper belirteci oluşturma](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-token.png)
 
-7. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD Keeper parola Yöneticisi için dijital kasa & bağlanabilirsiniz. Bağlantı başarısız olursa Keeper parola Yöneticisi & dijital kasası hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
+7. 5\. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD Keeper parola Yöneticisi için dijital kasa & bağlanabilirsiniz. Bağlantı başarısız olursa Keeper parola Yöneticisi & dijital kasası hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
     ![Kiracı URL'si + simgesi](common/provisioning-testconnection-tenanturltoken.png)
 
 8. İçinde **bildirim e-posta** alanında, bir kişi veya grubun ve sağlama hata bildirimleri almak - onay e-posta adresi girin **birhataoluşursa,bire-postabildirimigönder**.
 
-    ![Bildirim E-postası](common/provisioning-notification-email.png)
+    ![Bildirim e-postası](common/provisioning-notification-email.png)
 
 9. **Kaydet**’e tıklayın.
 

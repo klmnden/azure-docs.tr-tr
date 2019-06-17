@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
 ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922436"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Batch hizmeti çözümlerinin Active Directory ile kimlik doğrulaması
@@ -138,7 +138,7 @@ Azure portalında aşağıdaki adımları izleyin:
 Bir hizmet sorumlusu ile kimlik doğrulamak için uygulamanıza bir RBAC rolü atamanız gerekir. Şu adımları uygulayın:
 
 1. Azure portalında, uygulamanız tarafından kullanılan Batch hesabına gidin.
-2. İçinde **ayarları** select Batch hesabı dikey penceresinde **erişim denetimi (IAM)**.
+2. İçinde **ayarları** select Batch hesabı dikey penceresinde **erişim denetimi (IAM)** .
 3. Tıklayın **rolü atamalarını** sekmesi.
 4. Tıklayın **rol ataması Ekle** düğmesi. 
 5. Gelen **rol** açılan, ya da seçin _katkıda bulunan_ veya _okuyucu_ uygulamanız için rol. Bu roller hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).  

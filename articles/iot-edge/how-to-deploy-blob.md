@@ -10,10 +10,10 @@ ms.custom: seodec18
 ms.reviewer: arduppal
 manager: philmea
 ms.openlocfilehash: d844e81de9cfb556e91ab5c0d5a8074c822cce0a
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65990463"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>IOT Edge modülü Azure Blob Depolama, cihazınıza dağıtma
@@ -41,7 +41,7 @@ Azure portalında bir dağıtım bildirimi oluşturmak ve IOT Edge cihazına da�
 
 Bir dağıtım bildirimi dağıtmak için modülleri ve modül ikizlerini istenen özellikleri arasında verilerin nasıl aktığını modüllerine açıklayan bir JSON belgesidir. Azure portalı, JSON belgesini el ile oluşturmak yerine bir dağıtım bildirimi oluşturmada size yol gösterir. bir sihirbaz vardır. Bu üç adım vardır: **Modül Ekle**, **yolları belirtin**, ve **gözden geçirin, dağıtım**.
 
-#### <a name="add-modules"></a>Modül ekle
+#### <a name="add-modules"></a>Modül Ekle
 
 1. İçinde **dağıtım modülleri** sayfasında bölümünü **Ekle**.
 
@@ -157,7 +157,7 @@ Azure IOT Edge, uç çözümleri geliştirmenize yardımcı olması için Visual
    | ----- | ----- |
    | Klasör seçin | Geliştirme makinenizde çözüm dosyalarını oluşturmak Visual Studio Code için konum seçin. |
    | Çözüm adı sağlayın | Çözümünüz için açıklayıcı bir ad girin veya varsayılan değerleri kabul **EdgeSolution**. |
-   | Modül şablonunu seçin | Seçin **varolan bir modülle (Enter tam görüntü URL'si)**. |
+   | Modül şablonunu seçin | Seçin **varolan bir modülle (Enter tam görüntü URL'si)** . |
    | Modül adı sağlayın | Bir tüm küçük adı, modül için gibi girin **azureblobstorage**.<br /><br />IOT Edge modülü, Azure Blob Depolama için küçük bir ad kullanmak önemlidir. IOT Edge modüllerini başvururken büyük/küçük harfe ve küçük harfler için depolama SDK'sı varsayılan olarak. |
    | İçin modülü Docker görüntüsü sağlayın | Resim URI'sini girin: **mcr.microsoft.com/azure-blob-storage:latest** |
 

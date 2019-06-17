@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1416dacd65024457e713547223f5c35290b3d15
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65768160"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Bir Azure Active Directory B2B işbirliği kullanıcısı özellikleri
@@ -29,7 +29,7 @@ Davet eden bir kuruluşun gereksinimlerine bağlı olarak, bir Azure AD B2B işb
 
 - Durum 2: Bir Microsoft veya başka bir hesap bağlantılı ve konak kuruluşta Konuk kullanıcı olarak temsil edilir. Bu durumda, Konuk kullanıcı bir Microsoft hesabı veya bir sosyal hesap bilgilerinizle oturum açtığı (google.com veya benzer). Davet edilen kullanıcının kimliği, teklif alma sırasında bir Microsoft hesabını davet eden kuruluş dizininizle oluşturulur.
 
-- 3. durum: Konak kuruluşun şirket içi Active Directory'de bağlantılı ve konak kuruluşun Azure ile eşitlenen AD. İş ortağı hesapları eşitleme için Azure AD Connect kullanabilirsiniz UserType ile Azure AD B2B kullanıcıları olarak buluta konuk =. Bkz: [bulut kaynaklarına erişime yerel olarak yönetilen bir iş ortağı hesapları](hybrid-on-premises-to-cloud.md).
+- 3\. durum: Konak kuruluşun şirket içi Active Directory'de bağlantılı ve konak kuruluşun Azure ile eşitlenen AD. İş ortağı hesapları eşitleme için Azure AD Connect kullanabilirsiniz UserType ile Azure AD B2B kullanıcıları olarak buluta konuk =. Bkz: [bulut kaynaklarına erişime yerel olarak yönetilen bir iş ortağı hesapları](hybrid-on-premises-to-cloud.md).
 
 - Durum 4: Konak kuruluşun Azure'da bağlantılı AD ile UserType = Konuk ve konak kuruluş tarafından yönetilen kimlik bilgileri.
 
@@ -68,7 +68,7 @@ Bu özellik için ana Kiracı Kullanıcı arasındaki ilişkiyi gösterir. Bu ö
   > [!NOTE]
   > UserType nasıl kullanıcı oturum açtığında, kullanıcı vb. dizin rolünü ilgisi yoktur. Bu özellik yalnızca kullanıcının ilişki konak kuruluşa gösterir ve kuruluş tuto vlastnost nelze upravovat bağımlı ilkeleri zorunlu tutmanıza olanak tanır.
 
-### <a name="source"></a>Kaynak
+### <a name="source"></a>source
 Bu özellik, nasıl kullanıcı oturum açtığında gösterir.
 
 - Davet edilen kullanıcı: Bu kullanıcı, davet edilen ancak henüz bir davet kuponları değil.

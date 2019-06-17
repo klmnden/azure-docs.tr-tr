@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61420375"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Bulma ve performans önerilerini uygulama
@@ -39,7 +39,7 @@ Performans önerileri üzerinde aşağıdaki şekilde gösterilene benzer tablod
 
 Öneriler, şu kategorilere performans üzerindeki olası etkilerini göre sıralanır:
 
-| Etki | Açıklama |
+| Etkisi | Açıklama |
 |:--- |:--- |
 | Yüksek |En önemli performans etkisi yüksek etkili öneriler sağlamanız gerekir. |
 | Orta |Orta etki önerileri, performansı artırmak ancak önemli ölçüde değil. |
@@ -54,7 +54,7 @@ Ayrıca, geçmiş işlemlerin durumunu da görüntüleyebilirsiniz. Daha fazla b
 
 Azure portalında "dizin oluşturma" öneri örneği aşağıda verilmiştir.
 
-![Dizin oluştur](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
+![Dizin oluşturma](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>Önerileri uygulama
 Azure SQL veritabanı size nasıl önerilerdir üzerinde tam denetim aşağıdaki üç seçenekten birini kullanarak etkin: 
@@ -130,12 +130,12 @@ Bir öneriyi uygulama anında olabilir değil. Portal, öneri durumuyla ilgili a
 
 | Durum | Açıklama |
 |:--- |:--- |
-| Beklemede |Komut alındı ve yürütme için zamanlanan öneri uygulayın. |
-| Yürütülüyor |Öneri uygulanıyor. |
-| Doğrulanıyor |Öneri başarıyla uygulandı ve hizmet, avantajlar ölçme. |
+| Bekleniyor |Komut alındı ve yürütme için zamanlanan öneri uygulayın. |
+| Yürütme |Öneri uygulanıyor. |
+| Doğrulama |Öneri başarıyla uygulandı ve hizmet, avantajlar ölçme. |
 | Başarılı |Öneri başarıyla uygulandı ve avantajları ölçülür. |
 | Hata |Öneriyi uygulama işlemi sırasında bir hata oluştu. Bu geçici bir sorun veya büyük olasılıkla bir şema olabilir tablosuna dönüştürmek ve komut dosyası artık geçerli değil. |
-| Geri döndürülüyor |Öneri uygulandı, ancak yüksek performanslı dışı olarak kabul edildi ve otomatik olarak geri döndürülüyor. |
+| Geri alma |Öneri uygulandı, ancak yüksek performanslı dışı olarak kabul edildi ve otomatik olarak geri döndürülüyor. |
 | Geri döndürüldü |Öneri geri döndürüldü. |
 
 Daha fazla bilgi için listeden bir işlemde öneri tıklayın:

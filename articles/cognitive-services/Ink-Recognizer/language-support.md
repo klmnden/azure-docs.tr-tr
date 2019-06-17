@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 98962182da86fceb0b6fcc8540422f93bc0058f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65026306"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Mürekkep tanıyıcı API dil ve bölge desteği
@@ -36,7 +36,7 @@ Bu makalede, mürekkep tanıyıcı API için desteklenen dilleri açıklar. Diji
 | Çekçe                                      |     `cs-CZ`     |
 | Danca                                     |     `da-DK`     |
 | Flamanca (Belçika)                            |     `nl-BE`     |
-| Felemenkçe (Hollanda)                        |     `nl-NL`     |
+| Hollanda dili (Hollanda)                        |     `nl-NL`     |
 | İngilizce (Avustralya)                        |     `en-AU`     |
 | İngilizce (Kanada)                           |     `en-CA`     |
 | İngilizce (Birleşik Krallık)                   |     `en-GB`     |
@@ -53,22 +53,22 @@ Bu makalede, mürekkep tanıyıcı API için desteklenen dilleri açıklar. Diji
 | İrlanda dili                                      |     `ga-IE`     |
 | İtalyanca (İtalya)                            |     `it-IT`     |
 | Japonca                                   |     `ja-JP`     |
-| Kinyarvanda dili                                |     `rw-RW`     |
+| Kinyarwanda                                |     `rw-RW`     |
 | Svahili dili (Kenya)                          |     `sw-KE`     |
 | Korece                                     |     `ko-KR`     |
 | Lüksemburg dili                              |     `lb-LU`     |
-| Malay dili (Brunei Sultanlığı)                  |     `ms-BN`     |
-| Malay dili (Malezya)                           |     `ms-MY`     |
-| Maori dili                                      |     `mi-NZ`     |
-| Norveççe (Bokmål)                         |     `nb-NO`     |
-| Norveççe (Nynorsk)                        |     `nn-NO`     |
+| Malay (Brunei Darussalam)                  |     `ms-BN`     |
+| Malay Dili (Malezya)                           |     `ms-MY`     |
+| Maori                                      |     `mi-NZ`     |
+| Norveççe (Bokmal)                         |     `nb-NO`     |
+| Norveç dili (Nynorsk)                        |     `nn-NO`     |
 | Lehçe                                     |     `pl-PL`     |
 | Portekizce (Brezilya)                        |     `pt-BR`     |
 | Portekizce (Portekiz)                      |     `pt-PT`     |
-| Romanş dili                                    |     `rm-CH`     |
+| Romansh                                    |     `rm-CH`     |
 | Rumence                                   |     `ro-RO`     |
 | Rusça                                    |     `ru-RU`     |
-| İskoçya Gaelcesi                            |     `gd-GB`     |
+| Scottish Gaelic                            |     `gd-GB`     |
 | Kuzey Sesotho dili                           |    `nso-ZA`     |
 | Sırpça (Kiril, Bosna ve Hersek) |  `sr-Cyrl-BA`   |
 | Sırpça (Kiril, Karadağ)             |  `sr-Cyrl-ME`   |
@@ -82,11 +82,11 @@ Bu makalede, mürekkep tanıyıcı API için desteklenen dilleri açıklar. Diji
 | İspanyolca (Arjantin)                        |     `es-AR`     |
 | İspanyolca (İspanya)                            |     `es-ES`     |
 | İspanyolca (Meksika)                           |     `es-MX`     |
-| İsveç dili (İsveç)                           |     `sv-SE`     |
+| İsveççe (İsveç)                           |     `sv-SE`     |
 | Türkçe                                    |     `tr-TR`     |
 | Gaelce                                      |     `cy-GB`     |
 | Volof dili                                      |     `wo-SN`     |
-| Zosa dili                                      |     `xh-ZA`     |
+| Xhosa                                      |     `xh-ZA`     |
 | Zulu dili                                       |     `zu-ZA`     |
 
 ## <a name="see-also"></a>Ayrıca bkz.

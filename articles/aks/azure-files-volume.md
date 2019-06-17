@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 65e94a271fc8fc72ac74d51af3cf7b717f8410b0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f3c1331e2b005b136a015c537d0fc18406ca9d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072077"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>El ile oluşturma ve Azure dosyaları paylaşımı Azure Kubernetes Service (AKS) ile bir birimi kullanın
@@ -71,7 +71,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Bir birim olarak dosya paylaşımını bağlama
 
-Pod içinde Azure dosya paylaşımını bağlayabilmeniz için birim kapsayıcı spec içinde yapılandırın. Adlı yeni bir dosya oluşturun `azure-files-pod.yaml` aşağıdaki içeriğe sahip. Dosya Paylaşımı veya gizli dizi adı adını değiştirdiyseniz, güncelleştirme *shareName* ve *secretName*. İsterseniz, güncelleştirme `mountPath`, burada dosya paylaşma yolu olduğu pod bağlanmıştır.
+Pod içinde Azure dosya paylaşımını bağlayabilmeniz için birim kapsayıcı spec içinde yapılandırın. Adlı yeni bir dosya oluşturun `azure-files-pod.yaml` aşağıdaki içeriğe sahip. Dosya Paylaşımı veya gizli dizi adı adını değiştirdiyseniz, güncelleştirme *shareName* ve *secretName*. İsterseniz, güncelleştirme `mountPath`, burada dosya paylaşma yolu olduğu pod bağlanmıştır. Kapsayıcılar (şu anda önizlemede AKS), Windows Server için belirtin bir *mountPath* gibi Windows yol kuralı kullanılarak *'D:'* .
 
 ```yaml
 apiVersion: v1
@@ -133,7 +133,7 @@ Volumes:
 [...]
 ```
 
-## <a name="mount-options"></a>Bağlama seçenekleri
+## <a name="mount-options"></a>Bağlama Seçenekleri
 
 Varsayılan *fileMode* ve *dirMode* değerler aşağıdaki tabloda açıklandığı gibi Kubernetes sürümleri arasında farklılık gösterir.
 

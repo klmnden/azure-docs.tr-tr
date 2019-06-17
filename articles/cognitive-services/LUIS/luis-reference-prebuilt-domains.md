@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233886"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS uygulamanızı için önceden oluşturulmuş etki alanı başvurusu
@@ -52,16 +52,16 @@ The table below summarizes the currently supported domains. Support for English 
 
 <br><br>
 
-|Varlık türü|açıklama|
+|varlık türü|description|
 |--|--|
 |Takvim|Takvim olduğundan, hiçbir şey, kişisel toplantılar ve randevuları hakkında _değil_ genel olaylar (dünya Kupası zamanlamalar, Seattle olay takvimleri veya genel takvimler (hangi gününde bugün olduğu gibi hangi fall başlıyor, işçilik gün olduğunda).|
 |İletişim|Çağrısı, istekleri metinleri ya da anlık ileti bulun ve kişiler ekleyip (genellikle Giden) çeşitli diğer iletişimle ilgili istekleri gönderin. İlgili kişi adı yalnızca sorgularını iletişimi etki alanına ait değil.|
-|E-posta|E-posta iletişimi etki alanının alt etki alanı var. Esas olarak, e-posta üzerinden ileti göndermek ve almak için istekleri içerir.|
+|Email|E-posta iletişimi etki alanının alt etki alanı var. Esas olarak, e-posta üzerinden ileti göndermek ve almak için istekleri içerir.|
 |HomeAutomation|Hedefleri ve Akıllı Giriş cihazları denetlemek için ilgili varlıkları HomeAutomation etki alanı sağlar. Çoğunlukla ışıkları ve yapının klimaları ilgili denetim komutu destekler ancak bazı diğer elektrikli aletler için genelleştirme yeteneklerini sahiptir.|
 |Notlar|Amaç ve varlıkları not oluşturma ve kullanıcılar için öğelere yazmak için Not etki alanı sağlar.|
 |Yerler|İşletmeler, kurumlar, Restoran, ortak alanları ve adresleri basamak içerir. Etki alanı bulma ve ortak bir yerde işletim saat ve uzaklık konumu gibi bilgiler hakkında soran bir yerde destekler.|
 |RestaurantReservation|Restoran ayırma etki alanı hedefleri restoranlar için ayırmaları işlemek için destekler.|
 |ToDo|ToDo etki alanı kullanıcılar ekleme, işaretleyin ve kendi Yapılacaklar öğelerini silmek için görev listesi türleri sağlar.|
-|Altyapı hizmetleri|Yardımcı programları etki alanıdır genel bir etki alanı tüm LUIS arasında ortak hedefleri ve konuşma fark senaryolarda içeren önceden oluşturulmuş modelleri.|
+|Altyapı Hizmetleri|Yardımcı programları etki alanıdır genel bir etki alanı tüm LUIS arasında ortak hedefleri ve konuşma fark senaryolarda içeren önceden oluşturulmuş modelleri.|
 |Hava durumu|Hava durumu ve önerileri yer ve zaman ile denetimi veya hava koşulları tarafından denetlenmesi hava durumu etki alanı odaklanır.|
 |Web|Web etki alanı, bir Web sitesi için arama için amaç ve varlıkları sağlar.|

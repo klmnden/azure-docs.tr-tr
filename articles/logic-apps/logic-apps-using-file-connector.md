@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846788"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps ile şirket içi dosya sistemlerine bağlanın
@@ -42,7 +42,7 @@ Bu makalede bu örnek senaryo tarafından açıklandığı gibi bir şirket içi
 
 * Hakkında temel bilgilere [mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bu örnekte, boş bir mantıksal uygulama gerekir.
 
-## <a name="add-trigger"></a>Tetikleyici ekle
+## <a name="add-trigger"></a>Tetikleyici ekleme
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -58,7 +58,7 @@ Bu makalede bu örnek senaryo tarafından açıklandığı gibi bir şirket içi
 
    ![Dropbox tetikleyicisi](media/logic-apps-using-file-connector/dropbox-trigger.png)
 
-## <a name="add-actions"></a>Eylem ekle
+## <a name="add-actions"></a>Eylemler ekleyin
 
 1. Tetikleyici altında seçin **sonraki adım**. Arama kutusuna filtreniz olarak "dosya sistemi" girin. Eylem listesinden şu eylemi seçin: **Dosya sistemi - dosya oluştur**
 

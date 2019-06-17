@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521763"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici sorunlarını giderme
@@ -34,7 +34,7 @@ Aşağıdaki adımları uygulayarak Azure portalından bu rolü el ile de verebi
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
 2. Azure portalının sol alt köşesinde bulunan **Tüm hizmetler**’e tıklayın. Kaynak listesinde yazın **Kubernetes**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **Azure Kubernetes**.
 3. Kubernetes kümelerini listesinde listesinden seçin.
-2. Sol taraftaki menüden **erişim denetimi (IAM)**.
+2. Sol taraftaki menüden **erişim denetimi (IAM)** .
 3. Seçin **+ Ekle** rolü ataması ekleme ve seçmek için **izleme ölçümleri yayımcı** rolü altında **seçin** kutusuna **AKS** için abonelikte tanımlanan ilkeleri kümeleri sonuçlarına hizmet Filtresi. Bu kümeye özgü listeden birini seçin.
 4. Seçin **Kaydet** rol atama tamamlanması. 
 

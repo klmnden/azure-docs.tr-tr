@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228175"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication hakkında sık sorulan sorular
@@ -61,7 +61,7 @@ Kanada Microsoft aşağıdaki SMS kısa kodlarını kullanır:
 
 Microsoft, tutarlı SMS veya sesli tabanlı çok faktörlü kimlik doğrulama istemi teslim aynı sayıda garanti etmez. Kullanıcılarımızın açısından Microsoft ekleyebilir veya SMS teslimat geliştirmek için rota ayarlamalar vermiyoruz kısa kodları dilediğiniz zaman kaldırabilirsiniz. Microsoft Amerika Birleşik Devletleri ve Kanada'da yanı sıra ülkeler/bölgeler için kısa kodlarını desteklemez.
 
-## <a name="billing"></a>Faturalama
+## <a name="billing"></a>Faturalandırma
 
 Çoğu faturalama soruları için başvurarak yanıtlanması gereken [multi-Factor Authentication Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) veya ilgili belgelere [Azure multi-Factor Authentication'ı alma](concept-mfa-licensing.md).
 

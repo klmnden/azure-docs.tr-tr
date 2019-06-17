@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
 ms.openlocfilehash: 4cd635c6f664a5260b79e62ea72bbb86fc4e1e4f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938368"
 ---
 # <a name="create-virtual-machine-offer"></a>Sanal makine teklifi oluşturma
@@ -24,7 +24,7 @@ burada:
 
 |  **Varlık grubu**   |  **Açıklama**  |
 |  ---------------   |  ---------------  |
-|    SKU'lar            |  En düşük satın alınabilir birimi bir teklif. Tek bir teklifi (ürün sınıfı), desteklenen özellikler, sanal makine görüntü türleri ve faturalama modelleri arasında ayırt etmek için birden çok SKU ile ilişkili olabilir. |
+|    SKU'ları            |  En düşük satın alınabilir birimi bir teklif. Tek bir teklifi (ürün sınıfı), desteklenen özellikler, sanal makine görüntü türleri ve faturalama modelleri arasında ayırt etmek için birden çok SKU ile ilişkili olabilir. |
 |  Market       | Pazarlama, yasal ve müşteri adayı yönetim varlıkları ve özellikleri içerir.  <ul><li> Teklif adı, açıklama ve logoları pazarlama varlıkları içerir</li> <li> Gizlilik İlkesi, kullanım koşullarını ve diğer yasal belgeler yasal varlıkları içerir</li>  <li> Azure Market Son Kullanıcı Portalı'ndan nasıl işleneceğini belirtmenizi müşteri adayları sağlama yönetim ilkesi sağlar.</li> </ul> |
 | Destek            | Destek ilgili kişisi ve ilke bilgilerini içerir |
 | Test Sürüşü         | Teklifiniz, satın almadan önce test etmek son kullanıcıların olanak tanıyan varlıklar tanımlayan |

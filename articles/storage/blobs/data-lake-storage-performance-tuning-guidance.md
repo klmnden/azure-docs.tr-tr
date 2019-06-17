@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 6f831dd0cde4641eb48f3c23e010f8c5e8aa3fa2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939368"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Azure Data Lake depolama Gen2 için performans ayarlama
@@ -44,7 +44,7 @@ Veri kaynağı ile Data Lake depolama 2. nesil arasında ağ bağlantısı sorun
 
 Kaynak donanım giderdik ve ağ bağlantısı sorunları yukarıdaki sonra alımı araçlarınızı yapılandırmaya hazır olursunuz. Aşağıdaki tabloda, çeşitli popüler alma araçları için anahtar ayarları özetlenmekte ve ayrıntılı performans makaleler için bunları ayarlama sağlar.  Senaryonuz için kullanmak için hangi aracı hakkında daha fazla bilgi edinmek için bu ziyaret [makale](data-lake-storage-data-scenarios.md).
 
-| Tool               | Ayarlar     | Diğer Ayrıntılar                                                                 |
+| Aracı               | Ayarlar     | Daha fazla ayrıntı                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (Eşleyici)   | [Bağlantı](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Bağlantı](../../data-factory/copy-activity-performance.md)                          |

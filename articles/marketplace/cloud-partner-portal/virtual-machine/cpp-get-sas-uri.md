@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
 ms.openlocfilehash: 4da82b2f6aaa3fc664d2e91b80722329533b0cd0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938674"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM görüntünüz için paylaşılan erişim imzası URI'si Al
@@ -71,7 +71,7 @@ Azure CLI ile bir SAS URI'si oluşturmak için aşağıdaki adımları kullanın
 
     ![BLOB Hizmeti uç noktası Azure portalında](./media/publishvm_033.png)
 
-9. 6. adım SAS bağlantı dizesi ile metin dosyasını düzenleyin.  Aşağıdaki biçimi kullanarak tam SAS URI'sini oluşturmak:
+9. 6\. adım SAS bağlantı dizesi ile metin dosyasını düzenleyin.  Aşağıdaki biçimi kullanarak tam SAS URI'sini oluşturmak:
 
     `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + `<sas-connection-string>`
 

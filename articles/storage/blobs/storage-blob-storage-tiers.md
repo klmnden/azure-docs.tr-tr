@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: clausjor
 ms.subservice: blobs
 ms.openlocfilehash: 8e9e27f14c4ccd6f5822033baa21aaafcf96c428
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148508"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Depolama: sık erişimli, seyrek erişimli ve Arşiv erişim katmanları
@@ -89,7 +89,7 @@ Blob düzeyinde katman ayarlama, [Blob Katmanını Ayarlama](/rest/api/storagese
 
 Son blob katmanı değişikliğinin zamanı, **Erişim Katmanı Değişim Zamanı** blob özelliği aracılığıyla gösterilir. Bir blob arşiv katmanındaysa nedenle aynı blob'un karşıya yüklenmesine Bu senaryoda izin verilmez, üzerine yazılamaz. Durumda yeni blob yazıldı blobun katmanını devralan bir seyrek veya sık erişimli katmandaki blob üzerine yazabilirsiniz.
 
-Aynı hesapta üç erişim katmanları tüm bloblar bulunabilir. Açıkça atanan bir katmanı olmayan tüm bloblar katmanı hesap erişim katmanının ayarını çıkarır. Erişim katmanı hesaptan algılanır, gördüğünüz **erişim katmanı çıkarılan** blob özelliğinin "true" ve blob ayarlandığı **erişim katmanı** blob özelliğinin hesap katmanıyla uyuştuğunu. Azure portalında erişim katmanını özelliği blob erişim katmanı ile görüntülenen çıkarılan (örneğin, **etkin (çıkarılan)** veya **seyrek erişilen (alındı)**).
+Aynı hesapta üç erişim katmanları tüm bloblar bulunabilir. Açıkça atanan bir katmanı olmayan tüm bloblar katmanı hesap erişim katmanının ayarını çıkarır. Erişim katmanı hesaptan algılanır, gördüğünüz **erişim katmanı çıkarılan** blob özelliğinin "true" ve blob ayarlandığı **erişim katmanı** blob özelliğinin hesap katmanıyla uyuştuğunu. Azure portalında erişim katmanını özelliği blob erişim katmanı ile görüntülenen çıkarılan (örneğin, **etkin (çıkarılan)** veya **seyrek erişilen (alındı)** ).
 
 > [!NOTE]
 > Arşiv depolama ve blob düzeyinde katman ayarlama, yalnızca blok bloblarını destekler. Anlık görüntüleri olan bir blok blobun katmanını da değiştiremezsiniz.

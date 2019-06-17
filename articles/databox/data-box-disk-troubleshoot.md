@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/2/2019
 ms.author: alkohli
 ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939633"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Azure Data Box Disk de sorunlarını giderme
@@ -69,7 +69,7 @@ Etkinlik günlükleri 90 gün boyunca saklanır. Başlangıç tarihi 90 günden 
 | Hata iletisi/Aracın davranışı      | Öneriler                                                                                               |
 |-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | None<br><br>Data Box Disk kilit açma aracı kilitleniyor.                                                                            | BitLocker yüklü değil. Data Box Disk kilit açma aracının çalıştığı ana bilgisayarda BitLocker uygulamasının yüklü olduğundan emin olun.                                                                            |
-| Güncel .NET Framework desteklenmez. 4.5 ve sonraki sürümler desteklenir.<br><br>Araç kapanıyor ve bir ileti açılıyor.  | .NET 4.5 yüklenmedi. Data Box Disk kilit açma aracının çalıştığı ana bilgisayara .NET 4.5 veya üzerini yükleyin.                                                                            |
+| Güncel .NET Framework desteklenmez. 4\.5 ve sonraki sürümler desteklenir.<br><br>Araç kapanıyor ve bir ileti açılıyor.  | .NET 4.5 yüklenmedi. Data Box Disk kilit açma aracının çalıştığı ana bilgisayara .NET 4.5 veya üzerini yükleyin.                                                                            |
 | Birimlerin kilidi açılamadı veya birimler doğrulanamadı. Microsoft Desteği'ne başvurun.  <br><br>Araç kilitli sürücülerin kilidini açamıyor veya bu sürücüleri doğrulayamıyor. | Araç verilen destek anahtarıyla kilitlenen sürücülerin kilidini açamıyor. Sonraki adımlar için Microsoft Desteği'ne başvurun.                                                |
 | Aşağıdaki birimlerin kilidi açıldı ve bu birimler doğrulandı. <br>Birimin sürücü harflerini: E:<br>Şu destek anahtarlarıyla birimlerin kilidi açılamadı: werwerqomnf, qwerwerqwdfda <br><br>Araç bazı sürücülerin kilidini açar, başarılı ve başarısız olan sürücü harflerini listeler.| Kısmen başarıldı. Kullanılan destek anahtarıyla bazı sürücülerin kilidi açılamadı. Sonraki adımlar için Microsoft Desteği'ne başvurun. |
 | Kilitli birimler bulunamadı. Microsoft'tan alınan diskin düzgün bağlandığından ve kilitli durumda olduğundan emin olun.          | Araç kilitli sürücüleri bulamıyor. Sürücülerden birinin kilidi açılmış veya sürücü bulunamıyor. Sürücülerin bağlı ve kilitli olduğundan emin olun.                                                           |

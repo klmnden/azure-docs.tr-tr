@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65137796"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect SSS
@@ -62,7 +62,7 @@ Evet, bu senaryo desteklenir. Başvurmak [birden çok etki alanı](how-to-connec
 **S: Azure AD Connect aynı Active Directory etki alanı için birden fazla bağlayıcıyı olabilir mi?**  
 Hayır, birden çok bağlayıcı aynı AD etki alanı için desteklenmiyor. 
 
-**S: Uzak bir SQL Server örneği için Azure AD Connect'in veritabanı yerel veritabanından taşıyabilirim?**   
+**S: Uzak bir SQL Server örneği için Azure AD Connect'in veritabanı yerel veritabanından taşıyabilirim?**    
 Evet, aşağıdaki adımlar bunu nasıl genel rehberlik sağlar. Şu anda daha ayrıntılı bir belge üzerinde çalışıyoruz.
 1. LocalDB ADSync veritabanını yedekleyin.
 Bunu yapmanın en kolay yolu, Azure AD Connect ile aynı makinede yüklü SQL Server Management Studio kullanmaktır. Bağlanma *(LocalDb). \ADSync*ve ardından ad eşitleme veritabanını yedekleyin.

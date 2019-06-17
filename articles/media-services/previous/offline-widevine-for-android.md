@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: 64c5bff0e48f55406476e71c82763bd8f3c03afd
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937235"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android için akış çevrimdışı Widevine  
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Media Services, kullanmakta olduğunuz sürümünü seçin:"]
 > * [Sürüm 3](../latest/offline-widevine-for-android.md)
 > * [Sürüm 2](offline-widevine-for-android.md)
 
@@ -188,7 +188,7 @@ Google'nın içinde [Widevine DRM mimarisine genel bakış](https://storage.goog
 
 1.  Güvenlik düzeyi 1: Güvenilir Yürütme Ortamı'içinde (TEE), tüm içerik işleme, şifreleme ve denetimi gerçekleştirilir. Bazı uygulama modellerinde güvenlik işleme farklı yongalarda gerçekleştirilebilir.
 2.  Güvenlik düzeyi 2: TEE içinde şifreleme (ancak değil video işleme) gerçekleştirir: şifresi arabellek uygulama etki alanına döndürdü ve ayrı video donanım veya yazılım işlenir. Düzey 2, ancak şifreleme bilgileri yine de yalnızca TEE içinde işlenir.
-3.  Güvenlik düzeyi 3 bir TEE cihazda yok. Şifreleme bilgileri ve konak işletim sisteminde şifresi içeriği korumak için uygun önlemleri izlenebilir. 3. düzey uygulama ayrıca donanım şifreleme altyapısı içerebilir, ancak performans, güvenlik değil, yalnızca geliştirir.
+3.  Güvenlik düzeyi 3 bir TEE cihazda yok. Şifreleme bilgileri ve konak işletim sisteminde şifresi içeriği korumak için uygun önlemleri izlenebilir. 3\. düzey uygulama ayrıca donanım şifreleme altyapısı içerebilir, ancak performans, güvenlik değil, yalnızca geliştirir.
 
 Aynı anda, buna [Widevine lisans şablonu hakkında Azure Media Services belgeleri](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), content_key_specs security_level özelliğini aşağıdaki beş farklı değerlere (kayıttan yürütme için istemci sağlamlık gereksinimleri) sahip olabilir:
 
@@ -203,8 +203,8 @@ Her iki güvenlik düzeyleri Google Widevine tarafından tanımlanır. İçindek
 | **Widevine mimaride tanımlanan güvenlik düzeyleri** |**Widevine API içinde kullanılan güvenlik düzeyleri**|
 |---|---| 
 | **Güvenlik düzeyi 1**: Güvenilir Yürütme Ortamı'içinde (TEE), tüm içerik işleme, şifreleme ve denetimi gerçekleştirilir. Bazı uygulama modellerinde güvenlik işleme farklı yongalarda gerçekleştirilebilir.|**security_level = 5**: Şifreleme, kod çözme ve tüm işleme (sıkıştırılmış ve sıkıştırılmamış) ortamının içinde işlenmeli donanım TEE desteklenir.<br/><br/>**security_level = 4**: Şifreleme ve kod çözme içerik içinde gerçekleştirilmelidir donanım TEE desteklenir.|
-**Güvenlik düzeyi 2**: TEE içinde şifreleme (ancak değil video işleme) gerçekleştirir: şifresi arabellek uygulama etki alanına döndürdü ve ayrı video donanım veya yazılım işlenir. Düzey 2, ancak şifreleme bilgileri yine de yalnızca TEE içinde işlenir.| **security_level 3 =**: Anahtar malzemesi ve şifreleme işlemleri içinde gerçekleştirilmelidir donanım TEE desteklenir. |
-| **Güvenlik düzeyi 3**: Bir TEE cihazda yok. Şifreleme bilgileri ve konak işletim sisteminde şifresi içeriği korumak için uygun önlemleri izlenebilir. 3. düzey uygulama ayrıca donanım şifreleme altyapısı içerebilir, ancak performans, güvenlik değil, yalnızca geliştirir. | **security_level = 2**: Yazılım şifreleme ve karıştırılmış bir kod çözücü gereklidir.<br/><br/>**security_level = 1**: Yazılım tabanlı whitebox crypto gereklidir.|
+**Güvenlik düzeyi 2**: TEE içinde şifreleme (ancak değil video işleme) gerçekleştirir: şifresi arabellek uygulama etki alanına döndürdü ve ayrı video donanım veya yazılım işlenir. Düzey 2, ancak şifreleme bilgileri yine de yalnızca TEE içinde işlenir.| **security_level 3 =** : Anahtar malzemesi ve şifreleme işlemleri içinde gerçekleştirilmelidir donanım TEE desteklenir. |
+| **Güvenlik düzeyi 3**: Bir TEE cihazda yok. Şifreleme bilgileri ve konak işletim sisteminde şifresi içeriği korumak için uygun önlemleri izlenebilir. 3\. düzey uygulama ayrıca donanım şifreleme altyapısı içerebilir, ancak performans, güvenlik değil, yalnızca geliştirir. | **security_level = 2**: Yazılım şifreleme ve karıştırılmış bir kod çözücü gereklidir.<br/><br/>**security_level = 1**: Yazılım tabanlı whitebox crypto gereklidir.|
 
 ### <a name="question"></a>Soru
 

@@ -10,10 +10,10 @@ custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
 ms.openlocfilehash: d9ef6f5056fdbd7187c92c98d1c884a5314c29a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153659"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins sürekli tümleştirme çözümüyle Azure depolama kullanma
@@ -118,7 +118,7 @@ Yapınızda öğeleri dahil etmek istiyorsanız yararlı olan Azure blob depolam
 1. İçinde **derleme** select iş Yapılandırması bölümünü **derleme adımı Ekle** seçip **Azure Blob Depolama'dan indirme**.
 2. İçin **depolama hesabı adı**, kullanılacak depolama hesabını seçin.
 3. İçin **kapsayıcı adı**, indirmek istediğiniz BLOB'ları içeren kapsayıcının adını belirtin. Ortam değişkenlerini kullanabilirsiniz.
-4. İçin **Blob adı**, blob adı belirtin. Ortam değişkenlerini kullanabilirsiniz. Ayrıca, blob adının ilk letter(s) belirttikten sonra bir joker karakter olarak bir yıldız işareti kullanabilirsiniz. Örneğin, **proje\\*** tüm BLOB adları ile başlayıp belirtebilirdiniz **proje**.
+4. İçin **Blob adı**, blob adı belirtin. Ortam değişkenlerini kullanabilirsiniz. Ayrıca, blob adının ilk letter(s) belirttikten sonra bir joker karakter olarak bir yıldız işareti kullanabilirsiniz. Örneğin, **proje\\** * tüm BLOB adları ile başlayıp belirtebilirdiniz **proje**.
 5. [İsteğe bağlı] İçin **indirme yolu**, Jenkins makine, Azure blob depolama alanından dosyaları indirmek istediğiniz yolu belirtin. Ortam değişkenlerini de kullanılabilir. (Bir değer belirtmezseniz **indirme yolu**, Azure blob depolama biriminden dosyaları işin çalışma alanına yüklenir.)
 
 Azure blob depolama alanından indirmek istediğiniz ek öğeler varsa, ek derleme adımları oluşturabilirsiniz.
@@ -137,7 +137,7 @@ Bu bölümde, Blob hizmeti bileşenlerini genel bir bakış sağlar.
   
     (Yukarıdaki biçimini genel Azure bulutuna uygular. Farklı Azure Bulutu kullanıyorsanız, uç nokta içinde kullanmak [Azure portalı](https://portal.azure.com) URL uç noktanızı belirlemek için.)
   
-    Yukarıdaki biçimde `storageaccount` depolama hesabınızın adını temsil eden `container_name` , kapsayıcının adını temsil eder ve `blob_name` sırasıyla, blob adını temsil eder. Kapsayıcı adı içinde bir eğik ayrılmış birden çok yol olabilir **/**. Bu öğreticide kullanılan örnek kapsayıcı adı **MyJob**, ve **${yapı\_kimliği} / ${yapı\_numarası}** bir URL'ye sahip blob kaynaklanan ortak sanal yol için kullanıldı aşağıdaki biçimdedir:
+    Yukarıdaki biçimde `storageaccount` depolama hesabınızın adını temsil eden `container_name` , kapsayıcının adını temsil eder ve `blob_name` sırasıyla, blob adını temsil eder. Kapsayıcı adı içinde bir eğik ayrılmış birden çok yol olabilir **/** . Bu öğreticide kullanılan örnek kapsayıcı adı **MyJob**, ve **${yapı\_kimliği} / ${yapı\_numarası}** bir URL'ye sahip blob kaynaklanan ortak sanal yol için kullanıldı aşağıdaki biçimdedir:
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: szark
 ms.openlocfilehash: a1be0b6870882d3c7b0281dec7933e87c50e49de
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834564"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Azure'da Linux destekli dağıtımlar
@@ -94,7 +94,7 @@ Açık kaynak çözümleri, dünyanın önde gelen sağlayıcısı, birden fazla
 
 SUSE Linux Enterprise Server azure'da daha üstün güvenilirlik ve güvenlik için bulut bilgi işlem sağlayan bir kendini kanıtlamış platformudur. SUSE'ın çok yönlü Linux platformuna bir kolayca yönetilebilen bir bulut ortamında sunmak için Azure bulut Hizmetleri ile sorunsuz şekilde entegre olur. SUSE Linux Enterprise Server için 1800'den fazla bağımsız yazılım satıcıları birden fazla 9,200 sertifikalı uygulamaları ile desteklenen veri merkezinde çalışan iş yüklerini Azure'da güvenle dağıtılabilir SUSE sağlar.
 
-### <a name="canonical"></a>Kurallı
+### <a name="canonical"></a>Canonical
 [https://www.ubuntu.com/cloud/azure](https://www.ubuntu.com/cloud/azure)
 
 Kurallı mühendislik ve açık bir topluluk idare sürücü Ubuntu'nın başarı, istemci, sunucu ve bulut bilgi işlem Tüketiciler için kişisel bulut hizmetlerini içerir. Canonical Ubuntu, birleşik, ücretsiz platform buluta, Phone sunulmasıyla, telefon, tablet, TV ve Masaüstü için tutarlı arabirimleri ailesi sağlar. Bu işleme, tüketici elektroniği üreticileri ve sık kullanılan arasında bireysel ekiplerindeki genel bulut sağlayıcılarından farklı kurumlar için gereken ilk seçim Ubuntu hale getirir.
