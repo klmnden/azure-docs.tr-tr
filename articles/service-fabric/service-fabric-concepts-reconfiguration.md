@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882206"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Azure Service fabric'te yeniden yapılandırma
 A *yapılandırma* çoğaltmalar ve kendi rolleri için durum bilgisi olan hizmet ilişkin bir bölüm olarak tanımlanır.
 
-A *yeniden yapılandırma* başka bir yapılandırma için bir yapılandırma taşıma işlemi gerçekleşir. Çoğaltma kümesi için bir durum bilgisi olan hizmet ilişkin bir bölüm için bir değişiklik yapar. Eski yapılandırma olarak adlandırılır *önceki yapılandırma (PC)*, ve yeni yapılandırma olarak adlandırılır *geçerli yapılandırmasını (CC)*. Azure Service Fabric yeniden yapılandırma protokolünde tutarlılığı korur ve kullanılabilirlik çoğaltma kümesine herhangi bir değişiklik sırasında tutar.
+A *yeniden yapılandırma* başka bir yapılandırma için bir yapılandırma taşıma işlemi gerçekleşir. Çoğaltma kümesi için bir durum bilgisi olan hizmet ilişkin bir bölüm için bir değişiklik yapar. Eski yapılandırma olarak adlandırılır *önceki yapılandırma (PC)* , ve yeni yapılandırma olarak adlandırılır *geçerli yapılandırmasını (CC)* . Azure Service Fabric yeniden yapılandırma protokolünde tutarlılığı korur ve kullanılabilirlik çoğaltma kümesine herhangi bir değişiklik sırasında tutar.
 
 Yük Devretme Yöneticisi sistemde farklı olaylara yanıt olarak yeniden yapılandırmalar başlatır. Örneğin, birincil sonra bir yeniden yapılandırma başarısız olursa birincil etkin bir ikincil yükseltmek için başlatılır. Birincil düğüm yükseltmek için başka bir düğüme taşımak gerekli olabilir, başka bir yanıt olarak uygulama yükseltmeleri örnektir.
 

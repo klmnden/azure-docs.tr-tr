@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65206648"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL veritabanı'nda genişletilmiş olaylar
@@ -63,8 +63,8 @@ Olay dosyası olarak seçerken aşağıdaki öğeleri önceki maruz kalma riskin
 
 
 - [SQL veritabanı'nda genişletilmiş olaylar için olay dosyası hedef kodu](sql-database-xevent-code-event-file.md)
-    - 1. Aşama, bir Azure depolama kapsayıcısı oluşturmak için powershell'dir.
-    - 2. Aşama, Azure depolama kapsayıcısını kullanan Transact-SQL ' dir.
+    - 1\. Aşama, bir Azure depolama kapsayıcısı oluşturmak için powershell'dir.
+    - 2\. Aşama, Azure depolama kapsayıcısını kullanan Transact-SQL ' dir.
 
 ## <a name="transact-sql-differences"></a>Transact-SQL farklılıkları
 
@@ -90,7 +90,7 @@ Genişletilmiş olaylar özelliği birkaç tarafından desteklenen [Katalog gör
 | **sys.database_event_session_targets** |Her olay hedefi için bir satır için bir olay oturumu döndürür. |
 | **sys.database_event_sessions** |SQL veritabanı veritabanındaki her bir olay oturumu için bir satır döndürür. |
 
-Microsoft SQL Server'da benzer Katalog görünümleri içeren adları sahip *klasöründe\_*  yerine *.database\_*. Ad deseni benzer **sys.server_event_%**.
+Microsoft SQL Server'da benzer Katalog görünümleri içeren adları sahip *klasöründe\_*  yerine *.database\_* . Ad deseni benzer **sys.server_event_%** .
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Yeni dinamik yönetim görünümlerini [(Dmv'ler)](https://msdn.microsoft.com/library/ms188754.aspx)
 

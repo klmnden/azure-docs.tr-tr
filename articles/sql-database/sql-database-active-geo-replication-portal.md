@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60864142"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure portalı ve başlatma yük devretme Azure SQL veritabanı için etkin coğrafi çoğaltmayı yapılandırma
@@ -70,7 +70,7 @@ Bir ikincil veritabanı eklemek için abonelik sahibi veya ortak sahibi olmalıd
 2. SQL veritabanı dikey penceresinde seçin **tüm ayarlar** > **coğrafi çoğaltma**.
 3. İçinde **İKİNCİLLER** listesinde, yeni birincil veritabanı haline ve istediğiniz veritabanını seçin **yük devretme**.
 
-    ![yük devretme](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+    ![Yük devretme](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Tıklayın **Evet** yük devretmeyi başlatmak için.
 
 Komutu, ikincil veritabanı birincil rolünde hemen geçer. Bu işlem genellikle 30 saniye içinde ya da daha az tamamlamanız gerekir.

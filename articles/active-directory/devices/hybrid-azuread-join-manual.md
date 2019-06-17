@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db7e2588b03807a42f82fd0fcd4e71855e55c1d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052141"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Öğretici: Hibrit Azure Active Directory'ye katılmış cihazlarda el ile yapılandırma
 
@@ -139,7 +139,7 @@ Aşağıdaki betikte, cmdlet kullanımına ilişkin bir örnek gösterilmektedir
 
 * Active Directory PowerShell modülü ve Azure Active Directory etki alanı Hizmetleri (Azure AD DS) araçlarını kullanır. Bu araçlar, bir etki alanı denetleyicisinde çalışan Active Directory Web Hizmetleri dayanır. Active Directory Web Hizmetleri Windows Server 2008 R2 ve sonraki sürümleri çalıştıran etki alanı denetleyicilerinde desteklenir.
 * Yalnızca MSOnline PowerShell modülü sürüm 1.1.166.0 tarafından desteklenir. Bu modül indirmek için kullanın [bu bağlantıyı](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
-* Azure AD DS araçları yüklü değilse `Initialize-ADSyncDomainJoinedComputerSync` başarısız olur. Azure AD DS Araçları altında Sunucu Yöneticisi aracılığıyla yükleyebilirsiniz **özellikleri** > **Uzak Sunucu Yönetim Araçları** > **rol yönetim araçları** .
+* AD DS araçları yüklü değilse `Initialize-ADSyncDomainJoinedComputerSync` başarısız olur. Altında Sunucu Yöneticisi aracılığıyla AD DS araçlarını yükleyebilirsiniz **özellikleri** > **Uzak Sunucu Yönetim Araçları** > **Rol Yönetim Araçları**.
 
 Windows Server 2008 veya önceki sürümlerini çalıştıran etki alanı denetleyicileri için hizmet bağlantı noktası oluşturmak için aşağıdaki betiği kullanın. Bir Çoklu orman yapılandırması, hizmet bağlantı noktası bilgisayarları bulunduğu her ormanda oluşturmak için aşağıdaki betiği kullanın.
 

@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: 513ce98703e67053ab0bcac3e6fc7a3e959f6870
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307428"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717276"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Azure VM sorunlarını gidermek için Uzak Araçlar kullanın
 
 Bir Azure sanal makine'de (VM) sorunları giderirken, Uzak Masaüstü Protokolü (RDP) kullanmak yerine bu makalede açıklanan uzak Araçlar'ı kullanarak sanal Makineye bağlanabilirsiniz.
 
-## <a name="serial-console"></a>Seri konsol
+## <a name="serial-console"></a>Seri Konsol
 
 Kullanım [sanal makinenin seri konsol](serial-console-windows.md) uzak bir Azure sanal makinesinde komutlarını çalıştırmak.
 
@@ -43,7 +43,7 @@ psexec \\<computer>-u user -s cmd
 >* -S parametresi komut sistem hesabı (yönetici izni) kullanılarak çağrılır emin olur.
 >* PsExec 135 ve 445 numaralı TCP bağlantı noktalarını kullanır. Bu nedenle, iki bağlantı noktası Güvenlik Duvarı'nı açık olması gerekir.
 
-## <a name="run-commands"></a>Çalıştırma Komutları
+## <a name="run-commands"></a>Komutlar çalıştırın
 
 Bkz: [çalıştırma PowerShell betiklerini Windows VM'nizi komutu Çalıştır](../windows/run-command.md) VM üzerinde betikleri çalıştırma için komutları çalıştırma özelliğini kullanma hakkında daha fazla bilgi için.
 
@@ -236,7 +236,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. Bir örneği aynı sanal AĞDA bulunan başka bir VM'den açın **Services.msc**.
 
-2. Sağ **hizmetler (yerel)**.
+2. Sağ **hizmetler (yerel)** .
 
 3. Seçin **başka bir bilgisayara bağlan**.
 

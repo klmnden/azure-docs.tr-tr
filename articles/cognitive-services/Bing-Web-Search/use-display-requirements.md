@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499894"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Bing Arama API’si kullanım ve görüntüleme gereksinimleri
@@ -34,12 +34,12 @@ Bu kullanım ve görüntü gereksinimleri aşağıdaki Bing arama ilişkileri me
 ## <a name="definitions"></a>Tanımlar
 
 
-|Sözleşme Dönemi  |Açıklama  |
+|Terim  |Açıklama  |
 |---------|---------|
 |Yanıt     | Bir kategori sonuçlarının bir yanıt döndürdü. Örneğin, Bing Web araması API'si yanıtı yanıtlar Web sonuçları, resim, video, visual ve haber kategorileri içerebilir. |
 |Yanıt     | Tüm yanıtlar ve yanıt olarak tek bir arama API'sine çağrıda alınan ilişkili veriler. |
 |Sonuç    | Bir öğe bir yanıt bilgileri. Örneğin, bir tek haber makaleyle bağlantılı veri kümesini haber yanıtında bir sonucudur. |
-|API arama    | toplu olarak, Bing özel arama, varlık araması, resim arama, haber arama, Video arama, görsel arama, yerel iş arama ve Web arama API'leri. |
+|Arama API'leri    | toplu olarak, Bing özel arama, varlık araması, resim arama, haber arama, Video arama, görsel arama, yerel iş arama ve Web arama API'leri. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Bing yazım denetimi ve Bing otomatik öneri API'si kısıtlamaları
 
@@ -134,7 +134,7 @@ Tutulan sonuçlar yalnızca kullanılabilir olması koşuluyla, sonuçları bir 
 - Kullanıcının erişim sağlamak için daha önce bu cihazda (örneğin, durumunda hizmet kesintisini) söz konusu kullanıcı için döndürülen sonuçlanır.
 - Kullanıcının sinyaller (örneğin, durumunda beklenen hizmet kesintisi) göre kullanıcının gereksinimlerinin olasılığına kişiselleştirilmiş, proaktif sorgu için döndürülen sonuçlarını depolamak için.
 
-#### <a name="server"></a>Sunucu
+#### <a name="server"></a>Sunucusu
 
 Güvenli bir şekilde sizin denetlediğiniz bir sunucuda tek bir kullanıcı için belirli sonuçları tutabilir ve yalnızca tutulan sonuçları görüntüleyin:
 

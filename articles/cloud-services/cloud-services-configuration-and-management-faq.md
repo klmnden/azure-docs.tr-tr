@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337434"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Yapılandırma ve yönetim sorunları Azure bulut Hizmetleri için: Sık sorulan sorular (SSS)
@@ -219,7 +219,7 @@ Bulut Hizmetleri bir Azure Resource Manager tabanlı hizmeti olmadığından rol
 
 Bkz: [farklı rolleri Azure anlamak](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="remote-desktop"></a>Uzak masaüstü
+## <a name="remote-desktop"></a>Uzak Masaüstü
 
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Microsoft bulut hizmeti örnekleri izni olmadan iç mühendisleri Uzak Masaüstü miyim?
 Microsoft Uzak Masaüstü iç mühendisler, bulut hizmetine (e-posta veya yazılı diğer iletişimi) yazılı izni olmadan izin vermez katı bir işlem sahibi ya da kendi yetkilinin izler.

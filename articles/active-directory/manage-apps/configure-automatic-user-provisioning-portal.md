@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963580"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure portalının kurumsal uygulamalar için sağlama kullanıcı hesabı yönetme
@@ -56,7 +56,7 @@ Azure Active Directory portalında görüntülemek ve bir dizinde çoklu oturum 
 
 Seçin **otomatik** yönetici kimlik bilgileri, başlatma ve durdurma, eşlemeler ve eşitleme ayarlarını belirtmek için seçeneği.
 
-### <a name="admin-credentials"></a>Yönetici Kimlik Bilgileri
+### <a name="admin-credentials"></a>Yönetici kimlik bilgileri
 
 Genişletin **yönetici kimlik bilgileri** uygulamanın kullanıcı yönetimi API'sine bağlanmak Azure AD için gerekli kimlik bilgilerini girmek için. Gerekli giriş uygulamaya bağlı olarak değişir. Kimlik bilgisi türlerinin ve belirli uygulamalar için gereksinimleri hakkında bilgi edinmek için bkz. [belirli bir uygulama için yapılandırma öğreticisini](user-provisioning.md).
 
@@ -96,7 +96,7 @@ Seçin **geçerli durumu temizleyin ve eşitlemeyi yeniden başlatın** onay kut
 
 Bu seçenek, sağlama dağıtım işlemini baştan başlatmak yöneticileri sağlar.
 
-### <a name="synchronization-details"></a>Eşitleme Ayrıntıları
+### <a name="synchronization-details"></a>Eşitleme ayrıntıları
 
 Bu bölümde, sağlama hizmeti uygulama ve kaç kullanıcı ve Grup nesneleri yönettiği karşı çalıştırıldı ilk ve son kez dahil olmak üzere sağlama hizmetinin işlemi hakkında ek ayrıntılar sağlar.
 

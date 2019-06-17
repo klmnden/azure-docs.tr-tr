@@ -4,16 +4,16 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: 228f445dda2724985154723a292adb8215a5ad68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9798e5f76881be38fb27e1f428565caba6e50bf2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342507"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135132"
 ---
 Açık **Build Settings** seçerek **dosya** > **Build Settings**.
 
-İçinde **Platform** bölümünden **Android**. Değişiklik **Build System** için **Gradle** seçip **dışarı proje**.
+İçinde **Platform** bölümünden **Android**. Değişiklik **Build System** için **Gradle** olun **dışarı proje** onay kutusu bir onay işareti yok.
 
 Seçin **anahtar platformu** platforma değiştirmek için **Android**. Unity Android desteği bileşenleri eksik iseler yüklemenizi isteyebilir.
 

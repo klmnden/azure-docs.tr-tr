@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: v-mohabe
 ms.openlocfilehash: cc0c319357b39ddb3e88d515613273a6f7dc0867
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968808"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Dosya bütünlüğünü Azure Güvenlik Merkezi'nde izleme
@@ -112,7 +112,7 @@ Panonun üst kısmındaki filtre seçmek, değişiklikler için görmek istediğ
 
 **Günlük arama** aramaya makine adını girin, açılır alan veya bilgisayarlar sekmesinde listelenen bir makine seçin. Günlük araması makine için seçilen süre boyunca yapılan tüm değişiklikleri görüntüler. Daha fazla bilgi için bir değişiklik genişletebilirsiniz.
 
-![Günlük Araması][8]
+![Günlük araması][8]
 
 **Değişiklikleri** sekmesinde (aşağıda gösterilmiştir), seçilen süre içinde çalışma alanı için tüm değişiklikleri listeler. Pano listesi değiştirildi her varlık için:
 
@@ -172,7 +172,7 @@ Altında **değişiklik izleme için düzenleme** şunları yapabilirsiniz:
 
 4. Altında **çalışma alanı yapılandırması**, bir grup seçin burada **etkin** ayarlanır true.
 
-   ![Çalışma Alanı Yapılandırması][18]
+   ![Çalışma alanı yapılandırması][18]
 
 5. Altında **değişiklik izleme için düzenleme** penceresi kümesi **etkin** false.
 

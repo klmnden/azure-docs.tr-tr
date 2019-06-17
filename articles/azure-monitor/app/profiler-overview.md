@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306335"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Azure Application Insights ile profil üretim uygulamaları
@@ -26,7 +26,7 @@ Azure Application Insights Profiler, üretim ortamında çalışan uygulamalar i
 
 Profiler aşağıdaki Azure hizmetleri üzerinde dağıtılan .NET uygulamalarıyla çalışır. Her hizmet türü için Profiler'ı etkinleştirmek için özel yönergeler aşağıdaki bağlantılarda içindir.
 
-* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure uygulama hizmeti](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure sanal makineler ve sanal makine ölçek kümeleri](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -75,7 +75,7 @@ Varsa **clr! ThePreStub** uzun sürüyorsa bir istek, istek için olan bu yönte
 
 ### <a id="ngencold"></a>Kod ([SOĞUK]) yükleniyor
 
-Yöntem adı içeriyorsa **[SOĞUK]**, gibi **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, .NET Framework çalışma zamanı tarafından iyileştirilmedi ilk kez kod yürütüyordur [profil temelli iyileştirme](/cpp/build/profile-guided-optimizations). Her yöntem için en fazla bir kez işlemi sırasında görüntülenmesi gerekir.
+Yöntem adı içeriyorsa **[SOĞUK]** , gibi **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, .NET Framework çalışma zamanı tarafından iyileştirilmedi ilk kez kod yürütüyordur [profil temelli iyileştirme](/cpp/build/profile-guided-optimizations). Her yöntem için en fazla bir kez işlemi sırasında görüntülenmesi gerekir.
 
 Bir isteğin süresi önemli miktarda kod yükleniyor aldığı durumlarda yöntemi iyileştirilmemiş bölümünü yürütmek için birinci isteğidir. Kullanıcılarınızın erişim önce söz konusu bölümü kod yürüten bir Isınma işlem kullanmayı düşünün.
 
@@ -95,7 +95,7 @@ Yöntemler gibi **SqlCommand.Execute** kod veritabanı işlemin tamamlanmasını
 
 **BLOCKED_TIME** kullanılabilir olması başka bir kaynak kodu beklediğini belirtir. Örneğin, bir eşitleme nesnesi, kullanılabilir olması için bir iş parçacığı veya son isteği bekliyor olabilir.
 
-### <a name="unmanaged-async"></a>Yönetilmeyen Asenkron
+### <a name="unmanaged-async"></a>Yönetilmeyen zaman uyumsuz
 
 .NET framework ETW olayları yayar ve böylece iş parçacıkları arasında zaman uyumsuz çağrılar izlenebilir etkinlik kimlikleri iş parçacıkları arasında geçirir. Profil Oluşturucu hangi iş parçacığı ve iş parçacığında hangi işlevleriniz gerektirdikçe bildiremez şekilde yönetilmeyen kod (yerel kod için) ve bazı eski stil zaman uyumsuz kod bu olayları ve etkinlik kimliği eksik. Bu, çağrı yığınında 'Yönetilmeyen Async' etiketlenir. ETW dosyayı karşıdan yükleyin, kullanmanız mümkün olabilir [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) neler olduğunu daha fazla bilgiler alın.
 

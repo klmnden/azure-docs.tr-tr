@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66164433"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL bağlantı mimarisi
@@ -65,9 +65,9 @@ Aşağıdaki tablo, Azure SQL veritabanı ağ geçidi tüm veri bölgeleri için
 | --- | --- |--- |
 | Avustralya Doğu | 13.75.149.87 | 40.79.161.1 |
 | Avustralya Güneydoğu | 191.239.192.109 | 13.73.109.251 |
-| Brezilya Güney | 104.41.11.5 | |
-| Kanada Orta | 40.85.224.249 | |
-| Kanada Doğu | 40.86.226.166 | |
+| Güney Brezilya | 104.41.11.5 | |
+| Orta Kanada | 40.85.224.249 | |
+| Doğu Kanada | 40.86.226.166 | |
 | Orta ABD | 23.99.160.139 | 13.67.215.62 |
 | Çin Doğu 1 | 139.219.130.35 | |
 | Çin Doğu 2 | 40.73.82.1 | |
@@ -90,9 +90,9 @@ Aşağıdaki tablo, Azure SQL veritabanı ağ geçidi tüm veri bölgeleri için
 | Kuzey Avrupa | 191.235.193.75 | 40.113.93.91 |
 | Orta Güney ABD | 23.98.162.75 | 13.66.62.124 |
 | Güneydoğu Asya | 23.100.117.95 | 104.43.15.0 |
-| BK Güney | 51.140.184.11 | |
-| BK Batı | 51.141.8.11| |
-| Orta Batı ABD | 13.78.145.25 | |
+| Birleşik Krallık Güney | 51.140.184.11 | |
+| Birleşik Krallık Batı | 51.141.8.11| |
+| Batı Orta ABD | 13.78.145.25 | |
 | Batı Avrupa | 191.237.232.75 | 40.68.37.158 |
 | Batı ABD 1 | 23.99.34.75 | 104.42.238.205 |
 | Batı ABD 2 | 13.66.226.202 | |

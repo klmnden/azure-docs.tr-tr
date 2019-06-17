@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111479"
 ---
 # <a name="azure-relay-faqs"></a>Azure geçişi ile ilgili SSS
@@ -83,10 +83,10 @@ Kullanılarak açılan geçişleri **netTCPRelay** WCF bağlama tek bir ileti ol
 | Kota adı | `Scope` |  Notlar | Değer |
 | --- | --- | --- | --- |
 | Bir geçiş üzerinde eşzamanlı dinleyicileri |Varlık |Bir ek bağlantı için sonraki istekler reddedilir ve bir özel durum çağıran kod tarafından alınır. |25 |
-| Tüm geçiş uç noktaların bir hizmet ad alanı başına eşzamanlı geçiş bağlantıları |Ad alanı |- |5,000 |
-| Hizmet ad alanı başına geçiş uç noktaları |Ad alanı |- |10,000 |
-| İleti boyutu için [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) ve [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) geçişleri |Ad alanı |Bu kotaları aşan gelen iletileri reddedilir ve bir özel durum çağıran kod tarafından alınır. |64 KB |
-| İleti boyutu için [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) ve [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) geçişleri |Ad alanı |İleti boyutu sınırı yoktur. |Sınırsız |
+| Tüm geçiş uç noktaların bir hizmet ad alanı başına eşzamanlı geçiş bağlantıları |Ad Alanı |- |5,000 |
+| Hizmet ad alanı başına geçiş uç noktaları |Ad Alanı |- |10,000 |
+| İleti boyutu için [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) ve [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) geçişleri |Ad Alanı |Bu kotaları aşan gelen iletileri reddedilir ve bir özel durum çağıran kod tarafından alınır. |64 KB |
+| İleti boyutu için [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) ve [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) geçişleri |Ad Alanı |İleti boyutu sınırı yoktur. |Sınırsız |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Geçiş herhangi bir kullanım kotalarını var mı?
 Varsayılan olarak herhangi bir bulut hizmeti için Microsoft, tüm müşteri abonelikleri hesaplanan bir toplam aylık kullanım kotası ayarlar. Bazen gereksinimlerinizi bu limitlerin olduğunu biliyoruz. Biz de ihtiyaçlarınızı anlayabilmemiz ve bu limitleri uygun şekilde ayarlamak için Müşteri Hizmetleri herhangi bir zamanda başvurabilirsiniz. Service Bus için toplam kullanım kotalarını aşağıdaki gibidir:

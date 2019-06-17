@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22d24b62532190ebd4d119b4ced03ddbd9dde8f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b94d852ec5e0cba133fc1e141a5695e1c898f16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863313"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105340"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Öğretici: CloudPassage ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de CloudPassage tümleştirmesini yapılandırmak için CloudPassage Ga
 
 **Galeriden CloudPassage eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

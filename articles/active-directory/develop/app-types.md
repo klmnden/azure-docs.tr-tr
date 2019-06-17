@@ -18,10 +18,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540657"
 ---
 # <a name="application-types-in-v10"></a>V1.0 uygulama türleri
@@ -34,11 +34,11 @@ Aşağıdaki diyagram senaryoları ve uygulama türleri gösterir ve ne kadar fa
 
 Azure AD tarafından desteklenen beş birincil uygulama senaryoları şunlardır:
 
-- **[Tek sayfalı uygulama (SPA)](single-page-application.md)**: Bir kullanıcının Azure AD tarafından güvenliği sağlanan bir tek sayfalı uygulama için oturum açmanız gerekir.
-- **[Web uygulamasına Web tarayıcısı](web-app.md)**: Bir kullanıcının Azure AD tarafından güvenliği sağlanan bir web uygulaması için oturum açmanız gerekir.
-- **[Web API'si yerel uygulamaya](native-app.md)**: Telefon, tablet veya PC çalıştıran yerel bir uygulama bir Web API'si Azure AD tarafından güvenli hale getirilen kaynakları almak için bir kullanıcının kimliğini doğrulaması gerektiğinde.
-- **[Web uygulaması web API'si için](web-api.md)**: Bir Web API'si Azure AD tarafından güvenliği sağlanan kaynakları almak bir web uygulaması gerekir.
-- **[Web API arka plan programı ya da sunucu uygulamasında](service-to-service.md)**: Azure AD tarafından güvenliği sağlanan bir web API'den kaynakları almak bir arka plan programı uygulaması veya web kullanıcı arabirimi ile bir sunucu uygulaması gerekir.
+- **[Tek sayfalı uygulama (SPA)](single-page-application.md)** : Bir kullanıcının Azure AD tarafından güvenliği sağlanan bir tek sayfalı uygulama için oturum açmanız gerekir.
+- **[Web uygulamasına Web tarayıcısı](web-app.md)** : Bir kullanıcının Azure AD tarafından güvenliği sağlanan bir web uygulaması için oturum açmanız gerekir.
+- **[Web API'si yerel uygulamaya](native-app.md)** : Telefon, tablet veya PC çalıştıran yerel bir uygulama bir Web API'si Azure AD tarafından güvenli hale getirilen kaynakları almak için bir kullanıcının kimliğini doğrulaması gerektiğinde.
+- **[Web uygulaması web API'si için](web-api.md)** : Bir Web API'si Azure AD tarafından güvenliği sağlanan kaynakları almak bir web uygulaması gerekir.
+- **[Web API arka plan programı ya da sunucu uygulamasında](service-to-service.md)** : Azure AD tarafından güvenliği sağlanan bir web API'den kaynakları almak bir arka plan programı uygulaması veya web kullanıcı arabirimi ile bir sunucu uygulaması gerekir.
 
 Kod ile çalışmaya başlamadan önce üst düzey senaryoları anlamanıza ve her uygulama türü hakkında daha fazla bilgi edinmek için bağlantıları izleyin. V1.0 uç nokta veya v2.0 uç noktası ile çalışan belirli bir uygulama yazıyorsanız, bilmeniz gereken farklar hakkında bilgi edinebilirsiniz.
 

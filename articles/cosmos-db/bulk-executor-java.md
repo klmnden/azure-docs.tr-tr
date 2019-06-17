@@ -10,10 +10,10 @@ ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: 68c83809cba0585d99751760c0e4f51893806170
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257209"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Azure Cosmos DB veriler üzerinde toplu işlemler gerçekleştirmek için toplu Yürütücü Java kitaplığı kullanma
@@ -204,7 +204,7 @@ Toplu Yürütücü Kitaplığı kullanıldığında daha iyi performans için a�
 * Daha yüksek performans elde etmek için:  
 
    * JVM'ın yığın boyutu fazla sayıda belge işleme bir bellek sorunu önlemek için yeterince büyük bir sayıya ayarlayın. Yığın boyutu önerilen: en fazla (3GB, 3 * sizeof (toplu olarak geçirilen tüm belgeleri Al API'si tek bir toplu)).  
-   * Hangi nedeniyle daha yüksek aktarım hızı ile çok sayıda belgeleri toplu işlemleri gerçekleştirirken erişmenizi sağlayacak bir ön işleme süresi yoktur. 10.000.000 belge almak istiyorsanız, bu nedenle, 10 kez toplu olarak içeri aktarma üzerinde belgelerin 10 toplu her boyutta 1.000.000 çalışan toplu olarak içeri 100 kez belgelerin 100 toplu üzerinde her boyutu 100.000 belgelerin çalışan daha tercih edilir.  
+   * Hangi nedeniyle daha yüksek aktarım hızı ile çok sayıda belgeleri toplu işlemleri gerçekleştirirken erişmenizi sağlayacak bir ön işleme süresi yoktur. 10\.000.000 belge almak istiyorsanız, bu nedenle, 10 kez toplu olarak içeri aktarma üzerinde belgelerin 10 toplu her boyutta 1.000.000 çalışan toplu olarak içeri 100 kez belgelerin 100 toplu üzerinde her boyutu 100.000 belgelerin çalışan daha tercih edilir.  
 
 * Belirli bir Azure Cosmos DB kapsayıcısı için karşılık gelen tek bir sanal makine içindeki tüm uygulama için tek bir DocumentBulkExecutor nesnesi örneklemek için önerilir.  
 

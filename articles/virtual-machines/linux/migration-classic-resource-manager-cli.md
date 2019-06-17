@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
 ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543156"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Azure CLI kullanarak Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçiş
@@ -35,7 +35,7 @@ Bu adımları olarak hizmet (Iaas) kaynaklarını Klasik dağıtım modelinden A
 
 ![Geçiş adımlarını gösteren ekran görüntüsü](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="step-1-prepare-for-migration"></a>1. Adım: Geçiş için hazırlama
+## <a name="step-1-prepare-for-migration"></a>1\. adım: Geçiş için hazırlanma
 Resource Manager'a geçirme Iaas kaynaklarını Klasik portaldan değerlendirirken öneririz birkaç en iyi uygulamalar şunlardır:
 
 * Okumak [desteklenmeyen yapılandırmalar veya özellik listesini](../windows/migration-classic-resource-manager-overview.md). Desteklenmeyen yapılandırmalar veya özellikleri kullanan sanal makineler varsa, özelliği/yapılandırma desteği Duyurulacak beklemenizi öneririz. Alternatif olarak, bu özelliği kaldırın veya bu yapılandırma dışında gereksinimlerinize uygun değilse, geçiş etkinleştirmeniz taşıyın.
@@ -48,7 +48,7 @@ Resource Manager'a geçirme Iaas kaynaklarını Klasik portaldan değerlendirirk
 > 
 > 
 
-## <a name="step-2-set-your-subscription-and-register-the-provider"></a>2. Adım: Sağlayıcıyı kaydetmek ve aboneliğinizi ayarlama
+## <a name="step-2-set-your-subscription-and-register-the-provider"></a>2\. adım: Sağlayıcıyı kaydetmek ve aboneliğinizi ayarlama
 Geçiş senaryoları için her iki Klasik ortamınızı kurmanız gerekir ve Resource Manager. [Azure CLI'yı yükleme](../../cli-install-nodejs.md) ve [aboneliğinizi seçin](/cli/azure/authenticate-azure-cli).
 
 Hesabınızda oturum.
@@ -78,7 +78,7 @@ Lütfen kaydı tamamlamak beş dakika bekleyin. Aşağıdaki komutu kullanarak o
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>3. Adım: Azure Resource Manager sanal makinesine yeterli Vcpu geçerli dağıtım veya VNET Azure bölgesinde olduğundan emin olun
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>3\. adım: Azure Resource Manager sanal makinesine yeterli Vcpu geçerli dağıtım veya VNET Azure bölgesinde olduğundan emin olun
 Bu adım için geçiş gerekecektir `arm` modu. Aşağıdaki komutla bunu.
 
 ```
@@ -96,7 +96,7 @@ azure vm list-usage -l "<Your VNET or Deployment's Azure region"
     azure config mode asm
 
 
-## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>4. Adım: 1. seçenek - bulut hizmetindeki sanal makineleri geçirme
+## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>4\. Adım: 1. seçenek - bulut hizmetindeki sanal makineleri geçirme
 Aşağıdaki komutu kullanarak bulut Hizmetleri'nın listesini alın ve ardından geçirmek istediğiniz bulut hizmeti seçin. Bulut hizmetindeki sanal makineleri bir sanal ağda veya sahip oldukları web/çalışan rolleri, bir hata iletisi alırsınız unutmayın.
 
     azure service list
@@ -135,7 +135,7 @@ Hazırlanan yapılandırma iyi görünüyorsa, ileriye taşıyın ve aşağıdak
 
 
 
-## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>4. Adım: Seçenek 2 - bir sanal ağdaki sanal makinelerin geçişini gerçekleştirin
+## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>4\. Adım: Seçenek 2 - bir sanal ağdaki sanal makinelerin geçişini gerçekleştirin
 Geçirmek istediğiniz sanal ağı seçin. Sanal ağ ile desteklenmeyen yapılandırmalar web/çalışan rolleri veya sanal makineleri içeriyorsa, bir doğrulama hata iletisi alırsınız unutmayın.
 
 Tüm sanal ağları, abonelikte aşağıdaki komutu kullanarak alın.
@@ -146,7 +146,7 @@ Tüm sanal ağları, abonelikte aşağıdaki komutu kullanarak alın.
 
 ![Komut satırı ile tüm sanal ağ adı vurgulanmış ekran görüntüsü.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-Yukarıdaki örnekte, **virtualNetworkName** tüm adı **"Grubu classicubuntu16 classicubuntu16"**.
+Yukarıdaki örnekte, **virtualNetworkName** tüm adı **"Grubu classicubuntu16 classicubuntu16"** .
 
 İlk olarak, aşağıdaki komutu kullanarak sanal ağa geçirirseniz doğrulama:
 
@@ -166,7 +166,7 @@ Hazırlanan yapılandırma iyi görünüyorsa, ileriye taşıyın ve aşağıdak
 
     azure network vnet commit-migration <virtualNetworkName>
 
-## <a name="step-5-migrate-a-storage-account"></a>5. Adım: Bir depolama hesabını geçirin
+## <a name="step-5-migrate-a-storage-account"></a>5\. Adım: Bir depolama hesabını geçirin
 İşiniz bittiğinde sanal makineleri geçiriyorsanız, depolama hesabını geçirme öneririz.
 
 Aşağıdaki komutu kullanarak depolama hesabı geçiş için hazırlama

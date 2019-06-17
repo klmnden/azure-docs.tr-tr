@@ -16,10 +16,10 @@ ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
 ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833579"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure uygulama Hizmeti'nde WebJobs ile arka plan görevleri çalıştırma
@@ -41,7 +41,7 @@ Azure işlevleri, programları ve betikleri çalıştırmak için başka bir yol
 Aşağıdaki tablo arasındaki farkları açıklar *sürekli* ve *tetiklenen* WebJobs.
 
 
-|Sürekli  |Tetiklenmiş  |
+|Sürekli  |Tetiklenen  |
 |---------|---------|
 | Hemen bir Web işi oluşturulduğunda çalışmaya başlar. İş öğesinden bitiş tutmak için program veya komut dosyası genellikle sonsuz bir döngü içinde yapar. İşin bitiş, yeniden başlatabilirsiniz. | Yalnızca el ile veya bir zamanlamaya göre tetiklenen başlatılır. |
 | Web uygulamasının üzerinde çalıştığı tüm örneklerinde çalıştırılır. İsteğe bağlı olarak, tek örnekli bir WebJob kısıtlayabilirsiniz. |Yük Dengeleme için Azure'ı seçer, tek bir örneği üzerinde çalışır.|
@@ -89,7 +89,7 @@ when making changes in one don't forget the other two.
    | **Türü** | Sürekli | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
    | **Ölçeklendirme** | Çoklu örnek | Yalnızca sürekli WebJobs için kullanılabilir. Bir programı veya betiği tüm çalışıp çalışmayacağını belirler örnek veya yalnızca bir örnek. Birden çok örnek üzerinde çalıştırma seçeneği ücretsiz veya paylaşılan uygulanmaz [fiyatlandırma katmanları](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**'ı tıklatın.
 
    Yeni bir WebJob görünür **WebJobs** sayfası.
 
@@ -124,10 +124,10 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Ad** | myTriggeredWebJob | Bir App Service uygulaması içinde benzersiz bir ad. Bir harf veya sayı ile başlamalı ve özel karakterler içeremez "-" ve "_".|
    | **Karşıya dosya yükleme** | ConsoleApp.zip | A *.zip* programları veya betikleri çalıştırmak için gerekli tüm destekleyici dosyaları yanı sıra, yürütülebilir dosya veya komut dosyanızı içeren dosya. Desteklenen yürütülebilir veya betik dosyası türlerini de listelenen [desteklenen dosya türleri](#acceptablefiles) bölümü. |
-   | **Türü** | Tetiklenmiş | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
+   | **Türü** | Tetiklenen | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
    | **Tetikleyiciler** | Manual | |
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**'ı tıklatın.
 
    Yeni bir WebJob görünür **WebJobs** sayfası.
 
@@ -135,7 +135,7 @@ when making changes in one don't forget the other two.
 
 7. Webjob'ı çalıştırmak için listenin adını sağ tıklatıp **çalıştırma**.
    
-    ![WebJob'ı çalıştır](./media/web-sites-create-web-jobs/runondemand.png)
+    ![WebJob çalıştırma](./media/web-sites-create-web-jobs/runondemand.png)
 
 ## <a name="CreateScheduledCRON"></a> Zamanlanmış bir WebJob oluşturma
 
@@ -162,7 +162,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Ad** | myScheduledWebJob | Bir App Service uygulaması içinde benzersiz bir ad. Bir harf veya sayı ile başlamalı ve özel karakterler içeremez "-" ve "_". |
    | **Karşıya dosya yükleme** | ConsoleApp.zip | A *.zip* programları veya betikleri çalıştırmak için gerekli tüm destekleyici dosyaları yanı sıra, yürütülebilir dosya veya komut dosyanızı içeren dosya. Desteklenen yürütülebilir veya betik dosyası türlerini de listelenen [desteklenen dosya türleri](#acceptablefiles) bölümü. |
-   | **Türü** | Tetiklenmiş | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
+   | **Türü** | Tetiklenen | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
    | **Tetikleyiciler** | Zamanlanmış | Güvenilir bir şekilde çalışmak üzere zamanlamak için her zaman açık özelliği etkinleştirin. Always On yalnızca temel, standart ve Premium ücretlendirme katmanları için kullanılabilir.|
    | **CRON ifadesi** | 0 0/20 * * * * | [Sıralanmış iş ifadeleri](#cron-expressions) aşağıdaki bölümde açıklanmıştır. |
 

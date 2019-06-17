@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
 ms.openlocfilehash: c5f92d564a93823fd9c0f932fa95f20d4e827761
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60734487"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer sorunlarını giderme
@@ -38,13 +38,13 @@ Yük Dengeleyici arka uç havuzu Vm'leri aşağıdaki nedenlerden dolayı araşt
 - Yük Dengeleyici arka uç havuzuna VM üzerindeki bağlantı noktasının güvenlik duvarı veya bir ağ güvenlik grubu engelliyor 
 - Yük Dengeleyici diğer yapılandırma hataları
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>1. neden: Yük Dengeleyici arka havuzu sanal makinesi iyi durumda olmayan 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>1\. neden: Yük Dengeleyici arka havuzu sanal makinesi iyi durumda olmayan 
 
 **Doğrulama ve çözümleme**
 
 Bu sorunu çözmek için katılımcı VM'ler için oturum açın ve VM durumu sağlıklı olup olmadığını denetleyin ve yanıt verebilir **PsPing** veya **Telnet** havuzdaki başka bir VM'den. VM, sağlam değil veya araştırmasına yanıt verip vermediğini, sorunu düzeltmek ve Yük Dengeleme de katılabilmesi için önce VM'yi sağlıklı bir duruma alın.
 
-### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>2. neden: Yük Dengeleyici arka havuzu sanal makine araştırma bağlantı noktasında dinleme yapmıyor
+### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>2\. neden: Yük Dengeleyici arka havuzu sanal makine araştırma bağlantı noktasında dinleme yapmıyor
 VM, iyi durumda ancak araştırmasına yanıt vermiyorsa, ardından bir araştırma bağlantı noktasını VM veya VM katılan üzerinde açık değil olası neden olabilir, bağlantı noktası üzerinde dinleme yapmıyor.
 
 **Doğrulama ve çözümleme**
@@ -55,7 +55,7 @@ VM, iyi durumda ancak araştırmasına yanıt vermiyorsa, ardından bir araştı
 3. Bağlantı noktası durumu olarak listelenmemişse **DİNLEME**, doğru bağlantı noktasını yapılandırın. 
 4. Alternatif olarak, başka bir bağlantı olarak listelenen seçin **DİNLEME**ve güncelleştirme dengeleyici yapılandırmasını uygun şekilde yükleyin.              
 
-### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>3. neden: Yük Dengeleyici arka uç havuzuna VM üzerindeki bağlantı noktasının güvenlik duvarı veya bir ağ güvenlik grubu engelliyor  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>3\. neden: Yük Dengeleyici arka uç havuzuna VM üzerindeki bağlantı noktasının güvenlik duvarı veya bir ağ güvenlik grubu engelliyor  
 Araştırma bağlantı noktasını VM üzerindeki güvenlik duvarını engelliyor veya bir veya daha fazla ağ alt ağında veya VM üzerinde yapılandırılan güvenlik grupları, araştırma bağlantı noktasını erişmesine izin vermemesi durumunda VM sistem durumu araştırmasına yanıt silemiyor.          
 
 **Doğrulama ve çözümleme**
@@ -66,7 +66,7 @@ Araştırma bağlantı noktasını VM üzerindeki güvenlik duvarını engelliyo
 * Bu kurallardan herhangi birine araştırma trafiğini engelliyorsanız kaldırın ve kuralları, araştırma trafiğine izin verecek şekilde yeniden yapılandırın.  
 * VM sistem durumu yoklamalara yanıt vermeye artık başlatılmış olup olmadığını test edin. 
 
-### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>4. neden: Yük Dengeleyici diğer yapılandırma hataları
+### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>4\. neden: Yük Dengeleyici diğer yapılandırma hataları
 Önceki tüm nedenler doğrulanabilir ve doğru şekilde çözümlenen gibi görünüyor ve durum yoklaması için sonra el ile arka uç VM'den hala yanıtlamıyor bağlantısını için test etme ve bağlantı anlamak için bazı izlemeleri toplamak.
 
 **Doğrulama ve çözümleme**
@@ -89,7 +89,7 @@ Arka uç havuzuna VM sağlıklı olarak listelenir ve sistem durumu araştırmal
 * Yük Dengeleyici aynı sanal makine veya NIC'den erişme 
 * Internet yük dengeleyici ön uç katılan yük dengeleyici arka uç havuzundan VM erişme 
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>1. neden: Yük Dengeleyici arka havuzu sanal makine veri bağlantı noktasında dinleme yapmıyor 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>1\. neden: Yük Dengeleyici arka havuzu sanal makine veri bağlantı noktasında dinleme yapmıyor 
 VM veri trafiğe yanıt vermezse, ya da, hedef bağlantı noktası üzerinde katılan bir VM'nin, açık değil. Bunun nedeni olabilir veya VM Bu bağlantı noktasında dinleme yapmıyor. 
 
 **Doğrulama ve çözümleme**
@@ -99,7 +99,7 @@ VM veri trafiğe yanıt vermezse, ya da, hedef bağlantı noktası üzerinde kat
 3. Bağlantı noktası durumla listede yoksa "DİNLEME" uygun dinleyici bağlantı noktasını yapılandırma 
 4. Bağlantı noktasını dinleme olarak işaretlenmişse, ardından hedef uygulamanın bu bağlantı noktasında olası sorunları kontrol edin. 
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>2. neden: Ağ güvenlik grubu bağlantı noktası yük dengeleyici arka havuzu sanal makinesi üzerinde engelliyor  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>2\. neden: Ağ güvenlik grubu bağlantı noktası yük dengeleyici arka havuzu sanal makinesi üzerinde engelliyor  
 
 Bir veya daha fazla ağ güvenlik grubu, alt ağdaki veya VM'de yapılandırdıysanız, VM yanıt verip vermediğini ise kaynak IP veya bağlantı noktası, engelliyor.
 
@@ -110,7 +110,7 @@ Bir veya daha fazla ağ güvenlik grubu, alt ağdaki veya VM'de yapılandırdıy
 * Kurallardan herhangi birinin trafiğini engelliyorsanız kaldırın ve bu kurallar veri trafiğine izin verecek şekilde yeniden yapılandırın.  
 * VM sistem durumu araştırmaları için yanıt vermek artık başlatılmış olup olmadığını test edin.
 
-### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>3. neden: Yük Dengeleyici aynı VM ve ağ arabiriminden erişme 
+### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>3\. neden: Yük Dengeleyici aynı VM ve ağ arabiriminden erişme 
 
 VM yük dengeleyicinin arka uçtaki barındırılan uygulamanız aynı ağ arabirimi aynı arka uç VM içinde barındırılan başka bir uygulamaya erişmeye çalışırsa, desteklenmeyen bir senaryodur ve başarısız olur. 
 
@@ -118,7 +118,7 @@ VM yük dengeleyicinin arka uçtaki barındırılan uygulamanız aynı ağ arabi
 * Uygulama başına ayrı bir arka uç havuzu Vm'leri yapılandırın. 
 * Her uygulama kendi ağ arabirimi ve IP adresi kullanarak şekilde uygulamayı çift NIC VM yapılandırın. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>4. neden: İç yük dengeleyici ön uç katılan yük dengeleyici arka uç havuzundan VM erişme
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>4\. neden: İç yük dengeleyici ön uç katılan yük dengeleyici arka uç havuzundan VM erişme
 
 Flow kaynak VM eşlendiğinde bir iç Load Balancer bir sanal ağ içinde yapılandırılır ve bir katılımcı arka uç sanal makinelerinin iç yük dengeleyici ön ucuna erişmeye çalışıyor, hataları oluşabilir. Bu senaryo desteklenmez. Gözden geçirme [sınırlamaları](load-balancer-overview.md#limitations) hakkında ayrıntılı bilgi için.
 

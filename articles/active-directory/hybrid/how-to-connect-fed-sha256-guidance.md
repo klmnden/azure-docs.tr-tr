@@ -17,10 +17,10 @@ ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b6c81343d52f016dc779f9e08176a0d909684c0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138634"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Office 365 bağlı olan taraf güveni için değişiklik imzası karma algoritması
@@ -38,7 +38,7 @@ Active Directory Federasyon Hizmetleri (AD FS), Microsoft Azure Active Directory
 2. AD FS düğümünü genişletin ve tıklayın **bağlı olan taraf güvenleri**.
 3. Office 365/Azure bağlı olan taraf güvenine sağ tıklayıp **özellikleri**.
 4. Seçin **Gelişmiş** sekme ve güvenli karma algoritması SHA256'ı seçin.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 
 ![İmzalama Algoritması SHA256--MMC](./media/how-to-connect-fed-sha256-guidance/mmc.png)
 

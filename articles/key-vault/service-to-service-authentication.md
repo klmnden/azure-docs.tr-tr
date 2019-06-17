@@ -10,10 +10,10 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.openlocfilehash: defb67c7e100a50a81d55afee03aa84be8e1e8e9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722459"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET kullanarak Azure Key Vault hizmetten hizmete kimlik doğrulaması
@@ -177,7 +177,7 @@ Azure AD ile imzalamak için bir sertifika kullanmak için:
           CertificateStoreLocation={CertificateStore}
     ```
  
-    Değiştirin *{AppID}*, *{Tenantıd}*, ve *{Thumbprint}* 1. adımda oluşturulan değerlere sahip. Değiştirin *{CertificateStore}* ya da ile `LocalMachine` veya `CurrentUser`dağıtım planınıza göre.
+    Değiştirin *{AppID}* , *{Tenantıd}* , ve *{Thumbprint}* 1. adımda oluşturulan değerlere sahip. Değiştirin *{CertificateStore}* ya da ile `LocalMachine` veya `CurrentUser`dağıtım planınıza göre.
 
 4. Uygulamayı çalıştırın. 
 
@@ -191,7 +191,7 @@ Azure ile oturum açması AD gizli dizi kimlik bilgisi paylaşılan:
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
-    Değiştirin _{AppID}_, _{Tenantıd}_, ve _{ClientSecret}_ 1. adımda oluşturulan değerlere sahip.
+    Değiştirin _{AppID}_ , _{Tenantıd}_ , ve _{ClientSecret}_ 1. adımda oluşturulan değerlere sahip.
 
 3. Uygulamayı çalıştırın. 
 
@@ -205,7 +205,7 @@ Varsayılan olarak, `AzureServiceTokenProvider` bir belirteç almak için birden
 
 Aşağıdaki seçenekler desteklenir:
 
-| Bağlantı&nbsp;dize&nbsp;seçeneği | Senaryo | Yorumlar|
+| Bağlantı&nbsp;dize&nbsp;seçeneği | Senaryo | Açıklamalar|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Yerel geliştirme | AzureServiceTokenProvider Azureclı belirteci almak için kullanır. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Yerel geliştirme | AzureServiceTokenProvider Visual Studio, belirteci almak için kullanır. |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: d234e7f8a6005722a33a797f2b8ae6a1e1f4b98b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: f4a69fd57bf2e9535fdb1664365b074927e27585
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327774"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64707270"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Sanal makineler bir Azure Resource Manager şablonu
 
@@ -28,7 +28,7 @@ Bu makalede sanal makineleri için geçerli bir Azure Resource Manager şablonu 
 
 Kullanabileceğiniz birçok [galerideki şablonları](https://azure.microsoft.com/documentation/templates/?term=VM) VM kaynağını içerir. Bir şablona dahil tüm öğeler burada açıklanmıştır.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 Bu örnek belirtilen sayıda VM'ler oluşturmak için bir şablon tipik kaynak bölümünü gösterir:
 
@@ -253,7 +253,7 @@ Bu şablonda bir kaynak için bir döngü oluşturma oluştururken ya da diğer 
 } ]
 ```
 
-## <a name="dependencies"></a>Bağımlılıklar
+## <a name="dependencies"></a>Bağımlılıkları
 
 En fazla kaynak düzgün çalışması için diğer kaynaklara bağımlı. Sanal makineler, bir ağ arabirimi gerekiyor yapmak için bir sanal ağ ile ilişkili olmalıdır. [DependsOn](../../resource-group-define-dependencies.md) öğesi, ağ arabiriminin VM oluşturmadan önce kullanıma hazır olduğundan emin olmak için kullanılır:
 

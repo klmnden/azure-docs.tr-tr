@@ -10,10 +10,10 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: c95af40c3fa3f9dad2bfb5ea4a1b9f585c636928
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881226"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure Otomasyonu - eski kaynak denetimi tümleştirmesi
@@ -30,7 +30,7 @@ Kaynak denetimi, kod, kaynak denetimi için Azure Otomasyonu anında iletme veya
 
 Bir GitHub hesabı zaten varsa, Otomasyon hesabınızı ve yalnızca biri için kaynak denetimi yapılandırmak için gereken iki basit adım vardır. Bunlar:
 
-## <a name="step-1--create-a-github-repository"></a>1. adım – GitHub deposu oluşturma
+## <a name="step-1--create-a-github-repository"></a>1\. adım – GitHub deposu oluşturma
 
 Bir GitHub hesabı ve Azure Otomasyonu bağlamak istediğiniz bir depo zaten varsa, daha sonra mevcut hesabınızda oturum açın ve aşağıdaki 2. adımdaki başlatın. Aksi takdirde gidin [GitHub](https://github.com/), yeni bir hesap için kaydolun ve [yeni depo Oluştur](https://help.github.com/articles/create-a-repo/).
 
@@ -42,10 +42,10 @@ Bir GitHub hesabı ve Azure Otomasyonu bağlamak istediğiniz bir depo zaten var
 
    | **Parametre** | **Açıklama** |
    |:--- |:--- |
-   | Kaynak Seç |Kaynağı seçin. Şu anda yalnızca **GitHub** desteklenir. |
+   | Kaynak seçin |Kaynağı seçin. Şu anda yalnızca **GitHub** desteklenir. |
    | Yetkilendirme |Tıklayın **Authorize** GitHub deponuza Azure Otomasyonu erişim vermek düğmesi. Ardından, zaten başka bir pencerede GitHub hesabınızda oturum açtıysanız, o hesabın kimlik bilgileri kullanılır. Yetkilendirme başarılı olduktan sonra sayfanın altında GitHub kullanıcı adınızı gösterecektir **yetkilendirme özelliği**. |
    | Depo seçin |Bir GitHub deposuna kullanılabilir depoları listesinden seçin. |
-   | Şube seçin |Bir dal kullanılabilir dalların listesinden seçin. Yalnızca **ana** dal, herhangi bir dal oluşturmadıysanız, gösterilir. |
+   | Dal seçin |Bir dal kullanılabilir dalların listesinden seçin. Yalnızca **ana** dal, herhangi bir dal oluşturmadıysanız, gösterilir. |
    | Runbook klasörünün yolu |Runbook klasörünün yolu İtme veya çekme kodunuzu istediğiniz GitHub deposunda yolunu belirtir. Şu biçimde girilmelidir **/KlasörAdı/altklasöradı**. Yalnızca runbook klasörünün yolu runbook Otomasyon hesabınıza eşitlenecektir. Runbook klasörü yolunun alt klasörlerdeki runbook'ları olacak **değil** senkronize edilir. Kullanım **/** deposu altındaki tüm runbook'lar eşitlenecek. |
 3. Örneğin, adında bir havuz varsa **PowerShellScripts** adlı bir klasör içeren **RootFolder**, adlı bir klasör içeren **alt**. Aşağıdaki dizelerden her klasör düzeyinde eşitlemek için kullanabilirsiniz:
 

@@ -10,15 +10,14 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 10/16/2017
-ms.date: 03/25/2019
-ms.author: v-junlch
+ms.date: 10/16/2017
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104686"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure işlevleri'nin güvenilirliği ve performansı en iyi duruma getirme
@@ -123,5 +122,3 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure işlevleri'nde bağlantılarını yönetme](manage-connections.md)
 * [Azure App Service en iyi uygulamaları](../app-service/app-service-best-practices.md)
-
-<!-- Update_Description: wording update -->

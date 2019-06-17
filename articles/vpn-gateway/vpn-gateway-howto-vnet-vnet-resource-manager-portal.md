@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
 ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128390"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure portalını kullanarak bir VNet-VNet VPN ağ geçidi bağlantısı yapılandırma
@@ -190,7 +190,7 @@ TestVNet1 ve TestVNet4 için sanal ağ geçidi oluşturma işlemleri tamamlandı
 
      - Bağlanmak istediğiniz sanal ağ geçidi seçin.
 
-     - **Paylaşılan anahtar (PSK)**: Bu alanda bağlantınız için bir paylaşılan anahtar girin. Bu anahtarı kendiniz üretebilir veya oluşturabilirsiniz. Siteden siteye bağlantı, kullanacağınız anahtarın şirket içi Cihazınızı ve sanal ağ geçidi bağlantınızı aynıdır. Başka bir sanal ağ geçidi için bağlantı kurduğunuz, kavram, yerine bir VPN cihazına bağlanmak dışında burada benzer.
+     - **Paylaşılan anahtar (PSK)** : Bu alanda bağlantınız için bir paylaşılan anahtar girin. Bu anahtarı kendiniz üretebilir veya oluşturabilirsiniz. Siteden siteye bağlantı, kullanacağınız anahtarın şirket içi Cihazınızı ve sanal ağ geçidi bağlantınızı aynıdır. Başka bir sanal ağ geçidi için bağlantı kurduğunuz, kavram, yerine bir VPN cihazına bağlanmak dışında burada benzer.
     
 4. Seçin **Tamam** yaptığınız değişiklikleri kaydedin.
 

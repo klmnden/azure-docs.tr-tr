@@ -12,10 +12,10 @@ ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 tags: connectors
 ms.date: 08/24/2018
 ms.openlocfilehash: 663363d05c1875d22a0ecc0478abcf7e0ec89c99
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105639"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Azure Logic Apps kullanarak Project Online projeleri, görevleri ve kaynakları yönetme
@@ -50,7 +50,7 @@ Project Online, planlamak, önceliklendirmek ve projeleri ve proje portföyü ya
    * Boş mantıksal uygulama için arama kutusuna filtreniz olarak "Project Online" yazın. 
    Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
 
-     -veya-
+     veya
 
    * Var olan mantıksal uygulamalar, bir eylem eklemek istediğiniz adımı altında seçin için **yeni adım**. Arama kutusuna filtreniz olarak "Project Online" girin. Eylemler listesinde, istediğiniz eylemi seçin.
 

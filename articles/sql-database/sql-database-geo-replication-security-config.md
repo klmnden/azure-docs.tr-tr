@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8a2a2fffa9ed3a4dae3c0768291b7585be4bfc6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341956"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64690845"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Yapılandırma ve Azure SQL veritabanı güvenliğini coğrafi geri yükleme ya da yük devretme için yönetme
 
@@ -89,7 +89,9 @@ Son adım, hedef sunucuya veya sunuculara gidin ve uygun SID ile oturum açma bi
 > [!NOTE]
 > İkincil, ancak birincil kullanıcı erişimi vermek istiyorsanız, aşağıdaki sözdizimini kullanarak, kullanıcı oturum açma birincil sunucudaki değiştirerek bunu yapabilirsiniz.
 >
-> ALTER LOGIN <login name> DEVRE DIŞI BIRAK
+> ```sql
+> ALTER LOGIN <login name> DISABLE
+> ```
 >
 > Her zaman, gerekirse verebilmeniz için devre dışı bırakma parola değiştirmez.
 

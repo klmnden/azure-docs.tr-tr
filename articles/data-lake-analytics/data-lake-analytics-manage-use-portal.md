@@ -10,10 +10,10 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813443"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure portalını kullanarak Azure Data Lake Analytics'i yönetme
@@ -44,9 +44,9 @@ Bu makalede, Azure portalını kullanarak Azure Data Lake Analytics hesapların�
 Data Lake Analytics hesabı silmeden önce varsayılan Data Lake Store hesabı silin.
 
 1. Azure portalında Data Lake Analytics hesabınıza gidin.
-2. **Sil**'e tıklayın.
+2. Tıklayın **Sil**.
 3. Hesap adını yazın.
-4. **Sil**'e tıklayın.
+4. Tıklayın **Sil**.
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -111,10 +111,10 @@ U-SQL geliştiricilerin Data Lake Analytics hizmeti kullanmak için Data Lake An
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Bir Data Lake Analytics hesabı için kullanıcıların veya güvenlik grupları Ekle
 
 1. Azure portalında Data Lake Analytics hesabınıza gidin.
-2. Tıklayın **erişim denetimi (IAM)** > **rol ataması Ekle**.
+2. Tıklayın **erişim denetimi (IAM)**  > **rol ataması Ekle**.
 3. Bir rol seçin.
 4. Bir kullanıcı ekleyin.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 
 >[!NOTE]
 >İşleri göndermek bir kullanıcı veya güvenlik grubu gerekiyorsa, bunlar ayrıca depolama hesabındaki izni gerekir. Daha fazla bilgi için [Secure Data Lake Store içinde depolanan verileri](../data-lake-store/data-lake-store-secure-data.md).

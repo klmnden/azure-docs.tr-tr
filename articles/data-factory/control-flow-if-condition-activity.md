@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153477"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data factory'de etkinlik koşul
@@ -67,7 +67,7 @@ If Koşulu etkinliği, programlama dilerindeki If deyimiyle aynı işlevselliği
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
 name | IF-condition etkinliği adı. | String | Evet
-tür | Ayarlanmalıdır **IfCondition** | String | Evet
+türü | Ayarlanmalıdır **IfCondition** | String | Evet
 İfade | True veya false değerlendirmelidir ifadesi | İfade sonucu ile Boole türü | Evet
 ifTrueActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `true`. | Dizi | Evet
 ifFalseActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `false`. | Dizi | Evet

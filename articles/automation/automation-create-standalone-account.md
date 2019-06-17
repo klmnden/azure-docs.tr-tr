@@ -10,10 +10,10 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61076823"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tek başına Azure Otomasyonu hesabı oluşturma
@@ -89,7 +89,7 @@ Azure portalında bir Azure Otomasyonu hesabını oluşturmak için aşağıdaki
 
 Otomasyon hesabı başarıyla oluşturulduğunda bazı kaynaklar sizin için otomatik olarak oluşturulur. Oluşturulduktan sonra bunları tutmak istemiyorsanız bu runbook'ları güvenli bir şekilde silinebilir. Farklı Çalıştır hesapları, hesabınızda bir runbook'ta kimlik doğrulaması için kullanılabilir ve başka bir oluşturmadığınız sürece bırakılmalıdır veya bunları gerektirmez. Aşağıdaki tabloda Farklı Çalıştır hesabının kaynakları özetlenmektedir.
 
-| Kaynak | Açıklama |
+| Resource | Açıklama |
 | --- | --- |
 | AzureAutomationTutorial Runbook |Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmayı gösteren bir örnek grafik runbook. Runbook, tüm Resource Manager kaynaklarını alır. |
 | AzureAutomationTutorialScript Runbook |Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmayı gösteren bir örnek PowerShell runbook. Runbook, tüm Resource Manager kaynaklarını alır. |
@@ -99,7 +99,7 @@ Otomasyon hesabı başarıyla oluşturulduğunda bazı kaynaklar sizin için oto
 
 Aşağıdaki tabloda Klasik Farklı Çalıştır hesabının kaynakları özetlenmektedir.
 
-| Kaynak | Açıklama |
+| Resource | Açıklama |
 | --- | --- |
 | AzureClassicAutomationTutorial Runbook |Örnek grafik runbook. Runbook, Klasik farklı çalıştır hesabı (sertifika) kullanarak bir Abonelikteki tüm Klasik Vm'leri alır. Ardından, sanal makine adları ve durumunu görüntüler. |
 | AzureClassicAutomationTutorial Script Runbook |Örnek PowerShell runbook. Runbook, Klasik farklı çalıştır hesabı (sertifika) kullanarak bir Abonelikteki tüm Klasik Vm'leri alır. Ardından, sanal makine adları ve durumunu görüntüler. |

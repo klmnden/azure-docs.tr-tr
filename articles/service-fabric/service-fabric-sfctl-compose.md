@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 4b5cbb4a24b61de7e64a52ef950deedab3eec263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837275"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
@@ -28,13 +28,13 @@ Oluşturma, silme ve Docker Compose uygulamaları yönetin.
 
 |Komut|Açıklama|
 | --- | --- |
-| oluşturmaya | Oluşturur bir Service Fabric compose dağıtımı. |
+| create | Oluşturur bir Service Fabric compose dağıtımı. |
 | list | Service Fabric kümesinde oluşturulan dağıtımlar alır listesi oluşturun. |
-| kaldır | Siler mevcut bir Service Fabric Küme dağıtımı oluşturun. |
-| durum | Compose dağıtımı bir Service Fabric hakkında bilgi alır. |
-| yükselt | Service Fabric kümesindeki bir compose dağıtımı yükseltme işlemini başlatır. |
-| Yükseltmeyi geri alma | Compose dağıtımı geri başladığında, Service Fabric kümesinde yükseltin. |
-| Yükseltme durumu | Yazma dağıtımı bu Service Fabric üzerinde gerçekleştirilen en son yükseltme ayrıntılarını alır. |
+| Kaldır | Siler mevcut bir Service Fabric Küme dağıtımı oluşturun. |
+| status | Compose dağıtımı bir Service Fabric hakkında bilgi alır. |
+| upgrade | Service Fabric kümesindeki bir compose dağıtımı yükseltme işlemini başlatır. |
+| upgrade-rollback | Compose dağıtımı geri başladığında, Service Fabric kümesinde yükseltin. |
+| upgrade-status | Yazma dağıtımı bu Service Fabric üzerinde gerçekleştirilen en son yükseltme ayrıntılarını alır. |
 
 ## <a name="sfctl-compose-create"></a>sfctl compose oluşturma
 Oluşturur bir Service Fabric compose dağıtımı.

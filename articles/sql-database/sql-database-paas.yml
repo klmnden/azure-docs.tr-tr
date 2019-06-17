@@ -44,7 +44,7 @@ sections:
           - title: Kaynakları ölçeklendirme
             href: /azure/sql-database/sql-database-scale-resources
             html: '<p>Azure SQL veritabanı uzun sağlamanıza gerek kalmadan daha fazla kaynağa (CPU, bellek, depolama) kolayca eklemenize olanak tanır.</p>'
-  - title: Diğer kaynaklar
+  - title: Daha fazla kaynak
     items:
       - type: paragraph
         text: 'Azure SQL veritabanı, daha kolay veritabanlarınızı yönetmek için kullanabileceğiniz bir dizi ek yerleşik PaaS özellik sağlar.'

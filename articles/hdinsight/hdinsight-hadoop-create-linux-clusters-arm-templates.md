@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: 73402421a87d2cf14719ff34201890ea96c90519
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715244"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak HDInsight Apache Hadoop kümelerini oluşturun
@@ -56,7 +56,7 @@ Azure portalını kullanarak Resource Manager şablonu dağıtabilirsiniz. Daha 
 
 Azure PowerShell kullanarak Resource Manager şablonu dağıtabilirsiniz. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md) ve [SAS belirteci ve Azure PowerShell ile özel Resource Manager şablonu dağıtma](../azure-resource-manager/resource-manager-powershell-sas-token.md).
 
-## <a name="deploy-using-azure-cli"></a>Azure CLI kullanarak dağıtma
+## <a name="deploy-using-azure-cli"></a>Azure CLI’yi kullanarak dağıtma
 
 Klasik CLI kullanarak Resource Manager şablonu dağıtabilirsiniz. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](../azure-resource-manager/resource-group-template-deploy-cli.md) ve [SAS belirteci ve Azure CLI ile özel Resource Manager şablonu dağıtma](../azure-resource-manager/resource-manager-cli-sas-token.md).
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098040"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>(Kullanım dışı) Application ınsights'ta Docker uygulamalarını izleme
@@ -90,7 +90,7 @@ Tek tek olayları araştırmak için tıklayın [arama](../../azure-monitor/app/
 ### <a name="docker-context-added-to-app-telemetry"></a>Docker bağlamı uygulama telemetri eklendi
 AI SDK'sı ile izleme eklenmiş uygulama gönderilen istek telemetrisi ile Docker bağlam bilgilerini zenginleştirilmiş.
 
-## <a name="q--a"></a>Soru-Cevap
+## <a name="q--a"></a>Soru - Yanıt
 *Application Insights Docker elde edilemiyor bana hangi mülklere?*
 
 * Performans sayaçları kapsayıcı ve görüntü ayrıntılı dökümü.

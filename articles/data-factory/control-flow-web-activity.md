@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
 ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764297"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data factory'de Web etkinliği
@@ -63,14 +63,14 @@ Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-ad | Web etkinliği adı | String | Evet
-type | Ayarlanmalıdır **WebActivity**. | String | Evet
+name | Web etkinliği adı | String | Evet
+türü | Ayarlanmalıdır **WebActivity**. | String | Evet
 method | Hedef uç nokta için REST API yöntemi. | dize. <br/><br/>Desteklenen türler: "POST", "PUT GET" | Evet
 url | Hedef uç nokta ve yolu | Dize (veya dizenin ifadenin resulttype'ı ile). Etkinlik yapmayacağınıza zaman aşımı 1 dakika ile bir hata, uç noktasından bir yanıt almaz. | Evet
 Üst bilgileri | Gönderilen istek için üstbilgiler. Örneğin dil ve türdeki bir istek üzerinde ayarlanan: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Dize (veya dizenin ifadenin resulttype'ı ile) | Evet, Content-type üst bilgisi gereklidir. `"headers":{ "Content-Type":"application/json"}`
-body | Uç noktaya gönderdi yükünü temsil eder.  | Dize (veya dizenin ifadenin resulttype'ı ile). <br/><br/>İstek yükü şemayı [istek yükü şeması](#request-payload-schema) bölümü. | POST/PUT yöntemleri için gereklidir.
+Gövde | Uç noktaya gönderdi yükünü temsil eder.  | Dize (veya dizenin ifadenin resulttype'ı ile). <br/><br/>İstek yükü şemayı [istek yükü şeması](#request-payload-schema) bölümü. | POST/PUT yöntemleri için gereklidir.
 kimlik doğrulaması | Uç noktasını çağırmak için kullanılan kimlik doğrulama yöntemi. "Temel veya ClientCertificate." türleri desteklenir Daha fazla bilgi için [kimlik doğrulaması](#authentication) bölümü. Kimlik doğrulama gerekli değilse, bu özellik hariç tutun. | Dize (veya dizenin ifadenin resulttype'ı ile) | Hayır
-veri kümeleri | Veri kümelerinin listesini uç noktasına geçilen. | Veri kümesi yapılan başvuruların dizisi. Boş bir dizi olabilir. | Evet
+datasets | Veri kümelerinin listesini uç noktasına geçilen. | Veri kümesi yapılan başvuruların dizisi. Boş bir dizi olabilir. | Evet
 linkedServices | Bağlı hizmetler listesini uç noktasına geçilen. | Bağlı hizmet başvuruları dizisi. Boş bir dizi olabilir. | Evet
 
 > [!NOTE]

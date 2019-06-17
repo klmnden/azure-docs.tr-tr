@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
 ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411351"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan kaynaklar için ad çözümlemesi
@@ -43,8 +43,8 @@ Kullandığınız ad çözümlemesi türünü nasıl kaynaklarınızı birbirler
 | Ad çözünürlüğünü App Service Web Apps bir sanal ağdaki VM'ler için farklı bir sanal ağ içinde. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasında sorguları iletme. Kendi DNS sunucunuzu kullanarak ad çözümleme konusuna bakın. |Yalnızca FQDN |
 | Sanal makineleri veya rol örneklerini azure'da şirket içi bilgisayar ve hizmet adlarının çözümlenmesini. |DNS sunucuları (şirket içi etki alanı denetleyicisi, yerel salt okunur etki alanı denetleyicisi veya DNS ikincil bölge aktarımlarını, örneğin kullanarak eşitlenen) müşteri tarafından yönetilen. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
 | Şirket içi bilgisayarlardan Azure konak adı çözümlemesi. |Bir müşteri tarafından yönetilen DNS proxy sunucusu karşılık gelen sanal ağ içinde sorguları, proxy sunucusu sorguları çözümlemesi için Azure'a iletir. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
-| İç IP'ler için ters DNS. |[Kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Uygulanamaz |
-| Vm'leri ya da farklı bulut Hizmetleri, sanal ağ içinde yer alan rol örneklerinin arasındaki ad çözümlemesi. |Geçerli değildir. VM'ler ve rol örneğini farklı bulut hizmetleri arasında bağlantı, bir sanal ağ dışında desteklenmiyor. |Uygulanamaz|
+| İç IP'ler için ters DNS. |[Kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Geçerli değil |
+| Vm'leri ya da farklı bulut Hizmetleri, sanal ağ içinde yer alan rol örneklerinin arasındaki ad çözümlemesi. |Geçerli değildir. VM'ler ve rol örneğini farklı bulut hizmetleri arasında bağlantı, bir sanal ağ dışında desteklenmiyor. |Geçerli değil|
 
 ## <a name="azure-provided-name-resolution"></a>Azure tarafından sağlanan ad çözümlemesi
 
@@ -88,15 +88,15 @@ Yerleşik DNS önbelleğini varsayılan Windows DNS istemcisi vardır. Bazı Lin
 
 Bir dizi farklı DNS önbelleğe alma (dnsmasq gibi) kullanılabilir paketler vardır. En yaygın dağıtımlarında dnsmasq yükleneceği açıklanmıştır:
 
-* **Ubuntu (uses resolvconf)**:
+* **Ubuntu (uses resolvconf)** :
   * Dnsmasq paketi yükleme `sudo apt-get install dnsmasq`.
-* **SUSE (kullandığı netconf)**:
+* **SUSE (kullandığı netconf)** :
   * Dnsmasq paketi yükleme `sudo zypper install dnsmasq`.
   * Dnsmasq hizmetiyle etkinleştirme `systemctl enable dnsmasq.service`. 
   * Dnsmasq hizmetle başlar `systemctl start dnsmasq.service`. 
   * Düzen **/etc/sysconfig/network/config**, değiştirip *NETCONFIG_DNS_FORWARDER = ""* için *dnsmasq*.
   * Resolv.conf ile güncelleştirme `netconfig update`, önbellek yerel DNS Çözümleyicisi ayarlanacak.
-* **CentOS (NetworkManager kullanır)**:
+* **CentOS (NetworkManager kullanır)** :
   * Dnsmasq paketi yükleme `sudo yum install dnsmasq`.
   * Dnsmasq hizmetiyle etkinleştirme `systemctl enable dnsmasq.service`.
   * Dnsmasq hizmetle başlar `systemctl start dnsmasq.service`.
@@ -154,7 +154,7 @@ DNS iletme de sanal ağlar arasında DNS çözümlemesi sağlar ve Azure tarafı
 
 ![Sanal ağlar arasında DNS diyagramı](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Azure tarafından sağlanan ad çözümlemesi kullanırken Azure dinamik konak Yapılandırma Protokolü (DHCP) bir iç DNS soneki sağlar (**. internal.cloudapp.net**) her VM için. Ana bilgisayar adı kayıtları olduğundan bu son ek ana bilgisayar adı çözümlemesi sağlayan **internal.cloudapp.net** bölge. Kendi ad çözümlemesi çözümünüzü kullanılırken, diğer DNS mimarileri (örneğin, etki alanına katılmış senaryoları) ile uğratan çünkü bu son ek Vm'lere sağlanmaz. Bunun yerine, Azure işlevsiz bir yer tutucu sağlar (*reddog.microsoft.com*).
+Azure tarafından sağlanan ad çözümlemesi kullanırken Azure dinamik konak Yapılandırma Protokolü (DHCP) bir iç DNS soneki sağlar ( **. internal.cloudapp.net**) her VM için. Ana bilgisayar adı kayıtları olduğundan bu son ek ana bilgisayar adı çözümlemesi sağlayan **internal.cloudapp.net** bölge. Kendi ad çözümlemesi çözümünüzü kullanılırken, diğer DNS mimarileri (örneğin, etki alanına katılmış senaryoları) ile uğratan çünkü bu son ek Vm'lere sağlanmaz. Bunun yerine, Azure işlevsiz bir yer tutucu sağlar (*reddog.microsoft.com*).
 
 Gerekirse, PowerShell veya API kullanarak iç DNS soneki belirleyebilirsiniz:
 

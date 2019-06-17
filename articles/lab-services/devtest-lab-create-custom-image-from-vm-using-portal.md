@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60868508"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>VM'den özel görüntü oluşturma
@@ -39,7 +39,7 @@ Sağlanan VM'den özel görüntü oluşturma ve daha sonra bu özel görüntüy�
  
 1. Üzerinde **sanal makinelerim** bölmesinde, özel görüntü oluşturmak istediğiniz VM'yi seçin.
 
-1. Sanal makinenin yönetim bölmeden **özel görüntü oluşturma (VHD)**.
+1. Sanal makinenin yönetim bölmeden **özel görüntü oluşturma (VHD)** .
 
     ![Menü öğesi özel görüntü oluşturma](./media/devtest-lab-create-template/create-custom-image.png)
 

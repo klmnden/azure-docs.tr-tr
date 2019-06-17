@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90f78428601d7b039d00d39c1ca8339ab3ace9ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487983"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Azure Data Factory Kopyalama Sihirbazı ile bir kolayca veri taşıma veya kopyalama
@@ -63,7 +63,7 @@ Sihirbazı, hedef/havuz veri deposuna kopyalanacak gereken verileri seçmek içi
 ![Doğrulama ifadeleri](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Bir Azure blob klasörü veri filtreleme
-Temel çalışma zamanında belirlenir bir klasöre veri kopyalamak için klasör yoluna değişkenleri kullanabilirsiniz [sistem değişkenlerini](data-factory-functions-variables.md#data-factory-system-variables). Desteklenen değişkenler: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** ve **{Özel}**. Örnek: inputfolder / {year} / {month} / {day}.
+Temel çalışma zamanında belirlenir bir klasöre veri kopyalamak için klasör yoluna değişkenleri kullanabilirsiniz [sistem değişkenlerini](data-factory-functions-variables.md#data-factory-system-variables). Desteklenen değişkenler: **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** ve **{Özel}** . Örnek: inputfolder / {year} / {month} / {day}.
 
 Klasörleri aşağıdaki biçimde giriş varsayalım:
 
@@ -72,11 +72,11 @@ Klasörleri aşağıdaki biçimde giriş varsayalım:
     2016/03/01/03
     ...
 
-Tıklayın **Gözat** için düğme **dosya veya klasör**, bu klasörlerden birine göz atın (örneğin, 2016 03 -> -> 01 -> 02), tıklatıp **Seç**. Görmelisiniz `2016/03/01/02` metin kutusuna. Şimdi değiştir **2016** ile **{year}**, **03** ile **{month}**, **01** ile **{day}** , ve **02** ile **{hour}**, SEKME tuşuna basın. Bu dört değişkenler biçimini seçmek için aşağı açılır listeler görmeniz gerekir:
+Tıklayın **Gözat** için düğme **dosya veya klasör**, bu klasörlerden birine göz atın (örneğin, 2016 03 -> -> 01 -> 02), tıklatıp **Seç**. Görmelisiniz `2016/03/01/02` metin kutusuna. Şimdi değiştir **2016** ile **{year}** , **03** ile **{month}** , **01** ile **{day}** , ve **02** ile **{hour}** , SEKME tuşuna basın. Bu dört değişkenler biçimini seçmek için aşağı açılır listeler görmeniz gerekir:
 
 ![Sistem değişkenlerini kullanma](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Aşağıdaki ekran görüntüsünde gösterildiği gibi ayrıca kullanabileceğiniz bir **özel** değişkeni ve [biçim dizeleri desteklenen](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Bu yapıya sahip bir klasör seçmek için kullanın **Gözat** ilk düğme. Ardından bir değerle değiştirmek **{özel}**, biçim dizesinin girebileceğiniz metin kutusunu görmek için SEKME tuşuna basın.     
+Aşağıdaki ekran görüntüsünde gösterildiği gibi ayrıca kullanabileceğiniz bir **özel** değişkeni ve [biçim dizeleri desteklenen](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Bu yapıya sahip bir klasör seçmek için kullanın **Gözat** ilk düğme. Ardından bir değerle değiştirmek **{özel}** , biçim dizesinin girebileceğiniz metin kutusunu görmek için SEKME tuşuna basın.     
 
 ![Özel değişken kullanma](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 

@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478615"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure içeri/dışarı aktarma hizmeti günlük dosyası biçimi
@@ -111,7 +111,7 @@ Aşağıdaki tabloda, günlük dosyasının öğeleri açıklar.
 |`Blob/BlobPath`|String|Blob URI'si.|  
 |`Blob/FilePath`|String|Sürücüdeki dosyaya göreli yol.|  
 |`Blob/Snapshot`|DateTime|Yalnızca bir dışarı aktarma işi için blob anlık görüntü sürümü.|  
-|`Blob/Length`|Tamsayı|Blob bayt cinsinden uzunluğu.|  
+|`Blob/Length`|Integer|Blob bayt cinsinden uzunluğu.|  
 |`Blob/LastModified`|DateTime|Blob son değiştirildiği, tarih yalnızca bir dışarı aktarma işi için.|  
 |`Blob/ImportDisposition`|String|Yalnızca içeri aktarma işi için blob alma eğilimini.|  
 |`Blob/ImportDisposition/@Status`|Öznitelik, dize|İçeri aktarma değerlendirme durumu.|  

@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 7bb399472d7e0ab14e6399fc8652d2eb132a866a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837343"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
@@ -30,20 +30,20 @@ Seçin, yönetmek ve Service Fabric kümeleri çalışır.
 | --- | --- |
 | kod-versions | Bir Service Fabric kümesinde sağlanan kod sürümlerini fabric listesini alır. |
 | config-versions | Bir Service Fabric kümesinde sağlanan yapılandırma sürümlerini fabric listesini alır. |
-| sağlık | Service Fabric kümesi durumunu alır. |
-| Bildirimi | Service Fabric küme bildirimi alın. |
+| health | Service Fabric kümesi durumunu alır. |
+| manifest | Service Fabric küme bildirimi alın. |
 | işlemi iptal etme | Bir kullanıcı nedenli hata işlemi iptal eder. |
 | işlem listesi | Hata kullanıcı nedenli işlemleri tarafından sağlanan girişin filtrelenmiş bir listesini alır. |
-| sağlama | Bir Service Fabric kümesinin kod veya yapılandırma paketleri sağlayın. |
+| provision | Bir Service Fabric kümesinin kod veya yapılandırma paketleri sağlayın. |
 | Sistem Kurtarma | Service Fabric kümesine çekirdek kaybına şu anda takılı kalıyor Sistem Hizmetleri, kurtarılır denemesi gösterir. |
-| durumu- | Service Fabric kümesinde bir sistem durumu raporu gönderir. |
-| seç | Bir Service Fabric küme uç noktasına bağlanır. |
+| report-health | Service Fabric kümesinde bir sistem durumu raporu gönderir. |
+| Seçin | Bir Service Fabric küme uç noktasına bağlanır. |
 | show-connection | Bu sfctl örneği bağlı hangi Service Fabric kümesi gösterir. |
-| sağlamayı kaldırma | Kod veya yapılandırma paketleri bir Service Fabric kümesinin sağlamasını kaldırma. |
-| yükselt | Service Fabric kümesi kod veya yapılandırma sürümü yükseltme başlatın. |
-| Yükseltme devam et | Bir sonraki yükseltme etki alanına taşıma Küme yükseltme yapın. |
-| Yükseltmeyi geri alma | Bir Service Fabric kümesini yükseltme işlemi geri alın. |
-| Yükseltme durumu | Geçerli Küme yükseltmesinin ilerleme durumunu alır. |
+| unprovision | Kod veya yapılandırma paketleri bir Service Fabric kümesinin sağlamasını kaldırma. |
+| upgrade | Service Fabric kümesi kod veya yapılandırma sürümü yükseltme başlatın. |
+| upgrade-resume | Bir sonraki yükseltme etki alanına taşıma Küme yükseltme yapın. |
+| upgrade-rollback | Bir Service Fabric kümesini yükseltme işlemi geri alın. |
+| upgrade-status | Geçerli Küme yükseltmesinin ilerleme durumunu alır. |
 | Yükseltme güncelleştirme | Bir Service Fabric kümesini yükseltme yükseltme parametrelerini güncelleştirin. |
 
 ## <a name="sfctl-cluster-code-versions"></a>sfctl küme kod-versions

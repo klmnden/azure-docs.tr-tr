@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 9e6ae5cb0afd75a1e87fe4d4d0cf307abab5a02a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60688869"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Bir IBM MQ MQ Bağlayıcısı'nı kullanarak logic apps'ten sunucusuna
@@ -48,7 +48,7 @@ MQ Bağlayıcısı aşağıdaki eylemleri içerir. Tetikleyici yoktur.
 2. Girin **adı**, MQTestApp gibi **abonelik**, **kaynak grubu**, ve **konumu** (konumu kullanmak burada şirket içi Veri ağ geçidi bağlantısı yapılandırılır). Seçin **panoya Sabitle**seçip **Oluştur**.  
 ![Mantıksal uygulama oluşturma](media/connectors-create-api-mq/Create_Logic_App.png)
 
-## <a name="add-a-trigger"></a>Tetikleyici ekleyin
+## <a name="add-a-trigger"></a>Bir tetikleyici ekleme
 
 > [!NOTE]
 > MQ Bağlayıcısı'nı hiçbir tetikleyici yok. Bu nedenle, mantıksal uygulamanızı gibi başlatmak için başka bir tetikleyici kullanmanız **yinelenme** tetikleyici.

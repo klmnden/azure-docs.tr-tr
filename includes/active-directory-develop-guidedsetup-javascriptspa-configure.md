@@ -14,48 +14,60 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 387adcdf8bdabf90bc1e691a7a8ec9ae0a8e90dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 050bae64a62e90bdb74c93948109e255b69d7518
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133108"
 ---
-## <a name="register-your-application"></a>Uygulamanızı kaydedin
+## <a name="register-your-application"></a>Uygulamanızı kaydetme
 
-1. Oturum [Azure portalında](https://portal.azure.com/) bir uygulamayı kaydetme.
-1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
-1. Geliştiriciler için Microsoft identity platformuna gidin [uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfası.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+
+1. Hesabınız birden fazla kiracıya erişmenizi sağlar, sağ üst köşedeki hesabı seçin ve ardından kullanmak istediğiniz Azure AD kiracısı için portal oturumunuzu ayarlayın.
+1. Geliştiriciler için Microsoft kimlik platformu Git [uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfası.
 1. Zaman **bir uygulamayı kaydetme** sayfası görüntülenirse, uygulamanız için bir ad girin.
 1. Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**.
-1. Altında **yeniden yönlendirme URI'si** bölümünden **Web** platform ve uygulama URL'sine değerine göre web sunucunuzda kümesi. Ayarlayın ve Visual Studio ve düğüm yeniden yönlendirme URL'sini almak hakkında yönergeler için aşağıdaki bölümlere bakın.
-1. Bittiğinde **Kaydet**’i seçin.
-1. Uygulamasında **genel bakış** sayfa, Not **uygulama (istemci) kimliği** değeri.
-1. Bu Hızlı Başlangıç [örtük izin akışı](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) etkinleştirilecek. Kayıtlı uygulama sol gezinti bölmesinde seçin **kimlik doğrulaması**.
-1. İçinde **Gelişmiş ayarlar**altında **örtük vermeyi**, her ikisini de etkinleştirmek **kimlik belirteçlerini** ve **erişim belirteçlerini** onay kutularını. Bu uygulama kullanıcılarının oturumunu ve bir API'yi çağırmak sonun kimliği ve erişim belirteçler gereklidir.
+1. Altında **yeniden yönlendirme URI'si** bölümünde aşağı açılan listesinde seçin **Web** platformu ve web sunucunuz üzerinde temel uygulama URL'si değerine ayarlayın. 
+
+   Visual Studio ve Node.js yeniden yönlendirme URL'sini alma ve ayarlama hakkında daha fazla bilgi için sonraki iki bölümde bakın.
+
+1. **Kaydol**’u seçin.
+1. Uygulamasında **genel bakış** sayfa, Not **uygulama (istemci) kimliği** daha sonra kullanmak için değer.
+1. Bu Hızlı Başlangıç [örtük izin akışı](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) etkinleştirilecek. Kayıtlı uygulama sol bölmesinde seçin **kimlik doğrulaması**.
+1. İçinde **Gelişmiş ayarlar**altında **örtük vermeyi**seçin **kimlik belirteçlerini** ve **erişim belirteçlerini** onay kutuları. Bu uygulama kullanıcılarının oturumunu ve bir API'yi çağırması gerekir çünkü kimlik ve erişim belirteçler gereklidir.
 1. **Kaydet**’i seçin.
 
-> #### <a name="setting-the-redirect-url-for-node"></a>Düğümü yeniden yönlendirme URL'sini ayarlama
-> Node.js için web sunucusu bağlantı noktası ayarlayabilirsiniz *server.js* dosya. Bu öğretici için başvuru 30662 bağlantı noktasını kullanır ancak kullanılabilir herhangi bir bağlantı kullanabilirsiniz. Uygulama kayıt bilgileri bir yeniden yönlendirme URL'sini ayarlamak için aşağıdaki yönergeleri izleyin:<br/>
-> - Dönmek *uygulama kaydı* ayarlayıp `http://localhost:30662/` olarak bir `Redirect URL`, veya `http://localhost:[port]/` özel bir TCP bağlantı noktası kullanıyorsanız (burada *[bağlantı noktası]* özel TCP bağlantı noktası numarası).
-
-<p>
-
-> #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>Yeniden yönlendirme URL'sini almak için visual Studio yönergeleri
-> Yeniden yönlendirme URL'sini almak için aşağıdaki adımları izleyin:
-> 1. İçinde **Çözüm Gezgini**, projeyi seçin ve bakmak **özellikleri** penceresi. Görmüyorsanız, bir **özellikleri** penceresinde, tuşuna **F4**.
-> 2. Değeri Şuradan Kopyala: **URL** Pano için:<br/> ![Proje Özellikleri](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3. Dönmek *uygulama kaydı* ve değer olarak ayarlanmış bir **tekrar yönlendirme URL'sini**.
+> #### <a name="set-a-redirect-url-for-nodejs"></a>Node.js için bir yeniden yönlendirme URL'sini Ayarla
+> Node.js için web sunucusu bağlantı noktası ayarlayabilirsiniz *server.js* dosya. Bu öğretici, başvuru için bağlantı noktası 30662 kullanır ancak kullanılabilir herhangi bir bağlantı kullanabilirsiniz. 
+>
+> Uygulama kayıt bilgileri bir yeniden yönlendirme URL'sini ayarlamak için geri dönmek **uygulama kaydı** bölmesinde aşağıdakilerden birini yapın:
+>
+> - Ayarlama *`http://localhost:30662/`* olarak **yeniden yönlendirme URL'si**.
+> - Özel bir TCP bağlantı noktası kullanıyorsanız, *`http://localhost:<port>/`* (burada  *\<bağlantı noktası >* özel TCP bağlantı noktası numarası).
+>
+> #### <a name="set-a-redirect-url-for-visual-studio"></a>Visual Studio için bir yeniden yönlendirme URL'sini Ayarla
+> Visual Studio için yeniden yönlendirme URL'sini almak için aşağıdakileri yapın:
+> 1. İçinde **Çözüm Gezgini**, projeyi seçin.
+>
+>    **Özellikleri** penceresi açılır. Açılmazsa, basın **F4**.
+>
+>    ![JavaScriptSPA Proje Özellikleri penceresi](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)
+>
+> 1. Kopyalama **URL** değeri.
+ 
+> 1. Dönmek **uygulama kaydı** bölmesinde, kopyalanan değeri olarak yapıştırın **tekrar yönlendirme URL'sini**.
 
 #### <a name="configure-your-javascript-spa"></a>JavaScript SPA'ya yapılandırın
 
-1. İçinde `index.html` dosyası proje Kurulum sırasında oluşturulur, uygulama kayıt bilgilerini ekleyin. Üst içinde aşağıdaki kodu ekleyin `<script></script>` gövdesinde etiketleri, `index.html` dosyası:
+1. İçinde *index.html* Proje Kurulumu sırasında oluşturduğunuz dosyasını uygulama kayıt bilgilerini ekleyin. Dosya üst kısmındaki içinde `<script></script>` etiketler, aşağıdaki kodu ekleyin:
 
     ```javascript
     var msalConfig = {
         auth: {
-            clientId: "Enter_the_Application_Id_here",
-            authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+            clientId: "<Enter_the_Application_Id_here>",
+            authority: "https://login.microsoftonline.com/<Enter_the_Tenant_info_here>"
         },
         cache: {
             cacheLocation: "localStorage",
@@ -65,8 +77,8 @@ ms.locfileid: "66121832"
     ```
 
     Konumlar:
-    - `Enter_the_Application_Id_here` - kaydettiğiniz uygulamanın **Uygulama (istemci) Kimliği** değeridir.
-    - `Enter_the_Tenant_Info_Here` - aşağıdaki seçeneklerden birine ayarlanır:
-       - Uygulamanız destekliyorsa **kuruluş bu dizinde hesapları**, bu değeri ile değiştirin **Kiracı kimliği** veya **Kiracı adı** (örneğin, contoso.microsoft.com)
-       - Uygulamanız **Herhangi bir kuruluş dizinindeki hesaplar** yaklaşımını destekliyorsa bu değeri `organizations` ile değiştirin
-       - Uygulamanız destekliyorsa **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**, bu değeri ile değiştirin `common`. İçin desteği kısıtlamak için *kişisel Microsoft hesapları yalnızca*, bu değeri ile değiştirin `consumers`.
+    - *\<Enter_the_Application_Id_here >* olduğu **uygulama (istemci) kimliği** , kayıtlı uygulama için.
+    - *\<Enter_the_Tenant_info_here >* aşağıdaki seçeneklerden birine ayarlayın:
+       - Uygulamanız destekliyorsa *kuruluş bu dizinde hesapları*, bu değeri ile değiştirin **Kiracı kimliği** veya **Kiracı adı** (örneğin,  *contoso.microsoft.com*).
+       - Uygulamanız destekliyorsa *herhangi bir kuruluş dizini hesaplarında*, bu değeri ile değiştirin **kuruluşlar**.
+       - Uygulamanız destekliyorsa *herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında*, bu değeri ile değiştirin **ortak**. İçin desteği kısıtlamak için *kişisel Microsoft hesapları yalnızca*, bu değeri ile değiştirin **tüketiciler**.

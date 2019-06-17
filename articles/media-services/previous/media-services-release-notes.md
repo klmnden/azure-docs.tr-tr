@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991907"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
@@ -76,7 +76,7 @@ Canlı kanallar 12 Mayıs 2018 tarihinden itibaren artık RTP/MPEG-2 aktarım ak
 > Media Services, Azure Access Control Service kimlik doğrulaması anahtarları desteği kaldırmaktadır. 22 Haziran 2018'de, artık kod aracılığıyla Media Services arka ucu ile Access Control Service tuşlarını kullanarak kimlik doğrulaması yapabilir. Her Azure Active Directory (Azure AD) kullanmak için kodunuzu güncelleştirmeniz gerekir [Azure AD tabanlı kimlik doğrulaması](media-services-use-aad-auth-to-access-ams-api.md). Azure portalında bu değişiklik hakkında uyarılar izleyin.
 
 ### <a name="updates-for-october-2017"></a>Ekim 2017 güncelleştirmeleri
-#### <a name="sdks"></a>SDK
+#### <a name="sdks"></a>SDK’lar
 * .NET SDK'sı, Azure AD kimlik doğrulamasını desteklemek için güncelleştirildi. Access Control Service kimlik doğrulaması için destek nuget.org Azure AD'ye hızlı geçiş teşvik etmek için en son .NET SDK'sı kaldırıldı. 
 * JAVA SDK'sı, Azure AD kimlik doğrulamasını desteklemek için güncelleştirildi. Java SDK'sı için Azure AD kimlik doğrulaması için destek eklendi. Media Services ile Java SDK'sını kullanma hakkında daha fazla bilgi için bkz: [Azure Media Services için Java istemci SDK'sı ile çalışmaya başlama](media-services-java-how-to-use.md)
 
@@ -399,22 +399,22 @@ Daha fazla bilgi için [.NET için Media Services SDK'sı mantığı yeniden den
 
 ## <a id="jan_feb_changes_14"></a>Ocak/Şubat 2014 sürümleri
 ### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK'sı 3.0.0.1 ve 3.0.0.2 3.0.0.3
-3.0.0.1 ve 3.0.0.2 değişiklikleri içerir:
+3\.0.0.1 ve 3.0.0.2 değişiklikleri içerir:
 
 * OrderBy ifadelerle LINQ sorgularını kullanımı ile ilgili sorunlar düzeltilmiştir.
 * Çözümleri test [GitHub] birim tabanlı testler ve senaryo tabanlı testler'larına.
 
 Değişiklikler hakkında daha fazla bilgi için bkz. [3.0.0.1 ve 3.0.0.2 Media Services .NET SDK sürümleri](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html).
 
-3.0.0.3 sürümünde aşağıdaki değişiklikler yapılmıştır:
+3\.0.0.3 sürümünde aşağıdaki değişiklikler yapılmıştır:
 
 * Azure depolama bağımlılıklarını 3.0.3.0 sürümünü kullanacak şekilde yükseltildi.
-* 3.0 için geriye dönük uyumluluk sorunu düzeltildi. *.* serbest bırakır.
+* 3\.0 için geriye dönük uyumluluk sorunu düzeltildi. *.* serbest bırakır.
 
 ## <a id="december_changes_13"></a>Aralık 2013 sürümü
 ### <a name="dec_13_donnet_changes"></a>Media Services .NET SDK 3.0.0.0
 > [!NOTE]
-> 3.0.x.x yayınlar 2.4.x.x sürümleriyle geriye dönük olarak uyumlu değildir.
+> 3\.0.x.x yayınlar 2.4.x.x sürümleriyle geriye dönük olarak uyumlu değildir.
 > 
 > 
 
@@ -451,7 +451,7 @@ Aşağıdaki medya Hizmetleri PowerShell cmdlet'leri artık dahil edilen [Azure 
 Bu bölümde bahsedilen aşağıdaki değişiklikler Haziran 2013 Media Services sürümlerinde bulunan güncelleştirmeler şunlardır:
 
 * Birden çok depolama hesabında bir medya hizmeti hesabı için bağlantı olanağı. 
-    * StorageAccount
+    * Depolama hesabı
     * Asset.StorageAccountName ve Asset.StorageAccount
 * Job.Priority güncelleştirme olanağı. 
 * Bildirim ilgili varlıkları ve özellikleri: 
@@ -472,7 +472,7 @@ Aşağıdaki değişiklikleri dahil edilen Haziran 2013'te, Media Services SDK's
     * StorageAccountName özelliği
   
       Daha fazla bilgi için [birden çok depolama hesapları arasında Media Services'ı Yönet varlıklar](https://msdn.microsoft.com/library/azure/dn271889.aspx).
-* Bildirim ile ilgili API'ler. 2.2.0.0 sürümünden itibaren Azure kuyruk depolama bildirimleri dinleyebilirsiniz. Daha fazla bilgi için [işleyecek medya Hizmetleri iş bildirimleri](https://msdn.microsoft.com/library/azure/dn261241.aspx).
+* Bildirim ile ilgili API'ler. 2\.2.0.0 sürümünden itibaren Azure kuyruk depolama bildirimleri dinleyebilirsiniz. Daha fazla bilgi için [işleyecek medya Hizmetleri iş bildirimleri](https://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property
     * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint type
@@ -538,7 +538,7 @@ Aşağıdaki işlevler Kasım SDK sürümünde yeni:
   
     * Tüm yöntemleri için zaman uyumsuz desteği eklendi.
 
-## <a name="provide-feedback"></a>Geri bildirim gönder
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->

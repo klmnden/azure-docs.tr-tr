@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565727"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen ortam işlem
@@ -57,10 +57,10 @@ Microsoft, en yeni Hadoop ekosistemi bileşenleri ve düzeltmeler ile desteklene
 
 - Artık, bir isteğe bağlı HDInsight bağlı hizmeti Data Factory sürüm 1 kullanılarak Windows tabanlı HDInsight kümeleri herhangi bir sürümünü oluşturabilirsiniz. 
 
-### <a name="recommended-actions"></a>Önerilen eylemler 
+### <a name="recommended-actions"></a>Önerilen Eylemler 
 
 - En yeni Hadoop ekosistemi bileşenlerini ve düzeltmeleri kullandığınızdan emin olmak için güncelleştirme [ **osType** ve **sürüm** özellikleri](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) etkilenen Data Factory sürüm 1-isteğe bağlı, HDInsight bağlı hizmeti tanımları yeni Linux tabanlı HDInsight sürümlere (HDInsight 3.6). 
-- Etkilenen bağlantılı hizmet başvurusu Data Factory sürüm 1 Hive, Pig, MapReduce ve Hadoop akış etkinlikleri 15 Aralık 2017'den önce test edin. Yeni ile uyumlu olduklarından emin olmak **osType** ve **sürüm** varsayılan değeri (**sürümü 3.6 =**, **osType = Linux**) veya açık bir HDInsight sürüm ve işletim sistemi yükseltme yapıyorsanız yazın. 
+- Etkilenen bağlantılı hizmet başvurusu Data Factory sürüm 1 Hive, Pig, MapReduce ve Hadoop akış etkinlikleri 15 Aralık 2017'den önce test edin. Yeni ile uyumlu olduklarından emin olmak **osType** ve **sürüm** varsayılan değeri (**sürümü 3.6 =** , **osType = Linux**) veya açık bir HDInsight sürüm ve işletim sistemi yükseltme yapıyorsanız yazın. 
   Uyumluluk hakkında daha fazla bilgi için bkz: [Linux tabanlı bir küme için bir Windows tabanlı HDInsight kümesi'ten geçiş](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) ve [Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions). 
 - Windows tabanlı HDInsight kümeleri oluşturmak için bir Data Factory sürüm 1 isteğe bağlı HDInsight bağlı hizmeti kullanmaya devam etmek için açıkça ayarlanmış **osType** için **Windows** 15 Aralık 2017'den önce. 31 Temmuz 2018'den önce Linux tabanlı HDInsight kümelerine geçirme öneririz. 
 - Data Factory sürüm 1 yürütmek için bir isteğe bağlı HDInsight bağlı hizmeti kullanıyorsanız DotNet özel etkinliği, bunun yerine bir Azure Batch'i nasıl kullanacağınızı DotNet özel etkinlik JSON tanımı bağlı güncelleştirme hizmeti. Daha fazla bilgi için [bir Data Factory işlem hattında özel etkinlikler kullanma](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
@@ -123,7 +123,7 @@ Aşağıdaki JSON, Linux tabanlı bir isteğe bağlı HDInsight bağlı hizmeti 
 ### <a name="properties"></a>Özellikler
 | Özellik                     | Açıklama                              | Gerekli |
 | ---------------------------- | ---------------------------------------- | -------- |
-| type                         | Type özelliği ayarlanmış **Hdınsightondemand**. | Evet      |
+| türü                         | Type özelliği ayarlanmış **Hdınsightondemand**. | Evet      |
 | clusterSize                  | Kümedeki çalışan ve veri düğümleri sayısı. Bu özellik için belirttiğiniz çalışan düğümlerinin sayısını ek olarak 2 baş düğüm ile HDInsight kümesi oluşturulur. Düğümlerin boyutu 4 çekirdek olan işler için standart_d3, cinsindendir. 4-çalışan düğümü küme 24 çekirdek alır (4\*4 = 16 çekirdek çalışan düğümleri artı 2\*baş düğümleri için 4 = 8 çekirdek). İşler için standart_d3 katmanı hakkında daha fazla ayrıntı için bkz: [oluşturma Linux tabanlı Hadoop kümeleri HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Evet      |
 | timeToLive                   | İsteğe bağlı HDInsight kümesi için izin verilen boşta kalma süresi. Bir etkinlik çalıştırma tamamlandığında kümesinde hiç bir etkin iş olduğunda ne kadar süreyle isteğe bağlı HDInsight kümesi Canlı kalmasını belirtir.<br /><br />Bir etkinlik çalıştırırsanız, örneğin, 6 dakika sürer ve **timeToLive** küme kalır Canlı etkinlik çalıştırma işleme 6 dakika sonra 5 dakika boyunca 5 dakikada ayarlanır. Başka bir etkinlik çalıştırması 6 dakikalık penceresinde yürütülürse, aynı küme tarafından işlenir.<br /><br />Bir isteğe bağlı HDInsight kümesi oluşturma (biraz sürebilir) pahalı bir işlemdir. Bu ayar, bir isteğe bağlı HDInsight kümesi yeniden kullanarak veri fabrikası performansını artırmak için gerektiği şekilde kullanın.<br /><br />Ayarlarsanız **timeToLive** değerini **0**, etkinlik çalıştırılmadan hemen sonra tamamlanmadan küme silinir. Bununla birlikte, yüksek bir değere ayarlarsanız, kümenin yüksek maliyetleri gereksiz yere kaynaklanan boşta kalabilir. Gereksinimlerinize göre uygun değeri ayarlamak önemlidir.<br /><br />Varsa **timeToLive** değeri uygun şekilde ayarlandığında, isteğe bağlı HDInsight kümesi örneğini birden fazla işlem hattını paylaşabilirsiniz. | Evet      |
 | version                      | HDInsight küme sürümü. İzin verilen HDInsight sürümleri için bkz: [HDInsight desteklenen sürümleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Bu değer belirtilmezse, [son HDI varsayılan sürümü](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) kullanılır. | Hayır       |
@@ -215,7 +215,7 @@ D4 boyutu baş düğümü ve alt düğümü oluşturmak istiyorsanız, belirtin 
 
 Bu özellikler için yanlış bir değere ayarlarsanız, şu iletiyi görebilirsiniz:
 
-  Küme oluşturulamadı. Özel durum: Küme oluşturma işlemi tamamlanamıyor. İşlem '400' koduyla başarısız oldu. Geride bırakma durumu küme: 'Error'. Mesaj: 'PreClusterCreationValidationFailure'. 
+  Küme oluşturulamadı. Özel durum: Küme oluşturma işlemi tamamlanamıyor. İşlem '400' koduyla başarısız oldu. Geride bırakma durumu küme: 'Error'. İleti: 'PreClusterCreationValidationFailure'. 
   
 Bu iletiyi görürseniz cmdlet ve API adları tablosundan kullandığınızdan emin olun [sanal makine boyutları](../../virtual-machines/linux/sizes.md).  
 
@@ -259,9 +259,9 @@ Kendi HDInsight kümenizi Data Factory'ye kaydetmeniz için bir HDInsight bağl�
 ### <a name="properties"></a>Özellikler
 | Özellik          | Açıklama                              | Gerekli |
 | ----------------- | ---------------------------------------- | -------- |
-| type              | Type özelliği ayarlanmış **HDInsight**. | Evet      |
+| türü              | Type özelliği ayarlanmış **HDInsight**. | Evet      |
 | Küme Uri'si        | HDInsight küme URİ'si.        | Evet      |
-| kullanıcı adı          | Mevcut bir HDInsight kümesine bağlanmak için kullanılacak kullanıcı hesabı adı. | Evet      |
+| username          | Mevcut bir HDInsight kümesine bağlanmak için kullanılacak kullanıcı hesabı adı. | Evet      |
 | password          | Kullanıcı hesabının parolası.   | Evet      |
 | linkedServiceName | HDInsight küme tarafından kullanılan Blob Depolama'ya başvuran depolama bağlı hizmetin adı. <p>Şu anda, Data Lake Store bağlı hizmeti için bu özelliği belirtilemez. HDInsight kümesi için Data Lake Store erişimi varsa, Hive veya Pig betiklerin Data Lake Store içinde verilere erişebilir. </p> | Evet      |
 
@@ -307,7 +307,7 @@ Başka bir seçenek sağlamaktır **batchUri** uç noktası. Örneğin:
 ### <a name="properties"></a>Özellikler
 | Özellik          | Açıklama                              | Gerekli |
 | ----------------- | ---------------------------------------- | -------- |
-| type              | Type özelliği ayarlanmış **AzureBatch**. | Evet      |
+| türü              | Type özelliği ayarlanmış **AzureBatch**. | Evet      |
 | accountName       | Batch hesabının adı.         | Evet      |
 | accessKey         | Batch hesabı için erişim anahtarı.  | Evet      |
 | poolName          | VM'lerin havuzunun adı.    | Evet      |
@@ -345,7 +345,7 @@ Aşağıdaki tabloda JSON tanımında kullanılan genel özellikleri açıklanma
 
 | Özellik                 | Açıklama                              | Gerekli                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| type                 | Type özelliği ayarlanmış **AzureDataLakeAnalytics**. | Evet                                      |
+| türü                 | Type özelliği ayarlanmış **AzureDataLakeAnalytics**. | Evet                                      |
 | accountName          | Data Lake Analytics hesap adı.  | Evet                                      |
 | dataLakeAnalyticsUri | The Data Lake Analytics URI.           | Hayır                                       |
 | subscriptionId       | Azure abonelik kimliği                    | Hayır<br /><br />(Belirtilmezse, data factory aboneliği kullanılır.) |
@@ -366,7 +366,7 @@ Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kull
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | Uygulamanın istemci kimliği.     | Evet      |
 | serviceprincipalkey değerleri | Uygulamanın anahtarı.           | Evet      |
-| kiracı              | Uygulamanızın bulunduğu Kiracı bilgileri (etki alanı adı veya Kiracı kimliği). Bu bilgileri almak için Azure portalının sağ üst köşedeki fareyi üzerine gelin. | Evet      |
+| tenant              | Uygulamanızın bulunduğu Kiracı bilgileri (etki alanı adı veya Kiracı kimliği). Bu bilgileri almak için Azure portalının sağ üst köşedeki fareyi üzerine gelin. | Evet      |
 
 **Örnek: Hizmet sorumlusu kimlik doğrulaması**
 ```json
@@ -392,7 +392,7 @@ Data Lake Analytics için kullanıcı kimlik bilgileri doğrulaması için aşa�
 
 | Özellik          | Açıklama                              | Gerekli |
 | :---------------- | :--------------------------------------- | :------- |
-| Yetkilendirme | Data Factory Düzenleyicisi'nde seçin **Authorize** düğmesi. Bu özellik için otomatik olarak oluşturulan yetkilendirme URL'si atar kimlik bilgilerini girin. | Evet      |
+| authorization | Data Factory Düzenleyicisi'nde seçin **Authorize** düğmesi. Bu özellik için otomatik olarak oluşturulan yetkilendirme URL'si atar kimlik bilgilerini girin. | Evet      |
 | oturum kimliği     | OAuth yetkilendirme oturumundan OAuth oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Bu ayar, Data Factory Düzenleyici kullandığınızda otomatik olarak oluşturulur. | Evet      |
 
 **Örnek: Kullanıcı kimlik bilgileri doğrulaması**

@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158322"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL veritabanı ve SQL veri ambarı IP güvenlik duvarı kuralları
@@ -121,9 +121,9 @@ Sunucunuzun genel bakış sayfası açılır ve tam sunucu adını gösteren (gi
 
 | Katalog Görünümü veya Saklı Yordam | Düzey | Açıklama |
 | --- | --- | --- |
-| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Sunucu  |Geçerli sunucu düzeyinde IP güvenlik duvarı kurallarını gösterir |
-| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Sunucu  |Sunucu düzeyinde IP güvenlik duvarı kuralları oluşturur veya güncelleştirir |
-| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Sunucu  |Sunucu düzeyinde IP güvenlik duvarı kurallarını kaldırır |
+| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Sunucusu |Geçerli sunucu düzeyinde IP güvenlik duvarı kurallarını gösterir |
+| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Sunucusu |Sunucu düzeyinde IP güvenlik duvarı kuralları oluşturur veya güncelleştirir |
+| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Sunucusu |Sunucu düzeyinde IP güvenlik duvarı kurallarını kaldırır |
 | [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Database |Geçerli veritabanı düzeyinde IP güvenlik duvarı kurallarını gösterir |
 | [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Database |Veritabanı düzeyinde IP güvenlik duvarı kuralları oluşturur veya güncelleştirir |
 | [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Veritabanları |Kaldırır veritabanı düzeyinde IP güvenlik duvarı kuralları |
@@ -155,10 +155,10 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 | Cmdlet | Düzey | Açıklama |
 | --- | --- | --- |
-| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Sunucu  |Sunucu düzeyinde geçerli güvenlik duvarı kurallarını döndürür |
-| [Yeni AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Sunucu  |Sunucu düzeyinde yeni bir güvenlik duvarı kuralı oluşturur |
-| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Sunucu  |Sunucu düzeyinde mevcut güvenlik duvarı kuralının özelliklerini güncelleştirir |
-| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Sunucu  |Sunucu düzeyinde güvenlik duvarı kurallarını kaldırır |
+| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Sunucusu |Sunucu düzeyinde geçerli güvenlik duvarı kurallarını döndürür |
+| [Yeni AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Sunucusu |Sunucu düzeyinde yeni bir güvenlik duvarı kuralı oluşturur |
+| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Sunucusu |Sunucu düzeyinde mevcut güvenlik duvarı kuralının özelliklerini güncelleştirir |
+| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Sunucusu |Sunucu düzeyinde güvenlik duvarı kurallarını kaldırır |
 
 Aşağıdaki örnek, PowerShell kullanarak sunucu düzeyinde IP güvenlik duvarı kuralı ayarlar:
 
@@ -175,11 +175,11 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 | Cmdlet | Düzey | Açıklama |
 | --- | --- | --- |
-|[az sql server güvenlik duvarı kuralı oluşturma](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Sunucu |Sunucu IP güvenlik duvarı kuralı oluşturur.|
-|[az sql server güvenlik duvarı kuralı listesi](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Sunucu |Bir sunucudaki IP güvenlik duvarı kurallarını listeler|
-|[az sql server güvenlik duvarı-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Sunucu |Bir IP güvenlik duvarı kuralı ayrıntılarını gösterir|
-|[az sql server güvenlik duvarı kuralı güncelleştirme](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Sunucu |Bir IP güvenlik duvarı kuralını güncelleştirir|
-|[az sql server güvenlik duvarı kuralını Sil](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Sunucu |Bir IP güvenlik duvarı kuralını siler|
+|[az sql server güvenlik duvarı kuralı oluşturma](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Sunucusu|Sunucu IP güvenlik duvarı kuralı oluşturur.|
+|[az sql server güvenlik duvarı kuralı listesi](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Sunucusu|Bir sunucudaki IP güvenlik duvarı kurallarını listeler|
+|[az sql server güvenlik duvarı-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Sunucusu|Bir IP güvenlik duvarı kuralı ayrıntılarını gösterir|
+|[az sql server güvenlik duvarı kuralı güncelleştirme](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Sunucusu|Bir IP güvenlik duvarı kuralını güncelleştirir|
+|[az sql server güvenlik duvarı kuralını Sil](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Sunucusu|Bir IP güvenlik duvarı kuralını siler|
 
 Aşağıdaki örnekte Azure CLI kullanarak bir sunucu düzeyinde IP güvenlik duvarı kuralı ayarlar:
 
@@ -195,10 +195,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Düzey | Açıklama |
 | --- | --- | --- |
-| [Güvenlik Duvarı Kurallarını Listele](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Sunucu  |Geçerli sunucu düzeyinde IP güvenlik duvarı kurallarını gösterir |
-| [Güvenlik Duvarı Kuralı Oluşturma veya Güncelleştirme](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Sunucu  |Sunucu düzeyinde IP güvenlik duvarı kuralları oluşturur veya güncelleştirir |
-| [Güvenlik Duvarı Kuralını Sil](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Sunucu  |Sunucu düzeyinde IP güvenlik duvarı kurallarını kaldırır |
-| [Güvenlik duvarı kurallarını Al](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Sunucu  | Sunucu düzeyinde IP güvenlik duvarı kuralları alır |
+| [Güvenlik Duvarı Kurallarını Listele](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Sunucusu |Geçerli sunucu düzeyinde IP güvenlik duvarı kurallarını gösterir |
+| [Güvenlik Duvarı Kuralı Oluşturma veya Güncelleştirme](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Sunucusu |Sunucu düzeyinde IP güvenlik duvarı kuralları oluşturur veya güncelleştirir |
+| [Güvenlik Duvarı Kuralını Sil](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Sunucusu |Sunucu düzeyinde IP güvenlik duvarı kurallarını kaldırır |
+| [Güvenlik duvarı kurallarını Al](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Sunucusu | Sunucu düzeyinde IP güvenlik duvarı kuralları alır |
 
 ## <a name="server-level-versus-database-level-ip-firewall-rules"></a>Sunucu düzeyinde ve veritabanı düzeyinde IP güvenlik duvarı kuralları
 

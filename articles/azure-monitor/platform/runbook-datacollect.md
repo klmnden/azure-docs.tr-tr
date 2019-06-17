@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
 ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60454194"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
@@ -182,16 +182,16 @@ Test için görmeye [ayrıntılı çıkış](../../automation/automation-runbook
 | Özellik | Değer |
 |:--|:--|
 | Ad | AutomationJobs saatlik |
-| Başlangıç | Geçerli saati aşan en az 5 dakika için istediğiniz zaman seçin. |
-| Yineleme | Yinelenen |
-| Yinelenme: | 1 saat |
+| Başlatır | Geçerli saati aşan en az 5 dakika için istediğiniz zaman seçin. |
+| Yinelenme | Yinelenen |
+| Yineleme her | 1 saat |
 | Süre sonu Ayarla | Hayır |
 
 Zamanlama oluşturulduktan sonra bu zamanlamanın runbook her başlatıldığında kullanılacak parametre değerlerini ayarlamak gerekir.
 
 1. Tıklayın **parametrelerini yapılandırma ve çalıştırma ayarları**.
 1. Değerleri girin, **ResourceGroupName** ve **AutomationAccountName**.
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**'ı tıklatın.
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Runbook başlatıldığında zamanlamaya göre doğrulayın
 Bir runbook her başlatıldığında [bir iş oluşturulur](../../automation/automation-runbook-execution.md) ve günlüğe herhangi bir çıktı. Aslında, runbook toplama aynı işleri şunlardır. Runbook zamanlama için başlangıç saatini geçtikten sonra runbook için iş kontrol ederek beklenen şekilde başladığını doğrulayabilirsiniz.

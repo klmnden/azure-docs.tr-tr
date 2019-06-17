@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61260470"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - örnekleri
@@ -92,9 +92,9 @@ Bilgisayarınızda şunların yüklü olması gerekir:
    2. Seçin **veri fabrikası şablonları** sağ bölmede.
    3. Proje için bir **ad** girin.
    4. Seçin bir **konumu** projesi için.
-   5. **Tamam** düğmesine tıklayın.
+   5. **Tamam**'ı tıklatın.
 
-      ![Yeni proje iletişim kutusu](./media/data-factory-samples/vs-new-project-adf-templates.png)
+      ![Yeni Proje iletişim kutusu](./media/data-factory-samples/vs-new-project-adf-templates.png)
 3. İçinde **veri fabrikası şablonları** iletişim kutusunda, örnek şablonu seçin **kullanım örneği şablonları** bölümünde ve tıklayın **sonraki**. Aşağıdaki adımlar, kullanarak size yol **müşteri profili oluşturma** şablonu. Diğer örnekler için adımları benzerdir.
 
     ![Data Factory Şablonları iletişim kutusu](./media/data-factory-samples/vs-data-factory-templates-dialog.png)

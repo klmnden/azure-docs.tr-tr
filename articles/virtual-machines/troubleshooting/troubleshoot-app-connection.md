@@ -17,10 +17,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60922320"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Azure sanal makinelerinde uygulama bağlantı sorunlarını giderme
@@ -69,7 +69,7 @@ Uygulama siteden siteye VPN veya ExpressRoute bağlantısı üzerinden erişen i
 
 Sorun ve doğrusunu kaynağını belirlemek için bu adımları izleyin.
 
-## <a name="step-1-access-application-from-target-vm"></a>1. Adım: Hedef VM uygulamadan erişim
+## <a name="step-1-access-application-from-target-vm"></a>1\. adım: Hedef VM uygulamadan erişim
 Uygun bir istemci programında uygulama üzerinde çalıştığı sanal makineden erişmeyi deneyin. Yerel ana bilgisayar adı, yerel IP adresi veya geri döngü adresi (127.0.0.1) kullanın.
 
 ![Sanal makineden doğrudan uygulama Başlat](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)

@@ -3,8 +3,8 @@ title: VPN ağ geçidi yapılandırmaları ve bağlantı sorunlarını giderme |
 description: Bu makalede, VPN ağ geçidi yapılandırmanızı, bağlantı sorunlarını giderme ve aktarım hızını doğrulama makalelere bağlantı yardımcı olur.
 services: vpn-gateway
 documentationcenter: na
-author: WenJason
-manager: digimobile
+author: cherylmc
+manager: timlt
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/31/2018
-ms.date: 04/01/2018
-ms.author: v-jay
+ms.date: 01/31/2018
+ms.author: cherylmc
 ms.openlocfilehash: 263c1010ec6cf5f6140c4dc9323dd9bd149b2368
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456401"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64727288"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>VPN ağ geçidi sorunlarını giderme
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61387293"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure İzleyici çalışma kitapları ile etkileşimli raporlar oluşturun
@@ -33,7 +33,7 @@ ms.locfileid: "61387293"
 
 VM'ler için Azure İzleyici başlamanıza yardımcı olmak için birkaç çalışma kitaplarını içerir ve bunlar aşağıdaki tabloda özetlenmiştir.
 
-| Çalışma kitabı | Açıklama | Kapsam |
+| Çalışma kitabı | Açıklama | `Scope` |
 |----------|-------------|-------|
 | Performans | Üst N listesi ve tüm etkin Log Analytics performans sayaçları yararlanan tek bir çalışma kitabı grafikler görünümünde özelleştirilebilir bir sürümü sağlar.| Uygun ölçekte |
 | Performans sayaçları | Üst N grafik görünümü arasında çok sayıda performans sayaçları. | Uygun ölçekte |
@@ -57,7 +57,7 @@ Bir çalışma kitabı oluşan bağımsız olarak düzenlenebilir grafikleri, ta
 
 3. Listeden bir VM seçin.
 
-4. VM sayfasında içinde **izleme** bölümünden **Insights (Önizleme)**.
+4. VM sayfasında içinde **izleme** bölümünden **Insights (Önizleme)** .
 
 5. VM içgörüler sayfasında **performans** veya **haritalar** sekmesini seçip **görünümü çalışma kitapları** sayfasındaki bağlantıdan. 
 
@@ -166,14 +166,14 @@ Parametre değerlerini sorgu, metin veya diğer parametre bölümleri gibi köş
 
 |                  |      |
 | ---------------- |:-----|
-| **Metin**    | Bir metin kutusu düzenlemesine olanak tanır ve isteğe bağlı olarak, varsayılan değeri doldurmak için bir sorgu sağlayabilirsiniz. |
+| **Text**    | Bir metin kutusu düzenlemesine olanak tanır ve isteğe bağlı olarak, varsayılan değeri doldurmak için bir sorgu sağlayabilirsiniz. |
 | **Açılan menü** | Kullanıcının bir değerler kümesinden seçmesine izin verir. |
 | **Zaman aralığı Seçici**| Önceden tanımlı bir zaman aralığı değerleri kümesinden seçin veya bir özel zaman aralığı seçin izin verir.|
 | **Kaynak Seçici** | Çalışma kitabı için seçilen kaynakları arasından seçim izin verir.|
 
 ### <a name="using-a-text-parameter"></a>Bir metin parametresini kullanma
 
-Değeri metin kutusuna bir kullanıcı türleri kaçış veya Alıntısı, doğrudan sorgusunda değiştirilir. Gereksinim duyduğunuz değer bir dize ise, sorgu parametresi tırnak olmalıdır (gibi **'{parameter}'**).
+Değeri metin kutusuna bir kullanıcı türleri kaçış veya Alıntısı, doğrudan sorgusunda değiştirilir. Gereksinim duyduğunuz değer bir dize ise, sorgu parametresi tırnak olmalıdır (gibi **'{parameter}'** ).
 
 Metin parametresi herhangi bir kullanılmak üzere bir metin kutusundaki değeri verir. Tablo adı, sütun adı, işlev adı, işleç, vb. olabilir.  Bir ayar metin typ parametru **varsayılan değeri analiz sorgusundan Al**, metin kutusuna için varsayılan değer doldurmak için bir sorgu kullanılacak çalışma kitabı yazarı sağlar.
 
@@ -227,7 +227,7 @@ Kendi özel zaman aralığı parametresi açılan parametre türü aracılığı
 
 Beş dakika veya Son 90 gün önce 15 varsayılan aralıklarını zaman aralığı parametre türleri vardır. Açık Başlat'ı seçin ve zaman aralığına ilişkin değerleri durdurmak rapor operatörü izin veren özel saat aralığı seçimine izin vermek için bir seçenek de mevcuttur.
 
-### <a name="resource-picker"></a>Kaynak seçici
+### <a name="resource-picker"></a>Kaynak Seçici
 
 Kaynak Seçici parametre türü, bazı kaynak türleri için raporun kapsamını olanağı sağlar. Kaynak Seçici türü yararlanan önceden oluşturulmuş bir çalışma kitabının bir örneğini **performans** çalışma kitabı.
 

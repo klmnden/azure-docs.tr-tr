@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 653db995000308bb3ef78a9183696cd9d8ed1056
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074808"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>Web API'leri çağıran uygulama web - uygulama için bir belirteç Al
@@ -29,7 +29,7 @@ ms.locfileid: "65074808"
 - Web API'si kullanarak belirteç önbelleği için bir belirteç alınıyor. Bunun için çağırın `AcquireTokenSilent`
 - Erişim belirteci ile korumalı API çağırma
 
-## <a name="aspnet-core"></a>ASP.NET Çekirdeği
+## <a name="aspnet-core"></a>ASP.NET Core
 
 Denetleyici yöntemleri tarafından korunan bir `[Authorize]` kullanıcılar Web uygulamasını kullanmak için kimliğinin zorlar özniteliği. Microsoft Graph çağıran kodu
 
@@ -69,7 +69,7 @@ public async Task<IActionResult> Profile()
 }
 ```
 
-2. Aşama bu senaryo için gerekli kodu toplamı ayrıntılarında anlamak istiyorsanız, bkz [2-1-Web Uygulama çağrıları Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph) adımında [ms-kimlik-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) Öğreticisi
+2\. Aşama bu senaryo için gerekli kodu toplamı ayrıntılarında anlamak istiyorsanız, bkz [2-1-Web Uygulama çağrıları Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph) adımında [ms-kimlik-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) Öğreticisi
 
 Gibi çok sayıda ek karmaşıklık vardır:
 

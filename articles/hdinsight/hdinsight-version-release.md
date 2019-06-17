@@ -7,20 +7,20 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: overview
 ms.date: 04/15/2019
-ms.openlocfilehash: aa0d01bfbebd5279b5268bae9d161492f30b81de
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0868ec62517144cd54760f3d951aa0e55d78b4e3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056702"
 ---
 # <a name="hdinsight-40-overview"></a>HDInsight 4.0 genel bakış
 
-Azure HDInsight, Azure üzerinde açık kaynaklı Apache Hadoop ve Apache Spark analiz için en popüler hizmetler Kurumsal müşteriler arasında biridir. HDInsight 4.0 Apache Hadoop bileşenlerinin bulut dağıtımıdır [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). Bu makalede en güncel Azure HDInsight sürümü hakkında bilgiler verilmekte ve yükseltme yöntemleri anlatılmaktadır.
+Azure HDInsight, Azure üzerinde açık kaynaklı Apache Hadoop ve Apache Spark analiz için en popüler hizmetler Kurumsal müşteriler arasında biridir. HDInsight 4.0 bir Apache Hadoop bileşenlerinin bulut dağıtımıdır. Bu makalede en güncel Azure HDInsight sürümü hakkında bilgiler verilmekte ve yükseltme yöntemleri anlatılmaktadır.
 
 ## <a name="whats-new-in-hdinsight-40"></a>HDInsight 4. 0'yenilikler nelerdir?
 
-### <a name="apache-hive-30-and-llap"></a>3.0 Apache Hive ve LLAP
+### <a name="apache-hive-30-and-llap"></a>3\.0 Apache Hive ve LLAP
 
 Apache Hive düşük gecikme süreli analitik işlem (LLAP) kalıcı sorgu sonuçları uzak bulut depolama alanında veriler üzerinde sorgu sunucuları ve bellek içi önbelleğe alma hızlı SQL sunmak için kullanır. Hive LLAP, Hive sorgularını parçalar halinde yürüten bir dizi kalıcı daemon'lardan faydalanır. LLAP üzerinde sorgu yürütme LLAP kullanılmayan Hive ile benzerdir ve çalışan görevleri kapsayıcıların değil LLAP daemon'larının içinde çalışır.
 

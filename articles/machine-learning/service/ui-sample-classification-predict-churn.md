@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
 ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785831"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>5 - sınıflandırma. örnek: Değişim sıklığı, deneyde ve yukarı satış tahmin edin 
@@ -39,7 +39,7 @@ Bu deneme için tamamlanan grafiği aşağıda verilmiştir:
 
 ## <a name="data"></a>Veriler
 
-Bu deneme için kullandığımız KDD Kupası 2009 ' verilerdir. 50.000 satırları ve 230 özellik sütunları bir veri kümesine sahiptir. Değişim sıklığı, deneyde ve bu özellikleri kullanan müşteriler için yukarı satış tahmin etmek için bir görevdir. Veri ve görev hakkında daha fazla bilgi için bkz: [KDD Web sitesi](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
+Bu deneme için kullandığımız KDD Kupası 2009 ' verilerdir. 50\.000 satırları ve 230 özellik sütunları bir veri kümesine sahiptir. Değişim sıklığı, deneyde ve bu özellikleri kullanan müşteriler için yukarı satış tahmin etmek için bir görevdir. Veri ve görev hakkında daha fazla bilgi için bkz: [KDD Web sitesi](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
 ## <a name="experiment-summary"></a>Deneme özeti
 

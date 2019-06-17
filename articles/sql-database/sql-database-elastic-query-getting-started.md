@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556271"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>(Önizleme) ölçeği genişletilen bulut veritabanlarında raporlama
@@ -105,7 +105,7 @@ Bu sorgu ElasticDBQuery veritabanında yürütün:
 
 Sorgu sonuçları tüm parçadan toplayan ve şu çıktıyı verir olduğunu göreceksiniz:
 
-![Çıkış ayrıntıları][4]
+![Çıkış Ayrıntıları][4]
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>Excel için elastik veritabanı sorgusu sonuçlarını Al
  Gelen bir sorgunun sonuçlarının bir Excel dosyasına aktarabilirsiniz.

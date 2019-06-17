@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 951178a82e0975f5f2af71bd48cf0f931246ae37
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002119"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Ayarlama ve AWS maliyet ve kullanım raporu tümleştirmeyi Yapılandır
@@ -100,7 +100,7 @@ Maliyet Gezgini izinlerini yapılandırın:
 
 1. Seçin **bir hizmet seçin**.
 2. Girin **Explorer hizmeti maliyet**.
-3. Seçin **tüm maliyet Gezgini hizmet eylemleri (ce:\*)**. Bu eylem, koleksiyon doğru olduğunu doğrular.
+3. Seçin **tüm maliyet Gezgini hizmet eylemleri (ce:\*)** . Bu eylem, koleksiyon doğru olduğunu doğrular.
 4. Seçin **ek izinler ayarlamanız**.
 
 AWS kuruluşlar için izin ekleyin:
@@ -152,7 +152,7 @@ Bir AWS bağlayıcısı oluşturmak ve AWS maliyetlerinizi izlemeye başlamak i�
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Git **maliyet Yönetimi + faturalandırma** > **maliyet Yönetimi**.
-3. Altında **ayarları**seçin **bulut bağlayıcılar (Önizleme)**.  
+3. Altında **ayarları**seçin **bulut bağlayıcılar (Önizleme)** .  
     ![Bulut bağlayıcılar (Önizleme) gösteren örnek ayar)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
 4. Seçin **+ Ekle** bir bağlayıcı oluşturmak için sayfanın üst kısmındaki.
 5. Üzerinde **AWS Bağlayıcısı oluşturma** sayfasında **görünen ad**, Bağlayıcınız için bir ad girin.  

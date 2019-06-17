@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9122e3a7af2230dc0f68e72b28891d488b01a80a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65137825"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Azure AD’nin birden çok örneğini tek bir AD FS örneği ile birleştirme
@@ -40,11 +40,11 @@ Aralarında iki yönlü güven varsa, tek bir yüksek kullanılabilirlikli AD FS
 
 contoso.onmicrosoft.com adresli Azure Active Directory’deki contoso.com etki alanının zaten contoso.com’da şirket içi Active Directory ortamında yüklü şirket içi AD FS ile birleştirildiğini göz önünde bulundurun. Fabrikam.com, fabrikam.onmicrosoft.com adresli Azure Active Directory’de bir etki alanıdır.
 
-## <a name="step-1-establish-a-two-way-trust"></a>1. Adım: Çift yönlü bir güven
+## <a name="step-1-establish-a-two-way-trust"></a>1\. adım: Çift yönlü bir güven
  
 contoso.com’daki AD FS’nin fabrikam.com’da kullanıcıların kimliklerini doğrulayabilmesi için contoso.com ile fabrikam.com arasında iki yönlü bir güven gerekir. İki yönlü güveni oluşturmak için bu [makaledeki](https://technet.microsoft.com/library/cc816590.aspx) kılavuzu izleyin.
  
-## <a name="step-2-modify-contosocom-federation-settings"></a>2. Adım: Contoso.com Federasyon ayarlarını değiştirme 
+## <a name="step-2-modify-contosocom-federation-settings"></a>2\. adım: Contoso.com Federasyon ayarlarını değiştirme 
  
 AD FS ile birleştirilmiş tek bir etki alanı için varsayılan veren ayarlama "http\://ADFSServiceFQDN/adfs/services/trust" Örneğin, `http://fs.contoso.com/adfs/services/trust`. Azure Active Directory, federasyona eklenen her etki alanı için benzersiz bir veren gerektirir. İki etki alanı aynı AD FS tarafından federasyona ekleneceğinden, AD FS’nin Azure Active Directory ile birleştirdiği her etki alanında benzersiz olması için veren değerinin değiştirilmesi gerekir. 
  
@@ -54,7 +54,7 @@ contoso.com etki alanını içeren Azure Active Directory’ye bağlanın: Conne
  
 Etki alanı Federasyon ayarındaki veren değiştirilir "http\:/ / contoso.com/adfs/services/trust" ve bir verme talebi kuralı, Azure AD bağlı olan taraf UPN son ekine bağlı olarak doğru İssuerıd değerini vermesi güveni için eklenir.
  
-## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>3. Adım: AD FS ile Federasyonu kullanan fabrikam.com
+## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>3\. adım: AD FS ile Federasyonu kullanan fabrikam.com
  
 Azure AD powershell oturumunda, aşağıdaki adımları gerçekleştirin: Azure Active Directory ile Fabrikam.com etki alanını içeren bağlanma
 

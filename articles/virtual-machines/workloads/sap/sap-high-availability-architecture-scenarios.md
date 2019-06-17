@@ -18,10 +18,10 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60936285"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Yüksek kullanılabilirlik mimarisi ve senaryolar için SAP NetWeaver
@@ -369,7 +369,7 @@ Azure kullanılabilirlik kümesi içinde bir Azure ölçek birimi kullandığı 
 Birkaç SAP uygulama sunucusu örneklerinde adanmış Vm'lerini dağıtma, biz beş güncelleştirme etki alanları olduğunu varsayarsak, aşağıdaki resimde ortaya çıkar. Gerçek sayısı bir kullanılabilirlik kümesi içinde güncelleştirme ve hata etki alanları gelecekte değişebilir:
 
 ![Şekil 2: SAP uygulama sunucuları bir Azure kullanılabilirlik kümesinde yüksek kullanılabilirliği][planning-guide-figure-3000]
-_**Şekil 2:** Yüksek kullanılabilirlik, SAP uygulama sunucuları bir Azure kullanılabilirlik kümesi_
+ _**Şekil 2:** Yüksek kullanılabilirlik, SAP uygulama sunucuları bir Azure kullanılabilirlik kümesi_
 
 Daha fazla bilgi için [azure'daki Windows sanal makinelerin kullanılabilirliğini yönetme][azure-virtual-machines-manage-availability].
 

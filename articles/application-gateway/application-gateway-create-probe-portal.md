@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122396"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Portalı kullanarak Application Gateway için özel bir araştırma oluşturma
@@ -52,9 +52,9 @@ Araştırmaları iki adımlı bir işlem portal üzerinden yapılandırılır. �
    |**Ayar** | **Değer** | **Ayrıntılar**|
    |---|---|---|
    |**Ad**|customProbe|Bu değer, portalda erişilebilir araştırması için kolay bir addır.|
-   |**Protokol**|HTTP veya HTTPS | Durum araştırması kullanan protokol.|
+   |**Protokolü**|HTTP veya HTTPS | Durum araştırması kullanan protokol.|
    |**Ana Bilgisayar**|yani contoso.com|Araştırma için kullanılan ana bilgisayar adı değerdir. Geçerli çok siteli, yalnızca uygulama ağ geçidinde yapılandırılan, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM'nin ana bilgisayar adından farklıdır.|
-   |**Path**|/ veya başka bir yol|Özel araştırma için tam bir url geri kalanında. İle başlayan geçerli bir yol '/'. Http varsayılan yolu:\//contoso.com kullanmanız yeterlidir '/' |
+   |**Yolu**|/ veya başka bir yol|Özel araştırma için tam bir url geri kalanında. İle başlayan geçerli bir yol '/'. Http varsayılan yolu:\//contoso.com kullanmanız yeterlidir '/' |
    |**Aralığı (saniye)**|30|Ne sıklıkta denetlemek için sistem durumu için yoklama çalıştırın. Alt ayarlamak için önerilmez 30 saniyeden.|
    |**Zaman aşımı (saniye)**|30|Yoklama zaman aşımına uğrama süre miktarı. Zaman aşımı aralığı, arka uç sistem durumu sayfası kullanılabildiğinden emin olmak için http çağrısı yapılabilir yeterince yüksek olması gerekiyor.|
    |**Sağlıksız durum eşiği**|3|Sağlıksız olarak değerlendirilmesi için başarısız girişim sayısı. Arka uç sistem durumu denetimi başarısız olursa, sağlıksız hemen belirlenir bir eşik 0 anlamına gelir.|

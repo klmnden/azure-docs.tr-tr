@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e1199826601f8f2ddd82164dac1a20013d9b7bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be9620b0bb19daed186cb4eb652311e58ea0adaf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60262633"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Öğretici: Klue ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Klue tümleştirmesini yapılandırmak için Klue Galeriden yönetil
 
 **Galeriden Klue eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -129,7 +129,7 @@ Azure AD çoklu oturum açma ile Klue yapılandırmak için aşağıdaki adımla
     | ------------------- | -------------------- |
     | first_name          | User.givenName |
     | Soyadı           | User.surname |
-    | e-posta               | User.userPrincipalName|
+    | email               | User.userPrincipalName|
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

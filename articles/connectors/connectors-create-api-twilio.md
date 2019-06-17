@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: fab52236c701f10c8e8e23ac398362ca4583ea06
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104910"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Azure Logic Apps ile Twilio iletilerini yönetme
@@ -51,10 +51,10 @@ Azure Logic Apps ve Twilio Bağlayıcısı ile otomatik görevler ve almak, gön
 
      * Son adım, bir eylem eklemek istediğiniz altında seçin **yeni adım**. 
 
-       -veya-
+       veya
 
      * Bir eylem eklemek istediğiniz adımları arasında işaretçinizi adımlar arasındaki okun üzerine getirin. 
-     Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+     Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
      
        Arama kutusuna filtreniz olarak "twilio" girin. 
        Eylemler listesinde, istediğiniz eylemi seçin.

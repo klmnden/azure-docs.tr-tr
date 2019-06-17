@@ -10,10 +10,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ms.openlocfilehash: 8825f1dc3b66a5c4981ba25a90813aec63975b1f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145146"
 ---
 # <a name="algorithm--module-reference-overview"></a>Algoritma ve modül başvurusu genel bakış
@@ -29,9 +29,9 @@ Her modülün bağımsız olarak çalıştırılabilir ve bir makine gerekli gir
 
 Modüller işlevselliğe göre düzenlenmiştir:
 
-| İşlev | Açıklama | Modül |
+| İşlevi | Açıklama | Modül |
 | --- |--- | ---- |
-| Veri biçimi dönüştürme | Verileri makine öğrenimi kullanılan çeşitli dosya biçimleri arasında dönüştürme, | [CSV'ye Dönüştür](convert-to-csv.md) |
+| Veri biçimi dönüştürmeleri | Verileri makine öğrenimi kullanılan çeşitli dosya biçimleri arasında dönüştürme, | [CSV'ye Dönüştür](convert-to-csv.md) |
 | Veri giriş ve çıkış | Verileri bulut kaynaklardan denemenize taşıyın. Sonuçları veya Ara veriler Azure depolama, SQL veritabanı veya Hive, bir denemeyi çalıştırırken yazın veya denemeler arasında veri değişimi için bulut depolama kullanın.  | [Verileri İçeri Aktar](import-data.md)<br/>[Verileri dışarı aktarma](export-data.md)<br/>[Verileri el ile girin](enter-data-manually.md) |
 | Veri dönüştürme | Machine learning, normalleştirme veya veri, özellik seçimi ve boyut düzeyi azaltma gruplama gibi benzersiz olan veriler üzerinde işlem.| [Veri kümesindeki sütunları Seç](select-columns-in-dataset.md) <br/> [Meta verilerini düzenleme](edit-metadata.md) <br/> [Eksik verileri temizleme](clean-missing-data.md) <br/> [Sütun Ekle](add-columns.md) <br/> [Satır ekleme](add-rows.md) <br/> [Yinelenen satırları Kaldır](remove-duplicate-rows.md) <br/> [Verileri bölme](split-data.md) <br/> [Veri normalleştirin](normalize-data.md) <br/> [Bölüm ve örnek](partition-and-sample.md) |
 | Python modülü | Kod yazma ve Python denemenizi ile tümleştirmek için bir modüle ekleyin. | [Python betiği yürütme](execute-python-script.md)   <br/> [Python modeli oluşturma](create-python-model.md)
@@ -41,7 +41,7 @@ Modüller işlevselliğe göre düzenlenmiştir:
 | Regresyon | Bir değeri tahmin edin. | [Doğrusal regresyon](linear-regression.md)  <br/> [Sinir ağı regresyon](neural-network-regression.md)  <br/> [Karar ormanı regresyon](decision-forest-regression.md)  <br/> [Artırılmış&nbsp;karar&nbsp;ağaç&nbsp;regresyon](boosted-decision-tree-regression.md)
 |  | **Yapı ve model değerlendirme**: | |
 | Eğitim   | Veri algoritması üzerinden çalıştırın. | [Modeli eğitme](train-model.md)  <br/> [Kümeleme modeli eğitme](train-clustering-model.md)    |
-| Modeli değerlendirme | Eğitilen modelin doğruluğunu ölçer. |  [Modeli değerlendirme](evaluate-model.md)
+| Modeli Değerlendirme | Eğitilen modelin doğruluğunu ölçer. |  [Modeli değerlendirme](evaluate-model.md)
 | Puan | Yalnızca eğitilmiş modelden Öngörüler edinin. | [Dönüşüm Uygulama](apply-transformation.md)<br/>[Ata&nbsp;veri&nbsp;için&nbsp;kümeleri](assign-data-to-clusters.md) <br/>[Model Puanlama](score-model.md)
 
 ## <a name="error-messages"></a>Hata iletileri

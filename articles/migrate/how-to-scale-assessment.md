@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518750"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
@@ -58,9 +58,9 @@ Bulma ve değerlendirme şu sınırlara göre planlayın:
 
 | **Varlık** | **Makine sınırı** |
 | ---------- | ----------------- |
-| PROJE    | 1.500             |
-| Bulma  | 1.500             |
-| Değerlendirme | 1.500             |
+| Proje    | 1\.500             |
+| Bulma  | 1\.500             |
+| Değerlendirme | 1\.500             |
 
 Bu planlama konuları göz önünde bulundurun:
 
@@ -102,7 +102,7 @@ Kiracılar genelinde paylaşılan bir ortamda varsa ve bir kiracının başka bi
 
 Planınızla hazır olduktan sonra şirket içi sanal makineleri bulma başlatabilirsiniz:
 
-### <a name="create-a-project"></a>Proje oluştur
+### <a name="create-a-project"></a>Proje oluşturma
 
 Gereksinimlerinize uygun olarak bir Azure geçişi projesi oluşturun:
 

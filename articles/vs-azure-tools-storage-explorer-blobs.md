@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60458566"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Depolama Gezgini ile Azure Blob depolama kaynaklarını yönetme
@@ -172,7 +172,7 @@ Aşağıdaki adımlar, bir blob kapsayıcısı içinde BLOB'ları (ve klasörler
      1. Ana bölmedeki araç çubuğunda **Karşıya Yükle**’yi ve ardından açılır listedeki **Dosyaları Karşıya Yükle**’yi seçin.
 
         ![Dosyaları karşıya yükleme menüsü][15]
-     2. **Dosyaları Karşıya Yükle** iletişim kutusunda, **Dosyalar** metin kutusunun sağ tarafındaki üç noktayı (**…**) seçerek karşıya yüklemek istediğiniz dosyaları belirleyin.
+     2. **Dosyaları Karşıya Yükle** iletişim kutusunda, **Dosyalar** metin kutusunun sağ tarafındaki üç noktayı ( **…** ) seçerek karşıya yüklemek istediğiniz dosyaları belirleyin.
 
         ![Karşıya yükleme dosyaları seçenekleri][16]
      3. Türünü belirtin **Blob türü**. Bkz: [kapsayıcı oluşturma ve izinleri ayarlama](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) daha fazla bilgi için.
@@ -183,7 +183,7 @@ Aşağıdaki adımlar, bir blob kapsayıcısı içinde BLOB'ları (ve klasörler
      1. Ana bölmedeki araç çubuğunda **Karşıya Yükle**’yi ve ardından açılır listedeki **Klasörü Karşıya Yükle**’yi seçin.
 
         ![Klasörü karşıya yükle menüsü][17]
-     2. **Klasörü karşıya yükle** iletişim kutusunda, **Klasör** metin kutusunun sağ tarafındaki üç noktayı (**…**) seçerek içeriklerini karşıya yüklemek istediğiniz klasörü belirleyin.
+     2. **Klasörü karşıya yükle** iletişim kutusunda, **Klasör** metin kutusunun sağ tarafındaki üç noktayı ( **…** ) seçerek içeriklerini karşıya yüklemek istediğiniz klasörü belirleyin.
 
         ![Klasör Seçenekleri'ni yükleyin][18]
      3. Türünü belirtin **Blob türü**. Bkz: [kapsayıcı oluşturma ve izinleri ayarlama](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) daha fazla bilgi için.

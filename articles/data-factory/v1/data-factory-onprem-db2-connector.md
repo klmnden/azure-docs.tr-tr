@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824023"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory kopyalama etkinliği'ni kullanarak DB2 verileri taşıma
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](data-factory-onprem-db2-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-db2.md)
 
@@ -106,7 +106,7 @@ Kopyalama etkinliği kaynak türü olduğunda için **RelationalSource** (DB2 i�
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| **Sorgu** |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin, `"query": "select * from "MySchema"."MyTable""` |Hayır (varsa **tableName** özellik kümesinin belirtilen) |
+| **query** |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin, `"query": "select * from "MySchema"."MyTable""` |Hayır (varsa **tableName** özellik kümesinin belirtilen) |
 
 > [!NOTE]
 > Şema ve tablo adları büyük/küçük harfe duyarlıdır. Sorgu deyiminde özellik adları kullanarak alın "" (çift tırnak).
@@ -308,10 +308,10 @@ Kopyalama etkinliği verileri DB2 türünden bir .NET türe dönüştürdüğün
 
 | DB2 veritabanı türü | .NET framework türü |
 | --- | --- |
-| Tamsayı |Int16 |
-| Tamsayı |Int32 |
+| Integer |Int16 |
+| Integer |Int32 |
 | BigInt |Int64 |
-| real |Single |
+| Real |Single |
 | Double |Double |
 | Float |Double |
 | Ondalık |Decimal |
@@ -319,25 +319,25 @@ Kopyalama etkinliği verileri DB2 türünden bir .NET türe dönüştürdüğün
 | Numeric |Decimal |
 | Tarih |DateTime |
 | Zaman |TimeSpan |
-| Zaman damgası |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte[] |
-| char |String |
+| Char |String |
 | VarChar |String |
 | LongVarChar |String |
 | DB2DynArray |String |
 | binary |Byte[] |
 | VarBinary |Byte[] |
-| LONGVARBINARY |Byte[] |
-| Grafiği |String |
+| LongVarBinary |Byte[] |
+| Graphic |String |
 | VarGraphic |String |
 | LongVarGraphic |String |
 | Clob |String |
 | Blob |Byte[] |
 | DbClob |String |
-| Tamsayı |Int16 |
-| Tamsayı |Int32 |
+| Integer |Int16 |
+| Integer |Int32 |
 | BigInt |Int64 |
-| real |Single |
+| Real |Single |
 | Double |Double |
 | Float |Double |
 | Ondalık |Decimal |
@@ -345,9 +345,9 @@ Kopyalama etkinliği verileri DB2 türünden bir .NET türe dönüştürdüğün
 | Numeric |Decimal |
 | Tarih |DateTime |
 | Zaman |TimeSpan |
-| Zaman damgası |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte[] |
-| char |String |
+| Char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi
 Kaynak veri kümesindeki sütunları havuz veri kümesi sütunlara eşlemeyle ilgili bilgi edinmek için bkz: [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).

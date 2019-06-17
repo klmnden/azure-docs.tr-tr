@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
 ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60775245"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js için Batch SDK'sını kullanmaya başlama
@@ -52,7 +52,7 @@ Node.js istemcisi, toplu işi bir hazırlama göreviyle (daha sonra ayrıntılı
 
 Şimdi, Node.js istemcisini oluşturmamızı sağlayacak süreci adım adım izleyelim:
 
-### <a name="step-1-install-azure-batch-sdk"></a>1. Adım: Azure Batch SDK'sını yükleme
+### <a name="step-1-install-azure-batch-sdk"></a>1\. adım: Azure Batch SDK'sını yükleme
 
 npm install komutunu kullanarak Node.js için Azure Batch SDK'sını yükleyebilirsiniz.
 
@@ -65,7 +65,7 @@ Bu komut azure batch node SDK’sının en son sürümünü yükler.
 >
 >
 
-### <a name="step-2-create-an-azure-batch-account"></a>2. Adım: Azure Batch hesabı oluşturma
+### <a name="step-2-create-an-azure-batch-account"></a>2\. adım: Azure Batch hesabı oluşturma
 
 Azure Batch hesabını [Azure Portal](batch-account-create-portal.md)’dan veya komut satırından ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure)) oluşturabilirsiniz.
 
@@ -85,7 +85,7 @@ Her Batch hesabının ilgili erişim anahtarları vardır. Bu anahtarlar Azure B
 
 Sonraki adımlarda kullanılacak anahtarı kopyalayın ve saklayın.
 
-### <a name="step-3-create-an-azure-batch-service-client"></a>3. Adım: Bir Azure Batch hizmeti istemcisi oluşturma
+### <a name="step-3-create-an-azure-batch-service-client"></a>3\. adım: Bir Azure Batch hizmeti istemcisi oluşturma
 Aşağıdaki kod parçacığı ilk olarak azure-batch Node.js modülünü içe aktarır ve ardından bir Batch Hizmeti istemcisi oluşturur. İlk olarak, önceki adımda kopyaladığınız Batch hesabınızın anahtarıyla bir SharedKeyCredentials nesnesi oluşturmanız gerekir.
 
 ```nodejs
@@ -119,7 +119,7 @@ Ekran görüntüsüne bakın:
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>4. Adım: Bir Azure Batch havuzu oluşturma
+### <a name="step-4-create-an-azure-batch-pool"></a>4\. Adım: Bir Azure Batch havuzu oluşturma
 Bir Azure Batch havuzu birden çok VM’den (Batch Düğümleri olarak da bilinir) oluşur. Azure Batch hizmeti, görevleri bu düğümlere dağıtır ve yönetir. Havuzunuz için aşağıdaki yapılandırma parametrelerini tanımlayabilirsiniz.
 
 * Sanal Makine Türü görüntüsü
@@ -254,7 +254,7 @@ Pool.get işlevi tarafından döndürülen örnek bir sonuç nesnesi aşağıdad
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>4. Adım: Bir Azure Batch işi gönderme
+### <a name="step-4-submit-an-azure-batch-job"></a>4\. Adım: Bir Azure Batch işi gönderme
 Azure Batch işi, benzer görevlerden oluşan bir mantıksal gruptur. Senaryomuzdaki ise "csv'yi JSON’a işle" işidir. Burada her görev her Azure Depolama kapsayıcısında bulunan csv dosyalarını işliyor olabilir.
 
 Bu görevler paralel olarak çalışır ve Azure Batch hizmeti tarafından düzenlenmiş birden çok düğüm arasında dağıtılır.
@@ -311,7 +311,7 @@ Görevleri çalıştırmak yüklenecek herhangi bir önkoşul yoksa hazırlama g
 ```
 
 
-### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>5. Adım: Bir iş için Azure Batch görevlerini gönderme
+### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>5\. Adım: Bir iş için Azure Batch görevlerini gönderme
 
 İşlem csv işimiz oluşturulduğuna göre bu iş için görevleri oluşturabiliriz. Dört kapsayıcımız olduğunu varsayarsak, her kapsayıcı için bir tane olmak üzere dört görev oluşturmamız gerekir.
 

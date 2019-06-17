@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: magoedte
 ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120656"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure İzleyici'de SQL Server sistem durumu denetimi çözümü SQL ortamınızla en iyi duruma getirme
@@ -63,7 +63,7 @@ SQL Server Operations Manager tarafından izleniyorsa, bir Operations Manager fa
 SQL sistem durumu denetimi veri etkinleştirdiğiniz aracısını kullanarak aşağıdaki kaynaklardan toplar:
 
 * Windows Yönetim Araçları (WMI)
-* Kayıt Defteri
+* Kayıt defteri
 * Performans sayaçları
 * SQL Server dinamik yönetim sonuçlarını görüntüle
 
@@ -230,7 +230,7 @@ Yok saymak için istediğiniz önerilerini varsa, Azure İzleyici, öneriler, de
 
 * Aşağıdaki veri türlerini toplanır:
   * WMI
-  * Kayıt Defteri
+  * Kayıt defteri
   * Performans sayaçları
   * SQL Dinamik Yönetim görünümlerini (DMV).
 

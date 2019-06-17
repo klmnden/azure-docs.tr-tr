@@ -10,10 +10,10 @@ manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
 ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65795793"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Metin işleme Azure Search'te çözümleyiciler
@@ -40,7 +40,7 @@ Ayrıca, her aranabilir alan üzerinde otomatik olarak kullanılır. Alan alanl�
 
 Aşağıdaki liste, Azure Search'te çözümleyiciler hangi kullanılabilir açıklar.
 
-| Category | Açıklama |
+| Kategori | Açıklama |
 |----------|-------------|
 | [Standart olarak Lucene çözümleyici](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Varsayılan. Belirtiminin ya da yapılandırma gereklidir. Bu genel amaçlı Çözümleyicisi çoğu diller ve senaryoları için iyi gerçekleştirir.|
 | Önceden tanımlanmış çözümleyiciler | Tamamlanmış bir ürün olarak kullanılmaya yönelik olarak sunulan-olduğu. <br/>İki tür vardır: özelleştirilmiş ve dili. Bunları "önceden tanımlanmış" kılan, bunları bir yapılandırma veya özelleştirme ile adıyla başvurduğunu olduğu. <br/><br/>[Özelleştirilmiş (dilden) Çözümleyicileri](index-add-custom-analyzers.md#AnalyzerTable) metin girişleri özel işleme ya da en az işleme gerektirdiğinde kullanılır. Önceden tanımlı olmayan dil Çözümleyicileri dahil **Asciifolding**, **anahtar sözcüğü**, **deseni**, **basit**, **Durdur**, **Boşluk**.<br/><br/>[Dil Çözümleyicileri](index-add-language-analyzers.md) , zengin dil desteği için tek tek dillerin gerektiğinde kullanılır. Azure Search, Lucene dil çözümleyicilerini 35 ve 50 Microsoft doğal dil işleme Çözümleyicileri destekler. |
@@ -58,7 +58,7 @@ Birkaç Çözümleyici, gibi önceden tanımlanmış **deseni** veya **Durdur**,
 
 Atama **Çözümleyicisi** veya **indexAnalyzer** fiziksel olarak önceden oluşturulmuş bir alan için izin verilmiyor. Bu olduğunda belirsiz, Eylemler bir yeniden oluşturma gerektiren bir çözümleme için aşağıdaki tabloya gözden geçirin ve neden.
  
- | Senaryo | Etki | Adımlar |
+ | Senaryo | Etkisi | Adımlar |
  |----------|--------|-------|
  | Yeni alan ekleme | En az | Alan şemada henüz yoksa, alanın henüz fiziksel olarak bulunmayı dizininizdeki olmadığından yapmak için hiçbir alan düzeltme yoktur. Kullanabileceğiniz [dizin güncelleştirme](https://docs.microsoft.com/rest/api/searchservice/update-index) mevcut bir dizine yeni bir alan eklemek ve [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) bunu doldurmak üzere.|
  | Ekleme bir **Çözümleyicisi** veya **indexAnalyzer** varolan dizinli alana. | [Yeniden oluşturma](search-howto-reindex.md) | Bu alan için ters dizini sıfırdan oluşturulması gerekir ve bu alanların içeriğini reindexed gerekir. <br/> <br/>Etkin geliştirme aşamasındaki dizinler için [Sil](https://docs.microsoft.com/rest/api/searchservice/delete-index) ve [oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index) dizinin yeni alanın tanımını seçin. <br/> <br/>Üretimde dizinler için düzeltilmiş tanımı sağlamak ve eskisinin yerine kullanmaya başlamak için yeni bir alan oluşturarak yeniden yayımlanmalarından sonra. Kullanım [dizin güncelleştirme](https://docs.microsoft.com/rest/api/searchservice/update-index) yeni alan eklemek ve [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) bunu doldurmak üzere. Daha sonra planlanan bir dizin hizmeti, bir parçası olarak kullanılmayan alanları kaldırmak için dizin temizleyebilirsiniz. |

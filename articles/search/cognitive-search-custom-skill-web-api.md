@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
 ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023849"
 ---
 # <a name="custom-web-api-skill"></a>Özel Web API'si beceri
@@ -38,7 +38,7 @@ Parametreler büyük/küçük harfe duyarlıdır.
 
 | Parametre adı     | Açıklama |
 |--------------------|-------------|
-| uri | Web API'sine URI'sini _JSON_ yükü gönderilir. Yalnızca **https** URI şeması izin verilir |
+| URI | Web API'sine URI'sini _JSON_ yükü gönderilir. Yalnızca **https** URI şeması izin verilir |
 | HttpMethod | Yükü gönderilirken kullanılacak yöntem. İzin verilen yöntemler `PUT` veya `POST` |
 | httpHeaders | Burada anahtarları üst bilgi adları ve değerleri temsil eden anahtar-değer çiftleri koleksiyonu yükün yanı sıra Web apı'nize gönderilen üstbilgi değerlerini temsil eder. Bu koleksiyonda yüklenmesini şu Yasak: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (İsteğe bağlı) Belirtilen zaman aşımı için http İstemcisi API çağrısı yapma gösterir. Bir XSD "dayTimeDuration" değeri biçimlendirilmelidir (sınırlı bir alt kümesini bir [ISO 8601 süre](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) değeri). Örneğin, `PT60S` 60 saniye. Aksi durumda, küme, varsayılan değer 30 saniye olarak seçilir. Zaman aşımı, 90 saniyelik en fazla ve en az 1 saniye için ayarlanabilir. |

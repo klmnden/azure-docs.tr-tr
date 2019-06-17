@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518147"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Video Indexer Düzenleyicisi'ni projeleri oluşturmak için kullanın
@@ -55,7 +55,7 @@ Bu makalede, sıfırdan bir proje oluşturma ve ayrıca bir video hesabınızdak
 
     Daha fazla seçerek sonuçlarınızı filtreleyebilirsiniz **sonuçlarını filtreleme**. Belirli bir kişiye içeren videolar göstermek veya yalnızca, video sonuçları görmek istediğinizi belirtmek için filtre bir belirli bir dilde veya belirli bir sahip. <br/> Sorgunuzun kapsamını da belirtebilirsiniz. Örneğin, "GitHub" OCR içinde arama yapmak istiyorsanız, seçin **görsel metin**.
 
-    ![Filtrele](./media/video-indexer-view-edit/visual-text.png)
+    ![Filtre](./media/video-indexer-view-edit/visual-text.png)
 
     Sorgunuz için birden çok filtre katmanlayabilirsiniz. Kullanım **+** / **-** filtreleri Ekle/Kaldır düğmeleri. Kullanım **Filtreleri Temizle** tüm filtreler kaldırılacak.
 1. Video eklemek, bunları seçin ve ardından **Ekle**.
@@ -73,7 +73,7 @@ Her video sağ tarafındaki aşağı oka tıklayarak videonun (video klipleri) z
 
 1. Seçin **öngörüleri görüntüle** hangi ınsights özelleştirmek için bkz: ve, görmek istemediğiniz için kullanmanız gerekir. 
 
-    ![İçgörüleri görüntüle](./media/video-indexer-view-edit/insights.png)
+    ![Öngörüleri görüntüle](./media/video-indexer-view-edit/insights.png)
 1. Belirli küçük resimleri için sorguları oluşturmak için "döküm, görsel metin, kişiler ve etiketleri arama" ifadesini içeren arama kutusunu kullanın.
 1. Daha fazla aradığınız seçerek hangi Sahne üzerinde ayrıntılarını belirtmek için filtreleri ekleyin **filtre seçenekleri**.
 
@@ -81,7 +81,7 @@ Her video sağ tarafındaki aşağı oka tıklayarak videonun (video klipleri) z
 
     Örneğin, küçük resimleri ekranda olsa da Donovan Brown GitHub burada bahsedilen görmek isteyebilirsiniz. Bunun için "Kişiler" sahip "ekleme" bir filtre eklemek öngörü türü olarak gerekir. Ardından filtre için arama kutusuna "Donovan Brown" olarak yazmanız gerekir.
     
-    ![Dahil Et](./media/video-indexer-view-edit/include.png)
+    ![İçerir](./media/video-indexer-view-edit/include.png)
     
     Burada GitHub belirtilen Donovan Brown olsa da klipleri isteyip istemediğinizi _değil_ ekranda yalnızca açılır menüyü kullanarak bir "dışlama" filtresine "içerir" filtresi değiştirirsiniz. 
 
@@ -89,14 +89,14 @@ Her video sağ tarafındaki aşağı oka tıklayarak videonun (video klipleri) z
     
     Yanında video ve seçim listesi seçeneğine tıklayarak videonun tüm parçaları ekleyin **tüm segmentleri seçmek**. 
 
-    ![Tümünü ekle](./media/video-indexer-view-edit/add-all.png)
+    ![Tümünü Ekle](./media/video-indexer-view-edit/add-all.png)
 
     Tüm seçiminizi Seçimi Temizle seçerek temizleyebilirsiniz.
 
 > [!TIP]
 > Seçme ve resimlerinizi sıralama gibi sayfanın sağ tarafındaki player videoda önizleyebilirsiniz. 
 
-![Preview](./media/video-indexer-view-edit/preview.png)
+![Önizleme](./media/video-indexer-view-edit/preview.png)
 
 Projenizi seçerek değişiklikler yaptığınızda kaydetmeyi unutmayın **Kaydet proje**. 
 
@@ -119,7 +119,7 @@ Projenizi seçerek değişiklikler yaptığınızda kaydetmeyi unutmayın **Kayd
 
     Bu proje öğesini seçerseniz, tüm öngörülerde ve zaman çizelgesi bu projenin bakın. Seçerseniz **Video Düzenleyicisi**, bu proje için düzenlemeleri devam edebilirsiniz. Düzenleme, ekleme veya video klipleri kaldırarak ya da projesini yeniden adlandırma içerir.
 
-    ![Video düzenleyicisi](./media/video-indexer-view-edit/video-editor.png)
+    ![Görüntü Düzenleyicisi](./media/video-indexer-view-edit/video-editor.png)
      
 ## <a name="create-a-project-from-your-video"></a>Videonuzdan proje oluşturma
 

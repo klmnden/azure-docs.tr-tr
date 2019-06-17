@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60612697"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 için sanal ağ tümleştirmesi
@@ -83,7 +83,7 @@ Kullanılabilen seçeneklerin bazıları şunlardır:
 
 ## <a name="configuration"></a>Yapılandırma
 
-### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>1. Adım: Sanal ağınızı bir Azure AD hizmet uç noktası kullanmak için yapılandırma
+### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>1\. adım: Sanal ağınızı bir Azure AD hizmet uç noktası kullanmak için yapılandırma
 
 1.  Azure portala gidin ve hesabınızda oturum açın.
  
@@ -107,7 +107,7 @@ Kullanılabilen seçeneklerin bazıları şunlardır:
  
     ![Hizmet uç noktası ekleme başarılı](media/data-lake-store-network-security/config-vnet-4.png)
 
-### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>2. Adım: İzin verilen sanal ağ veya alt ağ için Data Lake depolama Gen1 hesabınızı ayarlama
+### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>2\. adım: İzin verilen sanal ağ veya alt ağ için Data Lake depolama Gen1 hesabınızı ayarlama
 
 1.  Sanal ağınızı yapılandırdıktan sonra aboneliğinizde [yeni bir Azure Data Lake Storage 1. Nesil hesabı](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) oluşturun. İsterseniz var olan bir Data Lake Storage 1. Nesil hesabına da gidebilirsiniz. Data Lake Storage 1. Nesil hesabının sanal ağ ile aynı bölgede olması gerekir.
  

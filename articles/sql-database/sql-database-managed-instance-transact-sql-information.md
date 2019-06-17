@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070349"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -276,6 +276,7 @@ Daha fazla bilgi için [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/sta
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
+- Şu anda SQL Server Aracısı devre dışı bırakma ve etkinleştirme yönetilen örneğinde desteklenmiyor. SQL Aracısı her zaman çalışıyor.
 - SQL Server Aracısı ayarları salt okunur. Yordamı `sp_set_agent_properties` yönetilen örneği'nde desteklenmiyor. 
 - İşler
   - T-SQL iş adımları desteklenir.
@@ -456,13 +457,13 @@ Sınırlamalar:
 - `Extended stored procedures` Desteklenmeyen, içeren `sp_addextendedproc`  ve `sp_dropextendedproc`. Bkz: [genişletilmiş saklı yordamlar](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db`, ve `sp_detach_db` desteklenmez. Bkz: [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), ve [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
-## <a name="Environment"></a>Environmet kısıtlamaları
+## <a name="Environment"></a>Ortam kısıtlamaları
 
 ### <a name="subnet"></a>Alt ağ
 - Yönetilen Örneğiniz için ayrılan alt ağdaki diğer kaynakları (örneğin, sanal makineler) yerleştirilemiyor. Bu kaynakları diğer yerleştirin alt ağlar.
 - Alt ağ yeterli sayıda kullanılabilir olmalıdır [IP adresleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Alt ağda en az 32 IP adreslerine gerek öneri olarak en az 16 olmalıdır.
 - [Hizmet uç noktaları, yönetilen örneğin alt ağ ile ilişkili olamaz](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Sanal ağ oluşturduğunuzda, hizmet uç noktaları seçeneğini devre dışı bırakıldığından emin olun.
-- Sayısını ve türlerini, alt ağda yerleştirebilirsiniz örnekleri vardır [kısıtlamalar ve sınırlandırmalar](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- Sanal çekirdek sayısı ve türleri bir bölgede dağıtabileceğiniz örnekleri olan bazı [kısıtlamalar ve sınırlandırmalar](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Bazı kısıtlamalar var. [alt ağda uygulanan güvenlik kuralları](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
 ### <a name="vnet"></a>VNET

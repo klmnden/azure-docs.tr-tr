@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
 ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991799"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services platformunda medya analizi 
@@ -38,7 +38,7 @@ Medya Analizi medya işlemcileri MP4 veya JSON dosyaları üretir. Medya işlemc
 
 ## <a name="media-analytics-services"></a>Medya analizi Hizmetleri
 
-### <a name="indexer"></a>Dizin Oluşturucu
+### <a name="indexer"></a>Dizinleyici
 Azure Media Indexer ile aranabilir içerik ve Kapalı Açıklamalı Altyazı parçaları oluşturma yapabilirsiniz. Azure Media Indexer 2 Önizleme önceki sürüme kıyasla daha hızlı dizinleme ve daha geniş dil desteği vardır. İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince, Portekizce ve Arapça desteklenen diller şunlardır. Ayrıntılı bilgi ve örnekler için bkz. [Azure Media Indexer 2 ile video işleme](media-services-process-content-with-indexer2.md).
 ### <a name="motion-detector"></a>Hareket Algılayıcısı
 Hareket algılayıcısı, sabit bir arka plan ile bir video hareket algılama için kullanabilirsiniz. Bu hatalı pozitif sonuç ekleme işlemlerini kaydedecek tarafından algılanan hareket olayları denetlemek mümkün kılar. Ayrıntılı bilgi ve örnekler için bkz. [hareket algılama için Azure medya analizi](media-services-motion-detection.md).
@@ -124,7 +124,7 @@ Yanıt:
 ## <a name="demos"></a>Tanıtımlar
 Bkz: [Azure medya analizi tanıtımları](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="provide-feedback"></a>Geri bildirim gönder
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>İlgili makaleler

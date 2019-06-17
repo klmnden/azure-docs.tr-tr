@@ -17,11 +17,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: e1ed419892412c1fb9334fed74b82c53154723ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708422"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Bir Azure VM'den yönetilmeyen bir VM görüntüsü oluşturma
 
@@ -32,7 +32,7 @@ Bu makalede bir depolama hesabı kullanarak genelleştirilmiş Azure VM'yi bir g
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-vm"></a>VM'yi Genelleştirme 
-Bu bölümde, Windows sanal makinenizi bir görüntü olarak kullanılmaya generalize gösterilir. VM'yi Genelleştirme, tüm kişisel hesap bilgilerinizi, başka şeylerin yanında kaldırır ve makine bir görüntü olarak kullanılacak hazırlar. Sysprep hakkında daha fazla ayrıntı için bkz: [Sysprep işlemini kullanma: Giriş](https://technet.microsoft.com/library/bb457073.aspx).
+Bu bölümde, Windows sanal makinenizi bir görüntü olarak kullanılmaya generalize gösterilir. VM'yi Genelleştirme, tüm kişisel hesap bilgilerinizi, başka şeylerin yanında kaldırır ve makine bir görüntü olarak kullanılacak hazırlar. Sysprep hakkındaki ayrıntılar için bkz.[Sysprep İşlemini Kullanma: Giriş](https://technet.microsoft.com/library/bb457073.aspx).
 
 Makinede çalışan sunucu rollerini Sysprep tarafından desteklendiğinden emin olun. Daha fazla bilgi için [sunucu rolleri için Sysprep desteği](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -48,7 +48,7 @@ Ayrıca kullanarak bir Linux VM genelleştirebilirsiniz `sudo waagent -deprovisi
 2. Yönetici olarak Komut İstemi penceresini açın. Dizinine **%windir%\system32\sysprep**ve ardından çalıştırın `sysprep.exe`.
 3. **Sistem Hazırlama Aracı** iletişim kutusunda  **Sistem İlk Çalıştırma Deneyimi (OOBE) Moduna Gir**'i seçin ve **Genelleştir** onay kutusunun seçili olduğundan emin olun.
 4. İçinde **kapatma seçenekleri**seçin **kapatma**.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
    
     ![Sysprep Başlat](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Sysprep tamamlandığında, sanal makineyi kapatır. 
@@ -89,7 +89,7 @@ Ayrıca kullanarak bir Linux VM genelleştirebilirsiniz `sudo waagent -deprovisi
     Stop-AzVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
    
-    *Durumu* Azure VM için portalı değişiklikleri **durduruldu** için **durduruldu (serbest bırakıldı)**.
+    *Durumu* Azure VM için portalı değişiklikleri **durduruldu** için **durduruldu (serbest bırakıldı)** .
 2. Sanal makinenin durumunu **Genelleştirmiş**. 
    
     ```powershell
