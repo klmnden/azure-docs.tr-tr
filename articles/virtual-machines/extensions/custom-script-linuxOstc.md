@@ -123,11 +123,11 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | string |
-| türü | CustomScriptForLinux | string |
-| typeHandlerVersion | 1,5 | int |
+| type | CustomScriptForLinux | string |
+| typeHandlerVersion | 1.5 | int |
 | fileUris (örn.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (örn.) | Python MyPythonScript.py \<param1 my\> | string |
-| enableInternalDNSCheck | true | boole |
+| enableInternalDNSCheck | true | boolean |
 | storageAccountName (örn.) | examplestorageacct | string |
 | storageAccountKey (örn.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
