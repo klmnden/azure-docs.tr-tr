@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551762"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları toplamalara Gelişmiş
@@ -130,11 +130,11 @@ Heartbeat
 
 | Kategori | TimeGenerated | count_ |
 |--------------|----------------------|--------|
-| Doğrudan Aracı | 2017-06-06T17:00:00Z | 15 |
-| Doğrudan Aracı | 2017-06-06T18:00:00Z | 60 |
-| Doğrudan Aracı | 2017-06-06T20:00:00Z | 55 |
-| Doğrudan Aracı | 2017-06-06T21:00:00Z | 57 |
-| Doğrudan Aracı | 2017-06-06T22:00:00Z | 60 |
+| Doğrudan aracı | 2017-06-06T17:00:00Z | 15 |
+| Doğrudan aracı | 2017-06-06T18:00:00Z | 60 |
+| Doğrudan aracı | 2017-06-06T20:00:00Z | 55 |
+| Doğrudan aracı | 2017-06-06T21:00:00Z | 57 |
+| Doğrudan aracı | 2017-06-06T22:00:00Z | 60 |
 | ... | ... | ... |
 
 Bu ancak ilişkili demetine sonuçları "2017-06-06T19:00:00Z" Bu saat için herhangi bir sinyal veri olmadığından eksik. Kullanım `make-series` boş demet için bir varsayılan değer atamak için işlevi. Bu, her iki ek bir dizi sütun kategorisiyle, değerleri için diğeri için eşleşen zaman demet için bir satır oluşturur:
@@ -146,7 +146,7 @@ Heartbeat
 
 | Kategori | count_ | TimeGenerated |
 |---|---|---|
-| Doğrudan Aracı | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
+| Doğrudan aracı | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
 
 Üçüncü öğesine *count_* dizi 0 beklendiği gibi olduğu ve eşleşen bir zaman damgası yok "2017-06-06T19:00:00.0000000Z" içinde _TimeGenerated_ dizisi. Bu dizi biçimi, ancak okuma zordur. Kullanım `mvexpand` diziler genişletin ve aynı biçimi tarafından oluşturulan çıktı üretmek için `summarize`:
@@ -160,12 +160,12 @@ Heartbeat
 
 | Kategori | TimeGenerated | count_ |
 |--------------|----------------------|--------|
-| Doğrudan Aracı | 2017-06-06T17:00:00Z | 15 |
-| Doğrudan Aracı | 2017-06-06T18:00:00Z | 60 |
-| Doğrudan Aracı | 2017-06-06T19:00:00Z | 0 |
-| Doğrudan Aracı | 2017-06-06T20:00:00Z | 55 |
-| Doğrudan Aracı | 2017-06-06T21:00:00Z | 57 |
-| Doğrudan Aracı | 2017-06-06T22:00:00Z | 60 |
+| Doğrudan aracı | 2017-06-06T17:00:00Z | 15 |
+| Doğrudan aracı | 2017-06-06T18:00:00Z | 60 |
+| Doğrudan aracı | 2017-06-06T19:00:00Z | 0 |
+| Doğrudan aracı | 2017-06-06T20:00:00Z | 55 |
+| Doğrudan aracı | 2017-06-06T21:00:00Z | 57 |
+| Doğrudan aracı | 2017-06-06T22:00:00Z | 60 |
 | ... | ... | ... |
 
 

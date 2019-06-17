@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: d41c2b541bf80448d180a1d081c255e5bf754e5e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147325"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK sürüm 3 yükseltme
@@ -26,7 +26,7 @@ Indexer execution result errors no longer have status
 the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
 --->
 
-2.0 Önizlemesi veya, eski bir sürümü kullanıyorsanız [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede, uygulamanızı sürüm 3'ü kullanacak şekilde yükseltin yardımcı olur.
+2\.0 Önizlemesi veya, eski bir sürümü kullanıyorsanız [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede, uygulamanızı sürüm 3'ü kullanacak şekilde yükseltin yardımcı olur.
 
 Örnekler de dahil olmak üzere SDK'sının daha genel bir kılavuz için bkz. [bir .NET uygulamasından Azure Search kullanma](search-howto-dotnet-sdk.md).
 

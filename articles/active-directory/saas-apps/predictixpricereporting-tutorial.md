@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 8074919a61ed4f2e3d0b127c13e733b0c485bf62
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 808b2d964bb39af6b410a84563717102ebece454
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890669"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Öğretici: Fiyat Predictix Raporlama ile Azure Active Directory Tümleştirmesi
 
@@ -95,7 +95,7 @@ Fiyat Predictix Raporlama ile Azure AD çoklu oturum açmayı yapılandırmak i�
 
 2. İçinde **tek bir oturum açma yönteminizi seçmeniz** Seç iletişim kutusunda **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için:
 
-    ![Çoklu oturum açma yöntemi seçin](common/select-saml-option.png)
+    ![Tek bir oturum açma yöntemi seçin](common/select-saml-option.png)
 
 3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim kutusunda:
 
@@ -156,7 +156,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
     1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    1. İçinde **kullanıcı adı** kutusuna **@ BrittaSimon\<yourcompanydomain >.\< Uzantı >**. (Örneğin, BrittaSimon@contoso.com.)
+    1. İçinde **kullanıcı adı** kutusuna **@ BrittaSimon\<yourcompanydomain >.\< Uzantı >** . (Örneğin, BrittaSimon@contoso.com.)
 
     1. Seçin **Göster parola**ve ardından içinde bir değer yazın **parola** kutusu.
 
@@ -172,7 +172,7 @@ Bu bölümde, fiyat Predictix raporlama için erişim vererek, Azure AD çoklu o
 
 2. Uygulamalar listesinde seçin **fiyat Predictix raporlama**.
 
-    ![Uygulama listesi](common/all-applications.png)
+    ![Uygulamaların listesi](common/all-applications.png)
 
 3. Sol bölmede seçin **kullanıcılar ve gruplar**:
 

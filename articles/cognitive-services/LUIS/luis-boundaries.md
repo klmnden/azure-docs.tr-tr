@@ -12,10 +12,10 @@ ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154565"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS modeline ve anahtarlar için sınırlar
@@ -28,7 +28,7 @@ Uygulamanızı LUIS modeline sınırları ve sınır aşarsa kullanmayı bir [LU
 
 |Alan|Sınır|
 |--|:--|
-| [Uygulama adı][luis-get-started-create-app] | * Max varsayılan karakter |
+| [Uygulama adı][luis-get-started-create-app] | \* Max varsayılan karakter |
 | [Toplu test etme][batch-testing]| 10 veri kümeleri, veri kümesi başına 1000 konuşma|
 | Açık listesi | uygulama başına 50|
 | Dış varlıklar | sınırsız |
@@ -43,11 +43,11 @@ Uygulamanızı LUIS modeline sınırları ve sınır aşarsa kullanmayı bir [LU
 | [Normal ifade varlıkları](./luis-concept-entity-types.md)|20 varlıklar<br>Maksimum 500 karakter. Normal ifade varlık deseni|
 | [Roller](luis-concept-roles.md)|uygulama başına 300 roller. Varlık başına 10 rolü|
 | [Utterance][utterances] | 500 karakter|
-| [Konuşma][utterances] | 15.000 uygulama başına - konuşma amacı başına sayısına bir sınır yoktur|
+| [Konuşma][utterances] | 15\.000 uygulama başına - konuşma amacı başına sayısına bir sınır yoktur|
 | [Sürümleri](luis-concept-version.md)| bir sınır yoktur |
 | [Sürüm adı][luis-how-to-manage-versions] | alfasayısal ve süre sınırlı 10 karakter (.) |
 
-* Varsayılan karakter en fazla 50 karakterdir. 
+\* Varsayılan karakter en fazla 50 karakterdir. 
 
 <a name="intent-and-entity-naming"></a>
 
@@ -76,7 +76,7 @@ Yazma anahtar yazma ve uç noktası için farklı sınırlara sahiptir. LUIS hiz
 |Language Understanding'i [abonelik] [ pricing] - S0 - temel katman|geçersiz|50/saniye|LUIS uç noktanızı sorgulama|
 |Bilişsel hizmet [abonelik] [ pricing] - S0 - standart katman|geçersiz|50/saniye|LUIS uç noktanızı sorgulama|
 |[Yaklaşım analizi tümleştirme](luis-how-to-publish-app.md#enable-sentiment-analysis)|geçersiz|Ücretsiz|Anahtar ifade veri ayıklama gibi yaklaşım bilgileri ekleme |
-|Konuşma tümleştirme|geçersiz|5.50 ABD Doları/1 bin uç nokta istekleri|Konuşulan utterance dönüştürmek için metin utterance ve LUIS sonuçlar döndürebilir.|
+|Konuşma tümleştirme|geçersiz|5\.50 ABD Doları/1 bin uç nokta istekleri|Konuşulan utterance dönüştürmek için metin utterance ve LUIS sonuçlar döndürebilir.|
 
 ## <a name="keyboard-controls"></a>Klavye denetimleri
 

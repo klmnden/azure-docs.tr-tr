@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a23b024737f6af1f6361983045037b325783518a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2555c0040c1f2b587adb57e808ed122a4d4ce808
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896008"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Öğretici: Yardi e-ÖĞRENİM ile Azure Active Directory Tümleştirme
 
@@ -56,7 +56,7 @@ Azure AD'de Yardi öğrenim tümleştirmesini yapılandırmak için Yardi öğre
 
 **Galeriden Yardi öğrenim eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

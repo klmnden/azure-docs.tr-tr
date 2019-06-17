@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 17cea353df0337b062b89cd440f79f7869450f8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113214"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Öğretici: Tetikleyici çok faktörlü kimlik doğrulaması ve parola değişiklikleri için risk olayları kullanın
 
 Bu öğreticide Azure AD Premium P2 ile sunulan ve bir izleme ve raporlama aracından fazlası olan Azure Active Directory (Azure AD) Kimlik Koruması özelliklerini etkinleştireceksiniz. Kuruluşunuzun kimliklerini korumak için riskli davranışlar karşısında otomatik olarak harekete geçen risk tabanlı ilkeler yapılandırabilirsiniz. Bu ilkeler erişimi otomatik olarak engelleyebilir veya parola değişikliği isteme ve Multi-Factor Authentication kullanılmasını zorlama gibi düzeltme işlemleri başlatabilir.
 
-Azure AD Kimlik Koruması ilkeleri var olan koşullu erişim ilkeleriyle birlikte kullanılarak ek bir koruma katmanı sunabilir. Kullanıcılarınız bu ilkelerin kullanılmasını gerektiren riskli davranışları tetiklemeyebilir ancak yönetici olarak onların koruma altında olduğunu bilirsiniz.
+Azure AD kimlik koruması ilkeleri var olan koşullu erişim ilkelerine ek olarak, ek bir koruma katmanı kullanılabilir. Kullanıcılarınız bu ilkelerin kullanılmasını gerektiren riskli davranışları tetiklemeyebilir ancak yönetici olarak onların koruma altında olduğunu bilirsiniz.
 
 Risk olayı tetikleyebilecek bazı durumlar şunlardır:
 
@@ -73,7 +73,7 @@ Microsoft, kullanıcı adı ve parola çiftlerini bulma amacıyla araştırmacı
 1. **Erişim** bölümünde **Erişime izin ver**'i ve ardından **Parola değişikliği iste**'yi seçin.
 1. "Seç"e tıklayın
 1. İlkeyi Zorla'yı **Açık** duruma getirin.
-1. **Kaydet**’e tıklayın
+1. **Kaydet**'e tıklayın.
 
 ### <a name="enable-risk-based-multi-factor-authentication"></a>Risk tabanlı Multi-Factor Authentication'ı etkinleştirme
 
@@ -85,7 +85,7 @@ Microsoft, kullanıcı adı ve parola çiftlerini bulma amacıyla araştırmacı
 1. **Erişim** bölümünde **Erişime izin ver**'i ve ardından **Çok faktörlü kimlik doğrulamasını gerekli kıl**'ı seçin.
 1. "Seç"e tıklayın
 1. İlkeyi Zorla'yı **Açık** duruma getirin.
-1. **Kaydet**’e tıklayın
+1. **Kaydet**'e tıklayın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

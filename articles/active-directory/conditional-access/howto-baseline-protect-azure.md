@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00ed40bef3f3cbe59825f546ffa39c3ebfb2e41f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 24b54a3645fe97903219841dd148c0942dfcda76
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003184"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112380"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Temel ilke: MFA istemek için Hizmet Yönetimi (Önizleme)
 
@@ -24,7 +24,7 @@ Kuruluşunuzdaki çeşitli Azure hizmetlerini kullanıyor olabilir. Bu hizmetler
 
 * Azure portal
 * Azure PowerShell
-* Azure CLI'si
+* Azure CLI
 
 Hizmetlerinizi yönetmek üzere Azure Resource Manager kullanarak üst düzeyde ayrıcalıklı bir işlemdir. Azure Resource Manager, Kiracı genelindeki yapılandırmalar, hizmet ayarları ve abonelik faturalama gibi değiştirebilirsiniz. Tek faktörlü kimlik doğrulaması, kimlik avı ve parola ilaç gibi saldırıları çeşitli savunmasızdır. Bu nedenle, erişime izin vermeden önce çok faktörlü kimlik doğrulaması gerektirerek yapılandırmaları, güncelleştirme ve Azure Resource Manager'a erişmek isteyen kullanıcıların kimliğini doğrulamak önemlidir.
 
@@ -40,7 +40,7 @@ Etkileşimli oturum açma kullanarak gerçekleştirmek için [Azure Powershell](
 Connect-AzAccount
 ```
 
-Bu cmdlet çalıştırıldığında bir belirteç dizesi sunar. Oturum açmak için bu dizesini kopyalayın ve yapıştırın [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) bir tarayıcıda. Azure’a bağlanmak için PowerShell oturumunuzun kimliği doğrulanır.
+Bu cmdlet çalıştırıldığında bir belirteç dizesi sunar. Oturum açmak için bu dizesini kopyalayın ve yapıştırın [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)  bir tarayıcıda. Azure’a bağlanmak için PowerShell oturumunuzun kimliği doğrulanır.
 
 Etkileşimli oturum açma kullanarak gerçekleştirmek için [Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)çalıştırın [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) komutu.
 

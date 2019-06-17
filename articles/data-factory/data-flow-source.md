@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234556"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67117890"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Eşleme veri akışı kaynak dönüşümü 
 
@@ -65,13 +65,13 @@ Bir select dönüştürme sütun adları daha sonra değiştirebilirsiniz. Bir t
 
 Üzerinde **İyileştir** kaynak dönüştürme için sekmesinde görebileceğiniz bir **kaynak** lüm türü. Bu seçenek, yalnızca Azure SQL veritabanı kaynağınızın olduğunda kullanılabilir. Data Factory bağlantıları SQL veritabanı kaynağınızın karşı büyük sorguları çalıştırmak için paralel hale getirmeyi denediğinden budur.
 
-![Kaynak bölüm ayarları](media/data-flow/sourcepart2.png "bölümleme")
+![Kaynak bölüm ayarları](media/data-flow/sourcepart3.png "bölümleme")
 
 Verileri bölümlemek için SQL veritabanı kaynağınız yoksa, ancak bölümleri büyük sorgular için kullanışlıdır. Bir sütun veya bir sorgu bölümünüz temel alabilir.
 
 ### <a name="use-a-column-to-partition-data"></a>Sütun bölümü veri kullanın
 
-Kaynak tablonuzdan bölüme bir sütun seçin. Ayrıca en fazla bağlantı sayısını ayarlayın.
+Kaynak tablonuzdan bölüme bir sütun seçin. Ayrıca, bölüm sayısını ayarlayın.
 
 ### <a name="use-a-query-to-partition-data"></a>Verileri bölümleme için bir sorgu kullanın
 
@@ -84,9 +84,39 @@ Kaynak dosyaları yönetmek için Ayarlar'ı seçin.
 ![Yeni kaynak ayarları](media/data-flow/source2.png "yeni ayarlar")
 
 * **Joker karakter yolu**: Kaynak klasörünüzden bir desenle eşleşen dosyaları bir dizi seçin. Bu ayar, herhangi bir dosyada, veri kümesi tanımı geçersiz kılar.
+
+Joker karakter örnekler:
+
+* ```*``` Tüm karakterleri kümesini temsil eder
+* ```**``` Özyinelemeli dizin iç içe geçme temsil eder
+* ```?``` Bir karakter değiştirir
+* ```[]``` Bir köşeli ayraçlar içinde daha fazla karakter ile eşleşir
+
+* ```/data/sales/**/*.csv``` Tüm csv dosyalarını /data/sales altında alır
+* ```/data/sales/20??/**``` Tüm dosyalar 20 yüzyılda alır
+* ```/data/sales/2004/*/12/[XY]1?.csv``` 2004'te aralık X ile başlayan tüm csv dosyalarını alır veya 2-basamaklı bir sayı önek olarak kullanılan Y
+
+Kapsayıcı kümesinde belirtilmiş olması gerekir. Bu nedenle, joker karakter yolu Ayrıca, kök klasöründen klasör yolu içermesi gerekir.
+
 * **Dosyaların listesini**: Bu dosya kümesidir. İşlemek için göreli yol dosyaların listesini içeren bir metin dosyası oluşturun. Bu metin dosyasını göstermek.
 * **Dosya adı depolamak için sütun**: Kaynak dosyanın adı, bir sütunda, verilerinizi Store. Dosya adı dizesi depolamak için yeni bir ad girin.
 * **Tamamlandıktan sonra**: Veri akış çalıştırmaları, kaynak dosyayı silin veya kaynak dosyayı taşıma sonra kaynak dosya ile yapmamak seçin. Göreli taşımak yollardır.
+
+Kaynak dosyaları için başka bir konuma sonrası işleme taşımak için önce "Taşıma" dosya işlemi için seçin. Ardından, "Kimden" dizinini ayarlayın. Herhangi bir joker karakter yolu için kullanmıyorsanız sonra "Kimden" ayarı, kaynak klasör ile aynı klasörde olacaktır.
+
+Örneğin bir joker karakter kaynak yolu varsa:
+
+```/data/sales/20??/**/*.csv```
+
+"Kimden" olarak belirtebilirsiniz.
+
+```/data/sales```
+
+Ve "" olarak
+
+```/backup/priorSales```
+
+Bu durumda, kaynağı /data/sales altındaki tüm alt dizinleri göre /backup/priorSales taşınır.
 
 ### <a name="sql-datasets"></a>SQL veri kümeleri
 

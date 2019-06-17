@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: b2b3d1ac0a7c0e917f87be1dd131120f63a70f8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b245661ab8f26c1f529a049d326d2c72838c7a17
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142804"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056733"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Hive ambarı Bağlayıcısı ile Apache Hive ve Apache Spark'ı tümleştirme
 
@@ -20,7 +20,7 @@ Apache Hive ambarı Bağlayıcısı (HWC), Apache Hive ve Apache Spark ile DataF
 
 Hive ambarı Bağlayıcısı güçlü büyük veri uygulamaları oluşturmak için Hive'ı ve Spark'ın benzersiz özelliklerinden yararlanmanıza olanak sağlar. Apache Hive veritabanı işlemler atomik, Consistent, Isolated ve dayanıklı (ACID) için destek sunar. ACID hakkında daha fazla bilgi ve Hive işlemleri için bkz: [Hive işlemleri](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive, Apache Ranger ve düşük gecikme süresi analitik işleme Apache Spark, kullanılabilir değil aracılığıyla ayrıntılı güvenlik denetimleri de sunar.
 
-Apache Spark bir yapılandırılmış Akış akış özellikleri kullanılabilir değil, Apache Hive veren API vardır. Hortonworks Data Platform (HDP) 3.0 ile başlayarak, Apache Spark ve Apache Hive, birlikte çalışabilirlik zorlaştırabilir ayrı meta depolar vardır. Hive ambarı Bağlayıcısı, Spark ve Hive birlikte kullanmayı kolaylaştırır. HWC kitaplığı paralel olarak daha etkili ve ölçeklenebilir bir standart Hive JDBC bağlantı spark'tan kullanmaktan yapmadan Spark Yürütücü için LLAP Daemon'ları verileri yükler.
+Apache Spark bir yapılandırılmış Akış akış özellikleri kullanılabilir değil, Apache Hive veren API vardır. HDInsight 4.0 ile başlayarak, 2.3.1 Apache Spark ve Apache Hive 3.1.0 birlikte çalışabilirlik zorlaştırabilir ayrı meta depolar vardır. Hive ambarı Bağlayıcısı, Spark ve Hive birlikte kullanmayı kolaylaştırır. HWC kitaplığı paralel olarak daha etkili ve ölçeklenebilir bir standart Hive JDBC bağlantı spark'tan kullanmaktan yapmadan Spark Yürütücü için LLAP Daemon'ları verileri yükler.
 
 ![Mimari](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -231,7 +231,7 @@ Verilerini bir Hive tablosuna 9999 localhost bağlantı noktası üzerinde bir S
     1. Hive hizmet kümenizin tıklayın **Hive**.
         ![ranger İlkesi uygulanmadan önce tanıtım tablo](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
     1. Tıklayarak **maskeleme** sekmesini ve ardından **Add New Policy** ![ilke listesi](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
-    1. İstenen ilke adı belirtin. Veritabanı seçin: **Varsayılan**, Hive tablosu: **tanıtım**, Hive sütun: **adı**, kullanıcı: **rsadmin2**, erişim türleri: **seçin**ve **Kısmi maskesi: son 4 Göster** gelen **maskeleme seçenek** menüsü. **Ekle**'ye tıklayın.
+    1. İstenen ilke adı belirtin. Veritabanı seçin: **Varsayılan**, Hive tablosu: **tanıtım**, Hive sütun: **adı**, kullanıcı: **rsadmin2**, erişim türleri: **seçin**ve **Kısmi maskesi: son 4 Göster** gelen **maskeleme seçenek** menüsü. **Ekle**'yi tıklatın.
                 ![ilke listesi](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Tablonun içeriğini yeniden görüntüleyin. Ranger İlkesi uygulandıktan sonra yalnızca son dört karakterini sütunun görebiliriz.
 
@@ -239,5 +239,5 @@ Verilerini bir Hive tablosuna 9999 localhost bağlantı noktası üzerinde bir S
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight ile etkileşimli Sorgu'yu kullanma](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+* [Etkileşimli Sorguyu HDInsight ile Kullanma](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
 * [Zeppelin, Livy, kullanarak Hive ambarı bağlayıcısıyla etkileşim örnekleri spark-submit ve pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

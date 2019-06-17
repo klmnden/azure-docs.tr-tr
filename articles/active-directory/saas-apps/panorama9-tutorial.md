@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ff26acc1050a6104525ec44304fd9fee21d6d3cb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c88088b804f90769512d33a5e96fdedc5ce6fba8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904357"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094920"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Öğretici: Panorama9 ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Panorama9 tümleştirmesini yapılandırmak için Panorama9 Galeride
 
 **Galeriden Panorama9 eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9a6f162a10408469669cf40b29efc6d2903944
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 612bdd2a5813237f05e9a30a0c90c3b643ece4b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111427"
 ---
 # <a name="authentication-flows"></a>Kimlik doğrulama akışları
 
@@ -51,7 +51,7 @@ Etkileşimli olarak belirli platformlarda belirteçlerini almak için MSAL.NET k
 
 MSAL.js etkileşimli çağrılar hakkında daha fazla bilgi için okuma [istemi davranışı MSAL.js etkileşimli istekleri](msal-js-prompt-behavior.md)
 
-## <a name="implicit-grant"></a>Örtük izin verme
+## <a name="implicit-grant"></a>Örtülü izin
 
 MSAL destekler [2 OAuth örtük izin akışı](v2-oauth2-implicit-grant-flow.md), belirteçleri Microsoft kimlik platformu ' bir arka uç sunucusuna gerçekleştirmeden kimlik bilgisi alışverişinin ve uygulamayı sağlar. Bu, kullanıcının oturumunu, oturumu korumak ve istemcideki tüm diğer web API'leri belirteçleri JavaScript kodu alma okumasına izin verir.
 
@@ -138,10 +138,10 @@ Cihaz kod akışı kullanarak, uygulama belirteçleri bu cihazları/OS için öz
   - veya, tüm iş ve Okul hesapları (`https://login.microsoftonline.com/organizations/`).
 - Kişisel Microsoft hesapları, Azure AD v2.0 uç noktası tarafından henüz desteklenmiyor (kullanamazsınız `/common` veya `/consumers` kiracılar).
 
-## <a name="integrated-windows-authentication"></a>Tümleşik Windows Kimlik Doğrulaması
+## <a name="integrated-windows-authentication"></a>Tümleşik Windows kimlik doğrulaması
 MSAL, Masaüstü için tümleşik Windows kimlik doğrulaması (IWA) destekler veya Windows bilgisayar bir etki alanına katılmış veya Azure AD üzerinde çalışan mobil uygulamalar birleştirilmiş. IWA kullanarak bu uygulamaları sessizce (olmadan herhangi bir kullanıcı Arabirimi etkileşimi kullanıcıdan) bir belirteç elde edebilirsiniz. 
 
-![Tümleşik Windows Kimlik Doğrulaması](media/msal-authentication-flows/integrated-windows-authentication.png)
+![Tümleşik Windows kimlik doğrulaması](media/msal-authentication-flows/integrated-windows-authentication.png)
 
 1. Tümleşik Windows kimlik doğrulaması kullanarak bir belirteç alır.
 2. Kaynak isteğinde bulunmak için bu belirteci kullanır.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 154efffcb1f86907fefecc060419c1d9450470f8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f992aed6eba775052483b1657d04dead18b2b2ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237337"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059182"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Düzenli yedekleme ve geri yükleme Azure Service fabric'te
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Service Fabric, bir dizi API aşağıdaki işlevselliği ilgili düzenli yedekle
 - Bekletme yönetim yedeklerini (yakında)
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Service Fabric kümesi yapıyla 6.2 sürümü ve üzeri. Windows Server'da küme ayarlanması. Bu [makale](service-fabric-cluster-creation-for-windows-server.md) gerekli paketi indirmek adımlar.
+* Service Fabric kümesi sürümü 6.4 yapıyla veya üzeri. Bu [makale](service-fabric-cluster-creation-for-windows-server.md) gerekli paketi indirmek adımlar.
 * Yedeklemeleri depolamak için depolama alanına bağlanmak için gereken gizli şifreleme için X.509 sertifikası. Başvuru [makale](service-fabric-windows-cluster-x509-security.md) nasıl almaya veya bir otomatik olarak imzalanan X.509 sertifikası oluşturmak için bilmeniz gereken.
 
 * Service Fabric SDK'sı sürüm 3.0 kullanılarak oluşturulan Service Fabric durum bilgisi güvenilir olan uygulama veya üzeri. .Net Core hedefleyen uygulamalar için 2.0, uygulama kullanarak Service Fabric SDK'sı sürüm 3.1 oluşturulur veya üzeri.

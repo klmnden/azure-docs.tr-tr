@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 655f8555f9e7fb04d69f35048b7fdec0fb1cebce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f12b564ac2827cae98e9029fc9c6ce20862fa6ea
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871495"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096825"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Öğretici: Azure Active Directory tümleştirmesiyle Moxi etkileşim kurun
 
@@ -52,7 +52,7 @@ Tümleştirilmesi Moxi etkileşim kurun, Azure AD'de yapılandırmak için Moxi 
 
 **Galeriden Moxi etkileşim eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

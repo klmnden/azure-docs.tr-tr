@@ -2,7 +2,7 @@
 title: Azure Active Directory koşullu erişim koşulları nelerdir? | Microsoft Docs
 description: Koşul bir ilkeyi tetiklemek için Azure Active Directory koşullu erişim nasıl kullanıldığı hakkında bilgi edinin.
 services: active-directory
-keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
+keywords: Koşullu erişim uygulamalara, Azure AD koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim ile koşullu erişim
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 83263b3536100ce16819002c833754d18ac12816
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861539"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112607"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları nelerdir?
 
@@ -73,7 +73,7 @@ Kuruluşlar, aşağıdaki seçeneklerden birini seçebilirsiniz:
 > [!NOTE]
 > Bir ilkenin belirli uygulamaları hariç tutabilirsiniz. Ancak, bu uygulamalar yine de erişim hizmetleri için uygulanan ilkelerle tabidir.
 
-**Kullanıcı eylemlerini** bir kullanıcı tarafından gerçekleştirilen görevlerdir. Yalnızca şu anda desteklenen eylemi **kaydetme güvenlik bilgilerini (Önizleme)**, olanak sağlayan birleşik bir kayıt için etkin kullanıcılar kendi güvenlik kaydetmeyi denediğinizde zorlamak koşullu erişim ilkesi bilgiler. Daha fazla bilgi makalesinde bulunabilir [birleştirilmiş güvenlik bilgileri kayıt (Önizleme) etkinleştir](../authentication/howto-registration-mfa-sspr-combined.md).
+**Kullanıcı eylemlerini** bir kullanıcı tarafından gerçekleştirilen görevlerdir. Yalnızca şu anda desteklenen eylemi **kaydetme güvenlik bilgilerini (Önizleme)** , olanak sağlayan birleşik bir kayıt için etkin kullanıcılar kendi güvenlik kaydetmeyi denediğinizde zorlamak koşullu erişim ilkesi bilgiler. Daha fazla bilgi makalesinde bulunabilir [birleştirilmiş güvenlik bilgileri kayıt (Önizleme) etkinleştir](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## <a name="sign-in-risk"></a>Oturum açma riski
 
@@ -125,7 +125,7 @@ Bu koşul için yaygın kullanım örnekleri aşağıdaki koruma ilkeleriyle şu
 
 - Bir hizmetin belirli ülke veya bölgelerden erişen kullanıcılar için erişimi engelleyin. 
 
-Daha fazla bilgi için [konum koşulu Azure Active Directory koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+Daha fazla bilgi için [konum koşulu, Azure Active Directory koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 
 ## <a name="client-apps"></a>İstemci uygulamaları
@@ -168,7 +168,7 @@ Yalnızca seçebilirsiniz **Exchange ActiveSync istemcileri** varsa:
 
 - Bir ilkede yapılandırılabilecek diğer koşullar yoktur. Ancak, bu koşul yalnızca uygulanacak kapsamını daraltmak daraltabilirsiniz [desteklenen platformlar](technical-reference.md#device-platform-condition).
  
-    ![İlkeyi yalnızca desteklenen platformlara uygula](./media/conditions/33.png)
+    ![İlkeyi yalnızca desteklenen platformlara Uygula](./media/conditions/33.png)
 
 
 Ne zaman erişim engellendi bir [yönetilen cihaz](require-managed-devices.md) olan gerekli, etkilenen kullanıcılar bunları Intune kullanacak şekilde yol gösteren tek bir posta alın. 
@@ -182,7 +182,7 @@ Kullanıcılar ve gruplar için bu ayarı yalnızca hedefleyebilirsiniz. Konukla
 
  Daha fazla bilgi için bkz.
 
-- [SharePoint Online ve Exchange Online için Azure Active Directory koşullu erişim ayarlama](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
+- [Azure Active Directory koşullu erişim için SharePoint Online ve Exchange Online ayarlama](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
 - [Azure Active Directory uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
@@ -190,7 +190,7 @@ Kullanıcılar ve gruplar için bu ayarı yalnızca hedefleyebilirsiniz. Konukla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Koşullu erişim ilkesini yapılandırma konusunda bilgi edinmek için bkz: [hızlı başlangıç: Azure Active Directory koşullu erişimiyle belirli uygulamalar için mfa'yı gerekli](app-based-mfa.md).
+- Koşullu erişim ilkesini yapılandırma konusunda bilgi edinmek için bkz: [hızlı başlangıç: Azure Active Directory koşullu erişimiyle birlikte belirli uygulamalar için mfa'yı gerekli](app-based-mfa.md).
 
-- Ortamınız için koşullu erişim ilkeleri yapılandırmak için bkz: [Azure Active Directory'de koşullu erişim için en iyi yöntemler](best-practices.md). 
+- Ortamınız için koşullu erişim ilkeleri yapılandırmak için bkz: [Azure Active Directory'de koşullu erişim için en iyi uygulamalar](best-practices.md). 
 

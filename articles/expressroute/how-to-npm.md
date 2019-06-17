@@ -9,10 +9,10 @@ ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60840328"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute için Ağ Performansı İzleyicisi’ni Yapılandırma
@@ -139,7 +139,7 @@ Kolayca aracılarınızı iletişim kurduğunu doğrulayabilirsiniz.
 3. Tıklayın **Azure Log Analytics** sekmesi.
 4. İçinde **durumu** sütun, aracıyı Azure İzleyici günlüklerine başarıyla bağlandı görmelisiniz.
 
-   ![durum](./media/how-to-npm/12.png)
+   ![status](./media/how-to-npm/12.png)
 
 ### <a name="firewall"></a>2.5: İzleme Aracısı sunucu güvenlik duvarı bağlantı noktalarını açmanız
 
@@ -206,7 +206,7 @@ Microsoft eşlemesi için izlemek istediğiniz Microsoft eşleme bağlantıları
 
 1. Denetleme **bu eşlemeyi İzle** onay kutusu. 
 2. (İsteğe bağlı) Hedef Microsoft hizmet uç noktası değiştirebilirsiniz. Varsayılan olarak, NPM, hedef olarak bir Microsoft Hizmeti uç noktası seçer. NPM, bu hedef uç noktasına ExpressRoute aracılığıyla şirket içi sunucularınıza bağlantısını izler. 
-    * Bu hedef uç nokta değiştirmek için tıklayın **(Düzenle)** altında bağlantı **hedef:**, başka bir Microsoft hizmeti hedef uç nokta URL'leri listesinden seçin.
+    * Bu hedef uç nokta değiştirmek için tıklayın **(Düzenle)** altında bağlantı **hedef:** , başka bir Microsoft hizmeti hedef uç nokta URL'leri listesinden seçin.
       ![Hedef Düzenle](./media/how-to-npm/edit_target.png)<br>
 
     * Özel URL veya IP adresi kullanabilirsiniz. Bu seçenek, Microsoft Azure PaaS hizmetlerine, Azure depolama, SQL veritabanları ve genel IP adreslerinde sunulan Web siteleri gibi bir bağlantı kurmak için eşleme kullanıyorsanız özellikle geçerlidir. Bunu yapmak için bağlantıya tıklayın **(Bunun yerine özel URL veya IP adresi kullanın)** URL listesi sonunda, ExpressRoute Microsoft eşlemesi üzerinden bağlı, Azure PaaS hizmeti genel uç noktasını girin.

@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6112facfc0c10d7a0a0495cd778fa6c3cb6130a7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 79ffb31dd41e600344d341d17e07ad13d5fcd7f8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962142"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111089"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Bir Android uygulamasından Microsoft Graph'i çağırmaya ve kullanıcılarının oturumunu
 
@@ -62,7 +62,7 @@ Bu kılavuz, aşağıdaki kimlik doğrulama kitaplığı kullanır:
 
 Bu öğreticide, yeni bir proje oluşturur. Tamamlanan öğretici bunun yerine, karşıdan yüklemek isterseniz [kodu indirmek](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
 1. Android Studio'yu açın ve seçin **yeni bir Android Studio projesi Başlat**.
     - Android Studio açıksa seçin **dosya** > **yeni** > **yeni proje**.
@@ -70,11 +70,11 @@ Bu öğreticide, yeni bir proje oluşturur. Tamamlanan öğretici bunun yerine, 
 3. Uygulamanızı adlandırın, Ayarla `Minimum API level` için **19 ya da daha yeni bir API**, isabet **son**.
 5. İçinde `app/build.gradle`ayarlayın `targetedSdkVersion` 27 için. 
 
-## <a name="register-your-application"></a>Uygulamanızı kaydedin
+## <a name="register-your-application"></a>Uygulamanızı kaydetme
 
 Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi kaydedebilirsiniz.
 
-### <a name="register-your-app"></a>Uygulamanızı kaydedin
+### <a name="register-your-app"></a>Uygulamanızı kaydetme
 
 1. Git [Azure portalında](https://aka.ms/MobileAppReg) > seçin `New registration`. 
 2. Girin bir **adı** uygulamanızın > `Register`. **Bu aşamada bir yeniden yönlendirme URI'si ayarlamayın**. 
@@ -178,7 +178,7 @@ Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi ka
 
 ### <a name="add-msal-to-your-project"></a>MSAL projenize ekleyin.
 
-1. Android Studio'da **Gradle betiklerini** > **build.gradle (modül: uygulama)**.
+1. Android Studio'da **Gradle betiklerini** > **build.gradle (modül: uygulama)** .
 2. Altında **bağımlılıkları**, aşağıdaki kodu yapıştırın:
 
     ```gradle  
@@ -281,7 +281,7 @@ Yukarıdaki kod bloğunu uygulamanız aracılığıyla açtıklarında sessizce 
 
 MSAL, belirteç almaya yönelik başlıca iki yöntem sunar: `acquireTokenSilentAsync` ve `acquireToken`.  
 
-`acquireTokenSilentAsync` bir kullanıcı ve get belirteçleri hesabınız varsa herhangi bir kullanıcı etkileşimi olmadan oturum açtığında. MSAL başarılı olursa, bu başarısız olursa, uygulama belirteçleri üretir iletimli olacak bir `MsalUiRequiredException`.  Bu özel durum oluşturulur veya kullanıcı deneyimi (kimlik bilgileri, mfa veya diğer koşullu erişim ilkeleri olabilir veya gerekli olmayabilir) etkileşimli bir oturum için isterseniz daha sonra kullanabileceğiniz `acquireToken`.  
+`acquireTokenSilentAsync` bir kullanıcı ve get belirteçleri hesabınız varsa herhangi bir kullanıcı etkileşimi olmadan oturum açtığında. MSAL başarılı olursa, bu başarısız olursa, uygulama belirteçleri üretir iletimli olacak bir `MsalUiRequiredException`.  Bu özel durum oluşturulur veya kullanıcı deneyimi (kimlik bilgileri, mfa veya diğer koşullu ilkeleri olabilir veya gerekli olmayabilir erişim) etkileşimli bir oturum için isterseniz daha sonra kullanabileceğiniz `acquireToken`.  
 
 `acquireToken` her zaman kullanıcı Arabirimi, kullanıcının oturum açmasını ve belirteçleri almak çalışırken gösterilir; Ancak, bu tarayıcıda oturum tanımlama bilgileri veya Microsoft authenticator hesap etkileşimli SSO bir deneyim sunmak için kullanabilirsiniz. 
 

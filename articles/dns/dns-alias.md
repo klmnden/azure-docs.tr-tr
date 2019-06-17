@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: ff71eb7d1386226e29b3f0846e0894a553f978e5
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0d52e84ba027f902cebf543ae019b5e4b53400b7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754240"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059692"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS diğer ad kayıtlarını genel bakış
 
@@ -53,7 +53,7 @@ Bu senaryo, Öncekine benzer. Belki de bir uygulama taşınır veya temel sanal 
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Konak yük dengeli uygulamalarda bölgenin tepesindeki
 
-DNS protokolü, bölge tepesinde CNAME kayıtları atanmasını engeller. Örneğin; etki alanı contoso.com ise CNAME kayıtlarını somelable.contoso.com oluşturabilirsiniz; ancak CNAME contoso.com için oluşturamazsınız.
+DNS protokolü, bölge tepesinde CNAME kayıtları atanmasını engeller. Örneğin; etki alanı contoso.com ise CNAME kayıtlarını somelabel.contoso.com oluşturabilirsiniz; ancak CNAME contoso.com için oluşturamazsınız.
 Bu kısıtlama sahip yük dengeli uygulamalarda uygulama sahipleri için sorun oluşturur ardında [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Bir Traffic Manager profili kullanarak bir CNAME kaydı oluşturulmasını gerektirdiğinden, bölge tepesinde Traffic Manager profilinde işaret etmek mümkün değildir.
 
 Bu sorun, diğer ad kayıtlarını kullanan çözülür. CNAME kayıtları aksine bölgenin tepesinde diğer ad kayıtlarını oluşturulur ve uygulama sahipleri kendi bölge tepesinde kayıt dış uç noktaları olan bir Traffic Manager profiline işaret edecek şekilde kullanabilirsiniz. Uygulama sahibi kendi DNS bölgesi içinde başka bir etki alanı için kullanılan aynı Traffic Manager profilini gelin.

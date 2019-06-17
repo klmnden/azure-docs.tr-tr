@@ -8,42 +8,43 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6eeca062bdc17ec207910b9ba4aa8cea4048f849
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451313"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080496"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Mevcut bir projeyi OPC İkizi dağıtma
 
-OPC İkizi modülü, IOT Edge üzerinde çalışır ve birkaç uç hizmetlerinin OPC İkizi ve kayıt defteri hizmetleri sağlar. 
+OPC İkizi modülü, IOT Edge üzerinde çalışır ve birkaç uç hizmetlerinin OPC İkizi ve kayıt defteri hizmetleri sağlar.
 
 OPC İkizi mikro hizmet, Fabrika işleçler ve OPC UA sunucu cihazlarınıza fabrika düzeyinde bir OPC İkizi IOT Edge modülü aracılığıyla arasındaki iletişimi kolaylaştırır. Mikro hizmet, REST API aracılığıyla OPC UA Hizmetleri (göz atma, okuma, yazma ve yürütme) kullanıma sunar. 
 
 OPC UA cihaz kayıt defteri mikro hizmet kayıtlı OPC UA uygulamalar ve uç noktalarını erişim sağlar. Operatörler ve yöneticiler kaydedebilir ve OPC UA yeni uygulama kaydı ve uç noktaları da dahil olmak üzere varolanları göz atın. Uygulama ve uç nokta yönetim ek olarak, kayıt defteri hizmeti ayrıca kayıtlı OPC İkizi IOT Edge modülleri kataloglar. Hizmet API'si size edge modül işlevselliği, örneğin, başlatma veya sunucu bulma (Tarama Hizmetleri) durdurma veya OPC İkizi mikro hizmet kullanılarak erişilebilir yeni uç nokta çiftleri etkinleştirme denetimi.
 
-Bir çekirdek modülünün gözetmen kimliktir. Gözetmen, karşılık gelen OPC UA kayıt API'si kullanılarak etkinleştirilen OPC UA sunucu uç noktaları için karşılık gelen uç nokta ikizi yönetir. Bu uç nokta çiftleri OPC UA durum bilgisi olan güvenli bir kanal üzerinden yönetilen uç noktasına gönderilen OPC UA ikili iletileri içinde bulutta çalışan OPC İkizi mikro hizmetten alınan JSON çevir. Gözetmen, cihaz bulma olayları işlemek, burada bu olayları OPC UA kayıt defterine güncelleştirmesi sonucu OPC UA cihaz ekleme Hizmeti'ne gönderme bulma hizmetleri de sağlar.  Bu makalede, var olan bir projeye OPC İkizi modülü dağıtmayı gösterir. 
+Bir çekirdek modülünün gözetmen kimliktir. Gözetmen, karşılık gelen OPC UA kayıt API'si kullanılarak etkinleştirilen OPC UA sunucu uç noktaları için karşılık gelen uç nokta ikizi yönetir. Bu uç nokta çiftleri OPC UA durum bilgisi olan güvenli bir kanal üzerinden yönetilen uç noktasına gönderilen OPC UA ikili iletileri içinde bulutta çalışan OPC İkizi mikro hizmetten alınan JSON çevir. Gözetmen, cihaz bulma olayları işlemek, burada bu olayları OPC UA kayıt defterine güncelleştirmesi sonucu OPC UA cihaz ekleme Hizmeti'ne gönderme bulma hizmetleri de sağlar.  Bu makalede, var olan bir projeye OPC İkizi modülü dağıtmayı gösterir.
 
 > [!NOTE]
 > Dağıtım ayrıntıları ve yönergeleri hakkında daha fazla bilgi için bkz. GitHub [depo](https://github.com/Azure/azure-iiot-opc-twin-module).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-PowerShell sahip olduğunuzdan emin olun ve [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) yüklü uzantıları.   Henüz yapmadıysanız, bu GitHub deposunu kopyalayın.  Bir komut istemi veya terminal açın ve çalıştırın:
+PowerShell sahip olduğunuzdan emin olun ve [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) yüklü uzantıları. Henüz bunu yapmadıysanız, bu GitHub deposunu kopyalayın. PowerShell'de aşağıdaki komutları çalıştırın:
 
-```bash
-git clone --recursive https://github.com/Azure/azure-iiot-components 
+```powershell
+git clone --recursive https://github.com/Azure/azure-iiot-components.git
 cd azure-iiot-components
 ```
 
 ## <a name="deploy-industrial-iot-services-to-azure"></a>Endüstriyel IOT Hizmetleri Azure'da dağıtma
 
-1. Açık komut istemi veya terminal çalıştırın:
+1. PowerShell oturumunuzda çalıştırın:
 
-   ```bash
-   deploy
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy.cmd
+    ```
 
 2. Web sitesine dağıtım kaynak grubu için bir ad ve bir ad atamak için yönergeleri izleyin.   Betik, mikro hizmetler ve Azure platformu bağımlılıklarını Azure aboneliğinizdeki kaynak grubuna dağıtır.  Betik, bir uygulama OAUTH tabanlı kimlik doğrulamasını desteklemek için Azure Active Directory (AAD) kiracısında de kaydeder.  Dağıtım birkaç dakika sürer.  Çözüm başarıyla dağıtıldıktan sonra görmek bir örnek:
 
@@ -77,11 +78,12 @@ Dağıtım betiği iki AAD uygulaması Azure Active Directory'ye kaydetmeniz den
 
 Yalnızca hizmetlerini ve bağımlılıklarını yerine bir hepsi bir arada Tanıtımı da dağıtabilirsiniz.  Bir tanıtım, tüm üç OPC UA sunucuları, OPC İkizi modülü, tüm mikro hizmetler ve örnek bir Web uygulaması içerir.  Bu tanıtım amacıyla tasarlanmıştır.
 
-1. (Yukarıya bakın) deponun bir kopyasını sağlayın. Çalıştırma ve depo kök dizininde bir komut istemi veya terminal açın:
+1. (Yukarıya bakın) deponun bir kopyasını sağlayın. Çalıştırma ve depo kök dizininde bir PowerShell istemi açın:
 
-   ```bash
-   deploy -type demo
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy -type demo
+    ```
 
 2. Kaynak grubunu ve Web sitesi için bir ad için yeni bir ad atamak için istemleri izleyin.  Betik başarıyla dağıtıldıktan sonra web uygulama uç noktası URL'si görüntüler.
 
@@ -89,49 +91,49 @@ Yalnızca hizmetlerini ve bağımlılıklarını yerine bir hepsi bir arada Tan�
 
 Betiği aşağıdaki parametreleri alır:
 
-```bash
+```powershell
 -type
 ```
 
 Dağıtım (yerel, vm, demo) türü
 
-```bash
+```powershell
 -resourceGroupName
 ```
 
 Var olan veya yeni bir kaynak grubu adı olabilir.
 
-```bash
+```powershell
 -subscriptionId
 ```
 
 İsteğe bağlı, kaynakların dağıtılacağı abonelik kimliği.
 
-```bash
+```powershell
 -subscriptionName
 ```
 
 Veya abonelik adı.
 
-```bash
+```powershell
 -resourceGroupLocation
 ```
 
 İsteğe bağlı, bir kaynak grubu konumu. Belirtilmişse, bu konumda yeni bir kaynak grubu oluşturmak çalışacaktır.
 
-```bash
+```powershell
 -aadApplicationName
 ```
 
-Altında kaydetmek üzere AAD uygulaması için bir ad. 
+Altında kaydetmek üzere AAD uygulaması için bir ad.
 
-```bash
+```powershell
 -tenantId
 ```
 
 AAD kiracısı'kullanılacak.
 
-```bash
+```powershell
 -credentials
 ```
 

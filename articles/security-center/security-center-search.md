@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332613"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574147"
 ---
 # <a name="azure-security-center-search"></a>Azure Güvenlik Merkezi arama
+
+> [!NOTE]
+> Güvenlik Merkezi'nin arama Pano 31 Temmuz 2019 üzerinde kullanımdan kaldırılacaktır. Daha fazla bilgi ve diğer hizmetler için bkz. [devre dışı bırakılması, Güvenlik Merkezi özelliklerini (Temmuz 2019)](security-center-features-retirement-july2019.md#menu_search).
+
 Azure Güvenlik Merkezi kullanan [Azure İzleyici, arama günlüklerini](../log-analytics/log-analytics-log-searches.md) almak ve güvenlik verilerinizi analiz edin. Azure İzleyici günlüklerine hızlı bir şekilde verileri almak ve birleştirmek için bir sorgu dili içerir. Güvenlik Merkezi'nde Azure İzleyici günlüklerine arama sorguları oluşturma ve toplanan verileri çözümlemek için yararlanabilirsiniz.
 
 Arama, ücretsiz katman ve Güvenlik Merkezi'nin standart katmanında kullanılabilir.  Günlük aramalarınızı kullanılabilir verileri çalışma alanınıza uygulanan katman düzeyi bağlıdır.  Güvenlik Merkezi'ni [fiyatlandırma sayfası](../security-center/security-center-pricing.md) daha fazla bilgi için.
@@ -39,13 +43,13 @@ Arama, ücretsiz katman ve Güvenlik Merkezi'nin standart katmanında kullanıla
 
 2. Güvenlik Merkezi, Azure aboneliklerinizle altındaki tüm çalışma alanlarını listeler. Bir çalışma alanı seçin. (Yalnızca bir çalışma alanı varsa, bu çalışma alanı Seçici görüntülenmez.)
 
-   ![Çalışma alanı seçin][2]
+   ![Bir çalışma alanı seçin][2]
 
 3. **Günlük arama** açılır. Seçilen çalışma alanı altında daha fazla veri sorgulamak için bu örnek sorgu girin:
 
    SecurityEvent | Burada EventID 4625 == | Count() by TargetAccount özetleme
 
-   Sonucu (olay 4625) oturum açmak için başarısız olan tüm hesapları gösterir.
+   Sonucu (olayında, 4625) oturum açmak için başarısız olan tüm hesapları gösterir.
 
    ![Arama sonuçları][3]
 

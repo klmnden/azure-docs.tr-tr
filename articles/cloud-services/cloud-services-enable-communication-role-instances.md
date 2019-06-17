@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fa3885f9c273cf6aaf9173ebd3fee3d4499be34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519426"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808103"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Azure rol örnekleri için iletişimi etkinleştirin
 Bulut hizmeti rolleri, iç ve dış bağlantıları iletişim kurar. Dış bağlantılar denir **giriş uç noktaları** iç bağlantı olarak adlandırılır ancak **iç uç nokta**. Bu konu nasıl değiştirileceğini açıklar [servicedefinition](cloud-services-model-and-package.md#csdef) uç noktalar oluşturmak için.
 
 ## <a name="input-endpoint"></a>Giriş uç noktası
-Giriş uç noktası dışındaki bir bağlantı noktasına göstermek istediğinizde kullanılır. Protokol türü ve ardından her iki iç ve dış bağlantı noktaları için uç noktası için geçerli uç nokta bağlantı noktası belirtin. İsterseniz, farklı bir iç bağlantı uç noktası için belirtebileceğiniz [yerel bağlantı noktası](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) özniteliği.
+Giriş uç noktası dışındaki bir bağlantı noktasına göstermek istediğinizde kullanılır. Protokol türü ve ardından her iki iç ve dış bağlantı noktaları için uç noktası için geçerli uç nokta bağlantı noktası belirtin. İsterseniz, farklı bir iç bağlantı uç noktası için belirtebileceğiniz [yerel bağlantı noktası](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) özniteliği.
 
 Giriş uç noktası şu protokolden kullanabilirsiniz: **http, https, tcp, udp**.
 

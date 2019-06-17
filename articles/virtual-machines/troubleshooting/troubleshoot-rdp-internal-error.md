@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
 ms.openlocfilehash: 4476e4732dfcf8d79c9678a7ff4719eba10e48f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319437"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Uzak Masaüstü aracılığıyla Azure VM'ye bağlanmaya çalışırken bir iç hata oluşur.
@@ -87,7 +87,7 @@ Bağlanma [seri konsol ve PowerShell örneği](./serial-console-windows.md#use-c
 
     3. [Yeni bağlantı noktası için ağ güvenlik grubu güncelleştirme](../../virtual-network/security-overview.md) Azure portal RDP bağlantı noktası.
 
-#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>2. Adım: RDP otomatik olarak imzalanan sertifikayı doğru izinleri ayarlayın
+#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>2\. adım: RDP otomatik olarak imzalanan sertifikayı doğru izinleri ayarlayın
 
 1.  Bir PowerShell örneği, RDP otomatik olarak imzalanan sertifikayı yenilemek için aşağıdaki komutları tek tek çalıştırın:
 
@@ -136,7 +136,7 @@ Bağlanma [seri konsol ve PowerShell örneği](./serial-console-windows.md#use-c
 
 4. VM'yi yeniden başlatın ve sonra Başlangıç VM'ye Uzak Masaüstü Bağlantısı'ı deneyin. Hata yine oluşursa, sonraki adıma gidin.
 
-3. Adım: Desteklenen tüm TLS sürümlerini etkinleştir
+3\. adım: Desteklenen tüm TLS sürümlerini etkinleştir
 
 RDP istemcisi varsayılan protokol TLS 1.0 kullanır. Ancak, bu yeni bir standart haline gelmiştir TLS 1.1 olarak değiştirilebilir. VM'de TLS 1.1 devre dışı bırakılırsa, bağlantı başarısız olur.
 1.  CMD örneğinde, TLS protokolü etkinleştirin:

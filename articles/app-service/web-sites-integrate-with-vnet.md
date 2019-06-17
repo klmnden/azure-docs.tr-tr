@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dcb128d8793e3438d87e728bde069d07c72cf97b
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: a5187ed299f77c11892c6e34c8dfd3f904c7e075
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493013"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067703"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı bir Azure sanal ağı ile tümleştirme
 Bu belgede Azure App Service sanal ağ tümleştirme özelliği ve uygulamalar ile ayarlama açıklanır [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure sanal ağları] [ VNETOverview] (Vnet'ler) birçok Azure kaynaklarınızın bir internet olmayan routeable ağında yerleştirin izin verir.  
@@ -33,8 +33,8 @@ Bu belge için çok kiracılı App Service kullanımda olan iki sanal ağ tümle
 
 VNet tümleştirme özelliğini iki biçimi vardır
 
-1. Bir sürümü, aynı bölgedeki sanal ağlar ile tümleştirme sağlar. Bu özelliğin biçimi aynı bölgedeki bir sanal ağ içindeki alt ağ gerektirir
-2. Başka bir sürüm, Klasik sanal ağları veya diğer bölgelerdeki sanal ağlar ile tümleştirme sağlar. Sanal ağınızı bir sanal ağ geçidi dağıtımına özellik bu sürümü gerektirir.
+1. Bir sürümü, aynı bölgedeki sanal ağlar ile tümleştirme sağlar. Bu özelliğin biçimi, aynı bölgedeki bir sanal ağ içindeki alt ağ gerektirir. Bu özellik hala Önizleme aşamasındadır ancak bazı uyarılar aşağıda belirtildiği ile Windows app üretim iş yükleri için desteklenir.
+2. Başka bir sürüm, Klasik sanal ağları veya diğer bölgelerdeki sanal ağlar ile tümleştirme sağlar. Sanal ağınızı bir sanal ağ geçidi dağıtımına özellik bu sürümü gerektirir. Bu noktadan siteye VPN temel özelliğidir.
 
 Uygulama, aynı anda yalnızca sanal ağ tümleştirme özelliği, bir form kullanabilirsiniz. Sorunun daha sonra hangi özelliğini kullanmanız gerekir ' dir. Birçok şey için kullanabilirsiniz. Ancak NET erişilebilirliktir şunlardır:
 
@@ -72,9 +72,9 @@ VNet tümleştirmesi, uygulamanız ile aynı bölgedeki sanal ağlar ile kullan�
 * Bağlandığınız sanal ağ kaynakları
 * ExpressRoute bağlantıları dahil olmak üzere eşlenmiş bağlantılar üzerinden kaynaklara erişmek
 
-Bu özellik Önizleme aşamasındadır ancak aşağıdaki kısıtlamalarla üretim iş yükleri için desteklenir:
+Bu özellik Önizleme aşamasındadır ancak aşağıdaki sınırlamalara sahip Windows uygulama üretim iş yükleri için desteklenir:
 
-* RFC 1918 aralık içinde adresleri yalnızca ulaşabilirsiniz. 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 adres bloklarını adresleri olanlardır.
+* RFC 1918 aralık içinde adresleri yalnızca ulaşabilirsiniz. 10\.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 adres bloklarını adresleri olanlardır.
 * Genel eşleme bağlantıları arasında kaynaklarına erişemiyor
 * yollar, sanal ağ içinde uygulamanızdan gelen trafiği ayarlanamaz
 * Bu özellik yalnızca PremiumV2 App Service planları destekleyen yeni App Service ölçek birimleri kullanılabilir.
@@ -83,8 +83,9 @@ Bu özellik Önizleme aşamasındadır ancak aşağıdaki kısıtlamalarla üret
 * Uygulama ve sanal ağ aynı bölgede olması gerekir
 * Bir adres, her bir App Service planı örneği için kullanılır. Alt ağ boyutu atamasından sonra değiştirilemez olduğundan, birden fazla maksimum ölçek boyutunuzu ele bir alt ağ kullanın. 32 adreslerine sahip bir/27, 20 örnek için ölçeklendirilebilir bir App Service planı kapsayan önerilen boyutu aynıdır.
 * Tümleşik bir uygulama ile bir Vnet'i silemiyor. Tümleştirme önce kaldırmanız gerekir 
+* App Service planı başına yalnızca bir bölgesel sanal ağ tümleştirmesi olabilir. Aynı sanal ağda birden fazla uygulama aynı App Service planında kullanabilirsiniz. 
 
-Aynı bölgede bir Resource Manager sanal ağı ile VNet tümleştirme özelliğini kullanmak için:
+Linux için de önizleme özelliğidir. Aynı bölgede bir Resource Manager sanal ağı ile VNet tümleştirme özelliğini kullanmak için:
 
 1. Portal ağ Arabirimine gidin. Ardından uygulamanızın yeni özelliğini kullanabilmek için sanal ağa ekleme (Önizleme) bir seçenek görürsünüz.  
 
@@ -110,11 +111,11 @@ App Service uygulamaları, çalışan rolü barındırılır. Barındırma planl
 
 VNet tümleştirmesi etkin olduğunda, uygulamanızın normal olarak aynı Kanallar üzerinden İnternet'e giden çağrıları hale getirir. Uygulama özellikleri Portalı'nda listelenen giden adresleri, yine de uygulamanız tarafından kullanılan adresleridir. Değişiklikleri uygulamanız için hizmet uç noktasına çağrı güvenli hale getirilen hizmetlere veya RFC 1918 adresleri olan, Vnet'te gider. 
 
-Özelliği, yalnızca çalışan her bir sanal arabirim destekler.  Çalışan her bir sanal arabirim App Service planı başına bir sanal arabirim anlamına gelir. Tüm uygulamaları aynı App Service planında aynı VNet tümleştirmesi kullanabilirsiniz, ancak ek bir Vnet'e bağlanması gerekiyorsa, başka bir App Service planı oluşturmanız gerekir. Kullanılan sanal arabirim müşteriler doğrudan erişimi olan bir kaynak değil.
+Özelliği, yalnızca çalışan her bir sanal arabirim destekler.  Çalışan her bir sanal arabirim App Service planı başına bir bölgesel sanal ağ tümleştirmesi anlamına gelir. Tüm uygulamaları aynı App Service planında aynı VNet tümleştirmesi kullanabilirsiniz, ancak ek bir sanal ağa bağlanmak için bir uygulama gerekiyorsa, başka bir App Service planı oluşturmanız gerekir. Kullanılan sanal arabirim müşteriler doğrudan erişimi olan bir kaynak değil.
 
 Bu teknolojinin nasıl çalıştığı yapısı nedeniyle, VNet Tümleştirmesi ile kullanılan trafiği Ağ İzleyicisi veya NSG akış günlüklerini görünmez.  
 
-## <a name="gateway-required-vnet-integration"></a>Ağ geçidi gerekli VNet tümleştirmesi 
+## <a name="gateway-required-vnet-integration"></a>ağ geçidi gerekli VNet tümleştirmesi 
 
 Ağ geçidi, sanal ağ tümleştirme özelliği gerekli:
 
@@ -123,12 +124,13 @@ Ağ geçidi, sanal ağ tümleştirme özelliği gerekli:
 * bir App Service planında tümleştirilmesini ile beş adede kadar sanal ağlar sağlar 
 * App Service planı birden fazla uygulama tarafından bir App Service planı tarafından kullanılan toplam sayı etkilemeden kullanılacak aynı sanal ağda izin verir.  6 varsa aynı sanal ağda aynı App Service planında kullanarak uygulamaları, sayar 1 VNet kullanılıyor. 
 * Noktadan siteye VPN ile yapılandırılmış bir sanal ağ geçidi gerektirir
-* ağ geçidi üzerinde nedeniyle SLA'sı % 99,9 SLA destekler
+* Linux uygulamaları ile kullanmak için desteklenmiyor.
+* Ağ geçidi üzerinde nedeniyle SLA'sı % 99,9 SLA destekler
 
 Bu özelliği desteklemez:
 
-* ExpressRoute kaynaklara erişme 
-* Hizmet uç noktaları arasında kaynaklara erişme 
+* ExpressRoute üzerinden kaynaklara erişme 
+* Hizmet Uç Noktaları üzerinden kaynaklara erişme 
 
 ### <a name="getting-started"></a>Başlarken
 
@@ -200,7 +202,7 @@ ASP VNet tümleştirmesi UI tüm ASP uygulamaları tarafından kullanılan sanal
 * **Eşitleme ağ**. Eşitleme ağ işlemi yalnızca ağ geçidi bağlı VNet tümleştirmesi özelliğidir. Eşitleme ağ işlemi gerçekleştirilirken sertifikaları ve ağ bilgilerini eşitlenmiş olmasını sağlar. Eklediğinizde veya değiştirdiğinizde, sanal ağınızın DNS, gerçekleştirmeniz gereken bir **eşitleme ağ** işlemi. Bu işlem, bu sanal ağ kullanarak herhangi bir uygulamayı yeniden başlatır.
 * **Yollar** yollar ekleme sürücü giden trafik, sanal ağ içinde.
 
-**Yönlendirme** ağınızda tanımlanmış rotalar uygulamanızı ağınızdan içine trafiği yönlendirmek için kullanılır. Vnet'te ek giden trafiği göndermek gerekiyorsa, bu adres blokları ekleyebilirsiniz. Ağ geçidi bu capabilty yalnızca çalışır, sanal ağ tümleştirmesi gereklidir.
+**Yönlendirme** ağınızda tanımlanmış rotalar uygulamanızı ağınızdan içine trafiği yönlendirmek için kullanılır. Vnet'te ek giden trafiği göndermek gerekiyorsa, bu adres blokları ekleyebilirsiniz. Bu özellik yalnızca çalışır ağ geçidi ile VNet tümleştirmesi gereklidir.
 
 **Sertifikaları** VNet tümleştirmesi etkin ağ geçidi gerekli olduğunda, gerekli bir bağlantının güvenliğini sağlamak için sertifika alışverişi yoktur. Sertifikaları yanı sıra DNS yapılandırmasını, yollar ve ağ açıklayan diğer benzer bir şey var.
 Sertifikaları veya ağ bilgileri değiştirilirse, "Ağı Eşitle"'ye tıklamanız. "Ağı Eşitle"'ye tıkladığınızda, kısa bir kesinti bağlantısı uygulamanızı sanal ağınıza arasında neden. Uygulamanızı yeniden değildir, ancak bağlantı kaybı düzgün sitenize çalışmamasına neden olabilir. 

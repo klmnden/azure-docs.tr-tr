@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bc1ff022b1639c11ca244b5ea97118a0f06e7cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f192b402aebcaeb87e068a4248c0794484e6c313
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278627"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Öğretici: Firstbird ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Firstbird tümleştirmesini yapılandırmak için Firstbird Galeride
 
 **Galeriden Firstbird eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select_azuread.png)
 
@@ -129,7 +129,7 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
     | ---------------| --------- |
     | first_name | `user.givenname` |
     | Soyadı | `user.surname` |
-    | e-posta | `user.mail` |
+    | email | `user.mail` |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61342133"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Azure İzleyici'de Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
@@ -40,8 +40,8 @@ Görünüm Tasarımcısı ile oluşturduğunuz görünümleri, aşağıdaki tabl
 
 | Bölümü | Açıklama |
 |:--- |:--- |
-| Kutucuklar | , Azure İzleyici görüntülenen **genel bakış** sayfası. Her kutucuk, temsil ettiği özel görünüm görsel bir özetini görüntüler. Her kutucuk türüne kayıtlarınız için farklı bir görselleştirme sağlar. Özel bir görünüm için bir kutucuk seçin. |
-| Özel görünüm | Bir kutucuğu seçtiğinizde görüntülenir. Her görünümü bir veya daha fazla görselleştirme bölümü içerir. |
+| Kutucukları | , Azure İzleyici görüntülenen **genel bakış** sayfası. Her kutucuk, temsil ettiği özel görünüm görsel bir özetini görüntüler. Her kutucuk türüne kayıtlarınız için farklı bir görselleştirme sağlar. Özel bir görünüm için bir kutucuk seçin. |
+| Özel Görünüm | Bir kutucuğu seçtiğinizde görüntülenir. Her görünümü bir veya daha fazla görselleştirme bölümü içerir. |
 | Görselleştirme bölümü | Bir veya daha fazla bağlı Log Analytics çalışma alanındaki veri görselleştirme sunmak [oturum sorguları](../log-query/log-query-overview.md). Çoğu bölümleri, üst düzey bir görselleştirme sağlar, bir üst bilgi ve en çok rastlanan sonuçlar görüntüler listesini içerir. Her bölüm türü kayıtlarının Log Analytics çalışma alanındaki farklı bir görselleştirme sağlar. Ayrıntılı kayıtlar sağlayan bir günlük sorgusu gerçekleştirmeye bölümünde öğeleri seçin. |
 
 ## <a name="required-permissions"></a>Gerekli izinler

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45063107cdaf5ea8a720233c47e5b9007faa6d13
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f70001a3362015332970685eb50e5e8e47dd158e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900342"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Öğretici: CompetencyIQ ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de CompetencyIQ tümleştirmesini yapılandırmak için CompetencyIQ Ga
 
 **Galeriden CompetencyIQ eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

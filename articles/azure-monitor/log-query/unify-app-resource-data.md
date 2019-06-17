@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424655"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Birden çok Azure İzleyici Application Insights kaynaklarını birleştirin 
@@ -103,11 +103,11 @@ Aşağıdaki tabloda, Log Analytics ve Application Insights şema farklılıklar
 | ApplicationName | AppName|
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | ItemCount |
-| AvailabilityDuration | süre |
+| AvailabilityDuration | Süresi |
 | AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
-| AvailabilityTestName | ad |
+| AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
 | Tarayıcı | client_browser |
 | Şehir | client_city |
@@ -116,31 +116,31 @@ Aşağıdaki tabloda, Log Analytics ve Application Insights şema farklılıklar
 | Ülke | client_CountryOrRegion | 
 | CustomEventCount | ItemCount | 
 | CustomEventDimensions | customDimensions |
-| CustomEventName | ad | 
+| CustomEventName | name | 
 | DeviceModel | client_Model | 
 | DeviceType | client_Type | 
 | ExceptionCount | ItemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
-| ExceptionType | type |
+| ExceptionType | türü |
 | Operationıd | operation_ıd |
 | OperationName | operation_Name | 
 | İşletim Sistemi | client_OS | 
 | PageViewCount | ItemCount |
-| PageViewDuration | süre | 
-| PageViewName | ad | 
+| PageViewDuration | Süresi | 
+| PageViewName | name | 
 | ParentOperationID | operation_ıd | 
 | RequestCount | ItemCount | 
-| RequestDuration | süre | 
+| RequestDuration | Süresi | 
 | RequestId | id | 
-| RequestName | ad | 
+| RequestName | name | 
 | RequestSuccess | başarılı | 
 | Yanıt kodu | ResultCode | 
 | Rol | cloud_RoleName |
 | Roleınstance | cloud_RoleInstance |
 | oturum kimliği | session_ıd | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | type |
+| TelemetryTYpe | türü |
 | URL'si | _url |
 | UserAccountId | user_AccountId |
 

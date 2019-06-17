@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 05be19ba59c5e392ce75d465a90b0946a9160c00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0f7eb1f5662ce0b901af2fd82a75556cacbca62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870677"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>Öğretici: Opal ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Opal tümleştirmesini yapılandırmak için Opal Galeriden yönetil
 
 **Galeriden Opal eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

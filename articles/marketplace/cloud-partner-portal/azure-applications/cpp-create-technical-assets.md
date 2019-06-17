@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: pabutler
 ms.openlocfilehash: cbe1b8c8f1159d90fbf97eeae272c1c50ec9b9bb
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942977"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Azure uygulaması teknik varlıklarınızı hazırlama
@@ -71,9 +71,9 @@ Aşağıdaki araçlar geliştirme ortamınızı eklemenizi öneririz:
 - [Azure Depolama Gezgini](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [Visual Studio Code](https://code.visualstudio.com/) Aşağıdaki uzantılara sahip:
 
-  - Dahili Hat: [Azure Resource Manager araçları](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-  - Dahili Hat: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-  - Dahili Hat: [JSON prettify](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+  - Uzantı: [Azure Resource Manager araçları](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+  - Uzantı: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+  - Uzantı: [JSON prettify](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 Ayrıca araçlar da gözden geçirme öneririz [Azure Geliştirici Araçları](https://azure.microsoft.com/tools/) sayfası ve Visual Studio kullanıyorsanız [Visual Studio Market](https://marketplace.visualstudio.com/).
 

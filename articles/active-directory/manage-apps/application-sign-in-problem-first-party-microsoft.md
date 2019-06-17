@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108310"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Bir Microsoft uygulamasında oturum açma sorunları
 
@@ -67,7 +67,7 @@ Kullanıcılarının bir Microsoft uygulamasında oturum açamıyorum istemeyenl
 
   * Emin **multi-Factor Authentication** kullanıcı erişimi engellemediğini. [Bir kullanıcının çok faktörlü kimlik doğrulama durumu kontrol](#check-a-users-multi-factor-authentication-status) veya [bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol edin](#check-a-users-authentication-contact-info)
 
-  * Emin bir **koşullu erişim ilkesi** veya **kimlik koruması** İlkesi, kullanıcı erişimini engellemediğinden. [Belirli bir koşullu erişim ilkesi denetleyin](#problems-with-conditional-access-policies) veya [belirli bir uygulamanın koşullu erişim ilkesini denetleme](#check-a-specific-applications-conditional-access-policy) veya [özel koşullu erişim ilkesi devre dışı bırak](#disable-a-specific-conditional-access-policy)
+  * Emin bir **koşullu erişim ilkesi** veya **kimlik koruması** İlkesi, kullanıcı erişimini engellemediğinden. [Belirli bir koşullu erişim ilkesi denetleyin](#problems-with-conditional-access-policies) veya [belirli bir uygulamanın koşullu erişim ilkesini denetleme](#check-a-specific-applications-conditional-access-policy) veya [belirli bir koşullu erişim ilkesini devre dışı bırak](#disable-a-specific-conditional-access-policy)
 
   * Emin olun kullanıcının **kimlik doğrulaması iletişim bilgileri** yürütülebilmesi çok faktörlü kimlik doğrulaması veya koşullu erişim ilkelerinin izin güncel olduğundan. [Bir kullanıcının çok faktörlü kimlik doğrulama durumu kontrol](#check-a-users-multi-factor-authentication-status) veya [bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol edin](#check-a-users-authentication-contact-info)
 
@@ -474,7 +474,7 @@ Denetleyin ya da tek bir uygulamanın şu anda doğrulamak için koşullu erişi
      >
      >
 
-### <a name="disable-a-specific-conditional-access-policy"></a>Belirli bir koşullu erişim ilkesi devre dışı bırak
+### <a name="disable-a-specific-conditional-access-policy"></a>Belirli bir koşullu erişim ilkesini devre dışı bırak
 
 Denetleyin ya da tek bir koşullu erişim ilkesi doğrulamak için:
 
@@ -512,7 +512,7 @@ Uygun izne onay işlemi değil yeniden oluştuğundan uygulama erişim engellene
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Herhangi bir uygulama için yönetici düzeyi onayı işlemi gerçekleştirme
 
--   İçin **yalnızca V1 uygulama modelini kullanarak geliştirilen uygulamalar**, yönetici düzeyi onayı ekleyerek gerçekleşmesi için bu zorlayabilirsiniz "**? yönetici komut istemi =\_onay**" sonuna bir uygulamanın oturum URL.
+-   İçin **yalnızca V1 uygulama modelini kullanarak geliştirilen uygulamalar**, yönetici düzeyi onayı ekleyerek gerçekleşmesi için bu zorlayabilirsiniz " **? yönetici komut istemi =\_onay**" sonuna bir uygulamanın oturum URL.
 
 -   İçin **herhangi bir uygulama geliştirilirken V2 uygulama modelini kullanarak**, bu yönetici düzeyi onayı başlığı altında verilen yönergeleri izleyerek gerçekleşmesi için zorunlu kılabilir **bir dizin Yöneticisiizinlereilişkinistek** bölümünü [yönetici onay uç noktası kullanarak](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 

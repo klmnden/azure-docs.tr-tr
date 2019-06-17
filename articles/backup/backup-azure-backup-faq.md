@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
 ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66688736"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
@@ -119,9 +119,9 @@ Boyutları sınırlamaları aşağıdaki gibidir:
 
 İşletim sistemi/makine | Veri kaynağı boyutu sınırı
 --- | --- 
-Windows 8 veya üzeri | 54.400 GB
+Windows 8 veya üzeri | 54\.400 GB
 Windows 7 |1700 GB
-Windows Server 2012 veya üzeri | 54.400 GB
+Windows Server 2012 veya üzeri | 54\.400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
 Azure VM | 16 veri diski<br/><br/> 4095 GB'a kadar veri diski
 

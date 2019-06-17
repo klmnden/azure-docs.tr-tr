@@ -15,10 +15,10 @@ ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 02272ee16cf3303890a8ba6d35d38676e98c788c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60478659"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA (büyük örnekler) depolama mimarisi
@@ -34,18 +34,18 @@ Depolama tahsisi açısından aşağıdaki tabloya bakın. Tablo farklı HANA b�
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
 | S96 | 1,280 GB | 512 GB | 768 GB | 512 GB |
-| S192 | 4.608 GB | 1.024 GB | 1.536 GB | 1.024 GB |
-| S192m | 11,520 GB | 1.536 GB | 1,792 GB | 1.536 GB |
-| S192xm |  11,520 GB |  1.536 GB |  1,792 GB |  1.536 GB |
-| S384 | 11,520 GB | 1.536 GB | 1,792 GB | 1.536 GB |
-| S384m | 12.000 GB | 2.050 GB | 2.050 GB | 2040 GB |
-| S384xm | 16.000 BİN GB | 2.050 GB | 2.050 GB | 2040 GB |
-| S384xxm |  20.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
-| S576m | 20.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
-| S576xm | 31.744 GB | 4.096 GB | 2.048 GB | 4.096 GB |
-| S768m | 28,000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
-| S768xm | 40.960 GB | 6.144 GB | 4.096 GB | 6.144 GB |
-| S960m | 36,000 GB | 4,100 GB | 2.050 GB | 4,100 GB |
+| S192 | 4\.608 GB | 1\.024 GB | 1\.536 GB | 1\.024 GB |
+| S192m | 11,520 GB | 1\.536 GB | 1,792 GB | 1\.536 GB |
+| S192xm |  11,520 GB |  1\.536 GB |  1,792 GB |  1\.536 GB |
+| S384 | 11,520 GB | 1\.536 GB | 1,792 GB | 1\.536 GB |
+| S384m | 12\.000 GB | 2\.050 GB | 2\.050 GB | 2040 GB |
+| S384xm | 16\.000 BİN GB | 2\.050 GB | 2\.050 GB | 2040 GB |
+| S384xxm |  20\.000 GB | 3\.100 GB | 2\.050 GB | 3\.100 GB |
+| S576m | 20\.000 GB | 3\.100 GB | 2\.050 GB | 3\.100 GB |
+| S576xm | 31\.744 GB | 4\.096 GB | 2\.048 GB | 4\.096 GB |
+| S768m | 28,000 GB | 3\.100 GB | 2\.050 GB | 3\.100 GB |
+| S768xm | 40\.960 GB | 6\.144 GB | 4\.096 GB | 6\.144 GB |
+| S960m | 36,000 GB | 4,100 GB | 2\.050 GB | 4,100 GB |
 
 
 Gerçek dağıtılan birimleri, dağıtım ve birim boyutları göstermek için kullanılan bir aracı bağlı olarak değişebilir.
@@ -57,7 +57,7 @@ Bir HANA büyük örneği SKU bölüyorsanız, olası bölme parçaları birkaç
 | 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |
 | 768 | 1,280 GB | 512 GB | 768 GB | 512 GB |
-| 1,024 | 1,792 GB | 640 GB | 1.024 GB | 640 GB |
+| 1,024 | 1,792 GB | 640 GB | 1\.024 GB | 640 GB |
 | 1536 | 3,328 GB | 768 GB | 1,280 GB | 768 GB |
 
 

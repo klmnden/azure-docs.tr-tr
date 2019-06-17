@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459253"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Azure Notification Hubs güvenli bir şekilde anında bildirimler
@@ -90,7 +90,7 @@ Bu güvenli gönderme Öğreticisi, güvenli bir şekilde anında iletme bildiri
 Sonraki adım, anında iletme arka plan bileşeni oluşturmaktır.
 
 1. Çözüm Gezgini'nde çözümün en üst düzey düğümü (**çözüm SecurePush** bu durumda), ardından **Ekle**, ardından **yeni proje**.
-2. Genişletin **Store uygulamaları**, ardından **Windows Phone uygulamaları**, ardından **Windows çalışma zamanı bileşeni (Windows Phone)**. Projeyi adlandırın **PushBackgroundComponent**ve ardından **Tamam** projeyi oluşturmak için.
+2. Genişletin **Store uygulamaları**, ardından **Windows Phone uygulamaları**, ardından **Windows çalışma zamanı bileşeni (Windows Phone)** . Projeyi adlandırın **PushBackgroundComponent**ve ardından **Tamam** projeyi oluşturmak için.
 
     ![][12]
 3. Çözüm Gezgini'nde sağ **PushBackgroundComponent (Windows Phone 8.1)** proje'a tıklayın **Ekle**, ardından **sınıfı**. Yeni bir sınıf adı `PushBackgroundTask.cs`. Tıklayın **Ekle** sınıfı oluşturun.

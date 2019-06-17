@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d006bd36cc8f8c84fb13bae43702a3e472f8876a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119374"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113289"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Birleştirilmiş etkinleştir güvenlik bilgileri kayıt (Önizleme)
 
@@ -53,7 +53,7 @@ Internet Explorer'da siteyi bölgeye ataması Listesi'ni yapılandırdıysanız,
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Birleşik kayıt için koşullu erişim ilkeleri
 
-Ne zaman ve kullanıcıların kaydolmak için Azure multi-Factor Authentication ve Self Servis parola sıfırlama artık koşullu erişim ilkesi kullanıcı eylemleri ile mümkündür nasıl güvenli hale getirme. Bu önizleme özelliğini etkinleştirdiniz kuruluşlar için kullanılabilir [kayıt Önizleme birleştirilmiş](../authentication/concept-registration-mfa-sspr-combined.md). Bu işlev, ik ekleme sırasında Azure multi-Factor Authentication ve güvenilir ağ konumu gibi merkezi bir konumdan SSPR kaydolmak için kullanıcıların istedikleri kuruluşlardaki etkinleştirilebilir. Koşullu erişim güvenilen konumları oluşturma hakkında daha fazla bilgi için bkz [konum koşulu Azure Active Directory koşullu erişim nedir?](../conditional-access/location-condition.md#named-locations)
+Ne zaman ve kullanıcıların kaydolmak için Azure multi-Factor Authentication ve Self Servis parola sıfırlama artık koşullu erişim ilkesi kullanıcı eylemleri ile mümkündür nasıl güvenli hale getirme. Bu önizleme özelliğini etkinleştirdiniz kuruluşlar için kullanılabilir [kayıt Önizleme birleştirilmiş](../authentication/concept-registration-mfa-sspr-combined.md). Bu işlev, ik ekleme sırasında Azure multi-Factor Authentication ve güvenilir ağ konumu gibi merkezi bir konumdan SSPR kaydolmak için kullanıcıların istedikleri kuruluşlardaki etkinleştirilebilir. Koşullu erişim güvenilen konumları oluşturma hakkında daha fazla bilgi için bkz [konum koşulu, Azure Active Directory koşullu erişim nedir?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Güvenilen bir konumdan kayıt gerektiren bir ilkeniz oluşturma
 
@@ -92,4 +92,4 @@ Güvenilen ağ işaretlenmiş bir konumdan bağlanıyorsanız sürece erişimi e
 
 [Güvenlik bilgileri kayıt birleştirilmiş sorunlarını giderme](howto-registration-mfa-sspr-combined-troubleshoot.md)
 
-[Konum koşulu Azure Active Directory koşullu erişim nedir?](../conditional-access/location-condition.md)
+[Konum koşulu, Azure Active Directory koşullu erişim nedir?](../conditional-access/location-condition.md)

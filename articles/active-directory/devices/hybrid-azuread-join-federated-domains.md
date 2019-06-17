@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 600d6b9f1eb8d8073e1658dd5b8196a3d8137e42
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: ea834a0fc1d92cc8d2326bd94dde2e0a983c90a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733712"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110753"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Öğretici: Federasyon etki alanları için hibrit Azure Active Directory katılımını Yapılandır
 
@@ -26,7 +26,7 @@ Benzer şekilde bir kullanıcı, bir cihaz korumak ve dilediğiniz zaman ve herh
 - Hibrit Azure AD'ye katılım
 - Azure AD kaydı
 
-Cihazlarınızı Azure AD'ye taşıyarak, çoklu oturum açma (SSO) özelliği sayesinde bulut ve şirket içi kaynaklarınız genelinde kullanıcılarınızın üretkenliğini en üst düzeye çıkarırsınız. Ayrıca, [koşullu erişim](../active-directory-conditional-access-azure-portal.md) ile bulut ve şirket içi kaynaklarınıza erişimin güvenliği sağlayabilirsiniz.
+Cihazlarınızı Azure AD'ye taşıyarak, çoklu oturum açma (SSO) özelliği sayesinde bulut ve şirket içi kaynaklarınız genelinde kullanıcılarınızın üretkenliğini en üst düzeye çıkarırsınız. Aynı anda ile Bulut ve şirket kaynaklarına erişim güvenliğini sağlayabilirsiniz [koşullu erişim](../active-directory-conditional-access-azure-portal.md).
 
 Bu öğreticide, AD FS kullanarak birleştirilmiş bir ortamda hibrit Azure AD'ye katılma AD etki alanına katılmış bilgisayarları ve cihazları için yapılandırma konusunda bilgi edinin.
 
@@ -53,7 +53,7 @@ Bu öğreticide senaryoyu yapılandırmak için şunlar gereklidir:
 - AD FS içeren Windows Server 2012 R2
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0 veya sonraki sürümü.
 
-1.1.819.0 sürümünden itibaren Azure AD Connect hibrit Azure AD'ye katılımı yapılandırmak için bir sihirbaz sağlar. Sihirbaz, yapılandırma işlemini önemli ölçüde basitleştirebilmenizi sağlar. İlgili sihirbaz:
+1\.1.819.0 sürümünden itibaren Azure AD Connect hibrit Azure AD'ye katılımı yapılandırmak için bir sihirbaz sağlar. Sihirbaz, yapılandırma işlemini önemli ölçüde basitleştirebilmenizi sağlar. İlgili sihirbaz:
 
 - Cihaz kaydı için hizmet bağlantı noktalarını (SCP) yapılandırır
 - Mevcut Azure AD bağlı olan tarafınıza yedekleme yapar
@@ -167,7 +167,7 @@ Hizmet ayrıntılarını kontrol etmek için **Get-MSolDevice** cmdlet kullanır
 
 - Bir nesne ile **cihaz kimliği** istemci bulunmalıdır Windows kimliği eşleşir.
 - **DeviceTrustType** değerinin **Etki Alanına Katılmış** olması gerekir. Bu, Azure AD portalında Cihazlar sayfasındaki **Hibrit Azure AD'ye katılmış** durumuna eşdeğerdir.
-- Koşullu erişimde kullanılan cihazlar için **Enabled** değerinin **True**, **DeviceTrustLevel** değerinin de **Managed** olması gerekir.
+- Değeri **etkin** olmalıdır **True** ve **DeviceTrustLevel** olmalıdır **yönetilen** koşullu erişim kullanan cihazlar için.
 
 **Hizmet ayrıntılarını kontrol etmek için:**
 

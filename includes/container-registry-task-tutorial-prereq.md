@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 6e0175173f17ae0958522517360b94ee80f3b2f9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66148981"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133698"
 ---
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -27,9 +27,12 @@ Bir Git deposuna bir işleme görevde tetiklemek için kişisel erişim belirtec
 
 1. GitHub üzerinde https://github.com/settings/tokens/new adresindeki PAT oluşturma sayfasında gidin
 1. Belirteç için kısa bir **açıklama** girin; örneğin, "ACR Görevleri Tanıtımı"
-1. **Depo** altında **depo:durum** seçeneğini ve **genel_depo** seçeneklerini etkinleştirin
+1. ACR depoya erişmek kapsamları seçin. Bu öğreticide, olduğu gibi genel deponun altında erişmeye **depo**, etkinleştirme **depo: durum** ve **public_repo**
 
    ![GitHub'da Kişisel Erişim Belirteci oluşturma sayfasının ekran görüntüsü][build-task-01-new-token]
+
+   > [!NOTE]
+   > Erişmek için bir PAT oluşturmak için bir *özel* depo, tam kapsam seçin **depo** denetimi.
 
 1. **Belirteç Oluştur** düğmesini seçin (parolanızı onaylamanız istenebilir)
 1. Oluşturulan belirteci kopyalayın ve **güvenli bir konuma** kaydedin (bu belirteci sonraki bölümde bir görev tanımlarken kullanacaksınız)

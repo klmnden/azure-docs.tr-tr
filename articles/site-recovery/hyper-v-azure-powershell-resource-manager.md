@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64690562"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell ve Azure Resource Manager'ı kullanarak Hyper-V Vm'leri için Azure'da olağanüstü durum kurtarma ayarlama
@@ -45,7 +45,7 @@ Ayrıca, bu makalede açıklanan özel bir örnek, aşağıdaki önkoşulları v
 * Windows Server 2012 R2 ya da bir veya daha fazla Vm'leri içeren Microsoft Hyper-V Server 2012 R2 çalıştıran bir Hyper-V konağı. Hyper-V sunucularının, doğrudan veya bir ara sunucu üzerinden Internet'e bağlanmalıdır.
 * Çoğaltmak istediğiniz VM'lerin karşılaması gerektiğini [bu Önkoşullar](hyper-v-azure-support-matrix.md#replicated-vms).
 
-## <a name="step-1-sign-in-to-your-azure-account"></a>1. Adım: Azure hesabınızda oturum açma
+## <a name="step-1-sign-in-to-your-azure-account"></a>1\. adım: Azure hesabınızda oturum açma
 
 1. Bir PowerShell konsolu açın ve Azure hesabınızda oturum açmak için şu komutu çalıştırın. Cmdlet getirir, bir web sayfası için hesap kimlik bilgilerinizi ister: **Connect AzAccount**.
     - Alternatif olarak, bir parametre olarak bir hesap kimlik bilgilerinizi içerebilir **Connect AzAccount** cmdlet'ini kullanarak **-Credential** parametresi.
@@ -66,7 +66,7 @@ Ayrıca, bu makalede açıklanan özel bir örnek, aşağıdaki önkoşulları v
 
     `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
-## <a name="step-2-set-up-the-vault"></a>2. Adım: Kasası ayarlama
+## <a name="step-2-set-up-the-vault"></a>2\. adım: Kasası ayarlama
 
 1. Kasa oluşturulacağı bir Azure Resource Manager kaynak grubu oluşturun veya mevcut bir kaynak grubunu kullanın. Yeni bir kaynak grubu oluşturun. $ResourceGroupName değişkeni oluşturmak istediğiniz kaynak grubunun adını, ve $Geo değişkeni (örneğin, "Brezilya Güney") kaynak grubunun oluşturulacağı Azure bölgesi içerir.
 
@@ -80,13 +80,13 @@ Ayrıca, bu makalede açıklanan özel bir örnek, aşağıdaki önkoşulları v
     İle varolan kasaların listesini alabilirsiniz **Get-AzRecoveryServicesVault** cmdlet'i.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>3. Adım: Kurtarma Hizmetleri kasa bağlamını ayarlayın
+## <a name="step-3-set-the-recovery-services-vault-context"></a>3\. adım: Kurtarma Hizmetleri kasa bağlamını ayarlayın
 
 Kasa bağlamını şu şekilde ayarlayın:
 
 `Set-AsrVaultSettings -Vault $vault`
 
-## <a name="step-4-create-a-hyper-v-site"></a>4. Adım: Bir Hyper-V sitesi oluşturun
+## <a name="step-4-create-a-hyper-v-site"></a>4\. Adım: Bir Hyper-V sitesi oluşturun
 
 1. Yeni bir Hyper-V sitesi şu şekilde oluşturun:
 
@@ -104,7 +104,7 @@ Kasa bağlamını şu şekilde ayarlayın:
 
 5. İndirilen anahtarı, Hyper-V ana bilgisayara kopyalayın. Hyper-V konağı sitesine kaydetmek için anahtarı gerekir.
 
-## <a name="step-5-install-the-provider-and-agent"></a>5. Adım: Sağlayıcı ve aracı yükleme
+## <a name="step-5-install-the-provider-and-agent"></a>5\. Adım: Sağlayıcı ve aracı yükleme
 
 1. Yükleyici adresinden sağlayıcının en son sürümü için indirme [Microsoft](https://aka.ms/downloaddra).
 2. Hyper-V konağında yükleyiciyi çalıştırın.
@@ -114,7 +114,7 @@ Kasa bağlamını şu şekilde ayarlayın:
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
-## <a name="step-6-create-a-replication-policy"></a>6. Adım: Çoğaltma ilkesi oluşturma
+## <a name="step-6-create-a-replication-policy"></a>6\. Adım: Çoğaltma ilkesi oluşturma
 
 Başlamadan önce belirtilen depolama hesabı kasasıyla aynı Azure bölgesinde olmalıdır ve coğrafi çoğaltmanın etkinleştirilmiş olması unutmayın.
 
@@ -138,7 +138,7 @@ Başlamadan önce belirtilen depolama hesabı kasasıyla aynı Azure bölgesinde
 
 4. Başarıyla tamamlamak ilişkilendirme işin tamamlanmasını bekleyin.
 
-## <a name="step-7-enable-vm-protection"></a>7. Adım: VM korumasını etkinleştirin
+## <a name="step-7-enable-vm-protection"></a>7\. Adım: VM korumasını etkinleştirin
 
 1. Aşağıdaki şekilde, korumak istediğiniz sanal Makineye karşılık gelen bir korunabilir öğe alınamıyor:
 
@@ -177,7 +177,7 @@ Başlamadan önce belirtilen depolama hesabı kasasıyla aynı Azure bölgesinde
 
 
 
-## <a name="step-8-run-a-test-failover"></a>8. adım: Yük devretme testi çalıştırma
+## <a name="step-8-run-a-test-failover"></a>8\. adım: Yük devretme testi çalıştırma
 1. Yük devretme testi aşağıdaki gibi çalıştırın:
 
         $nw = Get-AzVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group

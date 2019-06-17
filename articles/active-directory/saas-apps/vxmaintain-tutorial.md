@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c034e12c372e0514fa6cbb1f35af48cbdb4bf865
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 642af77d62b88d2e22748c55b901a31bbc0db9b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865268"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Öğretici: VxMaintain ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de vxMaintain tümleştirmesini yapılandırmak için vxMaintain Galeri
 
 **Galeriden vxMaintain eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

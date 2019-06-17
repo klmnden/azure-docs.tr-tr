@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129865"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Coğrafi çoğaltma veritabanı kullanan çok kiracılı SaaS uygulaması için olağanüstü durum kurtarma
@@ -90,7 +90,7 @@ Daha sonra bir ayrı repatriation adımda, özgün bölgeye kurtarma bölgesinde
 ## <a name="review-the-healthy-state-of-the-application"></a>Uygulamanın sistem durumunu gözden geçirin
 
 Kurtarma işlemine başlamadan önce uygulama normal sağlıklı durumunu gözden geçirin.
-1. Wingtip biletleri olay hub'ı web tarayıcınızda açın (http://events.wingtip-dpt.&lt; kullanıcı&gt;. trafficmanager.net - değiştirin &lt;kullanıcı&gt; dağıtımınızın kullanıcı değeri ile).
+1. Wingtip biletleri olay hub'ı web tarayıcınızda açın (http://events.wingtip-dpt.&lt ; kullanıcı&gt;. trafficmanager.net - değiştirin &lt; kullanıcı&gt; dağıtımınızın kullanıcı değeri ile).
     * Sayfanın en altına gidin ve kataloğu sunucu adını ve konumunu altbilgisindeki dikkat edin. Uygulamanın dağıtıldığı bölge konumdur.
     *İPUCU: Fare görünen büyütmek için konumu üzerinde gelin. * 
      ![Olay hub'ı sağlıklı duruma özgün bölgede](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
@@ -207,7 +207,7 @@ Uygulama, uygulama uç noktasını Traffic Manager'da devre dışı bırakıldı
  
      ![Olay hub'ı çevrimdışı](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * Çevrimdışı bir kiracının olayları sayfası doğrudan açarsanız 'Çevrimdışı Kiracı' bir bildirim görüntüler. Contoso Konser Salonu çevrimdışı olduğunda, örneğin, açmaya http://events.wingtip-dpt.&lt; kullanıcı&gt;.trafficmanager.net/contosoconcerthall ![Contoso çevrimdışı sayfası](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Çevrimdışı bir kiracının olayları sayfası doğrudan açarsanız 'Çevrimdışı Kiracı' bir bildirim görüntüler. Contoso Konser Salonu çevrimdışı olduğunda, örneğin, açmaya http://events.wingtip-dpt.&lt ; kullanıcı&gt;.trafficmanager.net/contosoconcerthall ![ Contoso çevrimdışı sayfası](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Kurtarma bölgesinde yeni bir kiracı sağlama
 Üzerinde var olan tüm Kiracı veritabanlarında bile başarısız olmuş önce kurtarma bölgesinde yeni kiracılar sağlayabilirsiniz.  
@@ -256,7 +256,7 @@ Bu görevde, Kiracı veritabanlarını birini güncelleştirin.
 2. İçinde *PowerShell ISE*, ...\Learning Modules\Business sürekliliği ve olağanüstü durum Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 betik aşağıdaki değeri ayarlayın:
     * **$DemoScenario = 5** kurtarma bölgesinde bir kiracıdan gelen bir olay Sil
 3. Tuşuna **F5** komut dosyası yürütme
-4. Contoso Konser Salonu olayları sayfayı yenileyin (http://events.wingtip-dpt.&lt; kullanıcı&gt;.trafficmanager.net/contosoconcerthall - yerine &lt;kullanıcı&gt; dağıtımınızın kullanıcı değeri ile) ve son olayın silindiğini dikkat edin.
+4. Contoso Konser Salonu olayları sayfayı yenileyin (http://events.wingtip-dpt.&lt ; kullanıcı&gt;.trafficmanager.net/contosoconcerthall - yerine &lt; kullanıcı&gt; dağıtımınızın kullanıcı değeri ile) ve son olayın silindiğini dikkat edin.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>Uygulama, özgün üretim bölgeye repatriate
 
@@ -289,7 +289,7 @@ Yük devretme, veritabanını özgün bölgesiyle etkili bir şekilde taşır. V
     * Tuşuna **F5** yeni bir PowerShell penceresi kurtarma betiği çalıştırmak için.  Repatriation birkaç dakika sürer ve PowerShell penceresinde izlenebilir.
     ![Repatriation işlemi](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. Komut dosyası çalıştırılırken, olay hub'ı sayfayı yenileyin (http://events.wingtip-dpt.&lt; kullanıcı&gt;. trafficmanager.net)
+4. Komut dosyası çalıştırılırken, olay hub'ı sayfayı yenileyin (http://events.wingtip-dpt.&lt ; kullanıcı&gt;. trafficmanager.net)
     * Tüm kiracılar çevrimiçi ve erişilebilir bu süreci boyunca olduğuna dikkat edin.
 
 5. Repatriation tamamlandıktan sonra olay hub'ı yenileyin ve Hawthorn Hall olayları sayfasını açın. Bu veritabanı özgün bölgeye repatriated, dikkat edin.

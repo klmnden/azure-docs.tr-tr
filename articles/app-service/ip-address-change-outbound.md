@@ -12,10 +12,10 @@ ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: ac62217af096653d61a79ff29ae352c8e950f8af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61269800"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Giden IP adresi değişikliği için hazırlama
@@ -24,9 +24,9 @@ Azure App Service uygulamanızı giden IP adreslerini değiştirerek bir bildiri
 
 ## <a name="determine-if-you-have-to-do-anything"></a>Herhangi bir şey gerekip gerekmediğini belirleme
 
-* 1. seçenek: App Service uygulamanızı IP filtreleme, açık ekleme listesi ya da özel işleme giden trafik yönlendirme veya güvenlik duvarı gibi kullanmıyorsa, hiçbir eylem gerekmiyor.
+* 1\. seçenek: App Service uygulamanızı IP filtreleme, açık ekleme listesi ya da özel işleme giden trafik yönlendirme veya güvenlik duvarı gibi kullanmıyorsa, hiçbir eylem gerekmiyor.
 
-* 2. seçenek: Uygulamanızı (aşağıdaki örneklere bakın) giden IP adresleri için özel işlem varsa, mevcut görünen yeni giden IP adresleri ekleyin. Mevcut IP adreslerini değiştirin yok. Sonraki bölümde yönergeleri takip ederek yeni giden IP adresleri bulabilirsiniz.
+* 2\. seçenek: Uygulamanızı (aşağıdaki örneklere bakın) giden IP adresleri için özel işlem varsa, mevcut görünen yeni giden IP adresleri ekleyin. Mevcut IP adreslerini değiştirin yok. Sonraki bölümde yönergeleri takip ederek yeni giden IP adresleri bulabilirsiniz.
 
   Örneğin, bir giden IP adresi açıkça uygulamanızı dışında bir güvenlik duvarı eklenebilir veya bir dış ödeme hizmet uygulamanız için giden IP adresi içeren bir izin verilenler olabilir. Giden adresinizi uygulamanızı dışında herhangi bir yeri listesindeki yapılandırılmışsa, değiştirmesi gerekir.
 

@@ -3,16 +3,16 @@ title: 'Bir sanal ağ geçidini silin: Azure portalı: Resource Manager | Micros
 description: Azure portalını kullanarak Resource Manager dağıtım modelinde bir sanal ağ geçidini silin.
 services: vpn-gateway
 documentationcenter: na
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
-origin.date: 10/23/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 10/23/2018
+ms.author: cherylmc
+ms.topic: conceptual
 ms.openlocfilehash: 387b4e982772f22453876e1ea8b9e7c4039601c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845700"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Portalı kullanarak bir sanal ağ geçidini silme
@@ -61,7 +61,5 @@ Bu noktada, sanal ağ geçidi silinir. Sonraki adımlar artık kullanılmayan t�
 Kaynak grubunda kaynaklarınızın herhangi etme konusunda endişe değildir ve baştan başlamak istiyorsanız, bir kaynak grubunun tamamını silebilirsiniz. Bu, her şeyi kaldırmak için hızlı bir yoludur. Aşağıdaki adımlar, yalnızca Resource Manager dağıtım modeli için geçerlidir.
 
 1. İçinde **tüm kaynakları**, kaynak grubunu bulun ve dikey penceresini açmak için tıklayın.
-2. **Sil**'e tıklayın. Silme dikey penceresinde, etkilenen kaynaklar'ı görüntüleyin. Tüm bu kaynaklar silmek istediğinizden emin olun. Aksi takdirde, silme adımları bu makalenin başında bir VPN ağ geçidi kullanın.
+2. Tıklayın **Sil**. Silme dikey penceresinde, etkilenen kaynaklar'ı görüntüleyin. Tüm bu kaynaklar silmek istediğinizden emin olun. Aksi takdirde, silme adımları bu makalenin başında bir VPN ağ geçidi kullanın.
 3. Devam etmek için silin ve ardından istediğiniz kaynak grubunun adını yazın. **Sil**.
-
-<!--Update_Description: wording update-->

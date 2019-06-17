@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977302"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Hatalı parola kuruluşunuzdaki ortadan kaldırın
@@ -26,7 +26,7 @@ Endüstri liderlerinden aynı parolayı birden fazla yerde karmaşık hale ve/Pa
 
 Microsoft, siber suçluların her zaman bir adım önünde olmak için çalışmaktadır. Bu nedenle Azure AD kimlik koruması ekibi için yaygın olarak kullanılan ve güvenliği aşılan parolaları sürekli olarak arayın. Bunlar ardından genel yasaklı parola listesi çağrılma yeri çok yaygın olarak kabul edilen bu parolaları engelleyin. Siber suçlular kendi saldırılarında de benzer stratejiler kullanır, bu nedenle Microsoft, bu listenin içeriği herkese açık şekilde yayımlamaz. Bu güvenlik açığı olan parolaların Microsoft müşterileri için gerçek bir tehdit haline gelmeden önce engellenir. Geçerli güvenlik çalışmaları hakkında daha fazla bilgi için bkz: [Microsoft Güvenlik zekası raporu](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="custom-banned-password-list"></a>Özel yasaklanan parola listesi
+## <a name="custom-banned-password-list"></a>Özel parola listesine yasaklandı
 
 Bazı kuruluşlar kendi özelleştirmeleri genel yasaklı parola listesi üzerinde hangi Microsoft özel yasaklı parola listesi çağrıları ekleyerek güvenlik bir adım daha ileri almak isteyebilirsiniz. Kurumsal müşteriler gibi contoso marka adları, şirketinize özgü koşulları veya diğer öğeleri türevleri engellemek seçebilirsiniz.
 
@@ -44,7 +44,7 @@ Her bir kullanıcı, değiştirir veya kullanıcının parolasını sıfırlar y
 
 Bir kullanıcının parolasını yasaklı parola içeriyorsa bile genel parola yeterince güçlü yanlışsa parola hala kabul. Yeni yapılandırılan bir parola, kabul reddedilir veya belirlemek için genel güçlü değerlendirmek için aşağıdaki adımları geçer.
 
-### <a name="step-1-normalization"></a>1. Adım: Normalleştirme
+### <a name="step-1-normalization"></a>1\. adım: Normalleştirme
 
 Yeni bir parola önce bir normalleştirme sürecinden geçer. Bu yasaklı parola küçük bir kümesi için bir çok daha büyük olabilecek zayıf parolalarda kümesine eşlenecek sağlar.
 
@@ -59,7 +59,7 @@ Normalleştirme iki bölümden oluşur.  İlk, tüm büyük harfleri küçük ha
 
 Örnek: "boş" parola yasaklanmış ve bir kullanıcı için parola değiştirmesini dener varsayılır "Bl@nK". Olsa da "Bl@nk" olan özel olarak yasaklanmış bir yasaklı parola olan bu parola için "blank" normalleştirme işlemi dönüştürür.
 
-### <a name="step-2-check-if-password-is-considered-banned"></a>2. Adım: Parola yasaklanmış değerlendirilmiyorsa denetimi
+### <a name="step-2-check-if-password-is-considered-banned"></a>2\. adım: Parola yasaklanmış değerlendirilmiyorsa denetimi
 
 #### <a name="fuzzy-matching-behavior"></a>Benzer eşleştirme davranışı
 

@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 08b65770414e9ee1cb5e478427fe7654b2bb9a78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252448"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64725437"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountCombo kullanıcı Arabirimi öğesi
 Ortak bir önek ile başlayan adları ile birkaç depolama hesabı oluşturmak için denetimleri grubudur.

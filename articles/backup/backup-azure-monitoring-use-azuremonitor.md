@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734849"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808515"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Uygun ölçekte Azure İzleyicisi'ni kullanarak izleme
 
@@ -257,7 +257,7 @@ Kurtarma Hizmetleri kasası burada kaynaktır ve bu nedenle etkinlik günlükler
 Etkinlik günlükleri aracılığıyla bildirim kullanılabilse ***Azure Backup hizmeti yüksek oranda önerir LA ölçek ve değil etkinlik günlüklerine aşağıdaki nedenlerden dolayı izleme için kullanılacak***.
 
 - **Sınırlı sayıda senaryoda:** Yalnızca Azure VM yedeklemeleri için geçerlidir ve her RS kasası için tekrarlanmalıdır.
-- **Uygun tanımı:** Zamanlanmış yedekleme etkinliğin etkinlik günlükleri ile en son tanımlarla sığmayan ve ile uyumludur [tanılama günlükleri](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). Bu müşteri adayı için etkinlik günlüğü kanalındaki Pompalama verileri aşağıda olarak değiştirildiğinde beklenmeyen etkisi.
+- **Uygun tanımı:** Zamanlanmış yedekleme etkinliğin etkinlik günlükleri ile en son tanımlarla sığmayan ve ile uyumludur [tanılama günlükleri](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Bu müşteri adayı için etkinlik günlüğü kanalındaki Pompalama verileri aşağıda olarak değiştirildiğinde beklenmeyen etkisi.
 - **Etkinlik günlüğü kanal ile ilgili sorunlar:** Azure Backup kurtarma Hizmetleri kasaları üzerinde etkinlik günlüklerinden Pompalama, yeni bir Modeli'ne taşıdık. Ne yazık ki, taşıma, etkinlik günlüklerini Azure bağımsız bulutlarda nesil etkiledi. Azure bağımsız bulut kullanıcıları oluşturulan/Azure İzleyici aracılığıyla etkinlik günlüklerinden herhangi bir uyarı yapılandırdıysanız, bunlar tetiklenmesi değil. Bir kullanıcının kurtarma Hizmetleri etkinlik günlükleri bir günlük analizi çalışma alanına belirtildiği gibi topladığını, ayrıca, tüm Azure bölgelerinde genel, [burada](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), bu günlükleri değil de görünür.
 
 Bu nedenle, günlük analizi çalışma alanı izleme için kullanılacak önemle tavsiye edilir ve tüm Azure Backup için uygun ölçekte uyarı korumalı iş yükü.

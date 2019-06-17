@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 04/24/2019
 ms.author: tomfitz
 ms.openlocfilehash: 21b3972a96c1601b15c403275474d58873753b08
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712998"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Tam modda dağıtımlar için Azure kaynakları silme
@@ -44,10 +44,10 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | ------------- | ----------- |
 | aadsupportcases | Hayır | 
 | addsservices | Hayır | 
-| aracılar | Hayır | 
+| Aracıları | Hayır | 
 | anonymousapiusers | Hayır | 
 | yapılandırma | Hayır | 
-| günlükler | Hayır | 
+| logs | Hayır | 
 | raporlar | Hayır | 
 | services | Hayır | 
 
@@ -56,7 +56,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | ------------- | ----------- |
 | Yapılandırmaları | Hayır | 
 | generateRecommendations | Hayır | 
-| öneriler | Hayır | 
+| Önerileri | Hayır | 
 | gizlemeleri | Hayır | 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
@@ -74,7 +74,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| sunucu | Evet | 
+| Sunucuları | Evet | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Kaynak türü | Tam modda silme |
@@ -242,8 +242,8 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | reservationOrders/return'e | Hayır | 
 | reservationOrders/Böl | Hayır | 
 | reservationOrders/değiştirme | Hayır | 
-| rezervasyonlar | Hayır | 
-| kaynaklar | Hayır | 
+| ayırmalar | Hayır | 
+| Kaynakları | Hayır | 
 | validateReservationOrder | Hayır | 
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
@@ -305,7 +305,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
 | Özellikleri | Hayır | 
-| diskler | Hayır | 
+| Diskler | Hayır | 
 | images | Hayır | 
 | osImages | Hayır | 
 | osPlatformImages | Hayır | 
@@ -332,13 +332,13 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
 | availabilitySets | Evet | 
-| diskler | Evet | 
+| Diskler | Evet | 
 | images | Evet | 
 | restorePointCollections | Evet | 
 | restorePointCollections/restorePoints | Hayır | 
 | sharedVMImages | Evet | 
 | sharedVMImages/sürümleri | Evet | 
-| anlık görüntüler | Evet | 
+| Anlık görüntüleri | Evet | 
 | virtualMachines | Evet | 
 | virtualMachines/diagnosticSettings | Hayır | 
 | virtualMachines ve uzantıları | Evet | 
@@ -355,7 +355,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | AggregatedCost | Hayır | 
 | Bakiyeler | Hayır | 
 | Bütçeler | Hayır | 
-| Ücretler | Hayır | 
+| Ücretleri | Hayır | 
 | CostTags | Hayır | 
 | Krediler | Hayır | 
 | etkinlikler | Hayır | 
@@ -363,12 +363,12 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | çok sayıda | Hayır | 
 | Pazar | Hayır | 
 | Pricesheets | Hayır | 
-| ürünler | Hayır | 
+| Ürünleri | Hayır | 
 | ReservationDetails | Hayır | 
 | ReservationRecommendations | Hayır | 
 | ReservationSummaries | Hayır | 
 | ReservationTransactions | Hayır | 
-| Etiketler | Hayır | 
+| Tags | Hayır | 
 | Koşullar | Hayır | 
 | UsageDetails | Hayır | 
 
@@ -427,13 +427,13 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | Uyarılar | Hayır | 
 | billingAccounts | Hayır | 
 | Bağlayıcılar | Evet | 
-| Bölümler | Hayır | 
+| Departmanlar | Hayır | 
 | Boyutlar | Hayır | 
 | enrollmentAccounts | Hayır | 
 | Sorgu | Hayır | 
 | Kaydolun | Hayır | 
 | Reportconfigs | Hayır | 
-| Reports | Hayır | 
+| Raporlar | Hayır | 
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Kaynak türü | Tam modda silme |
@@ -455,7 +455,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| işler | Evet | 
+| İşleri | Evet | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Kaynak türü | Tam modda silme |
@@ -465,7 +465,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| çalışma alanı | Evet | 
+| Çalışma alanları | Evet | 
 | çalışma alanları/virtualNetworkPeerings | Hayır | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -511,21 +511,21 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| sunucu | Evet | 
+| Sunucuları | Evet | 
 | sunucuları/recoverableServers | Hayır | 
 | sunucuları/virtualNetworkRules | Hayır | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| sunucu | Evet | 
+| Sunucuları | Evet | 
 | sunucuları/recoverableServers | Hayır | 
 | sunucuları/virtualNetworkRules | Hayır | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| sunucu | Evet | 
+| Sunucuları | Evet | 
 | sunucuları/danışmanları | Hayır | 
 | sunucuları/queryTexts | Hayır | 
 | sunucuları/recoverableServers | Hayır | 
@@ -590,7 +590,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
 | Kümeleri | Evet | 
-| ad alanları | Evet | 
+| Ad alanları | Evet | 
 | ad/authorizationrules öğesine | Hayır | 
 | ad/disasterrecoveryconfigs | Hayır | 
 | ad/eventhubs | Hayır | 
@@ -616,7 +616,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | myareas/alanlar/galleryitems | Hayır | 
 | myareas/galleryitems | Hayır | 
 | Kaydolun | Hayır | 
-| kaynaklar | Hayır | 
+| Kaynakları | Hayır | 
 | retrieveresourcesbyid | Hayır | 
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
@@ -639,7 +639,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| işler | Evet | 
+| İşleri | Evet | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Kaynak türü | Tam modda silme |
@@ -658,7 +658,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | alertrules | Evet | 
 | automatedExportSettings | Hayır | 
 | autoscalesettings | Evet | 
-| temel | Hayır | 
+| Taban çizgisi | Hayır | 
 | calculatebaseline | Hayır | 
 | Bileşenleri | Evet | 
 | bileşenleri/olaylar | Hayır | 
@@ -671,7 +671,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | extendedDiagnosticSettings | Hayır | 
 | logDefinitions | Hayır | 
 | logprofiles | Hayır | 
-| günlükler | Hayır | 
+| logs | Hayır | 
 | metricAlerts | Evet |
 | migrateToNewPricingModel | Hayır | 
 | myWorkbooks | Hayır | 
@@ -680,7 +680,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | scheduledqueryrules | Evet | 
 | vmInsightsOnboardingStatuses | Hayır | 
 | Web testleri | Evet | 
-| çalışma kitapları | Evet | 
+| Çalışma kitapları | Evet | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 | Kaynak türü | Tam modda silme |
@@ -733,7 +733,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| günlükler | Hayır | 
+| logs | Hayır | 
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Kaynak türü | Tam modda silme |
@@ -766,13 +766,13 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| çalışma alanı | Evet | 
+| Çalışma alanları | Evet | 
 | çalışma alanları/işlemleri | Hayır | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.managedıdentity
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| Kimlikler | Hayır | 
+| Kimlikleri | Hayır | 
 | Userassignedıdentities | Evet | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
@@ -780,7 +780,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | ------------- | ----------- |
 | getEntities | Hayır | 
 | managementGroups | Hayır | 
-| kaynaklar | Hayır | 
+| Kaynakları | Hayır | 
 | startTenantBackfill | Hayır | 
 | tenantBackfillStatus | Hayır | 
 
@@ -802,7 +802,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | offerTypes/yayımcılar/teklif/planları/yapılandırmalar | Hayır | 
 | offerTypes/publishers/offers/plans/configs/importImage | Hayır | 
 | privategalleryitems | Hayır | 
-| ürünler | Hayır | 
+| Ürünleri | Hayır | 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Kaynak türü | Tam modda silme |
@@ -849,7 +849,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | azureFirewallFqdnTags | Hayır | 
 | azureFirewalls | Evet | 
 | bgpServiceCommunities | Hayır | 
-| bağlantılar | Evet | 
+| Bağlantıları | Evet | 
 | ddosCustomPolicies | Evet | 
 | ddosProtectionPlans | Evet | 
 | dnsOperationStatuses | Hayır | 
@@ -905,7 +905,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| ad alanları | Evet | 
+| Ad alanları | Evet | 
 | ad/notificationHubs | Evet | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -914,7 +914,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | cihazlar | Hayır | 
 | linkTargets | Hayır | 
 | storageInsightConfigs | Hayır | 
-| çalışma alanı | Evet | 
+| Çalışma alanları | Evet | 
 | çalışma alanları/veri kaynakları | Hayır | 
 | çalışma alanları/linkedServices | Hayır | 
 | çalışma alanları/sorgu | Hayır | 
@@ -925,7 +925,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | managementassociations | Hayır | 
 | managementconfigurations | Evet | 
 | çözümler | Evet | 
-| görüntüleme | Evet | 
+| Görünümler | Evet | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.policyınsights
 | Kaynak türü | Tam modda silme |
@@ -966,7 +966,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| ad alanları | Evet | 
+| Ad alanları | Evet | 
 | ad/authorizationrules öğesine | Hayır | 
 | ad/hybridconnections | Hayır | 
 | ad/hybridconnections/authorizationrules öğesine | Hayır | 
@@ -976,7 +976,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| kaynaklar | Hayır | 
+| Kaynakları | Hayır | 
 | subscriptionsStatus | Hayır | 
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
@@ -987,19 +987,19 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | childResources | Hayır | 
 | etkinlikler | Hayır | 
 | impactedResources | Hayır | 
-| bildirimler | Hayır | 
+| Bildirimleri | Hayır | 
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| dağıtımlar | Hayır | 
+| Dağıtımları | Hayır | 
 | Dağıtımları/işlemleri | Hayır | 
 | Bağlantılar | Hayır | 
 | notifyResourceJobs | Hayır | 
 | sağlayıcıları | Hayır | 
 | resourceGroups | Hayır | 
-| kaynaklar | Hayır | 
-| abonelik | Hayır | 
+| Kaynakları | Hayır | 
+| Abonelikler | Hayır | 
 | Abonelikler/sağlayıcıları | Hayır | 
 | Abonelikler/kaynak grupları | Hayır | 
 | Abonelikler/resourcegroups/kaynaklar | Hayır | 
@@ -1017,7 +1017,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| akışlar | Evet | 
+| Akışlar | Evet | 
 | eyleminde | Evet | 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1041,11 +1041,11 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | externalSecuritySolutions | Hayır | 
 | InformationProtectionPolicies | Hayır | 
 | jitNetworkAccessPolicies | Hayır | 
-| izleme | Hayır | 
+| İzleme | Hayır | 
 | İzleme/kötü amaçlı yazılımdan koruma | Hayır | 
 | İzleme temel | Hayır | 
 | İzleme/düzeltme eki | Hayır | 
-| ilkeler | Hayır | 
+| İlkeleri | Hayır | 
 | fiyatları | Hayır | 
 | securityContacts | Hayır | 
 | securitySolutions | Hayır | 
@@ -1070,7 +1070,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
-| ad alanları | Evet | 
+| Ad alanları | Evet | 
 | ad/authorizationrules öğesine | Hayır | 
 | ad/disasterrecoveryconfigs | Hayır | 
 | ad/eventgridfilters | Hayır | 
@@ -1093,8 +1093,8 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | ------------- | ----------- |
 | uygulamalar | Evet | 
 | Ağ geçitleri | Evet | 
-| ağlar | Evet | 
-| gizli dizi | Evet | 
+| Ağlar | Evet | 
+| Gizli dizileri | Evet | 
 | volumes | Evet | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
@@ -1124,7 +1124,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | managedInstances/anahtarları | Hayır |
 | restorableDroppedDatabases/managedInstances/backupShortTermRetentionPolicies | Hayır |
 | managedInstances/vulnerabilityAssessments | Hayır |
-| sunucu | Evet | 
+| Sunucuları | Evet | 
 | sunucuları/yöneticileri | Hayır | 
 | sunucuları/communicationLinks | Hayır | 
 | sunucuları/veritabanları | Evet (aşağıdaki nota bakın) | 
@@ -1197,7 +1197,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | Kaynak türü | Tam modda silme |
 | ------------- | ----------- |
 | providerRegistrations | Evet | 
-| kaynaklar | Evet | 
+| Kaynakları | Evet | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Kaynak türü | Tam modda silme |
@@ -1228,9 +1228,9 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | apiManagementAccounts/connectionAcls | Hayır | 
 | apiManagementAccounts/bağlantıları | Hayır | 
 | billingMeters | Hayır | 
-| sertifika | Evet | 
+| Sertifikaları | Evet | 
 | connectionGateways | Evet | 
-| bağlantılar | Evet | 
+| Bağlantıları | Evet | 
 | customApis | Evet | 
 | deletedSites | Hayır | 
 | işlevler | Hayır | 
@@ -1240,12 +1240,12 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [tam
 | hostingEnvironments/workerPools | Hayır | 
 | workerPools/hostingEnvironments/örnekleri | Hayır | 
 | publishingUsers | Hayır | 
-| öneriler | Hayır | 
+| Önerileri | Hayır | 
 | resourceHealthMetadata | Hayır | 
 | Çalışma zamanları | Hayır | 
 | serverFarms | Evet | 
 | serverFarms/çalışanları | Hayır | 
-| siteler | Evet | 
+| Siteleri | Evet | 
 | Site/domainOwnershipIdentifiers | Hayır | 
 | Site/hostNameBindings | Hayır | 
 | Site/örnekleri | Hayır | 

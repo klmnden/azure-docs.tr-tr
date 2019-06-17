@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 20f0d6a88fead155225cff69ab89635de587a46d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66455189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056495"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Noktadan Siteye yapılandırmamda kaç VPN istemci uç noktam olabilir?
 
@@ -40,11 +40,11 @@ Aşağıdaki istemci işletim sistemleri desteklenmektedir:
 
 Azure, üç noktadan siteye VPN seçeneği türünü destekler:
 
-* Güvenli Yuva Tünel Protokolü (SSTP). SSTP, Microsoft’a özel SSL tabanlı bir çözümdür ve çoğu güvenlik duvarı 443 SSL’nin kullandığı TCP bağlantı noktasını açtığı için güvenlik duvarlarından geçebilir.
+* Güvenli Yuva Tünel Protokolü (SSTP). SSTP çoğu güvenlik duvarı 443 SSL'nin kullandığı giden TCP bağlantı noktası açık olduğundan, güvenlik duvarları duvarlarından geçebildiği bir Microsoft özel SSL tabanlı bir çözümdür.
 
-* OpenVPN. OpenVPN çoğu güvenlik duvarı 443 SSL'nin kullandığı TCP bağlantı noktası açık olduğundan, güvenlik duvarları duvarlarından geçebildiği bir SSL tabanlı bir çözümdür.
+* OpenVPN. OpenVPN çoğu güvenlik duvarı 443 SSL'nin kullandığı giden TCP bağlantı noktası açık olduğundan, güvenlik duvarları duvarlarından geçebildiği bir SSL tabanlı bir çözümdür.
 
-* IKEv2 VPN. Standart tabanlı bir IPsec VPN çözümü olan IKEv2 VPN, UDP bağlantı noktası 500 ve 4500 ile 50 numaralı IP protokolünü kullanır. Güvenlik duvarları her zaman bu bağlantı noktalarını açmaz ve bu nedenle IKEv2 VPN’nin proxy ile güvenlik duvarlarını geçememe olasılığı vardır.
+* IKEv2 VPN. Ikev2 VPN Hayır giden UDP bağlantı noktası 500 ve 4500 ve IP protokolü kullanan standart tabanlı bir IPSec VPN çözümüdür. kullanır. Güvenlik duvarları her zaman bu bağlantı noktalarını açmaz ve bu nedenle IKEv2 VPN’nin proxy ile güvenlik duvarlarını geçememe olasılığı vardır.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Noktadan Siteye için yapılandırılmış istemci bilgisayarını yeniden başlatırsam VPN de otomatik olarak yeniden bağlanacak mı?
 

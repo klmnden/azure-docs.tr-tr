@@ -14,10 +14,10 @@ ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
 ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60884988"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Bir Azure temel REST API kullanarak yük dengeleyici oluşturma
@@ -57,7 +57,7 @@ Bu örnekte, ilk kaynaklarıyla birlikte bir temel yük dengeleyici oluşturun. 
 
 Aşağıdaki örneği kullanarak bir yük dengeleyici oluşturmadan önce adlı bir sanal ağ oluşturma *vnetlb* adlı bir alt ağ ile *subnetlb* adlı bir kaynak grubu içinde *rg1* içinde **Doğu ABD** konumu.
 
-### <a name="step-1-create-a-basic-load-balancer"></a>1. ADIMI. Temel Yük Dengeleyici oluşturma
+### <a name="step-1-create-a-basic-load-balancer"></a>1\. ADIMI. Temel Yük Dengeleyici oluşturma
 Bu adımda, oluşturduğunuz adlı bir temel yük dengeleyici, *lb* adresindeki **Doğu ABD** içindeki konum *rg1* kaynak grubu.
 #### <a name="sample-request"></a>Örnek istek
 
@@ -71,7 +71,7 @@ Bu adımda, oluşturduğunuz adlı bir temel yük dengeleyici, *lb* adresindeki 
     "location": "eastus",
    }
   ```
-### <a name="step-2-configure-load-balancer-resources"></a>2. ADIMI. Yük Dengeleyici kaynakları yapılandırma
+### <a name="step-2-configure-load-balancer-resources"></a>2\. ADIMI. Yük Dengeleyici kaynakları yapılandırma
 Bu adımda yük dengeleyici yapılandırma *lb* bir ön uç IP yapılandırması içeren kaynakları (*fe lb*), bir arka uç adres havuzu (*olması lb*), Yük Dengeleme kuralı ( *rulelb*), bir durum araştırması (*lb araştırma*) ve gelen NAT kuralı (*içinde-nat-rule*).
 #### <a name="sample-request"></a>Örnek istek
 

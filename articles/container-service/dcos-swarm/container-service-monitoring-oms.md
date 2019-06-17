@@ -10,10 +10,10 @@ ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
 ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60810095"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(KULLANIM DIŞI) Log Analytics ile bir Azure Container Service DC/OS kümesini izleme
@@ -43,7 +43,7 @@ Bu makalede, bir DC/OS kümesi ve kümede basit web kapsayıcı uygulamaları da
 
    ![](media/container-service-monitoring-oms/image2.png)
 
-2. **Yükle**'ye tıklayın. Sürüm bilgileri içeren bir açılır pencere görürsünüz ve **yükleme paketi** veya **gelişmiş yükleme** düğmesi. Tıkladığınızda **gelişmiş yükleme**, hangi müşteri adayları, **OMS belirli yapılandırma özellikleri** sayfası.
+2. **Yükle**'ye tıklatın. Sürüm bilgileri içeren bir açılır pencere görürsünüz ve **yükleme paketi** veya **gelişmiş yükleme** düğmesi. Tıkladığınızda **gelişmiş yükleme**, hangi müşteri adayları, **OMS belirli yapılandırma özellikleri** sayfası.
 
    ![](media/container-service-monitoring-oms/image3.png)
 

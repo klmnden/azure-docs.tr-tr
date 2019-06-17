@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 21cbef1532928d51ba0c9f11e80304933df505b1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8814dc9ba94ca7fa56a2225c71895520467bf05f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891636"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Öğretici: O.C. ile Azure Active Directory Tümleştirme Tanner - AppreciateHub
 
@@ -53,7 +53,7 @@ O.C. tümleştirmesini yapılandırmak için Etikan - AppreciateHub Azure AD'ye 
 
 **O.C. eklemek için Etikan - AppreciateHub galerisinden, aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Azure AD çoklu oturum açma ile O.C. yapılandırmak için Etikan - AppreciateH
 
     a. Tıklayın **meta veri dosyasını karşıya yükleme**.
 
-    ![Meta veri dosyasını yükleyin](common/upload-metadata.png)
+    ![Meta veri dosyasını karşıya yükleyin](common/upload-metadata.png)
 
     b. Tıklayarak **klasör logosu** meta veri dosyası seçin ve **karşıya**.
 

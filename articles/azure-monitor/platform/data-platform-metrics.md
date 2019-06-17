@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867975"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure İzleyicisi'nde ölçümler
@@ -33,12 +33,12 @@ Aşağıdaki tabloda, ölçüm verilerini Azure İzleyici'de kullanabileceğiniz
 
 |  |  |
 |:---|:---|
-| Çözümleme | Kullanım [ölçüm Gezgini](metrics-charts.md) bir grafikteki toplanan ölçümlerin analiz edin ve farklı kaynaklardan ölçümleri karşılaştırmak için. |
-| Görselleştirme | Ölçüm Gezgini için bir grafik sabitleme bir [Azure panosuna](../learn/tutorial-app-dashboards.md).<br>Oluşturma bir [çalışma kitabı](../app/usage-workbooks.md) birden çok etkileşimli bir rapordaki veri kümesi ile birleştirilecek. Sorgu sonuçlarını dışarı aktarma [Grafana](grafana-plugin.md) kendi yönelik Kompozit yararlanın ve diğer veri kaynaklarıyla birleştirmek için. |
+| Çözümle | Kullanım [ölçüm Gezgini](metrics-charts.md) bir grafikteki toplanan ölçümlerin analiz edin ve farklı kaynaklardan ölçümleri karşılaştırmak için. |
+| Görselleştirin | Ölçüm Gezgini için bir grafik sabitleme bir [Azure panosuna](../learn/tutorial-app-dashboards.md).<br>Oluşturma bir [çalışma kitabı](../app/usage-workbooks.md) birden çok etkileşimli bir rapordaki veri kümesi ile birleştirilecek. Sorgu sonuçlarını dışarı aktarma [Grafana](grafana-plugin.md) kendi yönelik Kompozit yararlanın ve diğer veri kaynaklarıyla birleştirmek için. |
 | Uyarı | Yapılandırma bir [ölçüm uyarısı kuralının](alerts-metric.md) bildirim gönderen veya alan [eylemi otomatik](action-groups.md) ölçüm değeri bir eşiği aştığında zaman. |
 | Otomatikleştirme |  Kullanım [otomatik ölçeklendirme](autoscale-overview.md) artırabilir veya azaltabilirsiniz bir Eşiği aşan bir ölçüm değeri temel alarak kaynakları. |
 | Dışarı Aktarma | [Rota ölçümleri günlüklerine](diagnostic-logs-stream-log-store.md) Azure İzleyici ölçümleri verileri birlikte Azure İzleyici günlüklerine verileri analiz etmek ve ölçüm değerleri 93 günden daha uzun süre saklamak için.<br>Stream için ölçümleri bir [olay hub'ı](stream-monitoring-data-event-hubs.md) dış sisteme yönlendirmek. |
-| Al | Erişim ölçüm değerleri kullanarak bir komut satırı [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Ölçüm değerleri kullanarak özel uygulama erişimi [REST API](rest-api-walkthrough.md).<br>Erişim ölçüm değerleri kullanarak bir komut satırı [CLI](/cli/azure/monitor/metrics). |
+| Alma | Erişim ölçüm değerleri kullanarak bir komut satırı [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Ölçüm değerleri kullanarak özel uygulama erişimi [REST API](rest-api-walkthrough.md).<br>Erişim ölçüm değerleri kullanarak bir komut satırı [CLI](/cli/azure/monitor/metrics). |
 | Arşiv | [Arşiv](..//learn/tutorial-archive-data.md) kaynağınızın denetim ya da çevrimdışı raporlamaya uyumluluk, performans veya sistem durumu geçmişi. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Azure İzleyici ölçümleri yapılandırılmış verileri nasıl mi?
@@ -52,7 +52,7 @@ Azure İzleyici ölçümleri tarafından toplanan veriler, zaman damgası veri �
 * Bazı ölçümler açıklandığı gibi birden çok boyutta olabilir [çok boyutlu ölçümler](#multi-dimensional-metrics). Özel ölçümler, en fazla 10 boyuta sahip olabilir.
 
 ## <a name="multi-dimensional-metrics"></a>Çok boyutlu ölçümleri
-Ölçüm verilerini zorlukları bilgileri için toplanan değerler bağlam sağlamak için çoğunlukla sınırlıdır biridir. Azure İzleyici, çok boyutlu ölçümler ile bu sorunu giderir. Bir ölçüm boyutlarını ölçüm değeri tanımlamak için ek veri taşıyan ad-değer çiftleridir. Örneğin, bir ölçüm _kullanılabilir disk alanı_ adlı bir boyutun olabilir _sürücü_ değerlerle _C:_, _D:_, hangi görüntüleme izin veya kullanılabilir disk alanı tüm sürücüler her biri için ayrı ayrı sürücü.
+Ölçüm verilerini zorlukları bilgileri için toplanan değerler bağlam sağlamak için çoğunlukla sınırlıdır biridir. Azure İzleyici, çok boyutlu ölçümler ile bu sorunu giderir. Bir ölçüm boyutlarını ölçüm değeri tanımlamak için ek veri taşıyan ad-değer çiftleridir. Örneğin, bir ölçüm _kullanılabilir disk alanı_ adlı bir boyutun olabilir _sürücü_ değerlerle _C:_ , _D:_ , hangi görüntüleme izin veya kullanılabilir disk alanı tüm sürücüler her biri için ayrı ayrı sürücü.
 
 Aşağıdaki örnekte adlı kuramsal bir ölçüm için iki veri kümesi gösterildiği _ağ aktarım hızı_. İlk veri kümesi herhangi bir boyutu vardır. İki boyutlu değerlerle ikinci bir veri kümesi gösterir _IP adresi_ ve _yönü_:
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bc40c5043cefad7892eaead8fe8058ac3707865
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff60e378e900d618cfc07f53959aa2d64518353c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60279911"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Öğretici: Envi MMIS ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Envi MMIS tümleştirmesini yapılandırmak için Envi MMIS Galeride
 
 **Galeriden Envi MMIS eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -140,7 +140,7 @@ Azure AD çoklu oturum açma ile Envi MMIS yapılandırmak için aşağıdaki ad
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/envimmis-tutorial/configure1.png)
 
-3. **Düzenle**’ye tıklayın.
+3. **Düzenle**‘ye tıklayın.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/envimmis-tutorial/configure2.png)
 

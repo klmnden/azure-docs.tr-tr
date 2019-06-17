@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d68c8a63dd3adaee0c04f5438f91da68f3903aea
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c2d7f3922bc3226a7871ee775718ca43757adb54
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889400"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089564"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>Öğretici: SumTotalCentral ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de SumTotalCentral tümleştirmesini yapılandırmak için SumTotalCent
 
 **Galeriden SumTotalCentral eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -4,21 +4,20 @@ titlesuffix: Azure Load Balancer
 description: Kaynak IP benzeşimi desteklemek Azure Load Balancer için dağıtım modunu yapılandırma
 services: load-balancer
 documentationcenter: na
-author: WenJason
+author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/25/2017
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 09/25/2017
+ms.author: kumud
 ms.openlocfilehash: afa840bd0b48cc9df1e9711caa035b85e8ec3855
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122411"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Azure Load Balancer için dağıtım modunu yapılandırma
@@ -62,14 +61,14 @@ Set-AzLoadBalancer -LoadBalancer $lb
 Klasik sanal makineler için dağıtım ayarlarını değiştirmek için Azure PowerShell kullanırsınız. Bir sanal makineye Azure uç nokta ekleyin ve yük dengeleyici dağıtım modunu yapılandırın:
 
 ```powershell
-Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution sourceIP | Update-AzureVM
+Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
 Değerini `LoadBalancerDistribution` istenen miktarda Yük Dengeleme için öğesi. 2-demet (kaynak IP ve hedef IP) Yük Dengeleme için Sourceıp belirtin. 3'lü demet (kaynak IP, hedef IP ve protokol türü) Yük Dengeleme sourceIPProtocol belirtin. Hiçbiri için 5 tanımlama grubu Yük Dengeleme varsayılan davranışını belirtin.
 
 Bir uç nokta yük dengeleyici dağıtım modu yapılandırma, bu ayarları kullanarak alın:
 
-    PS C:\> Get-AzureVM -ServiceName MyService -Name MyVM | Get-AzureEndpoint
+    PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -95,8 +94,8 @@ Zaman `LoadBalancerDistribution` öğesi yoksa, Azure Load Balancer varsayılan 
 
 Uç noktaları yük dengeli uç nokta kümesinin bir parçası olduğunda dağıtım modunu yük dengeli uç nokta kümesinde yapılandırılması gerekir:
 
-```powershell
-Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -LoadBalancerDistribution sourceIP
+```azurepowershell
+Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
 ### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>Bulut Hizmetleri uç noktaları için dağıtım modunu yapılandırma
@@ -133,10 +132,10 @@ Azure Klasik dağıtım modeli, var olan bir dağıtım yapılandırmasını de�
 
 #### <a name="request"></a>İstek
 
-    POST https://management.core.chinacloudapi.cn/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
+    POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
     Content-Type: application/xml
 
-    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
       <InputEndpoint>
         <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName>
         <LocalPort> local-port-number </LocalPort>
@@ -171,5 +170,3 @@ Daha önce açıklandığı gibi belirlenen `LoadBalancerDistribution` Sourceıp
 * [Azure iç yük dengeleyiciye genel bakış](load-balancer-internal-overview.md)
 * [İnternet'e yönelik Yük Dengeleyici yapılandırmaya başlayın](load-balancer-get-started-internet-arm-ps.md)
 * [Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
-
-<!-- Update_Description: update meta properties, wording update, update link -->

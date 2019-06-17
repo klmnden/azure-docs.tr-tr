@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 64ea7c175b733f974eba6c081ee2c98814cbcda2
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873718"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS) ile SQL Data Warehouse'a bağlanma
@@ -67,7 +67,7 @@ Artık veritabanınızla bağlantı kurulduğuna göre bir sorgu yazalım.
     ```
 4. Sorguyu çalıştırın. Bunu yapmak için tıklatın `Execute` veya şu kısayolu kullanın: `F5`.
    
-    ![Sorguyu çalıştır][5]
+    ![Sorgu çalıştırma][5]
 5. Sorgu sonuçlarına bakın. Bu örnekte FactInternetSales tablosunda 60398 satır var.
    
     ![Sorgu sonuçları][6]

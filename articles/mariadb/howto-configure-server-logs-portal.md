@@ -1,21 +1,21 @@
 ---
-title: Yapılandırma ve Azure Portalı'nda MariaDB için için Azure veritabanı sunucu günlüklerine erişme
-description: Bu makalede Azure Portalı'ndan MariaDB için Azure veritabanı'nda sunucu günlüklerini erişmek ve yapılandırma.
+title: Yapılandırma ve erişimi sunucu için MariaDB için Azure veritabanı, Azure portalında kaydeder.
+description: Bu makalede, Azure veritabanı'nda sunucu günlüklerini MariaDB için Azure portalından erişmek ve yapılandırma açıklanır.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4ff2fbd5976a8e203bbc43a87b31ddb1bed63402
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 3dbf7064e409230916668e62ef861c0ce149fdbb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61040694"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065631"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Yapılandırma ve Azure portalında erişim sunucusu günlükleri
 
-Yapılandırma, liste indirin ve [MariaDB sunucu günlükleri için Azure veritabanı](concepts-server-logs.md) Azure portalından.
+Yapılandırma, liste indirin ve [yavaş sorgu günlüklerini MariaDB için Azure veritabanı](concepts-server-logs.md) Azure portalından.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
@@ -42,7 +42,7 @@ Yavaş sorgu günlüğü erişimi yapılandırın.
 6. Dönüş günlükleri listesine tıklayarak **Kapat düğmesi** (X simgesi) üzerinde **sunucu parametreleri** sayfası.
 
 ## <a name="view-list-and-download-logs"></a>Listesini görüntüleyebilir ve günlükleri indir
-Günlük başladıktan sonra mevcut bir listesini görüntülemek ve sunucu günlüklerini bölmesinde ayrı günlük dosyalarına indirin. 
+Günlüğe kaydetme başladıktan sonra kullanılabilir yavaş sorgu günlüklerini listesini görüntüleyebilir ve sunucu günlüklerini bölmesinde ayrı günlük dosyalarına indirin. 
 
 1. Azure portalı açın.
 
@@ -62,7 +62,7 @@ Günlük başladıktan sonra mevcut bir listesini görüntülemek ve sunucu gün
    ![İndirme simgesine tıklayın](./media/howto-configure-server-logs-portal/5-download.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Daha fazla bilgi edinin [sunucu günlükleri](concepts-server-logs.md) MariaDB için Azure veritabanı'nda.
+- Daha fazla bilgi edinin [yavaş sorgu günlüklerini](concepts-server-logs.md) MariaDB için Azure veritabanı'nda.
 - Parametre tanımlarıyla ve günlüğe kaydetme hakkında daha fazla bilgi için üzerinde MariaDB belgelerine bakın. [günlükleri](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-<!-- - See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->
+<!--- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->

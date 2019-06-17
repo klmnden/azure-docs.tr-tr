@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 683580ba65ad775ccec105c78cc1af66fbb63c37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cfbd42a67f9c9d6c66df3787b53575dc9e918e35
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691886"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067981"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>HDInsight üzerinde WebHCat alınan hatalarını anlama ve çözme
 
@@ -32,8 +32,6 @@ WebHCat HDInsight ve bunların nasıl çözüleceğine kullanırken alınan hata
 
 * İçin **Linux** kümeleri: Apache Ambari (web veya REST API) değerini değiştirmek için kullanın. Daha fazla bilgi için [Apache Ambari kullanarak HDInsight yönetme](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]  
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### <a name="default-configuration"></a>Varsayılan yapılandırma
 
@@ -45,7 +43,7 @@ Aşağıdaki varsayılan değerler aşılırsa, WebHCat performansı düşebilir
 | [templeton.exec.max-procs][max-procs] |Aynı anda hizmet isteklerinin sayısı |20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] |İş geçmişini gün sayısını korunur |7 gün |
 
-## <a name="too-many-requests"></a>Çok fazla istek var
+## <a name="too-many-requests"></a>Çok fazla istek
 
 **HTTP durum kodu**: 429
 

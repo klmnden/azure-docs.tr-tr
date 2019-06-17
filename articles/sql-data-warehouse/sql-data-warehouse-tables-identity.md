@@ -11,10 +11,10 @@ ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 19a06d0fdff324dc3bee246ef7a5a7011c089872
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851609"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda vekil anahtarlar oluşturmak için kimlik BİLGİLERİNİZ kullanılarak
@@ -122,7 +122,7 @@ FROM    dbo.T1
 ;
 ```
 
-## <a name="loading-data"></a>Veriler yükleniyor
+## <a name="loading-data"></a>Veri yükleme
 
 IDENTİTY özelliği bulunması, veri yükleme kodunuzda bazı etkilere sahiptir. Bu bölüm kimliği'ni kullanarak verileri tablolara yüklemek için bazı temel düzenlerden vurgular.
 

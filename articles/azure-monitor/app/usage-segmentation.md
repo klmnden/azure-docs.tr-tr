@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 7d378c2f72035c3584e1f5cd3c1f0fb9a5d5c2ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372298"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights kullanıcılar, oturumlar ve olaylar analizi
@@ -58,7 +58,7 @@ Kullanıcılar, oturumlar veya olaylar bir raporun bir bağlantısını paylaşm
 
 Kullanıcılar, oturumlar veya olaylar rapordaki verilerin bir kopyasını paylaşmak için; tıklayın **paylaşımı** araç çubuğunda, ardından **Word simgesi** verilerle bir Word belgesi oluşturmak için. Veya tıklayın **Word simgesi** ana grafiğin üstünde.
 
-## <a name="meet-your-users"></a>Kullanıcılarınızla buluşun
+## <a name="meet-your-users"></a>Kullanıcılarınızın karşılamak
 
 **Kullanıcılarınızın karşılamak** bölümü geçerli sorgu tarafından eşleşen yaklaşık beş örnek kullanıcı bilgileri gösterir. Düşünüyor ve davranışları kişilerin, toplamlar, ek olarak keşfetmeye insanların gerçekte uygulamanızı kullanma hakkında bilgiler sağlayabilir.
 

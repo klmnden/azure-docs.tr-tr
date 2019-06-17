@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306892"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows komutları - CMD ve PowerShell
@@ -74,7 +74,7 @@ Eşittir işaretinden sonra boşluk gereklidir.
 or
 
 `sc start termservice`
-### <a name="stop-service"></a>Hizmeti durdur
+### <a name="stop-service"></a>Hizmeti Durdur
 `net stop termservice`
 
 or
@@ -290,7 +290,7 @@ Bir hizmet hesabı dışındaki kullanırken `NT AUTHORITY\LocalService`, `NT AU
 `Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\TermService' -Name DependOnService -Value @('RPCSS','TermDD')`
 ### <a name="start-service"></a>Hizmeti Başlat
 `start-service termservice`
-### <a name="stop-service"></a>Hizmeti durdur
+### <a name="stop-service"></a>Hizmeti Durdur
 `stop-service termservice`
 ## <a name="manage-networking-features"></a>Ağ özelliklerini yönetme
 ### <a name="show-nic-properties"></a>NIC özellikleri göster
@@ -381,7 +381,7 @@ or
 
 `Get-LocalUser` 2012 + kullanıma sunulmuştur. Kullanmak için 2008R2 `Get-WmiObject`. Bu örnek, her zaman SID'ye sahip olduğu yerleşik yerel yönetici hesabı gösterir `S-1-5-21-*-500`.
 ### <a name="view-local-groups"></a>Yerel grupları görüntüleyin
-`(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
+`(get-localgroup).name | sort``(get-wmiobject win32_group).Name | sort`
 
 `Get-LocalUser` 2012 + kullanıma sunulmuştur. Kullanmak için 2008R2 `Get-WmiObject`.
 ## <a name="manage-the-windows-event-log"></a>Windows olay günlüğünü yönetme

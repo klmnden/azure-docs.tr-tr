@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65908064"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Azure Data Lake depolama Gen1 .NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
@@ -131,7 +131,7 @@ Aşağıdaki kod parçacığı Data Lake depolama Gen1 bir dosyanın içeriğini
         }
     }
 
-## <a name="get-file-properties"></a>Dosya özelliklerini al
+## <a name="get-file-properties"></a>Dosya özelliklerini alma
 Aşağıdaki kod parçacığı bir dosya veya dizin ile ilişkili özellikleri döndürür.
 
     // Get file properties

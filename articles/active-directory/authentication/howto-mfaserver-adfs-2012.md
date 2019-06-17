@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5f37873b51d6257ffec3ada10be886995f7f5d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b38918dc6b80539ef8852aa408cda501958c9b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358931"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057435"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Azure Multi-Factor Authentication Sunucusunu Windows Server’da AD FS ile çalışacak şekilde yapılandırma
 
 Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız ve bulut ya da şirket içi kaynaklarınızı güvenli hale getirmek istiyorsanız Azure Multi-Factor Authentication Sunucusunu AD FS ile çalışmak üzere yapılandırabilirsiniz. Bu yapılandırma yüksek değerli uç noktalar için iki aşamalı doğrulamayı tetikler.
 
 Bu makale Windows Server 2012 R2 veya Windows Server 2016’da AD FS ile Multi-Factor Authentication Sunucusu kullanmayı ele alır. Daha fazla bilgi için [AD FS 2.0 ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynakları güvenli hale getirme](howto-mfaserver-adfs-2.md) konusunu okuyun.
+
+> [!IMPORTANT]
+> 1 Temmuz 2019'dan itibaren Microsoft artık yeni dağıtımlar için MFA sunucusu sunacaktır. Bulut tabanlı Azure multi-Factor Authentication, kullanıcıların multi-Factor authentication gerektirmesine istediğiniz yeni müşteriler kullanmanız gerekir. MFA sunucusu 1 Temmuz'dan önce etkinleştirmiş olan mevcut müşteriler, Gelecekteki güncelleştirmelerin en son sürümü indirip zamanki etkinleştirme kimlik bilgileri oluştur mümkün olacaktır.
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Windows Server AD FS’yi güvenli hale getirme
 
@@ -105,7 +108,7 @@ Bir kullanıcı adı ve parola kullanmak istemiyorsanız Web Hizmeti SDK’sın�
 8. enabled değerini **true** olarak ayarlayın.  
 9. oneToOneCertificateMappingsEnabled değerini **true** olarak ayarlayın.  
 10. oneToOneMappings öğesinin yanındaki **...** düğmesine ve ardından **Ekle** bağlantısına tıklayın.  
-11. Önceden dışarı aktardığınız Base64 .cer dosyasını açın. *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* ifadelerini ve tüm satır sonlarını kaldırın. Sonuç dizesini kopyalayın.  
+11. Önceden dışarı aktardığınız Base64 .cer dosyasını açın. *-----BEGIN CERTIFICATE-----* , *-----END CERTIFICATE-----* ifadelerini ve tüm satır sonlarını kaldırın. Sonuç dizesini kopyalayın.  
 12. certificate değerini önceki adımda kopyaladığınız dizeye ayarlayın.  
 13. enabled değerini **true** olarak ayarlayın.  
 14. userName değerini PhoneFactor Admins güvenlik grubunun üyesi olan bir hesaba ayarlayın. &lt;Etki alanı&gt;&#92;&lt;kullanıcı adı&gt; biçimini kullanın.  

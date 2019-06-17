@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55d11fa44aca65e2d4e487852bd242a4ba75a5f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 43b5a051913ac762fe6b5a0ad11776ae911df864
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474175"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110360"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Yenilikler için arşiv? Azure Active Directory'de
 
@@ -177,10 +177,10 @@ Bu güncelleştirmeyle, artık tıklayabilirsiniz **özel uzantı özelliklerini
 
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Azure AD uygulama tabanlı koşullu erişim için yeni onaylanmış istemci uygulamaları
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Yeni onaylı istemci uygulamaları için Azure AD uygulama tabanlı koşullu erişim
 
 **Türü:** Değişiklik planı  
-**Hizmet kategorisi:** Koşullu erişim  
+**Hizmet kategorisi:** Koşullu Erişim  
 **Ürün özelliği:** Kimlik güvenliği ve koruması
 
 Aşağıdaki uygulamalar listede yer [onaylı istemci uygulamalar](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference#approved-client-app-requirement):
@@ -439,7 +439,7 @@ Blogumuzu bu yeni özellikler hakkında daha fazla bilgi için bkz. [Azure AD et
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Koşullu erişim bilgileri Azure AD oturum açma raporuna eklendi
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Koşullu erişim bilgilerini Mac için Azure AD oturum açma işlemleri raporu eklendi
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Raporlama  
@@ -891,7 +891,7 @@ Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilg
 **Hizmet kategorisi:** Diğer  
 **Ürün özelliği:** Dizin
  
-Azure Active Directory (Azure AD) gibi Self Servis parola sıfırlama (SSPR) dağıtmak nasıl yeni, adım adım yönergeler çoklu oturum açma (SSO), koşullu erişim (CA), kullanıcı hazırlama, Active Directory Federasyon Hizmetleri (ADFS) için uygulama ara sunucusu Geçişli kimlik doğrulaması (PTA) ve ADFS için parola karması eşitlemesi (PHS).
+Azure Active Directory (Azure AD) dağıtmak için de dahil olmak üzere, Self Servis parola sıfırlama (SSPR), çoklu oturum açma (SSO), koşullu erişim (CA), nasıl yeni, adım adım yönergeler kullanıcı hazırlama, Active Directory Federasyon Hizmetleri (ADFS) için uygulama ara sunucusu Geçişli kimlik doğrulaması (PTA) ve ADFS için parola karması eşitlemesi (PHS).
 
 Dağıtım kılavuzlarını görüntülemek için Git [kimlik dağıtım kılavuzları](https://aka.ms/DeploymentPlans) github deposu. Dağıtım kılavuzları hakkında geri bildirim sağlamak için kullanın [dağıtım planı geri bildirim formu](https://aka.ms/deploymentplanfeedback). Dağıtım kılavuzları hakkında sorularınız varsa, adresinden bize başvurun [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -1137,7 +1137,7 @@ Daha fazla bilgi için [Azure AD B2B işbirliği nedir?](https://docs.microsoft.
  
 ---
 
-### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Azure AD uygulama tabanlı koşullu erişimle, iOS ve Android için Intune Managed Browser kullanarak tarayıcı erişimi kısıtlama
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Azure ile Intune Managed Browser'ı kullanarak tarayıcı erişimi kısıtlama AD uygulama tabanlı koşullu erişim iOS ve Android için
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Koşullu Erişim  
@@ -1147,7 +1147,7 @@ Daha fazla bilgi için [Azure AD B2B işbirliği nedir?](https://docs.microsoft.
 
 **Intune yönetilen tarayıcı SSO:** Çalışanlarınıza çoklu oturum açma (Microsoft Outlook gibi) için yerel istemcileri ve Intune Managed Browser arasında tüm Azure AD bağlantılı uygulamalar için kullanabilirsiniz.
 
-**Intune yönetilen tarayıcı koşullu erişim destek:** Artık uygulama tabanlı koşullu erişim ilkelerini kullanarak Intune Managed browser'ı kullanmak çalışanların gerektirebilir.
+**Intune yönetilen tarayıcı koşullu erişim destek:** Artık uygulama tabanlı koşullu erişim ilkeleri kullanarak Intune Managed browser'ı kullanmak çalışanların gerektirebilir.
 
 Bu konuda hakkında daha fazla bilgiyi bizim [blog gönderisi](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/).
 
@@ -1494,7 +1494,7 @@ Bu sürüm aşağıdaki güncelleştirmeleri ve değişiklikleri sahiptir:
 
 ---
  
-### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Azure AD uygulama tabanlı koşullu erişim ile destek Intune uygulama koruma ilkeleri için eklenen uygulamalar kullanın
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Azure ile kullanmak için eklenen Intune uygulama koruma ilkelerini destekleyen uygulamalar AD uygulama tabanlı koşullu erişim
 
 **Türü:** Değişen özellik  
 **Hizmet kategorisi:** Koşullu Erişim  
@@ -1778,7 +1778,7 @@ Azure Active Directory erişim denetimi (erişim denetimi hizmeti olarak da bili
 ### <a name="restrict-browser-access-to-the-intune-managed-browser"></a>Intune Managed Browser için tarayıcı erişimi kısıtlama 
 
 **Türü:** Değişiklik planı  
-**Hizmet kategorisi:** Koşullu erişim  
+**Hizmet kategorisi:** Koşullu Erişim  
 **Ürün özelliği:** Kimlik güvenliği ve koruması
 
 Onaylanmış bir uygulama Intune Managed Browser'ı kullanarak, Office 365 ve diğer Azure AD bağlantılı bulut uygulamaları için tarayıcı erişimini kısıtlayabilirsiniz. 
@@ -1793,14 +1793,14 @@ Günümüzde bu durum kullandığınızda erişim engellenir. Önizleme mevcut d
 
 Bu özellik ve yaklaşan blogları ve sürüm notları hakkında daha fazla bilgi arayın. 
 
-Daha fazla bilgi için [koşullu erişim, Azure AD'de](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
+Daha fazla bilgi için [Azure AD'de koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Azure AD uygulama tabanlı koşullu erişim için yeni onaylanmış istemci uygulamaları
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Yeni onaylı istemci uygulamaları için Azure AD uygulama tabanlı koşullu erişim
 
 **Türü:** Değişiklik planı  
-**Hizmet kategorisi:** Koşullu erişim  
+**Hizmet kategorisi:** Koşullu Erişim  
 **Ürün özelliği:** Kimlik güvenliği ve koruması
 
 Aşağıdaki uygulamalar listede yer [onaylı istemci uygulamalar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
@@ -1888,17 +1888,17 @@ Daha fazla bilgi için [Azure portalını kullanarak cihazları yönetme](https:
 
 ---
 
-### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>MacOS cihaz platformu için Azure AD koşullu erişim desteği 
+### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Azure AD koşullu erişim bir cihaz platformu olarak macOS için desteği 
 
 **Türü:** Yeni özellik    
-**Hizmet kategorisi:** Koşullu erişim  
+**Hizmet kategorisi:** Koşullu Erişim  
 **Ürün özelliği:** Kimlik güvenliği ve koruması 
 
 Artık içerir (hariç macOS cihaz platformu koşul olarak Azure AD koşullu erişim ilkenizi veya istediğiniz). Desteklenen cihaz platformları için macOS'ın eklenmesiyle, şunları yapabilirsiniz:
 
 - **Kaydetme ve Intune kullanarak macOS cihazlarını yönetin.** Benzer şekilde, iOS ve Android gibi diğer platformlarda, Şirket portalı uygulamasını birleşik kayıtları yapmak için macOS için kullanılabilir. Yeni Şirket portalı uygulaması macOS için Intune ile cihaz kaydetme ve Azure AD ile kaydetmek için kullanabilirsiniz.
 - **MacOS cihazları Intune'da tanımlanan kuruluşunuzun uyumluluk ilkelerine uymaları emin olun.** Azure portalında Intune'da artık macOS cihazları için Uyumluluk ilkelerini ayarlayabilirsiniz. 
-- **Yalnızca uyumlu macOS cihazlar için Azure AD'de, uygulamalara erişimi kısıtlayın.** MacOS koşullu erişim ilkesi yazma ayrı cihaz platformu seçeneği olarak sahiptir. Artık Azure'da ayarlanan hedeflenen uygulama için macOS özel koşullu erişim ilkeleri yazabilirsiniz.
+- **Yalnızca uyumlu macOS cihazlar için Azure AD'de, uygulamalara erişimi kısıtlayın.** MacOS koşullu erişim ilkesi yazma ayrı cihaz platformu seçeneği olarak sahiptir. Artık azure'da hedeflenen uygulama kümesi için macOS özel koşullu erişim ilkeleri yazabilirsiniz.
 
 Daha fazla bilgi için bkz.
 
@@ -1942,10 +1942,10 @@ Azure AD Yönetim merkezinde artık şunları yapabilirsiniz:
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Azure AD uygulama tabanlı koşullu erişim için yeni onaylanmış istemci uygulamaları
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Yeni onaylı istemci uygulamaları için Azure AD uygulama tabanlı koşullu erişim
  
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Koşullu erişim  
+**Hizmet kategorisi:** Koşullu Erişim  
 **Ürün özelliği:** Kimlik güvenliği ve koruması
 
 Aşağıdaki uygulamalar listesine eklenmiş olmasından [onaylı istemci uygulamalar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
@@ -1963,10 +1963,10 @@ Daha fazla bilgi için bkz.
 ### <a name="use-or-between-controls-in-a-conditional-access-policy"></a>Kullanım "Veya" arasında bir koşullu erişim ilkesi denetimleri 
 
 **Türü:** Değişen özellik    
-**Hizmet kategorisi:** Koşullu erişim  
+**Hizmet kategorisi:** Koşullu Erişim  
 **Ürün özelliği:** Kimlik güvenliği ve koruması
  
-Artık kullanabilir "veya" (Seçili denetimlerden birini gerektir) için koşullu erişim denetimleri. "Veya" arasında erişim denetim ilkeleri oluşturmak için bu özelliği kullanabilirsiniz. Örneğin, bir kullanıcı çok faktörlü kimlik doğrulaması kullanarak oturum açın "veya" uyumlu bir cihaz üzerinde olmasını gerektiren bir ilke oluşturmak için bu özelliği kullanabilirsiniz.
+Artık kullanabilir "veya" (Seçili denetimlerden birini gerektir) için koşullu erişimi denetler. "Veya" arasında erişim denetim ilkeleri oluşturmak için bu özelliği kullanabilirsiniz. Örneğin, bir kullanıcı çok faktörlü kimlik doğrulaması kullanarak oturum açın "veya" uyumlu bir cihaz üzerinde olmasını gerektiren bir ilke oluşturmak için bu özelliği kullanabilirsiniz.
 
 Daha fazla bilgi için [Azure AD koşullu erişim denetimleri](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
  

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: be7ce4d96b7c1bd17853447448f06070637c7855
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cae639f74005a9d0c7509b38c9e68a9cb0a281a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939202"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061366"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Öğretici: Ayıklama, dönüştürme ve Azure HDInsight üzerinde Apache Hive'ı kullanarak veri yükleme
 
@@ -44,9 +44,6 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 * **Azure CLI**: Azure CLI'yi yüklemediyseniz, bkz. [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 * **Güvenli Kabuk (SSH) istemcisi**: Daha fazla bilgi için [SSH kullanarak HDInsight (Hadoop) bağlanma](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
-
-> [!IMPORTANT]
-> Bu makaledeki adımlarda Linux kullanan bir HDInsight kümesi gerektirir. Linux üzerinde Azure HDInsight sürüm 3.4 veya üzeri kullanılan tek işletim sistemi ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="download-the-flight-data"></a>Uçuş verilerini indirme
 

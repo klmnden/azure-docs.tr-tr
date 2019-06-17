@@ -17,10 +17,10 @@ ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 2b719185aabd39cd70b9cb890a9599aa06ca4ff4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334854"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>SQL Server Aracısı uzantısı (Klasik) ile Azure sanal Makineler'de yönetim görevlerini otomatikleştirin
@@ -94,7 +94,7 @@ Ayrıca **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet'i.
 
     Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 
-## <a name="removal"></a>Çıkarma
+## <a name="removal"></a>Temizleme
 Azure Portalı'nda üç nokta simgesine tıklayarak uzantıyı kaldırabilirsiniz **uzantıları** dikey penceresinde, sanal makine özellikleri. Ardından **kaldırma**.
 
 ![Azure portalında SQL Server Iaas Aracısı uzantısını kaldırma](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)

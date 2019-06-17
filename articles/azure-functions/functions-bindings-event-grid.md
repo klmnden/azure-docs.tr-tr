@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e11446b961727663961e4d3fa295a9b7f64860c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438754"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059661"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -324,7 +324,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|
 | **type** | Gerekli - kümesine olmalıdır `eventGridTrigger`. |
 | **direction** | Gerekli - kümesine olmalıdır `in`. |
-| **Adı** | Gereklidir - işlev kodu olay verileri alan parametresi için kullanılan bir değişken adı. |
+| **name** | Gereklidir - işlev kodu olay verileri alan parametresi için kullanılan bir değişken adı. |
 
 ## <a name="usage"></a>Kullanım
 
@@ -529,13 +529,13 @@ Gibi bir araç kullanın [Postman](https://www.getpostman.com/) veya [curl](http
 * Ayarlanmış bir `aeg-event-type: Notification` başlığı.
 * RequestBin veri istek gövdesine yapıştırın.
 * Event Grid tetikleyici işlevinizin URL'sini gönderin.
-  * 2.x için şu biçimi kullanın:
+  * 2\.x için şu biçimi kullanın:
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * 1.x kullanmak için:
+  * 1\.x kullanmak için:
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
@@ -555,7 +555,7 @@ Olay Kılavuzu tetikleyicisi işlevi yürütür ve günlükleri aşağıdaki ör
 
 ## <a name="local-testing-with-ngrok"></a>Yerel ngrok ile test etme
 
-Bir olay Kılavuzu tetikleyicisi yerel olarak test etmek için başka bir HTTP bağlantısı Internet ile geliştirme bilgisayarınızda arasında otomatik hale getirmek için yoludur. Adlı bir açık kaynak aracı ile bunu yapabilirsiniz [ngrok](https://ngrok.com/):
+Bir olay Kılavuzu tetikleyicisi yerel olarak test etmek için başka bir HTTP bağlantısı Internet ile geliştirme bilgisayarınızda arasında otomatik hale getirmek için yoludur. Gibi bir araç ile bunu yapabilirsiniz [ngrok](https://ngrok.com/):
 
 1. [Ngrok uç nokta oluşturma](#create-an-ngrok-endpoint).
 1. [Olay Kılavuzu tetikleyicisi işlevi çalıştırmak](#run-the-event-grid-trigger-function).

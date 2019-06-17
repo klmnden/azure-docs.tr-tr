@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b649c77b34837ba2220d04b36d4a46598c321fdf
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 47f3885d9bd71abeb2a1bffe27b3ca1b2aa611ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898143"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Öğretici: Insignia SAML SSO ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de SAML SSO Insignia tümleştirmesini yapılandırmak için Insignia S
 
 **Galeriden Insignia SAML SSO eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

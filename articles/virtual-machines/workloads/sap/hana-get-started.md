@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
 ms.openlocfilehash: 5091932989849943f00cb71f72378dd17af23a4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60205050"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Hızlı Başlangıç: Tek örnek SAP hana Azure sanal Makineler'de el ile yükleme
@@ -189,7 +189,7 @@ Sorun türünü bağlı olarak, düzeltme ekleri, kategori ve önem derecesine g
 - Önemli
 - Orta
 - Düşük
-- Belirtilmedi
+- Belirtilmemiş
 
 **Zypper** komutu yalnızca yüklü paketlerinizdeki gerektiren güncelleştirmeler için arar. Örneğin, bu komutu kullanabilirsiniz:
 

@@ -42,7 +42,7 @@ sections:
           - title: Ölçümler ve günlüğe kaydetme
             href: /azure/sql-database/sql-database-metrics-diag-logging
             html: '<p>Azure SQL Analytics, Azure Event Hubs veya Azure Blob Depolama için özel tümleştirmeler veritabanı tanılama telemetrinizi Stream.</p>'
-  - title: Diğer kaynaklar
+  - title: Daha fazla kaynak
     items:
       - type: paragraph
         text: Veritabanınızın performansını en iyi duruma yardımcı olabilecek ek özelliklerini öğrenin.

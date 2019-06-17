@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 8d4cc5e46066ad2f18d596d0484f62f478b4cc23
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 71c6f1936f8cbc700a24d0ffb497947c8c8d3a50
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514318"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075260"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Gerçek zamanlı (Önizleme) günlüklerini ve olayları görüntüleme
-Kapsayıcılar için Azure İzleyici şu anda kubectl komutlarını çalıştırmak zorunda kalmadan Azure Kubernetes Service (AKS) kapsayıcı günlüklerini (stdout/stderr) ve olayları dinamik bir görünüm sağlar Önizleme aşamasında olan bir özellik içerir. İki seçenekten birini seçtiğinizde, yeni bir bölme performans veri tablosu görünür **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** görünümü. Bu, dinamik günlüğe kaydetme ve daha fazla gerçek zamanlı sorunları gidermeye yardımcı olması için kapsayıcı altyapısı tarafından oluşturulan olayları gösterir. 
+Kapsayıcılar için Azure İzleyici şu anda kubectl komutlarını çalıştırmak zorunda kalmadan Azure Kubernetes Service (AKS) kapsayıcı günlüklerini (stdout/stderr) ve olayları dinamik bir görünüm sağlar Önizleme aşamasında olan bir özellik içerir. İki seçenekten birini seçtiğinizde, yeni bir bölme performans veri tablosu görünür **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** görünümü. Bu, dinamik günlüğe kaydetme ve daha fazla gerçek zamanlı sorunları gidermeye yardımcı olması için kapsayıcı altyapısı tarafından oluşturulan olayları gösterir.
 
 >[!NOTE]
 >**Katkıda bulunan** erişim küme kaynağı için bu özelliğin çalışması için gereklidir.
@@ -29,9 +29,9 @@ Kapsayıcılar için Azure İzleyici şu anda kubectl komutlarını çalıştır
 
 Canlı günlükler günlükleri erişimi denetlemek için üç farklı yöntemi destekler:
 
-1. AKS etkin Kubernetes RBAC yetkilendirme olmadan 
+1. AKS etkin Kubernetes RBAC yetkilendirme olmadan
 2. AKS ile Kubernetes RBAC yetkilendirme etkin
-3. Azure Active Directory (AD ile) SAML tabanlı çoklu oturum etkin AKS 
+3. Azure Active Directory (AD ile) SAML tabanlı çoklu oturum etkin AKS
 
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>Kubernetes kümesi olmadan etkin RBAC
  
@@ -66,21 +66,21 @@ Kubernetes RBAC yetkilendirme etkinleştirilirse, küme rolü bağlama uygulamak
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. İlk kez yapılandırıyorsanız, küme kural bağlama aşağıdaki komutu çalıştırarak oluşturduğunuz: `kubectl create -f LogReaderRBAC.yaml`. Canlı günlükler, yapılandırmasını güncelleştirmek için canlı olay günlükleri, kullanıma sunduk önce önizlemek için destek daha önce etkin değilse aşağıdaki komutu çalıştırın: `kubectl apply -f LogReaderRBAC.yml`. 
+2. İlk kez yapılandırıyorsanız, küme kural bağlama aşağıdaki komutu çalıştırarak oluşturduğunuz: `kubectl create -f LogReaderRBAC.yaml`. Canlı günlükler, yapılandırmasını güncelleştirmek için canlı olay günlükleri, kullanıma sunduk önce önizlemek için destek daha önce etkin değilse aşağıdaki komutu çalıştırın: `kubectl apply -f LogReaderRBAC.yml`.
 
 ## <a name="configure-aks-with-azure-active-directory"></a>AKS ile Azure Active Directory'yi yapılandırma
-AKS, Azure Active Directory (AD) kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. İlk kez yapılandırıyorsanız, bkz. [Azure Active Directory Tümleştirme ile Azure Kubernetes hizmeti](../../aks/azure-ad-integration.md). Oluşturma adımları sırasında [istemci uygulaması](../../aks/azure-ad-integration.md#create-client-application), iki belirtmeniz gereken **yeniden yönlendirme URI'si** girdileri. İki bir URI'leri şunlardır:
 
-- https://ininprodeusuxbase.microsoft.com/*
-- https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html  
+AKS, Azure Active Directory (AD) kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. İlk kez yapılandırıyorsanız, bkz. [Azure Active Directory Tümleştirme ile Azure Kubernetes hizmeti](../../aks/azure-ad-integration.md). Oluşturma adımları sırasında [istemci uygulaması](../../aks/azure-ad-integration.md#create-the-client-application), aşağıdakileri belirtin:
+
+- **Yeniden yönlendirme URI'si (isteğe bağlı)** : Bu bir **Web** uygulama türü ve temel URL değeri olmalıdır `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+- Öğesinden, uygulamayı kaydettikten sonra **genel bakış** seçin sayfasında **kimlik doğrulaması** sol bölmesinden. Üzerinde **kimlik doğrulaması** sayfasındaki **Gelişmiş ayarlar** örtük olarak verme **erişim belirteçlerini** ve **kimlik belirteçlerini** ve kaydedin, değiştirir.
 
 >[!NOTE]
->Kimlik doğrulama işlemini yapılandırmayı Azure Active Directory ile çoklu oturum açma için yalnızca yeni bir AKS kümesi ilk dağıtım sırasında gerçekleştirilebilir. Çoklu oturum zaten dağıtılmış bir AKS kümesi için üzerinde yapılandıramazsınız. Kimlik doğrulamasını yapılandırmalısınız **uygulama kaydı (eski)** URI'de bir joker karakter kullanımını desteklemek ve while için Azure AD'de seçeneği olarak kaydetme listesine ekleyerek bir **yerel** uygulama.
-> 
+>Kimlik doğrulama işlemini yapılandırmayı Azure Active Directory ile çoklu oturum açma için yalnızca yeni bir AKS kümesi ilk dağıtım sırasında gerçekleştirilebilir. Çoklu oturum zaten dağıtılmış bir AKS kümesi için üzerinde yapılandıramazsınız.
 
 ## <a name="view-live-logs-and-events"></a>Görünüm Canlı günlükler ve olaylar
 
-Kapsayıcı altyapısı tarafından oluşturulan gerçek zamanlı günlük olayları görüntüleyebileceğiniz **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** görünümü. Özellikler bölmesinde seçtiğiniz **görüntüleme (Önizleme) canlı veriler** seçeneği ve bir bölmesinde görüntüleyebileceğiniz günlük ve olay sürekli bir akış içinde performans veri tablosu aşağıda sunulur. 
+Kapsayıcı altyapısı tarafından oluşturulan gerçek zamanlı günlük olayları görüntüleyebileceğiniz **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** görünümü. Özellikler bölmesinde seçtiğiniz **görüntüleme (Önizleme) canlı veriler** seçeneği ve bir bölmesinde görüntüleyebileceğiniz günlük ve olay sürekli bir akış içinde performans veri tablosu aşağıda sunulur.
 
 ![Düğüm özellikleri bölmesi görünümü Canlı günlükler seçeneği](./media/container-insights-live-logs/node-properties-live-logs-01.png)  
 
@@ -100,9 +100,11 @@ Başarıyla kimlik doğrulandıktan sonra dinamik günlük bölmesini Orta bölm
     
   ![Canlı günlükler alınan veriler](./media/container-insights-live-logs/live-logs-pane-01.png)  
 
-Arama çubuğunda, metin günlüğü ya da olay ve arama çubuğunda en sağdaki vurgulamak için bir anahtar sözcük göre filtre uygulayabilirsiniz, sonuç filtreyle eşleşen gösterir.   
+Arama çubuğunda, metin günlüğü ya da olay ve arama çubuğunda en sağdaki vurgulamak için bir anahtar sözcük göre filtre uygulayabilirsiniz, sonuç filtreyle eşleşen gösterir.
 
   ![Canlı günlükler bölmesi filtresi örneği](./media/container-insights-live-logs/live-logs-pane-filter-example-01.png)
+
+Olayları görüntülerken kullanarak sonuçları ayrıca sınırlayabilirsiniz **filtre** zehirli arama çubuğunun sağında bulunamadı. Seçtiğiniz hangi kaynaklara bağlı olarak, bir pod, ad veya seçtiğiniz gelen kümeye zehirli listeler.  
 
 Otomatik kaydırma askıya alma ve okunan yeni veriler el ile kaydırma izin bölmesi davranışını denetlemek için tıklayın **kaydırma** seçeneği. Otomatik kaydırma yeniden etkinleştirmek için tıklamanız yeterlidir **kaydırma** yeniden seçeneği. Tıklayarak günlük veya olay verilerinin alınması duraklatabilirsiniz **duraklatmak** seçenek ve devam etmeye hazır olduğunuzda tıklamanız yeterlidir **Play**.  
 

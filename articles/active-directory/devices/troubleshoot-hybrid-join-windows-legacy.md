@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce1d2aaed85f61e2e18f696d749219a1b951c862
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a68e5a12333e1ee9e920b69599796164534e3c25
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474303"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110523"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey cihazları katılmış karma Azure Active Directory sorun giderme 
 
@@ -59,7 +59,7 @@ Bu makalede, sorun giderme rehberi olası sorunların nasıl giderileceğini üz
 
 - Emin [KB4284842](https://support.microsoft.com/help/4284842) Windows 7 SP1 veya Windows Server 2008 R2 SP1 durumunda yüklenir. Bu güncelleştirme, parolayı değiştirdikten sonra korumalı anahtarları gelecekteki kimlik doğrulama hataları nedeniyle müşterinin erişim kaybını engeller.
 
-## <a name="step-1-retrieve-the-registration-status"></a>1. adım: Kayıt durumu alma 
+## <a name="step-1-retrieve-the-registration-status"></a>1\. adım: Kayıt durumu alma 
 
 **Kayıt durumunu doğrulamak için:**  
 
@@ -74,7 +74,7 @@ Bu komut, birleşim durumu hakkında ayrıntılar sağlayan bir iletişim kutusu
 ![Windows için çalışma alanına katılma](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
 
-## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>2. adım: Hibrit Azure AD'ye katılma durumu değerlendirin 
+## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>2\. adım: Hibrit Azure AD'ye katılma durumu değerlendirin 
 
 Cihaz hibrit Azure AD'ye katılmış başarısız olduysa, "Birleştirme" düğmesine tıklayarak hibrit Azure AD'ye katılma yapmak deneyebilirsiniz. Hibrit Azure AD'ye katılım yapmak için deneme başarısız olursa, hata hakkındaki ayrıntılar gösterilir.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8acc835a7f18ee673f0857f65d49eed59638a6d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0e005d794fa3c6c70edf3d3466b0f076e2007352
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099981"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Öğretici: Azure Active Directory tümleştirmesiyle InstaVR Görüntüleyicisi
 
@@ -54,7 +54,7 @@ Azure AD'de InstaVR Görüntüleyicisi tümleştirmesini yapılandırmak için I
 
 **Galeriden InstaVR Görüntüleyicisi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

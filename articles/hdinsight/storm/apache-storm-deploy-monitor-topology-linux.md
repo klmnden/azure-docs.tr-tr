@@ -8,21 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 8b27ad34bdc6fcbd7a1eb46515fbf33c96d02528
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c8b05886ae338bb73b0f4ddce4d02a1f1a926a45
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682906"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078236"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme 
 
 Bu belgede, yönetmeye ve izlemeye ilişkin temel bilgileri alın [Apache Storm](https://storm.apache.org/) üzerinde Storm, HDInsight kümelerinde çalışan topolojileri.
-
-> [!IMPORTANT]  
-> Bu makaledeki adımlarda, HDInsight kümesinde Linux tabanlı Storm gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
->
-
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -105,7 +100,7 @@ Spout veya bu bileşenler hakkındaki bilgileri görüntülemek için Cıvatalar
 
 Sonlandırılan veya yeniden etkinleştiren kadar bir topolojiyi devre dışı bırakma, duraklatır. Bu işlemleri gerçekleştirmek için __devre dışı bırak__ ve __yeniden__ en üstündeki düğmeleri __topoloji özeti__.
 
-### <a name="rebalance"></a>Yeniden Dengele
+### <a name="rebalance"></a>Yeniden Dengeleme
 
 Yeniden Dengeleme bir topoloji, topolojinin paralelliğini gözden geçirmek sistem sağlar. Daha fazla Not eklemek için küme yeniden boyutlandırılmış, örneğin, yeniden Dengeleme yeni düğümleri görmek bir imkan tanır.
 
@@ -148,7 +143,7 @@ Storm topolojileri, başlatıldığında, devam durdurulana kadar çalışıyor.
 
     storm kill TOPOLOGYNAME
 
-### <a name="rebalance"></a>Yeniden Dengele
+### <a name="rebalance"></a>Yeniden Dengeleme
 
 Yeniden Dengeleme bir topoloji, topolojinin paralelliğini gözden geçirmek sistem sağlar. Daha fazla Not eklemek için küme yeniden boyutlandırılmış, örneğin, yeniden Dengeleme yeni düğümleri görmek bir imkan tanır.
 
@@ -159,7 +154,7 @@ Yeniden Dengeleme bir topoloji, topolojinin paralelliğini gözden geçirmek sis
 
 ## <a name="monitor-and-manage-storm-ui"></a>İzleme ve yönetme: Storm kullanıcı Arabirimi
 
-Storm Kullanıcı Arabirimi çalışan topolojilerle çalışmaya yönelik bir web arabirimi sağlar ve HDInsight kümenize dahil edilir. Storm kullanıcı arabirimini görüntülemek için açmak için bir web tarayıcısı kullanın **https://CLUSTERNAME.azurehdinsight.net/stormui**burada **CLUSTERNAME** kümenizin adıdır.
+Storm Kullanıcı Arabirimi çalışan topolojilerle çalışmaya yönelik bir web arabirimi sağlar ve HDInsight kümenize dahil edilir. Storm kullanıcı arabirimini görüntülemek için açmak için bir web tarayıcısı kullanın **https://CLUSTERNAME.azurehdinsight.net/stormui** burada **CLUSTERNAME** kümenizin adıdır.
 
 > [!NOTE]  
 > Bir kullanıcı adı ve parola girmeniz istenirse kümeyi oluştururken kullandığınız küme yöneticisi (yönetici) ve parolayı girin.
@@ -213,7 +208,7 @@ Daha fazla bilgi için [Apache Storm kullanıcı Arabirimi REST API](https://sto
 
 ### <a name="base-uri"></a>Taban URI
 
-Baş düğümde üzerinde Linux tabanlı HDInsight kümelerinde REST API için ana URI kullanılabilir **https:\//HEADNODEFQDN:8744/api/v1/**. Baş düğümün etki alanı adı, küme oluşturma sırasında oluşturulan ve statik değildir.
+Baş düğümde üzerinde Linux tabanlı HDInsight kümelerinde REST API için ana URI kullanılabilir **https:\//HEADNODEFQDN:8744/api/v1/** . Baş düğümün etki alanı adı, küme oluşturma sırasında oluşturulan ve statik değildir.
 
 Küme baş düğümü için tam etki alanı adı (FQDN) birkaç farklı yolla bulabilirsiniz:
 

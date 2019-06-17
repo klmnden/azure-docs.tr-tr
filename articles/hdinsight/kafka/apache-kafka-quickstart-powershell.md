@@ -7,15 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/02/2019
-ms.openlocfilehash: 8a0397440e2b10bf1ad6b4f1be999888e09bad8f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 06/12/2019
+ms.openlocfilehash: a1ccfd23338e2ee18c335fe8bd9869ecdf9c2f08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148138"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120812"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Hızlı Başlangıç: HDInsight kümesi üzerinde Apache Kafka oluşturma
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Hızlı Başlangıç: PowerShell kullanarak Azure HDInsight Apache Kafka kümesi oluşturma
 
 [Apache Kafka](https://kafka.apache.org/) bir açık kaynaklı, dağıtılmış akış platformudur. Yayımla-abone ol ileti kuyruğuna benzer işlevler sağladığı için genellikle ileti aracısı olarak kullanılır. 
 
@@ -23,14 +23,11 @@ Bu hızlı başlangıçta, Azure PowerShell kullanarak [Apache Kafka](https://ka
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]  
-> Kafka API’sine yalnızca aynı sanal ağ içindeki kaynaklar tarafından erişilebilir. Bu hızlı başlangıçta, doğrudan SSH kullanarak kümeye erişirsiniz. Diğer hizmetleri, ağları veya sanal makineleri Kafka’ya bağlamak için önce bir sanal ağ oluşturmanız e sonra ağ içinde kaynakları oluşturmanız gerekir.
->
-> Daha fazla bilgi için [Sanal ağ kullanarak Apache Kafka'ya bağlanma](apache-kafka-connect-vpn-gateway.md) belgesine bakın.
+Kafka API’sine yalnızca aynı sanal ağ içindeki kaynaklar tarafından erişilebilir. Bu hızlı başlangıçta, doğrudan SSH kullanarak kümeye erişirsiniz. Diğer hizmetleri, ağları veya sanal makineleri Kafka’ya bağlamak için önce bir sanal ağ oluşturmanız e sonra ağ içinde kaynakları oluşturmanız gerekir. Daha fazla bilgi için [Sanal ağ kullanarak Apache Kafka'ya bağlanma](apache-kafka-connect-vpn-gateway.md) belgesine bakın.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
-
-* Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 * PowerShell [Az modül](https://docs.microsoft.com/powershell/azure/overview) yüklü.
 
@@ -132,19 +129,13 @@ New-AzHDInsightCluster `
         -DisksPerWorkerNode $disksPerNode
 ```
 
-> [!WARNING]  
-> HDInsight kümesinin oluşturulması 20 dakika kadar sürebilir.
+HDInsight kümesinin oluşturulması 20 dakika kadar sürebilir.
 
-> [!TIP]  
-> `-DisksPerWorkerNode` parametresi, HDInsight üzerinde Kafka’nın ölçeklenebilirliğini yapılandırır. HDInsight üzerinde Kafka, verileri depolamak için kümedeki sanal makinelerin yerel diskini kullanır. Kafka, G/Ç açısından yoğun olduğundan, yüksek aktarım hızı ve düğüm başına daha fazla depolama alanı sağlamak için [Azure Yönetilen Diskler](../../virtual-machines/windows/managed-disks-overview.md) kullanılır. 
->
-> Yönetilen diskin türü __Standart__ (HDD) veya __Premium__ (SSD) olabilir. Disk türü, çalışan düğümleri (Kafka aracıları) tarafından kullanılan sanal makine boyutuna bağlıdır. Premium diskler otomatik olarak DS ve GS serisi sanal makinelerle kullanılır. Diğer tüm VM türleri standart disk kullanır. `-WorkerNodeSize` parametresini kullanarak sanal makine türünü ayarlayabilirsiniz. Parametreler hakkında daha fazla bilgi için bkz. [yeni AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) belgeleri.
+`-DisksPerWorkerNode` parametresi, HDInsight üzerinde Kafka’nın ölçeklenebilirliğini yapılandırır. HDInsight üzerinde Kafka, verileri depolamak için kümedeki sanal makinelerin yerel diskini kullanır. Kafka, G/Ç açısından yoğun olduğundan, yüksek aktarım hızı ve düğüm başına daha fazla depolama alanı sağlamak için [Azure Yönetilen Diskler](../../virtual-machines/windows/managed-disks-overview.md) kullanılır.
 
+Yönetilen diskin türü __Standart__ (HDD) veya __Premium__ (SSD) olabilir. Disk türü, çalışan düğümleri (Kafka aracıları) tarafından kullanılan sanal makine boyutuna bağlıdır. Premium diskler otomatik olarak DS ve GS serisi sanal makinelerle kullanılır. Diğer tüm VM türleri standart disk kullanır. `-WorkerNodeSize` parametresini kullanarak sanal makine türünü ayarlayabilirsiniz. Parametreler hakkında daha fazla bilgi için bkz. [yeni AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) belgeleri.
 
-> [!IMPORTANT]  
-> 32’den fazla çalışan düğümü kullanmayı planlıyorsanız (küme oluşturma sırasında veya oluşturma işleminden sonra kümeyi ölçeklendirerek), en az 8 çekirdek ve 14 GB RAM ile bir sanal makine boyutu belirtmek için `-HeadNodeSize` parametresini kullanmanız gerekir.
->
-> Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
+32’den fazla çalışan düğümü kullanmayı planlıyorsanız (küme oluşturma sırasında veya oluşturma işleminden sonra kümeyi ölçeklendirerek), en az 8 çekirdek ve 14 GB RAM ile bir sanal makine boyutu belirtmek için `-HeadNodeSize` parametresini kullanmanız gerekir. Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 
@@ -202,16 +193,13 @@ Bu bölümde, küme üzerinde Apache Ambari REST API konak bilgilerini alın.
 
     İstendiğinde, Kafka kümesinin adını girin.
 
-3. Bir ortam değişkenini Zookeeper konak bilgileriyle ayarlamak için aşağıdaki komutu kullanın:
+3. Bir ortam değişkenini Zookeeper konak bilgileriyle ayarlamak için aşağıdaki komutu kullanın. Komut, tüm Zookeeper konaklar alır, ardından yalnızca ilk iki girişe döndürür. Bunun nedeni, bir ana bilgisayarın ulaşılamaz olması durumunda yedeklilik istemenizdir.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
     İstendiğinde, küme oturum açma hesabı (SSH hesabı değil) için parolayı girin.
-
-    > [!NOTE]  
-    > Bu komut tüm Zookeeper ana bilgisayarlarını alır ve yalnızca ilk iki girişi döndürür. Bunun nedeni, bir ana bilgisayarın ulaşılamaz olması durumunda yedeklilik istemenizdir.
 
 4. Ortam değişkeninin düzgün şekilde ayarlandığını doğrulamak için aşağıdaki komutu kullanın:
 
@@ -257,15 +245,13 @@ Kafka, veri akışlarını *konular* içinde depolar. Konuları yönetmek için 
 
     * Her bölüm, kümedeki üç çalışan düğümü arasında çoğaltılır.
 
-        > [!IMPORTANT]  
-        > Üç hata etki alanı sağlayan bir Azure bölgesinde kümeyi oluşturduysanız, 3 çoğaltma katsayısını kullanın. Aksi takdirde 4 çoğaltma katsayısını kullanın.
+        Üç hata etki alanı sağlayan bir Azure bölgesinde kümeyi oluşturduysanız, 3 çoğaltma katsayısını kullanın. Aksi takdirde 4 çoğaltma katsayısını kullanın.
         
         Üç hata etki alanı içeren bölgelerde 3 çoğaltma katsayısı, çoğaltmaların hata etki alanları arasında yayılmasına olanak sağlar. İki hata etki alanı içeren bölgelerde dört çoğaltma katsayısı, çoğaltmaların etki alanları arasında eşit şekilde yayılmasına olanak sağlar.
         
         Bir bölgedeki hata etki alanlarının sayısı hakkında bilgi almak için [Linux sanal makinelerinin kullanılabilirliği](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) belgesine bakın.
 
-        > [!IMPORTANT]   
-        > Kafka, Azure hata etki alanları ile uyumlu değildir. Konular için bölüm çoğaltmaları oluşturulurken, çoğaltmalar yüksek kullanılabilirlik için düzgün şekilde dağıtılmayabilir.
+        Kafka, Azure hata etki alanları ile uyumlu değildir. Konular için bölüm çoğaltmaları oluşturulurken, çoğaltmalar yüksek kullanılabilirlik için düzgün şekilde dağıtılmayabilir.
 
         Yüksek kullanılabilirlik sağlamak için kullanın [Apache Kafka bölüm yeniden Dengeleme aracını](https://github.com/hdinsight/hdinsight-kafka-tools). Bu araç bir SSH bağlantısından Kafka kümenizin baş düğümüne doğru çalıştırılmalıdır.
 
@@ -324,8 +310,7 @@ Daha önce oluşturduğunuz test konu başlığında kayıtları depolamak ve ar
    
     Bu komutla, kayıtlar konu başlığından alınır ve görüntülenir. `--from-beginning` kullanılması, tüketiciye akışın başından başlamasını söyler, böylece tüm kayıtlar alınır.
 
-    > [!NOTE]  
-    > Kafka’nın eski bir sürümünü kullanıyorsanız `--bootstrap-server $KAFKABROKERS` değerini `--zookeeper $KAFKAZKHOSTS` ile değiştirin.
+    Kafka’nın eski bir sürümünü kullanıyorsanız `--bootstrap-server $KAFKABROKERS` değerini `--zookeeper $KAFKAZKHOSTS` ile değiştirin.
 
 4. Tüketiciyi durdurmak için __Ctrl + C__ tuşlarını kullanın.
 

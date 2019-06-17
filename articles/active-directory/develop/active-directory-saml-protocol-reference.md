@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07d07f73412e889b018c1f667a500d7625912751
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546158"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Azure AD, SAML protokolünü nasıl kullanır?
@@ -37,7 +37,7 @@ Azure AD kullanan bulut hizmetin **meta veri URI'sini** imzalama anahtarı ve ot
 
 Azure Active Directory kiracıya özel ve ortak (Kiracı bağımsız) tek oturum açma ve çoklu oturum kapatma uç noktalarını kullanıma sunar. Bu URL'ler adreslenebilir konumlarını temsil--meta verileri okuyabilmesi için uç noktaya dönebilmesi yalnızca tanımlayıcıları--değildirler.
 
-* Kiracıya özgü uç nokta şu konumdadır `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.  *\<Kiracıetkialanıadı >* yer tutucusu kaydedilmiş bir etki alanı adı veya Azure AD kiracısı, Tenantıd GUID temsil eder. Örneğin, contoso.com kiracısını Federasyon meta verilerini şöyledir: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* Kiracıya özgü uç nokta şu konumdadır `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. *\<Kiracıetkialanıadı >* yer tutucusu kaydedilmiş bir etki alanı adı veya Azure AD kiracısı, Tenantıd GUID temsil eder. Örneğin, contoso.com kiracısını Federasyon meta verilerini şöyledir: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
 * Kiracı bağımsız uç noktası şu konumdadır `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Bu uç nokta adresini **ortak** Kiracı etki alanı adı veya kimliği yerine görüntülenir.
 

@@ -16,17 +16,17 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3fb7fbba7ec48da580d2a630ae51aa20b3307848
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074628"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>Kullanıcılar oturum açtığında uygulama web - oturum aç
 
 Oturum açma web uygulamanız için kod oturum açtığında, kullanıcıların nasıl ekleneceğini öğrenin.
 
-## <a name="sign-in"></a>oturum açma
+## <a name="sign-in"></a>Oturum açma
 
 Önceki makalede yaptıklarımız kod [uygulamanın kod yapılandırma](scenario-web-app-sign-user-app-configuration.md) yeterlidir uygulamak için oturum kapatma. Kullanıcı uygulamanızda oturum açmış sonra büyük olasılıkla oturumu kapatmak bunları etkinleştirmek istiyorsunuz. ASP.NET core oturum kapatma sizin yerinize çözer.
 
@@ -124,7 +124,7 @@ public void SignOut()
 }
 ```
 
-## <a name="protocol"></a>Protokol
+## <a name="protocol"></a>Protocol
 
 ASP.NET Core veya ASP.NET kullanmak istemiyorsanız, kullanılabilir Protokolü belgeleri, göz atabilirsiniz [Open ID Connect](./v2-protocols-oidc.md).
 

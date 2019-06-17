@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: e10717b0fe14d2ed6ee720a2414e753bdd2474f1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 77bbb333157f5c8cec9fa87e5f76fa4ae2678058
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708896"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070607"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hive ve Apache Hadoop kullanarak Twitter verilerini çözümleme
 
@@ -21,8 +21,6 @@ Nasıl kullanacağınızı öğrenin [Apache Hive](https://hive.apache.org/) Twi
 
 > [!IMPORTANT]  
 > Bu belgedeki adımlarda HDInsight 3.6 üzerinde test edilmiştir.
->
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="get-the-data"></a>Verileri alma
 

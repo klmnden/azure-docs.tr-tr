@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465686"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure medya Content Moderator, olası yetişkinlere yönelik ve müstehcen içeriğin algılamak için kullanın 
@@ -48,7 +48,7 @@ JSON biçiminde yönetilen çıktı görüntüleri otomatik olarak algılanır v
 | --- | --- |
 | version |Content Moderator sürümü. |
 | Zaman Çizelgesi |Videoyu saniye başına "ticks". |
-| uzaklık |Zaman damgası için saat farkıdır. Video API'leri 1.0 sürümünde, bu değer her zaman 0 olacaktır. Bu değer gelecekte değişebilir. |
+| offset |Zaman damgası için saat farkıdır. Video API'leri 1.0 sürümünde, bu değer her zaman 0 olacaktır. Bu değer gelecekte değişebilir. |
 | kare hızı |Videodaki saniye başına kare hızı. |
 | Genişlik |Piksel cinsinden çıkış video çerçevenin genişliği.|
 | Yükseklik |Çerçevenin çıkış video, piksel cinsinden yüksekliği.|
@@ -60,7 +60,7 @@ JSON biçiminde yönetilen çıktı görüntüleri otomatik olarak algılanır v
 |Öğe|Açıklama|
 |---|---|
 | start |"Ticks." ilk olay başlangıç saati |
-| süre |Uzunluğu parçasında "ticks." |
+| Süresi |Uzunluğu parçasında "ticks." |
 | interval |Her olay girişi parçasında "ticks." içinde aralığı |
 | [Olayları](#events-json-elements) |Her olay, bir küçük resim temsil eder ve her küçük algılandı ve bu süre içinde izlenen ana kareleri içerir. Olayların bir dizidir. Dış dizi bir zaman aralığını temsil eder. İç dizi belirtilen noktada gerçekleşen 0 veya daha fazla olaydan oluşur.|
 

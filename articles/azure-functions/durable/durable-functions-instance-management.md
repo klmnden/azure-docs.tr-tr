@@ -8,14 +8,13 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 03/19/2019
-ms.author: v-junlch
+ms.date: 12/07/2018
+ms.author: azfuncdf
 ms.openlocfilehash: ee96bc5e17051ab37be34eecbb8e4fe35599cd5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60730778"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Azure'da dayanıklı işlevler örneklerini yönetme
@@ -110,9 +109,9 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 Sürdüğünü bir `instanceId` (gerekli) `showHistory` (isteğe bağlı) `showHistoryOutput` (isteğe bağlı) ve `showInput` (isteğe bağlı, yalnızca .NET) parametre olarak.
 
-* **`showHistory`**: Varsa kümesine `true`, yürütme geçmişini yanıtı içerir.
-* **`showHistoryOutput`**: Varsa kümesine `true`, etkinlik çıktıları yürütme geçmişini içerir.
-* **`showInput`**: Varsa kümesine `false`, yanıt işlevin giriş içermez. Varsayılan değer `true` şeklindedir. (Yalnızca .NET)
+* **`showHistory`** : Varsa kümesine `true`, yürütme geçmişini yanıtı içerir.
+* **`showHistoryOutput`** : Varsa kümesine `true`, etkinlik çıktıları yürütme geçmişini içerir.
+* **`showInput`** : Varsa kümesine `false`, yanıt işlevin giriş içermez. Varsayılan değer `true` şeklindedir. (Yalnızca .NET)
 
 Yöntemi, aşağıdaki özelliklere sahip bir JSON nesnesi döndürür:
 
@@ -426,91 +425,9 @@ Uzun süre çalışan düzenlemeleri içinde bekleyin ve düzenleme sonuçların
 
 Bu API kullanımı gösterilmiştir HTTP tetikleyici işlevi bir örnek aşağıda verilmiştir:
 
-```C#
-// Copyright (c) .NET Foundation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Extensions.Logging;
-
-namespace VSSample
-{
-    public static class HttpSyncStart
-    {
-        private const string Timeout = "timeout";
-        private const string RetryInterval = "retryInterval";
-
-        [FunctionName("HttpSyncStart")]
-        public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/wait")]
-            HttpRequestMessage req,
-            [OrchestrationClient] DurableOrchestrationClientBase starter,
-            string functionName,
-            ILogger log)
-        {
-            // Function input comes from the request content.
-            dynamic eventData = await req.Content.ReadAsAsync<object>();
-            string instanceId = await starter.StartNewAsync(functionName, eventData);
-
-            log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
-
-            TimeSpan timeout = GetTimeSpan(req, Timeout) ?? TimeSpan.FromSeconds(30);
-            TimeSpan retryInterval = GetTimeSpan(req, RetryInterval) ?? TimeSpan.FromSeconds(1);
-            
-            return await starter.WaitForCompletionOrCreateCheckStatusResponseAsync(
-                req,
-                instanceId,
-                timeout,
-                retryInterval);
-        }
-
-        private static TimeSpan? GetTimeSpan(HttpRequestMessage request, string queryParameterName)
-        {
-            string queryParameterStringValue = request.RequestUri.ParseQueryString()[queryParameterName];
-            if (string.IsNullOrEmpty(queryParameterStringValue))
-            {
-                return null;
-            }
-
-            return TimeSpan.FromSeconds(double.Parse(queryParameterStringValue));
-        }
-    }
-}
-```
-
-```Javascript
-const df = require("durable-functions");
-
-const timeout = "timeout";
-const retryInterval = "retryInterval";
-
-module.exports = async function (context, req) {
-    const client = df.getClient(context);
-    const instanceId = await client.startNew(req.params.functionName, undefined, req.body);
-
-    context.log(`Started orchestration with ID = '${instanceId}'.`);
-
-    const timeoutInMilliseconds = getTimeInSeconds(req, timeout) || 30000;
-    const retryIntervalInMilliseconds = getTimeInSeconds(req, retryInterval) || 1000;
-
-    return client.waitForCompletionOrCreateCheckStatusResponse(
-        context.bindingData.req,
-        instanceId,
-        timeoutInMilliseconds,
-        retryIntervalInMilliseconds);
-};
-
-function getTimeInSeconds (req, queryParameterName) {
-    const queryValue = req.query[queryParameterName];
-    return queryValue
-        ? queryValue // expected to be in seconds
-        * 1000 : undefined;
-}
-```
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
 Aşağıdaki satırı ile işlevi çağırın. Zaman aşımı ve 0,5 saniye 2 saniye için yeniden deneme aralığı kullanın:
 
@@ -740,5 +657,3 @@ func durable delete-task-hub --task-hub-name UserTest
 
 > [!div class="nextstepaction"]
 > [Örneğin yönetim HTTP API'lerini kullanmayı öğrenin](durable-functions-http-api.md)
-
-<!-- Update_Description: wording update -->

@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 8b091ecce98a626f18fe6547445d898b6710e1a5
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510558"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
@@ -339,16 +339,16 @@ Azure depolama, Azure İzleyici'de aşağıdaki kapasite ölçümleri sağlar.
 | ------------------- | ----------------- |
 | UsedCapacity | Depolama hesabı tarafından kullanılan depolama miktarı. Standart depolama hesapları için blob, tablo, dosya ve kuyruk tarafından kullanılan kapasitenin toplamıdır. Premium depolama ve Blob Depolama hesapları için BlobCapacity ile aynıdır. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
-### <a name="blob-storage"></a>Blob depolama alanı
+### <a name="blob-storage"></a>Blob depolama
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 | BlobCapacity | Blob Depolama depolama hesabında kullanılan toplamı. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 <br/> Boyutlar: **BlobType**, ve **BlobTier** ([tanımı](#metrics-dimensions)) |
 | BLOB sayısı    | Depolama hesabında blob nesne sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 <br/> Boyutlar: **BlobType**, ve **BlobTier** ([tanımı](#metrics-dimensions)) |
-| ContainerCount    | Depolama hesabındaki kapsayıcıları sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
+| ContainerCount    | Depolama hesabındaki kapsayıcıları sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 | IndexCapacity     | ADLS Gen2 hiyerarşik dizin tarafından kullanılan depolama miktarı <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
-### <a name="table-storage"></a>Tablo depolama alanı
+### <a name="table-storage"></a>Table Storage
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
@@ -361,7 +361,7 @@ Azure depolama, Azure İzleyici'de aşağıdaki kapasite ölçümleri sağlar.
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 | QueueCapacity | Depolama hesabı tarafından kullanılan kuyruk depolama miktarı. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
-| QueueCount   | Depolama hesabındaki sıraların sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
+| QueueCount   | Depolama hesabındaki sıraların sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 | QueueMessageCount | Depolama hesabındaki süresi dolmamış kuyruk ileti sayısı. <br/><br/>Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
 ### <a name="file-storage"></a>Dosya depolama
@@ -369,7 +369,7 @@ Azure depolama, Azure İzleyici'de aşağıdaki kapasite ölçümleri sağlar.
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 | FileCapacity | Depolama hesabı tarafından kullanılan dosya depolama miktarı. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
-| FileCount   | Depolama hesabındaki dosya sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
+| FileCount   | Depolama hesabındaki dosya sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 | FileShareCount | Dosya sayısı depolama hesabında paylaşır. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
 ## <a name="transaction-metrics"></a>İşlem ölçümleri
@@ -391,7 +391,7 @@ Azure depolama, Azure İzleyici'de aşağıdaki işlem ölçümlerini sağlar.
 
 Azure İzleyicisi'nde ölçümler için boyut şu Azure Storage'ı destekler.
 
-| Boyut Adı | Açıklama |
+| Boyut adı | Açıklama |
 | ------------------- | ----------------- |
 | **BlobType** | Yalnızca Blob ölçümler için blob türü. Desteklenen değerler şunlardır: **BlockBlob**, **PageBlob**, ve **Azure Data Lake Storage**. Ekleme Blob BlockBlob içinde bulunur. |
 | **BlobTier** | Azure depolama, blob nesne verilerini en uygun maliyetli bir şekilde depolamanızı sağlayan farklı erişim katmanı sunuyor. Daha fazla bilgi bkz [Azure depolama blob katmanı](../blobs/storage-blob-storage-tiers.md). Desteklenen değerler şunlardır: <br/> <li>**Sık erişimli**: Sık erişimli katmanı</li> <li>**Seyrek erişimli**: Seyrek erişimli katman</li> <li>**Arşiv**: Arşiv katmanı</li> <li>**Premium**: Premium katman için blok blobu</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Premium sayfa blobu için katman türleri</li> <li>**Standart**: Standard sayfa blobu için katman türü</li> <li>**Untiered**: Genel amaçlı v1 depolama hesabı için katman türü</li> |

@@ -11,17 +11,17 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.openlocfilehash: 5593d6e392915448845adcac95da869e72a11310
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873793"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL veri ambarı veri tümleştirme iş ortakları
 Veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin. Bu makalede, Azure SQL veri ambarı destek resmi veri tümleştirme çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.
 
 ## <a name="data-integration-partners"></a>Veri tümleştirme iş ortakları
-| İş Ortağı | Açıklama | Web sitesi/ürün bağlantısı |
+| Partner | Açıklama | Web sitesi/ürün bağlantısı |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> Alooma veri ekipleri, tümleştirme, zenginleştirin ve verileri çeşitli veri ambarlarının yayılması gelen SQL veri ambarı tüm gerçek zamanlı akış sağlayan bir ETL çözümüdür. |[Ürün sayfası][alooma_website] |
 | ![Alteryx][1] |**Alteryx**<br> Alteryx Tasarımcısı, daha kapsamlı içgörüler için değil, geleneksel yaklaşım tipik hafta saat olarak müşteri adayları Self Servis veri analizi için bir iş akışı sağlar! Alteryx Tasarımcısı, veri hazırlama, verileri ve Tahmine dayalı, istatistiksel ve uzamsal – aynı sezgisel kullanıcı arabirimini kullanarak Analiz – birleştirerek veri analistleri yardımcı olur. |[Ürün sayfası][alteryx_designer_website]<br>[Azure Market][alteryx_marketplace]<br>|

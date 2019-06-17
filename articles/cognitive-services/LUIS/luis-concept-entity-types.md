@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 628a96c4e912341226d67a7ed8f241194e7b7825
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141038"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080050"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Varlık türleri ve bunların amacıyla LUIS
 
@@ -94,7 +94,7 @@ Varlıklar, varlık utterance içinde nasıl görüneceğini hakkında almaya de
 
 Varlık ayıklandıktan sonra varlık verilerini bilgilerin tek bir birim olarak temsil edilen veya istemci uygulaması kullanabilirsiniz bilgilerinin bir birim oluşturmak için diğer varlıklarla birleştirilmiş.
 
-|Makine öğrendiniz|Can Mark|Öğretici|Örnek<br>Yanıt|Varlık türü|Amaç|
+|Makine öğrendiniz|Can Mark|Öğretici|Örnek<br>Yanıt|varlık türü|Amaç|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Bileşik**](#composite-entity)|Varlık Türü bağımsız olarak varlıklar gruplandırmasıdır.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Liste**](#list-entity)|Öğelerin listesini ve bunların eş anlamlılar ile tam metin ayıklandı eşleşir.|
@@ -108,6 +108,30 @@ Yalnızca makine öğrenilen varlıklar örnek konuşma işaretlenmesi gerekir. 
 Pattern.Any varlıklar olarak işaretlenmesi gerekir [deseni](luis-how-to-model-intent-pattern.md) şablon örnekleri, amaç kullanıcı örnekleri. 
 
 Karma varlıkları varlık algılama yöntemleri bir birleşimini kullanın.
+
+## <a name="machine-learned-entities-use-context"></a>Makine öğrenilen varlıklar bağlamı kullanma
+
+Makine öğrenilen varlıklar utterance bağlamda öğrenin. Bu yerleştirme çeşitlemesi örnek konuşma içinde önemli hale getirir. 
+
+## <a name="non-machine-learned-entities-dont-use-context"></a>Bağlam olmayan makine öğrenilen varlıklar kullanma
+
+Şu makine-olmayan varlıklar utterance bağlam varlıkları eşleştirme yapılırken dikkate değil öğrendiniz: 
+
+* [Önceden oluşturulmuş varlıklar](#prebuilt-entity)
+* [Normal ifade varlıkları](#regular-expression-entity)
+* [Varlıklar listesi](#list-entity) 
+
+Bu varlıkların etiketleme veya modeli eğitmek gerek yoktur. Varlıkları ekleyin veya varlığı yapılandırmak sonra çıkarılır. Bu varlıklar, burada bağlam dikkate alınan, eşleşme yok yapılmıştır overmatched, düşüş olur. 
+
+Bu liste varlıklarla yeni modeller üzerinde sık gerçekleşir. Derleme ve modelinizi bir liste varlığı ile test ancak modelinizi yayımlama uç noktasından sorgular alması, modelinizi, bağlam eksikliği nedeniyle overmatching farkında olun. 
+
+Sözcük ve tümcecikleri eşleşen ve bağlam dikkate istiyorsanız iki seçeneğiniz vardır. İlk ifade listesini ile eşleştirilmiş bir varlığın kullanmaktır. İfade listesi eşleştirmek için kullanılmayacak ancak bunun yerine sinyal oldukça benzer sözcük (birbirinin yerine listesi) yardımcı olur. Bir ifade listesinin çeşitlemeleri yerine bir tam eşleşme olmalıdır, aşağıda açıklanan bir role sahip bir liste varlığı kullanın.
+
+### <a name="context-with-non-machine-learned-entities"></a>Makine öğrenilen varlıklar ile bağlam
+
+Makine olmayan öğrenilen varlıklar için önemli için utterance bağlamında istiyorsanız kullanmalısınız [rolleri](luis-concept-roles.md).
+
+Bir makine öğrenilen varlık gibi varsa [önceden oluşturulmuş varlıklarla](#prebuilt-entity), [regex](#regular-expression-entity) varlıklar veya [listesi](#list-entity) istediğiniz örnekten fazlasına ölçeklendirilemez eşleşen varlıkları göz önünde bulundurun iki rol ile tek bir varlık oluşturuluyor. Bir rol, aradığınız ne yakalar ve aradıklarınızı değil, bir rol yakalar. Her iki sürümü örnek konuşma etiketlenmiş gerekir.  
 
 ## <a name="composite-entity"></a>Bileşik varlık
 
@@ -133,8 +157,9 @@ Liste varlık ilgili sözcükleri kendi eş anlamlılar yanı sıra sabit, kapal
 İyi bir varlıktır ne zaman uygun metin verileri:
 
 * Bilinen bir kümesidir.
+* Genellikle değişmez. Listenin genellikle değiştirebilir veya kendi kendine genişletmek için liste istediğiniz gerekiyorsa, artırılmış bir ifade listesi tek bir varlığın daha iyi bir seçimdir. 
 * Küme, bu varlık türü için maksimum LUIS [sınırlarını](luis-boundaries.md) aşmaz.
-* Konuşmadaki metin bir eşanlamlı sözcük veya kurallı ad ile tam olarak eşleşiyor. LUIS, tam metin eşleşme ötesinde listesi kullanmaz. Dallanma, gerçekleştirebilse ve diğer Çeşitlemeler bir liste varlığı ile çözümlenmiyor. Değişimleri yönetmek için kullanmayı bir [deseni](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) isteğe bağlı metin sözdizimine sahip.
+* Konuşmadaki metin bir eşanlamlı sözcük veya kurallı ad ile tam olarak eşleşiyor. LUIS, tam metin eşleşme ötesinde listesi kullanmaz. Bir liste varlığı ile benzer öğe eşleştirmesi olmama durumunu, dallanma, gerçekleştirebilse ve diğer Çeşitlemeler çözümlenmiyor. Değişimleri yönetmek için kullanmayı bir [deseni](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) isteğe bağlı metin sözdizimine sahip.
 
 ![Liste varlığı](./media/luis-concept-entities/list-entity.png)
 
@@ -158,10 +183,11 @@ Aşağıdaki tabloda, her satır utterance iki sürümü vardır. Üst utterance
 
 |İfade|
 |--|
-|' Hat ve diğer klinik bir Amerikan tarafından yazılan bu yılın örnekleri için ortadaki kimin Zannettiği HIS eşim oldu?<br>Olan **Man kimin Zannettiği HIS eşim Hat ve diğer Klinik örnekleri için** bir Amerikan göre bu yılın yazılmış?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
+|ADAM kimin Zannettiği HIS eşim Hat ve diğer Klinik örnekleri için bu yılın bir Amerikan tarafından yazılmış?<br><br>Olan **Man kimin Zannettiği HIS eşim Hat ve diğer Klinik örnekleri için** bir Amerikan göre bu yılın yazılmış?|
+|Yarı uyku Frog Pajamas bir Amerikan tarafından yazılan bu yıl içinde neydi?<br><br>Olan **Frog Pajamas içinde yarım uyku** bir Amerikan göre bu yılın yazılmış?|
+|Limonlu pasta, belirli üzüntü şöyleydi: Bu yıl bir Amerikan tarafından yazılmış bir Romanım?<br><br>Olan **Limonlu pasta, belirli üzüntü: Bir Romanım** bir Amerikan göre bu yılın yazılmış?|
+|My Pocket içinde bir Wocket yok edildi! Bu yıl bir Amerikan tarafından yazılmış?<br><br>Olan **My Pocket içinde bir Wocket yoktur!** Bu yıl bir Amerikan tarafından yazılmış?|
+||
 
 ## <a name="prebuilt-entity"></a>Önceden oluşturulmuş varlık
 
@@ -225,6 +251,18 @@ Normal bir ifade ham utterance metin için en iyisidir. Küçük büyük harf du
 
 [Öğretici](luis-quickstart-intents-regex-entity.md)<br>
 [Varlık için örnek JSON yanıtı](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+
+Normal ifadeler eşleştirilecek beklediğinizden daha eşleşmiyor olabilir. Bu, sayısal word gibi eşleşen örneğidir `one` ve `two`. Sayının aşağıdaki regex örneğidir `one` başka sayı birlikte:
+
+```javascript
+(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
+``` 
+
+Bu normal ifade ifade ayrıca gibi bu numaraları ile biten sözcük eşleşen `phone`. Sorunları şöyle giderin, normal ifade eşleştiğinden emin olmak için hesap sözcük sınırları alır. Sözcük sınırlarından Bu örnek için kullanılacak normal ifade aşağıdaki normal ifade kullanılır:
+
+```javascript
+\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
+```
 
 ## <a name="simple-entity"></a>Basit varlık 
 

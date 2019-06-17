@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f45b0779693433f1b1fad3c5bfd4323eacb9a63b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd0ca3bb356319f4661e24b192a5f7e776d14cd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095079"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Öğretici: Palo Alto Networks - yönetici kullanıcı Arabirimi ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Palo Alto Networks - Azure AD'de yönetici Arabirimine tümleştirmesini yapıla
 
 **Galeri, yönetici kullanıcı Arabiriminden Palo Alto Networks - eklemek için aşağıdaki adımları uygulayın:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

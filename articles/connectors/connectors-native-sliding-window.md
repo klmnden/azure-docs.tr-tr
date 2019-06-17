@@ -10,10 +10,10 @@ ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 44944955019fcf81fb0d296592577e2b00a15928
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299510"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-sliding-window-trigger-in-azure-logic-apps"></a>Oluşturmanıza, zamanlamanıza ve Azure Logic apps'te kayan pencere tetikleyicisi ile yinelenen görevleri ve iş akışları çalıştırma
@@ -51,9 +51,9 @@ Bu tetikleyicinin yinelenme tetikleyicisini arasındaki farklar veya yinelenen i
 
    ![Kümesi aralığı ve sıklığı](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Özellik | Gerekli | JSON adı | Type | Açıklama |
+   | Özellik | Gerekli | JSON adı | Tür | Açıklama |
    |----------|----------|-----------|------|-------------|
-   | **Aralık** | Evet | interval | Tamsayı | İş akışı sıklığı temel alarak çalışan ne sıklıkta açıklar pozitif bir tamsayı. Minimum ve maksimum aralıkları şunlardır: <p>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Hour" ise, yineleme 6 saatte bir olduğu. |
+   | **Aralık** | Evet | interval | Integer | İş akışı sıklığı temel alarak çalışan ne sıklıkta açıklar pozitif bir tamsayı. Minimum ve maksimum aralıkları şunlardır: <p>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Hour" ise, yineleme 6 saatte bir olduğu. |
    | **Sıklık** | Evet | frequency | String | Yineleme için zaman birimi: **İkinci**, **dakika**, veya **saat** |
    ||||||
 
@@ -62,7 +62,7 @@ Bu tetikleyicinin yinelenme tetikleyicisini arasındaki farklar veya yinelenen i
    Daha fazla yinelenme seçenekleri için açık **yeni parametre Ekle** listesi. 
    Seçtiğiniz herhangi bir seçenek Tetikle seçimi yaptıktan sonra görünür.
 
-   | Özellik | Gerekli | JSON adı | Type | Açıklama |
+   | Özellik | Gerekli | JSON adı | Tür | Açıklama |
    |----------|----------|-----------|------|-------------|
    | **gecikme** | Hayır | delay | String | Her yineleme kullanarak gecikme süresini [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
    | **Saat dilimi** | Hayır | timeZone | String | Bu tetikleyiciyi kabul etmez çünkü yalnızca bir başlangıç zamanı belirttiğinizde geçerlidir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Uygulamak istediğiniz saat dilimini seçin. |

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
 ms.openlocfilehash: baed2b23a321c53a614303d3085fbb3a4bf6ad0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831104"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Arka uç sunucu sertifikası bir App Service ortamı ile bir iç Load Balancer'ı kullanarak uygulama ağ geçidi için izin verilenler listesinde değil.
@@ -31,14 +31,14 @@ Bir ILB ASE arka kullanarak uygulama ağ geçidi oluşturduğunuzda, arka uç su
 
 **Uygulama ağ geçidi yapılandırması:**
 
-- **Dinleyici:** Çoklu site
+- **Dinleyici:** Çok siteli
 - **Bağlantı noktası:** 443
 - **Ana bilgisayar adı:** test.appgwtestase.com
 - **SSL sertifikası:** CN=test.appgwtestase.com
 - **Arka uç havuzu:** IP adresi veya FQDN
-- **IP adresi:**: 10.1.5.11
+- **IP adresi:** : 10.1.5.11
 - **HTTP ayarları:** HTTPS
-- **Bağlantı noktası:**: 443
+- **Bağlantı noktası:** : 443
 - **Özel araştırma:** Ana bilgisayar adı – test.appgwtestase.com
 - **Kimlik doğrulama sertifikası:** test.appgwtestase.com, .cer
 - **Arka uç sistem durumu:** Sağlıksız – arka uç sunucu sertifikası ile Application Gateway izin verilenler listesinde değil.
@@ -70,6 +70,6 @@ ILB erişmek için bir tam etki alanı adı (FQDN) kullandığınızda, arka uç
 
 Ek yükü azaltmak için iş yoklama yolu yapmak için HTTP ayarlarında ILB sertifikası yükleyebilirsiniz. (Bu adım yalnızca Güvenilenler listesine eklenmek için aynıdır. Bu SSL iletişimi için kullanılmayacak.) HTTPS üzerinden tarayıcınızdan ILB IP adresiyle erişerek ILB sertifikası alabilir, ardından Base-64 olarak SSL sertifikasını dışarı aktarma kodlanmış CER biçiminde ve ilgili HTTP ayarlarında sertifika karşıya yükleniyor.
 
-## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
 Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

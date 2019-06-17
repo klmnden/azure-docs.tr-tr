@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 43fe0047022173cc20f58688920fa95b95cc6c22
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473544"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Bir CSP olarak oluşturun ve bir Azure IOT Central uygulamasına, müşteri adına yönetmek 
@@ -87,7 +87,7 @@ Yeni Azure IOT Central uygulamanız için mevcut uygulama şablonlarından birin
 | Uygulama şablonu | Açıklama |
 | -------------------- | ----------- |
 | Özel uygulama   | Kendi cihaz şablonlarınız ve cihazlarınızla doldurabileceğiniz boş bir uygulama oluşturur. |
-| Örnek Contoso       | Basit bağlı bir cihaz için cihaz şablon içeren bir uygulama oluşturur. Azure IoT Central'ı incelemeye başlamak için bu şablonu kullanın. |
+| Contoso Örneği       | Basit bağlı bir cihaz için cihaz şablon içeren bir uygulama oluşturur. Azure IoT Central'ı incelemeye başlamak için bu şablonu kullanın. |
 | Devkits Örneği       | MXChip veya Raspberry Pi cihazını bağlamak amacıyla sizin için hazırlanmış cihaz şablonlarıyla bir uygulama oluşturur. Cihaz geliştiriciyseniz bu cihaz üzerinde kodla denemeler bu şablonu kullanın. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

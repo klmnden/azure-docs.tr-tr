@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89034b04c6b38c0873f890e55693c6e15e6a8d93
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742897"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069406"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Öğretici: Mevcut bir özel DNS adını Azure App Service'e eşlemek
 
@@ -68,7 +68,7 @@ Sol menüden **Uygulama Hizmetleri**'ni ve ardından uygulamanın adını seçin
 
 App Service uygulamasının yönetim sayfasını görüyorsunuz.  
 
-<a name="checkpricing"></a>
+<a name="checkpricing" aria-hidden="true"></a>
 
 ### <a name="check-the-pricing-tier"></a>Fiyatlandırma katmanını denetleme
 
@@ -82,7 +82,7 @@ Uygulamanın geçerli katmanı mavi kenarlıkla vurgulanmıştır. Uygulamanın 
 
 App Service planı **F1** katmanında değilse, **Ölçeği artır** sayfasını kapatın ve [CNAME kaydını eşle](#cname)'ye atlayın.
 
-<a name="scaleup"></a>
+<a name="scaleup" aria-hidden="true"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>App Service planının ölçeğini artırma
 
@@ -96,7 +96,7 @@ Aşağıdaki bildirimi gördüğünüzde, ölçeklendirme işlemi tamamlanmışt
 
 ![Ölçeklendirme işlemi onayı](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="cname"></a>
+<a name="cname" aria-hidden="true"></a>
 
 ## <a name="map-your-domain"></a>Etki alanınızı eşleme
 
@@ -162,7 +162,7 @@ Daha önce bir adımı atladıysanız veya yazım hatası yaptıysanız, sayfan�
 
 ![Doğrulama hatası](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-<a name="a"></a>
+<a name="a" aria-hidden="true"></a>
 
 ### <a name="map-an-a-record"></a>A kaydını eşleme
 
@@ -213,7 +213,7 @@ Kayıtlar eklendiğinde, DNS kayıtları sayfası aşağıdaki örnekte gösteri
 
 ![DNS kayıtları sayfası](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-<a name="enable-a"></a>
+<a name="enable-a" aria-hidden="true"></a>
 
 #### <a name="enable-the-a-record-mapping-in-the-app"></a>Uygulamada A kaydı eşlemesini etkinleştirme
 
@@ -246,7 +246,7 @@ Daha önce bir adımı atladıysanız veya yazım hatası yaptıysanız, sayfan�
 
 ![Doğrulama hatası](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-<a name="wildcard"></a>
+<a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>Joker karakter etki alanını eşleme
 
@@ -310,7 +310,7 @@ Daha önce yapılandırılmış olan DNS adlarına (örneğin, `contoso.com`,  `
 - Yapılandırılan özel etki alanında bir A kaydı ve/veya CNAME kaydı eksiktir.
 - Tarayıcı istemcisi etki alanınızın eski IP adresini önbelleğe almıştır. Önbelleği temizleyin ve DNS çözümlemesini yeniden test edin. Windows makinesinde önbelleği `ipconfig /flushdns` ile temizlersiniz.
 
-<a name="virtualdir"></a>
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="migrate-an-active-domain"></a>Etkin bir etki alanını geçirme
 
@@ -326,7 +326,7 @@ Sayfanın en altında, kök sanal dizin `/` varsayılan olarak `site\wwwroot` di
 
 ![Sanal dizini özelleştirme](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-İşlem tamamlandığında, uygulamanız kök yolda (örneğin, http://contoso.com)) doğru sayfaya dönmelidir.
+İşlem tamamlandığında, uygulamanız kök yolda (örneğin, http://contoso.com) ) doğru sayfaya dönmelidir.
 
 ## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 

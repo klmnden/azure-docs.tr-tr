@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823402"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
@@ -36,28 +36,28 @@ Bu makalede, Azure Active Directory (Azure AD) kiracınız içindeki kullanıcı
   * Faturalama yöneticisi
   * Partner Tier1 Desteği
   * Partner Tier2 Desteği
-  * Exchange yöneticisi
-  * Skype Kurumsal yöneticisi
-  * Kullanıcı yöneticisi
-  * Dizin yazıcıları
+  * Exchange Yöneticisi
+  * Skype Kurumsal Yöneticisi
+  * Kullanıcı Yöneticisi
+  * Dizin yazıcılar
   * Genel yönetici veya şirket Yöneticisi
   * SharePoint yöneticisi
-  * Uyumluluk yöneticisi
-  * Uygulama yöneticisi
+  * Uyumluluk Yöneticisi
+  * Uygulama Yöneticisi
   * Güvenlik yöneticisi
-  * Ayrıcalıklı rol yöneticisi
-  * Intune yöneticisi
+  * Ayrıcalıklı Rol Yöneticisi
+  * Intune Yöneticisi
   * Uygulama Ara sunucusu Hizmet Yöneticisi
-  * Dynamics 365 yöneticisi
+  * Dynamics 365 Yöneticisi
   * Power BI Hizmet Yöneticisi
-  * Kimlik doğrulaması yöneticisi
+  * Kimlik doğrulama Yöneticisi
   * Ayrıcalıklı kimlik yöneticisi
 
 * 30 günlük bir deneme aboneliği geçtiyse; veya
 * Gösterim etki alanı contoso.com gibi mevcut değil; veya
 * Azure AD Connect, şirket içi dizininizden kimlikler eşitleme
 
-### <a name="exceptions"></a>Özel Durumlar
+### <a name="exceptions"></a>Özel durumlar
 
 Tek parça bir e-posta adresi gibi kimlik doğrulama verilerinin bir ağ geçidi İlkesi gerektirir *veya* telefon numarası. Bir ağ geçidi İlkesi, aşağıdaki durumlarda geçerlidir:
 

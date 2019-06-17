@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 086161b73e2a3e07df835394dc26082e12fbd434
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963990"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
@@ -91,7 +91,7 @@ SCIM kullanan uygulamalar genel olarak bağlanma hakkında bilgi için 2.0 - tab
 
 Azure Active Directory portalındaki Azure AD sağlama hizmeti için seçilen bir uygulamaya yapılandırmak için kullanın.
 
-1. Açık  **[Azure Active Directory portalında](https://aad.portal.azure.com)**.
+1. Açık  **[Azure Active Directory portalında](https://aad.portal.azure.com)** .
 
 1. Seçin **kurumsal uygulamalar** sol bölmeden. Tüm yapılandırılmış uygulamaların bir listesini göster ' dir.
 
@@ -179,7 +179,7 @@ Ardından tek bir kullanıcı eklendi, güncelleştirilemiyor veya hedef sistemd
 
 Bu hatalar, kaynak sistemde etkilenen kullanıcının öznitelik değerleri ayarlayarak ya da çakışmalara neden olmayan için öznitelik eşlemelerini ayarlayarak çözülebilir.   
 
-### <a name="quarantine"></a>Karantina
+### <a name="quarantine"></a>Karantinaya Al
 
 Çoğu veya tüm hedef sistem karşı sürekli olarak yapılan çağrıları (olduğu gibi geçersiz yönetici kimlik bilgileri gibi) bir hata nedeniyle başarısız olursa, sağlama işi bir "karantina" durumuna geçtiğinde. Bu durum belirtilen [özet raporu sağlama](check-status-user-account-provisioning.md) ve e-posta bildirimleri Azure portalında yapılandırıldıysa e-posta yoluyla. 
 
@@ -194,7 +194,7 @@ Sağlama iş bir ilk eşitleme veya bir artımlı eşitleme çalıştıran perfo
 
 İçin **ilk eşitlemeler**, sağlama, kapsamında kullanıcıların ve grupların sayısı da dahil olmak üzere, birçok faktöre ve kullanıcı ve grup kaynak sistemindeki toplam sayısı işi zaman bağlıdır. İlk eşitleme performansı etkileyen faktörleri kapsamlı bir listesi bu bölümde daha sonra özetlenir.
 
-İçin **artımlı eşitlemeler**, işi zaman bu eşitleme döngüsü algılandı değişikliklerinin sayısına bağlı olarak değişir. 5. 000'den daha az kullanıcı veya grup üyeliği değişiklikleri varsa, bir tek Artımlı eşitleme döngüsü içinde iş tamamlayabilir. 
+İçin **artımlı eşitlemeler**, işi zaman bu eşitleme döngüsü algılandı değişikliklerinin sayısına bağlı olarak değişir. 5\. 000'den daha az kullanıcı veya grup üyeliği değişiklikleri varsa, bir tek Artımlı eşitleme döngüsü içinde iş tamamlayabilir. 
 
 Eşitleme zamanlarını sağlama yaygın senaryolar için aşağıdaki tabloda özetlenmiştir. Bu senaryolarda, Azure AD kaynaklı sistemidir ve hedef sistemde bir SaaS uygulamasıdır. Eşitleme sürelerini ServiceNow, çalışma alanı, Salesforce ve G Suite SaaS uygulamaları için eşitleme işlerinin istatistiksel çözümleme türetilmiştir.
 
@@ -202,13 +202,13 @@ Eşitleme zamanlarını sağlama yaygın senaryolar için aşağıdaki tabloda �
 | Kapsam yapılandırması | Kullanıcılara, gruplara veya kapsamda üyeleri | İlk eşitleme zamanı | Artımlı eşitleme zamanı |
 | -------- | -------- | -------- | -------- |
 | Atanan kullanıcı ve grupları yalnızca Eşitle |  < 1,000 |  < 30 dakika | < 30 dakika |
-| Atanan kullanıcı ve grupları yalnızca Eşitle |  1.000 - 10.000 | 142 - 708 dakika | < 30 dakika |
+| Atanan kullanıcı ve grupları yalnızca Eşitle |  1\.000 - 10.000 | 142 - 708 dakika | < 30 dakika |
 | Atanan kullanıcı ve grupları yalnızca Eşitle |   10,000 - 100,000 | 1,170 - 2,340 dakika | < 30 dakika |
 | Azure AD'de tüm kullanıcıları ve grupları Eşitle |  < 1,000 | < 30 dakika  | < 30 dakika |
-| Azure AD'de tüm kullanıcıları ve grupları Eşitle |  1.000 - 10.000 | < 30-120 dakika | < 30 dakika |
+| Azure AD'de tüm kullanıcıları ve grupları Eşitle |  1\.000 - 10.000 | < 30-120 dakika | < 30 dakika |
 | Azure AD'de tüm kullanıcıları ve grupları Eşitle |  10,000 - 100,000  | 713 - 1,425 dakika | < 30 dakika |
 | Tüm kullanıcılar Azure AD'de eşitleme|  < 1,000  | < 30 dakika | < 30 dakika |
-| Tüm kullanıcılar Azure AD'de eşitleme | 1.000 - 10.000  | 43 - 86 dakika | < 30 dakika |
+| Tüm kullanıcılar Azure AD'de eşitleme | 1\.000 - 10.000  | 43 - 86 dakika | < 30 dakika |
 
 
 Yapılandırma için **eşitleme atanan kullanıcı ve grupları yalnızca**, şu formüllerden yaklaşık minimum ve maksimum beklenen belirlemek için kullanabileceğiniz **ilk eşitleme** saatler:

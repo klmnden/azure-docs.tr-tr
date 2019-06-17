@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126758"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple Cihazınızda güncelleştirme 5'i yükleme
@@ -47,7 +47,7 @@ Cihazınızı güncelleştirmek için aşağıdaki adımları gerçekleştirin [
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
 
-Cihazınızı çalıştığını doğrulayın **StorSimple 8000 serisi güncelleştirme 5 (6.3.9600.17845)**. **Son güncelleştirme tarihi** değiştirilmelidir.
+Cihazınızı çalıştığını doğrulayın **StorSimple 8000 serisi güncelleştirme 5 (6.3.9600.17845)** . **Son güncelleştirme tarihi** değiştirilmelidir.
 
 Şimdi Bakım modu güncelleştirmeleri kullanılabilir olduğunu göreceksiniz (Bu ileti güncelleştirmeleri yükledikten sonra en fazla 24 saat için görüntülenecek devam edebilir). Bakım modu güncelleştirmesi yüklemek için adımlar sonraki bölümde ayrıntılı olarak açıklanmaktadır.
 

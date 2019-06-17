@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66154346"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinesinde Oracle ASM ayarlayın  
@@ -40,7 +40,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için A
 
 ## <a name="prepare-the-environment"></a>Ortamı hazırlama
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Kaynak grubu oluşturmak için [az group create](/cli/azure/group) komutunu kullanın. Bir Azure kaynak grubu, Azure kaynaklarını dağıtıldığı ve yönetildiği mantıksal bir kapsayıcıdır. Bu örnekte, adlı bir kaynak grubu *myResourceGroup* içinde *eastus* bölge.
 

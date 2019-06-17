@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 426162d6655a107aad6fc7dd1081ca9352099449
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 41efce8eeb09e09af2473af6c16074d0fbcd45f8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897905"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098455"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Öğretici: Korn Ferry ALP ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Korn Ferry ALP tümleştirmesini yapılandırmak için Korn Ferry AL
 
 **Galeriden Korn Ferry ALP eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

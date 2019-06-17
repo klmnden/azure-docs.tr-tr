@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 5c76cce5a3d9add8a1dcd8acc439a70c4a8655a9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200562"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Seçin ve bir IOT Cihazınızı güvenlik aracısında dağıtma
@@ -84,7 +84,7 @@ Bkz: [güvenlik aracı karşılaştırma](how-to-deploy-agent.md#understand-secu
 
 Aşağıdaki liste, şu anda desteklenen tüm platformlar içerir.
 
-|ASC IOT Aracısı |İşletim Sistemi |Mimari |
+|ASC IOT Aracısı |İşletim sistemi |Mimari |
 |--------------|------------|--------------|
 |C|Ubuntu 16.04 |   x64|
 |C|Ubuntu 18.04 |   x64|

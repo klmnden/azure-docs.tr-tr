@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 704bb409d2b21e2ae258dbb2d627b1c088d80db7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254646"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup sunucusu veya System Center DPM yedekleme destek matrisi
@@ -130,8 +130,8 @@ Azure Backup hizmeti bağlantısı düzgün çalışması yedeklemeler için ger
 
 **MABS azure'a** | **Abonelik** | **Yedekleme/geri yükleme** 
 --- | --- | --- 
-Bağlanıldı | Etkin | DPM/MABS diske yedekleyin.<br/><br/> Azure'a yedekleyin.<br/><br/> Diskten geri yükleyin.<br/><br/> Azure'dan geri yükleyin.
-Bağlanıldı | Süresi doldu ve sağlaması | Disk ya da Azure yedekleme.<br/><br/> Abonelik süresi doldu, disk ya da Azure geri yükleyebilirsiniz.<br/><br/> Abonelik kullanımdan alındığında disk ya da Azure geri yükleyemezsiniz. Azure kurtarma noktası silinir.
+Bağlı | Etkin | DPM/MABS diske yedekleyin.<br/><br/> Azure'a yedekleyin.<br/><br/> Diskten geri yükleyin.<br/><br/> Azure'dan geri yükleyin.
+Bağlı | Süresi doldu ve sağlaması | Disk ya da Azure yedekleme.<br/><br/> Abonelik süresi doldu, disk ya da Azure geri yükleyebilirsiniz.<br/><br/> Abonelik kullanımdan alındığında disk ya da Azure geri yükleyemezsiniz. Azure kurtarma noktası silinir.
 15 günden fazla bir bağlantı yok | Etkin | Disk ya da Azure yedekleme.<br/><br/> Disk ya da Azure geri yükleyebilirsiniz.
 15 günden fazla bir bağlantı yok | Süresi doldu ve sağlaması | Disk ya da Azure yedekleme.<br/><br/> Abonelik süresi doldu, disk ya da Azure geri yükleyebilirsiniz.<br/><br/> Abonelik kullanımdan alındığında disk ya da Azure geri yükleyemezsiniz. Azure kurtarma noktası silinir.
 

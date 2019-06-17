@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
 ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963245"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Kesintisiz Akış Protokolü (MS-SSTR) değişiklik için HEVC 
@@ -34,7 +34,7 @@ MPEG-4 kullanımını ([MPEG4-RA)](https://go.microsoft.com/fwlink/?LinkId=32778
 
 ## <a name="11-glossary"></a>1.1 sözlüğü 
 
-Aşağıdaki terimler tanımlanan *[MS-GLOS]*:
+Aşağıdaki terimler tanımlanan *[MS-GLOS]* :
 
 >   **genel benzersiz tanıtıcısı (GUID) evrensel benzersiz tanımlayıcı (UUID)**
 

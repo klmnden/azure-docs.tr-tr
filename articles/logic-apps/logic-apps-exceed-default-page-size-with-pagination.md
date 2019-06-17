@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 04/11/2019
 ms.openlocfilehash: 2d1bcf2cf83fab106f79120c3caacc424f839836
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64476549"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Azure Logic Apps'te sayfalandırma kullanarak daha fazla veri, öğe veya kayıt Al
@@ -25,7 +25,7 @@ Size bazı eylemler çalıştıracak bir *sayfalandırma* mantıksal uygulamanı
 Bir bağlayıcı'nın sayfa boyutuna göre sonuçlarını sayfalandırma ayarı alır sayfalarında kapatılıyor. Bu davranışı bazı durumlarda, size, belirtilen eşikten daha fazla sonuç elde anlamına gelir. Örneğin, SQL Server kullanırken **satırları Al** sayfalandırma ayarını destekler eylemini:
 
 * Eylemin varsayılan sayfa boyutu 2048 sayfa başına kayıt ' dir.
-* 10.000 kayıtları ve en düşük 5000 kayıt belirtin varsayalım.
+* 10\.000 kayıtları ve en düşük 5000 kayıt belirtin varsayalım.
 * Sayfalar, bu nedenle en az belirtilen en düşük almak için kayıtlarının sayfalandırma alır, eylem 6144 kayıtları (3 sayfaları x 2048 kayıtlar), 5000 kayıtları döndürür.
 
 Burada belirli eylemler için varsayılan sayfa boyutu aşabilir bağlayıcıları yalnızca bir kısmı bir listesi aşağıda verilmiştir:
@@ -51,7 +51,7 @@ Burada belirli eylemler için varsayılan sayfa boyutu aşabilir bağlayıcılar
 
 Bir eylem, mantıksal Uygulama Tasarımcısı'nda sayfalandırma destekleyip desteklemediğini belirlemek için eylem ayarlarını kontrol edin **sayfalandırma** ayarı. Bu örnek, SQL Server'ın sayfalandırma nasıl gösterir **satırları Al** eylem.
 
-1. Eylemin sağ üst köşede bulunan üç noktayı seçin (**...** ) düğmesini ve **ayarları**.
+1. Eylemin sağ üst köşede bulunan üç noktayı seçin ( **...** ) düğmesini ve **ayarları**.
 
    ![Eylem ayarları](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 

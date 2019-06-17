@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a3468d720cb04e73cb284abb20c7bcf6a392dd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65859518"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108420"
 ---
 # <a name="compare-remote-access-solutions"></a>Uzaktan erişim çözümlerini karşılaştırın
 
@@ -46,7 +46,7 @@ Birbirine nasıl tehdit Yönetimi ağ geçidi (TMG), birleşik erişim ağ geçi
 | Yanıt gövdesi bağlantı çeviri | Evet | Evet | - | Evet | 
 | Üst bilgileri ile kimlik doğrulaması | - | Evet | - | Evet, pingaccess | 
 | Bulut ölçeğinde güvenlik | - | - | - | Evet | 
-| Koşullu erişim | - | Evet | - | Evet |
+| Koşullu Erişim | - | Evet | - | Evet |
 | Bileşen (DMZ) arındırılmış bölge içinde yok | - | - | - | Evet |
 | Gelen bağlantı yok | - | - | - | Evet |
 

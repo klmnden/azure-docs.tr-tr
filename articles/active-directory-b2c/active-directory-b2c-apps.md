@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e4a9931fa6e2edf8989036eb8dbfbef3638cbbe0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 9ae2894f9f442bca1e6029b7e7d8e07824abf7fb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507518"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051733"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C'de kullanılabilir uygulama türleri
 
@@ -98,7 +98,7 @@ Web API'si, istemcilerin, web uygulamaları, masaüstü ve mobil uygulamalar, te
 6. `access_token` Ve `refresh_token` web sunucusuna döndürülür.
 7. Web API'si ile adlandırılır `access_token` bir yetkilendirme üst bilgisinde.
 8. Web API belirteci doğrular.
-9. Güvenli veri web sunucusuna döndürülür.
+9. Web uygulamasını güvenli veri döndürülür.
 
 Yetkilendirme kodları, yenileme belirteçleri ve belirteç alma adımları hakkında daha fazla bilgi edinmek için [OAuth 2.0 protokolünü](active-directory-b2c-reference-oauth-code.md) okuyun.
 

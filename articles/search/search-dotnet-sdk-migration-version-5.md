@@ -11,22 +11,22 @@ ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 8382884b4ce2965dee4acf191f82eb012b670713
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147486"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK sürüm 5 yükseltme
 
-4.0 Önizleme veya, eski bir sürümü kullanıyorsanız [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede, uygulamanızı 5 sürümünü kullanacak şekilde yükseltmek yardımcı olur.
+4\.0 Önizleme veya, eski bir sürümü kullanıyorsanız [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede, uygulamanızı 5 sürümünü kullanacak şekilde yükseltmek yardımcı olur.
 
 Örnekler de dahil olmak üzere SDK'sının daha genel bir kılavuz için bkz. [bir .NET uygulamasından Azure Search kullanma](search-howto-dotnet-sdk.md).
 
 Azure Search .NET SDK'sı sürüm 5, bazı değişiklikler daha önceki sürümlerin içerir. Kodunuzu değiştirmek, yalnızca en az çaba istemeniz gerekir böylece bunlar çoğunlukla küçük. Bkz: [yükseltme adımları](#UpgradeSteps) yeni SDK sürümü kullanmak kodunuzu değiştirmek konusunda yönergeler için.
 
 > [!NOTE]
-> 2.0 Önizlemesi veya eski bir sürümü kullanıyorsanız, 3. sürümüne yükseltmeniz ve ardından 5 sürümüne yükseltmeniz gerekir. Bkz: [Azure Search .NET SDK sürüm 3 yükseltme](search-dotnet-sdk-migration.md) yönergeler için.
+> 2\.0 Önizlemesi veya eski bir sürümü kullanıyorsanız, 3. sürümüne yükseltmeniz ve ardından 5 sürümüne yükseltmeniz gerekir. Bkz: [Azure Search .NET SDK sürüm 3 yükseltme](search-dotnet-sdk-migration.md) yönergeler için.
 >
 > Azure Search Hizmeti örneğinizi en son dahil olmak üzere çeşitli REST API sürümlerini destekler. Artık en son değildir, ancak en yeni sürümü kullanmak için kodunuzu geçirme öneririz bir sürümünü kullanmaya devam edebilirsiniz. REST API kullanırken, api-version parametresi aracılığıyla her istekte API sürümü belirtmeniz gerekir. .NET SDK kullanarak, kullanmakta olduğunuz SDK sürümü ilgili REST API sürümünü belirler. Eski bir SDK kullanıyorsanız, hizmet daha yeni bir API sürümü desteklemek üzere yükseltilir bile kod değişikliğine gerek kalmadan çalışmaya devam edebilirsiniz.
 

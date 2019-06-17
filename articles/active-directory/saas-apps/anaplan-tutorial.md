@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88741c81fe5efe219b052810c374fed3f4834d2a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ed6762a1cce3afb3e22b15a63c68432fec121efe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107019"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Öğretici: Anaplan ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Anaplan tümleştirmesini yapılandırmak için Anaplan Galeriden y�
 
 **Galeriden Anaplan eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

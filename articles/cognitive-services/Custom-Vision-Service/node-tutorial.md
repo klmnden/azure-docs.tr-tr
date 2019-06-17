@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 86e9508049635d51726e9d0bcbdc5a4d52539f3a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 8ec0ae435b9b3818f742531bfaf728f36957ecbf
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384163"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143983"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Hızlı Başlangıç: Özel görüntü işleme Node.js SDK'sı ile bir görüntü sınıflandırma projesi oluşturma
 
@@ -31,8 +31,8 @@ Bu makalede, bilgi ve yardımcı olması için örnek kod, bir görüntü sını
 Node.js için özel görüntü işleme hizmeti SDK'sını yüklemek için PowerShell'de aşağıdaki komutu çalıştırın:
 
 ```powershell
-npm install azure-cognitiveservices-customvision-training
-npm install azure-cognitiveservices-customvision-prediction
+npm install @azure/cognitiveservices-customvision-training
+npm install @azure/cognitiveservices-customvision-prediction
 ```
 
 [!INCLUDE [get-keys](includes/get-keys.md)]

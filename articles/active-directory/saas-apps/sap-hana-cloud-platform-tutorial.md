@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b345656b30a9bb182c097a4c9e18d71a293bf420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13ab9752391519f38e843b9d625164e655348d28
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868031"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Öğretici: SAP Cloud Platform ile Azure Active Directory Tümleştirme
 
@@ -59,7 +59,7 @@ Azure AD'de SAP Cloud Platform tümleştirmesini yapılandırmak için SAP Cloud
 
 **SAP Cloud Platform Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -231,7 +231,7 @@ SAP Cloud Platform ile Azure AD çoklu oturum açmayı yapılandırmak için aş
 
 SAP Cloud Platform üzerinde grupları kullanarak dinamik olarak bir veya daha fazla kullanıcı, SAP Cloud Platform uygulamalarınızda SAML 2.0 onaylama özniteliklerin değerleri tarafından belirlenen bir veya daha fazla rol atamak sağlar. 
 
-Örneğin, öznitelik onaylama içeriyorsa, "*sözleşme geçici =*", gruba eklenecek etkilenen tüm kullanıcıların isteyebilirsiniz"*geçici*". Grup "*geçici*" SAP Cloud Platform hesabınızdaki dağıtılan bir veya daha fazla uygulamalardan bir veya daha fazla rol içerebilir.
+Örneğin, öznitelik onaylama içeriyorsa, "*sözleşme geçici =* ", gruba eklenecek etkilenen tüm kullanıcıların isteyebilirsiniz"*geçici*". Grup "*geçici*" SAP Cloud Platform hesabınızdaki dağıtılan bir veya daha fazla uygulamalardan bir veya daha fazla rol içerebilir.
  
 Onaylama tabanlı grupları, uygulamaların, SAP Cloud Platform hesabınızdaki bir veya daha fazla rolleri aynı anda çok sayıda kullanıcı atamak istediğinizde kullanın. Yalnızca tek ya da küçük sayıda kullanıcıları belirli rollere atamak istiyorsanız, bunları doğrudan atama öneririz "**yetkilendirmeleri**" SAP Cloud Platform Kokpit sekmesi.
 

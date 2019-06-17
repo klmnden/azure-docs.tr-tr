@@ -10,10 +10,10 @@ ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
 ms.openlocfilehash: 900529d54a26729d9d0fb949d9217d5e2d618254
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515286"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Bir Azure geliştirme boşluk ile çalışırken, gizli anahtarları yönetme
@@ -66,7 +66,7 @@ Azure geliştirme alanları, Azure geliştirme alanları istemci araçları tara
 7. Eklediğiniz emin _values.dev.yaml_ için _.gitignore_ gizli dizileri kaynak denetiminde yürüten önlemek için.
  
  
-## <a name="method-2-inline-directly-in-azdsyaml"></a>2. yöntem: Satır içi doğrudan azds.yaml
+## <a name="method-2-inline-directly-in-azdsyaml"></a>2\. yöntem: Satır içi doğrudan azds.yaml
 1.  İçinde _azds.yaml_, gizli dizileri yaml bölüm yapılandırmaları/geliştirme/yükleme ayarlayın. Kolaylıkla olsa da, çünkü önerilmez doğrudan gizli değerleri _azds.yaml_ kaynak denetimine iade edildi. Bunun yerine "$PLACEHOLDER" sözdizimini kullanarak yer tutucu ekleyin.
 
     ```yaml

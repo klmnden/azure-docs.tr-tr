@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2fce8b628798ef38889f64d9409bf586a85463b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c320944e952dbea74c41ffd3471143f6713585b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871861"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Öğretici: MindWireless ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de mindWireless tümleştirmesini yapılandırmak için mindWireless Ga
 
 **Galeriden mindWireless eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -117,7 +117,7 @@ Azure AD çoklu oturum açma ile mindWireless yapılandırmak için aşağıdaki
 
 6. Yukarıdaki için ayrıca mindWireless uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
-    | Ad | Ad alanı  |  Kaynak özniteliği|
+    | Ad | Ad Alanı  |  Kaynak özniteliği|
     | -------------- | --------------- | ----------------|
     | Çalışan Kimliği | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`| User.employeeid |
 

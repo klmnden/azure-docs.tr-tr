@@ -11,10 +11,10 @@ ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 7157682d7952529f9dfa98e8bc8707df9cfe944f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509235"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C, OAuth 2.0 yetkilendirme kod akışı
@@ -79,7 +79,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |Gerekli |Yeniden yönlendirme URI'si, uygulamanız tarafından alınan kimlik doğrulama yanıtlarının burada gönderilen ve uygulama. URL olarak kodlanmış olmalıdır dışında tam olarak yeniden yönlendirme Portalı'nda kayıtlı bir URI'leri biriyle eşleşmelidir. |
 | scope |Gerekli |Kapsamları boşlukla ayrılmış listesi. Azure Active Directory'ye (Azure AD) hem talep edilen izinler, tek bir kapsam değeri gösterir. Kapsamı uygulamanızı kendi hizmeti veya web API karşı kullanılabilir bir erişim belirteci gerektiğini belirtir. istemci Kimliğini kullanarak aynı istemci kimliği ile temsil edilen  `offline_access` Kapsamını belirtir uygulamanıza kaynaklarına uzun süreli erişim için bir yenileme belirteci gerekiyor. Ayrıca `openid` Azure AD B2C'den bir kimlik belirteci istemek için kapsam. |
 | response_mode |Önerilen |Ortaya çıkan bir yetkilendirme kodu uygulamanıza geri göndermek için kullandığı yöntem. Bu olabilir `query`, `form_post`, veya `fragment`. |
-| durum |Önerilen |Kullanmak istediğiniz herhangi bir içeriği bir dize olabilir isteğinde bir değer. Genellikle, rastgele oluşturulmuş bir benzersiz değeri, siteler arası istek sahteciliği saldırılarına önlemek için kullanılır. Durum, kimlik doğrulama isteği oluşmadan önce uygulamasında kullanıcının durumu hakkında bilgi kodlamak için de kullanılır. Örneğin, sayfa üzerindeki kullanıcı tarafından veya yürütülmekte olan kullanıcı akışı. |
+| state |Önerilen |Kullanmak istediğiniz herhangi bir içeriği bir dize olabilir isteğinde bir değer. Genellikle, rastgele oluşturulmuş bir benzersiz değeri, siteler arası istek sahteciliği saldırılarına önlemek için kullanılır. Durum, kimlik doğrulama isteği oluşmadan önce uygulamasında kullanıcının durumu hakkında bilgi kodlamak için de kullanılır. Örneğin, sayfa üzerindeki kullanıcı tarafından veya yürütülmekte olan kullanıcı akışı. |
 | p |Gerekli |Yürütülen kullanıcı akışını. Azure AD B2C dizininizde oluşturulmuş bir kullanıcı akışı adıdır. Kullanıcı akışı ad değer ile başlaması gereken **b2c\_1\_** . Kullanıcı akışları hakkında daha fazla bilgi için bkz: [Azure AD B2C kullanıcı akışları](active-directory-b2c-reference-policies.md). |
 | istemi |İsteğe bağlı |Gerekli olan kullanıcı etkileşimi türü. Şu anda geçerli olan `login`, bu isteği kimlik bilgilerini girmesini zorlar. Çoklu oturum açma etkili olmaz. |
 
@@ -98,7 +98,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 | Parametre | Açıklama |
 | --- | --- |
 | code |Uygulama talep yetkilendirme kodu. Uygulama, bir hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Yetkilendirme kodları çok kısa ömürlüdür. Genellikle, yaklaşık 10 dakika sonra süresi. |
-| durum |Önceki bölümde bulunan tablodaki tam açıklamasına bakın. Varsa bir `state` aynı değeri yanıt olarak görünmesi gereken parametresi istekte bulunur. Uygulama olduğunu doğrulamanız gerekir `state` istek ve yanıt değerleri aynıdır. |
+| state |Önceki bölümde bulunan tablodaki tam açıklamasına bakın. Varsa bir `state` aynı değeri yanıt olarak görünmesi gereken parametresi istekte bulunur. Uygulama olduğunu doğrulamanız gerekir `state` istek ve yanıt değerleri aynıdır. |
 
 Uygulama bunları uygun şekilde işleyebilmeniz hata yanıtları da yeniden yönlendirme URI'si gönderilebilir:
 
@@ -113,7 +113,7 @@ error=access_denied
 | --- | --- |
 | error |Oluşan hataları türlerini sınıflandırmak için kullanabileceğiniz bir hata kodu dizesi. Dize, hataları tepki vermek için de kullanabilirsiniz. |
 | error_description |Belirli bir hata iletisi yardımcı olabilecek bir kimlik doğrulama hatası kök nedenini tanımlayın. |
-| durum |Önceki tabloda tam açıklamasına bakın. Varsa bir `state` aynı değeri yanıt olarak görünmesi gereken parametresi istekte bulunur. Uygulama olduğunu doğrulamanız gerekir `state` istek ve yanıt değerleri aynıdır. |
+| state |Önceki tabloda tam açıklamasına bakın. Varsa bir `state` aynı değeri yanıt olarak görünmesi gereken parametresi istekte bulunur. Uygulama olduğunu doğrulamanız gerekir `state` istek ve yanıt değerleri aynıdır. |
 
 ## <a name="2-get-a-token"></a>2. Bir belirteç Al
 Bir yetkilendirme kodu edindiğiniz, kullanmak `code` bir POST isteği göndererek istenen kaynak için bir belirteç için `/token` uç noktası. Azure AD B2C'de, uygulamanın kendi arka uç web API'si için bir belirteç isteğinde bulunabilirsiniz yalnızca kaynak var. Kendiniz için bir belirteç istemek için kullanılan kuralı, kapsam olarak uygulamanızın istemci kimliği kullanmaktır:

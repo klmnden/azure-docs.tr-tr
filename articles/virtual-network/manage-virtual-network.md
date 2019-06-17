@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 235a82c6bba4165790c370c2641ee6cd41f10840
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700476"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Oluşturma, değiştirme veya bir sanal ağı silme
@@ -30,7 +30,7 @@ Oluşturma ve bir sanal ağı silmek ve DNS sunucuları ve var olan bir sanal a�
 Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki görevleri tamamlayın:
 
 - Azure hesabınız yoksa, kaydolmaya bir [ücretsiz deneme hesabınızı](https://azure.microsoft.com/free).
-- Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
+- Portalı kullanarak, açık https://portal.azure.com ve Azure hesabınızda oturum.
 - Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici Azure PowerShell modülü sürüm 1.0.0 gerektirir veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 - Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici, Azure CLI Sürüm 2.0.31 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 - Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [izinleri ](#permissions).
@@ -138,7 +138,7 @@ Sanal ağ kaydı belirttiğiniz sanal ağ için DNS sunucuları ile bağlı tüm
 2. Sanal ağlar listesinden, DNS sunucuları için değiştirmek istediğiniz sanal ağı seçin.
 3. Seçin **DNS sunucuları**altında **ayarları**.
 4. Aşağıdaki seçeneklerden birini seçin:
-   - **Varsayılan (Azure tarafından sağlanan)**: Tüm kaynak adları ve özel IP adresleri, Azure DNS sunucularını otomatik olarak kaydedilir. Aynı sanal ağa bağlı herhangi bir kaynağa arasında adları çözebilirsiniz. Sanal ağlar arasında adlarını çözümlemek için bu seçeneği kullanamazsınız. Sanal ağlar arasında adlarını çözümlemek için özel bir DNS sunucusu kullanmanız gerekir.
+   - **Varsayılan (Azure tarafından sağlanan)** : Tüm kaynak adları ve özel IP adresleri, Azure DNS sunucularını otomatik olarak kaydedilir. Aynı sanal ağa bağlı herhangi bir kaynağa arasında adları çözebilirsiniz. Sanal ağlar arasında adlarını çözümlemek için bu seçeneği kullanamazsınız. Sanal ağlar arasında adlarını çözümlemek için özel bir DNS sunucusu kullanmanız gerekir.
    - **Özel**: Bir sanal ağ için Azure sınıra kadar bir veya daha fazla sunucu ekleyebilirsiniz. DNS sunucusu sınırları hakkında daha fazla bilgi için bkz: [Azure sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Aşağıdaki seçenekleriniz vardır:
    - **Adres Ekle**: Sunucu, sanal ağın DNS sunucuları listesine ekler. Bu seçenek, DNS sunucusu ayrıca Azure ile kaydeder. Azure ile bir DNS sunucusu kaydettiğinize göre bu DNS sunucusu listesinde seçebilirsiniz.
    - **Bir adresi kaldırmak**: Kaldırmak istediğiniz sunucuyu yanındaki seçin **...** , ardından **Kaldır**. Sunucuyu silmek sunucuya yalnızca bu sanal ağ listeden kaldırır. DNS sunucusu kullanmak için Azure'da diğer sanal ağlarınız için kayıtlı kalır.

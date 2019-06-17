@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1871fee2734d347ff54d6aa70d90d1c28bd1f6f1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 8676ad48bc4fab6149db00d778349ac1acd7223d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597291"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062394"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search'te filtreler 
 
@@ -158,11 +158,11 @@ Metin dizelerinin büyük/küçük harfe duyarlıdır. Hiçbir alt-büyük/küç
 
 ### <a name="approaches-for-filtering-on-text"></a>Filtreleme metin için yaklaşım
 
-| Yaklaşım | Açıklama | Kullanılması gereken durumlar | 
+| Yaklaşım | Açıklama | Kullanılması gereken durumlar |
 |----------|-------------|-------------|
-| [search.in](query-odata-filter-orderby-syntax.md) | Bir alan karşı dizeleri ayrılmış bir listesi ile eşleşen bir işlev. | İçin önerilen [güvenlik filtreleri](search-security-trimming-for-azure-search.md) ve burada birçok ham metin değerleri gereken bir dize alanı ile eşleştirilecek herhangi bir filtre. **Search.in** işlevi hızı için tasarlanmıştır ve açıkça alan her bir dize kullanarak karşı karşılaştırma daha çok daha hızlıdır `eq` ve `or`. | 
-| [search.ismatch](query-odata-filter-orderby-syntax.md) | Tam metin arama işlemleri kesinlikle Boole filtresi işlemleri aynı filtre ifadesi olan karıştırmak izin veren bir işlev. | Kullanım **search.ismatch** (veya Puanlama karşılığını **search.ismatchscoring**) bir istekte birden çok arama filtresi bileşimi istediğinizde. Bunun için de kullanabilirsiniz bir *içeren* filtresi üzerinde daha büyük bir dizedeki bir kısmi dize. |
-| [$filter işleci dizesi alanı =](query-odata-filter-orderby-syntax.md) | Kullanıcı tanımlı bir ifade alanlarını, işleçlerini ve değerlerini oluşur. | Bir dize değeri bir dize alanı arasındaki tam eşleşme bulmak istediğinizde, bunu kullanın. |
+| [`search.in`](search-query-odata-search-in-function.md) | Bir alan karşı dizeleri ayrılmış bir listesi ile eşleşen bir işlev. | İçin önerilen [güvenlik filtreleri](search-security-trimming-for-azure-search.md) ve burada birçok ham metin değerleri gereken bir dize alanı ile eşleştirilecek herhangi bir filtre. **Search.in** işlevi hızı için tasarlanmıştır ve açıkça alan her bir dize kullanarak karşı karşılaştırma daha çok daha hızlıdır `eq` ve `or`. | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Tam metin arama işlemleri kesinlikle Boole filtresi işlemleri aynı filtre ifadesi olan karıştırmak izin veren bir işlev. | Kullanım **search.ismatch** (veya Puanlama karşılığını **search.ismatchscoring**) bir istekte birden çok arama filtresi bileşimi istediğinizde. Bunun için de kullanabilirsiniz bir *içeren* filtresi üzerinde daha büyük bir dizedeki bir kısmi dize. |
+| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Kullanıcı tanımlı bir ifade alanlarını, işleçlerini ve değerlerini oluşur. | Bir dize değeri bir dize alanı arasındaki tam eşleşme bulmak istediğinizde, bunu kullanın. |
 
 ## <a name="numeric-filter-fundamentals"></a>Sayısal filtre temelleri
 

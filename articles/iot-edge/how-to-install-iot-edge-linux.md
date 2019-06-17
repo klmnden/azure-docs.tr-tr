@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: b519ed21b4d2e0e258c48bd1dc12750176281c9e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 86ca3080229f2a286e8aa4725fe13c40e2a38549
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054284"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Azure IOT Edge çalışma zamanı (x64) Linux'ta yükleme
 
@@ -83,6 +83,18 @@ Moby komut satırı arabirimi (CLI) yükleyin. CLI, geliştirme için kullanış
    sudo apt-get install moby-cli
    ```
 
+### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Linux çekirdeğinin Moby uyumluluğunu doğrulayın
+
+Katıştırılmış cihaz üreticilerinin çoğu kapsayıcı çalışma zamanı uyumluluğu için gerekli özellikler eksik özel Linux çekirdeklerinin içeren cihaz görüntüleri gönderin. Önerilen yüklerken sorunlarla karşılaşırsanız [Moby](https://github.com/moby/moby) kapsayıcı çalışma zamanı, olabilir, Linux Çekirdek yapılandırmasını kullanarak sorun giderme için [onay-config](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) betik sağlanan Resmi [Moby Github deposu](https://github.com/moby/moby) cihazda aşağıdaki komutları çalıştırarak.
+
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+   chmod +x check-config.sh
+   ./check-config.sh
+   ```
+
+Bu durumu Moby çalışma zamanı tarafından kullanılan çekirdek özellikler içeren ayrıntılı bir çıkış sağlar. Tüm öğeleri altında emin olmak isteyeceksiniz `Generally Necessary` ve `Network Drivers` , çekirdek Moby çalışma zamanı ile tam olarak uyumlu olduğundan emin olmak için etkinleştirilir.  Tüm eksik özellikler tanımlarsa, kaynak çekirdekten yeniden oluşturma ve ilişkili modülleri eklemek için uygun çekirdek .config seçerek sağlayabilir.  Benzer şekilde, bir çekirdek yapılandırma oluşturucusu defconfig veya menuconfig gibi kullanıyorsanız, bulun ve ilgili özellikleri etkinleştirmek ve buna göre çekirdek yeniden gerekecektir.  Yeni değiştirilmiş, çekirdek dağıttıktan sonra yeniden tanımlanmış özelliklerinizi başarılı bir şekilde etkinleştirildiklerini doğrulamak için onay-config betiği çalıştırın.
+
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IOT Edge güvenlik Daemon'ı yükleme
 
 **IOT Edge güvenlik arka plan programı** sağlar ve cihazın IOT Edge güvenlik standartlarını korur. Arka plan programı, her önyükleme başlar ve cihazın IOT Edge çalışma zamanı geri kalanını başlatarak bootstraps.
@@ -109,7 +121,7 @@ Arka plan programı, yapılandırma dosyası kullanılarak yapılandırılabilir
 
 Tek bir IOT Edge cihazı IOT Hub tarafından sağlanan cihaz bağlantı dizesini kullanarak el ile sağlanabilir. Veya, cihaz sağlama hizmeti sağlamak için birçok cihaz olduğunda kullanışlı olan cihazları otomatik olarak sağlamak için kullanabilirsiniz. Sağlama seçiminize bağlı olarak, uygun yükleme komut dosyasını seçin.
 
-### <a name="option-1-manual-provisioning"></a>1. seçenek: El ile sağlama
+### <a name="option-1-manual-provisioning"></a>1\. seçenek: El ile sağlama
 
 El ile cihaz sağlama için ile sağlamak gereken bir [cihaz bağlantı dizesini](how-to-register-device-portal.md) IOT hub'ına yeni bir cihazı kaydederek oluşturabilirsiniz.
 
@@ -143,7 +155,7 @@ Yapılandırma dosyasında sağlama bilgilerini girdikten sonra Daemon programı
 sudo systemctl restart iotedge
 ```
 
-### <a name="option-2-automatic-provisioning"></a>2. seçenek: Otomatik sağlama
+### <a name="option-2-automatic-provisioning"></a>2\. seçenek: Otomatik sağlama
 
 Otomatik olarak bir cihazı sağlamak için [cihaz sağlama hizmetini ayarlama ve cihaz kayıt Kimliğinizi almak](how-to-auto-provision-simulated-device-linux.md). Otomatik sağlama, yalnızca Güvenilir Platform Modülü (TPM) yongasına sahip cihazlarla çalışır. Örneğin, Raspberry Pi cihazlar TPM ile varsayılan olarak gelmeyen.
 

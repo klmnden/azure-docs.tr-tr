@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 39b7d251f1d6d75ac22d50f1b62a3581f9d343c7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0cf318161bff8950280fc5a8b007e08ef683ad18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890379"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Öğretici: Azure Active Directory için Shmoop okullar ile tümleştirmesi
 
@@ -55,7 +55,7 @@ Azure AD'de Shmoop için okullar tümleştirmesini yapılandırmak için Shmoop 
 
 **Galeriden Shmoop için okullar eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -125,7 +125,7 @@ Azure AD çoklu oturum açma için Shmoop okullar ile yapılandırmak için aşa
 
     | Ad |  Kaynak özniteliği|
     | --------- | --------------- |
-    | rol      | User.assignedroles |
+    | role      | User.assignedroles |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

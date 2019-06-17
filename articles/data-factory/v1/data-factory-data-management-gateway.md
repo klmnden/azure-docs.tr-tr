@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143294"
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
@@ -137,7 +137,7 @@ Sistem tepsisi simgesi/bildirim iletisi İmleç bir açılan pencere ağ geçidi
 ### <a name="ports-and-firewall"></a>Bağlantı noktaları ve güvenlik duvarı
 Göz önünde bulundurmanız gereken iki güvenlik duvarı vardır: **Kurumsal güvenlik duvarınız** kuruluşun merkezi yönlendirici üzerinde çalışan ve **Windows Güvenlik Duvarı** ağ geçidinin bulunduğu yerel makinede bir arka plan olarak yapılandırılmış yüklü.
 
-![güvenlik duvarları](./media/data-factory-data-management-gateway/firewalls2.png)
+![Güvenlik duvarları](./media/data-factory-data-management-gateway/firewalls2.png)
 
 Kurumsal güvenlik duvarınız düzeyinde aşağıdaki etki alanları ve giden bağlantı noktalarını yapılandırmak:
 
@@ -368,7 +368,7 @@ Aşağıdaki tabloda yer alan sütun açıklanmakta **ağ geçidi düğümleri**
 Ad | Ağ geçidi ile ilişkili düğümleri ve mantıksal ağ geçidi adı. Ağ geçidi üzerinde yüklü olan bir şirket içi Windows makine düğümüdür. Birden fazla düğümü (en fazla dört düğüm) sahip tek bir mantıksal ağ geçidi hakkında daha fazla bilgi için bkz: [veri yönetimi ağ geçidi - yüksek kullanılabilirlik ve ölçeklenebilirlik](data-factory-data-management-gateway-high-availability-scalability.md).
 Durum | Mantıksal ağ geçidini ve ağ geçidi düğümleri durumu. Örnek: Çevrimiçi/çevrimdışı/sınırlı/vb. Bu durumlar hakkında daha fazla bilgi için bkz. [ağ geçidi durumu](#gateway-status) bölümü.
 Version | Mantıksal ağ geçidi her ağ geçidi düğümü ve sürümü gösterir. Mantıksal ağ geçidi sürümünü grubunda düğüm çoğunluğu sürümüne göre belirlenir. Düğüm varsa, yalnızca mantıksal ağ geçidi işlevi olarak aynı sürüm numarasına sahip mantıksal bir ağ geçidi kurulumunu farklı sürümleriyle düzgün. Başkalarının sınırlı modundaki ve (yalnızca otomatik güncelleştirme başarısız olursa) el ile güncelleştirilmesi gerekir.
-Uygun bellek | Bir ağ geçidi düğümü kullanılabilir bellek. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür.
+Kullanılabilir bellek | Bir ağ geçidi düğümü kullanılabilir bellek. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür.
 CPU kullanımı | Bir ağ geçidi düğümü, CPU kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür.
 Ağ (daraltma/genişletme) | Bir ağ geçidi düğümü, ağ kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür.
 (Çalışan / sınırlama) eşzamanlı işleri | İşleri veya her bir düğümde çalışan görevler sayısı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. Her düğüm için en fazla eşzamanlı iş sınırı belirtir. Bu değer, makine boyutuna bağlı olarak tanımlanır. Burada CPU/bellek/ağ altında kullanılan, ancak etkinlikler zaman aşımına uğruyor Gelişmiş senaryolarda, eş zamanlı iş yürütme artırabileceğinizi limiti artırabilirsiniz. Bu özellik, bir tek düğümlü ağ geçidi ile (ölçeklenebilirlik ve kullanılabilirlik özelliği etkin olduğunda bile) de kullanılabilir.
@@ -383,13 +383,13 @@ Durum  | Yorumlar/senaryoları
 :------- | :------------------
 Çevrimiçi | Düğüm, Data Factory hizmetine bağlı.
 Çevrimdışı | Düğümü çevrimdışı durumda.
-Yükseltiliyor | Düğüm, otomatik olarak güncelleştirilir.
+Yükseltme | Düğüm, otomatik olarak güncelleştirilir.
 Sınırlı | Bağlantı sorunundan kaynaklanıyor. HTTP bağlantı noktası 8050 sorunu, service bus bağlantı sorunu veya kimlik bilgileri eşitleme sorunu nedeniyle olabilir.
-Etkin Değil | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir.
+Etkin değil | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir.
 
 Aşağıdaki tabloda, olası durumlar sağlayan bir **mantıksal ağ geçidi**. Ağ geçidi durumu, ağ geçidi düğümleri durumlar üzerinde bağlıdır.
 
-Durum | Yorumlar
+Durum | Açıklamalar
 :----- | :-------
 Kayıt gerekiyor | Bu mantıksal ağ geçidi için hiçbir düğüm henüz kayıtlı
 Çevrimiçi | Ağ geçidi düğümleri çevrimiçi
@@ -511,7 +511,7 @@ Bu bölümde, oluşturma ve Azure PowerShell cmdlet'lerini kullanarak bir ağ ge
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Azure PowerShell'de klasöre geçin: *C:\\\\Program dosyaları\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*. Çalıştırma *RegisterGateway.ps1* yerel değişkeni ile ilişkili **$Key** aşağıdaki komutta gösterildiği gibi. Bu betik, daha önce oluşturduğunuz mantıksal ağ geçidi kurulu istemci Aracısı kaydeder.
+1. Azure PowerShell'de klasöre geçin: *C:\\\\Program dosyaları\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* . Çalıştırma *RegisterGateway.ps1* yerel değişkeni ile ilişkili **$Key** aşağıdaki komutta gösterildiği gibi. Bu betik, daha önce oluşturduğunuz mantıksal ağ geçidi kurulu istemci Aracısı kaydeder.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597082"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
@@ -25,7 +25,7 @@ Bu makalede Azure dosya eşitleme dağıtımı için önemli hususlar açıklanm
 ## <a name="azure-file-sync-terminology"></a>Azure dosya eşitleme terminolojisi
 Bir Azure dosya eşitleme dağıtımı planlama ayrıntılarını almadan önce terminolojiyi anlamanız önemlidir.
 
-### <a name="storage-sync-service"></a>Depolama Eşitleme Hizmeti
+### <a name="storage-sync-service"></a>Depolama eşitleme hizmeti
 Depolama eşitleme hizmeti Azure dosya eşitleme için üst düzey Azure kaynağıdır. Depolama eşitleme hizmeti kaynak depolama hesabı kaynağı eşdüzeyde ve Azure kaynak grupları için benzer şekilde dağıtılabilir. Depolama hesabı kaynağı farklı bir üst düzey kaynaktan gerekir çünkü depolama eşitleme hizmeti birden çok eşitleme grupları aracılığıyla birden fazla depolama hesabı ile eşitleme ilişkisi oluşturabilirsiniz. Bir abonelikte dağıtılmış birden çok depolama eşitleme hizmeti kaynakları olabilir.
 
 ### <a name="sync-group"></a>Eşitleme grubu
@@ -178,9 +178,9 @@ Bulut katmanlaması etkin olmayan birimler için Windows Server yinelenen verile
 ### <a name="distributed-file-system-dfs"></a>Dağıtılmış dosya sistemi (DFS)
 Azure dosya eşitleme DFS ad alanları (DFS-N) ve DFS Çoğaltma (DFS-R) ile birlikte çalışabilirliği destekler.
 
-**DFS ad alanları (DFS-N)**: Azure dosya eşitleme DFS-N sunucularına tam olarak desteklenir. Bir veya daha fazla DFS-N üye sunucu uç noktaları ve bulut uç noktası arasında verileri eşitleme için Azure dosya eşitleme aracısını yükleyebilirsiniz. Daha fazla bilgi için [DFS ad alanlarına genel bakış](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS ad alanları (DFS-N)** : Azure dosya eşitleme DFS-N sunucularına tam olarak desteklenir. Bir veya daha fazla DFS-N üye sunucu uç noktaları ve bulut uç noktası arasında verileri eşitleme için Azure dosya eşitleme aracısını yükleyebilirsiniz. Daha fazla bilgi için [DFS ad alanlarına genel bakış](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**DFS Çoğaltma (DFS-R)**: Çoğu durumda, hem de çoğaltma çözümleri DFS-R ve Azure dosya eşitleme olduğundan DFS-R Azure dosya eşitleme ile değiştirerek öneririz. DFS-R ve Azure dosya eşitleme birkaç senaryo istediğiniz birlikte kullanabilirsiniz ancak vardır:
+**DFS Çoğaltma (DFS-R)** : Çoğu durumda, hem de çoğaltma çözümleri DFS-R ve Azure dosya eşitleme olduğundan DFS-R Azure dosya eşitleme ile değiştirerek öneririz. DFS-R ve Azure dosya eşitleme birkaç senaryo istediğiniz birlikte kullanabilirsiniz ancak vardır:
 
 - Azure dosya eşitleme dağıtımı için DFS-R dağıtımdan geçiriliyor. Daha fazla bilgi için [DFS Çoğaltma (DFS-R) dağıtımı için Azure dosya eşitleme geçirme](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Dosya verilerinizin bir kopyasının gereken her şirket içi sunucu doğrudan internet'e bağlanabilir.
@@ -235,17 +235,17 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 
 | Bölge | Veri merkezi konumu |
 |--------|---------------------|
-| Avustralya Doğu | Yeni Güney Galler |
+| Avustralya Doğu | New South Wales |
 | Avustralya Güneydoğu | Victoria |
-| Brezilya Güney | Sao Paolo durumu |
-| Kanada Orta | Toronto |
-| Kanada Doğu | Quebec City |
+| Güney Brezilya | Sao Paolo durumu |
+| Orta Kanada | Toronto |
+| Doğu Kanada | Quebec City |
 | Orta Hindistan | Pune |
 | Orta ABD | Iowa |
-| Doğu Asya | Hong Kong Çin ÖİB |
+| Doğu Asya | Hong Kong SAR |
 | Doğu ABD | Virginia |
 | Doğu ABD 2 | Virginia |
-| Kore Orta| Seoul |
+| Kore Orta| Seul |
 | Kore Güney| Busan |
 | Japonya Doğu | Tokyo, Saitama |
 | Japonya Batı | Osaka |
@@ -254,15 +254,15 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 | Orta Güney ABD | Texas |
 | Güney Hindistan | Chennai |
 | Güneydoğu Asya | Singapur |
-| BK Güney | Londra |
-| BK Batı | Cardiff |
+| Birleşik Krallık Güney | Londra |
+| Birleşik Krallık Batı | Cardiff |
 | ABD Devleti Arizona (Önizleme) | Arizona |
 | ABD Devleti Texas (Önizleme) | Texas |
 | ABD Devleti Virginia (Önizleme) | Virginia |
 | Batı Avrupa | Hollanda |
-| Orta Batı ABD | Wyoming |
-| Batı ABD | California |
-| Batı ABD 2 | Washington |
+| Batı Orta ABD | Wyoming |
+| Batı ABD | Kaliforniya |
+| Batı ABD 2 | Washington DC |
 
 Azure dosya eşitleme depolama eşitleme hizmeti ile aynı bölgede olan bir Azure dosya paylaşımı ile eşitlemeyi destekler.
 
@@ -281,9 +281,9 @@ Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretm
 |---------------------|--------------------|
 | Avustralya Doğu      | Avustralya Güneydoğu|
 | Avustralya Güneydoğu | Avustralya Doğu     |
-| Brezilya Güney        | Orta Güney ABD   |
-| Kanada Orta      | Kanada Doğu        |
-| Kanada Doğu         | Kanada Orta     |
+| Güney Brezilya        | Orta Güney ABD   |
+| Orta Kanada      | Doğu Kanada        |
+| Doğu Kanada         | Orta Kanada     |
 | Orta Hindistan       | Güney Hindistan        |
 | Orta ABD          | Doğu ABD 2          |
 | Doğu Asya           | Güneydoğu Asya     |
@@ -298,15 +298,15 @@ Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretm
 | Orta Güney ABD    | Orta Kuzey ABD   |
 | Güney Hindistan         | Orta Hindistan      |
 | Güneydoğu Asya      | Doğu Asya          |
-| BK Güney            | BK Batı            |
-| BK Batı             | BK Güney           |
-| US Gov Arizona      | US Gov Texas       |
-| US Gov Iowa         | US Gov Virginia    |
-| ABD Devleti Virgini      | US Gov Texas       |
+| Birleşik Krallık Güney            | Birleşik Krallık Batı            |
+| Birleşik Krallık Batı             | Birleşik Krallık Güney           |
+| ABD Devleti Arizona      | ABD Devleti Texas       |
+| US Gov Iowa         | ABD Devleti Virginia    |
+| ABD Devleti Virgini      | ABD Devleti Texas       |
 | Batı Avrupa         | Kuzey Avrupa       |
-| Orta Batı ABD     | Batı ABD 2          |
+| Batı Orta ABD     | Batı ABD 2          |
 | Batı ABD             | Doğu ABD            |
-| Batı ABD 2           | Orta Batı ABD    |
+| Batı ABD 2           | Batı Orta ABD    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure Dosya Eşitleme aracısı güncelleştirme ilkesi
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

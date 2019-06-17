@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f47735a6e41ae14cb439e10803b82c0dbd3e64d7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015286"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115027"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullan
 
@@ -84,10 +84,12 @@ Pi tahminleri ve çalışma alanınıza Hata günlüklerini bir not defteri çal
 
 1. Seçin **01.run experiment.ipynb** not defterini açın.
 
+1. Bir "çekirdek bulunamadı" uyarısı görürseniz, çekirdek seçin **Python 3.6 - AzureML** (yaklaşık Orta şekilde listedeki) ve çekirdek ayarlayın.
+
 1. İlk kodu hücreyi tıklatın ve seçin **çalıştırma**.
 
     > [!NOTE]
-    > Kod hücreleri önce bunları ayraçlar var. Köşeli ayraçlar boş olduğunda (__[]__), kod çalıştırılmadı. Kodu çalışırken, bir yıldız işareti görürsünüz (__[*]__). Kod tamamlandıktan sonra bir sayı **[1]** görünür.  Sayı hücreleri çalıştırıldığı sırada söyler.
+    > Kod hücreleri önce bunları ayraçlar var. Köşeli ayraçlar boş olduğunda ( __[]__ ), kod çalıştırılmadı. Kodu çalışırken, bir yıldız işareti görürsünüz ( __[*]__ ). Kod tamamlandıktan sonra bir sayı **[1]** görünür.  Sayı hücreleri çalıştırıldığı sırada söyler.
     >
     > Kullanım **Shift girin** bir hücresini çalıştırmak için bir kısayol olarak.
 
@@ -95,7 +97,7 @@ Pi tahminleri ve çalışma alanınıza Hata günlüklerini bir not defteri çal
 
 1. İkinci kod hücresini çalıştırmak. Kimlik doğrulaması yapmak için yönergeleri görürseniz, kodu kopyalayın ve oturum açmak için bağlantıyı izleyin. Oturum açtıktan sonra bu ayar, tarayıcınızın hatırlanır.  
 
-    ![Kimlik Doğrula](media/quickstart-run-cloud-notebook/authenticate.png)
+    ![Kimlik doğrulaması](media/quickstart-run-cloud-notebook/authenticate.png)
 
 1. Tamamlandığında, hücre sayısını __[2]__ görünür.  Oturum açmak olsaydı, kimlik doğrulaması başarılı durum iletisi görürsünüz.   Oturum açmak zorunda olmadığı, bu hücre için herhangi bir çıktı görmezsiniz, yalnızca sayı hücresi başarıyla çalıştığını göstermek için görünür.
 

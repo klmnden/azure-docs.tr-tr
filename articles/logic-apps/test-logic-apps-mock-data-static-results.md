@@ -10,10 +10,10 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597202"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Logic apps ile sahte veri statik sonuçlarını ayarlayarak test edin.
@@ -38,7 +38,7 @@ Mantıksal uygulamanızı test ederken gerçekten arayın veya çeşitli nedenle
 
 1. Eylem statik sonuçlarını ayarlamak istediğiniz yerde, aşağıdaki adımları izleyin: 
 
-   1. Eylemin sağ üst köşede bulunan üç noktayı seçin (*...* ) düğmesini ve **statik sonucu**, örneğin:
+   1. Eylemin sağ üst köşede bulunan üç noktayı seçin ( *...* ) düğmesini ve **statik sonucu**, örneğin:
 
       !["Statik sonuç" seçin > "Statik sonucu etkinleştir"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
@@ -50,7 +50,7 @@ Mantıksal uygulamanızı test ederken gerçekten arayın veya çeşitli nedenle
       |----------|-------------|
       | **Durumu** | Döndürülecek eylem durumu |
       | **Durum Kodu** | Özel durum kodunu döndürmek için |
-      | **Üst bilgileri** | Geri dönmek için üst bilgi içeriği |
+      | **Üst Bilgiler** | Geri dönmek için üst bilgi içeriği |
       |||
 
       !["Statik sonucu etkinleştir" seçeneğini belirleyin](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)

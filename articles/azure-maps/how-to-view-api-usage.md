@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 31522436de97062432af2afe101f85d376243a38
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957259"
 ---
 # <a name="view-azure-maps-api-usage"></a>Azure haritalar API'si kullanımını görüntüleyin
@@ -42,7 +42,7 @@ Belirli çözümleme için bu grafikleri özelleştirmek istiyorsanız sonraki b
 
       ![Azure haritalar ölçümleri bölmesi](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Ardından, seçtiğiniz *zaman aralığı* tıklayarak **son 24 saat (otomatik)**. Varsayılan olarak, zaman aralığı 24 saate ayarlanır. Tıklandıktan sonra tüm seçilebilir zaman aralıkları görürsünüz. Seçebileceğiniz *zaman ayrıntı düzeyi* ve zaman olarak görüntülemeyi *yerel* veya *GMT* aynı açılan. **Uygula**'ya tıklayın.
+5. Ardından, seçtiğiniz *zaman aralığı* tıklayarak **son 24 saat (otomatik)** . Varsayılan olarak, zaman aralığı 24 saate ayarlanır. Tıklandıktan sonra tüm seçilebilir zaman aralıkları görürsünüz. Seçebileceğiniz *zaman ayrıntı düzeyi* ve zaman olarak görüntülemeyi *yerel* veya *GMT* aynı açılan. **Uygula**'ya tıklayın.
 
     ![Azure haritalar ölçümleri zaman aralığı](media/how-to-view-api-usage/time-range.png)
 

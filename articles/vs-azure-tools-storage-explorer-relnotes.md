@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620484"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Depolama Gezgini sürüm notları
@@ -208,10 +208,10 @@ Bu makale, Azure Depolama Gezgini 1.8.1 yayın yönelik sürüm notlarına yanı
 * Artık olarak AzCopy etkinleştirildiğinde karşıya yüklemek istediğiniz blob türü seçebilirsiniz. #1111
 * Statik Web sitelerine ADLS Gen2'ye depolama hesabınız için etkin ve adı ve anahtarı ile bağlı, daha önce Depolama Gezgini, hiyerarşik ad alanı etkinleştirildi algılanmadı. Bu düzeltilmiştir. #1081
 * Blob Düzenleyicisi'nde, bekletme gün kaldı ya da durum Sıralama kesildi. Bu düzeltilmiştir. #1106
-* 1.5.0 sonra Depolama Gezgini'ni yeniden adlandırma ya da kopyalama sırasında başarı raporlamadan önce son & Yapıştır sunucu tarafı kopyaları için artık beklendi. Bu düzeltilmiştir. #976
+* 1\.5.0 sonra Depolama Gezgini'ni yeniden adlandırma ya da kopyalama sırasında başarı raporlamadan önce son & Yapıştır sunucu tarafı kopyaları için artık beklendi. Bu düzeltilmiştir. #976
 * "Komutunu Panoya Kopyala" a tıkladıktan sonra kopyalanan komut Deneysel AzCopy özelliğini kullanırken, her zaman kendi başına çalıştırılabilir değil. Şimdi, aktarımı el ile çalıştırmak için gereken tüm komutları kopyalanır. #1079
-* Daha önce ADLS Gen2 bloblar bir proxy'nin arkasındayken olsaydı erişilebilir değildi. Bu depolama SDK'sı tarafından kullanılan yeni ağ kitaplığındaki bir hata nedeniyle oluştu. 1.7.0, bu sorunu gidermek için bir girişimde bulunuldu, ancak bazı kişiler sorunları görmek devam edebilir. Tam bir düzeltme gelecek bir güncelleştirmede yayınlanacaktır. #1090
-* 1.7.0, kaydetme, dosya iletişim kutusu artık, kaydettiğiniz dosyaya son konum doğru hatırlar. #16
+* Daha önce ADLS Gen2 bloblar bir proxy'nin arkasındayken olsaydı erişilebilir değildi. Bu depolama SDK'sı tarafından kullanılan yeni ağ kitaplığındaki bir hata nedeniyle oluştu. 1\.7.0, bu sorunu gidermek için bir girişimde bulunuldu, ancak bazı kişiler sorunları görmek devam edebilir. Tam bir düzeltme gelecek bir güncelleştirmede yayınlanacaktır. #1090
+* 1\.7.0, kaydetme, dosya iletişim kutusu artık, kaydettiğiniz dosyaya son konum doğru hatırlar. #16
 * Özellikler panelinde, bir depolama hesabı SKU katmanı hesabın türü olarak gösterilen. Bu düzeltilmiştir. #654
 * Bazı durumlarda bile blob adını doğru girdiğinizi bir blobun kira kesilmeye mümkün değildi. Bu düzeltilmiştir. #1070
 
@@ -259,9 +259,9 @@ Bu makale, Azure Depolama Gezgini 1.8.1 yayın yönelik sürüm notlarına yanı
 1/9/2019
 
 ### <a name="hotfixes"></a>Düzeltmeler
-* 1.6.1 içinde kullanıcıların değildi ADLS Gen2 ACL'ler için objectID tarafından eklenen varlıklar her zaman gruplar olarak eklendi. Şimdi, yalnızca gruplar, grupları ve ilkeleri kullanıcılar olarak eklenen kurumsal uygulamalar andService gibi varlıkları olarak eklenir. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
+* 1\.6.1 içinde kullanıcıların değildi ADLS Gen2 ACL'ler için objectID tarafından eklenen varlıklar her zaman gruplar olarak eklendi. Şimdi, yalnızca gruplar, grupları ve ilkeleri kullanıcılar olarak eklenen kurumsal uygulamalar andService gibi varlıkları olarak eklenir. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
 * ADLS Gen2'ye depolama hesabınız kapsayıcı sahipti ve adı ve anahtarı ile ilişkili olduğu, sonra Depolama Gezgini'ni depolama hesabındaki ADLS Gen2 olduğunu algılamamak. Bu düzeltilmiştir. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
-* 1.6.0 kopyalama ve yapıştırma sırasında çakışma çözümlemesi için istemleri. Bunun yerine, çakışan kopyalama basitçe başarısız olur. Şimdi ilk çakışma, çözülmesi için nasıl istediğinizi istenecektir. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
+* 1\.6.0 kopyalama ve yapıştırma sırasında çakışma çözümlemesi için istemleri. Bunun yerine, çakışan kopyalama basitçe başarısız olur. Şimdi ilk çakışma, çözülmesi için nasıl istediğinizi istenecektir. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
 * API sınırlamaları nedeniyle, tüm doğrulama ObjectIds erişimi Yönet iletişim kutusunda, devre dışı bırakıldı. Şimdi, doğrulama yalnızca kullanıcının UPN meydana gelir. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
 * ADLS Gen2 erişimi Yönet iletişim kutusunda, bir grup için izinleri değiştirilemedi. Bu düzeltilmiştir. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
 * Eklenen sürükle ve bırak desteği ADLS Gen2 düzenleyiciye karşıya yükleyin. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
@@ -269,7 +269,7 @@ Bu makale, Azure Depolama Gezgini 1.8.1 yayın yönelik sürüm notlarına yanı
 * Geçerli izinler ADLS Gen2 kapsayıcısı için alma, dosya veya klasör başarısız olur ve artık etkinlik günlüğü'nde görüntülenen propertly hatadır. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
 * Dosyaları açmak için oluşturulan geçici yol üzerinde Windows MAX_PATH daha uzun bir yol oluşturma olasılığını azaltmak için kısaltıldı. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
 * Bağlan iletişim kutusu artık doğru şekilde oturum açmış olan kullanıcı yok ve kaynak bağlı görünür. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
-* 1.6.0 içinde HNS BLOB ve dosyalar için özellikleri kaydetme, her özelliğin değerini kodlayın. Bu, yalnızca ASCII karakterler bulunan değerleri gereksiz kodlama sonuçlandı. Şimdi, ASCII olmayan karakterler içeriyorsa değerleri yalnızca şifrelenecek. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* 1\.6.0 içinde HNS BLOB ve dosyalar için özellikleri kaydetme, her özelliğin değerini kodlayın. Bu, yalnızca ASCII karakterler bulunan değerleri gereksiz kodlama sonuçlandı. Şimdi, ASCII olmayan karakterler içeriyorsa değerleri yalnızca şifrelenecek. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
 * Bir HNS Blob kapsayıcısına bir klasöre yüklemek, SAS kullanıldı ve SAS okuma izni olmaması durumunda başarısız olur. Bu düzeltilmiştir. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
 * AzCopy aktarımı iptal etme başarısız oldu. Bu düzeltilmiştir. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
 * AzCopy, klasör adında boşluklar varsa, bir klasöre bir ADLS Gen2 Blob kapsayıcısından karşıdan yüklemeye çalışırken başarısız olur. Bu düzeltilmiştir. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
@@ -338,7 +338,7 @@ Bu makale, Azure Depolama Gezgini 1.8.1 yayın yönelik sürüm notlarına yanı
 * Geçerli izinler ADLS Gen2 kapsayıcısı için alma, dosya veya klasör başarısız olur ve artık etkinlik günlüğü'nde görüntülenen propertly hatadır. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
 * Dosyaları açmak için oluşturulan geçici yol üzerinde Windows MAX_PATH daha uzun bir yol oluşturma olasılığını azaltmak için kısaltıldı. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
 * Bağlan iletişim kutusu artık doğru şekilde oturum açmış olan kullanıcı yok ve kaynak bağlı görünür. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
-* 1.6.0 içinde HNS BLOB ve dosyalar için özellikleri kaydetme, her özelliğin değerini kodlayın. Bu, yalnızca ASCII karakterler bulunan değerleri gereksiz kodlama sonuçlandı. Şimdi, ASCII olmayan karakterler içeriyorsa değerleri yalnızca şifrelenecek. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* 1\.6.0 içinde HNS BLOB ve dosyalar için özellikleri kaydetme, her özelliğin değerini kodlayın. Bu, yalnızca ASCII karakterler bulunan değerleri gereksiz kodlama sonuçlandı. Şimdi, ASCII olmayan karakterler içeriyorsa değerleri yalnızca şifrelenecek. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
 * Bir HNS Blob kapsayıcısına bir klasöre yüklemek, SAS kullanıldı ve SAS okuma izni olmaması durumunda başarısız olur. Bu düzeltilmiştir. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
 * AzCopy aktarımı iptal etme başarısız oldu. Bu düzeltilmiştir. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
 * AzCopy, klasör adında boşluklar varsa, bir klasöre bir ADLS Gen2 Blob kapsayıcısından karşıdan yüklemeye çalışırken başarısız olur. Bu düzeltilmiştir. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
@@ -1062,7 +1062,7 @@ Son olarak, dosya paylaşımları ile AzCopy kullanma desteği gelecekte kullan�
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-094-and-093"></a>0.9.4 ve 0.9.3 sürümü
+## <a name="version-094-and-093"></a>0\.9.4 ve 0.9.3 sürümü
 21/01/2018
 
 ### <a name="new"></a>Yeni
@@ -1173,7 +1173,7 @@ Son olarak, dosya paylaşımları ile AzCopy kullanma desteği gelecekte kullan�
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-091-and-090"></a>0.9.1 ve 0.9.0 sürümü
+## <a name="version-091-and-090"></a>0\.9.1 ve 0.9.0 sürümü
 10/20/2017
 ### <a name="new"></a>Yeni
 * Azure Cosmos DB için Önizleme desteği:
@@ -1240,7 +1240,7 @@ Son olarak, dosya paylaşımları ile AzCopy kullanma desteği gelecekte kullan�
 
 ### <a name="fixes"></a>Düzeltmeleri
 * Bazı blob türleri için "bir karşıya yükleme çakışması sırasında değiştirmek" seçerek yeniden başlatılmadan karşıya yükleme bazen sonuçlanır.
-* 0.8.15 sürümünde yüklemeleri bazen 99 oranında kabin.
+* 0\.8.15 sürümünde yüklemeleri bazen 99 oranında kabin.
 * Belirtmiyor bir dizine seçerseniz, bir dosya paylaşımına dosya yükleme henüz mevcut olduğunda, karşıya yükleme işleminiz başarısız olur.
 * Depolama Gezgini hatalı zaman damgaları için paylaşılan erişim imzalarını ve tablo sorguları oluşturma.
 
@@ -1274,7 +1274,7 @@ Son olarak, dosya paylaşımları ile AzCopy kullanma desteği gelecekte kullan�
 
 ### <a name="new"></a>Yeni
 
-* 1.7.2 birden fazla kritik güvenlik güncelleştirmelerini yararlanabilmek için güncelleştirilmiş Elektron sürümü
+* 1\.7.2 birden fazla kritik güvenlik güncelleştirmelerini yararlanabilmek için güncelleştirilmiş Elektron sürümü
 * Artık hızlı bir şekilde çevrimiçi sorun giderme kılavuzu için Yardım menüsünden erişebilirsiniz
 * Depolama Gezgini sorunlarını giderme [Kılavuzu][2]
 * [Yönergeler] [ 3] bir Azure Stack aboneliğine bağlanma
@@ -1297,7 +1297,7 @@ Son olarak, dosya paylaşımları ile AzCopy kullanma desteği gelecekte kullan�
     ```
 
 ### <a name="version-0813"></a>Sürüm 0.8.13
-12.05.2017
+12\.05.2017
 
 #### <a name="new"></a>Yeni
 

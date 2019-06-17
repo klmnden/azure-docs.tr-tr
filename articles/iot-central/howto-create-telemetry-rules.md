@@ -3,17 +3,17 @@ title: Oluşturma ve Azure IOT Central, uygulamanızda telemetri kurallarını y
 description: Azure IOT Central telemetri kuralları cihazlarınızı neredeyse gerçek zamanlı izleme ve otomatik olarak kural tetiklendiğinde, bir e-posta gönderme gibi eylemleri çağırmak için etkinleştirin.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 02/02/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: de4fba88784f41485b446f0f31cccb9a43092a3c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8684301b83e01989c745b63848995142cb766188
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464329"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052976"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir telemetri kuralı oluşturabilir ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 

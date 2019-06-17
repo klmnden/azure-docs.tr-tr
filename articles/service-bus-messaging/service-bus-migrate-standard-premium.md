@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
 ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991410"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Mevcut Azure Service Bus standart ad alanları premium katmanına geçirme
@@ -148,7 +148,7 @@ Hayır, geçiş yapmak için gereken kod veya yapılandırma değişiklik bulunm
 ### <a name="what-happens-when-i-abort-the-migration"></a>Geçişi durdurabilir miyim ne olur?
 Geçiş kullanarak durdurulmasına `Abort` Azure portalı kullanarak veya komutu. 
 
-#### <a name="azure-cli"></a>Azure CLI'si
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace

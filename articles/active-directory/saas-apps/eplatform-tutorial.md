@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5b73712e114b3542caa5aa05570d509c93df019e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61946f77ddffe999e55acd09e3957d91c621492b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eplatform"></a>Öğretici: EPlatform ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de ePlatform tümleştirmesini yapılandırmak için ePlatform Galeride
 
 **Galeriden ePlatform eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -125,7 +125,7 @@ Azure AD çoklu oturum açma ile ePlatform yapılandırmak için aşağıdaki ad
 
     | Ad | Kaynak özniteliği |
     | ---------------| --------------- |
-    | UPN | User.userPrincipalName |
+    | upn | User.userPrincipalName |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

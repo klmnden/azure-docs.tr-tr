@@ -10,10 +10,10 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e0f2d3491db24ecbb49c189232dbc7f698e09fb1
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430777"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>İş durumunu ve iş akışları Otomasyonu, Azure İzleyici günlüklerine iletin.
@@ -116,7 +116,7 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 | TimeGenerated |Runbook işinin yürütüldüğü tarih ve saat. |
 | RunbookName_s |Runbook’un adı. |
 | Caller_s |İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir. |
-| StreamType_s |İş akışı türü. Olası değerler şunlardır:<br>- İlerleme durumu<br>- Çıktı<br>- Uyarı<br>- Hata<br>- Hata ayıklama<br>- Ayrıntılı |
+| StreamType_s |İş akışı türü. Olası değerler şunlardır:<br>\- İlerleme durumu<br>- Çıktı<br>- Uyarı<br>- Hata<br>- Hata ayıklama<br>- Ayrıntılı |
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | JobId_g |Runbook işinin Kimliği olan GUID. |
 | ResultType |Runbook işinin durumudur. Olası değerler şunlardır:<br>İlerleme- |

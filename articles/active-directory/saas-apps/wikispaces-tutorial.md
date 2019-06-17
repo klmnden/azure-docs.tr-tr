@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d57ec0299aa541d1642d77421e85c6fbdf070c7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d2c03143eca9f335c440dfcaee766e205b5c0730
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888135"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Öğretici: Wikispaces ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Wikispaces tümleştirmesini yapılandırmak için Wikispaces Galeri
 
 **Galeriden Wikispaces eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

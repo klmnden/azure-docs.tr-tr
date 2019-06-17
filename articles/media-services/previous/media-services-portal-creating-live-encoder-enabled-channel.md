@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: daab3c3b2a5b756686a4867350478faaa1142279
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726862"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Azure portalı ile Çoklu bit hızına sahip akışlar oluşturmak üzere Media Services'i kullanarak canlı akış gerçekleştirme  
@@ -66,7 +66,7 @@ Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımla
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
 * Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. 
-  Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+  Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * Bir Media Services hesabı. Media Services hesabı oluşturma konusunda bilgi edinmek için bkz. [Hesap Oluşturma](media-services-portal-create-account.md).
 * Bir web kamerası ve tek bit hızlı bir canlı akış gönderebilen bir kodlayıcı.
 
@@ -167,7 +167,7 @@ Yayımlanmış olayı **Canlı olay** sayfasından izleyebilirsiniz.
 ## <a name="watch-the-event"></a>Olayı izleme
 Olay izlemek için, Azure portalda **İzle**’ye tıklayın veya akış URL'sini kopyalayın ve tercih ettiğiniz bir oynatıcı kullanın. 
 
-![Oluşturulan](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
+![Oluşturuldu](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
 Canlı olay durduğunda otomatik olarak isteğe bağlı içeriğe dönüşür.
 

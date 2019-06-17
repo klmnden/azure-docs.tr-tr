@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dfda00aca403f7f95f0c56d1db28c3c609bebd2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926304"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080650"
 ---
 # <a name="routing-events-and-messages"></a>Yönlendirme olayları ve iletileri
 
@@ -21,7 +21,7 @@ IOT çözümleri, depolama, analiz ve daha fazlasını içeren çeşitli güçl�
 
 ## <a name="route-types"></a>Yol türü  
 
-Azure dijital çiftleri, IOT olayları diğer Azure Hizmetleri veya iş uygulamalarınızla tümleştirmek için iki yol sunar:
+Azure dijital çiftleri, IOT olaylar, diğer Azure hizmetlerine veya iş kolu uygulamaları ile bağlanmak için iki yol sunar:
 
 * **Azure dijital İkizlerini olaylarını yönlendirme**: Uzamsal nesneyi graf alındığında, telemetri verilerini bu değişiklikleri veya önceden tanımlanmış koşullara göre bir uyarı oluşturan bir kullanıcı tanımlı işlev Azure dijital İkizlerini olayları tetikleyebilir. Kullanıcılara bu olayları gönderme [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus konu başlıklarını](https://azure.microsoft.com/services/service-bus/), veya [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) daha fazla işleme için.
 

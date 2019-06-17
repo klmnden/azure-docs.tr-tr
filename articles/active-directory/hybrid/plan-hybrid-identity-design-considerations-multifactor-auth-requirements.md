@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dabb381c16aa107e41c1d556e61e020b8c6a6c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 4743195fc79d43571ec79a13b8518edc7e81379b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60455746"
+ms.locfileid: "67109303"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için çok faktörlü kimlik doğrulama gereksinimlerini belirleme
 Bu dünyada Mobility, veri ve uygulamaları bulutta ve herhangi bir CİHAZDAN erişen kullanıcılar ile bu bilgiyi güvenli hale getirme güvenemediği haline gelmiştir.  Her gün bir güvenlik ihlali hakkında yeni bir başlık yoktur.  Olmasa da, bu tür İhlallerin karşı garanti, çok faktörlü kimlik doğrulaması, bir ek bu ihlallerini önlemeye yardımcı olmak için güvenlik katmanı sağlar.

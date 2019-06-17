@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 413e449f005d288f66da0257f5b800733e58eb94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836595"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Azure'da SAP ERP 6.0 için SAP IDES EHP7 SP3'ı dağıtma
@@ -104,7 +104,7 @@ Sizin için bir SAP CAL hesabı başarıyla oluşturuldu:
 
     c.  Ana girin **parola** gösterildiği gibi çözüm için:
 
-    ![SAP CAL temel modu: Örnek Oluştur](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
+    ![SAP CAL temel modu: Örneği oluşturma](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
 1. **Oluştur**’a tıklayın. Bir süre sonra büyüklüğü ve karmaşıklığı (SAP CAL bir tahmin sağlar), çözümün bağlı olarak durumu etkin ve kullanıma hazır olarak gösterilir: 
 

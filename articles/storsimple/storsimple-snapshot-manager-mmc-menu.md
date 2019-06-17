@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: be761f0a2e59878139ae54dba62634a53b172711
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303035"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715262"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager'da MMC menü eylemlerinin kullanın
 
@@ -30,7 +30,7 @@ StorSimple Snapshot Manager'da tüm eylem menüleri ve tüm çeşitlerini listel
 * Buradan yeni pencere 
 * Yenile 
 * Listeyi dışarı aktar 
-* Yardım 
+* Help 
 
 Bu Eylemler, Microsoft Yönetim Konsolu (MMC) bir parçasıdır ve StorSimple Snapshot Manager için özel değildir. Bu öğretici, bu eylemleri açıklar ve bunların her birini StorSimple Snapshot Manager'da kullanmayı açıklar.
 
@@ -91,7 +91,7 @@ Kullanabileceğiniz **listeyi dışarı aktar** listesini bir virgülle ayrılm�
       
       ![Listeyi virgülle ayrılmış değer dosyası olarak dışarı aktar](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 
-## <a name="help"></a>Yardım
+## <a name="help"></a>Help
 Kullanabileceğiniz **yardımcı** StorSimple Snapshot Manager ve MMC kullanılabilir çevrimiçi Yardımı görüntülemek için menü.
 
 #### <a name="to-view-available-online-help"></a>Kullanılabilir çevrimiçi Yardım görüntülemek için

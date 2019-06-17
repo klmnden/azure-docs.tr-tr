@@ -17,10 +17,10 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962629"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Nasıl yapılır: İOS ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
@@ -253,7 +253,7 @@ Cihazda yüklü herhangi bir aracı kullanmak bir uygulama için olanağıdır *
 3. Bir URL şeması kaydediliyor.
 4. Bir izni Info.plist dosyanıza ekleyin.
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>1. Adım: Uygulamanızdaki Aracısı modunu etkinleştir
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>1\. adım: Uygulamanızdaki Aracısı modunu etkinleştir
 
 "Bağlam" veya ilk kurulum kimlik doğrulaması nesne oluşturduğunuzda aracı kullanmak için uygulamanızı özelliği etkinleştirilir. Kodunuzda, kimlik bilgileri türü ayarlayarak bunu yapabilirsiniz:
 
@@ -263,7 +263,7 @@ Cihazda yüklü herhangi bir aracı kullanmak bir uygulama için olanağıdır *
 ```
 `AD_CREDENTIALS_AUTO` Ayarı SDK'sı, aracıya duyurmak denemek izin `AD_CREDENTIALS_EMBEDDED` arama aracısı için SDK'sı önler.
 
-#### <a name="step-2-registering-a-url-scheme"></a>2. Adım: Bir URL şeması kaydediliyor
+#### <a name="step-2-registering-a-url-scheme"></a>2\. adım: Bir URL şeması kaydediliyor
 
 Kimlik platformu URL'leri Aracısı çağırın, sonra uygulamanıza geri denetimi döndürmek için kullanır. Bu gidiş dönüş tamamlamak için kimlik platformu hakkında öğrenmiş olacaksınız uygulamanız için kayıtlı bir URL şeması gerekir. Bu, daha önce uygulamanızla kaydetmiş olabileceği diğer uygulama düzenleri yanı sıra olabilir.
 
@@ -288,7 +288,7 @@ Bu, proje yapılandırmasında görüntülenme şeklini bir örnek aşağıdadı
 </array>
 ```
 
-#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>3. adım: Yeni bir yeniden yönlendirme URI'si ile URL düzeni oluştur
+#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>3\. adım: Yeni bir yeniden yönlendirme URI'si ile URL düzeni oluştur
 
 Her zaman doğru uygulama için kimlik bilgisi belirteçleri biz döndürdüğünden emin olmak için biz iOS işletim sistemi doğrulayabilirsiniz şekilde uygulamanıza geri arama emin olmak gerekiyor. İOS işletim sistemi bunu çağırma uygulamanın paket Kimliğini Microsoft Aracısı uygulamalarına bildirir. Bu, standart dışı bir uygulama tarafından sahte olamaz. Bu nedenle, ki bu belirteçleri doğru uygulama döndürüldüğünden emin olmak için aracı uygulamamız URI'si ile birlikte yararlanın. Bu benzersiz yeniden yönlendirme URI'si her iki uygulamanızda kurmak ve bizim Geliştirici Portalı'nda bir yeniden yönlendirme URI'si olarak ayarlamak gerekli.
 
@@ -308,7 +308,7 @@ Destek sertifika tabanlı kimlik doğrulaması ikinci "msauth" uygulamanızda ka
 
 örn: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>4. Adım: Bir yapılandırma parametresi uygulamanıza ekleme
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>4\. Adım: Bir yapılandırma parametresi uygulamanıza ekleme
 
 ADAL kullanan – canOpenURL: aracı cihaz üzerinde yüklü olup olmadığını denetlemek için. İOS 9, hangi uygulama düzenleri sorgulayabilir aşağı Apple kilitli. LSApplicationQueriesSchemes kısmına "msauth" eklemeniz gerekecektir, `info.plist file`.
 

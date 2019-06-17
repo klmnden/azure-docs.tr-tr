@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65911251"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS koruması Azure portalını kullanarak standart yönetme
@@ -31,7 +31,7 @@ Bu öğreticide herhangi tamamlama adımları önce adresinden Azure portalında
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="create-a-ddos-protection-plan"></a>Bir DDoS koruması planı oluşturma
+## <a name="create-a-ddos-protection-plan"></a>Bir DDoS koruma planı oluşturma
 
 Bir DDoS koruma planı DDoS koruma standardını, abonelikler arasında etkin olan sanal ağlar kümesi tanımlar. Bir DDoS koruma planı kuruluşunuz ve bağlantı aynı planı için birden çok aboneliklerden Sanal Ağları için yapılandırabilirsiniz. DDoS koruma planı kendisi de plan oluşturma sırasında seçtiğiniz abonelik ile ilişkilidir. DDoS koruma planı, bölgeler ve abonelikler üzerinde çalışır. Örnek-kiracınızda bölge Doğu ABD ve bağlantı #1. abonelik planı oluşturabilirsiniz. Aynı planı için sanal ağlar farklı bölgelerde, diğer Aboneliklerdeki kiracınız bağlanabilir. Korumalı genel IP adresi sayısı 100 değerini aşmasına durumunda abonelik planı doğurur için fazla kullanım ücretleri, yanı sıra planı için yinelenen aylık fatura ilişkilidir. DDoS fiyatlandırması hakkında daha fazla bilgi için bkz. [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/ddos-protection/).
 

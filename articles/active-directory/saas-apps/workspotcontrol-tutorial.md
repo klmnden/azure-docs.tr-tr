@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 41d8d05cf5f900c7fcd5640f8896c715640ebcab
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 086ec95531b01477be56d4b1a19d189f167a020f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65772809"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086676"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Öğretici: Azure Active Directory Tümleştirmesi Workspot denetimi ile
 
@@ -176,7 +176,7 @@ Bu bölümde, Azure portalında bir test kullanıcısı oluşturun.
 
     1. İçinde **adı** alanına **BrittaSimon**.
   
-    1. İçinde **kullanıcı adı** girin **@ brittasimon*yourcompanydomain.extension***. Örneğin,  **BrittaSimon@contoso.<i> </i>com**.
+    1. İçinde **kullanıcı adı** girin * *@ brittasimon*yourcompanydomain.extension***. Örneğin,  **BrittaSimon@contoso.<i> </i>com**.
 
     1. Seçin **Show parola** onay kutusu. Ardından görüntülenen değeri yazın **parola** kutusu.
 

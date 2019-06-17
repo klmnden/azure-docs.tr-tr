@@ -16,10 +16,10 @@ ms.date: 05/31/2017
 ms.author: kmouss;aglick
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dc71e8564b35f4fdd4153a04c66a3d8c5df88c30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478853"
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Azure Vm'leri bir Azure hizmet kesintisi etkiler olay, yapmanız gerekenler
@@ -33,11 +33,11 @@ Bu makale, bir tam bölge ana doğal afet veya yaygın hizmet kesintisi nedeniyl
 
 Bu ender örnekleri işlemek yardımcı olması için aşağıdaki yönergeler, Azure sanal makine uygulamanızın dağıtıldığı tüm bölgesinin bir hizmet kesintisi olması durumunda Azure sanal makineleri için sunuyoruz.
 
-## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>1. seçenek: Azure Site Recovery kullanarak bir yük devretme başlatın.
+## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>1\. seçenek: Azure Site Recovery kullanarak bir yük devretme başlatın.
 Uygulamanızı yalnızca birkaç tıklama ile dakika kurtarabilmeniz için Azure Site Recovery yapılandırabilirsiniz. Tercih ettiğiniz bir Azure bölgesine çoğaltabilirsiniz ve eşleştirilmiş bölgeler ile kısıtlı değildir. Tarafından oluşturabileceğinize dair [sanal makinelerinizi çoğaltma](https://aka.ms/a2a-getting-started). Yapabilecekleriniz [bir kurtarma planı oluşturma](../site-recovery/site-recovery-create-recovery-plans.md) böylece uygulamanız için tüm yük devretme işlemini otomatik hale getirebilirsiniz. Yapabilecekleriniz [, yük devretme testi](../site-recovery/site-recovery-test-failover-to-azure.md) üretim uygulama veya sürmekte olan çoğaltmayı etkilemeden önceden. Birincil bölge kesintisi olması durumunda, yeni [bir yük devretme başlatın](../site-recovery/site-recovery-failover.md) ve hedef bölgede uygulamanızı getirin.
 
 
-## <a name="option-2-wait-for-recovery"></a>2. seçenek: Kurtarma işleminin tamamlanmasını bekleyip
+## <a name="option-2-wait-for-recovery"></a>2\. seçenek: Kurtarma işleminin tamamlanmasını bekleyip
 Bu durumda, sizin herhangi bir eylemi gerekli değildir. Yapıyorduk hizmet kullanılabilirliğini geri yüklemeye çalışıyoruz olduğunu bilirsiniz. Geçerli hizmet durumunu görebilirsiniz bizim [Azure hizmet durumu Panosu](https://azure.microsoft.com/status/).
 
 Azure Site Recovery, okuma erişimli coğrafi olarak yedekli depolama veya coğrafi olarak yedekli depolama kesintisi önce ayarlamadıysanız en iyi seçenek budur. Coğrafi olarak yedekli depolama veya okuma erişimli coğrafi olarak yedekli depolama için depolama hesabı, VM sanal sabit diskleri (VHD'ler) depolandığı ayarladıysanız, temel VHD görüntüsünü kurtarmak için Ara ve yeni bir VM'den sağlamayı deneyin. Veri Eşitleme garanti olduğundan, tercih edilen bir seçenek değil. Sonuç olarak, bu seçeneğin çalışması için garanti edilmez.

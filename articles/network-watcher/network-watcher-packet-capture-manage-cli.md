@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 7e6b1d77d002b8c1ed32a4e7adbdd1a46cf65668
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687097"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Azure CLI kullanarak Azure Ağ İzleyicisi ile paket yakalamayı yönetme
@@ -52,7 +52,7 @@ Bu makalede, aşağıdaki kaynaklara sahip olduğunu varsayar:
 
 ## <a name="install-vm-extension"></a>VM uzantıları yükleme
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1\. Adım
 
 Çalıştırma `az vm extension set` Konuk sanal makinede paket yakalama aracıyı yüklemek için cmdlet'i.
 
@@ -68,7 +68,7 @@ Linux sanal makineleri için:
 az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux--version 1.4
 ```
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2\. Adım
 
 Aracısının yüklü olduğundan emin olmak için çalıştırmanız `vm extension show` cmdlet'i ve kaynak grubunu ve sanal makine adı geçirin. Aracının yüklü emin olmak için sonuç listesini kontrol edin.
 
@@ -102,7 +102,7 @@ Aşağıdaki örnek bir yanıt çalışmasını örneğidir. `az vm extension sh
 
 Yukarıdaki adımlar tamamlandıktan sonra paket yakalama Aracısı sanal makineye yüklenir.
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1\. Adım
 
 Ağ İzleyicisi örneğini almak için sonraki adımdır bakın. Ağ İzleyicisi'nin adı geçirildiğinde `az network watcher show` 4. adımda cmdlet'i.
 
@@ -110,7 +110,7 @@ Ağ İzleyicisi örneğini almak için sonraki adımdır bakın. Ağ İzleyicisi
 az network watcher show --resource-group resourceGroup --name networkWatcherName
 ```
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2\. Adım
 
 Bir depolama hesabı alın. Bu depolama hesabı, paket yakalama dosyasını depolamak için kullanılır.
 
@@ -118,7 +118,7 @@ Bir depolama hesabı alın. Bu depolama hesabı, paket yakalama dosyasını depo
 azure storage account list
 ```
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>3\. Adım
 
 Paket yakalaması tarafından depolanan verileri sınırlamak için filtreleri kullanılabilir. Aşağıdaki örnek bir paket yakalama birkaç filtrelerle ayarlar.  İlk üç filtreleri, 20, 80 ve 443 numaralı hedef bağlantı noktalarına giden TCP trafiğine yalnızca yerel IP 10.0.0.3 toplayın.  Son filtre yalnızca UDP trafiğini toplar.
 

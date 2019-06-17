@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 27439758c9e2b909bb7179b69c7aade81429f502
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949881"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070486"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Bir Azure SQL veritabanı yönetilen örneği oluşturma
 
@@ -73,7 +73,7 @@ Aşağıdaki adımlar yönetilen örnek oluşturma işlemini göstermektedir.
 11. Seçin **dağıtım sürüyor** daha da dağıtımın ilerleme durumunu izlemek üzere yönetilen örnek penceresini açmak için. 
 
 > [!IMPORTANT]
-> Bir alt ağdaki ilk örnek için dağıtım sonraki durumda genellikle daha uzun zamandır. Dağıtım işlemi beklediğinizden daha uzun sürdüğü için iptal etme. İkinci bir yönetilen örnek alt ağında oluşturma, yalnızca birkaç dakika sürer.
+> Bir alt ağdaki ilk örnek için dağıtım sonraki durumda genellikle daha uzun zamandır. Dağıtım işlemi beklediğinizden daha uzun sürdüğü için iptal etme.
 
 ## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>Kaynakları gözden geçirin ve tam sunucu adınızı alma
 
@@ -81,11 +81,11 @@ Dağıtım başarılı olduktan sonra oluşturulan kaynakları gözden geçirin 
 
 1. Yönetilen Örneğiniz için kaynak grubunu açın. Uygulamasında oluşturulan kaynaklarını görüntüleme [yönetilen örnek oluşturma](#create-a-managed-instance) hızlı başlangıç.
 
-   ![Yönetilen örnek kaynakları](./media/sql-database-managed-instance-get-started/resources.png)
+   ![Yönetilen örnek kaynaklar](./media/sql-database-managed-instance-get-started/resources.png)
 
 2. Sizin için oluşturulan kullanıcı tanımlı yol (UDR) tabloyu gözden geçirmek için rota tablosunu seçin.
 
-   ![Rota tablosu](./media/sql-database-managed-instance-get-started/route-table.png)
+   ![Yol tablosu](./media/sql-database-managed-instance-get-started/route-table.png)
 
 3. Rota tablosunda gelen ve yönetilen örnek sanal ağ içinde trafiği yönlendirmek girişlerini gözden geçirin. Oluşturursanız veya yol tablonuz el ile yapılandırın, bu girişleri rota tablosunda oluşturduğunuzdan emin olması gerekir.
 
@@ -105,7 +105,7 @@ Dağıtım başarılı olduktan sonra oluşturulan kaynakları gözden geçirin 
 
 7. Üzerinde **genel bakış** sekmesinde, bulmak **konak** özelliği. Sonraki hızlı başlangıçta kullanmak için yönetilen örnek için tam bir ana bilgisayar adresi kopyalayın.
 
-   ![Ana bilgisayar adı](./media/sql-database-managed-instance-get-started/host-name.png)
+   ![Konak adı](./media/sql-database-managed-instance-get-started/host-name.png)
 
    Ad benzer **your_machine_name.a1b2c3d4e5f6.database.windows.net**.
 

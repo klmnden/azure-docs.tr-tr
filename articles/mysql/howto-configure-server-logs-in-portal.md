@@ -1,21 +1,21 @@
 ---
-title: Sunucu günlükleri, Azure portalında MySQL için Azure veritabanına erişmek ve yapılandırma
-description: Bu makalede, Azure portalından MySQL için Azure veritabanı'nda sunucu günlüklerini erişmek ve yapılandırma açıklanır.
+title: Yapılandırma ve yavaş sorgu günlüklerini için MySQL için Azure veritabanı, Azure portalında erişim.
+description: Bu makalede, yapılandırmak ve yavaş günlüklerini Azure veritabanı'nda MySQL için Azure portalından erişmek açıklar.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: e0701d2e10b366a6bf849512484fb216c42823bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: b16ac525d41eb2423828a647fdb75fd3f4a80a31
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525999"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052725"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Yapılandırma ve Azure portalında erişim sunucusu günlükleri
+# <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>Yapılandırma ve Azure portalında erişim yavaş sorgu günlükleri
 
-Yapılandırma, liste indirin ve [sunucu günlükleri MySQL için Azure veritabanı](concepts-server-logs.md) Azure portalından.
+Yapılandırma, liste indirin ve [MySQL yavaş sorgu günlüklerini için Azure veritabanı](concepts-server-logs.md) Azure portalından.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
@@ -42,7 +42,7 @@ MySQL yavaş sorgu günlüğü erişimi yapılandırın.
 6. Dönüş günlükleri listesine tıklayarak **Kapat düğmesi** (X simgesi) üzerinde **sunucu parametreleri** sayfası.
 
 ## <a name="view-list-and-download-logs"></a>Listesini görüntüleyebilir ve günlükleri indir
-Günlük başladıktan sonra mevcut bir listesini görüntülemek ve sunucu günlüklerini bölmesinde ayrı günlük dosyalarına indirin. 
+Günlüğe kaydetme başladıktan sonra kullanılabilir yavaş sorgu günlüklerini listesini görüntüleyebilir ve sunucu günlüklerini bölmesinde ayrı günlük dosyalarına indirin.
 
 1. Azure portalı açın.
 
@@ -61,9 +61,7 @@ Günlük başladıktan sonra mevcut bir listesini görüntülemek ve sunucu gün
 
    ![İndirme simgesine tıklayın](./media/howto-configure-server-logs-in-portal/5-download.png)
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
-- Bkz: [CLI sunucu günlüklerine erişme](howto-configure-server-logs-in-cli.md) günlüklerini programlı olarak indirme hakkında bilgi edinmek için.
-- Daha fazla bilgi edinin [sunucu günlükleri](concepts-server-logs.md) MySQL için Azure veritabanı'nda. 
+- Bkz: [erişim yavaş sorgu günlüklerini CLI'daki](howto-configure-server-logs-in-cli.md) yavaş sorgu günlüklerini programlı olarak indirme hakkında bilgi edinmek için.
+- Daha fazla bilgi edinin [yavaş sorgu günlüklerini](concepts-server-logs.md) MySQL için Azure veritabanı'nda.
 - MySQL günlük kaydı ve parametre tanımları hakkında daha fazla bilgi için MySQL belgeleri bakın [günlükleri](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
-

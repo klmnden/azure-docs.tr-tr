@@ -17,10 +17,10 @@ ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7af05769861f98ec192789d90f8a61f5b6638d1d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783299"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD uygulama ara sunucusu: Sürüm yayınlama geçmişi
@@ -86,7 +86,7 @@ Bağlayıcılar giden bağlantı sınırları üzerinde Gelişmiş denetim.
 
 ## <a name="earlier-versions"></a>Önceki sürümleri
 
-1.5.36.0'den önceki bir uygulama Proxy Bağlayıcısı sürümünü kullandığınızdan, en son olduğundan emin olmak için en son sürüme güncelleştirin. Özellikleri'tam olarak desteklenir.
+1\.5.36.0'den önceki bir uygulama Proxy Bağlayıcısı sürümünü kullandığınızdan, en son olduğundan emin olmak için en son sürüme güncelleştirin. Özellikleri'tam olarak desteklenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinin [uzaktan erişim için şirket içi uygulamaları Azure AD uygulama proxy'si aracılığıyla](application-proxy.md).

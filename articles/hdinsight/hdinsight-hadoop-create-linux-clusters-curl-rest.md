@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: acf121c2954b3f324682578dd3ab2b4d8b1f63f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707344"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059405"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API'sini kullanarak Apache Hadoop kümeleri oluşturma
 
@@ -22,9 +22,6 @@ ms.locfileid: "64707344"
 Bir Azure Resource Manager şablonu ve Azure REST API'sini kullanarak bir HDInsight kümesi oluşturmayı öğrenin.
 
 Azure REST API'si, HDInsight kümeleri gibi yeni kaynaklar oluşturma da dahil olmak üzere, Azure platformunda barındırılan hizmetler üzerinde yönetim işlemlerini gerçekleştirmenize olanak sağlar.
-
-> [!IMPORTANT]  
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]  
 > Bu adımları belge kullanım [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) Azure REST API'si ile iletişim kurmasına yardımcı programı.
@@ -215,7 +212,7 @@ Bu örnekte, bu belgedeki adımlarda kullanılır. Örneği değiştirecek *değ
 >
 > Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="log-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
+## <a name="sign-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
 
 Konusunda belgelenen adımları [Azure CLI ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) ve kullanarak aboneliğinze bağlanın `az login` komutu.
 

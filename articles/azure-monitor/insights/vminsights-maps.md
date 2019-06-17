@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522169"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Azure İzleyicisi'ni (Önizleme) Map uygulama bileşenleri anlamak için VM'ler için kullanma
@@ -25,7 +25,7 @@ Windows ve Linux ortamınızı Azure İzleyici ile iki şekilde VM'ler için do�
 
 Bu makalede, iki perspektiften arasındaki eşleme özelliğini kullanma deneyimi anlamanıza yardımcı olur. VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-enable-overview.md).
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="introduction-to-map-experience"></a>Harita deneyimi giriş
@@ -67,7 +67,7 @@ Başarısız bağlantılar, haritadaki işlemleri ve bilgisayarlar, bir işlem v
 
 Başarısız bağlantı sorunlarını giderme, geçişi doğrulama, güvenlik Analizi ile yardımcı anlama ve hizmetin genel mimarisini anlama. Başarısız bağlantılar bazen zararsız, ancak bunlar genellikle doğrudan aniden ulaşılamaz hale bir yük devretme ortam veya Bulut geçişten sonra birbirleri ile iletişim kurmada başarısız olan iki uygulama katmanları gibi bir sorun üzerine gelin.
 
-### <a name="client-groups"></a>İstemci Grupları
+### <a name="client-groups"></a>İstemci grupları
 Harita üzerinde istemci grupları eşlenen makinede bağlantınız istemci makineleri temsil eder. Tek bir istemci grubundaki istemcileri için bir tek bir işlem veya makine temsil eder.
 
 ![Harita üzerinde istemci grupları örneği](./media/vminsights-maps/map-group-client-groups-01.png)
@@ -90,7 +90,7 @@ Sunucu bağlantı noktası gruplarını temsil sunucular sunucu bağlantı nokta
 Azure İzleyici VM'ler için bir sanal makineden doğrudan erişmek için aşağıdakileri gerçekleştirin.
 
 1. Azure portalında **sanal makineler**. 
-2. Listeden VM'yi seçin ve **izleme** bölümü seçin **Insights (Önizleme)**.  
+2. Listeden VM'yi seçin ve **izleme** bölümü seçin **Insights (Önizleme)** .  
 3. Seçin **harita** sekmesi.
 
 Harita işlem gruplarının ve işlemler belirtilen zaman aralığı üzerinde etkin ağ bağlantılarıyla çalıştıran VM'ler bağımlılıkları görselleştirir.  Varsayılan olarak, son 30 dakika eşlemeyi gösterir.  Kullanarak **TimeRange** sol üst köşesinde seçicide (örneğin, bir olay sırasında veya bir değişikliği oluşmadan önce) bağımlılıkları geçmişte nasıl baktığı göstermek için bir saat için geçmiş zaman aralıklarını sorgulayabilir.  
@@ -102,7 +102,7 @@ Harita işlem gruplarının ve işlemler belirtilen zaman aralığı üzerinde e
 Azure İzleyici VM'ler için doğrudan bir sanal makine ölçek kümesinden erişmek için aşağıdakileri gerçekleştirin.
 
 1. Azure portalında **sanal makine ölçek kümeleri**.
-2. Listeden VM'yi seçin ve **izleme** bölümü seçin **Insights (Önizleme)**.  
+2. Listeden VM'yi seçin ve **izleme** bölümü seçin **Insights (Önizleme)** .  
 3. Seçin **harita** sekmesi.
 
 Harita Grup bağımlılıklarını yanı sıra bir grup düğümü olarak ölçek tüm görselleştirir. Genişletilmiş düğüm örnekleri aynı anda on aracılığıyla kaydırma ölçek kümesindeki listeler. Belirli bir örneği için bir harita yüklemek için harita üzerinde örnek ve bu üç noktaya tıklayın doğru seçip seçin **sunucu haritasını Yükle**. Bu işlem gruplarının ve etkin ağ bağlantılarıyla işlemler belirtilen zaman aralığı üzerinde görmenize olanak sağlayan, bu örnek için harita yükler. Varsayılan olarak, son 30 dakika eşlemeyi gösterir. Kullanarak **TimeRange** Seçici için geçmiş zaman aralıkları (örneğin, bir olay sırasında veya bir değişikliği oluşmadan önce) bağımlılıkları geçmişte nasıl baktığı göstermek için bir saat sorgulayabilir.  
@@ -110,7 +110,7 @@ Harita Grup bağımlılıklarını yanı sıra bir grup düğümü olarak ölçe
 ![Doğrudan VM eşlemesi genel bakış](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Belirli bir örneği için bir harita örneği görünümden, sanal makine ölçek kümesi için de erişebilirsiniz. Gidin **örnekleri** altında **ayarları** bölümüne ve ardından **Insights (Önizleme)**.
+>Belirli bir örneği için bir harita örneği görünümden, sanal makine ölçek kümesi için de erişebilirsiniz. Gidin **örnekleri** altında **ayarları** bölümüne ve ardından **Insights (Önizleme)** .
 
 ## <a name="view-map-from-azure-monitor"></a>Azure İzleyicisi'nden haritayı görüntüleme
 Azure İzleyici'den eşleme özelliğini sanal makinelerinizi ve bunların bağımlılıklarını genel bir görünümünü sağlar.  Azure İzleyici'den harita özelliğe erişmek için aşağıdakileri gerçekleştirin. 

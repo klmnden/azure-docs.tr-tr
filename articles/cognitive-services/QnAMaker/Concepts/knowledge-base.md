@@ -12,10 +12,10 @@ ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 02111ac90fe97ddaddbd41ad42410e7e76f1c405
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379341"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Temel bir soru-cevap Oluşturucu bilgi nedir?
@@ -36,7 +36,7 @@ Sayısal bir soru-cevap kimliği tarafından temsil edilen bir tek soru-cevap, s
 
 Bilgi Bankası zengin içerik içe alma, içerik markdown biçimine dönüştürmek soru-cevap Oluşturucu çalışır. Okuma [bu](https://aka.ms/qnamaker-docs-markdown-support) markdown anlamak için blog çoğu sohbet istemciler tarafından anlaşılır biçimlendirir.
 
-Meta veri alanları, anahtar-değer çiftleri virgül ile ayrılmış oluşur **(ürün: öğütücü)**. Hem anahtar hem de değer salt metin olmalıdır. Meta verileri anahtar boşluk içermemelidir. Meta verileri anahtar başına yalnızca bir değer destekler.
+Meta veri alanları, anahtar-değer çiftleri virgül ile ayrılmış oluşur **(ürün: öğütücü)** . Hem anahtar hem de değer salt metin olmalıdır. Meta verileri anahtar boşluk içermemelidir. Meta verileri anahtar başına yalnızca bir değer destekler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

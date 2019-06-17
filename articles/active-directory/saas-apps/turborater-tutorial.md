@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e67f3c7f9413382d169837eaba50d6af18552e6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956683"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088283"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Öğretici: TurboRater ile Azure Active Directory Tümleştirme
 
@@ -109,9 +109,9 @@ Azure AD çoklu oturum açma ile TurboRater yapılandırmak için aşağıdaki a
 
     1. İçinde **yanıt URL'si (onay belgesi tüketici hizmeti URL'si)** kutusunda, URL şu biçimi kullanarak girin:
 
-       | Ortam | URL |
+       | Ortam | URL'si |
        | ---------------| --------------- |
-       | Sına  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
+       | Test etme  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
        | Canlı  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
 
     > [!NOTE]
@@ -151,7 +151,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
     1. İçinde **adı** kutusuna **BSimon**.
   
-    1. İçinde **kullanıcı adı** kutusuna **BSimon\@\<yourcompanydomain >.\< Uzantı >**. Örneğin, **BSimon\@contoso.com**.
+    1. İçinde **kullanıcı adı** kutusuna **BSimon\@\<yourcompanydomain >.\< Uzantı >** . Örneğin, **BSimon\@contoso.com**.
 
     1. Seçin **Show parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 

@@ -13,10 +13,10 @@ ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.author: nimolnar
 ms.openlocfilehash: 832f927f81b57fd16c202b855d8f1dbe0617ad56
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65149893"
 ---
 # <a name="dependency-auto-collection"></a>Bağımlılık otomatik toplama
@@ -30,7 +30,7 @@ Uygulama kodlarınızdaki ek değişiklik gerektirmeden bağımlılıkları olar
 | ASP.NET Webforms | 4.5+ |
 | ASP.NET MVC | 4+ |
 | ASP.NET Webapı | 4.5+ |
-| ASP.NET Çekirdeği | 1.1+ |
+| ASP.NET Core | 1.1+ |
 | <b> İletişim kitaplıkları</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
@@ -51,7 +51,7 @@ Uygulama kodlarınızdaki ek değişiklik gerektirmeden bağımlılıkları olar
 | [JBoss EAP](https://developers.redhat.com/products/eap/download/) | 6, 7 |
 | [Jetty](https://www.eclipse.org/jetty/) | 9 |
 | <b>Uygulama çerçeveleri </b> |  |
-| [Spring](https://spring.io/) | 3.0 |
+| [Spring](https://spring.io/) | 3,0 |
 | [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9+<sup>*</sup> |
 | Java Servlet | 3.1+ |
 | <b>İletişim kitaplıkları</b> |  |
@@ -68,7 +68,7 @@ Uygulama kodlarınızdaki ek değişiklik gerektirmeden bağımlılıkları olar
 | JMX | 1.0+ |
 
 > [!NOTE]
-> * Dışında reaktif ölçeklenebilirliğinden desteği.
+> \* Dışında reaktif ölçeklenebilirliğinden desteği.
 > <br>†Requires yüklenmesini [JVM aracı](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
 
 ## <a name="nodejs"></a>Node.js

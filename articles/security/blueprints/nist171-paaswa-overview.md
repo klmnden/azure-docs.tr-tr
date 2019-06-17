@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127336"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure güvenlik ve uyumluluk planı - NIST özel yayını 800-171 için PaaS Web uygulaması
@@ -42,7 +42,7 @@ Application Insights sağlayan gerçek zamanlı uygulama performansı yönetimi 
 
 Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Daha fazla bilgi için [dağıtım mimarisi](#deployment-architecture) bölümü.
 
-- Azure Sanal Makineler
+- Azure sanal makineleri
     - (1) yönetim/savunma (Windows Server 2016 Datacenter)
 - Azure Sanal Ağ
     - ((1) /16 ağ
@@ -100,7 +100,7 @@ Bu mimari için App Service ortamı kullanımı, aşağıdaki denetimleri ve yap
 - İzin [Azure SQL veritabanı trafiği](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview).
 
 ### <a name="virtual-network"></a>Sanal ağ
-10.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
+10\.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
 
 **Ağ güvenlik grupları**: [Nsg'ler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) izin veren veya bir sanal ağ içinde trafiği reddeden erişim denetim listeleri içerir. Nsg bir alt ağ veya tek tek VM düzeyinde trafiği güvenli hale getirmek için kullanılabilir. Aşağıdaki Nsg'ler mevcuttur:
 - Application Gateway için bir NSG
@@ -118,7 +118,7 @@ Her nsg belirli bağlantı noktalarına sahiptir ve çözüm güvenli bir şekil
 
 **Azure yük dengeleyici**: [Yük Dengeleyici](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) uygulamalarını ölçeklendirme ve yüksek kullanılabilirlik hizmetleri oluşturmak için müşteriler tarafından kullanılabilir. Yük Dengeleyici, gelen ve giden senaryolarını destekler. Düşük gecikme süresi ve yüksek aktarım hızı sağlar ve en fazla akışlar tüm TCP ve UDP uygulamaları için milyonlarca ölçeklendirir.
 
-### <a name="data-in-transit"></a>Aktarımdaki verileri
+### <a name="data-in-transit"></a>Aktarım durumundaki veriler
 Azure, Azure veri merkezleri gelen ve giden tüm iletişimi varsayılan olarak şifreler. Tüm Azure Depolama'ya Azure portalı üzerinden HTTPS gerçekleşir.
 
 ### <a name="data-at-rest"></a>Bekleyen veriler

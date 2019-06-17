@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88d181c2e761679d7f52208b2086404411bc2012
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a312e0ca70ef3a37b43f1ffb68a974a8aedaf982
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898171"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Öğretici: IdeaScale ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de IdeaScale tümleştirmesini yapılandırmak için IdeaScale Galeride
 
 **Galeriden IdeaScale eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

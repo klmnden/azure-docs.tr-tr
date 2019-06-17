@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 8581b7f940aceca4e3ab85e44f83bf0bebb1b6f5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d1192d3606dfbbf54a8177c2369a9cae8871d92b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904035"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094391"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Öğretici: PlanMyLeave ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de PlanMyLeave tümleştirmesini yapılandırmak için PlanMyLeave Gale
 
 **Galeriden PlanMyLeave eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

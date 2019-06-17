@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 67c8dcfffd78d4c0114a96622235d6548627fa92
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 448d46cd21a63488c4f567d5555fe6406fc0fa73
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236967"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Öğretici: ThirdLight ile Azure Active Directory Tümleştirme
 
@@ -93,7 +93,7 @@ Azure AD çoklu oturum açma ile ThirdLight yapılandırmak için şu adımları
 
 2. İçinde **tek bir oturum açma yönteminizi seçmeniz** Seç iletişim kutusunda **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için:
 
-    ![Çoklu oturum açma yöntemi seçin](common/select-saml-option.png)
+    ![Tek bir oturum açma yöntemi seçin](common/select-saml-option.png)
 
 3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim kutusunda:
 
@@ -182,7 +182,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için ThirdLight erişim verer
 
 2. Uygulamalar listesinde seçin **ThirdLight**.
 
-    ![Uygulama listesi](common/all-applications.png)
+    ![Uygulamaların listesi](common/all-applications.png)
 
 3. Sol bölmede seçin **kullanıcılar ve gruplar**:
 

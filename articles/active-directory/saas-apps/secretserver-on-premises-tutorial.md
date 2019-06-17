@@ -17,10 +17,10 @@ ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104586"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Öğretici: Gizli dizi sunucusu (şirket içi) ile Azure Active Directory Tümleştirme
@@ -61,7 +61,7 @@ Azure AD ile gizli sunucusu (şirket içi) tümleştirmesini yapılandırmak iç
 
 **Galeriden gizli sunucusu (şirket içi) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -191,7 +191,7 @@ Bu bölümde, Azure çoklu oturum açma gizli anahtarı sunucusuna (şirket içi
 
     ![Kullanıcı Ata][201]
 
-1. Uygulamalar listesinde **gizli sunucusu (şirket içi)**.
+1. Uygulamalar listesinde **gizli sunucusu (şirket içi)** .
 
     ![Uygulamalar listesinde gizli sunucusu (şirket içi) bağlantısı](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
 

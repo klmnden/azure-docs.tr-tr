@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
 ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831250"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Application Gateway'de WebSocket desteği'ne genel bakış
 
-Uygulama ağ geçidi, tüm ağ geçidi boyutları arasında Websocket'e yönelik yerel destek sağlar. WebSocket desteğini isteğe bağlı olarak etkinleştirmek veya devre dışı bırakmak için kullanıcı tarafından yapılandırılabilen bir ayar yoktur. 
+Application Gateway, tüm ağ geçidi boyutlarında WebSocket için yerel destek sağlar. WebSocket desteğini isteğe bağlı olarak etkinleştirmek veya devre dışı bırakmak için kullanıcı tarafından yapılandırılabilen bir ayar yoktur. 
 
 WebSocket protokolü, standartlaştırılmış [RFC6455](https://tools.ietf.org/html/rfc6455) uzun süre çalışan bir TCP bağlantı üzerinden bir sunucu ve istemci arasındaki tam çift yönlü iletişimi sağlar. Web sunucusu ve çift yönlü olarak gerekli HTTP tabanlı uygulamaları yoklama gerek kalmadan olabilir istemci arasında daha etkileşimli bir iletişim için bu özelliği sağlar. WebSocket düşük HTTP farklı olarak ek yükü vardır ve birden çok istek/yanıt kullanımını daha verimli olan kaynakları kaynaklanan aynı TCP bağlantısını yeniden kullanabilirsiniz. WebSocket protokolleri, geleneksel HTTP bağlantı noktaları 80 ve 443 üzerinden çalışacak şekilde tasarlanmıştır.
 

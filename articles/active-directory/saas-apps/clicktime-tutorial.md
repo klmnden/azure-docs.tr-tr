@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea643622973456f6334333731f3a3e7be6a41089
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19b14b060cc37f94e51ceb902f8b4158120d4d02
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Öğretici: ClickTime ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de ClickTime tümleştirmesini yapılandırmak için ClickTime Galeride
 
 **Galeriden ClickTime eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

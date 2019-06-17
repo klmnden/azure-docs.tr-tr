@@ -11,10 +11,10 @@ ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646665"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API kullanarak Azure sanal makineleri geri yükleme
@@ -35,7 +35,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *Alma* URI'ya sahip tüm gerekli parametreleri. Ek istek gövdesi için gerek yoktur
 
-### <a name="responses"></a>Yanıtlar
+### <a name="responses"></a>Responses
 
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
@@ -173,7 +173,7 @@ Bir diski geri yükleme tetikleniyor olduğu bir [zaman uyumsuz işlem](https://
 
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
-|202 kabul edildi     |         |     Kabul Edildi    |
+|202 kabul edildi     |         |     Kabul edildi    |
 
 #### <a name="example-responses"></a>Örnek yanıt
 

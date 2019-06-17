@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/22/2019
-ms.openlocfilehash: 1229ff3221deb49601dec3cd40b556ea367fc4c9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/14/2019
+ms.openlocfilehash: 4e45251147561f2376ac4b044ebdf3a599092dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240713"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67126099"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Öğretici: SQL Server'ı Azure SQL veritabanı yönetilen örneğine geçirme çevrimiçi DMS kullanarak
 
@@ -72,6 +72,10 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 * Kaynak SQL Server örneğini çalıştıran hizmet hesabının oluşturduğunuz ağ paylaşımında yazma ayrıcalıklarına sahip olduğundan ve kaynak sunucunun bilgisayar hesabının aynı paylaşımda okuma/yazma erişimine sahip olduğundan emin olun.
 * Önceden oluşturduğunuz ağ paylaşımında tam denetim ayrıcalığına sahip olan Windows kullanıcısını (ve parolasını) not edin. Azure Veritabanı Geçiş Hizmeti, geri yükleme işlemi için yedekleme dosyalarını Azure depolama kapsayıcısına yüklemek için kullanıcının kimlik bilgilerini kullanır.
 * Bir Azure Active Directory Uygulama oluşturan DMS hizmetini hedef Azure veritabanı yönetilen örneğine bağlanmak için kullanabileceğiniz uygulama kimliği anahtarı kimliği ve Azure depolama kapsayıcısı oluşturun. Daha fazla bilgi için bkz. [Kaynaklara erişebilen bir Azure Active Directory uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+
+  > [!NOTE]
+  > DMS belirtilen uygulama kimliği için Abonelik üzerinde katkıda bulunan izni gerekir. Etkin bir şekilde bu izinleri gereksinimlerini azaltmak için çalışıyoruz.
+
 * DMS hizmetinin veritabanı yedekleme dosyalarını yükleyebileceği ve veritabanlarını geçirmek için kullanabileceği bir **Standart Performans katmanı** Azure Depolama Hesabı oluşturun veya belirtin.  Azure Depolama Hesabının oluşturulan DMS hizmetiyle aynı bölgede olduğundan emin olun.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration kaynak sağlayıcısını kaydetme
@@ -86,7 +90,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 3. "migration" araması yapın ve **Microsoft.DataMigration** öğesinin sağ tarafındaki **Kaydet**'i seçin.
 
-    ![Kaynak sağlayıcısını kaydet](media/tutorial-sql-server-to-managed-instance-online/portal-register-resource-provider.png)   
+    ![Kaynak sağlayıcısını kaydetme](media/tutorial-sql-server-to-managed-instance-online/portal-register-resource-provider.png)   
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Azure Veritabanı Geçiş Hizmeti örneğini oluşturma
 
@@ -179,11 +183,11 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
 
 4. **Kaydet**’i seçin.
 
-## <a name="select-source-databases"></a>Kaynak veritabanlarını seçin
+## <a name="select-source-databases"></a>Kaynak veritabanlarını seçme
 
 1. **Kaynak veritabanlarını seçin** ekranında geçirmek istediğiniz kaynak veritabanını seçin.
 
-    ![Kaynak veritabanlarını seçin](media/tutorial-sql-server-to-managed-instance-online/dms-select-source-databases2.png)
+    ![Kaynak veritabanlarını seçme](media/tutorial-sql-server-to-managed-instance-online/dms-select-source-databases2.png)
 
 2. **Kaydet**’i seçin.
 

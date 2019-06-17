@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 06/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 8104497a1808aa4e92d62f45e37525dba2f47742
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 896680b38d6861b09b133680487aa90ad11dec77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064338"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>Soru-cevap Oluşturucu için sık sorulan sorular
 
@@ -114,7 +114,7 @@ Azure Search kaynağın adını sonuna birkaç rastgele bir harf ile soru-cevap 
 
 ### <a name="do-i-need-to-use-bot-framework-in-order-to-use-qna-maker"></a>Soru-Cevap Oluşturucu’yu kullanmak için Bot Framework’ü kullanmam mı gerekir?
 
-Hayır, soru-cevap Oluşturucu ile Bot Framework kullanmanız gerekmez. Bununla birlikte, soru-cevap Oluşturucu, Azure robot hizmeti'ndeki çeşitli şablonlardan biri olarak sunulur. Bot hizmeti, Microsoft robot altyapısı aracılığıyla, hızla akıllı robot geliştirme sağlar ve bir sunucusuz ortamda çalışır.
+Hayır, kullanın gerekmez [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) ile soru-cevap Oluşturucu. Bununla birlikte, soru-cevap Oluşturucu ndeki çeşitli şablonlardan biri olarak sunulan [Azure Bot hizmeti](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot hizmeti, Microsoft robot altyapısı aracılığıyla, hızla akıllı robot geliştirme sağlar ve bir sunucusuz ortamda çalışır.
 
 ### <a name="how-can-i-create-a-bot-with-qna-maker"></a>Soru-cevap Oluşturucu ile bot nasıl oluşturabilirim?
 

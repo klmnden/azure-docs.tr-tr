@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: dcfa9bb7931cf3b682bacf722b67acd6d4a370c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814098"
 ---
 # <a name="evaluate-method"></a>yöntemi
@@ -32,7 +32,7 @@ Ad|Değer|Açıklama
 ifade       | Metin dizesi | Bir alt dizin varlıkların seçer yapılandırılmış sorgu ifadesi.
 Öznitelikleri | Metin dizesi | Yanıta eklenecek özniteliklerin virgülle ayrılmış listesi.
 count      | Sayı (varsayılan = 10) | Döndürülecek sonuç sayısı.
-uzaklık     | Sayı (varsayılan = 0) | Döndürülecek ilk sonuç dizini.
+offset     | Sayı (varsayılan = 0) | Döndürülecek ilk sonuç dizini.
 OrderBy |   Metin dizesi | İsteğe bağlı bir sıralama düzeni tarafından izlenen sonuçları sıralamak için kullanılan özniteliğin adı (varsayılan = asc): "*attrname*[: (asc&#124;desc)]".  Belirtilmezse, doğal logaritmayı olasılık azaltarak sonuçlar döndürülür.
 timeout  | Sayı (varsayılan = 1000) | Milisaniye cinsinden zaman aşımı. Zaman aşımı dolmadan hesaplanan sonuçlar döndürülür.
 

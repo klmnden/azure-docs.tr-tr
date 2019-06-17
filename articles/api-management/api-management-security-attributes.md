@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 3b5826d472b80179c5eb76e0e3a6b1c7ee282487
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001083"
 ---
 # <a name="security-attributes-for-api-management"></a>API yönetimi için güvenlik öznitelikleri
@@ -72,6 +72,6 @@ Bu makale, API yönetime yerleşik güvenlik özniteliklerini içermektedir.
 
 Bu bölümde, Azure API Management etkilemez yaygın güvenlik açıklarına belgeler.
 
-| Güvenlik açığı               | Açıklama                                                                                                                                                                                                                                                                                                               |
+| Güvenlik Açığı               | Açıklama                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ticketbleed (CVE-2016-9244) | Ticketbleed bazı F5 ürünlerde bulunan TLS SessionTicket uzantısı uygulamasında güvenlik açığı var. ("Kadar 31 bayt başlatılmamış belleği verileri taşmasını") sızıntı sağlar. Bu istemciden 32 bit uzunluğunda olmak için verileri ile geçen bir oturum kimliği doldurma TLS yığın kaynaklanır. |

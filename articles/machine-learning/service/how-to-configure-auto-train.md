@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: df05bd984667283b0ccc143ba14fff6b35d69144
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753169"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python'da otomatik ML denemeleri yapılandırın
@@ -306,7 +306,7 @@ Bu örneği göz önünde bulundurun:
 
 Bu 2 kullanmak daha iyi anlamak için ilk adımı, ekrana sığdırılmış model API'leri.  Bkz: [Bu örnek not defteri](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-+ 1. API: `get_engineered_feature_names()` mühendislik uygulanan özellik adlarının bir listesini döndürür.
++ 1\. API: `get_engineered_feature_names()` mühendislik uygulanan özellik adlarının bir listesini döndürür.
 
   Kullanım:
   ```python
@@ -322,7 +322,7 @@ Bu 2 kullanmak daha iyi anlamak için ilk adımı, ekrana sığdırılmış mode
   >[!Note]
   >'Timeseriestransformer' görev için kullanacağınız 'regresyon' veya 'sınıflandırma' görevinin ' datatransformer' = 'tahmin', başka kullanın.
 
-+ 2. API: `get_featurization_summary()` özellik kazandırma sayesinde Özet tüm giriş özellikleri döndürür.
++ 2\. API: `get_featurization_summary()` özellik kazandırma sayesinde Özet tüm giriş özellikleri döndürür.
 
   Kullanım:
   ```python

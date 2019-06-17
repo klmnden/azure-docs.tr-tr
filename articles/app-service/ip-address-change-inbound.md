@@ -12,10 +12,10 @@ ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: aaa89b5a3bb1af6878ed21e0160a534a1c989228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61270073"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Nasıl bir gelen IP adresi değişikliğe hazırlanmak için
@@ -24,9 +24,9 @@ Azure App Service uygulamanızın gelen IP adresi ile değişiyor bir bildirim a
 
 ## <a name="determine-if-you-have-to-do-anything"></a>Herhangi bir şey gerekip gerekmediğini belirleme
 
-* 1. seçenek: App Service uygulamanızı özel bir etki alanı yoksa, hiçbir eylem gerekmiyor.
+* 1\. seçenek: App Service uygulamanızı özel bir etki alanı yoksa, hiçbir eylem gerekmiyor.
 
-* 2. seçenek: Yalnızca bir CNAME kaydı (URI'yı işaret eden DNS kaydı), etki alanı kayıt Portalı'nda (üçüncü taraf DNS sağlayıcısı veya Azure DNS) yapılandırılmışsa, Eylem gerekmiyor.
+* 2\. seçenek: Yalnızca bir CNAME kaydı (URI'yı işaret eden DNS kaydı), etki alanı kayıt Portalı'nda (üçüncü taraf DNS sağlayıcısı veya Azure DNS) yapılandırılmışsa, Eylem gerekmiyor.
 
 * Seçenek 3: Bir A kaydı (doğrudan IP adresine işaret eden DNS kaydı), etki alanı kayıt Portalı'nda (üçüncü taraf DNS sağlayıcısı veya Azure DNS) yapılandırılmışsa, mevcut IP adresini yenisiyle değiştirin. Sonraki bölümde yönergeleri takip ederek yeni IP adresini bulabilirsiniz.
 

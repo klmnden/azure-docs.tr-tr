@@ -13,12 +13,12 @@ ms.date: 10/30/2018
 ms.author: mimart
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd51bfd377aed2a7edd8c64d2f3dc99c3388e45a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ba54f8042c20a00f8d559ddce28e007a93afaace
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824682"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108294"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory için satır iş kolu uygulamaları geliştirme
 Bu kılavuz, satır iş kolu (LoB) uygulamaları için Azure Active Directory (AD) geliştirmeye genel bakış sağlar. Hedef kitlesi, Active Directory/Office 365 genel yöneticileri olur.

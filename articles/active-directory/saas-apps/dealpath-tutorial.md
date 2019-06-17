@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5474af0fbc6b510d3667445bfdbe00fb45daebf
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d0808361acf762ac21281493b71f7c89c9eef228
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104318"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Öğretici: Dealpath ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Dealpath tümleştirmesini yapılandırmak için Dealpath Galeriden 
 
 **Galeriden Dealpath eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

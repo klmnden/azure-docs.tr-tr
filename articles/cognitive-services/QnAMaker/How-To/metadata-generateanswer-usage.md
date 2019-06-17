@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: tulasim
 ms.openlocfilehash: b18d47b4b09c6fa9c4d5f0ef87d7ebe73f151c60
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693233"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Meta veri ve GenerateAnswer API ile bir yanıt alın
@@ -67,7 +67,7 @@ Bir HTTP POST isteği ile GenerateAnswer çağırırsınız. Nasıl GenerateAnsw
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|HTTP isteği özelliği|Ad|Type|Amaç|
+|HTTP isteği özelliği|Ad|Tür|Amaç|
 |--|--|--|--|
 |URL rota parametresi|Bilgi Bankası kimliği|string|Bilgi bankanızı GUİD'i.|
 |URL rota parametresi|QnAMaker uç nokta ana bilgisayarı|string|Azure aboneliğinizde dağıtılmış uç nokta konak adı. Bu üzerinde kullanılabilir **ayarları** Bilgi Bankası yayımladıktan sonra sayfa. |
@@ -78,7 +78,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 JSON gövdesi birkaç ayar vardır:
 
-|JSON gövdesi özelliği|Gerekli|Type|Amaç|
+|JSON gövdesi özelliği|Gerekli|Tür|Amaç|
 |--|--|--|--|
 |`question`|Gerekli|string|Bilgi Bankası'na gönderilmesini kullanıcı soru.|
 |`top`|İsteğe bağlı|integer|Çıktıda dereceli sonuç sayısı. Varsayılan değer 1’dir.|

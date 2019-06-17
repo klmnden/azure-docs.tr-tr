@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486876"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - sık sorulan sorular
@@ -69,7 +69,7 @@ Evet. Kullanım **taşıma** düğme Aşağıdaki diyagramda gösterildiği gibi
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Data Factory tarafından desteklenen işlem ortamlarının nelerdir?
 Aşağıdaki tabloda Data Factory ve bunlar üzerinde çalışan etkinlikler tarafından desteklenen işlem ortamlarının listesi sağlar.
 
-| İşlem ortamı | etkinlikler |
+| İşlem ortamı | activities |
 | --- | --- |
 | [İsteğe bağlı HDInsight kümesi](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) veya [kendi HDInsight kümenizi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop akış](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |

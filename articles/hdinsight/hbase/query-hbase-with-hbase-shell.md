@@ -1,20 +1,20 @@
 ---
 title: 'Hızlı Başlangıç: Sorgu Apache HBase, HBase Kabuğu olan Azure HDInsight-'
-description: Apache HBase sorguları çalıştırmak için Apache HBase Kabuğu'nu kullanmayı öğrenin.
+description: Bu hızlı başlangıçta, Apache HBase sorguları çalıştırmak için Apache HBase Kabuğu'nu kullanmayı öğrenin.
 keywords: hdınsight, hadoop, HBase
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 41b16e63522a02cc16eb4dac2cbcc8e6540aceaf
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: d937e090895a5b02026c755b1efb7dd1e0b35000
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65552089"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054308"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Hızlı Başlangıç: Azure HDInsight, sorgu Apache HBase ile HBase Kabuğu
 

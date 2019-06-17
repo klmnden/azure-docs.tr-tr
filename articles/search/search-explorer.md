@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 392699182859a090c13304f63d28a78b95a65ec7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024033"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Azure Search'te veri sorgulamak için arama Gezgini 
@@ -70,7 +70,7 @@ Ekleme **$count** bir dizinde bulunan eşleşme sayısı alınamıyor. Boş bir 
 
 ### <a name="example-4---restrict-fields-in-search-results"></a>Örnek 4 - kısıtlama alanları arama sonuçları
 
-Ekleme **$select** daha okunabilir çıkış için açıkça adlandırılmış alanları sonuçlarını sınırlamak için **arama Gezgini**. Arama dizesi tutmak ve **$count = true**, önek bağımsız değişkenlerle **&**. 
+Ekleme **$select** daha okunabilir çıkış için açıkça adlandırılmış alanları sonuçlarını sınırlamak için **arama Gezgini**. Arama dizesi tutmak ve **$count = true**, önek bağımsız değişkenlerle **&** . 
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true
