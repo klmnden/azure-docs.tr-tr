@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234013"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058545"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -36,24 +36,26 @@ CLI, komut yürütme sırasında daha fazla bilgi kullanarak çıkarabilirsiniz 
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>'Azure geliştirme alanları denetleyicisi oluşturmak için başarısız' hatası
 
+### <a name="reason"></a>Reason
 Bir şeyler denetleyicisi oluşturulmasını yanlış gittiğinde şu hatayla karşılaşabilirsiniz. Geçici bir hatadır, silin ve düzeltmek için denetleyici oluşturun.
 
-### <a name="try"></a>Deneyin:
+### <a name="try"></a>Deneme
 
-Denetleyici silmek için Azure geliştirme alanları CLI'yı kullanın. Visual Studio veya Cloud Shell içinde Bunu yapmak mümkün değildir. AZDS CLI'yı yüklemek için öncelikle Azure CLI'yı yükleyin ve ardından bu komutu çalıştırın:
+Denetleyici silin:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Bir denetleyici silmek için Azure geliştirme alanları CLI kullanmanız gerekir. Visual Studio'dan bir denetleyici silmek mümkün değildir. Azure Cloud Shell'den bir denetleyici silinemiyor şekilde, Azure geliştirme alanları CLI Azure Cloud Shell'de yükleyemezsiniz.
+
+Azure geliştirme alanları CLI yoksa, önce aşağıdaki komutu kullanarak yükleyin sonra denetleyicinizin Sil:
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-Ve ardından denetleyicisini silmek için şu komutu çalıştırın:
-
-```cmd
-azds remove -g <resource group name> -n <cluster name>
-```
-
-Denetleyici yeniden CLI veya Visual Studio'dan yapılabilir. İlk kez başlatılıyorsa gibi öğreticilerde yer yönergeleri izleyin.
-
+Denetleyici yeniden CLI veya Visual Studio'dan yapılabilir. Bkz [takım geliştirme](quickstart-team-development.md) veya [.NET Core ile geliştirme](quickstart-netcore-visualstudio.md) hızlı başlangıçlar örnekler.
 
 ## <a name="error-service-cannot-be-started"></a>Hata 'hizmeti başlatılamıyor.'
 
@@ -378,7 +380,7 @@ Bir AKS kümesi için bir kullanıcının izinlerini güncelleştirme hakkında 
 
 Denetleyici için kullanıcının RBAC rolü'nü güncellemek için:
 
-1.  [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+1. [https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 1. AKS kümenizi genellikle aynıdır denetleyicisi içeren kaynak grubuna gidin.
 1. Etkinleştirme *gizli türleri Göster* onay kutusu.
 1. Üzerindeki denetleyiciye tıklayın.
@@ -408,4 +410,7 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 ## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Bir AKS kümesi için düğüm havuzları Windows eklendiğinde geliştirme alanları başarısız etkinleştirme
 
 ### <a name="reason"></a>Reason
-Şu anda, Azure geliştirme alanları Linux pod'ların ve yalnızca düğümler üzerinde çalıştırılacak yöneliktir. Şu anda Azure geliştirme alanları Windows düğüm havuzu ile bir AKS kümesi üzerinde etkinleştirilemiyor.
+Şu anda, Azure geliştirme alanları Linux pod'ların ve yalnızca düğümler üzerinde çalıştırılacak yöneliktir. Bir Windows düğüm havuzu ile bir AKS kümesi varsa, Azure geliştirme alanları pod'ların yalnızca Linux düğümlerinde zamanlandığını emin olmanız gerekir. Azure geliştirme alanları pod bir Windows düğümü üzerinde çalışacak şekilde zamanlanırsa, bu pod başlatılmaz ve geliştirme alanları etkinleştirme başarısız olur.
+
+### <a name="try"></a>Deneme
+[Bir taint ekleme](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) Linux emin olmak için AKS kümenizi pod'ların Windows düğümde çalışmak üzere zamanlanır değil.

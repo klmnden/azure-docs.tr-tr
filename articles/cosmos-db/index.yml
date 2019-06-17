@@ -48,16 +48,31 @@ sections:
             image:
               src: media/index/mongodb-api.svg
             title: MongoDB için Azure Cosmos DB API'si
-          - href: /azure/cosmos-db/table-introduction/
-            html: <p>Azure Tablo Depolama'dan Azure cosmos DB’nin premium tablo teklifine veri geçiriyorsanız Tablo API’sini kullanın.</p>
-            image:
-              src: media/index/table-api.svg
-            title: Tablo API’si
           - href: /azure/cosmos-db/cassandra-introduction/
             html: <p>Cassanra’dan Azure Cosmos DB'nin tam olarak yönetilen hizmetine veri geçiriyorsanız Cassandra API’yi kullanın.</p>
             image:
               src: media/index/cassandra-api.png
             title: Cassandra API’si
+          - href: /azure/cosmos-db/table-introduction/
+            html: <p>Azure Tablo Depolama'dan Azure cosmos DB’nin premium tablo teklifine veri geçiriyorsanız Tablo API’sini kullanın.</p>
+            image:
+              src: media/index/table-api.svg
+            title: Tablo API’si
+          - href: /azure/cosmos-db/spark-api-introduction/
+            html: <p>Bir Azure Cosmos hesabında depolanan veriler üzerinde analiz çalıştırmak için yerleşik Apache Spark desteğini kullanın. </p>
+            image:
+              src: media/index/spark-logo.png
+            title: Apache Spark ile yerleşik analiz
+          - href: /azure/cosmos-db/change-feed/
+            html: <p>Bir Azure Cosmos DB koleksiyonunda düzenlenme sırasına göre sıralanmış bir belge listesini okuyarak değişiklik akışı ile gerçek zamanlı analiz gerçekleştirin. </p>
+            image:
+              src: media/index/change-feed-logo.png
+            title: Akışı değiştirme
+          - href: /azure/cosmos-db/etcd-api-introduction/
+            html: '<p> Etcd API’si, Azure Cosmos DB’yi Azure Kubernetes için arka uç deposu olarak kullanmanıza olanak sağlar.</p>'
+            image:
+              src: media/index/etcd-logo.png
+            title: Etcd API'si
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
       - type: paragraph

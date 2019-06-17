@@ -486,6 +486,8 @@
           href: control-flow-expression-language-functions.md
         - name: Sistem değişkenleri
           href: control-flow-system-variables.md
+        - name: Veri akışı parametreleri
+          href: parameters-data-flow.md
     - name: Güvenlik
       items:
         - name: Veri taşırken güvenlikle ilgili dikkat edilmesi gerekenler
@@ -516,7 +518,7 @@
       items:
         - name: Azure tümleştirme çalışma zamanı
           href: create-azure-integration-runtime.md
-        - name: Şirket içinde barındırılan tümleştirme çalışma zamanı
+        - name: Kendinden konak tümleştirme çalışma zamanı
           href: create-self-hosted-integration-runtime.md
         - name: Azure SSIS tümleştirmesi çalışma zamanı
           href: create-azure-ssis-integration-runtime.md
@@ -546,6 +548,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Elastik Veritabanı İşleriyle SSISDB günlüklerini temizleme
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Azure-SSIS IR’de Paket Yürütme Sorunlarını Giderme
+          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: Tetikleyici oluşturma
       items:
         - name: Olay tabanlı tetikleyici oluşturma

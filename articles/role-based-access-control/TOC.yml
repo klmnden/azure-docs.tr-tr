@@ -32,7 +32,7 @@
       href: role-definitions.md
     - name: Azure kaynakları için PIM
       href: pim-azure-resource.md
-    - name: Azure yönetimi için koşullu erişim
+    - name: Azure yönetimi için Koşullu Erişim
       href: conditional-access-azure-management.md
 - name: Nasıl yapılır kılavuzları
   items:
@@ -54,6 +54,8 @@
           href: deny-assignments.md
         - name: Portal
           href: deny-assignments-portal.md
+        - name: PowerShell
+          href: deny-assignments-powershell.md
         - name: REST API
           href: deny-assignments-rest.md
     - name: Özel roller

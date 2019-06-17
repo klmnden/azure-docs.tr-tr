@@ -27,7 +27,7 @@
           href: manage-guest-access-with-access-reviews.md
         - name: Gözden geçirmelerle kullanıcı erişimini yönetme
           href: manage-user-access-with-access-reviews.md
-        - name: Koşullu erişimin dışında tutulan kullanıcıları yönetme
+        - name: Koşullu Erişimin dışında tutulan kullanıcıları yönetme
           href: conditional-access-exclusion.md
 - name: Nasıl yapılır kılavuzları
   expanded: true

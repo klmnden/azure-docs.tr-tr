@@ -42,7 +42,7 @@
           href: claims-mapping.md
         - name: B2B kullanıcı belirteci
           href: user-token.md
-        - name: B2B için koşullu erişim
+        - name: B2B için Koşullu Erişim
           href: conditional-access.md
         - name: Hibrit kuruluşlar için B2B
           href: hybrid-organizations.md
@@ -51,6 +51,8 @@
     - name: Nasıl yapılır kılavuzları
       expanded: true
       items:
+        - name: B2B paylaşımını yönet
+          href: delegate-invitations.md
         - name: Davetleri yönetme
           items:
             - name: B2B kullanıcıları ekleyen yöneticiler
@@ -61,8 +63,6 @@
               href: google-federation.md
             - name: Bir kerelik geçiş kodu kimlik doğrulaması
               href: one-time-passcode.md
-            - name: B2B paylaşım ilkeleri
-              href: delegate-invitations.md
             - name: Davetlere izin verme veya davetleri engelleme
               href: allow-deny-list.md
             - name: Davetiye olmadan B2B kullanıcıları ekleme

@@ -1,0 +1,15 @@
+- name: Geliştirme Belgelerinin Güvenliğini Sağlama
+  href: index.yml
+- name: Kavramlar
+  expanded: true
+  items:
+    - name: En iyi uygulamalar
+      items:
+        - name: Genel Bakış
+          href: secure-dev-overview.md
+        - name: Güvenli uygulamalar tasarlama
+          href: secure-design.md
+        - name: Güvenli uygulamalar geliştirme
+          href: secure-develop.md
+        - name: Güvenli uygulamalar dağıtma
+          href: secure-deploy.md

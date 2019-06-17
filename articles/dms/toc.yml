@@ -42,8 +42,10 @@
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: Geçiş etkinliğini izleme
       href: how-to-monitor-migration-activity.md
-    - name: SSIS paketlerini Azure'a geçirme
+    - name: SSIS paketlerini Azure SQL Veritabanı’na geçirme
       href: how-to-migrate-ssis-packages.md
+    - name: SSIS paketlerini Azure SQL Veritabanı yönetilen örneğine geçirme
+      href: how-to-migrate-ssis-packages-managed-instance.md
 - name: Kaynaklar
   items:
     - name: Veritabanı geçiş senaryosunun durumu

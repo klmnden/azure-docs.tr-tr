@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
 ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123408"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF geçişi REST Öğreticisi
@@ -49,7 +49,7 @@ Azure'da geçiş özelliklerini kullanmaya başlamak için öncelikle bir hizmet
 
 ## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Azure geçişi ile kullanmak için REST tabanlı WCF hizmet sözleşmesini tanımlama
 
-WCF REST stilinde bir hizmet oluşturduğunuzda sözleşme tanımlamanız gerekir. Sözleşmede ana bilgisayarın hangi işlemleri desteklediği belirtilir. Bir hizmet işlemi, web hizmeti yöntemi olarak düşünülebilir. Sözleşmeler; C++, C# veya Visual Basic arabirimi tanımlamasıyla oluşturulur. Arabirimdeki her yöntem belirli bir hizmet işlemine karşılık gelir.  [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) özniteliğinin her arabirime ve [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) özniteliğinin her işleme uygulanması gerekir. Arabirimdeki bir yöntem [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) özniteliğine sahip olup [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) özniteliğine sahip olmazsa bu yöntem kullanıma sunulmaz. Bu görevler için kullanılan kod, aşağıdaki yordamın altındaki örnekte gösterilir.
+WCF REST stilinde bir hizmet oluşturduğunuzda sözleşme tanımlamanız gerekir. Sözleşmede ana bilgisayarın hangi işlemleri desteklediği belirtilir. Bir hizmet işlemi, web hizmeti yöntemi olarak düşünülebilir. Sözleşmeler; C++, C# veya Visual Basic arabirimi tanımlamasıyla oluşturulur. Arabirimdeki her yöntem belirli bir hizmet işlemine karşılık gelir. [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) özniteliğinin her arabirime ve [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) özniteliğinin her işleme uygulanması gerekir. Arabirimdeki bir yöntem [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) özniteliğine sahip olup [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) özniteliğine sahip olmazsa bu yöntem kullanıma sunulmaz. Bu görevler için kullanılan kod, aşağıdaki yordamın altındaki örnekte gösterilir.
 
 Bir WCF sözleşmesi ve REST stili sözleşmesi arasındaki birincil fark özellik ektir [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Bu özellik sayesinde arabiriminizdeki bir yöntem ile arabirimin diğer tarafındaki bir yöntemi eşleyebilirsiniz. Bu örnekte [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) HTTP GET isteğine bir yöntemi bağlamak için özniteliği. Bu, Service Bus'ın doğru şekilde almak ve arabirime gönderilen komutları yorumlamasını sağlar.
 

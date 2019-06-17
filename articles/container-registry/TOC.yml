@@ -89,12 +89,14 @@
               href: container-registry-auth-aks.md
         - name: İçerik güveni
           href: container-registry-content-trust.md
-    - name: Derleme ve yama yapma
+    - name: ACR Görevleri
       items:
-        - name: ACR Görevleri
+        - name: ACR Görevlerine genel bakış
           href: container-registry-tasks-overview.md
         - name: Çok adımlı görevler
           href: container-registry-tasks-multi-step.md
+        - name: Yönetilen kimlik ile kullanma
+          href: container-registry-tasks-authentication-managed-identity.md
     - name: Kayıt defterleri ve diğer Azure hizmetleri
       items:
         - name: Azure Container Instances

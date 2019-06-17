@@ -205,7 +205,7 @@
           href: iot-accelerators-device-simulation-advanced-device.md
         - name: Time Series Insights ile telemetri görselleştirme
           href: iot-accelerators-device-simulation-time-series-insights.md
-        - name: Protbuf kullanarak telemetriyi seri hale getirme
+        - name: Protobuf kullanarak telemetriyi seri hale getirme
           href: iot-accelerators-device-simulation-protobuf.md
         - name: Özel Docker görüntüsü dağıtma
           href: iot-accelerators-device-simulation-deploy-image.md

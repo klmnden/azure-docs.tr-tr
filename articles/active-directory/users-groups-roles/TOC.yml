@@ -116,7 +116,7 @@
           href: licensing-groups-change-licenses.md
         - name: İlave senaryolar
           href: licensing-group-advanced.md
-        - name: PowerShell ile grup lisanslama
+        - name: PowerShell ve Graph ile grup lisanslama
           href: licensing-ps-examples.md
         - name: Lisanslama için hizmet planı kimlikleri
           href: licensing-service-plan-reference.md

@@ -11,10 +11,10 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: İşlev oluşturma - Visual Studio
-      href: functions-create-your-first-function-visual-studio.md
     - name: İşlev oluşturma - Visual Studio Code
       href: functions-create-first-function-vs-code.md
+    - name: İşlev oluşturma - Visual Studio
+      href: functions-create-your-first-function-visual-studio.md
     - name: İşlev oluşturma - Java/Maven
       href: functions-create-first-java-maven.md
     - name: İşlev oluşturma - Python
@@ -65,7 +65,9 @@
       href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Örnekler
   items:
-    - name: Kod örnekleri
+    - name: Azure Serverless Community Library
+      href: 'https://www.serverlesslibrary.net/'
+    - name: Azure Örnekleri
       href: 'https://azure.microsoft.com/resources/samples/?service=functions'
     - name: Azure CLI
       href: functions-cli-samples.md
@@ -74,10 +76,12 @@
     - name: 1.x ve 2.x sürümlerini karşılaştırma
       href: functions-versions.md
       displayName: 'migrate, migration'
-    - name: Premium planı
-      href: functions-premium-plan.md
     - name: Ölçeklendirme ve barındırma
       href: functions-scale.md
+    - name: Premium planı
+      href: functions-premium-plan.md
+    - name: Dağıtımlar
+      href: functions-deployment-technologies.md
     - name: Tetikleyiciler ve bağlamalar
       items:
         - name: Tetikleyiciler ve bağlamalar hakkında

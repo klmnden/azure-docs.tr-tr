@@ -43,6 +43,8 @@
         - name: Çevrimdışı değerlendirme
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+    - name: Ölçeklenebilirlik ve performans
+      href: concepts-scalability-performance.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Kişiselleştirme’yi oluşturma ve yapılandırma

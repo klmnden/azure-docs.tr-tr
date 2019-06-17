@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996526"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure İzleyici'de özel günlükler
@@ -53,7 +53,7 @@ Günlük dosyaları toplanacak, aşağıdaki ölçütlere uymalıdır.
 ## <a name="defining-a-custom-log"></a>Özel günlük tanımlama
 Özel bir günlük dosyası tanımlamak için aşağıdaki yordamı kullanın.  Özel günlük ekleme örnek bir kılavuz bu makalenin sonuna kaydırın.
 
-### <a name="step-1-open-the-custom-log-wizard"></a>1. Adım Özel günlük Sihirbazı'nı açın
+### <a name="step-1-open-the-custom-log-wizard"></a>1\.Adım Özel günlük Sihirbazı'nı açın
 Özel günlük Sihirbazı, Azure portalında çalışır ve toplamak için yeni bir özel günlük tanımlamanızı sağlar.
 
 1. Azure portalında **Log Analytics çalışma alanları** > çalışma alanınızı > **Gelişmiş ayarlar**.
@@ -61,7 +61,7 @@ Günlük dosyaları toplanacak, aşağıdaki ölçütlere uymalıdır.
 3. Varsayılan olarak, tüm yapılandırma değişiklikleri tüm aracılara otomatik olarak gönderilir.  Linux aracıları için bir yapılandırma dosyası Fluentd veri toplayıcısı gönderilir.  Her bir Linux aracı bu dosyayı el ile değiştirmek istiyorsanız, kutunun işaretini kaldırın *aşağıdaki yapılandırmayı Linux makinelerime Uygula*.
 4. Tıklayın **Ekle +** özel günlük Sihirbazı'nı açın.
 
-### <a name="step-2-upload-and-parse-a-sample-log"></a>2. Adım Karşıya yükleme ve bir örnek günlük ayrıştırma
+### <a name="step-2-upload-and-parse-a-sample-log"></a>2\.Adım Karşıya yükleme ve bir örnek günlük ayrıştırma
 Özel günlük örneği yükleyerek başlarsınız.  Sihirbaz, ayrıştırma ve doğrulamak bu dosyayı girişleri görüntülemek.  Azure İzleyici, her kaydı tanımlamak için belirttiğiniz sınırlayıcıyı kullanır.
 
 **Yeni satır** varsayılan sınırlayıcı ve her satırda tek bir giriş olan günlük dosyaları için kullanılır.  Bir tarih ve saatte kullanılabilir biçimlerden birinde ile satırda başlatılan ardından belirtebileceğiniz bir **zaman damgası** birden fazla satırı span girişleri destekleyen sınırlayıcı.
@@ -75,7 +75,7 @@ Zaman damgası sınırlayıcı kullandıysanız, Azure İzleyici'de depolanan he
 4. Yeni bir kayıt tanımlamak ve günlük dosyanız kayıtlara en iyi şekilde tanımlayan bir sınırlayıcı seçmek için kullanılan sınırlayıcıyı değiştirin.
 5. **İleri**’ye tıklayın.
 
-### <a name="step-3-add-log-collection-paths"></a>3. Adım Günlük koleksiyonu yolları ekle
+### <a name="step-3-add-log-collection-paths"></a>Adım 3. Günlük toplama yollarını ekleyin
 Özel günlük burada bulabilirsiniz aracı üzerinde bir veya daha fazla yol tanımlamanız gerekir.  Belirli bir yol ve günlük dosyasının adı ya da sağlayabilir veya adı için joker karakter içeren bir yol belirtebilirsiniz. Bu, her gün veya bir dosyada belirli bir boyuta ulaştığında yeni bir dosya oluşturun, uygulamaları destekler. Ayrıca, tek bir günlük dosyası için birden çok yol sağlayabilir.
 
 Örneğin, adında log20100316.txt olduğu gibi dahil tarihi olan bir uygulama bir günlük dosyası her gün oluşturabilirsiniz. Bu tür bir günlük için bir düzen olabilir *günlük\*.txt* düzeni adlandırma uygulama aşağıdaki herhangi bir günlük dosyası için geçerli.
@@ -86,7 +86,7 @@ Zaman damgası sınırlayıcı kullandıysanız, Azure İzleyici'de depolanan he
 
 Aşağıdaki tabloda farklı günlük dosyaları belirtmek için geçerli düzeni örnekleri sağlar.
 
-| Açıklama | Yol |
+| Açıklama | `Path` |
 |:--- |:--- |
 | Tüm dosyaları *C:\Logs* Windows aracısında .txt uzantısı |C:\Logs\\\*.txt |
 | Tüm dosyaları *C:\Logs* günlüğünü ve Windows aracısında bir .txt uzantısı ile başlayan bir ada sahip |C:\Logs\log\*.txt |
@@ -97,14 +97,14 @@ Aşağıdaki tabloda farklı günlük dosyaları belirtmek için geçerli düzen
 2. Tür yolu tıklayıp **+** düğmesi.
 3. Herhangi bir ek yollar için işlemi tekrarlayın.
 
-### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4. Adım. Bir ad ve açıklama günlüğü sağlayın
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4\. adımı. Bir ad ve açıklama günlüğü sağlayın
 Belirttiğiniz ad, yukarıda açıklandığı gibi günlük türü için kullanılacaktır.  Özel bir günlük ayırmak için _CL ile her zaman sona erecek.
 
-1. Günlük için'bir ad yazın.   **\_CL** soneki otomatik olarak sağlanır.
+1. Günlük için'bir ad yazın.  **\_CL** soneki otomatik olarak sağlanır.
 2. İsteğe bağlı bir ekleme **açıklama**.
 3. Tıklayın **sonraki** özel günlük tanımını kaydedin.
 
-### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>5. Adım. Özel günlükler toplanan doğrula
+### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>5\. adımı. Özel günlükler toplanan doğrula
 Bu ilk veriler için bir saat yeni bir özel günlüğünden Azure İzleyici'de görüntülenecek kadar sürebilir.  Girdileri toplamaya başlar özel günlük tanımlandığı noktadan itibaren belirttiğiniz günlüklerinden yolunda bulunamadı.  Özel günlük oluşturma sırasında yüklenen girişler korumaz, ancak varolan girişleri bulmadığı günlük dosyalarında toplar.
 
 Azure İzleyici özel günlük toplama başladığında, bir günlük sorgusu ile kayıtlarını kullanılabilir.  Özel günlük olarak verdiğiniz ad **türü** sorgunuzda.
@@ -113,7 +113,7 @@ Azure İzleyici özel günlük toplama başladığında, bir günlük sorgusu il
 > RawData özelliği sorguda eksik, tarayıcınızı kapatıp gerekebilir.
 
 
-### <a name="step-6-parse-the-custom-log-entries"></a>6. Adım. Özel günlük girişlerini ayrıştırılamıyor
+### <a name="step-6-parse-the-custom-log-entries"></a>6\. adım. Özel günlük girişlerini ayrıştırılamıyor
 Tüm günlük girişi adlı tek bir özellik içinde saklanan **RawData**.  Her kayıt için ayrı ayrı Özellikler içinde her giriş bilgilerinin farklı parçaları ayırmak büyük olasılıkla isteyeceksiniz. Başvurmak [ayrıştırma metin verilerini Azure İzleyici'de](../log-query/parse-text.md) ayrıştırma seçenekleri için **RawData** birden çok özellikleri.
 
 ## <a name="removing-a-custom-log"></a>Özel günlük kaldırılıyor
@@ -153,7 +153,7 @@ Biz, günlük dosyalarından birini belirtin ve bu toplama olayları görebilirs
 
 ![Karşıya yükleme ve bir örnek günlük ayrıştırma](media/data-sources-custom-logs/delimiter.png)
 
-### <a name="add-log-collection-paths"></a>Günlük koleksiyonu yolları ekle
+### <a name="add-log-collection-paths"></a>Günlük toplama yollarını ekleyin
 Günlük dosyaları yer *C:\MyApp\Logs*.  Her gün düzende tarih içeren bir ad ile oluşturulan yeni dosyaları *appYYYYMMDD.log*.  Bu günlük dosyası için yeterli bir düzen olacaktır *C:\MyApp\Logs\\\*.log*.
 
 ![Günlük koleksiyonu yolu](media/data-sources-custom-logs/collection-path.png)

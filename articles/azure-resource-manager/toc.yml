@@ -37,6 +37,9 @@
       href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
     - name: Güvenli yapıtlar
       href: resource-manager-tutorial-secure-artifacts.md
+    - name: Azure Pipelines ile sürekli tümleştirme
+      displayName: DevOps
+      href: resource-manager-tutorial-use-azure-pipelines.md
     - name: Güvenli dağıtım uygulamalarını kullanma
       displayName: adm
       href: deployment-manager-tutorial.md

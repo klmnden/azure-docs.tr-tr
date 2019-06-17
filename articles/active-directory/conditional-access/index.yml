@@ -4,7 +4,7 @@ title: Azure AD Koşullu Erişim Belgeleri
 metadata:
   document_id: null
   title: 'Azure Active Directory Koşullu Erişim Belgeleri - Öğreticiler, hızlı başlangıçlar, kavramlar, başvurular | Microsoft Docs'
-  description: Azure Active Directory koşullu erişimini yapılandırmayı ve test etmeyi öğrenin.
+  description: Azure Active Directory Koşullu Erişimini yapılandırmayı ve test etmeyi öğrenin.
   services: active-directory
   ms.subservice: conditional-access
   author: MicrosoftGuyJFlo
@@ -16,21 +16,21 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: 'Azure AD koşullu erişim yapılandırarak güvenlik ve üretkenlik arasındaki dengeyi ana öğrenin. Koşullu erişim ilkeleriyle, erişim kararlarınızı alırken bulut uygulamalarınıza erişimi de hesaba katabilirsiniz. Örneğin, erişim kararlarınızda aşağıdaki soruların yanıtlarını belirtebilirsiniz:<ul><li>Kullanıcının ağ konumu nedir?</li><li>Erişim girişimi yönetilen bir cihazdan mı başlatıldı?</li><li>Bağlantı girişimi hangi istemci uygulamasından başlatıldı?</li><li>Erişim girişimi riski bir oturumdan mı yapıldı?</li></ul>Aşağıdaki kaynaklar hızlı bir başlangıç yapmanıza yardımcı olur.'
+  description: 'Azure AD Koşullu Erişimini yapılandırarak güvenlik ve üretkenlik arasındaki dengeyi sağlamayı öğrenin. Koşullu Erişim ilkeleriyle, erişim hakkındaki kararlarınızı alırken bulut uygulamalarınıza erişimi de hesaba katabilirsiniz. Örneğin, erişim kararlarınızda aşağıdaki soruların yanıtlarını belirtebilirsiniz:<ul><li>Kullanıcının ağ konumu nedir?</li><li>Erişim girişimi yönetilen bir cihazdan mı başlatıldı?</li><li>Bağlantı girişimi hangi istemci uygulamasından başlatıldı?</li><li>Erişim girişimi riski bir oturumdan mı yapıldı?</li></ul>Aşağıdaki kaynaklar hızlı bir başlangıç yapmanıza yardımcı olur.'
   aside:
     image:
       alt: null
       height: 110
       src: ./media/index/video.png
       width: 246
-    title: Koşullu erişim açıklanıyor
+    title: Koşullu Erişim hakkındaki açıklamalar
     href: 'https://www.youtube.com/watch?v=XruceejcCKQ'
     width: 246
 sections:
   - title: 5 dakikalık hızlı başlangıçlar
     items:
       - type: paragraph
-        text: Yaygın erişim senaryolarında koşullu erişim ilkelerini yapılandırmayı öğrenin.
+        text: Sıkça karşılaşılan erişim senaryolarında Koşullu Erişim ilkelerini yapılandırmayı öğrenin.
       - type: list
         style: icon48
         items:
@@ -49,7 +49,7 @@ sections:
   - title: Adım Adım Öğreticiler
     items:
       - type: paragraph
-        text: Klasik koşullu erişim ilkelerinizin geçişini yapmayı öğrenin.
+        text: Klasik Koşullu Erişim ilkelerinizin geçişini yapmayı öğrenin.
       - type: list
         style: unordered
         items:

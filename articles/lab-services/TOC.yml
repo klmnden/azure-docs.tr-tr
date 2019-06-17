@@ -50,6 +50,10 @@
       items:
         - name: DevTest Labs kavramları
           href: devtest-lab-concepts.md
+        - name: Dağıtılmış ve işbirliğine dayalı geliştirme için en iyi uygulamalar
+          href: best-practices-distributive-collaborative-development-environment.md
+        - name: Azure DevOps ile tümleştirme
+          href: devtest-lab-dev-ops.md
         - name: Senaryolar
           items:
             - name: DevTest Labs’i kullanmaya yönelik popüler senaryolar
@@ -92,6 +96,8 @@
               href: classroom-labs/how-to-use-shared-image-gallery.md
             - name: Linux için uzak masaüstü bağlantısını etkinleştirme
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
+            - name: Sanal makineler için parola ayarlama veya sıfırlama
+              href: classroom-labs/how-to-set-virtual-machine-passwords.md
     - name: DevTest Labs
       items:
         - name: Laboratuvar sanal makineleri için kaynak grubunu belirtme
@@ -106,6 +112,8 @@
           href: personal-data-delete-export.md
         - name: Başka bir laboratuvardan sanal makineleri içeri aktarma
           href: import-virtual-machines-from-another-lab.md
+        - name: Uzak masaüstü ağ geçidi kullanmak için bir laboratuvar yapılandırma
+          href: configure-lab-remote-desktop-gateway.md
         - name: Görüntü fabrikası oluşturma
           href: image-factory-create.md
           items:

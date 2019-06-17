@@ -3,7 +3,7 @@ title: Azure Traffic Manager'ı kullanarak alt ağ trafiği yönlendirme yöntem
 description: Bu makalede, Traffic Manager, belirli alt ağlardan trafiği yönlendirmek için yapılandırma açıklanmaktadır.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: kumud
-ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 1a7bc38a91dc7621a3b09d7901c70eecb21101d6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716361"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060951"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Traffic Manager'ı kullanarak trafiği kullanıcı alt ağına göre belirli uç noktalara yönlendirme
 
@@ -36,7 +36,7 @@ Test amaçlı VM'ler Traffic Manager'ın kullanıcı sorgusunun geldiği alt ağ
 
 ### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ### <a name="create-websites"></a>Web sitelerini oluşturma
 

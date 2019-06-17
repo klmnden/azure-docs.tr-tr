@@ -79,8 +79,7 @@
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
     - name: Azure Açık Veri Kümeleri
-      href: 'https://docs.microsoft.com/azure/open-datasets/samples'
-      maintainContext: true
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Kavramlar
   items:
     - name: Çalışma alanı
@@ -98,7 +97,7 @@
     - name: Model yönetimi (MLOps)
       displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
-    - name: Yeniden kullanılabilir ML işlem hatları
+    - name: ML işlem hatları
       href: concept-ml-pipelines.md
     - name: Model yorumlanabilirliği
       displayName: explainability
@@ -119,6 +118,8 @@
           href: how-to-enable-virtual-network.md
         - name: SSL ile web hizmetlerinin güvenliğini sağlama
           href: how-to-secure-web-service.md
+        - name: Depolama erişim tuşlarını yeniden oluşturma
+          href: how-to-change-storage-access-key.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Çalışma alanlarını yönetme
@@ -177,10 +178,12 @@
           href: how-to-set-up-training-targets.md
         - name: Eğitimde tahmin araçları oluşturma
           href: how-to-train-ml-models.md
-        - name: PyTorch'u kullanma
-          href: how-to-train-pytorch.md
         - name: TensorFlow'u kullanma
           href: how-to-train-tensorflow.md
+        - name: Keras kullanma
+          href: how-to-train-keras.md
+        - name: PyTorch'u kullanma
+          href: how-to-train-pytorch.md
         - name: Hiperparametreleri ayarlama
           displayName: parameter
           href: how-to-tune-hyperparameters.md
@@ -191,6 +194,9 @@
           href: how-to-manage-runs.md
         - name: Eğitim çalıştırmaları için günlük ölçümleri
           href: how-to-track-experiments.md
+        - name: MLflow ile denemeleri izleme
+          displayName: 'log, monitor, metrics'
+          href: how-to-use-mlflow.md
     - name: Makine öğrenimini otomatikleştirme
       displayName: 'automl, auto ml'
       items:
@@ -215,8 +221,9 @@
         - name: FPGA'lar
           href: how-to-deploy-fpga-web-service.md
         - name: IoT Edge
-          href: ../../iot-edge/tutorial-deploy-machine-learning.md
-          maintainContext: true
+          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Özel Docker görüntüsü
+          href: how-to-deploy-custom-docker-image.md
         - name: Sorun giderme
           href: how-to-troubleshoot-deployment.md
     - name: Web hizmetlerini kullanma
@@ -241,8 +248,7 @@
           href: how-to-create-your-first-pipeline.md
         - name: Azure Pipelines ile ML iş akışlarına yönelik CI/CD
           displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning
-          mainContext: true
+          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Kaynak kotalarını yönetme
       displayName: limits
       href: how-to-manage-quotas.md
@@ -366,8 +372,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: ML ürünlerimizi karşılaştırın
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-      maintainContext: true
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Workbench’e ne oldu?
       displayName: desktop ui Workbench upgrade update transfer
       href: overview-what-happened-to-workbench.md

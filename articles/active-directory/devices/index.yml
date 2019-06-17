@@ -16,7 +16,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: 'Kullanıcılarınız, Azure AD’deki cihazlar aracılığıyla kuruluşunuzun varlıklarına erişir. Bir BT yöneticisi olarak kuruluşunuzun varlıklarını korumak için bu cihaz kimliklerini Azure AD’de yönetmeyi tercih edersiniz. Bu sayede kullanıcılarınızın kaynaklarınıza güvenlik ve uyumluluk standartlarınızı karşılayan cihazlardan erişmesini sağlayabilirsiniz.<br>Cihaz Kimliği yönetimi, cihaz tabanlı koşullu erişim senaryolarının da temelini oluşturur. Cihaz tabanlı koşullu erişim sayesinde, ortamınızdaki kaynaklara yalnızca yönetilen cihazlar üzerinden erişilebilmesini sağlayabilirsiniz.'
+  description: 'Kullanıcılarınız, Azure AD’deki cihazlar aracılığıyla kuruluşunuzun varlıklarına erişir. Bir BT yöneticisi olarak kuruluşunuzun varlıklarını korumak için bu cihaz kimliklerini Azure AD’de yönetmeyi tercih edersiniz. Bu sayede kullanıcılarınızın kaynaklarınıza güvenlik ve uyumluluk standartlarınızı karşılayan cihazlardan erişmesini sağlayabilirsiniz.<br>Cihaz Kimliği yönetimi, cihaz tabanlı Koşullu Erişim senaryolarının da temelini oluşturur. Cihaz tabanlı Koşullu Erişim sayesinde, ortamınızdaki kaynaklara yalnızca yönetilen cihazlar üzerinden erişilebilmesini sağlayabilirsiniz.'
 sections:
   - title: Adım adım öğreticiler
     items:

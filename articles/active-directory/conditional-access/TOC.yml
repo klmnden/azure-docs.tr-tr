@@ -2,7 +2,7 @@
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Koşullu erişim nedir?
+    - name: Koşullu Erişim nedir?
       href: overview.md
 - name: Hızlı Başlangıçlar
   items:
@@ -34,7 +34,7 @@
 - name: Nasıl yapılır kılavuzları
   expanded: true
   items:
-    - name: Koşullu erişim dağıtımınızı planlama
+    - name: Koşullu Erişim dağıtımınızı planlama
       href: plan-conditional-access.md
     - name: En iyi uygulamalar
       href: best-practices.md

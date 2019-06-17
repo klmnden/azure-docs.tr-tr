@@ -39,6 +39,8 @@
   items:
     - name: Azure PowerShell’i kullanarak dağıtma
       href: deploy-ps.md
+    - name: Azure CLI’yi kullanarak dağıtma
+      href: deploy-cli.md
     - name: Şablon kullanarak dağıtma
       href: deploy-template.md
     - name: Yük dengeleyici ile tümleştirme

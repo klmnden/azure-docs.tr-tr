@@ -59,12 +59,20 @@
           href: concepts-business-continuity.md
         - name: Yedekleme ve geri yükleme
           href: concepts-backup.md
-    - name: İzleme
+    - name: İzleme ve ayarlama
       items:
         - name: İzleme
           href: concepts-monitoring.md
-        - name: Sunucu günlükleri
+        - name: Yavaş sorgu günlükleri
           href: concepts-server-logs.md
+        - name: Denetim günlükleri
+          href: concepts-audit-logs.md
+        - name: Sorgu Deposu
+          href: concepts-query-store.md
+        - name: Sorgu Performansı İçgörüleri
+          href: concepts-query-performance-insight.md
+        - name: Performans Önerileri
+          href: concepts-performance-recommendations.md
     - name: Geliştirme
       items:
         - name: Sürücü ve araç uyumluluğu
@@ -75,6 +83,8 @@
       items:
         - name: Veri içinde çoğaltma
           href: concepts-data-in-replication.md
+        - name: Okuma amaçlı çoğaltmalar
+          href: concepts-read-replicas.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Güvenlik duvarı kuralları
@@ -113,10 +123,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: Sunucu günlüklerine erişme
       items:
-        - name: Azure portal
-          href: howto-configure-server-logs-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-cli.md
+        - name: Yavaş sorgu günlükleri
+          items:
+            - name: Azure portal
+              href: howto-configure-server-logs-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-cli.md
+        - name: Denetim günlükleri
+          items:
+            - name: Azure portal
+              href: howto-configure-audit-logs-portal.md
     - name: İzleme
       items:
         - name: Ölçümler üzerinde uyarı oluşturma
@@ -125,6 +141,8 @@
       items:
         - name: Veri içinde çoğaltmayı yapılandırma
           href: howto-data-in-replication.md
+        - name: Azure portalda okuma amaçlı çoğaltma oluşturma
+          href: howto-read-replicas-portal.md
     - name: Sorun giderme
       items:
         - name: Bağlantı hatalarını giderme

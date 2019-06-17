@@ -83,22 +83,26 @@
           href: sql-database-design-first-database.md
         - name: .NET kullanarak veritabanı tasarlama
           href: sql-database-design-first-database-csharp.md
-    - name: SQL Veritabanına geçiş
+    - name: Tekil Veritabanı
       items:
         - name: DMS kullanarak tek/havuza alınan veritabanına geçiş
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-        - name: DMS kullanarak yönetilen örneğe geçiş
+        - name: Coğrafi olarak dağıtılmış bir veritabanı uygulama
+          href: sql-database-implement-geo-distributed-database.md
+        - name: Azure SQL Data Sync’i ayarlama
+          href: sql-database-get-started-sql-data-sync.md
+    - name: Yönetilen Örnek
+      items:
+        - name: DMS kullanarak çevrimiçi geçiş
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: İşlem çoğaltmasını yapılandırma
+          href: replication-with-sql-database-managed-instance.md
     - name: SQL Veritabanı’nda güvenlik
       items:
         - name: Tekli ve havuza alınan veritabanı güvenliği
           href: sql-database-security-tutorial.md
         - name: Yönetilen örnek güvenliği
           href: sql-database-managed-instance-aad-security-tutorial.md
-    - name: Coğrafi olarak dağıtılmış bir veritabanı uygulama
-      href: sql-database-implement-geo-distributed-database.md
-    - name: Azure SQL Data Sync’i ayarlama
-      href: sql-database-get-started-sql-data-sync.md
     - name: Machine Learning Services
       items:
         - name: R’de tahmine dayalı model oluşturma
@@ -500,8 +504,6 @@
           href: sql-database-managed-instance-find-management-endpoint-ip-address.md
         - name: Yerleşik güvenlik duvarı korumasını doğrulama
           href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
-        - name: İşlem çoğaltması
-          href: replication-with-sql-database-managed-instance.md
         - name: Tehdit algılamayı yapılandırma
           href: sql-database-managed-instance-threat-detection.md
         - name: Uygulamaları bağlama
@@ -558,7 +560,7 @@
       items:
         - name: Azure AD kimlik doğrulamasını yapılandırma
           href: sql-database-aad-authentication-configure.md
-        - name: Koşullu erişim
+        - name: Koşullu Erişim
           href: sql-database-conditional-access.md
         - name: Çok faktörlü AAD kimlik doğrulaması
           href: sql-database-ssms-mfa-authentication.md

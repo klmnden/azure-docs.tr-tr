@@ -517,6 +517,8 @@
               href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
             - name: Windows'da Linux kümesi ayarlama
               href: service-fabric-local-linux-cluster-windows.md
+            - name: VS’den uzak bir Linux kümesine bir .NET Core uygulaması dağıtma
+              href: service-fabric-how-to-publish-linux-app-vs.md
         - name: Bir Linux/Eclipse geliştirme ortamında çalışma
           items:
             - name: Java ile geliştirme için Eclipse eklentisini kullanmaya başlama
@@ -842,8 +844,8 @@
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Fiyatlandırma hesaplayıcı
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Sorun giderme kılavuzları
-      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
+    - name: Sürüm notları
+      href: release-notes.md
     - name: Örnek kod
       href: 'https://aka.ms/servicefabricsamples'
     - name: Destek seçenekleri
@@ -852,5 +854,7 @@
       href: service-fabric-versions.md
     - name: Hizmet güncelleştirmeleri
       href: 'https://azure.microsoft.com/updates/?product=service-fabric'
+    - name: Sorun giderme kılavuzları
+      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: Videolar
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'

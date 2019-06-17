@@ -2,37 +2,51 @@
   href: index.md
 - name: Genel Bakış
   items:
-    - name: Azure durumu nedir?
+    - name: Azure Hizmet Durumu hizmeti
+      href: overview.md
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Hizmet durumu olayları için uyarıları yapılandırma
+      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+- name: Kavramlar
+  items:
+    - name: Azure durum sayfası
       href: azure-status-overview.md
-    - name: Hizmet Durumu nedir?
+    - name: Hizmet Durumu
       href: service-health-overview.md
-    - name: Kaynak Durumu nedir?
+    - name: Kaynak Durumu
       href: resource-health-overview.md
 - name: Nasıl yapılır
   items:
     - name: Hizmet durumu olayları için uyarıları yapılandırma
       href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-      items:
-        - name: Azure portalını kullanarak hizmet durumu bildirimlerini görüntüleme
-          href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-    - name: Web kancası kullanarak hizmet durumu bildirimleri yapılandırma
+    - name: Azure portalını kullanarak hizmet durumu bildirimlerini görüntüleme
+      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+    - name: Web kancası aracılığıyla dış sistemlere uyarı gönderme
       href: service-health-alert-webhook-guide.md
-      items:
-        - name: ServiceNow ile yapılandırma
-          href: service-health-alert-webhook-servicenow.md
-        - name: PagerDuty ile yapılandırma
-          href: service-health-alert-webhook-pagerduty.md
-        - name: OpsGenie ile yapılandırma
-          href: service-health-alert-webhook-opsgenie.md
-        - name: REST ile sistem durumu olayları alma
-          href: service-health-rest.md
+    - name: ServiceNow’a uyarılar gönderme
+      href: service-health-alert-webhook-servicenow.md
+    - name: PagerDuty’ye uyarılar gönderme
+      href: service-health-alert-webhook-pagerduty.md
+    - name: OpsGenie’ye uyarılar gönderme
+      href: service-health-alert-webhook-opsgenie.md
+    - name: REST ile sistem durumu olayları alma
+      href: service-health-rest.md
     - name: Kaynak durumu olayları için uyarıları yapılandırma
       href: resource-health-alert-arm-template-guide.md
+- name: Başvuru
+  items:
+    - name: Hizmet durumu bildirimleri özellikleri
+      href: service-health-notifications-properties.md
+    - name: Kaynak sistem durumu türleri ve denetimleri
+      href: resource-health-checks-resource-types.md
+    - name: Kaynak Durumu hakkında SSS
+      href: resource-health-faq.md
 - name: Kaynaklar
   items:
-    - name: Sık Sorulan Sorular
-      href: resource-health-faq.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
     - name: Fiyatlandırma hesaplayıcı
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Azure Kaynak Durumu aracılığıyla kullanılabilen kaynak türleri ve durum denetimleri
-      href: resource-health-checks-resource-types.md
+    - name: Bildirim Fiyatlandırması
+      href: 'https://azure.microsoft.com/pricing/details/monitor/'

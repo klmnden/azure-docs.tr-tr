@@ -83,6 +83,10 @@
           href: plan-sso-deployment.md
     - name: Son kullanıcı portalları
       href: end-user-experiences.md
+    - name: Tek Tıklamayla SSO
+      items:
+        - name: Tek Tıklamayla SSO nedir
+          href: one-click-sso-tutorial.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Bulut uygulaması ekleme

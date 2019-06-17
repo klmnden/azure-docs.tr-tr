@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: allensu
 ms.openlocfilehash: 304beeae02da5836ba88a56d7166fc681e263501
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258354"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Öğretici: Traffic Manager'ı kullanarak Web sitesi yanıt
@@ -43,7 +43,7 @@ Bu öğreticide Traffic Manager'ın çalışmasını uygulamalı olarak görmek 
 
 ### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
- [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ### <a name="create-websites"></a>Web sitelerini oluşturma
 
@@ -160,7 +160,7 @@ IIS çalıştıran iki sanal makine ekleme sunucuları - *myIISVMEastUS* & *myII
 
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
-    | Type                    | Azure uç noktası                                   |
+    | Tür                    | Azure uç noktası                                   |
     | Ad           | myEastUSEndpoint                                        |
     | Hedef kaynak türü           | Genel IP Adresi                          |
     | Hedef kaynak          | Genel IP adresine sahip kaynakların aynı abonelik altında listelenmesi için **Genel IP adresi seçin**. **Kaynak** bölümünde *myIISVMEastUS-ip* adlı genel IP adresini seçin. Bu, Doğu ABD bölgesindeki IIS sunucusu VM'sinin IP adresidir.|

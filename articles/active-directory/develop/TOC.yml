@@ -139,6 +139,8 @@
                   href: scenario-protected-web-api-app-registration.md
                 - name: Kod yapılandırması
                   href: scenario-protected-web-api-app-configuration.md
+                - name: Kapsamların veya uygulama rollerinin doğrulanması
+                  href: scenario-protected-web-api-verification-scope-app-roles.md
                 - name: Üretime taşıma
                   href: scenario-protected-web-api-production.md
             - name: Web API'lerini çağıran web API'si
@@ -531,7 +533,7 @@
               href: consent-framework.md
             - name: Uygulama onayı deneyimleri
               href: application-consent-experience.md
-        - name: Koşullu erişim
+        - name: Koşullu Erişim
           href: conditional-access-dev-guide.md
         - name: Ulusal Bulutlar
           href: authentication-national-cloud.md

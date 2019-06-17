@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989214"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Galeri dışı uygulamalar için çoklu oturum açma Microsoft kimlik platformu yapılandırın.
@@ -64,7 +64,7 @@ Bu şekilde uygulamaya eklediğinizde, önceden tümleştirilmiş uygulamalar i�
 - **Parola tabanlı**
 - **Bağlı**
 
-![Çoklu oturum açma yöntemi seçin](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
+![Tek bir oturum açma yöntemi seçin](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
 Bu seçenekler hakkında daha fazla bilgi için bu makalenin aşağıdaki bölümlere bakın.
 
@@ -125,7 +125,7 @@ Aşağıdaki iki alan gereklidir:
 
 Aşağıdaki üç alanı isteğe bağlıdır:
 
-- **Oturum açma URL'si (SP tarafından başlatılan yalnızca)**. Bu değer, burada kullanıcının bu uygulamada oturum gider gösterir. SP tarafından başlatılan SSO'yu uygulamanın gerçekleştirdiği, bir kullanıcı bu URL'ye gittiğinde ardından SP gerekli yönlendirme Azure AD kullanıcısıyla oturum açma ve kimlik doğrulamasını yapmak için yapar. Bu alan belirtilmesi, Azure AD, Office 365 ve Azure AD erişim paneli uygulamayı başlatmak için bu URL'yi kullanır. Bu alan atlarsanız, Azure AD yerine IDP tarafından başlatılan oturum açmayı Office 365, Azure AD erişim paneli ya da Azure AD SSO URL'sini uygulama başlatma sırasında gerçekleştirir (hangi, kopyalayabilirsiniz **Pano** sayfası).
+- **Oturum açma URL'si (SP tarafından başlatılan yalnızca)** . Bu değer, burada kullanıcının bu uygulamada oturum gider gösterir. SP tarafından başlatılan SSO'yu uygulamanın gerçekleştirdiği, bir kullanıcı bu URL'ye gittiğinde ardından SP gerekli yönlendirme Azure AD kullanıcısıyla oturum açma ve kimlik doğrulamasını yapmak için yapar. Bu alan belirtilmesi, Azure AD, Office 365 ve Azure AD erişim paneli uygulamayı başlatmak için bu URL'yi kullanır. Bu alan atlarsanız, Azure AD yerine IDP tarafından başlatılan oturum açmayı Office 365, Azure AD erişim paneli ya da Azure AD SSO URL'sini uygulama başlatma sırasında gerçekleştirir (hangi, kopyalayabilirsiniz **Pano** sayfası).
 
 - **Geçiş durumu**. SAML kimlik doğrulamasından sonra kullanıcıların yönlendirileceği uygulama istemek için geçiş durumu belirtebilirsiniz. Değer bir URL veya URL genellikle olan kullanıcılar, uygulama içinde belirli bir konuma alan yolu.
 
@@ -141,7 +141,7 @@ Görüntülemek veya uygulamaya SAML belirtecindeki gönderilen talepleri düzen
 
 - Git **kullanıcı öznitelikleri ve talepler** seçin ve başlık **Düzenle** simgesi. **Kullanıcı öznitelikleri ve talepler** sayfası görüntülenir.
 
-![Kullanıcı öznitelikleri ve talepleri](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![Kullanıcı öznitelikleri ve talepler](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 İki nedenden dolayı SAML belirtecinde verilen talepleri düzenlemeniz gerekebilir:
 
@@ -181,12 +181,12 @@ Uygulamanızı bir SAML tabanlı kimlik sağlayıcısı olarak Azure AD'yi kulla
 
 Uygulamanız için yeni bir kullanıcı veya grup atamak için:
 
-1. Uygulama Kenar çubuğunda seçin **kullanıcılar ve gruplar**.  **\<Uygulama adı >-Kullanıcılar ve gruplar** sayfası görüntülenirse, atanan kullanıcılar ve gruplar geçerli listesini gösterir.
+1. Uygulama Kenar çubuğunda seçin **kullanıcılar ve gruplar**. **\<Uygulama adı >-Kullanıcılar ve gruplar** sayfası görüntülenirse, atanan kullanıcılar ve gruplar geçerli listesini gösterir.
 2. Seçin **kullanıcı ekleme**. **Atamaları Ekle** sayfası görüntülenir.
-3. Seçin **kullanıcılar ve gruplar (\<numarası > Seçili)**. **Kullanıcılar ve gruplar** sayfası görüntülenirse, mevcut kullanıcıları ve grupları listesini gösteren.
+3. Seçin **kullanıcılar ve gruplar (\<numarası > Seçili)** . **Kullanıcılar ve gruplar** sayfası görüntülenirse, mevcut kullanıcıları ve grupları listesini gösteren.
 4. Kullanıcı veya Grup listesinden atamak istediğiniz bulmak için tür veya kaydırma.
 5. Her bir kullanıcı veya grubu ekleyin ve ardından istediğiniz seçin **seçin** düğmesi. **Kullanıcılar ve gruplar** sayfası kaybolur.
-6. İçinde **atamaları Ekle** sayfasında **atama**.  **<application name> -Kullanıcılar ve gruplar** listesinde gösterilen ek kullanıcılar sayfası görüntülenir.
+6. İçinde **atamaları Ekle** sayfasında **atama**. **<application name> -Kullanıcılar ve gruplar** listesinde gösterilen ek kullanıcılar sayfası görüntülenir.
 
    ![Uygulama kullanıcıları ve grupları](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 

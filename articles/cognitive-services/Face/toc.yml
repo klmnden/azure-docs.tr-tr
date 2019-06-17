@@ -59,7 +59,7 @@
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: Yüz ekleme
       href: Face-API-How-to-Topics/how-to-add-faces.md
-    - name: HeadPose kullanarak dikdörtgen döndürme
+    - name: HeadPose özniteliğini kullanma
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Yüz tanıma modeli belirtme
       href: Face-API-How-to-Topics/specify-recognition-model.md

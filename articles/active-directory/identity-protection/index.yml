@@ -16,7 +16,7 @@ metadata:
   ms.date: 09/14/2018
   ms.author: joflore
 abstract:
-  description: 'Risk altında olabilecek kimlik algılamasının nasıl çalıştığını ve bunları ele almak için otomatik yanıtları nasıl uygulayacağınızı öğrenin. Azure Active Directory Kimlik Koruması, Azure AD Premium P2 sürümünün bir özelliğidir ve şunları yapmanıza olanak sağlar:<ul><li>Kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını algılama</li><li>Kuruluşunuzun kimlikleriyle ilişkili şüpheli eylemlere otomatik olarak yanıt vermek üzere koşullu erişim ilkeleri yapılandırma</li><li>Şüpheli olayları araştırma ve bunları çözmek için uygun eylemi gerçekleştirme</li></ul><br> Aşağıdaki kaynaklar hızlı bir başlangıç yapmanıza yardımcı olur.'
+  description: 'Risk altında olabilecek kimlik algılamasının nasıl çalıştığını ve bunları ele almak için otomatik yanıtları nasıl uygulayacağınızı öğrenin. Azure Active Directory Kimlik Koruması, Azure AD Premium P2 sürümünün bir özelliğidir ve şunları yapmanıza olanak sağlar:<ul><li>Kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını algılama</li><li>Kuruluşunuzun kimlikleriyle ilişkili şüpheli eylemlere otomatik olarak yanıt vermek üzere Koşullu Erişim ilkeleri yapılandırma</li><li>Şüpheli olayları araştırma ve bunları çözmek için uygun eylemi gerçekleştirme</li></ul><br> Aşağıdaki kaynaklar hızlı bir başlangıç yapmanıza yardımcı olur.'
   aside:
     image:
       alt: null
@@ -30,7 +30,7 @@ sections:
   - title: 5 dakikalık hızlı başlangıçlar
     items:
       - type: paragraph
-        text: Yaygın erişim senaryolarında oturum açma riski koşullu erişim ilkelerini yapılandırmayı öğrenin.
+        text: Yaygın erişim senaryolarında oturum açma riski Koşullu Erişim ilkelerini yapılandırmayı öğrenin.
       - type: list
         style: icon48
         items:

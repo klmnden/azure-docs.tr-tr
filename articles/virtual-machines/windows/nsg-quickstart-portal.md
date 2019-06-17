@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.openlocfilehash: cac17403425f53593d4f48692b4216a92c8624e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61481777"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure portalı ile bir sanal makineye bağlantı noktaları açma
@@ -26,7 +26,7 @@ ms.locfileid: "61481777"
 
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
 
@@ -86,5 +86,5 @@ Yüksek oranda kullanılabilir web uygulamaları için Vm'lerinizi bir Azure yü
 Bu makalede, bağlantı noktası 80 üzerinde HTTP trafiğine izin verir ve ardından bu kural için bir alt ağla ilişkili bir gelen kuralı oluşturulan bir ağ güvenlik grubu oluşturulur. 
 
 Aşağıdaki makalelerde daha ayrıntılı ortamları oluşturma hakkında bilgi bulabilirsiniz:
-- [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md)
+- [Azure Resource Manager’a genel bakış](../../azure-resource-manager/resource-group-overview.md)
 - [Güvenlik grupları](../../virtual-network/security-overview.md)

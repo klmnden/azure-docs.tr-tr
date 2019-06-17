@@ -82,10 +82,10 @@
           items:
             - name: Performansı iyileştirme
               href: storage-performance.md
-        - name: GPU için iyileştirilmiş
-          displayName: NV NVv2 NC NCv2 NCv3 ND
-          href: sizes-gpu.md
+        - name: Hızlandırılmış işlem
           items:
+            - name: GPU için iyileştirilmiş
+              href: sizes-gpu.md
             - name: GPU sürücülerini kurma
               href: n-series-driver-setup.md
         - name: Yüksek performanslı işlem

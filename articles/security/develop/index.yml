@@ -1,0 +1,44 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Geliştirme Belgelerinin Güvenliğini Sağlama
+metadata:
+  document_id: null
+  title: Microsoft Azure’da Geliştirme Belgelerinin Güvenliğini Sağlama
+  meta.description: Learn how to develop secure apps on Azure.
+  services: security
+  author: TerryLanfear
+  manager: barbkess
+  ms.service: security
+  ms.subservice: develop
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/11/2019
+  ms.author: terrylan
+abstract:
+  description: 'Örnek uygulamalarımız, en iyi yöntemler ve kılavuzlar ile Azure’da güvenli uygulamalar geliştirmeyi ve dağıtmayı öğrenin.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: /azure/security/develop/secure-dev-overview
+            html: <p>Azure'da güvenli bir web uygulamasını dağıtma</p>
+            image:
+              src: /media/common/i_get-started.svg
+            title: başlarken
+          - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
+            html: <p>Web uygulamaları için en iyi beş güvenlik öğesi</p>
+            image:
+              src: /media/common/i_learn-about.svg
+            title: Microsoft Learn ile becerilerinizi geliştirin
+  - title: Kavramlar
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/secure-dev-overview">Güvenli geliştirme en iyi uygulamaları</a>
+          - html: <a href="/azure/security/azure-security-threat-modeling-tool">Tehdit modelleme</a>

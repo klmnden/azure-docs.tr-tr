@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: kumud
 ms.openlocfilehash: b1d2d04e74828323166810d93c52a60671bf71e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710924"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Oluşturma, değiştirme veya Azure portalını kullanarak hizmet uç noktası İlkesi Sil
@@ -35,7 +35,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma 
 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-service-endpoint-policy"></a>Bir hizmet uç noktası ilkesi oluşturma
 
@@ -73,7 +73,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
  
 ## <a name="view-endpoint-policies"></a>Uç noktası ilkeleri görüntüle 
 
-1. İçinde *tüm hizmetleri* portalda kutusunda, yazmaya başlayın *hizmet uç noktası ilkesine*. Seçin **hizmet uç noktası Policies(Preview)**.
+1. İçinde *tüm hizmetleri* portalda kutusunda, yazmaya başlayın *hizmet uç noktası ilkesine*. Seçin **hizmet uç noktası Policies(Preview)** .
 2. Altında **abonelikleri**, aşağıdaki resimde gösterildiği gibi abonelik ve kaynak grubu seçin
 
    ![İlke Göster](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicies.PNG)

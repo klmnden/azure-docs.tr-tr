@@ -16,6 +16,10 @@
       href: manage-app-groups.md
     - name: 5. Hizmet güncelleştirmelerini doğrulamak için konak havuzu oluşturma
       href: create-validation-host-pool.md
+    - name: 6. Bir yönetim aracı dağıtma
+      href: manage-resources-using-ui.md
+    - name: 7. Hizmet uyarılarını ayarlama
+      href: set-up-service-alerts.md
 - name: Nasıl yapılır
   items:
     - name: Windows Sanal Masaüstü kaynaklarına bağlanma
@@ -40,6 +44,8 @@
       href: configure-vm-gpu.md
     - name: Oturum ana bilgisayarlarını otomatik olarak ölçeklendirme
       href: set-up-scaling-script.md
+    - name: RDP Özelliklerini Özelleştirme
+      href: customize-rdp-properties.md
 - name: Kavramlar
   items:
     - name: Windows Sanal Masaüstü ortamı

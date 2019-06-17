@@ -89,12 +89,20 @@
           href: concepts-business-continuity.md
         - name: Yedekleme ve geri yükleme
           href: concepts-backup.md
-    - name: İzleme
+    - name: İzleme ve ayarlama
       items:
-        - name: İzleme
+        - name: İzleme ve ayarlama
           href: concepts-monitoring.md
-        - name: Sunucu günlükleri
+        - name: Yavaş sorgu günlükleri
           href: concepts-server-logs.md
+        - name: Denetim günlükleri
+          href: concepts-audit-logs.md
+        - name: Sorgu Deposu
+          href: concepts-query-store.md
+        - name: Sorgu Performansı İçgörüleri
+          href: concepts-query-performance-insight.md
+        - name: Performans Önerileri
+          href: concepts-performance-recommendations.md
     - name: Geliştirme
       items:
         - name: Sürücü ve araç uyumluluğu
@@ -165,10 +173,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: Sunucu günlüklerine erişme
       items:
-        - name: Azure portal
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-in-cli.md
+        - name: Yavaş sorgu günlükleri
+          items:
+            - name: Azure portal
+              href: howto-configure-server-logs-in-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-in-cli.md
+        - name: Denetim günlükleri
+          items:
+            - name: Azure portal
+              href: howto-configure-audit-logs-portal.md
     - name: İzleme
       items:
         - name: Ölçümler üzerinde uyarı oluşturma

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 2d55af3e9ed3ad64f9ba7726799b31acb6b48580
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465057"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK kullanarak isteğe bağlı içerik göndermeye başlama  
@@ -92,7 +92,7 @@ Aşağıdaki kodla varsayılan Program sınıfının üzerine: Kod, bağlantı d
 
 Dosya adını ve yolunu medya dosyanıza göre güncelleştirmeyi unutmayın.
 
- **Ana** işlev, bu bölümün sonraki kısımlarında açıklanacak olan yöntemleri çağırır.
+**Ana** işlev, bu bölümün sonraki kısımlarında açıklanacak olan yöntemleri çağırır.
 
 > [!NOTE]
 > Tüm işlevler için bu makalede bahsedilen tanımları ekleyene kadar derleme hatası alırsınız.
@@ -375,7 +375,7 @@ Videonuzun akışını yapmak için URL'nizi [Azure Media Services Player](https
 
 Aşamalı indirmeyi test etmek için bir tarayıcıya (örneğin Internet Explorer, Chrome veya Safari) bir URL yapıştırın.
 
-Daha fazla bilgi edinmek için aşağıdaki kaynaklara bakın:
+Daha fazla bilgi için aşağıdaki konulara bakın:
 
 - [İçeriğinizi mevcut oynatıcılarda oynatma](media-services-playback-content-with-existing-players.md)
 - [Video oynatıcı uygulamaları geliştirme](media-services-develop-video-players.md)

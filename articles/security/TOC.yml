@@ -54,8 +54,14 @@
               href: azure-security-disk-encryption-overview.md
             - name: Hızlı Başlangıçlar
               items:
-                - name: VM Şifreleme - Azure PowerShell
-                  href: quick-encrypt-vm-powershell.md
+                - name: Azure CLI ile Linux VM şifreleme
+                  href: azure-disk-encryption-linux-cli-quickstart.md
+                - name: Azure PowerShell ile Linux VM şifreleme
+                  href: azure-disk-encryption-linux-powershell-quickstart.md
+                - name: Azure CLI ile Windows VM şifreleme
+                  href: azure-disk-encryption-windows-cli-quickstart.md
+                - name: Azure PowerShell ile Windows VM şifreleme
+                  href: azure-disk-encryption-windows-powershell-quickstart.md
             - name: Azure Disk Şifrelemesi
               items:
                 - name: Disk şifreleme önkoşulları

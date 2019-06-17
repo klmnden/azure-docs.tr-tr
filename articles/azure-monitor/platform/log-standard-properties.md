@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: bwren
-ms.openlocfilehash: c01cdb967fd7f9516b4403aa4f0c76f2577d5050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d7c1d9b59e802343f6d8fe258e8e4ac961bb2df
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394532"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061015"
 ---
 # <a name="standard-properties-in-azure-monitor-log-records"></a>Azure İzleyici günlük kayıtlarını standart özellikler
 Azure İzleyici'de günlük veri [bir kayıt kümesi depolanan](../log-query/log-query-overview.md), her bir özellik kümesi olan belirli veri türüne sahip. Birçok veri türleri, birden çok türlerinde ortak olan standart özellikleri olacaktır. Bu makalede, bu özellikleri açıklar ve nasıl bunları sorgularında kullanabileceğiniz örnekler sağlar.
@@ -52,7 +52,7 @@ search *
 ```
 
 ## <a name="resourceid"></a>\_ResourceId
- **\_ResourceId** özelliği kaydı ile ilişkili kaynak için benzersiz bir tanımlayıcı içerir. Bu, sorgunuzu kayıtlarına yalnızca belirli bir kaynaktan kapsam veya ilgili verileri birden çok tabloda katılmak için kullanılacak bir standart özelliği sağlar.
+**\_ResourceId** özelliği kaydı ile ilişkili kaynak için benzersiz bir tanımlayıcı içerir. Bu, sorgunuzu kayıtlarına yalnızca belirli bir kaynaktan kapsam veya ilgili verileri birden çok tabloda katılmak için kullanılacak bir standart özelliği sağlar.
 
 Değerini, Azure kaynakları için **_ResourceId** olduğu [Azure kaynak kimliği URL](../../azure-resource-manager/resource-group-template-functions-resource.md). Şu anda Azure kaynaklarına sınırlı bir özelliğidir, ancak şirket içi bilgisayarlar gibi Azure dışındaki kaynaklar için genişletilir.
 
@@ -98,7 +98,7 @@ union withsource = tt *
 Bu `union withsource = tt *` veri türlerinde taramaları çalıştırmak pahalı olduğundan tutumlu sorgular.
 
 ## <a name="isbillable"></a>\_IsBillable
- **\_IsBillable** özelliği, içe alınan veri Faturalanabilir olup olmadığını belirtir. Verilerle  **\_IsBillable** eşit _false_ ücretsiz toplanan ve Azure hesabınızda faturalandırılmaz.
+**\_IsBillable** özelliği, içe alınan veri Faturalanabilir olup olmadığını belirtir. Verilerle  **\_IsBillable** eşit _false_ ücretsiz toplanan ve Azure hesabınızda faturalandırılmaz.
 
 ### <a name="examples"></a>Örnekler
 Faturalandırılan veri türleri gönderme bilgisayarların listesini almak için aşağıdaki sorguyu kullanın:
@@ -125,7 +125,7 @@ union withsource = tt *
 ```
 
 ## <a name="billedsize"></a>\_BilledSize
- **\_BilledSize** özelliği, Azure hesabınızda faturalandırılırsınız veri bayt cinsinden boyutunu belirtir  **\_IsBillable** geçerlidir.
+**\_BilledSize** özelliği, Azure hesabınızda faturalandırılırsınız veri bayt cinsinden boyutunu belirtir  **\_IsBillable** geçerlidir.
 
 ### <a name="examples"></a>Örnekler
 Bilgisayar başına alınan Faturalanabilir olayların boyutunu görmek için `_BilledSize` bayt cinsinden boyut sağlayan özelliği:
@@ -135,6 +135,26 @@ union withsource = tt *
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
 ```
+
+Abonelik başına alınan Faturalanabilir olayların boyutunu görmek için aşağıdaki sorguyu kullanın:
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+```
+
+Kaynak grubu başına alınan Faturalanabilir olayların boyutunu görmek için aşağıdaki sorguyu kullanın:
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+
+```
+
 
 Bilgisayar başına alınan olayların sayısını görmek için aşağıdaki sorguyu kullanın:
 
@@ -151,7 +171,7 @@ union withsource = tt *
 | summarize count() by Computer  | sort by count_ nulls last
 ```
 
-Sayıları Faturalandırılabilir veri türleri için belirli bir bilgisayar için veri gönderdiğini görmek istiyorsanız, aşağıdaki sorguyu kullanın:
+Belirli bir bilgisayar Faturalanabilir veri türlerinden sayısını görmek için aşağıdaki sorguyu kullanın:
 
 ```Kusto
 union withsource = tt *
@@ -159,7 +179,6 @@ union withsource = tt *
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last 
 ```
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

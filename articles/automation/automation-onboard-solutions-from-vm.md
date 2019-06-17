@@ -10,19 +10,19 @@ ms.service: automation
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133113"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Bir Azure sanal makinesinden yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri
 
 Azure Otomasyonu, işletim sistemi güvenlik güncelleştirmelerini yönetme, değişiklikleri izleme ve stok bilgisayarlarınızda yüklü yardımcı olmaya yönelik çözümler sunar. Makine birden çok yolu vardır. Bir sanal makineden çözüm ekleyebilir [Otomasyon hesabınızdan](automation-onboard-solutions-from-automation-account.md), [birden çok makine gözatma gelen](automation-onboard-solutions-from-browse.md), kullanarak veya bir [runbook](automation-onboard-solutions.md). Bu makale bir Azure sanal makinesinden bu çözümleri ekleme kapsar.
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ## <a name="enable-the-solutions"></a>Çözümleri etkinleştirme
 
@@ -59,7 +59,7 @@ Güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri için bir b
 
 Çalışma alanınıza gidin. Altında **genel**seçin **kayıtlı aramalar**. Bu çözümler tarafından kullanılan iki kayıtlı aramalar aşağıdaki tabloda gösterilmiştir:
 
-|Ad     |Category  |Diğer Ad  |
+|Ad     |Kategori  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  Değişiklik izleme       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Güncelleştirmeler        | Updates__MicrosoftDefaultComputerGroup         |
@@ -87,7 +87,7 @@ Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kald
 
 2. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
 
-   ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png):
+   ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    Devam etmek istediğinizi doğrulayan bir ileti alacaksınız.
 
