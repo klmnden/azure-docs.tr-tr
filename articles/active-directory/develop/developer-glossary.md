@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235348"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft kimlik platformu Geliştirici sözlüğü
@@ -54,7 +54,7 @@ Ne zaman, kaydolun/güncelleştirme uygulamada [Azure portalında][AZURE-portal]
 
 Daha fazla bilgi için [uygulama ve hizmet sorumlusu nesneleri][AAD-App-SP-Objects].
 
-## <a name="application-registration"></a>Uygulama kaydı
+## <a name="application-registration"></a>uygulama kaydı
 
 Bir uygulamayı tümleştirin ve Azure ad kimlik ve erişim yönetimi işlevleri temsilci izin vermek üzere bir Azure AD'ye kayıtlı [Kiracı](#tenant). Uygulamanızı Azure AD'ye kaydetme, uygulamanız için bir kimlik yapılandırması gibi özellikleri kullanın ve Azure AD ile tümleştirme izin veren sağlanmaktadır:
 
@@ -64,11 +64,11 @@ Bir uygulamayı tümleştirin ve Azure ad kimlik ve erişim yönetimi işlevleri
 
 Bkz: [uygulamaları Azure Active Directory ile tümleştirme] [ AAD-Integrating-Apps] daha fazla ayrıntı için.
 
-## <a name="authentication"></a>Kimlik doğrulaması
+## <a name="authentication"></a>kimlik doğrulaması
 
 Zorlu kimlik ve erişim denetimi için kullanılacak bir güvenlik sorumlusu oluşturma için temel sağlayan bir taraf meşru kimlik bilgileri işlemi. Sırasında bir [OAuth2 yetkilendirme verme](#authorization-grant) kimlik doğrulaması taraf ya da rolü gibi doldurma [kaynak sahibi](#resource-owner) veya [istemci uygulaması](#client-application)bağlı olarak kullanılan verin.
 
-## <a name="authorization"></a>Yetkilendirme
+## <a name="authorization"></a>authorization
 
 Bir şey yapmak için bir kimliği doğrulanmış güvenlik sorumlusu izin verme işlemi. Azure AD programlama modelinde iki temel kullanım örneği vardır:
 
@@ -192,7 +192,7 @@ Bir uygulamanın oturum açma işlevi genellikle çoklu oturum açma (SSO) uygul
 
 Kullanıcı durumunu ayırma bir son kullanıcı unauthenticating işlemi ile ilişkili [istemci uygulaması](#client-application) oturumu sırasında [oturum açma](#sign-in)
 
-## <a name="tenant"></a>kiracı
+## <a name="tenant"></a>tenant
 
 Bir Azure AD directory örneğini Azure AD kiracısı adlandırılır. Bu da dahil olmak üzere çeşitli özellikler sağlar:
 

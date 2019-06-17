@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: d312a93f83ef38fa1ae855a1e313280fc608948d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799395"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Sahneler, çekimler, ana kareler
@@ -30,7 +30,7 @@ Video Indexer, videoda üzerinde görsel ipuçları Sahne değiştiğinde belirl
 > [!NOTE]
 > En az 3 içeren videolar için geçerlidir.
 
-## <a name="shot-detection"></a>Çekim algılama
+## <a name="shot-detection"></a>Kare algılama
 
 Video Indexer bir kare değiştirildiğinde üzerinde görsel ipuçları, bitişik çerçeve ani ve aşamalı geçişler, renk düzenini izleyerek tabanlı video belirler. Görüntüsü ait meta verileri, bir başlangıç ve bitiş zamanı yanı sıra, bu görüntüsünde dahil ana kareleri listesini içerir. Aynı anda aynı kameradan alınan ardışık kare görüntülerini var.
 

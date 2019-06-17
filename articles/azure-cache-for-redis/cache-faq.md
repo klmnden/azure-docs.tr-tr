@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: cdf0ce26ab3a8056fb40bc54ba6336b7cfd69ec0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6b27b27fedf622908fa5c06bd2562d9049a4366b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230105"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052063"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Redis için Azure Önbelleği SSS
 Sık sorulan sorular, desenleri ve en iyi yanıtları Azure önbelleği için Redis için öğrenin.
@@ -133,10 +133,10 @@ Bu tabloda, size aşağıdaki sonuçları çizebilirsiniz:
 * Kümedeki parça (düğümler) sayısı arttıkça, Redis Kümeleme ile üretilen işi doğrusal olarak artırır. Örneğin, 10 parça P4 kümesi oluşturursanız, kullanılabilir aktarım hızı 400.000 * 10 = 4 milyon RPS olur.
 * Aktarım hızı büyük anahtar boyutları için standart katmana göre Premium katmanındaki daha yüksektir.
 
-| Fiyatlandırma katmanı | Boyutlandır | CPU çekirdekleri | Kullanılabilir bant genişliği | 1 KB'lık değeri boyutu | 1 KB'lık değeri boyutu |
+| Fiyatlandırma katmanı | Boyut | CPU çekirdekleri | Kullanılabilir bant genişliği | 1 KB'lık değeri boyutu | 1 KB'lık değeri boyutu |
 | --- | --- | --- | --- | --- | --- |
 | **Standart önbellek boyutu** | | |**Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**İkinci (RP'ler) SSL olmayan başına istek sayısı** |**İkinci (RP'ler) SSL başına istek sayısı** |
-| C0 | 250 MB | Paylaşıldı | 100 / 12.5  |  15.000 |   7,500 |
+| C0 | 250 MB | Paylaşılan | 100 / 12.5  |  15\.000 |   7,500 |
 | C1 |   1 GB | 1      | 500 / 62.5  |  38,000 |  20,720 |
 | C2 | 2,5 GB | 2      | 500 / 62.5  |  41,000 |  37,000 |
 | C3 |   6 GB | 4      | 1000 / 125  | 100,000 |  90,000 |
@@ -148,7 +148,7 @@ Bu tabloda, size aşağıdaki sonuçları çizebilirsiniz:
 | P2 |  13 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
 | P3 |  26 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
 | P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373,000 |
-| P5 | 110 GB | 20 | 6,000 / 750   | 400,000 | 373,000 |
+| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373,000 |
 
 Stunnel ' ayarlama veya Redis araçları gibi yükleme yönergeleri için `redis-benchmark.exe`, bkz: [Redis komutları nasıl çalıştırırım?](#cache-commands) bölümü.
 
@@ -251,7 +251,7 @@ Konusunda listelenen komutlardan herhangi birini kullanabilirsiniz [Redis komutl
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Redis komut satırı araçlarını SSL bağlantı noktası ile çalışmaz, ancak gibi bir yardımcı programını kullanabilirsiniz `stunnel` güvenli bir şekilde Araçları'ndaki yönergeleri takip ederek SSL bağlantı noktasına bağlanmak için [Redis Önizleme için ASP.NET oturum durumu sağlayıcısı ile tanışın Yayın](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog gönderisi.
+> Redis komut satırı araçlarını SSL bağlantı noktası ile çalışmaz, ancak gibi bir yardımcı programını kullanabilirsiniz `stunnel` güvenli bir şekilde Araçları'ndaki yönergeleri takip ederek SSL bağlantı noktasına bağlanmak için [Redis komut satırı aracı Azure önbelleği için Redis kullanma ](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) makalesi.
 >
 >
 
@@ -403,7 +403,7 @@ void Application_Start(object sender, EventArgs e)
 ```
 
   > [!NOTE]
-  > Bu yöntem tarafından belirtilen değere tam AppDomain etkileyen genel bir ayardır. Örneğin, 4 çekirdekli makine olması ve ayarlamak isterseniz *minWorkerThreads* ve *minIoThreads* çalışma zamanı sırasında CPU başına 50 olarak kullanacağınız **ThreadPool.SetMinThreads (200, 200)**.
+  > Bu yöntem tarafından belirtilen değere tam AppDomain etkileyen genel bir ayardır. Örneğin, 4 çekirdekli makine olması ve ayarlamak isterseniz *minWorkerThreads* ve *minIoThreads* çalışma zamanı sırasında CPU başına 50 olarak kullanacağınız **ThreadPool.SetMinThreads (200, 200)** .
 
 * En az iş parçacığı kullanarak ayarı belirtmek mümkündür [ *minIoThreads* veya *minWorkerThreads* yapılandırma ayarı](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) altında `<processModel>` Yapılandırma öğesinde `Machine.config`konumunda bulunan genellikle `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Sistem genelinde bir ayar olduğundan bu şekilde en az iş parçacığı sayısını ayarlama genellikle önerilmez.**
 

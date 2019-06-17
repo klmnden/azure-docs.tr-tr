@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd26f36356affbc8c272bd093757a8482773baf2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544020"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>İstemci uygulamaları MSAL.js kullanılarak başlatılamıyor
@@ -125,11 +125,11 @@ Yapılandırma nesnesi şu anda desteklenen yapılandırılabilir seçeneklerin 
 
 - **redirectUri**: İsteğe bağlı.  Yeniden yönlendirme URI'si uygulamanızın, burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alındı. Bu URL olarak kodlanmış olması dışında tam olarak yeniden yönlendirme URI'leri Portalı'nda kayıtlı biriyle eşleşmelidir. Varsayılan olarak `window.location.href`.
 
-- **postLogoutRedirectUri**: İsteğe bağlı.  Kullanıcıya yeniden yönlendiren `postLogoutRedirectUri` oturumu kapattıktan sonra. Varsayılan, `redirectUri` değeridir.
+- **postLogoutRedirectUri**: İsteğe bağlı.  Kullanıcıya yeniden yönlendiren `postLogoutRedirectUri` oturumu kapattıktan sonra. Varsayılan değer: `redirectUri`.
 
 - **navigateToLoginRequestUrl**: İsteğe bağlı. Oturum açtıktan sonra Başlangıç sayfası için varsayılan gezinti devre dışı bırakma olanağı. Varsayılan değer True'dur. Bu yalnızca yeniden yönlendirme akış için kullanılır.
 
-- **cacheLocation**: İsteğe bağlı.  Tarayıcı depolama ya da ayarlar `localStorage` veya `sessionStorage`. Varsayılan, `sessionStorage` değeridir.
+- **cacheLocation**: İsteğe bağlı.  Tarayıcı depolama ya da ayarlar `localStorage` veya `sessionStorage`. Varsayılan değer: `sessionStorage`.
 
 - **storeAuthStateInCookie**: İsteğe bağlı.  Bu bayrak MSAL.js v0.2.2 olarak ilişkin bir düzeltme kullanıma sunulmuştur [kimlik doğrulama döngüsü sorunları](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones) Microsoft Internet Explorer ve Microsoft Edge. Etkinleştirme bayrağını `storeAuthStateInCookie` true yararlanma bu düzeltmek için. Bu etkinleştirildiğinde, MSAL.js tarayıcı tanımlama bilgileri kimlik doğrulama akışları doğrulanması için gerekli kimlik doğrulama isteği durumu depolar. Varsayılan olarak bu bayrağı ayarlanır `false`.
 

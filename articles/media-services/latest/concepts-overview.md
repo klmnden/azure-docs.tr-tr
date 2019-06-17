@@ -13,10 +13,10 @@ ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762303"
 ---
 # <a name="media-services-concepts"></a>Media Services kavramları
@@ -32,7 +32,7 @@ Bu konularda açıklandığı gibi temel kavramları, geliştirme başlatılmada
 
 Bu bölümde, bazı ortak sektör terimleri Media Services v3 API'sine nasıl eşleştiği gösterilir.
 
-### <a name="live-event"></a>Canlı Etkinlik
+### <a name="live-event"></a>Canlı etkinlik
 
 A **canlı olay** almak, biçim dönüştürme (isteğe bağlı olarak) ve paketleme, video, ses ve gerçek zamanlı meta verileri Canlı akışlar için bir işlem hattını temsil eder.
 
@@ -51,7 +51,7 @@ Yönetme, şifreleme, kodlama, çözümleme ve azure'da medya içeriği akışı
 - [Bulutta karşıya yükleme ve depolama](storage-account-concept.md)
 - [Varlıklar kavramı](assets-concept.md)
 
-## <a name="encoding"></a>Kodlama
+## <a name="encoding"></a>Encoding
 
 Yüksek kaliteli dijital medya dosyalarınızın varlıklarına karşıya yükledikten sonra çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimlere şifreleyebilirsiniz. 
 
@@ -114,7 +114,7 @@ Aşağıdaki görüntüde, doğrudan türü iş akışı gösterilmektedir:
 
 ## <a name="monitoring"></a>İzleme
 
-### <a name="event-grid"></a>Olay Kılavuzu
+### <a name="event-grid"></a>Event Grid
 
 İşinin ilerleme durumunu görmek için kullanmalısınız **Event Grid**. Media Services, canlı olay türleri de gösterir. Event Grid ile uygulamalarınız neredeyse tüm Azure hizmetleri ve özel kaynaklardan gelen olayları takip edip bu olaylara yanıt verebilir. 
 

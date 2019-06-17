@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486473"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Veri Yönetimi Ağ Geçidi için sürüm notları
@@ -103,7 +103,7 @@ Daha fazla sürüm notlarını buradan saklarız. En son sürüm notlarını edi
 *  Ağ geçidi Yapılandırma Yöneticisi'ni kullanarak ağ geçidi için HTTP proxy ayarı destekler. Yapılandırılmışsa, Azure Blob, Azure tablo, Azure Data Lake ve Document DB, HTTP proxy üzerinden erişilir.
 *  / İçin Azure Blob, Azure Data Lake Store, veri kopyalama sırasında TextFormat için işleme destekler üst bilgi şirket içinde dosya sistemi ve şirket içinde HDFS.
 *  Ekleme Blob ve sayfa blobu zaten desteklenen blok blobu yanı sıra veri kopyalamayı destekler.
-*  Yeni bir ağ geçidi durumu tanıtır **çevrimiçi (sınırlı)**, ağ geçidi ana işlevlerini Kopyalama Sihirbazı'nı etkileşimli işlem desteği dışında çalıştığını gösterir.
+*  Yeni bir ağ geçidi durumu tanıtır **çevrimiçi (sınırlı)** , ağ geçidi ana işlevlerini Kopyalama Sihirbazı'nı etkileşimli işlem desteği dışında çalıştığını gösterir.
 *  Kayıt anahtarını kullanarak ağ geçidi kaydı sağlamlığını geliştirir.
 
 ## <a name="216040"></a>2.1.6040.

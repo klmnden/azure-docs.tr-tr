@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126690"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Azure Databricks, sanal ağınızın (Önizleme) dağıtma
@@ -74,7 +74,7 @@ Azure Databricks çalışma dağıtacağınız bir sanal ağ olması gerekir. Me
 
 1. Azure portalında **+ kaynak Oluştur > Analytics > Azure Databricks** Azure Databricks hizmeti iletişim kutusunu açın.
 
-2. 2. adımda açıklanan yapılandırma adımlarını izleyin: Kullanmaya başlama Kılavuzu'nda bir Azure Databricks çalışma alanı oluşturma ve dağıtma Azure Databricks çalışma alanı, sanal ağ seçeneğini belirleyin.
+2. 2\. adımda açıklanan yapılandırma adımlarını izleyin: Kullanmaya başlama Kılavuzu'nda bir Azure Databricks çalışma alanı oluşturma ve dağıtma Azure Databricks çalışma alanı, sanal ağ seçeneğini belirleyin.
 
    ![Azure Databricks hizmeti oluşturma](./media/vnet-injection/create-databricks-service.png)
 
@@ -121,7 +121,7 @@ Bu şablon aynı zamanda ağ güvenlik grupları şablonunu kullanmadan kullanı
 
 Kullanmıyorsanız, [Azure portalında](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) veya [Azure Resource Manager şablonları](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) , ağ güvenlik grupları oluşturmak için el ile aşağıdaki trafik beyaz liste, alt ağlarda gerekir.
 
-|Direction|Protokol|Kaynak|Kaynak Bağlantı Noktası|Hedef|Hedef Bağlantı Noktası|
+|Direction|Protocol|source|Kaynak Bağlantı Noktası|Hedef|Hedef Bağlantı Noktası|
 |---------|--------|------|-----------|-----------|----------------|
 |Gelen|\*|VirtualNetwork|\*|\*|\*|
 |Gelen|\*|Denetim düzlemi NAT IP|\*|\*|22|

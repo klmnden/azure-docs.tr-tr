@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/29/2019
-ms.openlocfilehash: 79d15a46affb2a6b7159ba080d4235073c59919c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b2a4a8f7de7e23997b2d8ba0c1c35dfd97f2541
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61413709"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118758"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı ile koşullu erişim (MFA)  
 
@@ -34,13 +34,13 @@ Aşağıdaki adımlarda, SQL veritabanı, bir koşullu erişim ilkesini zorlamak
 
 ## <a name="configure-ca-for-azure-sql-dbdw"></a>Azure SQL DB/DW için CA'yı yapılandırma  
 1. Portalında, select oturum **Azure Active Directory**ve ardından **koşullu erişim**. Daha fazla bilgi için [Azure Active Directory koşullu erişim teknik başvuru](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
-   ![koşullu erişim dikey penceresi](./media/sql-database-conditional-access/conditional-access-blade.png) 
+   ![Koşullu erişim dikey penceresi](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
 2. İçinde **koşullu erişim ilkeleri** dikey penceresinde tıklayın **yeni ilke**bir ad belirtin ve ardından **yapılandırma kuralları**.  
-3. Altında **atamaları**seçin **kullanıcılar ve gruplar**, kontrol **kullanıcıları ve grupları seçin**ve ardından kullanıcı veya grup için koşullu erişim'i seçin. Tıklayın **seçin**ve ardından **Bitti** seçiminizi kabul etmek için.  
+3. Altında **atamaları**seçin **kullanıcılar ve gruplar**, kontrol **kullanıcıları ve grupları seçin**ve koşullu erişim için kullanıcı veya grup seçin. Tıklayın **seçin**ve ardından **Bitti** seçiminizi kabul etmek için.  
    ![Kullanıcıları ve grupları seçin](./media/sql-database-conditional-access/select-users-and-groups.png)  
 
-4. Seçin **bulut uygulamaları**, tıklayın **uygulamaları Seç**. Tüm uygulamalar için koşullu erişim kullanılabilir görürsünüz. Seçin **Azure SQL veritabanı**, alt tıklatın **seçin**ve ardından **Bitti**.  
+4. Seçin **bulut uygulamaları**, tıklayın **uygulamaları Seç**. Kullanılabilir tüm uygulamalar için koşullu erişim görürsünüz. Seçin **Azure SQL veritabanı**, alt tıklatın **seçin**ve ardından **Bitti**.  
    ![SQL veritabanı seçin](./media/sql-database-conditional-access/select-sql-database.png)  
    Aradığınız bulamıyorsanız **Azure SQL veritabanı** üçüncü aşağıdaki ekran görüntüsünde listelenen, aşağıdaki adımları tamamlayın:   
    - Azure SQL DB/DW örneğinizin SSMS ile bir AAD yönetici hesabı kullanarak oturum açın.  

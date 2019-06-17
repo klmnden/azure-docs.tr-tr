@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 3893b79cee96c3928897f64f3601ebe4c490ebdd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146308"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Tanılama ayarları ile günlük kaydını etkinleştirme
@@ -25,15 +25,15 @@ ms.locfileid: "66146308"
 
 3. Seçin **tanılamayı Aç**.
 
-   ![Tanılamayı aç](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
+   ![Tanılamayı açma](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
 
 4. Tanılama ayarlarını, bir ad verin.
 
 5. Seçmek istediğiniz günlükleri göndermek. Üç seçenekten herhangi bir birleşimini seçebilirsiniz:
 
    * Bir depolama hesabına arşivle
-   * Bir olay hub'ına akış yap
-   * Log Analytics'e gönder
+   * Olay hub'ına Stream
+   * Log Analytics’e gönderme
 
 6. İzlemek istediğiniz işlemleri seçin ve bu işlemler için günlüklerini etkinleştirin. Tanılama Ayarları'nın Raporlama yapabileceği işlemleri şunlardır:
 

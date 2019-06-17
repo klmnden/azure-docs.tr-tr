@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632231"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple cihaz Yöneticisi hizmeti, StorSimple cihaz yapılandırmasını değiştirmek için kullanın
@@ -127,7 +127,7 @@ Her ağ arabirimi için aşağıdaki parametreler görüntülenir:
   * **iSCSI etkin** – etkin olduğunda, cihazın bu arabirimi iSCSI konaklarla iletişim kurmak için kullanır.
     
     İSCSI trafiği bulut depolama trafiğinden yalıtmak öneririz. Ayrıca, ana Cihazınızı aynı alt ağda içindeyse, bir ağ geçidi atayabilirsiniz gerekmez unutmayın; ancak konağınız Cihazınızı daha farklı bir alt ağ içinde ise, bir ağ geçidi atamanız gerekir.
-* **IP adresi** – ağ arabirimlerinin yapılandırdığınızda sanal IP (VIP) yapılandırmanız gerekir. Bu, IPv4 veya IPv6 veya her ikisi de olabilir. IPv4 ve IPv6 adres ailelerinin cihaz ağ arabirimleri için desteklenir. Bir 32-bit IP adresi IPv4 kullanırken belirtin (*.xxx.xxx*), nokta-ondalık gösteriminde. IPv6 kullanırken, yalnızca 4 basamaklı ön eki girin ve 128-bit adresi bu ön ekini temel alarak, cihaz ağ arabirimi için otomatik olarak oluşturulur.
+* **IP adresi** – ağ arabirimlerinin yapılandırdığınızda sanal IP (VIP) yapılandırmanız gerekir. Bu, IPv4 veya IPv6 veya her ikisi de olabilir. IPv4 ve IPv6 adres ailelerinin cihaz ağ arabirimleri için desteklenir. Bir 32-bit IP adresi IPv4 kullanırken belirtin ( *.xxx.xxx*), nokta-ondalık gösteriminde. IPv6 kullanırken, yalnızca 4 basamaklı ön eki girin ve 128-bit adresi bu ön ekini temel alarak, cihaz ağ arabirimi için otomatik olarak oluşturulur.
 * **Alt ağ** – bu alt ağ maskesi için ifade eder ve Windows PowerShell arabirimi üzerinden yapılandırılır.
 * **Ağ geçidi** – (alt ağ) aynı IP adresi alanı içinde olmayan düğümleriyle iletişim kurmayı denediğinde bu arabirim tarafından kullanılan varsayılan ağ geçidini budur. Varsayılan Ağ Geçidi Arabirimi aynı adres alanını (alt ağ) IP adresi alt ağ maskesi tarafından belirlenen şekilde olmalıdır.
 * **IP adresi sabit** – yalnızca DATA 0 yapılandırırken Bu alan kullanılabilir arabirimi. Güncelleştirmeleri veya cihaz sorunlarını giderme gibi işlemler için doğrudan cihaz denetleyiciye bağlanmak gerekebilir. Sabit IP adresini, hem etkin hem de cihaz edilgen denetleyiciye erişmek için kullanılabilir.

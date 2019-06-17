@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
 ms.openlocfilehash: 4cd61db3ec0e8d88c9b1c6d6ba427b120b3f1af1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152409"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak SAP Business Warehouse veri kopyalama
@@ -162,7 +162,7 @@ Data factory üzerinde **başlayalım** sayfasında **şablondan işlem hattı O
 
    - **HighWatermarkBlobName**: Üst eşik değerini depolamak için blob adı belirtin `requestIdCache.txt`. BLOB Depolama alanında gibi HighWatermarkBlobPath + HighWatermarkBlobName, karşılık gelen yoluna gidin *container/path/requestIdCache.txt*. Blob içeriği 0 ile oluşturun.
 
-      ![Blob içeriği](media/load-sap-bw-data/blob.png)
+      ![BLOB içeriği](media/load-sap-bw-data/blob.png)
 
    - **LogicAppURL**: Bu şablon Azure Logic Apps, Blob Depolama alanında üst eşik değerini ayarlamak için çağrılacak WebActivity kullanın. Ya da depolamak için Azure SQL veritabanı'nı kullanabilirsiniz. Değerini güncelleştirmek için bir saklı yordam etkinliği kullanın.
 

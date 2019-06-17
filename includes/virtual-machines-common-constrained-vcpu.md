@@ -9,10 +9,10 @@ ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158495"
 ---
 SQL Server veya Oracle gibi bazı veritabanı iş yükleri, yüksek bellek, depolama ve g/ç bant genişliği, ancak yüksek çekirdek sayısı gerektirir. Birçok veritabanı iş yüklerini CPU yoğunluklu değildir. Azure VM vCPU sayısı aynı bellek, depolama ve g/ç bant genişliği koruyarak yazılım lisans maliyetini azaltmak için nereye kısıtlayabilirsiniz belirli VM boyutları sunar.
@@ -21,10 +21,10 @@ VCPU sayısı kısıtlı özgün VM boyutunun yarısı veya bir üç aylık dön
 
 Örneğin, mevcut VM boyutlarının Standard_GS5 32 Vcpu, 448 GB RAM ile sunulur, 64 (en fazla 256 TB), diskler ve 80.000 IOPS veya 2 GB/sn g/ç bant genişliği. Standard_GS5-16 ve yeni VM boyutları ve kalan bellek, depolama ve g/ç bant genişliği Standard_GS5 özellikleri korurken sırasıyla Standard_GS5-8 ile 16 ve 8 active Vcpu gelir.
 
-SQL Server veya Oracle için yeni vCPU sayısı sınırlı olduğu ve diğer ürünler yazılacağını lisans Ücretlerle yeni vCPU sayısını temel. VM özellikleri oranını %50 %75 artış için etkin (Faturalanabilir) Vcpu sonuçlanır. Bu yeni VM boyutları, aynı bellek, depolama ve g/ç bant genişliği yazılımlarını lisans maliyeti en iyi duruma getirme sırasında kullanmak, müşteri iş yüklerinin izin verir. Şu anda işletim sistemi lisans içerir, işlem maliyeti özgün boyutu olarak aynı kalır. Daha fazla bilgi için [daha uygun maliyetli veritabanı iş yükleri için Azure VM boyutlarını](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+SQL Server veya Oracle için yeni vCPU sayısı sınırlı olduğu ve diğer ürünler yazılacağını lisans Ücretlerle yeni vCPU sayısını temel. VM özellikleri oranını %50 %75 artış için etkin (Faturalanabilir) Vcpu sonuçlanır. Bu yeni VM boyutları sayesinde müşteriler iş yüklerinde aynı bellek, depolama alanı ve G/Ç bant genişliği kullanılarak yazılım lisanslama maliyetleri iyileştirilebilir. Şu anda işletim sistemi lisans içerir, işlem maliyeti özgün boyutu olarak aynı kalır. Daha fazla bilgi için [daha uygun maliyetli veritabanı iş yükleri için Azure VM boyutlarını](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 
-| Ad                | vCPU | Özellikler           |
+| Ad                | Sanal işlemci | Özellikler           |
 |---------------------|------|-----------------|
 | Standard_M8-2ms     | 2    | Aynı M8ms    |
 | Standard_M8-4ms     | 4    | Aynı M8ms    |

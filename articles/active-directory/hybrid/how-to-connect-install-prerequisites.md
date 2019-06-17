@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f7219578932a259f48b0109d433dcba9ff28d1f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 1d17823c4ef4917f9f312b8f2f327e2b0395cfa3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508062"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109425"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -48,6 +48,9 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 * Önerilir [Active Directory geri dönüşüm kutusunu etkinleştirme](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect sunucusu
+>[!IMPORTANT]
+>Azure AD Connect sunucusu kritik kimlik verilerini içeren ve açıklandığı gibi bir katman 0 bileşeni olarak değerlendirilip [Active Directory Yönetim katmanı modeli](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#ADATM_BM)
+
 * Azure AD Connect yüklenemez Small Business Server veya Windows Server Essentials 2019 önce (Windows Server Essentials 2019 desteklenir). Sunucu Windows Server standard veya daha iyi kullanıyor olmanız gerekir.
 * Güvenlik uygulamaları ve Azure AD Connect doğru bir şekilde yüklenmesini engelleyen daha kısıtlayıcı ayarlar nedeniyle Azure AD Connect, etki alanı denetleyicisine yüklenmesi önerilmez
 * Azure AD Connect sunucusu tam GUI yüklü olması gerekir. Bu **desteklenmiyor** sunucu Çekirdeğinde yüklemek için.
@@ -138,7 +141,7 @@ Bağlantı sorunlarınız olduğunda, daha fazla bilgi için bkz. [bağlantı so
 Azure AD Connect, Microsoft PowerShell ve .NET Framework 4.5.1 bağlıdır. Bu sürümü veya sonraki bir sürümü sunucuda yüklü ihtiyacınız var. Windows Server sürümüne bağlı olarak, aşağıdakileri yapın:
 
 * Windows Server 2012R2
-  * Microsoft PowerShell varsayılan olarak yüklenir. Eylem gerekmiyor.
+  * Microsoft PowerShell varsayılan olarak yüklenir. İşlem yapmanız gerekmez.
   * .NET framework 4.5.1 ve sonraki sürümleri, Windows Update aracılığıyla sunulur. Denetim Masası'nda Windows Server için en son güncelleştirmeleri yüklediğinizden emin olun.
 * Windows Server 2008 R2 ve Windows Server 2012
   * Microsoft PowerShell'in en son sürümünü kullanılabilir **Windows Management Framework 4.0**üzerinden [Microsoft Download Center](https://www.microsoft.com/downloads).
@@ -210,7 +213,7 @@ Azure AD Connect eşitleme bilgisayarın en düşük gereksinimleri aşağıdaki
 
 | Active Directory içindeki nesneleri sayısı | CPU | Bellek | Sabit sürücü boyutu |
 | --- | --- | --- | --- |
-| 10. 000'den az |1,6 GHz |4 GB |70 GB |
+| 10\. 000'den az |1,6 GHz |4 GB |70 GB |
 | 10,000–50,000 |1,6 GHz |4 GB |70 GB |
 | 50,000–100,000 |1,6 GHz |16 GB |100 GB |
 | SQL Server'ın tam sürümünü 100.000 veya daha fazla nesne için gereklidir | | | |

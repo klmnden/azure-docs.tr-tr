@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 221f559dde2017c9b5d13dd4e06a140a6bcb5e2e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935414"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Bulut iş ortağı portalı GDPR uyumluluğu
@@ -31,7 +31,7 @@ Bulut iş ortağı portalı, tüm verilerinize ilişkin kullanıcılar sekmesind
 
 Kullanıcı hesabınıza ilişkin kullanıcılar sekmesinde delete tuşuna basarak kişisel verilerinizi yönetin. Rolleri, sahip olduğumuz bir **sahibi** ve **katkıda bulunan** her belirli bir kullanıcıya atanabilir ve her ikisi de atanmış/kopyalanan/güncelleştirilen/silinen olabilir.
 
-<a name="consent"></a>Onayla
+<a name="consent"></a>Onayı
 -------
 
 Bulut iş ortağı portalı onay yönetmek için bir yayımcı her zaman başlangıçta gösterilir sözleşmesi sözleşme, Microsoft ile yayımcı olması için kabul etmek ihtiyacınız. Yayımcı anlaşma onaylamazsanız, biz publisher'ın Microsoft ile satabilmek olmaması kısıtlayın.

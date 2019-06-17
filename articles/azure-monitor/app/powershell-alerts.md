@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
 ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66130971"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Application Insights uyarıları ayarlamak için PowerShell kullanma
@@ -50,7 +50,7 @@ Azure PowerShell'i başlatın ve [aboneliğinize bağlanma](/powershell/azure/ov
 ## <a name="get-alerts"></a>Uyarılar alın
     Get-AzAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## <a name="add-alert"></a>Uyarı ekle
+## <a name="add-alert"></a>Uyarı Ekle
     Add-AzMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
@@ -100,34 +100,34 @@ Aynı kural kullanılarak bildirilen ölçüm için kullanılabilir [ölçüm pa
 ## <a name="metric-names"></a>Ölçüm adları
 | Ölçüm adı | Ekran adı | Açıklama |
 | --- | --- | --- |
-| `basicExceptionBrowser.count` |Tarayıcı özel durumları |Tarayıcıda oluşan yakalanmayan özel durum sayısı. |
+| `basicExceptionBrowser.count` |Tarayıcı özel durumları |Tarayıcıda oluşan Yakalanmayan Özel durum sayısı. |
 | `basicExceptionServer.count` |Sunucu özel durumları |Uygulama tarafından oluşturulan yakalanamayan özel durum sayısı |
 | `clientPerformance.clientProcess.value` |İstemci işlem süresi |DOM'un yüklenmesi arasında bir belgenin son bayt alma süresi. Zaman uyumsuz istekler hala işleniyor. |
 | `clientPerformance.networkConnection.value` |Sayfa yükleme ağ bağlantı süresi |Ağa bağlanmak için tarayıcıya geçen süre. Önbelleğe alınmış 0 olabilir. |
 | `clientPerformance.receiveRequest.value` |Yanıt süresi alınıyor |Yanıt almak başlatma isteği gönderilirken tarayıcı arasındaki süre. |
 | `clientPerformance.sendRequest.value` |İstek gönderme süresi |İsteği göndermek için tarayıcı tarafından harcanan süre. |
-| `clientPerformance.total.value` |Tarayıcı sayfa yükleme süresi |Kullanıcı isteğinden DOM, stil sayfaları, betikler ve resimler yüklenene kadar geçen süre. |
-| `performanceCounter.available_bytes.value` |Uygun bellek |Bir işlem veya sistem kullanımı için hemen kullanılabilir fiziksel bellek. |
-| `performanceCounter.io_data_bytes_per_sec.value` |İşlem GÇ Hızı |Dosyalar, ağ ve cihazlar üzerinde saniyede okunan ve yazılan toplam bayt. |
+| `clientPerformance.total.value` |Tarayıcı sayfa yükleme süresi |Kullanıcı isteğinden DOM, stil sayfaları, betikler ve resimler yüklenene kadar süre. |
+| `performanceCounter.available_bytes.value` |Kullanılabilir bellek |Bir işlem veya sistem kullanımı için hemen kullanılabilir fiziksel bellek. |
+| `performanceCounter.io_data_bytes_per_sec.value` |İşlem GÇ hızı |Saniyede okunan ve dosyaları, ağ ve cihazlar için yazılan toplam bayt sayısı. |
 | `performanceCounter.number_of_exceps_thrown_per_sec.value` |özel durum oranı |Saniye başına oluşturulan bir özel durumlar. |
 | `performanceCounter.percentage_processor_time.value` |İşlem CPU'su |Tüm işlem iş parçacıklarının yönergeleri yürütmek için işlemciyi tarafından uygulama işlemi için kullanılan geçen süre yüzdesi. |
-| `performanceCounter.percentage_processor_total.value` |İşlemci zamanı |İşlemcinin Boşta olmayan iş parçacıklarında geçirdiği sürenin yüzdesi. |
+| `performanceCounter.percentage_processor_total.value` |İşlemci zamanı |İşlemcinin boşta olmayan iş parçacıklarında geçirdiği sürenin yüzdesi. |
 | `performanceCounter.process_private_bytes.value` |İşleme özel bayt sayısı |İzlenen uygulama işlemleri için özel olarak atanan bellek. |
-| `performanceCounter.request_execution_time.value` |ASP.NET isteği yürütme süresi |En son isteğin yürütülme süresi. |
+| `performanceCounter.request_execution_time.value` |ASP.NET isteği yürütme süresi |En son isteği yürütme süresi. |
 | `performanceCounter.requests_in_application_queue.value` |ASP.NET isteklerini yürütme sırası |Uygulama istek kuyruğunun uzunluğu. |
-| `performanceCounter.requests_per_sec.value` |ASP.NET isteği hızı |Saniyede ASP.NET'ten uygulamaya yapılan tüm isteklerin oranı. |
+| `performanceCounter.requests_per_sec.value` |ASP.NET isteği hızı |ASP.net'ten saniyede uygulamaya yapılan tüm isteklerin oranı. |
 | `remoteDependencyFailed.durationMetric.count` |Bağımlılık hataları |Sunucu uygulama tarafından dış kaynaklara yapılan başarısız çağrıların sayısı. |
-| `request.duration` |Sunucu yanıt süresi |Bir HTTP isteğinin alınmasıyla yanıtın gönderilmesi arasında geçen süre. |
+| `request.duration` |Sunucu yanıt süresi |Bir HTTP isteğinin alınmasıyla yanıtın gönderilmesi tamamlama arasındaki süre. |
 | `request.rate` |İstek oranı |Saniyede uygulamaya yapılan tüm isteklerin oranı. |
 | `requestFailed.count` |Başarısız istekler |Bir yanıt kodunda sonuçlanan HTTP isteği sayısı > 400 = |
-| `view.count` |Sayfa görünümleri |Bir web sayfası için istemci kullanıcı isteklerini sayısı. Yapay trafik filtrelendi. |
+| `view.count` |Sayfa görüntülemeleri |Bir web sayfası için istemci kullanıcı isteklerini sayısı. Yapay trafik filtrelendi. |
 | {, özel ölçüm adı} |{Ölçüm adı} |Ölçüm, değer tarafından bildirilen [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) veya [ölçümleri parametresi bir izleme çağrısının](../../azure-monitor/app/api-custom-events-metrics.md#properties). |
 
 Ölçümler, farklı telemetri modülleri tarafından gönderilir:
 
 | Ölçüm grubu | Toplayıcı Modülü |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>görüntüle |[JavaScript tarayıcı](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>görünüm |[JavaScript tarayıcı](../../azure-monitor/app/javascript.md) |
 | PerformanceCounter |[Performans](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Bağımlılık](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | İstek,<br/>requestFailed |[Sunucu isteği](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |

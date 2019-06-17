@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826807"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Azure Veri Gezgini performansını, sistem durumu ve kullanım ölçümleri ile izleme
@@ -44,12 +44,12 @@ Azure Veri Gezgini kümenizi seçin **ölçümleri** ölçümleri bölmesini aç
     |---|---|---|---|
     | Önbellek kullanımı | Yüzde | AVG, Max, Min | Ayrılmış önbellek kaynakları ve küme tarafından kullanılmakta yüzdesi. Önbellek için tanımlanmış önbellek ilkesini göre kullanıcı etkinliğini ayrılan SSD boyutunu ifade eder. Bir ortalama önbellek kullanımı % 80 veya daha küçük bir küme için sürdürülebilir bir durumdur. Ortalama önbellek kullanımı % 80'in ise, kümenin olmalıdır [yukarı ölçeklendirilemez](manage-cluster-scale-up.md) fiyatlandırma katmanı için bir depolama için iyileştirilmiş veya [ölçeği](manage-cluster-scale-out.md) daha fazla örnek için. Alternatif olarak, önbellek İlkesi (daha az gün önbellekte) uyarlayın. Önbellek kullanımı % 100 üzerinde ise, önbelleğe alma ilkesine göre önbelleğe veri boyutu büyüktür, önbellek kümesinde toplam boyutu. |
     | CPU | Yüzde | AVG, Max, Min | Ayrılmış işlem kaynakları şu anda kümedeki makineler tarafından kullanım yüzdesi. Bir ortalama CPU % 80 veya daha küçük bir küme için sürdürülebilir. En fazla CPU veriyi işlemek için ek işlem kaynak yok anlamına gelir % 100 değeri. Bir küme de değil gerçekleştirirken, engellenen belirli CPU'ları olup olmadığını belirlemek için CPU en büyük değerini denetleyin. |
-    | (Event Hubs için) işlenen olaylar | Sayı | Max, Min, TOPLA | Toplam olay sayısı, event hubs'dan okumayı ve küme tarafından işlenebilir. Reddedilen olaylar ve küme altyapısı tarafından kabul edilen olaylar olayların ayrılır. |
+    | (Event Hubs için) işlenen olaylar | Count | Max, Min, TOPLA | Toplam olay sayısı, event hubs'dan okumayı ve küme tarafından işlenebilir. Reddedilen olaylar ve küme altyapısı tarafından kabul edilen olaylar olayların ayrılır. |
     | Alma gecikmesi | Saniye | AVG, Max, Min | Sorgu için hazır olana kadar veri kümesinde alındığı zamandan içe alınan veri gecikme süresi. Alma gecikme süresini alımı senaryoya bağlıdır. |
-    | Alma sonucu | Sayı | Sayı | Başarısız ve başarılı alma işlemlerinin toplam sayısı. Kullanım **bölme uygulamak** başarı demet oluşturma ve boyutları analiz sonuçları başarısız (**değer** > **durumu**).|
+    | Alma sonucu | Count | Count | Başarısız ve başarılı alma işlemlerinin toplam sayısı. Kullanım **bölme uygulamak** başarı demet oluşturma ve boyutları analiz sonuçları başarısız (**değer** > **durumu**).|
     | Alımı kullanımı | Yüzde | AVG, Max, Min | Ayrılan, alımı gerçekleştirmek için kapasite ilkesinde toplam kaynaklardan veri almak için kullanılan gerçek kaynakları yüzdesi. Varsayılan kapasite en fazla 512 eşzamanlı alımı işlemlerini veya %75 alım yatırım küme kaynaklarının ilkesidir. Ortalama alımı kullanımı % 80 veya daha küçük bir küme için sürdürülebilir bir durumdur. En büyük değerini alma kullanımı alma sırası neden olabilir ve tüm küme alma özelliği kullanılır yani % 100 ' dir. |
-    | Alma birim (MB cinsinden) | Sayı | Max, Min, TOPLA | Veri (MB cinsinden) kümeye sıkıştırmadan önce alınan toplam boyutu. |
-    | Canlı | Sayı | Ortalama | Kümenin yanıtlama izler. Tamamen esnek bir küme 1 değerini döndürür ve 0 engellenen veya bağlantısı kesilmiş bir küme döndürür. |
+    | Alma birim (MB cinsinden) | Count | Max, Min, TOPLA | Veri (MB cinsinden) kümeye sıkıştırmadan önce alınan toplam boyutu. |
+    | Canlı | Count | Ortalama | Kümenin yanıtlama izler. Tamamen esnek bir küme 1 değerini döndürür ve 0 engellenen veya bağlantısı kesilmiş bir küme döndürür. |
     | Sorgu süresi | Saniye | Sayısı, ortalama, Min, Max, TOPLA | Toplam sorgu sonuçları alınana kadar süre (ağ gecikmesini içermez). |
     | | | |
 

@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
 ms.openlocfilehash: dffeb81ae1eb244c38639a1241c0581e6fcdf94a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027968"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Azure Blockchain hizmeti işlem düğümleri yapılandırın
@@ -85,7 +85,7 @@ AD erişim Azure vermek için uç noktanıza denetler:
     |---------|-------------|
     | Rol | Seçin **sahibi**, **katkıda bulunan**, veya **okuyucu**.
     | Erişim ata: | Seçin **Azure AD kullanıcı, Grup veya hizmet sorumlusu**.
-    | Şunu seçin: | Kullanıcı, Grup veya eklemek istediğiniz hizmet sorumlusu arayın.
+    | Seçim | Kullanıcı, Grup veya eklemek istediğiniz hizmet sorumlusu arayın.
 
 1. Seçin **Kaydet** rol ataması ekleme.
 
@@ -93,19 +93,19 @@ Azure AD erişim denetimi hakkında daha fazla bilgi için bkz. [RBAC ve Azure p
 
 Azure AD kimlik doğrulamasını kullanarak bağlanma hakkında daha fazla bilgi için bkz: [düğümünüzü için AAD kimlik doğrulamasını kullanarak bağlanma](configure-aad.md).
 
-### <a name="basic-authentication"></a>Temel kimlik doğrulama
+### <a name="basic-authentication"></a>Temel kimlik doğrulaması
 
 HTTPS temel kimlik doğrulaması için kullanıcı adı ve parola kimlik bilgilerini ve uç noktasına HTTPS istek üst bilgisinde geçirilir.
 
 Azure portalında bir işlem düğümünün temel kimlik doğrulama uç noktası ayrıntıları görüntüleyebilirsiniz. Azure Blockchain hizmet üye işlem düğümlerinizi, birine gidin ve seçin **temel kimlik doğrulaması** ayarları.
 
-![Temel kimlik doğrulama](./media/configure-transaction-nodes/basic.png)
+![Temel kimlik doğrulaması](./media/configure-transaction-nodes/basic.png)
 
 Kullanıcı adı, düğümün adı olduğundan değiştirilemez.
 
 URL'sini kullanmak üzere değiştirin \<parola\> parolayla düğümü sağlanırken ayarlayın. Parola belirleyerek güncelleştirebilirsiniz **parolayı Sıfırla**.
 
-### <a name="access-keys"></a>Erişim tuşları
+### <a name="access-keys"></a>Erişim anahtarları
 
 Erişim anahtarı kimlik doğrulaması için erişim anahtarı uç nokta URL'si dahil edilir. İşlem düğümü sağlandığında iki erişim tuşu oluşturulur. İki erişim anahtarı kimlik doğrulaması için kullanılabilir. İki anahtar değiştirme ve anahtarları döndürme etkinleştirin.
 

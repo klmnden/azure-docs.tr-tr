@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66134599"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Bir iç yük dengeleyici (ILB) uç noktası ile uygulama ağ geçidi yapılandırma
@@ -55,7 +55,7 @@ Oluşturduğunuz kaynaklar arasında iletişim kurmak Azure için sanal ağ gere
     ![Özel frontendip 2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
 10. Özet sayfasında ayarları gözden geçirin ve ardından **Tamam** ağ kaynaklarının ve uygulama ağ geçidi oluşturmak için. Bu, uygulama ağ geçidinin oluşturulması, sonraki bölüme geçmeden önce dağıtımın başarıyla tamamlanana kadar bekleyin birkaç dakika sürebilir.
 
-## <a name="add-backend-pool"></a>Arka uç havuzu ekle
+## <a name="add-backend-pool"></a>Arka uç havuzu Ekle
 
 Arka uç havuzu, isteği sunan arka uç sunucuları istekleri yönlendirmek için kullanılır. Arka uç ağ, sanal makine ölçek kümeleri, genel IP'ler birleştirilebilir, iç IP'ler, tam etki alanı adlarını (FQDN) ve çok kiracılı arka-Azure App Service gibi biter. Bu örnekte, hedef arka uç olarak sanal makineler kullanacağız. Biz varolan sanal makineleri kullanabilir veya yeni bir tane oluşturun. Bu örnekte, Azure application gateway için arka uç sunucular olarak kullanan iki sanal makine oluşturacağız. Bunu yapmak için yapacağız:
 
@@ -63,7 +63,7 @@ Arka uç havuzu, isteği sunan arka uç sunucuları istekleri yönlendirmek içi
 2. Uygulama ağ geçidi başarıyla oluşturulduğunu doğrulamak için sanal makinelere IIS yüklersiniz.
 3. Arka uç sunucularının arka uç havuzuna ekleyin.
 
-### <a name="create-a-virtual-machine"></a>Bir sanal makine oluştur
+### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
 1. **Yeni**’ye tıklayın.
 2. Tıklayın **işlem** seçip **Windows Server 2016 Datacenter** Öne çıkanlar listesinde.

@@ -29,10 +29,10 @@ ms.author:
 - btalb
 - prachank
 ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234991"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP'yi performans Azure Vm'leri için ayarlama
@@ -49,7 +49,7 @@ En fazla iletim birimi (MTU) bir ağ arabirimi üzerinden gönderilen bayt cinsi
 
 #### <a name="fragmentation"></a>Parçalanma
 
-Parçalanma, bir ağ arabiriminin MTU'su aşan bir paket gönderildiğinde gerçekleşir. TCP/IP yığınının paket bir arabirimin MTU için uygun daha küçük parçalara (parça) çalışmamasına neden olur. Parçalanma IP katmanında gerçekleşir ve temel alınan protokoldeki (örneğin, TCP) bağımsızdır. 2.000 baytlık bir paket 1.500 bir MTU ile bir ağ arabirimi üzerinden gönderildiğinde, paket 1.500 baytlık bir paket ve 500 baytlık bir paket halinde ayrılır.
+Parçalanma, bir ağ arabiriminin MTU'su aşan bir paket gönderildiğinde gerçekleşir. TCP/IP yığınının paket bir arabirimin MTU için uygun daha küçük parçalara (parça) çalışmamasına neden olur. Parçalanma IP katmanında gerçekleşir ve temel alınan protokoldeki (örneğin, TCP) bağımsızdır. 2\.000 baytlık bir paket 1.500 bir MTU ile bir ağ arabirimi üzerinden gönderildiğinde, paket 1.500 baytlık bir paket ve 500 baytlık bir paket halinde ayrılır.
 
 Ağ cihazları arasındaki kaynak ve hedef yolda MTU ya da daha küçük parçalara paket parçalara ya da açılan paket olabilir.
 

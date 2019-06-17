@@ -18,10 +18,10 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb11a4a926c676d37a0bf6be456e3b831a5d8357
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962647"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Nasıl yapılır: Android ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
@@ -108,7 +108,7 @@ Bir uygulamayı cihazda yüklü herhangi bir aracı kullanmak için özelliği v
 2. Yeni bir yeniden yönlendirme URI'Sİ'kurmak ve hem uygulama hem de uygulama kaydınızı sağlayın
 3. Android bildirimindeki doğru izinleri ayarlama
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>1. Adım: Uygulamanızdaki Aracısı modunu etkinleştir
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>1\. adım: Uygulamanızdaki Aracısı modunu etkinleştir
 
 "Ayarlar" veya ilk kurulum kimlik doğrulaması örneğinizin oluşturduğunuzda aracı kullanmak için uygulamanızı özelliği etkinleştirilir. Uygulamanızda Bunu yapmak için:
 
@@ -116,7 +116,7 @@ Bir uygulamayı cihazda yüklü herhangi bir aracı kullanmak için özelliği v
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>2. Adım: Yeni bir yeniden yönlendirme URI'si ile URL düzeni oluştur
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>2\. adım: Yeni bir yeniden yönlendirme URI'si ile URL düzeni oluştur
 
 Doğru uygulama döndürülen aldığından emin olmak için kimlik bilgisi belirteç, orada Android işletim sistemi doğrulayabilirsiniz bir biçimde çağrı uygulamanızı emin olmak için bir gerekli değildir. Android işletim sistemi, Google Play Mağazası'nda sertifika karmasını kullanır. Bu sertifikanın karması, standart dışı bir uygulama tarafından sahte olamaz. Aracı uygulama URI'sini yanı sıra, Microsoft belirteçleri doğru uygulamaya döndürülür sağlar. Benzersiz bir yeniden yönlendirme URI'si uygulamayı kayıtlı olması gerekiyor.
 
@@ -128,7 +128,7 @@ Uygulamanızın yeniden yönlendirme URI'si düzgün biçimde olmalıdır:
 
 Bu yeniden yönlendirme URI'sini kullanarak, uygulama kayıt kaydedebilirsiniz [Azure portalında](https://portal.azure.com/). Azure AD uygulama kaydı hakkında daha fazla bilgi için bkz. [Azure Active Directory ile tümleştirme](active-directory-how-to-integrate.md).
 
-#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>3. adım: Uygulamanızdaki doğru izinleri ayarla
+#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>3\. adım: Uygulamanızdaki doğru izinleri ayarla
 
 Android Aracısı uygulama, uygulamalar arasında kimlik bilgilerini yönetmek için Android işletim sistemi Hesap Yöneticisi özelliğini kullanır. Android'de aracı kullanmak için uygulama bildiriminizi Accountmanager'a hesaplarını kullanmak için izinleri olmalıdır. Bu izinleri ayrıntılı olarak ele alınmıştır [burada Google belgeler için Hesap Yöneticisi](https://developer.android.com/reference/android/accounts/AccountManager.html)
 

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595172"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
@@ -236,7 +236,7 @@ Hem web rolü projesinin hem de çalışan rolü projesinin Azure Storage hesab�
 2. **Ayarlar** sekmesine tıklayın. **Hizmet Yapılandırma** açılır kutusunda **Bulut**’u seçin.
 
     ![Bulut yapılandırması](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. **StorageConnectionString** girdisini seçtiğinizde satırın sağ uç kısmında bir üç nokta (**...**) göreceksiniz. **Depolama Hesabı Bağlantı Dizesi Oluştur** iletişim kutusunu açmak için üç nokta düğmesine tıklayın.
+3. **StorageConnectionString** girdisini seçtiğinizde satırın sağ uç kısmında bir üç nokta ( **...** ) göreceksiniz. **Depolama Hesabı Bağlantı Dizesi Oluştur** iletişim kutusunu açmak için üç nokta düğmesine tıklayın.
 
     ![Bağlantı Dizesi Oluştur kutusunu açma](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. **Depolama Bağlantı Dizesi Oluştur** iletişim kutusunda **Aboneliğiniz**’e tıklayın, daha önce oluşturduğunuz depolama hesabını seçin ve ardından **Tamam**’a tıklayın. Henüz oturum açmadıysanız Azure hesabı kimlik bilgileriniz istenir.
@@ -392,7 +392,7 @@ Bu bölümde, yerel olarak test etmek amacıyla Azure Storage ve SQL bağlantı 
 8. Hala **ContosoAdsWorker [Rolü]** özellikler penceresindeyken başka bir bağlantı dizesi ekleyin:
 
    * Ad: ContosoAdsDbConnectionString
-   * Tür: String
+   * Şunu yazın: String
    * Değer: Web rolü projesi kullandığınız bağlantı dizesinin aynısını yapıştırın. (Aşağıdaki örnek Visual Studio 2013 içindir. Bu örneği kopyalarsanız ve Visual Studio 2015 veya sonraki bir sürümü kullanıyorsanız Veri Kaynağını değiştirmeyi unutmayın.)
 
        ```

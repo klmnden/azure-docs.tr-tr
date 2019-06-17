@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
 ms.openlocfilehash: c3d4d764b1076c8705cfa64d6c0b38e3b8c1a801
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390107"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64716397"
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>Depolama hesabı adları için hataları çözümleyin
 
@@ -45,7 +45,7 @@ Aboneliğinizde mevcut bir depolama hesabı aynı ada sahip bir depolama hesabı
 
 ## <a name="cause"></a>Nedeni
 
-Depolama hesabı adları 3 ila 24 karakter uzunluğunda olmalı ve sayı ve yalnızca küçük harflerden oluşmalıdır. Ad benzersiz olmalıdır.
+Depolama hesabı adları 3 ila 24 karakter uzunluğunda olmalı ve sayı ve yalnızca küçük harflerden oluşmalıdır. Adın benzersiz olması gerekir.
 
 ## <a name="solution"></a>Çözüm
 

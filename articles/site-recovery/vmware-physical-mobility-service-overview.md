@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 929a4e4366c9e94ed4e1915406914991624f6baa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565591"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için Mobility hizmeti hakkında
@@ -47,7 +47,7 @@ Mobility Aracısı göndererek yükleme sırasında aşağıdaki adımları ger�
     a. Uygulama tutarlı noktaları oluşturmak için başvurmak [kılavuzumuzu](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) Site Recovery VSS sağlayıcısı yüklemesi el ile tamamlamak için. </br>
     b.  Oluşturulacak, uygulama tutarlı noktaları istemiyorsanız [çoğaltma ilkesini değiştirmek](vmware-azure-set-up-replication.md#create-a-policy) uygulama tutarlı noktaları açmak için.
 
-### <a name="before-922-versions"></a>9.22 sürümlerinden önce
+### <a name="before-922-versions"></a>9\.22 sürümlerinden önce
 
 1. Bildirim aracı kaynak makineyi açın. Kopyalama aracı kaynak makineyi açın, ortam birden çok hata nedeniyle başarısız olabilir. Ziyaret [kılavuzumuzu](vmware-azure-troubleshoot-push-install.md) anında yükleme hataları giderme.
 2. Aracı başarıyla oturum kopyalandıktan sonra sunucusu önkoşul denetimlerini sunucu üzerinde gerçekleştirilir. Yüklenmesi başarısız olursa, bir veya daha fazla [önkoşulları](vmware-physical-azure-support-matrix.md) karşılanmadı. Tüm Önkoşullar karşılanıyorsa, yükleme tetiklenir.

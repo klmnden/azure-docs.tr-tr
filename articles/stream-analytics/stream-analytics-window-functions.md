@@ -2,24 +2,24 @@
 title: Azure Stream Analytics Pencereleme işlevleri'ne giriş
 description: Bu makalede, Azure Stream Analytics işlerinde kullanılan dört Pencereleme işlevleri (atlayan atlamalı, kayan, oturumu) açıklanmaktadır.
 services: stream-analytics
-author: lingliw
-ms.author: v-lingwu
-manager: digimobile
+author: jseb225
+ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/19
-ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 56b6f11d226f25e3094a90d8646fa13860ee306e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066755"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Stream Analytics Pencereleme işlevleri'ne giriş
+
 Saat akış senaryolarda, zamana bağlı windows bulunan veriler üzerinde işlem gerçekleştirme yaygın modelidir. Stream Analytics, geliştiricilerin çok az bir çabayla Yazar karmaşık akış işleme işlerini Pencereleme işlevleri için yerel desteğe sahiptir.
 
-Aralarından seçim zamana bağlı windows dört çeşit vardır: [**Atlayan**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [ **atlamalı**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [ **kayan**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), ve [ **oturumu**  ](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) windows.  Pencere işlevleri kullanmak [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) sorgu söz dizimi, Stream Analytics işlerinde yan tümcesi.
+Aralarından seçim zamana bağlı windows dört çeşit vardır: [**Atlayan**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [ **atlamalı**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [ **kayan**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), ve [ **oturumu**  ](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) windows.  Pencere işlevleri kullanmak [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) sorgu söz dizimi, Stream Analytics işlerinde yan tümcesi. Olayları kullanarak birden çok windows üzerinde toplayabilirsiniz [ **Windows()** işlevi](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
 Tüm [Pencereleme](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) işlemleri çıktı sonuçları **son** penceresinin. Çıktı penceresi kullanılan toplama işleve göre tek bir olay olacaktır. Çıkış olayı penceresinin bitiş zaman damgası sahip olur ve tüm pencere işlevleri sabit uzunluk ile tanımlanır. 
 
@@ -51,6 +51,7 @@ Olaylar belirtilen süre içinde gerçekleşen korumak ise en fazla süre ulaş�
 
 Bir bölüm anahtarı sağlandığında olayları anahtarıyla birlikte gruplanır ve oturum penceresi bağımsız olarak her gruba uygulanır. Bu bölümleme, farklı oturum windows farklı kullanıcılar veya cihazlar için gereken durumlarda yararlıdır.
 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
@@ -58,4 +59,3 @@ Bir bölüm anahtarı sağlandığında olayları anahtarıyla birlikte gruplan�
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->

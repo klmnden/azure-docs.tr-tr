@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 23d7b0626dba5a88c100868907ecf868a895fc9e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059620"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -101,7 +101,7 @@ Aksi takdirde, proje türünüzü doğrudan Geliştirici analiz araçları taraf
 
 Varsayılan tarayıcınızı en son kullanılan Microsoft oturum açma erişimi yok [bu uygulama için Application Insights eklendiğinde, oluşturulan kaynak](../../azure-monitor/app/asp-net.md). İki olası nedeni vardır:
 
-* - Belki de bir iş ve kişisel Microsoft hesabı birden fazla Microsoft hesabınız var mı? Varsayılan tarayıcınızı en son kullanılan oturum açma erişimi olan olandan farklı bir hesap aitti [projeye Application Insights ekleyin](../../azure-monitor/app/asp-net.md).
+* \- Belki de bir iş ve kişisel Microsoft hesabı birden fazla Microsoft hesabınız var mı? Varsayılan tarayıcınızı en son kullanılan oturum açma erişimi olan olandan farklı bir hesap aitti [projeye Application Insights ekleyin](../../azure-monitor/app/asp-net.md).
   * Düzeltme: Adınızı, tarayıcı penceresinin sağ üst ve oturum kapatma. Daha sonra erişimi olan hesapla oturum açın. Sonra sol gezinti çubuğunda Application Insights'ı tıklatın ve uygulamanızı seçin.
 * Başka birinin Application Insights projeye eklenir ve size unuttunuz [kaynak grubuna erişim](../../azure-monitor/app/resources-roles-access-control.md) , oluşturulduğu.
   * Düzeltme: Bunlar bir kurumsal hesap kullandıysanız, takıma ekleyebilirsiniz; veya, kaynak grubuna bireysel erişim verebilirsiniz.
@@ -232,6 +232,27 @@ Altyapınız için sorun giderme günlükleri tutmak için bu yönergeleri izley
 3. Bu yeni ayarları SDK'sı tarafından alınır, böylece işlemini yeniden başlatın.
 
 4. İşiniz bittiğinde bu değişiklikleri geri al.
+
+
+## <a name="PerfView"></a> PerfView ile günlükleri toplama
+[PerfView](https://github.com/Microsoft/perfview) toplamak ve birçok kaynaktan tanılama bilgileri görselleştirmenin CPU, bellek ve diğer sorunları gidermeye yardımcı olmak ücretsiz bir tanılama ve performans analizi aracı.
+
+Application Insights SDK'sı tarafından PerfView yakalanabilir EventSource kendiliğinden sorun giderme günlükleri oturum açın.
+
+Günlükleri toplamak için PerfView indirin ve şu komutu çalıştırın:
+```cmd
+PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+```
+
+Bu parametre gerektiği gibi değiştirebilirsiniz.
+
+- **MaxCollectSec**. PerfView süresiz olarak çalışmasını ve sunucunuzun performansından etkilenmesini önlemek için bu parametreyi ayarlayın.
+- **OnlyProviders**. Bu parametre yalnızca SDK'sından günlükleri toplamak için ayarlayın. Belirli araştırmalarınıza temel alan bu liste özelleştirebilirsiniz. 
+
+
+Daha fazla bilgi için
+- [Performans izleme PerfView ile kayıt](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
+- [Uygulama öngörüleri olay kaynakları](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## <a name="still-not-working"></a>Yine de çalışmıyor...
 * [Uygulama anlayışları Forumu](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

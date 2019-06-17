@@ -1,6 +1,6 @@
 ---
-title: Görünüm atamaları Azure portalını kullanarak Azure kaynakları için reddetme | Microsoft Docs
-description: Kullanıcılar, gruplar, hizmet sorumluları ve Azure portalını kullanarak belirli kapsamda belirli bir Azure kaynak eylemlerine erişim reddedildi yönetilen kimlikleri görüntülemeyi öğrenin.
+title: Azure portalını kullanarak Azure kaynakları için atamaları izin verilmeyenler listesi | Microsoft Docs
+description: Kullanıcılar, gruplar, hizmet sorumluları ve Azure portalını kullanarak belirli kapsamları, belirli bir Azure kaynak eylemlerine erişim reddedildi yönetilen kimlikleri listesi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 21ffb1a2539a2e724a91dd3b2818270a5e573ef8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194384"
+ms.locfileid: "67127482"
 ---
-# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Azure portalını kullanarak Azure kaynakları için atamaları görünümü Reddet
+# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Azure portalını kullanarak Azure kaynakları için atamaları izin verilmeyenler listesi
 
-[Atamalar Reddet](deny-assignments.md) bir rol ataması bunları erişim verse bile kullanıcıların belirli bir Azure kaynak eylemler gerçekleştirme. Bu makalede görüntülemek için Azure portalını kullanmayı açıklar atamaları reddet.
+[Atamalar Reddet](deny-assignments.md) bir rol ataması bunları erişim verse bile kullanıcıların belirli bir Azure kaynak eylemler gerçekleştirme. Bu makalede nasıl listelemek Azure portalını kullanarak atamaları reddet.
 
 > [!NOTE]
-> Şu anda kendi ekleyebilirsiniz tek yolu reddetme atamaları olan Azure şemaları kullanarak. Daha fazla bilgi için [yeni kaynaklar ile Azure Blueprint kaynak kilitleri korumak](../governance/blueprints/tutorials/protect-new-resources.md).
+> Doğrudan kendi oluşturamazsınız atamaları reddet. Hakkında bilgi reddetmek için atamaları oluşturulur bkz [atamaları Reddet](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -34,13 +34,13 @@ Bir reddetme atama hakkında bilgi edinmek için şunlara sahip olmalısınız:
 
 - `Microsoft.Authorization/denyAssignments/read` çoğu dahil izni [Azure kaynakları için yerleşik roller](built-in-roles.md).
 
-## <a name="view-deny-assignments"></a>Görünüm atamaları Reddet
+## <a name="list-deny-assignments"></a>Atamalar izin verilmeyenler listesi
 
-Reddetme atamalarını abonelik veya yönetim grubu kapsamda görüntülemek üzere şu adımları izleyin.
+Aşağıdaki adımları listelemek için adımları atamalarını abonelik veya yönetim grubu kapsamda reddet.
 
 1. Azure portalında **tüm hizmetleri** ardından **Yönetim grupları** veya **abonelikleri**.
 
-1. Yönetim grubu veya görüntülemek istediğiniz aboneliğe tıklayın.
+1. Yönetim grubu veya listelemek istediğiniz aboneliğe tıklayın.
 
 1. Tıklayın **erişim denetimi (IAM)** .
 
@@ -67,9 +67,9 @@ Reddetme atamalarını abonelik veya yönetim grubu kapsamda görüntülemek üz
 
 1. Herhangi bir etkin öğeyi bir onay işareti ekleyin ve ardından **Tamam** Seçili sütunları görüntülemek için.
 
-## <a name="view-details-about-a-deny-assignment"></a>Bir reddetme ataması ayrıntılarını görüntüleme
+## <a name="list-details-about-a-deny-assignment"></a>Liste ayrıntıları Reddet ataması hakkında
 
-Bir reddetme ataması hakkında ek ayrıntıları görüntülemek için aşağıdaki adımları izleyin.
+Bir reddetme ataması hakkındaki ek ayrıntıları listelemek için aşağıdaki adımları izleyin.
 
 1. Açık **atamaları Reddet** bölmesinde önceki bölümde açıklandığı gibi.
 
@@ -110,4 +110,4 @@ Bir reddetme ataması hakkında ek ayrıntıları görüntülemek için aşağı
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Anlamak Azure kaynakları için atamaları Reddet](deny-assignments.md)
-* [REST API kullanarak Azure kaynakları için atamaları izin verilmeyenler listesi](deny-assignments-rest.md)
+* [Azure PowerShell kullanarak Azure kaynakları için atamaları izin verilmeyenler listesi](deny-assignments-powershell.md)

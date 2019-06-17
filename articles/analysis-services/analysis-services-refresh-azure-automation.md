@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
 ms.openlocfilehash: 4cae93cff594ad561973f8029ea7335dc4c60263
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66356991"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Otomasyonu ile yenileme
@@ -112,7 +112,7 @@ Bunu şu şekilde yapılandırılabilir:
 
     ![Parametreleri Yapılandır](./media/analysis-services-refresh-azure-automation/16.png)
 
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 
 ## <a name="consume-with-data-factory"></a>Data Factory ile kullanma
 

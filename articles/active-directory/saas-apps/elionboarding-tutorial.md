@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9f79a573eedba781c38facb63a2ab86b3897545
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3a2c584da34988e6512484586288e6d6f2599a40
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898842"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eli-onboarding"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Eli ekleme
 
@@ -53,7 +53,7 @@ Azure AD'de Eli ekleme tümleştirmesini yapılandırmak için Eli ekleme Galeri
 
 **Galeriden eli ekleme eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 4160d6ce324cf419cd4b9a61b68bb39b0443321c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694733"
 ---
 # <a name="authentication-requests-and-responses"></a>Kimlik doğrulaması, istekler ve yanıtlar
@@ -51,7 +51,7 @@ Bu konu, Azure Key Vault hizmeti için özellikleri kapsar. Azure REST arabiriml
 
  İşlemi açıklamasında aksi belirtilmediği sürece, uygulama/json medya türü Accept istek üst bilgisi içermelidir.  
 
-## <a name="response-body"></a>Yanıt Gövdesi  
+## <a name="response-body"></a>Yanıt gövdesi  
  İşlem açıklamasında aksi belirtilmediği sürece, başarılı ve başarısız işlemlerin yanıt gövdesi içerik türü application/json olacaktır ve ayrıntılı hata bilgileri içerir.  
 
 ## <a name="using-http-post"></a>HTTP POST kullanılmış  

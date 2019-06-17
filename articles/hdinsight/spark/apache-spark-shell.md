@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.openlocfilehash: 9044ed3ad9cf9ffa2f54d130bb50b37df121b86f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696811"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Apache Spark Spark Kabuğu'ndan çalıştırma
@@ -59,7 +59,7 @@ SparkSession örneğine erişmek için enter `spark`. Zamanda sparkcontext öğe
 
 Spark Shell komutu (`spark-shell`, `pyspark`, veya `sparkR`) birçok komut satırı parametrelerini destekler. Parametreleri, tam listesini görmek için Spark Shell anahtarıyla başlatma `--help`. Bu parametrelerden bazıları yalnızca için dağıtılsa `spark-submit`, hangi Spark Shell sarmalar.
 
-| anahtarı | açıklama | Örnek |
+| anahtarı | description | Örnek |
 | --- | --- | --- |
 | --master MASTER_URL | Ana URL'yi belirtir. HDInsight bu değer her zaman, `yarn`. | `--master yarn`|
 | --jar'lar JAR_LIST | Sürücü hem de Yürütücü sınıf yolları üzerinde dahil etmek için yerel jar dosyaları dışındaki virgülle ayrılmış listesi. HDInsight bu liste, Azure Depolama'da veya Data Lake Storage varsayılan dosya sistemi yolları oluşur. | `--jars /path/to/examples.jar` |

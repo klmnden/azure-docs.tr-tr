@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
 ms.openlocfilehash: d1db228f4c73cc00cd32ca6ae5b86056db68f05b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155950"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulama (Önizleme) kullanarak Azure'da bir Linux sanal makinede oturum açın
@@ -64,7 +64,7 @@ Aşağıdaki Azure bölgeleri, şu anda bu özellik Önizleme sırasında destek
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici, Azure CLI Sürüm 2.0.31 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-linux-virtual-machine"></a>Linux sanal makinesi oluşturun
+## <a name="create-a-linux-virtual-machine"></a>Linux sanal makinesi oluşturma
 
 Bir kaynak grubu oluşturun [az grubu oluşturma](/cli/azure/group#az-group-create), ardından ile VM oluşturma [az vm oluşturma](/cli/azure/vm#az-vm-create) desteklenen distro kullanarak ve desteklenen bir bölgede. Aşağıdaki örnekte adlı bir VM dağıtır *myVM* kullanan *Ubuntu 16.04 LTS* adlı bir kaynak grubu içinde *myResourceGroup* içinde *southcentralus*  bölge. Aşağıdaki örneklerde, kendi kaynak grubu ve gerektiğinde bir sanal makine adı sağlayabilirsiniz.
 

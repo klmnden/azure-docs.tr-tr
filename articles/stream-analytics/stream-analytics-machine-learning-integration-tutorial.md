@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61480825"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure Stream Analytics ve Azure Machine Learning kullanarak yaklaşım analizi gerçekleştirme
@@ -175,7 +175,7 @@ Daha önce bir web hizmetine bir Machine Learning modeli yayımladı. Stream ana
 
 1. Daha önce Excel çalışma kitabında yüklediğiniz web hizmeti URL'sini ve API anahtarı olduğundan emin olun.
 
-2. İşi dikey pencerenize gidin > **işlevleri** > **+ Ekle** > **AzureML**
+2. İşi dikey pencerenize gidin > **işlevleri** >  **+ Ekle** > **AzureML**
 
 3. Doldurun **Azure Machine Learning işlevi** dikey penceresini aşağıdaki değerlerle:
 

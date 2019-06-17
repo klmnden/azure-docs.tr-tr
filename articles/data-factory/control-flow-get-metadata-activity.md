@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: jingwang
 ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346927"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory'de etkinlik meta verilerini al
@@ -43,10 +43,10 @@ GetMetadata etkinliği, bir veri kümesi gerekli bir giriş olarak alır ve etki
 
 **Dosya depolama:**
 
-| Bağlayıcı/meta verileri | ItemName<br>(dosya/klasör) | Itemtype<br>(dosya/klasör) | boyut<br>(dosya) | oluşturuldu<br>(dosya/klasör) | Son değiştirme<br>(dosya/klasör) |childItems<br>(klasör) |contentMD5<br>(dosya) | yapısı<br/>(dosya) | columnCount<br>(dosya) | Var.<br>(dosya/klasör) |
+| Bağlayıcı/meta verileri | ItemName<br>(dosya/klasör) | Itemtype<br>(dosya/klasör) | size<br>(dosya) | Oluşturulan<br>(dosya/klasör) | Son değiştirme<br>(dosya/klasör) |childItems<br>(klasör) |contentMD5<br>(dosya) | structure<br/>(dosya) | columnCount<br>(dosya) | Var.<br>(dosya/klasör) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Google bulut depolama | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Azure Blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
@@ -60,7 +60,7 @@ GetMetadata etkinliği, bir veri kümesi gerekli bir giriş olarak alır ve etki
 
 **İlişkisel veritabanı:**
 
-| Bağlayıcı/meta verileri | yapısı | columnCount | Var. |
+| Bağlayıcı/meta verileri | structure | columnCount | Var. |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Veritabanı | √ | √ | √ |
 | Azure SQL Veritabanı Yönetilen Örneği | √ | √ | √ |
@@ -75,12 +75,12 @@ Alınacak GetMetadata etkinliği alan listesinde, aşağıdaki meta veri türler
 |:--- |:--- |
 | ItemName | Dosya veya klasörün adı. |
 | Itemtype | Dosya veya klasörün türü. Çıkış değeri `File` veya `Folder`. |
-| boyut | Dosyanın bayt cinsinden boyutu. Yalnızca dosya için geçerli. |
-| oluşturuldu | Dosya veya klasörün oluşturulan datetime. |
+| size | Dosyanın bayt cinsinden boyutu. Yalnızca dosya için geçerli. |
+| Oluşturulan | Dosya veya klasörün oluşturulan datetime. |
 | Son değiştirme | Son değiştirme: dosyanın veya klasörün datetime. |
 | childItems | Belirli klasörün içindeki dosyaları ve alt klasörlerin listesi. Yalnızca klasör için geçerli. Çıkış değeri, adı ve her alt öğenin türü listesidir. |
 | contentMD5 | Dosya MD5. Yalnızca dosya için geçerli. |
-| yapısı | İlişkisel veritabanı tablo ve dosya içinde veri yapısı. Çıkış değeri sütun adı ve sütun türü listesidir. |
+| structure | İlişkisel veritabanı tablo ve dosya içinde veri yapısı. Çıkış değeri sütun adı ve sütun türü listesidir. |
 | columnCount | Dosya veya ilişkisel tablo içindeki sütun sayısı. |
 | Var.| Olup olmadığını veya bir dosya/klasör/tablosu bulunmaktadır. "Var" GetaMetadata alan listesinde belirtilirse, ' % s'öğesi (dosya/klasör/tablosu) bile yok, etkinlik başarısız olmaz dikkat edin. Bunun yerine döndürür `exists: false` çıktı. |
 

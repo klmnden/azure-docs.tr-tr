@@ -15,10 +15,10 @@ ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
 ms.openlocfilehash: 384f709bb32f973efec39518eaa895e25136fe23
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390645"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure uygulama Hizmeti'ne sürekli dağıtım
@@ -44,7 +44,7 @@ GitHub ile bir kez yetkilendirmek yeterlidir. Zaten sahip olduğunuz, tıklaman�
 
 İçinde **oluşturma sağlayıcısını** sayfasında derleme sağlayıcıyı seçin ve tıklayın > **devam**.
 
-### <a name="option-1-use-app-service-kudu-build-server"></a>1. seçenek: App Service Kudu derleme sunucusu kullanma
+### <a name="option-1-use-app-service-kudu-build-server"></a>1\. seçenek: App Service Kudu derleme sunucusu kullanma
 
 İçinde **yapılandırma** sayfasında, sürekli olarak dağıtmak istediğiniz kuruluş, depoyu ve dalı seçin. İşiniz bittiğinde tıklayın **devam**.
 
@@ -58,7 +58,7 @@ Sonraki sayfada, sağ taraftaki "Verme" düğmesine tıklayarak kuruluşunuzun d
 
 Kuruluşunuz artık "Kuruluş" listesinde göstermelidir **yapılandırma** Dağıtım Merkezi sayfasında.
 
-### <a name="option-2-use-azure-pipelines-preview"></a>2. seçenek: Azure işlem hatları (Önizleme) kullanma
+### <a name="option-2-use-azure-pipelines-preview"></a>2\. seçenek: Azure işlem hatları (Önizleme) kullanma
 
 > [!NOTE]
 > App Service'nın Azure DevOps Hizmetleri kuruluşunuzda gerekli Azure işlem hatları oluşturmak rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
@@ -114,11 +114,11 @@ Sol menüde **Dağıtım Merkezi** > **Azure depoları** > **devam**.
 > [!NOTE]
 > Listede olmayan mevcut bir Azure DevOps Hizmetleri kuruluşa kullanmak istiyorsanız, yapmanız [Azure DevOps hizmetler kuruluşundan Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-### <a name="option-1-use-app-service-kudu-build-server"></a>1. seçenek: App Service Kudu derleme sunucusu kullanma
+### <a name="option-1-use-app-service-kudu-build-server"></a>1\. seçenek: App Service Kudu derleme sunucusu kullanma
 
 İçinde **yapılandırma** sayfasında, Azure DevOps hizmetler kuruluşundan, proje, depo ve dal sürekli olarak dağıtmak istediğiniz seçin. İşiniz bittiğinde tıklayın **devam**.
 
-### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>2. seçenek: Azure DevOps Hizmetleri sürekli teslim kullanma
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>2\. seçenek: Azure DevOps Hizmetleri sürekli teslim kullanma
 
 > [!NOTE]
 > App Service'nın Azure DevOps Hizmetleri kuruluşunuzda gerekli Azure işlem hatları oluşturmak rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.

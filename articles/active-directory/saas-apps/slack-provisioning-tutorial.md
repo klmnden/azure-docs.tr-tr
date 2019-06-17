@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 036112027fcf210f0ac2ff1e631c8b0bd4b5e9ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964386"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Öğretici: Slack için otomatik kullanıcı hazırlama yapılandırın
@@ -116,7 +116,7 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 
   * İngilizce olmayan karakterler, boşluk, büyük/küçük harf destekler. 
   
-  * Noktalama, nokta, alt çizgi, kısa çizgi, kesme, köşeli ayraçlar içerir izin (örneğin **([{}])**) ve ayırıcılar (örneğin **, /;**).
+  * Noktalama, nokta, alt çizgi, kısa çizgi, kesme, köşeli ayraçlar içerir izin (örneğin **([{}])** ) ve ayırıcılar (örneğin **, /;** ).
   
   * Bu iki ayar Slack'ın çalışma alanına/kuruluşta - yapılandırıldıysa yalnızca güncelleştirmeleri **profil eşitleme etkin** ve **kullanıcılar, kullanıcıların görünen adı değiştirilemez**.
   

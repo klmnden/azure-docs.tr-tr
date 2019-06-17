@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126805"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum yetkilisi kavram consortium
@@ -152,7 +152,7 @@ MetaMask yükledikten sonra tarayıcıda idare DApp gidin.  URL, dağıtım onay
 #### <a name="becoming-an-admin"></a>Bir yönetici olma
 Ağda dağıtılan ilk üye değilseniz, ardından otomatik olarak bir yönetici hale gelirler ve eşlik düğümlerinizi doğrulayıcıları listelenir.  Ağ birleştirdiğimiz, yönetici olarak Çoğunluk (50 %'den büyük) oylayan gerekir Mevcut yönetim kümesi.  Düğümlerinizi hala eşitleme ve blok zinciri doğrulama bir yönetici olmayan bir duruma seçerseniz; ancak blok oluşturma işleminde katılmayacaktır. Bir yönetici olun oylama işlemini başlatmak için tıklatın __Nominate__ Ethereum adresi ve diğer ad girin.
 
-![Belirle](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
+![Aday gösterin](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
 #### <a name="candidates"></a>Aday
 Seçme __adayları__ sekmesi, geçerli bir aday Yöneticisi gösterilir.  Bir aday kendisine yapılan bir Çoğunluk oyu geçerli yöneticiler tarafından ulaştığında, aday bir yöneticiye yükseltilen  Bir aday üzerinde oylamak için satırı seçin ve "en üstünde oy"'a tıklayın.  Oy üzerinde fikrinizi değiştirirseniz, aday seçin ve "Rescind oy"'a tıklayın.
@@ -160,10 +160,10 @@ Seçme __adayları__ sekmesi, geçerli bir aday Yöneticisi gösterilir.  Bir ad
 ![Aday](./media/ethereum-poa-deployment/governance-dapp-candidates.png)
 
 
-#### <a name="admins"></a>Yöneticiler
+#### <a name="admins"></a>Yöneticileri
 __Yöneticileri__ sekmesi yöneticilerin geçerli kümesini Göster ve karşı oy olanağı sunar.  Daha fazla yönetici kaybeder sonra % 50 desteği'ne kıyasla, bunların ağ üzerindeki bir yönetici olarak kaldırılması.  Bu yönetici sahip herhangi bir doğrulayıcı düğüm Doğrulayıcı durumunu kaybederekten ve ağ üzerinde işlem düğümler haline gelir.  Bir yönetici, bir dizi nedenden ötürü Kaldırılabilir; Ancak, bu ilke önceden kabul etmek için consortium aittir.
 
-![Yöneticiler](./media/ethereum-poa-deployment/governance-dapp-admins.png)
+![Yöneticileri](./media/ethereum-poa-deployment/governance-dapp-admins.png)
 
 #### <a name="validators"></a>Doğrulayıcıları
 Seçme __doğrulayıcıları__ sekmesi soldaki menüde, bu örnek ve bunların geçerli durumunu (düğüm türü) için geçerli dağıtılan eşlik düğümleri görüntülenir.  Bu görünümde geçerli dağıtılan consortium üye temsil ettiği her consortium üye bu listede doğrulayıcıları farklı bir dizi gerekir.  Bu yeni dağıtılan bir örneği ve kendi doğrulayıcılarının henüz eklemediniz seçeneği 'Ekle doğrulayıcısına' gösterilen.  Bu seçeneğin seçilmesi otomatik olarak bölgesel dengeli bir dizi eşlik düğümü seçin ve bunları Doğrulayıcı kümenize atayın.  Daha fazla düğüm izin verilen kapasiteden dağıttıysanız, kalan düğümleri ağ üzerinde işlem düğümleri olacak.
@@ -202,7 +202,7 @@ Bir abonelik güvenli hale getirildikten sonra Azure portalına gidin. Seç '+',
 
 Aşağıdaki bölümde ilk üyenin ayak izini ağ yapılandırması için size yol gösterir. Dağıtım akışı beş adımlarına ayrılmıştır: Temel bilgiler, dağıtım bölgeleri, ağ boyutu ve performansı, Ethereum ayarları, Azure İzleyici.
 
-#### <a name="basics"></a>Temel
+#### <a name="basics"></a>Temel Bilgiler
 
 Altında **Temelleri**, abonelik, kaynak grubu ve temel sanal makine özellikleri gibi herhangi bir dağıtım için standart parametreler için değerler belirtin.
 
@@ -250,7 +250,7 @@ Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
   ---|---|---|---
   Yük dengeli Doğrulayıcı düğüm sayısı|Ağın bir parçası olarak sağlamak için Doğrulayıcı düğüm sayısı|2-15|2
   Doğrulayıcı düğüm depolama performansı|Dağıtılan Doğrulayıcı düğümler yedekleme yönetilen diskin türü.|Standart SSD veya Premium|Standart SSD
-  Doğrulayıcı düğüm sanal makine boyutu|Doğrulayıcı düğümleri için kullanılan sanal makine boyutu.|Standart bir standart D, standart D-v2, standart F serisi, standart DS ve standart FS|Standart D1 v2
+  Doğrulayıcı düğüm sanal makine boyutu|Doğrulayıcı düğümleri için kullanılan sanal makine boyutu.|Standart bir standart D, standart D-v2, standart F serisi, standart DS ve standart FS|Standard D1 v2
 
 [Depolama fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/managed-disks/)
 
@@ -258,11 +258,11 @@ Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
 
 Sanal makine ve depolama katmanı, ağ performansını etkiler.  İstenen maliyet verimliliği göre aşağıdaki SKU'ları öneririz:
 
-  Sanal makine SKU'su|Depolama katmanı|Fiyat|Performans|Gecikme
+  Sanal makine SKU'su|Depolama katmanı|Fiyat|Aktarım hızı|Gecikme süresi
   ---|---|---|---|---
-  F1|Standart SSD|düşük|düşük|Yüksek
-  D2_v3|Standart SSD|orta|orta|orta
-  F16s|Premium SSD|Yüksek|Yüksek|düşük
+  F1|Standart SSD|Düşük|Düşük|Yüksek
+  D2_v3|Standart SSD|Orta|Orta|Orta
+  F16s|Premium SSD|Yüksek|Yüksek|Düşük
 
 Aşağıda bir örnek dağıtımı: ![ağ, boyut ve performans](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
@@ -275,9 +275,9 @@ Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
   Parametre adı|Açıklama|İzin verilen değerler|Varsayılan değerler
   ---|---|---|---
 Consortium üye kimliği|Çakışma önlemek için IP adresi alanları yapılandırmak için kullanılan consortium ağa katılan her üye ile ilişkili kimlik. Özel bir ağ söz konusu olduğunda, üye kimliği aynı ağda farklı kuruluşlar arasında benzersiz olması gerekir.  Hatta aynı kuruluşa birden fazla bölgeye dağıtırken benzersiz üye kimliği gereklidir. Hiçbir çakışma olduğundan emin olmak için katılan diğer üyeleriyle paylaşmak ihtiyaç duyacağınız bu parametrenin değerini not edin.|0-255|NA
-Ağ kimliği|Dağıtılan consortium Ethereum ağ ağ kimliği.  Her Ethereum ağ kendi ağ 1 olan ortak ağ kimliği ile kimliği vardır.|5 - 999,999,999|10101010
+Ağ Kimliği|Dağıtılan consortium Ethereum ağ ağ kimliği.  Her Ethereum ağ kendi ağ 1 olan ortak ağ kimliği ile kimliği vardır.|5 - 999,999,999|10101010
 Yönetici Ethereum adresi|PoA idaresinde katıldığınız için kullanılan hesap adresi Ethereum.  MetaMask Ethereum adresi oluşturmak için kullanmanızı öneririz.|0 x'ile başlayan 42 alfasayısal karakterler|NA
-Gelişmiş Seçenekler|Ethereum ayarları için Gelişmiş Seçenekleri|Etkinleştirmek veya devre dışı|Devre dışı bırak
+Gelişmiş Seçenekleri|Ethereum ayarları için Gelişmiş Seçenekleri|Etkinleştirmek veya devre dışı|Devre Dışı Bırak
 Genel IP (Gelişmiş Seçenekler = etkin)|VNet ağ geçidinin arkasında ağ dağıtır ve eşleme erişim kaldırır. Bu seçenek belirlenirse, tüm üyeleri uyumlu olacak şekilde sanal ağ geçidi bağlantısı için kullanmanız gerekir.|Genel IP özel VNet|Genel IP
 Block gaz sınırı (Gelişmiş Seçenekler = etkin)|Ağ başlatma bloğu gaz sınırı|Herhangi bir sayısal|50000000
 Blok yeniden mühürleme süresi (sn)|Ağ üzerinde hiçbir işlem olduğunda, boş bir blok oluşturulur sıklığı. Yüksek sıklık, artan depolama maliyetlerine ancak daha hızlı finality sahip olur.|Herhangi bir sayısal|15

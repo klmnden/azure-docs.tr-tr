@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105589"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Azure Service Bus ve Azure Logic Apps ile bulutta Exchange iletileri
@@ -90,7 +90,7 @@ Mantıksal uygulamanız için Service Bus ad alanınızı erişme izinleri oldu�
    1. Son adım, bir eylem eklemek istediğiniz altında seçin **yeni adım**. 
 
       Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. 
-      Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+      Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
 
    1. Arama kutusuna filtreniz olarak "Azure Service Bus" girin. 
    Eylemler listesinde, istediğiniz eylemi seçin. 

@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65416154"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Kimlik doğrulaması ve Azure Logic apps'te yönetilen kimliklerle kaynaklara erişin
@@ -132,9 +132,9 @@ Mantıksal uygulamanızın sistem tarafından atanan yönetilen kimlik için ba�
 
 1. Azure portalında, yönetilen kimliğiniz için erişim atamak istediğiniz Azure kaynağına gidin. 
 
-1. Kaynağın menüden **erişim denetimi (IAM)**. Araç çubuğunda **Ekle** > **rol ataması Ekle**.
+1. Kaynağın menüden **erişim denetimi (IAM)** . Araç çubuğunda **Ekle** > **rol ataması Ekle**.
 
-   ![Rol ataması ekle](./media/create-managed-service-identity/add-permissions-logic-app.png)
+   ![Rol ataması Ekle](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
 1. Altında **rol ataması Ekle**seçin **rol** kimliği için istediğiniz. 
 

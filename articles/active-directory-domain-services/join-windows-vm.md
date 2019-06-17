@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: mstephen
 ms.openlocfilehash: 1564fff8a749cc2d4db9e8e820981ba5dc1da570
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66245977"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server sanal makinesini yönetilen bir etki alanına ekleme
@@ -27,7 +27,7 @@ Bu makalede, Azure portalını kullanarak bir Windows Server sanal makine dağı
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="step-1-create-a-windows-server-virtual-machine"></a>1. adım: Windows Server sanal makinesi oluşturma
+## <a name="step-1-create-a-windows-server-virtual-machine"></a>1\. adım: Windows Server sanal makinesi oluşturma
 Azure AD DS etkin sanal ağa katılmış bir Windows sanal makine oluşturmak için aşağıdaki adımları uygulayın:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -67,7 +67,7 @@ Azure AD DS etkin sanal ağa katılmış bir Windows sanal makine oluşturmak i�
 10. Dağıtım tamamlandıktan sonra VM hakkında daha fazla bilgi görüntüleyebilirsiniz **genel bakış** sayfası.
 
 
-## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>2. adım: Yerel yönetici hesabı kullanarak Windows Server sanal makineye bağlanma
+## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>2\. adım: Yerel yönetici hesabı kullanarak Windows Server sanal makineye bağlanma
 Ardından, yeni oluşturulan Windows Server sanal makine etki alanına bağlanın. Sanal makineyi oluşturduğunuzda belirttiğiniz yerel yönetici kimlik bilgilerini kullanın.
 
 Sanal makineye bağlanmak için aşağıdaki adımları gerçekleştirin:
@@ -84,7 +84,7 @@ Sanal makineye bağlanmak için aşağıdaki adımları gerçekleştirin:
 Bu noktada, yeni oluşturulan Windows sanal makine için yerel yönetici kimlik bilgilerinizle oturum açmanız. Sonraki adım, sanal makine etki alanına sağlamaktır.
 
 
-## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>3. adım: Windows Server sanal makinesini Azure AD DS tarafından yönetilen etki alanına katılın
+## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>3\. adım: Windows Server sanal makinesini Azure AD DS tarafından yönetilen etki alanına katılın
 Windows Server sanal makinesini Azure AD DS tarafından yönetilen bir etki alanına katılmak için aşağıdaki adımları tamamlayın:
 
 1. "2. adımda." gösterildiği gibi Windows Server VM'ye bağlanma Üzerinde **Başlat** ekran açık **Sunucu Yöneticisi**.

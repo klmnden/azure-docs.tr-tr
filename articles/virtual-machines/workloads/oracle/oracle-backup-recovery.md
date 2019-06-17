@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567104"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Yedekleme ve bir Azure Linux sanal makinesinde Oracle Database 12 c veritabanı kurtarma
@@ -30,14 +30,14 @@ Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi 
 
 ## <a name="prepare-the-environment"></a>Ortamı hazırlama
 
-### <a name="step-1-prerequisites"></a>1. Adım: Önkoşullar
+### <a name="step-1-prerequisites"></a>1\. adım: Önkoşullar
 
 *   Yedekleme ve kurtarma işlemini gerçekleştirmek için Oracle Database 12 c yüklü örneği olan bir Linux VM oluşturmanız gerekir. VM oluşturmak için kullandığınız Market görüntüsü adlı *Oracle: Oracle-veritabanı-Ee:12.1.0.2:latest*.
 
     Bir Oracle veritabanına oluşturmayı öğrenmek için bkz: [Oracle veritabanı hızlı başlangıç oluşturmak](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
 
 
-### <a name="step-2-connect-to-the-vm"></a>2. Adım: VM’ye bağlanma
+### <a name="step-2-connect-to-the-vm"></a>2\. adım: VM’ye bağlanma
 
 *   Sanal makine ile bir güvenli Kabuk (SSH) oturumu oluşturmak için aşağıdaki komutu kullanın. IP adresi ve konak adı birlikte değiştirin `publicIpAddress` VM'niz için değer.
 
@@ -45,7 +45,7 @@ Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi 
     ssh <publicIpAddress>
     ```
 
-### <a name="step-3-prepare-the-database"></a>3. Adım: Veritabanını hazırlama
+### <a name="step-3-prepare-the-database"></a>3\. adım: Veritabanını hazırlama
 
 1.  Bu adım adlı bir VM üzerinde çalıştırılan Oracle örneği (cdb1) sahip olduğunuzu varsayar *myVM*.
 
@@ -133,7 +133,7 @@ Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi 
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>4. Adım: Linux VM'ler için uygulamayla tutarlı yedekleme
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>4\. Adım: Linux VM'ler için uygulamayla tutarlı yedekleme
 
 Uygulamayla tutarlı yedeklemeler, Azure Backup, yeni bir özelliktir. Oluşturun ve önce ve sonra VM anlık görüntüsü (anlık görüntü öncesi ve anlık görüntü sonrası) yürütmek için komut dosyaları seçin.
 
@@ -266,7 +266,7 @@ Uygulamayla tutarlı yedeklemeler, Azure Backup, yeni bir özelliktir. Oluşturu
 Daha fazla bilgi için [Linux VM'ler için uygulamayla tutarlı yedekleme](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
-### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>5. Adım: Sanal makineyi yedeklemek için kullanım Azure kurtarma Hizmetleri kasaları
+### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>5\. Adım: Sanal makineyi yedeklemek için kullanım Azure kurtarma Hizmetleri kasaları
 
 1.  Azure portalında arama **kurtarma Hizmetleri kasaları**.
 
@@ -284,11 +284,11 @@ Daha fazla bilgi için [Linux VM'ler için uygulamayla tutarlı yedekleme](https
 
     ![Kurtarma Hizmetleri kasaları sayfasında yedekleme](./media/oracle-backup-recovery/recovery_service_04.png)
 
-5.  Üzerinde **yedekleme hedefi** dikey penceresinde varsayılan değerleri kullanmak **Azure** ve **sanal makine**. **Tamam** düğmesine tıklayın.
+5.  Üzerinde **yedekleme hedefi** dikey penceresinde varsayılan değerleri kullanmak **Azure** ve **sanal makine**. **Tamam**'ı tıklatın.
 
     ![Kurtarma Hizmetleri kasaları Ayrıntı Sayfası](./media/oracle-backup-recovery/recovery_service_05.png)
 
-6.  İçin **yedekleme İlkesi**, kullanın **DefaultPolicy**, ya da seçin **oluşturma yeni ilke**. **Tamam** düğmesine tıklayın.
+6.  İçin **yedekleme İlkesi**, kullanın **DefaultPolicy**, ya da seçin **oluşturma yeni ilke**. **Tamam**'ı tıklatın.
 
     ![Kurtarma Hizmetleri kasaları yedekleme İlkesi Ayrıntı Sayfası](./media/oracle-backup-recovery/recovery_service_06.png)
 
@@ -303,7 +303,7 @@ Daha fazla bilgi için [Linux VM'ler için uygulamayla tutarlı yedekleme](https
 
     ![Kurtarma Hizmetleri kasaları myVault Ayrıntı Sayfası](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  Üzerinde **yedekleme öğeleri (Azure sanal makine)** dikey penceresinde sayfanın sağ tarafındaki üç nokta simgesine tıklayın (**...** ) düğmesini ve ardından **Şimdi Yedekle**.
+9.  Üzerinde **yedekleme öğeleri (Azure sanal makine)** dikey penceresinde sayfanın sağ tarafındaki üç nokta simgesine tıklayın ( **...** ) düğmesini ve ardından **Şimdi Yedekle**.
 
     ![Kurtarma Hizmetleri kasaları yedekleme artık komutu](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -319,7 +319,7 @@ Daha fazla bilgi için [Linux VM'ler için uygulamayla tutarlı yedekleme](https
 
 11. Uygulamayla tutarlı bir yedekleme için günlük dosyasındaki hataları giderir. Günlük dosyası /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0 bulunur.
 
-### <a name="step-6-remove-the-database-files"></a>6. Adım: Veritabanı dosyalarını Kaldır 
+### <a name="step-6-remove-the-database-files"></a>6\. Adım: Veritabanı dosyalarını Kaldır 
 Bu makalede kurtarma işlemini test öğreneceksiniz. Kurtarma işlemini test edebilmek için önce veritabanı dosyalarını kaldırmak zorunda.
 
 1.  Belirtilmedi ve yedekleme dosyalarını kaldırın:
@@ -351,7 +351,7 @@ Silinen dosyaları geri yüklemek için aşağıdaki adımları tamamlayın:
 
     ![Kurtarma Hizmetleri kasaları Azure sanal makine yedekleme öğesi sayısı](./media/oracle-backup-recovery/recovery_service_13.png)
 
-3. Üzerinde **myvm1** dikey penceresinde tıklayın **dosya kurtarma (Önizleme)**.
+3. Üzerinde **myvm1** dikey penceresinde tıklayın **dosya kurtarma (Önizleme)** .
 
     ![Dosya Kurtarma sayfası ekran görüntüsü kurtarma Hizmetleri kasaları](./media/oracle-backup-recovery/recovery_service_14.png)
 
@@ -452,13 +452,13 @@ Silinen dosyaları geri yüklemek için aşağıdaki adımları tamamlayın:
 
 Kurtarma Hizmetleri kasaları silinen dosyaları geri yükleme yerine, tüm VM'yi geri yükleyebilirsiniz.
 
-### <a name="step-1-delete-myvm"></a>1. Adım: MyVM Sil
+### <a name="step-1-delete-myvm"></a>1\. adım: MyVM Sil
 
 *   Azure portalında Git **myVM1** kasaya ve ardından **Sil**.
 
     ![Kasayı Sil komutu](./media/oracle-backup-recovery/recover_vm_01.png)
 
-### <a name="step-2-recover-the-vm"></a>2. Adım: Recover SQL
+### <a name="step-2-recover-the-vm"></a>2\. adım: Recover SQL
 
 1.  Git **kurtarma Hizmetleri kasaları**ve ardından **myVault**.
 
@@ -472,7 +472,7 @@ Kurtarma Hizmetleri kasaları silinen dosyaları geri yükleme yerine, tüm VM'y
 
     ![Kurtarma VM sayfası](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  Üzerinde **myvm1** dikey penceresinde, üç noktaya tıklayın (**...** ) düğmesini ve ardından **VM geri yükleme**.
+4.  Üzerinde **myvm1** dikey penceresinde, üç noktaya tıklayın ( **...** ) düğmesini ve ardından **VM geri yükleme**.
 
     ![VM komutu geri yükleme](./media/oracle-backup-recovery/recover_vm_05.png)
 
@@ -496,14 +496,14 @@ Kurtarma Hizmetleri kasaları silinen dosyaları geri yükleme yerine, tüm VM'y
 
     ![Geri yükleme işleminin durumu](./media/oracle-backup-recovery/recover_vm_09.png)
 
-### <a name="step-3-set-the-public-ip-address"></a>3. Adım: Genel IP adresini ayarlama
+### <a name="step-3-set-the-public-ip-address"></a>3\. adım: Genel IP adresini ayarlama
 Sanal makine geri yüklendikten sonra genel IP adresini ayarlayın.
 
 1.  Arama kutusuna **genel IP adresi**.
 
     ![Genel IP adresleri listesi](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  Üzerinde **genel IP adresleri** dikey penceresinde tıklayın **Ekle**. Üzerinde **genel IP adresi oluşturma** dikey penceresinde için **adı**, genel IP adı seçin. **Kaynak grubu** olarak **Var olanı kullan**’ı seçin. Sonra, **Oluştur**’a tıklayın.
+2.  Üzerinde **genel IP adresleri** dikey penceresinde tıklayın **Ekle**. Üzerinde **genel IP adresi oluşturma** dikey penceresinde için **adı**, genel IP adı seçin. **Kaynak grubu** olarak **Var olanı kullan**’ı seçin. Ardından, **Oluştur**'u tıklatın.
 
     ![IP adresi oluşturma](./media/oracle-backup-recovery/create_ip_01.png)
 
@@ -519,7 +519,7 @@ Sanal makine geri yüklendikten sonra genel IP adresini ayarlayın.
 
     ![IP adresi değeri](./media/oracle-backup-recovery/create_ip_04.png)
 
-### <a name="step-4-connect-to-the-vm"></a>4. Adım: VM’ye bağlanma
+### <a name="step-4-connect-to-the-vm"></a>4\. Adım: VM’ye bağlanma
 
 *   VM'ye bağlanmak için aşağıdaki betiği kullanın:
 
@@ -527,7 +527,7 @@ Sanal makine geri yüklendikten sonra genel IP adresini ayarlayın.
     ssh <publicIpAddress>
     ```
 
-### <a name="step-5-test-whether-the-database-is-accessible"></a>5. Adım: Veritabanı erişilebilir olup olmadığını test edin
+### <a name="step-5-test-whether-the-database-is-accessible"></a>5\. Adım: Veritabanı erişilebilir olup olmadığını test edin
 *   Erişilebilirlik test etmek için aşağıdaki betiği kullanın:
 
     ```bash 
@@ -539,7 +539,7 @@ Sanal makine geri yüklendikten sonra genel IP adresini ayarlayın.
     > [!IMPORTANT]
     > Veritabanı **başlangıç** komutu bir hata oluşturur, veritabanını kurtarmak için bkz: [adım 6: Veritabanını kurtarmak için RMAN kullanın](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>6. Adım: (İsteğe bağlı) Veritabanını kurtarmak için RMAN kullanın
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>6\. Adım: (İsteğe bağlı) Veritabanını kurtarmak için RMAN kullanın
 *   Veritabanını kurtarmak için aşağıdaki betiği kullanın:
 
     ```bash

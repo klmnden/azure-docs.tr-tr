@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39c5efee0958fdfc8fa647f5acaf929f559f7bf7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038611"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065660"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>MariaDB veri çoğaltma için Azure veritabanını yapılandırma
 
-Bu makalede, veri çoğaltma hizmeti MariaDB için Azure veritabanı'nda ana ve çoğaltma sunucuları yapılandırarak nasıl ayarlanacağını öğreneceksiniz. Veri çoğaltma, verileri şirket içi sanal makineleri veya diğer bulut sağlayıcılarının hizmet MariaDB için Azure veritabanı'nda çoğaltmayı içine barındırılan veritabanı Hizmetleri çalıştıran ana MariaDB sunucudan eşitlemenize olanak tanır. 
+Bu makalede, veri çoğaltma hizmeti MariaDB için Azure veritabanı'nda ana ve çoğaltma sunucuları yapılandırarak nasıl ayarlanacağını öğreneceksiniz. Veri çoğaltma, verileri şirket içi sanal makineleri veya diğer bulut sağlayıcılarının hizmet MariaDB için Azure veritabanı'nda çoğaltmayı içine barındırılan veritabanı Hizmetleri çalıştıran ana MariaDB sunucudan eşitlemenize olanak tanır. Veri çoğaltma ile Kurulum recommanded [genel işlem kimliği](https://mariadb.com/kb/en/library/gtid/) ana sunucunuzun sürümü 10.2 olduğunda veya üzeri.
 
 Bu makalede, MariaDB sunucular ve veritabanları ile konusunda en azından biraz deneyim sahibi olduğunuzu varsayar.
 
@@ -116,7 +116,16 @@ Aşağıdaki adımlar, hazırlama ve MariaDB barındırılan şirket içi, sanal
    Sonuçlar aşağıdaki gibi olmalıdır. Sonraki adımlarda kullanılacak gibi ikili dosya adını not aldığınızdan emin olun.
 
    ![Ana durum sonuçları](./media/howto-data-in-replication/masterstatus.png)
+   
+6. GTID konumu (GTID çoğaltması için gereken isteğe bağlı) alma
+
+   İşlevi çalıştırmak [ `BINLOG_GTID_POS` ](https://mariadb.com/kb/en/library/binlog_gtid_pos/) correspond binlog dosya adını ve uzaklık için GTID konumu almak için komutu.
+  
+    ```sql
+    select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
+    ```
  
+
 ## <a name="dump-and-restore-master-server"></a>Döküm ve ana sunucusunu geri yükleme
 
 1. Ana sunucu tüm veritabanlarından dökümü
@@ -142,10 +151,16 @@ Aşağıdaki adımlar, hazırlama ve MariaDB barındırılan şirket içi, sanal
 
    Tüm veri çoğaltma işlevleri saklı yordamlar tarafından gerçekleştirilir. Tüm işlemleri bulabilirsiniz [verileri, çoğaltma saklı yordamları](reference-data-in-stored-procedures.md). Saklı yordamları MySQL kabuğu veya MySQL Workbench içinde çalıştırabilirsiniz.
 
-   İki sunucu bağlantı çoğaltması, hedef çoğaltma sunucusuna MariaDB hizmeti için Azure DB'de oturum açma başlatmak ve dış örneği ana sunucu olarak ayarlamak için. Bu kullanılarak yapılır `mysql.az_replication_change_master` MariaDB sunucusu için Azure veritabanı üzerinde saklı yordam.
+   İki sunucu bağlantı çoğaltması, hedef çoğaltma sunucusuna MariaDB hizmeti için Azure DB'de oturum açma başlatmak ve dış örneği ana sunucu olarak ayarlamak için. Bu kullanılarak yapılır `mysql.az_replication_change_master` veya `mysql.az_replication_change_master_with_gtid` MariaDB sunucusu için Azure veritabanı üzerinde saklı yordam.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   ```
+   
+   or
+   
+   ```sql
+   CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
 
    - master_host: ana sunucusunun konak adı
@@ -153,6 +168,7 @@ Aşağıdaki adımlar, hazırlama ve MariaDB barındırılan şirket içi, sanal
    - master_password: ana sunucu için parola
    - master_log_file: çalışmasını ikili günlük dosyası adı `show master status`
    - master_log_pos: çalışmasını ikili günlük konumu `show master status`
+   - master_gtid_pos: Çalışan GTID konumu `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
    - master_ssl_ca: CA sertifikanın bağlamı. SSL kullanılmıyorsa, boş bir dize geçirin.
        - Bu parametrede bir değişken olarak geçirmek için önerilir. Daha fazla bilgi için aşağıdaki örneklere bakın.
 
@@ -199,9 +215,13 @@ Aşağıdaki adımlar, hazırlama ve MariaDB barındırılan şirket içi, sanal
 
    Varsa durumunu `Slave_IO_Running` ve `Slave_SQL_Running` "Evet"'i ve değerini `Seconds_Behind_Master` "0", çoğaltma düzgün çalışıyor. `Seconds_Behind_Master` çoğaltmanın nasıl geç olduğunu gösterir. Değer ise "0" geldiğini çoğaltma güncelleştirmeleri işliyor. 
 
+4. Güncelleştirme (çoğaltma GTID olmadan yalnızca gereklidir) veri çoğaltma daha güvenli hale getirmek için sunucu değişkenlerine karşılık gelir
+    
+    MariaDB yerel çoğaltma sınırlama nedeniyle, kurulum için gereken [ `sync_master_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) ve [ `sync_relay_log_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) GTID senaryosu olmadan çoğaltma değişkenlerde. Bağımlı sunucunuzun kontrol recommand `sync_master_info` ve `sync_relay_log_info` değişkenleri ve bunları değiştirmek ot `1` veri çoğaltma tutarlı olduğundan emin olmak istiyorsanız.
+    
 ## <a name="other-stored-procedures"></a>Diğer saklı yordamlar
 
-### <a name="stop-replication"></a>Çoğaltmayı durdur
+### <a name="stop-replication"></a>Çoğaltmayı Durdur
 
 Ana ve çoğaltma sunucusu arasında çoğaltmayı durdurmak için aşağıdaki depolanan yordamı kullanın:
 

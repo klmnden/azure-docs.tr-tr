@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: spelluru
 ms.openlocfilehash: 5b5c973a8daa8776efb0909092c569ea46902265
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66307325"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Azure Event Grid, sunucu tarafı coğrafi olağanüstü durum kurtarma
@@ -26,7 +26,7 @@ Event Grid'ın otomatik yük devretme farklı RPO ve RTO için meta verilerinizi
 
 ## <a name="recovery-point-objective-rpo"></a>Kurtarma noktası hedefi (RPO)
 - **Meta veri RPO**: sıfır dakika. Event grid'de bir kaynak oluşturulur zaman anında bölgeler arasında çoğaltılır. Bir yük devretme işlemi gerçekleştiğinde, meta veri kaybolur.
-- **Data RPO**: Sisteminizi iyi durumda olup olmadığını ve bölgesel yük devretme sırasında mevcut trafiğinde yakalandı, RPO'sunu olayları için yaklaşık 5 dakikadır.
+- **Data RPO**: Sistem iyi durumdaysa ve mevcut trafikten geri düşmediyse etkinlikler için RPO yaklaşık 5 dakikadır.
 
 ## <a name="recovery-time-objective-rto"></a>Kurtarma süresi hedefi (RTO)
 - **Meta veri RTO**: Genellikle 60 dakika içinde çok daha hızlı bir şekilde gerçekleşir ancak Event Grid konuları ve abonelikleri için oluşturma/güncelleştirme/silme çağrılarını kabul başlar.

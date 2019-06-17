@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b57786aaf699f562743bfdd6cf5c2d8f1b41b0d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbcf941293a30a48a17dfdf832ae8af551e834c7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60276011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Öğretici: Hightail ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Hightail tümleştirmesini yapılandırmak için Hightail Galeriden 
 
 **Galeriden Hightail eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

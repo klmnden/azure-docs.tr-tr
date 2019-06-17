@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 2753daf225016d3bd8e07383193a1260b40a36d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fd0ecf67e3e6492fa3e6d9e12379e06ee3f814d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280213"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Öğretici: EBSCO ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de EBSCO tümleştirmesini yapılandırmak için EBSCO Galeriden yönet
 
 **Galeriden EBSCO eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde  **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
