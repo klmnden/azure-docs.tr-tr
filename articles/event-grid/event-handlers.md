@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 6093e1017af2fb8c54eaf1c3192f937172567982
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305040"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080550"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid olay işleyicileri
 
@@ -78,9 +78,45 @@ Service Bus, kurumsal uygulamalar bölümündeki arabelleğe alma veya komut ve 
 
 Lütfen unutmayın, bir işleyici genel önizlemede olduğundan sırasında Service Bus, CLI veya PowerShell uzantısı bu olay aboneliği oluşturmak için kullanırken yüklemeniz gerekir.
 
-### <a name="using-cli"></a>CLI kullanma
+### <a name="install-extension-for-azure-cli"></a>Uzantısı için Azure CLI'yı yükleme
 
-Aşağıdaki örnekte Azure CLI için abone olan bir bağlanır ve Service Bus kuyruğuna Event Grid konusu:
+Azure CLI için gereksinim duyduğunuz [Event Grid uzantısı](/cli/azure/azure-cli-extensions-list).
+
+İçinde [CloudShell](/azure/cloud-shell/quickstart):
+
+* Uzantıyı daha önce yüklediyseniz, güncelleştirebilirsiniz `az extension update -n eventgrid`.
+* Uzantıyı daha önce yüklemediyseniz kullanarak yükleme `az extension add -n eventgrid`.
+
+Yerel bir yüklemesi için:
+
+1. [Azure CLI yükleme](/cli/azure/install-azure-cli). İle kontrol ederek son sürüme sahip olduğunuzdan emin olun `az --version`.
+1. Uzantının önceki sürümleri kaldırmanız `az extension remove -n eventgrid`.
+1. Yükleme `eventgrid` uzantısıyla `az extension add -n eventgrid`.
+
+### <a name="install-module-for-powershell"></a>İçin PowerShell modülünü yükleme
+
+PowerShell için gereksinim duyduğunuz [AzureRM.EventGrid Modülü](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
+
+İçinde [CloudShell](/azure/cloud-shell/quickstart-powershell):
+
+* İle modülünü yükleme `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+Yerel bir yüklemesi için:
+
+1. PowerShell konsolunu yönetici olarak açın.
+1. İle modülünü yükleme `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+Varsa `-AllowPrerelease` parametresi kullanılamaz, aşağıdaki adımları kullanın:
+
+1. `Install-Module PowerShellGet -Force` öğesini çalıştırın.
+1. `Update-Module PowerShellGet` öğesini çalıştırın.
+1. PowerShell konsolunu kapatın.
+1. PowerShell'i yönetici olarak yeniden başlatın.
+1. Modül yükleme `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+### <a name="using-cli-to-add-a-service-bus-handler"></a>CLI kullanarak bir Service Bus işleyicisi ekleme
+
+Aşağıdaki örnek, Azure CLI için abone olur ve bir Event Grid konusu, bir Service Bus kuyruğuna bağlanır:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

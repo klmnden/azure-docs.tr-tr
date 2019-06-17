@@ -1,20 +1,19 @@
 ---
 title: Azure veri fabrikası eşleme veri akışını iyileştirme sekmesi
-description: Azure veri fabrikası İyileştir sekmesi bölüm ayarları ile bir veri akışı eşleme en iyi duruma getirme
+description: Azure veri fabrikası eşleme verileri bölüm ayarları ile en iyi duruma getirme sekmesini kullanarak akışları en iyi duruma getirme
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262298"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075095"
 ---
-# <a name="mapping-data-flow-transformation-optimize-tab"></a>Eşleme veri akışını dönüştürme iyileştirme sekmesi
+# <a name="mapping-data-flow-transformation-optimize-tab"></a>Eşleme veri akışı dönüştürme iyileştirmek sekmesi
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -51,3 +50,8 @@ Bölümlenmiş verileri sütunlarınızı içindeki değerleri için sabit bir a
 ### <a name="key"></a>Anahtar
 
 Anahtar bölümleme kardinalite verilerinizin iyi bir anlayışa sahip, iyi bölüm stratejisi olabilir. Anahtar bölümleme bölümler her bir benzersiz değer için, bir sütun oluşturur. Benzersiz değerler sayısı hesaplanır bölüm sayısı ayarlanamıyor.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+[Eşleme veri akışı performans kılavuzunu](concepts-data-flow-performance.md)
+[veri akışı izleme](concepts-data-flow-monitoring.md)

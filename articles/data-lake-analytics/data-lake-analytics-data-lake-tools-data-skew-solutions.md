@@ -9,10 +9,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
 ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606702"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Visual Studio için Azure Data Lake araçları kullanarak veri dengesizliği sorunları çözün
@@ -30,11 +30,11 @@ Visual Studio için Azure Data Lake araçları, işinizi veri dengesizliği ile 
 
 ## <a name="solution-1-improve-table-partitioning"></a>Çözüm 1: Tablo bölümleme geliştirin
 
-### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>1. seçenek: Asimetrik anahtar değeri önceden Filtrele
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>1\. seçenek: Asimetrik anahtar değeri önceden Filtrele
 
 İş mantığınızı etkilemez, yüksek frekanslı değerleri önceden filtre uygulayabilirsiniz. Örneğin, 000-000-000 GUID sütunda çok fazla varsa, bu değeri toplamak istemeyebilirsiniz. Önce toplam, yazabileceğiniz "WHERE GUID! ="000-000-000"" yüksek frekanslı değeri filtrelemek için.
 
-### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>2. seçenek: Farklı bir dağıtım ve bölüm anahtarı seçin
+### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>2\. seçenek: Farklı bir dağıtım ve bölüm anahtarı seçin
 
 Önceki örnekte, yalnızca tüm ülke/bölge, vergi denetim iş yükü denetlemek istiyorsanız, anahtar olarak kimlik numarasını seçerek veri dağıtım artırabilir. Farklı bir bölüm veya dağıtım anahtarı çekme bazen verileri daha eşit dağıtabilirsiniz, ancak bu seçenek iş mantığınızı etkilemediğinden emin emin olmanız gerekir. Örneğin, her durum için vergi toplamı hesaplamak için belirtmek istediğiniz _durumu_ bölüm anahtarı olarak. Bu sorunla karşılaşmaya devam ederseniz seçeneği 3'ü kullanarak deneyin.
 
@@ -48,7 +48,7 @@ Bölüm ve dağıtım için uygun bir anahtar bulamazsanız, hepsini bir kez den
 
 ## <a name="solution-2-improve-the-query-plan"></a>Çözüm 2: Sorgu planı geliştirin
 
-### <a name="option-1-use-the-create-statistics-statement"></a>1. seçenek: CREATE STATISTICS deyimini kullanın
+### <a name="option-1-use-the-create-statistics-statement"></a>1\. seçenek: CREATE STATISTICS deyimini kullanın
 
 U-SQL tablolarında CREATE STATISTICS deyim sağlar. Bu ifade sorgu iyileştiricisi tablo içinde saklanan verileri gibi özellikleri değer dağılımı hakkında daha fazla bilgi sağlar. Sorguların çoğu, sorgu iyileştiricisi zaten gerekli istatistikleri yüksek kaliteli sorgu planı oluşturur. Bazen, CREATE STATISTICS ile ek istatistikleri oluşturmak veya sorgu tasarımını değiştirerek sorgu performansını artırmak gerekebilir. Daha fazla bilgi için [CREATE STATISTICS (U-SQL)](/u-sql/ddl/statistics/create-statistics) sayfası.
 
@@ -59,7 +59,7 @@ Kod örneği:
 >[!NOTE]
 >İstatistik bilgilerini otomatik olarak güncelleştirilmez. İstatistikleri tekrar oluşturmak zorunda kalmadan bir tablodaki verileri güncelleştirirseniz, sorgu performansı reddedebilir.
 
-### <a name="option-2-use-skewfactor"></a>2. seçenek: SQL'da kullanın
+### <a name="option-2-use-skewfactor"></a>2\. seçenek: SQL'da kullanın
 
 Her durum için vergi toplamak istiyorsanız, GROUP BY durumu, veri dengesizliği kaçınmak olmayan bir yaklaşım kullanmanız gerekir. Ancak, sorgu iyileştiricisi yürütme planı sizin için hazırlanabilmeniz adına, veri dengesizliği anahtarları tanımlamak için bir veri ipucuyla sağlayabilirsiniz.
 
@@ -122,11 +122,11 @@ Kod örneği:
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>3. çözüm: Birleştirici ve kullanıcı tanımlı Azaltıcı geliştirin
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>3\. çözüm: Birleştirici ve kullanıcı tanımlı Azaltıcı geliştirin
 
 Bazen bir kullanıcı tanımlı işleç karmaşık bir işlem mantığı ile birlikte dağıtılacak yazabilirsiniz ve bazı durumlarda bir veri dengesizliği sorun iyi-yazılan Azaltıcı ve birleştirici azaltabileceğini.
 
-### <a name="option-1-use-a-recursive-reducer-if-possible"></a>1. seçenek: Mümkünse bir özyinelemeli Azaltıcı kullanın
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>1\. seçenek: Mümkünse bir özyinelemeli Azaltıcı kullanın
 
 Varsayılan olarak, bir kullanıcı tanımlı Azaltıcı anahtarı için iş miktarını azaltmaya anlamına tek bir köşe dağıtılır özyinelemeli olmayan modda çalışır. Ancak verilerinizin dengesiz, büyük veri kümelerini tek bir köşe işlenmesi ve uzun bir süredir çalıştırın.
 
@@ -150,7 +150,7 @@ Kod örneği:
         }
     }
 
-### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>2. seçenek: Mümkünse satır düzeyinde Birleştirici modu kullanın
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>2\. seçenek: Mümkünse satır düzeyinde Birleştirici modu kullanın
 
 Benzer şekilde belirli dengesiz anahtarı birleşim durumları için satır sayısı ipucu, çalışmayı aynı anda çalıştırılabilecek böylece birden fazla köşe için çok büyük dengesiz anahtar değer kümeleri dağıtmak Birleştirici modu çalışır. Birleştirici modu veri dengesizliği sorunları gideremezsiniz ancak büyük dengesiz anahtar değer kümeleri için bazı ek Yardım sağlayabilir.
 

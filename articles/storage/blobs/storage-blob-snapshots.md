@@ -9,10 +9,10 @@ ms.date: 03/06/2018
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 9c24f613de8bf26331f6fe328358aaf8a320d522
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794244"
 ---
 # <a name="create-a-blob-snapshot"></a>Blob anlık görüntüsü oluşturma
@@ -148,13 +148,13 @@ Anlık görüntü alındıktan sonra yalnızca benzersiz blokları için 1, 2 ve
 
 **Senaryo 2**
 
-2. senaryo, temel blob güncelleştirildi, ancak anlık görüntüye sahip değil. Blok 3 güncelleştirildi ve aynı verileri ve aynı kimliği içeriyor olsa bile, bu anlık görüntüdeki 3 block aynı değil. Sonuç olarak, hesap dört blokları için ücretlendirilir.
+2\. senaryo, temel blob güncelleştirildi, ancak anlık görüntüye sahip değil. Blok 3 güncelleştirildi ve aynı verileri ve aynı kimliği içeriyor olsa bile, bu anlık görüntüdeki 3 block aynı değil. Sonuç olarak, hesap dört blokları için ücretlendirilir.
 
 ![Azure Storage kaynakları](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
 **Senaryo 3**
 
-3. senaryo, temel blob güncelleştirildi, ancak anlık görüntüye sahip değil. Blok 3, 4 bloğunda temel blob ile değiştirildi, ancak anlık görüntü hala 3 blok yansıtır. Sonuç olarak, hesap dört blokları için ücretlendirilir.
+3\. senaryo, temel blob güncelleştirildi, ancak anlık görüntüye sahip değil. Blok 3, 4 bloğunda temel blob ile değiştirildi, ancak anlık görüntü hala 3 blok yansıtır. Sonuç olarak, hesap dört blokları için ücretlendirilir.
 
 ![Azure Storage kaynakları](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 

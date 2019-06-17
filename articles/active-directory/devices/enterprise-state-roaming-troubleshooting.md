@@ -19,12 +19,12 @@ ms.author: joflore
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 0b74be0dda8e5c79987479393ad0d8ef5c3bdd16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353185"
+ms.locfileid: "67110660"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal durumda Dolaşım ayarları sorunlarını giderme
 
@@ -85,7 +85,7 @@ Belirli koşullar altında Azure multi-Factor Authentication yapılandırılmı�
 
 **Olası sorun**: Cihazınız Azure Active Directory portalında çok faktörlü kimlik doğrulamasını gerektirecek şekilde yapılandırılmışsa, ayarları bir Windows 10 cihazda bir parola kullanarak oturum açma sırasında eşitlenecek başarısız olabilir. Bu tür bir multi-Factor Authentication yapılandırmasına, Azure yönetici hesabı korumak için tasarlanmıştır. Yönetici kullanıcıların Windows 10 cihazlarını kendi Microsoft Passport for Work PIN oturum açarak veya Office 365 gibi diğer Azure hizmetlerine erişirken multi-Factor Authentication tamamlayarak eşitleyebildiklerinden olabilir.
 
-**Olası sorun**: Eşitleme, yönetim Active Directory Federasyon hizmetlerini çok faktörlü kimlik doğrulaması koşullu erişim ilkesini yapılandırır ve cihazın erişim belirtecinin süresi başarısız olabilir. Office 365 gibi diğer Azure hizmetlerine erişirken çok faktörlü kimlik doğrulamasını tamamlamak ya da oturum açın ve Microsoft Passport for Work PIN kullanarak oturumunuzu emin olun.
+**Olası sorun**: Eşitleme, yönetim Active Directory Federasyon Hizmetleri çok faktörlü kimlik doğrulaması koşullu erişim ilkesini yapılandırır ve cihazın erişim belirtecinin süresi başarısız olabilir. Office 365 gibi diğer Azure hizmetlerine erişirken çok faktörlü kimlik doğrulamasını tamamlamak ya da oturum açın ve Microsoft Passport for Work PIN kullanarak oturumunuzu emin olun.
 
 ### <a name="event-viewer"></a>Olay Görüntüleyicisi
 

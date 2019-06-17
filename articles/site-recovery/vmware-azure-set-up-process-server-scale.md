@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925483"
 ---
 # <a name="scale-with-additional-process-servers"></a>Ek işlem sunucusu ile ölçeklendirme
@@ -24,7 +24,7 @@ Varsayılan olarak, VMware Vm'lerini veya fiziksel sunucuları azure'a çoğalt�
 
 Gerçekleştirdiğiniz emin [kapasite planlaması](site-recovery-plan-capacity-vmware.md) VMware çoğaltması için. Bu, tanımlamanıza yardımcı olur nasıl ve ne zaman ek işlem sunucusu dağıtmanız gerekir.
 
-9.24 sürümünden Kılavuzu, yeni çoğaltmalar için işlem sunucusu seçimi sırasında eklenir. İşlem sunucusunun sağlıklı, uyarı ve kritik belirli ölçütlere dayalı olarak işaretlenir. İşlem sunucusunun durumunu etkileyen farklı senaryolar hakkında bilgilere [işlem sunucu uyarılarını](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
+9\.24 sürümünden Kılavuzu, yeni çoğaltmalar için işlem sunucusu seçimi sırasında eklenir. İşlem sunucusunun sağlıklı, uyarı ve kritik belirli ölçütlere dayalı olarak işaretlenir. İşlem sunucusunun durumunu etkileyen farklı senaryolar hakkında bilgilere [işlem sunucu uyarılarını](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > Kopyalanan bir işlem sunucusu bileşeni kullanımı desteklenmiyor. Her PS genişleme için bu makaledeki adımları izleyin.

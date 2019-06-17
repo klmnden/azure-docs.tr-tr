@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/29/2019
 ms.author: jowargo
-ms.openlocfilehash: edd0e12460e07cfd2990cc43a9056ed06b84fb1d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: abc77ad4d06dc719ee1a89cd8fcf29d42d96b483
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926709"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147626"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kindle uygulamaları için Notification Hubs'ı kullanmaya başlama
 
@@ -58,24 +58,35 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için kod oluşturur/
     5. **Kaydet**’i seçin.
 
         ![Yeni uygulama gönderme sayfası](./media/notification-hubs-kindle-get-started/new-app-submission-page.png) 
-2.  Üstünde geçiş **Mobile Ads** sekmesini tıklatın ve aşağıdaki adımları uygulayın: 
+2.  Üstünde geçiş **uygulama hizmetleri** sekmesi.
+
+    ![Uygulama Hizmetleri sekmesi](./media/notification-hubs-kindle-get-started/app-services-tab.png)
+1. Üzerinde **uygulama hizmetleri** sekmesinde, aşağı kaydırın ve seçin **görünümü Mobile Ads** içinde **Mobile Ads** bölümü. Gördüğünüz **Mobile Ads** yeni bir web tarayıcısı sekmesinde sayfa. 
+
+    ![Mobile Ads bölüm - görünüm Mobile Ads bağlantı](./media/notification-hubs-kindle-get-started/view-mobile-ads-link.png)
+1. Üzerinde **Mobile Ads** sayfasında, aşağıdaki adımları uygulayın: 
     1. Uygulamanızı öncelikle çocukların 13 yaşından yönlendirilmiş olup olmadığını belirtin. Bu öğreticide, seçin **Hayır**.
-    2. Seçin **gönderme**. 
+    1. Seçin **gönderme**. 
 
         ![Mobile Ads sayfası](./media/notification-hubs-kindle-get-started/mobile-ads-page.png)
     3. Kopyalama **uygulama anahtarı** gelen **Mobile Ads** sayfası. 
 
         ![Uygulama anahtarı](./media/notification-hubs-kindle-get-started/application-key.png)
-3.  Seçin **uygulamaları ve Hizmetleri** üstteki menü ve uygulama listesinde seçin. 
+3.  Şimdi, sahip web tarayıcı sekmesine geçiş **uygulama hizmetleri** sekmesini açın ve aşağıdaki adımları uygulayın:
+    1. Kaydırma **Device Messaging** bölümü.     
+    1. Genişletin **mevcut güvenlik profili seçin veya Yeni Oluştur**ve ardından **güvenlik profili oluştur**. 
 
-    ![Listeden uygulamanızı seçin](./media/notification-hubs-kindle-get-started/all-apps-select.png)
-4. Geçiş **Device Messaging** sekmesini tıklatın ve aşağıdaki adımları izleyin: 
-    1. Seçin **yeni bir güvenlik profili oluşturun**.
-    2. Girin bir **adı** güvenliği profiliniz için. 
-    3. Girin **açıklama** güvenliği profiliniz için. 
-    4. **Kaydet**’i seçin. 
-    5. Seçin **Güvenlik Profili Görüntüle** sonucu sayfasında. 
-5. Şimdi, **güvenlik profili** sayfasında, aşağıdaki adımları uygulayın: 
+        ![Güvenlik profili düğme oluşturma](./media/notification-hubs-kindle-get-started/create-security-profile-button.png)
+    1. Girin bir **adı** güvenliği profiliniz için. 
+    2. Girin **açıklama** güvenliği profiliniz için. 
+    3. **Kaydet**’i seçin. 
+
+        ![Güvenlik profilini Kaydet](./media/notification-hubs-kindle-get-started/save-security-profile.png)
+    1. Seçin **etkinleştirme Device Messaging** cihaz üzerinde bu güvenlik profili Mesajlaşma olanağı. 
+
+        ![Cihaz mesajlaşmayı etkinleştirebilirsiniz](./media/notification-hubs-kindle-get-started/enable-device-messaging.png)
+    1. Ardından, **Güvenlik Profili Görüntüle** sonucu sayfasında. 
+1. Şimdi, **güvenlik profili** sayfasında, aşağıdaki adımları uygulayın: 
     1. Geçiş **Web ayarları** sekmesini tıklatın ve Kopyala **istemci kimliği** ve **gizli** daha sonra kullanmak için değer. 
 
         ![İstemci Kimliğini ve parolasını alın](./media/notification-hubs-kindle-get-started/client-id-secret.png) 
@@ -314,6 +325,36 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için kod oluşturur/
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
     ```
+## <a name="create-an-adm-object"></a>ADM nesne oluşturma
+1 içinde `MainActivity.java` içeri aktarma deyimlerini ekleyin:
+
+    ```java
+    import android.os.AsyncTask;
+    import android.util.Log;
+    import com.amazon.device.messaging.ADM;
+    ```
+2. `OnCreate` yönteminin sonuna aşağıdaki kodu ekleyin:
+
+    ```java
+    final ADM adm = new ADM(this);
+    if (adm.getRegistrationId() == null)
+    {
+        adm.startRegister();
+    } else {
+        new AsyncTask() {
+                @Override
+                protected Object doInBackground(Object... params) {
+                    try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                    } catch (Exception e) {
+                        Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
+                        return e;
+                    }
+                    return null;
+                }
+            }.execute(null, null, null);
+    }
+    ```
+
 
 ## <a name="add-your-api-key-to-your-app"></a>Uygulamanıza API anahtarınızı ekleme
 1. Varlıklar klasöründe projeye eklemek için aşağıdaki adımları izleyin. 
@@ -332,7 +373,7 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için kod oluşturur/
             ![Varlık klasörünü yapılandırmak](./media/notification-hubs-kindle-get-started/configure-asset-folder.png)
 2. Adlı bir dosya ekleyin **api_key.txt** için **varlıklar** klasör. Ağaç görünümünde genişletin **uygulama**, genişletin **src**, genişletin **ana**, sağ tıklayın ve **varlıklar**, işaret **yeni**ve ardından **dosya**. Girin **api_key.txt** dosya adı. 3. 
 5. Amazon Geliştirici Portalı api_key.txt dosya için oluşturulan API anahtarını kopyalayın. 
-6. Projeyi derleyin. 
+6. Projeyi oluşturun. 
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 1. Kindle cihazında üstten çekin ve tıklayın **ayarları**ve ardından **Hesabımı** ve geçerli bir Amazon hesabıyla kaydolun.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc32f464044149e263db60fc2de237b473da5ab2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863516"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Öğretici: Citrix Netscaler ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Citrix Netscaler tümleştirmesini yapılandırmak için Citrix Nets
 
 **Citrix Netscaler Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -241,7 +241,7 @@ Azure AD çoklu oturum açma ile Citrix Netscaler yapılandırmak için aşağı
 
     b. Seçin **NetScaler gateway'den doğrudan**.
 
-    c. **Tamam**'ı tıklatın.
+    c. **Tamam** düğmesine tıklayın.
 
 14. Üzerinde **güvenilen etki alanlarını yapılandırma** açılır penceresinde, aşağıdaki adımları gerçekleştirin:
 
@@ -315,7 +315,7 @@ Azure AD çoklu oturum açma ile Citrix Netscaler yapılandırmak için aşağı
 
     b. Tıklayın **Ekle** , URL'nin olarak eklemek için **dış işaretleri** metin.
 
-    c. **Tamam**'ı tıklatın.
+    c. **Tamam** düğmesine tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

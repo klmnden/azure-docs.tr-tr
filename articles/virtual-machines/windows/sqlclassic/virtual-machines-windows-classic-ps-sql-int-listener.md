@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: 0e6a52ea2fdd05546a4da9f8cd1165b41ed27944
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097735"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Azure'da AlwaysOn Kullanılabilirlik grupları için ILB dinleyicisi yapılandırma
@@ -105,7 +105,7 @@ Bir Azure çoğaltması barındıran her VM için yük dengeli uç nokta oluştu
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Değişkenleri ayarladıktan sonra betiği Metin Düzenleyicisi'nden çalıştırmak için PowerShell oturumunuza kopyalayın. İstemi hala gösteriliyorsa **>>**, yeniden komut dosyasını başlatır çalıştıran emin olmak için Enter tuşuna basın.
+13. Değişkenleri ayarladıktan sonra betiği Metin Düzenleyicisi'nden çalıştırmak için PowerShell oturumunuza kopyalayın. İstemi hala gösteriliyorsa **>>** , yeniden komut dosyasını başlatır çalıştıran emin olmak için Enter tuşuna basın.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Gerekirse KB2854082 yüklü olduğunu doğrulayın
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +151,7 @@ Kullanılabilirlik grubu dinleyicisi iki adımda oluşturun. İlk olarak, istemc
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Değişkenleri ayarladıktan sonra yükseltilmiş bir Windows PowerShell penceresi açın, metin düzenleyici betiği çalıştırmak için PowerShell oturumunuza yapıştırın. İstemi hala gösteriliyorsa **>>**, yeniden betik çalışmaya başladıktan emin olmak için Enter tuşuna basın.
+3. Değişkenleri ayarladıktan sonra yükseltilmiş bir Windows PowerShell penceresi açın, metin düzenleyici betiği çalıştırmak için PowerShell oturumunuza yapıştırın. İstemi hala gösteriliyorsa **>>** , yeniden betik çalışmaya başladıktan emin olmak için Enter tuşuna basın.
 
 4. Her VM için önceki adımları yineleyin.  
     Bu betik, bulut hizmetinin IP adresi ile IP adresi kaynağını yapılandırır ve diğer parametreler, yoklama bağlantı noktası gibi ayarlar. IP adresi kaynağı çevrimiçi duruma getirildiğinde, yoklama bağlantı noktası üzerinde sorgulama, daha önce oluşturduğunuz yük dengeli uç noktasından yanıt verebilir.

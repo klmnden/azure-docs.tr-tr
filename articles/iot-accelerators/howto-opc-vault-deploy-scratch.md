@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 990b13d362b796f5e71f1bd41eb35fce9720fff4
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65835159"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>OPC Vault'u sıfırdan dağıtma
@@ -79,7 +79,7 @@ Scripts klasörü, sık kullanılan görevleri için bazı kodlar içerir:
 
 Ortam değişkenleri kurulumu için komut dosyalarını denetleyin. Ortam değişkenlerini genel olarak, işletim sisteminde ayarlamak veya betikler klasörüne "env-var-setup" komut dosyasını kullanın.
 
-### <a name="sandbox"></a>Korumalı Alan
+### <a name="sandbox"></a>Korumalı alan
 
 Betikler, .NET Core ve Docker geliştirme ortamınızı yapılandırılmış varsayılır. .NET Core yüklemekten kaçının ve yalnızca Docker'ı yükleyebilir ve komut satırı parametresini kullanın `--in-sandbox` (veya kısa formunu `-s`), örneğin:
 

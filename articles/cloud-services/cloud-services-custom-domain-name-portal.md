@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e210882cb773718f68e9178cbbce6874c2729744
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063609"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure bulut hizmeti için bir özel etki alanı adı yapılandırma
-Azure bulut hizmeti oluşturma zaman, bir alt etki alanı için atar **cloudapp.net**. Bulut hizmetinizin "contoso" ise, örneğin, kullanıcılarınız gibi bir URL uygulamanıza erişmek mümkün olacaktır http://contoso.cloudapp.net. Azure Ayrıca, sanal bir IP adresi atar.
+Azure bulut hizmeti oluşturma zaman, bir alt etki alanı için atar **cloudapp.net**. Bulut hizmetinizin "contoso" ise, örneğin, kullanıcılarınız gibi bir URL uygulamanıza erişmek mümkün olacaktır `http://contoso.cloudapp.net`. Azure Ayrıca, sanal bir IP adresi atar.
 
 Ancak, ayrıca uygulamanızı kendi etki alanı adına gibi getirebilir **contoso.com**. Bu makalede, ayırabilir veya Bulut hizmeti web rolleri için bir özel etki alanı adı yapılandırma açıklanmaktadır.
 
@@ -78,7 +78,7 @@ CNAME kaydı oluşturmak için yeni bir giriş DNS tablosunda özel etki alanın
      Her iki yöntem tarafından döndürülen URL'nin bir CNAME kaydı oluştururken ihtiyaç olarak kullanılan etki alanı adını kaydedin.
 2. DNS kaydedicinizin Web sitesinde oturum açın ve DNS Yönetme sayfasına gidin. Bağlantılar veya alanları olarak etiketlenmiş sitenin arayın **etki alanı adı**, **DNS**, veya **ad sunucusu yönetimi**.
 3. Şimdi burada seçin veya girin CNAME'ın bulun. Aşağı açılan bir kayıt türü seçin veya bir Gelişmiş ayarlar sayfasına gitmek zorunda kalabilirsiniz. Sözcüklerini görünmelidir **CNAME**, **diğer**, veya **alt etki alanlarını**.
-4. Ayrıca etki alanı veya alt etki alanı diğer adı için CNAME, gibi sağlamalısınız **www** için bir diğer ad oluşturmak istiyorsanız **www\.customdomain.com**. Kök etki alanı için bir diğer ad oluşturmak istiyorsanız, bunu olarak listelenebilir '**\@**' sembol kayıt şirketinizin DNS araçlar.
+4. Ayrıca etki alanı veya alt etki alanı diğer adı için CNAME, gibi sağlamalısınız **www** için bir diğer ad oluşturmak istiyorsanız **www\.customdomain.com**. Kök etki alanı için bir diğer ad oluşturmak istiyorsanız, bunu olarak listelenebilir ' **\@** ' sembol kayıt şirketinizin DNS araçlar.
 5. Ardından, uygulamanızın bir canonical konak adı sağlamalısınız **cloudapp.net** etki alanında bu durumda.
 
 Örneğin, aşağıdaki CNAME kaydı giden tüm trafiği iletir **www\.contoso.com** için **contoso.cloudapp.net**, dağıtılan uygulamanız özel etki alanı adı:
@@ -113,7 +113,7 @@ Bir A kaydı oluşturmak için sanal IP adresi bulut hizmetinizin bulmalıdır. 
 3. Şimdi burada seçin veya bir kaydın girin bulun. Aşağı açılan bir kayıt türü seçin veya bir Gelişmiş ayarlar sayfasına gitmek zorunda kalabilirsiniz.
 4. Etki alanı ya da bu A kaydını kullanacak bir alt etki alanı girin veya seçin. Örneğin, **www** için bir diğer ad oluşturmak istiyorsanız **www\.customdomain.com**. Tüm alt etki alanları için bir joker karakter girişi oluşturmak isterseniz, girin ' ***'. Bu gibi tüm alt etki alanlarını kapsar **mail.customdomain.com**, **login.customdomain.com**, ve **www\.customdomain.com**.
 
-    Kök etki alanı için bir A kaydı oluşturmak istiyorsanız, bunu olarak listelenebilir '**\@**' sembol kayıt şirketinizin DNS araçlar.
+    Kök etki alanı için bir A kaydı oluşturmak istiyorsanız, bunu olarak listelenebilir ' **\@** ' sembol kayıt şirketinizin DNS araçlar.
 5. Sağlanan alana, bulut hizmetinin IP adresini girin. Bu, bulut hizmeti dağıtımı IP adresi ile A kaydı kullanılan etki alanı giriş ilişkilendirir.
 
 Örneğin, bir kaydı iletir giden tüm trafiği aşağıdaki **contoso.com** için **137.135.70.239**, dağıtılan uygulamanızın IP adresi:

@@ -9,12 +9,12 @@ ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41a6b040c04c3a212a7ee89897b29f5ec96048d7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926533"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072187"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins'e genel bakış
 
@@ -34,7 +34,7 @@ Azure dijital İkizlerini ortamları tüm türleri için geçerlidir. Ambar, ofi
 - Bir yapı için sahiplik düzeyleri analiz edin.
 - En yoğun saatinde Yazar Kasa deponuzda bulun.
 
-Gerçek dünyadaki iş senaryonuz ne olursa olsun Azure Digital Twins ile uygun bir dijital örnek sağlanabilir.
+Gerçek iş senaryonuza olarak ne olursa olsun, büyük olasılıkla Azure ile dijital İkizlerini karşılık gelen bir dijital örneği sağlanabilir.
 
 Aşağıdaki video Azure dijital İkizlerini ayrıntılı olarak ele alır.
 

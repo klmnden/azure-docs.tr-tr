@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832599"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service'te uygulamaları izleme
@@ -53,7 +53,7 @@ Belirli kotalar, sınırlar ve çeşitli App Service SKU'ları için kullanılab
 
 ### <a name="quota-enforcement"></a>Kota uygulama
 
-Bir uygulama aşarsa *CPU (kısa)*, *CPU (gün)*, veya *bant genişliği* kota sıfırlar kadar kotası, uygulama durduruldu. Bu süre boyunca tüm gelen istekleri bir HTTP 403 hata neden olur.
+Bir uygulama aşarsa *CPU (kısa)* , *CPU (gün)* , veya *bant genişliği* kota sıfırlar kadar kotası, uygulama durduruldu. Bu süre boyunca tüm gelen istekleri bir HTTP 403 hata neden olur.
 
 ![403 hata iletisi][http403]
 
@@ -79,8 +79,8 @@ Bir uygulama için kullanılabilir ölçümleri şunlardır:
 | **Verileri** | Uygulamada MIB tarafından gelen bant genişliği miktarı. |
 | **Veri çıkışı** | Uygulamada MIB tarafından tüketilen giden bant genişliği miktarı. |
 | **Gen 0 atık toplamaları** | Nesil 0 çöp nesnelerdir sayıda uygulama işlemi başladığından bu yana toplanmadı. Daha yüksek nesil GC'ler tüm alt nesil GC'ler içerir.|
-| **Gen 1 çöp koleksiyonları** | 1. nesil nesneler çöp olan sayıda uygulama işlemi başladığından bu yana toplanır. Daha yüksek nesil GC'ler tüm alt nesil GC'ler içerir.|
-| **Gen 2 Atık toplamaları** | 2. nesil nesneler çöp olan sayıda uygulama işlemi başladığından bu yana toplanır.|
+| **Gen 1 çöp koleksiyonları** | 1\. nesil nesneler çöp olan sayıda uygulama işlemi başladığından bu yana toplanır. Daha yüksek nesil GC'ler tüm alt nesil GC'ler içerir.|
+| **Gen 2 Atık toplamaları** | 2\. nesil nesneler çöp olan sayıda uygulama işlemi başladığından bu yana toplanır.|
 | **Tanıtıcı sayısı** | Tanıtıcıları toplam sayısı, uygulama işlem tarafından şu anda açık.|
 | **HTTP 2xx** | Bir HTTP durum kodunda ≥ 200 ancak < 300 kaynaklanan isteklerin sayısı. |
 | **HTTP 3xx** | Bir HTTP durum kodunda ≥ 300 ancak < 400 kaynaklanan isteklerin sayısı. |

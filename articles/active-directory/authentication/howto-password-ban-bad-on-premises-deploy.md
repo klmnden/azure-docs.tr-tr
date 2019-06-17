@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 4c22c9c202e6de3b31b99803dce4a07d38287a92
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057293"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD parola korumasını dağıtma
 
@@ -36,6 +36,7 @@ Denetim aşamasında pek çok kuruluş bulmak:
 
 ## <a name="deployment-requirements"></a>Dağıtım gereksinimleri
 
+* Azure AD parola koruması makalesinde bulunabilir için lisans gereksinimleri [yanlış parolalar, kuruluşunuzdaki ortadan](concept-password-ban-bad.md#license-requirements).
 * DC Aracı hizmeti Azure AD parola koruması yüklü Windows Server 2012 çalıştırmanız gerekir veya sonraki bir sürümü Al tüm etki alanı denetleyicileri. Bu gereksinim Active Directory etki alanı veya orman Windows Server 2012 etki alanı veya orman işlev düzeyinde de olmalıdır göstermez. Belirtildiği gibi [tasarım ilkeleri](concept-password-ban-bad-on-premises.md#design-principles), en düşük DFL veya çalıştırmak her iki DC aracı veya ara yazılım için gerekli FFL yoktur.
 * Alma DC aracısı hizmetinin yüklü olduğu tüm makineler, .NET 4. 5'in yüklü olması gerekir.
 * Proxy hizmet için Azure AD parola koruması yüklü Windows Server 2012 R2 çalıştırmalıdır veya sonraki bir sürümü alın, tüm makineler.
@@ -282,7 +283,7 @@ Azure AD parola koruması birden çok orman içinde dağıtmak için ek gereksin
 
 Parola değişiklikleri/ayarlar değil işlenir ve salt okunur etki alanı denetleyicileri (RODC) kalıcı. Bunlar, yazılabilir etki alanı denetleyicilerine iletilir. Bu nedenle, RODC üzerinde DC Aracısı yazılımını yüklemeniz gerekmez.
 
-## <a name="high-availability"></a>Yüksek oranda kullanılabilirlik
+## <a name="high-availability"></a>Yüksek kullanılabilirlik
 
 Bir ormandaki etki alanı denetleyicilerinin yeni ilkeler veya diğer verileri Azure'dan indirilmeye çalışılırken ana kullanılabilirlik parola koruması için proxy sunucuları kullanılabilirliğini konusudur. Her bir DC aracı çağırmak için proxy sunucusunu verirken basit bir hepsini bir kez deneme stili algoritması kullanır. Aracı yanıt olmayan proxy sunucuları atlar. Dizin hem sysvol klasörü durumunun sağlıklı çoğaltmanın en tam olarak bağlı Active Directory dağıtımları için iki proxy sunucu olduğu yeterli kullanılabilir olmasını sağlamak için. Bu yeni ilkeleri zamanında indirilmesini ve diğer verileri sonuçlanır. Ancak, ek bir proxy sunucuları dağıtabilirsiniz.
 

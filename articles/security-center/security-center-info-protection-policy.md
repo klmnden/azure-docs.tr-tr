@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/29/2019
 ms.author: rkarlin
 ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875600"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi (Önizleme) SQL bilgi koruması ilkesinde özelleştirme
@@ -51,9 +51,9 @@ Kiracınızda Azure Information protection ilkesinin özelleştirmek için ihtiy
  
 1. Düzenleyebilir veya var olan bir etiketi silme veya yeni bir etiket ekleyebilirsiniz. Var olan bir etiketi düzenlemek için bu etiketi seçin ve ardından **yapılandırma**, üst veya sağ taraftaki bağlam menüsü. Yeni bir etiket eklemek için tıklatın **Oluştur etiket** üst menü çubuğundaki veya etiketleri tablonun alt kısmındaki.
 2. İçinde **yapılandırma duyarlılık etiketi** ekranı oluşturabilir veya etiket adını ve açıklamasını değiştirin. Etiket getirerek etkin veya devre dışı olup olmadığını da ayarlayabilirsiniz **etkin** Aç veya kapat. Son olarak, ekleme veya etiketle ilişkili bilgi türlerini kaldırın. Sınıflandırma önerileri ilişkili duyarlılık etiketi, bilgi türünü otomatik olarak içerecektir eşleşen herhangi bir veri bulundu.
-3. **Tamam** düğmesine tıklayın.
+3. **Tamam**'ı tıklatın.
  
-   ![Duyarlılık etiketini yapılandırın](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![Duyarlılık etiketi yapılandırma](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
 4. Etiketleri duyarlılık artan, sırasına göre listelenir. Etiketler arasında sıralamasını değiştirmek için tablodaki yeniden sıralamak veya etiketlerin sürükleyin **Yukarı Taşı** ve **Aşağı Taşı** sırasını değiştirmek için düğmeler. 
  

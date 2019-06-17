@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 28d52a6eb5018aac8ebeb48b0a2a60a1dd9e1a43
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 74ed6e8d6966d7dda2fc15b9c544ef80d276b06f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896306"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Öğretici: Birleştirme Online ile Azure Active Directory Tümleştirmesi
 
@@ -52,7 +52,7 @@ Azure AD'de birleştirme Online'nın tümleştirmesini yapılandırmak için bir
 
 **Birleştirme çevrimiçi Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 831077142519bb0c740e61a6897215c0b1c8ae1d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3861cf8004964d032d149d27e954ab05a2db80b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901543"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tivitz"></a>Öğretici: TiViTz ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de TiViTz tümleştirmesini yapılandırmak için TiViTz Galeriden yön
 
 **Galeriden TiViTz eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

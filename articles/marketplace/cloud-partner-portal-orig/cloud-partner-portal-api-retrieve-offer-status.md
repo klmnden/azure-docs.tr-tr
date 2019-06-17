@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935450"
 ---
 <a name="retrieve-offer-status"></a>Teklif durumunu alma 
@@ -27,17 +27,17 @@ Teklif geçerli durumunu alır.
 |  **Ad**       |   **Açıklama**                            |  **Veri türü** |
 |  -------------  |  ------------------------------------------  |  ------------  |
 |  publisherId    | Örneğin, yayımcı tanımlayıcısı `Contoso`  |     String     |
-|  offerId        | Teklifin benzersiz olarak tanımlayan GUID      |     String     |
+|  OfferId        | Teklifin benzersiz olarak tanımlayan GUID      |     String     |
 |  API sürümü    | API'sının en son sürümü                        |     Tarih       |
 |  |  |
 
 
-<a name="header"></a>Üst bilgi
+<a name="header"></a>Üstbilgi
 ------
 
 |  Ad           |  Değer               |
 |  -------------  | -------------------  |
-|  Content-Type   |  `application/json`  |
+|  İçerik türü   |  `application/json`  |
 |  Yetkilendirme  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
@@ -124,14 +124,14 @@ Teklif geçerli durumunu alır.
 
 |  **Ad**             |    **Açıklama**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
-|  durum               | Teklif durumu. Olası değerler listesi için bkz: [teklif durumu](#offer-status) aşağıda. |
+|  status               | Teklif durumu. Olası değerler listesi için bkz: [teklif durumu](#offer-status) aşağıda. |
 |  sayısı             | Bir Teklifle ilişkili iletilerin dizisi                                                    |
 |  adımlar                | Bir teklifi yayımlama sırasında teklif geçtiği adımlar dizisi                      |
 |  estimatedTimeFrame   | Tahmini, kolay bir biçimde bu adımı tamamlamak için geçen süre                       |
 |  id                   | Adım tanımlayıcısı                                                                         |
 |  stepName             | Adım adı                                                                               |
-|  açıklama          | Adım açıklaması                                                                        |
-|  durum               | Adım durumu. Olası değerler listesi için bkz: [adım durumu](#step-status) aşağıda.    |
+|  description          | Adım açıklaması                                                                        |
+|  status               | Adım durumu. Olası değerler listesi için bkz: [adım durumu](#step-status) aşağıda.    |
 |  sayısı             | İlgili adıma ileti dizisi                                                          |
 |  processPercentage    | Tamamlanma adımın                                                              |
 |  previewLinks         | *Henüz uygulanmadı*                                                                    |
@@ -169,7 +169,7 @@ Teklif geçerli durumunu alır.
 |  **Ad**                    |    **Açıklama**                           |
 |  -------------------------   |  ------------------------------------------  |
 |  NotStarted                  | Adım başlatılmadı.                        |
-|  Devam Ediyor                  | Adım çalışıyor.                             |
+|  Devam ediyor                  | Adım çalışıyor.                             |
 |  WaitingForPublisherReview   | Adım yayımcı onay bekliyor.      |
 |  WaitingForApproval          | Adım işlemi onay bekliyor.        |
 |  Engellendi                     | Adım engellenir.                             |

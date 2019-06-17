@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b849e63b758dca777df2be682b28bc4e10e58330
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7c09542013dff3a18965d1070216a938c26a144e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481134"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102853"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Öğretici: ExpenseIn Azure Active Directory ile tümleştirme
 
@@ -57,15 +57,15 @@ Azure AD'de ExpenseIn tümleştirmesini yapılandırmak için ExpenseIn Galeride
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Yapılandırma ve Azure AD SSO kullanarak adlı bir test kullanıcı ExpenseIn ile test etme **b Simon**. Çalışmak SSO için ExpenseIn içinde bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı ilişki oluşturmanız gerekir.
+Yapılandırma ve Azure AD SSO kullanarak adlı bir test kullanıcı ExpenseIn ile test etme **B.Simon**. Çalışmak SSO için ExpenseIn içinde bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı ilişki oluşturmanız gerekir.
 
 Yapılandırma ve Azure AD SSO ile ExpenseIn sınamak için aşağıdaki yapı taşlarını tamamlayın:
 
 1. **[Azure AD SSO'yu yapılandırma](#configure-azure-ad-sso)**  kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
 2. **[ExpenseIn yapılandırma](#configure-expensein)**  uygulama tarafında SSO ayarlarını yapılandırmak için.
-3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  Azure AD çoklu oturum açma b Simon ile test etmek için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  Azure AD çoklu oturum açmayı kullanmak b Simon etkinleştirmek için.
-5. **[ExpenseIn test kullanıcısı oluşturma](#create-expensein-test-user)**  b Simon bir karşılığı kullanıcı Azure AD gösterimini bağlı ExpenseIn sağlamak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  Azure AD çoklu oturum açma B.Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  B.Simon Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+5. **[ExpenseIn test kullanıcısı oluşturma](#create-expensein-test-user)**  kullanıcı Azure AD gösterimini bağlı ExpenseIn B.Simon bir karşılığı sağlamak için.
 6. **[Test SSO](#test-sso)**  yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO'yu yapılandırma
@@ -101,41 +101,51 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
 
 ### <a name="configure-expensein"></a>ExpenseIn yapılandırın
 
-1. Farklı bir web tarayıcı penceresinde ExpenseIn için yönetici olarak oturum açın.
+1. Yüklemeniz gerekiyor ExpenseIn içinde yapılandırmasını otomatik hale getirmenizi **My Apps güvenli oturum açma tarayıcı uzantısı** tıklayarak **uzantıyı yükleme**.
 
-2. Tıklayın **yönetici** gidin sonra sayfanın üst kısmındaki **çoklu oturum açma** tıklatıp **Ekle sağlayıcısı**.
+    ![Uygulamaları uzantım](common/install-myappssecure-extension.png)
+
+2. Uzantı tarayıcıya ekledikten sonra tıklayarak **Kurulum ExpenseIn** ExpenseIn uygulamaya yönlendirir. Burada, ExpenseIn oturum açmak için yönetici kimlik bilgilerini sağlayın. Tarayıcı uzantısı otomatik olarak sizin için uygulamayı yapılandırma ve 3-5 adımlarını otomatik hale getirin.
+
+    ![Kurulum yapılandırması](common/setup-sso.png)
+
+3. ExpenseIn el ile ayarlamak istiyorsanız, yeni bir web tarayıcı penceresi ve oturum ExpenseIn şirketinizin sitesi yönetici olarak oturum açın ve aşağıdaki adımları gerçekleştirin:
+
+4. Tıklayın **yönetici** gidin sonra sayfanın üst kısmındaki **çoklu oturum açma** tıklatıp **Ekle sağlayıcısı**.
 
      ![ExpenseIn yapılandırma](./media/expenseIn-tutorial/config01.png)
 
-3. Üzerinde **yeni kimlik sağlayıcısı** açılır penceresinde, aşağıdaki adımları gerçekleştirin:
+5. Üzerinde **yeni kimlik sağlayıcısı** açılır penceresinde, aşağıdaki adımları gerçekleştirin:
 
     ![ExpenseIn yapılandırma](./media/expenseIn-tutorial/config02.png)
 
     a. İçinde **sağlayıcı adı** metin kutusuna, örn: Azure gibi bir ad yazın.
 
-    b. İçinde **hedef Url** metin kutusunda, değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
+    b. Seçin **Evet** olarak **sağlayıcısı Intitated oturum açma izin**.
 
-    c. İçinde **veren** metin kutusunda, değerini yapıştırın **Azure AD tanımlayıcısı**, hangi Azure Portalı'ndan kopyaladığınız.
+    c. İçinde **hedef Url** metin kutusunda, değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    d. Sertifika (Base64) Not Defteri'nde açın, içeriğini kopyalayın ve yapıştırın **sertifika** metin kutusu.
+    d. İçinde **veren** metin kutusunda, değerini yapıştırın **Azure AD tanımlayıcısı**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    e. **Oluştur**’a tıklayın.
+    e. Sertifika (Base64) Not Defteri'nde açın, içeriğini kopyalayın ve yapıştırın **sertifika** metin kutusu.
+
+    f. **Oluştur**’a tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümde, bir test kullanıcısı b Simon adlı Azure portalında oluşturacaksınız.
+Bu bölümde, bir test kullanıcısı B.Simon adlı Azure portalında oluşturacaksınız.
 
 1. Azure Portalı'ndaki sol bölmeden seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 1. Seçin **yeni kullanıcı** ekranın üstünde.
 1. İçinde **kullanıcı** özellikleri, aşağıdaki adımları izleyin:
-   1. **Ad** alanına `B. Simon` girin.  
-   1. İçinde **kullanıcı adı** alanına username@companydomain.extension. Örneğin, `BrittaSimon@contoso.com`.
+   1. **Ad** alanına `B.Simon` girin.  
+   1. İçinde **kullanıcı adı** alanına username@companydomain.extension. Örneğin, `B.Simon@contoso.com`.
    1. Seçin **Show parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
    1. **Oluştur**’a tıklayın.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, B. ExpenseIn için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Simon tıklatmalarını sağlarsınız.
+Bu bölümde, Azure çoklu oturum açma kullanmak için ExpenseIn erişim vererek B.Simon tıklatmalarını sağlarsınız.
 
 1. Azure portalında **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
 1. Uygulamalar listesinde **ExpenseIn**.
@@ -147,7 +157,7 @@ Bu bölümde, B. ExpenseIn için erişim izni verdiğinizde, Azure çoklu oturum
 
     ![Kullanıcı ekleme bağlantısı](common/add-assign-user.png)
 
-1. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **b Simon** kullanıcılar listesinden ardından **seçin** ekranın alt kısmındaki düğmesi.
+1. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **B.Simon** kullanıcılar listesinden ardından **seçin** ekranın alt kısmındaki düğmesi.
 1. SAML onaylama işlemi herhangi bir rolü değer de beklediğiniz varsa **rolü Seç** iletişim kutusunda, listeden bir kullanıcı için uygun rolü seçin ve ardından **seçin** ekranın alt kısmındaki düğmesi.
 1. İçinde **atama Ekle** iletişim kutusunda, tıklayın **atama** düğmesi.
 
@@ -171,7 +181,7 @@ ExpenseIn için oturum açmak Azure AD kullanıcılarının etkinleştirmek içi
 
     b. İçinde **Soyadı** metin kutusunda, son kullanıcı gibi adını **Simon**.
 
-    c. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin `B. Simon@contoso.com`.
+    c. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin `B.Simon@contoso.com`.
 
     d. **Oluştur**’a tıklayın.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 810d19a697e32f2d8e389bf58d52e82529bdd66b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 28dd21bac2c1fb1602fd66ca237b230cdb12bdac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917433"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Öğretici: Marketo ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Marketo tümleştirmesi Azure AD'de yapılandırmak için Marketo Galeriden yön
 
 **Galeriden Marketo eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -279,7 +279,7 @@ Bu bölümde, Britta Simon Marketo adlı bir kullanıcı oluşturun. Marketo pla
    
     c. Girin **Soyadı** metin kutusuna
    
-    d. **İleri**’ye tıklayın
+    d. **İleri**'ye tıklayın.
 
 6. İçinde **izinleri** sekmesinde **userRoles** tıklatıp **İleri**
    

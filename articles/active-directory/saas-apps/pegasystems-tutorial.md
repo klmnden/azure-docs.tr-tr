@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 195e7bf21fe1f6017705883f2ec692c182f15375
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 013e477b66d2772698ce5c9cc61a59f8a5a04a5a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560602"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Öğretici: Pega sistemler ile Azure Active Directory Tümleştirme
 
@@ -95,7 +95,7 @@ Azure AD çoklu oturum açma Pega sistemleriyle yapılandırmak için şu adıml
 
 2. İçinde **tek bir oturum açma yönteminizi seçmeniz** Seç iletişim kutusunda **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için:
 
-    ![Çoklu oturum açma yöntemi seçin](common/select-saml-option.png)
+    ![Tek bir oturum açma yöntemi seçin](common/select-saml-option.png)
 
 3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim kutusunda:
 
@@ -234,7 +234,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** kutusuna **@ brittasimon\<yourcompanydomain >.\< Uzantı >**. (Örneğin, BrittaSimon@contoso.com.)
+    b. İçinde **kullanıcı adı** kutusuna **@ brittasimon\<yourcompanydomain >.\< Uzantı >** . (Örneğin, BrittaSimon@contoso.com.)
 
     c. Seçin **Show parola**ve ardından içinde bir değer yazın **parola** kutusu.
 
@@ -250,7 +250,7 @@ Bu bölümde, Azure çoklu oturum açma Pega sisteme erişim vererek kullanmak B
 
 2. Uygulamalar listesinde seçin **Pega sistemleri**.
 
-    ![Uygulama listesi](common/all-applications.png)
+    ![Uygulamaların listesi](common/all-applications.png)
 
 3. Sol bölmede seçin **kullanıcılar ve gruplar**:
 

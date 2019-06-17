@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861123"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Analytics, Azure Machine Learning Studio'da Excel'den geçirme
@@ -72,8 +72,8 @@ Bizim işlemi ve sonuçları veri uzmanları ve geliştiriciler Machine Learning
 |  | Excel | Studio (Başlangıç) | En küçük kareler ile Studio |
 | --- |:---:|:---:|:---:|
 | Etiketli değeri |Fiili (sayısal) |Aynı |Aynı |
-| Öğrenici |Excel -> veri analizi, regresyon -> |Doğrusal regresyon. |Doğrusal regresyon |
-| Learner seçenekleri |Yok |Varsayılanlar |sıradan kareler<br />L2 0.005 = |
+| Öğrenici |Excel -> veri analizi, regresyon -> |Doğrusal regresyon. |Çizgisel Regresyon |
+| Learner seçenekleri |Yok |Varsayılanları |sıradan kareler<br />L2 0.005 = |
 | Veri kümesi |26 satırı, 3 özellikleri, 1 etiketi. Tüm sayısal. |Aynı |Aynı |
 | Bölünmüş: Eğitim |Son 8 satırlarda test ilk 18 satırlarda Excel eğitim. |Aynı |Aynı |
 | Bölünmüş: Test etme |Son 8 satırlara uygulanan Excel regresyon formülü |Aynı |Aynı |
@@ -119,7 +119,7 @@ Regresyonla denemek istiyorsanız, denemek için iyi bir veri kümesi sayısal �
 | --- | --- | --- | --- | --- | --- |
 | Artırmalı karar ağacı |0.930113 |1.4239 |0.106647 |0.021662 |0.978338 |
 | Doğrusal regresyon (gradyan düşüşü) |2.035693 |2.98006 |0.233414 |0.094881 |0.905119 |
-| Sinir ağı regresyon |1.548195 |2.114617 |0.177517 |0.047774 |0.952226 |
+| Sinir Ağı Regresyonu |1.548195 |2.114617 |0.177517 |0.047774 |0.952226 |
 | Doğrusal regresyon (sıradan kareler) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>Önemli dersler

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 7b4f3e8d0f20d2e4b78c83b935d3e3340c9dcec4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 026ad76fa82a28ca3e7f29de2e656994b9cad634
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920283"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Öğretici: Workrite ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Workrite tümleştirmesini yapılandırmak için Workrite Galeriden 
 
 **Galeriden Workrite eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

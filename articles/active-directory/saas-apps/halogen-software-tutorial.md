@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7925e6fe66579c8bf702acbe165c50d2aed536e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a8e1f4f0f2bd3521a312523fa9e36dcf14492862
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898361"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Öğretici: Halojensiz yazılım ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de halojensiz yazılım tümleştirmesini yapılandırmak için halojen
 
 **Galeriden halojensiz yazılım eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

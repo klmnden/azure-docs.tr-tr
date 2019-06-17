@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1e47939913435b5b7040c0e6d01b1208d709d3
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 355e61fdfd9847e54a4bd13ac3b0f2d416c05812
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962889"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111950"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft kimlik platformu erişim belirteçleri
 
@@ -74,7 +74,7 @@ Yalnızca doldurmak için bir değer varsa, mevcut taleplerdir. Bu nedenle, uygu
 
 ### <a name="header-claims"></a>Üst bilgi talep
 
-|Talep | Biçim | Açıklama |
+|İste | Biçimi | Açıklama |
 |--------|--------|-------------|
 | `typ` | Dize - her zaman "JWT" | JWT belirteci olduğunu gösterir.|
 | `nonce` | String | Belirteç yeniden yürütme saldırılarına karşı korumak için kullanılan benzersiz tanımlayıcısı. Kaynağınızı olumsuzlukları karşı korumak için bu değer kaydedebilirsiniz. |
@@ -84,7 +84,7 @@ Yalnızca doldurmak için bir değer varsa, mevcut taleplerdir. Bu nedenle, uygu
 
 ### <a name="payload-claims"></a>Yükü talepleri
 
-| Talep | Biçim | Açıklama |
+| İste | Biçimi | Açıklama |
 |-----|--------|-------------|
 | `aud` | Dize, bir uygulama kimliği URI'si | Amaçladığınız alıcının belirtecin tanımlar. Erişim belirteçlerinde, hedef kitlesi, uygulamanızın uygulama kimliği, Azure portalında uygulamanıza atanan ' dir. Uygulamanız, bu değeri doğrulamak ve belirteç değeri eşleşmiyorsa reddet. |
 | `iss` | Dize, bir STS URI | Oluşturur ve belirteci ve kullanıcı kimlik doğrulamasının yapıldığı Azure AD kiracısı döndürür güvenlik belirteci hizmeti (STS) tanımlar. Verilen belirtecin bir v2.0 belirteç ise (bkz `ver` talep), URI içinde sona erecek `/v2.0`. Kullanıcının bir Microsoft hesabı tüketici kullanıcıdan olduğunu gösteren GUID `9188040d-6c67-4c5b-b112-36a304b66dad`. Uygulamanız varsa, uygulamaya oturum açabilirsiniz kiracılar kümesini sınırlandırmak için talep GUID kısmını kullanmanız gerekir. |
@@ -119,7 +119,7 @@ Yalnızca doldurmak için bir değer varsa, mevcut taleplerdir. Bu nedenle, uygu
 
 Aşağıdaki talep v1.0 belirteçleri varsa dahil edilir, ancak v2.0 belirteçlerinde varsayılan olarak dahil edilmez. V2.0 ve bu talepler gerek kullanıyorsanız, bunları isteyen kullanarak [isteğe bağlı bir talep](active-directory-optional-claims.md).
 
-| Talep | Biçim | Açıklama |
+| İste | Biçimi | Açıklama |
 |-----|--------|-------------|
 | `ipaddr`| String | IP adresi gelen kimliği doğrulanmış kullanıcı. |
 | `onprem_sid`| Dize, içinde [SID biçimi](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Bir şirket içi kimlik doğrulamasıyla kullanıcının sahip olduğu durumlarda bu talep, SID sağlar. Kullanabileceğiniz `onprem_sid` yetkilendirme eski uygulamalar için.|
@@ -141,7 +141,7 @@ Microsoft kimlik, uygulamanızla ilgili farklı şekillerde kimlik doğrulaması
 | `rsa` | Kimlik doğrulaması temel bir RSA anahtar kanıtı üzerinde örneğin ile [Microsoft Authenticator uygulamasını](https://aka.ms/AA2kvvu). Kimlik doğrulaması X509 ait olan bir hizmeti tarafından otomatik olarak imzalanan bir JWT yapıldıysa bu içeren sertifika. |
 | `otp` | E-posta veya kısa mesaj kullanarak bir kerelik geçiş kodu. |
 | `fed` | Bir Federasyon kimlik doğrulamasını onaylama (örneğin, JWT veya SAML) kullanıldı. |
-| `wia` | Tümleşik Windows Kimlik Doğrulaması |
+| `wia` | Windows tümleşik kimlik doğrulaması |
 | `mfa` | Çok faktörlü kimlik doğrulaması kullanıldı. Bu mevcut olduğunda bir kimlik doğrulama yöntemleri de dahil edilir. |
 | `ngcmfa` | Eşdeğer `mfa`belirli Gelişmiş kimlik bilgisi türlerini sağlamak için kullanılır. |
 | `wiaormfa`| Kullanıcının kimliğini doğrulamak için Windows ya da bir MFA kimlik bilgisi kullanılır. |
@@ -233,12 +233,12 @@ Yenileme belirteçleri geçersiz ya da farklı nedenlerle herhangi bir zamanda i
 |   | Parola tabanlı tanımlama bilgisi | Parola tabanlı belirteci | Parola tabanlı olmayan tanımlama bilgisi | Parola tabanlı olmayan belirteci | Gizli istemci belirteci |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | Parola süre sonu | Canlı kalır | Canlı kalır | Canlı kalır | Canlı kalır | Canlı kalır |
-| Parola kullanıcı tarafından değiştirildi | İptal edildi | İptal edildi | Canlı kalır | Canlı kalır | Canlı kalır |
-| SSPR kullanıcı yok | İptal edildi | İptal edildi | Canlı kalır | Canlı kalır | Canlı kalır |
-| Yönetici parolasını sıfırlar. | İptal edildi | İptal edildi | Canlı kalır | Canlı kalır | Canlı kalır |
-| Kullanıcı iptal, yenileme belirteçleri [PowerShell aracılığıyla](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | İptal edildi | İptal edildi | İptal edildi | İptal edildi | İptal edildi |
-| Yönetici, Kiracı için tüm yenileme belirteçleri iptal [PowerShell aracılığıyla](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | İptal edildi | İptal edildi |İptal edildi | İptal edildi | İptal edildi |
-| [Çoklu oturum kapatmak](v1-protocols-openid-connect-code.md#single-sign-out) Web'de | İptal edildi | Canlı kalır | İptal edildi | Canlı kalır | Canlı kalır |
+| Parola kullanıcı tarafından değiştirildi | İptal Edildi | İptal Edildi | Canlı kalır | Canlı kalır | Canlı kalır |
+| SSPR kullanıcı yok | İptal Edildi | İptal Edildi | Canlı kalır | Canlı kalır | Canlı kalır |
+| Yönetici parolasını sıfırlar. | İptal Edildi | İptal Edildi | Canlı kalır | Canlı kalır | Canlı kalır |
+| Kullanıcı iptal, yenileme belirteçleri [PowerShell aracılığıyla](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | İptal Edildi | İptal Edildi | İptal Edildi | İptal Edildi | İptal Edildi |
+| Yönetici, Kiracı için tüm yenileme belirteçleri iptal [PowerShell aracılığıyla](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | İptal Edildi | İptal Edildi |İptal Edildi | İptal Edildi | İptal Edildi |
+| [Çoklu oturum kapatmak](v1-protocols-openid-connect-code.md#single-sign-out) Web'de | İptal Edildi | Canlı kalır | İptal Edildi | Canlı kalır | Canlı kalır |
 
 > [!NOTE]
 > "Olmayan parola tabanlı" oturum açma kullanıcı almak için bir parola girildiği yaramadı biridir. Örneğin, yüz tanıma Windows Hello, bir FIDO anahtar veya bir PIN ile kullanarak.

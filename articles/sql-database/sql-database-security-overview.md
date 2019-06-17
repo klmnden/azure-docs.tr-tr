@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 6b9a5ca350377777beebda24e52bc678c976ad19
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258637"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070194"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -100,7 +100,7 @@ SQL veritabanı ile Hareket halindeki verileri şifreleyerek müşteri verilerin
 
 SQL Server şifreleme (SSL/TLS), her zaman tüm bağlantılar için zorlar. Bu, tüm veriler "taşıma durumunda" ayarından bağımsız olarak sunucu ve istemci arasında şifrelenir sağlar **şifrele** veya **TrustServerCertificate** bağlantı dizesindeki.
 
-Bir en iyi uygulama olarak, uygulamanızın bağlantı dizesi, öneri şifreli bir bağlantı belirtin ve _**değil**_ sunucu sertifikasına güven. Bu zorlar sunucu sertifikasını doğrulamak için uygulamanızı ve bu nedenle uygulamanızın Orta tür saldırıların ortadaki karşı savunmasız olan engeller.
+Bir en iyi uygulama olarak, uygulamanızın bağlantı dizesi, öneri şifreli bir bağlantı belirtin ve _**değil**_ sunucu sertifikasına güven. Bu sunucu sertifikasını doğrulamak için uygulamanızı zorlar ve bu nedenle uygulamanızın Orta tür saldırıların ortadaki karşı savunmasız olan engeller.
 
 Örneğin ADO.NET sürücüsü kullanılırken bu aracılığıyla gerçekleştirilir **Encrypt = True** ve **TrustServerCertificate = False**. Bağlantı dizenizi Azure portalından elde doğru ayarları geçersiz olur.
 

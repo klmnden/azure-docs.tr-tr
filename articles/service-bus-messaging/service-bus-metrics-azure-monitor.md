@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
 ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65921240"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure Service Bus ölçümleri
@@ -38,13 +38,13 @@ Zaman içinde ölçümleri izleyebilirsiniz [Azure portalında](https://portal.a
 
 ![][1]
 
-Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanını seçin ve ardından **ölçümler (Önizleme)**. Varlık kapsamına filtrelenmiş ölçümleri görüntülemek için bir varlık seçin ve ardından **ölçümler (Önizleme)**.
+Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanını seçin ve ardından **ölçümler (Önizleme)** . Varlık kapsamına filtrelenmiş ölçümleri görüntülemek için bir varlık seçin ve ardından **ölçümler (Önizleme)** .
 
 ![][2]
 
 Boyutlar destekleyen ölçümler için istenen boyut değeri ile filtrelemesi gerekir.
 
-## <a name="billing"></a>Faturalama
+## <a name="billing"></a>Faturalandırma
 
 Ölçümleri kullanarak Azure İzleyici'de, Önizleme boyunca ücretsizdir. Ölçüm verilerini alma, ek çözümleri kullanırsanız, ancak bu çözümler tarafından faturalandırılırsınız. Örneğin, ölçüm verileri bir Azure depolama hesabına arşivleme, Azure Depolama tarafından faturalandırılır. Ölçüm verilerini Gelişmiş analiz için Azure İzleyici günlüklerine akış sahipse Azure İzleyici günlüklerine göre ayrıca faturalandırılır.
 
@@ -61,7 +61,7 @@ Veri ve yönetim işlemleri istek sayısını sayar.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| Gelen istekler (Önizleme) | Belirtilen bir süredeki Service Bus hizmetine yapılan isteklerin sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+| Gelen istekler (Önizleme) | Belirtilen bir süredeki Service Bus hizmetine yapılan isteklerin sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |Başarılı istekler (Önizleme)|Belirtilen bir süredeki Service Bus hizmetine gönderilen başarılı isteklerin sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |Sunucu hataları (Önizleme)|Service Bus hizmetinde bir hata nedeniyle belirtilen bir süredeki işlenmedi istek sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 |Kullanıcı hataları (Önizleme - aşağıdaki alt bölüme bakın)|Kullanıcı hataları nedeniyle, belirtilen bir süredeki işlenmedi istek sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
@@ -80,9 +80,9 @@ Aşağıdaki iki türde hatalar, kullanıcı hataları sınıflandırılan:
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |Gelen iletiler (Önizleme)|Olayları veya belirtilen bir süredeki Service Bus'a gönderilen iletilerin sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
-|Giden iletiler (Önizleme)|Olayları veya belirtilen bir süredeki Service Bus'tan alınan iletilerin sayısı.<br/><br/> Birim: Count <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Giden iletiler (Önizleme)|Olayları veya belirtilen bir süredeki Service Bus'tan alınan iletilerin sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 | İletiler (Önizleme) | Bir sıradaki/konudaki iletilerin sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Boyut: EntityName |
-| ActiveMessages (Önizleme) | Bir sıradaki/konudaki etkin iletilerin sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Boyut: EntityName |
+| ActiveMessages (Önizleme) | Bir sıradaki/konudaki etkin iletilerin sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Boyut: EntityName |
 | Eski lettered iletileri (Önizleme) | Bir sıradaki/konudaki iletilerin eski lettered sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/>Boyut: EntityName |
 | Zamanlanmış iletileri (Önizleme) | Bir sıradaki/konudaki zamanlanmış iletilerin sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama  <br/> Boyut: EntityName |
 
@@ -99,8 +99,8 @@ Aşağıdaki iki türde hatalar, kullanıcı hataları sınıflandırılan:
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|Ad alanı (Önizleme) başına CPU kullanımı|Yüzdesi CPU kullanımı ad alanı.<br/><br/> Birim: Percent <br/> Toplama türü: Maksimum <br/> Boyut: EntityName|
-|Ad alanı (Önizleme) başına bellek boyutu kullanımı|Ad alanı bellek kullanım yüzdesi.<br/><br/> Birim: Percent <br/> Toplama türü: Maksimum <br/> Boyut: EntityName|
+|Ad alanı (Önizleme) başına CPU kullanımı|Yüzdesi CPU kullanımı ad alanı.<br/><br/> Birim: Yüzde <br/> Toplama türü: Maksimum <br/> Boyut: EntityName|
+|Ad alanı (Önizleme) başına bellek boyutu kullanımı|Ad alanı bellek kullanım yüzdesi.<br/><br/> Birim: Yüzde <br/> Toplama türü: Maksimum <br/> Boyut: EntityName|
 
 ## <a name="metrics-dimensions"></a>Ölçümleri boyutları
 
@@ -124,7 +124,7 @@ Azure Service Bus, Azure İzleyicisi'nde ölçümler için aşağıdaki boyutlar
         ![Ad alanı seçin](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Seçin **Ölçüt Ekle**, ve aşağıdaki işlemleri yapmak **sinyal mantığını yapılandırma** sayfası:
     1. Seçin **ölçümleri** için **sinyal türü**. 
-    2. Bir sinyal seçin. Örneğin: **Hizmet hataları (Önizleme)**. 
+    2. Bir sinyal seçin. Örneğin: **Hizmet hataları (Önizleme)** . 
 
         ![Sunucu hataları seçin](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Seçin **büyüktür** için **koşul**.
@@ -143,7 +143,7 @@ Azure Service Bus, Azure İzleyicisi'nde ölçümler için aşağıdaki boyutlar
     1. Eylem grubu için bir ad girin.
     2. Eylem grubu için kısa bir ad girin. 
     3. Aboneliğinizi seçin. 
-    4. Kaynak grubu seçin. 
+    4. Kaynak grubunu seçin. 
     5. Bu kılavuz için girin **e-posta Gönder** için **eylem adı**.
     6. Seçin **e-posta/SMS/anında iletme/ses** için **eylem türü**. 
     7. Seçin **Ayrıntıları Düzenle**. 

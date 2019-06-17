@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 57d80394c89072a0d0a2c87a378942c32ade6844
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 678f4e52fd8d3adf802bd89a1cc07ff585e696ef
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278280"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101815"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Öğretici: GaggleAMP ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de GaggleAMP tümleştirmesini yapılandırmak için GaggleAMP Galeride
 
 **Galeriden GaggleAMP eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -133,7 +133,7 @@ Azure AD çoklu oturum açma ile GaggleAMP yapılandırmak için aşağıdaki ad
 
 ### <a name="configure-gaggleamp-single-sign-on"></a>GaggleAMP tek oturum açmayı yapılandırın
 
-1. Başka bir tarayıcı örneğinde sizin tarafınızdan Gaggle takım desteklemek için oluşturulan SAML SSO sayfasına gidin (örneğin: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+1. Başka bir tarayıcı örneğinde sizin tarafınızdan Gaggle takım desteklemek için oluşturulan SAML SSO sayfasına gidin (örneğin: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit* ).
 
 2. Üzerinde **SAML SSO** sayfasında, aşağıdaki adımları gerçekleştirin:  
    

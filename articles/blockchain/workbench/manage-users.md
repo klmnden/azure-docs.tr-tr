@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: 15babefda36ba37cf6df7820ac888668e4a502be
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65509914"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench'i kullanıcıları yönetme
@@ -58,7 +58,7 @@ Kullanıcıları eklemek için **yönetici** grubunda Azure AD dizini:
 5.  Seçin **kullanıcılar ve Gruplar > Kullanıcı Ekle**.
 6.  İçinde **atama Ekle**seçin **kullanıcılar**. Seçin veya bir yönetici olarak eklemek istediğiniz kullanıcı için arama yapın. Tıklayın **seçin** bittiğinde seçme.
 
-    ![Atama ekle](./media/manage-users/add-user-assignment.png)
+    ![Atama Ekle](./media/manage-users/add-user-assignment.png)
 
 9.  Doğrulama **rol** ayarlanır **yönetici**
 10. **Ata**'yı seçin. Eklenen kullanıcılar Yönetici rolü atanan listesinde görüntülenir.
@@ -79,7 +79,7 @@ Blockchain Workbench uygulaması, consortium parçası olan kuruluşların yöne
 
     Seçili uygulama için ilişkili üye sayısı üyeleri kutucukta yansıtılır.
 
-    ![Uygulama seçme](./media/manage-users/blockchain-workbench-select-application.png)
+    ![Uygulama seçin](./media/manage-users/blockchain-workbench-select-application.png)
 
 
 #### <a name="add-member-to-application"></a>Üye için uygulama ekleme
@@ -87,11 +87,11 @@ Blockchain Workbench uygulaması, consortium parçası olan kuruluşların yöne
 1. Geçerli üyelerin listesi görüntülemek için üye kutucuğu seçin.
 2. Seçin **üye ekleme**.
 
-    ![Üye ekle](./media/manage-users/application-add-members.png)
+    ![Üye Ekle](./media/manage-users/application-add-members.png)
 
 3. Kullanıcının adını arayın.  Blockchain Workbench'i kiracısında mevcut Azure AD kullanıcıları yalnızca listelenir. Kullanıcı bulunamazsa, yapmanız [Azure AD kullanıcı ekleme](#add-azure-ad-users).
 
-    ![Üye ekle](./media/manage-users/find-user.png)
+    ![Üye Ekle](./media/manage-users/find-user.png)
 
 4. Seçin bir **rol** açılır listeden.
 
@@ -104,7 +104,7 @@ Blockchain Workbench uygulaması, consortium parçası olan kuruluşların yöne
 1. Geçerli üyelerin listesi görüntülemek için üye kutucuğu seçin.
 2. Kaldırmak istediğiniz kullanıcı için **Kaldır** rolünden açılır.
 
-    ![Üyeyi kaldır](./media/manage-users/application-remove-member.png)
+    ![Üyeyi Kaldır](./media/manage-users/application-remove-member.png)
 
 #### <a name="change-or-add-role"></a>Değiştirme veya rol ekleme
 

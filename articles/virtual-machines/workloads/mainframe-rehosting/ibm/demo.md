@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925685"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Yedekleme bir uygulama geliştiricilerin denetlenen dağıtım (ADCD) IBM zD & T v1 ayarlayın
@@ -165,7 +165,7 @@ Sonraki adım, zD & T hedef ortam yapılandırmaktır. Bu benzetilmiş barındı
 
 7. Sonraki ekranda, VM (yani değil ztadmin kimlik) için kimlik bilgilerinizi sağlayın.
 
-8. Özellikler bölmesinde sayısını girin **merkezi işlemci (CPs)**, miktarını **sistem bellek (GB)** ve **dağıtım dizinine** çalışan görüntüsü. Bu Tanıtım olduğundan, küçük tutun.
+8. Özellikler bölmesinde sayısını girin **merkezi işlemci (CPs)** , miktarını **sistem bellek (GB)** ve **dağıtım dizinine** çalışan görüntüsü. Bu Tanıtım olduğundan, küçük tutun.
 
 9. Emin olun kutusunun seçili için **sorunu IPL komut z/OS için otomatik olarak Dağıt**.
 

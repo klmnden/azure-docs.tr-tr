@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 4788b65201792292d79cd8c4d1b22f22c5e67eb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9081e2962a225f15b64545b1db7aa18538a20b22
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870791"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096064"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Öğretici: Nuclino ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Nuclino tümleştirmesini yapılandırmak için Nuclino Galeriden y�
 
 **Galeriden Nuclino eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ Azure AD çoklu oturum açma ile Nuclino yapılandırmak için aşağıdaki adı
 
     ![Nuclino yapılandırma](./media/nuclino-tutorial/configure4.png)
 
-    a. Seçin **SAML tabanlı çoklu oturum açma (SSO)**.
+    a. Seçin **SAML tabanlı çoklu oturum açma (SSO)** .
 
     b. Kopyalama **ACS URL'si (ihtiyacınız kopyalayıp bu SSO sağlayıcınız)** yapıştırın ve değer **yanıt URL'si** textbox'ın **temel SAML yapılandırma** Azure bölümünde Portalı.
 

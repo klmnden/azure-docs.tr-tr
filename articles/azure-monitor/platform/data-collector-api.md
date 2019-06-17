@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 0f5a996d68c80fd9b1f55a36de37579ea245d99d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922776"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Azure İzleyici HTTP veri toplayıcı API'sini (genel Önizleme) ile günlük verileri gönderin
@@ -38,7 +38,7 @@ Log Analytics çalışma alanındaki tüm verileri, belirli bir kayıt türü i�
 
 
 
-## <a name="create-a-request"></a>İstek oluştur
+## <a name="create-a-request"></a>Bir isteği oluştur
 HTTP veri toplayıcı API'sini kullanmak için JavaScript nesne gösterimi (JSON) gönderilecek verileri içeren bir POST isteği oluşturun.  Sonraki üç tablolarda her istek için gerekli olan öznitelikler listelenir. Her bir öznitelik makalenin ilerleyen bölümlerinde daha ayrıntılı olarak açıklanmaktadır.
 
 ### <a name="request-uri"></a>İstek URI'si
@@ -52,11 +52,11 @@ HTTP veri toplayıcı API'sini kullanmak için JavaScript nesne gösterimi (JSON
 | Parametre | Açıklama |
 |:--- |:--- |
 | CustomerID |Log Analytics çalışma alanı için benzersiz tanımlayıcı. |
-| Kaynak |API kaynak adı: / api/günlükleri. |
+| Resource |API kaynak adı: / api/günlükleri. |
 | API Sürümü |Bu istekle kullanılacak API sürümü. Şu anda bu 2016-04-01 olur. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
-| Üst bilgi | Açıklama |
+| Üstbilgi | Açıklama |
 |:--- |:--- |
 | Yetkilendirme |Yetkilendirme imzası. Makalenin sonraki bölümlerinde bir HMAC SHA256 üst bilgisi oluşturma hakkında okuyabilirsiniz. |
 | Günlük türü |Gönderiliyor verileri kayıt türünü belirtin. Bu parametre için boyut sınırı 100 karakterdir. |
@@ -139,7 +139,7 @@ Veri Toplayıcı API'sini kullanarak her isteğin içermelidir bir **günlük t�
 
 Azure İzleyici bir özelliğin veri türünü tanımlamak için özellik adına bir sonek ekler. Bir özellik null bir değer içeriyorsa, bu kayıt özelliği dahil edilmez. Bu tabloda, karşılık gelen sonek ve özellik verilerinin türü listelenmiştir:
 
-| Özellik verilerinin türü | Sonek |
+| Özellik verilerinin türü | Son eki |
 |:--- |:--- |
 | String |_s |
 | Boolean |_b |
@@ -171,7 +171,7 @@ Kayıt türü oluşturulmadan önce şu girişi, ardından gönderdiyseniz, Azur
 ## <a name="reserved-properties"></a>Ayrılmış Özellikler
 Aşağıdaki özellikler ayrılmış ve bir özel kayıt türü kullanılmamalıdır. Bu özellik adlarının herhangi yükünüzü içeriyorsa bir hata alırsınız.
 
-- kiracı
+- tenant
 
 ## <a name="data-limits"></a>Veri sınırları
 Azure İzleyicisi veri koleksiyonu API'sini için gönderilen veriler etrafında bazı kısıtlamalar vardır.
@@ -202,8 +202,8 @@ Bu tabloda eksiksiz hizmet döndürebilir durum kodları listelenmiştir:
 | 403 |Yasak |InvalidAuthorization |Hizmet, isteğin kimliğini doğrulayamadı. Çalışma alanı kimliği ve bağlantı anahtarı geçerli olduğunu doğrulayın. |
 | 404 |Bulunamadı | | Sağlanan URL yanlış veya isteği çok büyük. |
 | 429 |Çok Fazla İstek | | Hizmet hesabınızdan veri hacmi yüksek yaşıyor. Lütfen istek daha sonra yeniden deneyin. |
-| 500 |İç Sunucu Hatası |UnspecifiedError |Hizmet bir iç hatayla karşılaştı. Lütfen isteği yeniden deneyin. |
-| 503 |Hizmet Kullanılamıyor |ServiceUnavailable |Hizmet isteklerini almak şu anda kullanılamıyor. Lütfen isteğinizi yeniden deneyin. |
+| 500 |İç sunucu hatası |UnspecifiedError |Hizmet bir iç hatayla karşılaştı. Lütfen isteği yeniden deneyin. |
+| 503 |Hizmet kullanılamıyor |ServiceUnavailable |Hizmet isteklerini almak şu anda kullanılamıyor. Lütfen isteğinizi yeniden deneyin. |
 
 ## <a name="query-data"></a>Verileri sorgulama
 Azure İzleyici HTTP veri toplayıcı API'sini, arama ile kayıt tarafından gönderilen veri **türü** eşit olan **LogType** , belirttiğiniz değer eklenmiş olan **_CL**. Örneğin, kullandıysanız **MyCustomLog**, tüm kayıtları döndürecekti sonra `MyCustomLog_CL`.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b0c6fc9ed196a1b3ddd3d8e67887e2340ddbcda
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2eb38ca490190054ea78b5e1c71c09c94621419b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888443"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088942"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Öğretici: Teamwork.com ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Teamwork.com tümleştirmesini yapılandırmak için Teamwork.com Ga
 
 **Galeriden TeamWork.com eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde  **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: b-juche
 ms.openlocfilehash: aca0668fc364518fe45d9fe94d089ee366b25676
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870890"
 ---
-# <a name="performance-benchmarks-for-azure-netapp-files"></a>Azure NetApp dosyaları için performans kıyaslamalarını
+# <a name="performance-benchmarks-for-azure-netapp-files"></a>Azure NetApp Files için performans kıyaslamaları
 
 Bu makalede Azure NetApp dosyaları birim düzeyinde performans kıyaslama testlerinin sonuçlarını açıklar. 
 
@@ -53,7 +53,7 @@ Aşağıdaki test çalıştırılamadı:
 * % 50 64 KiB sıralı okuma, % 50 64 KiB sıralı yazma
 * 50 8 KiB rastgele okuma %, % 50 8 KiB rastgele yazma
 
-## <a name="bandwidth"></a>Bant Genişliği
+## <a name="bandwidth"></a>Bant genişliği
 
 Birden çok Azure NetApp dosyaları sunar [hizmet düzeyleri](azure-netapp-files-service-levels.md). Her hizmet düzeyi farklı miktarda bir bant genişliği başına sağlanan Kapasite (birim kota) TiB sunar. Bir birim için bant genişliği sınırı, hizmet düzeyi ve birim kota birleşimini temel sağlanır. Bant genişliği sınırını bir faktör gerçek aktarım hızı gerçekleşmiş miktarını belirleme konusunda olduğuna dikkat edin.  
 

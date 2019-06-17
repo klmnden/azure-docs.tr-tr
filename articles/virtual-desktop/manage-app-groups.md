@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: cba13012bf165a097bd1382da8ef9897b0584d28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233914"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066871"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Öğretici: Windows sanal masaüstü Önizleme için uygulama gruplarını yönetme
 
@@ -46,7 +46,7 @@ Başlamadan önce [indirin ve Windows sanal masaüstü PowerShell modülünü i�
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
    
-4. Kendi appalias alarak uygulamayı yüklemek için aşağıdaki cmdlet'i çalıştırın. 3. adımdaki çıktı çalıştırdığınızda appalias görünür hale gelir.
+4. Kendi appalias alarak uygulamayı yüklemek için aşağıdaki cmdlet'i çalıştırın. 3\. adımdaki çıktı çalıştırdığınızda appalias görünür hale gelir.
 
    ```powershell
    New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
@@ -73,7 +73,7 @@ Başlamadan önce [indirin ve Windows sanal masaüstü PowerShell modülünü i�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, kullanıcıların uygulama grubuna atayın uygulama grupları oluşturma ve RemoteApps ile doldurmak öğrendiniz. Windows sanal masaüstü oturum açma hakkında daha fazla bilgi için Windows sanal masaüstü bilgi belgeleri Bağlan devam edin.
+Bu öğreticide, kullanıcıların uygulama grubuna atayın uygulama grupları oluşturma ve RemoteApps ile doldurmak öğrendiniz. Hizmet güncelleştirmeleri üretim ortamınıza sunulmadan önce izlemenize izin verir, doğrulama konak havuz oluşturma hakkında bilgi edinmek için hizmet güncelleştirmeleri öğretici doğrulamak için bir ana makine havuzu oluştur bakın.
 
-- [Uzak Masaüstü İstemcisi Windows 7 ve Windows 10 bağlanma](connect-windows-7-and-10.md)
-- [Windows sanal masaüstü Önizleme web istemcisi için Bağlan](connect-web.md)
+> [!div class="nextstepaction"]
+> [Hizmet güncelleştirmeleri öğretici doğrulamak için bir konak havuzu oluşturma](./create-validation-host-pool.md)

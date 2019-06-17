@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388368"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Yeni kiracılar sağlama ve bunları kataloğa kaydetme hakkında bilgi edinin
@@ -84,7 +84,7 @@ Wingtip bilet uygulaması yeni Kiracı sağlama nasıl uyguladığını anlamak 
    * **$VenueType** önceden tanımlanmış mekan türlerinden birini =: _blues, klasik müzik, dans, jazz, judo, motor yarışı, çok amaçlı, opera, Rock müzik, futbol_.
    * **$DemoScenario** = **1**, *tek Kiracı sağlamak*.
 
-2. Bir kesme noktası eklemek için imlecinizi her yerde yazan satıra yerleştirin *New-Tenant '*. F9 tuşuna basın.
+2. Bir kesme noktası eklemek için imlecinizi her yerde yazan satıra yerleştirin *New-Tenant '* . F9 tuşuna basın.
 
    ![Kesme noktası](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
@@ -92,7 +92,7 @@ Wingtip bilet uygulaması yeni Kiracı sağlama nasıl uyguladığını anlamak 
 
 4. Betik yürütme kesme noktasında durduktan sonra kodda ilerleyebilmeniz için F11 tuşuna basın.
 
-   ![Hata ayıklama](media/saas-dbpertenant-provision-and-catalog/debug.png)
+   ![Hata Ayıklama](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 

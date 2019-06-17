@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 480e799e0fe307b39ce8a2f0b026a04f507a6beb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ed8e63a49702e8ba951990f8d7ff19b8f058fa74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Öğretici: Tableau Server ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Tableau Server tümleştirmesini yapılandırmak için Tableau Serve
 
 **Galeriden Tableau Server eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -120,9 +120,9 @@ Azure AD çoklu oturum açma Tableau Server ile yapılandırmak için aşağıda
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri ve talepler** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Ad | Kaynak özniteliği | Ad alanı |
+    | Ad | Kaynak özniteliği | Ad Alanı |
     | ---------------| --------------- | ----------- |
-    | username | User.userPrincipalName | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | username | User.userPrincipalName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

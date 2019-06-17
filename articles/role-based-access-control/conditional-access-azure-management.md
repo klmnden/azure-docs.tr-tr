@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: b824d122a5d26c17c41a0e2ea1c595c9e2dd7206
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ee58835a5055f5382cefa3a049424ffe97a01c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709282"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122955"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Koşullu erişim ile Azure yönetim erişimi yönetme
 
@@ -35,6 +35,6 @@ Azure yönetimi için bir ilke oluşturmak için seçtiğiniz **Microsoft Azure 
 Azure portalı, Azure Resource Manager sağlayıcısı, Klasik Hizmet Yönetim API'leri, Azure PowerShell ve Visual Studio abonelikleri Yönetici portalında dahil olmak üzere tüm Azure yönetim uç noktalar için oluşturduğunuz ilke uygulanır. İlke, Azure Resource Manager API çağrılarının Azure PowerShell için geçerli olduğunu unutmayın. Geçerli olmayan [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), Microsoft Graph çağırır.
 
 > [!CAUTION]
-> Koşullu erişim anladığınızdan emin olun Azure yönetim erişimi yönetmek için bir ilke ayarlamadan önce çalışır. Kendi portal erişimini engelleyebilecek koşullar oluşturmayın emin olun.
+> Azure yönetim erişimi yönetmek için bir ilke ayarlamadan önce koşullu erişim nasıl çalışır anladığınızdan emin olun. Kendi portal erişimini engelleyebilecek koşullar oluşturmayın emin olun.
 
 Ayarlanmış ve koşullu erişim kullanma hakkında daha fazla bilgi için bkz. [Azure Active Directory'de koşullu erişim](../active-directory/active-directory-conditional-access-azure-portal.md).

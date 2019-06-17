@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08794a7605ffbd3cd5d4b021b783f32afb190727
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65861573"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Nasıl yapılır: Parola sıfırlama Windows 7, 8 ve 8.1 etkinleştir
@@ -35,7 +35,7 @@ Aksine, Windows 10 makineler, Windows 7, 8 ve 8.1 makineler bir Azure AD etki al
 > [!WARNING]
 > TLS 1.2 etkinleştirilmelidir, otomatik olarak tam kümesi anlaşması.
 
-## <a name="install"></a>Yükle
+## <a name="install"></a>Yükleme
 
 1. Etkinleştirmek istediğiniz Windows sürümü için uygun yükleyiciyi indirin.
 

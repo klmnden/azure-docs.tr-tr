@@ -3,17 +3,17 @@ title: Kullanımı cihaz Azure IOT Central uygulamanızda ayarlar | Microsoft Do
 description: Operatör cihazı kullanmak nasıl Azure IOT Central uygulamanızda ayarlar.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 02/05/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68599a539b3d79b759142d2178aa753f895ea37f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60517422"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052944"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızda cihaz kümelerini kullanma
 
@@ -40,7 +40,7 @@ Bir cihaz kümesi oluşturmak için:
     > [!NOTE]
     > Cihaz dinamik sorgu kümesidir. Cihaz listesini görüntüleme her seferinde, listede farklı cihazları olabilir. Liste, hangi cihazların şu anda sorgunun ölçütlerine üzerinde bağlıdır.
 
-1. **Kaydet**'i seçin.
+1. **Kaydet**’i seçin.
 
 ## <a name="configure-the-dashboard-for-your-device-set"></a>Pano, cihaz kümesi için yapılandırın
 
@@ -63,7 +63,7 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
     1. Bağlantı vermek bir **başlık**.
     1. Bağlantı seçildiğinde açılması için bir URL seçin.
     1. Bağlantınız aşağıda gösteren bir açıklama vermek **başlık**.
-    1. **Kaydet**'i seçin.
+    1. **Kaydet**’i seçin.
 
         ![Bağlantı kaydetme](media/howto-use-device-sets/image7.png)
 
@@ -74,7 +74,7 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
     1. Kılavuzunuzun vermek bir **başlık**.
     1. Seçim yaparak gösterilecek sütunları seçin **Ekle/Kaldır**. Açılan bölmede seçin sağ oku seçin ve gösterilen istediğiniz sütunu seçin.
     1. **Tamam**’ı seçin.
-    1. **Kaydet**'i seçin.
+    1. **Kaydet**’i seçin.
 
         ![Kılavuz Kaydet](media/howto-use-device-sets/image9.png)
 

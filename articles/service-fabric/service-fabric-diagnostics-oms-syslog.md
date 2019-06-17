@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 402e3dfe018c94ef068caf918b38aaad00064a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118393"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux kümesi Syslog olayları
@@ -32,9 +32,9 @@ Service Fabric platform olaylarını kümenizdeki önemli etkinlik hakkında bil
 Syslog ile Linux kümeleri için Service Fabric platform olaylarına gönderilecek SyslogConsumer 6.4 sürümde sunulmuştur. Etkinleştirildikten sonra olayları otomatik olarak toplanan ve Log Analytics aracı tarafından gönderilen Syslog akar.
 
 Her bir Syslog olayının 4 bileşenleri olan
-* Özellik
+* Tesis
 * Kimlik
-* İleti
+* `Message`
 * Severity
 
 SyslogConsumer özelliğini kullanarak tüm platform olayları yazar `Local0`. Geçerli bir birime config config değiştirerek güncelleştirebilirsiniz. Kimliktir `ServiceFabric`. Mesaj alanına, böylelikle sorgulandı ve çeşitli araçlar tarafından kullanılan JSON olarak serileştirilmiş tüm olay içerir. 

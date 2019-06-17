@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4df40febefa872fa52afdfaaf31b94dba7000af5
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.openlocfilehash: b28d590390cd1a1ef1c6651e6943ac2a7fa0af29
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729495"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075512"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -45,7 +45,7 @@ Bilgisayar güncelleştirme uyumluluğu taraması tamamlandıktan sonra aracıs�
 
 Tarama zamanlamasına ek olarak, güncelleştirme yüklemesi öncesinde ve güncelleştirme yüklemesi sonrasında yeniden başlatılmadan MMA 15 dakika içinde güncelleştirme uyumluluğu için tarama başlatılır.
 
-Bir Linux bilgisayar için Uyumluluk taraması varsayılan olarak her 3 saatte bir gerçekleştirilir. MMA aracısını yeniden başlatılması durumunda 15 dakika içinde Uyumluluk taraması başlatılır.
+Bir Linux bilgisayar için Uyumluluk taraması varsayılan olarak her saat başı gerçekleştirilir. MMA aracısını yeniden başlatılması durumunda 15 dakika içinde Uyumluluk taraması başlatılır.
 
 Raporları dayanarak bilgisayarınızın ne kaynağı üzerinde nasıl güncel şekilde yapılandırılmış çözüm ile eşitleme. Windows bilgisayar ne zaman WSUS en son Microsoft Update ile eşitlenen bağlı olarak, WSUS için bildirmek için yapılandırılmışsa, sonuçları hangi Microsoft Updates gösterir farklı olabilir. Bu davranış genel depo yerine yerel bir depoya rapora şekilde yapılandırılan Linux bilgisayarları aynıdır.
 
@@ -303,7 +303,7 @@ Güncelleştirme yönetimi, Windows Güncelleştirmeleri indirmek ve yüklemek i
 
 ### <a name="pre-download-updates"></a>Öncesi güncelleştirmeleri indir
 
-Grup İlkesi'nde otomatik olarak karşıdan yüklenen güncelleştirmeleri yapılandırmak için ayarlayabileceğiniz [Otomatik Güncelleştirmeleri Yapılandır ayarını](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) için **3**. Bu, arka planda gerekli güncelleştirmeleri indirir, ancak bunları yüklemez. Bu güncelleştirme yönetimi zamanlamaları denetiminde tutar ancak güncelleştirme yönetimi bakım penceresinin dışında karşıdan yükleyeceğiniz güncelleştirmeleri izin verir. Bu engelleyebilir **bakım penceresi aşıldı** güncelleştirme yönetimi hataları.
+Grup İlkesi'nde otomatik olarak karşıdan yüklenen güncelleştirmeleri yapılandırmak için ayarlayabileceğiniz [Otomatik Güncelleştirmeleri Yapılandır ayarını](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) için **3**. Bu, arka planda gerekli güncelleştirmeleri indirir, ancak bunları yüklemez. Bu güncelleştirme yönetimi zamanlamaları denetiminde tutar ancak güncelleştirme yönetimi bakım penceresinin dışında karşıdan yükleyeceğiniz güncelleştirmeleri izin verir. Bu engelleyebilir **bakım penceresi aşıldı** güncelleştirme yönetimi hataları.
 
 Ayrıca bu güncelleştirmeleri otomatik olarak indir istediğiniz sistemde aşağıdaki PowerShell PowerShell'le ayarlayabilirsiniz.
 

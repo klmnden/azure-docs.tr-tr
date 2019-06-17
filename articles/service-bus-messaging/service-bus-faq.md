@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707143"
 ---
 # <a name="service-bus-faq"></a>Hizmet Veri Yolu SSS
@@ -51,7 +51,7 @@ Azure Service Bus ile aşağıdaki protokolleri, ileti göndermek ve almak için
 
 Azure Event Hubs ile iletişim kurmak için bu protokolleri kullanmak için açmanız giden bağlantı noktaları için aşağıdaki tabloya bakın. 
 
-| Protokol | Bağlantı Noktaları | Ayrıntılar | 
+| Protocol | Bağlantı Noktaları | Ayrıntılar | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 ve 5672 | Bkz: [AMQP protokol Kılavuzu](service-bus-amqp-protocol-guide.md) | 
 | SBMP | için 9350 9354 | Bkz: [bağlantı modu](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |

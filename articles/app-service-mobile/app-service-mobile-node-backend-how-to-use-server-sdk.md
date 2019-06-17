@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128109"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK'sını kullanma
@@ -372,9 +372,9 @@ Eklediğiniz öneririz **azureMobile.js** için **.gitignore** dosya (veya diğe
 
 | Uygulama ayarı | azureMobile.js ayarı | Açıklama | Geçerli değerler |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |ad |Uygulamanın adı |string |
+| **MS_MobileAppName** |name |Uygulamanın adı |string |
 | **MS_MobileLoggingLevel** |Logging.level |Günlüğe kaydedilecek ileti sayısı en düşük günlük düzeyi |hata, uyarı, bilgi, ayrıntılı, hata ayıklama, saçma |
-| **MS_DebugMode** |hata Ayıkla |Etkinleştirir veya hata ayıklama modunu devre dışı bırakır |TRUE, false |
+| **MS_DebugMode** |Hata ayıklama |Etkinleştirir veya hata ayıklama modunu devre dışı bırakır |TRUE, false |
 | **MS_TableSchema** |Data.Schema |SQL tabloları için varsayılan şema adı |dize (varsayılan: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Etkinleştirir veya hata ayıklama modunu devre dışı bırakır |TRUE, false |
 | **MS_DisableVersionHeader** |Sürüm (çok tanımlanmamış ayarlanır) |X-ZUMO-Server-Version üstbilgi devre dışı bırakır |TRUE, false |
@@ -404,7 +404,7 @@ Bir veri deposu olarak Azure SQL veritabanı ile tüm Azure App Service uygulama
 1. İçinde **kaynak grubu** kutusuna, uygulamanızla aynı adı girin.
 1. App Service planı varsayılan seçilidir. App Service planınızı değiştirmek istiyorsanız:
 
-   a. Seçin **App Service planı** > **+ Yeni Oluştur**.
+   a. Seçin **App Service planı** >  **+ Yeni Oluştur**.
 
    b. Yeni App Service planının adını belirtin ve uygun bir konum seçin.
 
@@ -422,7 +422,7 @@ Mevcut bir SQL veritabanını Mobile Apps arka ucunuza bağlanmak veya bir SQL v
 > [!NOTE]
 > Mobile Apps arka ucu olarak zaten bir veritabanı aynı konumda varsa, bunun yerine seçebilirsiniz **varolan veritabanını kullan** ve bu veritabanını seçin. Daha yüksek gecikme nedeniyle farklı bir konumda bir veritabanının kullanılmasını önermeyiz.
 
-1. Yeni Mobile Apps arka uçta, seçin **ayarları** > **mobil uygulama** > **veri** > **+ Ekle**.
+1. Yeni Mobile Apps arka uçta, seçin **ayarları** > **mobil uygulama** > **veri** >  **+ Ekle**.
 1. İçinde **veri bağlantısı ekleme** bölmesinde **SQL veritabanı - gerekli ayarları Yapılandır** > **yeni veritabanı oluştur**. Yeni veritabanı adını girin **adı** kutusu.
 1. Seçin **sunucu**. İçinde **yeni sunucu** bölmesinde bir benzersiz sunucu adını girin **sunucu adı** kutusuna ve uygun Sunucu Yöneticisi oturum açma ve parola sağlayın. Emin **azure hizmetlerinin sunucuya erişmesine izin** seçilir. **Tamam**’ı seçin.
 

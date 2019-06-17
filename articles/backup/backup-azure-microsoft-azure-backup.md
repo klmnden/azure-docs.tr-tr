@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
 ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098871"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Yükleme ve Azure Backup sunucusu yükseltme
@@ -49,7 +49,7 @@ Azure Backup sunucusu iş yüklerini koruma birçok küçük farklar vardır. Ma
 ### <a name="using-an-on-premises-server"></a>Bir şirket içi sunucusu kullanma
 Azure'da taban sunucusu çalıştırmak istemiyorsanız, Hyper-V VM, VMware VM veya fiziksel bir konak sunucunun çalıştırabilirsiniz. Sunucu donanımı için önerilen en düşük gereksinimler, iki çekirdek ve 4 GB RAM verilmiştir. Aşağıdaki tabloda listelenen desteklenen işletim sistemleri:
 
-| İşletim Sistemi | Platform | SKU |
+| İşletim sistemi | Platform | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials (MABS V3 ve üzeri) |
 | Windows Server 2016 ve en son Sp'ler |64 bit |Standard, Datacenter, Essentials (MABS V2 ve üzeri) |
@@ -257,7 +257,7 @@ MABS, depolama korurken yeni bir sunucuya taşımanız gerekiyorsa adımlar şun
 4. Server 2016 yeni makineye yüklemek ve aynı makine adı özgün Azure Backup sunucusu olarak adlandırın.
 5. Etki alanına katılma
 6. Azure Backup Sunucusu'nu V2 veya üzeri (taşıma DPM depolama havuzu diskleri eski sunucu ve içeri aktarma) yükleyin
-7. 1. adımda alınan DPMDB geri yükleyin.
+7. 1\. adımda alınan DPMDB geri yükleyin.
 8. Depolama, yedekleme özgün sunucudan yeni sunucuya ekleyin.
 9. DPMDB'yi SQL geri yükleme
 10. Microsoft Azure Backup'a yeni server CD'sinde yönetici komut satırından konumu ve bin klasörüne yükleyin
@@ -277,12 +277,12 @@ Azure bağlantı ve Azure aboneliğinin durumu öğrendikten sonra sunulan yedek
 
 | Bağlantı durumu | Azure Aboneliği | Azure'a yedekleme | Diske yedekleme | Azure'dan geri yükleme | Diskten geri yükleme |
 | --- | --- | --- | --- | --- | --- |
-| Bağlanıldı |Etkin |İzin Verilen |İzin Verilen |İzin Verilen |İzin Verilen |
-| Bağlanıldı |Süresi dolmuş |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
-| Bağlanıldı |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
-| Kayıp bağlantı > 15 gün |Etkin |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
-| Kayıp bağlantı > 15 gün |Süresi dolmuş |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
-| Kayıp bağlantı > 15 gün |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
+| Bağlı |Etkin |İzin Verildi |İzin Verildi |İzin Verildi |İzin Verildi |
+| Bağlı |Süresi dolmuş |Durduruldu |Durduruldu |İzin Verildi |İzin Verildi |
+| Bağlı |Sağlaması kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
+| Kayıp bağlantı > 15 gün |Etkin |Durduruldu |Durduruldu |İzin Verildi |İzin Verildi |
+| Kayıp bağlantı > 15 gün |Süresi dolmuş |Durduruldu |Durduruldu |İzin Verildi |İzin Verildi |
+| Kayıp bağlantı > 15 gün |Sağlaması kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Bağlantı kaybından kurtarma
 Bir güvenlik duvarı veya Azure'a erişimi engelleyen bir proxy varsa, güvenlik duvarı/proxy profilinde aşağıdaki etki alanı adreslerini beyaz listeye gerekir:
@@ -290,8 +290,8 @@ Bir güvenlik duvarı veya Azure'a erişimi engelleyen bir proxy varsa, güvenli
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
 * \*.WindowsAzure.com
-* \*.microsoftonline.com
-* \*.windows.net
+* \*. microsoftonline.com
+* \*. windows.net
 
 Bağlantının Azure Azure Backup sunucusu makineye geri sonra gerçekleştirilebilecek işlemleri Azure abonelik durumuna göre belirlenir. Yukarıdaki tabloda, makine bağlı"sonra" izin verilen işlemleri hakkında ayrıntılar bulunur.
 

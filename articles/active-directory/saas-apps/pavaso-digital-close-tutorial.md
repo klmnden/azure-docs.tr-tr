@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e6a271f4e2c2190abf0074eb11c2a5e0e60755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cab39e4af44428118966b78eacaec5cc3220daeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869724"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094796"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Öğretici: Azure Active Directory tümleştirmesiyle Pavaso dijital Kapat
 
@@ -53,7 +53,7 @@ Azure AD'de Pavaso dijital Kapat'ın tümleştirmesini yapılandırmak için Pav
 
 **Galeriden Pavaso dijital Kapat eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

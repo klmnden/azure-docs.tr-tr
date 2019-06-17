@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 2bde63bb668188936b3dd3cf5ecbf3b8c604eb95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564326"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704433"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management ilkeleri işleme hatası
 
@@ -77,10 +77,10 @@ Bir isteğin işlenmesi sırasında yerleşik adımları, istek için kapsama il
 
  Ne zaman bir hata oluşur ve denetimi atlar için `on-error` İlkesi bölümünde hata depolanan [bağlamı. LastError](api-management-policy-expressions.md#ContextVariables) ilkeleri tarafından erişilen özelliği `on-error` bölümü. LastError aşağıdaki özelliklere sahiptir.  
   
-| Ad     | Tür   | Açıklama                                                                                               | Gerekli |
-|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Source   | string | Hatanın oluştuğu öğe adları. İlke ya da yerleşik bir işlem hattı adım adı olabilir.     | Evet      |
-| Reason   | string | Hata işlemede kullanılan makine kullanımı kolay hata kodu.                                       | Hayır       |
+| Ad       | Tür   | Açıklama                                                                                               | Gerekli |
+|------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| `Source`   | string | Hatanın oluştuğu öğe adları. İlke ya da yerleşik bir işlem hattı adım adı olabilir.     | Evet      |
+| `Reason`   | string | Hata işlemede kullanılan makine kullanımı kolay hata kodu.                                       | Hayır       |
 | `Message`  | string | Kullanıcı tarafından okunabilen hata açıklaması.                                                                         | Evet      |
 | `Scope`    | string | Burada bir hata oluştu ve "Genel", "product", "API" veya "işlem" biri olabilir kapsamı adı | Hayır       |
 | `Section`  | string | Hatanın oluştuğu bölüm adı. Olası değerler: "Giriş", "arka uç", "çıkış" veya "hata".       | Hayır       |
@@ -99,8 +99,8 @@ Bir isteğin işlenmesi sırasında yerleşik adımları, istek için kapsama il
 | Source        | Koşul                                 | Reason                  | `Message`                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | yapılandırma | URI, herhangi bir API veya işlemi eşleşmiyor. | OperationNotFound       | Gelen istek bir işlemle eşleşen yapılamıyor.                                                                      |
-| Yetkilendirme | Abonelik anahtarı sağlanmadı             | SubscriptionKeyNotFound | Erişim abonelik anahtarı eksik nedeniyle reddedildi. Bu API için istekleri yaparken, abonelik anahtarı eklediğinizden emin olun. |
-| Yetkilendirme | Abonelik anahtarı değeri geçersiz         | SubscriptionKeyInvalid  | Erişim geçersiz bir abonelik anahtarı nedeniyle reddedildi. Etkin bir aboneliğiniz için geçerli bir anahtar sağladığınızdan emin olun.            |
+| authorization | Abonelik anahtarı sağlanmadı             | SubscriptionKeyNotFound | Erişim abonelik anahtarı eksik nedeniyle reddedildi. Bu API için istekleri yaparken, abonelik anahtarı eklediğinizden emin olun. |
+| authorization | Abonelik anahtarı değeri geçersiz         | SubscriptionKeyInvalid  | Erişim geçersiz bir abonelik anahtarı nedeniyle reddedildi. Etkin bir aboneliğiniz için geçerli bir anahtar sağladığınızdan emin olun.            |
   
 ## <a name="predefined-errors-for-policies"></a>İlkeleri için önceden tanımlanmış hataları  
  Aşağıdaki hatalar İlkesi değerlendirmesi sırasında ortaya çıkabilecek hata koşullarını önceden tanımlanmıştır.  
@@ -108,21 +108,21 @@ Bir isteğin işlenmesi sırasında yerleşik adımları, istek için kapsama il
 | Source       | Koşul                                                       | Reason                    | `Message`                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | hız sınırı   | Hız sınırı aşıldı                                             | RateLimitExceeded         | Hız sınırı aşıldı                                                                                                               |
-| kota        | Kota aşıldı                                                  | QuotaExceeded             | Çağrı hacmi kotası aşıldı. Kota xx:xx:xx içinde yenilenmesi. - veya - bant genişliği kota dışı. Kota xx:xx:xx içinde yenilenmesi. |
+| kota        | Kota aşıldı                                                  | QuotaExceeded             | Çağrı hacmi kotası aşıldı. Kota xx:xx:xx içinde yenilenmesi. \- veya - bant genişliği kota dışı. Kota xx:xx:xx içinde yenilenmesi. |
 | jsonp        | Geri çağırma parametresi değeri geçersiz (hatalı karakterler içeriyor) | CallbackParameterInvalid  | Geri çağırma parametresi {geri arama-parametre-adı} değeri geçerli bir JavaScript tanımlayıcı değil.                                          |
-| IP Filtresi    | Arayan IP istek ayrıştırılamadı                          | FailedToParseCallerIP     | Arayan için IP adresi oluşturulamadı. Erişim engellendi.                                                                        |
-| IP Filtresi    | Arayan IP değil izin verilen listesi                                | CallerIpNotAllowed        | Arayan IP adresi {IP adresi} izin verilmez. Erişim engellendi.                                                                        |
-| IP Filtresi    | Arayan IP Engellenenler listesinde değil                                    | CallerIpBlocked           | Arayan IP adresine engellenir. Erişim engellendi.                                                                                         |
-| Üstbilgi denetimi | Gerekli üstbilgisi değil sunulan veya değer eksik               | HeaderNotFound            | Başlığı {üstbilgisi-adı} istek bulunamadı. Erişim engellendi.                                                                    |
-| Üstbilgi denetimi | Gerekli üstbilgisi değil sunulan veya değer eksik               | HeaderValueNotAllowed     | {Üst bilgi değeri} başlığı {üstbilgisi-adı} değerine izin verilmez. Erişim engellendi.                                                          |
-| validate-jwt | İstekte Jwt belirteci eksik                                 | TokenNotFound             | JWT istekte bulunamadı. Erişim engellendi.                                                                                         |
-| validate-jwt | İmza doğrulama başarısız oldu                                     | TokenSignatureInvalid     | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
-| validate-jwt | Geçersiz hedef kitle                                                | TokenAudienceNotAllowed   | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
-| validate-jwt | Geçersiz veren                                                  | TokenIssuerNotAllowed     | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
-| validate-jwt | Belirtecin süresi doldu                                                   | TokenExpired              | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
-| validate-jwt | İmza anahtarı tarafından kimliği çözümlenemedi                            | TokenSignatureKeyNotFound | < İleti jwt kitaplığından\>. Erişim engellendi.                                                                                          |
-| validate-jwt | Gerekli talepleri belirtecinden eksik                          | TokenClaimNotFound        | JWT belirteci aşağıdaki talep eksik: < c1\>, < c2\>,... Erişim engellendi.                                                            |
-| validate-jwt | Talep değerleri eşleşmiyor                                           | TokenClaimValueNotAllowed | Talep {talep-adı} değeri {talep değeri} izin verilmez. Erişim engellendi.                                                             |
+| IP Filtresi    | Arayan IP istek ayrıştırılamadı                          | FailedToParseCallerIP     | Arayan için IP adresi oluşturulamadı. Erişim reddedildi.                                                                        |
+| IP Filtresi    | Arayan IP değil izin verilen listesi                                | CallerIpNotAllowed        | Arayan IP adresi {IP adresi} izin verilmez. Erişim reddedildi.                                                                        |
+| IP Filtresi    | Arayan IP Engellenenler listesinde değil                                    | CallerIpBlocked           | Arayan IP adresine engellenir. Erişim reddedildi.                                                                                         |
+| Üstbilgi denetimi | Gerekli üstbilgisi değil sunulan veya değer eksik               | HeaderNotFound            | Başlığı {üstbilgisi-adı} istek bulunamadı. Erişim reddedildi.                                                                    |
+| Üstbilgi denetimi | Gerekli üstbilgisi değil sunulan veya değer eksik               | HeaderValueNotAllowed     | {Üst bilgi değeri} başlığı {üstbilgisi-adı} değerine izin verilmez. Erişim reddedildi.                                                          |
+| validate-jwt | İstekte Jwt belirteci eksik                                 | TokenNotFound             | JWT istekte bulunamadı. Erişim reddedildi.                                                                                         |
+| validate-jwt | İmza doğrulama başarısız oldu                                     | TokenSignatureInvalid     | < İleti jwt kitaplığından\>. Erişim reddedildi.                                                                                          |
+| validate-jwt | Geçersiz hedef kitle                                                | TokenAudienceNotAllowed   | < İleti jwt kitaplığından\>. Erişim reddedildi.                                                                                          |
+| validate-jwt | Geçersiz veren                                                  | TokenIssuerNotAllowed     | < İleti jwt kitaplığından\>. Erişim reddedildi.                                                                                          |
+| validate-jwt | Belirtecin süresi doldu                                                   | TokenExpired              | < İleti jwt kitaplığından\>. Erişim reddedildi.                                                                                          |
+| validate-jwt | İmza anahtarı tarafından kimliği çözümlenemedi                            | TokenSignatureKeyNotFound | < İleti jwt kitaplığından\>. Erişim reddedildi.                                                                                          |
+| validate-jwt | Gerekli talepleri belirtecinden eksik                          | TokenClaimNotFound        | JWT belirteci aşağıdaki talep eksik: < c1\>, < c2\>,... Erişim reddedildi.                                                            |
+| validate-jwt | Talep değerleri eşleşmiyor                                           | TokenClaimValueNotAllowed | Talep {talep-adı} değeri {talep değeri} izin verilmez. Erişim reddedildi.                                                             |
 | validate-jwt | Diğer doğrulama hataları                                       | JwtInvalid                | < İleti jwt kitaplığından\>                                                                                                          |
 
 ## <a name="example"></a>Örnek

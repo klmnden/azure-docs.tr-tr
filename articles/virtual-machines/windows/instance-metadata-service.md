@@ -16,10 +16,10 @@ ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: 160d494eea4bd597725a4e7c21ad9b763502bee6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792107"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
@@ -107,8 +107,8 @@ Aşağıdaki tablo, diğer veri biçimlerini API'leri destekleyebilir bir başvu
 API | Varsayılan veri biçimi | Diğer biçimler
 --------|---------------------|--------------
 /instance | json | metin
-/scheduledevents | json | yok
-/ TPM'de | json | yok
+/scheduledevents | json | Yok
+/ TPM'de | json | Yok
 
 Varsayılan olmayan yanıt biçimi erişmek için istenen biçimi isteğinde sorgu dizesi parametresi olarak belirtin. Örneğin:
 
@@ -344,7 +344,7 @@ Veriler | Açıklama | Kullanıma sunulan sürümü
 -----|-------------|-----------------------
 TPM'de | Bkz: [TPM'de veri](#attested-data) | 2018-10-01
 identity | Azure kaynakları için yönetilen kimlikleri. Bkz: [erişim belirteci alma](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-örnek | Bkz: [API örneği](#instance-api) | 2017-04-02
+instance | Bkz: [API örneği](#instance-api) | 2017-04-02
 scheduledevents | Bkz: [zamanlanmış olaylar](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>Örnek API
@@ -357,7 +357,7 @@ Veriler | Açıklama | Kullanıma sunulan sürümü
 -----|-------------|-----------------------
 azEnvironment | Azure ortamı burada VM çalışıyor | 2018-10-01
 customData | Bkz: [özel veri](#custom-data) | 2019-02-01
-konum | Azure bölgesi VM çalışıyor | 2017-04-02
+location | Azure bölgesi VM çalışıyor | 2017-04-02
 name | VM adı | 2017-04-02
 Teklif | VM görüntüsü için bilgi sunan ve görüntüleri için yalnızca şu Azure görüntü Galerisi'nden dağıtılır | 2017-04-02
 osType | Linux veya Windows | 2017-04-02
@@ -365,11 +365,11 @@ placementGroupId | [Yerleştirme grubu](../../virtual-machine-scale-sets/virtual
 planı | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) adı, ürün ve bir VM için yayımcı içeren, bir Azure Market görüntüsü | 2018-04-02
 platformUpdateDomain |  [Güncelleme etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
 platformFaultDomain | [Hata etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
-sağlayıcı | Sanal makinenin sağlayıcısı | 2018-10-01
+Sağlayıcı | Sanal makinenin sağlayıcısı | 2018-10-01
 publicKeys | [Ortak anahtarlar koleksiyonunu](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) VM ve yolları atanan | 2018-04-02
-Yayımcı | VM görüntü yayımcısı | 2017-04-02
+publisher | VM görüntü yayımcısı | 2017-04-02
 resourceGroupName | [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) sanal makineniz için | 2017-08-01
-sku | Belirli SKU için VM görüntüsü | 2017-04-02
+SKU | Belirli SKU için VM görüntüsü | 2017-04-02
 subscriptionId | Sanal makine için Azure aboneliği | 2017-08-01
 tags | [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md) sanal makineniz için  | 2017-08-01
 version | VM görüntüsü sürümü | 2017-04-02
@@ -687,7 +687,7 @@ Network Destination        Netmask          Gateway       Interface  Metric
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-### <a name="custom-data"></a>Özel Veriler
+### <a name="custom-data"></a>Özel veri
 Örnek meta veri hizmeti VM'nin özel veri erişim olanağı sağlar. İkili verileri 64 KB'den az olmalıdır ve VM'ye base64 olarak kodlanmış biçimde sağlanır.
 
 Azure özel veri, REST API'ler, PowerShell cmdlet'leri, Azure komut satırı arabirimi (CLI) veya bir ARM şablonu aracılığıyla sanal makineye eklenebilir.

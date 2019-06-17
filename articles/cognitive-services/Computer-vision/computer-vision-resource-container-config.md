@@ -3,20 +3,20 @@ title: Kapsayıcı - görüntü işleme yapılandırın
 titlesuffix: Azure Cognitive Services
 description: Görüntü işleme metin tanıma kapsayıcılar için çeşitli ayarları yapılandırın.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
+ms.date: 06/10/2019
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fa6f04f28da2613f8b78e8885515ac40fa5961e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203558"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071302"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Tanı metin Docker kapsayıcıları yapılandırın
 
@@ -81,7 +81,7 @@ Konak bağlama konumu söz dizimi konak işletim sistemine göre değişir. Ayr�
 
 |İsteğe bağlı| Ad | Veri türü | Açıklama |
 |-------|------|-----------|-------------|
-|İzin verilmedi| `Input` | String | Bilgisayar işleme kapsayıcıları bu kullanmayın.|
+|İzin verilmiyor| `Input` | String | Bilgisayar işleme kapsayıcıları bu kullanmayın.|
 |İsteğe bağlı| `Output` | String | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. Bu günlükler konumdur. Bu, kapsayıcı günlükleri içerir. <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Örnek docker komutlarını çalıştırın 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 83e33ffa2854b92718828ae870b82431993fac24
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 15b2b5863f5b78bd24ffd8cbd55b9914f52e32a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603521"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072805"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir olay hub'ı oluşturma
 Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Olay Hub’larının ayrıntılı genel bakışı için bkz. [Olay Hub’larına genel bakış](event-hubs-about.md) ve [Olay Hub’ları özellikleri](event-hubs-features.md).
@@ -30,7 +30,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emi
 - [Visual Studio 2019)](https://www.visualstudio.com/vs) veya üzeri.
 - [.NET Standard SDK'sı](https://www.microsoft.com/net/download/windows), sürüm 2.0 veya üzeri.
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Kaynak grubu, Azure kaynakları için mantıksal bir koleksiyondur. Tüm kaynaklar bir kaynak grubuna dağıtılır ve buradan yönetilir. Bir kaynak grubu oluşturmak için:
 
@@ -57,7 +57,7 @@ Event Hubs ad alanı, tam etki alanı adının başvurduğu, içinde bir veya da
    ![Event Hubs araması yapın](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
 3. Seçin **Event Hubs** altında **Sık Kullanılanlar** sol gezinti menüsünde, seçip **Ekle** araç.
 
-   ![Araç çubuğu düğmesi ekleme](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+   ![Ekle düğmesi](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Üzerinde **ad alanı oluşturma** sayfasında, aşağıdaki adımları uygulayın:
     1. Ad alanı için bir ad girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
     2. Fiyatlandırma katmanını (temel veya standart) seçin.

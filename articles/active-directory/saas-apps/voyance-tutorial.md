@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 75570d9d06cbbb08feba418f0bab229dca1c8b53
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3c286c004885cdc2cc83899bd06af19176c5581b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192243"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087584"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Öğretici: Voyance ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Voyance tümleştirmesini yapılandırmak için Voyance Galeriden y�
 
 **Galeriden Voyance eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

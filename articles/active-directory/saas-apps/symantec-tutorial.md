@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b9fdc6bf46cff1f3a38d40a4e7abad5bfe56c47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ce68547ca13d2395fcd447990c42c48c04eb5f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866389"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Öğretici: Azure Active Directory Tümleştirmesi Symantec Web güvenlik hizmetini (WSS)
 
@@ -56,7 +56,7 @@ Azure AD'de Symantec Web güvenlik hizmetini (WSS) tümleştirmesini yapılandı
 
 **Galeriden Symantec Web güvenlik hizmetini (WSS) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -152,11 +152,11 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümde, Symantec Web güvenlik hizmetini (WSS) erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Symantec Web güvenlik hizmetini (WSS)**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Symantec Web güvenlik hizmetini (WSS)** .
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde yazın ve **Symantec Web güvenlik hizmetini (WSS)**.
+2. Uygulamalar listesinde yazın ve **Symantec Web güvenlik hizmetini (WSS)** .
 
     ![Uygulamalar listesinde Symantec Web güvenlik hizmetini (WSS) bağlantısı](common/all-applications.png)
 

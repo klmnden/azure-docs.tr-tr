@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c83eb1f6525c54bc44386f84498789b50bf19043
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387285"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721144"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Sanal makine uzantıları ve Linux için özellikleri
 
@@ -57,7 +57,7 @@ Mümkün olan en iyi deneyimi sağlamak için en düşük aracı sürümü vard�
 Uzantıları framework limiti işletim sistemleri için bu uzantılar vardır ancak Linux Aracısı birden çok Oses'te çalıştırır. Daha fazla bilgi için [bu makaleye](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ) bakın.
 
-Bazı uzantılar tüm işletim sistemlerinde desteklenmez ve yayabilir *hata kodu 51, 'Desteklenmeyen işletim sistemi'*. Desteklenebilirlik için ayrı bir uzantı belgelerine bakın.
+Bazı uzantılar tüm işletim sistemlerinde desteklenmez ve yayabilir *hata kodu 51, 'Desteklenmeyen işletim sistemi'* . Desteklenebilirlik için ayrı bir uzantı belgelerine bakın.
 
 #### <a name="network-access"></a>Ağ erişimi
 
@@ -264,7 +264,7 @@ Her zaman aracısı için otomatik güncelleştirme sahip önerilen [AutoUpdate.
 
 #### <a name="extension-updates"></a>Uzantı güncelleştirmeleri
 
-Bir uzantı güncelleştirme kullanılabilir olduğunda, Linux aracısını yükler ve uzantısını yükseltir. Uzantı otomatik güncelleştirmelerin ya da *küçük* veya *düzeltme*. Kabul et veya uzantıları dışında iyileştirilmiş *küçük* uzantı sağladığınızda güncelleştirir. Aşağıdaki örnek bir Resource Manager şablonu ile küçük sürümlerde otomatik olarak yükseltme gösterir *autoUpgradeMinorVersion ": true,'*:
+Bir uzantı güncelleştirme kullanılabilir olduğunda, Linux aracısını yükler ve uzantısını yükseltir. Uzantı otomatik güncelleştirmelerin ya da *küçük* veya *düzeltme*. Kabul et veya uzantıları dışında iyileştirilmiş *küçük* uzantı sağladığınızda güncelleştirir. Aşağıdaki örnek bir Resource Manager şablonu ile küçük sürümlerde otomatik olarak yükseltme gösterir *autoUpgradeMinorVersion ": true,'* :
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -337,7 +337,7 @@ Tüm VM uzantıları için aşağıdaki sorun giderme adımlarını uygulayın.
 
 1. Linux Aracısı günlük denetlemek için uzantınız içinde sağlanırken faaliyeti Ara */var/log/waagent.log*
 
-2. Daha fazla bilgi için gerçek uzantı günlükleri denetleyin   */var/oturum/azure /<extensionName>*
+2. Daha fazla bilgi için gerçek uzantı günlükleri denetleyin */var/oturum/azure/\<extensionName >*
 
 3. Hata kodları, bilinen sorunlar vb. için bölümlere gidermek uzantısı özgü belgelere bakın.
 

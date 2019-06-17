@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ae0b8bb6dec4b129a4965426789819e119a25c53
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 82097b075ab86c4de5ab45e3110c9bc192ac7edb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991499"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Öğretici: Meta ağları Bağlayıcısı ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'ye Meta ağları bağlayıcı tümleştirmesini yapılandırmak için M
 
 **Galeriden meta ağları bağlayıcı eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -127,13 +127,13 @@ Azure AD çoklu oturum açma Meta ağları Bağlayıcısı ile yapılandırmak i
     
 7. Yukarıdaki için Ayrıca, SAML yanıtta geçirilecek birkaç daha fazla öznitelik Meta ağları bağlayıcı uygulaması bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
     
-    | Ad | Kaynak özniteliği | Ad alanı|
+    | Ad | Kaynak özniteliği | Ad Alanı|
     | ---------------| --------------- | -------- |
     | firstName | User.givenName | |
     | Soyadı | User.surname | |
     | emailaddress| User.Mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | name | User.userPrincipalName| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | telefon | User.telephoneNumber | |
+    | Telefon | User.telephoneNumber | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

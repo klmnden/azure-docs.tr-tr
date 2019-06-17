@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pabutler
-ms.openlocfilehash: b8113552edf9dd2f886b5752b2ebc69afc0fda08
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: fff89dd8a17aaf6d45462edeaa22f1d2efc8d02b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942375"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064312"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Azure Market ve AppSource teklifleri Yayımlama durumunu görüntüleyin
 
@@ -39,7 +39,7 @@ Sonraki örnekte **durumu** sağlama yönetimlerini raporlanan bir hata göstere
 
 ![Danışmanlık hizmeti gösteren hata durumu sekmesi](./media/consulting-service-error.png)
 
-Azure uygulaması son örnek durumu kritik bir Microsoft gözden geçirme sorunu gösterir.  Bu, bu İnceleme sorun hakkında ayrıntılı bilgi içeren VSTS öğeye etkin bir bağlantı içerir.  Daha fazla bilgi için [Azure yayımlama uygulaması teklif](cpp-publish-offer.md).
+Azure uygulaması son örnek durumu kritik bir Microsoft gözden geçirme sorunu gösterir.  Bu gözden geçirme sorun hakkında ayrıntılı bilgi içeren Azure DevOps öğeyi etkin bağlantı var.  Daha fazla bilgi için [Azure yayımlama uygulaması teklif](cpp-publish-offer.md).
 
 ![Gözden geçirme sorunu gösteren bir Azure uygulamasına yönelik durumu sekmesi](../azure-applications/media/status-tab-ms-review.png)
 

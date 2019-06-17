@@ -14,62 +14,62 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 0c43fb72829614af339f7dcc1bb36edfc80e6c80
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 494f5fb6f2bfdec86cad01a37e57c3ec219a77f9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121672"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133599"
 ---
 ## <a name="test-your-code"></a>Kodunuzu test etme
 
-### <a name="test-with-node"></a>Düğüm ile test
+Şu ortamlarda yer kullanarak kodunuzu test.
+
+### <a name="test-with-nodejs"></a>Node.js ile test
 
 Visual Studio kullanmıyorsanız, web sunucunuza başlatıldığından emin olun.
 
-1. Sunucusunu konumunu temel alarak bir TCP bağlantı noktasını dinlemek üzere yapılandırmak, **index.html** dosya. Düğüm için uygulama klasöründeki bir komut satırı isteminde aşağıdaki komutları çalıştırarak bağlantı noktasını dinlemek için web sunucusunu başlatın:
+1. Sunucusunu konumunu temel alarak bir TCP bağlantı noktasını dinlemek üzere yapılandırmak, *index.html* dosya. Node.js için uygulama klasöründeki bir komut satırı isteminde aşağıdaki komutları çalıştırarak bağlantı noktasını dinlemek için web sunucusunu başlatın:
 
     ```bash
     npm install
     node server.js
     ```
-1. Tarayıcıyı açın ve http:// yazın<span></span>localhost:30662 veya http://<span></span>localhost: {port} burada **bağlantı noktası** , web sunucusunun dinleme yaptığı bağlantı noktası. İndex.html dosyanızın içeriğini görmeniz gerekir ve **oturum** düğmesi.
-
-<p><!-- -->
+1. Tarayıcınızda girin **http://\<span >\</span > localhost:30662** veya **http://\<span >\</span > localhost: {port}** , Burada *bağlantı noktası* , web sunucusunun dinleme yaptığı bağlantı noktası. İçeriğini görmelisiniz, *index.html* dosya ve **oturum** düğmesi.
 
 ### <a name="test-with-visual-studio"></a>Visual Studio ile test
 
-Visual Studio kullanıyorsanız, tuşuna basın ve proje çözüm seçtiğinizden emin olun **F5** projeyi çalıştırın. Http:// tarayıcı açılır<span></span>localhost: {port} konumu göreceksiniz **oturum** düğmesi.
+Visual Studio kullanıyorsanız, proje çözümü seçin ve ardından projenizi çalıştırmak için F5'i seçin. Tarayıcı açılır http://<span></span>localhost: {port} konumu ve **oturum** düğmesi görünür.
 
 ## <a name="test-your-application"></a>Uygulamanızı test edin
 
-Tarayıcı, bir index.html dosyası yüklendikten sonra tıklayın **oturum**. Microsoft kimlik platformu uç noktası ile oturum açmanız istenir:
+Sonra tarayıcıyı yükler, *index.html* dosyası **oturum**. Microsoft kimlik platformu uç noktası ile oturum açmanız istenir:
 
-![JavaScript SPA'ya hesabınızda oturum açın](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
+![Oturum açma JavaScript SPA hesabını penceresi](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
 ### <a name="provide-consent-for-application-access"></a>Uygulama erişimi için rıza sağlamanın
 
-Uygulamanıza oturum ilk kez profilinizi erişmek ve oturum açmak için uygulama izin vermek için onay vermeniz istenir:
+Uygulamanıza oturum ilk kez oturum açın ve profiliniz için erişim vermeye istenir:
 
-![Uygulama erişimi için izninizi sağlayın](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
+!["İstenen izinleri" penceresi](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Uygulama sonuçlarını görüntüle
 
-Sonra oturum açma işlemlerini sayfasında gösterilen Microsoft Graph API yanıtında döndürülen kullanıcı profili bilgilerinize görmeniz gerekir.
+Oturum açtıktan sonra kullanıcı profili bilgilerinize sayfasında gösterilen Microsoft Graph API yanıt döndürülür.
 
-![Microsoft Graph API çağrısından beklenen sonuçları](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
+![Microsoft Graph API çağrısından sonuçları](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Kapsamlar ve temsilci izinleri hakkında daha fazla bilgi
 
-Microsoft Graph API'sini gerektirir `user.read` kapsamı, bir kullanıcının profilini okuma için. Bu kapsam kayıt portalı üzerinde kayıtlı her uygulamada varsayılan olarak otomatik olarak eklenir. Diğer Microsoft Graph API'leri yanı sıra özel API'ler, arka uç sunucusu için ek kapsamlarla gerektirebilir. Örneğin, Microsoft Graph API'sini gerektirir `Calendars.Read` kullanıcının takvimleri listelemek için kapsam.
+Microsoft Graph API'sini gerektirir *user.read* kapsamı, bir kullanıcının profilini okuma için. Bu kapsam kayıt portalı üzerinde kayıtlı her uygulamada varsayılan olarak otomatik olarak eklenir. Diğer Microsoft Graph API'leri yanı sıra özel API'ler, arka uç sunucusu için ek kapsamlarla gerektirebilir. Örneğin, Microsoft Graph API'sini gerektirir *Calendars.Read* kullanıcının takvimleri listelemek için kapsam.
 
-Bir uygulama bağlamında kullanıcının takvimler erişmek için ekleme `Calendars.Read` izin uygulama kayıt bilgileri için temsilci. Ardından, ekleme `Calendars.Read` için kapsam `acquireTokenSilent` çağırın.
+Bir uygulama bağlamında kullanıcının takvimler erişmek için ekleme *Calendars.Read* izin uygulama kayıt bilgileri için temsilci. Ardından, ekleme *Calendars.Read* için kapsam `acquireTokenSilent` çağırın.
 
 >[!NOTE]
 >Kapsamların sayısı arttıkça, kullanıcı için ek bir onayları istenebilir.
 
-Arka uç API (önerilmez) bir kapsam gerektirmiyorsa kullanabileceğiniz `clientId` belirteçlerini almak için çağrıları kapsamda olarak.
+Arka uç API (önerilmez) bir kapsam gerektirmiyorsa kullanabileceğiniz *ClientID* belirteçlerini almak için çağrıları kapsamda olarak.
 
 <!--end-collapse-->
 

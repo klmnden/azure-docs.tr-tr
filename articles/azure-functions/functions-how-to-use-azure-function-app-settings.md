@@ -12,10 +12,10 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957397"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure portalında işlev uygulaması yönetme 
@@ -26,7 +26,7 @@ Başlamak için Git [Azure portalında](https://portal.azure.com) ve Azure hesab
 
 ![Azure portalında işlev uygulama genel bakış](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-İşlev uygulamanızı genel bakış sayfasından özellikle yönetmek için gereken her şey için gidebilirsiniz **[uygulama ayarları](#settings)** ve **[Platformözellikleri](#platform-features)**.
+İşlev uygulamanızı genel bakış sayfasından özellikle yönetmek için gereken her şey için gidebilirsiniz **[uygulama ayarları](#settings)** ve **[Platformözellikleri](#platform-features)** .
 
 ## <a name="settings"></a>Uygulama ayarları
 

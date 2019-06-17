@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c38ccf8e1c2bee9695e629a2fc5e8e7b60c64a2a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3a02ef6da245db4fca19c2e20390cdad8718b301
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891527"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindtickle"></a>Öğretici: MindTickle ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de MindTickle tümleştirmesini yapılandırmak için MindTickle Galeri
 
 **Galeriden MindTickle eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Azure AD çoklu oturum açma ile MindTickle yapılandırmak için aşağıdaki a
 
     a. Tıklayın **meta veri dosyasını karşıya yükleme**.
 
-    ![Meta veri dosyasını yükleyin](common/upload-metadata.png)
+    ![Meta veri dosyasını karşıya yükleyin](common/upload-metadata.png)
 
     b. Tıklayarak **klasör logosu** meta veri dosyası seçin ve **karşıya**.
 

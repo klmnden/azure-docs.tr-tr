@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b45c88ddf3e4a5781e48641d26a9487e5861880c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 5f083178ca7e28831bf4f60940c3ced73a427dda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890041"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Öğretici: RightAnswers ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de RightAnswers tümleştirmesini yapılandırmak için RightAnswers Ga
 
 **Galeriden RightAnswers eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

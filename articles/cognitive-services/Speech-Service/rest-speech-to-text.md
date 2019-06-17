@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: baaa7b1068e13863293e0968cb0bf1ffb198882b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d5bceff004d1cc6ddac4046a2ddcd0b5f0b5e73
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487240"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072524"
 ---
 # <a name="speech-to-text-rest-api"></a>Konuşmayı metne REST API
 
@@ -164,7 +164,7 @@ Sonuçları JSON olarak sağlanır. `simple` Biçimi bu üst düzey alanlar içe
 > [!NOTE]
 > Ses yalnızca küfür oluşuyorsa ve `profanity` sorgu parametresi ayarlandığında `remove`, hizmeti bir konuşma sonuç döndürmez.
 
-`detailed` Biçimi aynı verileri içeren `simple` , bunların ile biçimde `NBest`, aynı tanıma sonucun alternatif yorum listesi. Bu sonuçları büyük olasılıkla'nden alınarak sıralanır az büyük olasılıkla ilk giriş ana tanıma işleminin sonucu aynıdır.  Kullanırken `detailed` biçimi `DisplayText` olarak sağlanan `Display` her sonucu için `NBest` listesi.
+`detailed` Biçimi aynı verileri içeren `simple` , bunların ile biçimde `NBest`, aynı tanıma sonucun alternatif yorum listesi. Bu sonuçları büyük olasılıkla az olasılıkla doğru sıralanır. İlk giriş ana tanıma işleminin sonucu aynıdır.  Kullanırken `detailed` biçimi `DisplayText` olarak sağlanan `Display` her sonucu için `NBest` listesi.
 
 Her bir nesnenin `NBest` liste aşağıdakileri içerir:
 

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303266"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64687270"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Yedekleme ilkeleri oluşturma ve yönetme için StorSimple Snapshot Manager'ı kullanın
 ## <a name="overview"></a>Genel Bakış
@@ -58,7 +58,7 @@ Yeni bir yedekleme ilkesi oluşturmak için aşağıdaki yordamı kullanın.
    2. Altında **ayarları**seçin **bir kez**, **günlük**, **haftalık**, veya **aylık**.
    3. İçinde **Başlat** metin kutusuna Takvim simgesine tıklayın ve bir başlangıç tarihini seçin.
    4. Altında **Gelişmiş ayarlar**, isteğe bağlı bir yineleme zamanlamaları ve bitiş tarihi ayarlayabilirsiniz.
-   5. **Tamam** düğmesine tıklayın.
+   5. **Tamam**'ı tıklatın.
 
 Yedekleme ilkesini oluşturduktan sonra aşağıdaki bilgiler gözükür **sonuçları** bölmesi:
 

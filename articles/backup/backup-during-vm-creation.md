@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: d96b898c8f72abd7e4eb3522ae046e9fc926f387
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54449d9ea14fef6b2373aa8e0ea3341417c2d3fe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057991"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Azure VM’sini oluşturduğunuz sırada yedeklemeyi etkinleştirme
 
@@ -27,7 +27,7 @@ Bu makalede, Azure portalında sanal makine (VM) oluşturduğunuzda, yedeklemeyi
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 Hesabınıza zaten oturum açmadıysanız, oturum [Azure portalında](https://portal.azure.com).
- 
+
 ## <a name="create-a-vm-with-backup-configured"></a>Yedekleme yapılandırıldı ile VM oluşturma
 
 1. Azure portalında **kaynak Oluştur**.
@@ -41,28 +41,32 @@ Hesabınıza zaten oturum açmadıysanız, oturum [Azure portalında](https://po
 6. Önerilen kasa adını kabul edin veya kendi belirtin.
 7. Kasa bulunacağı kaynak grubu oluşturun veya belirtin. Kaynak grubu kasa, VM kaynak grubundan farklı olabilir.
 
-    ![Bir VM için yedeklemeyi etkinleştirme](./media/backup-during-vm-creation/enable-backup.png) 
+    ![Bir VM için yedeklemeyi etkinleştirme](./media/backup-during-vm-creation/enable-backup.png)
 
 8. Varsayılan yedekleme ilkesini kabul edin ya da ayarları değiştirin.
-    - Yedekleme anlık görüntüleri, sanal makinenin ve bu yedekleme kopyası tutmak için ne kadar sık sık almak nasıl bir yedekleme ilkesi belirtir. 
+    - Yedekleme anlık görüntüleri, sanal makinenin ve bu yedekleme kopyası tutmak için ne kadar sık sık almak nasıl bir yedekleme ilkesi belirtir.
     - Varsayılan ilke günde bir kez VM'yi yedekler.
     - Günlük veya haftalık yedekleme bir Azure VM yedekleme kendi ilkenizi özelleştirebilirsiniz.
     - [Daha fazla bilgi edinin](backup-azure-vms-introduction.md#backup-and-restore-considerations) Azure Vm'leri için yedekleme konusunda.
     - [Daha fazla bilgi edinin](backup-instant-restore-capability.md) hakkında anında geri yükleme işlevselliğinin.
 
-      ![Varsayılan yedekleme İlkesi](./media/backup-during-vm-creation/daily-policy.png) 
+      ![Varsayılan yedekleme İlkesi](./media/backup-during-vm-creation/daily-policy.png)
 
 
-## <a name="start-a-backup-after-creating-the-vm"></a>VM oluşturduktan sonra bir yedeklemeyi başlatın. 
+> [!NOTE]
+> Azure Backup hizmeti adlandırma biçimi ile anlık görüntü deposu için ayrı bir kaynak grubu (dışında VM kaynak grubu) oluşturur **AzureBackupRG_geography_number** (örnek: AzureBackupRG_northeurope_1). Bu kaynak grubundaki veriler, belirtilen gün sayısı süresince korunur *tut anında kurtarma anlık görüntü* Azure sanal makine yedekleme ilkesinin bir bölümü.  Bu kaynak grubu için bir kilit uygulama, yedekleme hatalarına neden olabilir.
 
-VM yedekleme, yedekleme ilkenize uygun şekilde çalışır. Ancak, ilk yedekleme çalıştırmanızı öneririz. 
+
+## <a name="start-a-backup-after-creating-the-vm"></a>VM oluşturduktan sonra bir yedeklemeyi başlatın.
+
+VM yedekleme, yedekleme ilkenize uygun şekilde çalışır. Ancak, ilk yedekleme çalıştırmanızı öneririz.
 
 VM oluşturulduktan sonra aşağıdakileri yapın:
 
 1. VM Özellikleri'nde tıklayın **yedekleme**. İlk yedekleme çalıştırılana kadar sanal Makinenin durumu ilk yedekleme bekliyor.
 2. Tıklayın **Şimdi Yedekle** isteğe bağlı yedekleme çalıştırmak için.
 
-    ![Bir talep üzerine yedekleme gerçekleştirin](./media/backup-during-vm-creation/run-backup.png) 
+    ![Bir talep üzerine yedekleme gerçekleştirin](./media/backup-during-vm-creation/run-backup.png)
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Korunan bir sanal makine dağıtmak için bir Resource Manager şablonu kullanma
 
@@ -70,11 +74,11 @@ VM oluşturulduktan sonra aşağıdakileri yapın:
 
 
 
-## <a name="next-steps"></a>Sonraki adımlar 
+## <a name="next-steps"></a>Sonraki adımlar
 
 Sanal makinenizin koruma uyguladım, yönetmek ve bunları geri yükleme hakkında bilgi edinin.
 
-- [Vm'leri yönetme ve izleme](backup-azure-manage-vms.md) 
-- [Sanal makineyi geri yükleme](backup-azure-arm-restore-vms.md) 
+- [Vm'leri yönetme ve izleme](backup-azure-manage-vms.md)
+- [Sanal makineyi geri yükleme](backup-azure-arm-restore-vms.md)
 
 Herhangi bir sorunla karşılaşırsanız [gözden](backup-azure-vms-troubleshoot.md) sorun giderme kılavuzu.

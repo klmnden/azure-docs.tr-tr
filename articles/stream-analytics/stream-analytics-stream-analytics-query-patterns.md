@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65761964"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Örnekler için sık kullanılan Stream Analytics kullanım desenlerini sorgulama
@@ -35,7 +35,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Giriş**:
 
-| Yapın | Time | Ağırlık |
+| Yapın | Zaman | Ağırlık |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -68,7 +68,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Giriş**:
 
-| Yapın | LicensePlate | Time |
+| Yapın | LicensePlate | Zaman |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -76,7 +76,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Çıkış**:
 
-| Yapın | LicensePlate | Time |
+| Yapın | LicensePlate | Zaman |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -100,7 +100,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Giriş**:
 
-| Yapın | Time |
+| Yapın | Zaman |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -108,7 +108,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Çıkış**:
 
-| CarsPassed | Time |
+| CarsPassed | Zaman |
 | --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
@@ -137,7 +137,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Giriş**:
 
-| Yapın | Time |
+| Yapın | Zaman |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -147,7 +147,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Output1**:
 
-| Yapın | Time |
+| Yapın | Zaman |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -157,7 +157,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Output2**:
 
-| Yapın | Time | Count |
+| Yapın | Zaman | Count |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -211,7 +211,7 @@ Not ortak tablo ifadeleri (Cte'lerin) sonuçlarını da kullanabilirsiniz (gibi 
 
 **Giriş**:
 
-| Yapın | Time |
+| Yapın | Zaman |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -221,7 +221,7 @@ Not ortak tablo ifadeleri (Cte'lerin) sonuçlarını da kullanabilirsiniz (gibi 
 
 **Çıkış:**
 
-| CountMake | Time |
+| CountMake | Zaman |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -238,7 +238,7 @@ GROUP BY
 ```
 
 
-**Açıklama:**
+**Açıklama:** 
 **COUNT (DISTINCT olun)** benzersiz değerleri döndürür **olun** sütunu bir zaman penceresi içinde.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Sorgu örnek: Bir değer değişip değişmediğini belirlemek
@@ -247,14 +247,14 @@ GROUP BY
 
 **Giriş**:
 
-| Yapın | Time |
+| Yapın | Zaman |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Çıkış**:
 
-| Yapın | Time |
+| Yapın | Zaman |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -278,7 +278,7 @@ GROUP BY
 
 **Giriş**:
 
-| LicensePlate | Yapın | Time |
+| LicensePlate | Yapın | Zaman |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -290,7 +290,7 @@ GROUP BY
 
 **Çıkış**:
 
-| LicensePlate | Yapın | Time |
+| LicensePlate | Yapın | Zaman |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -310,7 +310,7 @@ GROUP BY
 
 Şimdi şimdi sorun değiştirin ve her 10 dakikalık zaman aralığını belirli olun, ilk araba bulun.
 
-| LicensePlate | Yapın | Time |
+| LicensePlate | Yapın | Zaman |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -337,7 +337,7 @@ GROUP BY
 
 **Giriş**:
 
-| LicensePlate | Yapın | Time |
+| LicensePlate | Yapın | Zaman |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -349,7 +349,7 @@ GROUP BY
 
 **Çıkış**:
 
-| LicensePlate | Yapın | Time |
+| LicensePlate | Yapın | Zaman |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
@@ -386,7 +386,7 @@ GROUP BY
 
 **Giriş**:
 
-| Yapın | LicensePlate | Time |
+| Yapın | LicensePlate | Zaman |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -395,7 +395,7 @@ GROUP BY
 
 **Çıkış**:
 
-| Yapın | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Yapın | Zaman | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -422,10 +422,10 @@ GROUP BY
 
 **Giriş**:  
 
-| Kullanıcı | Özellik | Olay | Time |
+| Kullanıcı | Özellik | Olay | Zaman |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Başlangıç |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |Son |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Başlatma |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
 **Çıkış**:  
 
@@ -443,7 +443,7 @@ GROUP BY
         Event = 'end'
 ```
 
-**Açıklama**: Kullanım **son** son almak için işlevi **zaman** değer olay türü olduğunda **Başlat**. **Son** işlevini kullanan **PARTITION BY [kullanıcı]** sonucu benzersiz kullanıcı başına hesaplanır belirtmek için. Sorguyu 1 saatlik en yüksek eşik arasındaki zaman farkı için sahip **Başlat** ve **Durdur** olayları, ancak gerektiğinde yapılandırılabilir **(sınırı DURATION(hour, 1)**.
+**Açıklama**: Kullanım **son** son almak için işlevi **zaman** değer olay türü olduğunda **Başlat**. **Son** işlevini kullanan **PARTITION BY [kullanıcı]** sonucu benzersiz kullanıcı başına hesaplanır belirtmek için. Sorguyu 1 saatlik en yüksek eşik arasındaki zaman farkı için sahip **Başlat** ve **Durdur** olayları, ancak gerektiğinde yapılandırılabilir **(sınırı DURATION(hour, 1)** .
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Sorgu örnek: Bir koşul süresi algılayın
 **Açıklama**: Bir koşul oluştu ne kadar out bulun.
@@ -451,7 +451,7 @@ GROUP BY
 
 **Giriş**:
 
-| Yapın | Time | Ağırlık |
+| Yapın | Zaman | Ağırlık |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -506,7 +506,7 @@ GROUP BY
 | "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
 
-**Çıkış (ilk 10 satırı)**:
+**Çıkış (ilk 10 satırı)** :
 
 | windowend | lastevent.t | lastevent.Value |
 | --- | --- | --- |
@@ -614,7 +614,7 @@ WHERE
 
 **Giriş**:
 
-| LicensePlate | Yapın | Time | TollID |
+| LicensePlate | Yapın | Zaman | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
@@ -627,7 +627,7 @@ WHERE
 
 **Çıkış**:
 
-| TollID | Count |
+| TollID | Sayı |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |
@@ -655,7 +655,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Giriş**:  
 
-| DeviceId | Time | Öznitelik | Değer |
+| DeviceId | Zaman | Öznitelik | Değer |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Sıcaklık |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Sıcaklık |50 |

@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 87e35573eea836fc8a88c7515409c070ec63aa3b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024888"
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search'te dizin oluşturucular
@@ -59,18 +59,18 @@ Dizin oluşturucular veri depoları Azure'da gezinin.
 ## <a name="basic-configuration-steps"></a>Temel yapılandırma adımları
 Dizin oluşturucular veri kaynağına özgü özellikler sunabilir. Bu bakımdan, dizin oluşturucu veya veri kaynağı yapılandırmasının bazı boyutları dizin oluşturucu türüne göre farklılık gösterir. Bununla birlikte, tüm dizin oluşturucuların temel birleşimi ve gereksinimleri aynıdır. Tüm dizin oluşturucularda ortak olan adımlar aşağıda ele alınmıştır.
 
-### <a name="step-1-create-a-data-source"></a>1. Adım: Veri kaynağı oluşturma
+### <a name="step-1-create-a-data-source"></a>1\. adım: Bir veri kaynağı oluşturun
 Bir dizin oluşturucu veri kaynağı bağlantısından alır bir *veri kaynağı* nesne. Veri kaynağı tanımını bir bağlantı dizesi ve muhtemelen kimlik bilgileri sağlar. Çağrı [veri kaynağı oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST API veya [veri kaynağı sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) kaynak oluşturmak için.
 
 Veri kaynakları, bunları kullanan dizin oluşturuculardan bağımsız olarak yapılandırılır ve yönetilir. Bu da bir veri kaynağının, bir seferde birden çok dizin yüklemek amacıyla birden çok dizin oluşturucu tarafından kullanılabileceği anlamına gelir.
 
-### <a name="step-2-create-an-index"></a>2. Adım: Dizin oluşturma
+### <a name="step-2-create-an-index"></a>2\. adım: Dizin oluşturma
 Dizin oluşturucu veri alımıyla ilgili bazı görevleri otomatikleştirir, ancak dizin oluşturma genellikle bu görevlerden biri değildir. Bir önkoşul olarak dış veri kaynağınızdaki alanlarla eşleşen alanlara sahip önceden tanımlı bir dizininiz olmalıdır. Alan adı ve veri türüyle eşleşmesi gerekir. Dizin yapısı hakkında daha fazla bilgi için bkz. [(Azure Search REST API'si) dizin oluşturma](https://docs.microsoft.com/rest/api/searchservice/Create-Index) veya [dizin sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Alan ilişkilendirme konusunda yardım için bkz. [Azure Search dizin oluşturucularında alan eşlemeleri](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Dizin oluşturucular sizin için dizin oluşturamasa da, portaldaki **Verileri içeri aktarma** sihirbazı bu işlem için size yardımcı olabilir. Çoğu durumda, sihirbaz, kaynaktaki mevcut meta verilerden dizin şeması çıkarsayarak, sihirbaz etkin olduğunda satır içinde düzenleyebileceğiniz geçici bir dizin şeması sunar. Hizmet için sihirbaz oluşturulduğunda, portalda yapılabilecek ayrıntılı düzenlemeler, genellikle yeni alanlar eklemeyle sınırlıdır. Sihirbaz dizin oluşturmak için uygun olsa da, düzenlemek için uygun değildir. Uygulama yaparak öğrenmek için, [portal kılavuzundaki](search-get-started-portal.md) adımları izleyin.
 
-### <a name="step-3-create-and-schedule-the-indexer"></a>3. Adım: Oluşturma ve zamanlama dizin oluşturucu
+### <a name="step-3-create-and-schedule-the-indexer"></a>3\. adım: Oluşturma ve zamanlama dizin oluşturucu
 Dizin Oluşturucu tanımı bir araya getiren bir yapıdır veri alımıyla ilgili tüm öğelere sahiptir. Bir veri kaynağı ve dizin gerekli öğelerini içerir. İsteğe bağlı öğeler, zamanlama ve alan eşlemeleri içerir. Alan eşleme yalnızca kaynağı ve dizin alanları açıkça karşılık geliyorsa isteğe bağlı. Bir dizin oluşturucu, aynı abonelikten olduğu sürece başka bir hizmetteki bir veri kaynağına başvurabilir. Bir dizin oluşturucuyu yapılandırma konusunda daha fazla bilgi için bkz. [Dizin Oluşturucu Oluşturma (Azure Search REST API’si)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 <a id="RunIndexer"></a>

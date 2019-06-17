@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 06/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4dee0e994c9e7be9677a8f1051481850990998e9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247177"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074057"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>Azure Data Factory kullanarak SAP tablodan veri kopyalama
 
@@ -29,7 +29,13 @@ SAP tablosundan tüm desteklenen havuz veri deposuna veri kopyalayabilirsiniz. K
 
 Özellikle, bu tablo SAP connector'ı destekler:
 
-- SAP tablosundan veri kopyalama **7.01 veya üzeri bir sürüm ile SAP Business Suite** (yığındaki son SAP destek paketi 2015 yıl sonra yayımlanan) veya **S/4hana'yı**.
+- SAP tablosundan veri kopyalama:
+
+    - **SAP ECC** sürümüyle 7.01 veya üzeri (yığındaki son SAP destek paketi 2015 yıl sonra yayımlanan)
+    - **SAP BW** 7.01 ya da daha yüksek sürüm
+    - **SAP S/4HANA'YI**
+    - **Diğer ürünler için SAP Business Suite** 7.01 ya da daha yüksek sürüm 
+
 - Hem de veri kopyalama **SAP saydam tablo** ve **görünümü**.
 - Kullanarak verileri kopyalama **temel kimlik doğrulaması** veya **SNC** (ağ SNC yapılandırılmışsa, iletişimi güvenli hale getirme).
 - Bağlanma **uygulama sunucusu** veya **ileti sunucusu**.
@@ -62,7 +68,7 @@ SAP Business Warehouse açık bağlı Hub hizmeti için aşağıdaki özellikler
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **SapTable** | Evet |
-| sunucu | SAP örneğini yer aldığı sunucunun adı.<br/>Geçerli bağlanmak isterseniz **SAP uygulama sunucusu**. | Hayır |
+| server | SAP örneğini yer aldığı sunucunun adı.<br/>Geçerli bağlanmak isterseniz **SAP uygulama sunucusu**. | Hayır |
 | systemNumber | SAP sistemine sistem numarası.<br/>Geçerli bağlanmak isterseniz **SAP uygulama sunucusu**.<br/>İzin verilen değer: bir dize olarak temsil edilen iki basamaklı ondalık sayı. | Hayır |
 | messageServer | SAP ileti sunucusu konak adı.<br/>Geçerli bağlanmak isterseniz **SAP ileti sunucusu**. | Hayır |
 | messageServerService | Hizmet adı veya bağlantı noktası ileti sunucusu sayısı.<br/>Geçerli bağlanmak isterseniz **SAP ileti sunucusu**. | Hayır |
@@ -203,7 +209,7 @@ SAP tablodan veri kopyalamak için aşağıdaki özellikleri desteklenir.
 | türü                             | Type özelliği ayarlanmalıdır **SapTableSource**.       | Evet      |
 | Satır sayısı                         | Alınacak satırların sayısı.                              | Hayır       |
 | rfcTableFields                   | SAP tablosundan kopyalamak için alanları. Örneğin, `column0, column1`. | Hayır       |
-| rfcTableOptions                  | SAP tablosundaki satırları filtre seçenekleri. Örneğin, `COLUMN0 EQ 'SOMEVALUE'`. | Hayır       |
+| rfcTableOptions                  | SAP tablosundaki satırları filtre seçenekleri. Örneğin, `COLUMN0 EQ 'SOMEVALUE'`. Daha fazla açıklaması bu tablonun altındaki bakın. | Hayır       |
 | customRfcReadTableFunctionModule | SAP tablosundan verileri okumak için kullanılan özel RFC işlev modülü. | Hayır       |
 | partitionOption                  | SAP tablosundan okumak için bölüm mekanizması. Desteklenen Seçenekler şunlardır: <br/>- **Yok**<br/>- **PartitionOnInt** (normal tamsayı veya sıfır doldurma soldaki 0000012345 gibi değerlerle tamsayı)<br/>- **PartitionOnCalendarYear** ("YYYY" biçiminde 4 basamak)<br/>- **PartitionOnCalendarMonth** (6 basamaklı biçimi "YYYYMM")<br/>- **PartitionOnCalendarDate** (8 basamak biçiminde "YYYYMMDD") | Hayır       |
 | partitionColumnName              | Verileri bölümlemek için sütun adı. | Hayır       |
@@ -215,6 +221,18 @@ SAP tablodan veri kopyalamak için aşağıdaki özellikleri desteklenir.
 >- Yüksek hacimli verilerin çeşitli milyarlarca satır gibi SAP tablonuzun olması durumunda kullanmanız `partitionOption` ve `partitionSetting` veri küçük bölümlere ayırmak için bu durumda veriler bölümleri ve her veri bölümü tarafından okunur SAP sunucunuzdan tek tek aracılığıyla alınır RFC çağrısı.<br/>
 >- Alma `partitionOption` olarak `partitionOnInt` tarafından hesaplanan örnek olarak, her bölümdeki satır sayısı (toplam satırlar arasında kalan *partitionUpperBound* ve *partitionLowerBound*) /*maxPartitionsNumber*.<br/>
 >- Daha fazla kopya hızlandırmak için paralel bölümleri çalıştırmak istiyorsanız, yapmanız önerilir `maxPartitionsNumber` değerini katları olarak `parallelCopies` (daha fazla bilgi [paralel kopyalama](copy-activity-performance.md#parallel-copy)).
+
+İçinde `rfcTableOptions`, satırları filtrelemek için örneğin aşağıdaki ortak SAP sorgu işleçleri kullanabilirsiniz: 
+
+| İşleç | Açıklama |
+| :------- | :------- |
+| EQ | Eşittir |
+| NE | Eşit değildir |
+| LT | Küçüktür |
+| LE | Küçüktür veya eşittir |
+| GT | Büyüktür |
+| GE | Büyüktür veya eşittir |
+| GİBİ | '% Emma' gibi farklı |
 
 **Örnek:**
 

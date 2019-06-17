@@ -17,10 +17,10 @@ ms.date: 01/25/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 453628dca04fbc3c48564f15b6cf61802165b0cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60880580"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI ile Azure Marketi'nde, Linux VM görüntüleri bulma
@@ -202,7 +202,7 @@ Belirli bir yayımcıdan teklifler bulmak için bu bilgileri kullanın. Örneği
 az vm image list-offers --location westus --publisher Canonical --output table
 ```
 
-Çıkış:
+Çıktı:
 
 ```
 Location    Name
@@ -219,7 +219,7 @@ Batı ABD bölgesinde Canonical yayımlar gördüğünüz *UbuntuServer* Azure'd
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
 ```
 
-Çıkış:
+Çıktı:
 
 ```
 Location    Name
@@ -294,7 +294,7 @@ Görüntünün satın alma planı bilgilerini görüntülemek için çalıştır
 az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
 ```
 
-Çıkış:
+Çıktı:
 
 ```
 {
@@ -315,7 +315,7 @@ Bitnami görüntüsünün tarafından sertifikalı RabbitMQ aşağıdaki göster
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
-Çıkış:
+Çıktı:
 
 ```
 {
@@ -335,7 +335,7 @@ az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 }
 ```
 
-### <a name="accept-the-terms"></a>Koşulları kabul et
+### <a name="accept-the-terms"></a>Koşullarını kabul edin
 
 Lisans koşullarını kabul edin ve görüntülemek için kullanın [az vm görüntüsü kabul koşulları](/cli/azure/vm/image?) komutu. Koşulları kabul ettiğinde, aboneliğinizde programlamalı dağıtım etkinleştirin. Görüntü için abonelik başına bir kez kabul etmek yeterlidir. Örneğin:
 

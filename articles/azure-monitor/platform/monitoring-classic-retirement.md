@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1f29a12090ca37f25ea6f5f11e870df924b334f5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d7c8c8e6931c3e677273fab17755031527aff978
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497118"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069367"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Birleştirilmiş uyarılar ve Azure İzleyici'de izleme Klasik uyarı ve izleme değiştirir.
 
 Azure İzleyici 'Bir ölçüm' ve 'Bir Uyarılar' kaynakları genelinde artık destekleyen hizmet izleme birleşik tam bir yığın artık olur; Daha fazla bilgi için müşterilerimize [yeni Azure İzleyici Web günlüğü gönderisini](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Yeni Azure izleme ve uyarı platformları daha hızlı, daha verimli olmasını yerleşik ve giderek büyüyen expanse bulut bilgi işlem ve satır içi Microsoft Akıllı bulut felsefesi ile Genişletilebilir – tutma hızını. 
 
-Yeni Azure izleme ve uyarı yerinde platformu ile biz "izleme ve uyarı içinde barındırılan platformu - Klasik" kullanımdan kaldırılacak *Klasik uyarıları görüntüleme* Azure uyarıları bölümünü **tarafından kullanım Ağustos 2019 Azure genel Bulutu**. [Azure kamu Bulutu](../../azure-government/documentation-government-welcome.md) etkilenmez.
+Yeni Azure izleme ve uyarı yerinde platformu ile biz "izleme ve uyarı içinde barındırılan platformu - Klasik" kullanımdan kaldırılacak *Klasik uyarıları görüntüleme* Azure uyarıları bölümünü **tarafından kullanım Ağustos 2019 Azure genel Bulutu**. [Azure kamu Bulutu](../../azure-government/documentation-government-welcome.md) ve [Azure Çin](https://docs.azure.cn/) etkilenmez.
 
 > [!NOTE]
 > Sunum geçiş aracının gecikme nedeniyle, o tarihten Klasik uyarılar geçiş yapıldı [31 Ağustos 2019'için Genişletilmiş](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) ilk duyurulan tarihinden 30 Haziran 2019.

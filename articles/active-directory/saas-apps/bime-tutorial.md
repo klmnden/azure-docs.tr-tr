@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c0d595bcd96bb38021a2128138f7ee49f9b8354
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 52a34c688b7d8e12dac1d76b3e03fb1b50583c6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900863"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106259"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Öğretici: Bime ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Bime tümleştirmesini yapılandırmak için Bime Galeriden yönetil
 
 **Galeriden Bime eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

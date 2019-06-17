@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64873420"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Ağ İlkesi Sunucusu (NPS) uzantısı ve Azure AD kullanarak Uzak Masaüstü Ağ Geçidi altyapınızı tümleştirin
@@ -186,14 +186,14 @@ Uzak Masaüstü Bağlantısı Yetkilendirme İlkeleri (RD Cap'leri) bir Uzak Mas
 
 1. RD Ağ Geçidi sunucusunda açın **Sunucu Yöneticisi**.
 1. Menüsünde **Araçları**, işaret **Uzak Masaüstü Hizmetleri**ve ardından **Uzak Masaüstü Ağ Geçidi Yöneticisi**.
-1. RD Ağ Geçidi Yöneticisi'nde sağ  **\[sunucu adı\] (yerel)**, tıklatıp **özellikleri**.
+1. RD Ağ Geçidi Yöneticisi'nde sağ  **\[sunucu adı\] (yerel)** , tıklatıp **özellikleri**.
 1. Özellikler iletişim kutusunda, seçmek **RD CAP Store** sekmesi.
 1. RD CAP Store sekmesinde **NPS çalıştıran merkezi sunucu**. 
 1. İçinde **NPS çalıştıran sunucu için bir ad veya IP adresi girin** alan, NPS uzantısını yüklediğiniz sunucunun IP adresini veya sunucu adını yazın.
 
    ![Adını veya NPS sunucunuzun IP adresini girin](./media/howto-mfa-nps-extension-rdg/image10.png)
   
-1. **Ekle**'ye tıklayın.
+1. **Ekle**'yi tıklatın.
 1. İçinde **paylaşılan gizli diziyi** iletişim kutusunda, paylaşılan gizlilik girin ve ardından **Tamam**. Bu paylaşılan gizli dizinin kaydedin ve kaydı güvenli bir şekilde saklayın emin olun.
 
    >[!NOTE]
@@ -298,7 +298,7 @@ NPS sunucusu ile Azure mfa'yı uzantısı atanmış merkezi ilke deposu bağlant
 
    ![İsteğe bağlı olarak bağlantı koşulları belirtin](./media/howto-mfa-nps-extension-rdg/image23.png)
 
-1. **Tamam** düğmesine tıklayın. İlgili Yardım konusunu görüntülemek için sorulduğunda **Hayır**.
+1. **Tamam**'ı tıklatın. İlgili Yardım konusunu görüntülemek için sorulduğunda **Hayır**.
 1. Erişim verir ve yeni ilkeniz ilkenin etkinleştirildiğini listenin başında olduğundan emin olun.
 
    ![İlkenizi listesinin üstüne Taşı](./media/howto-mfa-nps-extension-rdg/image24.png)
@@ -327,7 +327,7 @@ Aşağıdaki örnekte, kimlik doğrulayıcı uygulamasını bir Windows phone'da
 
 Başarılı oturum açma olaylarını Windows Olay Görüntüleyicisi günlükleri görüntülemek için Windows Terminal Hizmetleri ve Windows güvenlik günlükleri sorgulamak için aşağıdaki Windows PowerShell komutunu verebilir.
 
-Ağ geçidi işlem günlüklerinde başarılı oturum açma olaylarını sorgulamak için _(olay görüntüleyicisi\uygulama ve hizmet Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_, aşağıdaki PowerShell komutlarını kullanın:
+Ağ geçidi işlem günlüklerinde başarılı oturum açma olaylarını sorgulamak için _(olay görüntüleyicisi\uygulama ve hizmet Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_ , aşağıdaki PowerShell komutlarını kullanın:
 
 * `Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational | where {$_.ID -eq '300'} | FL`
 * Bu komut, kullanıcının kaynak yetkilendirme ilkesi gereksinimlerini (RD RAP) sağlandığından ve erişim izni verildi gösteren Windows olayları görüntüler.

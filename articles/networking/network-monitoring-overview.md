@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
 ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620423"
 ---
 # <a name="network-monitoring-solutions"></a>Ağ izleme çözümleri 
@@ -41,11 +41,11 @@ Performans İzleyicisi, ExpressRoute İzleyicisi ve hizmet bağlantı İzleyicis
 
 Performans İzleyicisi NPM bir parçasıdır ve bulut, karma ve şirket içi ortamlar için ağ izleme. Uzak dalı ve saha ofisleri, mağaza konumları, veri merkezleri ve Bulutlar ağ bağlantısı izleyebilirsiniz. Ağ sorunlarını, kullanıcılarınız şikayet etmeden önce algılayabilir. Önemli avantajlar şunlardır:
 
-* Çeşitli alt ağlar genelinde kaybı ve gecikmeyi izleyin ve uyarılar koyun
+* Çeşitli alt ağlar ve uyarılar kayıp ve gecikme süresi izleme
 * Ağdaki tüm yolları (yedekli yolları dahil) izleme
 * Çoğaltması zor olan geçici ve zaman içinde nokta ağ sorunlarını giderme
 * Ağdaki performansın düşmesine neden olan segmenti belirleme
-* Ağın sistem durumunu SNMP'ye gerek kalmadan izleyin
+* SNMP'ye gerek duymadan ağın sistem durumunu izleme
 
 ![NPM topoloji Haritası](./media/network-monitoring-overview/npm-topology-map.png) 
 

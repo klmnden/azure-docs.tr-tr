@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c89f79c9654ed440134c1d65cdc01f1b580c73c0
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d2661af96a427a6656b00ff159daabd5a4fcbaec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897936"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Öğretici: Kindling ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Kindling tümleştirmesini yapılandırmak için Kindling Galeriden 
 
 **Galeriden Kindling eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

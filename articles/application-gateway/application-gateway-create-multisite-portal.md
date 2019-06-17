@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
 ms.openlocfilehash: 85113a5007a171459b831684f584773ba4328b94
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122429"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Bir uygulama ağ geçidi ile birden çok site barındırma Azure portalını kullanarak oluşturma
@@ -88,7 +88,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
     - *Azure123456!* Parola.
     - **Mevcut olanı kullan**’ı seçin ve *myResourceGroupAG* seçeneğini belirleyin.
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**'ı tıklatın.
 5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
 6. Sanal ağ için **myVNet** öğesinin seçili olduğundan ve alt ağın **myBackendSubnet** olduğundan emin olun. 
 7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
@@ -139,7 +139,7 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
    - *contosoListener* - dinleyicisinin adını.
    - *www\.contoso.com* -bu konak adı örneği, etki alanı adıyla değiştirin.
 
-3. **Tamam** düğmesine tıklayın.
+3. **Tamam**'ı tıklatın.
 4. Adını kullanarak ikinci bir dinleyici oluşturun *fabrikamListener* ve ikinci etki alanı adınızı kullanın. Bu örnekte, *www\.fabrikam.com* kullanılır.
 
 Kurallar listelendikleri sırayla işlenir ve trafik belirginlikten bağımsız olarak eşleşen ilk kural kullanarak yönlendirilir. Örneğin, aynı bağlantı noktasında temel bir dinleyici kullanan bir kuralınız ve çok siteli dinleyici kullanan bir kuralınız varsa çok siteli kuralın beklendiği gibi çalışması için çok siteli dinleyicinin kuralı temel dinleyici kuralından önce listelenmelidir. 
@@ -153,7 +153,7 @@ Bu örnekte, iki yeni kural oluşturursunuz ve uygulama ağ geçidini oluşturur
 
     ![Yol tabanlı kural oluşturma](./media/application-gateway-create-multisite-portal/application-gateway-multisite-rule.png)
 
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 6. Adlarını kullanarak ikinci bir kural oluşturun *fabrikamRule*, *fabrikamListener*, ve *fabrikamPool*.
 7. Adlı varsayılan kuralı *bağlanma1* tıklayarak ve ardından tıklatarak **Sil**.
 

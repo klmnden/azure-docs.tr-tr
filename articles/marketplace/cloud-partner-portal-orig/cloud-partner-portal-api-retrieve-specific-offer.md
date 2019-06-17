@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935434"
 ---
 <a name="retrieve-a-specific-offer"></a>Belirli bir teklif alma
@@ -41,19 +41,19 @@ Teklif, belirli bir sürümünü alma veya teklif taslağı, görünümü veya �
 | **Ad**    | **Açıklama**                                                                          | **Veri türü** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
 | publisherId | Publisherıd. Örneğin, Contoso                                                        | String        |
-| offerId     | Teklifin benzersiz olarak tanımlayan GUID.                                                 | String        |
-| version     | Teklif alınmasını sürümü. Varsayılan olarak, en son teklif sürümü alınır. | Tamsayı       |
+| OfferId     | Teklifin benzersiz olarak tanımlayan GUID.                                                 | String        |
+| version     | Teklif alınmasını sürümü. Varsayılan olarak, en son teklif sürümü alınır. | Integer       |
 | slotId      | Teklif alınmasına izin olduğu yuvası aşağıdakilerden biri olabilir:      <br/>  - `Draft` (varsayılan), şu anda taslak teklif sürümü alır.  <br/>  -  `Preview` şu anda önizlemede teklif sürümünü alır.     <br/>  -  `Production` şu anda üretimde teklif sürümünü alır.          |      Sabit listesi |
 | API sürümü | API'sının en son sürümü                                                                    | Tarih          |
 |  |  |  |
 
 
-<a name="header"></a>Üst bilgi
+<a name="header"></a>Üstbilgi
 ------
 
 |  **Ad**          |   **Değer**            |
 |  ---------------   |  --------------        |
-|  Content-Type      | `application/json`     |
+|  İçerik türü      | `application/json`     |
 |  Yetkilendirme     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
@@ -172,10 +172,10 @@ Teklif, belirli bir sürümünü alma veya teklif taslağı, görünümü veya �
 |  -------------  |   -----------------------------------------------------------------------------------------------------                         |
 |  offerTypeId    | Teklif türünü tanımlar                                                                                                    |
 |  publisherId    | Benzersiz yayımcı tanımlayıcısı                                                                                              |
-|  durum         | Teklif durumu. Olası değerler listesi için bkz: [teklif durumu](#offer-status) aşağıda.                                  |
+|  status         | Teklif durumu. Olası değerler listesi için bkz: [teklif durumu](#offer-status) aşağıda.                                  |
 |  Kimlik             | Teklifin benzersiz olarak tanımlayan GUID                                                                                         |
 |  version        | Teklifin geçerli sürümü. İstemci tarafından version özelliği değiştirilemez. Bu, her yayımladıktan sonra artırılır.    |
-|  tanım     | Gerçek iş yükü tanımı                                                                                               |
+|  Tanımı     | Gerçek iş yükü tanımı                                                                                               |
 |  changedTime    | Teklif son değiştirildiği UTC tarih/saat                                                                                   |
 |  |  |
 

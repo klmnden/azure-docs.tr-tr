@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d485799547644ccb3c34a8841e8b20d8a45444bf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707364"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Kurumsal Güvenlik Paketi ile HDInsight içinde Apache Hive ilkelerini yapılandırma
@@ -78,12 +78,12 @@ Talimatlara [Hive ODBC veri kaynağı oluşturma](../hadoop/apache-hadoop-connec
  | --- | --- |
  | Data Source Name | Veri kaynağınız için bir ad verin |
  | Host | &lt;HDInsightKümesiAdı>.azurehdinsight.net yazın. Örnek: HDIKumesi.azurehdinsight.net |
- | Bağlantı noktası | **443** yazın. (Önceden 563 olan bu bağlantı noktası 443 olarak değiştirilmiştir.) |
+ | Port | **443** yazın. (Önceden 563 olan bu bağlantı noktası 443 olarak değiştirilmiştir.) |
  | Database | **Default**’u kullanın. |
  | Hive Server Type | **Hive Server 2**’yi seçin |
  | Mechanism | **Azure HDInsight Service**’i seçin |
  | HTTP Path | Boş bırakın. |
- | User Name | hiveuser1@contoso158.onmicrosoft.com yazın. Etki alanı adı farklıysa güncelleştirin. |
+ | Kullanıcı adı | hiveuser1@contoso158.onmicrosoft.com yazın. Etki alanı adı farklıysa güncelleştirin. |
  | Parola | hiveuser1 kullanıcısının parolasını girin. |
 
 Veri kaynağını kaydetmeden önce **Test**’e tıklayın.

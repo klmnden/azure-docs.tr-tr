@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb066ce346d56b9b879a5e3cdcf30e7da77d94fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81032fbad21b18b0b7ca2e7662b0c4b4b6c10901
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859429"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107278"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Adobe Experience Manager
 
@@ -55,7 +55,7 @@ Azure AD'de, Adobe Experience Manager tümleştirme yapılandırmak için Adobe 
 
 **Adobe Experience Manager Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -182,7 +182,7 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
-    a. İçinde **yolu** kutusuna **/**.
+    a. İçinde **yolu** kutusuna **/** .
 
     b. İçinde **IDP URL** kutusuna **oturum açma URL'si** Azure portaldan kopyaladığınız değeri.
 

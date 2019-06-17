@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c01c7a22800d633696382687feb7090a4ed8b60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dcafa3e2f2665e84856b80cc0911d2e83df1aa65
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057347"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>En son Azure multi-Factor Authentication Sunucusu'na yükseltme
 
 Bu makalede Azure multi-Factor Authentication (MFA) sunucusu v6.0 yükseltme sürecini veya daha yüksek sizi yönlendirir. PhoneFactor Aracısı'nın eski bir sürümüne yükseltmeniz gerekirse, başvurmak [PhoneFactor Aracısı, Azure multi-Factor Authentication Sunucusu'na yükseltme](howto-mfaserver-deploy-upgrade-pf.md).
 
 V6.x veya v7.x eski veya yeni yükseltiyorsanız, tüm bileşenleri .NET 2. 0 ' .NET 4.5 olarak değiştirin. Tüm bileşenleri ayrıca Microsoft Visual C++ 2015 yeniden dağıtılabilir güncelleştirme 1 veya üzeri gerekir. Bunlar zaten yüklü değilse MFA sunucusu Yükleyici bu bileşenlerin x86 ve x64 sürümlerini yükler. Kullanıcı Portalı ve mobil uygulama Web Hizmeti'nin ayrı sunucularda çalıştırırsanız, bu bileşenlerin yükseltmeden önce bu paketleri yüklemeniz gerekir. En son Microsoft Visual C++ 2015 yeniden dağıtılabilir güncelleştirme için arama yapabilirsiniz [Microsoft Download Center](https://www.microsoft.com/download/). 
+
+> [!IMPORTANT]
+> 1 Temmuz 2019'dan itibaren Microsoft artık yeni dağıtımlar için MFA sunucusu sunacaktır. Bulut tabanlı Azure multi-Factor Authentication, kullanıcıların multi-Factor authentication gerektirmesine istediğiniz yeni müşteriler kullanmanız gerekir. MFA sunucusu 1 Temmuz'dan önce etkinleştirmiş olan mevcut müşteriler, Gelecekteki güncelleştirmelerin en son sürümü indirip zamanki etkinleştirme kimlik bilgileri oluştur mümkün olacaktır.
 
 Bir bakışta yükseltme adımları:
 
@@ -63,7 +66,7 @@ Birden çok sunucuya kullanıcı portalını varsa, bunların tümünün yüklem
 ## <a name="upgrade-the-mobile-app-web-service"></a>Mobil uygulama Web Hizmeti'ni yükseltme
 
 > [!NOTE]
-> 8.0 öncesi Azure MFA Sunucusundan 8.0 üzeri sürüme yükseltirken mobil uygulama web hizmeti yükseltme sonrasında kaldırılabilir
+> 8\.0 öncesi Azure MFA Sunucusundan 8.0 üzeri sürüme yükseltirken mobil uygulama web hizmeti yükseltme sonrasında kaldırılabilir
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>AD FS Bağdaştırıcısı'nı yükseltme
 

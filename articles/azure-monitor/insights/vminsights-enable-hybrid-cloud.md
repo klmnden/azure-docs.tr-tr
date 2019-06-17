@@ -11,31 +11,31 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 06/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 6b8870f0a6f14536fdf3a1ff675f2fbe3ce8aeec
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: bc26cc0654aac9416bf31ffccf426648e3a8b8d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122563"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Azure İzleyici (Önizleme) VM'ler için karma bir ortamınız için etkinleştirin.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Bu makalede, sanal makine veya veri merkezinizi veya başka bir bulut ortamında barındırılan fiziksel bilgisayarlar için Azure İzleyici (Önizleme) VM'ler için etkinleştirme açıklanmaktadır. Ortamınızdaki sanal makinelerinizi, başarıyla başladı, bu işlem sonunda izleme ve performans veya kullanılabilirlik sorunları yaşıyorsanız öğrenin. 
+Bu makalede, sanal makine veya veri merkezinizi veya başka bir bulut ortamında barındırılan fiziksel bilgisayarlar için Azure İzleyici (Önizleme) VM'ler için etkinleştirme açıklanmaktadır. Bu işlem sonunda, başarılı bir şekilde sanal makinelerinizi ortamınızdaki izleme başlamıştır ve performans veya kullanılabilirlik sorunları yaşıyorsanız öğrenin. 
 
-Alma başlatıldı, gözden geçirdiğinizden emin olun önce [önkoşulları](vminsights-enable-overview.md) ve aboneliğiniz ve kaynak gereksinimlerini karşılamak doğrulayın. Dağıtım yöntemleri ve gereksinimleri gözden [Log Analytics Linux ve Windows Aracısı](../../log-analytics/log-analytics-agent-overview.md).
+Başlamadan önce gözden geçirdiğinizden emin olun [önkoşulları](vminsights-enable-overview.md) ve aboneliğiniz ve kaynak gereksinimlerini karşıladığını doğrulayın. Dağıtım yöntemleri ve gereksinimleri gözden [Log Analytics Linux ve Windows Aracısı](../../log-analytics/log-analytics-agent-overview.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->Azure İzleyici Vm'leri harita bağımlılık aracısı için hiçbir veri aktarır değil ve güvenlik duvarları veya bağlantı noktaları için herhangi bir değişiklik yapılması gerekmez. Harita verileri her zaman doğrudan Azure İzleyici'hizmetine veya üzerinden Log Analytics aracısını tarafından aktarılan [OMS ağ geçidi](../../azure-monitor/platform/gateway.md) BT güvenlik ilkeleriniz bilgisayarların internet'e bağlanmak için ağ üzerinde izin verme durumunda.
+>Azure İzleyici Vm'leri harita bağımlılık aracısı için hiçbir veri aktarır değil ve güvenlik duvarları veya bağlantı noktaları için herhangi bir değişiklik yapılması gerekmez. Harita verileri her zaman doğrudan Azure İzleyici'hizmetine veya üzerinden Log Analytics aracısını tarafından aktarılan [Operations Management Suite ağ geçidi](../../azure-monitor/platform/gateway.md) varsa, BT güvenlik ilkeleriniz ağdaki bilgisayarlar izin verme internet'e bağlanın.
 
-Bu görevi tamamlamak için görevleri aşağıda özetlenmiştir:
+Bu görevi tamamlamak için gereken adımları aşağıda özetlenmiştir:
 
-1. Windows veya Linux için log Analytics aracısını yükleyin.
+1. Windows veya Linux için log Analytics aracısını yükleyin. Aracıyı yüklemeden önce gözden [Log Analytics Aracısı genel bakış](../platform/log-analytics-agent.md) sistem önkoşulları ve dağıtım yöntemleri anlamak için makaleyi.
 
 2. Vm'leri harita bağımlılık aracısı için Azure İzleyicisi'ni yükleyip [Windows](https://aka.ms/dependencyagentwindows) veya [Linux](https://aka.ms/dependencyagentlinux).
 
@@ -56,7 +56,7 @@ Aşağıdaki tabloda kurulum tarafından desteklenen komut satırı aracı için
 | /? | Komut satırı seçeneklerinin listesini döndürür. |
 | /S | Kullanıcı etkileşimi olmadan Sessiz bir yükleme gerçekleştirir. |
 
-Örneğin, ile yükleme programını çalıştırmak için `/?` parametresi, türü **InstallDependencyAgent Windows.exe /?**.
+Örneğin, ile yükleme programını çalıştırmak için `/?` parametre girin **InstallDependencyAgent Windows.exe /?** .
 
 Windows bağımlılık aracısını için dosyalar yüklenir *C:\Program Files\Microsoft bağımlılık aracısını* varsayılan olarak. Kurulum tamamlandıktan sonra başlatmak bağımlılık Aracısı'nı başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Günlük dizini *%Programfiles%\Microsoft bağımlılık Agent\logs*.
 
@@ -73,9 +73,9 @@ Bağımlılık Aracısı'nı Linux sunuculardan yüklü *InstallDependencyAgent 
 | -s | Kullanıcıdan bilgi istenmeden sessiz yükleme gerçekleştirir. |
 | --denetleyin | İzinler ve işletim sistemini denetleyin, ancak aracıyı yüklemeyin. |
 
-Örneğin, ile yükleme programını çalıştırmak için `-help` parametresi, türü **InstallDependencyAgent Linux64.bin-yardımcı**.
+Örneğin, ile yükleme programını çalıştırmak için `-help` parametre girin **InstallDependencyAgent Linux64.bin-yardımcı**.
 
-Aşağıdaki komutu çalıştırarak kök olarak Linux bağımlılık aracısını yükleme `sh InstallDependencyAgent-Linux64.bin`.
+Komutunu çalıştırarak kök olarak Linux bağımlılık aracısını yükleme `sh InstallDependencyAgent-Linux64.bin`.
 
 Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Linux aracıları, günlük dizindir */var/opt/microsoft/dependency-agent/log*.
 
@@ -97,11 +97,11 @@ Bağımlılık Aracısı'nı dosyaları aşağıdaki dizinlerde yerleştirilir:
 ## <a name="deploy-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici dağıtma
 Bu yöntem, Log Analytics çalışma alanınızda çözüm bileşenlerini etkinleştirmek için yapılandırmasını belirten bir JSON şablonu içerir.
 
-Bir şablon kullanarak kaynakları dağıtma ile bilmiyorsanız, bkz:
+Bir şablon kullanarak kaynakları dağıtma bilmiyorsanız, bkz:
 * [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanmayı gerekir. Azure CLI Sürüm 2.0.27 çalıştırıyor olmanız gerekir veya üzeri. Sürümünüzü belirlemek için çalıştırma `az --version`. Gerekirse yükleyin veya Azure CLI'yı yükseltmek için bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Azure CLI kullanmak için öncelikle CLI'yi yerel olarak yükleyip kullanmayı gerekir. Azure CLI Sürüm 2.0.27 çalıştırıyor olmanız gerekir veya üzeri. Sürümünüzü belirlemek için çalıştırma `az --version`. Yüklemek veya Azure CLI'yı yükseltmek için bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Oluşturma ve bir şablonu yürütme
 
@@ -179,7 +179,7 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
     New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
-    Yapılandırma değişikliğinin tamamlanması birkaç dakika sürebilir. Tamamlandığında, aşağıdakine benzer ve sonucu içeren bir ileti görüntülenir:
+    Yapılandırma değişikliğinin tamamlanması birkaç dakika sürebilir. Tamamlandığında, aşağıdakine benzer ve sonucu içeren bir ileti görüntüler:
 
     ```powershell
     provisioningState       : Succeeded
@@ -188,4 +188,9 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sanal makineleriniz için izlenmesi etkin olduğunda, bu bilgileri analiz için sanal makineler için Azure İzleyici ile kullanılabilir. Sistem durumu özelliği kullanmayı öğrenmek için bkz: [görünümü VM sistem durumu için Azure İzleyici](vminsights-health.md). Bulunan Uygulama bağımlılıklarını görüntülemek için bkz: [Vm'leri harita görünümü Azure İzleyici](vminsights-maps.md). Performans sorunlarını ve Vm'leri performansınızı ile genel kullanımı belirlemek için bkz: [Azure VM performansını görüntüleme](vminsights-performance.md), ya da bulunan Uygulama bağımlılıklarını görüntülemek için bkz: [Vm'leri harita görünümü Azure İzleyici](vminsights-maps.md).
+Sanal makineleriniz için izlenmesi etkin olduğunda, bu bilgileri analiz için sanal makineler için Azure İzleyici ile kullanılabilir.
+ 
+- Sistem durumu özelliği kullanmayı öğrenmek için bkz: [görünümü VM sistem durumu için Azure İzleyici](vminsights-health.md).
+- Bulunan Uygulama bağımlılıklarını görüntülemek için bkz: [Vm'leri harita görünümü Azure İzleyici](vminsights-maps.md).
+- Performans sorunlarını ve sanal makinenin performans genel kullanımı belirlemek için bkz: [görünümü Azure VM performansını](vminsights-performance.md).
+- Bulunan Uygulama bağımlılıklarını görüntülemek için bkz: [Vm'leri harita görünümü Azure İzleyici](vminsights-maps.md).

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/26/2019
 ms.author: msfussell
 ms.openlocfilehash: 55f043effc7cdb102acea856e89c58f660d0cde5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65237755"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Azure Service Fabric uygulama tasarım en iyi uygulamaları
@@ -79,7 +79,7 @@ Reliable Actors aktör, durum bilgisi olan, sanal kolayca oluşturmanıza olanak
 - Kullanarak diğer hizmetlerle iletişim kurarken [remoting Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) ve oluşturmakta olduğunuz bir `ServiceProxyFactory`, fabrikada oluşturup [actor hizmetinin](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) düzeyi ve *değil*aktör düzeyinde.
 
 
-## <a name="application-diagnostics"></a>Uygulama tanılamaları
+## <a name="application-diagnostics"></a>Uygulama tanılama
 - Ekleme kapsamlı [uygulama günlüğü](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) hizmet çağrılarındaki. Bu, burada hizmetler birbirini çağıran senaryoları Tanılama'da yardımcı olur. Örneğin, A ' -> zaman B -> C çağrı işlemi başarısız olabilir herhangi bir yerde; D -> günlüğe kaydetme yeterli değilse tanılamak zordur. En az Hizmetleri çok büyük çağrı hacimlerini nedeniyle oturum açıyorsanız, hataları ve uyarıları günlüğe emin olun.
 
 ## <a name="iot-and-messaging-applications"></a>IOT ve mesajlaşma uygulamaları

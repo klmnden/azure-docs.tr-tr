@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 0fe098bd644762fb291eb623a7b41cd987c7fa26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a953af3d9cd5a6748b79465a59b4a4284e58714c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070138"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>En fazla 100 TB için hiper ölçekli hizmet katmanı
 
@@ -111,7 +111,7 @@ Hızlı bir şekilde ek salt okunur işlem düğümleri Yukarı/Aşağı Döndü
 
 Kullanılarak bir hiper ölçekli veritabanı oluşturulabilir [Azure portalında](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) veya [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Hiper ölçekli veritabanları yalnızca kullanılabilir [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
-Aşağıdaki T-SQL komutu, Hiper ölçekli bir veritabanı oluşturur. Hem sürüm hem de hizmet hedef belirtmelisiniz `CREATE DATABASE` deyimi.
+Aşağıdaki T-SQL komutu, Hiper ölçekli bir veritabanı oluşturur. Hem sürüm hem de hizmet hedef belirtmelisiniz `CREATE DATABASE` deyimi. Başvurmak [kaynak sınırları](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier) geçerli hizmet hedeflerini listesi.
 
 ```sql
 -- Create a HyperScale Database
@@ -146,8 +146,8 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 1. Zaten uygun bir sunucu var olmayan varsa SQL veritabanı sunucusu hedef bölgede oluşturun.  Bu sunucu özgün (kaynak) sunucu ile aynı aboneliğe ait.
 2. Bölümündeki yönergeleri [coğrafi geri yükleme](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) Azure SQL veritabanları, otomatik yedeklemelerden geri yükleme sayfasının konu.
 
-#### <a name="notes-on-geo-restores-of-a-hyperscale-database"></a>Bir hiper ölçekli veritabanının coğrafi geri yükleme ile ilgili notlar
-Farklı bölgelerde olduğundan, kaynak ve hedef veritabanını kaynak veritabanıyla olduğu son derece hızlı bir şekilde tamamlamak olmayan coğrafi geri yükleme gibi anlık görüntü depolama paylaşamazsınız.  Bir coğrafi geri yükleme durumunda bir hiper ölçekli veritabanının, hedef coğrafi çoğaltmalı depolama eşleştirilmiş bölgede olsa bile, bir veri boyutu işlemi olacaktır.  Bir coğrafi geri yükleme yaparsanız kurtarılan veritabanının boyutunu orantılı zaman süreceği anlamına gelir.  Hedef eşlenen bölgesi içinde ise, kopyalama internet üzerinden şehirlerarası kopyasını önemli ölçüde daha hızlı olacak, bir veri merkezi içinde olacaktır, ancak tüm bitleri kopyalayın devam.
+> [!NOTE]
+> Farklı bölgelerde olduğundan, kaynak ve hedef veritabanını kaynak veritabanıyla olduğu son derece hızlı bir şekilde tamamlamak olmayan coğrafi geri yükleme gibi anlık görüntü depolama paylaşamazsınız.  Bir coğrafi geri yükleme durumunda bir hiper ölçekli veritabanının, hedef coğrafi çoğaltmalı depolama eşleştirilmiş bölgede olsa bile, bir veri boyutu işlemi olacaktır.  Bir coğrafi geri yükleme yaparsanız kurtarılan veritabanının boyutunu orantılı zaman süreceği anlamına gelir.  Hedef eşlenen bölgesi içinde ise, kopyalama internet üzerinden şehirlerarası kopyasını önemli ölçüde daha hızlı olacak, bir veri merkezi içinde olacaktır, ancak tüm bitleri kopyalayın devam.
 
 ## <a name=regions></a>Kullanılabilir bölgeler
 
@@ -155,8 +155,8 @@ Farklı bölgelerde olduğundan, kaynak ve hedef veritabanını kaynak veritaban
 
 - Avustralya Doğu
 - Avustralya Güneydoğu
-- Brezilya Güney
-- Kanada Orta
+- Güney Brezilya
+- Orta Kanada
 - Orta ABD
 - Çin Doğu 2
 - Çin Kuzey 2
@@ -173,8 +173,8 @@ Farklı bölgelerde olduğundan, kaynak ve hedef veritabanını kaynak veritaban
 - Güney Afrika Kuzey
 - Orta Güney ABD
 - Güneydoğu Asya
-- BK Güney
-- BK Batı
+- Birleşik Krallık Güney
+- Birleşik Krallık Batı
 - Batı Avrupa
 - Batı ABD
 - Batı ABD 2
@@ -225,12 +225,12 @@ Bunlar hiper ölçekli hizmet katmanına büyüyecek itibarıyla geçerli sını
 
 | Sorun | Açıklama |
 | :---- | :--------- |
-| Yedekleri Yönet bölmesinde bir mantıksal sunucu, Hiper ölçekli veritabanları, SQL Server'dan filtrelenir göstermez için ->  | Hiper ölçekli yedeklemeler yönetmek için ayrı bir yöntem vardır ve bu nedenle zaman yedek saklama ayarları noktasında ve uzun süreli saklama uygulanmaz / geçersiz kılınır. Buna göre hiper ölçekli veritabanlarını yedeklemeyi yönetme Bölmesi'nde görünmez. |
+| Yedekleri Yönet bölmesinde bir mantıksal sunucu için hiper ölçekli veritabanları, SQL Server'dan filtrelenir göstermez  | Hiper ölçekli yedeklemeler yönetmek için ayrı bir yöntem vardır ve bu nedenle zaman yedek saklama ayarları noktasında ve uzun süreli saklama uygulanmaz / geçersiz kılınır. Buna göre hiper ölçekli veritabanlarını yedeklemeyi yönetme Bölmesi'nde görünmez. |
 | Belirli bir noktaya geri yükleme | Bir veritabanı hiper ölçekli hizmet katmanına geçirildikten sonra bir-belirli bir noktaya geçişten önce geri yükleme desteklenmiyor.|
 | Geri yükleme, olmayan - hiper ölçekli DB Hypserscale ve tersi | Bir hiper ölçekli veritabanı olmayan hiper ölçekli bir veritabanına geri yükleyemezsiniz ya da bir hiper ölçekli olmayan veritabanı hiper ölçekli bir veritabanına geri yükleyebilirsiniz.|
 | Bir veritabanı dosyası etkin bir iş yükü nedeniyle geçiş sırasında artar ve dosya sınır başına 1 TB'ı aştığında, geçiş başarısız olur. | Risk azaltma işlemleri: <br> -Eğer Mümkünse, çalışan hiçbir güncelleştirme iş yükü olduğunda veritabanını geçirin.<br> -Geçiş işlemini yeniden deneyin, geçiş sırasında 1 TB sınır aşıldığında değil sürece başarılı olur.|
 | Yönetilen Örnek | Azure SQL veritabanı yönetilen örneği, Hiper ölçekli veritabanlarıyla şu anda desteklenmiyor. |
-| Elastik Havuzlar |  Esnek havuzlar ile SQL veritabanı Hiperölçekli şu anda desteklenmemektedir.|
+| Esnek Havuzlar |  Esnek havuzlar ile SQL veritabanı Hiperölçekli şu anda desteklenmemektedir.|
 | Geçiş için hiper ölçekli şu anda bir tek yönlü işlem değil | Bir veritabanı için hiper ölçekli geçirildikten sonra doğrudan bir hiper ölçekli olmayan hizmet katmanına geçirilemez. Şu anda Hiperölçekli için olmayan hiper ölçekli bir veritabanını geçirme yalnızca kullanarak BACPAC dosyasına dışarı/içeri aktarma için yoludur.|
 | Bellek içi nesneleri içeren bir veritabanı geçişi | Bellek içi nesneler bırakılan ve hiper ölçekli hizmet katmanına bir veritabanını geçirmeden önce bellek olmayan nesneler olarak yeniden oluşturulması gerekir.|
 | Değişiklik izleme verileri | Değişiklik izleme verileri hiper ölçekli veritabanlarıyla kullanmanız mümkün olmayacaktır. |

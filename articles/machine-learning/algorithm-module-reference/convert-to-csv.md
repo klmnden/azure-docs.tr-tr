@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8b8b6758cc2df7a092ce36e9507f84ac534d0e3d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028733"
 ---
 # <a name="convert-to-csv-module"></a>CSV modülüne Dönüştür
@@ -51,7 +51,7 @@ Bir veri kümesi CSV'ye Dönüştür dosyayı Azure ML çalışma alanınızda k
  + **Sonuç veri kümesi -> indirme**: Hemen bir yerel klasöre kaydedebilirsiniz CSV biçiminde verilerin bir kopyasını açılır. Bir klasör belirtmezseniz varsayılan dosya adı uygulanır ve CSV dosyası yerel kaydedilir **indirir** kitaplığı.
 
 
- + **Sonuç veri kümesini veri kümesi olarak Kaydet ->**: CSV dosyası ayrı bir veri kümesi Azure ML çalışma alanına kaydeder.
+ + **Sonuç veri kümesini veri kümesi olarak Kaydet ->** : CSV dosyası ayrı bir veri kümesi Azure ML çalışma alanına kaydeder.
 
  + **Veri erişim kodu**: Azure ML iki Python kullanarak ya da r kullanarak verilere erişmek kod oluşturur Verilere erişmek için uygulamanıza kod parçacığını kopyalayın. (*Veri erişim kodu oluşturmak gelen yakında.* )
 

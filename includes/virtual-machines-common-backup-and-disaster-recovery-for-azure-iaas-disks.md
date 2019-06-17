@@ -9,11 +9,11 @@ ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65535879"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67119117"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure Iaas diskler için yedekleme ve olağanüstü durum kurtarma
 
@@ -21,7 +21,7 @@ Bu makalede, yedekleme ve olağanüstü durum kurtarma (DR Iaas sanal makineleri
 
 İlk olarak, yerel arızalarına karşı korumanıza yardımcı olur Azure platformundaki yerleşik hataya dayanıklılık özelliklerini kapsar. Ardından tamamen yerleşik özellikleri tarafından kapsanan olağanüstü durum senaryoları ele alır. Ayrıca iş yükü senaryoları farklı yedekleme ve DR dikkat edilecek noktalar burada uygulayabileceğiniz çeşitli örneklerini göstereceğiz. Biz sonra DR, Iaas diskleri için olası çözümleri gözden geçirin.
 
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 
 Azure platformu, müşterilerin yerelleştirilmiş donanım hatalarına karşı korumaya yardımcı olmak için yedeklik ve hataya dayanıklılık için çeşitli yöntemler kullanır. Bu sunucu üzerindeki bir sanal disk için verilerin bir kısmını ya da bir SSD veya HDD hatalarının depolayan bir Azure depolama sunucusu makinesindeki sorunlar yerel hataları içerebilir. Normal işlemler sırasında gibi yalıtılmış bir donanım bileşeni hataları oluşabilir.
 
@@ -121,7 +121,7 @@ Yüksek kullanılabilirlik en iyi bir kullanılabilirlik kümesinde yanı sıra 
 
 Yüksek kullanılabilirlik, yedekleme ve DR uygulamanın veya altyapının düzeylerinde seçimlerinizi şu şekilde temsil edilebilir:
 
-| Düzey |   Yüksek oranda kullanılabilirlik   | Yedekleme ve DR |
+| Düzey |   Yüksek kullanılabilirlik   | Yedekleme ve DR |
 | --- | --- | --- |
 | Uygulama | SQL Server AlwaysOn | Azure Backup |
 | Altyapı    | Kullanılabilirlik kümesi  | Coğrafi olarak yedekli depolama ile tutarlı anlık görüntüler |
@@ -231,7 +231,7 @@ Anlık görüntü almak için yeni bir blob oluşturmak üzere kopyalayın. Anl�
 
 Birden çok disklere sahip VM'ler için aynı Eşgüdümlü geri yükleme noktası parçası olan tüm anlık görüntüleri kopyalamanız gerekir. Anlık görüntüleri için yazılabilir bir VHD bloblarını kopyaladıktan sonra VM için şablon kullanılarak sanal makinenizin yeniden oluşturmak için BLOB'ları kullanabilirsiniz.
 
-## <a name="other-options"></a>Diğer seçenekler
+## <a name="other-options"></a>Diğer Seçenekler
 
 ### <a name="sql-server"></a>SQL Server
 

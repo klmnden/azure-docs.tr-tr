@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: c9b2a593a6943fe2e9577acc61b1d5a7bcd98607
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070658"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Öğretici: Hizmet güncelleştirmelerini doğrulamak için konak havuzu oluşturma
 
@@ -71,7 +71,7 @@ Cmdlet'i sonuçları bu çıktıya benzer görünmelidir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Doğrulama konak havuzunu oluşturduğunuza göre isteğe bağlı olarak doğrulama konak havuzunuz RemoteApps ile doldurabilirsiniz. Windows sanal masaüstü uygulamalarında yönetme hakkında daha fazla bilgi için Yönet uygulama grupları öğretici bakın.
+Doğrulama konak havuzunu oluşturduğunuza göre dağıtma ve Microsoft sanal masaüstü kaynaklarını yönetmek için bir yönetim aracı bağlanma hakkında bilgi edinebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Uygulama grupları öğretici yönetme](./manage-app-groups.md)
+> [Bir yönetim aracı öğretici dağıtma](./manage-resources-using-ui.md)

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466495"
 ---
 # <a name="set-up-a-device-template"></a>Cihaz şablonu ayarlama
@@ -91,7 +91,7 @@ Sağlamak **görünen ad**, **alan adı**, ve **önem derecesi** olayla ilgili a
 
 Örneğin, yeni bir ekleyebilirsiniz **Fan Motor hata** olay.
 
-| Görünen ad        | Alan Adı    |  Varsayılan Önem Derecesi |
+| Görünen ad        | Alan Adı    |  Varsayılan önem derecesi |
 | --------------------| ------------- |-----------|
 | Fan Motoru Hatası     | fanmotorerror |  Hata    |
 
@@ -114,7 +114,7 @@ Yeni bir durum ölçüm eklemek için seçin **+ yeni ölçüm** düğmesini tı
 
 Örneğin, yeni bir ekleyebilirsiniz **fanı modu** cihaza gönderebilir, iki olası değerleri içeren durum **işletim** ve **durduruldu**.
 
-| Görünen ad | Alan Adı    |  Değer 1   | Görünen ad | Değer 2    |Görünen ad  | 
+| Görünen ad | Alan Adı    |  1 değeri   | Görünen ad | Değer 2    |Görünen ad  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Fan Modu     | fanmode       |  1         | İşletim    |     0      | Durduruldu      |
 
@@ -213,7 +213,7 @@ Location özelliğini cihaz raporlarına bir cihaz özelliği oluşturabilirsini
 
     | Görünen ad  | Alan Adı | Veri Türü |
     | --------------| -----------|-----------|
-    | Cihaz konumu | deviceLocation | konum  |
+    | Cihaz konumu | deviceLocation | location  |
 
    > [!NOTE]
    > İlgili cihaz kod özellik adları alan adları eşleşmelidir

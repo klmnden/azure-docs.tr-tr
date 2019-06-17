@@ -1,19 +1,19 @@
 ---
 title: 'Hızlı Başlangıç: Azure HDInsight - Apache Phoenix sorgu Apache HBase'
-description: HDInsight Apache Phoenix kullanmayı öğrenin. Ayrıca, yükleme ve SQLLine HDInsight içinde HBase kümesi bağlanmak için bilgisayarınızda ayarlama konusunda bilgi edinin.
+description: Bu hızlı başlangıçta, HDInsight Apache Phoenix kullanmayı öğrenin. Ayrıca, yükleme ve SQLLine HDInsight içinde HBase kümesi bağlanmak için bilgisayarınızda ayarlama konusunda bilgi edinin.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 46606a991ce878a3335c2c605a4040c9520d5128
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: fd812698ef68a4077b7de6a612392d30d195ec39
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596193"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076284"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Hızlı Başlangıç: Apache Phoenix ile Azure HDInsight, Apache HBase sorgu
 
@@ -126,10 +126,3 @@ Bu hızlı başlangıçta, Azure HDInsight içinde HBase sorguları çalıştır
 
 > [!div class="nextstepaction"]
 > [HDInsight üzerinde Apache Phoenix](../hdinsight-phoenix-in-hdinsight.md)
-
-## <a name="see-also"></a>Ayrıca Bkz.
-
-* [SQLLine el ile](http://sqlline.sourceforge.net/#manual).
-* [Apache Phoenix Dilbilgisi](https://phoenix.apache.org/language/index.html).
-* [Apache Phoenix 15 dakika veya daha az](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)
-* [HDInsight Hbase'e genel bakış](./apache-hbase-overview.md)

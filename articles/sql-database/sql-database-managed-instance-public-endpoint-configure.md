@@ -12,10 +12,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 05/07/2019
 ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65465143"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği'nde genel uç nokta yapılandırma
@@ -97,10 +97,10 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |---------|---------|---------|
     |**Kaynak**     |Herhangi bir IP adresi veya hizmet etiketi         |<ul><li>Power BI gibi Azure Hizmetleri için Azure bulut hizmeti etiketi seçin</li> <li>Bilgisayar veya Azure VM için NAT IP adresini kullanın</li></ul> |
     |**Kaynak bağlantı noktası aralıkları**     |*         |Bu şekilde bırakın * (herhangi bir) olarak kaynak bağlantı noktaları genellikle dinamik olarak ayrılan ve gibi bu tür, beklenmedik |
-    |**Hedef**     |Herhangi         |Bırakma hedefi olarak herhangi bir yönetilen örnek alt ağa trafiğe izin vermek için |
+    |**Hedef**     |Tüm         |Bırakma hedefi olarak herhangi bir yönetilen örnek alt ağa trafiğe izin vermek için |
     |**Hedef bağlantı noktası aralıkları**     |3342         |Yönetilen örnek genel TDS uç noktası olan kapsam hedef bağlantı noktasına 3342, |
     |**Protokolü**     |TCP         |Örneğinin kullandığı TCP protokolü için TDS yönetilen |
-    |**Eylem**     |İzin ver         |Yönetilen örnek genel uç noktası üzerinden gelen trafiğe izin vermek |
+    |**Eylem**     |İzin Ver         |Yönetilen örnek genel uç noktası üzerinden gelen trafiğe izin vermek |
     |**Öncelik**     |1300         |Bu kural, daha yüksek bir öncelik olduğundan emin olun **deny_all_inbound** kuralı |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)

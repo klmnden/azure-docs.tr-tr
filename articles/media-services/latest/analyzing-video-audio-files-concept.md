@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689366"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
@@ -146,14 +146,14 @@ Hazır bir ses veya video dosyasından birden çok ses ınsights almanıza olana
 |Ad|Açıklama|
 |---|---|
 |id|Face ID|
-|ad|Yüz tanıma adı. 'Bilinmeyen #0', tanımlanmış bir ünlü veya müşteri eğitilen kişi olabilir.|
+|name|Yüz tanıma adı. 'Bilinmeyen #0', tanımlanmış bir ünlü veya müşteri eğitilen kişi olabilir.|
 |güven|Yüz tanıma güvenilirlik.|
-|açıklama|Ünlü açıklaması. |
+|description|Ünlü açıklaması. |
 |thumbnailId|Yüz tanıma, küçük resim kimliği.|
 |knownPersonId|Bilinen bir kişi, kendi iç kimliği ise|
 |Başvuru Kimliği|Bir Bing ünlü Bing kimliği ise|
 |referenceType|Şu anda yalnızca Bing.|
-|başlık|Ünlü, alt başlık (örneğin "CEO Microsoft'un") ise.|
+|title|Ünlü, alt başlık (örneğin "CEO Microsoft'un") ise.|
 |ImageUrl|Ünlü, görüntü URL'sini ise.|
 |örnekler|Bunlar örnekleri, burada belirtilen zaman aralığında yüzü göründü. Her örnek, bir thumbnailsId de vardır. |
 
@@ -254,7 +254,7 @@ Hazır bir ses veya video dosyasından birden çok ses ınsights almanıza olana
 |SpeakerTalkToListenRatio|Hesaplama videonun toplam zaman bölünmüş konuşmacının monolog (olmadan arasındaki sessizlik) üzerinde harcanan zamanı temel alır. Saat üçüncü ondalık noktasına yuvarlanır.|
 
 
-### <a name="sentiments"></a>yaklaşımlar
+### <a name="sentiments"></a>yaklaşımları
 
 Yaklaşımları sentimentType alanı (nötr/olumlu/olumsuz) tarafından toplanır. Örneğin, 0-0.1, 0.2 0,1.
 
@@ -296,7 +296,7 @@ Yaklaşımları sentimentType alanı (nötr/olumlu/olumsuz) tarafından toplanı
 |Ad|Açıklama|
 |---|---|
 |id|Etiket Kimliği|
-|ad|Etiket adı (örneğin, 'Bilgisayara', 'TV').|
+|name|Etiket adı (örneğin, 'Bilgisayara', 'TV').|
 |language|Etiket adı (çevrildiğinde) dili. BCP-47|
 |örnekler|Bu etiket nerede göründüğü zaman aralıkları listesi (bir etiket birden çok kez görünebilir). Her örnek güvenle alana sahiptir. |
 

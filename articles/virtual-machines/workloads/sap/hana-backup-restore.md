@@ -15,10 +15,10 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 21232e5a678d6deed920e57cd0433a3b85ca4fdc
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64987907"
 ---
 # <a name="backup-and-restore"></a>Yedekleme ve geri yükleme
@@ -126,18 +126,18 @@ En son anlık görüntü betikleri ve belgelerinden almak [GitHub](https://githu
 Çalıştırırsanız bir [MCOD senaryo](https://launchpad.support.sap.com/#/notes/1681092) bir HANA büyük örneği biriminde birden çok SAP HANA örnekleri ile sağlanan her bir SAP HANA örnekleri için ayrı depolama birimi vardır. MDC ve diğer önemli noktalar hakkında daha fazla bilgi için bkz: "Anımsanması gereken önemli noktalar" [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
  
 
-### <a name="step-1-install-the-sap-hana-hdb-client"></a>1. Adım: SAP HANA HDB istemcisini yükleme
+### <a name="step-1-install-the-sap-hana-hdb-client"></a>1\. adım: SAP HANA HDB istemcisini yükleme
 
 Linux işletim sistemi yüklü (büyük örnekler) Azure üzerinde SAP HANA, SAP HANA depolama anlık görüntüleri yedekleme ve olağanüstü durum kurtarma amacıyla çalıştırmak için gereken komut dosyaları ve klasörleri içerir. Daha yeni sürümlerde denetle [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0). Komut en son sürümü 4.0 ' dir. Farklı komut dosyaları, aynı ana sürümüne ait içinde farklı alt sürümleri olabilir.
 
 SAP HANA'yı yüklerken HANA büyük örneği birimlerine göre SAP HANA HDB istemciyi yüklemek için sizin sorumluluğunuzdur.
 
-### <a name="step-2-change-the-etcsshsshconfig"></a>2. Adım: Değiştirme/etc/ssh/ssh\_yapılandırma
+### <a name="step-2-change-the-etcsshsshconfig"></a>2\. adım: Değiştirme/etc/ssh/ssh\_yapılandırma
 
 Bu adım "Depolama ile iletişimi etkinleştir" içinde açıklanan [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
 
-### <a name="step-3-create-a-public-key"></a>3. Adım: Bir ortak anahtar oluşturma
+### <a name="step-3-create-a-public-key"></a>3\. adım: Bir ortak anahtar oluşturma
 
 HANA büyük örneği kiracınızın depolama anlık görüntü arabirimleri erişimi etkinleştirmek için bir ortak anahtar ile oturum açma yordamı oluşturun. 
 
@@ -146,14 +146,14 @@ Kiracınızda Azure (büyük örnekler) sunucusundaki ilk SAP HANA üzerinde dep
 Bir ortak anahtar oluşturmak için "Depolama ile iletişimi etkinleştir" bkz [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
 
-### <a name="step-4-create-an-sap-hana-user-account"></a>4. Adım: Bir SAP HANA kullanıcı hesabı oluşturma
+### <a name="step-4-create-an-sap-hana-user-account"></a>4\. Adım: Bir SAP HANA kullanıcı hesabı oluşturma
 
 SAP HANA anlık görüntü oluşturmaya başlamak için depolama anlık görüntü betikleri kullanabileceğiniz SAP HANA'da bir kullanıcı hesabı oluşturun. Bu amaç için SAP HANA Studio içinden bir SAP HANA kullanıcı hesabı oluşturun. Kullanıcı altında SYSTEMDB oluşturulmalıdır ve *değil* MDC için SID veritabanı altında. Tek kapsayıcı ortamında kullanıcı Kiracı veritabanında oluşturulur. Bu hesabın olmalıdır **yedekleme yönetici** ve **kataloğu okuma** ayrıcalıkları. 
 
 Ayarlanmış ve bir kullanıcı hesabı kullanmak için "SAP HANA ile iletişimi etkinleştir" bkz [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0).
 
 
-### <a name="step-5-authorize-the-sap-hana-user-account"></a>5. Adım: SAP HANA kullanıcı hesabı yetki
+### <a name="step-5-authorize-the-sap-hana-user-account"></a>5\. Adım: SAP HANA kullanıcı hesabı yetki
 
 Bu adımda, oluşturduğunuz ve böylece betiklerin çalışma zamanında parolalar göndermek gerekmez SAP HANA kullanıcı hesabı yetkilendirin. SAP HANA komut `hdbuserstore` bir SAP HANA kullanıcı anahtarı oluşturulmasını sağlar. Anahtar, bir veya daha fazla SAP HANA düğümlerinde depolanır. Kullanıcı anahtarı kullanıcı SAP HANA komut dosyası süreci içinde parolalarını yönetmenize gerek kalmadan erişebilir. Betik oluşturma işlemi, bu makalenin sonraki bölümlerinde ele alınmıştır.
 
@@ -161,13 +161,13 @@ Bu adımda, oluşturduğunuz ve böylece betiklerin çalışma zamanında parola
 >Anlık görüntü komutları çalıştırmak aynı kullanıcı bağlamını içeren bu yapılandırma komutlarını çalıştırın. Aksi takdirde, anlık görüntü komutları düzgün çalışmaz.
 
 
-### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>6. Adım: Anlık görüntü betiklerini alma, anlık görüntüleri yapılandırma ve test yapılandırması ve bağlantı
+### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>6\. Adım: Anlık görüntü betiklerini alma, anlık görüntüleri yapılandırma ve test yapılandırması ve bağlantı
 
 Betiklerin en son sürümünü indirin [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0). Komut dosyalarının yüklenme şeklini betikleri 4.0 sürümü ile değiştirildi. Daha fazla bilgi için bkz: "SAP HANA ile iletişimi etkinleştir" [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
 Komutları için kullanılacak tam sırasını "(varsayılan) anlık görüntü araçların kolay yükleme" konusuna bakın. [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). Varsayılan yükleme kullanılmasını öneririz. 
 
-Sürümünden yükseltme 3.x-4.0, bkz: "Var olan yüklemeyi yükseltmek" [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 4.0 araç kümesinde kaldırmak için "Anlık görüntü Araçları'nın kaldırılmasını" bkz [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Sürümünden yükseltme 3.x-4.0, bkz: "Var olan yüklemeyi yükseltmek" [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 4\.0 araç kümesinde kaldırmak için "Anlık görüntü Araçları'nın kaldırılmasını" bkz [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
 "Tam kurulumunda, anlık görüntü Araçları" açıklanan adımları çalıştırmak de unutmayın [Microsoft azure'da SAP HANA için araçları snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
@@ -192,7 +192,7 @@ Sonra bir başarılı oturum açma depolama sanal makine arabirimleri, betik, A�
 Test anlık görüntü komut dosyasını başarıyla çalışırsa, gerçek depolama anlık görüntüleri zamanlayabilirsiniz. Başarılı değilse, İleri taşımadan önce sorunları araştırın. Gerçek ilk anlık görüntülerin, bunlar tamamlanana kadar geçici olarak test anlık görüntü kalmalıdır.
 
 
-### <a name="step-7-perform-snapshots"></a>7. Adım: Anlık görüntüleri
+### <a name="step-7-perform-snapshots"></a>7\. Adım: Anlık görüntüleri
 
 Hazırlık adımlarını tamamladığınızda, yapılandırın ve planlayın gerçek depolama anlık görüntüleri başlayabilirsiniz. Zamanlanmış komut dosyası, SAP HANA ölçek büyütme ve ölçek genişletme yapılandırmaları ile çalışır. Düzenli ve normal yedekleme betik yürütme işlemi için cron yardımcı programını kullanarak betiği zamanlayın. 
 

@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563401"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712228"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS bölgeleri ve kayıtları'na genel bakış
 
@@ -28,7 +28,7 @@ Bu sayfa, etki alanları, DNS bölgeleri ve DNS kayıtlarını ve kayıt kümele
 
 ## <a name="domain-names"></a>Etki alanı adları
 
-Etki Alanı Adı Sistemi, bir etki alanları hiyerarşisidir. Hiyerarşi, adı yalnızca "**.**" olan "kök" etki alanından başlar.  Bunun altında "com", "net", "org", "uk" veya "jp" gibi en üst düzey etki alanları bulunur.  Bunların altında "org.uk" veya "co.jp" gibi ikinci düzey etki alanları bulunur. DNS hiyerarşisindeki etki alanları genel olarak, dünya genelindeki DNS ad sunucuları tarafından barındırılan dağıtılır.
+Etki Alanı Adı Sistemi, bir etki alanları hiyerarşisidir. Hiyerarşi, adı yalnızca " **.** " olan "kök" etki alanından başlar.  Bunun altında "com", "net", "org", "uk" veya "jp" gibi en üst düzey etki alanları bulunur.  Bunların altında "org.uk" veya "co.jp" gibi ikinci düzey etki alanları bulunur. DNS hiyerarşisindeki etki alanları genel olarak, dünya genelindeki DNS ad sunucuları tarafından barındırılan dağıtılır.
 
 Bir etki alanı adı kayıt şirketi 'contoso.com' gibi bir etki alanı adı satın almanıza olanak tanıyan bir kuruluştur.  Bir etki alanı adı satın alma, örneğin, şirketinizin web sitesi için 'www.contoso.com' adını doğrudan olanak sağlayan DNS hiyerarşisindeki o adla kontrol etme sunar. Kayıt şirketi etki alanında kendi ad sunucularını sizin adınıza barındırmak veya alternatif ad sunucularını belirtmenizi sağlar.
 
@@ -111,7 +111,7 @@ DNS kaydındaki birden çok dizeyi birden çok TXT kayıtlarının TXT kayıt k�
 
 ## <a name="tags-and-metadata"></a>Etiketleri ve meta verileri
 
-### <a name="tags"></a>Etiketler
+### <a name="tags"></a>Tags
 
 Etiketleri ad-değer çiftlerinin listesini ve Azure Resource Manager tarafından kaynakları etiketlemek üzere kullanılır.  Azure Resource Manager Azure faturanızı filtrelenmiş görünümlerini etkinleştirmek için etiketler kullanır ve ayrıca bir ilke etiketleri gerekli ayarlamanıza imkan sağlar. Etiketler hakkında daha fazla bilgi için bkz. [Etiketleri kullanarak Azure kaynaklarınızı düzenleme](../azure-resource-manager/resource-group-using-tags.md).
 
@@ -131,10 +131,10 @@ Varsayılan olarak, Azure DNS PowerShell bölgelere eş zamanlı değişiklikler
 
 Azure DNS REST API düzeyinde Etag'ler HTTP üst bilgilerini kullanarak belirtilir.  Davranışları aşağıdaki tabloda verilmiştir:
 
-| Üst bilgi | Davranış |
+| Üstbilgi | Davranış |
 | --- | --- |
 | None |PUT (herhangi bir Etag denetimi) her zaman başarılı |
-| IF-match <etag> |PUT yalnızca kaynak var ve Etag eşleşiyorsa başarılı |
+| IF-match \<etag > |PUT yalnızca kaynak var ve Etag eşleşiyorsa başarılı |
 | IF-match * |Kaynak yoksa PUT yalnızca başarılı |
 | IF-none-match * |Kaynak yoksa PUT yalnızca başarılı |
 

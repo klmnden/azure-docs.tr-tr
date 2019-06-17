@@ -11,16 +11,16 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8076ae81b111aa6b524b7e286ed15ca0661d748b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165972"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062119"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-use-custom-activities.md)
 > * [Geçerli sürüm](transform-data-using-dotnet-custom-activity.md)
 
@@ -103,8 +103,8 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özel
 | Özellik              | Açıklama                              | Gerekli |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | İşlem hattındaki etkinliğin adı     | Evet      |
-| açıklama           | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
-| tür                  | Özel bir etkinlik için etkinlik türdür **özel**. | Evet      |
+| description           | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
+| türü                  | Özel bir etkinlik için etkinlik türdür **özel**. | Evet      |
 | linkedServiceName     | Azure Batch için bağlı hizmeti. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.  | Evet      |
 | Komutu               | Yürütülecek özel uygulama komutu. Uygulama zaten Azure Batch havuzu düğüm üzerinde kullanılabilir haldeyse, folderPath ve resourceLinkedService atlanabilir. Örneğin, komut olarak belirtebilirsiniz `cmd /c dir`, yerel olarak desteklendiği Windows Batch havuzu düğümü tarafından. | Evet      |
 | resourceLinkedService | Özel uygulama depolandığı depolama hesabı için Azure depolama bağlı hizmeti | Yok&#42;       |
@@ -301,7 +301,7 @@ Activity Error section:
 Aşağı Akış etkinliklerde stdout.txt içeriği istiyorsanız, ifadede stdout.txt dosyasının yolunu alabilirsiniz "\@activity('MyCustomActivity').output.outputs [0]".
 
 > [!IMPORTANT]
-> - Activity.json linkedServices.json ve datasets.json Batch görevin çalışma zamanı klasöründe depolanır. Bu örnekte, activity.json linkedServices.json ve datasets.json depolanır "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/" yolu. Gerekirse, ayrı ayrı temizlenmesi gerekir.
+> - Activity.json linkedServices.json ve datasets.json Batch görevin çalışma zamanı klasöründe depolanır. Bu örnekte, activity.json linkedServices.json ve datasets.json depolanır `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` yolu. Gerekirse, ayrı ayrı temizlenmesi gerekir.
 > - Şirket içinde barındırılan tümleştirme çalışma zamanı kullanan bağlı Hizmetleri için müşteri kimlik bilgisi kalır emin olmak için şirket içinde barındırılan Integration Runtime şifrelenir, anahtarlar veya parolalar gibi hassas bilgilerin özel ağ ortamında tanımlı. Bu şekilde, özel uygulama kodu tarafından başvurulduğunda hassas bazı alanlar eksik olabilir. Bağlı hizmet başvurusunu gerekirse kullanmak yerine extendedProperties SecureString kullanın.
 
 ## <a name="pass-outputs-to-another-activity"></a>Başka bir etkinlik çıktıları geçişi

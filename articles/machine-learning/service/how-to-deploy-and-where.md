@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 2c54f7192827376bb157915738ee781f45433267
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753112"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059226"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -108,6 +108,16 @@ Betik, yükleme ve çalıştırmayı iki işlev içerir:
 * `init()`: Genellikle bu işlev, genel bir nesnesine modeli yükler. Bu işlev, yalnızca web hizmeti için Docker kapsayıcı başlatıldığında bir kez çalıştırılır.
 
 * `run(input_data)`: Bu işlev, giriş verileri temel alan bir değer tahmin modelini kullanır. Genellikle girişler ve çıkışlar farklı çalıştır JSON seri hale getirme ve serinin için kullanın. Ayrıca, ham ikili verileri ile çalışabilirsiniz. Veri modeline göndermeden önce veya istemciye döndürmeden önce dönüştürebilirsiniz.
+
+#### <a name="what-is-getmodelpath"></a>Get_model_path nedir?
+Bir modeli kaydettiğinizde, kayıt defteri modelde yönetmek için kullanılan bir model adı sağlayın. Model dosyaları yerel dosya sistemindeki yolunu döndüren API get_model_path bu adı kullanın. Bu API, bir klasör veya dosyaları koleksiyonunu kaydederseniz, bu dosyaları içeren dizine yolunu döndürür.
+
+Bir modeli kaydettiğinizde, karşılık gelen modeli, yerel olarak veya hizmet dağıtımı sırasında yerleştirildiği için adlandırırsınız.
+
+Aşağıdaki örnekte, '(hangi 'sklearn_mnist' adıyla kayıtlı) bir tek dosya adlı sklearn_mnist_model.pkl' için bir yol döndürür
+```
+model_path = Model.get_model_path('sklearn_mnist')
+``` 
 
 #### <a name="optional-automatic-swagger-schema-generation"></a>(İsteğe bağlı) Otomatik Swagger şema oluşturma
 
@@ -248,7 +258,9 @@ Bu örnekte, yapılandırma aşağıdaki öğeleri içerir:
 * [Giriş betik](#script), dağıtılmış hizmette gönderilen web isteklerini işlemek için kullanılır
 * Çıkarım için gereken Python paketlerini tanımlayan conda dosyası
 
-InferenceConfig işlevler hakkında daha fazla bilgi için bkz. [Gelişmiş Yapılandırma](#advanced-config) bölümü.
+InferenceConfig işlevler hakkında daha fazla bilgi için bkz. [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) sınıf başvurusu.
+
+Çıkarım yapılandırmasıyla özel Docker görüntüsü kullanma hakkında daha fazla bilgi için bkz. [özel Docker görüntüsü kullanarak bir model dağıtma](how-to-deploy-custom-docker-image.md).
 
 ### <a name="3-define-your-deployment-configuration"></a>3. Dağıtım yapılandırmanızı tanımlayın
 
@@ -265,6 +277,15 @@ Aşağıdaki tabloda, her işlem hedefi için bir dağıtım yapılandırması o
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 Aşağıdaki bölümlerde, dağıtım yapılandırması oluşturun ve web hizmeti dağıtmak için kullanmak nasıl ekleyebileceğiniz gösterilmektedir.
+
+### <a name="optional-profile-your-model"></a>İsteğe bağlı: Modelinizi profil
+Modelinizi bir hizmeti dağıtmadan önce en iyi CPU ve bellek gereksinimlerini belirlemek için profil isteyebilirsiniz.
+SDK veya CLI bunu yapabilirsiniz.
+
+Daha fazla bilgi için SDK'sı belgelerimize burada kontrol edebilirsiniz: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+
+Model profil oluşturma sonuçları bir çalışma nesnesi olarak gönderilir.
+Modeli profili şemadaki ayrıntıları şurada bulunabilir: https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
 
 ## <a name="deploy-to-target"></a>Hedefe dağıtım
 
@@ -492,54 +513,6 @@ print(service.state)
 print(service.get_logs())
 ```
 
-<a id="advanced-config"></a>
-
-## <a name="advanced-settings"></a>Gelişmiş ayarlar 
-
-**<a id="customimage"></a> Özel temel görüntü kullanma**
-
-Dahili olarak InferenceConfig model ve hizmet tarafından gerekli olan diğer varlıkları içeren bir Docker görüntüsü oluşturur. Belirtilmezse, varsayılan temel görüntü kullanılır.
-
-Çıkarım yapılandırmanızı ile kullanılacak bir görüntü oluştururken, görüntünün aşağıdaki gereksinimleri karşılaması gerekir:
-
-* Ubuntu 16.04 veya büyük.
-* Conda 4.5. # veya büyük.
-* Python 3.5. # veya 3.6. #.
-
-Özel görüntü kullanmak için ayarlanmış `base_image` görüntünün adresine çıkarımı yapılandırmanın özelliği. Aşağıdaki örnek, hem bir genel ve özel Azure kapsayıcısı kayıt defterinden bir görüntüyü kullanmak gösterilmektedir:
-
-```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
-
-# or, use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
-```
-
-Aşağıdaki görüntüde URI'ler Microsoft tarafından sağlanan görüntüleri içindir ve kullanıcı adı veya parola değerini sağlamadan kullanılabilir:
-
-* `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
-
-Bu görüntüleri kullanmak için ayarlanmış `base_image` Yukarıdaki listeden bir URI. Ayarlama `base_image_registry.address` için `mcr.microsoft.com`.
-
-> [!IMPORTANT]
-> CUDA veya TensorRT kullanan Microsoft görüntüleri yalnızca Microsoft Azure hizmetleri üzerinde kullanılmalıdır.
-
-Kendi görüntülerinizi Azure Container Registry'ye yükleme ile ilgili daha fazla bilgi için bkz: [özel bir Docker kapsayıcı kayıt defterine ilk görüntünüzü itme](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
-
-Azure Machine Learning işlem modelinizi eğitildi kullanıyorsa __1.0.22 sürüm veya daha büyük__ Azure Machine Learning SDK'sının eğitim sırasında bir görüntü oluşturulur. Aşağıdaki örnek, bu görüntünün nasıl kullanılacağını gösterir:
-
-```python
-# Use an image built during training with SDK 1.0.22 or greater
-image_config.base_image = run.properties["AzureML.DerivedImageName"]
-```
-
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Dağıtılmış bir web hizmetini silmek için kullanın `service.delete()`.
 Kayıtlı bir model silmek için kullanın `model.delete()`.
@@ -547,6 +520,7 @@ Kayıtlı bir model silmek için kullanın `model.delete()`.
 Daha fazla bilgi için başvuru belgeleri için bkz. [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), ve [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+* [Özel Docker görüntüsü kullanarak bir model dağıtma](how-to-deploy-custom-docker-image.md)
 * [Dağıtım sorunlarını giderme](how-to-troubleshoot-deployment.md)
 * [Azure Machine Learning web hizmetleri SSL ile güvenli hale getirme](how-to-secure-web-service.md)
 * [Bir web hizmeti olarak ML modeli kullanma](how-to-consume-web-service.md)

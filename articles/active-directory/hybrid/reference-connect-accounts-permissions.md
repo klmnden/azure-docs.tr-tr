@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919176"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesaplar ve izinler
@@ -48,7 +48,7 @@ Azure AD Connect çalıştırmak için kullanılan üç bu hesabı ek olarak, Az
 
 - **(İsteğe bağlı) SQL SA hesabı**: SQL Server'ın tam sürümünü kullanırken ad eşitleme veritabanını oluşturmak için kullanılır.  Bu SQL Server yerel veya uzak Azure AD Connect yüklemesi için olabilir.  Bu hesap aynı kuruluş yöneticisi olarak hesap olabilir.  Veritabanı sağlama, artık SQL Yöneticisi tarafından bant dışında yapılabilmesi ve ardından veritabanı sahibi haklarıyla Azure AD Connect Yöneticisi tarafından yüklenir.  Hakkında bilgi için bkz bu [SQL yönetici temsilcisi izinlerini kullanarak Azure AD Connect'i yükleme](how-to-connect-install-sql-delegation.md)
 
-## <a name="installing-azure-ad-connect"></a>Azure AD Connect yükleniyor
+## <a name="installing-azure-ad-connect"></a>Azure AD Connect yükleme
 Azure AD Connect Yükleme Sihirbazı'nı iki farklı yol sunar:
 
 * Hızlı ayarlar sihirbazın daha fazla ayrıcalıkları gerektirir.  Bu, böylelikle kullanıcılar oluşturabilir veya izinleri yapılandırmak gerek kalmadan yapılandırmanızı kolayca ayarlayabilirsiniz.
@@ -80,7 +80,7 @@ AD DS bağlayıcı hesabı Windows Server AD yazma ve okuma için oluşturulan v
 | Okuma/yazma tüm özellikleri iNetOrgPerson |İçeri aktarma ve Exchange karma |
 | Tüm özellikleri Grup okuma/yazma |İçeri aktarma ve Exchange karma |
 | Tüm özellikleri okuma/yazma başvurun |İçeri aktarma ve Exchange karma |
-| Parola sıfırlama |Parola geri yazma özelliğini etkinleştirmek için hazırlama |
+| Parola sıfırla |Parola geri yazma özelliğini etkinleştirmek için hazırlama |
 
 ### <a name="express-installation-wizard-summary"></a>Hızlı Yükleme Sihirbazı Özet
 
@@ -146,7 +146,7 @@ Bir Azure AD Connect sürümünden yeni sürüme yükselttiğinizde, aşağıdak
 >Derleme 1.1.484 ile başlayarak, Azure AD Connect SQL veritabanını yükseltmek için sysadmin izinleri gerektiren bir regresyon hata kullanıma sunuldu.  Bu hata, yapı 1.1.647 düzeltilir.  Bu derleme için yükseltme yapıyorsanız, sysadmin izinleri gerekir.  Dbo izinleri yeterli değil.  Sysadmin izinlerine gerek kalmadan Azure AD Connect'e yükseltmenin denerseniz yükseltme başarısız olur ve Azure AD Connect artık doğru bir şekilde daha sonra çalışmaz.  Microsoft, bunun farkında ve bu sorunu gidermek için çalışmaktadır.
 
 
-| Sorumlu | Gerekli izinler | Kullanıldığı yerler |
+| Asıl | Gerekli izinler | Kullanıldığı yerler |
 | --- | --- | --- |
 | Yükleme Sihirbazı çalıştıran kullanıcı |Yerel sunucunun Yöneticisi |İkili dosyaları güncelleştirin. |
 | Yükleme Sihirbazı çalıştıran kullanıcı |ADSyncAdmins üyesi |Eşitleme kuralları ve diğer yapılandırma değişikliklerini yapın. |
@@ -154,7 +154,7 @@ Bir Azure AD Connect sürümünden yeni sürüme yükselttiğinizde, aşağıdak
 
 ## <a name="more-about-the-created-accounts"></a>Oluşturulan hesaplar hakkında daha fazla bilgi
 ### <a name="ad-ds-connector-account"></a>AD DS bağlayıcı hesabı
-Hızlı ayarları kullanırsanız, eşitleme için kullanılan Active Directory'de bir hesap oluşturulur. Oluşturulan hesap orman kök etki alanı Kullanıcılar kapsayıcısı içinde bulunur ve adı ön ekine sahip **MSOL_**. Hesabın süresinin sona kadar karmaşık bir parola oluşturulur. Etki alanınızdaki bir parola ilkesi varsa, uzun olduğundan emin olun ve karmaşık parolalar bu hesap için izin verilecek.
+Hızlı ayarları kullanırsanız, eşitleme için kullanılan Active Directory'de bir hesap oluşturulur. Oluşturulan hesap orman kök etki alanı Kullanıcılar kapsayıcısı içinde bulunur ve adı ön ekine sahip **MSOL_** . Hesabın süresinin sona kadar karmaşık bir parola oluşturulur. Etki alanınızdaki bir parola ilkesi varsa, uzun olduğundan emin olun ve karmaşık parolalar bu hesap için izin verilecek.
 
 ![AD hesabı](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
@@ -177,7 +177,7 @@ Connect 2017 bir derleme ile Mart kullandığınız ya da Windows Güvenlik nede
 
 Bu, eşitleme hizmeti hesabı için önerilen ve desteklenen seçenekler varsayılan bir tablodur.
 
-Gösterge:
+Açıklama:
 
 - **Kalın** varsayılan seçenek belirtir ve önerilen seçenek çoğu durumda.
 - *İtalik* varsayılan seçenek olmadığı durumlarda, önerilen seçenek gösterir.

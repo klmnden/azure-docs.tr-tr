@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
 ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072371"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS dil ve bölge desteği
@@ -37,7 +37,7 @@ LUIS, konuşma şu dillerde anlar:
 | Felemenkçe |`nl-NL` |-|  -   |-|✔|
 | Fransızca (Fransa) |`fr-FR` |-| ✔ |✔ |✔|
 | Fransızca (Kanada) |`fr-CA` |-|   -   |-|✔|
-| Almanca  |`de-DE` |-| ✔ |✔ |✔|
+| Almanca |`de-DE` |-| ✔ |✔ |✔|
 | İtalyanca |`it-IT` |-| ✔ |✔|✔|
 | *[Japonca](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Yalnızca anahtar ifade|
 | Korece |`ko-KR` |-|   -   |-|Yalnızca anahtar ifade|
@@ -49,14 +49,14 @@ LUIS, konuşma şu dillerde anlar:
 
 Dil desteği değişir için [önceden oluşturulmuş varlıklarla](luis-reference-prebuilt-entities.md) ve [önceden oluşturulmuş etki alanları](luis-reference-prebuilt-domains.md).
 
-### <a name="chinese-support-notes"></a>* Çince desteği notları
+### <a name="chinese-support-notes"></a>\* Çince desteği notları
 
  - İçinde `zh-cn` kültür LUIS, Basitleştirilmiş Çince karakter yerine geleneksel karakter kümesi kümesini bekliyor.
  - Amacı, varlıkları, özellikler ve normal ifadeler adlarını Çince veya Latin karakter olabilir.
  - Bkz: [önceden oluşturulmuş etki alanları başvuru](luis-reference-prebuilt-domains.md) üzerinde önceden oluşturulmuş etki alanları desteklenmektedir bilgi `zh-cn` kültür.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
-### <a name="japanese-support-notes"></a>* Japonca desteği notları
+### <a name="japanese-support-notes"></a>\* Japonca desteği notları
 
  - LUIS söz dizimi analizi sağlamaz ve Keigo resmi olmayan Japonca arasındaki farkı anlamak değil çünkü formality eğitim örnekler uygulamalarınız için farklı düzeylerde birleştirmek gerekir.
      - でございます です ile aynı değil.
@@ -87,7 +87,7 @@ Makine öğrenimi için LUIS bir utterance keser [belirteçleri](luis-glossary.m
 |İngilizce (en-us)|✔ ||||
 |Fransızca (fr-FR)|✔||||
 |Fransızca (fr-CA)|✔||||
-|Almanca |||✔|✔|
+|Almanca|||✔|✔|
 |İtalyanca|✔||||
 |Japonca||||✔|
 |Korece||✔||✔|
@@ -101,8 +101,8 @@ Aşağıdaki kültürler özel simgeleştirici sürümleri vardır:
 
 |Kültür|Version|Amaç|
 |--|--|--|
-|Almanca <br>`de-de`|1.0.0|Sözcüklerin tek bileşenleri bileşik sözcüklere bölmek için çalışan bir makine öğrenme tabanlı simgeleştirici kullanarak bunları bölerek tokenizes.<br>Bir kullanıcı girerse `Ich fahre einen krankenwagen` bir utterance açık olduğundan `Ich fahre einen kranken wagen`. İşaretleme için izin verme `kranken` ve `wagen` farklı varlıklar olarak birbirinden bağımsız olarak.|
-|Almanca <br>`de-de`|1.0.2|Sözcükleri alanlarının bölerek tokenizes.<br> bir kullanıcı girerse `Ich fahre einen krankenwagen` isteğe bağlı olarak bir utterance tek bir belirteç kalır. Bu nedenle `krankenwagen` tek bir varlık olarak işaretlenir. |
+|Almanca<br>`de-de`|1.0.0|Sözcüklerin tek bileşenleri bileşik sözcüklere bölmek için çalışan bir makine öğrenme tabanlı simgeleştirici kullanarak bunları bölerek tokenizes.<br>Bir kullanıcı girerse `Ich fahre einen krankenwagen` bir utterance açık olduğundan `Ich fahre einen kranken wagen`. İşaretleme için izin verme `kranken` ve `wagen` farklı varlıklar olarak birbirinden bağımsız olarak.|
+|Almanca<br>`de-de`|1.0.2|Sözcükleri alanlarının bölerek tokenizes.<br> bir kullanıcı girerse `Ich fahre einen krankenwagen` isteğe bağlı olarak bir utterance tek bir belirteç kalır. Bu nedenle `krankenwagen` tek bir varlık olarak işaretlenir. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Simgeleştirici sürümler arasında geçiş yapma
 <!--

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: a66d1cb16f47ebe7aeba3685b3567620ae4a8a51
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a9245ab5a2d51ee3995ff0c614cafaebdc20d00f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898025"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Öğretici: Kintone ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Kintone tümleştirmesini yapılandırmak için Kintone Galeriden y�
 
 **Galeriden Kintone eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

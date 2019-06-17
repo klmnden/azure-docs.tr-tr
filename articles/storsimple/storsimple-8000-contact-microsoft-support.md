@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
 ms.openlocfilehash: 77050ad37862394785cf348a242f585cc089ba26
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606855"
 ---
-# <a name="contact-microsoft-support"></a>Microsoft Desteği ile iletişim kurun
+# <a name="contact-microsoft-support"></a>Microsoft Destek'e Başvur
 
 StorSimple cihaz Yöneticisi yeteneği sağlar **yeni bir destek isteği göndermenizi** hizmeti Özet Dikey içinde. StorSimple çözümünüzün herhangi bir sorunla karşılaşırsanız, teknik destek için bir hizmet isteği oluşturabilirsiniz. Destek mühendisinize ile çevrimiçi oturumda, StorSimple Cihazınızda destek oturumu başlatmak gerekebilir. Bu makalede açıklanmaktadır:
 
@@ -31,7 +31,7 @@ StorSimple cihaz Yöneticisi yeteneği sağlar **yeni bir destek isteği gönder
 
 Gözden geçirme [StorSimple 8000 serisi destek SLA'ları ve bilgi](https://msdn.microsoft.com/library/mt433077.aspx) önce bir destek isteği oluşturun.
 
-## <a name="create-a-support-request"></a>Destek isteği oluşturun
+## <a name="create-a-support-request"></a>Destek isteği oluşturma
 
 Bağlı olarak, [destek planı](https://azure.microsoft.com/support/plans/), StorSimple Cihazınızda StorSimple cihaz Yöneticisi hizmeti Özet dikey penceresinden doğrudan bir sorun için destek bileti oluşturabilirsiniz. Bir destek isteği oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -80,15 +80,15 @@ Bir destek bileti oluşturduktan sonra portal üzerinden bu biletin yaşam döng
 
 1. Yardım ve Destek sayfasına ulaşmak için gidin **Gözat > Yardım + Destek**.
 
-    ![Destek isteklerini yönet](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
+    ![Destek isteklerini yönetin](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
 
 2. Tüm destek istekleri bir tablosal listesinde görüntülenen **Yardım + Destek** dikey penceresi.
 
-    ![Destek isteklerini yönet](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Destek isteklerini yönetin](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Seçin ve bir destek isteği tıklayın. Durum ve bu istek için ayrıntılarını görüntüleyebilirsiniz. Tıklayın **+ yeni ileti** bu istekte izlemek istiyorsanız.
 
-    ![Destek isteklerini yönet](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Destek isteklerini yönetin](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Destek oturumu StorSimple için Windows PowerShell'de Başlat
 

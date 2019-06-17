@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
 ms.openlocfilehash: 58c09c71aad2b6244f6e2f3d144c033665932f50
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925572"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility hizmeti anında yükleme sorunlarını giderme
@@ -162,7 +162,7 @@ Birden fazla önyükleme diski sanal makineyle değil bir [yapılandırma destek
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Sistem bölümü birden çok diskte (errorID: 95313)
 
-9.20 sürümünden önce desteklenmeyen bir yapılandırma kök bölümü veya birimi birden fazla diskte olduğu. Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), bu yapılandırma desteklenir. Bu destek için en son sürümünü kullanın.
+9\.20 sürümünden önce desteklenmeyen bir yapılandırma kök bölümü veya birimi birden fazla diskte olduğu. Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), bu yapılandırma desteklenir. Bu destek için en son sürümünü kullanın.
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>GRUB yapılandırması UUID yerine belirtilen bir cihaz adı olarak koruma etkinleştirilemedi (errorID: 95320)
 
@@ -204,9 +204,9 @@ Site Recovery mobility hizmeti biri filtre sürücüsü adlı birçok bileşen v
 > [!TIP]
 >Yükseltme, bakım penceresi sırasında zamanlama ile ilgili en iyi uygulamalar için bkz: [en son işletim sistemi/kernel sürümleri için destek](https://aka.ms/v2a_asr_upgrade_practice) Azure Site recovery'de hizmet güncelleştirmeleri de.
 
-## <a name="lvm-support-from-920-version"></a>9.20 sürümünden LVM desteği
+## <a name="lvm-support-from-920-version"></a>9\.20 sürümünden LVM desteği
 
-9.20 sürümünden önce yalnızca veri diskleri için LVM destekleniyordu. makinesiyse bir disk bölümünde olmalı ve LVM birim olmaması gerekir.
+9\.20 sürümünden önce yalnızca veri diskleri için LVM destekleniyordu. makinesiyse bir disk bölümünde olmalı ve LVM birim olmaması gerekir.
 
 Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), [LVM işletim sistemi diskinde](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) desteklenir. Bu destek için en son sürümünü kullanın.
 

@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb421442a7b45f3cd5925fd1475a0a69053c3113
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 27f5a7d8bb6dc347414d84d8cf536f1c2d7a9910
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66473388"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109350"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Geçişli kimlik doğrulaması için Azure Active Directory Federasyon seçeneğinden geçiş
 
@@ -218,7 +218,7 @@ Geçişli kimlik doğrulaması ve sorunsuz çoklu oturum açma hem dağıtıldı
 * Sorunsuz çoklu oturum açma için hazırlık yapılıyor.
 * Oturum açma yöntemi, geçişli kimlik doğrulaması ve sorunsuz çoklu oturum açmayı etkinleştirme değiştiriliyor.
 
-### <a name="step-1-prepare-for-seamless-sso"></a>1. adım: Sorunsuz çoklu oturum açma için hazırlama
+### <a name="step-1-prepare-for-seamless-sso"></a>1\. adım: Sorunsuz çoklu oturum açma için hazırlama
 
 Cihazlarınızı sorunsuz çoklu oturum açmayı kullanmak, Active Directory'de Grup İlkesi'ni kullanarak bir Azure AD URL'si kullanıcıların intranet bölgesi ayarlarına eklemeniz gerekir.
 
@@ -229,7 +229,7 @@ Adımlarını tamamlamanız [dağıtmadan](https://docs.microsoft.com/azure/acti
 > [!IMPORTANT]
 > Bu değişiklik, kullanıcıların Azure AD'de oturum biçimini değiştirmez. Ancak, devam etmeden önce bu yapılandırma tüm cihazlarınıza uygulama önemlidir. Bu yapılandırmayı almadığını cihazlarda oturum kullanıcılar yalnızca bir kullanıcı adı ve Azure AD'de oturum açmak için parola girmesini gerekir.
 
-### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>2. adım: Geçişli kimlik doğrulaması için oturum açma yöntemini değiştirme ve sorunsuz çoklu oturum açmayı etkinleştirin
+### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>2\. adım: Geçişli kimlik doğrulaması için oturum açma yöntemini değiştirme ve sorunsuz çoklu oturum açmayı etkinleştirin
 
 Geçişli kimlik doğrulaması için oturum açma yöntemini değiştirme ve sorunsuz çoklu oturum açmayı etkinleştirmek için iki seçeneğiniz vardır.
 

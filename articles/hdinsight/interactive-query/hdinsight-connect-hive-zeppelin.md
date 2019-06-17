@@ -1,6 +1,6 @@
 ---
 title: 'Hızlı Başlangıç: Azure HDInsight - Apache Zeppelin Apache Hive sorguları çalıştırma'
-description: Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanmayı öğrenin.
+description: Bu hızlı başlangıçta, Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanmayı öğrenin.
 keywords: hdınsight, hadoop, hive, LLAP etkileşimli sorgu
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: f4b8495646e83005dc48e8a729a0e5987b832721
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1642c64b0b14c2e290aad689399b59d896660a28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056687"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Hızlı Başlangıç: Apache Zeppelin ile Azure HDInsight, Apache Hive sorguları yürütme
 
@@ -83,12 +83,3 @@ Bu hızlı başlangıçta, Azure HDInsight Apache Hive sorguları çalıştırma
 
 > [!div class="nextstepaction"]
 > [Azure HDInsight için bağlanın ve Visual Studio için Data Lake Araçları'nı kullanarak Apache Hive sorguları çalıştırma](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
-
-## <a name="see-also"></a>Ayrıca bkz.
-
-* [Azure HDInsight, Microsoft Power BI ile Apache Hive verileri görselleştirme](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* [Power BI'da Azure HDInsight ile Apache etkileşimli sorgu Hive verilerini görselleştirme](./apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Excel'i Microsoft Hive ODBC sürücüsü ile HDInsight bağlama](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Excel'i Power Query kullanarak Apache Hadoop'a bağlama](../hadoop/apache-hadoop-connect-excel-power-query.md).
-* [Visual Studio Code için Azure HDInsight aracını](../hdinsight-for-vscode.md).
-* [HDInsight için verileri karşıya](../hdinsight-upload-data.md).

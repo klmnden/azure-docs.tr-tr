@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pabutler
 ms.openlocfilehash: 058ab30358811cb66ae033fb464974639569ae18
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935275"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Bir HTTPS uç noktası kullanarak müşteri adayı yönetimini yapılandırma
@@ -52,7 +52,7 @@ AppSource müşteri adayları ve Azure Marketi'nde işlemek için bir HTTPS uç 
 1. Seçin **+ yeni adım**.
 2. CRM sistemine yeni bir kayıt oluşturmak için istediğiniz eylemi seçin. Aşağıdaki ekran yakalama programları **Dynamics 365 - yeni kayıt oluştur** örnek olarak.
 
-    ![Yeni kayıt oluşturma](./media/cloud-partner-portal-lead-management-instructions-https/https-image009.png)
+    ![Yeni bir kayıt oluşturun](./media/cloud-partner-portal-lead-management-instructions-https/https-image009.png)
 
 3. Sağlamak **kuruluş adı** Bağlayıcınız için bağlantı girişleri olmasıdır. Seçin **müşteri adayları** gelen **varlık adı** açılır liste.
 
@@ -60,7 +60,7 @@ AppSource müşteri adayları ve Azure Marketi'nde işlemek için bir HTTPS uç 
 
 4. Akışı, müşteri adayı bilgilerini sağlamak için bir form gösterilmektedir. Dinamik İçerik Ekle seçerek giriş isteği öğelerinden eşleyebilirsiniz. Aşağıdaki ekran yakalama programları **OfferTitle** örnek olarak.
 
-    ![Dinamik içerik ekle](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
+    ![Dinamik İçerik Ekle](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 
 5. Ardından seçin ve istediğiniz alanları eşleyin **Kaydet** akışınızı kaydetmek için.
 
@@ -98,7 +98,7 @@ AppSource müşteri adayları ve Azure Marketi'nde işlemek için bir HTTPS uç 
 
 Teklifiniz için müşteri adayı yönetim bilgilerini yapılandırırken, **HTTPS uç noktası** için **hedef yol** ve HTTP POST önceki adımda kopyaladığınız URL'yi yapıştırın.  
 
-![Dinamik içerik ekle](./media/cloud-partner-portal-lead-management-instructions-https/https-image017.png)
+![Dinamik İçerik Ekle](./media/cloud-partner-portal-lead-management-instructions-https/https-image017.png)
 
 Müşteri adayı oluşturulduğunda, Microsoft müşteri adayları, yapılandırdığınız CRM Sistem ya da e-posta adresine yönlendirilir akış gönderir.
 

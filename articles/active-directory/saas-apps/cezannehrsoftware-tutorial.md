@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 78d259c0354a1519fa57633a68a1dcfa5a183890
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Öğretici: Cezanne ik yazılım ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Cezanne ik yazılım tümleştirmesini yapılandırmak için Cezanne
 
 **Galeriden Cezanne ik yazılım eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -156,7 +156,7 @@ Azure AD çoklu oturum açma Cezanne ik yazılımıyla yapılandırmak için aş
 
     d. İçinde **güvenlik belirteci Hizmeti uç noktası** metin değerini yapıştırın **oturum açma URL'si** hangi Azure portaldan kopyaladığınız.
 
-    e. Kullanıcı Kimliği öznitelik adı metin kutusuna girin `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    e. Kullanıcı Kimliği öznitelik adı metin kutusuna girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     f. Tıklayın **karşıya** Azure portalından indirilen sertifikayı karşıya yüklemek için simge.
 

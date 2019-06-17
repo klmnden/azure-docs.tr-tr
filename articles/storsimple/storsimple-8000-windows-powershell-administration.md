@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
 ms.openlocfilehash: 564c121aa90746498a94022fd0fb8d8529142c91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698411"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Cihazınızı yönetmek için StorSimple için Windows PowerShell kullanma
@@ -58,7 +58,7 @@ Seri konsoldan Windows PowerShell arabirimine bağlamak için aşağıdaki PuTTY
 1. PuTTY içinde **yeniden yapılandırma** iletişim kutusundaki **kategori** bölmesinde **klavye**.
 2. Aşağıdaki seçenekleri'nin seçili olduğundan emin olun (yeni bir oturum başlattığınızda, varsayılan ayarları bunlar).
    
-   | Klavye öğesi | Şunu seçin: |
+   | Klavye öğesi | Seçim |
    | --- | --- |
    | Geri tuşu |Denetim-? (127) |
    | Giriş ve bitiş anahtarları |Standart |
@@ -102,7 +102,7 @@ Aşağıdaki ayarlardan birini seçebilirsiniz:
 2. **Eş denetleyicisine tam erişimle oturum** (uygun kimlik bilgileriyle) bağlanabilirsiniz dışında bu seçeneği, 1. seçenek aynıdır **SSAdminConsole** eş denetleyicisinde çalışma. StorSimple cihazı bir Aktif-Pasif yapılandırmada iki denetleyici bir yüksek kullanılabilirlik cihazla olduğundan, eş seri konsol üzerinden eriştiğiniz cihaz diğer denetleyiciye ifade eder).
    Seçenek 1 benzer, bu seçenek ayrıca Microsoft eş denetleyicisine Kısıtlanmamış çalışma erişmeye Support izin vermek için kullanılabilir.
 
-3. **Sınırlı erişim ile bağlanma** bu seçenek, Windows PowerShell arabiriminde sınırlı modu erişmek için kullanılır. Erişim kimlik bilgileri istenmez. Bu seçenek 1 ve 2 seçeneklerine kıyasla daha sınırlı bir çalışma bağlanır.  1. seçenek kullanılabilir olan görevlerden bazılarını, **olamaz* bu çalışma alanında gerçekleştirilmesi şunlardır:
+3. **Sınırlı erişim ile bağlanma** bu seçenek, Windows PowerShell arabiriminde sınırlı modu erişmek için kullanılır. Erişim kimlik bilgileri istenmez. Bu seçenek 1 ve 2 seçeneklerine kıyasla daha sınırlı bir çalışma bağlanır.  1\. seçenek kullanılabilir olan görevlerden bazılarını, **olamaz* bu çalışma alanında gerçekleştirilmesi şunlardır:
    
    * Fabrika ayarlarına sıfırlama
    * Parola Değiştir

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2019
+ms.date: 06/11/2019
 ms.author: jaredr80
-ms.openlocfilehash: c443d4705da83a43af10763f633f340b1eab69d3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: f7006a8162aab87bc36f3dae034f10daa3f37ac1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478148"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115449"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
@@ -92,14 +92,14 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 | **Dubai2** | DU datamena | BAE Kuzey | DU datamena, Orixcom |
 | **Dublin** | Equinix | Kuzey Avrupa | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | Interxion | yok | DE-CIX Interxion |
-| **Hong Kong ÖİB** | Equinix | Doğu Asya | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
+| **Hong Kong ÖİB** | Equinix | Doğu Asya | Aryaka Networks, British Telecom, Chief Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Johannesburg** | Teraco | Güney Afrika Kuzey | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | yok | TIME dotCom |
 | **Las Vegas** | Anahtar | yok | CenturyLink Cloud Connect, Megaport |
 | **Londra** | Equinix | Birleşik Krallık Güney | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **London2** | Telehouse | Birleşik Krallık Güney | IX Reach, Equinix |
 | **Los Angeles** | CoreSite | yok | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
-| **Marsilya** |Interxion | Fransa Güney | Interxion |
+| **Marsilya** |Interxion | Fransa Güney | Interxion, Jaguar ağ |
 | **Melbourne** | NextDC | Avustralya Güneydoğu | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG telekomünikasyon |
 | **Miami** | Equinix | yok | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | yok | Bell Canada, Cologix, Telus, Zayo |
@@ -180,29 +180,30 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 | **Konum** | **Exchange** | **Bağlantı Sağlayıcılar** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf köprüsü uluslararası, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telekom Italia pırıltı, Telia |
+| **Atlanta** | Equinix| Castle Dama yapma
 | **Cape Town** | Teraco | MTN |
-| **Chicago** | Equinix | Lightower, Spektrumun Kurumsal Windstream |
-| **Dallas** | Equinix, Megaport | Axtel, C3ntro Telekom Cox iş, veri Foundry Spektrumun Enterprise, Transtelco |
+| **Chicago** | Equinix | Dama yapma Castle, Spektrumun Kurumsal Windstream |
+| **Dallas** | Equinix, Megaport | Axtel, C3ntro Telekom Cox iş Dama yapma Castle veri Foundry Spektrumun Kurumsal Transtelco |
 | **Frankfurt** | Telecity | BICS, Cinia, Nianet, QSC AG |
 | **Hamburg** | Equinix | Cinia |
 | **Hong Kong ÖİB** | Equinix | Baş, Macroview telekomünikasyon |
 | **Johannesburg** | Teraco | MTN |
 | **Londra** | BICS, Equinix, euNetworks, Telecity | Bezeq International Ltd, CoreAzure, Epsilon telekomünikasyon Limited, üstel E, HSO, NexGen ağları, Proximus, Tamares Telekom, Zain |
-| **Los Angeles** | Equinix |Spectrum Enterprise, Transtelco |
+| **Los Angeles** | Equinix |Dama yapma Castle, Spektrumun Kurumsal Transtelco |
 | **Madrid** | Level3 | Zertia |
 | **Montreal** | Cologix, Equinix | Airgate Technologies, Inc. Cogeco eş Laura, Zirro 1 |
-| **New York** |Equinix, Megaport | Altice Lightower, iş Spektrumun Kurumsal Webair |
+| **New York** |Equinix, Megaport | Altice iş Dama yapma Castle Spektrumun Kurumsal Webair |
 | **Paris** | Equinix | Proximus |
 | **Quebec City** | Megaport | Fibrenoire |
 | **Sao Paula** | Equinix | Venha Pra Nuvem |
 | **Seattle** |Equinix | Alaska Communications |
-| **Silikon Vadisi** |Equinix | Cox Spektrumun kurumsal iş Windstream |
+| **Silikon Vadisi** |Coresite, Equinix | Cox Business, Spectrum Enterprise, Windstream, X2nsat Inc. |
 | **Singapur** |Equinix |1CLOUDSTAR, BICS, Epsilon Telecommunications Limited, LGA Telecom, United Information Highway (UIH) |
 | **Slough** | Equinix | HSO|
 | **Sidney** | Megaport | Macquarie Telecom Group|
 | **Tokyo** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |
-| **Toronto** | Equinix | Airgate Technologies, Inc. Cogeco eş IVedha dahil edilen, Laura, Thinktel, Zirro 1|
-| **Washington DC** |Equinix | Altice iş, BICS, Cox iş, Gtt iletişimleri dahil edilen, Epsilon telekomünikasyon Limited, Lightower, Masergy Windstream |
+| **Toronto** | Equinix, Megaport | Airgate Technologies Inc., Beanfield Metroconnect, Cogeco Peer 1, IVedha Inc, Rogers, Thinktel, Zirro|
+| **Washington DC** |Equinix | Altice iş, BICS, Cox iş, dama yapma Castle, Gtt iletişimleri Inc. Epsilon telekomünikasyon Limited, Masergy, Windstream |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute sistem tümleştiricileri
 İhtiyaçlarınıza uyan özel bağlantıyı etkinleştirme ağınızın ölçeğine bağlı olarak zorlu olabilir. ExpressRoute’a yönelik ekleme işleminde size yardımcı olmak üzere aşağıdaki tabloda listelenen herhangi bir sistem tümleştirici ile çalışabilirsiniz.

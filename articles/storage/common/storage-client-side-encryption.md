@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 93386bd1fa3be88cbcdfab3d59ae07d3eb2b046d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65911930"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure depolama istemci tarafı şifreleme ve Azure anahtar kasası
@@ -67,7 +67,7 @@ Bir rastgele aralık indiriliyor (**DownloadRange** yöntemleri) az miktarda bir
 
 Tüm türleri blob (blok blobları, sayfa blobları ve ekleme blobları) şifrelenmiş/bu düzeni kullanarak şifresi.
 
-### <a name="queues"></a>Sıralar
+### <a name="queues"></a>Kuyruklar
 Kuyruk iletileri herhangi biçimi olamayacağından, istemci kitaplığının metinde başlatma vektörü (IV) ve şifrelenmiş içerik şifreleme anahtarı (CEK) içeren özel bir biçim tanımlar.
 
 Şifreleme sırasında istemci kitaplığı, rastgele bir CEK 32 bayt ile birlikte 16 bayt rastgele bir IV oluşturur ve bu bilgileri kullanarak sıraya ileti metninin Zarf şifreleme gerçekleştirir. Ardından Sarmalanan CEK ve bazı ek şifreleme meta verileri için şifrelenmiş kuyruk iletisi eklenir. (Aşağıda gösterilen) değiştirilmiş bu ileti, hizmette depolanır.
@@ -125,7 +125,7 @@ Key Vault yüksek değerli ana anahtarları için tasarlanmıştır ve her Key V
 
 Key Vault kullanımıyla ilgili daha fazla bilgi bulunabilir [şifreleme kod örnekleri](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
 
-## <a name="best-practices"></a>En iyi yöntemler
+## <a name="best-practices"></a>En iyi uygulamalar
 Şifreleme desteği, yalnızca .NET depolama istemci Kitaplığı'nda kullanılabilir. Şu anda Windows Phone ve Windows çalışma zamanı şifrelemeyi desteklemez.
 
 > [!IMPORTANT]

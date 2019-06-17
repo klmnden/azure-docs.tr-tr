@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: b5a13254fc9dfd58db83a1bc8b9dd071cfbbdab2
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 9d872a6d753a206dcfb03761e50e5854db4f146e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015586"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071602"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Geçiş Aracı nasıl çalıştığını anlamak
 
@@ -55,10 +55,11 @@ Bu ölçümler ile ilgili uyarılar dışında tüm Klasik depolama hesapları u
 - Percenttimeouterror'da
 - AnonymousThrottlingError
 - SASThrottlingError
+- ThrottlingError
 
 Klasik uyarı yüzde ölçümlere ilişkin kuralları geçirilmelidir temel alarak [eski ve yeni depolama ölçümleri arasındaki eşlemeyi](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Eşikleri mutlak bir yeni ölçüm kullanılabilir olduğu için uygun şekilde değiştirilmesi gerekir.
 
-Aynı işlevselliği sağlayan birleştirilmiş ölçüm olduğundan AnonymousThrottlingError ve SASThrottlingError Klasik uyarı kuralları iki yeni uyarılarına genişletecektir bölmeniz gerekir. Eşiklerini uygun şekilde uyarlanabilen gerekecektir.
+Aynı işlevselliği sağlayan birleştirilmiş ölçüm olduğundan AnonymousThrottlingError, SASThrottlingError ve ThrottlingError Klasik uyarı kuralları iki yeni uyarılarına genişletecektir bölmeniz gerekir. Eşiklerini uygun şekilde uyarlanabilen gerekecektir.
 
 ## <a name="rollout-phases"></a>Dağıtım aşamaları
 
@@ -97,7 +98,7 @@ Geçiş Aracı aşamada Klasik uyarı kuralları kullanan müşterilere sunuluyo
 
 İzleme katkıda bulunan yerleşik rolünün abonelik düzeyinde olan herhangi bir kullanıcı geçiş tetikleyebilirsiniz. Özel bir rol aşağıdaki izinlere sahip olan kullanıcılar, geçiş de tetikleyebilirsiniz:
 
-- * / Okuma
+- \* / Okuma
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
 - Microsoft.Insights/metricAlerts/*
@@ -106,7 +107,7 @@ Geçiş Aracı aşamada Klasik uyarı kuralları kullanan müşterilere sunuluyo
 
 Çalıştırdıktan sonra [geçişini](alerts-using-migration-tool.md), geçişin tamamlandığını veya herhangi bir işlem yapmanız gerekip gerekmediğini bildirmek için sağlanan adreslerde e-posta alırsınız. Bu bölümde, bazı yaygın sorunlar ve bunlarla nasıl açıklanmaktadır.
 
-### <a name="validation-failed"></a>Doğrulama başarısız
+### <a name="validation-failed"></a>Doğrulama başarısız oldu
 
 Aboneliğinizdeki Klasik uyarı kuralları için son değişiklikler nedeniyle bazı abonelik geçirilemez. Bu sorun geçicidir. Geçiş durumu geri taşındıktan sonra geçişi yeniden başlatabilirsiniz **geçiş için hazır** birkaç gün içinde.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9adf8dd4a5a3c469ed130b29308a0d828aee40bf
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873998"
 ---
 # <a name="manage-autoshutdown-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara yönelik autoshutdown ilkeleri yönetme
@@ -166,7 +166,7 @@ Başlamak için aşağıdaki adımları kullanarak Azure aboneliğinizde bir man
     }
     ```
     
-    ![İstek Gövdesi JSON Şeması](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![İstek gövdesi JSON şeması](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Seçin **+ yeni adım** Tasarımcısı'nda aşağıdaki adımları izleyin:
     1. Arama **Office 365 Outlook - e-posta Gönder**. 
     2. Seçin **bir e-posta** gelen **eylemleri**. 
@@ -177,7 +177,7 @@ Başlamak için aşağıdaki adımları kullanarak Azure aboneliğinizde bir man
     5. Seçin **konu**ve e-posta bildiriminin konu girin. Örneğin: "Makine vmName Laboratuvar için kapatma: labName."
     6. Seçin **GÖVDESİ**ve e-posta bildirimi postasının gövde içeriği tanımlayın. Örneğin: "15 dakika içinde kapatılacak şekilde vmName zamanlandı. Bu kapatma tıklayarak atla: URL. Bir saat için Gecikmeli kapatma: delayUrl60. 2 saat Gecikmeli kapatma: delayUrl120. "
 
-        ![İstek Gövdesi JSON Şeması](./media/devtest-lab-auto-shutdown/email-options.png)
+        ![İstek gövdesi JSON şeması](./media/devtest-lab-auto-shutdown/email-options.png)
 1. Araç çubuğunda **Kaydet**’i seçin. Şimdi, kopyalayabilirsiniz **HTTP POST URL'si**. URL'yi panoya kopyalamak için Kopyala düğmesini seçin. 
 
     ![Web kancası URL'si](./media/devtest-lab-auto-shutdown/webhook-url.png)

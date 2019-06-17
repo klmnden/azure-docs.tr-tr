@@ -2,20 +2,20 @@
 title: Azure Traffic Manager uç nokta izleme | Microsoft Docs
 description: Bu makalede, Traffic Manager uç nokta izleme ve otomatik bir uç nokta yük devretme yüksek kullanılabilirlik uygulamalarını dağıtmalarını Azure müşterilerine yardımcı olmak için nasıl kullandığını anlamanıza yardımcı olabilir
 services: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: kumud
-ms.openlocfilehash: 083bdf9c5aec640fbbd7757b307ac47178e0b14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 7aee68ef41b696549aa1db4386d467b55cd2d981
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329930"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071068"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager uç nokta izleme
 
@@ -55,7 +55,7 @@ Traffic Manager profilindeki tüm uç noktaları, izleme ayarlarını paylaşın
 
 Etkinleştirebilir ve Traffic Manager profillerini ve uç noktaları devre dışı bırakın. Ancak, Traffic Manager'ın bir sonuç ayarları ve işlemleri otomatik olarak uç nokta durumundaki bir değişikliği de oluşabilir.
 
-### <a name="endpoint-status"></a>Uç Nokta durumu
+### <a name="endpoint-status"></a>Uç nokta durumu
 
 Etkinleştirebilir veya belirli bir uç noktayı devre dışı. Yine de iyi olabilir, temel alınan hizmete etkilenmez. Uç nokta durumunu değiştirme, uç nokta Traffic Manager profilindeki kullanılabilirliğini denetler. Bir uç nokta durumu devre dışı bırakıldığında, Traffic Manager sistem durumu denetlemez ve uç nokta bir DNS yanıtına dahil edilmez.
 
@@ -67,14 +67,14 @@ Profil durumu ayarını kullanarak, etkinleştirebilir veya belirli bir profili 
 
 Uç nokta izleme durumu uç nokta durumunu gösteren bir Traffic Manager tarafından oluşturulan bir değerdir. Bu ayarı el ile değiştiremezsiniz. Uç nokta izleme durumu uç nokta izleme sonuçlarını ve yapılandırılmış uç noktası durumu birleşimidir. Uç Noktası İzleyicisi durumu olası değerler aşağıdaki tabloda gösterilmiştir:
 
-| Profil durumu | Uç Nokta durumu | Uç nokta izleme durumu | Notlar |
+| Profil durumu | Uç nokta durumu | Uç nokta izleme durumu | Notlar |
 | --- | --- | --- | --- |
-| Devre dışı |Enabled |Etkin Değil |Profili devre dışı bırakıldı. Uç nokta durumu etkindir; ancak, profil durumu (devre dışı) önceliklidir. Devre dışı profillerindeki uç noktalar izlenmeyen. DNS sorgu için bir NXDOMAIN yanıt kodu döndürülür. |
+| Devre dışı |Enabled |Etkin değil |Profili devre dışı bırakıldı. Uç nokta durumu etkindir; ancak, profil durumu (devre dışı) önceliklidir. Devre dışı profillerindeki uç noktalar izlenmeyen. DNS sorgu için bir NXDOMAIN yanıt kodu döndürülür. |
 | &lt;Tüm&gt; |Devre dışı |Devre dışı |Uç noktayı devre dışı bırakıldı. Devre dışı uç noktalar izlenmeyen. Uç nokta DNS yanıtlarını bulunmaz, bu nedenle, trafiği almaz. |
 | Enabled |Enabled |Çevrimiçi |Uç nokta izlenir ve iyi durumda. Bu DNS yanıtları bulunur ve trafik alabilir. |
 | Enabled |Enabled |Düşürüldü |Uç nokta izleme sistem durumu denetimi başarısız oluyor. Uç nokta DNS yanıtlarını dahil değildir ve trafiği almaz. <br>Bu konuda bir özel tüm uç noktalar düşürülmüş ise bu durumda tümünün sorgu yanıtta döndürülmesi kabul edilir olduğunu).</br>|
 | Enabled |Enabled |CheckingEndpoint |İzlenen uç nokta, ancak birinci Araştırmanın sonuçlarını henüz alınamadı. CheckingEndpoint genellikle hemen ekleme veya profilinde bir uç noktası etkinleştirildikten sonra oluşan geçici bir durumdur. Bu durumdaki bir uç nokta DNS yanıtları bulunur ve trafik alabilir. |
-| Enabled |Enabled |Durduruldu |Uç noktaya işaret eden bulut hizmeti veya web uygulaması çalışmıyor. Bulut hizmeti veya web uygulaması ayarlarını kontrol edin. Bu, uç nokta türü iç içe uç noktasını ise ve alt profili devre dışı bırakılır veya etkin değil de oluşabilir. <br>Durduruldu durumundaki bir uç nokta izlemesi yapılmaz. Bu DNS yanıtlarını dahil değildir ve trafiği almaz. Bu konuda bir özel tüm uç noktalar düşürülmüş ise bu durumda tümünün sorgu yanıtta döndürülmesi kabul edilecek ' dir.</br>|
+| Enabled |Enabled |Durduruldu |Uç noktaya işaret eden bir web uygulaması çalışmıyor. Web uygulaması ayarlarını kontrol edin. Bu, uç nokta türü iç içe uç noktasını ise ve alt profili devre dışı bırakılır veya etkin değil de oluşabilir. <br>Durduruldu durumundaki bir uç nokta izlemesi yapılmaz. Bu DNS yanıtlarını dahil değildir ve trafiği almaz. Bu konuda bir özel tüm uç noktalar düşürülmüş ise bu durumda tümünün sorgu yanıtta döndürülmesi kabul edilecek ' dir.</br>|
 
 İç içe uç noktalar için uç nokta izleme durumu nasıl hesaplandığını hakkında daha fazla ayrıntı için bkz [iç içe Traffic Manager profillerini](traffic-manager-nested-profiles.md).
 
@@ -91,13 +91,14 @@ Profil İzleyicisi durumu, yapılandırılan profili durumu ve tüm uç noktalar
 | Enabled |En az bir uç nokta durumu düzeyi düşürüldü. |Düşürüldü |Hangi uç noktaları ilgili daha fazla dikkat etmeniz gereken belirlemek için tek bir uç nokta durum değerleri gözden geçirin. |
 | Enabled |En az bir uç nokta durumu çevrimiçi olarak. Uç nokta Degraded durumuna sahip. |Çevrimiçi |Hizmet trafiği kabul ediyor. Başka bir eylem gerekli değildir. |
 | Enabled |En az bir uç nokta CheckingEndpoint durumudur. Hiçbir Exchange Online veya Degraded durumu noktalarıdır. |CheckingEndpoints |Bu geçiş durumu, oluşturulan veya etkinleştirilen, bir profil olduğunda gerçekleşir. Uç nokta sistem ilk kez olup olmadığı denetleniyor. |
-| Enabled |Devre dışı veya durdurulmuş profildeki tüm uç noktaların durumları olan ya da tanımlanmış uç nokta profile sahip. |Etkin Değil |Uç nokta etkin olan ancak profil hala etkin. |
+| Enabled |Devre dışı veya durdurulmuş profildeki tüm uç noktaların durumları olan ya da tanımlanmış uç nokta profile sahip. |Etkin değil |Uç nokta etkin olan ancak profil hala etkin. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Uç nokta yük devretme ve kurtarma
 
 Traffic Manager, düzenli aralıklarla sağlıklı uç noktalar dahil olmak üzere her uç noktasının durumunu denetler. Traffic Manager uç nokta sağlıklı duruma gelir ve geri döndürme taşır algılar.
 
 Aşağıdaki olaylardan herhangi biri gerçekleştiğinde bir uç nokta sağlam değil:
+
 - İzleme Protokolü, HTTP veya HTTPS ise:
     - 200 yanıt ya da belirtilen durum aralığı içermeyen bir yanıt **beklenen durum kodu aralığı** ayarı (301/302 yeniden yönlendirme veya farklı 2xx kod dahil) alınır.
 - İzleme protokol TCP olduğunda: 
@@ -151,8 +152,6 @@ Daha fazla bilgi için [Traffic Manager trafik yönlendirme yöntemleri](traffic
 > Traffic Manager sistem durumu denetimleri düzgün şekilde yapılandırılmadıysa, gibi ancak Traffic Manager yönlendirme trafiği görünebilir bu davranışının sonucu olan *olduğu* düzgün bir şekilde çalışıyor. Ancak, bu durumda, uç nokta yük devretme genel uygulama kullanılabilirliği etkiler şey olamaz. Profil Degraded durumu bir çevrimiçi durumunu göstermektedir denetlemek önemlidir. Traffic Manager sistem durumu denetimleri beklendiği gibi çalıştığını çevrimiçi bir durumu gösterir.
 
 Sorun giderme hakkında daha fazla bilgi için sistem durumu denetimleri başarısız oldu bkz [durumu Azure Traffic Manager'da düşürülmüş sorun giderme](traffic-manager-troubleshooting-degraded.md).
-
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

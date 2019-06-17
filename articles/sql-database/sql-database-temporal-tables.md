@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
 ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951505"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Zamana bağlı tablolarda Azure SQL veritabanı ile çalışmaya başlama
@@ -33,7 +33,7 @@ Bu senaryo için veritabanı modeli oldukça basittir: kullanıcı etkinliği ö
 
 Neyse ki, bu etkinlik bilgileri korumak için uygulamanızda herhangi bir çaba put gerekmez. Zamana bağlı tablolar ile bu işlem - Web sitesi tasarımı ve daha fazla zaman veri analizi kendisini odaklanmak için sırasında tam esnekliğini otomatik hale getirilmiştir. Yapmanız gereken tek şey emin olmaktır **WebSiteInfo** tablo olarak yapılandırıldığında [zamana bağlı sistem sürümü tutulan](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). Bu senaryoda, zamana bağlı tablolarda yararlanmak için uygulanacak adımlar aşağıda açıklanmıştır.
 
-## <a name="step-1-configure-tables-as-temporal"></a>1. Adım: Zamana bağlı olarak tablolar yapılandırma
+## <a name="step-1-configure-tables-as-temporal"></a>1\. adım: Zamana bağlı olarak tablolar yapılandırma
 Yeni yazılım geliştirme başlangıç mı var olan bir uygulamayı yükseltme bağlı olarak, zamana bağlı tablolar oluşturmak veya zamana bağlı öznitelikleri ekleyerek var olanları düzenlemeniz. Genel olarak büyük/küçük harf, senaryonuz iki bu seçeneklerin bir karışımı olabilir. Bunlar gerçekleştirmek eylemini kullanarak [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS) [SQL Server veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) veya herhangi bir Transact-SQL geliştirme aracı.
 
 > [!IMPORTANT]
@@ -106,7 +106,7 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ```
 
-## <a name="step-2-run-your-workload-regularly"></a>2. Adım: İş yükünüz düzenli olarak çalıştır
+## <a name="step-2-run-your-workload-regularly"></a>2\. adım: İş yükünüz düzenli olarak çalıştır
 Zamana bağlı tablolarda ana avantajı, sitenizi değişiklik izleme gerçekleştirmek için herhangi bir şekilde ayarlamak veya değiştirmek gerekmez ' dir. Verilerinizde değişiklikleri uygulamak her zaman oluşturulduktan sonra zamana bağlı tablolarda şeffaf bir şekilde önceki satır sürümleri kalıcı. 
 
 Otomatik değişiklik izleme bu belirli bir senaryo için yararlanmak üzere yalnızca sütun güncelleştirelim **PagesVisited** bir kullanıcı kendi Web sitesinde sona her zaman:
@@ -120,7 +120,7 @@ Update sorgusu gerçek işlemi meydana geldiğinde veya geçmiş verileri ilerid
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
-## <a name="step-3-perform-historical-data-analysis"></a>3. adım: Geçmiş veri çözümlemesi gerçekleştirme
+## <a name="step-3-perform-historical-data-analysis"></a>3\. adım: Geçmiş veri çözümlemesi gerçekleştirme
 Zamana bağlı sistem sürümü oluşturma etkin olduğunda, geçmiş verileri çözümleme, uzakta yalnızca bir sorgu sunulmuştur. Bu makalede, tüm ayrıntıları öğrenin, çeşitli seçenekleri ile sunulan keşfedin ortak analiz senaryoları - birkaç örnek sağlayacağız [FOR system_tıme](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) yan tümcesi.
 
 Bir saatten önce itibarıyla ziyaret edilen web sayfalarının göre sıralanmış ilk 10 kullanıcıları görmek için bu sorguyu çalıştırın:

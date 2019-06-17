@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64940018"
 ---
 <a name="logic-app-test-drive"></a>Mantıksal uygulamayı Test Sürüşü
@@ -61,11 +61,11 @@ Burada Test sürücü mantıksal Uygulamanızı yapılandırmak ve nasıl özell
 
 ![Test sürücü teknik yapılandırması](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Bölge** - *[Field gerekli]* seçtiğiniz Burada, sürücü mantıksal uygulamayı test etme kaynaklarınızın dağıtıldığı çekme bölgedir.
+- **Bölge** -  *[Field gerekli]* seçtiğiniz Burada, sürücü mantıksal uygulamayı test etme kaynaklarınızın dağıtıldığı çekme bölgedir.
 
     *Not:* Mantıksal uygulamanızı bir bölgede depolanır tüm özel kaynaklar varsa, bu bölgeye burada seçili olduğundan emin olun. Bunu yapmak için en iyi yolu **tamamen mantıksal uygulamanızı yerel olarak Şirket portalı, Azure aboneliğinize dağıtmak ve çalışır durumda olduğunu doğrulayın** burada yazmadan önce.
 
-- **En fazla eş zamanlı Test Sürüşleri** - *[Field gerekli]* dağıtılan ve bekleniyor zaten olan sayı, Test Sürüşü yapmasını örneklere erişmek seçili bölge başına. Müşteriler, bir dağıtım için beklemek zorunda yerine bu Test Sürüşleri anında erişebilirsiniz.
+- **En fazla eş zamanlı Test Sürüşleri** -  *[Field gerekli]* dağıtılan ve bekleniyor zaten olan sayı, Test Sürüşü yapmasını örneklere erişmek seçili bölge başına. Müşteriler, bir dağıtım için beklemek zorunda yerine bu Test Sürüşleri anında erişebilirsiniz.
 
     *Not:* Tüm, N Öğrenci sayısını içeren bir Test sürüşü için istediğiniz bir Web Semineri/class çalıştırıyorsanız, yayımlama önerilir N sık erişimli örnekleri ve sonra bir kez ile sınıfı üzerinde yeniden yayımlamanız için sık erişimli örnekleri normal sayısı geri sayısıdır.
 
@@ -77,7 +77,7 @@ Burada Test sürücü mantıksal Uygulamanızı yapılandırmak ve nasıl özell
 
 - **Mantıksal uygulama adı - sağlamasını kaldırma** *[gerekli alan]* Test Sürüşü içinde oluşturulan tüm kaynakları sağlamasını için mantıksal uygulama adını yazın. Bu dosya, yukarıdaki kaynak grubunda kaydedildiğinden emin olun.
 
-- **Erişim bilgileri -** *[gerekli alan]* bir müşteri, Test Sürüşü aldıktan sonra erişim bilgileri kullanıcılara sunulur. Bu yönergeler, Test sürücü Resource Manager şablonunuzu yararlı çıkış parametrelerini paylaşmak için yöneliktir. Çıktı parametreleri eklemek için çift kaşlı ayraçlar kullanın (örneğin, **{{outputname}}**), ve konumda doğru eklenir. (HTML biçimlendirme dizesi burada ön uç işleme için önerilir).
+- **Erişim bilgileri -** *[gerekli alan]* bir müşteri, Test Sürüşü aldıktan sonra erişim bilgileri kullanıcılara sunulur. Bu yönergeler, Test sürücü Resource Manager şablonunuzu yararlı çıkış parametrelerini paylaşmak için yöneliktir. Çıktı parametreleri eklemek için çift kaşlı ayraçlar kullanın (örneğin, **{{outputname}}** ), ve konumda doğru eklenir. (HTML biçimlendirme dizesi burada ön uç işleme için önerilir).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Test Sürüşü dağıtım Abonelik Ayrıntıları
 
@@ -88,7 +88,7 @@ Doldurmak için son bölümü, Test sürücüleri otomatik olarak Azure aboneli�
 **Azure abonelik kimliği** *[Field gerekli]* bu Azure hizmetlerini ve Azure portalına erişim verir. Burada kullanım raporlama ve Hizmetleri faturalandırılır aboneliktir. Zaten yoksa bir **ayrı** Azure aboneliği için Test Sürüşleri yalnızca, Lütfen bir tane biri olun. Azure abonelik kimlikleri, Azure portalında oturum açıyorsanız ve sol taraftaki menüyü Aboneliklerde giderek bulabilirsiniz.
 (Örnek: "a83645ac-1234-5ab6-6789-1h234g764ghty")
 
-![Azure Abonelikleri](./media/azure-resource-manager-test-drive/subdetails2.png)
+![Azure abonelikleri](./media/azure-resource-manager-test-drive/subdetails2.png)
 
 **Azure AD Kiracı kimliği** *[Field gerekli]* bir kiracı bulabilirsiniz altındaki özellikler - kimliği zaten mevcut varsa\> dizin kimliği
 
@@ -119,7 +119,7 @@ Kaydet’e tıklayın. Son adım, bu kayıtlı uygulama için uygulama Kimliğin
 Verilen kullanıyoruz uygulamayı aboneliğinize dağıtmak için biz uygulamanın abonelik üzerinde katkıda bulunan olarak eklemeniz gerekir. Bu yönergeleri olarak olan aşağıda:
 
 1. Abonelikler dikey penceresine gidin ve yalnızca Test Sürüşü için kullanmakta olduğunuz uygun aboneliği seçin.
-1. Tıklayın **erişim denetimi (IAM)**.
+1. Tıklayın **erişim denetimi (IAM)** .
 1. Tıklayın **rol atamaları** sekmesi.  ![Yeni bir erişim denetimi sorumlusu ekleme Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Tıklayın **rol ataması Ekle**.
 1. Rol olarak ayarla **katkıda bulunan**.

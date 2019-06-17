@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604056"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure veri Gezgini'nde zaman serisi analizi
@@ -34,7 +34,7 @@ Sonuçta elde edilen tabloda bir zaman damgası sütunu, üç bağlamsal boyutla
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Zaman Damgası | BrowserVer | OsVer | Ülke/Bölge |
+|   | Zaman damgası | BrowserVer | OsVer | Ülke/Bölge |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Birleşik Krallık |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Birleşik Krallık |
@@ -142,7 +142,7 @@ demo_series3
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | Dönem | Puanları | gün |
+|   | Dönem | Puanları | days |
 |   | 84 | 0.820622786055595 | 7 |
 |   | 12 | 0.764601405803502 | 1 |
 

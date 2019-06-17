@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 7058d7f46373f8adaacbcbf90e5ea591a15f8f37
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58404093"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67125607"
 ---
 Yapılandırılmış, bilgi işlem rolü olan bir veri kutusu Edge cihazında docker'ın bir alt komutları izlemek veya modülleri gidermek kullanılabilir. Kullanılabilir komutların bir listesini görmek için [PowerShell arabirimine bağlanma](#connect-to-the-powershell-interface) ve `dkrdbe` işlevi.
 
@@ -37,7 +37,7 @@ Commands:
 ```
 Aşağıdaki tabloda kullanılabilir komutları kısa bir açıklamasını sahip `dkrdbe`:
 
-|command  |Açıklama |
+|Komutu  |Açıklama |
 |---------|---------|
 |`image`     | Görüntüleri yönetme       |
 |`images`     | Görüntüleri listeleme         |

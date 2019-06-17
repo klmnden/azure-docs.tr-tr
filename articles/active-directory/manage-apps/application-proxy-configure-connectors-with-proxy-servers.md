@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015469"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Mevcut şirket içi proxy sunucuları ile çalışma
@@ -70,7 +70,7 @@ Yalnızca giden trafiğe sahip sonucu olarak, güvenlik duvarları üzerinden ge
 >[!NOTE]
 >Uygulama proxy'si kimlik doğrulama için diğer proxy'leri desteklemez. Bağlayıcı/güncelleştirici ağ hizmeti hesabı için kimlik doğrulaması yanıt olmadan bir proxy sunucusuna bağlanmak görebilmeniz gerekir.
 
-### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>1. Adım: Giden proxy üzerinden gitmek için ilgili hizmetler ve bağlayıcı yapılandırma
+### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>1\. adım: Giden proxy üzerinden gitmek için ilgili hizmetler ve bağlayıcı yapılandırma
 
 WPAD ortamda etkin olduğundan ve uygun şekilde yapılandırıldığından, bağlayıcıyı kullanmak için girişim ve giden proxy sunucusu otomatik olarak bulur. Ancak, bir giden proxy üzerinden gitmek için bağlayıcıyı açıkça yapılandırabilirsiniz.
 
@@ -95,7 +95,7 @@ Bunu yapmak için C:\Program Files\Microsoft AAD uygulaması Proxy Connector\App
 
 Ardından, Connector Updater hizmetini C:\Program Files\Microsoft AAD uygulama Proxy Bağlayıcısı Updater\ApplicationProxyConnectorUpdaterService.exe.config dosyasına benzer bir değişiklik yaparak proxy kullanacak şekilde yapılandırın.
 
-### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>2. Adım: Bağlayıcı ve ilgili hizmetleri akışına trafiğine izin vermek için proxy ayarlarını yapılandırma
+### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>2\. adım: Bağlayıcı ve ilgili hizmetleri akışına trafiğine izin vermek için proxy ayarlarını yapılandırma
 
 Giden proxy dikkate alınması gereken dört unsur vardır:
 * Proxy giden kuralları

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 341d8dd712b858572ec5df76b176258ca87c8857
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869433"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Öğretici: Pingboard ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Pingboard tümleştirmesini yapılandırmak için Pingboard Galeride
 
 **Galeriden Pingboard eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -224,7 +224,7 @@ Bu bölümün amacı Pingboard Britta Simon adlı bir kullanıcı oluşturmaktı
 
     a. İçinde **tam adı** metin kutusuna kullanıcının tam adını yazın ister **Britta Simon**.
 
-    b. İçinde **e-posta** metin kutusuna kullanıcı e-posta adresi türünü ister **brittasimon@contoso.com**.
+    b. İçinde **e-posta** metin kutusuna kullanıcı e-posta adresi türünü ister **brittasimon@contoso.com** .
 
     c. İçinde **iş unvanı** metin Britta simon'un iş unvanı yazın.
 

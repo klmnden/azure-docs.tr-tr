@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e7993ee1cb439ebeaa9f64bee55429aa54f9cee
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 897685eb967e03cfd30182eec6b237e27386496c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903953"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Öğretici: Azure Active Directory Tümleştirmesi ile SAP Fiori
 
@@ -193,7 +193,7 @@ Bu bölümde, Azure AD çoklu oturum açma ile SAP Fiori Azure portalında yapı
 
     1. Seçin **Düzenle** açmak için **yönetmek, kullanıcı talepleri** bölmesi.
 
-    1. İçinde **dönüştürme** listesinden **ExtractMailPrefix()**.
+    1. İçinde **dönüştürme** listesinden **ExtractMailPrefix()** .
 
     1. İçinde **parametresi 1** listesinden **user.userprinicipalname**.
 
@@ -272,7 +272,7 @@ Bu bölümde, Azure AD çoklu oturum açma ile SAP Fiori Azure portalında yapı
 
     **Senaryo 1**: Azure AD kullanıcı eşleme için SAP kullanıcısı
 
-    1. SAP içinde altında **Nameıd biçimi, Ayrıntılar "Belirsiz"**, ayrıntılarını not edin:
+    1. SAP içinde altında **Nameıd biçimi, Ayrıntılar "Belirsiz"** , ayrıntılarını not edin:
 
         ![Nameıd biçimi Ayrıntıları "Belirsiz" iletişim kutusunda SAP](./media/sapfiori-tutorial/nameiddetails.png)
 
@@ -282,7 +282,7 @@ Bu bölümde, Azure AD çoklu oturum açma ile SAP Fiori Azure portalında yapı
 
     **Senaryo 2**: SU01 yapılandırılan e-posta adresini temel alarak SAP kullanıcı Kimliğini seçin. Bu durumda, e-posta kimliği SU01 SSO gerektiren her bir kullanıcı için yapılandırılmalıdır.
 
-    1.  SAP içinde altında **Nameıd biçimi, Ayrıntılar "Belirsiz"**, ayrıntılarını not edin:
+    1.  SAP içinde altında **Nameıd biçimi, Ayrıntılar "Belirsiz"** , ayrıntılarını not edin:
 
         ![Nameıd biçimi Ayrıntıları "Belirsiz" iletişim kutusunda SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
 
@@ -314,7 +314,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
     1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    1. İçinde **kullanıcı adı** kutusuna **brittasimon\@\<your-şirket etki alanı >.\< Uzantı >**. Örneğin, **brittasimon\@contoso.com**.
+    1. İçinde **kullanıcı adı** kutusuna **brittasimon\@\<your-şirket etki alanı >.\< Uzantı >** . Örneğin, **brittasimon\@contoso.com**.
 
     1. Seçin **Show parola** onay kutusu. Görüntülenen değer azaltma **parola** kutusu.
 

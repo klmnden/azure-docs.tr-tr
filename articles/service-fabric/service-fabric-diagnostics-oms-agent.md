@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
 ms.openlocfilehash: 819f6ee4ab079361279a567bceeb74c33fe14186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952396"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Azure İzleyici günlüklerine ile performans izleme
@@ -76,7 +76,7 @@ Bir Azure Log Analytics çalışma alanı dağıtma ve her düğümleriniz bir a
 
 Log Analytics aracısını, head üzerinde eklediğinize göre hangi performans sayaçlarını seçin için Log Analytics portalı üzerinden toplamak ister misiniz?
 
-1. Azure portalında Service Fabric analizi çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
+1. Azure portalında Service Fabric analizi çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfLog AnalyticsWorkspace\>** .
 
 2. **Log Analytics**’i tıklayın.
 

@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 04/24/2019
 ms.author: helohr
 ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145983"
 ---
-# <a name="connect-from-windows-10-or-windows-7"></a>Windows 10 veya Windows 7 bağlanın
+# <a name="connect-from-windows-10-or-windows-7"></a>Windows 10 veya Windows 7'den bağlanma
 
-> Şunlara uygulanır Windows 7 ve Windows 10.
+> Şunlara uygulanır: Windows 7 ve Windows 10.
 
 İndirilebilir bir istemci kullanılabilir sağlayan erişim için Windows sanal masaüstü Önizleme kaynakları Windows 7 ve Windows 10 çalıştıran cihazlardan.
 
@@ -51,7 +51,7 @@ Bir akışa abone sonra akış içeriği düzenli aralıklarla otomatik olarak g
 
 Abone sonra Ayrıntılar bölmesini erişerek akış hakkında daha fazla bilgi görüntüleyebilirsiniz.
 
-1. İstemcinin ana sayfasında üç noktayı seçin (**...** ) akış adının sağındaki.
+1. İstemcinin ana sayfasında üç noktayı seçin ( **...** ) akış adının sağındaki.
 1. Açılan menüden **ayrıntıları**.
 1. Ayrıntılar bölmesini istemci sağ tarafında görünür.
 
@@ -68,7 +68,7 @@ Gerekli olursa, el ile güncelleştirme seçerek başlayabilirsiniz **Şimdi Gü
 
 Bu bölümde bir akıştan aboneliği öğretir. Farklı bir hesapla yeniden abone ya da sistemden kaynaklarınızı kaldırmak için abonelikten çıkabilirsiniz.
 
-1. İstemcinin ana sayfasında üç noktayı seçin (**...** ) akış adının sağındaki.
+1. İstemcinin ana sayfasında üç noktayı seçin ( **...** ) akış adının sağındaki.
 1. Açılan menüden **Unsubscribe**.
 1. Gözden geçirin ve seçin **devam** iletişim.
 

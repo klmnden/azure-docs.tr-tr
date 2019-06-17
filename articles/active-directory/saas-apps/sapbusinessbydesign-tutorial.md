@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23669671c9aec2ebad8e03e06a0ea1b139214cad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0b830f0760b768826b2d937b4a8b2ffbd8e9e2a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Öğretici: SAP Business ByDesign ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de SAP Business ByDesign tümleştirmesini yapılandırmak için SAP Bu
 
 **SAP Business ByDesign Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -125,7 +125,7 @@ SAP Business ByDesign ile Azure AD çoklu oturum açmayı yapılandırmak için 
 
     a. Seçin **dönüştürme** olarak bir **kaynak**.
 
-    b. İçinde **dönüştürme** açılan listesinden **ExtractMailPrefix()**.
+    b. İçinde **dönüştürme** açılan listesinden **ExtractMailPrefix()** .
 
     c. İçinde **parametresi 1** açılan listesinde, uygulamanız için kullanmak istediğiniz kullanıcı özniteliğini seçin. Örneğin, EmployeeID benzersiz kullanıcı tanımlayıcısı kullanmak istediğiniz ve öznitelik değeri içinde ExtensionAttribute2 depoladığınız seçerseniz, user.extensionattribute2 seçin.
 

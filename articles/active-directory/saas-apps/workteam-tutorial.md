@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a59e7d9177834790b6df0f1c45a60849d3fdca0e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 697f5c06d2c1d6b669cfa244f0328f4fb86aeea2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086824"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Öğretici: Workteam ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Workteam tümleştirmesini yapılandırmak için Workteam Galeriden 
 
 **Galeriden Workteam eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -149,7 +149,7 @@ Azure AD çoklu oturum açma ile Workteam yapılandırmak için aşağıdaki ad�
 
     d. Not Defteri'nde açın **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz, içeriğini kopyalayın ve ardından yapıştırın **SAML imzalama sertifikası (Base64)** kutusu.
 
-    e. **Tamam** düğmesine tıklayın.
+    e. **Tamam**'ı tıklatın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -222,7 +222,7 @@ Workteam için oturum açmak Azure AD kullanıcılarının etkinleştirmek için
 
     b. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **Brittasimon\@contoso.com**.
 
-    c. **Tamam** düğmesine tıklayın.
+    c. **Tamam**'ı tıklatın.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 

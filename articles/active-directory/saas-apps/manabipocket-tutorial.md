@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f793741638db5196bbf8bcd97e7f42d79548f0b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 44cbad443cb1341ea080f517bbe614ec6fc46b13
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897382"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Öğretici: Manabi Pocket ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Manabi Pocket tümleştirmesini yapılandırmak için Manabi Pocket 
 
 **Galeriden Manabi Pocket eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
