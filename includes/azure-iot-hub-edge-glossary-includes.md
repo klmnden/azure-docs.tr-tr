@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: dobett
 ms.openlocfilehash: c95bca125ea70cf32acad0d5ea67c3ad195ed704
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146568"
 ---
-## <a name="automatic-device-management"></a>Otomatik Cihaz Yönetimi
+## <a name="automatic-device-management"></a>Otomatik cihaz Yönetimi
 Azure IOT hub otomatik cihaz Yönetimi döngülerini tamamına büyük cihaz filolarına yönetme yinelenen ve karmaşık görevlerinin birçoğunu otomatik hale getirir. İle otomatik cihaz yönetimi, bir dizi cihazda özelliklerine göre hedef, istenen yapılandırmasını tanımlamak ve IOT Hub'ın kapsama geldikleri her cihazları güncelleştirmek olanak tanır.  Oluşan [otomatik cihaz yapılandırmaları](../articles/iot-hub/iot-hub-auto-device-config.md) ve [IOT Edge otomatik dağıtımlar](../articles/iot-edge/how-to-deploy-monitor.md).
 
 ## <a name="iot-edge"></a>IoT Edge
@@ -38,7 +38,7 @@ IOT Edge Çalışma Zamanı Modülü modülü iletişim (doğru IOT Hub) yukarı
 ## <a name="iot-edge-leaf-device"></a>IOT Edge yaprak cihaz
 Aşağı Akış cihaz ile IOT Edge cihazı. 
 
-## <a name="iot-edge-module"></a>IoT Edge modülü
+## <a name="iot-edge-module"></a>IOT Edge Modülü
 IOT Edge modülü IOT Edge cihazlarına dağıtabileceğiniz bir Docker kapsayıcıdır. Bu, bir CİHAZDAN bir ileti almak, bir ileti dönüştürme ya da bir IOT hub'ına ileti gönderme gibi belirli bir görevi gerçekleştirir. Bu, diğer modüllerle iletişim kurar ve IOT Edge çalışma zamanına veri gönderir. [IOT Edge modülleri geliştirmek için Araçlar ve gereksinimleri anlamak](https://docs.microsoft.com/azure/iot-edge/module-development).
 
 ## <a name="iot-edge-module-identity"></a>IOT Edge modülü kimlik
@@ -60,4 +60,4 @@ IOT Edge çalışma zamanı bir IOT Edge cihazında yüklü olmasını Microsoft
 Bir cihaz üzerinde bir IOT Edge bildiriminin içeriği kopyalayan bir işlem ' modül ikizi. Genel bir temel alınan API'dir 'yapılandırma apply' yalnızca aldığı girdi olarak bir IOT Edge bildirimi.
 
 ## <a name="iot-edge-target-condition"></a>IOT Edge hedef koşulu
-Örneğin dağıtımın hedef cihazlarını seçmek için cihaz ikizlerini etiketleri hakkında herhangi bir Boolean koşul bir IOT Edge dağıtımı, hedef durumdur **tag.environment prod =**. Hedef koşul gereksinimlerini karşılayan yeni cihazları eklemek veya artık yapmak cihazları kaldırmak için sürekli olarak değerlendirilir. Daha fazla bilgi edinin [hedef koşulu](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)
+Örneğin dağıtımın hedef cihazlarını seçmek için cihaz ikizlerini etiketleri hakkında herhangi bir Boolean koşul bir IOT Edge dağıtımı, hedef durumdur **tag.environment prod =** . Hedef koşul gereksinimlerini karşılayan yeni cihazları eklemek veya artık yapmak cihazları kaldırmak için sürekli olarak değerlendirilir. Daha fazla bilgi edinin [hedef koşulu](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)

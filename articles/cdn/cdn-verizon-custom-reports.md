@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323611"
 ---
 # <a name="custom-reports-from-verizon"></a>Verizon özel raporları
@@ -75,7 +75,7 @@ Excel simgesine sağ tıklayarak verileri Excel biçiminde dışarı aktarabilir
 | 4xx                       | İstekler veya aktarılan veri (MB) HTTP 4xx durum kodunda sonuçlanan CNAME edge için toplam sayıyı belirtir (örneğin, 400 Hatalı istek, 403 Yasak veya 404 bulunamadı). |
 | 5XX                       | Edge 5xx HTTP durum koduna (örneğin, 500 İç sunucu hatası veya 502 hatalı ağ geçidi) sonuçları CNAME için istekleri ya da aktarılan veri (MB) toplam sayısını gösterir. |
 | Önbellek isabet yüzdesi               | Önbellekten doğrudan istemciye sunulduğunu önbelleğe istek yüzdelerini gösterir. |
-| İsabetli Önbellek Okuma Sayısı                | İstekleri ya da aktarılan veri (MB) önbellek isabet (örneğin, TCP_EXPIRED_HIT, TCP_HIT veya TCP_PARTIAL_HIT) içinde sonuçları CNAME edge için toplam sayısını gösterir. İstenen içeriği önbelleğe alınmış bir sürümü bulunan bir önbellek isabet gerçekleşir. |
+| İsabetli Önbellek okuma sayısı                | İstekleri ya da aktarılan veri (MB) önbellek isabet (örneğin, TCP_EXPIRED_HIT, TCP_HIT veya TCP_PARTIAL_HIT) içinde sonuçları CNAME edge için toplam sayısını gösterir. İstenen içeriği önbelleğe alınmış bir sürümü bulunan bir önbellek isabet gerçekleşir. |
 | Aktarılan veri (MB)     | Toplam aktarılan veri miktarı (MB) uç sunuculardan CNAME edge için HTTP istemcilere (web tarayıcıları) gösterir. Yanıt gövdesi için HTTP yanıt üst bilgilerini ekleyerek, aktarılan veri miktarı hesaplanır. Sonuç olarak, her varlık için aktarılan veri miktarı, gerçek dosya boyutundan büyük. |
 | Açıklama               | Kendi ana bilgisayar adı bir çizgiyle CNAME tanımlar |
 | İsabet sayısı                      | CNAME edge istekleri toplam sayısını gösterir |

@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
 ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510761"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric Konsorsiyum ağı
@@ -70,11 +70,11 @@ Abonelik aldıktan sonra Git [Azure portalında](https://portal.azure.com). Seç
 
 Şablon dağıtımı, çok düğümlü nasıl yapılandıracağınız anlatılmaktadır [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) ağ. Dağıtım akışı dört adımlarına ayrılmıştır: Temel bilgileri, Consortium ağ ayarları, doku yapılandırması ve isteğe bağlı bileşenler.
 
-### <a name="basics"></a>Temel
+### <a name="basics"></a>Temel Bilgiler
 
 İçinde **Temelleri**, herhangi bir dağıtım için standart parametreler için değerler belirtin. Özellikleri gibi abonelik, kaynak grubu ve temel sanal makine.
 
-![Temel](./media/hyperledger-fabric-consortium-blockchain/basics.png)
+![Temel Bilgiler](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
 | Parametre Adı | Açıklama | İzin verilen değerler |
 |---|---|---|
@@ -135,7 +135,7 @@ Bu şablon, Kalıcılık altyapınız Eş düğüm başına seçmenize olanak sa
 
 **Tamam**’ı seçin.
 
-### <a name="deploy"></a>Dağıt
+### <a name="deploy"></a>Dağıtma
 
 İçinde **özeti**, belirtilen girişler gözden geçirin ve temel dağıtım öncesi doğrulama çalıştırmak için.
 

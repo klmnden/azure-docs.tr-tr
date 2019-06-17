@@ -9,10 +9,10 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157400"
 ---
 (Önerilen) bir kuruluş çözümü ile oluşturulan bir kök sertifika kullanabilir veya otomatik olarak imzalanan bir sertifika oluşturun. Kök sertifikayı oluşturduktan sonra ortak sertifika verilerini (özel anahtarı değil) bir Base64 ile kodlanmış X.509 .cer dosyası olarak dışarı aktarın. Ardından, genel sertifika verilerini Azure sunucusuna yükleyin.

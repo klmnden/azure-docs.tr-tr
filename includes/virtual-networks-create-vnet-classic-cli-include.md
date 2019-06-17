@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: cd686e1bf62bbd7f37f61ced767e92918edf919c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116921"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Azure CLI kullanarak klasik bir VNet oluşturma
@@ -32,12 +32,12 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
             info:    network vnet create command OK
    
    * **--vnet**. Oluşturulacak VNet’in adı. Senaryo için *TestVNet*
-   * **-e (veya--adres alanı)**. VNet adres alanı. Senaryo için *192.168.0.0*
-   * **-i (veya - CIDR)**. CIDR biçiminde ağ maskesi. Senaryo için *16*.
+   * **-e (veya--adres alanı)** . VNet adres alanı. Senaryo için *192.168.0.0*
+   * **-i (veya - CIDR)** . CIDR biçiminde ağ maskesi. Senaryo için *16*.
    * **-n (veya--alt ağ adı**). İlk alt ağ adı. Senaryo için *ön uç*.
-   * **-p (veya--alt başlangıç IP)**. Başlangıç IP adresi alt ağ veya alt ağ adres alanı. Senaryo için *192.168.1.0*.
-   * **-r (veya--CIDR alt ağ)**. Alt ağ için CIDR biçiminde ağ maskesi. Senaryo için *24*.
-   * **-l (veya --konum)**. VNet oluşturulduğu azure bölgesi. Senaryo için *Orta ABD*.
+   * **-p (veya--alt başlangıç IP)** . Başlangıç IP adresi alt ağ veya alt ağ adres alanı. Senaryo için *192.168.1.0*.
+   * **-r (veya--CIDR alt ağ)** . Alt ağ için CIDR biçiminde ağ maskesi. Senaryo için *24*.
+   * **-l (veya --konum)** . VNet oluşturulduğu azure bölgesi. Senaryo için *Orta ABD*.
 3. Bir alt ağ oluşturmak için çalıştırılması **azure ağ sanal ağ alt ağı oluşturmanız** komutu:
    
             azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
@@ -55,8 +55,8 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
             info:    network vnet subnet create command OK
    
    * **-t (veya--vnet-ad**. Alt ağın oluşturulacağı VNet’in adı. Senaryo için *TestVNet*.
-   * **-n (veya --name)**. Yeni alt ağın adı. Senaryo için *arka uç*.
-   * **-a (veya--adres-önek)**. Alt ağ CIDR bloğu. Senaryo için *192.168.2.0/24*.
+   * **-n (veya --name)** . Yeni alt ağın adı. Senaryo için *arka uç*.
+   * **-a (veya--adres-önek)** . Alt ağ CIDR bloğu. Senaryo için *192.168.2.0/24*.
 4. Yeni vnet'in özelliklerini görüntülemek için çalıştırın **azure ağı vnet show** komutu:
    
             azure network vnet show

@@ -9,10 +9,10 @@ ms.date: 12/21/2018
 ms.author: cynthn;davberg
 ms.custom: include file
 ms.openlocfilehash: ca0c45b5d74140e0398595070df71da669caab53
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160081"
 ---
 Kavram, Azure işlem birimi (ACU) açısından, bilgi işlem (CPU) performansını Azure SKU'ları arasında karşılaştırma bir yol sağlar. Bu birim, performans ihtiyaçlarınızı karşılayabilecek SKU'yu kolayca belirlemenize yardımcı olacak.  ACU şu anda Küçük (Standard_A1) VM'de 100 olarak standart haline getirilmiş ve diğer tüm SKU'lar, standart bir karşılaştırmalı testte sunabilecekleri yaklaşık hıza göre derecelendirilmiştir. 
@@ -52,7 +52,7 @@ Kavram, Azure işlem birimi (ACU) açısından, bilgi işlem (CPU) performansın
 | [L8s_v2 - L80s_v2](../articles/virtual-machines/windows/sizes-storage.md) |150 - 175** | 2:1 |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160 - 180 | 2:1\*\*\* |
 
-* Acu'lar, CPU frekansını artırmak ve performans artışı sağlamak için Intel® Turbo teknolojisini kullanır.  Performans artışı miktarını VM boyutuna, iş yükü ve aynı ana bilgisayarda çalışan iş yüklerine göre değişebilir.
+\* Acu'lar, CPU frekansını artırmak ve performans artışı sağlamak için Intel® Turbo teknolojisini kullanır.  Performans artışı miktarını VM boyutuna, iş yükü ve aynı ana bilgisayarda çalışan iş yüklerine göre değişebilir.
 
 ** Acu'lar, CPU frekansını artırmak ve performans artışı sağlamak için AMD® Boost teknolojisini kullanır.  Performans artışı miktarını VM boyutuna, iş yükü ve aynı ana bilgisayarda çalışan iş yüklerine göre değişebilir.
 

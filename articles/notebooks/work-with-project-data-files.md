@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: b522b0bd641d0147518843b11be4cd3a1430ae20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240386"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Azure not defteri projeleri veri dosyalarıyla çalışma
@@ -62,11 +62,11 @@ Proje panosunu kullanarak çalışan bir not defteri içinde veya bir projeye do
 
 1. İçinde **karşıya yükleme durumu** görüntülenirse, seçin açılan bir **hedef klasör** aşağı açılan listeden:
 
-    - Oturum klasörü (*~/* ): Dosyaları geçerli not defteri oturuma yükler ancak projedeki dosyaları oluşturmaz. Oturum klasör proje klasörüne eşdüzeyde, ancak oturumu sona erdikten sonra kalmıyor. Kod, oturum dosyalara erişmek için göreli yolu içeren dosya adlarını önek *... /*.
+    - Oturum klasörü ( *~/* ): Dosyaları geçerli not defteri oturuma yükler ancak projedeki dosyaları oluşturmaz. Oturum klasör proje klasörüne eşdüzeyde, ancak oturumu sona erdikten sonra kalmıyor. Kod, oturum dosyalara erişmek için göreli yolu içeren dosya adlarını önek *... /* .
 
         Oturum klasörü kullanılarak deneme için yararlıdır ve proje olabilir veya uzun vadeli temelinde gerekmeyebilir dosyalarla karışıklığı ortadan kaldırır. Çakışmalarına neden olmadan ve dosyaları yeniden adlandırmak gerek kalmadan proje dosyalarında aynı adlara sahip oturum klasöre dosyalar da karşıya yükleyebilirsiniz. Örneğin, bir sürümü deyin sahip *data.csv* projede zaten, ancak istediğiniz farklı bir sürümü ile denemeler *data.csv*. Oturum klasöre dosya yükleyerek karşıya yüklenen dosya verileri kullanarak not defterini çalıştırabilirsiniz (kod kullanarak kendisine başvuran *.. /Data.csv*) yerine projenin dosya verileri.
 
-    - Proje klasörü (*/project*): dosyaları karşıya yükler, burada olabilir projeye kodda göreli yol adları kullanılarak erişilir. Bir dosyayı bu klasöre yüklemek proje panosundaki bir dosyayı karşıya yüklemeyi aynıdır. Dosyanın projeyle kaydedilir ve daha sonraki oturumlarda kullanılabilir.
+    - Proje klasörü ( */project*): dosyaları karşıya yükler, burada olabilir projeye kodda göreli yol adları kullanılarak erişilir. Bir dosyayı bu klasöre yüklemek proje panosundaki bir dosyayı karşıya yüklemeyi aynıdır. Dosyanın projeyle kaydedilir ve daha sonraki oturumlarda kullanılabilir.
 
         Zaten projede var olan bir aynı ada sahip bir dosyayı karşıya yüklemeyi denerseniz, başarısız karşıya yükleniyor. Bir dosyanın üzerine yazmak için üzerine yazma seçeneğini sunar Yeni Proje panosunu dosyasından bunun yerine, yükleyin.
 

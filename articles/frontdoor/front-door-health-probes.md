@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736590"
 ---
 # <a name="health-probes"></a>Sistem durumu araştırmaları
@@ -29,7 +29,7 @@ Her bir arka uç sistem durumu belirlemek için her bir ön kapısı ortamı dü
 
 ## <a name="health-probe-responses"></a>Sistem durumu araştırma yanıtları
 
-| Yanıtlar  | Açıklama | 
+| Responses  | Açıklama | 
 | ------------- | ------------- |
 | Sistem durumu belirleme  |  200 Tamam durum kodu, arka uç kötü durumda gösterir. Diğer her şey bir hata olarak kabul edilir. Herhangi bir nedenle (ağ hatası dahil) için bir araştırma geçerli bir HTTP yanıt alınmazsa, araştırma hata olarak kabul edilir.|
 | Gecikme süresini ölçme  | Gecikme süresi, araştırma isteğinin yanıtın son baytını aldığımız zaman şu hemen göndereceğiz önce şu ölçülen duvar saati zamanı geldi. Bu ölçüm arka uçları sıcak var olan bağlantıları doğru ağırlıklı olmayan şekilde her istek için yeni TCP bağlantısı kullanırız.  |

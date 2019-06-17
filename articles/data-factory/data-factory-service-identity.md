@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153412"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory için yönetilen kimlik
@@ -158,8 +158,8 @@ Yönetilen kimlik Azure portalından veya programlama yoluyla alabilirsiniz. Aş
 
 Bulabilirsiniz yönetilen kimlik bilgileri Azure portalından -> data factory'nizi -> Özellikler:
 
-- Yönetilen Kimlik Nesne Tanımlayıcısı
-- Yönetilen Kimlik Kiracısı
+- Yönetilen Nesne Kimliği
+- Yönetilen kimliği Kiracısı
 - **Identity Application kimliği yönetilen** > Bu değeri kopyalayın
 
 ![Yönetilen kimlik alma](media/data-factory-service-identity/retrieve-service-identity-portal.png)

@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935557"
 ---
 # <a name="cancel-operation"></a>İşlemi iptal et 
@@ -28,17 +28,17 @@ Bu API, öneri şu anda devam eden bir işlem iptal eder. Kullanım [almak opera
 |  **Ad**    |      **Açıklama**                                  |    **Veri türü**  |
 | ------------ |     ----------------                                  |     -----------   |
 | publisherId  |  Yayıncı tanımlayıcısını, örneğin, `contoso`         |   String          |
-| offerId      |  Teklif tanımlayıcısı                                     |   String          |
+| OfferId      |  Teklif tanımlayıcısı                                     |   String          |
 | API sürümü  |  Geçerli API sürümü                               |    Tarih           |
 |  |  |  |
 
 
-<a name="header"></a>Üst bilgi
+<a name="header"></a>Üstbilgi
 ------
 
 |  **Ad**              |  **Değer**         |
 |  ---------             |  ----------        |
-|  Content-Type          |  uygulama/json  |
+|  İçerik türü          |  uygulama/json  |
 |  Yetkilendirme         |  Taşıyıcı YOUR BELİRTEÇ |
 |  |  |
 

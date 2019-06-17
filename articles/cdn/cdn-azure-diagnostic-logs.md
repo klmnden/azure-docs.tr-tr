@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126273"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
@@ -176,7 +176,7 @@ Temel analiz verileri bir Azure depolama hesabından erişebilmeniz için önce 
 2.  Depolama hesabını bulun
 3.  Genişletin **Blob kapsayıcıları** düğümünde bu depolama hesabı.
 4.  Adlı kapsayıcıyı seçin *ınsights günlükleri coreanalytics*.
-5.  Sağ bölmede, olarak ilk düzeyi ile başlayan show sonuçları *ResourceId =*. Dosyayı bulana kadar her düzeyde seçmeye devam *PT1H.json*. Yolun bir açıklaması için bkz: [Blob yol biçimi](cdn-azure-diagnostic-logs.md#blob-path-format).
+5.  Sağ bölmede, olarak ilk düzeyi ile başlayan show sonuçları *ResourceId =* . Dosyayı bulana kadar her düzeyde seçmeye devam *PT1H.json*. Yolun bir açıklaması için bkz: [Blob yol biçimi](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Her blob *PT1H.json* dosya bir saatlik belirli bir CDN uç noktası veya kendi özel etki alanı analizi günlüklerinde gösterir.
 7.  Bu JSON dosyasının içeriği şemasını çekirdek analizi günlüklerinde bölüm şemasında açıklanmıştır.
 
@@ -191,8 +191,8 @@ Temel analiz verileri bir Azure depolama hesabından erişebilmeniz için önce 
 
 |Değer|Açıklama|
 |-------|---------|
-|Abonelik kimliği    |GUID biçiminde Azure abonelik kimliği.|
-|Kaynak Grubu Adı |CDN kaynakları ait olduğu kaynak grubunun adı.|
+|Abonelik Kimliği    |GUID biçiminde Azure abonelik kimliği.|
+|Kaynak grubu adı |CDN kaynakları ait olduğu kaynak grubunun adı.|
 |Profil Adı |CDN profilinin adı|
 |Uç nokta adı |CDN uç noktası adı|
 |Yıl|  Örneğin, 2017 yılı dört basamaklı temsili|
@@ -242,55 +242,55 @@ Bir Azure İzleyici ile izleme çözümü eklemek için aşağıdaki adımları 
 
 3. İçinde **izleme + Yönetim** sayfasında **tümünü gör**.
 
-    ![Tümünü göster](./media/cdn-diagnostics-log/15_See-all.png)
+    ![Tümünü incele](./media/cdn-diagnostics-log/15_See-all.png)
 
 4. CDN arama kutusuna arayın.
 
-    ![Tümünü göster](./media/cdn-diagnostics-log/16_Search-for.png)
+    ![Tümünü incele](./media/cdn-diagnostics-log/16_Search-for.png)
 
 5. Seçin **Azure CDN çekirdek analiz**. 
 
-    ![Tümünü göster](./media/cdn-diagnostics-log/17_Core-analytics.png)
+    ![Tümünü incele](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
 6. Seçtikten sonra **Oluştur**, yeni bir Log Analytics çalışma alanı oluşturun veya mevcut bir istenir. 
 
-    ![Tümünü göster](./media/cdn-diagnostics-log/18_Adding-solution.png)
+    ![Tümünü incele](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
 7. Önce oluşturulan çalışma alanını seçin. Ardından bir Otomasyon hesabı eklemeniz gerekir.
 
-    ![Tümünü göster](./media/cdn-diagnostics-log/19_Add-automation.png)
+    ![Tümünü incele](./media/cdn-diagnostics-log/19_Add-automation.png)
 
 8. Aşağıdaki ekranda doldurmak zorunda Otomasyon hesabı formunu gösterir. 
 
-    ![Tümünü göster](./media/cdn-diagnostics-log/20_Automation.png)
+    ![Tümünü incele](./media/cdn-diagnostics-log/20_Automation.png)
 
 9. Otomasyon hesabı oluşturduktan sonra çözümünüze eklemek hazır olursunuz. **Oluştur** düğmesini seçin.
 
-    ![Tümünü göster](./media/cdn-diagnostics-log/21_Ready.png)
+    ![Tümünü incele](./media/cdn-diagnostics-log/21_Ready.png)
 
 10. Çözümünüzün artık çalışma alanınıza eklenmiş. Azure portalı panonuza geri dönün.
 
-    ![Tümünü göster](./media/cdn-diagnostics-log/22_Dashboard.png)
+    ![Tümünü incele](./media/cdn-diagnostics-log/22_Dashboard.png)
 
     Çalışma alanınıza dönmek için oluşturulan bir Log Analytics çalışma alanı seçin. 
 
 11. Seçin **OMS portalında** yeni çözümünüzü görmek için kutucuğu.
 
-    ![Tümünü göster](./media/cdn-diagnostics-log/23_workspace.png)
+    ![Tümünü incele](./media/cdn-diagnostics-log/23_workspace.png)
 
 12. Portalınızı, aşağıdaki ekrana görünmelidir:
 
-    ![Tümünü göster](./media/cdn-diagnostics-log/24_OMS-solution.png)
+    ![Tümünü incele](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
     Verilerinizi birkaç görünüm görmek için kutucuklar birini seçin.
 
-    ![Tümünü göster](./media/cdn-diagnostics-log/25_Interior-view.png)
+    ![Tümünü incele](./media/cdn-diagnostics-log/25_Interior-view.png)
 
     Tek bir görünüm verilerini temsil eden başka kutucuklar görmek için sağa veya sola kaydırma yapabilirsiniz. 
 
     Verileriniz hakkında daha fazla ayrıntı için kutucuklar birini seçin.
 
-     ![Tümünü göster](./media/cdn-diagnostics-log/26_Further-detail.png)
+     ![Tümünü incele](./media/cdn-diagnostics-log/26_Further-detail.png)
 
 ### <a name="offers-and-pricing-tiers"></a>Teklifleri ve fiyatlandırma katmanları
 
@@ -300,11 +300,11 @@ Teklifleri ve fiyatlandırma katmanları yönetimi çözümleri için gördüğ�
 
 Verilerinizi kullanarak görünümünü özelleştirebilirsiniz **Görünüm Tasarımcısı**. Tasarlamaya için Log Analytics çalışma alanınıza gidin ve seçin **Görünüm Tasarımcısı** Döşe.
 
-![Tasarımcıyı Görüntüle](./media/cdn-diagnostics-log/27_Designer.png)
+![Görünüm Tasarımcısı](./media/cdn-diagnostics-log/27_Designer.png)
 
 Sürükle ve bırak grafikler ve veri doldurma türleri, ayrıntılı analiz etmek istersiniz.
 
-![Tasarımcıyı Görüntüle](./media/cdn-diagnostics-log/28_Designer.png)
+![Görünüm Tasarımcısı](./media/cdn-diagnostics-log/28_Designer.png)
 
     
 ## <a name="log-data-delays"></a>Günlük veri gecikmeleri
@@ -353,7 +353,7 @@ Aşağıdaki tablo, analiz günlükleri için çekirdek kullanılabilir ölçüm
 | EgressCacheUncacheable | Varlığın Cache-Control ve/veya Expires üst bilgileri tarafından önbelleğe alınmasını engellenir varlıklar için giden veri aktarımı. Bunu POP veya HTTP istemcisi tarafından önbelleğe alınması gerektiğini değil olduğunu gösterir. | Evet | Evet | Hayır |
 | EgressCacheOthers | Diğer önbellek senaryolar için giden veri aktarımları. | Hayır | Evet | Hayır |
 
-* Giden veri aktarımı, CDN POP sunucudan istemciye trafiği ifade eder.
+\* Giden veri aktarımı, CDN POP sunucudan istemciye trafiği ifade eder.
 
 
 ### <a name="schema-of-the-core-analytics-logs"></a>Çekirdek analizi günlüklerinde şeması 

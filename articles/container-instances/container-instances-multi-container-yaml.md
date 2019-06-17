@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.openlocfilehash: a0a91ece4f219cf822673cd457c064c326b89478
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66149087"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Öğretici: Bir YAML dosyası kullanarak çok kapsayıcılı bir grup dağıtma
@@ -125,7 +125,7 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## <a name="view-container-logs"></a>Kapsayıcı günlüklerini görüntüle
+## <a name="view-container-logs"></a>Kapsayıcı günlüklerini görüntüleme
 
 Kullanarak bir kapsayıcının günlük çıktısını görüntülemek [az kapsayıcı günlüklerini] [ az-container-logs] komutu. `--container-name` Kapsayıcı günlüklerini çekme yapılacağı bağımsız değişken belirtir. Bu örnekte, `aci-tutorial-app` kapsayıcısı belirtildi.
 
@@ -133,7 +133,7 @@ Kullanarak bir kapsayıcının günlük çıktısını görüntülemek [az kapsa
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-Çıkış:
+Çıktı:
 
 ```console
 listening on port 80
@@ -148,7 +148,7 @@ Sepet kapsayıcı için günlükleri görmek için belirten benzer bir komut ça
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-Çıkış:
+Çıktı:
 
 ```console
 Every 3s: curl -I http://localhost                          2019-03-21 20:36:41

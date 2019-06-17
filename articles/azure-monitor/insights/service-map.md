@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606497"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure'da hizmet eşlemesi çözümünü kullanma
@@ -29,7 +29,7 @@ Bu makalede, ekleme ve hizmet eşlemesi kullanarak ayrıntılarını açıklar. 
 >Hizmet eşlemesi zaten dağıttıysanız, artık Ayrıca, maps Azure İzleyici'de VM'ler için VM durumunu ve performansını izlemek için ek özellikler içeren görüntüleyebilirsiniz. Daha fazla bilgi için bkz. [Vm'lere genel bakış için Azure İzleyici](../../azure-monitor/insights/vminsights-overview.md).
 
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="enable-service-map"></a>Hizmet eşlemesini etkinleştir
@@ -160,10 +160,10 @@ Başarısız bağlantılar gösterilir işlemleri ve bilgisayarlar, hizmet eşle
 
 Başarısız bağlantılar sorun giderme ile geçiş doğrulama, güvenlik analizi ve genel mimari anlama yardımcı anlama. Başarısız bağlantılar bazen zararsız, ancak bunlar genellikle doğrudan aniden ulaşılamaz hale bir yük devretme ortam veya Bulut geçişten sonra konuşmaya çözememesi iki uygulama katmanları gibi bir sorun üzerine gelin.
 
-## <a name="client-groups"></a>İstemci Grupları
+## <a name="client-groups"></a>İstemci grupları
 İstemci grupları bağımlılık aracınız yok istemci makineler temsil eden harita üzerinde kutularıdır. Tek bir istemci grubundaki istemcileri için bir tek bir işlem veya makine temsil eder.
 
-![İstemci Grupları](media/service-map/client-groups.png)
+![İstemci grupları](media/service-map/client-groups.png)
 
 Bir istemci grubundaki sunucuların IP adreslerini görmek için grubu seçin. Grup içeriğini listelenen **istemci grubu özellikleri** bölmesi.
 
