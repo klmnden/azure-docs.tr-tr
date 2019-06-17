@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
 ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967750"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps B2B tümleştirme hesapları için bölgeler arası olağanüstü durum kurtarma
@@ -91,7 +91,7 @@ Gelen iletiler için olağanüstü durum kurtarmayı etkinleştirmek için yinel
 
 1. Oluşturma bir [mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md) ikincil bir bölgede.    
 
-2. Arama **X12**seçip **denetim numarası değiştirildiğinde X12-**.   
+2. Arama **X12**seçip **denetim numarası değiştirildiğinde X12-** .   
 
    ![X12 arayın](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn1.png)
 
@@ -112,7 +112,7 @@ Gelen iletiler için olağanüstü durum kurtarmayı etkinleştirmek için yinel
 
 6. Arama **X12**seçip **X12-ekleme veya güncelleştirme denetim numaraları**.   
 
-   ![Denetim numaralarını ekleyin veya güncelleştirin](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Ekleme veya güncelleştirme denetim numaraları](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. Bir eylem bir ikincil bölgeye tümleştirme hesabına bağlanacak seçin **Bağlantıyı Değiştir** > **yeni bağlantı Ekle** kullanılabilir tümleştirme hesapları listesi. Bir bağlantı adı girin, seçin, *ikincil bölgeye tümleştirme hesabı* listesinden seçip **Oluştur**. 
 
@@ -146,7 +146,7 @@ Gelen iletiler için olağanüstü durum kurtarmayı etkinleştirmek için EDIFA
 
 1. Oluşturma bir [mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md) ikincil bir bölgede.    
 
-2. Arama **EDIFACT**seçip **denetim numarası değiştirildiğinde EDIFACT -**.
+2. Arama **EDIFACT**seçip **denetim numarası değiştirildiğinde EDIFACT -** .
 
    ![EDIFACT arayın](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
 
@@ -167,7 +167,7 @@ Gelen iletiler için olağanüstü durum kurtarmayı etkinleştirmek için EDIFA
 
 7. Arama **EDIFACT**seçip **EDIFACT - ekleme veya güncelleştirme denetim numaraları**.   
 
-   ![Denetim numaralarını ekleyin veya güncelleştirin](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Ekleme veya güncelleştirme denetim numaraları](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. Bir eylem bir ikincil bölgeye tümleştirme hesabına bağlanacak seçin **Bağlantıyı Değiştir** > **yeni bağlantı Ekle** kullanılabilir tümleştirme hesapları listesi. Bir bağlantı adı girin, seçin, *ikincil bölgeye tümleştirme hesabı* listesinden seçip **Oluştur**.
 

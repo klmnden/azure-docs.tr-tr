@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: b39296e18b38180e1081866d6e8197973dc782b1
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002155"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Amazon Web Services hesabına bağlanma
@@ -36,7 +36,7 @@ Aşağıdaki bölümlerde, Cloudyn'e erişim sağlamak için bir salt okunur IAM
 
 1. Cloudyn portalını Azure portalından açın veya gidin [ https://azure.cloudyn.com ](https://azure.cloudyn.com) ve oturum açın.
 2. Dişli simgesine tıklayın ve ardından **bulut hesapları**.
-3. Hesapları Yönetimi'nde seçin **AWS hesapları** sekmesine ve ardından **yeni Ekle +**.
+3. Hesapları Yönetimi'nde seçin **AWS hesapları** sekmesine ve ardından **yeni Ekle +** .
 4. İçinde **AWS hesabı Ekle** iletişim kutusunda, kopyalama **Dış kimlik** ve AWS oluşturma adımları sonraki bölümde rol için değer kaydedin. Dış hesabınıza benzersiz kimliğidir. Aşağıdaki görüntüde, örneğin dış kimliğidir _Contoso_ bir sayı takip eder. Kimliğinizi farklıdır.  
     ![AWS hesabı Ekle iletişim kutusunda gösterilen dış kimliği](./media/connect-aws-account/external-id.png)
 
@@ -57,7 +57,7 @@ Aşağıdaki bölümlerde, Cloudyn'e erişim sağlamak için bir salt okunur IAM
 
 1. Cloudyn portalını Azure portalından açın veya gidin https://azure.cloudyn.com/ ve oturum açın.
 2. Dişli simgesine tıklayın ve ardından **bulut hesapları**.
-3. Hesapları Yönetimi'nde seçin **AWS hesapları** sekmesine ve ardından **yeni Ekle +**.
+3. Hesapları Yönetimi'nde seçin **AWS hesapları** sekmesine ve ardından **yeni Ekle +** .
 4. İçinde **hesap adı**, hesap için bir ad yazın.
 5. Yanındaki **erişim türü**seçin **IAM rol**.
 6. İçinde **rol ARN** alan, daha önce kopyaladığınız değeri yapıştırın ve ardından **Kaydet**.  
@@ -94,7 +94,7 @@ Aşağıdaki bölümlerde, Cloudyn'e erişim sağlamak için salt okunur bir kul
 
 1. Cloudyn portalını Azure portalından açın veya https://azure.cloudyn.com/ sayfasına gidip oturum açın.
 2. Dişli simgesine tıklayın ve ardından **bulut hesapları**.
-3. Hesapları Yönetimi'nde seçin **AWS hesapları** sekmesine ve ardından **yeni Ekle +**.
+3. Hesapları Yönetimi'nde seçin **AWS hesapları** sekmesine ve ardından **yeni Ekle +** .
 4. İçin **hesap adı**, hesap adını yazın.
 5. Yanındaki **erişim türü**seçin **IAM kullanıcı**.
 6. İçinde **erişim anahtarı**, Yapıştır **erişim anahtarı kimliği** credentials.csv dosyasından değer.

@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477153"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>SQL Server Yedekleme ve geri yükleme için Azure depolama kullanma
@@ -51,14 +51,14 @@ Aşağıdaki Azure bileşenleri için Azure Blob Depolama hizmetinin yedekleme y
 | --- | --- |
 | **Depolama Hesabı** |Depolama hesabı, tüm depolama hizmetleri için başlangıç noktasıdır. Bir Azure Blob Depolama hizmetine erişmek için öncelikle bir Azure depolama hesabı oluşturun. Azure Blob Depolama hizmeti hakkında daha fazla bilgi için bkz: [Azure Blob Depolama hizmetini kullanma](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Kapsayıcı** |Bir kapsayıcı, BLOB'ları kümesi bir gruplandırmasını sağlar ve sınırsız sayıda BLOB depolayabilir. SQL Server yazmak için bir Azure Blob hizmeti, yedekleme, en az oluşturulan kök kapsayıcı olmalıdır. |
-| **Blob** |Bir dosya herhangi bir türü ve boyutu. BLOB'ları şu URL biçimi kullanılarak adreslenebilir: **https://[storage account].blob.core.windows.net/[container]/[blob]**. Sayfa BLOB'ları hakkında daha fazla bilgi için bkz: [anlama blok ve sayfa Blobları](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Blob** |Bir dosya herhangi bir türü ve boyutu. BLOB'ları şu URL biçimi kullanılarak adreslenebilir: **https://[storage account].blob.core.windows.net/[container]/[blob]** . Sayfa BLOB'ları hakkında daha fazla bilgi için bkz: [anlama blok ve sayfa Blobları](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>SQL Server bileşenleri
 Aşağıdaki SQL Server bileşenleri için Azure Blob Depolama hizmetinin yedekleme yapılırken kullanılır.
 
 | Bileşen | Açıklama |
 | --- | --- |
-| **URL** |Bir Tekdüzen Kaynak Tanımlayıcısı (URI) benzersiz bir yedekleme dosyası için bir URL belirtir. URL, SQL Server Yedekleme dosyasının adını ve konumunu sağlamak için kullanılır. URL, gerçek bir blob, yalnızca bir kapsayıcı işaret etmelidir. Blobun mevcut değilse oluşturulur. Mevcut bir bloba belirtilirse, yedekleme başarısız olursa sürece > WITH FORMAT seçeneği belirtildi. Belirttiğiniz BACKUP komutundaki URL örneği aşağıdadır: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS önerilir, ancak gerekli değildir. |
+| **URL** |Bir Tekdüzen Kaynak Tanımlayıcısı (URI) benzersiz bir yedekleme dosyası için bir URL belirtir. URL, SQL Server Yedekleme dosyasının adını ve konumunu sağlamak için kullanılır. URL, gerçek bir blob, yalnızca bir kapsayıcı işaret etmelidir. Blobun mevcut değilse oluşturulur. Mevcut bir bloba belirtilirse, yedekleme başarısız olursa sürece > WITH FORMAT seçeneği belirtildi. Belirttiğiniz BACKUP komutundaki URL örneği aşağıdadır: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]** . HTTPS önerilir, ancak gerekli değildir. |
 | **Kimlik bilgisi** |Bağlanmak ve Azure Blob Depolama hizmetinde kimlik doğrulaması için gerekli olan bilgileri, bir kimlik bilgisi olarak depolanır.  SQL Server'ın yedeklemeler için bir Azure Blob veya geri yükleme ondan yazmak için sırada bir SQL Server kimlik bilgileri oluşturulmalıdır. Daha fazla bilgi için [SQL sunucusu kimlik bilgisi](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]

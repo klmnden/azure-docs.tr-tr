@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443029"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Azure Time Series Insights’ı Uzaktan İzleme ile tümleştirme
@@ -80,7 +80,7 @@ IOT hub'ınıza bağlanmak için yeni bir olay kaynağı oluşturun. Önceki ad�
 
     ![Olay kaynakları görüntüle](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources.png)
 
-1. **Ekle**'ye tıklayın.
+1. **Ekle**'yi tıklatın.
 
     ![Olay kaynağı ekleme](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources-add.png)
 
@@ -89,13 +89,13 @@ IOT hub'ınıza bağlanmak için yeni bir olay kaynağı oluşturun. Önceki ad�
     | Ayar | Değer |
     | ------- | ----- |
     | Olay kaynağı adı | Aşağıdaki ekran adı kullanan **contosorm IOT hub**. Bu adımı tamamladığınızda, kendi benzersiz bir ad kullanın. |
-    | Kaynak | **IoT Hub’ı** |
+    | source | **IoT Hub’ı** |
     | İçeri aktarma seçeneği | **Mevcut aboneliklerden IOT hub'ı kullanın** |
     | Abonelik Kimliği | Açılan listeden Azure aboneliğinizi seçin. |
-    | Iot hub'ı adı | **contosorma57a6**. Uzaktan izleme çözümünüzden IOT hub'ınızın adını kullanın. |
-    | Iot hub'ı ilke adı | **iothubowner** kullanılan ilkeyi sahibi ilke olduğundan emin olun. |
-    | Iot hub'ı ilke anahtarı | Bu alan otomatik olarak doldurulur. |
-    | Iot hub'ı tüketici grubu | **timeseriesinsights** |
+    | IOT hub'ı adı | **contosorma57a6**. Uzaktan izleme çözümünüzden IOT hub'ınızın adını kullanın. |
+    | IOT hub'ı ilke adı | **iothubowner** kullanılan ilkeyi sahibi ilke olduğundan emin olun. |
+    | IOT hub'ı ilke anahtarı | Bu alan otomatik olarak doldurulur. |
+    | IOT hub tüketici grubu | **timeseriesinsights** |
     | Olay serileştirme biçimi | **JSON**     | 
     | Zaman damgası özellik adı | Boş bırakın |
 
@@ -136,7 +136,7 @@ Sonraki adım, Cosmos DB'ye gönderme kesmek için Azure Stream Analytics Yönet
 
 1. Seçin **ContosoRM** kaynak grubu.
 
-1. Akış işi kaynakları listesinden Azure Stream Analytics (ASA) bulun. Kaynak adı ile başlayan **streamingjobs -**.
+1. Akış işi kaynakları listesinden Azure Stream Analytics (ASA) bulun. Kaynak adı ile başlayan **streamingjobs -** .
 
 1. En üstünde, ASA işleri akış durdurmak için düğmeye tıklayın.
 

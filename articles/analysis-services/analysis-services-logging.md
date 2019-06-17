@@ -9,10 +9,10 @@ ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142578"
 ---
 # <a name="setup-diagnostic-logging"></a>Tanılama günlüğüne kaydetmeyi ayarlama
@@ -242,7 +242,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a name="enable-logging"></a>Günlüğe yazmayı etkinleştir
+### <a name="enable-logging"></a>Günlü kaydını etkinleştir
 
 Günlüğe kaydetmeyi etkinleştirmek için yeni depolama hesabı, sunucu hesabı ve kategori için Set-AzDiagnosticSetting cmdlet değişkenleri ile birlikte kullanın. Ayar aşağıdaki komutu çalıştırın **-etkin** bayrak **$true**:
 

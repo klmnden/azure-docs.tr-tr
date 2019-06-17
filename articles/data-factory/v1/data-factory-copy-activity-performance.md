@@ -14,15 +14,15 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60488259"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performansı ve ayarlama Kılavuzu kopyalayın
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](data-factory-copy-activity-performance.md)
 > * [Sürüm 2 (geçerli sürüm)](../copy-activity-performance.md)
 
@@ -64,7 +64,7 @@ Bir başvuru, aşağıdaki tabloda şirket içi teste dayanan verilen kaynak ve 
     <table>
     <tr>
         <td>CPU</td>
-        <td>2.20 GHz Intel Xeon E5-2660 v2 32 çekirdek</td>
+        <td>2\.20 GHz Intel Xeon E5-2660 v2 32 çekirdek</td>
     </tr>
     <tr>
         <td>Bellek</td>

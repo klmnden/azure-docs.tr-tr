@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475901"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>RecoveryManager sınıfı ile parça eşleme sorunlarını düzeltme
@@ -33,7 +33,7 @@ Terim tanımları için bkz: [esnek veritabanı araçları sözlüğü](sql-data
 
 ## <a name="why-use-the-recovery-manager"></a>Neden kurtarma Yöneticisi'ni kullanın
 
-Parçalı veritabanını ortamında, bir kiracı başına veritabanı ve sunucu başına çok sayıda veritabanı yoktur. Olabilir pek çok sunucu ortamında. Doğru sunucu ve veritabanı için çağrıları yönlendirilebilir için her veritabanı parça eşlemesinde eşlenir. Veritabanlarına göre izlenen bir **parçalama anahtarı**, ve her parça atanmış bir **anahtar değer aralığının**. Örneğin, bir parçalama anahtarı müşteri adları "D" "F" için temsil edebilir Tüm parçaları (veritabanlarının olarak da bilinir) ve kendi eşleme aralıkları eşleme içerdiği **genel parça eşleme (GSM)**. Her veritabanı bir harita olarak da bilinen parça yer alan aralıkların de içeren **yerel parça eşlemesinin (LSM)**. Bir uygulama bir parçaya bağlandığında, eşleme için hızlı alma uygulaması önbelleğe alınır. LSM önbelleğe alınmış verileri doğrulamak için kullanılır.
+Parçalı veritabanını ortamında, bir kiracı başına veritabanı ve sunucu başına çok sayıda veritabanı yoktur. Olabilir pek çok sunucu ortamında. Doğru sunucu ve veritabanı için çağrıları yönlendirilebilir için her veritabanı parça eşlemesinde eşlenir. Veritabanlarına göre izlenen bir **parçalama anahtarı**, ve her parça atanmış bir **anahtar değer aralığının**. Örneğin, bir parçalama anahtarı müşteri adları "D" "F" için temsil edebilir Tüm parçaları (veritabanlarının olarak da bilinir) ve kendi eşleme aralıkları eşleme içerdiği **genel parça eşleme (GSM)** . Her veritabanı bir harita olarak da bilinen parça yer alan aralıkların de içeren **yerel parça eşlemesinin (LSM)** . Bir uygulama bir parçaya bağlandığında, eşleme için hızlı alma uygulaması önbelleğe alınır. LSM önbelleğe alınmış verileri doğrulamak için kullanılır.
 
 Aşağıdaki nedenlerle LSM ve GSM eşitlenmemiş hale gelebilir:
 

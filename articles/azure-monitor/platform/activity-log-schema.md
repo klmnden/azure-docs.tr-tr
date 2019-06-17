@@ -9,10 +9,10 @@ ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244945"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
@@ -112,16 +112,16 @@ Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemler
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
-| Yetkilendirme |BLOB RBAC özelliklerinin olay. Genellikle, "action", "rolü" ve "scope" özelliklerini içerir. |
+| authorization |BLOB RBAC özelliklerinin olay. Genellikle, "action", "rolü" ve "scope" özelliklerini içerir. |
 | Çağıran |İşlem, UPN Talebi veya SPN talep kullanılabilirliğine göre gerçekleştiren kullanıcının e-posta adresi. |
 | Kanallar |Aşağıdaki değerlerden biri: "Yönetici", "İşlem" |
-| Talep |Kullanıcı veya uygulama Kaynak Yöneticisi'nde bu işlemi gerçekleştirmek için kimlik doğrulaması için Active Directory tarafından kullanılan JWT belirteci. |
+| claims |Kullanıcı veya uygulama Kaynak Yöneticisi'nde bu işlemi gerçekleştirmek için kimlik doğrulaması için Active Directory tarafından kullanılan JWT belirteci. |
 | correlationId |Genellikle bir GUID dize biçiminde. Bir Correlationıd paylaşan olayları aynı uber eyleme ait. |
 | description |Olay açıklaması statik metin. |
 | eventDataId |Olayın benzersiz tanımlayıcısı. |
 | EventName | Yönetim olayı kolay adı. |
 | category | "Yönetici" her zaman |
-| HTTP isteği |Http isteği açıklayan blob. Genellikle "Clientrequestıd'ye", "clientIpAddress" ve "method" (HTTP yöntemi. içerir For example, PUT). |
+| httpRequest |Http isteği açıklayan blob. Genellikle "Clientrequestıd'ye", "clientIpAddress" ve "method" (HTTP yöntemi. içerir For example, PUT). |
 | düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" ve "Bilgilendirici" |
 | resourceGroupName |Etkilenen kaynak için kaynak grubunun adı. |
 | resourceProviderName |Etkilenen kaynak için kaynak sağlayıcısının adı |
@@ -130,7 +130,7 @@ Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemler
 | operationId |Tek bir işleme karşılık gelen olaylar arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). |
-| durum |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır: Çalışmaya, sürüyor, başarılı, başarısız, etkin, çözümlenmiş. |
+| status |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır: Çalışmaya, sürüyor, başarılı, başarısız, etkin, çözümlenmiş. |
 | alt durumu |Genellikle karşılık gelen REST, HTTP durum kodu diyebilirsiniz, ama bu ortak değerleri gibi bir alt açıklayan diğer dizeleri de içerebilir: Tamam (HTTP durum kodu: 200) oluşturuldu (HTTP durum kodu: 201) kabul edildi (HTTP durum kodu: 202), içerik yok (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400) bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu hatası (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503), ağ geçidi zaman aşımı (HTTP durum kodu: 504). |
 | eventTimestamp |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
 | submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
@@ -272,7 +272,7 @@ Bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem du
 | resourceProviderName |Her zaman "Microsoft.Resourcehealth/healthevent/action". |
 | Kaynak türü | Kaynak durumu olay tarafından etkilenen kaynak türü. |
 | resourceId | Etkilenen kaynak adı kaynak kimliği. |
-| durum |Sistem durumu olayı durumunu açıklayan bir dize. Değerleri olabilir: Etkin, çözülmüş, sürüyor, güncelleştirildi. |
+| status |Sistem durumu olayı durumunu açıklayan bir dize. Değerleri olabilir: Etkin, çözülmüş, sürüyor, güncelleştirildi. |
 | alt durumu | Genellikle, uyarılar için null. |
 | submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
 | subscriptionId |Azure abonelik kimliği |
@@ -354,7 +354,7 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarıları kaydını içerir. Bu 
 | --- | --- |
 | Çağıran | Her zaman Microsoft.Insights/alertRules |
 | Kanallar | Her zaman "Yöneticisi işlemi" |
-| Talep | JSON blob uyarı altyapısının SPN (hizmet asıl adı) ya da kaynak türüne sahip. |
+| claims | JSON blob uyarı altyapısının SPN (hizmet asıl adı) ya da kaynak türüne sahip. |
 | correlationId | Dize biçiminde bir GUID. |
 | description |Uyarı olayının açıklaması statik metin. |
 | eventDataId |Uyarı olayı benzersiz tanımlayıcısı. |
@@ -366,7 +366,7 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarıları kaydını içerir. Bu 
 | operationId |Tek bir işleme karşılık gelen olaylar arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). |
-| durum |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır: Çalışmaya, sürüyor, başarılı, başarısız, etkin, çözümlenmiş. |
+| status |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır: Çalışmaya, sürüyor, başarılı, başarısız, etkin, çözümlenmiş. |
 | alt durumu | Genellikle, uyarılar için null. |
 | eventTimestamp |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
 | submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
@@ -464,7 +464,7 @@ Bu kategori, kayıt işlemi herhangi bir otomatik ölçeklendirme ayarı, abonel
 | --- | --- |
 | Çağıran | Her zaman Microsoft.Insights/autoscaleSettings |
 | Kanallar | Her zaman "Yöneticisi işlemi" |
-| Talep | JSON blob SPN (hizmet asıl adı) ya da kaynak türü ile otomatik ölçeklendirme altyapısı. |
+| claims | JSON blob SPN (hizmet asıl adı) ya da kaynak türü ile otomatik ölçeklendirme altyapısı. |
 | correlationId | Dize biçiminde bir GUID. |
 | description |Otomatik ölçeklendirme olayının statik metin açıklaması. |
 | eventDataId |Otomatik ölçeklendirme olayının benzersiz tanımlayıcısı. |
@@ -480,7 +480,7 @@ Bu kategori, kayıt işlemi herhangi bir otomatik ölçeklendirme ayarı, abonel
 | properties.OldInstancesCount | Etkin otomatik ölçeklendirme eylemin önce örnek sayısı. |
 | özellikleri. NewInstancesCount | Etkin otomatik ölçeklendirme eylemin sonra örnek sayısı. |
 | özellikleri. LastScaleActionTime | Otomatik ölçeklendirme eylemi gerçekleştiği, zaman damgası. |
-| durum |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır: Çalışmaya, sürüyor, başarılı, başarısız, etkin, çözümlenmiş. |
+| status |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır: Çalışmaya, sürüyor, başarılı, başarısız, etkin, çözümlenmiş. |
 | alt durumu | Genellikle, otomatik ölçeklendirme için null. |
 | eventTimestamp |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
 | submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
@@ -568,7 +568,7 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan herhangi bir uyar�
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). Bu özellikler, güvenlik uyarısı türüne bağlı olarak değişir. Bkz: [bu sayfayı](../../security-center/security-center-alerts-type.md) gelen güvenlik Merkezi'nden uyarı türlerini açıklaması. |
 | özellikleri. Önem derecesi |Önem düzeyi. Olası değerler şunlardır: "Yüksek" "Orta" veya "Düşük." |
-| durum |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır: Çalışmaya, sürüyor, başarılı, başarısız, etkin, çözümlenmiş. |
+| status |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır: Çalışmaya, sürüyor, başarılı, başarısız, etkin, çözümlenmiş. |
 | alt durumu | Genellikle, güvenlik olaylarında null. |
 | eventTimestamp |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
 | submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
@@ -645,7 +645,7 @@ Bu kategori, hizmetlerinizi için oluşturulan yeni önerisi kaydını içerir. 
 | resourceProviderName |"Gibi MICROSOFT.COMPUTE" için bu önerinin geçerli kaynak için kaynak sağlayıcısının adı |
 | Kaynak türü |Kaynak türü için "Gibi MICROSOFT.COMPUTE/virtualmachines" için bu önerinin geçerli kaynak adı |
 | resourceId |Önerinin geçerli kaynağının kaynak kimliği |
-| durum | Her zaman "etkin" |
+| status | Her zaman "etkin" |
 | submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
 | subscriptionId |Azure abonelik kimliği |
 | properties |Kümesi `<Key, Value>` öneri ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük).|
@@ -743,10 +743,10 @@ Bu kategoride işlemlerinin tarafından gerçekleştirilen tüm etkin eylem kay�
 
 | Öğe adı | Açıklama |
 | --- | --- |
-| Yetkilendirme | RBAC olay özelliklerinin dizisi. Yeni kaynaklar için eylem ve değerlendirme tetiklenen isteğinin kapsamı budur. Var olan kaynaklar için "Microsoft.Resources/checkPolicyCompliance/read" bir eylemdir. |
+| authorization | RBAC olay özelliklerinin dizisi. Yeni kaynaklar için eylem ve değerlendirme tetiklenen isteğinin kapsamı budur. Var olan kaynaklar için "Microsoft.Resources/checkPolicyCompliance/read" bir eylemdir. |
 | Çağıran | Yeni kaynaklar için bir dağıtım tarafından başlatılan kimlik. Var olan kaynaklar için Microsoft Azure İlkesi Insights RP GUİD'si. |
 | Kanallar | İlke olaylarını yalnızca "İşlem" kanal kullanın. |
-| Talep | Kullanıcı veya uygulama Kaynak Yöneticisi'nde bu işlemi gerçekleştirmek için kimlik doğrulaması için Active Directory tarafından kullanılan JWT belirteci. |
+| claims | Kullanıcı veya uygulama Kaynak Yöneticisi'nde bu işlemi gerçekleştirmek için kimlik doğrulaması için Active Directory tarafından kullanılan JWT belirteci. |
 | correlationId | Genellikle bir GUID dize biçiminde. Bir Correlationıd paylaşan olayları aynı uber eyleme ait. |
 | description | İlke olaylarını Bu alan boştur. |
 | eventDataId | Olayın benzersiz tanımlayıcısı. |
@@ -761,7 +761,7 @@ Bu kategoride işlemlerinin tarafından gerçekleştirilen tüm etkin eylem kay�
 | resourceProviderName | Değerlendirilen kaynağın kaynak sağlayıcısının adı. |
 | Kaynak türü | Yeni kaynaklar için değerlendirilen türüdür. Var olan kaynaklar için "Microsoft.Resources/checkPolicyCompliance" döndürür. |
 | resourceId | Değerlendirilen kaynağının kaynak kimliği. |
-| durum | İlke değerlendirme sonucu durumunu açıklayan bir dize. "Başarılı" çoğu ilke değerlendirmeleri döndürür, ancak reddetme etkisi "Başarısız" döndürür. Hataları auditIfNotExists veya Deployıfnotexists ayrıca "Başarısız" döndürür. |
+| status | İlke değerlendirme sonucu durumunu açıklayan bir dize. "Başarılı" çoğu ilke değerlendirmeleri döndürür, ancak reddetme etkisi "Başarısız" döndürür. Hataları auditIfNotExists veya Deployıfnotexists ayrıca "Başarısız" döndürür. |
 | alt durumu | İlke olaylarını alan boştur. |
 | submissionTimestamp | Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
 | subscriptionId | Azure abonelik kimliği |

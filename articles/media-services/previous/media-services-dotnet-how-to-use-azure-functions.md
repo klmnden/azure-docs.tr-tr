@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217528"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Media Services ile Azure işlevleri geliştirme
@@ -64,11 +64,11 @@ Bu makalede, tanımlı işlev, aşağıdaki ortam değişkenlerini içinde uygul
 2. Seçin **C#** dil ve **veri işleme** senaryo.
 3. Seçin **BlobTrigger** şablonu. Bu işlev, bir blob içine yüklenen her tetiklenir **giriş** kapsayıcı. **Giriş** adı belirtilen **yolu**, sonraki adımda.
 
-    ![dosya görüntüle](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Seçtiğinizde **BlobTrigger**, diğer bazı denetimler sayfada görüntülenir.
 
-    ![dosya görüntüle](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. **Oluştur**’a tıklayın. 
 
@@ -76,7 +76,7 @@ Bu makalede, tanımlı işlev, aşağıdaki ortam değişkenlerini içinde uygul
 
 Azure işlevinizi ve bu bölümde açıklanan diğer dosyaları kod dosyaları ile ilişkilidir. Bir işlev oluşturmak için Azure portalı kullandığınızda **function.json** ve **run.csx** sizin için oluşturulur. Ekleme veya karşıya yüklemek gereken bir **project.json** dosya. Bu bölümün geri kalanında her dosya için kısa bir açıklama sunar ve bunların tanımlarının gösterir.
 
-![dosya görüntüle](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>Function.JSON
 

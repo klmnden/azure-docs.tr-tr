@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
 ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65990150"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Oluşturma ve otomatik makine öğrenimi denemelerini (Önizleme) Azure portalında keşfedin
@@ -103,10 +103,10 @@ Aşağıdaki formu doldurmak için deneme oluşturma düğmesini seçin.
     Gelişmiş ayarlar|Açıklama
     ------|------
     Birincil Metrik| Model Puanlama için kullanılan ana ölçümünü. [Model ölçümleri hakkında daha fazla bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics).
-    Sonlandırma kriteri| Aşağıdaki ölçütleri karşılandığında, eğitim işine tam tamamlanmadan önce sona erer. <br> *Eğitim işi süresi (dakika)*: Eğitim işini çalıştırmak izin vermek için ne kadar.  <br> *En yüksek yineleme sayısı*: Eğitim işi test etmek için işlem hatları (Yineleme) sayısı. İş belirtilen yineleme sayısını birden fazla çalışmaz. <br> *Ölçüm puanı eşiği*:  Tüm işlem hatları için en düşük ölçüm puanı. Bu, erişmek istediğiniz bir tanımlanmış hedef ölçüm varsa, daha fazla zaman eğitim işini daha harcadığınız değil, sağlar.
+    Sonlandırma kriteri| Aşağıdaki ölçütleri karşılandığında, eğitim işine tam tamamlanmadan önce sona erer. <br> *Eğitim işi süresi (dakika)* : Eğitim işini çalıştırmak izin vermek için ne kadar.  <br> *En yüksek yineleme sayısı*: Eğitim işi test etmek için işlem hatları (Yineleme) sayısı. İş belirtilen yineleme sayısını birden fazla çalışmaz. <br> *Ölçüm puanı eşiği*:  Tüm işlem hatları için en düşük ölçüm puanı. Bu, erişmek istediğiniz bir tanımlanmış hedef ölçüm varsa, daha fazla zaman eğitim işini daha harcadığınız değil, sağlar.
     Ön işleme| Etkinleştirme veya devre dışı otomatik makine öğrenimi tarafından yapılan ön işleme seçin. Ön işleme otomatik veri temizleme, hazırlama ve dönüştürme yapay özellikleri oluşturulacak içerir. [Ön işleme hakkında daha fazla bilgi](#preprocess).
     Doğrulama| Eğitim işi kullanmak için çapraz doğrulama seçeneklerden birini seçin. [Daha fazla doğrulama bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options).
-    Eş Zamanlılık| Çok çekirdekli işlem kullanırken istediğiniz çok çekirdekli sınırları seçin.
+    Eşzamanlılık| Çok çekirdekli işlem kullanırken istediğiniz çok çekirdekli sınırları seçin.
     Engellenen algoritması| Algoritmalar ve eğitim işinden çıkarmak istediğiniz seçin.
 
    ![Gelişmiş ayarları formu](media/how-to-create-portal-experiments/advanced-settings.png)
@@ -213,7 +213,7 @@ Otomatik ML model dağıtımı ile kod yazmadan yardımcı olur:
 
     Çalıştırma kimliği, yineleme sayısı aşağıdaki biçimde içerecektir açıklamasını tarafından modeli tanımlayabilirsiniz: *< Run_ID > _ < Iteration_number > _Model*
 
-    ![Modeller: Görüntü oluştur](media/how-to-create-portal-experiments/model-create-image.png)
+    ![Modelleri: Görüntü oluşturma](media/how-to-create-portal-experiments/model-create-image.png)
 
 1. Görüntü için bir ad girin. 
 1. Seçin **Gözat** daha önce indirdiğiniz Puanlama dosyası (scoring.py) yüklemek için "Puanlama dosyası" kutusunun yanındaki düğmeyi.
@@ -225,7 +225,7 @@ Otomatik ML model dağıtımı ile kod yazmadan yardımcı olur:
       >[!Important]
       > Dosya adları gerekir altında 32 karakter olmalı ve başlamalı ve alfasayısal karakterler ile bitmelidir. Tire, alt çizgi, nokta ve arasında alfasayısal karakterler içerebilir. Alanları izin verilmez.
 
-    ![Görüntü oluştur](media/how-to-create-portal-experiments/create-image.png)
+    ![Görüntü oluşturma](media/how-to-create-portal-experiments/create-image.png)
 
 1. Görüntü oluşturma işlemini başlatmak için "Oluştur" düğmesini seçin. Bu kez tamamlanması birkaç dakika sürer, üst çubukta bir ileti görürsünüz.
 1. "Görüntüler" sekmesine gidin, dağıtmak istediğiniz görüntüyü yanındaki onay kutusunu işaretleyin ve "dağıtım oluştur" seçeneğini belirleyin. [Dağıtımları hakkında daha fazla bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: b736bb5549b7d236e746ba7b161cde79209e927b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60906595"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde Internet'e yönelik uç noktalarla erişimi sınırlama
@@ -34,7 +34,7 @@ Bu öneri "tümü" kaynağı var olmayan web bağlantı noktası oluşturulur.
 ## <a name="implement-the-recommendation"></a>Önerisini uygulama
 1. İçinde **öneriler dikey**seçin **Internet'e yönelik uç noktalarla erişimi sınırlama**.
 
-   ![İnternet'e yönelik uç nokta ile erişimi kısıtlama][1]
+   ![Internet'e yönelik uç noktalarla erişimi sınırlama][1]
 2. Bu dikey pencereyi açar **Internet'e yönelik uç noktalarla erişimi sınırlama**. Bu dikey pencereyi, olası bir güvenlik sorununa gelen kuralları ile sanal makineleri (VM'ler) listeler. Bir VM'yi seçin.
 
    ![Bir sanal Makineyi seçin][2]

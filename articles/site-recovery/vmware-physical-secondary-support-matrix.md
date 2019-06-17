@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66418244"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware Vm'lerini ve fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarma için destek matrisi
@@ -30,7 +30,7 @@ Bu makalede, kullandığınız zaman desteklenen özellikler özetlenmektedir [A
 
 **İşletim sistemi** | **Ayrıntılar**
 --- | ---
-vCenter sunucusu | vCenter 5.5, 6.0 ve 6.5<br/><br/> 6.0 veya 6.5 çalıştırırsanız, yalnızca 5.5 özellikleri desteklediğini unutmayın.
+vCenter sunucusu | vCenter 5.5, 6.0 ve 6.5<br/><br/> 6\.0 veya 6.5 çalıştırırsanız, yalnızca 5.5 özellikleri desteklediğini unutmayın.
 
 
 ## <a name="replicated-vm-support"></a>Çoğaltılan VM desteği

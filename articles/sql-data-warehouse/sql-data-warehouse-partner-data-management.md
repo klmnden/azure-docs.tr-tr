@@ -11,17 +11,17 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.openlocfilehash: 98f581eca893fc3f0cf2eae12fdcffbe0440bdd7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873690"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL veri ambarı veri yönetimi iş ortakları
 Veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin. Bu makalede, Microsoft iş ortağı şirketlerden veri yönetimi araçları ve Azure SQL veri ambarı destek çözümleriyle vurgulanır.
 
 ## <a name="data-management-partners"></a>Veri Yönetimi iş ortakları
-| İş Ortağı | Açıklama | Web sitesi/ürün bağlantısı |
+| Partner | Açıklama | Web sitesi/ürün bağlantısı |
 | ------- | ----------- | -------------------- |
 | ![Coffing veri ambarı][1] |**Coffing veri ambarı**<br>Coffing veri ambarlama, Nexus Chameleon, 10 yıl tasarım sistemlerinin sorgulama için adanmış bir araç sağlar. Nexus, SQL veri ambarı için bir sorgu araç olarak kullanılabilir. Şirket içinde sorgulamak ve farklı platformlar arasında bulut bilgisayarları ve verileri birleştirme için nexus kullanın. Noktası-Click-rapor! |[Ürün sayfası][coffing_website]<br> |
 | ![Inbrein][2] |**Inbrein MicroERD**<br>Inbrein MicroERD hassas veri modeli oluşturma, veri yedekliği azaltmak, verimliliği artırmak ve standartları gözlemlemek için ihtiyacınız olan araçları sağlar. Kapsamlı kullanıcı deneyimleri temel geliştirilmiştir, kullanıcı Arabirimi kullanarak bir Modelleyicisi DB modeller üzerinde kolayca ve uygun şekilde çalışabilir. MicroERD yeni ve geliştirilmiş işlevleri istemi işlevsel iyileştirmeler ve Güncelleştirmeler aracılığıyla sürekli olarak yararlanabilirsiniz. |[Ürün sayfası][inbrein_website]<br> |

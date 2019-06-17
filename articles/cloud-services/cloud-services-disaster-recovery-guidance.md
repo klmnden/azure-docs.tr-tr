@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
 ms.openlocfilehash: 976bb43fd3e6d6fdb19c733affd4afa2e49e482c
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967676"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Azure Cloud Services'ı etkileyen kesinti olması durumunda bir Azure hizmet gerekenler
@@ -36,14 +36,14 @@ Bu makale, bir tam bölge ana doğal afet veya yaygın hizmet kesintisi nedeniyl
 >
 
 
-## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>1. seçenek: Azure Traffic Manager aracılığıyla yedekleme dağıtımı kullanın
+## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>1\. seçenek: Azure Traffic Manager aracılığıyla yedekleme dağıtımı kullanın
 Uygulamanızın farklı bölgelerdeki birden fazla dağıtım bakımını yapma ve ardından kullanarak en güçlü olağanüstü durum kurtarma çözümü gerektirir [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) arasındaki trafiği yönlendirmek için. Azure Traffic Manager, birden çok sağlar [yönlendirme yöntemleri](../traffic-manager/traffic-manager-routing-methods.md), böylece bir birincil/yedekleme modeli kullanarak dağıtımlarınızı yönetmek mi, yoksa aralarındaki trafik bölme seçebilirsiniz.
 
 ![Azure Cloud Services, Azure Traffic Manager ile bölgeye Dengeleme](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
 Bir bölge kaybı için en hızlı yanıt için Traffic Manager'ın yapılandırdığınız önemli [uç nokta izleme](../traffic-manager/traffic-manager-monitoring.md).
 
-## <a name="option-2-deploy-your-application-to-a-new-region"></a>2. seçenek: Uygulamanızı yeni bir bölgeye dağıtın
+## <a name="option-2-deploy-your-application-to-a-new-region"></a>2\. seçenek: Uygulamanızı yeni bir bölgeye dağıtın
 Önceki seçeneği açıklandığı gibi birden çok etkin dağıtımlara koruma ek devam eden maliyetler doğurur. Kurtarma süresi hedefini (RTO) esnektir ve özgün koda veya derlenmiş bulut Hizmetleri paketi varsa, başka bir bölgede uygulamanızın yeni bir örneğini oluşturun ve DNS kayıtlarınızı yeni dağıtımına işaret edecek şekilde güncelleştirin.
 
 Bir bulut hizmeti uygulaması oluşturma ve dağıtma konusunda daha fazla ayrıntı için [bir bulut hizmeti oluşturma ve dağıtma konusunda](cloud-services-how-to-create-deploy-portal.md).

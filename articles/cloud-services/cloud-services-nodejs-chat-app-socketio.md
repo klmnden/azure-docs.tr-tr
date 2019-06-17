@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
 ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61433197"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Bir Azure bulut hizmeti Socket.IO ile Node.js sohbet uygulaması oluşturma
@@ -113,7 +113,7 @@ Değişiklikler kaydedildikten sonra **server.js**gerekli modülleri yüklemek i
    > 
    > AzureAuthoringTools v 2.7.1 ve AzureComputeEmulator v 2.7 yeniden - bu sürümü ile eşleştiğinden emin olun.
 
-2. Bir tarayıcı açın ve gidin **http://127.0.0.1**.
+2. Bir tarayıcı açın ve gidin **http://127.0.0.1** .
 3. Tarayıcı penceresi açıldığında bir takma ad girin ve ardından ENTER tuşuna basın.
    Bu, belirli bir takma ad ileti göndermek izin verir. Birden çok kullanıcı işlevselliğini test etmek için aynı URL'yi kullanarak ek tarayıcı pencerelerini açmak ve farklı takma adlarını girin.
    

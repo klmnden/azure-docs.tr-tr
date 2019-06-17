@@ -15,10 +15,10 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61128992"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>HANA tarafından izleme ve sorun giderme
@@ -67,7 +67,7 @@ Yüksek CPU kullanımı nedeniyle tetiklenen uyarı, ancak bunlarla sınırlı o
 
 Başvurmak [SAP HANA sorunlarını giderme: CPU ilgili neden olur ve çözümleri](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
 
-## <a name="operating-system"></a>İşletim Sistemi
+## <a name="operating-system"></a>İşletim sistemi
 
 Linux üzerinde SAP HANA için en önemli denetimleri biri saydam büyük sayfaları devre dışı bırakıldığından emin olmak için bkz: [SAP notu #2131662 – saydam büyük sayfalar (THP) SAP HANA sunucularda](https://launchpad.support.sap.com/#/notes/2131662).
 
@@ -94,10 +94,10 @@ Başvurmak [SAP HANA sorunlarını giderme: Bellek sorunlarını](https://help.s
 Başvurmak [SAP notu #2081065 – SAP HANA ağ sorunlarını giderme](https://launchpad.support.sap.com/#/notes/2081065) ve sorun giderme adımları bu SAP notuna göz atın, ağ gerçekleştirin.
 
 1. İstemci ve sunucu arasındaki gidiş dönüş süresi çözümleniyor.
-  A. SQL betiğini çalıştırmak [ _HANA\_ağ\_istemcileri_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. SQL betiğini çalıştırmak [ _HANA\_ağ\_istemcileri_](https://launchpad.support.sap.com/#/notes/1969700) _._
   
 2. Düğümler arası iletişimin analiz edin.
-  A. SQL betiğini Çalıştır [ _HANA\_ağ\_Hizmetleri_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. SQL betiğini Çalıştır [ _HANA\_ağ\_Hizmetleri_](https://launchpad.support.sap.com/#/notes/1969700) _._
 
 3. Linux komutu Çalıştır **ifconfig** (paket kayıpları oluşan çıktı gösterir).
 4. Linux komutu Çalıştır **tcpdump**.

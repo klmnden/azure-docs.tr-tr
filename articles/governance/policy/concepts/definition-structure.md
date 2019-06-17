@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979544"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
@@ -505,7 +505,7 @@ Birkaç kullanılabilir diğer adlarına sahip bir 'normal' bir ad ve başka gö
 
 'Normal' diğer adı alanı, tek bir değer temsil eder. Bu alan tüm değerler kümesini tam olarak tanımlandığı gibi artık ve az olmalıdır tam eşleşme karşılaştırma senaryoları için kullanılır.
 
-**[\*]** Diğer adı dizideki her öğenin değerini ve her öğenin belirli özelliklerini karşı Karşılaştırılacak mümkün kılar. Bu yaklaşım, öğe özelliklerini karşılaştırma mümkün kılar 'Hiçbiri ' ise 'varsa' veya ' tüm'ın ' senaryoları. Kullanarak **ipRules [\*]**, örnek, doğrulamak her _eylem_ olduğu _Reddet_, ancak kaç kuralları var veya hangi IP hakkındaendişelenmenizegerekyok_değer_ olduğu. Bu örnek kural eşleşme için denetler **ipRules [\*] .value** için **10.0.4.1** ve uygular **effectType** yalnızca en az bir eşleşme bulamazsa:
+**[\*]** Diğer adı dizideki her öğenin değerini ve her öğenin belirli özelliklerini karşı Karşılaştırılacak mümkün kılar. Bu yaklaşım, öğe özelliklerini karşılaştırma mümkün kılar 'Hiçbiri ' ise 'varsa' veya ' tüm'ın ' senaryoları. Kullanarak **ipRules [\*]** , örnek, doğrulamak her _eylem_ olduğu _Reddet_, ancak kaç kuralları var veya hangi IP hakkındaendişelenmenizegerekyok_değer_ olduğu. Bu örnek kural eşleşme için denetler **ipRules [\*] .value** için **10.0.4.1** ve uygular **effectType** yalnızca en az bir eşleşme bulamazsa:
 
 ```json
 "policyRule": {

@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152693"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılın
@@ -110,11 +110,11 @@ Daha fazla bilgi için bkz. [ad çözümlemesi kendi DNS sunucunuzu kullanan](..
 ### <a name="nsg"></a> Ağ güvenlik grubu
 Gelen/giden trafik bir ağ güvenlik grubu (NSG), Azure-SSIS tümleştirme çalışma zamanı tarafından kullanılan alt ağ uygulamanız gerekiyorsa, aşağıdaki bağlantı noktaları izin ver: 
 
-| Direction | Aktarım Protokolü | Kaynak | Kaynak bağlantı noktası aralığı | Hedef | Hedef bağlantı noktası aralığı | Açıklamalar |
+| Direction | Aktarım Protokolü | source | Kaynak bağlantı noktası aralığı | Hedef | Hedef bağlantı noktası aralığı | Açıklamalar |
 |---|---|---|---|---|---|---|
 | Gelen | TCP | AzureCloud<br/>(veya geniş kapsamı Internet gibi) | * | VirtualNetwork | 29876, 29877'numaralı (bir Azure Resource Manager sanal ağı'de IR katılırsanız) <br/><br/>10100, 20100, 30100'numaralı (klasik bir sanal ağ'de IR katılırsanız)| Data Factory hizmetinin bu bağlantı noktaları sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri ile iletişim kurmak için kullanır. <br/><br/> Veya bir alt ağ düzeyinde NSG oluşturmak ister, Data Factory her zaman bir NSG Azure-SSIS IR'yi barındıran sanal makinelere bağlı ağ arabirim kartı (NIC) düzeyinde yapılandırır Bu NIC düzeyinde NSG tarafından yalnızca belirtilen bağlantı noktalarında veri fabrikası IP adreslerinden gelen trafiğe izin verilir. Alt ağ düzeyinde Internet trafiği için bu bağlantı noktalarını açmanız bile NIC düzeyinde Data Factory IP adresleri olan IP adreslerinden gelen trafik engellenir. |
 | Giden | TCP | VirtualNetwork | * | AzureCloud<br/>(veya geniş kapsamı Internet gibi) | 443 | Sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri, Azure depolama ve Azure Event Hubs gibi Azure hizmetlerine erişmek için bu bağlantı noktasını kullanın. |
-| Giden | TCP | VirtualNetwork | * | İnternet | 80 | Sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri, Internet'ten sertifika iptal listesini indirmek için bu bağlantı noktasını kullanın. |
+| Giden | TCP | VirtualNetwork | * | Internet | 80 | Sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri, Internet'ten sertifika iptal listesini indirmek için bu bağlantı noktasını kullanın. |
 | Giden | TCP | VirtualNetwork | * | Sql<br/>(veya geniş kapsamı Internet gibi) | 1433, 11000-11999, 14000-14999 | SSISDB erişmek için bu bağlantı noktaları - Azure SQL veritabanı sunucunuz tarafından barındırılan sanal ağ kullanma, Azure-SSIS tümleştirme çalışma zamanı düğümleri bu amaç yönetilen örneği tarafından barındırılan SSISDB için geçerli değildir. |
 ||||||||
 
@@ -127,7 +127,7 @@ Veya kullanıcı tanımlı yollar (Udr) bir güvenlik duvarı veya bir çevre ko
 
 Her iki durumda da, sonraki atlama türü ile 0.0.0.0/0 rota uygulamak **Internet** Azure-SSIS IR barındıran ve böylece Data Factory hizmeti olan Azure-SSIS IR arasındaki iletişimi başarılı olabilmesi için alt ağda. 
 
-![Yol ekleme](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
+![Bir rota ekleyin](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
 
 Bu alt ağdan giden Internet trafiğini denetleme olanağı kaybetmekten endişeleriniz varsa da bir NSG kuralı Giden hedeflere kısıtlamak için alt ağda ekleyebilirsiniz [Azure veri merkezi IP adresleri](https://www.microsoft.com/download/details.aspx?id=41653). 
 

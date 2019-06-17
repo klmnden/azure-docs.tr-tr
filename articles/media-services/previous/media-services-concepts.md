@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 2b28dde812dcce120c951730c27809f7f024e122
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681551"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services kavramları 
@@ -61,7 +61,7 @@ Bir depolama şifrelenmiş varlık teslim etmek için Media Services, içeriğin
 
 **EnvelopeEncryptionProtected** – korumak (veya zaten korumalı karşıya yüklemek) istiyorsanız bu seçeneği kullanın. HTTP canlı akışı (Gelişmiş Şifreleme Standardı (AES ile) şifrelenmiş HLS). Önceden AES ile şifrelenmiş HLS yüklüyorsanız, Transform Manager tarafından şifrelenmiş gerekir.
 
-### <a name="access-policy"></a>Erişim ilkesi
+### <a name="access-policy"></a>Erişim İlkesi
 Bir [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) bir varlığa (örneğin, okuma, yazma ve liste) izinler ve erişim süresini tanımlar. Bir varlıkta bulunan dosyalara erişmek için kullanılacak bir Bulucu için genellikle bir AccessPolicy nesne geçirmeniz gerekir.
 
 >[!NOTE]
@@ -159,7 +159,7 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 - [AES-128 ile koruma](media-services-protect-with-aes128.md)
 - [PlayReady/Widevine ile koruma](media-services-protect-with-playready-widevine.md)
 
-## <a name="delivering"></a>Teslim ediliyor
+## <a name="delivering"></a>Teslim etme
 ### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Dinamik paketleme
 Media Services ile çalışırken, Uyarlamalı bit hızı MP4 kümesi, Ara dosyaları olarak kodlayın ve daha sonra istediğiniz biçimi kullanarak küme dönüştürmek için önerilir [dinamik paketleme](media-services-dynamic-packaging-overview.md).
 

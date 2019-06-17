@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171635"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM'LERİNDE olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
@@ -137,8 +137,8 @@ Gerekirse yapılandırma sunucusunu aynı kasaya yeniden kaydettirin. Varsayıla
 
 Yapılandırma sunucusunu güncelleştirmek için güncelleştirme paketleri çalıştırdığınız. Güncelleştirmeleri kadar N-4 sürümleri için uygulanabilir. Örneğin:
 
-- 9.7, 9.8, 9.9 veya 9.10 çalıştırırsanız, doğrudan 9.11 için yükseltebilirsiniz.
-- 9.6 veya önceki bir sürümünü çalıştırın ve 9.11 için yükseltmek istiyorsanız 9.7 sürümüne yükseltmeniz gerekir. 9.11 önce.
+- 9\.7, 9.8, 9.9 veya 9.10 çalıştırırsanız, doğrudan 9.11 için yükseltebilirsiniz.
+- 9\.6 veya önceki bir sürümünü çalıştırın ve 9.11 için yükseltmek istiyorsanız 9.7 sürümüne yükseltmeniz gerekir. 9\.11 önce.
 
 Azure Site Recovery bileşenleri hakkında ayrıntılı yönergeler için destek bildirimiyle başvuran [burada](https://aka.ms/asr_support_statement).
 Güncelleştirme paketleri yapılandırma sunucusundaki tüm sürümlerine yükseltme için bağlantılar kullanılabilir [burada](https://aka.ms/asr_update_rollups).
@@ -154,13 +154,13 @@ Sunucuyu aşağıdaki gibi yükseltin:
     ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Güncelleştirme yükleyicisi dosya yapılandırma sunucusuna indirin.
 
-    ![Güncelle](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Yükleyiciyi çalıştırmak için çift tıklayın.
 5. Yükleyici, makine üzerinde çalışan geçerli sürümünü algılar. Tıklayın **Evet** yükseltmeyi başlatmak için.
 6. Yükseltme tamamlandığında sunucu yapılandırmasını doğrular.
 
-    ![Güncelle](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Tıklayın **son** yükleyici kapatın.
 8. Diğer Site Recovery bileşenlerini yükseltmek için başvurmak bizim [Yükseltme Kılavuzu](https://aka.ms/asr_vmware_upgrades).

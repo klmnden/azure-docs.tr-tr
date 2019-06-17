@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 05/22/2019
 ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002204"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Yaygın Azure veritabanı geçiş hizmeti sorunlarını ve hatalarını giderme
@@ -96,7 +96,7 @@ Bir MySQL veritabanı için Azure veritabanı geçiş hizmeti aracılığıyla M
 
 | Nedeni         | Çözüm    |
 | ------------- | ------------- |
-| Geçişi, geçiş sırasında kilit bekleme zaman aşımı nedeniyle başarısız olduğunda bu hata oluşur. | Sunucu parametresinin değerini artırmayı **'innodb_lock_wait_timeout'**. İzin verilen en yüksek değer 1073741824 ' dir. |
+| Geçişi, geçiş sırasında kilit bekleme zaman aşımı nedeniyle başarısız olduğunda bu hata oluşur. | Sunucu parametresinin değerini artırmayı **'innodb_lock_wait_timeout'** . İzin verilen en yüksek değer 1073741824 ' dir. |
 
 ## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>Kaynak SQL Server dinamik bağlantı noktası kullanırken bağlanma veya adlandırılmış örneğine hata
 

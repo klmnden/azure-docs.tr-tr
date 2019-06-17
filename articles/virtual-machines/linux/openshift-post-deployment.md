@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: fba29cd55f2d765faa107de3a8961032ef44deec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771366"
 ---
 # <a name="post-deployment-tasks"></a>Dağıtım sonrası görevler
@@ -83,7 +83,7 @@ Azure portalında:
 
    ![Uygulama kaydı](media/openshift-post-deployment/app-registration.png)
 
-6. 1. Adım'a tıklayın: API seçin ve ardından **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Tıklayın **seçin** altındaki.
+6. 1\. Adım'a tıklayın: API seçin ve ardından **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)** . Tıklayın **seçin** altındaki.
 
    ![Uygulama kaydı API seçimi](media/openshift-post-deployment/app-registration-select-api.png)
 

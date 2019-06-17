@@ -10,10 +10,10 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61074585"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Otomasyonu durum yapılandırması ile çalışmaya başlama
@@ -75,7 +75,7 @@ Ardından, yapılandırmayı Otomasyon hesabına aktarın.
 
    ![Ekran görüntüsü ** içeri aktarma yapılandırması ** dikey penceresi](./media/automation-dsc-getting-started/AddConfig.png)
 
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**'ı tıklatın.
 
 ## <a name="viewing-a-configuration-in-azure-automation"></a>Azure Otomasyonu'nda bir yapılandırmayı görüntüleme
 

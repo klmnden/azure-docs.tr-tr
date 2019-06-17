@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: d7debbc760e103046ce9bb1a8bdf25a954d9891c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138566"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage İstemci Araçları
@@ -26,13 +26,13 @@ Yalnızca bir anlık görüntü kullanılabilir Azure depolama istemci Araçlar�
 <table>
   <tr>
     <th rowspan="2">Azure depolama istemci aracı</th>
-    <th rowspan="2">Blok Blobu</th>
-    <th rowspan="2">Sayfa Blobu</th>
-    <th rowspan="2">Ekleme Blobu</th>
+    <th rowspan="2">Blok blobu</th>
+    <th rowspan="2">Sayfa blobu</th>
+    <th rowspan="2">Ekleme blobu</th>
     <th rowspan="2">Tablolar</th>
     <th rowspan="2">Kuyruklar</th>
     <th rowspan="2">Dosyalar</th>
-    <th rowspan="2">Ücretsiz</th>
+    <th rowspan="2">Boş</th>
     <th colspan="4">Platform</th>
   </tr>
   <tr>
@@ -92,13 +92,13 @@ Biz aşağıdaki üçüncü taraf araçları tarafından istenen kalite ve işle
 <table>
   <tr>
     <th rowspan="2">Azure depolama istemci aracı</th>
-    <th rowspan="2">Blok Blobu</th>
-    <th rowspan="2">Sayfa Blobu</th>
-    <th rowspan="2">Ekleme Blobu</th>
+    <th rowspan="2">Blok blobu</th>
+    <th rowspan="2">Sayfa blobu</th>
+    <th rowspan="2">Ekleme blobu</th>
     <th rowspan="2">Tablolar</th>
     <th rowspan="2">Kuyruklar</th>
     <th rowspan="2">Dosyalar</th>
-    <th rowspan="2">Ücretsiz</th>
+    <th rowspan="2">Boş</th>
     <th colspan="4">Platform</th>
   </tr>
   <tr>

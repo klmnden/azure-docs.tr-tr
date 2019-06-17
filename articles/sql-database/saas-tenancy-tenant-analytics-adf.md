@@ -13,10 +13,10 @@ ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485108"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL veritabanı, SQL veri ambarı, Data Factory ve Power BI ile SaaS Analytics'i keşfedin
@@ -87,7 +87,7 @@ Bu öğretici, bilet satış verilerini analiz açıklar. Bu adımda, tüm kirac
 ### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>SQL veri ambarı, veri fabrikası, dağıtma ve Blob Depolama 
 Wingtip bilet uygulamasında kiracılar işlem verilerini çok sayıda veritabanı dağıtılır. Azure Data Factory (ADF) veri ambarı'na ayıklama, yükleme ve dönüştürme (ELT) bu verilerin düzenlemek için kullanılır. Verileri SQL veri ambarı'na en verimli bir şekilde yüklemek için ADF Ara blob dosyalarına verileri ayıklayan ve ardından [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) veri ambarı'na veri yüklemek için.   
 
-Bu adımda öğreticide kullandığınız ek kaynakları dağıtmak: SQL Data Warehouse adlı _tenantanalytics_, bir Azure Data Factory adlı _dbtodwload -\<kullanıcı\>_  , bir Azure depolama hesabı adı verilen ve _wingtipstaging\<kullanıcı\>_. Depolama hesabı, geçici olarak veri ambarı'na yüklenmeden önce blobları olarak ayıklanan veri dosyalarını tutmak için kullanılır. Bu adım Ayrıca, veri ambarı şeması dağıtır ve ELT işlem düzenleyen ADF işlem hatları tanımlar.
+Bu adımda öğreticide kullandığınız ek kaynakları dağıtmak: SQL Data Warehouse adlı _tenantanalytics_, bir Azure Data Factory adlı _dbtodwload -\<kullanıcı\>_  , bir Azure depolama hesabı adı verilen ve _wingtipstaging\<kullanıcı\>_ . Depolama hesabı, geçici olarak veri ambarı'na yüklenmeden önce blobları olarak ayıklanan veri dosyalarını tutmak için kullanılır. Bu adım Ayrıca, veri ambarı şeması dağıtır ve ELT işlem düzenleyen ADF işlem hatları tanımlar.
 1. PowerShell ISE'de açın *...\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* ayarlayın:
     - **$DemoScenario** = **2** Kiracı analiz veri ambarı, blob depolama ve data factory dağıtma 
 1. Tuşuna **F5** tanıtım betiğini çalıştırın ve Azure kaynaklarını dağıtın. 
@@ -126,7 +126,7 @@ Nesne Gezgini'nde:
  ![adf_portal](media/saas-tenancy-tenant-analytics/adf-data-factory-portal.png)
 
 Bu bölümde, oluşturduğunuz veri fabrikasına araştırır. Veri Fabrikası'nı başlatmak için aşağıdaki adımları izleyin:
-1. Portalda adlı veri fabrikasına tıklayın **dbtodwload -\<kullanıcı\>**.
+1. Portalda adlı veri fabrikasına tıklayın **dbtodwload -\<kullanıcı\>** .
 2. Tıklayın **yazar ve İzleyici** Data Factory Tasarımcı ayrı bir sekmede başlatmak için. 
 
 ## <a name="extract-load-and-transform-data"></a>Ayıklama, yükleme ve dönüştürme

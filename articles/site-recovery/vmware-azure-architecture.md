@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: f1fdbd143093beb9736e86b24b76843ad82b89f2
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66418364"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Vmware'den Azure'a olağanüstü durum kurtarma mimarisi
@@ -78,9 +78,9 @@ Gerektiği şekilde çoğaltma ayarlandıktan sonra her şeyin beklendiği gibi 
     * **Yeniden çalışma ilkesi**: Şirket içi siteye geri çoğaltılması için bir yeniden çalışma ilkesi gerekir. Şirket içinden Azure'a çoğaltma ilkesi oluşturduğunuzda bu ilke otomatik olarak oluşturulur.
 4. Bileşenleri hazır olduktan sonra yeniden çalışma üç eylemler gerçekleşir:
 
-    - 1. Aşama: Böylece bunlar Azure'dan çoğaltma Azure Vm'lerini yeniden koruma şirket içi VMware Vm'lerini geri dönün.
-    -  2. Aşama: Şirket içi siteye yük devretme çalıştırın.
-    - 3. Aşama: İş yüklerini geri başarısız olduktan sonra şirket içi Vm'leri için çoğaltmayı yeniden etkinleştirin.
+    - 1\. Aşama: Böylece bunlar Azure'dan çoğaltma Azure Vm'lerini yeniden koruma şirket içi VMware Vm'lerini geri dönün.
+    -  2\. Aşama: Şirket içi siteye yük devretme çalıştırın.
+    - 3\. Aşama: İş yüklerini geri başarısız olduktan sonra şirket içi Vm'leri için çoğaltmayı yeniden etkinleştirin.
     
  
 **Azure'dan VMware**

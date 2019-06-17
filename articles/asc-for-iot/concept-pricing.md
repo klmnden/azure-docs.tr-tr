@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 40963e0d81ccff21cc625b799833b996547a13b6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198332"
 ---
 # <a name="pricing-and-associated-costs"></a>Fiyatlandırma ve ilişkili maliyetler
@@ -62,7 +62,7 @@ Ayarlarınızı değiştirmek için:
 
 Aşağıdaki tabloda, ilişkili maliyetlerin bir özetini ve her seçeneğin etkilerini sağlar.
 
-|     | Kullanım | Açıklama |
+|     | Kullanım | Yorum |
 | --- | --- | --- |
 | **IOT hub'ı kota tüketim** |  |
 | [Cihaz dışarı](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) işi (ikizi dışarı aktarma) | Günde bir kez | Devre dışı _ikizi meta veri koleksiyonu_ |
@@ -73,7 +73,7 @@ Aşağıdaki tabloda, ilişkili maliyetlerin bir özetini ve her seçeneğin etk
 >[!Important]
 > İletişimlerini ciddi etkileri kullanılabilir güvenlik özelliklerine sahiptir.
   
-| Ayrıl | Etkileri |
+| Çıkma | Etkileri |
 | --- | --- |
 | _İkiz meta veri koleksiyonu_ | Devre dışı [özel uyarılar](quickstart-create-custom-alerts.md) |
 | | IOT Edge bildirim önerileri devre dışı bırak |

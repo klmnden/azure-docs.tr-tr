@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
 ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824449"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Kotalar ve kısıtlamalar Azure Media Services v3
@@ -24,14 +24,14 @@ Bu makalede, kotalar ve kısıtlamalar Azure Media Services v3 açıklanır.
 
 | Resource | Varsayılan Sınır | 
 | --- | --- | 
-| Azure Media Services hesabı başına Varlık sayısı | 1.000.000|
+| Azure Media Services hesabı başına Varlık sayısı | 1\.000.000|
 | Dinamik Bildirim Filtreleri|100|
 | İş başına JobInputs | 50 (sabit)|
 | İş başına JobOutputs | 20 (sabit) |
 | Dönüşüm içinde TransformOutputs | 20 (sabit) |
 | Dosyaları JobInput başına|10 (sabit)|
 | Dosya boyutu| Bazı senaryolarda, Media Services ile işleme için desteklenen en büyük dosya boyutu sınırı yoktur. <sup>(1)</sup> |
-| Media Services hesabı başına iş | 500.000 <sup>(2)</sup> (sabit)|
+| Media Services hesabı başına iş | 500\.000 <sup>(2)</sup> (sabit)|
 | Dönüşüm Listeleme|Yanıtı sayfalandırma, sayfa başına 1000 Dönüşüm|
 | İşleri Listeleme|Yanıtı sayfalandırma, sayfa başına 500 İş|
 | Media Services hesabı başına Canlı Etkinlik sayısı |5|

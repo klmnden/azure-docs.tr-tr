@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991442"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Senaryolar ve Media Services özelliklerinin veri merkezleri arasında kullanılabilirliği
@@ -194,7 +194,7 @@ AMS, isteğe bağlı iki kodlayıcı sunar: **Media Encoder Standard** ve **Medi
 
 #### <a name="availability"></a>Kullanılabilirlik
 
-|Medya işleyicisi adı|Durum|Veri merkezleri
+|Medya işlemci adı|Durum|Veri merkezleri
 |---|---|---|
 |Media Encoder Standard|GA|Tümü|
 |Media Encoder Premium İş Akışı|GA|Çin dışında tümü|
@@ -205,16 +205,16 @@ Medya Analizi, kuruluş ve işletmelerin video dosyalarından eyleme dönüştü
 
 #### <a name="availability"></a>Kullanılabilirlik
 
-|Medya işleyicisi adı|Durum|Veri merkezleri
+|Medya işlemci adı|Durum|Veri merkezleri
 |---|---|---|
-|Azure Media Face Detector|Preview|Tümü|
+|Azure Media Face Detector|Önizleme|Tümü|
 |Azure Media Indexer|GA|Tümü|
-|Azure Media Motion Detector|Preview|Tümü|
-|Azure Media OCR|Preview|Tümü|
-|Azure Media Redactor|Preview|Tümü|
-|Azure Media Stabilizer|Preview|Tümü|
-|Azure Media Video Thumbnails|Preview|Tümü|
-|Azure Media Indexer 2|Preview|Çin ve Federal Devlet bölgesi dışında tümü|
+|Azure Media Motion Detector|Önizleme|Tümü|
+|Azure Media OCR|Önizleme|Tümü|
+|Azure Media Redactor|Önizleme|Tümü|
+|Azure Media Stabilizer|Önizleme|Tümü|
+|Azure Media Video Thumbnails|Önizleme|Tümü|
+|Azure Media Indexer 2|Önizleme|Çin ve Federal Devlet bölgesi dışında tümü|
 
 ### <a name="protection"></a>Koruma
 
@@ -260,6 +260,6 @@ Media Services öğrenme yollarını gözden geçirin.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Geri bildirim gönder
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

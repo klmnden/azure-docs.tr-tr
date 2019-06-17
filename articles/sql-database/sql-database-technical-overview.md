@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073607"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti nedir
@@ -39,11 +39,11 @@ Aşağıdaki şekilde bu dağıtım seçenekleri gösterilmektedir:
 
 SQL Veritabanı, [Microsoft SQL Server veritabanı altyapısı](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) ile aynı kod tabanını kullanır. Microsoft'un bulut öncelikli stratejisi kapsamında en yeni SQL Server özellikleri önce SQL Veritabanı'na, ardından da SQL Server'ın kendine uygulanır. Bu yaklaşım sayesinde düzeltme veya yükseltme zahmetine girmeden milyonlarca veritabanında test edilmiş en yeni SQL Server özelliklerine sahip olabilirsiniz. Yeni özellikler açıklandıkça haberdar olmak için bkz:
 
-- **[SQL veritabanı için Azure yol haritası](https://azure.microsoft.com/roadmap/?category=databases)**:
+- **[SQL veritabanı için Azure yol haritası](https://azure.microsoft.com/roadmap/?category=databases)** :
 
   Yenilikleri ve yakında çıkacak öğrenmek için bir yer.
 
-- **[Azure SQL veritabanı blogu](https://azure.microsoft.com/blog/topics/database)**:
+- **[Azure SQL veritabanı blogu](https://azure.microsoft.com/blog/topics/database)** :
 
   SQL Server ürün ekibi üyeleri blog SQL veritabanı haberleri ve özellikleri hakkında burada bir yer.
 
@@ -110,20 +110,20 @@ Azure kullanılabilirlik alanları, yüksek kullanılabilirlik sorunu Yürüt ' 
 
 Aslında, Azure'nın sektörde lider % 99,99 kullanılabilirlik hizmet düzeyi sözleşmesi [(SLA)](https://azure.microsoft.com/support/legal/sla/), Microsoft tarafından yönetilen veri merkezlerinden oluşan küresel bir ağı tarafından desteklenen, uygulamanızın 7/24 çalışan uğramamasına yardımcı olur. Azure platformu, tam olarak her veritabanı yöneten ve hiçbir veri kaybı ve yüksek miktarda veri kullanılabilirliği garanti eder. Azure düzeltme eki uygulama, yedekleme, çoğaltma, hata algılama, arka plandaki potansiyel donanım, yazılım veya ağ arızaları, hata giderme, yük devretme, veritabanı yükseltmesi ve diğer bakım görevlerini otomatik olarak gerçekleştirir. Standart kullanılabilirlik düzeyine ulaşmak için işlem ve depolama katmanları ayrılır. Premium kullanılabilirliği, işlem ve depolama performansı için tek bir düğümde tümleştirme ve ardından perde Always On kullanılabilirlik grupları için benzer teknoloji uygulayarak elde edilir. Azure SQL veritabanı yüksek kullanılabilirlik özellikleri tam bir irdelemesi için bkz: [SQL veritabanı kullanılabilirlik](sql-database-high-availability.md). SQL Veritabanı ayrıca aşağıdakiler dahil olmak üzere yerleşik [iş sürekliliği ve global ölçeklenebilirlik](sql-database-business-continuity.md) özelliklerine sahiptir:
 
-- **[Otomatik yedeklemeler](sql-database-automated-backups.md)**:
+- **[Otomatik yedeklemeler](sql-database-automated-backups.md)** :
 
   SQL veritabanı, tam, değişiklik yedeklemelerinin ve işlem günlüğü yedeklemeleri Azure SQL veritabanı, herhangi bir noktasına geri yükleme sağlamak için otomatik olarak gerçekleştirir. Tek veritabanları ve havuza alınmış veritabanları için uzun süreli yedek saklama için Azure depolama için tam veritabanı yedeklemelerini depolamak için SQL veritabanı'nı yapılandırabilirsiniz. Yönetilen örnek için uzun süreli yedek saklama için yalnızca kopya yedekleri de gerçekleştirebilirsiniz.
 
-- **[Zaman içinde nokta geri yüklemeler](sql-database-recovery-using-backups.md)**:
+- **[Zaman içinde nokta geri yüklemeler](sql-database-recovery-using-backups.md)** :
 
   Tüm SQL veritabanı dağıtım seçeneklerine zaman herhangi bir Azure SQL veritabanı otomatik yedek elde tutma dönemi içinde bir noktaya geri destekler.
-- **[Etkin coğrafi çoğaltma](sql-database-active-geo-replication.md)**:
+- **[Etkin coğrafi çoğaltma](sql-database-active-geo-replication.md)** :
 
   Tek veritabanı ve havuza alınmış veritabanları, en fazla dört okunabilir ikincil veritabanı yapılandırmanızı aynı ya da Global olarak dağıtılmış Azure veri merkezlerinden sağlar.  Örneğin, yüksek hacimli eşzamanlı salt okunur işlemlere sahip bir katalog veritabanı kullanan bir SaaS uygulamanız varsa, etkin coğrafi çoğaltmayı kullanarak global okuma ölçeğini etkinleştirebilir ve birincil veritabanı üzerindeki okuma iş yükü kaynaklı performans sorunlarını ortadan kaldırabilirsiniz. Yönetilen örnek için otomatik yük devretme grupları kullanın.
-- **[Otomatik Yük devretme grupları](sql-database-auto-failover-group.md)**:
+- **[Otomatik Yük devretme grupları](sql-database-auto-failover-group.md)** :
 
   Tüm SQL veritabanı dağıtım seçeneklerine yüksek kullanılabilirliği etkinleştirme ve Yük Dengeleme saydam coğrafi çoğaltma ve yük devretme veritabanları, elastik havuzlar ve yönetilen örnekleri büyük kümeleri dahil olmak üzere global ölçekte, yük devretme grupları kullanmanıza olanak sağlar. Yük devretme grupları, en az yönetim yükü tüm karmaşık izleme, Yönlendirme ve yük devretme düzenlemesini SQL veritabanı'na bırakarak ile Global olarak dağıtılmış SaaS uygulamalarının oluşturulmasını sağlar.
-- **[Bölgesel olarak yedekli veritabanları](sql-database-high-availability.md)**:
+- **[Bölgesel olarak yedekli veritabanları](sql-database-high-availability.md)** :
 
   SQL veritabanı birden çok kullanılabilirlik alanında premium sağlama veya iş kritik veritabanları ya da elastik havuzlar sağlar. Bu veritabanları ve elastik havuzlar yüksek kullanılabilirlik için birden fazla yedekli çoğaltma içerdiğinden, bu çoğaltmaların birden fazla kullanılabilirlik alanına yerleştirilmesi, veri merkezi ölçek hatalarından veri kaybı olmadan otomatik olarak kurtarma becerisi de dahil olmak üzere daha yüksek esneklik sağlar.
 
@@ -191,16 +191,16 @@ SQL Veritabanı düzenli olarak denetimden geçmektedir ve birden fazla uyumlulu
 
 SQL Veritabanı uygulama oluşturma ve uygulamaların bakımını yapma işlemlerinin daha kolay ve daha verimli şekilde yapılmasını sağlar. SQL Veritabanı size, en iyi yaptığınız işe; mükemmel uygulamalar oluşturmaya odaklanma seçeneği sunar. Sahip olduğunuz araçları ve becerileri kullanarak SQL Veritabanı ile yönetebilir ve geliştirebilirsiniz.
 
-- **[Azure portalında](https://portal.azure.com/)**:
+- **[Azure portalında](https://portal.azure.com/)** :
 
   Tüm Azure hizmetleri yönetmek için web tabanlı bir uygulama
-- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**:
+- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)** :
 
   SQL Server'dan SQL veritabanı tüm SQL altyapılarını yönetebileceğiniz ücretsiz ve indirilebilir istemci uygulaması
-- **[SQL Server veri araçları, Visual Studio'da](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**:
+- **[SQL Server veri araçları, Visual Studio'da](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)** :
 
   SQL Server ilişkisel veritabanları, Azure SQL veritabanları, Integration Services paketleri, Analysis Services veri modelleri ve Reporting Services raporları geliştirmeye yönelik ücretsiz ve indirilebilir istemci uygulaması.
-- **[Visual Studio Code'u](https://code.visualstudio.com/docs)**:
+- **[Visual Studio Code'u](https://code.visualstudio.com/docs)** :
 
   Windows, macOS ve Linux dahil olmak üzere uzantıları destekleyen bir ücretsiz, indirilebilir ve açık kaynak kod Düzenleyicisi [mssql uzantısı](https://aka.ms/mssql-marketplace) Microsoft SQL Server, Azure SQL veritabanı ve SQL veri ambarı'nı sorgulamak için.
 

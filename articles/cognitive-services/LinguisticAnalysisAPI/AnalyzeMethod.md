@@ -12,10 +12,10 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401196"
 ---
 # <a name="analyze-method"></a>Analiz yöntemi
@@ -26,7 +26,7 @@ ms.locfileid: "61401196"
 **Analiz** REST API, verilen doğal dil giriş analiz etmek için kullanılır.
 Yalnızca bulma ilgili [tümce ve belirteçlere ayırmaktır](Sentences-and-Tokens.md) içinde giriş, bulma [konuşma bölümü etiketleri](POS-tagging.md), veya bulma [constituency ağaç](Constituency-Parsing.md).
 İlgili Çözümleyicileri seçerek istediğiniz hangi sonuçları belirtebilirsiniz.
-Tüm kullanılabilir Çözümleyicileri listesine bakmak  **[Çözümleyicileri](AnalyzersMethod.md)**.
+Tüm kullanılabilir Çözümleyicileri listesine bakmak  **[Çözümleyicileri](AnalyzersMethod.md)** .
 
 Giriş dizesinin dilini belirtmek gerektiğini unutmayın.
 
@@ -42,7 +42,7 @@ Ad | Type | Gerekli | Açıklama
 -----|-------|----------|------------
 **Dil**    | string | Evet | İki harfli ISO dil kod'analiz için kullanılacak. Örneğin, "en" İngilizce olarak belirlenmiştir.
 **analyzerIds** | dize listesi | Evet | Çözümleyiciler, uygulamak için bir GUID'ler listesi. Daha fazla bilgi için Çözümleyicileri belgelerine bakın.
-**Metin**        | string | Evet | Analiz edilecek ham giriş. Bu, bir sözcük veya tümceciği, tam bir cümle veya paragraf tam veya discourse gibi kısa bir dize olabilir.
+**text**        | string | Evet | Analiz edilecek ham giriş. Bu, bir sözcük veya tümceciği, tam bir cümle veya paragraf tam veya discourse gibi kısa bir dize olabilir.
 
 ## <a name="response-json"></a>Yanıt (JSON)
 

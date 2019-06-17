@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 6f9064c6027499fff3a8551ee60722cd66c54dc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877729"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure Data Lake depolama Gen1 ile HDInsight kümeleri oluşturma
@@ -56,7 +56,7 @@ Bu bölümde, varsayılan veya ek depolama alanı olarak Data Lake depolama Gen1
     ![HDInsight kümesi için hizmet sorumlusu ekleme](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "HDInsight kümesi için hizmet sorumlusu ekleme")
 
     - **Select Data Lake Store hesabı**: Mevcut bir Data Lake depolama Gen1 hesabını seçin. Mevcut bir Data Lake depolama Gen1 hesabı gereklidir.  [Ön koşullara](#prerequisites) bakın.
-    - **Kök yolu**: Kümeye özgü dosyalar depolanacak nerede bir yol girin. Ekran görüntüsünde olduğu __/kümeleri/myhdiadlcluster/__, hangi __/kümeleri__ klasör var olmalıdır ve portalın oluşturduğu *myhdicluster* klasör.  *Myhdicluster* küme adıdır.
+    - **Kök yolu**: Kümeye özgü dosyalar depolanacak nerede bir yol girin. Ekran görüntüsünde olduğu __/kümeleri/myhdiadlcluster/__ , hangi __/kümeleri__ klasör var olmalıdır ve portalın oluşturduğu *myhdicluster* klasör.  *Myhdicluster* küme adıdır.
     - **Data Lake Store erişimi**: HDInsight kümesi ve Data Lake depolama Gen1 hesabı arasında erişim yapılandırın. Data Lake depolama Gen1 yapılandırma yönergeleri için bkz erişim.
     - **Ek depolama hesapları**: Azure depolama hesapları, küme için ek depolama hesapları olarak ekleyin. Ek Data Lake depolama Gen1 hesapları eklemek için birincil depolama türü olarak Data Lake depolama Gen1 hesabı yapılandırırken verileri daha fazla Data Lake depolama Gen1 hesaplarında küme izinleri vermeyi tarafından gerçekleştirilir. Bkz: yapılandırma Data Lake depolama Gen1 erişim.
 

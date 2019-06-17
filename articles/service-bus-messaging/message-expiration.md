@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: fdfd7794961b0254526b124525c6e978d13b0114
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800272"
 ---
 # <a name="message-expiration-time-to-live"></a>İleti süre sonu (Yaşam Süresi)
@@ -64,13 +64,13 @@ Bu özellik kullanılarak etkinleştirilir [autoDeleteOnIdle](/azure/templates/m
 
 İşte ne kabul modu boşta kalma oranı varlıkları (kuyruklar, konular ve abonelikler):
 
-- Sıralar
+- Kuyruklar
     - Hiçbir gönderir  
     - Hayır alır  
     - Kuyruğa güncelleştirme yok  
     - Zamanlanmış ileti yok  
     - Hiçbir gözatma/göz atma 
-- Konular  
+- Konu başlıkları  
     - Hiçbir gönderir  
     - Konuya güncelleştirme yok  
     - Zamanlanmış ileti yok 

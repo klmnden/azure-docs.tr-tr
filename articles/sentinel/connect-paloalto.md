@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 40ee73b8cc9b95a4e2030ac38a6c322918dc878e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389087"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Palo Alto Networks gerecinize bağlanma
@@ -32,7 +32,7 @@ Azure Gözcü herhangi bir Palo Alto Networks gereç Syslog CEF günlük dosyala
 > [!NOTE]
 > Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
-## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>1. adım: Palo Alto Networks gerecinize bir aracı kullanarak bağlanma
+## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>1\. adım: Palo Alto Networks gerecinize bir aracı kullanarak bağlanma
 
 Palo Alto Networks gerecinize Azure Gözcü için bağlanmak için adanmış bir makinede bir aracı dağıtmak gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Aracı otomatik olarak veya el ile dağıtabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
 
@@ -98,7 +98,7 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
       1. Bu komutu kullanarak Syslog aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Hiçbir hata aracı günlüğünde şu komutu çalıştırarak onaylayın: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-palo-alto-networks-logs-to-the-syslog-agent"></a>2. adım: Palo Alto Networks günlükleri Syslog aracıya ilet
+## <a name="step-2-forward-palo-alto-networks-logs-to-the-syslog-agent"></a>2\. adım: Palo Alto Networks günlükleri Syslog aracıya ilet
 
 Palo Alto Networks, Syslog aracı üzerinden Azure çalışma alanınıza CEF biçiminde Syslog iletilerini iletecek şekilde yapılandırın:
 1.  Git [Common Event Format (CEF) yapılandırma kılavuzları](https://docs.paloaltonetworks.com/resources/cef) ve gereç türünüz için PDF dosyasını indirin. CEF olaylarını toplamak için Palo Alto Networks gerecini ayarlamak için tüm Kılavuzu'ndaki yönergeleri izleyin. 
@@ -115,7 +115,7 @@ Palo Alto Networks, Syslog aracı üzerinden Azure çalışma alanınıza CEF bi
 
 6. İlgili şema Palo Alto Networks olayları Log Analytics'te kullanmak için arama **CommonSecurityLog**.
 
-## <a name="step-3-validate-connectivity"></a>3. adım: Bağlantıyı doğrula
+## <a name="step-3-validate-connectivity"></a>3\. adım: Bağlantıyı doğrula
 
 Çalınıyor Log Analytics'te görünmesini günlüklerinizi başlatana kadar 20 dakika sürebilir. 
 

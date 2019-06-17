@@ -9,10 +9,10 @@ ms.date: 05/24/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 2b250f9f722bb1992d72b0555207a64dbc2dd972
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66271588"
 ---
 | Kategori | Veri deposu |
@@ -22,7 +22,7 @@ ms.locfileid: "66271588"
 | &nbsp; |[Azure Veri Gezgini](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Data Lake depolama 2. nesil](../articles/data-factory/connector-azure-data-lake-storage.md) |
-| &nbsp; |[MariaDB için Azure veritabanı](../articles/data-factory/connector-azure-database-for-mariadb.md) |
+| &nbsp; |[MariaDB için Azure Veritabanı](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[MySQL için Azure Veritabanı](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[PostgreSQL için Azure Veritabanı](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure dosyaları](../articles/data-factory/connector-azure-file-storage.md) |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66000099"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight kümeleri (Önizleme) otomatik olarak ölçeklendirme
@@ -26,7 +26,7 @@ Azure HDInsight'ın küme otomatik ölçeklendirme özelliği otomatik olarak ç
 
 Aşağıdaki tabloda, küme türlerini ve otomatik ölçeklendirme özelliği ile uyumlu sürümlerini açıklar.
 
-| Version | Spark | Kovan | LLAP | HBase | Kafka | Storm | ML |
+| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3.6 ESP olmadan | Evet | Evet | Hayır | Hayır | Hayır | Hayır | Hayır |
 | HDInsight 4.0 ESP olmadan | Evet | Evet | Hayır | Hayır | Hayır | Hayır | Hayır |
@@ -190,7 +190,7 @@ Bir HDInsight kümesi zamanlama tabanlı otomatik ölçeklendirme ile bir Azure 
 
 ![Çalışan düğümü zamanlama tabanlı ölçeklendirme seçeneğini etkinleştirin](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
-## <a name="best-practices"></a>En iyi yöntemler
+## <a name="best-practices"></a>En iyi uygulamalar
 
 ### <a name="choosing-load-based-or-schedule-based-scaling"></a>Yük veya zamanlama tabanlı ölçeklendirme seçme
 
@@ -222,8 +222,8 @@ Aşağıdaki listede görebileceğiniz tüm küme durum iletileri açıklanmakta
 | Küme durumu | Açıklama |
 |---|---|
 | Çalışıyor | Kümenin normal olarak çalışıyor. Önceki otomatik ölçeklendirme etkinliklerin tümünü başarıyla tamamladınız. |
-| Güncelleştiriliyor  | Küme otomatik ölçeklendirme yapılandırması güncelleştiriliyor.  |
-| HdInsight yapılandırması  | Bir kümenin ölçeğini artırır veya ölçeği azaltma işlemi devam ediyor.  |
+| Güncelleştirme  | Küme otomatik ölçeklendirme yapılandırması güncelleştiriliyor.  |
+| HDInsight yapılandırması  | Bir kümenin ölçeğini artırır veya ölçeği azaltma işlemi devam ediyor.  |
 | Güncelleştirme Hatası  | HDInsight, otomatik ölçeklendirme yapılandırması güncelleştirme sırasında sorunlarla karşılaştı. Müşteriler, güncelleştirmeyi yeniden deneyin ya da otomatik ölçeklendirmeyi devre dışı seçebilir.  |
 | Hata  | Kümeyle yanlış bir şeydir ve kullanılabilir değil. Bu kümeyi silin ve yeni bir tane oluşturun.  |
 

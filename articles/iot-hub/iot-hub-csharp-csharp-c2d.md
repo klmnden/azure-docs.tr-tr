@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
 ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864441"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Cihazınızı IOT hub'ı (.NET) ile buluttan iletiler gönderme
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 
 Azure IOT hub'ı yardımcı olan tam olarak yönetilen bir hizmet, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimi etkinleştirmek ve bir çözüm arka ucu ' dir. [Telemetri, bir CİHAZDAN bir IOT hub'ına gönderme... ](quickstart-send-telemetry-dotnet.md) IOT hub oluşturma, bir cihaz kimliği da sağlamak ve CİHAZDAN buluta iletiler gönderen bir cihaza kod gösterilmektedir.
 
@@ -113,7 +113,7 @@ Bu bölümde oluşturduğunuz cihaz uygulamasını değiştireceksiniz [telemetr
 
 Şimdi cihaz uygulaması için bulut-cihaz iletilerini gönderen bir .NET konsol uygulaması yazın.
 
-1. Geçerli Visual Studio çözümünde, çözüme sağ tıklayın ve Ekle > Yeni proje. Seçin **Windows Masaüstü** ardından **konsol uygulaması (.NET Framework)**. Projeyi adlandırın **SendCloudToDevice** ve .NET Framework'ün en son sürümü seçin ve ardından **Tamam** projeyi oluşturmak için.
+1. Geçerli Visual Studio çözümünde, çözüme sağ tıklayın ve Ekle > Yeni proje. Seçin **Windows Masaüstü** ardından **konsol uygulaması (.NET Framework)** . Projeyi adlandırın **SendCloudToDevice** ve .NET Framework'ün en son sürümü seçin ve ardından **Tamam** projeyi oluşturmak için.
 
    ![Visual Studio'da yeni proje](./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png)
 

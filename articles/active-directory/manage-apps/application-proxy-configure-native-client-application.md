@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb36d6a03da07681db468184a489a79f7f0deab7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825498"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Proxy uygulamaları ile etkileşim kurmak yerel istemci uygulamaları etkinleştirme
@@ -35,11 +35,11 @@ Yerel uygulama yayımlamak için Azure AD kimlik doğrulaması kimlik doğrulama
 
 Bu makalede uygulama ara sunucusu ve Azure AD kimlik doğrulama kitaplığı ile yerel bir uygulamayı yayımlamak için dört adımlarında size kılavuzluk eder.
 
-## <a name="step-1-publish-your-proxy-application"></a>1. Adım: Proxy uygulamanızı yayımlayın
+## <a name="step-1-publish-your-proxy-application"></a>1\. adım: Proxy uygulamanızı yayımlayın
 
 Diğer uygulamalarda olduğu gibi ara sunucu uygulamasını yayımlayın ve uygulamanıza erişmek için kullanıcı atama. Daha fazla bilgi için [uygulama ara sunucusu ile uygulama yayımlama](application-proxy-add-on-premises-application.md).
 
-## <a name="step-2-register-your-native-application"></a>2. Adım: Yerel uygulamanızı kaydetme
+## <a name="step-2-register-your-native-application"></a>2\. adım: Yerel uygulamanızı kaydetme
 
 Şimdi uygulamanızı Azure AD'de gibi kaydetmeniz gerekir:
 
@@ -54,12 +54,12 @@ Diğer uygulamalarda olduğu gibi ara sunucu uygulamasını yayımlayın ve uygu
    - Yalnızca kuruluşunuzun iç hesapları hedeflemek için seçin **hesapları yalnızca kuruluş bu dizinde**.
    - Yalnızca iş veya eğitim müşterileri hedeflemek için seçin **herhangi bir kuruluş dizini hesaplarında**.
    - Microsoft kimlik geniş kümesini hedeflemek için seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**.
-7. İçinde **yeniden yönlendirme URI'si** başlığı seçin **genel istemci (Mobil ve Masaüstü)**, uygulamanızın yeniden yönlendirme URI'sini yazın.
+7. İçinde **yeniden yönlendirme URI'si** başlığı seçin **genel istemci (Mobil ve Masaüstü)** , uygulamanızın yeniden yönlendirme URI'sini yazın.
 8. Seçin ve okuma **Microsoft Platformu ilkeleri**ve ardından **kaydetme**. Yeni uygulama kaydı için bir genel bakış sayfası oluşturulur ve görüntülenir.
 
 Yeni bir uygulama kaydı oluşturma hakkında daha ayrıntılı bilgi için bkz: [uygulamaları Azure Active Directory ile tümleştirme](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
-## <a name="step-3-grant-access-to-your-proxy-application"></a>3. adım: Proxy uygulamanıza erişim izni ver
+## <a name="step-3-grant-access-to-your-proxy-application"></a>3\. adım: Proxy uygulamanıza erişim izni ver
 
 Yerel uygulamanız kaydettiğinize göre, bu erişim başka uygulamalar için dizininizde bu durumda proxy uygulamaya erişmek için verebilirsiniz. Yerel bir uygulama için Ara sunucu uygulamasını sağlamak etkinleştirmek için:
 
@@ -70,7 +70,7 @@ Yerel uygulamanız kaydettiğinize göre, bu erişim başka uygulamalar için di
 5. İçinde **ne tür izinler uygulamanızı gerektiriyor mu?** başlığı izin türü seçin. Yerel uygulamanız oturum açmış kullanıcı olarak proxy uygulama API erişmesi gerekiyorsa seçin **temsilci izinleri**. Yerel uygulamanız, bir arka plan hizmet veya yordam olmadan oturum açmış kullanıcı olarak çalışıyorsa, seçin **uygulama izinleri**.
 6. İçinde **izinleri seçin** başlık, istenen izin seçip **izinleri eklemek**. **API izinleri** sayfası yerel uygulamanız artık proxy eklediğiniz uygulama ve izni API gösterir.
 
-## <a name="step-4-edit-the-active-directory-authentication-library"></a>4. Adım: Active Directory kimlik doğrulama Kitaplığı'nı Düzenle
+## <a name="step-4-edit-the-active-directory-authentication-library"></a>4\. Adım: Active Directory kimlik doğrulama Kitaplığı'nı Düzenle
 
 Kimlik doğrulaması bağlamı, Active Directory Authentication Library (aşağıdaki metni eklemek için ADAL) yerel uygulama kodunda düzenleyin:
 

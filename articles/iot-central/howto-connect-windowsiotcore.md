@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510334"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızı Windows IOT Core cihazı bağlayın
@@ -98,16 +98,16 @@ Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Windows
 
 Sayısal ayarları
 
-| Görüntüleme adı | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
+| Display name | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Fan hızı    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 ### <a name="properties"></a>Özellikler
 
-| Tür            | Görüntüleme adı | Alan adı | Veri türü |
+| Tür            | Display name | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
 | Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
-| Text            | Location     | konum   | Yok       |
+| Text            | Location     | location   | Yok       |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

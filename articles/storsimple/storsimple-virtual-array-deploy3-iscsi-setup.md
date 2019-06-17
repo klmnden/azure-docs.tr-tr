@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417316"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple sanal dizisi – kümesini oluşturan Azure Portalı aracılığıyla iSCSI sunucusu olarak dağıtma
@@ -44,11 +44,11 @@ Yapılandırmak ve StorSimple Virtual Array'iniz ayarlamak için önce emin olun
 Ayarlanmış ve StorSimple Virtual Array'iniz yapılandırmak için aşağıdaki adım adım yönergeleri kullanın:
 
 * [1. adım: Yerel web kullanıcı Arabirimi Kurulumu tamamlayın ve Cihazınızı kaydetme](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
-* 2. Adım: Gerekli cihaz kurulumunu tamamlayın
+* 2\. adım: Gerekli cihaz kurulumunu tamamlayın
 * [3. adım: Birim Ekle](#step-3-add-a-volume)
 * [4. adım: Bağlayın, başlatın ve bir birimde](#step-4-mount-initialize-and-format-a-volume)
 
-## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>1. Adım: Yerel web kullanıcı Arabirimi Kurulumu tamamlayın ve Cihazınızı kaydetme
+## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>1\. adım: Yerel web kullanıcı Arabirimi Kurulumu tamamlayın ve Cihazınızı kaydetme
 
 #### <a name="to-complete-the-setup-and-register-the-device"></a>Kurulumu tamamlayın ve cihaz kaydetmek için
 
@@ -90,7 +90,7 @@ Ayarlanmış ve StorSimple Virtual Array'iniz yapılandırmak için aşağıdaki
       > 
    4. Bir iletişim kutusu görünür. Belirtilen biçimde etki alanı kimlik bilgilerinizi girin. Onay simgesine tıklayın ![onay simgesi](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Etki alanı kimlik bilgilerinin doğrulanır. Kimlik bilgileri yanlışsa, bir hata iletisi görürsünüz.
       
-       ![kimlik bilgileri](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
+       ![Kimlik bilgileri](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. **Uygula**'ya tıklayın. Bu uygulama ve cihaz ayarlarını doğrulayın.
 7. (İsteğe bağlı olarak), web Ara sunucusunu yapılandırın. Web proxy yapılandırması isteğe bağlı olsa da, bir web proxy kullanıyorsanız, yalnızca, burada yapılandırabilirsiniz olduğunu unutmayın.
    
@@ -118,14 +118,14 @@ Ayarlanmış ve StorSimple Virtual Array'iniz yapılandırmak için aşağıdaki
    2. Bu hizmetle kaydettiriyor olduğunuz ilk cihaz bu değilse, sağlamanız gerekir **hizmet veri şifreleme anahtarı**. StorSimple cihaz Yöneticisi hizmetiyle ek cihazlar kaydetmek için hizmet kayıt anahtarıyla birlikte bu anahtar gereklidir. Daha fazla bilgi için [hizmet veri şifreleme anahtarı alma](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) yerel web kullanıcı Arabirimi.
    3. Tıklayın **kaydetme**. Bu cihaz yeniden başlatılır. 2-3 cihaz başarıyla kaydedildikten önce dakika beklemeniz gerekebilir. Cihaz yeniden başlatıldıktan sonra oturum açma sayfasına ulaşabilirsiniz.
       
-      ![Cihazı kaydet](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
+      ![Cihazı kaydedin](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
 10. Azure portalına dönün.
 11. Gidin **cihazları** hizmetinizin dikey penceresi. Çok fazla kaynak varsa tıklayın **tüm kaynakları**hizmet adınızı (Ara gerekiyorsa) tıklayın ve ardından **cihazları**.
 12. Üzerinde **cihazları** dikey penceresinde, cihaz başarıyla hizmete durumunu arayarak bağlandığını doğrulayın. Cihazın durumu **Kuruluma hazır** olmalıdır.
     
-    ![Cihazı kaydet](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
+    ![Cihazı kaydedin](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
 
-## <a name="step-2-configure-the-device-as-iscsi-server"></a>2. Adım: Cihazın iSCSI sunucusu olarak yapılandırma
+## <a name="step-2-configure-the-device-as-iscsi-server"></a>2\. adım: Cihazın iSCSI sunucusu olarak yapılandırma
 
 Gerekli cihaz kurulumunu tamamlamak için Azure portalında aşağıdaki adımları gerçekleştirin.
 
@@ -152,7 +152,7 @@ Gerekli cihaz kurulumunu tamamlamak için Azure portalında aşağıdaki adımla
    
     ![Cihaz iSCSI sunucusu olarak yapılandırma](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis9m.png)
 
-## <a name="step-3-add-a-volume"></a>3. Adım: Birim Ekle
+## <a name="step-3-add-a-volume"></a>3\. adım: Birim Ekle
 
 1. İçinde **cihazları** yeni cihaz bir iSCSI sunucusu olarak yapılandırılmış dikey penceresinde seçin. Tıklayın **...**  (Alternatif olarak bu satıra sağ tıklayın) ve bağlam menüsünden **birim ekleme**. Ayrıca **+ birim Ekle** komut çubuğundan. Bu açılır **birim ekleme** dikey penceresi.
    
@@ -179,7 +179,7 @@ Gerekli cihaz kurulumunu tamamlamak için Azure portalında aşağıdaki adımla
    
    ![Birim Ekle](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis20m.png)
 
-## <a name="step-4-mount-initialize-and-format-a-volume"></a>4. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin
+## <a name="step-4-mount-initialize-and-format-a-volume"></a>4\. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin
 
 Bağlayın, başlatın ve bir Windows Server konağında StorSimple birimlerinizi biçimlendirmek için aşağıdaki adımları gerçekleştirin.
 

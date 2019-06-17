@@ -13,10 +13,10 @@ ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
 ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240374"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastik havuzlar, yönetmenize ve birden çok Azure SQL veritabanını ölçeklendirme Yardım
@@ -126,7 +126,7 @@ Araçları kullanamadığınız durumlarda aşağıdaki adım adım yönergeler 
 2. Havuzdaki tüm veritabanları için gereken bayt sayısını ekleyerek havuz için gereken depolama alanını tahmin edin. Ardından, bu depolama miktarını sağlayan eDTU havuz boyutunu belirleyin.
 3. DTU tabanlı satın alma modeli için eDTU tahminleri büyük adım 1 ve 2 adımlardaki yararlanın. Sanal çekirdek tabanlı satın alma modeli için sanal çekirdek tahmini 1. adımdaki yararlanın.
 4. Bkz: [SQL veritabanı fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/sql-database/) ve 3. adım tahminden büyük en küçük havuz boyutunu bulun.
-5. 5. adımdaki havuz fiyatını, tek veritabanları için uygun bilgi işlem boyutlarına kullanma fiyatıyla karşılaştırın.
+5. 5\. adımdaki havuz fiyatını, tek veritabanları için uygun bilgi işlem boyutlarına kullanma fiyatıyla karşılaştırın.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Elastik havuzlar sayesinde diğer SQL veritabanı özelliklerini kullanma
 

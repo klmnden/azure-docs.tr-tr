@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: bf24b2d1395e128dc73361670ea93ac938574146
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258778"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Azure'dan Azure'a VM çoğaltması devam eden sorunlarını giderme
@@ -81,17 +81,17 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
 
 En yaygın sorunlardan bazılarını aşağıda listelenmiştir
 
-#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>1. neden: Sorun SQL Server 2008/2008 R2 bilinen 
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>1\. neden: Sorun SQL Server 2008/2008 R2 bilinen 
 **Nasıl düzeltileceğini** : 2008/2008 R2'in SQL server ile ilgili bilinen bir sorun yoktur. Lütfen bu KB makalesinde bakın [başarısız SQL Server 2008 R2 barındıran bir sunucu için Azure Site Recovery aracısı veya diğer bileşen olmayan VSS yedekleme](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>2. neden: Herhangi bir sürümünü None veritabanları ile SQL Server örneklerini barındıran sunucularda Azure Site Recovery işleri başarısız 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>2\. neden: Herhangi bir sürümünü None veritabanları ile SQL Server örneklerini barındıran sunucularda Azure Site Recovery işleri başarısız 
 **Nasıl düzeltileceğini** : KB başvuran [makale](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
 
 
-#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>3. neden: SQL Server 2016 ve 2017'deki bilinen sorun
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>3\. neden: SQL Server 2016 ve 2017'deki bilinen sorun
 **Nasıl düzeltileceğini** : KB başvuran [makale](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
 
-#### <a name="cause-4-you-are-using-storage-spaces-direct-configuration"></a>4. neden: Depolama alanları doğrudan yapılandırması kullanıyorsanız
+#### <a name="cause-4-you-are-using-storage-spaces-direct-configuration"></a>4\. neden: Depolama alanları doğrudan yapılandırması kullanıyorsanız
 **Nasıl düzeltileceğini** : Azure Site Recovery uygulamayla tutarlı kurtarma noktası için depolama alanları doğrudan yapılandırması oluşturulamıyor. Lütfen doğru makaleye başvurun [çoğaltma ilkesi yapılandırma](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms)
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Daha fazla VSS nedeni ilgili sorunlar:

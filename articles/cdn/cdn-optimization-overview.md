@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636341"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Azure CDN, içerik teslim türü için en iyi duruma getirme
@@ -113,7 +113,7 @@ Medya akışı iyileştirmesi hakkında daha fazla bilgi için bkz: [iyileştirm
 
 ### <a name="large-file-download"></a>Büyük dosya indirme
 
-İçin **akamai'den Azure CDN standart** profilleri, büyük dosya indirme iyileştirilmiş içeriği 10 MB'tan büyük. Ortalama dosyanızın boyutu 10 MB'den küçükse, genel web teslimatı kullanın. Ortalama dosya boyutlarınızın tutarlı bir şekilde 10 MB'den daha büyük ise büyük dosyalar için ayrı bir uç nokta oluşturmak için daha verimli olabilir. Örneğin, üretici yazılımı veya yazılım güncelleştirmeleri genellikle büyük dosyalardır. 1.8 GB'tan büyük dosyalar sunmak için en büyük dosya indirme iyileştirme gereklidir.
+İçin **akamai'den Azure CDN standart** profilleri, büyük dosya indirme iyileştirilmiş içeriği 10 MB'tan büyük. Ortalama dosyanızın boyutu 10 MB'den küçükse, genel web teslimatı kullanın. Ortalama dosya boyutlarınızın tutarlı bir şekilde 10 MB'den daha büyük ise büyük dosyalar için ayrı bir uç nokta oluşturmak için daha verimli olabilir. Örneğin, üretici yazılımı veya yazılım güncelleştirmeleri genellikle büyük dosyalardır. 1\.8 GB'tan büyük dosyalar sunmak için en büyük dosya indirme iyileştirme gereklidir.
 
 İçin **Azure CDN standart Microsoft gelen**, **verizon'dan Azure CDN standart**, ve **verizon'dan Azure CDN Premium** profillerini, genel web teslimatı iyileştirmesi kullanın büyük dosya indirme içeriği sunmak için bunu yazın. Dosya indirme boyutu bir sınırlama yoktur.
 

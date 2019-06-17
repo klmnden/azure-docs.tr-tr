@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: e603435a49894a9b8faa2df9b49a8572b94eecb5
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965595"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Azure Cosmos DB ile Ownership(TCO) toplam maliyeti
@@ -50,7 +50,7 @@ Sunucusuz sağlama modelinin Azure Cosmos DB'nin veritabanı altyapısı işlemi
 
 * **Diğer Azure hizmetleriyle derin tümleştirme Azure Cosmos DB'nin.** Azure Cosmos DB, ağ, hesaplama, Azure işlevleri (sunucusuz), Azure IOT ve diğer Azure Hizmetleri ile yerel bir tümleştirmesi vardır. Bu tümleştirme sayesinde, güçlü garanti ile dünya genelinde veri çoğaltma hızını en iyi performansı alırsınız. Üçüncü taraf çözümleri, eşleştirilecek mümkün olmayacaktır veya genellikle gibi özellikler sunmak için bir premium ücretlendirme.
 
-* **Otomatik olarak yüksek kullanılabilirlik, en az 10-20 hata etki alanları varsayılan olarak sahip olursunuz:** Azure Cosmos DB, yüksek kullanılabilirlik için kritik bir özellik hata etki alanlarında iş yüklerinin dağıtımını destekler. 99. yüzdebirlik dilimde arasında herhangi bir yazma ve okuma için 99.999 yüksek kullanılabilirlik sunar dünyanın. Şunun gibi kendi sunucunuzda veya bir üçüncü taraf çözümü ile uygulama maliyeti olur yüksek.
+* **Otomatik olarak yüksek kullanılabilirlik, en az 10-20 hata etki alanları varsayılan olarak sahip olursunuz:** Azure Cosmos DB, yüksek kullanılabilirlik için kritik bir özellik hata etki alanlarında iş yüklerinin dağıtımını destekler. 99\. yüzdebirlik dilimde arasında herhangi bir yazma ve okuma için 99.999 yüksek kullanılabilirlik sunar dünyanın. Şunun gibi kendi sunucunuzda veya bir üçüncü taraf çözümü ile uygulama maliyeti olur yüksek.
 
 * **Otomatik olarak tüm kurumsal özellikleri ek maliyet olmaksızın alın.** Azure Cosmos DB, en kapsamlı uyumluluk sertifikaları, güvenlik ve şifreleme bekleyen ve Hareket halindeki (rakibimizi için karşılaştırıldığında) ek maliyet olmadan sunar. Otomatik olarak dünyanın herhangi bir yere bölgesel kullanılabilirlik alın. Veritabanınızı herhangi sayıda Azure bölgesine yayılan ekleyebilir veya herhangi bir noktada bölgeleri kaldırın.
 

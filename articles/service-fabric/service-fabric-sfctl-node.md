@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258738"
 ---
 # <a name="sfctl-node"></a>sfctl node
@@ -30,12 +30,12 @@ Küme düğümleri yönetin.
 | --- | --- |
 | Devre dışı bırak | Bir Service Fabric küme düğümü belirtilen devre dışı bırakma amacıyla devre dışı bırakın. |
 | Etkinleştirme | Şu anda devre dışı bir Service Fabric küme düğümü etkinleştirin. |
-| sağlık | Bir Service Fabric düğüm durumunu alır. |
-| Bilgileri | Service Fabric kümesinde belirli bir düğüm hakkında bilgi alır. |
+| health | Bir Service Fabric düğüm durumunu alır. |
+| info | Service Fabric kümesinde belirli bir düğüm hakkında bilgi alır. |
 | list | Service Fabric kümesinde düğümlerin listesini alır. |
-| yükleme | Bir Service Fabric düğümü yük bilgilerini alır. |
+| load | Bir Service Fabric düğümü yük bilgilerini alır. |
 | durumu-Kaldır | Service Fabric kalıcı durum bir düğümde kalıcı olarak kaybolur veya kaldırılmış olduğunu bildirir. |
-| durumu- | Service Fabric düğüm üzerinde bir sistem durumu raporu gönderir. |
+| report-health | Service Fabric düğüm üzerinde bir sistem durumu raporu gönderir. |
 | restart | Bir Service Fabric küme düğümü yeniden başlatır. |
 | geçiş | Başlatır veya küme düğümü durdurur. |
 | Geçiş durumu | StartNodeTransition kullanmaya başlamanıza yardımcı olan bir işlemin ilerlemesini alır. |

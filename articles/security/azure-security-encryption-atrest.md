@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: barclayn
 ms.openlocfilehash: d0974b98975b8f7d09760be964024f92e9690a4e
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596391"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure veri şifreleme bekleyen
@@ -116,7 +116,7 @@ Desteklenen şifreleme modelleri azure'da iki ana gruplara ayırın: "İstemci �
 
 Sunucu tarafı şifreleme modelleri Azure hizmeti tarafından gerçekleştirilir şifreleme bakın. Bu modelde, kaynak sağlayıcısı şifreleme ve şifre çözme işlemleri gerçekleştirir. Örneğin, Azure depolama, düz metin işlemlerinde veri alabilirsiniz ve şifreleme ve şifre çözme dahili olarak gerçekleştirir. Microsoft tarafından veya sağlanan yapılandırmasına bağlı olarak müşteri tarafından yönetilen bir şifreleme anahtarları kaynak sağlayıcısını kullanabilirsiniz.
 
-![Sunucu ](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig3.png)
+![Sunucusu](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig3.png)
 
 ### <a name="server-side-encryption-key-management-models"></a>Sunucu tarafı şifreleme anahtar yönetimi modelleri
 
@@ -271,7 +271,7 @@ Azure SQL veritabanı verilerinin istemci tarafı şifreleme aracılığıyla de
 | Azure Data Lake Store            | Evet                | Evet, RSA 2048 bit  | -                  |
 | **İşlem**                      |                    |                    |                    |
 | Virtual Machines                 | -                  | Evet, RSA 2048 bit  | -                  |
-| Sanal Makine Ölçek Kümesi        | -                  | Evet, RSA 2048 bit  | -                  |
+| Sanal makine ölçek kümesi        | -                  | Evet, RSA 2048 bit  | -                  |
 | **Veritabanları**                    |                    |                    |                    |
 | Sanal Makinelerde SQL Server   | Evet                | Evet, RSA 2048 bit  | Evet                |
 | Azure SQL Veritabanı               | Evet                | Evet, RSA 2048 bit  | Evet                |
@@ -287,16 +287,16 @@ Azure SQL veritabanı verilerinin istemci tarafı şifreleme aracılığıyla de
 | Azure Active Directory Domain Services | Evet          | Evet, RSA 2048 bit  | -                  |
 | **Tümleştirme**                  |                    |                    |                    |
 | Service Bus                      | Evet                | -                  | Evet                |
-| Olay Kılavuzu                       | Evet                | -                  | -                  |
+| Event Grid                       | Evet                | -                  | -                  |
 | API Management                   | Evet                | -                  | -                  |
 | **IOT Hizmetleri**                 |                    |                    |                    |
 | IoT Hub                          | -                  | -                  | Evet                |
 | **Yönetimi ve İdaresi**    |                    |                    |                    |
 | Azure Site Recovery              | Evet                | Evet, RSA 2048 bit  | Evet                |
 | **Medya**                        |                    |                    |                    |
-| Medya Hizmetleri                   | Evet                | -                  | Evet                |
+| Media Services                   | Evet                | -                  | Evet                |
 | **Depolama**                      |                    |                    |                    |
-| Blob Depolama Alanı                     | Evet                | Evet, RSA 2048 bit  | Evet                |
+| Blob Depolama                     | Evet                | Evet, RSA 2048 bit  | Evet                |
 | Disk Depolama                     | Evet                | -                  | -                  |
 | Yönetilen Disk Depolama             | Evet                | -                  | -                  |
 | Dosya Depolama                     | Evet                | Evet, RSA 2048 bit  | -                  |

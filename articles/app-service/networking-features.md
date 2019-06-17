@@ -16,10 +16,10 @@ ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 666430a11fb95871eb601b2a38eb7b97ad16119f
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66498957"
 ---
 # <a name="app-service-networking-features"></a>App Service ağ özellikleri
@@ -99,7 +99,7 @@ Filtre erişim kısıtlamalarını yeteneği sağlar **gelen** istekleri tabanl�
 Erişim kısıtlamaları özelliği uygulamanıza erişmek için kullanılan IP adreslerini kısıtlamak istediğiniz senaryolarda yardımcı olur. Kullanımı arasında bu özellik için durum vardır:
 
 * İyi tanımlanmış adresleri kümesinden uygulamanıza erişimi kısıtlama 
-* Azure ön kapı gibi bir Yük Dengeleme hizmeti aracılığıyla gelen erişimi kısıtlayın. 147.243.0.0/16 ve 2a01:111:2050 gelen trafiğe izin vermek için kuralları, gelen trafik için ön kapı Azure kilitleme istediyseniz, oluşturma:: / 44. 
+* Azure ön kapı gibi bir Yük Dengeleme hizmeti aracılığıyla gelen erişimi kısıtlayın. 147\.243.0.0/16 ve 2a01:111:2050 gelen trafiğe izin vermek için kuralları, gelen trafik için ön kapı Azure kilitleme istediyseniz, oluşturma:: / 44. 
 
 ![Erişim kısıtlamalarına sahip ön kapısı](media/networking-features/access-restrictions-afd.png)
 

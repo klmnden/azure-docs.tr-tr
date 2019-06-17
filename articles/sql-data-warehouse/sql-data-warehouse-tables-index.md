@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
 ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851660"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>SQL veri ambarı'nda dizin tabloları
@@ -216,7 +216,7 @@ Bazı veriler tablolarınızı veriler yüklendikten sonra takip tanımlamak ve 
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Segment kalitesini artırmak için dizinlerini yeniden oluşturma
 
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>1. Adım: Kimliğinizi belirlemek veya doğru kaynak sınıfı kullanan kullanıcı oluşturma
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>1\. adım: Kimliğinizi belirlemek veya doğru kaynak sınıfı kullanan kullanıcı oluşturma
 
 Hemen segment kalitesini artırmak için bir hızlı yol, dizini yeniden sağlamaktır.  Yukarıdaki görünümü tarafından döndürülen SQL dizinlerinizi yeniden oluşturmak için kullanılabilecek bir ALTER INDEX REBUILD deyimi döndürür. Dizinlerinizi yeniden oluştururken dizininizi oluşturur oturum yeterli bellek tahsis emin olun.  Bunu yapmak için bu tablodaki önerilen minimum dizini yeniden oluşturma izni olan bir kullanıcının kaynak sınıfı artırın.
 
@@ -226,7 +226,7 @@ Daha fazla kullanıcıya kendi kaynak sınıfı artırarak bellek ilişkin bir �
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2. Adım: Daha yüksek kaynak sınıfı kullanıcıyla kümelenmiş columnstore dizinleri yeniden oluştur
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2\. adım: Daha yüksek kaynak sınıfı kullanıcıyla kümelenmiş columnstore dizinleri yeniden oluştur
 
 Daha yüksek bir kaynak sınıfı kullanarak artık olan kullanıcı olarak 1. adımdaki (örneğin LoadUser) oturum açın ve ALTER INDEX deyimi yürütün. Bu kullanıcı dizini burada yeniden oluşturuluyorsa tablolara ALTER iznine sahip olduğundan emin olun. Bu örnekler, tüm columnstore dizinini yeniden oluşturmak nasıl ya da tek bir bölüm yeniden oluşturmak nasıl gösterir. Yeniden oluşturmak için daha fazla pratik bir kerede tek bir bölüm dizinleri olduğu büyük tablolar üzerinde.
 
@@ -254,7 +254,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 
 SQL veri ambarı'nda bir dizini yeniden oluşturma çevrimdışı bir işlemdir.  ALTER INDEX REBUILD bölümünde dizinlerini yeniden oluşturma hakkında daha fazla bilgi için bkz. [Columnstore dizinleri birleştirme](/sql/relational-databases/indexes/columnstore-indexes-defragmentation), ve [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>3. adım: Kümelenmiş columnstore segment kalitesini geliştirdi doğrulayın
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>3\. adım: Kümelenmiş columnstore segment kalitesini geliştirdi doğrulayın
 
 Yeniden çalıştırılan sorgunun düşük ile tanımlanan hangi tabloya segment kalitesi ve segment kalitesi doğrulayın geliştirdi.  Segment kalitesini artırmak değil ise, tablosundaki satırları çok geniş olması olabilir.  Daha yüksek kaynak sınıfı ya da DWU dizinlerinizi yeniden oluştururken kullanmayı düşünün.
 

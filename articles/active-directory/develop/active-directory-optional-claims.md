@@ -18,10 +18,10 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119715"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Nasıl yapılır: Azure AD uygulamanız için isteğe bağlı bir talep sağla
@@ -38,7 +38,7 @@ Standart talep listesi için bkz. [erişim belirteci](access-tokens.md) ve [id_t
 
 **Tablo 1: Uygulanabilirlik**
 
-| Hesap Türü | V1.0 belirteçleri | V2.0 belirteçleri  |
+| Hesap türü | V1.0 belirteçleri | V2.0 belirteçleri  |
 |--------------|---------------|----------------|
 | Kişisel Microsoft hesabı  | Yok  | Desteklenen|
 | Azure AD hesabı      | Desteklenen | Desteklenen |
@@ -52,7 +52,7 @@ Standart talep listesi için bkz. [erişim belirteci](access-tokens.md) ve [id_t
 
 **Tablo 2: Talep kümesine V1.0 ve isteğe bağlı V2.0**
 
-| Ad                       |  Açıklama   | Belirteç türü | Kullanıcı Türü | Notlar  |
+| Ad                       |  Açıklama   | Belirteç türü | Kullanıcı türü | Notlar  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Zaman zaman son kullanıcı kimlik doğrulaması. Bkz: Openıd Connect belirtimi.| JWT        |           |  |
 | `tenant_region_scope`      | Kaynak Kiracı bölgesi | JWT        |           | |
@@ -84,11 +84,11 @@ Bu talepler her zaman v1.0 Azure AD belirteçleri dahil, ancak v2.0 belirteçler
 | JWT talep     | Ad                            | Açıklama                                | Notlar |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP Adresi                      | Oturum açtığınız istemci IP adresi.   |       |
-| `onprem_sid`  | Şirket İçi Güvenlik Tanımlayıcısı |                                             |       |
+| `onprem_sid`  | Şirket içi güvenlik tanımlayıcısı |                                             |       |
 | `pwd_exp`     | Parola süre sonu zamanı        | Parola süresinin dolma datetime. |       |
 | `pwd_url`     | Parola URL'sini değiştirme             | Kullanıcının parolasını değiştirmek için ziyaret edebileceği bir URL.   |   |
 | `in_corp`     | İç şirket ağı        | Sinyaller istemci ve şirket ağından oturum açılıyor. Değilseniz, talep dahil değildir.   |  Kapatarak tabanlı [güvenilen IP'ler](../authentication/howto-mfa-mfasettings.md#trusted-ips) MFA ayarları.    |
-| `nickname`    | Takma ad                        | İlk veya son adından ayrı kullanıcı için ek bir ad. | 
+| `nickname`    | Takma adı                        | İlk veya son adından ayrı kullanıcı için ek bir ad. | 
 | `family_name` | Soyadı                       | Son adını, soyadını veya kullanıcının aile adı kullanıcı nesnesinde tanımlanan sağlar. <br>"family_name": "Mert" | MSA ve AAD desteklenen   |
 | `given_name`  | Ad                      | İlk sağlar veya "kullanıcı adını, kullanıcı nesnesindeki kümesi olarak verilen".<br>"given_name": "Ferdi"                   | MSA ve AAD desteklenen  |
 | `upn`         | Kullanıcı Asıl Adı | Username_hint parametresiyle birlikte kullanılabilecek kullanıcı için bir tanımlayıcı.  Kullanıcı için kalıcı bir tanımlayıcı değil ve anahtar verileri kullanılmamalıdır. | Bkz: [ek özellikler](#additional-properties-of-optional-claims) aşağıda talep yapılandırma. |

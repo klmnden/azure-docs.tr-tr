@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
 ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799116"
 ---
 # <a name="public-ip-address-prefix"></a>Genel IP adresi ön eki
 
 Ayrılmış IP adresleri azure'da genel uç noktalarınız için genel bir IP adresi ön eki var. Azure aboneliğinize kaç belirttiğiniz üzerinde temel adres bitişik aralığını ayırır. Ortak adres bilmiyorsanız bkz [genel IP adresleri.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 
-Genel IP adresleri, her bir Azure bölgesinde adresi havuzundan atanır. Yapabilecekleriniz [indirme](https://www.microsoft.com/download/details.aspx?id=56519) Azure kullanan her bir bölge için aralıklarının listesi. Örneğin, 40.121.0.0/16 Azure kullanan Doğu ABD bölgesinde 100'den fazla aralıkları biridir. 40.121.0.1 - kullanılabilir adresleri aralığı içeren 40.121.255.254.
+Genel IP adresleri, her bir Azure bölgesinde adresi havuzundan atanır. Yapabilecekleriniz [indirme](https://www.microsoft.com/download/details.aspx?id=56519) Azure kullanan her bir bölge için aralıklarının listesi. Örneğin, 40.121.0.0/16 Azure kullanan Doğu ABD bölgesinde 100'den fazla aralıkları biridir. 40\.121.0.1 - kullanılabilir adresleri aralığı içeren 40.121.255.254.
 
 Genel bir IP adresi ön eki bir Azure bölgesi ve abonelikte bir ad belirterek oluşturun ve ön ek dahil etmek istediğiniz kaç adresi. 28 genel bir IP adresi ön eki oluşturursanız, örneğin, Azure 16 adresleri, aralıkları birinden sizin için ayırır. Aralığın oluşturana kadar Azure atar aralığı bilmiyorsanız, ancak bitişik adresleridir. Genel IP adresi ön eklerini bir ücreti vardır. Ayrıntılar için bkz [genel IP adresi fiyatlandırması](https://azure.microsoft.com/pricing/details/ip-addresses).
 

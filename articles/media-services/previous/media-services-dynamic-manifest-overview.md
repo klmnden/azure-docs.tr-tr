@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: 68eeb40e905d089601208d9fc181042c7b434843
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956805"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtreler ve dinamik bildirimlere
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Media Services, kullanmakta olduğunuz sürümünü seçin:"]
 > * [Sürüm 2](media-services-dynamic-manifest-overview.md)
 > * [Sürüm 3](../latest/filters-dynamic-manifest-overview.md)
 
-2.17 sürümünden başlayarak, Media Services, varlıklarınız için filtrelerini tanımlamanızı sağlar. Bu filtreler müşterileriniz gibi şeyler seçmesine izin veren sunucu tarafı kurallar şunlardır: yalnızca bir bölümünü (tüm video oynatma) yerine bir video kayıttan yürütme ya da yalnızca bir alt kümesini müşterinizin cihaz işleyebileceğini (ses ve video yorumlama belirtin yerine tüm önayarda varlıkla ilişkili olan). Bu varlıklarınızı filtreleme yoluyla elde edilir **dinamik bildirim**müşterinizin istek üzerine video akışı oluşturan s üzerinde belirtilen filtreleri temel.
+2\.17 sürümünden başlayarak, Media Services, varlıklarınız için filtrelerini tanımlamanızı sağlar. Bu filtreler müşterileriniz gibi şeyler seçmesine izin veren sunucu tarafı kurallar şunlardır: yalnızca bir bölümünü (tüm video oynatma) yerine bir video kayıttan yürütme ya da yalnızca bir alt kümesini müşterinizin cihaz işleyebileceğini (ses ve video yorumlama belirtin yerine tüm önayarda varlıkla ilişkili olan). Bu varlıklarınızı filtreleme yoluyla elde edilir **dinamik bildirim**müşterinizin istek üzerine video akışı oluşturan s üzerinde belirtilen filtreleri temel.
 
 Bu konuda, yaygın senaryoları tartışır filtreleri kullanarak filtreler program aracılığıyla nasıl oluşturulacağını gösteren konulara bağlantılar ve müşteriler için faydalı olacaktır.
 
@@ -192,7 +192,7 @@ Daha fazla bilgi için [bu](https://azure.microsoft.com/blog/azure-media-service
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Geri bildirim gönder
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Ayrıca Bkz.

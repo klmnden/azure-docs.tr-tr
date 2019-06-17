@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ef6def9f03a880d9fc8d649fe226caf597ba0ad5
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991820"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure dosya eşitleme ile kayıtlı sunucuları yönetme
@@ -152,7 +152,7 @@ Tüm veriler geri ve sunucuyu tüm eşitleme gruplarından kaldırılmıştır g
 1. Azure portalında gidin *kayıtlı sunucuları* depolama eşitleme hizmeti bölümü.
 2. "Sunucu kaydını" kaydını silin ve istediğiniz sunucuda sağ tıklayın.
 
-    ![Sunucunun kaydını kaldır](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![Sunucunun kaydını Kaldır](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Veri merkezinizde iyi bir komşu kalmasını sağlama Azure dosya eşitleme olduğundan 
 Azure dosya eşitleme, veri merkezinde çalışan tek hizmet nadiren olacağından, Azure dosya eşitleme, ağ ve depolama kullanımını sınırlamak isteyebilirsiniz.

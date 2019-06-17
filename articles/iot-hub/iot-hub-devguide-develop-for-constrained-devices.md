@@ -1,25 +1,17 @@
 ---
 title: Azure IOT hub'ı geliştirmek için IOT Hub C SDK'sını kullanarak cihazları kısıtlı | Microsoft Docs
 description: Geliştirici Kılavuzu - kısıtlı cihazlar için Azure IOT SDK'ları kullanarak geliştirme hakkında yönergeler.
-services: iot-hub
-documentationcenter: c
 author: yzhong94
-manager: timlt
-editor: ''
-ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 05/24/2018
-ms.date: 04/29/2019
-ms.author: v-yiso
+services: iot-hub
+ms.topic: conceptual
+ms.date: 05/24/2018
+ms.author: yizhon
 ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61320966"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Azure IOT C SDK'sını kullanarak kısıtlanmış cihazlar için geliştirme
@@ -52,6 +44,7 @@ cmake -Duse_amqp=OFF -Duse_http=OFF <Path_to_cmake>
 ### <a name="remove-sdk-logging-capability"></a>SDK'sı günlüğe kaydetme özelliğini Kaldır
 
 C SDK'sı, kapsamlı boyunca hatalarını ayıklamaya yardımcı olmak için oturum sağlar. Aşağıdaki cmake komutu kullanarak üretim cihazlar için günlüğe kaydetme özelliğini kaldırabilirsiniz:
+
 ```
 cmake -Dno_logging=OFF <Path_to_cmake>
 ```
@@ -87,15 +80,7 @@ C SDK'sı, iki programlama modeli destekler. Bir ayarlanmış API'leri ile bir _
 Başka bir dizi API _LL_ dizini, burada iş parçacığı otomatik olarak hazırladık kolaylık katman çağrılır. Örneğin, aygıt istemcileri için kolaylık katman API'leri bu bulunabilir [IOT cihaz istemcisi üstbilgi dosyası](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h). Her ek iş parçacığı önemli sistem kaynakları yüzdesi bulabilir burada kısıtlanmış cihazları göz önünde bulundurun için kullanarak _LL_ API'leri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure IOT C SDK'sı mimarisi hakkında daha fazla bilgi için:
-- [Azure IOT C SDK'sı kaynak kodu](https://github.com/Azure/azure-iot-sdk-c/)
-- [Azure IOT cihaz SDK'sını C giriş](iot-hub-device-sdk-c-intro.md)
 
-------
-[lnk-cmake]: https://cmake.org/
-[lnk-devbox-setup]:  https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md
-[lnk-choosing-protocol]: iot-hub-devguide-protocols.md
-[lnk-hub-file-upload]: iot-hub-devguide-file-upload.md
-[lnk-strip]: https://en.wikipedia.org/wiki/Strip_(Unix)
-[lnk-serializer]: https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer
-[lnk-parson]: https://github.com/kgabis/parson
+Azure IOT C SDK'sı mimarisi hakkında daha fazla bilgi için:
+-   [Azure IOT C SDK'sı kaynak kodu](https://github.com/Azure/azure-iot-sdk-c/)
+-   [Azure IOT cihaz SDK'sını C giriş](iot-hub-device-sdk-c-intro.md)

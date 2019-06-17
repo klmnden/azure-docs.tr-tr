@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743930"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Yönlendirilmesini denetlemesini ve Azure CLI kullanarak sanal gereçler (Klasik) kullanma
@@ -51,7 +51,7 @@ Yol tablosu ve yukarıdaki senaryo temel alınarak ön uç alt ağı için rota 
     azure config mode asm
     ```
 
-    Çıkış:
+    Çıktı:
 
         info:    New mode is asm
 
@@ -61,7 +61,7 @@ Yol tablosu ve yukarıdaki senaryo temel alınarak ön uç alt ağı için rota 
     azure network route-table create -n UDR-FrontEnd -l uswest
     ```
    
-    Çıkış:
+    Çıktı:
    
         info:    Executing command network route-table create
         info:    Creating route table "UDR-FrontEnd"
@@ -72,15 +72,15 @@ Yol tablosu ve yukarıdaki senaryo temel alınarak ön uç alt ağı için rota 
    
     Parametreler:
    
-   * **-l (veya --konum)**. Yeni NSG oluşturulacağı azure bölgesi. Bizim senaryomuz için *westus*.
-   * **-n (veya --name)**. Yeni NSG'nin adı. Bizim senaryomuz için *NSG ön uç*.
+   * **-l (veya --konum)** . Yeni NSG oluşturulacağı azure bölgesi. Bizim senaryomuz için *westus*.
+   * **-n (veya --name)** . Yeni NSG'nin adı. Bizim senaryomuz için *NSG ön uç*.
 3. İçin bir yol arka uç alt ağına (192.168.2.0/24) hedefleyen tüm trafiği göndermek için rota tablosu oluşturmak için aşağıdaki komutu çalıştırın **FW1** VM (192.168.0.4):
 
     ```azurecli
     azure network route-table route set -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -t VirtualAppliance -p 192.168.0.4
     ```
 
-    Çıkış:
+    Çıktı:
    
         info:    Executing command network route-table route set
         info:    Getting route table "UDR-FrontEnd"
@@ -89,9 +89,9 @@ Yol tablosu ve yukarıdaki senaryo temel alınarak ön uç alt ağı için rota 
    
     Parametreler:
    
-   * **-r (veya--yol tablosu adı)**. Rota ekleneceği yol tablosunun adı. Bizim senaryomuz için *UDR ön uç*.
-   * **-a (veya--adres-önek)**. Burada paketleri birleştirilmek üzere bir alt ağ için adres ön eki. Bizim senaryomuz için *192.168.2.0/24*.
-   * **-t (veya--sonraki atlama türü)**. Nesne trafik türü için gönderilir. Olası değerler *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, veya *yok*.
+   * **-r (veya--yol tablosu adı)** . Rota ekleneceği yol tablosunun adı. Bizim senaryomuz için *UDR ön uç*.
+   * **-a (veya--adres-önek)** . Burada paketleri birleştirilmek üzere bir alt ağ için adres ön eki. Bizim senaryomuz için *192.168.2.0/24*.
+   * **-t (veya--sonraki atlama türü)** . Nesne trafik türü için gönderilir. Olası değerler *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, veya *yok*.
    * **-p (veya--sonraki atlama IP adresi**). Sonraki atlama IP adresi. Bizim senaryomuz için *192.168.0.4*.
 4. Oluşturulan rota tablosunu ilişkilendirmek için aşağıdaki komutu çalıştırın **ön uç** alt ağı:
 
@@ -99,7 +99,7 @@ Yol tablosu ve yukarıdaki senaryo temel alınarak ön uç alt ağı için rota 
     azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
     ```
    
-    Çıkış:
+    Çıktı:
    
         info:    Executing command network vnet subnet route-table add
         info:    Looking up the subnet "FrontEnd"
@@ -114,7 +114,7 @@ Yol tablosu ve yukarıdaki senaryo temel alınarak ön uç alt ağı için rota 
    
     Parametreler:
    
-   * **-t (veya--vnet-ad)**. Alt ağ bulunduğu Vnet'in adı. Bizim senaryomuz için bu *TestVNet* ’tir.
+   * **-t (veya--vnet-ad)** . Alt ağ bulunduğu Vnet'in adı. Bizim senaryomuz için bu *TestVNet* ’tir.
    * **-n (veya--alt ağ adı**. Adı alt ağın yol tablosuna eklenir. Bizim senaryomuz için bu *FrontEnd* ’dir.
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>Arka uç alt ağı için UDR oluşturun

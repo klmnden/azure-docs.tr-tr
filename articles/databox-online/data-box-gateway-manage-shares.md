@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 9284400254860b47f3aea6de5c79ab4c2a77f199
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60755874"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Azure portalı kullanarak Azure Data Box Gateway paylaşımlarını yönetme 
@@ -69,7 +69,7 @@ Paylaşımı silmek için Azure portalda aşağıdaki adımları gerçekleştiri
 
     ![Paylaşımı seçme](media/data-box-gateway-manage-shares/delete-1.png)
 
-2. **Sil**'e tıklayın. 
+2. Tıklayın **Sil**. 
 
     ![Sil'e tıklayın](media/data-box-gateway-manage-shares/delete-2.png)
 

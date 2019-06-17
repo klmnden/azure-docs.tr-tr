@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
 ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797474"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Metin arama Azure Search'te tam nasıl çalışır
@@ -74,7 +74,7 @@ Bu istek için arama motoru şunları yapar:
 Bu makalede çoğunu hakkında işlemesidir *arama sorgusu*: `"Spacious, air-condition* +\"Ocean view\""`. Filtreleme ve sıralama kapsam dışına çıkmadan. Daha fazla bilgi için [arama API başvuru belgeleri](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
-## <a name="stage-1-query-parsing"></a>1. Aşama: Sorgu ayrıştırma 
+## <a name="stage-1-query-parsing"></a>1\. Aşama: Sorgu ayrıştırma 
 
 Belirtildiği gibi sorgu dizesi isteğin ilk satırı verilmiştir: 
 
@@ -128,7 +128,7 @@ Bu sorgu için bir değiştirilen sorguyu ağacı eşleşen bir belge, tüm üç
 > Seçme `searchMode=any` üzerinden `searchMode=all` en iyi bir karar temsili sorgu çalıştırarak gelen olduğu. İşleçler (arama belge depoladığında ortak) dahil olasılığı olan kullanıcılar sonuçları daha sezgisel, bulabileceğiniz `searchMode=all` Boole sorgu yapıları bildirir. Etkileşim özelliği hakkında daha fazla bilgi için `searchMode` ve işleçler [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
 
 <a name="stage2"></a>
-## <a name="stage-2-lexical-analysis"></a>2. Aşama: Sözcük analizi 
+## <a name="stage-2-lexical-analysis"></a>2\. Aşama: Sözcük analizi 
 
 Sözcük temelli çözümleyiciler işlem *süreli sorgular* ve *tümcecik sorguları* sorgu ağacına yapılandırılmış sonra. Bir çözümleyici ayrıştırıcı tarafından izin verilen metin girişleri kabul eder, metin ve ardından geri simgeleştirilmiş gönderir koşulları sorgu ağacına genişletilebilecek şekilde işler. 
 
@@ -190,7 +190,7 @@ Sözcük temelli analiz tüm koşullar – bir terim sorgu ya da bir deyim sorgu
 
 <a name="stage3"></a>
 
-## <a name="stage-3-document-retrieval"></a>3. Aşama: Belge alma 
+## <a name="stage-3-document-retrieval"></a>3\. Aşama: Belge alma 
 
 Belge alma dizini terimleriyle eşleşen belgeleri bulmak için ifade eder. Bu aşama, en iyi bir örnek anlaşılır. Basit aşağıdaki şemayı içerecek bir Oteller dizinini ile başlayalım: 
 
@@ -253,7 +253,7 @@ Bu ortak, ancak gerekli değildir, arama ve böylece sorgu terimleriyle dizini i
 
 İçin Örneğimiz için döndüren **başlık** alanı, ters dizinini aşağıdaki gibi görünür:
 
-| Dönem | Belge listesi |
+| Terim | Belge listesi |
 |------|---------------|
 | atman | 1 |
 | Plaj | 2 |
@@ -267,14 +267,14 @@ Yalnızca başlık alanında *otel* iki belgelerde gösterilir: 1, 3.
 
 İçin **açıklama** alanı dizini şu şekildedir:
 
-| Dönem | Belge listesi |
+| Terim | Belge listesi |
 |------|---------------|
 | Air | 3
 | ve | 4
 | Plaj | 1
 | koşuluna | 3
 | deneyimli | 3
-| uzaklık | 1
+| distance | 1
 | Adası | 2
 | kauaʻi | 2
 | bulunan | 2
@@ -287,11 +287,11 @@ Yalnızca başlık alanında *otel* iki belgelerde gösterilir: 1, 3.
 | secluded | 4
 | Deniz Kıyısı | 2
 | spacious | 1
-| , | 1, 2
-| bitiş | 1
-| görüntüle | 1, 2, 3
+| şunu | 1, 2
+| - | 1
+| görünüm | 1, 2, 3
 | Yürüyen | 1
-| ile | 3
+| örneklerini şununla değiştirin: | 3
 
 
 **Dizini oluşturulan terimler karşı sorgu terimleriyle eşleşen**
@@ -315,7 +315,7 @@ Sorgu yürütme işlemi sırasında her sorgu karşı aranabilir alanları bağ�
 
 Tüm, söz konusu sorgu için eşleşen belgelerdir 1, 2, 3. 
 
-## <a name="stage-4-scoring"></a>4. Aşama: Puanlama  
+## <a name="stage-4-scoring"></a>4\. Aşama: Puanlama  
 
 Arama sonuç kümesinde her belgenin bir ilgi puanı atanır. İlgi puanı işlevi, en iyi bir kullanıcı arama sorgusu ifade edilen sorusunu bu belgeleri boyut sayısı daha yüksek olduğu. Puan eşleşen terimleri istatistiksel özelliklerine göre hesaplanır. Puanlama formülün temel [TF/IDF (terimi sıklığı ters belge sıklık düzeyi)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). Nadir ve yaygın terimlerin bulunduğu sorgularda sonuçları nadir terimini içeren TF/IDF yükseltir. Örneğin, tüm Wikipedia makalelerde kuramsal bir dizinde belgelerden sorguyla eşleşen *Başkanı*, üzerinde eşleşen belgeler *Başkanı* üzerinde eşleşen belgeler daha fazla ilgili kabul edilip edilmediğini *.*
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60742131"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP adresi türleri ve ayırma yöntemleri (Azure'da Klasik)
@@ -87,7 +87,7 @@ Bir Azure [uygulama ağ geçidi](../application-gateway/application-gateway-intr
 ### <a name="at-a-glance"></a>Bir bakışta
 Aşağıdaki tabloda olası ayırma yöntemleri (dinamik/statik) ile birden çok genel IP adresleri atamak için özelliği her bir kaynak türü gösterir.
 
-| Kaynak | Dinamik | Statik | Birden çok IP adresi |
+| Resource | Dinamik | Statik | Birden çok IP adresi |
 | --- | --- | --- | --- |
 | Bulut hizmeti |Evet |Evet |Evet |
 | Iaas VM veya PaaS rolü örneği |Evet |Hayır |Hayır |
@@ -137,7 +137,7 @@ Bir [Azure Internal Load Balancer](../load-balancer/load-balancer-internal-overv
 ### <a name="at-a-glance"></a>Bir bakışta
 Aşağıdaki tabloda olası ayırma yöntemleri (dinamik/statik) ile birden çok özel IP adresleri atamak için özelliği her bir kaynak türü gösterir.
 
-| Kaynak | Dinamik | Statik | Birden çok IP adresi |
+| Resource | Dinamik | Statik | Birden çok IP adresi |
 | --- | --- | --- | --- |
 | VM (içinde bir *tek başına* bulut hizmeti veya sanal ağ) |Evet |Evet |Evet |
 | PaaS rol örneği (içinde bir *tek başına* bulut hizmeti veya sanal ağ) |Evet |Hayır |Hayır |
@@ -162,7 +162,7 @@ Eksiksiz bir listesi okuduğunuzdan emin olun [ağ limitlerinin](../azure-subscr
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Resource Manager ve klasik dağıtımlar arasındaki farklar
 Resource Manager ve klasik dağıtım modeli IP adresleme özelliklerin karşılaştırması aşağıdadır.
 
-|  | Kaynak | Klasik | Resource Manager |
+|  | Resource | Klasik | Resource Manager |
 | --- | --- | --- | --- |
 | **Genel IP adresi** |***VM*** |Başvurulan bir ILPIP (yalnızca dinamik) |İçin genel IP (dinamik veya statik) adlandırılır. |
 |  ||Bir Iaas VM'si veya PaaS rolü örneğini atanan |VM'nin NIC ile ilişkilendirilir |

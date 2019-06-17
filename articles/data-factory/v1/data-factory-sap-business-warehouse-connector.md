@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61258667"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Gelen SAP Business Azure Data Factory kullanarak Warehouse veri taşıma
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](data-factory-sap-business-warehouse-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-sap-business-warehouse.md)
 
@@ -66,7 +66,7 @@ Aşağıdaki tabloda, SAP Business Warehouse (BW) bağlantılı hizmete özgü J
 -------- | ----------- | -------------- | --------
 sunucu | SAP BW örneği yer aldığı sunucunun adı. | string | Evet
 systemNumber | SAP BW sisteminin sistem numarası. | İki basamaklı ondalık sayı bir dize olarak temsil edilir. | Evet
-ClientID | SAP W sisteminde istemcinin istemci kimliği. | Bir dize olarak temsil edilen üç basamaklı ondalık sayı. | Evet
+clientId | SAP W sisteminde istemcinin istemci kimliği. | Bir dize olarak temsil edilen üç basamaklı ondalık sayı. | Evet
 kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | string | Evet
 password | Kullanıcının parolası. | string | Evet
 gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidi adı. | string | Evet
@@ -301,15 +301,15 @@ FLTP | Double
 INT1 | Byte
 INT2 | Int16
 INT4 | Int
-DİL | String
+LANG | String
 LCHR | String
 LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
-HAM | Byte[]
+RAW | Byte[]
 RAWSTRING | Byte[]
-DİZE | String
-BİRİM | String
+STRING | String
+UNIT | String
 DATS | String
 NUMC | String
 TIMS | String

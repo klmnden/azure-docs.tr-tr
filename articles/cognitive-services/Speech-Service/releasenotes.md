@@ -12,13 +12,13 @@ ms.date: 05/13/2019
 ms.author: wolfma
 ms.custom: seodec18
 ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606360"
 ---
-# <a name="release-notes"></a>Sürüm Notları
+# <a name="release-notes"></a>Sürüm notları
 
 ## <a name="speech-sdk-151"></a>SDK'sı 1.5.1 konuşma
 

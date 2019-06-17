@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
 ms.openlocfilehash: 260dfdd4b8fe7c277358fa5773029ea9a532740a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61078361"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>StorSimple Snapshot Manager görüntülemek ve birimler yönetmek için kullanın
@@ -155,8 +155,8 @@ Başlamadan önce:
 ## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Yapılandırma ve dinamik yansıtılmış birimi yedekleyin
 Dinamik yansıtılmış birim yedeklemeyi yapılandırmak için aşağıdaki adımları tamamlayın:
 
-* 1. Adım: Disk Yönetimi yansıtılmış dinamik birim oluşturmak için kullanın. 
-* 2. Adım: StorSimple anlık görüntü yedekleme Yapılandırma Yöneticisi'ni kullanın.
+* 1\. adım: Disk Yönetimi yansıtılmış dinamik birim oluşturmak için kullanın. 
+* 2\. adım: StorSimple anlık görüntü yedekleme Yapılandırma Yöneticisi'ni kullanın.
 
 ### <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce:
@@ -165,7 +165,7 @@ Başlamadan önce:
 * Yükleme ve StorSimple Snapshot Manager'ı yapılandırma. Daha fazla bilgi için Git [StorSimple Snapshot Manager'ı Dağıtma](storsimple-snapshot-manager-deployment.md).
 * İki birim StorSimple cihazında yapılandırın. (Örneklerde, kullanılabilir birimlerdir **Disk 1** ve **Disk 2**.) 
 
-### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>1. Adım: Disk Yönetimi yansıtılmış dinamik birim oluşturmak için kullanın
+### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>1\. adım: Disk Yönetimi yansıtılmış dinamik birim oluşturmak için kullanın
 Disk Yönetimi, sabit diskleri ve birimleri veya içerdikleri bölümleri yönetmek için bir sistem aracıdır. Disk Yönetimi hakkında daha fazla bilgi için Git [Disk Yönetimi](https://technet.microsoft.com/library/cc770943.aspx) Microsoft TechNet Web sitesinde.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>Dinamik yansıtılmış birim oluşturmak için
@@ -190,7 +190,7 @@ Disk Yönetimi, sabit diskleri ve birimleri veya içerdikleri bölümleri yönet
     
     ![Disk Yönetimi yansıtılmış dinamik diskler](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
 
-### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>2. Adım: Yedeklemeyi yapılandırmak için StorSimple anlık görüntü Yöneticisi'ni kullanın
+### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>2\. adım: Yedeklemeyi yapılandırmak için StorSimple anlık görüntü Yöneticisi'ni kullanın
 Bir dinamik yansıtılmış birim yapılandırın ve ardından bir yedeklemeyi hemen başlatmak veya zamanlanmış yedeklemeler için bir ilke oluşturmak için aşağıdaki yordamı kullanın.
 
 #### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>Dinamik yansıtılmış birim yedeklemeyi yapılandırmak için

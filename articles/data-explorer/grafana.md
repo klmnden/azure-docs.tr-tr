@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399923"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana Azure veri Gezgini'nde verileri görselleştirin
@@ -154,7 +154,7 @@ Atanan hizmet sorumlusu ile *görüntüleyiciler* artık rol özellikleri Grafan
     | Grafana UI | Azure portal | Azure CLI |
     | --- | --- | --- |
     | Abonelik Kimliği | ABONELİK KİMLİĞİ | SubscriptionId |
-    | Kiracı kimliği | Dizin kimliği | kiracı |
+    | Kiracı kimliği | Dizin kimliği | tenant |
     | İstemci kimliği | Uygulama Kimliği | appId |
     | Gizli anahtar | Parola | password |
     | | | |

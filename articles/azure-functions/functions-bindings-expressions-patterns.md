@@ -8,14 +8,13 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/20/2019
-ms.author: v-junlch
+ms.date: 02/18/2019
+ms.author: cshoe
 ms.openlocfilehash: 0c1dbbae5e4be965f195b5ea4fc88b1bc5fb4f87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61437880"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure işlevleri bağlama ifade desenleri
@@ -295,7 +294,7 @@ public class BlobName
 }
 ```
 
-## <a name="current-time"></a>Geçerli zaman
+## <a name="current-time"></a>Geçerli saati
 
 Bağlama ifadesi `DateTime` çözümler `DateTime.UtcNow`. Aşağıdaki blob yolu bir `function.json` dosyası gibi bir ada sahip bir blob oluşturur *2018-02-16T17-59-55Z.txt*.
 
@@ -314,5 +313,3 @@ C# ve diğer .NET dilleri, bildirim temelli bağlamaları aksine bir kesinlik te
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [Azure işlev dönüş değeri kullanma](./functions-bindings-return-value.md)
-
-<!-- Update_Description: link update -->

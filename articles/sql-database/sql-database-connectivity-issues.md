@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
 ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66019814"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL veritabanı bağlantı sorunlarını ve geçici hatalar ile çalışma
@@ -91,7 +91,7 @@ Yeniden deneme mantığınız test etmek için benzetimini yapmak veya programı
 Yeniden deneme mantığınız test edebilirsiniz bir program çalışırken, istemci bilgisayar ağ bağlantısını kesmek için yoludur. Hata oluşur:
 
 - **SqlException.Number** 11001 =
-- Mesaj: "Böyle bir ana makine bilinmiyor"
+- İleti: "Böyle bir ana makine bilinmiyor"
 
 Programınızı ilk yeniden deneme girişimi bir parçası olarak, yazım hataları düzeltin ve bağlanma girişimi.
 
@@ -109,7 +109,7 @@ Bu test pratik hale getirmek için programınızı başlamadan önce ağ üzerin
 Programınızı bilerek kullanıcı adından önce ilk bağlantı girişimi yazsanız. Hata oluşur:
 
 - **SqlException.Number** = 18456
-- Mesaj: "Oturum açma 'WRONG_MyUserName' kullanıcı için başarısız oldu."
+- İleti: "Oturum açma 'WRONG_MyUserName' kullanıcı için başarısız oldu."
 
 Programınızı ilk yeniden deneme girişimi bir parçası olarak, yazım hataları düzeltin ve bağlanma girişimi.
 

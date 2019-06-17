@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478887"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream analytics'te sorgu paralelleştirmesinden
@@ -77,7 +77,7 @@ Aşağıdaki bölümlerde utandırıcı derecede paralel bazı örnek senaryolar
 ### <a name="simple-query"></a>Basit sorgu
 
 * Giriş: Olay hub'ı 8 bölüm ile
-* Çıkış: Olay hub'ı 8 bölüm ile
+* Çıktı: Olay hub'ı 8 bölüm ile
 
 Sorgu:
 
@@ -92,7 +92,7 @@ Bu sorguyu basit bir filtredir. Bu nedenle, olay hub'ına gönderilen giriş bö
 ### <a name="query-with-a-grouping-key"></a>Bir gruplandırma anahtar ile sorgulama
 
 * Giriş: Olay hub'ı 8 bölüm ile
-* Çıkış: Blob depolama
+* Çıktı: Blob depolama
 
 Sorgu:
 
@@ -110,19 +110,19 @@ Bu sorgu, bir gruplandırma anahtarına sahiptir. Bu nedenle, gruplandırılmı�
 
 ### <a name="mismatched-partition-count"></a>Uyuşmayan bölüm sayısı
 * Giriş: Olay hub'ı 8 bölüm ile
-* Çıkış: Olay hub'ı ile 32 bölümlü
+* Çıktı: Olay hub'ı ile 32 bölümlü
 
 Bu durumda, sorgu nedir önemi yoktur. Giriş bölüm sayısı olan çıkış bölüm sayısı eşleşmezse, topoloji utandırıcı derecede değil paralel. + ancak biz yine de bazı düzeyi veya paralelleştirme elde edebilirsiniz.
 
 ### <a name="query-using-non-partitioned-output"></a>Bölümlenmemiş çıkış kullanarak sorgulama
 * Giriş: Olay hub'ı 8 bölüm ile
-* Çıkış: Power BI
+* Çıktı: Power BI
 
 Power BI çıkışı bölümleme şu anda desteklemiyor. Bu nedenle, bu senaryo utandırıcı derecede paralel değil.
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>Çok adımlı sorgunun PARTITION BY farklı değerlerle
 * Giriş: Olay hub'ı 8 bölüm ile
-* Çıkış: Olay hub'ı 8 bölüm ile
+* Çıktı: Olay hub'ı 8 bölüm ile
 
 Sorgu:
 

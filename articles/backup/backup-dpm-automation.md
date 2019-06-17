@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
 ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127773"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell kullanarak Data Protection Manager (DPM) sunucuları için Azure’a yedekleme dağıtma ve yönetme
@@ -121,7 +121,7 @@ Bu, tüm varsayılan seçeneklerle aracısını yükler. Yükleme arka planda bi
 
 Aracı yüklü programlar listesinde gösterilir. Yüklü programlar listesinde görmek için Git **Denetim Masası** > **programlar** > **programlar ve Özellikler**.
 
-![Aracı yüklü](./media/backup-dpm-automation/installed-agent-listing.png)
+![Yüklenen aracı](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Yükleme Seçenekleri
 
@@ -138,9 +138,9 @@ Kullanılabilir seçenekler şunlardır:
 | /q |Sessiz yükleme |- |
 | / p: "Konum" |Azure Backup Aracısı yükleme klasörünün yolu. |C:\Program Files\Microsoft Azure Recovery Services Agent |
 | / s: "Konum" |Azure Backup aracısı için önbellek klasörünün yolu. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /dk |Microsoft Update'e katılım |- |
+| /m |Microsoft Update'e katılım |- |
 | /nu |Yükleme tamamlandıktan sonra güncelleştirmeleri denetleme |- |
-| /g |Microsoft Azure kurtarma Hizmetleri Aracısı'nı kaldırır |- |
+| /d |Microsoft Azure kurtarma Hizmetleri Aracısı'nı kaldırır |- |
 | /ph |Proxy ana bilgisayar adresi |- |
 | /PO |Proxy ana bilgisayar bağlantı noktası numarası |- |
 | /PU |Proxy ana kullanıcı adı |- |

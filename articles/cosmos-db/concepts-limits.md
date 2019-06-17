@@ -1,5 +1,5 @@
 ---
-title: Azure cosmos DB'de sınırları
+title: Azure Cosmos DB’nin sınırları
 description: Bu makalede, Azure Cosmos DB'de sınırları açıklanır.
 author: arramac
 ms.author: arramac
@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
 ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969500"
 ---
-# <a name="limits-in-azure-cosmos-db"></a>Azure cosmos DB'de sınırları
+# <a name="limits-in-azure-cosmos-db"></a>Azure Cosmos DB’nin sınırları
 
 Bu makalede, Azure Cosmos DB hizmetini sınırları genel bir bakış sağlar.
 
