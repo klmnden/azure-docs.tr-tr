@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: b-juche
 ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826371"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files için kaynak sınırları
@@ -43,7 +43,7 @@ Aşağıdaki tabloda, Azure NetApp dosyaları için kaynak sınırları açıkla
 |  Maksimum atanan kota, bir tek birim *   |   92 TiB   |    Hayır   |
 |  Bir tek birim * en büyük boyutu     |    100 TiB    |    Hayır       |
 
-* Bir birim el ile oluşturulan veya maximally 92 TiB olarak yeniden boyutlandırıldı. Ancak, bir birim, en fazla 100 tib'a kadar fazla kullanım bir senaryoda büyüyebilir. Bkz: [Azure NetApp dosyaları için maliyet modeli](azure-netapp-files-cost-model.md) kapasite fazla kullanım hakkında ayrıntılı bilgi için. 
+\* Bir birim el ile oluşturulan veya maximally 92 TiB olarak yeniden boyutlandırıldı. Ancak, bir birim, en fazla 100 tib'a kadar fazla kullanım bir senaryoda büyüyebilir. Bkz: [Azure NetApp dosyaları için maliyet modeli](azure-netapp-files-cost-model.md) kapasite fazla kullanım hakkında ayrıntılı bilgi için. 
 
 ## <a name="request-limit-increase"></a>Sınır artırma isteğinde 
 
@@ -54,7 +54,7 @@ Azure portalında gezinme düzleminde:
 1. Tıklayın **Yardım + Destek**.
 2. Tıklayın **+ yeni destek isteği**.
 3. Temel bilgiler sekmesinde, aşağıdaki bilgileri sağlayın: 
-    1. Sorun türü: Seçin **hizmet ve abonelik sınırlarını (kotalar)**.
+    1. Sorun türü: Seçin **hizmet ve abonelik sınırlarını (kotalar)** .
     2. Abonelikler: İlişkin kotayı gereken kaynak için abonelik seçin.
     3. Kota türü: Seçin **Depolama: Azure NetApp dosyaları sınırlar**.
     4. Tıklayın **sonraki: Çözümleri**.

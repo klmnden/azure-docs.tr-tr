@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: ed101df5cd3d6e5754b88c5f66807f9fda846cf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60998818"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Azure Veri Kataloğu için klavye kısayolları
@@ -20,7 +20,7 @@ ms.locfileid: "60998818"
 ### <a name="general-keyboard-shortcuts"></a>Genel klavye kısayolları
 | İşlem | Tuşuna basın |
 | --- | --- |
-| Bir sayfadaki her denetim için sekmesinde |Sekme |
+| Bir sayfadaki her denetim için sekmesinde |Tab |
 | Bir seçenek belirtin |Girin veya Ara çubuğuna basın |
 | Sayfanın en üst düzeye çıkarın |WIN + YUKARI |
 | Geri yükleme/en aza sayfası |WIN + AŞAĞI |

@@ -5,18 +5,26 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptional
-ms.date: 04/22/2019
+ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 3880c847c54136dfd3ba1ecfe0178565091e229f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 48725ed8cdf3df30f8df31966aa632bfb2a4ef1f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510210"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066900"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>VPN ağ geçidinden tanılama günlüğü olayları uyarıları ayarlama
 
-Bu makalede Azure VPN ağ geçidi tanılama günlüğü olaylarını göre uyarılar ayarlamanıza yardımcı olur.
+Bu makalede Azure VPN ağ geçidi tanılama günlüğü olaylarını göre uyarılar ayarlamanıza yardımcı olur. Aşağıdaki günlüklere kullanılabilir.
+
+|***Ad*** | ***Açıklama*** |
+|---        | ---               |
+|GatewayDiagnosticLog | Ağ geçidi yapılandırma olayları, birincil değişiklikleri ve Bakım olayları için tanı günlüklerinin bulunduğu |
+|TunnelDiagnosticLog | Tünel durum değişikliği olayları içerir. Tünel olayları bağlama/bağlantısını kes durum değişikliği için Özet bir neden varsa |
+|RouteDiagnosticLog | Statik yollar ve ağ geçidinde BGP olayları günlükleri değişiklikleri |
+|IKEDiagnosticLog | IKE denetim iletileri ve ağ geçidi üzerinde olayları günlüğe kaydeder |
+|P2SDiagnosticLog | Noktadan siteye denetim iletileri ve ağ geçidi üzerinde olayları günlüğe kaydeder |
 
 ## <a name="setup"></a>Uyarılar ayarlayın
 
@@ -43,7 +51,7 @@ Aşağıdaki örnek adımlarda, siteden siteye VPN tüneli gerektirir bir bağla
 
    ![Tanılamayı açma seçimleri](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "seçin")
 
-6. Ayrıntıları girin ve emin **Log Analytics'e gönderme** ve **TunnelDiagnosticLog** seçilir. 3. adımda oluşturduğunuz Log Analytics çalışma alanı seçin.
+6. Ayrıntıları girin ve emin **Log Analytics'e gönderme** ve **TunnelDiagnosticLog** seçilir. 3\. adımda oluşturduğunuz Log Analytics çalışma alanı seçin.
 
    ![Onay kutularının seçili](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "seçin")
 

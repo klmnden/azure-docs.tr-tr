@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 7cc52493ec0e2b9c81d52da4bb22102c2c7e5e5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60712504"
 ---
 # <a name="project-url-preview-endpoint"></a>Proje URL'si Önizleme uç noktası

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66226409"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core uygulamaları için Application Insights
@@ -121,7 +121,7 @@ Bu makalede için Application Insights'ı etkinleştirmek nasıl bir [ASP.NET Co
 |HTTP/Https | İle yapılan çağrılar `HttpClient`. |
 |SQL | İle yapılan çağrılar `SqlClient`. |
 |[Azure depolama alanı](https://www.nuget.org/packages/WindowsAzure.Storage/) | Azure depolama istemci ile yapılan çağrılar. |
-|[EventHub istemci SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 sürümü ve üzeri. |
+|[EventHub istemci SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1\.1.0 sürümü ve üzeri. |
 |[Service Bus istemci SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Sürüm 3.0.0 ve üstü. |
 |Azure Cosmos DB | HTTP/HTTPS kullanılıyorsa yalnızca otomatik olarak izlenir. TCP modu, Application Insights tarafından yakalanan olmaz. |
 

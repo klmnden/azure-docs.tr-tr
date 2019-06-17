@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417592"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL veritabanı için performans önerileri
@@ -77,9 +77,9 @@ Bu öneri uygulandıktan sonra veritabanınıza dakikalar içinde zorunlu Parame
 
 Azure SQL veritabanı hizmeti SQL veritabanı'nda oluşmasını şema ile ilgili SQL hataları sayısı bir anomali istediğinde "şema sorunu" öneri görünür. Aşağıdaki tablo şema sorunlarıyla ilgili hataları gösterir:
 
-| SQL hata kodu | İleti |
+| SQL hata kodu | `Message` |
 | --- | --- |
-| 201 |Yordamı veya işlevi '*'parametresini bekliyor'*', hangi sağlanmadı. |
+| 201 |Yordamı veya işlevi ' *'parametresini bekliyor'* ', hangi sağlanmadı. |
 | 207 |Geçersiz sütun adı ' *'. |
 | 208 |Geçersiz nesne adı ' *'. |
 | 213 |Sütun adı veya numarası sağlanan değerlerin tablo tanımı eşleşmiyor. |

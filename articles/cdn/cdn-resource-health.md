@@ -15,11 +15,11 @@ ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: ad4bf7ae97a08f89b9d82e1d4e025a5bd5d47fc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324713"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696168"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Azure CDN kaynakları durumunu izleyin
   
@@ -51,7 +51,7 @@ Azure CDN kaynak durumu, bir alt kümesidir [Azure kaynak durumu](../resource-he
 
 Azure CDN kaynak sağlığı ile ilgili durumları aşağıda bulabilirsiniz.
 
-|İleti | Önerilen Eylem |
+|`Message` | Önerilen Eylem |
 |---|---|
 |Bir veya daha çok CDN uç noktanızı durdurmuş, kaldırmış veya yanlış yapılandırmış olabilirsiniz | Bir veya daha çok CDN uç noktanızı durdurmuş, kaldırmış veya yanlış yapılandırmış olabilirsiniz.|
 |Üzgünüz, CDN yönetim hizmeti şu anda kullanılamıyor | Durum güncelleştirmeleri için buraya tekrar denetleyin; Beklenen çözüm süresinden sonra sorun devam ederse desteğe başvurun.|

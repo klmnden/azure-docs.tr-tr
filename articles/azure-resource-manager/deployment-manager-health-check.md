@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
 ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796252"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Azure Deployment Manager (genel Önizleme) için sistem tümleştirme piyasaya tanıtmak
@@ -140,11 +140,11 @@ Bir örnek üzerinde yürütmek için bkz [Öğreticisi: Azure Dağıtım Yönet
 
 Bu noktada Azure Deployment Manager sistem durumu hizmeti ve bunu yapmak için kullanıma sunma ne aşamaları sorgulamak nasıl bilir. Ancak, Azure Deployment Manager da bu denetimleri zamanlamasını ayrıntılı yapılandırılmasını sağlar. Tüm yapılandırılabilir süreler 3 sıralı aşamalarında healthCheck adım çalıştırılır: 
 
-1. Bekle
+1. Wait
 
     1. Dağıtım işlemi tamamlandıktan sonra Vm'leri yeniden başlatma, yeniden yeni veriler veya hatta ilk kez başlatıldı göre. Ayrıca, sistem durumu sinyal sağlayıcısı bir şeye yararlı izleme sistem tarafından toplanacak yayma başlatmak hizmetler zaman alır. Tumultuous bu işlem sırasında hizmet durumu için güncelleştirme henüz kararlı bir duruma ulaştı değil beri denetlemek için anlamlı olmayabilir. Aslında, kaynakları kapatma gibi hizmet sağlıklı ve sağlıksız durumlar arasında oscillating. 
     1. Bekleme aşamasında, hizmet durumu izlemesi yapılmaz. Bu, dağıtılan kaynaklar izin vermek için kullanılır sistem durumu onay işlemine başlamadan önce hazırlama süresi. 
-1. Elastik
+1. Esnek
 
     1. Her durumda ne kadar bilmek olanaksızdır olduğundan kaynaklar kaynakları potansiyel olarak kararsız olduğunda arasında esnek süre boyunca esnek aşaması sağlayan kararlı, haline gelmeden önce ve sağlam bir kararlı korumak için gerekli olduğunda hazırlama yönlendirilirsiniz durumu.
     1. Esnek aşaması başladığında, Deployment Manager'ı Azure hizmet durumu için sağlanan REST uç noktasını düzenli aralıklarla yoklama başlar. Yoklama aralığı yapılandırılabilir. 

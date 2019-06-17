@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002018"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn için sık sorulan sorular
@@ -118,7 +118,7 @@ Bir varlığa ek CSP hesapları eklemek için seçin **MSP erişim** yerine **Ku
 
 Farklı para birimlerinin kullanarak birden çok Azure hesabında olabilir. Bununla birlikte, Cloudyn maliyet raporlarında, rapor başına birden fazla para birimi türü gösterme.
 
-Farklı para birimlerinin kullanarak birden fazla aboneliğiniz varsa, bir üst varlık ve onun alt varlık para ABD Doları görüntülenir **$**. Bizim önerilen en iyi uygulama, aynı varlık hiyerarşideki farklı para birimlerinin kullanarak önlemek içindir. Diğer bir deyişle, bir varlık yapısında düzenlenmiş tüm abonelikler aynı para kullanmanız gerekir.
+Farklı para birimlerinin kullanarak birden fazla aboneliğiniz varsa, bir üst varlık ve onun alt varlık para ABD Doları görüntülenir **$** . Bizim önerilen en iyi uygulama, aynı varlık hiyerarşideki farklı para birimlerinin kullanarak önlemek içindir. Diğer bir deyişle, bir varlık yapısında düzenlenmiş tüm abonelikler aynı para kullanmanız gerekir.
 
 Cloudyn, otomatik olarak, Kurumsal Anlaşma abonelik para algılar ve düzgün şekilde raporlar sunar.  Bununla birlikte, Cloudyn ABD Doları yalnızca görüntüler **$** CSP ve doğrudan web Azure hesapları için.
 

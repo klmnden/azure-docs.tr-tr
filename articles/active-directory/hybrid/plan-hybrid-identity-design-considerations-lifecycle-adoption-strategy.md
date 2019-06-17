@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aff695307fc97e9f2acfd44f7434d5cbb26ef53e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 85f600c8bd46e699e80bf7b596574dc01467ef79
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950834"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109309"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Karma kimlik yaşam döngüsü benimseme stratejisi belirleme
 Bu görevde, tanımladığınız iş gereksinimlerini karşılamak, karma kimlik çözümü için Kimlik Yönetimi stratejisi tanımlarsınız [karma kimlik yönetimi görevleri belirlemek](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -80,13 +80,13 @@ Azure Active Directory çoklu oturum sağlar ve binlerce SaaS uygulamaları ve �
 Şirket içi dizinlerinizin Azure AD ile tümleştirilmesi, kullanıcılarınızın hem bulut kaynaklarına hem de şirket içi kaynaklara erişmesi için ortak bir kimlik oluşturarak daha üretken olmalarını sağlar. Bu tümleştirme sayesinde, kullanıcılar ve kuruluşlar aşağıdaki avantajlarından yararlanabilirsiniz:
 
 * Kuruluşlar şirket içi veya bulut tabanlı hizmetlere yararlanarak Windows Server Active Directory ve ardından Azure Active Directory'ye bağlanılırken arasında ortak bir karma kimlik kullanıcılarla sağlayabilir.
-* Yöneticiler Uygulama kaynağı, cihaz ve kullanıcı kimliği, ağ konumu ve çok faktörlü kimlik doğrulaması göre koşullu erişim sağlayabilir.
+* Yöneticiler Uygulama kaynağı, cihaz ve kullanıcı kimliği, ağ konumu ve çok faktörlü kimlik doğrulaması tabanlı koşullu erişim sağlayabilir.
 * Kullanıcılar, Office 365, Intune, SaaS uygulamaları, Azure AD'de kendi ortak kimlik hesabından yararlanabilir ve üçüncü taraf uygulamaları.
 * Geliştiriciler, uygulamaları bulut tabanlı uygulamalar için Active Directory şirket içi veya Azure tümleştirme ortak kimlik modeli yararlanan uygulamalar oluşturabilir
 
 Aşağıdaki şekilde kimlik eşitleme işlemi üst düzey görünümü örneği vardır.
 
-![Eşitle](./media/plan-hybrid-identity-design-considerations/identitysync.png)
+![Sync](./media/plan-hybrid-identity-design-considerations/identitysync.png)
 
 Kimlik eşitleme işlemi
 

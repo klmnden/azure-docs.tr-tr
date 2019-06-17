@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238445"
 ---
 | Resource | Boş | Paylaşılan | Temel | Standart | Premium (v2) | Yalıtılmış </th> |
@@ -24,7 +24,7 @@ ms.locfileid: "66238445"
 | Bant genişliği |165 MB |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |
 | Uygulama mimarisi |32 bit |32 bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |
 | Web yuvaları örnek başına<sup>7</sup> |5 |35 |350 |Sınırsız |Sınırsız |Sınırsız |
-| Eş zamanlı [hata ayıklayıcı bağlantıları](../articles/app-service/troubleshoot-dotnet-visual-studio.md) uygulama başına |1 |1. |1 |5 |5 |5 |
+| Eş zamanlı [hata ayıklayıcı bağlantıları](../articles/app-service/troubleshoot-dotnet-visual-studio.md) uygulama başına |1 |1\. |1 |5 |5 |5 |
 | App Service sertifikaları, abonelik başına<sup>10</sup>| Desteklenmiyor | Desteklenmiyor |10 |10 |10 |10 |
 | Uygulama başına özel etki alanları</a> |0 (azurewebsites.net alt etki alanı yalnızca)|500 |500 |500 |500 |500 |
 | Özel etki alanı [SSL desteği](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Desteklenen değil için joker karakter sertifikası *. azurewebsites.net varsayılan olarak kullanılabilir|Desteklenen değil için joker karakter sertifikası *. azurewebsites.net varsayılan olarak kullanılabilir|Sınırsız SNI SSL bağlantıları |Sınırsız SNI SSL ve 1 IP SSL bağlantıları dahildir |Sınırsız SNI SSL ve 1 IP SSL bağlantıları dahildir | Sınırsız SNI SSL ve 1 IP SSL bağlantıları dahildir|

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 83a5d4c1d9c0475609a506fbfe6ae23bd9e236fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 837ba4043fe27c15f75c4d401878dfdb3328b82f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087591"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Öğretici: Rensel ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Rensel tümleştirmesini yapılandırmak için Rensel Galeriden yön
 
 **Galeriden Rensel eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

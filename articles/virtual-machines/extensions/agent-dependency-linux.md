@@ -1,6 +1,6 @@
 ---
 title: Linux için Azure İzleyici bağımlılık sanal makine uzantısı | Microsoft Docs
-description: Azure İzleyici bağımlılık aracısını sanal makine uzantısını kullanarak Linux sanal makinesine dağıtın.
+description: Bir sanal makine uzantısını kullanarak Linux sanal makinesinde Azure İzleyici bağımlılık aracısını dağıtın.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mgoedtel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 750393e6dba17ab8ba024f9f1fbb2f9127dd81ab
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 5faeebe799bd8cc0ba9a148508ac5b3a6d4b803a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521694"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120205"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Linux için Azure İzleyici bağımlılık sanal makine uzantısı
 
@@ -74,20 +74,20 @@ Aşağıdaki JSON şema Azure VM bağımlılık Aracısı uzantısı için bir A
 
 ### <a name="property-values"></a>Özellik değerleri
 
-| Ad | Değer / örnek |
+| Ad | Değeri/örneği |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
-| type | DependencyAgentLinux |
+| türü | DependencyAgentLinux |
 | typeHandlerVersion | 9.5 |
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde açıklanan JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında Azure VM bağımlılık Aracısı uzantısı çalıştırmak için kullanılabilir. 
+Azure VM uzantıları Azure Resource Manager şablonları ile dağıtabilirsiniz. Bir Azure Resource Manager şablon dağıtımı sırasında Azure VM bağımlılık Aracısı uzantısı çalıştırmak için bir Azure Resource Manager şablonu önceki bölümde ayrıntılı JSON Şeması'nı kullanabilirsiniz.
 
-Sanal makine uzantısı için JSON içinde sanal makine kaynağı iç içe veya kök veya bir Resource Manager JSON şablonunu üst düzey yerleştirilir. Kaynak adı ve türü değeri JSON yerleşimini etkiler. Daha fazla bilgi için [ayarlamak için alt kaynakları ad ve tür](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
+Sanal makine uzantısı için JSON içinde sanal makine kaynağı içe olabilir. Veya kök veya bir Resource Manager JSON şablonunu üst düzey yerleştirebilirsiniz. Kaynak adı ve türü değeri JSON yerleşimini etkiler. Daha fazla bilgi için [ayarlamak için alt kaynakları ad ve tür](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources).
 
-Aşağıdaki örnek, bağımlılık Aracısı uzantısı sanal makine kaynağı içinde iç içe varsayar. İç içe uzantısı kaynak, JSON yerleştirildi `"resources": []` sanal makinenin nesne.
+Aşağıdaki örnek, bağımlılık Aracısı uzantısı sanal makine kaynağı içinde iç içe varsayar. Uzantı kaynak, iç içe, JSON yerleştirildi `"resources": []` sanal makinenin nesne.
 
 
 ```json
@@ -108,7 +108,7 @@ Aşağıdaki örnek, bağımlılık Aracısı uzantısı sanal makine kaynağı 
 }
 ```
 
-Uzantı JSON şablonu kökünde yerleştirilirken, kaynak adı üst sanal makineye bir başvuru içerir ve iç içe geçmiş yapılandırma türü yansıtır. 
+Uzantı JSON şablonu kökünde yerleştirdiğinizde, kaynak adı üst sanal makineye bir başvuru içerir. Tür, iç içe geçmiş yapılandırma yansıtır. 
 
 ```json
 {
@@ -130,7 +130,7 @@ Uzantı JSON şablonu kökünde yerleştirilirken, kaynak adı üst sanal makine
 
 ## <a name="azure-cli-deployment"></a>Azure CLI dağıtım
 
-Azure CLI, mevcut bir sanal makine için bağımlılık Aracısı VM uzantısını dağıtmak için kullanılabilir.  
+Mevcut bir sanal makine için bağımlılık Aracısı VM uzantısını dağıtmak için Azure CLI'yı kullanabilirsiniz.  
 
 ```azurecli
 
@@ -146,7 +146,7 @@ az vm extension set \
 
 ### <a name="troubleshoot"></a>Sorun giderme
 
-Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure CLI kullanılarak alınabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için Azure CLI kullanarak aşağıdaki komutu çalıştırın.
+Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure CLI kullanılarak alınabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için Azure CLI kullanarak aşağıdaki komutu çalıştırın:
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -160,4 +160,4 @@ Uzantı yürütme çıkış aşağıdaki dosyasına kaydedilir:
 
 ### <a name="support"></a>Destek
 
-Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa, üzerinde Azure uzmanlarıyla iletişime geçebilirsiniz [Azure MSDN ve Stack Overflow forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, bir Azure destek olayına dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) ve Destek Al'ı seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği SSS](https://azure.microsoft.com/support/faq/).
+Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa Azure uzmanlarından ulaşın [Azure MSDN ve Stack Overflow forumları](https://azure.microsoft.com/support/forums/). Veya bir Azure destek olayına dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) seçip **Destek**. Azure desteği kullanma hakkında daha fazla bilgi için okuma [Microsoft Azure desteği SSS](https://azure.microsoft.com/support/faq/).

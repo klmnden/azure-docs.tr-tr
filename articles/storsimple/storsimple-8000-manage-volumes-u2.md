@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60634903"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Birimler (güncelleştirme 3 veya üzeri) yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
@@ -48,7 +48,7 @@ Yerel olarak sabitlenmiş birimler tam olarak sağlanır; Bu nedenle, bunları o
 
 Yerel olarak sabitlenmiş bir birim oluşturduğunuzda, katmanlı birimlerin oluşturulması için kullanılabilir alan azalır. Bu durumun tersi de geçerlidir: var olan katmanlı birimler varsa, oluşturma yerel olarak sabitlenmiş birimler için mevcut olan alanı yukarıda belirtilen en üst düzeye göre daha düşük olacaktır. Yerel birimler üzerinde daha fazla bilgi için [yerel olarak sabitlenmiş birimler hakkında sık sorulan sorular](storsimple-8000-local-volume-faq.md).
 
-### <a name="tiered-volumes"></a>Katmanlı birim
+### <a name="tiered-volumes"></a>Katmanlı birimler
 
 Katmanlı birimlerin sık erişilen verilerin cihazda yerel kalmasını ve sık kullanılan veriler otomatik olarak buluta katmanlanmış ölçülü kaynak kullanan birimler listelenmiştir. Ölçülü kaynak sağlama fiziksel kaynakları aşmayı kullanılabilir depolama alanı görünür bir sanallaştırma teknolojisidir. Önceden yeterli depolama alanı ayırmak yerine, StorSimple ölçülü kaynak sağlama geçerli gereksinimlerini karşılamak için yeterli alan ayırmak için kullanır. StorSimple artırabilir veya azaltabilirsiniz değişen taleplerini karşılamak üzere bulut depolama çünkü bu yaklaşım bulut depolama esnek yapısı kolaylaştırır.
 

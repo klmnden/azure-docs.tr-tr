@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ae1578a04bf6a94aeb5a7a3b64ac3ae722fe9ac
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 219af24aceea9291e34a9854d230b5dc6bd85fdb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896942"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Öğretici: 15Five ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de 15Five tümleştirmesini yapılandırmak için 15Five Galeriden yön
 
 **Galeriden 15Five eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

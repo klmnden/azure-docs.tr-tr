@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63ceb6a80f253ea1661d215939705f8e39f3e58
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236784"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119294"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Kimlik altyapınızın güvenliğini sağlamak için beş adım
 
@@ -36,7 +36,7 @@ Bu denetim listesini açıklayarak hemen kuruluşunuzu korumak için kritik öne
 
 Bu belgedeki önerileri ile hizalanır [kimlik güvenli puanı](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score), bir Azure AD kiracınızın kimliğini güvenlik yapılandırması değerlendirmesinin otomatik. Kuruluşlar geçerli Microsoft güvenlik için en iyi uygulamaları takip etmeleri emin olmak için geçerli güvenlik yapılandırmalarını boşlukları bulmak için Azure AD portalında güvenli kimlik puanı sayfasını kullanabilirsiniz. Her önerinin güvenli puanı sayfasında uygulama puanınız artırmak ve ilerlemenizi izleyin yanı sıra diğer benzer boyutu kuruluşlar veya sektörünüze yönelik uygulamanızda karşılaştırmanıza yardımcı olanak sağlar.
 
-![Kimlik Güvenliği Puanı](media/azure-ad/azure-ad-sec-steps0.png)
+![Güvenli kimlik puanı](media/azure-ad/azure-ad-sec-steps0.png)
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Başlamadan önce: MFA ile ayrıcalıklı hesapları korumak
 
@@ -46,7 +46,7 @@ Bu hesapların ilk korunması kritik, bu nedenle ayrıcalıklı hesapların dene
 
 Tüm ayarlansın mı? Denetim listesi üzerinde başlayalım.
 
-## <a name="step-1---strengthen-your-credentials"></a>1. adım - kimlik bilgilerinizi güçlendirin 
+## <a name="step-1---strengthen-your-credentials"></a>1\. adım - kimlik bilgilerinizi güçlendirin 
 
 Çoğu Kurumsal güvenlik ihlallerini birkaç parola ilaç, ihlal yeniden yürütme ya da kimlik avı gibi yöntemlerin biriyle tehlikeye bir hesapla kaynaklanır. (45 dakika) Bu videoda bu saldırılar hakkında daha fazla bilgi edinin:
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
@@ -89,7 +89,7 @@ Kuruluşlar, doğrudan Azure AD'ye kimlik doğrulaması için uygulamaları yap�
 
 Kullanarak [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), parolalar, bilgisayarları ve mobil cihazlarda güçlü iki öğeli kimlik doğrulama ile değiştirebilirsiniz. Bu kimlik doğrulaması, kullanıcı kimlik bilgisi bir cihaza güvenli bir şekilde bağlanır ve bir biyometrik veya PIN kodu kullanan yeni bir tür oluşur.
 
-## <a name="step-2---reduce-your-attack-surface"></a>2. adım - saldırı yüzeyinizi azaltmak
+## <a name="step-2---reduce-your-attack-surface"></a>2\. adım - saldırı yüzeyinizi azaltmak
 
 Parola güvenlik ihlali kapsamlılığıyla göz önünde bulundurulduğunda, kuruluşunuzdaki saldırı yüzeyini en aza önemlidir. Erişim girdisi sınırlama, eski ve daha az güvenli protokolleri kullanımı ortadan işaret ve daha önemli denetimin kaynaklarına yönetim erişimi uygulama saldırı yüzey alanını azaltmaya yardımcı olabilir.
 
@@ -124,7 +124,7 @@ Azure AD PIM etkinleştirin ve ardından yönetim rolleri atanır ve bu rollerde
 
 Ayrıcalıklı hesap işleminizi dağıtma bir parçası olarak izleyin [açısından en iyisi, en az iki Acil Durum hesapları oluşturmak için](https://docs.microsoft.com/azure/active-directory/admin-roles-best-practices) varsa Azure ad erişim, kendiniz kilitlemesine emin olmak için.
 
-## <a name="step-3---automate-threat-response"></a>3. adım: tehdit yanıtı otomatikleştirme
+## <a name="step-3---automate-threat-response"></a>3\. adım: tehdit yanıtı otomatikleştirme
 
 Azure Active Directory, otomatik olarak algılama ve yanıtlama arasındaki gecikme kaldırmak için saldırıları, müdahale çok özellikleri vardır. Maliyetleri düşürebilir ve kendilerini ortamınıza eklemek için zaman Suçları azalttığınızda riskleri kullanın. Gerçekleştirebileceğiniz somut adımlar aşağıda verilmiştir.
 
@@ -140,7 +140,7 @@ Oturum açma riski, hesap sahibi dışındaki bir şahsa kimliğini kullanarak o
 
 ![Anonim Ip'lerden gelen oturum açın](media/azure-ad/azure-ad-sec-steps2.png)
 
-## <a name="step-4---increase-your-awareness"></a>4. adım -, bilinirliğinizi artırın
+## <a name="step-4---increase-your-awareness"></a>4\. adım -, bilinirliğinizi artırın
 
 Denetim ve güvenlikle ilgili olaylar ve ilgili uyarıları günlük kaydını verimli koruma stratejisi için temel bileşenleridir. Kuşkulu etkinlikleri ve ağ ve iç saldırıları denenmedi veya başarılı dış sızma gösterebilecek desenleri algılamak Yardım elektronik kaydıyla, güvenlik günlüklerini ve raporları sağlar. Denetim kullanıcı etkinliğini, belge yönetmeliklere uygunluk, adli analiz ve daha fazlasını gerçekleştirmek için kullanabilirsiniz. Uyarılar, bildirimler güvenlik olayları sağlar.
 
