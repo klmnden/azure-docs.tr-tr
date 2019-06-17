@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119818"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
@@ -21,7 +21,7 @@ Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları l
 ## <a name="advanced-message-queueing-protocol"></a>Gelişmiş ileti sıraya alma Protokolü
 [Gelişmiş ileti sıraya alma Protokolü (AMQP)](https://www.amqp.org/) olduğu bir Mesajlaşma protokolleri [IOT hub'ı](#iot-hub) cihazlarla iletişim için destekler. IOT hub'ın desteklediği Mesajlaşma protokolleri hakkında daha fazla bilgi için bkz. [göndermek ve IOT Hub ile ileti alma](iot-hub-devguide-messaging.md).
 
-## <a name="automatic-device-management"></a>Otomatik Cihaz Yönetimi
+## <a name="automatic-device-management"></a>Otomatik cihaz Yönetimi
 Azure IOT hub otomatik cihaz Yönetimi döngülerini tamamına büyük cihaz filolarına yönetme yinelenen ve karmaşık görevlerinin birçoğunu otomatik hale getirir. İle otomatik cihaz yönetimi, bir dizi cihazda özelliklerine göre hedef, istenen yapılandırmasını tanımlamak ve IOT Hub'ın kapsama geldikleri her cihazları güncelleştirmek olanak tanır.  Oluşan [otomatik cihaz yapılandırmaları](iot-hub-auto-device-config.md) ve [IOT Edge otomatik dağıtımlar](../iot-edge/how-to-deploy-monitor.md).
 
 ## <a name="automatic-device-configuration"></a>Otomatik cihaz yapılandırması
@@ -67,7 +67,7 @@ Her IOT hub'ı içeren yerleşik bir [uç nokta](iot-hub-devguide-endpoints.md) 
 ## <a name="cloud-gateway"></a>Bulut ağ geçidi
 Bir bulut ağ geçidi bağlantısını doğrudan bağlanamıyor cihazlar için etkinleştirir [IOT hub'ı](#iot-hub). Bir bulut ağ geçidi aksine bulutta barındırılan bir [alan ağ geçidi](#field-gateway) çalıştıran yerel cihazlarınıza. Bir bulut ağ geçidi için tipik kullanım örneği, cihazlarınız için protokol çevirisi uygulamaktır.
 
-## <a name="cloud-to-device"></a>Buluttan cihaza
+## <a name="cloud-to-device"></a>Bulut-cihaz
 Bağlı bir cihaz IOT hub'ından gönderilen iletileri gösterir. Genellikle, bu iletiler, cihazın eyleme izin isteyin komutlardır. Daha fazla bilgi için [göndermek ve IOT Hub ile ileti alma](iot-hub-devguide-messaging.md).
 
 ## <a name="configuration"></a>Yapılandırma
@@ -93,7 +93,7 @@ Bağlamında bir [cihaz ikizi](iot-hub-devguide-device-twins.md), istenen yapıl
 ## <a name="desired-properties"></a>İstenen özellikleri
 Bağlamında bir [cihaz ikizi](iot-hub-devguide-device-twins.md), istenen özellikleri ile birlikte cihaz çiftinin alt [bildirilen özellikler](#reported-properties) cihaz yapılandırması veya koşul eşitlenecek. İstenen özellikleri belirtilebilmesi bir [arka uç uygulaması](#back-end-app) ve tarafından gözlemlenen [cihaz uygulaması](#device-app).
 
-## <a name="device-to-cloud"></a>Cihazdan buluta
+## <a name="device-to-cloud"></a>CİHAZDAN buluta
 Bağlı bir CİHAZDAN gönderilen iletileri başvurduğu [IOT hub'ı](#iot-hub). Bu iletiler olabilir [veri noktası](#data-point-message) veya [etkileşimli](#interactive-message) iletileri. Daha fazla bilgi için [göndermek ve IOT Hub ile ileti alma](iot-hub-devguide-messaging.md).
 
 ## <a name="device"></a>Cihaz
@@ -138,7 +138,7 @@ Birden çok IOT hub'ı sunan [uç noktaları](iot-hub-devguide-endpoints.md) uyg
 ## <a name="event-hubs-service"></a>Event Hubs hizmeti
 [Olay hub'ları](../event-hubs/event-hubs-what-is-event-hubs.md) milyonlarca alabilen bir yüksek düzeyde ölçeklenebilir bir veri alım sistemidir saniyede. Hizmet işleyebilir ve veri uygulamanızın bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki olanak sağlar. IOT Hub hizmeti ile bir karşılaştırması için bkz. [karşılaştırma Azure IOT Hub ve Azure Event Hubs](iot-hub-compare-event-hubs.md).
 
-## <a name="event-hub-compatible-endpoint"></a>Olay Hub'ı ile uyumlu uç nokta
+## <a name="event-hub-compatible-endpoint"></a>Event Hub ile uyumlu uç noktası
 Okunacak [CİHAZDAN buluta](#device-to-cloud) iletileri, IOT hub'ına gönderilen, hub'ınızın bir uç noktaya bağlanmak ve bu iletileri okumak için Event Hub ile uyumlu herhangi bir yöntemi kullanabilirsiniz. Event Hub ile uyumlu yöntemleri içerir kullanarak [Event Hubs SDK'ları](../event-hubs/event-hubs-programming-guide.md) ve [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Alan ağ geçidi
@@ -232,7 +232,7 @@ Kullanabileceğiniz [hizmeti REST API'si](https://docs.microsoft.com/rest/api/io
 ## <a name="shared-access-signature"></a>Paylaşılan erişim imzası
 Paylaşılan erişim imzaları (SAS), SHA-256'yı güvenli karmaları veya URI dayalı bir kimlik doğrulama mekanizmasıdır. SAS kimlik doğrulaması iki bileşenden oluşur: bir _paylaşılan erişim ilkesi_ ve _paylaşılan erişim imzası_ (genellikle bir belirteç olarak da adlandırılır). Bir cihaz IOT hub'ı ile kimlik doğrulaması yapmak için SAS kullanır. [Arka uç uygulamaları](#back-end-app) ayrıca bir IOT hub'ında hizmet'e yönelik uç kimlik doğrulaması yapmak için SAS kullanın. Genellikle, SAS belirteci dahil [bağlantı dizesi](#connection-string) bir uygulama bir IOT hub'ına bağlantı kurmak için kullanır.
 
-## <a name="shared-access-policy"></a>Paylaşılan erişim ilkesi
+## <a name="shared-access-policy"></a>Paylaşılan Erişim İlkesi
 Paylaşılan erişim ilkesinin geçerli olan herkes için verilen izinleri tanımlar [birincil veya ikincil anahtarı](#primary-and-secondary-keys) Bu ilkeyle ilişkilendirilmiş. Hub'ına yönelik paylaşılan erişim ilkeleri ve anahtarları yönetebilir [portalı](#azure-portal).
 
 ## <a name="simulated-device"></a>Sanal cihaz
@@ -247,7 +247,7 @@ Azure aboneliğinin faturalandırma gerçekleştiği ' dir. Her Azure kaynağı 
 ## <a name="system-properties"></a>Sistem özellikleri
 Bağlamında bir [cihaz ikizi](iot-hub-devguide-device-twins.md), Sistem özellikleri salt okunurdur ve son etkinlik süresi ve bağlantı durumu gibi cihaz kullanımı ile ilgili bilgiler içerir.
 
-## <a name="tags"></a>Etiketler
+## <a name="tags"></a>Tags
 Bağlamında bir [cihaz ikizi](iot-hub-devguide-device-twins.md), etiketleri, cihaz meta verilerini depolanır ve bir JSON Belgesi biçiminde çözüm arka ucu tarafından alınır. Etiketler, bir cihazdaki uygulamalar için görünür değildir.
 
 ## <a name="telemetry"></a>Telemetri

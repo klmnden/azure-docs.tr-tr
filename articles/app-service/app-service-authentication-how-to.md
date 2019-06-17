@@ -15,10 +15,10 @@ ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 97764db40807214e756f119ca95fd640164f0cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851432"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelliğinin Gelişmiş kullanımı
@@ -41,7 +41,7 @@ Portal yapılandırma, çoklu oturum açma sağlayıcılarını (örneğin, Face
 
 İlk olarak **kimlik doğrulama / yetkilendirme** sayfasında Azure Portalı'nda, etkinleştirmek istediğiniz kimlik sağlayıcısının her yapılandırın.
 
-İçinde **isteğin kimliği doğrulanmamış olduğunda gerçekleştirilecek eylem**seçin **izin anonim istekler (eylem yok)**.
+İçinde **isteğin kimliği doğrulanmamış olduğunda gerçekleştirilecek eylem**seçin **izin anonim istekler (eylem yok)** .
 
 Oturum açma sayfası veya gezinti çubuğunu veya başka bir konuma uygulamanızın oturum açma bağlantısı etkinleştirdiğiniz sağlayıcıların her birine Ekle (`/.auth/login/<provider>`). Örneğin:
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 
 Belirteç biçimi, sağlayıcıya göre biraz farklılık gösterir. Ayrıntılar için aşağıdaki tabloya bakın:
 
-| Değer sağlayıcı | İstek gövdesinde gerekli | Yorumlar |
+| Değer sağlayıcı | İstek gövdesinde gerekli | Açıklamalar |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | |
 | `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in` Özelliği, isteğe bağlıdır. <br/>Her zaman canlı hizmetlerinden belirteç isterken istek `wl.basic` kapsam. |
@@ -186,8 +186,8 @@ Zaman sağlayıcınızın erişim belirteci (değil [Oturum belirteci](#extend-s
 - **Microsoft hesabı**: Zaman [Microsoft hesabı kimlik doğrulama ayarları yapılandırma](configure-authentication-provider-microsoft.md)seçin `wl.offline_access` kapsam.
 - **Azure Active Directory**: İçinde [ https://resources.azure.com ](https://resources.azure.com), aşağıdaki adımları uygulayın:
     1. Sayfanın üst kısmında seçin **okuma/yazma**.
-    2. Sol tarayıcıda gidin **abonelikleri** > **_\<abonelik\_adı_**   >  **resourceGroups** > _**\<kaynak\_grubu\_adı >**_   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri** > _**\<uygulama \_adı >**_ > **config** > **authsettings**. 
-    3. **Düzenle**’ye tıklayın.
+    2. Sol tarayıcıda gidin **abonelikleri** >  ** _\<abonelik\_adı_**   >  **resourceGroups** >  _ **\<kaynak\_grubu\_adı >** _   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri** >  _ **\<uygulama \_adı >** _ > **config** > **authsettings**. 
+    3. **Düzenle**‘ye tıklayın.
     4. Aşağıdaki özelliğini değiştirin. Değiştirin  _\<uygulama\_kimliği >_ erişmek istediğiniz hizmeti Azure Active Directory Uygulama kimliği.
 
         ```json
@@ -233,7 +233,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Hem Microsoft Account hem de Azure Active Directory birden çok etki alanından oturum açmanızı sağlar. Örneğin, Microsoft Account sağlar _outlook.com_, _live.com_, ve _hotmail.com_ hesaplar. Azure Active Directory oturum açma hesapları için özel etki alanları herhangi bir sayıda sağlar. Bu davranış, kimseyle istemediğiniz bir iç uygulama için istenmeyen bir _outlook.com_ hesap erişim. Oturum Aç hesapları etki alanı adını sınırlandırmak için aşağıdaki adımları izleyin.
 
-İçinde [ https://resources.azure.com ](https://resources.azure.com), gitmek **abonelikleri** > **_\<abonelik\_adı_**   >  **resourceGroups** > _**\<kaynak\_grubu\_adı >**_   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri**  >    _**\<uygulama\_adı >**_ > **config** > **authsettings**. 
+İçinde [ https://resources.azure.com ](https://resources.azure.com), gitmek **abonelikleri** >  ** _\< abonelik\_ adı_**   >  **resourceGroups** >  _ **\< kaynak\_ grubu\_ adı >** _   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri**  >    _ **\< uygulama\_ adı >** _ > **config** > **authsettings**. 
 
 Tıklayın **Düzenle**aşağıdaki özelliğini değiştirin ve ardından **Put**. Değiştirdiğinizden emin olun  _\<etki alanı\_adı >_ istediğiniz etki alanı.
 

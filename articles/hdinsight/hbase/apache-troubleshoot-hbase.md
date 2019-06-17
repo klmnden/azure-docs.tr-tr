@@ -8,10 +8,10 @@ ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 6ba17a3839390ed5fe503a6fe57b63d8fb119138
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713488"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak Apache HBase sorunlarını giderme
@@ -219,7 +219,7 @@ Apache Phoenix ile bağlantı için etkin bir Apache ZooKeeper düğümü IP adr
    ```
 
    > [!Note] 
-   > Ambari Arabiriminden, etkin ZooKeeper düğümü IP adresini alabilirsiniz. Git **HBase** > **hızlı bağlantılar** > **ZK\* (etkin)** > **Zookeeper bilgisi**. 
+   > Ambari Arabiriminden, etkin ZooKeeper düğümü IP adresini alabilirsiniz. Git **HBase** > **hızlı bağlantılar** > **ZK\* (etkin)**  > **Zookeeper bilgisi**. 
 
 3. Sqlline.PY üzerinden Phoenix ile bağlanır ve zaman aşımına oluşturmazsa, Phoenix durumunu ve kullanılabilirliğini doğrulamak için aşağıdaki komutu çalıştırın:
 

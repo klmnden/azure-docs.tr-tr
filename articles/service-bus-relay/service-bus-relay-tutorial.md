@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790087"
 ---
 # <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Azure WCF geçişini kullanarak dış istemci için bir şirket içi WCF REST hizmeti kullanıma sunma
@@ -64,11 +64,11 @@ Hizmet sözleşmesi hangi işlemleri belirtir (yöntemler ve işlevlere yönelik
 1. **Başlat** menüsünde programa sağ tıklayıp **Yönetici olarak çalıştır** seçeneğini belirleyip Visual Studio'yu yönetici olarak açın.
 2. Yeni bir konsol uygulama projesi oluşturun. **Dosya** menüsüne tıklayın, **Yeni** seçeneği belirleyin ve ardından **Proje**'ye tıklayın. **Yeni Proje** iletişim kutusunda, **Visual C#** öğesine tıklayın (**Visual C#** görünmezse **Diğer Diller** bölümüne bakın). Tıklayın **konsol uygulaması (.NET Framework)** şablonunu ve adlandırın **EchoService**. Projeyi oluşturmak için **Tamam**'a tıklayın.
 
-    ![Konsol uygulaması oluşturma][2]
+    ![Bir konsol uygulaması oluşturma][2]
 
 3. Service Bus NuGet paketini yükleyin. Bu paket otomatik olarak Service Bus kitaplıklarının yanı sıra WCF **System.ServiceModel** öğesine de başvurular ekler. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx), WCF'nin temel özelliklerine programlamayla erişmenizi sağlayan ad alanıdır. Service Bus, hizmet sözleşmelerini tanımlamak için WCF'nin birçok nesnesini ve özniteliklerini kullanır.
 
-    Çözüm Gezgini'nde projeye sağ tıklayın ve ardından **NuGet paketlerini Yönet...** . Gözat sekmesine tıklayıp **WindowsAzure.ServiceBus** için arama yapın. **Sürüm(ler)** kutusunda proje adının seçili olduğundan emin olun. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
+    Çözüm Gezgini'nde projeye sağ tıklayın ve ardından **NuGet paketlerini Yönet...** . **Gözat** sekmesine tıklayıp **WindowsAzure.ServiceBus** için arama yapın. **Sürüm(ler)** kutusunda proje adının seçili olduğundan emin olun. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
 
     ![Service Bus paket][3]
 4. Çözüm Gezgini'nde, zaten açılmamışsa Program.cs dosyasına çift tıklayarak dosyayı düzenleyicide açın.
@@ -707,11 +707,11 @@ namespace Microsoft.ServiceBus.Samples
 
     Konsol penceresinden örnek çıktı sunulur. Burada sağlanan değerlerin yalnızca örnek verme amacıyla oluşturulduğunu unutmayın.
 
-    `Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
+    `Your Service Namespace: myNamespace``Your SAS Key: <SAS key value>`
 
     Hizmet uygulaması, aşağıdaki örnekte görüldüğü şekilde konsol penceresini dinlediği adrese yazdırır.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/``Press [Enter] to exit`
 10. **EchoClient** konsol penceresinde, az önce hizmet uygulaması için girdiğiniz bilgileri girin. İstemci uygulaması için aynı hizmet ad alanı ve SAS anahtarı değerlerini girmek üzere önceki adımları uygulayın.
 11. Bu değerleri girdikten sonra istemci hizmete yönelik bir kanal açar ve aşağıdaki konsol çıktısı örneğinde görüldüğü şekilde bazı metinler girmenizi ister.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: a343caaa998505a1772096b058ec7ad300eec03c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64725705"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Ayıklama, dönüştürme ve yükleme (ETL) uygun ölçekte
@@ -127,9 +127,9 @@ Sqoop alma ve paralel işlem ve hata toleransı sağlamak için verileri dışar
 
 Apache Flume, verimli bir şekilde toplanması, toplama ve büyük miktarlarda günlük veri taşıma için dağıtılmış, güvenilir ve kullanılabilir bir hizmettir. Flume veri akışları akış dayalı basit ve esnek bir mimariye sahiptir. Flume, güçlü ve hataya dayanıklı ayarlanabilir güvenilirlik mekanizmalar ve birçok yük devretme ve kurtarma mekanizmaları ile. Flume çevrimiçi analitik uygulama için izin veren basit genişletilebilir veri modeli kullanır.
 
-Azure HDInsight ile Apache Flume kullanılamaz.  Bir şirket içi Hadoop yükleme, Flume, Azure depolama Blobları veya Azure Data Lake Storage veri göndermek için kullanabilirsiniz.  Daha fazla bilgi için [kullanarak, HDInsight ile Apache Flume](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Azure HDInsight ile Apache Flume kullanılamaz.  Bir şirket içi Hadoop yükleme, Flume, Azure depolama Blobları veya Azure Data Lake Storage veri göndermek için kullanabilirsiniz.  Daha fazla bilgi için [kullanarak, HDInsight ile Apache Flume](https://web.archive.org/web/20190217104751/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
-## <a name="transform"></a>Dönüşüm
+## <a name="transform"></a>Dönüştürme
 
 Veriler Seçilen konumda mevcut olduğunda, şekillendirip temizleyerek, onu birleştirin veya belirli kullanım deseni için hazırlama gerekir.  Hive, Pig ve Spark SQL, bu tür bir iş için tüm iyi seçimlerdir.  HDInsight üzerinde tümü desteklenir. 
 

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698171"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IOT Hub ile HDInsight üzerinde Apache kafka'yı kullanma
@@ -167,7 +167,7 @@ Bağlayıcı tarafından kullanılan IOT hub'ı bilgileri almak için aşağıda
 
 1. IOT hub'ınızın Event Hub ile uyumlu uç nokta adı ve Event Hub ile uyumlu uç noktasını alın. Bu bilgileri almak için aşağıdaki yöntemlerden birini kullanın:
 
-   * __Gelen [Azure portalında](https://portal.azure.com/)__, aşağıdaki adımları kullanın:
+   * __Gelen [Azure portalında](https://portal.azure.com/)__ , aşağıdaki adımları kullanın:
 
      1. IOT Hub'ınıza gidin ve seçin __uç noktaları__.
      2. Gelen __yerleşik uç noktaları__seçin __olayları__.
@@ -180,7 +180,7 @@ Bağlayıcı tarafından kullanılan IOT hub'ı bilgileri almak için aşağıda
         > [!IMPORTANT]  
         > Bu örnekte gerekmeyen fazladan metin portaldan uç nokta değerini içerebilir. Bu desenle eşleşen metni Ayıkla `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __Gelen [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, aşağıdaki komutu kullanın:
+   * __Gelen [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , aşağıdaki komutu kullanın:
 
        ```azure-cli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -196,13 +196,13 @@ Bağlayıcı tarafından kullanılan IOT hub'ı bilgileri almak için aşağıda
 
 2. Alma __paylaşılan erişim ilkesi__ ve __anahtar__. Bu örneğin __hizmet__ anahtarı. Bu bilgileri almak için aşağıdaki yöntemlerden birini kullanın:
 
-    * __Gelen [Azure portalında](https://portal.azure.com/)__, aşağıdaki adımları kullanın:
+    * __Gelen [Azure portalında](https://portal.azure.com/)__ , aşağıdaki adımları kullanın:
 
         1. Seçin __paylaşılan erişim ilkeleri__ve ardından __hizmet__.
         2. Kopyalama __birincil anahtar__ değeri.
         3. Kopyalama __bağlantı dizesi – birincil anahtar__ değeri.
 
-    * __Gelen [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, aşağıdaki komutu kullanın:
+    * __Gelen [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , aşağıdaki komutu kullanın:
 
         1. Birincil anahtar değerini almak için aşağıdaki komutu kullanın:
 
