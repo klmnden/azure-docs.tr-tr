@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506697"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 serisi cihazlar için StorSimple cihaz Yöneticisi hizmetini dağıtma
@@ -34,7 +34,7 @@ Bu öğreticide, oluşturma, silme, geçiş hizmetinin ve hizmet kayıt anahtar�
 > - StorSimple bulut Gereci (8010/8020) kullanıyorsanız, bir bulut gerecini güncelleştiremezsiniz. Güncelleştirme 5. 0'ile yeni bir bulut Gereci oluşturmak ve sonra oluşturulan yeni bulut gerecine yük devretme için yazılımın en son sürümünü kullanın. 
 > - Güncelleştirme 4.0 veya önceki sürümleri çalıştıran tüm cihazlara sınırlı yönetim işlevselliğine karşılaşırsınız. 
 
-## <a name="create-a-service"></a>Hizmet oluşturma
+## <a name="create-a-service"></a>Bir hizmet oluşturma
 StorSimple cihaz Yöneticisi hizmeti oluşturmak için sahip olmanız gerekir:
 
 * Bir kurumsal anlaşma kapsamında olan bir abonelik
@@ -75,9 +75,9 @@ Bir hizmeti silmek için aşağıdaki adımları gerçekleştirin.
 
     ![Arama hizmeti silinemedi](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. Bu StorSimple cihaz Yöneticisi hizmet dikey penceresine götürür. **Sil**'e tıklayın.
+2. Bu StorSimple cihaz Yöneticisi hizmet dikey penceresine götürür. Tıklayın **Sil**.
 
-    ![Hizmeti sil](./media/storsimple-8000-manage-service/deletessdevman2.png)
+    ![Hizmeti Sil](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
 3. Tıklayın **Evet** onay bildirimi içinde. Bu hizmetin silinmesi birkaç dakika sürebilir.
 
@@ -127,7 +127,7 @@ Hizmet veri şifreleme anahtarı değiştirilirken 3 adımlık bir işlemdir:
 2. StorSimple için Windows PowerShell kullanarak, hizmet veri şifreleme anahtarı değişikliği başlatın.
 3. Birden fazla StorSimple cihazınız varsa, hizmet veri şifreleme anahtarı diğer cihazlarda güncelleştirin.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>1. Adım: Hizmet veri şifreleme anahtarını değiştirmek için bir cihaz son noktanın yetkilendirilmesi için Windows PowerShell betiğini kullanın.
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>1\. adım: Hizmet veri şifreleme anahtarını değiştirmek için bir cihaz son noktanın yetkilendirilmesi için Windows PowerShell betiğini kullanın.
 Genellikle, cihaz Yöneticisi hizmet Yöneticisi bir cihazın hizmet veri şifreleme anahtarlarını değiştirmek için yetki verdiğiniz ister. Hizmet Yöneticisi daha sonra anahtarı değiştirmek için cihaz yetkilendirirsiniz.
 
 Bu adım, Azure Resource Manager tabanlı betik kullanarak gerçekleştirilir. Hizmet Yöneticisi yetki verilmesi uygun olan bir cihaz seçebilirsiniz. Cihaz ardından hizmet veri şifreleme anahtar değiştirme işlemini başlatmak için yetkili. 
@@ -143,7 +143,7 @@ Bir cihaz, hizmet veri şifreleme anahtarı değişiklikleri başlatmak için ye
 * Hizmet veri şifreleme anahtarı geçiş işlemi devam ederken bir cihaz yetkilendirilemiyor.
 * Başkalarının yok ancak bazı hizmete kayıtlı cihazlar şifrelemeyi gezinirken bir cihaz yetki verebilir. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>2. Adım: Hizmet veri şifreleme anahtarı'nı başlatmak StorSimple için Windows PowerShell kullanarak değiştirme
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>2\. adım: Hizmet veri şifreleme anahtarı'nı başlatmak StorSimple için Windows PowerShell kullanarak değiştirme
 Bu adım, yetkili StorSimple cihazında arabirimi StorSimple için Windows PowerShell'de gerçekleştirilir.
 
 > [!NOTE]
@@ -168,8 +168,8 @@ Cihaz seri konsoluna bağlanmak için Windows PowerShell arabirimi için kullan�
    
    Hizmete kayıtlı tek bir cihaz varsa, geçiş işlemi tamamlanmıştır ve sonraki adıma atlayabilirsiniz. Birden çok cihaz hizmete kayıtlı varsa, 3. adıma geçin.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>3. Adım: Başka StorSimple cihazlar üzerinde hizmet veri şifreleme anahtarını güncelleştir
-Birden çok cihaz için StorSimple Yöneticisi hizmetine kayıtlı varsa bu adımlar StorSimple cihazınızın Windows PowerShell arabiriminde gerçekleştirilmesi gerekir. 2. adımda elde edilen anahtar, StorSimple Yöneticisi hizmetine kayıtlı tüm kalan StorSimple cihaz güncelleştirmek için kullanılmalıdır.
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>3\. adım: Başka StorSimple cihazlar üzerinde hizmet veri şifreleme anahtarını güncelleştir
+Birden çok cihaz için StorSimple Yöneticisi hizmetine kayıtlı varsa bu adımlar StorSimple cihazınızın Windows PowerShell arabiriminde gerçekleştirilmesi gerekir. 2\. adımda elde edilen anahtar, StorSimple Yöneticisi hizmetine kayıtlı tüm kalan StorSimple cihaz güncelleştirmek için kullanılmalıdır.
 
 Hizmet veri şifreleme Cihazınızda güncelleştirmek için aşağıdaki adımları gerçekleştirin.
 
@@ -198,7 +198,7 @@ Azure portalında, yalnızca güncelleştirme 5.0 ve üzeri çalıştıran StorS
 | Oluşturabilir, değiştirebilir ve bir birimini silme                                                                                             | Hayır             |
 | Oluşturabilir, değiştirebilir ve yedekleme ilkesini silme                                                                                      | Hayır             |
 | El ile yedekleyin                                                                                                            | Hayır             |
-| Zamanlanmış yedekleyin                                                                                                         | Uygulanamaz |
+| Zamanlanmış yedekleyin                                                                                                         | Geçerli değil |
 | Bir yedek kümesi ' geri yükleme                                                                                                        | Hayır             |
 | Güncelleştirme 3.0 ve üzerini çalıştıran bir cihaza Kopyala <br> Kaynak cihaz güncelleştirme 3.0 sürümünü çalıştırıyor.                                | Evet            |
 | Güncelleştirme 3.0 önceki sürümlerini çalıştıran bir cihaza Kopyala                                                                          | Hayır             |

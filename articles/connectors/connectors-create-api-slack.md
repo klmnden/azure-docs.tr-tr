@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 675e37120b06af3add58b564495f22875647a0fa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105658"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>İzleme ve Slack Azure Logic Apps ile yönetme
@@ -49,14 +49,14 @@ Slack hesabınızdan yanıtlar almak ve çıkış diğer eylemler için kullanı
 
 1. Boş mantıksal uygulama için arama kutusuna filtreniz olarak "slack" girin. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
 
-   -veya-
+   veya
 
    Var olan mantıksal uygulamalar, son adım, bir eylem eklemek istediğiniz altında seçin için **yeni adım**. 
    Arama kutusuna filtreniz olarak "slack" girin. 
    Eylemler listesinde, istediğiniz eylemi seçin.
 
    Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. 
-   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+   Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
 
 1. Slack için oturum açmanız istenirse, Slack, çalışma alanına oturum açın. 
 

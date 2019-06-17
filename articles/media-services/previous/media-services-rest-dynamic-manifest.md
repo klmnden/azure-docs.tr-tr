@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;cenkdin
 ms.openlocfilehash: 5b023a152cf93ec6ff688674e991ad55db215965
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60767821"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>İle Azure Media Services REST API filtreleri oluşturma 
@@ -28,7 +28,7 @@ ms.locfileid: "60767821"
 > 
 > 
 
-2.17 sürümünden başlayarak, Media Services, varlıklarınız için filtrelerini tanımlamanızı sağlar. Bu filtreler müşterileriniz gibi şeyler seçmesine izin veren sunucu tarafı kurallar şunlardır: yalnızca bir bölümünü (yerine tüm video oynatma), bir video kayıttan yürütme ya da yalnızca bir alt kümesini (yerine, müşterinizin cihaz işleyebilir ses ve video yorumlama belirtin bir varlıkla ilişkilendirilen tüm yorumlama). Bu filtreleme varlıklarınızı aracılığıyla arşivlenmiş **dinamik bildirim**müşterinizin istek üzerine video akışı oluşturan s üzerinde belirtilen filtreleri temel.
+2\.17 sürümünden başlayarak, Media Services, varlıklarınız için filtrelerini tanımlamanızı sağlar. Bu filtreler müşterileriniz gibi şeyler seçmesine izin veren sunucu tarafı kurallar şunlardır: yalnızca bir bölümünü (yerine tüm video oynatma), bir video kayıttan yürütme ya da yalnızca bir alt kümesini (yerine, müşterinizin cihaz işleyebilir ses ve video yorumlama belirtin bir varlıkla ilişkilendirilen tüm yorumlama). Bu filtreleme varlıklarınızı aracılığıyla arşivlenmiş **dinamik bildirim**müşterinizin istek üzerine video akışı oluşturan s üzerinde belirtilen filtreleri temel.
 
 Daha ayrıntılı filtreler ve dinamik bildirim ilgili bilgi için bkz. [dinamik bildirimlerin genel bakış](media-services-dynamic-manifest-overview.md).
 

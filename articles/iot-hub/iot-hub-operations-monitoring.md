@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345745"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IOT Hub işlemlerini (kullanım dışı) izleme
@@ -96,7 +96,7 @@ Cihaz telemetrisi kategorisi, IOT hub ve telemetri ardışık düzene ilgili hat
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Buluttan cihaza komutlar
+### <a name="cloud-to-device-commands"></a>Bulut-cihaz komutları
 
 Bulut-cihaz komutlarını kategorisi, IOT hub ve bulut-cihaz ileti işlem hattına ilgili hataları izler. Bu kategori, (örneğin, yetkisiz gönderen) bulut buluttan cihaza iletileri gönderme (örneğin, teslimat sayısı aşıldı) bulut-cihaz iletilerini alma ve (geri bildirim süresi gibi) bulut-cihaz ileti geri bildirim alan olduğunda oluşan hataları içerir. Bu kategori, bulut buluttan cihaza iletinin başarıyla teslim edildi, yanlış bir bulut-cihaz iletiyi işleyen bir CİHAZDAN hataları yakalamaz.
 

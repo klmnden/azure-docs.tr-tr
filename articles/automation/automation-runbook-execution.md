@@ -10,10 +10,10 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: f851fd2857650dd00e365abf71ec5f0199db6d57
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711574"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
@@ -39,7 +39,7 @@ Azure automation'daki Runbook'lar çalışma zamanı üzerinde bir korumalı ala
 |İşletim maliyetlerinin en aza|Azure sanal|Hiçbir işlem ek yükü, bir VM için gerek yoktur|
 |Uzun süre çalışan betik|Karma Runbook Çalışanı|Azure sanal sahip [kaynaklarını bir sınırlama](../azure-subscription-service-limits.md#automation-limits)|
 |Yerel Hizmetleri ile etkileşim kurma|Karma Runbook Çalışanı|Doğrudan konak makine erişebilir|
-|3. taraf yazılım ve yürütülebilir dosyalar gerektirir|Karma Runbook Çalışanı|İşletim sistemi yönetmek ve yazılım yükleyebilirsiniz|
+|3\. taraf yazılım ve yürütülebilir dosyalar gerektirir|Karma Runbook Çalışanı|İşletim sistemi yönetmek ve yazılım yükleyebilirsiniz|
 |Bir dosya veya klasör bir runbook ile izleme|Karma Runbook Çalışanı|Kullanım bir [İzleyici görevi](automation-watchers-tutorial.md) bir karma Runbook çalışanı üzerinde|
 |Yoğun kaynak betiği|Karma Runbook Çalışanı| Azure sanal sahip [kaynaklarını bir sınırlama](../azure-subscription-service-limits.md#automation-limits)|
 |Belirli gereksinimlerine modüllerini kullanma| Karma Runbook Çalışanı|Bazı örnekler şunlardır:</br> **WinSCP** -winscp.exe bağımlılığı </br> **Iısadministration** -IIS etkinleştirilmesi gerekiyor|
@@ -206,14 +206,14 @@ Aşağıdaki tablo, bir iş için olası farklı durumlarını tanımlar. PowerS
 | Tamamlandı |İş başarıyla tamamlandı. |
 | Başarısız |İçin [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md), runbook derlenemedi. İçin [PowerShell Betiği runbook'ları](automation-runbook-types.md), runbook başlatılamadı ya da bir özel durum iş vardı. |
 | Kaynaklar Bekleniyor başarısız oldu |İş başarısız oldu, ulaştığınız için [adil paylaşımı](#fair-share) sınırlamak üç kez ve her zaman aynı kontrol noktasından veya runbook'un başından başlatıldı. |
-| Sıraya Alındı |İş, başlatılabilmek için Otomasyon çalışanındaki kaynakları bekliyor. |
+| Kuyruğa alındı |İş, başlatılabilmek için Otomasyon çalışanındaki kaynakları bekliyor. |
 | Başlatılıyor |İş bir çalışana atandı ve sistem başlatıyor. |
 | Sürdürülüyor |Sistem, işi askıya alındıktan sonra sürdürüyor. |
 | Çalışıyor |İş çalışıyor. |
 | Çalışan, kaynaklar bekleniyor |Bunu ulaştığınız için iş kaldırıldı [adil paylaşımı](#fair-share) sınırı. Bu kısa bir süre sonra son denetim noktasından sürdürülür. |
 | Durduruldu |İş tamamlanmadan kullanıcı tarafından durduruldu. |
 | Durduruluyor |Sistem, işi durduruluyor. |
-| Askıya Alındı |İş; kullanıcı, sistem veya runbook'taki bir komut tarafından askıya alındı. Bir runbook bir denetim noktası yoksa, runbook'un başından başlar. Bir denetim noktası varsa, bunu yeniden başlatın ve en son denetim noktasından sürdürün. Bir özel durum oluştuğunda runbook yalnızca sistem tarafından askıya alındı. Varsayılan olarak, ErrorActionPreference kümesine **devam**, yani iş hata üzerinde çalışmaya devam eder. Bu tercih değişkeni ayarlanmışsa **Durdur**, sonra da bir hatada işini askıya alır. Uygulandığı [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md) yalnızca. |
+| Askıya alındı |İş; kullanıcı, sistem veya runbook'taki bir komut tarafından askıya alındı. Bir runbook bir denetim noktası yoksa, runbook'un başından başlar. Bir denetim noktası varsa, bunu yeniden başlatın ve en son denetim noktasından sürdürün. Bir özel durum oluştuğunda runbook yalnızca sistem tarafından askıya alındı. Varsayılan olarak, ErrorActionPreference kümesine **devam**, yani iş hata üzerinde çalışmaya devam eder. Bu tercih değişkeni ayarlanmışsa **Durdur**, sonra da bir hatada işini askıya alır. Uygulandığı [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md) yalnızca. |
 | Askıya alınıyor |Sistem, kullanıcının isteği üzerine işi askıya almak çalışıyor. Runbook, askıya alınmadan önce sonraki denetim noktasına erişmelidir. Son denetim noktasını zaten geçmiş, askıya alınmadan önce tamamlar. Uygulandığı [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md) yalnızca. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Azure portalında iş durumunu görüntüleme

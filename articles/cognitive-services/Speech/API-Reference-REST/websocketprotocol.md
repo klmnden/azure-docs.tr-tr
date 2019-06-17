@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515330"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing konuşma WebSocket Protokolü
@@ -78,7 +78,7 @@ Content-Length: 0
 
 Aşağıdaki üst bilgi bilgileri için belirteç erişimi gereklidir.
 
-| Ad | Biçimlendir | Açıklama |
+| Ad | Biçimi | Açıklama |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | Abonelik anahtarınız |
 
@@ -98,7 +98,7 @@ JWT belirteci belirteç hizmetine döndürür `text/plain`. Daha sonra JWT olara
 
 İstemciler *gerekir* konuşma hizmeti uygun bir uç noktasını kullanın. Uç nokta tanıma modu ve dil dayanır. Tablo bazı örnekler göstermektedir.
 
-| Mod | Yol | Hizmet URI'si |
+| Mod | `Path` | Hizmet URI'si |
 | -----|-----|-----|
 | Etkileşimli | /Speech/Recognition/interactive/cognitiveservices/V1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | Konuşma | /Speech/Recognition/Conversation/cognitiveservices/V1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
@@ -150,9 +150,9 @@ Hizmetlere istemci tarafından gönderilen ana iletiler `speech.config`, `audio`
 
 Aşağıdaki üst bilgiler, tüm istemci kaynaklı iletiler için gereklidir.
 
-| Üst bilgi | Değer |
+| Üstbilgi | Değer |
 |----|----|
-| Yol | Bu belgede belirtilen ileti yolu |
+| `Path` | Bu belgede belirtilen ileti yolu |
 | X-RequestId | "No-dash" biçiminde UUID |
 | X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
 
@@ -181,9 +181,9 @@ Konuşma hizmeti, en iyi olası konuşma tanıma sağlamak için uygulamanızın
 
 | Üst bilgi adı | Değer |
 |----|----|
-| Yol | `speech.config` |
+| `Path` | `speech.config` |
 | X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
-| Content-Type | Uygulama/json; Charset = utf-8 |
+| İçerik türü | Uygulama/json; Charset = utf-8 |
 
 Tüm istemci kaynaklı iletiler gibi konuşma tanıma hizmeti protokolü ile `speech.config` ileti *gerekir* dahil bir *X zaman damgası* kaydeder olduğunda iletinin gönderildiği istemci UTC saati zamanı üst bilgisi hizmet için. `speech.config` İleti *yok* gerektiren bir *X-RequestId* üst bilgisi bu ileti konuşma belirli bir istekle ilişkili olmadığından.
 
@@ -250,12 +250,12 @@ Konuşma hizmeti kullanan ilk `audio` içeren yeni bir istek/yanıt döngüsü b
 
 Aşağıdaki üst bilgiler tüm gerekli `audio` iletileri.
 
-| Üst bilgi         |  Değer     |
+| Üstbilgi         |  Değer     |
 | ------------- | ---------------- |
-| Yol | `audio` |
+| `Path` | `audio` |
 | X-RequestId | "No-dash" biçiminde UUID |
 | X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
-| Content-Type | Ses içerik türü. Türü olmalıdır *ses/x-wav* (PCM) veya *ses/silk* (SILK). |
+| İçerik türü | Ses içerik türü. Türü olmalıdır *ses/x-wav* (PCM) veya *ses/silk* (SILK). |
 
 #### <a name="supported-audio-encodings"></a>Ses kodlamaları
 
@@ -308,9 +308,9 @@ Kullanıcının bir şekilde konuşma sonu sinyal olanak tanıyan istemci uygula
 | Alan | Açıklama |
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Text |
-| Yol | `telemetry` |
+| `Path` | `telemetry` |
 | X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
-| Content-Type | `application/json` |
+| İçerik türü | `application/json` |
 | Gövde | Aç istemci bilgilerini içeren bir JSON yapısı |
 
 Gövdesi için şema `telemetry` ileti tanımlanmış [Telemetri şema](#telemetry-schema) bölümü.
@@ -330,8 +330,8 @@ Bu bölümde, konuşma hizmeti kaynaklanan ve istemciye gönderilen iletileri a�
 | Alan | Açıklama |
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Text |
-| Yol | `speech.startDetected` |
-| Content-Type | Uygulama/json; Charset = utf-8 |
+| `Path` | `speech.startDetected` |
+| İçerik türü | Uygulama/json; Charset = utf-8 |
 | Gövde | Konuşma başlangıcını algılandığında koşullarla ilgili bilgiler içeren JSON yapısı. *Uzaklığı* bu yapı alanında belirtir (100 nanosaniyelik birimler) cinsinden uzaklık zaman konuşma algılandı akışın başlangıç göre bir ses akışı olarak. |
 
 #### <a name="sample-message"></a>Örnek ileti
@@ -355,9 +355,9 @@ Sırasında Konuşma tanıma, konuşma tanıma hizmeti sözcükler hakkında var
 | Alan | Açıklama |
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Text |
-| Yol | `speech.hypothesis` |
+| `Path` | `speech.hypothesis` |
 | X-RequestId | "No-dash" biçiminde UUID |
-| Content-Type | uygulama/json |
+| İçerik türü | uygulama/json |
 | Gövde | Konuşma varsayım JSON yapısı |
 
 #### <a name="sample-message"></a>Örnek ileti
@@ -387,8 +387,8 @@ Konuşma hizmeti ne zaman belirler hizmeti oluşturan değişmez bir tanıma son
 | Alan | Açıklama |
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Text |
-| Yol | `speech.phrase` |
-| Content-Type | uygulama/json |
+| `Path` | `speech.phrase` |
+| İçerik türü | uygulama/json |
 | Gövde | Konuşma tümcecik JSON yapısı |
 
 Konuşma tümcecik JSON Şeması aşağıdaki alanları içerir: `RecognitionStatus`, `DisplayText`, `Offset`, ve `Duration`. Bu alanlar hakkında daha fazla bilgi için bkz. [Transkripsiyonu yanıtları](../concepts.md#transcription-responses).
@@ -415,9 +415,9 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | Alan | Açıklama |
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Text |
-| Yol | `speech.endDetected` |
+| `Path` | `speech.endDetected` |
 | Gövde | Konuşma sonu algılandığında uzaklık içeren JSON yapısı. Uzaklık birimleri 100 nanosaniyelik uzaklığı başından itibaren ses tanıma için kullanılan temsil edilir. |
-| Content-Type | Uygulama/json; Charset = utf-8 |
+| İçerik türü | Uygulama/json; Charset = utf-8 |
 
 #### <a name="sample-message"></a>Örnek ileti
 
@@ -440,8 +440,8 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | Alan | Açıklama |
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Text |
-| Yol | `turn.start` |
-| Content-Type | Uygulama/json; Charset = utf-8 |
+| `Path` | `turn.start` |
+| İçerik türü | Uygulama/json; Charset = utf-8 |
 | Gövde | JSON yapısı |
 
 #### <a name="sample-message"></a>Örnek ileti
@@ -467,7 +467,7 @@ Gövdesi `turn.start` iletisidir Aç başlangıcını bağlamının içeren JSON
 | Alan | Açıklama |
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Text |
-| Yol | `turn.end` |
+| `Path` | `turn.end` |
 | Gövde | None |
 
 #### <a name="sample-message"></a>Örnek ileti
@@ -511,7 +511,7 @@ Telemetri şema, aşağıdaki bölümlere ayrılmıştır: alınan ileti zaman d
 | Ad | `Connection` | Gerekli |
 | Kimlik | Bağlantı tanımlayıcı değeri kullanıldı *X ConnectionID* Bu bağlantı isteği üst bilgisi | Gerekli |
 | Başlatma | İstemci bağlantı isteği zaman gönderdiği saati | Gerekli |
-| Bitiş | Zaman istemci bağlantı başarıyla kuruldu bildirim alındığında veya hata durumlarında reddedildi, reddedildi veya başarısız oldu | Gerekli |
+| End | Zaman istemci bağlantı başarıyla kuruldu bildirim alındığında veya hata durumlarında reddedildi, reddedildi veya başarısız oldu | Gerekli |
 | Hata | Varsa, oluşan hata açıklaması. Bağlantı başarılı olursa, istemcilerin bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
 Hata açıklaması en fazla 50 karakter arasında olmalıdır ve ideal olarak aşağıdaki tabloda listelenen değerlerden biri olmalıdır. Hata koşulu şu değerlerden biri olarak eşleşmiyorsa, istemciler birleştiren bir hata durumu açıklaması kullanarak kullanabilir [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) boşluk olmadan. Gönderme olanağı bir *telemetri* ileti hizmet, bu nedenle yalnızca geçici bir bağlantı gerektirir ya da geçici hata koşulları rapor içinde *telemetri* ileti. Hata koşulları *kalıcı olarak* blok hizmetine bir bağlantı kurulurken bir istemcinin istemci hizmete herhangi bir ileti göndermesini engellemek dahil olmak üzere *telemetri* iletileri.
@@ -527,7 +527,7 @@ Hata açıklaması en fazla 50 karakter arasında olmalıdır ve ideal olarak a�
 | BadRequest | İstemci HTTP hizmetin döndürdüğü için hizmete bağlanamadı `400 Bad Request` WebSocket yükseltme isteği durum kodu. |
 | ServerUnavailable | İstemci HTTP hizmetin döndürdüğü için hizmete bağlanamadı `503 Server Unavailable` WebSocket yükseltme isteği durum kodu. |
 | ServerError | İstemcinin hizmetin döndürdüğü için hizmete bağlanamadı bir `HTTP 500` WebSocket yükseltme isteği durum kodu iç hata. |
-| Zaman Aşımı | İstemcinin bağlantı isteği, hizmetten bir yanıt olmadan zaman aşımına uğradı. *Son* alan ne zaman istemci zaman aşımına uğradı ve bağlantı için bekleme durduruldu saati içerir. |
+| zaman aşımı | İstemcinin bağlantı isteği, hizmetten bir yanıt olmadan zaman aşımına uğradı. *Son* alan ne zaman istemci zaman aşımına uğradı ve bağlantı için bekleme durduruldu saati içerir. |
 | Senderconnections'da | İstemci bağlantı bazı iç istemci hatası nedeniyle sonlandırıldı. |
 
 ### <a name="metric-microphone"></a>Ölçüm `Microphone`
@@ -550,7 +550,7 @@ Aşağıdaki örnekler, kayıt için kılavuz olarak kullanın *Başlat* saat de
 | ----- | ----------- | ----- |
 | Ad | Mikrofon | Gerekli |
 | Başlatma | Ne zaman istemci mikrofon veya başka bir ses akışı ses girişi kullanmaya veya bir tetikleyici anahtar sözcüğü spotter alınan saati | Gerekli |
-| Bitiş | Ne zaman istemci ses veya mikrofon akış kullanarak durduruldu. süre | Gerekli |
+| End | Ne zaman istemci ses veya mikrofon akış kullanarak durduruldu. süre | Gerekli |
 | Hata | Varsa, oluşan hata açıklaması. Mikrofon işlem başarılı olursa, istemcilerin bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
 ### <a name="metric-listeningtrigger"></a>Ölçüm `ListeningTrigger`
@@ -570,7 +570,7 @@ Aşağıdaki örnekler, kayıt için kılavuz olarak kullanın *Başlat* ve *son
 | ----- | ----------- | ----- |
 | Ad | ListeningTrigger | İsteğe bağlı |
 | Başlatma | İstemci dinleme tetikleyici başlatıldığı saat | Gerekli |
-| Bitiş | Ne zaman istemci dinleme tetikleyici bitiş zamanı | Gerekli |
+| End | Ne zaman istemci dinleme tetikleyici bitiş zamanı | Gerekli |
 | Hata | Varsa, oluşan hata açıklaması. Tetikleyici işlem başarılı olduysa, istemciler bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
 #### <a name="sample-message"></a>Örnek ileti

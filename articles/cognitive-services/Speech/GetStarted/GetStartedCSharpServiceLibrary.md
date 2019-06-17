@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 0f445d1fff48ee7a04c0b1c1d64c808f87d824b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515220"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Hızlı Başlangıç: Bing konuşma tanıma hizmeti kitaplık C'de kullanın&#35; .NET Windows için
@@ -47,17 +47,17 @@ Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir par
 >
 > * Abonelik anahtarınızı kullanın. Sağlanan C# hizmet kitaplığı örnek uygulaması, bir komut satırı parametreleri abonelik anahtarınızı sağlamanız gerekir. Daha fazla bilgi için [örnek uygulamayı çalıştırma](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>1. Adım: Örnek uygulamayı yüklemek
+## <a name="step-1-install-the-sample-application"></a>1\. adım: Örnek uygulamayı yüklemek
 
 1. Visual Studio 2015'i başlatın ve **dosya** > **açık** > **proje/çözüm**.
 
 2. SpeechClient.sln adlı Visual Studio 2015 çözümü (.sln) dosyasını açmak için çift tıklayın. Çözüm, Visual Studio'da açılır.
 
-## <a name="step-2-build-the-sample-application"></a>2. Adım: Örnek uygulaması oluşturma
+## <a name="step-2-build-the-sample-application"></a>2\. adım: Örnek uygulaması oluşturma
 
 Ctrl + Shift + B tuşuna basın veya **derleme** Şerit menüsünde. Ardından **Çözümü Derle**.
 
-## <a name="step-3-run-the-sample-application"></a>3. Adım: Örnek uygulamayı çalıştırın
+## <a name="step-3-run-the-sample-application"></a>3\. adım: Örnek uygulamayı çalıştırın
 
 1. Derleme tamamlandıktan sonra F5 tuşuna basın veya seçin **Başlat** örneği çalıştırmak için Şerit menüsünde.
 
@@ -85,7 +85,7 @@ Konuşma tanıma API'si, aşağıdakileri kullanarak ses/WAV destekler:
 * Siren
 * SirenSR
 
-### <a name="preferences"></a>Tercihler
+### <a name="preferences"></a>Tercihleri
 
 Bir SpeechClient oluşturmak için ilk tercihleri nesnesi oluşturmanız gerekir. Konuşma hizmeti davranışını yapılandıran bir dizi parametreleri tercihleri nesnedir. Bunu, aşağıdaki alanlardan oluşur:
 

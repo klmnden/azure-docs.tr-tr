@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254072"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure İzleyici'de özel ölçümler
@@ -57,7 +57,7 @@ Bu özellik, hangi Azure bölgesi için ölçümleri yayma kaynağın dağıtıl
 ### <a name="timestamp"></a>Zaman damgası
 Azure İzleyici gönderilen her veri noktası, bir zaman damgası ile işaretlenmelidir. Bu zaman damgası, ölçüm değeri ölçülen veya toplanan DateTime yakalar. Azure İzleyici ölçüm verileri Geçmiş ve gelecekteki 5 dakikada 20 dakika sunulan ürünün kendinde zaman damgalı kabul eder. Zaman damgası ISO 8601 biçiminde olması gerekir.
 
-### <a name="namespace"></a>Ad alanı
+### <a name="namespace"></a>Ad Alanı
 Ad alanları, kategorilere veya benzer ölçümler gruplamak için bir yoludur. Ad alanlarını kullanarak farklı öngörüleri ya da performans göstergeleri toplayabilir ve ölçüm grupları arasında yalıtım elde edebilirsiniz. Örneğin, adlı bir ad alanına sahip olabileceğiniz **ContosoMemoryMetrics** bellek kullanım ölçümleri, bir uygulama profili izler. Adlı başka bir ad alanı **ContosoAppTransaction** uygulamanızdaki kullanıcı işlemleri ile ilgili tüm ölçümleri izleyebilir.
 
 ### <a name="name"></a>Ad

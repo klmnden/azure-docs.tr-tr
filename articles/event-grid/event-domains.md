@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304292"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid konuları yönetmek için olay etki alanlarını anlama
@@ -101,7 +101,7 @@ Limitler ve kotalar olay etki alanlarıyla ilgili şunlardır:
 
 - Olay etki alanı başına 100.000 konuları 
 - Azure aboneliği başına 100 olay etki alanı 
-- bir olay etki alanı, konu başına 500 olay abonelikleri
+- Bir olay etki alanında konu başına 500 olay aboneliği
 - 50 etki alanı kapsamı abonelikler 
 - İkinci alımı oranı (içine, bir etki alanı) başına 5.000 olayları
 

@@ -17,10 +17,10 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883679"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure sanal makine ölçek ile otomatik ölçeklendirmeye genel bakış ayarlar
@@ -56,7 +56,7 @@ Otomatik ölçeklendirme kuralları ölçümleri aşağıdaki kaynaklardan birin
 |----------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Geçerli bir ölçek kümesi    | İçin ana bilgisayar tabanlı ölçümler ek aracı yüklenmedi veya Yapılandırılmadı, gerektirmez.                                  |
 | Depolama hesabı      | Azure tanılama uzantısı performans ölçümlerini sonra otomatik ölçeklendirme kurallarını tetiklemek için kullanılan Azure depolamaya yazar. |
-| Service Bus Kuyruğu    | Uygulamanızı veya diğer bileşenleri Tetikleyici kuralları için bir Azure Service Bus kuyruğundaki iletileri iletebilir.                   |
+| Service Bus kuyruğu    | Uygulamanızı veya diğer bileşenleri Tetikleyici kuralları için bir Azure Service Bus kuyruğundaki iletileri iletebilir.                   |
 | Application Insights | Uygulamanızdaki doğrudan uygulama üzerinden ölçüm akışları yüklü bir izleme paketi.                         |
 
 
@@ -68,12 +68,12 @@ Otomatik ölçeklendirme kuralları oluşturduğunuzda aşağıdaki ana bilgisay
 | CPU yüzdesi            |
 | Ağ Girişi                |
 | Ağ Çıkışı               |
-| Diskten Okunan Bayt           |
-| Diske Yazılan Bayt          |
-| Disk Okuma İşlemi/Sn  |
-| Disk Yazma İşlemi/Sn |
-| Kalan CPU Kredisi     |
-| Tüketilen CPU Kredisi      |
+| Disk okuma bayt sayısı           |
+| Disk yazma bayt sayısı          |
+| Disk okuma işlemi/sn  |
+| Disk yazma işlemi/sn |
+| Kalan CPU kredisi     |
+| Tüketilen CPU kredisi      |
 
 Belirli bir metrik izlemek için otomatik ölçeklendirme kuralları oluşturduğunuzda, kuralları aşağıdaki ölçümleri toplama eylemlerden birini arayın:
 
@@ -84,16 +84,16 @@ Belirli bir metrik izlemek için otomatik ölçeklendirme kuralları oluşturdu�
 | Maksimum          |
 | Toplam            |
 | Son             |
-| Sayı            |
+| Count            |
 
 Otomatik ölçeklendirme kuralları ölçümleri tanımlanmış yönelik eşiğiniz karşı aşağıdaki işleçleri biri ile karşılaştırıldığında daha sonra tetiklenen:
 
 | İşleç                 |
 |--------------------------|
 | Büyüktür             |
-| Büyük veya eşit |
-| Şu değerden az:                |
-| Küçük veya eşit    |
+| Büyüktür veya eşittir |
+| Küçüktür                |
+| Küçüktür veya eşittir    |
 | Eşittir                 |
 | Eşit değildir             |
 
@@ -103,11 +103,11 @@ Bir otomatik ölçeklendirme kural tetiklendiğinde, Ölçek kümeniz otomatik o
 
 | Ölçeklendirme işlemi     | Kullanım örneği                                                                                                                               |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| Sayıyı şu kadar artır:   | VM örnekleri oluşturmak için sabit bir sayı. Ölçek kümeleri ile Vm'leri daha az sayıda yararlıdır.                                           |
-| Yüzdeyi şu kadar artır: | Yüzde tabanlı bir artış VM örnekleri. Daha büyük ölçekli iyi burada sabit bir artış fark edilir derecede performansını iyileştirebilir değil ayarlar. |
-| Sayıyı şuna artır:   | İstenen bir maksimum miktar ulaşmak için birçok VM örnekleri gerektiği gibi oluşturun.                                                            |
-| Sayıyı şu kadar azalt:   | VM örnekleri kaldırmak için sabit bir sayı. Ölçek kümeleri ile Vm'leri daha az sayıda yararlıdır.                                           |
-| Yüzdeyi şu kadar azalt: | Yüzde tabanlı bir düşüş VM örnekleri. Daha büyük ölçekli iyi burada sabit bir artış fark edilir derecede kaynak tüketimine ve maliyetlere azaltabilir değil ayarlar. |
+| Sayıyı şu kadar Artır   | VM örnekleri oluşturmak için sabit bir sayı. Ölçek kümeleri ile Vm'leri daha az sayıda yararlıdır.                                           |
+| Yüzdeyi şu kadar Artır | Yüzde tabanlı bir artış VM örnekleri. Daha büyük ölçekli iyi burada sabit bir artış fark edilir derecede performansını iyileştirebilir değil ayarlar. |
+| Sayıyı şuna Artır   | İstenen bir maksimum miktar ulaşmak için birçok VM örnekleri gerektiği gibi oluşturun.                                                            |
+| Sayıyı şu kadar Azalt   | VM örnekleri kaldırmak için sabit bir sayı. Ölçek kümeleri ile Vm'leri daha az sayıda yararlıdır.                                           |
+| Yüzdeyi şu kadar Azalt | Yüzde tabanlı bir düşüş VM örnekleri. Daha büyük ölçekli iyi burada sabit bir artış fark edilir derecede kaynak tüketimine ve maliyetlere azaltabilir değil ayarlar. |
 | Sayıyı şuna düşür:   | Birçok VM örnekleri istediğiniz en düşük düzeyde erişmek için gerekli olan kaldırın.                                                            |
 
 

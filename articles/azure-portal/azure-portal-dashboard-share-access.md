@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60552015"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanarak Azure panoları paylaşma
@@ -36,7 +36,7 @@ Rol tabanlı erişim denetimi (RBAC) ile kullanıcılar, rollerine kapsam üç f
 
 * aboneliği
 * kaynak grubu
-* kaynak
+* resource
 
 Kaynak aşağı abonelikten atadığınız izinler devralınmıştır. Yayımlanan Pano bir kaynaktır. Bu nedenle, yayımlanmış panosunu da çalışan rollerine abonelik için atanan kullanıcılar zaten olabilir. 
 

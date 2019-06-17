@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
 ms.openlocfilehash: 89dbdeb02e603602155b3b8b04294aaa757b6b11
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241446"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure’da CentOS tabanlı bir sanal makine hazırlama
@@ -40,7 +40,7 @@ Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev
 * VHDX biçimi, Azure'da yalnızca desteklenmiyor **VHD'yi sabit**.  Disk Hyper-V Yöneticisi'ni veya convert-vhd cmdlet'ini kullanarak VHD biçimine dönüştürebilirsiniz. VirtualBox kullanıyorsanız seçerek yani **boyutu sabit** diski oluştururken dinamik olarak ayrılan varsayılan aksine.
 * Linux sistemini yüklerken olduğu *önerilen* LVM (genellikle birçok yüklemeleri için varsayılan) yerine standart bölümleri kullanın. Özellikle bir işletim sistemi diski hiç sorun giderme için başka bir özdeş sanal makineye eklenmesi gerekiyorsa bu kopyalanan sanal makineler ile ad çakışmalarını LVM uğraşmasına gerek kalmaz. [LVM'yi](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veri diskleri üzerinde kullanılabilir.
 * UDF dosya sistemleri bağlamak için çekirdek desteği gereklidir. Azure'da ilk önyüklemede sağlama yapılandırması Linux VM Konuk bağlı UDF biçimli ortam aracılığıyla geçirilir. Azure Linux Aracısı yapılandırmasını okuma ve VM sağlama UDF dosya sistemi monte etmesini mümkün olması gerekir.
-* Linux çekirdek sürümleri 2.6.37 NUMA büyük VM boyutları ile Hyper-V üzerinde desteklemez. Yukarı Akış kullanan eski dağıtımlar Bu sorun öncelikle etkileri Red Hat 2.6.32 çekirdek ve RHEL 6.6 (çekirdek 2.6.32 504) düzeltildi. 2.6.32-504 önyükleme parametresi ayarlanmalıdır daha özel çekirdekler 2.6.37 eski veya RHEL tabanlı çekirdekler eski çalıştıran sistemlere `numa=off` çekirdeğini grub.conf içinde komut satırı. Daha fazla bilgi için bkz: Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+* Linux çekirdek sürümleri 2.6.37 NUMA büyük VM boyutları ile Hyper-V üzerinde desteklemez. Yukarı Akış kullanan eski dağıtımlar Bu sorun öncelikle etkileri Red Hat 2.6.32 çekirdek ve RHEL 6.6 (çekirdek 2.6.32 504) düzeltildi. 2\.6.32-504 önyükleme parametresi ayarlanmalıdır daha özel çekirdekler 2.6.37 eski veya RHEL tabanlı çekirdekler eski çalıştıran sistemlere `numa=off` çekirdeğini grub.conf içinde komut satırı. Daha fazla bilgi için bkz: Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * İşletim sistemi diski üzerinde takas bölümü yapılandırmayın. Linux Aracısı, geçici kaynak diski üzerinde takas dosyası oluşturmak için yapılandırılabilir.  Aşağıdaki adımlarda bunu hakkında daha fazla bilgi bulunabilir.
 * Tüm VHD'leri azure'da bir sanal Boyut 1 MB ile uyumlu olması gerekir. Ham bir diskten VHD'ye dönüştürme yaparken ham disk boyutu 1 MB dönüştürmeden önce bir çok olduğundan emin olmalısınız. Bkz: [Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) daha fazla bilgi için.
 

@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563427"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler’de SQL Server için Yedekleme ve Geri Yükleme
@@ -69,7 +69,7 @@ SQL VM'ler için otomatik yedekleme yapılandırma hakkında daha fazla bilgi i�
 - **Merkezi Yönetim ve izleme**: Tüm destekleyen Azure Backup, azure'daki tek bir panodan diğer iş yükleri de dahil olmak üzere Yedeklemelerinizin merkezi olarak yönetin.
 - **Yedekleme ve bekletme temelli İlkesi**: Standart yedekleme ilkelerine düzenli yedeklemeler oluşturun. Yıllık yedeklemeler için bekletme ilkeleri oluşturun.
 - **Desteklemek için SQL her zaman şirket**: Algılayın ve bir SQL Server Always On yapılandırmayı korumak ve yedekleme kullanılabilirlik grubu yedekleme tercihini uymanız.
-- **15 dakikalık kurtarma noktası hedefi (RPO)**: SQL işlem günlüğü yedeklemeleri 15 dakikada bir kadar yapılandırın.
+- **15 dakikalık kurtarma noktası hedefi (RPO)** : SQL işlem günlüğü yedeklemeleri 15 dakikada bir kadar yapılandırın.
 - **Noktaya geri yükleme noktası**: Günlük yedeklemelerine ve el ile birden fazla tam, değişiklik geri yüklemeye gerek kalmadan veritabanları belirli bir noktaya geri için portal'ı kullanın.
 - **Hatalar için e-posta uyarıları birleştirilmiş**: Hatalar için birleştirilmiş e-posta bildirimleri yapılandırın.
 - **Rol tabanlı erişim denetimi**: Kimin yedeklemeyi yönetme ve geri yükleme işlemleri portal üzerinden belirler.

@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770831"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Öğretici: Sorgu bir SQL Server Linux Docker kapsayıcısı içinde bir sanal ağdan bir Azure Databricks not defteri
@@ -64,8 +64,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
     
     |Ayar|Önerilen değer|Açıklama|
     |-------|---------------|-----------|
-    |Kaynak|IP Adresleri|IP adresleri, belirli bir kaynak IP adresine izin verilir veya bu kural tarafından reddedildi'ten gelen trafiği belirtir.|
-    |Kaynak IP adresleri|< genel IP\>|Girin genel IP adresi. Genel IP adresi ziyaret ederek bulabilirsiniz [bing.com](https://www.bing.com/) ve arama **"IP Adresim"**.|
+    |source|IP Adresleri|IP adresleri, belirli bir kaynak IP adresine izin verilir veya bu kural tarafından reddedildi'ten gelen trafiği belirtir.|
+    |Kaynak IP adresleri|< genel IP\>|Girin genel IP adresi. Genel IP adresi ziyaret ederek bulabilirsiniz [bing.com](https://www.bing.com/) ve arama **"IP Adresim"** .|
     |Kaynak bağlantı noktası aralıkları|*|Herhangi bir bağlantı noktasına gelen trafiğe izin verin.|
     |Hedef|IP Adresleri|IP adresleri için belirli bir kaynak IP adresine izin verilir veya bu kural tarafından reddedildi, giden trafiği belirtir.|
     |Hedef IP adresleri|< VM'nin genel IP\>|Sanal makinenizin genel IP adresini girin. Bunu şirket bulabilirsiniz **genel bakış** sayfasında, sanal makinenizin.|
@@ -80,7 +80,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
     |Ayar|Önerilen değer|Açıklama|
     |-------|---------------|-----------|
-    |Kaynak|IP Adresleri|IP adresleri, belirli bir kaynak IP adresine izin verilir veya bu kural tarafından reddedildi'ten gelen trafiği belirtir.|
+    |source|IP Adresleri|IP adresleri, belirli bir kaynak IP adresine izin verilir veya bu kural tarafından reddedildi'ten gelen trafiği belirtir.|
     |Kaynak IP adresleri|10.179.0.0/16|Sanal ağınız için adres aralığını girin.|
     |Kaynak bağlantı noktası aralıkları|*|Herhangi bir bağlantı noktasına gelen trafiğe izin verin.|
     |Hedef|IP Adresleri|IP adresleri için belirli bir kaynak IP adresine izin verilir veya bu kural tarafından reddedildi, giden trafiği belirtir.|

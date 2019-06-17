@@ -16,10 +16,10 @@ ms.date: 04/08/2019
 ms.author: kfollis
 ms.custom: accessibility
 ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551439"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure portalında klavye kısayolları
@@ -37,11 +37,11 @@ Bu makalede, Azure portalında her yerde çalışan klavye kısayolları listele
 |Seçili sol kenar öğeyi Taşı |ALT + Shift + Yukarı Ok|
 |Seçili sol kenar öğeyi aşağı taşı |ALT + Shift + aşağı ok|
 
-## <a name="navigation"></a>Gezinme
+## <a name="navigation"></a>Gezinti
 
 |Bu gezinti yapmak için |Tuşuna basın |
 | --- | --- |
-|Odağı komut çubuğuna taşı |G+, |
+|Odağı Komut çubuğuna Taşı |G+, |
 |Odağı üst ve sol kenar çubuğu arasında Değiştir | G+. |
 
 ## <a name="go-to"></a>Git
@@ -51,7 +51,7 @@ Bu makalede, Azure portalında her yerde çalışan klavye kısayolları listele
 |Git **Panosu** |G+D |
 |Git **tüm kaynaklar**|G+A |
 |Git **kaynak grupları**|G+R |
-|Sol kenar öğesi bu konumda açın |G+numarası|
+|Sol kenar öğesi bu konumda açın |G + sayı|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

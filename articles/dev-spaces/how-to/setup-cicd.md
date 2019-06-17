@@ -11,10 +11,10 @@ manager: yuvalm
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
 ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60687376"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure geliştirme alanları ile CI/CD kullanın
@@ -43,7 +43,7 @@ Adlı yeni bir alan oluşturabilirsiniz _geliştirme_ kullanarak `azds space sel
 azds space select -n dev
 ```
 
-Bir üst geliştirme alanı seçmeniz istendiğinde seçin  _\<hiçbiri\>_.
+Bir üst geliştirme alanı seçmeniz istendiğinde seçin  _\<hiçbiri\>_ .
 
 Geliştirme alanınız oluşturulduktan sonra ana bilgisayar soneki belirlemeniz gerekir. Kullanım `azds show-context` Azure geliştirme alanları giriş denetleyicisinin ana bilgisayar soneki gösterilecek komutu.
 
@@ -95,13 +95,13 @@ Artık otomatik olarak oluşturacak bir CI çözüm sahip *mywebapi* ve *webfron
 1. Bir yayın tanımına henüz içermeyen yeni bir DevOps projesi içinde çalışıyorsanız, önce devam etmeden önce bir boş yayın tanımı oluşturmak gerekir. Var olan bir yayın tanımına sahip kadar içeri aktarma seçeneği kullanıcı Arabiriminde görüntülemez.
 1. Sol tarafta, tıklayın **+ yeni** düğmesine ve ardından'a tıklayın **bir işlem hattı alma**.
 1. Tıklayın **Gözat** seçip `samples/release.json` projenizden.
-1. **Tamam** düğmesine tıklayın. Bildirim ardışık düzen Bölmesi ile yayın tanımı düzenleme sayfası yüklendi. Ayrıca unutmayın, yine de yapılandırılmalıdır kümeye özgü ayrıntıları gösteren bazı kırmızı uyarı simgeleri olur.
+1. **Tamam**'ı tıklatın. Bildirim ardışık düzen Bölmesi ile yayın tanımı düzenleme sayfası yüklendi. Ayrıca unutmayın, yine de yapılandırılmalıdır kümeye özgü ayrıntıları gösteren bazı kırmızı uyarı simgeleri olur.
 1. Ardışık Düzen bölmesi sol tarafta tıklayın **bir yapıt ekleme** Kabarcık.
 1. İçinde **kaynak** açılır menüsünde, yapı seçin, daha önce oluşturduğunuz kanal.
 1. İçin **varsayılan sürüm**, seçin **etiketlerle derleme işlem hattı varsayılan daldan en son**.
 1. Bırakın **etiketleri** boş.
 1. Ayarlama **kaynak diğer adı** için `drop`. **Kaynak diğer adı** değeri, önceden tanımlanmış sürüm görevler tarafından kullanılır, ayarlamanız gerekir.
-1. **Ekle**'ye tıklayın.
+1. **Ekle**'yi tıklatın.
 1. Şimdi yeni oluşturulan ışık Şimşek simgesine tıklayın `drop` yapıt kaynağı, aşağıda gösterildiği gibi:
 
     ![Yayın yapıtı sürekli dağıtım kurulumu](../media/common/release-artifact-cd-setup.png)

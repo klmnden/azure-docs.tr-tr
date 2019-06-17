@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835525"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808401"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service üzerindeki işletim sistemi işlevi
 Bu makalede çalışan tüm Windows uygulamaları için kullanılabilir olan ortak temel işletim sistemi işlevi [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Bu işlev, dosya, ağ ve kayıt defteri erişim ve tanılama günlüklerini ve olayları içerir. 
@@ -65,7 +65,7 @@ Uygulamanız büyüdükçe, disk kullanımını izlemek önemlidir. Disk kotası
 
 - Uygulama, yeterli disk alanı olduğunu belirten bir hata oluşturabilecek.
 - Kudu konsoluna göz atarken, disk hataları görebilirsiniz.
-- VSTS veya Visual Studio dağıtım başarısız olabilir `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Azure DevOps veya Visual Studio dağıtım başarısız olabilir `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - Uygulamanız yavaş performans düşebilir.
 
 <a id="NetworkDrives"></a>

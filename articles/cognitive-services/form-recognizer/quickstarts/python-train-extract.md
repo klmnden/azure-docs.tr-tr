@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: ebed76c82b647d11e34a17ae94edf208929f8c56
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e799e4ae745d2dc2dea91aa0094b5ffb79ae6f77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475244"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063885"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve Python ile REST API kullanarak form verileri ayıklayın
 
@@ -127,7 +127,7 @@ Not `"modelId"` değeri. İçin aşağıdaki adımları gerekir.
 Ardından, bir belge çözümleyin ve anahtar-değer çiftleri ve tabloları buradan ayıklamak. Çağrı **Model - analiz** Python betiğini çalıştırarak API izler. Komutu çalıştırmadan önce şu değişiklikleri yapın:
 
 1. Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınız ile elde ettiğiniz uç noktası ile. Form tanıyıcı kaynağınızda bulabilirsiniz **genel bakış** sekmesi.
-1. Değiştirin `<File Path>` dosya yolu veya URL biçiminde veri ayıklanacağı konumunun.
+1. Değiştirin `<path to your form>` ile formunuzu (örneğin, C:\temp\file.pdf) dosyasının yolu.
 1. Değiştirin `<modelID>` önceki bölümde aldığınız model kimliği.
 1. Değiştirin `<file type>` dosya türüne sahip. Desteklenen türler: pdf, görüntü/jpeg, görüntü/png.
 1. `<subscription key>` değerini abonelik anahtarınızla değiştirin.
@@ -138,7 +138,7 @@ Ardından, bir belge çözümleyin ve anahtar-değer çiftleri ve tabloları bur
     
     # Endpoint URL
     base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
-    file_path = r"<File Path>"
+    file_path = r"<path to your form>"
     model_id = "<modelID>"
     headers = {
         # Request headers

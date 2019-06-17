@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62a4495667dc7c934883bfed0a8f07d7b2d653f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89c93b4f95817af85477978a2889887aeb0d98e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60283727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106390"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Öğretici: BeeLine ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de BeeLine tümleştirmesini yapılandırmak için BeeLine Galeriden y�
 
 **BeeLine Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

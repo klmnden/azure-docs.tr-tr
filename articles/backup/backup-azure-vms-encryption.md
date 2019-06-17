@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
 ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217040"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Yedekleme ve şifrelenmiş Azure VM geri yükleme
@@ -140,7 +140,7 @@ Azure VM ilişkili sanal makinelerin yanı sıra gizli dizileri ve anahtarları 
 
     ![Azure yedekleme seçimi](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. **Tamam** düğmesine tıklayın. **Backup Yönetimi Hizmeti** eklenir **erişim ilkeleri**.
+6. **Tamam**'ı tıklatın. **Backup Yönetimi Hizmeti** eklenir **erişim ilkeleri**.
 
     ![Erişim ilkeleri](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 

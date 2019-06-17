@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882427"
 ---
 # <a name="replicas-and-instances"></a>Çoğaltmalar ve örnekler 
@@ -116,11 +116,11 @@ Uygulama konağı veya düğüm bekleme çoğaltma için bir çökme gerçekleş
 ## <a name="replica-role"></a>Çoğaltma rolü 
 Çoğaltmanın rolü, onun çoğaltma kümesine işlevinde belirler:
 
-- **Birincil (P)**: Bir birincil çoğaltma kümesindeki yapmaktan sorumlu olan okuma ve yazma işlemleri. 
-- **ActiveSecondary (S)**: Birincil durum güncelleştirmeleri almak, bunları uygulamak ve daha sonra geri bildirimleri göndermek çoğaltmaları şunlardır. Kopya kümesinde birden çok etkin ikincil veritabanı vardır. Bu etkin ikincil veritabanı hizmeti üstesinden hataların sayısını belirler.
+- **Birincil (P)** : Bir birincil çoğaltma kümesindeki yapmaktan sorumlu olan okuma ve yazma işlemleri. 
+- **ActiveSecondary (S)** : Birincil durum güncelleştirmeleri almak, bunları uygulamak ve daha sonra geri bildirimleri göndermek çoğaltmaları şunlardır. Kopya kümesinde birden çok etkin ikincil veritabanı vardır. Bu etkin ikincil veritabanı hizmeti üstesinden hataların sayısını belirler.
 - **(I) IdleSecondary**: Bu çoğaltmaların birincil tarafından oluşturulur. Etkin ikincil yükseltilebilmesi durumu birincilden alıyorsunuz. 
-- **Hiçbiri (N)**: Bu çoğaltmaların kopya kümesinde bir sorumluluğu yoktur.
-- **Bilinmeyen (U)**: Tüm almadan önce bir çoğaltmasının ilk rol budur **ChangeRole** Service fabric'teki API çağrısı.
+- **Hiçbiri (N)** : Bu çoğaltmaların kopya kümesinde bir sorumluluğu yoktur.
+- **Bilinmeyen (U)** : Tüm almadan önce bir çoğaltmasının ilk rol budur **ChangeRole** Service fabric'teki API çağrısı.
 
 Aşağıdaki diyagramda, çoğaltma rolü geçişi ve ortaya çıkabilir bazı örnek senaryolar gösterilmektedir:
 

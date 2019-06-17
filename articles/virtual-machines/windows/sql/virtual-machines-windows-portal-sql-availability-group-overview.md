@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.openlocfilehash: b9977965dc076ec36aa90680a1732b6640b1e41a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325819"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>SQL Server Always On kullanılabilirlik grupları'Azure sanal makinelerinde ile tanışın #
@@ -34,7 +34,7 @@ Diyagram, tam SQL Server kullanılabilirlik grubu Azure sanal Makineler'de parç
 
 Anahtar kullanılabilirlik grubu için Azure sanal Makineler'de Azure sanal makinelerini gerektiğini fark bir [yük dengeleyici](../../../load-balancer/load-balancer-overview.md). Yük dengeleyicinin IP adresleri için kullanılabilirlik grubu dinleyicisi tutar. Birden fazla kullanılabilirlik grubu varsa, her grubun bir dinleyici gerektirir. Bir yük dengeleyici birden çok dinleyici destekleyebilir.
 
-Ayrıca, bir Azure Iaas VM Konuk yük devretme kümesinde sunucu (küme düğümü) başına tek bir NIC'ye ve tek bir alt ağ öneririz. Azure ağı Ek NIC ve alt ağları gereksiz bir Azure Iaas VM Konuk kümede olmasını sağlayan fiziksel yedeklilik sahiptir. Küme doğrulama raporunu düğümlere yalnızca tek bir ağda erişilebilir durumda bir uyarı verir ancak Azure Iaas VM Konuk yük devretme kümelerinde bu uyarıyı güvenle yoksayılabilir. 
+Ayrıca, bir Azure Iaas VM Konuk yük devretme kümesinde sunucu (küme düğümü) başına tek bir NIC'ye ve tek bir alt ağ öneririz. Azure ağındaki fiziksel yedeklilik nedeniyle Azure IaaS VM konuk kümesinde ek NIC ve alt ağ kullanılmasına gerek yoktur. Küme doğrulama raporu, düğümlerin yalnızca tek bir ağ üzerinde erişilebilir durumda olduğuna dair bir uyarı gösterse de bu uyarı Azure IaaS VM konuk yük devretme kümelerinde güvenli bir şekilde yoksayılabilir. 
 
 |  | Windows Server sürümü | SQL Server sürümü | SQL Server sürümü | WSFC çekirdek yapılandırma | Çok bölgeli ile DR | Birden çok alt ağ desteği | Mevcut bir AD desteği | DR ile aynı bölgede birden fazla bölge | Dist AG herhangi bir AD etki alanı desteği | Cluster dist AG desteği |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|

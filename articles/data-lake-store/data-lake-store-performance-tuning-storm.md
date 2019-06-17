@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436486"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight ve Azure Data Lake depolama Gen1 üzerinde Storm için performans ayarlama Kılavuzu
@@ -132,7 +132,7 @@ Data Lake depolama Gen1 tarafından sağlanan bant genişliği sınırına ulaş
 
 Kaynaklarınızın azaltılıp olmadığını denetlemek için hata ayıklama istemci tarafında günlüğü etkinleştir:
 
-1. İçinde **Ambari** > **Storm** > **Config** > **storm çalışan log4j Gelişmiş**, değiştirme **&lt;kök düzey = "bilgi"&gt;** için  **&lt;kök düzey "debug" =&gt;**. Tüm düğümleri/hizmet yapılandırmasının etkili olması yeniden başlatın.
+1. İçinde **Ambari** > **Storm** > **Config** > **storm çalışan log4j Gelişmiş**, değiştirme **&lt;kök düzey = "bilgi"&gt;** için  **&lt;kök düzey "debug" =&gt;** . Tüm düğümleri/hizmet yapılandırmasının etkili olması yeniden başlatın.
 2. Storm topoloji çalışan düğümlerinde oturum İzleyici (/var/log/storm/worker-artifacts altında /&lt;TopologyName&gt;/&lt;bağlantı noktası&gt;/worker.log) için Data Lake depolama Gen1 azaltma özel durumları.
 
 ## <a name="next-steps"></a>Sonraki adımlar

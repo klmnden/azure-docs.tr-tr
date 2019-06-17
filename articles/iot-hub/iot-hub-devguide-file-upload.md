@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ae87523e66ae49d17f198a1f70b0f449ca0a713
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60950389"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080412"
 ---
 # <a name="upload-files-with-iot-hub"></a>IOT Hub ile dosyaları karşıya yükleme
 
-Ayrıntılarıyla açıklandığı gibi [IOT Hub uç noktaları](iot-hub-devguide-endpoints.md) makale, bir cihaz başlayabileceğini dosyanın karşıya bir cihaz'e yönelik uç noktası bir bildirim göndererek (**/devices/ {DeviceID} / dosyaları**). Bir cihaz IOT hub'ı bir karşıya yükleme tamamlandıktan bildirdiğinde, IOT Hub aracılığıyla bir dosyayı karşıya yükleme bildirim iletisi gönderir. **/messages/servicebound/filenotifications** yönelik hizmet uç noktası.
+Ayrıntılarıyla açıklandığı gibi [IOT Hub uç noktaları](iot-hub-devguide-endpoints.md) makale, bir cihaz başlayabileceğini dosyanın karşıya bir cihaz'e yönelik uç noktası bir bildirim göndererek ( **/devices/ {DeviceID} / dosyaları**). Bir cihaz IOT hub'ı bir karşıya yükleme tamamlandıktan bildirdiğinde, IOT Hub aracılığıyla bir dosyayı karşıya yükleme bildirim iletisi gönderir. **/messages/servicebound/filenotifications** yönelik hizmet uç noktası.
 
 Aracılığını destekleyen kendini IOT Hub aracılığıyla iletileri yerine, IOT hub'ı bir dağıtıcısıyla ilişkili Azure depolama hesabınız yerine görür. Bir cihaz IOT hub'dan cihaz yüklemek isteyen dosyanın belirli bir depolama belirteci ister. Dosya depolama alanına yüklemek için SAS URI'sini cihaz kullanır ve karşıya yükleme tamamlandığında, cihaz bildirim tamamlama IOT Hub'ına gönderir. IOT Hub, dosyayı karşıya yükleme tamamlandı ve ardından hizmeti kullanıma yönelik dosya bildirim uç noktası için bir dosya karşıya yükleme bildirim iletisi ekler denetler.
 
@@ -95,7 +95,7 @@ Aşağıdaki başvuru konuları, dosyaları bir CİHAZDAN karşıya yükleme hak
 
 İsteğe bağlı olarak, bir cihaz IOT hub'ı bir karşıya yükleme tamamlandıktan bildirdiğinde, IOT hub'ı bir bildirim iletisi oluşturur. Bu ileti dosyasının adını ve depolama konumunu içerir.
 
-İçinde anlatıldığı gibi [uç noktaları](iot-hub-devguide-endpoints.md), IOT Hub hizmeti'e yönelik uç nokta üzerinden dosya karşıya yükleme bildirimleri sunar (**/messages/servicebound/fileuploadnotifications**) iletileri. Dosya karşıya yükleme bildirimleri alma semantiği bulut-cihaz iletilerini ile aynıdır ve aynı [ileti yaşam döngüsü](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Dosya karşıya yükleme bildirim uç noktasından alınan her ileti, aşağıdaki özelliklere sahip bir JSON kaydıdır:
+İçinde anlatıldığı gibi [uç noktaları](iot-hub-devguide-endpoints.md), IOT Hub hizmeti'e yönelik uç nokta üzerinden dosya karşıya yükleme bildirimleri sunar ( **/messages/servicebound/fileuploadnotifications**) iletileri. Dosya karşıya yükleme bildirimleri alma semantiği bulut-cihaz iletilerini ile aynıdır ve aynı [ileti yaşam döngüsü](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Dosya karşıya yükleme bildirim uç noktasından alınan her ileti, aşağıdaki özelliklere sahip bir JSON kaydıdır:
 
 | Özellik | Açıklama |
 | --- | --- |

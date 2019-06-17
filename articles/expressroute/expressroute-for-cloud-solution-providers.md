@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: richcar
 ms.custom: seodec18
 ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367600"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Bulut Çözüm Sağlayıcıları (CSP) için ExpressRoute
@@ -78,12 +78,12 @@ ExpressRoute, yüksek hızlı bağlantıların daha iyi kullanımı için birden
 ExpressRoute, tek bir ExpressRoute bağlantı hattı üzerinden üç tür trafiği ([yönlendirme etki alanları](#expressroute-routing-domains)) destekleyecek şekilde yapılandırılabilir. Bu trafik; Microsoft eşliği, Azure genel eşliği ve özel eşliği olarak ayrılır. Tek bir ExpressRoute bağlantı hattı üzerinden gönderilmek üzere trafik türlerinden birini veya hepsini seçebilirsiniz veya ExpressRoute bağlantı hattının boyutuna ve müşteriniz tarafından gerekli görülen yalıtıma bağlı olarak birden çok ExpressRoute bağlantı hattı kullanabilirsiniz. Müşterinizin güvenlik yaklaşımı, genel ve özel trafiğin aynı bağlantı hattı üzerinden çapraz geçiş yapmalarına izin vermeyebilir.
 
 ### <a name="connect-through-model"></a>Aracılı bağlantı modeli
-Aracılı bağlantı yapılandırmasında, tüm ağ desteklerinin müşterinizin veri merkezi kaynaklarını Azure’de barındırılan aboneliklere bağlamasından sorumlu olacaksınız.  Azure özelliklerini kullanmak isteyen müşterilerinizin her birinin kendi ExpressRoute bağlantısına ihtiyacı olacak ve bu bağlantılar tarafınızdan yönetilecek. Müşterinin ExpressRoute bağlantı hattını edinmede yararlanacağı aynı yöntemleri kullanacaksınız.  Bağlantı hattı hazırlama ve bağlantı hattı durumları için [ExpressRoute iş akışları](expressroute-workflows.md) makalesinde özetlenen aynı adımları izleyeceksiniz. Daha sonra Sınır Ağ Geçidi (BGP) protokolü yollarını yapılandırarak şirket içi ağ ve Azure sanal ağı arasındaki trafiği kontrol edeceksiniz. 
+Aracılı bağlantı yapılandırmasında, tüm ağ desteklerinin müşterinizin veri merkezi kaynaklarını Azure’de barındırılan aboneliklere bağlamasından sorumlu olacaksınız. Azure özelliklerini kullanmak isteyen müşterilerinizin her birinin kendi ExpressRoute bağlantısına ihtiyacı olacak ve bu bağlantılar tarafınızdan yönetilecek. Müşterinin ExpressRoute bağlantı hattını edinmede yararlanacağı aynı yöntemleri kullanacaksınız. Bağlantı hattı hazırlama ve bağlantı hattı durumları için [ExpressRoute iş akışları](expressroute-workflows.md) makalesinde özetlenen aynı adımları izleyeceksiniz. Daha sonra Sınır Ağ Geçidi (BGP) protokolü yollarını yapılandırarak şirket içi ağ ve Azure sanal ağı arasındaki trafiği kontrol edeceksiniz.
 
 ### <a name="connect-to-model"></a>Doğrudan bağlantı modeli
-Doğrudan bağlantı yapılandırmasında müşterinizin Azure ile zaten bir bağlantısı vardır ya da müşteriniz, sizin veri merkezinizden değil, kendi veri merkezinden Azure’a ExpressRoute İnternet servis sağlayıcısına bir bağlantı oluşturacaktır.  Hazırlama sürecine başlamak için müşteriniz, yukarıda, Aracılı Bağlantı modeli bölümünde belirtilen adımları takip edecektir.  Bağlantı hattı kurulduktan sonra müşterinizin, kendi ağınıza ve Azure sanal ağına bağlanabilmek için şirket içi yönlendiricileri yapılandırması gerekecektir.
+Doğrudan bağlantı yapılandırmasında müşterinizin Azure ile zaten bir bağlantısı vardır ya da müşteriniz, sizin veri merkezinizden değil, kendi veri merkezinden Azure’a ExpressRoute İnternet servis sağlayıcısına bir bağlantı oluşturacaktır. Hazırlama sürecine başlamak için müşteriniz, yukarıda, Aracılı Bağlantı modeli bölümünde belirtilen adımları takip edecektir. Bağlantı hattı kurulduktan sonra müşterinizin, kendi ağınıza ve Azure sanal ağına bağlanabilmek için şirket içi yönlendiricileri yapılandırması gerekecektir.
 
-Yolların kendi veri merkez(ler)inizdeki kaynakların, kendi veri merkezinizdeki müşteri kaynaklarıyla ya da Azure’de barındırılan kaynaklarla iletişim kurabilmesi için bağlantıyı kurma ve yolları yapılandırma sürecinde yardımcı olabilirsiniz. 
+Yolların kendi veri merkez(ler)inizdeki kaynakların, kendi veri merkezinizdeki müşteri kaynaklarıyla ya da Azure’de barındırılan kaynaklarla iletişim kurabilmesi için bağlantıyı kurma ve yolları yapılandırma sürecinde yardımcı olabilirsiniz.
 
 ## <a name="expressroute-routing-domains"></a>ExpressRoute yönlendirme etki alanları
 ExpressRoute üç yönlendirme etki alanı sunar: Genel, özel ve Microsoft eşlemesi. Her bir yönlendirme etki alanına, yüksek kullanılabilirlik için aynı yönlendiricilerle aktif-aktif yapılandırma tanımlanır. ExpressRoute yönlendirme etki alanları hakkında daha fazla ayrıntı için [buraya](expressroute-circuit-peerings.md) göz atın.
@@ -91,14 +91,14 @@ ExpressRoute üç yönlendirme etki alanı sunar: Genel, özel ve Microsoft eşl
 Sadece istediğiniz veya ihtiyaç duyduğunuz yol(lar)a izin verecek özel yol filtreleri tanımlayabilirsiniz. Daha fazla bilgi için veya bkz bu değişiklikleri nasıl uygulayacağınızı görmek için: [PowerShell kullanarak ExpressRoute devresi için yönlendirme oluşturma ve değiştirme](expressroute-howto-routing-classic.md) yönlendirme filtreleri hakkında daha fazla ayrıntı için.
 
 > [!NOTE]
-> Microsoft Eşlemesi ve Genel Eşleme için bağlantı, müşteri ya da CSP tarafından sahip olunan genel bir IP adresinden sağlanmalıdır ve tüm tanımlı kurallara uymalıdır.  Daha fazla bilgi için bkz. [ExpressRoute ](expressroute-prerequisites.md).  
+> Microsoft Eşlemesi ve Genel Eşleme için bağlantı, müşteri ya da CSP tarafından sahip olunan genel bir IP adresinden sağlanmalıdır ve tüm tanımlı kurallara uymalıdır. Daha fazla bilgi için bkz. [ExpressRoute ](expressroute-prerequisites.md).  
 > 
 > 
 
 ## <a name="routing"></a>Yönlendirme
 ExpressRoute, Azure ağlarına Azure Virtual Network Gateway üzerinden bağlanır. Ağ geçitleri, Azure sanal ağlarına yönlendirme sağlar.
 
-Azure Sanal Ağları’nı oluşturma, ayrıca Sanal Ağdan doğrudan trafiğe çift yönlü sanal ağ alt ağı için varsayılan bir yönlendirme tablosu oluşturur. Varsayılan rota tablosu çözüm için yetersiz kalıyorsa, giden trafiği özel uygulamalara yönlendirecek ya da yolların özel alt ağlara ya da dış ağlara erişimini engelleyecek özel yollar oluşturulabilir. 
+Azure Sanal Ağları’nı oluşturma, ayrıca Sanal Ağdan doğrudan trafiğe çift yönlü sanal ağ alt ağı için varsayılan bir yönlendirme tablosu oluşturur. Varsayılan rota tablosu çözüm için yetersiz kalıyorsa, giden trafiği özel uygulamalara yönlendirecek ya da yolların özel alt ağlara ya da dış ağlara erişimini engelleyecek özel yollar oluşturulabilir.
 
 ### <a name="default-routing"></a>Varsayılan yönlendirme
 Varsayılan rota tablosu aşağıdaki rotaları içerir:
@@ -112,20 +112,20 @@ Varsayılan rota tablosu aşağıdaki rotaları içerir:
 ![alternatif metin](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Kullanıcı tanımlı yönlendirme (UDR)
-Kullanıcı tanımlı yollar, sanal ağda veya diğer önceden tanımlanmış ağ geçitlerinde (ExpressRoute; İnternet veya VPN) tanımlanmış alt ağdan diğer alt ağlara giden trafik akışının kontrolüne olanak tanır.  Varsayılan sistem yönlendirme tablosu, varsayılan sistem yönlendirme tablosunu özel yollarla değiştiren kullanıcı tanımlı yönlendirme tablosu ile değiştirilebilir. Kullanıcı tanımlı yönlendirme ile müşteriler güvenlik duvarları gibi uygulamalara veya izinsiz giriş algılama gereçlerine belirli yollar oluşturabilir veya belirli alt ağlara kullanıcı tanımlı yolu barındıran alt ağdan erişimi engeller. Kullanıcı Tanımlı Yollara genel bir bakış için [buraya](../virtual-network/virtual-networks-udr-overview.md) göz atın. 
+Kullanıcı tanımlı yollar, sanal ağda veya diğer önceden tanımlanmış ağ geçitlerinde (ExpressRoute; İnternet veya VPN) tanımlanmış alt ağdan diğer alt ağlara giden trafik akışının kontrolüne olanak tanır. Varsayılan sistem yönlendirme tablosu, varsayılan sistem yönlendirme tablosunu özel yollarla değiştiren kullanıcı tanımlı yönlendirme tablosu ile değiştirilebilir. Kullanıcı tanımlı yönlendirme ile müşteriler güvenlik duvarları gibi uygulamalara veya izinsiz giriş algılama gereçlerine belirli yollar oluşturabilir veya belirli alt ağlara kullanıcı tanımlı yolu barındıran alt ağdan erişimi engeller. Kullanıcı Tanımlı Yollara genel bir bakış için [buraya](../virtual-network/virtual-networks-udr-overview.md) göz atın. 
 
 ## <a name="security"></a>Güvenlik
 Doğrudan veya Aracılı bağlantı modellerinden hangisinin kullanıldığına bağlı olarak, müşteriniz kendi sanal ağında güvenlik ilkeleri tanımlar ya da CSP’ye kendi sanal ağlarına tanımlaması için güvenlik ilkesi gereksinimleri sağlar. Aşağıdaki güvenlik ölçütleri tanımlanabilir:
 
 1. **Müşteri Yalıtımı** — Azure platformu, Müşteri Kimliği ve sanal ağ bilgisini her müşterinin trafik bilgisini bir GRE tünelinde yalıtan güvenli bir veritabanında saklayarak müşteri yalıtımı sağlar.
-2. **Ağ Güvenlik Grubu (NSG)** kuralları, izin verilen trafiğin Azure içindeki alt ağlara çift yönlü olarak tanımlanmasında kullanılan kurallardır.  NSG, varsayılan olarak, İnternet’ten sanal ağa trafik akışını engelleyecek Engelleme kuralları içerir ve sanal ağ içinde trafik akışı kurallarına izin verir. Ağ Güvenlik Grupları hakkında daha fazla bilgi için [buraya](https://azure.microsoft.com/blog/network-security-groups/) göz atın.
+2. **Ağ Güvenlik Grubu (NSG)** kuralları, izin verilen trafiğin Azure içindeki alt ağlara çift yönlü olarak tanımlanmasında kullanılan kurallardır. NSG, varsayılan olarak, İnternet’ten sanal ağa trafik akışını engelleyecek Engelleme kuralları içerir ve sanal ağ içinde trafik akışı kurallarına izin verir. Ağ Güvenlik Grupları hakkında daha fazla bilgi için [buraya](https://azure.microsoft.com/blog/network-security-groups/) göz atın.
 3. **Zorlamalı tünel** — Bu seçenek, Azure’den kaynaklanan internete bağlı trafiği, şirket içi veri merkezine ExpressRoute bağlantısı üzerinden yeniden yönlendirir. Zorlamalı tünel görünümü hakkında daha fazla bilgi için[buraya](expressroute-routing.md#advertising-default-routes) göz atın.  
-4. **Şifreleme** — ExpressRoute bağlantı hatları belirli bir müşteriye ayrılmış olsa da, ağ sağlayıcısının ihlal edilme olasılığı bulunmaktadır ve bu, izinsiz giriş yapanların paket trafiğini incelemesi riskini doğurur.  Bu riske yönelik olarak, bir müşteri ya da CSP trafiği bağlantı üzerinden şirket içi kaynaklar ve Azure arasında akan tüm trafiği IPSec tünel modu ilkelerine tanımlayarak şifrelemenize olanak tanır (başvurmak için isteğe bağlı tünel modu IPSec Şekil'te Müşteri 1 için kaynaklar 5: ExpressRoute güvenliği, yukarıdaki). İkinci seçenek ise ExpressRoute bağlantı hattının her ucunda bir güvenlik duvarı uygulaması kullanmak olabilir.  Bu, ExpressRoute bağlantı hattının tüm trafiğini şifrelemek için her iki uca 3. parti güvenlik duvarı sanal makineleri/uygulamaları kurulmasını gerektirecektir. 
+4. **Şifreleme** — ExpressRoute bağlantı hatları belirli bir müşteriye ayrılmış olsa da, ağ sağlayıcısının ihlal edilme olasılığı bulunmaktadır ve bu, izinsiz giriş yapanların paket trafiğini incelemesi riskini doğurur. Bu riske yönelik olarak, bir müşteri ya da CSP trafiği bağlantı üzerinden şirket içi kaynaklar ve Azure arasında akan tüm trafiği IPSec tünel modu ilkelerine tanımlayarak şifrelemenize olanak tanır (başvurmak için isteğe bağlı tünel modu IPSec Şekil'te Müşteri 1 için kaynaklar 5: ExpressRoute güvenliği, yukarıdaki). İkinci seçenek ise ExpressRoute bağlantı hattının her ucunda bir güvenlik duvarı uygulaması kullanmak olabilir. Bu, ExpressRoute bağlantı hattının tüm trafiğini şifrelemek için her iki uca 3. parti güvenlik duvarı sanal makineleri/uygulamaları kurulmasını gerektirecektir.
 
 ![alternatif metin](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bulut Çözümü Sağlayıcısı hizmeti, sizlere pahalı altyapı ve özelliklere ihtiyaç duymadan müşterilerinizin gözünde değerinizi artıracak bir yol sunarken, ana dış kaynak sağlayıcısı olarak konumunuzu korur. Microsoft Azure ile sorunsuz tümleştirme, Microsoft Azure yönetimini mevcut yönetim altyapınızın sınırları içinde tümleştirecek CSP API’si aracılığıyla gerçekleştirilebilir.   
+Bulut Çözümü Sağlayıcısı hizmeti, sizlere pahalı altyapı ve özelliklere ihtiyaç duymadan müşterilerinizin gözünde değerinizi artıracak bir yol sunarken, ana dış kaynak sağlayıcısı olarak konumunuzu korur. Microsoft Azure ile sorunsuz tümleştirme, Microsoft Azure yönetimini mevcut yönetim altyapınızın sınırları içinde tümleştirecek CSP API’si aracılığıyla gerçekleştirilebilir.  
 
 Aşağıdaki bağlantılarda ek bilgiler bulunabilir:
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320439"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple uyarıları görüntülemek ve yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanın
@@ -154,13 +154,13 @@ StorSimple üretim Cihazınızda bulut bağlantısı başarısız olursa, cihaz 
 |:--- |:--- |:--- |
 | Cihaz yük devretti için <*cihaz adı*>. |Cihaz, bakım moduna geçer. |Cihaz girme veya bakım modundan çıkma nedeniyle yük devretti. Bu normaldir ve hiçbir eylem gerekmiyor. Bu uyarıyı onayladıktan sonra uyarılar sayfasından temizleyin. |
 | Cihaz yük devretti için <*cihaz adı*>. |Cihaz üretici yazılımını veya yazılım yalnızca güncelleştirildi. |Bir küme yük devretmesi bir güncelleştirme nedeniyle oluştu. Bu normaldir ve hiçbir eylem gerekmiyor. Bu uyarıyı onayladıktan sonra uyarılar sayfasından temizleyin. |
-| Cihaz yük devretti için <*cihaz adı*>. |Denetleyicisi kapatıldığı veya yeniden başlatıldı. |Etkin denetleyiciyi kapatıldığı veya bir yönetici tarafından yeniden için cihaz yük devretti. Herhangi bir eylemde bulunmanız gerekmez. Bu uyarıyı onayladıktan sonra uyarılar sayfasından temizleyin. |
+| Cihaz yük devretti için <*cihaz adı*>. |Denetleyicisi kapatıldığı veya yeniden başlatıldı. |Etkin denetleyiciyi kapatıldığı veya bir yönetici tarafından yeniden için cihaz yük devretti. Eylem gerekmiyor. Bu uyarıyı onayladıktan sonra uyarılar sayfasından temizleyin. |
 | Cihaz yük devretti için <*cihaz adı*>. |Planlı yük devretme. |Bu planlı yük devretme olup olmadığını doğrulayın. Gerekli işlemleri yaptıktan sonra uyarılar sayfasından bu uyarıyı temizleyin. |
 | Cihaz yük devretti için <*cihaz adı*>. |Planlanmamış yük devretme. |StorSimple, planlanmamış yük devretme işlemleri otomatik olarak kurtarmak için oluşturulmuştur. Bu uyarı çok sayıda görürseniz, Microsoft Support başvurun. |
 | Cihaz yük devretti için <*cihaz adı*>. |Diğer/bilinmeyen neden. |Bu uyarı çok sayıda görürseniz, Microsoft Support başvurun. Sorun çözüldükten sonra uyarılar sayfasından bu uyarıyı temizleyin. |
 | Kritik başlatma cihazını hizmet durumu başarısız olarak bildirir. |DataPath Hizmeti hatası. |Yardım için Microsoft Support başvurun. |
-| Ağ arabirimi için sanal IP adresi <*veri #*> durumu başarısız olarak bildirir. |Diğer/bilinmeyen neden. |Bazen geçici koşullar Bu uyarılar neden olabilir. Bu durumda, bu uyarıyı otomatik olarak bir süre sonra temizlenir. Sorun devam ederse, Microsoft Destek'e başvurun. |
-| Ağ arabirimi için sanal IP adresi <*veri #*> durumu başarısız olarak bildirir. |Arabirim adı: <*veri #*> IP adresi `<IP address>` ağ üzerinde yinelenen bir IP adresi algılandığı için çevrimiçi duruma getirilemiyor. |Yinelenen IP adresi ağdan kaldırıldığından emin olun veya farklı bir IP adresi arabirimiyle yeniden yapılandırın. |
+| Ağ arabirimi için sanal IP adresi <*veri #* > durumu başarısız olarak bildirir. |Diğer/bilinmeyen neden. |Bazen geçici koşullar Bu uyarılar neden olabilir. Bu durumda, bu uyarıyı otomatik olarak bir süre sonra temizlenir. Sorun devam ederse, Microsoft Destek'e başvurun. |
+| Ağ arabirimi için sanal IP adresi <*veri #* > durumu başarısız olarak bildirir. |Arabirim adı: <*veri #* > IP adresi `<IP address>` ağ üzerinde yinelenen bir IP adresi algılandığı için çevrimiçi duruma getirilemiyor. |Yinelenen IP adresi ağdan kaldırıldığından emin olun veya farklı bir IP adresi arabirimiyle yeniden yapılandırın. |
 
 ### <a name="disaster-recovery-alerts"></a>Olağanüstü durum kurtarma uyarıları
 

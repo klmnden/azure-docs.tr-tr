@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: d2f7f83654f397cc6b93adbbebc25193155bcedb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399368"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Azure'a Hyper-V VM'LERİNDE olağanüstü durum kurtarma için ağ eşlemesini hazırlama
@@ -114,9 +114,9 @@ Bu ayarlarla olası senaryolar birkaç içinde neler gözden geçirelim.
 
 **Senaryo** | **Sonucu**
 ---|---
-Yük devretme işleminden sonra VM-2 ağ özelliklerini değişiklik. | 1. VM kaynak ağına bağlı kalır.
-VM-2 ağ özelliklerini, yük devretme işleminden sonra değiştirilir ve kesilir. | 1. VM bağlantısı kesildi.
-VM-2 ağ özelliklerinin, yük devretme işleminden sonra değiştirilir ve VMNetwork2 Şikago'bağlanır. | 1. VM VMNetwork2 Chicago eşlenmediği ise kesilir.
+Yük devretme işleminden sonra VM-2 ağ özelliklerini değişiklik. | 1\. VM kaynak ağına bağlı kalır.
+VM-2 ağ özelliklerini, yük devretme işleminden sonra değiştirilir ve kesilir. | 1\. VM bağlantısı kesildi.
+VM-2 ağ özelliklerinin, yük devretme işleminden sonra değiştirilir ve VMNetwork2 Şikago'bağlanır. | 1\. VM VMNetwork2 Chicago eşlenmediği ise kesilir.
 Ağ eşlemesi VMNetwork1 Chicago değiştirilir. | VM-1'de artık VMNetwork1 Şikago'eşlenen ağ bağlanır.
 
 

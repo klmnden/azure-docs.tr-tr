@@ -12,10 +12,10 @@ ms.date: 3/5/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 513fd93f148a8a133901a5dbb60722fbc4a7d9e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866261"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Translator konuşma tanıma API'si tarafından desteklenen diller
@@ -30,12 +30,12 @@ Aşağıdaki dilleri konuşma çevirisi için desteklenir. Konuşma çevirisi, k
 | Portekizce (Brezilya)     |
 | Çince (Mandarin)      |
 | Türkçe      |
-| Fransızca       |
-| Almanca       |
+| Fransızca      |
+| Almanca      |
 | İtalyanca      |
 | Japonca      |
 | Rusça      |
-| İspanyolca       |
+| İspanyolca      |
 
 Translator konuşma tanıma API'si, metin çevirisi konuşma için bir hedef dil olarak aşağıdaki dilleri desteklemektedir.
 
@@ -59,8 +59,8 @@ Translator konuşma tanıma API'si, metin çevirisi konuşma için bir hedef dil
 | Fiji Adaları dili      | `fj`          |
 | Filipin dili      | `fil`          |
 | Fince      | `fi`          |
-| Fransızca       | `fr`          |
-| Almanca       | `de`          |
+| Fransızca      | `fr`          |
+| Almanca      | `de`          |
 | Yunanca      | `el`          |
 | Haiti Kreyolu      | `ht`          |
 | İbranice      | `he`          |
@@ -92,7 +92,7 @@ Translator konuşma tanıma API'si, metin çevirisi konuşma için bir hedef dil
 | Sırpça (Latin)      | `sr-Latn`          |
 | Slovakça     | `sk`          |
 | Slovence      | `sl`          |
-| İspanyolca       | `es`          |
+| İspanyolca      | `es`          |
 | İsveççe      | `sv`          |
 | Tahitian      | `ty`          |
 | Tamil dili      | `ta`          |

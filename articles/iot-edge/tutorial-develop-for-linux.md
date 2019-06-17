@@ -4,25 +4,25 @@ description: Bu öğreticide Linux kapsayıcıları için Linux cihazları kulla
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/26/2019
+ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 11fa72f5853350c76b2a8d0aa4fd7b96b598b670
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: e5499afebf29df2942e74148b33797844fa9c880
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051942"
 ---
-# <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Öğretici: IOT Edge modülleri Linux cihazlar için geliştirme
+# <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Öğretici: Linux cihazları için IoT Edge modülleri geliştirme
 
 Visual Studio Code geliştirip IOT Edge çalıştıran Linux cihazlar için kod dağıtmak için kullanın. 
 
 Hızlı Başlangıç makalelerini, bir Linux sanal makinesini kullanarak bir IOT Edge cihazı oluşturdunuz ve Azure Market'ten önceden oluşturulmuş bir modül dağıttınız. Bu öğreticide, geliştirme ve IOT Edge cihazına kendi kodunuzu dağıtmak için neler aracılığıyla açıklanmaktadır. Bu öğreticide, belirli programlama dilleri ya da Azure hizmetleri hakkında daha fazla ayrıntıya gider tüm diğer öğreticiler, kullanışlı bir önkoşuldur. 
 
-Bu öğreticide örnek dağıtma bir **C modülü Linux cihazına**. En az bir önkoşul olduğundan bu örnek, böylece doğru kitaplıkları yüklü olup hakkında endişelenmeden geliştirme araçları hakkında bilgi edinebilirsiniz seçildi. Ardından geliştirme kavramları anladığınızda, tercih ettiğiniz dil veya ayrıntılara inin yönelik Azure hizmeti seçin. 
+Bu öğreticide örnek dağıtma bir  **C# modülü Linux cihazına**. En yaygın Geliştirici senaryosu için IOT Edge çözümlerini olduğundan bu örnek seçildi. Farklı bir dil kullanarak veya bir Azure hizmeti dağıtımı planlama olsa bile, Bu öğretici geliştirme araçları ve kavramları hakkında bilgi edinmek yararlı olacaktır. Bu giriş geliştirme sürecine tamamladıktan sonra sonra tercih ettiğiniz dil veya ayrıntılara inin yönelik Azure hizmeti seçebilirsiniz. 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -51,7 +51,7 @@ Aşağıdaki tabloda desteklenen geliştirme senaryoları için **Linux kapsayı
 | **Linux cihaz mimarisi** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure Hizmetleri** | Azure İşlevleri <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Diller** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Daha fazla bilgi** | [Visual Studio Code için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IOT Edge için Visual Studio 2017 Araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IOT Edge için Visual Studio 2019 araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
+| **Daha fazla bilgi** | [Visual Studio Code için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IOT Edge için Visual Studio 2017 araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [Azure IOT Edge için Visual Studio 2019 araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 Bu öğretici, Visual Studio Code için geliştirme adımlarını öğretir. Bunun yerine Visual Studio kullanmayı tercih ediyorsanız, yönergeleri başvurmak [kullanan Visual Studio geliştirme ve modülleri, Azure IOT Edge için hata ayıklama için 2019](how-to-visual-studio-develop-module.md).
 
@@ -62,6 +62,8 @@ Bir geliştirme makinesi:
 * Kendi bilgisayarınıza veya sanal makine, geliştirme tercihlerinize bağlı olarak kullanabilirsiniz.
 * Bir kapsayıcı altyapısı çalıştırabilirsiniz çoğu işletim sistemi, Linux cihazları için IOT Edge modülleri geliştirmek için kullanılabilir. Bu öğreticide bir Windows bilgisayar kullanır, ancak MacOS veya Linux'ta bilinen farklar çıkış noktaları. 
 * Yükleme [Git](https://git-scm.com/), modül şablon paketleri, bu öğreticinin ilerleyen bölümlerinde çekmek için.  
+* [Visual Studio Code için C# (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [.NET Core 2.1 SDK'sı](https://www.microsoft.com/net/download).
 
 Linux üzerinde Azure IOT Edge cihazı:
 
@@ -116,7 +118,7 @@ IOT Edge modülleri geliştirmek için Visual Studio Code için IOT uzantıları
 
 Azure IOT araçları uzantısı proje şablonları için desteklenen tüm IOT Edge modülü dilleri Visual Studio code'da sağlar. Bu şablonları tüm dosyaları ve IOT Edge test etmek için bir çalışma modül dağıtmak için ihtiyacınız olan kod veya kendi iş mantığına sahip şablonu özelleştirmek için bir başlangıç noktası sağlar. 
 
-Bu öğretici için yüklemek için en az önkoşulları içerdiğinden C modülü şablonu kullanırız. 
+Bu öğretici için kullandığımız C# modülü şablonu çünkü bu en yaygın olarak kullanılan şablon. 
 
 ### <a name="create-a-project-template"></a>Bir proje şablonu oluşturma
 
@@ -126,7 +128,7 @@ Visual Studio Code komut paletini içinde arayın ve seçin **Azure IOT Edge: Ye
    | ----- | ----- |
    | Klasör seçin | Geliştirme makinenizde VS Code'un çözüm dosyalarını oluşturmak için kullanacağı konumu seçin. |
    | Çözüm adı sağlayın | Çözümünüz için açıklayıcı bir ad girin veya varsayılan değerleri kabul **EdgeSolution**. |
-   | Modül şablonunu seçin | Seçin **C Modülü**. |
+   | Modül şablonunu seçin | Seçin  **C# Modülü**. |
    | Modül adı sağlayın | Varsayılan değerleri kabul **SampleModule**. |
    | Modül için Docker görüntü deposunu sağlama | Görüntü deposu, kapsayıcı kayıt defterinizin adını ve kapsayıcı görüntünüzün adını içerir. Kapsayıcı görüntünüzü, son adımda sağladığınız adından doldurulur. **localhost:5000** yerine Azure kapsayıcı kayıt defterinizden alacağınız oturum açma sunucusu değerini yazın. Oturum açma sunucusunu Azure portalda kapsayıcı kayıt defterinizin Genel bakış sayfasından alabilirsiniz. <br><br> Son görüntü deposuna benzer \<kayıt defteri adı\>.azurecr.io/samplemodule. |
  
@@ -154,7 +156,7 @@ IOT Edge uzantısını kapsayıcı kayıt defteri kimlik bilgilerini Azure çekm
 
 ### <a name="select-your-target-architecture"></a>Hedef Mimarinizi seçin
 
-Şu anda, Visual Studio Code, C modülleri Linux AMD64 ve Linux ARM32v7 cihazlar için geliştirebilirsiniz. Kapsayıcı yerleşik olarak bulunur ve çalışan nasıl etkilediği için her bir çözüm ile hedeflediğiniz hangi mimari seçmeniz gerekir. Linux AMD64 varsayılandır. 
+Şu anda, Visual Studio Code geliştirebilirsiniz C# Linux AMD64 ve ARM32v7 cihazlar için modüller. Kapsayıcı yerleşik olarak bulunur ve çalışan nasıl etkilediği için her bir çözüm ile hedeflediğiniz hangi mimari seçmeniz gerekir. Linux AMD64 varsayılandır. 
 
 1. Komut paletini açın ve arama **Azure IOT Edge: Varsayılan hedef Platform için Edge çözümü ayarlayın**, veya pencerenin alt kısmındaki kenar çubuğu kısayol simgesini seçin. 
 
@@ -168,17 +170,19 @@ Oluşturduğunuz çözüm şablonu, bir IOT Edge modülü için örnek kod içer
 
 Her modülü birden çok olabilir *giriş* ve *çıkış* kuyrukları bildirilen kodları. IOT Edge hub'ı kullanarak cihaz üzerinde çalışan bir modülün çıkışına iletilerden modüllerinin bir veya daha fazla giriş yönlendirir. Giriş ve çıkışları bildirmek için belirli bir dil diller arasında farklılık gösterir ancak tüm modüller arasında kavramı aynıdır. Modüller arasında yönlendirme hakkında daha fazla bilgi için bkz. [bildirmek yollar](module-composition.md#declare-routes).
 
-1. Açık **main.c** içinde olan dosya **modülleri/SampleModules/** klasör. 
+Örnek C# proje şablonu ile birlikte gelen kod [ModuleClient sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) .NET için IOT Hub SDK. 
 
-2. IOT Hub C SDK'sı işlevini kullanan [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback) giriş kuyrukları modülü başlatılamadı. Bu işlevin main.c dosyasında arayın.
+1. Açık **Program.cs** içinde olan dosya **modülleri/SampleModule/** klasör. 
 
-3. SetInputMessageCallback işlev Oluşturucu gözden geçirin ve bir giriş sırası adlı bkz **input1** kodda başlatılır. 
+2. Program.cs içinde Bul **SetInputMessageHandlerAsync** yöntemi.
+
+2. [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) yöntemi gelen iletileri almak için bir giriş sırasını ayarlar. Bu yöntem gözden geçirmek ve nasıl adlı bir giriş sırası başlatır bkz **input1**. 
 
    ![SetInputMessageCallback oluşturucuda giriş adını bulma](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
-4. Modül çıkış sıraları benzer şekilde başlatılır. Arama [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync) main.c dosyasındaki işlevi. 
+3. Ardından, bulma **SendEventAsync** yöntemi.
 
-5. SendEventToOutputAsync işlev Oluşturucu gözden geçirin ve bir çıkış kuyruğuna adlı bkz **output1** kodda başlatılır. 
+4. [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) yöntemi alınan iletileri işler ve bunları birlikte geçirmek için bir çıkış sırasını ayarlar. Bu yöntem gözden geçirin ve adlı bir çıkış kuyruğuna başlatır bkz **output1**. 
 
    ![Çıkış adı SendEventToOutputAsync içinde Bul](./media/tutorial-develop-for-linux/declare-output-queue.png)
 
@@ -245,18 +249,18 @@ Bir kapsayıcı görüntüsüne çözüm kodunu açmak için zaman, bu nedenle v
 
 10. Kapsayıcı kayıt defteriniz seçin **depoları** ardından **samplemodule**. Görüntünün her iki sürümü kayıt defterine gönderildi doğrulayın.
 
-   ![Kapsayıcı kayıt defterine iki görüntü sürümünü görüntüleme](./media/tutorial-develop-for-linux/view-repository-versions.png)
+    ![Kapsayıcı kayıt defterine iki görüntü sürümünü görüntüleme](./media/tutorial-develop-for-linux/view-repository-versions.png)
 
 <!--Alternative steps: Use VS Code Docker tools to view ACR images with tags-->
 
-### <a name="troubleshoot"></a>Sorun gider
+### <a name="troubleshoot"></a>Sorun giderme
 
 Oluştururken ve modülü görüntünüzü gönderilirken hatalarla karşılaşırsanız, geliştirme makinenizde Docker yapılandırmasını yapmak genellikle sahiptir. Yapılandırmanızı gözden geçirmek için aşağıdaki denetimleri kullanın: 
 
 * Vermedi çalıştırdığınızda `docker login` kapsayıcı kayıt defterinizden kopyaladığınız kimlik bilgilerini kullanarak komut? Bu kimlik bilgileri, Azure'da oturum açmak için kullandığınız yapılandırılanlardan farklı. 
 * Kapsayıcı deponuza doğru mu? Doğru kapsayıcı kayıt defterinizin adı ve doğru modül adı var mı? Açık **module.json** denetlenecek SampleModule klasöründeki dosya. Depo değeri gibi görünmelidir  **\<kayıt defteri adı\>.azurecr.io/samplemodule**. 
 * Yerine farklı bir ad kullandıysanız **SampleModule** adı, modül için çözümün tutarlı?
-* Oluşturmakta olduğunuz kapsayıcıları aynı türde makineniz çalışıyor mu? Bu öğreticide Visual Studio Code yazmalıdır Linux IOT Edge cihazları için olduğundan **amd64** veya **arm32v7** kenar çubuğu olarak ve Linux kapsayıcılarını Docker Masaüstü çalıştırılmalıdır. Visual Studio code'da C modülleri Windows kapsayıcıları desteği yoktur. 
+* Oluşturmakta olduğunuz kapsayıcıları aynı türde makineniz çalışıyor mu? Bu öğreticide Visual Studio Code yazmalıdır Linux IOT Edge cihazları için olduğundan **amd64** veya **arm32v7** kenar çubuğu olarak ve Linux kapsayıcılarını Docker Masaüstü çalıştırılmalıdır.  
 
 ## <a name="deploy-modules-to-device"></a>Modüller cihazına dağıtma
 

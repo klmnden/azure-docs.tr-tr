@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 06/07/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78676ac2f2dcff74a27e0260a5d83e924f7c246f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee49ae56122fe596a4490914677d91d2f0348f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807531"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Sorun giderme Azure Active Directory etkinlik günlükleri içerik paketi hataları 
 
@@ -47,7 +47,7 @@ Bu makalede, olası nedenleri ve bu hataları düzeltme hakkında bilgi sağlar.
 | Nedeni | Nasıl düzeltileceğini |
 | ---   | ---        |
 | İçerik paketine bağlanma kullanıcıların kimlik bilgilerini sıfırlama ancak içerik paketi bağlantı ayarlarında güncelleştirilmemiş hataları nedeniyle başarısız oldu yenileyin. | Power BI'da Azure AD etkinlik günlüklerini panoya karşılık gelen bulun (**Azure Active Directory etkinlik günlükleri**), yenileme zamanlama seçin ve ardından Azure AD kimlik bilgilerinizi girin. |
-| Yenileme, temel alınan içerik paketindeki veri sorunları nedeniyle başarısız olabilir. | [Bir destek bileti](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+| Yenileme, büyük veri kümelerini nedeniyle başarısız olabilir. | Şu anda Power BI ile Azure AD içerik paketini, yalnızca küçük veri kümeleri (kısa da 500,00 satırlar) bazı sınırlamaların Power BI hizmetinde zaman aşımı nedeniyle destekleyebilir. Büyük bir veri kümesini getirilecek çalıştığınız için azaltma hatalarla karşılaşırsanız veya yenileme zaman aşımı sorunları nedeniyle başarısız olursa, bu olabilir. Sorgu zaman diliminde azaltın ve yeniden deneyin.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>Veri kaynağı kimlik bilgileri güncelleştirilemedi 

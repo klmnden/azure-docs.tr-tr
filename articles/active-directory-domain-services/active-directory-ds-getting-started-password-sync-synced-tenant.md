@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: mstephen
 ms.openlocfilehash: 37bcdcd304f702f210e755f45af71b2da10bd6e1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234875"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme
@@ -37,7 +37,7 @@ ms.locfileid: "66234875"
 > Azure AD kiracınızda yalnızca bulut kullanıcılarıyla ve şirket içi AD kullanıcılarının bir bileşimi varsa her iki işlemin de adımlarını takip etmeniz gerekir.
 >
 
-## <a name="task-5-enable-password-synchronization-to-your-managed-domain-for-user-accounts-synced-with-your-on-premises-ad"></a>5. Görev: Şirket içi AD’nizden eşitlenmiş kullanıcı hesapları için yönetilen etki alanınıza parolaların eşitlemeyi etkinleştirme
+## <a name="task-5-enable-password-synchronization-to-your-managed-domain-for-user-accounts-synced-with-your-on-premises-ad"></a>5\. Görev: Şirket içi AD’nizden eşitlenmiş kullanıcı hesapları için yönetilen etki alanınıza parolaların eşitlemeyi etkinleştirme
 Eşitlenen bir Azure AD kiracısı, Azure AD Connect kullanarak kuruluşunuzun şirket içi dizini ile eşitlenecek şekilde ayarlanır. Azure AD Connect, varsayılan olarak NTLM ve Kerberos kimlik bilgisi karmalarını Azure AD ile eşitlemez. Azure AD Domain Services’ı kullanmak için, Azure AD Connect’i NTLM ve Kerberos kimlik doğrulamasında gereken kimlik bilgisi karmalarını eşitleyecek şekilde yapılandırmanız gerekir. Aşağıdaki adımlar, şirket içi dizininizden gerekli kimlik bilgisi karmalarının Azure AD kiracınız ile eşitlenmesini etkinleştirir.
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Eşitlenen bir Azure AD kiracısı, Azure AD Connect kullanarak kuruluşunuzun �
 >
 >
 
-### <a name="install-or-update-azure-ad-connect"></a>Azure AD Connect'i yükleme veya güncelleştirme 
+### <a name="install-or-update-azure-ad-connect"></a>Azure AD Connect'i yükleme veya güncelleştirme
 Etki alanına katılan bir bilgisayara, Azure AD Connect'in önerilen en son sürümünü yükleyin. Azure AD Connect kurulumunun var olan bir örneğine sahipseniz, bu örneği Azure AD Connect’in en yeni sürümünü kullanacak şekilde güncelleştirmelisiniz. Düzeltilmiş olabilecek bilinen sorunlardan/hatalardan kaçınmak için her zaman Azure AD Connect'in en yeni sürümünü kullanın.
 
 **[Azure AD Connect'i indirme](https://www.microsoft.com/download/details.aspx?id=47594)**

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60696039"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Oluşturma ve zamanlamalarını Azure Lab Services içinde sınıf laboratuvarlarını yönetme 
@@ -35,7 +35,7 @@ Zamanlamaları bir sınıf laboratuvarına Vm'leri Laboratuvardaki otomatik olar
 3. İçin **zamanlama (gerekli) tarih**, tarih girin veya bir tarih seçmek üzere takvim simgesini seçin. 
 4. İçin **başlangıç zamanı**, başlatılacak Vm'leri istediğiniz zaman saati seçin. Başlangıç zamanı, bitiş zamanı ayarlanmamışsa gereklidir. Seçin **kaldırma olay başlangıç** durdurma saati belirtmek istiyorsanız. varsa **başlangıç zamanı** olduğundan devre dışı seçin **Ekle başlangıç olayı** etkinleştirmek için açılır listenin yanındaki. 
 5. İçin **durdurma saati**, sanal makinelerin kapatılması için istediğiniz zaman saati seçin. Bitiş zamanı başlangıç zamanından ayarlanmamışsa gereklidir. Seçin **Kaldır durdurma olayını** yalnızca başlangıç saatini belirtmek istiyorsanız. varsa **durdurma saati** olduğundan devre dışı seçin **durdurma olay Ekle** etkinleştirmek için açılır listenin yanındaki.
-6. İçin **saat dilimi (gerekli)**, başlangıç için saat dilimini seçin ve bitiş zamanlarını belirttiğiniz. 
+6. İçin **saat dilimi (gerekli)** , başlangıç için saat dilimini seçin ve bitiş zamanlarını belirttiğiniz. 
 7. İçin **notları**, zamanlama için herhangi bir açıklama veya notları girin. 
 8. **Kaydet**’i seçin. 
 
@@ -47,12 +47,12 @@ Zamanlamaları bir sınıf laboratuvarına Vm'leri Laboratuvardaki otomatik olar
 
     ![Zamanlama sayfasında zamanlama düğmesi ekleme](../media/how-to-create-schedules/add-schedule-button.png)
 2. Üzerinde **Ekle zamanlama** sayfasında, geçiş **haftalık** en üstünde. 
-3. İçin **zamanlama gün (gereklidir)**, zamanlama etkili olmasını istediğiniz günleri seçin. Aşağıdaki örnekte, Pazartesi-Cuma seçilir. 
-4. İçin **gelen** alanına **zamanlama başlangıç tarihi** ya da bir tarih seçerek çekme **Takvim** düğmesi. Bu alan zorunludur. 
+3. İçin **zamanlama gün (gereklidir)** , zamanlama etkili olmasını istediğiniz günleri seçin. Aşağıdaki örnekte, Pazartesi-Cuma seçilir. 
+4. İçin **gelen** alanına **zamanlama başlangıç tarihi** ya da bir tarih seçerek çekme **Takvim** düğmesi. Bu alan gereklidir. 
 5. İçin **zamanlama bitiş tarihi**kapatma için VM'ler üzerinde olan bir bitiş tarihi seçin veya girin. 
 6. İçin **başlangıç zamanı**, başlatılacak Vm'leri istediğiniz saati seçin. Başlangıç zamanı, bitiş zamanı ayarlanmamışsa gereklidir. Seçin **kaldırma olay başlangıç** durdurma saati belirtmek istiyorsanız. varsa **başlangıç zamanı** olduğundan devre dışı seçin **Ekle başlangıç olayı** etkinleştirmek için açılır listenin yanındaki. 
 7. İçin **durdurma saati**, kapatma için Vm'leri istediğiniz saati seçin. Bitiş zamanı başlangıç zamanından ayarlanmamışsa gereklidir. Seçin **Kaldır durdurma olayını** yalnızca başlangıç saatini belirtmek istiyorsanız. varsa **durdurma saati** olduğundan devre dışı seçin **durdurma olay Ekle** etkinleştirmek için açılır listenin yanındaki.
-8. İçin **saat dilimi (gerekli)**, başlangıç için saat dilimini seçin ve bitiş zamanlarını belirttiğiniz.  
+8. İçin **saat dilimi (gerekli)** , başlangıç için saat dilimini seçin ve bitiş zamanlarını belirttiğiniz.  
 9. İçin **notları**, zamanlama için herhangi bir açıklama veya notları girin. 
 10. **Kaydet**’i seçin. 
 

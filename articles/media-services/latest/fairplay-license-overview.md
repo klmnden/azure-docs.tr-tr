@@ -15,10 +15,10 @@ ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 6d4b7ba842d08723b90a4f2491d9e79e68dd932e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733581"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Apple FairPlay lisansı gereksinimleri ve yapılandırma 
@@ -35,7 +35,7 @@ HLS içeriğinizin ile şifrelemek için Media Services'ı kullanırken, aşağ�
 * Apple gerektirir edinmek üzere içerik sahibi [dağıtım paketi](https://developer.apple.com/contact/fps/). Media Services ile anahtar güvenlik modülü (KSM) zaten uygulanmış ve son FPS paket isteyen durumu. Sertifika oluşturma ve uygulama gizli anahtarı (ASK) elde etmek amacıyla son FPS pakete yönergeler de vardır. ASK FairPlay yapılandırmak için kullanın.
 * Media Services anahtar/lisans teslim tarafında aşağıdakiler ayarlanmalıdır:
 
-    * **App Cert (AC)**: Bu özel anahtarı içeren .pfx dosyasıdır. Bu dosya oluşturur ve bir parola ile şifrelemek. .Pfx dosyasını Base64 biçiminde olmalıdır.
+    * **App Cert (AC)** : Bu özel anahtarı içeren .pfx dosyasıdır. Bu dosya oluşturur ve bir parola ile şifrelemek. .Pfx dosyasını Base64 biçiminde olmalıdır.
 
         Aşağıdaki adımları HLS için FairPlay bir .pfx sertifika dosyası oluşturmayı açıklar:
 
@@ -54,7 +54,7 @@ HLS içeriğinizin ile şifrelemek için Media Services'ı kullanırken, aşağ�
     
 * FPS istemci tarafından aşağıdakiler ayarlanmalıdır:
 
-  * **App Cert (AC)**: Bu işletim sisteminin bazı yükü şifrelemek için kullandığı ortak anahtar içeren bir.cer/.der dosyasıdır. Media Services player tarafından gerekli olduğu için bu konuda bilmesi gerekir. Anahtar dağıtımı hizmetiyle ilişkili özel anahtarı kullanarak şifresini çözer.
+  * **App Cert (AC)** : Bu işletim sisteminin bazı yükü şifrelemek için kullandığı ortak anahtar içeren bir.cer/.der dosyasıdır. Media Services player tarafından gerekli olduğu için bu konuda bilmesi gerekir. Anahtar dağıtımı hizmetiyle ilişkili özel anahtarı kullanarak şifresini çözer.
 
 * FairPlay şifrelenmiş stream kayıttan yürütme için gerçek ASK ilk alın ve ardından gerçek bir sertifika oluşturun. Bu işlem, tüm üç bölümü oluşturur:
 

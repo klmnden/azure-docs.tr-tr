@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366269"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows veri bilimi sanal makinesi üzerinde yapabileceğiniz on işlem
@@ -403,7 +403,7 @@ Verilerinizi Azure Blob Depolama alanında bulunuyorsa, U-SQL sorgusunu Azure de
 
 ![Veri Kaynağı Ekle iletişim kutusunun ekran görüntüsü](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
-Visual Studio'da blob depolama alanından verileri okuma, bazı veri işleme yapmak, özellik Mühendisliği ve Azure Data Lake veya Azure Blob Depolama için sonuç verileri çıktı. Blob depolama alanındaki verilere başvuruda bulunduğunuzda kullanın **wasb: / /**; Azure Data Lake, kullanım verileri başvurduğunuzda **swbhdfs: / /**
+Visual Studio'da blob depolama alanından verileri okuma, bazı veri işleme yapmak, özellik Mühendisliği ve Azure Data Lake veya Azure Blob Depolama için sonuç verileri çıktı. Blob depolama alanındaki verilere başvuruda bulunduğunuzda kullanın **wasb: / /** ; Azure Data Lake, kullanım verileri başvurduğunuzda **swbhdfs: / /**
 
 ![Vurgulanan WASB girdiyle sorgusunun ekran görüntüsü](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 

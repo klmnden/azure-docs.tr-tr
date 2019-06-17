@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 2f5520213e7d8792c89f5445d470987323173dc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859350"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>IBM zD & T geliştirme/test ortamı Azure'a yükleme
@@ -58,7 +58,7 @@ Bu makalede, Z geliştirme ve Test Ortamı (zD & T) Enterprise Edition azure'da 
 
 3. Gösterilen SSH kimlik bilgilerini alma **genel bakış** VM dikey penceresinde **Connect** düğmesi. Seçin **SSH** sekmesini ve SSH oturum açma komutunu panoya kopyalayın.
 
-4. Oturum bir [Bash Kabuk](/azure/cloud-shell/quickstart) yerel bilgisayar ve komutu yapıştırın. Biçiminde olacaktır **ssh\<kullanıcı kimliği\>\@\<IP adresi\>**. Kimlik bilgileriniz istendiğinde, giriş dizininizi bir bağlantı kurmak için girin.
+4. Oturum bir [Bash Kabuk](/azure/cloud-shell/quickstart) yerel bilgisayar ve komutu yapıştırın. Biçiminde olacaktır **ssh\<kullanıcı kimliği\>\@\<IP adresi\>** . Kimlik bilgileriniz istendiğinde, giriş dizininizi bir bağlantı kurmak için girin.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Yükleme dosyasını sunucuya kopyalayın.
 

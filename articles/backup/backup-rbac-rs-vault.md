@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: trinadhk
 ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253722"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Azure Backup kurtarma noktaları yönetmek için rol tabanlı erişim denetimi kullanma
@@ -37,26 +37,26 @@ Aşağıdaki tabloda, yedekleme yönetim eylemleri ve bu işlemi gerçekleştirm
 | Yönetim işlemi | Gerekli en düşük RBAC rolü | Kapsamı gereklidir |
 | --- | --- | --- |
 | Kurtarma Hizmetleri kasası oluşturma | Katılımcı | Kasa içeren kaynak grubu |
-| Azure VM yedeklemeyi etkinleştirme | Yedekleme İşleci | Kasa içeren kaynak grubu |
-| | Sanal Makine Katılımcısı | VM kaynağı |
-| İsteğe bağlı yedekleme VM | Yedekleme İşleci | Kurtarma kasası kaynağı |
-| VM'yi geri yükle | Yedekleme İşleci | Kurtarma Hizmetleri kasası |
+| Azure VM yedeklemeyi etkinleştirme | Yedekleme işletmeni | Kasa içeren kaynak grubu |
+| | Sanal makine Katılımcısı | VM kaynağı |
+| İsteğe bağlı yedekleme VM | Yedekleme işletmeni | Kurtarma kasası kaynağı |
+| VM'yi geri yükle | Yedekleme işletmeni | Kurtarma Hizmetleri kasası |
 | | Katılımcı | VM'nin dağıtılacağı kaynak grubu |
-| | Sanal Makine Katılımcısı | Kaynak yedeklenen sanal makine |
-| Yönetilmeyen diskler VM yedeklemesini geri yükleme | Yedekleme İşleci | Kurtarma kasası kaynağı |
-| | Sanal Makine Katılımcısı | Kaynak yedeklenen sanal makine |
-| | Depolama Hesabı Katılımcısı | Diskleri geri nerede bulunacağını depolama hesabı kaynağı |
-| Yönetilen diskler, VM yedekten geri yükleyin | Yedekleme İşleci | Kurtarma kasası kaynağı |
-| | Sanal Makine Katılımcısı | Kaynak yedeklenen sanal makine |
-| | Depolama Hesabı Katılımcısı | Yönetilen disklere dönüştürmeden önce verileri kasadan tutmak için geri yükleme işleminin bir parçası olarak seçili olan geçici depolama hesabı |
+| | Sanal makine Katılımcısı | Kaynak yedeklenen sanal makine |
+| Yönetilmeyen diskler VM yedeklemesini geri yükleme | Yedekleme işletmeni | Kurtarma kasası kaynağı |
+| | Sanal makine Katılımcısı | Kaynak yedeklenen sanal makine |
+| | Depolama hesabı Katılımcısı | Diskleri geri nerede bulunacağını depolama hesabı kaynağı |
+| Yönetilen diskler, VM yedekten geri yükleyin | Yedekleme işletmeni | Kurtarma kasası kaynağı |
+| | Sanal makine Katılımcısı | Kaynak yedeklenen sanal makine |
+| | Depolama hesabı Katılımcısı | Yönetilen disklere dönüştürmeden önce verileri kasadan tutmak için geri yükleme işleminin bir parçası olarak seçili olan geçici depolama hesabı |
 | | Katılımcı | Kaynak grubu için yönetilen diskleri geri yüklenmesi |
-| Sanal makine yedeklemesini tek tek dosyaları geri yükleme | Yedekleme İşleci | Kurtarma kasası kaynağı |
-| | Sanal Makine Katılımcısı | Kaynak yedeklenen sanal makine |
+| Sanal makine yedeklemesini tek tek dosyaları geri yükleme | Yedekleme işletmeni | Kurtarma kasası kaynağı |
+| | Sanal makine Katılımcısı | Kaynak yedeklenen sanal makine |
 | Azure VM yedeklemesi için yedekleme ilkesi oluşturma | Yedekleme Katılımcısı | Kurtarma kasası kaynağı |
 | Azure VM yedekleme, yedekleme ilkesini değiştirme | Yedekleme Katılımcısı | Kurtarma kasası kaynağı |
 | Azure VM yedekleme, yedekleme ilkesini silme | Yedekleme Katılımcısı | Kurtarma kasası kaynağı |
 | Yedeklemeyi Durdur (verileri tut ile veya veri silme) VM yedeklemesi hakkında | Yedekleme Katılımcısı | Kurtarma kasası kaynağı |
-| Şirket içi Windows Server/istemci/SCDPM ya da Azure Backup sunucusu kaydetme | Yedekleme İşleci | Kurtarma kasası kaynağı |
+| Şirket içi Windows Server/istemci/SCDPM ya da Azure Backup sunucusu kaydetme | Yedekleme işletmeni | Kurtarma kasası kaynağı |
 | Şirket içi Windows Server/istemci/SCDPM ya da Azure Backup sunucusu silme kayıtlı | Yedekleme Katılımcısı | Kurtarma kasası kaynağı |
 
 > [!IMPORTANT]
@@ -69,14 +69,14 @@ Aşağıdaki tabloda, Azure dosya paylaşımı işlemi gerçekleştirmek için g
 | --- | --- | --- |
 | Azure dosya paylaşımlarının yedeklemesini etkinleştirin | Yedekleme Katılımcısı | Kurtarma Hizmetleri kasası |
 | | Depolama Hesabı | Katkıda bulunan depolama hesabı kaynağı |
-| İsteğe bağlı yedekleme VM | Yedekleme İşleci | Kurtarma Hizmetleri kasası |
-| Dosya paylaşımını geri yükleme | Yedekleme İşleci | Kurtarma Hizmetleri kasası |
-| | Depolama Hesabı Katılımcısı | Depolama hesabı kaynaklarına geri yükleme kaynak ve hedef dosya paylaşımları mevcut olduğu |
-| Tek tek dosyaları geri yükleme | Yedekleme İşleci | Kurtarma Hizmetleri kasası |
-| | Depolama Hesabı Katılımcısı |   Depolama hesabı kaynaklarına geri yükleme kaynak ve hedef dosya paylaşımları mevcut olduğu |
+| İsteğe bağlı yedekleme VM | Yedekleme işletmeni | Kurtarma Hizmetleri kasası |
+| Dosya paylaşımını geri yükleme | Yedekleme işletmeni | Kurtarma Hizmetleri kasası |
+| | Depolama hesabı Katılımcısı | Depolama hesabı kaynaklarına geri yükleme kaynak ve hedef dosya paylaşımları mevcut olduğu |
+| Tek tek dosyaları geri yükleme | Yedekleme işletmeni | Kurtarma Hizmetleri kasası |
+| | Depolama hesabı Katılımcısı |   Depolama hesabı kaynaklarına geri yükleme kaynak ve hedef dosya paylaşımları mevcut olduğu |
 | Korumayı Durdur | Yedekleme Katılımcısı | Kurtarma Hizmetleri kasası |      
 | Depolama hesabından kasa kaydı |   Yedekleme Katılımcısı | Kurtarma Hizmetleri kasası |
-| | Depolama Hesabı Katılımcısı | Depolama hesabı kaynağı|
+| | Depolama hesabı Katılımcısı | Depolama hesabı kaynağı|
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

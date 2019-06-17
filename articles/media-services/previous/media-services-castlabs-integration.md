@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: dfb82e91b0f65b85d34b7e20d57ed9929469321f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232582"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Azure Media Services’ta Widevine lisansları vermek için castLabs kullanma 
@@ -58,9 +58,9 @@ Aşağıdaki tabloda, JWT belirteci AMS açıklanmaktadır.
 | Veren | Seçilen veren dizeden güvenli belirteç hizmeti (STS) |
 | --- | --- |
 | Hedef kitle |Kullanılan STS İzleyici dizeden |
-| Talepler |Talepler kümesi |
+| Talep |Talepler kümesi |
 | notBefore |Belirtecin geçerlilik Başlat |
-| Bitiş Tarihi |Belirtecin geçerlilik bitiş |
+| Süre sonu |Belirtecin geçerlilik bitiş |
 | Samlassertion'da |PlayReady lisans sunucusu, sunucu lisansı ve STS, castLabs arasında paylaşılan anahtarı simetrik ya da asimetrik olabilir anahtarı. |
 
 ### <a name="jwt-token-in-castlabs"></a>JWT belirteci castLabs
@@ -71,7 +71,7 @@ Aşağıdaki tabloda, JWT belirteci castLabs açıklanmaktadır.
 | --- | --- |
 | optData |İlgili bilgiler içeren bir JSON dizesi. |
 | CRT |Varlık hakkında bilgi içeren bir JSON dizesi lisans bilgileri ve kayıttan yürütme hakları. |
-| IAT |Geçerli dönem datetime. |
+| iat |Geçerli dönem datetime. |
 | jti |Bu belirteci (her belirteci yalnızca bir kez castLabs sisteminde kullanılabilir) hakkında benzersiz bir tanımlayıcı. |
 
 ## <a name="sample-solution-setup"></a>Örnek çözüm Kurulumu

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60195325"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 güvenliği
@@ -34,7 +34,7 @@ Kimlik doğrulaması, kullanıcı için Data Lake depolama Gen1 bağlanan herhan
 Her Azure aboneliğinin Azure Active Directory örneği ile ilişkili olabilir. Yalnızca kullanıcı ve hizmet kimlikleri, Azure Active Directory hizmetinizdeki tanımlanan Data Lake depolama Gen1 hesabınıza komut satırı araçları, Azure portalı kullanarak erişebilir veya istemci uygulamaları veri Gölü kullanarak kuruluşunuzun oluşturur. Depolama Gen1 SDK. Bir merkezi erişim denetimi mekanizması Azure Active Directory kullanmanın başlıca avantajları şunlardır:
 
 * Basitleştirilmiş kimlik yaşam döngüsü yönetimi. Bir kullanıcı veya hizmet (hizmet sorumlusu kimliği) kimliğini hızlı bir şekilde oluşturulabilir ve yalnızca silme veya dizinde hesabı devre dışı bırakarak hızlı bir şekilde iptal edildi.
-* Çok öğeli kimlik doğrulama. [Çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md) kullanıcı oturum açma ve işlemleri için ek bir güvenlik katmanı sağlar.
+* Çok faktörlü kimlik doğrulaması. [Çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md) kullanıcı oturum açma ve işlemleri için ek bir güvenlik katmanı sağlar.
 * OAuth veya Openıd gibi standart bir açık protokol üzerinden herhangi bir istemciden kimlik doğrulaması.
 * Federasyon ile Kurumsal Dizin Hizmetleri ve bulut kimlik sağlayıcıları.
 

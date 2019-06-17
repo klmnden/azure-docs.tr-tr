@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8fb9e9ea0e126509697b4874bf1e5e0b6a380e7f
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66425772"
 ---
 |**SKU**   | **S2S/VNet-VNet<br>Tünelleri** | **P2S<br> SSTP Bağlantıları** | **P2S<br> IKEv2/OpenVPN Connections** | **Toplam<br>Aktarım Hızı Kıyaslaması** | **BGP** | **Bölgesel olarak yedekli** |

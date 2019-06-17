@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e7c1ce6ab217149acd3aed9e5268b70fbd664df
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1c409c58e023c1919cf7b59794ebd21d90e82541
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890382"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093472"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>Öğretici: Qualtrics ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de Qualtrics tümleştirmesini yapılandırmak için Qualtrics Galeride
 
 **Galeriden Qualtrics eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

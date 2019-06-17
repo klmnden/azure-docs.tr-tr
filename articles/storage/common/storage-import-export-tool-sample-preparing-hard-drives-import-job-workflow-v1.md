@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320593"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlamak için örnek iş akışı
@@ -29,7 +29,7 @@ Bu örnek olarak aşağıdaki verileri, adlı bir Windows Azure depolama hesabı
   
 İçeri aktarma işi bu veriler depolama hesabında aşağıdaki hedefleri aktarır:  
   
-|Kaynak|Hedef sanal dizin veya blob|  
+|source|Hedef sanal dizin veya blob|  
 |------------|-------------------------------------------|  
 |H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|  
@@ -103,7 +103,7 @@ Bu özellikleri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport
 </Properties>  
 ```
   
-Şimdi iki sabit sürücüleri hazırlamak için Azure içeri/dışarı aktarma aracı çalıştırmak hazır olursunuz. Şunlara dikkat edin:  
+Şimdi iki sabit sürücüleri hazırlamak için Azure içeri/dışarı aktarma aracı çalıştırmak hazır olursunuz. Aşağıdakilere dikkat edin:  
   
 -   İlk sürücü X sürücü olarak bağlanmıştır.  
   

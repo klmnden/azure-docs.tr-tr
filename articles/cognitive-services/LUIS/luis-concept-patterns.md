@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813583"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Desenlerini tahmin doğruluğunu artırmak
@@ -68,7 +68,7 @@ Desen sözdizimi, aşağıdaki söz dizimini destekler:
 |İşlev|Sözdizimi|İç içe geçme düzeyi|Örnek|
 |--|--|--|--|
 |varlık| {} -süslü ayraç|2|{Entity-adı} form nerede?|
-|isteğe bağlı|[] - köşeli ayraç<BR><BR>Bir sınırı isteğe bağlıdır ve gruplandırma herhangi bir birleşimini iç içe geçme düzeyi 3 |2|Soru işareti olan isteğe bağlı [?]|
+|İsteğe bağlı|[] - köşeli ayraç<BR><BR>Bir sınırı isteğe bağlıdır ve gruplandırma herhangi bir birleşimini iç içe geçme düzeyi 3 |2|Soru işareti olan isteğe bağlı [?]|
 |Gruplandırma|() - parantez|2|olduğunu (bir \| b).|
 |or| \| -dikey çubuk (kanal)<br><br>Dikey çubuk (veya) bir grubu 2'in bir sınır yoktur |-|Form olduğu ({form-adı-kısa} &#x7c; {form-adı-uzun} &#x7c; {form-number})| 
 |Başlangıç ve/veya utterance sonu|^-şapka|-|^ utterance başlayın<br>utterance yapılır ^<br>^ {number} varlıkla tüm utterance katı değişmez değer eşleşme ^|
@@ -97,7 +97,7 @@ Entity1 roller (Seattle) kaynak ve hedef (Cairo) gibi bir konumdur ve liste varl
 
 Bir birleşimi **gruplandırma** ile **isteğe bağlı** sözdizimi 3 iç içe geçme düzeyi sınırı vardır.
 
-|İzin Verilen|Örnek|
+|İzin Verildi|Örnek|
 |--|--|
 |Evet|([(test1 &#x7c; test2)] &#x7c; test3)|
 |Hayır|([([test1] &#x7c; test2)] &#x7c; test3)|
@@ -106,7 +106,7 @@ Bir birleşimi **gruplandırma** ile **isteğe bağlı** sözdizimi 3 iç içe g
 
 Bir birleşimi **gruplandırma** ile **veya-ing** söz dizimi 2 dikey çubuklar sınırı vardır.
 
-|İzin Verilen|Örnek|
+|İzin Verildi|Örnek|
 |--|--|
 |Evet|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
 |Hayır|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
@@ -170,7 +170,7 @@ Bu özel durumun desen için düzeltmek için ekleme `the man from la mancha` {s
 |İsteğe bağlı metin deseni|Anlamı|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` ve `from {person}` isteğe bağlıdır|
-|' Me [?] Yardım | Noktalama işareti isteğe bağlıdır.|
+|' Me [?] yardımcı olabilir|Noktalama işareti isteğe bağlıdır.|
 
 Noktalama işaretleri (`?`, `!`, `.`) yoksayılıp yoksayılmaması gerektiğini ve desenleri köşeli parantez sözdizimini kullanarak bunların yoksayılması gerekir. 
 

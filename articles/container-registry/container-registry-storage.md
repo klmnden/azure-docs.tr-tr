@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
 ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827281"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Kapsayıcı görüntüsü Azure Container Registry depolamada
@@ -34,12 +34,12 @@ Daha yüksek kullanılabilirlik garantisi gerektiren senaryolar için düşünü
 
 Aşağıdaki tablo, kapsayıcı görüntüsü ve depolama limitleri Azure kapsayıcısı kayıt defterleri için yerinde açıklar.
 
-| Kaynak | Sınır |
+| Resource | Sınır |
 | -------- | :---- |
-| Depolar | Sınırsız |
+| Depoları | Sınırsız |
 | Görüntüler | Sınırsız |
 | Katmanları | Sınırsız |
-| Etiketler | Sınırsız|
+| Tags | Sınırsız|
 | Depolama | 5 TB |
 
 Çok yüksek sayıda depoları ve etiketleri, kayıt defterinizin performansını etkileyebilir. Kayıt defteri bakım yordamının bir parçası olarak düzenli aralıklarla kullanılmayan depoları, etiketler ve görüntüleri silin. Kayıt defteri kaynakları depoları, görüntüleri ve etiketleri gibi silinmiş *olamaz* , silindikten sonra kurtarılamaz. Kayıt defteri kaynakları silme hakkında daha fazla bilgi için bkz. [Sil kapsayıcı görüntülerini Azure Container Registry'de](container-registry-delete.md).

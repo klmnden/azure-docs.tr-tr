@@ -9,10 +9,10 @@ ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66154774"
 ---
 Bağlantı noktası açma veya bir alt ağ veya VM ağ arabirimi bir ağ filtresi oluşturarak Azure'da sanal makine (VM) için bir uç nokta oluşturma. Trafiği alan kaynağına bağlı bir ağ güvenlik grubu gelen ve giden trafiği denetlemek, bu filtreler yerleştirin.

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.openlocfilehash: ea74440a5c8a9a2584e742ec72ccf888b6bb5ad9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628923"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Azure İzleyici'de Linux uygulamaları için performans sayaçlarını Topla 
@@ -50,9 +50,9 @@ Kimlik doğrulaması dosyasındaki girişler aşağıdaki tabloda açıklanmış
 
 | Özellik | Açıklama |
 |:--|:--|
-| Bağlantı noktası | MySQL örneğinin dinlediği geçerli bağlantı noktasını temsil eder. Bağlantı noktası 0, aşağıdaki özellikler varsayılan örneği için kullanıldığını belirtir. |
+| Port | MySQL örneğinin dinlediği geçerli bağlantı noktasını temsil eder. Bağlantı noktası 0, aşağıdaki özellikler varsayılan örneği için kullanıldığını belirtir. |
 | Bağlama adresi| Geçerli MySQL bağlama-adresi. |
-| kullanıcı adı| MySQL kullanıcı MySQL sunucu örneğinde izlemek üzere kullanmak için kullanılır. |
+| username| MySQL kullanıcı MySQL sunucu örneğinde izlemek üzere kullanmak için kullanılır. |
 | Parola Base64 ile kodlanmış| Base64 ile kodlanmış MySQL izleme kullanıcının parolası. |
 | Otomatik güncelleştirme| My.cnf dosyasındaki değişiklikleri için yeniden tarayın ve MySQL OMI sağlayıcısı yükseltildiğinde MySQL OMI kimlik doğrulaması dosyanın üzerine belirtir. |
 
@@ -116,26 +116,26 @@ Bu ayrıcalıkları verme aşağıdaki komutları çalıştırarak verilebilir.
 
 Azure İzleyici için veri göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Azure İzleyici'de Windows ve Linux performans veri kaynakları](data-sources-performance-counters.md) aşağıdaki tabloda sayaçlarla.
 
-| Nesne Adı | Sayaç Adı |
+| Nesne adı | Sayaç adı |
 |:--|:--|
 | MySQL Veritabanı | Disk alanı bayt |
 | MySQL Veritabanı | Tablolar |
-| MySQL Server | Bağlantı durduruldu Pct |
-| MySQL Server | Bağlantısı kullanım yüzdesi |
-| MySQL Server | Disk alanı kullanımını bayt |
-| MySQL Server | Tam tablo tarama Pct |
-| MySQL Server | Innodb arabellek havuzu Pct isabet |
-| MySQL Server | Innodb arabellek havuzu kullanımı yüzdesi |
-| MySQL Server | Innodb arabellek havuzu kullanımı yüzdesi |
-| MySQL Server | Pct anahtar önbellek isabet |
-| MySQL Server | Anahtar önbellek kullanımı yüzdesi |
-| MySQL Server | Anahtar önbellek yazma Pct |
-| MySQL Server | Sorgu önbelleği isabet yüzdesi |
-| MySQL Server | Sorgu önbelleği ayıklar Pct |
-| MySQL Server | Sorgu önbelleği kullanımı yüzdesi |
-| MySQL Server | Tablo önbelleği isabet yüzdesi |
-| MySQL Server | Tablo önbellek kullanımı yüzdesi |
-| MySQL Server | Tablo kilit Çekişme yüzdesi |
+| MySQL sunucusu | Bağlantı durduruldu Pct |
+| MySQL sunucusu | Bağlantısı kullanım yüzdesi |
+| MySQL sunucusu | Disk alanı kullanımını bayt |
+| MySQL sunucusu | Tam tablo tarama Pct |
+| MySQL sunucusu | Innodb arabellek havuzu Pct isabet |
+| MySQL sunucusu | Innodb arabellek havuzu kullanımı yüzdesi |
+| MySQL sunucusu | Innodb arabellek havuzu kullanımı yüzdesi |
+| MySQL sunucusu | Pct anahtar önbellek isabet |
+| MySQL sunucusu | Anahtar önbellek kullanımı yüzdesi |
+| MySQL sunucusu | Anahtar önbellek yazma Pct |
+| MySQL sunucusu | Sorgu önbelleği isabet yüzdesi |
+| MySQL sunucusu | Sorgu önbelleği ayıklar Pct |
+| MySQL sunucusu | Sorgu önbelleği kullanımı yüzdesi |
+| MySQL sunucusu | Tablo önbelleği isabet yüzdesi |
+| MySQL sunucusu | Tablo önbellek kullanımı yüzdesi |
+| MySQL sunucusu | Tablo kilit Çekişme yüzdesi |
 
 ## <a name="apache-http-server"></a>Apache HTTP Server 
 Apache HTTP Server omsagent paket yüklü olduğunda bilgisayarda algılanırsa, bir performans izleme için Apache HTTP Server sağlayıcısı otomatik olarak yüklenir. Bu sağlayıcı performans verilerine erişmek için Apache HTTP Server içinde yüklenmesi gereken bir Apache modülü kullanır. Şu komutla modülü yüklenebilir:
@@ -152,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Azure İzleyici için veri göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Azure İzleyici'de Windows ve Linux performans veri kaynakları](data-sources-performance-counters.md) aşağıdaki tabloda sayaçlarla.
 
-| Nesne Adı | Sayaç Adı |
+| Nesne adı | Sayaç adı |
 |:--|:--|
 | Apache HTTP Server | Meşgul çalışanların |
 | Apache HTTP Server | Boşta çalışan |

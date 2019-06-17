@@ -2,17 +2,16 @@
 title: 'Oluşturma ve noktadan siteye için sertifikalar verme: Linux: CLI: Azure | Microsoft Docs'
 description: Otomatik olarak imzalanan kök sertifika oluşturma, ortak anahtarını dışarı aktarmak ve Linux (strongSwan) CLI kullanarak istemci sertifikalarını oluşturmak.
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 01/31/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 01/31/2019
+ms.author: cherylmc
 ms.openlocfilehash: b673be47d4951adab08f04efc56410095f549356
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60766183"
 ---
 # <a name="generate-and-export-certificates"></a>Oluşturma ve sertifika dışarı aktarma

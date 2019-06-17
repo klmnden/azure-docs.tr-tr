@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472609"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı raporunu analiz etme
@@ -32,11 +32,11 @@ Oluşturulan Microsoft Excel raporu şu sayfaları içerir:
 
 **Uyumlu sanal makinedeki disk ortalama sayısı**: Diskler, tüm uyumlu sanal makinelerde hesaplanan ortalama sayısı.
 
-**Ortalama disk boyutu (GB)**: Tüm uyumlu sanal makinelerde hesaplanan ortalama disk boyutudur.
+**Ortalama disk boyutu (GB)** : Tüm uyumlu sanal makinelerde hesaplanan ortalama disk boyutudur.
 
-**İstenen RPO (dakika)**: Varsayılan kurtarma noktası hedefi veya gerekli bant genişliğini tahmin etmek için rapor oluşturma sırasında 'DesiredRPO' parametresi için geçirilen değer.
+**İstenen RPO (dakika)** : Varsayılan kurtarma noktası hedefi veya gerekli bant genişliğini tahmin etmek için rapor oluşturma sırasında 'DesiredRPO' parametresi için geçirilen değer.
 
-**İstenen bant genişliği (MB/sn)**: Ulaşılabilir RPO'yu tahmin etmek için rapor oluşturma sırasında geçirilen 'Bandwidth' parametresi için değer.
+**İstenen bant genişliği (MB/sn)** : Ulaşılabilir RPO'yu tahmin etmek için rapor oluşturma sırasında geçirilen 'Bandwidth' parametresi için değer.
 
 **(GB) günde gözlemlenen tipik veri değişim sıklığı**: Profil oluşturma tüm günlerde gözlemlenen ortalama veri değişim sıklığı. Bu sayı, dağıtımda kullanılacak yapılandırma sunucusu ve ek işlem sunucusu sayısına karar vermeye yönelik girdilerden biri olarak kullanılır.
 
@@ -207,11 +207,11 @@ Site Recovery çoğaltması için x MB/sn’den fazla bant genişliği ayarlayam
 
 **Disk sayısı**: VM üzerinde sanal makine disklerinin (Vmdk) toplam sayısı.
 
-**Disk boyutu (GB)**: Sanal Makinenin tüm disklerinin toplam kurulum boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
+**Disk boyutu (GB)** : Sanal Makinenin tüm disklerinin toplam kurulum boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
 
 **Çekirdek**: Sanal makine üzerindeki CPU çekirdeği sayısı.
 
-**Bellek (MB)**: VM üzerindeki RAM.
+**Bellek (MB)** : VM üzerindeki RAM.
 
 **NIC**: VM üzerindeki NIC sayısı.
 
@@ -257,11 +257,11 @@ Site Recovery çoğaltması için x MB/sn’den fazla bant genişliği ayarlayam
 
 **Disk sayısı**: Vmdk sanal makine üzerindeki toplam sayısı.
 
-**Disk boyutu (GB)**: Sanal Makinenin tüm disklerinin toplam kurulum boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
+**Disk boyutu (GB)** : Sanal Makinenin tüm disklerinin toplam kurulum boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
 
 **Çekirdek**: Sanal makine üzerindeki CPU çekirdeği sayısı.
 
-**Bellek (MB)**: VM üzerindeki RAM miktarı.
+**Bellek (MB)** : VM üzerindeki RAM miktarı.
 
 **NIC**: VM üzerindeki NIC sayısı.
 

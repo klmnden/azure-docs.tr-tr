@@ -7,10 +7,10 @@ ms.service: dns
 ms.date: 4/3/2019
 ms.author: victorh
 ms.openlocfilehash: 00ff5636f97b24c656ee4e5d8ceb2f6b22524538
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515344"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI kullanarak DNS bölge dosyasını içeri ve dışarı
@@ -73,7 +73,7 @@ Değerler:
 
 Bu ada sahip bir bölge kaynak grubunda mevcut değilse sizin için oluşturulur. Bölge zaten varsa, içeri aktarılan kayıt kümeleri mevcut kayıt kümeleri ile birleştirilir. 
 
-### <a name="step-1-import-a-zone-file"></a>1.Adım Bölge dosyasını içeri aktarma
+### <a name="step-1-import-a-zone-file"></a>1\.Adım Bölge dosyasını içeri aktarma
 
 Bölge için bir bölge dosyasını içeri aktarmak için **contoso.com**.
 
@@ -89,7 +89,7 @@ Bölge için bir bölge dosyasını içeri aktarmak için **contoso.com**.
     az network dns zone import -g myresourcegroup -n contoso.com -f contoso.com.txt
     ```
 
-### <a name="step-2-verify-the-zone"></a>2.Adım Bölge doğrulayın
+### <a name="step-2-verify-the-zone"></a>2\.Adım Bölge doğrulayın
 
 DNS bölgesi dosyasını içeri aktardıktan sonra doğrulamak için aşağıdaki yöntemlerden birini kullanabilirsiniz:
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
 ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733785"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid'e (Önizleme) yayımlama dayanıklı İşlevler
@@ -246,23 +246,23 @@ Azure portalında oluşturduğunuz işlevden günlüklerine bakın.
 2018-04-20T09:28:37.098 [Info] Function completed (Success, Id=36fadea5-198b-4345-bb8e-2837febb89a2, Duration=0ms)
 ```
 
-## <a name="event-schema"></a>Olay Şeması
+## <a name="event-schema"></a>Olay şeması
 
 Yaşam döngüsü olayları Şeması aşağıdaki listede açıklanmıştır:
 
-* **`id`**: Event grid olayı için benzersiz tanımlayıcı.
-* **`subject`**: Olay konu yolu. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` olacaktır `Running`, `Completed`, `Failed`, ve `Terminated`.  
-* **`data`**: Dayanıklı işlevler belirli parametreler.
-  * **`hubName`**: [TaskHub](durable-functions-task-hubs.md) adı.
-  * **`functionName`**: Orchestrator işlev adı.
-  * **`instanceId`**: Dayanıklı işlevler InstanceId.
-  * **`reason`**: İzleme olayı ile ilgili ek veriler. Daha fazla bilgi için [Tanılama'da dayanıklı işlevler (Azure işlevleri)](durable-functions-diagnostics.md)
-  * **`runtimeStatus`**: Düzenleme çalışma zamanı durumu. , Çalışan tamamlandı, başarısız, iptal edildi.
-* **`eventType`**: "orchestratorEvent"
-* **`eventTime`**: Olay saati (UTC).
-* **`dataVersion`**: Yaşam döngüsü olay şeması sürümü.
-* **`metadataVersion`**:  Meta veri sürümü.
-* **`topic`**: Olay ızgarası konu kaynak.
+* **`id`** : Event grid olayı için benzersiz tanımlayıcı.
+* **`subject`** : Olay konu yolu. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` olacaktır `Running`, `Completed`, `Failed`, ve `Terminated`.  
+* **`data`** : Dayanıklı işlevler belirli parametreler.
+  * **`hubName`** : [TaskHub](durable-functions-task-hubs.md) adı.
+  * **`functionName`** : Orchestrator işlev adı.
+  * **`instanceId`** : Dayanıklı işlevler InstanceId.
+  * **`reason`** : İzleme olayı ile ilgili ek veriler. Daha fazla bilgi için [Tanılama'da dayanıklı işlevler (Azure işlevleri)](durable-functions-diagnostics.md)
+  * **`runtimeStatus`** : Düzenleme çalışma zamanı durumu. , Çalışan tamamlandı, başarısız, iptal edildi.
+* **`eventType`** : "orchestratorEvent"
+* **`eventTime`** : Olay saati (UTC).
+* **`dataVersion`** : Yaşam döngüsü olay şeması sürümü.
+* **`metadataVersion`** :  Meta veri sürümü.
+* **`topic`** : Olay ızgarası konu kaynak.
 
 ## <a name="how-to-test-locally"></a>Yerel olarak test etme
 

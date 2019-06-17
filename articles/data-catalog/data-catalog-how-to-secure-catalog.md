@@ -8,10 +8,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 6c09b509399647f4cacbc96427200da5a1b00ac9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61000788"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Veri kataloğu ve veri varlıklarına erişim güvenliğini sağlama
@@ -28,7 +28,7 @@ Bir kullanıcıyı veya grubu, bir veri Kataloğu'na erişim verin ve izinlerini
     ![Veri Kataloğu - ayarlar](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 2. Ayarları sayfasında genişletin **katalog kullanıcıları** bölümü.
     ![Kullanıcılar - katalog Ekle](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 4. Tam girin **kullanıcı adı** veya adını **güvenlik grubu** , Azure Active Directory (Kataloğu ile ilişkili AAD). Virgül kullanın (', ') ayırıcı ekliyorsanız birden fazla bir kullanıcı veya grup olarak.
     ![Katalog kullanıcıları - kullanıcılar veya gruplar](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
 5. Tuşuna **ENTER** veya **sekmesini** metin kutusunun dışında. 

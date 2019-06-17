@@ -9,10 +9,10 @@ ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 922ac7eb6cb9676af65700a6a2fe7fbae35a0dc5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158746"
 ---
 Bu görev için adımları aşağıdaki yapılandırma başvuru listesinde değerlere göre sanal ağ kullanın. Ayrıca ek ayarların ve adların bu listede özetlenmiştir. Bu listedeki değerlere göre değişkenler ekleyeceğiz ancak Biz bu liste adımları, doğrudan hiçbirini kullanmayın. Bir başvuru olarak kullanmak için listedeki değerleri kendi değerlerinizle değiştirerek kopyalayabilirsiniz.

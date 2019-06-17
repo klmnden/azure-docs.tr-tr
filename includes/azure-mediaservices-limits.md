@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116331"
 ---
 >[!NOTE]
@@ -18,9 +18,9 @@ ms.locfileid: "66116331"
 | --- | --- | 
 | Tek bir abonelikte Azure Media Services hesapları | 25 (sabit) |
 | Medya ayrılmış birimleri Media Services hesabı başına |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
-| Media Services hesabı başına iş | 50.000<sup>2</sup> |
+| Media Services hesabı başına iş | 50\.000<sup>2</sup> |
 | İş başına zincirleme görev sayısı | 30 (sabit) |
-| Media Services hesabı başına varlık sayısı | 1.000.000|
+| Media Services hesabı başına varlık sayısı | 1\.000.000|
 | Görev başına varlık sayısı | 50 |
 | İş başına varlık sayısı | 100 |
 | Tek seferde bir varlıkla ilişkilendirilen benzersiz bulucu sayısı | 5<sup>4</sup> |
@@ -29,8 +29,8 @@ ms.locfileid: "66116331"
 | Kanal başına çalışır durumdaki program sayısı |3|
 | Media Services hesabı çalışan ya da akış durdurulur uç noktaları|2|
 | Akış uç noktası başına akış birimleri |10 |
-| Depolama hesapları | 1.000<sup>5</sup> (sabit) |
-| İlkeler | 1.000.000<sup>6</sup> |
+| Depolama hesapları | 1\.000<sup>5</sup> (sabit) |
+| İlkeler | 1\.000.000<sup>6</sup> |
 | Dosya boyutu| Bazı senaryolarda, Media Services ile işleme için desteklenen en büyük dosya boyutu sınırı yoktur. <sup>7</sup> |
 
 <sup>1</sup>türünü değiştirirseniz, örneğin, S1, S2'den en fazla ayrılmış birim sınırları sıfırlanır.

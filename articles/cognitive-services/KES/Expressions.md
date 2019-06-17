@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: a544cdca1ef4be56fcf368a39040f4ee85076a9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60815107"
 ---
 # <a name="structured-query-expression"></a>Yapılandırılmış sorgu ifadesi
@@ -31,15 +31,15 @@ Bir öznitelik sorgu ifadesi karşı belirli bir öznitelik eşleşmesi temeline
 
 | Tür | İşlem | Örnekler |
 |------|-------------|------------|
-| String | şuna eşittir: | Başlık 'görünmeyen anlam çözümleme' = (kurallı + eş anlamlılar) |
-| String | şuna eşittir: | Author.Name=='susan t dumais (kurallı yalnızca)|
+| String | eşittir | Başlık 'görünmeyen anlam çözümleme' = (kurallı + eş anlamlılar) |
+| String | eşittir | Author.Name=='susan t dumais (kurallı yalnızca)|
 | String | starts_with | Başlık 'görünmeyen s' =... |
-| Int64/Int32/çift | şuna eşittir: | Yıl 2000 = |
+| Int64/Int32/çift | eşittir | Yıl 2000 = |
 | Int64/Int32/çift | starts_with | Yıl = '20'... ("20" ile başlayan ondalık değer içermemeli) |
 | Int64/Int32/çift | is_between | Yıl&lt;2000 <br/> Yıl&lt;2000 = <br/> Yıl&gt;2000 <br/> Yıl&gt;2000 = <br/> Year=[2010,2012) *(yalnızca sol sınır değeri içerir: 2010, 2011)* <br/> Yıl [2000,2012] = *(her iki sınır değerleri içerir: 2010, 2011, 2012)* |
-| Tarih | şuna eşittir: | Doğum tarihini ='1984-05-14' |
+| Tarih | eşittir | Doğum tarihini ='1984-05-14' |
 | Tarih | is_between | Doğum tarihi&lt;=' 2008/03/14' <br/> PublishDate=['2000-01-01','2009-12-31'] |
-| Guid | şuna eşittir: | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |
+| Guid | eşittir | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |
 
 
 Örneğin, ifade "Title 'görünmeyen s' =..." ayarlanmış başlık "görünmeyen s" dizesi ile başlayan tüm akademik yayınları eşleşir.  Bu ifadeyi değerlendirmek için ' % s'özniteliği başlık şemanın dizin oluşturmak için kullanılan "starts_with" işlemi belirtmeniz gerekir.

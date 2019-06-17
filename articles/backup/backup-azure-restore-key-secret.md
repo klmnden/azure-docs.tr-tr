@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
 ms.openlocfilehash: 13eb800cd64e0de736b1fdea308a03d8a8d0f046
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127898"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Azure Backup kullanarak şifreli VM'ler için Key Vault anahtarını ve gizli anahtarı geri yükleme
@@ -52,7 +52,7 @@ Get-AzStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Des
 $encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-Json
 ```
 
-## <a name="restore-key"></a>Anahtarı geri yükle
+## <a name="restore-key"></a>Anahtarı geri yükleme
 
 Yukarıda belirtilen hedef yolu bir JSON dosyası oluşturulduktan sonra JSON'dan anahtar blob dosyası oluşturmak ve geri anahtarı (KEK) anahtar kasasını yerleştirmek için anahtar cmdlet'i geri yüklemek için akış.
 
@@ -108,7 +108,7 @@ Azure VM Backup kullanarak şifreli VM'yi yedeklediyseniz, PowerShell cmdlet'ler
 
 Yukarıda belirtilen bir yaklaşım için tüm kurtarma noktalarını işe yarar. Ancak, anahtar ve gizli bilgileri kurtarma noktasından alma daha eski bir yaklaşım olacaktır BEK ve KEK kullanılarak şifrelenmiş VM'ler için 11 Temmuz 2017'den daha eski kurtarma noktaları için geçerli. VM şifreli kullanmak için geri yükleme disk işi tamamlandıktan sonra [PowerShell adımları](backup-azure-vms-automation.md#restore-an-azure-vm), geçerli bir değerle $rp doldurulduğundan emin olun.
 
-### <a name="restore-key"></a>Anahtarı geri yükle
+### <a name="restore-key"></a>Anahtarı geri yükleme
 
 Kurtarma noktasından anahtarı (KEK) bilgilerini alın ve akışı anahtar kasasında koymak için anahtar cmdlet'i geri yüklemek için aşağıdaki cmdlet'leri kullanın.
 

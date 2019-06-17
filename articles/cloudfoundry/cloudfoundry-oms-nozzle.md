@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199406"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry sistemin izlenmesi için Azure Log Analytics Nozzle dağıtma
@@ -194,7 +194,7 @@ Bu görünümler özelleştirme veya aracılığıyla yeni görünümler oluştu
 
 Yapabilecekleriniz [uyarıları oluşturma](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)ve sorgular ve eşik değerleri gereken şekilde özelleştirin. Aşağıdaki uyarılar önerilir:
 
-| Arama sorgusu                                                                  | Şuna bağlı olarak uyarı oluştur: | Açıklama                                                                       |
+| Arama sorgusu                                                                  | Bağlı olarak uyarı oluştur | Açıklama                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Sonuçları < 1 sayısı   | **BBS. Domain.cf uygulamaları** cf uygulama etki alanı güncel olup olmadığını gösterir. CF uygulamasını isteklerinden bulut denetleyicisi için bbs eşitlenir anlamına gelir. Yürütme için LRPsDesired (AIS Diego istenen). Hiç veri alınmadı cf uygulama etki alanı belirtilen zaman penceresinde güncel değil anlamına gelir. |
 | Tür CF_ValueMetric_CL Origin_s = temsilcisi Name_s = UnhealthyCell Value_d = > 1            | Sonuçları > 0 sayısı   | Diego hücreler için 0 sağlıklı anlamına gelir ve 1 sağlıksız anlamına gelir. Belirtilen bir zaman penceresinde birden çok kötü Diego hücre algılanmazsa uyarı ayarlama. |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b86f62bf25801b5259af1c54b55836fca9cf1aed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0918333d70efcd8c93f77f99b2a36b099fb211e1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871616"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Öğretici: Mobil Xpense ile Azure Active Directory Tümleştirme
 
@@ -52,7 +52,7 @@ Azure AD'de mobil Xpense tümleştirmesini yapılandırmak için Mobile Xpense G
 
 **Galeriden mobil Xpense eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

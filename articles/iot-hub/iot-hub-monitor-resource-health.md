@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166200"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
@@ -66,7 +66,7 @@ Bağlantı kategorisi parçaları cihaz bağlayın ve hataları yanı sıra IOT 
 }
 ```
 
-#### <a name="cloud-to-device-commands"></a>Buluttan cihaza komutlar
+#### <a name="cloud-to-device-commands"></a>Bulut-cihaz komutları
 
 Bulut-cihaz komutlarını kategorisi, IOT hub ve bulut-cihaz ileti işlem hattına ilgili hataları izler. Bu kategori, öğesinden oluşan hataları içerir:
 
@@ -118,7 +118,7 @@ Cihaz kimlik işlem kategorisi oluşturmak, güncelleştirmek veya IOT hub'ını
 }
 ```
 
-#### <a name="routes"></a>Rotalar
+#### <a name="routes"></a>Yollar
 
 İleti yönlendirme kategorisi ileti yönlendirme değerlendirme ve IOT Hub tarafından algılanan uç nokta sistem durumu sırasında oluşan hataları izler. Bu kategori, olayları gibi içerir:
 

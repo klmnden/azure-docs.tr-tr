@@ -10,10 +10,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 7e48809537acc21edbcf12d299a333df486c258f
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257148"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Tanılama ve Azure Cosmos DB .NET SDK'sı kullanırken sorunlarını giderme
@@ -61,7 +61,7 @@ RequestTimeout genellikle doğrudan/TCP kullanırken gerçekleşir, ancak ağ ge
         * Ayrıca, SDK'sı günlükleri aracılığıyla yakalanabilir [İzleme dinleyicisi](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md) daha ayrıntılı bilgi edinmek için.
 
 ### <a name="connection-throttling"></a>Bağlantı daraltma
-Bağlantı azaltma, bir konak makinesi üzerinde bir bağlantı sınırı nedeniyle oluşabilir. 2.0 yüklenmeden önce Azure'da çalışan istemciler oluşabilir [Azure SNAT (PAT) bağlantı noktası tükenmesi].
+Bağlantı azaltma, bir konak makinesi üzerinde bir bağlantı sınırı nedeniyle oluşabilir. 2\.0 yüklenmeden önce Azure'da çalışan istemciler oluşabilir [Azure SNAT (PAT) bağlantı noktası tükenmesi].
 
 ### <a name="snat"></a>Azure SNAT (PAT) bağlantı noktası tükenmesi
 

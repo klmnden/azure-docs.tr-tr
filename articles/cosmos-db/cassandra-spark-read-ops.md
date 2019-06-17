@@ -2,23 +2,21 @@
 title: Spark kullanarak okuma Cassandra API tablo verileri
 titleSufix: Azure Cosmos DB
 description: Bu makalede, Azure Cosmos DB'de Cassandra API'si tablolardan verileri okumak açıklar.
-author: rockboyfor
-ms.author: v-yeche
+author: kanshiG
+ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 03/18/2019
+ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60893419"
 ---
-<!--Verify sucessfully-->
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Spark'ı kullanarak Azure Cosmos DB Cassandra API'SİNİN tablolardaki verileri okuma
 
  Bu makalede, Azure Cosmos DB Cassandra API'SİNİN spark'tan depolanan verileri okumak açıklar.
@@ -34,7 +32,7 @@ import com.datastax.spark.connector.cql.CassandraConnector
 import com.microsoft.azure.cosmosdb.cassandra
 
 //Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.cn")
+spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
 spark.conf.set("spark.cassandra.connection.port","10350")
 spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
 spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
@@ -141,12 +139,9 @@ select * from books_vw where book_pub_year > 1891
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure Cosmos DB Cassandra API'SİNİN Spark ile çalışma ek makaleleri şunlardır:
-
+ 
  * [Upsert işlem](cassandra-spark-upsert-ops.md)
  * [Silme işlemleri](cassandra-spark-delete-ops.md)
  * [Toplama işlemleri](cassandra-spark-aggregation-ops.md)
  * [Tablo kopyalama işlemleri](cassandra-spark-table-copy-ops.md)
 
-<!--Verify sucessfully-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->

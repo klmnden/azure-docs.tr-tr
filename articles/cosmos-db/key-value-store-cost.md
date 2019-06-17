@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: a3b4886bc175311e9a0e61f3dfb99b1fe7e1a679
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236755"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB anahtar değeri deposu – maliyeti genel bakış
@@ -35,7 +35,7 @@ Aşağıdaki tabloda, okuma ve yazma işlemleri, 1 KB ve 100 KB belge boyutuna g
 
 ## <a name="cost-of-reads-and-writes"></a>Okuma ve yazma işlemleri maliyeti
 
-1.000 sağlarsanız RU/sn, bu miktarları 3.6 milyon RU/saat ve $0.08 saat (ABD ve Avrupa içinde) maliyeti. 1 KB'lık boyut belge bu 3.6-m okuma kullanabilir veya 0,72-m Yazar anlamına gelir (3.6 milyon RU / 5) kullanarak, sağlanan aktarım hızı. Milyon okuma ve yazma işlemleri için normalleştirilmiş, maliyeti $0.022 /m okuma olur ($0.08 / 3.6) ve $0.111/ dk yazar ($0.08 / 0,72). Başına maliyet milyon aşağıdaki tabloda gösterildiği gibi en az olur.
+1\.000 sağlarsanız RU/sn, bu miktarları 3.6 milyon RU/saat ve $0.08 saat (ABD ve Avrupa içinde) maliyeti. 1 KB'lık boyut belge bu 3.6-m okuma kullanabilir veya 0,72-m Yazar anlamına gelir (3.6 milyon RU / 5) kullanarak, sağlanan aktarım hızı. Milyon okuma ve yazma işlemleri için normalleştirilmiş, maliyeti $0.022 /m okuma olur ($0.08 / 3.6) ve $0.111/ dk yazar ($0.08 / 0,72). Başına maliyet milyon aşağıdaki tabloda gösterildiği gibi en az olur.
 
 |Öğe boyutu|1-m okuma|1 milyon yazma|
 |-------------|-------|--------|

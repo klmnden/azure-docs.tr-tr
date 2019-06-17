@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
 ms.openlocfilehash: 01387d0c219c86f33762b9c3fbf9f81cf04b4455
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61086895"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Azure NetApp dosyalarını kullanarak anlık görüntüleri yönetme
@@ -35,13 +35,13 @@ Yalnızca isteğe bağlı olarak, anlık görüntü oluşturabilirsiniz. Anlık 
 
 2.  Tıklayın **+ Ekle anlık görüntü** bir birim için bir isteğe bağlı anlık görüntüsünü oluşturmak için.
 
-    ![Anlık görüntü ekle](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
+    ![Anlık görüntü Ekle](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
 
 3.  Yeni anlık görüntü penceresinde, oluşturmakta olduğunuz yeni anlık görüntü için bir ad sağlayın.   
 
     ![Yeni anlık görüntü](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
 
-4. **Tamam** düğmesine tıklayın. 
+4. **Tamam**'ı tıklatın. 
 
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Yeni bir birim için bir anlık görüntü geri yükleme
 
@@ -81,7 +81,7 @@ Yalnızca isteğe bağlı olarak, anlık görüntü oluşturabilirsiniz. Anlık 
     ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
    -->
 
-5. **Tamam** düğmesine tıklayın.   
+5. **Tamam**'ı tıklatın.   
     Anlık görüntü geri yüklendikten yeni birim birimleri dikey penceresinde görüntülenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar

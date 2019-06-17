@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: bwren
 ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357569"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
@@ -25,7 +25,7 @@ ms.locfileid: "66357569"
 
 
 > [!NOTE]
-> Yükleme ve yapılandırma Office 365 çözüm için önerilen yöntem etkinleştirme [Office 365 Bağlayıcısı](../../sentinel/connect-office-365.md) içinde [Azure Gözcü](../../sentinel/overview.md) bu makaledeki adımları yerine. Gelişmiş Yapılandırma deneyimi ile Office 365 çözüm güncelleştirilmiş bir sürümünü budur. Azure AD günlükleri bağlanın [Azure Sentinel Azure AD Bağlayıcısı](../../sentinel/connect-azure-active-directory.md), Office 365 Yönetim günlük daha zengin günlük verilerini sağlar. 
+> Yükleme ve yapılandırma Office 365 çözüm için önerilen yöntem etkinleştirme [Office 365 Bağlayıcısı](../../sentinel/connect-office-365.md) içinde [Azure Gözcü](../../sentinel/overview.md) bu makaledeki adımları yerine. Gelişmiş Yapılandırma deneyimi ile Office 365 çözüm güncelleştirilmiş bir sürümünü budur. Azure AD günlüklerini bağlamak için Office 365 yönetim günlüklerinden daha zengin günlük verileri sağlayan [Azure Sentinel Azure AD bağlayıcısını](../../sentinel/connect-azure-active-directory.md) kullanın. 
 >
 > Olduğunda, [yerleşik Azure Gözcü](../../sentinel/quickstart-onboard.md), yüklü Office 365 çözüm istediğiniz Log Analytics çalışma alanını belirtin. Bağlayıcı etkinleştirdikten sonra çözüm çalışma alanında kullanılabilir olur ve tam olarak aynı yüklediğiniz herhangi diğer izleme çözümleri kullanılan.
 >
@@ -541,7 +541,7 @@ Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 
 | Özellik | Description |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| Tür | *OfficeActivity* |
 | Clientıp | Etkinlik günlüğe kaydedildiğinde kullanılan cihazın IP adresi. IP adresi IPv4 veya IPv6 adresi biçiminde görüntülenir. |
 | OfficeWorkload | Kayıt başvurduğu office 365 hizmeti.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | İşlem | Kullanıcı veya yönetici etkinliğinin adı.  |

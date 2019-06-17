@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
 ms.openlocfilehash: bdf8b701567aaa3a0d9006333557bcec4f312723
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586459"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Tehdit modelleme aracı GA 7.1.50911.2 - 12/9/2018 sürüm
@@ -61,7 +61,7 @@ Kullanıcının varsayılan olarak, Windows, okunabilirlik için büyütmek içi
 
 ![Yüksek çözünürlüklü ekranlar ile ilgili bilinen sorun](./media/azure-security-threat-modeling-tool-releases-71509112/tmt_screen_resolution-300x153.png)
 
-#### <a name="workaround"></a>Geçici çözüm
+#### <a name="workaround"></a>Geçici Çözüm
 
 Kullanıcı risk azaltma metnine tıklayın ve bu bölümün büyütmeyi için standart Windows yakınlaştırma denetimi (Crtl fare tekerleği) kullanın.
 
@@ -73,7 +73,7 @@ Kullanıcı risk azaltma metnine tıklayın ve bu bölümün büyütmeyi için s
 
 ![OneDrive özelliği kaldırıldı](./media/azure-security-threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
-#### <a name="workaround"></a>Geçici çözüm
+#### <a name="workaround"></a>Geçici Çözüm
 
 Kullanıcıların OneDrive'nın Microsoft'un kullanılacak geçebilirler [OneDrive için Windows](https://onedrive.live.com/about/en-us/download/) standart ve "bir model Aç" iletişim kutusu aracılığıyla Onedrive'da depolanan dosyalarına erişmek için istemci.
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630368"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple sanal dizisi giriş
@@ -76,7 +76,7 @@ Desteklenen StorSimple iş yüklerinin özetini aşağıdaki tabloda verilmişti
 
 |Senaryo     |İş yükü     |Desteklenen      |Kısıtlamalar               | Geçerli sürümler|
 |-------------|-------------|---------------|---------------------------|--------------------|
-|Uzaktan ofis/şube Office (ROBO)  |Dosya paylaşımı     |Evet      |Bkz: [dosya sunucusu için sınırlarını](storsimple-ova-limits.md).<br></br>Bkz: [desteklenen SMB sürümleri için sistem gereksinimleri](storsimple-ova-system-requirements.md).| Tüm sürümler     |
+|Uzaktan ofis/şube Office (ROBO)  |Dosya Paylaşımı     |Evet      |Bkz: [dosya sunucusu için sınırlarını](storsimple-ova-limits.md).<br></br>Bkz: [desteklenen SMB sürümleri için sistem gereksinimleri](storsimple-ova-system-requirements.md).| Tüm sürümler     |
 |Arşivleme bulut  |Arşiv dosya paylaşımı     |Evet      |Bkz: [dosya sunucusu için sınırlarını](storsimple-ova-limits.md).<br></br>Bkz: [desteklenen SMB sürümleri için sistem gereksinimleri](storsimple-ova-system-requirements.md).| Tüm sürümler     |
 
 StorSimple sanal dizisi nadiren erişilen veriler için idealdir. Sanal dizinin yerel bir önbelleğin performansını artırmak üzere olsa da Kullanıcılar Cihaz en düşük katmanlı depolama (bulut) dosyaları Hizmetleri varsaymanız gerekir. Her bir sanal diziye, yazma ve Azure Depolama'ya yaklaşık 100 MB/sn hızında okuma. Bu bağlantı, cihazında gelen tüm istekler arasında paylaşılan ve aşağıdaki diyagramda gösterildiği gibi bir performans sorunu haline gelebilir.
@@ -87,7 +87,7 @@ Birden çok eş zamanlı kullanıcı sanal diziyi eriştiğinizde, tüm bağlant
 
 StorSimple sanal dizisi, yüksek kullanılabilirlik gerektiren iş yükleri için uygun değil. Sanal dizi, yazılım güncelleştirmeleri yüklenirken kapalı kalma süresi deneyimleri tek düğümlü bir cihaz ' dir. Yöneticiler yıllık 3 - 4 kez 30 dakikalık bir bakım penceresi planlamanız gerekir.
 
-## <a name="workflows"></a>İş akışları
+## <a name="workflows"></a>İş Akışları
 
 StorSimple sanal dizisi, özellikle aşağıdaki iş akışları için uygundur:
 

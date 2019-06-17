@@ -14,10 +14,10 @@ ms.workload: tbd
 ms.date: 6/6/2019
 ms.author: raiye
 ms.openlocfilehash: bdb3d0af93a69c1d15bd34a4badef5915ec0f01f
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66743024"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
@@ -186,9 +186,9 @@ Olsa da [Azure SDK'sı için kullanımdan kaldırma İlkesi] [ retire policy sdk
 | --- | --- |
 | 6 |Sürüm 2.9.6+ |
 | 5 |Sürüm 2.9.5.1+ |
-| 4 |2.1 + sürümü |
+| 4 |2\.1 + sürümü |
 | 3 |Sürüm 1.8 + |
-| 2 |1.3 + sürümü |
+| 2 |1\.3 + sürümü |
 | 1 |Sürüm 1.0 + |
 
 ## <a name="guest-os-release-information"></a>Konuk işletim sistemi sürüm bilgileri

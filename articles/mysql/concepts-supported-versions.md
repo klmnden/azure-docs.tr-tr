@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/13/2019
 ms.openlocfilehash: e7e81632b2be135fb74d375ab8a11f1b4b3ef39d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60525927"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>MySQL server sürümleri için desteklenen Azure veritabanı
@@ -39,7 +39,7 @@ Mysql'e başvuran [sürüm notları](https://dev.mysql.com/doc/relnotes/mysql/5.
 ## <a name="managing-updates-and-upgrades"></a>Yönetme güncelleştirmeler ve yükseltmeler
 Hata düzeltmesi sürüm güncelleştirmeleri için düzeltme eki uygulama, hizmet otomatik olarak yönetir. Örneğin, 5.7.20 için 5.7.21.  
 
-Küçük ve büyük sürüm yükseltmeleri şu anda desteklenmiyor. Örneğin, MySQL 5.6 ' MySQL 5.7 için yükseltme desteklenmez. 5.7 için 5.6 yükseltmek isterseniz, olması bir [döküm ve geri yükleme](./concepts-migrate-dump-restore.md) yeni altyapısı sürümü ile oluşturulmuş bir sunucu için.
+Küçük ve büyük sürüm yükseltmeleri şu anda desteklenmiyor. Örneğin, MySQL 5.6 ' MySQL 5.7 için yükseltme desteklenmez. 5\.7 için 5.6 yükseltmek isterseniz, olması bir [döküm ve geri yükleme](./concepts-migrate-dump-restore.md) yeni altyapısı sürümü ile oluşturulmuş bir sunucu için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

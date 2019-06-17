@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
 ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257988"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web kullanıcı arabirimini kullanarak HDInsight kümelerini yönetme
@@ -159,7 +159,7 @@ Kullanıcıları, grupları ve izinleri ile çalışma kullanırken desteklenen 
     |Bakım modunu açma|Ana bilgisayar için uyarıları bastırır. Uyarıları oluşturan eylemler gerçekleştiriyorsa Bu mod etkinleştirilmelidir. Örneğin, bir Hizmeti'ni durdurma ve başlatma.|
     |Bakım modunu kapat|Normal uyarmak için ana döndürür.|
     |Durdur|Konakta DataNode veya NodeManagers durdurur.|
-    |Başlat|Konakta DataNode veya NodeManagers başlatır.|
+    |Başlatma|Konakta DataNode veya NodeManagers başlatır.|
     |yeniden başlatıp|Durdurur ve konakta DataNode veya NodeManagers başlatır.|
     |Yetkisini alma|Bir konak kümeden kaldırır. **Bu eylem, HDInsight kümelerinde kullanmayın.**|
     |Recommission|Daha önce yetkisi alınmış bir konak kümesine ekler. **Bu eylem, HDInsight kümelerinde kullanmayın.**|

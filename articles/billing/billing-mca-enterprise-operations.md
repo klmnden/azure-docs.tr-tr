@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/24/2018
 ms.author: banders
 ms.openlocfilehash: 9b76fa935263904957c87cd062c84d0607771369
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371346"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için fatura hesabınıza Kurumsal Anlaşma görevleri gerçekleştirin
@@ -34,7 +34,7 @@ Aşağıdaki diyagramda, faturalandırma yeni faturalama hesabınızda nasıl d�
 | Kurumsal Anlaşma   | Microsoft Müşteri Sözleşmesi    |
 |------------------------|--------------------------------------------------------|
 | Kayıt            | Kuruluşunuzda, Kurumsal Anlaşma kaydınıza benzer faturalandırmayı yönetmek için bir faturalandırma profili kullanın. Kurumsal Yöneticiler fatura profilinin sahipleri haline gelir. Fatura profilleri hakkında daha fazla bilgi için bkz: [fatura profillerini anlayabilir](billing-mca-overview.md#understand-billing-profiles).
-| Bölüm            | Maliyetlerinizi, Kurumsal Anlaşma kaydınıza departmanlara benzer düzenlemek için bir fatura bölümü kullanın. Fatura bölümler bölüm haline gelir ve departman yöneticilerinin sahipleri ilgili fatura bölümlerin olur. Fatura bölümleri hakkında daha fazla bilgi için bkz: [anlayın fatura bölümleri](billing-mca-overview.md#understand-invoice-sections). |
+| Departman            | Maliyetlerinizi, Kurumsal Anlaşma kaydınıza departmanlara benzer düzenlemek için bir fatura bölümü kullanın. Fatura bölümler bölüm haline gelir ve departman yöneticilerinin sahipleri ilgili fatura bölümlerin olur. Fatura bölümleri hakkında daha fazla bilgi için bkz: [anlayın fatura bölümleri](billing-mca-overview.md#understand-invoice-sections). |
 | Hesap               | Kurumsal anlaşmanızı oluşturulan hesapları yeni faturalandırma hesabında desteklenmiyor. Hesap aboneliklerini departmanı için ilgili fatura bölümüne ait. Hesap sahipleri oluşturabilir ve fatura bölümlerinin aboneliklerini yönetin. |
 
 ## <a name="changes-for-enterprise-administrators-in-the-new-billing-account"></a>Değişiklikleri yeni fatura hesabındaki kurumsal yöneticiler için
@@ -146,7 +146,7 @@ Bir hesaba ait aboneliklerinin görüntülemek için Git [abonelikler sayfasınd
 
 Bir abonelik için ücret ya da görüntüleyebilirsiniz üzerinde [abonelikler sayfasından](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ya da Azure analysis maliyeti. Azure maliyet analizi hakkında daha fazla bilgi için bkz. [maliyet analizi ile maliyetleri analiz](../cost-management/quick-acm-cost-analysis.md).
 
-## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
 Yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
 

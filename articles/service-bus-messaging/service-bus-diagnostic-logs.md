@@ -16,17 +16,17 @@ ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60714156"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus tanılama günlükleri
 
 Azure Service Bus için iki tür günlüğü görüntüleyebilirsiniz:
-* **[Etkinlik günlükleri](../azure-monitor/platform/activity-logs-overview.md)**. Bu günlükler bir proje üzerinde gerçekleştirilen işlemler hakkında bilgi içerir. Günlükler her zaman etkindir.
-* **[Tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md)**. Bir işin içinde gerçekleşen daha zengin bilgi hakkında her şey için tanılama günlüklerini yapılandırabilirsiniz. Tanılama günlüklerine yönelik güncelleştirmeleri ve iş çalışırken gerçekleşen etkinlikler dahil olmak üzere iş silinene kadar iş oluşturulur zamanından kapak etkinlikler.
+* **[Etkinlik günlükleri](../azure-monitor/platform/activity-logs-overview.md)** . Bu günlükler bir proje üzerinde gerçekleştirilen işlemler hakkında bilgi içerir. Günlükler her zaman etkindir.
+* **[Tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md)** . Bir işin içinde gerçekleşen daha zengin bilgi hakkında her şey için tanılama günlüklerini yapılandırabilirsiniz. Tanılama günlüklerine yönelik güncelleştirmeleri ve iş çalışırken gerçekleşen etkinlikler dahil olmak üzere iş silinene kadar iş oluşturulur zamanından kapak etkinlikler.
 
 ## <a name="turn-on-diagnostic-logs"></a>Tanılama günlüklerini açın
 
@@ -73,7 +73,7 @@ SubscriptionId | Abonelik Kimliği
 EventTimeString | İşlem süresi
 EventProperties | İşlem özellikleri
 Durum | İşlem durumu
-Çağıran | Çağıran işlemin (Azure portalı ya da yönetim istemcisi)
+Caller | Çağıran işlemin (Azure portalı ya da yönetim istemcisi)
 category | OperationalLogs
 
 Aşağıda, bir işlem günlüğü JSON dizesi örneği verilmiştir:

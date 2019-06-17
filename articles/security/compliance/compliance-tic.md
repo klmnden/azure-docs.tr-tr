@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608092"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Güvenilir bir Internet bağlantıları Kılavuzu
@@ -63,8 +63,8 @@ Ana gereksinimini ONA başvuru mimarisi ile uyumluluk sağlamak amacıyla sanal 
 
 Azure Iaas TIC uyumluluk iki büyük adım ayrılmıştır:
 
-- 1. Adım: Yapılandırma.
-- 2. Adım: Denetim.
+- 1\. adım: Yapılandırma.
+- 2\. adım: Denetim.
 
 ### <a name="azure-iaas-tic-compliance-configuration"></a>Azure Iaas TIC uyumluluk: Yapılandırma
 
@@ -89,7 +89,7 @@ Sanal ağının dışına çıktıklarında tüm trafiği, tüm trafiği D/A TIC
 
 #### <a name="add-user-defined-routes"></a>Kullanıcı tanımlı yollar ekleme
 
-Rota tabanlı sanal ağ geçidi kullanıyorsanız, Azure'da tünel zorlayabilirsiniz. 0.0.0.0/0 trafiği yönlendirmek için ayarlayan bir kullanıcı tanımlı yol (UDR) ekleyin bir **sonraki atlama** sanal ağ geçidinizin. Azure kullanıcı tanımlı yollar üzerindeki sistem tarafından tanımlanan yollar önceliklendirir. Sanal olmayan tüm ağ trafiğini, trafiği şirket içi ardından yönlendirebilir, sanal ağ geçidine gönderilir. UDR tanımladıktan sonra yol mevcut alt ağlar veya içindeki tüm sanal ağları Azure ortamınızda yeni alt ağlar ile ilişkilendirin.
+Rota tabanlı sanal ağ geçidi kullanıyorsanız, Azure'da tünel zorlayabilirsiniz. 0\.0.0.0/0 trafiği yönlendirmek için ayarlayan bir kullanıcı tanımlı yol (UDR) ekleyin bir **sonraki atlama** sanal ağ geçidinizin. Azure kullanıcı tanımlı yollar üzerindeki sistem tarafından tanımlanan yollar önceliklendirir. Sanal olmayan tüm ağ trafiğini, trafiği şirket içi ardından yönlendirebilir, sanal ağ geçidine gönderilir. UDR tanımladıktan sonra yol mevcut alt ağlar veya içindeki tüm sanal ağları Azure ortamınızda yeni alt ağlar ile ilişkilendirin.
 
 ![Kullanıcı tanımlı yollar ve ONA](media/tic-diagram-d.png)
 
@@ -160,7 +160,7 @@ Ayrılmış örneğe ayrılmış bir sanal ağa dağıtımını ya da hizmet uç
 |Redis için Azure Önbelleği                     | GA               |
 |Azure HDInsight                       | GA               |
 |Sanal makine ölçek kümesi             | GA               |
-|Azure Cloud Services                  | GA               |
+|Azure bulut Hizmetleri                  | GA               |
 
 
 ### <a name="virtual-network-integration-details"></a>Sanal ağ tümleştirmesi ayrıntıları

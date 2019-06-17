@@ -9,10 +9,10 @@ ms.date: 04/06/2018
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 7ba4c90811bd8051ed9c307d9f9fa33e08e69dc7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127536"
 ---
 Azure Batch hizmetinde çalışan bir görev, çalıştırıldığında çıkış verileri üretmek. Görev çıktı verileri genellikle alma işteki diğer görevler tarafından depolanmış olması gerekir, iş veya her ikisi de yürütülen istemci uygulaması. Batch işlem düğümü dosya sistemine çıkış veri yazma görevi, ancak zaman başlatıldığı ya da düğüm havuzu ayrıldığında düğümdeki tüm verileri kaybolur. Görevler, bir dosya Bekletme dönemi sonra görev tarafından oluşturulan dosyalar silinir da olabilir. Bu nedenlerden dolayı bir veri deposuna gibi daha sonra ihtiyacınız olacak görev çıktısını kalıcı hale getirmek önemli olan [Azure depolama](https://docs.microsoft.com/azure/storage/).

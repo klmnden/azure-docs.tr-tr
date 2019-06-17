@@ -17,10 +17,10 @@ ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66139729"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Azure App Service için PremiumV2 katmanını yapılandırma
@@ -66,7 +66,7 @@ Barındırma ortamınıza bağlı olarak büyütme ek adımlar gerektirebilir.
 
 İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, App Service uygulaması sayfanızın açın.
 
-App Service uygulaması sayfanızın sol gezinti bölmesinde seçin **ölçeği Artır (App Service planı)**.
+App Service uygulaması sayfanızın sol gezinti bölmesinde seçin **ölçeği Artır (App Service planı)** .
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
@@ -99,7 +99,7 @@ Uygulamanız bir App Service dağıtımı içinde çalışıyorsa burada **Premi
 
 Uygulama oluşturmaya otomatikleştirebilirsiniz **PremiumV2** katmanı kullanarak betiklerle [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>Azure CLI'si
+### <a name="azure-cli"></a>Azure CLI
 
 Aşağıdaki komut, bir App Service planı oluşturur. _P1V2_. Cloud Shell içinde çalıştırabilirsiniz. Seçeneklerini `--sku` P1V2, olan _P2V2_, ve _P3V2_.
 

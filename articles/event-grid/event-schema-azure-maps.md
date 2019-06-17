@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: v-musehg
 ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861863"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure haritalar için Azure Event Grid olay şeması
@@ -127,7 +127,7 @@ Haritalar API'SİNDE hata oluştuğunda hata nesnesi döndürülür. Hata nesnes
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| error | Hata ayrıntıları |Haritalar API'SİNDE hata oluştuğunda, bu nesne döndürülür  |
+| error | ErrorDetails |Haritalar API'SİNDE hata oluştuğunda, bu nesne döndürülür  |
 
 Haritalar API'SİNDE hata oluştuğunda ErrorDetails nesne döndürülür. Hata ayrıntıları veya nesneyi aşağıdaki özelliklere sahiptir:
 

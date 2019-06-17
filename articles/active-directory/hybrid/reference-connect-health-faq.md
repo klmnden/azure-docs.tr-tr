@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62096136"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health hakkında sık sorulan sorular
@@ -37,7 +37,7 @@ Aşağıdaki tabloda rolleri listeler ve işletim sistemi sürümlerinde destekl
 |Rol| İşletim sistemi / sürüm|
 |--|--|
 |Active Directory Federasyon Hizmetleri (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
-|Azure AD Connect | 1.0.9125 sürümü veya üzeri|
+|Azure AD Connect | 1\.0.9125 sürümü veya üzeri|
 |Active Directory etki alanı Hizmetleri (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 
 Hizmet tarafından sağlanan özellikleri rol ile işletim sistemine göre değişebileceğini unutmayın. Diğer bir deyişle, tüm özellikler tüm işletim sistemi sürümleri için kullanılabilir olmayabilir. Ayrıntılar için özellik açıklamaları bakın.

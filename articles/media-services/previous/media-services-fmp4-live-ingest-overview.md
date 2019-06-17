@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: b3357436d068396c5c3c4fae10ed6857759c5aed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61221355"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services bölünmüş MP4 Canlı içe alma belirtimi 
@@ -47,7 +47,7 @@ Aşağıdaki liste, Azure Media Services'e Canlı uygulamak tanımlarını içe 
 1. **Ftyp**, **Canlı sunucusu bildirim kutusu**, ve **moov** kutuları her bir istekle (HTTP POST) gönderilmelidir. Bu kutular akış başlangıcında gönderilmelidir ve alma dilediğiniz zaman kodlayıcıdan akışı sürdürmek için yeniden bağlanmanız gerekir. Daha fazla bilgi için 6. Bölüm [1] konusuna bakın.
 1. [1] 3.3.2 bölümünde tanımlar adlı isteğe bağlı bir kutu **StreamManifestBox** için Canlı alma. Azure load balancer yönlendirme mantığından dolayı bu kutusunu kullanarak kullanım dışı bırakılmıştır. Kutunun Media Services'e alındıktan olduğunda mevcut olmamalıdır. Bu kutuyu varsa, Media Services sessizce yoksayar.
 1. **TrackFragmentExtendedHeaderBox** kutusu 3.2.3.2 [1] içinde tanımlanan her parça için mevcut olmalıdır.
-1. 2. sürümünü **TrackFragmentExtendedHeaderBox** kutusu aynı URL birden çok veri merkezlerinde sahip ortam kesimleri oluşturmak için kullanılması gerekir. Parça dizini gibi Apple HLS akış biçimlerinde dizin tabanlı veri merkezli yük devretmesi için gerekli ve MPEG-DASH dizin tabanlı bir alandır. Veri merkezli yük devretmeyi etkinleştirmek için parça dizin arasında birden çok kodlayıcılar eşitlenmesi gerekir ve her art arda gelen medya parça 1 hatta Kodlayıcı yeniden başlatma veya hatalar arasında artırılması.
+1. 2\. sürümünü **TrackFragmentExtendedHeaderBox** kutusu aynı URL birden çok veri merkezlerinde sahip ortam kesimleri oluşturmak için kullanılması gerekir. Parça dizini gibi Apple HLS akış biçimlerinde dizin tabanlı veri merkezli yük devretmesi için gerekli ve MPEG-DASH dizin tabanlı bir alandır. Veri merkezli yük devretmeyi etkinleştirmek için parça dizin arasında birden çok kodlayıcılar eşitlenmesi gerekir ve her art arda gelen medya parça 1 hatta Kodlayıcı yeniden başlatma veya hatalar arasında artırılması.
 1. [1] 3.3.6 bölümünde tanımlar olarak adlandırılan bir kutu **MovieFragmentRandomAccessBox** (**mfra**), gönderilebilir Canlı alma sonunda kanala akış sonu (EOS) göstermek için. Media Services'ın alma mantığından dolayı EOS kullanarak kullanım dışıdır ve **mfra** Canlı alma gönderilmez için kutusu. Gönderirse, Media Services sessizce yoksayar. Alma noktası durumunu sıfırlamak için kullanmanızı öneririz [kanalı sıfırlamak](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels). Ayrıca kullanmanızı öneririz [programı durdurun](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) sunu ve akış sonuna.
 1. MP4 parça süresi, istemci bildirimleri boyutunu azaltmak için sabit olmalıdır. Ayırma süresi istemci indirme buluşsal yöntemlerini kullanarak da artırır. sabit bir MP4 etiketleri yineleyin. Süre, tamsayı olmayan kare hızları için dengelemek için seyredebilir.
 1. MP4 parça süresi yaklaşık 2-6 saniye arasında olmalıdır.
@@ -83,12 +83,12 @@ Video: 3000 KB/sn, 1500 KB/sn, 750 KB/sn
 
 Ses – 128 Kb/sn
 
-### <a name="option-1-all-tracks-in-one-stream"></a>1. seçenek: Tüm parçaları bir akış
+### <a name="option-1-all-tracks-in-one-stream"></a>1\. seçenek: Tüm parçaları bir akış
 Bu seçenek, tek bir kodlayıcı tüm ses/video parçalar oluşturur ve ardından bunları bir parçalanmış MP4 bitstream oluşturur. Parçalanmış MP4 bitstream tek bir HTTP POST bağlantısı aracılığıyla gönderilir. Bu örnekte, bu Canlı sunumu için yalnızca bir akış yok.
 
 ![Akışları bir izleme][image2]
 
-### <a name="option-2-each-track-in-a-separate-stream"></a>2. seçenek: Ayrı bir iş akışındaki her izleme
+### <a name="option-2-each-track-in-a-separate-stream"></a>2\. seçenek: Ayrı bir iş akışındaki her izleme
 Bu seçenek, kodlayıcı adet her parça MP4 bitstream yerleştirir ve ardından tüm akışları ayrı HTTP bağlantıları üzerinden gönderir. Bu, bir kodlayıcı veya birden çok kodlayıcılar ile yapılabilir. Canlı alma bu Canlı sunumu dört akışları olarak görür.
 
 ![Akışları ayrı parçaları][image3]

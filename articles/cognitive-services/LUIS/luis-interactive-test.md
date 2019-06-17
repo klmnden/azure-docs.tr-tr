@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199168"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS uygulamanızı LUIS portalında test etme
@@ -103,9 +103,9 @@ Dahil etmek için aşağıdaki yordamı kullanın. [Bing yazım denetimi v7](htt
 
 1. İçinde **Test** bölmesinde bir utterance girin. Utterance tahmin bittiğinde **[inceleyin](#inspect-score)** girdiğiniz utterance altında. 
 
-2. Zaman **inceleyin** panelini açar, seçim  **[ile yayımlanan karşılaştırma](#compare-with-published-version)**. 
+2. Zaman **inceleyin** panelini açar, seçim  **[ile yayımlanan karşılaştırma](#compare-with-published-version)** . 
 
-3. Zaman **yayımlanan** panelini açar, seçim  **[ek ayarlar](#additional-settings-in-test-panel)**.
+3. Zaman **yayımlanan** panelini açar, seçim  **[ek ayarlar](#additional-settings-in-test-panel)** .
 
 4. Açılan iletişim kutusuna girin, **Bing yazım denetimi** hizmet anahtarı. 
     ![Bing yazım denetimi hizmet anahtarı girin](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)

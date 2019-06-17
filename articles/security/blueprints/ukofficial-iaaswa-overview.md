@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609492"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure güvenlik ve uyumluluk planı - UK-OFFICIAL için üç katmanlı Iaas Web uygulaması
@@ -154,7 +154,7 @@ Bu sanal ağ ayrı kaynaklar olarak yönetilmeye devam eder, ancak bu sanal maki
 
 **Ağ güvenlik grupları**: [Nsg'ler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) erişim denetimi izin veren veya reddeden trafiği bir sanal ağ içindeki listelerini içerir. Nsg bir alt ağ veya tek tek VM düzeyinde trafiği güvenli hale getirmek için kullanılabilir.
 
-**Active Directory etki alanı Hizmetleri (AD DS)**: Bu ayrılmış bir mimarisi [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) dağıtım.
+**Active Directory etki alanı Hizmetleri (AD DS)** : Bu ayrılmış bir mimarisi [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) dağıtım.
 
 **Günlüğe kaydetme ve Denetim**: [Azure etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) işlemi gerçekleştiğinde işlem başlatan gibi aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen yakalamaları işlemleri, işlemin durumunu ve yardımcı olabilecek diğer özelliklerin değerlerine araştırma işlem. Azure etkinlik günlüğü bir Abonelikteki tüm eylemleri yakalayan bir Azure platform hizmetidir. Günlükleri, arşivlenen veya gerekirse verilebilir.
 

@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: b8142551d9c20c18d83c256b3f07a0deb291577c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147650"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure genel bulutta yalıtım
-##  <a name="introduction"></a>Tanıtım
+##  <a name="introduction"></a>Giriş
 ### <a name="overview"></a>Genel Bakış
 Geçerli ve gelecekteki Azure yardımcı olmak üzere, müşteriler anlamak ve çeşitli güvenlikle ilgili kullanılabilir becerilerinden ve Azure platformu çevreleyen, Microsoft teknik incelemeler, güvenlik genel bakış, en iyi yöntemler, bir dizi geliştirdi ve Denetim listeleri.
 Konular avantajlarına ve derinlik bakımından aralığı ve düzenli olarak güncelleştirilir. Bu belge, soyut bir bölümü aşağıda özetlendiği gibi serisi bir parçası değil.

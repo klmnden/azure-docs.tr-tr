@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 7a52d05c77d0aeb8ebeba196df60e59f0647fea9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66233931"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Fiyatlandırma katmanları MariaDB için Azure veritabanı
@@ -19,7 +19,7 @@ ms.locfileid: "66233931"
 
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
-| İşlem oluşturma | 5. Nesil |5. Nesil | 5. Nesil |
+| İşlem oluşturma | 5\. Nesil |5\. Nesil | 5\. Nesil |
 | Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Sanal çekirdek başına bellek | 2 GB | 5 GB | 10 GB |
 | Depolama boyutu | 5 GB ila 1 TB | 5 GB ile 4 TB | 5 GB ile 4 TB |

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62114356"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova uygulamanıza anında iletme bildirimleri ekleme
@@ -93,7 +93,7 @@ Anında iletme eklentisi aşağıdaki yöntemlerle yükleyebilirsiniz:
 4. İçinde **SENDER_ID**, Google Geliştirici Konsolu proje için bir sayısal proje kimliği zaten varsa, burada ekleyebilirsiniz. Aksi takdirde, 777777 gibi bir yer tutucu değerini girin. Android hedefliyorsanız, bu değer daha sonra config.xml dosyasında güncelleştirebilirsiniz.
 
     >[!NOTE]
-    >2.0.0 sürümü itibarıyla, google-services.json Gönderen Kimliği yapılandırmak için projenizin kök klasöründe yüklü olması gerekir Daha fazla bilgi için [yükleme belgelerine.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
+    >2\.0.0 sürümü itibarıyla, google-services.json Gönderen Kimliği yapılandırmak için projenizin kök klasöründe yüklü olması gerekir Daha fazla bilgi için [yükleme belgelerine.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 
 5. **Add (Ekle)** seçeneğini belirleyin.
 

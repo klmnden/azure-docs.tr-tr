@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61066060"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Machine Learning Studio'da model denemeden bir Web hizmetine nasıl ilerlediğini
@@ -67,7 +67,7 @@ Bu dönüştürme işleminde eğitim denemesini atılır değil. İşlem tamamla
 >
 
 ### <a name="the-web-service"></a>Web hizmeti
-Memnun olduğunuzda, Tahmine dayalı denemeye hazır, hizmetiniz bir Klasik Web hizmeti olarak dağıtabilir veya yeni Web hizmeti üzerinde Azure Resource Manager tabanlı. Olarak dağıtarak modelinizi kullanıma hazır hale getirmek için bir *Klasik Machine Learning Web hizmetini*, tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]**. Olarak dağıtmak için *yeni Machine Learning Web hizmetini*, tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Yeni]**. Kullanıcılar artık Web hizmeti REST API kullanarak modelinize veri göndermek ve sonuçları geri alabilirsiniz. Daha fazla bilgi için bkz. [Azure Machine Learning web hizmetini kullanma](consume-web-services.md).
+Memnun olduğunuzda, Tahmine dayalı denemeye hazır, hizmetiniz bir Klasik Web hizmeti olarak dağıtabilir veya yeni Web hizmeti üzerinde Azure Resource Manager tabanlı. Olarak dağıtarak modelinizi kullanıma hazır hale getirmek için bir *Klasik Machine Learning Web hizmetini*, tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]** . Olarak dağıtmak için *yeni Machine Learning Web hizmetini*, tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Yeni]** . Kullanıcılar artık Web hizmeti REST API kullanarak modelinize veri göndermek ve sonuçları geri alabilirsiniz. Daha fazla bilgi için bkz. [Azure Machine Learning web hizmetini kullanma](consume-web-services.md).
 
 ## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>Normal olmayan durum: Tahmine dayalı olmayan bir Web hizmeti oluşturma
 Denemenizi değil eğitimle Tahmine dayalı analiz modeli ve ardından bir eğitim denemesini hem bir Puanlama deneme oluşturmanız gerekmez - yalnızca bir deneme yok ve Web hizmeti olarak dağıtabilirsiniz. Machine Learning Studio, kullandığınız modülleri analiz ederek deneyiminizi Tahmine dayalı bir model içerip içermediğini algılar.
@@ -89,7 +89,7 @@ Bu güncelleştirme için gerekenler üzerinde bağlıdır:
 
 Model değiştirmiyorsanız, ancak yalnızca Web hizmeti verileri nasıl işlediğini değiştirme, Tahmine dayalı denemeyi düzenleyin ve ardından **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]** veya **Web hizmeti dağıtma [Yeni]** yeniden. Web hizmeti durduruldu, güncelleştirilmiş Tahmine dayalı denemeye dağıtılır ve Web hizmeti yeniden başlatılır.
 
-Bir örneği aşağıda verilmiştir: Tahmine dayalı denemenizi giriş verilerinin tahmin edilen sonucu ile tüm satırı döndürür varsayalım. Web hizmetinin yalnızca sonuç döndürmek için istediğinize karar verin. Ekleyebilirsiniz, böylece bir **proje sütunları** önce sonucu dışındaki sütunları dışlamak için şu çıkış bağlantı noktasına, Tahmine dayalı denemeye modülünde. Tıkladığınızda **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]** veya **Web hizmeti dağıtma [Yeni]** Web hizmeti yeniden güncelleştirilir.
+Örnek aşağıda verilmiştir: Tahmine dayalı denemenizi giriş verilerinin tahmin edilen sonucu ile tüm satırı döndürür varsayalım. Web hizmetinin yalnızca sonuç döndürmek için istediğinize karar verin. Ekleyebilirsiniz, böylece bir **proje sütunları** önce sonucu dışındaki sütunları dışlamak için şu çıkış bağlantı noktasına, Tahmine dayalı denemeye modülünde. Tıkladığınızda **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]** veya **Web hizmeti dağıtma [Yeni]** Web hizmeti yeniden güncelleştirilir.
 
 **Yeni veri modeli yeniden eğitme istiyorsunuz**
 

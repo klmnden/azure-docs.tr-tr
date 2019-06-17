@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60760507"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Bir sanal ağa bir VPN ağ geçidi bağlantısı var olan bir siteden siteye bağlantı ekleme
@@ -63,7 +63,7 @@ Aşağıdakileri doğrulayın:
 5. Üzerinde **Bağlantı Ekle** sayfasında, aşağıdaki alanları doldurun:
    
    * **Adı:** Bağlantı oluşturmakta olduğunuz site vermek istediğiniz adı.
-   * **Bağlantı türü:** Seçin **siteden siteye (IPSec)**.
+   * **Bağlantı türü:** Seçin **siteden siteye (IPSec)** .
      
      ![Ekle bağlantısını sayfasını](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Ekle bağlantı sayfası")<br>
 

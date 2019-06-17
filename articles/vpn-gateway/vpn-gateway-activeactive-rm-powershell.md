@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
 ms.openlocfilehash: 7ba4fb32ddfb8b3eb88d2dbfce265b070d521414
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119470"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Azure VPN Gateways ile aktif / aktif S2S VPN bağlantıları yapılandırma
@@ -52,7 +52,7 @@ Diğer özellikleri etkin-etkin olmayan ağ geçitleri ile aynıdır.
 * Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 * Azure Resource Manager PowerShell cmdlet’lerini yüklemelisiniz. Bkz: [genel bakış, Azure PowerShell](/powershell/azure/overview) PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi.
 
-### <a name="step-1---create-and-configure-vnet1"></a>1. adım - oluşturma ve VNet1'i yapılandırma
+### <a name="step-1---create-and-configure-vnet1"></a>1\. adım - oluşturma ve VNet1'i yapılandırma
 #### <a name="1-declare-your-variables"></a>1. Değişkenlerinizi bildirme
 Bu alıştırmaya değişkenlerimizi bildirerek başlayacağız. Aşağıdaki örnekte bu alıştırmada kullanılan değişkenler bildirilmektedir. Üretim için yapılandırma sırasında bu değerleri kendi değerlerinizle değiştirdiğinizden emin olun. Bu tür yapılandırmaları tanımaya başlamak için adımları gözden geçiriyorsanız bu değişkenleri kullanabilirsiniz. Değişkenleri değiştirin, daha sonra kopyalayın ve PowerShell konsolunuza yapıştırın.
 
@@ -103,7 +103,7 @@ $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWS
 New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
 ```
 
-### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-active-active-mode"></a>2. adım - aktif / aktif modu ile TestVNet1 için VPN ağ geçidi oluşturun
+### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-active-active-mode"></a>2\. adım - aktif / aktif modu ile TestVNet1 için VPN ağ geçidi oluşturun
 #### <a name="1-create-the-public-ip-addresses-and-gateway-ip-configurations"></a>1. Genel IP adresleri ve ağ geçidi IP yapılandırması oluştur
 Ağınız için oluşturacağınız ağ geçidine ayrılacak iki genel IP adresi isteyin. Ayrıca, alt ağ ve gerekli IP yapılandırmaları tanımlarsınız.
 
@@ -161,7 +161,7 @@ Ağ geçidi oluşturulduktan sonra etkin-etkin şirket içi veya VNet-VNet bağl
 
 Devam etmeden önce lütfen tamamladığınızdan emin olun [bölüm 1](#aagateway) Bu alıştırmada.
 
-### <a name="step-1---create-and-configure-the-local-network-gateway"></a>1. adım - oluşturma ve yerel ağ geçidi yapılandırma
+### <a name="step-1---create-and-configure-the-local-network-gateway"></a>1\. adım - oluşturma ve yerel ağ geçidi yapılandırma
 #### <a name="1-declare-your-variables"></a>1. Değişkenlerinizi bildirme
 Bu alıştırmada, derleme yapılandırması Aşağıdaki diyagramda gösterilen devam eder. Değerleri, yapılandırma için kullanmak istediğiniz değerlerle değiştirdiğinizden emin olun.
 
@@ -190,7 +190,7 @@ New-AzResourceGroup -Name $RG5 -Location $Location5
 New-AzLocalNetworkGateway -Name $LNGName51 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP51 -AddressPrefix $LNGPrefix51 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP51
 ```
 
-### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>2. adım - sanal ağ geçidi ve yerel ağ geçidine bağlanma
+### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>2\. adım - sanal ağ geçidi ve yerel ağ geçidine bağlanma
 #### <a name="1-get-the-two-gateways"></a>1. İki ağ geçidi Al
 
 ```powershell
@@ -224,7 +224,7 @@ Birkaç dakika sonra bağlantı kurulmalıdır ve BGP eşdeğer oturumu, IPSec b
 
 ![etkin-etkin-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
-### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>3. adım - etkin-etkin VPN ağ geçidi için iki şirket içi VPN cihazı bağlama
+### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>3\. adım - etkin-etkin VPN ağ geçidi için iki şirket içi VPN cihazı bağlama
 Aynı şirket içi ağ iki VPN cihazlarınız varsa, ikinci bir VPN cihazı Azure VPN gateway'e bağlanırken tarafından çift yedeklilik elde edebilirsiniz.
 
 #### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. Site5 için ikinci bir yerel ağ geçidi oluşturma
@@ -276,7 +276,7 @@ Bu bölümde, BGP özellikli bir etkin-etkin VNet-VNet bağlantısı oluşturur.
 
 Aşağıdaki yönergeler, yukarıda listelenen geçmiş adımların devamı niteliğindedir. Tamamlamanız gereken [bölüm 1](#aagateway) oluşturma ve TestVNet1 ve VPN ağ geçidi, BGP ile yapılandırın. 
 
-### <a name="step-1---create-testvnet2-and-the-vpn-gateway"></a>1. adım - TestVNet2 ve VPN ağ geçidi oluşturma
+### <a name="step-1---create-testvnet2-and-the-vpn-gateway"></a>1\. adım - TestVNet2 ve VPN ağ geçidi oluşturma
 IP adres alanı yeni sanal ağ TestVNet2, tüm sanal ağ Aralıklarınızın çakışmadığını emin olmak önemlidir.
 
 Bu örnekte, sanal ağlar aynı aboneliğe ait. Farklı abonelikler arasında VNet-VNet bağlantılarında ayarlayabilirsiniz; Lütfen [bir VNet-VNet bağlantısını yapılandırma](vpn-gateway-vnet-vnet-rm-ps.md) fazla daha fazla bilgi edinmek için. Eklediğinizden emin olun "-Enablebgp'yi $True" BGP'yi etkinleştirmek için bir bağlantı oluşturulurken.
@@ -338,7 +338,7 @@ VPN ağ geçidi, AS numarası ve "EnableActiveActiveFeature" bayrağı ile oluş
 New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN -EnableActiveActiveFeature
 ```
 
-### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>2. adım - TestVNet1 ve TestVNet2 ağ geçitlerini bağlama
+### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>2\. adım - TestVNet1 ve TestVNet2 ağ geçitlerini bağlama
 Bu örnekte, iki ağ geçidi için aynı abonelikte ' dir. Bu adım aynı PowerShell oturumunda tamamlayabilirsiniz.
 
 #### <a name="1-get-both-gateways"></a>1. Her iki ağ geçitlerini Al

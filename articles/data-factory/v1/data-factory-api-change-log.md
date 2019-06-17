@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 863f3500c84eeab1c3dac19141cd334fc6961694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567257"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - .NET API'si değişiklik günlüğü
@@ -79,7 +79,7 @@ Bu makalede, Azure Data Factory SDK için belirli bir sürümde değişiklikleri
 * Ekleme [Bulunan'allowpolybase](https://msdn.microsoft.com/library/mt723396.aspx) ve SqlDWSink PolyBaseSettings özellikleri.
   * PolyBase, SQL veri ambarı'na veri kopyalamak için kullanılmasını sağlar.
 
-## <a name="version-461"></a>4.6.1 sürümü
+## <a name="version-461"></a>4\.6.1 sürümü
 ### <a name="bug-fixes"></a>Hata Düzeltmeleri
 * Etkinlik pencerelerini listelemek için HTTP isteği düzeltir.
   * İstek yükü, kaynak grubu adı ve veri fabrikasının adını kaldırır.
@@ -138,7 +138,7 @@ Bu makalede, Azure Data Factory SDK için belirli bir sürümde değişiklikleri
 
 ## <a name="version-401"></a>Sürüm 4.0.1'in
 ### <a name="breaking-changes"></a>Yeni değişiklikler
-Aşağıdaki sınıfları yeniden adlandırıldı. 4.0.0 yayımlamadan önce yeni adları sınıfları özgün adlarını yoktu.
+Aşağıdaki sınıfları yeniden adlandırıldı. 4\.0.0 yayımlamadan önce yeni adları sınıfları özgün adlarını yoktu.
 
 | İçinde 4.0.0 adı | İçinde 4.0.1'in adı |
 |:--- |:--- |

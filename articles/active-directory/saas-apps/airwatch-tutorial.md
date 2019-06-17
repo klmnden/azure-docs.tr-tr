@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e20a298c34a7b2723963396f8ccaafaa9472e19a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 301d008c8ebdb66a58674876937b13dcfa15c79d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899255"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Öğretici: AirWatch ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de AirWatch tümleştirmesini yapılandırmak için AirWatch Galeriden 
 
 **Galeriden AirWatch eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -120,7 +120,7 @@ Azure AD çoklu oturum açma ile AirWatch yapılandırmak için aşağıdaki ad�
 
     | Ad |  Kaynak özniteliği|
     |---------------|----------------|
-    | UID | User.userPrincipalName |
+    | KULLANICI KİMLİĞİ | User.userPrincipalName |
     | | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

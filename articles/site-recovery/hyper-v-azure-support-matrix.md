@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399423"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için destek matrisi
@@ -103,7 +103,7 @@ SAN (İSCSI) | Evet | Evet
 --- | --- | ---
 VMDK | NA | NA
 VHD/VHDX | Evet | Evet
-2. nesil VM | Evet | Evet
+2\. nesil VM | Evet | Evet
 EFI/UEFI'YE| Evet | Evet
 Küme diski paylaşılan | Hayır | Hayır
 Şifrelenmiş diski | Hayır | Hayır
@@ -152,17 +152,17 @@ Azure'a Çoğalttığınız şirket içi Vm'leri bu tabloda özetlenen Azure VM 
 --- | --- | ---
 Konuk işletim sistemi | Site Recovery tüm işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Desteklenmeyen başarısız önkoşulları denetleyin.
 Konuk işletim sistemi mimarisi | 64 bit | Desteklenmeyen başarısız önkoşulları denetleyin.
-İşletim sistemi disk boyutu | 1. kuşak VM'ler için 2.048 GB.<br/><br/> 2. kuşak VM'ler için en fazla 300 GB.  | Desteklenmeyen başarısız önkoşulları denetleyin.
+İşletim sistemi disk boyutu | 1\. kuşak VM'ler için 2.048 GB.<br/><br/> 2\. kuşak VM'ler için en fazla 300 GB.  | Desteklenmeyen başarısız önkoşulları denetleyin.
 İşletim sistemi disk sayısı | 1 | Desteklenmeyen başarısız önkoşulları denetleyin.
 Veri diski sayısı | 16 ya da daha az  | Desteklenmeyen başarısız önkoşulları denetleyin.
-Veri diski VHD boyutu | 4.095 GB'a kadar | Desteklenmeyen başarısız önkoşulları denetleyin.
+Veri diski VHD boyutu | 4\.095 GB'a kadar | Desteklenmeyen başarısız önkoşulları denetleyin.
 Ağ bağdaştırıcıları | Birden çok bağdaştırıcı desteklenir |
 Paylaşılan VHD | Desteklenmiyor | Desteklenmeyen başarısız önkoşulları denetleyin.
 FC diski | Desteklenmiyor | Desteklenmeyen başarısız önkoşulları denetleyin.
 Sabit disk biçimi | VHD <br/><br/> VHDX | Azure'a yük devretme sırasında site Recovery VHDX otomatik olarak VHD'ye dönüştürür. Yeniden şirket içine başarısız olursa, sanal makineler VHDX biçimini kullanmaya devam eder.
 BitLocker | Desteklenmiyor | Bir sanal makine için çoğaltmayı etkinleştirmeden önce BitLocker'ı devre dışı bırakılması gerekir.
 VM adı | 1-63 karakter. Harfler, sayılar ve kısa çizgilerden oluşabilir. VM adı bir harf veya sayıyla başlamalı ve bitmelidir. | Site Recovery VM özelliklerini değeri güncelleştirin.
-VM türü | 1. nesil<br/><br/> Nesil 2--Windows | 2. kuşak Vm'leri bir işletim sistemi disk türüyle (VHDX biçimlendirilmiş bir veya iki veri birimi içeren) temel ve 300 GB'tan az disk alanı desteklenir.<br></br>Linux 2. kuşak VM'ler desteklenmez. [Daha fazla bilgi edinin](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+VM türü | 1\. nesil<br/><br/> Nesil 2--Windows | 2\. kuşak Vm'leri bir işletim sistemi disk türüyle (VHDX biçimlendirilmiş bir veya iki veri birimi içeren) temel ve 300 GB'tan az disk alanı desteklenir.<br></br>Linux 2. kuşak VM'ler desteklenmez. [Daha fazla bilgi edinin](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Kurtarma Hizmetleri kasası eylemleri
 

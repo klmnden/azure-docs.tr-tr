@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 05/21/2019
 ms.openlocfilehash: 72f23b10047928f32886d9054f4dd1abdc569bd8
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66396904"
 ---
 1. Oturum [Azure portalında](https://portal.azure.com/) kullandığınız Azure aboneliği için kimlik bilgilerini kullanarak. 

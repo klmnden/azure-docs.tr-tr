@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
 ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165952"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure Data factory'de sıkıştırma codec bileşenleri
@@ -432,7 +432,7 @@ Aşağıdaki noktalara dikkat edin:
 > [!IMPORTANT]
 > Kopyalama şirket içinde barındırılan tümleştirme çalışma zamanı tarafından örneğin şirket içi ile bulut arasında yetkilendirilmiş için Parquet dosyalarını kopyalıyorsanız değil, verilerin depolandığı **olarak-olan**, yüklemeniz gerekir **64 bit JRE 8 (Java Çalışma zamanı ortamı) veya OpenJDK** IR makinenizde. Daha fazla ayrıntı içeren aşağıdaki paragrafa bakın.
 
-Parquet dosyası serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ilk olarak kayıt defteri denetleyerek ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi*`JAVA_HOME`* OpenJDK için.
+Parquet dosyası serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ilk olarak kayıt defteri denetleyerek ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi *`JAVA_HOME`* OpenJDK için.
 
 - **JRE kullanılacak**: 64-bit IR 64 bit JRE gerekir. Buradan bulabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **OpenJDK kullanılacak**: sürüm 3.13 IR itibaren desteklenir. Paketi diğer tüm jvm.dll OpenJDK derlemelerinin şirket içinde barındırılan IR makine ve JAVA_HOME ortam değişken Ayarla sistem uygun şekilde gerekli.
@@ -489,7 +489,7 @@ Aşağıdaki noktalara dikkat edin:
 > [!IMPORTANT]
 > Kopyalama şirket içinde barındırılan tümleştirme çalışma zamanı tarafından örneğin şirket içi ile bulut arasında yetkilendirilmiş için ORC dosyalarını kopyalıyorsanız değil, verilerin depolandığı **olarak-olan**, yüklemeniz gerekir **64 bit JRE 8 (Java Çalışma zamanı ortamı) veya OpenJDK**  IR makinenizde. Daha fazla ayrıntı içeren aşağıdaki paragrafa bakın.
 
-İlk olarak kayıt defteri denetleyerek ORC dosya serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi*`JAVA_HOME`* OpenJDK için.
+İlk olarak kayıt defteri denetleyerek ORC dosya serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi *`JAVA_HOME`* OpenJDK için.
 
 - **JRE kullanılacak**: 64-bit IR 64 bit JRE gerekir. Buradan bulabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **OpenJDK kullanılacak**: sürüm 3.13 IR itibaren desteklenir. Paketi diğer tüm jvm.dll OpenJDK derlemelerinin şirket içinde barındırılan IR makine ve JAVA_HOME ortam değişken Ayarla sistem uygun şekilde gerekli.

@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 6c4c8f0ee6aa12c58e02f71b42312cd6872076aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60719173"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Güvenilir hizmetler uygulaması ve hizmet bildirimi örnekleri
@@ -26,7 +26,7 @@ Bir ASP.NET Core web ön ucu ve durum bilgisi olan bir arka uç Service Fabric u
 
 Aşağıdaki özellikleri gösterilmiştir:
 
-|Bildirim|Özellikler|
+|Bildirimi|Özellikler|
 |---|---|
 |[Uygulama bildirimi](#application-manifest)| [Kaynak İdaresi](service-fabric-resource-governance.md), [bir hizmeti bir yerel yönetici farklı çalıştır hesabı](service-fabric-application-runas-security.md), [varsayılan ilke, tüm hizmet kodu paketlere uygulamaları](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [kullanıcı ve grup ilkelerioluşturma](service-fabric-application-runas-security.md), bir veri paketi hizmet örnekleri arasında paylaşmak [hizmet uç noktaları geçersiz kıl](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
 |FrontEndService hizmet bildirimi| [Hizmetin başlatılması sırasında bir betik çalıştırma](service-fabric-run-script-at-service-startup.md), [bir HTTPS uç noktası tanımlama](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 

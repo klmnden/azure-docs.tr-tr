@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66252860"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight sanal ağ mimarisi
@@ -22,7 +22,7 @@ Bu makalede, özel bir Azure sanal ağına bir HDInsight kümesi dağıtırken v
 
 Azure HDInsight kümeleri farklı türlerde sanal makineler veya düğümler var. Her düğüm türü, sistem işleminde bir rol oynar. Bu düğüm türleri ve kümedeki kendi rolleri aşağıdaki tabloda özetlenmiştir.
 
-| Type | Açıklama |
+| Tür | Açıklama |
 | --- | --- |
 | Baş düğüm |  Apache Storm dışındaki tüm küme türleri için baş düğümler dağıtılmış uygulamanın yürütülmesini yönetme işlemleri barındırır. Baş düğüm, ayrıca içine SSH yapabileceğiniz düğümüdür ve küme kaynakları üzerinde çalıştırılacak düzenlenir uygulamalar çalıştırın. Baş düğüm sayısını iki tüm küme türleri sabitlenmiştir. |
 | ZooKeeper düğümü | Zookeeper veri işleme yapıyor düğümler arasında görevleri koordine eder. Ayrıca baş düğümün öncü seçimi yapar ve hangi baş düğüm, belirli bir hizmet ana çalışan izler. ZooKeeper düğümleri sayısı üç olarak sabitlenmiştir. |

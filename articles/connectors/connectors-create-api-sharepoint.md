@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60450752"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>İzleme ve Azure Logic Apps ile SharePoint kaynaklarını yönetme
@@ -63,14 +63,14 @@ Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](..
 
 1. Boş mantıksal uygulama için arama kutusuna filtreniz olarak "sharepoint" girin. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
 
-   -veya-
+   veya
 
    Var olan mantıksal uygulamalar, son adım, bir SharePoint eylem eklemek istediğiniz altında seçin için **yeni adım**. 
    Arama kutusuna filtreniz olarak "sharepoint" girin. 
    Eylemler listesinde, istediğiniz eylemi seçin.
 
    Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. 
-   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+   Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
 
 1. Oturum açmanız istendiğinde, gereken bağlantı bilgilerini sağlayın. SharePoint Server kullanıyorsanız, seçtiğinizden emin olun **şirket içi veri ağ geçidi üzerinden Bağlan**. İşiniz bittiğinde **Oluştur**’u seçin.
 

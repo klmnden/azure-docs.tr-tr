@@ -5,10 +5,10 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66140127"
 ---
 Bu bölümde, yeni bir öğe eklendiğinde bir anında iletme bildirimi göndermek için mevcut Mobile Apps arka uç projesi içinde kod güncelleştirin. Bu işlem tarafından desteklenen [şablon](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) platformlar arası sağlayan Azure Notification Hubs'ın özellik gönderir. Çeşitli istemcilere şablonlarını kullanarak anında iletme bildirimleri için kaydedilir ve tüm istemci platformları için tek bir evrensel anında iletme alabilirsiniz.

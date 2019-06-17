@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132455"
 ---
 ## <a name="trigger"></a>Tetikleyici
@@ -387,8 +387,8 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type** | yok | Ayarlanmalıdır `eventHubTrigger`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
 |**direction** | yok | Ayarlanmalıdır `in`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodunu olay öğeyi temsil eden değişken adı. |
-|**Yolu** |**EventHubName** | 1.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. |
-|**EventHubName** |**EventHubName** | 2.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. |
+|**Yolu** |**EventHubName** | 1\.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. |
+|**EventHubName** |**EventHubName** | 2\.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. |
 |**consumerGroup** |**consumerGroup** | Ayarlar isteğe bağlı bir özellik [tüketici grubu](../articles/event-hubs/event-hubs-features.md)#event-tüketicileri) hub'ındaki olayları abone olmak için kullanılır. Atlanırsa, `$Default` tüketici grubu kullanılır. |
 |**önem düzeyi** | yok | JavaScript için. Kümesine `many` toplu işleme etkinleştirmek için.  Atlanırsa veya kümesine `one`, tek bir ileti için işleve geçirildi. |
 |**bağlantı** |**bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak, bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğme [ad alanı](../articles/event-hubs/event-hubs-create.md)#create-bir-event-hubs-ad alanı), olay hub kendisi değil. Bu bağlantı dizesini en az tetikleyici etkinleştirmek için Okuma izinlerine sahip olmalıdır.|
@@ -677,8 +677,8 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type** | yok | "EventHub için" olarak ayarlanmalıdır. |
 |**direction** | yok | "Out" ayarlanmalıdır. Bu parametre, Azure portalında bağlamayı oluşturduğunuzda otomatik olarak ayarlanır. |
 |**name** | yok | Olay temsil eden işlevi kod içinde kullanılan değişken adı. |
-|**Yolu** |**EventHubName** | 1.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. |
-|**EventHubName** |**EventHubName** | 2.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. |
+|**Yolu** |**EventHubName** | 1\.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. |
+|**EventHubName** |**EventHubName** | 2\.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. |
 |**bağlantı** |**bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak, bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğme *ad alanı*, olay hub kendisi değil. Bu bağlantı dizesi için olay akışını ileti göndermek için gönderme izinleri olmalıdır.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]

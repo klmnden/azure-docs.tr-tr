@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754541"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Küme yapılandırmaları için ayrıntılı rol tabanlı erişime geçme
@@ -148,7 +148,7 @@ Güncelleştirme [sürüm 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree
 Güncelleştirme [Az PowerShell sürüm 2.0.0](https://www.powershellgallery.com/packages/Az) veya daha sonra kesintileri önlemek için.  Bu değişikliklerden etkilenen bir yöntem kullanılıyorsa çok az kod değişiklikleri gerekebilir.
 - `Grant-AzHDInsightHttpServicesAccess` artık kullanımdan kaldırıldı ve yeni tarafından değiştirilmiştir `Set-AzHDInsightGatewayCredential` cmdlet'i.
 - `Get-AzHDInsightJobOutput` Depolama anahtarı için ayrıntılı rol tabanlı erişimi desteklemek için güncelleştirildi.
-    - HDInsight küme işleci, katkıda bulunan veya sahip rollerine sahip kullanıcılar etkilenmez.
+    - HDInsight Küme Operatörü, Katkıda Bulunan veya Sahip rolleri olan kullanıcılar etkilenmeyecek.
     - Yalnızca okuyucu rolüne sahip kullanıcılar belirtmeniz gerekecektir `DefaultStorageAccountKey` parametresi açıkça.
 - `Revoke-AzHDInsightHttpServicesAccess` artık kullanılmıyor. Bu cmdlet artık gerekli olmadığı için HTTP artık her zaman etkindir.
  Bkz: [az. HDInsight Geçiş Kılavuzu](https://github.com/Azure/azure-powershell/blob/master/documentation/migration-guides/Az.2.0.0-migration-guide.md#azhdinsight) daha fazla ayrıntı için.

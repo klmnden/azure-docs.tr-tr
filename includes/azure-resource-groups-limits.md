@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/19/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8bd16378e9c82a011309c12cf241b59d03405a77
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238351"
 ---
 | Resource | Varsayılan limit | Üst sınır |
@@ -31,7 +31,7 @@ ms.locfileid: "66238351"
 | Değişkenler |256 |256 |
 | Kaynakları (kopya sayısı da dahil olmak üzere) |800 |800 |
 | Çıkışlar |64 |64 |
-| Şablon ifadesi |24.576 karakter |24.576 karakter |
+| Şablon ifadesi |24\.576 karakter |24\.576 karakter |
 | Dışarı aktarılan şablon kaynakları |200 |200 | 
 | Şablon boyutu |1 MB |1 MB |
 | Parametre dosyası boyutu |64 KB |64 KB |

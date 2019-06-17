@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e4e9ef4f3a50aeac4db4d2cc2f2b6cbafcc47268
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051630"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
@@ -95,12 +95,19 @@ Trafik analizi, aşağıdaki desteklenen bölgelerden'nde Nsg'ler için kullanab
 Log Analytics çalışma alanı şu bölgelerde bulunmalıdır:
 - Orta Kanada
 - Batı Orta ABD
+- Batı ABD
 - Batı ABD 2
+- Orta Güney ABD
+- Orta ABD
 - Doğu ABD
+- Doğu ABD 2
 - Fransa Orta
 - Batı Avrupa
+- Kuzey Avrupa
 - Birleşik Krallık Güney
+- Avustralya Doğu
 - Avustralya Güneydoğu
+- Doğu Asya
 - Güneydoğu Asya 
 - Kore Orta
 - Orta Hindistan

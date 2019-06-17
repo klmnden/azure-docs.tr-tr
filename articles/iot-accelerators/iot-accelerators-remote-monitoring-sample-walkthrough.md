@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: af09ea39f373d518d5600e3fa46adc378fd9236d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442548"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Uzaktan İzleme çözümü hızlandırıcısına genel bakış
@@ -102,7 +102,7 @@ Mikro hizmet, cihazları ve cihaz ikizlerini yönetme, çağırma yöntemlerinin
 
 Değerler, koleksiyonlar düzenlenir. Tüm koleksiyonlar getirme ya da tek tek değerler üzerinde çalışır. Karmaşık veri yapılarını istemciler tarafından seri hale getirilmiş ve basit metin yükü olarak yönetilebilir.
 
-Hizmet, anahtar-değer çiftleri CRUD işlemleri için bir RESTful uç noktası sağlar. değerler
+Hizmet, anahtar-değer çiftleri CRUD işlemleri için bir RESTful uç noktası sağlar. Değerleri
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 

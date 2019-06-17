@@ -14,14 +14,14 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 85832abeb9908dd891e3f35a0368bc35c7816a6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66167798"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>İçin veya Azure Blob Depolama, Azure Data Factory kullanarak veri kopyalama
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](data-factory-azure-blob-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-azure-blob-storage.md)
 
@@ -87,7 +87,7 @@ Data factory, Azure blob gibi şema okuma veri kaynakları için "yapı" tür bi
 | folderPath |Kapsayıcı ve blob depolama alanında bir klasör yolu. Örnek: myblobcontainer\myblobfolder\ |Evet |
 | fileName |Blob adı. İsteğe bağlı ve büyük küçük harfe duyarlı dosya adıdır.<br/><br/>Etkinlik (kopyalama dahil), bir filename belirtirseniz, belirli bir blobu üzerinde çalışır.<br/><br/>Dosya adı belirtilmemişse, kopya tüm BLOB'ları folderPath için giriş veri kümesi içerir.<br/><br/>Zaman **fileName** bir çıktı veri kümesi için belirtilmemiş ve **preserveHierarchy** belirtilmezse etkinlik havuzunda oluşturulan dosya adı aşağıdaki olacak bu biçim: `Data.<Guid>.txt` (için Örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
 | partitionedBy |partitionedBy isteğe bağlı bir özelliktir. Bir dinamik folderPath ve zaman serisi verileri için dosya adı belirtmek için kullanabilirsiniz. Örneğin, saatte veri folderPath parametreli olabilir. Bkz: [partitionedBy özellik bölümünü kullanarak](#using-partitionedby-property) Ayrıntılar ve örnekler. |Hayır |
-| biçim | Şu biçim türlerini destekler: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır |
+| format | Şu biçim türlerini destekler: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır |
 | compression | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler şunlardır: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyleri şunlardır: **En iyi** ve **hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 ### <a name="using-partitionedby-property"></a>PartitionedBy özelliğini kullanma
@@ -252,7 +252,7 @@ Hızla bir Azure blob depolama içine/dışına veri kopyalamak nasıl bakalım.
     4. Azure depolama hesabınızı seçin.
     5. **İleri**’ye tıklayın.
 10. Üzerinde **çıktı dosyasını veya klasörünü seçin** sayfası:  
-    1. belirtin **klasör yolu** olarak **adfblobconnector/output / {year} / {month} / {day}**. Girin **sekmesini**.
+    1. belirtin **klasör yolu** olarak **adfblobconnector/output / {year} / {month} / {day}** . Girin **sekmesini**.
     1. İçin **yıl**seçin **yyyy**.
     1. İçin **ay**, kümesine olduğunu onaylayın **MM**.
     1. İçin **gün**, kümesine olduğunu onaylayın **GG**.
@@ -335,7 +335,7 @@ Aşağıdaki bölümler bu varlıkları hakkında daha fazla bilgi sağlar.
 
 Azure depolama bağlı hizmeti hakkında daha fazla bilgi için bkz. [bağlı hizmeti özellikleri](#linked-service-properties) bölümü.
 
-#### <a name="datasets"></a>Veri Kümeleri
+#### <a name="datasets"></a>Veri kümeleri
 İki veri kümesi vardır: bir giriş veri kümesi ve çıktı veri kümesi. Veri kümesi türü **AzureBlob** hem de.
 
 Girdi veri kümesini işaret **giriş** klasörü **adfblobconnector** blob kapsayıcısı. **Dış** özelliği **true** bu veri kümesi için verileri girdi olarak bu veri kümesini alan kopyalama etkinliği ile işlem hattı tarafından üretilen değil olarak.

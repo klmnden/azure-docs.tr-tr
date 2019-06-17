@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424712"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları dizelerle çalışma
@@ -93,12 +93,12 @@ Bir alt dizenin bir dize içinde yineleme sayar. Düz dizeleri Eşleştir veya r
 countof(text, search [, kind])
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler:
+### <a name="arguments"></a>Bağımsız değişkenleri:
 - `text` -Giriş dizesi 
 - `search` -Düz dize veya içindeki metnin eşleştirmek için normal bir ifade.
 - `kind` - _Normal_ | _regex_ (varsayılan: normal).
 
-### <a name="returns"></a>Şunu döndürür:
+### <a name="returns"></a>Döndürür
 
 Arama dizesi kapsayıcıda eşleştirilebildiği sayısı. Düz dize eşleşmeleri desteklerken Regex eşleşme çakışabilir.
 
@@ -140,7 +140,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text` -Aranacak bir dize.
 - `typeLiteral` -Bir isteğe bağlı tür değişmez değeri (örneğin, typeof(long)). Sağlanırsa, ve çıkartılan alt dizenin bu türe dönüştürülür.
 
-### <a name="returns"></a>Şunu döndürür:
+### <a name="returns"></a>Döndürür
 Belirtilen yakalama grubu captureGroup karşı eşleştirilen alt dizenin typeLiteral için isteğe bağlı olarak dönüştürülür.
 Eşleşme yok, veya tür dönüştürme başarısız olursa null döndürür.
 
@@ -246,7 +246,7 @@ replace(regex, rewrite, input_text)
 - `rewrite` -Değiştirme için normal ifade ile eşleşen normal ifade yapılan herhangi bir eşleşme. Başvurmak için tam eşleşenlerin, ilk yakalama grubunun \1, vb. sonraki yakalama grupları için bir \2 \0 kullanın.
 - `input_text` -İçinde arama yapmak giriş dizesi.
 
-### <a name="returns"></a>Şunu döndürür:
+### <a name="returns"></a>Döndürür
 Yeniden yazma değerlendirmelerde regex tüm eşleşmeleri değiştirdikten sonra metin. Eşleşme çakışmadığından.
 
 ### <a name="examples"></a>Örnekler
@@ -274,7 +274,7 @@ Belirtilen sınırlayıcıya göre belirli bir dizeyi böler ve sonuçta elde ed
 split(source, delimiter [, requestedIndex])
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler:
+### <a name="arguments"></a>Bağımsız değişkenleri:
 
 - `source` -Belirtilen sınırlayıcıya göre bölüneceği dize.
 - `delimiter` -Kaynak dizeyi bölmek için kullanılan sınırlayıcı.
@@ -331,7 +331,7 @@ Belirtilen kaynak dizeden belirtilen dizinden başlayarak, bir alt dizeyi ayıkl
 substring(source, startingIndex [, length])
 ```
 
-### <a name="arguments"></a>Bağımsız Değişkenler:
+### <a name="arguments"></a>Bağımsız değişkenleri:
 
 - `source` -Alt dizenin alındığı kaynak dizesi.
 - `startingIndex` -Sıfır tabanlı başlangıç karakteri konumunu istenen alt dize.

@@ -8,17 +8,17 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.openlocfilehash: 75ff34910383b30c9fd967ff568d087c2492856f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66143218"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>PostgreSQL geçiş iş ortakları için Azure veritabanı
 Azure veritabanınızı PostgreSQL çözüm problem desteklemek için çok çeşitli sektör lideri iş ortakları ve araçları seçebilirsiniz. Bu makalede, Microsoft iş ortakları ile PostgreSQL için Azure veritabanı desteği geçiş çözümleri vurgulanır.
 
 ## <a name="migration-partners"></a>Geçiş iş ortakları
-| İş Ortağı | Açıklama | Bağlantılar | Videolar |
+| Partner | Açıklama | Bağlantılar | Videolar |
 | --- | --- | --- | --- |
 | ![SNP teknolojileri][1] |**SNP teknolojileri**<br>SNP teknolojileri, geleceğin işletmeleri için güvenli ve güvenilir çözümleri oluşturmak yalnızca bulut hizmet sağlayıcısıdır. Şirket, işletmeniz için gerçek değeri üretilmesinde inanmaktadır. Yürütme için düşünce SNP teknolojileri istemcilerle yatırımları avantajı oturum açmak için bir genel amaçlı paylaşır.|[Web sitesi][snp_website]<br>[Twitter][snp_twitter]<br>[İlgili kişi][snp_contact] | |
 | ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>DB en iyi müşteriler en iyi yönetilen bir Azure veritabanı hizmeti yardımcı olur. Şirket, dahil olmak üzere başlamak çeşitli yollar sunar [gelecekteki durumu Mimari Tasarım](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [Microsoft Veri platformu için veri yönetimi iyileştirme](https://www.dbbest.com/services/data-management-optimization-for-microsoft-data-platform/), [Microsoft Azure Dağıtım Planlama Hizmetleri](https://www.dbbest.com/services/microsoft-azure-deployment-planning-services), ve [Azure veri platformu hazırlık Eğitimi](https://www.dbbest.com/services/azure-data-platform-readiness-training).|[Web sitesi][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[İlgili kişi][dbbest_contact] | |

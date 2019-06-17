@@ -16,10 +16,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60653390"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Başlatmak için Cloud Service rolleri için sorun giderme
@@ -62,12 +62,12 @@ Hizmet yeniden sonra eksik derleme veya DLL adı ile bir hata iletisi görürsü
 ## <a name="diagnose-issues-by-viewing-the-error-remotely"></a>Uzaktan hata görüntüleyerek sorunlarını tanılayın
 Rol erişim ve daha ayrıntılı hata bilgileri uzaktan görüntülemek için Uzak Masaüstü'nü kullanabilirsiniz. Uzak Masaüstü'nü kullanarak hataları görüntülemek için aşağıdaki adımları kullanın:
 
-1. 1.3 veya sonraki bir sürümü Azure SDK'ın yüklü olduğundan emin olun.
+1. 1\.3 veya sonraki bir sürümü Azure SDK'ın yüklü olduğundan emin olun.
 2. Visual Studio kullanarak çözüm dağıtımı sırasında Uzak Masaüstü'nü etkinleştirin. Daha fazla bilgi için [Visual Studio kullanarak Azure Cloud Services'ta bir rol için Uzak Masaüstü Bağlantısı etkinleştirme](cloud-services-role-enable-remote-desktop-visual-studio.md).
 3. Microsoft Azure Portal'da örneğinin durumunu gösterir. bir kez **hazır**, uzaktan örneğe bağlanın. Cloud Services ile Uzak Masaüstü kullanma hakkında daha fazla bilgi için bkz. [rol örnekleri uzaktan](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Sanal makineye uzak masaüstü yapılandırması sırasında belirtilen kimlik bilgilerini kullanarak oturum açın.
-6. Komut penceresi açın.
-7. `IPconfig` yazın.
+6. Bir komut penceresi açın.
+7. `IPconfig`yazın.
 8. IPv4 adresi değerini not edin.
 9. Internet Explorer'ı açın.
 10. Adres ve web uygulaması adını yazın. Örneğin, `http://<IPV4 Address>/default.aspx`.

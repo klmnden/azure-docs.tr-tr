@@ -12,10 +12,10 @@ ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755065"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search'te kaynak tüketimi ve sorgu etkinliğini İzle

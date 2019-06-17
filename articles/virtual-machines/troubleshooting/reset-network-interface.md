@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: 3a8e005f8678deef9fc4aebd2d620619fe6074bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307330"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Azure Windows VM için ağ arabirimi sıfırlama 
@@ -79,7 +79,7 @@ Ağ arabirimi sıfırlamak için şu adımları izleyin:
 #### <a name="use-azure-portal"></a>Azure portalı kullanma
 
 1.  [Azure Portal]( https://ms.portal.azure.com) gidin.
-2.  Seçin **sanal makineler (Klasik)**.
+2.  Seçin **sanal makineler (Klasik)** .
 3.  Etkilenen sanal makineyi seçin.
 4.  Seçin **IP adresleri**.
 5.  Varsa **özel IP ataması** değil **statik**, değiştirin **statik**.

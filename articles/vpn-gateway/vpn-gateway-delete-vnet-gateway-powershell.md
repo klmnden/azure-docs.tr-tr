@@ -8,10 +8,10 @@ ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: conceptual
 ms.openlocfilehash: 7b9503b2db14d4de6c4c8cf983c42bccd6f9f8fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157441"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>PowerShell kullanarak bir sanal ağ geçidini silme
@@ -61,7 +61,7 @@ Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 S2S yapılandırmasının için sanal ağ geçidini silmek için önce sanal ağ geçidi için ilgili her bir kaynak silmeniz gerekir. Belirli bir sırada bağımlılıklar nedeniyle kaynakları silinmesi gerekir. Çıkış sonucu diğer değerleri olmasına rağmen aşağıda bazı örnekler ile çalışırken değerler belirtilmelidir. Aşağıdaki değerleri örneklerde gösterim amaçları için kullanırız:
 
 VNet adı: VNet1<br>
-Kaynak Grubu adı: RG1<br>
+Kaynak grubu adı: RG1<br>
 Sanal ağ geçidi adı: GW1<br>
 
 Aşağıdaki adımlar Resource Manager dağıtım modeli için geçerlidir.
@@ -144,7 +144,7 @@ Set-AzVirtualNetwork -VirtualNetwork $GWSub
 V2V yapılandırması için bir sanal ağ geçidini silmek için önce sanal ağ geçidi için ilgili her bir kaynak silmeniz gerekir. Belirli bir sırada bağımlılıklar nedeniyle kaynakları silinmesi gerekir. Çıkış sonucu diğer değerleri olmasına rağmen aşağıda bazı örnekler ile çalışırken değerler belirtilmelidir. Aşağıdaki değerleri örneklerde gösterim amaçları için kullanırız:
 
 VNet adı: VNet1<br>
-Kaynak Grubu adı: RG1<br>
+Kaynak grubu adı: RG1<br>
 Sanal ağ geçidi adı: GW1<br>
 
 Aşağıdaki adımlar Resource Manager dağıtım modeli için geçerlidir.
@@ -232,7 +232,7 @@ Set-AzVirtualNetwork -VirtualNetwork $GWSub
 P2S yapılandırması için bir sanal ağ geçidini silmek için önce sanal ağ geçidi için ilgili her bir kaynak silmeniz gerekir. Belirli bir sırada bağımlılıklar nedeniyle kaynakları silinmesi gerekir. Çıkış sonucu diğer değerleri olmasına rağmen aşağıda bazı örnekler ile çalışırken değerler belirtilmelidir. Aşağıdaki değerleri örneklerde gösterim amaçları için kullanırız:
 
 VNet adı: VNet1<br>
-Kaynak Grubu adı: RG1<br>
+Kaynak grubu adı: RG1<br>
 Sanal ağ geçidi adı: GW1<br>
 
 Aşağıdaki adımlar Resource Manager dağıtım modeli için geçerlidir.
