@@ -9,10 +9,10 @@ ms.date: 03/14/2019
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: fae8e80c6fa94c3581de3038399ef031506b2f55
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65774239"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure İzleyici iş ortağı tümleştirmeleri
@@ -96,7 +96,7 @@ Dynatrace OneAgent Azure uzantı mekanizması Azure Vm'leri ve uygulama hizmetle
 
 [Belgelerine gidin.][dynatrace-doc]
 
-## <a name="elastic"></a>Elastik
+## <a name="elastic"></a>Esnek
 
 ![Esnek logosu](./media/partners/elastic.png)
 

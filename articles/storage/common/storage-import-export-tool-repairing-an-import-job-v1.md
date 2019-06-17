@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: fda1d3d626c91ba984f08b96c79ab6a2fd2ec74b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477595"
 ---
 # <a name="repairing-an-import-job"></a>Bir içeri aktarma işini onarma
@@ -32,15 +32,15 @@ Aşağıdaki parametreler ile belirtilen **RepairImport**:
   
 |||  
 |-|-|  
-|**/ r:**< RepairFile\>|**Gerekli.** Bu onarım ilerlemesini izler ve kesintiye uğramış bir onarım devam etmek için Onar dosyasının yolu. Her sürücü bir ve yalnızca bir onarım dosyası olması gerekir. Belirli bir sürücü için onarım başlattığınızda, yolda henüz var olmayan bir onarım dosyasına geçirin. Kesintiye uğramış bir onarım devam etmek için var olan bir onarım dosya adını geçmelidir. Hedef sürücüye karşılık gelen onarım dosyasını her zaman belirtilmesi gerekir.|  
-|**/ LOGDIR:**< LogDirectory\>|**İsteğe bağlı.** Günlük dizini. Ayrıntılı günlük dosyası bu dizine yazılır. Hiçbir günlük dizini belirtilmezse, geçerli dizin günlük dizini kullanılır.|  
-|**/ d:**< TargetDirectories\>|**Gerekli.** İçeri aktarılan özgün dosyaları içeren bir veya daha fazla noktalı virgülle ayrılmış dizinler. İçeri aktarma sürücü ayrıca kullanılabilir ancak özgün dosya alternatif konum kullanılabilir, gerekli değildir.|  
-|**/BK:**< BitLockerKey\>|**İsteğe bağlı.** Özgün dosyalar nerede şifrelenmiş sürücünün kilidini açmak için araç istiyorsanız BitLocker anahtarı belirtmeniz gerekir.|  
-|**/sn:**< StorageAccountName\>|**Gerekli.** İçeri aktarma işi için depolama hesabı adı.|  
-|**/sk:**<StorageAccountKey\>|**Gerekli** kapsayıcı SAS belirtilmedi ve yalnızca. İçeri aktarma işi için depolama hesabı için hesap anahtarı.|  
-|**/csas:**<ContainerSas\>|**Gerekli** depolama hesap anahtarı belirtilmedi ve yalnızca. İçeri aktarma işi ile ilişkili bloblara erişmek için kapsayıcı SAS.|  
-|**/ CopyLogFile:**< DriveCopyLogFile\>|**Gerekli.** Sürücüyü Kopyala günlük dosyası (ya da ayrıntılı günlüğü veya hata günlüğü) yolu. Dosya Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve iş ile ilişkili blob depolamadan indirebilirsiniz. Kopyalama günlük dosyası başarısız bloblar ya da onarılması olan dosyalar hakkında bilgi içerir.|  
-|**/ PathMapFile:**< DrivePathMapFile\>|**İsteğe bağlı.** Belirsizlikler aldığınız aynı iş içinde aynı ada sahip birden çok dosyanız varsa çözümlemek için kullanılan bir metin dosyasının yolu. Aracı ilk çalıştırıldığında, bu dosya tüm belirsiz adları ile doldurabilirsiniz. Aracı'nın sonraki çalışmaları belirsizlikleri çözmek için bu dosyayı kullanın.|  
+|**/ r:** < RepairFile\>|**Gerekli.** Bu onarım ilerlemesini izler ve kesintiye uğramış bir onarım devam etmek için Onar dosyasının yolu. Her sürücü bir ve yalnızca bir onarım dosyası olması gerekir. Belirli bir sürücü için onarım başlattığınızda, yolda henüz var olmayan bir onarım dosyasına geçirin. Kesintiye uğramış bir onarım devam etmek için var olan bir onarım dosya adını geçmelidir. Hedef sürücüye karşılık gelen onarım dosyasını her zaman belirtilmesi gerekir.|  
+|**/ LOGDIR:** < LogDirectory\>|**İsteğe bağlı.** Günlük dizini. Ayrıntılı günlük dosyası bu dizine yazılır. Hiçbir günlük dizini belirtilmezse, geçerli dizin günlük dizini kullanılır.|  
+|**/ d:** < TargetDirectories\>|**Gerekli.** İçeri aktarılan özgün dosyaları içeren bir veya daha fazla noktalı virgülle ayrılmış dizinler. İçeri aktarma sürücü ayrıca kullanılabilir ancak özgün dosya alternatif konum kullanılabilir, gerekli değildir.|  
+|**/BK:** < BitLockerKey\>|**İsteğe bağlı.** Özgün dosyalar nerede şifrelenmiş sürücünün kilidini açmak için araç istiyorsanız BitLocker anahtarı belirtmeniz gerekir.|  
+|**/sn:** < StorageAccountName\>|**Gerekli.** İçeri aktarma işi için depolama hesabı adı.|  
+|**/sk:** <StorageAccountKey\>|**Gerekli** kapsayıcı SAS belirtilmedi ve yalnızca. İçeri aktarma işi için depolama hesabı için hesap anahtarı.|  
+|**/csas:** <ContainerSas\>|**Gerekli** depolama hesap anahtarı belirtilmedi ve yalnızca. İçeri aktarma işi ile ilişkili bloblara erişmek için kapsayıcı SAS.|  
+|**/ CopyLogFile:** < DriveCopyLogFile\>|**Gerekli.** Sürücüyü Kopyala günlük dosyası (ya da ayrıntılı günlüğü veya hata günlüğü) yolu. Dosya Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve iş ile ilişkili blob depolamadan indirebilirsiniz. Kopyalama günlük dosyası başarısız bloblar ya da onarılması olan dosyalar hakkında bilgi içerir.|  
+|**/ PathMapFile:** < DrivePathMapFile\>|**İsteğe bağlı.** Belirsizlikler aldığınız aynı iş içinde aynı ada sahip birden çok dosyanız varsa çözümlemek için kullanılan bir metin dosyasının yolu. Aracı ilk çalıştırıldığında, bu dosya tüm belirsiz adları ile doldurabilirsiniz. Aracı'nın sonraki çalışmaları belirsizlikleri çözmek için bu dosyayı kullanın.|  
   
 ## <a name="using-the-repairimport-command"></a>RepairImport komutunu kullanma  
 Ağ üzerinden veri akışı tarafından verileri içeri aktarma onarmak için alma kullanarak özgün dosyaları içeren dizinler belirtmelisiniz `/d` parametresi. Kopyalama günlük dosyası depolama hesabınızdan indirdiğiniz de belirtmeniz gerekir. İçeri aktarma işi ile kısmi hataları onarmak için tipik bir komut satırı şuna benzer:  

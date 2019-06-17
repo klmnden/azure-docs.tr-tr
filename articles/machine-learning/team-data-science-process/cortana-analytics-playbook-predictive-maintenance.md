@@ -12,10 +12,10 @@ ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573778"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure yapay ZEKA Kılavuzu
@@ -229,11 +229,11 @@ Tarih gibi donanım üretim, model numarası, konum, teknik belirtimler statik �
 
 | Varlık Kimliği | Zaman | \<Özellik sütunları > | Etiket |
 | ---- | ---- | --- | --- |
-| A123 |1. gün | . . . | . |
-| A123 |2. gün | . . . | . |
+| A123 |1\. gün | . . . | . |
+| A123 |2\. gün | . . . | . |
 | ...  |...   | . . . | . |
-| B234 |1. gün | . . . | . |
-| B234 |2. gün | . . . | . |
+| B234 |1\. gün | . . . | . |
+| B234 |2\. gün | . . . | . |
 | ...  |...   | . . . | . |
 
 Özellik Mühendisliği son adımında, **etiketleme** hedef değişkeni. Bu işlem, modelleme tekniği bağlıdır. Buna karşılık, modelleme teknik problemini ve kullanılabilir verilerin doğasına bağlıdır. Etiketleme, sonraki bölümde ele alınmıştır.
@@ -291,7 +291,7 @@ Burada soru da şudur: "Bir varlık sonraki başarısız olduğunu belirten olas
 
 ![Şekil 5. Hata zamanı tahmin çok sınıflı sınıflandırma etiketleri](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Şekil 5 '. Hata zaman tahmini için çok sınıflı sınıflandırma etiketleme
 
-Burada soru da şudur: "Varlığı sonraki başarısız olduğunu belirten olasılığı nedir kök nedeni/sorunu nedeniyle zaman birimlerinin X _P<sub>miyim</sub>_?" Burada _miyim_ olası nedenlerini sayısıdır. Bu soru, bir varlığın arıza öncesinde etiketini X kayıtları yanıtlamak için "kök nedenden dolayı başarısız üzere _P<sub>miyim</sub>_" (etiket = _P<sub>miyim</sub>_). "Normal" olarak tüm kayıtları etiket (etiket = 0). Bu yöntemde, etiketleri kategorik (bkz. Şekil 6) ayrıca.
+Burada soru da şudur: "Varlığı sonraki başarısız olduğunu belirten olasılığı nedir kök nedeni/sorunu nedeniyle zaman birimlerinin X _P<sub>miyim</sub>_ ?" Burada _miyim_ olası nedenlerini sayısıdır. Bu soru, bir varlığın arıza öncesinde etiketini X kayıtları yanıtlamak için "kök nedenden dolayı başarısız üzere _P<sub>miyim</sub>_ " (etiket = _P<sub>miyim</sub>_ ). "Normal" olarak tüm kayıtları etiket (etiket = 0). Bu yöntemde, etiketleri kategorik (bkz. Şekil 6) ayrıca.
 
 ![Şekil 6. Kök neden çok sınıflı sınıflandırma etiketleri tahmin](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Şekil 6. Kök nedeni tahmin için çok sınıflı sınıflandırma etiketleme
 

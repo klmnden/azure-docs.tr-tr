@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391232"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Bağlı hizmetler (WebJob Proje) Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama
@@ -342,7 +342,7 @@ Bir blob için bir nesne bağlama önce bazı çalışma işlevinizde yapmanız 
 ### <a name="automatic-poison-message-handling"></a>Otomatik zehirli ileti işleme
 SDK'sı bir kuyruk iletisi işlemek için 5 kata kadar bir işlevi çağırır. Beşinci deneme başarısız olursa, zehirli bir kuyruğa ileti taşınır. En fazla yeniden deneme sayısı yapılandırma gördüğünüz [yapılandırma seçeneklerini ayarlama](#how-to-set-configuration-options).
 
-Zehirli sıranın adlı *{originalqueuename}*-zehirli. İşlem iletileri bir işleve zehirli kuyruktan günlüğe yazma ya da bir bildirim göndererek el ile ilgili dikkat edilmesi gereken yazabilirsiniz.
+Zehirli sıranın adlı *{originalqueuename}* -zehirli. İşlem iletileri bir işleve zehirli kuyruktan günlüğe yazma ya da bir bildirim göndererek el ile ilgili dikkat edilmesi gereken yazabilirsiniz.
 
 Aşağıdaki örnekte **CopyBlob** bir kuyruk iletisi mevcut olmayan bir blobun adını içerdiğinde işlevi başarısız olur. Bu durum oluştuğunda yapılacak copyblobqueue poison kuyruğa copyblobqueue kuyruktan taşınır. **ProcessPoisonMessage** ardından zehirli ileti günlüğe kaydeder.
 

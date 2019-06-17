@@ -15,15 +15,15 @@ ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 38e0983830c540082a915332aa4158d2af84567b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408900"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Azure App Service'te PHP yapılandırma
 
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 
 Bu kılavuz, API uygulamaları, web uygulamaları ve mobil arka uçları için yerleşik PHP çalışma zamanı yapılandırma işlemini göstermektedir [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)özel bir PHP çalışma zamanı sağlama ve genişletmeleri etkinleştirme. App Service'ı kullanmak için kaydolun [ücretsiz deneme sürümü]. Bu kılavuzu en almak için ilk App Service'te bir PHP uygulaması oluşturmanız gerekir.
 
@@ -55,7 +55,7 @@ PHP 7.0 ve PHP 7.2 sürümleri de kullanılabilir, ancak varsayılan olarak etki
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### <a name="azure-cli"></a>Azure CLI'si 
+### <a name="azure-cli"></a>Azure CLI 
 
 Azure komut satırı arabirimini kullanmak için şunları yapmalısınız [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) bilgisayarınızda.
 

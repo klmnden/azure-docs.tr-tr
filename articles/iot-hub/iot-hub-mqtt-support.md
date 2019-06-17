@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ms.openlocfilehash: 1a0b6cf8ce272733c259283fdec9c215ac2b0fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442571"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Ve MQTT protokolünü kullanarak IOT hub ile iletişim
@@ -216,7 +216,7 @@ IOT Hub'ından iletiler almak için bir cihaz kullanarak abone olmalıdır `devi
 
 Cihaz herhangi bir ileti almazsa, cihaza özel uç noktasına başarıyla abone olduğu kadar IOT Hub'ından tarafından temsil edilen `devices/{device_id}/messages/devicebound/#` konu Filtresi. Bir abonelik oluşturulduktan sonra cihazın kendisine aboneliğin sonra gönderilen bulut-cihaz iletilerini alır. Cihaz ile bağlanıyorsa **CleanSession** bayrağı ayarlanmış **0**, abonelik farklı oturumlarda kalıcı hale getirilir. Cihaz bu durumda, sonraki açışınızda bağlanır ile **CleanSession 0** bağlı değilken gönderilen tüm bekleyen iletileri alır. Cihaz kullanıyorsa **CleanSession** bayrağı ayarlanmış **1** için cihaz uç noktası, abone kadar bu iletileri IOT Hub'ından almaz.
 
-IOT Hub ile ileti sunar **konu adı** `devices/{device_id}/messages/devicebound/`, veya `devices/{device_id}/messages/devicebound/{property_bag}` ileti özelliklerini olduğunda. `{property_bag}` İleti özelliklerini URL olarak kodlanmış bir anahtar/değer çiftleri içerir. Yalnızca uygulama özellikleri ve kullanıcı ayarlanabilir Sistem Özellikleri (gibi **MessageID** veya **Correlationıd**) özellik paketindeki dahil edilir. Sistem özellik adlarına sahip önek **$**, uygulama özellikleri özgün özellik adı ile önek kullanın.
+IOT Hub ile ileti sunar **konu adı** `devices/{device_id}/messages/devicebound/`, veya `devices/{device_id}/messages/devicebound/{property_bag}` ileti özelliklerini olduğunda. `{property_bag}` İleti özelliklerini URL olarak kodlanmış bir anahtar/değer çiftleri içerir. Yalnızca uygulama özellikleri ve kullanıcı ayarlanabilir Sistem Özellikleri (gibi **MessageID** veya **Correlationıd**) özellik paketindeki dahil edilir. Sistem özellik adlarına sahip önek **$** , uygulama özellikleri özgün özellik adı ile önek kullanın.
 
 Bir konu ile bir cihaz uygulaması zaman aboneliği **QoS 2**, IOT hub'ı en fazla QoS düzey 1 içinde verir **SUBACK** paket. Bundan sonra IOT Hub iletilerini cihazda QoS 1 kullanarak sunar.
 

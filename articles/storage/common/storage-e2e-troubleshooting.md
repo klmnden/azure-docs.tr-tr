@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 2707081adafa74237e3fb7730837f581e0c8b790
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154233"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure depolama ölçümlerini ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi kullanarak uçtan uca sorun giderme
@@ -220,7 +220,7 @@ Azure depolama görünüm düzenleri kullanmanın yanı sıra, ayrıca tanımlam
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>Analiz kılavuza renk kurallarını uygula
 Depolama varlıkları hataları analiz kılavuzdaki farklı türlerini tanımlamak üzere görsel anlamına gelir sunan renk kurallarını da içerir. Bunlar yalnızca sunucu günlüğü ve ağ izleme için görünmesi için HTTP hataları, önceden tanımlı renk kurallarını uygulayın.
 
-Renk kurallarını uygulamak için seçin **renk kurallarını** araç şeridinden. Azure depolama renk kurallarını menüsünde görürsünüz. Öğretici için seçin **istemci hataları (durum kodu 400 ve 499 arasında)**, aşağıdaki resimde gösterildiği gibi.
+Renk kurallarını uygulamak için seçin **renk kurallarını** araç şeridinden. Azure depolama renk kurallarını menüsünde görürsünüz. Öğretici için seçin **istemci hataları (durum kodu 400 ve 499 arasında)** , aşağıdaki resimde gösterildiği gibi.
 
 ![Azure depolama görünüm düzeni](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -278,7 +278,7 @@ Aşağıdaki resimde, burada blob mevcut olmadığından bir Blob alma işlemi b
 
 Ardından, biz bu istemci istek kimliği hata oluştuğunda erişilmiş istemci sürüyordu hangi eylemleri görmek için istemci günlük verilerin bağıntısını. İkinci bir sekmede açılır istemci günlük verilerini görüntülemek bu oturum için yeni bir analiz kılavuz görünümü görüntüleyebilirsiniz:
 
-1. İlk olarak, değerini kopyalayın **Clientrequestıd'ye** panoya alan. Bunu yapmak için ya da satır seçilmesi, bulma **Clientrequestıd'ye** alan, veri değeri sağ tıklayıp seçme **Kopyala 'Clientrequestıd'ye'**.
+1. İlk olarak, değerini kopyalayın **Clientrequestıd'ye** panoya alan. Bunu yapmak için ya da satır seçilmesi, bulma **Clientrequestıd'ye** alan, veri değeri sağ tıklayıp seçme **Kopyala 'Clientrequestıd'ye'** .
 2. Araç şeridinde seçin **yeni Görüntüleyici**, ardından **analiz kılavuz** yeni bir sekmede açmak için. Yeni sekme tüm verileri gruplandırma, filtreleme veya renk kurallarını içermeyen günlük dosyalarınızı gösterir.
 3. Araç şeridinde seçin **görünüm yerleşimini**, ardından **tüm .NET istemci sütunları** altında **Azure depolama** bölümü. Bu görünüm yerleşimini, sunucu ve ağ izleme günlüklerini yanı sıra log istemci verileri gösterir. Varsayılan olarak üzerinde sıralanır **Lowmessages** sütun.
 4. Ardından, istemci istek kimliği için istemci günlük arama Araç şeridinde seçin **iletileri Bul'u**, ardından özel bir filtre istemci istek Kimliğini belirtin **Bul** alan. Kendi istemci istek kimliği belirleme filtresi için aşağıdaki sözdizimini kullanın:
@@ -303,18 +303,18 @@ Günlük verilerinizi analiz etmek için ileti Çözümleyicisi kullanımıyla i
 | Kuyrukta ileti tesliminde beklenmeyen gecikmeler |"Yeniden deneniyor, işlem başarısız oldu." AzureStorageClientDotNetV4.Description içerir |İstemci |
 | HTTP Percentthrottlingerror'da artış |HTTP.Response.StatusCode   == 500 &#124;&#124; HTTP.Response.StatusCode == 503 |Ağ |
 | Percenttimeouterror'da artış artırın |HTTP.Response.StatusCode   == 500 |Ağ |
-| (Tümü) Percenttimeouterror'da artış artırın |* StatusCode 500 == |Tümü |
+| (Tümü) Percenttimeouterror'da artış artırın |\* StatusCode 500 == |Tümü |
 | Percentnetworkerror'da artış artırın |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |İstemci |
 | HTTP 403 (Yasak) iletileri |HTTP.Response.StatusCode   == 403 |Ağ |
 | HTTP 404 (bulunamadı) iletileri |HTTP. Response.StatusCode 404 == |Ağ |
-| 404 (Tümü) |* Durum kodu 404 == |Tümü |
+| 404 (Tümü) |\* Durum kodu 404 == |Tümü |
 | Paylaşılan erişim imzası (SAS) yetkilendirme sorunu |AzureStorageLog.RequestStatus "SASAuthorizationError" == |Ağ |
 | 409 (Çakışma) HTTP iletileri |HTTP.Response.StatusCode   == 409 |Ağ |
-| 409 (Tümü) |* StatusCode 409 == |Tümü |
-| Düşük PercentSuccess veya Analiz günlük girişlerini ClientOtherErrors işlem durumundaki işlemlerini sahip |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Sunucu |
-| Nagle Uyarısı |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) ve (AzureStorageLog.RequestPacketSize < 1460) ve (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Sunucu |
+| 409 (Tümü) |\* StatusCode 409 == |Tümü |
+| Düşük PercentSuccess veya Analiz günlük girişlerini ClientOtherErrors işlem durumundaki işlemlerini sahip |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Sunucusu |
+| Nagle Uyarısı |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) ve (AzureStorageLog.RequestPacketSize < 1460) ve (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Sunucusu |
 | Sunucu ve ağ günlüklerinde zaman aralığı |#Timestamp > = 2014-10-20T16:36:38 ve #Timestamp < = 2014-10-20T16:36:39 |Sunucu, ağ |
-| Sunucu günlükleri, zaman aralığı |AzureStorageLog.Timestamp > = 2014-10-20T16:36:38 ve AzureStorageLog.Timestamp < = 2014-10-20T16:36:39 |Sunucu |
+| Sunucu günlükleri, zaman aralığı |AzureStorageLog.Timestamp > = 2014-10-20T16:36:38 ve AzureStorageLog.Timestamp < = 2014-10-20T16:36:39 |Sunucusu |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Depolama'daki sorun giderme uçtan uca senaryolar hakkında daha fazla bilgi için şu kaynaklara bakın:

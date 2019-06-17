@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60598271"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Mobility hizmeti yüklemesi System Center Configuration Manager ile otomatik hale getirin
@@ -37,7 +37,7 @@ Alternatif olarak, Mobility hizmeti yüklemesi ile otomatikleştirebilirsiniz [A
 > [!NOTE]
 > Bu makalede, yapılandırma sunucusunun IP adresi 192.168.3.121 olduğunu ve güvenli bir ağ dosya paylaşımına olduğunu varsayar \\\ContosoSecureFS\MobilityServiceInstallers.
 
-### <a name="prepare-for-deployment"></a>Dağıtım için hazırlanma
+### <a name="prepare-for-deployment"></a>Dağıtıma hazırlanma
 1. Ağ paylaşımında bir klasör oluşturun ve adlandırın **MobSvcWindows**.
 2. Yapılandırma sunucunuzda oturum açın ve bir yönetici komut istemi açın.
 3. Parola dosyası oluşturmak için aşağıdaki komutları çalıştırın:
@@ -210,7 +210,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 > [!TIP]
 > Gereksiz yeniden başlatmalardan önlemek için paket yükleme aylık bir bakım penceresi ya da yazılım güncelleştirmeleri penceresi sırasında zamanlayın.
 
-Configuration Manager konsolunu kullanarak dağıtımın ilerleme durumunu izleyebilirsiniz. Git **izleme** > **dağıtımları** > *[paketinizin adını]*.
+Configuration Manager konsolunu kullanarak dağıtımın ilerleme durumunu izleyebilirsiniz. Git **izleme** > **dağıtımları** >  *[paketinizin adını]* .
 
   ![Dağıtımları izlemek için Configuration Manager ekran seçeneği](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
 
@@ -218,7 +218,7 @@ Configuration Manager konsolunu kullanarak dağıtımın ilerleme durumunu izley
 > [!NOTE]
 > Bu makalede, yapılandırma sunucusunun IP adresi 192.168.3.121 olduğunu ve güvenli bir ağ dosya paylaşımına olduğunu varsayar \\\ContosoSecureFS\MobilityServiceInstallers.
 
-### <a name="prepare-for-deployment"></a>Dağıtım için hazırlanma
+### <a name="prepare-for-deployment"></a>Dağıtıma hazırlanma
 1. Ağ paylaşımında bir klasör oluşturun ve olarak adlandırın **MobSvcLinux**.
 2. Yapılandırma sunucunuzda oturum açın ve bir yönetici komut istemi açın.
 3. Parola dosyası oluşturmak için aşağıdaki komutları çalıştırın:

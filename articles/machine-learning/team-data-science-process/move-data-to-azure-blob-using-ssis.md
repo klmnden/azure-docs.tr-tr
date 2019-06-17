@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61429895"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>İçin veya SSIS bağlayıcıları kullanarak Azure Blob Depolama veri taşıma
@@ -42,7 +42,7 @@ Bu makalede açıklanan görevler gerçekleştirmek için bir Azure aboneliği v
 
 Kullanılacak **SSIS bağlayıcıları**, yüklemeniz gerekir:
 
-* **SQL Server 2014 veya 2016 standart (veya üstü)**: SQL Server Integration Services yükleme içerir.
+* **SQL Server 2014 veya 2016 standart (veya üstü)** : SQL Server Integration Services yükleme içerir.
 * **Microsoft SQL Server 2014 veya 2016 Integration Services için Azure Feature Pack**: Bu indirilebilir, sırasıyla gelen [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) ve [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) sayfaları.
 
 > [!NOTE]

@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150747"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Azure dosya eşitleme için StorSimple 5000-7000 serisinden veri geçirme
@@ -33,7 +33,7 @@ StorSimple 5000 ve 7000 Serisi depolama cihazları içinde Temmuz 2019 hizmet so
 
 Bu makalede, bilgi teknolojisi (BT) uzmanları ve StorSimple 5000/7000 Serisi cihazlar datacentre dağıtıp sorumlu olan bilgi çalışanları için tasarlanmıştır. Dosya sunucusu iş yükleri (ile Windows Server) için StorSimple cihazlarını kullanan müşteriler bu geçiş yolu özellikle çekici fark edebilirsiniz. Düşünüyorsanız de kuruluşunuz için Azure dosya eşitleme özellikleri çalışmaz ve bu makalede, bu çözümleri Storsimple'dan taşıma anlamanıza yardımcı olacaktır.
 
-## <a name="migration-considerations"></a>Geçiş konuları
+## <a name="migration-considerations"></a>Geçiş sırasında dikkat edilmesi gerekenler
 
 Bu işlem, depolama için StorSimple birimini kullanarak bir Windows dosya paylaşımı yapılandıran müşteriler için çalışır. Azure dosya eşitleme StorSimple 5000/7000'den geçirme verilerini içerir, dosya paylaşım konumunu dönüştürme bir [sunucu uç noktası](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) ve ardından yeni konumunuzu olacak başka bir uç bağlı sürücüleri yerel olarak kullanma. 
 

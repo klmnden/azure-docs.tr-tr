@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630147"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple sanal dizisi en iyi uygulamalar
@@ -107,7 +107,7 @@ Toplam diskinizin % 15, böylece yalnızca 0.85 kullanılabilir anlık görünt�
 
 Beklenmeyen büyümesine hesaba katacak şekilde, yerel bir 1,25-1,5 TB disk sağlayabilirsiniz.
 
-### <a name="group-policy"></a>Grup ilkesi
+### <a name="group-policy"></a>Grup İlkesi
 Grup İlkesi, kullanıcılar ve bilgisayarlar için belirli yapılandırmaları uygulamak izin veren bir altyapıdır. Grup İlkesi ayarları, Grup İlkesi nesneleri (GPO'lar), Active Directory etki alanı Hizmetleri (AD DS) kapsayıcıların bağlanılan içindedir: sitelere, etki alanları veya kuruluş birimlerine (OU). 
 
 Sanal diziniz etki alanına katılmış ise, GPO'ları uygulanabilir. StorSimple sanal dizisi işlemi olumsuz yönde etkileyebilir bir virüsten koruma yazılımı gibi uygulamalar bu GPO'larını yükleyebilirsiniz.

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure services
-origin.date: 08/03/2017
-ms.date: 02/26/2019
-ms.author: v-junlch
+ms.date: 08/03/2017
+ms.author: amsriva
 ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122243"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Uygulama ağ geçidi SSL ilkesine genel bakış
@@ -65,9 +64,9 @@ Uygulama ağ geçidi üç önceden tanımlı güvenlik ilkeleri vardır. Ağ ge�
  
 ### <a name="ssl-protocol-versions"></a>SSL protokolü sürümlerini
 
-- SSL 2.0 ve 3.0, tüm application gateway'ler için varsayılan olarak devre dışıdır. Bu protokol sürümleri yapılandırılabilir değildir.
-- Özel bir SSL İlkesi, ağ geçidiniz için en düşük SSL protokolü sürümü olarak şu üç protokolden herhangi birini seçmek için seçeneği sunar: TLSv1_0, TLSv1_1 ve TLSv1_2.
-- Hiçbir SSL İlkesi tanımlanmazsa, tüm üç protokolden (TLSv1_0, TLSv1_1 ve TLSv1_2) etkinleştirilir.
+* SSL 2.0 ve 3.0, tüm application gateway'ler için varsayılan olarak devre dışıdır. Bu protokol sürümleri yapılandırılabilir değildir.
+* Özel bir SSL İlkesi, ağ geçidiniz için en düşük SSL protokolü sürümü olarak şu üç protokolden herhangi birini seçmek için seçeneği sunar: TLSv1_0, TLSv1_1 ve TLSv1_2.
+* Hiçbir SSL İlkesi tanımlanmazsa, tüm üç protokolden (TLSv1_0, TLSv1_1 ve TLSv1_2) etkinleştirilir.
 
 ### <a name="cipher-suites"></a>Şifre paketleri
 
@@ -106,5 +105,3 @@ Application Gateway, özel ilkeniz seçim yapabileceğiniz aşağıdaki şifre p
 ## <a name="next-steps"></a>Sonraki adımlar
 
 SSL İlkesi yapılandırmak için bkz. bilgi almak istiyorsanız [bir uygulama ağ geçidinde SSL yapılandırma İlkesi](application-gateway-configure-ssl-policy-powershell.md).
-
-<!-- Update_Description: wording update -->

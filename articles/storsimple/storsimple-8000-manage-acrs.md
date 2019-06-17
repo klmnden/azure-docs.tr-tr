@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
 ms.openlocfilehash: ade7da25d2307a382c17e7a3cbb26b601c34ef78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60321629"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693246"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Erişim denetimi kayıtları yönetmek için StorSimple Yöneticisi hizmetini kullanma
 
@@ -59,7 +59,7 @@ Bir ACR'yi eklemek için aşağıdaki adımları gerçekleştirin.
 
     1. Bir ad verin sağlayın.
     
-    2. Windows Server konağınızda IQN adı sağlayın **iSCSI başlatıcısı adı (IQN)**.
+    2. Windows Server konağınızda IQN adı sağlayın **iSCSI başlatıcısı adı (IQN)** .
 
     3. Tıklayın **Ekle** ACR oluşturma.
 

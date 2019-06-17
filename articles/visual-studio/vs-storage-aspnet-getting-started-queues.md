@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ms.openlocfilehash: 3f3a649308449a8ba4e1dbaebd4db4afbf731c5b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110494"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
@@ -139,7 +139,7 @@ Aşağıdaki adımlar, bir kuyruk oluşturulacağını göstermektedir:
 
 1. Uygulamayı çalıştırmak ve seçmek **kuyruk Oluştur** aşağıdaki ekran görüntüsüne benzer bir sonuç görmek için:
   
-    ![Kuyruk oluştur](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
+    ![Kuyruk oluşturma](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
     Daha önce de belirtildiği **CloudQueue.CreateIfNotExists** yöntemi döndürür **true** yalnızca kuyruk yok ve oluşturulur. Bu nedenle, sıranın mevcut olduğunda uygulama çalıştırırsanız, yöntem döndürür **false**. Uygulama birden çok kez çalıştırmak için uygulamayı yeniden çalıştırmadan önce sıranın silmeniz gerekir. Aracılığıyla bir sırayı silmek yapılabilir **CloudQueue.Delete** yöntemi. Kuyruk kullanarak silebilirsiniz [Azure portalında](https://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 

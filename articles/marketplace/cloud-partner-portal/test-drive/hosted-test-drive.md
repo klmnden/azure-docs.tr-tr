@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: b8f9ca96ac9386037460ad5c1c9f56fe7b9c2e18
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939992"
 ---
 # <a name="hosted-test-drive"></a>Barındırılan Test Sürüşü
@@ -41,7 +41,7 @@ Aşağıdaki alanları sağlar \'teknik yapılandırma\' bölümü:
 
 - **Test Sürüşü türünü**: Seçin \'Microsoft Hosted (örneğin Dynamics 365 müşteri katılımı)' seçeneği. Bu, Microsoft barındırma ve Test Sürüşü kullanıcı sağlama ve sağlamayı kaldırma gerçekleştiren hizmetin bakımını gösterir.
 - **Maksimum eşzamanlı Test Sürüşleri**: Bu alan zaman belirli bir anda etkin olan bir Test Sürüşü olan eş zamanlı kullanıcı sayısıyla ayarlayın. Test Sürüşü kullanıcılar için kullanılabilir olan en az bu kadar çok Dynamics lisans olduğundan emin olmak ihtiyacınız olacak şekilde, Test Sürüşü etkin olduğu sürece her kullanıcı bir Dynamics lisansı kullanacaktır. Önerilen değeri 3-5.
-- **Test sürücü süresi (saat)**: Bu alan, Test Sürüşü için etkin kullanıcılar saat sayısını ayarlayın. Bu kadar çok saat sonra kiracınızdan kullanıcı sağlaması. Uygulamanızı karmaşıklığına bağlı olarak 2-24 saat değerini önerilir. Süre bitti çalıştırıp Test Sürüşü yeniden erişmek istediğiniz kullanıcı her zaman başka bir Test Sürüşü isteyebilir.
+- **Test sürücü süresi (saat)** : Bu alan, Test Sürüşü için etkin kullanıcılar saat sayısını ayarlayın. Bu kadar çok saat sonra kiracınızdan kullanıcı sağlaması. Uygulamanızı karmaşıklığına bağlı olarak 2-24 saat değerini önerilir. Süre bitti çalıştırıp Test Sürüşü yeniden erişmek istediğiniz kullanıcı her zaman başka bir Test Sürüşü isteyebilir.
 - **Örnek URL**: Kullanıcıdan Test Sürüşü başlatırken Test Sürüşü kullanıcı için başlangıçta gidilecek bir URL sağlayın. Uygulamanızın vardır, Dynamics 365 örneğinizin URL'si genellikle budur ve örnek veriler üzerinde yüklü. Örnek değer: https:\//testdrive.crm.dynamics.com
 - **Azure AD Kiracı kimliği**: Dynamics 365 örneğinizin Azure Kiracı kimliği sağlayın. Bu değer, Azure portalında oturum açın alıp gidin \'Azure Active Directory\'  - \> seçin menü dikey penceresi - özelliklerinden\> dizin kimliği kopyalayın Örnek değer: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **Azure AD uygulama kimliği**: 7. adımda oluşturduğunuz Azure AD uygulama kimliği. \ örnek değeri: 53852862-a2ae-4e43-9461-faa49650a096

@@ -11,10 +11,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811788"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Takım için görevleri takım veri bilimi işlemi takıma sağlama
@@ -25,7 +25,7 @@ A **ekibine Liderlikte** kurumsal bir veri bilimi birimindeki ekibi yönetir. Ta
 
 ![1](./media/team-lead-tasks/team-leads-1-creating-teams.png)
 
->[AZURE.NOTE] 1. ve 2 segmentini blokları görevleri kod ana bilgisayar platformu Azure DevOps kullanıyorsanız ve kendi ekibiniz için ayrı bir Azure DevOps projesi bulunmasını gereklidir. Bu görevler tamamlandıktan sonra ekibinizin tüm depolar bu projesi altında oluşturulabilir. 
+>[AZURE.NOTE] 1\. ve 2 segmentini blokları görevleri kod ana bilgisayar platformu Azure DevOps kullanıyorsanız ve kendi ekibiniz için ayrı bir Azure DevOps projesi bulunmasını gereklidir. Bu görevler tamamlandıktan sonra ekibinizin tüm depolar bu projesi altında oluşturulabilir. 
 
 Aşağıdaki bölümde belirttiğiniz görev grubu yöneticisi tarafından karşılanan birkaç önkoşul sonra beş asıl görevler vardır (bazı isteğe bağlı) Bu öğreticinin tamamlanması. Bu görevler, bu konu başlığının bölümleri numaralı ana karşılık gelir:
 

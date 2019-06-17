@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 9ac87bbf5089dd20b8c6eeec0b970a7767b3dcda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302627"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64723954"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>StorSimple sanal dizisi için bir destek isteği açmak için StorSimple cihaz Yöneticisi hizmetini kullanma
 
@@ -63,7 +63,7 @@ Bir destek bileti oluşturduktan sonra portal üzerinden bu biletin yaşam döng
 
 Yardım ve Destek sayfasına ulaşmak için gidin **Gözat > Yardım + Destek**.
 
-![Destek isteklerini yönet](./media/storsimple-virtual-array-log-support-ticket/manage-support-tickets.png)
+![Destek isteklerini yönetin](./media/storsimple-virtual-array-log-support-ticket/manage-support-tickets.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

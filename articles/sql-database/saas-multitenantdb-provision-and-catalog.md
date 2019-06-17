@@ -13,10 +13,10 @@ ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61486005"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Parçalı bir çok kiracılı Azure SQL veritabanı kullanan bir SaaS uygulamasında yeni kiracılar sağlama ve kataloğa kaydetme
@@ -169,7 +169,7 @@ Wingtip uygulama yeni Kiracı sağlama paylaşılan bir veritabanı içinde nas�
 
 4. Betik yürütme kesme noktasında durduktan sonra basın **F11** için kod içine Adımlama.
 
-   ![hata Ayıkla](media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![Hata ayıklama](media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. Betiğin yürütülmesini izleme kullanarak **hata ayıklama** menü seçenekleri **F10** ve **F11**üzerinden veya çağrılan işlevlerin adımlamak için.
 

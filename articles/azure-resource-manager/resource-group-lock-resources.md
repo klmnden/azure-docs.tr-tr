@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
 ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65813396"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Beklenmeyen değişiklikleri önlemek için kaynakları kilitleme 
@@ -59,7 +59,7 @@ Bildirim hizmeti için bir bağlantı içeren bir **yönetilen kaynak grubu**. B
 
 Hizmeti kilitli altyapı kaynak grubu da dahil olmak üzere her şeyi silmek için seçin **Sil** hizmeti.
 
-![Hizmeti sil](./media/resource-group-lock-resources/delete-service.png)
+![Hizmeti Sil](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
@@ -177,7 +177,7 @@ $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceN
 Remove-AzResourceLock -LockId $lockId
 ```
 
-## <a name="azure-cli"></a>Azure CLI'si
+## <a name="azure-cli"></a>Azure CLI
 
 Kilit dağıtılan kaynaklar ile Azure CLI kullanarak [az lock oluşturma](/cli/azure/lock#az-lock-create) komutu.
 

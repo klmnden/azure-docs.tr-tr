@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 3ce881da4b683cf7034100d5044dd0f3c93edb52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b5b1f24fb22ff0922c362bd9911ad5c42236ee6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800174"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051723"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux) için Azure Disk şifrelemesi
 
@@ -40,7 +40,42 @@ Azure Disk şifrelemesi, şu anda select dağıtımları ve sürümlerinde deste
 
 Linux için Azure Disk şifrelemesi, erişim için Active Directory, Key Vault, depolama ve paket yönetim uç noktalarını Internet bağlantısı gerektirir.  Daha fazla bilgi için [Azure Disk şifrelemesi önkoşulları](../../security/azure-security-disk-encryption-prerequisites.md).
 
-## <a name="extension-schema"></a>Uzantı şeması
+## <a name="extension-schemata"></a>Uzantı şemaların
+
+Azure Disk şifrelemesi için iki şemaların vardır: v1.1, Azure Active Directory (AAD) özellikleri ve v0.1 kullanmaz daha yeni ve önerilen şema, AAD özellikleri gerektiren daha eski bir şema. Kullanmakta olduğunuz uzantısı için karşılık gelen şema sürümü kullanmanız gerekir: şema v1.1 uzantısı sürüm 1.1, uzantı sürümü 0,1 AzureDiskEncryptionForLinux için şema v0.1 AzureDiskEncryptionForLinux için.
+### <a name="schema-v11-no-aad-recommended"></a>Şema v1.1: Hiçbir AAD (önerilir)
+
+V1.1 şeması önerilir ve Azure Active Directory özelliklerini gerektirmez.
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+        "publisher": "Microsoft.Azure.Security",
+        "settings": {
+          "DiskFormatQuery": "[diskFormatQuery]",
+          "EncryptionOperation": "[encryptionOperation]",
+          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KeyVaultURL": "[keyVaultURL]",
+          "SequenceVersion": "sequenceVersion]",
+          "VolumeType": "[volumeType]"
+        },
+        "type": "AzureDiskEncryptionForLinux",
+        "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+
+### <a name="schema-v01-with-aad"></a>Şema v0.1: AAD ile 
+
+0,1 şema gerektirir `aadClientID` ve her iki `aadClientSecret` veya `AADClientCertificate`.
+
+Kullanarak `aadClientSecret`:
 
 ```json
 {
@@ -70,23 +105,54 @@ Linux için Azure Disk şifrelemesi, erişim için Active Directory, Key Vault, 
 }
 ```
 
+Kullanarak `AADClientCertificate`:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "protectedSettings": {
+      "AADClientCertificate": "[aadClientCertificate]",
+      "Passphrase": "[passphrase]"
+    },
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "DiskFormatQuery": "[diskFormatQuery]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+    "type": "AzureDiskEncryptionForLinux",
+    "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+
 ### <a name="property-values"></a>Özellik değerleri
 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
-| AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| AADClientSecret | password | string |
-| AADClientCertificate | thumbprint | string |
+| türü | AzureDiskEncryptionForLinux | string |
+| typeHandlerVersion | 0.1, 1.1 | int |
+| (0,1 Şeması) Aadclientıd | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (0,1 Şeması) AADClientSecret | password | string |
+| (0,1 Şeması) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path": "", "name": "","file_system": ""} | JSON sözlüğü |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | 'OAEP RSA', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
-| KeyVaultURL | url | string |
-| Passphrase | password | string | 
+| (optional) KeyVaultURL | url | string |
+| Parola | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | İşletim sistemi, veri, tüm | string |
 

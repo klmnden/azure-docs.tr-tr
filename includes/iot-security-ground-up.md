@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166299"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Nesnelerin interneti (IOT) baştan için güvenlik
@@ -23,7 +23,7 @@ Bu makalede, IOT Çözüm Hızlandırıcıları güvenli ve özel bir nesnelerin
 
 Çözüm Hızlandırıcıları benzersiz özellikleri IOT cihazlarından kolay ve saydam veri depolama sağlama yapma ve bağlanma sunuyor ve en önemlisi, güvenli. Bu makale Azure IOT Çözüm Hızlandırıcıları güvenlik özelliklerini inceler ve güvenlik, gizlilik ve uyumluluk sorunları emin olmak için Dağıtım stratejisi ele alınır.
 
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 
 Nesnelerin interneti (IOT), gelecekteki, işletmelerin hemen sunan ve maliyetleri azaltmak için gelirinizi artırın ve kendi işletmelerini dönüştürme için gerçek fırsatları wave olur. Birçok işletme, ancak kendi kuruluşlardaki güvenlik, gizlilik ve uyumluluk ile ilgili endişelerini nedeniyle IOT dağıtmak bunu yapamıyor. Önemli önemli bir nokta oluşturulduğunda sanal ve fiziksel ortamdan birlikte, bu iki platformdan da devralınan bireysel risklerin birleşmesi, kullanılması birleştirir IOT altyapısı, gelir. IOT güvenlik ilgilidir cihaz üzerinde çalışan kod bütünlüğünü sağlamak için cihaz ve kullanıcı kimlik doğrulaması sağlamak cihazların (yanı sıra bu cihazları tarafından oluşturulan verileri) Temizle sahipliğini tanımlama ve siber ve fiziksel saldırılara karşı dayanıklı.
 

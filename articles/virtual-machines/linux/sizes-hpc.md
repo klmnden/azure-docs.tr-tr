@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 32b0f467f11cf8cb0a04657006cb5a86b11e27e9
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 003a14174ff65bab253f27a458d4f3e2c0a1a6db
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069991"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Yüksek performanslı bilgi işlem, sanal makine boyutları
 
@@ -72,7 +72,7 @@ Azure marketi, RDMA bağlantısı destekleyen çok sayıda Linux dağıtımları
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
 
-  MPI ayarı Infiniband, etkinleştirme hakkında daha fazla ayrıntı için bkz. [etkinleştirme InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov).
+  MPI ayarı Infiniband, etkinleştirme hakkında daha fazla ayrıntı için bkz. [etkinleştirme InfiniBand](../workloads/hpc/enable-infiniband.md).
 
 
 ### <a name="cluster-configuration-options"></a>Küme yapılandırma seçenekleri
@@ -107,5 +107,5 @@ Azure, RDMA ağ aracılığıyla iletişim kuran Linux HPC VM kümeleri oluştur
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kurulum, en iyi duruma getirmek ve ölçeklendirme hakkında daha fazla bilgi [HPC iş yüklerini](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc) azure'da.
+- Kurulum, en iyi duruma getirmek ve ölçeklendirme hakkında daha fazla bilgi [HPC iş yüklerini](../workloads/hpc/configure.md) azure'da.
 - Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları arasında işlem performansını karşılaştırmanıza yardımcı olabilir.

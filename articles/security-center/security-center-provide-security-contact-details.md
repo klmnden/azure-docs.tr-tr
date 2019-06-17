@@ -15,24 +15,24 @@ ms.workload: na
 ms.date: 1/9/2018
 ms.author: rkarlin
 ms.openlocfilehash: b6babf7d5d5a0f5796efa9418044366c6a135ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60909302"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik kişi ayrıntılarını sağlama
 Azure Güvenlik Merkezi, henüz yapmadıysanız, Azure aboneliğiniz için güvenlik kişi ayrıntılarını sağlama önerir. Bu bilgiler, Microsoft Güvenlik Yanıt Merkezi (MSRC) müşteri verilerinize yasadışı veya yetkisiz bir tarafın eriştiğini belirlerse Microsoft tarafından sizinle iletişim kurmak için kullanılır. MSRC select güvenlik Azure ağ ve altyapı izleme gerçekleştirir ve Üçüncü taraflardan tehdit zekası ve kötüye kullanımı şikayetlerinin alır.
 
-İlk günlük örneğinde bir uyarı ve yalnızca yüksek önem düzeyindeki uyarılar için e-posta bildirimi gönderilir. E-posta tercihleri yalnızca abonelik ilkeleri için yapılandırılabilir. Bir abonelik içindeki kaynak grupları, bu ayarları devralır. 
+Bir uyarının gün içinde ilk kez oluşması durumunda ve yalnızca yüksek önem düzeyindeki uyarılar için bir e-posta bildirimi gönderilir. E-posta tercihleri yalnızca abonelik ilkeleri için yapılandırılabilir. Bir aboneliğin altındaki kaynak grupları bu ayarları devralır. 
 
-Uyarı e-posta bildirimi gönderilir:
-- Yalnızca yüksek önem düzeyindeki uyarılar için
-- Her gün başına uyarı türü için bir tek e-posta alıcı  
+Uyarı e-posta bildirimleri şu durumlarda gönderilir:
+- Yalnızca yüksek önem derecesindeki uyarılar için
+- Uyarı türüne göre günde yalnızca tek bir e-posta alıcısına  
 - Tek bir günde gönderilen en fazla 3 e-posta iletileri için tek bir alıcı
-- Her e-posta iletisi olmayan bir toplama uyarıları tek bir uyarı içeriyor
+- Her e-posta iletisinde tek bir uyarı bulunur, uyarılar toplu gönderilmez
  
-Bir RDP saldırısı hakkında uyarmak için zaten bir e-posta iletisi gönderildi, başka bir uyarı tetiklenir bile gibi aynı günde bir RDP saldırısı hakkında başka bir e-posta iletisi alırsınız değil. 
+Örneğin bir RDP saldırısı konusunda uyarmak için bir e-posta iletisi gönderildiyse uyarı tetiklense dahi aynı gün içinde RDP saldırısıyla ilgili başka bir e-posta iletisi gönderilmez. 
  
 
 > [!NOTE]

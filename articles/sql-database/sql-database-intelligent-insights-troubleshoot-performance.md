@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703508"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
@@ -111,7 +111,7 @@ En iyi duruma getirme veya birden çok veritabanı dağıtma iş yükünü de az
 
 Ek sorun giderme önerileri için bkz. [bellek meditasyon verir: Gizemli SQL Server bellek tüketici birçok adlarla](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
-## <a name="locking"></a>Kilitleniyor
+## <a name="locking"></a>Kilitleme
 
 ### <a name="what-is-happening"></a>Ne oluyor
 
@@ -189,7 +189,7 @@ Tanılama Günlüğü, iş yükü performansı etkileyecek şekilde tanımlanan 
 > SQL veritabanı'nın sürekli performansı iyileştirmek için bunu, etkinleştirmenizi öneririz. [SQL veritabanı otomatik ayarlama](sql-database-automatic-tuning.md). SQL veritabanı'nın yerleşik zekası, bu benzersiz özellik sürekli olarak izler, SQL veritabanı ve otomatik olarak ayarlar ve veritabanlarınızın dizinlerini oluşturur.
 >
 
-## <a name="new-query"></a>Yeni Sorgu
+## <a name="new-query"></a>Yeni sorgu
 
 ### <a name="what-is-happening"></a>Ne oluyor
 

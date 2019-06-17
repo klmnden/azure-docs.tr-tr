@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132788"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
@@ -88,5 +88,5 @@ Değerleri aşağıdaki önbellek boyutlarına karşılık gelir:
 | 2     | 2,5 GB                           | 13 GB                 |
 | 3     | 6 GB                             | 26 GB                 |
 | 4     | 13 GB                            | 53 GB                 |
-| 5     | 26 GB                            | 110 GB                |
+| 5     | 26 GB                            | 120 GB                |
 | 6     | 53 GB                            | yok                   |

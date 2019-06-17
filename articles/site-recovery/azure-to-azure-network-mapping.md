@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: b25806044dd74092a5404ad7ef24ddd386dffbc3
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521749"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Ağ eşlemesini ve sanal ağlar için IP adresini ayarlama
@@ -71,7 +71,7 @@ Hedef sanal makinedeki her NIC için IP adresini aşağıdaki gibi yapılandır�
 - **Statik IP adresi**: Kaynak NIC VM statik IP adresleme kullanıyorsa, hedef VM NIC de statik IP adresi kullanır.
 
 
-## <a name="ip-address-assignment-during-failover"></a>Yük devretme sırasında IP adresi ataması
+## <a name="ip-address-assignment-during-failover"></a>Yük devretme sırasında IP adresi atama
 
 **Kaynak ve hedef alt ağlar** | **Ayrıntılar**
 --- | ---

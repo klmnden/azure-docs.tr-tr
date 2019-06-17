@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371958"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Faturalandırma sahipliğini diğer kullanıcıların Azure aboneliği edinin
@@ -35,7 +35,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. **Maliyet Yönetimi + Faturalama** araması yapın.
+2. Arama **maliyet Yönetimi + faturalandırma**.
 
    ![Maliyet Yönetimi + faturalandırma için Azure portalı arama gösteren ekran görüntüsü](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
@@ -64,7 +64,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. **Maliyet Yönetimi + Faturalama** araması yapın.
+2. Arama **maliyet Yönetimi + faturalandırma**.
 
    ![Maliyet Yönetimi + faturalandırma için Azure portalı arama gösteren ekran görüntüsü](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
@@ -81,7 +81,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
    |---------|---------|
    |İstek tarihi|Aktarım isteği zaman gönderildiği tarih|
    |Alıcı|Faturalandırma sahipliğini aktarma isteği gönderildi kullanıcının e-posta adresi|
-   |Son kullanma tarihi|İsteğin süresinin dolduğu tarih|
+   |Sona erme tarihi|İsteğin süresinin dolduğu tarih|
    |Durum|Aktarım isteğinin durumu|
 
     Aktarım isteği, aşağıdaki durumlardan biri olabilir:
@@ -94,7 +94,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
    |Hatalarla tamamlandı|İsteği tamamlandı ancak kullanıcının seçtiği bazı abonelikler için faturalama aktarılan uygulanamadı|
    |Süresi dolmuş|Kullanıcı isteği zamanında kabul etmedi ve ve süresi doldu|
    |İptal edildi|Aktarım İsteği erişimi olan istek iptal edildi|
-   |Reddedildi|Kullanıcı, aktarım isteğini reddetti.|
+   |Reddetti|Kullanıcı, aktarım isteğini reddetti.|
 
 6. Ayrıntılarını görüntülemek için bir aktarım isteği seçin. Aktarım Ayrıntıları sayfasında aşağıdaki bilgileri görüntüler:
    <!-- Todo - Add a screenshot -->
@@ -159,7 +159,7 @@ SaaS ürünlerinde aboneliklerle aktarılmıyor. Kullanıcıya sor [Azure deste�
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
 Yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
 

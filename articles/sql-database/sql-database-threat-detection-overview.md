@@ -13,10 +13,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/31/2019
 ms.openlocfilehash: 710a94c919f4262c3f572f28d03c79b77e658287
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614570"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL veritabanı için Gelişmiş tehdit koruması
@@ -34,7 +34,7 @@ Gelişmiş tehdit koruması parçasıdır [gelişmiş veri güvenliği](sql-data
 
 Etkinleştirmek için önerilen bir tam araştırma deneyimi için [SQL Database Auditing](sql-database-auditing.md), bir denetim veritabanı olaylarını Azure depolama hesabınızdaki günlüğe yazar.  
 
-## <a name="advanced-threat-protection-alerts"></a>Gelişmiş Tehdit Koruması uyarıları
+## <a name="advanced-threat-protection-alerts"></a>Gelişmiş tehdit koruması uyarıları
 
 Azure SQL veritabanı için Gelişmiş tehdit koruması erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar ve aşağıdaki uyarılar tetikleyebilirsiniz:
 

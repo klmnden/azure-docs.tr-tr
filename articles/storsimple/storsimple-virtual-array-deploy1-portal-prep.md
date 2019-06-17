@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127149"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple sanal Dizini'ni dağıtma - Azure portal'ı hazırlama
@@ -90,7 +90,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 Portalınız için StorSimple cihaz Yöneticisi hizmeti hazırlamak için aşağıdaki adım adım yönergeleri kullanın.
 
-## <a name="step-1-create-a-new-service"></a>1. Adım: Yeni hizmet oluşturma
+## <a name="step-1-create-a-new-service"></a>1\. adım: Yeni hizmet oluşturma
 
 Birden çok StorSimple sanal dizisi, StorSimple cihaz Yöneticisi hizmetinin tek bir örneğini yönetebilir. StorSimple Cihaz Yöneticisi hizmetinin bir örneğini oluşturmak için aşağıdaki adımları gerçekleştirin. Sanal diziler yönetmek için mevcut bir StorSimple cihaz Yöneticisi hizmeti varsa, bu adımı atlayın ve Git [2. adım: Hizmet kayıt anahtarı alma](#step-2-get-the-service-registration-key).
 
@@ -104,7 +104,7 @@ Birden çok StorSimple sanal dizisi, StorSimple cihaz Yöneticisi hizmetinin tek
 > 
 > 
 
-## <a name="step-2-get-the-service-registration-key"></a>2. Adım: Hizmet kayıt anahtarı alma
+## <a name="step-2-get-the-service-registration-key"></a>2\. adım: Hizmet kayıt anahtarı alma
 
 StorSimple Cihaz Yöneticisi hizmeti çalışır duruma geldikten sonra, hizmet kayıt anahtarını almanız gerekir. Bu anahtar StorSimple cihazınızı kaydetmek ve hizmete bağlamak için kullanılır.
 
@@ -117,7 +117,7 @@ StorSimple Cihaz Yöneticisi hizmeti çalışır duruma geldikten sonra, hizmet 
 > 
 > 
 
-## <a name="step-3-download-the-virtual-array-image"></a>3. Adım: Sanal dizi görüntüsünü indir
+## <a name="step-3-download-the-virtual-array-image"></a>3\. adım: Sanal dizi görüntüsünü indir
 
 Hizmet kayıt anahtarını aldıktan sonra ana bilgisayar sisteminizin üzerinde bir sanal diziyi sağlamak için uygun sanal dizi görüntüsünü indir gerekecektir. Sanal dizi görüntüleri, belirli işletim sistemi ve Azure portalında hızlı başlangıç sayfasından indirilebilir.
 
@@ -152,7 +152,7 @@ Aşağıdaki adımlarda gerçekleştirmek [Azure portalında](https://ms.portal.
 
 1. Cihaz Yöneticisi hizmetinize select gidin ve çift tıklayın. Bu açılır **genel bakış** dikey penceresi.
 2. Seçin **depolama hesabı kimlik bilgileri** içinde **yapılandırma** bölümü.
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 4. İçinde **bir depolama hesabı ekleme** dikey penceresinde aşağıdakileri yapın:
    
    1. İçin **abonelik**seçin **geçerli**.
@@ -161,7 +161,7 @@ Aşağıdaki adımlarda gerçekleştirmek [Azure portalında](https://ms.portal.
    
    3. Seçin **etkinleştirme** StorSimple cihazınız ve bulut arasında ağ iletişimi için güvenli bir kanal oluşturmak için. Seçin **devre dışı** yalnızca, bir özel bulutta işlem yapıyorsanız temizleyin.
    
-   4. **Ekle**'ye tıklayın. Depolama hesabı başarıyla oluşturulduktan sonra size bildirilir.<br></br>
+   4. **Ekle**'yi tıklatın. Depolama hesabı başarıyla oluşturulduktan sonra size bildirilir.<br></br>
    
       ![Mevcut bir depolama hesabı kimlik bilgisi Ekle](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 

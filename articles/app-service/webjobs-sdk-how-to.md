@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831801"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli bir arka plan işlemleri için Azure Web işleri SDK'sını kullanma
@@ -130,7 +130,7 @@ static void Main()
 
 Sürüm 3. *x*, bağlantı sınırı varsayılan olarak sonsuz bağlantıları. Bazı nedenlerden dolayı bu sınırı değiştirmek istiyorsanız, kullanabileceğiniz [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) özelliği [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) sınıfı.
 
-Sürüm 2'de. *x*, kullanarak bir konak için eş zamanlı bağlantı sayısını denetleme [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2. *x*, WebJobs konağınız başlatmadan önce bu varsayılan 2 değerini artırmanız gerekir.
+Sürüm 2'de. *x*, kullanarak bir konak için eş zamanlı bağlantı sayısını denetleme [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2\. *x*, WebJobs konağınız başlatmadan önce bu varsayılan 2 değerini artırmanız gerekir.
 
 Bir işlevden kullanarak yaptığınız tüm giden HTTP isteklerini `HttpClient` akışına `ServicePointManager`. İçinde ayarlanan değere ulaştığında `DefaultConnectionLimit`, `ServicePointManager` göndermeden önce sıraya alma isteği başlatır. Varsayalım, `DefaultConnectionLimit` 2 ve, kod yapar 1.000 HTTP isteği ayarlayın. Başlangıçta, yalnızca iki isteği için işletim sistemi aracılığıyla izin verilir. Diğer 998 kuyruğa oluncaya kadar bunları yer. Yani, `HttpClient` istek yaptığınız göründüğünden, zaman aşımı olabilir, ancak istek hedef sunucuya işletim sistemi tarafından hiçbir zaman gönderildi. Anlamlı yaramadı davranışını görebilirsiniz: yerel `HttpClient` bir isteğin tamamlanması için 10 saniye sürecek ancak hizmetinizi 200 ms içinde her istek döndürüyor. 
 

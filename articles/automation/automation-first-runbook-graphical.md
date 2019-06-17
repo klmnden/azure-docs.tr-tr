@@ -11,10 +11,10 @@ ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61078097"
 ---
 # <a name="my-first-graphical-runbook"></a>İlk grafik runbook uygulamam
@@ -58,7 +58,7 @@ Düzenleyicinin sol tarafındaki Kitaplık denetimi runbook uygulamanıza eklene
 1. Listenin aşağısına kaydırın. **Write-Output**’a sağ tıklayıp **Tuvale ekle**’yi seçebilir ya da cmdlet’in yanındaki üç noktaya tıklayıp ardından **Tuvale ekle**’yi seçebilirsiniz.
 1. Tuvalde **Write-Output** etkinliğine tıklayın. Bu eylem, etkinliği yapılandırmanızı sağlayan yapılandırma denetimi sayfası açılır.
 1. **Etiket** cmdlet’in adını varsayılan olarak alır ancak bunu daha kolay bir şeyle değiştirebilirsiniz. Bunu *çıkışa Hello World yazmak* üzere değiştirin.
-1. Cmdlet parametreleri değerlerini sağlamak için **Parametreler**’e tıklayın. 
+1. Cmdlet parametreleri değerlerini sağlamak için **Parametreler**’e tıklayın.
 
    Bazı cmdlet’ler birden fazla parametre kümesine sahiptir ve kullanacağınız cmdlet’i seçmeniz gerekir. Bu durumda, **Write-Output** yalnızca bir parametre kümesine sahip olur, bu nedenle seçmeniz gerekmez.
 
@@ -152,8 +152,8 @@ Burada bir sanal makineyi başlatmak için **Start-AzureRmVM** etkinliği ekleyi
 2. Tuvale **Start-AzureRmVM** ekleyin ve ardından **Abonelik Kimliği Belirt** altına tıklayarak sürükleyin.
 1. Şeklin altında bir daire görünene kadar **Abonelik Kimliği Belirt** üzerinde bekleyin. Daireye tıklayın ve oku **Start-AzureRmVM**’ye sürükleyin.
 1. **Start-AzureRmVM**’yi seçin. **Start-AzureRmVM** için kümeleri görüntülemek üzere **Parametreler**’i ve ardından **Parametre kümesi**’ni seçin. **ResourceGroupNameParameterSetName** parametre kümesini seçin. **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti vardır. Bu, bunların gerekli parametreler olduğunu gösterir. Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
-1. **Ad**’ı seçin. **Veri Kaynağı** için **PowerShell ifadesi**’ni seçin ve çift tırnakların arasına, bu runbook uygulamasını başlatacağınız sanal makine adını yazın. **Tamam** düğmesine tıklayın.
-1. **ResourceGroupName**’i seçin. **Veri Kaynağı** için **PowerShell ifadesi**’ni seçin ve çift tırnakların arasına kaynak grubu adını yazın. **Tamam** düğmesine tıklayın.
+1. **Ad**’ı seçin. **Veri Kaynağı** için **PowerShell ifadesi**’ni seçin ve çift tırnakların arasına, bu runbook uygulamasını başlatacağınız sanal makine adını yazın. **Tamam**'ı tıklatın.
+1. **ResourceGroupName**’i seçin. **Veri Kaynağı** için **PowerShell ifadesi**’ni seçin ve çift tırnakların arasına kaynak grubu adını yazın. **Tamam**'ı tıklatın.
 1. Runbook’u test edebilmek için Test bölmesine tıklayın.
 1. Testi başlatmak için **Başlat**’a tıklayın. Tamamlandığında, sanal makinenin başlatıldığını kontrol edin.
 
@@ -187,8 +187,8 @@ Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekil
 1. Tuvale **Get-AzureRmVM** ekleyin.
 1. **Get-AzureRmVM** için kümeleri görüntülemek üzere **Get-AzureRmVM**’yi ve ardından **Parametre kümesi**’ni seçin. **GetVirtualMachineInResourceGroupNameParamSet** parametre kümesini seçin. **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti vardır. Bu, bunların gerekli parametreler olduğunu gösterir. Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
 1. **Ad** için **Veri kaynağı** altında, **Runbook girişi**’ni ve ardından **VMName**’i seçin. **Tamam**’a tıklayın.
-1. **ResourceGroupName** için **Veri kaynağı** altında, **Runbook girişi**’ni ve ardından **ResourceGroupName**’i seçin. **Tamam** düğmesine tıklayın.
-1. **Durum** için **Veri kaynağı** altında, **Sabit değer**’i seçin ve ardından **True** öğesine tıklayın. **Tamam** düğmesine tıklayın.
+1. **ResourceGroupName** için **Veri kaynağı** altında, **Runbook girişi**’ni ve ardından **ResourceGroupName**’i seçin. **Tamam**'ı tıklatın.
+1. **Durum** için **Veri kaynağı** altında, **Sabit değer**’i seçin ve ardından **True** öğesine tıklayın. **Tamam**'ı tıklatın.
 1. **Abonelik Kimliği Belirt**’ten **Get-AzureRmVM**’ye bir bağlantı oluşturun.
 1. Kitaplık denetiminde, **Runbook Denetimi**’ni genişletin ve tuvale **Kod** ekleyin.  
 1. **Get-AzureRmVM**’den **Kod**’a bir bağlantı oluşturun.  

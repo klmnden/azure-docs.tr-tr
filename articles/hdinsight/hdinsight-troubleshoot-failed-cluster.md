@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65203621"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Bir HDInsight kümesinde bir yavaş ya da başarısız olan işi sorunlarını giderme
@@ -21,15 +21,15 @@ Bir HDInsight kümesinde veri yavaş çalışan veya bir hata kodu ile başarıs
 
 Yavaş ya da başarısız olan bir küme tanılamak için ilgili Azure Hizmetleri, küme yapılandırması ve iş yürütme bilgileri gibi ortamın tüm yönleri hakkında bilgi toplayın. Başka bir küme üzerinde hata durumunda yeniden oluşturmak yararlı bir tanılama denemektir.
 
-* 1. Adım: Sorunla ilgili verileri toplayın.
-* 2. Adım: HDInsight küme ortamında doğrulayın.
-* 3. Adım: Kümenizin sistem durumu görüntüleyin.
-* 4. Adım: Ortam yığını ve sürümlerini gözden geçirin.
-* 5. Adım: Küme günlük dosyalarını inceleyin.
-* 6. Adım: Yapılandırma ayarlarını kontrol edin.
-* 7. Adım: Farklı bir kümede hatayı yeniden oluşturun.
+* 1\. adım: Sorunla ilgili verileri toplayın.
+* 2\. adım: HDInsight küme ortamında doğrulayın.
+* 3\. adım: Kümenizin sistem durumu görüntüleyin.
+* 4\. Adım: Ortam yığını ve sürümlerini gözden geçirin.
+* 5\. Adım: Küme günlük dosyalarını inceleyin.
+* 6\. Adım: Yapılandırma ayarlarını kontrol edin.
+* 7\. Adım: Farklı bir kümede hatayı yeniden oluşturun.
 
-## <a name="step-1-gather-data-about-the-issue"></a>1. Adım: Sorun hakkında veri toplama
+## <a name="step-1-gather-data-about-the-issue"></a>1\. adım: Sorun hakkında veri toplama
 
 HDInsight kümeleri ile ilgili sorunları gidermek üzere kullanabileceğiniz birçok araç sağlar. Aşağıdaki adımlar, bu araçlar Kılavuzu ve sorunun kaynağını yönelik öneriler sağlar.
 
@@ -43,7 +43,7 @@ Sorunu belirlemenize yardımcı olması için aşağıdaki soruları göz önün
 * Ne zaman bu sorun öncelikle gerçekleşti? Ne sıklıkta beri oluştu?
 * Herhangi bir şey my küme yapılandırmasında değişti mi?
 
-### <a name="cluster-details"></a>Küme Ayrıntıları
+### <a name="cluster-details"></a>Küme ayrıntıları
 
 Önemli küme bilgilerini içerir:
 
@@ -65,7 +65,7 @@ az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 
 Başka bir seçenek PowerShell kullanıyor. Daha fazla bilgi için [yönetme Apache Hadoop kümeleri, Azure PowerShell ile HDInsight](hdinsight-administer-use-powershell.md).
 
-## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>2. Adım: HDInsight Küme ortamı doğrulama
+## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>2\. adım: HDInsight Küme ortamı doğrulama
 
 Her bir HDInsight kümesi, çeşitli Azure Hizmetleri ve Apache HBase ve Apache Spark gibi açık kaynak yazılımlar kullanır. HDInsight kümeleri, Azure sanal ağları gibi diğer Azure hizmetlerinde de çağırabilirsiniz.  Küme hatası kümenizdeki çalışmakta olan hizmetlerin birini veya bir dış hizmet neden olabilir.  Küme hizmeti yapılandırma değişikliği da kümenin çökmesine neden olabilir.
 
@@ -101,7 +101,7 @@ Küme sürümünü en son HDInsight sürüm ile karşılaştırın. Her bir HDIn
 
 Kümenizde yavaşlamalara karşılaşıyorsanız, hizmetlerinizi Ambari UI veya Azure Klasik CLI aracılığıyla yeniden başlatmayı düşünün. Kümeyi geçici hataları yaşıyor olabilirsiniz ve yeniden başlatmayı ortamınızı Sabitle ve büyük olasılıkla performansı artırmak için en hızlı yoludur.
 
-## <a name="step-3-view-your-clusters-health"></a>3. Adım: Kümenizin sistem durumu görüntüleme
+## <a name="step-3-view-your-clusters-health"></a>3\. adım: Kümenizin sistem durumu görüntüleme
 
 HDInsight kümeleri farklı tür sanal makine örneklerinde çalıştıran düğümlerden oluşur. Her düğüm için kaynak yetersizliğini, ağ bağlantısı sorunları ve kümeyi yavaşlatabilir diğer sorunları izlenebilir. Her küme iki baş düğümü ve alt ve kenar düğümlerine çoğu küme türleri içerir. 
 
@@ -204,13 +204,13 @@ Bu sorunları tanılamak için:
 
     Templeton da toplar işi konsol çıktısı olarak `stderr` içinde `statusdir`, durum genellikle bu şekildedir sorun giderme için kullanışlı. `stderr` Asıl sorguyu YARN uygulama tanımlayıcısını içerir.
 
-## <a name="step-4-review-the-environment-stack-and-versions"></a>4. Adım: Ortam yığını ve sürümlerini gözden geçirin
+## <a name="step-4-review-the-environment-stack-and-versions"></a>4\. Adım: Ortam yığını ve sürümlerini gözden geçirin
 
 Ambari UI **yığını ve sürüm** sayfa küme hizmetlerini yapılandırma ve hizmet sürüm geçmişi hakkında bilgi sağlar.  Yanlış Hadoop hizmeti kitaplık sürümleri küme hata bir neden olabilir.  Ambari UI'nızda seçin **yönetici** menüsünü ve ardından **yığınları ve sürümleri**.  Seçin **sürümleri** sayfasındaki hizmeti sürüm bilgisini görmek için sekmesinde:
 
 ![Yığın ve sürümler](./media/hdinsight-troubleshoot-failed-cluster/stack-versions.png)
 
-## <a name="step-5-examine-the-log-files"></a>5. Adım: Günlük dosyalarını inceleyin
+## <a name="step-5-examine-the-log-files"></a>5\. Adım: Günlük dosyalarını inceleyin
 
 Birçok Hizmetleri ve bir HDInsight kümesi oluşturan bileşenleri oluşturulan günlüklerin birçok türü vardır. [WebHCat günlük dosyalarını](#check-your-webhcat-service) daha önce açıklanmıştır. Aşağıdaki bölümlerde açıklandığı şekilde, kümenizin sorunlarla daraltmak için araştırabilirsiniz diğer birçok kullanışlı günlük dosyası vardır.
 
@@ -242,13 +242,13 @@ Bir HDInsight kümesi, Azure tabloları ve Azure Blob depolamaya yazılan günl�
 
 Yığın dökümlerini başlatıldığında, çalışma zamanında meydana gelen sorunları tanılamak için yararlı olan değişkenlerin değerlerini de dahil olmak üzere, uygulamanın bellek anlık görüntüsünü içerir. Daha fazla bilgi için [etkin yığın dökümleri Linux tabanlı HDInsight üzerinde Apache Hadoop Hizmetleri için](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
-## <a name="step-6-check-configuration-settings"></a>6. Adım: Yapılandırma ayarlarını kontrol edin
+## <a name="step-6-check-configuration-settings"></a>6\. Adım: Yapılandırma ayarlarını kontrol edin
 
 HDInsight kümeleri, Hadoop, Hive, HBase ve benzeri gibi ilgili hizmetler için varsayılan ayarlarla önceden yapılandırılmış. Küme, donanım yapılandırması, kendi düğüm sayısını türüne bağlı olarak, işlerin türleri çalıştırıyorsanız ve birlikte çalıştığınız veriler (ve bu verileri nasıl işleniyor), yapılandırmanızı en iyi duruma getirme gerekebilir.
 
 Çoğu senaryo için performans yapılandırmaları en iyi duruma getirme hakkında ayrıntılı yönergeler için bkz. [Apache Ambari ile küme yapılandırmalarını en iyi duruma getirme](hdinsight-changing-configs-via-ambari.md). Spark kullanırken görmeyi [performans için en iyi duruma getirme Apache Spark işleri](spark/apache-spark-perf.md). 
 
-## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>7. Adım: Farklı bir kümede hatayı yeniden oluşturun
+## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>7\. Adım: Farklı bir kümede hatayı yeniden oluşturun
 
 Bir küme hatanın kaynağını tanılanmasına yardımcı olmak için aynı yapılandırmaya sahip yeni bir küme başlatın ve sonra başarısız işin adımları tek tek yeniden gönderin. Bir sonraki işlenmeden önce her adımın sonuçlarını denetleyin. Bu yöntem, düzeltin ve başarısız olan tek bir adımda yeniden çalıştırma olanağı sunar. Bu yöntem, aynı zamanda yalnızca bir kez girişinizi yükleme avantajına sahiptir.
 

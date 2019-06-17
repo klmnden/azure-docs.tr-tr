@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
 ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60785685"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure İzleyici günlük sorgusu Workspace() ifadede
@@ -33,7 +33,7 @@ ms.locfileid: "60785685"
 
 - *tanımlayıcı*: Aşağıdaki tabloda biçimlerden birini kullanarak çalışma alanını tanımlar.
 
-| Tanımlayıcı | Açıklama | Örnek
+| tanımlayıcı | Açıklama | Örnek
 |:---|:---|:---|
 | Kaynak Adı | İnsan tarafından okunabilir çalışma alanının adını (AKA "bileşen adı") | Workspace("contosoretail") |
 | Tam adı | Formunda çalışma alanının tam adı: "resourceGroup/subscriptionName/componentName" | Workspace('Contoso/ContosoResource/ContosoWorkspace') |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 19d9624c5bb60f47ef4bfa1b0629327780c2a9c7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d2d0bbc7a6e1c680434041d1b9d55e39a96b6f44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Öğretici: Küçük geliştirme ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'ye küçük iyileştirmeler tümleştirmesini yapılandırmak için kü
 
 **Galeriden küçük iyileştirmeler eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -229,7 +229,7 @@ Küçük iyileştirmeler oturum açmak Azure AD kullanıcılarının etkinleşti
 
     b. Girin **Soyadı** gibi kullanıcının **Simon**.
 
-    c. Girin **e-posta** gibi kullanıcının **brittasimon@contoso.com**.
+    c. Girin **e-posta** gibi kullanıcının **brittasimon@contoso.com** .
 
     d. Ayrıca, kişisel bir ileti girin seçebilirsiniz **bildirim e-posta Gönder** kutusu. Sonra bildirim göndermesini istemiyorsanız, bu onay kutusunun işaretini kaldırın.
 

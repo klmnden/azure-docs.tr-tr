@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484480"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Çok kiracılı SaaS veritabanı kiracılı desenleri
@@ -33,8 +33,8 @@ Kira kadar ödediğinizden tanıtmanın karşılığında her Kiracı SaaS uygul
 
 Terim *kiracılı model* kiracılar depolanan verilerin nasıl düzenlendiği için ifade eder:
 
-- *Tek kiracılı:*&nbsp; Her bir veritabanı yalnızca tek bir kiracı verilerini depolar.
-- *Çok kiracılı modeli:*&nbsp; Her veritabanını ayrı birden çok kiracıdan gelen veri (veri gizliliği koruyacak şekilde mekanizmalarıyla) depolar.
+- *Tek kiracılı:* &nbsp; Her bir veritabanı yalnızca tek bir kiracı verilerini depolar.
+- *Çok kiracılı modeli:* &nbsp; Her veritabanını ayrı birden çok kiracıdan gelen veri (veri gizliliği koruyacak şekilde mekanizmalarıyla) depolar.
 - Karma kiralama modelleri de mevcuttur.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Uygun kiracılı model seçme
@@ -47,9 +47,9 @@ Genel olarak, kiralama modeli, bir uygulamanın işlevi etkilemez, ancak büyük
     - Toplam depolama.
     - İş yükü.
 
-- **Kiracı yalıtımı:**&nbsp; Veri yalıtımı ve performans (olup bir kiracının iş yükünü diğerleri etkiler).
+- **Kiracı yalıtımı:** &nbsp; Veri yalıtımı ve performans (olup bir kiracının iş yükünü diğerleri etkiler).
 
-- **Kiracı başına maliyet:**&nbsp; Veritabanı maliyet.
+- **Kiracı başına maliyet:** &nbsp; Veritabanı maliyet.
 
 - **Geliştirme karmaşıklığı:**
     - Şema değişiklikleri.
@@ -61,7 +61,7 @@ Genel olarak, kiralama modeli, bir uygulamanın işlevi etkilemez, ancak büyük
     - Bir kiracıyı geri yükleme.
     - Olağanüstü durum kurtarma.
 
-- **Konularında kendini gösterir:**&nbsp; Olan şema özelleştirmeleri destek kolaylığı kiracıya özgü ya da sınıfa özel Kiracı.
+- **Konularında kendini gösterir:** &nbsp; Olan şema özelleştirmeleri destek kolaylığı kiracıya özgü ya da sınıfa özel Kiracı.
 
 Kiralama tartışma odaklanmıştır *veri* katman.  Ancak bir süre için göz önünde bulundurun *uygulama* katman.  Uygulama katmanı, tek parçalı bir varlık olarak kabul edilir.  Uygulama çok sayıda küçük bileşenlere ayırmak kiracılı model seçiminizi değiştirebilirsiniz.  Hem Kiracı ve depolama teknolojisi veya kullanılan platform ile ilgili bazı bileşenler diğerlerinden farklı şekilde davranabilir.
 
@@ -126,9 +126,9 @@ Başka bir kullanılabilir bir çok kiracılı veritabanında çok sayıda Kirac
 
 #### <a name="tenant-isolation-is-sacrificed"></a>Kiracı yalıtımı feda
 
-*Veri:*&nbsp; Çok kiracılı veritabanı, Kiracı yalıtımı mutlaka gözden çıkarır.  Birden çok kiracının verileri birlikte bir veritabanında depolanır.  Geliştirme sırasında sorgular birden fazla Kiracı verilerini hiçbir zaman kullanıma sunduğundan emin olun.  SQL veritabanı destekler [satır düzeyi güvenlik][docu-sql-svr-db-row-level-security-947w], tek bir kiracı için bir sorgudan döndürülen verilerin zorunlu kılabilir kapsamlı.
+*Veri:* &nbsp; Çok kiracılı veritabanı, Kiracı yalıtımı mutlaka gözden çıkarır.  Birden çok kiracının verileri birlikte bir veritabanında depolanır.  Geliştirme sırasında sorgular birden fazla Kiracı verilerini hiçbir zaman kullanıma sunduğundan emin olun.  SQL veritabanı destekler [satır düzeyi güvenlik][docu-sql-svr-db-row-level-security-947w], tek bir kiracı için bir sorgudan döndürülen verilerin zorunlu kılabilir kapsamlı.
 
-*İşleme:*&nbsp; Çok kiracılı veritabanı, tüm kiracılar genelinde işlem ve depolama kaynaklarını paylaşır.  Çalışarak gerçekleştiriyor emin olmak için veritabanı bir bütün olarak izlenebilir.  Ancak, Azure sistem bu kaynakları tek bir kiracı tarafından kullanımını yönetmek veya izlemek için yerleşik bir yolu yoktur.  Bu nedenle, çok kiracılı veritabanı burada bir overactive kiracının iş yükünü aynı veritabanında diğer kiracıların performans deneyimini etkiler gürültücü Komşuları karşılaşıldığında, riski taşır.  Uygulama düzeyinde ek izleme Kiracı düzeyinde performansını izleyebilirsiniz.
+*İşleme:* &nbsp; Çok kiracılı veritabanı, tüm kiracılar genelinde işlem ve depolama kaynaklarını paylaşır.  Çalışarak gerçekleştiriyor emin olmak için veritabanı bir bütün olarak izlenebilir.  Ancak, Azure sistem bu kaynakları tek bir kiracı tarafından kullanımını yönetmek veya izlemek için yerleşik bir yolu yoktur.  Bu nedenle, çok kiracılı veritabanı burada bir overactive kiracının iş yükünü aynı veritabanında diğer kiracıların performans deneyimini etkiler gürültücü Komşuları karşılaşıldığında, riski taşır.  Uygulama düzeyinde ek izleme Kiracı düzeyinde performansını izleyebilirsiniz.
 
 #### <a name="lower-cost"></a>Düşük maliyet
 

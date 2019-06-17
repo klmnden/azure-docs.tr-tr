@@ -13,10 +13,10 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776516"
 ---
 # <a name="pool-create-event"></a>Havuz oluşturma olayı
@@ -82,9 +82,9 @@ ms.locfileid: "60776516"
 
 |Öğe adı|Tür|Notlar|
 |------------------|----------|-----------|
-|Yayımcı|String|Görüntünün yayımcısı.|
+|publisher|String|Görüntünün yayımcısı.|
 |Teklif|String|Görüntünün teklifi.|
-|sku|String|Görüntünün SKU'su.|
+|SKU|String|Görüntünün SKU'su.|
 |version|String|Görüntü sürümü.|
 
 ###  <a name="bk_winconf"></a> windowsConfiguration

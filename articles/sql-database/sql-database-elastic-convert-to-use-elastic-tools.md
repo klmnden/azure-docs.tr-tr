@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 49686e407b2d733c04bad31706c6c4f315bf28bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075216"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Ölçeği genişletmek için mevcut veritabanlarını geçirme
@@ -37,7 +37,7 @@ ShardMapManager hakkında daha fazla bilgi için bkz: [parça eşleme Yönetimi]
 ## <a name="prepare-the-shard-map-manager-database"></a>Parça eşleme Yöneticisi veritabanını hazırlama
 Parça eşleme Yöneticisi, ölçeği genişletilmiş veritabanları yönetmek için gerekli verileri içeren özel bir veritabanıdır. Varolan veritabanını kullan veya yeni bir veritabanı oluşturun. Aynı veritabanında bir parça parça eşleme Yöneticisi görev yapan bir veritabanı olmamalıdır. PowerShell betiğini sizin için veritabanı oluşturmaz. 
 
-## <a name="step-1-create-a-shard-map-manager"></a>1. adım: bir parça eşleme Yöneticisi oluşturma
+## <a name="step-1-create-a-shard-map-manager"></a>1\. adım: bir parça eşleme Yöneticisi oluşturma
     # Create a shard map manager. 
     New-ShardMapManager -UserName '<user_name>' 
     -Password '<password>' 
@@ -57,7 +57,7 @@ Oluşturulduktan sonra Bu cmdlet ile parça eşleme Yöneticisi alabilirsiniz. S
     -SqlDatabaseName '<smm_db_name>' 
 
 
-## <a name="step-2-create-the-shard-map"></a>2. adım: parça eşlemesi oluşturma
+## <a name="step-2-create-the-shard-map"></a>2\. adım: parça eşlemesi oluşturma
 Parça eşlemesi oluşturmak için türünü seçin. Seçtiğiniz veritabanı mimarisine bağlıdır: 
 
 1. Veritabanı başına tek Kiracı (koşulları için bkz: [sözlüğü](sql-database-elastic-scale-glossary.md).) 
@@ -79,7 +79,7 @@ Veya, bir çok kiracılı veritabanı modeli kullanarak uygulayabileceğiniz bir
 
 **Seçtiğiniz bağlı olarak, aşağıdaki seçeneklerden birini seçin:**
 
-### <a name="option-1-create-a-shard-map-for-a-list-mapping"></a>1. seçenek: liste eşlemesi için parça Haritası oluşturma
+### <a name="option-1-create-a-shard-map-for-a-list-mapping"></a>1\. seçenek: liste eşlemesi için parça Haritası oluşturma
 ShardMapManager nesnesini kullanarak bir parça eşlemesi oluşturun. 
 
     # $ShardMapManager is the shard map manager object. 
@@ -88,7 +88,7 @@ ShardMapManager nesnesini kullanarak bir parça eşlemesi oluşturun.
     -ShardMapManager $ShardMapManager 
 
 
-### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>2. seçenek: aralık eşlemesi için parça Haritası oluşturma
+### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>2\. seçenek: aralık eşlemesi için parça Haritası oluşturma
 Bu eşleme düzeni kullanmaz, Kiracı kimliği değerleri için sürekli aralıkları olması gerekir ve kabul edilebilir aralığın veritabanlarını oluştururken atlayarak aralıklardaki uçurumuna sahip.
 
     # $ShardMapManager is the shard map manager object 
@@ -101,7 +101,7 @@ Bu eşleme düzeni kullanmaz, Kiracı kimliği değerleri için sürekli aralık
 ### <a name="option-3-list-mappings-on-an-individual-database"></a>Seçenek 3: Tek bir veritabanı üzerinde listesi eşlemeleri
 Bu deseni oluşturan ayarı Ayrıca liste eşlemesi oluşturulmasını adım 2, 1. seçenek gösterildiği gerektirir.
 
-## <a name="step-3-prepare-individual-shards"></a>3. Adım: Tek parça hazırlama
+## <a name="step-3-prepare-individual-shards"></a>3\. adım: Tek parça hazırlama
 Her parça (veritabanı) için parça eşleme Yöneticisi ekleyin. Bu, tek veritabanlarını eşleme bilgilerini depolamak için hazırlar. Bu yöntem, her parça üzerinde yürütün.
 
     Add-Shard 
@@ -111,7 +111,7 @@ Her parça (veritabanı) için parça eşleme Yöneticisi ekleyin. Bu, tek verit
     # The $ShardMap is the shard map created in step 2.
 
 
-## <a name="step-4-add-mappings"></a>4. Adım: Eşleme Ekle
+## <a name="step-4-add-mappings"></a>4\. Adım: Eşleme Ekle
 Eşlemeleri eklenmesi, oluşturduğunuz aralık parça eşlemesi türüne bağlıdır. Bir liste eşlemesi oluşturduysanız, liste eşlemelerini ekleyin. Bir aralık harita oluşturduysanız, aralığı eşlemelerini ekleyin.
 
 ### <a name="option-1-map-the-data-for-a-list-mapping"></a>Seçenek 1: verileri bir liste eşlemesi için eşleme
@@ -125,7 +125,7 @@ Veriler, her Kiracı için bir liste eşlemesi ekleyerek eşleyin.
     -SqlServerName '<shard_server_name>' 
     -SqlDatabaseName '<shard_database_name>' 
 
-### <a name="option-2-map-the-data-for-a-range-mapping"></a>2. seçenek: verileri bir aralık eşlemesi için eşleme
+### <a name="option-2-map-the-data-for-a-range-mapping"></a>2\. seçenek: verileri bir aralık eşlemesi için eşleme
 Tüm Kiracı kimliği aralığı için - veritabanı ilişkileri aralığı eşlemelerini ekleyin:
 
     # Create the mappings and associate it with the new shards 
@@ -138,7 +138,7 @@ Tüm Kiracı kimliği aralığı için - veritabanı ilişkileri aralığı eşl
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>4. adım seçenek 3: tek bir veritabanının birden çok kiracının verileri eşleme
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>4\. adım seçenek 3: tek bir veritabanının birden çok kiracının verileri eşleme
 Her Kiracı için Add-ListMapping (1. seçenek) çalıştırın. 
 
 ## <a name="checking-the-mappings"></a>Eşlemeleri denetleniyor

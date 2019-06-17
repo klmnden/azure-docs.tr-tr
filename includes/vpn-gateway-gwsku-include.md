@@ -9,10 +9,10 @@ ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159321"
 ---
 Bir sanal ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU’sunu belirtmeniz gerekir. İş yükü, aktarım hızı, özellik ve SLA türlerine bağlı olarak gereksinimlerinize uyan SKU’ları seçin. Sanal ağ geçidi SKU'ları Azure kullanılabilirlik alanları için bkz: [Azure kullanılabilirlik alanları ağ geçidi SKU'ları](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).

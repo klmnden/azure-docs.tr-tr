@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65441647"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Oturum açma, kuruluşunuzun Azure Active Directory sayfasına markalama Ekle
@@ -27,7 +27,7 @@ Kuruluşunuzun logosu ve özel renk düzenleriyle bir tutarlı görünüm ve his
 >Özel marka öğelerini eklemek için Azure Active Directory Premium 1, 2 Premium veya Basic sürümleri kullanın ya da bir Office 365 lisansına sahip olması gerekir. Lisanslama ve sürümleri hakkında daha fazla bilgi için bkz: [Azure AD Premium'a kaydolun](active-directory-get-started-premium.md).<br><br>Azure AD Premium ve Temel sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure AD Premium ve Temel sürümleri, şu anda Çin’de 21Vianet tarafından işletilen Azure hizmeti kapsamında desteklenmemektedir. Daha fazla bilgi için [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/)’nu kullanarak bizimle görüşün.
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Azure AD oturum açma sayfanızı özelleştirme
-Kullanıcılar, kuruluşunuzun kiracıya özel uygulamalar için aşağıdaki gibi oturum açtığında görüntülenir, Azure AD oturum açma sayfaları özelleştirebilirsiniz [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), veya gibibiretkialanıdeğişkeninigeçirme[ *https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+Kullanıcılar, kuruluşunuzun kiracıya özel uygulamalar için aşağıdaki gibi oturum açtığında görüntülenir, Azure AD oturum açma sayfaları özelleştirebilirsiniz [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), veya gibibiretkialanıdeğişkeninigeçirme[ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
 Örneğin, www kullanıcılarınızın Git özel marka hemen görünmeyecektir\.office.com. Bunun yerine, kullanıcının özelleştirilmiş markalama görünmeden önce oturum açmanız gerekir.
 

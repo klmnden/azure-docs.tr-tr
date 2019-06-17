@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615974"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Self Servis değişimleri ve Azure ayırmalar için para iadesi
@@ -79,7 +79,7 @@ Orijinal rezervasyon satın alma fatura iptal ve ardından yeni bir fatura para 
 
 Satın alınan yapan karşılık gelen bir VM boyutu için premium depolama desteği olmayan bir VM boyutu için bir ayırma değiştirebilir. Örneğin, bir _F1_ için bir _F1s_. Değişikliği yapmak için ayırma ayrıntılarına gidin ve **Exchange**. Exchange ayrılmış örnek dönemi sıfırlama değil ya da yeni bir işlem oluşturun.
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

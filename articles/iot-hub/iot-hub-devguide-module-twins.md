@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
 ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61363627"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Anlama ve IOT Hub'ında modül ikizlerini kullanma
@@ -184,7 +184,7 @@ Kapsayıcı nesneleri için ve kök nesne modülü kimlik özelliklerdir `tags` 
     $content-encoding | UTF-8 |
     deviceId | Cihaz kimliği |
     Modül kimliği | Modül kimliği |
-    HubName | IOT hub'ı adı |
+    hubName | IOT hub'ı adı |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) işleminin zaman damgası |
     ıothub ileti şeması | deviceLifecycleNotification |
     opType | "replaceTwin" veya "updateTwin" |

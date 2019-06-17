@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 0487cac6a0cf7d37befdf0d7cfab33ad6a62cf7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822918"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>Olayları göndermek veya Java kullanarak Azure Event Hubs'tan gelen olayları alma
@@ -206,7 +206,7 @@ Event Hubs için Java istemci kitaplığı içindeki Maven projelerinde kullanı
 </dependency>
 ```
 
-Derleme ortamlarının farklı türleri için açıkça [Maven Central Repository] son JAR dosyalarının edinebilirsiniz [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22].  
+Derleme ortamlarının farklı türleri için açıkça [Maven Central Repository] son JAR dosyalarının edinebilirsiniz [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22 ].  
 
 1. Aşağıdaki örnek için önce en sevdiğiniz Java geliştirme ortamında bir konsol/kabuk uygulaması için yeni bir Maven projesi oluşturun. Sınıf `ErrorNotificationHandler`.     
    

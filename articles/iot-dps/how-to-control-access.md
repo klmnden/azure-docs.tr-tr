@@ -2,17 +2,17 @@
 title: IOT cihaz sağlama hizmeti güvenlik uç noktaların | Microsoft Docs
 description: Kavramlar - arka uç uygulamaları için IOT cihaz sağlama Hizmeti'ne erişimi denetleme. Güvenlik belirteçleri hakkında bilgi içerir.
 author: wesmc7777
-manager: timlt
+manager: philmea
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626657"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama Hizmeti'ne erişimi denetleme
@@ -141,7 +141,7 @@ Hizmet bileşenleri, yalnızca güvenlik belirteçleri kullanarak daha önce aç
 
 Bitiş noktası kullanıma sunulan hizmet işlevleri şunlardır:
 
-| Uç Nokta | İşlev |
+| Uç Nokta | İşlevi |
 | --- | --- |
 | `{your-service}.azure-devices-provisioning.net/enrollments` |Cihaz sağlama hizmeti ile cihaz kaydı işlemleri sağlar. |
 | `{your-service}.azure-devices-provisioning.net/enrollmentGroups` |Cihaz kayıt grupları yönetmek için işlemler sağlar. |

@@ -10,10 +10,10 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 8375f4c54dc436ecf0694ec5f629c81d3591594d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234162"
 ---
 # <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
@@ -63,7 +63,7 @@ Yok.
 
 ---
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -220,7 +220,7 @@ Bu nasıl yapılır makalesi tarafından oluşturulan kaynakları temizlemek ist
 Azure portalını kullanarak kaynak grubunu kaldırmak için:
 
 1. Azure portalında sol taraftaki menüyü genişleterek hizmet menüsünü açın ve **Kaynak Grupları**'nı seçerek kaynak gruplarınızın listesini görüntüleyin.
-2. Silinecek kaynak grubunu bulun ve listenin sağ tarafındaki **Daha fazla** düğmesine (**...**) sağ tıklayın.
+2. Silinecek kaynak grubunu bulun ve listenin sağ tarafındaki **Daha fazla** düğmesine ( **...** ) sağ tıklayın.
 3. **Kaynak grubunu sil**'i seçip onaylayın.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60642783"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup raporlarını yapılandırma
@@ -87,7 +87,7 @@ Bir kurtarma Hizmetleri Kasası'nı kullanarak bir depolama hesabı raporlar iç
       ![İçerik paketini edinin](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Önceki adımda 5 yapılandırılan depolama hesabı adını girin ve seçin **sonraki**.
 
-    ![Depolama hesabı adını girin](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
+    ![Depolama hesabı adı girin](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
 5. Kimlik doğrulama yöntemi "Anahtarını" kullanarak, bu depolama hesabı için depolama hesabı anahtarını girin. İçin [görüntüleme ve depolama erişim anahtarlarını kopyalama](../storage/common/storage-account-manage.md#access-keys), Azure portalında depolama hesabınıza gidin.
 
      ![Depolama hesabı girin](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
@@ -119,7 +119,7 @@ Bir kurtarma Hizmetleri Kasası'nı kullanarak bir depolama hesabı raporlar iç
 Yapılandırdığınız depolama hesabına gidin ve kapsayıcılar'ı seçin. Kapsayıcı öngörüleri günlükleri azurebackupreport için bir girdi varsa, veri raporlama akan başlatıldığını gösterir.
 
 ### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Bir depolama hesabı ve Azure Backup içerik Paketi'ne Power bı'daki veri gönderme sıklığı nedir?
-  0. gün kullanıcılar için bunu bir depolama hesabına veri göndermeye ilişkin yaklaşık 24 saat sürer. Bu ilk gönderme tamamlandıktan sonra verileri aşağıdaki şekilde gösterilen sıklıkta yenilenir.
+  0\. gün kullanıcılar için bunu bir depolama hesabına veri göndermeye ilişkin yaklaşık 24 saat sürer. Bu ilk gönderme tamamlandıktan sonra verileri aşağıdaki şekilde gösterilen sıklıkta yenilenir.
 
   * İlgili verileri **işleri**, **uyarılar**, **yedekleme öğeleri**, **kasaları**, **korumalı sunucuların**ve  **İlkeleri** gibi ve günlüğe bir müşterinin depolama hesabına gönderilir.
 

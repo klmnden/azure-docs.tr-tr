@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: dbd7189b1761a9ea88ce32dae3d7b45a88301ff6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905640"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087631"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Öğretici: UserVoice ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de UserVoice tümleştirmesini yapılandırmak için UserVoice Galeride
 
 **Galeriden UserVoice eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -146,7 +146,7 @@ Azure AD çoklu oturum açma UserVoice ile yapılandırmak için aşağıdaki ad
    
     ![Kullanıcı kimlik doğrulamasını Düzenle](./media/uservoice-tutorial/ic777521.png "düzenleme kullanıcı kimlik doğrulaması")
    
-    a. Tıklayın **çoklu oturum açma (SSO)**.
+    a. Tıklayın **çoklu oturum açma (SSO)** .
  
     b. Yapıştırma **oturum açma URL'si** Azure portaldan kopyaladığınız değeri **SSO uzaktan oturum açma** metin.
 

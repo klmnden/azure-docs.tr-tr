@@ -11,16 +11,16 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: b6f95607c7cfc574d647be3046cef4a4b61906f6
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65861741"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>SQL veri ambarı'nda işlemleri kullanma
 İşlem çözümleri geliştirme için Azure SQL veri ambarı'nda uygulama hakkında ipuçları.
 
-## <a name="what-to-expect"></a>Beklentiler
+## <a name="what-to-expect"></a>Sizi neler bekliyor
 Beklediğiniz gibi SQL veri ambarı, veri ambarı iş yükünün parçası olarak işlemleri destekler. Ancak, SQL veri ambarı performans ölçekli olarak korunduğundan emin olmak için bazı özellikler SQL Server'a kıyasla sınırlıdır. Bu makalede farklar vurgulanmaktadır ve diğerleri listeler. 
 
 ## <a name="transaction-isolation-levels"></a>İşlem yalıtım düzeyleri
@@ -34,7 +34,7 @@ Aşağıdaki tabloda aşağıdaki varsayımların yapılmıştır:
 * Bir veri dağılımı oluştu 
 * Ortalama satır uzunluğu 250 bayttır
 
-## <a name="gen2"></a>Gen2
+## <a name="gen2"></a>2\. nesil
 
 | [DWU](sql-data-warehouse-overview-what-is.md) | Cap dağıtım (GB) | Dağıtımların sayısı | En fazla işlem boyutu (GB) | Sayısı dağıtım başına satır | İşlem başına en fazla satır |
 | --- | --- | --- | --- | --- | --- |

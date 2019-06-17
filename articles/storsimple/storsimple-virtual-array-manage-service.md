@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
 ms.openlocfilehash: 9f6e5b606caa661429a3c4d4a53e2021d57730aa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62116967"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>StorSimple Virtual Array için StorSimple cihaz Yöneticisi hizmetini dağıtma
@@ -28,14 +28,14 @@ StorSimple cihaz Yöneticisi hizmeti, Microsoft Azure'da çalışan ve birden ç
 
 StorSimple cihaz Yöneticisi hizmeti ile ilgili genel görevleri şunlardır:
 
-* Hizmet oluşturma
+* Bir hizmet oluşturma
 * Bir hizmeti Sil
 * Hizmet kayıt anahtarı alma
 * Hizmet kayıt anahtarını yeniden oluştur
 
 Bu öğreticide, görevlerin her biri önceki yerine getirilmesi anlatılmaktadır. Bu makalede yer alan bilgileri yalnızca StorSimple sanal diziler için geçerlidir. StorSimple 8000 serisi hakkında daha fazla bilgi için Git [bir StorSimple Yöneticisi hizmetini dağıtma](storsimple-manage-service.md).
 
-## <a name="create-a-service"></a>Hizmet oluşturma
+## <a name="create-a-service"></a>Bir hizmet oluşturma
 
 Bir hizmet oluşturmak için sahip olmanız gerekir:
 
@@ -70,9 +70,9 @@ Bir hizmeti silmek için aşağıdaki adımları gerçekleştirin.
 1. **Tüm kaynaklar**'a gidin. StorSimple cihaz Yöneticisi hizmetiniz için arama yapın. Silmek istediğiniz hizmeti seçin.
    
     ![Hizmeti silmek için seçin](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
-2. Hizmete bağlı cihaz olmadığında olmadığından emin olmak için hizmeti panonuza gidin. Bu hizmete kayıtlı cihaz yok ise, etkili olması için bir başlık iletisi görürsünüz. **Sil**'e tıklayın.
+2. Hizmete bağlı cihaz olmadığında olmadığından emin olmak için hizmeti panonuza gidin. Bu hizmete kayıtlı cihaz yok ise, etkili olması için bir başlık iletisi görürsünüz. Tıklayın **Sil**.
    
-    ![Hizmeti sil](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
+    ![Hizmeti Sil](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
 
 3. Onayınız istendiğinde tıklayın **Evet** onay bildirimi içinde. 
    

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66145851"
 ---
 Sanal makinenize (VM), çalışan uygulamalar için güvenli tutmak önemlidir. Sanal makinelerinize güvenli hale getirme, bir veya daha fazla Azure Hizmetleri ve VM'ler ve güvenli depolama verilerinizin güvenli erişim kapsayan özellikler içerebilir. Bu makalede, VM ve uygulamalarınızı güvenli tutmak sağlayan bilgiler sağlar.
 
-## <a name="antimalware"></a>Kötü Amaçlı Yazılımdan Koruma Yazılımı
+## <a name="antimalware"></a>Kötü Amaçlı Yazılımdan Koruma
 
 Modern tehditlere bulut ortamları için uyumluluk ve güvenlik gereksinimlerini karşılamak için etkili korumayı sürdürmek için baskısı artırma dinamik bir işlemdir. [Azure için Microsoft Antimalware](../articles/security/azure-security-antimalware.md) belirlenmesi ve virüslerin, casus yazılımların ve diğer kötü amaçlı yazılım kaldırılmasına yardımcı olan ücretsiz gerçek zamanlı koruma özelliğidir. Uyarılar, kötü amaçlı veya istenmeyebilecek yazılımlar sanal makinenizde kurulmayı veya dener bilinen olduğunda sizi bilgilendirmek üzere yapılandırılabilir.
 

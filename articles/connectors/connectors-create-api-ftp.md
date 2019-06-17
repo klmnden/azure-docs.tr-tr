@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60408605"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Oluşturabilir, izleyebilir ve Azure Logic Apps kullanarak FTP dosyalarını yönetme
@@ -54,14 +54,14 @@ FTP sunucunuzdan yanıtlar almak ve çıkış diğer eylemler için kullanılabi
 
 1. Boş mantıksal uygulama için arama kutusuna filtreniz olarak "ftp" girin. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin.
 
-   -veya-
+   veya
 
    Var olan mantıksal uygulamalar, son adım, bir eylem eklemek istediğiniz altında seçin için **yeni adım**ve ardından **Eylem Ekle**. 
    Arama kutusuna "ftp filtreniz olarak" girin. 
    Eylemler listesinde, istediğiniz eylemi seçin.
 
    Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. 
-   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+   Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
 
 1. Bağlantınız için gerekli bilgileri sağlayın ve ardından **Oluştur**.
 
@@ -69,7 +69,7 @@ FTP sunucunuzdan yanıtlar almak ve çıkış diğer eylemler için kullanılabi
 
 Dosya içeriği isterken tetikleyici dosyaları 50 MB'tan büyük elde edemez. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin:
 
-* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)** .
 
 * Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -77,7 +77,7 @@ Dosya içeriği isterken tetikleyici dosyaları 50 MB'tan büyük elde edemez. 5
 
 <a name="file-added-modified"></a>
 
-### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP tetikleyici: Bir dosya eklendiğinde veya değiştirildiğinde
+### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP tetikleyici: Dosya eklendiğinde veya değiştirildiğinde
 
 Bir dosya eklendiğinde veya bir FTP sunucusuna değiştirilen tetikleyici algıladığında, bu tetikleyiciyi bir mantıksal uygulama iş akışı başlatır. Örneğin, dosyanın içeriğini denetler ve söz konusu içeriği almak etkinleştirilip etkinleştirilmeyeceğini karar bir koşul ekleyebilirsiniz içeriğin belirtilen bir koşulu karşılayıp temel. Son olarak, dosyanın içeriğini alır bir eylem ekleme ve içeriği SFTP sunucusunda bir klasöre yerleştirin. 
 
@@ -85,7 +85,7 @@ Bir dosya eklendiğinde veya bir FTP sunucusuna değiştirilen tetikleyici algı
 
 Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları alınamıyor. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
 
-* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)** .
 
 * Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -106,7 +106,7 @@ Bu tetikleyiciyi gösteren bir örnek aşağıda verilmiştir: **Dosya eklendiğ
 
    ![FTP sunucusu bağlantı oluşturma](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
-1. Yanındaki **klasör** kutusunda, bir liste görünecek şekilde klasör simgesini seçin. Yeni ve düzenlenen dosyaları için izlemek istediğiniz klasörü bulmak üzere dik açılı oku seçin (**>**), bu klasöre göz atın ve ardından klasörü seçin.
+1. Yanındaki **klasör** kutusunda, bir liste görünecek şekilde klasör simgesini seçin. Yeni ve düzenlenen dosyaları için izlemek istediğiniz klasörü bulmak üzere dik açılı oku seçin ( **>** ), bu klasöre göz atın ve ardından klasörü seçin.
 
    ![Bulmak ve izlemek için bir klasör seçin](./media/connectors-create-api-ftp/select-folder.png)  
 
@@ -124,7 +124,7 @@ Bu dosya eklendiğinde veya bu eylem bir FTP sunucusuna dosya içeriği alır. �
 
 Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları alınamıyor. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
 
-* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)** .
 
 * Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
 

@@ -3,33 +3,29 @@ title: Azure işlevleri'nde işlevler devre dışı bırakma
 description: Devre dışı bırakın ve Azure işlevleri'nde işlevleri etkinleştirme hakkında bilgi edinin 1.x ve 2.x'i.
 services: functions
 documentationcenter: ''
-author: tdykstra
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
-origin.date: 07/24/2018
-ms.date: 08/31/2018
-ms.author: v-junlch
+author: ggailey777
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: conceptual
+ms.date: 07/24/2018
+ms.author: glenga
 ms.openlocfilehash: a32b4815a2716428ceeec034ddc5589e3aa062e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60710576"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Azure işlevleri'nde işlevler devre dışı bırakma
 
 Bu makalede, Azure işlevleri'nde bir işlev devre dışı bırakmak açıklanmaktadır. İçin *devre dışı* işlevi için tanımlı otomatik tetikleyici yoksay çalışma zamanı yapmak bir işlev anlamına gelir. Bunu yolu çalışma zamanı sürümü ve programlama diline bağlıdır:
 
-- İşlevler 1.x
-  - Komut dosyası dilleri
-  - C# sınıf kitaplıkları
-- İşlevler 2.x
-  - Tüm diller için bir yolu
-  - C# sınıf kitaplıkları için isteğe bağlı bir yol
+* İşlevler 1.x
+  * Komut dosyası dilleri
+  * C# sınıf kitaplıkları
+* İşlevler 2.x
+  * Tüm diller için bir yolu
+  * C# sınıf kitaplıkları için isteğe bağlı bir yol
 
 ## <a name="functions-1x---scripting-languages"></a>Komut dosyası dilleri 1.x - işlevleri
 
@@ -62,9 +58,9 @@ IS_DISABLED adlı ve ayarlamak bir uygulama ayarı olduğunda ikinci örnekte i�
 
 Azure portalı veya dosyayı düzenleyebilirsiniz **işlevi durumu** işlevin geçiş **Yönet** sekmesi. Portal anahtar çalışır değiştirerek *function.json* dosya.
 
-![Durum geçiş işlevi](./media/disable-function/function-state-switch.png)
+![Durum geçiş işlevi](media/disable-function/function-state-switch.png)
 
-## <a name="functions-1x---c-class-libraries"></a>1.x - C# sınıf kitaplıkları olarak işlevleri
+## <a name="functions-1x---c-class-libraries"></a>1\.x - C# sınıf kitaplıkları olarak işlevleri
 
 Kullandığınız işlevleri 1.x sınıf kitaplığında bir `Disable` tetiklenen bir işlev önlemek için özniteliği. Öznitelik oluşturucu parametresi olmadan, aşağıdaki örnekte gösterildiği gibi kullanabilirsiniz:
 
@@ -109,17 +105,16 @@ Bu yöntem, etkinleştirin ve yeniden derlenmesi veya yeniden dağıtmaya gerek 
 
 
 
-## <a name="functions-2x---all-languages"></a>2.x - tüm diller işlevleri
+## <a name="functions-2x---all-languages"></a>2\.x - tüm diller işlevleri
 
 İşlevlerde devre dışı bir işlev uygulaması ayarı kullanarak 2.x. Örneğin, bir işlev devre dışı bırakmak için adlı `QueueTrigger`, adlı bir uygulama ayarı oluşturmak `AzureWebJobs.QueueTrigger.Disabled`ve `true`. Bu işlevi etkinleştirmek için uygulama ayarının `false`. Ayrıca **işlevi durumu** işlevin geçiş **Yönet** sekmesi. Anahtar oluşturma ve silme çalışır `AzureWebJobs.<functionname>.Disabled` uygulama ayarı.
 
-![Durum geçiş işlevi](./media/disable-function/function-state-switch.png)
+![Durum geçiş işlevi](media/disable-function/function-state-switch.png)
 
-## <a name="functions-2x---c-class-libraries"></a>2.x - C# sınıf kitaplıkları olarak işlevleri
+## <a name="functions-2x---c-class-libraries"></a>2\.x - C# sınıf kitaplıkları olarak işlevleri
 
 İşlevleri 2.x sınıf kitaplığında tüm diller için yöntemi kullanmanızı öneririz. Ancak isterseniz, [kullanımı devre dışı bırakma öznitelik olarak işlevleri 1.x](#functions-1x---c-class-libraries).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu makale, otomatik tetikleyiciler devre dışı bırakma hakkında yöneliktir. Tetikleyiciler hakkında daha fazla bilgi için bkz. [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md).
-

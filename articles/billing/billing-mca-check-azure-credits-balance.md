@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372269"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Azure kredisi bakiyesi izlemek için Microsoft Müşteri Sözleşmesi
@@ -33,7 +33,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
 1. [Azure Portal]( https://portal.azure.com) oturum açın.
 
-2. **Maliyet Yönetimi + Faturalama** araması yapın.
+2. Arama **maliyet Yönetimi + faturalandırma**.
 
    ![Maliyet Yönetimi + faturalandırma Portalı'nda arama gösteren ekran görüntüsü](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
@@ -45,10 +45,10 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
    ![Kredi bakiyesi ve işlemleri için bir faturalandırma profili ekran görüntüsü](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
 
-   | Sözleşme Dönemi               | Tanım                           |
+   | Terim               | Tanım                           |
    |--------------------|--------------------------------------------------------|
-   | Tahmini bakiye  | Tahmini kredi miktarı sonra tüm dikkate faturalandırılır ve bekleyen işlemler sahip |
-   | Geçerli bakiye    | Son faturanızdan itibaren kredi miktarı. Bekleyen işlemleri içermez |
+   | Tahmini bakiyesi  | Tahmini kredi miktarı sonra tüm dikkate faturalandırılır ve bekleyen işlemler sahip |
+   | Toplam tutar    | Son faturanızdan itibaren kredi miktarı. Bekleyen işlemleri içermez |
    | İşlemler       | Azure kredi bakiyeniz etkilenen tüm faturalandırma işlemleri |
 
    Tahmini bakiyeniz 0 olarak düştüğünde kapsamında ürünler dahil olmak üzere tüm kullanım için ücretlendirilirsiniz.
@@ -57,11 +57,11 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
    ![Kredileriniz ekran için bir faturalandırma profili listeler](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
 
-   | Sözleşme Dönemi                 | Tanım                           |
+   | Terim                 | Tanım                           |
    |----------------------|--------------------------------------------------------|
-   | Kaynak               | Kredi edinme kaynağı |
+   | source               | Kredi edinme kaynağı |
    | Başlangıç tarihi           | Kredi satın aldığınız zaman tarihi |
-   | Son kullanma tarihi      | Kredi süresinin dolduğu tarih |
+   | Sona erme tarihi      | Kredi süresinin dolduğu tarih |
    | Bakiye              | Bakiye, son faturanızdan itibaren |
    | Orijinal Tutar      | Özgün kredi miktarı |
    | Durum               | Kredi geçerli durumu. Kullanılan, süresi doldu veya süresi doluyor durumu etkin olabilir |
@@ -93,7 +93,7 @@ Azure KREDİLERİ ödeme yöntemleri biridir. Promosyon alacak ve hizmet düzeyi
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
 Yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
 

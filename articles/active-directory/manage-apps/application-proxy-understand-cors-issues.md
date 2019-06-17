@@ -12,10 +12,10 @@ ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
 ms.openlocfilehash: 2b6adcf4231aa44a4f28d277e963efa16de8af81
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399338"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Anlama ve Azure Active Directory Uygulama Proxy CORS sorunları çözme
@@ -64,11 +64,11 @@ Bu şirket içi ancak yük başarısız veya hata Azure AD uygulama proxy'si ara
 
 Yollarından biri önceki CORS sorunu çözebilirsiniz.
 
-### <a name="option-1-set-up-a-custom-domain"></a>1. seçenek: Özel etki alanını ayarlama
+### <a name="option-1-set-up-a-custom-domain"></a>1\. seçenek: Özel etki alanını ayarlama
 
 Bir Azure AD uygulama proxy'si kullanın [özel etki alanı](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) uygulama kaynakları, kod veya üst bilgileri için herhangi bir değişiklik yapmak zorunda kalmadan aynı kaynaktan alınan yayımlanacak. 
 
-### <a name="option-2-publish-the-parent-directory"></a>2. seçenek: Üst dizini yayımlama
+### <a name="option-2-publish-the-parent-directory"></a>2\. seçenek: Üst dizini yayımlama
 
 Üst dizini de her iki uygulama yayımlayın. Web sunucusu üzerinde yalnızca iki uygulamalar varsa, özellikle de iyi bu çözümü çalışır. Ayrı ayrı her bir uygulama yayımlama yerine, aynı başlangıca sonuçları ortak bir üst dizin yayımlayabilirsiniz.
 
@@ -110,7 +110,7 @@ X-desteklenen-tarafından: ASP.NET\
 
 Access-Control-Allow-Origin üstbilgiyle uygun değerleri ekleyerek CORS desteği için uygulamanızı değiştirebilirsiniz. Üst bilgi Ekle şekilde uygulamanın kod diline bağlıdır. Çoğu çaba gerektirdiğinden kod değiştirme işlemi en az önerilen seçenek gerçekleşir.
 
-### <a name="option-5-extend-the-lifetime-of-the-access-token"></a>5. seçenek: Erişim belirteci ömrü genişletme
+### <a name="option-5-extend-the-lifetime-of-the-access-token"></a>5\. seçenek: Erişim belirteci ömrü genişletme
 
 Bazı CORS sorunları, ne zaman uygulamanızı yeniden yönlendirir gibi çözümlenemiyor *login.microsoftonline.com* kimliğini doğrulamak için ve erişim belirtecinin süresi dolar. CORS çağırın, sonra başarısız oluyor. Bu senaryo için geçici bir çözüm, bir kullanıcının oturumu sırasında süresinin dolmasını engellemek için erişim belirteci ömrü genişletmek sağlamaktır. Bunun nasıl yapılacağı hakkında daha fazla bilgi için bkz. [Azure AD'de yapılandırılabilir belirteç ömrünü](../develop/active-directory-configurable-token-lifetimes.md).
 

@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
 ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609326"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure Sanal Makinelerde SQL Server İş Zekası
@@ -113,7 +113,7 @@ Aşağıdaki tabloda yaygın Microsoft Azure sanal makine galeri görüntüleri 
 ## <a name="example-deployment-topologies"></a>Örnek dağıtım topolojileri
 Microsoft Azure sanal makineleri'nin örnek dağıtımlar aşağıda verilmiştir. Bu diyagramları Topolojilerde yalnızca SQL Server BI özellikleri ve Microsoft Azure sanal makineler ile kullanabileceğiniz olası topolojiler bazılarıdır.
 
-### <a name="single-virtual-machine"></a>Tek Sanal Makine
+### <a name="single-virtual-machine"></a>Tek sanal makine
 Analiz Hizmetleri, Reporting Services, SQL Server veritabanı altyapısı ve veri kaynakları tek bir sanal makine üzerinde.
 
 ![1 sanal makine ile bi iass senaryosu](./media/virtual-machines-windows-classic-ps-sql-bi/IC650108.gif)
@@ -317,7 +317,7 @@ Bu bölümde, Microsoft Azure sanal makine oluşturmak için uç ve sanal makine
   * Sanal makine uç noktalarına belirtilenler bağlantı noktaları (*) oluşturun.
 * Sanal makine Azure sanal ağ gibi bir VPN tüneli ile bir etki alanına katılmışsa, uç noktaları gerekli değildir. Ancak, sanal makinedeki güvenlik duvarı bağlantı noktalarını açın.
   
-  | Bağlantı noktası | Tür | Açıklama |
+  | Port | Tür | Açıklama |
   | --- | --- | --- |
   | **80** |TCP |Rapor sunucusu uzaktan erişim (*). |
   | **1433** |TCP |SQL Server Management Studio'yu (*). |

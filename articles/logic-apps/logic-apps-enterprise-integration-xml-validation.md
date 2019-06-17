@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
 ms.date: 07/08/2016
 ms.openlocfilehash: 8db0dbadd944007ff953f9ea69695bf988ffebb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996351"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Enterprise Integration Pack ile Azure Logic apps'teki B2B Kurumsal tümleştirme için XML doğrulama

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/1/2019
 ms.author: victorh
 ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193790"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Azure güvenlik duvarı Azure standart Load Balancer ile tümleştirin
@@ -41,7 +41,7 @@ Bu sorunu önlemek için bir Güvenlik Duvarı'nın genel IP adresi için ek kon
 
 Örneğin, aşağıdaki bir Güvenlik Duvarı'nın genel IP adresi 13.86.122.41 ve özel IP adresi 10.3.1.4 yollardır.
 
-![Rota tablosu](media/integrate-lb/route-table.png)
+![Yol tablosu](media/integrate-lb/route-table.png)
 
 ## <a name="internal-load-balancer"></a>İç yük dengeleyici
 

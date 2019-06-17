@@ -1,17 +1,17 @@
 ---
 title: MariaDB için Azure veritabanı'nda izleme
 description: Bu makalede izleme ve CPU, depolama ve bağlantı istatistikleri de dahil olmak üzere MariaDB için Azure veritabanı için uyarı ölçümleri açıklanır.
-author: rachel-msft
-ms.author: raagyema
+author: andrela
+ms.author: ajlam
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: babe2ac55953940370daa0731463ed6ed8988502
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/12/2019
+ms.openlocfilehash: 8625441f836256028362fc327873383f5b46620c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "64925907"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065738"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda izleme
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MariaDB için Azure veritabanı sunucunuzu davranışını öngörü sunan çeşitli ölçümleri sağlar.
@@ -41,8 +41,22 @@ Bu ölçümler, MariaDB için Azure veritabanı için kullanılabilir:
 |network_bytes_ingress|Ağ Girişi|Bayt|Ağ içinde arasında etkin bağlantılar.|
 
 ## <a name="server-logs"></a>Sunucu günlükleri
+
 Yavaş sorgu günlüğü sunucunuzda etkinleştirebilirsiniz. Bu günlükler de Azure İzleyici günlüklerini, olay hub'ları ve depolama hesabı Azure tanılama günlükleri kullanılabilir. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
 
+## <a name="query-store"></a>Sorgu Deposu
+
+[Query Store](concepts-query-store.md) sorgu süresi dahil olmak üzere üzerinde performans sorgu çalışma zamanı istatistikleri ve olayları bekleyin ve genel Önizleme özelliğidir. Özellik sorgu çalışma zamanı performans bilgileri kalıcı **mysql** şema. Çeşitli yapılandırma düğmelerini aracılığıyla veri depolama ve koleksiyon denetleyebilirsiniz.
+
+## <a name="query-performance-insight"></a>Sorgu Performansı İçgörüleri
+
+[Sorgu performansı İçgörüleri](concepts-query-performance-insight.md) Query Store, Azure portalından erişilebilir görselleştirmeleri sunmak için birlikte çalışır. Bu grafik, anahtar sorguları tanımlamak için performansı etkileyebilir olanak sağlar. Sorgu performansı İçgörüleri genel Önizleme aşamasındadır ve erişebileceğiniz **akıllı performans** MariaDB sunucunuzun portal sayfası için Azure veritabanı bölümü.
+
+## <a name="performance-recommendations"></a>Performans Önerileri
+
+[Performans önerileri](concepts-performance-recommendations.md) iş yükü performansı arttırmaya yönelik fırsatlar özelliği tanımlar. Genel Önizleme sürümü, performans, iş yüklerinizin performansını olanağına sahip yeni bir dizin oluşturmak için öneriler sağlar. Dizin önerileri üretmek için özelliği, şema ve sorgu Store tarafından bildirilen gibi iş yükü dahil olmak üzere, çeşitli veritabanı özelliklerini dikkate alır. Herhangi bir performans önerisi uyguladıktan sonra müşteriler bu değişikliklerin etkisini değerlendirmek için performans test etmeniz gerekir.
+
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - Erişim ve Azure portalı, REST API veya CLI kullanarak ölçümleri dışarı aktarma hakkında daha fazla bilgi için bkz. [Azure ölçümlerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
   - Bkz: [uyarıları ayarlamak nasıl](howto-alert-metric.md) bir ölçüme göre bir uyarı oluşturma hakkında yönergeler için.

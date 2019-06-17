@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142821"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Apache Hadoop ile Apache Oozie kullanma
@@ -524,7 +524,7 @@ Oozie web kullanıcı Arabirimi erişmek için aşağıdaki adımları tamamlay�
 
    * **İş günlüğü**: Seçin **günlükleri alma** iş için tüm günlükleri almak için düğmesine veya kullanın **girin arama filtresi** günlükleri filtrelemek için alan.
 
-       ![İş Günlüğü](./media/hdinsight-use-oozie-linux-mac/joblog.png)
+       ![İş günlüğü](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
    * **Proje DAG**: DAG, iş akışı gerçekleştirilen veri yolları grafik bir genel bakıştır.
 

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: b-juche
 ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711826"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files için bir alt ağı temsilci olarak belirleme 
@@ -42,7 +42,7 @@ Bir alt ağ Azure NetApp dosyaları devretmeniz gerekir.   Bir birim oluşturdu�
     * **Adres aralığı**: IP adres aralığını belirtin.
     * **Alt ağ temsilci**: Seçin **Microsoft.NetApp/volumes**. 
 
-      ![Alt ağ temsilcisi](../media/azure-netapp-files/azure-netapp-files-subnet-delegation.png)
+      ![Alt ağ temsilci seçme](../media/azure-netapp-files/azure-netapp-files-subnet-delegation.png)
     
 Ayrıca oluşturabilir ve bir alt ağ temsilci olduğunda, [birim oluşturmak için Azure NetApp dosyaları](azure-netapp-files-create-volumes.md). 
 

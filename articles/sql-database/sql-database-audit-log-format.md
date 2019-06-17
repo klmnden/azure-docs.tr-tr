@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417397"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL veritabanı denetim günlük biçimi
@@ -70,21 +70,21 @@ Denetim olayları denetim yapılandırması sırasında çok tanımlı Log Analy
 | response_rows | response_rows_d | Sonuç kümesinde döndürülen satır sayısını | bigint | int |
 | schema_name | schema_name_s | Şema eylemin gerçekleştiği bağlamı. Bir şema dışında gerçekleşen denetimleri için NULL | Sistem adı | string |
 | Yok | securable_class_type_s | Denetlenmekte class_type eşleyen güvenli kılınabilir nesne | Yok | string |
-| sequence_group_id | sequence_group_id_g | Benzersiz tanımlayıcı | Varbinary | GUID |
+| sequence_group_id | sequence_group_id_g | Benzersiz tanımlayıcı | varbinary | GUID |
 | sequence_number | sequence_number_d | Denetimleri için yazma arabelleği sığmayacak kadar büyük bir tek bir denetim kaydı içinde kayıt dizisini izler | int | int |
 | server_instance_name | server_instance_name_s | Denetim gerçekleştiği sunucu örneğinin adı | Sistem adı | string |
 | server_principal_id | server_principal_id_d | Gerçekleştirilen eylem içinde oturum açma bağlamını kimliği | int | int |
 | server_principal_name | server_principal_name_s | Geçerli oturum açma | Sistem adı | string |
-| server_principal_sid | server_principal_sid_s | Geçerli oturum açma SID | Varbinary | string |
+| server_principal_sid | server_principal_sid_s | Geçerli oturum açma SID | varbinary | string |
 | session_ıd | session_id_d | Olayın gerçekleştiği oturum kimliği | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | Asıl sunucu oturum için | Sistem adı | string |
 | Deyimi | statement_s | (Varsa) yürütülen bir T-SQL deyimi | nvarchar(4000) | string |
-| başarılı | succeeded_s | Olayı tetikleyen eylemi başarılı olup olmadığını gösterir. Oturum açma ve batch dışındaki olaylar için bu yalnızca izni denetimi başarılı veya başarısız, işlemi olduğunu bildirir. 1 = başarılı, 0 = başarısız | bit | string |
+| Başarılı oldu | succeeded_s | Olayı tetikleyen eylemi başarılı olup olmadığını gösterir. Oturum açma ve batch dışındaki olaylar için bu yalnızca izni denetimi başarılı veya başarısız, işlemi olduğunu bildirir. 1 = başarılı, 0 = başarısız | bit | string |
 | target_database_principal_id | target_database_principal_id_d | Asıl veritabanı üzerinde GRANT/DENY/REVOKE işlemi gerçekleştirilir. uygulanabilir değilse 0 | int | int |
 | target_database_principal_name | target_database_principal_name_s | Hedef kullanıcı eyleminin. Uygulanabilir değilse NULL | string | string |
 | target_server_principal_id | target_server_principal_id_d | GRANT/DENY/REVOKE işlemi gerçekleştirilir asıl sunucu. Uygulanabilir değilse 0 değerini döndürür | int | int |
 | target_server_principal_name | target_server_principal_name_s | Eylem hedef oturum açın. Uygulanabilir değilse NULL | Sistem adı | string |
-| target_server_principal_sid | target_server_principal_sid_s | Hedef oturum açma SID'si. Uygulanabilir değilse NULL | Varbinary | string |
+| target_server_principal_sid | target_server_principal_sid_s | Hedef oturum açma SID'si. Uygulanabilir değilse NULL | varbinary | string |
 | transaction_id | transaction_id_d | (2016'dan itibaren) - yalnızca SQL Server için Azure SQL DB 0 | bigint | int |
 | user_defined_event_id | user_defined_event_id_d | Olay Kimliği sp_audit_write için bağımsız değişken olarak geçirilen kullanıcı tanımlı. Sistem olayları (varsayılan) boş ve sıfır için kullanıcı tanımlı olay. Daha fazla bilgi için [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | Sp_audit_write için bağımsız değişken olarak geçirilen bilgileri kullanıcı tanımlı. Sistem olayları (varsayılan) boş ve sıfır için kullanıcı tanımlı olay. Daha fazla bilgi için [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943545"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Yayımlama Portalı'nda uygulamanızı kurma
@@ -43,11 +43,11 @@ Dynamics 365 müşteri katılımı teklif için yazma için dört ana formu vard
 
 Teklif ayarları formu teklif ayarlarını belirtmek için temel bir biçimidir. Farklı alanlar, aşağıda açıklanmıştır.
 
-### <a name="offer-id"></a>Teklif Kimliği
+### <a name="offer-id"></a>Teklif kimliği
 
 Bu teklif içinde bir yayımcı profili için benzersiz bir tanımlayıcıdır. Bu kimliği, ürün URL'lerinde görünür olur. Yalnızca küçük harfli alfasayısal karakterler veya tirelerden (-) oluşabilir. Kimliği tire bitemez ve en çok 50 karakter olabilir. Bu alan, teklif etkin hale gelir sonra kilitli.
 
-Örneğin, bir yayımcı varsa **"contoso"** yayımcılar, Teklif kimliği ile bir teklif oluşturur **"örnek-WebApp"**, appsource'ta görünür "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+Örneğin, bir yayımcı varsa **"contoso"** yayımcılar, Teklif kimliği ile bir teklif oluşturur **"örnek-WebApp"** , appsource'ta görünür "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### <a name="publisher-id"></a>Yayımcı kimliği
 

@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 5d754ae558d485036a9a55f573a3f40162ed9f84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725440"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Olağanüstü durum kurtarma Tatbikatı gerçekleştirme
@@ -26,7 +26,7 @@ Kurtarma iş akışı için uygulama hazır olma durumu doğrulaması düzenli a
 Olağanüstü durum kurtarma tatbikatı gerçekleştirme şunlardan oluşur:
 
 * Veri katmanı kesinti benzetimi
-* Kurtarılıyor
+* Kurtarma
 * Uygulama bütünlüğünü post kurtarma doğrula
 
 Nasıl bağlı olarak, [uygulamanız iş sürekliliği için tasarlanmış](sql-database-business-continuity.md), detaya yürütülecek iş akışını farklılık gösterebilir. Bu makalede, Azure SQL veritabanı bağlamında olağanüstü durum kurtarma tatbikatı gerçekleştirme için en iyi uygulamaları açıklar.

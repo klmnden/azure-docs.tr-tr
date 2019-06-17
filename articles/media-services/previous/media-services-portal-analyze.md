@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61131832"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Azure portalını kullanarak medyanızı analiz etme 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
+> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
@@ -53,7 +53,7 @@ Bu konuda, Azure portalını kullanarak medya analizi medya işlemcileri (MP'ler
 ### <a name="language"></a>Dil
 Multimedya dosyasında tanınacak doğal dili. Örneğin, İngilizce veya İspanyolca. 
 
-### <a name="captions"></a>Açıklamalı alt yazılar
+### <a name="captions"></a>açıklamalı alt yazılar
 İçeriğinizi oluşturulan açıklamalı alt yazı biçimi seçebilirsiniz. Bir dizin oluşturma işi kapalı açıklamalı alt yazı dosyaları aşağıdaki biçimlerde oluşturabilirsiniz:  
 
 * **SAMI**
@@ -65,7 +65,7 @@ Bu biçimler dosyalarında ses ve video dosyaları işitme engelli kişiler içi
 ### <a name="aib-file"></a>AIB dosyası
 Özel SQL Server IFilter ile kullanılacak ses dizini Blob dosyasını oluşturmak istiyorsanız bu seçeneği belirleyin. Daha fazla bilgi için [bu](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blogu.
 
-### <a name="keywords"></a>Anahtar Sözcükler
+### <a name="keywords"></a>anahtar sözcükler
 Bir anahtar sözcük XML dosyası oluşturmak istiyorsanız bu seçeneği belirleyin. Bu dosya, sıklık ve uzaklık bilgilerini konuşma içeriğinden ayıklanan anahtar sözcükler içerir.
 
 ### <a name="job-name"></a>İş adı
@@ -140,7 +140,7 @@ Bu işlemci videolarda yetişkinlere yönelik ve müstehcen içerik olası algı
 "2.0" kullanın.
 
 ### <a name="mode"></a>Mod
-2.0 sürümünü Yoksay `Mode` ayarı.
+2\.0 sürümünü Yoksay `Mode` ayarı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Görünüm Media Services'i öğrenme yolları.

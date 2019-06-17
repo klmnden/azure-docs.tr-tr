@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
 ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506369"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
@@ -35,7 +35,7 @@ Gerektiğinde oluşturmak için değiştirmek veya bir ağ arabirimi silme, okum
 Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki görevleri tamamlayın:
 
 - Azure hesabınız yoksa, kaydolmaya bir [ücretsiz deneme hesabınızı](https://azure.microsoft.com/free).
-- Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
+- Portalı kullanarak, açık https://portal.azure.com ve Azure hesabınızda oturum.
 - Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici Azure PowerShell modülü sürüm 1.0.0 gerektirir veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 - Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici, Azure CLI Sürüm 2.0.31 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 
@@ -61,7 +61,7 @@ Kadar ekleyebilirsiniz [özel](#private) ve [genel](#public) [IPv4](#ipv4) adres
 
 **Komutları**
 
-|Tool|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
@@ -74,7 +74,7 @@ Gerektiğinde bir IPv4 adresi atama yöntemini değiştirmek için statik IPv4 a
 2. Görüntülemek veya listeden IP adresi ayarlarını değiştirmek istediğiniz ağ arabirimi seçin.
 3. Altında **ayarları**seçin **IP yapılandırmaları**.
 4. Listeden değiştirmek istediğiniz IP Yapılandırması'nı seçin.
-5. 5. adımda ayarlarıyla ilgili bilgileri kullanarak, istenen ayarları [IP Yapılandırması Ekle](#add-ip-addresses).
+5. 5\. adımda ayarlarıyla ilgili bilgileri kullanarak, istenen ayarları [IP Yapılandırması Ekle](#add-ip-addresses).
 6. **Kaydet**’i seçin.
 
 >[!NOTE]
@@ -82,7 +82,7 @@ Gerektiğinde bir IPv4 adresi atama yöntemini değiştirmek için statik IPv4 a
 
 **Komutları**
 
-|Tool|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
@@ -98,7 +98,7 @@ Kaldırabilirsiniz [özel](#private) ve [genel](#public) bir ağ arabirimi IP ad
 
 **Komutları**
 
-|Tool|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az ağ NIC IP yapılandırmasını Sil](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Remove-AzNetworkInterfaceIpConfig](/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
@@ -194,7 +194,7 @@ Sıfır veya bir özel atayabilirsiniz [IPv6](#ipv6) adresine bir ağ arabirimi 
 
 Bir birincil veya ikincil IP yapılandırması için genel IPv6 adresi atanamıyor.
 
-## <a name="skus"></a>SKU'lar
+## <a name="skus"></a>SKU'ları
 
 Genel bir IP adresi, temel veya standart SKU ile oluşturulur. SKU farklılıklar hakkında daha fazla bilgi için bkz. [yönetmek genel IP adresleri](virtual-network-public-ip-address.md).
 
@@ -204,7 +204,7 @@ Genel bir IP adresi, temel veya standart SKU ile oluşturulur. SKU farklılıkla
 ## <a name="next-steps"></a>Sonraki adımlar
 Farklı IP yapılandırması içeren bir sanal makine oluşturmak için bu makaleleri okuyun:
 
-|Görev|Tool|
+|Görev|Aracı|
 |---|---|
 |Birden çok ağ arabirimi ile VM oluşturma|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Birden çok IPv4 adresi ile tek bir NIC VM oluşturma|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

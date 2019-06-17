@@ -10,10 +10,10 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
 ms.openlocfilehash: bee42f8a9582908963c0eef95a2fd04742cd425e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205672"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için PowerShell modülleri

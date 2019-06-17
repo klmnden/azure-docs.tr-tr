@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60255064"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Operations Manager'ı Azure İzleyicisi ile bağlantı
@@ -64,7 +64,7 @@ Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
 
 Azure İzleyici ile iletişim kurmak Operations Manager Aracısı, yönetim sunucuları ve işletim Konsolu için gerekli proxy ve güvenlik duvarı yapılandırma bilgileri listesi aşağıdaki bilgileri. Azure İzleyici ağınızdan giden trafik her bileşeni.   
 
-|Kaynak | Bağlantı noktası numarası| HTTP İncelemesini atlama|  
+|Resource | Bağlantı noktası numarası| HTTP İncelemesini atlama|  
 |---------|------|-----------------------|  
 |**Aracı**|||  
 |\*.ods.opinsights.azure.com| 443 |Yes|  

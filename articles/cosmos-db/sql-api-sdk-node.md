@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
 ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626749"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
@@ -30,7 +30,7 @@ ms.locfileid: "60626749"
 > * [Bulkexecutor'a - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulkexecutor'a - Java](sql-api-sdk-bulk-executor-java.md)
 
-|Kaynak  |Bağlantı  |
+|Resource  |Bağlantı  |
 |---------|---------|
 |SDK'yı indir  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |API Belgeleri  |  [JavaScript SDK başvuru belgeleri](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
