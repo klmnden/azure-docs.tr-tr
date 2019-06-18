@@ -15,6 +15,8 @@
       href: cognitive-services-apis-create-account.md
     - name: Kimlik Doğrulaması
       href: authentication.md
+    - name: Tanılama günlüğüne kaydetme
+      href: diagnostic-logging.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası
