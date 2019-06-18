@@ -4,6 +4,8 @@
   items:
     - name: Azure DNS nedir?
       href: dns-overview.md
+    - name: Azure Özel DNS nedir?
+      href: private-dns-overview.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -20,7 +22,7 @@
     - name: Bir web uygulaması için özel DNS kayıtları oluşturma
       href: dns-web-sites-custom-domain.md
     - name: Özel bir DNS bölgesi ve kaydı oluşturma
-      href: private-dns-getstarted-powershell.md
+      href: private-dns-portal.md
     - name: Traffic Manager için diğer ad kayıtları
       href: tutorial-alias-tm.md
     - name: Genel IP adresleri için diğer ad kayıtları
@@ -33,6 +35,12 @@
       href: cli-samples.md
 - name: Kavramlar
   items:
+    - name: Özel DNS
+      items:
+        - name: SSS - Özel DNS
+          href: dns-faq-private.md
+        - name: Özel DNS senaryoları
+          href: private-dns-scenarios.md
     - name: Bölgeler ve kayıtlar
       href: dns-zones-records.md
     - name: Diğer ad kayıtları
@@ -41,10 +49,6 @@
       href: dns-domain-delegation.md
     - name: SSS
       href: dns-faq.md
-    - name: Özel DNS bölgelerini kullanma
-      href: private-dns-overview.md
-    - name: Özel DNS senaryoları
-      href: private-dns-scenarios.md
     - name: DNS ölçümleri ve uyarıları
       href: dns-alerts-metrics.md
     - name: Ters DNS
@@ -53,8 +57,12 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Nasıl yapılır
   items:
-    - name: Özel bir DNS bölgesi ve kaydı oluşturma - Azure CLI
-      href: private-dns-getstarted-cli.md
+    - name: Özel DNS
+      items:
+        - name: Özel bölge oluşturma - CLI
+          href: private-dns-getstarted-cli.md
+        - name: Özel bölge oluşturma - PowerShell
+          href: private-dns-getstarted-powershell.md
     - name: Yük dengeli web uygulamaları için diğer ad kayıtları
       href: dns-alias-appservice.md
     - name: DNS bölgelerini yönetme
