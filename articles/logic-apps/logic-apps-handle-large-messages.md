@@ -128,7 +128,7 @@ Bu adımları bir uç noktaya mantıksal uygulamanızdan öbekli içerik yüklem
    | Uç nokta yanıt üstbilgi alanı | Tür | Gerekli | Açıklama |
    |--------------------------------|------|----------|-------------|
    | **x-ms-öbek boyutu** | Integer | Hayır | Bayt cinsinden önerilen öbek boyutu |
-   | **Konum** | String | Hayır | URL konumu HTTP PATCH iletilerin gönderileceği adresi |
+   | **Location** | String | Hayır | URL konumu HTTP PATCH iletilerin gönderileceği adresi |
    ||||
 
 3. Mantıksal uygulamanızı oluşturur ve bu bilgileri her izleme iletileri - HTTP PATCH gönderir:

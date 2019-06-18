@@ -5,14 +5,14 @@ metadata:
   title: 'Azure Time Series Insights Belgeleri - Hızlı Başlangıçlar, Öğreticiler, API Başvurusu | Microsoft Docs'
   description: 'Tam olarak yönetilen olay işlemeyle bulutta nasıl Azure IoT analizi çalıştıracağınızı öğrenin. Uygulamalardan, algılayıcılardan, cihazlardan ve diğer kaynaklardan gelen verileri gerçek zamanlı olarak analiz edin.'
   services: time-series-insights
-  author: anshan
+  author: deepakpalled
   manager: cshankar
   ms.service: time-series-insights
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 06/03/2019
-  ms.author: anshan
+  ms.author: dpalled
 abstract:
   description: 'Azure Time Series Insights''a hoş geldiniz. Azure Time Series Insights, işlem analizinizi geliştirmenize yardımcı olmak için güçlü veri araştırma ve telemetri araçları sağlar. Bu belgede hizmet, hizmetin birçok özelliğiyle nasıl çalışmaya başlanacağı, istemci SDK’sı ve güçlü Time Series Insights API’leri açıklanır. İki sürüm için bilgi sağlanır. Bunlardan biri genel kullanıma sunulmuş olan (Time Series Insights GA) ve diğeri de önizleme aşamasında (Time Series Insights Önizleme) olan kapsamlı hizmet güncelleştirmesidir.'
   aside:
