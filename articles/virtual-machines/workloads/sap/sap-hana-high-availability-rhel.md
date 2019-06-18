@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922125"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
@@ -28,18 +28,18 @@ ms.locfileid: "64922125"
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[2292690]:https://launchpad.support.sap.com/#/notes/2292690
-[2455582]:https://launchpad.support.sap.com/#/notes/2455582
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[2292690]: https://launchpad.support.sap.com/#/notes/2292690
+[2455582]: https://launchpad.support.sap.com/#/notes/2455582
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
@@ -109,7 +109,7 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
     * **SAP sistemi boyutu**: Yeni sisteme sağlamak için gittiği SAP sayısını girin. SAP teknoloji iş ortağı veya sistem Entegratörü, emin kaç SAP sistemi gerektiriyor olmadığınız durumlarda isteyin.
     * **Sistem kullanılabilirliği**: Seçin **HA**.
     * **Yönetici kullanıcı adı, yönetici parolası veya SSH anahtarı**: Yeni bir kullanıcı oluşturulur makinede oturum açmak için kullanılabilir.
-    * **Alt ağ kimliği**: Tanımlanan bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle gibi görünüyor **/subscriptions/\<abonelik kimliği > /resourceGroups/\<kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı > /subnets/ \<alt ağ adı >**. Yeni bir sanal ağ oluşturmak istiyorsanız boş bırakın
+    * **Alt ağ kimliği**: Tanımlanan bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle gibi görünüyor **/subscriptions/\<abonelik kimliği > /resourceGroups/\<kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı > /subnets/ \<alt ağ adı >** . Yeni bir sanal ağ oluşturmak istiyorsanız boş bırakın
 
 ### <a name="manual-deployment"></a>El ile dağıtım
 
@@ -118,7 +118,7 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
 1. Bir kullanılabilirlik kümesi oluşturun.  
    En çok güncelleştirme etki alanı ayarlayın.
 1. Bir yük dengeleyiciye (dahili) oluşturun.
-   * 2. adımda oluşturduğunuz sanal ağı seçin.
+   * 2\. adımda oluşturduğunuz sanal ağı seçin.
 1. 1 sanal makine oluşturun.  
    SAP HANA için en az Red Hat Enterprise Linux 7.4 kullanın. Bu örnekte SAP HANA görüntüsü için Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> kullanılabilirlik 3. adımda oluşturulan kümesini seçin.
 1. 2 sanal makine oluşturun.  
@@ -137,7 +137,7 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
    1. Yük Dengeleyici açın, **arka uç havuzları**seçip **Ekle**.
    1. Yeni arka uç havuzunun adını girin (örneğin, **hana arka uç**).
    1. Seçin **bir sanal makine ekleme**.
-   1. 3. adımda oluşturduğunuz kullanılabilirlik kümesi seçin.
+   1. 3\. adımda oluşturduğunuz kullanılabilirlik kümesi seçin.
    1. SAP HANA kümedeki sanal makineleri seçin.
    1. **Tamam**’ı seçin.
 
@@ -192,10 +192,10 @@ SAP HANA için gerekli bağlantı noktaları hakkında daha fazla bilgi için bu
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
-* **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
-1. **[A]**  Disk düzenini ayarla: **Mantıksal birim Yöneticisi (LVM)**.
+1. **[A]**  Disk düzenini ayarla: **Mantıksal birim Yöneticisi (LVM)** .
 
    LVM'yi veri depolayan ve günlük dosyaları birimleri için kullanmanızı öneririz. Aşağıdaki örnek, sanal makineler iki birim oluşturmak için kullanılan bağlı dört veri diskleri olduğunu varsayar.
 
@@ -353,8 +353,8 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
-* **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[A]**  Güvenlik duvarını yapılandırma
 
@@ -444,8 +444,8 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
-* **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[A]**  Güvenlik duvarını yapılandırma
 

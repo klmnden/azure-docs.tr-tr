@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922279"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
@@ -26,17 +26,17 @@ ms.locfileid: "64922279"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[401162]:https://launchpad.support.sap.com/#/notes/401162
+[401162]: https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -113,7 +113,7 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
     - **Sistem kullanılabilirliği**: Seçin **HA**.
     - **Yönetici kullanıcı adı ve yönetici parolası**: Yeni bir kullanıcı oluşturulur makinede oturum açmak için kullanılabilir.
     - **Yeni veya var olan bir alt ağa**: Yeni sanal ağ ve alt ağ oluşturulmalıdır veya kullanılan var olan bir alt ağ belirler. Şirket içi ağınıza bağlı bir sanal ağınız zaten varsa, seçin **varolan**.
-    - **Alt ağ kimliği**: Tanımlanan bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle gibi görünüyor **/subscriptions/\<abonelik kimliği > /resourceGroups/\<kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı > /subnets/ \<alt ağ adı >**.
+    - **Alt ağ kimliği**: Tanımlanan bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle gibi görünüyor **/subscriptions/\<abonelik kimliği > /resourceGroups/\<kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı > /subnets/ \<alt ağ adı >** .
 
 ### <a name="manual-deployment"></a>El ile dağıtım
 
@@ -126,13 +126,13 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
 1. Bir kullanılabilirlik kümesi oluşturun.
    - En çok güncelleştirme etki alanı ayarlayın.
 1. Bir yük dengeleyiciye (dahili) oluşturun.
-   - 2. adımda oluşturduğunuz sanal ağı seçin.
+   - 2\. adımda oluşturduğunuz sanal ağı seçin.
 1. 1 sanal makine oluşturun.
    - Seçtiğiniz VM türü üzerinde SAP HANA için desteklenen Azure galerisinde SLES4SAP görüntüsünü kullanın.
-   - 3. adımda oluşturduğunuz kullanılabilirlik kümesi seçin.
+   - 3\. adımda oluşturduğunuz kullanılabilirlik kümesi seçin.
 1. 2 sanal makine oluşturun.
    - Seçtiğiniz VM türü üzerinde SAP HANA için desteklenen Azure galerisinde SLES4SAP görüntüsünü kullanın.
-   - 3. adımda oluşturduğunuz kullanılabilirlik kümesi seçin. 
+   - 3\. adımda oluşturduğunuz kullanılabilirlik kümesi seçin. 
 1. Veri diski ekleyin.
 1. Yük Dengeleyici yapılandırın. İlk olarak, ön uç IP havuzu oluşturun:
 
@@ -147,7 +147,7 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
    1. Yük Dengeleyici açın, **arka uç havuzları**seçip **Ekle**.
    1. Yeni arka uç havuzunun adını girin (örneğin, **hana arka uç**).
    1. Seçin **bir sanal makine ekleme**.
-   1. 3. adımda oluşturduğunuz kullanılabilirlik kümesi seçin.
+   1. 3\. adımda oluşturduğunuz kullanılabilirlik kümesi seçin.
    1. SAP HANA kümedeki sanal makineleri seçin.
    1. **Tamam**’ı seçin.
 
@@ -205,10 +205,10 @@ Bağlantısındaki [SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacem
 
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 - **[A]** : Adım tüm düğümler için geçerlidir.
-- **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
-- **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+- **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+- **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
-1. **[A]**  Disk düzenini ayarla: **Mantıksal birim Yöneticisi (LVM)**.
+1. **[A]**  Disk düzenini ayarla: **Mantıksal birim Yöneticisi (LVM)** .
 
    LVM'yi veri depolayan ve günlük dosyaları birimleri için kullanmanızı öneririz. Aşağıdaki örnek, sanal makineler iki birim oluşturmak için kullanılan bağlı dört veri diskleri olduğunu varsayar.
 
@@ -357,8 +357,8 @@ SAP HANA sistem çoğaltması yüklemek için Bölüm 4 izleyin [SAP HANA SR per
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
-* **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[1]**  Kiracı veritabanı oluşturmak.
 
@@ -402,8 +402,8 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]**: Bu adım yalnızca düğüm 1 için geçerlidir.
-* **[2]**: Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[1]**  Gerekli kullanıcıları oluşturun.
 

@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965676"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Azure Cosmos DB faturanızı anlama
@@ -28,7 +28,7 @@ Bu makalede aylık faturanızda gördüğünüz ayrıntıları anlamanıza yard�
 
 * Bir kapsayıcıdaki aktarım hızı, 1.000 RU/sn yapılandırın ve 24 saat * 30 gün ay için mevcut varsayalım = toplam 720 saat.  
 
-* 1.000 RU/sn olan 10 birim kapsayıcıları mevcut olduğu her saat için saat başına 100 RU/sn (diğer bir deyişle, 1000/100 = 10). 
+* 1\.000 RU/sn olan 10 birim kapsayıcıları mevcut olduğu her saat için saat başına 100 RU/sn (diğer bir deyişle, 1000/100 = 10). 
 
 * Saat başına 10 birime maliyeti $0.008 (başına 100 RU/sn saat başına) ile çarpılmasıyla elde saatte $0.08 =. 
 
@@ -38,7 +38,7 @@ Bu makalede aylık faturanızda gördüğünüz ayrıntıları anlamanıza yard�
 
 ### <a name="billing-example---throughput-on-a-container-partial-month"></a>Faturalandırma örneği - aktarım hızını bir kapsayıcı (kısmi ay)
 
-* 2.500 RU/sn sağlanan aktarım hızı ile bir kapsayıcı oluşturacağız varsayalım. 24 saat boyunca ayı için kapsayıcı yaşadığı (örneğin, 24 saat biz oluşturduktan sonra sileceğiz).  
+* 2\.500 RU/sn sağlanan aktarım hızı ile bir kapsayıcı oluşturacağız varsayalım. 24 saat boyunca ayı için kapsayıcı yaşadığı (örneğin, 24 saat biz oluşturduktan sonra sileceğiz).  
 
 * 600 birim faturanızda görüyoruz sonra (2.500 RU/sn / 100 RU/sn/birim * 24 saat). Maliyeti $4.80 olacaktır (600 birim * $0.008/birim).
 
@@ -62,7 +62,7 @@ Depolama kapasitesi, bir aylık bir dönemde depolanan saatlik en fazla veri mik
 
 * Bir Azure Cosmos hesabı Doğu ABD 2 500 RU/sn ve 700 RU/sn, sağlanan aktarım hızı ile iki kapsayıcı sırasıyla oluşturursanız, 1.200 RU/sn sağlanan aktarım gerekir.  
 
-* 1.200/100 ücretlendirilebilir * $0.008 = 0,096 / saat. 
+* 1\.200/100 ücretlendirilebilir * $0.008 = 0,096 / saat. 
 
 * Aktarım hızınızın değişmesi ve 20.000 RU/sn ile yeni bir sınırsız kapsayıcı oluştururken aynı zamanda her kapsayıcının kapasitesine 500 RU/sn artırdık, toplam sağlanan kapasiteniz 22.200 RU/sn olacaktır (1.000 RU/sn + 1.200 RU/sn + 20 000RU/sn).  
 
@@ -212,7 +212,7 @@ Faturanız ayın son önce proaktif olarak tahmin etmek istediğiniz başka bir 
 
 |**Aktarım hızı maliyeti** | | | |
 |----|----|----|----|
-|İşlem Türü| İstek/sn| Ort. RU/istek| Gerekli ru|
+|İşlem Türü| İsteği/sn| Ort. RU/istek| Gerekli ru|
 |Yazma| 100 | 5 | 500|
 |Okuma| 400| 1| 400|
 
