@@ -69,6 +69,9 @@ sections:
       - type: list
         style: unordered
         items:
+          - html: '<a href="https://aka.ms/four-cores-sql-mi-update"> 5. nesil donanım nesil 4 sanal çekirdek</a>'
+          - html: 'Aboneliklerle desteği <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > Visual Studio aboneleri için aylık Azure kredisi </a>'
+          - html: 'Destek <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 ve SharePoint 2019 </a> ve <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>'
           - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Saat dilimi yapılandırma</a> örnek oluşturma sırasında.'
           - html: 'Örneği oluşturma <a href="https://aka.ms/managed-instance-collation">tercih ettiğiniz sunucu düzeyinde harmanlama</a>.'
           - html: 'Coğrafi geri yükleme işlevi etkinleştirir, <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">veritabanınızı PowerShell kullanarak başka bir veri merkezine geri</a>.'

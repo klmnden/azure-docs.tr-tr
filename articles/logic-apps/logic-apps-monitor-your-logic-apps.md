@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
 ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61325291"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Azure Logic Apps için uyarılarını Aç durumunu izleme ve tanılama günlük kaydını ayarlama
@@ -139,7 +139,7 @@ Bir filtre ekleyerek sorgunuzu iyileştirmek için seçin **+ Ekle**.
    Bu örnek "Durum" sözcüğü altında başarısız olayları bulmak için kullanır. **AzureDiagnostics**.
    Burada filtresi için **status_s** zaten seçildi.
 
-   ![Filtre seç](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
+   ![Filtre seçin](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
 7. Sol çubuğunda, seçin ve istediğiniz filtre değeri **Uygula**.
 

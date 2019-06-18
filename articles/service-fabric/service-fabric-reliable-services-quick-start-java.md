@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 6bf8c632a7513d018745bc74aa0a1db95a39af8b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130135"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services özelliğini kullanmaya başlayın
@@ -166,7 +166,7 @@ Uygulamanız artık iki hizmet vardır: HelloWorld durum bilgisi olmayan hizmet 
 
 Bir durum bilgisi olan hizmeti durum bilgisi olmayan hizmet olarak aynı giriş noktaları içerir. Ana kullanılabilirlik durumu güvenilir bir şekilde depolamak bir durum sağlayıcısının farktır. Service Fabric, güvenilir durum Yöneticisi yoluyla çoğaltılan veri yapılarını oluşturmanıza olanak sağlayan güvenilir koleksiyon adı verilen bir durumu sağlayıcısı uygulaması ile birlikte gelir. Durum bilgisi olan güvenilir bir hizmet, varsayılan olarak bu durum sağlayıcısı kullanır.
 
-İçinde HelloWorldStateful.java açın **HelloWorldStateful src ->**, aşağıdaki RunAsync yöntemi içerir:
+İçinde HelloWorldStateful.java açın **HelloWorldStateful src ->** , aşağıdaki RunAsync yöntemi içerir:
 
 ```java
 @Override

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
 ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699434"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio'yu kullanarak müşteri değişim sıklığını çözümleme
@@ -188,7 +188,7 @@ Machine Learning Studio'da büyük ölçüde par üzerinde yürütme, ancak doğ
 Telekomünikasyon sektörün değişim sıklığı, analiz etmek için çeşitli yöntemler çıkmıştır dahil olmak üzere:  
 
 * Dört temel kategorileri için ölçümleri türetilir:
-  * **Varlık (örneğin, bir abonelik)**. Abonelik ve/veya değişim konusu müşteri hakkındaki temel bilgileri sağlayın.
+  * **Varlık (örneğin, bir abonelik)** . Abonelik ve/veya değişim konusu müşteri hakkındaki temel bilgileri sağlayın.
   * **Etkinlik**. Örneğin, oturum açma sayısı varlıkla ilgili tüm olası kullanım bilgilerini edinin.
   * **Müşteri desteği**. Aboneliğin sorunları veya müşteri desteği ile etkileşim var olup olmadığını belirtmek için müşteri destek günlüklerinden bilgi toplar.
   * **Rekabetçi ve iş verilerini**. Tüm olası müşteri bilgilerini elde (örneğin, kullanılamıyor veya izlemek zor olabilir).

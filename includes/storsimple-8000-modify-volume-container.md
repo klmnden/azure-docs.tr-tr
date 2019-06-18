@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156099"
 ---
 > [!NOTE] 
@@ -30,7 +30,7 @@ ms.locfileid: "66156099"
       
        ![Bant genişliği ayarını değiştirin](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
 
-   2.  **Tamam** düğmesine tıklayın.
+   2.  **Tamam**'ı tıklatın.
 4. Sonraki sayfada **birim kapsayıcısını Değiştir** iletişim kutusunda:
    
    1. Aşağı açılan listeden var olan bir bant genişliği şablonu seçin.

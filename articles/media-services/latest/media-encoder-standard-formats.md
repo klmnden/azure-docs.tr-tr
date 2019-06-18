@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520023"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Standart Kodlayıcı biçimleri ve codec bileşenleri
@@ -50,7 +50,7 @@ Standart Kodlayıcı, giriş kapsayıcılarında aşağıdaki ses biçimlerinin 
 
 * Araya eklemeli stereo veya 5.1 örnekler içeren ses parçaları sahip MXF, GXF ve QuickTime dosyaları
 
-veya
+or
 
 * Burada sesin ayrı PCM parçaları yürütülür, ancak kanal eşlemesinin (stero'ya veya 5. 1) dosya meta verilerinden çıkarılabildiği MXF, GXF ve QuickTime dosyaları
 

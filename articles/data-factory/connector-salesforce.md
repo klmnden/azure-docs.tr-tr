@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: jingwang
 ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60546581"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri öğesinden ve salesforce'a kopyalama
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-salesforce-connector.md)
 > * [Geçerli sürüm](connector-salesforce.md)
 
@@ -317,23 +317,23 @@ Salesforce veri kopyaladığınızda, aşağıdaki eşlemeler Salesforce veri t�
 |:--- |:--- |
 | Auto Number |String |
 | Checkbox |Boolean |
-| Currency |Decimal |
-| Date |DateTime |
-| Date/Time |DateTime |
+| Para birimi |Decimal |
+| Tarih |DateTime |
+| Tarih/Saat |DateTime |
 | Email |String |
-| Id |String |
+| Kimlik |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
-| Number |Decimal |
-| Percent |Decimal |
-| Phone |String |
+| Sayı |Decimal |
+| Yüzde |Decimal |
+| Telefon |String |
 | Picklist |String |
 | Text |String |
 | Text Area |String |
 | Text Area (Long) |String |
 | Text Area (Rich) |String |
 | Text (Encrypted) |String |
-| URL |String |
+| URL'si |String |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Veri fabrikasında kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

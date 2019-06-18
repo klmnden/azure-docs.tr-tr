@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419defd3c1ce154d392ab5249a64b420cc89255b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a958c693699cb83274e840f7cf36efceadc2ce5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106013"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridgeline-unbound"></a>Öğretici: Azure Active Directory tümleştirmesiyle Bridgeline bağlanmamış
 
@@ -54,7 +54,7 @@ Azure AD'de Bridgeline ilişkisiz'ın tümleştirmesini yapılandırmak için Br
 
 **Galeriden Bridgeline ilişkisiz eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

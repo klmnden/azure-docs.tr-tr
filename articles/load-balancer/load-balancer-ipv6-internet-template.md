@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61216853"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Şablon kullanarak bir Internet'e yönelik Yük Dengeleyici çözümü IPv6 ile dağıtma
@@ -85,7 +85,7 @@ Bu makalede, yayımlanmış bir şablonu başvuran [Azure hızlı başlangıç �
     ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
-    > 6. adım tamamlandıktan hemen sonra kaynak gruplarınızın göz atarsanız, "Son dağıtım" kaynakları dağıtılırken "Dağıtma" durumunu görüntüler.
+    > 6\. adım tamamlandıktan hemen sonra kaynak gruplarınızın göz atarsanız, "Son dağıtım" kaynakları dağıtılırken "Dağıtma" durumunu görüntüler.
 
 9. Kaynak listesinden "myIPv6PublicIP"'a tıklayın. Bir IPv6 adresi IP adresi altında olduğunu ve DNS adını 6. adımda dnsNameforIPv6LbIP parametresi için belirtilen değer olduğunu görürsünüz. Internet istemcileri için erişilebilir genel IPv6 adresi ve ana bilgisayar adı kaynaktır.
 

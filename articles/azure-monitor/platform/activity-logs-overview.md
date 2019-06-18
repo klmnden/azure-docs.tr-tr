@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 34857108cf7f0580c380ffbd4bbcedb5cd5a807a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6fc00bf0dfb83f349da91989a579f31be2027ff0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245018"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071679"
 ---
 # <a name="overview-of-azure-activity-log"></a>Azure etkinlik günlüğü'ne genel bakış
 
@@ -30,10 +30,10 @@ Her Azure aboneliği için tek bir etkinlik günlüğü yoktur. Bir dış kaynak
 
 
 > [!NOTE]
-> Azure Kaynak Yöneticisi'nde gerçekleşen etkinlikler için öncelikle Azure etkinlik günlüğü içindir. Klasik/RDFE modelini kullanarak ugresources izlemez. Bazı Klasik kaynak türleri bir proxy kaynak sağlayıcısı, Azure Resource Manager (örneğin, Microsoft.ClassicCompute) sahip. Bir Klasik kaynak türü aracılığıyla Azure kaynak bu proxy kaynak sağlayıcılarını kullanarak Manager ile etkileşim işlemleri etkinlik günlüğü'nde görünür. Azure Resource Manager proxy'leri dışında bir Klasik kaynak türü ile etkileşim, eylemlerinizi yalnızca işlem günlüğüne kaydedilir. İşlem günlüğü portal'ın ayrı bir bölümde gözatılabilir.
+> Azure Kaynak Yöneticisi'nde gerçekleşen etkinlikler için öncelikle Azure etkinlik günlüğü içindir. Klasik/RDFE modeli kullanarak kaynakları izlemez. Bazı Klasik kaynak türleri bir proxy kaynak sağlayıcısı, Azure Resource Manager (örneğin, Microsoft.ClassicCompute) sahip. Bir Klasik kaynak türü aracılığıyla Azure kaynak bu proxy kaynak sağlayıcılarını kullanarak Manager ile etkileşim işlemleri etkinlik günlüğü'nde görünür. Azure Resource Manager proxy'leri dışında bir Klasik kaynak türü ile etkileşim, eylemlerinizi yalnızca işlem günlüğüne kaydedilir. İşlem günlüğü portal'ın ayrı bir bölümde gözatılabilir.
 
 ## <a name="activity-log-retention"></a>Etkinlik günlük tutma
-Etkinlik günlüğü olayları 90 gün boyunca saklanır. Uzun süreler boyunca bu verileri depolamak için [Azure İzleyici'de toplama](activity-log-collect.md) veya [depolama veya olay hub'larına dışarı](activity-log-export.md).
+Oluşturulduktan sonra etkinlik günlüğü girdileri değiştirilmez veya sistem tarafından silindi. Ayrıca, bunları arabiriminde veya programlama yoluyla değiştiremezsiniz. Etkinlik günlüğü olayları 90 gün boyunca saklanır. Uzun süreler boyunca bu verileri depolamak için [Azure İzleyici'de toplama](activity-log-collect.md) veya [depolama veya olay hub'larına dışarı](activity-log-export.md).
 
 ## <a name="view-the-activity-log"></a>Etkinlik günlüğünü görüntüleyin
 Tüm kaynaklardan için Etkinlik günlüğünü görüntüleyin **İzleyici** Azure portalındaki menü. Belirli bir kaynak için Etkinlik günlüğünü görüntüleyin **etkinlik günlüğü** o kaynağın menü seçeneği. Ayrıca, PowerShell, CLI veya REST API ile etkinlik günlüğü kayıtlarını alabilir.  Bkz: [görüntüleyin ve alma Azure etkinlik günlüğü olaylarının](activity-log-view.md).

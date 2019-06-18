@@ -9,12 +9,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: f0ef421d7954aa33cf69e7de2f4902a86ed8b580
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 21ccd7b2919714610dbd51c62701c4bb32d330d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306397"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808825"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Azure Red Hat OpenShift geliştirme ortamınızı ayarlama
 
@@ -22,7 +22,7 @@ Microsoft Azure Red Hat OpenShift uygulamalar oluşturup çalıştırın, sizin 
 
 * Ayrılmış Azure sanal makine örnekleri satın alın.
 * Sürüm 2.0.65 yüklemek (veya üzeri) Azure CLI (veya Azure Cloud Shell kullanın).
-* Kaydolun `openshiftmanagedcluster` özellik ve ilişkili kaynak sağlayıcıları.
+* Kaydolun `AROGA` özellik ve ilişkili kaynak sağlayıcıları.
 * Azure Active Directory (Azure AD) kiracısı oluşturun.
 * Azure AD uygulama nesnesi oluşturun.
 * Bir Azure AD kullanıcısı oluşturun.
@@ -55,7 +55,7 @@ Alternatif olarak, kullanabileceğiniz [Azure Cloud Shell](https://docs.microsof
 
 ## <a name="register-providers-and-features"></a>Sağlayıcılar ve özellikleri kaydetme
 
-`Microsoft.ContainerService openshiftmanagedcluster` Özelliği `Microsoft.Solutions`, ve `Microsoft.Network` sağlayıcıları, ilk Azure Red Hat OpenShift kümenizi dağıtmadan önce el ile aboneliğinize kaydedilmelidir.
+`Microsoft.ContainerService AROGA` Özelliği `Microsoft.Solutions`, `Microsoft.Compute`, `Microsoft.Storage`, `Microsoft.KeyVault` ve `Microsoft.Network` sağlayıcıları, ilk Azure Red Hat OpenShift kümenizi dağıtmadan önce el ile aboneliğinize kaydedilmelidir.
 
 Bu sağlayıcıları ve özellikleri el ile kaydetmek için aşağıdaki yönergeleri CLI'yı yüklediyseniz bir Bash kabuğundan veya Azure Cloud Shell'i (Bash) oturumunda, Azure portalında kullanın:
 
@@ -65,10 +65,10 @@ Bu sağlayıcıları ve özellikleri el ile kaydetmek için aşağıdaki yönerg
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-1. Microsoft.ContainerService openshiftmanagedcluster özelliği Kaydet:
+1. Microsoft.ContainerService AROGA özelliği Kaydet:
 
     ```bash
-    az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
+    az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
 1. Microsoft.Storage sağlayıcısını kaydedin:

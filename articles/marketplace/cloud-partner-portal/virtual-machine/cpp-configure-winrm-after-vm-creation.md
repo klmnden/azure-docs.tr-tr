@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: pabutler
 ms.openlocfilehash: 4a4248efcfda76dfd8907069e167fdfa144d0365
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938510"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Sanal makine oluşturulduktan sonra WinRM'yi yapılandırın
@@ -26,7 +26,7 @@ Bu makalede, var olan Azure'da barındırılan sanal makine'de (VM) HTTPS üzeri
 
 WinRM HTTPS protokolü üzerinden, Azure Market'te sunulan önceden yapılandırılmış Windows Vm'leri varsayılan olarak etkin değildir 5896, bağlantı noktası kullanır. Bu protokolü etkinleştirmek için yeni bir kural ile ağ güvenlik grubu (NSG) eklemek için aşağıdaki adımları kullanın [Azure portalında](https://portal.azure.com).  Nsg'ler hakkında daha fazla bilgi için bkz. [güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Dikey penceresine gidin **sanal makineler >**  <*vm-adı*>  **> ayarları/ağ**.
+1.  Dikey penceresine gidin **sanal makineler >**   <*vm-adı*>   **> ayarları/ağ**.
 2.  NSG adına tıklayın (Bu örnekte, **testvm11002**) özelliklerini görüntülemek için:
 
     ![Ağ güvenlik grubu özellikleri](./media/nsg-properties.png)

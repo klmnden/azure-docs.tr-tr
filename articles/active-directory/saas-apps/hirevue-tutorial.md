@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7617889bfbdfecb421538cbc261dace5b4b8279c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 39aed992a2143065b0737d6a2dde3bcc9f2f958e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898245"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Öğretici: HireVue ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de HireVue tümleştirmesini yapılandırmak için HireVue Galeriden y�
 
 **Galeriden HireVue eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -107,17 +107,17 @@ Azure AD çoklu oturum açma ile HireVue yapılandırmak için aşağıdaki adı
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
-    | Ortam | URL |
+    | Ortam | URL'si |
     |-------------|---|
     | Üretim | `https://<companyname>.hirevue.com` |
-    | Hazırlanıyor    | `https://<companyname>.stghv.com` |
+    | Staging    | `https://<companyname>.stghv.com` |
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
     | Ortam | URN |
     |-------------|-----|
     | Üretim |`urn:federation:hirevue.com:saml:sp:prod` |
-    | Hazırlanıyor    | `urn:federation:hirevue.com:saml:sp:staging`|
+    | Staging    | `urn:federation:hirevue.com:saml:sp:staging`|
 
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [HireVue istemci Destek ekibine](mailto:samlsupport@hirevue.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.

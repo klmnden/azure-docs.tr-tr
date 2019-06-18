@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 3e77494eacaf16ac23a531cb7a16fe8bf6117006
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714426"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Raspberry Pi'yi bağlanmak için Azure IOT Central, uygulama (C#)
@@ -340,7 +340,7 @@ Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **Raspber
 
 Sayısal ayarları
 
-| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
+| Display name | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltaj      | setVoltage | Volt | 0              | 0       | 240     | 0       |
 | Geçerli      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
@@ -348,13 +348,13 @@ Sayısal ayarları
 
 Geçiş ayarları
 
-| Görünen ad | Alan adı | Metni | Metin kapalı | İlk |
+| Display name | Alan adı | Metni | Metin kapalı | İlk |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | AÇIK      | KAPALI      | Kapalı     |
 
 ### <a name="properties"></a>Özellikler
 
-| Tür            | Görünen ad | Alan adı | Veri türü |
+| Tür            | Display name | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
 | Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
 | Text            | Location     | location   | Yok       |

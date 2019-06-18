@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61448158"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Uzaktan izleme verilerini Power BI kullanarak Görselleştirme
@@ -43,7 +43,7 @@ Bu öğreticide, Uzaktan izleme çözümü verilerinizi Power bı'a CosmosDB tak
 5. Sol panelde, "Anahtarlar" bölümüne tıklayın ve Power BI hizmetinde kullanılması için aşağıdaki değerleri not alın:
 
    - URI
-   - Birincil Anahtar
+   - Birincil anahtar
 
      ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
@@ -60,7 +60,7 @@ Bu öğreticide, Uzaktan izleme çözümü verilerinizi Power bı'a CosmosDB tak
 3. Yukarıda kaydettiğiniz bilgileri girin:
 
     * URI
-    * Birincil Anahtar
+    * Birincil anahtar
 
 4. Power BI'a alınması için tüm tabloları seçin. Bu eylem verileri yüklenmesini devre dışı başlatır. Çözümünüze bir uzun süre çalışan, daha uzun, veri yüklemek sürebilir (en fazla birkaç saat). 
 

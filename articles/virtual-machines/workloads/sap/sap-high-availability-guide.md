@@ -18,19 +18,19 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204929"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure sanal makineleri SAP NetWeaver için yüksek kullanılabilirlik
 
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -742,7 +742,7 @@ SAP ASCS veya SCS örneği için farklı bir sayı kullanmak istiyorsanız, vars
 2. Tüm Yük Dengeleme SAP ASCS veya SCS örneğine ait kuralları için bu değerleri değiştirin:
 
    * Ad
-   * Bağlantı noktası
+   * Port
    * Arka uç bağlantı noktası
 
    Örneğin, varsayılan ASCS örnek numarasını 00-31 olarak değiştirmek isterseniz, Tablo 1'de listelenen tüm bağlantı noktaları için değişiklikler yapmanız gerekir.
@@ -893,7 +893,7 @@ Bir küme dosya paylaşım tanığı yapılandırma, bu görevleri kapsar:
    >
    >
 
-   Çekirdek sürücüde en az 1024 MB boş alan gerekir. 2.048 MB boş alan çekirdek sürücüsü için öneririz.
+   Çekirdek sürücüde en az 1024 MB boş alan gerekir. 2\.048 MB boş alan çekirdek sürücüsü için öneririz.
 
 2. Küme adı nesnesi ekleyin.
 
@@ -901,7 +901,7 @@ Bir küme dosya paylaşım tanığı yapılandırma, bu görevleri kapsar:
 
    _**Şekil 30:** Küme adı nesnesi için paylaşım izinleri atama_
 
-   İzinleri küme adı nesnesi için paylaşımdaki verilere değiştirme yetkisi eklemeyi unutmayın (Bizim örneğimizde **pr1 ascs VIR$**).
+   İzinleri küme adı nesnesi için paylaşımdaki verilere değiştirme yetkisi eklemeyi unutmayın (Bizim örneğimizde **pr1 ascs VIR$** ).
 
 3. Küme adı nesnesi listeye eklemek için seçin **Ekle**. Bilgisayar nesnelerini şekil 31'de gösterilen ek olarak denetlemek için filtreyi değiştirin.
 
@@ -1133,7 +1133,7 @@ Bir yüksek kullanılabilirlik ASCS/SCS örneği ile SAP yüklemek, bu görevler
 1. Windows DNS Yöneticisi'nde, sanal ana bilgisayar adı ASCS/SCS örneği için bir DNS girişi oluşturabilir.
 
    > [!IMPORTANT]
-   > Sanal ana bilgisayar adını ASCS/SCS örneği için atadığınız IP adresi, Azure yük dengeleyiciye atanan IP adresi ile aynı olmalıdır (**<*SID*> - lb - ascs**).  
+   > Sanal ana bilgisayar adını ASCS/SCS örneği için atadığınız IP adresi, Azure yük dengeleyiciye atanan IP adresi ile aynı olmalıdır ( **<*SID*> - lb - ascs**).  
    >
    >
 
@@ -1335,7 +1335,7 @@ Testi ve yük devretme kümesi Yöneticisi SIOS DataKeeper yönetim ve yapıland
 
 _**Şekil 61:** Yük Devretme Kümesi Yöneticisi: SAP <*SID*> Küme grubu, bir küme düğümünde çalışıyor_
 
-SIOS DataKeeper yönetim ve Yapılandırma Aracı'nda paylaşılan disk zaman uyumlu olarak bir küme düğümünde kaynak birim sürücüden S b küme düğümünü hedef birimi sürücüsünü S çoğaltılan verileri görebilirsiniz Örneğin, çoğaltılana **pr1 ascs 0 [10.0.0.40]** için **pr1 ascs 1 [10.0.0.41]**.
+SIOS DataKeeper yönetim ve Yapılandırma Aracı'nda paylaşılan disk zaman uyumlu olarak bir küme düğümünde kaynak birim sürücüden S b küme düğümünü hedef birimi sürücüsünü S çoğaltılan verileri görebilirsiniz Örneğin, çoğaltılana **pr1 ascs 0 [10.0.0.40]** için **pr1 ascs 1 [10.0.0.41]** .
 
 ![Şekil 62: SIOS DataKeeper yerel birim bir küme düğümünden küme düğümüne B çoğaltma][sap-ha-guide-figure-5001]
 
@@ -1364,7 +1364,7 @@ _**Şekil 62:** SIOS DataKeeper yerel birim bir küme düğümünden küme düğ
 
    _**Şekil 63**: Yük Devretme Kümesi Yöneticisi'nde, SAP <*SID*> Küme grubu B küme düğümünde çalışıyor_
 
-   Paylaşılan disk artık bağlanmıştır kümede düğüm b SIOS DataKeeper veri kaynak birim sürücüden S B küme düğümünde A. küme düğümünde hedef birimin sürücü S çoğaltma Örneğin, gelen çoğaltma **pr1 ascs 1 [10.0.0.41]** için **pr1 ascs 0 [10.0.0.40]**.
+   Paylaşılan disk artık bağlanmıştır kümede düğüm b SIOS DataKeeper veri kaynak birim sürücüden S B küme düğümünde A. küme düğümünde hedef birimin sürücü S çoğaltma Örneğin, gelen çoğaltma **pr1 ascs 1 [10.0.0.41]** için **pr1 ascs 0 [10.0.0.40]** .
 
    ![Şekil 64: SIOS DataKeeper yerel birim düğümü bir küme için küme düğümlerinin birinden B çoğaltır.][sap-ha-guide-figure-5003]
 

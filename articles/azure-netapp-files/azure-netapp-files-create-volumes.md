@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/23/2019
+ms.date: 6/6/2019
 ms.author: b-juche
-ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 657bacc153b5721d5a9f34792eaf4796cb477755
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719428"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808871"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Azure NetApp Files için birim oluşturma
 
@@ -90,34 +90,36 @@ Bir alt ağ, Azure için NetApp dosyaları temsilci gerekir.
 
 Azure NetApp dosyaları SMBv3 birimleri destekler. SMB birim eklemeden önce Active Directory bağlantıları oluşturmanız gerekir. 
 
+### <a name="requirements-for-active-directory-connections"></a>Active Directory bağlantıları için gereksinimleri
+
+ Active Directory bağlantıları için gereksinimleri aşağıdaki gibidir: 
+
+* Kullandığınız Yönetici hesap kuruluş birimi (OU) yolun, belirttiğiniz makine hesapları oluşturma olanağına olması gerekir.  
+
+* Gerekli bağlantı noktaları geçerli bir Windows Active Directory (AD) sunucusunda açık olmalıdır.  
+    Gerekli bağlantı noktaları aşağıdaki gibidir: 
+
+    |     Hizmet           |     Port     |     Protocol     |
+    |-----------------------|--------------|------------------|
+    |    AD Web Hizmetleri    |    9389      |    TCP           |
+    |    DNS                |    53        |    TCP           |
+    |    DNS                |    53        |    UDP           |
+    |    ICMPv4             |    Yok       |    Yankı Yanıtı    |
+    |    Kerberos           |    464       |    TCP           |
+    |    Kerberos           |    464       |    UDP           |
+    |    Kerberos           |    88        |    TCP           |
+    |    Kerberos           |    88        |    UDP           |
+    |    LDAP               |    389       |    TCP           |
+    |    LDAP               |    389       |    UDP           |
+    |    LDAP               |    3268      |    TCP           |
+    |    NetBIOS adı       |    138       |    UDP           |
+    |    SAM/LSA            |    445       |    TCP           |
+    |    SAM/LSA            |    445       |    UDP           |
+    |    Güvenli LDAP        |    636       |    TCP           |
+    |    Güvenli LDAP        |    3269      |    TCP           |
+    |    W32time            |    123       |    UDP           |
+
 ### <a name="create-an-active-directory-connection"></a>Bir Active Directory bağlantısı oluşturun
-
-1. Aşağıdaki requiements karşıladığından emin olun: 
-
-    * Kullandığınız Yönetici hesap kuruluş birimi (OU) yolun, belirttiğiniz makine hesapları oluşturma olanağına olması gerekir.
-    * Gerekli bağlantı noktaları geçerli bir Windows Active Directory (AD) sunucusunda açık olmalıdır.  
-        Gerekli bağlantı noktaları aşağıdaki gibidir: 
-
-        |     Hizmet           |     Bağlantı noktası     |     Protokol     |
-        |-----------------------|--------------|------------------|
-        |    AD Web Hizmetleri    |    9389      |    TCP           |
-        |    DNS                |    53        |    TCP           |
-        |    DNS                |    53        |    UDP           |
-        |    ICMPv4             |    Yok       |    Yankı Yanıtı    |
-        |    Kerberos           |    464       |    TCP           |
-        |    Kerberos           |    464       |    UDP           |
-        |    Kerberos           |    88        |    TCP           |
-        |    Kerberos           |    88        |    UDP           |
-        |    LDAP               |    389       |    TCP           |
-        |    LDAP               |    389       |    UDP           |
-        |    LDAP               |    3268      |    TCP           |
-        |    NetBIOS adı       |    138       |    UDP           |
-        |    SAM/LSA            |    445       |    TCP           |
-        |    SAM/LSA            |    445       |    UDP           |
-        |    Güvenli LDAP        |    636       |    TCP           |
-        |    Güvenli LDAP        |    3269      |    TCP           |
-        |    W32time            |    123       |    UDP           |
-
 
 1. NetApp hesabınızdan tıklayın **Active Directory bağlantıları**, ardından **katılın**.  
 
@@ -125,10 +127,10 @@ Azure NetApp dosyaları SMBv3 birimleri destekler. SMB birim eklemeden önce Act
 
 2. Active Directory katılın penceresinde aşağıdaki bilgileri sağlayın:
 
-    * **Birincil DNS**   
-        Tercih edilen Active Directory Domain Services kullanımı için Azure NetApp dosyaları ile etki alanı denetleyicisi IP adresini budur. 
-    * **İkincil DNS**  
-        İkincil Active Directory Domain Services kullanımı için Azure NetApp dosyaları ile etki alanı denetleyicisi IP adresini budur. 
+    * **Birincil DNS**  
+        Active Directory etki alanına katılma ve SMB kimlik doğrulama işlemleri için gerekli olan DNS budur. 
+    * **İkincil DNS**   
+        Yedekli ad hizmetleri sağlamaya yönelik ikincil DNS sunucusu budur. 
     * **Etki alanı**  
         Bu, Active Directory etki alanına katılmak için istediğiniz hizmetleri etki alanı adıdır.
     * **SMB sunucusu (bilgisayar hesabı) öneki**  
@@ -142,7 +144,7 @@ Azure NetApp dosyaları SMBv3 birimleri destekler. SMB birim eklemeden önce Act
         SMB server makinesi hesaplarının oluşturulacağı kuruluş birimi (OU) için LDAP yolu budur. Diğer bir deyişle, OU ikinci düzey, OU = ilk düzeyi =. 
     * Kimlik bilgileri de dahil olmak üzere, **kullanıcıadı** ve **parola**
 
-    ![Active Directory ekleyin](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+    ![Active Directory katılın](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
 3. **Katıl**’a tıklayın.  
 
@@ -204,5 +206,5 @@ Azure NetApp dosyaları SMBv3 birimleri destekler. SMB birim eklemeden önce Act
 ## <a name="next-steps"></a>Sonraki adımlar  
 
 * [Bağlamak veya bir birimi Windows veya Linux sanal makineleri için çıkarma](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [NFS birimi için verme ilkesi yapılandırma](azure-netapp-files-configure-export-policy.md)
+* [NFS Birimi için dışarı aktarma ilkesinin sorunlarını giderme ve çözme](azure-netapp-files-configure-export-policy.md)
 * [Azure Hizmetleri için sanal ağ tümleştirmesi hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

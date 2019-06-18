@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: pabutler
 ms.openlocfilehash: f5b956ed1197e3898c9536bda3a93a41e8ee35c0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935138"
 ---
 # <a name="azure-marketplace-seo-guidance"></a>Azure Market SEO Kılavuzu
@@ -30,9 +30,9 @@ Dikkate alınması gereken en uygun alanları aşağıda verilmiştir.
 |  Alan                   | Önem derecesi | Rehber                                                                                            |
 |  --------------------    | ----------                   | ---------------                                                                   |
 | Teklif Adı               |  Yüksek      | Tam veya arama ile tam bir eşleştirme yakın sorgu yüksek derecelendirme ortaya çıkarır.                       |
-| Yayımcı Adı           |  Yüksek      | Tam veya arama ile tam bir eşleştirme yakın sorgu yüksek derecelendirme ortaya çıkarır.                       |
+| Yayımcı adı           |  Yüksek      | Tam veya arama ile tam bir eşleştirme yakın sorgu yüksek derecelendirme ortaya çıkarır.                       |
 | Kısa açıklama        |  Orta    | Uygulamalar ve yayımcı adlandırma verilen adları neredeyse yüksek derecelendirme garanti, en uygun olmayabilir. Bu durumda, kısa bir açıklama kritik öneme sahiptir. Metin noktasına ve kısa tutun. En iyi sonuç için anahtar sözcükleri ve beklenen arama terimlerini eklenmelidir.  Örneğin "Bu bir Dynamics 365 üzerinde tam olarak oluşturulmuş en iyi perakende POS" daha az etkili "için Dynamics 365" perakende POS (satış noktası).  | 
-| Uzun Açıklama         |  Düşük       | Açıklama daha ayrıntılı gitmek için bir yol sunar. En etkili açıklamaları makul ve anahtar sözcükleri kullanılır.  Anahtar sözcükler kullanılarak bir için öz açıklamaları birden fazla uzun uzun metin yararlı olacaktır. "IoT" gibi yapma emin anahtar koşulları açıklama yok.  |
+| Uzun açıklama         |  Düşük       | Açıklama daha ayrıntılı gitmek için bir yol sunar. En etkili açıklamaları makul ve anahtar sözcükleri kullanılır.  Anahtar sözcükler kullanılarak bir için öz açıklamaları birden fazla uzun uzun metin yararlı olacaktır. "IoT" gibi yapma emin anahtar koşulları açıklama yok.  |
 | Ürün Kategorileri       | Orta     |  Ürün kategorileri birleşimi yayımcı seçenekleri ve Microsoft tarafından belirlenir. Bu kategorilerin uygun şekilde seçin, böylece kullanıcılar doğru kategorisinde uygulamalarını kolayca bulabilirsiniz. |
 |  |  |  |
 

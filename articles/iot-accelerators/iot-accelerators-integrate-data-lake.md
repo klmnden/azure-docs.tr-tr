@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61449497"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Uzaktan izleme çözümü, Azure Data Lake Store ile tümleştirme
@@ -103,7 +103,7 @@ IOT hub'ınızdaki verileri, Azure Data Lake Store'a akış için bir Azure Stre
 
 1. Önceki adımlarda oluşturduğunuz Data Lake Store hesabı seçin ve klasör yapısını Store'a veri akışı sağlar.
 
-1. Tarih biçimi alanına **/streaming/ {date} / {time}**. YYYY/AA/GG biçimi varsayılan tarih ve saat biçimi SS bırakın.
+1. Tarih biçimi alanına **/streaming/ {date} / {time}** . YYYY/AA/GG biçimi varsayılan tarih ve saat biçimi SS bırakın.
 
     ![Klasör yapısı sağlar](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 

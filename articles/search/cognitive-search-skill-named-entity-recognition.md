@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952042"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Adlandırılmış varlık tanıma bilişsel beceri
@@ -49,19 +49,19 @@ Parametreler büyük/küçük harfe duyarlıdır.
 
 ## <a name="skill-inputs"></a>Beceri girişleri
 
-| Giriş adı      | Açıklama                   |
+| Adı girin      | Açıklama                   |
 |---------------|-------------------------------|
 | languageCode  | İsteğe bağlı. `"en"` varsayılan değerdir.  |
-| text          | Analiz edilecek metin.          |
+| metin          | Analiz edilecek metin.          |
 
 ## <a name="skill-outputs"></a>Beceri çıkışları
 
 | Çıkış adı     | Açıklama                   |
 |---------------|-------------------------------|
 | Kişiler      | Her bir dizenin bir kişinin adını temsil ettiği bir dize dizisi. |
-| konumlar  | Her bir dizenin bir konumu temsil ettiği bir dize dizisi. |
+| locations  | Her bir dizenin bir konumu temsil ettiği bir dize dizisi. |
 | organizations  | Bir kuruluş temsil ettiği her bir dizenin dize dizisi. |
-| varlıklar | Karmaşık bir tür dizisi. Her bir karmaşık türü, aşağıdaki alanları içerir: <ul><li>Kategori (`"person"`, `"organization"`, veya `"location"`)</li> <li>değer (gerçek varlık adı)</li><li>uzaklık (Bu metnin bulunduğu konumu)</li><li>güvenle (0 ve 1 arasında bir değer güvenin değerin gerçek bir varlık olduğunu gösterir)</li></ul> |
+| Varlıklar | Karmaşık bir tür dizisi. Her bir karmaşık türü, aşağıdaki alanları içerir: <ul><li>Kategori (`"person"`, `"organization"`, veya `"location"`)</li> <li>değer (gerçek varlık adı)</li><li>uzaklık (Bu metnin bulunduğu konumu)</li><li>güvenle (0 ve 1 arasında bir değer güvenin değerin gerçek bir varlık olduğunu gösterir)</li></ul> |
 
 ##  <a name="sample-definition"></a>Örnek tanımı
 

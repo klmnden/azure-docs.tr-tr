@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: daec6e169805c193b48781dfecbabd9349bdc59b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd4eab2d8e877cac468097c0a6ed6aa3cfb750b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278659"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Öğretici: Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'ye Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) t�
 
 **Galeriden Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -173,11 +173,11 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümde, Five9 artı bağdaştırıcısına (CTI, ilgili Center aracıları) erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)** .
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)**.
+2. Uygulamalar listesinde **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)** .
 
     ![Uygulamalar listesinde Five9 artı bağdaştırıcı (CTI, ilgili Center aracıları) bağlantısı](common/all-applications.png)
 

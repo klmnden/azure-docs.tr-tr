@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b05c91138f3140abe6a08964fa06caef988e5f49
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 248b5cf554b743e86f3580174190a93cca1aa8d9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898382"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101449"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenorbit"></a>Öğretici: GreenOrbit ile Azure Active Directory Tümleştirme
 
@@ -56,7 +56,7 @@ Azure AD'de GreenOrbit tümleştirmesini yapılandırmak için GreenOrbit Galeri
 
 **Galeriden GreenOrbit eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

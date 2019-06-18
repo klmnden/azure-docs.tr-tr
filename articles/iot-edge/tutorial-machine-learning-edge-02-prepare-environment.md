@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f8652dab5db8bbd59982cb1dda727698868df23c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f36b706213639c5bea383ec20ffc7f6d7ed01021
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057746"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155706"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Öğretici: Machine learning IOT Edge üzerinde için bir ortamı ayarlama
 
@@ -61,7 +61,7 @@ DevVM dizin, bu öğreticiyi tamamlamak için uygun bir Azure sanal makinesi olu
 1. Yönetici olarak PowerShell'i açın ve kodu karşıdan yüklediğiniz dizine gidin. Kök dizinine kaynak anılacaktır `<srcdir>`.
 
     ```powershell
-    cd \<srcdir\>\IoTEdgeAndMlSample\DevVM
+    cd <srcdir>\IoTEdgeAndMlSample\DevVM
     ```
 
 2. Betiklerinin yürütülmesine izin vermek için aşağıdaki komutu çalıştırın. Seçin **Tümüne Evet** istendiğinde.
@@ -141,7 +141,7 @@ Geliştirme makineye bağlandıktan sonra bazı kullanışlı uzantılar Visual 
 3. Betiği çalıştırın.
 
     ```powershell
-    .\\Enable-CodeExtensions.ps1
+    .\Enable-CodeExtensions.ps1
     ```
 
 4. Komut dosyası, VS code uzantılarını yükleme birkaç dakika için çalışır:

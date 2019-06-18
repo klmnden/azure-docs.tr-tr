@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 18519c64e1bba82e60cc431cb5f634a30ad68e92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1e201b5f86311aeaeca4d077140f4dc429a0357
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280580"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Öğretici: Doğrudan Azure Active Directory tümleştirmesiyle
 
@@ -53,7 +53,7 @@ Doğrudan Azure AD'de tümleştirmesini yapılandırmak için doğrudan Galeride
 
 **Doğrudan Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

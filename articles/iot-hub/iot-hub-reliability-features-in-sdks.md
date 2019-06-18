@@ -8,10 +8,10 @@ ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
 ms.openlocfilehash: 9180c27e64f26c05e6e16007b74f9aa8a98bcfe5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440310"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Bağlantı ve Azure IOT Hub cihaz SDK'ları kullanarak güvenilir Mesajlaşma yönetme
@@ -88,7 +88,7 @@ SDK'ları üç yeniden deneme ilkelerine sağlar:
    |  C/Python/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **Varsayılan**: [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Özel:** kullanım kullanılabilir [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Yeniden deneme:** [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [C/Python/iOS uygulaması](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
    | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **Varsayılan**: [ExponentialBackoffWithJitter sınıfı](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Özel:** uygulamak [RetryPolicy arabirimi](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**Yeniden deneme:** [NoRetry sınıfı](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Java uygulaması](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |
    | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet) | **Varsayılan**: [ExponentialBackoff sınıfı](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**Özel:** uygulamak [IRetryPolicy arabirimi](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet)<BR>**Yeniden deneme:** [NoRetry sınıfı](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [C# uygulaması](https://github.com/Azure/azure-iot-sdk-csharp) | |
-   | Node| [SetRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest) | **Varsayılan**: [ExponentialBackoffWithJitter sınıfı](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Özel:** uygulamak [RetryPolicy arabirimi](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest)<BR>**Yeniden deneme:** [NoRetry sınıfı](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Düğüm uygulama](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
+   | Düğüm| [SetRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest) | **Varsayılan**: [ExponentialBackoffWithJitter sınıfı](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Özel:** uygulamak [RetryPolicy arabirimi](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest)<BR>**Yeniden deneme:** [NoRetry sınıfı](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Düğüm uygulama](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
 
 Aşağıdaki kod örnekleri, bu akış gösterilmektedir:
 

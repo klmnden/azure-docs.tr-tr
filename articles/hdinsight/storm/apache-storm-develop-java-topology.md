@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 89cee70c9d7c5dffdb3078756cf4fa94d7cd1a9a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695655"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078216"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java'da bir Apache Storm topolojisi oluşturma
 
-Bir Java tabanlı topoloji için oluşturmayı [Apache Storm](https://storm.apache.org/). Burada, bir word-count uygulama uygulayan bir Storm topolojisi oluşturma. Kullandığınız [Apache Maven](https://maven.apache.org/) derlemek ve projeyi paketlemek için. Topolojisi kullanan tanımlamayı öğrenin ardından [Apache Storm Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) framework.
+Bir Java tabanlı topoloji için oluşturmayı [Apache Storm](https://storm.apache.org/). Burada, bir word-count uygulama uygulayan bir Storm topolojisi oluşturma. Kullandığınız [Apache Maven](https://maven.apache.org/) derlemek ve projeyi paketlemek için. Topolojisi kullanan tanımlamayı öğrenin ardından [Apache Storm Flux](https://storm.apache.org/releases/2.0.0/flux.html) framework.
 
 Bu belgedeki adımları tamamladıktan sonra HDInsight üzerinde Apache Storm topolojisi dağıtabilirsiniz.
 
@@ -621,7 +621,7 @@ Arabellek sözcükleri ve sayıları arasında 5 saniyelik aralığına yoktur. 
 
 ## <a name="convert-the-topology-to-flux"></a>Topoloji için Flux Dönüştür
 
-[Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) uygulama yapılandırmasından ayrı olanak tanıyan bir yeni kullanılabilir olan Storm 0.10.0 veya üzeri bir çerçevedir. Bileşenlerinizi yine de Java'da tanımlanır, ancak topoloji, bir YAML dosyası kullanılarak tanımlanır. Varsayılan bir topoloji tanım paketini projenizle veya topoloji gönderirken bir tek başına dosya kullanın. Storm topoloji gönderirken YAML topoloji tanımı değerleri doldurmak için ortam değişkenlerini veya yapılandırma dosyalarını kullanabilirsiniz.
+[Flux](https://storm.apache.org/releases/2.0.0/flux.html) uygulama yapılandırmasından ayrı olanak tanıyan bir yeni kullanılabilir olan Storm 0.10.0 veya üzeri bir çerçevedir. Bileşenlerinizi yine de Java'da tanımlanır, ancak topoloji, bir YAML dosyası kullanılarak tanımlanır. Varsayılan bir topoloji tanım paketini projenizle veya topoloji gönderirken bir tek başına dosya kullanın. Storm topoloji gönderirken YAML topoloji tanımı değerleri doldurmak için ortam değişkenlerini veya yapılandırma dosyalarını kullanabilirsiniz.
 
 YAML dosyası tanımlar topoloji ve veriler için kullanılacak bileşenler arasındaki akış. Bir YAML dosyası jar dosyasını bir parçası olarak ekleyebilirsiniz veya dış bir YAML dosyası kullanabilirsiniz.
 

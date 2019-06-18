@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323808"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN dosya sıkıştırma sorunlarını giderme
@@ -97,7 +97,7 @@ Uç noktanız gidin [Azure portalında](https://portal.azure.com) tıklatıp **Y
 
 Tarayıcınızın Geliştirici Araçları'nı kullanarak yanıt üstbilgilerini dosyası burada istenmektedir bölgede önbelleğe emin olmak için kontrol edin.
 
-* Denetleme **sunucu** yanıtı üstbilgisi.  Üst bilgi biçimi olmalıdır **Platformu (POP/sunucu kimliği)**, aşağıdaki örnekte görüldüğü gibi.
+* Denetleme **sunucu** yanıtı üstbilgisi.  Üst bilgi biçimi olmalıdır **Platformu (POP/sunucu kimliği)** , aşağıdaki örnekte görüldüğü gibi.
 * Denetleme **X-Cache** yanıtı üstbilgisi.  Üst bilgiyi okumalısınız **İSABET**.  
 
 ![CDN yanıt üstbilgileri](./media/cdn-troubleshoot-compression/cdn-response-headers.png)

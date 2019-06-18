@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686776"
 ---
 # <a name="localization-support-in-azure-maps"></a>Azure haritalar yerelleştirme desteği
@@ -25,7 +25,7 @@ Azure haritalar, çeşitli diller ve ülke/bölgeye göre görünümleri destekl
 Azure haritalar Hizmetleri genelinde çeşitli dillerde yerelleştirilmiş. Aşağıdaki tabloda, her hizmet için desteklenen dil kodlarını sağlar.  
   
 
-| Kimlik         | Ad                   |  Haritalar | Arama | Yönlendirme | Trafik olayları | JS harita denetimi | Saat dilimi |
+| Kimlik         | Ad                   |  Haritalar | Ara | Yönlendirme | Trafik olayları | JS harita denetimi | Saat dilimi |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | ZA AF      | Afrikaner dili              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Arapça                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -33,7 +33,7 @@ Azure haritalar Hizmetleri genelinde çeşitli dillerde yerelleştirilmiş. Aşa
 | BG-BG      | Bulgarca              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | CA-ES      | Katalanca                |       |    ✓   |         |                   |                |     ✓     |
 | zh-HanS    | Çince (Basitleştirilmiş)   |       |  zh-CN |         |                   |                |     ✓     |
-| zh-HanT    | Geleneksel Çince  | zh-TW |  zh-TW |  zh-TW  |                   |      Zh-TW     |     ✓     |
+| zh-HanT    | seçenekleri yerine  | zh-TW |  zh-TW |  zh-TW  |                   |      Zh-TW     |     ✓     |
 | hr-HR      | Hırvatça               |       |    ✓   |         |                   |                |     ✓     |
 | cs-CZ      | Çekçe                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | v-DK      | Danca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -45,10 +45,10 @@ Azure haritalar Hizmetleri genelinde çeşitli dillerde yerelleştirilmiş. Aşa
 | en-US      | İngilizce (ABD)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estonca               |       |    ✓   |         |         ✓         |                |     ✓     |
 | FI-FI      | Fince                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| fr-FR      | Fransızca                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| fr-FR      | Fransızca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | Fransızca (Kanada)      |       |    ✓   |         |                   |                |     ✓     |
 | GL ES      | Galiçya dili               |       |    ✓   |         |                   |                |     ✓     |
-| de-DE      | Almanca                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| de-DE      | Almanca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | el-GR      | Yunanca                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | He IL      | İbranice                 |       |    ✓   |         |         ✓         |                |     ✓     |
 | yüksek giriş      | Hintçe                  |       |        |         |                   |                |     ✓     |
@@ -74,7 +74,7 @@ Azure haritalar Hizmetleri genelinde çeşitli dillerde yerelleştirilmiş. Aşa
 | SR-Latn-RS | Sırpça (Latin)        |       |        |         |                   |                |     ✓     |
 | SK-SK      | Slovakça              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | SL SL      | Slovence              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| es-ES      | İspanyolca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| es-ES      | İspanyolca                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | İspanyolca (Meksika)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | sv -SE     | İsveççe                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | TH TH      | Tay Dili                   |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -85,11 +85,11 @@ Azure haritalar Hizmetleri genelinde çeşitli dillerde yerelleştirilmiş. Aşa
 
 ## <a name="azure-maps-supported-views"></a>Azure haritalar desteklenen görünümleri
 
-("Kullanıcı bölge parametre olarak" da denir) azure haritalar görünüm parametresi hangi ekleyemeyebilir kümesini belirtme, ülke/bölge için doğru eşlemeleri Kenarlıklar tartışmalı gösteren 2 harf 3166 ISO ülke kodu, etiketleri harita üzerinde görüntülenir.  Varsayılan görünüm parametre kümesine **"Birleştirilmiş"**.  Görünüm listede yer almayan ülke/bölge "Birleştirilmiş" görünümü için varsayılan olarak kullanılır. Bu, kullanıcılarınızın konumunu belirlemek ve ardından görünümü bu konum için doğru parametre sizin sorumluluğunuzdur. Azure haritalar görünümü parametresinde, ilgili yasalara uyacağınızı belirtir kullanılmalıdır, olanlar dahil olmak üzere burada haritalar, resimler ve olduğunuz diğer verileri ve üçüncü taraf içeriğini Azure haritalar erişim yetkisi ülkenin ilgili eşleme kullanılabilir hale getirilir.
+("Kullanıcı bölge parametre olarak" da denir) azure haritalar görünüm parametresi hangi ekleyemeyebilir kümesini belirtme, ülke/bölge için doğru eşlemeleri Kenarlıklar tartışmalı gösteren 2 harf 3166 ISO ülke kodu, etiketleri harita üzerinde görüntülenir.  Varsayılan görünüm parametre kümesine **"Birleştirilmiş"** .  Görünüm listede yer almayan ülke/bölge "Birleştirilmiş" görünümü için varsayılan olarak kullanılır. Bu, kullanıcılarınızın konumunu belirlemek ve ardından görünümü bu konum için doğru parametre sizin sorumluluğunuzdur. Azure haritalar görünümü parametresinde, ilgili yasalara uyacağınızı belirtir kullanılmalıdır, olanlar dahil olmak üzere burada haritalar, resimler ve olduğunuz diğer verileri ve üçüncü taraf içeriğini Azure haritalar erişim yetkisi ülkenin ilgili eşleme kullanılabilir hale getirilir.
 
 Aşağıdaki tabloda, desteklenen görünümler sağlar.
 
-| Görünüm         | Açıklama                            |  Haritalar | Arama | JS harita denetimi |
+| Görünüm         | Açıklama                            |  Haritalar | Ara | JS harita denetimi |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Birleşik Arap Emirlikleri (Arapça görünümü)    |   ✓   |        |     ✓          |
 | AR           | Arjantin (Arjantin görünümü)           |   ✓   |    ✓   |     ✓          |

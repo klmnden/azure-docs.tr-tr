@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: e03cc45c5868f90dd1c2da0d7b4890fbf72c9899
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9d29fdbfc82f221dac3b304dcf9de8c230b4d5e2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954786"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056799"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Hızlı Başlangıç: Ses öncelikli sanal asistan UWP konuşma SDK ile oluşturma
 
@@ -32,11 +32,11 @@ Bu makalede, geliştireceksiniz bir C# kullanarak evrensel Windows Platformu (UW
 Bu hızlı başlangıç şunları gerektirir:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
+* Konuşma Hizmetleri için bir Azure aboneliği anahtar **westus2** bölge. Bu aboneliği oluşturun [Azure portalında](https://portal.azure.com).
 * Yapılandırılmış önceden oluşturulmuş bir bot [doğrudan satır konuşma kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
-    > Önizlemede, doğrudan satır konuşma kanal şu anda yalnızca destekleyen **westus2** bölge.
+    > Doğrudan satır okuma (Önizleme) şu anda yalnızca bulunan **westus2** bölge.
 
     > [!NOTE]
     > 30 günlük deneme için standart fiyatlandırma katmanı açıklanan [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md) sınırlıdır **westus** (değil **westus2**) ve bu nedenle uyumlu değil doğrudan ile Satır konuşma. Ücretsiz ve standart katmanı **westus2** abonelikleri uyumludur.
@@ -49,7 +49,7 @@ Bu hızlı başlangıçta, adım adım konuşma özellikli botunuzun bağlanmak 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
-## <a name="add-sample-code"></a>Örnek kod ekleyin
+## <a name="add-sample-code"></a>Örnek kodu ekleme
 
 1. Uygulamanın kullanıcı arabirimini XAML kullanılarak tanımlanır. `MainPage.xaml` dosyasını Çözüm Gezgini'nde açın. Tasarımcının XAML görünümünde tüm içeriğiyle aşağıda.
 
@@ -254,9 +254,9 @@ Bu hızlı başlangıçta, adım adım konuşma özellikli botunuzun bağlanmak 
     ```csharp
     // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
-    const string channelSecret = "YourChannelSecret";
-    const string speechSubscriptionKey = "YourSpeechSubscriptionKey";
-    const string region = "YourServiceRegion"; // note: this is assumed as westus2 for preview
+    const string channelSecret = "YourChannelSecret"; // Your channel secret
+    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
+    const string region = "YourServiceRegion"; // Your subscription service region. Note: only 'westus2' is currently supported
 
     var botConnectorConfig = BotConnectorConfig.FromSecretKey(channelSecret, speechSubscriptionKey, region);
     botConnectorConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");

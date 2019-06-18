@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39b285dd81347cb9ea031bfab168e372d4537f39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: deb4ad1e5295600f32b243472c6b2332713bcc4b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862451"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Öğretici: Benefitsolver ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Benefitsolver tümleştirmesini yapılandırmak için Benefitsolver 
 
 **Galeriden Benefitsolver eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

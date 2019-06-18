@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 682f3df362a7fbb0e95a07aa8a8f3a068367eef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064034"
 ---
 # <a name="inspect-custom-speech-data"></a>Özel konuşma verileri İnceleme
 
@@ -46,7 +46,7 @@ Test durumu olduğunda *başarılı*, testin ayrıntılarını görmek için tes
 
 Yan yana karşılaştırmayı denetlemek amacıyla, ekleme, silme ve değiştirme gibi çeşitli hata türleri geçiş yapabilirsiniz. Ses için dinleme ve karşılaştırma tanıma sonuçları (insan etiketli transkripsiyonu ve iki konuşma metin modeli sonuçları gösteriliyor) her sütunda hangi modelle ihtiyaçlarınıza uygun ve geliştirmeleri gerekmesi karar verebilirsiniz.
 
-Kalite test inceleyerek bir konuşma tanıma uç kalitesini bir uygulama için yeterli olup olmadığını doğrulamak kullanışlıdır.  Doğruluk transcribed ses gerektiren için bir hedef ölçü test içinde bulunan yönergeleri izleyin: Doğruluk değerlendirin.
+Kalite test inceleyerek bir konuşma tanıma uç kalitesini bir uygulama için yeterli olup olmadığını doğrulamak kullanışlıdır.  Doğruluk için bir hedef ölçü bulunan yönergeleri izleyerek transcribed ses gerektiren [değerlendirmek doğruluğu](how-to-custom-speech-evaluate-data.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

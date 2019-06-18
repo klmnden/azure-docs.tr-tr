@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851384"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>App Service uygulamanızı Azure Active Directory oturum açma kullanacak şekilde yapılandırma
@@ -79,12 +79,12 @@ Yerel istemci eşleme izinleri üzerinde daha fazla denetim sağlayan kaydedebil
 1. Gidin **Azure Active Directory** içinde [Azure portal].
 2. Sol gezinti bölmesinde **uygulama kayıtları**. Tıklayın **yeni uygulama kaydı** en üstünde.
 4. İçinde **Oluştur** want bir **adı** , uygulama kaydı için. Seçin **yerel** içinde **uygulama türü**.
-5. İçinde **yeniden yönlendirme URI'si** kutusuna, sitenizin girin */.auth/login/done* uç noktasını, HTTPS düzenini kullanarak. Bu değer, aşağıdakine benzer olmalıdır *https://contoso.azurewebsites.net/.auth/login/done*. Bir Windows uygulaması kullanmak yerine oluşturuyorsanız [SID paketini](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) olarak URI.
+5. İçinde **yeniden yönlendirme URI'si** kutusuna, sitenizin girin */.auth/login/done* uç noktasını, HTTPS düzenini kullanarak. Bu değer, aşağıdakine benzer olmalıdır *https://contoso.azurewebsites.net/.auth/login/done* . Bir Windows uygulaması kullanmak yerine oluşturuyorsanız [SID paketini](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) olarak URI.
 5. **Oluştur**’a tıklayın.
 6. Uygulama kaydı eklendikten sonra açmak için seçin. Bulma **uygulama kimliği** ve bu değeri not edin.
 7. Tıklayın **tüm ayarlar** > **gerekli izinler** > **Ekle** > **bir API seçin**.
 8. İçin arama sonra seçin ve daha önce kaydettiğiniz App Service uygulaması adı **seçin**.
-9. Seçin **erişim \<app_name >**. Ardından **Seç**'e tıklayın. Sonra da **Bitti**’ye tıklayın.
+9. Seçin **erişim \<app_name >** . Ardından **Seç**'e tıklayın. Sonra da **Bitti**’ye tıklayın.
 
 App Service uygulamanıza erişmek bir yerel istemci uygulaması yapılandırdınız.
 

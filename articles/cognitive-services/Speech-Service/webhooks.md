@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3ceaed2b1e27a1f5b910865f6e9d0e70ef347b71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515386"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072302"
 ---
 # <a name="webhooks-for-speech-services"></a>Konuşma Hizmetleri için Web kancaları
 
@@ -39,7 +39,7 @@ Ardından, bir Web kancası oluşturalım.
 
 Çevrimdışı bir döküm için bir Web kancası oluşturalım. Senaryo: bir kullanıcının zaman uyumsuz olarak Batch tanıma API'SİYLE konuşmaların istediğiniz bir uzun süre çalışan ses dosyası. 
 
-Bir web kancası POST https:// oluşturmak için<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
+Web kancaları oluşturulabilir bir POST isteğinin https:// yaparak\<bölge\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
 
 İstek için yapılandırma parametreleri JSON olarak sağlanır:
 
@@ -136,7 +136,7 @@ Abone olunan olay türü (döküm) için bir varlık sistemde mevcut olduğundan
 
 Hızlı bir testi yapılabilir Web sitesini kullanarak https://bin.webhookrelay.com. Burada, çağrı edinebilirsiniz belgenin önceki bölümlerinde açıklanan bir Web kancası oluşturmak için HTTP POST için parametre olarak geçirmek için URL'leri yedekleyin.
 
-'Oluşturma demetinde' tıklayın ve izleyin ekrandaki bir kanca almak için yönergeler. Ardından kanca konuşma hizmeti sayesinde kaydetmek için bu sayfada sağlanan bilgileri kullanın. Geçiş yükü message - transkripsiyon görünüyor tamamlanması için yanıt şu şekilde:
+'Oluşturma demetinde' tıklayın ve izleyin ekrandaki bir kanca almak için yönergeler. Ardından kanca konuşma hizmeti sayesinde kaydetmek için bu sayfada sağlanan bilgileri kullanın. Bir geçiş iletisi – bir döküm tamamlanması için yanıt – yükü şu şekilde görünür:
 
 ```json
 {

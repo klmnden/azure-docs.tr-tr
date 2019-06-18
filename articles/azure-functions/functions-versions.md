@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
 ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036323"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure işlevleri çalışma zamanı sürümleri genel bakış
@@ -41,9 +41,9 @@ Daha fazla bilgi için bkz. [Desteklenen diller](supported-languages.md).
 
 ## <a name="creating-1x-apps"></a>Sürümünde çalışmasını 1.x
 
-Varsayılan olarak, Azure portalında oluşturulan işlev uygulamaları için sürüm ayarlanır 2.x. Mümkün olduğunda, yeni özellik Yatırımlar burada yapılan bu çalışma zamanı sürümünü kullanmanız gerekir. Gerek duyarsanız, bir işlev uygulaması sürüm 1.x çalışma zamanı üzerinde çalıştırabilirsiniz. İşlev uygulamanızı oluşturduktan sonra ancak tüm işlevleri eklemeden önce yalnızca çalışma zamanı sürümünü değiştirebilirsiniz. 1.x çalışma zamanı sürümüne sabitleme öğrenmek için bkz. [görüntüleyin ve güncelleştirme geçerli çalışma zamanı sürümünü](set-runtime-version.md#view-and-update-the-current-runtime-version).
+Varsayılan olarak, Azure portalında oluşturulan işlev uygulamaları için sürüm ayarlanır 2.x. Mümkün olduğunda, yeni özellik Yatırımlar burada yapılan bu çalışma zamanı sürümünü kullanmanız gerekir. Gerek duyarsanız, bir işlev uygulaması sürüm 1.x çalışma zamanı üzerinde çalıştırabilirsiniz. İşlev uygulamanızı oluşturduktan sonra ancak tüm işlevleri eklemeden önce yalnızca çalışma zamanı sürümünü değiştirebilirsiniz. 1\.x çalışma zamanı sürümüne sabitleme öğrenmek için bkz. [görüntüleyin ve güncelleştirme geçerli çalışma zamanı sürümünü](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
-## <a name="migrating-from-1x-to-2x"></a>2.x için 1.x geçiş
+## <a name="migrating-from-1x-to-2x"></a>2\.x için 1.x geçiş
 
 Bunun yerine sürümünü kullanmak için sürüm 1.x çalışma zamanı kullanmak için yazılmış var olan bir uygulamayı geçirmek seçebilirsiniz 2.x. Yapmanız gereken değişiklikleri çoğu .NET Framework 4.7 ile .NET Core 2 arasındaki C# API değişiklikleri gibi dil çalışma zamanı değişiklikleri ilgilidir. Ayrıca kodunuzun emin olmanız gerekir ve kitaplıkları seçtiğiniz dil çalışma zamanı ile uyumludur. Son olarak, herhangi bir değişiklik tetikleyici, bağlamalar ve aşağıda vurgulanan özellikleri not etmeyi unutmayın. En iyi geçiş sonuçlar için sürüm için yeni bir işlev uygulaması oluşturmanız gerekir, mevcut sürümü 1.x işlevi yeni uygulamasına kod 2.x ve bağlantı noktası.  
 

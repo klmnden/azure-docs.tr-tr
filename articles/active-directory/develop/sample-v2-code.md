@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4efe7fabb503cbfdc855d46ffea24dda2cb9c05f
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 327111182a4ad8958f2d852a88ba0608d8510c51
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849932"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055916"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft kimlik platformu kod örnekleri (v2.0 uç noktası)
 
@@ -47,7 +47,7 @@ GitHub üzerindeki örneklere katkıda bulunabilir. Bilgi edinmek için bkz. nas
 
 Bu örnekler, Microsoft kimlik platformu ile güvenli bir tek sayfalı uygulamasını yazma işlemi gösterilmektedir. Bu örnekler, MSAL.js türde birini kullanın:
 
-| Platform | Açıklama | Bağla |
+| Platform | Açıklama | Bağlantı |
 | -------- | --------------------- | -------- |
 | ![JavaScript](media/sample-v2-code/logo_js.png) [JavaScript (msal.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Microsoft Graph çağrıları |[javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | ![JavaScript](media/sample-v2-code/logo_js.png) [JavaScript (msal.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | B2C çağırır |[javascript msal singlepageapp B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
@@ -61,7 +61,7 @@ Aşağıdaki örnekleri kullanıcılarının oturumunu, web uygulamaları göste
 
 | Platform | Yalnızca kullanıcılar oturum açtığında | Kullanıcılar oturum açtığında ve Microsoft Graph çağırır |
 | -------- | ------------------- | --------------------------------- |
-| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.1 | [ASP.NET Core WebApp kullanıcılar oturum açtığında Öğreticisi](https://aka.ms/aspnetcore-webapp-sign-in) | Aynı örnek [ASP.NET Core Web uygulaması, Microsoft Graph çağırır](https://aka.ms/aspnetcore-webapp-call-msgraph) aşaması |
+| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | [ASP.NET Core WebApp kullanıcılar oturum açtığında Öğreticisi](https://aka.ms/aspnetcore-webapp-sign-in) | Aynı örnek [ASP.NET Core Web uygulaması, Microsoft Graph çağırır](https://aka.ms/aspnetcore-webapp-call-msgraph) aşaması |
 | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET hızlı başlangıç](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [DotNet-admin-kısıtlı-kapsamları-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph eğitim aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Node.js hızlı başlangıç](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs) |
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph eğitim rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
@@ -98,11 +98,12 @@ Aşağıdaki örnek, bir web tarayıcısı olmadan bir cihazda çalışan bir or
 
 ## <a name="web-apis"></a>Web API'leri
 
-Aşağıdaki örnek, Microsoft kimlik platformu uç noktası ile bir web API'sini korumak nasıl gösterir. Bu API, bir WPF uygulaması tarafından gerçekleştirilen, ancak herhangi bir uygulama tarafından çağrılabilir. Web API'si, Microsoft Graph de çağırır.
+Aşağıdaki örnekler, Microsoft kimlik platformu uç noktası ile bir web API'sini korumak nasıl ve Web API'si bir aşağı akış API'sini çağırmak nasıl gösterir.
 
 | Platform | Örnek |
 | -------- | ------------------- |
-| ![.NET/C#](media/sample-v2-code/logo_NET.png) | Webapı (hizmet), [dotnet-yerel-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph) |
+| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core Web API'si (hizmet), [dotnet-yerel-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API'si (hizmet) [ms-kimlik-ASP.NET-webapı-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
 ## <a name="other-microsoft-graph-samples"></a>Diğer Microsoft Graph örnekleri
 

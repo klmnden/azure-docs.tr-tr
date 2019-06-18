@@ -2,18 +2,18 @@
 title: "Sanal ağları Klasikten Resource Manager'a - ExpressRoute geçirme: Azure: PowerShell | Microsoft Docs"
 description: Bu sayfa devreniz taşıdıktan sonra ExpressRoute ilişkili sanal ağları Resource Manager'a geçiş işlemini açıklamaktadır.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.author: ganesr;cherylmc
+ms.date: 06/13/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 2e33454ac0ee97385386043706f4b8b73090f57a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 9f15431015e847d882e51b8d88c5b8a8c121d0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60363861"
+ms.locfileid: "67115420"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute ilişkili sanal ağları Klasikten Resource Manager'a geçiş
 
@@ -23,7 +23,7 @@ Bu makalede, sanal ağları ExpressRoute ilişkili ExpressRoute devreniz taşıd
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Azure PowerShell modüllerinin en son sürümüne sahip olduğunuzu doğrulayın. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
+* Azure PowerShell modüllerinin en son sürümlerine sahip olduğunuzu doğrulayın. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview). (Bu, Klasik dağıtım modeli için gerekli olan) PowerShell Service Management modülünü yükleme, bkz: [Azure PowerShell Service Management modülünü yükleme](/powershell/azure/servicemanagement/install-azure-ps).
 * Geçirdiğinizden emin emin [önkoşulları](expressroute-prerequisites.md), [yönlendirme gereksinimleri](expressroute-routing.md), ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
 * Altında sağlanan bilgileri gözden [bir ExpressRoute bağlantı hattını Klasikten Resource Manager'a taşıma](expressroute-move.md). Tam olarak sınırlar ve sınırlamalar anladığınızdan emin olun.
 * Bağlantı hattı Klasik dağıtım modelinde tam olarak işlevsel olduğunu doğrulayın.

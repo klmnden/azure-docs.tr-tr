@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297490"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning'de eğitim sırasında günlük ölçümleri çalıştırır
@@ -59,7 +59,7 @@ Günlüğe kaydetme ve deneme gönderme eklemeden önce çalışma alanını aya
                resource_group = <<resource_group>>)
    ```
   
-## <a name="option-1-use-startlogging"></a>1. seçenek: Start_logging kullanın
+## <a name="option-1-use-startlogging"></a>1\. seçenek: Start_logging kullanın
 
 **start_logging** dizüstü bilgisayarlar gibi senaryolarda kullanım için etkileşimli bir çalışma oluşturur. Oturumu sırasında günlüğe kaydedilen tüm ölçümler, denemeyi çalıştırma kaydı eklenir.
 
@@ -121,7 +121,7 @@ Aşağıdaki örnek, yerel Jupyter not defterini yerel olarak basit bir sklearn 
 
 Komut dosyası ile biter ```run.complete()```, tamamlandı olarak çalıştırmayı işaretler.  Bu işlev, genellikle etkileşimli bir not defteri senaryolarda kullanılır.
 
-## <a name="option-2-use-scriptrunconfig"></a>2. seçenek: ScriptRunConfig kullanın
+## <a name="option-2-use-scriptrunconfig"></a>2\. seçenek: ScriptRunConfig kullanın
 
 [**ScriptRunConfig** ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) betiği için yapılandırmaları ayarlamayı çalıştırmaları için bir sınıftır. Bu seçenekle tamamlanmasından almak veya izlemek için görsel bir pencere öğesi almak için izleme kodu ekleyebilirsiniz.
 

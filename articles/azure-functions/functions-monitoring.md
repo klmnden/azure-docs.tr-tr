@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922975"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
@@ -77,7 +77,7 @@ Kullanarak bir işlev uygulaması oluşturduğunuzda [Azure CLI](functions-creat
 
 Her iki sayfa olduğunu gördüğünüz bir **Application Insights'ta Çalıştır** verileri alır. Application Insights Analytics sorgunuzun bağlantı.
 
-![Application Insights'ta çalıştır](media/functions-monitoring/run-in-ai.png)
+![Application Insights'ta Çalıştır](media/functions-monitoring/run-in-ai.png)
 
 Aşağıdaki sorguda görüntülenir. Çağırma listesi son 30 gün içinde sınırlı olduğunu görebilirsiniz. Liste en fazla 20 satırları gösterir (`where timestamp > ago(30d) | take 20`). Son 30 gün boyunca hiçbir sınır çağırma ayrıntıları listesidir.
 
@@ -97,7 +97,7 @@ Application Insights'ı kullanma hakkında daha fazla bilgi için bkz: [Applicat
 
 Application Insights aşağıdaki alanları davranışı, performans ve hatalar işlevlerinizi değerlendirirken yararlı olabilir:
 
-| Sekme | Açıklama |
+| Tab | Açıklama |
 | ---- | ----------- |
 | **[hataları](../azure-monitor/app/asp-net-exceptions.md)** |  Grafikler ve işlev hataları ve sunucu özel durumları göre uyarılar oluşturun. **İşlem adı** işlev adıdır. Bağımlılıklar için özel telemetri uygulamak sürece hataları bağımlılıkları gösterilmez. |
 | **[Performans](../azure-monitor/app/performance-counters.md)** | Performans sorunlarını analiz edin. |
@@ -288,7 +288,7 @@ Kategoriler ile başlayan tüm günlüklerin `Host` işlevler çalışma zamanı
 
 ## <a name="configure-the-aggregator"></a>Toplayıcı yapılandırma
 
-Önceki bölümde belirtildiği gibi çalışma zamanı bir süre içinde işlev yürütmelerini hakkındaki verileri toplar. 1.000 çalışmadan, hangisi önce geliyorsa veya varsayılan süre 30 saniyedir. Bu ayarı yapılandırabilirsiniz [host.json] dosya.  Bir örneği aşağıda verilmiştir:
+Önceki bölümde belirtildiği gibi çalışma zamanı bir süre içinde işlev yürütmelerini hakkındaki verileri toplar. 1\.000 çalışmadan, hangisi önce geliyorsa veya varsayılan süre 30 saniyedir. Bu ayarı yapılandırabilirsiniz [host.json] dosya.  Bir örneği aşağıda verilmiştir:
 
 ```json
 {
@@ -593,7 +593,7 @@ module.exports = function (context, req) {
 
 `tagOverrides` Parametre kümeleri `operation_Id` işlev çağırma kimliği Bu ayar tüm verilen işlevi çağrısı için otomatik olarak oluşturulan ve özel telemetrinin bağıntısını kurmanızı sağlar.
 
-## <a name="dependencies"></a>Bağımlılıklar
+## <a name="dependencies"></a>Bağımlılıkları
 
 İşlevler v2, HTTP istekleri, Service Bus ve SQL bağımlılıklarını otomatik olarak toplar.
 
@@ -605,7 +605,7 @@ Bağımlılıkları göstermek için özel kod yazabilirsiniz. Örnek kodda örn
 
 İşlevlerde Application Insights Tümleştirmesi ile ilgili bir sorun bildirin veya öneri ya da isteği yapmak için [Github'da bir sorun oluşturun](https://github.com/Azure/Azure-Functions/issues/new).
 
-## <a name="streaming-logs"></a>Akış Günlükleri
+## <a name="streaming-logs"></a>Akış günlükleri
 
 Bir uygulama geliştirirken, genellikle günlük kaydı bilgilerini neredeyse gerçek zamanlı görmek yararlı olur. Azure portalında veya bir komut satırı oturumunda, yerel bilgisayarınızda işlevlerinizi tarafından oluşturulan günlük dosyalarının akışını görüntüleyebilirsiniz.
 

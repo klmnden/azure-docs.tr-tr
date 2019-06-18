@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738844"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
@@ -31,12 +31,12 @@ Azure Automation’da, otomasyon hesabı kapsamında kullanıcılara, gruplara v
 | Katılımcı |Katılımcı rolü, başka kullanıcının Otomasyon hesabına erişim izinlerini değiştirme dışında her şeyi yönetmenizi sağlar. |
 | Okuyucu |Okuyucu rolü, Otomasyon hesabında tüm kaynakları görmenizi sağlar; ancak değişiklik yapamazsınız. |
 | Otomasyon Operatörü |Otomasyon operatörü rolü, runbook adı ve özelliklerini görüntülemek ve oluşturmak ve bir Otomasyon hesabında tüm runbook'lar için iş yönetmenize olanak sağlar. Bu rol, kimlik bilgileri varlıkları ve runbook'ları gibi Automation hesabı kaynaklarınızın görüntülenmesini veya değiştirilmesini engellemek, ancak yine de kuruluş üyelerinin bu runbook’ları yürütmesine izin vermek istiyorsanız yararlıdır. |
-|Otomasyon İşi İşleci|Otomasyon işi işleci rolü, Automation hesabı tüm runbook'lar için iş oluşturma ve yönetme sağlar.|
-|Otomasyon Runbook'u İşleci|Otomasyon Runbook operatörü rolü, bir runbook'un adını ve özelliklerini görüntülemenize olanak sağlar.|
+|Otomasyon işi işleci|Otomasyon işi işleci rolü, Automation hesabı tüm runbook'lar için iş oluşturma ve yönetme sağlar.|
+|Otomasyon Runbook'u işleci|Otomasyon Runbook operatörü rolü, bir runbook'un adını ve özelliklerini görüntülemenize olanak sağlar.|
 | Log Analytics Katkıda Bulunan | Log Analytics katkıda bulunan rolü, tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenlemek sağlar. İzleme ayarlarını düzenleme, oluşturma ve Otomasyon hesaplarını yapılandırma, çözüm ekleme ve Azure tanılama yapılandırma Azure Depolama'dan günlüklerin toplanmasını yapılandırma yapabilmek için depolama hesabı anahtarlarını okuma VM'ler, VM uzantısı ekleme içerir Tüm Azure kaynakları.|
 | Log Analytics Okuyucusu | Log Analytics okuyucusu rolü, görüntüleme ve tüm izleme verilerini yanı sıra izleme ayarlarını görünümü arama sağlar. Bu, tüm Azure kaynaklarındaki Azure Tanılama yapılandırmasını görüntüleme içerir. |
-| İzleme Katkıda Bulunanı | İzleme katılımcı rolü tüm izleme verileri ve güncelleştirme izleme ayarlarını okumanıza izin verir.|
-| İzleme Okuyucusu | İzleme okuyucusu rolü tüm izleme verilerini okumanıza izin verir. |
+| İzleme katkıda bulunanı | İzleme katılımcı rolü tüm izleme verileri ve güncelleştirme izleme ayarlarını okumanıza izin verir.|
+| İzleme okuyucusu | İzleme okuyucusu rolü tüm izleme verilerini okumanıza izin verir. |
 | Kullanıcı Erişimi Yöneticisi |Kullanıcı Erişimi Yöneticisi rolü, Azure Otomasyonu hesaplarına kullanıcı erişimini yönetmenizi sağlar. |
 
 ## <a name="role-permissions"></a>Rol izinleri
@@ -98,7 +98,7 @@ Otomasyon operatörü oluşturabilmek ve işlerini yönetme ve runbook adları v
 |Microsoft.Insights/alertRules/*      | Oluşturun ve uyarı kurallarını yönetin.        |
 |Microsoft.Support/* |Oluşturun ve Destek biletlerini yönetebilir.|
 
-### <a name="automation-job-operator"></a>Otomasyon İşi İşleci
+### <a name="automation-job-operator"></a>Otomasyon işi işleci
 
 Bir Otomasyon işi işleci rolü, Otomasyon hesabı kapsamında verilir. Bu hesaptaki tüm runbook'lar için işleri oluşturmak ve yönetmek operatör izinleri sağlar. Aşağıdaki tabloda, rol için verilen izinler gösterilmektedir:
 
@@ -116,7 +116,7 @@ Bir Otomasyon işi işleci rolü, Otomasyon hesabı kapsamında verilir. Bu he
 |Microsoft.Insights/alertRules/*      | Oluşturun ve uyarı kurallarını yönetin.        |
 |Microsoft.Support/* |Oluşturun ve Destek biletlerini yönetebilir.|
 
-### <a name="automation-runbook-operator"></a>Otomasyon Runbook'u İşleci
+### <a name="automation-runbook-operator"></a>Otomasyon Runbook'u işleci
 
 Otomasyon Runbook işletmeni rolü Runbook kapsamda verilir. Bir Otomasyon Runbook'u işleci runbook'un adını ve özelliklerini görüntüleyebilirsiniz.  İşleci ayrıca oluşturup runbook işlerini yönetmek 'Otomasyon işi işleci' rolüyle birlikte bu rolü etkinleştirir. Aşağıdaki tabloda, rol için verilen izinler gösterilmektedir:
 
@@ -135,7 +135,7 @@ Log Analytics katkıda bulunan tüm izleme verilerini okuyabilir ve izleme ayarl
 
 |**Eylemler**  |**Açıklama**  |
 |---------|---------|
-|* / Okuma|Gizli dizileri dışında tüm türler kaynakları okuyun.|
+|\* / Okuma|Gizli dizileri dışında tüm türler kaynakları okuyun.|
 |Microsoft.Automation/automationAccounts/*|Otomasyon hesapları yönetin.|
 |Microsoft.ClassicCompute/virtualMachines/extensions/*|Oluşturun ve sanal makine uzantıları yönetin.|
 |Microsoft.ClassicStorage/storageAccounts/listKeys/action|Klasik depolama hesabı anahtarlarını listele.|
@@ -155,20 +155,20 @@ Log Analytics okuyucusu görüntüleyebilir ve tüm izleme verilerini ve ayarlar
 
 |**Eylemler**  |**Açıklama**  |
 |---------|---------|
-|* / Okuma|Gizli dizileri dışında tüm türler kaynakları okuyun.|
+|\* / Okuma|Gizli dizileri dışında tüm türler kaynakları okuyun.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Azure İzleyici günlüklerine sorgularda yönetin.|
 |Microsoft.OperationalInsights/workspaces/search/action|Azure İzleyici günlük verileri arayın.|
 |Microsoft.Support/*|Oluşturun ve Destek biletlerini yönetebilir.|
 |**Eylemleri değil**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Paylaşılan erişim anahtarları okumak karşılaştırılamıyor.|
 
-### <a name="monitoring-contributor"></a>İzleme Katkıda Bulunanı
+### <a name="monitoring-contributor"></a>İzleme katkıda bulunanı
 
 İzleme katkıda bulunan tüm izleme verilerini okuyabilir ve izleme ayarlarını güncelleştirebilir. Aşağıdaki tabloda, rol için verilen izinler gösterilmektedir:
 
 |**Eylemler**  |**Açıklama**  |
 |---------|---------|
-|* / Okuma|Gizli dizileri dışında tüm türler kaynakları okuyun.|
+|\* / Okuma|Gizli dizileri dışında tüm türler kaynakları okuyun.|
 |Microsoft.AlertsManagement/alerts/*|Uyarıları yönetme.|
 |Microsoft.AlertsManagement/alertsSummary/*|Uyarı Panosu yönetin.|
 |Microsoft.Insights/AlertRules/*|Uyarı kurallarını yönetin.|
@@ -188,13 +188,13 @@ Log Analytics okuyucusu görüntüleyebilir ve tüm izleme verilerini ve ayarlar
 |Microsoft.Support/*|Oluşturun ve Destek biletlerini yönetebilir.|
 |Microsoft.WorkloadMonitor/workloads/*|İş yüklerini yönetin.|
 
-### <a name="monitoring-reader"></a>İzleme Okuyucusu
+### <a name="monitoring-reader"></a>İzleme okuyucusu
 
 Bir izleme okuyucusu, tüm izleme verilerini okuyabilir. Aşağıdaki tabloda, rol için verilen izinler gösterilmektedir:
 
 |**Eylemler**  |**Açıklama**  |
 |---------|---------|
-|* / Okuma|Gizli dizileri dışında tüm türler kaynakları okuyun.|
+|\* / Okuma|Gizli dizileri dışında tüm türler kaynakları okuyun.|
 |Microsoft.OperationalInsights/workspaces/search/action|Log Analytics çalışma alanları arayın.|
 |Microsoft.Support/*|Oluşturma ve Destek biletlerini yönetme|
 
@@ -204,7 +204,7 @@ Kullanıcı erişimi Yöneticisi, Azure kaynaklarına kullanıcı erişimini yö
 
 |**Eylemler**  |**Açıklama**  |
 |---------|---------|
-|* / Okuma|Tüm kaynakları okuyun|
+|\* / Okuma|Tüm kaynakları okuyun|
 |Microsoft.Authorization/*|Yetkilendirme yönetme|
 |Microsoft.Support/*|Oluşturma ve Destek biletlerini yönetme|
 
@@ -221,15 +221,15 @@ Aşağıdaki tabloda, onboarding sanal makineler için değişiklik izleme için
 |Yeni varsayılan çalışma alanı oluşturma      | Microsoft.OperationalInsights/workspaces/write         | Kaynak grubu         |
 |Yeni hesap oluşturun      |  Microsoft.Automation/automationAccounts/write        |Kaynak grubu         |
 |Bağlantı çalışma alanı ve hesabı      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Çalışma alanı</br>Otomasyon hesabı
-|Çözüm oluştur      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Kaynak grubu          |
-|MMA uzantısı oluşturma      | Microsoft.Compute/virtualMachines/write         | Sanal Makine         |
+|Çözüm oluşturma      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Kaynak grubu          |
+|MMA uzantısı oluşturma      | Microsoft.Compute/virtualMachines/write         | Sanal makine         |
 |Kaydedilmiş arama oluştur      | Microsoft.OperationalInsights/workspaces/write          | Çalışma alanı         |
 |Kapsam yapılandırması oluşturma      | Microsoft.OperationalInsights/workspaces/write          | Çalışma alanı         |
 |Kapsam yapılandırmasına bağlantı çözümü      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Çözüm         |
 |Ekleme durumu denetleyin - okuma çalışma      | Microsoft.OperationalInsights/workspaces/read         | Çalışma alanı         |
 |Durum denetimi ekleme - okuma bağlı hesabının çalışma özelliği     | Microsoft.Automation/automationAccounts/read      | Otomasyon hesabı        |
 |Ekleme durumu denetleyin - okuma çözümü      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Çözüm         |
-|Ekleme durumu denetleyin - okuma VM      | Microsoft.Compute/virtualMachines/read         | Sanal Makine         |
+|Ekleme durumu denetleyin - okuma VM      | Microsoft.Compute/virtualMachines/read         | Sanal makine         |
 |Ekleme durumu denetleyin - okuma hesabı      | Microsoft.Automation/automationAccounts/read  |  Otomasyon hesabı   |
 | VM ekleme çalışma denetle<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Abonelik         |
 
@@ -240,19 +240,19 @@ Aşağıdaki tabloda, onboarding sanal makineler için değişiklik izleme için
 |**Eylem**  |**İzni** |**En düşük kapsamı**  |
 |---------|---------|---------|
 |Yeni bir dağıtımını oluşturun     | Microsoft.Resources/deployments/*        | Abonelik         |
-|Yeni kaynak grubu oluştur     | Microsoft.Resources/subscriptions/resourceGroups/write         | Abonelik        |
+|Yeni kaynak grubu oluşturun     | Microsoft.Resources/subscriptions/resourceGroups/write         | Abonelik        |
 |AutomationOnboarding dikey penceresi - yeni çalışma alanı oluşturma     |Microsoft.OperationalInsights/workspaces/write           | Kaynak grubu        |
 |Bağlanan çalışma alanı AutomationOnboarding dikey penceresi - okuma     | Microsoft.Automation/automationAccounts/read        | Otomasyon hesabı       |
 |AutomationOnboarding dikey penceresi - çözüm okuyun     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Çözüm        |
 |AutomationOnboarding dikey penceresi - çalışma alanını okuma     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Çalışma alanı        |
 |Çalışma alanı ve hesabı için bağlantı oluşturma     | Microsoft.OperationalInsights/workspaces/write        | Çalışma alanı        |
 |Hesap ayakkabı için yazma      | Microsoft.Automation/automationAccounts/write        | Hesap        |
-|Çözüm oluştur      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | Kaynak Grubu         |
+|Çözüm oluşturma      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | Kaynak Grubu         |
 |Oluşturma/kayıtlı aramayı düzenleyin     | Microsoft.OperationalInsights/workspaces/write        | Çalışma alanı        |
 |Kapsam yapılandırması Oluştur/Düzenle     | Microsoft.OperationalInsights/workspaces/write        | Çalışma alanı        |
 |Kapsam yapılandırmasına bağlantı çözümü      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Çözüm         |
 |**Adım 2 - yerleşik birden çok VM**     |         |         |
-|VMOnboarding dikey penceresi - MMA oluşturma uzantısı     | Microsoft.Compute/virtualMachines/write           | Sanal Makine        |
+|VMOnboarding dikey penceresi - MMA oluşturma uzantısı     | Microsoft.Compute/virtualMachines/write           | Sanal makine        |
 |Oluşturma / kayıtlı aramayı düzenleyin     | Microsoft.OperationalInsights/workspaces/write           | Çalışma alanı        |
 |Kapsam yapılandırmasını düzenleme / oluşturma  | Microsoft.OperationalInsights/workspaces/write   | Çalışma alanı|
 
@@ -263,11 +263,11 @@ Güncelleştirme yönetimi, hizmet sağlamak için çok hizmette ulaşır. Aşa�
 |**Kaynak**  |**Rol**  |**Kapsam**  |
 |---------|---------|---------|
 |Otomasyon hesabı     | Log Analytics Katkıda Bulunan       | Otomasyon hesabı        |
-|Otomasyon hesabı    | Sanal Makine Katılımcısı        | Kaynak grubu hesabı        |
+|Otomasyon hesabı    | Sanal makine Katılımcısı        | Kaynak grubu hesabı        |
 |Log Analytics çalışma alanı     | Log Analytics Katkıda Bulunan| Log Analytics çalışma alanı        |
 |Log Analytics çalışma alanı |Log Analytics Okuyucusu| Abonelik|
 |Çözüm     |Log Analytics Katkıda Bulunan         | Çözüm|
-|Sanal Makine     | Sanal Makine Katılımcısı        | Sanal Makine        |
+|Sanal makine     | Sanal makine Katılımcısı        | Sanal makine        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Automation hesabınız için RBAC yapılandırma
 

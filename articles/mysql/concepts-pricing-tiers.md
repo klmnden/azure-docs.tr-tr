@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8e3d12db8d2500a2675e451580bee7072d22d41c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20fb352e65a570063d9a0f55667db073f8a4ee27
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225439"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062420"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Fiyatlandırma katmanları MySQL için Azure veritabanı
 
@@ -19,7 +19,7 @@ MySQL sunucusu için Azure veritabanı üç farklı fiyatlandırma katmanında o
 
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
-| İşlem oluşturma | Gen 4, 5. nesil | Gen 4, 5. nesil | 5. Nesil |
+| İşlem oluşturma | Gen 4, 5. nesil | Gen 4, 5. nesil | 5\. Nesil |
 | Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Sanal çekirdek başına bellek | 2 GB | 5 GB | 10 GB |
 | Depolama boyutu | 5 GB ila 1 TB | 5 GB ile 4 TB | 5 GB ile 4 TB |
@@ -54,6 +54,25 @@ MySQL için Azure veritabanı'na kullanılabilir depolama kapasitesi miktarını
 Sırasında ve sonrasında sunucu oluşturulması ek depolama kapasitesi eklemek ve sistem otomatik olarak iş yükünüz depolama tüketimine göre depolama büyümesine izin verebilirsiniz. Temel katmanı, bir IOPS garanti sağlamaz. Genel amaçlı ve bellek için iyileştirilmiş fiyatlandırma katmanları, IOPS sağlanan depolama boyutu 3:1 oranını ölçeklendirin.
 
 G/ç tüketiminiz Azure portalında veya Azure CLI komutlarını kullanarak izleyebilirsiniz. İlgili ölçümleri izlemek için [depolama sınırı, depolama yüzdesi, kullanılan depolama alanı ve g/ç yüzdesi](concepts-monitoring.md).
+
+### <a name="large-storage-preview"></a>Büyük depolama (Önizleme)
+
+Biz depolama sınırları, genel amaçlı ve bellek için iyileştirilmiş Katmanlar artmaktadır. Sunucuları yeni oluşturulan bu katılımı önizlemesine 16 TB'a kadar depolama alanı sağlayabilir. IOPS kadar 20.000 IOPS 3:1 oranında ölçeklendirilir. Geçerli genel olarak kullanılabilir depolamaya sahip olarak, sunucu oluşturulduktan sonra ek depolama kapasitesi eklemenize ve sistem otomatik olarak iş yükünüz depolama tüketimine göre depolama büyümesine izin verebilirsiniz.
+
+|              | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
+|:-------------|:--------------------|:---------------------|
+| Depolama türü | Azure Premium Depolama | Azure Premium Depolama |
+| Depolama boyutu | 16 TB'ye kadar 32 GB| 32-16 TB |
+| Depolama artırma boyutu | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>20\.000 IOPS maks.| 3 IOPS/GB<br/>Min 100 IOPS<br/>20\.000 IOPS maks. |
+
+> [!IMPORTANT]
+> Büyük depolama şu anda aşağıdaki bölgelerde genel önizlemeye sunulmuştur: Doğu ABD, Doğu ABD 2, Orta ABD, Batı ABD, Batı ABD 2, Kuzey Avrupa, Batı Avrupa, Güneydoğu Asya, Doğu, Kore Orta, Avustralya Doğu Japonya.
+>
+> Büyük depolama önizlemesi şu anda desteklemez:
+>
+> * Coğrafi olarak yedekli yedekleri
+> * Çapraz bölge çoğaltma
 
 ### <a name="reaching-the-storage-limit"></a>Depolama sınırı ulaşma
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 7252fcd0ce3e12c411729002e9594d1a75a49885
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d7b06d809d7ec3c421254b51a3cbd4a36d494ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tango-analytics"></a>Öğretici: Tango Analytics ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Tango Analytics tümleştirmesini yapılandırmak için Tango Analyt
 
 **Galeriden Tango analiz eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

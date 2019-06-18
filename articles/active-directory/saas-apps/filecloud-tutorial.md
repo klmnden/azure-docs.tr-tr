@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75c66a875dc3419e928da83811809bd0f6d5d054
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7271a1cf0520eef8aa9b64fab36349caf3c0ffcd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898852"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102638"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Öğretici: FileCloud ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Azure AD'de FileCloud tümleştirmesini yapılandırmak için FileCloud Galeride
 
 **Galeriden FileCloud eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

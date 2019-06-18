@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864461"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107660"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
@@ -100,7 +100,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 - Uygulama
 - Oturum açma durumu
 - Koşullu Erişim
-- Date
+- Tarih
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/04.png "oturum açma etkinliği")
 
@@ -118,7 +118,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 
 - Tümü
 - Uygulanmadı
-- Başarı
+- Başarılı
 - Hata
 
 **Tarih** filtresi, döndürülen veriler için bir zaman çerçevesi tanımlamanıza olanak sağlar.  
@@ -190,7 +190,7 @@ Oturum açma etkinlikleri listesinin her satırında aşağıdakiler gösterilir
 
 Bir öğeye tıklayarak oturum açma işlemi hakkında daha fazla bilgi alabilirsiniz:
 
-- Kullanıcı kimliği
+- Kullanıcı Kimliği
 - Kullanıcı
 - Kullanıcı adı
 - Uygulama Kimliği
@@ -198,7 +198,7 @@ Bir öğeye tıklayarak oturum açma işlemi hakkında daha fazla bilgi alabilir
 - İstemci
 - Location
 - IP adresi
-- Date
+- Tarih
 - MFA Gerekli
 - Oturum açma durumu
 

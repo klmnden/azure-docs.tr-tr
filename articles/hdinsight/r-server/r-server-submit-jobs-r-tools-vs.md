@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 8f1ed582b7abf43afd38ca5c358aa7e179bfecb3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702284"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio için R Araçları’ndan iş gönderme
@@ -44,7 +44,7 @@ Araçlar sunarak RTVS R akışınızı geliştirir [R etkileşimli penceresi](ht
        ![Veri bilimi ayarları...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
       > [!NOTE]  
-      > 1. adımda yaklaşımı kullanarak da kaydedebilir ve kişiselleştirilmiş bir veri Bilimcisi düzeninizi geri yinelenen yerine **veri bilimi ayarları** komutu.
+      > 1\. adımda yaklaşımı kullanarak da kaydedebilir ve kişiselleştirilmiş bir veri Bilimcisi düzeninizi geri yinelenen yerine **veri bilimi ayarları** komutu.
 
 ## <a name="execute-local-r-methods"></a>Yerel R yöntemleri çalıştırma
 
@@ -67,7 +67,7 @@ PuTTY ile donatılmış bir Windows bilgisayarında Microsoft ML Server/Microsof
 
 1. Kenar düğümün konak adı bulmak için Azure HDInsight ML Hizmetleri kümesi bölmesinde açın ve sonra seçin **güvenli Kabuk (SSH)** genel bakış bölmesinin üst menüsünde.
 
-    ![Secure Shell (SSH)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
+    ![Güvenli Kabuk (SSH)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
 
 2. Kopyalama **uç düğüm ana bilgisayar adı** değeri.
 

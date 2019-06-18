@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 18e1bb486c47baf7648a74e31451e2db73f72250
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 23ba45804632163cc5de41ac2353091b7cf850c1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063182"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Özel ses oluşturma için verileri hazırlama
 
@@ -49,7 +49,7 @@ Kayıtları tek tek konuşma ve iki yolla eşleşen döküm hazırlayabilirsiniz
 İyi ses tipi üretmek için yüksek kaliteli bir mikrofon sessiz bir odada kayıtları oluşturun. Tutarlı birim oranı, aralık ve konuşma ifadesel veren davranışların gibi konuşma gerekli.
 
 > [!TIP]
-> Üretim kullanımı için bir ses oluşturmak için profesyonel kaydı studio ve ses beceri kullanmanızı öneririz. Daha fazla bilgi için [ses kaydetmek nasıl özel bir ses için örnekleri](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/record-custom-voice-samples).
+> Üretim kullanımı için bir ses oluşturmak için profesyonel kaydı studio ve ses beceri kullanmanızı öneririz. Daha fazla bilgi için [ses kaydetmek nasıl özel bir ses için örnekleri](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>Ses dosyaları
 

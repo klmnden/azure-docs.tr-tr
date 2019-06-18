@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cffef4028a684e27c0941c234df551d844f13420
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65896870"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure İzleyici'de Azure AD etkinlik günlükleri
@@ -70,7 +70,7 @@ Azure AD lisansınız varsa, depolama hesabı ve olay hub'ı kurulumu için bir 
 
 ### <a name="storage-size-for-activity-logs"></a>Etkinlik günlükleri için depolama boyutu
 
-Her denetim günlüğü olayı yaklaşık 2 KB veri depolama alanı kullanır. 100.000 kullanıcıdan oluşan ve her gün yaklaşık 1,5 milyon olay gerçekleşecek bir kiracıda günlük yaklaşık 3 GB veri depolama alanına ihtiyaç duyulur. Yazma işlemleri yaklaşık beş dakikalık toplu işlemler halinde gerçekleştiğinden, ayda yaklaşık 9000 yazma işlemi olmasını bekleyebilirsiniz. 
+Her denetim günlüğü olayı yaklaşık 2 KB veri depolama alanı kullanır. 100\.000 kullanıcıdan oluşan ve her gün yaklaşık 1,5 milyon olay gerçekleşecek bir kiracıda günlük yaklaşık 3 GB veri depolama alanına ihtiyaç duyulur. Yazma işlemleri yaklaşık beş dakikalık toplu işlemler halinde gerçekleştiğinden, ayda yaklaşık 9000 yazma işlemi olmasını bekleyebilirsiniz. 
 
 
 Aşağıdaki tabloda, Batı ABD bölgesindeki bir genel amaçlı sürüm 2 depolama hesabında en az bir yıl saklama için kiracının boyutuna bağlı olarak yaklaşık bir maliyet hesabı verilmiştir. Uygulamanızın veri hacmine göre daha doğru bir yaklaşık değer elde etmek için [Azure depolama fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/details/storage/blobs/) kullanın.
@@ -79,8 +79,8 @@ Aşağıdaki tabloda, Batı ABD bölgesindeki bir genel amaçlı sürüm 2 depol
 | Günlük kategorisi | Kullanıcı sayısı | Günlük olay sayısı | Aylık veri hacmi (tahmini) | Aylık maliyet (tahmini) | Yıllık maliyet (tahmini) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
 | Denetim | 100,000 | 1,5&nbsp;milyon | 90 GB | $1,93 | $23,12 |
-| Denetim | 1000 | 15.000 | 900 MB | $0,02 | $0,24 |
-| Oturum açma işlemleri | 1000 | 34.800 | 4 GB | $0,13 | $1,56 |
+| Denetim | 1000 | 15\.000 | 900 MB | $0,02 | $0,24 |
+| Oturum açma işlemleri | 1000 | 34\.800 | 4 GB | $0,13 | $1,56 |
 | Oturum açma işlemleri | 100,000 | 15&nbsp;milyon | 1,7 TB | $35,41 | $424,92 |
  
 
@@ -102,9 +102,9 @@ Aşağıdaki tabloda Batı ABD bölgesinde yer alan temel bir olay hub'ı için 
 
 | Günlük kategorisi | Kullanıcı sayısı | Saniye başına olay sayısı | Beş dakikalık aralık başına olay sayısı | Aralık başına boyut | Aralık başına ileti sayısı | Aylık ileti sayısı | Aylık maliyet (tahmini) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Denetim | 100,000 | 18 | 5400 | 10,8 MB | 43 | 371.520 | $10,83 |
+| Denetim | 100,000 | 18 | 5400 | 10,8 MB | 43 | 371\.520 | $10,83 |
 | Denetim | 1000 | 0.1 | 52 | 104 KB | 1 | 8640 | $10,80 |
-| Oturum açma işlemleri | 1000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
+| Oturum açma işlemleri | 1000 | 178 | 53\.400 | 106,8&nbsp;MB | 418 | 3\.611.520 | $11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Azure İzleyici maliyet konuları günlüğe kaydeder.
 

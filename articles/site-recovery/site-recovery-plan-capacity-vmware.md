@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924838"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Kapasite ve ölçeklendirme Vmware'den azure'a olağanüstü durum kurtarma için planlama
@@ -28,7 +28,7 @@ Site Recovery dağıtım Planlayıcısı uyumlu ve uyumsuz VM'ler, VM başına d
 
 Bileşen | Ayrıntılar
 --- | ---
-**Çoğaltma** | **Maksimum günlük değişim hızı**: Korumalı makine yalnızca bir işlem sunucusunu kullanabilirsiniz. Bir tek işlem sunucusu günlük işleyebilir değişiklik hızı 2 TB'a kadar artırın. Bu nedenle, en fazla günlük veri değişikliği bir korumalı makine için desteklenen oranı 2 TB olduğu.<br /><br /> **En yüksek aktarım**: Çoğaltılmış bir makineden, azure'da bir depolama hesabına ait olabilir. Standart Azure depolama hesabı, en fazla saniye başına 20.000 istekleri işleyebilir. 20.000 için bir kaynak makine arasında giriş/çıkış işlemi (IOPS) saniyede sayısını sınırlayın öneririz. Örneğin, beş diskleri olan bir kaynak makine varsa ve her disk 120 IOPS (8 K boyutu) kaynak makinede oluşturur. kaynak makine 500 Azure disk başına IOPS sınırı içinde olur. (Gerekli depolama hesabı sayısı 20. 000'ile ayrılmış IOPS toplam kaynak makineye eşittir.)
+**Çoğaltma** | **Maksimum günlük değişim hızı**: Korumalı makine yalnızca bir işlem sunucusunu kullanabilirsiniz. Bir tek işlem sunucusu günlük işleyebilir değişiklik hızı 2 TB'a kadar artırın. Bu nedenle, en fazla günlük veri değişikliği bir korumalı makine için desteklenen oranı 2 TB olduğu.<br /><br /> **En yüksek aktarım**: Çoğaltılmış bir makineden, azure'da bir depolama hesabına ait olabilir. Standart Azure depolama hesabı, en fazla saniye başına 20.000 istekleri işleyebilir. 20\.000 için bir kaynak makine arasında giriş/çıkış işlemi (IOPS) saniyede sayısını sınırlayın öneririz. Örneğin, beş diskleri olan bir kaynak makine varsa ve her disk 120 IOPS (8 K boyutu) kaynak makinede oluşturur. kaynak makine 500 Azure disk başına IOPS sınırı içinde olur. (Gerekli depolama hesabı sayısı 20. 000'ile ayrılmış IOPS toplam kaynak makineye eşittir.)
 **Yapılandırma sunucusu** | Yapılandırma sunucusu korumalı makineler üzerinde çalışan tüm iş yükleri arasında günlük değişiklik hızı kapasitesi işleyebilir olması gerekir. Makine yapılandırma verilerini Azure Depolama'ya sürekli olarak çoğaltmak için yeterli bant genişliği olması gerekir.<br /><br /> Yapılandırma sunucusu korumak istediğiniz makinelere LAN kesimi ve aynı ağ üzerinde yerleştirmek iyi bir uygulamadır. Yapılandırma sunucusunu farklı bir ağda koyabilirsiniz ancak korumak istediğiniz makinelere Katman 3 ağ görünürlüğü olması gerekir.<br /><br /> Yapılandırma sunucusu için boyut önerileri, aşağıdaki bölümde bulunan tablodaki özetlenmiştir.
 **İşlem sunucusu** | İlk işlem sunucusu yapılandırma sunucusunda varsayılan olarak yüklenir. Ortamınızı ölçeklendirme için ek işlem sunucuları dağıtabilirsiniz. <br /><br /> İşlem sunucusu, korumalı makinelerden çoğaltma verilerini alır. İşlem sunucusu, önbelleğe alma, sıkıştırma ve şifreleme kullanarak verileri iyileştirir. Ardından, işlem sunucusu verileri Azure'a gönderir. İşlem sunucusu makinesi, bu görevleri gerçekleştirmek için yeterli kaynak olması gerekir.<br /><br /> İşlem sunucusu, disk tabanlı bir önbelleği kullanır. Bir ağ sorununu veya kesinti oluşursa, depolanan veri değişikliklerini işlemek için 600 GB veya üzeri bir ayrı önbellek diski kullanın.
 

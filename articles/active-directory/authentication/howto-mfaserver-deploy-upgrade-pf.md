@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 277001faf988e5d201a65c9e4112263f226b3db5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bcb1bf4996e381db933eac91135093a101e504bb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358353"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055983"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltme
 
 PhoneFactor Aracısı v5.x veya önceki bir sürümünü Azure Multi-Factor Authentication Sunucusuna yükseltmek için ilk olarak PhoneFactor Aracısını ve bağlı bileşenleri kaldırın. Bundan sonra Multi-Factor Authentication Sunucusu ve bağlı bileşenleri yüklenebilir.
+
+> [!IMPORTANT]
+> 1 Temmuz 2019'dan itibaren Microsoft artık yeni dağıtımlar için MFA sunucusu sunacaktır. Bulut tabanlı Azure multi-Factor Authentication, kullanıcıların multi-Factor authentication gerektirmesine istediğiniz yeni müşteriler kullanmanız gerekir. MFA sunucusu 1 Temmuz'dan önce etkinleştirmiş olan mevcut müşteriler, Gelecekteki güncelleştirmelerin en son sürümü indirip zamanki etkinleştirme kimlik bilgileri oluştur mümkün olacaktır.
 
 ## <a name="uninstall-the-phonefactor-agent"></a>PhoneFactor Aracısını kaldırma
 
@@ -68,7 +71,7 @@ Yükleme yolu önceki PhoneFactor Aracısı yüklemesinin kayıt defterinden al�
    3. Kullanıcı Portalı yükleme konumuna (örneğin, C:\inetpub\wwwroot\MultiFactorAuth) gidin ve web.config dosyasını düzenleyin. Yükseltme öncesi yedeklenen özgün web.config dosyasındaki appSettings ve applicationSettings bölümlerindeki değerleri yeni web.config dosyasına kopyalayın. Web Hizmeti SDK’sını yüklerken yeni varsayılan sanal dizin adını sakladıysanız, doğru konuma yönlendirmek için applicationSettings bölümünde URL’yi değiştirin. Önceki web.config dosyasında diğer varsayılan değerler değiştirildiyse, aynı değişiklikleri yeni web.config dosyasına uygulayın.
 
 > [!NOTE]
-> 8.0 öncesi Azure MFA Sunucusundan 8.0 üzeri sürüme yükseltirken mobil uygulama web hizmeti yükseltme sonrasında kaldırılabilir
+> 8\.0 öncesi Azure MFA Sunucusundan 8.0 üzeri sürüme yükseltirken mobil uygulama web hizmeti yükseltme sonrasında kaldırılabilir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

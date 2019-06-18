@@ -4,18 +4,17 @@ description: include dosyası
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/12/2018
+ms.date: 06/05/2019
 ms.topic: include
 ms.custom: include file
-ms.openlocfilehash: 6f4f8882952dbc4da64c3f7d601be59abd49601b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b833ae69c0edf3e85bebbb5b78ea514a0c81e5c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66122179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814787"
 ---
 > [!IMPORTANT]
 > Bu makale, Azure klasik CLI gerektiren içeriklere sahiptir. Bu, Azure CLI’nin yalnızca Azure klasik dağıtım modeli ile birlikte kullanılması gereken eski bir sürümüdür.
 >
-> Klasik CLI, modern Azure CLI ile yan yana yüklenebilir ancak tüm yeni betikler ve dağıtımlar için Azure CLI’yi kullanmanız önerilir.
-> Klasik CLI’yi yüklemek için [Azure klasik CLI yükleme](/cli/azure/install-classic-cli) bölümüne, and günce CLI’yı yüklemek için [Azure CLI yükleme](/cli/azure/install-azure-cli) bölümüne bakın.
+> Klasik CLI'yı yüklemek için bkz: [Klasik Azure CLI yükleme](/cli/azure/install-classic-cli) ve Azure Resource Manager dağıtımları için geçerli Azure CLI'yı yüklemek için bkz: [Azure CLI yükleme](/cli/azure/install-azure-cli).

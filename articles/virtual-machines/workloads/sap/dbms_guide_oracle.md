@@ -17,10 +17,10 @@ ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5182b621779cf31f3c7da99674ab24fe6efe702d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835269"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü Azure sanal makineleri DBMS dağıtım
@@ -30,7 +30,7 @@ ms.locfileid: "60835269"
 [826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
-[1114181]:https://launchpad.support.sap.com/#/notes/1114181
+[1114181]: https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
@@ -39,7 +39,7 @@ ms.locfileid: "60835269"
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1597355]: https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
@@ -55,23 +55,23 @@ ms.locfileid: "60835269"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]:https://launchpad.support.sap.com/#/notes/2069760
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2039619]: https://launchpad.support.sap.com/#/notes/2039619
+[2069760]: https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2171857]:https://launchpad.support.sap.com/#/notes/2171857
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2171857]: https://launchpad.support.sap.com/#/notes/2171857
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
@@ -397,9 +397,9 @@ Performans yapılandırması aşağıdaki gibidir:
 | \oracle\<SID > \oraarch* | Premium | None | Gerekli değil |
 | Oracle giriş, saptrace... | İşletim sistemi diski | Gerekli değil |
 
-* (n + 1): Sistem TEMP ve geri alma açabilmek barındırma. Sistem ve geri alma açabilmek g/ç desenini uygulama verilerini barındıran diğer açabilmek farklı. Önbelleğe alma sistemi ve geri alma açabilmek performansını en iyi seçenektir.
+\* (n + 1): Sistem TEMP ve geri alma açabilmek barındırma. Sistem ve geri alma açabilmek g/ç desenini uygulama verilerini barındıran diğer açabilmek farklı. Önbelleğe alma sistemi ve geri alma açabilmek performansını en iyi seçenektir.
 
-* oraarch: depolama havuzu bir performans açısından bakıldığında gerekli değildir. Daha fazla alan elde etme için kullanılabilir.
+\* oraarch: depolama havuzu bir performans açısından bakıldığında gerekli değildir. Daha fazla alan elde etme için kullanılabilir.
 
 Daha fazla IOPS gerekiyorsa, bir büyük mantıksal cihaz üzerinde birden fazla bağlı disk oluşturmak için Windows depolama havuzları (yalnızca Windows Server 2012'de kullanılabilir ve üzeri) kullanmanızı öneririz. Bu yaklaşım, disk alanını yönetmek için ek yükü yönetimini basitleştirir ve el ile oluşturulmuş birden çok diskte dosyaları dağıtma çaba önlemenize yardımcı olur.
 
@@ -471,7 +471,7 @@ En düşük yapılandırma:
 | /Oracle/\<SID > / oraarch | Standart | None | Gerekli değil |
 | Oracle giriş, saptrace... | İşletim sistemi diski | | Gerekli değil |
 
-* Şeridi oluşturma: LVM'yi stripe veya MDADM RADI0 kullanma
+\* Şeridi oluşturma: LVM'yi stripe veya MDADM RADI0 kullanma
 
 Oracle'nın çevrimiçi Yinele günlükleri barındırmak için disk seçimi tarafından IOPS gereksinimleri dikkate alınmalıdır. Tüm sapdata1... depolamak mümkündür (açabilmek) tek bir diskte takılı birim, IOPS ve aktarım hızı gereksinimlerini yerine getirdiğinizden sürece n. 
 
@@ -488,11 +488,11 @@ Performans yapılandırması:
 | /Oracle/\<SID > / oraarch * | Premium | None | Gerekli değil |
 | Oracle giriş, saptrace... | İşletim sistemi diski | Gerekli değil |
 
-* Şeridi oluşturma: LVM'yi stripe veya MDADM RADI0 kullanma
+\* Şeridi oluşturma: LVM'yi stripe veya MDADM RADI0 kullanma
 
-* (n + 1): Sistem TEMP ve geri alma açabilmek barındırma: Sistem ve geri alma açabilmek g/ç desenini uygulama verilerini barındıran diğer açabilmek farklı. Önbelleğe alma sistemi ve geri alma açabilmek performansını en iyi seçenektir.
+\* (n + 1): Sistem TEMP ve geri alma açabilmek barındırma: Sistem ve geri alma açabilmek g/ç desenini uygulama verilerini barındıran diğer açabilmek farklı. Önbelleğe alma sistemi ve geri alma açabilmek performansını en iyi seçenektir.
 
-* oraarch: depolama havuzu bir performans açısından bakıldığında gerekli değildir.
+\* oraarch: depolama havuzu bir performans açısından bakıldığında gerekli değildir.
 
 
 Daha fazla IOPS gerekiyorsa, birden çok bağlı diskler üzerinde büyük bir mantıksal birim oluşturmak için LVM (mantıksal birim Yöneticisi) veya MDADM kullanmanızı öneririz. Daha fazla bilgi için [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) yönergeleri ve işaretçileri LVM veya MDADM nasıl ilgili. Bu yaklaşım, disk alanını yönetme yönetim yükünü basitleştirir ve el ile oluşturulmuş birden çok diskte dosyaları dağıtma çaba önlemenize yardımcı olur.

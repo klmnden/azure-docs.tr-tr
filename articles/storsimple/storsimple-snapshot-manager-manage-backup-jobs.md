@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: c34ff487f03d90b16b6660fbad77c3a16699e165
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303494"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64719880"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Yedekleme İşleri görüntüleme ve yönetme için StorSimple Snapshot Manager'ı kullanın
 
@@ -63,7 +63,7 @@ Yedekleme görüntülemek ve son 24 saat içinde tamamlanmış işlerin geri yü
      ![Son 24 saat içinde çalışan işler](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
 3. Belirli bir işin üzerinde ek eylemler gerçekleştirmek için proje adına sağ tıklayın **sonuçları** bölmesi ve menü seçenekleri seçin.
    
-    ![İş sil](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
+    ![İş Sil](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
 
 ## <a name="view-currently-running-jobs"></a>Şu anda çalışan işleri görüntüleyin
 Çalışmakta olan işleri görüntüle için aşağıdaki yordamı kullanın.

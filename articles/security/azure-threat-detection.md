@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a6a0e6219a45821e2a4416a4e563aa6edb86eba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611241"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127181"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure Gelişmiş tehdit algılama
 
@@ -95,7 +95,7 @@ Log Analytics güvenlik ve Denetim Panosu dört ana kategoride düzenlenmiştir:
 
 -   **Önemli sorunlar**: Etkin sorunların sayısını ve sorunların önem derecesini hızlıca tanımlamanıza olanak sağlar.
 
--   **Algılamalar (Önizleme)**: Güvenlik Uyarıları karşı kaynaklarınızı oluşunca görüntüleyerek saldırı düzenlerini tanımlayabilmenizi sağlar.
+-   **Algılamalar (Önizleme)** : Güvenlik Uyarıları karşı kaynaklarınızı oluşunca görüntüleyerek saldırı düzenlerini tanımlayabilmenizi sağlar.
 
 -   **Tehdit bilgileri**: Giden kötü amaçlı IP trafiğine sahip sunucuların toplam sayısı, kötü amaçlı tehdit türü ve IP'ler konumları haritasını görüntüleyerek saldırı düzenlerini tanımlayabilmenizi sağlar.
 
@@ -193,7 +193,7 @@ Bazı örnekler:
 
 ### <a name="anomaly-detection"></a>Anormallik algılama
 
-Azure Güvenlik Merkezi, tehditleri tanımlamak için anormallik algılamayı da kullanır. Davranış analizinden (büyük veri kümelerinden türetilmiş bilinen modellere bağlıdır) farklı olarak anormallik algılama daha fazla “kişiselleştirilmiştir” ve dağıtımlarınıza özel taban çizgilerine odaklanır. Dağıtımlarınızın normal etkinliğini belirlemek için Machine learning uygulanır ve ardından kuralları bir güvenlik olayını gösterebilecek aykırı değer koşullarını tanımlamak için oluşturulur. Bir örneği aşağıda verilmiştir:
+Azure Güvenlik Merkezi, tehditleri tanımlamak için anormallik algılamayı da kullanır. Davranış analizinden (büyük veri kümelerinden türetilmiş bilinen modellere bağlıdır) farklı olarak anormallik algılama daha fazla “kişiselleştirilmiştir” ve dağıtımlarınıza özel taban çizgilerine odaklanır. Dağıtımlarınızın normal etkinliğini belirlemek için Machine learning uygulanır ve ardından kuralları bir güvenlik olayını gösterebilecek aykırı değer koşullarını tanımlamak için oluşturulur. Örnek aşağıda verilmiştir:
 
 -   **Gelen RDP/SSH deneme yanılma saldırıları**: Dağıtımlarınız her gün çok sayıda oturum açılmayan sanal makineler ve birkaç varsa oturum açma bilgilerine sahip diğer sanal makineler olabilir. Azure Güvenlik Merkezi, bu sanal makineler için taban çizgisi oturum açma etkinliğini belirler ve machine learning normal oturum açma etkinlikleri tanımlamak kullanın. İçin tanımlanan temeli ile herhangi bir tutarsızlık varsa oturum açma ilgili özellikleri, bir uyarı oluşturulabilir. Yine machine learning neyin önemli olduğunu belirler.
 
@@ -342,9 +342,9 @@ Kuruluşunuz, gölge BT’yi ortaya çıkarmaya, riskleri değerlendirmeye, ilke
 | | |
 |---|---|
 | Keşif | Cloud App Security ile gölge BT'yi ortaya çıkarın. Uygulamaları, etkinlikleri, kullanıcıları, veri ve bulut ortamınızda dosyaları bularak görünürlük kazanın. Bulutunuzla bağlantılı üçüncü taraf uygulamalarını keşfedin.|
-|Araştır | Riskli uygulamaları, belirli kullanıcıları ve ağınızdaki dosyaları derinlemesine incelemek üzere bulut adli bilişim araçlarını kullanarak bulut uygulamalarınızı araştırın. Bulutunuzdan toplanan verilerdeki modelleri bulun. Bulutunuzu izlemek için raporlar oluşturur. |
+|Araştırma | Riskli uygulamaları, belirli kullanıcıları ve ağınızdaki dosyaları derinlemesine incelemek üzere bulut adli bilişim araçlarını kullanarak bulut uygulamalarınızı araştırın. Bulutunuzdan toplanan verilerdeki modelleri bulun. Bulutunuzu izlemek için raporlar oluşturur. |
 | Denetim | İlkeleri ve ağ bulut trafiği üzerinde maksimum denetim elde etmek için uyarılar ayarlayarak riski azaltın. Kullanıcılarınızı güvenli, tasdikli bulut uygulaması alternatiflerine geçirmek için cloud App Security'yi kullanın. |
-| Koruma | Cloud App Security'yi kullanarak tasdik veya uygulamaları engelle, veri kaybını önleme, izinleri ve paylaşımı denetleyin zorlamak ve özel raporlar ve uyarılar oluşturun. |
+| koruma | Cloud App Security'yi kullanarak tasdik veya uygulamaları engelle, veri kaybını önleme, izinleri ve paylaşımı denetleyin zorlamak ve özel raporlar ve uyarılar oluşturun. |
 | Denetim | İlkeleri ve ağ bulut trafiği üzerinde maksimum denetim elde etmek için uyarılar ayarlayarak riski azaltın. Kullanıcılarınızı güvenli, tasdikli bulut uygulaması alternatiflerine geçirmek için cloud App Security'yi kullanın. |
 | | |
 

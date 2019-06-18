@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508189"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure meta veri hizmeti: Windows Vm'leri için zamanlanmış olaylar
@@ -68,7 +68,7 @@ Zamanlanmış olaylar tutulan hizmetidir. Sürümleri zorunludur ve geçerli sü
 | - | - | - | - |
 | 2017-11-01 | Genel Erişilebilirlik | Tümü | <li> Düşük öncelikli VM çıkarma EventType 'Preempt' desteği eklendi<br> | 
 | 2017-08-01 | Genel Erişilebilirlik | Tümü | <li> Iaas Vm'leri için kaynak adları alt çizgi başına kaldırıldı<br><li>Tüm istekler için zorlanan meta veri üst bilgisi gereksinimi | 
-| 2017-03-01 | Preview | Tümü |<li>İlk yayın
+| 2017-03-01 | Önizleme | Tümü |<li>İlk yayın
 
 > [!NOTE] 
 > Önceki Önizleme sürümlerinde zamanlanmış olaylar {son} api-version desteklenir. Bu biçim, artık desteklenmemektedir ve gelecekte kullanım dışı bırakılacaktır.
@@ -91,7 +91,7 @@ Meta veri hizmetine sorguladığınızda, başlık sağlamalısınız `Metadata:
 ### <a name="query-for-events"></a>Sorgu olayları
 Zamanlanmış olaylar için aşağıdaki çağrıyı yaparak sorgulayabilirsiniz:
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 ```
 curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @{"Metadata"="true"}
 ```
@@ -119,8 +119,8 @@ DocumentIncarnation ETag ve olayları yükü son sorgu bu yana değişmişse inc
 |Özellik  |  Açıklama |
 | - | - |
 | EventID | Bu olay için genel benzersiz tanımlayıcı. <br><br> Örnek: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Sanal makine, birkaç saniye için duraklatır şekilde zamanlanır. CPU ve ağ bağlantısı askıya alınabilir, ancak bellek veya açık dosyaları üzerinde etkisi yoktur. <li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır (kalıcı olmayan bellek kaybolur). <li>`Redeploy`: Sanal makineyi başka bir düğüme taşımak üzere zamanlanmış (kısa ömürlü diskleri kaybolur). <li>`Preempt`: Düşük öncelikli sanal makine siliniyor (kısa ömürlü diskleri kaybolur).|
-| KaynakTürü | Bu olay etkiler kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
+| olay türü | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Sanal makine, birkaç saniye için duraklatır şekilde zamanlanır. CPU ve ağ bağlantısı askıya alınabilir, ancak bellek veya açık dosyaları üzerinde etkisi yoktur. <li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır (kalıcı olmayan bellek kaybolur). <li>`Redeploy`: Sanal makineyi başka bir düğüme taşımak üzere zamanlanmış (kısa ömürlü diskleri kaybolur). <li>`Preempt`: Düşük öncelikli sanal makine siliniyor (kısa ömürlü diskleri kaybolur).|
+| ResourceType | Bu olay etkiler kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
 | Kaynaklar| Bu olay etkiler kaynakların listesi. Bu en çok bir makinelerden içeren garanti [güncelleme etki alanı](manage-availability.md), ancak UD içindeki tüm makineler içeremez. <br><br> Örnek: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Olay durumu | Bu olay durumu. <br><br> Değerler: <ul><li>`Scheduled`: Bu olay, belirtilen süre geçtikten sonra başlatmak için zamanlanmış `NotBefore` özelliği.<li>`Started`: Bu olayı başlatıldı.</ul> Hayır `Completed` veya benzer durum hiç olmadığı kadar sağlanır; olay tamamlandığında, artık olay döndürülür.
 | notBefore| Saat sonra bu olay başlayabilir. <br><br> Örnek: <br><ul><li> Pzt, 19 Eylül 2016 18:29:47 GMT  |
@@ -128,11 +128,11 @@ DocumentIncarnation ETag ve olayları yükü son sorgu bu yana değişmişse inc
 ### <a name="event-scheduling"></a>Olay planlama
 Her olay zamanlanmış bir minimum süre gelecekte olay türüne dayalı. Bu süre, bir olayın içinde yansıtılır `NotBefore` özelliği. 
 
-|EventType  | En düşük bildirimi |
+|olay türü  | En düşük bildirimi |
 | - | - |
 | Dondurma| 15 dakika |
 | Yeniden başlatma | 15 dakika |
-| Yeniden dağıtın | 10 dakika |
+| Yeniden dağıtım | 10 dakika |
 | Etkisiz hale | 30 saniye |
 
 ### <a name="event-scope"></a>Olay kapsamı     
@@ -159,7 +159,7 @@ Beklenen json verilmiştir `POST` istek gövdesi. İstek bir listesini içermeli
 }
 ```
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 ```
 curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: gwallace
 ms.openlocfilehash: b71ba69bcf4965ea607e097c392573e77aab6865
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408284"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows için özel betik uzantısı
@@ -28,7 +28,7 @@ Bu belge, Azure PowerShell modülü, Azure Resource Manager şablonları ve soru
 > [!NOTE]  
 > Özel betik uzantısı, bu yana kendisine bekler, parametre olarak aynı VM ile Update-AzVM çalıştırmak için kullanmayın.  
 
-### <a name="operating-system"></a>İşletim Sistemi
+### <a name="operating-system"></a>İşletim sistemi
 
 Windows için özel betik uzantısı daha fazla bilgi için desteklenen uzantısı uzantısında OSs çalıştırın, bkz. Bu [Azure uzantısı desteklenen işletim sistemleri](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
 
@@ -105,11 +105,11 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Yayımcı | Microsoft.Compute | string |
-| type | CustomScriptExtension | string |
+| publisher | Microsoft.Compute | string |
+| türü | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (örn.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
-| zaman damgası (örn.) | 123456789 | 32 bit tamsayı |
+| timestamp (örn.) | 123456789 | 32 bit tamsayı |
 | commandToExecute (örn.) | PowerShell - ExecutionPolicy sınırsız - dosya yapılandırma-müzik-app.ps1 | string |
 | storageAccountName (örn.) | examplestorageacct | string |
 | storageAccountKey (örn.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
@@ -249,7 +249,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Sorun giderme ve Destek
 
-### <a name="troubleshoot"></a>Sorun gider
+### <a name="troubleshoot"></a>Sorun giderme
 
 Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure PowerShell modülü kullanılarak alınabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için aşağıdaki komutu çalıştırın:
 

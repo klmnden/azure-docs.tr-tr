@@ -9,10 +9,10 @@ ms.date: 02/12/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 124f5c01b7718f729094de1c02391946ff50cef4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113789"
 ---
 Yerel olarak yedekli depolama (LRS), en az %99,999999999 (11 dokuzlu) sağlayan belirli bir yıl boyunca nesnelerin dayanıklılık. LRS, verilerinizi depolama Ölçek birimine çoğaltarak bu nesne dayanıklılık sağlar. Depolama hesabınızı oluşturduğunuz bölge içinde bulunan bir veri merkezi depolama ölçek birimi barındırır. Tüm çoğaltmalar için verileri yalnızca yazıldıktan sonra bir LRS depolama hesabı için bir yazma isteği başarıyla döndürür. Her çoğaltma ayrı hata etki alanları ve yükseltme etki alanlarının bir depolama ölçek birimi içinde bulunur.

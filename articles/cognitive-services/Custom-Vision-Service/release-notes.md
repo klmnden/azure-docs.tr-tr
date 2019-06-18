@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: 4b4e449b9260debbe90523141cacc4ed76219490
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787946"
 ---
 # <a name="custom-vision-service-release-notes"></a>Özel görüntü işleme hizmeti sürüm notları
@@ -40,7 +40,7 @@ ms.locfileid: "65787946"
 
 - Özel görüntü işleme hizmeti, Azure üzerinde genel kullanılabilirlik geçtiğini!
 - Yeni bir makine öğrenme, özellikle zorlu veri kümeleri ve hassas sınıflandırma üzerinde daha iyi performans için arka uç ile gelişmiş bir eğitim özelliği eklendi. Gelişmiş eğitimle, eğitim ve özel işleme için işlem saati bütçe experimentally en iyi eğitim ve genişletmeyi ayarları tanımlayacak belirtebilirsiniz. Hızlı yinelemeler için var olan Hızlı eğitim kullanmaya devam edebilirsiniz.
-- 3.0 sunulan API'ler. Önümüzdeki öncesi 3.0 API'leri 1 Ekim 2019 tarihinde duyurulana. Görmek için belgelere hızlı başlangıçları [.Net](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [düğüm](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial), veya [Git](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) örnekler nasıl kullanmaya başlamak.
+- 3\.0 sunulan API'ler. Önümüzdeki öncesi 3.0 API'leri 1 Ekim 2019 tarihinde duyurulana. Görmek için belgelere hızlı başlangıçları [.Net](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [düğüm](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial), veya [Git](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) örnekler nasıl kullanmaya başlamak.
 - "Yinelemeler yayımlama/yayımdan ile 3. 0'varsayılan" yerine API'leri.
 - Yeni model dışarı aktarma hedefler sürümüne eklenmiştir. Dockerfile dışarı aktarma, Raspberry Pi 3'için ARM destekleyecek şekilde yükseltildi. Dışarı aktarma desteği eklendi [işleme yapay ZEKA Geliştirme Seti.](https://visionaidevkit.com/).
 - S0 katmanı için 500 proje başına artan sınırı etiket. S0 katmanı için 100.000 projeye başına artan sınırı görüntüleri.
@@ -93,7 +93,7 @@ Hata düzeltmeleri, özel karakterler içeren ONNX dışarı aktarma da dahil ol
 ## <a name="may-7-2018"></a>7 Mayıs 2018
 
 - Sınırlı Deneme Sürümü projeleri için önizleme sürümündeki Nesne Algılama özelliği eklendi.
-- 2.0 API'lere yükseltme yapıldı
+- 2\.0 API'lere yükseltme yapıldı
 - S0 katmanı 250 etiket ve 50.000 görüntüye kadar genişletildi.
 - Görüntü sınıflandırma projeleri için makine öğrenmesi işlem hattında önemli arka uç geliştirmeleri yapıldı. 27 Nisan 2018 sonrasında eğitilen projeler bu güncelleştirmeden faydalanabilecek.
 - Windows ML ile kullanılmak üzere modelleri ONNX biçiminde dışarı aktarma özelliği eklendi.

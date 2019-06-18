@@ -11,16 +11,16 @@ ms.date: 04/30/2019
 ms.author: kavithaj
 ms.reviewer: rortloff
 ms.openlocfilehash: e756049110f7d4a81950abf6ebbe73edb3e3ca0a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143173"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>İle saydam veri şifrelemesi (TDE) SQL veri ambarı'nda kullanmaya başlayın
 > [!div class="op_single_selector"]
 > * [Güvenliğe genel bakış](sql-data-warehouse-overview-manage-security.md)
-> * [Kimlik doğrulaması](sql-data-warehouse-authentication.md)
+> * [Kimlik Doğrulaması](sql-data-warehouse-authentication.md)
 > * [Şifreleme (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Şifreleme (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 > 

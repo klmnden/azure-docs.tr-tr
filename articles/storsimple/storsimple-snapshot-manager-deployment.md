@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: ee17e4b69d1e6c9de465e4241ee2237361e320b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61077835"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>StorSimple Snapshot Manager MMC ek bileşenini dağıtma
@@ -78,11 +78,11 @@ StorSimple Snapshot Manager'ı yüklemeden önce StorSimple sanal cihazını ve 
 
 StorSimple Snapshot Manager'ın yeni yüklemesini tamamlamak için aşağıdaki adımları izleyin. Yükseltme yüklüyorsanız, Git [yükseltmek veya yeniden StorSimple Snapshot Manager](#upgrade-or-reinstall-storsimple-snapshot-manager).
 
-* 1. Adım: StorSimple anlık görüntü Yöneticisi'ni yükleyin 
-* 2. Adım: StorSimple Snapshot Manager bir cihaza bağlanma 
-* 3. Adım: Cihaz bağlantısını doğrulayın 
+* 1\. adım: StorSimple anlık görüntü Yöneticisi'ni yükleyin 
+* 2\. adım: StorSimple Snapshot Manager bir cihaza bağlanma 
+* 3\. adım: Cihaz bağlantısını doğrulayın 
 
-### <a name="step-1-install-storsimple-snapshot-manager"></a>1. Adım: StorSimple anlık görüntü Yöneticisi'ni yükleyin
+### <a name="step-1-install-storsimple-snapshot-manager"></a>1\. adım: StorSimple anlık görüntü Yöneticisi'ni yükleyin
 StorSimple Snapshot Manager'ı yüklemek için aşağıdaki adımları kullanın.
 
 #### <a name="to-install-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager'ı yüklemek için
@@ -101,7 +101,7 @@ StorSimple Snapshot Manager'ı yüklemek için aşağıdaki adımları kullanın
    
     ![Masaüstü simgesi](./media/storsimple-snapshot-manager-deployment/HCS_SSM_desktop_icon.png) 
 
-### <a name="step-2-connect-storsimple-snapshot-manager-to-a-device"></a>2. Adım: StorSimple Snapshot Manager bir cihaza bağlanma
+### <a name="step-2-connect-storsimple-snapshot-manager-to-a-device"></a>2\. adım: StorSimple Snapshot Manager bir cihaza bağlanma
 StorSimple Snapshot Manager bir StorSimple cihazına bağlanmak için aşağıdaki adımları kullanın.
 
 #### <a name="to-connect-storsimple-snapshot-manager-to-a-device"></a>StorSimple Snapshot Manager bir cihaza bağlanmak için
@@ -123,7 +123,7 @@ StorSimple Snapshot Manager bir StorSimple cihazına bağlanmak için aşağıda
     Cihaz için herhangi bir nedenle kullanılamıyorsa, StorSimple Snapshot Manager bir hata iletisi döndürür. Tıklayın **Tamam** hata iletiyi kapatın ve ardından **iptal** kapatmak için **bir cihaz yapılandırma** iletişim kutusu.
 5. Birim grubu yedeklemeleri ilişkili şartıyla, StorSimple Snapshot Manager bir aygıta bağlandığında, bu cihaz için yapılandırılmış her bir birim grubu içeri aktarır. İlişkili yedekleme olmayan birim gruplarını içeri aktarılmaz. Ayrıca, bir birim grubu için oluşturulan yedekleme ilkelerini içeri aktarılmaz. İçeri aktarılan gruplar görmek için en üstteki sağ **birim gruplarını** düğümünde **kapsam** bölmesinde seçeneğine tıklayıp **içeri aktarılan gruplar geçiş**.
 
-### <a name="step-3-verify-the-connection-to-the-device"></a>3. Adım: Cihaz bağlantısını doğrulayın
+### <a name="step-3-verify-the-connection-to-the-device"></a>3\. adım: Cihaz bağlantısını doğrulayın
 StorSimple Snapshot Manager StorSimple cihazına bağlı olduğunu doğrulamak için aşağıdaki adımları kullanın.
 
 #### <a name="to-verify-the-connection"></a>Bağlantıyı doğrulamak için
@@ -143,11 +143,11 @@ StorSimple Snapshot Manager yeniden yüklemeden önce ana bilgisayarda mevcut St
 
 Yükseltme veya yeniden yüklemeyi StorSimple Snapshot Manager aşağıdaki adımları izleyin:
 
-* 1. Adım: StorSimple Snapshot Manager'ı kaldırın 
-* 2. Adım: StorSimple Snapshot Manager veritabanını yedekleme 
-* 3. Adım: StorSimple Snapshot Manager'ı yeniden yükleyin ve veritabanını geri yükleyin 
+* 1\. adım: StorSimple Snapshot Manager'ı kaldırın 
+* 2\. adım: StorSimple Snapshot Manager veritabanını yedekleme 
+* 3\. adım: StorSimple Snapshot Manager'ı yeniden yükleyin ve veritabanını geri yükleyin 
 
-### <a name="step-1-uninstall-storsimple-snapshot-manager"></a>1. Adım: StorSimple Snapshot Manager'ı kaldırın
+### <a name="step-1-uninstall-storsimple-snapshot-manager"></a>1\. adım: StorSimple Snapshot Manager'ı kaldırın
 StorSimple Snapshot Manager'ı kaldırmak için aşağıdaki adımları kullanın.
 
 #### <a name="to-uninstall-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager'ı kaldırmak için
@@ -162,7 +162,7 @@ StorSimple Snapshot Manager'ı kaldırmak için aşağıdaki adımları kullanı
    > 
 5. Kaldırma işlemi tamamlandığında bir **Kurulum başarılı** iletisi görüntülenir. **Kapat**’a tıklayın.
 
-### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>2. Adım: StorSimple Snapshot Manager veritabanını yedekleme
+### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>2\. adım: StorSimple Snapshot Manager veritabanını yedekleme
 Oluşturmak ve StorSimple Snapshot Manager veritabanının bir kopyasını kaydetmek için aşağıdaki adımları kullanın.
 
 #### <a name="to-back-up-the-database"></a>Veritabanını yedeklemek için
@@ -188,7 +188,7 @@ Oluşturmak ve StorSimple Snapshot Manager veritabanının bir kopyasını kayde
    2. Üzerinde **Hizmetleri** sayfasında **Microsoft StorSimple Yöneticisi hizmeti**.
    3. Sağ bölmede altında **Microsoft StorSimple Yöneticisi hizmeti**, tıklayın **hizmetini yeniden**. 
 
-### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>3. Adım: StorSimple Snapshot Manager'ı yeniden yükleyin ve veritabanını geri yükleyin
+### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>3\. adım: StorSimple Snapshot Manager'ı yeniden yükleyin ve veritabanını geri yükleyin
 StorSimple Snapshot Manager'ı yeniden yüklemek için adımları izleyin. [yeni bir StorSimple Snapshot Manager'ı yükleme](#install-a-new-storsimple-snapshot-manager). Ardından, StorSimple Snapshot Manager veritabanını geri yüklemek için aşağıdaki yordamı kullanın.
 
 #### <a name="to-restore-the-database"></a>Veritabanını geri yüklemek için

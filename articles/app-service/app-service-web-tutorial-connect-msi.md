@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: dd84f9b3b68d7a34903241caed7f1f93e685fb57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 548cd3de6d2eff9f2077ca66b66d5c60aa84f7e2
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138963"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154207"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Öğretici: Yönetilen kimlik kullanarak App Service'ten Azure SQL veritabanı bağlantısını güvenli hale getirme
 
@@ -84,6 +84,15 @@ az sql server ad-admin create --resource-group myResourceGroup --server-name <se
 ```
 
 Yönetilen kimlik artık Azure SQL Veritabanı sunucunuza erişebilir.
+
+> [!IMPORTANT]
+> Kolaylık olması için bu adım, yönetilen Azure AD kimlik SQL veritabanı yönetici olarak yapılandırır. Yöntemi aşağıdaki sınırlamalara sahiptir:
+>
+> - Uygulamanın yönetim erişimi, en iyi güvenlik uygulamalarını izleyin değil.
+> - Yönetilen kimlik belirli bir uygulama olduğundan, başka bir uygulamadan SQL veritabanına bağlanmak için aynı yönetilen kimlik kullanamazsınız.
+> - Ek uygulamalar yönetilen kimliklerini erişim vermek mümkün olacak şekilde yönetilen kimlik SQL veritabanına etkileşimli olarak oturum açamaz. 
+>
+> Güvenliği artırmak ve SQL veritabanı'nda Azure AD hesapları yönetmek için adımları izleyin [kimliğe en düşük ayrıcalıkları verme](#grant-minimal-privileges-to-identity).
 
 ## <a name="modify-connection-string"></a>Bağlantı dizesini değiştirme
 

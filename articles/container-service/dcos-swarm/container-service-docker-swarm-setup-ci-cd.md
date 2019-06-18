@@ -10,10 +10,10 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60643787"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(KULLANIM DIŞI) Azure DevOps Hizmetleri'ni kullanarak Docker Swarm ile Azure Container Service üzerinde çok kapsayıcılı bir uygulama dağıtmak için tam CI/CD işlem hattı
@@ -55,7 +55,7 @@ Bu öğreticiye başlamadan önce aşağıdaki görevleri tamamlamanız gerekir:
 
 Ayrıca Docker ile yüklü bir Ubuntu (14.04 veya 16.04) makine gerekir. Bu makine, Azure işlem hatları işlemleri sırasında Azure DevOps Hizmetleri tarafından kullanılır. Bu makine oluşturmanın yollarından biri, görüntünün kullanılabilir kullanmaktır [Azure Marketi](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/). 
 
-## <a name="step-1-configure-your-azure-devops-services-organization"></a>1. Adım: Azure DevOps Hizmetleri kuruluşunuz yapılandırın 
+## <a name="step-1-configure-your-azure-devops-services-organization"></a>1\. adım: Azure DevOps Hizmetleri kuruluşunuz yapılandırın 
 
 Bu bölümde, Azure DevOps Hizmetleri kuruluşunuz yapılandırın.
 
@@ -107,7 +107,7 @@ Azure kapsayıcı kayıt defterinizde ve Docker Swarm kümenizi dış bağlantı
 
 Tüm yapılandırma artık gerçekleştirilir. Sonraki adımlarda derler ve uygulamayı Docker Swarm kümesi dağıtır CI/CD işlem hattı oluşturun. 
 
-## <a name="step-2-create-the-build-pipeline"></a>2. Adım: Derleme işlem hattı oluşturma
+## <a name="step-2-create-the-build-pipeline"></a>2\. adım: Derleme işlem hattı oluşturma
 
 Bu adımda, Azure DevOps Hizmetleri projeniz için bir derleme işlem hattı ayarlayın ve yapı iş akışı için kapsayıcı görüntülerinizi tanımlayın
 
@@ -172,7 +172,7 @@ Her bir görüntü, bir görüntü oluşturun ve bir Azure kapsayıcı kayıt de
 
 1. Tıklayın **Kaydet** ve, derleme işlem hattı adı.
 
-## <a name="step-3-create-the-release-pipeline"></a>3. Adım: Yayın işlem hattı oluşturma
+## <a name="step-3-create-the-release-pipeline"></a>3\. adım: Yayın işlem hattı oluşturma
 
 Azure DevOps hizmetleri sayesinde [ortamlar genelinde sürümleri yönetmek](https://www.visualstudio.com/team-services/release-management/). Uygulamanızın düzgün bir şekilde (örneğin, geliştirme, test, üretim öncesi ve üretim gibi) farklı ortamlarınızda şekilde dağıtıldığından emin olmak sürekli dağıtımı etkinleştirebilirsiniz. Azure Container Service, Docker Swarm kümenizi temsil eden yeni bir ortam oluşturabilirsiniz.
 
@@ -180,7 +180,7 @@ Azure DevOps hizmetleri sayesinde [ortamlar genelinde sürümleri yönetmek](htt
 
 ### <a name="initial-release-setup"></a>İlk yayın Kurulumu
 
-1. Yayın işlem hattı oluşturmak için tıklayın **yayınlar** > **+ yayın**
+1. Yayın işlem hattı oluşturmak için tıklayın **yayınlar** >  **+ yayın**
 
 1. Yapıt kaynağı yapılandırmak için tıklayın **Yapıtları** > **yapıt kaynağı Bağla**. Burada, bu yeni yayın ardışık düzeni önceki adımda tanımlanan yapı bağlayın. Bunu yaparak, docker-compose.yml dosyası sürüm sürecinizde kullanılabilir.
 
@@ -219,7 +219,7 @@ Yayın iş akışı, eklediğiniz iki görevlerini oluşur.
 >Bu dağıtım, çünkü biz eski hizmetleri durdurma ve yenisini çalıştıran bazı kapalı kalma süresi içerir. Mavi-yeşil dağıtım yaparak bu durumu önlemek mümkündür.
 >
 
-## <a name="step-4-test-the-cicd-pipeline"></a>4. Adım. CI/CD işlem hattı test
+## <a name="step-4-test-the-cicd-pipeline"></a>4\. adımı. CI/CD işlem hattı test
 
 Yapılandırmasını tamamladıktan sonra bunu bu yeni CI/CD işlem hattı test etme vakti. Test etmek için en kolay yolu, kaynak kodunu güncelleştirin ve değişiklikleri GitHub deponuza sağlamaktır. Kod gönderdikten sonra birkaç saniye içinde Azure DevOps Hizmetleri çalıştıran yeni bir derleme görürsünüz. Başarıyla tamamlandığında, yeni bir yayın tetiklenir ve Azure Container Service kümesinde uygulamanın yeni sürümünü dağıtır.
 

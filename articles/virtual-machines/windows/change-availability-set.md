@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 1935286d94b0d72a59fc5d478705e23a7f7425e9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 59e28591bda0bada24929fe95fba248d333833e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64723366"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Bir Windows VM'nin kullanılabilirlik kümesini değiştirme
 Aşağıdaki adımlar, Azure PowerShell kullanarak bir sanal makinenin kullanılabilirlik kümesini değiştirme açıklanmaktadır. Bir VM oluşturulduğunda bir kullanılabilirlik için yalnızca eklenebilir. Kullanılabilirlik değiştirmek için ayarla, silin ve ardından sanal makineyi yeniden oluşturmanız gerekir. 
 
 Bu makalede son 2/12/2019 kullanarak test [Azure Cloud Shell](https://shell.azure.com/powershell) ve [Az PowerShell Modülü](https://docs.microsoft.com/powershell/azure/install-az-ps) sürümü 1.2.0 olarak güncelleştirilir.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="change-the-availability-set"></a>Kullanılabilirlik kümesini değiştirme 
 

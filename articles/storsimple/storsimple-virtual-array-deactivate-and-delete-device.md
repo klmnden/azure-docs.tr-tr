@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: bb1a56d204a46f89213f20e317494120f0ea565e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60580637"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Devre dışı bırakma ve StorSimple sanal dizisi Sil
@@ -82,7 +82,7 @@ Cihazı silmek için aşağıdaki adımları gerçekleştirin.
    ![Silmeyi onayla](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete5.png) 
 4. Silme işlemi başlar ve tamamlanması birkaç dakika sürer.
    
-   ![Silme işlemi devam ediyor](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete6.png)
+   ![Silme sürüyor](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete6.png)
    
     Cihaz silindikten sonra güncelleştirilen cihaz listesini görüntüleyebilirsiniz.
 

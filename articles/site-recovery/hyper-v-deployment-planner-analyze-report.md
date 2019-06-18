@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772900"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery dağıtım Planlayıcısı raporunu analiz etme
@@ -33,11 +33,11 @@ Bu makalede, Hyper-V’den Azure’a dağıtım senaryosu için Azure Site Recov
 
 **Uyumlu sanal makinedeki disk ortalama sayısı**: Diskler, tüm uyumlu sanal makinelerde hesaplanan ortalama sayısı.
 
-**Ortalama disk boyutu (GB)**: Tüm uyumlu sanal makinelerde hesaplanan ortalama disk boyutudur.
+**Ortalama disk boyutu (GB)** : Tüm uyumlu sanal makinelerde hesaplanan ortalama disk boyutudur.
 
-**İstenen RPO (dakika)**: Varsayılan kurtarma noktası hedefi veya gerekli bant genişliğini tahmin etmek için rapor oluşturma sırasında "DesiredRPO" parametresi için geçirilen değer.
+**İstenen RPO (dakika)** : Varsayılan kurtarma noktası hedefi veya gerekli bant genişliğini tahmin etmek için rapor oluşturma sırasında "DesiredRPO" parametresi için geçirilen değer.
 
-**İstenen bant genişliği (MB/sn)**: Ulaşılabilir kurtarma noktası hedefi (RPO) tahmin etmek için rapor oluşturma sırasında "Bandwidth" parametresi için geçirilen değer.
+**İstenen bant genişliği (MB/sn)** : Ulaşılabilir kurtarma noktası hedefi (RPO) tahmin etmek için rapor oluşturma sırasında "Bandwidth" parametresi için geçirilen değer.
 
 **(GB) günde gözlemlenen tipik veri değişim sıklığı**: Profil oluşturma tüm günlerde gözlemlenen ortalama veri değişim sıklığı.
 
@@ -184,8 +184,8 @@ Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporu, 
 * 128 GB ile 256 GB arası P15’tir.
 * 256 GB ile 512 GB arası P20'dir.
 * 512 GB ile 1.024 GB arası P30’dur.
-* 1.025 GB ile 2.048 GB arası P40’tır.
-* 2.049 GB ile 4.095 GB arası P50’dir.
+* 1\.025 GB ile 2.048 GB arası P40’tır.
+* 2\.049 GB ile 4.095 GB arası P50’dir.
 
 Örneğin, diskin iş yükü özellikleri diski P20 veya P30 kategorisine koyarken boyutu nedeniyle daha düşük bir premium depolama disk türüne eşleniyorsa, araç bu VM’yi **Evet**\* olarak işaretler. Araç ayrıca kaynak disk boyutunu önerilen premium depolama disk türüne uyacak şekilde değiştirmenizi veya hedef disk türünü yük devretme sonrasını değiştirmenizi önerir.
 
@@ -203,11 +203,11 @@ Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporu, 
 
 **Disk sayısı**: Sanal makinedeki sanal makine diskleri (VHD) toplam sayısı.
 
-**Disk boyutu (GB)**: Sanal Makinenin tüm disklerinin toplam boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
+**Disk boyutu (GB)** : Sanal Makinenin tüm disklerinin toplam boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
 
 **Çekirdek**: Sanal makine üzerindeki CPU çekirdeği sayısı.
 
-**Bellek (MB)**: VM üzerindeki RAM.
+**Bellek (MB)** : VM üzerindeki RAM.
 
 **NIC**: VM üzerindeki NIC sayısı.
 
@@ -224,9 +224,9 @@ Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporu, 
 
 * Disk boyutu, 4.095 GB’tan büyüktür. Azure Depolama şu anda 4.095 GB’tan büyük veri diski boyutlarını desteklememektedir.
 
-* 1. nesil (BIOS önyükleme türü) sanal makine için işletim sistemi diski, 2.047 GB’tan büyüktür. Site Recovery, 1. nesil sanal makinelerde 2.047 GB’tan büyük işletim sistemi disk boyutunu desteklememektedir.
+* 1\. nesil (BIOS önyükleme türü) sanal makine için işletim sistemi diski, 2.047 GB’tan büyüktür. Site Recovery, 1. nesil sanal makinelerde 2.047 GB’tan büyük işletim sistemi disk boyutunu desteklememektedir.
 
-* 2. nesil (EFI önyükleme türü) sanal makine için işletim sistemi diski, 300 GB’tan büyüktür. Site Recovery, 2. nesil sanal makinelerde 300 GB’tan büyük işletim sistemi disk boyutunu desteklememektedir.
+* 2\. nesil (EFI önyükleme türü) sanal makine için işletim sistemi diski, 300 GB’tan büyüktür. Site Recovery, 2. nesil sanal makinelerde 300 GB’tan büyük işletim sistemi disk boyutunu desteklememektedir.
 
 * Şu karakterlerden herhangi birini içeren sanal makine adları desteklenmemektedir: “” [] `. Araç, adlarında bu karakterlerden biri bulunan sanal makineler için profil verilerini alamaz. 
 
@@ -254,15 +254,15 @@ Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporu, 
 
 **Okuma/yazma IOPS (büyüme faktörü ile) en üst seviyeye**: Disk üzerindeki en yoğun iş yükü IOPS (varsayılan, 95'lik dilim) birlikte gelecekteki büyüme faktörünü de (varsayılan değer yüzde 30). Sanal makinenin toplam okuma/yazma IOPS değeri her zaman sanal makinenin tek tek disklerinin okuma/yazma IOPS toplamı değildir. Sanal makinenin en yoğun okuma/yazma IOPS değeri, profil oluşturma döneminin her dakikasındaki tek tek disklerinin okuma/yazma IOPS değerinin en yüksek toplamıdır.
 
-**En yoğun veri değişim sıklığı (MB/sn) (büyüme faktörü ile)**: En yüksek erime oranı disk üzerinde (varsayılan, 95'lik dilim) birlikte gelecekteki büyüme faktörünü de (varsayılan değer yüzde 30). Sanal makinenin toplam veri değişim sıklığı her zaman sanal makinenin tek tek disklerinin veri değişim sıklığı toplamı değildir. Sanal makinenin en yoğun okuma/yazma IOPS değeri, profil oluşturma döneminin her dakikasındaki tek tek disklerinin okuma/yazma IOPS değerinin en yüksek toplamıdır.
+**En yoğun veri değişim sıklığı (MB/sn) (büyüme faktörü ile)** : En yüksek erime oranı disk üzerinde (varsayılan, 95'lik dilim) birlikte gelecekteki büyüme faktörünü de (varsayılan değer yüzde 30). Sanal makinenin toplam veri değişim sıklığı her zaman sanal makinenin tek tek disklerinin veri değişim sıklığı toplamı değildir. Sanal makinenin en yoğun okuma/yazma IOPS değeri, profil oluşturma döneminin her dakikasındaki tek tek disklerinin okuma/yazma IOPS değerinin en yüksek toplamıdır.
 
 **Disk sayısı**: Sanal makine VHD'leri toplam sayısı.
 
-**Disk boyutu (GB)**: Sanal Makinenin tüm disklerinin toplam kurulum boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
+**Disk boyutu (GB)** : Sanal Makinenin tüm disklerinin toplam kurulum boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
 
 **Çekirdek**: Sanal makine üzerindeki CPU çekirdeği sayısı.
 
-**Bellek (MB)**: VM üzerindeki RAM miktarı.
+**Bellek (MB)** : VM üzerindeki RAM miktarı.
 
 **NIC**: VM üzerindeki NIC sayısı.
 
@@ -298,9 +298,9 @@ Bu sınırlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır. Si
 
 **Hyper-V konağı**: Profili oluşturulan Hyper-V sunucularının listesi. Sunucu bir Hyper-V kümesinin parçasıysa, tüm küme düğümleri birlikte gruplandırılır.
 
-**Birim (VHD yolu)**: VHD/Vhdx'ler mevcut olduğu bir Hyper-V konağının her birimi. 
+**Birim (VHD yolu)** : VHD/Vhdx'ler mevcut olduğu bir Hyper-V konağının her birimi. 
 
-**Kullanılabilir boş alan (GB)**: Birimdeki kullanılabilir boş alan.
+**Kullanılabilir boş alan (GB)** : Birimdeki kullanılabilir boş alan.
 
 **Toplam depolama alanı (GB) birimde gereken**: Başarılı bir ilk çoğaltma ve değişiklik çoğaltması için birimde gereken toplam boş depolama alanı. 
 
@@ -327,7 +327,7 @@ Her birim için şirket içi depolama gereksinimleri önerisine uyduktan sonra, 
 
 **Açıklamalar**: Bir sanal makinenin belirli bir birim için herhangi bir eylem gerekiyorsa, burada açıklama sağlanır. Örneğin, bir birimde yeterli boş alan yoksa açıklamada "Bu sanal makineyi korumak için depolama alanı ekleyin" ifadesi yer alır.
 
-**Birim (VHD yolu)**: Sanal makinenin Vhd'lerinin durduğu birimin adı. 
+**Birim (VHD yolu)** : Sanal makinenin Vhd'lerinin durduğu birimin adı. 
 
 **(GB) birimdeki kullanılabilir boş alan**: VM için bir birimdeki kullanılabilir boş disk alanı. Birimlerdeki kullanılabilir boş alan hesaplanırken, VHD'leri aynı birimde yer alan önceki toplu işlerin sanal makineleri tarafından değişiklik çoğaltması için kullanılan disk alanını hesaba katar. 
 

@@ -15,15 +15,15 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61257651"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory işlem hatlarını Spark programlarını çağırma
 
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Dönüştürme etkinlikleri"]
 > * [Hive etkinliği](data-factory-hive-activity.md)
 > * [Pig etkinliği](data-factory-pig-activity.md)
 > * [MapReduce etkinliği](data-factory-map-reduce.md)
@@ -329,15 +329,15 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
-| ad | İşlem hattındaki bir etkinliğin adı. | Evet |
-| açıklama | Etkinliğin ne yaptığını açıklayan metin. | Hayır |
-| type | Bu özellik için HDInsightSpark ayarlamanız gerekir. | Evet |
+| name | İşlem hattındaki bir etkinliğin adı. | Evet |
+| description | Etkinliğin ne yaptığını açıklayan metin. | Hayır |
+| türü | Bu özellik için HDInsightSpark ayarlamanız gerekir. | Evet |
 | linkedServiceName | Spark programının çalıştığı HDInsight bağlı hizmetin adı. | Evet |
 | rootPath | Blob kapsayıcısını ve Spark dosyasını içeren klasör. Dosya adı büyük/küçük harfe duyarlıdır. | Evet |
 | entryFilePath | Spark kodun/paketin kök klasörünün göreli yolu. | Evet |
 | className | Uygulamanın Java/Spark temel sınıfı. | Hayır |
-| bağımsız değişkenler | Spark programı için komut satırı bağımsız değişkenleri listesi. | Hayır |
-| Proxyuserpassword | Spark programının yürütülecek kimliğine bürünmek için kullanıcı hesabı. | Hayır |
+| arguments | Spark programı için komut satırı bağımsız değişkenleri listesi. | Hayır |
+| proxyUser | Spark programının yürütülecek kimliğine bürünmek için kullanıcı hesabı. | Hayır |
 | sparkConfig | Listelenen Spark yapılandırma özellikleri için değerleri belirtin [Spark yapılandırması: Uygulama özellikleri](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Hayır |
 | getDebugInfo | HDInsight küme tarafından kullanılan depolama Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService belirtilir. İzin verilen değerler, her zaman veya hata yok. Varsayılan değer, Yok'tur. | Hayır |
 | sparkJobLinkedService | Depolama bağlı iş dosyası, bağımlılıklar ve günlükleri Spark tutan hizmeti. Bu özellik için bir değer belirtmezseniz, HDInsight kümesi ile ilişkili depolama kullanılır. | Hayır |
@@ -347,7 +347,7 @@ Spark etkinliği bir satır içi betik Pig olarak desteklemez ve Hive etkinlikle
 
 HDInsight bağlı hizmeti tarafından başvurulan blob depolama alanındaki aşağıdaki klasör yapısını oluşturun. Ardından, uygun alt tarafından temsil edilen kök klasöründe bağımlı dosya yükleme **entryFilePath**. Örneğin, Python dosyaları pyFiles alt klasöre yüklemek ve jar dosyaları dışındaki kök klasörün alt dosyalarını jar. Çalışma zamanında Data Factory hizmeti blob depolamada aşağıdaki klasör yapısına bekliyor: 
 
-| Yol | Açıklama | Gerekli | Tür |
+| `Path` | Açıklama | Gerekli | Tür |
 | ---- | ----------- | -------- | ---- |
 | . | Spark işi depolama bağlı hizmeti kök yolu. | Evet | Klasör |
 | &lt;Kullanıcı tanımlı &gt; | Spark işi giriş dosyasına işaret eden yol. | Evet | Dosya |

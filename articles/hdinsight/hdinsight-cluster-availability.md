@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
 ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718893"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Ambari Azure İzleyici ile küme kullanılabilirliği izleme günlükleri
@@ -58,7 +58,7 @@ Uyarı tanımları ve bunların durumlarını listesini görüntülemek için t�
 
 Ambari sunar, kullanılabilirlikle ilgili pek çok önceden tanımlanmış uyarılar dahil olmak üzere:
 
-| Uyarı Adı                        | Açıklama                                                                                                                                                                           |
+| Uyarı adı                        | Açıklama                                                                                                                                                                           |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DataNode sistem durumu özeti           | Sağlıksız DataNodes varsa bu hizmet düzeyi uyarı tetiklenir                                                                                                                |
 | NameNode yüksek kullanılabilirlik sistem durumu | Etkin NameNode ya da bekleme NameNode çalışmıyorsa, bu hizmet düzeyi uyarısı tetiklenir.                                                                              |

@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5e9cd4c2a14f94c39c7058f45bf727df8198c053
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 489685485af4e3c8868f7e0281d2f81464a166f6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691306"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066186"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter not defterine bilgisayarınıza yükleyin ve HDInsight üzerinde Apache spark'a bağlanma
 
@@ -28,44 +28,65 @@ Jupyter yükleme ve HDInsight üzerinde Apache spark'a bağlayarak katılan dör
 
 Özel çekirdekler ve HDInsight kümesi ile Jupyter not defterleri için Spark Sihirli hakkında daha fazla bilgi için bkz. [için Jupyter not defterlerinde kullanılabilen çekirdekler Apache Spark Linux kümeleri HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
-> [!IMPORTANT]  
-> Bu makaledeki adımlarda Spark sürümü 2.1.0 için yalnızca iş.
-
 ## <a name="prerequisites"></a>Önkoşullar
+
 Burada listelenen önkoşulları Jupyter yüklemek için değildir. Bu, Not defterini yüklendikten sonra Jupyter not defterini bir HDInsight kümesine bağlamak için kullanılır.
 
-* Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Apache Spark kümesi (ver 2.1.0 veya düşük) HDInsight üzerinde. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
-
-
+* HDInsight üzerinde bir Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Jupyter not defterine bilgisayarınıza yükleyin.
 
-Jupyter not defterleri yükleyebilmek için önce Python yüklemeniz gerekir. Hem Python hem de Jupyter olarak kullanılabilir parçası [Anaconda dağıtım](https://www.anaconda.com/download/). Anaconda yüklediğinizde, bir Python dağıtımını yükleyin. Anaconda yüklendikten sonra Jupyter yükleme uygun komutları çalıştırarak ekleyin.
+Jupyter not defterleri yükleyebilmek için önce Python yüklemeniz gerekir. [Anaconda dağıtım](https://www.anaconda.com/download/) hem Python hem de Jupyter not defteri yükler.
 
-1. İndirme [Anaconda yükleyici](https://www.anaconda.com/download/) platform ve Kurulumu çalıştırın. Kurulum Sihirbazı çalıştırırken, yol değişkeninize Anaconda ekleme seçeneği seçtiğinizden emin olun.
+İndirme [Anaconda yükleyici](https://www.anaconda.com/download/) platform ve Kurulumu çalıştırın. Kurulum Sihirbazı çalıştırırken, yol değişkeninize Anaconda ekleme seçeneği seçtiğinizden emin olun.  Ayrıca bkz [Anaconda kullanarak Jupyter yükleme](https://jupyter.readthedocs.io/en/latest/install.html).
 
-2. Jupyter yüklemek için aşağıdaki komutu çalıştırın.
+## <a name="install-spark-magic"></a>Spark Sihirli yükleyin
 
-        conda install jupyter
+1. Spark Sihirli yüklemek için aşağıdaki komutlardan birini girin. Ayrıca bkz [sparkmagic belgeleri](https://github.com/jupyter-incubator/sparkmagic#installation).
 
-    Jupyter yükleme hakkında daha fazla bilgi için bkz. [Anaconda kullanarak Jupyter yükleme](https://jupyter.readthedocs.io/en/latest/install.html).
+    |Küme sürümü | Yükleme komutu |
+    |---|---|
+    |V3.6 ve v3.5 |`pip install sparkmagic==0.12.7`|
+    |v3.4|`pip install sparkmagic==0.2.3`|
 
-## <a name="install-the-kernels-and-spark-magic"></a>Çekirdekler ve Spark Sihirli yükleyin
+1. Olun `ipywidgets` aşağıdaki komutu çalıştırarak düzgün şekilde yüklenir:
 
-Spark Sihirli yükleme hakkında yönergeler için PySpark ve Spark çekirdekler yükleme yönergelerini izleyin [sparkmagic belgeleri](https://github.com/jupyter-incubator/sparkmagic#installation) GitHub üzerinde. İlk adımı Spark Sihirli belgelerinde Spark Sihirli yüklemenizi ister. Bu ilk adım bağlantıda bağlanacağınız HDInsight küme sürümüne bağlı olarak aşağıdaki komutu değiştirin. Bundan sonra Spark Sihirli belgelerinde kalan adımları izleyin. Farklı çekirdekler yüklemek istiyorsanız, Spark Sihirli yükleme yönergeleri bölümünde 3. adım gerçekleştirmeniz gerekir.
+    ```cmd
+    jupyter nbextension enable --py --sys-prefix widgetsnbextension
+    ```
 
-* Kümeleri v3.5 ve v3.6 sparkmagic 0.11.2 yürüterek yükleyin `pip install sparkmagic==0.11.2`
+## <a name="install-pyspark-and-spark-kernels"></a>PySpark ve Spark çekirdekler yükleyin
 
-* Kümeleri v3.4 için yürüterek sparkmagic 0.2.3 yükleyin. `pip install sparkmagic==0.2.3`
+1. WHERE tanımlamak `sparkmagic` aşağıdaki komutu girerek yüklenir:
+
+    ```cmd
+    pip show sparkmagic
+    ```
+
+    Ardından, çalışan dizininizle yukarıdaki komutla tanımlanan konumla değiştirin.
+
+1. Yeni çalışma dizininizden bir veya daha fazla istenen kernel(s) yüklemek için aşağıdaki komutları girin:
+
+    |Çekirdek | Komut |
+    |---|---|
+    |Spark|`jupyter-kernelspec install sparkmagic/kernels/sparkkernel`|
+    |SparkR|`jupyter-kernelspec install sparkmagic/kernels/sparkrkernel`|
+    |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
+    |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
+
+1. İsteğe bağlı. Sunucu uzantısını etkinleştirmek için aşağıdaki komutu girin:
+
+    ```cmd
+    jupyter serverextension enable --py sparkmagic
+    ```
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Spark Sihirli HDInsight Spark kümesine bağlanmak için yapılandırın
 
-Bu bölümde, Azure HDInsight içinde oluşturmuş olmanız gerekir bir Apache Spark kümesine bağlanmak için daha önce yüklediğimiz Spark Sihirli yapılandırın.
+Bu bölümde, daha önce bir Apache Spark kümesine bağlanmak için yüklü Spark Sihirli yapılandırın.
 
 1. Python Kabuğu'nu aşağıdaki komutla başlatın:
 
-    ```
+    ```cmd
     python
     ```
 
@@ -100,14 +121,15 @@ Bu bölümde, Azure HDInsight içinde oluşturmuş olmanız gerekir bir Apache S
       "heartbeat_retry_seconds": 1
     }
     ```
+
 4. Dosyasına aşağıdaki düzenlemelerini yapın:
 
     |Şablon değeri | Yeni değer |
     |---|---|
-    |{USERNAME}|Küme oturum açma, varsayılan admin'dir.|
+    |{USERNAME}|Küme girişi varsayılandır `admin`.|
     |{CLUSTERDNSNAME}|Küme adı|
     |{BASE64ENCODEDPASSWORD}|Gerçek parolanızı parolasını bir base64 kodlamalı.  Bir base64 parola oluşturabileceğiniz [ https://www.url-encode-decode.com/base64-encode-decode/ ](https://www.url-encode-decode.com/base64-encode-decode/).|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|Kullanıyorsanız tutmak `sparkmagic 0.11.23` (v3.5 ve v3.6 kümeleri).  Kullanıyorsanız `sparkmagic 0.2.3` (v3.4 kümeleri) yerine `"should_heartbeat": true`.|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|Kullanıyorsanız tutmak `sparkmagic 0.12.7` (v3.5 ve v3.6 kümeleri).  Kullanıyorsanız `sparkmagic 0.2.3` (v3.4 kümeleri) yerine `"should_heartbeat": true`.|
 
     Bir tam örnek dosyasını görebilirsiniz [örnek config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
@@ -116,7 +138,9 @@ Bu bölümde, Azure HDInsight içinde oluşturmuş olmanız gerekir bir Apache S
 
 5. Jupyter başlatın. Komut isteminden aşağıdaki komutu kullanın.
 
-        jupyter notebook
+    ```cmd
+    jupyter notebook
+    ```
 
 6. Spark Sihirli kullanılabilir çekirdekler ile kullandığından emin olun. Aşağıdaki adımları uygulayın.
 
@@ -151,26 +175,8 @@ Pek çok neden Jupyter bilgisayarınıza yükleyin ve HDInsight üzerinde Apache
 > [!WARNING]  
 > Yerel bilgisayarınızda yüklü Jupyter ile birden çok kullanıcı aynı not defterini kullanarak aynı Spark kümesi üzerinde aynı anda çalıştırabilirsiniz. Böyle bir durumda, birden çok Livy oturumu oluşturulur. Bir sorunla çalıştırın ve, hata ayıklamak isterseniz, karmaşık bir görevin hangi Livy oturumu izlemek için hangi kullanıcıya ait olur.  
 
-## <a name="seealso"></a>Ayrıca bkz.
-* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
+## <a name="next-steps"></a>Sonraki adımlar
 
-### <a name="scenarios"></a>Senaryolar
+* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
 * [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
 * [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
-* [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
-* [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md)
-* [Apache Spark uygulamalarında uzaktan hata ayıklamak amacıyla Intellij Idea için HDInsight araçları eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
-* [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
-
-### <a name="manage-resources"></a>Kaynakları yönetme
-* [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
-* [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](apache-spark-job-debugging.md)

@@ -18,10 +18,10 @@ ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409780"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
@@ -34,14 +34,14 @@ ms.locfileid: "65409780"
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
-[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1409604]: https://launchpad.support.sap.com/#/notes/1409604
 [1558958]:https://launchpad.support.sap.com/#/notes/1558958
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1597355]: https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
-[1619720]:https://launchpad.support.sap.com/#/notes/1619720
+[1619720]: https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
 [1619967]:https://launchpad.support.sap.com/#/notes/1619967
 [1750510]:https://launchpad.support.sap.com/#/notes/1750510
@@ -53,24 +53,24 @@ ms.locfileid: "65409780"
 [1772688]:https://launchpad.support.sap.com/#/notes/1772688
 [1814258]:https://launchpad.support.sap.com/#/notes/1814258
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
-[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1909114]: https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]:https://launchpad.support.sap.com/#/notes/2069760
+[2069760]: https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
@@ -669,7 +669,7 @@ Bir Azure sanal makinesi için birden çok sanal ağ arabirim kartları (Vnıc) 
 * [Birden çok NIC PowerShell kullanarak Vm'leri dağıtma][virtual-network-deploy-multinic-arm-ps]
 * [Birden çok NIC Azure CLI kullanarak Vm'leri dağıtma][virtual-network-deploy-multinic-arm-cli]
 
-#### <a name="site-to-site-connectivity"></a>Konumdan Konuma Bağlantı
+#### <a name="site-to-site-connectivity"></a>Siteden siteye bağlantı
 
 Azure Vm'leri ve bağlı saydam ve kalıcı bir VPN bağlantısıyla şirket içi ve dışı karışık olur. Azure'da en yaygın SAP dağıtım desen haline beklenir. İşlem yordamlarını ve azure'da SAP örnekleri ile işlemlerini şeffaf bir şekilde çalışmalıdır varsayılır. Şirket içi SAP aktarım yönetim sistemi (TMS) aktarım için azure'da bir geliştirme sistemi olan bir test sisteminizde yapılan değişikliklerin kullanım yanı sıra bu dışında bu sistemler yazdırma olmalıdır anlamına gelir dağıtıldı. Daha fazla belge siteden siteye etrafında bulunabilir [bu makalede][vpn-gateway-create-site-to-site-rm-powershell]
 
@@ -1001,7 +1001,7 @@ Azure hizmet olarak altyapı yalnızca VHD'ler ve SAP yükleyebildiğini olmanı
 
 Yönetilen diskler ve VHD'ler indirme olduğu süre boyunca etkin olamaz. Vm'lere bağlı diskler, hatta indirirken VM'nin kapatılmasını ve serbest gerekir. Yalnızca, ardından ayarlamak için kullanılması gereken veritabanı içeriği karşıdan yüklemek isterseniz yeni bir sistem şirket içi ve kabul edilebilir düzeydeyse, karşıdan yükleme süresini ve azure'da sistem yine de yeni sisteme kurulumu sırasında çalışır durumda , bir diske sıkıştırılmış veritabanı yedeklemesini gerçekleştirerek uzun bir kapalı kalma süresini önlemek ve aynı zamanda işletim sistemi temel VM indirmek yerine bu diski hemen indirin.
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 
 * Yönetilen Disk indiriliyor  
   İlk erişmek için yönetilen Disk, temel alınan blob gerekir. Ardından yeni bir depolama hesabı için temel alınan blob kopyalayıp bu depolama hesabındaki blob indirin.
@@ -1029,7 +1029,7 @@ Yönetilen diskler ve VHD'ler indirme olduğu süre boyunca etkin olamaz. Vm'ler
 
   Kaydet-AzVhd cmdlet'inin daha fazla ayrıntı için buraya bakın <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd>.
 
-#### <a name="azure-cli"></a>Azure CLI'si
+#### <a name="azure-cli"></a>Azure CLI
 * Yönetilen Disk indiriliyor  
   İlk erişmek için yönetilen Disk, temel alınan blob gerekir. Ardından yeni bir depolama hesabı için temel alınan blob kopyalayıp bu depolama hesabındaki blob indirin.
   ```
@@ -1061,7 +1061,7 @@ Veri diskleri, Azure depolama hesabınız VHD dosyaları olarak depolanır ve do
 
 Veri disklerini yönetilen disklere de olabilir. Bu durumda, yönetilen Disk sanal makineye bağlı önce yeni bir yönetilen Disk oluşturmak için kullanılır. Yönetilen Disk adı, bir kaynak grubu içinde benzersiz olmalıdır.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 Bir VHD gösterildiği kopyalamak için Azure PowerShell cmdlet'lerini kullanabilirsiniz [bu makalede][storage-powershell-guide-full-copy-vhd]. Yeni bir yönetilen Disk oluşturmak için New-AzDiskConfig ve yeni AzDisk aşağıdaki örnekte gösterildiği gibi kullanın.
 
@@ -1070,7 +1070,7 @@ $config = New-AzDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<subscr
 New-AzDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk $config
 ```
 
-##### <a name="azure-cli"></a>Azure CLI'si
+##### <a name="azure-cli"></a>Azure CLI
 
 Bir VHD gösterildiği kopyalamak için Azure CLI kullanabilirsiniz [bu makalede][storage-azure-cli-copy-blobs]. Yeni bir yönetilen Disk oluşturmak için kullanın *az disk oluşturma* aşağıdaki örnekte gösterildiği gibi.
 
@@ -1089,7 +1089,7 @@ Azure depolama gezginleri Professional sürümlerinde burada bulunabilir:
 
 Bir depolama hesabında VHD kendisi yalnızca birkaç saniye (SAN donanım anlık görüntüleri üzerinde yazma yavaş kopyalama ve kopyalama ile oluşturma benzer) alan bir işlem kopyasıdır. VHD dosyasının bir kopyasını oluşturduktan sonra bir sanal makineye ekleyin veya sanal makinelere VHD'nin kopyasını eklemek için bir görüntü olarak kullanın.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 ```powershell
 # attach a vhd to a vm
@@ -1114,7 +1114,7 @@ $disk = New-AzDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupName <r
 $vm = Add-AzVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
 $vm | Update-AzVM
 ```
-##### <a name="azure-cli"></a>Azure CLI'si
+##### <a name="azure-cli"></a>Azure CLI
 
 ```
 
@@ -1135,7 +1135,7 @@ az vm disk attach --disk <new disk name or managed disk id> --resource-group <re
 #### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Azure depolama hesapları arasında diskleri kopyalama
 Bu görevi Azure portalı üzerinde gerçekleştirilemez. Azure PowerShell cmdlet'lerini, Azure CLI veya bir üçüncü taraf depolama tarayıcı kullanabilirsiniz. PowerShell cmdlet'lerini veya CLI komutları, oluşturun ve BLOB'ları, ama zaman uyumsuz olarak ve bölgeleri Azure aboneliğinde depolama hesapları arasında BLOB kopyalama özelliği dahil yönetin.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 Ayrıca, VHD'leri abonelikler arasında kopyalayabilirsiniz. Daha fazla bilgi için okuma [bu makalede][storage-powershell-guide-full-copy-vhd].
 
 PS cmdlet'i mantığı temel akışı şöyle görünür:
@@ -1158,7 +1158,7 @@ Get-AzStorageBlobCopyState -Blob <target blob name> -Container <target container
 
 Örnekler için bkz [bu makalede][storage-powershell-guide-full-copy-vhd].
 
-##### <a name="azure-cli"></a>Azure CLI'si
+##### <a name="azure-cli"></a>Azure CLI
 * Kopyalama işlemiyle başlayın
 
 ```
@@ -1374,7 +1374,7 @@ Bölüm bazı bölümlerinde açıklandığı gibi bir VM görüntüsü oluştur
 
 Senaryoyu uygulamak için olaylar dizisini şöyle görünür:
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 * Her eğitim/tanıtım yatay için yeni bir kaynak grubu oluşturun
 
@@ -1501,7 +1501,7 @@ rgNameLower=saperpdemo1
 az group create --name $rgName --location "North Europe"
 ```
 
-* Yeni depolama hesabı oluştur
+* Yeni depolama hesabı oluşturma
 
 ```
 az storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku Standard_LRS --name $rgNameLower
@@ -1629,12 +1629,12 @@ Aşağıdaki tabloda tipik SAP iletişim bağlantı noktaları listelenir. Temel
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| Hizmet | Bağlantı noktası adı | Örnek `<nn`> = 01 | Varsayılan aralık (min-maks.) | Açıklama |
+| Hizmet | Bağlantı noktası adı | Örnek `<nn`> = 01 | Varsayılan aralık (min-maks.) | Yorum |
 | --- | --- | --- | --- | --- |
 | Dağıtıcı |sapdp`<nn>` bakın * |3201 |3200 - 3299 |SAP Dispatcher, SAP GUI Windows, için ve Java tarafından kullanılan |
 | İleti sunucusu |sapms`<sid`> bkz ** |3600 |Ücretsiz sapms`<anySID`> |SID SAP sistem kimliği = |
-| Ağ geçidi |sapgw`<nn`> bakın * |3301 |ücretsiz |SAP ağ geçidine CPIC ve RFC iletişim için kullanılan, |
-| SAP yönlendirici |sapdp99 |3299 |ücretsiz |CI (Merkezi örnek) hizmet adları yalnızca yükleme sonrasında /etc/services rastgele bir değere atanamaz. |
+| Ağ geçidi |sapgw`<nn`> bakın * |3301 |Ücretsiz |SAP ağ geçidine CPIC ve RFC iletişim için kullanılan, |
+| SAP yönlendirici |sapdp99 |3299 |Ücretsiz |CI (Merkezi örnek) hizmet adları yalnızca yükleme sonrasında /etc/services rastgele bir değere atanamaz. |
 
 *) nn = SAP örnek sayısı
 

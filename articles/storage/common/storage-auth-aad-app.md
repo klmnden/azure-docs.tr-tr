@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e45fe20e93d81c1cfd1f868b40f76743558758bb
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 30ebfec88182684f8e852808e978a51854389898
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754971"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073481"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>BLOB'lar ve Kuyruklar için erişim için bir uygulamadan Azure Active Directory kimlik doğrulaması
 
 Önemli bir avantajı, Azure Blob Depolama veya kuyruk depolama ile Azure Active Directory (Azure AD) kullanarak kimlik bilgilerinizi artık kodunuzda depolanacak olmanızdır. Bunun yerine, Microsoft kimlik Platformu (eski adıyla Azure AD) bir OAuth 2.0 erişim belirteci isteğinde bulunabilirsiniz. Azure AD kimliğini doğrular, güvenlik sorumlusunu (kullanıcı, Grup veya hizmet sorumlusu) uygulamayı çalıştırma. Doğrulama başarılı olursa, Azure AD erişim belirteci uygulamaya döndürür ve uygulama daha sonra Azure Blob Depolama veya kuyruk depolama isteklerine yetkilendirmek için erişim belirteci kullanabilirsiniz.
 
-Bu makalede, Azure AD ile yerel uygulamanızı veya web uygulaması kimlik doğrulaması için yapılandırma gösterilmektedir. Kod örneği özellikleri .NET, ancak diğer diller benzer bir yaklaşım kullanın.
+Bu makalede, yerel uygulama veya web uygulaması kimlik doğrulaması için Microsoft kimlik platformu 2.0 yapılandırma gösterilmektedir. Kod örneği özellikleri .NET, ancak diğer diller benzer bir yaklaşım kullanın. Microsoft kimlik platformu 2.0 hakkında daha fazla bilgi için bkz: [Microsoft kimlik Platformu (v2.0) genel bakış](../../active-directory/develop/v2-overview.md).
 
 OAuth 2.0 kodu verme akışı genel bakış için bkz: [Authorize OAuth 2.0 kod kullanarak Azure Active Directory web uygulamalarına erişim akışı](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
-## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Bir Azure AD güvenlik sorumlusu için bir RBAC rolü atayın
+## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Bir Azure AD güvenlik sorumlusu rol atama
 
 Azure depolama uygulamanızdan bir güvenlik sorumlusunun kimliğini doğrulamak için önce bu güvenlik sorumlusu için rol tabanlı erişim denetimi (RBAC) ayarlarını yapılandırın. Azure depolama kapsayıcıları ve Kuyruklar için izinleri kapsayacak yerleşik RBAC rolleri tanımlar. Bu güvenlik sorumlusu, RBAC rolü için bir güvenlik sorumlusu atandığında, bu kaynağa erişim izni verilir. Daha fazla bilgi için [RBAC ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
 
@@ -54,13 +54,25 @@ Ardından, Azure depolama API'leri çağırmak için uygulama izinleri verin. Bu
 
     ![Depolama için ekran gösterme izinleri](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-1. Altında **ne tür izinler uygulamanızı gerektiriyor mu?** , kullanılabilir izin türü olduğuna dikkat edin **temsilci izinleri**. Bu seçenek, varsayılan olarak seçilidir.
+1. Altında **ne tür izinler uygulamanızı gerektiriyor mu?** , kullanılabilir izin türü olup olmadığına bakın **temsilci izinleri**. Bu seçenek, varsayılan olarak seçilidir.
 1. İçinde **izinleri seçin** bölümünü **istek API izinleri** bölmesinde yanındaki onay kutusunu işaretleyin **user_impersonation**, ardından **Ekle izinleri**.
 1. **API izinleri** bölmesi artık gösterir, Azure AD uygulaması hem Microsoft Graph ve Azure depolama erişimi olduğunu. İlk uygulamanızı Azure AD'ye kaydetme izinleri Microsoft Graph için otomatik olarak verilir.
 
     ![Uygulama izinleri gösteren ekran görüntüsü kaydetme](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
-## <a name="libraries-for-token-acquisition"></a>Belirteç edinme için kitaplıkları
+## <a name="create-a-client-secret"></a>İstemci gizli dizi oluşturma
+
+Uygulamanın bir belirteç isterken kimliğini kanıtlamak için bir istemci parolası gerekiyor. İstemci gizli dizi eklemek için aşağıdaki adımları izleyin:
+
+1. Azure portalında uygulama kaydınızı gidin.
+1. Seçin **sertifikaları ve parolaları** ayarı.
+1. Altında **istemci gizli dizileri**, tıklayın **yeni gizli** yeni bir gizli dizi oluşturmak için.
+1. Gizli dizi için bir açıklama sağlayın ve istenen sona erme aralığını seçin.
+1. Hemen yeni gizli anahtar değerini güvenli bir konuma kopyalayın. Tam değeri, yalnızca bir kez görüntülenir.
+
+    ![Gizli anahtar ekran görüntüsü](media/storage-auth-aad-app/client-secret.png)
+
+## <a name="client-libraries-for-token-acquisition"></a>Belirteç edinme için istemci kitaplıkları
 
 Uygulamanızı kayıtlı ve verileri Azure Blob Depolama veya kuyruk depolama erişim izni verilmiş bir güvenlik sorumlusu kimliğini doğrulamak ve OAuth 2.0 belirteç almak için uygulamanıza kod ekleyebilirsiniz. Kimlik doğrulaması ve belirteci almak için aşağıdakilerden birini kullanabilirsiniz [Microsoft kimlik platformu kimlik doğrulama kitaplıkları](../../active-directory/develop/reference-v2-libraries.md) veya Openıd Connect 1.0 destekleyen başka bir açık kaynak kitaplığı. Uygulamanızı bir Azure Blob Depolama veya kuyruk depolama isteği yetkilendirmek için erişim belirteci sonra kullanabilirsiniz.
 
@@ -70,10 +82,13 @@ Bir listesi için belirteçlerini almak desteklendiği senaryolar için bkz: [se
 
 Örnek kodu bir erişim almak Azure AD'den belirteci gösterilmektedir. Erişim belirteci, belirtilen kullanıcı kimlik doğrulaması yapmak ve sonra bir blok blobu oluşturma isteği yetkilendirmek için kullanılır. Bu örnek çalışabilmesi için önce önceki bölümlerde özetlenen adımları izleyin.
 
-> [!NOTE]
-> Bir Azure depolama hesabınızın sahibi olarak, otomatik olarak veri erişim izni atanmaz. Siz açıkça kendiniz bir RBAC rolü için Azure depolama atamanız gerekir. Abonelik, kaynak grubu, depolama hesabı veya kapsayıcı veya kuyruk düzeyinde atayabilirsiniz.
->
-> Örneğin, bir depolama hesabı sahibi olduğunuz ve kendi kullanıcı kimliği altında örnek kodu çalıştırmak için RBAC rolü için Blob verileri katkıda bulunan kendinize atamanız gerekir. Aksi takdirde, blob oluşturmak için çağrı 403 (Yasak) HTTP durum kodu ile başarısız olur. Daha fazla bilgi için [RBAC ile depolama verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
+Belirteç istemek için aşağıdaki değerlerden birini uygulamanızın kaydını gerekir:
+
+- Azure AD etki alanınızın adı. Bu değeri almak **genel bakış** Azure Active Directory sayfasında.
+- Kiracı (veya dizin) kimliği. Bu değeri almak **genel bakış** , uygulama kayıt sayfasında.
+- İstemci (veya uygulama) kimliği. Bu değeri almak **genel bakış** , uygulama kayıt sayfasında.
+- İstemci yeniden yönlendirme URI'si. Bu değeri almak **kimlik doğrulaması** ayarlarını, uygulama kaydı.
+- İstemci gizli anahtarı değeri. Bu değer, daha önce bu kopyalanacağı konumu alır.
 
 ### <a name="well-known-values-for-authentication-with-azure-ad"></a>Azure AD ile kimlik doğrulaması için iyi bilinen değerler
 
@@ -85,7 +100,7 @@ Microsoft Genel bulut, temel Azure AD yetkilisi olduğu gibi burada *Kiracı-kim
 
 `https://login.microsoftonline.com/<tenant-id>/`
 
-Kiracı kimliği, kimlik doğrulaması için kullanılacak Azure AD kiracısı tanımlar. Kiracı Kimliğini almak için başlıklı bölümde özetlenen adımları izleyin. **için Azure Active Directory Kiracı Kimliğinizi öğrenmenin**.
+Kiracı kimliği, kimlik doğrulaması için kullanılacak Azure AD kiracısı tanımlar. Bu aynı zamanda dizin kimliği olarak adlandırılır Kiracı Kimliğini almak için gidin **genel bakış** sayfasında, Azure portalında uygulama kaydı ve buradan değerini kopyalayın.
 
 #### <a name="storage-resource-id"></a>Depolama kaynak kimliği
 
@@ -93,25 +108,22 @@ Azure depolama kaynak kimliği, Azure Depolama'ya yönelik isteklerin yetkilendi
 
 `https://storage.azure.com/`
 
-### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>İçin Azure Active Directory Kiracı Kimliğinizi alma
+### <a name="create-a-storage-account-and-container"></a>Bir depolama hesabı ve kapsayıcı oluşturma
 
-Kiracı Kimliğini almak için şu adımları izleyin:
+Kod örneği çalıştırmak için Azure Active Directory ile aynı Abonelikteki bir depolama hesabı oluşturun. Ardından bu depolama hesabında bir kapsayıcı oluşturun. Örnek kod, bu kapsayıcı içinde blok blobu oluşturacaksınız.
 
-1. Azure portalında Active Directory'nizi seçin.
-2. **Özellikler**'e tıklayın.
-3. Sağlanan GUID değeri kopyalayın **dizin kimliği**. Bu değer Kiracı kimliği olarak da adlandırılır
+Ardından, açıkça atama **depolama Blob verileri katkıda bulunan** role kullanıcı hesabı altında yükseltemediğiniz durumda örnek kodu. Azure portalında bu rolü atama hakkında yönergeler için bkz: [verilere Azure blob ve kuyruk RBAC ile Azure portalında erişim ver](storage-auth-aad-rbac-portal.md).
 
-![Kiracı kimliği kopyalanmasını gösteren ekran görüntüsü](./media/storage-auth-aad-app/aad-tenant-id.png)
+> [!NOTE]
+> Bir Azure depolama hesabı oluşturduğunuzda, Azure AD ile veri erişim izni otomatik olarak atanmaz. Siz açıkça kendiniz bir RBAC rolü için Azure depolama atamanız gerekir. Abonelik, kaynak grubu, depolama hesabı veya kapsayıcı veya kuyruk düzeyinde atayabilirsiniz.
 
-## <a name="set-up-a-basic-web-app-to-authenticate-to-azure-ad"></a>Azure AD ile kimlik doğrulaması için bir temel web uygulaması ayarlama
+### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Azure AD ile Blob depolama alanına erişimi yetkilendirir bir web uygulaması oluşturma
 
-Uygulamanızı Azure Storage'a eriştiğinde, bu kullanıcı adına benzeri. Bu kod örneği denemek için bir web ihtiyacınız vardır. kullanıcıdan bir uygulamayı bir Azure AD kimliğini kullanarak oturum açabilir. Bu indirebileceğiniz [kod örneği](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) Azure AD hesabınızla kimlik doğrulayan bir temel web uygulamasını test etmek için.
+Uygulamanızı Azure Storage'a eriştiğinde, bu kullanıcı adına, oturum açmış olan kullanıcının izinlerini kullanarak blob veya kuyruğa kaynaklara erişildiğini anlamı benzeri. Bu kod örneği denemek için bir Azure AD kimliğini kullanarak oturum açmasını ister bir web uygulaması gerekir. Kendi uzantınızı oluşturun veya Microsoft tarafından sağlanan örnek bir uygulama.
 
-### <a name="completed-sample"></a>Tamamlanan örnek
+Bir belirteç alır ve Azure Depolama'da bir blob oluşturmak için kullandığı bir tamamlanmış örnek web uygulaması üzerinde kullanılabilir [GitHub](http://aka.ms/aadstorage). Gözden geçirme ve tamamlanan örnek çalışan kod örneklerini anlamak için yararlı olabilir. Tamamlanan örnek çalıştırma gösteren yönergeler karşınıza için bölümüne [görünümü ve çalıştırma tamamlanmış örnek](#view-and-run-the-completed-sample).
 
-Bu makaledeki örnek kodun tam çalışma sürümü yüklenebilir [GitHub](http://aka.ms/aadstorage). Gözden geçirme ve tam bir örnek çalıştırmak, kod örnekleri anlamak için yararlı olabilir.
-
-### <a name="add-references-and-using-statements"></a>Başvurular ekleyin ve using deyimleri  
+#### <a name="add-references-and-using-statements"></a>Başvurular ekleyin ve using deyimleri  
 
 Visual Studio'dan Azure depolama istemci Kitaplığı yükleyin. Gelen **Araçları** menüsünde **Nuget Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. .NET için Azure depolama istemci Kitaplığı'ndan gerekli paketleri yüklemek için konsol penceresine aşağıdaki komutları yazın:
 
@@ -123,13 +135,12 @@ Install-Package Microsoft.Azure.Storage.Common
 Ardından, aşağıdaki ekleyin HomeController.cs dosyasına using deyimlerini:
 
 ```csharp
-using System;
 using Microsoft.Identity.Client; //MSAL library for getting the access token
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-### <a name="create-a-block-blob"></a>Bir blok blobu oluştur
+#### <a name="create-a-block-blob"></a>Bir blok blobu oluştur
 
 Bir blok blobu oluşturmak için aşağıdaki kod parçacığını ekleyin:
 
@@ -143,7 +154,7 @@ private static async Task<string> CreateBlob(string accessToken)
     // Replace the URL below with your storage account URL
     CloudBlockBlob blob =
         new CloudBlockBlob(
-            new Uri("https://<storage-account>.blob.core.windows.net/sample-container/Blob1.txt"),
+            new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt"),
             storageCredentials);
     await blob.UploadTextAsync("Blob created by Azure AD authenticated user.");
     return "Blob successfully created";
@@ -164,17 +175,11 @@ x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
 
-### <a name="get-an-oauth-token-from-azure-ad"></a>Azure AD'den bir OAuth belirteci alma
+#### <a name="get-an-oauth-token-from-azure-ad"></a>Azure AD'den bir OAuth belirteci alma
 
 Ardından, Azure AD'den bir belirteç istediği bir yöntem ekleyin. Kullanıcı adına, isteği belirteci olacaktır ve GetTokenOnBehalfOfUser yöntemi kullanacağız.
 
-Belirteç istemek için aşağıdaki değerlerden birini uygulamanızın kaydını gerekir,
-
-- Kiracı (veya dizin) kimliği
-- İstemci (veya uygulama) kimliği
-- İstemci yeniden yönlendirme URI'si
-
-Yalnızca oturum ve için bir belirteç isteğinde bulunduğunuzu unutmayın `storage.azure.com` kaynak, burada kullanıcı izni verebilir tür bir eylemin gerçekleştirilemeyeceğine ilişkin bir kullanıcı Arabirimi ile kullanıcının sunması gerekir. Catch gerektiğini kolaylaştırmak için `MsalUiRequiredException` ve kullanıcı onayı isteği işlevselliği aşağıdaki örnekte gösterildiği gibi ekleyin:
+Unutmayın, kısa süre önce oturum açtıysanız ve için bir belirteç isteğinde bulunduğunuzu `storage.azure.com` kaynak, burada kullanıcı izni verebilir tür bir eylemin gerçekleştirilemeyeceğine ilişkin bir kullanıcı Arabirimi ile kullanıcının sunması gerekir. Catch gerektiğini kolaylaştırmak için `MsalUiRequiredException` ve kullanıcı onayı isteği işlevselliği aşağıdaki örnekte gösterildiği gibi ekleyin:
 
 ```csharp
 public async Task<IActionResult> Blob()
@@ -195,7 +200,9 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-İzin verme yetkilendirme gerçekleştirilemeyeceğine ilişkin korunan kaynaklara erişim için bir uygulama için bir kullanıcının işlemidir. Microsoft kimlik platformu 2.0 bir güvenlik sorumlusu en az bir izin kümesi başlangıçta isteği ve izinleri zamanla gerektiği gibi ekleyin, artımlı onay destekler. Kodunuzu bir erişim belirteci isteğinde bulunduğunda, istediğiniz zaman tarafından uygulamanıza gereken izinleri kapsamını belirtmek `scope` parametresi. Aşağıdaki yöntem artımlı onay isteme kimlik doğrulaması özelliklerini oluşturur:
+İzin verme yetkilendirme gerçekleştirilemeyeceğine ilişkin korunan kaynaklara erişim için bir uygulama için bir kullanıcının işlemidir. Microsoft kimlik platformu 2.0 bir güvenlik sorumlusu en az bir izin kümesi başlangıçta isteği ve izinleri zamanla gerektiği gibi ekleyin, artımlı onay destekler. Kodunuzu bir erişim belirteci isteğinde bulunduğunda, istediğiniz zaman tarafından uygulamanıza gereken izinleri kapsamını belirtmek `scope` parametresi. Artımlı onayı hakkında daha fazla bilgi için başlıklı bölüme bakın **artımlı ve dinamik onay** içinde [neden Microsoft identity platformuna (v2.0) güncelleştirme?](../../active-directory/develop/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+
+Aşağıdaki yöntem artımlı onay isteme kimlik doğrulaması özelliklerini oluşturur:
 
 ```csharp
 private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalConsent(string[] scopes, MsalUiRequiredException ex)
@@ -225,6 +232,66 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
     return properties;
 }
 ```
+
+## <a name="view-and-run-the-completed-sample"></a>Görüntüleme ve tamamlanan örnek çalıştırma
+
+Örnek uygulamayı çalıştırmak için önce klonlayın veya indirdiği [GitHub](http://aka.ms/aadstorage). Ardından uygulama, aşağıdaki bölümlerde açıklandığı gibi güncelleştirin.
+
+### <a name="provide-values-in-the-settings-file"></a>Ayarlar dosyasındaki değerleri sağlayın
+
+Ardından, güncelleştirme *appsettings.json* kendi değerlerinizle gibi dosya:
+
+```json
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "Domain": "<azure-ad-domain-name>.onmicrosoft.com",
+    "TenantId": "<tenant-id>",
+    "ClientId": "<client-id>",
+    "CallbackPath": "/signin-oidc",
+    "SignedOutCallbackPath ": "/signout-callback-oidc",
+
+    // To call an API
+    "ClientSecret": "<client-secret>"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+### <a name="update-the-storage-account-and-container-name"></a>Depolama hesabı ve kapsayıcı adını güncelleştir
+
+İçinde *HomeController.cs* dosyası, blok blobu depolama hesabı ve kapsayıcı adını kullanmak üzere başvuran URI güncelleştirin:
+
+```csharp
+CloudBlockBlob blob = new CloudBlockBlob(
+                      new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt"),
+                      storageCredentials);
+```
+
+### <a name="enable-implicit-grant-flow"></a>Örtük verme akışı etkinleştir
+
+Örneği çalıştırmak için uygulama kaydı için örtük verme akışı yapılandırmanız gerekebilir. Şu adımları uygulayın:
+
+1. Azure portalında uygulama kaydınızı gidin.
+1. Yönet bölümünde **kimlik doğrulaması** ayarı.
+1. Altında **Gelişmiş ayarlar**, **örtük vermeyi** bölümünde, aşağıdaki görüntüde gösterildiği gibi erişim belirteçleri ve kimlik belirteçlerini etkinleştirme için onay kutularını seçin:
+
+    ![Örtük verme akışı için ayarları etkinleştirin gösteren ekran görüntüsü](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
+
+### <a name="update-the-port-used-by-localhost"></a>Localhost tarafından kullanılan bağlantı noktasını güncelleştirin
+
+Örneği çalıştırdığınızda, yeniden yönlendirme URI'si kullanmak için uygulama kaydında belirtilen güncelleştirmeniz gerektiğini fark edebilirsiniz *localhost* çalışma zamanında atanan bağlantı noktası. Yeniden yönlendirme URI'si atanan bağlantı noktasını kullanacak şekilde güncelleştirmek için aşağıdaki adımları izleyin:
+
+1. Azure portalında uygulama kaydınızı gidin.
+1. Yönet bölümünde **kimlik doğrulaması** ayarı.
+1. Altında **yeniden yönlendirme URI'leri**, aşağıdaki görüntüde gösterildiği gibi örnek uygulama tarafından kullanılan eşleştirmek için bağlantı noktasını düzenleyin:
+
+    ![Yeniden yönlendirme URI'leri için uygulama kaydı gösteren ekran görüntüsü](media/storage-auth-aad-app/redirect-uri.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

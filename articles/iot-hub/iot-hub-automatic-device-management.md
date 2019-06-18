@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333653"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Azure portalını kullanarak ölçekte otomatik IOT cihaz Yönetimi
@@ -58,7 +58,7 @@ Bir yapılandırma oluşturmadan önce değiştirmek istediğiniz hangi cihazlar
 
 Bir yapılandırma oluşturmak için beş adım vardır. Aşağıdaki bölümlerde, her birini yol. 
 
-### <a name="name-and-label"></a>Ad ve Etiket
+### <a name="name-and-label"></a>Ad ve etiket
 
 1. Yapılandırmanızı 128 küçük harf olan benzersiz bir ad verin. Boşluk ve şu geçersiz karakterlerden kaçının: `& ^ [ ] { } \ | " < > /`.
 
@@ -66,7 +66,7 @@ Bir yapılandırma oluşturmak için beş adım vardır. Aşağıdaki bölümler
 
 3. Seçin **sonraki** sonraki adıma geçmek için. 
 
-### <a name="specify-settings"></a>Ayarları belirtin
+### <a name="specify-settings"></a>Ayarlarını belirtin
 
 Bu bölümde, hedeflenen cihaz ikizlerini ayarlamak için hedef içeriği belirtir. Her dizi ayarları için iki giriş vardır. İlk ayarlanacak çiftinin istenen özelliklerini JSON bölümündeki yolu cihaz ikizi yoludur.  Bu bölümde eklenecek JSON içeriği saniyedir. Örneğin, cihaz İkizi yolunu ve içerik şunu ayarlayın:
 
@@ -103,7 +103,7 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
-### <a name="target-devices"></a>Hedef Cihazlar
+### <a name="target-devices"></a>Hedef cihazlar
 
 Bu yapılandırmayı alması gereken belirli cihazları hedeflemek için etiketler özelliği, cihaz ikizlerini kullanın.  Ayrıca cihaz cihazları hedefleyebilirsiniz çiftinin bildirilen özelliklerini.
 

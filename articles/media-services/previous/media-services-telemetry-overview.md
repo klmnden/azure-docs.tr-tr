@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60545529"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services telemetri  
@@ -53,7 +53,7 @@ Telemetri verileri aşağıdaki yollardan birini kullanabilir:
 
 - Verileri doğrudan Azure tablo (örneğin depolama SDK'sını kullanarak) depolama'yı okuyun. Telemetri depolama tabloları açıklaması için bkz: **telemetri bilgilerini kullanan** içinde [bu](https://msdn.microsoft.com/library/mt742089.aspx) konu.
 
-Veya
+Or
 
 - Media Services .NET SDK depolama veri okumak için açıklandığı gibi kullanmanızı [bu](media-services-dotnet-telemetry.md) konu. 
 
@@ -103,7 +103,7 @@ Zaman damgası|Zaman damgası|Azure tablo 2016 itibaren zaman damgası auto-09-0
 Tür|Tür|StreamingEndpoint
 Ad|Ad|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceId|Hizmet Kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+ServiceId|Hizmet kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ana bilgisayar adı|Uç nokta konak adı|builddemoserver.origin.mediaservices.Windows.NET
 statusCode|Kayıtları HTTP durumu|200
 ResultCode|Sonuç kodu ayrıntısı|S_OK
@@ -122,7 +122,7 @@ Zaman damgası|Zaman damgası|Azure tablo 2016 itibaren zaman damgası auto-09-0
 Tür|Tür|Kanal
 Ad|Ad|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceId|Hizmet Kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+ServiceId|Hizmet kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|İzleme görüntü/ses/metin türü|Görüntü/ses
 TrackName|İzleme adı|Video/audio_1
 Bit hızı|İzleme hızı|785000
@@ -147,7 +147,7 @@ Zaman damgası|Zaman damgası|Azure tablo 2016 itibaren zaman damgası auto-09-0
 Tür|Tür|Arşiv
 Ad|Ad|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceId|Hizmet Kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+ServiceId|Hizmet kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 manifestName|Program URL'si|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
 TrackName|İzleme adı|audio_1
 TrackType|İzleme türü|Ses/video

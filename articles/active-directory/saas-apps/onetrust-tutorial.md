@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 490ef95e061da4a008bf50ef664aaa379d5b3062
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5fbec8b6a1a21826896f8e2499b1e8b7237d0ff9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60242435"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095889"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Öğretici: Azure Active Directory tümleştirmesiyle OneTrust gizlilik yönetim yazılımı
 
@@ -55,7 +55,7 @@ Azure AD'de OneTrust gizlilik yönetim yazılımı tümleştirmesini yapılandı
 
 **Galeriden OneTrust gizlilik yönetim yazılımının eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

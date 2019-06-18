@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 89034b04c6b38c0873f890e55693c6e15e6a8d93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3677e45738c368d8438872da740a362a8048a63
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069406"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155546"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Öğretici: Mevcut bir özel DNS adını Azure App Service'e eşlemek
 
@@ -156,7 +156,7 @@ Bu uygulamanın yansıtılması yeni özel etki alanı için biraz zaman alabili
 ![CNAME kaydı eklenir](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> A **Not güvenli** henüz bir SSL sertifikasına bağlıdır ve herhangi bir tarayıcıdan HTTPS isteğini özel etki alanınıza alacak özel etki alanı anlamına gelir ve hata veya uyarı, tarayıcıya bağlı olarak etiket. SSL bağlaması eklemek için bkz [mevcut bir özel SSL sertifikasını Azure App Service'e bağlama](app-service-web-tutorial-custom-ssl.md).
+> A **değil güvenli** henüz bir SSL sertifikasına bağlıdır ve herhangi bir tarayıcıdan HTTPS isteğini özel etki alanınıza alacak özel etki alanı anlamına gelir ve hata veya uyarı, tarayıcıya bağlı olarak etiket. SSL bağlaması eklemek için bkz [mevcut bir özel SSL sertifikasını Azure App Service'e bağlama](app-service-web-tutorial-custom-ssl.md).
 
 Daha önce bir adımı atladıysanız veya yazım hatası yaptıysanız, sayfanın en altında bir doğrulama hatası görürsünüz.
 
@@ -240,7 +240,7 @@ Bu uygulamanın yansıtılması yeni özel etki alanı için biraz zaman alabili
 ![A kaydı eklenir](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> A **Not güvenli** henüz bir SSL sertifikasına bağlıdır ve herhangi bir tarayıcıdan HTTPS isteğini özel etki alanınıza alacak özel etki alanı anlamına gelir ve hata veya uyarı, tarayıcıya bağlı olarak etiket. SSL bağlaması eklemek için bkz [mevcut bir özel SSL sertifikasını Azure App Service'e bağlama](app-service-web-tutorial-custom-ssl.md).
+> A **değil güvenli** henüz bir SSL sertifikasına bağlıdır ve herhangi bir tarayıcıdan HTTPS isteğini özel etki alanınıza alacak özel etki alanı anlamına gelir ve hata veya uyarı, tarayıcıya bağlı olarak etiket. SSL bağlaması eklemek için bkz [mevcut bir özel SSL sertifikasını Azure App Service'e bağlama](app-service-web-tutorial-custom-ssl.md).
 
 Daha önce bir adımı atladıysanız veya yazım hatası yaptıysanız, sayfanın en altında bir doğrulama hatası görürsünüz.
 

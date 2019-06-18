@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
 ms.openlocfilehash: 1a0a2bd9132ba5d018bc5d45699c052d10c30162
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942685"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Bulut iş ortağı portalı ile yeni bir kapsayıcı teklif oluşturma
@@ -20,7 +20,7 @@ Bu makalede, oluşturma ve kapsayıcı Teklif girişi için Azure Marketi'nde ya
 
 |  **Varlık grubu**   |  **Açıklama**  |
 |  ---------------   |  ---------------  |
-|    SKU'lar            |  En küçük dağıtılabilir birimi bir teklif. Tek bir teklifi (ürün sınıfı) bir Teklifle ilişkili birden çok SKU'nun olabilir. Desteklenen özellikler ve faturalama modelleri arasında ayırt etmek için SKU'ları kullanabilir. |
+|    SKU'ları            |  En küçük dağıtılabilir birimi bir teklif. Tek bir teklifi (ürün sınıfı) bir Teklifle ilişkili birden çok SKU'nun olabilir. Desteklenen özellikler ve faturalama modelleri arasında ayırt etmek için SKU'ları kullanabilir. |
 |  Market       | Pazarlama, yasal ve müşteri adayı yönetim varlıkları ve özellikleri içerir.  <ul><li> Teklif adı, açıklama ve logoları pazarlama varlıkları içerir</li> <li> Gizlilik İlkesi, kullanım koşullarını ve diğer yasal belgeler yasal varlıkları içerir</li>  <li> Azure Marketi Son Kullanıcı Portalı'ndan nasıl işleneceğini belirtmenizi müşteri adayları sağlama yönetim ilkesi sağlar.</li> </ul> |
 | Destek            | Destek ilgili kişisi ve ilke bilgilerini içerir |
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254660"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Danışmanı ile Azure uygulamalarını'nın performansını artırma
@@ -106,7 +106,7 @@ Danışman şu anda yapılandırılmamış bir bölgeden trafik olan Azure Cosmo
 
 Azure Danışmanı, varsayılan dizinleme ilkesinin kullanıyor, ancak iş yükü deseni temel alınarak özel dizin oluşturma ilkesi sağlayabileceğiyle Cosmos DB kapsayıcıları tanımlar. Varsayılan dizinleme ilkesinin tüm özelliklerini dizinler, ancak sorgu filtrelerinde kullanılan açık veya içeri yolların özel bir dizin oluşturma ilkesini kullanarak dizin oluşturma için kullanılan depolama ve RU azaltabilir. [Dizin ilkeleri değiştirme hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/modify-index-policy)
 
-## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Yapılandırma, Azure Cosmos DB sorgu sayfası boyutu (MaxItemCount)-1 
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Azure Cosmos DB sorgu sayfanızın boyutunu (MaxItemCount) -1 olarak yapılandırın 
 
 Azure Danışmanı sorgu sayfası boyutu 100 kullanıyorsanız ve bir sayfa boyutu-1 için daha hızlı tarama kullanmanızı öneririz, Azure Cosmos DB kapsayıcıları tanımlar. [En fazla öğe sayısı hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 

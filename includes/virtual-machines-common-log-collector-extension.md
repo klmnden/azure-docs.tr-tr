@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387970"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120190"
 ---
 Microsoft Azure bulut hizmeti sorunları tanılama, sorunlar ortaya çıktığında sanal makineler hizmetin günlük dosyalarını toplama gerektirir. AzureLogCollector uzantısı isteğe bağlı bir veya daha fazla bulut hizmeti Vm'lerden (web rolleri ve çalışan rolleri için) tek seferlik günlüklerin toplanmasını gerçekleştirin ve tüm hizmetlerde oturum uzaktan olmadan bir Azure depolama hesabına – toplanan dosyaları aktarmak için kullanabileceğiniz Sanal makinelerin.
 
@@ -20,8 +20,8 @@ Microsoft Azure bulut hizmeti sorunları tanılama, sorunlar ortaya çıktığı
 
 Toplanacak dosyaları türlerine bağımlı koleksiyonun iki mod vardır.
 
-* **Azure Konuk Aracısı günlükleri yalnızca (GA)**. Bu koleksiyon modu Azure Konuk aracısı ve diğer Azure bileşenlerini ilgili tüm günlükleri içerir.
-* **Tüm günlükler (tam)**. Bu koleksiyon modu GA modunda, plus tüm dosyaları toplar:
+* **Azure Konuk Aracısı günlükleri yalnızca (GA)** . Bu koleksiyon modu Azure Konuk aracısı ve diğer Azure bileşenlerini ilgili tüm günlükleri içerir.
+* **Tüm günlükler (tam)** . Bu koleksiyon modu GA modunda, plus tüm dosyaları toplar:
   
   * Sistem ve uygulama olay günlükleri
   * HTTP hata günlükleri

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 8b39866b990812913924118c564a5e93f898b1cb
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 7cfe19614b2107161dcce9c80690333212162045
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939460"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061315"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2 kullanmak için en iyi uygulamalar
 
@@ -26,7 +26,7 @@ Azure Data Lake depolama Gen2, Azure Active Directory (Azure AD) kullanıcılar�
 
 ### <a name="use-security-groups-versus-individual-users"></a>Bireysel kullanıcılar ve güvenlik grupları kullanın
 
-Data Lake depolama Gen2 büyük verilerle çalışmaya her yerindeki olası bir hizmet sorumlusu verilerle çalışmak için Azure HDInsight gibi hizmetlerin izin vermek için kullanılır. Bununla birlikte, burada bireysel kullanıcılar verileri de erişmesi gereken durumlar olabilir. Her durumda, Azure Active Directory'yi kullanarak türü kesin düşünün [güvenlik grupları](../common/storage-auth-aad.md) dizinler ve dosyalar için tek tek kullanıcı atama yerine.
+Data Lake depolama Gen2 büyük verilerle çalışırken, olası bir hizmet sorumlusu verilerle çalışmak için Azure HDInsight gibi hizmetlerin izin vermek için kullanılır. Bununla birlikte, burada bireysel kullanıcılar verileri de erişmesi gereken durumlar olabilir. Her durumda, Azure Active Directory'yi kullanarak türü kesin düşünün [güvenlik grupları](../common/storage-auth-aad.md) dizinler ve dosyalar için tek tek kullanıcı atama yerine.
 
 Bir güvenlik grubu izinlerini atandıktan sonra ekleme veya kullanıcıları gruptan kaldırma Data Lake depolama Gen2'ye herhangi bir güncelleştirme gerektirmez. Bu, aynı zamanda erişim denetimi girdileri erişim denetim listesi (ACL) başına en fazla sayısını aşmamak sağlamaya yardımcı olur. Şu anda bu (her zaman her dosya ve dizin ile ilişkili olan dört POSIX stili ACL'leri dahil), 32 sayıdır: sahip olan kullanıcı, sahip olan Grup, maske ve diğer. Her dizin ACL, erişim ACL'si ve varsayılan iki türde olabilir, 64 erişim denetimi girdileri toplam ACL. Bu ACL'ler hakkında daha fazla bilgi için bkz: [Azure Data Lake depolama Gen2'deki erişim denetimi](data-lake-storage-access-control.md).
 
@@ -40,7 +40,7 @@ Azure Active Directory Hizmet sorumluları, genellikle Data Lake depolama Gen2 v
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Data Lake depolama 2. nesil güvenlik duvarı ile Azure hizmet erişimini etkinleştir
 
-Data Lake depolama Gen2'ye bir Güvenlik Duvarı'nı ve Azure Hizmetleri için yalnızca dış saldırı vektörü sınırlanması önerilir erişimi sınırlandırma seçeneğini destekler. Güvenlik Duvarı Azure portalında bir depolama hesabı üzerinde etkinleştirilebilir **Güvenlik Duvarı** > **etkinleştir Güvenlik Duvarı (açık)** > **Azurehizmetlerineerişimeizinver** seçenekleri.
+Data Lake depolama Gen2'ye bir Güvenlik Duvarı'nı ve Azure Hizmetleri için yalnızca dış saldırı vektörü sınırlanması önerilir erişimi sınırlandırma seçeneğini destekler. Güvenlik Duvarı Azure portalında bir depolama hesabı üzerinde etkinleştirilebilir **Güvenlik Duvarı** > **etkinleştir Güvenlik Duvarı (açık)**  > **Azurehizmetlerineerişimeizinver** seçenekleri.
 
 Azure Databricks kümeleri depolama güvenlik duvarı erişmesi için izin verilmiyor olabilir bir sanal ağa ekleme, bir önizleme özelliği Databricks kullanılmasını gerektirir. Bu özelliği etkinleştirmek için lütfen bir destek isteği yerleştirin.
 

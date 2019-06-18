@@ -1,7 +1,7 @@
 ---
-title: OData ifadesi söz dizimi filtreleri ve sipariş tarafından tümceleri - Azure Search için
-description: Filtre ve order by deyimi Azure arama sorguları için OData söz dizimi.
-ms.date: 05/02/2019
+title: OData dil genel bakış - Azure Search
+description: OData dil genel bakış için filtreleri seçin ve Azure arama sorguları için sipariş tarafından.
+ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,309 +19,217 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b1f77a9e0a3308098e5f6c699f2fc79e5c437f17
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 166c23088fe0388199ca51efde05153bb5697e38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024271"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063694"
 ---
-# <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>OData ifadesi söz dizimi filtreleri ve Azure Search order by yan tümceleri
+# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-search"></a>OData dil genel bakış için `$filter`, `$orderby`, ve `$select` Azure Search'te
 
-Azure Search'ü destekleyen bir alt kümesi için OData ifadesi söz dizimi **$filter** ve **$orderby** ifadeler. Filtre ifadeleri ayrıştırma, belirli alanlarında arama sınırlamak veya dizin taramaları sırasında kullanılan eşleştirme ölçütü ekleme sorgusu sırasında değerlendirilir. Order by ifadeleri bir sonradan işleme adımı bir sonuç kümesi uygulanır. Filtreler hem order by ifadeleri dahil edilecek bir OData sözdizimi bağımsız olarak uymak bir sorgu isteği [basit](query-simple-syntax.md) veya [tam](query-lucene-syntax.md) sorgu söz dizimi kullanılan bir **arama** parametre. Bu makalede, filtreleri ve sıralama ifadeleri kullanılan OData ifadeler için başvuru belgeleri sağlar.
+Azure Search'ü destekleyen bir alt kümesi için OData ifadesi söz dizimi **$filter**, **$orderby**, ve **$select** ifadeler. Filtre ifadeleri ayrıştırma, belirli alanlarında arama sınırlamak veya dizin taramaları sırasında kullanılan eşleştirme ölçütü ekleme sorgusu sırasında değerlendirilir. Order by ifadeleri bir sonuç döndürülür belgelere sıralanacak kümesi üzerinde bir sonradan işleme adımı uygulanır. Seç ifadeleri sonuç kümesinde hangi belge alanların ekleneceğini belirler. Bu ifadelerin söz dizimi kodundan [basit](query-simple-syntax.md) veya [tam](query-lucene-syntax.md) sorgu kullanılan söz dizimi **arama** parametresi sözdizimi, bazı çakışma olsa alanlara başvuran.
 
-## <a name="filter-syntax"></a>Filtre söz dizimi
+Bu makalede, filtreler, order by ve select deyimleri içinde kullanılan OData ifade dili genel bir bakış sağlar. Dil "aşağıdan yukarıya", en temel öğeleri ile başlayan ve bunlar üzerinde oluşturmaya sunulur. Üst düzey sözdizimi her parametre için ayrı bir makalede açıklanmıştır:
 
-A **$filter** ifade tek başına tam olarak ifade edilen bir sorgu olarak çalıştırmak veya ek parametrelere sahip bir sorgu daraltın. Aşağıdaki örnekler birkaç önemli senaryolar gösterir. İlk örnekte, madde temini sorgunun bir filtredir.
+- [$filter sözdizimi](search-query-odata-filter.md)
+- [$orderby söz dizimi](search-query-odata-orderby.md)
+- [$select söz dizimi](search-query-odata-select.md)
 
+Ortak öğeler için son derece karmaşık ifadeler aralığı OData basit, ancak tüm paylaşın. Azure Search'te bir OData ifadenin en temel bölümleri şunlardır:
 
-```POST
-POST /indexes/hotels/docs/search?api-version=2019-05-06
-    {
-      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
-    }
-```
+- **Alan yolları**, dizininizin belirli alanlarına bakın.
+- **Sabitler**, belirli bir veri türünün değişmez değerler olduğu.
 
-Başka bir ortak kullanım örneği filtreleri Birleşik Modelleme, burada sorgu yüzey kullanıcı tabanlı model Gezinti seçime göre filtre azaltır şöyledir:
+> [!NOTE]
+> Azure Search terminolojisinde farklıdır [OData standardı](https://www.odata.org/documentation/) birkaç yolla. Dediğimiz bir **alan** Azure Search'te adlı bir **özelliği** odata'da ve benzer şekilde **alan yolu** karşı **özellik yolu**. Bir **dizin** içeren **belgeleri** Azure Search'te daha genel odata'da başvurulan bir **varlık kümesi** içeren **varlıkları**. Azure arama terimleri, bu başvuru kullanılır.
 
-```POST
-POST /indexes/hotels/docs/search?api-version=2019-05-06
-    {
-      "search": "test",
-      "facets": [ "tags", "baseRate,values:80|150|220" ],
-      "filter": "rating eq 3 and category eq 'Motel'"
-    }
-```
+## <a name="field-paths"></a>Alan yolları
 
-### <a name="filter-operators"></a>Filtre işleçleri  
+Aşağıdaki EBNF ([genişletilmiş Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) alan yolları dilbilgisi tanımlar.
 
-- Mantıksal işleçler (ve, veya değil).  
-
-- Karşılaştırma ifadeleri (`eq, ne, gt, lt, ge, le`). Dize karşılaştırmaları büyük/küçük harfe duyarlıdır.  
-
-- Desteklenen sabitleri [varlık veri modeli](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) türleri (bkz [desteklenen veri türleri &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) desteklenen türlerinin bir listesi için). Sabit koleksiyon türleri desteklenmez.  
-
-- Alan adlarına başvurular. Yalnızca `filterable` filtre ifadelerinde alanlar kullanılabilir.  
-
-- `any` Hiçbir parametre olmadan. Bu tür bir alan olup olmadığını test `Collection(Edm.String)` tüm öğeleri içerir.  
-
-- `any` ve `all` sınırlı bir lambda ifadesi desteği. 
-    
-  -   `any/all` türünde alanlar üzerinde desteklenen `Collection(Edm.String)`. 
-    
-  -   `any` yalnızca basit eşitlik ifadeleridir veya ile kullanılabilir bir `search.in` işlevi. Örneğin oluşmalıdır ve tek bir alan ve bir değişmez değer arasında bir karşılaştırma basit ifadeler `Title eq 'Magna Carta'`.
-    
-  -   `all` yalnızca basit eşitsizlik ifadeleri ile veya kullanılabilir bir `not search.in`.   
-
-- Jeo-uzamsal işlevler `geo.distance` ve `geo.intersects`. `geo.distance` İşlevi iki nokta mesafeyi içinde uzaklık döndürür, geçirilen filtre bir parçası olarak bir alan ve bir sabit olan bir oluşturuluyor. `geo.intersects` Belirli bir noktaya içinde belirli bir Çokgen ise, bir alan noktasıdır ve Çokgen filtresinin bir bölümü olarak geçirilen bir sabit olarak belirtildiğinden işlev true döndürür.  
-
-  Çokgen depolanan bir iki boyutlu yüzeydir noktaları dizisi olarak bir sınırlayıcı tanımlama halka (aşağıdaki örneğe bakın). Çokgen kapatılması, yani ilk gerekir ve son noktası kümeleri aynı olması gerekir. [Bir çokgenin noktaları saat yönünün tersi sırada olması gerekir](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
-
-  `geo.distance` Azure Search'te mesafeyi kilometre cinsinden uzaklığı döndürür. Bu, genellikle uzaklıkları ölçütleri dönüş OData Jeo-uzamsal işlemleri destekleyen diğer hizmetlerden farklıdır.  
-
-  > [!NOTE]  
-  >  GEO.distance filtrede kullanırken, sabit kullanarak işlevi tarafından döndürülen uzaklık karşılaştırmalıdır `lt`, `le`, `gt`, veya `ge`. İşleçler `eq` ve `ne` uzaklıkları karşılaştırılırken desteklenmez. Örneğin, bir doğru kullanımı geo.distance budur: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
-
-- `search.in` İşlevi verilen dize alanı verilen değerlerin listesini birine eşit olup olmadığını test eder. Bu ayrıca any veya all, tek bir dize koleksiyonu alanı değer verilen değerlerin listesini ile karşılaştırmak için kullanılabilir. Alan ve listedeki her değer arasındaki aynı şekilde olarak büyük küçük harfe duyarlı bir biçimde belirlenir `eq` işleci. Bu nedenle bir ifade ister `search.in(myfield, 'a, b, c')` eşdeğerdir `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`dışında `search.in` çok daha iyi performans verir. 
-
-   İlk parametre olarak `search.in` işlev, dizeyi alan başvurusu (veya bir aralık değişkeni bir dize koleksiyonu alanı durumda üzerinden burada `search.in` içinde kullanılan bir `any` veya `all` ifadesi). 
-  
-   İkinci parametre değerleri, boşluk ve/veya virgülle ayrılmış listesini içeren bir dizedir. 
-  
-   Üçüncü parametresi, burada her karakter dizesinin veya bu dizenin alt ayırıcı olarak ikinci parametre değerleri listesi ayrıştırılırken değerlendirilir bir dizedir. Değerlerinizin bu karakterleri içerdiğinden boşluk ve virgül dışındaki ayırıcıları kullanmanız gerekiyorsa, isteğe bağlı üçüncü bir parametre belirtebilirsiniz `search.in`. 
-
-  > [!NOTE]   
-  > Bazı senaryolar, çok sayıda sabit değerler karşı bir alan karşılaştırma gerektirir. Örneğin, güvenlik kırpma filtrelerle uygulama Belge Kimliği alanı kimlikleri okuma erişimi izni isteyen kullanıcı için bir listesiyle karşılaştıran gerektirebilir. Bu gibi senaryolarda kullanarak öneririz `search.in` eşitlik ifadeleridir, daha karmaşık bir ayrım yerine işlevi. Örneğin, `search.in(Id, '123, 456, ...')` yerine `Id eq 123 or Id eq 456 or ....`. 
-  >
-  > Kullanırsanız `search.in`, ikinci parametre, yüzlerce veya binlerce değerlerinin listesini içerdiğinde saniyenin altındaki yanıt süresi bekleyebilirsiniz. Öğe sayısı için geçirebilirsiniz açık sınırsız olduğunu unutmayın `search.in`, ancak yine de en büyük istek boyutuyla sınırlıdır. Ancak, değerler sayısı arttıkça gecikme çıkarılır.
-
-- `search.ismatch` İşlevi, arama sorgusu bir filtre ifadesi bir parçası olarak değerlendirir. Arama sorgusuyla eşleşen belgelerin sonuç kümesinde döndürülür. Bu işlevin aşağıdaki aşırı kullanılabilir:
-  - `search.ismatch(search)`
-  - `search.ismatch(search, searchFields)`
-  - `search.ismatch(search, searchFields, queryType, searchMode)`
-
-  burada: 
-  
-  - `search`: arama sorgusu (her ikisinde [basit](query-simple-syntax.md) veya [tam](query-lucene-syntax.md) sorgu söz dizimi). 
-  - `queryType`: "Basit" veya "tam" varsayılan "Basit". Hangi sorgu dili kullanıldı belirtir `search` parametresi.
-  - `searchFields`: tüm aranabilir alanları dizindeki Varsayılanları, içinde arama yapmak aranabilir alanların virgülle ayrılmış listesi.    
-  - `searchMode`: "tümü" veya "tüm" varsayılan "herhangi bir". Arama terimleriyle tüm belgeyi bir eşleşme olarak saymak için eşlenmesi gereken olup olmadığını gösterir.
-
-  Yukarıdaki tüm parametreleri karşılık gelen eşdeğerdir [istek parametrelerini arama](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-
-- `search.ismatchscoring` Gibi işlev `search.ismatch` işlev, parametre olarak geçen arama sorgusuyla eşleşen belgeler için true değerini döndürür. İlgi eşleşen belgelerin puan fark aralarında `search.ismatchscoring` sorgu durumunda sırada genel belge puanı katkıda `search.ismatch`, belge puanı değiştirilmez. Bu işlevin aşağıdaki aşırı gereksinimlerine aynı parametrelerle kullanılabilir `search.ismatch`:
-  - `search.ismatchscoring(search)`
-  - `search.ismatchscoring(search, searchFields)`
-  - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
-
-  `search.ismatch` Ve `search.ismatchscoring` birbirleriyle ve filtre Cebir geri kalanı ile tam olarak dikgen işlevleri. Başka bir deyişle, her iki işlev aynı filtre ifadesinde kullanılabilir. 
-
-### <a name="geospatial-queries-and-polygons-spanning-the-180th-meridian"></a>Jeo-uzamsal sorgular ve 180th meridyen kapsayan çokgenler  
- 180th meridyen (yakın tarih çizgisi) içeren bir sorgu formulating kitaplıkları için birçok Jeo-uzamsal sorgu geçerli off-limits veya iki tane meridyen her iki tarafındaki içine Çokgen bölme gibi bir çözüm gerektirir.  
-
- Azure Search'te 180 derecelik boylam dahil Jeo-uzamsal sorguları sorgu şekildir dikdörtgen ve boylam ve enlem boyunca bir kılavuz düzeni, koordinatları Hizala beklendiği gibi çalıştığından (örneğin, `geo.intersects(location, geography'POLYGON((179 65,179 66,-179 66,-179 65,179 65))'`). Aksi takdirde, olmayan veya hizalanmamış şekiller için bölünmüş Çokgen yaklaşımı göz önünde bulundurun.  
-
-<a name="bkmk_limits"></a>
-
-## <a name="filter-size-limitations"></a>Filtre boyutu sınırlamaları 
-
- Büyüklüğü ve karmaşıklığı ile Azure Search'e göndermek için filtre ifadeleri limitleri vardır. Sınırları kabaca, filtre ifadesi yan tümcelerinde sayısını temel alır. Bir iyi yan tümceleri yüzlerce varsa, sınırı içinde çalışan risk altındadır udur. Sınırsız boyutunun filtreleri oluşturmaz şekilde uygulamanızı tasarlama öneririz.  
-
-
-## <a name="filter-examples"></a>Filtre örnekleri  
-
- Bir temel ücrete ile tüm hotels $ veya 4 üzerindeki derecelendirilir 200'den daha az bulun:  
+<!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
 ```
-$filter=baseRate lt 200.0 and rating ge 4
+field_path ::= identifier('/'identifier)*
+
+identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 ```
 
- 2010'dan itibaren renovated tüm hotels "Roach Motel" dışında bulun:  
+Bir etkileşimli söz dizim diyagramı görülmektedir de kullanılabilir:
+
+> [!div class="nextstepaction"]
+> [Azure Search için OData söz dizimini diyagramı](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
+
+> [!NOTE]
+> Bkz: [OData ifadesi söz dizimi başvurusu için Azure Search](search-query-odata-syntax-reference.md) tam EBNF için.
+
+Bir alan yolu bir veya daha fazla oluşur **tanımlayıcıları** eğik çizgiyle ayrılmış. Her bir tanımlayıcının bir ASCII harf veya alt çizgi ile başlamalı ve yalnızca ASCII harf, rakam veya alt çizgi içeren bir karakter dizisi ' dir. Büyük veya küçük harf olabilir.
+
+Bir tanımlayıcı ya da bir alanın veya için adına başvurabilir bir **aralık değişkeni** bağlamında bir [koleksiyon ifadesi](search-query-odata-collection-operators.md) (`any` veya `all`) bir filtrede. Geçerli öğe koleksiyonunun temsil eden bir döngü değişkeni gibi bir aralık değişkendir. Karmaşık koleksiyonlar için değişkenin alt alanlara başvurmak için alan yollarını kullanabilirsiniz neden olan bir nesne, bu değişkeni temsil eder. Bu, çok sayıda programlama dilinde nokta gösterimi için benzerdir.
+
+Aşağıdaki tabloda yer alan yollarının örnekler gösterilmektedir:
+
+| Alan yolu | Açıklama |
+| --- | --- |
+| `HotelName` | Dizinin en üst düzey bir alana başvuruyor |
+| `Address/City` | Başvurduğu `City` alt dizindeki; karmaşık bir alanın alan `Address` türünde `Edm.ComplexType` Bu örnekte |
+| `Rooms/Type` | Başvurduğu `Type` ; dizini bir karmaşık koleksiyonu alanında alt alanı `Rooms` türünde `Collection(Edm.ComplexType)` Bu örnekte |
+| `Stores/Address/Country` | Başvurduğu `Country` alt alanı `Address` ; dizini bir karmaşık koleksiyonu alanında alt alanı `Stores` türünde `Collection(Edm.ComplexType)` ve `Address` türünde `Edm.ComplexType` Bu örnekte |
+| `room/Type` | Başvurduğu `Type` alt alanı `room` örneğin filtre ifadesinde aralık değişkeni `Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Başvurduğu `Country` alt alanı `Address` alt alanı `store` örneğin filtre ifadesinde aralık değişkeni `Stores/any(store: store/Address/Country eq 'Canada')` |
+
+Bir alan yolu anlamını bağlama bağlı olarak farklılık gösterir. Filtreleri, bir alan yolu değerine başvuran bir *tek örnek* geçerli belgedeki bir alanın. Diğer bağlamlarda gibi **$orderby**, **$select**, veya [fielded Search'te Lucene tamamını](query-lucene-syntax.md#bkmk_fields), alan için bir alan yolu gösterir. Bu fark, alan yolları filtreleri nasıl kullanacağınız için bazı sonuçları vardır.
+
+Alan yolu göz önünde bulundurun `Address/City`. Bir filtre, bu geçerli belgede, "San Francisco" gibi tek bir şehri ifade eder. Buna karşılık, `Rooms/Type` başvurduğu `Type` ("standart", "ikinci odası vb. için deluxe" ilk odası için gibi) birçok odaları alt alan. Bu yana `Rooms/Type` anlamına gelmez bir *tek örnek* alt alan `Type`, doğrudan bir filtre kullanılamaz. Bunun yerine, yer türüne filtrelemek için kullanacağınız bir [lambda ifadesi](search-query-odata-collection-operators.md) böyle bir aralık değişkeni ile:
+
+    Rooms/any(room: room/Type eq 'deluxe')
+
+Bu örnekte, aralık değişkeni `room` görünür `room/Type` alan yolu. Bu şekilde `room/Type` geçerli belge geçerli odada türünü ifade eder. Tek bir örneğini budur `Type` doğrudan filtrede kullanılabilmesi için alt alan.
+
+### <a name="using-field-paths"></a>Alan yolları kullanma
+
+Alan yolları birçok parametrelerinde kullanılan [Azure Search API](https://docs.microsoft.com/rest/api/searchservice/). Aşağıdaki tabloda, burada kullanılabilirler her yerde yanı sıra, bunların kullanımını herhangi bir kısıtlama listelenmektedir:
+
+| API | Parametre adı | Kısıtlamalar |
+| --- | --- | --- |
+| [Oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index) veya [güncelleştirme](https://docs.microsoft.com/rest/api/searchservice/update-index) dizini | `suggesters/sourceFields` | None |
+| [Oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index) veya [güncelleştirme](https://docs.microsoft.com/rest/api/searchservice/update-index) dizini | `scoringProfiles/text/weights` | Yalnızca başvurabilir **aranabilir** alanları |
+| [Oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index) veya [güncelleştirme](https://docs.microsoft.com/rest/api/searchservice/update-index) dizini | `scoringProfiles/functions/fieldName` | Yalnızca başvurabilir **filtrelenebilir** alanları |
+| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` zaman `queryType` olduğu `full` | Yalnızca başvurabilir **aranabilir** alanları |
+| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Yalnızca başvurabilir **modellenebilir** alanları |
+| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Yalnızca başvurabilir **aranabilir** alanları |
+| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Yalnızca başvurabilir **aranabilir** alanları |
+| [Öner](https://docs.microsoft.com/rest/api/searchservice/suggestions) ve [otomatik tamamlama](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Yalnızca bir parçası olan alanlara başvurabilir bir [öneri aracı](index-add-suggesters.md) |
+| [Arama](https://docs.microsoft.com/rest/api/searchservice/search-documents), [Öner](https://docs.microsoft.com/rest/api/searchservice/suggestions), ve [otomatik tamamlama](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Yalnızca başvurabilir **filtrelenebilir** alanları |
+| [Arama](https://docs.microsoft.com/rest/api/searchservice/search-documents) ve [önerin](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Yalnızca başvurabilir **sıralanabilir** alanları |
+| [Arama](https://docs.microsoft.com/rest/api/searchservice/search-documents), [Öner](https://docs.microsoft.com/rest/api/searchservice/suggestions), ve [arama](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | Yalnızca başvurabilir **alınabilir** alanları |
+
+## <a name="constants"></a>Sabitleri
+
+OData sabitlerle değişmez değerleri olan bir verilen [varlık veri modeli](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) türü. Bkz: [desteklenen veri türleri](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) Azure Search'te desteklenen türleri listesi. Sabit koleksiyon türleri desteklenmez.
+
+Aşağıdaki tabloda, her bir Azure Search tarafından desteklenen veri türleri için sabitleri örneklerini gösterir:
+
+| Veri türü | Örnek sabitleri |
+| --- | --- |
+| `Edm.Boolean` | `true`, `false` |
+| `Edm.DateTimeOffset` | `2019-05-06T12:30:05.451Z` |
+| `Edm.Double` | `3.14159`, `-1.2e7`, `NaN`, `INF`, `-INF` |
+| `Edm.GeographyPoint` | `geography'POINT(-122.131577 47.678581)'` |
+| `Edm.GeographyPolygon` | `geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'` |
+| `Edm.Int32` | `123`, `-456` |
+| `Edm.Int64` | `283032927235` |
+| `Edm.String` | `'hello'` |
+
+Aşağıdaki EBNF ([genişletilmiş Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) yukarıdaki tabloda gösterilen sabitleri çoğu için dilbilgisine tanımlar. Jeo-uzamsal türlerinin dilbilgisi bulunabilir [OData Jeo-uzamsal işlevleri Azure Search'te](search-query-odata-geo-spatial-functions.md).
+
+<!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
 ```
-$filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
+constant ::=
+    string_literal
+    | date_time_offset_literal
+    | integer_literal
+    | float_literal
+    | boolean_literal
+    | 'null'
+
+string_literal ::= "'"([^'] | "''")*"'"
+
+date_time_offset_literal ::= date_part'T'time_part time_zone
+
+date_part ::= year'-'month'-'day
+
+time_part ::= hour':'minute(':'second('.'fractional_seconds)?)?
+
+zero_to_fifty_nine ::= [0-5]digit
+
+digit ::= [0-9]
+
+year ::= digit digit digit digit
+
+month ::= '0'[1-9] | '1'[0-2]
+
+day ::= '0'[1-9] | [1-2]digit | '3'[0-1]
+
+hour ::= [0-1]digit | '2'[0-3]
+
+minute ::= zero_to_fifty_nine
+
+second ::= zero_to_fifty_nine
+
+fractional_seconds ::= integer_literal
+
+time_zone ::= 'Z' | sign hour':'minute
+
+sign ::= '+' | '-'
+
+/* In practice integer literals are limited in length to the precision of
+the corresponding EDM data type. */
+integer_literal ::= digit+
+
+float_literal ::=
+    sign? whole_part fractional_part? exponent?
+    | 'NaN'
+    | '-INF'
+    | 'INF'
+
+whole_part ::= integer_literal
+
+fractional_part ::= '.'integer_literal
+
+exponent ::= 'e' sign? integer_literal
+
+boolean_literal ::= 'true' | 'false'
 ```
 
- Bir temel ücrete $200'den daha az ile 2010, Pasifik Standart Saati için saat dilimi bilgilerini içeren bir datetime hazır değerinde beri renovated tüm hotels bulun:  
+Bir etkileşimli söz dizim diyagramı görülmektedir de kullanılabilir:
+
+> [!div class="nextstepaction"]
+> [Azure Search için OData söz dizimini diyagramı](https://azuresearch.github.io/odata-syntax-diagram/#constant)
+
+> [!NOTE]
+> Bkz: [OData ifadesi söz dizimi başvurusu için Azure Search](search-query-odata-syntax-reference.md) tam EBNF için.
+
+## <a name="building-expressions-from-field-paths-and-constants"></a>Alan yolları ve sabitleri ifade derleme
+
+Alan yolları ve sabitler en temel bir OData ifadesiyle parçasıdır, ancak zaten tam ifadeler kendilerini oldukları. Aslında, **$select** parametresi Azure Search'te, alan yolları virgülle ayrılmış bir listesini ancak hiçbir şey ve **$orderby** çok daha karmaşık değil **$select**. Türünde bir alan seçerseniz `Edm.Boolean` dizininizdeki, yalnızca bu alan yolu olan bir filtre da yazabilirsiniz. Sabitler `true` ve `false` benzer şekilde geçerli filtrelerdir.
+
+Ancak, çoğu zaman birden fazla alan ve sabiti bakın daha karmaşık ifadeler gerekir. Bu ifadeler, parametre bağlı olarak farklı şekillerde oluşturulur.
+
+Aşağıdaki EBNF ([genişletilmiş Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) için dilbilgisine tanımlar **$filter**, **$orderby**, ve **$select** parametreleri. Bu alan yolları ve sabitleri bakın daha basit ifadeler oluşturulur:
+
+<!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
 ```
-$filter=baseRate lt 200 and lastRenovationDate ge 2010-01-01T00:00:00-08:00
+filter_expression ::= boolean_expression
+
+order_by_expression ::= order_by_clause(',' order_by_clause)*
+
+select_expression ::= '*' | field_path(',' field_path)*
 ```
 
- Dahil edilen park ve İçilmez izin verme tüm hotels bulun:  
+Bir etkileşimli söz dizim diyagramı görülmektedir de kullanılabilir:
 
-```
-$filter=parkingIncluded and not smokingAllowed
-```
+> [!div class="nextstepaction"]
+> [Azure Search için OData söz dizimini diyagramı](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
 
- \- OR-  
+> [!NOTE]
+> Bkz: [OData ifadesi söz dizimi başvurusu için Azure Search](search-query-odata-syntax-reference.md) tam EBNF için.
 
-```
-$filter=parkingIncluded eq true and smokingAllowed eq false
-```
+**$Orderby** ve **$select** parametrelerdir hem daha basit ifadeler virgülle ayrılmış listesi. **$Filter** oluşan bir Boole ifadesi daha basit bir alt ifade bir parametredir. Bu alt ifadeler gibi mantıksal işleçleri kullanılarak birleştirilir [ `and`, `or`, ve `not` ](search-query-odata-logical-operators.md), Karşılaştırma işleçleri gibi [ `eq`, `lt`, `gt`ve benzeri](search-query-odata-comparison-operators.md)ve koleksiyon işleçler gibi [ `any` ve `all` ](search-query-odata-collection-operators.md).
 
- Lüks veya park içerir ve 5 derecesi sahip tüm hotels bulun:  
+**$Filter**, **$orderby**, ve **$select** parametreleri incelediniz daha ayrıntılı için aşağıdaki makalelere bakın:
 
-```
-$filter=(category eq 'Luxury' or parkingIncluded eq true) and rating eq 5
-```
-
- (Her otel Collection(Edm.String) alanında depolanan etiketleri sahip olduğu) tüm hotels "wifi" etiketiyle bulun:  
-
-```
-$filter=tags/any(t: t eq 'wifi')
-```
-
- "Motel" etiketi olmayan tüm hotels bulun:  
-
-```
-$filter=tags/all(t: t ne 'motel')
-```
-
- Tüm etiketlere sahip tüm hotels bulun:  
-
-```
-$filter=tags/any()
-```
-
-Etiket tüm hotels bulun:  
-
-```
-$filter=not tags/any()
-```
-
-
- (Konum Edm.GeographyPoint türünde bir alan olduğu) belirli bir başvuru noktası 10 kilometre içindeki tüm hotels bulun:  
-
-```
-$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
-```
-
- (Konum Edm.GeographyPoint türünde bir alan olduğu) tüm hotels Çokgen tanımlanan belirli bir görünüm penceresinin içinde bulun. Çokgen kapalı olduğunu unutmayın (ilk ve son noktası kümeleri aynı olmalıdır) ve [noktaları saat yönünün tersi düzende listelenmelidir](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
-
-```
-$filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
-```
-
- Ya da "description" alanında değeri olmayan tüm Oteller bulmak veya değeri açıkça olduğunu kümesinde null:  
-
-```
-$filter=description eq null
-```
-
-Tüm hotels adlı 'Roach motel' veya 'Bütçe otel' eşittir bulabilirsiniz). İfadeler, varsayılan sınırlayıcı olduğu alanları içerir. Üçüncü bir dize parametresi olarak specicfy tek tırnak içinde başka bir sınırlayıcı yapabilecekleriniz:  
-
-```
-$filter=search.in(name, 'Roach motel,Budget hotel', ',')
-```
-
-Tüm hotels adlı eşit ya da Roach motel Bul ' veya 'ile ayrılmış bütçe otel' ' |'):  
-
-```
-$filter=search.in(name, 'Roach motel|Budget hotel', '|')
-```
-
-Etiket 'wifi' veya 'havuzu' tüm hotels bulun:  
-
-```
-$filter=tags/any(t: search.in(t, 'wifi, pool'))
-```
-
-Bir eşleşme ifadeleri 'ısıtılan towel raflar' veya 'dahil hairdryer' gibi bir koleksiyon içinde etiketleri bulun. 
-
-```
-$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
-```
-
-Etiket 'motel' veya 'kabini' olmadan tüm hotels bulun:  
-
-```
-$filter=tags/all(t: not search.in(t, 'motel, cabin'))
-```
-
-"Rıhtımının" sözcüğüyle belgeleri bulun. Bu filtre sorgusu aynıdır bir [arama isteği](https://docs.microsoft.com/rest/api/searchservice/search-documents) ile `search=waterfront`.
-
-```
-$filter=search.ismatchscoring('waterfront')
-```
-
-Sözcük "hostel" büyük veya buna eşit 4 ya da "motel" word belgeleriyle derecelendirme ve 5'e eşit derecelendirme belgeleri bulun. Unutmayın, bu isteği değil ifade edilemez olmadan `search.ismatchscoring` işlevi.
-
-```
-$filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
-```
-
-"Lüks" sözcüğü olmadan belgeleri bulun.
-
-```
-$filter=not search.ismatch('luxury') 
-```
-
-Okyanusu ifade "Görünüm" veya 5 değerlendirmesi eşit belgeleri bulun. `search.ismatchscoring` Sorgu yalnızca alanları karşı yürütülür `hotelName` ve `description`.
-Not, yalnızca ikinci yan tümcesi ayrım, eşleşen belgelerin çok döndürülecek - derecelendirme hotels 5'e eşit. Bu belgeler Temizle sağlamak için herhangi bir ifade puanlanmış bölümlerini eşleşmedi, sıfıra eşit puanı döndürülür.
-
-```
-$filter=search.ismatchscoring('"ocean view"', 'description,hotelName') or rating eq 5
-```
-
-Koşulları "otel" ve "havaalanı" birbirinden 5 sözcük ise açıklaması içinde olduğu ve burada İçilmez izin belgeleri bulun. Bu sorgu kullanan [tam Lucene sorgu dili](query-lucene-syntax.md).
-
-```
-$filter=search.ismatch('"hotel airport"~5', 'description', 'full', 'any') and not smokingAllowed 
-```
-
-## <a name="order-by-syntax"></a>Sipariş tarafından söz dizimi
-
-**$Orderby** parametreyi kabul eden, formun en fazla 32 ifadelerin virgülle ayrılmış bir liste `sort-criteria [asc|desc]`. Sıralama ölçütü adını olabilir bir `sortable` alan veya öğelerine yönelik çağrıdan `geo.distance` veya `search.score` işlevleri. Kullanabilirsiniz `asc` veya `desc` sıralama düzenini açıkça belirtmek için. Varsayılan artan.
-
-Birden çok belge aynı sıralama ölçütü varsa ve `search.score` işlevi kullanılamıyor (örneğin, bir sayısal göre sıralarsanız `rating` tüm alan ve üç belgeler sahip bir derecelendirme 4), TIES bozulmuş belge puana göre azalan sırada. Belge puanlar (örneğin, istekte belirtilen tam metin araması sorgu olduğunda) aynı olduğunda, göreli sıralamasını bağlı belgelerin belirsiz ise.
- 
-Birden çok sıralama ölçütleri belirtebilirsiniz. Son sıralama ifadeleri sırasını belirler. Örneğin, derecelendirmesine göre ve ardından, puana göre azalan düzende sıralamak için söz dizimi olacaktır `$orderby=search.score() desc,rating desc`.
-
-Sözdizimi `geo.distance` içinde **$orderby** olduğundan aynı olan **$filter**. Kullanırken `geo.distance` içinde **$orderby**, uygulandığı alanın türü olmalıdır `Edm.GeographyPoint` ve ayrıca olmalıdır `sortable`.  
-
-Sözdizimi `search.score` içinde **$orderby** olduğu `search.score()`. İşlev `search.score` herhangi bir parametre almaz.  
- 
-
-## <a name="order-by-examples"></a>Sipariş tarafından örnekleri
-
-Taban fiyat göre artan sıralama hotels:
-
-```
-$orderby=baseRate asc
-```
-
-Otel, derecelendirme, daha sonra temel ücrete göre artan azalan sıralama (artan varsayılan olduğunu unutmayın):
-
-```
-$orderby=rating desc,baseRate
-```
-
-Hotels derecelendirme, ardından belirli ortak ordinates uzaklık artan azalan düzende sıralanır:
-
-```
-$orderby=rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
-```
-
-Hotels search.score ve Derecelendirmeye göre azalan düzende ve ardından aynı dereceye sahip iki hotels arasında en yakındakine ilk sırada olacak şekilde artan sırada uzaklık tarafından verilen koordinatlarından Sırala:
-
-```
-$orderby=search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
-```
-<a name="bkmk_unsupported"></a>
-
-## <a name="unsupported-odata-syntax"></a>Desteklenmeyen OData söz dizimi
-
--   Aritmetik ifadeler  
-
--   İşlevler (dışındaki uzaklık ve Jeo-uzamsal işlevler kesişip)  
-
--   `any/all` rastgele lambda ifadeleri  
+- [Azure Search'te $filter OData söz dizimi](search-query-odata-filter.md)
+- [Azure Search'te $orderby OData söz dizimi](search-query-odata-orderby.md)
+- [Azure Search'te OData $select söz dizimi](search-query-odata-select.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.  
 
-+ [Azure Arama'da çok yönlü navigasyon](search-faceted-navigation.md) 
-+ [Azure Search'te filtreler](search-filters.md) 
-+ [Search belgeleri &#40;Azure arama hizmeti REST API'si&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
-+ [Lucene sorgu söz dizimi](query-lucene-syntax.md)
-+ [Azure Search'te Basit Sorgu söz dizimi](query-simple-syntax.md)   
+- [Azure Arama'da çok yönlü navigasyon](search-faceted-navigation.md)
+- [Azure Search'te filtreler](search-filters.md)
+- [Search belgeleri &#40;Azure arama hizmeti REST API'si&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Lucene sorgu söz dizimi](query-lucene-syntax.md)
+- [Azure Search'te Basit Sorgu söz dizimi](query-simple-syntax.md)

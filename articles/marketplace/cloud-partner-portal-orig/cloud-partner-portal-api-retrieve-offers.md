@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935342"
 ---
 <a name="retrieve-offers"></a>Teklifleri alma
@@ -32,12 +32,12 @@ Teklifler yayımcı ad alanı altında bir Özet listesini alır.
 |  |  |
 
 
-<a name="header"></a>Üst bilgi
+<a name="header"></a>Üstbilgi
 ------
 
 |  **Ad**        |         **Değer**       |
 |  --------------- |       ----------------  |
-|  Content-Type    | `application/json`      |
+|  İçerik türü    | `application/json`      |
 |  Yetkilendirme   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
@@ -70,10 +70,10 @@ Teklifler yayımcı ad alanı altında bir Özet listesini alır.
 |  -------------  |      --------------------------------------------------------------------------------------------------------------    |
 |  offerTypeId    | Teklif türünü tanımlar                                                                                           |
 |  publisherId    | Yayımcı benzersiz olarak tanımlayan tanımlayıcısı                                                                      |
-|  durum         | Teklif durumu. Olası değerler listesi için bkz: [teklif durumu](#offer-status) aşağıda.                         |
+|  status         | Teklif durumu. Olası değerler listesi için bkz: [teklif durumu](#offer-status) aşağıda.                         |
 |  id             | Teklif yayımcı ad alanında benzersiz olarak tanımlayan GUID.                                                    |
 |  version        | Teklifin geçerli sürümü. İstemci tarafından version özelliği değiştirilemez. Bu, her yayımladıktan sonra artırılır. |
-|  tanım     | Gerçek iş yükü tanımını bir Özet görünümünü içerir. Ayrıntılı bir tanımı almak için kullanın [alma belirli teklif](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
+|  Tanımı     | Gerçek iş yükü tanımını bir Özet görünümünü içerir. Ayrıntılı bir tanımı almak için kullanın [alma belirli teklif](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
 |  changedTime    | Teklif en son değiştirildiği UTC saati                                                                              |
 |  |  |
 

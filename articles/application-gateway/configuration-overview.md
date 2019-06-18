@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431309"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073974"
 ---
 # <a name="application-gateway-configuration-overview"></a>Uygulama ağ geçidi yapılandırmasına genel bakış
 
@@ -71,7 +71,10 @@ Bu senaryo için uygulama ağ geçidi alt ağda Nsg kullanın. Bu öncelik sıra
 
 Uçtan uca istek/yanıt iletişim alter yoksa sürece v1 SKU için uygulama ağ geçidi alt ağı üzerinde kullanıcı tanımlı yollar (Udr) desteklenir. Örneğin, uygulama ağ geçidi alt ağındaki UDR paket incelemesi için bir güvenlik duvarı Gereci işaret edecek şekilde ayarlayabilirsiniz. Ancak, paket İnceleme sonra hedeflenen hedefine ulaşabildiğimizden emin olmanız gerekir. Bunun yapılmaması, hatalı bir durum araştırması veya trafik yönlendirme davranışı neden olabilir. Bu öğrenilen rotalar veya Azure ExpressRoute veya VPN ağ geçitlerini sanal ağ tarafından yayılan varsayılan 0.0.0.0/0 yolları içerir.
 
-Uygulama ağ geçidi alt ağı üzerinde Udr'ler v2 SKU için desteklenmiyor. Daha fazla bilgi için [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
+V2 SKU için Udr, uygulama ağ geçidi alt ağı üzerinde desteklenmez. Daha fazla bilgi için [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
+
+> [!NOTE]
+> Udr'ler v2 SKU için desteklenmez.  Udr'ler gerekiyorsa v1 SKU dağıtmaya devam.
 
 > [!NOTE]
 > Udr'ler kullanarak uygulama ağ geçidi alt ağı üzerinde neden olan sistem durumu [arka uç sistem durumu görünümü](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) "Bilinmiyor" olarak görüntülenecek Nesil uygulama ağ geçidi günlükleri ve ölçümleri başarısız olmasına neden olur. Arka uç sistem durumu, günlükleri ve ölçümleri görüntüleyebilmek, Udr uygulama ağ geçidi alt ağda kullanmayın öneririz.
@@ -84,7 +87,7 @@ Bir genel IP, internet'e açık olmayan bir iç uç nokta için gerekli değildi
 
 Genel IP adresi yalnızca 1 veya 1 özel IP adresi desteklenir. Uygulama ağ geçidi oluşturduğunuzda, ön uç IP'sini seçin.
 
-- Bir genel IP için yeni bir ortak IP adresi oluşturabilir veya application gateway ile aynı konumda var olan bir genel IP kullanın. Yeni bir genel IP, seçtiğiniz IP adresi türü (statik veya dinamik) oluşturursanız, daha sonra değiştirilemez. Daha fazla bilgi için [dinamik genel IP adresi ve statik](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- Bir genel IP için yeni bir ortak IP adresi oluşturabilir veya application gateway ile aynı konumda var olan bir genel IP kullanın. Yeni bir genel IP, seçtiğiniz IP adresi türü (statik veya dinamik) oluşturursanız, daha sonra değiştirilemez. Daha fazla bilgi için [dinamik genel IP adresi ve statik](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
 - Özel bir IP için uygulama ağ geçidinin oluşturulduğu alt ağdan özel bir IP adresi belirtebilirsiniz. Belirtmezseniz, rastgele bir IP adresi alt ağından otomatik olarak seçilir. Daha fazla bilgi için [bir iç yük dengeleyiciyle bir uygulama ağ geçidi oluşturma](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
@@ -124,7 +127,7 @@ HTTP veya HTTPS seçin:
 
 - HTTP seçerseniz, istemci ve uygulama ağ geçidi arasındaki trafiği şifrelenmez.
 
-- İsterseniz, HTTPS seçin [SSL sonlandırma](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) veya [uçtan uca SSL şifrelemesini](https://docs.microsoft.com/azure/application-gateway/ssl-overview). İstemci ve uygulama ağ geçidi arasındaki trafiği şifrelenir. Ve uygulama ağ geçidinde SSL bağlantısını sonlandırır. Uçtan uca SSL şifrelemesini istiyorsanız, HTTPS seçin ve yapılandırmanız gerekir **arka uç HTTP** ayarı. Bu, arka uç uygulama ağ geçidi'ndeki dolaşımı sırasında trafiği yeniden şifrelenir sağlar.
+- İsterseniz, HTTPS seçin [SSL sonlandırma](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) veya [uçtan uca SSL şifrelemesini](https://docs.microsoft.com/azure/application-gateway/ssl-overview). İstemci ve uygulama ağ geçidi arasındaki trafiği şifrelenir. Ve uygulama ağ geçidinde SSL bağlantısını sonlandırır. Uçtan uca SSL şifrelemesini istiyorsanız, HTTPS seçin ve yapılandırmanız gerekir **arka uç HTTP** ayarı. Bu, arka uç uygulama ağ geçidi'ndeki dolaşımı sırasında trafiği yeniden şifrelenir sağlar.
 
 SSL sonlandırma ve uçtan uca SSL şifrelemesini yapılandırmak için bir simetrik anahtar türetmek uygulama ağ geçidi'ni etkinleştirmek için dinleyici için bir sertifika eklemeniz gerekir. Bu, SSL protokolü belirtimi tarafından belirlenir. Simetrik anahtar şifreleme ve şifre çözme için ağ geçidi gönderilen trafiği için kullanılır. Ağ geçidi sertifikası kişisel bilgi değişimi (PFX) biçiminde olmalıdır. Bu biçim şifrelemek ve trafiği şifresini çözmek için ağ geçidini kullanan özel anahtarı dışa aktarmanızı sağlar.
 
@@ -172,7 +175,7 @@ Azure portalını kullanarak bir uygulama ağ geçidi oluşturduğunuzda, varsay
 
 ### <a name="rule-type"></a>Kural türü
 
-Bir kuralı oluşturduğunuzda, arasından seçim [ *temel* ve *yol tabanlı*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rule).
+Bir kuralı oluşturduğunuzda, arasından seçim [ *temel* ve *yol tabanlı*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
 - İlişkili dinleyici üzerindeki tüm istekleri iletmek istiyorsanız, temel seçin (örneğin, *blog<i></i>.contoso.com/\*)* tek bir arka uç havuzuna.
 - Yola dayalı belirli URL yolları gelen istekleri belirli arka uç havuzları yönlendirmek istiyorsanız seçin. Yol deseni yalnızca için sorgu parametrelerini URL'nin yol uygulanır.
@@ -245,7 +248,7 @@ Yeniden yönlendirme hakkında daha fazla bilgi için bkz:
 Bu ayar ekler, kaldırır veya istek sırasında HTTP istek ve yanıt üstbilgileri güncelleştirir ve yanıt paketi istemci ve arka uç havuzları arasında taşıyabilirsiniz. Yalnızca bu özelliği PowerShell üzerinden yapılandırabilirsiniz. Azure portalı ve CLI desteği henüz kullanılamamaktadır. Daha fazla bilgi için bkz.
 
  - [HTTP üstbilgileri genel bakış yeniden yazma](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [HTTP üst bilgisi yeniden yapılandırma](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-your-http-header-rewrite-rule-configuration)
+ - [HTTP üst bilgisi yeniden yapılandırma](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
 
 ## <a name="http-settings"></a>HTTP ayarları
 

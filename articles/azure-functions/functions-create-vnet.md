@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 07c7d7fb682708bf813820440d9c790c28b1f3e5
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834686"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063269"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Öğretici: İşlevleri bir Azure sanal ağı ile tümleştirin.
 
@@ -113,7 +113,7 @@ Bir sanal ağdaki bir sanal makinede çalışan bir WordPress sitesi ile artık 
 
     ![Bir ağ özelliğini yapılandırma durumu](./media/functions-create-vnet/Networking-1.png)
 
-1. Sanal ağ tümleştirmesi sayfasında **VNet Ekle (Önizleme)**.
+1. Sanal ağ tümleştirmesi sayfasında **VNet Ekle (Önizleme)** .
 
     ![Sanal ağ tümleştirmesi Önizleme Ekle](./media/functions-create-vnet/networking-2.png)
 
@@ -124,7 +124,7 @@ Bir sanal ağdaki bir sanal makinede çalışan bir WordPress sitesi ile artık 
     | Ayar      | Önerilen değer  | Açıklama      |
     | ------------ | ---------------- | ---------------- |
     | **Sanal Ağ** | MyResourceGroup-vnet | Bu sanal ağ, daha önce oluşturduğunuz bir bileşendir. |
-    | **Alt ağ** | Yeni Bir Alt Ağ Oluşturun | Sanal ağ kullanmak işlev uygulamanız için bir alt ağ oluşturun. VNet tümleştirmesi, boş bir alt ağ kullanmak için yapılandırılmalıdır. İşlevlerinizi VM'niz farklı bir alt kullandığınız önemli değildir. Sanal ağı iki alt ağlar arasındaki trafiği otomatik olarak yönlendirir. |
+    | **Alt ağ** | Yeni alt ağ oluşturma | Sanal ağ kullanmak işlev uygulamanız için bir alt ağ oluşturun. VNet tümleştirmesi, boş bir alt ağ kullanmak için yapılandırılmalıdır. İşlevlerinizi VM'niz farklı bir alt kullandığınız önemli değildir. Sanal ağı iki alt ağlar arasındaki trafiği otomatik olarak yönlendirir. |
     | **Alt ağ adı** | Net işlevi | Yeni alt ağın adı. |
     | **Sanal ağ adres bloğu** | 10.10.0.0/16 | WordPress sitesi tarafından kullanılan aynı adres bloğu seçin. Yalnızca tanımlanmış tek adres bloğu olmalıdır. |
     | **Adres aralığı** | 10.10.2.0/24   | Alt ağ boyutu Premium planı işlev uygulamanız için ölçeğini genişletebilirsiniz örneklerinin toplam sayısını sınırlar. Bu örnekte bir `/24` 254 ana kullanılabilir adresleri olan alt ağ. Bu alt ağ, fazla sağlama ve hesaplamak kolaydır. |
@@ -137,7 +137,7 @@ Bir sanal ağdaki bir sanal makinede çalışan bir WordPress sitesi ile artık 
 
 Sanal ağ ile tümleştirme, etkin işlev uygulamanız sanal ağ içinde çalıştırılan VM'ye isteklerini iletmek için bir proxy oluşturabilirsiniz.
 
-1. İşlev uygulamanızı seçin **proxy'leri** > **+**, ardından görüntünün altındaki tabloda Ara sunucu ayarlarını kullanın:
+1. İşlev uygulamanızı seçin **proxy'leri** >  **+** , ardından görüntünün altındaki tabloda Ara sunucu ayarlarını kullanın:
 
     ![Proxy ayarlarını tanımlayın](./media/functions-create-vnet/create-proxy.png)
 
@@ -170,4 +170,4 @@ Premium planda çalışan işlevleri aynı App Service altyapının PremiumV2 pl
 > [!div class="nextstepaction"]
 > [İşlevler içindeki ağ seçenekleri hakkında daha fazla bilgi edinin](./functions-networking-options.md)
 
-[Premium planı]: functions-scale.md#premium-plan-public-preview
+[Premium planı]: functions-scale.md#premium-plan

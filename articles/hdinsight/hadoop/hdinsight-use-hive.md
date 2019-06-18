@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: fbf10e992843d9297363398ca5ea13b8e0aa10a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/06/2019
+ms.openlocfilehash: ea8f14a7013a937ddd77baf0f50b8dca09cabad6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715635"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076323"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Apache Hive ve HiveQL Azure HDInsight üzerinde nedir?
 
@@ -48,7 +48,7 @@ HDInsight ile Hive kullanma farklı yollarını keşfetmek için aşağıdaki ta
 
 ## <a name="hiveql-language-reference"></a>HiveQL dil başvurusu
 
-HiveQL dil başvurusu kullanılabilir [dil el ile (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+HiveQL dil başvurusu kullanılabilir [dil el ile](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 
 ## <a name="hive-and-data-structure"></a>Hive ve veri yapısı
 
@@ -67,7 +67,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive da destekler özel **seri hale getirici/deserializers (SerDe)** karmaşık veya düzensiz yapılandırılmış veriler için. Daha fazla bilgi için [HDInsight ile özel bir JSON SerDe kullanmayı](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) belge.
+Hive da destekler özel **seri hale getirici/deserializers (SerDe)** karmaşık veya düzensiz yapılandırılmış veriler için. Daha fazla bilgi için [HDInsight ile özel bir JSON SerDe kullanmayı](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) belge.
 
 Hive tarafından desteklenen dosya biçimleri hakkında daha fazla bilgi için bkz: [el ile (dil)https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
@@ -91,11 +91,11 @@ Tablolar Hive ile oluşturabileceğiniz iki tür vardır:
     * Varsayılan olmayan depolama hesabı gibi özel bir konuma ihtiyacınız vardır.
     * Bir program hive dışında veri biçimi, konum vb. yönetir.
 
-Daha fazla bilgi için [Hive iç ve dış tablolar giriş] [ cindygross-hive-tables] blog gönderisi.
+Daha fazla bilgi için [Hive iç ve dış tablolar giriş](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) blog gönderisi.
 
 ## <a name="user-defined-functions-udf"></a>Kullanıcı tanımlı işlevler (UDF)
 
-Hive da uzatabilirsiniz aracılığıyla **kullanıcı tanımlı işlevler (UDF)**. Bir UDF işlevleri veya kolayca modellenmiş olmayan mantıksal HiveQL olanak tanır. UDF ile Hive kullanma örneği için aşağıdaki belgelere bakın:
+Hive da uzatabilirsiniz aracılığıyla **kullanıcı tanımlı işlevler (UDF)** . Bir UDF işlevleri veya kolayca modellenmiş olmayan mantıksal HiveQL olanak tanır. UDF ile Hive kullanma örneği için aşağıdaki belgelere bakın:
 
 * [Apache Hive ile Java kullanıcı tanımlı bir işlevi kullanın.](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -143,7 +143,7 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 * `STORED AS TEXTFILE LOCATION`: Verilerin depolandığı Hive bildirir ( `example/data` dizini) ve metin olarak depolanır. Veri, bir dosyada olabilir veya dizin içinde birden çok dosyalar arasında yaymak.
 
-* `SELECT`: Tüm satırların sayımını seçer burada sütunu **t4** değeri içeren **[Hata]**. Bu bildirimi bir değeri döndürür **3** olmadığı için bu değeri içeren üç satır.
+* `SELECT`: Tüm satırların sayımını seçer burada sütunu **t4** değeri içeren **[Hata]** . Bu bildirimi bir değeri döndürür **3** olmadığı için bu değeri içeren üç satır.
 
 * `INPUT__FILE__NAME LIKE '%.log'` -Hive, dizindeki tüm dosyaları şema uygulamak çalışır. Bu durumda, dizin şemasını eşleşmeyen dosyalarını içerir. Çöp veri sonuçları engellemek için bu bildirimi Hive biz yalnızca veri sonu dosyalarından dönmesi gerektiğini söyler. günlük.
 
@@ -204,50 +204,20 @@ Azure Data Factory, HDInsight, Data Factory işlem hattı bir parçası olarak k
 
 Bir Hive işi çalıştırmak için SQL Server Integration Services (SSIS) kullanabilirsiniz. SSIS için Azure Feature Pack üzerinde HDInsight Hive işlerle çalışma bulunan aşağıdaki bileşenleri sağlar.
 
-* [Azure HDInsight Hive görevi][hivetask]
+* [Azure HDInsight Hive görevi](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Azure aboneliği Bağlantı Yöneticisi][connectionmanager]
+* [Azure aboneliği Bağlantı Yöneticisi](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Daha fazla bilgi için [Azure Feature Pack] [ ssispack] belgeleri.
+Daha fazla bilgi için [Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis) belgeleri.
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie, Hadoop işlerini yöneten bir iş akışı ve koordinasyon sistemidir. Oozie ile Hive kullanma hakkında daha fazla bilgi için bkz. [tanımlamak ve bir iş akışı çalıştırmak için kullanım Apache Oozie](../hdinsight-use-oozie-linux-mac.md) belge.
 
-## <a id="nextsteps"></a>Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Hive nedir ve HDInsight, Hadoop ile kullanma işlemini öğrendiğinize göre Azure HDInsight ile çalışmanın diğer yollarını keşfetmek için aşağıdaki bağlantıları kullanın.
 
-* [HDInsight'a veri yükleme][hdinsight-upload-data]
-* [Apache Pig, HDInsight ile kullanma][hdinsight-use-pig]
-* [HDInsight ile MapReduce işleri kullanma][hdinsight-use-mapreduce]
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: https://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
-[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
-
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-
-
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: ../hdinsight-upload-data.md
-
-[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
-
-
-[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+* [HDInsight için karşıya veri yükleme](../hdinsight-upload-data.md)
+* [Apache Hive ve Apache Pig, HDInsight ile kullanmak Python kullanıcı tanımlı işlevler (UDF)](./python-udf-hdinsight.md)
+* [HDInsight ile MapReduce işleri kullanma](hdinsight-use-mapreduce.md)

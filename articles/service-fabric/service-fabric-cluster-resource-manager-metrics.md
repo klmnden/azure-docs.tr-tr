@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516756"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Kaynak tüketimine ve Service Fabric yük ölçümlerle yönetme
@@ -36,8 +36,8 @@ Yazmaya ve hizmetinizi dağıtmaya başlamak istediğinizi düşünelim. Bu nokt
 | Ölçüm | Durum bilgisi olmayan bir örneğini yükleme | Durum bilgisi olan ikincil yük | Durum bilgisi olan birincil yük | Ağırlık |
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Yüksek |
-| ReplicaCount |0 |1. |1 |Orta |
-| Sayı |1 |1. |1 |Düşük |
+| ReplicaCount |0 |1\. |1 |Orta |
+| Sayı |1 |1\. |1 |Düşük |
 
 
 Temel iş yükleri için makul bir küme içindeki iş dağıtımını varsayılan ölçümleri sağlar. Aşağıdaki örnekte, iki hizmet oluşturmak ve Dengeleme için varsayılan ölçümleri dayanan ne olacağını görelim. Bir hedef çoğaltma kümesi boyutu üç ve üç bölümleri olan bir durum bilgisi olan hizmet ilk hizmetidir. İkinci bir bölüm ve üç örnek sayısı ile durum bilgisi olmayan hizmet hizmetidir.

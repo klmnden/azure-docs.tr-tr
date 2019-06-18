@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
 ms.openlocfilehash: d573b7ad9edac6b1502744b61e85cba3402a6f68
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232663"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Ağ Performansı İzleyicisi çözümü ile ilgili SSS
@@ -136,7 +136,7 @@ NPM izlemek için kullanabileceğiniz Bağlantı Hizmetleri dünyanın herhangi 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>NPM ExpressRoute İzleyicisi için hangi bölgeler desteklenir?
 NPM, dilediğiniz Azure bölgesinde bulunan, ExpressRoute devreleri izleyebilirsiniz. Birinde barındırılan bir Log Analytics çalışma alanı gerektirecektir npm için yerleşik, [desteklenen bölgeler](/azure/expressroute/how-to-npm)
 
-## <a name="troubleshoot"></a>Sorun gider
+## <a name="troubleshoot"></a>Sorun giderme
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Neden bazı ağ topolojisini görüntüleme tanımlanmamış olarak işaretlenmiş atlama misiniz?
 NPM traceroute değiştirilmiş bir sürümünü hedef kaynak aracısından topolojiye bulmak için kullanır. Tanımlanmayan bir atlama ağ atlama kaynak aracının traceroute isteğine yanıt vermedi temsil eder. Üç ardışık ağ atlamaları aracının traceroute için yanıt vermezse, çözüm, yanıt vermeyen atlama tanımlanmamış olarak işaretler ve daha fazla atlama bulunacak denemez.

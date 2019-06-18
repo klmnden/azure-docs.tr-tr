@@ -3,19 +3,19 @@ title: Kapsayıcı desteği
 titleSuffix: Azure Cognitive Services
 description: Docker kapsayıcıları yakın Bilişsel hizmetler verilerinize nasıl edinebildiğini öğrenin.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 3d09ee542b98e1c365aceaf86b051d706c7882d4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 8faa524d7d88f09835d26439b772b8d57c84cc73
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304279"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122234"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Bilişsel hizmetler kapsayıcı desteği
 
@@ -82,7 +82,7 @@ Ayrıca, bazı kapsayıcıları Bilişsel hizmetler desteklenmektedir [ **hepsi 
 Azure aboneliğiniz üzerinden genel kullanıma açık Azure Bilişsel hizmetler kapsayıcıları ve Docker kapsayıcı görüntülerini Microsoft kapsayıcı kayıt defteri veya Docker Hub çekilebilir. Kullanabileceğiniz [docker isteği](https://docs.docker.com/engine/reference/commandline/pull/) uygun kayıt defterinden bir kapsayıcı görüntüsü indirilemedi komutu.
 
 > [!IMPORTANT]
-> Şu anda aşağıdaki kapsayıcılar, doldurun ve sorularınız varsa, şirketinizin ve kapsayıcıları uygulamak istediğiniz kullanım örneği hakkında bir soru gönderin, erişmek için bir kaydolma işlemini tamamlamanız gerekir. Erişim izni ve da sağlanan kimlik bilgileri sonra Azure Container Registry tarafından barındırılan bir özel kapsayıcı kayıt defterinden tipini ve metin tanıma kapsayıcılar için kapsayıcı görüntülerini çeker.
+> Şu anda aşağıdaki kapsayıcılar, doldurun ve sorularınız varsa, şirketinizin ve kapsayıcıları uygulamak istediğiniz kullanım örneği hakkında bir soru gönderin, erişmek için bir kaydolma işlemini tamamlamanız gerekir. Erişim izni ve da sağlanan kimlik bilgileri sonra Azure Container Registry tarafından barındırılan bir özel kapsayıcı kayıt defterinden kapsayıcı görüntülerini çeker.
 > * [Anomali dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Yüz tanıma](Face/face-how-to-install-containers.md)
 > * [Form tanıyıcı](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)

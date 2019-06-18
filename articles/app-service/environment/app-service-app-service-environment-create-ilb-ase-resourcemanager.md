@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130764"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Azure Resource Manager Şablonlarını kullanarak ILB ASE oluşturma
@@ -58,12 +58,12 @@ Bir kez *azuredeploy.parameters.json* dosya doldurulur için ILB ASE, ILB ASE da
 Sonra Azure Resource Manager şablonu, ILB ASE, oluşturulmaya birkaç saat sürer gönderilir.  Oluşturma işlemi tamamlandıktan sonra App Service ortamları listesi için dağıtım tetiklenen abonelik portalında UX ILB ASE gösterilir.
 
 ## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>Karşıya yükleme ve "Varsayılan" SSL sertifikası yapılandırma
-ILB ASE oluşturulduktan sonra "varsayılan" SSL sertifikası uygulamalarına SSL bağlantıları kurmak için kullandığınız bir SSL sertifikası ASE ile ilişkili olmalıdır.  ASE'ın varsayılan DNS kuramsal Contoso Corporation örneğiyle devam etmesini sonekidir *contoso.com iç*, ardından bağlantı *https://some-random-app.internal-contoso.com* olan bir SSL sertifikası gerektirir Geçerli **.internal contoso.com*. 
+ILB ASE oluşturulduktan sonra "varsayılan" SSL sertifikası uygulamalarına SSL bağlantıları kurmak için kullandığınız bir SSL sertifikası ASE ile ilişkili olmalıdır.  ASE'ın varsayılan DNS kuramsal Contoso Corporation örneğiyle devam etmesini sonekidir *contoso.com iç*, ardından bağlantı *https://some-random-app.internal-contoso.com* olan bir SSL sertifikası gerektirir Geçerli * *.internal contoso.com*. 
 
 Bir iç CA'ları da dahil olmak üzere, harici bir verenden sertifika satın alma ve otomatik olarak imzalanan bir sertifika kullanarak geçerli bir SSL sertifikası almak için çeşitli yollar vardır.  SSL sertifikasının kaynağından bağımsız olarak, aşağıdaki sertifika özniteliklerinin doğru şekilde yapılandırılması gerekir:
 
 * *Konu*:  Bu öznitelik ayarlanmalıdır **kök etki alanı here.com .your*
-* *Konu alternatif adı*:  Bu öznitelik her ikisini de içermelidir **kök etki alanı here.com .your*, ve **.Your-kök-etki-here.com*.  Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantılarını biçiminde bir adres kullanarak yapılacak ikinci girdi sebebi *your-app-name.scm.your-root-domain-here.com*.
+* *Konu alternatif adı*:  Bu öznitelik her ikisini de içermelidir **kök etki alanı here.com .your*, ve * *.Your-kök-etki-here.com*.  Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantılarını biçiminde bir adres kullanarak yapılacak ikinci girdi sebebi *your-app-name.scm.your-root-domain-here.com*.
 
 Geçerli bir SSL sertifikası ile elle, iki ek hazırlık adımları gereklidir.  SSL sertifikasını .pfx dosyası olarak dönüştürülen/kaydedilmiş olması gerekir.  .Pfx dosyasını dahil tüm ara ve kök sertifikaları gerekiyor ve ayrıca bir parola ile korunması gerekir unutmayın.
 
@@ -130,7 +130,7 @@ Bir kez *azuredeploy.parameters.json* dosya doldurulur, varsayılan SSL sertifik
 
 Sonra Azure Resource Manager şablonu, değişikliği uygulamak için ön uç ASE başına kabaca kırk dakika sürer gönderilir.  Örneğin, tamamlanması iki ön uç kullanarak, bir boyutta varsayılan ASE ile şablon yaklaşık bir saat ve 20 dakika sürer.  ASE, şablon çalışırken ölçeği mümkün olmayacaktır.  
 
-Şablon tamamlandıktan sonra ILB ASE apps'de HTTPS üzerinden erişilebilir ve bağlantıları güvenli varsayılan SSL sertifikasını.  Varsayılan SSL sertifikasını ILB ASE apps'de yanı sıra varsayılan ana bilgisayar adı uygulama adının bir birleşimi kullanılarak gönderilen olduğunda kullanılır.  Örneğin *https://mycustomapp.internal-contoso.com* için varsayılan SSL sertifikasını kullanacağınız **.internal contoso.com*.
+Şablon tamamlandıktan sonra ILB ASE apps'de HTTPS üzerinden erişilebilir ve bağlantıları güvenli varsayılan SSL sertifikasını.  Varsayılan SSL sertifikasını ILB ASE apps'de yanı sıra varsayılan ana bilgisayar adı uygulama adının bir birleşimi kullanılarak gönderilen olduğunda kullanılır.  Örneğin *https://mycustomapp.internal-contoso.com* için varsayılan SSL sertifikasını kullanacağınız * *.internal contoso.com*.
 
 Ancak, ortak bir çok kiracılı service üzerinde çalışan yeni uygulamalar gibi geliştiriciler de tek tek uygulamalar için özel konak adlarını yapılandırın ve sonra tek tek uygulamalar için benzersiz SNI SSL sertifikası bağlamaları yapılandırın.  
 

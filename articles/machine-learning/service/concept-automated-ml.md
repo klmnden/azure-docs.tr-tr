@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 05/21/2019
+ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 1dcdbbf0a2a71fa38b6eacd6a8d179cdad979937
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515563"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059298"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 
@@ -62,6 +62,19 @@ Model oluşturmanın otomatik karşın, şunları da yapabilirsiniz. [nasıl ön
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 <a name="preprocess"></a>
+
+## <a name="time-series-forecasting"></a>Zaman serisi tahmini
+Tahminlerini oluşturmak, gelir, Envanter, satış ve müşteri isteğe bağlı olup olmadığını, herhangi bir iş bütünleyici özelliğidir. ML kullanır otomatik olarak bir dizi birleşik teknikleri ve yaklaşımları bir yüksek kaliteli zaman serisi tahmin önerilir. Zaman serisi denemeleri otomatik ML çok değişkenli regresyon problemi kabul edilir. Zaman serisi değerleri "diğer adaylarının birlikte üzerine regressor için ek boyutlar olacak özetlenmiş". 
+
+Klasik zaman serisi yöntemlerinden farklı olarak, bu yaklaşım, birden çok bağlam değişkenleri ve bunların birbirleriyle eğitim sırasında doğal olarak ekleme avantajı vardır. Gerçek tahmin uygulamalarında Çoklu faktörlerle tahmin etkileyebilir. Örneğin, satışları tahmin, geçmiş eğilimleri, döviz kuru ve fiyat tüm etkileşimleri ortaklaşa satış sonucu sürücü. Başka bir avantajı, tahmin için tüm son yeniliklerini regresyon modelleri, hemen geçerli olur.
+
+Ne kadar geleceğe hava durumu tahminini (tahmin horizon) genişletmelidir temel tahmin belirtiminin bir parçasıdır. Gerekli parametre ayarı `max_horizon` deneme (forecaster tahmin kullanıma eğitim verilerinizi, örn. aylık, haftalık zaman aralığını temel. kaç birim nokta tanımlar. 
+
+Otomatik ML veri kümesi ve tahmin horizons içindeki tüm öğeler için tek, ancak genellikle dahili olarak dallandırılmış bir model öğrenir. Daha fazla veri modelini parametreleri tahmin etmek bu nedenle kullanılabilir ve Genelleştirme görünmeyen dizilerine mümkün hale gelir. 
+
+Eğitim verileri ayıklanan özellikleri, kritik bir rol oynar. Otomatik ML standart önceden işleme adımları gerçekleştirir ve dönemsel etkileri yakalamak ve Tahmine dayalı doğruluğu en üst düzeye çıkarmak için ek zaman serisi özellikleri (örneğin yıl, ay, haftanın günü vb.) oluşturur. 
+
+Senaryonuz için uygun, ML aksamalar oluşturmak için otomatik yönlendirebilir, (`target_lags`) veya veri toplama çalışırken penceresi (`target_rolling_window_size`), hedefin gelen (`y_value`) son değerleri. 
 
 ## <a name="preprocessing"></a>Ön işleme
 
@@ -160,6 +173,7 @@ Otomatik ML ayrıca gibi diğer Microsoft çözümleri kullanılabilir:
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Otomatik model seçimi ve eğitim ML.NET ile Visual Studio ve Visual Studio Code kullanarak .NET uygulamaları (Önizleme) ML otomatik.|
 |[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Ölçeği genişletme, otomatik ML eğitim işleri HDInsight içindeki Spark üzerinde paralel olarak kümeleri.|
 |[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Makine öğrenimi modellerini doğrudan Power BI (Önizleme) içinde çağırın.|
+|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Yeni makine öğrenimi modellerini SQL Server 2019 büyük veri kümelerinde verileriniz üzerinde oluşturun.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

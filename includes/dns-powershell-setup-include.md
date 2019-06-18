@@ -8,12 +8,12 @@ ms.topic: include file for PowerShell for Azure DNS
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: 682b3d3fee4ff1cdbed6e05a51fd8828b6eb155f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 32c516ccee3a9f4f7604a3e330285703a776b47d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117266"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133620"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Azure DNS için Azure PowerShell ayarlama
 
@@ -52,7 +52,7 @@ Install-Module -Name AzureRM.Network -Force
 
 ### <a name="sign-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
 
-PowerShell konsolunuzu açın ve hesabınıza bağlanın. Daha fazla bilgi için [oturum](/powershell/azure/install-az-ps?view=azps-1.4.0#sign-in).
+PowerShell konsolunuzu açın ve hesabınıza bağlanın. Daha fazla bilgi için [oturum oturum AzureRM](/powershell/azure/azurerm/authenticate-azureps).
 
 ```powershell
 Connect-AzureRmAccount
@@ -72,7 +72,7 @@ Hangi Azure aboneliğinizin kullanılacağını seçin.
 Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
 ```
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu konum, kaynak grubundaki kaynaklar için varsayılan konum olarak kullanılır. Ancak tüm DNS kaynakları bölgesel değil de global olduğundan, kaynak grubu konumu seçiminin Azure DNS üzerinde hiçbir etkisi yoktur.
 

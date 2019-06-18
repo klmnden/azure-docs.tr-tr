@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 618377d532dc932eb21f282ac8ba7f6c07df16f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113454"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
 
@@ -191,7 +191,7 @@ Bazı uygulamalar, Office 2010 veya önceki ve iOS 11, önce Apple Mail iki aşa
 Modern kimlik doğrulaması için Microsoft Office 2013 istemcilerindeki ve sonraki sürümlerde desteklenir. Outlook gibi office 2013 modern kimlik doğrulama protokolleri destekleyin ve iki aşamalı doğrulamayla çalışması için etkinleştirilebilir. Uygulama parolaları, istemci etkinleştirildikten sonra istemci için gerekli değildir.
 
 >[!NOTE]
->Uygulama parolaları dayalı koşullu erişimi çok faktörlü kimlik doğrulama ilkeleri ve modern kimlik doğrulaması ile çalışmaz.
+>Uygulama parolaları, koşullu erişim tabanlı çok faktörlü kimlik doğrulaması ilkeleri ve modern kimlik doğrulaması ile çalışmaz.
 
 ### <a name="considerations-about-app-passwords"></a>Uygulama parolaları hakkında dikkat edilecek noktalar
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b8d7b6fee973379516e7dbf58b27cfafe1e1edc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca2a7edff4b8c06b2838474449360b4b14b3e393
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868537"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092975"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Öğretici: Reflektive ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Reflektive tümleştirmesini yapılandırmak için Reflektive Galeri
 
 **Galeriden Reflektive eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -138,7 +138,7 @@ Azure AD çoklu oturum açma ile Reflektive yapılandırmak için aşağıdaki a
 
 ### <a name="configure-reflektive-single-sign-on"></a>Reflektive tek oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **Reflektive** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Reflektive Destek ekibine](mailto:https://support@reflektive.com/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **Reflektive** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Reflektive Destek ekibine](mailto: https://support@reflektive.com/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -192,7 +192,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Reflektive erişim verer
 
 ### <a name="create-reflektive-test-user"></a>Reflektive test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Reflektive içinde adlı bir kullanıcı oluşturun. Çalışmak [Reflektive Destek ekibine](mailto:https://support@reflektive.com/) Reflektive platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Reflektive içinde adlı bir kullanıcı oluşturun. Çalışmak [Reflektive Destek ekibine](mailto: https://support@reflektive.com/) Reflektive platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 

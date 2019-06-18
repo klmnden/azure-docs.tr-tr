@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60457281"
 ---
 # <a name="storage-explorer-accessibility"></a>Depolama Gezgini erişilebilirliği
@@ -58,7 +58,7 @@ Tema ayarı çoğu UI öğesinin rengini değiştirir. Ayrıca, işletim sistemi
 Komut       | Klavye kısayolu
 --------------|--------------------
 Yeni Pencere    | **Denetim + Shift + N**
-Düzenleyiciyi kapat  | **Denetim + F4**
+Düzenleyiciyi kapatın  | **Denetim + F4**
 Çık          | **Denetim + Shift + W**
 
 ### <a name="navigation-commands"></a>Gezinti komutları
@@ -67,7 +67,7 @@ Komut                | Klavye kısayolu
 -----------------------|----------------------
 Odağı sonraki paneli       | **F6**
 Odağı önceki paneli   | **Shift + F6**
-Gezgin               | **Denetim + SHIFT + E**
+Gezgini               | **Denetim + SHIFT + E**
 Hesap Yönetimi     | **Denetim + Shift + A**
 İki durumlu kenar çubuğu        | **Denetim + B**
 Etkinlik Günlüğü           | **Denetim + Shift + L**
@@ -88,8 +88,8 @@ Uzaklaştır | **Control +-**
 Komut | Klavye kısayolu
 --------|--------------------
 Geri    | **Alt + sol ok**
-İlet | **Alt + sağ ok**
-Yukarı      | **Alt + Yukarı Ok**
+İleriye doğru | **Alt + sağ ok**
+Ayarlama      | **Alt + Yukarı Ok**
 
 ### <a name="editor-commands"></a>Düzenleyici komutlar
 

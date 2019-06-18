@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ecadb499d140ccfc993820080cae0b749977fc61
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824735"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Federasyon çoklu oturum açma için Azure Active Directory'de sertifikaları yönetme
@@ -30,11 +30,11 @@ Bu makalede, Azure AD SSO ile kullanacak şekilde yapılandırılan uygulamalar 
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Galeri ve galeri dışı uygulamalar için otomatik olarak oluşturulan sertifika
 
-Ne zaman galeriden yeni bir uygulama eklemek ve bir SAML tabanlı oturum açmayı yapılandırın (seçerek **çoklu oturum açma** > **SAML** uygulama genel bakış sayfasında), Azure AD oluşturur bir üç yıl boyunca geçerli uygulama için sertifika. Güvenlik sertifikası etkin sertifikayı indirmek için (**.cer**) dosyası, bu sayfaya dönün (**SAML tabanlı oturum açma**) ve içinde bir indirme bağlantısı seçin **SAML imzalama sertifikası** başlığı. Ham (ikili) sertifikası veya Base64 (taban 64 ile kodlanmış metin) arasında seçim yapabilirsiniz. Galeri uygulamaları için bu bölümde Ayrıca sertifikayı Federasyon meta verileri XML dosyası indirmek için bir bağlantı gösterebilir (bir **.xml** dosyası), uygulamanın gereksinim bağlı olarak.
+Ne zaman galeriden yeni bir uygulama eklemek ve bir SAML tabanlı oturum açmayı yapılandırın (seçerek **çoklu oturum açma** > **SAML** uygulama genel bakış sayfasında), Azure AD oluşturur bir üç yıl boyunca geçerli uygulama için sertifika. Güvenlik sertifikası etkin sertifikayı indirmek için ( **.cer**) dosyası, bu sayfaya dönün (**SAML tabanlı oturum açma**) ve içinde bir indirme bağlantısı seçin **SAML imzalama sertifikası** başlığı. Ham (ikili) sertifikası veya Base64 (taban 64 ile kodlanmış metin) arasında seçim yapabilirsiniz. Galeri uygulamaları için bu bölümde Ayrıca sertifikayı Federasyon meta verileri XML dosyası indirmek için bir bağlantı gösterebilir (bir **.xml** dosyası), uygulamanın gereksinim bağlı olarak.
 
 ![SAML etkin imzalama sertifikası yükleme seçenekleri](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
-Etkin veya etkin olmayan bir sertifika seçerek de indirebilirsiniz **SAML imzalama sertifikası** başlık **Düzenle** görüntüler (bir kalem), simge **SAML imzalama sertifikası** sayfası. Öğesinin üç noktasını (**...** ) indirin ve ardından hangi sertifika biçimi istediğiniz sertifikanın yanındaki istediğiniz. Sertifikayı gizliliği artırılmış posta (PEM) biçiminde indirmek için ek bir seçeneğiniz vardır. Base64 için bu biçim aynıdır ancak bir **.pem** dosya adı uzantısı, Windows Sertifika biçimi olarak tanınmıyor.
+Etkin veya etkin olmayan bir sertifika seçerek de indirebilirsiniz **SAML imzalama sertifikası** başlık **Düzenle** görüntüler (bir kalem), simge **SAML imzalama sertifikası** sayfası. Öğesinin üç noktasını ( **...** ) indirin ve ardından hangi sertifika biçimi istediğiniz sertifikanın yanındaki istediğiniz. Sertifikayı gizliliği artırılmış posta (PEM) biçiminde indirmek için ek bir seçeneğiniz vardır. Base64 için bu biçim aynıdır ancak bir **.pem** dosya adı uzantısı, Windows Sertifika biçimi olarak tanınmıyor.
 
 ![SAML imzalama sertifikası yükleme seçenekleri (etkin ve etkin olmayan)](./media/manage-certificates-for-federated-single-sign-on/all-certificate-download-options.png)
 
@@ -88,7 +88,7 @@ Ardından, doğru biçimde yeni sertifikayı indirip uygulamayı yükleyin ve Az
 
 3. Bölümündeki yönergeleri [galeri ve galeri dışı uygulamalar için otomatik olarak oluşturulan sertifika](#auto-generated-certificate-for-gallery-and-non-gallery-applications) bölümüne. Bu adım, kodlama biçimi uygulama tarafından karşıya yükleme için gerekli sertifika indirir.
 
-4. Yeni sertifikayı gece yarısında değil istediğiniz zaman geri dönüp **SAML imzalama sertifikası** sayfasında ve yeni kaydedilen sertifikayı satırda üç noktayı seçin (**...** ) seçip **sertifika etkin hale getirin**. Yeni sertifika durumu değişiklikleri **etkin**, ve daha önce etkin sertifika için bir durumunun değiştiğini **Inactive**.
+4. Yeni sertifikayı gece yarısında değil istediğiniz zaman geri dönüp **SAML imzalama sertifikası** sayfasında ve yeni kaydedilen sertifikayı satırda üç noktayı seçin ( **...** ) seçip **sertifika etkin hale getirin**. Yeni sertifika durumu değişiklikleri **etkin**, ve daha önce etkin sertifika için bir durumunun değiştiğini **Inactive**.
 
 5. SAML imzalama yükleyebilirsiniz. böylece, daha önce görüntülenen uygulamanın SAML oturum açma yapılandırma yönergeleri kodlama biçimi doğru sertifika aşağıdaki devam edin.
 
@@ -116,7 +116,7 @@ Süresi dolmak üzere bir sertifika ise, kullanıcılarınızın önemli kapalı
 
 2. Uygulamayı otomatik olarak bir sertifika geri alabilirsiniz, yeni sertifikayı etkin olarak aşağıdaki adımları izleyerek ayarlayın:
    1. Geri Git **SAML imzalama sertifikası** sayfası.
-   2. Yeni kaydedilen sertifikayı satırda üç noktayı seçin (**...** ) ve ardından **sertifika etkin hale getirin**.
+   2. Yeni kaydedilen sertifikayı satırda üç noktayı seçin ( **...** ) ve ardından **sertifika etkin hale getirin**.
    3. Sonraki iki adımı atlayın.
 
 3. Uygulamayı aynı anda yalnızca bir sertifika işleyebilir, bir sonraki adımı gerçekleştirmeniz için bir kapalı kalma süresi aralığı seçin. (Uygulama otomatik olarak yeni sertifikayı seçin değil, ancak birden fazla imzalama sertifikası işleyebilir, aksi halde, sonraki adıma dilediğiniz zaman gerçekleştirebilirsiniz.)

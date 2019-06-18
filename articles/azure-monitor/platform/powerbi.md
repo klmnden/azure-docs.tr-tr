@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/01/219
 ms.author: bwren
 ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234192"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure İzleyici günlük verilerini Power BI'a aktarma
@@ -36,7 +36,7 @@ Verileri içe aktarmak için bir [Log Analytics çalışma alanı](manage-access
 Oluşturarak başlayın bir [günlük sorgusu](../log-query/log-query-overview.md) Power BI veri kümesine doldurmak için istediğiniz verileri döndürür.  Sorguları dışarı aktar [Power Query (M) dil](https://msdn.microsoft.com/library/mt807488.aspx) Power BI Desktop tarafından kullanılabilir.
 
 1. [Log Analytics'te günlük sorgusu oluşturma](../log-query/get-started-portal.md) kümeniz için verileri ayıklamak için.
-2. Seçin **dışarı** > **Power BI sorgu (M)**.  Bu sorgu adlı bir metin dosyasına dışarı aktarır **PowerBIQuery.txt**. 
+2. Seçin **dışarı** > **Power BI sorgu (M)** .  Bu sorgu adlı bir metin dosyasına dışarı aktarır **PowerBIQuery.txt**. 
 
     ![Günlük araması dışarı aktarma](media/powerbi/export-analytics.png)
 

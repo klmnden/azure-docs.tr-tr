@@ -16,14 +16,14 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832508"
 ---
 # <a name="restore-an-app-in-azure"></a>Uygulamanızı Azure’a geri yükleme
-Bu makalede, uygulamanızı geri yükleme işlemini göstermektedir [Azure App Service](../app-service/overview.md) önceden yedeklediğiniz (bkz [uygulamanızı Azure'a yedekleme](manage-backup.md)). Uygulamanızı isteğe bağlı olarak bağlı veritabanlarıyla birlikte önceki bir duruma geri yükleyebilir veya özgün uygulamanızın bir yedeğini temel alan yeni bir uygulama oluşturabilirsiniz. Azure App Service, yedekleme ve geri yükleme için şu veritabanlarını destekler:
+Bu makalede, uygulamanızı geri yükleme işlemini göstermektedir [Azure App Service](../app-service/overview.md) önceden yedeklediğiniz (bkz [uygulamanızı Azure'a yedekleme](manage-backup.md)). Uygulamanızı kendi bağlantılı veritabanı isteğe bağlı bir önceki durumuna geri yükleme veya özgün uygulamanızın yedekleri birini temel alan yeni bir uygulama oluşturun. Azure App Service, yedekleme ve geri yükleme için şu veritabanlarını destekler:
 - [SQL Veritabanı](https://azure.microsoft.com/services/sql-database/)
 - [MySQL için Azure Veritabanı](https://azure.microsoft.com/services/mysql)
 - [PostgreSQL için Azure Veritabanı](https://azure.microsoft.com/services/postgresql)
@@ -60,7 +60,7 @@ Yedeklerden geri yükleme, çalışan uygulamalar için kullanılabilir **standa
    
     Seçebileceğiniz **var olan bir uygulamayı** aynı kaynak grubunda başka bir uygulama için uygulama yedeğini geri yüklemek için. Bu seçeneği kullanmadan önce başka bir uygulama kaynak grubunuzda bir uygulama yedeğini içinde tanımlanan yapılandırma veritabanı yansıtma ile oluşturmuş olmanız. Ayrıca oluşturabileceğiniz bir **yeni** içeriğinize geri yüklemek için uygulama.
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**'ı tıklatın.
 
 <a name="StorageAccount"></a>
 

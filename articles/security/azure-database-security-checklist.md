@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: 424453e70e5b62e408f408cd5ae8169cddb14dd7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121700"
 ---
 # <a name="azure-database-security-checklist"></a>Azure veritabanı güvenlik denetim listesi
@@ -34,7 +34,7 @@ Bunlar:
 -   Access management kullanma
 -   Veri şifrelemesi
 -   SQL Veritabanı denetimi
--   SQL Veritabanı tehdit algılama
+-   SQL veritabanı tehdit algılama
 
 ## <a name="introduction"></a>Giriş
 Bulut bilgi işlem birçok uygulama kullanıcıları, Veritabanı yöneticileri ve programcıların bilginiz yeni güvenlik paradigmalarını gerektirir. Sonuç olarak, bazı kuruluşlar, bir bulut altyapısı için algılanan güvenlik riskleri nedeniyle veri yönetimi uygulamak bunu yapamıyor. Ancak, bu sorunu çoğunu aracılığıyla Microsoft Azure ve Microsoft Azure SQL veritabanı yerleşik güvenlik özelliklerinin daha iyi bir anlayış alleviated.

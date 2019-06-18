@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61244238"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Media Encoder Standard ve .NET kullanarak küçük resim oluşturma 
@@ -558,7 +558,7 @@ Aşağıdaki maddeler geçerlidir:
     Karışık ve yazarken gösterimler Lütfen eşleşen.
     
     Ayrıca, başlangıç özel makro de destekler: {, hangi içerik Not ilk "ilginç" çerçevesini belirlemeye çalışır en iyi}: (Başlangıç {iyi} olarak ayarlandığında adım ve aralığı göz ardı edilir)
-  * Varsayılanlar: Başlangıç: {en iyi}
+  * Varsayılan olarak: Başlangıç: {en iyi}
 * Çıkış biçimi için her görüntü biçimi açıkça sağlanması gerekir: Jpg/Png/BmpFormat. MES JpgVideo JpgFormat için mevcut olduğunda, vb. ile eşleşir. Yeni bir görüntü codec bileşeni belirli makrosu OutputFormat sunar: {Index} olması gereken sunar (bir kez ve yalnızca bir kez) görüntü için Çıkış biçimleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar

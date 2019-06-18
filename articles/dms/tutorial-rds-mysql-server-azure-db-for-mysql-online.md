@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: e971fd160a43be088f6d3c4a9fb6fddc7dd769b0
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 09b90f4b53750b94c0ecee7290d6b5405c984ff9
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415683"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154874"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Öğretici: RDS Mysql'i MySQL için Azure veritabanı'na geçirme çevrimiçi DMS kullanarak
 
@@ -116,7 +116,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
         WHERE
           KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
           AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-      AND KCU.REFERENCED_TABLE_SCHEMA = ['SchemaName') Queries
+      AND KCU.REFERENCED_TABLE_SCHEMA = ('SchemaName') Queries
       GROUP BY SchemaName;
     ```
 
@@ -145,7 +145,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 3. "migration" araması yapın ve **Microsoft.DataMigration** öğesinin sağ tarafındaki **Kaydet**'i seçin.
 
-    ![Kaynak sağlayıcısını kaydet](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-register-resource-provider.png)
+    ![Kaynak sağlayıcısını kaydetme](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-register-resource-provider.png)
 
 ## <a name="create-an-instance-of-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti örneği oluşturma
 

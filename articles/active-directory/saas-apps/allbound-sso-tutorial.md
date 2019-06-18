@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8f06fa6d387cfb8ec01437e6a6aa9925907a45b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d25c4e0bbde7c8bc5004d4d1335a18ee7f61d6c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864247"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Öğretici: Allbound SSO ile Azure Active Directory Tümleştirme
 
@@ -54,7 +54,7 @@ Azure AD'de Allbound SSO tümleştirmesini yapılandırmak için Allbound SSO Ga
 
 **Galeriden Allbound SSO eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

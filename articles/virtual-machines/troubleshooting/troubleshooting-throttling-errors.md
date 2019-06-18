@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
 ms.openlocfilehash: efa10f5beae64105857b00b186683d491edb00f5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233773"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API azaltma hatalarının sorunlarını giderme 
@@ -32,7 +32,7 @@ Bir Azure API istemcisini bir kısıtlama hatası girdiğinde, HTTP 429 çok faz
 
 ## <a name="call-rate-informational-response-headers"></a>Çağrı hızı bilgilendirici bir yanıt üstbilgileri 
 
-| Üst bilgi                            | Değeri biçimi                           | Örnek                               | Açıklama                                                                                                                                                                                               |
+| Üstbilgi                            | Değeri biçimi                           | Örnek                               | Açıklama                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-kalan-kaynak |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Bu istek hedefi de dahil olmak üzere kaynak demetine veya işlem grubu kapsayan azaltma ilkesi için kalan API çağrısı sayısı                                                                   |
 | x-ms-istek-ücretsiz               | ```<count>```                             | 1                                     | Bu geçerli ilkenin sınırı yönelik HTTP isteği için "dolu" çağrısı sayısını sayar. Bu çoğunlukla 1'dir. Toplu istekleri, örneğin bir sanal makine ölçek kümesi ölçeklendirme birden çok sayıları ücret. |
@@ -89,7 +89,7 @@ Bir anda Çözümleyicisi (desteklemek üzere yönetilen diskler) disk ve anlık
 PowerShell cmdlet'leri (desteğiyle hiç biçimsel ancak henüz) doğrudan istemcileri tarafından kolayca çağrılabilen REST hizmeti API'si kullanmaktadır. Cmdlet'leri HTTP istek biçimini görmek için bunların yürütme Fiddler ile hata ayıklama anahtarı veya gözetleme - ile çalıştırın.
 
 
-## <a name="best-practices"></a>En iyi yöntemler 
+## <a name="best-practices"></a>En iyi uygulamalar 
 
 - Azure hizmet API hatalarını koşulsuz olarak ve/veya hemen yeniden denemeyin. Yeniden deneme mümkün olmayan bir hata ile karşılaşıldığında hızlı yeniden deneme döngüsünde almak için istemci kodu buna yaygın bir durumdur. Yeniden deneme sonunda hedef işlem grubu için izin verilen çağrısı sınırı tüketebilir ve diğer istemciler aboneliğin etkiler. 
 - Yüksek hacimli API Otomasyon durumlarda, bir hedef işlem grubu için kullanılabilir çağrı sayısı düşük bazı eşiğinin altına düştüğünde proaktif istemci-tarafı Self kısıtlama uygulama göz önünde bulundurun. 

@@ -17,10 +17,10 @@ ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 72d1c4d2ea3adf7d8751adfbb013435f8f2530f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125755"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Azure portalını kullanarak sanal makine (Klasik) için özel IP adreslerini yapılandırın
@@ -61,7 +61,7 @@ Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Bir sanal makine için statik özel IP adresi bilgilerini alma
 Yukarıdaki adımları ile oluşturulan sanal makine için statik özel IP adresi bilgilerini görüntülemek için aşağıdaki adımları yürütün.
 
-1. Azure portalından seçin **TÜMÜNE Gözat** > **sanal makineler (Klasik)** > **DNS01** > **tüm ayarları** > **IP adresleri** ve aşağıda görüldüğü gibi IP adresi ve IP adresi ataması dikkat edin.
+1. Azure portalından seçin **TÜMÜNE Gözat** > **sanal makineler (Klasik)**  > **DNS01** > **tüm ayarları** > **IP adresleri** ve aşağıda görüldüğü gibi IP adresi ve IP adresi ataması dikkat edin.
    
     ![Azure portalını kullanarak VM oluşturma](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 

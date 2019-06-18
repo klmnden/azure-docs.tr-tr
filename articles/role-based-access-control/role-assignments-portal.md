@@ -15,10 +15,10 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60533170"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>RBAC ve Azure portalını kullanarak Azure kaynaklarına erişimi yönetme
@@ -69,13 +69,13 @@ Karar vermek için gereken ilk şey, erişim denetimi (IAM) dikey penceresini a�
 
 1. Belirli kaynak'ı tıklatın.
 
-1. Tıklayın **erişim denetimi (IAM)**.
+1. Tıklayın **erişim denetimi (IAM)** .
 
     Erişim denetimi (IAM) dikey penceresinde bir abonelik için bir örneğini gösterir. Tüm erişim denetimi değişiklikler yaparsanız, bunlar tüm aboneliğiniz için geçerli.
 
     ![Erişim denetimi (IAM) dikey penceresinde bir abonelik için](./media/role-assignments-portal/access-control-subscription.png)
 
-## <a name="view-roles-and-permissions"></a>Rolleri ve izinleri görüntüleyin
+## <a name="view-roles-and-permissions"></a>Görünüm rolleri ve izinleri
 
 Rol tanımı, rol atamaları için kullandığınız izin koleksiyonudur. Azure üzerinde sahip 70 [Azure kaynakları için yerleşik roller](built-in-roles.md). Kullanılabilir roller ve izinler görüntülemek için aşağıdaki adımları izleyin.
 
@@ -127,7 +127,7 @@ Tek bir kullanıcı, Grup, hizmet sorumlusu veya belirli bir kapsamda yönetilen
 
    Rol atamaları sekmesinde bu kapsamda kimlerin erişimi olduğunu görebilirsiniz. Bazı rollerin kapsamı **Bu kaynak** olarak belirlenmişken diğerlerinin başka bir kapsamdan **(Devralınmış)** olduğuna dikkat edin. Erişim özellikle bu kaynağa atanmış veya üst kapsama bir atamadan devralınmış.
 
-## <a name="add-a-role-assignment"></a>Rol ataması ekleme
+## <a name="add-a-role-assignment"></a>Rol ataması Ekle
 
 RBAC, erişim vermek için bir rol bir kullanıcı, Grup, hizmet sorumlusu veya yönetilen kimlik atayın. Farklı kapsamlarda erişim vermek için aşağıdaki adımları izleyin.
 
@@ -161,7 +161,7 @@ Bir kullanıcının bir Azure aboneliğinin bir yöneticisi olmak için bunları
 
 1. Erişim vermek istediğiniz aboneliğe tıklayın.
 
-1. Tıklayın **erişim denetimi (IAM)**.
+1. Tıklayın **erişim denetimi (IAM)** .
 
 1. Tıklayın **rol atamaları** Bu abonelik için tüm rol atamalarını görüntülemek için sekmesinde.
 
@@ -208,4 +208,4 @@ RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir. Erişim
 * [Öğretici: RBAC ve Azure portalını kullanarak Azure kaynaklarına kullanıcı erişimi](quickstart-assign-role-user-portal.md)
 * [Öğretici: RBAC ve Azure PowerShell kullanarak Azure kaynaklarına kullanıcı erişimi](tutorial-role-assignments-user-powershell.md)
 * [RBAC, Azure kaynakları için sorun giderme](troubleshooting.md)
-* [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../governance/management-groups/index.md)
+* [Kaynaklarınızı Azure Yönetim grupları ile düzenleme](../governance/management-groups/index.md)

@@ -3,19 +3,19 @@ title: Konuşma kapsayıcılar'ı yapılandırma
 titleSuffix: Azure Cognitive Services
 description: Konuşma kapsayıcı
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.author: diberry
-ms.openlocfilehash: e2ed29bb61f553f68b9f9802884169361d5d983f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 2dd1769d2d0a940176fb51954f44859cb42f30d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797919"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072433"
 ---
 # <a name="configure-speech-service-containers"></a>Konuşma hizmeti kapsayıcıları yapılandırın
 
@@ -80,7 +80,7 @@ Konak bağlama konumu söz dizimi konak işletim sistemine göre değişir. Ayr�
 
 |İsteğe bağlı| Ad | Veri türü | Açıklama |
 |-------|------|-----------|-------------|
-|İzin verilmedi| `Input` | String | Konuşma kapsayıcıları bu kullanmayın.|
+|İzin verilmiyor| `Input` | String | Konuşma kapsayıcıları bu kullanmayın.|
 |İsteğe bağlı| `Output` | String | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. Bu günlükler konumdur. Bu, kapsayıcı günlükleri içerir. <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Örnek docker komutlarını çalıştırın 

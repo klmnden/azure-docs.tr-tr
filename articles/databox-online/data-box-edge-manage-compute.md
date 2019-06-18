@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953129"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>İşlem, Azure veri kutusu edge'de yönetme
@@ -34,7 +34,7 @@ Bulut ortamınızda veya Cihazınızda üzerinde işlem gerçekleştirmek isteye
 - **Zamanlanmış**: Bu tetikleyiciler, yanıt olarak başlangıç tarihi, başlangıç saati ve yineleme aralığı ile tanımladığınız bir planlamada olan.
 
 
-### <a name="add-a-trigger"></a>Tetikleyici ekleyin
+### <a name="add-a-trigger"></a>Bir tetikleyici ekleme
 
 Bir tetikleyici oluşturmak için Azure portalında aşağıdaki adımları uygulayın.
 

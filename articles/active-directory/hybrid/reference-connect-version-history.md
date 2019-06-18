@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 235877ac8f84e695e5f81770d33b6fed89a5f241
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: fafd853250ed76b49b66b86ffda9c91240c8ce48
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298789"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109166"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -408,7 +408,7 @@ Bir geliştirme önerilen izni altında açıklandığı gibi bölümü değişt
 *   Kendi KENDİNE özgü ACE dışında belirli nesne üzerindeki tüm ACE kaldırın. Kendi KENDİNE söz konusu olduğunda, varsayılan izinleri korumak istiyoruz.
 *   Bu özel izinler atayın:
 
-Type     | Ad                          | Access               | İçin geçerlidir
+Tür     | Ad                          | Access               | İçin geçerlidir
 ---------|-------------------------------|----------------------|--------------|
 İzin Ver    | SİSTEM                        | Tam Denetim         | Bu nesne  |
 İzin Ver    | Kuruluş Yöneticileri             | Tam Denetim         | Bu nesne  |

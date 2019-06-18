@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689706"
 ---
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[1612105]:https://launchpad.support.sap.com/#/notes/1612105
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2233094]: https://launchpad.support.sap.com/#/notes/2233094
+[1612105]: https://launchpad.support.sap.com/#/notes/1612105
 
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
@@ -158,7 +158,7 @@ Seçilen işletim sistemi için IBM Db2 LUW IBM/SAP tarafından desteklendiğind
     + Kullanılabilirlik kümesi için en fazla bir güncelleme etki alanlarının 2 olarak ayarlayın.
 1. 1 sanal makine oluşturun.
     + SLES SAP görüntüsünü Azure Marketi'nde kullanın.
-    + 3. adımda oluşturduğunuz Azure kullanılabilirlik kümesi seçin veya kullanılabilirlik bölgesi seçin.
+    + 3\. adımda oluşturduğunuz Azure kullanılabilirlik kümesi seçin veya kullanılabilirlik bölgesi seçin.
 1.  2 sanal makine oluşturun.
     + SLES SAP görüntüsünü Azure Marketi'nde kullanın.
     + Size 3. adımda oluşturulan veya kullanılabilirlik bölgesi (değil aynı bölge 3. adım olduğu gibi) seçin, Azure kullanılabilirlik kümesi seçin.
@@ -338,8 +338,8 @@ Bir düğüm hatası durumunda otomatik yük devretme için Pacemaker kullandı�
 Aşağıdaki öğeler ile önek:
 
 - **[A]** : Tüm düğümler için geçerlidir
-- **[1]**: Yalnızca 1 düğümü geçerlidir 
-- **[2]**: Yalnızca düğüm 2 için geçerlidir
+- **[1]** : Yalnızca 1 düğümü geçerlidir 
+- **[2]** : Yalnızca düğüm 2 için geçerlidir
 
 **[A]**  Pacemaker yapılandırma önkoşulları:
 1. Her iki kullanıcı db2 veritabanı sunucularıyla kapatma\<SID > db2stop ile.
@@ -595,8 +595,8 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **CRM kaynağını geçir \<res_name > <host>:** Konum kısıtlamaları oluşturur ve devralma ile sorunlara neden olabilir
-- **CRM kaynak Temizle \<res_name >**: Konum kısıtlamaları temizler
-- **CRM kaynak Temizleme \<res_name >**: Kaynağın tüm hataları temizler
+- **CRM kaynak Temizle \<res_name >** : Konum kısıtlamaları temizler
+- **CRM kaynak Temizleme \<res_name >** : Kaynağın tüm hataları temizler
 
 ### <a name="test-the-fencing-agent"></a>Sınır Aracısı'nı test edin
 

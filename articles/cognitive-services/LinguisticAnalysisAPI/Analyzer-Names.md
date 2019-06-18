@@ -12,10 +12,10 @@ ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954711"
 ---
 # <a name="analyzer-names"></a>Çözümleyici adları
@@ -31,7 +31,7 @@ Her bileşenin rol aşağıda tanımlanmıştır.
 İlk olarak, bir çözümleyici benzersiz bir kimlik vardır; bir GUID.
 Bu Guıd'lar, nispeten ender olarak değiştirmeniz gerekir, ancak belirli bir çözümleyici benzersiz şekilde tanımlamak için tek yoludur.
 
-## <a name="kind"></a>Tür
+## <a name="kind"></a>tür
 Ardından, her Çözümleyicisi olduğu bir **tür**.
 Bu analiz türünü döndürdü ve bu analizin temsil etmek için kullanılan veri yapısını benzersiz şekilde tanımlamalıdır çok geniş koşullarını tanımlar.
 Şu anda üç farklı tür vardır:

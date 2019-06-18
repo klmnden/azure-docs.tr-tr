@@ -1,5 +1,5 @@
 ---
-title: Azure AD dağıtım denetim listesi
+title: Azure AD dağıtımı denetim listesi
 description: Azure Active Directory özellik dağıtım denetim listesi
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e668a5238859d8cd8c2a7797200a12197ce72be9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235135"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110465"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory özelliği dağıtım kılavuzu
 
@@ -37,7 +37,7 @@ Lisanslama hakkında ek bilgiler aşağıdaki sayfalarda bulunabilir:
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Azure AD B2B lisanslama Kılavuzu](../b2b/licensing-guidance.md)
 
-## <a name="phase-1-build-a-foundation-of-security"></a>1. Aşama: Bir kuruluş güvenlik yapılandırması
+## <a name="phase-1-build-a-foundation-of-security"></a>1\. Aşama: Bir kuruluş güvenlik yapılandırması
 
 Bu aşamada, yöneticilerin almak veya normal kullanıcı hesapları oluşturmadan önce Azure AD'de daha güvenli ve kullanımı kolay bir temel oluşturmak temel güvenlik özellikleri sağlar. Bu temel aşama başından itibaren daha güvenli bir durumda olduğunu ve kullanıcılarınız yalnızca bir kez için yeni kavramları tanıtılmak üzere olmasını sağlar.
 
@@ -58,7 +58,7 @@ Bu aşamada, yöneticilerin almak veya normal kullanıcı hesapları oluşturmad
 | [Çok faktörlü kimlik doğrulaması ve parola değişiklikleri tetiklemek için risk olayları kullanın](../authentication/tutorial-risk-based-sspr-mfa.md) | Çok faktörlü kimlik doğrulaması, parola sıfırlama ve oturum açma riskine bağlı olarak, engelleme gibi olayları tetikleyebilir otomasyonunu etkinleştirme. | Azure AD Premium P2 |
 | [Self Servis parola sıfırlama ve Azure AD multi-Factor Authentication (Önizleme) için yakınsanmış kaydını etkinleştirin](../authentication/concept-registration-mfa-sspr-converged.md) | Azure multi-Factor Authentication hem de Self Servis parola sıfırlama için bir ortak deneyiminden kaydedin açmasına imkan tanıyın. | Azure AD Premium P1 |
 
-## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>2. Aşama: Kullanıcıları içeri aktarmak, eşitlemeyi etkinleştirme ve cihazları yönetme
+## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>2\. Aşama: Kullanıcıları içeri aktarmak, eşitlemeyi etkinleştirme ve cihazları yönetme
 
 Ardından, kullanıcılarımıza alma ve etkinleştirme 1. Aşama düzenlenir Foundation ekleriz Konuk erişimi için planlama ve ek işlevleri destekleyecek şekilde hazırlama eşitleme.
 
@@ -73,7 +73,7 @@ Ardından, kullanıcılarımıza alma ve etkinleştirme 1. Aşama düzenlenir Fo
 | [Cihaz yönetim stratejinize karar verin](../devices/overview.md) | Kuruluşunuzun cihazları ile ilgili ne verdiği karar verin. Birleştirme, kendi cihazını Getir vs bir vs kaydetme şirket sağlanır. | |
 | [Windows iş için Hello, kuruluşunuzda dağıtma](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Windows Hello'yu kullanarak parola olmadan kimlik doğrulaması için hazırlama | |
 
-## <a name="phase-3-manage-applications"></a>3. Aşama: Uygulamaları yönetme
+## <a name="phase-3-manage-applications"></a>3\. Aşama: Uygulamaları yönetme
 
 Önceki aşamalarına derleme devam ederken, biz geçiş ve Azure AD ile tümleştirme için aday uygulamaları belirlemek ve söz konusu uygulamaların Kurulumu tamamlayın.
 
@@ -83,9 +83,9 @@ Ardından, kullanıcılarımıza alma ve etkinleştirme 1. Aşama düzenlenir Fo
 | [Galerideki desteklenen SaaS uygulamalarını tümleştirme](../manage-apps/add-application-portal.md) | Azure AD binlerce önceden tümleştirilmiş uygulamalar içeren bir galeri var. Kuruluşunuzun kullandığı uygulamalar büyük olasılıkla doğrudan Azure portalından erişilebilir galerisinde bazılarıdır. | Azure AD Ücretsiz |
 | [Şirket içi uygulamalarını tümleştirmek için uygulama proxy'si kullanın](../manage-apps/application-proxy-add-on-premises-application.md) | Uygulama proxy'si, kullanıcıların kendi Azure AD hesabıyla oturum açarak şirket uygulamalarına erişmelerini sağlar. | Azure AD Basic |
 
-## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>4. Aşama: Ayrıcalıklı kimlikleri Denetim erişim değerlendirmesi tamamlama ve kullanıcı yaşam döngüsünü yönetme
+## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>4\. Aşama: Ayrıcalıklı kimlikleri Denetim erişim değerlendirmesi tamamlama ve kullanıcı yaşam döngüsünü yönetme
 
-4. aşaması, yöneticilerin yönetimi için en az ayrıcalık ilkeleri zorunlu, kendi ilk erişim gözden geçirmeleri tamamlanıyor ve yaygın kullanıcı yaşam döngüsü görevlerini otomasyonunu etkinleştirme görür.
+4\. aşaması, yöneticilerin yönetimi için en az ayrıcalık ilkeleri zorunlu, kendi ilk erişim gözden geçirmeleri tamamlanıyor ve yaygın kullanıcı yaşam döngüsü görevlerini otomasyonunu etkinleştirme görür.
 
 | Görev | Ayrıntı | Gerekli lisans |
 | ---- | ------ | ---------------- |

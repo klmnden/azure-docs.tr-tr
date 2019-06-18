@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65949618"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Sorunsuz bir akış Windows Store uygulaması oluşturma  
@@ -47,7 +47,7 @@ Tamamlanan çözümü her ders için MSDN geliştirici kodu örnekleri (kod Gale
 * [Ders 3](https://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - Windows 8 sorunsuz bir akış Media Player ile Stream seçimi  
 * [Ders 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - Windows 8 sorunsuz bir parça seçimi Media Player akış.
 
-## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>1. Ders: Bir temel kesintisiz akış Store uygulaması oluşturma
+## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>1\. Ders: Bir temel kesintisiz akış Store uygulaması oluşturma
 
 Bu derste, bir Windows Store uygulaması kesintisiz Stream yürütülecek MediaElement denetimi içerik oluşturacaksınız.  Çalışan uygulamayı şu şekilde görünür:
 
@@ -75,7 +75,7 @@ Windows Store uygulaması geliştirme hakkında daha fazla bilgi için bkz. [gel
     | Çözüm adı |SSPlayer |
     | Çözüm için dizin oluştur |(Seçili) |
 
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**'ı tıklatın.
 
 ### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Kesintisiz akış istemci SDK'sına bir başvuru eklemek için
 
@@ -87,7 +87,7 @@ Windows Store uygulaması geliştirme hakkında daha fazla bilgi için bkz. [gel
     | Başvuru grubu |Windows ve uzantıları |
     | Başvuru |Microsoft kesintisiz akış istemci SDK'sı Windows 8 ve Microsoft Visual C++ çalışma zamanı paketi için seçin |
 
-1. **Tamam**'ı tıklatın. 
+1. **Tamam** düğmesine tıklayın. 
 
 Başvuru ekledikten sonra hedef Platformu (x64 veya x86) seçmeniz gerekir, ekleyerek başvuruları için herhangi bir CPU platform yapılandırması çalışmaz.  Çözüm Gezgini'nde, sarı bir uyarı işareti şu başvuru eklendi görürsünüz.
 
@@ -222,7 +222,7 @@ Tamamlanmış arka plan kod dosyasında şöyle:
 
 Lesson1 tamamladınız.  Bu derste, kesintisiz akış içeriği kayıttan MediaElement denetimi kullanın.  Sonraki derste, kesintisiz akış içeriği, ilerleme durumunu denetlemek için bir kaydırıcı ekleyeceksiniz.
 
-## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>2. Ders: Medya ilerleme durumunu denetlemek için bir kaydırıcı çubuğu Ekle
+## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>2\. Ders: Medya ilerleme durumunu denetlemek için bir kaydırıcı çubuğu Ekle
 
 Ders 1'de, kayıttan yürütme kesintisiz akış medya içeriği için bir MediaElement XAML denetimi ile bir Windows Store uygulaması oluşturdunuz.  Bu, başlatma, durdurma ve duraklatma gibi bazı temel medya işlevleri birlikte gelir.  Bu derste, uygulamayı bir kaydırıcı çubuğu denetimi ekleyeceksiniz.
 
@@ -542,7 +542,7 @@ Aynı olayları, uygulamadaki tüm ortam öğeleri için ortak işlevselliği i�
 
 Ders 2 tamamladınız.  Bu derste bir kaydırıcı uygulamaya eklenir. 
 
-## <a name="lesson-3-select-smooth-streaming-streams"></a>3. Ders: Kesintisiz akış akışları seçin
+## <a name="lesson-3-select-smooth-streaming-streams"></a>3\. Ders: Kesintisiz akış akışları seçin
 Kesintisiz akış, içerik akışı görüntüleyicileri tarafından seçilebilir birden çok dil ses izleri ile yeteneğine sahiptir.  Bu derste, akışları seçilecek görüntüleyiciler olanak tanır. Bu ders, aşağıdaki yordamları içerir:
 
 1. XAML dosyasını değiştirme
@@ -819,7 +819,7 @@ Kesintisiz akış, içerik akışı görüntüleyicileri tarafından seçilebili
 
 Ders 3 tamamladınız.  Bu derste, akışları seçmek için işlevselliği ekleyin.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>4. Ders: Kesintisiz akış parçaları seçin
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>4\. Ders: Kesintisiz akış parçaları seçin
 
 Birden fazla video dosyaları farklı kalite düzeylerine (bit hızlarında) ve çözümleri ile kodlanmış kesintisiz akış sunu içerebilir. Bu derste, parçalar seçmek kullanıcıların olanak sağlar. Bu ders, aşağıdaki yordamları içerir:
 
@@ -1027,7 +1027,7 @@ Ders 4 tamamladınız.  Bu derste, parçaları seçmek için işlevselliği ekle
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Geri bildirim gönder
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Diğer kaynaklar:

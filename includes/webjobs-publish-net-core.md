@@ -9,10 +9,10 @@ ms.date: 02/19/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 97387e24d5b55c1438a69da1a1fd0a9bc1720e47
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66136158"
 ---
 1. **Çözüm Gezgini**'nde projeye sağ tıklayın ve **Yayımla**'yı seçin.

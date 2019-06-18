@@ -1,5 +1,5 @@
 ---
-title: Bot - Node.js - v4
+title: Dil anlama Bot Node.js v4
 titleSuffix: Azure Cognitive Services
 description: Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturun. Bu sohbet robotu, bir robot çözümünü kısa sürede gerçekleştirmek için İnsan Kaynakları uygulamasını kullanır. Robot, Bot Framework 4 sürümü ve Azure Web uygulaması robotu ile geliştirilmiştir.
 services: cognitive-services
@@ -9,26 +9,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 06/15/2019
 ms.author: diberry
-ms.openlocfilehash: 54bae5548764ed1f89a2ffb7992eb222a058c706
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 832a62c5cc5440d81f4b92d2463a563f5bb884a3
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194163"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150872"
 ---
-# <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Öğretici: Node.js'de LUIS bot ile Bot Framework 4.x ve Azure Web app botu
-Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturabilirsiniz. Bu robot, bir robot çözümü gerçekleştirmek için HomeAutomation uygulamasını kullanır. Robot, [Bot Framework sürümü](https://github.com/Microsoft/botbuilder-js) v4 ile Azure [Web uygulaması robotu](https://docs.microsoft.com/azure/bot-service/) kullanılarak geliştirilmiştir.
+# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Öğretici: Node.js'de Language Understanding ile etkin bir Web App Botu kullanın 
 
-**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
+Dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturmak için node.js kullanma. Bot, Azure ile yerleşik [Web app botu](https://docs.microsoft.com/azure/bot-service/) kaynak ve [Bot Framework sürümü](https://github.com/Microsoft/botbuilder-dotnet) V4.
+
+**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
 
 > [!div class="checklist"]
 > * Web uygulaması robotu oluşturma. Bu işlem sizin için yeni bir LUIS uygulaması oluşturur.
-> * Yeni LUIS modeline önceden oluşturulmuş bir etki alanı ekleme
-> * Web robot hizmeti tarafından oluşturulan projeyi indirme
+> * Web bot hizmeti tarafından oluşturulan robot projesini indirin
 > * Robotu ve öykünücüyü bilgisayarınızda yerel olarak başlatma
-> * Yeni LUIS amaçları için robot kodunu değiştirme
 > * Robotta konuşma sonuçlarını görüntüleme
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -37,13 +36,13 @@ Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşt
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
 
-## <a name="create-web-app-bot"></a>Web uygulaması robotu oluşturma
+## <a name="create-a-web-app-bot-resource"></a>Bir web app botu kaynak oluştur
 
 1. [Azure portalda](https://portal.azure.com) **Yeni kaynak oluştur**'u seçin.
 
-2. Arama kutusunda **Web Uygulaması Robotu**'nu arayın ve bunu seçin. **Oluştur**’u seçin.
+1. Arama kutusunda **Web Uygulaması Robotu**'nu arayın ve bunu seçin. **Oluştur**’u seçin.
 
-3. **Robot Hizmeti**'nde gerekli bilgileri sağlayın:
+1. **Robot Hizmeti**'nde gerekli bilgileri sağlayın:
 
     |Ayar|Amaç|Önerilen ayar|
     |--|--|--|
@@ -55,309 +54,314 @@ Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşt
     |Uygulama adı|Ad, robotunuz buluta dağıtıldığında alt etki alanı olarak kullanılır (örneğin humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, örneğin `luis-nodejs-bot-johnsmith`|
     |Robot şablonu|Bot Framework ayarları - sonraki tabloya bakın|
     |LUIS Uygulaması konumu|LUIS kaynak bölgesi ile aynı olmalıdır|`westus`|
+    |App service planı/konumu|Sağlanan varsayılan değeri değiştirmeyin.|
+    |Application Insights|Sağlanan varsayılan değeri değiştirmeyin.|
+    |Microsoft uygulama kimliği ve parola|Sağlanan varsayılan değeri değiştirmeyin.|
 
-4. **Robot şablon ayarları**'nda aşağıdakileri seçin ve sonra da bu ayarların altındaki **Seç** düğmesini seçin:
+1. İçinde **Bot şablon**, aşağıdakileri seçin ve sonra seçin **seçin** düğmesi bu ayarlar altında:
 
     |Ayar|Amaç|Seçim|
     |--|--|--|
     |SDK sürümü|Robot Framework sürümü|**SDK v4**|
     |SDK dili|Robotun programlama dili|**Node.js**|
-    |Yankı/Temel robot|Robot türü|**Temel robot**|
+    |Bot|Robot türü|**Temel robot**|
     
-5. **Oluştur**’u seçin. Robot hizmetini oluşturur ve Azure'a dağıtır. Bu işlemin bir parçası olarak `luis-nodejs-bot-XXXX` adlı bir LUIS uygulaması oluşturulur. Buradaki ad, önceki bölümdeki robot ve uygulama adlarını temel alır.
+1. **Oluştur**’u seçin. Robot hizmetini oluşturur ve Azure'a dağıtır. Bu işlemin bir parçası olarak `luis-nodejs-bot-XXXX` adlı bir LUIS uygulaması oluşturulur. Bu ad /Azure Bot hizmeti uygulaması adınıza temel alır.
 
     [![Web app botu oluşturun](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
-6. Bu tarayıcı sekmesini açık bırakın. LUIS portalındaki her adım için yeni bir tarayıcı sekmesi açın. Yeni robot hizmet dağıtıldığında sonraki bölüme devam edin.
+    Bot hizmeti, devam etmeden önce oluşturulana kadar bekleyin.
 
-## <a name="add-prebuilt-domain-to-model"></a>Modele önceden oluşturulmuş etki alanı ekleme
-Robot hizmetinin dağıtımı sırasında amaçlar ve örnek konuşmalar içeren yeni bir LUIS uygulaması oluşturulur. Robot, yeni LUIS uygulamasına şu amaçlar için amaç eşlemesi sağlar: 
+## <a name="the-bot-has-a-language-understanding-model"></a>Bot, bir dil anlama modeli vardır
+
+Bot hizmeti oluşturma işlemi, ayrıca örnek konuşma amacı ile yeni bir LUIS uygulaması oluşturur. Robot, yeni LUIS uygulamasına şu amaçlar için amaç eşlemesi sağlar: 
 
 |Temel robot LUIS amaçları|örnek konuşma|
 |--|--|
-|İptal|`stop`|
-|Karşılama|`hello`|
-|Yardım|`help`|
+|Kitap uçuş|`Travel to Paris`|
+|İptal|`bye`|
 |None|Uygulamanın etki alanı dışındaki her şey.|
 
-Şunun gibi konuşmalar için önceden oluşturulmuş HomeAutomation uygulamasını modele ekleyin: `Turn off the living room lights`
+## <a name="test-the-bot-in-web-chat"></a>Bot Web Chat test edin.
 
-1. [LUIS](https://www.luis.ai) portalına gidin ve oturum açın.
-2. **Uygulamalarım** sayfasında, uygulamaları oluşturma tarihine göre sıralamak için **Oluşturma tarihi** sütununu seçin. Azure Robot hizmeti önceki bölümde yeni bir uygulama oluşturmuştu. Adı `luis-nodejs-bot-` + `<your-name>` + 4 rasgele karakterdir.
-3. Uygulamayı açın ve üst gezintide **Derle** bölümünü seçin.
-4. Sol gezintide **Önceden Oluşturulmuş Etki Alanları**'nı seçin.
-5. **HomeAutomation** etki alanını seçmek için, kartının üzerindeki **Etki alanı ekle**'yi seçin.
-6. Sağ üstteki menüde **Eğit**'i seçin.
-7. Sağ üstteki menüde **Yayımla**'yı seçin. 
+1. Yeni botu için Azure Portalı'nda hala seçin **Test Web sohbeti**. 
+1. İçinde **iletinizi yazın** metin, metin girin `hello`. Bot, bir uçuştaki paris'e kayıt gibi belirli LUIS modeline için örnek sorgular yanı sıra bot framework hakkındaki bilgilerle yanıt verir. 
 
-    Azure Robot hizmeti tarafından oluşturulan uygulamada artık yeni amaçlar bulunur:
+    ![Azure portal ekran görüntüsü, 'hello' metni girin.](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
 
-    |Temel robot yeni amaçları|örnek konuşma|
-    |--|--|
-    |HomeAutomation.TurnOn|`turn the fan to high`
-    |HomeAutomation.TurnOff|`turn off ac please`|
+    Botunuzun hızlı bir şekilde test etmek için test işlevleri kullanabilirsiniz. Daha fazla bilgi için hata ayıklama da dahil olmak üzere test tamamlamak bot kodu indirmek ve Visual Studio'yu kullanın. 
 
-## <a name="download-the-web-app-bot"></a>Web uygulaması robotunu indirme 
+## <a name="download-the-web-app-bot-source-code"></a>Web app botu kaynak kodunu indirebilir
 Web uygulaması robot kodunu geliştirmek için, yerel bilgisayarınızda kodu indirin ve kullanın. 
 
-1. Azure portalda, yine Web uygulama robotu kaynağında **Uygulama Ayarları**'nı seçin, sonra da **botFilePath** ve **botFileSecret** değerlerini kopyalayın. Bunları daha sonra bir ortam dosyasına eklemeniz gerekir. 
+1. Azure portalda, **Robot yönetimi** bölümünden **Derle**'yi seçin. 
 
-2. Azure portalda, **Robot yönetimi** bölümünden **Derle**'yi seçin. 
-
-3. **Robot kaynak kodunu indir**'i seçin. 
+1. **Robot kaynak kodunu indir**'i seçin. 
 
     [![Temel robot için Web app botu kaynak kodunu indirebilir](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-4. Kaynak kodu .zip dosyasına sıkıştırılmışsa, bir iletide kodu indirme bağlantısı sağlanır. Bağlantıyı seçin. 
+1. Açılır iletişim kutusu sorduğunda **uygulama ayarları indirilen ZIP dosyasına eklenecek?** seçin **Evet**.
 
-5. Bu .zip dosyasını yerel bilgisayarınıza kaydedin ve dosyaları ayıklayın. Projeyi açın. 
+1. Kaynak kodu .zip dosyasına sıkıştırılmışsa, bir iletide kodu indirme bağlantısı sağlanır. Bağlantıyı seçin. 
 
-6. Bot.js dosyasını açın ve `const results = await this.luisRecognizer.recognize(context);` ifadesini arayın. Robota girilen kullanıcı konuşmasının LUIS'e gönderildiği yer burasıdır.
+1. Bu .zip dosyasını yerel bilgisayarınıza kaydedin ve dosyaları ayıklayın. Projeyi Visual Studio ile açın. 
 
-   ```javascript
-    /**
-     * Driver code that does one of the following:
-     * 1. Display a welcome card upon startup
-     * 2. Use LUIS to recognize intents
-     * 3. Start a greeting dialog
-     * 4. Optionally handle Cancel or Help interruptions
-     *
-     * @param {Context} context turn context from the adapter
-     */
-    async onTurn(context) {
-        // Create a dialog context
-        const dc = await this.dialogs.createContext(context);
+## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Utterance LUIS için gönderme ve yanıt almak için kod gözden geçirme
 
-        if(context.activity.type === ActivityTypes.Message) {
-            // Perform a call to LUIS to retrieve results for the current activity message.
-            const results = await this.luisRecognizer.recognize(context);
-            
-            const topIntent = LuisRecognizer.topIntent(results);
+1. Açık **iletişim kutuları -> luisHelper.js** dosya. Robota girilen kullanıcı konuşmasının LUIS'e gönderildiği yer budur. LUIS gelen yanıt yönteminden döndürülen bir **bookDetails** JSON nesnesi. Kendi bot oluşturduğunuzda, ayrıca kendi nesne LUIS ayrıntılarını döndürecek şekilde oluşturmanız gerekir. 
 
-            // handle conversation interrupts first
-            const interrupted = await this.isTurnInterrupted(dc, results);
-            if(interrupted) {
-                return;
+    ```nodejs
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+    
+    const { LuisRecognizer } = require('botbuilder-ai');
+    
+    class LuisHelper {
+        /**
+         * Returns an object with preformatted LUIS results for the bot's dialogs to consume.
+         * @param {*} logger
+         * @param {TurnContext} context
+         */
+        static async executeLuisQuery(logger, context) {
+            const bookingDetails = {};
+    
+            try {
+                const recognizer = new LuisRecognizer({
+                    applicationId: process.env.LuisAppId,
+                    endpointKey: process.env.LuisAPIKey,
+                    endpoint: `https://${ process.env.LuisAPIHostName }`
+                }, {}, true);
+    
+                const recognizerResult = await recognizer.recognize(context);
+    
+                const intent = LuisRecognizer.topIntent(recognizerResult);
+    
+                bookingDetails.intent = intent;
+    
+                if (intent === 'Book_flight') {
+                    // We need to get the result from the LUIS JSON which at every level returns an array
+    
+                    bookingDetails.destination = LuisHelper.parseCompositeEntity(recognizerResult, 'To', 'Airport');
+                    bookingDetails.origin = LuisHelper.parseCompositeEntity(recognizerResult, 'From', 'Airport');
+    
+                    // This value will be a TIMEX. And we are only interested in a Date so grab the first result and drop the Time part.
+                    // TIMEX is a format that represents DateTime expressions that include some ambiguity. e.g. missing a Year.
+                    bookingDetails.travelDate = LuisHelper.parseDatetimeEntity(recognizerResult);
+                }
+            } catch (err) {
+                logger.warn(`LUIS Exception: ${ err } Check your LUIS configuration`);
             }
-
-            // Continue the current dialog
-            const dialogResult = await dc.continue();
-
-            switch(dialogResult.status) {
-                case DialogTurnStatus.empty:
-                    switch (topIntent) {
-                        case GREETING_INTENT:
-                            await dc.begin(GREETING_DIALOG);
-                            break;
-
-                        case NONE_INTENT:
-                        default:
-                            // help or no intent identified, either way, let's provide some help
-                            // to the user
-                            await dc.context.sendActivity(`I didn't understand what you just said to me. topIntent ${topIntent}`);
-                            break;
-                    }
-
-                case DialogTurnStatus.waiting:
-                    // The active dialog is waiting for a response from the user, so do nothing
-                break;
-
-                case DialogTurnStatus.complete:
-                    await dc.end();
-                    break;
-
-                default:
-                    await dc.cancelAll();
-                    break;
-
-            }
-
-        } else if (context.activity.type === 'conversationUpdate' && context.activity.membersAdded[0].name === 'Bot') {
-            // When activity type is "conversationUpdate" and the member joining the conversation is the bot
-            // we will send our Welcome Adaptive Card.  This will only be sent once, when the Bot joins conversation
-            // To learn more about Adaptive Cards, see https://aka.ms/msbot-adaptivecards for more details.
-            const welcomeCard = CardFactory.adaptiveCard(WelcomeCard);
-            await context.sendActivity({ attachments: [welcomeCard] });
+            return bookingDetails;
+        }
+    
+        static parseCompositeEntity(result, compositeName, entityName) {
+            const compositeEntity = result.entities[compositeName];
+            if (!compositeEntity || !compositeEntity[0]) return undefined;
+    
+            const entity = compositeEntity[0][entityName];
+            if (!entity || !entity[0]) return undefined;
+    
+            const entityValue = entity[0][0];
+            return entityValue;
+        }
+    
+        static parseDatetimeEntity(result) {
+            const datetimeEntity = result.entities['datetime'];
+            if (!datetimeEntity || !datetimeEntity[0]) return undefined;
+    
+            const timex = datetimeEntity[0]['timex'];
+            if (!timex || !timex[0]) return undefined;
+    
+            const datetime = timex[0].split('T')[0];
+            return datetime;
         }
     }
-    ```
-
-    Robot kullanıcının konuşmasını LUIS'e gönderir ve sonuçları alır. Konuşmanın akışını ilk amaç belirler. 
-
-
-## <a name="start-the-bot"></a>Robotu başlatma
-Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından emin olun. 
-
-1. Visual Studio Code'da bir terminal penceresi açın. 
-
-2. Bu robot için npm bağımlılıklarını yükleyin. 
-
-    ```bash
-    npm install
-    ```
-3. Robot kodunun aradığı ortam değişkenlerini barındıracak bir dosya oluşturun. Dosyayı `.env` olarak adlandırın. Aşağıdaki ortam değişkenlerini ekleyin:
-
-    <!--there is no code language that represents an .env file correctly-->
-    ```env
-    botFilePath=
-    botFileSecret=
-    ```
-
-    Ortam değişkenlerinin değerlerini **[Web uygulaması robotunu indirme](#download-the-web-app-bot)** bölümünün 1. Adımında Azure robot hizmetinin Uygulama Ayarları'ndan kopyaladığınız değerlere ayarlayın.
-
-4. Robotu izleme modunda başlatın. Bu başlatma sonrasında kodda yaptığınız tüm değişiklikler uygulamanın otomatik olarak yeniden başlatılmasına neden olur.
-
-    ```bash
-    npm run watch
-    ```
-
-5. Robot başlatıldığında, terminal penceresinde robotun üzerinde çalıştırıldığı yerel bağlantı noktası görüntülenir:
-
-    ```console
-    > basic-bot@0.1.0 start C:\Users\pattiowens\repos\BFv4\luis-nodejs-bot-src
-    > node ./index.js NODE_ENV=development
-
-    restify listening to http://[::]:3978
     
-    Get the Emulator: https://aka.ms/botframework-emulator
+    module.exports.LuisHelper = LuisHelper;
+    ```
+
+1. Açık **iletişim kutuları -> bookingDialog.js** BookingDetails nesne konuşma akışını yönetmek için nasıl kullanıldığını öğrenin. Seyahat ayrıntıları adımlarda istenir, ardından tüm kayıt Onaylandı ve son kullanıcıya geri yinelenir. 
+
+    ```nodejs
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
     
-    To talk to your bot, open the luis-nodejs-bot-pattiowens.bot file in the Emulator
+    const { TimexProperty } = require('@microsoft/recognizers-text-data-types-timex-expression');
+    const { ConfirmPrompt, TextPrompt, WaterfallDialog } = require('botbuilder-dialogs');
+    const { CancelAndHelpDialog } = require('./cancelAndHelpDialog');
+    const { DateResolverDialog } = require('./dateResolverDialog');
+    
+    const CONFIRM_PROMPT = 'confirmPrompt';
+    const DATE_RESOLVER_DIALOG = 'dateResolverDialog';
+    const TEXT_PROMPT = 'textPrompt';
+    const WATERFALL_DIALOG = 'waterfallDialog';
+    
+    class BookingDialog extends CancelAndHelpDialog {
+        constructor(id) {
+            super(id || 'bookingDialog');
+    
+            this.addDialog(new TextPrompt(TEXT_PROMPT))
+                .addDialog(new ConfirmPrompt(CONFIRM_PROMPT))
+                .addDialog(new DateResolverDialog(DATE_RESOLVER_DIALOG))
+                .addDialog(new WaterfallDialog(WATERFALL_DIALOG, [
+                    this.destinationStep.bind(this),
+                    this.originStep.bind(this),
+                    this.travelDateStep.bind(this),
+                    this.confirmStep.bind(this),
+                    this.finalStep.bind(this)
+                ]));
+    
+            this.initialDialogId = WATERFALL_DIALOG;
+        }
+    
+        /**
+         * If a destination city has not been provided, prompt for one.
+         */
+        async destinationStep(stepContext) {
+            const bookingDetails = stepContext.options;
+    
+            if (!bookingDetails.destination) {
+                return await stepContext.prompt(TEXT_PROMPT, { prompt: 'To what city would you like to travel?' });
+            } else {
+                return await stepContext.next(bookingDetails.destination);
+            }
+        }
+    
+        /**
+         * If an origin city has not been provided, prompt for one.
+         */
+        async originStep(stepContext) {
+            const bookingDetails = stepContext.options;
+    
+            // Capture the response to the previous step's prompt
+            bookingDetails.destination = stepContext.result;
+            if (!bookingDetails.origin) {
+                return await stepContext.prompt(TEXT_PROMPT, { prompt: 'From what city will you be travelling?' });
+            } else {
+                return await stepContext.next(bookingDetails.origin);
+            }
+        }
+    
+        /**
+         * If a travel date has not been provided, prompt for one.
+         * This will use the DATE_RESOLVER_DIALOG.
+         */
+        async travelDateStep(stepContext) {
+            const bookingDetails = stepContext.options;
+    
+            // Capture the results of the previous step
+            bookingDetails.origin = stepContext.result;
+            if (!bookingDetails.travelDate || this.isAmbiguous(bookingDetails.travelDate)) {
+                return await stepContext.beginDialog(DATE_RESOLVER_DIALOG, { date: bookingDetails.travelDate });
+            } else {
+                return await stepContext.next(bookingDetails.travelDate);
+            }
+        }
+    
+        /**
+         * Confirm the information the user has provided.
+         */
+        async confirmStep(stepContext) {
+            const bookingDetails = stepContext.options;
+    
+            // Capture the results of the previous step
+            bookingDetails.travelDate = stepContext.result;
+            const msg = `Please confirm, I have you traveling to: ${ bookingDetails.destination } from: ${ bookingDetails.origin } on: ${ bookingDetails.travelDate }.`;
+    
+            // Offer a YES/NO prompt.
+            return await stepContext.prompt(CONFIRM_PROMPT, { prompt: msg });
+        }
+    
+        /**
+         * Complete the interaction and end the dialog.
+         */
+        async finalStep(stepContext) {
+            if (stepContext.result === true) {
+                const bookingDetails = stepContext.options;
+    
+                return await stepContext.endDialog(bookingDetails);
+            } else {
+                return await stepContext.endDialog();
+            }
+        }
+    
+        isAmbiguous(timex) {
+            const timexPropery = new TimexProperty(timex);
+            return !timexPropery.types.has('definite');
+        }
+    }
+    
+    module.exports.BookingDialog = BookingDialog;
     ```
 
-## <a name="start-the-emulator"></a>Öykünücüyü başlatma
 
-1. Bot Emulator'ı başlatın. 
+## <a name="install-dependencies-and-start-the-bot-code-in-visual-studio"></a>Bağımlılıkları yükler ve bot kodu Visual Studio'da başlatma
 
-2. Robot öykünücüsünde, projenin kökündeki *.bot dosyasını seçin. Bu `.bot` dosyası robotun iletiler için URL uç noktasını içerir:
-
-    [![Bot öykünücü v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
-
-3. **[Web uygulaması robotunu indirme](#download-the-web-app-bot)** bölümünün 1. Adımında Azure robot hizmetinin Uygulama Ayarları'ndan kopyaladığınız robot gizli dizisini girin. Bu, öykünücünün .bot dosyasındaki şifreli alanlara erişmesine izin verir.
-
-    ![Bot emulator gizli dizisi v4](../../../includes/media/cognitive-services-luis/bfv4/bot-secret.png)
+1. VSCode içinde tümleşik terminalde bağımlılıklar yükleme komutu ile `npm install`.
+1. Ayrıca tümleşik terminalde bot komutu ile başlatın `npm start`. 
 
 
-4. Robot öykünücüsünde `Hello` ifadesini girin ve temel robot için uygun yanıtı alın.
+## <a name="use-the-bot-emulator-to-test-the-bot"></a>Bot test etmek için robot öykünücüyü kullanma
 
-    [![Temel robot yanıt öykünücüsü](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+1. Bot öykünücü başlar ve seçin **açık Bot**.
+1. İçinde **bir bot açın** açılır iletişim kutusu, robot URL'nizi girin `http://localhost:3978/api/messages`. `/api/messages` Bot web adresini yoldur.
+1. Girin **Microsoft uygulama kimliği** ve **Microsoft App parola**bölümüyle **.env** kök indirdiğiniz bot kod dosyasında.
 
-## <a name="modify-bot-code"></a>Robot kodunu değiştirme 
-
-`bot.js` dosyasına yeni amaçları işleyecek kod ekleyin. 
-
-1. Dosyanın en üstünde, **Desteklenen LUIS Amaçları** bölümünü bulun ve HomeAutomation amaçları için sabitler ekleyin:
-
-   ```javascript
-    // Supported LUIS Intents
-    const GREETING_INTENT = 'Greeting';
-    const CANCEL_INTENT = 'Cancel';
-    const HELP_INTENT = 'Help';
-    const NONE_INTENT = 'None';
-    const TURNON_INTENT = 'HomeAutomation_TurnOn'; // new intent
-    const TURNOFF_INTENT = 'HomeAutomation_TurnOff'; // new intent
-    ```
-
-    Etki alanı ile LUIS portalının uygulamasından alınan amaç arasındaki `.` karakterinin bir `_` karakteri ile değiştirildiğine dikkat edin. 
-
-2. Konuşmanın LUIS tahminini alan **isTurnInterrupted** öğesini bulun ve konsola sonucun çıkışını almak için bir satır ekleyin.
-
-   ```javascript
-    /**
-     * Look at the LUIS results and determine if we need to handle
-     * an interruptions due to a Help or Cancel intent
-     *
-     * @param {DialogContext} dc - dialog context
-     * @param {LuisResults} luisResults - LUIS recognizer results
-     */
-    async isTurnInterrupted(dc, luisResults) {
-        console.log(JSON.stringify(luisResults));
-    ...
-    ```
-
-    Robot, bir LUIS REST API isteği ile tam olarak aynı yanıtı vermez, bu nedenle yanıt JSON dosyasına bakarak farkları öğrenmek önemlidir. Burada text (metin) ve intents (amaçlar) özellikleri aynıdır, ancak entities (varlıklar) özelliğinin değerleri değiştirilmiştir. 
+    İsteğe bağlı olarak, yapılandırma ve kopyalama yeni bir bot oluşturabilirsiniz `MicrosoftAppId` ve `MicrosoftAppPassword` gelen **.env** bot Visual Studio Proje dosyasında. Robot yapılandırma dosyasının adı bot adıyla aynı olmalıdır. 
 
     ```json
     {
-        "$instance": {
-            "HomeAutomation_Device": [
-                {
-                    "startIndex": 23,
-                    "endIndex": 29,
-                    "score": 0.9776345,
-                    "text": "lights",
-                    "type": "HomeAutomation.Device"
-                }
-            ],
-            "HomeAutomation_Room": [
-                {
-                    "startIndex": 12,
-                    "endIndex": 22,
-                    "score": 0.9079433,
-                    "text": "livingroom",
-                    "type": "HomeAutomation.Room"
-                }
-            ]
-        },
-        "HomeAutomation_Device": [
-            "lights"
+        "name": "<bot name>",
+        "description": "<bot description>",
+        "services": [
+            {
+                "type": "endpoint",
+                "appId": "<appId from .env>",
+                "appPassword": "<appPassword from .env>",
+                "endpoint": "http://localhost:3978/api/messages",
+                "id": "<don't change this value>",
+                "name": "http://localhost:3978/api/messages"
+            }
         ],
-        "HomeAutomation_Room": [
-            "livingroom"
-        ]
+        "padlock": "",
+        "version": "2.0",
+        "overrides": null,
+        "path": "<local path to .bot file>"
     }
     ```
 
-3. `DialogTurnStatus.empty` durumu için onTurn yönteminin switch deyimine amaçları ekleyin:
+1. Bot öykünücüde girin `Hello` ve temel robot, alınan olarak aynı yanıt alın **Test Web sohbeti**.
 
-   ```javascript
-    switch (topIntent) {
-        case GREETING_INTENT:
-            await dc.begin(GREETING_DIALOG);
-            break;
+    [![Temel robot yanıt öykünücüsü](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
-        // New HomeAutomation.TurnOn intent
-        case TURNON_INTENT: 
 
-            await dc.context.sendActivity(`TurnOn intent found, entities included: ${JSON.stringify(results.entities)}`);
-            break;
+## <a name="ask-bot-a-question-for-the-book-flight-intent"></a>Kitap uçuş amaç için robot soru
 
-        // New HomeAutomation.TurnOff intent
-        case TURNOFF_INTENT: 
+1. Bot öykünücüsü'nde, aşağıdaki utterance girerek bir kitap: 
 
-            await dc.context.sendActivity(`TurnOff intent found, entities included: ${JSON.stringify(results.entities)}`);
-            break;
-
-        case NONE_INTENT:
-        default:
-            // help or no intent identified, either way, let's provide some help
-            // to the user
-            await dc.context.sendActivity(`I didn't understand what you just said to me. topIntent ${topIntent}`);
-            break;
-    }
+    ```bot
+    Book a flight from Paris to Berlin on March 22, 2020
     ```
 
-## <a name="view-results-in-bot"></a>Sonuçları robotta görüntüleme
+    Onaylamak robot öykünücü ister. 
 
-1. Robot öykünücüsünde, konuşmayı girin: `Turn on the livingroom lights to 50%`
+1. Seçin **Evet**. Bot eylemlerinin özetini ile yanıt verir. 
+1. Bot öykünücü günlüğünden içeren satırı seçin `Luis Trace`. Bu, luıs'den JSON yanıtı utterance varlıklarının ve hedefi için görüntüler.
 
-2. Robot şu yanıtı verir:
+    [![Temel robot yanıt öykünücüsü](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
-    ```json
-    TurnOn intent found, entities included: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
-    ```
+## <a name="learn-more-about-the-web-app-bot-and-framework"></a>Web App Botu ve framework hakkında daha fazla bilgi edinin
 
-## <a name="learn-more-about-bot-framework"></a>Bot Framework hakkında daha fazla bilgi edinin
 Azure Bot hizmeti, Bot Framework SDK'sını kullanır. SDK ve bot çerçevesi hakkında daha fazla bilgi edinin:
 
 * [Azure Bot Hizmeti](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 belgeleri
 * [Bot Builder Örnekleri](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder SDK'sı](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [Bot Builder Node.js SDK'sı](https://github.com/Microsoft/botbuilder-js)
 * [Bot Builder araçları](https://github.com/Microsoft/botbuilder-tools):
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure robot hizmeti oluşturdunuz, robot gizli dizisini ve .bot dosyasının yolunu kopyaladınız, kodun zip dosyasını indirdiniz. Önceden oluşturulmuş HomeAutomation etki alanını yeni Azure robot hizmeti kapsamında oluşturulan LUIS uygulamasına eklediniz, sonra da uygulamayı yeniden eğittiniz ve yayımladınız. Kod projesini ayıkladınız, ortam dosyası (`.env`) oluşturdunuz ve robot gizli dizisiyle .bot dosyasının yolunu ayarladınız. Bot.js dosyasında, iki yeni amacı işleyecek kodu eklediniz. Ardından yeni amaçlardan birinin konuşmasına LUIS yanıtını görmek için robot öykünücüsünde robotu test ettiniz. 
-
+Daha fazla bilgi bkz [örnekleri](https://github.com/microsoft/botframework-solutions) damıtarak konuşma bağlamında kullanılabilen bot ile. 
 
 > [!div class="nextstepaction"]
-> [LUIS'de özel etki alanı oluşturma](luis-quickstart-intents-only.md)
+> [Bir özel konu etki alanı ile bir konuşma tanıma uygulaması derleme](luis-quickstart-intents-only.md)

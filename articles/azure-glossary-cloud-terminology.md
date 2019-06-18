@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325434"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure sözlüğünü: Azure platformunda bulut terimleri sözlüğü
@@ -39,7 +39,7 @@ Başka bir ad [App Service uygulaması](#app-service-app).
 ## <a name="app-service-app"></a>App Service uygulaması
 İşlem kaynakları, [Azure App Service](app-service/overview.md) bir Web sitesi veya web uygulamasını web API barındırmak için veya [mobil uygulama arka ucu](app-service-mobile/app-service-mobile-value-prop.md). App Service uygulamalarını da denir *uygulama hizmetleri*, *web uygulamaları*, *API apps*, ve *mobil uygulamalar*.
 
-## <a name="availability-set"></a>kullanılabilirlik kümesi
+## <a name="availability-set"></a>Kullanılabilirlik kümesi
 Uygulama yedeklilik ve güvenilirliği sağlamak için birlikte yönetilen sanal makineler koleksiyonudur. Bir kullanılabilirlik kümesi kullanımı ya da planlı veya Plansız bakım olayı sırasında en az bir sanal makine kullanılabilir olmasını sağlar.  
 Bkz: [Windows sanal makinelerin kullanılabilirliğini yönetme](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ve [Linux sanal makinelerin kullanılabilirliğini yönetme](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -77,10 +77,10 @@ Bkz: [seçin PowerShell veya CLI ile azure'da Windows sanal makine görüntüler
 Oluşturulabilecek kaynakları ya da elde edilebilir performans Kıyaslama sayısı. Sınırlar genellikle abonelikler, hizmetler ve teklifleri ile ilişkilidir.  
 Bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](azure-subscription-service-limits.md)
 
-## <a name="load-balancer"></a>yük dengeleyici
+## <a name="load-balancer"></a>Yük Dengeleyici
 Gelen trafiği bir ağdaki bilgisayarlar arasında dağıtan bir kaynaktır. Azure'da bir yük dengeleyici sanal makineleri bir yük dengeleyici kümesinde tanımlanan trafiği dağıtır. A [yük dengeleyici](load-balancer/load-balancer-overview.md) internet'e yönelik olabilir ya da iç olabilir.  
 
-## <a name="mobile-app"></a>mobil uygulama
+## <a name="mobile-app"></a>Mobil uygulama
 Başka bir ad [App Service uygulaması](#app-service-app).
 
 ## <a name="offer"></a>Teklif
@@ -94,7 +94,7 @@ Dağıtma ve Azure hizmetlerini yönetmek için kullanılan güvenli web portal�
 Çapraz Ulusal Kenarlıklar ve bir veya daha fazla veri içeren bir coğrafi içindeki alan. Fiyatlandırma, bölgesel hizmetler ve teklif türleri bölge düzeyinde kullanıma sunulur. Bir bölge, genellikle birkaç yüz mil kadar uzaklıkta olabilecek başka bir bölgeyle eşleştirilir. Bölgesel çiftler, olağanüstü durum kurtarma ve yüksek kullanılabilirlik senaryoları için bir mekanizma kullanılabilir. Olarak da adlandırılan *konumu*.  
 Bkz: [Azure bölgeleri](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>kaynak
+## <a name="resource"></a>resource
 Azure çözümünüzü parçası olan bir öğe. Her bir Azure hizmeti veritabanları veya sanal makineler gibi kaynakların farklı türlerini dağıtmanıza olanak sağlar.   
 Bkz: [Azure Resource Manager'a genel bakış](azure-resource-manager/resource-group-overview.md)
 
@@ -110,7 +110,7 @@ Bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templa
 Kaynakları sağlayan bir hizmet dağıtma ve Resource Manager ile yönetin. Her kaynak sağlayıcısı dağıtılan kaynaklarla çalışmaya yönelik işlemler sunar. Kaynak sağlayıcıları, Azure portalı, Azure PowerShell ve çeşitli programlama SDK'ları erişilebilir.  
 Bkz: [Azure Resource Manager'a genel bakış](azure-resource-manager/resource-group-overview.md)
 
-## <a name="role"></a>rol
+## <a name="role"></a>role
 Kullanıcılar, gruplar ve hizmetlere atanabilen erişimi denetlemek için bir anlamına gelir. Rolleri gibi oluşturmak, yönetmek ve Azure kaynaklarında okuma eylemleri gerçekleştiremezsiniz.  
 Bkz: [RBAC: Yerleşik roller](role-based-access-control/built-in-roles.md)
 
@@ -129,7 +129,7 @@ Bkz: [Azure depolama hesapları hakkında](storage/common/storage-create-storage
 Bir müşteri sözleşme ile Microsoft'un Azure Hizmetleri elde etmelerini sağlayan. Abonelik fiyatlandırması ve ilgili koşulların, seçilen abonelik için teklif tarafından yönetilir.
 Bkz: [Microsoft çevrimiçi Abonelik Sözleşmesi](https://azure.microsoft.com/support/legal/subscription-agreement/) ve [Azure aboneliklerinin Azure Active Directory ile ilişkisi](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-## <a name="tag"></a>etiket
+## <a name="tag"></a>tag
 Bir dizin oluşturma terim yönetme ve fatura gereksinimlerinize göre kaynakları kategorilere ayırmanızı sağlar. Karmaşık bir kaynak koleksiyonu olduğunda, bu varlıkları en anlamlı bir şekilde görselleştirmeniz etiketleri kullanabilirsiniz. Örneğin, kuruluşunuzda benzer görevleri üstlenen veya aynı departmana ait olan kaynakları etiketleyebilirsiniz.  
 Bkz: [etiketleri kullanarak Azure kaynaklarınızı düzenleme](resource-group-using-tags.md)
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: d39ebf993498cea3ede11e07c5e71628287b81ac
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938544"
 ---
 # <a name="cloud-solution-providers"></a>Bulut Çözüm Sağlayıcıları
@@ -28,7 +28,7 @@ Aşağıdaki tabloda, teklif türleri ve CSP iş ortağı kanala seçebilirsiniz
 | :---------------- | :---------|:----------|:-----------|
 | VM'ler  | Evet | Evet | Evet |
 | Kapsayıcılar | Yok | Evet | Yok |
-| Çözüm Şablonları | Yok | Evet | Yok |
+| Çözüm şablonları | Yok | Evet | Yok |
 | Yönetilen Uygulamalar | Yok | Evet | Evet |
 | BT çözümü SaaS (başına site fiyatı) | Yok | Evet | Evet |
 |   |   |   |

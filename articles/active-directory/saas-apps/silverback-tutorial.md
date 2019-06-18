@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c4eab02ed0c7c09fe9b5893bbaaf7cbe1c8028f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867324"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Öğretici: Silverback ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Silverback tümleştirmesini yapılandırmak için Silverback Galeri
 
 **Galeriden Silverback eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -217,7 +217,7 @@ Silverback için oturum açmak Azure AD kullanıcılarının etkinleştirmek iç
 
     c. İçinde **Soyadı** metin kutusunda, son kullanıcı gibi adını **Simon**.
 
-    d. İçinde **e-posta adresi** metin kutusuna, kullanıcının gibi e-posta girin **Brittasimon@contoso.com**.
+    d. İçinde **e-posta adresi** metin kutusuna, kullanıcının gibi e-posta girin **Brittasimon@contoso.com** .
 
     e. İçinde **parola** metin kutusunda, parolanızı girin.
 

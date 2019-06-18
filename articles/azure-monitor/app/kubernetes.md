@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
 ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65555826"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Barındırılan uygulamalarını sıfır izleme uygulama için Kubernetes izleme
@@ -134,7 +134,7 @@ Aşağıdaki sorun giderme akış telemetri Azure portalında görünmüyor kull
 
 Bu projede ilerlemesi için en son bilgi için ziyaret [Istio Mixer projenin GitHub için Application Insights bağdaştırıcısı](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 
-## <a name="uninstall"></a>Kaldır
+## <a name="uninstall"></a>Kaldırma
 
 Ürünü için kaldırma *her* YAML dosyası bulundu altında *src/kubernetes/* çalıştırın:
 

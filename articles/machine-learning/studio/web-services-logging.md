@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345660"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio web hizmetleri için günlüğe kaydetmeyi etkinleştirme
@@ -55,7 +55,7 @@ Günlük etkinleştirme [Azure Machine Learning Studio Web Hizmetleri](https://s
 
    2. **Blob Hizmeti**’nin altında, **Kapsayıcılar**’a tıklayın.
 
-   3. Kapsayıcı **ml tanılama** mevcut olmayan'a tıklayın **+ kapsayıcı**, kapsayıcı "ml-diagnostics" adını verin ve seçin **erişim türü** "BLOB". **Tamam** düğmesine tıklayın.
+   3. Kapsayıcı **ml tanılama** mevcut olmayan'a tıklayın **+ kapsayıcı**, kapsayıcı "ml-diagnostics" adını verin ve seçin **erişim türü** "BLOB". **Tamam**'ı tıklatın.
 
       ![Tanılama günlüklerinizi depolamak için yeni bir kapsayıcı oluşturma](./media/web-services-logging/create-ml-diagnostics-container.png)
 

@@ -15,10 +15,10 @@ ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
 ms.openlocfilehash: ef695d913c73f0a4266b20f21f1008108b85b4d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60734243"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Erişim denetimi ile birden çok DRM içerik koruma sisteminin tasarımı 
@@ -329,7 +329,7 @@ Kaydolun ve Azure AD'de işaretçi uygulamayı yapılandırmak için aşağıdak
 
 3. Uygulama bildirim dosyasını güncelleştirin, böylece groupMembershipClaims özelliği "groupMembershipClaims" değerine sahip: "Tüm".
 
-4. Bölümünde player web uygulamasına işaret eden Azure AD uygulama **diğer uygulamalara izinler**, 1. adımda eklenen kaynak uygulama ekleyin. Altında **izin temsilci**seçin **erişim [resource_name]**. Bu seçenek, kaynak uygulama erişim erişim belirteçleri oluşturmak için web uygulamaya izin verir. Visual Studio ve Azure web uygulaması geliştirme, hem yerel hem de dağıtılan sürümü web uygulaması için bunu.
+4. Bölümünde player web uygulamasına işaret eden Azure AD uygulama **diğer uygulamalara izinler**, 1. adımda eklenen kaynak uygulama ekleyin. Altında **izin temsilci**seçin **erişim [resource_name]** . Bu seçenek, kaynak uygulama erişim erişim belirteçleri oluşturmak için web uygulamaya izin verir. Visual Studio ve Azure web uygulaması geliştirme, hem yerel hem de dağıtılan sürümü web uygulaması için bunu.
 
 Azure AD tarafından verilen JWT işaretçi kaynağa erişmek için kullanılan erişim belirtecidir.
 

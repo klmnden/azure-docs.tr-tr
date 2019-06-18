@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120747"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
@@ -46,7 +46,7 @@ Function.json dosyası, işlevin tetikleyici, bağlamalar ve diğer yapılandır
 
 `bindings` Özelliği hem Tetikleyicileri ve bağlamaları yapılandırdığınız. Her bağlama, birkaç ortak ayarları ve belirli bir bağlama türüne özgü bazı ayarlar paylaşır. Her bağlamanın, aşağıdaki ayarları gerektirir:
 
-| Özellik | Değerler/türleri | Yorumlar |
+| Özellik | Değerler/türleri | Açıklamalar |
 | --- | --- | --- |
 | `type` |string |Bağlama türü. Örneğin, `queueTrigger`. |
 | `direction` |'de,' 'out' |Bağlama işlevdeki veri alma veya işlevden veri göndermek için uygun olup olmadığını gösterir. |
@@ -81,7 +81,7 @@ Birden çok tetikleyici olayı işlevi tek iş parçacıklı çalışma zamanı 
 
 Kullanarak işlevler çalışma zamanı sürümünü yapılandırabilirsiniz `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı. Örneğin, "~ 2" değerini işlev uygulamanızı kendi ana sürüm 2.x kullanacağını gösterir. İşlev uygulamaları, yayınlandıkça her yeni ikincil sürümüne yükseltilir. İşlev uygulamanızı'nün tam sürümünü görüntüleme dahil olmak üzere daha fazla bilgi için bkz. [Azure işlevleri çalışma zamanı sürümlerini hedeflemek nasıl](set-runtime-version.md).
 
-## <a name="repositories"></a>Depolar
+## <a name="repositories"></a>Depoları
 Azure işlevleri kodu açık kaynaktır ve GitHub depolarında depolanan:
 
 * [Azure İşlevleri](https://github.com/Azure/Azure-Functions)

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "58861888"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Özel bir araştırma için Azure uygulama ağ geçidi (Klasik) PowerShell kullanarak oluşturma
@@ -46,7 +46,7 @@ Bir uygulama ağ geçidi oluşturmak için:
 
 ### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Özel bir araştırma ile uygulama ağ geçidi kaynağı oluşturma
 
-Ağ geçidini oluşturmak için, `New-AzureApplicationGateway` cmdlet’ini kullanın ve değerleri kendi değerlerinizle değiştirin. Ağ geçidinin faturalanması bu aşamada başlamaz. Daha sonra ağ geçidi başarıyla başlatıldığında faturalama da başlar. 
+Ağ geçidini oluşturmak için, `New-AzureApplicationGateway` cmdlet’ini kullanın ve değerleri kendi değerlerinizle değiştirin. Ağ geçidinin faturalanması bu aşamada başlamaz. Daha sonra ağ geçidi başarıyla başlatıldığında faturalama da başlar.
 
 Aşağıdaki örnek, "testvnet1" adlı sanal ağı ve "subnet-1" aklı alt ağı kullanarak bir uygulama ağ geçidi oluşturur.
 
@@ -151,7 +151,7 @@ Yapılandırma parametreleri şunlardır:
 |Parametre|Açıklama|
 |---|---|
 |**Ad** |Özel araştırma için başvuru adı. |
-| **Protokol** | Kullanılan protokol (olası değerler: HTTP veya HTTPS).|
+| **Protokolü** | Kullanılan protokol (olası değerler: HTTP veya HTTPS).|
 | **Konak** ve **yolu** | Örneğinin durumunu belirlemek için uygulama ağ geçidi tarafından çağrılan tam URL yolu. Örneğin, bir Web sitesi http varsa:\//için contoso.com/ sonra özel araştırma yapılandırılabilir "http:\//contoso.com/path/custompath.htm" başarılı HTTP yanıt için araştırma denetimleri için.|
 | **Aralık** | Saniye cinsinden yoklama aralığı denetimleri yapılandırır.|
 | **zaman aşımı** | Bir HTTP yanıt denetimi için yoklama zaman aşımı tanımlar.|

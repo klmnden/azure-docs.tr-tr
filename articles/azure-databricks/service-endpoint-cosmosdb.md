@@ -1,18 +1,18 @@
 ---
 title: Bir Cosmos DB uç noktası ile Azure Databricks uygulayın
 description: Bu öğreticide, Azure Databricks, Cosmos DB için etkin bir hizmet uç noktası ile bir sanal ağda uygulamak açıklar.
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
+ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 0d5442a63680227f3a6186330502666c92dc3129
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126707"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054611"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Öğretici: Bir Cosmos DB uç noktası ile Azure Databricks uygulayın
 
@@ -63,13 +63,13 @@ Başlamadan önce aşağıdakileri yapın:
    |API|Çekirdek (SQL)|
    |Location|Batı ABD|
    |Coğrafi Yedeklilik|Devre Dışı Bırak|
-   |Çok Bölgeli Yazma|Etkinleştirme|
+   |Çok bölgeli yazma|Etkinleştirme|
 
    ![Bir Cosmos DB hizmet uç noktası ekleme](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
 
 3. Seçin **ağ** sekme ve sanal ağ yapılandırın. 
 
-   a. Bir önkoşul olarak oluşturduğunuz sanal ağı seçin ve ardından *Genel alt*. Dikkat *özel alt* Not *'Microsoft AzureCosmosDB' uç noktası eksik '*. Cosmos DB hizmet uç noktası üzerinde etkinleştirilebilmesi olmasıdır *Genel alt*.
+   a. Bir önkoşul olarak oluşturduğunuz sanal ağı seçin ve ardından *Genel alt*. Dikkat *özel alt* Not *'Microsoft AzureCosmosDB' uç noktası eksik '* . Cosmos DB hizmet uç noktası üzerinde etkinleştirilebilmesi olmasıdır *Genel alt*.
 
    b. Olduğundan emin olun **Azure portalından erişim izni** etkin. Bu ayar, Azure portalından Cosmos DB hesabınıza erişmenize olanak sağlar. Bu seçenek ayarlanırsa **Reddet**, hesabınıza erişmeye çalışırken hataları alırsınız. 
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
 ms.openlocfilehash: ba469c038f04a31a57e798b97b5120bec573feae
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65414049"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Azure Lab Services Laboratuvar hesaplarını yapılandırma 
@@ -69,7 +69,7 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için kullanıcının
 
 Eğitimcilere, sınıfları için laboratuvar oluşturma ve **Laboratuvar Oluşturan** rolüne bunları ekleme izni sağlamak için:
 
-1. Üzerinde **Laboratuvar hesabı** sayfasında **erişim denetimi (IAM)**, tıklatıp **+ rol ataması Ekle** araç. 
+1. Üzerinde **Laboratuvar hesabı** sayfasında **erişim denetimi (IAM)** , tıklatıp **+ rol ataması Ekle** araç. 
 
     ![Erişim Denetimi'ne rol ataması Ekle düğmesi](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
 1. Üzerinde **rol ataması Ekle** sayfasında **Laboratuvar oluşturan** için **rol**, Laboratuvar Creators role ekleyin ve istediğiniz kullanıcıyı seçin **Kaydet**. 

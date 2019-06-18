@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 533327ca1d202f15376e580d20317ddaf0b1d302
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693178"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Central, cihaz bağlantısı
@@ -96,10 +96,10 @@ Yalnızca test için bu yardımcı programlar CA sertifikaları ve cihaz sertifi
 - Bir DevKit cihaz kullanıyorsanız, bu [komut satırı aracı](https://aka.ms/iotcentral-docs-dicetool) sertifikaları doğrulamak için IOT Central uygulamanıza ekleyebileceğiniz bir CA sertifikası oluşturur.
 
 - Bunu kullanın [komut satırı aracı](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) için:
-  - Bir sertifika zinciri oluşturun. 2. adım GitHub makaleyi izleyin.
+  - Bir sertifika zinciri oluşturun. 2\. adım GitHub makaleyi izleyin.
   - Sertifikalar, IOT Central uygulamanızı karşıya yüklenecek .cer dosyası olarak kaydedin.
-  - Doğrulama sertifikası oluşturmak için IOT Central uygulamasına ilişkin doğrulama kodunu kullanın. 3. adım GitHub makaleyi izleyin.
-  - Aracı için parametre olarak, cihaz kimliklerini kullanarak cihazlarınızı yaprak sertifikaları oluşturun. 4. adım GitHub makaleyi izleyin.
+  - Doğrulama sertifikası oluşturmak için IOT Central uygulamasına ilişkin doğrulama kodunu kullanın. 3\. adım GitHub makaleyi izleyin.
+  - Aracı için parametre olarak, cihaz kimliklerini kullanarak cihazlarınızı yaprak sertifikaları oluşturun. 4\. adım GitHub makaleyi izleyin.
 
 ## <a name="connect-without-registering-devices"></a>Cihazları kaydetme olmadan bağlayın
 

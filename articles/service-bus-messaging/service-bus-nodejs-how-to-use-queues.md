@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 1426b3d31159280ad9aac2dd240a5f083c40752d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65988301"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Node.js ve azure-sb paketi ile Service Bus kuyruklarını kullanma
-> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> [!div class="op_multi_selector" title1="Programlama dili" title2="Node.js paketi"]
 > - [(Node.js | azure sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
@@ -78,7 +78,7 @@ Azure modülünü ortam değişkenini okur `AZURE_SERVICEBUS_CONNECTION_STRING` 
 
 Ortam değişkenlerini ayarlama bir örnek için [Azure portalında] [ Azure portal] bir Azure Web sitesi için bkz: [depolama ile Node.js Web uygulaması] [ Node.js Web Application with Storage].
 
-## <a name="create-a-queue"></a>Kuyruk oluştur
+## <a name="create-a-queue"></a>Bir kuyruk oluşturma
 **ServiceBusService** nesnesi, Service Bus kuyrukları ile çalışmanıza olanak sağlar. Aşağıdaki kod oluşturur bir **ServiceBusService** nesne. En ekleme **server.js** dosya, Azure modülü içeri aktarmak için deyim sonra:
 
 ```javascript

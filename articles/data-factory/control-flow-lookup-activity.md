@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
 ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768667"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data factory'de arama etkinliği
@@ -28,7 +28,7 @@ Arama etkinliği okur ve bir yapılandırma dosyası veya tablo içeriğini dön
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Aşağıdaki veri kaynaklarını arama etkinliği için desteklenir. 5.000, en büyük arama etkinliği tarafından döndürülebilecek satır sayısı olan 2 MB boyutunda. Şu anda, arama için en uzun süre etkinlik zaman aşımından önce bir saattir.
+Aşağıdaki veri kaynaklarını arama etkinliği için desteklenir. 5\.000, en büyük arama etkinliği tarafından döndürülebilecek satır sayısı olan 2 MB boyutunda. Şu anda, arama için en uzun süre etkinlik zaman aşımından önce bir saattir.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -70,7 +70,7 @@ firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülüp dönd
 
 Arama sonucu döndürülür `output` etkinlik çalıştırma sonucunu bölümü.
 
-* **Zaman `firstRowOnly` ayarlanır `true` (varsayılan)**, aşağıdaki kodda gösterildiği gibi çıktı biçimidir. Arama sonucu sabit altında olan `firstRow` anahtarı. Sonuç, sonraki etkinliği kullanmak için desenini kullanın `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Zaman `firstRowOnly` ayarlanır `true` (varsayılan)** , aşağıdaki kodda gösterildiği gibi çıktı biçimidir. Arama sonucu sabit altında olan `firstRow` anahtarı. Sonuç, sonraki etkinliği kullanmak için desenini kullanın `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {
@@ -302,7 +302,7 @@ Bu Azure SQL veritabanı, Blob depolama alanına kopyalanacak verileri içerir.
 
 Arama etkinliği ve önerilen geçici çözümleri bazı sınırlamalar aşağıda verilmiştir.
 
-| Sınırlama | Geçici çözüm |
+| Sınırlama | Geçici Çözüm |
 |---|---|
 | Arama etkinliği, en fazla 5000 satır ve 2 MB boyut sınırı vardır. | Burada en fazla satır veya boyutunu aşmadığını veri alır. bir iç işlem hattı dış işlem hattı yinelenir iki düzeyli işlem hattı tasarım. |
 | | |

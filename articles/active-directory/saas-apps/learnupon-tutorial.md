@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 574c21dc2713f10513ac296e7db538e20a94c9d6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ecdcd8c6024b3cacb422b556718bbbdbb5d601c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406524"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098231"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Öğretici: LearnUpon ile Azure Active Directory Tümleştirme
 
@@ -58,7 +58,7 @@ Azure AD'de LearnUpon tümleştirmesini yapılandırmak için LearnUpon Galeride
 
 **Galeriden LearnUpon eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -165,9 +165,9 @@ Azure AD çoklu oturum açma ile LearnUpon yapılandırmak için aşağıdaki ad
 
      ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
-    a. İçinde **ad tanımlayıcı biçimi** metin kutusuna, SAML onaylama işlemi burada kullanıcılar firstname de bize bildiren değerin bulunduğu - örneğin: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    a. İçinde **ad tanımlayıcı biçimi** metin kutusuna, SAML onaylama işlemi burada kullanıcılar firstname de bize bildiren değerin bulunduğu - örneğin: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
   
-    b. İçinde **son ad tanımlayıcı biçimi** metin kutusuna, SAML onaylama işlemi burada kullanıcılar lastname, bize bildiren değerin bulunduğu - örneğin: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    b. İçinde **son ad tanımlayıcı biçimi** metin kutusuna, SAML onaylama işlemi burada kullanıcılar lastname, bize bildiren değerin bulunduğu - örneğin: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

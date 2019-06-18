@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
 ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463030"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure için SAP LaMa bağlayıcısı
 
-[1877727]:https://launchpad.support.sap.com/#/notes/1877727
-[2343511]:https://launchpad.support.sap.com/#/notes/2343511
-[2350235]:https://launchpad.support.sap.com/#/notes/2350235
-[2562184]:https://launchpad.support.sap.com/#/notes/2562184
-[2628497]:https://launchpad.support.sap.com/#/notes/2628497
-[2445033]:https://launchpad.support.sap.com/#/notes/2445033
+[1877727]: https://launchpad.support.sap.com/#/notes/1877727
+[2343511]: https://launchpad.support.sap.com/#/notes/2343511
+[2350235]: https://launchpad.support.sap.com/#/notes/2350235
+[2562184]: https://launchpad.support.sap.com/#/notes/2562184
+[2628497]: https://launchpad.support.sap.com/#/notes/2628497
+[2445033]: https://launchpad.support.sap.com/#/notes/2445033
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -99,11 +99,11 @@ Hizmet sorumlusu kullanarak Azure kaynaklarınızı varsayılan olarak erişim i
 SAP LaMa Web sitesini açın ve altyapı için gidin. Bulut yöneticileri sekmesine gidin ve Ekle'ye tıklayın. Microsoft Azure bulut bağdaştırıcıyı seçin ve İleri'ye tıklayın. Aşağıdaki bilgileri girin:
 
 * Etiket: Bağlayıcı örneği için bir ad seçin
-* Kullanıcı Adı: Hizmet Sorumlusu Uygulama Kimliği
+* Kullanıcı adı: Hizmet Sorumlusu Uygulama Kimliği
 * Parola: Hizmet sorumlusu anahtarı/parolası
 * URL: Varsayılan koruyun https://management.azure.com/
 * İzleme aralığı (saniye): En az 300 olmalıdır
-* Abonelik Kimliği: Azure abonelik kimliği
+* Abonelik kimliği: Azure abonelik kimliği
 * Azure Active Directory Kiracı kimliği: Active Directory kiracısının kimliği
 * Proxy ana bilgisayarı: SAP LaMa internet'e bağlanmak için Ara sunucu gerekiyorsa proxy konak adı
 * Proxy bağlantı noktası: Proxy TCP bağlantı noktası
@@ -385,7 +385,7 @@ Kullanım *as1 di 0* için *PA'lar örneği ana bilgisayar adı* iletişim kutus
    ASCS/SCS sapmnt paylaşımında SAP_AS1_GlobalAdmin için tam erişime sahip olduğundan emin olun
 
 * Adımda hata *kopya için başlangıç korumayı etkinleştir*
-  * Dosya açılamadı '\\as1 ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1 di 0' neden: Böyle dosya veya dizin yok
+  * Dosya açılamadı '\\as1 ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1 di 0' neden: Böyle bir dosya veya dizin yok
   * Çözüm  
     Uygulama sunucusunun bilgisayar hesabı profili yazma erişimi olmalıdır
 

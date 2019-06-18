@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e4e564a8c41065f6f68d93735d441ba6c69479a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc930af3beef5b335cb900272f9a732f14e7f982
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60257901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098202"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Öğretici: Learning Seat LMS ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Azure AD'de Learning Seat LMS tümleştirmesini yapılandırmak için Learning S
 
 **Galeriden Learning Seat LMS eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 

@@ -11,10 +11,10 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684100"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>İş akışı eylemi yineleyin veya Azure Logic Apps dizilerde işlem döngü oluşturma
@@ -54,7 +54,7 @@ Bu örnek mantıksal uygulama bir Web sitesinin RSS akışındaki günlük özet
 2. RSS arasında tetikleyin ve gönderme e-posta eylemi, "Foreach" döngüsünü ekleyin. 
 
    1. Adımlar arasında döngü eklemek için işaretçinizi Bu adımlar arasında okun üzerine getirin. 
-   Seçin **artı** (**+**) seçip görüntülenen **Eylem Ekle**.
+   Seçin **artı** ( **+** ) seçip görüntülenen **Eylem Ekle**.
 
       !["Eylem Ekle"'i seçin](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -126,7 +126,7 @@ Mantıksal uygulamanız için kod görünümde çalışıyorsanız, tanımlayabi
 
 Varsayılan olarak, Döngülerde "Foreach" döngüsünü paralel olarak çalıştırın. Döngünün her döngü sırayla çalışır ayarlayın **ardışık** seçeneği. Döngüler veya değişkenleri döngüler iç içe olduğunda "Foreach" döngüler tahmin edilebilir sonuçlar burada beklediğiniz sırayla çalıştırılmalıdır. 
 
-1. Döngünün sağ üst köşedeki, seçin **üç nokta** (**...** ) > **Ayarları**.
+1. Döngünün sağ üst köşedeki, seçin **üç nokta** ( **...** ) > **Ayarları**.
 
    !["Foreach" döngüsünü üzerinde seçin "..." > "Ayarlar"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
@@ -196,7 +196,7 @@ Bir "Kadar" döngüsünü kullanabileceğiniz bazı yaygın senaryolar şunlard�
    | Özellik | Değer | Açıklama |
    | -------- | ----- | ----------- |
    | **Ad** | Sınır | Değişken adı | 
-   | **Tür** | Tamsayı | Değişkenin veri türü | 
+   | **Tür** | Integer | Değişkenin veri türü | 
    | **Değer** | 0 | Değişkeninizin değeri başlıyor | 
    |||| 
 

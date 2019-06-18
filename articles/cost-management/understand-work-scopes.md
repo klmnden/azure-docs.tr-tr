@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991392"
 ---
 # <a name="understand-and-work-with-scopes"></a>Kapsamları anlama ve bunlarla çalışma
@@ -106,7 +106,7 @@ Kullandıkça Öde (PAYG) Abonelikleri, ilgili türleri dahil olmak üzere ücre
 
 - [**Fatura hesabı** ](../billing/billing-view-all-accounts.md) -tek bir hesap sahibi için bir veya daha fazla Azure aboneliği temsil eder. Birden çok kişi ya da toplam maliyeti görünümlere erişim için erişim verme şu anda desteklemiyor.
 
-    Kaynak türü: Uygulanamaz
+    Kaynak türü: Geçerli değil
 
 PAYG abonelik hesabı yöneticileri görüntülemek ve fatura ve ödemeleri, gibi fatura verilerini yönetmenize [Azure hesap Merkezi](https://account.azure.com/subscriptions). Ancak, bunlar maliyet verilerini görüntüleyemez veya Azure portalında kaynakları yönetin. Hesap Yöneticisi erişim vermek için daha önce bahsedilen maliyet yönetim rollerini kullanın.
 
@@ -154,14 +154,14 @@ Azure portalında tüm maliyet Yönetimi görünümlerini içeren bir **kapsam**
 
 Maliyet Yönetimi API'leri ile çalışırken, bilmenin verdiği kapsamı önemlidir. Maliyet Yönetimi API'leri için uygun kapsamı URI oluşturmak için aşağıdaki bilgileri kullanın.
 
-### <a name="billing-accounts"></a>Faturalandırma hesapları
+### <a name="billing-accounts"></a>Fatura hesabı
 
 1. Azure portalını açın ve gidin **maliyet Yönetimi + faturalandırma** Hizmetler listesinde.
 2. Seçin **özellikleri** Faturalama hesabı menüsünde.
 3. Fatura hesabı kimliği kopyalayın.
 4. Kapsamınızı şöyledir: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
 
-### <a name="billing-profiles"></a>Faturalama profilleri
+### <a name="billing-profiles"></a>Faturalandırma profilleri
 
 1. Azure portalını açın ve gidin **maliyet Yönetimi + faturalandırma** Hizmetler listesinde.
 2. Seçin **faturalandırma profilleri** Faturalama hesabı menüsünde.
@@ -218,7 +218,7 @@ Maliyet Yönetimi API'leri ile çalışırken, bilmenin verdiği kapsamı öneml
 4. Kaynak Kimliği alan değerini kopyalayın.
 5. Kapsamınızı şöyledir: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Maliyet Yönetimi desteklenen şu anda [Azure genel](https://management.azure.com) ve [Azure kamu](https://management.usgovcloudapi.net). Azure kamu hakkında daha fazla bilgi için bkz: [Azure genel ve kamu API uç noktaları](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Maliyet Yönetimi desteklenen şu anda [Azure genel](https://management.azure.com) ve [Azure kamu](https://management.usgovcloudapi.net). Azure kamu hakkında daha fazla bilgi için bkz: [Azure genel ve kamu API uç noktaları](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60656712"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API Management şablonları verme
@@ -101,8 +101,8 @@ Azure API Management içeriklerini yapılandıran bir dizi kullanarak Geliştiri
 |--------------|----------|-----------------|  
 |`Issues`|Koleksiyonu [sorunu](api-management-template-data-model-reference.md#Issue) varlıklar.|Sorunları geçerli kullanıcıya görünür.|  
 |`Paging`|[Disk belleği](api-management-template-data-model-reference.md#Paging) varlık.|Uygulama koleksiyonu için sayfalandırma bilgileri.|  
-|`IsAuthenticated`|boole|Olup geçerli kullanıcı Geliştirici portalında oturum açmış.|  
-|`CanReportIssues`|boole|Geçerli kullanıcı bir sorun dosya izni olup olmadığı.|  
+|`IsAuthenticated`|boolean|Olup geçerli kullanıcı Geliştirici portalında oturum açmış.|  
+|`CanReportIssues`|boolean|Geçerli kullanıcı bir sorun dosya izni olup olmadığı.|  
 |`Search`|string|Bu özellik, kullanım dışıdır ve kullanılmamalıdır.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  

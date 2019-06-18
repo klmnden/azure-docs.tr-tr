@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640675"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Azure sanal makine Aracısı çevrimdışı modda yükleme 
@@ -42,9 +42,9 @@ Aşağıdaki senaryolarda çevrimdışı modda VM aracısını yükleyin:
 > 1. Etkilenen sanal Makinenin işletim sistemi diskini bir kurtarma VM'si eklemek için komut dosyalarını kullanarak 1. adıma geçin.
 > 2. Risk azaltma işlemleri uygulamak için 2-10 arasındaki adımları izleyin.
 > 3. VM yeniden oluşturmak için komut dosyalarını kullanarak 11. adıma geçin.
-> 4. 12. adımı izleyin.
+> 4. 12\. adımı izleyin.
 
-### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>1. Adım: Sanal Makinenin işletim sistemi diskini başka bir VM'ye veri diski olarak ekleyin.
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>1\. adım: Sanal Makinenin işletim sistemi diskini başka bir VM'ye veri diski olarak ekleyin.
 
 1.  VM'yi silin. Seçtiğinizden emin olun **diskleri tutmak** VM'yi sildiğinizde seçeneği.
 
@@ -52,7 +52,7 @@ Aşağıdaki senaryolarda çevrimdışı modda VM aracısını yükleyin:
 
 3.  Sorun giderici VM bağlanın. Açık **Bilgisayar Yönetimi** > **Disk Yönetimi**. İşletim sistemi diskinin çevrimiçi olduğundan ve disk bölümleri için sürücü harfleri atandığını doğrulayın.
 
-### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>2. Adım: Azure VM Aracısı'nı yüklemek için işletim sistemi diskini değiştirme
+### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>2\. adım: Azure VM Aracısı'nı yüklemek için işletim sistemi diskini değiştirme
 
 1.  Uzak Masaüstü Bağlantısı VM sorun giderici olun.
 

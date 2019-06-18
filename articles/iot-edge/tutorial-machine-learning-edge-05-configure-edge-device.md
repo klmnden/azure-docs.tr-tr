@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 86efbaa053e087885f0dbfea24000781d41ac5d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a2096004a7b389f627c528a8dfb4768ac001f390
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057718"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155621"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Öğretici: IOT Edge cihazı yapılandırma
 
@@ -35,7 +35,7 @@ Bu bölümde, ardından kurduğumuz ve çalıştıran bir Docker görüntüsü k
 2. Bir komut satırı istemi açın ve sanal makinede bir dizin oluşturmak için aşağıdaki komutu çalıştırın.
 
     ```cmd
-    mkdir C:\edgecertificates
+    mkdir c:\edgeCertificates
     ```
 
 3. Başlangıç **için Docker Windows** Windows Başlat menüsünde.
@@ -56,16 +56,14 @@ Bu bölümde, ardından kurduğumuz ve çalıştıran bir Docker görüntüsü k
 9. Visual Studio Code terminal penceresinde createcertificates kapsayıcı çalıştırın.
 
     ```cmd
-    docker run --name createcertificates --rm -v
-    C:\edgeCertificates:/edgeCertificates createcertificates
-    /edgeCertificates
+    docker run --name createcertificates --rm -v c:\edgeCertificates:/edgeCertificates createcertificates /edgeCertificates
     ```
 
-10. Docker, erişim için ister **C:\\**  sürücü. Seçin **paylaşın**.
+10. Docker, erişim için ister **c:\\**  sürücü. Seçin **paylaşın**.
 
 11. İstendiğinde kimlik bilgilerinizi sağlayın.
 
-12. Çalıştıran, bir kez kapsayıcı tamamlandığında aşağıdaki dosyaları onay **c:\\edgecertificates**:
+12. Çalıştıran, bir kez kapsayıcı tamamlandığında aşağıdaki dosyaları onay **c:\\edgeCertificates**:
 
     * C:\\edgeCertificates\\sertifikaları\\azure-IOT-test-only.root.ca.cert.pem
     * C:\\edgeCertificates\\sertifikaları\\yeni-edge-cihaz-tam-chain.cert.pem
@@ -86,8 +84,7 @@ Bizim sertifikaları güvenli bir şekilde saklayın ve birden çok cihaz erişi
 3. Geliştirme makinenizde, anahtar Kasası'na sertifikaları karşıya yükleyin. Değiştirin **\<Subscriptionıd\>** ve **\<keyvaultname\>** kaynak bilgilerinizle.
 
     ```powershell
-    C:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1
-    -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
+    c:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1 -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
     ```
 
 4. İstenirse, Azure'da oturum açın.
@@ -145,7 +142,7 @@ Ardından, IOT Edge cihazınız için sanal makine oluşturmak için betiği ça
 1. Bir PowerShell penceresi açın ve gidin **EdgeVM** dizin.
 
     ```powershell
-    cd C:\source\IoTEdgeAndMlSample\EdgeVM”
+    cd c:\source\IoTEdgeAndMlSample\EdgeVM
     ```
 
 2. Sanal makine oluşturmak için betiği çalıştırın.
@@ -210,7 +207,7 @@ Bu makalenin önceki bölümlerinde Key Vault, bizim IOT Edge cihazı ve IOT Edg
 1. Azure CLI komutları için kullanmak istediğiniz Azure aboneliğini ASet.
 
     ```bash
-    az account set --subscription <subscription id>
+    az account set --subscription <subscriptionId>
     ```
 
 1. Sertifikalar için VM üzerinde bir dizin oluşturun.

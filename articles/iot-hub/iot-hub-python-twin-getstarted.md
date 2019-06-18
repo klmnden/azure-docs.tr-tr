@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
 ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442638"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569257"
 ---
 # <a name="get-started-with-device-twins-python"></a>Cihaz ikizlerini (Python) kullanmaya başlama
 
@@ -55,7 +55,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 ## <a name="create-the-service-app"></a>Hizmet uygulaması oluşturma
 
-Bu bölümde, konum meta verileri ile ilişkili cihaz ikizi ekleyen bir Python konsol uygulaması oluşturun, **{cihaz kimliği}**. Ardından, IOT hub'ı Redmond sonra bir hücresel bağlantı raporlama olanları bulunan aygıtları seçme içinde depolanan cihaz ikizlerini sorgular.
+Bu bölümde, konum meta verileri ile ilişkili cihaz ikizi ekleyen bir Python konsol uygulaması oluşturun, **{cihaz kimliği}** . Ardından, IOT hub'ı Redmond sonra bir hücresel bağlantı raporlama olanları bulunan aygıtları seçme içinde depolanan cihaz ikizlerini sorgular.
 
 1. Komut istemini açın ve **Python için Azure IoT Hub Hizmeti SDK’sını** aşağıda gösterildiği gibi yükleyin. SDK’yı yükledikten sonra komut istemini kapatın.
 

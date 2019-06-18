@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5e175a8cdd1622add90bd80df63303fe914ab9c
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430815"
 ---
 # <a name="application-configuration-options"></a>Uygulama yapılandırma seçenekleri
@@ -38,7 +38,7 @@ Kodunuzda, yeni genel veya gizli bir istemci (veya kullanıcı aracısı için M
 ## <a name="authority"></a>Yetkilisi
 MSAL belirteçleri isteyebileceği bir dizin belirten bir URL yetkilisidir. Ortak yetkilileri şunlardır:
 
-- https://login.microsoftonline.com/&lt; Kiracı&gt;/ burada &lt;Kiracı&gt; Azure Active Directory (Azure AD) kiracısı ya da bu Azure AD Kiracı ile ilişkilendirilen bir etki alanı Kiracı Kimliğini gösterir. Yalnızca belirli bir kuruluşun kullanıcıları imzalamak için kullanılır.
+- https://login.microsoftonline.com/&lt ; Kiracı&gt; / burada &lt; Kiracı&gt; Azure Active Directory (Azure AD) kiracısı ya da bu Azure AD Kiracı ile ilişkilendirilen bir etki alanı Kiracı Kimliğini gösterir. Yalnızca belirli bir kuruluşun kullanıcıları imzalamak için kullanılır.
 - https://login.microsoftonline.com/common/. Kullanıcılar iş ve Okul hesapları veya kişisel Microsoft hesapları ile imzalamak için kullanılır.
 - https://login.microsoftonline.com/organizations/. Kullanıcılar iş ve Okul hesapları ile imzalamak için kullanılır.
 - https://login.microsoftonline.com/consumers/. Kullanıcılar (eski adıyla Windows Live ID hesabı olarak da bilinir) yalnızca kişisel Microsoft hesapları ile imzalamak için kullanılır.

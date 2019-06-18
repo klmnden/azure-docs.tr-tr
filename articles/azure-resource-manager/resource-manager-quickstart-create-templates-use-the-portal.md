@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: aea6f58c74d6e50e7936b949620912f3f587f004
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d5deedb12afb1b766255ad0a9f247594ed70acaa
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205877"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069296"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Hızlı Başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma
 
@@ -45,7 +45,7 @@ Pek çok deneyimli şablon Geliştirici ile tanıdık olmayan Azure kaynakların
     |Ad|Değer|
     |----|----|
     |**Kaynak grubu**|Seçin **Yeni Oluştur**, tercih ettiğiniz bir kaynak grubu adı belirtin. Ekran görüntüsünde kaynak grubu adı *mystorage1016rg* olarak belirtilmiştir. Kaynak grubu, Azure kaynakları için bir kapsayıcıdır. Kaynak grubu, Azure kaynaklarını yönetmek kolaylaştırır. |
-    |**Ad**|Depolama hesabınızın benzersiz bir ad verin. Depolama hesabı adı tüm Azure genelinde benzersiz olmalıdır ve yalnızca küçük harflerden ve rakamlardan içerdiği. Ad 3 ile 24 karakter arasında olmalıdır. "'Mystorage1016' depolama hesabı adı zaten alınmış" diyen bir hata mesajı alırsanız kullanmayı deneyin  **&lt;adınız > depolama&lt;MMDD bugünün tarihi >**, örneğin  **johndolestorage1016**. Daha fazla bilgi için [adlandırma kuralları ve kısıtlamalar](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
+    |**Ad**|Depolama hesabınızın benzersiz bir ad verin. Depolama hesabı adı tüm Azure genelinde benzersiz olmalıdır ve yalnızca küçük harflerden ve rakamlardan içerdiği. Ad 3 ile 24 karakter arasında olmalıdır. "'Mystorage1016' depolama hesabı adı zaten alınmış" diyen bir hata mesajı alırsanız kullanmayı deneyin  **&lt;adınız > depolama&lt;MMDD bugünün tarihi >** , örneğin  **johndolestorage1016**. Daha fazla bilgi için [adlandırma kuralları ve kısıtlamalar](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
 
     Diğer özellikler için varsayılan değerleri kullanabilirsiniz.
 
@@ -64,7 +64,7 @@ Pek çok deneyimli şablon Geliştirici ile tanıdık olmayan Azure kaynakların
     Tanımlı altı parametre bulunur. Bunlardan biri **storageAccountName** olarak adlandırılmıştır. Önceki ekran görüntüsünde vurgulanan ikinci bölümün şablonu bu parametrede yapmayı gösterir. Sonraki bölümde şablonu düzenleyerek depolama hesabı için oluşturulan bir adı kullanacaksınız.
 
     Şablonda bir Azure kaynağı tanımlanmıştır. Türü `Microsoft.Storage/storageAccounts`. Kaynak nasıl tanımlanır, bir görünüm ve tanım yapısı yararlanın.
-6. Seçin **indirme** ekranın üst. 
+6. Seçin **indirme** ekranın üst.
 7. İndirilen ZIP dosyasını açın ve ardından kaydedin **template.json** bilgisayarınıza. Sonraki bölümde bir şablon dağıtım aracı kullanarak şablonu düzenleyeceksiniz.
 8. Parametre için sağladığınız değerleri görmek üzere **Parametre** sekmesini seçin. Bu değerleri not alın. Bir sonraki bölümde şablonu dağıtırken ihtiyacınız olacak.
 
@@ -75,6 +75,9 @@ Pek çok deneyimli şablon Geliştirici ile tanıdık olmayan Azure kaynakların
 ## <a name="edit-and-deploy-the-template"></a>Şablonu düzenleme ve dağıtma
 
 Basit şablon düzenleme işlemleri için Azure portalı kullanabilirsiniz. Bu hızlı başlangıçta *Şablon Dağıtımı* adlı bir portal aracını kullanacaksınız. *Şablon dağıtımı* tek bir arabirim - Azure portalını kullanarak tüm öğreticiyi tamamlamak için Bu öğreticide kullanılır. Daha karmaşık bir şablonu düzenlemek için kullanmayı [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md), daha zengin düzenleme işlevleri sağlar.
+
+> [!IMPORTANT]
+> Şablon dağıtımı olan basit şablonlarla test etmek için bir arabirim sağlar. Üretim ortamında bu özelliği kullanmak için önerilmez. Bunun yerine, bir Azure depolama hesabı veya GitHub gibi kaynak kodu deposu Şablonlarınızı depolayın.
 
 Azure'daki her Azure hizmetinin adının benzersiz olması gerekir. Zaten bir depolama hesabı adı girerseniz, dağıtım başarısız. Bu sorunu önlemek için bir şablon işlevi çağrısı için kullanılacak şablon değiştirme `uniquestring()` benzersiz depolama hesabı adı oluşturmak için.
 
