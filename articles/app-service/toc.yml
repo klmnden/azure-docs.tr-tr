@@ -70,14 +70,17 @@
     - name: İşletim sistemi işlevi
       href: operating-system-functionality.md
     - name: Güvenlik
-      href: overview-security.md
       items:
+        - name: Öneriler
+          href: security-recommendations.md
         - name: Kimlik doğrulama ve yetkilendirme
           href: overview-authentication-authorization.md
         - name: İşletim sistemi ve çalışma zamanı düzeltme eki uygulama
           href: overview-patch-os-runtime.md
         - name: Güvenlik öznitelikleri
           href: app-service-security-attributes.md
+        - name: Güvenliğe genel bakış
+          href: overview-security.md
     - name: Ağ özellikleri
       href: networking-features.md
     - name: Gelen ve giden IP’ler
