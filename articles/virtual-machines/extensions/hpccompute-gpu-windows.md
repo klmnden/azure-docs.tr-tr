@@ -37,9 +37,9 @@ Bu uzantı şu OSs destekler:
 
 | Dağıtım | Version |
 |---|---|
-| Windows 10 (en fazla sürüm 1803)| Çekirdek |
-| Windows Server 2016 | Çekirdek |
-| Windows Server 2012R2 | Çekirdek |
+| Windows 10 (en fazla sürüm 1803)| Core |
+| Windows Server 2016 | Core |
+| Windows Server 2012R2 | Core |
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 
@@ -75,7 +75,7 @@ Aşağıdaki JSON şema uzantısı gösterir.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| türü | NvidiaGpuDriverWindows | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 

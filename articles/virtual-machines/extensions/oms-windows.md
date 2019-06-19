@@ -91,9 +91,9 @@ Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir.
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| türü | MicrosoftMonitoringAgent |
+| type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
-| Çalışma alanı kimliği (e.g)* | 6f680a37-00c6-41C7-a93f-1437e3462574 |
+| workspaceId (örn.)* | 6f680a37-00c6-41C7-a93f-1437e3462574 |
 | workspaceKey (örn.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 \* Çalışma alanı kimliği, günlük analizi API'SİNDE ConsumerID çağrılır.

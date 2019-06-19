@@ -41,10 +41,10 @@ Ağ İzleyicisi Aracısı uzantısı aşağıdaki Linux dağıtımları için ya
 | Ubuntu | 12+ |
 | Debian | 7 ve 8 |
 | Red Hat | 6 ve 7 |
-| Oracle Linux | 6,8 + ve 7 |
+| Oracle Linux | 6.8+ ve 7 |
 | SUSE Linux Enterprise Server | 11 ve 12 |
-| OpenSUSE artık | 42.3+ |
-| CentOS | 6.5 + ve 7 |
+| OpenSUSE Leap | 42.3+ |
+| CentOS | 6.5+ ve 7 |
 | CoreOS | 899.17.0+ |
 
 
@@ -80,7 +80,7 @@ Ağ İzleyicisi Aracısı Uzantı Şeması aşağıdaki JSON'u göstermektedir. 
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| türü | NetworkWatcherAgentLinux |
+| type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
