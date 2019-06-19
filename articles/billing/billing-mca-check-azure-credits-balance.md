@@ -37,7 +37,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
    ![Maliyet Yönetimi + faturalandırma Portalı'nda arama gösteren ekran görüntüsü](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. Faturalama profiline gidin. Erişiminize bağlı olarak, bir ödeme hesabı seçmeniz gerekebilir. Fatura hesap sayfasında **profilleri faturalama** ve ardından bir faturalandırma profili.
+3. Faturalama profiline gidin. Erişiminize bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir. Fatura hesap sayfasında **profilleri faturalama** ve ardından bir faturalandırma profili.
 
 4. Seçin **Azure KREDİLERİ**.
 

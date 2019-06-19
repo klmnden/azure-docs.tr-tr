@@ -30,7 +30,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
 Microsoft Müşteri sözleşmesi için fatura hesabınıza faturaları ve ödeme yöntemlerini yönetmenize olanak sağlayan bir veya daha fazla fatura profillerini içerir. Her fatura profili fatura profilin fatura maliyetlerini düzenlemenize olanak sağlayan bir veya daha fazla fatura bölümleri içerir.
 
-Aşağıdaki diyagramda ödeme hesabıyla faturalama profilleri ve fatura bölümleri arasındaki ilişki gösterilir.
+Aşağıdaki diyagramda faturalama hesabıyla faturalama profilleri ve fatura bölümleri arasındaki ilişki gösterilir.
 
 ![Microsoft Müşteri sözleşmesi için fatura hiyerarşisini gösteren diyagram](./media/billing-mca-overview/mca-billing-hierarchy.png)
 

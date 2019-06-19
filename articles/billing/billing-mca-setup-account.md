@@ -209,7 +209,7 @@ Kurulumu tamamlamak için yeni bir faturalama hesabı ve Kurumsal Anlaşma kayd�
 
    ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Faturalandırma profili seçin. Erişiminize bağlı olarak, bir ödeme hesabı seçmeniz gerekebilir. Fatura hesap sayfasında **profilleri faturalama** ve ardından faturalandırma profili.
+3. Faturalandırma profili seçin. Erişiminize bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir. Fatura hesap sayfasında **profilleri faturalama** ve ardından faturalandırma profili.
 
 4. Seçin **Azure abonelikleri** solundan.
 
@@ -225,7 +225,7 @@ Kurumsal Anlaşma kaydınıza yeni fatura hesabınıza geçişi yapılır azure 
 
    ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Fatura bölümü seçin. Erişiminize bağlı olarak, bir ödeme hesabı veya faturalama profili seçmeniz gerekebilir.  Fatura hesabı ya da fatura profili seçin **fatura bölümleri** ve ardından bir fatura bölümü.
+3. Fatura bölümü seçin. Erişiminize bağlı olarak, bir faturalama hesabı veya faturalama profili seçmeniz gerekebilir.  Fatura hesabı ya da fatura profili seçin **fatura bölümleri** ve ardından bir fatura bölümü.
 
     ![Fatura bölüm post geçiş listesini gösteren ekran görüntüsü](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
 
@@ -245,7 +245,7 @@ Kurumsal Anlaşma kaydınıza yeni fatura hesabınıza taşınır azure ayırmal
 
    ![Azure portalı arama gösteren ekran görüntüsü](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Kaydınız için oluşturulan faturalandırma profili seçin. Erişiminize bağlı olarak, bir ödeme hesabı seçmeniz gerekebilir.  Fatura hesap sayfasında **profilleri faturalama** ve ardından faturalandırma profili.
+3. Kaydınız için oluşturulan faturalandırma profili seçin. Erişiminize bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.  Fatura hesap sayfasında **profilleri faturalama** ve ardından faturalandırma profili.
 
 4. Seçin **erişim denetimi (IAM)** solundan.
 
