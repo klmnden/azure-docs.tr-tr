@@ -145,6 +145,12 @@
             - name: Dizinleme ilkeleri
               displayName: 'consistent, none'
               href: index-policy.md
+        - name: Veri türleri
+          items:
+            - name: DateTime
+              href: working-with-dates.md
+            - name: Jeo-uzamsal
+              href: geospatial.md
         - name: Yaşam süresi
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -164,7 +170,11 @@
           displayName: change feed
           href: change-feed-functions.md
     - name: Apache Spark ile yerleşik analiz
-      href: spark-api-introduction.md
+      items:
+        - name: Giriş
+          href: spark-api-introduction.md
+        - name: Lambda mimarisi
+          href: lambda-architecture.md
     - name: Sunucu tarafı programlama
       items:
         - name: 'Saklı yordamlar, tetikleyiciler ve UDF''ler'
@@ -480,8 +490,16 @@
           href: bootstrap-kubernetes-cluster.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Azure Cosmos hesabını yönetme
+    - name: Azure Cosmos hesabıyla çalışma
       href: how-to-manage-database-account.md
+    - name: Azure Cosmos DB kaynakları ile çalışma
+      items:
+        - name: PowerShell’i kullanma
+          href: manage-with-powershell.md
+        - name: Azure CLI’yı kullanma
+          href: manage-with-cli.md
+        - name: Resource Manager şablonlarını kullanma
+          href: manage-sql-with-resource-manager.md
     - name: Genel dağıtım
       items:
         - name: Çoklu ana kaynağı yapılandırma
@@ -506,6 +524,12 @@
           href: find-request-unit-charge.md
     - name: Kapsayıcılarla ve öğelerle çalışma
       items:
+        - name: Cosmos DB verileriyle çalışma
+          items:
+            - name: Azure Depolama Gezgini'ni kullanarak verilerle çalışma
+              href: storage-explorer.md
+            - name: Azure Cosmos gezginini kullanarak verilerle çalışma
+              href: data-explorer.md
         - name: Bir kapsayıcı oluşturma
           href: how-to-create-container.md
         - name: Büyük bölüm anahtarıyla kapsayıcı oluşturma
@@ -520,10 +544,6 @@
         - name: Yaşam süresini yapılandırma
           displayName: 'delete, delete data, ttl'
           href: how-to-time-to-live.md
-        - name: Azure Depolama Gezgini'ni kullanarak verilerle çalışma
-          href: storage-explorer.md
-        - name: Azure Cosmos gezginini kullanarak verilerle çalışma
-          href: data-explorer.md
         - name: Dizinleme ilkelerini yönetme
           href: how-to-manage-indexing-policy.md
         - name: Benzersiz anahtarlar tanımlama
@@ -531,14 +551,48 @@
         - name: SQL alt sorgu örnekleri
           displayName: 'subquery, exists'
           href: how-to-sql-subquery.md
+    - name: En iyi uygulamalar
+      items:
+        - name: Performans ipuçları
+          items:
+            - name: Sorgu yürütme ölçümlerini alma
+              displayName: 'query profile, profile'
+              href: profile-sql-api-query.md
+            - name: Sorgu performansını ayarlama
+              href: sql-api-query-metrics.md
+            - name: .NET SDK’sı için performans ipuçları
+              href: performance-tips.md
+            - name: Java SDK’sı için performans ipuçları
+              href: performance-tips-java.md
+            - name: Async Java SDK’sı için performans ipuçları
+              href: performance-tips-async-java.md
+            - name: Performans testi - örnek uygulama
+              href: performance-testing.md
+        - name: Düşük maliyetli okuma ve yazmalar
+          href: key-value-store-cost.md
+    - name: Sorun giderme
+      items:
+        - name: Java Async SDK sorunlarını giderme
+          href: troubleshoot-java-async-sdk.md
+        - name: .NET SDK’da sorun giderme
+          href: troubleshoot-dot-net-sdk.md
     - name: Değişiklik Akışı
       items:
+        - name: Azure Cosmos DB Tetikleyicisi günlükleri
+          href: how-to-configure-cosmos-db-trigger-logs.md
         - name: Azure Cosmos DB Tetikleyici bağlantı ilkesi
           href: how-to-configure-cosmos-db-trigger-connection-policy.md
         - name: Birden Fazla Azure Cosmos DB Tetikleyicisi
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Azure Cosmos DB Tetikleyicileriyle İlgili Sorunları Giderme
           href: troubleshoot-changefeed-functions.md
+    - name: Apache Spark ile yerleşik analiz
+      items:
+        - name: Azure Databricks Spark bağlayıcısı
+          href: spark-connector.md
+        - name: Apache Kafka ve Cosmos DB ile akış
+          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
+          maintainContext: true
     - name: Sunucu tarafı programlama
       items:
         - name: 'Saklı yordamlar, tetikleyiciler ve UDF’ler yazma'
@@ -557,18 +611,12 @@
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Key Vault kullanarak Azure Cosmos anahtarlarının güvenliğini sağlama
           href: access-secrets-from-keyvault.md
+        - name: Azure AD ile sertifika tabanlı kimlik doğrulaması
+          href: certificate-based-authentication.md
     - name: Kurumsal kullanıma hazır olma
       items:
         - name: Verileri bir yedeklemeden geri yükleme
           href: how-to-backup-and-restore.md
-    - name: Azure Cosmos DB kaynaklarını yönetme
-      items:
-        - name: PowerShell kullanarak yönetme
-          href: manage-with-powershell.md
-        - name: Azure CLI kullanarak yönetme
-          href: manage-with-cli.md
-        - name: Resource Manager şablonlarını kullanarak yönetme
-          href: manage-sql-with-resource-manager.md
     - name: Günlüğe kaydetme
       items:
         - name: Tanılama günlüğüne kaydetme
@@ -592,30 +640,6 @@
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
     - name: Azure DevOps CI/CD işlem hattını ayarlama
       href: tutorial-setup-ci-cd.md
-    - name: Veri türleri
-      items:
-        - name: DateTime
-          href: working-with-dates.md
-        - name: Jeo-uzamsal
-          href: geospatial.md
-    - name: En iyi uygulamalar
-      items:
-        - name: Performans ipuçları
-          items:
-            - name: Sorgu yürütme ölçümlerini alma
-              href: profile-sql-api-query.md
-            - name: Sorgu performansını ayarlama
-              href: sql-api-query-metrics.md
-            - name: .NET SDK’sı için performans ipuçları
-              href: performance-tips.md
-            - name: Java SDK’sı için performans ipuçları
-              href: performance-tips-java.md
-            - name: Async Java SDK’sı için performans ipuçları
-              href: performance-tips-async-java.md
-            - name: Performans testi - örnek uygulama
-              href: performance-testing.md
-        - name: Düşük maliyetli okuma ve yazmalar
-          href: key-value-store-cost.md
     - name: Cosmos DB verilerini görselleştirme
       items:
         - name: Power BI kullanma
@@ -651,13 +675,6 @@
         - name: Spring Boot Başlatıcı’yı kullanma
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
           maintainContext: true
-        - name: Lambda mimarisi
-          href: lambda-architecture.md
-        - name: Azure Databricks (Spark bağlayıcısı)
-          href: spark-connector.md
-        - name: Spark ve Kafka
-          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
-          maintainContext: true
         - name: ODBC sürücüsü
           href: odbc-driver.md
     - name: Toplu yürütücü kitaplığı
@@ -668,12 +685,6 @@
           href: bulk-executor-dot-net.md
         - name: Toplu yürütücü - Java kitaplığı
           href: bulk-executor-java.md
-    - name: Sorun giderme
-      items:
-        - name: Java Async SDK sorunlarını giderme
-          href: troubleshoot-java-async-sdk.md
-        - name: .NET SDK’da sorun giderme
-          href: troubleshoot-dot-net-sdk.md
 - name: Başvuru
   items:
     - name: .NET

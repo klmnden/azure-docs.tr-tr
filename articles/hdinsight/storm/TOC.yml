@@ -4,6 +4,11 @@
   items:
     - name: HDInsight'ta Apache Storm nedir?
       href: apache-storm-overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: HDInsight’ta Apache Storm topolojisi oluşturma
+      href: ./apache-storm-quickstart.md
 - name: başlarken
   items:
     - name: Apache Storm kümesi oluşturma

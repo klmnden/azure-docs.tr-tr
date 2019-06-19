@@ -2,23 +2,14 @@
   href: /azure/hdinsight
 - name: Genel Bakış
   items:
-    - name: HDInsight üzerindeki Apache Hadoop hakkında
+    - name: HDInsight’ta Apache Hadoop nedir?
       href: apache-hadoop-introduction.md
-      maintainContext: true
-    - name: HDInsight’ta Apache Hadoop mimarisi
-      href: ../hdinsight-hadoop-architecture.md
-      maintainContext: true
-    - name: HDInsight üzerindeki Apache Hadoop bileşenleri
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
       maintainContext: true
 - name: Hızlı Başlangıçlar
   items:
     - name: Apache Hadoop kümesi oluşturma - Portal
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: Apache Hadoop kümesi oluşturma - Resource Manager şablonu
+    - name: Apache Hadoop kümesi oluşturma - Şablon
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: Öğreticiler
@@ -45,6 +36,15 @@
       maintainContext: true
 - name: Kavramlar
   items:
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
+      maintainContext: true
+    - name: HDInsight’ta Apache Hadoop mimarisi
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
+    - name: HDInsight’ta Apache Hadoop bileşenleri
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
     - name: Küme kapasitesi planlama
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -471,9 +471,6 @@
   items:
     - name: Windows kümeleri
       items:
-        - name: Linux kümelerine Windows kümelerini geçirme
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
         - name: .NET çözümlerini Linux kümelerine geçirme
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
           maintainContext: true

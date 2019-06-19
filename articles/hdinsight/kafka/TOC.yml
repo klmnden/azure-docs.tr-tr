@@ -11,7 +11,7 @@
       href: apache-kafka-get-started.md
     - name: Apache Kafka kümesi oluşturma - PowerShell
       href: apache-kafka-quickstart-powershell.md
-    - name: Apache Kafka kümesi oluşturma - Resource Manager Şablonu
+    - name: Apache Kafka kümesi oluşturma - Şablon
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-kafka-quickstart-resource-manager-template.md
 - name: Öğreticiler

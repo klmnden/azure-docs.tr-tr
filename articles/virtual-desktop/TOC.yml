@@ -44,6 +44,8 @@
       href: configure-vm-gpu.md
     - name: Oturum ana bilgisayarlarını otomatik olarak ölçeklendirme
       href: set-up-scaling-script.md
+    - name: Windows Sanal Masaüstü kullanıcıları için akışı özelleştirme
+      href: customize-feed-for-virtual-desktop-users.md
     - name: RDP Özelliklerini Özelleştirme
       href: customize-rdp-properties.md
 - name: Kavramlar

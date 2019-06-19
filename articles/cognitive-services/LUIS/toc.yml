@@ -85,12 +85,24 @@
           displayName: roles
         - name: Serbest biçimli verileri ayıklama
           href: luis-tutorial-pattern-any.md
-    - name: V4 bot framework'ü kullanma
+    - name: Bot ile kullanma
       items:
         - name: 'C# ile'
-          href: luis-csharp-tutorial-bf-v4.md
+          items:
+            - name: 1. Temel bot oluşturma
+              href: luis-csharp-tutorial-bf-v4.md
+              displayName: 'bot framework, framework, sdk, abs'
+            - name: 2. Application Insights’a telemetri ekleme
+              href: luis-tutorial-bot-csharp-appinsights.md
+              displayName: 'Application insight, kusto'
         - name: Node.js ile
-          href: luis-nodejs-tutorial-bf-v4.md
+          items:
+            - name: 1. Temel bot oluşturma
+              displayName: 'bot framework, framework, sdk, abs'
+              href: luis-nodejs-tutorial-bf-v4.md
+            - name: 2. Application Insights’a telemetri ekleme
+              displayName: 'Application insight, kusto'
+              href: luis-tutorial-bot-nodejs-appinsights.md
 - name: Örnekler
   items:
     - name: Kod örnekleri
@@ -200,14 +212,6 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: Konuşma hizmeti ile
           href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
-        - name: Application Insights ile bot
-          items:
-            - name: Node.js
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-nodejs-appinsights.md
-            - name: 'C#'
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-csharp-appinsights.md
     - name: Tahmin doğruluğunu iyileştirme
       items:
         - name: Panoyu kullanma

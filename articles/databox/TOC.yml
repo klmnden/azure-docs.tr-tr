@@ -111,8 +111,16 @@
           items:
             - name: Azure portalı aracılığıyla yönetme
               href: data-box-portal-ui-admin.md
-            - name: Data Box Disk sorunlarını giderme
-              href: data-box-disk-troubleshoot.md
+            - name: Sorun giderme
+              items:
+                - name: Kilit açma sorunları
+                  href: data-box-disk-troubleshoot-unlock.md
+                - name: Veri kopyalama sorunları
+                  href: data-box-disk-troubleshoot-data-copy.md
+                - name: Doğrulama sorunları
+                  href: data-box-disk-troubleshoot.md
+                - name: Karşıya yükleme sorunları
+                  href: data-box-disk-troubleshoot-upload.md
             - name: Destek birimine başvurma
               href: data-box-disk-contact-microsoft-support.md
     - name: Data Box Heavy
