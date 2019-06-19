@@ -9,11 +9,11 @@ ms.date: 03/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150823"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188274"
 ---
 1. Sanal WAN sayfasına gidin. Sayfaya gitmek için bir yoludur gitmek için **tüm hizmetleri**ve sonra sanal WAN'için arama yapın.
 1. **+Ekle**'ye tıklayarak **WAN Oluştur** sayfasını açın.

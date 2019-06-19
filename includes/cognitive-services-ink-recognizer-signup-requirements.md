@@ -5,10 +5,10 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2019
 ms.openlocfilehash: 71f6c5790ac98e819a7f251432b7cb0a731adc58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66124440"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188693"
 ---
 Olmalıdır bir [Bilişsel hizmetler API hesabı](../articles/cognitive-services/cognitive-services-apis-create-account.md) mürekkep tanıyıcı API'sine erişim ile. Azure aboneliğiniz yoksa ücretsiz olarak [hesap oluşturabilirsiniz](https://azure.microsoft.com/try/cognitive-services/). Abonelik anahtarınızı alabilirsiniz [Azure portalında](../articles/cognitive-services/cognitive-services-apis-create-account.md#access-your-resource) hesabınızı oluşturduktan sonra veya [Azure Web sitesi](https://azure.microsoft.com/try/cognitive-services/my-apis) sonra ücretsiz deneme sürümü etkinleştiriliyor.

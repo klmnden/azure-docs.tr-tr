@@ -115,12 +115,8 @@
       href: visualizations.md
     - name: İş ortağı tümleştirmeleri
       href: platform/partners.md
-    - name: OMS portalı geçişi
-      items:
-        - name: Genel Bakış
-          href: platform/oms-portal-transition.md
-        - name: Sık sorulan sorular
-          href: platform/oms-portal-faq.md
+    - name: OMS portalının kullanımdan kalkması
+      href: platform/oms-portal-transition.md
     - name: SSS
       items:
         - name: Log Analytics
@@ -249,6 +245,8 @@
               items:
                 - name: Log Analytics VM Uzantısı
                   href: platform/vmext-troubleshoot.md
+                - name: Log Analytics Windows aracısı
+                  href: platform/agent-windows-troubleshoot.md
                 - name: Log Analytics Linux aracısı
                   href: platform/agent-linux-troubleshoot.md
         - name: Aracı veri kaynakları
@@ -985,6 +983,8 @@
           href: app/nuget.md
         - name: Platform desteği
           href: app/platforms.md
+        - name: Uç nokta geçersiz kılmaları
+          href: app/custom-endpoints.md
     - name: Application Insights veri modeli
       items:
         - name: Genel Bakış

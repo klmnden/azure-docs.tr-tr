@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 7a57ab6e8f742cb44425ef703986e61529672264
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fda9594d97500075e6b018e1e8c9ff5816fe3590
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102211"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164966"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Öğretici: Fuse ile Azure Active Directory Tümleştirme
 
@@ -104,7 +104,7 @@ Azure AD çoklu oturum açma ile Fuse yapılandırmak için aşağıdaki adımla
 
     ![Fuse etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-signonurl.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<tenant name>.fusionuniversal.com/`
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://{tenantname}.fuseuniversal.com/`
 
     > [!NOTE]
     > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Sigortası istemci Destek ekibine](mailto:support@fusion-universal.com) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.

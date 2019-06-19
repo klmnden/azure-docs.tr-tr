@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6820b44309ac2b3dbeb5ad6f0beb460c8712e9af
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127455"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203698"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>API'nizin birden fazla sürümünü yayımlama 
 
@@ -46,7 +46,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ![API Bağlam menüsü - sürüm ekleme](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
 1. API listesinden **Tanıtım Konferans API’sini** seçin.
-2. Bunun yanındaki bağlam menüsünü (**...**) seçin.
+2. Bunun yanındaki bağlam menüsünü ( **...** ) seçin.
 3. **+ Sürüm Ekle** seçeneğini belirleyin.
 
 > [!TIP]

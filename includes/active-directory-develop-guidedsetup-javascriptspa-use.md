@@ -15,11 +15,11 @@ ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: 8785f89a335f0ae7d983f267176da1656aee57a0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121706"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188977"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Kullanıcının oturum açmak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanma
 
@@ -166,7 +166,7 @@ ms.locfileid: "66121706"
     ```
 
 <!--start-collapse-->
-### <a name="more-information"></a>Ek bilgiler
+### <a name="more-information"></a>Daha Fazla Bilgi
 
 Bir kullanıcı tıklattıktan sonra **oturum** düğmesini ilk kez `signIn` yöntem çağrılarını `loginPopup` kullanıcısı ile oturum. Bu yöntem ile bir açılan pencere açılırken sonuçları *Microsoft kimlik platformu uç nokta* sor ve kullanıcının kimlik bilgilerini doğrulamak için. Bir oturum açma başarılı sonucu olarak, kullanıcının özgün durumuna geri yönlendirilir *index.html* sayfa ve bir belirteç alındığında, tarafından işlenen `msal.js` ve belirtecinde yer alan bilgileri önbelleğe alınır. Bu belirteci olarak da bilinen *kimlik belirteci* ve kullanıcı görünen adı gibi kullanıcıyla ilgili temel bilgileri içerir. Tüm amaçlar için bu belirteci tarafından sağlanan herhangi bir veri kullanmayı planlıyorsanız, bu belirteç, uygulamanız için geçerli bir kullanıcı için belirteç verildiğini güvence altına almak için arka uç sunucunuzu doğrulayan emin olmanız gerekir.
 

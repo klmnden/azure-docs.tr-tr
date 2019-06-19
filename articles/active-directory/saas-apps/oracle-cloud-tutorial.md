@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a034e7dc06defd701b58ec283ee161f5557c075d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 456c984e577e3427ce8cd62d6f63987118f2c8ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095458"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164147"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Öğretici: Oracle bulut altyapısı konsol Azure Active Directory ile tümleştirme
 
@@ -92,7 +92,7 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
       > [!NOTE]
       > Varsa **tanımlayıcı** ve **yanıt URL'si** değerlerin değil otomatik polulated alın ve ardından değerleri ihtiyacınıza göre el ile girin.
 
-      İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: ` https://console.<REGIONNAME>.oraclecloud.com/`
+      İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://console.<REGIONNAME>.oraclecloud.com/`
 
       > [!NOTE]
       > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Oracle bulut altyapısı konsol istemcisi Destek ekibine](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 06/18/2018
 ms.author: maheshb
-ms.openlocfilehash: 267b50e15d39fc5a0df763cea2e2b79f9b23d151
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 87c6744dd9ee0a921a422320563f10acff9ed875
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595812"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206232"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Hızlı Başlangıç: Bing özel arama kullanan uç noktasını çağırmaC# 
 
@@ -25,9 +25,9 @@ Bing özel arama örneğinizin arama sonuçlarını talep başlamak için bu Hı
 
 - Bing özel arama örneği için. Bkz: [hızlı başlangıç: İlk Bing özel arama örneğinizin oluşturma](quick-start.md) daha fazla bilgi için.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- Herhangi bir sürümünü [Visual Studio 2017 veya üstü](https://www.visualstudio.com/downloads/)
+- Herhangi bir sürümünü [Visual Studio 2019 veya üzeri](https://www.visualstudio.com/downloads/)
 - Linux/MacOS kullanıyorsanız bu uygulama, [Mono](https://www.mono-project.com/) kullanılarak çalıştırılabilir.
-- [NuGet Özel Arama](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) paketinin yüklenmiş olması. 
+- [Bing özel arama](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) NuGet paketi. 
     - Gelen **Çözüm Gezgini** Visual Studio'da, projenize sağ tıklayıp **NuGet paketlerini Yönet** menüsünde. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` paketini yükleyin. NuGet Özel Arama paketini yüklediğinizde aşağıdaki derlemeler de yüklenir:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
@@ -104,7 +104,7 @@ Bing özel arama örneğinizin arama sonuçlarını talep başlamak için bu Hı
     ```
    ## <a name="process-and-view-the-results"></a>Sonuçları işleme ve görüntüleme
 
-1. Adı, url ve tarihi dahil olmak üzere, her bir arama sonucu ile ilgili Web sayfasında son gezinilen bilgileri görüntülemek için yanıt nesnesi yineleme yapma.
+3. Adı, url ve tarihi dahil olmak üzere, her bir arama sonucu ile ilgili Web sayfasında son gezinilen bilgileri görüntülemek için yanıt nesnesi yineleme yapma.
 
     ```csharp
     for(int i = 0; i < response.webPages.value.Length; i++) {                

@@ -11,11 +11,11 @@ ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
 ms.openlocfilehash: 40c1be20df845b975c023616e38cbb932c985735
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66157885"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188809"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces ile ekip geliştirmesi
 
@@ -58,7 +58,7 @@ _Olmadan_ geliştirme alanları'nı kullanarak, Scott hiçbirinin ideal gelişti
 
 1. Kopya [geliştirme alanları örnek uygulama](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. Uzak dalı kullanıma alın *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
-1. Seçin _geliştirme_ alanı: `azds space select --name dev`. Bir üst geliştirme alanı seçmeniz istendiğinde seçin  _\<hiçbiri\>_.
+1. Seçin _geliştirme_ alanı: `azds space select --name dev`. Bir üst geliştirme alanı seçmeniz istendiğinde seçin  _\<hiçbiri\>_ .
 1. Gidin _mywebapi_ dizin ve yürütün: `azds up -d`
 1. Gidin _webfrontend_ dizin ve yürütün: `azds up -d`
 1. Yürütme `azds list-uris` genel uç noktası için görmek için _webfrontend_

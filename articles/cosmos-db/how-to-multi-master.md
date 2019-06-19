@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB'de çok ana yapılandırma
 description: Azure Cosmos DB'de uygulamalarınızdaki çok yöneticili yapılandırmayı öğrenin.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 1d9fa7380f62165d360888fd8cb03919f1736297
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.author: mjbrown
+ms.openlocfilehash: e33aa10673f4c4b061f8961959f20b7b3416ec84
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244759"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204780"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Uygulamalarınızda Azure Cosmos DB kullanmayı çok ana yapılandırma
 
-Çok yöneticili özelliğini kullanmak için çok bölgeli yazma etkinleştirmek ve Azure Cosmos DB içinde birden çok girişli özelliği yapılandırmanız gerekir. Çoklu yönlendirmeyi yapılandırmak için uygulamanın dağıtıldığı bölge ayarlayın.
+Çok yöneticili özelliğini kullanmak için çok bölgeli yazma etkinleştirmek ve Azure Cosmos DB içinde birden çok girişli özelliği yapılandırmanız gerekir. Çoklu yönlendirmeyi yapılandırmak için uygulamanın SetCurrentLocation özelliğin dağıtılacağı bölge adı geçirin. Otomatik olarak bunu geçirilen konumdan coğrafi yakınlığına göre PreferredLocations özelliği doldurur. Yeni bir bölgeye hesabınıza daha sonra eklenirse, uygulamasının imzalanmasını veya güncelleştirilecek yok, daha yakın bir bölgeye otomatik olarak algılar ve otomatik-açın, bölgesel bir olayı gerçekleşmesi gerektiğini giriş.
 
 ## <a id="netv2"></a>.NET SDK'sı v2
 

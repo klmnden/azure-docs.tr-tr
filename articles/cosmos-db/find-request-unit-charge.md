@@ -4,14 +4,14 @@ description: İstek birimi (RU) ücretsiz bir Azure Cosmos kapsayıcı karşı y
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 0671556a1ad049782090ffede509072adbac4c6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 07ca6278da6dd1f50f017f389c2c1389a42196f4
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416045"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163832"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Azure Cosmos DB'de istek birimi ücretine ek olarak Bul
 
@@ -297,8 +297,9 @@ Daha fazla bilgi için [hızlı başlangıç: .NET SDK'sını ve Azure Cosmos DB
 RU kullanımını en iyi duruma getirme hakkında bilgi edinmek için şu makalelere bakın:
 
 * [Azure Cosmos DB'deki istek birimleri ve aktarım hızı](request-units.md)
-* [Azure Cosmos DB'de sağlanan aktarım hızı maliyeti iyileştirin](optimize-cost-throughput.md)
+* [Azure Cosmos DB’de sağlanan işlem hızını iyileştirme](optimize-cost-throughput.md)
 * [Azure Cosmos DB'de sorgu gerçekleştirerek](optimize-cost-queries.md)
 * [Genel olarak sağlanan aktarım hızını ölçeklendirme](scaling-throughput.md)
 * [Kapsayıcılar ve veritabanları sağlama aktarım hızı](set-throughput.md)
 * [Bir kapsayıcının sağlama aktarım hızı](how-to-provision-container-throughput.md)
+* [İzleyici ve Azure Cosmos DB'de ölçümlerle hata ayıklama](use-metrics.md)

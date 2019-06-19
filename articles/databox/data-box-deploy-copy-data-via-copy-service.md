@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925312"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206055"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Öğretici: Veri kopyası hizmeti (Önizleme) Azure Data Box veri kopyalamak için kullanın
 
@@ -59,11 +59,11 @@ Veri kopyalama hizmetini kullanarak verileri kopyalamak için bir iş oluşturma
     |-------------------------------|---------|
     |**İş adı**                       |Benzersiz bir ad 230'dan az karakter için bir proje. Bu karakterler proje adlarında izin verilmeyen: \<, \>, \|, \?, \*, \\, \:, \/, ve \\\.         |
     |**Kaynak konumu**                |Veri kaynağı biçimde SMB yolunu belirtin: `\\<ServerIPAddress>\<ShareName>` veya `\\<ServerName>\<ShareName>`.        |
-    |**Kullanıcı Adı**                       |Kullanıcı adını `\\<DomainName><UserName>` veri kaynağına erişmek için kullanılan biçim.        |
+    |**Kullanıcı Adı**                       |Kullanıcı adını `\\<DomainName><UserName>` veri kaynağına erişmek için kullanılan biçim. Yerel yönetici bağlanırsa, bunlar açık güvenlik izinleri gerekir. Klasöre sağ tıklayın, **özellikleri** seçip **güvenlik**. Bu, yerel yönetici olarak eklemeniz gerekir **güvenlik** sekmesi.       |
     |**Parola**                       |Veri kaynağına erişmek için parola.           |
     |**Hedef depolama hesabı**    |Liste için verileri yüklemek için hedef depolama hesabını seçin.         |
     |**Hedef türü**       |Listeden hedefi depolama türü seçin: **Blok Blobunda**, **sayfa blobu**, veya **Azure dosyaları**.        |
-    |**Hedef kapsayıcı/paylaşma**    |Kapsayıcı adını girin ya da hedef depolama hesabınız için verileri karşıya yüklemek istediğiniz paylaşabilirsiniz. Ad, bir paylaşım adı veya kapsayıcı adı olabilir. Örneğin, `myshare` veya `mycontainer`. Adı biçiminde girebilirsiniz `sharename\directory_name` veya `containername\virtual_directory_name`.        |
+    |**Hedef kapsayıcı/paylaşma**    |Kapsayıcı adını girin ya da hedef depolama hesabınız için verileri karşıya yüklemek istediğiniz paylaşabilirsiniz. Ad, bir paylaşım adı veya kapsayıcı adı olabilir. Örneğin `myshare` veya `mycontainer` kullanın. Adı biçiminde girebilirsiniz `sharename\directory_name` veya `containername\virtual_directory_name`.        |
     |**Desenle eşleşen dosyaları Kopyala**    | Aşağıdaki iki yoldan dosya adı eşleşen desen girebilirsiniz:<ul><li>**Joker karakter ifade kullanın:** Yalnızca `*` ve `?` joker ifadelerde desteklenir. Örneğin, ifade `*.vhd` sahip tüm dosyaları eşleşen `.vhd` uzantısı. Benzer şekilde, `*.dl?` ya da uzantılı tüm dosyaları eşleşen `.dl` veya ile başlayıp `.dl`, gibi `.dll`. Benzer şekilde, `*foo` adları ile bitemez tüm dosyaları eşleşen `foo`.<br>Bu gibi durumlarda, joker karakter ifadesini doğrudan alanında girebilirsiniz. Varsayılan bir joker karakter ifadesini alanına girdiğiniz değer kabul edilir.</li><li>**Normal ifadeler kullanın:** Normal ifadeler POSIX tabanlı desteklenir. Örneğin, normal ifade `.*\.vhd` sahip tüm dosyaları eşleşecektir `.vhd` uzantısı. Normal ifadeler için sağlamak `<pattern>` doğrudan olarak `regex(<pattern>)`. Normal ifadeler hakkında daha fazla bilgi için Git [normal ifade dili - hızlı başvuru](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Dosya iyileştirmesi**              |Bu özellik etkinleştirildiğinde, dosya 1 MB'tan küçük alımı sırasında paketlenir. Bu paket, küçük dosyaları için veri kopyalama hızlandırır. Dosya sayısı şu ana kadar dizinler sayısını aştığında zaman önemli miktarda de tasarruf sağlar.        |
  

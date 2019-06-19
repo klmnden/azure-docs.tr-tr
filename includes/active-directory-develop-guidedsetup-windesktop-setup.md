@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: ae6d590cdada24638ec2d24c83609b8e6addfaf0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121599"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188546"
 ---
 ## <a name="set-up-your-project"></a>Projenizi ayarlama
 
@@ -34,7 +34,7 @@ Bu bölümde ile nasıl tümleştireceğinizi Windows Masaüstü .NET uygulamas�
 Uygulamanızı oluşturmak için aşağıdakileri yapın:
 
 1. Visual Studio'da **dosya** > **yeni** > **proje**.
-2. Altında **şablonları**seçin **Visual C#**.
+2. Altında **şablonları**seçin **Visual C#** .
 3. Seçin **WPF uygulaması (.NET Framework)** kullanmakta olduğunuz Visual Studio sürümü bağlı olarak.
 
 ## <a name="add-msal-to-your-project"></a>MSAL projenize ekleyin.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 06/11/2018
-ms.author: v-gedod
-ms.openlocfilehash: eb115d1bfe033761c8dab82b693e4e694ff3bd2b
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.date: 06/18/2019
+ms.author: aahi
+ms.openlocfilehash: eb0befe3b6f131559a86c121251a4b6194abc49c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734628"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204027"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Hızlı Başlangıç: Python için Bing görsel arama SDK'sını kullanarak görüntü Öngörüler elde edin
 
@@ -24,7 +24,7 @@ Bu hızlı başlangıçta Python SDK'sını kullanarak Bing görsel arama hizmet
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Python](https://www.python.org/) 2.x veya 3.x
-* Kullanmak için önerilen bir [sanal ortam](https://docs.python.org/3/tutorial/venv.html). Sana ortamı [venv modülü](https://pypi.python.org/pypi/virtualenv) ile yükleyin ve başlatın. Python 2.7 için virtualenv dosyasını yükleyin.
+* Kullanmak için önerilen bir [sanal ortam](https://docs.python.org/3/tutorial/venv.html). Sana ortamı [venv modülü](https://pypi.python.org/pypi/virtualenv) ile yükleyin ve başlatın.
 * Bing görsel arama SDK'sı Python için. Aşağıdaki komutlarla yükleyebilirsiniz:
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`

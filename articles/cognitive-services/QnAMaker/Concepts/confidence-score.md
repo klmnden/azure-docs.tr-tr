@@ -3,20 +3,20 @@ title: Güvenilirlik puanı - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
 description: Güvenilirlik puanı güvenle yanıt verilen kullanıcı sorgusu için doğru eşleşme olduğunu gösterir.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.date: 06/17/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792741"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165130"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası güvenilirlik puanı
 Kullanıcı sorgusu karşı Bilgi Bankası eşleştiğinde, soru-cevap Oluşturucu bir güven puanı yanı sıra ilgili yanıt verir. Bu puanı güvenle yanıt verilen kullanıcı sorgusu için doğru eşleşme olduğunu gösterir. 
@@ -46,7 +46,7 @@ Aşağıdaki tabloda tipik güvenilirlik için belirli bir puan ilişkili göste
 |0|Yanıt alınmadı için hiç eşleşme.|"Hizmet maliyeti"|
 
 ## <a name="choose-a-score-threshold"></a>Bir puan eşiği seçin
-Yukarıdaki tabloda, çoğu KB'leri üzerinde beklenen puanları gösterilmektedir. Her KB farklı olduğunu ve farklı türde bir sözcük olduğundan, ancak amaçlar ve hedefler-test etme ve eşiği seçin öneririz. Bu sizin için en uygun. Böylece tüm olası yanıt döndürülür varsayılan Eşik 0 olarak ayarlanır. Çoğu KB'leri için çalışmalıdır önerilen eşiğin **50**.
+Yukarıdaki tabloda, çoğu KB'leri üzerinde beklenen puanları gösterilmektedir. Bu yana her KB farklı olduğunu ve farklı türde sözcükler, amaçlarını ve hedefleri-test etme ve eşiği seçin öneririz ancak bu sizin için en uygun. Böylece tüm olası yanıt döndürülür varsayılan Eşik 0 olarak ayarlanır. Çoğu KB'leri için çalışmalıdır önerilen eşiğin **50**.
 
 Eşiğine seçerken, doğruluk ve kapsamı arasındaki dengeyi göz önünde bulundurun ve gereksinimlerinize göre eşiğine ince ayar.
 
@@ -56,6 +56,12 @@ Eşiğine seçerken, doğruluk ve kapsamı arasındaki dengeyi göz önünde bul
 
 > [!NOTE]
 > Soru-cevap Oluşturucu daha yeni sürümlerini Puanlama mantığı için geliştirmeler içerir ve eşiğine etkileyebilir. İstediğiniz zaman hizmet güncelleştirmesi, test edin ve gerekiyorsa eşik ince emin olun. Soru-cevap hizmet sürümü denetleyebilirsiniz [burada](https://www.qnamaker.ai/UserSettings)ve son gelişmeleri öğrenin [burada](../How-To/troubleshooting-runtime.md).
+
+## <a name="set-threshold"></a>Ayarlanan eşiği 
+
+Bir özelliği olarak eşiği puanını belirlemek [GenerateAnswer API JSON gövdesi](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Başka bir deyişle, her çağrı için GenerateAnswer ayarlayın. 
+
+Bot Framework'ten puanı ile seçenekleri nesnesinin bir parçası olarak ayarlayın. [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) veya [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Güven puanlarını geliştirmeleri
 Belirli bir kullanıcı sorgu yanıt güvenilirlik puanı geliştirmek için alternatif bir soru, yanıt olarak Bilgi Bankası'na kullanıcı sorgusu ekleyebilirsiniz. Ayrıca büyük/küçük harfe kullanabilirsiniz [word değişiklikleri](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) , KB anahtar sözcükleri eş anlamlılar eklemek için.

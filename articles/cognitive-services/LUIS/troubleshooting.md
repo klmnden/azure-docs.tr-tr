@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417986"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204112"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
@@ -189,11 +189,11 @@ Bkz: [LUIS yazma ve sorgu tahmin uç nokta anahtarlarını](luis-concept-keys.md
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Yetersiz kota ilgili bir hata aldım. Bunu nasıl düzeltirim? 
 
-Bkz, [anahtar fiyatlandırma katmanı kullanımı aştığında Kota aşımı hataları düzeltmek nasıl](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) daha fazla bilgi için.
+Bkz, [düzeltme HTTP durum kodu 403 ve 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) daha fazla bilgi için.
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Daha fazla uç nokta sorguları işlemek gerekir. Bu ne yapmalıyım? 
 
-Bkz, [anahtar fiyatlandırma katmanı kullanımı aştığında Kota aşımı hataları düzeltmek nasıl](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) daha fazla bilgi için.
+Bkz, [düzeltme HTTP durum kodu 403 ve 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) daha fazla bilgi için.
 
 
 

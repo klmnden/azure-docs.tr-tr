@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 704a1193eb47f9346900c6c8a003122c30c8ab44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417315"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203964"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Metin analizi API'si için dil ve bölge desteği
 
@@ -31,7 +31,14 @@ Daha az sık kullanılan bir dille ifade içeriğiniz varsa, bir kod döndürür
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Yaklaşım analizi, anahtar ifade ayıklama ve adlandırılmış varlık tanıma
 
-Yaklaşım analizi, anahtar ifade ayıklama ve varlık tanıma, desteklenen dillerin listesini Çözümleyicileri ek diller dil kurallarına uyum sağlamak için daraltılmış daha Seçici.
+Yaklaşım analizi, anahtar ifade ayıklama ve varlık tanıma, desteklenen dillerin listesini Çözümleyicileri ek diller dil kurallarına uyum sağlamak için daraltılmış daha Seçici. Eksiksiz bir listesi için destek [varlık türleri](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) şu anda aşağıdaki diller için sınırlıdır: 
+* Türkçe
+* Çince (Basitleştirilmiş)
+* Fransızca
+* Almanca
+* İspanyolca
+
+Yalnızca `Person`, `Location` ve `Organization` adlandırılmış varlık, diğer diller için döndürülür.
 
 ## <a name="language-list-and-status"></a>Dil listesini ve durumu
 
@@ -64,7 +71,7 @@ Dil desteği başlangıçta Mezun genel kullanıma (GA) durumuna birbirinden ve 
 
 \* Dil desteği Önizleme aşamasındadır.
 
-\*\* Adlandırılmış varlık tanıma ve [varlık bağlama](how-tos/text-analytics-how-to-entity-linking.md) her ikisi de bu dil için kullanılabilir.    
+\*\* [Adlandırılmış varlık tanıma](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) ve [varlık bağlama](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) her ikisi de bu dil için kullanılabilir.    
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

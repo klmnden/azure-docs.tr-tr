@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/29/2019
 ms.author: jowargo
-ms.openlocfilehash: abc77ad4d06dc719ee1a89cd8fcf29d42d96b483
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: e8e6df0426314942f86b844b2de067b38488ff37
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147626"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204863"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kindle uygulamaları için Notification Hubs'ı kullanmaya başlama
 
@@ -326,7 +326,7 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için kod oluşturur/
     }
     ```
 ## <a name="create-an-adm-object"></a>ADM nesne oluşturma
-1 içinde `MainActivity.java` içeri aktarma deyimlerini ekleyin:
+1. İçinde `MainActivity.java` içeri aktarma deyimlerini ekleyin:
 
     ```java
     import android.os.AsyncTask;

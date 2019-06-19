@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66167215"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188449"
 ---
 ## <a name="c-program-example"></a>C#örnek program
 
@@ -37,7 +37,7 @@ ERD iki tablo arasındaki ilişkiyi gösterir. Değerler **tabEmployee.Departmen
 
 C# Program mantıksal olarak bir .cs dosyası ve her blok anlamak daha kolay hale getirmek için bazı kod blokları şeklinde, fiziksel olarak ayrılmıştır. Derleme ve programı çalıştırmak için aşağıdaki adımları uygulayın:
 
-1. Oluşturma bir C# Visual Studio'da proje. Proje türü olmalıdır bir *konsol*, altında bulunan **şablonları** > **Visual C#**   >  **WindowsMasaüstü**  >  **Konsol uygulaması (.NET Framework)**.
+1. Oluşturma bir C# Visual Studio'da proje. Proje türü olmalıdır bir *konsol*, altında bulunan **şablonları** > **Visual C#**   >  **WindowsMasaüstü**  >  **Konsol uygulaması (.NET Framework)** .
 
 1. Dosyasındaki *Program.cs*, aşağıdaki adımlarla bulunan Başlangıç kod satırlarını değiştirin:
 

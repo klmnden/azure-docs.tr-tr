@@ -6,14 +6,14 @@ author: dcurwin
 manager: ''
 ms.service: backup
 ms.topic: tutorial
-ms.date: 05/22/2019
+ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfe48fb1bf6a361ce79d0ddc5281a6380a5367e4
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016485"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203487"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM’lerinde SQL Server veritabanlarını yedekleme
 
@@ -33,7 +33,7 @@ Bu makalede bir Azure Backup kurtarma Hizmetleri kasası için bir Azure sanal m
 SQL Server veritabanınızı yedekleyin önce aşağıdaki koşulları denetleyin:
 
 1. Tanımlamak veya [oluşturma](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) aynı bölge veya VM SQL Server örneği barındıran yerel bir kurtarma Hizmetleri kasası.
-2. [VM izinlerini denetleyin](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) SQL veritabanlarını yedeklemek için gerekli.
+2. [VM izinlerini denetleyin](backup-azure-sql-database.md#set-vm-permissions) SQL veritabanlarını yedeklemek için gerekli.
 3. VM sahip olduğunu doğrulayın [ağ bağlantısı](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 4. SQL Server veritabanları ile uyumlu olarak adlandırılan onay [adlandırma kuralları](#verify-database-naming-guidelines-for-azure-backup) Azure Backup için.
 5. Veritabanı için etkin diğer yedekleme çözümleri yoksa doğrulayın. Bu senaryoyu ayarlamak, önce diğer tüm SQL Server yedeklemeleri devre dışı bırakın. Herhangi bir çakışma olmadan VM'de çalışan SQL Server veritabanı için Azure Backup ile birlikte bir Azure VM için Azure yedeklemeyi etkinleştirebilirsiniz.
@@ -61,7 +61,7 @@ Azure yedekleme, SQL Server veritabanı için yedeklemeyi yapılandırdığını
 - Sanal makine üzerindeki veritabanlarını bulmak için Azure Backup, hesabı oluşturan **NT SERVICE\AzureWLBackupPluginSvc**. Bu hesap, yedekleme ve geri yükleme için kullanılır ve SQL sysadmin izinleri gerektirir.
 - Azure Backup yararlanır **NT AUTHORITY\SYSTEM** SQL ortak bir oturum açma olacak şekilde bu hesabınızın olması gerekir böylece veritabanı bulma/sorgulama için hesap.
 
-SQL Server VM Azure Market'te oluşturmadıysanız, bir hata alabilirsiniz **UserErrorSQLNoSysadminMembership**. Bu meydana gelirse [bu yönergeleri izleyin](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+SQL Server VM Azure Market'te oluşturmadıysanız, bir hata alabilirsiniz **UserErrorSQLNoSysadminMembership**. Bu meydana gelirse [bu yönergeleri izleyin](backup-azure-sql-database.md#set-vm-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Azure Backup için veritabanı adlandırma yönergeleri doğrulayın
 
@@ -114,7 +114,7 @@ Sanal makinede çalışan veritabanları keşfedin.
     - Azure Backup, hizmet hesabı oluşturur **NT Service\AzureWLBackupPluginSvc** VM üzerinde.
       - Tüm yedekleme ve geri yükleme işlemleri, hizmet hesabı kullanın.
       - **NT Service\AzureWLBackupPluginSvc** SQL sysadmin izinleri olması gerekir. Azure Market'te oluşturulan tüm SQL Server Vm'lerinin gelir **SqlIaaSExtension** yüklü. **AzureBackupWindowsWorkload** uzantısı kullanan **SQLIaaSExtension** otomatik olarak gerekli izinleri almak için.
-    - Marketten VM oluşturmamışsınızdır sonra VM yok **SqlIaaSExtension** yüklü ve bulma işlemi hata iletisiyle başarısız **UserErrorSQLNoSysAdminMembership**. İzleyin [yönergeleri](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) bu sorunu gidermek için.
+    - Marketten VM oluşturmamışsınızdır sonra VM yok **SqlIaaSExtension** yüklü ve bulma işlemi hata iletisiyle başarısız **UserErrorSQLNoSysAdminMembership**. İzleyin [yönergeleri](backup-azure-sql-database.md#set-vm-permissions) bu sorunu gidermek için.
 
         ![VM ve veritabanı seçin](./media/backup-azure-sql-database/registration-errors.png)
 

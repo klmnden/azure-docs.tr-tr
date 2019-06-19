@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55438e2a853094bc26b3cb672687733f206f104
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10d43de00c9daefdb86a92d92ebe2cfe39fd3248
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089580"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164408"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-surveymonkey-enterprise"></a>Öğretici: SurveyMonkey Enterprise ile Azure Active Directory Tümleştirmesi
 
@@ -110,7 +110,7 @@ Azure AD çoklu oturum açma SurveyMonkey Enterprise ile yapılandırmak için a
 
     ![SurveyMonkey Kurumsal etki alanı ve URL'ler tek oturum açma bilgileri](common/both-signonurl.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:  ` https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
+    İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:  `https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
 
 6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 

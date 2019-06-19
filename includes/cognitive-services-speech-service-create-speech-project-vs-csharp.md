@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
 ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145496"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188664"
 ---
 1. Visual Studio 2017'yi başlatın.
 
@@ -19,7 +19,7 @@ ms.locfileid: "66145496"
 
    ![.NET masaüstü geliştirmesini etkinleştirme](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
-1. Ardından, bir proje oluşturalım. Menü çubuğundan seçin **Dosya > Yeni > Proje**. İletişim kutusu göründüğünde, bu bölümler sol panelden genişletin **yüklü > Visual C# > Windows Masaüstü** seçip **konsol uygulaması (.NET Framework)**. Bu projenin adı *helloworld*.
+1. Ardından, bir proje oluşturalım. Menü çubuğundan seçin **Dosya > Yeni > Proje**. İletişim kutusu göründüğünde, bu bölümler sol panelden genişletin **yüklü > Visual C# > Windows Masaüstü** seçip **konsol uygulaması (.NET Framework)** . Bu projenin adı *helloworld*.
 
     ![Visual C# Konsol Uygulaması (.NET Framework) oluşturma](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Visual C# Konsol Uygulaması (.NET Framework) oluşturma")
 

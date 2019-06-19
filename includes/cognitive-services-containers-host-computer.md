@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/22/2019
 ms.openlocfilehash: eda4395b46abdfdccb76c0960984b3f6d7614a48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66124326"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188649"
 ---
 Konak, Docker kapsayıcısı çalıştıran bir x64 tabanlı bir bilgisayardır. Bir bilgisayarda şirket içinde veya azure'da Docker barındırma hizmeti gibi olabilir:
 

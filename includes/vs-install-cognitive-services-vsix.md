@@ -11,11 +11,11 @@ ms.author: ghogen
 ms.custom: include file
 manager: douge
 ms.openlocfilehash: 892db95a3d8ebaf4d9d3339d4965ce96b1084537
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116657"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188638"
 ---
 ## <a name="install-the-cognitive-services-vsix-extension"></a>Bilişsel hizmetler VSIX eklentisini yükleyin
 
@@ -23,7 +23,7 @@ ms.locfileid: "66116657"
 
    ![Bağlı hizmetler ekran sekmesi](./media/vs-install-cognitive-services-vsix/Connected-Services-Tab.PNG)
 
-1. Kaydırma hizmetlerin listesi En Alta kadar kaydırın ve seçin **daha fazla hizmet Bul.**.
+1. Kaydırma hizmetlerin listesi En Alta kadar kaydırın ve seçin **daha fazla hizmet Bul.** .
 
     ![Ekran görüntüsü, bulmak daha Bağlantı Hizmetleri](./media/vs-install-cognitive-services-vsix/Find-More-Services.PNG)
  

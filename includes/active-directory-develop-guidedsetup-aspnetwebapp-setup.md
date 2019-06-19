@@ -15,11 +15,11 @@ ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121759"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188978"
 ---
 ## <a name="set-up-your-project"></a>Projenizi ayarlama
 
@@ -146,6 +146,6 @@ Aşağıdaki adımlar, bir OWIN ara yazılımını Openıd Connect kimlik doğru
 > Ayar `ValidateIssuer = false` olduğu için bu hızlı başlangıçta bir basitleştirme. Gerçek sağlayıcısını doğrulamak için ihtiyacınız olan uygulamaları örnekleri bunun nasıl yapılacağını anlamak için bkz.
 
 <!--start-collapse-->
-> ### <a name="more-information"></a>Ek bilgiler
+> ### <a name="more-information"></a>Daha Fazla Bilgi
 > *OpenIDConnectAuthenticationOptions* içinde sağladığınız parametreler uygulamanın Azure AD ile iletişim kurmak için kullanacağı koordinatlara benzer. Openıd Connect ara yazılımı arka planda tanımlama bilgileri kullandığından, ayrıca tanımlama bilgisi kimlik doğrulamasını gösterir yukarıdaki kodu olarak ayarlamanız gerekir. *ValidateIssuer* değeri OpenIdConnect öğesine erişimi tek bir kuruluşla sınırlamamasını söyler.
 <!--end-collapse-->

@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/19/2019
 ms.author: diberry
-ms.openlocfilehash: f8d2f6d9fce6a249a782f959ac7672ac8e123fbc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b73884e544ea1b8ee76c8a891048e6a8e17d6ab3
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075170"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204086"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Etkin öğrenme bilgi bankanızı geliştirmek için kullanın
 
@@ -195,7 +195,7 @@ JSON gövdesi birkaç ayar vardır:
 |--|--|--|--|
 |`feedbackRecords`|array|Geri bildirim listesi.|
 |`userId`|string|Önerilen sorular kabul eden kişinin kullanıcı kimliği. Kullanıcı Kimliği biçimi size bağlıdır. Örneğin, bir e-posta adresi geçerli bir kullanıcı kimliği mimarinizdeki olabilir. İsteğe bağlı.|
-|`userQuestion`|string|Tam metin soru. Gereklidir.|
+|`userQuestion`|string|Kullanıcının sorgu tam metni. Gereklidir.|
 |`qnaID`|number|Bulunan bir soru kimliği [GenerateAnswer yanıt](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Örnek JSON gövdesi aşağıdaki gibi görünür:
@@ -213,6 +213,36 @@ JSON gövdesi birkaç ayar vardır:
 ```
 
 Başarılı bir yanıt 204 ve JSON yanıt gövdesine durumunu döndürür. 
+
+### <a name="batch-many-feedback-records-into-a-single-call"></a>Tek bir çağrı birçok geri bildirim kayıtları toplu
+
+İstemci tarafı uygulamada, bir robot gibi verileri depolamak sonra tek bir JSON gövdesi içinde çok sayıda kayıt göndermek `feedbackRecords` dizisi. 
+
+Örnek JSON gövdesi aşağıdaki gibi görünür:
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "How do I ...",
+            "qnaId": 1
+        },
+        {
+            "userId": "2",
+            "userQuestion": "Where is ...",
+            "qnaId": 40
+        },
+        {
+            "userId": "3",
+            "userQuestion": "When do I ...",
+            "qnaId": 33
+        }
+    ]
+}
+```
+
+
 
 <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
 

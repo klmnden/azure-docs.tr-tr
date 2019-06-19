@@ -9,29 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198651"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204153"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>LUIS uygulamanız ile abonelik anahtarlarını kullanma
 
-Ücretsiz ilk 1000 uç nokta sorgularınızı kullanmak için Abonelik anahtarları oluşturma gerekmez. Bu uç nokta sorgular kullanılan sonra bir Azure kaynağı oluşturma [Azure portalında](https://portal.azure.com), ardından bu kaynak bir LUIS uygulaması atayın [LUIS portalı](https://www.luis.ai).
-
-Alırsanız bir _kotasından_ hata formunda bir HTTP 403 ve 429 gereken bir anahtar oluşturun ve uygulamanıza atayın. 
+Language Understanding (LUIS) ilk kez kullandığınızda, Abonelik anahtarları oluşturma gerekmez. 1000 uç nokta sorguları başlangıç olarak verilir. 
 
 Test ve yalnızca prototip için ücretsiz katman (F0) kullanın. Üretim sistemleri için bir [Ücretli](https://aka.ms/luis-price-tier) katmanı. Kullanmayın [anahtar yazma](luis-concept-keys.md#authoring-key) için üretim uç noktası sorgular.
+
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
 ## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Azure portalında tahmin uç çalışma zamanı kaynağı oluşturma
 
-Daha fazla bilgi edinin [uygulama derleme](get-started-portal-build-app.md) hızlı başlangıç.
+Oluşturduğunuz [tahmin uç nokta kaynağı](get-started-portal-deploy-app.md#create-the-endpoint-resource) Azure portalında. Bu kaynak, yalnızca uç nokta tahmin sorguları için kullanılmalıdır. Bu kaynak, uygulama geliştirme değişiklikler için kullanmayın.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -49,7 +48,7 @@ Daha fazla bilgi edinin [uygulama derleme](get-started-portal-build-app.md) hız
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Kaynak anahtarı LUIS Portalı'nda LUIS uygulama atama
 
-Daha fazla bilgi edinin [dağıtım](get-started-portal-deploy-app.md) hızlı başlangıç.
+LUIS için yeni bir kaynak oluşturmak her zaman, istediğiniz [LUIS uygulaması için kaynak atayın](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). Atandıktan sonra yeni bir kaynak oluşturmadığınız sürece bu adımı tekrar yapmanız gerekmez. Uygulamanızı bölgeleri genişletin veya daha yüksek bir sayı tahmin sorguları desteklemek için yeni bir kaynak oluşturabilir.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -155,10 +154,30 @@ Bir CI/CD işlem hattı gibi Otomasyon amacıyla bir LUIS uygulaması LUIS kayna
     ![LUIS ödeme katmanınızı doğrulayın](./media/luis-usage-tiers/updated.png)
 1. Unutmayın [Bu uç noktası anahtarı atama](#assign-endpoint-key) üzerinde **Yayımla** sayfasında ve tüm uç nokta sorguları kullanın. 
 
-## <a name="how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage"></a>Fiyatlandırma katmanı kullanımı anahtar aştığında, Kota aşımı hataları düzeltmek nasıl
-Her katman, uç nokta istekleri LUIS hesabınıza belli bir oranda sağlar. İstekleri oranını tarifeli hesabınızın dakika başına veya aylık izin verilen oranı yüksekse isteklerini HTTP hatası almak "429: Çok fazla istek."
+## <a name="fix-http-status-code-403-and-429"></a>HTTP durum kodu 403 ve 429 Düzelt
 
-Her katman, aylık biriktirici istek sağlar. Toplam istek sayısı izin verilen hızından daha yüksek olan, istekler HTTP hatası alırsınız "403: Yasak".  
+Saniyede veya işlem / ay için fiyatlandırma katmanınızı aşması durumunda, durum kodları 403 ve 429 hatasını alırsınız.
+
+### <a name="when-you-receive-an-http-403-error-status-code"></a>Bir HTTP 403 hatası durum kodu aldığınızda
+
+Tüm bu ücretsiz 1000 uç nokta sorgular kullandığınızda veya fiyatlandırma katmanın aylık işlem kotayı aştığınız bir HTTP 403 hatası durum kodu alırsınız. 
+
+Bu hatayı düzeltmek için aşağıdakilerden birini yapmalısınız [fiyatlandırma katmanınızı değiştirerek](luis-how-to-azure-subscription.md#change-pricing-tier) daha yüksek bir katmana veya [yeni kaynak Oluştur](get-started-portal-deploy-app.md#create-the-endpoint-resource) ve [uygulamanıza atama](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Bu hata için çözümleri şunlardır:
+
+* İçinde [Azure portalında](https://portal.azure.com), kaynak, üzerinde anlama, dil **kaynak yönetimi fiyatlandırma Katmanı ->** , daha yüksek bir TPS katman için fiyatlandırma katmanınızı değiştirin. Language Understanding uygulamanıza kaynağınızın zaten atanmışsa, Language Understanding Portalı'nda herhangi bir şey yapmanız gerekmez.
+*  Kullanım en yüksek fiyatlandırma katmanı aşarsa, bir yük dengeleyici bulundurmanıza bunları Language Understanding kaynak daha ekleyin. [Language Understanding kapsayıcı](luis-container-howto.md) Kubernetes veya Docker Compose ile bu konuda yardımcı olabilir.
+
+### <a name="when-you-receive-an-http-429-error-status-code"></a>Bir HTTP 429 hatası durum kodu aldığınızda
+
+Ne zaman bu durum kodu döndürülmesine, saniyede fiyatlandırma katmanınızı aşıyor.  
+
+Çözümleri şunlardır:
+
+* Yapabilecekleriniz [fiyatlandırma katmanınızı artırmak](#change-pricing-tier), en yüksek katman üzerinden değilse.
+* Kullanım en yüksek fiyatlandırma katmanı aşarsa, bir yük dengeleyici bulundurmanıza bunları Language Understanding kaynak daha ekleyin. [Language Understanding kapsayıcı](luis-container-howto.md) Kubernetes veya Docker Compose ile bu konuda yardımcı olabilir.
+* İstemci uygulama isteklerinizi geçit oluşturan bir [yeniden deneme ilkesi](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) bu durum kodu aldığınızda kendiniz uygulayacaksınız. 
 
 ## <a name="viewing-summary-usage"></a>Özet kullanımı görüntüleme
 Azure'da LUIS kullanım bilgilerini görüntüleyebilirsiniz. **Genel bakış** sayfası çağrı ve hata dahil olmak üzere son Özet bilgilerini gösterir. Bir LUIS uç nokta isteği yapıyorsa, hemen izleyin **genel bakış sayfasında**, gösterilecek kullanım beş dakika bekleyin.

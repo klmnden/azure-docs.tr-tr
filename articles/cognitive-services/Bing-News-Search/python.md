@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Python - Bing haber arama REST API'si ile bir haber arama yapın"
+title: "Hızlı Başlangıç: Python ile bir haber arama ve Bing haber arama REST API'si işlemleri"
 titlesuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Python kullanarak Bing haber arama REST API'si için bir istek göndermek için kullanın ve bir JSON yanıtı alırsınız.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7745db722d1862e5254c0e0fb07605799a8f7457
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c598a9e879cf2f48b6b038f0688d7394075ef521
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578938"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206082"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: Python ve Bing haber arama REST API'si kullanarak bir haber arama yapın
 

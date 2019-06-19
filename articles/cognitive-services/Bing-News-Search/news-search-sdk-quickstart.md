@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: -Bing haber arama SDK için bir haber arama yapınC#'
+title: "Hızlı Başlangıç: Bing haber arama için SDK'sı kullanarak bir haber arama yapınC#"
 titleSuffix: Azure Cognitive Services
 description: Bu Hızlı Başlangıç için Bing haber arama SDK'sını kullanarak haber arama kullanmasını C#ve yanıt işlem.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9e0a4da2662b9d4b4b775631705e7b4fcc1eecea
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 626596cc88b1b3b1067d7d6d157a548f92fb621a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798664"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206028"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Hızlı Başlangıç: Bing haber arama için SDK'sı ile bir haber arama yapınC#
 

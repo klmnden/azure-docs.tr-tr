@@ -1,32 +1,32 @@
 ---
-title: Windows sanal masaüstü Önizleme hizmet sorumluları ve rol atamalarını - Azure PowerShell ile oluşturma
-description: Hizmet sorumluları oluşturma ve Windows sanal masaüstü Önizleme'de PowerShell ile rol atamasını nasıl.
+title: PowerShell - Azure'ı kullanarak Windows sanal masaüstü Önizleme hizmet sorumluları ve rol atamalarını oluşturma
+description: Nasıl hizmet sorumlusu oluşturma ve sanal masaüstü Önizleme'de Windows PowerShell kullanarak rolleri atayın.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523309"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206652"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Öğretici: PowerShell ile hizmet sorumluları ve rol atamaları oluşturma
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Öğretici: Hizmet sorumluları ve rol atamalarını PowerShell kullanarak oluşturma
 
 Hizmet sorumluları belirli bir amaç için rolleri ve izinleri atamak için Azure Active Directory oluşturabileceğiniz Kimlikleridir. Windows sanal masaüstü Önizleme'de, bir hizmet sorumlusunu oluşturabilirsiniz:
 
-- Belirli Windows sanal masaüstü yönetim görevlerini otomatikleştirin
-- Herhangi bir Windows sanal masaüstü Azure Resource Manager şablonu çalıştırılırken yerine kullanıcıları MFA gerekli kimlik bilgilerini kullanın
+- Belirli Windows sanal masaüstü yönetim görevlerini otomatikleştirin.
+- Windows sanal masaüstü için herhangi bir Azure Resource Manager şablonu çalıştırılırken yerine kullanıcıları MFA gerekli kimlik bilgilerini kullanın.
 
 Bu öğreticide, bilgi nasıl yapılır:
 
 > [!div class="checklist"]
-> * Azure Active Directory'de hizmet sorumlusu oluşturma
-> * Windows sanal masaüstü rol ataması oluşturma
-> * Windows sanal masaüstü hizmet sorumlusu ile oturum açın
+> * Azure Active Directory'de Hizmet sorumlusu oluşturun.
+> * Windows sanal masaüstü bir rol ataması oluşturun.
+> * Windows sanal masaüstüne hizmet sorumlusunu kullanarak oturum açın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -72,18 +72,18 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincip
 
 ## <a name="sign-in-with-the-service-principal"></a>Hizmet sorumlusuyla oturum açın
 
-Bir rol ataması için hizmet sorumlusu oluşturduktan sonra artık hizmet sorumlusu aşağıdaki cmdlet'i çalıştırarak Windows sanal masaüstü oturum açarak emin olmanız gerekir:
+Bir rol ataması için hizmet sorumlusu oluşturduktan sonra hizmet sorumlusu aşağıdaki cmdlet'i çalıştırarak Windows sanal masaüstü oturum açarak emin olun:
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
 ```
 
-Bir kez açtığınız, hizmet sorumlusu birkaç Windows sanal masaüstü PowerShell cmdlet'leriyle test ederek her şeyin çalıştığından emin olun.
+Oturumunuz açıldıktan sonra hizmet sorumlusu birkaç Windows sanal masaüstü PowerShell cmdlet'leriyle test ederek her şeyin çalıştığından emin olun.
 
 ## <a name="view-your-credentials-in-powershell"></a>PowerShell'de kimlik bilgilerinizi görüntüleyin
 
-PowerShell oturumunuzu sonlandırmak önce kimlik bilgilerinizi görüntüleyin ve gelecekte başvurulmak üzere yazmanızı gerekir. Parola özellikle önemlidir çünkü bu bir PowerShell oturumu kapattıktan sonra onu almak mümkün olmayacaktır.
+PowerShell oturumunuzu sonlandırmak önce kimlik bilgilerinizi görüntüleyin ve gelecekte başvurulmak üzere not edin. Parola özellikle önemlidir çünkü bu bir PowerShell oturumu kapattıktan sonra onu almak mümkün olmayacaktır.
 
 Not üç kimlik bilgilerini ve bunları almak için çalıştırmak için ihtiyacınız olan cmdlet'lerin şunlardır:
 
@@ -93,7 +93,7 @@ Not üç kimlik bilgilerini ve bunları almak için çalıştırmak için ihtiya
     $svcPrincipalCreds.Value
     ```
 
-- Kiracı Kimliği:
+- Kiracı kimliği:
 
     ```powershell
     $aadContext.TenantId.Guid
@@ -107,7 +107,7 @@ Not üç kimlik bilgilerini ve bunları almak için çalıştırmak için ihtiya
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hizmet sorumlusu oluşturup Windows sanal masaüstü kiracınızda bir rolü atanmış bir konak havuzu oluşturmak için kullanabilirsiniz. Ana bilgisayar havuzları hakkında daha fazla bilgi için Windows sanal masaüstü konak havuzu oluşturmak için öğreticisiyle devam edin.
+Hizmet sorumlusu oluşturup Windows sanal masaüstü kiracınızda bir rolü atanmış sonra bir konak havuzu oluşturmak için kullanabilirsiniz. Ana bilgisayar havuzları hakkında daha fazla bilgi için Windows sanal masaüstü konak havuzu oluşturmak için öğreticisiyle devam edin.
 
  > [!div class="nextstepaction"]
  > [Windows sanal masaüstü konak havuzu Öğreticisi](./create-host-pools-azure-marketplace.md)

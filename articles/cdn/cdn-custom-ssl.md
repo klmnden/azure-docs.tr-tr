@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e9cca4cd113115a1acf676b46cc65dc4ed7021fa
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 6a41df70340da626a849804155ca245d95b6da46
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144082"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190515"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Öğretici: Bir Azure CDN özel etki alanı üzerinde HTTPS yapılandırma
 
@@ -189,10 +189,10 @@ Otomatik doğrulama genellikle birkaç saat sürer. Etki alanınızı doğrulanm
 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Özel etki alanı, CDN uç noktanızla eşlenmedi
 
-Uç noktanız için CNAME kaydı girişi artık mevcut değilse veya cdnverify alt etki alanını içeriyorsa bu adımın diğer yönergelerini uygulayın.
-
 >[!NOTE]
->Özel etki alanı sahipliğini doğrulama e-posta şu an için kullanılamıyor **akamai'den Azure CDN** profilleri. Bu özellik şu anda üzerinde çalışıyoruz. 
+>Özel etki alanı sahipliğini doğrulama e-posta şu an için kullanılamıyor **akamai'den Azure CDN** profilleri. Kullanıyorsanız **akamai'den Azure CDN**, özel etki alanınızı cdn uç noktası ile bir CNAME kaydı yukarıda belirtildiği gibi eşlenmesi gerekir.  Bu özellik şu anda üzerinde çalışıyoruz. 
+
+CNAME kaydı girişi cdnverify alt etki alanını içeriyorsa, kalan bu adımdaki yönergeleri izleyin.
 
 Özel etki alanınızda HTTPS'yi etkinleştirmek için bir istek gönderdikten sonra DigiCert CA'ın etki alanınızın sahipliğini kayıt yetkilisiyle iletişim kurarak etki alanının göre doğrular [WHOIS](http://whois.domaintools.com/) kayıt yetkilisi bilgileri. İletişim, WHOIS kaydında belirtilen e-posta adresi (varsayılan) veya telefon numarası aracılığıyla kurulur. HTTPS, özel etki alanınızda etkin hale gelmeden önce etki alanı doğrulamasını tamamlamanız gerekir. Etki alanını onaylamak için altı iş gününüz vardır. Altı iş günü içinde onaylanmamış istekler otomatik olarak iptal edilir. 
 

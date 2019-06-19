@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Haber arama - Python için Bing haber arama SDK gerçekleştirin'
+title: "Hızlı Başlangıç: Python için Bing haber arama SDK'sını kullanarak bir haber arama yapın"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Python için Bing haber arama SDK'sını kullanarak haber aramak için kullanın ve işlem yanıt.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e9a24084e025723febf854fad7ba83db55d1f824
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e13c500359c185d36a2e89914a1c112ee2e82cbc
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798595"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206103"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Hızlı Başlangıç: Python için Bing haber arama SDK'sı ile haber araması
 

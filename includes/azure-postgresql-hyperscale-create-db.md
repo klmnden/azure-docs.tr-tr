@@ -9,11 +9,11 @@ ms.date: 05/14/2019
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: c07e352288d7dc1d0bf198fd74c8baaded3a2d23
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66154486"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188614"
 ---
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -64,7 +64,7 @@ Azure sunucu düzeyinde bir güvenlik duvarı (Citus) (Önizleme) hizmeti kullan
 
 PostgreSQL için Azure veritabanı sunucunuza oluşturduğunuzda, adlı varsayılan veritabanı **citus** oluşturulur. Veritabanı sunucunuza bağlanmak için bir bağlantı dizesi ve yönetici parolası gerekir.
 
-1. Bağlantı dizesini edinin. Sunucu grubu sayfasında tıklayın **bağlantı dizeleri** menü öğesi. (Bunun altında olduğunu **ayarları**.) İşaretli dize Bul  **C++ (libpq)**. Bu tür olacaktır:
+1. Bağlantı dizesini edinin. Sunucu grubu sayfasında tıklayın **bağlantı dizeleri** menü öğesi. (Bunun altında olduğunu **ayarları**.) İşaretli dize Bul  **C++ (libpq)** . Bu tür olacaktır:
 
    ```
    host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 757c710ddca72ec6a1383b51a8b536d196e6cb8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107236"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203641"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Hataya neden olmayan değişiklikleri güvenli bir şekilde yapmak için düzeltmeleri kullanma
 API’niz kullanıma hazır olduğunda ve geliştiriciler tarafından kullanılmaya başladığında genellikle bu API’de değişiklikler yapmak ve aynı zamanda API’nizi çağıranları kesintiye uğratmamak istersiniz. Yaptığınız değişiklikleri geliştiricilere bildirmeniz de yararlıdır. Azure API Management’da **düzeltmeleri** kullanarak bunu yapabilirsiniz. Daha fazla bilgi için bkz. [Sürümler ve revizyonlar](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) ve [Azure API Management ile API Sürümü Oluşturma](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
@@ -50,7 +50,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 4. **+ Düzeltme Ekle**’yi seçin
 
     > [!TIP]
-    > Ayrıca API’nin açılır menüsünden (**...**) **Düzeltme Ekle**’yi seçebilirsiniz.
+    > Ayrıca API’nin açılır menüsünden ( **...** ) **Düzeltme Ekle**’yi seçebilirsiniz.
 
 5. Ne için kullanılacağını hatırlamaya yardımcı olmak için revizyonunuza ilişkin bir açıklama ekleyin.
 6. **Oluştur**’u seçin
@@ -82,7 +82,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
     ![Düzeltme ekranındaki düzeltme menüsü.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
 
-2. **Düzeltme 2**’nin açılır menüsünü (**...** ) açın.
+2. **Düzeltme 2**’nin açılır menüsünü ( **...** ) açın.
 3. **Geçerli Hale Getir**’i seçin.
 4. Bu değişiklik hakkında notlar yayınlamak istiyorsanız **Bu API için Genel Değişiklik Günlüğüne Gönder**’i işaretleyin. Geliştiriciler bakın, örneğin, bir değişiklik için bir açıklama sağlayın: **Test düzeltmeleri. Yeni "test" işlemi eklendi.**
 5. **Düzeltme 2** artık geçerlidir.

@@ -9,11 +9,11 @@ ms.date: 12/26/2018
 ms.author: rimman
 ms.custom: include file
 ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66120575"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188114"
 ---
 ## <a id="addregion"></a>Azure portalını kullanarak genel veritabanı bölgeleri ekleme
 Azure Cosmos DB, tüm kullanılabilir [Azure bölgeleri] [ azureregions] dünya çapında. Veritabanı hesabınız için varsayılan tutarlılık düzeyini seçtikten sonra bir veya daha fazla bölgeyi (tercih ettiğiniz varsayılan tutarlılık düzeyine ve genel dağıtım gereksinimlerine bağlı olarak) ilişkilendirebilirsiniz.

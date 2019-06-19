@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 06/14/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 84e8eedfb206e28f245128a4e30aba44e96277ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3469e4f7fe1c234a6df694d7bdd6d9e2c46407a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072430"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204884"
 ---
 # <a name="what-is-text-to-speech"></a>Metin okuma nedir?
 
@@ -26,13 +25,13 @@ Metin okuma teknolojisi, içerik oluşturucuların kullanıcılarının ile fark
 
 ### <a name="standard-voices"></a>Standart sesler
 
-Standart sesleri istatistiksel parametrik sentezi ve/veya birleştirme sentezi teknikleri kullanılarak oluşturulur. Bu ses oldukça anlaşılır ve oldukça doğal ses. Çok çeşitli sesli seçenekleri ile 45'den fazla dilde konuşmak uygulamalarınızı kolayca etkinleştirebilirsiniz. Bu ses kısaltmalar, harflendirme genişletmeleri, tarih/saat ınterpretations polyphones ve daha fazlası için destek dahil olmak üzere telaffuz yüksek doğruluk sağlar. Standart kullanıcıların içeriğinizi kullanımı etkileşime girmesine izin vererek erişilebilirlik uygulamaları ve hizmetleri geliştirmek için kullanın.
+Standart sesleri istatistiksel parametrik sentezi ve/veya birleştirme sentezi teknikleri kullanılarak oluşturulur. Bu ses oldukça anlaşılır ve ses doğal ' dir. Çok çeşitli sesli seçenekleri ile 45'den fazla dilde konuşmak uygulamalarınızı kolayca etkinleştirebilirsiniz. Bu ses kısaltmalar, harflendirme genişletmeleri, tarih/saat ınterpretations polyphones ve daha fazlası için destek dahil olmak üzere telaffuz yüksek doğruluk sağlar. Standart kullanıcıların içeriğinizi kullanımı etkileşime girmesine izin vererek erişilebilirlik uygulamaları ve hizmetleri geliştirmek için kullanın.
 
 ### <a name="neural-voices"></a>Sinir sesleri
 
-Sinir sesleri stres ve konuşulan dili ve konuşma birimlerinin bir bilgisayar ses synthesizing tonlama desenlerle eşleşen geleneksel metin okuma sistemlere sınırlarını üstesinden gelmek için derin sinir ağları kullanın. Standart metinden konuşmaya prosody ayrı dil analizi ve bağımsız modelleri tarafından yönetilir akustik tahmin adımları halinde ayırır. Bu muffled, buzzy ses birleştirme neden olabilir. Bizim sinir özelliği bir daha esnektir, doğal görünen ses sonuçlanır prosody öngörü ve ses sentezi eşzamanlı olarak yapar.
+Sinir sesleri stres ve konuşulan dili ve konuşma birimlerinin bir bilgisayar ses synthesizing tonlama desenlerle eşleşen geleneksel metin okuma sistemlere sınırlarını üstesinden gelmek için derin sinir ağları kullanın. Standart metinden konuşmaya prosody ayrı dil analizi ve içinde muffled ses birleştirme sonuçlanabilir bağımsız modelleri tarafından yönetilir akustik tahmin adımları halinde ayırır. Bizim sinir özelliği bir daha esnektir, doğal görünen ses sonuçlanır prosody öngörü ve ses sentezi eşzamanlı olarak yapar.
 
-Sinir sesleri etkileşimleri sohbet robotları ve sanal Yardımcıları ile daha doğal yapmasına ve ilgi çekici, e-kitapları gibi dijital metinleri audiobooks dönüştürmek ve içi navigasyon sistemleri geliştirir kullanılabilir. Yapay ZEKA sistemlerle etkileşim kurduğunuzda İnsan benzeri doğal prosody ve sözcük Temizle articulation sinir sesleri dinleme yorulma ciddi ölçüde düşürün. 
+Sinir sesleri etkileşimleri sohbet robotları ve sanal Yardımcıları ile daha doğal yapmasına ve ilgi çekici, e-kitapları gibi dijital metinleri audiobooks dönüştürmek ve içi navigasyon sistemleri geliştirir kullanılabilir. Yapay ZEKA sistemlerle etkileşim kurduğunuzda İnsan benzeri doğal prosody ve sözcük Temizle articulation sinir sesleri dinleme yorulma ciddi ölçüde düşürün.
 
 Farklı stillerde, nötr gibi ve neşeli sinir kişilerden daha fazlasını destekler. Örneğin, Jessa (en-US) ses cheerfully, normal, mutlu konuşma için optimize edilmiştir konuşabilirsiniz. Sesi, aralık, gibi ses çıkış ayarlama ve kullanma hızlandırmak [konuşma sentezi biçimlendirme dili](speech-synthesis-markup.md). Kullanılabilir seslerini tam bir listesi için bkz. [desteklenen diller](language-support.md#text-to-speech).
 
@@ -41,6 +40,26 @@ Sinir sesleri avantajları hakkında daha fazla bilgi için bkz: [yardımcı ki�
 ### <a name="custom-voices"></a>Özel ses
 
 Ses özelleştirme markanız için tanınan, tür, tek bir ses oluşturmanıza olanak sağlar. Özel ses tipi oluşturmak için studio kaydını yapabilir ve ilişkili betikler eğitim verileri olarak karşıya yükleyin. Hizmet, ardından kaydınız için ayarlanmış bir benzersiz ses modeli oluşturur. Bu özel ses tipi konuşma sentezlemek için kullanabilirsiniz. Daha fazla bilgi için [özel seslerle](how-to-customize-voice-font.md).
+
+## <a name="speech-synthesis-markup-language-ssml"></a>Konuşma Sentezi Biçimlendirme Dili (SSML)
+
+Konuşma sentezi işaretleme dili (SSML'yi), geliştiricilerin nasıl Giriş bir metin belirtmenize olanak tanıyan bir XML-tabanlı işaretleme dili Sentezlenen konuşmaya metin okuma hizmeti kullanılarak dönüştürülür ' dir. Düz metne kıyasla oranı, birim ve diğer metin okuma çıkış Konuşmayı SSML'yi geliştiricilerin aralık, Söyleniş, ince ayar olanak tanır. Bir süre sonra duraklatma veya bir soru işareti ile bir cümle sona erdiğinde doğru tonlama kullanma gibi normal noktalama, otomatik olarak işlenir.
+
+Metin okuma hizmetine gönderilen tüm metin girişi SSML'yi yapılandırılmış olmalıdır. Daha fazla bilgi için [konuşma sentezi biçimlendirme dili](speech-synthesis-markup.md).
+
+### <a name="pricing-note"></a>Not fiyatlandırması
+
+Metin okuma hizmeti kullanılırken, noktalama işaretleri dahil olmak üzere konuşma, dönüştürülen her karakter için faturalandırılırsınız. SSML'yi belge Faturalanabilir olmamasına karşın, metin okuma, Fonem ve sıklıkta konuşulur, gibi nasıl dönüştürülür ayarlamak için kullanılan isteğe bağlı öğeler Faturalanabilir karakter olarak sayılır. Faturalanabilir nedir listesi aşağıda verilmiştir:
+
+* Metin okuma hizmetine istek SSML'yi gövdesinde geçirilen metin
+* İstek gövdesi SSML'yi biçiminde metin alanı içindeki tüm biçimlendirme dışında `<speak>` ve `<voice>` etiketleri
+* Harf, noktalama, boşluk, sekme, biçimlendirme ve tüm boşluk karakterlerinin
+* Unicode olarak tanımlanan her kod noktası
+
+Ayrıntılı bilgi için bkz. [fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+> [!IMPORTANT]
+> Her Çince, Japonca ve Korece dil karakter, faturalandırma için iki karakter olarak sayılır.
 
 ## <a name="core-features"></a>Temel özellikleri
 

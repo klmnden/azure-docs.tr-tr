@@ -15,11 +15,11 @@ ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121735"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188980"
 ---
 ## <a name="test-your-code"></a>Kodunuzu test etme
 
@@ -63,7 +63,7 @@ Erişim ile bir denetleyici için anonim kullanıcı protected olarak test etmek
 
 Korumalı denetleyici görünümü kullanmak için kimlik doğrulaması istenir.
 
-## <a name="advanced-options"></a>Gelişmiş seçenekler
+## <a name="advanced-options"></a>Gelişmiş Seçenekleri
 
 <!--start-collapse-->
 ### <a name="protect-your-entire-website"></a>Web sitenizin tamamını koruyun
@@ -80,14 +80,14 @@ Varsayılan olarak bu kılavuzu tarafından oluşturulan uygulama oluşturduğun
 
 Uygulamanızın oturum açma kullanıcı erişimini kısıtlamak için birden çok seçenek kullanılabilir:
 
-#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>1. seçenek: Uygulamanızı yalnızca bir kuruluşun Active Directory örneğindeki kullanıcıların oturum açabileceği şekilde kısıtlama (tek kiracılı)
+#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>1\. seçenek: Uygulamanızı yalnızca bir kuruluşun Active Directory örneğindeki kullanıcıların oturum açabileceği şekilde kısıtlama (tek kiracılı)
 
 Bu seçenek için sık karşılaşılan bir senaryodur *LOB uygulamaları*: Oturum açma işlemleri yalnızca belirli bir Azure Active Directory örneğine ait hesapları kabul etmek için uygulamanızı isterseniz (dahil olmak üzere *konuk hesaplarını* bu örneğinin) aşağıdakileri yapın:
 
 1. İçinde **web.config** dosya, değerini `Tenant` parametresinden `Common` kuruluşun Kiracı adı gibi `contoso.onmicrosoft.com`.
 2. İçinde [OWIN başlangıç sınıfı](#configure-the-authentication-pipeline)ayarlayın `ValidateIssuer` bağımsız değişkeni `true`.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>2. seçenek: Kuruluşların belirli bir listedeki kullanıcılar, uygulama erişimi kısıtlama
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>2\. seçenek: Kuruluşların belirli bir listedeki kullanıcılar, uygulama erişimi kısıtlama
 
 İzin verilen kuruluşların listede bir Azure AD kuruluş yalnızca kullanıcı hesapları için oturum açma erişimi kısıtlayabilirsiniz:
 1. İçinde [OWIN başlangıç sınıfı](#configure-the-authentication-pipeline)ayarlayın `ValidateIssuer` bağımsız değişkeni `true`.
