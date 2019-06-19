@@ -60,9 +60,9 @@ Aşağıdaki tabloda, aracının yüklü olması desteklenen Linux dağıtımlar
 |Gerekli paket |Açıklama |En düşük sürüm |
 |-----------------|------------|----------------|
 |Glibc |    GNU C Kitaplığı | 2.5-12 
-|openssl    | OpenSSL kitaplıkları | 1.0.x veya 1.1.x |
+|Openssl    | OpenSSL kitaplıkları | 1.0.x veya 1.1.x |
 |Curl | cURL web istemcisi | 7.15.5 |
-|Python ctypes | | 
+|Python-ctypes | | 
 |PAM | Eklenebilir kimlik doğrulaması modülleri | | 
 
 >[!NOTE]
@@ -135,10 +135,10 @@ Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir.
 | Ad | Değer / örnek |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
-| Yayımcı | Microsoft.EnterpriseCloud.Monitoring |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
-| Çalışma alanı kimliği (örn.) | 6f680a37-00c6-41C7-a93f-1437e3462574 |
+| workspaceId (örn.) | 6f680a37-00c6-41C7-a93f-1437e3462574 |
 | workspaceKey (örn.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
