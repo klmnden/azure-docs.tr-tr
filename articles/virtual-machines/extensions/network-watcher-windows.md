@@ -69,7 +69,7 @@ Ağ İzleyicisi Aracısı Uzantı Şeması aşağıdaki JSON'u göstermektedir. 
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| türü | NetworkWatcherAgentWindows |
+| type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
 
 
