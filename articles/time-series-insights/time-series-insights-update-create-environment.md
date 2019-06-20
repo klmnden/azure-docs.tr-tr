@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 06/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 77b7b90b63ffebc14498183fc179b9c8ae76a722
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 824d24b97f192583a42192b3bb90eb1818e1aa18
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237855"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273021"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Öğretici: Bir Azure zaman serisi öngörüleri Önizleme ortamı ayarlama
 
@@ -29,9 +29,12 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 * Temel analiz verileri gerçekleştirin.
 * Zaman serisi modeli türü ve hiyerarşi tanımlamak ve örneklerinizin ile ilişkilendirebilirsiniz.
 
+>[!TIP]
+> [IOT Çözüm Hızlandırıcıları](https://www.azureiotsolutions.com/Accelerators) özel IOT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan kullanabileceğiniz kurumsal sınıf, önceden yapılandırılmış çözümler sunar.
+
 ## <a name="create-a-device-simulation"></a>Cihaz benzetimi oluşturma
 
-Bu bölümde, Azure IOT Hub'ın bir örneğine veri gönderme üç sanal cihazlar oluşturun.
+Bu bölümde, veri göndermek için Azure IOT Hub örneği üç sanal cihazlar oluşturun.
 
 1. Git [Azure IOT Çözüm Hızlandırıcıları sayfasında](https://www.azureiotsolutions.com/Accelerators). Sayfanın birkaç önceden oluşturulmuş örnekler görüntülenmektedir. Azure hesabınızı kullanarak oturum açın. Ardından, **cihaz benzetimi**.
 
@@ -43,58 +46,18 @@ Bu bölümde, Azure IOT Hub'ın bir örneğine veri gönderme üç sanal cihazla
 
     | Parametre | Eylem |
     | --- | --- |
-    | **Çözüm adı** | Yeni bir kaynak grubu için benzersiz bir değer girin. Listelenen Azure kaynakları oluşturulur ve kaynak grubuna atanır. |
-    | **Abonelik** | Time Series Insights ortamınızı oluşturmak için kullanılan aboneliği seçin. |
-    | **Bölge** | Time Series Insights ortamınızı oluşturmak için kullanılan bir bölge seçin. |
-    | **İsteğe bağlı Azure Kaynaklarını dağıtma** | Bırakın **IOT hub'ı** onay kutusu seçili. Sanal cihazlar IOT hub'ı bağlanmak ve veri akışı için kullanın. |
+    | **Dağıtım adı** | Yeni bir kaynak grubu için benzersiz bir değer girin. Listelenen Azure kaynakları oluşturulur ve kaynak grubuna atanır. |
+    | **Azure aboneliği** | Time Series Insights ortamınızı oluşturmak için kullanılan aboneliği seçin. |
+    | **Azure konum** | Time Series Insights ortamınızı oluşturmak için kullanılan bir bölge seçin. |
+    | **Dağıtım seçenekleri** | Seçin **yeni IOT hub'ı sağlama**. |
  
-    Seçin **çözüm oluşturma**. Dağıtılacak çözümünüzü 10-15 dakika bekleyin.
+    Seçin **çözüm oluşturma**. Bu çözüm dağıtmayı tamamlamak 20 dakika kadar sürebilir.
 
     [![Cihaz benzetimi çözüm sayfası oluşturma](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-1. Çözüm Hızlandırıcı panosunda seçin **başlatma**:
-
-    [![Cihaz benzetimi çözümü başlatma](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
-
-1. İçin yönlendirilirsiniz **Microsoft Azure IOT cihaz benzetimi** sayfası. Sayfanın sağ üst köşesinde bulunan seçin **yeni benzetimi**.
-
-    [![Azure IOT simülasyon sayfası](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
-
-1. İçinde **benzetimi Kurulum** bölmesinde, aşağıdaki parametreleri ayarlayın:
-
-    | Parametre | Eylem |
-    | --- | --- |
-    | **Ad** | Simülatör için benzersiz bir ad girin. |
-    | **Açıklama** | Bir tanım girin. |
-    | **Benzetim süresi** | Kümesine **süresiz olarak çalıştırmak**. |
-    | **Cihaz modeli** | **Ad**: Girin **Soğutucu**. <br />**Miktar**: Girin **3**. |
-    | **Hedef IoT Hub'ı** | Kümesine **kullanın, IOT hub'ı önceden sağlanan**. |
-
-    [![Parametrelerini ayarlamak için](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
-
-    Seçin **benzetimi Başlat**.
-
-    Cihaz benzetimi Panoda gösterilen bilgiler unutmayın **etkin cihazlar** ve **saniye başına ileti**.
-
-    [![Azure IOT simülasyon Panosu](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
-
-## <a name="list-device-simulation-properties"></a>Liste cihaz benzetimi özellikleri
-
-Azure zaman serisi görüşleri ortamı oluşturmadan önce IOT hub'ınıza, aboneliğiniz ve kaynak grubu adları gerekir.
-
-1. Çözüm Hızlandırıcı panosuna gidin. Aynı Azure aboneliği hesabını kullanarak oturum açın. Önceki bölümde oluşturduğunuz cihaz benzetimi bulun.
-
-1. Cihaz simülatör'ü seçin ve ardından **başlatma**. Cihaz simülatörü çözüm Hızlandırıcı bölmesinde sağ taraftaki seçin **Azure Yönetim Portalı** seçeneği.
-
-    [![Simülatör listesi](media/v2-update-provision/device-six-listings.png)](media/v2-update-provision/device-six-listings.png#lightbox)
-
-1. IOT hub, abonelik ve kaynak grubu adlarını not edin.
-
-    [![Azure portal cihaz simülatörü Pano ayrıntıları](media/v2-update-provision/device-eight-portal.png)](media/v2-update-provision/device-eight-portal.png#lightbox)
-
 ## <a name="create-a-time-series-insights-preview-payg-environment"></a>Zaman serisi öngörüleri Önizleme PAYG ortamı oluşturma
 
-Bu bölümde kullanarak Azure zaman serisi öngörüleri Önizleme ortamı oluşturmayı açıklar [Azure portalında](https://portal.azure.com/).
+Bu bölümde, Azure zaman serisi öngörüleri Önizleme ortamı oluşturun ve IOT Çözüm Hızlandırıcısı kullanarak oluşturduğunuz IOT hub'ına bağlamak açıklar [Azure portalında](https://portal.azure.com/).
 
 1. Azure portalında abonelik hesabınızı kullanarak oturum açın.
 
@@ -109,7 +72,7 @@ Bu bölümde kullanarak Azure zaman serisi öngörüleri Önizleme ortamı oluş
     | **Ortam adı** | Azure zaman serisi öngörüleri Önizleme ortamı için benzersiz bir ad girin. |
     | **Abonelik** | Azure zaman serisi öngörüleri Önizleme ortamı oluşturmak istediğiniz abonelik girin. Cihaz simülatörü tarafından oluşturulan IOT kaynakları geri kalanı gibi aynı abonelik kullanmak iyi bir uygulamadır. |
     | **Kaynak grubu** | Mevcut bir kaynak grubunu seçin veya Azure zaman serisi öngörüleri Önizleme ortamı kaynak için yeni bir kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarına yönelik bir kapsayıcıdır. Cihaz simülatörü tarafından oluşturulan bir IOT kaynakları olarak aynı kaynak grubunu kullanmak iyi bir uygulamadır. |
-    | **Konum** | Azure zaman serisi öngörüleri önizlemesi ortamınız için bir veri merkezi bölgesini seçin. Ek bant genişliği maliyetlerini ve gecikme süresini önlemek için bir IOT kaynaklarınızı aynı bölgede Azure zaman serisi öngörüleri önizlemesi ortamınızı oluşturmak idealdir. |
+    | **Location** | Azure zaman serisi öngörüleri önizlemesi ortamınız için bir veri merkezi bölgesini seçin. Ek gecikme önlemek için bir IOT kaynaklarınızı aynı bölgede Azure zaman serisi öngörüleri önizlemesi ortamınızı oluşturmak idealdir. |
     | **Katmanı** |  Seçin **PAYG** (*Kullandıkça Öde*). Azure zaman serisi öngörüleri önizlemesi ürün için SKU budur. |
     | **özellik kimliği** | Zaman serisi örneğinizin benzersiz olarak tanımlayan bir değer girin. Girdiğiniz değer **özellik kimliği** kutusudur değişmez. Daha sonra değiştiremezsiniz. Bu öğretici için girin **iothub-bağlantı-cihaz-ID**. Zaman serisi kimliği hakkında daha fazla bilgi için bkz: [bir zaman serisi kimliği seçmek için en iyi yöntemler](./time-series-insights-update-how-to-id.md). |
     | **Depolama hesabı adı** | Oluşturulacak yeni bir depolama hesabı için genel olarak benzersiz bir ad girin. |
@@ -159,6 +122,34 @@ Bu bölümde kullanarak Azure zaman serisi öngörüleri Önizleme ortamı oluş
       [![Listelenen kimlik bilgileri](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
 
    Kimlik bilgilerinizi listelenmemiş, kendiniz ortama erişim izni vermeniz gerekir. İzinleri ayarlama hakkında daha fazla bilgi edinmek için [veri erişim ver](./time-series-insights-data-access.md).
+
+## <a name="stream-data-into-your-environment"></a>Ortamınıza Stream veri
+
+1. Geri gidin [Azure IOT Çözüm Hızlandırıcıları sayfasında](https://www.azureiotsolutions.com/Accelerators). Çözümünüzü çözüm Hızlandırıcı Panonuzda bulun. Ardından, **başlatma**:
+
+    [![Cihaz benzetimi çözümü başlatma](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
+
+1. İçin yönlendirilirsiniz **Microsoft Azure IOT cihaz benzetimi** sayfası. Sayfanın sağ üst köşesinde bulunan seçin **yeni benzetimi**.
+
+    [![Azure IOT simülasyon sayfası](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
+
+1. İçinde **benzetimi Kurulum** bölmesinde, aşağıdaki parametreleri ayarlayın:
+
+    | Parametre | Eylem |
+    | --- | --- |
+    | **Ad** | Simülatör için benzersiz bir ad girin. |
+    | **Açıklama** | Bir tanım girin. |
+    | **Benzetim süresi** | Kümesine **süresiz olarak çalıştırmak**. |
+    | **Cihaz modeli** | **Ad**: Girin **Soğutucu**. <br />**Miktar**: Girin **3**. |
+    | **Hedef IoT Hub'ı** | Kümesine **kullanın, IOT hub'ı önceden sağlanan**. |
+
+    [![Parametrelerini ayarlamak için](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
+
+    Seçin **benzetimi Başlat**.
+
+    Cihaz benzetimi Panoda gösterilen bilgiler unutmayın **etkin cihazlar** ve **saniye başına ileti**.
+
+    [![Azure IOT simülasyon Panosu](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
 ## <a name="analyze-data-in-your-environment"></a>Ortamınızı verileri analiz etme
 

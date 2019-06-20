@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 05/15/2019
+ms.date: 06/18/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 194f2b80e9cbf3a69fef6ce382e6755934f1d5bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 067d818b7d23fc0b83cb1d4255bfbb8659149412
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787448"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204774"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk nedir?
 
@@ -89,7 +89,7 @@ Daha fazla bilgi için bkz. [Azure Data Box Disk güvenliği ve veri koruması](
 
 ## <a name="region-availability"></a>Bölge kullanılabilirliği
 
-Bölge kullanılabilirliği hakkında daha fazla bilgi için Git [Azure bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
+Bölge kullanılabilirliği hakkında daha fazla bilgi için Git [Azure bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Disk de Azure kamu bulutunda dağıtılabilir. Daha fazla bilgi için [Azure Government nedir?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 
 ## <a name="pricing"></a>Fiyatlandırma

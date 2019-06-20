@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c29819d817138f2512420584947763247837a9ea
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704131"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "67135198"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal bağlayıcıları kullanan bir Unity HoloLens uygulaması oluşturma
 
-Bu hızlı başlangıçta, kullanan bir Unity HoloLens uygulaması oluşturacak [Azure uzamsal bağlayıcılarını](../overview.md). Uzamsal yer işaretleri, konumlarına cihazlar arasında zaman içinde kalıcı nesneler ile karma gerçeklik deneyimleri oluşturmanıza olanak tanır platformlar arası Geliştirici hizmettir. İşlemi tamamladığınızda, kaydedebilir ve uzamsal bağlantı geri çağırma Unity ile oluşturulmuş bir HoloLens uygulaması oluşturmuş olacaksınız.
+Bu hızlı başlangıçta, kullanan bir Unity HoloLens uygulamayı oluşturacaksınız [Azure uzamsal bağlayıcılarını](../overview.md). Uzamsal yer işaretleri, konumlarına cihazlar arasında zaman içinde kalıcı nesneler ile karma gerçeklik deneyimleri oluşturmanıza olanak tanır platformlar arası Geliştirici hizmettir. İşlemi tamamladığınızda, kaydedebilir ve uzamsal bağlantı geri çağırma Unity ile oluşturulmuş bir HoloLens uygulaması oluşturmuş olacaksınız.
 
 Şunları öğrenirsiniz:
 
@@ -34,18 +34,18 @@ Bu hızlı başlangıçta, kullanan bir Unity HoloLens uygulaması oluşturacak 
 Bu hızlı başlangıcı tamamlamak için:
 
 
-- Bir Windows bilgisayara ihtiyacınız <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> veya üzeri ve <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> veya üzeri yüklü. Visual Studio yüklemenizin içermelidir **Evrensel Windows platformu geliştirme** iş yükü. Ayrıca yüklemelisiniz <a href="https://git-scm.com/download/win" target="_blank">Git için Windows</a>.
+- Bir Windows bilgisayara ihtiyacınız <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> veya üzeri ve <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> veya üzeri yüklü. Visual Studio yüklemenizin içermelidir **Evrensel Windows platformu geliştirme** iş yükü. Yükleme <a href="https://git-scm.com/download/win" target="_blank">Windows için Git</a>.
 - Bir HoloLens cihazda ihtiyacınız [Geliştirici modu](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) etkin. [Windows 10 Ekim 2018 güncelleştirmesi](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (RS5 olarak da bilinir), cihazda yüklü olması gerekir. HoloLens üzerinde en son sürümüne güncelleştirmek için **ayarları** uygulama, Git **güncelleştirme ve güvenlik**ve ardından **Güncelleştirmeleri denetle**.
 - Uygulamanız üzerinde etkinleştirmeniz gerekir. **SpatialPerception** yeteneği. Bu ayar **Build Settings** > **Player ayarları** > **yayımlama ayarları**  >   **Özellikleri**.
 - Uygulamanız üzerinde etkinleştirmeniz gerekir. **sanal gerçeklik desteklenen** ile **Windows karma gerçeklik SDK**. Bu ayar **Build Settings** > **Player ayarları** > **XR ayarları**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Örnek Proje içinde Unity açın
+## <a name="download-and-open-the-unity-sample-project"></a>İndir ve Unity örnek proje Aç
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Unity içinde Unity klasöründe projeyi açın.
+[!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 Açık **Build Settings** seçerek **dosya** > **Build Settings**.
 
@@ -53,7 +53,7 @@ Açık **Build Settings** seçerek **dosya** > **Build Settings**.
 
 Seçin **anahtar platformu** platforma değiştirmek için **Evrensel Windows platformu**. Unity UWP desteği bileşenleri eksik iseler yüklemenizi isteyebilir.
 
-   ![Unity yapı Ayarları penceresi](./media/get-started-unity-hololens/unity-build-settings.png)
+![Unity yapı Ayarları penceresi](./media/get-started-unity-hololens/unity-build-settings.png)
 
 Kapat **Build Settings** penceresi.
 

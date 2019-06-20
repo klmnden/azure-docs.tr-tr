@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: dfe4f226302b6bb6a010d9d4348fde05b2d31193
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 76771a7dfcc323cca6ea52366195c895ee510701
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66356951"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165589"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak ilk Kaynak Grafiği sorgunuzu çalıştırma
 
@@ -91,8 +91,7 @@ Azure PowerShell modülünün seçtiğiniz ortamınıza eklenmesiyle birlikte ş
 Son sorgu birkaç kere çalıştırıldığında, ortamınızda hiçbir şeyin değişmediği varsayılarak döndürülen sonuçlar tutarlı ve beklendiği gibi olur, yani **Ad** özelliğine göre düzenlenir ama yine de en iyi beş sonuçla sınırlıdır.
 
 > [!NOTE]
-> Sorgu sonuçları bir abonelikten döndürmezse erişimi olduğunu unutmayın, zaten sahip `Search-AzGraph` varsayılan bağlamı aboneliklerinde cmdlet'i varsayılan olarak. Abonelik listesini görmek için varsayılan bağlamı bir parçası olan kimlikleri bu çalıştırma `(Get-AzContext).Account.ExtendedProperties.Subscriptions` erişim iznine sahip olduğunuz tüm abonelikler arasında arama yapmak istiyorsanız, için PSDefaultParameterValues ayarlayabilirsiniz `Search-AzGraph' cmdlet by running 
-> `$PSDefaultParameterValues = @{" Arama-AzGraph:Subscription "= $(Get-AzSubscription) .ID}'
+> Sorgu sonuçları bir abonelikten döndürmezse erişimi olduğunu unutmayın, zaten sahip `Search-AzGraph` varsayılan bağlamı aboneliklerinde cmdlet'i varsayılan olarak. Abonelik listesini görmek için varsayılan bağlamı bir parçası olan kimlikleri bu çalıştırma `(Get-AzContext).Account.ExtendedProperties.Subscriptions` erişim iznine sahip olduğunuz tüm abonelikler arasında arama yapmak istiyorsanız, için PSDefaultParameterValues ayarlayabilirsiniz `Search-AzGraph` cmdlet'ini çalıştırarak `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID }`
    
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f71d9b4400041db50cb3e24940e922acde55edc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 94ba0040b1de7e1f03825f1cd2ef2a6536343d96
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991684"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271750"
 ---
 # <a name="what-is-azure-data-box-heavy-preview"></a>Azure Data Box Heavy nedir? (önizleme)
 
@@ -62,14 +62,14 @@ Veri kutusu ağır cihaz bu sürümde aşağıdaki özelliklere sahiptir.
 
 | Belirtimler                                          | Açıklama              |
 |---------------------------------------------------------|--------------------------|
-| Ağırlık                                                  | yaklaşık 500 lbs.                |
+| Ağırlık                                                  | yaklaşık 500 lbs. <br>Taşıma için tekerlek kilitleme üzerinde cihaz|
 | Boyutlar                                              | Genişlik: 26 inç Yükseklik: 28 inç uzunluğu: 48 inç yükseklik |
 | Raf alanı                                              | Rafa monte edilen olamaz|
-| Gerekli kablolar                                         | 4 X dahil 120 V/10 A güç kablosu (NEMA 5-15) üzerindeki olan bağlılığımızı temel <br> Cihaz kadar 240 V power destekler ve C-13 power kutularını <br> Uyumlu ağ kablosu kullanın [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
-|Güç                                                    | Her iki cihaz düğümleri arasında paylaşılan 4 yerleşik güç kaynağı birimi (PSUs)|
+| Gerekli kablolar                                         | 4 üzerindeki olan bağlılığımızı temel V 120 / 10 A güç kablosu (NEMA 5-15) dahil <br> Cihaz kadar 240 V power destekler ve C-13 power kutularını <br> Uyumlu ağ kablosu kullanın [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
+| Güç                                                    | Her iki cihaz düğümleri arasında paylaşılan 4 yerleşik güç kaynağı birimi (PSUs) <br> 1\.200 watt tipik power Çiz|
 | Depolama kapasitesi                                        | ~ 1-PB ham, 14 TB 70 diskler <br> 770 TB kullanılabilir kapasite|
-|Düğüm sayısı                                          | (500 TB her) cihaz başına 2 bağımsız düğüm |
-| Düğüm başına ağ arabirimleri                             | Düğüm başına 4 ağ arabirimleri <br> MGMT, DATA3 <ul><li> 2 x 1 GbE ağ arabirimleri </li><li> YÖNETİMİ için ilk kurulum değil yapılandırılabilir, kullanıcı yönetimi için kullanılır </li><li> Dinamik konak Yapılandırma Protokolü (DHCP) varsayılan olarak bir kullanıcı tarafından yapılandırılabilen veri arabirimi DATA3 olduğu</li><li>1 GbE ağ arabirimleri de 10 GbE arabirimleri yapılandırılabilir</li></ul>Veri1, veri2 veri arabirimleri <ul><li>2 x 40 GbE arabirimleri </li><li> DHCP tarafından varsayılan veya statik, kullanıcı yapılandırılabilir veri arabirimleri</li>|
+| Düğüm sayısı                                          | (500 TB her) cihaz başına 2 bağımsız düğüm |
+| Düğüm başına ağ arabirimleri                             | Düğüm başına 4 ağ arabirimleri <br><br> MGMT, DATA3 <ul><li> 2 x 1 GbE ağ arabirimleri </li><li> Yönetim ve ilk kurulum değil kullanıcı tarafından yapılandırılabilir MGMT içindir. </li><li> Varsayılan olarak kullanıcı tarafından yapılandırılabilir ve Dinamik Ana Bilgisayar Yapılandırma Protokolü (DHCP) DATA3 olduğu</li><li>1 GbE ağ arabirimleri de 10 GbE arabirimleri yapılandırılabilir</li></ul>Veri1, veri2 veri arabirimleri <ul><li>2 x 40 GbE arabirimleri </li><li> Kullanıcı (varsayılan) DHCP veya statik için yapılandırılabilir</li></ul>|
 
 
 ## <a name="components"></a>Bileşenler
@@ -113,7 +113,7 @@ Veri kutusu ağır hizmet dağıtılan bölgeye göre veri aktarabilir cihazı s
 
 En güncel bilgiler için bölge kullanılabilirliği için veri kutusu ağır, Git [bölgelere göre Azure ürünleri](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
-## <a name="sign-up"></a>Kaydolun
+## <a name="sign-up"></a>Kaydolma
 
 Data Box Heavy önizleme aşamasındadır ve kaydolmanız gerekir. Veri kutusu ağır için kaydolmak için aşağıdaki adımları uygulayın:
 

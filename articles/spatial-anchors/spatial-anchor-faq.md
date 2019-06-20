@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 73979ec3bd1d667453a186ea1f20bbeddc12db8f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304175"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273305"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors hakkında sık sorulan sorular
 
@@ -78,7 +78,7 @@ Azure uzamsal bağlayıcılarını aynılarını için [Azure hizmet sözleşmes
 Genel kullanılabilirlik (GA) tarihleri yakında duyurulacaktır.
 
 **S: Yerinde herhangi bir azaltma sınırları var mı?**
- 
+
 **A**: Evet, azaltma sınırları vardır.  Normal uygulama geliştirme ve test için bunları ulaşırsınız bekliyoruz yok. Üretim dağıtımları için müşterilerin yüksek ölçekli gereksinimlerini desteklemek hazırız. [Bizimle iletişime geçin](mailto:azuremrs@microsoft.com) tartışmak için. Bu önizleme aşaması sırasında henüz bizim katmanlama ve fiyatlandırma yapısı yayımladık değil, ancak yakında bunun bekliyoruz.
 
 **S: Azure uzamsal bağlayıcılarını hangi bölgelerde kullanılabilir?**
@@ -125,3 +125,7 @@ Kullanmaya başlama [geliştirme burada](index.yml).
 **S: Xamarin ile çalışır?**
 
 **C:** Evet. Bir Xamarin SDK'sı de verilmese, geliştiricilerin Azure uzamsal bağlayıcılarını Xamarin uygulamalarında Azure uzamsal bağlayıcılarını API ile tümleştirerek kullanabileceği bekliyoruz.
+
+**S: Hangi bağlantı noktalarını ve protokolleri Azure uzamsal bağlayıcılarını kullanıyor?**
+
+**C:** Azure uzamsal yer işaretleri, şifrelenmiş bir protokolü kullanarak 443 numaralı TCP bağlantı noktası üzerinden iletişim kurar. Kimlik doğrulaması için kullandığı [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), bağlantı noktası 443 üzerinden HTTPS kullanarak iletişim kurar.

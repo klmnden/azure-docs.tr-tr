@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Bing haber arama API'si - tek sayfa web uygulaması oluşturma"
+title: "Öğretici: Bing haber arama API'si kullanarak tek sayfalı web uygulaması oluşturma"
 titlesuffix: Azure Cognitive Services
 description: Bing haber API'sine arama sorguları göndermek ve sonuçları içinde Web sayfası görüntüleme bir tek sayfalı web uygulaması oluşturmak için bu öğreticiyi kullanın.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 06/19/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 78a985180fb2b665aed75b39acfc4d39ccd04132
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 144ad8761b4d462012963e040b7699e38587831b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798571"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272781"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Öğretici: Tek sayfalı web uygulaması oluşturma
 

@@ -7,16 +7,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: cda1eddc5fa40e97038274cf9b4c3c2cb9552871
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2020ee02d236ca13431adb736d9f48171d33b4f3
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154495"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147427"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Hızlı Başlangıç: ASP.NET SignalR hizmeti ile sohbet odası oluşturamadı.
 
-Azure SignalR hizmeti temel [ASP.NET Core 2.0 için SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction), olduğu **değil** %100 ASP.NET SignalR ile uyumlu. Azure SignalR hizmeti hakkında en yeni ASP.NET Core technoledges tabanlı ASP.NET SignalR Veri Protokolü'nü yeniden uygulanır. Azure SignalR hizmeti için ASP.NET SignalR kullanırken bazı ASP.NET SignalR özellikleri artık desteklenir, istemci bağlandığında, Azure SignalR iletileri yeniden değil. Ayrıca, her zaman çerçevesini aktarım ve JSONP destek değildir. Bazı kod değişiklikleri ve bağımlı kitaplıkları uygun sürümünün ASP.NET SignalR uygulama SignalR hizmet ile çalışması için gereklidir. 
+Azure SignalR hizmeti temel [ASP.NET Core 2.0 için SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction), olduğu **değil** %100 ASP.NET SignalR ile uyumlu. Azure SignalR hizmeti en son ASP.NET Core teknolojilere göre ASP.NET SignalR Veri Protokolü'nü yeniden uygulanır. Azure SignalR hizmeti için ASP.NET SignalR kullanırken bazı ASP.NET SignalR özellikleri artık desteklenir, istemci bağlandığında, Azure SignalR iletileri yeniden değil. Ayrıca, her zaman çerçevesini aktarım ve JSONP destek değildir. Bazı kod değişiklikleri ve bağımlı kitaplıkları uygun sürümünün ASP.NET SignalR uygulama SignalR hizmet ile çalışması için gereklidir. 
 
 Başvurmak [sürümü farkları doc](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) ASP.NET SignalR ve ASP.NET Core SignalR arasında özellik karşılaştırması tam listesi için.
 

@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 04/12/2019
 ms.author: celested
 ms.custom: include file
-ms.openlocfilehash: d4eec27286d704926cef6c7a85b24d357c05838c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8daf73f07a09ee91260981ef42482f966d7a84c6
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121891"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272661"
 ---
 |   |
 |---|
-| **Şunlara uygulanır:**<br><ul><li>Microsoft kimlik platformu uç noktası<li>Microsoft Authentication Library (MSAL) </ul><br>Genel kullanılabilirlik (GA) kitaplığı için Azure AD Authentication Library (ADAL) ve Azure AD v1.0 uç noktası'nı kullanın. Daha fazla bilgi için bkz. [v1.0 hakkında](https://docs.microsoft.com/azure/active-directory/develop/v1-overview). |
+| **Şunlara uygulanır:**<br><ul><li>Microsoft kimlik platformu uç noktası<li>Microsoft Authentication Library (MSAL) </ul><br>Azure AD Authentication Library (ADAL) ve Azure Active Directory (Azure AD) v1.0 uç nokta için genel kullanılabilirlik (GA) kitaplığı, kullanın. Daha fazla bilgi için bkz. [v1.0 hakkında](https://docs.microsoft.com/azure/active-directory/develop/v1-overview). |
 |   |

@@ -19,29 +19,19 @@
         - name: Node.js ile
           href: stream-files-nodejs-quickstart.md
     - name: Karşıya yüklenen dosyayı kodlama ve video akışı yapma
-      items:
-        - name: .NET ile
-          displayName: 'encode, encoding, job, transform'
-          href: stream-files-tutorial-with-api.md
+      displayName: 'encode, encoding, job, transform'
+      href: stream-files-tutorial-with-api.md
     - name: Canlı akış
-      items:
-        - name: .NET ile
-          href: stream-live-tutorial-with-api.md
-          displayName: 'Live Events, Live Outputs, ingest'
+      href: stream-live-tutorial-with-api.md
+      displayName: 'Live Events, Live Outputs, ingest'
     - name: Videonuzu analiz etme
-      items:
-        - name: .NET ile
-          displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-          href: analyze-videos-tutorial-with-api.md
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
+      href: analyze-videos-tutorial-with-api.md
     - name: AES-128 ile dinamik olarak şifreleme
-      items:
-        - name: .NET ile
-          href: protect-with-aes128.md
+      href: protect-with-aes128.md
     - name: DRM ile dinamik olarak şifreleme
-      items:
-        - name: .NET ile
-          displayName: 'PlayReady, Widevine, FairPlay'
-          href: protect-with-drm.md
+      displayName: 'PlayReady, Widevine, FairPlay'
+      href: protect-with-drm.md
 - name: Kavramlar
   items:
     - name: Genel Bakış

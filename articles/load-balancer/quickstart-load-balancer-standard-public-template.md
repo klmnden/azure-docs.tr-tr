@@ -12,46 +12,53 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2019
+ms.date: 06/19/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: c418041c5de343d7210dbd153ebe6cea0af95c42
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a95bedc8b2b395f856512ec49bae630666fe36da
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066810"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272894"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Hızlı Başlangıç: Bir standart Azure Resource Manager şablonu kullanarak Yük Dengelemesi VM'ler için yük dengeleyici oluşturma
 
-Yük dengeleme, gelen istekleri birden fazla sanal makineye yayarak daha yüksek bir kullanılabilirlik ve ölçek düzeyi sağlar. Sanal makinelerde (VM) Yük Dengeleme için bir yük dengeleyici oluşturmak için bir Azure Resource Manager şablonu dağıtabilirsiniz. Bu hızlı başlangıçta Standart Yük Dengeleyici kullanılarak sanal makinelerde yük dengelemesi yapacağınız gösterilir.
+Yük dengeleme, gelen istekleri birden fazla sanal makineye yayarak daha yüksek bir kullanılabilirlik ve ölçek düzeyi sağlar. Bu hızlı başlangıçta sanal makinelerde (VM) Yük Dengeleme için standart yük dengeleyici oluşturmak için bir Azure Resource Manager şablonu dağıtma gösterilmektedir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="create-a-standard-load-balancer"></a>Standart yük dengeleyici oluşturma
 
-Bu bölümde, standart yük yardımcı olan sanal makinelerin yük dengelemesini dengeleyici oluşturun. Standart Yük Dengeleyici yalnızca Standart Genel IP adresini destekler. Standart Yük Dengeleyici oluşturduğunuzda, Standart Yük Dengeleyici için ön uç (varsayılan olarak *LoadBalancerFrontend* adını alır) olarak yapılandırılmış yeni bir Standart Genel IP adresi de oluşturmanız gerekir. Standart yük dengeleyici oluşturmak için kullanılan birçok yöntem vardır. Bu hızlı başlangıçta, Azure PowerShell dağıtmak için kullandığınız bir [Resource Manager şablonu](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi yönetme ve dağıtma ile ilgili kavramları anlamak için bkz: [Azure Resource Manager belgelerini](/azure/azure-resource-manager/). Daha fazla Azure Load Balancer ilgili şablon bulmak için bkz: [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
+Standart Yük Dengeleyici yalnızca Standart Genel IP adresini destekler. Standart yük dengeleyici oluşturduğunuzda, standart yük dengeleyici için ön uç yapılandırılmış yeni bir standart genel IP adresi de oluşturmanız gerekir. Standart yük dengeleyici oluşturmak için kullanılan birçok yöntem vardır. Bu hızlı başlangıçta, Azure PowerShell dağıtmak için kullandığınız bir [Resource Manager şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi yönetme ve dağıtma ile ilgili kavramları anlamak için bkz: [Azure Resource Manager belgelerini](/azure/azure-resource-manager/). Daha fazla Azure Load Balancer ilgili şablon bulmak için bkz: [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-Şablonu dağıtmak için seçebileceğiniz **deneyin** Azure Cloud Shell'i açın ve aşağıdaki PowerShell betiğini shell penceresine yapıştırın. Kod yapıştırmak için shell penceresine sağ tıklayın ve ardından **yapıştırın**. Azure sanal makineler için kullanılabilirlik alanı desteği bölgelerin bir listesi için bkz. [burada](../availability-zones/az-overview.md).
+1. Seçin **deneyin** aşağıdaki kod bloğunun Azure Cloud Shell'i açın ve ardından Azure'da oturum açmak için yönergeleri izleyin.
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$adminUserName = Read-Host -Prompt "Enter the virtual machine administrator account name"
-$adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
+   ```azurepowershell-interactive
+   $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
+   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+   $adminUserName = Read-Host -Prompt "Enter the virtual machine administrator account name"
+   $adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
-$resourceGroupName = "${projectName}rg"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-load-balancer-standard-create/azuredeploy.json"
+   $resourceGroupName = "${projectName}rg"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
+   New-AzResourceGroup -Name $resourceGroupName -Location $location
+   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
 
-Write-Host "Press [ENTER] to continue."
+   Write-Host "Press [ENTER] to continue."
+   ```
 
-```
+   Konsolundan istemi görene kadar bekleyin.
+2. Seçin **kopyalama** PowerShell betiğini kopyalamak için önceki kod bloğunun.
+3. Kabuk Konsol bölmesinde sağ tıklayın ve ardından **Yapıştır**.
+4. Değerleri girin.
 
- >[!NOTE]
- >Kaynak grubu adı ile proje adınızdır **rg** eklenir. Sonraki bölümde kaynak grubu adı ihtiyacınız vardır.  Bu kaynakları oluşturmak için birkaç dakika sürer.
+   Şablon dağıtımı üç kullanılabilirlik alanı oluşturur.  Kullanılabilirlik alanları yalnızca desteklenir [belirli bölgelerde](../availability-zones/az-overview.md). Desteklenen bölgeleri birini kullanın. Emin değilseniz girin **centralus**.
+
+   Kaynak grubu adı ile proje adınızdır **rg** eklenir. Sonraki bölümde kaynak grubu adı ihtiyacınız vardır.
+
+Şablonu dağıtmak için yaklaşık 10 dakika sürer.
 
 ## <a name="test-the-load-balancer"></a>Yük Dengeleyiciyi test etme
 

@@ -9,11 +9,11 @@ ms.date: 10/01/2018
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: c1ae8e1d06fca79b586208a3eaee0c5d26975ea1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119344"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188842"
 ---
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -60,7 +60,7 @@ Bu bölümde, Azure Blob depolama alanında **adftutorial** adlı bir blob kapsa
    ![Kapsayıcı ekle düğmesi](media/data-factory-quickstart-prerequisites/add-container-button.png)    
 3. **Yeni kapsayıcı** iletişim kutusunda ad olarak **adftutorial** girin ve ardından **Tamam**’ı seçin. 
 
-   ![Kapsayıcı adı girin](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
+   ![Kapsayıcı adını girin](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
 4. Kapsayıcılar listesinde **adftutorial**’ı seçin. 
 
    ![Kapsayıcıyı seçin](media/data-factory-quickstart-prerequisites/select-adftutorial-container.png)

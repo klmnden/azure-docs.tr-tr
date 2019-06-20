@@ -9,11 +9,11 @@ ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 28d003e123069c47d87d81570b4a5b69b3b9d64b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66128231"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188741"
 ---
 1. Azure SignalR hizmeti kaynak oluşturmak için ilk kez oturum için [Azure portalında](https://portal.azure.com). Sayfanın sol tarafındaki seçin **+ kaynak Oluştur**. İçinde **markette Ara** metin kutusuna **SignalR hizmeti**.
 

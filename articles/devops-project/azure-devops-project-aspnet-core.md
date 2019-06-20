@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 5fabe9ba03c9516f5df41645fc6ab1b7a0cb2050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88fb243af7628b159a2255c2cdae2ab86f39ca1e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556090"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275494"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Azure DevOps projeleri ile .NET için CI/CD işlem hattı oluşturma
 
@@ -44,17 +44,13 @@ DevOps projeleri, Azure DevOps bir CI/CD işlem hattı oluşturur. Yeni bir Azur
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Örnek uygulama ve Azure hizmeti seçme
 
-1. .NET örnek uygulaması'nı seçin. .NET örnekleri açık kaynaklı ASP.NET çerçevesi ya da çoklu platform .NET Core çerçevesi seçeneklerinden birini içerir.
+1. **.NET** örnek uygulamasını seçin. .NET örnekleri açık kaynaklı ASP.NET çerçevesi ya da çoklu platform .NET Core çerçevesi seçeneklerinden birini içerir.
 
     ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-1. .NET Core uygulama çerçevesi seçin.  
-    Bu örnek bir ASP.NET Core MVC uygulamasıdır.
+2. Bu örnek bir ASP.NET Core MVC uygulamasıdır. Seçin **.NET Core** uygulama çerçevesi seçip **sonraki**.    
     
-2. **İleri**’yi seçin.  
-    Windows üzerinde Web App varsayılan dağıtım hedefidir.  İsteğe bağlı olarak, Linux üzerinde Web App veya Kapsayıcılar için Web App’i seçebilirsiniz.  Daha önce seçtiğiniz uygulama çerçevesi, burada Azure hizmeti dağıtımı hedef türünü belirler.  
-    
-3. Varsayılan hizmet bırakın ve ardından **sonraki**.
+3. Seçin **Windows Web uygulama** bir dağıtım hedefi olarak seçip **sonraki**. İsteğe bağlı olarak, diğer Azure Hizmetleri, dağıtımınız için seçebilirsiniz. Daha önce seçtiğiniz uygulama çerçevesi türünü Azure hizmeti dağıtımı hedefin kullanılabilir burada belirler.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps ve Azure aboneliğinin yapılandırın 
 

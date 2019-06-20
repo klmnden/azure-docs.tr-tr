@@ -10,11 +10,11 @@ ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: ec0425ff2188ecf1816d5f5841394c8e32f301d2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132244"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188168"
 ---
 ## <a name="publish-the-project-to-azure"></a>Projeyi Azure'da yayımlama
 
@@ -43,9 +43,9 @@ Bu makalede, yeni bir işlev uygulaması oluşturduğunuz varsayılır.
 
     Aşağıdaki Azure kaynakları, Enter tuşuna bastığınızda, aboneliğinizde oluşturulur:
 
-    * **[Kaynak grubu](../articles/azure-resource-manager/resource-group-overview.md)**: Tüm oluşturulan Azure kaynaklarını içerir. Ad, işlev uygulamanızın adı üzerinde temel alır.
-    * **[Depolama hesabı](../articles/storage/common/storage-quickstart-create-account.md)**: İşlev uygulamanızın adı alan benzersiz bir ada sahip bir standart depolama hesabı oluşturulur.
-    * **[Barındırma planı](../articles/azure-functions/functions-scale.md)**: Tüketim planı, Batı ABD bölgesinde, sunucusuz bir işlev uygulamanızı barındırmak için oluşturulur.
+    * **[Kaynak grubu](../articles/azure-resource-manager/resource-group-overview.md)** : Tüm oluşturulan Azure kaynaklarını içerir. Ad, işlev uygulamanızın adı üzerinde temel alır.
+    * **[Depolama hesabı](../articles/storage/common/storage-quickstart-create-account.md)** : İşlev uygulamanızın adı alan benzersiz bir ada sahip bir standart depolama hesabı oluşturulur.
+    * **[Barındırma planı](../articles/azure-functions/functions-scale.md)** : Tüketim planı, Batı ABD bölgesinde, sunucusuz bir işlev uygulamanızı barındırmak için oluşturulur.
     * **İşlev uygulaması**: Projenizi dağıtılır ve bu yeni işlev uygulamasında çalıştırır.
 
     İşlev uygulamanız oluşturulduktan sonra bir bildirim görüntülenir ve dağıtım paketi uygulanır. Seçin **görünümü çıkış** oluşturduğunuz Azure kaynaklarını oluşturma ve dağıtım sonuçlarını görüntülemek için bu bildirimi dahil olmak üzere.

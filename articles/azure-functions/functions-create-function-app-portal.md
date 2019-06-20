@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad9c50953447c1effee48eec5b0cb9f64386e6cc
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61342431"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155578"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Azure portalından işlev uygulaması oluşturma
 
@@ -27,7 +27,7 @@ Azure İşlev Uygulamaları, Azure App Service altyapısını kullanır. Bu konu
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-İşlev uygulaması oluştururken yalnızca harf, sayı ve kısa çizgi içerebilecek bir **Uygulama adı** sağlayın. Alt çizgi (**_**) izin verilen bir karakter değildir.
+İşlev uygulaması oluştururken yalnızca harf, sayı ve kısa çizgi içerebilecek bir **Uygulama adı** sağlayın. Alt çizgi ( **_** ) izin verilen bir karakter değildir.
 
 Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir. Depolama hesabınızın adının Azure içinde benzersiz olması gerekir. 
 
@@ -52,4 +52,7 @@ Depolama hesabı türleri hakkında daha fazla bilgi edinmek için bkz. [Azure D
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
+Azure portalında kolayca oluşturun ve öneririz işlevleri deneyin olmasını sağlarken [yerel geliştirme](functions-develop-local.md). Portalda bir işlev uygulaması oluşturduktan sonra yine de bir işlev eklemeniz gerekir. 
+
+> [!div class="nextstepaction"]
+> [HTTP ile tetiklenen işlev ekleme](functions-create-first-azure-function.md#create-function)

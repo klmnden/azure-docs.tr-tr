@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: f83283dbf2a78b3717ba719f21dd9249a8a09d1f
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: bd812ad1194f88b14d88f067583ca6eee4bb0c74
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393330"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274216"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Hızlı Başlangıç: Özellik bayrakları için ASP.NET Core uygulaması Ekle
 
@@ -41,7 +41,7 @@ Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet
 
 6. Seçin **özellik Yöneticisi** >  **+ Oluştur** aşağıdaki özellik bayraklarını eklemek için:
 
-    | Anahtar | Durum |
+    | Anahtar | Eyalet |
     |---|---|
     | Beta | Kapalı |
 
@@ -87,9 +87,9 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
 1. Başvuruları Ekle `Microsoft.Extensions.Configuration.AzureAppConfiguration` ve `Microsoft.FeatureManagement` aşağıdaki komutları çalıştırarak NuGet paketleri:
 
     ```
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
+    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008920001-990
 
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-008560001-910
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
     ```
 
 1. Projeniz için paketler geri yüklemek için aşağıdaki komutu çalıştırın:
@@ -165,7 +165,8 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
+    using Microsoft.FeatureManagement.Mvc;
 
     namespace TestFeatureFlags.Controllers
     {
@@ -178,7 +179,7 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
                 _featureManager = featureManager;
             }
 
-            [Feature(MyFeatureFlags.Beta)]
+            [FeatureGate(MyFeatureFlags.Beta)]
             public IActionResult Index()
             {
                 return View();
@@ -256,7 +257,7 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
 
 1. Seçin **özellik Yöneticisi**ve durumunu değiştirme **Beta** anahtarını **üzerinde**:
 
-    | Anahtar | Durum |
+    | Anahtar | Eyalet |
     |---|---|
     | Beta | Açık |
 

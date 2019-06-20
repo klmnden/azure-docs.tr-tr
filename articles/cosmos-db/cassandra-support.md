@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 46eea21e1eafce1696ed1cf77a1f334798f0bc17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6fc9f1a5c32fc9ffa1e1e6ebe525b72030fe803
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60895088"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155655"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API'si tarafından desteklenen Apache Cassandra özellikleri 
 
@@ -74,6 +74,8 @@ Azure Cosmos DB Cassandra API'si aşağıdaki CQL veri türlerini destekler:
 Azure Cosmos DB Cassandra API'si aşağıdaki CQL işlevlerini destekler:
 
 * Belirteç  
+* Toplama işlevleri
+  * Min, max, avg, count
 * Blob dönüşüm işlevleri 
   * typeAsBlob(value)  
   * blobAsType(value)
@@ -88,7 +90,8 @@ Azure Cosmos DB Cassandra API'si aşağıdaki CQL işlevlerini destekler:
   * toDate(timestamp)  
   * toUnixTimestamp(timestamp)  
   * toTimestamp(date)  
-  * toUnixTimestamp(date)  
+  * toUnixTimestamp(date) 
+  
 
 
 ## <a name="cassandra-query-language-limits"></a>Cassandra Sorgu Dili sınırları
@@ -154,11 +157,11 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Tutarlılık eşleme 
 
-Azure Cosmos DB Cassandra API'si okuma işlemleri için tutarlılık sunar. Tüm yazma işlemleri, hesap tutarlılığından bağımsız olarak her zaman yazma performansı SLA'ları ile yazılır.
+Azure Cosmos DB Cassandra API'si okuma işlemleri için tutarlılık sunar.  Tutarlılık eşleme ayrıntılı [burada [(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
 
 ## <a name="permission-and-role-management"></a>İzin ve rol yönetimi
 
-Azure Cosmos DB, rol tabanlı erişim denetimini (RBAC) ve [Azure portal](https://portal.azure.com) aracılığıyla edinilebilecek okuma-yazma ve salt-okuma parolalarını/anahtarlarını destekler. Azure Cosmos DB henüz veri düzlemi etkinlikleri için kullanıcıları ve rolleri desteklememektedir. 
+Azure Cosmos DB, sağlama, anahtarları döndürme, ölçümleri görüntüleme için rol tabanlı erişim denetimi (RBAC) destekler ve okuma-yazma ve salt okunur parolaları/aracılığıyla edinilen anahtarları [Azure portalında](https://portal.azure.com). Azure Cosmos DB henüz kullanıcılar ve roller için CRUD etkinlikleri desteklemez. 
 
 ## <a name="planned-support"></a>Planlı destek 
 * Anahtar alanı oluşturma komutundaki bölge adı şu an için yoksayılmaktadır. Veri dağıtımı temel alınan Cosmos DB platformunda gerçekleştirilmekte ve portal ya da PowerShell ile hesapta kullanıma sunulmaktadır. 

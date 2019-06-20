@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8b340eeaaae41815482f4dfed4168dfd8367aba9
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60876248"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143901"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Azure şemaları hizmetine genel bakış
 
@@ -109,7 +109,7 @@ Bir şemayı atamak veya atamasını kaldırmak için hesabınız şu izinlere s
 Yukarıdaki izinlerin hepsine yer **sahibi** rol. **Katkıda bulunan** rol oluşturma şema ve delete şema izinleri vardır, ancak blueprint ataması izinlere sahip değil. Bu yerleşik roller güvenlik gereksinimlerinize uygun değilse [özel rol](../../role-based-access-control/custom-roles.md) oluşturabilirsiniz.
 
 > [!NOTE]
-> Azure Blueprint hizmet sorumlusu, dağıtımı etkinleştirmek için atanan abonelikte **Sahip** rolüne ihtiyaç duyar. Portalı kullanıyorsanız bu rol dağıtım için otomatik olarak verilir ve iptal edilir. REST API kullanıyorsanız bu rolün el ile verilmesi gerekir ancak dağıtım tamamlandıktan sonra iptal işlemi otomatik olarak gerçekleştirilir.
+> Azure şema için hizmet sorumlusu kullanarak sistem tarafından atanan kimlik yönetiliyorsa, gerektirir **sahibi** dağıtımı etkinleştirmek için atanan abonelik rolü. Portalı kullanıyorsanız bu rol dağıtım için otomatik olarak verilir ve iptal edilir. REST API kullanıyorsanız bu rolün el ile verilmesi gerekir ancak dağıtım tamamlandıktan sonra iptal işlemi otomatik olarak gerçekleştirilir. Kullanarak bir kullanıcı tarafından atanan kimlik yönetiliyorsa, yalnızca şema atamasını oluşturma kullanıcının erişmesi **sahibi** izinleri.
 
 ## <a name="video-overview"></a>Genel bakış videosu
 

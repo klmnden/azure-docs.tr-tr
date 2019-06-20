@@ -1,5 +1,5 @@
 ---
-title: Azure özel DNS nedir?
+title: Azure Özel DNS nedir?
 description: Barındırma hizmeti Microsoft Azure özel DNS genel bakış.
 services: dns
 author: vhorne
@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: a8548b4972d5853f09630ae3e9ded05ed6fee32b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 7012bbe98e41a3eb273b26e7e4ade705a6eaf8e1
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076412"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147576"
 ---
-# <a name="what-is-azure-private-dns"></a>Azure özel DNS nedir?
+# <a name="what-is-azure-private-dns"></a>Azure Özel DNS nedir?
 
 > [!IMPORTANT]
 > Azure özel DNS şu anda genel Önizleme aşamasındadır.
@@ -64,21 +64,11 @@ Azure DNS, aşağıdaki özellikleri sağlar:
 
 Azure DNS, aşağıdaki sınırlamalara sahiptir:
 
-* Özel bölge başına yalnızca bir kayıt sanal ağı izin verilir.
-* En fazla 10 çözümleme sanal ağları özel bölge başına izin verilir. Bu özellik genel kullanıma sunulduğunda, bu sınır kaldırılacak.
-* Belirli bir sanal ağ için yalnızca bir özel bölge kayıt sanal ağı bağlanabilir.
-* Belirli bir sanal ağ en fazla 10 özel bölgeler için bir çözümleme sanal ağı bağlanabilir. Bu özellik genel kullanıma sunulduğunda, bu sınır kaldırılacak.
-* Kayıt sanal ağı belirtirseniz, özel bölgeye kaydedilen Vm'lerden söz konusu sanal ağ için DNS kayıtlarını görüntülenebilir veya Azure Powershell ve Azure CLI API'leri alınabilir değil. VM kayıtları gerçekten kaydedilir ve başarıyla çözülecektir.
-* Kayıt sanal ağ özel IP alanı için yalnızca geriye doğru DNS çalışır.
-* Ters DNS özel bölgesi (örneğin, bölge bağlantılı çözümleme sanal ağı özel bir sanal ağdaki bir sanal makine için bir özel IP) kayıtlı değilse bir özel IP döndürür için *internal.cloudapp.net* DNS son eki. Ancak bu sonek çözümlenebilir değil.
-* Sanal ağ özel bir bölgeye kayıt veya çözümleme sanal ağı olarak bağlantı ilk kez tamamen boş olmalıdır. Ancak, sanal ağ boş ardından olabilir bir kayıt veya çözümleme sanal ağ özel diğer bölgelere gelecekteki bağlama.
-* Şu anda koşullu iletme (örneğin, Azure ve şirket içi ağlar arasında çözüm etkinleştirme için) desteklenmiyor. Müşteriler, bu senaryo başka mekanizmalar aracılığıyla nasıl hayata geçirebilirsiniz hakkında daha fazla bilgi için bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* VM DNS kayıtlarının otomatik kayıt etkinse, gibi belirli bir sanal ağ için yalnızca bir özel bölge bağlanabilir. Ancak, tek bir DNS bölgesi için birden çok sanal ağı bağlayabilirsiniz.
 * Yalnızca bağlı sanal ağ özel IP alanı için ters DNS çalışır
 * Bağlı bir sanal ağ için özel bir IP için ters DNS "internal.cloudapp.net" sanal makine için varsayılan ön ek olarak döndürür. Özel bir IP ile varsayılan 2 FQDN'leri soneki döndürür için özel bir bölgeye otomatik kayıt etkin ile bağlı sanal ağlar için ters DNS *internal.cloudapp.net* ve başka bir özel bölge soneki.
-* Koşullu iletme desteklenmez. Örneğin, Azure ve şirket içi ağlar arasındaki çözümleme etkinleştirmek için şunu yazın. Bu senaryo başka mekanizmalar kullanılarak nasıl olanak sağlayabileceğiniz öğrenin. Bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* Koşullu iletme, şu anda yerel olarak desteklenmiyor. Azure ve şirket içi ağlar arasında çözüm sağlamak için. Bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
  
-
-
 ## <a name="pricing"></a>Fiyatlandırma
 
 Fiyatlandırma bilgileri için bkz: [Azure DNS fiyatlandırma](https://azure.microsoft.com/pricing/details/dns/).

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 0c7b63dd8f6ed06c1ece403ee18f9be48d4797e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61ae6cdf7c31c9a6e40860eb1dc4628bb2d37496
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67120832"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150897"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure HDInsight Apache Kafka kümesi oluşturma
 
@@ -49,7 +49,7 @@ HDInsight kümesinde Apache Kafka oluşturmak için aşağıdaki adımları kull
     
    **Küme yapılandırması**’nı görüntülemek için __Küme Türü__’nü seçin.
    
-   ![HDInsight üzerinde Apache Kafka kümesi temel yapılandırma](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
+   ![HDInsight üzerinde Apache Kafka kümesi temel yapılandırma](./media/apache-kafka-get-started/custom-basics-kafka.png)
 
 4. Gelen __küme yapılandırması__, aşağıdaki değerleri seçin:
 

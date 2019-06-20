@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8092cd169f93a6815e52517d805941ac7ddcbbc0
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 2368d097cc0bfe82d0b869c3c8eb48760cc41616
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807504"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275116"
 ---
 # <a name="what-is-azure-maps"></a>Azure Haritalar nedir?
 
-Azure haritalar, doğru web ve mobil uygulamalara coğrafi bağlam kullanılabilir en yeni eşleme verileri tarafından Temizle, Jeo-uzamsal hizmetler koleksiyonudur. Azure haritalar, işleme için REST API'lerini oluşur **haritalar** birden çok stilleri ve uydu tanımayı **arama** adresler, yerler ve ilgi; dünyanın dört bir yanındaki noktaları için **Yönlendirme** noktadan noktaya, multipoint, multipoint iyileştirme, isochrone, ticari araç, trafiği etkileyen ve yönlendirme; sektör lideri trafik akışını ve olaylar; görüntüleme Matrisi **Mobility** hizmetleri genel geçiş, bisiklet paylaşımı, scooter paylaşımı ve araba isteyen nakliye ve gerçek zamanlı verileri alternatif modları yararlanarak; aracılığıyla kullanıcı konumunu kurma yolları planlamak için bilgi paylaşımı **Coğrafi konum**; ve konuma dönüştürme **saat dilimlerini**, yanı, zamanı bir konumda getiriliyor. Ayrıca, Azure haritalar hizmetleri sunar **bölge sınırlaması**, harita **veri** barındırma konum bilgilerini Azure; depolama - ve **uzamsal Operations** konum Jeo-uzamsal analiz aracılığıyla gösterimi. Azure haritalar Hizmetleri doğrudan REST API veya ya da aracılığıyla kullanılabilir bizim sağlam **Web SDK'sı** veya **Android SDK'sı**. Bu araçlar, geliştiricilerin hızlı bir şekilde geliştirin ve konum bilgilerini Azure bulutunun içinden Azure çözümlerinden tümleştirin ölçek çözümleri sağlar. Kaydolmak için ücretsiz [Azure haritalar hesabı](https://azure.microsoft.com/services/azure-maps/) bugüne, başlangıç geliştirme!
+Azure haritalar, doğru web ve mobil uygulamalara coğrafi bağlam kullanılabilir en yeni eşleme verileri tarafından underpinned, Jeo-uzamsal hizmetler koleksiyonudur. Azure haritalar, işleme için REST API'lerini oluşur **haritalar** birden çok stilleri ve uydu tanımayı **arama** adresler, yerler ve ilgi; dünyanın dört bir yanındaki noktaları için **Yönlendirme** noktadan noktaya, multipoint, multipoint iyileştirme, isochrone, ticari araç, trafiği etkileyen ve yönlendirme; sektör lideri trafik akışını ve olaylar; görüntüleme Matrisi **Mobility** hizmetleri genel geçiş, bisiklet paylaşımı, scooter paylaşımı ve araba isteyen nakliye ve gerçek zamanlı verileri alternatif modları yararlanarak; aracılığıyla kullanıcı konumunu kurma yolları planlamak için bilgi paylaşımı **Coğrafi konum**; ve konuma dönüştürme **saat dilimlerini**, yanı, zamanı bir konumda getiriliyor. Ayrıca, Azure haritalar hizmetleri sunar **bölge sınırlaması**, harita **veri** barındırma konum bilgilerini Azure; depolama - ve **uzamsal Operations** konum Jeo-uzamsal analiz aracılığıyla gösterimi. Azure haritalar Hizmetleri doğrudan REST API veya ya da aracılığıyla kullanılabilir bizim sağlam **Web SDK'sı** veya **Android SDK'sı**. Bu araçlar, geliştiricilerin hızlı bir şekilde geliştirin ve konum bilgilerini Azure bulutunun içinden Azure çözümlerinden tümleştirin ölçek çözümleri sağlar. Kaydolmak için ücretsiz [Azure haritalar hesabı](https://azure.microsoft.com/services/azure-maps/) bugüne, başlangıç geliştirme!
 
 Aşağıdaki videoda Azure Haritalar ayrıntılı olarak açıklanır:
 
@@ -151,12 +151,12 @@ Geçerli IP adresinizi konumunu desteklenmeyen ülkeler/bölgeler yukarıdaki bi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Haritalar'ın yeni özellikleriyle ilgili daha fazla bilgi için:
-
-> [!div class="nextstepaction"]
-> [Yol Matrisi, İzokronlar, IP araması ve daha fazlası](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
-
 Azure haritalar kullanan örnek uygulamayı deneyin:
 
 > [!div class="nextstepaction"]
 > [Hızlı Başlangıç: Bir web uygulaması oluşturma](quick-demo-map-app.md)
+
+Azure haritalar hakkında güncel kalır: 
+
+> [!div class="nextstepaction"]
+> [Azure haritalar blogu](https://azure.microsoft.com/blog/topics/azure-maps/)

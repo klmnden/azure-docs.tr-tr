@@ -4,6 +4,12 @@
   items:
     - name: HDInsight'ta Kurumsal Güvenlik Paketi nedir?
       href: apache-domain-joined-introduction.md
+- name: Öğreticiler
+  items:
+    - name: Apache Ranger ile Apache HBase RBAC
+      href: apache-domain-joined-run-hbase.md
+    - name: Apache Ranger ile Apache Kafka RBAC
+      href: apache-domain-joined-run-kafka.md
 - name: Kavramlar
   items:
     - name: ESP kümeleri için planlama
@@ -16,10 +22,6 @@
       href: ../hdinsight-sync-aad-users-to-cluster.md
     - name: Apache Hive ilkelerini yapılandırma
       href: apache-domain-joined-run-hive.md
-    - name: Apache Ranger ile Apache HBase RBAC
-      href: apache-domain-joined-run-hbase.md
-    - name: Apache Ranger ile Apache Kafka RBAC
-      href: apache-domain-joined-run-kafka.md
     - name: ESP kümesiyle bağlantı kurmak için VSCode kullanma
       href: ../hdinsight-for-vscode.md
     - name: ESP kümesiyle bağlantı kurmak için IntelliJ kullanma

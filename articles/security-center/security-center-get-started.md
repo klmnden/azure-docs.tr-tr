@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4464796e655cefd28f858cb732ff3d5721a7aa47
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60908326"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206807"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Hızlı Başlangıç: Yerleşik Azure aboneliğinizi Güvenlik Merkezi standart
 Azure Güvenlik Merkezi, hibrit bulut iş yüklerinizde birleşik güvenlik yönetimi ve tehdit koruması sağlar. Ücretsiz katman yalnızca Azure kaynaklarınız için sınırlı güvenlik sunarken Standart katman bu özellikleri şirket içine ve diğer bulutlara genişletir. Güvenlik Merkezi Standart katmanı; güvenlik açıklarını bulup gidermenize, zararlı etkinlikleri engellemek için erişim ve uygulama denetimleri uygulamanıza, analizden ve bilgilerden yararlanarak tehditleri algılamanıza ve saldırı altındayken hızlıca yanıt vermenize yardımcı olur. Ücretsiz olarak Güvenlik Merkezi standart deneyebilirsiniz. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
@@ -74,10 +74,10 @@ Otomatik sağlama etkinleştirildiğinde Güvenlik Merkezi, desteklenen tüm Azu
 Microsoft Monitoring Agent için otomatik sağlamayı etkinleştirmek üzere:
 
 1. Güvenlik Merkezi ana menüsünde **Güvenlik İlkesi**’ni seçin.
-2. Abonelik satırında, **Ayarları düzenle>**’yi seçin.
+2. Abonelik satırında, **Ayarları düzenle>** ’yi seçin.
 3. **Veri Toplama** sekmesinde, **Otomatik sağlama**’yı **Açık** olarak ayarlayın.
 4. **Kaydet**’i seçin.
-****
+---
   ![Otomatik sağlamayı etkinleştirme][6]
 
 Azure VM’lerinize ilişkin bu yeni öngörüyle Güvenlik Merkezi, sistem güncelleştirme durumu, işletim sistemi güvenlik yapılandırmaları ve uç nokta koruması ile ilgili ek Öneriler sunmanın yanı sıra ek Güvenlik uyarıları oluşturabilir.
@@ -88,14 +88,14 @@ Azure VM’lerinize ilişkin bu yeni öngörüyle Güvenlik Merkezi, sistem gün
 Bu koleksiyondaki diğer hızlı başlangıçlar ve öğreticiler bu hızlı başlangıcı temel alır. Sonraki hızlı başlangıç ve öğreticilerle çalışmaya devam etmeyi planlıyorsanız Standart katmanını çalıştırmaya devam edin ve otomatik sağlamayı etkinleştirilmiş halde tutun. Devam etmeyi planlamıyorsanız veya Ücretsiz katmanına dönmek istiyorsanız:
 
 1. Güvenlik Merkezi ana menüsüne dönüp **Güvenlik İlkesi**’ni seçin.
-2. Ücretsize döndürmek istediğiniz aboneliğin satırında **Ayarları düzenleyin>**’yi seçin.
+2. Ücretsize döndürmek istediğiniz aboneliğin satırında **Ayarları düzenleyin>** ’yi seçin.
 3. Aboneliği Standart katmanından Ücretsiz katmanına geçirmek için **Fiyatlandırma katmanı**’nı ve **Ücretsiz**’i seçin.
 5. **Kaydet**’i seçin.
 
 Otomatik sağlamayı devre dışı bırakmak istiyorsanız:
 
 1. Güvenlik Merkezi ana menüsüne dönüp **Güvenlik ilkesi**’ni seçin.
-2. Otomatik sağlamayı devre dışı bırakmak istediğiniz abonelik satırında, **Ayarları düzenle>**’yi seçin.
+2. Otomatik sağlamayı devre dışı bırakmak istediğiniz abonelik satırında, **Ayarları düzenle>** ’yi seçin.
 3. **Veri Toplama** sekmesinde, **Otomatik sağlama**’yı **Kapalı** olarak ayarlayın.
 4. **Kaydet**’i seçin.
 

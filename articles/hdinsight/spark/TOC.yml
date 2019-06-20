@@ -20,8 +20,6 @@
   items:
     - name: Apache Spark kümesinde sorgu çalıştırma
       href: apache-spark-load-data-run-query.md
-    - name: Apache Spark sorgularını çalıştırmak için VSCode kullanma
-      href: ../hdinsight-for-vscode.md
     - name: Apache Spark sorgularını çalıştırmak için IntelliJ kullanma
       href: apache-spark-intellij-tool-plugin.md
     - name: BI araçlarını kullanarak verileri analiz etme
@@ -32,6 +30,8 @@
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: IntelliJ’de Apache Spark uygulaması oluşturma
       href: apache-spark-create-standalone-application.md
+    - name: Apache Spark sorgularını çalıştırmak için VSCode kullanma
+      href: ../hdinsight-for-vscode.md
     - name: Ambari ve Azure İzleyici günlükleriyle küme kullanılabilirliğini izleme
       href: ../hdinsight-cluster-availability.md
 - name: Örnekler

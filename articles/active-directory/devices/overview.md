@@ -17,12 +17,12 @@ ms.date: 06/04/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8e6873a1ef44e8919d08d24dbab88c63ebb45bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57c5b7a6044de0413c07538e5f1e6034e210d529
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110511"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155236"
 ---
 # <a name="what-is-a-device-identity"></a>Cihaz kimliği nedir?
 
@@ -33,7 +33,7 @@ Mobil ve bulut öncelikli bir dünyada Azure Active Directory (Azure AD) cihazla
 
 Kullanıcılarınız, Azure AD’deki cihazlar aracılığıyla kuruluşunuzun varlıklarına erişir. BT yöneticisi olarak şirket varlıklarınızı korumak için bu cihazları kimlikleri yönetmek istiyorsunuz. Bu sayede kullanıcılarınızın kaynaklarınıza güvenlik ve uyumluluk standartlarınızı karşılayan cihazlardan erişmesini sağlayabilirsiniz.
 
-Cihaz Kimlik Yönetimi, ayrıca temel [cihaz tabanlı koşullu erişim](../conditional-access/require-managed-devices.md). Cihaz tabanlı koşullu erişim ile ortamınızdaki kaynakları erişimi yalnızca yönetilen cihazlarla mümkün olduğundan emin olun.
+Cihaz Kimlik Yönetimi, ayrıca temel [cihaz tabanlı koşullu erişim](../conditional-access/require-managed-devices.md). Cihaz tabanlı koşullu erişim sayesinde, ortamınızdaki kaynaklara yalnızca yönetilen cihazlar üzerinden erişilebilmesini sağlayabilirsiniz.
 
 ## <a name="getting-devices-in-azure-ad"></a>Azure AD'de aygıt alma
 
@@ -44,7 +44,7 @@ Azure AD'de bir cihaz almak için iki seçeneğiniz vardır:
 
 Cihazı Azure AD’ye **Kaydetme** seçeneğini kullanarak bir cihazın kimliğini yönetebilirsiniz. Bir cihaz kaydedildiğinde, Azure AD cihaz kaydı kullanıcı Azure AD’de oturum açtığında cihazın kimliğini doğrulamak için kullanılan bir kimlik sağlar. Cihazı etkinleştirmek veya devre dışı bırakmak için kimliği kullanabilirsiniz.
 
-Microsoft Intune gibi bir mobil cihaz yönetimi (MDM) çözümü ile birleştirildiğinde Azure AD'deki cihaz öznitelikleri cihaz hakkındaki ek bilgilerle güncelleştirilir. Bu, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak için cihazlardan erişimi zorlayan koşullu erişim kuralları oluşturmanıza olanak sağlar. Microsoft Intune cihazları kaydetme hakkında daha fazla bilgi için bkz: [cihaz kaydı nedir?](https://docs.microsoft.com/intune/device-enrollment)
+Microsoft Intune gibi bir mobil cihaz yönetimi (MDM) çözümü ile birleştirildiğinde Azure AD'deki cihaz öznitelikleri cihaz hakkındaki ek bilgilerle güncelleştirilir. Bu durum, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak için cihazlardan erişimi zorlayan koşullu erişim kuralları oluşturmanıza olanak sağlar. Microsoft Intune cihazları kaydetme hakkında daha fazla bilgi için bkz: [cihaz kaydı nedir?](https://docs.microsoft.com/intune/device-enrollment)
 
 Bir cihazı **Katma** seçeneği, cihaz kaydının uzantısıdır. Diğer bir ifadeyle bir cihazı kaydetmenin tüm avantajlarını sağlamanın yanında aynı zamanda bir cihazın yerel durumunu da değiştirir. Yerel durumunu değiştirmek, kullanıcılarınıza kişisel hesap yerine kuruluşa ait bir iş veya okul hesabını kullanarak bir cihazda oturum açma seçeneği sağlar.
 
@@ -71,6 +71,7 @@ Azure AD'ye katılmış cihazların hedefi şu işlemlerde basitleştirme sağla
 - İşe ait cihazların Windows dağıtımları
 - Herhangi bir Windows cihazından kuruluş uygulamalarına ve kaynaklarına erişim
 - İşe ait cihazların bulut tabanlı yönetimi
+- Kullanıcılar cihazlarını kendi Azure AD ile oturum açabilir veya Eşitlenen Active Directory iş veya Okul hesapları.
 
 ![Azure AD kayıtlı cihazlar](./media/overview/02.png)
 
@@ -137,12 +138,10 @@ Genel bir kural olarak şunları kullanmanız gerekir:
 - Azure AD’ye katılmış cihazlar:
    - Kuruluşunuza ait cihazlar için
    - Bir şirket içi AD’ye **katılmamış** cihazlar için
-   - Azure AD ile cihazları elle kaydetmek için
    - Bir cihazın yerel durumunu değiştirmek için
 - Bir şirket içi AD’ye katılmış cihazlar için Hibrit Azure AD’ye katılmış cihazlar
    - Kuruluşunuza ait cihazlar için
    - Bir şirket içi AD’ye katılmış cihazlar için
-   - Azure AD ile cihazları otomatik olarak kaydetmek için
    - Bir cihazın yerel durumunu değiştirmek için
 
 ## <a name="license-requirements"></a>Lisans gereksinimleri

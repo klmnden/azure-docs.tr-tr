@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: c998e01cdb9031771acd3d9605da3e77d5ae3201
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953361"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147908"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Data Box Disk alanınızı yönetmek için Azure portalını kullanma
 
@@ -76,7 +76,7 @@ Yalnızca tamamlanan veya iptal edilen siparişleri silebilirsiniz. Siparişi si
      ![Data Box Disk siparişini silme 2](media/data-box-portal-ui-admin/delete-order2.png)
 
 
-## <a name="download-shipping-label"></a>Sevkiyat etiketini indirin
+## <a name="download-shipping-label"></a>Sevkiyat etiketini indirme
 
 Disklerinizle birlikte gönderilen iade sevkiyat etiketi kaybolduysa sevkiyat etiketini indirmeniz gerekebilir. 
 
@@ -103,7 +103,7 @@ Siparişi düzenlemek için aşağıdaki adımları gerçekleştirin.
 
     ![Teslimat adresini düzenleme 2](media/data-box-portal-ui-admin/edit-shipping-address2.png)
 
-## <a name="edit-notification-details"></a>Bildirim ayrıntılarını düzenle
+## <a name="edit-notification-details"></a>Bildirim ayrıntılarını düzenleme
 
 Sipariş durumu e-postalarının gönderilmesini istediğiniz kullanıcıları değiştirmek isteyebilirsiniz. Örneğin disk teslim edildiğinde veya alındığında bir kullanıcının bilgilendirilmesi gerekebilir. Başka bir kullanıcı verileri kaynaktan silmeden önce Azure depolama hesabında olduğunu doğrulayabilmeniz için veri kopyalama tamamlandığında bilgilendirilmesi gerekebilir. Bu gibi durumlarda bildirim ayrıntılarını düzenleyebilirsiniz.
 
@@ -129,7 +129,7 @@ Bildirim ayrıntılarını düzenlemek için aşağıdaki adımları gerçekleş
 |Alındı     | Diskleriniz Azure veri merkezine alındı. Veri kopyalama işlemi yakında başlayacak.        |
 |Veriler kopyalandı     |Veri kopyalama işlemi devam ediyor.<br> Veri kopyalama işlemi tamamlanana kadar bekleyin.         |
 |Tamamlandı       |Sipariş başarıyla tamamlandı.<br> Şirket içi verilerini sunuculardan silmeden önce verilerinizin Azure’a kopyalandığından emin olun.         |
-|Hatalarla tamamlandı| Veri kopyalama işlemi tamamlandı ancak hatalar var. <br> **Genel bakış** sayfasında belirtilen yolu kullanarak kopyalama günlüklerini gözden geçirin. Daha fazla bilgi için [Tanılama günlüklerini indir](data-box-disk-troubleshoot.md#download-diagnostic-logs) sayfasına gidin.   |
+|Hatalarla tamamlandı| Veri kopyalama işlemi tamamlandı ancak hatalar var. <br> Sağlanan yolu kullanarak karşıya yükleme için hata günlüklerini gözden geçirme **genel bakış**. Daha fazla bilgi için Git [karşıdan yükleme günlükleri](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |İptal edildi            |Sipariş iptal edildi. <br> Siparişi iptal ettiniz veya bir hatayla karşılaşıldı ve sipariş, hizmet tarafından iptal edildi.     |
 
 

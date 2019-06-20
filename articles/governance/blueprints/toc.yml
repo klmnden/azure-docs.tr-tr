@@ -49,6 +49,11 @@
         - name: Dağıtım adımları
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
+    - name: UK OFFICIAL
+      items:
+        - name: Denetim eşlemesi
+          displayName: 'standards, uk official'
+          href: ./samples/ukofficial/control-mapping.md
 - name: Kavramlar
   items:
     - name: Şema yaşam döngüsü

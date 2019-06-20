@@ -20,9 +20,6 @@
     - name: İsteğe bağlı kümeler oluşturma
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: Ambari ve Azure İzleyici günlükleriyle küme kullanılabilirliğini izleme
-      href: ../hdinsight-cluster-availability.md
-      maintainContext: true
 - name: Örnekler
   items:
     - name: .NET örnekleri
@@ -36,6 +33,9 @@
       maintainContext: true
 - name: Kavramlar
   items:
+    - name: Ambari ve Azure İzleyici günlükleriyle küme kullanılabilirliğini izleme
+      href: ../hdinsight-cluster-availability.md
+      maintainContext: true
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
       maintainContext: true

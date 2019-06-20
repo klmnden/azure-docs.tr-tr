@@ -15,17 +15,17 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a0ca2adebe662c72eb476e800e17092ddbba34a0
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872994"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275604"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Hızlı Başlangıç: Azure önbelleği için Redis Python ile kullanın
 
 
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 
 Bu hızlı başlangıçta, bir Azure önbelleği için Redis okumak ve yazmak için bir önbellek için Python ile bağlanma işlemi gösterilmektedir. 
 
@@ -66,6 +66,9 @@ True
 >>> r.get('foo')
 b'bar'
 ```
+
+> [!IMPORTANT]
+> Redis için sürümü 3.0 veya üzeri SSL sertifikası denetimi zorunlu. Redis'e bağlanırken ssl_ca_certs açıkça ayarlanmalıdır. RH Linux durumunda ssl_ca_certs bulunabilir "/ etc/pki/tls/certs/ca-bundle.crt" Sertifika modülü.
 
 ## <a name="create-a-python-script"></a>Python betiği oluşturma
 

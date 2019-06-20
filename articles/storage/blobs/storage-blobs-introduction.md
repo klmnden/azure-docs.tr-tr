@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 450e3b0a25f4be90aea26adfd4c35efc3077af57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e216503cac2db55115bd4c1b5bf0e2f6e50355fc
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071382"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190852"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob depolamaya giriş
 
@@ -56,7 +56,7 @@ Azure depolama üç tür BLOB destekler:
 
 * **Blok blobları** yaklaşık 4,7 TB'a kadar metin ve ikili verileri depolayın. Blok blobları, ayrı ayrı yönetilebilen veri bloklarından oluşur.
 * **Ekleme blobları** bloklarını yapılan blok blobları gibi çalışır, ancak için optimize edilmiş ekleme işlemleri. Ekleme blobları sanal makine verilerini günlüğe alma gibi senaryolar için idealdir.
-* **Sayfa blobları** deposu rastgele erişim boyutu 8 TB'a kadar dosyaları. Sayfa blobları Azure sanal makineler için diskler olarak sanal sabit disk (VHD) dosyaları işleme depolar. Sayfa BLOB'ları hakkında daha fazla bilgi için bkz: [genel bakış, Azure sayfa blobları](storage-blob-pageblob-overview.md)
+* **Sayfa blobları** deposu rastgele erişim boyutu 8 TB'a kadar dosyaları. Sayfa blobları, sanal sabit disk (VHD) dosyalarını depolamak ve Azure sanal makineler için diskler olarak görev yapar. Sayfa BLOB'ları hakkında daha fazla bilgi için bkz: [genel bakış, Azure sayfa blobları](storage-blob-pageblob-overview.md)
 
 BLOB'ları farklı türleri hakkında daha fazla bilgi için bkz. [anlama blok Blobları, ekleme Blobları ve sayfa Blobları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
