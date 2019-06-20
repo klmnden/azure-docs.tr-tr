@@ -10,7 +10,7 @@
     - name: Hızlı Başlangıç
       expanded: true
       items:
-        - name: Başlatma ve kapasite satın alma
+        - name: Başlatma ve sağlama kapasitesi
           href: quickstart-create-cloudsimple-service.md
         - name: Özel bulut ortamını yapılandırma
           href: quickstart-create-private-cloud.md
@@ -62,7 +62,7 @@
           href: access-cloudsimple-portal.md
         - name: Düğümleri yönetme
           items:
-            - name: Düğümleri satın alma
+            - name: Sağlama düğümleri
               href: create-nodes.md
         - name: Özel bulut kaynaklarını yönetme
           items:

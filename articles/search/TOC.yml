@@ -31,6 +31,14 @@
       href: search-get-started-python.md
 - name: Öğreticiler
   items:
+    - name: İlk uygulamanızı oluşturma
+      items:
+        - name: 1 - Temel arama sayfası
+          href: tutorial-csharp-create-first-app.md
+        - name: 2 - Disk belleği sonuçları ekle
+          href: tutorial-csharp-paging.md
+        - name: 3 - Yazarken tamamlama ekleme
+          href: tutorial-csharp-type-ahead-and-suggestions.md
     - name: Azure SQL Veritabanı'nı dizinleme
       href: search-indexer-tutorial.md
     - name: Azure JSON bloblarını dizine ekleme

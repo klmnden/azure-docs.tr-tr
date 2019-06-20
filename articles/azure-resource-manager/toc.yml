@@ -124,9 +124,10 @@
               href: resource-manager-powershell-sas-token.md
         - name: Birden çok kaynak grubuna veya aboneliğe dağıtma
           href: resource-manager-cross-resource-group-deployment.md
-        - name: Azure DevOps Services ile sürekli tümleştirme
-          href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
-          maintainContext: true
+    - name: CI/CD
+      items:
+        - name: İşlem hatları ile VS projesi
+          href: vs-resource-groups-project-devops-pipelines.md
     - name: Şablonu dışarı aktarma
       href: export-template-portal.md
     - name: Yönetme

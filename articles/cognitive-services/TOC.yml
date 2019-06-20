@@ -7,8 +7,28 @@
       href: Welcome.md
     - name: Dil desteği
       href: language-support.md
+- name: Kapsayıcı desteği
+  items:
     - name: Kapsayıcı desteği
       href: cognitive-services-container-support.md
+    - name: Kapsayıcı tarifleri
+      items:
+        - name: Kapsayıcıyı Yeniden Kullanma
+          href: ./containers/container-reuse-recipe.md
+        - name: Azure Container Instance’a dağıtma
+          href: ./containers/azure-container-instance-recipe.md
+        - name: Azure Kubernetes’e dağıtma
+          href: ./containers/azure-kubernetes-recipe.md
+        - name: Docker Compose ile dağıtma
+          href: ./containers/docker-compose-recipe.md
+    - name: Diğer Kapsayıcı Hizmetleri
+      items:
+        - name: Azure Container Instances
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure Container Registry
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes Hizmeti (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Hızlı Başlangıçlar
   items:
     - name: Hesap oluşturma

@@ -40,6 +40,8 @@
               href: connect-azure-atp.md
             - name: Azure Güvenlik Merkezi’ni bağlama
               href: connect-azure-security-center.md
+            - name: Etki alanı adı sunucusunu bağlama
+              href: connect-dns.md
             - name: Microsoft web uygulaması güvenlik duvarına bağlanma
               href: connect-microsoft-waf.md
             - name: Windows güvenlik duvarını bağlama

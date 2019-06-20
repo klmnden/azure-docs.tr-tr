@@ -1,0 +1,43 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Bastion Belgeleri
+metadata:
+  document_id: null
+  title: Bastion
+  meta.description: Learn how to use Azure Bastion
+  author: cherylmc
+  ms.service: Bastion
+  ms.topic: landing-page
+  ms.date: 06/13/2019
+  ms.author: cherylmc
+abstract:
+  description: 'Bir sanal makineye bağlanmak için Azure Bastion kullanmayı öğrenin. Doğrudan Azure portalda SSL üzerinden sanal makinelere güvenli ve sorunsuz bir şekilde RDP/SSH bağlantısı yapılandırın. Azure Bastion aracılığıyla bağlandığınızda, sanal makinelerinizin bir genel IP adresi olması gerekmez.'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: 'https://go.microsoft.com/fwlink/?linkid=2095604'
+      width: 250
+    title: 'Azure Bastion ile çalışma (1:03)'
+    href: 'https://go.microsoft.com/fwlink/?linkid=2095517'
+    width: 250
+sections:
+  - title: Azure Bastion oluşturma ve yönetme (Önizleme)
+    items:
+      - type: paragraph
+        text: Bir Azure Bastion konağı yapılandırmayı öğrenin ve ardından bir sanal makineye bağlanın.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/bastion/bastion-create-host-portal">Azure Bastion konağı oluşturma ve değiştirme</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Bir Windows sanal makinesine bağlanma</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Bir Linux sanal makinesine bağlanma</a>
+          - html: <a href="/azure/bastion/bastion-faq">Azure Bastion hakkında SSS’yi okuyun</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API başvurusu</a></p>'
