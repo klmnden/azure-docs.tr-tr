@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237665"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150336"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Dosyaları dağıtımı planlama
 
@@ -76,8 +76,23 @@ Azure dosya paylaşımınızı erişmek için Azure dosya eşitleme'ı kullanıy
 
 Azure dosyaları iki performans katmanı sunar: standart ve premium.
 
-* **Standart dosya paylaşımları** genel amaçlı dosya paylaşımları ve geliştirme/test ortamları gibi performans değişkenliğine daha az duyarlı olan g/ç iş yükleri için güvenilir bir performans sağlayan bir döngüsel sabit disk sürücülerinin (HDD'ler) tarafından desteklenir. Standart dosya paylaşımları, yalnızca Kullandıkça Öde faturalandırma modeli içinde kullanılabilir.
-* **Premium dosya paylaşımları (Önizleme)** tutarlı, yüksek performanslı ve düşük gecikme süresi, çoğu g/ç işlemleri için en yoğun g/ç iş yükleri için Tek haneli milisaniye içinde sunan katı hal diskleri (SSD'ler) tarafından desteklenir. Bu çok çeşitli veritabanları, web sitesi barındırma, geliştirme ortamları, vb. gibi iş yükleri için uygun sağlar. Premium dosya paylaşımları, yalnızca sağlanan faturalama modelinde kullanılabilir. Premium dosya paylaşımları, standart dosya paylaşımlarından ayrı bir dağıtım modeli kullanın.
+### <a name="standard-file-shares"></a>Standart dosya paylaşımları
+
+Standart dosya paylaşımları, sabit disk sürücülerinin (HDD'ler) tarafından desteklenir. Standart dosya paylaşımları gibi genel amaçlı dosya paylaşımları ve geliştirme/test ortamları performans değişkenliğine daha az duyarlı olan g/ç iş yükleri için güvenilir performans sağlar. Standart dosya paylaşımları, yalnızca Kullandıkça Öde faturalandırma modeli içinde kullanılabilir.
+
+Standart dosya paylaşımlarının boyutu 5 TiB kadar bir GA teklifi olarak kullanılabilir. En çok 100 TiB 5 TiB büyük tüm paylaşımları büyük dosya paylaşımları, şu anda Önizleme teklifi olarak mevcut olsa da.
+
+> [!IMPORTANT]
+> - (Var olan depolama hesapları genişletilemiyor) yeni bir genel amaçlı depolama hesabı oluşturmanızı gerektirir.
+> - Yalnızca LRS ile kullanılabilir.
+> - Üç bölgelerde kullanılabilir: Batı ABD 2, Batı Avrupa ve Güneydoğu Asya bölgeleri.
+> - LRS, GRS hesabı dönüştürme için bir abonelik daha büyük dosya paylaşımları önizlemesi için kabul edildikten sonra oluşturulan tüm yeni depolama hesapları hakkında mümkün olmayacaktır.
+
+Bu daha büyük bir dosya paylaşımı boyutları Önizleme ekleneceği isterseniz bu Gönderme [form](https://aka.ms/azurefilesatscalesurvey). 
+
+### <a name="premium-file-shares-preview"></a>Premium dosya paylaşımları (Önizleme)
+
+Premium dosya paylaşımları (Önizleme), katı hal diskleri (SSD'ler) tarafından desteklenir. Premium dosya paylaşımları, tutarlı, yüksek performanslı ve düşük gecikme süreli, yoğun g/ç iş yükleri için çoğu g/ç işlemleri için Tek haneli milisaniye içinde sağlayın. Bu çok çeşitli veritabanları, web sitesi barındırma, geliştirme ortamları, vb. gibi iş yükleri için uygun sağlar. Premium dosya paylaşımları, yalnızca sağlanan faturalama modelinde kullanılabilir. Premium dosya paylaşımları, standart dosya paylaşımlarından ayrı bir dağıtım modeli kullanın.
 
 Azure Backup, premium dosya paylaşımları için kullanılabilir ve Azure Kubernetes hizmeti premium dosya paylaşımları 1.13 sürümü ve üzerini destekler.
 
@@ -180,7 +195,7 @@ Hangi çoğaltma seçeneği kullanmak için karar verirken, aşağıdaki noktala
 
 ## <a name="data-growth-pattern"></a>Veri büyümesi deseni
 
-Bugün, bir Azure dosya paylaşımı için boyut üst sınırı 5 TiB olduğu (genel Önizleme aşamasında olan premium dosya paylaşımları için 100 tib'a kadar). Şu anki bu sınırlama nedeniyle, bir Azure dosya paylaşımı dağıtırken beklenen veri artışına düşünmelisiniz.
+Bugün, bir Azure dosya paylaşımı için boyut üst sınırı 5 TiB olduğu (Önizleme 100 tib'a kadar). Şu anki bu sınırlama nedeniyle, bir Azure dosya paylaşımı dağıtırken beklenen veri artışına düşünmelisiniz.
 
 Azure dosya eşitleme ile tek bir Windows dosya sunucusu için birden çok Azure dosya paylaşımları eşitlenecek mümkündür. Bu, şirket içi olabilir eski, büyük dosya paylaşımlarını Azure dosya eşitleme ile sağlanabildiğinden emin olmak sağlar. Daha fazla bilgi için [bir Azure dosya eşitleme dağıtımı planlama](storage-files-planning.md).
 

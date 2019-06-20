@@ -8,31 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: cacd5510147ce997efec922f4b4656956a098d88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2553aa95d5028c510b4e1a1b7f51a9f410bcea51
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66676946"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154856"
 ---
 # <a name="register-the-microsoftvmwarecloudsimple-resource-provider-on-your-azure-subscription"></a>Azure aboneliğinizde Microsoft.VMwareCloudSimple kaynak sağlayıcısını kaydetme
 
-CloudSimple service, Azure VMware CloudSimple çözümüyle kullanmasını sağlar. CloudSimple hizmetini kullanmak için önce Azure aboneliğinizde etkinleştirilmesi gerekir. Ardından, Microsoft.VMwareCloudSimple hizmet kaynak sağlayıcınız olarak kaydedebilirsiniz.
-
-## <a name="enable-the-cloudsimple-service"></a>CloudSimple hizmetini etkinleştirme
-
-Azure aboneliğinizde CloudSimple hizmetini etkinleştirmek için bir destek isteği açın [Microsoft Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). İsteği gönderdiğinizde, aşağıdaki seçenekleri belirleyin.
-
-* Sorun türü: **Teknik**
-* Abonelik: **Abonelik Kimliğiniz**
-* Hizmet türü: **VMware çözümü CloudSimple tarafından**
-* Sorun türü: **Adanmış düğümler kota**
-* Sorun alt tür: **Adanmış düğümler kotasını artırma**
-* Konu: **CloudSimple hizmetini etkinleştirme**
-
-Ayrıca, Microsoft hesap temsilcinize başvurun [ azurevmwaresales@microsoft.com ](mailto:azurevmwaresales@microsoft.com). E-posta, Azure abonelik Kimliğinizi belirtin.  
-
-Aboneliğiniz için CloudSimple hizmeti etkinleştirildikten sonra aboneliğinizin kaynak sağlayıcısı etkinleştirebilirsiniz.
+CloudSimple service, Azure VMware CloudSimple çözümüyle kullanmasını sağlar. Kaynak sağlayıcınız olarak Microsoft.VMwareCloudSimple hizmet kaydedebilirsiniz.
 
 ## <a name="register-the-resource-provider"></a>Kaynak sağlayıcısını kaydetme
 

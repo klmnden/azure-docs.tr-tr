@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57e66d449b194662bfc03f7e130cf49c02a15793
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64870320"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275701"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>AWS maliyetlerinden ve kullanımı Azure ile yönetme
 
@@ -129,6 +129,8 @@ Sık karşılaşılan sorunları çözmek için aşağıdaki sorun giderme bilgi
 
 ### <a name="no-permission-to-aws-linked-accounts"></a>AWS bağlantılı hesaplar için izin yok
 
+**Hata kodu:** _Yetkisiz_
+
 Bağlantılı AWS hesapları maliyetleri erişim izni almak için iki yolu vardır:
 
 - AWS bağlantılı hesapları olan yönetim grubuna erişim elde eder.
@@ -136,7 +138,11 @@ Bağlantılı AWS hesapları maliyetleri erişim izni almak için iki yolu vard�
 
 Varsayılan olarak, AWS bağlayıcı oluşturan bağlayıcı oluşturulan tüm nesnelerin sahiptir. Dahil olmak üzere, AWS birleştirilmiş bir hesap ve AWS hesabına bağlanır.
 
+Bağlayıcı ayarlarını doğrulamak için en az bir katkıda bulunan rolü gerekir, okuyucu bağlayıcı ayarları doğrulanamıyor
+
 ### <a name="collection-failed-with-assumerole"></a>Koleksiyon AssumeRole ile başarısız oldu
+
+**Hata kodu:** _FailedToAssumeRole_
 
 Bu hata, maliyet Yönetimi AWS AssumeRole API'sini çağırmak oluşturulamıyor olduğu anlamına gelir. Bu sorun, rol tanımı ile ilgili bir sorun nedeniyle oluşabilir. Aşağıdaki koşulların doğru olduğundan emin olun:
 
@@ -147,11 +153,23 @@ Bu hata, maliyet Yönetimi AWS AssumeRole API'sini çağırmak oluşturulamıyor
 
 ### <a name="collection-failed-with-access-denied"></a>Erişim reddedildi ile başarısız oldu
 
-Bu hata iletisi, maliyet Yönetimi Amazon S3 demetini içinde depolanan geçerli dosyaları erişemiyor olduğu anlamına gelir. Rolüne eklenmiş AWS JSON ilkesi alt kısmında gösterilen örneğe benzeyen emin [AWS'de bir rol ve ilke oluşturma](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) bölümü.
+- **Hata kodu:** _AccessDeniedReportDefinitions_ 
+- **Hata kodu:** _AccessDeniedListReports_ 
+- **Hata kodu:** _AccessDeniedDownloadReport_ 
 
-### <a name="connector-error-with-failedtofindreport"></a>FailedToFindReport birlikte Bağlayıcısı hatası
+Bu hata, maliyet Yönetimi Amazon S3 demetini Yinele Çantanızdaki erişemiyor olduğu anlamına gelir iletileri. Rolüne eklenmiş AWS JSON ilkesi alt kısmında gösterilen örneğe benzeyen emin [AWS'de bir rol ve ilke oluşturma](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) bölümü.
+
+### <a name="collection-failed-since-we-did-not-find-the-cost-and-usage-report"></a>Maliyet ve kullanım raporu bulamadık koleksiyonu başarısız oldu
+
+**Hata kodu:** _FailedToFindReport_
 
 Bu hata, maliyet Yönetimi Bağlayıcısı tanımlandı maliyet ve kullanım raporu bulunamıyor anlamına gelir. Değil silindi ve rolüne eklenmiş AWS JSON ilkesi alt kısmında gösterilen örneğe benzeyen emin [AWS'de bir rol ve ilke oluşturma](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) bölümü.
+
+### <a name="unable-to-create-or-verify-connector-due-to-cost-and-usage-report-definitions-mismatch"></a>Oluşturulamıyor veya maliyet ve kullanım raporu tanımlarını uyuşmazlığı nedeniyle bağlayıcı doğrulayın
+
+**Hata kodu:** _ReportIsNotValid_
+
+Bu hata, AWS maliyet ve kullanım raporu tanımına ilişkili Biz bu rapor için özel ayarlar gereklidir, gereksinimleri görüntüleyin [AWS'de bir maliyet ve kullanım raporu oluşturma](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -4,22 +4,22 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: df5d8ff941c742d546208c27c7af4e7bcbeec08a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 241e43a9cd851bf550c3eef8cad1fc3e0cc3e5a9
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073733"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150493"
 ---
 | Resource | Standart dosya paylaşımları | Premium dosya paylaşımları (Önizleme) |
 |----------|---------------|------------------------------------------|
 | En az bir dosya paylaşımı boyutunu | En az; Kullandıkça ödeyin | 100 giB; sağlanan |
-| Bir dosya paylaşımı en büyük boyutu | 5 TiB | 100 TiB |
+| Bir dosya paylaşımı en büyük boyutu | 5 TiB (GA), 100 TiB (Önizleme) | 100 TiB |
 | Bir dosya paylaşımındaki dosyasının en büyük boyutu | 1 TiB | 1 TiB |
 | Bir dosya paylaşımındaki dosyaları sayısı | Sınırsız | Sınırsız |
-| Paylaşım başına maksimum IOPS | 1000 IOPS | 100\.000 IOPS |
+| Paylaşım başına maksimum IOPS | 1000 IOPS (GA), 10.000 IOPS (Önizleme) | 100.000 IOPS |
 | Saklı erişim ilkeleri dosya başına en fazla sayısını paylaşın | 5 | 5 |
-| Tek bir dosya paylaşımı hedef performans düzeyleri | En fazla 60 MiB/sn | Premium, dosya paylaşımı giriş ve çıkış değerlerini bakın|
+| Tek bir dosya paylaşımı hedef performans düzeyleri | 60 MiB/sn kadar (GA) kadar 300 MiB/sn (Önizleme) | Premium, dosya paylaşımı giriş ve çıkış değerlerini bakın|
 | Tek bir dosya paylaşımı için en yüksek çıkış | Standart dosya paylaşımı hedef işleme bakın | En fazla 6,204 MiB/sn |
 | Tek bir dosya paylaşımı için en büyük giriş | Standart dosya paylaşımı hedef işleme bakın | En fazla 4,136 MiB/sn |
 | Dosya başına en fazla açık tanıtıcıları | 2\.000 açık tanıtıcıları | 2\.000 açık tanıtıcıları |

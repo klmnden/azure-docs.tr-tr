@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97fb4dc37f3c9f776e4abf433f916ceaf177a70b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937842"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202672"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Market listelemesi yönergeleri
 
@@ -39,14 +39,14 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 | 11 | Çözüm destek & Yardımı | En az biri aşağıdaki için bağlantı: <br>o telefon numaraları <br>o e-posta desteği <br>o sohbet aracıları <br>o topluluk forumları |<br>• Tüm listelenen yöntemleri destekler: telefon ve e-posta desteği. <br>Ücretli destek • deneme veya test sürücü dönemi boyunca ücretsiz olarak sunulan | 
 | 12 | Yasal Bilgiler | İlkeleri veya koşulları genel bir URL ile kullanılabilir |  | 
 
-----
+---
 ## <a name="trial-offer-requirements"></a>Deneme teklifi gereksinimleri
 
 |  | Liste öğesi | Temel gereksinimleri | En iyi gereksinimleri | 
 |:--- |:--- |:--- |:--- |
 |  | Listesi durumu | Bağlantı müşteri destekli deneme sürümü deneyimi için müşteri adayı | Diğer CTAs (örn: hemen satın alın) de kullanılabilir | 
 
-----
+---
 ## <a name="saas-apps-requirements"></a>SaaS uygulama gereksinimleri
 
 |  | Liste öğesi | Temel gereksinimleri | En iyi gereksinimleri | 
@@ -63,7 +63,7 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 | 10 | Kişiler: Çözüm destek & Yardımı | <br>• Mühendislik ilgili kişi adı: Mühendislik birimi ilgili kişisi uygulamanızın adını girin. Bu kişi Microsoft Teknik iletişimleri alırsınız.<br>• Mühendislik iletişim e-posta:  Uygulamanız için mühendislik birimi ilgili kişisi e-posta adresini girin.<br>• Mühendislik Kişiler Telefon: Mühendislik birimi ilgili kişisi telefon numarasını girin. ISO telefon numarası gösterimler desteklenir; Ayrıntılar için bkz https://en.wikipedia.org/wiki/E.123.<br>• Destek kişi adı: Uygulamanız için destek ilgili kişisi adını girin. Bu kişi Microsoft desteğe ilişkin iletişimleri alırsınız.<br>• Destek e-posta ile iletişime geçin: Uygulamanız için destek ilgili kişisi e-posta adresini girin. <br>• Destek Telefon başvurun: Destek ilgili kişi telefon numarasını girin. ISO telefon numarası gösterimler desteklenir; Ayrıntılar için bkz https://en.wikipedia.org/wiki/E.123. <br>• Destek URL'si: Destek sayfanız URL'sini girin. | <br>• Tüm listelenen yöntemleri destekler: telefon ve e-posta desteği. <br>Ücretli destek • deneme veya test sürücü dönemi boyunca ücretsiz olarak sunulan |
 | 11 | Yasal Bilgiler |<br>• Gizlilik İlkesi URL'si: Uygulamanızın gizlilik ilkesi CPP gizlilik ilkesi URL'si alanında URL'sini girin. <br>• Kullanım Koşulları: Uygulamanızın kullanım koşulları girin. Müşterilerin uygulamanızı deneyebilmeniz için önce bu koşulları kabul etmek için gereklidir. |  İlkeleri veya koşulları genel bir URL sitesi kullanılabilir |
 
-----
+---
 
 ## <a name="container-offer-requirements"></a>Kapsayıcı teklif gereksinimleri
 
@@ -74,7 +74,7 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 | 3 | Market Yapıtları | Logo doğru görüntüleme |<br>• Logosu "Azure Portalı'nda biçimi büyük görüntüdür hero görüntüsü" içerir <br>• Logos: (48 x 48) küçük ve büyük (216 x 216) gereksinimleri verilmiştir. <br>• Hero resim gereksinimleri: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Ekran (en fazla 5):  CPP bir .png görüntü çözünürlüğü 1280 x 720 gerektirir.|
 | 4 | Tedarik Yönetimi |<br>• Sağlama Yönetimi: Müşteri adaylarınızı depolanacağı sistem seçin. <br>• Öğrenin, CRM sistemine bağlanmak [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
-----
+---
 
 ## <a name="consulting-offer-requirements"></a>Danışmanlık teklif gereksinimleri
 
@@ -97,6 +97,3 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 ## <a name="next-steps"></a>Sonraki adımlar
 * Farklı teklif türlerinin Market'te hakkında bilgi edinin. <br>[SaaS Uygulamaları](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Kapsayıcılar](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Danışmanlık hizmetleri](https://docs.microsoft.com/azure/marketplace/consulting-services)
 *   [Çözümünüz için liste türünü belirlemek](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
-
- 
----

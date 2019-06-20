@@ -1,6 +1,6 @@
 ---
 title: Microsoft kimlik platformu kod örnekleri | Microsoft Docs
-description: Bir dizinin mevcut Microsoft kimlik Platformu (V2 uç noktası) kod örnekleri, senaryoya göre düzenlenmiş sağlar.
+description: Bir dizinin mevcut Microsoft kimlik Platformu (v2.0 uç noktası) kod örnekleri, senaryoya göre düzenlenmiş sağlar.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327111182a4ad8958f2d852a88ba0608d8510c51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 326b69bffa0cd5728b939a91cce4fab3f3a329f7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055916"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272683"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft kimlik platformu kod örnekleri (v2.0 uç noktası)
 
@@ -34,7 +34,7 @@ Microsoft identity platformuna kullanabilirsiniz:
 - Kimlik doğrulama ve yetkilendirme, web uygulamalarınıza ekleyin ve web API'leri.
 - Korumalı web API'sine erişmek için bir erişim belirteci gerektirir.
 
-Bu makalede kısaca açıklayan ve Microsoft kimlik platformu uç nokta için örneklere bağlantılar sağlar. Bu örnekler nasıl, uygulamalarınızda kullanabileceğiniz kod parçacıkları birlikte yapıldığını gösterir. Kod örnek sayfasında yardımcı gereksinimleri, yükleme ve ayarlama ayrıntılı Benioku konuları bulabilirsiniz. Kritik bölümler anlamanıza yardımcı olması için kod açıklamaları vardır.
+Bu makalede kısaca açıklayan ve Microsoft kimlik platformu uç nokta için örneklere bağlantılar sağlar. Bu örnekler nasıl yapılır ve ayrıca, uygulamalarınızda kullanabileceğiniz kod parçacıklarını sağlar gösterir. Kod örnek sayfasında, gereksinimleri, yükleme ve Kurulum Yardımı ayrıntılı Benioku konuları bulabilirsiniz. Kod açıklamaları kritik bölümler anlamanıza yardımcı olur.
 
 > [!NOTE]
 > V1.0 örnekleri ilgileniyorsanız bkz [Azure AD kod örneklerinin (v1.0 uç nokta)](sample-v1-code.md).
@@ -43,9 +43,9 @@ Her örnek türü için temel senaryo anlamak için bkz: [Microsoft kimlik platf
 
 GitHub üzerindeki örneklere katkıda bulunabilir. Bilgi edinmek için bkz. nasıl [Microsoft Azure Active Directory örnekler ve belgeler](https://github.com/Azure-Samples?page=3&query=active-directory).
 
-## <a name="single-page-applications-spa"></a>Tek sayfa uygulamaları (SPA)
+## <a name="single-page-applications"></a>Tek sayfa uygulamaları
 
-Bu örnekler, Microsoft kimlik platformu ile güvenli bir tek sayfalı uygulamasını yazma işlemi gösterilmektedir. Bu örnekler, MSAL.js türde birini kullanın:
+Bu örnekler, Microsoft kimlik platformu ile güvenli bir tek sayfalı uygulamasını yazma işlemi gösterilmektedir. Bu örnekler, MSAL.js türde birini kullanın.
 
 | Platform | Açıklama | Bağlantı |
 | -------- | --------------------- | -------- |
@@ -68,9 +68,9 @@ Aşağıdaki örnekleri kullanıcılarının oturumunu, web uygulamaları göste
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Masaüstü ve mobil genel istemci uygulamaları
 
-Aşağıdaki örnekler, Microsoft Graph API'sini veya kendi kullanıcı adını Web API'nizi erişen uygulamalar (masaüstü/mobil uygulamalar için) ortak istemci gösterir. Tüm istemci uygulamaları, Microsoft kimlik doğrulama kitaplığı (MSAL) kullanın.
+Aşağıdaki örnekler, genel istemci Microsoft Graph API'si veya kendi kullanıcı adını web API'sine erişen uygulamalar (Masaüstü ve mobil uygulamaları) gösterir. Tüm istemci uygulamaları, Microsoft kimlik doğrulama kitaplığı (MSAL) kullanın.
 
-| İstemci uygulaması | Platform | Akış/verme | Microsoft Graph çağrıları | Bir ASP.NET Core 2.0 Web API'si çağıran |
+| İstemci uygulaması | Platform | Akış/verme | Microsoft Graph çağrıları | Bir ASP.NET Core 2.0 web API'si çağıran |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
 | Masaüstü (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [etkileşimli](msal-authentication-flows.md#interactive)| [DotNet Masaüstü msgraph v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [DotNet-yerel-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Masaüstü (konsol)   | ![.NET / C# (Masaüstü)](media/sample-v2-code/logo_NET.png) | [Tümleşik Windows kimlik doğrulaması](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
@@ -90,7 +90,7 @@ Aşağıdaki örnekler, kendi kimliğiyle (kullanıcı) ile Microsoft Graph API 
 
 ## <a name="headless-applications"></a>Gözetimsiz uygulamalar
 
-Aşağıdaki örnek, bir web tarayıcısı olmadan bir cihazda çalışan bir ortak istemci uygulaması gösterir. Uygulama, bir komut satırı aracı veya Linux/Mac üzerinde çalışan ve bir IOT uygulaması olabilir. Örnek bir uygulama etkileşimli olarak (örneğin, bir cep telefonu) başka bir cihazda oturum açtığında bir kullanıcı adına Microsoft Graph API'sine erişim sunar. Bu istemci uygulaması, MicroSoft kimlik doğrulama kitaplığı (MSAL) kullanır.
+Aşağıdaki örnek, bir web tarayıcısı olmadan bir cihazda çalışan bir ortak istemci uygulaması gösterir. Uygulamayı, Linux veya Mac ya da bir IOT uygulaması üzerinde çalışan bir uygulamanın bir komut satırı aracı olabilir. Örnek bir uygulama etkileşimli olarak (örneğin, bir cep telefonu) başka bir cihazda oturum açtığında bir kullanıcı adını, Microsoft Graph API'sine erişim sunar. Bu istemci uygulaması, Microsoft kimlik doğrulama kitaplığı (MSAL) kullanır.
 
 | İstemci uygulaması | Platform | Akış/verme | Microsoft Graph çağrıları |
 | ------------------ | -------- |  ----------| ---------- |
@@ -98,11 +98,11 @@ Aşağıdaki örnek, bir web tarayıcısı olmadan bir cihazda çalışan bir or
 
 ## <a name="web-apis"></a>Web API'leri
 
-Aşağıdaki örnekler, Microsoft kimlik platformu uç noktası ile bir web API'sini korumak nasıl ve Web API'si bir aşağı akış API'sini çağırmak nasıl gösterir.
+Aşağıdaki örnekler, Microsoft kimlik platformu uç noktası ile bir web API'sini korumak nasıl ve bir aşağı akış API web API'sini çağırmak nasıl gösterir.
 
 | Platform | Örnek |
 | -------- | ------------------- |
-| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core Web API'si (hizmet), [dotnet-yerel-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API'si (hizmet) [dotnet-yerel-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API'si (hizmet) [ms-kimlik-ASP.NET-webapı-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
 ## <a name="other-microsoft-graph-samples"></a>Diğer Microsoft Graph örnekleri

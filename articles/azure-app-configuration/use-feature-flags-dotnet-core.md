@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 577cb55ce381976a6d623b272b920d0d1bf2eeb9
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144008"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274136"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Öğretici: Özellik bayrakları ASP.NET Core uygulaması kullanın.
 
@@ -189,10 +189,10 @@ public class HomeController : Controller
 
 ## <a name="controller-actions"></a>Denetleyici eylemleri
 
-MVC denetleyicileri kullandığınız `Feature` tüm denetleyici sınıfı veya belirli bir eylem etkin olup olmadığını denetlemek için özniteliği. Aşağıdaki `HomeController` denetleyici gerektirir `FeatureA` olmasını *üzerinde* denetleyicisi sınıfını içeren herhangi bir eylem yürütülmeden önce:
+MVC denetleyicileri kullandığınız `FeatureGate` tüm denetleyici sınıfı veya belirli bir eylem etkin olup olmadığını denetlemek için özniteliği. Aşağıdaki `HomeController` denetleyici gerektirir `FeatureA` olmasını *üzerinde* denetleyicisi sınıfını içeren herhangi bir eylem yürütülmeden önce:
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
     ...
@@ -202,7 +202,7 @@ public class HomeController : Controller
 Aşağıdaki `Index` eylem gerektiren `FeatureA` olmasını *üzerinde* çalıştırılmadan önce:
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {
     return View();
@@ -218,6 +218,25 @@ MVC görünümleri, kullandığınız bir `<feature>` etiket içeriğini işleme
 ```html
 <feature name="FeatureA">
     <p>This can only be seen if 'FeatureA' is enabled.</p>
+</feature>
+```
+
+Gereksinimler karşılanmadı alternatif içerik görüntülemek için `negate` özniteliği kullanılabilir.
+
+```html
+<feature name="FeatureA" negate="true">
+    <p>This will be shown if 'FeatureA' is disabled.</p>
+</feature>
+```
+
+Özellik `<feature>` etiketi de kullanılabilir varsa içeriğini göstermek için veya bir listedeki tüm özellikler etkinleştirildi.
+
+```html
+<feature name="FeatureA, FeatureB" requirement="All">
+    <p>This can only be seen if 'FeatureA' and 'FeatureB' are enabled.</p>
+</feature>
+<feature name="FeatureA, FeatureB" requirement="Any">
+    <p>This can be seen if 'FeatureA', 'FeatureB', or both are enabled.</p>
 </feature>
 ```
 

@@ -10,25 +10,21 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f47656bb13d08ea56cf25a2a29897722abb1cdb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 82823bae76521080634d4f7ff285d94ce8495fbf
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65024161"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Azure Search .NET SDK sürüm 1.1 yükseltme
-
-> [!Important]
-> Bu içerik yine de tamamlanmamıştır. Azure Search .NET SDK, sürüm 9.0, NuGet üzerinde kullanılabilir. Bu makaledeki 9.0 için yükseltme açıklamak için çalışıyoruz. 
-> 
 
 Sürüm 1.0.2-preview kullanıyorsanız, eski veya [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede sürüm 1.1 kullanmak için uygulamanızı yükseltmenize yardımcı olur.
 
 Örnekler de dahil olmak üzere SDK'sının daha genel bir kılavuz için bkz. [bir .NET uygulamasından Azure Search kullanma](search-howto-dotnet-sdk.md).
 
 > [!NOTE]
-> 1.1 sürümüne yükselttikten sonra veya bir sürüm 1.1 ve 2.0-preview kapsamlı arasında zaten kullanıyorsanız, 3. sürümüne yükseltmeniz gerekir. Bkz: [Azure Search .NET SDK sürüm 3 yükseltme](search-dotnet-sdk-migration.md) yönergeler için.
+> 1\.1 sürümüne yükselttikten sonra veya bir sürüm 1.1 ve 2.0-preview kapsamlı arasında zaten kullanıyorsanız, 3. sürümüne yükseltmeniz gerekir. Bkz: [Azure Search .NET SDK sürüm 3 yükseltme](search-dotnet-sdk-migration.md) yönergeler için.
 >
 
 İlk olarak, için NuGet başvuru güncelleştirme `Microsoft.Azure.Search` NuGet Paket Yöneticisi konsolu kullanılarak veya ile proje başvurularınızın sağ tıklayıp "Yönetme NuGet paketleri..." Visual Studio'da.
@@ -150,7 +146,7 @@ Yöntem imzaları için aynı işlem içinde sürüm 1.1 şöyle görünür:
         string indexName,
         SearchRequestOptions searchRequestOptions = default(SearchRequestOptions));
 
-1.1 sürümünden itibaren Azure Search .NET SDK'sı farklı işlem yöntemlerine düzenler:
+1\.1 sürümünden itibaren Azure Search .NET SDK'sı farklı işlem yöntemlerine düzenler:
 
 * Parametreler yerine varsayılan olarak, isteğe bağlı parametreler modellenmiş artık ek bir yöntem aşırı yüklemeleri daha. Bu yöntem aşırı sayıda bazen önemli ölçüde azaltır.
 * Genişletme yöntemleri, şimdi çok miktarda yabancı HTTP ayrıntılarını arayandan gizle. Örneğin, SDK'sının daha eski sürümleri işlem yöntemlerine çünkü denetlemek için genellikle ihtiyacım kalmadı bir HTTP durum kodu ile bir yanıt nesnesi döndürülen `CloudException` için hata veren herhangi bir durum kodu. Yeni Uzantı yöntemleri yalnızca bunları kodunuzda sarmalamadan çıkarma gerek kalmadan zahmetinden model nesneleri döndürür.
@@ -327,7 +323,7 @@ Bu değişiklik, test amacıyla bu arabirimlerin mocks oluşturduğunuz sürece 
 
 <a name="BugFixesV1"></a>
 
-## <a name="bug-fixes-in-version-11"></a>1.1 sürüm hata düzeltmeleri
+## <a name="bug-fixes-in-version-11"></a>1\.1 sürüm hata düzeltmeleri
 Özel model sınıfların serileştirmek için ilgili Azure Search .NET SDK'ın eski sürümlerinde bir hata oluştu. Bir NULL olmayan bir değer türü özelliği ile özel model sınıfı oluşturduysanız, bu hata oluşabilir.
 
 ### <a name="steps-to-reproduce"></a>Yeniden oluşturma adımları

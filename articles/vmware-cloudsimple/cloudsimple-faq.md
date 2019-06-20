@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e727398e1b7bfa406166574ab40320c68dac5709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: a8cc6cf834c54ca25c12a6d66675e4290fd66136
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66358536"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165808"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>VMware çözümü CloudSimple tarafından hakkında sık sorulan sorular
 
-Sık sorulan sorular ve yardımcı hakkındaki sorularınızın yanıtlarını CloudSimple VMware çözümüyle hizmet ve nasıl kullanılacağını anlayın.  Sorular ve cevaplar aşağıdaki kategoriler halinde düzenlenir.
+Sık sorulan sorular ve yardımcı hakkındaki sorularınızın yanıtlarını Azure VMware CloudSimple çözümüyle hizmet ve nasıl kullanılacağını anlayın. Sorular ve cevaplar aşağıdaki kategoriler halinde düzenlenmiştir:
 
 * CloudSimple hizmeti
 * Bağlantı
@@ -27,16 +27,16 @@ Sık sorulan sorular ve yardımcı hakkındaki sorularınızın yanıtlarını C
 * Depolama
 * VMware
 * Azure tümleştirme
-  
+ 
 ## <a name="cloudsimple-service"></a>CloudSimple hizmeti
 
-**VMware çözümü CloudSimple tarafından nedir?**
+**Azure VMware CloudSimple çözümüyle nedir?**
 
-**VMware CloudSimple çözümüyle** dönüştüren ve dakikalar içinde VMware iş yüklerini Azure üzerinde özel, adanmış bulutlara genişletir. Biz sağlama, yönetme ve şirket içi ile Azure arasında iş yükleri işlemlerini ilgileniriz. Azure'da ve tam olarak aynı şirket içi uygulamalarınızı çalıştığı için esneklik ve bulut uygulamalarınızı bütçeden karmaşıklığı olmadan hizmetlerden yararlanın. CloudSimple toplam isteğe bağlı sağlama, ödeme olarak-,-büyütme sağlayan bulut tüketimi model ve kapasite iyileştirme sahiplik maliyetinizi düşürür.  Bkz: [CloudSimple tarafından azure'da VMware çözümü nedir](cloudsimple-vmware-solutions-overview.md) özellikleri, avantajları ve senaryolar için.
+Azure VMware çözümü CloudSimple tarafından dönüştürür ve dakikalar içinde VMware iş yüklerini Azure üzerinde özel, adanmış bulutlara genişletir. Çözümü sağlar, altyapıyı yönetir ve şirket içi ile Azure arasında iş yükleri düzenler. Azure'da ve tam olarak aynı şirket içi uygulamalarınızı çalıştığı için esneklik ve bulut uygulamalarınızı bütçeden karmaşıklığı olmadan hizmetlerden yararlanın. CloudSimple toplam isteğe bağlı sağlama, ödeme olarak-,-büyütme sağlayan bulut tüketimi model ve kapasite iyileştirme sahiplik maliyetinizi düşürür. Özellikler, avantajlar ve senaryolara için bkz. [CloudSimple tarafından Azure VMware çözümü nedir?](cloudsimple-vmware-solutions-overview.md).
 
 **CloudSimple özel bulut nedir?**
 
-Yüksek performanslı işlem, depolama, oluşan ve Azure konumlarında (donanım ve veri merkezi alan) Microsoft Azure altyapısında dağıtılan ortamı ağ özel, adanmış bir bulut sağlayın.  Özel bulut, yerel bir VMware platform 'bir hizmet olarak' sağlar. VMware bağlamında, her özel bulut, vCenter Server'ın tam bir örnek içerir. VCenter sunucusu bir veya daha fazla vSphere kümelerinizin karşılık gelen sanal SAN (vSAN) depolama yer alan birden çok ESXi düğüm yönetir. Birden çok özel bulut, Azure aboneliğinizdeki CloudSimple hizmet içerebilir.  Özel bulut hakkında daha fazla bilgi için bkz: [özel buluta genel bakış](cloudsimple-private-cloud.md).
+Yüksek performanslı bilgi işlem, depolama ve ağ ortamı (donanım ve veri merkezi alan) Microsoft Azure altyapısında Azure konumlarında dağıtılan oluşan özel, adanmış bir bulut sağlayın. Özel bulut, yerel bir VMware platform hizmet olarak sunar. VMware bağlamında, her özel bulut, vCenter Server'ın tam bir örnek içerir. VCenter sunucusu bir veya daha fazla vSphere kümelerinizin karşılık gelen vSAN depolama yer alan birden çok ESXi düğüm yönetir. Birden çok özel bulut, Azure aboneliğinizdeki CloudSimple hizmet içerebilir. Özel bulut hakkında daha fazla bilgi için bkz: [özel buluta genel bakış](cloudsimple-private-cloud.md).
 
 **CloudSimple hizmet nerede kullanılabilir?**
 
@@ -44,72 +44,72 @@ CloudSimple Doğu ABD ve Batı ABD bölgelerinde kullanılabilir.
 
 **CloudSimple için Aboneliğimi nasıl etkinleştirebilirim?**
 
-Microsoft hesap temsilcinize başvurabilirsiniz [ azurevmwaresales@microsoft.com ](mailto:azurevmwaresales@microsoft.com) CloudSimple hizmeti aboneliğinizi etkinleştirmek için. Abonelik Kimliğinizi CloudSimple hizmetinin etkinleştirilmiş istediğiniz e-posta sağlayın.  
+Microsoft hesap temsilcinize başvurun [ azurevmwaresales@microsoft.com ](mailto:azurevmwaresales@microsoft.com) CloudSimple hizmeti aboneliğinizi etkinleştirmek için. Abonelik Kimliğinizi CloudSimple hizmetinin etkinleştirilmiş istediğiniz e-posta sağlayın. 
 
 **CloudSimple portalına nasıl erişebilirim?**
 
-Size, Azure portalından CloudSimple portalına erişim.  Bkz: [VMware çözümüyle erişme CloudSimple portalı Azure portalından](https://docs.azure.cloudsimple.com/access-cloudsimple-portal) makale CloudSimple portalına erişim ile ilgili ayrıntılar için. 
+Size CloudSimple portalı Azure portalından erişim. CloudSimple portala erişim hakkında daha fazla bilgi için bkz: [VMware çözümü CloudSimple portalından Azure portalına erişin](https://docs.azure.cloudsimple.com/access-cloudsimple-portal).
 
-**Bir özel bulut için kapasiteyi nasıl artırabilirim?**
+**Özel bulut için kapasiteyi nasıl artırabilirim?**
 
-Azure portalından düğümleri satın alıp CloudSimple portalından özel Bulutunuzu genişletin.  Özel bulut, var olan bir vSphere kümesine ek düğümler eklemek veya yeni vSphere kümesi oluşturarak genişletebilirsiniz.  Bkz: [CloudSimple özel Bulutu genişletme](https://docs.azure.cloudsimple.com/expand-private-cloud) yordam için makale.
+Azure portalından düğümleri sağlamanıza ve özel bulutunuzun CloudSimple portalından genişletin. Özel bulut, var olan bir vSphere kümesine düğüm ekleme veya yeni bir vSphere kümesi oluşturarak genişletebilirsiniz. Yordam hakkında daha fazla bilgi için bkz. [CloudSimple özel bir buluta genişletin](https://docs.azure.cloudsimple.com/expand-private-cloud).
 
-**Bakım sırasında özel Bulutum neler?**
+**My özel bulut için bakım sırasında ne olacak?**
 
-Günlük zamanlanan bakım önce düzenli bildirimler CloudSimple sağlar.  Bakım, özel bulut kullanılabilirliğini sağlamak için kesintiye neden olmayan bir yolla yapılır.  Bakım aşağıdaki türde olabilir:
+Zamanlanan bakım önce düzenli bildirimler gün CloudSimple sağlar. Bakım özel bulutunuzun kullanılabilirliğini sağlamak için açmayan bir yolla yapılır. Bakım aşağıdaki türde olabilir:
 
-1. **CloudSimple altyapısı:**  CloudSimple altyapısı, yüksek oranda kullanılabilir olacak şekilde tasarlanmıştır.  Bakım sırasında bağlantı ve özel Bulutunuzu kullanılabilirliğini güvence altına herhangi bir zamanda yedek bileşenlerin bir güncelleştirerek.  Özel bulut vCenter'ınıza, tüm sanal makineler, kendi özel buluttan internet bağlantısı ve şirket içi veya Azure bağlantıları erişiminiz.
-2. **CloudSimple portalı:** Bakım sırasında bazı özellikler CloudSimple portalında erişilebilir ya da devre dışı olmayabilir.  Bakım bildirimi portalında yapılabilir ayrıntılarını içerir.
+- **CloudSimple altyapı**: CloudSimple altyapısı, yüksek oranda kullanılabilir olacak şekilde tasarlanmıştır. Bakım sırasında bağlantı ve özel bulutunuzun kullanılabilirliğini güvence altına herhangi bir zamanda yedek bileşenlerin bir güncelleştirerek. Özel bulut vCenter'ınıza, tüm sanal makineler, kendi özel buluttan internet bağlantısı ve şirket içi veya Azure bağlantıları erişebilirsiniz.
+- **CloudSimple portalı**: Bakım sırasında bazı özellikler CloudSimple portalında erişilebilir olmayabilir veya devre dışı bırakılabilir. Bakım bildirimi portalında yapılabilir hakkında bilgi içerir.
 
 ## <a name="connectivity"></a>Bağlantı
 
-**CloudSimple bölge ağa bağlantı seçeneklerim nelerdir?**
+**My CloudSimple bölge ağa bağlantı seçeneklerim nelerdir?**
 
-CloudSimple CloudSimple bölge ağınıza bağlanmak için üç farklı bağlantı seçenekleri sağlar.  Üç birlikte kullanılabilir.
+CloudSimple CloudSimple bölge ağınıza bağlanmak için üç farklı bağlantı seçenekleri sağlar. Seçeneklerin üçünü birlikte kullanılabilir:
 
-1. ExpressRoute bağlantısı, şirket içi veri merkezinden CloudSimple bölge ağ - hızlı düşük gecikme süresi güvenli özel bağlantı kullanarak Global erişim CloudSimple ExpressRoute devreniz ile şirket içi ExpressRoute devreniz köprüleme. Bkz: [CloudSimple ExpressRoute aracılığıyla şirket içi bağlanma](https://docs.azure.cloudsimple.com/on-premises-connection) bağlantısı kurmak için makale.
-2. Azure sanal ağınız ExpressRoute bağlantısı CloudSimple bölge ağ - hızlı düşük gecikme süresi güvenli özel bağlantı kullanarak sanal ağ geçitleri CloudSimple ExpressRoute devreniz ile Azure sanal ağınızda köprüleme.  Bkz: [CloudSimple özel bulut ortamınızı ExpressRoute kullanarak Azure sanal ağına bağlama](https://docs.azure.cloudsimple.com/azure-expressroute-connection) bağlantısı kurmak için makale.
-3. CloudSimple bölge ağınıza - siteden siteye VPN bağlantısı, şirket içi veri merkezinden şirket içi VPN cihazınızdaki CloudSimple özel bulut bölgeniz için sanal özel ağ güvenliğini sağlayın.  VPN bağlantısı kurmak için bkz. [CloudSimple özel Bulut ve şirket içi ağ arasında VPN bağlantısı kurma] makalesi.
+- CloudSimple bölge ağ için Azure ExpressRoute bağlantısı, şirket içi veri merkezinden: Global erişim kullanarak şirket içi ExpressRoute devreniz CloudSimple ExpressRoute devreniz ile arasında köprü görevi gören bir yüksek hızlı düşük gecikme süreli güvenli özel bağlantı. Bağlantıyı ayarlamak için bkz: [CloudSimple ExpressRoute kullanarak şirket içi bağlanma](https://docs.azure.cloudsimple.com/on-premises-connection).
+- Azure sanal ağınız ExpressRoute bağlantısı CloudSimple bölge ağınıza: Sanal ağ geçitlerini kullanarak sanal ağınızla azure'da CloudSimple ExpressRoute bağlantı hattı arasında köprü görevi gören bir yüksek hızlı, düşük gecikme süreli güvenli özel bağlantı. Bağlantıyı ayarlamak için bkz: [CloudSimple özel bulut ortamınızı için Azure sanal ağı ExpressRoute kullanarak bağlanmak](https://docs.azure.cloudsimple.com/azure-expressroute-connection).
+- CloudSimple bölge ağınızda siteden siteye VPN bağlantısı, şirket içi veri merkezinden: Güvenli bir sanal özel ağ şirket içi VPN cihazınızdaki CloudSimple özel bulut bölgeniz için. Bağlantıyı ayarlamak için bkz: [CloudSimple özel Bulut ve şirket içi ağ arasında bir VPN bağlantısı ayarlama](https://docs.azure.cloudsimple.com/set-up-vpn).
 
 **Bir özel buluta nasıl bağlanabilirim?**
 
-CloudSimple Portalı'nda özel bulut ayrıntılarını görüntüleyebilirsiniz. Özel bulut için karşılık gelen vCenter bağlanmak için belirlenen kullanarak siteden siteye, noktadan siteye veya ExpressRoute ağ bağlantısı olduğundan emin olun. Ardından, CloudSimple portalı ve Azure portalını başlatma *vSphere istemci başlatma* giriş sayfasında veya özel bulut ayrıntıları sayfasındaki.
+Özel bulutunuzun ayrıntılarını CloudSimple Portalı'nda görüntüleyebilirsiniz. Özel bulutunuzun karşılık gelen vCenter bağlanmak için siteden siteye, noktadan siteye ve ExpressRoute kullanarak bir ağ bağlantısı kuruldu emin olun. Ardından, Azure portalından CloudSimple portalını başlatın. Seçin **vSphere istemci başlatma** giriş sayfasında veya özel bulut Ayrıntıları sayfasında.
 
-**ExpressRoute bağlantı hattı avantajı nedir?**
+**ExpressRoute bağlantı hattının avantajı nedir?**
 
-Azure ExpressRoute bağlantı hattı, yüksek hızda çok düşük gecikme süresi güvenli bir bağlantı sağlar.  Müşteri başına bölge başına adanmış bir ExpressRoute bağlantı hattı CloudSimple sağlar.  Bu bağlantı hattını kullanarak, şirket içi ve/veya Azure aboneliğinize güvenli bağlantı kurabilirsiniz.
+Bir Azure expressroute, yüksek hızlı, düşük gecikme süreli güvenli bir bağlantı sağlar. Müşteri başına bölge başına adanmış bir ExpressRoute bağlantı hattı CloudSimple sağlar. Bu bağlantı hattını kullanarak, şirket içi ve Azure aboneliğinizde güvenli bağlantı kurabilirsiniz.
 
-**Hangi CloudSimple buradan bağlanmak için ağ maliyetleri aşağıda sunulmuştur. Öğesine/öğesinden CloudSimple azure'a tüm çıkış ücretlerini? Bölgeler arasında?**
+**CloudSimple gelen ve bağlanmak için ağ maliyetlerini nelerdir? Azure'a CloudSimple gelen ve herhangi bir çıkış ücreti var mıdır? Bölgeler arasında herhangi bir çıkış ücreti vardır?**
 
-Tüm ağ çıkışı için ücret alınmaz.  Standart Azure ücretleri, sanal ağınızdan ya da şirket içi ExpressRoute bağlantı hattı herhangi bir çıkış trafiği için geçerlidir.
+Ağ çıkışı için ücret alınmaz. Standart Azure ücretleri, sanal ağınızdan ya da şirket içi ExpressRoute devresi herhangi bir çıkış trafiği için geçerlidir.
 
 ## <a name="networking"></a>Ağ
 
 **Hangi ağ özellikleri my özel bulut için kullanılabilir mi?**
 
-VLAN'ları (ve alt ağlarını) sağlama, tablolar, güvenlik duvarı ve genel IP adresleri atayabilirim ve özel bulutta çalışan bir sanal makine eşleyin.  Daha fazla bilgi için [VLAN'lar/alt ağlar genel bakış](cloudsimple-vlans-subnets.md), [güvenlik duvarı tablolar genel bakış](cloudsimple-firewall-tables.md), ve [genel IP adresi genel bakış](cloudsimple-public-ip-address.md) makaleler.
+VLAN ve alt ağları ve güvenlik duvarı tabloları sağlayabilirsiniz. Genel IP adresleri atama ve özel bulutunuzda çalışan bir sanal makine eşleyin. Daha fazla bilgi için [VLAN ve alt ağları genel bakış](cloudsimple-vlans-subnets.md), [güvenlik duvarı tablolar genel bakış](cloudsimple-firewall-tables.md), ve [genel IP adresi genel bakış](cloudsimple-public-ip-address.md).
 
-**Nasıl farklı alt ağlarda uygulamalarım için özel Bulutum ayarlayabilirim?**
+**Nasıl farklı alt ağlarda uygulamalarım için kendi özel bulutta ayarlayabilirim?**
 
-CloudSimple portalınızdan özel Bulutunuzda, VLAN'ları oluşturabilirsiniz.  VLAN oluşturduktan sonra VLAN'ı kullanarak, özel bulut vCenter dağıtılmış bağlantı noktası grubu oluşturabilir ve dağıtılmış bir bağlantı noktası grubuna bağlı sanal makineleri oluşturun.  VLAN/alt ağ için güvenlik duvarı tablo etkinleştirebilir ve ağ trafiğinin güvenliğini sağlamak için güvenlik duvarı kuralları tanımlayın.
+CloudSimple portalınızdan özel bulutunuzda, VLAN'ları oluşturabilirsiniz. VLAN oluşturduktan sonra VLAN'ı kullanarak, özel bulut vCenter dağıtılmış bağlantı noktası grubu oluşturabilir ve dağıtılmış bir bağlantı noktası grubuna bağlı sanal makineleri oluşturun. Alt ağ ve VLAN için bir güvenlik duvarı tablo etkinleştirebilir ve ağ trafiğinin güvenliğini sağlamak için güvenlik duvarı kuralları tanımlayın.
 
 **Hangi güvenlik duvarı ayarları benim için özel bulutlarda kullanılabilir mi?**
 
-Kuzey-Güney ve Doğu-Batı trafiği kurallar yapılandırabilirsiniz.  Kurallar, bir güvenlik duvarı tabloda tanımlanır.  Güvenlik Duvarı tablo özel bulutunuzda VLAN(s) iliştirilebilir.  Bkz: [güvenlik duvarı tablolar ve kuralları için özel Bulutları ayarlama](https://docs.azure.cloudsimple.com/firewall) makale yordamı ayarlamak için.
+Kuzey-Güney ve Doğu-Batı trafiği kurallar yapılandırabilirsiniz. Kurallar, bir güvenlik duvarı tabloda tanımlanır. Güvenlik Duvarı tablo VLAN'ları özel bulutunuzda iliştirilebilir. Kurulum yordamı için bkz [güvenlik duvarı tabloları ve özel Bulutlar için kuralları ayarlama](https://docs.azure.cloudsimple.com/firewall).
 
 **Ben genel IP adresleri VM'ler için özel bulut ortamımın atayabilirim miyim?**
 
-Kolayca CloudSimple Portalı'nda yeni bir genel IP adresi ayırın ve bunu özel bir IP adresi, sanal makine ya da gereçlerden biri ile ilişkilendirebilirsiniz.  Ayrıca, yeni güvenlik duvarı kuralları oluşturma veya trafiği belirli bağlantı noktalarını ve/veya belirli IP adreslerinin portalında kümesi izin vermek için mevcut güvenlik duvarı kuralları uygulayın. Bkz: [özel bulut ortamı için genel IP adresleri ayırmak](https://docs.azure.cloudsimple.com/public-ips) yordamı ayarlamak için.
+Kolayca CloudSimple Portalı'nda yeni bir ortak IP adresi ayırın ve bunu özel bir IP adresi, sanal makine ya da gereçlerden biri ile ilişkilendirebilirsiniz. Ayrıca yeni bir güvenlik duvarı kuralları oluşturma veya trafiği belirli bağlantı noktaları ve belirli IP adreslerinin portalında ayarlar izin vermek için mevcut güvenlik duvarı kuralları uygulayın. Kurulum yordamı için bkz [genel IP adresleri ayırmak için bir özel bulut ortamı](https://docs.azure.cloudsimple.com/public-ips).
 
 ## <a name="security"></a>Güvenlik
 
 **CloudSimple üzerinde güvenlik seçeneklerim nelerdir?**
 
-CloudSimple özel bulut, özel bulutta ortamınızın güvenliğini sağlamak için aşağıdaki güvenlik özellikleri sağlar:
+CloudSimple özel bulut, özel bulut ortamınızın güvenliğini sağlamak için aşağıdaki güvenlik özellikleri sağlar:
 
-1. **Bekleyen şifreleme veri**: Özel bulut vSAN depolama alanında bulunan bekleyen verileri şifreleyebilirsiniz. vsan'ı Azure sanal ağı veya şirket içi ortamınızda dağıtılabilir dış anahtar yönetimi sunucusu, destekler.  Bkz: [CloudSimple özel bulutunuzun vSAN şifrelemeyi yapılandırma](https://docs.azure.cloudsimple.com/vsan-encryption) daha fazla ayrıntı için.
-2. **Ağ güvenliği**: Ağ trafik akışını denetleme'ndan / şirket içi Internet'ten ve güvenlik duvarı kurallarının kullanılmasını, özel bulut alt ağların içindeki özel bulut.
-3. **Güvenli, özel bağlantı**: Şirket içi ağınız ile Azure aboneliğinizi arasında güvenli özel bağlantı.
+- **Bekleyen şifreleme verileri:** VSAN depolama özel bulutunuzda bulunduğu bekleyen verileri şifreleyebilirsiniz. vsan'ı Azure sanal ağı veya şirket içi ortamınızda dağıtılabilir bir dış anahtar yönetimi sunucusu destekler. Daha fazla bilgi için [CloudSimple özel bulutunuz için vSAN şifrelemeyi yapılandırma](https://docs.azure.cloudsimple.com/vsan-encryption).
+- **Ağ güvenliği:** Ağ trafik akışını denetleme ilk ve özel bulut, şirket içi, internet'ten ve güvenlik duvarı kurallarını kullanarak özel bulut alt ağların içinde.
+- **Güvenli, özel bir bağlantı:** Şirket içi ağınız ile Azure aboneliğinizi arasında güvenli, özel bağlantı.
 
 ## <a name="compute"></a>İşlem
 
@@ -117,60 +117,60 @@ CloudSimple özel bulut, özel bulutta ortamınızın güvenliğini sağlamak i�
 
 CloudSimple iki ana türlerini sunar:
 
-* **CS28 düğüm:** CPU:2 2,2 GHz, toplam 28 çekirdek, 48 x HT.  RAM: 256 GB.  Depolama: 1600 GB'a NVMe önbellek, 5760 GB veri (tamamen Flash). Ağ: 2x25Gbe NIC
-* **CS36 düğüm:** CPU 2 x 2.3 GHz, toplam 36 çekirdek, 72 HT.  RAM: 512 GB.  Depolama: 3200 GB NVMe önbellek 11,520 GB veri (tamamen Flash).  Ağ: 2x25Gbe NIC
+* **CS28 düğümü**: CPU:2 2,2 GHz, toplam 28 çekirdek, 48 x HT. RAM: 256 GB. Depolama: 1600 GB'a NVMe önbellek, 5760 GB veri (tamamen Flash). Ağ: 2x25Gbe NIC
+* **CS36 düğümü**: CPU 2 x 2.3 GHz, toplam 36 çekirdek, 72 HT. RAM: 512 GB. Depolama: 3200 GB NVMe önbellek 11,520 GB veri (tamamen Flash). Ağ: 2x25Gbe NIC
 
-**Donanım hatalarının nasıl işlenir?**
+**Donanım hataları nasıl işlenir?**
 
-Tüm CloudSimple altyapı sürekli olarak CloudSimple platform ve hizmet işlemleri ekiplerimiz tarafından izlenir.  Bir donanım hatası algılanırsa, özel bulut için yeni bir düğüm eklenir ve başarısız düğüm özel Bulutunuzdaki yüksek kullanılabilirliğini sağlama kaldırılır.
+Tüm CloudSimple altyapı sürekli olarak CloudSimple platform ve kendi hizmet operasyon ekibi tarafından izlenir. Bir donanım hatası algılanırsa, özel bulut için yeni bir düğüm eklenir. Başarısız olan düğümün özel bulutunuzda yüksek kullanılabilirliğini sağlamak için kaldırılır.
 
 ## <a name="storage"></a>Depolama
 
 **Depolama hangi türde bir özel bulutta destekleniyor mu?**
 
-CloudSimple sunar **tamamen flash VMware vSAN depolama** her özel bulut ile.  Her vSphere kendi vSAN veri deposu ile oluşturulur.  Bkz: [özel bulut VMware bileşenleri - vSAN depolama](https://docs.azure.cloudsimple.com/vmware-components/#vsan-storage) makale daha fazla ayrıntı için.
+CloudSimple sunar **tamamen flash VMware vSAN depolama** her bir özel bulutla. Her vSphere kendi vSAN veri deposu ile oluşturulur. Daha fazla bilgi için [özel bulut VMware bileşenleri - vSAN depolama](https://docs.azure.cloudsimple.com/vmware-components/#vsan-storage).
 
 **Desteklenen verilerin şifrelenmesi var mı?**
-Evet.  Vsan'ı üzerinde depolanan verileri şifrelemek için azure'da veya şirket içinde dağıtılabilir bir anahtar Yönetimi Sunucusu (KMS) kullanmak için özel bulutunuzda vSAN depolamayı ayarlayabilirsiniz
+Evet. Vsan'ı üzerinde depolanan verileri şifrelemek için azure'da veya şirket içinde dağıtılabilir bir anahtar Yönetimi Sunucusu (KMS) kullanmak için özel bulutunuzda vSAN depolamayı ayarlayabilirsiniz.
 
 **Başarısız olan diskleri nasıl işlenir?**
 
-CloudSimple izleme, özel bulutun tüm donanım bileşenleri sürekli olarak izler.  Herhangi bir disk arıza tespit veya herhangi bir disk (buluşsal yöntemler üzerinde göre) başarısız olarak tanımlandığında, yeni bir düğüm özel bulut için otomatik olarak eklenir.  Sorunlu disk düğümle özel Buluttan kaldırılır.
+CloudSimple izleme, özel bulutun tüm donanım bileşenleri sürekli olarak izler. Disk arızası algılandığında veya bir disk üzerinde buluşsal yöntemler tabanlı başarısız olarak tanımlandığında, yeni bir düğüm özel bulut için otomatik olarak eklenir. Sorunlu bir disk düğümle özel buluttan kaldırılır.
 
 ## <a name="vmware"></a>VMware
 
-**Büyük ölçekli karşıya yükleme/migrate uygulamaları ve verileri şirket içinden nasıl yaparım?**
+**Büyük ölçekli karşıya yükleme ve uygulama ve verileri şirket içinden nasıl yaparım?**
 
-CloudSimple yerel VMware vSphere çözümü sağlar.  Toplu veri geçişi için kullanılan herhangi bir aracı CloudSimple özel bulut ile kullanılabilir.  Bazı seçenekler şunlardır:
+CloudSimple tamamen yerel bir VMware vSphere çözüm sağlar. Toplu veri geçişi için kullanılan herhangi bir aracı CloudSimple özel bulut ile kullanılabilir. Bazı seçenekler şunlardır:
 
-1. VMware HCX toplu veri geçişi için.
-2. Soğuk CloudSimple için şirket içi depolama vMotion'ı kullanarak verileri geçirme.
+- VMware HCX toplu veri geçişi için.
+- Soğuk CloudSimple için şirket içi depolama vMotion'ı kullanarak veri geçirme.
 
 **Herhangi bir VMware araçları yükleyebilir miyim?**
 
-CloudSimple yerel VMware vSphere çözümü sağlar.  Şirket ortamına vSphere yönetmek için kullanılan herhangi bir aracı üzerinde CloudSimple kullanılabilir.  VMware araçları yüklemek için CloudSimple Getir-kendi lisansını (KLG) modelini destekler.
+CloudSimple tamamen yerel bir VMware vSphere çözüm sağlar. Şirket içi CloudSimple üzerinde kullanılabilir bir vSphere ortamı yönetmek için kullanılan herhangi bir aracı. CloudSimple VMware araçları yüklemek için bir Getir-kendi lisansını (KLG) modelini destekler.
 
 **Güncelleştirmeler ve yükseltmeler nasıl yönetilir?**
 
-CloudSimple yönetir ve özel bulut altyapısı bileşenlerinin tümünü açmayan sorunsuz bir şekilde güncelleştirir.  Tarafından CloudSimple nitelenmiş hemen sonra Vmware'de ya da altyapı satıcıları tarafından yayımlanan bir güncelleştirme veya güvenlik düzeltme eki güncelleştirmesi zamanlanacak.
+CloudSimple yönetir ve özel bulutunuzun tüm altyapı bileşenlerini açmayan sorunsuz bir şekilde güncelleştirir. Tarafından CloudSimple nitelenmiş hemen sonra Vmware'de ya da altyapı satıcıları tarafından yayımlanan bir güncelleştirme veya güvenlik düzeltme eki güncelleştirilmek üzere zamanlandı.
 
-Yükseltmeler veya güncelleştirmeler özel bulutta yüklü uygulamaların CloudSimple gerçekleştirmez.
+CloudSimple yükseltmeler veya güncelleştirmeler üzerine özel buluta yüklü uygulamaların gerçekleştirmez.
 
 ## <a name="azure-integration"></a>Azure tümleştirme
 
 **Hangi Azure hizmetleri destekleniyor mu?**
 
-CloudSimple Azure'da aboneliğinize Azure ExpressRoute bağlantısı sağlar.  Aboneliğinizde çalıştırılan diğer hizmetler için özel bulut ağ bağlantısı olduğundan ve özel Bulutunuzu bağlanabilir.  Örnekler:
+CloudSimple Azure'da aboneliğinize Azure ExpressRoute bağlantısı sağlar. Aboneliğinizde çalışan tüm hizmetler için özel bulut ağ bağlantınız olduğunu doğrulayın ve özel bulutunuzun bağlanabilir. Örnekler:
 
-1. **Azure Active Directory** CloudSimple vCenter'ınıza bir kimlik kaynağı olarak
-2. **Azure depolama** yedeklemeler, resimler ve diğer verileri, özel bulut depolama
-3. **Karma uygulamalar** -genel ve özel bulutlara yayılan uygulama mimarisi oluşturabilirsiniz.  Örneğin, azure'da uygulama ve veritabanı sunucuları CloudSimple özel bulut üzerinde erişim webservers oluşturabilirsiniz.
-4. **Azure İzleyici** ve **Azure Güvenlik Merkezi** -VMware üzerinde çalışan iş yüklerini bu günlüğü, performans ölçümlerini ve güvenlik yönetimi için kullanabilir.
+- **Azure Active Directory**: Azure Active Directory için CloudSimple vCenter'ınıza bir kimlik kaynağı olarak kullanın.
+- **Azure depolama**: Yedeklemeler, görüntüler ve özel bulutunuzun diğer verileri depolamak için depolama kullanın.
+- **Karma uygulamalar**: Genel ve özel bulutlara yayılan uygulama mimarisi oluşturabilirsiniz. Örneğin, web sunucuları Azure'da, access uygulaması ve veritabanı sunucuları CloudSimple özel bir bulutta oluşturabilirsiniz.
+- **Azure İzleyici** ve **Azure Güvenlik Merkezi**: VMware üzerinde çalıştırılan iş yükü, izleme ve Güvenlik Merkezi günlüğü, performans ölçümlerini ve güvenlik yönetimi için kullanabilirsiniz.
 
 **Azure'a nasıl my VMware kiracıları eşleme?**
 
-CloudSimple benzersiz özel bulut, VMware Vm'lerinde Azure portalından yönetme olanağı sağlar.  Bir vCenter kaynak havuzu (istenen kaynak kısıtlamaları ile yapılandırılmış) aboneliğinizde genel yönetici tarafından eşlenebilir.  
+CloudSimple benzersiz Azure portalından özel bir buluta VMware sanal makinelerinizin yönetme olanağı sağlar. Bir vCenter kaynak havuzu, aboneliğinizde genel yönetici tarafından eşlenebilir istediğiniz kaynak kısıtlamaları ile yapılandırılmış. 
 
 **Hangi lisans avantajlara Azure ile sahip olurum?**
 
-CloudSimple ile Azure hibrit kullanım Teklifi'nden yararlanın ve en fazla %90 düşürmek için diğer bulutlarda karşılaştırıldığında TCO'nuzu Microsoft Licenses yaptığınız yatırımı korur lisansları kaydedin. Ayrıca, güvenlik güncelleştirmeleri Windows Server 2008 ve Microsoft SQL Server 2008 için genişletilmiş.  Veeam, Zerto ve diğerleri gibi ortak uygulamaları için bulut maliyetlerinizi ile kendi Getir lisansları (KLG) düşük tutun.  
+CloudSimple ile Azure hibrit Avantajı'ndan yararlanın ve Microsoft lisanslarını yaptığınız yatırımı korur ve diğer bulutlara karşılaştırıldığında sahiplik toplam maliyetinizi düşürün için lisans yüzde 90'ye varan tasarruf edebilirsiniz. Ayrıca, Windows Server 2008 ve Microsoft SQL Server 2008 için güvenlik güncelleştirmeleri Genişletilmiş. Veeam, Zerto ve diğerleri gibi ortak uygulamalar için bulut maliyetlerinizi klg'li düşük tutun. 

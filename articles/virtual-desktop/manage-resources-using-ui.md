@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 3635cd422e4c7a064d3317401b734f3bc6ccb6c6
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 4db9e6eaf2d7f7630d3d412d5519d97f8beca3ad
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136458"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272829"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Öğretici: Bir yönetim aracı dağıtma
 
@@ -62,9 +62,29 @@ Aracı'nı yapılandırmak için parametreleri girmek üzere nasıl aşağıda v
 - Azure'da oturum açmanız için devre dışı MFA ile AAD kimlik bilgilerinizi kullanın. Bkz: [Azure Resource Manager şablonu çalıştırmak için ihtiyacınız olanları](#what-you-need-to-run-the-azure-resource-manager-template).
 - Azure Active Directory'de yönetim aracı için kayıtlı uygulama için benzersiz bir ad kullanın. Örneğin, Apr3UX.
 
-## <a name="use-the-management-tool"></a>Yönetim aracını kullanma
+## <a name="provide-consent-for-the-management-tool"></a>Onay için Yönetim Aracı'nı sağlayın.
 
 GitHub Azure kaynak şablonu tamamlandıktan Yöneticisi sonra iki uygulama hizmetleri, Azure portalında bir app service planı ile birlikte içeren bir kaynak grubu bulabilirsiniz.
+
+Oturum ve yönetim aracını önce yönetim aracı ile ilişkili olan yeni Azure Active Directory uygulama için onay vermeniz gerekir. İzin vererek, araca oturum açan kullanıcı adına Windows sanal masaüstü yönetimi çağrıları yapmak yönetim aracı vermiş olursunuz.
+
+Hangi kullanıcı belirlemek için kullanabileceğiniz Aracı'nın oturum açma, Git, [Azure Active Directory kullanıcı ayarları sayfası](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) ve değeri Not **kullanıcılar uygulamalara kendileri adına şirket verilerine erişme izni verebilir**.
+
+- Değer ayarlanmışsa **Evet**, Azure Active Directory'de herhangi bir kullanıcı hesabı ile oturum açma ve yalnızca o kullanıcı için onay sağlayın. Ancak, yönetim aracı için farklı bir kullanıcı ile daha sonra oturum açıldığında, aynı onayı yeniden gerçekleştirmeniz gerekir.
+- Değer ayarlanmışsa **Hayır**, gerekir Azure Active Directory'de genel yönetici ile oturum açın ve dizindeki tüm kullanıcılar için yönetici onayı sağlar. Olursunuz 
+
+
+Onay sağlamak için kullanacağınız kullanıcı karar verdiğinizde, onay aracı sağlamak için bu yönergeleri izleyin:
+
+1. Azure kaynaklarınızı gidin, sağladığınız ada sahip Azure App Services kaynak şablonu (örneğin, Apr3UX) seçin ve ilişkili URL'ye gidin; Örneğin, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+2. Uygun Azure Active Directory kullanıcı hesabı kullanarak oturum açın.
+3. Artık bir genel yönetici ile kimlik doğrulaması gerekiyorsa, onay kutusunu seçebilirsiniz **onay kuruluşunuz adına**. Seçin **kabul** rıza sağlamanın.
+
+Bu artık, yönetim aracı için yönlendirir.
+
+## <a name="use-the-management-tool"></a>Yönetim aracını kullanma
+
+Kuruluş için veya belirli bir kullanıcı için onay girdikten sonra herhangi bir zamanda yönetim aracına erişebilirsiniz.
 
 Aracı başlatmak için bu yönergeleri izleyin:
 

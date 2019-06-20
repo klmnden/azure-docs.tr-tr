@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: 69460a111e6fd879807b4025d6832b3ac515a9b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1b201957a33acd609eed8a2373c8201bdefe9d7d
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64692000"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Bir sanal makine için genel bir IP adresi ilişkilendirme
@@ -43,7 +43,7 @@ Kullanabileceğiniz [Azure portalında](#azure-portal), Azure [komut satırı ar
    > [!NOTE]
    > Genel IP adresleri için bir ağ arabirimi IP yapılandırması için ilişkilendirilir. Önceki resimde, ağ arabirimi bir IP yapılandırmasına sahip. Ağ arabirimi birden fazla IP yapılandırması varsa, tüm listesinde görünür ve IP yapılandırması için genel IP adresini ilişkilendirmek istediğiniz seçersiniz.
 
-5. Seçin **etkin**, ardından **IP adresi (*gerekli ayarları Yapılandır*)**. Otomatik olarak kapanır bir varolan genel IP adresi Seç **genel IP adresi seçin** kutusu. Listelenen tüm kullanılabilir genel IP adresleri yoksa, oluşturmanız gerekir. Bilgi edinmek için bkz [genel IP adresi oluşturma](virtual-network-public-ip-address.md#create-a-public-ip-address). Seçin **Kaydet**, izler ve IP yapılandırması için kutusunu kapatın resimde gösterildiği gibi.
+5. Seçin **etkin**, ardından **IP adresi (*gerekli ayarları Yapılandır*)** . Otomatik olarak kapanır bir varolan genel IP adresi Seç **genel IP adresi seçin** kutusu. Listelenen tüm kullanılabilir genel IP adresleri yoksa, oluşturmanız gerekir. Bilgi edinmek için bkz [genel IP adresi oluşturma](virtual-network-public-ip-address.md#create-a-public-ip-address). Seçin **Kaydet**, izler ve IP yapılandırması için kutusunu kapatın resimde gösterildiği gibi.
 
    ![Genel IP adresini etkinleştir](./media/associate-public-ip-address-vm/enable-public-ip-address.png)
 

@@ -4,14 +4,14 @@ description: Azure Cosmos kapsayıcılarınızdaki ve veritabanları için sağl
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 61f8e93fd82f7da632e0ab7e16ad6fbf4ca25646
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067512"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165022"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Kapsayıcı ve veritabanlarına aktarım hızı sağlama
 
@@ -72,6 +72,9 @@ Aşağıdaki resimde, bir veritabanı içinde farklı kapsayıcılar ait bir vey
 
 * Adlı bir Azure Cosmos veritabanı oluşturabileceğiniz *Z* sağlanan aktarım hızı ile *"K"* RU. 
 * Ardından, adlı beş kapsayıcıları oluşturma *A*, *B*, *C*, *D*, ve *E* veritabanı içinde. Kapsayıcı B oluştururken etkinleştirdiğinizden emin olun **sağlama adanmış aktarım hızı bu kapsayıcı için** seçeneği ve açıkça yapılandırma *"P"* bu kapsayıcıda sağlanan aktarım hızının RU. Yalnızca veritabanı ve kapsayıcı oluştururken, paylaşılan ve ayrılmış üretilen iş yapılandırabileceğinize dikkat edin. 
+
+   ![Kapsayıcı düzeyinde aktarım hızı ayarlama](./media/set-throughput/coll-level-throughput.png)
+
 * *"K"* RU aktarım hızı arasında dört kapsayıcımız paylaşılan *A*, *C*, *D*, ve *E*. Aktarım hızı için kullanılabilir miktarda *A*, *C*, *D*, veya *E* değişir. Tek tek her kapsayıcının aktarım hızını SLA'sı vardır.
 * Adlı kapsayıcıyı *B* kesindir *"P"* RU işleme her zaman. Bu SLA'ları tarafından desteklenmektedir.
 

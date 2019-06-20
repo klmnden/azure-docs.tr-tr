@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2eb9f8e19be2a7b6220bc34bf4ce0c72c4ac0b4f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683997"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275061"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure kullanım ve Ücret dosyanızda koşulları anlama
 
@@ -72,6 +72,7 @@ invoiceSection | MCA | InvoiceSectionName bakın.
 invoiceSectionId | EA, MCA | EA departman veya MCA fatura bölümü için benzersiz tanımlayıcı.
 invoiceSectionName | EA, MCA | EA departman veya MCA fatura bölümün adı.
 isAzureCreditEligible | EA, MCA | Ücretsiz Azure KREDİLERİ kullanımı için ödenecek uygun olup olmadığını gösterir (değerleri: TRUE, False).
+IsEstimated | Tümü | Fatura döneminde Kapalı ve kesin olup olmadığını belirtir. Kullanım verileri, fatura oluşturulana kadar faturalandırma dönemi değiştirebilirsiniz. Bu kayıtlar işaretli olarak "tahmini".
 Location | EA, MCA | Kaynağın çalıştığı veri merkezi konumu.
 MeterCategory | Tümü | Ölçüm için sınıflandırma kategorisi adı. Örneğin, *bulut Hizmetleri* ve *ağ*.
 MeterId | Tümü | Ölçüm için benzersiz tanımlayıcı.

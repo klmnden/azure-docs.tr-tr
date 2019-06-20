@@ -7,19 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/11/2019
+ms.openlocfilehash: db14f8240dea95eb073a0a653c2798f02fbb7c35
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479158"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67162582"
 ---
-# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Stream Analytics işinizi Azure Machine Learning işlevleriyle ölçeklendirme
+# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>Stream Analytics işinizi Azure Machine Learning Studio işlevleriyle ölçeklendirme
 Stream Analytics işi ayarlama ve bazı örnek veriler üzerinden çalıştırmak için oldukça kolaydır. Daha yüksek veri birimi ile aynı işi çalıştırmak gerektiğinde ne yapmamız gerekir? Stream Analytics işi, ölçeklendirir şekilde yapılandırmak nasıl anlamak bize gerektirir. Bu belgede, Machine Learning işlevleriyle birlikte Stream Analytics işlerini ölçeklendirme özel yönlerini odaklanıyoruz. Genel olarak Stream Analytics işlerini ölçeklendirme hakkında bilgi için bkz [işleri ölçeklendirme](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Bir Azure Machine Learning işlevi Stream Analytics nedir?
-Bir Machine Learning işlevi Stream analytics'te bir normal işlev çağrısı Stream Analytics sorgu dili gibi kullanılabilir. Ancak, Sahne işlev çağrıları gerçekte Azure Machine Learning Web hizmeti isteği adı verilir. Machine Learning web Hizmetleri, "birden çok satır kısa batch genel performansını artırmak için aynı web hizmeti API çağrısında adlı toplu işleme" destekler. Daha fazla bilgi için [Azure Machine Learning Web Hizmetleri](../machine-learning/studio/consume-web-services.md).
+Bir Machine Learning işlevi Stream analytics'te bir normal işlev çağrısı Stream Analytics sorgu dili gibi kullanılabilir. Ancak, Sahne işlev çağrıları gerçekte Azure Machine Learning Studio Web hizmeti isteği adı verilir. Machine Learning web Hizmetleri, "birden çok satır kısa batch genel performansını artırmak için aynı web hizmeti API çağrısında adlı toplu işleme" destekler. Daha fazla bilgi için [Azure Machine Learning Studio Web Hizmetleri](../machine-learning/studio/consume-web-services.md). Azure Machine Learning Studio'da, Stream Analytics desteği Önizleme aşamasındadır.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Machine Learning işlevleri ile bir Stream Analytics işi yapılandırma
 Machine Learning işlevi Stream Analytics işine ilişkin yapılandırırken dikkate alınması gereken iki parametre, toplu iş boyutu olan Machine Learning işlev çağrıları ve Stream Analytics işi için sağlanan akış birimleri (su) vardır. SUs için uygun değerleri belirlemek için önce bir karar gecikme süresi ve aktarım hızı, diğer bir deyişle, Stream Analytics işi ve aktarım hızı her SU gecikme yapılması gerekir. Ek SUs iş çalıştırma maliyetini artırır ancak SUs her zaman iyi bölümlenmiş bir Stream Analytics sorgusunun verimliliğini artırmak için işe eklenebilir.
@@ -72,14 +72,14 @@ Machine Learning web hizmetini yaklaşım analizi gecikme süresini 200 ms 1000 
 
 Stream Analytics işi, aktarım hızı için bir tablo farklı SUs ve batch boyutları (saniye başına olay sayısı) aşağıdadır.
 
-| Toplu iş boyutu (ML gecikme) | 500 (200 ms) | 1\.000 (200 ms) | 5\.000 (250 ms) | 10\.000 (300 ms) | 25\.000 (500 ms) |
+| Toplu iş boyutu (ML gecikme) | 500 (200 ms) | 1\.000 (200 ms) | 5\.000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **12 SUs** |5,000 |10,000 |40,000 |60,000 |100,000 |
 | **18 SUs** |7,500 |15,000 |60,000 |90,000 |150,000 |
-| **24 SUs** |10,000 |20\.000 |80,000 |120,000 |200,000 |
+| **24 SUs** |10,000 |20.000 |80,000 |120,000 |200,000 |
 | **…** |… |… |… |… |… |
 | **60 SUs** |25,000 |50,000 |200,000 |300,000 |500,000 |
 

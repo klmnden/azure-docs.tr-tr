@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 6/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157306"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203054"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Yerel Azure sertifika doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma: Azure portal
 
@@ -98,7 +98,7 @@ Sertifikalar, Noktadan Noktaya VPN bağlantısı üzerinden VNet’e bağlanan i
 2. Yapılandırma sayfasını açmak için **Şimdi yapılandır**’a tıklayın.
 
    ![Şimdi yapılandır](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. **Noktadan siteye** yapılandırma sayfasında, **Adres havuzu** kutusunda kullanmak istediğiniz özel IP adresi aralığını ekleyin. VPN istemcileri, belirttiğiniz aralıktan dinamik olarak bir IP adresi alır. Ayarı doğrulayıp kaydetmek için **Kaydet**’e tıklayın.
+3. **Noktadan siteye** yapılandırma sayfasında, **Adres havuzu** kutusunda kullanmak istediğiniz özel IP adresi aralığını ekleyin. VPN istemcileri, belirttiğiniz aralıktan dinamik olarak bir IP adresi alır. 29 bit Aktif/Pasif ve 28 bit aktif/aktif yapılandırma için en az bir alt ağ maskesidir. Ayarı doğrulayıp kaydetmek için **Kaydet**’e tıklayın.
 
    ![İstemci adres havuzu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 

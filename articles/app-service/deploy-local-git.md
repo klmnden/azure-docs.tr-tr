@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/14/2019
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e66c625c3f30580715762d2dd3f48eeaa6e548dc
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956086"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143977"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 
@@ -52,47 +52,42 @@ Kudu derleme sunucusu ile uygulamanıza yönelik yerel Git dağıtımını etkin
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
+> [!NOTE]
+> Hesap düzeyinde kimlik yerine her uygulama için otomatik olarak oluşturulan uygulama düzeyinde kimlik bilgileri ile dağıtabilirsiniz.
+>
+
 ### <a name="enable-local-git-with-kudu"></a>Yerel Git Kudu ile etkinleştirme
 
 Kudu derleme sunucusu ile uygulamanıza yönelik yerel Git dağıtımını etkinleştirmek için çalıştıracağınız [ `az webapp deployment source config-local-git` ](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) Cloud shell'de.
 
 ```azurecli-interactive
-az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
+az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
 
 Bunun yerine Git özellikli bir uygulama oluşturmak için çalıştırın [ `az webapp create` ](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) ile Cloud shell'de `--deployment-local-git` parametresi.
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
-```
-
-`az webapp create` Komut size aşağıdaki çıktıya benzer bir şey:
-
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
+az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
 ### <a name="deploy-your-project"></a>Projenizi dağıtın
 
-_Yerel terminal penceresine_ dönüp yerel Git deponuza bir Azure uzak deposu ekleyin. Değiştirin  _\<url >_ aldığınız Git uzak URL'si ile [uygulamanızın Git etkinleştirme](#enable-local-git-with-kudu).
+_Yerel terminal penceresine_ dönüp yerel Git deponuza bir Azure uzak deposu ekleyin. Değiştirin  _\<kullanıcıadı >_ dağıtım kullanıcıdan ile [dağıtım kullanıcısı yapılandırma](#configure-a-deployment-user) ve  _\<-adı >_ uygulama adı ile [Git için uygulamanızı etkinleştirme](#enable-local-git-with-kudu).
 
 ```bash
-git remote add azure <url>
+git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git
 ```
 
-Aşağıdaki komutla uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Parola istendiğinde Azure portalında oturum açarken kullandığınız parolayı değil [Dağıtım kullanıcısı yapılandırma](#configure-a-deployment-user) adımında oluşturduğunuz parolayı girdiğinizden emin olun.
+> [!NOTE]
+> Bunun yerine uygulama düzeyinde kimlik bilgileriyle dağıtmak için kimlik bilgilerini Cloud Shell'de aşağıdaki komutu çalıştırarak uygulamanıza özgü alın:
+>
+> ```azurecli-interactive
+> az webapp deployment list-publishing-credentials -n <app-name> -g <group-name> --query scmUri --output tsv
+> ```
+>
+> Daha sonra çalıştırmak için çıkış komutunu kullanın `git remote add azure <url>` yukarıda ister.
+
+Aşağıdaki komutla uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Parola istendiğinde, oluşturduğunuz parolayı girdiğinizden emin olun [dağıtım kullanıcısı yapılandırma](#configure-a-deployment-user), Azure portalında oturum açmak için kullandığınız parolayı değil.
 
 ```bash
 git push azure master
@@ -215,7 +210,7 @@ git config --global http.postBuffer 524288000
       OR
   * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Proje Kudu belgeleri](https://github.com/projectkudu/kudu/wiki)
 * [Azure uygulama Hizmeti'ne sürekli dağıtım](deploy-continuous-deployment.md)

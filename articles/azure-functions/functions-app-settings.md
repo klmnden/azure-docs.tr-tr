@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 02becd787fcc5f82efff7ef21feaf336fba3a26f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62d359494050b188869d51d1e3975c823b9c0a76
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967598"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204932"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
@@ -32,6 +32,10 @@ Application Insights kullanıyorsanız, Application Insights izleme anahtarı. B
 |Anahtar|Örnek değer|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
+
+## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
+
+Sürümünde işlevler çalışma zamanının 2.x çalışma zamanı ortamı tabanlı uygulama davranışını yapılandırır. Bu değer [başlatma sırasında okuma](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Ayarlayabileceğiniz `AZURE_FUNCTIONS_ENVIRONMENT` herhangi bir değere ancak [üç değerden](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) desteklenir: [Geliştirme](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [hazırlama](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), ve [üretim](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Zaman `AZURE_FUNCTIONS_ENVIRONMENT` değil, varsayılan olarak, belirlenen `Production`. Bu ayar yerine kullanılması gereken `ASPNETCORE_ENVIRONMENT` çalışma zamanı ortamı ayarlamak için. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -71,14 +75,6 @@ Beta özellikleri etkinleştirmek için virgülle ayrılmış listesi. Bu bayrak
 |Anahtar|Örnek değer|
 |---|------------|
 |AzureWebJobsFeatureFlags|özellik1, Özellik2|
-
-## <a name="azurewebjobsscriptroot"></a>AzureWebJobsScriptRoot
-
-Kök dizin yolu burada *host.json* dosya ve işlev klasörleri yer. Bir işlev uygulaması ile varsayılandır `%HOME%\site\wwwroot`.
-
-|Anahtar|Örnek değer|
-|---|------------|
-|AzureWebJobsScriptRoot|%Home%\site\wwwroot|
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 

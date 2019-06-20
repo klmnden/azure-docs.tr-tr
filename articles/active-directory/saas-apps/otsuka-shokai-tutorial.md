@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb5e667151f0148468e9eda8189c0f249b402b56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd06eafca2c508bc73fa2b327235621797be417c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095285"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274203"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Öğretici: Otsuka Shokai Azure Active Directory ile tümleştirme
 
@@ -29,7 +29,6 @@ Bu öğreticide, Azure Active Directory (Azure AD) ile Otsuka Shokai tümleştir
 
 * Otsuka Shokai erişimi, Azure AD'de denetler.
 * Otomatik olarak Otsuka Shokai için kendi Azure AD hesapları ile oturum açmış olmasını sağlayın.
-* Bir merkezi konumda - Azure portalı hesaplarınızı yönetin.
 
 Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -112,17 +111,15 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
 
     g. **Kaydet**’e tıklayın.
 
-1. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde not defteri kaydedin .
-
-   ![Sertifika indirme bağlantısı](common/copy-metadataurl.png)
-
-1. Üzerinde **Otsuka Shokai kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
-
-   ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
-
 ### <a name="configure-otsuka-shokai"></a>Configure Otsuka Shokai
 
-Çoklu oturum açmayı yapılandırma **Otsuka Shokai** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [Otsuka Shokai Destek ekibine](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Müşterinin sayfam SSO uygulamadan SSO ayarı başlatır sihirbazın bağladığınızda.
+
+2. Otsuka kimliği kayıtlı değil, Otsuka kimliği yeni kayıt için devam edin.   İçin bağlantı ayarını Otsuka kimliği kayıtlıysanız, devam edin.
+
+3. Sonuna kadar devam etmek ve müşterinin sayfam oturum açtıktan sonra üst ekran görüntülendiğinde, SSO ayarlarını tamamlandı.
+
+4. Kılavuz ekranı açıldıktan sonra müşterinin sayfam SSO uygulamadan sonraki bağlanışınızda üst ekran müşterinin sayfam oturum açtıktan sonra görüntülenir.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -156,7 +153,7 @@ Bu bölümde, B. Otsuka Shokai için erişim izni verdiğinizde, Azure çoklu ot
 
 ### <a name="create-otsuka-shokai-test-user"></a>Otsuka Shokai test kullanıcısı oluşturma
 
-Bu bölümde Otsuka Shokai B.Simon adlı bir kullanıcı oluşturun. Çalışmak [Otsuka Shokai Destek ekibine](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) Otsuka Shokai platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Yeni kayıt SaaS hesabının Otsuka Shokai için ilk erişim gerçekleştirilir. Ayrıca, biz de Azure AD hesabını ve SaaS hesabını yeni oluşturma sırasında ilişkilendireceksiniz.
 
 ### <a name="test-sso"></a>Test SSO
 

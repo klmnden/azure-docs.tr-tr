@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: b29f3168b7ecc1ec8f783a7ce7a6dea83318fa14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba803c493fd85a7be7bc6c5922171678cc6e0df0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455702"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164460"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 
@@ -247,8 +247,7 @@ Aşağıdaki tabloda, bir Azure Cosmos DB çıktı oluşturmak için özellikler
 | Hesap Kimliği | Adı veya uç noktası URI'si, Azure Cosmos DB hesabı. |
 | Hesap anahtarı | Azure Cosmos DB hesabı için paylaşılan erişim anahtarı. |
 | Database | Azure Cosmos DB veritabanının adı. |
-| Koleksiyon adı deseni | Veya deseni kullanılacak koleksiyonların koleksiyon adı. <br />Koleksiyon adı biçimi, bölümlerin 0'dan başladığı isteğe bağlı {partition} belirteci kullanarak oluşturabilirsiniz. İki örnek:  <br /><ul><li> _MyCollection_: "MyCollection" adlı bir koleksiyon olmalıdır.</li>  <li> _{Partition} MyCollection_: Bölümleme sütunu temel.</li></ul> Bölümleme sütunu koleksiyonların mevcut olması gerekir: "MyCollection0," "MyCollection1," "MyCollection2," ve benzeri. |
-| Bölüm anahtarı | İsteğe bağlı. Yalnızca, koleksiyon adı deseni {partition} belirteci kullanıyorsanız, buna ihtiyacınız olur.<br /> Bölüm anahtarı için çıkışın koleksiyonlar üzerinde bölümlenmesine yönelik anahtarın belirtilmesi için kullanılan çıkış olaylarındaki alanın adıdır.<br /> Tek bir koleksiyon çıkışı için herhangi bir rastgele çıkış sütunu kullanabilirsiniz. PartitionID buna bir örnektir. |
+| Koleksiyon adı | Azure Cosmos DB'de koleksiyonun adı. Azure Cosmos DB, verilerinizi otomatik Azure Cosmos DB bölümleme, iş yüküne göre bölümler ölçekler için sınırsız kapsayıcılar olan önerilen yaklaşım. |
 | Belge Kimliği |İsteğe bağlı. Hangi ekleme veya güncelleştirme işlemleri dayalı olduğu birincil anahtarın belirtilmesi için kullanılan çıkış olaylarındaki alanın adı.
 
 ## <a name="azure-functions"></a>Azure İşlevleri

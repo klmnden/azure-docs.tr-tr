@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56ba2dfebeb47f7e12a2693eae443e3c31e2a4dd
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754541"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203097"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Küme yapılandırmaları için ayrıntılı rol tabanlı erişime geçme
 
@@ -23,7 +23,7 @@ Hassas bilgileri almak için daha fazla ayrıntılı rol tabanlı erişimi deste
 Daha önce gizli dizileri HDInsight API aracılığıyla sahip, katkıda bulunan veya okuyucu işlediği küme kullanıcılar tarafından elde edilemedi [RBAC rollerini](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)olan herkes için kullanılabilir oldukları gibi `*/read` izni gerekli.
 Bundan sonra bu gizli dizileri erişim gerektiren `Microsoft.HDInsight/clusters/configurations/*` izni, bunlar artık erişilebilir okuyucu rolü olan kullanıcılar tarafından anlamına gelir. Bir kullanıcının rolünü daha fazla yükseltilmiş erişim elde etmek için kullanılabilecek değerleri sağlamalıdır gizli olarak tanımlanır. Bunlar, küme ağ geçidi HTTP kimlik bilgilerini, depolama hesabı anahtarlarını ve veritabanı kimlik bilgileri gibi değerleri içerir.
 
-Ayrıca yeni bir sunuyoruz [Hdınsight küme işleci](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) rol sahibi veya katkıda bulunan Yönetimsel izinlere sahip olmadan gizli dizileri almak mümkün olacaktır. Özetlersek:
+Ayrıca yeni bir sunuyoruz [HDInsight küme işleci](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) rol sahibi veya katkıda bulunan Yönetimsel izinlere sahip olmadan gizli dizileri almak mümkün olacaktır. Özetlersek:
 
 | Rol                                  | Daha önce                                                                                       | Bundan sonra       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
@@ -155,7 +155,7 @@ Güncelleştirme [Az PowerShell sürüm 2.0.0](https://www.powershellgallery.com
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>Bir kullanıcıya HDInsight küme işleci rolü ataması ekleme
 
-Bir kullanıcıyla [katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) veya [sahibi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) rol atayabilir [Hdınsight küme işleci](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) duyarlı okuma/yazma erişimi isteyen kullanıcılara rol HDInsight küme yapılandırma değerleri (örneğin, Küme Ağ Geçidi kimlik bilgilerini ve depolama hesabı anahtarları).
+Bir kullanıcıyla [katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) veya [sahibi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) rol atayabilir [HDInsight küme işleci](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) duyarlı okuma/yazma erişimi isteyen kullanıcılara rol HDInsight küme yapılandırma değerleri (örneğin, Küme Ağ Geçidi kimlik bilgilerini ve depolama hesabı anahtarları).
 
 ### <a name="using-the-azure-cli"></a>Azure CLI kullanma
 

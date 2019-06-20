@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 26a5876971749a1a63447ef813219dad8485781c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd1416befb74a7299136ea497eccc8a06b7f0f6a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160178"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164860"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>CloudSimple düğümü kota sınırları
 
-Dört düğüm aboneliğinizi CloudSimple hizmeti için etkin olduğunda varsayılan miktarı, satın alınabilir olması.  Herhangi satın [düğüm türü](cloudsimple-node.md) Azure portalından.  En az üç düğüm aynı SKU'ların bir özel bulut oluşturmak için gereklidir.  Düğümleri satın aldıysanız ek düğümler satın almaya çalıştığınızda bir hata görebilirsiniz.
+Dört düğüm olduğunda sağlamak için kullanılabilir varsayılan miktarı, aboneliğinizin CloudSimple hizmeti için etkinleştirildi.  Tüm sağlayabileceğiniz [düğüm türü](cloudsimple-node.md) Azure portalından.  En az üç düğüm aynı SKU'ların bir özel bulut oluşturmak için gereklidir.  Düğümleri sağladıktan, ek düğümler sağlamaya çalıştığınızda bir hata görebilirsiniz.
 
 ## <a name="quota-increase"></a>Kota artışı
 
@@ -40,5 +40,5 @@ Ayrıca, Microsoft hesap temsilcinize başvurun [ azurevmwaresales@microsoft.com
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Satın alma düğümleri](create-nodes.md)
+* [Sağlama düğümleri](create-nodes.md)
 * [CloudSimple düğümleri genel bakış](cloudsimple-node.md)

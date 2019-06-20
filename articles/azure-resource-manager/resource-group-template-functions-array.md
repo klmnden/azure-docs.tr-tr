@@ -16,7 +16,7 @@ ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128701"
@@ -136,8 +136,8 @@ Parametreler null olmayan ilk değeri döndürür. Boş dizeler, boş diziler ve
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |int, string, dizi veya nesne |Null için test edilecek ilk değeri. |
-| Ek bağımsız değişkenleri |Hayır |int, string, dizi veya nesne |Null test etmek için ek değerler. |
+| arg1 |Evet |int, string, array veya object |Null için test edilecek ilk değeri. |
+| Ek bağımsız değişkenleri |Hayır |int, string, array veya object |Null test etmek için ek değerler. |
 
 ### <a name="return-value"></a>Dönüş değeri
 

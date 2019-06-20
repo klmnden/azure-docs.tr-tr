@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 722097f1a61a10cd45c0c330e998021cd1abf0c8
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735024"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147972"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy’i kullanmaya başlama
 
@@ -49,7 +49,8 @@ Belirli bir komut hakkında bilgi edinmek için yalnızca komut adını içerir 
 
 ![Satır içi Yardım](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
-AzCopy ile anlamlı bir şey yapmak için önce yetkilendirme kimlik bilgilerini depolama hizmetine nasıl sağlarız karar vermeniz gerekir.
+> [!NOTE] 
+> Azure depolama hesabınızdaki bir sahibi olarak, veri erişim izni otomatik olarak atanmamış. AzCopy ile anlamlı bir şey yapmak için önce yetkilendirme kimlik bilgilerini depolama hizmetine nasıl sağlarız karar vermeniz gerekir. 
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Yetkilendirme kimlik bilgilerini nasıl sağlarız seçin
 
@@ -67,9 +68,9 @@ Bu tabloyu kılavuz olarak kullanın:
 
 Gereksinim duyduğunuz yetkilendirme düzeyi, dosyaları karşıya yükleme veya yalnızca karşıdan yüklemek planladığınız temel alır.
 
-#### <a name="authorization-to-upload-files"></a>Dosyaları karşıya yüklemek için yetkilendirme
+Dosyaları indirmek istiyorsanız, doğrulama [depolama Blob verileri okuyucu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) kimliğinize atanmıştır.
 
-Bu rollerden kimliğinize atandığını doğrulayın:
+Dosyaları yüklemek istiyorsanız, bu rollerden kimliğinize atandığını doğrulayın:
 
 - [Depolama Blob verileri katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Depolama Blob verileri sahibi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -87,27 +88,6 @@ Bu rollerden erişim denetim listesine hedef kapsayıcı ya da dizinin (ACL) kim
 
 Daha fazla bilgi için bkz. [Azure Data Lake depolama Gen2'deki erişim denetimi](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### <a name="authorization-to-download-files"></a>Dosyaları indirmek için yetkilendirme
-
-Bu rollerden kimliğinize atandığını doğrulayın:
-
-- [Depolama Blob verileri okuyucu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
-- [Depolama Blob verileri katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
-- [Depolama Blob verileri sahibi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
-
-Bu roller, kimliğinize herhangi birinde bu kapsamlara atanabilir:
-
-- Kapsayıcı (dosya sistemi)
-- Depolama hesabı
-- Kaynak grubu
-- Abonelik
-
-Doğrulama ve roller atama konusunda bilgi almak için bkz: [verilere Azure blob ve kuyruk RBAC ile Azure portalında erişim ver](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-Bu rollerden erişim denetim listesine hedef kapsayıcı ya da dizinin (ACL) kimliğinizi eklediyseniz, ıdentity'ye atanır olması gerekmez. ACL'de, hedef dizin üzerinde okuma ve yürütme izni kapsayıcı ve her bir üst dizin kimliğinizi gerekir.
-
-Daha fazla bilgi için bkz. [Azure Data Lake depolama Gen2'deki erişim denetimi](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
-
 #### <a name="authenticate-your-identity"></a>Kimliğinizi kimlik doğrulaması
 
 Kimliğinizi gerekli yetki düzeyini verildi doğruladıktan sonra bir komut istemi açın, aşağıdaki komutu yazın ve ardından ENTER tuşuna basın.
@@ -115,6 +95,14 @@ Kimliğinizi gerekli yetki düzeyini verildi doğruladıktan sonra bir komut ist
 ```azcopy
 azcopy login
 ```
+
+Birden fazla kuruluşa aitse, depolama hesabına ait olduğu kuruluş Kiracı Kimliğini içerir.
+
+```azcopy
+azcopy login --tenant-id=<tenant-id>
+```
+
+Değiştirin `<tenant-id>` yer tutucu depolama hesabına ait olduğu kuruluş Kiracı kimliği. Kiracı Kimliğini bulmak için seçin **Azure Active Directory > Özellikler > dizin kimliği** Azure portalında.
 
 Bu komut, kimlik doğrulaması kodu ve bir Web sitesinin URL'sini döndürür. Web sitesini açmak, kodu sağlayın ve ardından **sonraki** düğmesi.
 
@@ -146,13 +134,32 @@ Kimliği doğrulanmış kimlik bilgilerinizi veya bir SAS belirteci elde sonra d
 
 - [AzCopy ve Amazon S3 demetleri ile veri aktarma](storage-use-azcopy-s3.md)
 
-## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Yapılandırma, en iyi duruma getirmek ve AzCopy sorunlarını giderme
+## <a name="use-azcopy-in-a-script"></a>Bir betikte Azcopy'yi kullanma
 
-Bkz: [yapılandırma, en iyi duruma getirmek ve AzCopy sorun giderme](storage-use-azcopy-configure.md)
+AzCopy, zaman içinde [indirme bağlantısı](#download-and-install-azcopy) AzCopy yeni sürümlerini gösterir. Betiğinizi AzCopy yüklerse, betik AzCopy daha yeni bir sürümü betiğinizi bağımlı özellikler değiştirirse çalışmamaya başlayabilir. 
+
+Bu sorunlarla karşılaşmamak için AzCopy'nın geçerli sürümü (beklemediğiniz değişen) statik bağlantı edinin. Bu şekilde, betiğinizi çalıştığı her zaman tam olarak aynı AzCopy sürümünü yükler.
+
+Bağlantısını almak için şu komutu çalıştırın:
+
+| İşletim sistemi  | Komut |
+|--------|-----------|
+| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+
+> [!NOTE]
+> Linux için `--strip-components=1` üzerinde `tar` komut sürüm adı içerir ve bunun yerine ikili doğrudan geçerli klasöre ayıklar en üst düzey klasör kaldırır. Bu betik yeni bir sürümü ile güncelleştirilmesi sağlar `azcopy` yalnızca güncelleştirerek `wget` URL'si.
+
+URL, bu komut çıktısında görüntülenir. Kodunuzu daha sonra AzCopy bu URL'yi kullanarak indirebilirsiniz.
+
+| İşletim sistemi  | Komut |
+|--------|-----------|
+| **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
+| **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Depolama Gezgini'nde Azcopy'yi kullanma
 
-Daha sonra AzCopy performans avantajlarını artırmak istiyorsanız, ancak dosyalarınızı ile etkileşim kurmak için Depolama Gezgini'ni yerine komut satırını kullanmayı tercih, AzCopy depolama Gezgini'nde etkinleştirin.
+Daha sonra AzCopy performans avantajlarını artırmak istiyorsanız, ancak dosyalarınızı ile etkileşim kurmak için Depolama Gezgini'ni yerine komut satırını kullanmayı tercih, AzCopy depolama Gezgini'nde etkinleştirin. 
 
 Depolama Gezgini'nde **Önizleme**->**geliştirilmiş Blob karşıya yükleme ve indirme kullanımı AzCopy**.
 
@@ -161,6 +168,8 @@ Depolama Gezgini'nde **Önizleme**->**geliştirilmiş Blob karşıya yükleme ve
 > [!NOTE]
 > Depolama hesabınızdaki bir hiyerarşik ad alanı etkinleştirdiyseniz, bu ayarı etkinleştirmeniz gerekmez. Depolama Gezgini'ni AzCopy hiyerarşik ad alanı olan depolama hesapları otomatik olarak kullanır. olmasıdır.  
 
+Depolama Gezgini işlemlerini gerçekleştirmek üzere hesap anahtarınızı kullanan depolama Gezgini'ne işaretinden sonra ek yetkilendirme kimlik bilgilerini sağlamanız gerekmez.
+
 <a id="previous-version" />
 
 ## <a name="use-the-previous-version-of-azcopy"></a>AzCopy önceki sürümünü kullanın
@@ -168,7 +177,12 @@ Depolama Gezgini'nde **Önizleme**->**geliştirilmiş Blob karşıya yükleme ve
 AzCopy (AzCopy v8.1) önceki sürümünü kullanmanız gerekiyorsa, aşağıdaki bağlantılardan birini bakın:
 
 - [(V8) Windows üzerinde AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+
 - [(V8) Linux üzerinde AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+
+## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Yapılandırma, en iyi duruma getirmek ve AzCopy sorunlarını giderme
+
+Bkz: [yapılandırma, en iyi duruma getirmek ve AzCopy sorun giderme](storage-use-azcopy-configure.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

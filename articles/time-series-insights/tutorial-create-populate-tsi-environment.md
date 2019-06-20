@@ -5,16 +5,16 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 04/26/2019
+ms.date: 06/18/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: b8b46db043113f29f559ad44855d19f0d6ca73c3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 06a450c47c7264bdecb663c9f71e3a9753df5e1e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244151"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273408"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Öğretici: Azure Time Series Insights ortamı oluşturma
 
@@ -40,14 +40,50 @@ Bu öğreticide sanal cihazlardan veri ile doldurulan bir Azure zaman serisi gö
 
 ## <a name="overview"></a>Genel Bakış
 
-Zaman serisi görüşleri ortamı, cihaz verileri burada toplanan ve depolanan girebiliriz. Veriler depolandıktan sonra [Azure Time Series Insights gezgininin](time-series-quickstart.md) ve [zaman serisi öngörüleri sorgu API'si](/rest/api/time-series-insights/ga-query-api) sorgulamak ve verileri çözümlemek için kullanılabilir. Azure IOT Hub, tüm cihazlar tarafından (sanal veya fiziksel) güvenli bir şekilde bağlanın ve Azure bulut veri iletmek için kullanılan bağlantı noktasıdır. [Time Series Insights genel bakış](time-series-insights-overview.md) Azure IOT Hub ayrıca bir zaman serisi görüşleri ortamına veri akışı için bir olay kaynağı görevi gören, notlar. Bu öğreticide bir [IOT Çözüm Hızlandırıcısı](/azure/iot-accelerators/) oluşturup örnek telemetri verilerini IOT hub'ına akış.
+Zaman serisi görüşleri ortamı, cihaz verileri burada toplanan ve depolanan girebiliriz. Bir kez depolanır; [Azure Time Series Insights gezgininin](time-series-quickstart.md) ve [zaman serisi öngörüleri sorgu API'si](/rest/api/time-series-insights/ga-query-api) sorgulamak ve verileri çözümlemek için kullanılabilir.
+
+Azure IOT hub'ı güvenli bir şekilde bağlanın ve Azure bulut veri iletmek için kullanılan tüm cihazlar tarafından (sanal veya fiziksel) öğreticide olay kaynağıdır.
+
+Bu öğreticide ayrıca bir [IOT Çözüm Hızlandırıcısı](https://www.azureiotsolutions.com) oluşturup örnek telemetri verilerini IOT hub'ına akış.
 
 >[!TIP]
-> IOT Çözüm Hızlandırıcıları, özel IOT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan kullanabileceğiniz kurumsal sınıf, önceden yapılandırılmış çözümler sunar.
+> [IOT Çözüm Hızlandırıcıları](https://www.azureiotsolutions.com) özel IOT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan kullanabileceğiniz kurumsal sınıf, önceden yapılandırılmış çözümler sunar.
+
+## <a name="create-a-device-simulation"></a>Cihaz benzetimi oluşturma
+
+İlk olarak, zaman serisi görüşleri ortamınıza doldurmak için test verilerini oluşturur cihaz benzetimi çözümü oluşturun.
+
+1. Ayrı penceresi veya sekmesinde, Git [azureiotsolutions.com](https://www.azureiotsolutions.com). Aynı Azure aboneliği hesabını kullanarak oturum açın ve seçin **cihaz benzetimi** Hızlandırıcı.
+
+   [![Cihaz benzetimi Hızlandırıcı çalıştırın](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
+
+1. Gerekli Parametreler girin **cihaz benzetimi oluşturma çözümü** sayfası.
+
+   Parametre|Açıklama
+   ---|---
+   **Dağıtım adı** | Bu benzersiz bir değer, yeni bir kaynak grubu oluşturmak için kullanılır. Listelenen Azure kaynakları oluşturulur ve kaynak grubuna atanır.
+   **Azure aboneliği** | Önceki bölümde Time Series Insights ortamınızı oluşturmak için kullanılan aynı aboneliği belirtin.
+   **Dağıtım seçenekleri** | Seçin **yeni IOT hub'ı sağlama** yeni bir IOT hub'ı Bu öğreticide özel oluşturmak için.
+   **Azure konum** | Önceki bölümde Time Series Insights ortamınızı oluşturmak için kullanılan aynı bölge belirtin.
+
+   İşlemi tamamladığınızda, seçin **çözüm oluşturma** çözümün Azure kaynakları sağlamak için. Bu, bu işlemin tamamlanması 20 dakika sürebilir.
+
+   [![Cihaz benzetimi çözümü sağlanamadı](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
+
+1. Sağlama tamamlandıktan sonra yeni çözümünüzü yukarıda metin değişiklikleri **sağlama** için **hazır**.
+
+   >[!IMPORTANT]
+   > Seçmeyin **başlatma** henüz! Buna daha sonra geri çünkü bu web sayfasını açık tutun.
+
+   [![Cihaz benzetimi çözüm tam sağlama](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
+
+1. Şimdi, Azure portalında yeni oluşturulan kaynakları inceleyin. Üzerinde **kaynak grupları** sayfasında, yeni bir kaynak grubu kullanılarak oluşturulmuş fark **çözüm adı** son adımda sağlanan. Cihaz benzetimi için oluşturulan kaynakların not edin.
+
+   [![Cihaz benzetimi kaynakları](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
 
 ## <a name="create-an-environment"></a>Ortam oluşturma
 
-İlk olarak, Azure aboneliğinizde bir zaman serisi görüşleri ortamı oluşturun.
+İkinci olarak, Azure aboneliğinizde bir zaman serisi görüşleri ortamı oluşturun.
 
 1. Oturum [Azure portalında](https://portal.azure.com) Azure abonelik hesabınızı kullanarak. 
 1. Üstteki menüden **+ Kaynak oluştur**'u seçin. 
@@ -59,119 +95,36 @@ Zaman serisi görüşleri ortamı, cihaz verileri burada toplanan ve depolanan g
 
    Parametre|Açıklama
    ---|---
-   **Ortam adı** | Zaman serisi görüşleri ortamı için benzersiz bir ad seçin. Adlar, Time Series Insights Gezgini ve sorgu API'leri tarafından kullanılır.
+   **Ortam adı** | Zaman serisi görüşleri ortamı için benzersiz bir ad seçin. Adlar Time Series Insights Gezgini tarafından kullanılır ve [sorgu API'leri](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
    **Abonelik** | Abonelikler, Azure kaynaklarına yönelik kapsayıcılardır. Zaman serisi görüşleri ortamı oluşturmak için bir abonelik seçin.
    **Kaynak grubu** | Kaynak grubu, Azure kaynaklarına yönelik bir kapsayıcıdır. Mevcut bir kaynak grubu seçin veya zaman serisi görüşleri ortamı kaynak için yeni bir tane oluşturun.
-   **Konum** | Zaman serisi görüşleri ortamınız için bir veri merkezi bölgesini seçin. Ek bant genişliği maliyetlerini ve gecikme süresini önlemek için zaman serisi görüşleri ortamına diğer IOT kaynaklar aynı bölgede bulundurun.
-   **Fiyatlandırma SKU'su** | Gerekli aktarım hızını seçin. Düşük maliyet ve başlangıç kapasitesi için `S1`.
-   **Kapasite** | Kapasite; giriş oranına, depolama kapasitesine ve seçili SKU ile ilişkili maliyete uygulanan çarpandır. Kapasiteyi oluşturulduktan sonra değiştirebilirsiniz. En düşük maliyeti, kapasitesi 1'i seçin.
+   **Location** | Zaman serisi görüşleri ortamınız için bir veri merkezi bölgesini seçin. Ek gecikme önlemek için diğer IOT kaynaklarıyla aynı bölgede zaman serisi görüşleri ortamı oluşturun.
+   **Katmanı** | Gerekli aktarım hızını seçin. Seçin **S1**.
+   **Kapasite** | Seçilen SKU ile ilişkili depolama kapasitesi ve giriş oranı için uygulanan çarpan kapasitesidir. Kapasiteyi oluşturulduktan sonra değiştirebilirsiniz. Kapasite seçin **1**.
 
-   İşiniz bittiğinde seçin **Oluştur** sağlama işlemini başlatın.
+   İşiniz bittiğinde seçin **gözden geçir + Oluştur** sonraki adıma devam etmek için.
 
    [![Zaman serisi görüşleri ortamı kaynak oluştur](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png#lightbox)
+
+1. Artık, çözüm Hızlandırıcı tarafından oluşturulan IOT hub'ına zaman serisi görüşleri ortamına bağlantı. Ayarlama **bir hub'ını seçin** için `Select existing`. Ardından çözüm Hızlandırıcı tarafından ayarlarken oluşturduğunuz IOT hub'ı seçin **IOT hub'ı adı**.
+
+   [![Zaman serisi görüşleri ortamına oluşturulan IOT hub'a bağlama](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png#lightbox)
 
 1. Denetleme **bildirimleri** paneli dağıtım tamamlanmasını izlemek için. 
 
    [![Zaman serisi görüşleri ortamına dağıtım başarılı](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## <a name="create-a-device-simulation"></a>Cihaz benzetimi oluşturma
-
-Ardından, zaman serisi görüşleri ortamınıza doldurmak için test verilerini oluşturur cihaz benzetimi çözümü oluşturun.
-
-1. Ayrı penceresi veya sekmesinde, Git [azureiotsolutions.com](https://www.azureiotsolutions.com). Aynı Azure aboneliği hesabını kullanarak oturum açın ve seçin **cihaz benzetimi** Hızlandırıcı.
-
-   [![Cihaz benzetimi Hızlandırıcı çalıştırın](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
-
-1. Gerekli Parametreler girin **cihaz benzetimi oluşturma çözümü** sayfası.
-
-   Parametre|Açıklama
-   ---|---
-   **Çözüm adı** | Bu benzersiz bir değer, yeni bir kaynak grubu oluşturmak için kullanılır. Listelenen Azure kaynakları oluşturulur ve kaynak grubuna atanır.
-   **Abonelik** | Önceki bölümde Time Series Insights ortamınızı oluşturmak için kullanılan aynı aboneliği belirtin.
-   **Bölge** | Önceki bölümde Time Series Insights ortamınızı oluşturmak için kullanılan aynı bölge belirtin.
-   **İsteğe bağlı Azure Kaynaklarını dağıtma** | Bırakın **IOT hub'ı** işaretli. Sanal cihazlar bağlanmak veya veri akışı için kullanın.
-
-   İşlemi tamamladığınızda, seçin **çözüm oluşturma** çözümün Azure kaynakları sağlamak için. İşlem, bu işlemi tamamlamak için 6-7 dakika sürebilir.
-
-   [![Cihaz benzetimi çözümü sağlanamadı](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
-
-1. Sağlama tamamlandıktan sonra yeni çözümünüzü yukarıda metin değişiklikleri **sağlama** için **hazır**.
-
-   >[!IMPORTANT]
-   > Seçmeyin **başlatma** henüz! Buna daha sonra geri çünkü bu web sayfasını açık tutun.
-
-   [![Cihaz benzetimi çözüm tam sağlama](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
-
-1. Şimdi Azure portalına geri dönün ve yeni oluşturulan kaynakları denetleyin. Portalda **kaynak grupları** sayfasında, yeni bir kaynak grubu kullanılarak oluşturulmuş fark **çözüm adı** son adımda sağlanan. Ayrıca cihaz benzetimi çözümünü desteklemek için oluşturulan tüm kaynakları dikkat edin.
-
-   [![Cihaz benzetimi çözüm kaynakları](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
-
-## <a name="connect-the-environment-to-the-iot-hub"></a>IOT hub'ına ortama bağlanın
-
-Bu noktada, her biri kendi kaynak grubunda bulunan iki kaynak kümesi oluşturmayı öğrendiniz:
-
-- Boş bir zaman serisi görüşleri ortamı.
-- Çözüm Hızlandırıcısını tarafından oluşturulan bir IOT hub'ı içeren cihaz benzetimi çözüm kaynaklar.
-
-Sanal cihazların cihaz verilerini akışla aktarmak için bir IoT hub'ına bağlanması gerektiğini unutmayın. Zaman serisi görüşleri ortamına veri akışı için hem IOT hub'ınıza hem de zaman serisi görüşleri ortamı için yapılandırma değişiklikleri yapmanız gerekir.
-
-### <a name="iot-hub-configuration-define-a-consumer-group"></a>IOT hub'ı yapılandırma: Bir tüketici grubu tanımlayın
-
-IOT hub'ı diğer aktörler işlevsellik paylaşmak için çeşitli uç noktaları sağlar. "Olaylar" uç noktası, bir IOT hub örneğine yeniden düşüklüğü yaşanacaktır verileri kullanan diğer uygulamalar için bir yol sağlar. Özellikle, "tüketici grupları" uygulamalar ve IOT hub'ından veri çekmek için bir mekanizma sağlar.
-
-Ardından, yeni bir tanımladığınız **tüketici grubu** özelliği IOT hub'ı cihaz benzetimi çözümün **olaylar uç noktasına**.
-
-1. Azure portalında Git **genel bakış** cihaz benzetimi çözümü oluşturduğunuz kaynak grubunun sayfası. IOT hub'ı kaynağını seçin.
-
-   [![Cihaz benzetimi çözümü kaynak grubu](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png#lightbox)
-
-   Not **adı** çözümü için oluşturulan IOT hub'ı kaynak. Buna daha sonra başvurmanız.
-
-1. Aşağı kaydırın ve select **uç noktaları** sayfasında ve ardından **olayları** uç noktası. Uç nokta üzerinde **özellikleri** sayfasında, "$Default" tüketici grubundaki uç noktanız için benzersiz bir ad girin. **Kaydet**’i seçin.
-
-   [![Cihaz benzetimi çözümü IoT hub uç noktaları](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png#lightbox)
-
-### <a name="environment-configuration-define-an-event-source"></a>Ortam yapılandırma: bir olay kaynağı tanımlayın
-
-Artık, yeni IOT hub'ı bağlantı **tüketici grubu** olay uç noktası zaman serisi görüşleri ortamına bir **olay kaynağı**.
-
-1. Git **genel bakış** zaman serisi görüşleri ortamı için oluşturduğunuz kaynak grubunun sayfası. Zaman serisi görüşleri ortamı seçin.
-
-   [![Zaman serisi görüşleri ortamı kaynak grubu ve ortam](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png#lightbox)
-
-1. Zaman serisi görüşleri ortamı sayfasında **olay kaynakları**. Ardından **+ Ekle**.
-
-   [![Zaman serisi görüşleri ortamına genel bakış](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png#lightbox)
-
-1. Gerekli Parametreler girin **yeni olay kaynağı** sayfası.
-
-   Parametre|Açıklama
-   ---|---
-   **Olay kaynağı adı** | Olay kaynağını adlandırmak için kullanılan benzersiz bir değer gerektirir.
-   **Kaynak** | Seçin **IOT hub'ı**.
-   **İçeri aktarma seçeneği** | Varsayılan seçin `Use IoT hub from available subscriptions`. Bu seçenek kullanılabilir abonelikler ile doldurulacak sonraki açılır listede neden olur.
-   **Abonelik** | Cihaz benzetimi kaynaklar ve zaman serisi görüşleri ortamı oluşturulan aynı aboneliği seçin.
-   **Iot hub adı** | Varsayılan olarak daha önce not ettiğiniz IoT hub'ının adı olmalıdır. Değilse, doğru IoT hub'ını seçin.
-   **Iot hub ilke adı** | Seçin **iothubowner**.
-   **Iot hub tüketici grubu** | Varsayılan olarak daha önce oluşturduğunuz IoT hub'ı tüketici grubunun adı olmalıdır. Değilse, doğru tüketici grubu adını seçin.
-   **Olay serileştirme biçimi** | Varsayılan haline getirilen değeri olarak bırakın `JSON`.
-   **Zaman damgası özellik adı** | Olarak belirttiğiniz `timestamp`.
-
-   İşlemi tamamladığınızda, seçin **Oluştur** olay kaynağı ekleyin. Kaynak grubunu döndüğünüzde **genel bakış** sayfasında, zaman serisi görüşleri ortamı kaynak birlikte yeni bir "Zaman serisi görüşleri olay kaynağı" kaynak görürsünüz.
-
-   [![Zaman serisi görüşleri ortamı yeni olay kaynağı](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png#lightbox)
-
 ## <a name="run-device-simulation-to-stream-data"></a>Cihaz benzetimi için veri akışı çalıştırın.
 
-Tüm yapılandırma işi tamamlandığında, zaman serisi görüşleri ortamına benzetilmiş aygıtlardan örnek verilerle doldurmak için zaman var.
+Örnek verileri ile zaman serisi görüşleri ortamına dağıtım ve ilk yapılandırmasından sonra tam doldurma [sanal cihazlar Hızlandırıcı tarafından oluşturulan](#create-a-device-simulation).
 
-Geri çağırma [cihaz benzetimi bölüm oluşturmak](#create-a-device-simulation), çeşitli Azure kaynaklarını çözümünü desteklemek için Hızlandırıcı tarafından oluşturulmuş. Daha önce ele alınan IoT hub’ı ile birlikte, sanal cihaz telemetrisi oluşturmak ve aktarmak için bir Azure App Service web uygulaması oluşturulmuştur.
+IOT hub ile birlikte bir Azure App Service web uygulaması oluşturma ve sanal cihaz telemetrisi iletmek için oluşturuldu.
 
 1. [Çözüm hızlandırıcıları panonuza](https://www.azureiotsolutions.com/Accelerators#dashboard) geri dönün. Tekrar, gerekirse, bu öğreticide kullandığınız aynı Azure hesabını kullanarak oturum açın. Seçebileceğiniz artık **başlatma** "Cihaz benzetimi" çözümünüzü altında.
 
      [![Çözüm Hızlandırıcıları Panosu](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png#lightbox)
 
-1. Bu noktasını ve cihaz benzetimi web uygulama başlatılır, ilk yükleme sırasında birkaç saniye sürebilir. Ayrıca web uygulaması "oturumunuzu açma ve profilinizi okuma" izni izin istenir izni. Bu izin, uygulamanın çalışmasını desteklemek için gereken kullanıcı profili bilgilerini almak uygulama izin verir.
+1. Cihaz benzetimi web uygulaması, web uygulaması "oturumunuzu açma ve profilinizi okuma" izni isteyerek başlar izni. Bu izin, uygulamanın çalışmasını desteklemek için gereken kullanıcı profili bilgilerini almak uygulama izin verir.
 
      [![Cihaz benzetimi web uygulama onay](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
@@ -219,7 +172,7 @@ Bu son bölümde telemetri verilerini oluşturulur ve zaman serisi görüşleri 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu öğreticide zaman serisi görüşleri ortamı ve cihaz benzetimi çözümünü desteklemek için birden fazla çalışan Azure hizmetini oluşturur. İptal veya Bu öğretici serisinin sayesinde yalnızca işinize erteleme istiyorsanız, gereksiz yinelenen maliyetler oluşmasını önlemek için tüm kaynakları silin.
+Bu öğreticide zaman serisi görüşleri ortamı ve cihaz benzetimi çözümünü desteklemek için birden fazla çalışan Azure hizmetini oluşturur. Bunları kaldırmak için Azure portalına gidin.
 
 Azure portalında sol taraftaki menüden:
 

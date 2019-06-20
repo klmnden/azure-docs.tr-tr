@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791421"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275593"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL hiper ölçekli veritabanları hakkında SSS
 
@@ -53,7 +53,7 @@ Kullanılabilirlik, depolama türü ve IOPS temel sanal çekirdek tabanlı hizme
 | **Depolama türü** | Tümü |Premium uzaktaki depolama birimi (örnek başına) | Yerel SSD önbellek (örnek başına) ile serbest bağlı depolama | Süper hızlı yerel SSD depolaması (örnek başına) |
 | **Depolama boyutu** | Tek veritabanı / elastik havuz | 5 GB – 4 TB | En fazla 100 TB | 5 GB – 4 TB |
 | | Yönetilen örnek  | 32 GB – 8 TB | Yok | 32 GB – 4 TB |
-| **G/ç aktarım hızı** | Tek veritabanı ** | 7000 maksimum IOPS ile sanal çekirdek başına 500 IOPS | Henüz bilinmiyor | 200\.000 maksimum IOPS ile 5000 IOPS|
+| **G/ç aktarım hızı** | Tek veritabanı ** | 7000 maksimum IOPS ile sanal çekirdek başına 500 IOPS | Henüz bilinmiyor | 200.000 maksimum IOPS ile 5000 IOPS|
 | | Yönetilen örnek | Dosya boyutuna bağlıdır | Yok | Yönetilen örnek: Dosya boyutuna bağlıdır|
 |**Kullanılabilirlik**|Tümü|1 çoğaltma, hiçbir okuma ölçeği, Hayır yerel önbellek | Lrs'de kadar 15 okuma ölçeği, kısmi yerel önbellek | 3 çoğaltma, 1 okuma ölçeği, bölgesel olarak yedekli HA tam yerel önbellek |
 |**Yedekleri**|Tümü|RA-GRS, 7-35 gün (varsayılan olarak 7 gün)| RA-GRS, 7-35 gün (varsayılan olarak 7 gün), sabit zaman-belirli bir noktaya Kurtarma (PITR) | RA-GRS, 7-35 gün (varsayılan olarak 7 gün) |
@@ -79,7 +79,7 @@ Azure SQL veritabanı hiper ölçekli katmanı altında listelenen bölgede şu 
 
 Evet. Daha fazla bilgi ve hiper ölçekli veritabanlarının her mantıksal sunucu sayısına yönelik sınırlar için bkz. [bir mantıksal sunucuda tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](sql-database-resource-limits-logical-server.md).
 
-### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>Bir hiper ölçekli veritabanının performans özelliği nelerdir
+### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>Bir hiper ölçekli veritabanı performans özellikleri nelerdir
 
 SQL veritabanı hiper ölçekli mimarisi, büyük veritabanı boyutları desteklerken yüksek performanslı ve aktarım hızı sağlar. 
 
@@ -94,7 +94,7 @@ SQL veritabanı hiper ölçekli, iş yükü talebe göre hızlı ölçeklenebili
 
   İle hiper ölçekli, ayrıca, okuma isteklerinin sunmak için kullanabileceğiniz bir veya daha fazla ek işlem düğümleri sağlamasını yapma özelliği edinin. Bu, bu ek işlem düğümleri salt okunur düğüm olarak birincil işlemden iş yükünüz okuma boşaltmak için kullanabileceğiniz anlamına gelir. Ek olarak salt okunur, bu düğümler olarak etkin bekleme Ayrıca hizmet bir hata olması durumunda üzerinden birincil güçlendirin.
 
-  Bu ek işlem düğümleri Sabit sürede yapılabilir ve çevrimiçi bir işlem olduğundan her biri sağlama. Ayarlayarak bu ek salt okunur işlem düğümlerine bağlanabilirsiniz `ApplicationIntent` bağlantı dizenizi bağımsız değişkenine `read_only`. Herhangi bir bağlantı ile işaretlenen `read-only` ek salt okunur işlem düğümlerinden biri için otomatik olarak yönlendirilir.
+  Bu ek işlem düğümleri Sabit sürede yapılabilir ve çevrimiçi bir işlem olduğundan her biri sağlama. Ayarlayarak bu ek salt okunur işlem düğümlerine bağlanabilirsiniz `ApplicationIntent` bağlantı dizenizi bağımsız değişkenine `readonly`. Herhangi bir bağlantı ile işaretlenen `readonly` ek salt okunur işlem düğümlerinden biri için otomatik olarak yönlendirilir.
 
 ## <a name="deep-dive-questions"></a>Derin Dalış sorular
 
@@ -140,7 +140,7 @@ Hayır.
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>Kaç tane okuma ölçeği yinelemeler desteklenir
 
-Hiper ölçekli veritabanları varsayılan olarak, varsayılan olarak bir okuma ölçeği çoğaltması (toplam iki çoğaltmalar) ile oluşturulur. 0 ile 4 kullanarak arasında salt okunur çoğaltmaların sayısı ölçeklendirebilirsiniz [Azure portalında](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)...
+Hiper ölçekli veritabanları varsayılan olarak, varsayılan olarak bir okuma ölçeği çoğaltması (toplam iki çoğaltmalar) ile oluşturulur. 0 ile 4 kullanarak arasında salt okunur çoğaltmaların sayısı ölçeklendirebilirsiniz [Azure portalında](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>Yüksek kullanılabilirlik için miyim sağlamak için ek işlem düğümleri
 
@@ -361,7 +361,7 @@ Varsayılan olarak hiper ölçekli veritabanları için 2 çoğaltması oluştur
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Bu ikincil işlem düğümlerine nasıl bağlanabilirim
 
-Ayarlayarak bu ek salt okunur işlem düğümlerine bağlanabilirsiniz `ApplicationIntent` bağlantı dizenizi bağımsız değişkenine `read_only`. Herhangi bir bağlantı ile işaretlenen `read-only` ek salt okunur işlem düğümlerinden biri için otomatik olarak yönlendirilir.  
+Ayarlayarak bu ek salt okunur işlem düğümlerine bağlanabilirsiniz `ApplicationIntent` bağlantı dizenizi bağımsız değişkenine `readonly`. Herhangi bir bağlantı ile işaretlenen `readonly` ek salt okunur işlem düğümlerinden biri için otomatik olarak yönlendirilir.  
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Okuma ölçeği çoğaltma için ayrılmış bir uç noktası oluşturabilir miyim
 

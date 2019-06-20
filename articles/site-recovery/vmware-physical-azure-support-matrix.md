@@ -1,27 +1,27 @@
 ---
 title: VMware Vm'lerini ve fiziksel sunucuları Azure Site Recovery ile azure'a olağanüstü durum kurtarma için destek matrisi | Microsoft Docs
-description: VMware Vm'lerini ve fiziksel sunucudan azure'a Azure Site Recovery ile olağanüstü durum kurtarma için bileşenleri ve desteklenen işletim sistemleri özetlenmektedir.
+description: VMware Vm'lerini ve fiziksel sunucudan azure'a Azure Site Recovery ile olağanüstü durum kurtarma desteği özetler.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8b1f3740018d9f6d9eacdae573054a6d9fa8542f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fd9f56c262ce3a7110aa71bf72d01fe875212c0
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073963"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275754"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
-Bu makalede kullanarak desteklenen bileşenler ve Azure'da VMware vm'lerinin olağanüstü durum kurtarma için ayarları özetler [Azure Site Recovery](site-recovery-overview.md).
+Bu makalede desteklenen bileşenlerin ve VMware vm'lerinin olağanüstü durum kurtarma için ayarları ve fiziksel sunucuları aracılığıyla Azure'a özetlenmektedir [Azure Site Recovery](site-recovery-overview.md).
 
-En basit dağıtım senaryosu ile Azure Site Recovery kullanmaya başlamak için ziyaret bizim [öğreticiler](tutorial-prepare-azure.md). Azure Site Recovery mimarisi hakkında daha fazla bilgi [burada](vmware-azure-architecture.md).
+- [Daha fazla bilgi edinin](vmware-azure-architecture.md) VMware VM'LERİNİ/fiziksel sunucu olağanüstü durum kurtarma mimarisi hakkında.
+- İzleyin bizim [öğreticiler](tutorial-prepare-azure.md) olağanüstü durum kurtarma denemek için.
 
-## <a name="deployment-scenario"></a>Dağıtım senaryosu
+## <a name="deployment-scenarios"></a>Dağıtım senaryoları
 
 **Senaryo** | **Ayrıntılar**
 --- | ---
@@ -32,29 +32,33 @@ Fiziksel sunucuları olağanüstü durum kurtarma | Şirket içi Windows/Linux f
 
 **Sunucu** | **Gereksinimler** | **Ayrıntılar**
 --- | --- | ---
-VMware | vCenter Server 6.7 6.5, 6.0 veya 5.5 veya vSphere 6.7, 6.5, 6.0 veya 5.5 | Bir vCenter sunucusu kullanmanızı öneririz.<br/><br/> VSphere konaklarını ve vCenter sunucularını işlem sunucusu aynı ağda bulunan öneririz. İşlem sunucusu bileşenleri çalıştırır yapılandırma sunucusunda bir adanmış işlem sunucusu ayarlamadıysanız ayarlamadığınız sürece bu yapılandırma sunucusunu, ayarladığınız ağ olur.
-Fiziksel | Yok
+vCenter Server | Sürüm 6.7, 6.5, 6.0 veya 5.5 | Olağanüstü durum kurtarma dağıtımınızda bir vCenter sunucusu kullanmanızı öneririz.
+vSphere konakları | Sürüm 6.7, 6.5, 6.0 veya 5.5 | VSphere konaklarını ve vCenter sunucularını işlem sunucusu aynı ağda bulunan öneririz. Varsayılan olarak, işlem sunucusu yapılandırma sunucusunda çalışır. [Daha fazla bilgi edinin](vmware-physical-azure-config-process-server-overview.md).
+
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery yapılandırma sunucusu
 
-Yapılandırma sunucusu, işlem sunucusu ve ana hedef sunucusu da dahil olmak üzere, Site Recovery bileşenlerini çalıştıran bir şirket içi makineyi yapılandırma sunucusudur. VMware çoğaltması için yapılandırma sunucusu ile tüm gereksinimleri, bir VMware VM oluşturmak için OVF şablonunu kullanarak ayarladığınız. Fiziksel sunucu çoğaltma için yapılandırma sunucusu makine el ile ayarlayabilir.
+Yapılandırma sunucusu, işlem sunucusu ve ana hedef sunucusu da dahil olmak üzere, Site Recovery bileşenlerini çalıştıran bir şirket içi makineyi yapılandırma sunucusudur.
+
+- VMware Vm'leri için yapılandırma sunucusunu bir VMware VM oluşturmak için OVF şablonunu indirerek ayarlayın.
+- Fiziksel sunucular için yapılandırma sunucusu makineyi el ile ayarlayın.
 
 **Bileşen** | **Gereksinimler**
 --- |---
 CPU çekirdekleri | 8
 RAM | 16 GB
 Disk sayısı | 3 diskler<br/><br/> Diskler, işletim sistemi diski, işlem sunucusu önbellek diski ve yeniden çalışma için bekletme sürücüsü içerir.
-Boş disk alanı | İşlem sunucusu önbelleği için gereken alanı 600 GB.
-Boş disk alanı | Bekletme sürücüsü için gereken alanı 600 GB.
+Boş disk alanı | İşlem sunucusu önbelleği için alanı 600 GB.
+Boş disk alanı | Bekletme sürücüsü için alanı 600 GB.
 İşletim sistemi  | Windows Server 2012 R2 veya Windows Server 2016 masaüstü deneyimi ile |
 İşletim sistemi yerel ayarı | İngilizce (en-us)
-PowerCLI | [Powerclı 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "Powerclı 6.0") sürümlerinden ile yapılandırma sunucusu için gerekli değildir [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
-Windows Server rolleri | Etkinleştirme: <br/> - Active Directory Domain Services <br/>- İnternet Bilgi Hizmetleri <br/> - Hyper-V |
-Grup İlkeleri| Etkinleştirme: <br/> -Komut istemine erişimi engelleyin. <br/> -Kayıt defteri düzenleme araçlarına erişimi engelleyin. <br/> -Mantıksal dosya ekleri için güven. <br/> -Betik yürütmeyi açma. <br/> [Daha fazla bilgi edinin](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+[PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Configuration server sürümü için gerekli değildir [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) veya üzeri. 
+Windows Server rolleri | Active Directory Domain Services etkinleştirme; Internet Information Services (IIS) veya Hyper-V. 
+Grup İlkeleri| -Komut istemine erişimi engelleyin. <br/> -Kayıt defteri düzenleme araçlarına erişimi engelleyin. <br/> -Mantıksal dosya ekleri için güven. <br/> -Betik yürütmeyi açma. <br/> - [Daha fazla bilgi edinin](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Emin olun:<br/><br/> -Önceden var olan bir varsayılan Web sitesi yok <br/> -Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br/> -Önceden var olan Web sitesi/uygulama bağlantı noktası 443 üzerinde dinleme yok<br/>
 NIC türü | VMXNET3 (VMware VM olarak dağıtıldığında)
 IP adresi türü | Statik
-Bağlantı Noktaları | denetim kanalı düzenleme için kullanılan 443)<br/>Veri taşıma için kullanılan 9443
+Bağlantı Noktaları | denetim kanalı düzenleme için kullanılan 443<br/>veri aktarımı için 9443
 
 ## <a name="replicated-machines"></a>Çoğaltılan makineler
 
@@ -63,16 +67,21 @@ Site Recovery, desteklenen bir makinede çalışan tüm iş yüklerini çoğalt�
 **Bileşen** | **Ayrıntılar**
 --- | ---
 Makine ayarları | Azure'a çoğaltılan makineler karşılamalıdır [Azure gereksinimleri](#azure-vm-requirements).
-Makine iş yükü | Site Recovery tüm iş yükleri (örneğin, Active Directory, SQL server vb.) çoğaltılmasını destekler desteklenen bir makinede çalışıyor. [Daha fazla bilgi edinin](https://aka.ms/asr_workload).
-Windows işletim sistemi | Windows Server 2019 (gelen [9.22 sürümleri](service-updates-how-to.md#links-to-currently-supported-update-rollups)), 64-bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi ile sunucu), Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1. </br> [9.24 sürümleri](https://support.microsoft.com/en-in/help/4503156), 64-bit Windows 10, Windows 8.1 64 bit, 64 bit Windows 8, 64 bit Windows 7 (Windows 7 RTM desteklenmez)</br>  [Windows Server 2008 ile en az SP2 - 32 bit ve 64 bit](migrate-tutorial-windows-server-2008.md) (yalnızca geçiş). </br></br> Windows 2016 Nano sunucu desteklenmiyor.
-Linux işletim sistemi mimarisi | Yalnızca 64 bit sistem desteklenir. 32-bit sistem desteklenmiyor
-Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 için 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.6 <br/><br/>CentOS: 5.2 için 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.6 <br/><br/>Ubuntu 14.04 LTS server [(çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server [(çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8 [(çekirdek sürümleri desteklenir)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(çekirdek sürümleri desteklenir)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, Red Hat uyumlu çekirdek veya kesilemeyen kurumsal çekirdek sürümü 3, 4 ve 5 (UEK3, UEK4, UEK5) çalıştıran 7.6 <br/><br/></br>-Çoğaltılan makineler için SP4 SUSE Linux Enterprise Server 11 SP3 ' yükseltme desteklenmez. Yükseltmek için çoğaltmayı devre dışı bırakın ve yükseltmeden sonra yeniden etkinleştirin.</br></br> - [Daha fazla bilgi edinin](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi azure'da desteği hakkında. Site Recovery Azure'da Linux sunucuları çalıştırmak için yük devretme işlemlerini yönetir. Ancak Linux satıcılar yalnızca son yaşam geçmediği dağıtım sürümleri için destek sınırlayabilir.<br/><br/> -Linux dağıtımlarında dağıtım podverze yayın/güncelleştirmenin parçası olan stok çekirdekler desteklenir.<br/><br/> -Korumalı makineler arasında önemli Linux dağıtım sürümleri desteklenmez yükseltme. Yükseltmek için çoğaltmayı devre dışı bırak, işletim sistemini yükseltin ve ardından çoğaltmayı yeniden etkinleştirin.<br/><br/> -Red Hat Enterprise Linux 5.2-5.11 veya CentOS 5.2-5.11 çalıştıran sunucular olmalıdır [Linux Integration Services (LIS) bileşenleri](https://www.microsoft.com/download/details.aspx?id=55106) makineler Azure'da önyüklemesini yapmak için yüklü.
+Makine iş yükü | Site Recovery, desteklenen bir makinede çalışan tüm iş yüklerini çoğaltılmasını destekler. [Daha fazla bilgi edinin](https://aka.ms/asr_workload).
+Windows | -Windows Server 2019 (desteklenir [güncelleştirme paketi 34](https://support.microsoft.com/help/4490016) (sürüm 9.22 Mobility hizmetinin) ve sonraki sürümler.<br/> -Windows Server 2016 (64 bit Sunucu Çekirdeği, masaüstü deneyimi ile sunucu)<br/> - Windows Server 2012 R2, Windows Server 2012<br/> -Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1.<br/> -Windows Server 2008, 64 ve 32-bitten en azından SP2]. Geçiş için desteklenmiyor. [Daha fazla bilgi edinin](migrate-tutorial-windows-server-2008.md).<br/> -Windows 10, Windows 8.1, Windows 8, Windows 7 64-bit (desteklenir [güncelleştirme paketi 36](https://support.microsoft.com/help/4503156) (9.22 Mobility hizmetinin sürümü ve üzeri). Windows 7 RTM desteklenmez. 
+Linux | Yalnızca 64 bit sistem desteklenir. 32-bit sistem desteklenmez.<br/><br/> Site Recovery Azure'da Linux sunucuları çalıştırmak için yük devretme işlemlerini yönetir. Ancak Linux satıcılar yalnızca son yaşam geçmediği dağıtım sürümleri için destek sınırlayabilir.<br/><br/> Linux dağıtımlarında, dağıtım podverze yayın/güncelleştirmenin parçası olan stok çekirdekler desteklenir.<br/><br/> Korumalı makineler arasında önemli Linux dağıtım sürümleri desteklenmez yükseltiliyor. Yükseltmek için çoğaltmayı devre dışı bırak, işletim sistemini yükseltin ve ardından çoğaltmayı yeniden etkinleştirin.<br/><br/> [Daha fazla bilgi edinin](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi azure'da desteği hakkında.
+Linux Red Hat Enterprise | 5.2 için 5.11</b><br/> 6.1 için 6.10</b><br/> 7.0 için 7.6<br/> <br/> Red Hat Enterprise Linux çalıştıran sunucular 5.2-5.11 olmalıdır [Linux Integration Services (LIS) bileşenleri](https://www.microsoft.com/download/details.aspx?id=55106) makineler Azure'da önyüklemesini yapmak için yüklü.
+Linux: CentOS | 5.2 için 5.11</b><br/> 6.1 için 6.10</b><br/> 7.0 için 7.6<br/> <br/> 5\.2-5.11 CentOS çalıştıran sunucular olmalıdır [Linux Integration Services (LIS) bileşenleri](https://www.microsoft.com/download/details.aspx?id=55106) makineler Azure'da önyüklemesini yapmak için yüklü.
+Ubuntu | Ubuntu 14.04 LTS server [(desteklenen gözden geçirme çekirdek sürümleri)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server [(desteklenen gözden geçirme çekirdek sürümleri)](#ubuntu-kernel-versions)
+Debian | Debian 7/Debian 8 [(desteklenen gözden geçirme çekirdek sürümleri)](#debian-kernel-versions)
+SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(desteklenen gözden geçirme çekirdek sürümleri)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> Çoğaltılan makineler SP4 için SUSE Linux Enterprise Server 11 SP3 ' yükseltme desteklenmez. Yükseltmek için çoğaltmayı devre dışı bırakın ve yükseltmeden sonra yeniden etkinleştirin.
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6<br/><br/> Red Hat uyumlu çekirdek veya kesilemeyen kurumsal çekirdek sürümü 3, 4 ve 5 (UEK3, UEK4, UEK5) çalıştıran 
 
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu çekirdek sürümleri
 
 
-**Desteklenen sürüm** | **Azure Site Recovery Mobility hizmeti sürümü** | **Çekirdek sürümü** |
+**Desteklenen sürüm** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
 14.04 LTS | [9.24][9.25 UR]  | 3.13.0-24-Generic 3.13.0-169-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-146-generic için<br/>4.15.0-1023-Azure 4.15.0-1042-azure için |
 14.04 LTS | [9.24][9.24 UR] | 3.13.0-24-Generic 3.13.0-167-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-143-generic için<br/>4.15.0-1023-Azure 4.15.0-1040-azure için |
@@ -87,19 +96,19 @@ Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 için 5.11<b>\*\*</b>, 6.
 ### <a name="debian-kernel-versions"></a>Debian çekirdek sürümleri
 
 
-**Desteklenen sürüm** | **Azure Site Recovery Mobility hizmeti sürümü** | **Çekirdek sürümü** |
+**Desteklenen sürüm** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-Debian 7 | [9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR], [9.24][9.24 UR]| 3.2.0-4-AMD64 3.2.0-6-amd64 için 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR], [9,24][9.24 UR]| 3.2.0-4-AMD64 3.2.0-6-amd64 için 3.16.0-0.bpo.4-amd64 |
 |||
 Debian 8 | [9.25][9.25 UR] | 3.16.0-4-AMD64 3.16.0-8-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo.8-amd64 için için |
-Debian 8 | [9.22][9.22 UR],[9.23][9.23 UR], [9.24][9.24 UR] | 3.16.0-4-AMD64 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo.8-amd64 için için |
+Debian 8 | [9.22][9.22 UR],[9.23][9.23 UR], [9,24][9.24 URL] | 3.16.0-4-AMD64 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo.8-amd64 için için |
 
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 çekirdeği sürümlerinde desteklenir.
 
 **Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-SUSE Linux Enterprise Server (SP1, SP2, SP3, SP4) 12 | [9.25][9.25 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.104-default için</br></br>SP3 4.4.73-5-default 4.4.176-94.88-default için</br></br>SP4 4.12.14-94.41-default 4.12.14-95.13-default için |
+SUSE Linux Enterprise Server (SP1, SP2, SP3, SP4) 12 | [9.25][9.25 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.104-default için</br></br>SP3 4.4.73-5-default 4.4.176-94.88-default için</br></br>SP3 4.4.138-4.7-azure 4.4.176-4.25-azure için</br></br>SP4 4.12.14-94.41-default 4.12.14-95.13-default için</br>SP4 4.12.14-6.3-azure 4.12.14-6.9-azure için |
 SUSE Linux Enterprise Server (SP1, SP2, SP3, SP4) 12 | [9.24][9.24 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.101-default için</br></br>SP3 4.4.73-5-default 4.4.175-94.79-default için</br></br>SP4 4.12.14-94.41-default 4.12.14-95.6-default için |
 SUSE Linux Enterprise Server (SP1, SP2, SP3, SP4) 12 | [9.23][9.23 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.101-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.69-default için</br></br>SP4 4.12.14-94.41-default 4.12.14-95.6-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | [9.22][9.22 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.72-default için |
@@ -110,23 +119,23 @@ SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | [9.22][9.22 UR] | SP1 3.12.49-1
 **Bileşen** | **Destekleniyor**
 --- | ---
 Dosya sistemleri | ext3, ext4, XFS
-Birim Yöneticisi | Önce [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM'yi desteklenir. <br/> 2. makinesiyse LVM birimde desteklenmez. <br/> 3. Birden çok işletim sistemi diskleri desteklenmez.<br/><br/>Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) makinesiyse LVM üzerinde ve sonraki sürümlerde desteklenir. Birden çok işletim sistemi diskleri desteklenmez.
+Birim Yöneticisi | -LVM desteklenir.<br/> - / LVM önyükleme desteklenir [güncelleştirme toplaması 31](https://support.microsoft.com/help/4478871/) (sürüm 9.20 Mobility hizmetinin) ve sonraki sürümler. Önceki Mobility hizmeti sürümlerinde desteklenmez.<br/> -Birden çok işletim sistemi diskleri desteklenmez.
 Parasanallaştırılmış depolama cihazları | Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar desteklenmez.
 Birden fazla kuyruk blok g/ç cihazları | Desteklenmiyor.
 HP CCISS depolama denetleyicisi ile fiziksel sunucuları | Desteklenmiyor.
-Cihaz/bağlama noktası adlandırma kuralı | Cihaz adı veya bağlama noktası adı benzersiz olmalıdır. Hiçbir iki cihazları/bağlama noktaları büyük/küçük harfe duyarlı adlara sahip olduğundan emin olun. </br> Örnek: Aynı sanal makineye iki cihazını adlandırma *cihaz1* ve *cihaz1* izin verilmiyor.
-Dizinler | Önce [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. Aşağıdaki dizinleri (varsa ayrı bölümler/dosya-sistemleri ayarlanmış) tüm kaynak sunucuyla aynı işletim sistemi diskinde olmalıdır: / (root), makinesiyse, / usr, / usr/local, /var, / etc.</br>2. makinesiyse bir disk bölümünde olmalı ve LVM birim olmaması gerekir.<br/><br/> Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) ve sonraki sürümlerde, kısıtlama geçerli değildir. birden fazla disklerde LVM birimdeki makinesiyse desteklenmiyor.
-Önyükleme dizini | Bir sanal makinede birden fazla önyükleme diski desteklenmiyor <br/><br/> Önyükleme diski olmadan bir makine korunamaz.
+Cihaz/bağlama noktası adlandırma kuralı | Cihaz adı veya bağlama noktası adı benzersiz olmalıdır.<br/> Hiçbir iki cihazları/bağlama noktaları büyük küçük harfe duyarlı adlara sahip olduğundan emin olun. Örnek aynı VM için cihazları adlandırma *cihaz1* ve *cihaz1* desteklenmiyor.
+Dizinler | Mobility hizmetinin sürümü 9.20'den önceki bir sürümünü çalıştırıyorsanız, (, çıkan [güncelleştirme toplaması 31](https://support.microsoft.com/help/4478871/)), sonra da bu sınırlamalar:<br/><br/> -Bu dizinleri (bölümler/dosya-sistemleri ayarlama olarak ayırarak,) kaynak sunucudaki aynı işletim sistemi diski olması gerekir: / (root), makinesiyse, / usr, / usr/local, /var, / etc.</br> -Makinesiyse dizin, bir disk bölümünde olmalı ve LVM birim olmaması gerekir.<br/><br/> Sürümünden 9.20 ve sonraki sürümlerde, bu kısıtlama geçerli değildir. 
+Önyükleme dizini | -Birden fazla önyükleme diski bir sanal makine üzerinde desteklenir <br/> - / birden fazla disk arasında LVM birimdeki önyüklemesi desteklenmez.<br/> -Bir makine önyükleme diski olmadan yinelenemez.
 Boş alan gereksinimleri| 2 GB/root bölümdeki <br/><br/> Yükleme klasöründeki 250 MB
-XFSv5 | Mobilite hizmeti sürümünden 9.10 ileriye doğru XFS dosya sistemleri gibi meta veri sağlama XFSv5 özellikleri desteklenir. Süper blok XFS kullanarak bölümü için denetlenecek xfs_info yardımcı programını kullanın. Varsa `ftype` XFSv5 özellikleri kullanımda olan 1 olarak ayarlanmışsa.
-BTRFS |9\.22 sürümünden BTRFS, aşağıdaki senaryolar dışında desteklenir</br>BTRFS dosya sistemi alt birimi koruma etkinleştirildikten sonra değiştirilirse, BTRFS desteklenmiyor. </br>BTRFS dosya sistemi birden çok disk yayılmışsa BTRFS desteklenmiyor.</br>RAID BTRFS dosya sistemi destekliyorsa, BTRFS desteklenmiyor.
+XFSv5 | Meta veri sağlama gibi XFS dosya sistemlerindeki XFSv5 özellikler, desteklenen (Mobility hizmeti sürümü 9.10 ve sonraki sürümler) olabilir.<br/> Süper blok XFS kullanarak bölümü için denetlenecek xfs_info yardımcı programını kullanın. Varsa `ftype` XFSv5 özellikleri kullanımda olan 1 olarak ayarlanmışsa.
+BTRFS | BTRFS desteklenir [güncelleştirme paketi 34](https://support.microsoft.com/help/4490016) (sürüm 9.22 Mobility hizmetinin) ve sonraki sürümler. BTRFS durumunda desteklenmez:<br/><br/> -BTRFS dosya sistemi subvolume koruma etkinleştirildikten sonra değişir.</br> -BTRFS dosya sistemi birden çok disk yayılır.</br> -RAID BTRFS dosya sistemini destekler.
 
 ## <a name="vmdisk-management"></a>VM/Disk Yönetimi
 
 **Eylem** | **Ayrıntılar**
 --- | ---
 Çoğaltılmış sanal diski yeniden boyutlandırma | Destekleniyor.
-Çoğaltılmış VM'ye disk ekleme | Sanal makine için çoğaltmayı devre dışı bırakmak, disk ekleyin ve ardından çoğaltmayı yeniden etkinleştirin. Çoğaltma bir VM'ye disk ekleme şu anda desteklenmemektedir.
+Çoğaltılmış VM'ye disk ekleme | Desteklenmiyor.<br/> Sanal makine için çoğaltmayı devre dışı bırakmak, disk ekleyin ve ardından çoğaltmayı yeniden etkinleştirin.
 
 ## <a name="network"></a>Ağ
 
@@ -157,12 +166,12 @@ Ayrılmış IP adresi | Evet
 IPv4 | Evet
 Kaynak IP adresini koruma | Evet
 Azure sanal ağ hizmet uç noktaları<br/> | Evet
-Hızlandırılmış Ağ | Hayır
+Hızlandırılmış ağ iletişimi | Hayır
 
 ## <a name="storage"></a>Depolama
 **Bileşen** | **Destekleniyor**
 --- | ---
-Dinamik disk | İşlemi sistem diski temel disk olması gerekir. <br/><br/>Veri diskleri dinamik diskleri olabilir.
+Dinamik disk | İşletim sistemi diski, bir temel disk olması gerekir. <br/><br/>Veri diskleri dinamik diskleri olabilir.
 Docker disk yapılandırması | Hayır
 Konak NFS | VMware için Evet<br/><br/> Fiziksel sunucular için Hayır
 Konak SAN (iSCSI/FC) | Evet
@@ -184,7 +193,8 @@ Konuk/sunucu - depolama alanları | Hayır
 Konuk/sunucu sık erişimli Ekle/Kaldır disk | Hayır
 Konuk/sunucu - disk dışlama | Evet
 Konuk/sunucu çok yollu (MPIO) | Hayır
-Konuk/server EFI/UEFI'ye önyükleme | VMware Vm'lerini veya fiziksel sunucuları Windows Server 2012 çalıştıran geçiş yaparken ya da daha sonra Azure'a desteklenir.<br/><br/> Yalnızca, geçiş için Vm'lerini çoğaltabilirsiniz. Şirket içine yeniden çalışma desteklenmez.<br/><br/> Sunucu işletim sistemi diskinde dörtten fazla bölümler olmamalıdır.<br/><br/> Mobility hizmeti sürümü 9.13 veya üstü gerektirir.<br/><br/> Yalnızca NTFS desteklenmiyor.
+Konuk/sunucu GPT bölüm | Beş bölümler desteklenen [güncelleştirme paketi 37](https://support.microsoft.com/help/4508614/) (sürüm 9,25 Mobility hizmetinin) ve sonraki sürümler. Dört daha önce desteklenen.
+Konuk/server EFI/UEFI'ye önyükleme | -Mobility hizmeti sürümü 9.13 veya üstü çalıştırırken desteklenmiyor.<br/> -VMware Vm'lerini veya fiziksel sunucuları Windows Server 2012 çalıştıran geçiş yaparken ya da daha sonra Azure'a desteklenir.<br/> -Sanal makineleri geçiş için yalnızca çoğaltabilirsiniz. Şirket içine yeniden çalışma desteklenmez.<br/> -Yalnızca NTFS desteklenmiyor. <br/> -Disk sektör boyutu 512 bayt / kesim fiziksel olmalıdır.
 
 ## <a name="replication-channels"></a>Çoğaltma kanallar
 
@@ -193,7 +203,6 @@ Konuk/server EFI/UEFI'ye önyükleme | VMware Vm'lerini veya fiziksel sunucular�
 |Boşaltılan veri aktarımları (ODX)    |       Hayır  |
 |Çevrimdışı Dengeli Dağıtım        |   Hayır      |
 | Azure Data Box | Hayır
-
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -205,10 +214,10 @@ Okuma erişimli coğrafi olarak yedekli depolama | Evet
 Seyrek erişimli depolama | Hayır
 Sık erişimli depolama| Hayır
 Blok blobları | Hayır
-(Depolama hizmeti şifrelemesi) bekleyen şifreleme| Evet
+Bekleyen şifreleme (SSE)| Evet
 Premium depolama | Evet
 İçeri/dışarı aktarma hizmeti | Hayır
-Hedef depolama/önbellek depolama hesabı (çoğaltma verilerini depolamak için kullanılan) üzerinde yapılandırılan sanal ağlar için Azure depolama güvenlik duvarları | Evet
+Sanal ağlar için Azure depolama güvenlik duvarları | Evet.<br/> Hedef depolama/önbellek depolama hesabı (çoğaltma verilerini depolamak için kullanılan) üzerinde yapılandırılmış.
 Genel amaçlı v2 depolama hesaplarının (sık erişimli ve seyrek erişimli Katmanlar) | Hayır
 
 ## <a name="azure-compute"></a>Azure işlem
@@ -222,7 +231,7 @@ Yönetilen diskler | Evet
 
 ## <a name="azure-vm-requirements"></a>Azure VM gereksinimleri
 
-Azure'a Çoğalttığınız şirket içi Vm'leri bu tabloda özetlenen Azure VM gereksinimleri karşılaması gerekir. Site Recovery, bir önkoşul denetimi çalıştığında, bazı gereksinimleri karşılanmadığı takdirde başarısız olur.
+Azure'a çoğaltılan VM'ler bu tabloda özetlenen Azure VM gereksinimleri karşılamalıdır şirket içi. Site Recovery çoğaltması için bir önkoşul denetimi çalıştığında, bazı gereksinimleri karşılanmadığı takdirde denetimi başarısız olur.
 
 **Bileşen** | **Gereksinimler** | **Ayrıntılar**
 --- | --- | ---
@@ -238,11 +247,14 @@ FC diski | Desteklenmiyor. | Onay desteklenmeyen başarısız olur.
 BitLocker | Desteklenmiyor. | Bir makine için çoğaltmayı etkinleştirmeden önce BitLocker'ı devre dışı bırakılması gerekir. |
 VM adı | 1 63 karakter.<br/><br/> Harfler, sayılar ve kısa çizgilerden oluşabilir.<br/><br/> Makine adı başlamalı ve bir harf veya sayı ile bitmelidir. |  Site recovery'de makine özellikleri değerini güncelleştirin.
 
-## <a name="azure-site-recovery-churn-limits"></a>Azure Site Recovery karmaşıklığı sınırları
+## <a name="churn-limits"></a>Sınırları değişim sıklığı
 
-Aşağıdaki tablo, Azure Site Recovery sınırlarını sağlar. Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. En iyi sonuçlar için kesinlikle öneririz [dağıtım Planlayıcısı aracını çalıştırma](site-recovery-deployment-planner.md) ve uygulamanın gerçek performans görüntüsünü elde etmek üzere kapsamlı uygulama testleri bir test yük devretmesi göndererek gerçekleştirin.
+Aşağıdaki tablo, Azure Site Recovery sınırlarını sağlar. 
+- Bu limitler yaptığımız testleri temel alarak, ancak tüm olası uygulama g/ç birleşimlerini kapsamaz.
+- Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir.
+- En iyi sonuçlar için çalıştırmanızı öneririz [dağıtım Planlayıcısı aracını](site-recovery-deployment-planner.md), kullanarak kapsamlı uygulama testi gerçekleştirin uygulamanız için gerçek performans görüntüsünü almak için yük devretme testi.
 
-**Çoğaltma depolama hedefi** | **Ortalama kaynak disk G/Ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
+**Çoğaltma hedefi** | **Ortalama kaynak disk G/Ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
 ---|---|---|---
 Standart depolama | 8 KB | 2 MB/sn | Disk başına 168 GB
 Premium P10 veya P15 disk | 8 KB  | 2 MB/sn | Disk başına 168 GB
@@ -251,37 +263,41 @@ Premium P10 veya P15 disk | 32 KB veya daha büyük | 8 MB/sn | Disk başına 67
 Premium P20 veya P30 veya P40 veya P50 disk | 8 KB    | 5 MB/sn | Disk başına 421 GB
 Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |20 MB/sn | Disk başına 1684 GB
 
+
 **Kaynak veri değişim sıklığı** | **Üst Sınır**
 ---|---
 VM başına ortalama veri değişim sıklığı| 25 MB/sn
 VM üzerindeki tüm disklerde en yüksek veri değişim sıklığı | 54 MB/sn
 İşlem Sunucusu tarafından desteklenen günlük en fazla veri değişim sıklığı | 2 TB
 
-Bunlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır. Site Recovery; çakışma oranı, büyük yazma boyutları ve gerçek iş yükü G/Ç davranışına göre daha yüksek aktarım hızını işleyebilir. Yukarıdaki sayılar yaklaşık beş dakikalık tipik bir kapsamı varsayar. Diğer bir deyişle, veriler karşıya yüklendikten sonra işlenir ve beş dakika içinde kurtarma noktası oluşturulur.
+- Bunlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır.
+- Site Recovery; çakışma oranı, büyük yazma boyutları ve gerçek iş yükü G/Ç davranışına göre daha yüksek aktarım hızını işleyebilir.
+- Bu sayı yaklaşık beş dakikalık tipik bir kapsamı varsayar. Diğer bir deyişle, veriler karşıya yüklendikten sonra işlenir ve beş dakika içinde kurtarma noktası oluşturulur.
 
 ## <a name="vault-tasks"></a>Kasa görevleri
 
 **Eylem** | **Destekleniyor**
 --- | ---
-Kasa kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında abonelikler | Hayır
-Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında abonelikler | Hayır
+Kasa kaynak grupları arasında taşıma | Hayır
+Kasa içinde ve abonelikler arasında taşıma | Hayır
+Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma | Hayır
+Depolama, ağ, Azure Vm'lerinin içinde ve abonelikler arasında taşıyın. | Hayır
 
 
-## <a name="download-latest-azure-site-recovery-components"></a>En son Azure Site Recovery bileşenlerini yükle
+## <a name="obtain-latest-components"></a>En yeni bileşenleri alın
 
-**Ad** | **Açıklama** | **En son sürümü indirme yönergeleri**
+**Ad** | **Açıklama** | **Ayrıntılar**
 --- | --- | ---
-Yapılandırma sunucusu | Şirket içi VMware sunucularını ve Azure arasındaki iletişimleri koordine eder <br/><br/> Şirket içi VMware sunucularında yüklü | Daha fazla bilgi için ziyaret edip kılavuzumuzu [yüklemesidir](vmware-azure-deploy-configuration-server.md) ve [mevcut bileşenin en son sürüme yükseltme](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-İşlem sunucusu|Varsayılan olarak yapılandırma sunucusuna yüklenir. Bu çoğaltma verilerini alıp; Bu, önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir; ve Azure depolamaya gönderir. Dağıtımınız büyüdükçe, daha büyük çoğaltma trafiği hacimlerini idare etmek ayrı, ek işlem sunucuları ekleyebilirsiniz.| Daha fazla bilgi için ziyaret edip kılavuzumuzu [yüklemesidir](vmware-azure-set-up-process-server-scale.md) ve [mevcut bileşenin en son sürüme yükseltme](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-Mobility hizmeti | Şirket içi VMware sunucuları/fiziksel sunucular ile Azure/ikincil site arasında çoğaltma koordinatları<br/><br/> VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz yüklü | Daha fazla bilgi için ziyaret edip kılavuzumuzu [yüklemesidir](vmware-azure-install-mobility-service.md) ve [mevcut bileşenin en son sürüme yükseltme](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal).
+Yapılandırma sunucusu | Yüklü şirket içi.<br/> Şirket içi VMware sunucularını veya fiziksel makineler ve Azure arasındaki iletişimleri koordine eder. | - [Hakkında bilgi edinin](vmware-physical-azure-config-process-server-overview.md) yapılandırma sunucusu.<br/> - [Hakkında bilgi edinin](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) en son sürüme yükseltme.<br/> - [Hakkında bilgi edinin](vmware-azure-deploy-configuration-server.md) yapılandırma sunucusunu ayarlama. 
+İşlem sunucusu | Varsayılan olarak yapılandırma sunucusuna yüklenir.<br/> Çoğaltma verilerini alıp, önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir ve Azure'a gönderir.<br/> Dağıtımınız büyüdükçe, daha büyük çoğaltma trafiği hacimlerini idare etmek ek işlem sunucuları ekleyebilirsiniz. | - [Hakkında bilgi edinin](vmware-physical-azure-config-process-server-overview.md) işlem sunucusu.<br/> - [Hakkında bilgi edinin](vmware-azure-manage-process-server.md#upgrade-a-process-server) en son sürüme yükseltme.<br/> - [Hakkında bilgi edinin](vmware-physical-large-deployment.md#set-up-a-process-server) genişleme işlem sunucuları kurma.
+Mobility hizmeti | VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz yüklü.<br/> Şirket içi VMware sunucuları/fiziksel sunucular ile Azure arasında çoğaltma düzenler.| - [Hakkında bilgi edinin](vmware-physical-mobility-service-overview.md) Mobility hizmeti.<br/> - [Hakkında bilgi edinin](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) en son sürüme yükseltme.<br/> 
 
-En son özellikler hakkında daha fazla bilgi edinmek için [en son sürüm notları](https://aka.ms/ASR_latest_release_notes).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Bilgi nasıl](tutorial-prepare-azure.md) Azure VMware vm'lerinin olağanüstü durum kurtarmasına hazırlanmak için.
 
-[9.25 UR]: https://support.microsoft.com/en-in/help/4503156
+[9.25 UR]: https://support.microsoft.com/en-in/help/4508614/update-rollup-37-for-azure-site-recovery
 [9.24 UR]: https://support.microsoft.com/en-in/help/4503156
 [9.23 UR]: https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery
 [9.22 UR]: https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery

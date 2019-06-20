@@ -9,11 +9,11 @@ ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: c2931fa410cf92755a5df5b7129dcf93de900930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155923"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188351"
 ---
 Azure platformu güvenilirlik, performans ve sanal makineler için konak altyapısının güvenliğini iyileştirmek için düzenli olarak güncelleştirir. Bu güncelleştirmeler amacı, yazılım bileşenlerini yükseltme bileşenleri ağ veya donanım yetkisini alma barındırma ortamında düzeltme eki uygulama aralıkları. 
 

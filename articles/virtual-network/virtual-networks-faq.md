@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: fcc26d0d42576e8d39407f2af5bafe6de24db19f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497104"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154509"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -382,13 +382,17 @@ Hizmet uç noktaları BGP yolları önceliklidir ve en uygun yönlendirme sağla
 Azure hizmete erişmek için Nsg'ler giden bağlantıya izin gerekir. Tüm İnternet'e giden trafik, Nsg'ler açtıysanız, hizmet uç noktası trafiğini çalışması gerekir. Yalnızca hizmet etiketleri kullanarak IP hizmetine giden trafiği de sınırlayabilirsiniz.  
  
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>Hizmet uç noktalarını ayarlamak hangi izinlerin gerekiyor?
-Hizmet uç noktaları sanal ağda birbirinden bağımsız olarak sanal ağda yazma erişimine sahip bir kullanıcı tarafından yapılandırılabilir. Azure hizmet kaynaklarını bir sanal ağ ile sınırlamak için kullanıcının eklenen alt ağlarda **Microsoft.Network/JoinServicetoaSubnet** iznine sahip olması gerekir. Bu izin, varsayılan olarak yerleşik Hizmet Yöneticisi rolü dahil edilir ve özel roller oluşturularak değiştirilebilir. Yerleşik rolleri hakkında daha fazla bilgi edinin ve belirli izinlerin atanması [özel roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Hizmet uç noktaları sanal ağda birbirinden bağımsız olarak sanal ağda yazma erişimine sahip bir kullanıcı tarafından yapılandırılabilir. Azure hizmet kaynaklarını bir sanal ağ güvenliğini sağlamak için kullanıcı izni olmalıdır **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** eklenen alt ağlarda için. Bu izin, varsayılan olarak yerleşik Hizmet Yöneticisi rolü dahil edilir ve özel roller oluşturularak değiştirilebilir. Yerleşik rolleri hakkında daha fazla bilgi edinin ve belirli izinlerin atanması [özel roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
 ### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Azure Hizmetleri için sanal ağ trafiği yalnızca belirli bir azure hizmet kaynakları sanal ağ hizmet uç noktaları izin vererek filtre sağlayabilirsiniz? 
 
 Sanal ağ (VNet) hizmet uç noktası ilkelerini yalnızca belirli bir Azure hizmet kaynaklarını hizmet uç noktaları izin vererek, Azure Hizmetleri için sanal ağ trafiğini filtreleme olanak sağlar. Uç noktası ilkeleri, Azure Hizmetleri için sanal ağ trafiğinden ayrıntılı erişim denetimi sağlar. Hizmet uç noktası ilkeleri hakkında daha fazla bilgi [burada](virtual-network-service-endpoint-policies-overview.md).
- 
+
+### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Azure Active Directory (Azure AD), sanal ağ hizmet uç noktaları destekliyor mu?
+
+Azure Active Directory (Azure AD) desteklemiyor hizmet uç noktaları yerel olarak. Sanal ağ hizmet uç noktaları destekleyen Azure Hizmetleri'nin tam listesini görülebilir [burada](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Hizmet uç noktaları Destek Hizmetleri altında listelenen "Microsoft.AzureActiveDirectory" etiket ADLS Gen 1 için hizmet uç noktaları desteklemek için kullanıldığını unutmayın. ADLS Gen 1 için Azure Data Lake depolama Gen1 sanal ağ tümleştirmesi için sanal ağ ve Azure Active Directory (Azure AD) arasında sanal ağ hizmet uç noktası güvenlik erişim belirtecinde ek güvenlik taleplerini oluşturmak üzere kullanır. Ardından bu talepler sanal ağınız için Data Lake Storage 1. Nesil hesabınızda kimlik doğrulaması gerçekleştirme ve erişim izni verme amacıyla kullanılır. [Azure Data Lake Store Gen 1 VNet tümleştirmesi] hakkında daha fazla bilgi edinin (.. /Data-Lake-Store/Data-Lake-Store-Network-Security.MD?TOC=%2fazure%2fvirtual-Network%2ftoc.JSON
+
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Herhangi bir sınır üzerinde kaç tane sanal ağ hizmet uç noktaları miyim my sanal ağdan ayarlayabilirsiniz vardır?
 Sanal ağ hizmet uç noktaları bir sanal ağdaki toplam sayısına bir sınır yoktur. Bir Azure hizmet kaynağında (Azure Depolama hesabı gibi), hizmetler kaynağın güvenliğini sağlamak amacıyla kullanılan alt ağ sayısını sınırlandırabilir. Aşağıdaki tabloda bazı örnek sınırlar gösterilmektedir: 
 

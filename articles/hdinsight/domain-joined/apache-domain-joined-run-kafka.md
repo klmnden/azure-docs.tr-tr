@@ -1,18 +1,18 @@
 ---
-title: HDInsight, Kurumsal güvenlik paketi - Azure ile Apache Kafka ilkeleri yapılandırma
-description: Kurumsal Güvenlik Paketi ile Azure HDInsight içinde Kafka için Apache Ranger ilkelerini yapılandırmayı öğrenin.
+title: Öğretici - ile Kurumsal güvenlik paketi - Azure HDInsight, Apache Kafka ilkelerini yapılandırma
+description: Öğretici - Azure HDInsight, Kurumsal güvenlik paketi ile Kafka için Apache Ranger ilkelerini yapılandırmayı öğrenin.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 01/14/2019
-ms.openlocfilehash: 6434f7cae3c3fa402efad00b2f6bfb0bc405f9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/18/2019
+ms.openlocfilehash: 3a7d3a5d066db349bd3002b244d3a9f88777369b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730243"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274354"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Öğretici: HDInsight, Kurumsal güvenlik paketi (Önizleme) ile Apache Kafka ilkeleri yapılandırma
 
@@ -117,7 +117,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
    ```
 
    > [!Note]  
-   > Devam etmeden önce henüz ayarlamadıysanız geliştirme ortamınızı ayarlamanız gerekebilir. Java JDK, Apache Maven ve scp desteğine sahip bir SSH istemcisine ihtiyacınız olacaktır. Daha fazla ayrıntı için [kurulum yönergeleri](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+   > Devam etmeden önce henüz ayarlamadıysanız geliştirme ortamınızı ayarlamanız gerekebilir. Java JDK, Apache Maven ve scp desteğine sahip bir SSH istemcisine ihtiyacınız olacaktır. Daha fazla bilgi için [kurulum yönergeleri](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
    
 1. [Apache Kafka etki alanına katılmış üretici tüketici örneklerini](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) indirin.
 

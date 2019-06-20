@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: monhaber
-ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e2d66db2ae3c379db86d40603d919489fdf15eed
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480527"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144253"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platformlar ve Azure Güvenlik Merkezi tarafından desteklenen özellikler
 
@@ -78,7 +78,7 @@ Bir bulut hizmetinde çalışan sanal makineleri de desteklenir. Üretim yuvalar
 > [!div class="mx-tableFixed"]
 > 
 
-|Sunucusu|Windows||Linux||||Fiyatlandırma|
+|Sunucusu|Windows|||Linux|||Fiyatlandırma|
 |----|----|----|----|----|----|----|----|
 |**Ortam**|**Azure**||**Azure dışı**|**Azure**||**Azure dışı**||
 ||**Sanal Makine**|**Sanal makine ölçek kümesi**||**Sanal Makine**|**Sanal makine ölçek kümesi**|

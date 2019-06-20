@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek, jrasnick
+ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160796"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275203"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL veritabanı için DNS diğer adı
 
@@ -49,7 +49,7 @@ Daha sonra yeni sisteme üretim ortamında dinamik çıktığında, üretim SQL 
 
 ### <a name="cross-region-support"></a>Bölgeler arası destek
 
-Bir olağanüstü durum kurtarma için farklı bir coğrafi bölgede SQL veritabanı sunucunuza kaydırma. Bir sistem için bir DNS diğer adı kullanan daha bulun ve tüm istemciler için tüm bağlantı dizelerini güncelleştirmek için gereken önlenebilir. Bunun yerine, artık veritabanınızı barındıran yeni SQL veritabanı sunucusuna başvurmak için bir diğer ad güncelleştirebilirsiniz.
+Bir olağanüstü durum kurtarma için farklı bir coğrafi bölgede SQL veritabanı sunucunuza kaydırma. Bir DNS diğer adı kullanan bir sistem bulun ve tüm istemciler için tüm bağlantı dizelerini güncelleştirmek için gereken önlenebilir. Bunun yerine, artık veritabanınızı barındıran yeni SQL veritabanı sunucusuna başvurmak için bir diğer ad güncelleştirebilirsiniz.
 
 ## <a name="properties-of-a-dns-alias"></a>Bir DNS diğer adı özellikleri
 
@@ -67,13 +67,6 @@ Aşağıdaki özellikler, SQL veritabanı sunucunuz için her bir DNS diğer ad�
 REST API'lerini hem PowerShell cmdlet'leri sağlamak, DNS diğer adları programlı olarak yönetmek kullanılabilir.
 
 ### <a name="rest-apis-for-managing-your-dns-aliases"></a>Kendi DNS diğer adları yönetmek için REST API'leri
-
-<!-- TODO
-??2 "soon" in the following live sentence, is not the best situation.
-TODO update this subsection very soon after REST API docu goes live.
-Dev = Magda Bojarska
-Comment as of:  2018-01-26
--->
 
 REST API belgelerini, aşağıdaki web konumun kullanılabilir:
 
@@ -111,7 +104,7 @@ Aşağıdaki kod örneğinde kullanılan cmdlet'ler şunlardır:
 - *En fazla 2 dakika gecikmesi:* Kaldırılan veya güncelleştirilmesi bir DNS diğer adı en fazla 2 dakika sürer.
   - Kısa bir gecikme bağımsız olarak eski sunucunun istemci bağlantılarını başvuran diğer hemen durdurur.
 - *DNS araması:* Şimdilik yalnızca yetkili gerçekleştirerek belirli bir DNS diğer adı başvurduğu hangi sunucu olup olmadığını denetleyin şekilde bir [DNS araması](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Tablo denetimi desteklenmiyor](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* Bir DNS diğer adı olan bir Azure SQL veritabanı sunucusunda kullanamazsınız *tablo denetleme* bir veritabanında etkin.
+- _Tablo denetimi desteklenmez:_ Bir DNS diğer adı olan bir Azure SQL veritabanı sunucusunda kullanamazsınız *tablo denetleme* bir veritabanında etkin.
   - Tablo denetimi kullanım dışı bırakılmıştır.
   - İçin taşıma öneririz [Blob denetimi](sql-database-auditing.md).
 

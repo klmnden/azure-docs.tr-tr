@@ -4,14 +4,14 @@ description: Belirtin ve Azure Cosmos DB'de istek birimi gereksinimlerini tahmin
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: 9615aebd345c957c8e401581ff94735f39ba73c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12f91676ac50511bf3d2d33f7fed2029e152dc98
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953528"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164995"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>İstek birimleri Azure cosmos DB
 
@@ -75,3 +75,4 @@ RU sayısını sağlamak için saniyede tahmin ederken aşağıdaki etmenleri di
 * Bilgi edinmek için nasıl [Azure Cosmos DB'de sağlanan aktarım hızı gerçekleştirerek](optimize-cost-throughput.md).
 * Bilgi edinmek için nasıl [okuma ve yazma işlemleri Azure Cosmos DB'de maliyetini en iyi duruma getirme](optimize-cost-reads-writes.md).
 * Bilgi edinmek için nasıl [sorgu gerçekleştirerek Azure Cosmos DB'de](optimize-cost-queries.md).
+* Bilgi edinmek için nasıl [İzleyici aktarım hızı için ölçümleri kullanma](use-metrics.md).

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4fb2fd9503dad4113609b35dbe66496a03272f85
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735250"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137219"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux için Azure seri konsol
 
-Seri konsol Azure portalında Linux sanal makineleri (VM'ler) metin tabanlı bir konsol için erişim sağlar ve sanal makine ölçek kümesi örnekleri. Bu seri bağlantı, COM1, VM veya ağ veya işletim sisteminin durumunu bağımsız ona erişim sağlayarak, sanal makine ölçek kümesi örneğinin seri bağlantı noktasına bağlanır. Seri konsol yalnızca Azure portalı kullanılarak erişilebilir ve katkıda bulunan, bir erişim rolüne sahip kullanıcılar için izin verilen ya da sanal makine veya sanal makine ölçek kümesi için daha büyük.
+Seri konsol Azure portalında Linux sanal makineleri (VM'ler) metin tabanlı bir konsol için erişim sağlar ve sanal makine ölçek kümesi örnekleri. Bu seri bağlantı, VM veya ağ veya işletim sisteminin durumunu bağımsız ona erişim sağlayarak, sanal makine ölçek kümesi örneğinin ttys0 seri bağlantı noktasına bağlanır. Seri konsol yalnızca Azure portalı kullanılarak erişilebilir ve katkıda bulunan, bir erişim rolüne sahip kullanıcılar için izin verilen ya da sanal makine veya sanal makine ölçek kümesi için daha büyük.
 
 Seri konsol VM'ler için aynı şekilde çalışır ve sanal makine ölçek kümesi örnekleri. Bu belgedeki tüm bahsetmeleri vm'lere örtük olarak sanal makine ölçek kümesi örneklerine aksi belirtilmediği sürece dahil edilir.
 

@@ -1,5 +1,5 @@
 ---
-title: Düğümleri CloudSimple - Azure ile VMware çözümü için satın alma
+title: CloudSimple - Azure ile VMware çözümü için sağlama düğümleri
 description: VMWare CloudSimple dağıtım ile düğüm ekleme hakkında bilgi edinin
 author: dikamath
 ms.author: dikamath
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9f5108207c4f8debc65b9d1fe625ae7033ca4e70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33de07663c91f12d4e10c4661b841cd2dbe5a162
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577188"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165250"
 ---
-# <a name="purchase-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Düğümleri CloudSimple - Azure ile VMware çözümü için satın alma
+# <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>CloudSimple - Azure ile VMware çözümü için sağlama düğümleri
 
 Azure portalında düğümleri sağlayın. Ardından ödeme--, go kapasite CloudSimple özel bulut ortamınız için ayarlayabilirsiniz.
 
-## <a name="add-a-purchased-node-to-your-cloudsimple-private-cloud"></a>Satın alınan bir düğüm CloudSimple özel buluta ekleyin
+## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>CloudSimple özel bulut için sağlanan düğüm ekleme
 
 1. **Tüm Hizmetler**’i seçin.
 2. Arama **CloudSimple düğümleri**.
@@ -31,7 +31,7 @@ Azure portalında düğümleri sağlayın. Ardından ödeme--, go kapasite Cloud
 
     ![CloudSimple düğümleri Ekle](media/create-cloudsimple-node-add.png)
 
-5. CloudSimple düğümleri satın almak istediğiniz aboneliği seçin.
+5. CloudSimple düğümleri sağlamak istediğiniz aboneliği seçin.
 6. Düğümleri için kaynak grubunu seçin. Yeni bir kaynak grubu eklemek için tıklatın **Yeni Oluştur**.
 7. Düğümleri tanımlamak için ön eki girin.
 8. Düğüm kaynakların konumunu seçin.

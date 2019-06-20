@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0b17a87fa02c382ae19cca6e4abcfff2ec475450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6d395d878d38ab48b95ca82d94d2a222428bae1
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252686"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274951"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>İleti Yönlendirme ve Event Grid için IOT Hub'ı karşılaştırma
 
@@ -64,7 +64,7 @@ IOT Hub ileti yönlendirme ve Event Grid ile IOT hub'ı tümleştirme benzer son
 
    IOT Hub ileti yönlendirme sınırlı sayıda benzersiz uç noktalarını ve uç nokta türleri destekler, ancak verileri ve olayları ek uç noktalar için yönlendirecek şekilde bağlayıcılar oluşturabilirsiniz. Desteklenen uç noktalar tam listesi için önceki bölümdeki tabloya bakın. 
 
-   Event Grid ile IOT hub'ı tümleştirmeyi, IOT hub'ı ve çok çeşitli uç nokta türleri başına 500 uç destekler. Naively Azure işlevleri, Logic Apps, depolama ve Service Bus kuyrukları ile tümleşir ve Azure hizmet ekosistemi dışına ve üçüncü taraf iş uygulamalarına gönderen verileri genişletmek için Web kancaları ile de çalışır.
+   Event Grid ile IOT hub'ı tümleştirmeyi, IOT hub'ı ve çok çeşitli uç nokta türleri başına 500 uç destekler. Yerel olarak Azure işlevleri, Logic Apps, depolama ve Service Bus kuyrukları ile tümleşir ve Azure hizmet ekosistemi dışına ve üçüncü taraf iş uygulamalarına gönderen verileri genişletmek için Web kancaları ile de çalışır.
 
 * **Verilerinizi sırayla geldiğinde, önemli mi?**
 

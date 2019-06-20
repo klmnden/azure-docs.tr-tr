@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fc08ce48b3b5a4b2cd28cb66e6dd4d9eae3f3885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0ccce6f298270b2751307868fdf85697cb7e8ee
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66676961"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154959"
 ---
 # <a name="create-azure-vmware-solution-by-cloudsimple---service"></a>CloudSimple - hizmet olarak Azure VMware çözümü oluşturun
 
@@ -50,7 +50,7 @@ Azure ile VMware çözümü tarafından CloudSimple kullanmaya başlamak için A
 
     ![CloudSimple hizmeti oluşturma](media/create-cloudsimple-service.png)
 
-9. **Tamam**'ı tıklatın.
+9. **Tamam** düğmesine tıklayın.
 
 Hizmet oluşturulur ve hizmetler listesine eklenir.
 

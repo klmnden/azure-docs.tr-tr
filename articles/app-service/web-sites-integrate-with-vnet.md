@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a5187ed299f77c11892c6e34c8dfd3f904c7e075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: b269c75be7fec55fb77afecc6d04b86266c74a6f
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067703"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147297"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı bir Azure sanal ağı ile tümleştirme
 Bu belgede Azure App Service sanal ağ tümleştirme özelliği ve uygulamalar ile ayarlama açıklanır [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure sanal ağları] [ VNETOverview] (Vnet'ler) birçok Azure kaynaklarınızın bir internet olmayan routeable ağında yerleştirin izin verir.  
@@ -74,7 +74,7 @@ VNet tümleştirmesi, uygulamanız ile aynı bölgedeki sanal ağlar ile kullan�
 
 Bu özellik Önizleme aşamasındadır ancak aşağıdaki sınırlamalara sahip Windows uygulama üretim iş yükleri için desteklenir:
 
-* RFC 1918 aralık içinde adresleri yalnızca ulaşabilirsiniz. 10\.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 adres bloklarını adresleri olanlardır.
+* RFC 1918 aralık içinde adresleri yalnızca ulaşabilirsiniz. 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 adres bloklarını adresleri olanlardır.
 * Genel eşleme bağlantıları arasında kaynaklarına erişemiyor
 * yollar, sanal ağ içinde uygulamanızdan gelen trafiği ayarlanamaz
 * Bu özellik yalnızca PremiumV2 App Service planları destekleyen yeni App Service ölçek birimleri kullanılabilir.
@@ -102,6 +102,10 @@ Uygulamanız, sanal ağ ile tümleştirildiğinde, Vnet'inizi yapılandırılmı
 Uygulamanızı sanal ağdan bağlantıyı kesmek için seçin **Bağlantıyı Kes**. Bu, web uygulamanızı yeniden başlatır. 
 
 Yeni VNet tümleştirme özelliği, hizmet uç noktaları kullanmanıza olanak sağlar.  Hizmet uç noktaları ile uygulamanızı kullanmak için seçili bir sanal ağa bağlanmak ve ardından tümleştirmesi için kullanılan alt ağdaki hizmet uç noktaları yapılandırmak için yeni VNet Tümleştirmesi'ni kullanın. 
+
+#### <a name="web-app-for-containers"></a>Kapsayıcılar için Web App
+
+App Service, Linux üzerinde yerleşik görüntü ile kullanırsanız, bölgesel sanal ağ tümleştirme özelliği ek değişikliğe gerek kalmadan çalışır. Kapsayıcılar için Web uygulaması kullanıyorsa, docker görüntünüzü VNet tümleştirmesi kullanmak için değiştirmeniz gerekir. Docker görüntünüzü bağlantı noktası ortam değişkeni olarak bir sabit kodlanmış bağlantı noktası numarası kullanmak yerine ana web sunucusunun dinleme bağlantı noktasını kullanın. Bağlantı noktası ortam değişkeni, kapsayıcı başlatma zaman App Service platformu tarafından otomatik olarak ayarlanır.
 
 ### <a name="how-vnet-integration-works"></a>VNet tümleştirmesi nasıl çalışır?
 

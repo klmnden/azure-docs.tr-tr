@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0c855a3e0280e1fadf2362f2d8959beff2f5d00a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509215"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271973"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Web oturumu açma Openıd Connect, Azure Active Directory B2C ile
 
@@ -152,7 +153,9 @@ Kimlik belirteci doğruladıktan sonra kullanıcı ile oturum başlayabilirsiniz
 
 Kullanıcı akışları yalnızca çalıştırmak üzere web uygulamanız gerekiyorsa, birkaç sonraki bölümlere atlayabilirsiniz. Bu bölümlerde, yapmanız gereken uygulamaları çağrıları bir Web API'sine kimliği doğrulanmış ve aynı zamanda Azure AD B2C tarafından korunan web geçerlidir.
 
-Aldığınız yetkilendirme kodunu almak (kullanarak `response_type=code+id_token`) için bir belirteç göndererek istenen kaynağa bir `POST` isteği `/token` uç noktası. Şu anda bir belirteci isteyebileceği yalnızca uygulamanın kendi arka uç web API'nizi kaynaktır. Kendiniz için bir belirteç isteyen Kural kapsamı olarak uygulamanızın istemci kimliği kullanmaktır:
+Aldığınız yetkilendirme kodunu almak (kullanarak `response_type=code+id_token`) için bir belirteç göndererek istenen kaynağa bir `POST` isteği `/token` uç noktası. Azure AD B2C'de yapabilecekleriniz [diğer API'ler için erişim belirteci isteği](active-directory-b2c-access-tokens.md#request-a-token) zamanki belirterek, kapsamlar istek.
+
+(Bu bir erişim belirteci "audience" olarak, istemci kimliği ile sonuçlanır) istenen kapsam olarak uygulamanın istemci Kimliğini kullanarak, kural olarak, uygulamanın kendi arka uç Web API'niz için bir erişim belirteci da isteyebilirsiniz:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/13/2019
-ms.openlocfilehash: 15f64c7087ea4d24f271af67b251030a2196fa10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070367"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272233"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Genel Bakış Azure SQL veritabanı yönetilen örneği kaynak sınırları
 
@@ -105,7 +105,7 @@ Aşağıdaki tabloda, desteklenen abonelikler için varsayılan bölgesel sını
 
 \* Dağıtımlarınızı planlarken bir iş kritik (BC) sanal çekirdek (nedeniyle eklenen yedeklilik) 4 kat daha fazla kapasite genel amaçlı (GP) sanal çekirdek tükettiğini göz önünde bulundurun. Bunu, hesaplama 1 GP sanal çekirdek = 1 sanal çekirdek birim ve BC 1 sanal çekirdek = 4 sanal çekirdek birimi. Varsayılan sınırları karşı tüketimini analiz basitleştirmek için yönetilen örnekleri burada dağıtılır ve abonelik türünüz için örneği birim sınırlarıyla sonuçlarını karşılaştırın bu bölgedeki tüm alt ağlar arasındaki sanal çekirdek birim özetler. **Sanal çekirdek birim sayısı en fazla** her abonelik bir bölgede sınır uygulanır. Bir sınır yoktur belirli alt ağlar başına birden çok alt ağlar arasında dağıtılan tüm sanal çekirdekler toplamına eşit veya daha düşük olmalıdır dışında **sanal çekirdek birim sayısı en fazla**.
 
-** Daha büyük bir alt ağ ve sanal çekirdek sınırları aşağıdaki bölgelerde kullanılabilir: Doğu Avustralya, Doğu ABD, Doğu ABD 2, Kuzey Avrupa, Güney Orta ABD, Güneydoğu Asya, UK Güney, Batı Avrupa, Batı ABD 2.
+\*\* Daha büyük bir alt ağ ve sanal çekirdek sınırları aşağıdaki bölgelerde kullanılabilir: Doğu Avustralya, Doğu ABD, Doğu ABD 2, Kuzey Avrupa, Güney Orta ABD, Güneydoğu Asya, UK Güney, Batı Avrupa, Batı ABD 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Yönetilen örnek için SQL daha büyük bir kota edinme
 

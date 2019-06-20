@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: d82e3d37c5927640d349304559be548743c34fc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5979f8523aad95152378a2e7fabbe9fd8571e09
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076213"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154098"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Azure Stream Analytics için girişler anlama
 
@@ -37,7 +37,7 @@ Bir veri akışı sınırsız olayları zaman içinde dizisidir. Stream Analytic
 Veri akışı girişleri hakkında daha fazla bilgi için bkz. [Stream Analytics'e giriş olarak veri Stream](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Başvuru veri girişi
-Stream Analytics de destekler olarak bilinen giriş *başvuru verileri*. Başvuru verileri olduğu ya da tamamen statik veya yavaş değişir. Genellikle, bağıntı ve aramalar gerçekleştirmek için kullanılır. Örneğin, statik değerleri aramak için bir SQL birleştirme gerçekleştirecek gibi başvuru verilerini veri akış girişine veri birleştirebilirsiniz. Azure Blob Depolama şu anda yalnızca desteklenen giriş başvuru veri kaynağıdır. Başvuru veri kaynağı BLOB boyutu, sorgu karmaşıklığına bağlı olarak bir sınırı 300 MB olan ve ayrılan akış birimi.
+Stream Analytics de destekler olarak bilinen giriş *başvuru verileri*. Başvuru verileri olduğu ya da tamamen statik veya yavaş değişir. Genellikle, bağıntı ve aramalar gerçekleştirmek için kullanılır. Örneğin, statik değerleri aramak için bir SQL birleştirme gerçekleştirecek gibi başvuru verilerini veri akış girişine veri birleştirebilirsiniz. Şu anda Azure Blob Depolama ve Azure SQL veritabanı başvuru verileri için giriş kaynağı olarak desteklenir. Başvuru veri kaynağı BLOB boyutu, sorgu karmaşıklığına bağlı olarak bir sınırı 300 MB olan ve ayrılan akış birimi.
 
 Başvuru verisi girişleri hakkında daha fazla bilgi için bkz: [Stream analytics'te aramaları için başvuru verilerini kullanma](stream-analytics-use-reference-data.md)
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 6425fdfe89ca2f4c47aaf0e5ffd1dac7767b5020
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057941"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203305"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Lake depolama Gen2'ye gelen veya veri kopyalama kullanarak Azure Data Factory
 
@@ -60,6 +60,9 @@ Azure Data Lake depolama Gen2 Bağlayıcısı'nı aşağıdaki kimlik doğrulama
 - [Hizmet sorumlusu kimlik doğrulaması](#service-principal-authentication)
 - [Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik](#managed-identity)
 
+>[!NOTE]
+>Data Lake depolama 2. nesil kaynak sanal ağ uç noktası ile yapılandırılmışsa, SQL veri ambarı'na veri yüklemek için PolyBase kullanarak, PolyBase gerektirdiği gibi yönetilen kimlik doğrulaması kullanmanız gerekir. Bkz: [yönetilen kimlik doğrulama](#managed-identity) daha fazla yapılandırma önkoşulları bölümü.
+
 ### <a name="account-key-authentication"></a>Hesap anahtarı kimlik doğrulaması
 
 Depolama hesabı anahtarı kimlik doğrulaması kullanmak için aşağıdaki özellikler desteklenir:
@@ -103,10 +106,10 @@ Hizmet sorumlusu kimlik doğrulaması kullanmak için aşağıdaki adımları iz
     - Uygulama anahtarı
     - Kiracı Kimliği
 
-2. Hizmet sorumlusu uygun izni verin.
+2. Hizmet sorumlusu uygun izni verin. Data Lake depolama Gen2 ' içinde izni birlikte nasıl çalıştığı hakkında daha fazla bilgi edinin [dosyalar ve dizinler üzerinde erişim denetim listeleri](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
-    - **Kaynak olarak**: Azure depolama Gezgini'nde en az izni **okuma + yürütme** izni listeler ve klasör ve alt klasörlerde dosyaları kopyalayın. Ya da size verebilir **okuma** tek bir dosyayı kopyalama izni. Alternatif olarak, erişim denetimi (IAM), verme en az **depolama Blob verileri okuyucu** rol.
-    - **Havuz olarak**: Depolama Gezgini'nde en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak için izni. Alternatif olarak, erişim denetimi (IAM), verme en az **depolama Blob verileri katkıda bulunan** rol.
+    - **Kaynak olarak**: Depolama Gezgini'nde en az izni **yürütme** ile birlikte kaynak dosya sisteminden başlatma izni **okuma** kopyalanacak dosyaları izni. Alternatif olarak, erişim denetimi (IAM), verme en az **depolama Blob verileri okuyucu** rol.
+    - **Havuz olarak**: Depolama Gezgini'nde en az izni **yürütme** ile birlikte havuz dosya sisteminden başlatma izni **yazma** havuz klasörüne izni. Alternatif olarak, erişim denetimi (IAM), verme en az **depolama Blob verileri katkıda bulunan** rol.
 
 >[!NOTE]
 >Listeye klasörleri, hesap düzeyine veya bağlantıyı sınamak için başlatma izni için izin verilen hizmet sorumlusunun ayarlamanız gerekir. **IAM "Depolama Blob verileri okuyucu" iznine sahip depolama hesabı**. Kullandığınızda, bu durum geçerlidir:
@@ -157,10 +160,10 @@ Azure kaynak kimlik doğrulaması için yönetilen kimlikleri kullanmak için bu
 
 1. [Data Factory yönetilen kimlik bilgileri almak](data-factory-service-identity.md#retrieve-managed-identity) değerini kopyalayarak **kimliği uygulama kimliği hizmeti** fabrikanızı birlikte oluşturulur.
 
-2. Yönetilen kimlik uygun izni verin.
+2. Yönetilen kimlik uygun izni verin. Data Lake depolama Gen2 ' içinde izni birlikte nasıl çalıştığı hakkında daha fazla bilgi edinin [erişim denetim listeleri dosyaların ve dizinlerin](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    - **Kaynak olarak**: Depolama Gezgini'nde en az izni **okuma + yürütme** izni listeler ve klasör ve alt klasörlerde dosyaları kopyalayın. Ya da size verebilir **okuma** tek bir dosyayı kopyalama izni. Alternatif olarak, erişim denetimi (IAM), verme en az **depolama Blob verileri okuyucu** rol.
-    - **Havuz olarak**: Depolama Gezgini'nde en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak için izni. Alternatif olarak, erişim denetimi (IAM), verme en az **depolama Blob verileri katkıda bulunan** rol.
+    - **Kaynak olarak**: Depolama Gezgini'nde en az izni **yürütme** ile birlikte kaynak dosya sisteminden başlatma izni **okuma** kopyalanacak dosyaları izni. Alternatif olarak, erişim denetimi (IAM), verme en az **depolama Blob verileri okuyucu** rol.
+    - **Havuz olarak**: Depolama Gezgini'nde en az izni **yürütme** ile birlikte havuz dosya sisteminden başlatma izni **yazma** havuz klasörüne izni. Alternatif olarak, erişim denetimi (IAM), verme en az **depolama Blob verileri katkıda bulunan** rol.
 
 >[!NOTE]
 >Listeye klasörleri, hesap düzeyine veya bağlantıyı sınamak için başlatma izni için izin verilen yönetilen kimlik ayarlamanız gerekir. **IAM "Depolama Blob verileri okuyucu" iznine sahip depolama hesabı**. Kullandığınızda, bu durum geçerlidir:
@@ -169,7 +172,7 @@ Azure kaynak kimlik doğrulaması için yönetilen kimlikleri kullanmak için bu
 >Hesap düzeyinde izni verme hakkında endişeleriniz varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Yönetilen kimlik kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışır.
 
 >[!IMPORTANT]
->Data Lake depolama Gen2 yönetilen kimlik doğrulaması kullandığınızda verileri Data Lake depolama Gen2 ' SQL Data Warehouse'a yüklemek için PolyBase kullanın, adım 1 ve 2'de izlediğinizden emin olun [bu kılavuz](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Azure Active Directory (Azure AD) ile SQL veritabanı sunucunuza kaydetmek için yönergeleri izleyin. SQL veritabanı sunucunuza da rol tabanlı erişim denetimi ile depolama Blob verileri katkıda bulunan rolü atarsınız. Rest, Data Factory tarafından işlenir. Data Lake depolama Gen2 ', veri yüklemek için PolyBase kullanmak için bir Azure sanal ağ uç noktası ile yapılandırılmışsa, yönetilen kimlik doğrulaması kullanmanız gerekir.
+>Data Lake depolama Gen2'için yönetilen kimlik doğrulaması kullanırken, Data Lake depolama Gen2 ' verileri SQL veri ambarı'na yüklemek için PolyBase kullanın, adım 1 ve 2'de izlediğinizden emin olun [bu kılavuz](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 1) SQL kaydetme Veritabanı sunucusu ile Azure Active Directory (Azure AD) ve 2) SQL veritabanı sunucunuza depolama Blob verileri katkıda bulunan rolü atayın; rest, Data Factory tarafından işlenir. Data Lake depolama Gen2 ', bir Azure sanal ağ uç noktası ile yapılandırılmışsa, kendisinden verileri yüklemek için PolyBase kullanmak için yönetilen kimlik doğrulama PolyBase gerektirdiği kullanmanız gerekir.
 
 Bu özellikler için bağlı hizmet desteklenir:
 
@@ -511,7 +514,7 @@ Bu bölümde, sonuçta elde edilen davranışını klasör yolu ve dosya adı jo
 
 Bu bölümde, elde edilen davranışını özyinelemeli ve copyBehavior değer farklı birleşimleri kopyalama işlemi açıklanmaktadır.
 
-| özyinelemeli | copyBehavior | Kaynak klasör yapısı | Sonuçta elde edilen hedef |
+| recursive | copyBehavior | Kaynak klasör yapısı | Sonuçta elde edilen hedef |
 |:--- |:--- |:--- |:--- |
 | true |preserveHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef kaynak olarak aynı yapıya sahip Klasör1 oluşturulur:<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
 | true |flattenHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef Klasör1 aşağıdaki yapısı ile oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fıle1'de otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan ad<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya3 için otomatik olarak oluşturulan ad<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4 için otomatik olarak oluşturulan ad<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5 için otomatik olarak oluşturulan ad |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539908"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147311"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service tanılama genel bakış
 
@@ -103,12 +103,12 @@ Proaktif otomatik onarma CPU proaktif izleme gibi beklenmeyen davranışlara uyg
 
 ![Proaktif otomatik onarma](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## <a name="change-analysis"></a>Değişiklik analizi
+## <a name="change-analysis-only-for-windows-app"></a>Değişiklik analize (yalnızca Windows uygulaması)
 
-Hızlı ve bol demo'lu geliştirme ortamında, bazen uygulamanıza yapılan tüm değişiklikleri izlemek ve tek başına iyi durumda olmayan bir davranışa neden bir değişiklik Pinpoint'te zor olabilir. Değişiklik analizi uygulamanıza trouble-shooting deneyimini kolaylaştırmak için yapılan değişiklikleri daraltmak yardımcı olabilir. Değişiklik analiz gömüldüğü tanılama raporda gibi **uygulama kilitlenmeleri** eşzamanlı diğer ölçümleri kullanabilirsiniz.
+Hızlı ve bol demo'lu geliştirme ortamında, bazen uygulamanıza yapılan tüm değişiklikleri izlemek ve tek başına iyi durumda olmayan davranışa neden bir değişiklik Pinpoint'te zor olabilir. Değişiklik analizi uygulamanıza trouble-shooting deneyimini kolaylaştırmak için yapılan değişiklikleri daraltmak yardımcı olabilir. Değişiklik analiz içinde bulunan **uygulama değişiklikleri** ve ayrıca bir tanılama raporu gibi katıştırılmış **uygulaması kilitlenir** eşzamanlı diğer ölçümleri kullanabilirsiniz.
+
+Değişiklik analiz özelliği kullanmadan önce etkinleştirilmesi gerekir. Değişiklik çözümleme hakkında daha fazla bilgi için ziyaret [App Service tanılama yeni değişiklik analiz deneyimi ile tanışın](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
 
 ![Değişiklik analiz varsayılan sayfası](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
 ![Fark görünümü](./media/app-service-diagnostics/diff-view-12.png)
-
-Değişiklik analiz özelliği kullanmadan önce etkinleştirilmesi gerekir. Değişiklik çözümleme hakkında daha fazla bilgi için ziyaret [App Service tanılama yeni değişiklik analiz deneyimi ile tanışın](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).

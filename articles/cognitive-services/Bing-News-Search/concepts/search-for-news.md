@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 77f8e41b2271770e49c2e5c4d1591c213eaa257d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: da1dd68b8e155e121f26f5599207691877fbf0ca
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383409"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274158"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Bing haber arama API'si ile haberler için arama
 
@@ -51,7 +51,7 @@ Belirli bir etki alanındaki haberleri almak için [site:](https://msdn.microsof
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-Aşağıda, bir önceki sorgunun yanıtı gösterilmektedir. Bir parçası olarak [kullanın ve görüntü gereksinimleri](../useanddisplayrequirements.md) Bing arama API'leri yanıt olarak sağlanan sırayla her haber makalesinin görüntülemeniz gerekir. Makalenin makale kümelenmiş ise ilgili makaleler yok ve istek üzerine görüntülemesini belirtmeniz gerekir.
+Önceki sorguya yanıt aşağıdaki JSON örneği gösterilmektedir. Bir parçası olarak [kullanın ve görüntü gereksinimleri](../useanddisplayrequirements.md) Bing arama API'leri yanıt olarak sağlanan sırayla her haber makalesinin görüntülemeniz gerekir. Makalenin makale kümelenmiş ise ilgili makaleler yok ve istek üzerine görüntülemesini belirtmeniz gerekir.
 
 ```json
 {
@@ -107,7 +107,7 @@ Bing haber makalesinin kategorisini belirleyebiliyorsa, makale `category` alanı
 
 ## <a name="get-todays-top-news"></a>Günümüzün üst haberleri alın
 
-Günün en önemli haber makalelerini almak için `q` ayarını yapmadan bırakmanız dışında genel haberleri alırken yaptığınız isteğin aynısını yaparsınız.
+Günümüzün en iyi haber makalelerini almak için aynı genel haber isteği önce olduğu gibi bırakarak gönderebilir `q` parametresi ayarlanmamış.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-En önemli haberleri alma isteğine verilen yanıt, genel haberleri alma ile neredeyse aynıdır. Ancak, belirli sayıda sonuç olduğu için `news` yanıtı `totalEstimatedMatches` alanını içermez. En önemli haber makalelerinin sayısı, haber döngüsüne bağlı olarak farklılık gösterebilir. Makaleyi ilişkilendirmek için `provider` kullandığınızdan emin olun.
+Yanıt üst haberleri almak için neredeyse bir genel haberleri almak için aynıdır. Ancak, belirli sayıda sonuç olduğu için `news` yanıtı `totalEstimatedMatches` alanını içermez. En önemli haber makalelerinin sayısı, haber döngüsüne bağlı olarak farklılık gösterebilir. Kullandığınızdan emin olun `provider` makaleyi özniteliği için alan.
 
 ## <a name="get-news-by-category"></a>Kategoriye göre haberleri alın
 

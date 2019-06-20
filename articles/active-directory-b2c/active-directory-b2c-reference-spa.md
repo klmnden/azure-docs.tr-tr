@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508970"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154023"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de OAuth 2.0 örtük akışını kullanarak tek sayfalı oturum açar
 
-Birçok modern uygulamanın, JavaScript'te öncelikli olarak yazılmış tek sayfa uygulaması ön ucu vardır. Genellikle, uygulama AngularJS, Ember.js veya Durandal gibi bir çerçeve kullanılarak yazılır. Tek sayfa uygulamaları ve öncelikle bir tarayıcıda çalışan diğer JavaScript uygulamaları için kimlik doğrulaması ek bazı zorluklar vardır:
+Birçok modern uygulamanın, JavaScript'te öncelikli olarak yazılmış tek sayfa uygulaması ön ucu vardır. Genellikle, uygulamayı React, Angular veya Vue.js gibi bir çerçeve kullanılarak yazılır. Tek sayfa uygulamaları ve öncelikle bir tarayıcıda çalışan diğer JavaScript uygulamaları için kimlik doğrulaması ek bazı zorluklar vardır:
 
 - Bu uygulamaları güvenlik özelliklerini, geleneksel web sunucu tabanlı uygulamalardan farklıdır.
 - Çok sayıda yetkilendirme sunucularını ve kimlik sağlayıcıları çıkış noktaları arası kaynak paylaşımı (CORS) isteklerini desteklemez.

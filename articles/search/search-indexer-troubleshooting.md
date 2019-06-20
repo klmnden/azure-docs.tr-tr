@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4ed18b5f83bdb052f2db6847a320c26a8e49f83e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539271"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147538"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Azure Search'te yaygın dizin oluşturucu sorunları giderme
 
@@ -35,14 +35,11 @@ Azure depolama, yapılandırılabilir bir güvenlik duvarı sağlar. Azure Searc
 
 Güvenlik Duvarı etkinleştirilmişse belirli bir hata iletisi yok. Güvenlik Duvarı hataları görünmesi genellikle `The remote server returned an error: (403) Forbidden`.
 
-Güvenlik Duvarı etkin olduğunu doğrulayabilirsiniz [portalı](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Güvenlik Duvarı etkinse, bu sorunu geçici olarak almak için iki seçeneğiniz vardır:
+Güvenlik Duvarı etkin olduğunu doğrulayabilirsiniz [portalı](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Erişime izin verecek şekilde seçerek Güvenlik Duvarı'nı devre dışı bırakmak için desteklenen tek geçici çözüm olan ['Tüm ağlar'](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
 
-1. Erişime izin verecek şekilde seçerek Güvenlik Duvarı'nı devre dışı bırak ['Tüm ağlar'](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)
-1. [İstisna Ekle](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) arama hizmetinizin IP adresi. Bu IP adresini bulmak için aşağıdaki komutu kullanın:
+Ekli bir beceri kümesi oluşturucunuz sahip değilse, _olabilir_ girişimi [bir özel durum ekleyin](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) arama hizmetinizin IP adresleri için. Ancak, bu senaryo desteklenmez ve çalışma garanti edilmez.
 
-`nslookup <service name>.search.windows.net`
-
-Özel durumlar için çalışmıyor [bilişsel arama](cognitive-search-concept-intro.md). Tek geçici çözüm, Güvenlik Duvarı'nı devre dışı bırakmaktır.
+Sunucunun FQDN'sini ping göndererek, arama hizmetinizin IP adresini bulabilirsiniz (`<your-search-service-name>.search.windows.net`).
 
 ### <a name="cosmos-db"></a>Cosmos DB
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: ab3b742d50cc141420f9bffa1961a6e170b99d2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 9b762f1b3f1c17e15b051e72f5d2cf98bef446bf
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234345"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137764"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure veri bilimi sanal makinelerini kullanın
 
@@ -56,6 +56,17 @@ Dosya yollarının ile eşlik korumak için **ücretsiz işlem** katmanı taraf�
 ![Azure not defterlerinde kapatma düğmesi](media/shutdown.png)
 
 Bir VM üzerinde bir proje çalıştırıldığında, dosyaları (dizin JupyterHub gösterilen), Jupyter sunucu kök dizininin bağlı varsayılan Azure not defterleri dosyaları değiştirme. Ne zaman bilgisayarı tuşunu kullanarak VM'yi **kapatma** not defterini kullanıcı Arabirimi, Azure Not Defterleri düğmede varsayılan dosyaları geri yükler.
+
+![Azure not defterlerinde kapatma düğmesi](media/shutdown.png)
+
+## <a name="create-new-dsvm-users"></a>Yeni DSVM kullanıcılar oluşturma
+
+Birden çok kullanıcı bir DSVM paylaşıyorsanız, birbirine oluşturarak ve her bir not defteri kullanıcı için DSVM kullanan engelleme önleyebilirsiniz:
+
+1. Üzerinde [Azure portalı](https://portal.azure.com), sanal makinenize gidin.
+1. Altında **destek + sorun giderme** sol kenar boşluğunda seçin **parolayı Sıfırla**.
+1. Yeni kullanıcı adı ve parola girin ve seçin **güncelleştirme**. (Mevcut kullanıcı adlarını etkilenmez.)
+1. Tüm kullanıcılar için önceki adımı yineleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 06/13/2019
 ms.author: ypitsch,kumud
-ms.openlocfilehash: 99650577b17874e61d1cede979d7ef2f4bfd491b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: ecce41878f7579862bba083f8cecf5db3cbde3e6
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247297"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144146"
 ---
 # <a name="microsoft-global-network"></a>Microsoft küresel ağı
 
@@ -33,8 +33,10 @@ Her gün dünyanın dört bir yanındaki müşteriler bağlanın ve Microsoft Az
  
 İçin edilmesiyle [en iyi olası deneyimi](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) Microsoft Bulutu kullandığınızda kolaydır. Müşteri trafiğinden global ağımız aracılığıyla bizim stratejik olarak yerleştirilmiş bir kenar düğümleri girdiğinde andan itibaren verilerinizi ışığın hızını yakın en iyileştirilmiş yollar aracılığıyla dolaşır. Bu, en iyi gecikme süresi en iyi performans sağlar. Bu uç düğümler, tüm 3500'den fazla benzersiz Internet iş ortaklarına (eş) bağlantıları binlerce 145'den fazla konumda birbirine bölümleri stratejimizin sağlamasıdır. 
  
-Tokyo Londra'ya veya Washington DC için Los Angeles bağlanma olup olmadığını ağ performansı amaçlarıyla ve gecikme süresi, değişimi, paket kaybı ve aktarım hızı gibi şeyler etkilenen.  Microsoft'ta tercih ediyoruz ve geçiş bağladığından IP'nin aksine kullanım doğrudan bağlantılar, bu yanıt trafiğinin simetrik tutar ve atlama, taraflar ve yollar kısa ve mümkün olduğunca basit olarak eşlemesi tutar. Bu premium yaklaşım genellikle olarak adlandırılan [soğuk Patates yönlendirme](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), biz kapalı devretmeden önce aynı uzunlukta Microsoft ağ içindeki trafik kalan müşteriler ağ sağlar.  
- 
+Tokyo Londra'ya veya Washington DC için Los Angeles bağlanma olup olmadığını ağ performansı amaçlarıyla ve gecikme süresi, değişimi, paket kaybı ve aktarım hızı gibi şeyler etkilenen.  Microsoft'ta tercih ediyoruz ve geçiş bağladığından IP'nin aksine kullanım doğrudan bağlantılar, bu yanıt trafiğinin simetrik tutar ve atlama, taraflar ve yollar kısa ve mümkün olduğunca basit olarak eşlemesi tutar. 
+
+Internet trafiğini Londra'da bizim kenarlar birine girer sonra bir kullanıcı, Londra Tokyo, hizmet erişmeye, örneğin, Fransa, aracılığıyla Microsoft WAN üzerinden bizim Trans Arabistan yolları arasında Avrupa ve Hindistan ve hizmetin barındırıldığı Japonya gider. Yanıt trafiğinin simetrik. Bu bazen olarak adlandırılır [soğuk Patates yönlendirme](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , trafik Microsoft kalacağı anlamına gelir ağ olabildiğince uzun bir süre kapalı biz bunu devretmeden önce.  
+  
 Bu nedenle, tüm trafik Microsoft hizmetlerini kullanırken anlama geliyor? Evet, Microsoft Azure içinde veya sanal makineler, Office 365, XBox, SQL veritabanları, depolama, Microsoft Hizmetleri arasında verileri arasındaki tüm trafiğe merkezleri ve sanal ağlar, global ağımız içinde ve en iyi emin olmak için hiçbir zaman genel Internet üzerinden yönlendirilir. Performans ve bütünlük.  
  
 Büyük yatırımlar fiber kapasite ve seviyelerine metro, Yeryüzü ve Denizaltı yolları arasında tutarlı ve yüksek hizmet ederken Bulut ve Çevrimiçi Hizmetler aşırı büyümesini destekler düzeyi tutmak bizim için önemlidir. Global ağımız sınıflarla olan bizim [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) Denizaltı kablo, sektörün ilk açık satır sistem (OLS) üzerinden Virginia Beach, Virginia, ABD, arasındaki Bilbao, İspanya, subsea yanı sıra [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1)İstanbul, Türkiye Dublin, İrlanda arasındaki ve [yeni, Pasifik (NCP) arası](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) Tokyo, Japonya, Portland, Oregon, ABD arasındaki. 

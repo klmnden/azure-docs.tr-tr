@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 1e75e0be5404ca7107d3f3201d248088b48da12c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 76a9ece9e925543e856136a798a60038316caad9
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067891"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203050"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Azure Logic Apps iş akışlarında uçtan uca izleme özel izleme şemaları oluşturma
 
@@ -56,22 +56,22 @@ Bu makalede, mantıksal uygulamanızı dışında Katmanlar kullanabileceğiniz 
 }
 ```
 
-| Özellik | Tür | Açıklama |
-| --- | --- | --- |
-| sourceType |   | Çalıştırma kaynağı türü. İzin verilen değerler **Microsoft.Logic/workflows** ve **özel**. (Zorunlu) |
-| source |   | Kaynak türü ise **Microsoft.Logic/workflows**, kaynak bilgileri bu şemayı izlemesi gerekir. Kaynak türü ise **özel**, bir JToken şemadır. (Zorunlu) |
-| systemId | String | Mantıksal uygulama sistem kimliği (Zorunlu) |
-| runId | String | Mantıksal uygulama çalıştırması kimliği. (Zorunlu) |
-| operationName | String | (Örneğin, bir eylem veya tetikleyici) işlemin adı. (Zorunlu) |
-| repeatItemScopeName | String | Eylem içinde ise öğe adı yineleyin bir `foreach` / `until` döngü. (Zorunlu) |
-| repeatItemIndex | Tamsayı | Eylem içinde olup olmadığını bir `foreach` / `until` döngü. Yinelenen öğe dizini belirtir. (Zorunlu) |
-| trackingId | String | İletileri ilişkilendirmek için izleme kimliği. (İsteğe bağlı) |
-| correlationId | String | İletileri ilişkilendirmek için bağıntı kimliği. (İsteğe bağlı) |
-| clientRequestId | String | İstemci iletileri ilişkilendirmek için doldurabilirsiniz. (İsteğe bağlı) |
-| eventLevel |   | Olay düzeyi. (Zorunlu) |
-| eventTime |   | Etkinliğin UTC biçiminde YYYY-AA-DDTHH:MM:SS.00000Z saati. (Zorunlu) |
-| recordType |   | İzleme kayıt türü. Değer izin verilen **özel**. (Zorunlu) |
-| record |   | Özel bir kayıt türü. İzin verilen biçim JToken ' dir. (Zorunlu) |
+| Özellik | Gerekli | Tür | Açıklama |
+| --- | --- | --- | --- |
+| sourceType | Evet |   | Çalıştırma kaynağı türü. İzin verilen değerler **Microsoft.Logic/workflows** ve **özel**. |
+| source | Evet |   | Kaynak türü ise **Microsoft.Logic/workflows**, kaynak bilgileri bu şemayı izlemesi gerekir. Kaynak türü ise **özel**, bir JToken şemadır. |
+| systemId | Evet | String | Mantıksal uygulama sistem kimliği |
+| runId | Evet | String | Mantıksal uygulama çalıştırması kimliği. |
+| operationName | Evet | String | (Örneğin, bir eylem veya tetikleyici) işlemin adı. |
+| repeatItemScopeName | Evet | String | Eylem içinde ise öğe adı yineleyin bir `foreach` / `until` döngü. |
+| repeatItemIndex | Evet | Integer | Eylem içinde olup olmadığını bir `foreach` / `until` döngü. Yinelenen öğe dizini belirtir. |
+| trackingId | Hayır | String | İletileri ilişkilendirmek için izleme kimliği. |
+| correlationId | Hayır | String | İletileri ilişkilendirmek için bağıntı kimliği. |
+| clientRequestId | Hayır | String | İstemci iletileri ilişkilendirmek için doldurabilirsiniz. |
+| eventLevel | Evet |   | Olay düzeyi. |
+| eventTime | Evet |   | Etkinliğin UTC biçiminde YYYY-AA-DDTHH:MM:SS.00000Z saati. |
+| recordType | Evet |   | İzleme kayıt türü. Değer izin verilen **özel**. |
+| record | Evet |   | Özel bir kayıt türü. İzin verilen biçim JToken ' dir. |
 ||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B Protokolü izleme şemaları

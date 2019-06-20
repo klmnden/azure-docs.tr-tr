@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 5b5b83fe0028e43ca35bf883b29cb71bad6ca2c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66253208"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67166222"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Oluşturma ve Azure HDInsight Kurumsal güvenlik paketi kümeleri yapılandırma
 
@@ -219,7 +219,7 @@ Daha fazla bilgi için [etkinleştirme Azure Active Directory etki alanı Azure 
 
     ![Ağ seçin](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. Üzerinde **yönetici grubuna** ekran, adlı bir grubu bir bildirim görmeniz **AAD DC Administrators** bu Grup yönetmek için zaten oluşturuldu. İsteğe bağlı olarak, bu grubun üyeliğini değiştirebilirsiniz, ancak bu öğreticideki adımları için gerekli değildir. **Tamam** düğmesine tıklayın.
+1. Üzerinde **yönetici grubuna** ekran, adlı bir grubu bir bildirim görmeniz **AAD DC Administrators** bu Grup yönetmek için zaten oluşturuldu. İsteğe bağlı olarak, bu grubun üyeliğini değiştirebilirsiniz, ancak bu öğreticideki adımları için gerekli değildir. **Tamam**'ı tıklatın.
 
     ![Yönetici grubu görünümü](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 
@@ -332,7 +332,7 @@ Bu adım, aşağıdaki önkoşulları gerektirir:
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. AADDS barındıran sanal ağ arasında eş ilişki oluşturma (`HDIFabrikam-AADDSVNET`) ve HDInsight kümesi ESP barındıracak sanal ağ etkin (`HDIFabrikam-HDIVNet `). Bu iki sanal ağı eşleme için şu powershell kodunu kullanın.
+1. AADDS barındıran sanal ağ arasında eş ilişki oluşturma (`HDIFabrikam-AADDSVNET`) ve HDInsight kümesi ESP barındıracak sanal ağ etkin (`HDIFabrikam-HDIVNet`). Bu iki sanal ağı eşleme için şu powershell kodunu kullanın.
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')

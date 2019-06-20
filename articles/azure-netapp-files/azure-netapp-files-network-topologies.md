@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65826481"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205682"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files ağ planlaması yönergeleri
 
@@ -42,7 +42,7 @@ Aşağıdaki özellikler, Azure için NetApp dosyaları şu anda desteklenmiyor:
 
 Azure için NetApp dosyaları aşağıdaki ağ kısıtlamalar uygulanır:
 
-* Bir birime (bir sanal ağ ile veya eşlenmiş sanal ağlarda) bağlanabilen bir sanal makine sayısı 1000 aşamaz.
+* Bir sanal ağ ile Azure NetApp (eşlenen sanal ağlar da dahil olmak üzere) dosyaları kullanımda IP sayısı 1000 aşamaz.
 * Her Azure sanal ağı (VNet), yalnızca bir alt ağ, Azure için NetApp dosyaları atanabilir.
 
 
@@ -103,13 +103,13 @@ Yukarıdaki diyagramda VNet 2 ve 3 VNet düşünün. VM 2 ve toplu 2'ye bağlanm
 
 Ayrıca, burada VNet 1 ile VNet 2 eşlenirse ve VNet 2 VNet 3 aynı bölgedeki eşlenmiş bir senaryo düşünün. VNet 1 kaynaklardan VNet 2'deki kaynaklara bağlanabilir ancak VNet 1 ve 3 VNet eşlendikten sürece VNet 3 ' teki kaynaklara bağlanamazsınız. 
 
-Yukarıdaki diyagramda, VM 3 birim 1'e bağlanabilir ancak VM 4 birim 2'ye bağlanamıyor.  Uç sanal ağları değil eşlenmiş olduğunu, nedeni ve _geçiş yönlendirmesi desteklenmez VNet eşlemesi üzerinden_.
+Yukarıdaki diyagramda, VM 3 birim 1'e bağlanabilir ancak VM 4 birim 2'ye bağlanamıyor.  Uç sanal ağları değil eşlenmiş olduğunu, bunun nedeni olan ve _geçiş yönlendirmesi desteklenmez VNet eşlemesi üzerinden_.
 
 ## <a name="hybrid-environments"></a>Karma ortamlar
 
 Aşağıdaki diyagramda karma bir ortamda gösterilmektedir: 
 
-![Hibrit ağ ortamı](../media/azure-netapp-files/azure-netapp-files-networ-hybrid-environment.png)
+![Hibrit ağ ortamı](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
 Karma senaryosunda, azure'daki kaynaklara erişim uygulamalar şirket içi veri merkezlerinizden gerekir.  Bu, veri merkezinizi Azure'a genişletmek istediğiniz ya da yerel Azure hizmetlerini kullanmak istediğiniz durumda veya olağanüstü durum kurtarma için. Bkz: [VPN Gateway planlama seçenekleri](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) birden çok kaynak şirket içi bir siteden siteye VPN veya ExpressRoute üzerinden azure'daki kaynaklara bağlanma hakkında.
 
@@ -117,10 +117,10 @@ Bir karma merkez-uç topolojisinde merkez sanal ağa azure'da, merkezi bir şirk
 
 Yapılandırmasına bağlı olarak. Hub ve bağlı bileşenler kaynaklara şirket içi kaynakları bağlayabilirsiniz.
 
-Yukarıda gösterilen topoloji, şirket içi ağınızı Azure Vnet'te hub'ına bağlı ve merkez sanal ağa sanal ağlar eşlenmiş 2 uç vardır.  Bu senaryoda, Azure NetApp dosyaları birimleri için desteklenen bağlantı seçenekleri aşağıdaki gibidir:
+Yukarıda gösterilen topoloji, şirket içi ağınızı Azure Vnet'te hub'ına bağlı ve merkez sanal ağı ile 2 uç aynı bölgedeki sanal ağlar eşlenmiş vardır.  Bu senaryoda, Azure NetApp dosyaları birimleri için desteklenen bağlantı seçenekleri aşağıdaki gibidir:
 
-* Şirket içi kaynaklara VM 1 ve 2 VM birimi 1 için hub'ında bir siteden siteye VPN veya ExpressRoute üzerinden bağlanabilirsiniz. 
-* Şirket içi kaynaklara VM 1 ve VM 2 birim 2 veya 3 birim olarak bağlanabilir.
+* Şirket içi kaynaklara VM 1 ve VM 2 birim 1 hub'ı bir siteden siteye VPN veya Express Route üzerinden bağlanabilirsiniz. 
+* Şirket içi kaynaklara VM 1 ve VM 2 birim 2 veya 3 birim için bir siteden siteye VPN ve bölgesel sanal ağ eşlemesi üzerinden bağlanabilirsiniz.
 * Hub'ında VM 3 VNet uç VNet 2 2. uç sanal ağ 1 birim ve birim 3'e bağlanabilir.
 * Uç sanal ağ 1 4 VM ve VM 5'ten uç VNet 2 birim 1 merkez sanal ağa bağlanabilir.
 

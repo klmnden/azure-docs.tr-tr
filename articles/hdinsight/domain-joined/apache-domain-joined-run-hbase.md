@@ -1,17 +1,18 @@
 ---
-title: Kurumsal güvenlik paketi - Azure ile HDInsight, Apache HBase ilkelerini yapılandırma
-description: Hbase'de Kurumsal güvenlik paketi ile Azure HDInsight için Apache Ranger ilkelerini yapılandırmayı öğrenin.
+title: Öğretici - ile Kurumsal güvenlik paketi - Azure HDInsight, Apache HBase ilkelerini yapılandırma
+description: Öğretici - Hbase'de Kurumsal güvenlik paketi ile Azure HDInsight için Apache Ranger ilkelerini yapılandırmayı öğrenin.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 02/01/2019
-ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/18/2019
+ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926089"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274402"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Öğretici: Kurumsal güvenlik paketi ile HDInsight, Apache HBase ilkelerini yapılandırma
 
@@ -109,7 +110,7 @@ Ranger ilke oluşturmak **sales_user1** ve **marketing_user1**.
    |HBase tablo   |  Müşteriler |
    |HBase sütun ailesi   |  İlgili kişi adı |
    |HBase sütun   |  * |
-   |Grup Seçin  | |
+   |Grup Seç  | |
    |Kullanıcı Seçin  | sales_user1 |
    |İzinler  | Okuma |
 
@@ -133,7 +134,7 @@ Ranger ilke oluşturmak **sales_user1** ve **marketing_user1**.
    |HBase tablo   |  Müşteriler |
    |HBase sütun ailesi   |  İletişim |
    |HBase sütun   |  * |
-   |Grup Seçin  | |
+   |Grup Seç  | |
    |Kullanıcı Seçin  | marketing_user1 |
    |İzinler  | Okuma |
 
@@ -159,7 +160,7 @@ Yapılandırılmış, Ranger ilkelerine bağlı **sales_user1** tüm sütunlar i
    kinit sales_user1
    ```
 
-2. Hbase kabuğunu açabilir ve tablo tarama `Customers`.
+2. HBase kabuğunu açabilir ve tablo tarama `Customers`.
 
    ```hbaseshell
    hbase shell
@@ -201,7 +202,7 @@ Yapılandırılmış, Ranger ilkelerine bağlı **sales_user1** tüm sütunlar i
    kinit marketing_user1
    ```
 
-2. Hbase kabuğunu açabilir ve tablo tarama `Customers`:
+2. HBase kabuğunu açabilir ve tablo tarama `Customers`:
 
     ```hbaseshell
     hbase shell
@@ -237,7 +238,7 @@ Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımlarla oluşturd
 2. İçinde **arama** kutusunun üstündeki türü **HDInsight**. 
 1. Seçin **HDInsight kümeleri** altında **Hizmetleri**.
 1. Görüntülenen listede HDInsight kümelerinin, tıklayın **...**  yanında, Bu öğretici için oluşturduğunuz küme. 
-1. **Sil**'e tıklayın. **Evet**'e tıklayın.
+1. Tıklayın **Sil**. **Evet**'e tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

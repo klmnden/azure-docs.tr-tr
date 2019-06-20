@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f2f6b544b56977b3f1bfb6a4fb46a9f1e3bcc294
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427948"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271713"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>Öğretici: Kablo ve bağlanmak, Azure veri kutusu ağır için (Önizleme)
 
@@ -79,7 +79,7 @@ Cihazınızın kablolarını bağlama için aşağıdaki adımları uygulayın.
 Cihazın düğümlerinden biri üzerinde kablosu ağ için aşağıdaki adımları uygulayın.
 
 1. Ana bilgisayar 1 GB/sn yönetim bağlantı noktasına bağlanmak için bir CAT 6 RJ-45 ağ kablosu (mavi kablo resim) kullanın.
-2. Veriler için en az bir (1 GB/sn'ye tercih edilir) 40-GB/sn ağ arabirimini bağlamak için bir Twinax QSFP + siyah Bakır kablo (siyah kablo resim) kullanın. Bir 10 GB/sn anahtar kullanarak kullanıyorsanız bir Twinax SFP + siyah Bakır kablo ile bir QSFP + SFP + bağdaştırıcısına (QSA bağdaştırıcısı) 40 bağlanmak için arabirimi veriler için GB/sn ağ.
+2. Veriler için en az bir (1 GB/sn'ye tercih edilir) 40-GB/sn ağ arabirimini bağlamak için bir QSFP + kablosu (fiber veya Bakır) kullanın. 10 Gbps anahtarı kullanıyorsanız, bir SFP + kablosu ile bir QSFP + SFP + bağdaştırıcısına (QSA bağdaştırıcısı) veri için 40 GB/sn ağ arabirimini bağlamak için kullanın.
 
     ![Kablolu veri kutusu ağır bağlantı noktaları](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 

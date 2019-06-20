@@ -15,18 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c5a76b9cee8fd6eb09ee4d24c1380202fd17cc6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 1f808161087dff614ef83aacc606501bce96d3eb
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836354"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155130"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure’da Oracle veritabanı tasarlama ve dağıtma
 
 ## <a name="assumptions"></a>Varsayımlar
 
 - Bir Oracle veritabanına şirket içinden Azure'a geçirmeyi planlamanız durumunda.
+- Sahip olduğunuz [Tanılama paketi](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) geçirmek için aradığınız Oracle veritabanı
 - Oracle AWR raporları çeşitli ölçümleri'nın bilinmesini var.
 - Uygulama performansı ve platform kullanımı temel bir anlayışa sahip.
 
@@ -72,11 +73,11 @@ Azure ortamınızda performansını ayarlamak, olası dört alan vardır:
 
 ### <a name="generate-an-awr-report"></a>AWR rapor oluşturma
 
-Varolan bir Oracle veritabanına sahip ve Azure'a geçirmeyi planlama, birkaç seçeneğiniz vardır. Ölçümler (IOPS, MB/sn, GiBs ve benzeri) almak için Oracle AWR rapor çalıştırabilirsiniz. Topladığınız ölçümlere göre sanal makine seçin. Veya benzer bilgileri almak için altyapı takımınızın başvurabilirsiniz.
+Varolan bir Oracle veritabanına sahip ve Azure'a geçirmeyi planlama, birkaç seçeneğiniz vardır. Varsa [Tanılama paketi](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) Oracle örnekleriniz için ölçümleri (IOPS, MB/sn, GiBs ve benzeri) almak için Oracle AWR rapor çalıştırabilirsiniz. Topladığınız ölçümlere göre sanal makine seçin. Veya benzer bilgileri almak için altyapı takımınızın başvurabilirsiniz.
 
 Karşılaştırabilmeniz AWR raporunuz hem normal hem de yoğun saatler iş yükleri sırasında çalışan göz önünde bulundurabilirsiniz. Bu raporlara bağlı olarak, ortalama iş yükü veya en fazla iş yüküne göre sanal makineleri boyutlandırabilirsiniz.
 
-AWR raporu oluşturmak nasıl bir örnek aşağıda verilmiştir:
+AWR raporu oluşturmak nasıl bir örnek verilmiştir (geçerli yüklemeniz varsa, Oracle Enterprise Manager'ı kullanarak raporlarınızı AWR oluşturun):
 
 ```bash
 $ sqlplus / as sysdba
@@ -143,6 +144,10 @@ Ağ bant genişliği gereksinimlerinize göre aralarından seçim yapabileceğin
 
 - Ağ gecikme süresi, daha yüksek bir şirket içi dağıtımına karşılaştırılır. Ağ gidiş gelişlerin can önemli ölçüde azaltan performansı artırır.
 - Gidiş dönüş azaltmak için yüksek işlem ya da "geveze" uygulamalar aynı sanal makineye sahip uygulamalar birleştirin.
+- Sanal makineler ile kullanmak [hızlandırılmış ağ](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) daha iyi ağ performansı için.
+- Belirli Linux distrubutions düşünün etkinleştirme [TRIM/UNMAP Destek](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Yükleme [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) ayrı bir sanal makine üzerinde.
+- Büyük sayfaları linux üzerinde varsayılan olarak etkin değildir. Büyük sayfaları etkinleştirmeyi düşünün ve ayarlama `use_large_pages = ONLY ` Oracle DB üzerinde. Bu, performansı artırmaya yardımcı olabilir. Daha fazla bilgi bulunabilir [burada](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Disk türleri ve yapılandırmaları
 
@@ -183,6 +188,7 @@ G/ç gereksinimleri NET bir görüntüsünü oluşturduktan sonra bu gereksiniml
 - G/ç (hem veri ve dizin) azaltmak için veri sıkıştırma kullanın.
 - Yinele günlükler, sistem ve temps ayırın ve TS ayrı veri disklerini geri alın.
 - Hiçbir uygulama dosyasında varsayılan işletim sistemi diskleri (/ dev/sda) koymayın. Bu diskleri için optimize edilmediğinden hızlı sanal makine için önyükleme zamanları ve uygulamanız için iyi bir performans sağlamayabilir.
+- M serisi VM'ler, Premium depolama alanında kullanırken, etkinleştirme [yazma hızlandırıcı](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) günlükleri disk'üzerinde Yinele.
 
 ### <a name="disk-cache-settings"></a>Disk önbellek ayarları
 
@@ -190,7 +196,7 @@ Konak önbelleği için üç seçenek vardır:
 
 - *Salt okunur*: Tüm istekler için gelecekteki okuma önbelleğe alınır. Tüm yazma işlemlerini doğrudan Azure Blob depolama alanına kalıcıdır.
 
-- *Okuma-yazma*: "İleri okuma" algoritması budur. Okuma ve yazma işlemleri için gelecekteki okuma önbelleğe alınır. Yazma olmayan yazma aracılığıyla yerel önbelleğe ilk kalıcıdır. Anında yazma kullandığından SQL Server için Azure depolama alanına yazma kalıcıdır. Ayrıca hafif iş yükleri için düşük disk gecikme sağlar.
+- *ReadWrite*: "İleri okuma" algoritması budur. Okuma ve yazma işlemleri için gelecekteki okuma önbelleğe alınır. Yazma olmayan yazma aracılığıyla yerel önbelleğe ilk kalıcıdır. Ayrıca hafif iş yükleri için düşük disk gecikme sağlar. ReadWrite önbellek kullanarak gerekli verileri kalıcı hale getirmeniz işlemez bir uygulama ile VM kilitlenmesi durumunda veri kaybına neden olabilir.
 
 - *Hiçbiri* (devre dışı): Bu seçeneği kullanarak, önbellek devre dışı bırakabilir. Tüm veriler diske aktarma ve Azure Depolama'da kalıcı hale. Bu yöntem, g/ç kullanımlı iş yükleri için yüksek g/ç hızı sunar. "İşlem Maliyet" önünde bulundurmanız gerekir.
 
@@ -206,12 +212,11 @@ Aktarım hızını en üst düzeye çıkarmak için ile başlamanızı öneririz
 
 Veri diski ayarınızı kaydedildikten sonra sürücü işletim sistemi düzeyinde çıkarın ve değişiklikleri yaptıktan sonra sonra bunu yeniden bağlamak sürece konak önbelleği ayarı değiştiremezsiniz.
 
-
 ## <a name="security"></a>Güvenlik
 
 Ayarlama ve Azure ortamınızda sonra sonraki adım, ağınızın güvenliğini sağlamaktır. Bazı öneriler şunlardır:
 
-- *NSG ilke*: NSG bir alt ağ veya NIC tarafından tanımlanabilir Güvenlik ve uygulama güvenlik duvarları gibi şeyler için zorla yönlendirme erişimi denetlemek alt ağ düzeyinde hem kolaydır.
+- *NSG ilke*: NSG bir alt ağ veya NIC tarafından tanımlanabilir Erişimi denetlemek için güvenlik ve uygulama güvenlik duvarları gibi şeyler için zorla yönlendirme hem de alt ağ düzeyinde basittir.
 
 - *Sıçrama kutusu*: Daha güvenli erişim için Yöneticiler doğrudan uygulama hizmeti veya veritabanı için bağlantı. Bir Sıçrama kutusu, yönetici makine ve Azure kaynakları arasında bir medya olarak kullanılır.
 ![Sıçrama kutusu topolojisi sayfasının ekran görüntüsü](./media/oracle-design/jumpbox.png)

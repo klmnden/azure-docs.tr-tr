@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e08b1d8f847536101d44db266be5cd34e3e6a74c
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648423"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155313"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup’ta çevrimdışı yedekleme iş akışı
 Azure Backup, azure'a veri ilk tam yedekleme sırasında ağ ve depolama maliyetlerinden tasarruf birkaç yerleşik verimliliği sahiptir. Genellikle ilk tam yedeklemeler büyük miktarlarda veri aktarmanıza ve yalnızca deltaları/incrementals aktarmak sonraki yedeklemelerle karşılaştırıldığında daha fazla ağ bant genişliği gerektirecektir. Çevrimdışı dengeli dağıtım işlemi boyunca, Azure Backup diskler Çevrimdışı Yedekleme verileri Azure'a karşıya yüklemek için kullanabilirsiniz.
@@ -76,7 +76,7 @@ Bu bölümde, böylece verilerinizi Azure veri merkezi için sunulan ve Azure de
    Girişleri açıklaması aşağıdaki gibidir:
 
     * **Hazırlama konumu**: İlk yedek kopyanın yazıldığı geçici depolama konumu. Hazırlama konumu, bir ağ paylaşımına veya yerel bilgisayar üzerinde olabilir. Kopya bilgisayar ve kaynak bilgisayara farklıysa, hazırlama konumunun tam ağ yolu belirtmeniz önerilir.
-    * **Azure Resource Manager depolama hesabı**: Herhangi bir Azure aboneliğinde depolama hesabı Resource Manager türü adı.
+    * **Azure Resource Manager depolama hesabı**: Resource Manager depolama hesabı türü (genel amaçlı v1 veya genel amaçlı v2) herhangi bir Azure aboneliğinde adı.
     * **Azure depolama kapsayıcısı**: Kurtarma Hizmetleri kasasına kopyalanmadan önce yedekleme verileri burada alınır Azure depolama hesabında hedef depolama blob adı.
     * **Azure abonelik kimliği**: Azure depolama hesabının oluşturulduğu Azure abonelik kimliği.
     * **Azure içeri aktarma işinin adını**: Tarafından hangi Azure içeri aktarma hizmeti ve Azure Backup gönderilen veri aktarımını disklerde Azure'a izlemek benzersiz adı. 

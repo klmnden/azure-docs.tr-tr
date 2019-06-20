@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 06/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d8a9b82e51c837af6343ddf851545d02299aa527
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 834484278bb597bba4a5e1821d0b6572913a761d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473894"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146996"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Azure'da OpenShift dağıtmak için genel Önkoşullar
 
@@ -69,7 +69,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Bir anahtar kasası oluşturma
-Kümeyle için SSH anahtarları depolamak için key vault oluşturma [az keyvault oluşturma](/cli/azure/keyvault) komutu. Anahtar kasası adı genel olarak benzersiz olmalıdır.
+Kümeyle için SSH anahtarları depolamak için key vault oluşturma [az keyvault oluşturma](/cli/azure/keyvault) komutu. Anahtar kasası adı genel olarak benzersiz olmalıdır ve şablon dağıtımı için etkinleştirilmesi gerekir veya dağıtım "KeyVaultParameterReferenceSecretRetrieveFailed" hatasıyla başarısız olur.
 
 Aşağıdaki örnekte adlı bir anahtar kasası oluşturulmaktadır *keyvault* içinde *keyvaultrg* kaynak grubu:
 

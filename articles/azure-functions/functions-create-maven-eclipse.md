@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9dcc959e51aa42fd6ef3173dba2aec8d9970deb1
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61341450"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154564"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Java ile Eclipse kullanarak ilk işlevinizi oluşturma 
 
@@ -43,15 +43,15 @@ Ayrıca yükleme için önemle tavsiye edilir [Azure işlevleri temel araçları
 
 ## <a name="create-a-functions-project"></a>İşlevler projesi oluşturma
 
-1. Eclipse'te, seçin **dosya** menüsü, ardından **proje**. 
-1. Açık **Java projesi** klasöründe **yeni proje** penceresi ve select **Maven projesi**, ardından **sonraki**.
+1. Eclipse'te, seçin **dosya** menüsü, ardından **New -&gt; Maven projesi**. 
 1. Varsayılan değerleri kabul **yeni bir Maven projesi** seçin ve iletişim kutusunda **sonraki**.
 1. Seçin **ekleme Archetype** ve girdileri eklemek [azure işlevleri archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype grubu kimliği: com.microsoft.azure
     - Yapıt kimliği archetype: azure işlevleri archetype
-    - Sürüm: En son sürümü kullan [merkezi depo](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - Sürüm: En son sürümünü kullanın **1.22** gelen [merkezi depo](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Eclipse Maven oluşturma](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Tıklayın **Tamam** ve ayrıntılarını girin geçerli projenin ve sonunda **son**.
+1. Tıklayın **Tamam** ve ardından **sonraki** şu anlık görüntü gibi değerler girmek için (Lütfen farklı bir appName dışında kullanın **fabrikam işlevi 20170920120101928**), ve sonunda **son**.
+    ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven, _artifactId_ adlı yeni bir dosyada proje dosyalarını oluşturur. Oluşturulan kod projesinde basit bir [HTTP ile tetiklenen](/azure/azure-functions/functions-bindings-http-webhook) tetikleme HTTP istek gövdesini yankılayan işlevi.
 
@@ -68,7 +68,7 @@ Maven, _artifactId_ adlı yeni bir dosyada proje dosyalarını oluşturur. Oluş
 
 ### <a name="debug-the-function-in-eclipse"></a>Hata ayıklayın eclipse'te işlevi
 
-İçinde **Çalıştır** yapılandırma değişikliği önceki adımda ayarladığınız `azure-functions:run` için `mvn azure-functions:run -DenableDebug` ve güncelleştirilmiş yapılandırmayı hata ayıklama modunda işlev uygulamasını başlatmak için çalıştırın.
+İçinde **Çalıştır** yapılandırma değişikliği önceki adımda ayarladığınız `azure-functions:run` için `azure-functions:run -DenableDebug` ve güncelleştirilmiş yapılandırmayı hata ayıklama modunda işlev uygulamasını başlatmak için çalıştırın.
 
 Seçin **çalıştırma** menü ve açık **hata ayıklama yapılandırmaları**. Seçin **uzak Java uygulaması** ve yeni bir tane oluşturun. Yapılandırmanıza bir ad verin ve ayarlarını doldurun. Bağlantı noktası olan varsayılan işlevi konak tarafından açılmış hata ayıklama bağlantı noktası ile tutarlı olmalıdır `5005`. Kurulum sonrasında, tıklayarak `Debug` hata ayıklama başlatılamıyor.
 

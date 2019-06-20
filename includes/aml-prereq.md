@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 03/28/2019
 ms.openlocfilehash: 92ba6c6e875026d67c7ac7572d35a674659d0f1e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072957"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205853"
 ---
 - Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 

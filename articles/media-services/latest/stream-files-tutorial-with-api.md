@@ -1,6 +1,6 @@
 ---
-title: Karşıya yükleme, kodlama ve akışını Azure Media Services v3 ile .NET kullanarak | Microsoft Docs
-description: Bir dosyayı karşıya yükleyin ve video kodlamak için bu öğreticideki adımları izleyin ve .NET kullanarak içeriğinizi Media Services v3 ile akış.
+title: Karşıya yükleme, kodlama ve Azure Media Services v3 ile akışı | Microsoft Docs
+description: Bir dosyayı karşıya yükleyin ve video kodlamak için bu öğreticideki adımları izleyin ve içeriğinizi Media Services v3 ile akış.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,14 +12,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46a1add812d5721e36d8af030195c42542dc360c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149157"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273250"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Öğretici: .NET’i kullanarak videoları karşıya yükleme, kodlama ve akışla aktarma
+# <a name="tutorial-upload-encode-and-stream-videos"></a>Öğretici: Videoları karşıya yükleme, kodlama ve akışla aktarma
+
+> [!NOTE]
+> Öğreticiyi kullansa bile [.NET SDK'sı](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) örnekler, genel adımlar aynıdır için [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), veya desteklenen diğer [SDK'ları](media-services-apis-overview.md#sdks) .
 
 Azure Media Services, çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimlerini kullanarak medya dosyalarınızı kodlayın sağlar. Örneğin, içeriğinizi Apple'ın HLS veya MPEG DASH biçimlerinde akışla göndermek isteyebilirsiniz. Akışla göndermeden önce yüksek kaliteli dijital medya dosyanızı kodlamanız gerekir. Kodlama yönergeleri için bkz. [Kodlama kavramı](encoding-concept.md). Bu öğretici yerel video dosyasını karşıya yükler ve karşıya yüklenen dosyayı kodlar. Ayrıca, HTTPS URL’si aracılığıyla erişilebilir hale getirdiğiniz içerikleri de kodlayabilirsiniz. Daha fazla bilgi için bkz. [HTTP(s) URL'sinde iş girişi oluşturma](job-input-from-http-how-to.md).
 

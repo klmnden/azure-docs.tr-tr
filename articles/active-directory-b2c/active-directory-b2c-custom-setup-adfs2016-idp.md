@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c469b333c6896d33b440bfadf0ebbdbeece71a3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510423"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272139"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>ADFS, Azure Active Directory B2C'de özel ilkeleri kullanarak SAML kimlik sağlayıcısı olarak Ekle
 
@@ -101,6 +101,10 @@ Artık Azure AD B2C ADFS hesabıyla iletişim kurmak nasıl bilebilmesi ilkenizi
 1. Üzerinde **özel ilkeleri** sayfa seçin, Azure AD B2C kiracınızın **karşıya yükleme İlkesi**.
 2. Etkinleştirme **ilke varsa üzerine**, ardından gözatın ve seçin *TrustFrameworkExtensions.xml* dosya.
 3. **Karşıya Yükle**'ye tıklayın.
+
+> [!NOTE]
+> Visual Studio kod uzantısını B2C kullanır "socialIdpUserId." Bir sosyal İlkesi de ADFS için gereklidir.
+>
 
 ## <a name="register-the-claims-provider"></a>Talep sağlayıcısı kaydetme
 

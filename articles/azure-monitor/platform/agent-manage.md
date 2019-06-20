@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0c128aaf8102b3072b6a63c80ea860ceefbf5124
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65139257"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146301"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows ve Linux için Log Analytics aracısını korumak ve yönetme
 
@@ -300,4 +300,6 @@ Bir System Center Operations Manager yönetim grubuna rapor için Linux için Lo
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Gözden geçirme [Linux Aracısı sorunlarını giderme](agent-linux-troubleshoot.md) yükleme veya aracıyı yönetme sorunlarla karşılaşırsanız.
+- Gözden geçirme [Linux Aracısı sorunlarını giderme](agent-linux-troubleshoot.md) Linux aracısını yönetmek veya yükleme sırasında sorunlarla karşılaşırsanız.
+
+- Gözden geçirme [Windows Aracısı sorunlarını giderme](agent-windows-troubleshoot.md) Windows Aracısı'nı yönetme veya yükleme sırasında sorunlarla karşılaşırsanız.
