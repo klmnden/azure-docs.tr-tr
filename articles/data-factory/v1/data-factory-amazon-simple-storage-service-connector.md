@@ -95,7 +95,7 @@ Tüm veri kümesi türleri (örneğin, SQL veritabanı, Azure blob ve Azure tabl
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | bucketName |S3 demetini adı. |String |Evet |
-| anahtar |S3 nesnesinin anahtarı. |String |Hayır |
+| key |S3 nesnesinin anahtarı. |String |Hayır |
 | prefix |S3 nesnesinin anahtarı için önek. Seçili bir nesne anahtarları bu öneki ile başlayın. Yalnızca anahtar boş olduğunda geçerlidir. |String |Hayır |
 | version |S3 sürümü oluşturma etkinse, S3 nesnesinin sürümü. |String |Hayır |
 | format | Şu biçim türlerini destekler: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [JSON biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi ](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Dosyaları olarak kopyalamak istiyorsanız-olan dosya temelli deposu arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır | |
@@ -175,7 +175,7 @@ Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi i
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| özyinelemeli |Yinelemeli olarak S3 listesinde olup olmadığını belirtir dizinin altındaki nesneleri. |true/false |Hayır |
+| recursive |Yinelemeli olarak S3 listesinde olup olmadığını belirtir dizinin altındaki nesneleri. |true/false |Hayır |
 
 ## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>JSON örneği: Verileri Amazon S3'ten Azure Blob depolama alanına kopyalayın.
 Bu örnek verileri Amazon S3'ten bir Azure Blob depolama alanına kopyalamak nasıl gösterir. Ancak, veriler doğrudan kopyalanabilir [herhangi bir desteklenen havuzlarını](data-factory-data-movement-activities.md#supported-data-stores-and-formats) veri fabrikasında kopyalama etkinliği kullanarak.
