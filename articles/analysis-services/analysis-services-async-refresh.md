@@ -104,7 +104,7 @@ Parametreleri belirterek, gerekli değildir. Varsayılan olarak uygulanır.
 | `CommitMode`     | Enum  | Nesneleri yalnızca tamamlandığında veya toplu kaydedilmiş olup olmayacağını belirler. Modları içerir: varsayılan, işlem partialBatch.  |  işlem       |
 | `MaxParallelism` | Int   | Bu değer, iş parçacıkları, paralel olarak işleme komutları çalıştırmak en fazla sayısını belirler. Bu değer hizalı TMSL ayarlanabilir MaxParallelism özelliği ile [Sequence komutu](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) veya diğer yöntemleri kullanarak.       | 10        |
 | `RetryCount`     | Int   | İşlem başarısız olmadan önce yeniden denenme sayısını gösterir.      |     0    |
-| `Objects`        | Dizi | İşlenecek nesne dizisi. Her bir nesne içerir: "Tablo" tüm tablo ya da "Tablo" ve "Bölüm" bölümü işlenirken işlerken. Nesne yok belirtilirse, modelin tamamını yenilenir. |   İşlem tüm modeli      |
+| `Objects`        | Array | İşlenecek nesne dizisi. Her bir nesne içerir: "Tablo" tüm tablo ya da "Tablo" ve "Bölüm" bölümü işlenirken işlerken. Nesne yok belirtilirse, modelin tamamını yenilenir. |   İşlem tüm modeli      |
 
 CommitMode partialBatch için eşittir. Büyük veri kümelerinin ilk bir yük, bunu saat kadar sürebilir olduğunda kullanılır. Bir veya daha fazla toplu uyguladıktan sonra yenileme işlemi başarısız olursa, başarılı bir şekilde kaydedilmiş toplu kaydedilmiş kalır (bunu başarıyla kaydedilmiş toplu geri döner değil).
 
