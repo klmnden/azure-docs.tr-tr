@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f2a3bb666e40f1aafd921d70d93133ca9139b38
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65406971"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory E satış yöneticisi Remix ile tümleştirme
@@ -103,7 +103,7 @@ Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum a
 
     a. İçinde **oturum açma URL'si** kutusuna bir URL aşağıdaki biçimde yazın: *https://\<sunucu temel URL'si > /\<alt etki alanı > / esales-pc*.
 
-    b. İçinde **tanımlayıcı** kutusuna bir URL aşağıdaki biçimde yazın: *https://\<sunucu temel URL'si > /\<alt etki alanı > /*.
+    b. İçinde **tanımlayıcı** kutusuna bir URL aşağıdaki biçimde yazın: *https://\<sunucu temel URL'si > /\<alt etki alanı > /* .
 
     c. Not **tanımlayıcı** Bu öğreticide daha sonra kullanmak için değer.
     
@@ -158,7 +158,7 @@ Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum a
     
     b. İçinde **işbirliği öğesi** bölümünde aşağı açılan listesinde seçin **e-posta**.
 
-    c. İçinde **işbirliği öğesi** kutusunda, daha önce Azure portaldan kopyaladığınız talep değerini yapıştırın (diğer bir deyişle, **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. İçinde **işbirliği öğesi** kutusunda, daha önce Azure portaldan kopyaladığınız talep değerini yapıştırın (diğer bir deyişle, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** ).
 
     d. İçinde **veren (varlık kimliği)** kutusunda, daha önce kopyaladığınız öğesinden tanımlayıcı değerini yapıştırın **E Sales Manager Remix etki ve URL'leri** Azure portal'ın bölümü.
 

@@ -1,6 +1,6 @@
 ---
-title: Windows bilgisayarları Azure Log Analytics'e bağlayın | Microsoft Docs
-description: Bu makalede, diğer Bulut veya şirket için Log Analytics ile Microsoft Monitoring Agent (MMA) barındırılan Windows bilgisayarları bağlama açıklar.
+title: Windows bilgisayarları Azure İzleyicisi'ne bağlama | Microsoft Docs
+description: Bu makalede, diğer Bulut veya şirket içi-Azure İzleyici ile Windows için Log Analytics aracısını barındırılan Windows bilgisayarları bağlama açıklar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7f562959ac6022539ccf7137f352a2e9507758dc
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952475"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146344"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure İzleyici Windows bilgisayarları bağlama
 
@@ -110,14 +110,16 @@ Aşağıdaki tabloda, Automation DSC kullanılarak dağıtıldığında dahil ol
 2. Sessizce aracıyı yükleyin ve bunu Azure ticari bulutundaki bir çalışma alanına klasöründen bildirmek için yapılandırmak üzere yazmak için Kurulum dosyaları ayıklanır: 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
    veya, Azure ABD kamu Bulutu bildirmek için aracıyı yapılandırmak için şunu yazın: 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
+    >[!NOTE]
+    >Parametreler için dize değerlerini *OPINSIGHTS_WORKSPACE_ID* ve *OPINSIGHTS_WORKSPACE_KEY* Windows Installer interprit için geçerli seçenekler bildirin. çift tırnak içinde kapsüllenir gerekir paket için. 
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Azure Otomasyonu DSC kullanarak aracı yükleme
 
@@ -202,4 +204,6 @@ Döndürülen arama sonuçlarında, bağlı olduğu belirten ve raporlama hizmet
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Gözden geçirme [yönetme ve Windows ve Linux için Log Analytics aracısını korumak](agent-manage.md) makinelerinize dağıtım yaşam döngüsü sırasında Aracısı'nı yönetme hakkında bilgi edinmek için.  
+- Gözden geçirme [yönetme ve Windows ve Linux için Log Analytics aracısını korumak](agent-manage.md) makinelerinize dağıtım yaşam döngüsü sırasında Aracısı'nı yönetme hakkında bilgi edinmek için.  
+
+- Gözden geçirme [Windows Aracısı sorunlarını giderme](agent-windows-troubleshoot.md) yükleme veya aracıyı yönetme sorunlarla karşılaşırsanız.

@@ -2,18 +2,18 @@
 title: Azure uygulamaları yönetilen uygulama teklifi yayımlama Kılavuzu
 description: Bu makalede Market'te bir yönetilen uygulama yayımlama için gereksinimleri anlatılmaktadır.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.topic: article
-ms.date: 12/19/2018
-ms.author: ellacroi
-ms.openlocfilehash: cb7c0bb571dcb9ec763d0247042e93966bfd0b65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2018
+ms.author: v-qiwe
+ms.openlocfilehash: 29546b0969751a43959a55860fc22e9f3c3e225b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937792"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154948"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure uygulamaları için: Yönetilen uygulama teklifi yayımlama Kılavuzu
 
@@ -32,9 +32,8 @@ Azure uygulama kullanma: yönetilen uygulama Teklif türü aşağıdaki koşulla
 
 |Gereksinimler |Ayrıntılar  |
 |---------|---------|
-|Bir müşterinin Azure aboneliğinize dağıtılır | Yönetilen uygulamaları müşteri aboneliğinde dağıtılmış olması gereken ve 3. taraf tarafından yönetilebilir. | 
-|Faturalama ve ölçüm    |  Müşterinin Azure aboneliğinde kaynakları sağlanır. Kullandıkça Öde (DÖNÜŞTÜREBİLMEMİZ) sanal makineler aracılığıyla müşterinin Azure aboneliği (DÖNÜŞTÜREBİLMEMİZ) faturalandırılır. Microsoft, müşteri ile tamamlanmasını 
-Getirin-kendi lisansını söz konusu olduğunda, Microsoft Müşteri aboneliğinde altyapı maliyetleri faturalandırır sırasında müşteriye ücretleri doğrudan lisans transact        |
+|Bir müşterinin Azure aboneliğinize dağıtılır | Yönetilen uygulamaları müşteri aboneliğinde dağıtılmış olması gereken ve bir üçüncü taraf tarafından yönetilebilir. | 
+|Faturalama ve ölçüm    |  Müşterinin Azure aboneliğinde kaynakları sağlanır. Microsoft, Müşteri'nin Azure aboneliği (DÖNÜŞTÜREBİLMEMİZ) faturalandırılır aracılığıyla müşteri ile Kullandıkça Öde (DÖNÜŞTÜREBİLMEMİZ) sanal makineler işlem temelli. <br> Microsoft, müşteri aboneliğinde altyapı maliyetleri faturalandırır sırada getirin-kendi lisansını söz konusu olduğunda, müşteri masrafları doğrudan lisans transact.        |
 |Azure ile uyumlu sanal sabit disk (VHD)    |   Windows veya Linux Vm'leri oluşturulmalıdır.<ul> <ul> <li>Linux VHD'si oluşturma hakkında daha fazla bilgi için bkz. [Azure'da desteklenen Linux dağıtımı](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Bir Windows VHD oluşturma hakkında daha fazla bilgi için bkz. [Azure ile uyumlu bir VHD oluşturma](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]

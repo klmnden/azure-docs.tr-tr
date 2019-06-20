@@ -12,13 +12,13 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2019
+ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66019814"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144045"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL veritabanı bağlantı sorunlarını ve geçici hatalar ile çalışma
 
@@ -93,7 +93,7 @@ Yeniden deneme mantığınız test edebilirsiniz bir program çalışırken, ist
 - **SqlException.Number** 11001 =
 - İleti: "Böyle bir ana makine bilinmiyor"
 
-Programınızı ilk yeniden deneme girişimi bir parçası olarak, yazım hataları düzeltin ve bağlanma girişimi.
+İlk yeniden deneme girişimi bir parçası olarak, istemci bilgisayar ağa yeniden ve bağlanma girişimi.
 
 Bu test pratik hale getirmek için programınızı başlamadan önce ağ üzerinden bilgisayarınıza çıkarın. Ardından, programınızın programa neden olan bir çalışma zamanı parametre tanır:
 

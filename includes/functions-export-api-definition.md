@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 49ac1a7585ddf2a6500c7e9382880109c3f7f431
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131749"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188142"
 ---
 ## <a name="export-an-api-definition"></a>Bir API tanımını dışarı aktarma
 Gelen işleviniz için bir Openapı tanımına sahip [bir işlev için Openapı tanımı oluşturma](../articles/azure-functions/functions-openapi-definition.md). Bu işlem bir sonraki adım, PowerApps ve Microsoft Flow özel bir API kullanabilirsiniz, böylece API tanımını dışa aktarma sağlamaktır.
@@ -36,4 +36,4 @@ Gelen işleviniz için bir Openapı tanımına sahip [bir işlev için Openapı 
  
     ![PowerApps ve Microsoft Flow’a dışarı aktarma](media/functions-export-api-definition/export-api-2.png)
 
-1. **Tamam**'ı tıklatın. Özel API'yi yerleşik ve belirttiğiniz ortama eklenir.
+1. **Tamam** düğmesine tıklayın. Özel API'yi yerleşik ve belirttiğiniz ortama eklenir.

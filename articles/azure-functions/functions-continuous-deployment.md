@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: d4d2f24a0a7b1f01627ed2cea4a5732ca0e001c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2dc5fab0966c2ead0276cd8b23ea764bd4f9ef59
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068355"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190471"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure İşlevleri için sürekli dağıtım
 
@@ -32,7 +32,7 @@ Sürekli dağıtım, birden çok burada tümleştiriyorsanız projeler için mü
 
 ## <a name="requirements-for-continuous-deployment"></a>Sürekli dağıtım için gereksinimleri
 
-Başarılı olması sürekli dağıtım için dizin yapısını uyumlu olması gerekir, Azure işlevleri bekliyor aşağıdaki temel klasör yapısı:
+Başarılı olması sürekli dağıtım için dizin yapısını Azure işlevleri beklediği aşağıdaki temel klasör yapısı ile uyumlu olması gerekir:
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -44,13 +44,15 @@ Var olan bir işlev uygulaması için sürekli dağıtımını yapılandırmak i
 
     ![Dağıtım Merkezi açma](./media/functions-continuous-deployment/platform-features.png)
 
-2. Üzerinde **Dağıtım Merkezi**seçin **GitHub** için **kaynak denetimi** > **Authorize**.
+2. İçinde **Dağıtım Merkezi**seçin **GitHub**ve ardından **Authorize**. Veya zaten GitHub yetki verdiğiniz, seçin **devam**. 
 
     ![Dağıtım Merkezi](./media/functions-continuous-deployment/github.png)
 
-3. Seçin **AzureAppService yetkilendirmek** > **devam**.
+3. Github'da seçin **yetkilendirmek AzureAppService**. 
 
     ![Yetkilendirme](./media/functions-continuous-deployment/authorize.png)
+    
+    Azure portalında **Dağıtım Merkezi**seçin **devam**.
 
 4. Aşağıdaki yapı sağlayıcılardan birini seçin:
 

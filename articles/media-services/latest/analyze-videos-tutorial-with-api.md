@@ -1,5 +1,5 @@
 ---
-title: .NET - Azure kullanarak Media Services ile videoları analiz etme | Microsoft Docs
+title: Azure Media Services ile videoları analiz etme | Microsoft Docs
 description: Azure Media Services kullanarak videoları analiz etmek için bu öğreticideki adımları izleyin.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 04/21/2019
+ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2c26ba24f0262f7cf43f80b4f4deae464581d08d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415636"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273884"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Öğretici: Media Services v3 ile .NET kullanarak videoları analiz etme
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>Öğretici: Media Services v3 ile videoları analiz etme
+
+> [!NOTE]
+> Öğreticiyi kullansa bile [.NET SDK'sı](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) örnekler, genel adımlar aynıdır için [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), veya desteklenen diğer [SDK'ları](media-services-apis-overview.md#sdks) .
 
 Bu öğreticide Azure Media Services ile videoları analiz etme işlemi gösterilir. Kayıtlı videolar veya ses içerikleri hakkında derin içgörüler kazanmak isteyebileceğiniz çok sayıda senaryo mevcuttur. Örneğin, daha yüksek müşteri memnuniyeti elde etmek isteyen kuruluşlar, müşteri destek kayıtlarını dizinler ve panolarla aranabilir bir katalog haline getirmek için konuşmayı metne dönüştürme işlemini çalıştırabilir. Ardından, kendi iş yaygın şikayetlerinden listesi, kaynaklarına böyle şikayetlerinin ve diğer yararlı bilgiler gibi Öngörüler elde edebilirsiniz.
 
 Bu öğretici şunların nasıl yapıldığını gösterir:    
-
+ 
 > [!div class="checklist"]
 > * Bu konu başlığı altında açıklanan örnek uygulamasını indirin
 > * Belirtilen videoyu analiz eden kodu inceleme

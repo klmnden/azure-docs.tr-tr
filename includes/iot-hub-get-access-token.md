@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: b6ea8c7b3a6374572c8bd31e3c62b788efbafcbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156326"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67189025"
 ---
 ## <a name="obtain-an-azure-resource-manager-token"></a>Bir Azure Resource Manager belirteç edinme
 Azure Active Directory, Azure Resource Manager kullanarak kaynakları üzerinde gerçekleştirdiğiniz tüm görevleri doğrulaması gerekir. Diğer yaklaşımlar görmek için parola kimlik doğrulaması, burada gösterilen örnek kullanır [Azure Resource Manager kimlik doğrulama istekleri][lnk-authenticate-arm].

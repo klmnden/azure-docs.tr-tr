@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04b1d0eda85972517155f80488ad590fb56619ab
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075055"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190675"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps fiyatlandırma modeli
 
@@ -53,7 +53,7 @@ NET fiyatlandırma bilgileri için bkz. [Azure Logic Apps fiyatlandırma](https:
 
 ## <a name="connectors"></a>Bağlayıcılar
 
-Azure Logic Apps bağlayıcıları yardımcı, mantıksal uygulama erişim uygulamalar, hizmetlerinize ve sistemlerinize bulutta veya şirket içi sağlayarak [Tetikleyicileri](#triggers), [eylemleri](#actions), veya her ikisini de. Bağlayıcılar, standart veya Kurumsal sınıflandırılır. Bu bağlayıcılar hakkında genel bir bakış için bkz. [Azure Logic Apps için Bağlayıcılar](../connectors/apis-list.md). Aşağıdaki bölümler için faturalandırma nasıl Tetikleyiciler hakkında daha fazla bilgi sağlar ve Eylemler çalışabilirsiniz.
+Azure Logic Apps bağlayıcıları yardımcı, mantıksal uygulama erişim uygulamalar, hizmetlerinize ve sistemlerinize bulutta veya şirket içi sağlayarak [Tetikleyicileri](#triggers), [eylemleri](#actions), veya her ikisini de. Bağlayıcılar, standart veya Kurumsal sınıflandırılır. Bu bağlayıcılar hakkında genel bir bakış için bkz. [Azure Logic Apps için Bağlayıcılar](../connectors/apis-list.md). Önceden oluşturulmuş bağlayıcılar varsa logic apps içinde kullanmak istediğiniz REST API'leri için oluşturabileceğiniz [özel Bağlayıcılar](https://docs.microsoft.com/connectors/custom-connectors), yalnızca bu sarmalayıcılar REST apı'lerdir. Özel bağlayıcılar, standart bir bağlayıcı faturalandırılır. Aşağıdaki bölümler için faturalandırma nasıl Tetikleyiciler hakkında daha fazla bilgi sağlar ve Eylemler çalışabilirsiniz.
 
 <a name="triggers"></a>
 

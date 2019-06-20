@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eb99cd94dca2a463c275dd5d4fab540b4fc55318
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 4cbca467b50dd0e43132b6d09dc0785c501fca0f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510456"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204688"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanıcı verilerini yönetme
 
@@ -25,7 +26,7 @@ ms.locfileid: "66510456"
 
 ## <a name="delete-user-data"></a>Kullanıcı verilerini sil
 
-Kullanıcı verileri, Denetim günlüklerinde ve Azure AD B2C dizininde depolanır. Tüm kullanıcı denetim verileri 30 gün içinde Azure AD B2C için korunur. Bu 30 günlük süre içinde kullanıcı verilerini silmek istiyorsanız, kullanabileceğiniz [kullanıcı silme](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) işlemi. Bir silme işlemi, veri bulunduğu her Azure AD B2C kiracıları için gerekli değildir. 
+Kullanıcı verileri, Denetim günlüklerinde ve Azure AD B2C dizininde depolanır. Tüm kullanıcı Denetim verilerinin 7 gün içinde Azure AD B2C için korunur. Bu 7 günlük süre içinde kullanıcı verilerini silmek istiyorsanız, kullanabileceğiniz [kullanıcı silme](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) işlemi. Bir silme işlemi, veri bulunduğu her Azure AD B2C kiracıları için gerekli değildir. 
 
 Her Azure AD B2C kullanıcı nesne kimliği atanır. Nesne Kimliğini Azure AD B2C kullanıcı verilerini silmek için kullanabilmeniz için benzersiz bir tanımlayıcı sağlar. Mimarinizi bağlı olarak, Finans, pazarlama gibi diğer hizmetlerde, kullanışlı bağıntı tanımlayıcısı nesne kimliği olabilir ve müşteri ilişkileri yönetim veritabanları. 
 

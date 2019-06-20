@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: estfan
 ms.openlocfilehash: 3fa71085d649ace95aa24ac87c8714a7268f5386
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161950"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188964"
 ---
 Daha doğru tüketim maliyetlerinin tahmin etmek için iletileri veya belirli bir günde gelmesi yerine yalnızca yoklama aralığına Hesaplamalarınızda temel olayları olası sayısını göz önünde bulundurun. Tetikleme ölçütü karşıladığında bir olay ya da ileti ve tüm diğer bekleyen olayları ya da ölçütleri karşılayan iletileri okumak birçok tetikleyici hemen deneyin. Bekleyen olaylar veya iş akışlarını başlatmak için uygun bulunmuş iletileri sayısına dayalı tetikleyici bir uzun yoklama aralığı seçtiğinizde bu davranışı anlamına gelir. Bu davranışı uygular tetikleyicileri, Azure Service Bus ve Azure olay hub'ı içerir.
 

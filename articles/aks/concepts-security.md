@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65074029"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Uygulama ve kümelerin Azure Kubernetes Service (AKS) için güvenlik kavramları
@@ -69,7 +69,7 @@ Bağlantı ve şirket içi ağlar ile güvenlik için mevcut Azure sanal ağ alt
 
 Sanal ağlarda trafik akışını filtre uygulamak için Azure ağ güvenlik grubu kuralları kullanır. Bu kurallar, kaynak ve hedef IP aralıkları, bağlantı noktaları ve protokollere izin verilen ya da kaynaklara erişimi reddedildi tanımlayın. Varsayılan kuralları, Kubernetes API sunucusuna TLS trafiğine izin verecek şekilde oluşturulur. Yük Dengeleyiciler, bağlantı noktası eşlemelerini veya giriş yollar ile Hizmetleri oluştururken, AKS trafiği için ağ güvenlik grubu akış uygun şekilde otomatik olarak değiştirir.
 
-## <a name="kubernetes-secrets"></a>Kubernetes gizli dizileri
+## <a name="kubernetes-secrets"></a>Kubernetes Gizli Dizileri
 
 Bir Kubernetes *gizli* hassas verilere erişim kimlik bilgilerine veya anahtarlara gibi pod'ların eklemesine kullanılır. Önce Kubernetes API'yi kullanarak bir gizli dizi oluşturun. Pod veya dağıtım tanımladığınızda, belirli bir gizli dizi istenebilir. Gizli dizileri için bunu gerektiren zamanlanmış bir pod düğüm yalnızca sağlanır ve gizli dizi depolanır *tmpfs*değil yazılı diske. Gizli dizi gerektiren bir düğüm üzerindeki son pod silindiğinde, gizli dizi düğümün tmpfs silindi. Gizli dizileri belirli bir ad alanı içinde depolanır ve yalnızca pod'ların aynı ad alanında tarafından erişilebilir.
 

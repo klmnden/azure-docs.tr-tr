@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0d52e84ba027f902cebf543ae019b5e4b53400b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5dfc00b1193117c22ba1c763bb0e75d9c4712222
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059692"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275748"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS diğer ad kayıtlarını genel bakış
 
@@ -29,7 +29,7 @@ Bir diğer ad kayıt kümesi, aşağıdaki kayıt türlerinin bir Azure DNS böl
 
 ## <a name="capabilities"></a>Özellikler
 
-- **Bir genel IP kaynağı için bir DNS A/AAAA kayıt kümesi gelin.** A/AAAA kayıt kümesi oluşturma ve bir genel IP kaynağına işaret edecek bir diğer ad kayıt kümesi kolaylaştırır. Genel IP adresini değiştirir veya olan DNS kayıt kümesi olan silindi. DNS sarkan yanlış IP adreslerine işaret kayıtları engellendi.
+- **Bir genel IP kaynağı için bir DNS A/AAAA kayıt kümesi gelin.** A/AAAA kayıt kümesi oluşturma ve bir genel IP kaynağına işaret edecek bir diğer ad kayıt kümesi kolaylaştırır. Genel IP adresini değiştirir veya DNS kümesi değişiklikleri otomatik olarak kaydedin. silindi. DNS sarkan yanlış IP adreslerine işaret kayıtları engellendi.
 
 - **Traffic Manager profili için bir DNS A/AAAA/CNAME kayıt kümesi gelin.** A/AAAA oluşturabilir veya CNAME kaydı kümesi ve bir Traffic Manager profiline işaret etmek için diğer ad kayıtlarını kullanın. Bir bölgenin tepesindeki trafiği yönlendirmek gerektiğinde geleneksel CNAME kayıtları bir bölge tepesinde için desteklenmeyen gibi özellikle yararlıdır. Örneğin, Traffic Manager profilinizin myprofile.trafficmanager.net ve iş DNS bölgenizi contoso.com varsayalım. Tür A/AAAA contoso.com (bölge tepesinde) için bir diğer ad kaydı kümesi oluşturma ve myprofile.trafficmanager.net için gelin.
 - **Bir Azure Content Delivery Network (CDN) uç noktası**. Azure depolama ve Azure CDN kullanarak statik Web sitesi oluşturduğunuzda, bu yararlıdır.

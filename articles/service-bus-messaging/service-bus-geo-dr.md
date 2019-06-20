@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a2b92b7673ed852e203ca0926421be6ee8cf977d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058181"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190154"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-olağanüstü durum kurtarma
 
@@ -62,6 +62,17 @@ Kurulum işlemi aşağıdaki gibidir-
 2. Sağlama bir ***ikincil*** Service Bus Premium Namespace bir bölgede *nerede birincil ad alanı sağlandığında farklı*. Bu, farklı bir veri merkezinde bölgeler arasında hata Yalıtımı izin yardımcı olur.
 
 3. Elde etmek için ikincil ad alanı ve birincil ad alanı arasında eşleşmeyi ***diğer***.
+
+    >[!NOTE] 
+    > Varsa [için Azure Service Bus Premium, Azure Service Bus standart ad alanı geçişi](service-bus-migrate-standard-premium.md), olağanüstü durum kurtarma oluşturmak için önceden mevcut olan diğer ad (yani, Service Bus standart ad alanı bağlantı dizesi) kullanmanız gerekir yapılandırma aracılığıyla **PS/CLI** veya **REST API**.
+    >
+    >
+    > Geçiş sırasında Azure Service Bus Premium ad alanı diğer ad, Azure Service Bus standart ad alanı bağlantı dizesi/DNS adını kendisi olur çünkü budur.
+    >
+    > İstemci uygulamalarınız burada olağanüstü durum kurtarma eşleşmesinden ayarlanmış Premium ad alanına bağlanmak için bu diğer adı (yani Azure Service Bus standart ad alanı, bağlantı dizesi) kullanmalıdır.
+    >
+    > Olağanüstü durum kurtarma yapılandırmasını ayarlamak üzere portalı kullanıyorsanız, portalı sizden bu uyarı soyut.
+
 
 4. Kullanım ***diğer*** 3. adımda elde ettiğiniz Geo-DR istemci uygulamalarınıza bağlanmak için birincil ad alanı etkin. Başlangıçta, diğer birincil ad alanına işaret eder.
 

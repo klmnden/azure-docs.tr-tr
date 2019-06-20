@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67113551"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188342"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium Depolama: yüksek performans tasarımı
 
@@ -81,7 +81,7 @@ Azure Premium depolama üzerinde çalışan yüksek performanslı uygulamalar ta
 
 Önceki bölümde, yaygın performans göstergeleri, IOPS, aktarım hızı ve gecikme süresi açıklanmıştır. Bu performans göstergelerinin uygulamanızı istenen kullanıcı deneyimini sunmak için kritik olan belirlemeniz gerekir. Örneğin, yüksek IOPS, saniyede milyonlarca işlem işleme OLTP uygulamaları için en önemlidir. Oysa yüksek aktarım hızı yüksek miktarda verilerden oluşan bir saniye içinde işleme veri ambarı uygulamaları için önemlidir. Son derece düşük gecikme süresi, Web siteleri akış canlı video gibi gerçek zamanlı uygulamalar için önemlidir.
 
-Ardından, uygulamanızı ömrü boyunca en yüksek performans gereksinimlerini ölçer. Aşağıdaki örnek denetim listesini bir başlangıç kullanın. Normal sırasında en yüksek performans gereksinimleri, yoğun ve yoğun olmayan saatlerde iş yükü nokta kaydedin. Tüm iş yükleri düzeyleri için gereksinimleri belirleme, uygulamanızın genel performansını gereksinim belirlemek mümkün olacaktır. Örneğin, bir e-ticaret sitesi normal iş yükünü yıllık çoğu günlerde hizmet işlemleri olacaktır. Web sitesinin en yoğun iş yükü, mağazalarımızdaki ürünler veya özel satış olayları sırasında hizmet işlemleri olacaktır. En yoğun iş yükü için sınırlı bir süre genellikle deneyimli olduğu halde normal işleyişi iki veya daha fazla kez ölçeklendirmek için uygulamanızı gerektirebilir. 50\. yüzdebirlik, 90. yüzdebirlik ve 99. yüzdebirlik gereksinimleri öğrenin. Bu performans gereksinimleri herhangi bir aykırı değer filtrelemek yardımcı olur ve çalışmalarınızı doğru değerleri için en iyi duruma getirme üzerinde odaklanabilirsiniz.
+Ardından, uygulamanızı ömrü boyunca en yüksek performans gereksinimlerini ölçer. Aşağıdaki örnek denetim listesini bir başlangıç kullanın. Normal sırasında en yüksek performans gereksinimleri, yoğun ve yoğun olmayan saatlerde iş yükü nokta kaydedin. Tüm iş yükleri düzeyleri için gereksinimleri belirleme, uygulamanızın genel performansını gereksinim belirlemek mümkün olacaktır. Örneğin, bir e-ticaret sitesi normal iş yükünü yıllık çoğu günlerde hizmet işlemleri olacaktır. Web sitesinin en yoğun iş yükü, mağazalarımızdaki ürünler veya özel satış olayları sırasında hizmet işlemleri olacaktır. En yoğun iş yükü için sınırlı bir süre genellikle deneyimli olduğu halde normal işleyişi iki veya daha fazla kez ölçeklendirmek için uygulamanızı gerektirebilir. 50. yüzdebirlik, 90. yüzdebirlik ve 99. yüzdebirlik gereksinimleri öğrenin. Bu performans gereksinimleri herhangi bir aykırı değer filtrelemek yardımcı olur ve çalışmalarınızı doğru değerleri için en iyi duruma getirme üzerinde odaklanabilirsiniz.
 
 ## <a name="application-performance-requirements-checklist"></a>Uygulama performans gereksinimleri denetim listesi
 
@@ -198,7 +198,7 @@ Yüksek ölçek VM'ler, farklı boyutlarda farklı sayıda CPU çekirdekleri, be
 
 | VM boyutu | CPU çekirdekleri | Bellek | VM disk boyutları | En çok, Veri diskleri | Önbellek boyutu | IOPS | Bant genişliği önbelleği GÇ sınırları |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Yerel SSD 224 GB = |32 |576 GB |50\.000 IOPS <br> Saniye başına 512 MB |4000 IOPS ve saniyede 33 MB |
+| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Yerel SSD 224 GB = |32 |576 GB |50.000 IOPS <br> Saniye başına 512 MB |4000 IOPS ve saniyede 33 MB |
 | Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Yerel SSD 896 GB = |64 |4224 GB |ÜST SINIR: 80.000 IOPS <br> Saniyede 2.000 MB |5\.000 IOPS ve saniyede 50 MB |
 
 Tüm kullanılabilir Azure VM boyutlarını tam bir listesini görüntülemek için başvurmak [Windows VM boyutları](../articles/virtual-machines/windows/sizes.md) veya [Linux VM boyutları](../articles/virtual-machines/linux/sizes.md). Karşılayan ve istenen uygulama performans gereksinimlerinizi ölçeklendirme bir VM boyutu seçin. Buna ek olarak, VM boyutları seçerken önemli noktalar aşağıdaki dikkate alın.
@@ -235,8 +235,8 @@ Azure Premium depolama, sekiz GA disk boyutları ve şu anda Önizleme aşaması
 
 | Premium disk türü  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Disk boyutu           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 giB (16 tib'a kadar)    | 32\.767 giB (32 tib'a kadar)    |
-| Disk başına IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15\.000              | 20\.000              |
+| Disk boyutu           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 giB (16 tib'a kadar)    | 32.767 giB (32 tib'a kadar)    |
+| Disk başına IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15.000              | 20.000              |
 | Disk başına aktarım hızı | Saniye başına 25 MiB  | Saniye başına 50 MiB  | Saniye başına 100 MiB |Saniye başına 125 MiB | Saniye başına 150 MiB | Saniye başına 200 MiB | Saniye başına 250 MiB | Saniye başına 250 MiB | Saniye başına 480 MiB | Saniye başına 750 MiB | Saniye başına 750 MiB |
 
 Seçilen diskte bağlıdır seçtiğiniz kaç diskinin boyutu. Uygulama dağıtımı gereksinimi karşılamak için tek bir P50 disk veya birden çok P10 disk kullanabilirsiniz. Seçim yaparken, aşağıda listelenen hesabında dikkate alınacak noktalar alın.

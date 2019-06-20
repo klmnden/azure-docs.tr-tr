@@ -7,17 +7,17 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c945f39218f9099d5c304739ca9b567ab9b3325
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61480825"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164687"
 ---
-# <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure Stream Analytics ve Azure Machine Learning kullanarak yaklaşım analizi gerçekleştirme
-Bu makalede, Azure Machine Learning tümleşik basit bir Azure Stream Analytics işi hızlı bir şekilde ayarlamak açıklar. Cortana Intelligence Galerisi'nde akış metin verileri analiz ve gerçek zamanlı yaklaşım puanını belirlemek için Machine Learning yaklaşım analizi modeli kullanın. Cortana Intelligence Suite'i kullanarak yaklaşım analizi model oluşturmanın ayrıntılı olarak incelenmektedir hakkında endişelenmeden, bu görevi gerçekleştirmenize olanak tanır.
+# <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>Azure Stream Analytics ve Azure Machine Learning Studio (Önizleme) kullanarak yaklaşım analizi gerçekleştirme
+Bu makalede, Azure Machine Learning Studio tümleşik basit bir Azure Stream Analytics iş hızlı bir şekilde ayarlamak açıklar. Cortana Intelligence Galerisi'nde akış metin verileri analiz ve gerçek zamanlı yaklaşım puanını belirlemek için Machine Learning yaklaşım analizi modeli kullanın. Cortana Intelligence Suite'i kullanarak yaklaşım analizi model oluşturmanın ayrıntılı olarak incelenmektedir hakkında endişelenmeden, bu görevi gerçekleştirmenize olanak tanır.
 
 Bu makaleden bu gibi senaryolarda öğrenecekleriniz uygulayabilirsiniz:
 
@@ -45,7 +45,7 @@ Başlamadan önce şunlara sahip olduğunuzdan emin olun:
 Yüksek düzeyde, bu makalede gösterilen görevleri tamamlamak için aşağıdakileri yapın:
 
 1. Bir Azure depolama hesabı ve blob depolama kapsayıcısı oluşturun ve CSV biçimli bir giriş dosyasını kapsayıcıya yüklemek.
-3. Bir yaklaşım analizi model Cortana Intelligence Galerisi'nde Azure Machine Learning çalışma alanınıza eklemek ve bu modeli, Machine Learning çalışma alanı içinde bir web hizmeti olarak dağıtın.
+3. Yaklaşım analizi modeli Cortana Intelligence Galerisi'nde Azure Machine Learning Studio çalışma alanınıza eklemek ve bu modeli, Machine Learning çalışma alanı içinde bir web hizmeti olarak dağıtın.
 5. Giriş metin için yaklaşım belirlemek için bir işlev olarak bu web hizmetini çağıran bir Stream Analytics işi oluşturun.
 6. Stream Analytics işini başlatın ve çıktıyı denetleyin.
 

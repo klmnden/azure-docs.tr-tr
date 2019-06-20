@@ -9,18 +9,18 @@ ms.date: 06/21/2018
 ms.author: mbullwin
 ms.custom: include file
 ms.openlocfilehash: 31ff6ae66b13eb5e5abcde94e8d3df7f6e32f63c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66130804"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188130"
 ---
 Bununla ilgili bazı sınırlamalar ölçümleri ve uygulama başına olay sayısı diğer bir deyişle, izleme anahtarı başına. Limitler seçtiğiniz [fiyatlandırma planına](https://azure.microsoft.com/pricing/details/application-insights/) bağlıdır.
 
 | Resource | Varsayılan limit | Not
 | --- | --- | --- |
 | Günlük toplam veri | 100 GB | Bir uç ayarlayarak verileri azaltabilirsiniz. Daha fazla veri gerekiyorsa, Portalı'nda limiti artırabilirsiniz en fazla 1000 GB. 1\.000 GB'den büyük olan kapasiteler için e-posta Gönder AIDataCap@microsoft.com.
-| Azaltma | 32\.000 olay/saniye | Sınır bir dakika içinde ölçülür.
+| Azaltma | 32.000 olay/saniye | Sınır bir dakika içinde ölçülür.
 | Veri saklama | 90 gün | Bu kaynak [Search](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/app/analytics.md) ve [Ölçüm Gezgini](../articles/azure-monitor/app/metrics-explorer.md) içindir.
 | [Çok adımlı kullanılabilirlik testi](../articles/azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) ayrıntılı sonuçlarını saklama | 90 gün | Bu kaynak her adımın ayrıntılı sonuçlarını verir.
 | En büyük olay boyutu | 64,000 |

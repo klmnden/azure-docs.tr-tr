@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61443131"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203139"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm hızlandırıcısının rol tabanlı erişim denetimlerini yapılandırın
 
@@ -91,11 +91,11 @@ Aşağıdaki adımları, Azure Active Directory'de bir uygulamaya bir rol ekleme
 
 1. Bulma **uygulama kaydı** Azure portalında, çözümünüz için. Uzaktan izleme çözümünüzü adı uygulama adıdır. Aşağıdaki ekran görüntüsünde, çözüm ve uygulamanın görünen adları olan **contoso rm4**.
 
-    ![Uygulama kaydı](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![Uygulama kaydı](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Uygulamanızı seçin ve ardından **bildirim**. Varolan iki gördüğünüz [uygulama rolleri](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) uygulama için tanımlanmış:
 
-    ![Görünüm bildirimi](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![Görünüm bildirimi](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Adlı bir rol eklemek için bildirimi düzenleyin **ManageDevices** aşağıdaki kod parçacığında gösterildiği gibi. Bir GUID gibi benzersiz bir dize için yeni rol kimliği gerekir. Bir hizmet gibi kullanarak yeni bir GUID oluşturabileceğiniz [çevrimiçi GUID Oluşturucu](https://www.guidgenerator.com/):
 

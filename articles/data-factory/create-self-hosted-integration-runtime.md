@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec6177bb353602f20040f05215678e3a8a161ebc
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967949"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190829"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -44,7 +44,7 @@ Bu belgede nasıl oluşturabileceğinizi ve şirket içinde barındırılan IR y
 
     ```
 
-## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Bir Azure Resource Manager şablonu (Otomasyonu) kullanarak bir Azure sanal makinesinde kendinden konak IR ayarlama
+## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir Azure sanal makinesinde kendinden konak IR ayarlama 
 Bir Azure sanal makinesinde şirket içinde barındırılan IR Kurulumu kullanarak otomatikleştirebilirsiniz [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Bu şablon, (2 veya daha yüksek düğüm sayısı ayarladığınız sürece) tam olarak çalışmasını sağlamak için kolay bir yol IR yüksek kullanılabilirlik ve ölçeklenebilirlik özelliklerine sahip Azure sanal ağı içinde şirket içinde barındırılan sağlar.
 
 ## <a name="command-flow-and-data-flow"></a>Komut akışını ve veri akışı
@@ -86,6 +86,7 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 
 - Makine olmayan hazırda bekletme güç planı için şirket içinde barındırılan Integration runtime konak makinedeki yapılandırın. Konak makine hazırda bekleme, şirket içinde barındırılan tümleştirme çalışma zamanı çevrimdışı olur.
 - Düzenli olarak şirket içinde barındırılan tümleştirme çalışma zamanı ile ilişkili kimlik bilgilerini yedekle.
+- Kendinden konak IR otomatik hale getirmek için kurulum işlemleri, lütfen [bölümün altındaki](#automation-support-for-self-hosted-ir-function).  
 
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Yükleme ve İndirme Merkezi'nden kendinden konak IR kaydetme
 
@@ -109,6 +110,45 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
     b. İsteğe bağlı olarak **Show kimlik doğrulama anahtarı** anahtar metnini görmek için.
 
     c. **Kaydol**’u seçin.
+
+## <a name="automation-support-for-self-hosted-ir-function"></a>Otomasyon desteği için IR işlevi şirket içinde barındırılan
+
+
+> [!NOTE]
+> Planlama, farklı bir Azure sanal makinesi üzerinde kendinden konak IR kurulumu ve Azure Resource Manager şablonlarını kullanarak kurulum otomatikleştirmek istiyorsanız, lütfen [bölümü](#setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template).
+
+Ayarlama veya mevcut bir şirket içinde barındırılan IR yönetmek için komut satırını kullanabilirsiniz Bu yükleme, şirket içinde barındırılan IR düğümlerinin kayıt özellikle otomatik hale getirmek için kullanılabilir. 
+
+**Dmgcmd.exe** bulunan genellikle şirket içinde barındırılan yüklemesine dahil: C:\Program Files\Microsoft tümleştirme Runtime\3.0\Shared\ klasör. Bu, çeşitli parametreleri destekler ve batch betiklerini kullanarak otomasyon için komut istemi aracılığıyla çağrılabilir. 
+
+*Kullanım:* 
+
+```powershell
+dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
+```
+
+ *Ayrıntılar (parametreleri / özellik):* 
+
+| Özellik                                                    | Açıklama                                                  | Gerekli |
+| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| RegisterNewNode "`<AuthenticationKey>`"                     | Belirtilen kimlik doğrulama anahtarı ile Integration Runtime (şirket içinde barındırılan) düğümünü kaydetme | Hayır       |
+| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Geçerli düğüm bir yüksek kullanılabilirlik kümesi oluşturma ve/veya şirket içinde barındırılan IR (olmadan ADF hizmeti aracılığıyla Giden) kullanarak doğrudan karşı kimlik bilgileri ayarının etkinleştirilmesi için uzaktan erişimi etkinleştirin  **Yeni AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet'i uzak bir makineden aynı ağdaki. | Hayır       |
+| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Düğüm kapsayıcısı içinde çalışırken geçerli düğüm için uzaktan erişimi etkinleştir | Hayır       |
+| DisableRemoteAccess                                         | Geçerli düğüm için uzaktan erişim devre dışı bırakın. Uzaktan erişim çok düğümlü kurulumu için gereklidir. Yeni -**AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet'i hala çalışıyor şirket içinde barındırılan IR düğümü ile aynı makinede yürütülen sürece bile ne zaman uzaktan erişimi devre dışı bırakıldı. | Hayır       |
+| Anahtar "`<AuthenticationKey>`"                                 | Üzerine / önceki kimlik doğrulama anahtarı ile güncelleştirin. Lütfen yeni bir tümleştirme çalışma zamanını anahtar bulunuyorsa bu çevrimdışı giderek, önceki şirket içinde barındırılan IR düğümünde neden olabileceğinden dikkatli olun. | Hayır       |
+| GenerateBackupFile "`<filePath>`" "`<password>`"            | Düğüm anahtar ve veri deposu kimlik bilgilerini yedekleme dosyasını içeren, geçerli düğüm için yedekleme dosyası oluşturur. | Hayır       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | Düğüm bir yedekleme dosyasından geri yükleme                          | Hayır       |
+| yeniden başlatıp                                                     | Integration Runtime (şirket içinde barındırılan) konak Hizmeti'ni yeniden başlatın   | Hayır       |
+| Başlatma                                                       | Integration Runtime (şirket içinde barındırılan) konak Hizmeti'ni Başlat     | Hayır       |
+| Durdur                                                        | Integration Runtime (şirket içinde barındırılan) güncelleştirme hizmetini durdur        | Hayır       |
+| StartUpgradeService                                         | Integration Runtime (şirket içinde barındırılan) güncelleştirme hizmetini Başlat       | Hayır       |
+| StopUpgradeService                                          | Integration Runtime (şirket içinde barındırılan) güncelleştirme hizmetini durdur        | Hayır       |
+| TurnOnAutoUpdate                                            | Integration Runtime (şirket içinde barındırılan) otomatik güncelleştirmesini Aç        | Hayır       |
+| TurnOffAutoUpdate                                           | Integration Runtime (şirket içinde barındırılan) otomatik güncelleştirmesini Kapat       | Hayır       |
+| SwitchServiceAccount "<domain\user>" ["password"]           | Dıahostservice yeni bir hesap olarak ayarlayın. Kullanım boş parola ("") için sistem hesabı veya sanal hesap | Hayır       |
+| LogLevel `<logLevel>`                                       | ETW günlük düzeyini (kapalı, hata, ayrıntılı veya tümü) olarak ayarlayın. Genellikle, hata ayıklama sırasında Microsoft Destek tarafından kullanılır. | Hayır       |
+
+   
 
 
 ## <a name="high-availability-and-scalability"></a>Yüksek kullanılabilirlik ve ölçeklenebilirlik
@@ -341,7 +381,7 @@ Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, bağlantı noktası 80
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-``` 
+```
 
 Şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde 8060 bağlantı noktası açık değil seçerseniz, veri deposu kimlik bilgilerini yapılandırmak için kimlik bilgilerini ayarlama uygulama dışında mekanizmaları kullanın. Örneğin, kullanabileceğiniz **yeni AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet'i.
 

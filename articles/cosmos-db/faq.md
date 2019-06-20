@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4935e06389266f049b8f7f79ca6fb9380f33c864
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 47b1d9720a23c1dbfdee8c2e4cba95ff998a4cc0
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954140"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137750"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 
@@ -744,11 +744,11 @@ Evet, bileşik bir bölüm anahtarı oluşturmak için normal söz dizimini kull
 
 ### <a name="can-i-use-stable-loader-for-data-loading"></a>Kararlı yükleyici veri yükleme için kullanabilir miyim?
 
-Hayır, Önizleme sırasında kararlı yükleyici desteklenmez.
+Hayır, kararlı yükleyici desteklenmez.
 
 ### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Bir şirket içi Apache Cassandra kümesi, Azure Cosmos DB'nin Cassandra API'si ile eşleştirilmiş?
 
-Mevcut Azure Cosmos DB operasyonların işleriyle bulut ortamı için en iyi duruma getirilmiş bir deneyimi vardır. Eşleştirme gerekiyorsa, e-posta Gönder [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) senaryonuz açıklamasını içeren.
+Mevcut Azure Cosmos DB operasyonların işleriyle bulut ortamı için en iyi duruma getirilmiş bir deneyimi vardır. Eşleştirme gerekiyorsa, e-posta Gönder [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) senaryonuz açıklamasını içeren. Teklif Yardım çiftine üzerinde-şirket içi/farklı bulut Cassandra Cosomos DB'nin Cassandra API'si için küme üzerinde çalışıyoruz.
 
 ### <a name="does-cassandra-api-provide-full-backups"></a>Cassandra API tam yedeklemeler sağlar?
 
@@ -763,15 +763,12 @@ Hesabınız için istediğiniz ve burada bunun için bir yük devretme öncelik 
 
 ### <a name="does-the-apache-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>Apache Cassandra API'SİNİN bir varlığın tüm öznitelikleri varsayılan olarak dizin mu?
 
-Evet, bir varlığın tüm öznitelikleri varsayılan olarak Azure Cosmos DB tarafından dizine eklenir. Daha fazla bilgi için [Azure Cosmos DB: Dizin oluşturma ilkeleri](index-policy.md). Tutarlı dizin ile garantili performans avantajlarını edinin ve dayanıklı çekirdek kaydedilen her zaman yazar.
+Cassandra API ikincil Seçici dizini belirli öznitelikleri oluşturulmasına yardımcı olmak için dizin oluşturmayı destekler planlamaktadır. 
 
-### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>Sorguları gerçekleştirmek için bir dizin birden çok oluşturmanıza gerek yoktur anlamına mı mu?
-
-Evet, Azure Cosmos DB, herhangi bir şema tanımı olmadan tüm özniteliklerin otomatik dizin oluşturma sağlar. Bu Otomasyon odak dizin oluşturma ve yönetim yerine uygulama geliştiricilerine serbest bırakır. Daha fazla bilgi için [Azure Cosmos DB: Dizin oluşturma ilkeleri](index-policy.md).
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Öykünücü ile yeni Cassandra API SDK'yı yerel olarak kullanabilirim?
 
-Gelecekte bu özelliği desteklemeyi planlıyoruz.
+Evet bu desteklenir.
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>Bir platform olarak Azure Cosmos DB değişiklik akışı ve diğer işlevleri gibi özellikler pek çok gibi görünüyor. Bu özellikler Cassandra API'sine eklenecek mi?
 

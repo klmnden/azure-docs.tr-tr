@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 6549892bfd04065bf83ab50fa5f5b439c35c4238
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696651"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190539"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL veritabanı yedeklemeleri için 10 yıla kadar Store
 
@@ -59,8 +59,8 @@ W = 12 Hafta (84 gün), M = 12 ay (365 gün), Y = 10 yıl (3650 gün) WeekOfYear
 
 Yukarıdaki ilkeyi değiştirin ve yedek kopyaların W = 0 (hiçbir haftalık yedeklemeler), temposu kümesi olarak değiştirir, yukarıdaki tabloda vurgulanmış tarihlere göre gösterilir. Buna göre bu yedeklemeler tutmak için gerekli depolama miktarını azaltır. 
 
-> [!NOTE]
-> Tek tek LTR yedekleme zamanlamasını, Azure SQL veritabanı tarafından denetlenir. El ile LTR yedekleme oluşturamaz veya yedekleme oluşturma zamanlamasını denetlemek.
+> [!IMPORTANT]
+> Tek tek LTR yedekleme zamanlamasını, Azure SQL veritabanı tarafından denetlenir. El ile LTR yedekleme oluşturamaz veya yedekleme oluşturma zamanlamasını denetlemek. LTR İlkesi yapılandırdıktan sonra bu ilk LTR yedekleme kullanılabilir yedekler Listesi penceresinde göstermeden önce en fazla 7 gün sürebilir.  
 > 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Coğrafi çoğaltma ve uzun süreli yedek saklama

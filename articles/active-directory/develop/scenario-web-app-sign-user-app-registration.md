@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f512911811535818f4ad857c5c3b956870f619
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ae638f8cbef29c5d167a3ab59188169cbd934ef
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074553"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150219"
 ---
 # <a name="web-app-that-signs-in-users---app-registration"></a>Kullanıcılar - uygulama kaydı imzalar web uygulaması
 
@@ -48,14 +48,14 @@ Bu bağlantıya gidin, web uygulamanızın oluşturulmasını önyükleme oluşt
 1. Kiracı, erişmek için birden fazla Kiracı, sağ üst köşedeki hesabınızı seçin ve istenen Azure AD'ye portal oturumunuzu ayarlama, hesap sağlar.
 1. Sol gezinti bölmesinde seçin **Azure Active Directory** hizmet ve ardından **uygulama kayıtları** > **yeni kayıt**.
 1. **Uygulama kaydet** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin:
-   - Uygulamanız için desteklenen bir hesap türlerini seçin (bkz [desteklenen hesap türleri](./v2-supported-account-types.md))
-   - **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `AspNetCore-WebApp`.
-   - İçinde **yanıt URL'si**, örneği için uygulamanız için yanıt URL'si ekleme `https://localhost:44321/`seçip **kaydetme**.
+   1. Uygulamanız için desteklenen bir hesap türlerini seçin (bkz [desteklenen hesap türleri](./v2-supported-account-types.md))
+   1. **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `AspNetCore-WebApp`.
+   1. İçinde **yeniden yönlendirme URI'si**, uygulama türünü eklemek ve başarıyla kimlik doğrulandıktan sonra belirteç yanıtlarını kabul URI hedef döndürdü. Örneğin, `https://localhost:44321/`.  **Kaydol**’u seçin.
 1. Seçin **kimlik doğrulaması** menüsünü ve ardından aşağıdaki bilgileri ekleyin:
-- İçinde **yanıt URL'si**, ekleme `https://localhost:44321/signin-oidc`seçip **kaydetme**.
-- İçinde **Gelişmiş ayarlar** bölümünde, **oturum kapatma URL'si** için `https://localhost:44321/signout-oidc`.
-- Altında **örtük vermeyi**, kontrol **kimlik belirteçlerini**.
-- **Kaydet**’i seçin.
+   1. İçinde **yanıt URL'si**, ekleme `https://localhost:44321/signin-oidc`.
+   1. İçinde **Gelişmiş ayarlar** bölümünde, **oturum kapatma URL'si** için `https://localhost:44321/signout-oidc`.
+   1. Altında **örtük vermeyi**, kontrol **kimlik belirteçlerini**.
+   1. **Kaydet**’i seçin.
 
 ### <a name="register-an-app-using-powershell"></a>PowerShell kullanarak bir uygulamayı kaydetme
 
