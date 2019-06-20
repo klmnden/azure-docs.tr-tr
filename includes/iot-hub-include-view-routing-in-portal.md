@@ -1,8 +1,20 @@
 ---
-Başlık: dosya açıklaması Ekle: dosya Yazar içerir: robinsh ms.service: IOT hub Hizmetleri: IOT hub ms.topic: ms.date içerir: 03/05/2019 ms.author: robinsh ms.custom: include file
-<!-- this is the bit that tells the customer how to view the routing info they just set up -->
+title: include dosyası
+description: include dosyası
+author: robinsh
+ms.service: iot-hub
+services: iot-hub
+ms.topic: include
+ms.date: 03/05/2019
+ms.author: robinsh
+ms.custom: include file
+ms.openlocfilehash: 178236f774b0e1a6fe20c73afe0e7fd6965e67a5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67235470"
 ---
-
 Uç noktaları ve ileti yollarını kurulduktan sonra portalda yapılandırmalarını görüntüleyebilirsiniz. Oturum [Azure portalında](https://portal.azure.com) gidin **kaynak grupları**. Ardından, kaynak grubunuzu seçin ve ardından hub'ınızı seçin (hub adı ile başlayan `ContosoTestHub` bu öğreticideki). IOT hub'ı bölmesinden görürsünüz.
 
 ![IOT hub'ı özellikleri ekran](./media/iot-hub-include-view-routing-in-portal/01-show-hub-properties.png)
