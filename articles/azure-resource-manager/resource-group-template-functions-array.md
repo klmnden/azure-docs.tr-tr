@@ -58,7 +58,7 @@ Değeri bir diziye dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Evet |int, string, dizi veya nesne |Bir diziye dönüştürülecek değer. |
+| convertToArray |Evet |int, string, array veya object |Bir diziye dönüştürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
