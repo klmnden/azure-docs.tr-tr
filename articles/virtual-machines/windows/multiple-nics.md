@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: cc4fb07874015112791ef2eaf9c39b31b690006c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d6387fc0f2f7342eb7a1fda25fcf1272889d13f7
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978672"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64698155"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Oluşturma ve birden çok NIC içeren bir Windows sanal makine yönetme
 Azure'da sanal makineler (VM) bağlı birden çok sanal ağ arabirim kartları (NIC) sahip olabilir. Ön uç ve arka uç bağlantısı için farklı alt ağlara sahip ortak bir senaryodur. Birden fazla alt ağdaki bir VM'de birden çok NIC ilişkilendirebilirsiniz, ancak aynı sanal ağ (vNet) içinde tüm bu alt ağlardan bulunmalıdır. Bu makalede, bağlı birden çok NIC içeren bir VM oluşturma işlemi açıklanmaktadır. Ayrıca eklemek veya mevcut bir VM'den NIC kaldırmak nasıl öğrenin. Farklı [VM boyutları](sizes.md) değişen sayıda NIC desteği, bu nedenle, sanal Makinenizin uygun şekilde boyutu.
@@ -28,7 +28,7 @@ Azure'da sanal makineler (VM) bağlı birden çok sanal ağ arabirim kartları (
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myVnet*, ve *myVM*.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-vm-with-multiple-nics"></a>Birden çok NIC ile VM oluşturma
 İlk olarak bir kaynak grubu oluşturun. Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myResourceGroup* içinde *EastUs* konumu:

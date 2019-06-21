@@ -1,24 +1,27 @@
 ---
 title: Azure Blob Storage modülünde cihazlara - Azure IOT Edge dağıtma | Microsoft Docs
 description: IOT Edge cihazınıza uçta veri depolamak için bir Azure Blob Depolama modülü dağıtın.
-author: kgremban
-ms.author: kgremban
-ms.date: 05/21/2019
+author: arduppal
+ms.author: arduppal
+ms.date: 06/19/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
-manager: philmea
-ms.openlocfilehash: d844e81de9cfb556e91ab5c0d5a8074c822cce0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: mchad
+ms.openlocfilehash: 468e4fca5e67850949e7d5826e4bc88fa504b9d6
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65990463"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295237"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>IOT Edge modülü Azure Blob Depolama, cihazınıza dağıtma
 
 Modüller IOT Edge cihazına dağıtmak için çeşitli yollar vardır ve bunların tümünü IOT Edge modülleri Azure Blob Depolama için çalışır. Visual Studio kod şablonları ve Azure Portalı'nı kullanmak için iki basit yöntemler şunlardır.
+
+> [!NOTE]
+> IOT Edge üzerinde Azure Blob Depolama, içinde [genel Önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -88,35 +91,35 @@ Bir dağıtım bildirimi dağıtmak için modülleri ve modül ikizlerini istene
      > [!IMPORTANT]
      > İkinci yarısında depolama dizininin modülünde belirli bir konuma işaret değeri bağlama değiştirmeyin. Depolama dizini bağlama ile her zaman bitmelidir **: / blobroot** Linux kapsayıcıları için ve **: C: / BlobRoot** Windows kapsayıcıları için.
 
-    ![Güncelleştirme modülü kapsayıcı oluşturma seçenekleri - portal](./media/how-to-store-data-blob/edit-module.png)
-
-1. Ayarlama [katmanlama](how-to-store-data-blob.md#tiering-properties) ve [yaşam süresi](how-to-store-data-blob.md#time-to-live-properties) aşağıdaki JSON kopyalayıp yapıştırarak modülünüzde özelliklerini **istenen özellikler kümesi modül ikizi** kutusu. Her bir özellik ile uygun bir değer yapılandırmak, kaydedin ve dağıtım ile devam edin.
+1. Ayarlama [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) ve [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) aşağıdaki JSON kopyalayıp yapıştırarak modülünüzde özelliklerini **kümesi modül ikizi, istenen özellikleri** kutusu. Her bir özellik ile uygun bir değer yapılandırmak, kaydedin ve dağıtım ile devam edin.
 
    ```json
    {
      "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>,
-         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       "deviceAutoDeleteProperties": {
+         "deleteOn": <true, false>,
+         "deleteAfterMinutes": <timeToLiveInMinutes>,
+         "retainWhileUploading":<true,false>
        },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
+       "deviceToCloudUploadProperties": {
+         "uploadOn": <true, false>,
+         "uploadOrder": "<NewestFirst, OldestFirst>",
+         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
+         "storageContainersForUpload": {
            "<source container name1>": {
              "target": "<target container name1>"
            }
-         }
+         },
+         "deleteAfterUpload":<true,false>
        }
      }
    }
 
       ```
 
-   ![katmanlama ve yaşam süresi özelliklerini ayarlama](./media/how-to-store-data-blob/iotedge_custom_module.png)
+   ![set kapsayıcı oluşturma seçenekleri ve deviceAutoDeleteProperties deviceToCloudUploadProperties özellikleri](./media/how-to-deploy-blob/iotedge-custom-module.png)
 
-   Modülünüzün dağıtıldıktan sonra katman ayarlamayı ve TTL yapılandırma hakkında daha fazla bilgi için bkz: [modül İkizi Düzenle](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). İstenen özellikleri hakkında daha fazla bilgi için bkz: [tanımlayın veya güncelleştirme istenen özelliklerini](module-composition.md#define-or-update-desired-properties).
+   Modülünüzün dağıtıldıktan sonra deviceToCloudUploadProperties ve deviceAutoDeleteProperties yapılandırma hakkında daha fazla bilgi için bkz: [modül İkizi Düzenle](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). İstenen özellikleri hakkında daha fazla bilgi için bkz: [tanımlayın veya güncelleştirme istenen özelliklerini](module-composition.md#define-or-update-desired-properties).
 
 1. **Kaydet**’i seçin.
 
@@ -158,7 +161,7 @@ Azure IOT Edge, uç çözümleri geliştirmenize yardımcı olması için Visual
    | Klasör seçin | Geliştirme makinenizde çözüm dosyalarını oluşturmak Visual Studio Code için konum seçin. |
    | Çözüm adı sağlayın | Çözümünüz için açıklayıcı bir ad girin veya varsayılan değerleri kabul **EdgeSolution**. |
    | Modül şablonunu seçin | Seçin **varolan bir modülle (Enter tam görüntü URL'si)** . |
-   | Modül adı sağlayın | Bir tüm küçük adı, modül için gibi girin **azureblobstorage**.<br /><br />IOT Edge modülü, Azure Blob Depolama için küçük bir ad kullanmak önemlidir. IOT Edge modüllerini başvururken büyük/küçük harfe ve küçük harfler için depolama SDK'sı varsayılan olarak. |
+   | Modül adı sağlayın | Bir tüm küçük adı, modül için gibi girin **azureblobstorageoniotedge**.<br /><br />IOT Edge modülü, Azure Blob Depolama için küçük bir ad kullanmak önemlidir. IOT Edge modüllerini başvururken büyük/küçük harfe ve küçük harfler için depolama SDK'sı varsayılan olarak. |
    | İçin modülü Docker görüntüsü sağlayın | Resim URI'sini girin: **mcr.microsoft.com/azure-blob-storage:latest** |
 
    Visual Studio Code, sağlanan bir IOT Edge çözümü oluşturur ve ardından yeni bir pencerede yüklenir bilgilerini alır. Çözüm şablonu, blob depolama modülü görüntüsünü içeren bir dağıtım bildirimi şablonu oluşturur, ancak yapılandırmanız gerekir modülün oluşturma seçenekleri.
@@ -182,7 +185,7 @@ Azure IOT Edge, uç çözümleri geliştirmenize yardımcı olması için Visual
       }
       ```
 
-      ![Modül createOptions - Visual Studio Code güncelleştir](./media/how-to-store-data-blob/create-options.png)
+      ![Modül createOptions - Visual Studio Code güncelleştir](./media/how-to-deploy-blob/create-options.png)
 
 1. Değiştirin `<your storage account name>` hatırlayabileceğiniz bir ad. Hesabı adları 3 ila 24 karakter uzunluğunda, küçük harf ve sayı ile olmalıdır. Boşluk.
 
@@ -196,32 +199,34 @@ Azure IOT Edge, uç çözümleri geliştirmenize yardımcı olması için Visual
       > [!IMPORTANT]
       > İkinci yarısında depolama dizininin modülünde belirli bir konuma işaret değeri bağlama değiştirmeyin. Depolama dizini bağlama ile her zaman bitmelidir **: / blobroot** Linux kapsayıcıları için ve **: C: / BlobRoot** Windows kapsayıcıları için.
 
-1. Yapılandırma [katmanlama](how-to-store-data-blob.md#tiering-properties) ve [yaşam süresi](how-to-store-data-blob.md#time-to-live-properties) aşağıdaki JSON ekleyerek modülünüzde özelliklerini *deployment.template.json* dosya. Her bir özellik ile uygun bir değer yapılandırın ve dosyayı kaydedin.
+1. Yapılandırma [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) ve [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) aşağıdaki JSON ekleyerek, modül için *deployment.template.json* dosya. Her bir özellik ile uygun bir değer yapılandırın ve dosyayı kaydedin.
 
    ```json
    "<your azureblobstorageoniotedge module name>":{
      "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>,
-         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       "deviceAutoDeleteProperties": {
+         "deleteOn": <true, false>,
+         "deleteAfterMinutes": <timeToLiveInMinutes>,
+         "retainWhileUploading": <true, false>
        },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
+       "deviceToCloudUploadProperties": {
+         "uploadOn": <true, false>,
+         "uploadOrder": "<NewestFirst, OldestFirst>",
+         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "storageContainersForUpload": {
            "<source container name1>": {
              "target": "<target container name1>"
            }
-         }
+         },
+         "deleteAfterUpload": <true, false>
        }
      }
    }
    ```
 
-   ![azureblobstorageoniotedge - Visual Studio Code için istenen özelliklerini ayarlama](./media/how-to-store-data-blob/tiering_ttl.png)
+   ![azureblobstorageoniotedge - Visual Studio Code için istenen özelliklerini ayarlama](./media/how-to-deploy-blob/devicetocloud-deviceautodelete.png)
 
-   Modülünüzün dağıtıldıktan sonra katman ayarlamayı ve TTL yapılandırma hakkında daha fazla bilgi için bkz: [modül İkizi Düzenle](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Kapsayıcı hakkında daha fazla bilgi için oluşturma seçenekleri, ilke ve istenen durum görür yeniden [EdgeAgent istenen özelliklerini](module-edgeagent-edgehub.md#edgeagent-desired-properties).
+   Modülünüzün dağıtıldıktan sonra deviceToCloudUploadProperties ve deviceAutoDeleteProperties yapılandırma hakkında daha fazla bilgi için bkz: [modül İkizi Düzenle](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Kapsayıcı hakkında daha fazla bilgi için oluşturma seçenekleri, ilke ve istenen durum görür yeniden [EdgeAgent istenen özelliklerini](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
 1. *deployment.template.json* dosyasını kaydedin.
 

@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97b32fff931c1c0f5e19a269afec5094cae3d40e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 204e230f7ff0897d2ba97213ebc836aff9d0324b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111202"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204642"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Senaryo: Web API'lerini çağıran masaüstü uygulaması
 
@@ -53,7 +53,7 @@ Bir masaüstü uygulaması yazma ve kullanıcılar uygulamanıza oturum açma ve
 
   ![Masaüstü uygulaması](media/scenarios/desktop-app.svg)
 
-- Taşınabilir bir komut satırı aracı - Linux veya Mac üzerinde çalışan bir .NET Core uygulaması büyük olasılıkla yazıyorsanız - hiçbiri etkileşimli kimlik doğrulaması kullanmanız mümkün olmayacaktır, (.NET Core sağlamaz gibi bir [Web tarayıcısı](https://aka.ms/msal-net-uses-web-browser)), veya tümleşik Windows kimlik doğrulaması. Bu durumda en iyi seçenek cihaz kod akışını kullanmaktır. Bu akış ayrıca IOT uygulamaları gibi tarayıcı olmayan uygulamalar için kullanılır
+- Taşınabilir bir komut satırı aracı - Linux veya Mac üzerinde çalışan bir .NET Core uygulaması büyük olasılıkla yazıyorsanız - ya da etkileşimli kimlik doğrulaması kullanmanız mümkün olmayacaktır, (.NET Core sağlamaz gibi bir [Web tarayıcısı](https://aka.ms/msal-net-uses-web-browser)), veya tümleşik Windows kimlik doğrulaması. Bu durumda en iyi seçenek cihaz kod akışını kullanmaktır. Bu akış ayrıca IOT uygulamaları gibi tarayıcı olmayan uygulamalar için kullanılır
 
   ![Browserless uygulama](media/scenarios/device-code-flow-app.svg)
 

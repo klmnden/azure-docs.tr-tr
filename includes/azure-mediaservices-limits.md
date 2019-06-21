@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116331"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188752"
 ---
 >[!NOTE]
 >Sabit olmayan kaynaklar için kotalar bir artış istemek için bir destek bileti açın. Daha yüksek sınırlar elde etmek için ek Azure Media Services hesapları oluşturmayın.
@@ -18,7 +18,7 @@ ms.locfileid: "66116331"
 | --- | --- | 
 | Tek bir abonelikte Azure Media Services hesapları | 25 (sabit) |
 | Medya ayrılmış birimleri Media Services hesabı başına |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
-| Media Services hesabı başına iş | 50\.000<sup>2</sup> |
+| Media Services hesabı başına iş | 50.000<sup>2</sup> |
 | İş başına zincirleme görev sayısı | 30 (sabit) |
 | Media Services hesabı başına varlık sayısı | 1\.000.000|
 | Görev başına varlık sayısı | 50 |

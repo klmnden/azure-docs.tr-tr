@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128738"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188757"
 ---
 1. Bir kaynak veya kaynak grubunun etiketlerini görüntülemek için genel bakış mevcut etiketleri arar. Daha önce etiket uygulamadıysanız liste boştur.
    

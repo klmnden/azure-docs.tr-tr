@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
-ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bde341063fb6742bbe2a92592981d4a2a437d214
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540938"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203431"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery hizmeti güncelleştirmeleri
 Bir kuruluş olarak plansız kesintiler ve verilerinizin güvenliğini korumak için nasıl gideceğinizi ve Planlı çalışan uygulamaları/iş yüklerini out şekil yapmanız gerekir. Azure Site Recovery, Vm'leri ve fiziksel sunucuları bir site dışı kalırsa kullanılabilir çalışan uygulamalarınızı tutarak, BCDR stratejinize katkıda bulunur. Site Recovery, VM ve fiziksel sunucularda çalışan iş yüklerini çoğaltarak birincil sitenin kullanılamaz hale gelmesi durumunda bunların ikincil bir konumda kullanılabilir kalmasını sağlar. Birincil site yeniden çalışmaya başladığında birincil sitede iş yüklerini kurtarır.
@@ -33,6 +33,17 @@ Azure Site Recovery destek matrisi ve hata düzeltmeleri varsa yeni özellikler,
 
 > [!IMPORTANT]
 > Yükseltme resmi desteği dandır > (en son sürümü olan N) N sürümüne N-4. N-6 üzerinde ise N-4 için yükseltmeniz ve ardından N'ye yükseltme gerekiyor
+
+## <a name="expiry-of-components"></a>Süre sonu bileşenleri
+Site Recovery bileşenlerinin dolmak üzere müşterilerin bildirir veya (, bunlara abone olan ise) e-posta bildirimleri süresi zaten dolmuş veya Portalı'nda kasa panosunda. Kasa Panosu bildirimler artık itibarıyla hYpe rV VM koruyorsanız kullanılamaz. Ayrıca, senaryonuz için karşılık gelen altyapı görünümüne giderseniz, olacaktır indirmeleri en son sürümleri bağlantılarını yönlendirilecek bileşen yanında bir 'güncelleştirme var' düğmesi.
+
+Süre sonu bir bileşenleri yaklaşan olduğunda e-posta uyarılarının sıklığı aşağıda verilmiştir.
+- 60 gün önce dolmak üzere bileşendir: haftada bir kez
+- Sonraki 53 gün: haftada bir kez
+- Son 7 gün: Günlük bir kez
+- Sonra süresi dolmuş: haftada bir kez
+
+
 
 ### <a name="upgrading-when-the-difference-between-current-version-and-latest-released-version-is-greater-than-4"></a>Geçerli sürümü ve en son yayımlanan sürümü arasındaki fark, 4'ten büyük olduğunda yükseltme
 
@@ -118,15 +129,16 @@ Yeniden başlatma, Mobility Aracısı her bir yükseltmeden sonra tüm son deği
 
 |Güncelleştirme paketi  |Sağlayıcı  |Birleşik Kurulum| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[Güncelleştirme paketi 37](https://support.microsoft.com/help/4508614/update-rollup-37-for-azure-site-recovery)     |   5.1.4300.0  |  9.25.5241.1   |  5.1.4300.0  | 2.0.9163.0
 |[Güncelleştirme paketi 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[Güncelleştirme paketi 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Güncelleştirme paketi 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) -düzeltme     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Güncelleştirme paketi 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Güncelleştirme paketi 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
-|[Güncelleştirme Paketi 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 
 ## <a name="previous-update-rollups"></a>Önceki güncelleştirme paketleri
 
+- [Güncelleştirme Paketi 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)
 - [Güncelleştirme paketi 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [Güncelleştirme paketi 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
 - [Güncelleştirme paketi 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)

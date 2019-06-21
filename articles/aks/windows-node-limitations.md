@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b72b6e33ad59ffceebf58aed7b315a4833b02f9
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475411"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203665"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Windows Server düğüm havuzları ve uygulama iş yüklerini Azure Kubernetes Service (AKS) için geçerli sınırlamalar
 
@@ -28,7 +28,7 @@ Bu makalede, bazı sınırlamalar ve Windows Server AKS düğümleri işletim si
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Windows Server'da Kubernetes sınırlamaları
 
-Windows Server kapsayıcıları bir Windows tabanlı bir kapsayıcı konağı üzerinde çalıştırmanız gerekir. Windows Server kapsayıcıları AKS çalıştırma için [Windows Server çalıştıran bir düğüm havuzunu oluşturma] [ windows-node-cli] konuk işletim sistemi olarak. Yukarı Akış Kubernetes projesi Windows Server'da parçası olan bazı sınırlamalar penceresi sunucu düğüm havuzu desteği içerir. Bu sınırlamalar, AKS için özgü değildir. Bu Yukarı Akış Kubernetes Windows Server desteği hakkında daha fazla bilgi için bkz. [Kubernetes sınırlamaları Windows Server kapsayıcıları][upstream-limitations].
+Windows Server kapsayıcıları bir Windows tabanlı bir kapsayıcı konağı üzerinde çalıştırmanız gerekir. Windows Server kapsayıcıları AKS çalıştırma için [Windows Server çalıştıran bir düğüm havuzunu oluşturma] [ windows-node-cli] konuk işletim sistemi olarak. Yukarı Akış Kubernetes projesi Windows Server'da parçası olan bazı sınırlamalar penceresi sunucu düğüm havuzu desteği içerir. Bu sınırlamalar, AKS için özgü değildir. Bu Yukarı Akış Kubernetes Windows Server desteği hakkında daha fazla bilgi için bkz. [Kubernetes sınırlamaları Windows Server kapsayıcıları](https://docs.microsoft.com/azure/aks/windows-node-limitations).
 
 Windows Server kapsayıcıları kubernetes için Yukarı Akış aşağıdaki sınırlamalar AKS için uygundur:
 

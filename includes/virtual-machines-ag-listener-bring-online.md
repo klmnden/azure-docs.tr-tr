@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165369"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188322"
 ---
 1. Yük Devretme Kümesi Yöneticisi'nde **rolleri**ve ardından, kullanılabilirlik grubunu vurgulayın.  
 
@@ -17,7 +17,7 @@ ms.locfileid: "66165369"
 
 3. Tıklayın **bağımlılıkları** sekmesi. Birden çok kaynak listede yoksa, IP adresleri veya değil olduğunu doğrulayın ve bağımlılıkları.  
 
-4. **Tamam**'ı tıklatın.
+4. **Tamam** düğmesine tıklayın.
 
 5. Dinleyici adına sağ tıklayın ve ardından **çevrimiçine**.
 

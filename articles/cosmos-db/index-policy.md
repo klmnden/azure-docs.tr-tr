@@ -4,20 +4,23 @@ description: Yapılandırma ve varsayılan dizinleme ilkesinin için otomatik di
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 4206fba8297672a1a24415169cfd19ff89344038
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431188"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163718"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizinleme ilkeleri
 
 Azure Cosmos DB'de her kapsayıcı, kapsayıcının öğelerini nasıl sıralanması gerektiğini belirleyen bir dizin oluşturma ilkesi vardır. Varsayılan dizinleme ilkesinin için yeni kapsayıcılar dizinleri her özelliği için herhangi bir dize veya sayı aralığı dizinleri zorlamayı her öğesi, oluşturulan ve herhangi bir GeoJSON nesne için uzamsal dizin noktası yazın. Bu, dizin oluşturma ve önceden dizin yönetimi hakkında düşünmek zorunda kalmadan yüksek sorgu performansı elde etmek sağlar.
 
 Bazı durumlarda gereksinimlerinize daha iyi uyacak şekilde otomatik bu davranışı geçersiz kılmak isteyebilirsiniz. Bir kapsayıcının dizin oluşturma ilkesini ayarlayarak özelleştirebileceğiniz kendi *dizin oluşturma modu*ve dahil edilecek veya hariç *özellik yolları*.
+
+> [!NOTE]
+> Bu makalede açıklanan dizin oluşturma ilkeleri güncelleştirme yöntemini, yalnızca Azure Cosmos DB SQL API (çekirdek) için geçerlidir.
 
 ## <a name="indexing-mode"></a>Dizin oluşturma modu
 

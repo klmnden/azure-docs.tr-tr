@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ff20322f1d4f6024d4f41037ca18c327a0cc21f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be075b78d8388b7146a9a3180ca825fc6476108
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233192"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206043"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure Blob depolamadan/depolamaya veri kopyalayın
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -60,7 +60,10 @@ Azure Blob Bağlayıcısı aşağıdaki kimlik doğrulama türlerini desteklemek
 - [Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik](#managed-identity)
 
 >[!NOTE]
->Hdınsights, Azure Machine Learning ve Azure SQL veri ambarı PolyBase yükleme yalnızca Azure Blob Depolama hesabı anahtar kimlik doğrulamasını destekler.
+>Kaynak veya hazırlama Blob Depolama ile sanal ağ uç noktası yapılandırıldıysa, SQL veri ambarı'na veri yüklemek için PolyBase kullanarak, PolyBase gerektirdiği gibi yönetilen kimlik doğrulamasını ve şirket içinde barındırılan tümleştirme çalışma zamanı sürümü ile kullanmanız gerekir 3.18 veya üzeri. Bkz: [yönetilen kimlik doğrulama](#managed-identity) daha fazla yapılandırma önkoşulları bölümü.
+
+>[!NOTE]
+>Hdınsights ve Azure Machine Learning etkinlikleri, yalnızca Azure Blob Depolama hesabı anahtar kimlik doğrulamasını destekler.
 
 ### <a name="account-key-authentication"></a>Hesap anahtarı kimlik doğrulaması
 
@@ -272,6 +275,9 @@ Başvurmak [erişim için Azure depolama, Azure Active Directory'yi kullanarak k
 
     - **Kaynak olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri okuyucu** rol.
     - **Havuz olarak**, erişim denetimi (IAM), en az izni **depolama Blob verileri katkıda bulunan** rol.
+
+>[!IMPORTANT]
+>Verileri (kaynak veya hazırlama olarak) blobdan SQL veri ambarı'na yönetilen kimlik doğrulaması için Blob kullanırken yüklemek için PolyBase kullanın, adım 1 ve 2'de izlediğinizden emin olun [bu kılavuz](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 1) SQL veritabanınızı kaydetme Azure Active Directory (Azure AD) ile sunucu ve 2) SQL veritabanı sunucunuza depolama Blob verileri katkıda bulunan rolü atayın; rest, Data Factory tarafından işlenir. Blob Depolama alanınızın bir Azure sanal ağ uç noktası ile yapılandırılmışsa, kendisinden verileri yüklemek için PolyBase kullanılacak yönetilen kimlik doğrulama PolyBase gerektirdiği gibi kullanmalısınız.
 
 Bu özellikler bir Azure Blob Depolama bağlı hizmeti için desteklenir:
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services Livestream türleri | Microsoft Docs
-description: Bu makale Livestream türünü karşılaştırmak ayrıntılı bir tablo.
+description: Bu makale Livestream türlerini karşılaştıran ayrıntılı bir tablo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: bd4899374c06246ddd4d5fa81d0f6e3a6a1e7017
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 93f01513841d1174fea796f1615ab05df0a41af4
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075016"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150376"
 ---
 # <a name="live-event-types-comparison"></a>Canlı olay türlerini karşılaştırma
 
@@ -26,7 +26,11 @@ Azure Media Services, bir [canlı olay](https://docs.microsoft.com/rest/api/medi
 
 ## <a name="types-comparison"></a>Tür karşılaştırması 
 
-Aşağıdaki tablo, canlı olay türlerinin özellikleri karşılaştırılır.
+Aşağıdaki tablo, canlı olay türlerinin özellikleri karşılaştırılır. Oluşturma işlemi sırasında kullanarak türleri Ayarla [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+
+* **LiveEventEncodingType.None** -şirket içi Canlı Kodlayıcı, bir Çoklu bit hızlı akış gönderir. Alınan akışların herhangi başka bir işlemeye gerek kalmadan canlı olay geçirir. 
+* **LiveEventEncodingType.Standard** - bir şirket içinde gerçek zamanlı Kodlayıcı, Media Services ve canlı olay bir tek bit hızlı akışın Çoklu bit hızı akışları oluşturur gönderir. Katkı akış 720 p veya daha yüksek çözünürlükte ise **Default720p** hazır kodlama (ayrıntıları, makalenin sonraki bölümlerinde izleyin) 6 çözümleme/hızı eşleri grubudur.
+* **LiveEventEncodingType.Premium1080p** - bir şirket içinde gerçek zamanlı Kodlayıcı, Media Services ve canlı olay bir tek bit hızlı akışın Çoklu bit hızı akışları oluşturur gönderir. Default1080p hazır çözüm/hızı çiftleri (ayrıntıları makalenin sonraki bölümlerinde izleyin) çıkış kümesini belirtir. 
 
 | Özellik | Doğrudan Canlı etkinlik | Standart veya Premium1080p Canlı etkinlik |
 | --- | --- | --- |
@@ -58,43 +62,70 @@ Aşağıdaki tablo, canlı olay türlerinin özellikleri karşılaştırılır.
 
 ## <a name="system-presets"></a>Sistem önayarlarını
 
-Çözünürlüklerine ve bit hızlarına dönüştürme gerçek zamanlı Kodlayıcı çıkışı bulunan göre belirlenir [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). Kullanılıyorsa bir **standart** Canlı Kodlayıcı (LiveEventEncodingType.Standard) sonra *Default720p* hazır aşağıda açıklanan 6 çözümleme/bit oranı çiftleri kümesini belirtir. Aksi takdirde kullanıyorsanız bir **Premium1080p** Canlı Kodlayıcı (LiveEventEncodingType.Premium1080p) sonra *Default1080p* çıkış çözümleme/bit oranı çiftleri kümesini hazır belirtir. 
+Çözünürlüklerine ve bit hızlarına dönüştürme gerçek zamanlı Kodlayıcı çıkışı bulunan tarafından belirlenen [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). Kullanılıyorsa bir **standart** Canlı Kodlayıcı (LiveEventEncodingType.Standard) sonra *Default720p* hazır aşağıda açıklanan 6 çözümleme/hızı çiftleri kümesini belirtir. Aksi takdirde kullanıyorsanız bir **Premium1080p** Canlı Kodlayıcı (LiveEventEncodingType.Premium1080p) sonra *Default1080p* hazır çözüm/hızı çiftleri çıkış kümesini belirtir.
+
+> [!NOTE]
+> Standart gerçek zamanlı kodlama için Kurulum olmuştur - bir hata alırsınız, canlı bir olay için önceden Default1080p uygulanamıyor. Önceden bir Premium1080p gerçek zamanlı Kodlayıcı Default720p uygulamak çalışırsanız da bir hata alırsınız.
 
 ### <a name="output-video-streams-for-default720p"></a>Video Çıkış akışları Default720p için
 
-**Default720p** giriş videosunun aşağıdaki 6 katmanlara kodlar.
+Katkı akış 720 p veya daha yüksek çözünürlükte ise **Default720p** hazır aşağıdaki 6 katmanları akışa kodlayın. Aşağıdaki tabloda, bit hızı KB/sn, MaxFPS izin verilen en yüksek kare hızı temsil eder (içinde kare/saniye), profil kullanılan H.264 profilini temsil eder.
 
-| Bit hızı | Genişlik | Yükseklik | MaxFPS | Profil | Çıkış Stream adı |
-| --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Yüksek |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Yüksek |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Yüksek |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Yüksek |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Yüksek |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Yüksek |Video_340x192_200kbps |
+| Bit hızı | Genişlik | Yükseklik | MaxFPS | Profil |
+| --- | --- | --- | --- | --- |
+| 3500 |1280 |720 |30 |Yüksek |
+| 2200 |960 |540 |30 |Yüksek |
+| 1350 |704 |396 |30 |Yüksek |
+| 850 |512 |288 |30 |Yüksek |
+| 550 |384 |216 |30 |Yüksek |
+| 200 |340 |192 |30 |Yüksek |
 
 > [!NOTE]
 > Canlı kodlama Önayarı özelleştirmek istiyorsanız lütfen Azure portalı üzerinden bir destek bileti açın. İstediğiniz çözünürlüklerin ve bit hızlarının yer aldığı tabloyu paylaşmanız gerekir. 720p çözünürlükte yalnızca bir katman ve toplamda en fazla 6 katman bulunduğundan emin olun. Ayrıca standart bir gerçek zamanlı Kodlayıcı için bir ön ayarı isteyen belirtin.
+> Zaman içinde belirli değerleri çözünürlük ve bit hızlarına dönüştürme yapılabileceğine
 
 ### <a name="output-video-streams-for-default1080p"></a>Video Çıkış akışları Default1080p için
 
-**Default1080p** giriş videosunun aşağıdaki 6 katmanlara kodlar.
+Katkı akış 1080 p çözümlenmesi ise **Default1080p** hazır aşağıdaki 6 katmanları akışa kodlayın.
 
-| Bit hızı | Genişlik | Yükseklik | MaxFPS | Profil | Çıkış Stream adı |
-| --- | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |Yüksek |Video_1920x1080_5500kbps |
-| 3000 |1280 |720 |30 |Yüksek |Video_1280x720_3000kbps |
-| 1600 |960 |540 |30 |Yüksek |Video_960x540_1600kbps |
-| 800 |640 |360 |30 |Yüksek |Video_640x360_800kbps |
-| 400 |480 |270 |30 |Yüksek |Video_480x270_400kbps |
-| 200 |320 |180 |30 |Yüksek |Video_320x180_200kbps |
+| Bit hızı | Genişlik | Yükseklik | MaxFPS | Profil |
+| --- | --- | --- | --- | --- |
+| 5500 |1920 |1080 |30 |Yüksek |
+| 3000 |1280 |720 |30 |Yüksek |
+| 1600 |960 |540 |30 |Yüksek |
+| 800 |640 |360 |30 |Yüksek |
+| 400 |480 |270 |30 |Yüksek |
+| 200 |320 |180 |30 |Yüksek |
 
 > [!NOTE]
 > Canlı kodlama Önayarı özelleştirmek istiyorsanız lütfen Azure portalı üzerinden bir destek bileti açın. İstediğiniz çözünürlüklerin ve bit hızlarının yer aldığı tabloyu paylaşmanız gerekir. Yalnızca bir katmanında 1080 p ve en fazla 6 katmanları olduğundan emin olun. Ayrıca bir Premium1080p gerçek zamanlı Kodlayıcı için bir ön ayarı isteyen belirtin.
+> Belirli değerlerin çözünürlük ve bit hızlarına dönüştürme zamanla ayarlanmış.
 
 ### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Çıkış ses Stream Default720p ve Default1080p
 
-Her ikisi için de *Default720p* ve *Default1080p* hazır ses stereo AAC-48 kHz oranını örnekleme LC için 128 Kb/sn, kodlanmış.
+Her ikisi için de *Default720p* ve *Default1080p* ses hazır kodlanmış stereo AAC-LC, 128 Kb/sn için. Örnekleme hızını, ses kaydının akışı katkısı izler.
+
+## <a name="implicit-properties-of-the-live-encoder"></a>Gerçek zamanlı Kodlayıcı örtük özellikleri
+
+Önceki bölümde açıkça denetlenebilir hazır aracılığıyla - katmanlar, çözünürlük ve bit hızlarına dönüştürme sayısı gibi gerçek zamanlı Kodlayıcı özelliklerini açıklar. Bu bölümde, örtük özelliklerini açıklar.
+
+### <a name="group-of-pictures-gop-duration"></a>Grubu (GOP) resimleri süresi
+
+Gerçek zamanlı Kodlayıcı izleyen [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) yapısı akışı - katkı çıkış katmanları için aynı GOP süresine sahip olacak anlamına gelir. Bu nedenle, GOP süresi (genellikle 2 saniye) düzeltmiştir bir katkı akış oluşturmak için şirket içi Kodlayıcı yapılandırmanız önerilir. Bu, giden HLS ve MPEG DASH akışları hizmetinden de sabit olduğunu GOP sürelerini garanti eder. Çoğu cihazlar tarafından kabul edileceği GOP süreleri Small çeşitleri olasıdır.
+
+### <a name="frame-rate"></a>Kare hızı
+
+Gerçek zamanlı Kodlayıcı, tek tek video akışı - katkı çıkış katmanları aynı süreleri çerçevelerle olacağı anlamına gelir çerçevelerde süreleri de izler. Bu nedenle, kare hızı giderilen bir katkı akış oluşturmak için şirket içi Kodlayıcı yapılandırmanız önerilir (en fazla 30 kare/saniye). Bu, giden HLS ve MPEG DASH akışları hizmetinden de sabit, kare hızları sürelerini garanti eder. Kare hızları küçük farklılıklar nedeniyle çoğu cihazlar tarafından izin, ancak gerçek zamanlı Kodlayıcı doğru yürütülecek bir çıktı oluşturur garantisi yoktur. Şirket içi gerçek zamanlı Kodlayıcı çerçeveleri (örn. engelliyor olabilir değil Düşük pil koşullarda) veya herhangi bir şekilde kare hızı Çeşitleme uygulanıyor.
+
+### <a name="resolution-of-contribution-feed-and-output-layers"></a>Katkı çözümlenmesi akışı ve Katmanlar çıkış
+
+Gerçek zamanlı Kodlayıcı upconverting önlemek için yapılandırılmış akış katkı. Sonuç olarak çıkış katmanları en yüksek çözünürlüğünü, akış katkı aşmaz.
+
+Örneğin, bir katkı için 720 p akışı gönderirseniz Canlı kodlama Default1080p için yapılandırılmış bir canlı etkinlik, çıkış yalnızca 3 MB/sn, en aşağı 200 hızı 1080 p giderek 720 p ile başlayarak 5 katmanları sahip olur. Veya 360 p akışı bir katkı gönderirseniz Live standart için yapılandırılmış bir olaya live encoding, çıktı 3 katmanları (çözünürlükte 288 p, 216 p ve 192 p) içerir. Standart Canlı kodlayıcıya oluşan, örneğin 160 x 90 piksel katkı akışını gönderirseniz bozuk durumda bir katmanında aynı bit hızı akışı katkı, 160 x 90 çözünürlükte çıkış içerir.
+
+### <a name="bitrate-of-contribution-feed-and-output-layers"></a>Katkı, bit hızı akışı ve Katmanlar çıkış
+
+Gerçek zamanlı Kodlayıcı, bit hızı akışı katkı bağımsız olarak hazır bit hızı ayarlarında uymanız yapılandırılır. Sonuç olarak çıkış katmanların bit hızı akışı katkı, aşabilir. 1 MB/sn hızında 720 p çözünürlükte akışı bir katkısı gönderirseniz, örneğin, çıkış katmanları aynı kalacak [tablo](live-event-types-comparison.md#output-video-streams-for-default720p) yukarıda.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

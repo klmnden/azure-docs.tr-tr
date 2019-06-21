@@ -1,6 +1,6 @@
 ---
 title: VM'ler (Önizleme) için Azure İzleyici ile Uygulama bağımlılıklarını görüntüleme | Microsoft Docs
-description: Harita, Azure İzleyici sanal makineler için otomatik olarak Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini bulur ve hizmetler arasındaki iletişimi eşleyen bir özelliğidir. Bu makalede, çeşitli senaryoları içinde kullanma hakkında ayrıntılar sağlar.
+description: Harita, VM'ler için Azure İzleyici özelliğidir. Otomatik olarak, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini bulur ve hizmetler arasındaki iletişimi eşler. Bu makalede, çeşitli senaryolarda Haritası özelliğini kullanma hakkında ayrıntılar sağlar.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,117 +13,131 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6273e9b6c7ed0c4685479976343497f01201b0b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522169"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206752"
 ---
-# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Azure İzleyicisi'ni (Önizleme) Map uygulama bileşenleri anlamak için VM'ler için kullanma
-Windows ve Linux ortamınızı Azure İzleyici ile iki şekilde VM'ler için doğrudan bir sanal makineden veya Azure İzleyici'den VM grupları arasında gösterilebilir azure'da çalışan sanal makineler üzerinde bulunan uygulama bileşenlerini görüntüleme. 
+# <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Azure İzleyici'nin eşleme özelliği, uygulama bileşenleri anlamak için Vm'leri (Önizleme) için kullanın.
+VM'ler için Azure İzleyici'de, Windows ve Linux Azure veya kendi ortamında çalışan sanal makineleri (VM'ler) üzerinde bulunan uygulama bileşenleri görüntüleyebilirsiniz. Sanal makineleri iki yolla görebilirsiniz. Doğrudan bir VM'den bir haritayı görüntülemek veya Azure İzleyici'nın bileşenleri arasında VM grupları görmek için bir eşlemden görüntüleyin. Bu makalede, bu iki görüntüleme yöntemleri ve eşleme özelliğini nasıl kullanacağınızı anlamanıza yardımcı olur. 
 
-Bu makalede, iki perspektiften arasındaki eşleme özelliğini kullanma deneyimi anlamanıza yardımcı olur. VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-enable-overview.md).
+VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-enable-overview.md).
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
-[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+[Azure Portal](https://portal.azure.com) oturum açın.
 
-## <a name="introduction-to-map-experience"></a>Harita deneyimi giriş
-Tek sanal makine veya VM için harita görüntüleme içine girmeden önce kısa bir giriş özelliği sunuyoruz bilgileri nasıl görüntülenir ve görselleştirmeler ne temsil anlamak için önemlidir.  
+## <a name="introduction-to-the-map-experience"></a>Harita deneyimi giriş
+Harita deneyime girmeden önce nasıl sunar ve bilgi görselleştirir anlamanız gerekir. Doğrudan bir VM veya Azure İzleyici eşleme özelliğini seçmek ister, eşleme özelliğini tutarlı bir deneyim sunar. Tek fark, bir harita birden çok katmanlı uygulama veya kümenin tüm üyelerini gösterir, Azure İzleyici'den.
 
-Doğrudan bir VM veya Azure İzleyici eşleme özelliğini seçmek ister, tutarlı bir deneyim sunar.  Tek fark, bir çok katmanlı uygulaması veya bir eşlem içindeki kümesinin tüm üyeleri görebileceğiniz Azure İzleyici'den yerdir.
+Eşleme özelliğini VM bağımlılıklara sahip işlemleri çalıştırırken bularak görselleştirir: 
 
-Haritalar sunucularını, gelen ve giden bağlantı gecikme süresi ve bağlantı noktaları arasında etkin ağ bağlantılarıyla çalışan işlemleri arasında tüm TCP bağlantılı mimarisi belirtilen zaman aralığı üzerinde bularak Vm'leri bağımlılıkları görselleştirir.  Bir VM genişletme işleminin ayrıntılarını gösterir ve VM ile iletişim kuran işlemleri gösterilir. Sanal makineye bağlanan ön uç istemcilerin sayısı, istemci grubu ile belirtilir. Arka uç sunucularının sayısı VM gösterilir sunucu bağlantı noktası grupları bağlanır. Bu bağlantı noktası üzerinden bağlı sunucuları ayrıntılı listesini görmek için bir sunucu bağlantı noktası grubu genişletin.  
+- Sunucular arasında etkin ağ bağlantısı.
+- Gelen ve giden bağlantı gecikme süresi.
+- Belirtilen zaman aralığı boyunca tüm TCP bağlantılı mimarisi arasında bağlantı noktaları.  
+ 
+Bir VM işlem ayrıntılarını ve VM ile iletişim kuran işlemleri görüntülemek için genişletin. İstemci grubu, VM'ye bağlanın, ön uç istemcilerin sayısını gösterir. Sunucu bağlantı noktası grupları, VM'nin bağlandığı arka uç sunucularının sayısını gösterir. Bu bağlantı noktası üzerinden sunucuları ayrıntılı listesini görmek için bir sunucu bağlantı noktası grubu genişletin.  
 
-Sanal makinede tıkladığınızda **özellikleri** sistem bilgileri Azure VM ve bir halka özellikleri, işletim sistemi tarafından bildirilen gibi seçili öğenin özelliklerini göstermek için sağ taraftaki bölmesi genişletildi bulunan bağlantılar özetleme. 
+VM'yi seçtiğinizde **özellikleri** sağ bölmesinde sanal makinenin özelliklerini gösterir. Sistem bilgileri Azure VM ve bulunan bağlantılar özetleyen bir halka grafik özellikleri, işletim sistemi tarafından bildirilen özellikleri içerir. 
 
-![Bilgisayarın Sistem Özellikleri](./media/vminsights-maps/properties-pane-01.png)
+![Özellikler bölmesi](./media/vminsights-maps/properties-pane-01.png)
 
-Sağ tarafında bölmesinin, tıklayarak **günlüğü olaylarını** odak noktası, sanal makineden toplanan veriler tabloların bir listesini göstermek için bölmenin geçiş yapmak için simge Azure İzleyicisi'ne gönderdi ve sorgulama için kullanılabilir.  Listelenen kayıt türlerinden birini tıklayarak açılır **günlükleri** sayfası ile önceden yapılandırılmış bir sorgu türü için sonuçları görüntülemek için belirli bir sanal makineye karşı filtrelenmiş.  
+Bölmenin sağ tarafında seçin **günlüğü olaylarını** VM için Azure İzleyici gönderdiği veri listesi gösterilecek. Bu veriler, sorgulama için kullanılabilir.  Açmak için herhangi bir kayıt türü seçin **günlükleri** gördüğünüz söz konusu kayıt türü için sonuçları sayfası. Sanal Makineyi karşı filtrelenmiş bir önceden yapılandırılmış sorgu de görebilirsiniz.  
 
-![Özellikler bölmesinde günlük arama listesi](./media/vminsights-maps/properties-pane-logs-01.png)
+![Günlük olayları bölmesi](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Kapat **günlükleri** ve geri dönüp **özellikleri** bölmesi ve select **uyarılar** durumu ölçütlerini VM'den için oluşturulan uyarılar görünümü uyarılar için. Harita, seçili zaman aralığında sonra seçtiğiniz sunucu için tetiklenen uyarılar gösterilecek Azure uyarıları ile entegre olur. Sunucu, geçerli bir uyarı ve makine uyarılar bölmesinde uyarılar listeler bir simge görüntüler. 
+Kapat **günlükleri** sayfasında ve geri dönüp **özellikleri** bölmesi. Burada, seçin **uyarılar** VM durumu ölçütlerini uyarıları görüntülemek için. Eşleme özelliği, seçili zaman aralığında sonra seçtiğiniz sunucu için uyarılar gösterilecek Azure uyarıları ile entegre olur. Sunucuyu geçerli uyarılar için bir simge görüntüler ve **makine uyarılar** bölmesi uyarılarını listeler. 
 
-![Özellikler bölmesinde makine uyarıları](./media/vminsights-maps/properties-pane-alerts-01.png)
+![Uyarılar bölmesinde](./media/vminsights-maps/properties-pane-alerts-01.png)
 
-İlgili uyarıları görüntülemek eşleme özelliğini etkinleştirmek için belirli bir bilgisayar için tetiklenen uyarı kuralı oluşturun. Uygun uyarılar oluşturmak için:
-- Bilgisayar tarafından bir yan tümce grubuna ekleyin (örneğin, **bilgisayar aralığı 1 dakika**).
-- Uyarı için ölçüm ölçüsü üzerinde temel'ı seçin.
+İlgili uyarıları görüntülemek eşleme özelliğini yapmak için belirli bir bilgisayar için geçerli bir uyarı kuralı oluşturun:
 
-Azure uyarıları ve uyarı oluşturma kuralları hakkında daha fazla bilgi için bkz. [birleşik uyarılar Azure İzleyici'de](../../azure-monitor/platform/alerts-overview.md)
+- Bilgisayar tarafından bir yan tümce grubu uyarılar içerir (örneğin, **bilgisayar aralığı 1 dakika**).
+- Bir ölçüm uyarısında tabanı.
 
-**Gösterge** sağ üst köşede seçeneğinde, bir haritada semboller ve rolleri açıklar.  Haritanızı daha yakından göz atmak için yakınlaştırın ve alt kısmında BT etrafında yakınlaştırma denetimleri taşımak için sayfanın sağ tarafındaki yakınlaştırma seviyesini ayarlar ve geçerli sayfa boyutunu Sayfaya Sığdır.  
+Azure uyarıları ve uyarı oluşturma kuralları hakkında daha fazla bilgi için bkz. [Azure İzleyici'de uyarılar birleşik](../../azure-monitor/platform/alerts-overview.md).
+
+Sağ üst köşedeki **gösterge** seçenek harita üzerinde semboller ve rolleri tanımlar. Bir daha yakından bakış haritanızı ve onu etrafında taşımak için sağ alt köşedeki yakınlaştırma denetimlerini kullanın. Yakınlaştırma seviyesini ayarlayabilir ve sayfa boyutu haritayı sığdırmak.  
 
 ## <a name="connection-metrics"></a>Bağlantı ölçümü
-**Bağlantıları** bölmesi, TCP bağlantı noktası üzerinden VM'den seçilen bağlantı için standart bağlantı ölçümleri görüntüler. Ölçümler, yanıt süresi, istek başına dakika, trafiği hacmi ve bağlantılar içerir.  
+**Bağlantıları** bölmesi standart ölçüm seçili VM bağlantısı için TCP bağlantı noktası üzerinden görüntüler. Ölçümler, yanıt süresi, istek başına dakika, trafiği hacmi ve bağlantılar içerir.  
 
-![Ağ bağlantısı grafikler bölmesinde örneği](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
+![Bağlantılar bölmesinde ağ bağlantısı grafikleri](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
 
 ### <a name="failed-connections"></a>Başarısız bağlantılar
-Başarısız bağlantılar, haritadaki işlemleri ve bilgisayarlar, bir işlem veya bağlantı noktası ulaşmak bir istemci sistem başarısız olduğunu gösteren bir kesikli kırmızı çizgi ile gösterilir. Sistemin başarısız bağlantı denemesi ise başarısız bağlantılar bağımlılık aracısını ile herhangi bir sistemden raporlanır. Harita, bu işlem bir bağlantı kurmak için başarısız TCP yuvaları gözlemleyerek ölçer. Bu hata, bir güvenlik duvarı, istemci veya sunucu veya kullanılamayan bir uzak hizmeti hatalı yapılandırılması kadar neden olabilir.
+Harita işlemlerini ve bilgisayarlar için başarısız bağlantılarını gösterir. Kesikli kırmızı bir çizgi bir işlem veya bağlantı noktası ulaşmak bir istemci sistem başarısız olduğunu gösterir. Bağımlılık Aracısı'nı kullanan sistemler için aracı üzerinde başarısız bağlantı denemesi bildirir. Eşleme özelliğini, bir işlem başarısız bir bağlantı kurmak için TCP yuvaları gözlemleyerek izler. Bu hata, bir güvenlik duvarı, istemci veya sunucu veya kullanılamayan bir uzak hizmeti hatalı yapılandırılması kadar neden olabilir.
 
-![Harita üzerinde başarısız bağlantı örneği](./media/vminsights-maps/map-group-failed-connection-01.png)
+![Harita üzerinde bağlantı başarısız](./media/vminsights-maps/map-group-failed-connection-01.png)
 
-Başarısız bağlantı sorunlarını giderme, geçişi doğrulama, güvenlik Analizi ile yardımcı anlama ve hizmetin genel mimarisini anlama. Başarısız bağlantılar bazen zararsız, ancak bunlar genellikle doğrudan aniden ulaşılamaz hale bir yük devretme ortam veya Bulut geçişten sonra birbirleri ile iletişim kurmada başarısız olan iki uygulama katmanları gibi bir sorun üzerine gelin.
+Başarısız bağlantılar yardımcı olabileceğini anlamak sorun giderme, geçişi doğrulama, güvenlik analiz edin ve hizmetin genel mimarisini anlama. Başarısız bağlantılar bazen zararsız, ancak bunlar genellikle bir soruna işaret. Bağlantılar, örneğin, bir yük devretme ortamında aniden ulaşılamaz hale geldiğinde veya iki uygulama katmanları bulut geçişten sonra birbirleri ile iletişim kuramıyor başarısız olabilir.
 
 ### <a name="client-groups"></a>İstemci grupları
-Harita üzerinde istemci grupları eşlenen makinede bağlantınız istemci makineleri temsil eder. Tek bir istemci grubundaki istemcileri için bir tek bir işlem veya makine temsil eder.
+Harita üzerinde istemci grupları eşlenen kullanarak makineye bağlanın ve istemci makineleri temsil eder. Tek bir istemci grubundaki istemcileri için bir tek bir işlem veya makine temsil eder.
 
-![Harita üzerinde istemci grupları örneği](./media/vminsights-maps/map-group-client-groups-01.png)
+![Harita üzerinde bir istemci grubu](./media/vminsights-maps/map-group-client-groups-01.png)
 
-İzlenen istemciler ve bir istemci grubundaki sistemleri IP adreslerini görmek için grubu seçin. Grup içeriğini grubun altında listelenir.  
+İzlenen istemciler ve bir istemci grubundaki sistemleri IP adreslerini görmek için grubu seçin. Grup içeriğini aşağıda görünür.  
 
-![Harita üzerinde istemci grubu IP adresi listesi örneği](./media/vminsights-maps/map-group-client-group-iplist-01.png)
+![IP adresleri harita üzerinde istemci Grup listesi](./media/vminsights-maps/map-group-client-group-iplist-01.png)
 
-İzlenen ve izlenmiyor istemcileri grubu içeriyorsa, uygun grubundaki istemcilerin filtrelemek için halka grafik bölümünü seçebilirsiniz.
+İzlenen ve izlenmeyen istemcileri grubu içeriyorsa, istemcilere filtrelemek için grubun halka grafik uygun bölümünü seçebilirsiniz.
 
 ### <a name="server-port-groups"></a>Sunucu bağlantı noktası grupları
-Sunucu bağlantı noktası gruplarını temsil sunucular sunucu bağlantı noktalarına gelen bağlantılara eşlenen makine. Grup sunucusu bağlantı noktası ve bağlantıları Bu bağlantı noktasına sunucularıyla sayısını içerir. Tek tek sunucuların ve listelenen bağlantıları görmek için bir grup seçin. 
+Sunucu bağlantı noktası gruplarını temsil eden sunucular üzerindeki bağlantı noktalarına gelen bağlantılara eşlenen makine. Grup sunucusu bağlantı noktası ve bağlantıları Bu bağlantı noktasına sahip sunucuların sayısını içerir. Tek tek sunucuların ve bağlantıları görmek için bir grup seçin. 
 
-![Harita üzerinde sunucu bağlantı noktası grubu örneği](./media/vminsights-maps/map-group-server-port-groups-01.png)  
+![Harita üzerinde bir sunucu bağlantı noktası grubu](./media/vminsights-maps/map-group-server-port-groups-01.png)  
 
-İzlenen ve izlenmiyor sunucuları grubu içeriyorsa, uygun grubundaki sunucuların filtrelemek için halka grafik bölümünü seçebilirsiniz.
+İzlenen ve izlenmeyen sunucuları grubu içeriyorsa, grubun halka grafik sunucuları filtrelemek için uygun bölümünü seçebilirsiniz.
 
-## <a name="view-map-directly-from-a-virtual-machine"></a>Bir sanal makineden doğrudan haritayı görüntüleme 
+## <a name="view-a-map-from-a-vm"></a>Bir VM'den bir haritayı görüntülemek 
 
-Azure İzleyici VM'ler için bir sanal makineden doğrudan erişmek için aşağıdakileri gerçekleştirin.
+Doğrudan bir VM'den VM'ler için Azure İzleyici erişmek için:
 
 1. Azure portalında **sanal makineler**. 
-2. Listeden VM'yi seçin ve **izleme** bölümü seçin **Insights (Önizleme)** .  
+2. Listeden VM'yi seçin. İçinde **izleme** bölümünde, seçin **Insights (Önizleme)** .  
 3. Seçin **harita** sekmesi.
 
-Harita işlem gruplarının ve işlemler belirtilen zaman aralığı üzerinde etkin ağ bağlantılarıyla çalıştıran VM'ler bağımlılıkları görselleştirir.  Varsayılan olarak, son 30 dakika eşlemeyi gösterir.  Kullanarak **TimeRange** sol üst köşesinde seçicide (örneğin, bir olay sırasında veya bir değişikliği oluşmadan önce) bağımlılıkları geçmişte nasıl baktığı göstermek için bir saat için geçmiş zaman aralıklarını sorgulayabilir.  
+Harita sanal makinenin bağımlılıklarını bularak görselleştirir işlem gruplarının ve belirtilen zaman aralığı üzerinde etkin ağ bağlantınız işlemleri çalıştırma.  
+
+Varsayılan olarak, son 30 dakika eşlemeyi gösterir. Bağımlılıkları geçmişte nasıl baktığı görmek istiyorsanız, bir saate kadar geçmiş zaman aralıkları için sorgulayabilirsiniz. Sorguyu çalıştırmak için kullandığınız **TimeRange** sol üst köşedeki Seçici. Örneğin, bir olay sırasında veya bir değişiklik öncesinde durumunu görmek için bir sorgu çalıştırabilirsiniz.  
 
 ![Doğrudan VM eşlemesi genel bakış](./media/vminsights-maps/map-direct-vm-01.png)
 
-## <a name="view-map-directly-from-a-virtual-machine-scale-set"></a>Haritayı görüntüleme doğrudan bir sanal makine ölçek kümesinden ayarlayın
+## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesinden bir haritayı görüntülemek
 
-Azure İzleyici VM'ler için doğrudan bir sanal makine ölçek kümesinden erişmek için aşağıdakileri gerçekleştirin.
+Azure İzleyici VM'ler için doğrudan bir sanal makine ölçek kümesinden erişmek için:
 
 1. Azure portalında **sanal makine ölçek kümeleri**.
-2. Listeden VM'yi seçin ve **izleme** bölümü seçin **Insights (Önizleme)** .  
+2. Listeden VM'yi seçin. Ardından **izleme** bölümünde, seçin **Insights (Önizleme)** .  
 3. Seçin **harita** sekmesi.
 
-Harita Grup bağımlılıklarını yanı sıra bir grup düğümü olarak ölçek tüm görselleştirir. Genişletilmiş düğüm örnekleri aynı anda on aracılığıyla kaydırma ölçek kümesindeki listeler. Belirli bir örneği için bir harita yüklemek için harita üzerinde örnek ve bu üç noktaya tıklayın doğru seçip seçin **sunucu haritasını Yükle**. Bu işlem gruplarının ve etkin ağ bağlantılarıyla işlemler belirtilen zaman aralığı üzerinde görmenize olanak sağlayan, bu örnek için harita yükler. Varsayılan olarak, son 30 dakika eşlemeyi gösterir. Kullanarak **TimeRange** Seçici için geçmiş zaman aralıkları (örneğin, bir olay sırasında veya bir değişikliği oluşmadan önce) bağımlılıkları geçmişte nasıl baktığı göstermek için bir saat sorgulayabilir.  
+Haritanın tüm örnekleri grubun bağımlılıkları yanı sıra bir grup düğümü olarak ölçek görselleştirir. Genişletilmiş düğüm, Ölçek kümesindeki örneklerin listeler. Aynı anda bu örnekler 10 arasında gezinebilirsiniz. 
+
+Belirli bir örneği için bir harita yüklemek için önce bu örneği harita üzerinde seçin. Ardından **üç nokta** (...) düğmesini seçip **sunucu haritasını Yükle**. Görüntülenen haritada işlem gruplarının ve belirtilen zaman aralığı üzerinde etkin ağ bağlantınız işlemleri bakın. 
+
+Varsayılan olarak, son 30 dakika eşlemeyi gösterir. Bağımlılıkları geçmişte nasıl baktığı görmek istiyorsanız, bir saate kadar geçmiş zaman aralıkları için sorgulayabilirsiniz. Sorguyu çalıştırmak için kullandığınız **TimeRange** Seçici. Örneğin, bir olay sırasında veya bir değişiklik öncesinde durumunu görmek için bir sorgu çalıştırabilirsiniz.
 
 ![Doğrudan VM eşlemesi genel bakış](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Belirli bir örneği için bir harita örneği görünümden, sanal makine ölçek kümesi için de erişebilirsiniz. Gidin **örnekleri** altında **ayarları** bölümüne ve ardından **Insights (Önizleme)** .
+>Belirli bir örneği için bir eşleme da erişebilirsiniz **örnekleri** görünümü için sanal makine ölçek kümesi. İçinde **ayarları** bölümüne gidin **örnekleri** > **Insights (Önizleme)** .
 
-## <a name="view-map-from-azure-monitor"></a>Azure İzleyicisi'nden haritayı görüntüleme
-Azure İzleyici'den eşleme özelliğini sanal makinelerinizi ve bunların bağımlılıklarını genel bir görünümünü sağlar.  Azure İzleyici'den harita özelliğe erişmek için aşağıdakileri gerçekleştirin. 
+## <a name="view-a-map-from-azure-monitor"></a>Azure İzleyici bir eşlemden görüntüleyin
+Azure İzleyici'de eşleme özelliğini Vm'lerinizi ve bunların bağımlılıklarını genel bir görünümünü sağlar. Azure İzleyicisi'ndeki harita özelliğe erişmek için:
 
 1. Azure portalında **İzleyici**. 
-2. Seçin **sanal makineler (Önizleme)** içinde **Insights** bölümü.
+2. İçinde **Insights** bölümünde, seçin **sanal makineler (Önizleme)** .
 3. Seçin **harita** sekmesi.
 
-![Azure İzleyici çok VM'li eşlemesi genel bakış](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
+   ![Azure İzleyici genel bakış haritasını birden çok VM](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Gelen **çalışma** sayfanın üst kısmındaki seçiciyi birden fazla Log Analytics çalışma alanı varsa Çözümle etkin olduğundan ve kendisine rapor veren sanal makinelerin bulunduğu çalışma alanını seçin. **Grubu** Seçici, abonelikler, kaynak grupları döndürecektir [bilgisayar grupları](../../azure-monitor/platform/computer-groups.md)ve sanal makine ölçek kümeleri seçilen çalışma alanına ilgili bilgisayar. Seçiminiz yalnızca eşleme özelliğini uygular ve performans ya da harita taşımaz.
+Kullanarak bir çalışma alanı seçin **çalışma** sayfanın üstündeki Seçici. Birden fazla Log Analytics çalışma alanı varsa, kendisine rapor veren Vm'leri olan ve çözümle etkin çalışma alanını seçin. 
 
-Varsayılan olarak, son 30 dakika eşlemeyi gösterir. Kullanarak **TimeRange** Seçici, geçmiş zaman aralıkları (örneğin, bir olay sırasında veya bir değişikliği oluşmadan önce) bağımlılıkları geçmişte nasıl baktığı göstermek için bir saat için sorgulayabilir.   
+**Grubu** Seçici döndürür abonelikler, kaynak grupları [bilgisayar grupları](../../azure-monitor/platform/computer-groups.md)ve sanal makine ölçek kümeleri, seçilen çalışma alanına ilgili bilgisayar. Seçiminiz yalnızca eşleme özelliğini uygular ve performans veya sistem durumu aktarılmaz.
+
+Varsayılan olarak, son 30 dakika eşlemeyi gösterir. Bağımlılıkları geçmişte nasıl baktığı görmek istiyorsanız, bir saate kadar geçmiş zaman aralıkları için sorgulayabilirsiniz. Sorguyu çalıştırmak için kullandığınız **TimeRange** Seçici. Örneğin, bir olay sırasında veya bir değişiklik öncesinde durumunu görmek için bir sorgu çalıştırabilirsiniz.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sistem durumu özelliği kullanmayı öğrenmek için bkz: [Azure VM durumunu görüntüle](vminsights-health.md), veya performans sorunlarını ve genel kullanımı ile Vm'leri performansınızı tanımlamak için bkz. [VM'lerin performans görünümü Azure İzleyici](vminsights-performance.md). 
+- Sistem durumu özelliği kullanmayı öğrenmek için bkz: [görünümü Azure VM durumu](vminsights-health.md). 
+- Performans sorunlarını tanımlamak için performans, denetleyin ve sanal makinelerinizin genel kullanımı anlamak, [performans durumunu görüntüleme için Azure İzleyici VM'ler için](vminsights-performance.md). 

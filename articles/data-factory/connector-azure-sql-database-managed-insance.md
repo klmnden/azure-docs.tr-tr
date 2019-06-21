@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e68b522d5a0fe7c359d83fc436aa7a1fd2159198
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9208ceeb760bba97c12b23a1b6e5bdff7efc9020
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048582"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274824"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı yönetilen örneği gelen ve giden veri kopyalama
 
@@ -33,7 +33,11 @@ Verileri Azure SQL veritabanı yönetilen örneği tüm desteklenen havuz veri d
 - Bir kaynak olarak bir SQL sorgusu veya saklı yordamı kullanarak verileri alınıyor.
 - Bir havuz olarak veriler hedef tablonun veya kopyalama sırasında özel mantığı olan bir saklı yordam çağırma ekleniyor.
 
-SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) artık desteklenmiyor. 
+>[!NOTE]
+>Azure SQL veritabanı yönetilen örneği **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current)** bu bağlayıcı tarafından artık desteklenmiyor. Geçici olarak çözmek için kullanabileceğiniz [genel ODBC Bağlayıcısı](connector-odbc.md) hem de şirket içinde barındırılan tümleştirme çalışma zamanı aracılığıyla SQL Server ODBC sürücüsü. İzleyin [bu kılavuz](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) ODBC sürücüsünü yükleme ve bağlantı dizesi yapılandırmaları ile.
+
+>[!NOTE]
+>Bu bağlayıcı tarafından ve kısa süre sonra etkinleştirmek için plan, hizmet sorumlusu ve yönetilen kimlik doğrulamaları şu anda desteklenmez. Şimdilik geçici çözümü için Azure SQL Veritabanı Bağlayıcısı ve el ile yönetilen örneğinizin sunucu belirtmek seçebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -57,7 +61,7 @@ Azure SQL veritabanı yönetilen bağlı örneği hizmeti için aşağıdaki öz
 | connectionString |Bu özellik, SQL kimlik doğrulaması kullanarak yönetilen örneğe bağlanmak için gereken bağlantı dizesi bilgilerini belirtir. Daha fazla bilgi için aşağıdaki örneklere bakın. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Parola Azure anahtar Kasası'nda koyabilirsiniz ve SQL kimlik doğrulaması çekme ise `password` yapılandırma bağlantı dizesini dışında. Aşağıdaki JSON örneği görmek ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. |Evet. |
 | connectVia | Bu [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlamak için kullanılır. (Yönetilen Örneğinize genel uç noktaya sahip ve ADF erişmek izin verirse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Evet. |
 
-**Örnek 1: SQL kimlik doğrulaması kullan**
+**Örnek 1: SQL kimlik doğrulamasını kullan** 1433 varsayılan bağlantı noktasıdır. SQL yönetilen örnek genel bir uç nokta ile kullanıyorsanız, bağlantı noktası 3342 açıkça belirtin.
 
 ```json
 {
@@ -67,7 +71,7 @@ Azure SQL veritabanı yönetilen bağlı örneği hizmeti için aşağıdaki öz
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -78,7 +82,7 @@ Azure SQL veritabanı yönetilen bağlı örneği hizmeti için aşağıdaki öz
 }
 ```
 
-**Örnek 2: Azure anahtar Kasası'nda parolayla SQL kimlik doğrulaması kullan**
+**Örnek 2: Azure anahtar Kasası'nda parolayla SQL kimlik doğrulamasını kullan** 1433 varsayılan bağlantı noktasıdır. SQL yönetilen örnek genel bir uç nokta ile kullanıyorsanız, bağlantı noktası 3342 açıkça belirtin.
 
 ```json
 {
@@ -88,7 +92,7 @@ Azure SQL veritabanı yönetilen bağlı örneği hizmeti için aşağıdaki öz
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
             },
             "password": { 
                 "type": "AzureKeyVaultSecret", 

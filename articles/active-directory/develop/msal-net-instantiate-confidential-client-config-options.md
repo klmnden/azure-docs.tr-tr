@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f935b1b2815501710444e3f921a157ba02e3215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7814ff6b7575fedc19e63676ce3353c2a62a62b4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544079"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154431"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Yapılandırma seçenekleriyle, MSAL.NET kullanarak bir gizli bir istemci uygulaması örneği
 
@@ -62,12 +62,12 @@ Bir ASP.NET Core Uygulama Yapılandırması bölümünde açıklanan bir *appset
 }
 ```
 
-MSAL.NET v3.x başlayarak, gizli istemci uygulamanızı yapılandırma dosyasından yapılandırabilirsiniz. Uygulama yapılandırmasıyla ilişkili sınıflar bulunur `Microsoft.Identity.Client.AppConfig` ad alanı.
+MSAL.NET v3.x başlayarak, gizli istemci uygulamanızı yapılandırma dosyasından yapılandırabilirsiniz.
 
-Uygulamanızı oluşturmak ve yapılandırmak istediğiniz sınıfında bildirmenize gerek bir `ConfidentialClientApplicationOptions` nesne.  Uygulama Seçenekleri örneğine (appconfig.json dosyası dahil) kaynaktan okunan yapılandırma bağlayın:
+Uygulamanızı oluşturmak ve yapılandırmak istediğiniz sınıfında bildirmenize gerek bir `ConfidentialClientApplicationOptions` nesne.  (Appconfig.json dosyası dahil) kaynaktan okunan yapılandırma kullanarak uygulama seçenekleri örneğine bağlamak `IConfigurationRoot.Bind()` yönteminden [Microsoft.Extensions.Configuration.Binder nuget paketini](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
-using Microsoft.Identity.Client.AppConfig;
+using Microsoft.Identity.Client;
 
 private ConfidentialClientApplicationOptions _applicationOptions;
 _applicationOptions = new ConfidentialClientApplicationOptions();

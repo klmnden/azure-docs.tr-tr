@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Apache Kafka akışlar API'si - Azure HDInsight kullanma "
-description: HDInsight’ta Apache Kafka Akışları API’sini kullanmayı öğrenin. Bu API, Kafka’daki konular arasında akış işleme gerçekleştirmenize olanak sağlar.
+description: Öğretici - HDInsight üzerinde Kafka ile Apache Kafka akışlar API'si kullanmayı öğrenin. Bu API, Kafka’daki konular arasında akış işleme gerçekleştirmenize olanak sağlar.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/02/2019
-ms.openlocfilehash: 9425af0f39d14287b49fe06a81172281feb24e83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d76ac8cc1673f1df8981a543321d34aa57cd0896
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715961"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295472"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Öğretici: Apache Kafka akışlar API'si
 
@@ -57,7 +57,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 `pom.xml` dosyasında aşağıdaki önemli şeyler anlaşılır:
 
-* Bağımlılıklar: Bu proje tarafından sağlanan Kafka akışlar API'si kullanır `kafka-clients` paket. Aşağıdaki XML kodu, bu bağımlılığı tanımlar:
+* Bağımlılıkları: Bu proje tarafından sağlanan Kafka akışlar API'si kullanır `kafka-clients` paket. Aşağıdaki XML kodu, bu bağımlılığı tanımlar:
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->

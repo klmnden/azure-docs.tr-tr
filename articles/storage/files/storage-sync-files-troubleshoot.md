@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9cd1be26f6832fffb86dfefd0d93d9dbb393c0f0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65555955"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303887"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -245,17 +245,16 @@ Bu hataları görmek için şunu çalıştırın **FileSyncErrorsReport.ps1** Po
 | HRESULT | HRESULT (ondalık) | Hata dizesi | Sorun | Düzeltme |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Bir dosya veya dizin değişiklik henüz bağımlı bir klasörü henüz eşitlenmedi olduğundan eşitlenemiyor. Bu öğe, bağımlı değişiklikleri eşitlendiğinde eşitler. | Eylem gerekmiyor. |
-| 0x7B | 123 | ERROR_INVALID_NAME | Dosya veya dizin adı geçersiz. | Dosya veya dizin söz konusu yeniden adlandırın. Bkz: [desteklenmeyen karakterler işleme](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) daha fazla bilgi için. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | Dosya veya dizin adı geçersiz. | Dosya veya dizin söz konusu yeniden adlandırın. Bkz: [desteklenmeyen karakterler işleme](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) daha fazla bilgi için. |
+| 0x8007007b | -2147024773 | ERROR_INVALID_NAME | Dosya veya dizin adı geçersiz. | Dosya veya dizin söz konusu yeniden adlandırın. Bkz: [desteklenmeyen karakterler işleme](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) daha fazla bilgi için. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. Azure dosya eşitleme, günde bir kez açık tanıtıcıları içeren dosyaları eşitleyin sunucudaki geçici bir VSS anlık görüntüsü oluşturur. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Bir dosya değişti, ancak değişiklik henüz eşitlemeden algılanmadı. Bu değişiklik algılandıktan sonra eşitleme kurtarır. | Eylem gerekmiyor. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Azure dosya paylaşımı sınırına ulaştığından dosya eşitlenemez. | Bu sorunu çözmek için bkz: [Azure dosya paylaşımı depolama sınırına](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) sorun giderme kılavuzu bölümüne. |
 | 0x80070005 | -2147024891 | E_ACCESSDENIED | Bu hata aşağıdaki nedenlerle oluşabilir: dosya (NTFS EFS gibi) desteklenmeyen bir çözüm tarafından şifrelenir, bekleme durumunda dosya sahip bir silme veya dosya bir DFS-R Salt okunur çoğaltma klasöründe bulunur | Tarafından desteklenmeyen bir çözüm dosya şifrelenmişse, dosyanın şifresini çözmek ve desteklenen şifreleme çözümü kullanın. Destek çözümleri listesi için bkz. [şifreleme çözümleri](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) Planlama Kılavuzu'nda bölümü. Dosya durumu bekleyen bir silme ise, tüm açık dosya tanıtıcıları kapatıldıktan sonra dosya silinir. Dosya bir DFS-R Salt okunur çoğaltma klasöründe yer alıyorsa, Azure dosya eşitleme DFS-R Salt okunur çoğaltma klasörlerde sunucu uç noktalarını desteklemiyor. Bkz: [planlama kılavuzunun](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) daha fazla bilgi için.
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. |
+| 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Bir dosya eşitleme sırasında değiştirildi, yeniden eşitlenmesi gerekir. | Eylem gerekmiyor. |
 
 #### <a name="handling-unsupported-characters"></a>İşleme desteklenmeyen karakterler
-Varsa **FileSyncErrorsReport.ps1** PowerShell Betiği, desteklenmeyen karakterler nedeniyle hataları gösterir (0x7b hata kodları ve 0x8007007b), kaldırmalı veya hataya karşılık gelen dosya adlarından karakterde yeniden adlandırın. Çoğu bu karakterlerden biri standart görsel kodlaması olduğundan PowerShell büyük olasılıkla bu karakterler soru işareti ya da boş dikdörtgenler yazdırın. [Değerlendirme Aracı](storage-sync-files-planning.md#evaluation-tool) desteklenmeyen karakterler tanımlamak için kullanılabilir.
+Varsa **FileSyncErrorsReport.ps1** PowerShell Betiği, desteklenmeyen karakterler (hata kodu 0x8007007b) kaynaklanan hatalar gösterir, kaldırmalı veya hataya karşılık gelen dosya adlarından karakterde yeniden adlandırın. Çoğu bu karakterlerden biri standart görsel kodlaması olduğundan PowerShell büyük olasılıkla bu karakterler soru işareti ya da boş dikdörtgenler yazdırın. [Değerlendirme Aracı](storage-sync-files-planning.md#evaluation-tool) desteklenmeyen karakterler tanımlamak için kullanılabilir.
 
 Aşağıdaki tabloda, Azure dosya eşitleme henüz desteklemediği unicode karakterlerin tümünü içerir.
 
@@ -863,6 +862,8 @@ Bir sunucuda Azure dosya eşitleme ile sorunlarla karşılaşırsanız, aşağı
 
 Sorun çözülmezse AFSDiag aracı çalıştırın:
 1. (Örneğin, C:\Output) AFSDiag çıkış kaydedileceği bir dizin oluşturun.
+    > [!NOTE]
+    >AFSDiag günlüklerinin toplanması önce çıkış dizinindeki tüm içeriği siler. Veri içermeyen bir çıkış konumunu belirtin.
 2. Yükseltilmiş bir PowerShell penceresi açın ve ardından (her komuttan sonra Enter tuşuna basın) aşağıdaki komutları çalıştırın:
 
     ```powershell

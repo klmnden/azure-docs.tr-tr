@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 88c40021ff2e974ba16b3b3506ee54b45de90fda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1043f254d2a2cc2804ab8a4d68770b6d57cbed4
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427607"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296011"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve diğer hizmetler kapsayacak şekilde güncelleştirildi.
@@ -45,7 +45,6 @@ Azure Resource Manager'ı kullandığınızda sınırları aşağıdaki listede 
 * [API Management](#api-management-limits)
 * [App Service](#app-service-limits)
 * [Application Gateway](#application-gateway-limits)
-* [Application Insights](#application-insights-limits)
 * [Otomasyon](#automation-limits)
 * [Redis için Azure Önbelleği](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
@@ -58,7 +57,7 @@ Azure Resource Manager'ı kullandığınızda sınırları aşağıdaki listede 
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
 * [Azure Machine Learning hizmeti](#azure-machine-learning-service-limits)
 * [Azure Haritalar](#azure-maps-limits)
-* [Azure İzleyici](#monitor-limits)
+* [Azure İzleyici](#azure-monitor-limits)
 * [Azure İlkesi](#azure-policy-limits)
 * [Azure Search](#azure-search-limits)
 * [Azure SignalR hizmeti](#azure-signalr-service-limits)
@@ -79,7 +78,6 @@ Azure Resource Manager'ı kullandığınızda sınırları aşağıdaki listede 
 * [IoT Hub’ı](#iot-hub-limits)
 * [IoT Hub Cihazı Sağlama Hizmeti](#iot-hub-device-provisioning-service-limits)
 * [Anahtar Kasası](#key-vault-limits)
-* [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobil hizmetler](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
@@ -282,8 +280,26 @@ Belge boyutuna, sorgu başına saniye, anahtarları, istekleri ve yanıtları gi
 ### <a name="mobile-services-limits"></a>Mobil hizmetler sınırları
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### <a name="monitor-limits"></a>İzleyici sınırları
-[!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+### <a name="azure-monitor-limits"></a>Azure İzleyici sınırları
+
+#### <a name="alerts"></a>Uyarılar
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-alerts.md)]
+
+#### <a name="action-groups"></a>Eylem grupları
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-action-groups.md)]
+
+#### <a name="log-analytics-workspaces"></a>Log Analytics çalışma alanları
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-workspaces.md)]
+
+#### <a name="application-insights"></a>Application Insights
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-app-insights.md)]
+
+
+
 
 ### <a name="notification-hubs-limits"></a>Bildirim hub'ları sınırları
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -330,9 +346,6 @@ Belge boyutuna, sorgu başına saniye, anahtarları, istekleri ve yanıtları gi
 ### <a name="storsimple-system-limits"></a>StorSimple sistemi sınırları
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### <a name="log-analytics-limits"></a>Log Analytics sınırları
-[!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
-
 ### <a name="backup-limits"></a>Yedekleme sınırları
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
@@ -341,9 +354,6 @@ Belge boyutuna, sorgu başına saniye, anahtarları, istekleri ve yanıtları gi
 
 ### <a name="site-recovery-limits"></a>Site Recovery limitleri
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
-
-### <a name="application-insights-limits"></a>Application Insights sınırları
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### <a name="api-management-limits"></a>API Management sınırları
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]

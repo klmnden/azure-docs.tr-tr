@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53489ef9c1264fa31b06f4660e545e6efbd1f616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 69180e17714b7d7004e63dce0de82a50e1f0b3af
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237029"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164634"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bir ortam için veri erişim izni verme
 
@@ -36,7 +36,7 @@ Bir kullanıcı asıl veri erişimi vermek için aşağıdaki adımları izleyin
 
     [![Veri erişim bir](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
-1. Seçin **Kullanıcı Seç**. Eklemek istediğiniz kullanıcı bulmak kullanıcı adı veya e-posta adresi arayın. Tıklayın **seçin** Seçimi onaylamak için.
+1. Seçin **Kullanıcı Seç**. Eklemek istediğiniz kullanıcı bulmak kullanıcı adı veya e-posta adresi arayın. Seçin **seçin** Seçimi onaylamak için.
 
     [![Veri erişim iki](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
@@ -76,7 +76,7 @@ Başka bir kiracıdaki Azure AD kullanıcısı için bir zaman serisi görüşle
 
     [![Veri erişim sekiz](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
-1. Seçin **Kullanıcı Seç**. Konuk kullanıcı eklemek istediğiniz kullanıcı bulmak için davet e-posta adresini arayın. Tıklayın **seçin** Seçimi onaylamak için.
+1. Seçin **Kullanıcı Seç**. Konuk kullanıcı eklemek istediğiniz kullanıcı bulmak için davet e-posta adresini arayın. Ardından, **seçin** Seçimi onaylamak için.
 
     [![Veri erişim dokuz](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 

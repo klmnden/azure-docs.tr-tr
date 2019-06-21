@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427885"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206066"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -426,7 +426,7 @@ Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetl
     | [Azure Data Lake depolama 2. nesil](connector-azure-data-lake-storage.md) | Hesap anahtarı kimlik doğrulaması, yönetilen kimlik doğrulaması |
 
     >[!IMPORTANT]
-    >Azure depolama hesabınızda sanal ağ hizmet uç noktası ile yapılandırılmışsa, yönetilen kimlik doğrulaması kullanmanız gerekir. Başvurmak [etkisini, sanal ağ hizmet uç noktaları Azure depolama ile kullanma](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >Azure depolama hesabınızda sanal ağ hizmet uç noktası ile yapılandırılmışsa, yönetilen bir kimlik doğrulama - kullanmalısınız başvurmak [Azure depolama ile sanal ağ hizmet uç noktaları kullanma etkileri](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Data Factory tarafından gerekli yapılandırmalarında öğrenin [Azure Blob - yönetilen bir kimlik doğrulama](connector-azure-blob-storage.md#managed-identity) ve [Azure Data Lake depolama Gen2 - yönetilen bir kimlik doğrulama](connector-azure-data-lake-storage.md#managed-identity) sırasıyla bölümü.
 
 2. **Kaynak veri biçimi** değil **Parquet**, **ORC**, veya **ayrılmış metin**, aşağıdaki yapılandırmaları ile:
 
@@ -542,7 +542,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 
 **Diğer**
 
-Daha fazla knonw PolyBase sorunlar için başvurmak [Azure SQL veri ambarı PolyBase sorun giderme yük](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
+Daha bilinen PolyBase sorunlar için başvurmak [Azure SQL veri ambarı PolyBase sorun giderme yük](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL veri ambarı kaynak sınıfı
 

@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.custom: it-pro, seodec18
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bef3960e5c117a131b59a65196214c51e01bd3c8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65441647"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204586"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Oturum açma, kuruluşunuzun Azure Active Directory sayfasına markalama Ekle
 Kuruluşunuzun logosu ve özel renk düzenleriyle bir tutarlı görünüm ve hisse oturum açma, Azure Active Directory (Azure AD) sayfalarında sağlamak için kullanın. Oturum açma sayfaları kuruluşunuzun web tabanlı uygulamalara, Azure AD kimlik sağlayıcınız olarak kullanan Office 365 gibi kullanıcılar oturum açtığında görünür.
@@ -58,7 +58,7 @@ Kullanıcılar, kuruluşunuzun kiracıya özel uygulamalar için aşağıdaki gi
 
         - **Başlık logosu.** Logonuz oturum açma sayfasında kullanıcının kullanıcı adı girdiğinde ve üzerinde görünmesi için bir .png veya .jpg sürümünü seçin **uygulamalarım** portal sayfası.
             
-            Görüntü 36 pikselden daha uzun veya 245 pikselden daha geniş olamaz. Arka plan logo arka plan eşleşmeyebilir beri saydam bir görüntü kullanmanızı öneririz. Ayrıca görüntü çevresindeki dolgunun eklenmiyor öneririz veya küçük Ara logonuz hale getirebilirsiniz.
+            Görüntü 60 pikselden daha uzun veya 280 piksel daha geniş olamaz. Arka plan logo arka plan eşleşmeyebilir beri saydam bir görüntü kullanmanızı öneririz. Ayrıca görüntü çevresindeki dolgunun eklenmiyor öneririz veya küçük Ara logonuz hale getirebilirsiniz.
 
         - **Kullanıcı adı ipucu.** Kullanıcı adlarını unuturlarsa kullanıcılara görüntülenen İpucu metni yazın. Bu metin, Unicode bağlantılar veya kod olmalıdır ve 64 karakterden uzun olamaz. Konuklar uygulamanızda oturum açarsa, bu ipucu eklenmiyor öneririz.
 

@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc1d52a1062d1848daaaeef7977f96cd270567c8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64690562"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203462"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell ve Azure Resource Manager'ı kullanarak Hyper-V Vm'leri için Azure'da olağanüstü durum kurtarma ayarlama
 
@@ -113,6 +113,15 @@ Kasa bağlamını şu şekilde ayarlayın:
 5. Hyper-V ana siteye şu şekilde kaydedildiğini doğrulayın:
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
+
+Bir Hyper-V çekirdeği sunucusu çalıştırıyorsanız, kurulum dosyasını indirirsiniz ve aşağıdaki adımları izleyin:
+1. Dosyaları, bu komutu çalıştırarak AzureSiteRecoveryProvider.exe bir yerel dizine ayıklayın: ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. Çalıştırma ```.\setupdr.exe /i``` sonuçları % Programdata%\ASRLogs\DRASetupWizard.log günlüğe kaydedilir.
+
+3. Bu komutu çalıştırarak sunucuyu kaydedin:
+
+    ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
+
 
 ## <a name="step-6-create-a-replication-policy"></a>6\. Adım: Çoğaltma ilkesi oluşturma
 

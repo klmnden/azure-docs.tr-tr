@@ -1,23 +1,17 @@
 ---
 title: Azure Resource Manager şablonu işlevleri - mantıksal | Microsoft Docs
 description: Mantıksal değerleri belirlemek için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklar.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cf6874512557bc44efe978708c78e3d98db4110b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405662"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205453"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için mantıksal işlevler
 
@@ -39,9 +33,9 @@ Tüm parametre değerlerini true olup olmadığını denetler.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |boole |Denetlenecek ilk değer olup olmadığını geçerlidir. |
-| arg2 |Evet |boole |Kontrol edilecek ikinci değerle olmadığını geçerlidir. |
-| Ek bağımsız değişkenler |Hayır |boole |Denetlemek için ek bağımsız değişkenler olmadığını doğrudur. |
+| arg1 |Evet |boolean |Denetlenecek ilk değer olup olmadığını geçerlidir. |
+| arg2 |Evet |boolean |Kontrol edilecek ikinci değerle olmadığını geçerlidir. |
+| Ek bağımsız değişkenler |Hayır |boolean |Denetlemek için ek bağımsız değişkenler olmadığını doğrudur. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -145,7 +139,7 @@ Bağlı değeri döndürür, bir koşul true veya false.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| condition |Evet |boole |True veya false olup olmadığını denetlemek için değer. |
+| condition |Evet |boolean |True veya false olup olmadığını denetlemek için değer. |
 | trueValue |Evet | dize, int, nesne veya dizi |Koşul true olduğunda döndürülecek değer. |
 | false değerini |Evet | dize, int, nesne veya dizi |Koşul false ise döndürülecek değer. |
 
@@ -196,7 +190,7 @@ Aşağıdaki [örnek şablonu](https://github.com/krnese/AzureDeploy/blob/master
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -250,7 +244,7 @@ Boolean değerini ters değerine dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |boole |Dönüştürülecek değer. |
+| arg1 |Evet |boolean |Dönüştürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -312,7 +306,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-## <a name="or"></a>veya
+## <a name="or"></a>or
 
 `or(arg1, arg2, ...)`
 
@@ -322,9 +316,9 @@ Herhangi bir parametre değer true olup olmadığını denetler.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |boole |Denetlenecek ilk değer olup olmadığını geçerlidir. |
-| arg2 |Evet |boole |Kontrol edilecek ikinci değerle olmadığını geçerlidir. |
-| Ek bağımsız değişkenler |Hayır |boole |Denetlemek için ek bağımsız değişkenler olmadığını doğrudur. |
+| arg1 |Evet |boolean |Denetlenecek ilk değer olup olmadığını geçerlidir. |
+| arg2 |Evet |boolean |Kontrol edilecek ikinci değerle olmadığını geçerlidir. |
+| Ek bağımsız değişkenler |Hayır |boolean |Denetlemek için ek bağımsız değişkenler olmadığını doğrudur. |
 
 ### <a name="return-value"></a>Dönüş değeri
 

@@ -9,11 +9,11 @@ ms.date: 06/10/2019
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: c5fedc59c80c68fc222693a67664ef60ddd210a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133513"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293459"
 ---
 Nisan 2018'de tanıtılan geçerli tüketim tabanlı fiyatlandırma katmanı, her bir Log Analytics çalışma alanı için aşağıdaki sınırlar geçerlidir:
 
@@ -56,5 +56,5 @@ Log Analytics API'leri için aşağıdaki sınırlar geçerlidir:
 | Kategori | Limits | Açıklamalar
 | --- | --- | --- |
 | Veri Toplayıcı API’si | Tek bir gönderi için boyut üst sınırı 30 MB ' dir.<br>Alan değerleri için maksimum boyut 32 KB'dir. | Daha büyük birimleri birden fazla gönderiye bölme.<br>32 KB'den daha uzun alanlar kesilir. |
-| Arama API’si | Toplu olmayan veriler için 5000 kayıt döndürdü.<br>500\.000 kayıtları toplu veriler için. | Toplu veriler içeren bir arama olduğundan `summarize` komutu.
+| Arama API’si | Toplu olmayan veriler için 5000 kayıt döndürdü.<br>500.000 kayıtları toplu veriler için. | Toplu veriler içeren bir arama olduğundan `summarize` komutu.
  

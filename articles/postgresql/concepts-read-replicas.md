@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2019
+ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734643"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147938"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>-Tek bir sunucu PostgreSQL için Azure veritabanı çoğaltmalarını okuyun
 
@@ -122,6 +122,9 @@ PostgreSQL sunucusu için yeni bir Azure veritabanı salt okunur bir çoğaltmas
 PostgreSQL gerektirir değerini `max_connections` olmaz parametresi değerinden büyük veya ana değerine eşit; tersi durumda okuma çoğaltması çoğaltmayı Başlat. PostgreSQL için Azure veritabanı'nda `max_connections` parametre değeri, SKU üzerinde dayanır. Daha fazla bilgi için [sınırları PostgreSQL için Azure veritabanı'nda](concepts-limits.md). 
 
 Sunucu değerleri güncelleştirmek üzere deneyin ancak sınırlara yoksa, bir hata alırsınız.
+
+### <a name="maxpreparedtransactions"></a>max_prepared_transactions
+[PostgreSQL gerektirir](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) değerini `max_prepared_transactions` olmaz parametresi değerinden büyük veya ana değerine eşit; tersi durumda okuma çoğaltması çoğaltmayı Başlat. Değiştirmek istiyorsanız `max_prepared_transactions` asıl ilk çoğaltmaları değiştirin.
 
 ### <a name="stopped-replicas"></a>Durdurulan çoğaltmalar
 Bir ana sunucu ve bir salt okunur çoğaltma arasında çoğaltmayı durdurursanız, çoğaltma değişikliği uygulamak için yeniden başlatır. Durdurulan çoğaltma hem okuma hem de yazma işlemleri kabul eden bir tek başına sunucu haline gelir. Tek başına sunucu ile bir çoğaltma yeniden yapılamıyor.

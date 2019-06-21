@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 4/20/2019
 ms.author: tamram
 ms.openlocfilehash: aab17966862c57a52f252b3c4e9b757673078b0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114783"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188583"
 ---
 | Resource | Hedef        |
 |----------|---------------|
 | Tek bir blob kapsayıcısı en büyük boyutu | En fazla depolama hesabı kapasitesi aynı |
-| En fazla bir blok içinde blok blob veya ekleme blobu | 50\.000 blok |
+| En fazla bir blok içinde blok blob veya ekleme blobu | 50.000 blok |
 | Bir bloğu içinde bir blok blobunun en büyük boyutu | 100 MiB |
-| Blok blobunun en büyük boyutu | 50\.000 x 100 MIB (yaklaşık 4,75 tib'a kadar) |
+| Blok blobunun en büyük boyutu | 50.000 x 100 MIB (yaklaşık 4,75 tib'a kadar) |
 | Bir bloğu içinde bir ek blobu en büyük boyutu | 4 MiB |
-| Bir ek blobunun en büyük boyutu | 50\.000 x 4 MIB (yaklaşık 195 GiB) |
+| Bir ek blobunun en büyük boyutu | 50.000 x 4 MIB (yaklaşık 195 GiB) |
 | Bir sayfa blobu en büyük boyutu | 8 TiB |
 | Saklı erişim ilkeleri blob kapsayıcı başına en fazla sayısı | 5 |
 |Tek bir blob için hedef performans düzeyleri |Depolama hesabı giriş/çıkış limitlerde<sup>1</sup> |

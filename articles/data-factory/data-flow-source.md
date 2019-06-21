@@ -3,16 +3,15 @@ title: Kaynak dönüştürme Azure Data Factory veri akışı eşleme özelliği
 description: Eşleme veri akışı kaynak Dönüşümde ayarlama konusunda bilgi edinin.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86e30c465a605681519565261beec75d88ccd472
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67117890"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190797"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Eşleme veri akışı kaynak dönüşümü 
 
@@ -124,6 +123,14 @@ Kaynağınızda SQL veritabanı veya SQL veri ambarı ise, kaynak dosya yönetim
 
 * **Sorgu**: Kaynağınız için bir SQL sorgusunu girin. Bu ayar kümesinde seçtiğiniz herhangi bir tabloda geçersiz kılar. Unutmayın **Order By** yan tümceleri burada desteklenmez, ancak tam bir SELECT FROM deyimi ayarlayabilirsiniz. Kullanıcı tanımlı tablo işlevleri de kullanabilirsiniz. **seçin * udfGetData() gelen** olduğu bir UDF SQL'de bir tablo döndürür. Bu sorgu, veri akışında kullanabileceğiniz bir kaynak tablo oluşturur.
 * **Yığın boyutu**: Okur ile büyük verileri öbek için bir toplu iş boyutu girin.
+* **Yalıtım düzeyi**: ADF eşleme veri akışları'ndaki SQL kaynakları için Read UNCOMMITTED varsayılandır. Yalıtım düzeyi burada şu değerlerden birini değiştirebilirsiniz:
+* Kaydedilen okuma
+* İşlenmemiş okuyun
+* Tekrarlanabilir okuma
+* Seri hale getirilebilir
+* Hiçbiri (yalıtım düzeyi yoksay)
+
+![Yalıtım düzeyi](media/data-flow/isolationlevel.png "yalıtım düzeyi")
 
 > [!NOTE]
 > Dosya işlemleri, yalnızca yürütme veri akışı etkinliği kullanan bir işlem hattı (işlem hattı hata ayıklama veya yürütme Çalıştır) bir işlem hattı çalıştırması'ndan veri akışı başladığında çalıştırın. Dosya işlemleri *olmayan* veri akışı hata ayıklama modunda çalıştırın.

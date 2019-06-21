@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7157682d7952529f9dfa98e8bc8707df9cfe944f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: b3e94bfdb513016015320dfcdf7db30981466303
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509235"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272064"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C, OAuth 2.0 yetkilendirme kod akışı
 
@@ -116,7 +117,9 @@ error=access_denied
 | state |Önceki tabloda tam açıklamasına bakın. Varsa bir `state` aynı değeri yanıt olarak görünmesi gereken parametresi istekte bulunur. Uygulama olduğunu doğrulamanız gerekir `state` istek ve yanıt değerleri aynıdır. |
 
 ## <a name="2-get-a-token"></a>2. Bir belirteç Al
-Bir yetkilendirme kodu edindiğiniz, kullanmak `code` bir POST isteği göndererek istenen kaynak için bir belirteç için `/token` uç noktası. Azure AD B2C'de, uygulamanın kendi arka uç web API'si için bir belirteç isteğinde bulunabilirsiniz yalnızca kaynak var. Kendiniz için bir belirteç istemek için kullanılan kuralı, kapsam olarak uygulamanızın istemci kimliği kullanmaktır:
+Bir yetkilendirme kodu edindiğiniz, kullanmak `code` bir POST isteği göndererek istenen kaynak için bir belirteç için `/token` uç noktası. Azure AD B2C'de yapabilecekleriniz [diğer API'ler için erişim belirteci isteği](active-directory-b2c-access-tokens.md#request-a-token) zamanki belirterek, kapsamlar istek.
+
+(Bu bir erişim belirteci "audience" olarak, istemci kimliği ile sonuçlanır) istenen kapsam olarak uygulamanın istemci Kimliğini kullanarak, kural olarak, uygulamanın kendi arka uç Web API'niz için bir erişim belirteci da isteyebilirsiniz:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

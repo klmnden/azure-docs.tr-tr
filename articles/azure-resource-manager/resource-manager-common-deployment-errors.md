@@ -1,26 +1,19 @@
 ---
 title: Yaygın Azure dağıtım hatalarını giderme | Microsoft Docs
 description: Sık karşılaşılan kaynakları Azure Resource Manager'ı kullanarak Azure'a dağıtırken çözümlemeyi açıklar.
-services: azure-resource-manager
-documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 keywords: Dağıtım hatası, azure dağıtım azure'a dağıtma
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128634"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206329"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme
 
@@ -86,50 +79,50 @@ Bu makalede bazı genel Azure dağıtım hatalarını açıklar ve hataları ç�
 
 ## <a name="find-error-code"></a>Hata kodu bulun
 
-Hataları alabileceğiniz iki tür vardır:
+İki tür hata alabilirsiniz:
 
-* Doğrulama hataları
-* Dağıtım hataları
+* doğrulama hataları
+* dağıtım hataları
 
-Doğrulama hataları dağıtımdan önce belirlenebilir senaryoları durumlardan kaynaklanır. Söz dizimi hataları şablonunuzu veya abonelik kotanızı aşılmasına kaynakları dağıtılmaya çalışılırken içerirler. Dağıtım hataları dağıtım işlemi sırasında ortaya koşullarını durumlardan kaynaklanır. Paralel olarak dağıtılan bir kaynağa erişmeye içerirler.
+Doğrulama hataları dağıtım öncesinde saptanabilen senaryolardan kaynaklanır. Bunlar şablonunuzdaki söz dizimi hataları veya abonelik kotalarınızı aşabilecek kaynak dağıtımı denemeleri olabilir. Dağıtım hataları, dağıtım işlemi sırasında oluşan koşullardan kaynaklanır. Bu paralel olarak dağıtılan bir kaynağa erişme denemesi olabilir.
 
-Her iki türde hatalar dağıtım sorunlarını gidermek için kullandığınız hata kodunu döndürür. Her iki türde hatalar görünür [etkinlik günlüğü](resource-group-audit.md). Ancak, dağıtım hiç başlatılmadı olduğundan doğrulama hatalarını deployment geçmişinizi görünmez.
+Her iki tür hata da dağıtım sorunlarını gidermek için kullanabileceğiniz bir hata kodu döndürür. Her iki tür hata da [etkinlik günlüğünde](resource-group-audit.md) görüntülenir. Öte yandan doğrulama hataları dağıtım geçmişinizde görüntülenmez çünkü dağıtım hiç başlatılmamıştır.
 
 ### <a name="validation-errors"></a>Doğrulama hataları
 
-Portal aracılığıyla dağıtım yaparken, değerlerinizi gönderdikten sonra bir doğrulama hatası görürsünüz.
+Portal üzerinden dağıtım yaparken değerlerinizi gönderdikten sonra doğrulama hatasını görürsünüz.
 
 ![Portal doğrulama hatası Göster](./media/resource-manager-common-deployment-errors/validation-error.png)
 
-Daha fazla ayrıntı için iletiyi seçin. Aşağıdaki görüntüde gördüğünüz bir **InvalidTemplateDeployment** hata ve bir ilke belirten bir ileti dağıtım engellendi.
+Ayrıntıları görmek için hatayı seçin. Aşağıdaki görüntüde gördüğünüz bir **InvalidTemplateDeployment** hata ve bir ilke belirten bir ileti dağıtım engellendi.
 
 ![Doğrulama ayrıntıları göster](./media/resource-manager-common-deployment-errors/validation-details.png)
 
 ### <a name="deployment-errors"></a>Dağıtım hataları
 
-İşlemi doğrulama başarılı, ancak dağıtım sırasında başarısız olduğunda bir dağıtım hata alırsınız.
+İşlem doğrulamayı geçer ama dağıtım sırasında başarısız olursa dağıtım hatası alırsınız.
 
-Dağıtımı hata kodları ve PowerShell ile iletilerini görmek için bu seçeneği kullanın:
+PowerShell'le dağıtım hata kodlarını ve iletileri görmek için şunu kullanın:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
 ```
 
-Dağıtımı hata kodları ve Azure CLI ile iletilerini görmek için bu seçeneği kullanın:
+Azure CLI ile dağıtım hata kodlarını ve iletileri görmek için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
 ```
 
-Portalda, bildirimi seçin.
+Portalda bildirimi seçin.
 
 ![bildirim hatası](./media/resource-manager-common-deployment-errors/notification.png)
 
-Dağıtım hakkında daha fazla ayrıntı görürsünüz. Hata hakkında daha fazla bilgi için bu seçeneği seçin.
+Dağıtım hakkında daha fazla ayrıntı görürsünüz. Hata hakkında daha fazla bilgi bulmak için seçeneği belirtin.
 
 ![dağıtım başarısız oldu](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-Hata kodları ve hata iletisi görürsünüz. İki hata kodları olduğuna dikkat edin. İlk hata kodu (**DeploymentFailed**) hatayı çözmek için gereksinim duyduğunuz ayrıntısını sağlamaz genel bir hatadır. İkinci hata kodu (**StorageAccountNotFound**) ayrıntıları sağlar. 
+Hata iletisini ve hata kodlarını görürsünüz. İki hata kodu olduğuna dikkat edin. İlk hata kodu (**DeploymentFailed**), hataya çözmek için ihtiyacınız olan ayrıntıları sağlamayan genel bir hatadır. İkinci hata kodu (**StorageAccountNotFound**) ihtiyacınız olan ayrıntıları sağlar. 
 
 ![Hata ayrıntıları](./media/resource-manager-common-deployment-errors/error-details.png)
 

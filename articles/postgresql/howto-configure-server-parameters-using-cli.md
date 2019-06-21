@@ -6,13 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 9a9312d347f896047a5f8606b2518b63830c4d76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: f276247076438a03973148b5cf65ddbeb409b024
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067182"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274765"
 ---
 # <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>PostgreSQL - Azure CLI kullanarak tek bir sunucu için Azure veritabanı sunucu yapılandırma parametrelerini özelleştirme
 Liste göstermek ve komut satırı arabirimi (Azure CLI) kullanarak Azure PostgreSQL sunucusu için yapılandırma parametreleri güncelleştirin. Bir alt kümesini altyapısı yapılandırmaları, sunucu düzeyinde kullanıma sunulan ve değiştirilebilir. 
@@ -50,4 +50,5 @@ az postgres server configuration set --name log_min_messages --resource-group my
 Bu komut sıfırlar **günlük\_min\_iletileri** varsayılan değerine yapılandırma **uyarı**. Sunucu Yapılandırması ve izin verilen değerler hakkında daha fazla bilgi için PostgreSQL belgeleri bakın [sunucu yapılandırması](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+- [Sunucuyu yeniden öğrenin](howto-restart-server-cli.md)
 - Yapılandırma ve sunucu günlüklerine erişmek için bkz: [PostgreSQL için Azure veritabanı'nda sunucu günlükleri](concepts-server-logs.md)

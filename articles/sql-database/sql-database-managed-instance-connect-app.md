@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297085"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274007"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği uygulamanızı bağlayın
 
@@ -45,7 +45,7 @@ Sanal ağları bağlama için iki seçenek vardır:
 Eşleme Microsoft omurga ağı bu nedenle, bağlantı açısından kullandığından tercih bir eşleme seçenektir, eşlenmiş VNet ve aynı VNet içindeki sanal makineler arasında gecikme dikkat çekici fark yoktur. VNet eşlemesi, aynı bölgede ağlara sınırlıdır.  
 
 > [!IMPORTANT]
-> Yönetilen örneği için sanal ağ eşleme senaryo ağlara nedeniyle aynı bölgede sınırlı [sınırlamalar genel sanal ağ eşlemesi](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> Yönetilen örneği için sanal ağ eşleme senaryo ağlara nedeniyle aynı bölgede sınırlı [sınırlamalar genel sanal ağ eşlemesi](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Ayrıca ilgili bölümüne bakın [Azure sanal ağları ile ilgili sık sorulan sorular](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) makale daha fazla ayrıntı için. 
 
 ## <a name="connect-an-on-premises-application"></a>Şirket içi uygulamaya bağlanma
 

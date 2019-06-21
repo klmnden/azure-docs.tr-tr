@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: a7dd5530c3941fe55e8a649f8adb217159823f5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8df4f17c9afbf10c6507e505c6540c3f66a42309
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492783"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275642"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silme
 
@@ -24,8 +24,8 @@ Bu makalede nasıl silineceğini açıklar bir [Azure Backup](backup-overview.md
 
 Başlamadan önce sunucusu olan bir kurtarma Hizmetleri kasası silinemiyor anlamak için kayıtlı ve yedekleme verileri tutan önemlidir.
 
-- Düzgün bir şekilde bir kasayı silme için da sunucularının kaydını sil, kasa verileri kaldırın ve sonra kasayı silin.
-- Yine de bağımlılıklar içeren bir kasayı silme denerseniz, bir hata iletisi görüntülenir. ve kasa bağımlılıkları da dahil olmak üzere, el ile kaldırmanız gerekir:
+- Düzgün bir şekilde bir kasayı silme için içerdiği sunucularının kaydını sil, kasa verileri kaldırın ve sonra kasayı silin.
+- Bir kasayı silme denerseniz, yine de bağımlılıkları olan, bir hata iletisi verildikten ve kasa bağımlılıkları da dahil olmak üzere, el ile kaldırmanız gerekir:
     - Yedeklenen öğeleri
     - Korumalı sunucular
     - Yedekleme yönetim sunucuları (Azure Backup sunucusu, DPM) ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
@@ -40,7 +40,7 @@ Başlamadan önce sunucusu olan bir kurtarma Hizmetleri kasası silinemiyor anla
 
     ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-Bir hata alırsanız, kaldırma [yedekleme öğeleri](#remove-backup-items), [altyapı sunucularını](#remove-backup-infrastructure-servers), ve [kurtarma noktaları](#remove-azure-backup-agent-recovery-points)ve sonra kasayı silin.
+Bir hata alırsanız, kaldırma [yedekleme öğeleri](#remove-backup-items), [altyapı sunucularını](#remove-azure-backup-management-servers), ve [kurtarma noktaları](#remove-azure-backup-agent-recovery-points)ve sonra kasayı silin.
 
 ![Kasa hatası Sil](./media/backup-azure-delete-vault/error.png)
 
@@ -52,7 +52,7 @@ Bir hata alırsanız, kaldırma [yedekleme öğeleri](#remove-backup-items), [al
 1. Gelen chocolatey'i yükleme [burada](https://chocolatey.org/) ve çalıştırma ARMClient yüklemek için aşağıdaki komutu:
 
    ` choco install armclient --source=https://chocolatey.org/api/v2/ `
-2. Oturum açma çalışan Azure hesabı için aşağıdaki komutu
+2. Azure hesabınızda oturum açın ve şu komutu çalıştırın:
 
     ` ARMClient.exe login [environment name] `
 
@@ -78,7 +78,7 @@ ARMClient komut hakkında daha fazla bilgi için bu başvuru [belge](https://git
 
 ## <a name="remove-vault-items-and-delete-the-vault"></a>Kasa öğeleri kaldırıp kasayı silin
 
-Bu yordam, yedekleme verileri ve altyapı sunucularını kaldırmak için bazı örnekler sağlar. Her şeyi bir kasasından kaldırıldıktan sonra silebilirsiniz.
+Bu yordamlar, yedekleme verileri ve altyapı sunucularını kaldırmak için bazı örnekler sağlar. Her şeyi bir kasasından kaldırıldıktan sonra silebilirsiniz.
 
 ### <a name="remove-backup-items"></a>Yedekleme öğeleri Kaldır
 
@@ -101,7 +101,7 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
 
      ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. İsteğe bağlı olarak verileri neden silmekte olduğunuz bir neden belirtin ve yorum ekleyin.
+5. İsteğe bağlı olarak, neden veri silmekte olduğunuz bir neden belirtin ve yorum ekleyin.
 6. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png).
 7. İş tamamlandıktan sonra hizmeti bir ileti gönderir: **yedekleme işlemi durduruldu ve yedekleme verileri silindi**.
 8. Üzerinde listesindeki bir öğeyi sildikten sonra **yedekleme öğeleri** menüsünde tıklatın **Yenile** kasadaki öğeleri görmek için.
@@ -109,7 +109,7 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
       ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/empty-items-list.png)
 
 
-### <a name="remove-backup-infrastructure-servers"></a>Yedekleme Altyapısı sunucuları kaldırın
+### <a name="remove-azure-backup-management-servers"></a>Azure yedekleme yönetim sunucuları kaldırın
 
 1. Kasa Panosu menüsünden tıklayın **Yedekleme Altyapısı**.
 2. Tıklayın **yedekleme yönetim sunucuları** sunucuları görüntülemek için.
@@ -117,15 +117,25 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
     ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. Öğeye sağ tıklayın > **Sil**.
-4. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png).
-5. İş tamamlandıktan sonra hizmeti bir ileti gönderir: **yedekleme işlemi durduruldu ve yedekleme verileri silindi**.
-6. Üzerinde listesindeki bir öğeyi sildikten sonra **Yedekleme Altyapısı** menüsünde tıklatın **Yenile** kasadaki öğeleri görmek için.
+4. Üzerinde **Sil** menüsünden sunucu adını yazın ve tıklayın **Sil**.
+
+     ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
+5.  İsteğe bağlı olarak, neden veri silmekte olduğunuz bir neden belirtin ve yorum ekleyin.
+
+> [!NOTE]
+> Yönetim Sunucusu konsolunu veya bir korumalı sunucu üzerindeki MARS konsolunda öğeleri kaldırmak için korumayı durdurun ve yedeklemeleri silin. Yedekleme öğeleri kalırsa, sunucunun kaydını silip denediğinizde aşağıdaki hata görünür:
+> 
+>![silme işlemi başarısız oldu](./media/backup-azure-delete-vault/deletion-failed.png)
+
+6. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png).
+7. İş tamamlandıktan sonra hizmeti bir ileti gönderir: **yedekleme işlemi durduruldu ve yedekleme verileri silindi**.
+8. Üzerinde listesindeki bir öğeyi sildikten sonra **Yedekleme Altyapısı** menüsünde tıklatın **Yenile** kasadaki öğeleri görmek için.
 
 
 ### <a name="remove-azure-backup-agent-recovery-points"></a>Azure Yedekleme aracısı kurtarma noktalarını kaldırmak
 
 1. Kasa Panosu menüsünden tıklayın **Yedekleme Altyapısı**.
-2. Tıklayın **yedekleme yönetim sunucuları** altyapı sunucularını görüntüleme.
+2. Tıklayın **korumalı sunucuların** altyapı sunucularını görüntüleme.
 
     ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
@@ -141,11 +151,18 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
 
     ![Seçili sunucuyu silin](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
-6. Üzerinde **Sil** menüsünden öğesinin adını yazın ve tıklayın **Sil**.
+6. Üzerinde **Sil** menüsünden sunucu adını yazın ve tıklayın **Sil**.
 
      ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
-7. İsteğe bağlı olarak verileri neden silmekte olduğunuz bir neden belirtin ve yorum ekleyin.
+7. İsteğe bağlı olarak, neden veri silmekte olduğunuz bir neden belirtin ve yorum ekleyin.
+
+> [!NOTE]
+> Bu sunucunun kayıtları silinmeden önce bir yedek yönetim sunucusu veya Azure Backup Aracısı sunucusu ile ilişkili yedekleme öğesi silinmesi gerekir. Yedekleme öğeleri kaldırmak için SC DPM veya MABS sunucuya geçerli MARS Yönetim Konsolu gidin ve korumasını durdurun ve yedekleri silmek için uygun seçenekleri seçin. Yedekleme öğeleri halen ilişkilendirilmiş durumda, aşağıdaki hatayı görürsünüz:
+> 
+> 
+>![silme işlemi başarısız oldu](./media/backup-azure-delete-vault/deletion-failed.png)
+
 8. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png).
 9. Üzerinde listesindeki bir öğeyi sildikten sonra **Yedekleme Altyapısı** menüsünde tıklatın **Yenile** kasadaki öğeleri görmek için.
 

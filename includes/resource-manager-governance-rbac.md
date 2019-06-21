@@ -2,26 +2,24 @@
 title: include dosyası
 description: include dosyası
 services: azure-resource-manager
-author: rockboyfor
-manager: digimobile
+author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-origin.date: 02/16/2018
-ms.date: 04/30/2018
-ms.author: v-yeche
+ms.date: 02/16/2018
+ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: f77a5d482c3f8632a3d86bd8e027fbb4418168c3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122915"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205322"
 ---
 Kuruluşunuzdaki kullanıcıların bu kaynaklara erişmek için doğru düzeyde erişime sahip olduğundan emin olmak istersiniz. Kullanıcılara sınırsız erişim vermek istemezsiniz ancak işlerini halledebildiklerinden de emin olmanız gerekir. Rol tabanlı erişim denetimi (RBAC), hangi kullanıcıların belirli eylemleri bir kapsamda tamamlamak için izni yönetmenizi sağlar. Bir rol, bir dizi izin verilen eylemleri tanımlar. Rolü için bir kapsam atayın ve hangi kullanıcıların söz konusu rolü için kapsamı ait belirtin.
 
 Erişim denetimi stratejinizi planlarken kullanıcılara yalnızca işlerini yapmak için gerekli olan ayrıcalığı tanıyın. Aşağıdaki resimde RBAC ataması için önerilen model gösterilmiştir.
 
-![Kapsam](./media/resource-manager-governance-rbac/role-examples.png)
+![`Scope`](./media/resource-manager-governance-rbac/role-examples.png)
 
 Tüm kaynaklar için - sahibi, katkıda bulunan ve okuyucu geçerli üç rol vardır. Sahip rolüne atanan tüm hesapları sıkı bir şekilde denetlenen ve nadiren kullanılır. Yalnızca çözüm durumunu izlemek için gereken kullanıcılar okuyucu rolü verilmiş olmalıdır.
 
@@ -30,4 +28,3 @@ Tüm kaynaklar için - sahibi, katkıda bulunan ve okuyucu geçerli üç rol var
 ### <a name="who-can-assign-roles"></a>Kimin rolleri atayabilirim miyim
 
 Rol atamaları oluşturmak ve kaldırmak için kullanıcıların `Microsoft.Authorization/roleAssignments/*` erişimi olması gerekmektedir. Bu erişim, Sahip veya Kullanıcı Erişimi Yöneticisi rolleriyle verilir.
-<!--ms.date: 04/30/2018-->

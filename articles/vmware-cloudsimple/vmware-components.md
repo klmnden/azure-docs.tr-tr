@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62511118edb4f8b5061f90138bac2aa2b5d3cfe3
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160193"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165145"
 ---
 # <a name="private-cloud-vmware-components"></a>Özel bulut VMware bileşenleri
 
@@ -37,7 +37,7 @@ Bir özel bulut VMware yığınınızın aşağıdaki yazılım sürümü ile da
 
 ## <a name="esxi"></a>ESXi
 
-Özel bulut oluşturma sırasında VMware ESXi satın alınan CloudSimple düğümlerine yüklenir.  ESXi hiper iş yükü sanal makineleri (VM) dağıtmak için sağlar.  Düğüm, özel bulutunuzda hiper yakınsama altyapısı (işlem ve depolama) sağlar.  Düğümler, özel buluta vSphere kümesinin parçasıdır.  Her düğüm, dört sahip fiziksel ağ arabirimlerinin ağ underlay bağlı.  İki fiziksel ağ arabirimi oluşturmak için kullanılan bir **vSphere dağıtılmış anahtarı (VDS)** vCenter ve iki oluşturmak için kullanılan bir **NSX yönetilen sanal dağıtılmış anahtarı (VDS N)** .  Ağ arabirimleri, yüksek kullanılabilirlik için etkin-etkin modda yapılandırılır.
+Özel bulut oluşturma sırasında VMware ESXi sağlanan CloudSimple düğümlerine yüklenir.  ESXi hiper iş yükü sanal makineleri (VM) dağıtmak için sağlar.  Düğüm, özel bulutunuzda hiper yakınsama altyapısı (işlem ve depolama) sağlar.  Düğümler, özel buluta vSphere kümesinin parçasıdır.  Her düğüm, dört sahip fiziksel ağ arabirimlerinin ağ underlay bağlı.  İki fiziksel ağ arabirimi oluşturmak için kullanılan bir **vSphere dağıtılmış anahtarı (VDS)** vCenter ve iki oluşturmak için kullanılan bir **NSX yönetilen sanal dağıtılmış anahtarı (VDS N)** .  Ağ arabirimleri, yüksek kullanılabilirlik için etkin-etkin modda yapılandırılır.
 
 VMware ESXi hakkında daha fazla bilgi edinin
 

@@ -5,18 +5,15 @@ services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507221"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296301"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure Resource Manager kaynak gruplarını yönetme
 
@@ -109,14 +106,6 @@ Varlıklarınızı mantıksal olarak düzenlemek için kaynak grupları ve kayna
 ## <a name="export-resource-groups-to-templates"></a>Kaynak grupları için şablonları dışarı aktarma
 
 Şablonları dışarı aktarma hakkında daha fazla bilgi için bkz: [şablonu - Portal için tek ve birden çok kaynak dışarı aktarma](export-template-portal.md).
-
-### <a name="fix-export-issues"></a>Dışarı aktarma sorunlarını düzeltme
-
-Şablonu dışarı aktarma işlevini tüm kaynak türleri desteklemez. Yalnızca sorunları, dağıtım geçmişiniz yerine bir kaynak grubundan dışarı aktarılırken dışarı aktarma. Son dağıtımınız kaynak grubunun geçerli durumunu doğru şekilde temsil ediyorsa, şablonu kaynak grubu yerine dağıtım geçmişinden dışarı aktarmanız gerekir. Yalnızca tek bir şablonda tanımlı olmayan kaynak grubunda değişiklikler yaptığınızda kaynak grubundan dışarı aktarın.
-
-Dışarı aktarma sorunlarını gidermek için el ile eksik kaynakları şablonunuza ekleyin. Hata iletisi, dışarı aktarılamayan kaynak türlerini içerir. Bu kaynak türünü [Şablon başvurusunda](/azure/templates/) bulun. Örneğin, bir sanal ağ geçidini el ile eklemek için [Microsoft.Network/virtualNetworkGateways şablon başvurusuna](/azure/templates/microsoft.network/virtualnetworkgateways) bakın. Şablon başvurusu kaynak şablonunuza eklemek için JSON sağlar.
-
-JSON biçimi için kaynak aldıktan sonra kaynak değerlerini almanız gerekir. Kaynak türü için REST API'SİNDE alma işlemi kullanarak kaynak değerlerini görebilirsiniz. Örneğin, sanal ağ geçidiniz için değerleri almak için bkz: [sanal ağ geçitleri - alma](/rest/api/network-gateway/virtualnetworkgateways/get).
 
 ## <a name="manage-access-to-resource-groups"></a>Kaynak gruplarına erişimi yönetme
 

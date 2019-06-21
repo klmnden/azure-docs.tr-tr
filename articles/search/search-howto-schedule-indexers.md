@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 764fca8d3cb4cd9c40d7880043637f89ef1a8578
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bf931b19b7490a94f30afde49038cdc7573fab3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755388"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302238"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Dizin oluşturucular için Azure Search zamanlama
 Oluşturulduktan hemen sonra bir dizin oluşturucu genellikle bir kez çalışır. Yeniden portalı, REST API'si veya .NET SDK kullanarak isteğe bağlı olarak çalıştırabilirsiniz. Ayrıca, düzenli bir zamanlamaya göre çalıştırmak için bir dizin oluşturucusunu da yapılandırabilirsiniz.
@@ -43,6 +43,9 @@ Bu daha somut anlaşılması için bir örnek düşünelim. Olan bir dizin oluş
 * 1 Haziran 2019 8:00:00 UTC adresindeki geçici veya bu ilk dizin oluşturucu yürütmeyi başlatır. Bu yürütme 20 dakika (veya dilediğiniz zaman küçüktür 1 saat) geçen varsayılır.
 * İkinci yürütme sırasında veya 1 Haziran 2019'da 9: 00'da başlar UTC. Bu yürütme - bir saatten – 70 dakika sürer ve 10:10:00 UTC kadar tamamlamayacaktır olduğunu varsayalım.
 * Üçüncü yürütme 10:00:00 UTC'de başlatmak üzere zamanlandı ancak o anda önceki yürütme hala çalışıyor. Bu zamanlanmış yürütme ardından atlandı. Sonraki yürütme dizin oluşturucunun 11: 00'da UTC kadar başlatılmaz.
+
+> [!NOTE]
+> Bir dizin oluşturucu, belirli bir zamanlama için ayarlanır ancak tekrar tekrar aynı başarısız tekrar tekrar her zaman bu çalıştırmaları belge, dizin oluşturucu başlar (en fazla 24 saatte bir en az bir kez en fazla) daha az sıklıkta aralıkta kadar başarılı bir şekilde çalıştırma ilerleme aga hale getirir .  Sabit ne olursa olsun, belirli bir noktada takılmış için dizin oluşturucuyu neden olan sorunu düşünüyorsanız, üzerinde isteğe bağlı bir dizin oluşturucu yürütülmesi gerçekleştirebilir ve ilgili başarıyla, ilerleme, dizin oluşturucu döndürür, kümesi zamanlama aralığı için yeniden.
 
 <a name="portal"></a>
 

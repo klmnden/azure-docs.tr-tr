@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyici (Önizleme) sanal makineler için izlemeyi devre dışı bırakmayı öğrenin | Microsoft Docs
-description: Bu makalede, sanal makinelerin, sanal makineler için Azure İzleyici ile izleme nasıl kesmek açıklanır.
+title: Azure İzleyici'de (Önizleme) sanal makineler için izlemeyi devre dışı | Microsoft Docs
+description: Bu makalede, sanal makinelerinizi Azure İzleyici'de sanal makineler için izlemeyi durdurmak açıklar.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,61 +13,66 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb667486a6e3279cb78fefe02723f14d9f7c9b4f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522130"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155696"
 ---
-# <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Sanal makinelerinizi (Önizleme) VM'ler için Azure İzleyici ile izleme devre dışı bırakma
+# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Azure İzleyici'de sanal makinelerinizin (Önizleme) sanal makineler için izlemeyi devre dışı bırak
 
-Sanal makinelerinizi izleme etkinleştirdikten sonra bunları Azure İzleyici ile VM'ler için izlemek istediğiniz karar verirseniz, izleme devre dışı bırakabilirsiniz. Bu makalede, tek veya birden çok sanal makine için bunu gösterilmektedir.  
+Sanal makinelerin (VM'ler) izleme etkinleştirdikten sonra daha sonra Azure İzleyici'de sanal makineler için izlemeyi devre dışı bırakmak seçebilirsiniz. Bu makalede, bir veya daha fazla sanal makineler için izlemeyi devre dışı bırakmak gösterilmektedir.  
 
-Şu anda Azure İzleyici VM'ler için seçime bağlı olarak, sanal makinelerin izleme devre dışı bırakma desteklemez. Log Analytics çalışma alanınızı yanı sıra bu çözüm ve diğer çözümleri destekler, diğer izleme verilerini toplamak için yapılandırılmışsa, devam etmeden önce aşağıda açıklanan yöntemlerden ve etkisini anlamak önemlidir.
+Şu anda, VM'ler için Azure İzleyici seçmeli VM izlemeyi devre dışı bırakma desteklemiyor. Log Analytics çalışma alanınızın, VM'ler ve diğer çözümler için Azure İzleyici destekleyebilir. Ayrıca, diğer izleme verilerinin de toplayabilir. Log Analytics çalışma alanınızda bu hizmetleri sağlıyorsa, etkili ve başlamadan önce izleme devre dışı bırakma yöntemlerini anlamanız gerekir.
 
 VM'ler için Azure İzleyici, bir deneyim sunmak için aşağıdaki bileşenleri kullanır:
 
-* İzleme verilerini saklayan bir Log Analytics çalışma alanında, VM'ler ve diğer kaynaklardan toplanan.
-* Tüm sanal makineler izleme yapılandırması güncelleştirmeleri çalışma alanında yapılandırılmış performans sayaçlarını toplamayı çalışma alanına bağlı.
-* Çalışma alanında - yapılandırılmış iki izleme çözümleri **InfrastructureInsights** ve **ServiceMap**, tüm sanal makineler için izleme yapılandırmasını güncelleştirme çalışma alanına bağlı.
-* İki Azure sanal makine uzantıları, **MicrosoftMonitoringAgent** ve **DependencyAgent**, toplamak ve çalışma alanına veri göndermek.
+* VM'ler ve diğer kaynakları izleme verilerini saklayan bir Log Analytics çalışma.
+* Performans sayaçları çalışma alanında yapılandırılmış koleksiyonudur. Koleksiyonu çalışma alanınıza bağlı tüm sanal makineler İzleme yapılandırmasını güncelleştirir.
+* `InfrastructureInsights` ve `ServiceMap`, çözümler çalışma alanında yapılandırılmış izleme. Bu çözümlerin çalışma alanınıza bağlı tüm sanal makineler İzleme yapılandırmasını güncelleştirin.
+* `MicrosoftMonitoringAgent` ve `DependencyAgent`, Azure VM uzantıları olan. Bu uzantıları verilerini toplar ve çalışma alanına gönderir.
 
-Aşağıdaki sanal makinelerinizi VM'ler için Azure İzleyici ile izleme devre dışı bırakmak hazırlık yaparken göz önünde bulundurun:
+Sanal makineleriniz izlemeyi devre dışı bırakmak hazırlama, bu noktalar göz önünde bulundurun:
 
-* Tek bir VM ile değerlendirdiğiniz ve önceden seçilmiş varsayılan Log Analytics çalışma alanını kabul ettiyseniz, bağımlılık Aracısı VM'den kaldırılıyor ve Log Analytics aracısını bu çalışma alanından bağlantısı kesiliyor. izleme devre dışı bırakabilirsiniz. Diğer amaçlar için VM kullanarak düşünüyorsanız ve farklı bir çalışma alanına yeniden bağlanmak daha sonra karar verirseniz, bu yaklaşım uygundur.
-* Diğer izleme çözümleri ve diğer kaynaklardan veri koleksiyonunu desteklemek için Log Analytics çalışma alanı kullanıyorsanız, çalışma alanınıza kesintisi veya etkisi olmadan çalışma alanından Vm'leri çözüm bileşenlerini Azure İzleyici kaldırabilirsiniz.  
-
->[!NOTE]
-> Çözüm bileşenleri çalışma alanınızdan kaldırdıktan sonra Azure sanal makinelerinize sistem durumunu görmek devam edebilirsiniz; portalında ya da görünümüne gidin, özellikle performans ve harita verileri. Veri, performans ve harita görünümü süre sonra görünen sonunda durur; ancak durum görünümün Vm'leriniz için sistem durumu göstermeye devam eder. **Şimdi deneyin** seçeneği seçili Azure gelecekte izleme işlemini yeniden etkinleştirebilirsiniz olanak tanımak için VM'den kullanıma sunulacaktır.  
-
-## <a name="complete-removal-of-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici kaldırılmasını tamamlamak
-
-Aşağıdaki adımlar, Log Analytics çalışma alanı yine de gerekliyse VM'ler için Azure İzleyici tamamen kaldırmak açıklanmaktadır. Kaldırmak için oluşturacağınız **InfrastructureInsights** ve **ServiceMap** çözümleri çalışma alanından.  
+* Tek bir VM ile değerlendirilir ve önceden seçilmiş varsayılan Log Analytics çalışma alanı kullanılır, bağımlılık Aracısı VM'den kaldırılıyor ve Log Analytics aracısını bu çalışma alanından bağlantısı kesiliyor. izleme devre dışı bırakabilirsiniz. Sanal Makineyi başka bir amaçla kullanın ve daha sonra farklı bir çalışma alanına yeniden bağlanmak karar istiyorsanız, bu yaklaşım uygundur.
+* Diğer izleme çözümleri ve diğer kaynaklardan veri toplamayı destekleyen önceden var olan bir Log Analytics çalışma alanı seçtiyseniz, çözüm bileşenlerini çalışma alanından kesilmesi veya çalışma alanınızı etkilemeden kaldırabilirsiniz.  
 
 >[!NOTE]
->Bu çözüm izleme çözümü VM'ler için Azure İzleyicisi'ni etkinleştirmek önce hizmet eşlemesi kullandığınız ve sunucuyu hala kullanan, aşağıda 6. adımda açıklandığı gibi kaldırmayın.  
+> Çözüm bileşenleri çalışma alanınızdan kaldırdıktan sonra Azure sanal makinelerinize sistem durumunu görmek devam edebilir; özellikle performansını görmek ve veri eşleyin portalında ya da görünümüne gidin. Veri, görüntülenmesini sonunda durdurur **performans** ve **harita** görünümleri. Ancak **sistem durumu** görünümü Vm'leriniz için sistem durumunu gösteren devam eder. **Şimdi deneyin** , gelecekte izlemeyi yeniden etkinleştirebilir, böylece seçeneği seçili Azure VM'den kullanıma sunulacaktır.  
+
+## <a name="remove-azure-monitor-for-vms-completely"></a>Azure İzleyicisi'ni VM'ler için tamamen kaldırın
+
+Log Analytics çalışma alanı yine de gerekliyse, Azure İzleyici VM'ler için tamamen kaldırmak için aşağıdaki adımları izleyin. Kaldırırsınız `InfrastructureInsights` ve `ServiceMap` çözümleri çalışma alanından.  
+
+>[!NOTE]
+>Hizmet eşlemesi VM'ler için Azure İzleyici etkin ve bundan hala yararlanan önce izleme çözümünü kullandıysanız, bu çözüm aşağıdaki yordamın son adımda açıklandığı gibi kaldırmayın.  
 >
 
-1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
-2. Azure portalında **Tüm hizmetler**’e tıklayın. Log Analytics kaynak listesinde yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
-3. Log Analytics çalışma alanlarınızın listesinde, seçtiğiniz zaman çalışma alanını seçin ekleme VM'ler için Azure İzleyici.
-4. Sol bölmeden **çözümleri**.  
-5. Çözüm listesinde seçin **InfrastructureInsights (çalışma alanı adı)** ve ardından **genel bakış** sayfasında çözüm için **Sil**.  Onaylamak için sorulduğunda **Evet**.  
-6. Çözümleri listesinden seçin **ServiceMap (çalışma alanı adı)** ve ardından **genel bakış** sayfasında çözüm **Sil**.  Onaylamak için sorulduğunda **Evet**.  
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Azure portalda **Tüm hizmetler**’i seçin. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girdinize göre öneriler filtreler. **Log Analytics**’i seçin.
+3. Log Analytics çalışma alanlarınızın listesinde çalışma alanını seçin, seçtiğiniz VM'ler için Azure İzleyici etkin olduğunda.
+4. Sol tarafta, seçin **çözümleri**.  
+5. Çözüm listesinde seçin **InfrastructureInsights (çalışma alanı adı)** . Üzerinde **genel bakış** çözümü seçin sayfasında **Sil**. Onaylamak için sorulduğunda **Evet**.  
+6. Çözüm listesinde seçin **ServiceMap (çalışma alanı adı)** . Üzerinde **genel bakış** çözümü seçin sayfasında **Sil**. Onaylamak için sorulduğunda **Evet**.  
 
-VM'ler için Azure İzleyici ekleme önce yokmuş [etkin performans sayaçlarını toplamayı](vminsights-enable-overview.md#performance-counters-enabled) açıklanan adımlarıizleyerekbukurallarıdevredışıbırakmakgereksinimWindowsveyaLinuxtabanlıVM'lerçalışmaalanınızdakiiçin[burada](../platform/data-sources-performance-counters.md#configuring-performance-counters) Windows ve Linux için.
+Aksi takdirde sanal makineler için Azure İzleyici etkinleştirilmeden önce [performans sayaçları toplamak](vminsights-enable-overview.md#performance-counters-enabled) çalışma alanınızda Windows veya Linux tabanlı VM'ler için [bu kuralları devre dışı](../platform/data-sources-performance-counters.md#configuring-performance-counters) Linux ve Windows için.
 
-## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Bir Azure sanal makinesi için izlemeyi devre dışı bırak ve çalışma alanı koru  
+## <a name="disable-monitoring-and-keep-the-workspace"></a>İzleme devre dışı bırak ve çalışma tutun  
 
-Aşağıdaki adımlar, VM'ler için Azure İzleyici değerlendirmek için etkin bir sanal makine için izlemeyi devre dışı bırakmak açıklamaktadır, ancak Log Analytics çalışma alanını başka kaynaklardan izlemeyi desteklemek için hala gereklidir. Bir Azure VM varsa, Log Analytics aracısını VM uzantısı ve bağımlılık aracısını VM uzantısı, Windows/Linux için doğrudan sanal makineden kaldırın oluşturacaksınız. 
+Log Analytics çalışma alanınızın oluşmaya devam VM'ler için Azure İzleyici değerlendirmek için kullanılan VM üzerinde izleme devre dışı bırakmak için aşağıdaki adımları izleyerek diğer kaynaklardan izleme desteklemesi gerekir. Azure Vm'leri için bağımlılık Aracısı VM uzantısını ve Log Analytics aracısını VM uzantısı Windows veya Linux için sanal makineden doğrudan kaldırmanız. 
 
 >[!NOTE]
->Sanal makine tarafından yönetiliyorsa işlemlerini düzenlemek için Azure Otomasyonu yapılandırma, yönetme veya güncelleştirmelerini yönetme veya Azure Güvenlik Merkezi tarafından yönetilen güvenlik yönetimi ve tehdit algılama için Log Analytics aracısını kaldırılmayacak. Aksi takdirde, bu hizmet ve çözümler, sanal Makinenizin proaktif olarak yönetme engeller. 
+>Log Analytics aracısını, kaldırın: 
+>
+> * Azure Otomasyonu süreçlerini düzenleyin veya yapılandırma ya da güncelleştirmeleri yönetmek için VM yönetir. 
+> * Azure Güvenlik Merkezi, güvenlik ve tehdit algılama için VM yönetir. 
+>
+> Log Analytics aracısını kaldırırsanız, sanal makinenizin proaktif bir şekilde yönetmesini bu hizmet ve çözümler engeller. 
 
-1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın. 
+1. [Azure Portal](https://portal.azure.com) oturum açın. 
 2. Azure portalında **sanal makineler**. 
 3. Listeden bir VM seçin. 
-4. Sol bölmeden **uzantıları** ve **uzantıları** sayfasında **DependencyAgent**.
-5. Uzantı özellikleri sayfasında tıklayın **kaldırma**.
-6. Üzerinde **uzantıları** sayfasında **MicrosoftMonitoringAgent** uzantı özellikleri sayfasında tıklatıp **kaldırma**.  
+4. Sol tarafta, seçin **uzantıları**. Üzerinde **uzantıları** sayfasında **DependencyAgent**.
+5. Uzantı özellikleri sayfasında **kaldırma**.
+6. Üzerinde **uzantıları** sayfasında **MicrosoftMonitoringAgent**. Uzantı özellikleri sayfasında **kaldırma**.  

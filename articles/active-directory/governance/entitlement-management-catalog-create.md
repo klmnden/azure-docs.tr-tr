@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 05/29/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5988f4723f1ef73cf0767ef8ac1b9adf3c1435d
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541623"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190235"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Oluşturma ve Azure AD hak yönetimi (Önizleme) bir katalogda yönetme
 
@@ -60,9 +60,9 @@ Katalog, kaynaklar ve erişim paketlerin bir kapsayıcıdır. İlgili kaynaklar�
 
 ## <a name="add-resources-to-a-catalog"></a>Katalog için kaynak ekleme
 
-Kaynakları bir erişim paket içerisine dâhil etmek, kaynakları bir katalogda mevcut olması gerekir. Grupları, uygulamaları ve SharePoint Online sitesine ekleyebileceğiniz kaynakları türleridir.
+Kaynakları bir erişim paket içerisine dâhil etmek, kaynakları bir katalogda mevcut olması gerekir. Grupları, uygulamaları ve SharePoint Online sitesine ekleyebileceğiniz kaynakları türleridir. Grupları, bulut tarafından oluşturulan Office 365 grupları veya Azure bulut tarafından oluşturulmuş olabilir AD güvenlik grupları. Uygulamaları Azure AD'ye Kurumsal uygulamaları, SaaS uygulamaları ve kendi uygulamalarınızı Azure AD'ye Federasyon hem de dahil olmak üzere olabilir. SharePoint Online siteleri veya SharePoint Online site koleksiyonları, siteler olabilir.
 
-**Önkoşul rolü:** Kullanıcı Yöneticisi veya sahibi Kataloğu
+**Önkoşul rolü:** Bkz: [gerekli rolleri için bir katalog kaynakları eklemek için](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Azure portalında **Azure Active Directory** ve ardından **Kimlik Yönetimi**.
 
@@ -74,9 +74,7 @@ Kaynakları bir erişim paket içerisine dâhil etmek, kaynakları bir katalogda
 
 1. Bir kaynak türü'a tıklayın: **Grupları**, **uygulamaları**, veya **SharePoint siteleri**.
 
-    Bir katalog Oluşturucusu varsa, herhangi bir Office 365 grubu veya kataloğunuza kendi Azure AD güvenlik grubu ekleyebilirsiniz. Kullanıcılara atamak istediğiniz bir grup yoktur, ancak Grup sahibi olmadığınız, bu gruba eklemek kataloğunuza Kullanıcı Yöneticisi olması gerekir.
-
-    Bir katalog Oluşturucusu varsa, sahip olduğunuz, kataloğunuzu için Azure AD'ye Federasyon SaaS uygulamaları ve kendi uygulamalarınızı hem de dahil olmak üzere herhangi bir Azure AD Kurumsal uygulama ekleyebilirsiniz. Kullanıcılara atamak istediğiniz, ancak sahibi olmadığınız bir uygulama ise, uygulama kataloğunuzu eklemek Kullanıcı Yöneticisi olması gerekir. Uygulama Kataloğu'nun bir parçası olduğunda, uygulamanın rollerinden herhangi birinde bir erişim paketinde seçebilirsiniz.
+    Eklemek istediğiniz bir kaynak görmüyorsanız ya da bir kaynak eklenemiyor, gerekli olduğundan emin olun. Azure AD dizin rolü ve yetkilendirmesini yönetim rolü. Birinin gerekli rollerle kataloğunuza kaynak eklemek gerekebilir. Daha fazla bilgi için [gerekli kaynakları Kataloğu'na eklemek için rolleri](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Bir veya daha fazla kaynak Kataloğu'na eklemek istediğiniz türü seçin.
 
@@ -88,7 +86,7 @@ Kaynakları bir erişim paket içerisine dâhil etmek, kaynakları bir katalogda
 
 Kaynakların bir Kataloğu'ndan kaldırabilirsiniz. Kataloğu'nun erişim paketlerinin hiçbirinde kullanıldığı değil, bir kaynak yalnızca Kataloğu'ndan kaldırabilirsiniz.
 
-**Önkoşul rolü:** Kullanıcı Yöneticisi veya sahibi Kataloğu
+**Önkoşul rolü:** Bkz: [gerekli rolleri için bir katalog kaynakları eklemek için](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Azure portalında **Azure Active Directory** ve ardından **Kimlik Yönetimi**.
 
@@ -99,22 +97,6 @@ Kaynakların bir Kataloğu'ndan kaldırabilirsiniz. Kataloğu'nun erişim paketl
 1. Kaldırmak istediğiniz kaynakları seçin.
 
 1. Tıklayın **Kaldır** (veya üç nokta simgesine tıklayın ( **...** ) ve ardından **kaldırmak kaynak**).
-
-## <a name="add-catalog-owners-or-access-package-managers"></a>Katalog sahip ekleme ya da paket yöneticileri erişimi
-
-Katalog veya erişim paketleri Kataloğu yönetimi, temsilci seçmek istiyorsanız, katalog sahipler ekleyin veya paket yöneticileri erişim. Katalog kişi oluşturur, ilk katalog sahibi olur.
-
-**Önkoşul rolü:** Kullanıcı Yöneticisi veya sahibi Kataloğu
-
-1. Azure portalında **Azure Active Directory** ve ardından **Kimlik Yönetimi**.
-
-1. Sol menüde **katalogları** ve Yöneticiler için eklemek istediğiniz katalog açın.
-
-1. Sol menüde **roller ve yöneticiler**.
-
-1. Tıklayın **sahipler eklemeyi** veya **erişim paket yöneticilerini ekleme** bu rollerinin üyeleri seçin.
-
-1. Tıklayın **seçin** bu üyeleri eklemek için.
 
 ## <a name="edit-a-catalog"></a>Katalog Düzenle
 
@@ -148,4 +130,5 @@ Herhangi bir erişim paket yoksa, ancak bir katalog silebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+- [Katalog Oluşturucu Ekle](entitlement-management-delegate.md#add-a-catalog-creator)
 - [Oluşturma ve erişim paket yönetme](entitlement-management-access-package-create.md)
