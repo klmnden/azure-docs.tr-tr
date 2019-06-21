@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82ab400c89cb57f3cf72cfb9196ea7c6402808fe
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153991"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203925"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure sanal makineler dağıtım için SAP NetWeaver
 
@@ -534,7 +534,7 @@ Azure VM'nizi dağıttıktan sonra aynı yönergeler ve bir şirket içi ortamda
 Bir işletim sistemi veya DBMS farklı sürümlerini farklı düzeltme eki gereksinimleri olduğundan, Azure Marketi'nde bulma görüntüleri ihtiyaçlarınızı karşılamayabilir. Bunun yerine, daha sonra yeniden dağıtabilirsiniz, kendi işletim sistemi/DBMS VM görüntüsünü kullanarak bir VM oluşturmak isteyebilirsiniz.
 Windows için bir tane oluşturmak için daha Linux için özel bir görüntü oluşturmak için farklı adımlar kullanın.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Birden çok sanal makine dağıtmak için kullanabileceğiniz bir Windows görüntüsünü hazırlamak için Windows ayarları (örneğin, Windows SID ve ana bilgisayar adı) soyutlanır veya gerekir şirket içi VM genelleştirilmiş. Kullanabileceğiniz [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) Bunu yapmak için.
@@ -545,7 +545,7 @@ Windows için bir tane oluşturmak için daha Linux için özel bir görüntü o
 >
 >
 
-- - -
+---
 Hazırlama ve özel bir görüntü oluşturma ve birden fazla yeni VM oluşturmak için kullanın. Bu açıklanan [planlama Azure sanal makineleri ve SAP NetWeaver uygulamasını][planning-guide]. Veritabanı içeriğinizi (geri yükleyen bir veritabanı yedeği sanal makineye bağlı bir diskten) yeni bir SAP sistemine yüklemek için SAP yazılım sağlama Yöneticisi'ni kullanarak veya doğrudan Azure depolama, veritabanı yedeklemesini geri yükleme verilirse, DBMS Bu destekler. Daha fazla bilgi için [SAP NetWeaver için Azure sanal makineleri DBMS dağıtım][dbms-guide]. (Özellikle de iki katmanlı sistemleri için), şirket içi VM'de SAP sistemine zaten yüklediyseniz, SAP sistem ayarlarını Azure VM dağıtıldıktan sonra SAP yazılım sağlama Yöneticisi (SAP tarafından desteklenen sistem yeniden adlandır yordamı kullanarak uyarlayabilirsiniz Not [1619720]). Aksi takdirde, Azure VM dağıttıktan sonra SAP yazılım yükleyebilirsiniz.
 
 Aşağıdaki akış, bir özel görüntüsünden VM dağıtmak için adımları SAP özgü sırasını göstermektedir:
@@ -674,7 +674,7 @@ Bu senaryoda, VM Aracısı olduğunu **değil** dağıtımı sırasında otomati
 
 Azure VM Aracısı hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [Azure sanal makine Aracısı genel bakış][virtual-machines-windows-agent-user-guide]
@@ -685,7 +685,7 @@ Azure VM Aracısı hakkında daha fazla bilgi için aşağıdaki kaynaklara bak�
 >
 >
 
-- - -
+---
 
 Aşağıdaki akış bir şirket içi VM genelleştirilmiş olmayan bir Azure VHD'nin kullanarak taşımak için adımlar dizisini gösterir:
 

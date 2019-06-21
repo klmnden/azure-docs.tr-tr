@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: c528f37c8970380678a318ec2d63babd37f89501
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228043"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Hdfs Azure Data Factory kullanarak veri kopyalama
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
 > * [Sürüm 1](v1/data-factory-hdfs-connector.md)
 > * [Geçerli sürüm](connector-hdfs.md)
 
@@ -334,8 +334,8 @@ DistCp bkz ilgili yapılandırmaları ve örneklerde [kaynağı olarak HDFS](#hd
 ## <a name="use-kerberos-authentication-for-hdfs-connector"></a>HDFS Bağlayıcısı için Kerberos kimlik doğrulaması kullan
 
 HDFS bağlayıcısında Kerberos kimlik doğrulamasını kullanmak için şirket içi ortamı ayarlamak için iki seçenek vardır. Bir Olayınıza daha iyi uyduğunu seçebilirsiniz.
-* 1. seçenek: [Şirket içinde barındırılan tümleştirme çalışma zamanı makine Kerberos bölgesinde katılın](#kerberos-join-realm)
-* 2. seçenek: [Windows etki alanı ve Kerberos alanı arasında karşılıklı güven etkinleştir](#kerberos-mutual-trust)
+* 1\. seçenek: [Şirket içinde barındırılan tümleştirme çalışma zamanı makine Kerberos bölgesinde katılın](#kerberos-join-realm)
+* 2\. seçenek: [Windows etki alanı ve Kerberos alanı arasında karşılıklı güven etkinleştir](#kerberos-mutual-trust)
 
 ### <a name="kerberos-join-realm"></a>1. seçenek: Şirket içinde barındırılan tümleştirme çalışma zamanı makine Kerberos bölgesinde katılın
 

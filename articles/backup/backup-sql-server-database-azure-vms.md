@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/18/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28577bfc755d80cd479a40b9e2b653af6ddec319
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236873"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204445"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM’lerinde SQL Server veritabanlarını yedekleme
 
@@ -34,9 +34,9 @@ Bu makalede, öğreneceksiniz nasıl yapılır:
 Bir SQL Server veritabanını yedekleme önce aşağıdaki ölçütleri kontrol edin:
 
 1. Kimliğinizi belirlemek veya oluşturma bir [kurtarma Hizmetleri kasası](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) aynı bölge veya VM SQL Server örneği barındıran yerel ayar.
-2. Denetleme [gereken VM izinleri](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) SQL veritabanlarını yedeklemek için.
-3. VM sahip olduğunu doğrulayın [ağ bağlantısı](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-4. SQL Server veritabanlarını uyguladığınızdan emin olun [adlandırma kuralları için Azure Backup veritabanı](#database-naming-guidelines-for-azure-backup).
+2. VM sahip olduğunu doğrulayın [ağ bağlantısı](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+3. SQL Server veritabanlarını uyguladığınızdan emin olun [adlandırma kuralları için Azure Backup veritabanı](#database-naming-guidelines-for-azure-backup).
+4. Özellikle SQL 2008 ve 2008 R2 için [kayıt defteri anahtarı ekleme](#add-registry-key-to-enable-registration) sunucu kaydı etkinleştirmek için. Bu adım olması olmayacak gerekli özelliği genel kullanıma sunulduğunda.
 5. Veritabanı için etkin diğer yedekleme çözümleri almadığınızı denetleyin. Veritabanını yedekleme önce diğer tüm SQL Server yedeklemeleri devre dışı bırakın.
 
 > [!NOTE]
@@ -79,16 +79,6 @@ NSG hizmet etiketleri kullanma | Aralık değişiklikleri otomatik olarak birle�
 Azure güvenlik duvarı FQDN etiketleri kullanma | Gerekli FQDN'leri otomatik olarak yönetildiği yönetilmesi daha kolay | Azure güvenlik duvarı ile yalnızca kullanılabilir
 Bir HTTP Ara sunucusunu kullanacak | Depolama üzerinde ayrıntılı denetim proxy'sinde URL'leri izin verilir <br/><br/> Vm'leri tek noktası internet erişimi <br/><br/> Azure IP adresi değişiklikleri tabidir | Bir VM ile Ara yazılım çalıştırmak için ek ücretler
 
-### <a name="set-vm-permissions"></a>VM izinleri ayarlama
-
-Bir SQL Server veritabanını bir yedekleme yapılandırmak, Azure Backup şunları yapar:
-
-- AzureBackupWindowsWorkload uzantısı ekler.
-- Sanal makine üzerindeki veritabanlarını bulmak için bir NT SERVICE\AzureWLBackupPluginSvc hesabı oluşturur. Bu hesap, yedekleme için kullanılır ve geri yükleme ve SQL sysadmin izinleri gerektirir.
-- Bir VM üzerinde çalışan veritabanları bulur Azure Backup, NT AUTHORITY\SYSTEM hesabı kullanır. Bu hesabın bir genel oturum açma SQL olması gerekir.
-
-SQL Server VM Azure Market'te oluşturmadıysanız, UserErrorSQLNoSysadminMembership hata alabilirsiniz. Özellik önemli noktalar ve sınırlamalar bölümde bulunan daha fazla bilgi için bkz. [Azure vm'lerde SQL Server Yedekleme hakkında](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
-
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Azure Backup için adlandırma kuralları veritabanı
 
 Aşağıdaki öğeleri veritabanı adları kullanmaktan kaçının:
@@ -101,6 +91,22 @@ Aşağıdaki öğeleri veritabanı adları kullanmaktan kaçının:
 
 Diğer ad kullanımı için desteklenmeyen karakterler kullanılabilir, ancak bunları önleme öneririz. Daha fazla bilgi için bkz. [Tablo Hizmeti Veri Modelini anlama](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
+### <a name="add-registry-key-to-enable-registration"></a>Kaydı etkinleştirmek için kayıt defteri anahtarını ekleyin
+
+1. Açık Regedit
+2. Kayıt defteri dizin yolunu oluşturun: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (sırayla altında Microsoft oluşturulması gereken WorkloadBackup altında 'Key' TestHook oluşturmanız gerekecektir).
+3. Kayıt defteri dizin yolu altında yeni bir 'dize değeri' dize adıyla oluşturun **AzureBackupEnableWin2K8R2SP1** ve değer: **TRUE**
+
+    ![RegEdit kaydı etkinleştirmek için](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
+
+Alternatif olarak, aşağıdaki komutla .reg dosyasını çalıştırarak bu adımı otomatikleştirebilirsiniz:
+
+```csharp
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
+"AzureBackupEnableWin2K8R2SP1"="True"
+```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -141,7 +147,7 @@ Bir VM'de çalışan veritabanlarını bulmak nasıl:
     - Azure Backup, hizmet hesabını NT Service\AzureWLBackupPluginSvc VM oluşturur.
       - Tüm yedekleme ve geri yükleme işlemleri, hizmet hesabı kullanın.
       - NT Service\AzureWLBackupPluginSvc SQL sysadmin izinleri gerektirir. Market'te oluşturulan tüm SQL Server Vm'lerinin yüklü SqlIaaSExtension ile gelir. AzureBackupWindowsWorkload uzantı SQLIaaSExtension otomatik olarak gerekli izinleri almak için kullanır.
-    - Marketten VM oluşturmadıysanız, VM yüklü SqlIaaSExtension olmaz ve bulma işlemi UserErrorSQLNoSysAdminMembership hata iletisiyle başarısız olur. Bu sorunu düzeltmek için izleyin [yönergeleri](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+    - Marketten VM oluşturmadıysanız veya SQL 2008 ve 2008 R2 üzerinde kullanıyorsanız, VM SqlIaaSExtension yüklü olmayabilir ve bulma işlemi UserErrorSQLNoSysAdminMembership hata iletisiyle başarısız olur. Bu sorunu düzeltmek için yönergeleri uygulayın. [kümesi VM izinleri](backup-azure-sql-database.md#set-vm-permissions).
 
         ![VM ve veritabanı seçin](./media/backup-azure-sql-database/registration-errors.png)
 

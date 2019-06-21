@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 975289f338e638ed0209d4f6cf2a163ced996e42
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836129"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202935"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları
 [1114181]: https://launchpad.support.sap.com/#/notes/1114181
@@ -150,7 +150,7 @@ Veritabanı dosyalarını ve günlük ve Yinele dosyaları ve kullandığınız 
 Önceden belirtildiği gibi tek bir VHD neler sağlar, IOPS gereksinim aşarsa, VHD sayısı arasında veritabanı dosyaları için gereken IOPS sayısını dengeleyin. Disklerde IOPS yükünü dağıtmak için en kolay yolu, bir yazılım Şerit üzerinde farklı diskler oluşturmaktır. Ardından bir dizi veri dosyaları SAP DBMS gerekmez dışında yazılım stripe LUN'ları yerleştirin. stripe, disk sayısını taleplerini IOPS talepleri, disk aktarım hızı taleplerini ve birim tarafından yönetilir.
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Eşlikli birden çok Azure VHD'leri arasında oluşturmak için Windows depolama alanları kullanmanızı öneririz. En düşük Windows Server 2012 R2 veya Windows Server 2016.
@@ -164,7 +164,7 @@ Veritabanı dosyalarını ve günlük ve Yinele dosyaları ve kullandığınız 
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > Azure depolama üç görüntü VHD tuttuğundan, bu, stripe ne zaman bir yedekleme yapılandırmak için anlam ifade etmez. Yalnızca şeritleme g/ç farklı VHD dağıtılan şekilde yapılandırmanız gerekir.
@@ -230,7 +230,7 @@ VM dağıtıldıktan sonra azure sanal makineleri kalıcı olmayan diskler sunar
 
 Daha fazla bilgi için [azure'da Windows VM'ler geçici sürücüyü anlama](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Azure VM'de D sürücüsü Azure işlem düğümü üzerinde bazı yerel disk ile desteklenir kalıcı bir sürücüdür. Olduğundan kalıcı, VM yeniden başlatıldığında D sürücüsündeki içeriği yapılan tüm değişiklikler kaybolur. Depolanan dosyaları, oluşturulan dizinleri ve yüklenen uygulamaların değişiklikler içerir.
@@ -241,7 +241,7 @@ Daha fazla bilgi için [azure'da Windows VM'ler geçici sürücüyü anlama](htt
 >
 >
 
-- - -
+---
 
 
 
@@ -339,7 +339,7 @@ Daha fazla Azure sanal makineler arasındaki ağ gecikmesini azaltmak için seç
 > Tüm VM türleri, hızlandırılmış ağ destekler. Önceki makalede hızlandırılmış ağ destekleyen bir VM türleri listeler.
 >
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Ağ Windows için hızlandırılmış ile Vm'leri dağıtma konusunda bilgi için bkz [hızlandırılmış ağ ile Windows sanal makine oluşturma](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
@@ -350,7 +350,7 @@ Daha fazla Azure sanal makineler arasındaki ağ gecikmesini azaltmak için seç
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > SUSE, Red Hat ve Oracle Linux söz konusu olduğunda, hızlandırılmış ağ ile son sürümlerde desteklenir. SLES 12 SP2 veya RHEL 7.2 gibi eski sürümleri, Azure hızlandırılmış ağ desteklemez.
