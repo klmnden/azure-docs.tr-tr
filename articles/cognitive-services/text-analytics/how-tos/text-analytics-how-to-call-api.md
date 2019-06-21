@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e98979ac43945ebc9af82d5f89db01855429ca70
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831427"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304199"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Metin analizi REST API'nin nasıl çağrılacağını
 
@@ -87,7 +87,7 @@ Hizmet kabul boyutu 1 MB'a kadar istek. Postman'ı (veya başka bir Web API'si t
   + [Varlık tanıma](text-analytics-how-to-entity-linking.md)  
 
 
-6. Tıklayın **Gönder** isteği göndermek için. Dakika başına en fazla 100 istek gönderebilirsiniz. 
+6. Tıklayın **Gönder** isteği göndermek için. Bkz: [veri sınırları](../overview.md#data-limits) dakika başına gönderin ve ikinci istek sayısı hakkında bilgi için genel bakış bölümünde.
 
    Postman içinde bir öğe için istekte sağlanan her bir belge kimliği ile tek bir JSON belgesi olarak yanıt aşağı, sonraki penceresi görüntülenir.
 

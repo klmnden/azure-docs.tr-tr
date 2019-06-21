@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1828cdce66104424cc7845fea89127219e6b77a0
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137258"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311837"
 ---
 # <a name="why-use-batch-transcription"></a>Batch transkripsiyonu neden kullanmalısınız?
 
@@ -91,6 +91,7 @@ Döküm yapılandırmak için bu isteğe bağlı özellikleri kullanın:
 | `PunctuationMode` | Noktalama işaretleri tanıma sonuçları nasıl ele alınacağını belirtir. Değerler kabul `none` , devre dışı bırakır, noktalama `dictated` açık noktalama gelir `automatic` noktalama işaretleri ile uğraşmak kod çözücü olanak tanıyan veya `dictatedandautomatic` dikte noktalama işaretleri veya otomatik olduğu anlamına gelir. |
  | `AddWordLevelTimestamps` | Word düzeyi zaman damgası çıkışı eklenip eklenmeyeceğini belirtir. Kabul edilen değerler `true` word düzeyi zaman damgaları sağlar ve `false` (devre dışı bırakmak için varsayılan değer). |
  | `AddSentiment` | Yaklaşım için utterance eklenmesi gerektiğini belirtir. Kabul edilen değerler `true` utterance başına yaklaşım sağlar ve `false` (devre dışı bırakmak için varsayılan değer). |
+ | `AddDiarization` | Bu diarization alalysis iki kişilerden daha fazlasını içeren mono kanal olması beklenen giriş gerçekleştirileceğini belirtir. Kabul edilen değerler `true` diarization sağlar ve `false` (devre dışı bırakmak için varsayılan değer). Ayrıca gerektirir `AddWordLevelTimestamps` ayarlamak için true.|
 
 ### <a name="storage"></a>Depolama
 
@@ -128,13 +129,8 @@ Bir sayı tarafından tanımlanan konuşmacıları ilgili ses içerecektir (Konu
 
 Ayrıca Diarization Stereo kayıtlarını kullanılabilir olmadığını unutmayın. Ayrıca, tüm JSON çıkış Konuşmacı etiketi içerir. Diarization kullanılmıyorsa Göster ' Konuşmacı: Null' JSON biçiminde çıktı.
 
-Desteklenen yerel ayarlar aşağıda listelenmiştir.
-
-| Dil | Yerel ayar |
-|--------|-------|
-| Türkçe | en-US |
-| Çince | zh-CN |
-| Deutsch | de-DE |
+> [!NOTE]
+> Diarization tüm yerel ayarlar ve tüm bölgelerde kullanıma sunuldu!
 
 ## <a name="sentiment"></a>Yaklaşım
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 06/20/2019
 ms.author: tulasim
-ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b0e3dfb81a9934b393428a946cf1440367985c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954960"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311857"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Bilgi Bankası'na güvenli Sharepoint veri kaynağı Ekle
 
@@ -35,6 +35,20 @@ Tüm soru-cevap Oluşturucu tarafından desteklenen ekleyebilirsiniz [dosya tür
     ![Sonra URL'yi kopyalayarak dosyanın üç nokta menüsünü seçerek Sharepoint dosya URL'yi alın.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
 1. Soru-cevap Oluşturucu Portalı'nda üzerinde **ayarları** sayfasında [URL'sini ekleyin](edit-knowledge-base.md#add-datasource) Bilgi Bankası için. 
+
+### <a name="images-with-sharepoint-files"></a>Sharepoint dosyaları görüntülerle
+
+Görüntü dosyaları dahil ederseniz, bu ayıklanan değil. Dosya, soru-cevap çiftlerine ayıklandıktan sonra soru-cevap Oluşturucu Portalı'ndan görüntüsü ekleyebilirsiniz.
+
+Markdown söz dizimi aşağıdaki görüntüyle ekleyin: 
+
+```markdown
+![Explanation or description of image](URL of public image)
+```
+
+Köşeli ayraçların içindeki metni `[]`, görüntünün açıklar. URL'sini parantezlerdeki `()`, görüntüye doğrudan bir bağlantıdır. 
+
+Etkileşimli test panosunda, soru-cevap Oluşturucu Portalı'nda soru-cevap çifti test ettiğinizde, markdown metni yerine resim görüntülenir. Bu görüntü doğrular, istemci uygulamasından herkese açık şekilde alınabilir.
 
 ## <a name="permissions"></a>İzinler
 
