@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56dd1c29d5606da96bbc6d519b70caf580852446
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996526"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273069"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure İzleyici'de özel günlükler
 Azure İzleyici'de özel günlükleri veri kaynağı, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olaylarını toplamanıza olanak sağlar. Birçok uygulama için Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerinin yerine metin dosyaları bilgileri günlüğe kaydetmek. Toplandığında, verileri ayrı ayrı alanlara sorgularınızdaki ayrıştırmak veya sırasında ayrı alanlar koleksiyonuna olan verileri ayıklayın.
@@ -35,11 +35,7 @@ Günlük dosyaları toplanacak, aşağıdaki ölçütlere uymalıdır.
 - Günlük dosyası, ASCII veya UTF-8 kodlamasını kullanmanız gerekir.  UTF-16 gibi diğer biçimlerde desteklenmez.
 
 >[!NOTE]
->Günlük dosyasında yinelenen girişler varsa, bunları Azure İzleyici toplar.  Ancak, sorgu sonuçları nerede sonucu sayısından daha fazla olay filtre sonuçlarını göster tutarsız olur.  Günlük oluşturduğu uygulama bu davranış neden olup olmadığını belirlemek ve eğer mümkünse bunu özel günlük koleksiyonu tanımı oluşturmadan önce çözmek için doğrulama önemli olacaktır.  
->
-  
->[!NOTE]
-> Her gün veya belirli bir boyuta ulaştığında, uygulamanızın yeni bir günlük dosyası oluşturur, yeniden başlatıldıktan sonra Linux için Log Analytics aracısını kadar bunları bulmaz. Aracı yalnızca numaralandırır ve başlatılması sırasında belirtilen günlükleri desenler için izlemeye başlar ve bu nedenle yeniden başlatma aracı işlemi otomatik hale getirerek etrafında planlamanız gerekir çünkü budur.  Bu sınırlama Windows için Log Analytics aracısı yok.  
+> Günlük dosyasında yinelenen girişler varsa, bunları Azure İzleyici toplar. Ancak, sorgu sonuçları nerede sonucu sayısından daha fazla olay filtre sonuçlarını göster tutarsız olur. Günlük oluşturduğu uygulama bu davranış neden olup olmadığını belirlemek ve eğer mümkünse bunu özel günlük koleksiyonu tanımı oluşturmadan önce çözmek için doğrulama önemli olacaktır.  
 >
 
 >[!NOTE]

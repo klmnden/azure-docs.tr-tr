@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: bwren
-ms.openlocfilehash: 4d7c1d9b59e802343f6d8fe258e8e4ac961bb2df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 50804e1f6ab4f352239d3f405e5b41e4e0c58d14
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061015"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67292815"
 ---
-# <a name="standard-properties-in-azure-monitor-log-records"></a>Azure İzleyici günlük kayıtlarını standart özellikler
-Azure İzleyici'de günlük veri [bir kayıt kümesi depolanan](../log-query/log-query-overview.md), her bir özellik kümesi olan belirli veri türüne sahip. Birçok veri türleri, birden çok türlerinde ortak olan standart özellikleri olacaktır. Bu makalede, bu özellikleri açıklar ve nasıl bunları sorgularında kullanabileceğiniz örnekler sağlar.
+# <a name="standard-properties-in-azure-monitor-logs"></a>Azure İzleyici günlüklerine standart özellikler
+Azure İzleyici günlüklerine verilerde [kümesi bir Log Analytics çalışma alanı veya Application Insights uygulama kayıtları olarak depolanan](../log-query/logs-structure.md), her bir özellik kümesi olan belirli veri türüne sahip. Birçok veri türleri, birden çok türlerinde ortak olan standart özellikleri olacaktır. Bu makalede, bu özellikleri açıklar ve nasıl bunları sorgularında kullanabileceğiniz örnekler sağlar.
 
 Bazı veri türleri, ancak henüz diğerleri bunları görebilirsiniz bu özelliklerin bazıları hala uygulanan sürecinde, olduğundan.
 
-## <a name="timegenerated"></a>TimeGenerated
-**TimeGenerated** kaydın oluşturulduğu saat ve tarihi özelliği içerir. Bu, filtreleme veya zamana göre özetlemek için kullanılacak ortak bir özellik sağlar. Azure portalında bir zaman aralığı için bir görünüm veya Panoda seçtiğinizde TimeGenerated sonuçları filtrelemek için kullanır.
+## <a name="timegenerated-and-timestamp"></a>TimeGenerated ve zaman damgası
+**TimeGenerated** (Log Analytics çalışma alanı) ve **zaman damgası** kaydın oluşturulduğu saat ve tarihi (Application Insights uygulaması) özellikleri içerir. Bu, filtreleme veya zamana göre özetlemek için kullanılacak ortak bir özellik sağlar. Azure portalında bir zaman aralığı için bir görünüm veya Panoda seçtiğinizde, sonuçları filtrelemek için TimeGenerated veya zaman damgası kullanır.
 
 ### <a name="examples"></a>Örnekler
 
@@ -39,16 +39,25 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## <a name="type"></a>Tür
-**Türü** özellik adını tutan tablosu kayda alındığı, ayrıca, kayıt türü olarak düşünülebilir. Bu özellik, kayıtları kullananlar gibi birden çok tablodan birleştirmek sorgularda yararlıdır `search` farklı türlerde kayıtlar arasında ayrım yapmak için işleci. **$table** yerine kullanılan **türü** bazı yerlerde.
+Aşağıdaki sorgu, önceki haftanın her günü için oluşturulan özel durumların sayısını döndürür.
+
+```Kusto
+exceptions
+| where timestamp between(startofweek(ago(7days))..endofweek(ago(7days))) 
+| summarize count() by bin(TimeGenerated, 1day) 
+| sort by timestamp asc 
+```
+
+## <a name="type-and-itemtype"></a>Tür ve Itemtype
+**Türü** (Log Analytics çalışma alanı) ve **Itemtype** (Application Insights uygulaması) özellikleri askıya kaydı Ayrıca hangi can alınmıştır tablonun adını düşündüğünüz kayıt olarak yazın. Bu özellik, kayıtları kullananlar gibi birden çok tablodan birleştirmek sorgularda yararlıdır `search` farklı türlerde kayıtlar arasında ayrım yapmak için işleci. **$table** yerine kullanılan **türü** bazı yerlerde.
 
 ### <a name="examples"></a>Örnekler
 Aşağıdaki sorgu, geçtiğimiz saat içinde toplanan türüne göre kayıt sayısını döndürür.
 
 ```Kusto
 search * 
-| where TimeGenerated > ago(1h) 
-| summarize count() by Type 
+| where TimeGenerated > ago(1h)
+| summarize count() by Type
 ```
 
 ## <a name="resourceid"></a>\_ResourceId

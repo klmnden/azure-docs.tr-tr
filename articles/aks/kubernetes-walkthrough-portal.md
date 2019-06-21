@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 58f89ddcf4480df14689541ec99b6c9b2526721a
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 67ea040294e669859881dfd90533eba942105dec
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688084"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303377"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir Azure Kubernetes Service (AKS) kümesini dağıtma
 
@@ -27,7 +27,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ## <a name="create-an-aks-cluster"></a>AKS kümesi oluşturma
 
@@ -64,7 +64,7 @@ Açık Cloud Shell kullanarak `>_` Azure portalın üst kısmındaki düğmesi.
 
 ![Azure Cloud Shell'i portalda açma](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
-`kubectl` istemcisini Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az aks get-credentials][az-aks-get-credentials] komutunu kullanın. Bu komut, kimlik bilgilerini indirir ve Kubernetes CLI'yi bunları kullanacak şekilde yapılandırır. Aşağıdaki örnek *myResourceGroup* adlı kaynak grubu içindeki *myAKSCluster* adlı kümenin kimlik bilgilerini alır:
+Yapılandırmak için `kubectl` Kubernetes kümenize bağlanmak için [az aks get-credentials][az-aks-get-credentials] komutu. Bu komut, kimlik bilgilerini indirir ve Kubernetes CLI'yi bunları kullanacak şekilde yapılandırır. Aşağıdaki örnek *myResourceGroup* adlı kaynak grubu içindeki *myAKSCluster* adlı kümenin kimlik bilgilerini alır:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -85,12 +85,12 @@ aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Kubernetes bildirim dosyası çalıştırmak için hangi kapsayıcı görüntüleri gibi küme için istenen durumu tanımlar. Bu hızlı başlangıçta, Azure Vote uygulamasını çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır. Bu bildirimi iki içerir [Kubernetes dağıtımları] [ kubernetes-deployment] -örnek Azure Vote Python uygulamaları ve diğer Redis örneği için. İki [Kubernetes Hizmetleri] [ kubernetes-service] ayrıca oluşturulur - Redis örneği için bir iç hizmet ve internet'ten Azure Vote uygulaması erişmek için bir dış hizmet.
+Kubernetes bildirim dosyası çalıştırmak için hangi kapsayıcı görüntüleri gibi küme için istenen durumu tanımlar. Bu hızlı başlangıçta, Azure Vote uygulamasını çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır. Bu bildirimi iki içerir [Kubernetes dağıtımları][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] ayrıca oluşturulur - Redis örneği için bir iç hizmet ve internet'ten Azure Vote uygulaması erişmek için bir dış hizmet.
 
 > [!TIP]
-> Bu hızlı başlangıçta, uygulama bildirimlerini el ile oluşturup AKS kümesine dağıtacaksınız. Daha fazla gerçek dünya senaryolarında kodunuzu doğrudan AKS kümesinde hızlıca yineleyip hatalarını ayıklamak için [Azure Dev Spaces][azure-dev-spaces]’ı kullanabilirsiniz. Dev Spaces’ı işletim sistemi platformları ile geliştirme ortamlarında kullanabilir ve ekibinizdeki diğer kişilerle birlikte çalışabilirsiniz.
+> Bu hızlı başlangıçta, uygulama bildirimlerini el ile oluşturup AKS kümesine dağıtacaksınız. Daha fazla gerçek senaryoda kullanabileceğiniz [Azure geliştirme alanları][azure-dev-spaces] hızla yineleyin ve kodunuzu doğrudan AKS kümesi hata ayıklamak için. Dev Spaces’ı işletim sistemi platformları ile geliştirme ortamlarında kullanabilir ve ekibinizdeki diğer kişilerle birlikte çalışabilirsiniz.
 
-Adlı bir dosya oluşturun `azure-vote.yaml` aşağıdaki YAML tanımı kopyalayın. Azure Cloud Shell'de kullanarak dosya oluşturma `vi` veya `Nano`, bir sanal veya fiziksel sistemde olarak çalışıyorsanız:
+Cloud shell'de kullanmak `nano` veya `vi` adlı bir dosya oluşturmak için `azure-vote.yaml` aşağıdaki YAML tanımı kopyalayın:
 
 ```yaml
 apiVersion: apps/v1
@@ -177,7 +177,7 @@ spec:
     app: azure-vote-front
 ```
 
-Kullanarak uygulamayı dağıtma [kubectl uygulamak] [ kubectl-apply] komut ve YAML bildiriminizi adını belirtin:
+Kullanarak uygulamayı dağıtma [kubectl uygulamak][kubectl-apply] komut ve YAML bildiriminizi adını belirtin:
 
 ```azurecli-interactive
 kubectl apply -f azure-vote.yaml
@@ -240,14 +240,14 @@ Aşağıdaki örnekte olduğu gibi *azure-vote-back* ve *azure-vote-front* kapsa
 
 ## <a name="delete-cluster"></a>Kümeyi silme
 
-Küme artık gerekli olmadığında, tüm ilişkili kaynaklarla birlikte küme kaynağını silin. AKS kümesi panosunda **Sil** düğmesi seçilerek Azure portalında bu işlem tamamlanabilir. Alternatif olarak, Cloud Shell’de [az aks delete][az-aks-delete] komutu kullanılabilir:
+Küme artık gerekli olmadığında, tüm ilişkili kaynaklarla birlikte küme kaynağını silin. AKS kümesi panosunda **Sil** düğmesi seçilerek Azure portalında bu işlem tamamlanabilir. Alternatif olarak, [az aks Sil][az-aks-delete] komutu, Cloud Shell'de kullanılabilir:
 
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 > [!NOTE]
-> Kümeyi sildiğinizde, AKS kümesi tarafından kullanılan Azure Active Directory hizmet sorumlusu kaldırılmaz. Hizmet sorumlusunu kaldırma adımları için bkz. [AKS hizmet sorumlusuyla ilgili önemli noktalar ve silme][sp-delete].
+> Kümeyi sildiğinizde, AKS kümesi tarafından kullanılan Azure Active Directory hizmet sorumlusu kaldırılmaz. Hizmet sorumlusunu kaldırma adımları için bkz: [AKS hizmet sorumlusu hakkında önemli noktalar ve silme][sp-delete].
 
 ## <a name="get-the-code"></a>Kodu alma
 
@@ -262,7 +262,7 @@ Bu hızlı başlangıçta, bir Kubernetes kümesi dağıtıp ve bu kümeye çok 
 AKS hakkında daha fazla bilgi ve dağıtım örneği için tam kod açıklaması için Kubernetes küme öğreticisine geçin.
 
 > [!div class="nextstepaction"]
-> [AKS öğreticisi][aks-tutorial]
+> [AKS Öğreticisi][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
