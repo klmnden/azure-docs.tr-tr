@@ -67,10 +67,10 @@ If Koşulu etkinliği, programlama dilerindeki If deyimiyle aynı işlevselliği
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
 name | IF-condition etkinliği adı. | String | Evet
-türü | Ayarlanmalıdır **IfCondition** | String | Evet
-İfade | True veya false değerlendirmelidir ifadesi | İfade sonucu ile Boole türü | Evet
-ifTrueActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `true`. | Dizi | Evet
-ifFalseActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `false`. | Dizi | Evet
+type | Ayarlanmalıdır **IfCondition** | String | Evet
+expression | True veya false değerlendirmelidir ifadesi | İfade sonucu ile Boole türü | Evet
+ifTrueActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `true`. | Array | Evet
+ifFalseActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `false`. | Array | Evet
 
 ## <a name="example"></a>Örnek
 Bu örnekteki işlem hattı, verileri bir girdi klasöründen bir çıktı klasörüne kopyalar. Çıkış klasörü, işlem hattı parametre değeri tarafından belirlenir: routeSelection. RouteSelection değeri true ise, veriler için outputPath1 kopyalanır. Ve routeSelection değeri false ise, veriler için outputPath2 kopyalanır. 
