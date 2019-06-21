@@ -98,8 +98,8 @@ Etiket | Açıklama | Tür | Gerekli
 --- | ----------- | ---- | --------
 name | İşlem hattının adı. İşlem hattının gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 140</li><li>Harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Şu karakterler kullanılamaz: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Evet
 description | İşlem hattının ne için kullanıldığını açıklayan metni belirtin. | String | Hayır
-activities | **Etkinlikler** bölümünde tanımlanmış bir veya daha fazla etkinlik olabilir. Etkinliklerin JSON öğesi hakkında ayrıntılı bilgi için [Etkinlik JSON](#activity-json) bölümüne bakın. | Dizi | Evet
-parametreler | **Parametreler** bölümü, işlem hattınızı yeniden kullanım için esnek hale getiren, işlem hattında tanımlanmış bir veya daha fazla parametreyi içerebilir. | Liste | Hayır
+activities | **Etkinlikler** bölümünde tanımlanmış bir veya daha fazla etkinlik olabilir. Etkinliklerin JSON öğesi hakkında ayrıntılı bilgi için [Etkinlik JSON](#activity-json) bölümüne bakın. | Array | Evet
+parametreler | **Parametreler** bölümü, işlem hattınızı yeniden kullanım için esnek hale getiren, işlem hattında tanımlanmış bir veya daha fazla parametreyi içerebilir. | List | Hayır
 
 ## <a name="activity-json"></a>Etkinlik JSON
 **Etkinlikler** bölümünde tanımlanmış bir veya daha fazla etkinlik olabilir. İki temel etkinlik türü vardır: Yürütme ve denetim etkinlikleri.
