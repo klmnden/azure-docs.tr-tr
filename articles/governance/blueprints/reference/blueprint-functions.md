@@ -20,14 +20,14 @@ Azure şemalar şema tanımını daha dinamik yapmadan işlevler sağlar. Bu iş
 
 Aşağıdaki işlevler desteklenir:
 
-- [Yapıtlar](#artifacts)
+- [artifacts](#artifacts)
 - [concat](#concat)
-- [parametreler](#parameters)
+- [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
-- [aboneliği](#subscription)
+- [subscription](#subscription)
 
-## <a name="artifacts"></a>Yapıtlar
+## <a name="artifacts"></a>artifacts
 
 `artifacts(artifactName)`
 
@@ -109,7 +109,7 @@ Veri alma ilişkin bazı örnekler _myTemplateArtifact_ örnek:
 
 | İfade | Tür | Değer |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Dizi | \["önce", "saniye"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["önce", "saniye"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "Benim dize değeri" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"myproperty": "my value", "anotherProperty": true} |
@@ -126,7 +126,7 @@ Birden çok dize değerleri birleştirir ve birleştirilmiş dizeyi döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| Dize1 |Evet |string |Birleştirme için ilk değer. |
+| string1 |Evet |string |Birleştirme için ilk değer. |
 | Ek bağımsız değişkenler |Hayır |string |Sıralı birleştirme için ek değerler |
 
 ### <a name="return-value"></a>Dönüş değeri
@@ -200,7 +200,7 @@ Ardından _principalIds_ bağımsız değişkeni olarak `parameters()` blueprint
 }
 ```
 
-## <a name="resourcegroup"></a>Kaynak grubu
+## <a name="resourcegroup"></a>resourceGroup
 
 `resourceGroup()`
 
@@ -324,7 +324,7 @@ Ardından `resourceGroups()` kaynak grubu yer tutucu nesnesine bir başvuru alma
 }
 ```
 
-## <a name="subscription"></a>aboneliği
+## <a name="subscription"></a>subscription
 
 `subscription()`
 
