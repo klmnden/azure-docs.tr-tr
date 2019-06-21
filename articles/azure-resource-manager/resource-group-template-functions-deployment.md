@@ -33,7 +33,7 @@ Kaynakları, kaynak gruplarını veya abonelikleri değerleri almak için bkz: [
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment"></a>dağıtım
+## <a name="deployment"></a>deployment
 `deployment()`
 
 Geçerli dağıtım işlemiyle ilgili bilgi döndürür.
@@ -257,7 +257,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | stringOutput | String | Seçenek 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"bir": "a", "iki": "b"} |
-| arrayOutput | Dizi | [1, 2, 3] |
+| arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | Seçenek 1 |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
@@ -283,7 +283,7 @@ Değişkenin değerini döndürür. Belirtilen değişken adı şablon değişke
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| Değişkenadı |Evet |String |Döndürmek için değişkenin adı. |
+| variableName |Evet |String |Döndürmek için değişkenin adı. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -358,7 +358,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
-| exampleOutput2 | Dizi | [1, 2, 3, 4] |
+| exampleOutput2 | Array | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "Özellik2": "value2"} |
 
