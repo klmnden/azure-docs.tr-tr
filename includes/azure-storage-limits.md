@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3cff54f49d40fb7da99dcafa9535349ccb70e09
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114535"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150458"
 ---
 Aşağıdaki tabloda, Azure genel amaçlı v1, v2 ve Blob Depolama hesapları için varsayılan sınırlara açıklanmaktadır. *Giriş* sınırı bir depolama hesabına gönderilen istekleri gelen tüm verilere başvurur. *Çıkış* sınırı tüm verileri bir depolama hesabından alınan yanıtlardan başvuruyor.
 
@@ -32,15 +32,15 @@ Aşağıdaki tabloda, Azure genel amaçlı v1, v2 ve Blob Depolama hesapları i�
 <sup>1</sup>azure standart depolama hesapları için giriş sınırları daha yüksek isteğiyle destekler. Hesabı sınırları girişi için artış istemek için başvurun [Azure Destek](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [azure depolama çoğaltma](https://docs.microsoft.com/azure/storage/common/storage-redundancy) Seçenekler şunlardır:
-* **RA-GRS**: Okuma erişimli coğrafi olarak yedekli depolama. RA-GRS etkinleştirilirse, ikincil konumdaki çıkış hedeflerini birincil konumu olarak aynı olan.
-* **GRS**: Coğrafi olarak yedekli depolama. 
-* **ZRS**: Bölgesel olarak yedekli depolama.
-* **LRS**: Yerel olarak yedekli depolama. 
+- **RA-GRS**: Okuma erişimli coğrafi olarak yedekli depolama. RA-GRS etkinleştirilirse, ikincil konumdaki çıkış hedeflerini birincil konumu olarak aynı olan.
+- **GRS**: Coğrafi olarak yedekli depolama.
+- **ZRS**: Bölgesel olarak yedekli depolama.
+- **LRS**: Yerel olarak yedekli depolama.
 
 > [!NOTE]
 > Çoğu senaryo için bir genel amaçlı v2 depolama hesabı kullanmanızı öneririz. Genel amaçlı v2 hesabına kapalı kalma süresi olmadan ve verileri kopyalamak zorunda kalmadan kolayca bir genel amaçlı v1 veya bir Azure Blob Depolama hesabına yükseltebilirsiniz.
 >
-> Azure depolama hesapları hakkında daha fazla bilgi için bkz. [depolama hesabına genel bakışın](../articles/storage/common/storage-account-overview.md). 
+> Azure depolama hesapları hakkında daha fazla bilgi için bkz. [depolama hesabına genel bakışın](../articles/storage/common/storage-account-overview.md).
 
 Uygulamanızın ihtiyaçlarını tek bir depolama hesabı ölçeklenebilirlik hedefleri aşarsanız, birden çok depolama hesaplarını kullanmak için uygulamanızı oluşturabilirsiniz. Ardından, bu depolama hesabı arasında veri nesnelerinizi bölümleyebilirsiniz. Birim fiyatlandırma hakkında daha fazla bilgi için bkz: [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
 

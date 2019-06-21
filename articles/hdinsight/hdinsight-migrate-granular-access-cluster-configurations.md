@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 56ba2dfebeb47f7e12a2693eae443e3c31e2a4dd
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 982c5dcc052f92afe381235db0bf066262fd82c6
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203097"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304296"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Küme yapılandırmaları için ayrıntılı rol tabanlı erişime geçme
 
@@ -20,7 +20,7 @@ Hassas bilgileri almak için daha fazla ayrıntılı rol tabanlı erişimi deste
 
 ## <a name="what-is-changing"></a>Değişen nedir?
 
-Daha önce gizli dizileri HDInsight API aracılığıyla sahip, katkıda bulunan veya okuyucu işlediği küme kullanıcılar tarafından elde edilemedi [RBAC rollerini](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)olan herkes için kullanılabilir oldukları gibi `*/read` izni gerekli.
+Daha önce gizli dizileri HDInsight API aracılığıyla sahip, katkıda bulunan veya okuyucu işlediği küme kullanıcılar tarafından elde edilemedi [RBAC rollerini](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)olan herkes için kullanılabilir oldukları gibi `*/read` izni.
 Bundan sonra bu gizli dizileri erişim gerektiren `Microsoft.HDInsight/clusters/configurations/*` izni, bunlar artık erişilebilir okuyucu rolü olan kullanıcılar tarafından anlamına gelir. Bir kullanıcının rolünü daha fazla yükseltilmiş erişim elde etmek için kullanılabilecek değerleri sağlamalıdır gizli olarak tanımlanır. Bunlar, küme ağ geçidi HTTP kimlik bilgilerini, depolama hesabı anahtarlarını ve veritabanı kimlik bilgileri gibi değerleri içerir.
 
 Ayrıca yeni bir sunuyoruz [HDInsight küme işleci](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) rol sahibi veya katkıda bulunan Yönetimsel izinlere sahip olmadan gizli dizileri almak mümkün olacaktır. Özetlersek:

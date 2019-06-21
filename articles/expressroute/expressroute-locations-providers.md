@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/11/2019
+ms.date: 06/18/2019
 ms.author: jaredr80
-ms.openlocfilehash: f7006a8162aab87bc36f3dae034f10daa3f37ac1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 3a29940c4ef904d813fa7400928448a5c48334a4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115449"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205962"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
@@ -46,9 +46,9 @@ Aşağıdaki tablo, coğrafi bölge içindeki Azure bölgeler ile ExpressRoute k
 | **Avrupa** | 1 |Fransa Orta, Fransa Güney, Kuzey Avrupa, Batı Avrupa, UK Batı, UK Güney |Amsterdam, Amsterdam2, Dublin, Frankfurt, Londra, London2, Marsilya'daki, newport(Galler), Paris, Zürih |
 | **Kuzey Amerika** | 1 |Doğu ABD, Batı ABD, Doğu ABD 2, Batı ABD 2, Orta ABD, Orta Güney ABD, Orta Kuzey ABD, Batı Orta ABD, Orta Kanada, Doğu Kanada |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silikon vadisi, Silikon Valley2, DC2 Washington DC, Washington, Montreal, Quebec City, Toronto |
 | **Asya** | 2 |Doğu Asya, Güneydoğu Asya |Hong Kong ÖİB, Kuala Lumpur, Singapur, singapur2 Taipei |
-| **Avustralya** | 2 |Güneydoğu Avustralya, Doğu Avustralya |Melbourne, Perth, Sidney | 
 | **Hindistan** | 2 |Batı Hindistan, Orta Hindistan, Güney Hindistan |Madras, Madras2, Bombay, Bombay2 |
 | **Japonya** | 2 |Batı Japonya, Doğu Japonya |Osaka, Tokyo |
+| **Okyanusya** | 2 |Güneydoğu Avustralya, Doğu Avustralya |Auckland, Melbourne, Perth, Sidney | 
 | **Güney Kore** | 2 |Kore Orta, Kore Güney |Busan, Seul|
 | **BAE** | 3 | BAE Orta, BAE Kuzey | Dubai, Dubai2 |
 | **Güney Afrika** | 3 |Güney Afrika Batı, Güney Afrika Kuzey |Cape Town, Johannesburg |
@@ -74,26 +74,27 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 
 
 ### <a name="production-azure"></a>Üretim Azure
-| **Konum** | **Eşdüzey Hizmet Sağlama Konumu Sahibi** | **Yerel Azure bölgeleri** | **Hizmet Sağlayıcılar** |
+| **Location** | **Eşdüzey Hizmet Sağlama Konumu Sahibi** | **Yerel Azure bölgeleri** | **Hizmet Sağlayıcılar** |
 | --- | --- | --- | --- |
 | **Amsterdam** | Equinix | Batı Avrupa | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
-| **Amsterdam2** | Interxion | Batı Avrupa | DE-CIX Interxion |
+| **Amsterdam2** | Interxion | Batı Avrupa | DE-CIX, Interxion, Vodafone |
 | **Atlanta** | Equinix | yok | Equinix, Megaport |
+| **Auckland** | Vocus | yok | Devoli |
 | **Busan** |LG CNS | Kore Güney | LG CNS |
 | **Kanberra** | CDC | Avustralya Orta | CDC |
 | **Kanberra2** | CDC | Avustralya Orta 2| CDC |
 | **Cape Town** | Teraco | Güney Afrika Batı | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Tata Communications | Güney Hindistan | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | Güney Hindistan | Airtel |
-| **Chicago** | Equinix | Orta Kuzey ABD | Aryaka Networks, AT&T NetBond, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
+| **Chicago** | Equinix | Orta Kuzey ABD | Aryaka ağları Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, 3. düzey iletişimleri, Megaport, PacketFabric, genel PCCW Limited, Sprint, Telia taşıyıcı, Verizon, Zayo, AT & T NetBond, CenturyLink bulut bağlanma |
 | **Dallas** | Equinix | yok | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | CoreSite | Batı Orta ABD | CoreSite, Megaport, Zayo |
 | **Dubai** | Etisalat UAE | BAE Kuzey | Etisalat UAE |
 | **Dubai2** | DU datamena | BAE Kuzey | DU datamena, Orixcom |
 | **Dublin** | Equinix | Kuzey Avrupa | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | Interxion | yok | DE-CIX Interxion |
-| **Hong Kong ÖİB** | Equinix | Doğu Asya | Aryaka Networks, British Telecom, Chief Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **Johannesburg** | Teraco | Güney Afrika Kuzey | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
+| **Hong Kong ÖİB** | Equinix | Doğu Asya | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
+| **Johannesburg** | Teraco | Güney Afrika Kuzey | İngiliz Telekom, Internet Solutions - Cloud Connect Liquid Telekom Teraco |
 | **Kuala Lumpur** | TIME dotCom | yok | TIME dotCom |
 | **Las Vegas** | Anahtar | yok | CenturyLink Cloud Connect, Megaport |
 | **Londra** | Equinix | Birleşik Krallık Güney | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
@@ -123,7 +124,7 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 | **Taipei** | Baş telekomünikasyon | yok | Baş Telekom, FarEasTone |
 | **Tokyo** | Equinix | Japonya Doğu | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | Cologix | Orta Kanada | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
-| **Washington DC** | Equinix | Doğu ABD, Doğu ABD 2 | Aryaka ağları AT & T NetBond, İngiliz Telekom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, 3. düzey iletişimleri, Megaport, Neutrona ağları, NTT iletişimleri, turuncu, PacketFabric, Sprint, Tata iletişimleri, Telia taşıyıcı Verizon, Zayo |
+| **Washington DC** | Equinix | Doğu ABD, Doğu ABD 2 | Aryaka ağları AT & T NetBond, İngiliz Telekom, CenturyLink bulut bağlanmak, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, 3. düzey iletişim, Megaport, Neutrona ağları, NTT iletişimleri, Orange, PacketFabric, Sprint, Tata İletişim, Telia taşıyıcı, Verizon, Zayo |
 | **Washington DC2** | Coresite | Doğu ABD, Doğu ABD 2 |Coresite | 
 | **Zürih** | Interxion | yok | Interxion |
 
@@ -132,7 +133,7 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 ### <a name="national-cloud-environments"></a>Ulusal bulut ortamları
 
 ### <a name="us-government-cloud"></a>US Government bulutu
-| **Konum** | **Hizmet Sağlayıcılar** |
+| **Location** | **Hizmet Sağlayıcılar** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **Dallas** |Equinix, Megaport, Verizon |
@@ -144,7 +145,7 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### <a name="china"></a>Çin
-| **Konum** | **Hizmet Sağlayıcılar** |
+| **Location** | **Hizmet Sağlayıcılar** |
 | --- | --- |
 | **Pekin** |China Telecom |
 | **Beijing2** | Çin Telekom, GDS |
@@ -177,7 +178,7 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
   * Bağlantı kurmak için [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-classic.md)’daki adımları izleyin.
 
 ## <a name="c1partners"></a>Diğer Hizmet Sağlayıcılar Üzerinden Bağlantı
-| **Konum** | **Exchange** | **Bağlantı Sağlayıcılar** |
+| **Location** | **Exchange** | **Bağlantı Sağlayıcılar** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf köprüsü uluslararası, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telekom Italia pırıltı, Telia |
 | **Atlanta** | Equinix| Castle Dama yapma

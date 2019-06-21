@@ -1,22 +1,22 @@
 ---
-title: İşletim sistemi ve Azure Container kayıt defteri görevleri ile (ACR) framework düzeltme eki uygulama otomatikleştirin
-description: Giriş ACR görevlere güvenliğini sağlayan Azure Container Registry'de özellikleri içeren bir paketi otomatik olarak kapsayıcı görüntüsü derleme ve bulutta düzeltme eki uygulama.
+title: Oluşturma ve kapsayıcı görüntülerini Azure Container kayıt defteri görevleri (ACR) ile düzeltme eki uygulama otomatikleştirin
+description: ACR görevleri, güvenli, otomatik kapsayıcı görüntü derlemesi, yönetim ve bulutta düzeltme sağlayan bir Azure Container Registry'de özellikleri içeren bir paketi giriş.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5089650996693b81e548bba8d89c0de29a8afd93
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65977210"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147977"
 ---
-# <a name="automate-os-and-framework-patching-with-acr-tasks"></a>İşletim sistemi ve framework ACR görevlerle düzeltme eki uygulama otomatikleştirin
+# <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Kapsayıcı görüntüsü derleme ve Bakım ile ACR görevleri otomatikleştirin
 
-Kapsayıcılar, sanallaştırma, altyapı ve işletimsel gereksinimleri gelen uygulama ve geliştirici bağımlılıkları yalıtarak yeni düzeyleri sağlar. Ne kalır, ancak bu uygulama sanallaştırma nasıl yama adres gerekli değildir.
+Kapsayıcılar, sanallaştırma, altyapı ve işletimsel gereksinimleri gelen uygulama ve geliştirici bağımlılıkları yalıtarak yeni düzeyleri sağlar. Ne kalır, ancak bu uygulama sanallaştırma nasıl yönetildiği ve kapsayıcı yaşam döngüsü düzeltme eki adres gerekli değildir.
 
 ## <a name="what-is-acr-tasks"></a>ACR görevleri nedir?
 
@@ -46,8 +46,7 @@ Aşağıdaki tabloda, ACR görevleri için desteklenen içerik konumları bazı 
 | Yerel dosya sistemi | Yerel dosya sisteminde dosya içinde bir dizin. | `/home/user/projects/myapp` |
 | GitHub, ana dal | Bir GitHub deposu dalında dosyaları ana (veya diğer varsayılan).  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub dal | GitHub deposunun belirli dal.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub PR | Çekme isteğinde bir GitHub deposu. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
-| GitHub alt | GitHub deposunda bir alt klasör içinde dosyalar. Örnek, çekme isteği ve alt klasör belirtimi birleşimi gösterir. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| GitHub alt | GitHub deposunda bir alt klasör içinde dosyalar. Örnek, bir dal ve alt belirtimi birleşimi gösterir. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Uzak tarball | Sıkıştırılmış bir arşiv dosyaları uzak Web sunucusu üzerinde. | `http://remoteserver/myapp.tar.gz` |
 
 ACR görevler, kapsayıcı yaşam temel tasarlanmıştır. Örneğin, CI/CD çözümünüze ACR görevleri tümleştirin. Yürüterek [az login] [ az-login] ile bir [hizmet sorumlusu][az-login-service-principal], CI/CD çözümünüzü ardından yayımlayabilir [azacrderlemesi] [ az-acr-build] tanıtımıyla için komutları yapıların görüntü.
@@ -65,7 +64,7 @@ Yapılar tetikleme hakkında bilgi edinin kaynak kod işlemesinde ikinci ACR gö
 
 ## <a name="automate-os-and-framework-patching"></a>İşletim sistemi ve framework düzeltme eki uygulama otomatikleştirin
 
-ACR görevleri gücünden gerçek anlamda kapsayıcı yapı iş geliştirmek için bir temel görüntü için bir güncelleştirme algılama özelliğini, gelir. Güncelleştirilmiş temel görüntüyü kayıt defterinize itilir, ACR görevleri otomatik olarak bunu temel alan herhangi bir uygulama görüntü oluşturabilirsiniz.
+ACR görevleri gücünden gerçek anlamda kapsayıcı yapı iş geliştirmek için bir temel görüntü için bir güncelleştirme algılama özelliğini, gelir. Güncelleştirilmiş temel görüntüyü kayıt defterinize itilir ya da bir temel görüntü Docker Hub gibi ortak bir depoya güncelleştirilmiştir ACR görevleri otomatik olarak bunu temel alan herhangi bir uygulama görüntü oluşturabilirsiniz.
 
 Kapsayıcı görüntüleri problem kategorilere içine *temel* görüntüleri ve *uygulama* görüntüler. Temel görüntülerinizi genellikle uygulama çerçeveleri temellendirildiği uygulamanızı, diğer özelleştirmelere yanı sıra yerleşik olarak bulunur ve işletim sistemi içerir. Bu temel görüntüleri kendilerini genellikle ortak Yukarı Akış görüntülerinde örneğin göre şunlardır: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], veya [Node.js ][base-node]. Birçok uygulama görüntülerinizin genel bir temel görüntü paylaşabilir.
 
@@ -76,7 +75,7 @@ Bir kapsayıcı görüntüsü oluşturduğunda ACR görevleri temel görüntü b
 İşletim sistemi ve üçüncü ACR görevleri öğreticide framework düzeltme eki uygulama hakkında [otomatikleştirme görüntü derlemeleri temel görüntü güncelleştirme Azure kapsayıcı kayıt defteri görevlerle](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Temel görüntü yalnızca hem temel sınıfını hem uygulama görüntüleri aynı Azure container Registry'de bulunabilir veya temel bir genel Docker Hub deposundaki bulunduğu tetikleyici yapılar güncelleştirir.
+> Şu anda yalnızca hem temel sınıfını hem uygulama görüntüleri aynı Azure container Registry'de bulunabilir veya temel bir genel Docker Hub veya Microsoft kapsayıcı kayıt defteri depoda yer tetikleyici yapılar temel görüntüyü güncelleştirir.
 
 ## <a name="multi-step-tasks"></a>Çok adımlı görevler
 

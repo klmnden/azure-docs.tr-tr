@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d15bb4a1cd19af70b29d1d74f43e137cf884c4db
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473765"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164104"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile SharePoint uzaktan erişimi etkinleştirme
 
@@ -129,7 +129,7 @@ KCD yapılandırdığınıza göre Azure AD uygulama proxy'si yapılandırmaya h
    1. Uygulama sayfasında portalında seçin **çoklu oturum açma**.
    2. Çoklu oturum açma modu için seçin **tümleşik Windows kimlik doğrulaması**.
    3. İç uygulama SPN'si daha önce ayarlanan değere ayarlayın. Bu örnekte, olacak **HTTP/SharePoint**.
-   4. Temsilci oturum açma'nde "kimlik", seçin **şirket içi SAM hesabı adı**.
+   4. Temsilci oturum açma'nde "kimlik", Active Directory orman yapılandırmanız için en uygun seçeneği seçin. Örneğin, orman, select tek bir AD etki alanı varsa **şirket içi SAM hesabı adı** (olarak aşağıda gösterilmiştir), ancak kullanıcıların SharePoint aynı etki alanında olmayan ve sonra uygulama Proxy Bağlayıcısı sunucuları seçin,  **Şirket içi kullanıcı asıl adı** (gösterilmemiştir).
 
    ![SSO için tümleşik Windows kimlik doğrulamasını yapılandırma](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 

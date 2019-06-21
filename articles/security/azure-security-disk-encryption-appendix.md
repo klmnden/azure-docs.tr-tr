@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 675ce2de91dd4e53f4945ceef3b174c33be001f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2872d106eea56a37c362195e7a3250058336768b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118431"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295051"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Ek Azure Disk şifrelemesi 
 
@@ -133,15 +133,15 @@ Aşağıdaki tabloda, PowerShell betik parametreleri kullanılabileceğini göst
   - [Çalışan bir Linux VM üzerinde şifrelemeyi devre dışı bırak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Şifreleme devre dışı bırakıldığında yalnızca veri birimlerinde Linux VM'ler için izin verilir.  
 
-### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Şifreleme veya şifrelerini çözme VM ölçek kümeleri
+### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>Şifreleme veya şifrelerini çözme sanal makine ölçek kümeleri
 
 - [Bir çalışan Linux sanal makine ölçek kümesinde disk şifrelemeyi etkinleştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
 - [Bir çalışan Windows sanal makine ölçek kümesinde disk şifrelemeyi etkinleştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
-  - [Bir VM ölçek kümesi, Linux sanal makineleri Linux VMSS bir Sıçrama kutusu ve etkinleştirir şifreleme ile dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Linux Vm'leri Linux VMSS bir Sıçrama kutusu ve etkinleştirir şifreleme ile bir sanal makine ölçek kümesini dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
-  - [Bir VM ölçek kümesi, Windows sanal makineleri Windows VMSS bir Sıçrama kutusu ve etkinleştirir şifreleme ile dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Windows Vm'leri Windows VMSS bir Sıçrama kutusu ve etkinleştirir şifreleme ile bir sanal makine ölçek kümesini dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
 - [Bir çalışan Linux sanal makine ölçek kümesinde disk şifrelemeyi devre dışı bırakma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
@@ -206,7 +206,7 @@ Kullanım [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx) 
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>İşletim sistemi disk şifrelemesi önkoşulları
 
-* VM işletim sistemi disk şifreleme ile uyumlu bir dağıtım bağlantısında listelendiği gibi kullanılmalıdır [Azure Disk şifrelemesi hakkında SSS](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) 
+* VM işletim sistemi disk şifreleme ile uyumlu bir dağıtım bağlantısında listelendiği gibi kullanılmalıdır [Azure Disk şifrelemesi desteklenen işletim sistemleri: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * Azure Resource Manager'daki Market görüntüsünden VM yeniden oluşturulması gerekir.
 * En az 4 GB RAM ile Azure VM (boyutudur, 7 GB önerilir).
 * (RHEL ve CentOS) SELinux devre dışı bırakın. SELinux devre dışı bırakmak için "4.4.2. bkz. SELinux devre dışı bırakma" [SELinux kullanıcı ve Yönetici Kılavuzu](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) VM üzerinde.

@@ -2,37 +2,27 @@
 title: Azure Active Directory (Azure AD) koşullu erişim ile eski bir kimlik doğrulama engellemeyle | Microsoft Docs
 description: Azure AD koşullu erişim kullanarak eski bir kimlik doğrulama engelleyerek, güvenlik duruşunu öğrenin.
 services: active-directory
-keywords: Koşullu erişim uygulamalara, Azure AD koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim ile koşullu erişim
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: conditional-access
+ms.topic: conceptual
+ms.date: 06/17/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: conditional-access
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/25/2019
-ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a638b501ea04db787ca366aa015850d94eb475ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2120466652db363206ec20c2303ad56670228c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112713"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164794"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Nasıl yapılır: Azure ad koşullu erişim bloğu eski kimlik doğrulaması   
 
 Kullanıcılarınıza bulut uygulamalarınız için kolay erişim sunmak için Azure Active Directory (Azure AD) kimlik doğrulama protokolleri eski bir kimlik doğrulama dahil olmak üzere çok çeşitli destekler. Ancak, eski protokolleri, çok faktörlü kimlik doğrulaması (MFA) desteklemez. Mfa'yı birçok ortamlarda adresi kimlik hırsızlığı için ortak bir gereksinimdir. 
 
-
 Ortamınızı kiracınızın korumasını geliştirmek için blok eski bir kimlik doğrulama için hazır ise, koşullu erişim ile bu hedefe gerçekleştirebilirsiniz. Bu makalede, kiracınız için eski bir kimlik doğrulama engelleyen koşullu erişim ilkelerini nasıl yapılandırabileceğiniz açıklanmaktadır.
-
-
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -40,8 +30,6 @@ Bu makalede, aşina olduğunuzu varsayar:
 
 - [Temel kavramları](overview.md) Azure AD koşullu erişim 
 - [En iyi uygulamalar](best-practices.md) Azure portalında koşullu erişim ilkelerini yapılandırma
-
-
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
@@ -57,12 +45,21 @@ Nasıl kiracınızın kaynaklara erişimini eski kimlik doğrulaması kullanan u
 
 Koşullu erişim ilkeleri, ilk-faktörlü kimlik doğrulaması tamamlandıktan sonra uygulanır. Bu nedenle, koşullu erişim, hizmet reddi (DoS) saldırıları gibi senaryolar için ilk satırı savunma olarak tasarlanmamıştır, ancak bu olaylar (örneğin oturum açma risk düzeyini, konum isteği ve benzeri) gelen sinyalleri erişimini belirlemek için kullanabilir.
 
-
-
-
 ## <a name="implementation"></a>Uygulama
 
 Bu bölümde, eski bir kimlik doğrulama bloğu için bir koşullu erişim ilkesini yapılandırma açıklanmaktadır. 
+
+### <a name="identify-legacy-authentication-use"></a>Eski bir kimlik doğrulama kullanımı belirler
+
+Eski bir kimlik doğrulama dizininizde engellemeden önce ilk kullanıcılarınızın eski bir kimlik doğrulama ve genel dizin etkilemesi kullanan uygulamalar olup olmadığını anlamak gerekir. Azure AD oturum açma günlükleri, eski bir kimlik doğrulama kullanıyorsanız anlamak için kullanılabilir.
+
+1. Gidin **Azure portalında** > **Azure Active Directory** > **oturum açma**.
+1. Tıklayarak görüntülenmiyorsa istemci uygulaması sütunu eklemek **sütunları** > **istemci uygulaması**.
+1. Filtre ölçütü **istemci uygulaması** > **diğer istemcilerin** tıklatıp **Uygula**.
+
+Oturum show denemelerinin yalnızca filtreleme özelliğinde yapılan yeniliklerle eski kimlik doğrulama protokolleri tarafından. Tek tek oturum açma girişimleri üzerinde tıklayarak ek ayrıntılar gösterilir. **İstemci uygulaması** altında **temel bilgilerini** sekmesinde, eski bir kimlik doğrulama hangi protokolün kullanıldığı gösterecektir.
+
+Bu günlükler, hangi kullanıcıların eski kimlik doğrulaması hala bağlı ve hangi uygulamaların kimlik doğrulama isteği yapmak için eski protokolleri kullanan gösterir. Bu günlüklerde görünmez ve eski bir kimlik doğrulama kullanmayan için onaylanan kullanıcılar için yalnızca bu kullanıcılar için bir koşullu erişim ilkesi uygulayın.
 
 ### <a name="block-legacy-authentication"></a>Eski kimlik doğrulamasını engelleme 
 

@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3c2ed7f2914374ac94783511f2992ae5755967
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65907203"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302329"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Paylaşılan erişim imzaları (SAS) kullanma
 
@@ -23,7 +23,10 @@ Paylaşılan erişim imzası (SAS), hesap anahtarınız açığa çıkarmadan de
 Burada sunulan olanlar dışında SAS kullanarak ek kod örnekleri için bkz. [. NET'te Azure Blob Depolama ile çalışmaya başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) ve kullanılabilir diğer örnekler [Azure Kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage) kitaplığı. Örnek uygulamaları indirin ve bunları çalıştırın veya github'da koduna göz atın.
 
 ## <a name="what-is-a-shared-access-signature"></a>Paylaşılan erişim imzası nedir?
+
 Paylaşılan erişim imzası, depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. Bir SAS ile hesap anahtarlarınızı paylaşmadan depolama hesabınızdaki kaynaklara erişim istemcileri verebilirsiniz. Bu, uygulamalarınızda paylaşılan erişim imzaları kullanmanın anahtar noktasıdır. SAS, hesap anahtarlarınızı tehlikeye atmadan depolama kaynaklarınızı paylaşmanın güvenli bir yoludur.
+
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -35,6 +38,7 @@ Bir SAS erişim de dahil olmak üzere, SAS sahip istemciler için verme türü �
 * Protokol üzerinden Azure depolama SAS kabul eder. Bu isteğe bağlı bir parametre, HTTPS kullanan istemciler için erişimi kısıtlamak için kullanabilirsiniz.
 
 ## <a name="when-should-you-use-a-shared-access-signature"></a>Paylaşılan erişim imzası kullanırken?
+
 Depolama hesabınızın erişim anahtarlarını işlediği değil herhangi bir istemciye depolama hesabınızdaki kaynaklara erişimi sağlamak istediğinizde bir SAS kullanabilirsiniz. Depolama hesabınızın hem ikisi için de hesabınıza yönetici erişimi vermek, bir birincil ve ikincil erişim anahtarı ve içerdiği tüm kaynakları içerir. Bu anahtarların ya da ifşa eden kötü amaçlı veya hatalı kullanım olasılığını hesabınıza açılır. Paylaşılan erişim imzaları, okuma, yazma ve açıkça verilen izinlere göre ve hesap anahtarı için gerek kalmadan, depolama hesabınızdaki verileri silmek istemcilerin güvenli bir yöntem sağlar.
 
 Bir SAS kullanışlı olduğu bir yaygın senaryo burada kullanıcılar okuyup kendi verilerini depolama hesabınıza bir hizmettir. Bir depolama hesabı, kullanıcı verilerini depoladığı bir senaryoda, iki tipik tasarım desenleri vardır:
@@ -56,12 +60,14 @@ Ayrıca, belirli senaryolarda bir kopyalama işleminde kaynak nesne erişim yetk
 * Bir blobu bir dosyaya veya bir blobu bir dosyaya kopyalamanız, kaynak ve hedef nesnelerin aynı depolama hesabında bulunan olsa bile bir SAS kaynak nesnesi erişim yetkisi vermek için kullanmanız gerekir.
 
 ## <a name="types-of-shared-access-signatures"></a>Paylaşılan erişim imzaları türleri
+
 İki tür paylaşılan erişim imzası oluşturabilirsiniz:
 
 * **Hizmet SAS.** Hizmet SAS; Blob, Kuyruk, Tablo veya Dosya hizmeti olmak üzere yalnızca bir depolama hizmetindeki kaynağa erişim atar. Bkz: [hizmet SAS oluşturma](https://msdn.microsoft.com/library/dn140255.aspx) ve [hizmeti SAS örneklerini](https://msdn.microsoft.com/library/dn140256.aspx) hizmeti SAS belirteci oluşturma hakkında ayrıntılı bilgi için.
 * **Hesap SAS.** Hesap SAS temsilcileri, bir veya daha fazla depolama hizmetindeki kaynaklara erişim. Tüm hizmet SAS ile kullanılabilen işlemleri ayrıca bir hesap SAS kullanılabilir. Ayrıca, hesap SAS ile belirli bir hizmete gibi uygulama işlemlerine erişim yetkilendirebilirsiniz **Get/Set hizmet özellikleri** ve **hizmet istatistikleri alma**. Bununla birlikte hizmet SAS ile izin verilmeyen blob kapsayıcılar, tablolar kuyruklar ve dosya paylaşımları üzerinde okuma, yazma ve silme işlemleri için yetkilendirme yapabilirsiniz. Bkz: [hesap SAS oluşturma](https://msdn.microsoft.com/library/mt584140.aspx) hesap SAS belirteci oluşturma hakkında ayrıntılı bilgi için.
 
 ## <a name="how-a-shared-access-signature-works"></a>Paylaşılan erişim imzası nasıl çalışır?
+
 Paylaşılan erişim imzası, bir veya daha fazla depolama kaynaklarını ve özel bir sorgu parametreleri kümesini içeren bir belirteç içeren imzalı bir URI'dir. Belirteç, kaynaklar istemci tarafından erişilebilecek nasıl gösterir. Sorgu parametreleri, imza birini SAS parametreler oluşturulur ve hesap anahtarı ile imzalanmış. Bu imza, depolama kaynağına erişim yetkisi vermek için Azure Depolama tarafından kullanılır.
 
 Kaynak URI gösteren bir SAS URI'sinin bir örnek aşağıda verilmiştir ve SAS belirteci:
@@ -73,9 +79,11 @@ SAS belirteci oluşturma hakkında bir dizedir *istemci* yan (bkz [SAS örnekler
 Bir istemci, bir isteğin bir parçası Azure depolama SAS URI'si sağladığında, hizmet isteği kimlik doğrulaması için geçerli olduğunu doğrulamak için imza ve SAS parametreleri denetler. Hizmet doğrularsa imza geçerli değil ve isteğin yetkilendirilip. Aksi takdirde, istek, hata kodu 403 (Yasak) reddedildi.
 
 ## <a name="shared-access-signature-parameters"></a>Paylaşılan erişim imzası parametreleri
+
 Hizmet SAS belirteçleri ve hesap SAS bazı ortak parametreleri içerir ve ayrıca farklı olan birkaç parametre alır.
 
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Hesap SAS ortak parametreleri ve hizmet SAS belirteçleri
+
 * **API sürümü** ve isteği yürütmek için kullanılacak depolama hizmeti sürümünü belirten isteğe bağlı bir parametre.
 * **Hizmet sürümü** gerekli parametresi isteği yetkilendirmek için kullanılacak depolama hizmeti sürümünü belirtir.
 * **Başlangıç zamanı.** Bu, SAS geçerli olacağı süredir. Paylaşılan erişim imzası için başlangıç zamanı isteğe bağlıdır. Başlangıç zamanı belirtilmezse, SAS hemen etkili olur. Başlangıç saati UTC (Eşgüdümlü Evrensel Saat) özel UTC gösterge ile ("Z"), gibi ifade edilmelidir `1994-11-05T13:15:30Z`.
@@ -86,6 +94,7 @@ Hizmet SAS belirteçleri ve hesap SAS bazı ortak parametreleri içerir ve ayrı
 * **İmza.** İmza bölümü belirteci olarak belirtilen ve ardından şifreli diğer parametreler oluşturulur. İmza, belirtilen depolama kaynaklarına erişim yetkisi vermek için kullanılır.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Hizmet SAS belirteci için parametreleri
+
 * **Depolama kaynağı.** SAS depolama kaynaklarına erişim ile bir hizmeti temsilci seçebilirsiniz şunlardır:
   * Kapsayıcılar ve bloblar
   * Dosya paylaşımları ve dosyalarla
@@ -93,6 +102,7 @@ Hizmet SAS belirteçleri ve hesap SAS bazı ortak parametreleri içerir ve ayrı
   * Tabloları ve tablo varlıkları aralığı.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Bir hesap SAS belirteci için parametreleri
+
 * **Hizmet veya hizmetleri.** Hesap SAS ise bir erişim bir veya daha fazla depolama hizmetleri için yetkilendirme yapabilirsiniz. Örneğin, temsilciler Blob ve dosya hizmetine erişim hesap SAS oluşturabilirsiniz. Veya tüm dört temsilciler erişim (Blob, kuyruk, tablo ve dosya) Hizmetleri bir SAS oluşturabilirsiniz.
 * **Depolama kaynak türleri.** Bir hesap SAS depolama kaynaklarını yerine belirli bir kaynağa bir veya daha fazla sınıfları için geçerlidir. Hesap erişimi devretmek için SAS oluşturabilirsiniz:
   * Hizmet düzeyi API'leri, depolama hesabı kaynağı karşı olarak adlandırılır. Örnekler **Get/Set hizmet özellikleri**, **hizmet istatistikleri alma**, ve **listesi kapsayıcılar/kuyruk/tablolar/paylaşımları**.
@@ -139,6 +149,7 @@ https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015
 Hizmet düzeyi izinleri kısıtlanır düşünüldüğünde, bu SAS erişilebilir işlemleriyle olan **Blob hizmeti özelliklerini almak** (okuma) ve **Blob hizmeti özelliklerini ayarla** (yazma). Ancak, farklı olan bir kaynak URI, aynı SAS belirteci de erişimi devretmek için kullanılabilir **Blob hizmet istatistikleri alma** (okuma).
 
 ## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Bir depolanmış erişim ilkesini ile SAS denetleme
+
 Paylaşılan erişim imzası iki biçimlerden birini alabilir:
 
 * **Geçici SAS:** Geçici bir SAS'ı oluşturduğunuzda, başlangıç zamanı, süre sonu ve SAS izinleri tüm SAS URI'de belirtilen (veya ima, burada başlangıç zamanı atlanır durumda). Bu tür bir SAS, hesap SAS ise bir ya da hizmet SAS oluşturulabilir.
@@ -158,12 +169,15 @@ Bir anahtar senaryosu için iki biçim arasındaki fark önemlidir: iptal etme. 
 > Paylaşılan erişim imzası URI'si imza oluşturmak için kullanılan hesap anahtarı ile ilişkilidir, ve ilişkili erişim ilkesi (varsa) depolanır. Hiçbir depolanmış erişim ilkesini belirtilirse, paylaşılan erişim imzası iptal etmek için tek yolu hesap anahtarını değiştirmektir.
 
 ## <a name="authenticating-from-a-client-application-with-a-sas"></a>Bir SAS ile bir istemci uygulamasında kimlik doğrulaması
+
 Bir SAS elinde bulunan bir istemci, SAS, hesap anahtarlarını sahip olmayan bir depolama hesabına yönelik bir isteği yetkilendirmek için kullanabilirsiniz. Bir SAS bağlantı dizesi ile birlikte veya doğrudan uygun oluşturucu veya yöntemi kullanılır.
 
 ### <a name="using-a-sas-in-a-connection-string"></a>SAS kullanarak bir bağlantı dizesi
+
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### <a name="using-a-sas-in-a-constructor-or-method"></a>Bir oluşturucu ya da yöntem SAS kullanarak
+
 Bir SAS ile hizmet isteğine yetki verebilir böylece birden fazla Azure depolama istemci kitaplığı oluşturucular ve yöntem aşırı bir SAS parametre sunar.
 
 Örneğin, burada bir SAS URI bir blok blobuna bir başvuru oluşturmak için kullanılır. SAS istek için gereken tek kimlik bilgisi sağlanır. Blok blob başvurusu, daha sonra bir yazma işlemi için kullanılır:
@@ -208,6 +222,7 @@ catch (StorageException e)
 ```
 
 ## <a name="best-practices-when-using-sas"></a>SAS kullanarak en iyi uygulamalar
+
 Uygulamalarınızda paylaşılan erişim imzaları kullandığınızda iki olası riskleri dikkat etmeniz gerekir:
 
 * Bir SAS sızmış ise, depolama hesabınıza potansiyel olarak tehlikeye atabilir aldığı herkes tarafından kullanılabilir.
@@ -227,6 +242,7 @@ Paylaşılan erişim imzalarını kullanma yönelik aşağıdaki öneriler bu ri
 10. **Depolama analizi, uygulamanızı izlemek için kullanın.** Kesinti nedeniyle kimlik doğrulama hataları herhangi bir artış SAS sağlayıcısı hizmetinizdeki ya da depolanmış erişim ilkesini yanlışlıkla kaldırılmasına gözlemlemek için günlük kaydını ve ölçümleri kullanabilirsiniz. Bkz: [Azure depolama ekibi blogu](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) ek bilgi için.
 
 ## <a name="sas-examples"></a>SAS örnekleri
+
 Aşağıda bazı örnekler paylaşılan erişim imzaları, hesap SAS her iki türdeki ve SAS hizmet.
 
 Bu C# örnekleri çalıştırmak için aşağıdaki NuGet paketlerini projenize başvuru gerekir:
@@ -237,6 +253,7 @@ Bu C# örnekleri çalıştırmak için aşağıdaki NuGet paketlerini projenize 
 Oluşturma ve bir SAS test gösteren ek örnekler için bkz: [Azure depolama kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage).
 
 ### <a name="example-create-and-use-an-account-sas"></a>Örnek: Oluşturma ve bir hesap SAS kullanma
+
 Aşağıdaki kod örneği, bir hesap, Blob ve Dosya Hizmetleri için geçerli olan ve istemciye izinlerini okuma, yazma ve liste hizmet düzeyi API'lere erişim izni verir. SAS oluşturur. İstek ile HTTPS yapılması için hesap SAS Protokolü HTTPS için sınırlar.
 
 ```csharp
@@ -304,6 +321,7 @@ static void UseAccountSAS(string sasToken)
 ```
 
 ### <a name="example-create-a-stored-access-policy"></a>Örnek: Bir depolanmış erişim ilkesini oluşturma
+
 Aşağıdaki kod bir depolanmış erişim ilkesini bir kapsayıcı oluşturur. Erişim ilkesi, kapsayıcıya veya bloblarına bir hizmet SAS için sınırlamalar belirlemek için kullanabilirsiniz.
 
 ```csharp
@@ -330,6 +348,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### <a name="example-create-a-service-sas-on-a-container"></a>Örnek: Bir kapsayıcı hizmet SAS oluşturma
+
 Aşağıdaki kod bir SAS bir kapsayıcı oluşturur. Varolan bir depolanmış erişim ilkesini adı sağlanmazsa, bu ilke SAS ile ilişkilendirilir. Hiçbir depolanmış erişim ilkesini sağlanırsa, kod kapsayıcısını geçici bir SAS oluşturur.
 
 ```csharp
@@ -373,6 +392,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### <a name="example-create-a-service-sas-on-a-blob"></a>Örnek: Blob üzerinde hizmet SAS oluşturma
+
 Aşağıdaki kod blob üzerinde bir SAS oluşturur. Varolan bir depolanmış erişim ilkesini adı sağlanmazsa, bu ilke SAS ile ilişkilendirilir. Hiçbir depolanmış erişim ilkesini sağlanırsa, kod blob üzerinde geçici bir SAS oluşturur.
 
 ```csharp
@@ -419,9 +439,11 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ```
 
 ## <a name="conclusion"></a>Sonuç
+
 Paylaşılan erişim imzaları, depolama hesabınıza sınırlı izinlere hesap anahtarı bulunmamalıdır istemcilerine sağlamak için kullanışlıdır. Bu nedenle, Azure depolama kullanan uygulamalar için güvenlik modelinin önemli bir parçası olan. Burada listelenen en iyi uygulamaları izlerseniz, uygulamanızın güvenliğini tehlikeye atmadan depolama hesabınızdaki kaynaklara erişim daha fazla esneklik sağlamak için SAS'ı kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
+
 * [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md)
 * [Paylaşılan Erişim İmzası ile Erişim için Temsilci Seçme](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Tablo ve kuyruk SAS ile tanışın](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

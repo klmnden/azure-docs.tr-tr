@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 05/29/2019
 ms.author: dalek
-ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 188911fa3fb872c8db1612406bf3d4e9b36d837b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357273"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303831"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Kullanımı ve maliyetleri için Application Insights'ı yönetme
 
@@ -30,7 +30,7 @@ Application Insights için fiyatlandırma nasıl çalıştığı hakkında sorul
 
 ## <a name="pricing-model"></a>Fiyatlandırma modeli
 
-Fiyatlandırma [Azure Application Insights] [ start] alınan veri hacmine dayalı. Her bir Application Insights kaynağı ayrı bir hizmet ücretlendirilir ve Azure aboneliğiniz için fatura katkıda.
+Fiyatlandırma [Azure Application Insights][start] alınan veri hacmine dayalı. Her bir Application Insights kaynağı ayrı bir hizmet ücretlendirilir ve Azure aboneliğiniz için fatura katkıda.
 
 ### <a name="data-volume-details"></a>Veri hacmi ayrıntıları
 
@@ -38,11 +38,12 @@ Fiyatlandırma [Azure Application Insights] [ start] alınan veri hacmine dayal�
 * Uygulamanızın veri hacmi ücreti artık adlı bir yeni fatura ölçümünde üzerinde bildirilen **veri alımı** Nisan 2018'den itibaren. Bu yeni ölçüm teknolojileri uygulamaları Insights ve Log Analytics gibi izleme arasında paylaşılır ve şu anda hizmet adı altında **Log Analytics**. 
 * [Canlı ölçümler Stream](../../azure-monitor/app/live-stream.md) veri amacıyla sayılan değil.
 
-Para birimi ve bölge için geçerli fiyatlarını görmek [Application Insights fiyatlandırması][pricing].
+> [!NOTE]
+> Bu makalede ekran görüntüleri görüntülenen tüm örneğin yalnızca fiyatlarıdır. Para birimi ve bölge için geçerli fiyatlarını görmek [Application Insights fiyatlandırması][pricing].
 
 ### <a name="multi-step-web-tests"></a>Çok adımlı web testleri
 
-[Çok adımlı web testleri](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) ek bir ücret uygulanmaz. Çok adımlı web testleri bir dizi eylem gerçekleştiren web testlerdir.
+[Çok adımlı web testleri](../../azure-monitor/app/availability-multistep.md) ek bir ücret uygulanmaz. Çok adımlı web testleri bir dizi eylem gerçekleştiren web testlerdir.
 
 İçin ayrı ücret *ping testleri* tek bir sayfa. Alınan telemetri çalıştırılabilen ping testleri ve çok adımlı testler aynı diğer uygulamanızdan alınan telemetri olarak ücretlendirilir.
 
@@ -53,7 +54,7 @@ Application Insights maliyetlerinizi son kullanım düzenlerini esas alarak olas
 ![Fiyatlandırma seçin](./media/pricing/pricing-001.png)
 
 A. Veri hacminiz ay için gözden geçirin. Bu alındı ve korunan tüm verileri içerir (sonra yerleştirmenizi [örnekleme](../../azure-monitor/app/sampling.md)) sunucusu ve istemci uygulamaları ve kullanılabilirlik testleri.  
-B. Ayrı bir ücret yapılan [çok adımlı web testleri](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (Bu veri birimi ücreti dahil olan basit kullanılabilirlik testleri dahil değildir.)  
+B. Ayrı bir ücret yapılan [çok adımlı web testleri](../../azure-monitor/app/availability-multistep.md). (Bu veri birimi ücreti dahil olan basit kullanılabilirlik testleri dahil değildir.)  
 C. Geçen ay için veri birimi eğilimlerini görüntüleyin.  
 D. Veri alımı etkinleştirme [örnekleme](../../azure-monitor/app/sampling.md).   
 E. Günlük veri hacmi üst sınırı ayarlayın.  

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400152"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154828"
 ---
-# <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Iaas SQL Server'lar için Gelişmiş veri güvenliği
-Azure Virtual Machines'de SQL sunucuları için Gelişmiş veri güvenliği, Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Şu anda, görünmesini ve olası veritabanı güvenlik açıklarını azaltmaya ve veritabanınız için tehdit oluşturabilecek anormal etkinlikleri algılamaya yönelik işlevleri içerir. 
+# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>SQL Server Azure sanal makinelerinde (genel Önizleme) için Gelişmiş veri güvenliği
+Azure Virtual Machines'de SQL sunucuları için Gelişmiş veri güvenliği, Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Bu şu anda (genel önizlemede) görünmesini ve olası veritabanı güvenlik açıklarını azaltmaya ve veritabanınız için tehdit oluşturabilecek anormal etkinlikleri algılamaya yönelik işlevselliği içerir. 
 
 Bu güvenlik sunan Azure VM'lerin SQL sunucuları için kullanılan aynı temel teknoloji dayalı [Azure SQL veritabanı gelişmiş veri güvenliği paket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
@@ -36,7 +36,7 @@ Gelişmiş SQL güvenlik özellikleri, güvenlik açığı değerlendirmesi ve G
 
 ## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Azure vm'lerde SQL gelişmiş veri güvenliği ile çalışmaya başlama
 
-Aşağıdaki adımlar Azure Vm'leri üzerinde SQL ile gelişmiş veri güvenliği başlamanıza yardımcı olmak.
+Aşağıdaki adımlarda SQL Azure Vm'leri genel önizlemesi için Gelişmiş veri güvenliği ile başlamanıza yardımcı olmak.
 
 ### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Azure vm'lerde SQL için Gelişmiş veri güvenliği ayarlayın
 
@@ -145,7 +145,7 @@ Güvenlik Açığı değerlendirme sonuçlarını ve doğrudan Log Analytics rap
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Gelişmiş tehdit koruması için SQL Server Azure Vm'leri uyarılar
 Erişmek veya exploit SQL sunucuları için olağan dışı ve zararlı olabilecek girişimleri tarafından uyarılar oluşturulur. Bu olaylar aşağıdaki uyarılar tetikleyebilirsiniz:
 
-### <a name="anomalous-access-pattern-alerts"></a>Anormal erişim düzeni uyarıları
+### <a name="anomalous-access-pattern-alerts-supported-in-public-preview"></a>Anormal erişim düzeni uyarıları (genel önizlemede desteklenir)
 
 * **Olağan dışı bir konumdan erişim:** SQL Server, burada kişi SQL sunucusuna olağan dışı bir coğrafi konumdan oturum açmış olduğu erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Olası nedenler:
      * Bir saldırgan veya eski bir kötü amaçlı kullanan SQL Server'ınızı eriştiğini.

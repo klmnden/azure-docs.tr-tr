@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478410"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154777"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
@@ -249,7 +249,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> .NET SDK'yı Microsoft.ApplicationInsights.TelemetryClient.TrackMetric kullanım dışıdır. Her zaman ölçümlerini gönderilmeden önce bir süre boyunca önceden toplanmış olmalıdır. SDK'sı önceden toplayarak özelliklerine erişmek için bir ölçüm nesnesini almak için GetMetric(..) aşırı yüklemeleri kullanın. Kendi önceden toplayarak mantıksal uyguluyorsanız, sonuçta elde edilen toplamalar göndermek için İzle (ITelemetry metricTelemetry) yöntemini kullanabilirsiniz. Uygulamanızı ayrı telemetri öğesinin toplama olmadan her gün, saat gönderme gerektiriyorsa, büyük olasılıkla olay telemetrisi için bir kullanım örneği vardır; TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry) bakın.
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric ölçümleri gönderme için tercih edilen yöntem değil. Her zaman ölçümlerini gönderilmeden önce bir süre boyunca önceden toplanmış olmalıdır. SDK'sı önceden toplayarak özelliklerine erişmek için bir ölçüm nesnesini almak için GetMetric(..) aşırı yüklemeleri kullanın. Kendi önceden toplayarak mantıksal uyguluyorsanız, sonuçta elde edilen toplamalar göndermek için TrackMetric() yöntemi kullanabilirsiniz. Uygulamanızı ayrı telemetri öğesinin toplama olmadan her gün, saat gönderme gerektiriyorsa, büyük olasılıkla olay telemetrisi için bir kullanım örneği vardır; TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry) bakın.
 
 Application Insights belirli olaylara bağlı olmayan ölçümleri grafik. Örneğin, bir kuyruk uzunluğu düzenli aralıklarla izleyebilir. Ölçümler, tek tek ölçüler çözümlenmeyebileceği ve eğilimleri daha az ilgi çeken ve bu nedenle istatistiksel grafikleri kullanışlıdır.
 

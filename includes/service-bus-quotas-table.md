@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: f48ad6ca74e6ce10148d66549fea16bc74015b2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1c4a0384342db82ee9c1f6b9e806188d5949681
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171211"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67235472"
 ---
 Aşağıdaki tablo, Azure Service Bus mesajlaşması için belirli bir kota bilgileri listeler. Fiyatlandırma hakkında daha fazla bilgi ve diğer Service Bus kotaları için bkz. [Service Bus fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Kota adı | `Scope` | Notlar | Değer |
 | --- | --- | --- | --- |
 | Azure aboneliği başına temel veya standart ad alanı sayısı |Ad Alanı |Sonraki istekleri için ek temel veya standart ad alanları, Azure portal tarafından reddedilir. |100|
-| Azure aboneliği başına Premium ad alanı sayısı |Ad Alanı |Sonraki istekler ek Premium ad alanları için portal tarafından reddedilir. |25 |
+| Azure aboneliği başına Premium ad alanı sayısı |Ad Alanı |Sonraki istekler ek Premium ad alanları için portal tarafından reddedilir. |50 |
 | Kuyruk veya konu başlığı boyutu |Varlık |Kuyruk veya konu oluşturulduktan sonra tanımlanır. <br/><br/> Sonraki gelen iletileri reddedilir ve bir özel durum çağıran kod tarafından alınır. |1, 2, 3, 4 GB veya 5 GB.<br /><br />Premium SKU ve standart SKU ile [bölümleme](/azure/service-bus-messaging/service-bus-partitioning) etkinleştirildiğinde, kuyruk veya konu başlığı boyutu 80 GB olan. |
 | Bir ad alanında eşzamanlı bağlantı sayısı |Ad Alanı |Bir ek bağlantı için sonraki istekler reddedilir ve bir özel durum çağıran kod tarafından alınır. REST işlemlerini eş zamanlı TCP bağlantısı sayılmaz. |NetMessaging: 1,000.<br /><br />AMQP: 5,000. |
 | Eşzamanlı sayısı bir kuyruk, konu veya abonelik varlığı istekleri Al |Varlık |Sonraki alma istekleri reddedilir ve bir özel durum çağıran kod tarafından alınır. Bu birleşik kotanız eşzamanlı sayısı alma işlemlerinin bir konuya tüm abonelikler arasında. |5,000 |

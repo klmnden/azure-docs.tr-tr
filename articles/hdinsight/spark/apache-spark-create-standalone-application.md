@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Intellij kullanarak Azure HDInsight içindeki Spark Scala Maven uygulama oluşturma'
-description: Derleme sistemi olarak Apache Maven ile Scala’da ve Scala için IntelliJ IDEA tarafından sağlanan mevcut bir Maven mimari türü ile yazılmış bir Spark uygulaması oluşturun.
+description: Öğretici - Scala Apache Maven ile derleme sistemi ve var olan bir Maven arketipinden Intellij Idea tarafından sağlanan Scala için yazılmış bir Spark uygulaması oluşturun.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/28/2019
-ms.openlocfilehash: 212a2ca89b91de518f07d097b00b31e785216cb0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: cf1ada88cda77091e303e67b9652b9c6a372e2d1
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304000"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295370"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Öğretici: Intellij kullanarak HDInsight, Apache Spark Scala Maven uygulama oluşturma
 

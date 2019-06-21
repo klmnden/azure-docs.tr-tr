@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.openlocfilehash: 4bfbce7dd985f3ebf67fde671d83acf30623b641
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/17/2019
+ms.openlocfilehash: 0dbcc99850d0a8b3b7306fac2bd8f89e6c941e4c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055401"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163651"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -211,13 +211,13 @@ Apache Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için a
 
 ## <a id="networktraffic"></a> Ağ trafiğini denetleme
 
-### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>HDInsight kümeleri için gelen trafiği denetleme
+### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>HDInsight kümeleri gelen ve giden trafiği denetlemek için teknikleri
 
 Aşağıdaki yöntemleri kullanarak bir Azure sanal ağlarda ağ trafiğini denetlenebilir:
 
 * **Ağ güvenlik grupları** (NSG) ağa gelen ve giden trafiği filtrelemenize olanak tanır. Daha fazla bilgi için [ağ güvenlik grupları ile ağ trafiğini filtreleme](../virtual-network/security-overview.md) belge.
 
-* **Ağ sanal Gereçleri** cihazların güvenlik duvarları ve yönlendiriciler gibi çoğaltın. Daha fazla bilgi için [ağ Gereçleri](https://azure.microsoft.com/solutions/network-appliances) belge.
+* **Ağ sanal Gereçleri** (NVA) yalnızca giden trafik ile kullanılabilir. Nva'ları güvenlik duvarları ve yönlendiriciler gibi işlevselliğini yineler.  Daha fazla bilgi için [ağ Gereçleri](https://azure.microsoft.com/solutions/network-appliances) belge.
 
 Yönetilen bir hizmet olarak HDInsight, HDInsight sistem sınırsız erişim gerektirir ve sanal ağdan gelen ve giden trafiği için hem de Yönetim Hizmetleri. Nsg'leri kullanarak, bu hizmetler HDInsight kümesiyle iletişim kurabildiğinden emin olmanız gerekir.
 

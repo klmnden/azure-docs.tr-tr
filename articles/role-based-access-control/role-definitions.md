@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 00501ec72dff99f93fa04944c5ab733fce38ce21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f5f9b3595074c26c80c824052727e962b01162a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074002"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275049"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure kaynakları için rol tanımları anlama
 
@@ -52,7 +52,8 @@ AssignableScopes []
 | ------------------- | ------------------- |
 | `*` | Joker karakter dizesi ile eşleşen tüm işlemleri erişim verir. |
 | `read` | Etkinleştirir okuma işlemlerini (GET). |
-| `write` | Yazma işlemlerini (PUT, POST ve PATCH) etkinleştirir. |
+| `write` | Yazma işlemlerini (PUT veya PATCH) etkinleştirir. |
+| `action` | Sanal makineler (POST) yeniden gibi özel işlemler sağlar. |
 | `delete` | Etkinleştirir silme işlemlerine (Sil). |
 
 İşte [katkıda bulunan](built-in-roles.md#contributor) rol tanımı JSON biçiminde. Joker karakter (`*`) altında işlem `Actions` bu role atanan asıl tüm eylemleri gerçekleştirebilir veya diğer bir deyişle, her şeyi yönetebilmek gösterir. Azure, yeni kaynak türleri ekledikçe bu gelecekte tanımlanan Eylemler içerir. İşlem altında `NotActions` gelen çıkartılır `Actions`. Durumunda, [katkıda bulunan](built-in-roles.md#contributor) rolü `NotActions` kaynaklara erişimini yönetmek ve ayrıca kaynaklara erişim atamak için bu rolün olasılığını ortadan kaldırır.
@@ -79,7 +80,7 @@ AssignableScopes []
 }
 ```
 
-## <a name="management-and-data-operations-preview"></a>Yönetim ve veri işlemlerini (Önizleme)
+## <a name="management-and-data-operations"></a>Yönetim ve veri işlemleri
 
 Rol tabanlı erişim denetimi yönetim işlemleri için belirtilen `Actions` ve `NotActions` bir rol tanımı özellikleri. Azure'da yönetim işlemleri bazı örnekleri aşağıda verilmiştir:
 
@@ -89,7 +90,7 @@ Rol tabanlı erişim denetimi yönetim işlemleri için belirtilen `Actions` ve 
 
 Yönetim erişimi verilerinize alınmadı. Bu ayrım joker karakterlerle rolleri engeller (`*`) öğesinden verilerinize sınırsız erişimi. Örneğin, bir kullanıcının bir [okuyucu](built-in-roles.md#reader) rolü bir abonelikte, ardından depolama hesabını görüntüleyebilirler ancak varsayılan olarak, temel alınan verileri görüntüleyemezsiniz.
 
-Daha önce rol tabanlı erişim denetimi, veri işlemlerinde kullanılmadı. Veri işlemleri için yetkilendirme kaynak sağlayıcılar arasında değiştirilen. Yönetim işlemleri için kullanılan aynı rol tabanlı erişim denetimi yetkilendirme modeli, veri işlemlerini (şu anda önizlemede) şekilde genişletilmiştir.
+Daha önce rol tabanlı erişim denetimi, veri işlemlerinde kullanılmadı. Veri işlemleri için yetkilendirme kaynak sağlayıcılar arasında değiştirilen. Yönetim işlemleri için kullanılan aynı rol tabanlı erişim denetimi yetkilendirme modeli veri işlemleri için genişletilmiştir.
 
 Veri işlemlerini desteklemek için yeni veri özellikleri rol tanımı yapısına eklendi. Veri işlemleri belirtilir `DataActions` ve `NotDataActions` özellikleri. Bu veri özellikleri ekleyerek, yönetim ve veriler arasında ayrım korunur. Bu joker karakterlerle geçerli rol atamaları engeller (`*`) gelen aniden için verilere sahip. İşte belirtilebilir bazı veri işlemleri `DataActions` ve `NotDataActions`:
 
@@ -169,11 +170,7 @@ Görüntülemek ve veri işlemleriyle çalışmak için doğru SDK'lar ve Araçl
 
 Görüntüleme ve veri işlemlerini REST API kullanma için ayarlamalısınız **api sürümü** parametre şu sürümü veya sonraki bir sürüme:
 
-- 2018-01-01-Önizleme
-
-Azure portalında da göz atıp kuyruklar ve Blob içeriğini yönetmek kullanıcılara Azure AD ile kapsayıcıları Önizleme deneyimini. Görmeyi ve yönetmeyi bir kuyruk veya blob'a kapsayıcı tıklama içeriğini **Azure AD Önizleme kullanarak verileri keşfedin** bir depolama hesabına genel bakış.
-
-![Kuyruklar keşfedin ve Blob kapsayıcıları kullanarak Azure AD Önizleme](./media/role-definitions/rbac-dataactions-browsing.png)
+- 2018-07-01
 
 ## <a name="actions"></a>Eylemler
 
@@ -195,7 +192,7 @@ Azure portalında da göz atıp kuyruklar ve Blob içeriğini yönetmek kullanı
 > Bir işlemde dışlayan bir rolü atanmış bir kullanıcı, `NotActions`ve kullanıcının bu işlemi gerçekleştirmek için izin verilir aynı işlemi erişim veren ikinci bir rol atanır. `NotActions` bir reddetme değil kural – yalnızca belirli işlemleri dışarıda gerektiğinde, izin verilen işlemler kümesi oluşturmak için uygun şekilde öyledir.
 >
 
-## <a name="dataactions-preview"></a>dataActions (Önizleme)
+## <a name="dataactions"></a>DataActions
 
 `DataActions` İznini rolü, bu nesnenin içinde verilerinizin gerçekleştirilecek sağlar. veri işlemleri belirtir. Örneğin, bir kullanıcının blob veri erişimi bir depolama hesabına Okuma, bunlar bu depolama hesabında BLOB'ları okuma. Kullanılabilir veri işlemleri bazı örnekleri aşağıda verilmiştir `DataActions`.
 
@@ -206,7 +203,7 @@ Azure portalında da göz atıp kuyruklar ve Blob içeriğini yönetmek kullanı
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Bir ileti döndürür. |
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Bir ileti veya yazma veya bir iletiyi silmenin sonucunu döndürür. |
 
-## <a name="notdataactions-preview"></a>notDataActions (Önizleme)
+## <a name="notdataactions"></a>NotDataActions
 
 `NotDataActions` İzni hariç tutulan veri işlemleri belirtir izin verilen gelen `DataActions`. Bir rol (etkili izinleri) tarafından verilen erişimi çıkarılmasıyla hesaplanır `NotDataActions` işlemlerinden `DataActions` operations. Her kaynak sağlayıcısı, ilgili veri işlemleri gerçekleştirmek için API kümesi sağlar.
 

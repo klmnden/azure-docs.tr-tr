@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 27315bf562f7b221b19747aca4809f2be5fd1121
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 7d7cba63060756bff786b9475275e5262627cae9
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147476"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295708"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Öğretici: Temel görüntü Azure container registry güncelleştirildiğinde kapsayıcı görüntü oluşturmayı otomatikleştirme 
 
@@ -30,7 +30,7 @@ Bu öğreticide, serinin son kısmı:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure CLI’yı yerel olarak kullanmak istiyorsanız Azure CLI **2.0.46** veya sonraki bir sürüm yüklü olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI’yı yükleme][azure-cli].
+Azure CLI’yı yerel olarak kullanmak istiyorsanız Azure CLI **2.0.46** veya sonraki bir sürüm yüklü olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. Gerekirse yükleyin veya CLI'yı yükseltmek için bkz: [Azure CLI yükleme][azure-cli].
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -61,7 +61,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ## <a name="base-images"></a>Temel görüntüler
 
-Çoğu kapsayıcı görüntüsünü tanımlayan Dockerfile'lar, temel alınan ve çoğunlukla *temel görüntü* olarak adlandırılan bir üst görüntü belirtir. Normalde temel görüntüler, [Alpine Linux][base-alpine] veya [Windows Nano Server][base-windows] gibi bir işletim sistemi içerir ve kapsayıcının kalan katmanları bu işletim sistemi üzerine uygulanır. Bunlar ayrıca [Node.js][base-node] veya [.NET Core][base-dotnet] gibi uygulama çerçeveleri de içerir.
+Çoğu kapsayıcı görüntüsünü tanımlayan Dockerfile'lar, temel alınan ve çoğunlukla *temel görüntü* olarak adlandırılan bir üst görüntü belirtir. Temel görüntüler genellikle içerir işletim sistemi, örneğin [Alpine Linux][base-alpine] or [Windows Nano Server][base-windows], hangi kapsayıcının katmanları geri kalanını uygulanır. Bunlar ayrıca uygulama çerçeveleri gibi içerebilir [Node.js][temel düğümlü] veya [.NET Core][base-dotnet].
 
 ### <a name="base-image-updates"></a>Temel görüntü güncelleştirmeleri
 
@@ -73,23 +73,23 @@ Temel görüntü güncelleştirildiğinde, yeni özellik ve düzeltmelerin eklen
 
 * Şu anda görüntü yapılar için bir Dockerfile, aynı Azure kapsayıcı kayıt defteri, genel Docker Hub depo veya Microsoft kapsayıcı kayıt defteri genel bir depoda bağımlılıkları temel görüntüleri ACR görev algılar. Temel görüntü olarak belirtilmişse `FROM` deyimi bu konumlardan birinde bulunur, görüntünün oluşturucularını güncelleştirilir dilediğiniz zaman yeniden sağlamak için bir kancasını ACR görev ekler.
 
-* Bir ACR görevle oluşturduğunuzda [az acr görev oluşturma] [ az-acr-task-create] komutu, görev varsayılan olarak *etkin* tetikleyicisi tarafından bir temel görüntü güncelleştirme için. Diğer bir deyişle, `base-image-trigger-enabled` özelliği True olarak ayarlayın. Bir görev bu davranışı devre dışı bırakmak isterseniz, özelliği False olarak güncelleştirin. Örneğin, aşağıdaki komutu çalıştırın [az acr görev güncelleştirme] [ az-acr-task-update] komutu:
+* Bir ACR görevle oluşturduğunuzda [az acr görev oluşturma][az-acr-task-create] komutu, görev varsayılan olarak *etkin* tetikleyicisi tarafından bir temel görüntü güncelleştirme için. Diğer bir deyişle, `base-image-trigger-enabled` özelliği True olarak ayarlayın. Bir görev bu davranışı devre dışı bırakmak isterseniz, özelliği False olarak güncelleştirin. Örneğin, aşağıdaki komutu çalıştırın [az acr görev güncelleştirme][az-acr-task-update] komutu:
 
   ```azurecli
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
   ```
 
-* Belirlemek ve--temel görüntüsünü içeren--kapsayıcı görüntüsü ait bağımlılıkları izlemek bir ACR görevini etkinleştirmek için ilk görev tetiklemelidir **en az bir kez**. Örneğin, kullanarak el ile tetikleyici [az acr görevi Çalıştır] [ az-acr-task-run] komutu.
+* Belirlemek ve--temel görüntüsünü içeren--kapsayıcı görüntüsü ait bağımlılıkları izlemek bir ACR görevini etkinleştirmek için ilk görev tetiklemelidir **en az bir kez**. Örneğin, kullanarak el ile tetikleyici [az acr görevi Çalıştır][az-acr-task-run] komutu.
 
-* Temel görüntü güncelleştirme görevde tetiklemek için temel görüntü olmalıdır bir *kararlı* gibi etiket `node:9-alpine`. Bu etiketleme, işletim sistemi ve framework güncelleştirilir temel bir görüntü için tipik bir en son kararlı sürüme düzeltme. Temel görüntü ile yeni bir sürüme etiket güncelleştirdiyseniz, bir görev tetiklemez. Görüntü etiketleme hakkında daha fazla bilgi için bkz. [Kılavuzu en iyi yöntemler](https://blogs.msdn.microsoft.com/stevelasker/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/). 
+* Temel görüntü güncelleştirme görevde tetiklemek için temel görüntü olmalıdır bir *kararlı* gibi etiket `node:9-alpine`. Bu etiketleme, işletim sistemi ve framework güncelleştirilir temel bir görüntü için tipik bir en son kararlı sürüme düzeltme. Temel görüntü ile yeni bir sürüme etiket güncelleştirdiyseniz, bir görev tetiklemez. Görüntü etiketleme hakkında daha fazla bilgi için bkz. [Kılavuzu en iyi yöntemler](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/). 
 
 ### <a name="base-image-update-scenario"></a>Temel görüntü güncelleştirme senaryosu
 
-Bu öğreticide, bir temel görüntü güncelleştirme senaryosunda size yol gösterilir. [Kod örneği][code-sample] iki Dockerfile: bir uygulama görüntüsü ve bunun temel olarak belirttiği bir görüntü. Aşağıdaki bölümlerde, aynı kapsayıcı kayıt defterine yeni bir sürümünü temel görüntü gönderildiğinde otomatik olarak bir uygulama görüntüsü derlemesini tetikleyen bir ACR görevi oluşturun.
+Bu öğreticide, bir temel görüntü güncelleştirme senaryosunda size yol gösterilir. [Kod örneği][code-sample] iki dockerfile'ları içerir: bir uygulama görüntüsü ve bir görüntü, temel olarak belirtir. Aşağıdaki bölümlerde, aynı kapsayıcı kayıt defterine yeni bir sürümünü temel görüntü gönderildiğinde otomatik olarak bir uygulama görüntüsü derlemesini tetikleyen bir ACR görevi oluşturun.
 
 [Uygulama içi Dockerfile][dockerfile-app]: Statik bir web sayfası, temel Node.js sürümünü görüntüleme işleyen bir küçük Node.js web uygulaması. Sürüm dizesinin simülasyonu yapılır ve bu, temel görüntüde tanımlanan `NODE_VERSION` ortam değişkeninin içeriğini görüntüler.
 
-[Dockerfile temel][dockerfile-base]: Görüntü, `Dockerfile-app` base belirtir. Bunun kendisi de [Node][base-node] görüntüsünü temel alır ve `NODE_VERSION` ortam değişkenini içerir.
+[Dockerfile temel][dockerfile-base]: Görüntü, `Dockerfile-app` base belirtir. Kendisine bağlı olduğu bir [düğüm][base-node] görüntü ve içerir `NODE_VERSION` ortam değişkeni.
 
 Aşağıdaki bölümlerde bir görev oluşturacak, temel görüntü Dockerfile içinde `NODE_VERSION` değerini güncelleştirecek ve sonra da ACR Görevlerini kullanarak temel görüntü oluşturacaksınız. ACR görevi yeni temel görüntüyü kayıt defterinize gönderdikten sonra, uygulama görüntüsünün derlemesini otomatik olarak tetikler. İsteğe bağlı olarak, derleme görüntülerinde farklı sürüm dizeleri görmek için uygulama kapsayıcısı görüntüsünü yerel olarak çalıştırırsınız.
 
@@ -105,7 +105,7 @@ az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Docker
 
 ## <a name="create-a-task"></a>Bir görev oluşturun
 
-Ardından, [az acr task create][az-acr-task-create] ile bir görev oluşturun:
+Ardından, bir görev oluşturun [az acr görev oluşturma][az-acr-task-create]:
 
 ```azurecli-interactive
 az acr task create \
@@ -120,9 +120,9 @@ az acr task create \
 ```
 
 > [!IMPORTANT]
-> Önizlemede daha önce `az acr build-task` komutuyla görev oluşturduysanız [az acr task][az-acr-task] komutuyla bu görevleri yeniden oluşturmanız gerekebilir.
+> Önizleme sırasında görevlerin daha önce oluşturduysanız `az acr build-task` komutu kullanılarak yeniden oluşturulması gereken görevleri [az acr görev][az-acr-task] komutu.
 
-Bu görev, [önceki öğreticide](container-registry-tutorial-build-task.md) oluşturulan hızlı göreve benzer. ACR Görevlerine, işlemeler `--context` tarafından belirtilen depoya gönderildiğinde bir görüntü derlemesi tetiklemesini bildirir. Genel bir temel görüntü önceki öğreticide görüntüyü oluşturmak için kullanılan dockerfile dosyasının belirtir (`FROM node:9-alpine`), bu görevi, Dockerfile'da [Dockerfile uygulama][dockerfile-app], aynı temel bir görüntü belirtir kayıt defteri:
+Bu görev, [önceki öğreticide](container-registry-tutorial-build-task.md) oluşturulan hızlı göreve benzer. ACR Görevlerine, işlemeler `--context` tarafından belirtilen depoya gönderildiğinde bir görüntü derlemesi tetiklemesini bildirir. Genel bir temel görüntü önceki öğreticide görüntüyü oluşturmak için kullanılan dockerfile dosyasının belirtir (`FROM node:9-alpine`), bu görevi, Dockerfile'da [Dockerfile uygulama][dockerfile-app], aynı kayıt defterinde bir temel görüntü belirtir:
 
 ```Dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
@@ -132,7 +132,7 @@ Bu yapılandırma, daha sonra Bu öğreticide bir framework düzeltme eki temel 
 
 ## <a name="build-the-application-container"></a>Uygulama kapsayıcısını oluşturma
 
-Kullanım [az acr görevi Çalıştır] [ az-acr-task-run] el ile tetikleyici ve uygulama görüntüsü oluşturun. Bu adım, görev bir temel görüntüye uygulama görüntünün bağımlılık izler sağlar.
+Kullanım [az acr görevi Çalıştır][az-acr-task-run] el ile tetikleyici ve uygulama görüntüsü oluşturun. Bu adım, görev bir temel görüntüye uygulama görüntünün bağımlılık izler sağlar.
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name taskhelloworld
@@ -168,7 +168,7 @@ docker stop myapp
 
 ## <a name="list-the-builds"></a>Derlemeleri listeleme
 
-Bu adımda [az acr task list-runs][az-acr-task-list-runs] komutunu kullanarak ACR Görevlerinin kayıt defteriniz için tamamladığı çalıştırmaları listeleyin:
+ACR görevleri kullanarak kayıt tamamlandıktan sonra çalıştırmaları listesi görev [az acr görev listesi-çalıştığında][az-acr-task-list-runs] komutu:
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table

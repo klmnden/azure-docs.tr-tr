@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/17/2019
 ms.author: twhitney
-ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9887e923358b5658a365b5cfc88759eca2501e0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752382"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303565"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Önizleme - Azure CLI kullanarak bir Azure Kubernetes Service (AKS) kümesine bir Windows Server kapsayıcı oluşturma
 
@@ -28,7 +28,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale, Azure CLI Sürüm 2.0.61 çalıştırdığınız gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale, Azure CLI Sürüm 2.0.61 çalıştırdığınız gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme][azure-cli-install].
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -42,7 +42,7 @@ Windows Server kapsayıcıları çalıştırmak üzere, küme oluşturduktan son
 
 ### <a name="install-aks-preview-cli-extension"></a>Aks önizlemesini CLI uzantısını yükleme
     
-Birden çok düğüm havuzları oluşturma ve yönetme için CLI komutları kullanılabilir *aks önizlemesini* CLI uzantısı. Yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme] [ az-extension-add] aşağıdaki örnekte gösterildiği gibi komut:
+Birden çok düğüm havuzları oluşturma ve yönetme için CLI komutları kullanılabilir *aks önizlemesini* CLI uzantısı. Yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme][az-extension-add] aşağıdaki örnekte gösterildiği gibi komut:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -53,7 +53,7 @@ az extension add --name aks-preview
 
 ### <a name="register-windows-preview-feature"></a>Windows önizleme özelliği Kaydet
 
-Birden çok düğüm havuzları kullanabilir ve Windows Server kapsayıcıları çalıştırmak bir AKS kümesi oluşturmak için önce etkinleştirmeniz *WindowsPreview* özellik bayrakları aboneliğinizde. *WindowsPreview* özelliği de çok düğümlü havuzu kümeleri ve sanal makine ölçek kümesi dağıtımı ve Kubernetes düğümlerini yapılandırmasını yönetmek için kullanır. Kayıt *WindowsPreview* özellik bayrağını kullanarak [az özelliği kayıt] [ az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+Birden çok düğüm havuzları kullanabilir ve Windows Server kapsayıcıları çalıştırmak bir AKS kümesi oluşturmak için önce etkinleştirmeniz *WindowsPreview* özellik bayrakları aboneliğinizde. *WindowsPreview* özelliği de çok düğümlü havuzu kümeleri ve sanal makine ölçek kümesi dağıtımı ve Kubernetes düğümlerini yapılandırmasını yönetmek için kullanır. Kayıt *WindowsPreview* özellik bayrağını kullanarak [az özelliği kayıt][az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
 
 ```azurecli-interactive
 az feature register --name WindowsPreview --namespace Microsoft.ContainerService
@@ -62,13 +62,13 @@ az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > Başarıyla kaydettikten sonra oluşturduğunuz herhangi bir AKS kümesinde *WindowsPreview* Bu önizleme küme deneyimi özellik bayrağını kullanın. Normal, tam olarak desteklenen kümeleri oluşturmak devam etmek için üretim Aboneliklerde Önizleme özelliklerini etkinleştirme. Önizleme özellikleri test için ayrı bir test veya geliştirme Azure aboneliği kullanın.
 
-Gösterilecek durum için birkaç dakika sürer *kayıtlı*. Kayıt kullanarak durumu denetleyebilirsiniz [az özellik listesi] [ az-feature-list] komutu:
+Kaydı tamamlamak birkaç dakika sürer. Kayıt kullanarak durumu denetleyin [az özellik listesi][az-feature-list] komutu:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kaynak sağlayıcısını [az provider register] [ az-provider-register] komutu:
+Kayıt durumu olduğunda `Registered`, durum izlemeyi durdurmak için Ctrl-C tuşlarına basın.  Ardından kayıt yenileyin *Microsoft.ContainerService* kullanarak kaynak sağlayıcısını [az provider register][az-provider-register] komutu:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -89,9 +89,13 @@ Bu özellik Önizleme aşamasında olduğu sürece, aşağıdaki ek kısıtlamal
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur. Bir kaynak grubu oluştururken konum belirtmeniz istenir. Bu kaynak grubu meta verilerini depolandığı bir konumdur başka bir bölgede kaynak oluşturma sırasında belirtmezseniz kaynaklarınızı Azure üzerinde çalıştırdığı de olabilir. Kullanarak bir kaynak grubu oluşturmanız [az grubu oluşturma] [ az-group-create] komutu.
+Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur. Bir kaynak grubu oluştururken konum belirtmeniz istenir. Bu kaynak grubu meta verilerini depolandığı bir konumdur başka bir bölgede kaynak oluşturma sırasında belirtmezseniz kaynaklarınızı Azure üzerinde çalıştırdığı de olabilir. Kullanarak bir kaynak grubu oluşturmanız [az grubu oluşturma][az-group-create] komutu.
 
 Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+
+> [!NOTE]
+> Bu makalede, bu öğreticide komutlarında Bash sözdizimini kullanır.
+> Azure Cloud Shell kullanıyorsanız, açılır menüden Cloud Shell pencerenin sol üst ayarlandığından emin olun **Bash**.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -113,12 +117,13 @@ Aşağıdaki örnek çıkış, başarılı bir şekilde oluşturduğunuz kaynak 
 }
 ```
 
-## <a name="create-aks-cluster"></a>AKS kümesi oluşturma
-Windows Server kapsayıcıları için düğüm havuzları destekleyen bir AKS kümesi çalıştırmak için kümenizi kullanan bir ağ ilkesi kullanması gerekir [Azure CNI] [ azure-cni-about] (Gelişmiş) ağ eklentisi. Ayrıntılı gerekli bir alt ağ aralıklarını ve ağ konuları planlamaya yardımcı olmak üzere bilgi için bkz: [Azure CNI ağ][use-advanced-networking]. Kullanım [az aks oluşturma] [ az-aks-create] adlı bir AKS kümesi oluşturmak için komut *myAKSCluster*. Bu komut, gerekli ağ kaynaklarına yoksa oluşturur.
+## <a name="create-an-aks-cluster"></a>AKS kümesi oluşturma
+
+Windows Server kapsayıcıları için düğüm havuzları destekleyen bir AKS kümesi çalıştırmak için kümenizi kullanan bir ağ ilkesi kullanması gerekir [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Kullanım [az aks oluşturma][az-aks-oluşturma] adlı bir AKS kümesi oluşturmak için komut *myAKSCluster*. Bu komut, gerekli ağ kaynaklarına yoksa oluşturur.
   * Kümenin bir düğümü ile yapılandırılmış
   * *Windows yönetici parolasını* ve *windows yönetici kullanıcı* parametrelerini, küme üzerinde oluşturulan herhangi bir Windows Server kapsayıcıları için yönetici kimlik bilgilerini ayarlayın.
 
-Kendi güvenli sağlamak *PASSWORD_WIN*.
+Kendi güvenli sağlamak *PASSWORD_WIN* (Bu makalede komutları bir BASH kabuğundan girildiğini unutmayın):
 
 ```azurecli-interactive
 PASSWORD_WIN="P@ssw0rd1234"
@@ -135,6 +140,10 @@ az aks create \
     --enable-vmss \
     --network-plugin azure
 ```
+
+> [!Note]
+> Parola doğrulama hatası alırsanız, başka bir bölgede kaynak grubunuzu oluşturmayı deneyin.
+> Ardından yeni bir kaynak grubuyla kümesi oluşturmayı deneyin.
 
 Birkaç dakika sonra komut tamamlanır ve küme hakkında JSON ile biçimlendirilmiş bilgiler döndürür.
 
@@ -156,13 +165,13 @@ Yukarıdaki komut adlı yeni bir düğüm havuzu oluşturur *npwin* ve ekler *my
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 
-Bir Kubernetes kümesini yönetmek için kullandığınız [kubectl][kubectl], Kubernetes komut satırı istemcisi. Azure Cloud Shell kullanıyorsanız `kubectl` zaten yüklü. Yüklenecek `kubectl` yerel olarak, [az aks yükleme-cli] [ az-aks-install-cli] komutu:
+Bir Kubernetes kümesini yönetmek için kullandığınız [kubectl][kubectl], Kubernetes komut satırı istemcisi. Azure Cloud Shell kullanıyorsanız `kubectl` zaten yüklü. Yüklenecek `kubectl` yerel olarak, [az aks yükleme-cli][az-aks-install-cli] komutu:
 
 ```azurecli
 az aks install-cli
 ```
 
-`kubectl` istemcisini Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az aks get-credentials][az-aks-get-credentials] komutunu kullanın. Bu komut, kimlik bilgilerini indirir ve Kubernetes CLI'yi bunları kullanacak şekilde yapılandırır.
+Yapılandırmak için `kubectl` Kubernetes kümenize bağlanmak için [az aks get-credentials][az-aks-get-credentials] komutu. Bu komut, kimlik bilgilerini indirir ve Kubernetes CLI'yi bunları kullanacak şekilde yapılandırır.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -184,9 +193,9 @@ aksnpwin987654                      Ready    agent   108s   v1.14.0
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Kubernetes bildirim dosyası çalıştırmak için hangi kapsayıcı görüntüleri gibi küme için istenen durumu tanımlar. Bu makalede, bir Windows Server kapsayıcısında ASP.NET örnek uygulamayı çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır. Bu bildirimi içeren bir [Kubernetes dağıtımı] [ kubernetes-deployment] ASP.NET örnek uygulama ve dış [Kubernetes hizmeti] [ kubernetes-service] için uygulamaya internet'ten erişim.
+Kubernetes bildirim dosyası çalıştırmak için hangi kapsayıcı görüntüleri gibi küme için istenen durumu tanımlar. Bu makalede, bir Windows Server kapsayıcısında ASP.NET örnek uygulamayı çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır. Bu bildirimi içeren bir [Kubernetes dağıtımı][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] uygulamaya internet'ten erişmek için.
 
-ASP.NET örnek uygulamanın bir parçası olarak sağlanan [.NET Framework örnekleri] [ dotnet-samples] ve bir Windows Server kapsayıcıda çalışır. AKS, Windows Server kapsayıcıları görüntüleri temel alan gerektirir *Windows Server 2019* veya büyük. Kubernetes bildirim dosyası da tanımlamalıdır bir [düğüm Seçicisi] [ node-selector] Windows Server kapsayıcıları çalıştırmak üzere bir düğümde, ASP.NET örnek uygulamanızın pod çalıştırmak için AKS kümenizi söylemek için.
+ASP.NET örnek uygulamanın bir parçası olarak sağlanan [.NET Framework örnekleri][dotnet-samples] ve bir Windows Server kapsayıcıda çalışır. AKS, Windows Server kapsayıcıları görüntüleri temel alan gerektirir *Windows Server 2019* veya büyük. Kubernetes bildirim dosyası da tanımlamalıdır bir [düğüm Seçicisi][node-selector] Windows Server kapsayıcıları çalıştırmak üzere bir düğümde, ASP.NET örnek uygulamanızın pod çalıştırmak için AKS kümenizi söylemek için.
 
 Adlı bir dosya oluşturun `sample.yaml` aşağıdaki YAML tanımı kopyalayın. Azure Cloud Shell'i kullanırsanız, bu dosya kullanılarak oluşturulabilir `vi` veya `nano` bir sanal veya fiziksel sistemde olarak çalışıyorsanız:
 
@@ -236,7 +245,7 @@ spec:
     app: sample
 ```
 
-Kullanarak uygulamayı dağıtma [kubectl uygulamak] [ kubectl-apply] komut ve YAML bildiriminizi adını belirtin:
+Kullanarak uygulamayı dağıtma [kubectl uygulamak][kubectl-apply] komut ve YAML bildiriminizi adını belirtin:
 
 ```azurecli-interactive
 kubectl apply -f sample.yaml
@@ -278,23 +287,23 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ## <a name="delete-cluster"></a>Kümeyi silme
 
-Kümeye artık ihtiyacınız yoksa [az group delete][az-group-delete] komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırın.
+Küme artık gerekli değilse, [az grubu Sil][az-group-delete] komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini kaldırmak için ve tüm ilgili kaynakları.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Kümeyi sildiğinizde, AKS kümesi tarafından kullanılan Azure Active Directory hizmet sorumlusu kaldırılmaz. Hizmet sorumlusunu kaldırma adımları için bkz. [AKS hizmet sorumlusuyla ilgili önemli noktalar ve silme][sp-delete].
+> Kümeyi sildiğinizde, AKS kümesi tarafından kullanılan Azure Active Directory hizmet sorumlusu kaldırılmaz. Hizmet sorumlusunu kaldırma adımları için bkz: [AKS hizmet sorumlusu hakkında önemli noktalar ve silme][sp-delete].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir Kubernetes kümesi dağıtıldı ve Windows Server kapsayıcı örnek ASP.NET uygulamasını dağıtılmış. [Kubernetes web panosuna erişme] [ kubernetes-dashboard] oluşturduğunuz küme için.
+Bu makalede, bir Kubernetes kümesi dağıtıldı ve Windows Server kapsayıcı örnek ASP.NET uygulamasını dağıtılmış. [Kubernetes web panosuna erişme][kubernetes-dashboard] oluşturduğunuz küme için.
 
 AKS hakkında daha fazla bilgi ve dağıtım örneği için tam kod açıklaması için Kubernetes küme öğreticisine geçin.
 
 > [!div class="nextstepaction"]
-> [AKS öğreticisi][aks-tutorial]
+> [AKS Öğreticisi][aks-tutorial]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

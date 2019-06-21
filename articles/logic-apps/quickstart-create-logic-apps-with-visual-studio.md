@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/25/2019
-ms.openlocfilehash: afa539bc3369e4f9d9ecf27340436e0be70a03ad
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a8857d62b3078d78bdd0a339ebadf766ddb2fb43
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190671"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295817"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Hızlı Başlangıç: Azure Logic Apps - Visual Studio ile otomatik görevler, süreçleri ve iş akışları oluşturma
 
@@ -84,7 +84,7 @@ Başlamak için bir [Azure Kaynak Grubu projesi](../azure-resource-manager/vs-az
 
    Visual Studio 2019 kullanıyorsanız, aşağıdaki adımları izleyin:
 
-   1. İçinde **yeni bir proje oluşturma** kutusunda **Azure kaynak grubu** görsel için proje C# veya Visual Basic. **İleri**’yi seçin.
+   1. İçinde **yeni bir proje oluşturma** kutusunda **Azure kaynak grubu** görsel için proje C# veya Visual Basic. Seçin **sonraki**.
 
    1. Kullanmak istediğiniz Azure kaynak grubu ve diğer proje bilgileri için bir ad sağlayın. **Oluştur**’u seçin.
 
@@ -105,6 +105,9 @@ Azure kaynak proje, mantıksal uygulamanızı oluşturma grubunuz varsa **boş m
 
    ![Mantıksal Uygulama Tasarımcısı ile mantıksal uygulama .json dosyasını açma](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
+   > [!TIP]
+   > Bu komut Visual Studio 2019 yoksa, Visual Studio için en son güncelleştirmelere sahip olduğunu denetleyin.
+
    Visual Studio için Azure aboneliğinizi ve Azure kaynak grubu oluşturma ve dağıtma kaynakları için mantıksal uygulama ve bağlantıları ister.
 
 1. İçin **abonelik**, Azure aboneliğinizi seçin. İçin **kaynak grubu**seçin **Yeni Oluştur** yeni bir Azure kaynak grubu oluşturmak için.
@@ -116,7 +119,7 @@ Azure kaynak proje, mantıksal uygulamanızı oluşturma grubunuz varsa **boş m
    | Kullanıcı profili listesi | Contoso <br> jamalhartnett@contoso.com | Varsayılan olarak oturum açmak için kullandığınız hesap |
    | **Abonelik** | Kullandıkça Öde <br> (jamalhartnett@contoso.com) | Azure aboneliğinizin ve ilişkili hesabın adı |
    | **Kaynak Grubu** | MyLogicApp-RG <br> (Batı ABD) | Azure kaynak grubu ve konum depolamak ve mantıksal uygulamanızın kaynaklarını dağıtma |
-   | **Konum** | MyLogicApp-RG2 <br> (Batı ABD) | Kaynak grubu konumunu kullanmak istemiyorsanız farklı bir konum |
+   | **Location** | MyLogicApp-RG2 <br> (Batı ABD) | Kaynak grubu konumunu kullanmak istemiyorsanız farklı bir konum |
    ||||
 
 1. Logic Apps Tasarımcısı'nda giriş video gösterir ve sık kullanılan tetikleyicilerin bir sayfa açılır. Kaydırma aşağı video ve Tetikleyicileri için geçmiş **şablonları**seçip **boş mantıksal uygulama**.

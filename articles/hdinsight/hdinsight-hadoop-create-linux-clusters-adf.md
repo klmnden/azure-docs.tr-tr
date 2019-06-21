@@ -1,18 +1,18 @@
 ---
 title: 'Öğretici: İsteğe bağlı Apache Hadoop kümeleri Azure Data Factory kullanarak HDInsight oluşturma '
-description: Azure Data Factory kullanarak HDInsight isteğe bağlı Apache Hadoop kümeleri oluşturmayı öğrenin.
+description: Öğretici - Azure Data Factory kullanarak HDInsight isteğe bağlı Apache Hadoop kümeleri oluşturmayı öğrenin.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: 937cb9ba2d9ce63ba36805bc7a946e8ee6e18cf3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
-ms.translationtype: HT
+ms.openlocfilehash: 64f016ac0fa572cb8cf8504902108cffae267cec
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275459"
+ms.locfileid: "67293289"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Öğretici: İsteğe bağlı Apache Hadoop kümeleri Azure Data Factory kullanarak HDInsight oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31d77b4ea6e7594cd3ed4dba264f9ea6db4ca290
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65813396"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155219"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Beklenmeyen değişiklikleri önlemek için kaynakları kilitleme 
 
@@ -152,7 +152,7 @@ Bir kaynak grubu kilitlemek için kaynak grubunun adını sağlayın.
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-Bir kilitleme hakkında bilgi almak için kullanın [Get-AzureRmResourceLock](/powershell/module/az.resources/get-azresourcelock). Aboneliğinizdeki tüm kilitleri almak için kullanın:
+Bir kilitleme hakkında bilgi almak için kullanın [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock). Aboneliğinizdeki tüm kilitleri almak için kullanın:
 
 ```azurepowershell-interactive
 Get-AzResourceLock

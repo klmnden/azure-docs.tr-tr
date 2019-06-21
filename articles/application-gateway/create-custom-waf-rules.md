@@ -1,24 +1,24 @@
 ---
-title: Oluşturma ve Azure Web uygulaması Güvenlik Duvarı (WAF) özel kuralları kullanma
-description: Bu makalede, Azure Application Gateway Web uygulaması Güvenlik Duvarı (WAF) özel kurallar oluşturma hakkında bilgi sağlar.
+title: Oluşturma ve Azure Web uygulaması Güvenlik Duvarı (WAF) v2 özel kuralları kullanma
+description: Bu makalede, Azure Application Gateway Web uygulaması Güvenlik Duvarı (WAF) v2 özel kurallar oluşturma hakkında bilgi sağlar.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: bb8c50664261814c7d994c9b879972b1e8b846e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86ddb0b608cd17814cbcbb902f0b2905fe61094a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66689039"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164685"
 ---
-# <a name="create-and-use-web-application-firewall-custom-rules"></a>Özel Web uygulaması güvenlik duvarı kuralları oluşturma ve
+# <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Oluşturma ve Web uygulaması güvenlik duvarı v2 özel kuralları kullanma
 
-Azure Application Gateway web uygulaması Güvenlik Duvarı (WAF), web uygulamaları için koruma sağlar. Bu koruma açık Web uygulaması güvenlik Project (OWASP) çekirdek kural kümesi (CRS tarafından) sağlanır. Bazı durumlarda, özel gereksinimlerinizi karşılamak için kendi özel kurallar oluşturmanız gerekebilir. WAF özel kurallar hakkında daha fazla bilgi için bkz: [özel web uygulaması güvenlik duvarı kurallarına genel bakış](custom-waf-rules-overview.md).
+Azure Application Gateway Web uygulaması Güvenlik Duvarı (WAF) v2, web uygulamaları için koruma sağlar. Bu koruma açık Web uygulaması güvenlik Project (OWASP) çekirdek kural kümesi (CRS tarafından) sağlanır. Bazı durumlarda, özel gereksinimlerinizi karşılamak için kendi özel kurallar oluşturmanız gerekebilir. WAF özel kurallar hakkında daha fazla bilgi için bkz: [özel web uygulaması güvenlik duvarı kurallarına genel bakış](custom-waf-rules-overview.md).
 
-Bu makalede oluşturduğunuz ve WAF ile kullanın bazı örnek özel kuralları gösterir. Azure PowerShell kullanarak özel bir kural ile bir WAF dağıtma konusunda bilgi edinmek için [Azure PowerShell kullanarak Web uygulaması güvenlik duvarı yapılandırma özel kurallar](configure-waf-custom-rules.md).
+Bu makalede oluşturduğunuz ve v2 WAF ile kullanın bazı örnek özel kuralları gösterir. Azure PowerShell kullanarak özel bir kural ile bir WAF dağıtma konusunda bilgi edinmek için [Azure PowerShell kullanarak Web uygulaması güvenlik duvarı yapılandırma özel kurallar](configure-waf-custom-rules.md).
 
 >[!NOTE]
 > Uygulama ağ geçidi WAF katmanının kullanmıyorsa, application gateway WAF katmanına yükseltme seçeneğini sağ bölmede görünür.

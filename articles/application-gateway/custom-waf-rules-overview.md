@@ -1,22 +1,22 @@
 ---
-title: Azure Web uygulaması Güvenlik Duvarı (WAF) özel kurallar
-description: Bu makalede, Azure Application Gateway (WAF) özel kuralları web uygulaması güvenlik duvarı genel bir bakış sağlar.
+title: Azure Web uygulaması Güvenlik Duvarı (WAF) v2 özel kurallar
+description: Bu makalede, Azure Application Gateway Web uygulaması Güvenlik Duvarı (WAF) v2 özel kuralları için genel bir bakış sağlar.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6ea831771a8ffecfdd4c7c0d6374c16894e25ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752037"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164654"
 ---
-# <a name="custom-rules-for-web-application-firewall"></a>Web uygulaması güvenlik duvarı için özel kurallar
+# <a name="custom-rules-for-web-application-firewall-v2"></a>Web uygulaması güvenlik duvarı v2 için özel kurallar
 
-Azure Application Gateway web uygulaması Güvenlik Duvarı (WAF), farklı türlerde saldırılarına karşı koruma sağlayan önceden yapılandırılmış, platform tarafından yönetilen bir ruleset ile birlikte gelir. Bu tür saldırıları, siteler betik, SQL ekleme ve diğerleri içerir. WAF yöneticisiyseniz, çekirdek kural genişletmek için kendi kurallar kümesi (CRS) kurallarını yazmak isteyebilirsiniz. Kurallarınızı engellemek veya temel ölçütlerle eşleşen üzerinde istenen trafiğe izin verecek.
+Azure Application Gateway Web uygulaması Güvenlik Duvarı (WAF) v2, farklı türlerde saldırılarına karşı koruma sağlayan önceden yapılandırılmış, platform tarafından yönetilen bir ruleset ile birlikte gelir. Bu tür saldırıları, siteler betik, SQL ekleme ve diğerleri içerir. WAF yöneticisiyseniz, çekirdek kural genişletmek için kendi kurallar kümesi (CRS) kurallarını yazmak isteyebilirsiniz. Kurallarınızı engellemek veya temel ölçütlerle eşleşen üzerinde istenen trafiğe izin verecek.
 
 Özel kurallar, WAF geçirir her istek için değerlendirilen kendi kurallar oluşturmanıza olanak sağlar. Bu kurallar, yönetilen kural kümelerini kuralları geri kalanı daha yüksek bir önceliğe basılı tutun. Kural adı, kural öncelik ve koşullar eşleşen bir dizi özel kurallar içerir. Bu koşullar karşılanıyorsa, bir eylem (izin vermek veya engellemek için) alınır.
 

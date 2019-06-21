@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721081"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303804"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri Stream: İzleme ve tanılama 1 saniyelik gecikme süresi
 
-Gelen Canlı ölçümleri Stream kullanarak canlı, üretimde web uygulamanızın beating Kalp araştırma [Application Insights](../../azure-monitor/app/app-insights-overview.md). Seçin ve hizmetinize herhangi Ayaklanma olmadan gerçek zamanlı olarak izlemek için Ölçümler ve performans sayaçlarını filtreleyin. Yığın izlemelerinden örnek başarısız istekler ve özel durumları inceleyin. İle birlikte [Profiler](../../azure-monitor/app/profiler.md), [anlık görüntü hata ayıklayıcısı](../../azure-monitor/app/snapshot-debugger.md), ve [performans testi](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Canlı ölçümleri Stream, canlı web için güçlü ve bozucu bir tanılama aracı sağlar Site.
+Gelen Canlı ölçümleri Stream kullanarak canlı, üretimde web uygulamanızın beating Kalp araştırma [Application Insights](../../azure-monitor/app/app-insights-overview.md). Seçin ve hizmetinize herhangi Ayaklanma olmadan gerçek zamanlı olarak izlemek için Ölçümler ve performans sayaçlarını filtreleyin. Yığın izlemelerinden örnek başarısız istekler ve özel durumları inceleyin. İle birlikte [Profiler](../../azure-monitor/app/profiler.md), [anlık görüntü hata ayıklayıcısı](../../azure-monitor/app/snapshot-debugger.md). Canlı ölçümler Stream canlı web siteniz için güçlü ve bozucu bir tanılama aracı sağlar.
 
 Canlı ölçümler Stream ile şunları yapabilirsiniz:
 
@@ -192,15 +192,6 @@ Ancak, tanıyacak ve tüm bağlı sunucular güven, kimliği doğrulanmış kana
 >[!NOTE]
 >Filtre ölçütlerinde CustomerID gibi olası duyarlı bilgileri girmeden önce kimliği doğrulanmış kanalı ayarlamanızı öneririz.
 >
-
-## <a name="generating-a-performance-test-load"></a>Performans testi yük oluşturma
-
-Yük artışı etkisini izlemek Performans Test dikey penceresini kullanın. Bu eşzamanlı kullanıcıların sayısı gelen istekleri benzetimini yapar. Ya da "el ile testler" çalıştırabilirsiniz (ping testleri) tek bir URL ya da çalıştırılabilir bir [çok adımlı web performans testi](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) (ile bir kullanılabilirlik testi aynı şekilde) yüklediğiniz.
-
-> [!TIP]
-> Performans testi oluşturduktan sonra test ve canlı Stream dikey ayrı bir pencerede açabilirsiniz. Sıraya alınan performans testi başladığında ve canlı akışı izleyin, aynı anda görebilirsiniz.
->
-
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

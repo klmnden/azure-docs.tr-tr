@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: ccc2b574ea054a1b0ecf32a1e59691050fb66fcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66166089"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188311"
 ---
 ## <a name="tagging-a-virtual-machine-through-templates"></a>Bir sanal makine şablonları aracılığıyla etiketleme
 İlk olarak, şablonlar etiketleme sırasında bakalım. [Bu şablon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) Aşağıdaki kaynaklarda etiketleri yerleştirir: İşlem (sanal makine), depolama (depolama hesabı) ve ağ (genel IP adresi, sanal ağ ve ağ arabirimi). Bu şablon için bir Windows VM olmakla birlikte Linux VM'ler için uyarlanabilir.

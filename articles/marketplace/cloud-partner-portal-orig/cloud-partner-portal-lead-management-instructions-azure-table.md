@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a1bcab9816627b453ba8b20b7bcd9402c2dfd151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 08f9d794822dfd7879efc7c4813ecc46f92f6a45
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240650"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147893"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Azure tablosu için yönetim yönergeleri sağlama
 
@@ -97,7 +97,7 @@ Sonraki adım kümesini, Azure tablonuza bağlanırsınız ve yeni işlemek içi
 
      ![Azure tablo adı için özel bir değer seçin](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Filtre sorgusu** – bu alana tıklayın ve **geçmişteki saati Al** simgesi açılan pencerede görüntülenir. Seçin **süresini geçen** bu sorguya filtre uygulamak için zaman damgası kullanmak için. Alternatif olarak, aşağıdaki işlev alanına yapıştırabilirsiniz: oluşturulma zamanı `gt datetime'@{body('Get_past_time')}'` 
+   - **Filtre sorgusu** – bu alana tıklayın ve **geçmişteki saati Al** simgesi açılan pencerede görüntülenir. Seçin **süresini geçen** bu sorguya filtre uygulamak için zaman damgası kullanmak için. Alternatif olarak, aşağıdaki işlev alanına yapıştırabilirsiniz: oluşturulma zamanı `Timestamp gt datetime'@{body('Get_past_time')}'` 
 
      ![Filtre sorgu işlevi ayarlama](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

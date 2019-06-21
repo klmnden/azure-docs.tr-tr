@@ -9,11 +9,11 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: ec5b3572cbf74bad9b82eb93a45d7a4664023b95
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65408231"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
@@ -23,7 +23,7 @@ Temel üzerinde çalışan web uygulamaları, .NET ve .NET Core izlemeyi etkinle
 > [!NOTE]
 > Bir Application Insights site uzantısı aracılığıyla el ile ekleme **geliştirme araçları** > **uzantıları** kullanım dışı bırakılmıştır. Bu uzantı yükleme yöntemi her yeni sürümü için el ile güncelleştirmeler bağımlıdır. Uzantının en son kararlı sürüm sunulmuştur [önceden](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) App Service görüntünün bir parçası olarak. Dosyalar bulunur `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` ve kararlı her sürümde otomatik olarak güncelleştirilir. İzlemeyi etkinleştirmek için aracı tabanlı yönergeleri izlerseniz aşağıda bunu otomatik olarak kullanım dışı uzantı sizin için kaldırılır.
 
-## <a name="enable-application-insights"></a>Application Insights'ı Etkinleştir
+## <a name="enable-application-insights"></a>Application Insights'ı etkinleştirme
 
 Azure App Services, barındırılan uygulamalar için uygulama izlemeyi etkinleştirmek için iki yolu vardır:
 
@@ -274,7 +274,7 @@ Bir örneği aşağıda verilmiştir tüm örneklerinin yerine `AppMonitoredSite
             "type": "string"
         }
     },
-    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```
@@ -299,9 +299,9 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 ## <a name="upgrade-monitoring-extensionagent"></a>İzleme uzantısı/aracıyı yükseltme
 
-### <a name="upgrading-from-versions-289-and-up"></a>2.8.9 sürümlerinden ve yedekleme yükseltme
+### <a name="upgrading-from-versions-289-and-up"></a>2\.8.9 sürümlerinden ve yedekleme yükseltme
 
-2.8.9 sürümünden yükseltirken, herhangi bir ek eylem otomatik olarak gerçekleşir. Yeni izleme BITS arka planda hedef app Service'e dağıtılır ve uygulama yeniden başlatma sırasında bunlar seçilir.
+2\.8.9 sürümünden yükseltirken, herhangi bir ek eylem otomatik olarak gerçekleşir. Yeni izleme BITS arka planda hedef app Service'e dağıtılır ve uygulama yeniden başlatma sırasında bunlar seçilir.
 
 Uzantı hangi sürümünü denetlemek için şu adresi ziyaret edin çalıştırıyorsanız `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
@@ -309,7 +309,7 @@ Uzantı hangi sürümünü denetlemek için şu adresi ziyaret edin çalıştır
 
 ### <a name="upgrade-from-versions-100---265"></a>Sürümlerden 1.0.0 - 2.6.5 yükseltme
 
-2.8.9 sürümünden başlayarak, önceden yüklenmiş site uzantısı kullanılır. Önceki bir sürümü varsa, iki yoldan biriyle güncelleştirebilirsiniz:
+2\.8.9 sürümünden başlayarak, önceden yüklenmiş site uzantısı kullanılır. Önceki bir sürümü varsa, iki yoldan biriyle güncelleştirebilirsiniz:
 
 * [Portal üzerinden etkinleştirerek yükseltme](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights). (Kullanıcı Arabirimi yüklü Azure App Service için Application Insights uzantısını olsa bile yalnızca gösterir **etkinleştirme** düğmesi. Arka planda, eski özel site uzantısı kaldırılacak.)
 
@@ -318,7 +318,7 @@ Uzantı hangi sürümünü denetlemek için şu adresi ziyaret edin çalıştır
     1. Önceden yüklenmiş site uzantısı ApplicationInsightsAgent etkinleştirmek için uygulama ayarlarını belirleyin. Bkz: [powershell aracılığıyla etkinleştirme](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell).
     2. Azure App Service için Application Insights uzantısını adlı özel site uzantısı el ile kaldırın.
 
-2.5.1 önceki bir sürümünden yükseltme yapıldığında ApplicationInsigths DLL'leri uygulama bin klasöründen kaldırılır denetleyin [sorun giderme adımları görmek](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+2\.5.1 önceki bir sürümünden yükseltme yapıldığında ApplicationInsigths DLL'leri uygulama bin klasöründen kaldırılır denetleyin [sorun giderme adımları görmek](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

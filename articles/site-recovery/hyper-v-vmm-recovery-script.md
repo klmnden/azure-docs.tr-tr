@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362280"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64700456"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>VMM komut dosyası için bir kurtarma planı Ekle
 
@@ -45,7 +45,7 @@ Kurtarma planlarınızda PowerShell betiklerini kullanabilirsiniz. Kurtarma plan
   
   1. Kayıt Defteri Düzenleyicisi'ni açın ve ardından Git **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  1. Değerini **ScriptLibraryPath** için  **\\\libserver2.contoso.com\share\\**. Tam FQDN'yi belirtin. Konum paylaşımı için izinler sağlayın. Bu paylaşım kök düğümüdür. Vmm'de kök düğümü olup olmadığını denetlemek için Kitaplığı'nda kök düğümüne gidin. Açılır yolun kökünü yoldur. Değişkeninde kullanmanız gereken yolu budur.
+  1. Değerini **ScriptLibraryPath** için  **\\\libserver2.contoso.com\share\\** . Tam FQDN'yi belirtin. Konum paylaşımı için izinler sağlayın. Bu paylaşım kök düğümüdür. Vmm'de kök düğümü olup olmadığını denetlemek için Kitaplığı'nda kök düğümüne gidin. Açılır yolun kökünü yoldur. Değişkeninde kullanmanız gereken yolu budur.
 
   1. Betik, VMM hizmet hesabıyla aynı düzeyde kullanıcı hakları olan bir kullanıcı hesabı kullanarak test edin. Bu kullanıcı haklarını kullanarak, bir tek başına, test edilmiş betiklerin kurtarma planlarıyla, çalıştırıldıkları aynı şekilde doğrular. VMM sunucusunda şu şekilde atlamak için yürütme ilkesini ayarlayın:
 

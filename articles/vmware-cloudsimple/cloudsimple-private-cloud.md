@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e3ab53466cae5bd39d85f8d846c8e59ad94f1f2d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577053"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165756"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>CloudSimple özel buluta genel bakış
 
@@ -63,7 +63,7 @@ Kullanıcılar yerel VMware araçları yığınından kullanır:
 
 Azure konumları adanmış düğümler dağıtabilirsiniz. Daha sonra bunları CloudSimple ve Azure ile yönetebilirsiniz. Özel bulut bir veya daha fazla vSphere kümelerindeki oluşur ve her küme 3-16 düğüm içerir.
 
-Düğümleri satın kullanarak bir özel bulut oluşturabilirsiniz:
+Sağlanan düğümleri kullanarak özel bir bulut oluşturabilirsiniz:
 
 * Kullandıkça Öde düğümleri
 * Ayrılmış, adanmış düğümler

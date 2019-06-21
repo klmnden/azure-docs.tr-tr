@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66167079"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188347"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Iaas kaynaklarını Klasik dağıtım modelinden Azure Resource Manager'a geçirme
 İlk olarak, bir hizmet (Iaas) kaynak olarak altyapıyı veri düzlemi ve yönetim düzlemi işlemleri arasındaki farkı anlamak önemlidir.

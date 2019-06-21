@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7c7d7c480068b754413fd2309a2251d1e3855106
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e46c935d298f2fe7ebfa4bce471288c9ab8a606
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075184"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271956"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Birden çok kapatır konuşmanın oluşturmak için istemleri takip kullanın
 
@@ -229,7 +229,7 @@ Boş kullanmak `context` kullanıcının sorusuna verilen yanıt istemek ve iste
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
@@ -254,7 +254,8 @@ Boş kullanmak `context` kullanıcının sorusuna verilen yanıt istemek ve iste
                         "qna": null,
                         "displayText": "Create a Windows Account"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -268,14 +269,15 @@ Boş kullanmak `context` kullanıcının sorusuna verilen yanıt istemek ve iste
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Turn off the device"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -289,14 +291,21 @@ Boş kullanmak `context` kullanıcının sorusuna verilen yanıt istemek ve iste
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         }
     ]
 }
 ```
 
-`prompts` Dizisi sağlar metinde `displayText` özelliği ve `qnaId` konuşma sonraki görüntülenen seçenek olarak bu yanıtlar göstermek için değer akış, seçili değerine soru-cevap Oluşturucu aşağıdaki istek gönderebilirsiniz. 
+`promptsToAdd` Dizisi sağlar metinde `displayText` özelliği ve `qnaId` konuşma sonraki görüntülenen seçenek olarak bu yanıtlar göstermek için değer akış, seçili değerine soru-cevap Oluşturucu aşağıdaki istek gönderebilirsiniz. 
+
+<!--
+
+The `promptsToDelete` array provides the ...
+
+-->
 
 ## <a name="json-request-to-return-non-initial-answer-and-follow-up-prompts"></a>JSON istek olmayan ilk yanıt ve istemleri takip döndürmek için
 
@@ -336,7 +345,8 @@ Soru-cevap Oluşturucu _GenerateAnswer_ JSON yanıtı içeren izleme istemleri `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         },
         {
@@ -350,14 +360,15 @@ Soru-cevap Oluşturucu _GenerateAnswer_ JSON yanıtı içeren izleme istemleri `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 4,
                         "qna": null,
                         "displayText": "Ports and connectors"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -371,7 +382,8 @@ Soru-cevap Oluşturucu _GenerateAnswer_ JSON yanıtı içeren izleme istemleri `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         }
     ]

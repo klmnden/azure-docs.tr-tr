@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7c53d8fe0ee5bbfdbe180aa4d18d8c7b7fab29c2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808515"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295285"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Uygun ölçekte Azure İzleyicisi'ni kullanarak izleme
 
@@ -29,7 +29,7 @@ ms.locfileid: "66808515"
 ## <a name="using-log-analytics-workspace"></a>Log Analytics çalışma alanı kullanma
 
 > [!NOTE]
-> Log Analytics çalışma alanına tanılama ayarları aracılığıyla Azure VM yedeklemeleri, MAB Aracısı, System Center DPM (SC-DPM), Azure sanal makinelerinde SQL yedekleme verileri ekleniyor. Azure dosya paylaşımı yedeklemelerini, Microsoft Azure Backup sunucusu (MABS) için destek yakında sunulacaktır.
+> Log Analytics çalışma alanına tanılama ayarları aracılığıyla Azure VM yedeklemeleri, MAB Aracısı, System Center DPM (SC-DPM), Azure sanal makinelerinde SQL yedekler ve Azure dosya paylaşımı yedeklemelerini verileri ekleniyor. Microsoft Azure Backup sunucusu (MABS) için destek yakında sunulacaktır.
 
 Şu iki Azure Hizmetleri - yeteneklerini yararlanarak **tanılama ayarları** (verileri başka bir kaynağa birden çok Azure Resource Manager kaynakları göndermek için) ve **Log Analytics** (on - oluşturmak için Özel uyarılar) burada tanımlayabilirsiniz Eylem grupları kullanarak diğer bildirim kanallarına uygun ölçekte izleme. Uygun ölçekte Azure Backup izleme LA kullanma hakkında aşağıdaki bölümlerde ayrıntıları.
 
@@ -47,6 +47,9 @@ Hedef olarak başka bir Abonelikteki bir LA çalışma alanını seçebilirsiniz
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Log Analytics çalışma alanına çözümü dağıtma
 
 Veriler LA çalışma içinde olduğunda [GitHub şablon dağıtma](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) verileri görselleştirmek için on oturum. Aynı kaynak grubunu, çalışma alanı adı ve çalışma alanı konumu düzgün çalışma belirlemek ve bu şablonu üzerinde yüklemeyi size emin olun.
+
+> [!NOTE]
+> Uyarıları veya yedekleme/geri yükleme işleri kendi LA çalışma alanında olmayan kullanıcılar, portalı "BadArgumentError" kodlu bir hata görebilirsiniz. Kullanıcılar bu hatayı yoksayarak çözümü kullanmaya devam edin. Çalışma alanına akan veri ilgili türü başladıktan sonra görsel öğeler aynı ve kullanıcılara bu hata artık görmezsiniz ücreti yansıtılır.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Log Analytics (on) kullanarak Azure Backup verileri görüntüleme
 

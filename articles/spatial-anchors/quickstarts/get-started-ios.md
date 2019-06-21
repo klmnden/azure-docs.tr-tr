@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b8ee1bdfece35d774cdc79595a495b0b3719a836
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56360238db8632e74a95c057a7fe643b5cea3151
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234136"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206825"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Hızlı Başlangıç: Azure uzamsal bağlantıları, Swift veya Objective-C ile bir iOS uygulaması oluşturma
 
@@ -62,7 +62,7 @@ cd ./iOS/Swift/
 cd ./iOS/Objective-C/
 ```
 
-***
+---
 
 Çalıştırma `pod install --repo-update` projenin Cocoapods'u yüklemek üzere.
 
@@ -80,7 +80,7 @@ open ./SampleSwift.xcworkspace
 open ./SampleObjC.xcworkspace
 ```
 
-***
+---
 
 ## <a name="configure-account-identifier-and-key"></a>Hesap Kimliği ve anahtarını yapılandırma
 
@@ -102,7 +102,7 @@ Bulun `SpatialAnchorsAccountKey` değiştirin ve alan `Set me` ile hesap anahtar
 
 Bulun `SpatialAnchorsAccountId` değiştirin ve alan `Set me` hesap tanımlayıcı ile.
 
-***
+---
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>İOS cihazınıza uygulaması dağıtma
 

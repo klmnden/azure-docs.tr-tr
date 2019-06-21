@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9df5eb9fa4493f82c6efd4a8e30eee324e4eac2a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869819"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273837"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure haritalar Android SDK'sı ile çalışmaya başlama
 
@@ -201,7 +201,7 @@ Android Studio, uygulamayı oluşturmak için birkaç saniye sürer. Derleme tam
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Haritanıza öğe eklemek için bkz:
+Haritada yer paylaşımı veri eklemeyi öğrenin:
 
 > [!div class="nextstepaction"]
 > [Bir Android eşlemesi için bir simge katmanı Ekle](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
@@ -211,5 +211,3 @@ Haritanıza öğe eklemek için bkz:
 
 > [!div class="nextstepaction"]
 > [Android Maps değişiklik eşleme stilleri](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
-
-

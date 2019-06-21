@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc5deb614e2ac6e47ff3bf241943df92d97699b2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344572"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295168"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>RBAC ve Azure CLI kullanarak Azure kaynaklarına erişimi yönetme
 
@@ -192,7 +192,7 @@ Belirli bir kullanıcı için rol atamalarını listelemek için kullanın [az r
 az role assignment list --assignee <assignee>
 ```
 
-Varsayılan olarak, yalnızca abonelik için kapsamlı atamaları görüntülenir. Kaynak veya grup tarafından kapsamlı atamaları görüntülemek için kullanın `--all`.
+Varsayılan olarak, yalnızca abonelik için kapsamlı doğrudan atamaları görüntülenir. Kaynak veya grup tarafından kapsamlı atamaları görüntülemek için kullanın `--all` ve devralınan asisgnments görüntülemek için kullanın `--include-inherited`.
 
 Aşağıdaki örnek, doğrudan atanan rol atamaları listeler *patlong\@contoso.com* kullanıcı:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 83f202f087d51b7742a74cf5ee5db8bd5fee5385
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c5bbd19969349965ea20fa4cfc09e10119a9a86c
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073713"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295741"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure depolama performansı ve ölçeklenebilirlik denetim listesi
 
@@ -109,7 +109,7 @@ Depolama hesabı içinde bir belirli aboneliğe/bölge birleşimi olabilir sın�
 Uygulamanız için bir tek bir depolama hesabı ölçeklenebilirlik hedefleri yaklaşıyorsa, aşağıdaki yaklaşımlardan birini benimsemeyi göz önünde bulundurun:  
 
 * Uygulamanızın yaklaşımını veya ölçeklenebilirlik hedef en fazla iş yükü yeniden belirleyin. Daha az bant genişliği veya kapasite ya da daha az işlem farklı kullanacak şekilde tasarlayabilirsiniz?
-* Bir uygulama ölçeklenebilirlik hedefleri birini aşması gereken, uygulama verilerinizi birden çok depolama hesapları ve bölüm bu birden çok depolama hesabında yer oluşturmanız gerekir. Bu düzeni kullanın, ardından Yük Dengeleme için depolama hesabı daha sonra ekleyebilirsiniz. böylece uygulamanızı tasarlayın emin olun. Makalenin yazıldığı sırada, her bir Azure aboneliği en fazla 100 depolama hesabı olabilir.  Depolama hesapları, ücretsiz dışındaki kullanımınız açısından depolanan veriler, yapılan işlemleri ve aktarılan veriler de var.
+* Bir uygulama ölçeklenebilirlik hedefleri birini aşması gereken, uygulama verilerinizi birden çok depolama hesapları ve bölüm bu birden çok depolama hesabında yer oluşturmanız gerekir. Bu düzeni kullanın, ardından Yük Dengeleme için depolama hesabı daha sonra ekleyebilirsiniz. böylece uygulamanızı tasarlayın emin olun. Makalenin yazıldığı sırada, her bir Azure aboneliği (Azure Resource Manager modeliyle dağıtıldığında) bölge başına en fazla 250 depolama hesabı olabilir.  Depolama hesapları, ücretsiz dışındaki kullanımınız açısından depolanan veriler, yapılan işlemleri ve aktarılan veriler de var.
 * Uygulamanızı bant hedefleri olursa, veri depolama hizmetine göndermek için gereken bant genişliğini azaltmak üzere istemci verileri sıkıştırma göz önünde bulundurun.  Bu bant genişliğinden tasarruf ve ağ performansı, ancak ayrıca bazı olumsuz etkileri olabilir.  Bu performans etkisi nedeniyle, sıkıştırma ve veri İstemcisi'nde açma ek işleme gereksinimleri belirlemelidir. Ayrıca, sıkıştırılmış veri depolama, standart araçlarını kullanarak depolanan verileri görüntülemek daha zor olabilir beri sorunlarını gidermek daha zor zorlaştırabilir.
 * Uygulamanız için ölçeklenebilirlik hedefleri değerse, ardından yeniden deneme sayısı için bir üstel geri alma kullandığınızdan emin olun (bkz [deneme](#subheading14)).  Hiçbir zaman (yukarıdaki yöntemlerden birini kullanarak) ölçeklenebilirlik hedefleri yaklaşımı, ancak bu uygulama yalnızca hızlı bir şekilde, daha da kötüsü azaltma yapmadan yeniden denemeye devam olmaz sağlayacak emin olmak daha iyidir.  
 

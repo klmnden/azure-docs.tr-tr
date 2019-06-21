@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: İşlemler, güç Azure geliştirme alanları ve azds.yaml yapılandırma dosyasında nasıl yapılandırılacağı açıklanmaktadır.
 keywords: azds.yaml, Azure geliştirme alanları, geliştirme alanları, Docker, Kubernetes, Azure, AKS, kapsayıcılar, Azure Kubernetes hizmeti
-ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 083ed45a8fa95ac5fc26af6547b5765acf80e43b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399826"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154546"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure geliştirme alanları nasıl çalışır ve olan yapılandırılmış
 
@@ -210,7 +210,7 @@ azds up
 1. Uygulamanız için bir kapsayıcı oluşturur.
 1. Uygulamanızı geliştirme alanı dağıtır.
 1. Yapılandırılmışsa, uygulama uç noktası için ortak olarak erişilebilen bir DNS adı oluşturur.
-1. Kullanan *bağlantı noktası iletme* uç nokta kullanarak uygulamanızı erişim sağlamak için http://locahost.
+1. Kullanan *bağlantı noktası iletme* uç nokta kullanarak uygulamanızı erişim sağlamak için http://localhost.
 1. STDOUT ve stderr istemci tarafı araçları iletir.
 
 

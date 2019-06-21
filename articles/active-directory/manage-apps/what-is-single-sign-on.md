@@ -12,12 +12,12 @@ ms.date: 05/15/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b3066a529183d7a8a13e4673d7879136aa0d7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2576a33e62b370bc2fd91c5d155e9f8d6e52c0f8
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824161"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190280"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 
@@ -95,7 +95,7 @@ Parola tabanlı çoklu oturum açma bir HTML tabanlı oturum açma sayfası olan
 - Chrome Windows 7 ve daha sonra ve MacOS x veya sonrası
 - Firefox 26,0 veya daha sonra Windows XP SP2 veya üzeri ve Mac OS X 10.6 üzerinde veya üzeri
 
-Bir bulut uygulama parola tabanlı çoklu oturum açma için yapılandırmak üzere bkz [parola çoklu oturum açma için uygulamayı yapılandırma](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on).
+Bir bulut uygulama parola tabanlı çoklu oturum açma için yapılandırmak üzere bkz [parola çoklu oturum açma için uygulamayı yapılandırma](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
 
 Bir şirket içi uygulama için uygulama proxy'si aracılığıyla çoklu oturum açmayı yapılandırmak için bkz [vaulting uygulama proxy'si ile çoklu oturum açma için parola](application-proxy-configure-single-sign-on-password-vaulting.md)
 

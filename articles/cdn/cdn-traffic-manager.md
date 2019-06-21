@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7de7fe1c677d54c0fa3e6d3ca4730ef1083bc81
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955274"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273283"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Birden fazla Azure CDN uç noktası ile Azure Traffic Manager arasında devretmeyi ayarlayın
 
@@ -81,7 +81,7 @@ CDN ve Traffic Manager profillerinizi ayarladıktan sonra DNS eşlemesi ekleyin 
 
     Azure CDN kullanan *cdnverify* kayıt işlemini tamamlamak için bir DNS eşlemesi doğrulamak için alt etki alanı. Daha fazla bilgi için [bir CNAME DNS kaydı oluşturma](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Bu adım, Azure CDN, böylece kendi isteklerini yanıtlayan özel etki alanı tanımak etkinleştirir.
     
- > [!NOTE]
+    > [!NOTE]
     > SSL etkinleştirmek için bir **akamai'den Azure CDN** profillerini uç noktanıza özel etki alanı cname doğrudan gerekir. SSL etkinleştirmek için cdnverify henüz desteklenmiyor. 
     >
 

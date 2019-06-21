@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/20/2019
+ms.date: 6/21/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: ace0b56ce1ba4c140666c8f2dd6e2187f479446e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: deca4d1f66950e89148089d2984eb9cb35c470a8
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272654"
+ms.locfileid: "67304579"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Güvenlik Duvarı nedir?
 
@@ -73,7 +73,7 @@ Güvenlik duvarınız için tehdit bilgileri tabanlı filtrelemeyi etkinleştire
 
 ### <a name="outbound-snat-support"></a>Giden SNAT desteği
 
-Tüm giden sanal ağ trafiği IP adresleri Azure Güvenlik Duvarı genel IP’sine çevrilir (Kaynak Ağ Adresi Çevirisi). Sanal ağınızdan kaynaklanan uzak İnternet hedeflerine yönelik trafiği tanımlayabilir ve buna izin verebilirsiniz.
+Tüm giden sanal ağ trafiği IP adresleri Azure Güvenlik Duvarı genel IP’sine çevrilir (Kaynak Ağ Adresi Çevirisi). Sanal ağınızdan kaynaklanan uzak İnternet hedeflerine yönelik trafiği tanımlayabilir ve buna izin verebilirsiniz. Azure güvenlik duvarı, hedef IP başına özel bir IP aralığı olduğunda SNAT değil [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Kuruluşunuz özel ağlar için genel bir IP adres aralığını kullanıyorsa, Azure güvenlik duvarı AzureFirewallSubnet güvenlik duvarı özel IP adresleriyle birini trafiğe SNAT olur.
 
 ### <a name="inbound-dnat-support"></a>Gelen DNAT desteği
 

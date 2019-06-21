@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ade695f1930c11f2d2d7ab7e0430910bd6f8705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ae821dc9ae0d739526b91bad76bca544cad2fb0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508654"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203701"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de özel ilkeleri kullanarak bir Azure Active Directory hesabı ile oturum açma özelliğini ayarlama 
 
@@ -132,7 +132,7 @@ Azure AD uç noktasından bir belirteç almak için Azure AD B2C, Azure AD ile i
 5. Değerini ayarlamak **meta verileri** için `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`burada `your-AD-tenant-name` , Azure AD Kiracı adı. Örneğin, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Tarayıcınızı açın ve gidin **meta verileri** güncelleştirdiğiniz, arama için URL **veren** nesne, kopyalama ve değer için değerine yapıştırın **ProviderName** XML dosyasında.
 8. Ayarlama **client_id** ve **IdTokenAudience** için uygulama kaydı uygulama kimliği.
-9. Altında **CryptograhicKeys**, değerini güncelleştirin **Storagereferenceıd** tanımladığınız ilke anahtarı. Örneğin, `ContosoAppSecret`.
+9. Altında **CryptographicKeys**, değerini güncelleştirin **Storagereferenceıd** tanımladığınız ilke anahtarı. Örneğin, `ContosoAppSecret`.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Doğrulama için uzantı dosyasını karşıya yükle
 
