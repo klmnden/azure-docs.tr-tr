@@ -17,44 +17,50 @@
       href: dns-getstarted-cli.md
 - name: Öğreticiler
   items:
-    - name: Azure DNS’te etki alanınızı barındırma
-      href: dns-delegate-domain-azure-dns.md
-    - name: Bir web uygulaması için özel DNS kayıtları oluşturma
-      href: dns-web-sites-custom-domain.md
-    - name: Özel bir DNS bölgesi ve kaydı oluşturma
-      href: private-dns-portal.md
-    - name: Traffic Manager için diğer ad kayıtları
-      href: tutorial-alias-tm.md
-    - name: Genel IP adresleri için diğer ad kayıtları
-      href: tutorial-alias-pip.md
-    - name: Bölge kayıtları için diğer ad kayıtları
-      href: tutorial-alias-rr.md
+    - name: Genel DNS
+      items:
+        - name: Azure DNS’te etki alanınızı barındırma
+          href: dns-delegate-domain-azure-dns.md
+        - name: Bir web uygulaması için özel DNS kayıtları oluşturma
+          href: dns-web-sites-custom-domain.md
+        - name: Traffic Manager için diğer ad kayıtları
+          href: tutorial-alias-tm.md
+        - name: Genel IP adresleri için diğer ad kayıtları
+          href: tutorial-alias-pip.md
+        - name: Bölge kayıtları için diğer ad kayıtları
+          href: tutorial-alias-rr.md
+    - name: Özel DNS
+      items:
+        - name: Özel bir DNS bölgesi ve kaydı oluşturma
+          href: private-dns-portal.md
 - name: Örnekler
   items:
     - name: Azure CLI
       href: cli-samples.md
 - name: Kavramlar
   items:
+    - name: Genel DNS
+      items:
+        - name: Bölgeler ve kayıtlar
+          href: dns-zones-records.md
+        - name: Diğer ad kayıtları
+          href: dns-alias.md
+        - name: Azure DNS ile temsilci atama
+          href: dns-domain-delegation.md
+        - name: SSS
+          href: dns-faq.md
+        - name: DNS ölçümleri ve uyarıları
+          href: dns-alerts-metrics.md
+        - name: Ters DNS
+          href: dns-reverse-dns-overview.md
+        - name: Azure DNS ve Traffic Manager kullanarak olağanüstü durum kurtarma
+          href: ../networking/disaster-recovery-dns-traffic-manager.md
     - name: Özel DNS
       items:
         - name: SSS - Özel DNS
           href: dns-faq-private.md
         - name: Özel DNS senaryoları
           href: private-dns-scenarios.md
-    - name: Bölgeler ve kayıtlar
-      href: dns-zones-records.md
-    - name: Diğer ad kayıtları
-      href: dns-alias.md
-    - name: Azure DNS ile temsilci atama
-      href: dns-domain-delegation.md
-    - name: SSS
-      href: dns-faq.md
-    - name: DNS ölçümleri ve uyarıları
-      href: dns-alerts-metrics.md
-    - name: Ters DNS
-      href: dns-reverse-dns-overview.md
-    - name: Azure DNS ve Traffic Manager kullanarak olağanüstü durum kurtarma
-      href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Nasıl yapılır
   items:
     - name: Özel DNS
@@ -63,70 +69,84 @@
           href: private-dns-getstarted-cli.md
         - name: Özel bölge oluşturma - PowerShell
           href: private-dns-getstarted-powershell.md
-    - name: Yük dengeli web uygulamaları için diğer ad kayıtları
-      href: dns-alias-appservice.md
-    - name: DNS bölgelerini yönetme
+    - name: Genel DNS
       items:
-        - name: Azure portal
-          href: dns-operations-dnszones-portal.md
-        - name: Azure PowerShell
-          href: dns-operations-dnszones.md
-        - name: Azure CLI
-          href: dns-operations-dnszones-cli.md
-    - name: DNS kayıtlarını yönetme
-      items:
-        - name: Azure portal
-          href: dns-operations-recordsets-portal.md
-        - name: Azure PowerShell
-          href: dns-operations-recordsets.md
-        - name: Azure CLI
-          href: dns-operations-recordsets-cli.md
-    - name: Ters DNS’yi yönetme
-      items:
-        - name: Azure DNS’de geriye doğru arama bölgeleri barındırma
-          href: dns-reverse-dns-hosting.md
-        - name: Azure hizmetleri için ters DNS kayıtlarını yönetme
-          href: dns-reverse-dns-for-azure-services.md
-    - name: DNS bölge dosyasını içeri ve dışarı aktarma
-      href: dns-import-export.md
-    - name: Bir alt etki alanını temsilci seçme
-      href: delegate-subdomain.md
-    - name: PowerShell kullanarak alt etki alanını temsilci seçme
-      href: delegate-subdomain-ps.md
-    - name: Diğer Azure hizmetleri ile tümleştirme
-      href: dns-for-azure-services.md
-    - name: DNS bölgeleri ve kayıtlarını koruma
-      href: dns-protect-zones-recordsets.md
-    - name: .NET SDK ile DNS işlemlerini otomatikleştirme
-      href: dns-sdk.md
-    - name: Azure kaynakları için özel etki alanları
-      href: dns-custom-domain.md
+        - name: Yük dengeli web uygulamaları için diğer ad kayıtları
+          href: dns-alias-appservice.md
+        - name: DNS bölgelerini yönetme
+          items:
+            - name: Azure portal
+              href: dns-operations-dnszones-portal.md
+            - name: Azure PowerShell
+              href: dns-operations-dnszones.md
+            - name: Azure CLI
+              href: dns-operations-dnszones-cli.md
+        - name: DNS kayıtlarını yönetme
+          items:
+            - name: Azure portal
+              href: dns-operations-recordsets-portal.md
+            - name: Azure PowerShell
+              href: dns-operations-recordsets.md
+            - name: Azure CLI
+              href: dns-operations-recordsets-cli.md
+        - name: Ters DNS’yi yönetme
+          items:
+            - name: Azure DNS’de geriye doğru arama bölgeleri barındırma
+              href: dns-reverse-dns-hosting.md
+            - name: Azure hizmetleri için ters DNS kayıtlarını yönetme
+              href: dns-reverse-dns-for-azure-services.md
+        - name: DNS bölge dosyasını içeri ve dışarı aktarma
+          href: dns-import-export.md
+        - name: Bir alt etki alanını temsilci seçme
+          href: delegate-subdomain.md
+        - name: PowerShell kullanarak alt etki alanını temsilci seçme
+          href: delegate-subdomain-ps.md
+        - name: Diğer Azure hizmetleri ile tümleştirme
+          href: dns-for-azure-services.md
+        - name: DNS bölgeleri ve kayıtlarını koruma
+          href: dns-protect-zones-recordsets.md
+        - name: .NET SDK ile DNS işlemlerini otomatikleştirme
+          href: dns-sdk.md
+        - name: Azure kaynakları için özel etki alanları
+          href: dns-custom-domain.md
     - name: Sorun giderme
       items:
         - name: Sorun giderme kılavuzu
           href: dns-troubleshoot.md
 - name: Başvuru
   items:
-    - name: Kod örnekleri
-      href: 'https://azure.microsoft.com/resources/samples/?service=dns'
-    - name: Azure PowerShell
-      href: /powershell/module/az.dns
-    - name: Azure CLI
-      href: /cli/azure/network/dns
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.dns.models
-    - name: Java
-      href: /java/api/com.microsoft.azure.management.dns
-    - name: Node.js
-      href: 'https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/'
-    - name: Ruby
-      href: 'https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0'
-    - name: Python
-      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html'
-    - name: REST
-      href: /rest/api/dns/
-    - name: Resource Manager şablonu
-      href: /azure/templates/microsoft.network/dns-allversions
+    - name: Genel DNS
+      items:
+        - name: Kod örnekleri
+          href: 'https://azure.microsoft.com/resources/samples/?service=dns'
+        - name: Azure PowerShell
+          href: /powershell/module/az.dns
+        - name: Azure CLI
+          href: /cli/azure/network/dns
+        - name: .NET
+          href: /dotnet/api/microsoft.azure.management.dns.models
+        - name: Java
+          href: /java/api/com.microsoft.azure.management.dns
+        - name: Node.js
+          href: 'https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/'
+        - name: Ruby
+          href: 'https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0'
+        - name: Python
+          href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html'
+        - name: REST
+          href: /rest/api/dns/
+        - name: Resource Manager şablonu
+          href: /azure/templates/microsoft.network/dns-allversions
+    - name: Özel DNS
+      items:
+        - name: Azure CLI
+          href: /cli/azure/network/private-dns
+        - name: Azure PowerShell
+          href: /powershell/module/az.PrivateDns
+        - name: .NET
+          href: /dotnet/api/overview/azure/privatedns/management
+        - name: REST
+          href: /rest/api/dns/privatedns/privatezones
 - name: İlgili
   items:
     - name: Application Gateway
@@ -157,3 +177,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Hizmet güncelleştirmeleri
       href: 'https://azure.microsoft.com/updates/?product=dns'
+    - name: Özel DNS bölgesi geçiş kılavuzu
+      href: private-dns-migration-guide.md

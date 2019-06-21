@@ -1,0 +1,27 @@
+- name: Tam Ekran Okuyucu Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Tam Ekran Okuyucu nedir?
+      href: Overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: 'C# kullanma'
+      href: Quickstart.md
+- name: Öğreticiler
+  items:
+    - name: Tam Ekran Okuyucu’yu Başlatma (Node.js)
+      href: tutorial.md
+- name: Başvuru
+  items:
+    - name: SDK Başvurusu
+      href: reference.md
+- name: Kaynaklar
+  items:
+    - name: Azure yol haritası
+      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
+    - name: Dil desteği
+      href: 'https://aka.ms/ltlangsupport'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services'

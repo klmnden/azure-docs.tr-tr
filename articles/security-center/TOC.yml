@@ -45,7 +45,7 @@
       href: security-center-onboarding.md
     - name: Windows Defender ATP ile sunucu koruması
       href: security-center-wdatp.md
-    - name: IaaS için gelişmiş veri güvenliği
+    - name: Azure VM’lerinde SQL için gelişmiş veri güvenliği (Genel Önizleme)
       href: security-center-iaas-advanced-data.md
     - name: App Service'i koruma
       href: security-center-app-services.md
@@ -83,7 +83,7 @@
           href: security-center-virtual-machine-protection.md
         - name: Ağ kaynaklarını koruma
           href: security-center-network-recommendations.md
-        - name: SQL hizmetini ve verilerini koruma
+        - name: Verileri ve depolama hizmetlerini koruma
           href: security-center-sql-service-recommendations.md
         - name: Kimliği ve erişimi koruma
           href: security-center-identity-access.md

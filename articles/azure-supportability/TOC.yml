@@ -11,6 +11,8 @@
       href: per-vm-quota-requests.md
     - name: Toplam bölgesel vCPU sınır artışı
       href: regional-quota-requests.md
+    - name: Ağ sınırını artırma
+      href: networking-quota-requests.md
 - name: Bölge veya SKU abonelik sorunlarını giderme
   href: sku-series-unavailable.md
 - name: Başvuru

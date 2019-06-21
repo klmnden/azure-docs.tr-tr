@@ -118,8 +118,8 @@
           href: ephemeral-os-disks.md
     - name: Ağ
       href: network-overview.md
-    - name: Uygulamaları otomatik ölçeklendirme
-      href: autoscale.md
+    - name: Ölçek kümeleri
+      href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Altyapı otomasyonu
       href: infrastructure-automation.md
     - name: Güvenlik ve ilke

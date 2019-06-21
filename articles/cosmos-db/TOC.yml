@@ -624,10 +624,12 @@
         - name: Logic Apps ile uygulama günlüğü kaydı
           href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
           maintainContext: true
-    - name: İzleme
+    - name: Ölçümler ile izleme
       items:
-        - name: Ölçümler ile izleme
+        - name: Cosmos DB hesabından ölçümleri görüntüleme
           href: use-metrics.md
+        - name: Azure İzleyici’den Ölçümleri görüntüleme
+          href: cosmos-db-azure-monitor-metrics.md
         - name: SLA’ları izleme
           href: monitor-accounts.md
     - name: Yerel olarak geliştirme

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597082"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303906"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -170,10 +170,19 @@ Windows Server Yük Devretme Kümelemesi için "Genel kullanım için dosya sunu
 
 ### <a name="data-deduplication"></a>Yinelenen verileri kaldırma
 **Aracı sürümü 5.0.2.0**   
-Yinelenen verileri kaldırma, Windows Server 2016 ve Windows Server 2019 üzerinde etkin katmanlama bulutla birimlerde desteklenir. Bulut katmanlaması etkin bir birimde yinelenen verileri kaldırma etkinleştirme, daha fazla depolama alanı sağlama olmadan daha fazla dosyaları şirket içi önbellek olanak tanır.
+Yinelenen verileri kaldırma, Windows Server 2016 ve Windows Server 2019 üzerinde etkin katmanlama bulutla birimlerde desteklenir. Bulut katmanlaması etkin bir birimde yinelenen verileri kaldırma etkinleştirme, daha fazla depolama alanı sağlama olmadan daha fazla dosyaları şirket içi önbellek olanak tanır. Bu birim tasarruf yalnızca şirket içi geçerli olduğunu unutmayın. Verilerinizi Azure dosyaları'nda yinelenenleri kaldırılan değil. 
 
 **Windows Server 2012 R2 veya daha eski Aracı sürümleri**  
 Bulut katmanlaması etkin olmayan birimler için Windows Server yinelenen verileri birimde etkinleştiriliyor kaldırma Azure dosya eşitleme destekler.
+
+**Notlar**
+- Azure dosya eşitleme aracısını yüklemeden önce yinelenen verileri kaldırma özelliği yüklü değilse, yinelenen verileri kaldırma ve bulut katmanlaması aynı birimde desteklemek için bir yeniden başlatma gerekiyor.
+- Bir birimde yinelenen verileri kaldırma etkinleştirilirse sonra bulut katmanlaması etkin olduğunda, ilk yinelenenleri kaldırma iyileştirme işini zaten katmanlanmış ve aşağıdaki bulut etkisi birim üzerindeki dosya iyileştirir katmanlama:
+    - Boş alan İlkesi birimdeki boş alan göre katmanı dosyaları ısı haritasını kullanarak devam eder.
+    - Tarih ilkesi, aksi takdirde dosyalara erişmek için yinelenenleri kaldırma iyileştirme işi nedeniyle katman ayarlama için uygun olabilecek dosyalarının katmanlama atlar.
+- Yinelenen verileri kaldırma tarafından Gecikmeli devam eden yinelenenleri kaldırma iyileştirme işlerinin için bulut katmanlaması tarih ilkesiyle [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) dosya zaten katmanlanmış varsa ayarlama. 
+    - Örnek: MinimumFileAgeDays ayarını 7 gündür ve bulut katmanlaması tarih ilkesi 30 gün ise, tarih ilke dosyalar 37 gün sonra katmanı.
+    - Not: Bir dosya, Azure dosya eşitleme tarafından katmanlı sonra yinelenenleri kaldırma iyileştirme işi dosyayı atlar.
 
 ### <a name="distributed-file-system-dfs"></a>Dağıtılmış dosya sistemi (DFS)
 Azure dosya eşitleme DFS ad alanları (DFS-N) ve DFS Çoğaltma (DFS-R) ile birlikte çalışabilirliği destekler.
@@ -200,9 +209,12 @@ Sysprep kullanarak Azure dosya eşitleme aracısının yüklü olduğu bir sunuc
 Bulut katmanlaması bir sunucu uç noktasında etkinleştirildiğinde, katmanlı halde bulunan dosyaları atlandı ve tarafından Windows Search dizin değil. Düzgün olmayan katmanlı dosyaları dizine eklenir.
 
 ### <a name="antivirus-solutions"></a>Virüsten koruma çözümleri
-Bilinen kötü amaçlı kod için dosyaları tarama tarafından virüsten koruma çalıştığı için bir virüsten koruma ürününüzün katmanlı dosyalar geri çağırma bildirimi yayımlayabiliriz neden olabilir. Sürümlerinde 4.0 ve Azure dosya eşitleme aracısının, yukarıda güvenli Windows öznitelik FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS kümesi katmanlı dosyalar sahip. Bu öznitelik kümesi (çoğu otomatik olarak bunu) okuma dosyalarıyla atlamak için çözümün nasıl yapılandırılacağını öğrenmek için yazılım satıcınıza danışmanlık öneririz.
+Bilinen kötü amaçlı kod için dosyaları tarama tarafından virüsten koruma çalıştığı için bir virüsten koruma ürününüzün katmanlı dosyalar geri çağırma bildirimi yayımlayabiliriz neden olabilir. Sürümlerinde 4.0 ve Azure dosya eşitleme aracısının, yukarıda güvenli Windows öznitelik FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS kümesi katmanlı dosyalar sahip. Bu öznitelik kümesi (çoğu otomatik olarak bunu) okuma dosyalarıyla atlamak için çözümün nasıl yapılandırılacağını öğrenmek için yazılım satıcınıza danışmanlık öneririz. 
 
 Microsoft'un şirket içi virüsten koruma çözümleri, Windows Defender ve System Center Endpoint Protection (SCEP) hem de otomatik olarak ayarlanmış bu özniteliğe sahip okuma dosyaları atla. Biz bunları test ve küçük bir sorun belirledik: var olan bir eşitleme grubuna bir sunucu eklediğinizde, 800 bayt (yeni sunucuda indirilen) çekilir küçük dosyaları. Bu dosyalar yeni sunucuda kalır ve katmanlama boyut gereksinimini karşılamayan beri katmanlanmış olmaz değil (> 64kb).
+
+> [!Note]  
+> Virüsten koruma yazılımı satıcıları, ürün ve [Azure dosya eşitleme virüsten koruma uyumluluğu Test paketi] kullanarak Azure dosya eşitleme uyumluluğu kontrol edebilirsiniz (https://www.microsoft.com/download/details.aspx?id=58322), kullanılabilen Microsoft Download Center indirebilirsiniz.
 
 ### <a name="backup-solutions"></a>Yedekleme çözümleri
 Virüsten koruma çözümleri gibi yedekleme çözümleri, katmanlı dosyalar geri çağırma bildirimi yayımlayabiliriz neden olabilir. Bulut yedekleme çözümü yerine şirket içi yedekleme ürün Azure dosya paylaşımını yedekleme kullanmanızı öneririz.
@@ -256,18 +268,15 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 | Güneydoğu Asya | Singapur |
 | Birleşik Krallık Güney | Londra |
 | Birleşik Krallık Batı | Cardiff |
-| ABD Devleti Arizona (Önizleme) | Arizona |
-| ABD Devleti Texas (Önizleme) | Texas |
-| ABD Devleti Virginia (Önizleme) | Virginia |
+| ABD Devleti Arizona | Arizona |
+| ABD Devleti Texas | Texas |
+| ABD Devleti Virginia | Virginia |
 | Batı Avrupa | Hollanda |
 | Batı Orta ABD | Wyoming |
 | Batı ABD | Kaliforniya |
 | Batı ABD 2 | Washington DC |
 
 Azure dosya eşitleme depolama eşitleme hizmeti ile aynı bölgede olan bir Azure dosya paylaşımı ile eşitlemeyi destekler.
-
-> [!Note]  
-> Azure dosya eşitleme şu anda yalnızca kamu bölgeleri için özel önizleme modunda kullanılabilir. Bkz. bizim [sürüm notları](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) Önizleme programına kaydolma ile ilgili yönergeler için.
 
 ### <a name="azure-disaster-recovery"></a>Azure olağanüstü durum kurtarma
 Bir Azure bölgesi kaybına karşı korumak için Azure dosya eşitleme ile entegre olur [coğrafi olarak yedekli depolama yedekliliği](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) seçeneği. GRS depolama çoğaltmasını birincil bölgedeki normal şekilde etkileşime, depolama ve depolama arasında zaman uyumsuz engelle eşleştirilmiş ikincil bölge'de faydalanır. Geçici veya kalıcı olarak çevrimdışı yapılacak Azure bölgesini neden olağanüstü bir durumda, Microsoft tarafından eşleştirilen bölgeye yük devretme depolama. 
@@ -302,7 +311,7 @@ Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretm
 | Birleşik Krallık Batı             | Birleşik Krallık Güney           |
 | ABD Devleti Arizona      | ABD Devleti Texas       |
 | US Gov Iowa         | ABD Devleti Virginia    |
-| ABD Devleti Virgini      | ABD Devleti Texas       |
+| ABD Devleti Virginia      | ABD Devleti Texas       |
 | Batı Avrupa         | Kuzey Avrupa       |
 | Batı Orta ABD     | Batı ABD 2          |
 | Batı ABD             | Doğu ABD            |

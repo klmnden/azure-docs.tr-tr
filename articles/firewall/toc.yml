@@ -43,6 +43,10 @@
       href: deploy-cli.md
     - name: Şablon kullanarak dağıtma
       href: deploy-template.md
+    - name: Birden çok genel IP ile dağıtma
+      href: deploy-multi-public-ip-powershell.md
+    - name: Kullanılabilirlik Alanları ile dağıtma
+      href: deploy-availability-zone-powershell.md
     - name: Yük dengeleyici ile tümleştirme
       href: integrate-lb.md
 - name: Başvuru

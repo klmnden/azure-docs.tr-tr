@@ -73,10 +73,14 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 5 - Kümeyi silme
           href: service-fabric-tutorial-delete-cluster.md
-    - name: AWS üzerinde tek başına küme oluşturma
+    - name: Tek başına küme oluşturma
       items:
-        - name: 1- AWS üzerinde altyapıyı oluşturma
-          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 1- Altyapıyı oluşturma
+          items:
+            - name: AWS kullanarak
+              href: service-fabric-tutorial-standalone-create-infrastructure.md
+            - name: Azure kullanarak
+              href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
         - name: 2- Service Fabric’i ayarlama
           href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
         - name: 3- Kümeye bir uygulama dağıtma
@@ -695,6 +699,8 @@
       items:
         - name: Yaygın senaryoları tanılama
           href: service-fabric-diagnostics-common-scenarios.md
+        - name: Kod paketi hatalarını tanılama
+          href: service-fabric-diagnostics-code-package-errors.md
         - name: Uygulamaları izleme
           items:
             - name: Uygulamanıza günlük bilgileri ekleme

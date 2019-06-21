@@ -28,20 +28,8 @@
       items:
         - name: .NET Core
           href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: .NET Framework
-          href: event-hubs-dotnet-framework-getstarted-send.md
         - name: Java
           href: event-hubs-java-get-started-send.md
-        - name: Python
-          href: event-hubs-python-get-started-send.md
-        - name: Node.js
-          href: event-hubs-node-get-started-send.md
-        - name: Başlayın
-          href: event-hubs-go-get-started-send.md
-        - name: C (yalnızca gönderme)
-          href: event-hubs-c-getstarted-send.md
-        - name: Apache Storm (yalnızca alma)
-          href: event-hubs-storm-getstarted-receive.md
     - name: Olayları yakalama
       items:
         - name: Event Hubs Capture için Azure portalı kullanma
@@ -60,33 +48,21 @@
       href: event-hubs-tutorial-visualize-anomalies.md
     - name: Yakalanan verileri bir SQL Veri Ambarı’nda depolama
       href: store-captured-data-data-warehouse.md
+    - name: Stream Analytics kullanarak Event Hubs için Apache Kafka olaylarını işleme
+      href: event-hubs-kafka-stream-analytics.md
     - name: Event Hubs kullanarak Azure Databricks’e veri akışı sağlama
       href: ../azure-databricks/databricks-stream-from-eventhubs.md
       maintainContext: true
-    - name: Event Hubs Ad Alanında Sanal Ağ Tümleştirmesi ve Güvenlik Duvarları
-      href: event-hubs-tutorial-virtual-networks-firewalls.md
-    - name: Apache Kafka için Event Hubs
-      items:
-        - name: Apache Kafka özellikli bir olay hub'ında Kafka aracısını yansıtma
-          href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Apache Spark'ı Apache Kafka özellikli bir olay hub'ına bağlama
-          href: event-hubs-kafka-spark-tutorial.md
-        - name: Apache Flink’i Apache Kafka özellikli bir olay hub'ına bağlama
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Apache Kafka Connect'i Kafka özellikli olay hub'ıyla tümleştirme (Önizleme)
-          href: event-hubs-kafka-connect-tutorial.md
-        - name: Akka Streams’i Apache Kafka özellikli bir olay hub'ına bağlama
-          href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Örnekler
   href: event-hubs-samples.md
 - name: Kavramlar
   items:
-    - name: Event Hubs özellikleri
+    - name: Event Hubs terminolojisi
       href: event-hubs-features.md
-    - name: Olay İşlemcisi Konağına genel bakış
-      href: event-hubs-event-processor-host.md
-    - name: Programlama kılavuzu
-      href: event-hubs-programming-guide.md
+    - name: Kullanılabilirlik ve tutarlılık
+      href: event-hubs-availability-and-consistency.md
+    - name: Ölçeklenebilirlik
+      href: event-hubs-scalability.md
     - name: Güvenlik
       items:
         - name: Azure kaynakları için yönetilen kimlik
@@ -99,54 +75,95 @@
           href: event-hubs-authentication-and-security-model-overview.md
         - name: Güvenlik Öznitelikleri
           href: event-hubs-security-attributes.md
-    - name: Kullanılabilirlik ve tutarlılık
-      href: event-hubs-availability-and-consistency.md
     - name: AMQP 1.0 protokol kılavuzu
       href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
       maintainContext: true
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: 'Python kullanarak olayları gönderme, alma ve yakalama'
-      href: event-hubs-python.md
-    - name: Tanılama günlükleri ayarlama
-      href: event-hubs-diagnostic-logs.md
-    - name: Apache Kafka için Event Hubs
+    - name: Geliştirme
+      items:
+        - name: Event Hubs bağlantı dizesini alma
+          href: event-hubs-get-connection-string.md
+        - name: Farklı protokoller kullanan uygulamalar arasında olay alışverişi yapma
+          href: event-hubs-exchange-events-different-protocols.md
+        - name: Programlama kılavuzu
+          href: event-hubs-programming-guide.md
+        - name: Olay İşlemcisi Konağı kullanarak olay alma
+          href: event-hubs-event-processor-host.md
+    - name: İstemci kitaplıkları kullanma
+      items:
+        - name: .NET Framework
+          items:
+            - name: .NET Framework kullanarak olayları gönderme ve alma
+              href: event-hubs-dotnet-framework-getstarted-send.md
+        - name: Java
+          items:
+            - name: Spring Cloud Stream Binder uygulaması oluşturma
+              href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+              maintainContext: true
+            - name: Apache Kafka için Spring Önyükleme Başlatıcıyı kullanma
+              href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+              maintainContext: true
+        - name: Python
+          items:
+            - name: Python kullanarak olayları gönderme ve alma
+              href: event-hubs-python-get-started-send.md
+            - name: 'Python kullanarak olayları gönderme, alma ve yakalama'
+              href: event-hubs-python.md
+        - name: Node.js
+          items:
+            - name: Node.js kullanarak olayları gönderme ve alma
+              href: event-hubs-node-get-started-send.md
+        - name: Başlayın
+          items:
+            - name: Go kullanarak olayları gönderme ve alma
+              href: event-hubs-go-get-started-send.md
+        - name: C (yalnızca gönderme)
+          items:
+            - name: C kullanarak olayları gönderme
+              href: event-hubs-c-getstarted-send.md
+        - name: Apache Storm (yalnızca alma)
+          items:
+            - name: Apache Storm kullanarak olayları alma
+              href: event-hubs-storm-getstarted-receive.md
+    - name: Apache Kafka ile tümleştirme
       items:
         - name: Apache Kafka özellikli Event Hubs oluşturma
           href: event-hubs-create-kafka-enabled.md
-        - name: Stream Analytics kullanarak Event Hubs için Apache Kafka olaylarını işleme
-          href: event-hubs-kafka-stream-analytics.md
-    - name: Yönetme
+        - name: Apache Kafka özellikli bir olay hub'ında Kafka aracısını yansıtma
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Apache Spark'ı Apache Kafka özellikli bir olay hub'ına bağlama
+          href: event-hubs-kafka-spark-tutorial.md
+        - name: Apache Flink’i Apache Kafka özellikli bir olay hub'ına bağlama
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: Apache Kafka Connect'i Kafka özellikli olay hub'ıyla tümleştirme (Önizleme)
+          href: event-hubs-kafka-connect-tutorial.md
+        - name: Akka Streams’i Apache Kafka özellikli bir olay hub'ına bağlama
+          href: event-hubs-kafka-akka-streams-tutorial.md
+    - name: Yönetme ve izleme
       items:
         - name: Azure İzleme ile Event Hubs’ı izleme
           href: event-hubs-metrics-azure-monitor.md
+        - name: Tanılama günlükleri ayarlama
+          href: event-hubs-diagnostic-logs.md
+        - name: Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma
+          href: event-hubs-streaming-azure-diags-data.md
+        - name: İşleme birimlerini otomatik ölçeklendirme
+          href: event-hubs-auto-inflate.md
         - name: Event Hubs yönetim kitaplıkları
           href: event-hubs-management-libraries.md
-    - name: Event Hubs bağlantı dizesini alma
-      href: event-hubs-get-connection-string.md
-    - name: Java geliştirme
+    - name: Güvenlik
       items:
-        - name: Spring Cloud Stream Binder uygulaması oluşturma
-          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
-        - name: Apache Kafka için Spring Önyükleme Başlatıcıyı kullanma
-          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+        - name: Güvenlik duvarlarını kullanma
+          href: event-hubs-ip-filtering.md
+        - name: Sanal ağ hizmet uç noktalarını kullanma
+          href: event-hubs-service-endpoints.md
+        - name: Event Hubs Ad Alanında Sanal Ağ Tümleştirmesi ve Güvenlik Duvarları
+          href: event-hubs-tutorial-virtual-networks-firewalls.md
     - name: Sorun giderme
       items:
         - name: Özel durumlar
           href: event-hubs-messaging-exceptions.md
-    - name: Güvenlik duvarlarını kullanma
-      href: event-hubs-ip-filtering.md
-    - name: Sanal ağ hizmet uç noktalarını kullanma
-      href: event-hubs-service-endpoints.md
-    - name: İşleme birimlerini otomatik ölçeklendirme
-      href: event-hubs-auto-inflate.md
-    - name: Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma
-      href: event-hubs-streaming-azure-diags-data.md
-    - name: Farklı protokoller kullanan uygulamalar arasında olay alışverişi yapma
-      href: event-hubs-exchange-events-different-protocols.md
-    - name: Spring Cloud Stream Binder uygulaması oluşturma
-      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
-      maintainContext: true
 - name: Başvuru
   items:
     - name: Java

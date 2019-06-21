@@ -26,6 +26,8 @@
       href: tutorial-restore-files.md
     - name: Azure VM’lerde SQL Server’ı yedekleme
       href: tutorial-sql-backup.md
+    - name: Azure Dosyalar dosya paylaşımlarını yedekleme
+      href: tutorial-backup-azure-files.md
     - name: Windows Server’ı yedekleme
       href: tutorial-backup-windows-server-to-azure.md
     - name: Dosyaları Windows Server’a geri yükleme

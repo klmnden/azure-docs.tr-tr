@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Tam Ekran Okuyucu Belgeleri
+metadata:
+  title: 'Tam Ekran Okuyucu Belgeleri - Hızlı Başlangıçlar, Öğreticiler, API Başvuruları - Azure Bilişsel Hizmetler | Microsoft Docs'
+  description: Uygulamanızda Tam Ekran Okuyucu’yu kullanmayı öğrenin.
+  services: cognitive-services
+  author: metanMSFT
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: metanMSFT
+abstract:
+  description: 'Tam Ekran Okuyucu okumaya yeni başlayanlar, yabancı dil öğrenenler ve öğrenme farklılıkları olan kişiler için okunanı kavramayı geliştirmeye yönelik kanıtlanmış teknikler uygulayan bir araçtır. Tam Ekran Okuyucu SDK’sını kullanarak web uygulamanızda Tam Ekran Okuyucu’yu kullanabilirsiniz.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/immersive-reader/overview
+            html: <p>Tam Ekran Okuyucu ve Tam Ekran Okuyucu’yu uygulamalarınızla tümleştirme hakkında bilgi edinin</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Tam Ekran Okuyucu nedir?
+          - href: /azure/cognitive-services/immersive-reader/reference
+            html: <p>Tam Ekran Okuyucu JavaScript SDK’sı hakkında bilgi edinin</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Tam Ekran Okuyucu SDK’sını kullanma
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: 'Tam Ekran Okuyucu’yu kullanmaya başlama:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            text: 'C&#35;'
+            alt: 'C# logosu'
+            href: quickstart
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: 'Tam Ekran Okuyucu kullanarak uygulama geliştirmeyi öğrenin:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial.md">Node.js kullanarak Tam Ekran Okuyucu’yu başlatma</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: SDK’lar
+            html: <p><a href="reference.md">JavaScript</a></p>
