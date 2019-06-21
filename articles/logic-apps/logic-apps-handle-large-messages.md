@@ -119,7 +119,7 @@ Bu adımları bir uç noktaya mantıksal uygulamanızdan öbekli içerik yüklem
 
    | Logic Apps üstbilgi alanı istek | Değer | Tür | Açıklama |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-aktarım modu** | öbekli | String | İçerik öbekler halinde karşıya yüklendiğini belirtir. |
+   | **x-ms-transfer-mode** | öbekli | String | İçerik öbekler halinde karşıya yüklendiğini belirtir. |
    | **x-ms-content-length** | <*içerik uzunluğu*> | Integer | Bayt Öbekleme önce tüm içerik boyutu |
    ||||
 
@@ -139,8 +139,8 @@ Bu adımları bir uç noktaya mantıksal uygulamanızdan öbekli içerik yüklem
 
      | Logic Apps üstbilgi alanı istek | Değer | Tür | Açıklama |
      |---------------------------------|-------|------|-------------|
-     | **İçerik-aralık** | <*Aralığı*> | String | Bitiş değeri ve toplam içerik boyutu, örneğin başlangıç değeri de dahil olmak üzere geçerli bir içerik öbek için bayt aralığı: "bayt 0-1023/10100 =" |
-     | **İçerik türü** | <*içerik türü*> | String | Öbekli içerik türü |
+     | **Content-Range** | <*Aralığı*> | String | Bitiş değeri ve toplam içerik boyutu, örneğin başlangıç değeri de dahil olmak üzere geçerli bir içerik öbek için bayt aralığı: "bayt 0-1023/10100 =" |
+     | **Content-Type** | <*içerik türü*> | String | Öbekli içerik türü |
      | **İçerik uzunluğu** | <*içerik uzunluğu*> | String | Bayt cinsinden geçerli öbek boyutu uzunluğu |
      |||||
 

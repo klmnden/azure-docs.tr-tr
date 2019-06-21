@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: de99d1a58cac12c80748b34ef4a1b07c9fb2a78e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337246"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312470"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de bir Spark etkinliği kullanarak verileri bulutta dönüştürme
 Bu öğreticide, Azure portalını kullanarak bir Azure Data Factory işlem hattı oluşturursunuz. Bu işlem hattı bir Spark etkinliği ve isteğe bağlı bir Azure HDInsight bağlı hizmetini kullanarak verileri dönüştürür. 
@@ -69,7 +69,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
     if __name__ == "__main__":
         main()
     ```
-1. *&lt;storageAccountName&gt;*’i Azure depolama hesabınızın adıyla değiştirin. Ardından dosyayı kaydedin. 
+1. *&lt;storageAccountName&gt;* ’i Azure depolama hesabınızın adıyla değiştirin. Ardından dosyayı kaydedin. 
 1. Azure Blob depolama alanında henüz yoksa **adftutorial** adlı bir kapsayıcı oluşturun. 
 1. **Spark** adlı bir klasör oluşturun.
 1. **Spark** klasörünün altında **script** adlı bir alt klasör oluşturun. 
@@ -147,7 +147,7 @@ Bu bölümde iki bağlı hizmet oluşturacaksınız:
    
    b. **Tür için** **İsteğe Bağlı HDInsight**’ın seçili olduğunu onaylayın.
    
-   c. **Azure Depolama Bağlı Hizmeti** için **AzureStorage1**’i seçin. Bu bağlı hizmeti daha önce oluşturmuştunuz. Farklı bir ad kullandıysanız, doğru adı burada belirtin. 
+   c. İçin **Azure depolama bağlı hizmeti**seçin **AzureBlobStorage1**. Bu bağlı hizmeti daha önce oluşturmuştunuz. Farklı bir ad kullandıysanız, doğru adı burada belirtin. 
    
    d. **Küme türü** için **spark**’ı seçin.
    
@@ -189,7 +189,7 @@ Bu bölümde iki bağlı hizmet oluşturacaksınız:
    ![HDInsight bağlı hizmetini belirtme](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. **Betik/Jar** sekmesine geçin ve aşağıdaki adımları tamamlayın: 
 
-   a. **İş Bağlı Hizmeti** için **AzureStorage1**’i seçin.
+   a. İçin **iş bağlı hizmeti**seçin **AzureBlobStorage1**.
    
    b. **Depolamaya Gözat**’ı seçin.
 
@@ -206,7 +206,7 @@ Bu bölümde iki bağlı hizmet oluşturacaksınız:
 
 
 ## <a name="trigger-a-pipeline-run"></a>İşlem hattı çalıştırmasını tetikleme
-Araç çubuğunda **Tetikleyici**’yi ve sonra **Şimdi Tetikle**’yi seçin. 
+Seçin **tetikleyici ekleme** seçin ve araç **şimdi Tetikle**. 
 
 !["Tetikleyici" ve "Şimdi Tetikle" düğmeleri](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -222,7 +222,7 @@ Araç çubuğunda **Tetikleyici**’yi ve sonra **Şimdi Tetikle**’yi seçin.
 
    ![İşlem hattı çalıştırma durumu](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   Üstteki **İşlem Hatları** bağlantısını seçerek işlem hattı çalıştırmaları görünümüne dönebilirsiniz.
+   Seçerek işlem hattı çalıştırmaları görünümüne dönebilirsiniz **tüm işlem hattı çalıştırmalarını** üstündeki bağlantısı.
 
    !["Etkinlik Çalıştırmaları" görünümü](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 

@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b49a6b9e235414cd63eacdbad523bbda8646963
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61433474"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304305"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Proje akustik Unreal hazırlama Öğreticisi
 Bu belgede, Unreal Düzenleyici uzantısı kullanarak bir akustik hazırlama gönderme işlemi açıklanmaktadır.
@@ -208,7 +208,7 @@ Hazırlama işlemi tamamlandıktan sonra çalışma zamanı eklentisi çalışt�
 Bu eklenti çeşitli noktalarında tarafından oluşturulan dört veri dosyası vardır. Yalnızca bir tanesi çalışma zamanında gereken ve projenizin paketleme yolu otomatik olarak eklenir, projenizin içerik/akustik klasöre yerleştirilir. Diğer üç akustik veri klasörü içinde olan ve olmayan paketlenir.
 
 * **[Project]/Config/ProjectAcoustics.cfg**: Bu dosya akustik modu UI alanlarında girdiğiniz verileri depolar. Bu dosyanın adını ve konumunu değiştirilemez. Hazırlama etkileyen, bu dosyada depolanan diğer değerleri vardır, ancak bunlar Gelişmiş kullanıcılar için ve değiştirilmemesi gerekir.
-* **[Project] / içerik/akustik / [LevelName]\_AcousticsData.ace**: Bu, hangi hazırlama benzetimi sırasında oluşturulur ve, sahnenin akustik işlemek için çalışma zamanı tarafından kullanılan arama verileri içeren dosyadır. Bu dosyanın adını ve konumunu alanlara kullanarak değiştirilebilir **araştırmaları** sekmesi.
+* **[Project] / içerik/akustik / [LevelName]\_AcousticsData.ace**: Bu, hangi hazırlama benzetimi sırasında oluşturulur ve, sahnenin akustik işlemek için çalışma zamanı tarafından kullanılan arama verileri içeren dosyadır. Bu dosyanın adını ve konumunu alanlara kullanarak değiştirilebilir **araştırmaları** sekmesi. Oluşturulduktan sonra bu dosyayı yeniden adlandırmak isterseniz, Unreal projenizden UAsset silin, dışında Unreal dosya Gezgini'nde dosyayı yeniden adlandırın ve ardından bu dosyayı yeni UAsset üretmek için Unreal yeniden içeri. UAsset kendisi tarafından yeniden adlandırma çalışmaz.
 * **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData.vox**: Bu dosya, voxelized akustik geometri ve malzeme özelliklerine depolar. Kullanarak hesaplanan **Calculate** düğmesini **araştırmaları** sekmesi. Bu dosyanın adını ve konumunu alanlara kullanarak değiştirilebilir **araştırmaları** sekmesi.
 * **[Project] / Plugins/ProjectAcoustics/AcousticsData / [LevelName]\_AcousticsData\_config.xml**: Bu dosya kullanılarak hesaplanır parametreleri depolayan **Calculate** düğmesini **araştırmaları** sekmesi. Bu dosyanın adını ve konumunu alanlara kullanarak değiştirilebilir **araştırmaları** sekmesi.
 

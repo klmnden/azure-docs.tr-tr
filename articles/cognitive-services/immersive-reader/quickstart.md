@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 7074511d16d157d67a67a2c40383c9909a4942bd
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 77d95383c801038c256ccb2bf386ddf06048cf78
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296764"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311804"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Hızlı Başlangıç: Derinlikli okuyucu başlatan bir web uygulaması oluşturma (C#)
 
@@ -27,7 +27,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads)
-* Bir abonelik anahtarı sürükleyici okuyucu. İzleyerek bir tane alın [bu yönergeleri](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account).
+* Bir abonelik anahtarı sürükleyici okuyucu. İzleyerek bir tane alın [bu yönergeleri](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
 ## <a name="create-a-web-app-project"></a>Bir web uygulaması projesi oluşturma
 
@@ -39,7 +39,7 @@ Visual Studio'da yerleşik Model-View-Controller ile ASP.NET Core Web uygulamas�
 
 ## <a name="acquire-an-access-token"></a>Erişim belirteci alma
 
-Bu sonraki adım için abonelik anahtarınızı ve uç nokta gerekir. Bu bilgileri bulabilirsiniz https://azure.microsoft.com/try/cognitive-services/my-apis/.
+Bu sonraki adım için abonelik anahtarınızı ve uç nokta gerekir. Abonelik anahtarınızı sürükleyici okuyucu kaynağınızın Azure portalındaki anahtarlar sayfasında bulabilirsiniz. Uç noktanız genel bakış sayfasında bulabilirsiniz.
 
 Projeye sağ tıklayarak _Çözüm Gezgini_ ve **nıcı parolalarını Yönet**. Bu adlı bir dosya açar _secrets.json_. Bu dosyanın içeriğini aşağıdakilerle değiştirin, uygun yerlerde abonelik anahtarını ve uç noktası sağlama.
 
@@ -88,7 +88,7 @@ public class HomeController : Controller
         using (var client = new System.Net.Http.HttpClient())
         {
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-            using (var response = await client.PostAsync($"{Endpoint}/issueToken", null))
+            using (var response = await client.PostAsync(Endpoint, null))
             {
                 return await response.Content.ReadAsStringAsync();
             }
@@ -110,7 +110,7 @@ Bu web uygulamasını şimdi bazı örnek içerik ekleyeceğiz. Açık _Views\Ho
 <div class='immersive-reader-button' data-button-style='iconAndText' onclick='launchImmersiveReader()'></div>
 
 @section scripts {
-<script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js'></script>
+<script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js'></script>
 <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 <script type='text/javascript'>
     function getImmersiveReaderTokenAsync() {
@@ -135,7 +135,7 @@ Bu web uygulamasını şimdi bazı örnek içerik ekleyeceğiz. Açık _Views\Ho
         };
 
         const token = await getImmersiveReaderTokenAsync();
-        ImmersiveReader.launchAsync(token, null, content, { uiZIndex: 1000000 });
+        ImmersiveReader.launchAsync(token, content, { uiZIndex: 1000000 });
     }
 </script>
 }
@@ -151,7 +151,7 @@ Tarayıcınızda görmeniz gerekir:
 
 "Sürükleyici okuyucu" düğmesine tıkladığınızda, sürükleyici sayfasında içerikle başlatılan okuyucu görürsünüz.
 
-![Derinlikli okuyucusu](./media/quickstart-immersive-reader.png)
+![Tam Ekran Okuyucu](./media/quickstart-immersive-reader.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

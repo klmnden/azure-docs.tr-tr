@@ -13,100 +13,75 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/03/2019
+ms.date: 06/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fd0a4e77c36f8f9be220b4e56d76d17487b7017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: faa23f61e5a213c492a7fb51bfc5b108e5c77946
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087304"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310399"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Öğretici: Yaptığımız yolu ile Azure Active Directory Tümleştirme
+# <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Öğretici: Azure Active Directory ile yaptığımız şekilde tümleştirin
 
-Bu öğreticide, yaptığımız gibi Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
-Azure AD ile tümleştirme gibi yaptığımız ile aşağıdaki avantajları sağlar:
+Bu öğreticide, Azure Active Directory (Azure AD) ile tümleştirme gibi yaptığımız öğreneceksiniz. Yaptığımız gibi Azure AD ile tümleştirdiğinizde, şunları yapabilirsiniz:
 
-* Erişimi yaptığımız gibi Azure AD'de kontrol edebilirsiniz.
-* Kullanıcılarınızın şekilde yapmamız için (çoklu oturum açma) ile Azure AD hesaplarına otomatik olarak imzalanmasını etkinleştirebilirsiniz.
-* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Erişimi yaptığımız gibi Azure AD'de denetler.
+* Otomatik olarak yol yapmamız için kendi Azure AD hesapları ile oturum açmış olmasını sağlayın.
+* Bir merkezi konumda - Azure portalı hesaplarınızı yönetin.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirmesi gibi biz yaparız ile yapılandırmak için aşağıdaki öğeler gerekir:
+Başlamak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
-* Size çoklu oturum açma yolu abonelik etkin
+* Azure AD aboneliğiniz. Bir aboneliğiniz yoksa, bir aylık ücretsiz deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+* Size çoklu oturum açma (SSO) yolu abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+Bu öğreticide, yapılandırma ve Azure AD SSO bir test ortamında test edin.
 
 * Yaptığımız biçimini destekler **SP** tarafından başlatılan
-
 * Yaptığımız biçimini destekler **zamanında** kullanıcı sağlama
 
 ## <a name="adding-way-we-do-from-the-gallery"></a>Yaptığımız gibi galeri ekleme
 
 Yaptığımız gibi Azure AD'de tümleştirmesini yapılandırmak için yaptığımız gibi galerideki yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden yaptığımız yolu eklemek için aşağıdaki adımları gerçekleştirin:**
-
-1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
-
-    ![Azure Active Directory düğmesi](common/select-azuread.png)
-
-2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
-
-    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
-
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
-
-    ![Yeni Uygulama düğmesi](common/add-new-app.png)
-
-4. Arama kutusuna **yaptığımız gibi**seçin **yaptığımız gibi** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
-
-    ![Sonuçlar listesinde şekilde desteklemiyoruz](common/search-new-app.png)
+1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
+1. Sol gezinti bölmesinde seçin **Azure Active Directory** hizmeti.
+1. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları**.
+1. Yeni bir uygulama eklemek için seçin **yeni uygulama**.
+1. İçinde **Galeriden Ekle** bölümüne şunu yazın **yaptığımız gibi** arama kutusuna.
+1. Seçin **yaptığımız gibi** gelen sonuçlar panelinde ve uygulama ekleyin. Uygulama, kiracınıza eklendiği sırada birkaç saniye bekleyin.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma yolu adlı bir test kullanıcı tabanlı olan yaptığımız ile test etme **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısı ile ilgili yaptığımız gibi kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
+Yapılandırma ve test etme yolu kullanarak adlı bir test kullanıcısı olan yaptığımız ile Azure AD SSO **B.Simon**. Çalışmak SSO için yol yaptığımız içinde bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı ilişki oluşturmanız gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma yolu yaptığımız ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD SSO ile yaptığımız gibi sınamak için aşağıdaki yapı taşlarını tamamlayın:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Size çoklu oturum açma biçimini yapılandırmak](#configure-way-we-do-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+1. **[Azure AD SSO'yu yapılandırma](#configure-azure-ad-sso)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Yol biz yapmak SSO'yu yapılandırarak](#configure-way-we-do-sso)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 5. **[Biz kullanıcı test yolu oluşturma](#create-way-we-do-test-user)**  - bir karşılığı Britta simon'un şekilde kullanıcı Azure AD gösterimini bağlı bunu sağlamak için.
-6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+6. **[Test SSO](#test-sso)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO'yu yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
+Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları izleyin.
 
-Azure AD çoklu oturum açma yolu yaptığımız ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
+1. İçinde [Azure portalında](https://portal.azure.com/), **yaptığımız gibi** uygulama tümleştirme sayfası, bulma **Yönet** bölümünde ve seçin **çoklu oturum açma**.
+1. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** sayfasında **SAML**.
+1. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında, düzenleme/kalem simgesine tıklayıp **temel SAML yapılandırma** ayarlarını düzenlemek için.
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **yaptığımız gibi** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+   ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
-
-2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
-
-    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
-
-3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
-
-    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
-
-4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
-
-    ![Yol biz yapmak etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+1. Üzerinde **temel SAML yapılandırma** sayfasında, aşağıdaki alanlar için değerleri girin:
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`
 
@@ -115,33 +90,35 @@ Azure AD çoklu oturum açma yolu yaptığımız ile yapılandırmak için aşa�
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [şekilde biz yapmak istemci Destek ekibine](mailto:support@waywedo.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (ham)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+1. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, bulma **sertifika (ham)** seçip **indirme**sertifikayı indirin ve bilgisayarınıza kaydedin.
 
-    ![Sertifika indirme bağlantısı](common/certificateraw.png)
+   ![Sertifika indirme bağlantısı](common/certificateraw.png)
 
-6. Üzerinde **şekilde yaptığımız kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+1. Üzerinde **şekilde yaptığımız kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+   ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    a. Oturum Açma URL'si:
+### <a name="configure-way-we-do-sso"></a>SSO yaptığımız şekilde yapılandırın
 
-    b. Azure AD Tanımlayıcısı
+1. Yaptığımız gibi içinde yapılandırmasını otomatik hale getirmenizi yüklemeniz gerekir **My Apps güvenli oturum açma tarayıcı uzantısı** tıklayarak **uzantıyı yükleme**.
 
-    c. Oturum Kapatma URL'si
+    ![Uygulamaları uzantım](common/install-myappssecure-extension.png)
 
-### <a name="configure-way-we-do-single-sign-on"></a>Size çoklu oturum açmayı şekilde yapılandırın
+1. Tarayıcı uzantısı ekledikten sonra tıklayın **Kurulum şekilde yaptığımız** yaptığımız gibi uygulamaya yönlendirir. Burada, yol yaptığımız oturum açmak için yönetici kimlik bilgilerini sağlayın. Tarayıcı uzantısı otomatik olarak sizin için uygulamayı yapılandırma ve 3-6 adımları otomatik hale getirin.
 
-1. Farklı bir web tarayıcı penceresinde bir şekilde yapmamız için bir güvenlik yöneticisi olarak oturum açın.
+    ![Kurulum yapılandırması](common/setup-sso.png)
 
-2. Tıklayın **kişi simgesi** yaptığımız gibi herhangi bir sayfasında sağ üst köşesinde, ardından **hesabı** açılır menüdeki.
+1. Yaptığımız gibi el ile ayarlamak istiyorsanız, yeni bir web tarayıcı penceresi açın ve yaptığımız gibi şirketinizin sitesi yönetici olarak oturum açın ve aşağıdaki adımları gerçekleştirin:
 
-    ![Yol yaptığımız hesabı](./media/waywedo-tutorial/tutorial_waywedo_account.png) 
+1. Tıklayın **kişi simgesi** yaptığımız gibi herhangi bir sayfasında sağ üst köşesinde, ardından **hesabı** açılır menüdeki.
 
-3. Tıklayın **menüsü simgesi** anında iletme Gezinti menüsüne ve ardından açmak için **çoklu oturum açma**.
+    ![Yol yaptığımız hesabı](./media/waywedo-tutorial/tutorial_waywedo_account.png)
+
+1. Tıklayın **menüsü simgesi** anında iletme Gezinti menüsüne ve ardından açmak için **çoklu oturum açma**.
 
     ![Yol yaptığımız tek](./media/waywedo-tutorial/tutorial_waywedo_single.png)
 
-4. Üzerinde **tek oturum açma Kurulumu** sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **tek oturum açma Kurulumu** sayfasında, aşağıdaki adımları gerçekleştirin:
 
     ![Yol yaptığımız Kaydet](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
@@ -162,59 +139,39 @@ Azure AD çoklu oturum açma yolu yaptığımız ile yapılandırmak için aşa�
     * Otomatik sağlamayı - etkinleştirme etkinleştirildiğinde, oturum açma için kullanılan e-posta adresine otomatik olarak yaptığımız gibi kullanıcıların listesine karşılaştırılır. Yaptığımız gibi etkin bir kullanıcı e-posta adresi ile eşleşmiyorsa, oturum açma, eksik bilgileri isteyen kişi için otomatik olarak yeni bir kullanıcı hesabı ekler.
 
       > [!NOTE]
-      > Çoklu oturum açma ile eklenen kullanıcılar genel kullanıcılar olarak eklenir ve sistemde bir rolü atanmaz. Bir yönetici, Git ve bir düzenleyici veya yönetici olarak güvenlik rolü değiştirebilirsiniz ve ayrıca bir veya birden çok kuruluş şeması roller atayabilirsiniz. 
+      > Çoklu oturum açma ile eklenen kullanıcılar genel kullanıcılar olarak eklenir ve sistemde bir rolü atanmaz. Bir yönetici, Git ve bir düzenleyici veya yönetici olarak güvenlik rolü değiştirebilirsiniz ve ayrıca bir veya birden çok kuruluş şeması roller atayabilirsiniz.
 
     g. Tıklayın **Kaydet** ayarlarınızı kalıcı hale getirmek için.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
+Bu bölümde, bir test kullanıcısı B.Simon adlı Azure portalında oluşturacaksınız.
 
-1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
-
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
-
-2. Seçin **yeni kullanıcı** ekranın üstünde.
-
-    ![Yeni kullanıcı düğmesi](common/new-user.png)
-
-3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
-
-    ![Kullanıcı iletişim kutusu](common/user-properties.png)
-
-    a. İçinde **adı** alana **BrittaSimon**.
-  
-    b. İçinde **kullanıcı adı** alan türü `brittasimon@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com
-
-    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
-
-    d. **Oluştur**’a tıklayın.
+1. Azure Portalı'ndaki sol bölmeden seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
+1. Seçin **yeni kullanıcı** ekranın üstünde.
+1. İçinde **kullanıcı** özellikleri, aşağıdaki adımları izleyin:
+   1. **Ad** alanına `B.Simon` girin.  
+   1. İçinde **kullanıcı adı** alanına username@companydomain.extension. Örneğin, `B.Simon@contoso.com`.
+   1. Seçin **Show parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+   1. **Oluştur**’a tıklayın.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Azure çoklu oturum açma yolu yapmamız için erişim izni verme kullanmak Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma yolu yapmamız için erişim izni verme kullanmak B.Simon tıklatmalarını sağlarsınız.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **yaptığımız gibi**.
+1. Azure portalında **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
+1. Uygulamalar listesinde **yaptığımız gibi**.
+1. Uygulamanın genel bakış sayfasında bulma **Yönet** seçin ve bölüm **kullanıcılar ve gruplar**.
 
-    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+   !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-2. Uygulamalar listesinde **yaptığımız gibi**.
+1. Seçin **Kullanıcı Ekle**, ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Uygulamalar listesinde yaptığımız gibi bağlantı](common/all-applications.png)
+    ![Kullanıcı ekleme bağlantısı](common/add-assign-user.png)
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
-
-4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
-
-    ![Atama Ekle bölmesi](common/add-assign-user.png)
-
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
-
-6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
-
-7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+1. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **B.Simon** kullanıcılar listesinden ardından **seçin** ekranın alt kısmındaki düğmesi.
+1. SAML onaylama işlemi herhangi bir rolü değer de beklediğiniz varsa **rolü Seç** iletişim kutusunda, listeden bir kullanıcı için uygun rolü seçin ve ardından **seçin** ekranın alt kısmındaki düğmesi.
+1. İçinde **atama Ekle** iletişim kutusunda, tıklayın **atama** düğmesi.
 
 ### <a name="create-way-we-do-test-user"></a>Yaptığımız gibi test kullanıcısı oluşturma
 
@@ -223,11 +180,9 @@ Bu bölümde, Britta Simon adlı bir kullanıcı yolu yaptığımız içinde olu
 > [!Note]
 > Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [şekilde biz yapmak istemci Destek ekibine](mailto:support@waywedo.com).
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-sso"></a>Test SSO
 
-Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
-
-Erişim paneli yaptığımız gibi kutucuğa tıkladığınızda, size otomatik olarak yol biz SSO'yu ayarlama yapmak için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Erişim Paneli'nde yaptığımız gibi kutucuğu seçtiğinizde, otomatik olarak yol biz SSO'yu ayarlama yapmak için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
@@ -236,4 +191,3 @@ Erişim paneli yaptığımız gibi kutucuğa tıkladığınızda, size otomatik 
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

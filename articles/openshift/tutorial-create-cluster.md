@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/14/2019
-ms.openlocfilehash: 651236c25ed912ebd7399d351677a67e3826278c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 9094fa441ff5ffdd5f579fd072ffaa303961314d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306196"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304266"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Öğretici: Azure Red Hat OpenShift kümesi oluşturun
 
@@ -46,7 +46,7 @@ Emin olun [geliştirme ortamınızı ayarlama](howto-setup-environment.md), içe
 - Bir güvenlik grubu oluşturma
 - Küme oturum açmak için bir Active Directory kullanıcısı oluşturuluyor.
 
-## <a name="step-1-sign-in-to-azure"></a>1. Adım: Oturum açın: Azure
+## <a name="step-1-sign-in-to-azure"></a>1\. adım: Azure'da oturum açma
 
 Azure CLI'yi yerel olarak çalıştırıyorsanız, bir Bash komut kabuğu ve çalışma açın `az login` için Azure'da oturum açın.
 
@@ -56,7 +56,7 @@ az login
 
  Birden çok aboneliğe erişiminiz çalıştırırsanız `az account set -s {subscription ID}` değiştirerek `{subscription ID}` kullanmak istediğiniz aboneliği ile.
 
-## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>2. Adım: Azure Red Hat OpenShift kümesi oluşturun
+## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>2\. adım: Azure Red Hat OpenShift kümesi oluşturun
 
 Bir Bash komut penceresinde aşağıdaki değişkenleri ayarlayın:
 
@@ -107,6 +107,10 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 Sanal ağ (VNET) eşlemesi aracılığıyla oluşturduğunuz kümenin mevcut bir sanal ağa bağlanmak gerekmiyorsa, bu adımı atlayın.
 
+Ardından bu Abonelikteki varsayılan abonelik dışında bir ağ eşlemesi, Microsoft.ContainerService sağlayıcısını kaydetmeniz gerekir. Bunu yapmak için çalıştırın aşağıdaki bu Abonelikteki komutu. Aksi takdirde VNET eşlemesi aynı abonelikte yer alıyorsa, kayıt adımı atlayabilirsiniz. 
+
+`az provider register -n Microsoft.ContainerService --wait`
+
 İlk olarak, mevcut bir VNET tanımlayıcısını alın. Tanımlayıcı biçiminde olacaktır: `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.
 
 Ağ adı veya mevcut bir VNET ait olduğu kaynak grubu bilmiyorsanız, Git [sanal ağlar dikey](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Network%2FvirtualNetworks) ve sanal ağınızda'ı tıklatın. Sanal ağ sayfası görünür ve ağ ve ait olduğu kaynak grubu adını listeler.
@@ -152,7 +156,7 @@ Aranacak `publicHostName` çıkışında, örneğin: `"publicHostname": "openshi
 
 URL'de oturum kümenizin `https://` ardından `publicHostName` değeri.  Örneğin: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  Bu URI sonraki adımda uygulama kayıt yeniden yönlendirme URI'si bir parçası olarak kullanır.
 
-## <a name="step-3-update-your-app-registration-redirect-uri"></a>3. adım: Güncelleştirme, uygulama kayıt yeniden yönlendirme URI'si
+## <a name="step-3-update-your-app-registration-redirect-uri"></a>3\. adım: Güncelleştirme, uygulama kayıt yeniden yönlendirme URI'si
 
 Küme için URL'de oturum edindikten sonra uygulama kayıt yeniden yönlendirme UI ayarlayın:
 
@@ -162,7 +166,7 @@ Küme için URL'de oturum edindikten sonra uygulama kayıt yeniden yönlendirme 
 4. Emin **türü** olduğu **Web** ayarlayıp **yeniden yönlendirme URI'si** şu biçimi kullanarak: `https://<public host name>/oauth2callback/Azure%20AD`. Örneğin, `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
 5. **Kaydet**'e tıklayın.
 
-## <a name="step-4-sign-in-to-the-openshift-console"></a>4. Adım: OpenShift konsoluna oturum açın
+## <a name="step-4-sign-in-to-the-openshift-console"></a>4\. Adım: OpenShift konsoluna oturum açın
 
 Artık yeni kümenizin OpenShift konsol oturum açmaya hazırsınız. [OpenShift Web Konsolu](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) görselleştirin, göz atın ve OpenShift projelerinizi içeriğini yönetmek için etkinleştirir.
 
@@ -171,7 +175,7 @@ Azure portalında oturum açmak için normalde kullandığınız kimliğin önbe
 1. Açık bir *ıncognito* penceresi (Chrome) veya *InPrivate* penceresi (Microsoft Edge).
 2. Yukarıdaki örnek elde ettiğiniz oturum açma URL'sine gidin: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`
 
-3. adımında oluşturduğunuz kullanıcı adını kullanarak oturum [yeni bir Azure Active Directory kullanıcısı oluşturma](howto-aad-app-configuration.md#create-a-new-azure-active-directory-user).
+3\. adımında oluşturduğunuz kullanıcı adını kullanarak oturum [yeni bir Azure Active Directory kullanıcısı oluşturma](howto-aad-app-configuration.md#create-a-new-azure-active-directory-user).
 
 A **istenen izinleri** iletişim kutusu görüntülenir. Tıklayın **onay kuruluşunuz adına** ve ardından **kabul**.
 
@@ -181,7 +185,7 @@ Artık, bir kümenin konsolda günlüğe kaydedilir.
 
  Daha fazla bilgi edinin [OpenShift konsolunu kullanarak](https://docs.openshift.com/aro/getting_started/developers_console.html) oluşturmak için ve yerleşik görüntüleri [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) belgeleri.
 
-## <a name="step-5-install-the-openshift-cli"></a>5. Adım: OpenShift CLI'yı yükleme
+## <a name="step-5-install-the-openshift-cli"></a>5\. Adım: OpenShift CLI'yı yükleme
 
 [OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (veya *OC Araçları*) OpenShift kümenizin çeşitli bileşenleri ile etkileşim kurmak için alt düzey yardımcı programları ve uygulamaları yönetmek için komutlar sağlar.
 

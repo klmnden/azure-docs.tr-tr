@@ -7,14 +7,14 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 05/01/2019
-ms.openlocfilehash: 5ca01e8077eb0651dff57be4c7681995764f6992
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 71668b41125de323640dd668f733c1bd1982f583
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166900"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304460"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-search"></a>C#Öğretici: Azure Search - ilk uygulamanızı oluşturma
+# <a name="c-tutorial-create-your-first-app---azure-search"></a>C#öğretici: Azure Search - ilk uygulamanızı oluşturma
 
 Kullanarak Azure Search dizini sorgulama ve arama sonuçları mevcut bir web arabirimi oluşturmayı öğrenin. Bu öğreticide, arama sayfası oluşturmaya odaklanabilmeniz için var olan ve barındırılan dizin ile başlar. Dizini, kurgusal bir Konaklama veri içerir. Temel sayfa aldıktan sonra disk belleği, özellikleri ve yazarken tamamlama deneyimi içerecek şekilde sonraki derslerde geliştirebilirsiniz.
 
@@ -65,6 +65,7 @@ Bu proje sıfırdan oluşturun ve bu nedenle Azure Search bileşenlerde fikriniz
 ## <a name="set-up-a-development-environment"></a>Bir geliştirme ortamı ayarlama
 
 1. Visual Studio 2017 veya sonraki sürümlerde, seçin **yeni/proje** ardından **ASP.NET Core Web uygulaması**. Proje, "FirstAzureSearchApp" gibi bir ad verin.
+
     ![Bir bulut projesi oluşturma](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
 
 2. Tıklattıktan sonra **Tamam** bu proje türü için bu proje için geçerli seçenekleri ikinci bir set sunulur. Seçin **Web uygulaması (Model-View-Controller)** .
@@ -81,12 +82,12 @@ Bu örnek, genel kullanıma açık otel veri kullanıyoruz. Bu veri 50 kurgusal 
 
 1. Yeni projenize appsettings.json dosyasını açın ve varsayılan satırları aşağıdaki adı ve anahtarı ile değiştirin. Burada örnek bir anahtar olmadığı API anahtarı olduğu _tam olarak_ otel verilere erişmek için gereksinim duyduğunuz anahtarı. Appsettings.json dosyanız şu şekilde görünmelidir.
 
-```cs
-{
-  "SearchServiceName": "azs-playground",
-  "SearchServiceQueryApiKey": "EA4510A6219E14888741FCFC19BFBB82"
-}
-```
+    ```cs
+    {
+        "SearchServiceName": "azs-playground",
+        "SearchServiceQueryApiKey": "EA4510A6219E14888741FCFC19BFBB82"
+    }
+    ```
 
 2. Biz bu dosyayla yapılmadı henüz bu dosya için Özellikler'i seçin ve değiştirme **çıkış dizinine Kopyala** ayarını **yeniyse Kopyala**.
 
@@ -100,147 +101,147 @@ Modelleri (C# sınıflar) (Görünüm) istemci, sunucunun (denetleyicisi) ve ayr
 
 2. Sağ **modelleri** klasörü ve select **Ekle** ardından **yeni öğe**. Görüntülenen iletişim kutusunda, ardından **ASP.NET Core** sonra ilk seçenek **sınıfı**. Hotel.cs için .cs dosyayı yeniden adlandırın ve tıklayın **Ekle**. Hotel.cs tüm içeriğini aşağıdaki kodla değiştirin. Bildirim **adresi** ve **odası** sınıf üyeleri, bu alanlar sınıflardır kendilerini modelleri için çok ihtiyacımız şekilde.
 
-```cs
-using System;
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-using Microsoft.Spatial;
-using Newtonsoft.Json;
+    ```cs
+    using System;
+    using Microsoft.Azure.Search;
+    using Microsoft.Azure.Search.Models;
+    using Microsoft.Spatial;
+    using Newtonsoft.Json;
 
-namespace FirstAzureSearchApp.Models
-{
-    public partial class Hotel
+    namespace FirstAzureSearchApp.Models
     {
-        [System.ComponentModel.DataAnnotations.Key]
-        [IsFilterable]
-        public string HotelId { get; set; }
+        public partial class Hotel
+        {
+            [System.ComponentModel.DataAnnotations.Key]
+            [IsFilterable]
+            public string HotelId { get; set; }
 
-        [IsSearchable, IsSortable]
-        public string HotelName { get; set; }
+            [IsSearchable, IsSortable]
+            public string HotelName { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.EnLucene)]
-        public string Description { get; set; }
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.EnLucene)]
+            public string Description { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.FrLucene)]
-        [JsonProperty("Description_fr")]
-        public string DescriptionFr { get; set; }
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.FrLucene)]
+            [JsonProperty("Description_fr")]
+            public string DescriptionFr { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string Category { get; set; }
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string Category { get; set; }
 
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string[] Tags { get; set; }
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string[] Tags { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
-        public bool? ParkingIncluded { get; set; }
+            [IsFilterable, IsSortable, IsFacetable]
+            public bool? ParkingIncluded { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
-        public DateTimeOffset? LastRenovationDate { get; set; }
+            [IsFilterable, IsSortable, IsFacetable]
+            public DateTimeOffset? LastRenovationDate { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
-        public double? Rating { get; set; }
+            [IsFilterable, IsSortable, IsFacetable]
+            public double? Rating { get; set; }
 
-        public Address Address { get; set; }
+            public Address Address { get; set; }
 
-        [IsFilterable, IsSortable]
-        public GeographyPoint Location { get; set; }
+            [IsFilterable, IsSortable]
+            public GeographyPoint Location { get; set; }
 
-        public Room[] Rooms { get; set; }
+            public Room[] Rooms { get; set; }
+        }
     }
-}
-```
+    ```
 
 3. Modeli oluşturma aynı süreci izleyin **adresi** Address.cs dosya adı dışında sınıf. İçeriğini aşağıdakiyle değiştirin.
 
-```cs
-using Microsoft.Azure.Search;
+    ```cs
+    using Microsoft.Azure.Search;
 
-namespace FirstAzureSearchApp.Models
-{
-    public partial class Address
+    namespace FirstAzureSearchApp.Models
     {
-        [IsSearchable]
-        public string StreetAddress { get; set; }
+        public partial class Address
+        {
+            [IsSearchable]
+            public string StreetAddress { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string City { get; set; }
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string City { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string StateProvince { get; set; }
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string StateProvince { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string PostalCode { get; set; }
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string PostalCode { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string Country { get; set; }
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string Country { get; set; }
+        }
     }
-}
-```
+    ```
 
 4. Yeniden oluşturmak için aynı süreci izleyin **odası** Room.cs dosya adlandırma sınıfı. Yeniden içeriğini aşağıdakiyle değiştirin.
 
-```cs
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-using Newtonsoft.Json;
+    ```cs
+    using Microsoft.Azure.Search;
+    using Microsoft.Azure.Search.Models;
+    using Newtonsoft.Json;
 
-namespace FirstAzureSearchApp.Models
-{
-    public partial class Room
+    namespace FirstAzureSearchApp.Models
     {
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        public partial class Room
+        {
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
 
-        public string Description { get; set; }
+            public string Description { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.FrMicrosoft)]
-        [JsonProperty("Description_fr")]
-        public string DescriptionFr { get; set; }
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.FrMicrosoft)]
+            [JsonProperty("Description_fr")]
+            public string DescriptionFr { get; set; }
 
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string Type { get; set; }
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string Type { get; set; }
 
-        [IsFilterable, IsFacetable]
-        public double? BaseRate { get; set; }
+            [IsFilterable, IsFacetable]
+            public double? BaseRate { get; set; }
 
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string BedOptions { get; set; }
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string BedOptions { get; set; }
 
-        [IsFilterable, IsFacetable]
+            [IsFilterable, IsFacetable]
 
-        public int SleepsCount { get; set; }
+            public int SleepsCount { get; set; }
 
-        [IsFilterable, IsFacetable]
-        public bool? SmokingAllowed { get; set; }
+            [IsFilterable, IsFacetable]
+            public bool? SmokingAllowed { get; set; }
 
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string[] Tags { get; set; }
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string[] Tags { get; set; }
+        }
     }
-}
-```
+    ```
 
 5. Dizi **otel**, **adresi**, ve **odası** sınıflardır Azure bilinen [ _karmaşık türler_ ](search-howto-complex-data-types.md), Azure Search'ün önemli bir özelliği. Karmaşık türler sınıflar ve alt sınıfların derin düzeyleri olması ve kullanmaktan gösterilemeyecek kadar çok daha karmaşık veri yapılarını etkinleştir _basit türler_ (yalnızca ilkel üyeleri içeren bir sınıf). Bir daha fazla model yapmamız gerekir, böylece yeni bir model sınıfı yeniden oluşturma sürecinden geçer, ancak bu süre çağrı SearchData.cs sınıfı ve varsayılan kodu aşağıdakiyle değiştirin.
 
-```cs
-using Microsoft.Azure.Search.Models;
+    ```cs
+    using Microsoft.Azure.Search.Models;
 
-namespace FirstAzureSearchApp.Models
-{
-    public class SearchData
+    namespace FirstAzureSearchApp.Models
     {
-        // The text to search for.
-        public string searchText { get; set; }
+        public class SearchData
+        {
+            // The text to search for.
+            public string searchText { get; set; }
 
-        // The list of results.
-        public DocumentSearchResult<Hotel> resultList;
+            // The list of results.
+            public DocumentSearchResult<Hotel> resultList;
+        }
     }
-}
-```
+    ```
 
-Bu sınıf, kullanıcının giriş içerir (**Aramametni**), ve arama çıktı (**resultList**). Çıkış türü önemlidir **DocumentSearchResult&lt;otel&gt;** gibi bu tür Arama sonuçlarından tam olarak eşleşir ve görünüm üzerinden bu başvuruyu geçirilecek gerekiyor.
+    Bu sınıf, kullanıcının giriş içerir (**Aramametni**), ve arama çıktı (**resultList**). Çıkış türü önemlidir **DocumentSearchResult&lt;otel&gt;** gibi bu tür Arama sonuçlarından tam olarak eşleşir ve görünüm üzerinden bu başvuruyu geçirilecek gerekiyor.
 
 
 
@@ -254,30 +255,30 @@ Index.cshtml içeriği tamamen silin ve aşağıdaki adımlarda dosyasını yeni
 
 2. Index.cshtml ilk satırının şu kullanacağınız veri olan (denetleyicisi) sunucu ile istemci (Görünüm) arasında iletişim kurmak için model başvurmalıdır **SearchData** modeli oluşturduk. Bu satırı Index.cshtml dosyaya ekleyin.
 
-```cs
-@model FirstAzureSearchApp.Models.SearchData
-```
+    ```cs
+    @model FirstAzureSearchApp.Models.SearchData
+    ```
 
 3. Sonraki satırları bu nedenle, görünüm için bir başlık girin standart bir uygulamadır:
 
-```cs
-@{
-    ViewData["Title"] = "Home Page";
-}
-```
+    ```cs
+    @{
+        ViewData["Title"] = "Home Page";
+    }
+    ```
 
 4. Başlık kısa bir süre içinde oluşturacağız ve HTML stil, başvuru girin.
 
-```cs
-<head>
-    <link rel="stylesheet" href="~/css/hotels.css" />
-</head>
-```
+    ```cs
+    <head>
+        <link rel="stylesheet" href="~/css/hotels.css" />
+    </head>
+    ```
 
 5. Artık et görünümün için. Anımsanması anahtar bir şey görünüm iki durum işlemek sahip olur. İlk olarak, bu görünen uygulama ilk kez başlatılmadan ve kullanıcı henüz herhangi bir arama metni girmedi işlemesi gerekir. İkincisi, arama metin kutusuna, kullanıcı tarafından tekrarlanan kullanmak için ek olarak, sonuçların görüntülenmesini işlemesi gerekir. Bu durumlardan işlemek için sağlanan görünüm modeli null olup olmadığını denetlemek ihtiyacımız var. Null bir model, iki durumda (uygulamanın ilk çalıştırma) ilk duyuyoruz gösterir. Index.cshtml dosyasına aşağıdakileri ekleyin ve yorumları okuyun.
 
-```cs
-<body>
+    ```cs
+    <body>
     <h1 class="sampleTitle">
         <img src="~/images/azure-logo.png" width="80" />
         Hotels Search
@@ -305,85 +306,85 @@ Index.cshtml içeriği tamamen silin ve aşağıdaki adımlarda dosyasını yeni
             }
         }
     }
-</body>
-```
+    </body>
+    ```
 
 6. Son olarak, stil sayfası ekleyin. Visual Studio içinde **dosya** menüsünü seçin **yeni/dosya** ardından **stil sayfası** (ile **genel** vurgulanan). Varsayılan kodu aşağıdakiyle değiştirin. Bu dosyaya herhangi ayrıntılı kullanacağız değil, standart HTML stillerdir.
 
-```cs
-   textarea.box1 {
-    width: 648px;
-    height: 30px;
-    border: none;
-    background-color: azure;
-    font-size: 14pt;
-    color: blue;
-    padding-left: 5px;
-}
+    ```html
+    textarea.box1 {
+        width: 648px;
+        height: 30px;
+        border: none;
+        background-color: azure;
+        font-size: 14pt;
+        color: blue;
+        padding-left: 5px;
+    }
 
-textarea.box2 {
-    width: 648px;
-    height: 100px;
-    border: none;
-    background-color: azure;
-    font-size: 12pt;
-    padding-left: 5px;
-    margin-bottom: 24px;
-}
+    textarea.box2 {
+        width: 648px;
+        height: 100px;
+        border: none;
+        background-color: azure;
+        font-size: 12pt;
+        padding-left: 5px;
+        margin-bottom: 24px;
+    }
 
-.sampleTitle {
-    font: 32px/normal 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
-    margin: 20px 0;
-    font-size: 32px;
-    text-align: left;
-}
+    .sampleTitle {
+        font: 32px/normal 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
+        margin: 20px 0;
+        font-size: 32px;
+        text-align: left;
+    }
 
-.sampleText {
-    font: 16px/bold 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
-    margin: 20px 0;
-    font-size: 14px;
-    text-align: left;
-    height: 30px;
-}
+    .sampleText {
+        font: 16px/bold 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
+        margin: 20px 0;
+        font-size: 14px;
+        text-align: left;
+        height: 30px;
+    }
 
-.searchBoxForm {
-    width: 648px;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
-    background-color: #fff;
-    display: inline-block;
-    border-collapse: collapse;
-    border-spacing: 0;
-    list-style: none;
-    color: #666;
-}
+    .searchBoxForm {
+        width: 648px;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
+        background-color: #fff;
+        display: inline-block;
+        border-collapse: collapse;
+        border-spacing: 0;
+        list-style: none;
+        color: #666;
+    }
 
-.searchBox {
-    width: 568px;
-    font-size: 16px;
-    margin: 5px 0 1px 20px;
-    padding: 0 10px 0 0;
-    border: 0;
-    max-height: 30px;
-    outline: none;
-    box-sizing: content-box;
-    height: 35px;
-    vertical-align: top;
-}
+    .searchBox {
+        width: 568px;
+        font-size: 16px;
+        margin: 5px 0 1px 20px;
+        padding: 0 10px 0 0;
+        border: 0;
+        max-height: 30px;
+        outline: none;
+        box-sizing: content-box;
+        height: 35px;
+        vertical-align: top;
+    }
 
-.searchBoxSubmit {
-    background-color: #fff;
-    border-color: #fff;
-    background-image: url(/images/search.png);
-    background-repeat: no-repeat;
-    height: 20px;
-    width: 20px;
-    text-indent: -99em;
-    border-width: 0;
-    border-style: solid;
-    margin: 10px;
-    outline: 0;
-}
-```
+    .searchBoxSubmit {
+        background-color: #fff;
+        border-color: #fff;
+        background-image: url(/images/search.png);
+        background-repeat: no-repeat;
+        height: 20px;
+        width: 20px;
+        text-indent: -99em;
+        border-width: 0;
+        border-style: solid;
+        margin: 10px;
+        outline: 0;
+    }
+    ```
 
 7. Stil sayfası dosyayı hotels.css varsayılan site.css dosyasında yanı sıra wwwroot/css klasörüne kaydedin.
 
@@ -395,16 +396,16 @@ Bir denetleyici içeriğini değiştirmek ihtiyacımız (**giriş denetleyicisin
 
 1. HomeController.cs dosyasını açın ve Değiştir **kullanarak** deyimlerini aşağıdaki.
 
-```cs
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using FirstAzureSearchApp.Models;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-```
+    ```cs
+    using System;
+    using System.Diagnostics;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using FirstAzureSearchApp.Models;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Azure.Search;
+    using Microsoft.Azure.Search.Models;
+    ```
 
 ### <a name="add-index-methods"></a>Dizin yöntemleri ekleyin
 
@@ -412,7 +413,7 @@ using Microsoft.Azure.Search.Models;
 
 1. Varsayılan sonra aşağıdaki yöntemi ekleyin **İNDİS()** yöntemi.
 
-```cs
+    ```cs
         [HttpPost]
         public async Task<ActionResult> Index(SearchData model)
         {
@@ -434,11 +435,11 @@ using Microsoft.Azure.Search.Models;
             }
             return View(model);
         }
-```
+    ```
 
-Bildirim **zaman uyumsuz** yöntem bildiriminden ve **await** çağrısı **RunQueryAsync**. Bu anahtar sözcükler bizim çağrılar zaman uyumsuz olma ilgileniriz ve böylece engelleyici iş parçacıkları sunucuda kaçının.
+    Bildirim **zaman uyumsuz** yöntem bildiriminden ve **await** çağrısı **RunQueryAsync**. Bu anahtar sözcükler bizim çağrılar zaman uyumsuz olma ilgileniriz ve böylece engelleyici iş parçacıkları sunucuda kaçının.
 
-**Catch** bloğu bizim için varsayılan olarak oluşturulan hata modelini kullanır.
+    **Catch** bloğu bizim için varsayılan olarak oluşturulan hata modelini kullanır.
 
 ### <a name="note-the-error-handling-and-other-default-views-and-methods"></a>Hata işleme ve diğer varsayılan görünümler ve yöntemleri unutmayın
 
@@ -454,7 +455,7 @@ Azure Search arama içinde kapsüllenir bizim **RunQueryAsync** yöntemi.
 
 1. İlk olarak Azure hizmet ve bunları başlatmak için bir çağrı ayarlamak için bazı statik değişkenler ekleyin.
 
-```cs
+    ```cs
         private static SearchServiceClient _serviceClient;
         private static ISearchIndexClient _indexClient;
         private static IConfigurationBuilder _builder;
@@ -474,11 +475,11 @@ Azure Search arama içinde kapsüllenir bizim **RunQueryAsync** yöntemi.
             _serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(queryApiKey));
             _indexClient = _serviceClient.Indexes.GetClient("hotels");
         }
-```
+    ```
 
 2. Şimdi ekleyin **RunQueryAsync** yöntemi.
 
-```cs
+    ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model)
         {
             InitSearch();
@@ -496,11 +497,11 @@ Azure Search arama içinde kapsüllenir bizim **RunQueryAsync** yöntemi.
             // Display the results.
             return View("Index", model);
         }
-```
+    ```
 
-Bu yöntemde, ilk Azure bizim yapılandırması başlatılan ve ardından bazı arama parametrelerini ayarla emin oluruz. Alanların adlarını **seçin** parametreyle eşleşen özellik adlarını tam olarak **otel** sınıfı. Dışlamayı mümkündür **seçin** parametresi bu durumda tüm özellikleri döndürülür. Hayır ancak ayarlarsanız **seçin** biz yalnızca verilerin bir alt kümesi ilgileniyorsanız verimsiz parametreleri. İlgileniriz özellikleri belirterek bu özellikler yalnızca döndürülür.
+    Bu yöntemde, ilk Azure bizim yapılandırması başlatılan ve ardından bazı arama parametrelerini ayarla emin oluruz. Alanların adlarını **seçin** parametreyle eşleşen özellik adlarını tam olarak **otel** sınıfı. Dışlamayı mümkündür **seçin** parametresi bu durumda tüm özellikleri döndürülür. Hayır ancak ayarlarsanız **seçin** biz yalnızca verilerin bir alt kümesi ilgileniyorsanız verimsiz parametreleri. İlgileniriz özellikleri belirterek bu özellikler yalnızca döndürülür.
 
-Aramak için zaman uyumsuz çağrı (**model.resultList = _indexClient.Documents.SearchAsync await&lt;otel&gt;(model.searchText, Parametreler);** ) ne Bu öğretici ve uygulama hakkında vardır. **DocumentSearchResult** ilgi çekici bir sınıftır ve burada bir kesme noktası ayarlayın ve hata ayıklayıcı içeriğini incelemek için (uygulama çalışırken) bir fikir olabilir **model.resultList**. Sezgisel, sorulan verilerle sağlama ve çok başka olduğunu bulmanız gerekir.
+    Aramak için zaman uyumsuz çağrı (**model.resultList = _indexClient.Documents.SearchAsync await&lt;otel&gt;(model.searchText, Parametreler);** ) ne Bu öğretici ve uygulama hakkında vardır. **DocumentSearchResult** ilgi çekici bir sınıftır ve burada bir kesme noktası ayarlayın ve hata ayıklayıcı içeriğini incelemek için (uygulama çalışırken) bir fikir olabilir **model.resultList**. Sezgisel, sorulan verilerle sağlama ve çok başka olduğunu bulmanız gerekir.
 
 Artık süre sonuna doğru.
 
@@ -532,8 +533,8 @@ Hata işleme özelliklerimiz bile şey mükemmel çalışırken, olması gerekti
 
      ![Bir hata zorla](./media/tutorial-csharp-create-first-app/azure-search-error.png)
 
-> [!Important]
-> İç hata numaralarını hata sayfalarında döndürülecek bir güvenlik riski olarak kabul edilir. Uygulamanızı genel kullanıma yöneliktir, güvenli ve en iyi yöntemleri bazı araştırmasını ne bir hata oluştuğunda döndürülecek yapın.
+    > [!Important]
+    > İç hata numaralarını hata sayfalarında döndürülecek bir güvenlik riski olarak kabul edilir. Uygulamanızı genel kullanıma yöneliktir, güvenli ve en iyi yöntemleri bazı araştırmasını ne bir hata oluştuğunda döndürülecek yapın.
 
 3. Kaldırma **yeni Exception() Throw** memnun olduğunuzda olması gerektiği gibi çalıştığını işleme hatası.
 

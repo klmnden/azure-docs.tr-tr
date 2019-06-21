@@ -9,14 +9,14 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d4269a99a8e535692e4897630a7edd9b27347d41
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828724"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304027"
 ---
-# <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Örnek: Metin analiziyle duyguları algılamak nasıl
+# <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Örnek: Metin Analizi ile yaklaşımı algılama
 
 [Yaklaşım Analizi API’si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9), metin girişini değerlendirir ve her belge için 0 (negatif) - 1 (pozitif) aralığında bir yaklaşım döndürür.
 
@@ -73,7 +73,7 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>1. Adım: Yapı isteği
+## <a name="step-1-structure-the-request"></a>1\. adım: Yapı isteği
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
@@ -88,14 +88,14 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
 > [!Tip]
 > İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) **API testi konsolu**’nu açın.
 
-## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
+## <a name="step-2-post-the-request"></a>2\. adım: POST isteği
 
-İstek alındığında analiz gerçekleştirilir. Hizmet dakikada en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
+İstek alındığında analiz gerçekleştirilir. Bkz: [veri sınırları](../overview.md#data-limits) dakika başına gönderin ve ikinci istek sayısı ve boyutu hakkında bilgi için genel bakış bölümünde.
 
 Hizmetin durum bilgisi olmadığını unutmayın. Hesabınızda bir veri depolanmaz. Sonuçlar hemen yanıtta döndürülür.
 
 
-## <a name="step-3-view-results"></a>3. Adım: Sonuçları görüntüleme
+## <a name="step-3-view-results"></a>3\. adım: Sonuçları görüntüleme
 
 Yaklaşım çözümleyicisi, 0 ile 1 aralığında bir puan atayarak metni baskın şekilde pozitif veya negatif olarak sınıflandırır. 0,5’e yakın değerler nötr veya belirsizdir. 0,5 puanı, nötr olma durumunu belirtir. Bir dizenin yaklaşım analizi yapılamadığında veya bir yaklaşımı olmadığında puan her zaman tam olarak 0,5’tir. Örneğin, İngilizce dil koduyla İspanyolca bir dize geçirirseniz puan 0,5 olur.
 

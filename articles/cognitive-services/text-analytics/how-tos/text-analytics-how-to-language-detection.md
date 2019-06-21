@@ -9,14 +9,14 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 6f1e71b75aa68c8f4ea1fa8ed373da25dbb3c24b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417951"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304045"
 ---
-# <a name="example-how-to-detect-language-with-text-analytics"></a>Örnek: Metin analizi diliyle tespit etme
+# <a name="example-how-to-detect-language-with-text-analytics"></a>Örnek: Metin Analizi ile dili algılama
 
 [Dil algılama](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) API'nin özellik giriş ve her belge için metin değerlendirir ve Dil tanımlayıcıları analiz gücünü gösteren bir puan döndürür.
 
@@ -62,7 +62,7 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>1. adım: Yapı isteği
+## <a name="step-1-structure-the-request"></a>1\. adım: Yapı isteği
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
@@ -77,14 +77,14 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
 > [!Tip]
 > İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) **API testi konsolu**’nu açın.
 
-## <a name="step-2-post-the-request"></a>2. adım: POST isteği
+## <a name="step-2-post-the-request"></a>2\. adım: POST isteği
 
-İstek alındığında analiz gerçekleştirilir. Hizmet dakikada en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
+İstek alındığında analiz gerçekleştirilir. Bkz: [veri sınırları](../overview.md#data-limits) dakika başına gönderin ve ikinci istek sayısı ve boyutu hakkında bilgi için genel bakış bölümünde.
 
 Hizmetin durum bilgisi olmadığını unutmayın. Hesabınızda bir veri depolanmaz. Sonuçlar hemen yanıtta döndürülür.
 
 
-## <a name="step-3-view-results"></a>3. adım: Sonuçları görüntüleme
+## <a name="step-3-view-results"></a>3\. adım: Sonuçları görüntüleme
 
 Tüm POST istekleri, kimlikler ve algılanan özelliklerle JSON tarafından biçimlendirilmiş bir yanıt döndürür.
 

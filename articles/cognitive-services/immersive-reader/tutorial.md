@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Derinlikli Okuyucu (Node.js) başlatın'
+title: 'Öğretici: Tam Ekran Okuyucu’yu Başlatma (Node.js)'
 titleSuffix: Azure Cognitive Services
 description: Bu öğreticide, sürükleyici okuyucu başlatan bir Node.js uygulaması oluşturacaksınız.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: a6300d0233f222f26dc018136038c9fe96ecca84
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 98b46636be321bfe87c08687600894d0c8ab54db
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296745"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311702"
 ---
-# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Öğretici: Derinlikli Okuyucu (Node.js) başlatın
+# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Öğretici: Tam Ekran Okuyucu’yu Başlatma (Node.js)
 
 İçinde [genel bakış](./overview.md), sürükleyici okuyucu ne olduğu hakkında bilgi edindiniz ve nasıl language learners, Gelişmekte olan okuyucular ve farkları öğrenme ile Öğrenciler için okuma kavramayı geliştirmek için kendini kanıtlamış teknikleri uygular. Bu öğretici, sürükleyici okuyucu başlatan bir Node.js web uygulaması oluşturma işlemini kapsar. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -32,7 +32,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir abonelik anahtarı sürükleyici okuyucu. İzleyerek bir tane alın [bu yönergeleri](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account).
+* Bir abonelik anahtarı sürükleyici okuyucu. İzleyerek bir tane alın [bu yönergeleri](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 * [Node.js](https://nodejs.org/) ve [Yarn](https://yarnpkg.com)
 * Bir IDE gibi [Visual Studio kodu](https://code.visualstudio.com/)
 
@@ -56,7 +56,7 @@ yarn add dotenv
 
 ## <a name="acquire-an-access-token"></a>Erişim belirteci alma
 
-Ardından, bir arka uç API abonelik anahtarınızı kullanarak bir erişim belirteci almak için yazın. Bu sonraki adım için abonelik anahtarınızı ve uç nokta gerekir. Bu bilgileri bulabilirsiniz https://azure.microsoft.com/try/cognitive-services/my-apis/.
+Ardından, bir arka uç API abonelik anahtarınızı kullanarak bir erişim belirteci almak için yazın. Bu sonraki adım için abonelik anahtarınızı ve uç nokta gerekir. Abonelik anahtarınızı sürükleyici okuyucu kaynağınızın Azure portalındaki anahtarlar sayfasında bulabilirsiniz. Uç noktanız genel bakış sayfasında bulabilirsiniz.
 
 Abonelik anahtarını ve uç nokta oluşturduktan sonra adlı yeni bir dosya oluşturun _.env_, aşağıdaki kod, değiştirme yapıştırın `{YOUR_SUBSCRIPTION_KEY}` ve `{YOUR_ENDPOINT}` abonelik anahtarını ve uç nokta, sırasıyla.
 
@@ -88,7 +88,7 @@ router.get('/token', function(req, res, next) {
         'Ocp-Apim-Subscription-Key': process.env.SUBSCRIPTION_KEY,
         'content-type': 'application/x-www-form-urlencoded'
     },
-    url: process.env.ENDPOINT + '/issueToken'
+    url: process.env.ENDPOINT
   },
   function(err, resp, token) {
     return res.send(token);
@@ -103,7 +103,7 @@ Bu API uç noktası çeşit kimlik doğrulaması korunması (örneğin, [OAuth](
 1. Açık _views\layout.pug_ve altında aşağıdaki kodu ekleyin `head` önce etiket `body` etiketi. Bunlar `script` etiketleri yük [sürükleyici okuyucu SDK](https://github.com/Microsoft/immersive-reader-sdk) ve jQuery.
 
     ```pug
-    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js')
+    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
@@ -130,7 +130,7 @@ Bu API uç noktası çeşit kimlik doğrulaması korunması (örneğin, [OAuth](
             };
 
             // Third, launch the Immersive Reader
-            ImmersiveReader.launchAsync(token, null, content);
+            ImmersiveReader.launchAsync(token, content);
           }});
         }
     ```
@@ -174,7 +174,7 @@ Varsayılan olarak, derinlikli okuyucu arabirimi dilini tarayıcının dili ayar
     const options = {
         uiLang: 'fr',
     }
-    ImmersiveReader.launchAsync(token, null, content, options);
+    ImmersiveReader.launchAsync(token, content, options);
     ```
 
 2. Gidin _http://localhost:3000_ . Derinlikli okuyucu başlattığında, Fransızca arabirimi gösterilir.

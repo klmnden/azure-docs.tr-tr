@@ -10,12 +10,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 4287efedfc35da762825c5562cf88e64987192f1
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414564"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312654"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Öğretici: İşleme e-postaları ve ekleri Azure Logic Apps ile otomatikleştirme
 
@@ -63,7 +63,7 @@ Gelen e-postaları ve ekleri, [Azure depolama kapsayıcısında](../storage/comm
    | **Abonelik** | <*Azure-subscription-name*> | Azure aboneliğinizin adı |  
    | **Kaynak grubu** | LA-Tutorial-RG | İlgili kaynakları düzenlemek ve yönetmek için kullanılan [Azure kaynak grubunun](../azure-resource-manager/resource-group-overview.md) adı. <p>**Not:** Bir kaynak grubu, belirli bir bölgenin içinde bulunur. Bu öğreticideki öğeler tüm bölgelerde kullanılamasa da mümkün olduğunca aynı bölgeyi kullanmayı deneyin. |
    | **Depolama hesabı adı** | attachmentstorageacct | Depolama hesabınızın adı |
-   | **Konum** | Batı ABD | Depolama hesabınızla ilgili bilgilerin depolanacağı bölge |
+   | **Location** | Batı ABD | Depolama hesabınızla ilgili bilgilerin depolanacağı bölge |
    | **Performans** | Standart | Bu ayar, verileri depolamaya ilişkin medyayı ve desteklenen veri türlerini belirtir. Bkz. [Depolama hesabı türleri](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Hesap türü** | Genel amaçlı | [Depolama hesabı türü](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **Çoğaltma** | Yerel olarak yedekli depolama (LRS) | Bu ayar, verilerinizin nasıl kopyalandığını, depolandığını, yönetildiğini ve eşitlendiğini belirtir. Bkz: [yerel olarak yedekli depolama (LRS): Azure depolama için düşük maliyetli veri yedekliği](../storage/common/storage-redundancy-lrs.md). |
@@ -73,7 +73,7 @@ Gelen e-postaları ve ekleri, [Azure depolama kapsayıcısında](../storage/comm
 
    | Ayar | Değer | Açıklama |
    |---------|-------|-------------|
-   | **Güvenli aktarım gerekir** | Devre Dışı Bırakıldı | Bu ayar, bağlantılardan gelen istekler için gerekli güvenliği belirtir. Bkz. [Güvenli aktarım gerektir](../storage/common/storage-require-secure-transfer.md). |
+   | **Güvenli aktarım gerekir** | Devre dışı | Bu ayar, bağlantılardan gelen istekler için gerekli güvenliği belirtir. Bkz. [Güvenli aktarım gerektir](../storage/common/storage-require-secure-transfer.md). |
    ||||
 
    Depolama hesabınızı oluşturmak için [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) veya [Azure CLI](../storage/common/storage-quickstart-create-storage-account-cli.md) uygulamalarını da kullanabilirsiniz.
@@ -145,11 +145,11 @@ Sonra, gelen e-postadan HTML’yi kaldıran bir [Azure işlevi](../azure-functio
 
    | Ayar | Değer | Açıklama |
    | ------- | ----- | ----------- |
-   | **Uygulama adı** | CleanTextFunctionApp | İşlev uygulamanız için genel olarak benzersiz ve açıklayıcı bir ad |
+   | **Uygulama adı** | <*işlev uygulamasının adı*> | Bu örnekte "CleanTextFunctionApp" olan işlev uygulamanızın açıklayıcı ve genel olarak benzersiz bir ad, bu nedenle "MyCleanTextFunctionApp" gibi farklı bir ad sağlayın |
    | **Abonelik** | <*your-Azure-subscription-name*> | Daha önce kullandığınız Azure aboneliği | 
    | **Kaynak Grubu** | LA-Tutorial-RG | Daha önce kullandığınız Azure kaynak grubu |
    | **Barındırma Planı** | Tüketim Planı | Bu ayar, işlev uygulamanızı çalıştırmak için bilgi işlem gücü gibi kaynakların nasıl ayrılacağını ve ölçekleneceğini belirler. Bkz. [barındırma planları karşılaştırması](../azure-functions/functions-scale.md). | 
-   | **Konum** | Batı ABD | Daha önce kullandığınız bölge |
+   | **Location** | Batı ABD | Daha önce kullandığınız bölge |
    | **Çalışma zamanı yığını** | Tercih edilen dil | Sık kullanılan işlevinizi programlama dilini destekleyen bir çalışma zamanı'nı seçin. Seçin **.NET** için C# ve F# işlevleri. |
    | **Depolama** | cleantextfunctionstorageacct | İşlev uygulamanız için bir depolama hesabı oluşturun. Yalnızca küçük harfleri ve rakamları kullanın. <p>**Not:** Bu depolama hesabı, işlev uygulamalarınızı içerir ve e-posta ekleri için önceden oluşturulmuş depolama hesabınızdan farklılık gösterir. |
    | **Application Insights** | Kapalı | [Application Insights](../azure-monitor/app/app-insights-overview.md) ile uygulama izlemeyi açar, ancak bu öğretici için **Kapalı** ayarını seçin. |
@@ -168,7 +168,7 @@ Sonra, gelen e-postadan HTML’yi kaldıran bir [Azure işlevi](../azure-functio
 
    İşlev uygulaması oluşturmak için [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md) veya [PowerShell ve Resource Manager şablonlarını](../azure-resource-manager/resource-group-template-deploy.md) da kullanabilirsiniz.
 
-2. **İşlev Uygulamaları** bölümünde **CleanTextFunctionApp** seçeneğini genişletin ve **İşlevler**’i seçin. İşlevler araç çubuğunda **Yeni işlev**’i seçin.
+2. Altında **işlev uygulamaları**, bu örnekte "CleanTextFunctionApp" olan işlev uygulamanızı genişletin ve seçin **işlevleri**. İşlevler araç çubuğunda **Yeni işlev**’i seçin.
 
    ![Yeni işlev oluşturma](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
@@ -180,7 +180,7 @@ Sonra, gelen e-postadan HTML’yi kaldıran bir [Azure işlevi](../azure-functio
 
 4. **Yeni İşlev** bölmesinin **Ad** alanına `RemoveHTMLFunction` girin. **Yetkilendirme düzeyi**'ni **İşlev** olarak bırakın ve **Oluştur**'u seçin.
 
-   ![İşlevinizi adlandırın](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
+   ![İşlevinizi adlandırma](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
 
 5. Düzenleyici açıldıktan sonra şablon kodunu bu örnek kodla değiştirin; böylece HTML kaldırılır ve sonuçlar çağırana döndürülür:
 
@@ -210,7 +210,7 @@ Sonra, gelen e-postadan HTML’yi kaldıran bir [Azure işlevi](../azure-functio
    }
    ```
 
-6. İşiniz bittiğinde **Kaydet**’i seçin. İşlevinizi test etmek için düzenleyicinin sağ kenarında yer alan ok (**<**) simgesinin altında **Test**’i seçin.
+6. İşiniz bittiğinde **Kaydet**’i seçin. İşlevinizi test etmek için düzenleyicinin sağ kenarında yer alan ok ( **<** ) simgesinin altında **Test**’i seçin.
 
    !["Test" bölmesini açma](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
@@ -246,7 +246,7 @@ Sonra, gelen e-postadan HTML’yi kaldıran bir [Azure işlevi](../azure-functio
    | **Ad** | LA-ProcessAttachment | Mantıksal uygulamanızın adı |
    | **Abonelik** | <*your-Azure-subscription-name*> | Daha önce kullandığınız Azure aboneliği |
    | **Kaynak grubu** | LA-Tutorial-RG | Daha önce kullandığınız Azure kaynak grubu |
-   | **Konum** | Batı ABD | Daha önce kullandığınız bölge |
+   | **Location** | Batı ABD | Daha önce kullandığınız bölge |
    | **Log Analytics** | Kapalı | Bu öğretici için **Kapalı** ayarını seçin. |
    ||||
 
@@ -316,7 +316,7 @@ Sonra ek içeren gelen e-postaları dinleyen bir [tetikleyici](../logic-apps/log
    !["Koşul" seçin](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
    1. Koşulu daha iyi bir açıklama ile yeniden adlandırın. 
-   Koşulun başlık çubuğunda **üç nokta** (**...** ) düğmesi > **Yeniden Adlandır**.
+   Koşulun başlık çubuğunda **üç nokta** ( **...** ) düğmesi > **Yeniden Adlandır**.
 
       ![Koşulu yeniden adlandırın](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
@@ -399,7 +399,7 @@ Bu adım, önceden oluşturduğunuz Azure işlevini mantıksal uygulamanıza ekl
 
    !["Azure işlevi seç" eylemini seçin](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Önceden oluşturduğunuz işlev uygulamanızı seçin: **CleanTextFunctionApp**
+3. Bu örnekte "CleanTextFunctionApp" olan önceden oluşturulmuş işlev uygulamanızı seçin:
 
    ![Azure işlevi uygulamanızı seçin](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
@@ -626,7 +626,7 @@ Sonra mantıksal uygulamanızın ekleri gözden geçirmek üzere e-posta gönder
    ||||
 
    > [!NOTE]
-   > **İçerik** alanı gibi eklerin yer aldığı bir diziyi içeren alan seçerseniz tasarımcı eyleme otomatik olarak ilgili alana başvuran bir "For each" döngüsü ekler. Bu şekilde mantıksal uygulamanız ilgili eylemi dizideki tüm öğeler için gerçekleştirebilir. Döngüyü kaldırmak için, diziye ilişkin alanı kaldırın, başvuran eylemi döngü dışına taşıyın, döngünün başlık çubuğundaki üç noktayı (**...**) seçin ve **Sil**’i seçin.
+   > **İçerik** alanı gibi eklerin yer aldığı bir diziyi içeren alan seçerseniz tasarımcı eyleme otomatik olarak ilgili alana başvuran bir "For each" döngüsü ekler. Bu şekilde mantıksal uygulamanız ilgili eylemi dizideki tüm öğeler için gerçekleştirebilir. Döngüyü kaldırmak için, diziye ilişkin alanı kaldırın, başvuran eylemi döngü dışına taşıyın, döngünün başlık çubuğundaki üç noktayı ( **...** ) seçin ve **Sil**’i seçin.
 
 6. Mantıksal uygulamanızı kaydedin.
 
