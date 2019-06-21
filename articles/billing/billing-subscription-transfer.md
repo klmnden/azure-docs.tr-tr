@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d206ea1afe43a91707a4bcd981a4158ff08fdc3a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471591"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206158"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure aboneliğinin sahipliğini başka bir hesaba aktarma
 
@@ -116,7 +116,7 @@ Yeni sahip Web siteleri aktarımı, disk ve VM'lerin tüm kaynaklarınızı iste
 
 ### <a id="no-button"></a> "Abonelik aktarımı" düğmesini neden göremiyorum?
 
-Ne yazık ki, Self Servis abonelik aktarımı teklifiniz için kullanılamaz. Desteklenen teklif görmek [desteklenen teklifler](#supported-offers) bu makalenin. Ayrıca, size tüm ülkeler için abonelik aktarımı engellemez. Ancak, ülke aktarımı desteklenmiyor. Aboneliğinizin aktarılması için ülke, platformlar arası [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+Ne yazık ki, Self Servis abonelik aktarımı teklifiniz için kullanılamaz. Desteklenen teklif görmek [desteklenen teklifler](#supported-offers) bu makalenin. Ayrıca, size tüm ülkeler için abonelik aktarımı engellemez. Bkz: [ülkelerin tam listesi](https://azure.microsoft.com/pricing/faq/) Azure olduğu ticari olarak kullanılabilir. Bununla birlikte, Self Servis abonelik aktarımı çapraz ülkeye transfer desteklemez. Aboneliğinizin aktarılması için ülke, platformlar arası [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Bir hesaba başka bir ülkede sahipliğini aktarabilir miyim?

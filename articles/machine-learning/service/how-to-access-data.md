@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93fc9a4e9e44bd7e8db3d49fe390ebe273c45ce9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 638d7bfb0e396874415c1055c4b707a65caffa4e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239039"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269292"
 ---
 # <a name="access-data-from-your-datastores"></a>Verilere erişmek, veri depoları
 
@@ -59,7 +59,19 @@ ds = ws.get_default_datastore()
 
 ### <a name="register-your-own-datastore-with-the-workspace"></a>Çalışma alanı ile kendi veri deposu kaydetme
 
-Var olan Azure Depolama'iniz varsa, çalışma alanınızda bir veri deposu olarak kaydedebilirsiniz.   Tüm kayıt yöntemleri bulunan [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) sınıf ve form register_azure_ * sahip. 
+Var olan Azure Depolama'iniz varsa, çalışma alanınızda bir veri deposu olarak kaydedebilirsiniz. 
+
+<a name="store"></a>
+
+####  <a name="storage-guidance"></a>Depolama yönergeleri
+
+Blob depolama ve blob veri depoları öneririz. Standart ve premium depolama BLOB'ları için kullanılabilir. Ancak daha pahalı, premium depolama eğitim hızını artırmak yüksek aktarım hızları nedeniyle çalıştığında, particlularly büyük bir veri kümesine karşı eğitimle öneririz. Bkz: [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) depolama hesabının maliyet bilgileri.
+
+>[!NOTE]
+> Azure Machine Learning hizmeti, belirli senaryolar için kullanışlı olabilecek diğer veri depoları, türlerini destekler. Örneğin, bir veritabanında depolanan verileri kullanarak eğitmek gerekiyorsa AzureSQLDatabaseDatastore veya AzurePostgreSqlDatastore kullanabilirsiniz. Bkz: [bu tabloda](#matrix) kullanılabilir veri deposu türleri için.
+
+#### <a name="register-your-datastore"></a>Veri deposu kaydetme
+Tüm kayıt yöntemleri bulunan [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) sınıf ve form register_azure_ * sahip.
 
 Aşağıdaki örnekler, bir veri deposu olarak bir Azure Blob kapsayıcısı veya bir Azure dosya paylaşımı kaydetmenizi gösterir.
 
@@ -178,6 +190,7 @@ ds.path('./bar').as_download()
 > [!NOTE]
 > Tüm `ds` veya `ds.path` nesnesi bir ortam değişkeni adı biçimi için çözer `"$AZUREML_DATAREFERENCE_XXXX"` değeri hedef işlem üzerinde bağlama/indirme yolunu temsil eder. Veri deposu yolu hedef işlem üzerinde eğitim betiğin yürütme yolunu aynı olmayabilir.
 
+<a name="matrix"></a>
 ### <a name="training-compute-and-datastore-matrix"></a>Eğitim işlem ve veri deposu Matrisi
 
 Matris farklı eğitim işlem hedefleri ve veri deposu senaryoları için kullanılabilen veri erişimi işlevleri görüntüler. Daha fazla bilgi edinin [eğitim hedefleri için Azure Machine Learning işlem](how-to-set-up-training-targets.md#compute-targets-for-training).
@@ -194,7 +207,7 @@ Matris farklı eğitim işlem hedefleri ve veri deposu senaryoları için kullan
 | Azure DataLake Analytics       |Yok                                           |Yok                                           |[ML&nbsp;işlem hatları](concept-ml-pipelines.md)             |Yok                                                                         |
 
 > [!NOTE]
-> Yüksek oranda yinelemeli, büyük veri süreçleri çalıştırarak daha hızlı kullanarak senaryolar olabilir. [`as_download()`] yerine [`as_mount()`]; Bu experimentally doğrulanabilir.
+> Yüksek oranda yinelemeli, büyük veri süreçleri çalıştırarak daha hızlı kullanarak senaryolar olabilir `as_download()` yerine `as_mount()`; bu experimentally doğrulanabilir.
 
 ### <a name="examples"></a>Örnekler 
 

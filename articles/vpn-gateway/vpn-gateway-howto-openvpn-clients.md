@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989099"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147249"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Azure VPN ağ geçidi için OpenVPN istemcilerini yapılandırma
 
@@ -26,7 +26,7 @@ VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin 
 
 ## <a name="windows"></a>Windows istemcileri
 
-1. OpenVPN istemci resmi yükleyip [OpenVPN Web sitesi](https://openvpn.net/index.php/open-source/downloads.html).
+1. OpenVPN istemcisi (sürüm 2.4 veya sonraki) resmi yükleyip [OpenVPN Web sitesi](https://openvpn.net/index.php/open-source/downloads.html).
 2. Ağ geçidinin VPN profilini indirin. Bu noktadan siteye yapılandırma sekmesinde Azure portalında ya da 'New-AzVpnClientConfiguration' PowerShell'de yapılabilir.
 3. Profilin sıkıştırmasını açın. Ardından, açık *vpnconfig.ovpn* Not Defteri'ni kullanarak OpenVPN klasöründen yapılandırma dosyası.
 4. [Dışarı aktarma](vpn-gateway-certificates-point-to-site.md#clientexport) oluşturduğunuz ve ağ geçidi P2S yapılandırmanıza karşıya sertifika P2S istemci.
@@ -61,7 +61,7 @@ VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin 
 
 ## <a name="mac"></a>Mac istemcileri
 
-1. Bir OpenVPN istemci gibi yükleyip [TunnelBlik](https://tunnelblick.net/downloads.html). 
+1. Bir OpenVPN istemci gibi yükleyip [TunnelBlick](https://tunnelblick.net/downloads.html). 
 2. Ağ geçidinin VPN profilini indirin. Bu, Azure portalında ya da 'New-AzVpnClientConfiguration' PowerShell kullanarak noktadan siteye yapılandırma sekmesinden yapılabilir.
 3. Profilin sıkıştırmasını açın. Not Defteri'ni OpenVPN klasöründeki vpnconfig.ovpn yapılandırma dosyasını açın.
 4. P2S istemci sertifikası bölümünü base64’teki P2S istemci sertifikası genel anahtarı ile doldurun. PEM biçimli bir sertifikada .cer dosyasını açıp base64 anahtarını sertifika üst bilgileri arasına kopyalamanız yeterlidir. Bkz: [ortak anahtarını dışarı aktarmak](vpn-gateway-certificates-point-to-site.md#cer) kodlanmış ortak anahtarı almak için bir sertifikayı dışarı aktarma hakkında bilgi için.

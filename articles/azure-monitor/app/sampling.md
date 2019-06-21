@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7a657f175307e019155e37538021c5aecf5bb068
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388380"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136891"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -53,7 +53,7 @@ Bağdaşık veya sabit oranı örnekleme işlemi varsa, alım örneklemesi devre
 
 Uyarlamalı örnekleme, Application Insights SDK için ASP.NET v 2.0.0-beta3 ve sonrası Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 kullanılabilir ve daha sonra ve varsayılan olarak etkindir.
 
-Uyarlamalı örnekleme, Application Insights hizmet uç noktası için web sunucusu uygulamanızdan gönderilen telemetri hacmini etkiler. Birimin yüksek trafik hızı belirtilen içinde tutmak için otomatik olarak ayarlanır ve ayarı aracılığıyla denetlenen `MaxTelemetryItemsPerSecond`. Aşağıda birim olduğu sürece düşük kullanım nedeniyle veya hata ayıklama sırasında öğeleri örneklenen olmaz gibi uygulama telemetri, düşük miktarda bir üretir, `MaxTelemetryItemsPerSecond`. Telemetri arttıkça birimi olarak hedef birimin elde etmek için örnekleme oranını ayarlanır.
+Uyarlamalı örnekleme, Application Insights hizmet uç noktası için web sunucusu uygulamanızdan gönderilen telemetri hacmini etkiler. Birimin yüksek trafik hızı belirtilen içinde tutmak için otomatik olarak ayarlanır ve ayarı aracılığıyla denetlenen `MaxTelemetryItemsPerSecond`. Aşağıda birim olduğu sürece düşük kullanım nedeniyle veya hata ayıklama sırasında öğeleri örnekleme işlemcisi tarafından bırakılacak olmaz gibi uygulama telemetri, düşük miktarda bir üretir, `MaxTelemetryItemsPerSecond`. Telemetri arttıkça birimi olarak hedef birimin elde etmek için örnekleme oranını ayarlanır.
 
 Hedef birim elde etmek için bazı oluşturulan telemetri atılır. Ancak, örnekleme diğer türleri gibi ilgili telemetri öğelerinin algoritma korur. Örneğin, arama telemetriyi incelerken, belirli bir özel durumla ilişkili istek bulmak mümkün olacaktır.
 

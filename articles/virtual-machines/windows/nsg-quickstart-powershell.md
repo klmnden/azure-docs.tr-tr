@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.openlocfilehash: f536b32ebf5267f407d2c32eb425ea45469cd3b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405391"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64694627"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>PowerShell kullanarak Azure'da bağlantı noktalarını ve uç noktaları bir VM'ye açma
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -96,7 +96,7 @@ Yüksek oranda kullanılabilir web uygulamaları için Vm'lerinizi bir Azure yü
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu örnekte, HTTP trafiğine izin veren basit bir kuralı oluşturuldu. Aşağıdaki makalelerde daha ayrıntılı ortamları oluşturma hakkında bilgi bulabilirsiniz:
 
-* [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager’a genel bakış](../../azure-resource-manager/resource-group-overview.md)
 * [Bir ağ güvenlik grubu nedir?](../../virtual-network/security-overview.md)
 * [Yük Dengeleyiciler için Azure Resource Manager'a genel bakış](../../load-balancer/load-balancer-arm.md)
 

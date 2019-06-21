@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41cf5f8bcc69e181350a63d215fb0d78d43dcfdf
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870515"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272821"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Windows sanal masaüstü önizlemede Temsilcili erişim
 
@@ -42,11 +42,11 @@ Windows sanal masaüstü Temsilcili erişim, kullanıcıların ve hizmet sorumlu
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>Rol atamaları için PowerShell cmdlet'leri
 
-Oluşturun, görüntüleyin ve rolü atamalarını düzenlemek için aşağıdaki cmdlet'leri çalıştırabilirsiniz:
+Oluşturun, görüntüleyin ve rol atamalarını kaldırmak için aşağıdaki cmdlet'leri çalıştırabilirsiniz:
 
 * **Get-RdsRoleAssignment** rol atamaları listesini görüntüler.
 * **Yeni RdsRoleAssignment** yeni bir rol ataması oluşturur.
-* **Set-RdsRoleAssignment** rol atamaları düzenler.
+* **Remove-RdsRoleAssignment** rol atamaları siler.
 
 ### <a name="accepted-parameters"></a>Kabul edilen parametreleri
 

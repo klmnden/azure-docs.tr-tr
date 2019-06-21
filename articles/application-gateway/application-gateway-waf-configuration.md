@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620281"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275187"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web uygulaması güvenlik duvarı istek boyutu sınırları ve hariç tutma listeleri
 
@@ -35,16 +35,16 @@ Ayrıca, WAF istek gövdesi İnceleme açıp kapatmak için yapılandırılabili
 
 WAF hariç tutma listeleri, belirli bir WAF değerlendirme özniteliklerini atlamak izin verin. Yaygın olarak karşılaşılan örneklerden, Active Directory kimlik doğrulaması veya parola alanı için kullanılan belirteçleri eklenen ' dir. Bir hatalı pozitif sonuç WAF kurallarından tetikleyebilir özel karakterler içermesini gibi öznitelikleri fazladır. Bir öznitelik WAF dışlama listesine eklendikten sonra tüm yapılandırılmış ve etkin bir WAF kural tarafından kabul değil. Hariç tutma listeleri, genel kapsam içindedir.
 
-Hariç tutma listeleri aşağıdaki öznitelikleri eklenebilir:
+Hariç tutma listeleri aşağıdaki öznitelikler eklenebilir. Seçilen alan değerlerini WAF kurallara göre değerlendirilen değildir. Dışlama Kaldır incelemesini alanın değerini listeler.
 
 * İstek üst bilgileri
 * İstek tanımlama bilgileri
-* İstek özniteliği adı (argumenty)
+* İstek öznitelik adı (args) bir dışlama öğesi olarak eklenebilir:
 
-   * Çok bölümlü form verilerinin
-   * XML
-   * JSON
-   * URL sorgu değişkenleri
+   * Form alanının adı
+   * XML varlık
+   * JSON varlık
+   * URL sorgu dizesi bağımsız değişkenleri
 
 Belirtin tam istek üst bilgisi, gövdesi, tanımlama bilgisi veya sorgu dizesi özniteliği eşleşme.  Veya kısmi eşleşmeler isteğe bağlı olarak belirtebilirsiniz. Dışlama hiçbir zaman değeri üzerinde bir üstbilgi alanı her zaman açıktır. Hariç tutma kuralları kapsamı geneldir ve tüm sayfaları ve tüm kurallar için.
 

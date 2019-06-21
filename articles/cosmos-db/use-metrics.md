@@ -5,24 +5,48 @@ ms.service: cosmos-db
 author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 06/18/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b7633b75bbb6d37c68a562560a6459e35d03b810
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef457fe8c21bc7e62f910a78913069df32bea1a3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242549"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275692"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>İzleyici ve Azure Cosmos DB'de ölçümlerle hata ayıklama
 
-Azure Cosmos DB, aktarım hızı, depolama, tutarlılık, kullanılabilirlik ve gecikme süresi için ölçümler sağlar. [Azure portalında](https://portal.azure.com) Bu ölçümler toplu bir görünümünü sağlar. Daha ayrıntılı ölçümler, hem de istemci SDK'sı ve [tanılama günlükleri](./logging.md) kullanılabilir.
+Azure Cosmos DB, aktarım hızı, depolama, tutarlılık, kullanılabilirlik ve gecikme süresi için ölçümler sağlar. Azure portalı, bu ölçütlerin toplu bir görünümünü sağlar. Azure İzleyici API'sinden Azure Cosmos DB ölçümleri de görüntüleyebilirsiniz. Azure İzleyici ölçümleri görüntüleme hakkında bilgi edinmek için [Azure İzleyici'den ölçümleri alma](cosmos-db-azure-monitor-metrics.md) makalesi. 
 
 Bu makalede, yaygın kullanım örnekleri ve Azure Cosmos DB ölçümleri analiz edin ve bu sorunların hatalarını ayıklamak için nasıl kullanılabileceği gösterilmektedir. Ölçümler, beş dakikada bir toplanan ve yedi gün boyunca tutulur.
 
+## <a name="view-metrics-from-azure-portal"></a>Azure portalından ölçümlerini görüntüleme
+
+1. [Azure portalda](https://portal.azure.com/) oturum açın.
+
+1. Açık **ölçümleri** bölmesi. Varsayılan olarak, depolama ölçümleri bölmesi gösterir dizin, Azure Cosmos hesabınızdaki tüm veritabanları için istek birimi ölçümleri. Bu ölçüm veritabanı, kapsayıcı veya bir bölge başına filtreleyebilirsiniz. Ayrıca, belirli bir zaman ayrıntı düzeyi ölçümlere filtreleyebilirsiniz. Ayrı sekmelerde aktarım hızı, depolama, kullanılabilirlik, gecikme süresi ve tutarlılık ölçümleri hakkında daha fazla ayrıntı sağlanır. 
+
+   ![Azure portalında cosmos DB performans ölçümleri](./media/use-metrics/performance-metrics.png)
+
+Aşağıdaki ölçümler kullanılabilir **ölçümleri** bölmesi: 
+
+* **Verimlilik metriklerini** -kapsayıcısı için sağlanan işleme veya depolama kapasitesinin aştığından bu ölçüm tüketilen veya başarısız istekleri (429 yanıt kodu) sayısını gösterir.
+
+* **Depolama ölçümleri** -Bu ölçüm kullanım veri ve dizin boyutunu gösterir.
+
+* **Kullanılabilirlik ölçümlerini** -Bu ölçüm, toplam istek / saat üzerinden başarılı istekler yüzdesini gösterir. Başarı oranı, Azure Cosmos DB SLA'lar ile tanımlanır.
+
+* **Gecikme süresi ölçülerini** -Bu ölçüm hesabınızı çalışıp burada bölgede Azure Cosmos DB tarafından gözlemlenen okuma ve yazma gecikme süresi göstermektedir. Coğrafi olarak çoğaltılmış bir hesap için bölgeler arasında gecikme görselleştirebilirsiniz. Bu ölçüm, uçtan uca istek gecikme süresi temsil etmez.
+
+* **Tutarlılık ölçümleri** -Bu ölçüm nasıl nihai tutarlılık için seçtiğiniz bir tutarlılık modelini gösterir. Çok bölgeli hesaplar için bu ölçüm, seçtiğiniz bölgeler arasında çoğaltma gecikmesi de gösterir.
+
+* **Sistem ölçümlerini** -Bu ölçüm, kaç tane meta veri isteği ana bölüm tarafından sunulan gösterir. Ayrıca daraltılmış istekler belirlemenize yardımcı olur.
+
+Aşağıdaki bölümlerde, Azure Cosmos DB ölçümleri kullanabileceğiniz yaygın senaryolar açıklanmaktadır. 
+
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Kaç istek doğrulamanın başarılı olması veya hatalara neden anlama
 
-Başlamak için head [Azure portalında](https://portal.azure.com) gidin **ölçümleri** dikey penceresi. Dikey pencerede Bul **1 dakika başına kapasiteyi aşan istek sayısı** grafiği. Bu grafik, durum kodu ile bölümlenmiş bir dakika tarafından dakika toplam istek gösterir. HTTP durum kodları hakkında daha fazla bilgi için bkz. [Azure Cosmos DB için HTTP durum kodları](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Başlamak için head [Azure portalında](https://portal.azure.com) gidin **ölçümleri** dikey penceresi. Dikey pencerede Bul ** istek sayısını 1 dakikalık grafik kapasite aşıldı. Bu grafik, durum kodu ile bölümlenmiş bir dakika tarafından dakika toplam istek gösterir. HTTP durum kodları hakkında daha fazla bilgi için bkz. [Azure Cosmos DB için HTTP durum kodları](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 En yaygın hata durum kodu 429 (hızı sınırlama/azaltma) ' dir. Bu hata Azure Cosmos DB'de istekleri birden çok sağlanan aktarım hızı anlamına gelir. Bu sorunun en yaygın çözüm [RU'ları ölçeklendirme](./set-throughput.md) bir koleksiyon için.
 
@@ -87,5 +111,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Şimdi, izleme ve Azure portalında sağlanan ölçümler kullanarak hata ayıklama sorunlarını öğrendiniz. Aşağıdaki makaleleri okuyarak, veritabanı performansını iyileştirme hakkında daha fazla bilgi isteyebilirsiniz:
 
+* Azure İzleyici ölçümleri görüntüleme hakkında bilgi edinmek için [Azure İzleyici'den ölçümleri alma](cosmos-db-azure-monitor-metrics.md) makalesi. 
 * [Performans ve ölçek testi ile Azure Cosmos DB](performance-testing.md)
 * [Azure Cosmos DB için performans ipuçları](performance-tips.md)

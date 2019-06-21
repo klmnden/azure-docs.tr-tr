@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: a8bfa7c5baa316b4019480bfc146b6cc61eff979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74552f2d4bea495c0278ef6ed4a408188752a7e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141294"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274980"
 ---
 # <a name="configure-a-custom-domain-name"></a>Özel bir etki alanı adı yapılandırma 
 
@@ -49,7 +49,7 @@ Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerek
    + **SCM** (varsayılan: `<apim-service-name>.scm.azure-api.net`).
 
      >[!NOTE]
-     > Tüm uç noktalar veya bunlardan bazıları güncelleştirebilirsiniz. Yaygın olarak, müşteriler güncelleştirme **Proxy** (Bu URL'yi API Management aracılığıyla kullanıma sunulan API çağırmak için kullanılır) ve **portalı** (Geliştirici Portalı URL'si). **Yönetim** ve **SCM** uç noktaları APIM müşteriler tarafından dahili olarak kullanılır ve bu nedenle daha az sıklıkta özel etki alanı atanır.
+     > Tüm uç noktalar veya bunlardan bazıları güncelleştirebilirsiniz. Yaygın olarak, müşteriler güncelleştirme **Proxy** (Bu URL'yi API Management aracılığıyla kullanıma sunulan API çağırmak için kullanılır) ve **portalı** (Geliştirici Portalı URL'si). **Yönetim** ve **SCM** uç noktaları APIM müşteriler tarafından dahili olarak kullanılır ve bu nedenle daha az sıklıkta özel etki alanı atanır. Çoğu durumda, belirtilen bir uç nokta için yalnızca tek bir özel etki alanı ayarlanabilir. Ancak, **Premium** katmanı destekleyen birden çok ana bilgisayar adları için ayarlama **Proxy** uç noktası.  
 
 1. Güncelleştirmek istediğiniz uç nokta seçin. 
 1. Sağdaki pencerede **özel**.

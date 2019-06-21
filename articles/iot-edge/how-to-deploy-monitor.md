@@ -5,38 +5,36 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f012d3e228a2730423c0d5a6f2cea7a8f2f9eab4
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126379"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190423"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Dağıtma ve Azure portalını kullanarak ölçekte IOT Edge modülleri izleme
 
-[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
+Oluşturma bir **IOT Edge otomatik dağıtım** tek seferde birçok cihaz için devam eden dağıtımları yönetmek için Azure portalında. IOT Edge için otomatik dağıtımlar parçası olan [otomatik cihaz Yönetimi](/iot-hub/iot-hub-automatic-device-management.md) IOT hub'ı özelliğidir. Birden çok cihaz için birden çok modül dağıtma, sistem modüllerinin izlemek ve gerektiğinde değişiklik olanak sağlayan dinamik işlemler dağıtımlarıdır. 
 
-Azure IOT Edge bulut arabirimi sağlar, böylece yönetebilir ve her bir fiziksel olarak erişmek zorunda kalmadan IOT Edge cihazlarınıza izleme ve analiz uç cihazlara taşıyın olanak sağlar. Cihazları uzaktan yönetme olanağı, nesnelerin interneti çözümleri, daha büyük ve daha karmaşık büyüyor gibi giderek önemlidir. Azure IOT Edge, eklediğiniz kaç cihaz ne olursa olsun, iş hedeflerinizi desteklemek için tasarlanmıştır.
-
-Tek tek cihazları yönetmek ve modülleri dağıtabilmek teker teker. Ancak, cihazların büyük ölçekli değişiklikler yapmak istiyorsanız, oluşturabileceğiniz bir **IOT Edge otomatik dağıtım**, IOT Hub otomatik cihaz yönetiminin bir parçası değildir. Birden çok modülle aynı anda birden çok cihazlara dağıtın, sistem modüllerinin izlemek ve gerektiğinde değişiklik olanak sağlayan dinamik işlemler dağıtımlarıdır. 
+Daha fazla bilgi için [otomatik dağıtımlar tek tek cihazlarda veya uygun ölçekte IOT Edge anlamak](module-deployment-monitoring.md).
 
 ## <a name="identify-devices-using-tags"></a>Etiketleri kullanarak cihazları belirleyin
 
-Bir dağıtımı oluşturmadan önce değiştirmek istediğiniz hangi cihazların belirtebilmek sahip. Azure IOT Edge kullanarak cihazları tanımlar **etiketleri** cihaz ikizinde. Her cihazı birden fazla etikete sahip olabilir ve çözümünüz için mantıklı olan herhangi bir şekilde tanımlayabilirsiniz. Örneğin, bir akıllı binalar, kampüs yönetiyorsanız, bir cihaza aşağıdaki etiketler ekleyebilirsiniz:
+Bir dağıtımı oluşturmadan önce değiştirmek istediğiniz hangi cihazların belirtebilmek sahip. Azure IOT Edge kullanarak cihazları tanımlar **etiketleri** cihaz ikizinde. Her cihaz, çözümünüz için mantıklı olan herhangi bir şekilde tanımlayan birden çok etiketi olabilir. Örneğin, bir akıllı binalar, kampüs yönetiyorsanız, bir cihaza aşağıdaki etiketler ekleyebilirsiniz:
 
 ```json
 "tags":{
-    "location":{
-        "building": "20",
-        "floor": "2"
-    },
-    "roomtype": "conference",
-    "environment": "prod"
+  "location":{
+    "building": "20",
+    "floor": "2"
+  },
+  "roomtype": "conference",
+  "environment": "prod"
 }
 ```
 
@@ -58,24 +56,21 @@ Bir dağıtımı oluşturmak için beş adım vardır. Aşağıdaki bölümlerde
 
 ### <a name="step-2-add-modules-optional"></a>2\. adım: (İsteğe bağlı) Modül Ekle
 
-Dağıtıma eklediğiniz modüllerinin iki türü vardır. İlk Depolama hesabı veya Stream Analytics gibi bir Azure hizmeti için temel modüldür. İkincisi, kendi kodunuzu kullanarak bir modüldür. Bir dağıtım için birden çok modül iki türden birine ekleyebilirsiniz. 
+Bir dağıtım için en fazla 20 modüller ekleyebilirsiniz. 
 
-Hiçbir modül olmadan bir dağıtım oluşturursanız, geçerli modüllerin cihazlardan kaldırır. 
-
->[!NOTE]
->Azure işlevleri otomatik Azure Hizmet dağıtımının henüz desteklemiyor. Bu hizmeti dağıtımınız için el ile eklemek için özel modülü dağıtımı kullanın. 
+Hiçbir modül olmadan bir dağıtım oluşturursanız, hedef cihazları geçerli modüllerin kaldırır. 
 
 Azure Stream Analytics'ten bir modül eklemek için aşağıdaki adımları izleyin:
 
 1. İçinde **dağıtım modülleri** Bölümü sayfasına tıklayın **Ekle**.
 1. Seçin **Azure Stream Analytics Modülü**.
 1. Seçin, **abonelik** aşağı açılan menüden.
-1. Seçin, **Edge işi** aşağı açılan menüden.
+1. IOT seçin **Edge işi** aşağı açılan menüden.
 1. Seçin **Kaydet** modülünüzde dağıtıma eklenecek. 
 
 Bir modül olarak özel kod ekleyin veya bir Azure hizmeti modülü el ile eklemek için şu adımları izleyin:
 
-1. İçinde **kapsayıcı kayıt defteri ayarları** bölüm sayfasında, bu dağıtım için modül görüntüleri içeren herhangi bir özel kapsayıcı kayıt defterleri için adları ve kimlik bilgilerini sağlayın. Kapsayıcı kayıt defteri kimlik bilgisi için bir Docker görüntüsü bulamazsanız, Edge Aracısı 500 hata rapor eder.
+1. İçinde **kapsayıcı kayıt defteri ayarları** bölüm sayfasında, bu dağıtım için modül görüntüleri içeren herhangi bir özel kapsayıcı kayıt defterleri için adları ve kimlik bilgilerini sağlayın. Kapsayıcı kayıt defteri kimlik bilgisi için bir Docker görüntüsü bulamazsanız, IOT Edge Aracısı 500 hata rapor eder.
 1. İçinde **dağıtım modülleri** Bölümü sayfasına tıklayın **Ekle**.
 1. Seçin **IOT Edge Modülü**.
 1. Modülünüzün vermek bir **adı**.
@@ -84,13 +79,13 @@ Bir modül olarak özel kod ekleyin veya bir Azure hizmeti modülü el ile eklem
 1. Seçmek için açılan menüyü kullanın. bir **yeniden ilke**. Aşağıdaki seçeneklerden birini seçin: 
    * **Her zaman** -herhangi bir nedenle kapanması durumunda modülü her zaman yeniden başlatılır.
    * **Hiçbir zaman** -herhangi bir nedenle kapanması durumunda modülün başlatmaz.
-   * **Üzerinde başarısız** -modülü, düzgün şekilde kapanması değil, ancak bu, bir çökme gerçekleşirse yeniden başlatır. 
+   * **Başarısızlık** -modülü, düzgün şekilde kapanması değil, ancak bu, bir çökme gerçekleşirse yeniden başlatır. 
    * **Üzerinde-sağlıksız** -kilitlenmesine veya sistem durumunun iyi olmadığını döndürür, modül yeniden başlatır. Bu sistem durumu işlevi uygulamak için her modül aittir. 
 1. Seçmek için açılan menüyü kullanın **istenen durum** modülü için. Aşağıdaki seçeneklerden birini seçin:
-   * **Çalışan** -varsayılan seçenek budur. Modül hemen dağıtıldıktan sonra çalışan başlar.
+   * **çalışan** -çalışan, varsayılan seçenektir. Modül hemen dağıtıldıktan sonra çalışan başlar.
    * **Durduruldu** -dağıtıldıktan sonra modülü üzerinde siz veya başka bir modül tarafından başlatılmak kadar boşta kalır.
 1. Seçin **istenen özellikler kümesi modül ikizi** etiket veya diğer özellikler için modül ikizi eklemek istiyorsanız.
-1. Girin **ortam değişkenlerini** bu modül için. Ortam değişkenleri, bir modül yapılandırma kolaylaştırmak için ek bilgi sağlar.
+1. Girin **ortam değişkenlerini** bu modül için. Ortam değişkenleri, bir modül için yapılandırma bilgilerini sağlayın.
 1. Seçin **Kaydet** modülünüzde dağıtıma eklenecek. 
 
 Yapılandırılmış bir dağıtım için tüm modüllerin oluşturduktan sonra seçin **sonraki** üç adım taşımak için.
@@ -109,20 +104,20 @@ Bir cihaz, uygulama yapılandırma içeriği sonucunda geri bildirebilir çeşit
 
 1. İçin bir sorgu girin **ölçüm ölçütleri**. Sorguyu IOT Edge hub'ı modül ikizi üzerinde alan [bildirilen özellikler](module-edgeagent-edgehub.md#edgehub-reported-properties). Ölçüm, sorgu tarafından döndürülen satır sayısını temsil eder.
 
-Örneğin:
+   Örneğin:
 
-```sql
-SELECT deviceId FROM devices
-  WHERE properties.reported.lastDesiredStatus.code = 200
-```
+   ```sql
+   SELECT deviceId FROM devices
+     WHERE properties.reported.lastDesiredStatus.code = 200
+   ```
 
 ### <a name="step-5-target-devices"></a>5\. Adım: Hedef cihazlar
 
 Bu dağıtım alması gereken belirli cihazları hedeflemek için etiketler özelliği cihazlarınızdan kullanın. 
 
-Birden çok dağıtım aynı cihazı hedefleyebilir olduğundan, her dağıtım öncelik numarası vermesi gerekir. Şimdiye kadar bir çakışma varsa (yüksek değerler daha yüksek bir önceliği gösterir) en yüksek öncelikli dağıtım kazanır. İki dağıtım aynı öncelik numarasına sahip olmak, çoğu oluşturulmuş bir son kazanır. 
+Birden çok dağıtım aynı cihazı hedefleyebilir olduğundan, her dağıtım öncelik numarası vermesi gerekir. Şimdiye kadar bir çakışma varsa (daha büyük değerler daha yüksek bir önceliği gösterir) en yüksek öncelikli dağıtım kazanır. İki dağıtım aynı öncelik numarasına sahip olmak, çoğu oluşturulmuş bir son kazanır. 
 
-1. Dağıtım için pozitif bir tamsayı girin **öncelik**. İki veya daha fazla dağıtım aynı cihazda hedeflenen durumunda durumunda, sayısal değeri en yüksek dağıtım önceliği geçerli olur.
+1. Dağıtım için pozitif bir tamsayı girin **öncelik**.
 1. Girin bir **hedef koşulu** hangi cihazların bu dağıtım ile hedeflenecek belirlemek için. Koşul, cihaz ikizi etiketlere göre veya cihaz çiftinin bildirilen özellikler ve ifade biçim ile eşleşmesi. Örneğin, `tags.environment='test'` veya `properties.reported.devicemodel='4000x'`. 
 1. Seçin **sonraki** son adıma geçmek için.
 
@@ -134,7 +129,7 @@ Dağıtım bilgilerinizi gözden geçirin ve ardından **Gönder**.
 
 Azure Market, burada, göz çok çeşitli Kurumsal uygulamaları ve onaylanmış ve Azure üzerinde çalıştırmak için en iyi duruma getirilmiş çözümleri aracılığıyla bir çevrimiçi uygulama ve hizmet Marketi olan dahil olmak üzere [IOT Edge modülleri](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Market de erişilebilir altında Azure portalından **kaynak Oluştur**.
 
-Azure Market veya Azure portalında bir IOT Edge modülünü yükleyebilirsiniz:
+Azure Market ya da Azure portalında bir IOT Edge modülü dağıtabilirsiniz:
 
 1. Modülü bulun ve dağıtım işlemine başlar.
 
@@ -168,8 +163,8 @@ Bir dağıtımın ayrıntılarını görüntülemek ve onu çalıştıran cihazl
    * **Hedef koşul** -hedeflenen cihazları tanımlamak için kullanılan etiketi.
    * **Öncelik** -bir dağıtıma atanan öncelik numarası.
    * **Sistem ölçümlerini** - **hedeflenen** hedefleme koşula uyan IOT hub'da cihaz ikizlerini belirtir ve **uygulanan** sahip cihazların sayısını belirtir Dağıtım içeriğini kendi modül ikizlerini IOT hub'ında uygulanan. 
-   * **Cihaz ölçümleri** -başarı veya IOT Edge istemci çalışma zamanı hata raporlama dağıtım Edge cihazların sayısı.
-   * **Özel ölçümler** -dağıtım için tanımlanan tüm ölçümleri için veri raporlama dağıtım Edge cihazların sayısı.
+   * **Cihaz ölçümleri** -IOT Edge cihazları başarı veya IOT Edge istemci çalışma zamanı hata raporlama dağıtım sayısı.
+   * **Özel ölçümler** -IOT Edge cihazları raporlama dağıtım için tanımlanan tüm ölçümleri verilerini dağıtım sayısı.
    * **Oluşturma zamanı** -dağıtım oluşturulduğu zaman damgası. Bu zaman damgasından iki dağıtım aynı önceliğe sahip olduğunuzda TIES ayırmak için kullanılır. 
 1. İzlemek istediğiniz dağıtımı seçin.  
 1. Dağıtım ayrıntılarını inceleyin. Dağıtım ayrıntılarını gözden geçirmek için sekmeleri kullanabilirsiniz.
@@ -217,4 +212,4 @@ Bir dağıtım sildiğinizde, sonraki en yüksek öncelikli dağıtım üzerinde
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinin [modülleri uç cihazlarına dağıtma](module-deployment-monitoring.md).
+Daha fazla bilgi edinin [modülleri IOT Edge cihazlarına dağıtma](module-deployment-monitoring.md).

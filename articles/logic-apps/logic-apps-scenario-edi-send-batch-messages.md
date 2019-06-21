@@ -9,11 +9,11 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428041"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64715795"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Azure Logic Apps ile ortaklar için EDI iletilerini toplu olarak gönder
 
@@ -67,12 +67,12 @@ Bu batch alıcı için belirttiğiniz toplu iş modu, ad yayın ölçütü X12 s
 
    | Özellik | Değer | Notlar | 
    |----------|-------|-------|
-   | **Toplu iş modu** | Satır İçi |  |  
+   | **Toplu iş modu** | Satır içi |  |  
    | **Toplu işlem adı** | TestBatch | Yalnızca **satır içi** toplu iş modu | 
    | **Yayın ölçütü** | Zamanlama tabanlı, ileti sayısı tabanlı | Yalnızca **satır içi** toplu iş modu | 
    | **İleti sayısı** | 10 | Yalnızca **ileti sayısı tabanlı** yayın ölçütleri | 
    | **Aralık** | 10 | Yalnızca **zamanlama tabanlı** yayın ölçütleri | 
-   | **Sıklık** | dakika | Yalnızca **zamanlama tabanlı** yayın ölçütleri | 
+   | **Sıklık** | Dakika | Yalnızca **zamanlama tabanlı** yayın ölçütleri | 
    ||| 
 
    ![Toplu tetikleyici ayrıntılarını sağlayın](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
@@ -126,7 +126,7 @@ Beklendiği gibi batch alıcı works emin olmak için test amacıyla bir HTTP ey
 
    | Özellik | Açıklama | 
    |----------|-------------|
-   | **Yöntem** | Bu listeden **POST**. | 
+   | **Yöntemi** | Bu listeden **POST**. | 
    | **URI** | Bir URI, istek depo oluşturun ve ardından bu URI, bu kutuya girin. | 
    | **Gövde** | Bu kutusunun içine tıklayın ve dinamik içerik listesinden açıldıktan sonra seçin **gövdesi** bölümünde görünen belirteci **sözleşme adına göre toplu kodlama**. <p>Görmüyorsanız **gövdesi** yanındaki simge **sözleşme adına göre toplu kodlama**seçin **daha fazla bilgi bkz**. | 
    ||| 

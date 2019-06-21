@@ -6,23 +6,23 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: df60429a8b3d6fbdc504a7605d1502b4e084d386
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238970"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165314"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Parametreli URL'yi kullanarak özel görünümü paylaşma
 
 Time Series Insights Gezgini özel bir görünümü paylaşmak için programlama yoluyla Özel görünümün parametreli bir URL'sini oluşturabilirsiniz.
 
-Time Series Insights Gezgini, doğrudan URL'den gerçekleştirilen bir deneyimde görünümleri belirtmek için URL sorgu parametrelerini destekler. Örneğin, yalnızca URL'yi kullanarak hedef ortamı, arama koşulunu ve istenen zaman aralığını belirtebilirsiniz. Kullanıcı özelleştirilmiş URL'ye tıkladığında, arabirim Time Series Insights portalında doğrudan bu varlığın bağlantısını sağlar. Veri erişimi ilkeleri uygulanır.
+Time Series Insights Gezgini, doğrudan URL'den gerçekleştirilen bir deneyimde görünümleri belirtmek için URL sorgu parametrelerini destekler. Örneğin, yalnızca URL'yi kullanarak hedef ortamı, arama koşulunu ve istenen zaman aralığını belirtebilirsiniz. Kullanıcı özelleştirilmiş URL'ye seçtiğinde, arabirim Time Series Insights portalında bu varlık için doğrudan bir bağlantı sağlar. Veri erişimi ilkeleri uygulanır.
 
 > [!TIP]
 > * Ücretsiz görüntülemek [Time Series Insights tanıtım](https://insights.timeseries.azure.com/samples).

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966312"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296180"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Sık sorulan sorular-Azure Vm'leri yedekleme
 
@@ -89,6 +89,9 @@ Anlık görüntüleri WA özellikli diskte alınamaz. Ancak, Azure Backup hizmet
 Azure yedekleme WA etkin disk yedekleyemezsiniz, ancak yedeklemeden hariç tutabilirsiniz. Ancak, WA özellikli diskteki bilgileri yedeklenmediğini nedeniyle yedekleme veritabanı tutarlılığını sağlamaz. İşletim sistemi diskini yedekleme ve WA etkin olmayan disk yedekleme istiyorsanız bu yapılandırmayı disklerle yedekleyebilirsiniz.
 
 Biz, 15 dakikalık bir RPO ile bir SAP HANA yedeklemesi için özel Önizleme çalıştırıyorsunuz. SQL DB yedekleme benzer bir şekilde oluşturulmuştur ve üçüncü taraf çözümleri ile SAP HANA sertifikalı backInt arabirim kullanır. İlgileniyorsanız, adresinden bize e-posta `AskAzureBackupTeam@microsoft.com` konu ile **Azure vm'lerde SAP HANA yedeklemesi için özel Önizleme için kaydolun**.
+
+### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>My VM yedekleme ilkesinde ayarlamış olmanız zamanlanmış yedekleme saatinden yedekleme başlangıç saati, bekleyebileceğiniz en büyük gecikme nedir?
+Zamanlanmış yedekleme zamanlanmış yedekleme zamanını 2 saat içinde tetiklenir. İçin örn. 100 VM 2: 00'da zamanlanmış yedekleme başlangıç saati varsa, daha sonra en fazla 4: 00'da tarafından 100VMs yedekleme işi devam eden gerekir. Ardından zamanlanmış yedeklemeler sürdürüldü/denenen ve kesinti nedeniyle duraklatıldı durumunda yedekleme bu zamanlanmış 2 ik penceresi dışında başlayabilirsiniz.
 
 
 ## <a name="restore"></a>Geri Yükleme

@@ -5,20 +5,75 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 50e1cb95249f0108430e978ae3ffe23b6edc778d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bfaf848b0b700c8d745acf8c6a63c898dc91140
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418390"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272875"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery'deki yenilikler
 
 [Azure Site Recovery](site-recovery-overview.md) hizmeti güncelleştirildi ve sürekli olarak Gelişmiş. Yeniliklerden haberdar olun yardımcı olmak için bu makalede, en son sürümlerde, yeni özellikler ve yeni içerik hakkında bilgi sağlar. Bu sayfayı düzenli olarak güncelleştirilir.
 
 Site Recovery özellikleri için önerileriniz varsa, öğrenmek isteriz [Geri bildirimlerinizi](https://feedback.azure.com/forums/256299-site-recovery).
+
+
+## <a name="updates-june-2019"></a>Güncelleştirmeler (Haziran 2019)
+
+### <a name="update-rollup-37"></a>Güncelleştirme paketi 37
+
+[Güncelleştirme paketi 37](https://support.microsoft.com/help/4508614/) aşağıdaki güncelleştirmeler sağlar.
+
+**Güncelleştirme** | **Ayrıntılar**
+--- | ---
+**Sağlayıcılar ve aracılar** | Site Recovery aracıları ve sağlayıcıları (toplama'nda açıklandığı şekilde) için güncelleştirmeler
+**Sorun düzeltmeleri/iyileştirmeleri** | Bir dizi düzeltmeleri ve geliştirmeleri (toplama'nda açıklandığı şekilde)
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/fiziksel sunucu olağanüstü durum kurtarma
+
+Bu ay tabloda özetlenen özellikleri eklendi.
+
+**Özelliği** | **Ayrıntılar**
+--- | ---
+**GPT bölüm** | Güncelleştirme paketi 37 ve üzeri (Mobility hizmeti sürümü 9.25.5241.1), beş GPT kadar bölümler UEFI desteklenir. Bu güncelleştirmeden önce dört desteklendi.
+
+
+
+## <a name="updates-may-2019"></a>Güncelleştirmeler (Mayıs 2019)
+
+### <a name="update-rollup-36"></a>Güncelleştirme paketi 36
+
+[Güncelleştirme paketi 36](https://support.microsoft.com/help/4503156) aşağıdaki güncelleştirmeler sağlar.
+
+**Güncelleştirme** | **Ayrıntılar**
+--- | ---
+**Sağlayıcılar ve aracılar** | Site Recovery aracıları ve sağlayıcıları (toplama'nda açıklandığı şekilde) için bir güncelleştirme
+**Sorun düzeltmeleri/iyileştirmeleri** | Bir dizi düzeltmeleri ve geliştirmeleri (toplama'nda açıklandığı şekilde)
+
+### <a name="azure-vm-disaster-recovery"></a>Azure VM'LERİNDE olağanüstü durum kurtarma
+
+Bu ay tabloda özetlenen özellikleri eklendi.
+
+**Özelliği** | **Ayrıntılar**
+--- | ---
+**Eklenen diskler çoğaltma** | Olağanüstü durum kurtarma için zaten etkin bir Azure VM'ye eklenen veri diskleri için çoğaltmayı etkinleştirin. [Daha fazla bilgi edinin](azure-to-azure-enable-replication-added-disk.md).
+**Otomatik Güncelleştirmeler** | Azure vm'lerinde olağanüstü durum kurtarma için etkinleştirilmiş çalışan Mobility hizmeti uzantısının otomatik güncelleştirmeleri yapılandırırken artık Site Recovery tarafından oluşturulan varsayılan hesabı kullanmak yerine, kullanmak için mevcut bir Otomasyon hesabı seçebilirsiniz. [Daha fazla bilgi edinin](azure-to-azure-autoupdate.md).
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/fiziksel sunucu olağanüstü durum kurtarma
+
+Bu ay tabloda özetlenen özellikleri eklendi.
+
+**Özelliği** | **Ayrıntılar**
+--- | ---
+**Sunucu izleme işlemi** | Şirket içi VMware Vm'leri ve fiziksel sunucuları olağanüstü durum kurtarma, izleyin ve geliştirilmiş sunucu sistem durumu raporlama ve Uyarıları ile işlem sunucusu sorunlarını giderme. [Daha fazla bilgi edinin](vmware-physical-azure-monitor-process-server.md). 
+
+
+
 
 
 ## <a name="updates-march-2019"></a>Güncelleştirmeler (Mart 2019)
@@ -32,8 +87,9 @@ Site Recovery özellikleri için önerileriniz varsa, öğrenmek isteriz [Geri b
 **Sağlayıcılar ve aracılar** | Site Recovery aracıları ve sağlayıcıları (toplama'nda açıklandığı şekilde) için bir güncelleştirme
 **Sorun düzeltmeleri/iyileştirmeleri** | Bir dizi düzeltmeleri ve geliştirmeleri (toplama'nda açıklandığı şekilde)
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/fiziksel sunucu olağanüstü durum kurtarma
-Güncelleştirmede eklenen yeni özellikler.
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/fiziksel sunucu olağanüstü durum kurtarma
+
+Bu ay tabloda özetlenen özellikleri eklendi.
 
 **Özelliği** | **Ayrıntılar**
 --- | ---
@@ -63,8 +119,8 @@ Güncelleştirmede eklenen yeni özellikler.
 **Sorun düzeltmeleri/iyileştirmeleri** | Düzeltmeleri ve geliştirmeleri (toplama'nda açıklandığı şekilde) sayısı.
 
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM'LERİNDE olağanüstü durum kurtarma 
-Güncelleştirmede eklenen yeni özellikler.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM'LERİNDE olağanüstü durum kurtarma 
+Bu ay tabloda özetlenen özellikleri eklendi.
 
 **Özelliği** | **Ayrıntılar**
 --- | ---
@@ -73,8 +129,8 @@ Güncelleştirmede eklenen yeni özellikler.
 **Depolama alanları doğrudan** | Kullanarak Azure VM uygulamalar üzerinde çalışan uygulamalar için olağanüstü durum kurtarma ayarlayabilirsiniz [depolama alanları doğrudan](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) yüksek kullanılabilirlik için.  Depolama alanları doğrudan (S2D) Site Recovery ile birlikte kullanarak Azure VM iş yüklerini kapsamlı korumasını sağlar. S2d'yi bir konuk küme azure'da barındırmanıza olanak tanır. SAP ASCS katmanı, SQL Server veya genişleme dosya sunucusu gibi kritik bir uygulamayı barındıran bir VM olduğunda bu kullanışlıdır.
 
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/fiziksel sunucu olağanüstü durum kurtarma
-Güncelleştirmede eklenen yeni özellikler.
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/fiziksel sunucu olağanüstü durum kurtarma
+Bu ay tabloda özetlenen özellikleri eklendi.
 
 **Özelliği** | **Ayrıntılar**
 --- | ---
@@ -83,6 +139,7 @@ Güncelleştirmede eklenen yeni özellikler.
 
 
 ## <a name="updates-january-2019"></a>Güncelleştirmeler (Ocak 2019)
+
 
 ### <a name="accelerated-networking-azure-vms"></a>Hızlandırılmış ağ (Azure Vm'leri)
 
@@ -99,16 +156,19 @@ Hızlandırılmış ağ, ağ performansını iyileştirme, bir sanal makineye te
 **Sağlayıcılar ve aracılar** | Bir güncelleştirme Site Recovery aracıları ve sağlayıcıları (toplama'nda açıklandığı şekilde).
 **Sorun düzeltmeleri/iyileştirmeleri** | Düzeltmeleri ve geliştirmeleri (toplama'nda açıklandığı şekilde) sayısı.
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM'LERİNDE olağanüstü durum kurtarma
+### <a name="azure-vm-disaster-recovery"></a>Azure VM'LERİNDE olağanüstü durum kurtarma
 
-Güncelleştirmede eklenen yeni özellikler.
+Bu ay tabloda özetlenen özellikleri eklendi.
 
 **Özelliği** | **Ayrıntılar**
 --- | ---
 **Linux desteği** | Destek, Ubuntu, Debian ve SUSE RedHat iş istasyonu 7/6 ve yeni çekirdek sürümleri eklendi.
 **Depolama alanları doğrudan** | Site Recovery, depolama alanları doğrudan (S2D) kullanarak Azure Vm'leri destekler.
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>VMware Vm'lerini/fiziksel sunucuları çoğaltma 
+### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>VMware Vm'lerini/fiziksel sunucuları olağanüstü durum kurtarma
+
+Bu ay tabloda özetlenen özellikleri eklendi.
+ 
 **Özelliği** | **Ayrıntılar**
 --- | ---
 **Linux desteği** | Redhat Enterprise Linux 7.6, RedHat iş istasyonu 6 7, Oracle Linux 6.10/7.6 ve yeni kernel sürümleri için destek Ubuntu, Debian ve SUSE eklendi.
@@ -123,9 +183,8 @@ Güncelleştirmede eklenen yeni özellikler.
 **Sağlayıcılar ve aracılar** | Bir güncelleştirme Site Recovery aracıları ve sağlayıcıları (toplama'nda açıklandığı şekilde).
 **Sorun düzeltmeleri/iyileştirmeleri** | Düzeltmeleri ve geliştirmeleri (toplama'nda açıklandığı şekilde) sayısı.
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>VMware Vm'lerini/fiziksel sunucuları çoğaltma 
-Güncelleştirmede eklenen yeni özellikler.
-
+### <a name="vmware-vmsphysical-servers-replication"></a>VMware Vm'lerini/fiziksel sunucuları çoğaltma 
+Bu ay tabloda özetlenen özellikleri eklendi.
 **Özelliği** | **Ayrıntılar**
 --- | ---
 **Linux desteği** | UEK5 çekirdek ve Oracle Linux 6,8 6.9/7.0 için destek eklendi.
@@ -135,8 +194,8 @@ Güncelleştirmede eklenen yeni özellikler.
 **Yük devretme** | Burada storvsc ve vsbus önyükleme sürücüleri olmayan VMware Vm'leri için yük devretme süresi geliştirildi.
 **UEFI desteği** | Azure sanal makineler önyükleme türü UEFI desteklemez. Şimdi, UEFI ile şirket içi fiziksel sunucuları Azure Site Recovery ile geçirebilirsiniz. Site kurtarma, sunucunun geçişten önce için BIOS önyükleme türü dönüştürerek geçirir. Site Recovery daha önce bu dönüştürme VM'ler için yalnızca desteklenen. Windows Server 2012 çalıştıran fiziksel sunucular için veya üzeri destek sunulur.
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM'LERİNDE olağanüstü durum kurtarma
-Güncelleştirmede eklenen yeni özellikler.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM'LERİNDE olağanüstü durum kurtarma
+Bu ay tabloda özetlenen özellikleri eklendi.
 
 **Özelliği** | **Ayrıntılar**
 --- | ---
@@ -176,8 +235,8 @@ Olağanüstü durum kurtarma Azure VM, sanal makine lisanslama maliyetleri ve a�
 **Sağlayıcılar ve aracılar** | Bir güncelleştirme Site Recovery aracıları ve sağlayıcıları (toplama'nda açıklandığı şekilde).
 **Sorun düzeltmeleri/iyileştirmeleri** | Düzeltmeleri ve geliştirmeleri (toplama'nda açıklandığı şekilde) sayısı.
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM'LERİNDE olağanüstü durum kurtarma
-Güncelleştirmede eklenen yeni özellikler.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM'LERİNDE olağanüstü durum kurtarma
+Bu ay tabloda özetlenen özellikleri eklendi.
 
 **Özelliği** | **Ayrıntılar**
 --- | ---
@@ -208,8 +267,8 @@ Güncelleştirmede eklenen yeni özellikler.
 **Sağlayıcılar ve aracılar** | Bir güncelleştirme Site Recovery aracıları ve sağlayıcıları (toplama'nda açıklandığı şekilde).
 **Sorun düzeltmeleri/iyileştirmeleri** | Düzeltmeleri ve geliştirmeleri (toplama'nda açıklandığı şekilde) sayısı.
 
-#### <a name="azure-vms-disaster-recovery"></a>Azure Vm'leri olağanüstü durum kurtarma 
-Güncelleştirmede eklenen yeni özellikler.
+### <a name="azure-vms-disaster-recovery"></a>Azure Vm'leri olağanüstü durum kurtarma 
+Bu ay tabloda özetlenen özellikleri eklendi.
 
 **Özelliği** | **Ayrıntılar**
 --- | ---
@@ -217,8 +276,8 @@ Güncelleştirmede eklenen yeni özellikler.
 **Bulut desteği** | Almanya Azure Vm'leri için olağanüstü durum kurtarma desteklenir.
 **Çapraz abonelik olağanüstü durum kurtarma** | Başka bir bölgede aynı Azure Active Directory kiracısı içinde farklı bir abonelikte bir bölgedeki Azure Vm'lerini çoğaltma desteği. [Daha fazla bilgi edinin](https://aka.ms/cross-sub-blog).
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM'LERİNİ/fiziksel sunucuları olağanüstü durum kurtarma 
-Güncelleştirmede eklenen yeni özellikler.
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM'LERİNİ/fiziksel sunucuları olağanüstü durum kurtarma 
+Bu ay tabloda özetlenen özellikleri eklendi.
 
 **Özelliği** | **Ayrıntılar**
 --- | ---
@@ -237,17 +296,17 @@ Güncelleştirmede eklenen yeni özellikler.
 **Sağlayıcılar ve aracılar** | Bir güncelleştirme Site Recovery aracıları ve sağlayıcıları (toplama'nda açıklandığı şekilde).
 **Sorun düzeltmeleri/iyileştirmeleri** | Düzeltmeleri ve geliştirmeleri (toplama'nda açıklandığı şekilde) sayısı.
 
-#### <a name="azure-vms-disaster-recovery"></a>Azure Vm'leri olağanüstü durum kurtarma 
+### <a name="azure-vms-disaster-recovery"></a>Azure Vm'leri olağanüstü durum kurtarma 
 
-Güncelleştirmede eklenen yeni özellikler.
+Bu ay tabloda özetlenen özellikleri eklendi.
 
 **Özelliği** | **Ayrıntılar**
 --- | ---
 **Linux desteği** | Red Hat Enterprise Linux 7.5 için eklenen destek.
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM'LERİNİ/fiziksel sunucuları olağanüstü durum kurtarma 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM'LERİNİ/fiziksel sunucuları olağanüstü durum kurtarma 
 
-Güncelleştirmede eklenen yeni özellikler.
+Bu ay tabloda özetlenen özellikleri eklendi.
 
 **Özelliği** | **Ayrıntılar**
 --- | ---

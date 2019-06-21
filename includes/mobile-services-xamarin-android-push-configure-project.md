@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 69dc0e1c14bc88cdbf0aa48700f95058ba759cc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140219"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188877"
 ---
 1. Çözüm görünümünde (veya **Çözüm Gezgini** Visual Studio'da), sağ tıklayın **bileşenleri** klasörünü tıklatın **daha alma bileşenleri...** , arama **Google Cloud Messaging istemcisi** bileşen ve projeye ekleyin.
 2. ToDoActivity.cs proje dosyasını açın ve aşağıdaki using deyimini sınıfa:

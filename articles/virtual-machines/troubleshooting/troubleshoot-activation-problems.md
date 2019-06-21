@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921286"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155151"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Azure Windows sanal makine etkinleştirme sorunlarını giderme
 
@@ -51,11 +51,9 @@ Genellikle, Azure sanal makine etkinleştirme sorunlarını uygun KMS istemci ku
 >
 >ExpressRoute kullanıyorsanız ve sahip olduğunuz bir varsayılan rota yayımlanan, bkz: [ExpressRoute üzerinden etkinleştirmek Azure VM başarısız olabilir](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>1\. adım yapılandırma uygun KMS istemci kurulum anahtarını (Windows Server 2016 ve Windows Server 2012 R2 için)
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>1\. adım yapılandırma uygun KMS istemci kurulum anahtarı
 
-Windows Server 2016 veya Windows Server 2012 R2 özel bir görüntüden oluşturulan VM için sanal makine için uygun KMS istemci kurulum anahtarı yapılandırmanız gerekir.
-
-Bu adım Windows 2012 veya Windows 2008 R2 için geçerli değildir. Yalnızca Windows Server 2016 ve Windows Server 2012 R2 tarafından desteklenen Otomasyon sanal makine etkinleştirme (AVMA) özelliği kullanır.
+Özel görüntüden oluşturulan VM için sanal makine için uygun KMS istemci kurulum anahtarı yapılandırmanız gerekir.
 
 1. Çalıştırma **slmgr.vbs/dlv komutunu** yükseltilmiş bir komut isteminde. Çıktıda açıklama değerini denetleyin ve ardından, perakende (Perakende kanal) veya (VOLUME_KMSCLIENT) toplu lisans medyasından oluşturulduğunu belirleyin:
   

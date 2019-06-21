@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 400ffaa9e6fed14ceabf34283cd5fa7c7a0336b8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65415496"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203407"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
 
@@ -151,6 +151,8 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 > [!NOTE]
 > Mobility hizmetinin korunan sunucularda kaldırılmayacak hem seçenekler, el ile kaldırmanız gerekir. Aynı yapılandırma sunucusuna yeniden kullanarak sunucuyu korumayı planlıyorsanız, mobility hizmetini kaldırma atlayabilirsiniz.
 
+> [!NOTE]
+> Bir VM üzerinde zaten başarısız olan ve Azure'da çalışan, korumayı devre dışı Not değil kaldırın / başarısız VM üzerinde etkiler.
 ## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Bir Azure sanal makine (Azure'dan Azure'a) için korumayı devre dışı bırakın
 
 -  İçinde **korunan öğeler** > **çoğaltılan öğeler**, makineye sağ tıklayın > **çoğaltma devre dışı bırakma**.
@@ -167,8 +169,12 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
    - **Çoğaltma ve Kaldır (önerilir) devre dışı** - bu seçenek çoğaltılan öğeyi Azure Site Recovery'den kaldırın ve makine için çoğaltma durdurulur. Şirket içi sanal makine çoğaltma yapılandırması temizlenir ve bu korumalı sunucu için Site Recovery Faturalaması durdurulur.
    - **Kaldırma** -bu seçeneği yalnızca kaynak ortamı (bağlı değil) silindi veya erişilebilir değil ise, kullanılması gereken. Bu işlem çoğaltılan öğeyi Azure Site Kurtarma (faturalandırma sona erdirilir) kaldırır. Şirket içi sanal makine çoğaltma yapılandırması **yapmamayı** temizlenir. 
 
-     > [!NOTE]
+ > [!NOTE]
      > Seçerseniz, **Kaldır** sonra aşağıdaki komut kümesini çalıştırmak seçeneği çoğaltma ayarları temizlemek için şirket içi Hyper-V sunucusu.
+
+> [!NOTE]
+> Bir VM üzerinde zaten başarısız olan ve Azure'da çalışan, korumayı devre dışı Not değil kaldırın / başarısız VM üzerinde etkiler.
+
 1. Sanal makine için çoğaltmayı kaldırmak için kaynak Hyper-V konak sunucusu üzerinde. SQLVM1 sanal makinenizin adıyla değiştirin ve bir yönetici bir PowerShell üzerinden betiği çalıştırın
 
 ```powershell

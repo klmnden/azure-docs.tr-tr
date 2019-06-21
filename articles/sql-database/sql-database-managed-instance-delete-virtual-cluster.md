@@ -1,6 +1,6 @@
 ---
-title: Silme Azure SQL veritabanı yönetilen örneği sonra VNet delete | Microsoft Docs
-description: Sanal ağ siliniyor Azure SQL veritabanı yönetilen örneği sonra silmeyi öğrenin.
+title: Bir alt ağ siliniyor Azure SQL veritabanı yönetilen örneği sonra Sil | Microsoft Docs
+description: Yönetilen örnek bir Azure SQL veritabanını silme sonra bir Azure sanal ağı silmek öğrenin.
 services: sql-database
 ms.service: sql-database
 ms.subservice: management
@@ -12,39 +12,39 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec5d99e160e739f59e2bf2ea369fe83e9900a1f1
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791386"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295310"
 ---
-# <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Alt ağ siliniyor Azure SQL veritabanı yönetilen örneği sonra Sil
+# <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Bir alt ağ siliniyor Azure SQL veritabanı yönetilen örneği sonra Sil
 
-Bu makalede, alt ağ siliniyor son Azure SQL veritabanı yönetilen örneği içinde bulunan sonra el ile silmeniz konusunda kılavuz bilgiler verilmektedir.
+Bu makalede, bir alt ağ siliniyor son Azure SQL veritabanı yönetilen örneği içinde bulunan sonra el ile silmeniz konusunda kılavuz bilgiler verilmektedir.
 
-[Sanal küme](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) silinen içermiştir yönetilen örnek saklanır 12 saat boyunca örneği silme. Sanal küme, aynı alt ağdaki yönetilen örnekleri daha hızlı oluşturulmasını etkinleştirmek için tasarım canlı olarak tutulur. Boş bir sanal küme tutma ücretsizdir. Bu süre boyunca sanal kümeyle ilişkili alt ağ silinemiyor.
+SQL veritabanı kullanan bir [sanal küme](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) silinen yönetilen örnek içerecek. Sanal küme 12 saat sonra yönetilen örnekleri aynı alt ağda hızlı bir şekilde oluşturmanızı sağlamak için örnek silme işlemi kalıcıdır. Boş bir sanal küme tutmak için ücret alınmaz. Bu süre boyunca sanal kümeyle ilişkili alt ağ silinemiyor.
 
-Boş bir sanal küme tarafından kullanılan alt ağın yayınlanmak el ile silinmesini sanal küme ile mümkündür. Sanal küme silme işlemi, Azure portal veya sanal Küme API ile gerçekleştirilebilir.
+12 saat bekleyin ve sanal küme ve onun alt kümesini hemen silmek tercih istemiyorsanız, bunu el ile yapabilirsiniz. Azure portalı veya API sanal kümeleri kullanarak sanal küme el ile silin.
 
 > [!NOTE]
 > Sanal küme silme başarılı olması için hiçbir yönetilen örnek içermelidir.
 
-## <a name="delete-virtual-cluster-from-azure-portal"></a>Azure portalından sanal küme silme
+## <a name="delete-virtual-cluster-from-the-azure-portal"></a>Azure portalından sanal küme silme
 
-Azure portalını kullanarak sanal bir kümeyi silmek için yerleşik arama'yı kullanarak sanal küme kaynakları arayın.
+Azure portalını kullanarak bir sanal kümede silmek için sanal küme kaynakları arayın.
 
-![Sanal küme arayın.](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
+![Arama kutusu vurgulandığı Azure portal ekran görüntüsü](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
 
-Silmek istediğiniz sanal küme bulduktan sonra bu kaynağı seçin ve Sil seçeneği seçin. Sanal küme silme işlemini onaylamanız istenir.
+Silmek istediğiniz sanal küme bulduktan sonra bu kaynak seçip **Sil**. Sanal küme silme işlemini onaylamanız istenir.
 
-![Sanal küme silin.](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
+![Sanal Azure portalının ekran görüntüsü panoyu Sil seçeneğinin vurgulandığı kümeleri.](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
 
-Onay sanal küme silindikten sonra Azure portal bildirimleri sağlanır. Sanal küme başarıyla silinmesini, alt ağ için daha fazla yeniden hemen serbest bırakır.
+Azure portal bildirimleri alanında sanal küme silindikten sonra onay gösterilir. Sanal küme başarılı silme işlemi hemen yeniden kullanım için alt serbest bırakır.
 
-## <a name="delete-virtual-cluster-using-api"></a>API'sini kullanarak sanal küme silme
+## <a name="delete-virtual-cluster-by-using-the-api"></a>API'yi kullanarak sanal küme silme
 
-Silmek için bir sanal Küme API kullanarak belirtilen URI parametreleri [sanal kümeler metodu Sil](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
+Belirtilen URI parametreleri API'si üzerinden sanal bir kümesini silmek için kullanın [sanal kümeler metodu Sil](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

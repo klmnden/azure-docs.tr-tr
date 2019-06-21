@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19bcac68084c4817e0dc0e67f31ab62244db5a2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97bad4d9cd599890dd5e26cbc77f81156c0f1070
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113412"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204666"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Mevcut NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -225,7 +225,7 @@ Sertifika deposu ve özel anahtarı kullanıcıya verilen izinlere sahip olup ol
 
 Tarafından oluşturulan otomatik olarak imzalanan sertifikalar *AzureMfaNpsExtnConfigSetup.ps1* betiği Ayrıca iki yıllık bir geçerlilik ömrü vardır. Sertifika yüklü olduğu doğrulanıyor, sertifika süresinin sona ermediğini denetlemeniz gerekir.
 
--------------------------------------------------------------
+---
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>My istemci sertifikası için Azure Active Directory kiracımdaki ilişkili olduğunu nasıl doğrulayabilirim?
 
@@ -251,13 +251,13 @@ Bu komutu çalıştırdıktan sonra C sürücüsüne dosyasını bulun ve çift 
 
 Geçerli-başlangıç ve geçerli-kadar okunabilir formda bulunan, zaman damgalarını komut birden fazla sertifika döndürürse, açık misfits filtrelemek için kullanılabilir.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-cant-i-sign-in"></a>Yapılamıyor neden oturum açmalıyım?
 
 Parolanızın süresinin dolmadığından denetleyin. NPS uzantısı, oturum açma iş akışının bir parçası parola değiştirmeyi desteklemez. Kuruluşunuzun BT personeli, daha fazla yardım almak için iletişime geçin.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-are-my-requests-failing-with-adal-token-error"></a>Neden isteklerim ADAL belirteç hatası ile başarısız oluyor?
 
@@ -268,19 +268,19 @@ Bu hata çeşitli nedenlerden biri nedeniyle olabilir. Sorun gidermek için aşa
 3. Sertifikanın Azure AD kiracınız ile ilişkili olduğunu doğrulayın.
 4. Uzantıyı çalıştıran sunucudan https://login.microsoftonline.com/ adresine erişilebildiğini doğrulayın.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-does-authentication-fail-with-an-error-in-http-logs-stating-that-the-user-is-not-found"></a>Neden kimlik doğrulaması, HTTP günlüklerinde kullanıcı bulunamadı belirten bir hata ile başarısız?
 
 AD Connect'in çalıştığını ve kullanıcının hem Windows Active Directory hem de Azure Active Directory'de mevcut olduğunu doğrulayın.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Günlüklerde başarısız olan tüm my kimlik doğrulamaları ile bağlanma HTTP neden görüyorum?
 
 NPS uzantısını çalıştıran sunucudan https://adnotifications.windowsazure.com adresine ulaşılabildiğini doğrulayın.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Neden kimlik doğrulaması, geçerli bir sertifika bulunmasına rağmen çalışmıyor?
 

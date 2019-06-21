@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67114661"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296205"
 ---
 # <a name="live-events-and-live-outputs"></a>Canlı Etkinlikler ve Canlı Çıkışlar
 
@@ -27,20 +27,23 @@ Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağ�
 > [!TIP]
 > Media Services v2 API'lerinden geçişini gerçekleştiren müşteriler için **canlı olay** varlık değiştirir **kanal** v2'de ve **Canlı çıkış** değiştirir **Program**.
 
-
 ## <a name="live-events"></a>Canlı Etkinlikler
 
-[Canlı Etkinlikler](https://docs.microsoft.com/rest/api/media/liveevents) sırasında canlı video akışları alınır ve işlenir. Canlı Etkinlik oluşturduğunuzda uzaktaki bir kodlayıcıdan canlı sinyal göndermek için kullanabileceğiniz bir giriş uç noktası oluşturulur. Uzaktaki gerçek zamanlı kodlayıcı, katılım akışını [RTMP](https://www.adobe.com/devnet/rtmp.html) veya [Kesintisiz Akış](https://msdn.microsoft.com/library/ff469518.aspx) (bölünmüş MP4) protokolünü kullanarak bu giriş uç noktasına gönderir. Kesintisiz akış alma protokolü, desteklenen URL şemalarını `http://` veya `https://`. Desteklenen URL şemalarını için RTMP alma protokolü, `rtmp://` veya `rtmps://`. 
+[Canlı Etkinlikler](https://docs.microsoft.com/rest/api/media/liveevents) sırasında canlı video akışları alınır ve işlenir. Canlı bir olay oluşturduğunuzda, bir uzak kodlayıcıdan canlı bir sinyal göndermek için kullanabileceğiniz birincil ve ikincil giriş uç noktası oluşturulur. Uzaktan gerçek zamanlı Kodlayıcı giriş uç noktası kullanarak katkı için akış gönderir [RTMP](https://www.adobe.com/devnet/rtmp.html) veya [kesintisiz akış](https://msdn.microsoft.com/library/ff469518.aspx) giriş Protokolü (parçalanmış MP4). RTMP alma protokolü için açık bir şekilde içerik gönderilebilir (`rtmp://`) ya da kablo üzerinde güvenli bir şekilde şifrelenir (`rtmps://`). Kesintisiz akış alma protokolü, desteklenen URL şemalarını `http://` veya `https://`.  
 
 ## <a name="live-event-types"></a>Canlı olay türleri
 
-A [canlı olay](https://docs.microsoft.com/rest/api/media/liveevents) iki türden biri olabilir: doğrudan ve canlı kodlama. 
+A [canlı olay](https://docs.microsoft.com/rest/api/media/liveevents) iki türden biri olabilir: doğrudan ve canlı kodlama. Oluşturma işlemi sırasında kullanarak türleri Ayarla [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+
+* **LiveEventEncodingType.None** -şirket içi Canlı Kodlayıcı, bir Çoklu bit hızlı akış gönderir. Alınan akışların herhangi başka bir işlemeye gerek kalmadan canlı olay geçirir. 
+* **LiveEventEncodingType.Standard** - bir şirket içinde gerçek zamanlı Kodlayıcı, Media Services ve canlı olay bir tek bit hızlı akışın Çoklu bit hızı akışları oluşturur gönderir. Katkı akış 720 p veya daha yüksek çözünürlükte ise **Default720p** hazır 6 çözümleme/bit hızlarına dönüştürme çiftleri kümesini kodlama.
+* **LiveEventEncodingType.Premium1080p** - bir şirket içinde gerçek zamanlı Kodlayıcı, Media Services ve canlı olay bir tek bit hızlı akışın Çoklu bit hızı akışları oluşturur gönderir. Default1080p hazır çözüm/bit hızlarına dönüştürme çiftleri çıkış kümesini belirtir. 
 
 ### <a name="pass-through"></a>Geçiş
 
 ![doğrudan geçiş](./media/live-streaming/pass-through.svg)
 
-Geçişli **Canlı Etkinlik** seçeneğini kullandığınızda şirket içi gerçek zamanlı kodlayıcı ile çoklu bit hızına sahip video akışı oluşturup katılım akışı olarak Canlı Etkinliğe (RTMP veya bölünmüş MP4 protokolünü kullanarak) gönderirsiniz. Daha sonra Canlı Etkinlik, gelen video akışlarını üzerinde herhangi bir işlem yapmadan iletir. Bu geçişli Canlı Etkinlik, uzun süren canlı etkinlikler veya 24x365 doğrusal canlı akış için iyileştirilmiştir. Bu türde bir Canlı Etkinlik oluştururken None (LiveEventEncodingType.None) seçeneğini kullanın.
+Geçişli **Canlı Etkinlik** seçeneğini kullandığınızda şirket içi gerçek zamanlı kodlayıcı ile çoklu bit hızına sahip video akışı oluşturup katılım akışı olarak Canlı Etkinliğe (RTMP veya bölünmüş MP4 protokolünü kullanarak) gönderirsiniz. Daha sonra Canlı Etkinlik, gelen video akışlarını üzerinde herhangi bir işlem yapmadan iletir. Bu tür bir doğrudan canlı olay uzun süre çalışan Canlı etkinlikler için optimize edilmiştir veya 24 x 365 doğrusal canlı akış. Bu türde bir Canlı Etkinlik oluştururken None (LiveEventEncodingType.None) seçeneğini kullanın.
 
 H.264/AVC veya H.265/HEVC video codec'leri ve AAC (AAC-LC, HE-AACv1 veya HE-AACv2) ses codec'i ile katılım akışını en fazla 4K çözünürlük ve 60 kare/saniye kare hızıyla gönderebilirsiniz.  Ayrıntılı bilgi için [Canlı Etkinlik türlerinin karşılaştırması](live-event-types-comparison.md) makalesine bakın.
 
@@ -84,16 +87,18 @@ Gösterim amaçlı olmayan URL'leri veya gösterim URL'lerini kullanabilirsiniz.
 
 * Gösterim olmayan URL'si
 
-    AMS v3'te varsayılan modda gösterim amaçlı olmayan URL'ler kullanılır. Potansiyel olarak Canlı Etkinliği daha hızlı bir şekilde alabilirsiniz ancak alma URL'si yalnızca canlı etkinlik başlatıldığında bildirilir. Canlı Etkinliği durdurup yeniden başlattığınızda URL değişir. <br/>Gösterim amaçlı olmayan URL'ler, son kullanıcının canlı etkinliği mümkün olan en hızlı şekilde almak isteyen ve dinamik alma URL'leriyle uyumlu olan bir uygulama kullanarak akış yapmak istediğinde kullanışlıdır.
+    Media Services v3 varsayılan modunda olmayan gösterim URL'dir. Potansiyel olarak Canlı Etkinliği daha hızlı bir şekilde alabilirsiniz ancak alma URL'si yalnızca canlı etkinlik başlatıldığında bildirilir. Canlı Etkinliği durdurup yeniden başlattığınızda URL değişir. <br/>Gösterim amaçlı olmayan URL'ler, son kullanıcının canlı etkinliği mümkün olan en hızlı şekilde almak isteyen ve dinamik alma URL'leriyle uyumlu olan bir uygulama kullanarak akış yapmak istediğinde kullanışlıdır.
+    
+    Bir istemci uygulaması gereksinimi yok canlı olay önce bir alma URL'si önceden oluşturmak için oluşturulan, yalnızca otomatik olarak Canlı etkinlik için erişim belirteci oluşturmak için medya hizmetleri sağlar.
 * Gösterim URL'si
 
     Yayın kodlayıcı donanımları kullanan ve Canlı Etkinliği başlattıktan sonra kodlayıcılarını yeniden yapılandırmak istemeyen büyük medya yayımcıları gösterim modunu tercih eder. Bu yayımcılar zaman içinde değişmeyen, tahmine dayalı bir alma URL'sini kullanmayı tercih eder.
     
-    Bu mod belirtmek için ayarladığınız `vanityUrl` için `true` olacak şekilde oluşturulma zamanında (varsayılan değer `false`). Ayrıca kendi erişim belirteci geçmesi gerekir (`LiveEventInput.accessToken`) olacak şekilde oluşturulma zamanında. URL'deki rastgele bir belirteç önlemek için belirteci değeri belirtin. Erişim belirteci (ile veya tireler olmadan) geçerli bir GUID dizesi olması gerekir. Modu ayarlandıktan sonra güncelleştirilemiyor.
+    Bu mod belirtmek için ayarladığınız `vanityUrl` için `true` olacak şekilde oluşturulma zamanında (varsayılan değer `false`). Ayrıca kendi erişim belirteci geçmesi gerekir (`LiveEventInput.accessToken`) olacak şekilde oluşturulma zamanında. URL'deki rastgele bir belirteç önlemek için belirteci değeri belirtin. Erişim belirteci (ile veya kısa çizgi olmadan) geçerli bir GUID dizesi olması gerekir. Modu ayarlandıktan sonra güncelleştirilemiyor.
 
     Erişim belirteci, veri merkezinizde benzersiz olması gerekir. Gösterim URL'sini kullanmak üzere uygulamanız gerekiyorsa, her zaman erişim belirteciniz (yerine, herhangi bir mevcut GUID yeniden) için yeni bir GUID örneği oluşturmak için önerilir. 
 
-    Gösterim URL etkinleştirme ve erişim belirteci için geçerli bir GUID ayarlamak için aşağıdaki API'leri kullanın (örneğin `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    Gösterim URL etkinleştirme ve erişim belirteci için geçerli bir GUID ayarlamak için aşağıdaki API'leri kullanın (örneğin `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
     
     |Dil|Gösterim URL'sini etkinleştir|Erişim belirteci ayarlama|
     |---|---|---|
@@ -103,41 +108,41 @@ Gösterim amaçlı olmayan URL'leri veya gösterim URL'lerini kullanabilirsiniz.
     
 ### <a name="live-ingest-url-naming-rules"></a>Canlı URL adlandırma kuralları alma
 
-Aşağıdaki *rastgele* dize, 128 bit bir onaltılık sayıdır (0-9 a-f arası 32 karakterden oluşur).<br/>
-*Erişim belirteci* sabit URL'sini belirtmeniz gerekir. Geçerli bir GUID dizesi olan bir erişim belirteci dizesi ayarlamanız gerekir. <br/>
-*Akış adı* belirli bir bağlantı için akış adını belirtir. Akış adı değeri kullanmanızı genellikle gerçek zamanlı Kodlayıcı tarafından eklenir.
+* Aşağıdaki *rastgele* dize, 128 bit bir onaltılık sayıdır (0-9 a-f arası 32 karakterden oluşur).
+* *erişim belirtecinizi* -gösterim modunu kullanırken ayarladığınız geçerli GUID dize. Örneğin, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *Akış adı* -belirli bir bağlantı için akış adını belirtir. Akış adı değeri, genellikle kullandığınız gerçek zamanlı Kodlayıcı tarafından eklenir. Bağlantı, örneğin açıklamak için herhangi bir ad kullanmak için gerçek zamanlı Kodlayıcı yapılandırabilirsiniz: "video1_audio1", "video2_audio1", "stream".
 
 #### <a name="non-vanity-url"></a>Gösterim olmayan URL'si
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<auto-generated access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Kesintisiz Akış
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>Gösterim URL'si
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<your access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<your access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Kesintisiz Akış
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>Canlı olay Önizleme URL'si
 
-Bir kez **canlı olay** başlatır, akış katkı alma, bir önizleme uç noktası Önizleme ve daha fazla yayımlamadan önce Canlı akışı aldığını doğrulamak için kullanabilirsiniz. Önizleme akışı iyi olduğuna iade ettikten sonra Livestream canlı akış bir veya daha fazla (önceden oluşturulmuş) aracılığıyla teslimi için kullanılabilir hale getirmek için kullanabileceğiniz **akış uç noktalarını**. Bunu yapmak için yeni oluşturduğunuz [Canlı çıkış](https://docs.microsoft.com/rest/api/media/liveoutputs) üzerinde **canlı olay**. 
+Bir kez **canlı olay** başlatır, akış katkı alma, bir önizleme uç noktası Önizleme ve daha fazla yayımlamadan önce Canlı akışı aldığını doğrulamak için kullanabilirsiniz. Önizleme akışı iyi olduğuna iade ettikten sonra canlı akış bir veya daha fazla (önceden oluşturulmuş) aracılığıyla teslimi için kullanılabilir hale getirmek için canlı olay kullanabilirsiniz **akış uç noktalarını**. Bunu yapmak için yeni oluşturduğunuz [Canlı çıkış](https://docs.microsoft.com/rest/api/media/liveoutputs) üzerinde **canlı olay**. 
 
 > [!IMPORTANT]
 > Video önizleme URL'sine devam etmeden önce akan emin olun!

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66125205"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188708"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Cloud Shell için yerel dosya aktarımı
 `clouddrive` Azure portal depolama dikey directory eşitlenmesi. Dosya paylaşımınızda ya da yerel dosya aktarmak için bu dikey pencereyi kullanın. Cloud Shell içinde dosyaları güncelleştirmek dikey yenilediğinizde GUI dosya depolama alanına yansıtılır.

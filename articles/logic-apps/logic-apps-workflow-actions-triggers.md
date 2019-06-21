@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 05/13/2019
-ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: 490131d1743b366b5ac51a5a0fdac4b89ffe08f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596953"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274184"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımlama dili tetikleyicisi ve eylem türleri için başvuru
 
@@ -2624,7 +2624,7 @@ Ancak, bir zaman aşımı taleplere sahip sınırlamak için uzun süre çalış
 
 ### <a name="run-in-high-throughput-mode"></a>Yüksek aktarım hızı modunda çalıştır
 
-Tek bir mantıksal uygulama çalıştırmak için her 5 dakikada yürütülen eylem sayısı olan bir [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Bu sınırı artırmak için [maksimum](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) olası, belirlenen `operationOptions` özelliğini `OptimizedForHighThroughput`. Bu ayar, mantıksal uygulamanızı "yüksek aktarım hızı" moduna geçirir. 
+Tek bir mantıksal uygulama tanımı için her 5 dakikada yürütülen eylem sayısı olan bir [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Bu sınırı artırmak için [maksimum](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) olası, belirlenen `operationOptions` özelliğini `OptimizedForHighThroughput`. Bu ayar, mantıksal uygulamanızı "yüksek aktarım hızı" moduna geçirir. 
 
 > [!NOTE]
 > Yüksek aktarım modu önizlemededir. Bir iş yükü, gerektiğinde birden fazla mantıksal uygulama üzerinden de dağıtabilirsiniz.

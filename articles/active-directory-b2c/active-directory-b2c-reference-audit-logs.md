@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509649"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205357"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C erişim denetim günlükleri
 
@@ -23,6 +24,9 @@ Azure Active Directory B2C (Azure AD B2C) verilen belirteçleri ve yönetici eri
 
 > [!IMPORTANT]
 > Denetim günlükleri, yalnızca yedi gün boyunca saklanır. İndirmek ve bir daha uzun bekletme süreleri gerektirip gerektirmediğini aşağıda gösterilen yöntemlerden birini kullanarak günlüklerinizi depolamak planlayın.
+
+> [!NOTE]
+> Kullanıcı oturum açma işlemleri için tek tek Azure AD B2C uygulamalarının altında göremez **kullanıcılar** bölümünü **Azure Active Directory** veya **Azure AD B2C** dikey pencereleri. Oturum açma işlemleri vardır, kullanıcı etkinliğini gösterir, ancak kullanıcının oturum açtığı B2C uygulamasına geri bağıntılı olamaz. Denetim günlükleri için bu makaledeki daha anlatıldığı gibi kullanmanız gerekir.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Denetim günlükleri B2C kategorisinde kullanılabilen etkinlikler genel bakış
 **B2C** kategorisi denetim günlüklerinde aşağıdaki etkinlik türlerini içerir:
@@ -41,6 +45,18 @@ Azure Active Directory B2C (Azure AD B2C) verilen belirteçleri ve yönetici eri
 
 ## <a name="example-activity"></a>Örnek etkinlik
 Aşağıdaki örnek, bir kullanıcı bir dış kimlik sağlayıcısı oturum açtığında yakalanan verilerini gösterir: ![Denetim günlükleri - örnek](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+
+Etkinlik Ayrıntılar paneli aşağıdaki ilgili bilgileri içerir:
+
+|`Section`|Alan|Açıklama|
+|-------|-----|-----------|
+| Etkinlik | Ad | Hangi etkinlik yapıldı. Örneğin, "bir id_token uygulamaya verme" (hangi sonucuna asıl kullanıcı oturum açma). |
+| Başlatan (aktör) | ObjectId | **Nesne kimliği** B2C uygulamasının kullanıcı için oturum açmak için (Bu tanımlayıcıyı Azure portalında görünür değildir ancak örnek Graph API'si ile daha erişilebilir). |
+| Başlatan (aktör) | Spn | **Uygulama kimliği** kullanıcı için oturum açmak için B2C uygulaması. |
+| Hedefler | ObjectId | **Nesne kimliği** oturum açmak için kullanıcının. |
+| Ek Ayrıntılar | TenantId | **Kiracı kimliği** Azure AD B2C kiracısının. |
+| Ek Ayrıntılar | `PolicyId` | **İlke kimliği** kullanıcının oturum açmak için kullanılan kullanıcı Akış (ilke). |
+| Ek Ayrıntılar | ApplicationId | **Uygulama kimliği** kullanıcı için oturum açmak için B2C uygulaması. |
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Azure Portal aracılığıyla denetim günlüklerine erişme
 1. [Azure Portal](https://portal.azure.com) gidin. B2C dizininizde olduğundan emin olun.
@@ -62,6 +78,9 @@ Son yedi gün günlüğe kaydedilen etkinlikler listesini görürsünüz.
 - Kullanım **tarih aralığı** gösterilen etkinlikler tarih aralığını filtre uygulamak için açılır
 - Bir bağlamsal kutusu sağdaki listede belirli bir satıra tıklarsanız etkinliği ile ilişkili ek öznitelikler gösterir
 - Tıklayarak **indirme** etkinlikleri csv dosyası olarak karşıdan yüklemek için
+
+> [!NOTE]
+> Denetim günlüklerini giderek atabilirsiniz **Azure AD B2C** yerine **Azure Active Directory** soldaki Sık Kullanılanlar çubuğuna. Altında **etkinlikleri**, tıklayarak **denetim günlükleri**, benzer filtreleme yetenekleri ile aynı günlükleri burada bulabilirsiniz.
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Azure AD raporlama API'sini kullanarak denetim günlüklerine erişme
 Denetim günlükleri yayımlanır diğer etkinlikler aynı işlem hattı için Azure Active Directory aracılığıyla erişilebilir şekilde [Azure Active Directory raporlama API'SİYLE](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).

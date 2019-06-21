@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1130885cc3168582935264ffaad9fd7a8ba3c60b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36ca46d6df9c32f23d3051d1205c3c6b39e69f5a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64920255"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164703"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Azure Active Directory'de LinkedIn hesabı bağlantıları tümleştirin
 
@@ -44,7 +44,7 @@ LinkedIn hesabı bağlantıları yalnızca yalnızca seçili kullanıcılar, kur
 1. Altında **LinkedIn hesabı bağlantıları**, bazı Microsoft uygulamaları içinde LinkedIn bağlantılarını erişmek için kullanıcıların hesaplarını bağlamaları açmasına imkan tanıyın. Veri yok, kullanıcıların hesaplarıyla bağlantı onay kadar paylaşılır.
 
     * Seçin **Evet** kuruluşunuzdaki tüm kullanıcılar için hizmetini etkinleştirmek için
-    * Seçin **seçili** yalnızca seçili kullanıcılar, kuruluşunuzda bir grup etkinleştirmek için
+    * Seçin **seçili grup** yalnızca seçili kullanıcılar, kuruluşunuzda bir grup hizmeti etkinleştirmek için
     * Seçin **Hayır** kuruluşunuzdaki tüm kullanıcıların izninizi geri almak için
 
     ![LinkedIn hesabı bağlantıları kuruluştaki tümleştirin](./media/linkedin-integration/linkedin-integration.png)

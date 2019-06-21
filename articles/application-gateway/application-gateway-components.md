@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49b6b49d908a7426e7cfd1bae5260ff399d9953b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831845"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273224"
 ---
 # <a name="application-gateway-components"></a>Uygulama ağ geçidi bileşenleri
 
@@ -26,7 +26,9 @@ Bir ön uç IP adresi, bir uygulama ağ geçidi ile ilişkili IP adresidir. Uygu
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>Statik ve dinamik genel IP adresi
 
-V1 SKU yalnızca statik iç IP adreslerini destekler; ancak hem statik iç ve statik genel IP adresleri, Azure Application Gateway v2 SKU destekler. Bir uygulama ağ geçidi durduruldu ve başlatıldığında sanal IP (VIP) adresi değiştirebilirsiniz.
+Azure uygulama ağ geçidi V2 SKU hem statik iç IP adresi ve statik genel IP adresi ya da yalnızca statik genel IP adresi destekleyecek şekilde yapılandırılabilir. Yalnızca statik iç IP adresi desteklemek için yapılandırılamaz.
+
+V1 SKU statik iç IP adresi ve dinamik genel IP adresi, destekleyecek şekilde yapılandırılabilir yalnızca statik iç IP adresi ya da yalnızca dinamik genel IP adresi. Application Gateway dinamik IP adresi üzerinde çalışan bir ağ geçidi değiştirmez. Yalnızca durdurmak veya başlatmak değiştirebilirsiniz. Güncelleştirmeleri, vb. sistem hataları, güncelleştirmeleri, bir Azure konağına değiştirmez. 
 
 Bir uygulama ağ geçidi ile ilişkili DNS adı, ağ geçidi yaşam döngüsü değiştirmez. Sonuç olarak, bir CNAME diğer adlarını kullanma ve uygulama ağ geçidinin DNS adresine işaret gerekir.
 

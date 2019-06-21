@@ -15,17 +15,17 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e5cad797b633d43bcc9ead657a60fca8aa6679bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 425f4d9dbd6478af834bee6c88d0f13bdaa45b16
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822390"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273677"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Kullanılabilirlik ve tutarlılık olay hub'ları
 
 ## <a name="overview"></a>Genel Bakış
-Azure Event Hubs kullanan bir [modeli bölümleme](event-hubs-features.md#partitions) kullanılabilirliği ve tek bir olay hub'ının içinden paralelleştirme iyileştirmek için. Örneğin, bir olay hub'ı dört bölüm vardır ve bu bölümler birini bir sunucudan diğerine bir yük dengeleme işlemi taşınır, hala gönderip üç diğer bölümlerden alabilirsiniz. Ayrıca, daha fazla bölümlemeye sahip olmak, toplam üretilen iş iyileştirme daha fazla eşzamanlı okuyucular, verileri işlemeyi sahip olmanızı sağlar. Bölümlendirme ve dağıtılmış bir sistemde sıralama etkilerini anlama, çözüm tasarımı, önemli bir yönüdür.
+Azure Event Hubs kullanan bir [modeli bölümleme](event-hubs-scalability.md#partitions) kullanılabilirliği ve tek bir olay hub'ının içinden paralelleştirme iyileştirmek için. Örneğin, bir olay hub'ı dört bölüm vardır ve bu bölümler birini bir sunucudan diğerine bir yük dengeleme işlemi taşınır, hala gönderip üç diğer bölümlerden alabilirsiniz. Ayrıca, daha fazla bölümlemeye sahip olmak, toplam üretilen iş iyileştirme daha fazla eşzamanlı okuyucular, verileri işlemeyi sahip olmanızı sağlar. Bölümlendirme ve dağıtılmış bir sistemde sıralama etkilerini anlama, çözüm tasarımı, önemli bir yönüdür.
 
 Sıralama ve kullanılabilirlik arasındaki dengeyi açıklamanıza yardımcı olmak için bkz: [CAP Teoremi](https://en.wikipedia.org/wiki/CAP_theorem)Brewer'ın Teoremi olarak da bilinen. Bu Teoremi, tutarlılık, kullanılabilirlik ve dayanıklılık bölüm arasında seçim açıklanır. Bu ağ ile bölümlenmiş sistemleri olduğunu her zaman kullanılabilirlik ile tutarlılık arasındaki denge belirtir.
 

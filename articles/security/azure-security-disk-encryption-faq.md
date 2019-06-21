@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1583ccf04b68f81a71bd2f63779680427ce3362
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 98acc7f6dd5ec7cf3702bbcbe60e2739732512e2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068777"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294921"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -29,43 +29,6 @@ Azure Resource Manager şablonları, Azure PowerShell ve Azure CLI, Azure Disk �
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Azure Disk şifrelemesi nin ücreti ne kadardır?
 
 Azure Disk şifrelemesi ile VM disklerini şifrelemek için bir ücret yoktur, ancak Azure anahtar kasası kullanımıyla ilişkili ücretler vardır. Azure Key Vault maliyetleri hakkında daha fazla bilgi için bkz. [anahtar kasası fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/) sayfası.
-
-
-## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Hangi sanal makine katmanları Azure Disk şifrelemesi destekliyor mu?
-
-Azure Disk şifrelemesi dahil olmak üzere standart katman sanal makinelerinde kullanılabilir [A, D, DS, E, G veya GS ve F](https://azure.microsoft.com/pricing/details/virtual-machines/) serisi Iaas VM'ler. Premium depolama ile sanal makineler için kullanılabilir. Temel katmanı Vm'lerini kullanılamaz.
-
-## <a name="bkmk_LinuxOSSupport"></a> Hangi Linux dağıtımı, Azure Disk şifrelemesi destekliyor mu?
-
-Azure Disk şifrelemesi, bir alt kümesi üzerinde desteklenir [Azure destekli Linux dağıtımları](../virtual-machines/linux/endorsed-distros.md), kendisini tüm Linux sunucusu olası dağıtımların bir alt kümesidir.
-
- ![Azure Disk şifrelemesi desteği Venn diyagramı Linux sunucusu dağıtımları](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
-
-Azure tarafından onaylanan değil Linux sunucusu dağıtımı, Azure Disk şifrelemesi desteklemez ve içeriğiyle onaylanan, Azure Disk şifrelemesi yalnızca aşağıdaki dağıtımları ve sürümleri destekler:
-
-| Linux dağıtım | Sürüm | Desteklenen şifreleme için birim türü|
-| --- | --- |--- |
-| Ubuntu | 18.04| İşletim sistemi ve veri diski |
-| Ubuntu | 16.04| İşletim sistemi ve veri diski |
-| Ubuntu | 14.04.5</br>[Azure ile 4.15 veya üzeri için güncelleştirilmiş çekirdek ayarlanmış](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | İşletim sistemi ve veri diski |
-| RHEL | 7.6 | İşletim sistemi ve veri diski (aşağıdaki nota bakın) |
-| RHEL | 7.5 | İşletim sistemi ve veri diski (aşağıdaki nota bakın) |
-| RHEL | 7.4 | İşletim sistemi ve veri diski (aşağıdaki nota bakın) |
-| RHEL | 7.3 | İşletim sistemi ve veri diski (aşağıdaki nota bakın) |
-| RHEL | 7.2 | İşletim sistemi ve veri diski (aşağıdaki nota bakın) |
-| RHEL | 6.8 | Veri diski (aşağıdaki nota bakın) |
-| RHEL | 6.7 | Veri diski (aşağıdaki nota bakın) |
-| CentOS | 7.5 | İşletim sistemi ve veri diski |
-| CentOS | 7.4 | İşletim sistemi ve veri diski |
-| CentOS | 7.3 | İşletim sistemi ve veri diski |
-| CentOS | 7.2n | İşletim sistemi ve veri diski |
-| CentOS | 6.8 | Veri diski |
-| openSUSE | 42.3 | Veri diski |
-| SLES | 12-SP4 | Veri diski |
-| SLES | 12-SP3 | Veri diski |
-
-> [!NOTE]
-> Yeni ADE uygulamayı RHEL işletim sistemi ve veri diski RHEL7 Kullandıkça Öde görüntüleri için desteklenir. ADE RHEL Getir Your-kendi-abonelik (BYOS) görüntüler için şu anda desteklenmiyor. Bkz: [Linux için Azure Disk şifrelemesi](azure-security-disk-encryption-linux.md) daha fazla bilgi için.
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk şifrelemesi kullanılarak nasıl başlayabilirsiniz?
 

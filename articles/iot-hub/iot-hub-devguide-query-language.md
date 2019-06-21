@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442176"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137721"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Cihaz ve modül ikizleri, işler ve ileti yönlendirme için IOT Hub sorgu dili
 
-IOT hub'ı sağlayan bilgi almak için bir güçlü SQL benzeri dil ilgili [cihaz ikizlerini](iot-hub-devguide-device-twins.md) ve [işleri](iot-hub-devguide-jobs.md), ve [ileti yönlendirme](iot-hub-devguide-messages-d2c.md). Bu makalede sunar:
+IOT hub'ı sağlayan bilgi almak için bir güçlü SQL benzeri dil ilgili [cihaz ikizlerini](iot-hub-devguide-device-twins.md), [modül ikizlerini](iot-hub-devguide-module-twins.md), [işleri](iot-hub-devguide-jobs.md), ve [iletiyönlendirme](iot-hub-devguide-messages-d2c.md). Bu makalede sunar:
 
 * IOT Hub sorgu dili, önemli özelliklere giriş ve
 * Dil ayrıntılı açıklaması. İleti yönlendirme için sorgu dili hakkında daha fazla bilgi için bkz: [sorguları içinde ileti yönlendirme](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ IOT hub'ı sağlayan bilgi almak için bir güçlü SQL benzeri dil ilgili [ciha
 
 ## <a name="device-and-module-twin-queries"></a>Cihaz ve modül ikizi sorguları
 
-[Cihaz ikizlerini](iot-hub-devguide-device-twins.md) ve etiketler ve Özellikler modül ikizlerini rastgele JSON nesneleri içerebilir. IOT hub'ı tüm ikizi bilgilerini içeren tek bir JSON belgesi olarak sorgu cihaz ikizleri ve modül ikizlerini sağlar.
+[Cihaz ikizlerini](iot-hub-devguide-device-twins.md) ve [modül ikizlerini](iot-hub-devguide-module-twins.md) etiketler ve Özellikler rastgele JSON nesneleri içerebilir. IOT hub'ı tüm ikizi bilgilerini içeren tek bir JSON belgesi olarak sorgu cihaz ikizleri ve modül ikizlerini sağlar.
 
 Örneğin, IOT hub cihaz ikizlerini aşağıdaki yapıya sahip olduğunuzu varsaymaktadır (modül ikizi olacak yalnızca bir ek Moduleıd ile benzer):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Modül ikizi sorguları
 
-Modül ikizlerini üzerinde sorgulama için cihaz ikizlerini üzerinde sorgulama benzer, ancak farklı koleksiyon/ad alanı, yani "cihazların" yerine kullanarak device.modules sorgulayabilirsiniz:
+Modül ikizlerini üzerinde sorgulama, cihaz ikizlerini üzerinde sorgulama, ancak farklı bir koleksiyon/ad alanını kullanarak benzer. yerine gelen **cihazları**, gelen sorgu **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -315,7 +315,7 @@ SELECT * FROM devices.jobs
 
 ## <a name="basics-of-an-iot-hub-query"></a>Bir IOT Hub sorgu temelleri
 
-Her IOT Hub sorgu seçin ve ile isteğe bağlı bir WHERE yan tümceleri ve GROUP BY yan tümcesi oluşur. Her sorgu, JSON belgelerini, örneğin cihaz çiftleri koleksiyonu üzerinde çalıştırılır. FROM yan tümcesi belge koleksiyonunun üzerinde çalışmalar gösterir (**cihazları** veya **devices.jobs**). Ardından, WHERE yan tümcesinde filtre uygulanır. Bu adımın sonuçları toplama ile gruplandırılır GROUP BY yan tümcesinde belirtildiği gibi. Her bir grup için bir satır oluşturulur SELECT yan tümcesinde belirtildiği gibi.
+Her IOT Hub sorgu seçin ve ile isteğe bağlı bir WHERE yan tümceleri ve GROUP BY yan tümcesi oluşur. Her sorgu, JSON belgelerini, örneğin cihaz çiftleri koleksiyonu üzerinde çalıştırılır. FROM yan tümcesi belge koleksiyonunun üzerinde çalışmalar gösterir (**cihazları**, **devices.modules**, veya **devices.jobs**). Ardından, WHERE yan tümcesinde filtre uygulanır. Bu adımın sonuçları toplama ile gruplandırılır GROUP BY yan tümcesinde belirtildiği gibi. Her bir grup için bir satır oluşturulur SELECT yan tümcesinde belirtildiği gibi.
 
 ```sql
 SELECT <select_list>
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>FROM yan tümcesi
 
-**< From_specification >'nden** yan tümcesi, yalnızca iki değer varsayabilirsiniz: **CİHAZLARDAN** sorgu cihaz ikizlerini için veya **devices.jobs gelen** sorgu iş cihaz başına ayrıntıları.
+**< From_specification >'nden** yan tümcesi yalnızca üç değerden varsayabilirsiniz: **CİHAZLARDAN** için sorgu cihaz ikizlerini **devices.modules gelen** sorgu modül ikizlerini için veya **devices.jobs gelen** sorgu iş cihaz başına ayrıntıları.
 
 
 ## <a name="where-clause"></a>WHERE yan tümcesi

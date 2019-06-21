@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: c963cb1b6930b41a703b479e0213311d971e6606
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 480cf22491dbbfcb9fe1961b5c9a7aa6fe12a0cb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082852"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274044"
 ---
 # <a name="azure-private-dns-faq"></a>Azure özel DNS SSS
 
@@ -88,6 +88,13 @@ Azure özel DNS kullandığınızda aşağıdaki varsayılan sınırlar geçerli
 ## <a name="is-there-portal-support-for-private-zones"></a>Özel bölgeler için portal destek var mı?
 
 Evet ve API'ler, PowerShell, CLI ve SDK'lar önceden oluşturulmuş özel bölgeler Azure portalında görünür.
+
+## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Neden benim mevcut özel DNS bölgelerini yeni portal deneyiminde görünmüyor?
+
+Önizlemeyi Yenile yayının bir parçası size özel DNS bölgeleri için yeni bir kaynak modeli birlikte gelir. Mevcut özel DNS bölgelerini bunlar yeni portal deneyiminde görünmesi önce yeni kaynak modeline geçirilmesi gerekir. Yeni kaynak modeline geçirme hakkında yönergeler için aşağıya bakın.
+
+## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>My mevcut özel DNS bölgelerini yeni modeline nasıl geçirebilirim?
+Mümkün olan en kısa sürede yeni kaynak modeline geçirme kesinlikle öneririz. Eski kaynak modeli desteklenir, ancak başka özellikleri bu bir model temelinde geliştirileceğini değil. Gelecekte sorundan yerine yeni kaynak modelini kullanımdan sunmayı planlıyoruz. Mevcut özel DNS geçirme hakkında yönergeler için bkz: yeni kaynak modeli bölgeleri[Azure DNS özel bölgeleri için Geçiş Kılavuzu](private-dns-migration-guide.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160948"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188785"
 ---
 İş, algılanan ve izlenen yüzleri hakkında meta veriler içeren bir JSON çıktı dosyası üretir. Meta veriler, ayrı ayrı izlenmesi belirten bir yüz kimliği sayı yanı sıra yüz konumunu belirten koordinatları içerir. Yüz Kimliği numaraları atanan birden çok kimlikler bazı kişiler kaynaklanan koşullar altında tamamen çıplak yüz kayıp veya çerçevede çakışan sıfırlama eğilimlidir.
 

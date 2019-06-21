@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 7cf6b4984f3941da3b2cd0e4eada5eb1d87f2b01
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054737"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205006"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli Application Gateway v2 
 
@@ -24,7 +24,7 @@ Yeni v2 SKU aşağıdaki geliştirmeleri içerir:
 - **Bölge yedekliliği**: Bir uygulama ağ geçidi veya WAF dağıtımını birden fazla kullanılabilirlik, bir Traffic Manager ile her bölgedeki ayrı bir Application Gateway örneğinden sağlamaya gerek kaldırma yayılabilir. Tek bir bölge veya uygulama ağ geçidi örneklerinin dağıtıldığı birden çok bölgeyi bölge hatalarına karşı daha dayanıklı hale getiren seçebilirsiniz. Uygulamalar için arka uç havuzu kullanılabilirlik alanları genelinde benzer şekilde dağıtılabilir.
 
   Bölge artıklığı, yalnızca Azure bölgeleri kullanılabilir olduğu kullanılabilir. Diğer bölgelerde, diğer tüm özellikler desteklenir. Daha fazla bilgi için [Azure kullanılabilirlik alanları nedir?](../availability-zones/az-overview.md#services-support-by-region)
-- **Statik VIP**: Uygulama ağ geçidi v2 SKU destekler statik VIP özel olarak yazın. Bu, bir yeniden başlatma işleminden sonra bile dağıtım yaşam döngüsü için bu uygulama ağ geçidiyle ilişkili VIP de değişmez sağlar.
+- **Statik VIP**: Uygulama ağ geçidi v2 SKU statik VIP türü özel olarak destekler. Bu, bir yeniden başlatma işleminden sonra bile dağıtım yaşam döngüsü için bu uygulama ağ geçidiyle ilişkili VIP de değişmez sağlar.  Hiç bir statik VIP v1'de Yönlendirme etki alanı adı için uygulama hizmetleri uygulama ağ geçidi için IP adresi yerine application gateway URL'si kullanmalısınız.
 - **Üstbilgi yeniden yazma**: Uygulama ağ geçidi eklemek, kaldırmak veya HTTP istek ve yanıt üstbilgileri v2 SKU ile güncelleştirme sağlar. Daha fazla bilgi için [uygulama ağ geçidi ile yeniden HTTP üstbilgileri](rewrite-http-headers.md)
 - **Anahtar kasası tümleştirmeyi (Önizleme)** : Uygulama ağ geçidi v2, etkin HTTPS dinleyicileri için bağlı sunucu sertifikaları için (genel önizlemede) anahtar kasası ile tümleştirmeyi destekler. Daha fazla bilgi için [sertifikaları Key Vault ile SSL sonlandırma](key-vault-certs.md).
 - **Azure Kubernetes Service giriş denetleyicisine (Önizleme)** : Application Gateway v2 giriş denetleyicisine Giriş bir Azure Kubernetes Service (AKS kümesi olarak bilinen AKS) için kullanılacak Azure Application Gateway sağlar. Daha fazla bilgi için [belgeleri sayfasını](https://azure.github.io/application-gateway-kubernetes-ingress/).

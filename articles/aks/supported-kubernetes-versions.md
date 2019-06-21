@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 2d555908007f4e43a38b6d0eff909ef5050878ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: b7910ee6f58c582b824cec834d92a24c0e184bfb
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069671"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205283"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Desteklenen Kubernetes sürümlerini Azure Kubernetes Service (AKS)
 
@@ -52,9 +52,9 @@ Bu, "N-3"-(N (son sürüm) - 3 (ikincil sürümleri)) adı verilir.
 
 Örneğin, AKS sunarsa *1.13.x* Bugün, aşağıdaki sürümleri için destek sağlanır:
 
-Yeni alt sürümü desteklenen sürüm listesi
------------------        ----------------------
-1.13.x                   1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
+Yeni alt sürümü    |    Desteklenen sürüm listesi
+-----------------    |    ----------------------
+1.13.x               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
 
 Burada "x" ve "bir" ve ".b" temsili düzeltme eki sürümleri.
 
@@ -84,11 +84,15 @@ Yukarı Akış Kubernetes 1.12.3 ve 1.11.6 yayımlanan ve AKS sürümleri bu sü
 ----------------------
 1.12.*2*, 1.12.*3*, 1.11.*5*, 1.11.*6*
 
+> [!NOTE]
+> Müşteriler küme oluşturma, CI veya belirli bir düzeltme eki yayınlar için otomatik diğer işleri sabitleyin değil. 
+
 ### <a name="communications"></a>Haberleşme
 
 * Yeni **küçük** Kubernetes sürümleri
-  * Tüm kullanıcılar, yeni sürüm ve hangi sürümü kaldırılacak bildirilir.
-  * Sürümünü çalıştıran müşteriler **kaldırılacak** sahip oldukları bildirilecek **60 gün** (örn. alt sürümü) desteklenen bir sürüme yükseltmelisiniz.
+  * Tüm kullanıcılar, yeni sürüm ve hangi sürümü kaldırılacak genel olarak bildirilir.
+  * Yeni bir düzeltme eki sürümü yayımlandığında, eski düzeltme eki sürümü aynı anda kaldırıldı.
+  * Müşterilerin **60 gün** desteklenen podverze sürümüne yükseltmek için genel bir bildirim tarihten itibaren.
 * Yeni **düzeltme eki** Kubernetes sürümleri
   * Tüm kullanıcılar yayımlanan yeni düzeltme eki sürümü ve en son düzeltme eki sürümüne yükseltmek için bildirilir.
   * Kullanıcıların **30 gün** yeni, desteklenen bir düzeltme eki sürüme yükseltmelisiniz. Kullanıcıların **30 gün** eski kaldırılmadan önce bir desteklenen bir düzeltme sürümüne yükseltmek için.

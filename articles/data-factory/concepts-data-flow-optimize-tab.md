@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 40023931b2a0b3788a583a5b5240e7916b187e34
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075095"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190653"
 ---
 # <a name="mapping-data-flow-transformation-optimize-tab"></a>Eşleme veri akışı dönüştürme iyileştirmek sekmesi
 
@@ -45,7 +45,7 @@ Dinamik aralık sütunları veya sağladığınız ifadeleri temel Spark dinamik
 
 ### <a name="fixed-range"></a>Sabit aralık
 
-Bölümlenmiş verileri sütunlarınızı içindeki değerleri için sabit bir aralık sağlayan bir ifade oluşturmanız gerekir. Bölüm eğriltme önlemek için bu seçeneği kullanmadan önce verilerinizin iyi anlamış olmanız gerekir. İfade için girdiğiniz değer bölümleme işlevi bir parçası olarak kullanılır. Fiziksel bölüm sayısını ayarlayabilirsiniz.
+Bölümlenmiş verileri sütunlarınızı içindeki değerleri için sabit bir aralık sağlayan bir ifade oluşturmanız gerekir. Bölüm eğriltme önlemek için bu seçeneği kullanmadan önce verilerinizin iyi anlamış olmanız gerekir. İfade için girdiğiniz değerleri bölümleme işlevi bir parçası olarak kullanılır. Fiziksel bölüm sayısını ayarlayabilirsiniz.
 
 ### <a name="key"></a>Anahtar
 

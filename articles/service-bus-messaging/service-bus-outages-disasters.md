@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24fba1961c8fd95f1b9489716d690dd6eaa97b62
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589738"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274835"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Hizmet veri yolu kesintilerini ve olağanüstü durumları yönetme karşı uygulamalar insulating için en iyi yöntemler
 
@@ -54,9 +54,9 @@ Uygulamayı kalıcı gönderenin alıcı iletişim gerektirmiyorsa, uygulamayı 
 ### <a name="active-replication"></a>Etkin çoğaltma
 Etkin çoğaltma varlıklar her işlem için her iki ad alanlarında kullanır. Bir ileti gönderen herhangi bir istemci aynı ileti iki kopyasını gönderir. İlk kopyalama için birincil varlık gönderilir (örneğin, **contosoPrimary.servicebus.windows.net/sales**), ve iletiyi ikinci bir kopyası ikincil varlığa gönderilir (örneğin,  **contosoSecondary.servicebus.windows.net/sales**).
 
-Bir istemci, her iki sıralarından iletileri alır. Alıcı ilk iletinin kopyasını işler ve ikinci kopya bastırılır. Gönderen, yinelenen iletileri bastırmak için her iletinin benzersiz bir tanımlayıcı etiketlemeniz gerekir. Her iki kopyasında iletinin tanımlayıcısı aynı olan etiketlenmelidir. Kullanabileceğiniz [BrokeredMessage.MessageId] [ BrokeredMessage.MessageId] veya [BrokeredMessage.Label] [ BrokeredMessage.Label] özellikleri ya da ileti etiketlemek için özel bir özellik. Alıcı listesi zaten aldığı iletileri sürdürmeniz gerekir.
+Bir istemci, her iki sıralarından iletileri alır. Alıcı ilk iletinin kopyasını işler ve ikinci kopya bastırılır. Gönderen, yinelenen iletileri bastırmak için her iletinin benzersiz bir tanımlayıcı etiketlemeniz gerekir. Her iki kopyasında iletinin tanımlayıcısı aynı olan etiketlenmelidir. Kullanabileceğiniz [BrokeredMessage.MessageId][BrokeredMessage.MessageId] veya [BrokeredMessage.Label][BrokeredMessage.Label] özellikleri ya da ileti etiketlemek için özel bir özellik. Alıcı listesi zaten aldığı iletileri sürdürmeniz gerekir.
 
-[Coğrafi çoğaltma ile Service Bus standart katman] [ Geo-replication with Service Bus Standard Tier] örnek etkin çoğaltma, Mesajlaşma varlıkları gösterir.
+[Coğrafi çoğaltma ile Service Bus standart katman][Geo-replication with Service Bus Standard Tier] örnek etkin çoğaltma, Mesajlaşma varlıkları gösterir.
 
 > [!NOTE]
 > Etkin çoğaltma yaklaşım işlemlerin sayısı iki katına çıkarır, dolayısıyla bu yaklaşım daha yüksek maliyete yol açabilir.
@@ -75,10 +75,10 @@ Etkin olmayan çoğaltma kullanırken, aşağıdaki senaryolarda iletileri kaybo
 * **İleti gecikmesi ya da zarar**: Gönderen birincil kuyruğa bir ileti m1 başarıyla gönderildi. ve ardından alıcı m1 almadan önce sıranın kullanılamaz hale varsayılır. Gönderici bir sonraki ileti m2 ikincil kuyruğa gönderir. Birincil kuyruk geçici olarak kullanılamıyorsa, sıranın tekrar kullanılabilir hale geldikten sonra alıcı m1 alır. Bir olağanüstü bir durumda, alıcı m1 hiçbir zaman alabilir.
 * **Alma yinelenen**: Birincil kuyruğa gönderen bir ileti m gönderdiğini varsayar. Service Bus başarıyla m işler ancak yanıt göndermek başarısız olur. Gönderme işlemi zaman aşımına sonra gönderen m özdeş birer kopyası ikincil kuyruğa gönderir. Alıcı birincil kuyruk kullanılamaz duruma gelirse, önce ilk kopyayı m alabildiği, alıcı yaklaşık aynı zamanda her iki kopyasında m alır. Alıcı birincil kuyruk kullanılamaz duruma gelirse, önce ilk kopyayı m almak mümkün değilse, alıcı başlangıçta yalnızca m ikinci kopyasını alır, ancak birincil kuyruğa kullanıma sunulduğunda ardından m ikinci bir kopyasını alır.
 
-[Coğrafi çoğaltma ile Service Bus standart katman] [ Geo-replication with Service Bus Standard Tier] örnek, Mesajlaşma varlıkları pasif çoğaltma gösterir.
+[Coğrafi çoğaltma ile Service Bus standart katman][Geo-replication with Service Bus Standard Tier] örnek, Mesajlaşma varlıkları pasif çoğaltma gösterir.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Geçiş uç noktalarına felaketler ya da veri merkezi kesintilerine karşı koruma
-Coğrafi çoğaltma, geçiş uç noktaları, hizmet veri yolu kesintilerini saklanacaktır erişilebilir olması için bir geçiş uç noktası hizmetidir sağlar. Coğrafi çoğaltma elde etmek için hizmet, farklı ad alanlarına iki geçiş uç noktası oluşturmanız gerekir. Ad alanları farklı veri merkezlerinde bulunmalıdır ve iki uç nokta adları farklı olmalıdır. Örneğin, bir birincil uç nokta altında ulaşılabilir **contosoPrimary.servicebus.windows.net/myPrimaryService**altında ikincil çözümlemesiyle ulaşılabilir korurken **contosoSecondary.servicebus.windows.net /mySecondaryService**.
+Coğrafi çoğaltma, [Azure geçişi](../service-bus-relay/relay-what-is-it.md) uç noktaları sağlar, hizmet veri yolu kesintilerini saklanacaktır erişilebilir olması için bir geçiş uç noktası hizmetidir. Coğrafi çoğaltma elde etmek için hizmet, farklı ad alanlarına iki geçiş uç noktası oluşturmanız gerekir. Ad alanları farklı veri merkezlerinde bulunmalıdır ve iki uç nokta adları farklı olmalıdır. Örneğin, bir birincil uç nokta altında ulaşılabilir **contosoPrimary.servicebus.windows.net/myPrimaryService**altında ikincil çözümlemesiyle ulaşılabilir korurken **contosoSecondary.servicebus.windows.net /mySecondaryService**.
 
 Hizmet daha sonra her iki bitiş noktasında dinler ve bir istemci, hizmeti ya da uç noktası aracılığıyla çağırabilirsiniz. Bir istemci uygulaması rastgele geçişleri biri birincil uç noktası olarak seçer ve etkin uç noktaya, isteği gönderir. İşlem bir hata kodu ile başarısız olursa, bu hata, geçiş uç noktası kullanılamıyor gösteriyor. Uygulama, yedekleme uç nokta için bir kanal açar ve isteği yeniden yayımlar. Bu noktada etkin ve yedekleme uç rollerini değiştirmek: istemci uygulama yeni bir yedekleme uç nokta ve yeni etkin uç noktası olacak şekilde eski yedekleme uç nokta olacak şekilde eski etkin uç nokta olarak değerlendirir. Hem de işlemler başarısız gönderirseniz, iki varlık rollerini değişmeden kalır ve bir hata döndürdü.
 

@@ -9,11 +9,11 @@ ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158495"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188366"
 ---
 SQL Server veya Oracle gibi bazı veritabanı iş yükleri, yüksek bellek, depolama ve g/ç bant genişliği, ancak yüksek çekirdek sayısı gerektirir. Birçok veritabanı iş yüklerini CPU yoğunluklu değildir. Azure VM vCPU sayısı aynı bellek, depolama ve g/ç bant genişliği koruyarak yazılım lisans maliyetini azaltmak için nereye kısıtlayabilirsiniz belirli VM boyutları sunar.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 286c5850400242224e710a7883d3d3dc175cef12
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413653"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273209"
 ---
 # <a name="duplicate-detection"></a>Yineleme algılama
 
@@ -37,7 +37,7 @@ Yalnızca bu bağlamanın verdiğinden tanımlayıcısının uygulama denetimi g
 *MessageID* bazı GUID her zaman olabilir, ancak iş süreci tanımlayıcısına sabitleme, yinelenen algılama özelliği etkili bir şekilde yararlanmak için istenen tahmin edilebilir yinelenebilirliği verir.
 
 > [!NOTE]
-> Yinelenen algılama etkinleştirildi ve sesion kimliği veya bölüm anahtarı ayarlı değil, ileti kimliği bölüm anahtarı olarak kullanılır. İleti kimliği de ayarlanmazsa, .NET ve AMQP kitaplıkları otomatik olarak bir ileti için ileti kimliği oluşturur. Daha fazla bilgi için [bölümlendirmesini anahtarları kullanma](service-bus-partitioning.md#use-of-partition-keys).
+> Yinelenen algılama etkinleştirildi ve sesion kimliği veya bölüm anahtarı ayarlı değil, ileti kimliği bölüm anahtarı olarak kullanılır. İleti kimliği de ayarlanmazsa, .NET ve AMQP kitaplıkları otomatik olarak bir ileti için ileti kimliği oluşturur. Daha fazla bilgi için [bölüm anahtarları kullanma](service-bus-partitioning.md#use-of-partition-keys).
 
 ## <a name="enable-duplicate-detection"></a>Yinelenen algılamayı etkinleştir
 

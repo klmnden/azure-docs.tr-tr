@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/22/2019
-ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/18/2019
+ms.openlocfilehash: 1d639a8b1d5c7a5dd2b7bac7c5e020be7c8b1c50
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002204"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190955"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Yaygın Azure veritabanı geçiş hizmeti sorunlarını ve hatalarını giderme
 
@@ -59,6 +59,16 @@ Azure veritabanı geçiş hizmeti örneği durdururken, şu hatayı alırsınız
 | Nedeni         | Çözüm |
 | ------------- | ------------- |
 | Durdurma işlemi deneniyor hizmet örneği, hala çalışmakta olan veya mevcut etkinlikler geçiş projeleri içerir. Bu hata görüntüler. <br><br><br><br><br><br> | Azure veritabanı geçiş Hizmeti Durdur çalıştığınız örneğinde çalışan hiçbir etkinlik olduğundan emin olun. Hizmeti durdurmak denemeden önce etkinlikler veya projeleri de silebilirsiniz. Aşağıdaki adımlar, tüm çalışan görevlerin silerek geçiş hizmeti örneği temizlemek için projeleri kaldırma göstermektedir:<br>1. Install-Module-AzureRM.DataMigration adı <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription - SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject-adı <projectName> - ResourceGroupName <rgName> - ServiceName <serviceName> - DeleteRunningTask |
+
+## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti başlatılmaya çalışılırken bir hata oluştu
+
+Azure veritabanı geçiş hizmeti örneği başlatma sırasında şu hatayı alırsınız:
+
+* **Hata**: Hizmet başlatma başarısız. Hata: {'errorDetail': 'hizmet başarısız başlatmak için lütfen Microsoft desteğine başvurun'}
+
+| Nedeni         | Çözüm |
+| ------------- | ------------- |
+| Önceki örneği dahili olarak başarısız olduğunda bu hata görüntüler. Bu hata nadiren oluşur ve mühendislik ekibi bu durumun farkında olur. <br> | Olamaz başlatın ve sonra değiştirmek için yeni bir tane sağlayın, hizmet örneğini silin. |
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Azure SQL DB'ye geçirme SQL örneği tarafından yönetilen veritabanı geri yüklenirken hata oluştu
 

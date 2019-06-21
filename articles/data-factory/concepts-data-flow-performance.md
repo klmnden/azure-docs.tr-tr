@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: d4acc620fb2a4c41615c745516e5ccfafd59d848
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057970"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190617"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Eşleme veri akışları performansı ve ayarlama Kılavuzu
 
@@ -59,6 +59,12 @@ Bu simgeye tıklayarak sonraki performans profili, veri akışı ve yürütme pl
 * Toplu iş boyutu ayarı-satır yerine bellekte kümelerinde veri depolamak için ADF yenilemelerini ister. İsteğe bağlı bir ayardır ve doğru boyutlandırılmadığında bırakılırsa kaynaklar yetersiz ve işlem düğümleri üzerinde çalışabilir.
 * Bir sorgu ayarlama, hatta veri akışı için daha hızlı ilk veri alım yapabilirsiniz işlenmek ulaştıkları önce kaynak satırları sağ filtrelemek izin verebilirsiniz.
 * Bir sorgu kullanırsanız, Azure SQL DB için yani READ UNCOMMITTED isteğe bağlı bir sorgu ipuçları ekleyebilirsiniz.
+
+### <a name="set-isolation-level-on-source-transformation-settings-for-sql-datasets"></a>SQL veri kümeleri için kaynak dönüştürme ayarlarını yalıtım düzeyi ayarlama
+
+* READ UNCOMMITTED kaynak dönüşümü daha hızlı sorgu sonuçlarını sağlar
+
+![Yalıtım düzeyi](media/data-flow/isolationlevel.png "yalıtım düzeyi")
 
 ### <a name="set-sink-batch-size"></a>Havuz batch boyutunu ayarlama
 

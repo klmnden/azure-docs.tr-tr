@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 520211f3499931281d3ac86a1da1144564a8bb48
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bd2bcc9284c24f9fa6a02556d7101c1b788ee71e
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980763"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154993"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Windows çalıştıran bir sanal makinede PowerShell kullanarak Azure Tanılama’yı etkinleştirme
 
 Azure Tanılama, azure'da dağıtılan bir uygulamada tanılama verilerinin toplanmasını sağlayan özelliktir. Bir Azure sanal Windows çalıştıran makineden (VM) uygulama günlükleri ya da performans sayaçları gibi tanılama verilerini toplamak için tanılama uzantısı'nı kullanabilirsiniz. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Resource Manager dağıtım modeli kullandığınız tanılama uzantısını etkinleştirme
 Azure Resource Manager dağıtım modeliyle bir Windows VM uzantısı yapılandırma için Resource Manager şablonu ekleyerek oluştururken tanılama uzantısını etkinleştirebilirsiniz. Bkz: [Azure Resource Manager şablonu kullanarak izleme ve tanılama özellikli bir Windows sanal makine oluşturma](diagnostics-template.md).
@@ -65,16 +65,16 @@ Cmdlet döndürür *PublicSettings*, tanılama yapılandırması içerir. Destek
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Klasik dağıtım modeli kullandığınız tanılama uzantısını etkinleştirme
 Kullanabileceğiniz [kümesi AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet'ini bir Klasik dağıtım modeliyle oluşturulan bir VM'de tanılama uzantısını etkinleştirme. Aşağıdaki örnek, yeni bir sanal makine Klasik dağıtım modeliyle tanılama uzantısı ile oluşturma işlemi gösterilmektedir.
 
-    $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
+    $VM = New-AzVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
-    $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
-    New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
+    $VM = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    New-AzVM -Location $Location -ServiceName $Service_Name -VM $VM
 
 Klasik dağıtım modeliyle oluşturulmuş olan mevcut VM'de tanılama uzantısını etkinleştirmek için önce kullanın [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) cmdlet'i, VM yapılandırması alınamıyor. Sonra tanılama uzantısını kullanarak eklemek için sanal makine yapılandırmasını güncelleştirme [kümesi AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet'i. Son olarak, güncelleştirilmiş yapılandırmayı kullanarak sanal Makineye uygulayın [güncelleştirme-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm).
 
-    $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
-    $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
-    Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
+    $VM = Get-AzVM -ServiceName $Service_Name -Name $VM_Name
+    $VM_Update = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    Update-AzVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
 ## <a name="sample-diagnostics-configuration"></a>Örnek tanılama yapılandırması
 Aşağıdaki XML, yukarıdaki betiklerle ortak tanılama yapılandırması için kullanılabilir. Bu örnek yapılandırmanın çeşitli performans sayaçlarını yanı sıra uygulama, güvenlik ve sistem kanalları Windows olay günlüklerindeki hatalarını ve her türlü hata Tanılama Altyapısı günlükleri tanılama depolama hesabına aktarın.

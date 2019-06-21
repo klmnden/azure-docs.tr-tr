@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: c79a4907e277c337509bd362653cfb100c4bd39c
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979521"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137434"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure İlkesi'nin Konuk yapılandırma anlama
 
@@ -114,7 +114,8 @@ Doğrulama Aracı sonuçları Konuk yapılandırma istemciye sağlar. İstemci, 
 Azure İlkesi kullanan Konuk yapılandırma kaynak sağlayıcıları **complianceStatus** rapor uyumluluk özelliğini **Uyumluluk** düğümü. Daha fazla bilgi için [uyumluluk verilerini alma](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> Her Konuk yapılandırma tanımı için hem **Deployıfnotexists** ve **denetim** ilke tanımları bulunmalıdır.
+> **Deployıfnotexists** ilkesi için gerekli **denetim** sonuçları döndürmek için ilke.
+> Olmadan **Deployıfnotexists**, **denetim** ilkesini gösteren "0 0" kaynakları durumu.
 
 Tüm yerleşik ilkeleri Konuk yapılandırması için girişim atamaları tanımlarında kullanın grubuna dahil edilmiştir. Adlı yerleşik girişim *[Önizleme]: Parola güvenlik ayarları içinde Linux ve Windows sanal makineleri denetle* 18 ilkelerini içerir. Altı **Deployıfnotexists** ve **denetim** Windows ve Linux için üç çift çifti. Her durumda, yalnızca hedef mantıksal tanımındaki doğrular işletim sistemine göre değerlendirilir [ilke kuralı](definition-structure.md#policy-rule) tanımı.
 

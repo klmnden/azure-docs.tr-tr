@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: cc41581232b331368b44fc7190eadb94516824c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35fb529be28fc985460421c185872c7e35603341
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67119304"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274285"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümünüz için doğru kimlik doğrulama yöntemini seçin 
 
@@ -101,7 +101,7 @@ Karar sorular hakkında ayrıntılar:
 * **Dikkat edilecek noktalar**. Şu anda, parola karması eşitleme hemen şirket içi hesap durumları değişiklikleri zorunlu değildir. Bu durumda, bir kullanıcının bulut uygulamaları için Azure AD kullanıcı hesabı durumunu eşitlenene kadar erişimine sahiptir. Kuruluşlar, yöneticilerin şirket içi kullanıcı hesabı durumları güncelleştirmeleri toplu sonra yeni bir eşitleme döngüsü çalıştırarak bu sınırlamanın üstesinden gelmek isteyebilirsiniz. Bir örnek hesaplar devre dışı bırakılmalıdır.
 
 > [!NOTE]
-> Parolanın süresi doldu ve hesap kilitli durumları şu anda Azure AD Connect ile Azure AD'ye eşitlenen değildir. 
+> Parolanın süresi doldu ve hesap kilitli durumları şu anda Azure AD Connect ile Azure AD'ye eşitlenen değildir. Bir kullanıcının parolasını değiştirdiğinizde ve *kullanıcının sonraki oturum açışında parolasını değiştirmesi* bayrağı, parola karması işlemleri değil senkronize edilir Azure AD Connect ile Azure ad kullanıcının parolalarını değiştirmedikçe.
 
 Başvurmak [parola karması eşitlemeyi uygulama](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) dağıtım adımları için.
 

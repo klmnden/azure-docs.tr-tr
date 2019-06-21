@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 468bcdb6aa688157196bb9cba8added623a857d3
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789315"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155308"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -55,7 +55,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 | Azure Batch |[Azure Batch tanılama günlüğüne kaydetme](../../batch/batch-diagnostics.md) |
 | MySQL için Azure Veritabanı | [Tanılama günlükleri MySQL için Azure veritabanı](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | PostgreSQL için Azure Veritabanı | [Tanılama günlükleri PostgreSQL için Azure veritabanı](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Bilişsel Hizmetler | Şema kullanılabilir değil. |
+| Bilişsel Hizmetler | [Azure Bilişsel hizmetler için tanılama günlüğüne kaydetme](../../cognitive-services/diagnostic-logging.md) |
 | Content Delivery Network | [CDN için Azure tanılama günlükleri](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB günlüğe kaydetme](../../cosmos-db/logging.md) |
 | Data Factory | [Azure İzleyicisi'ni kullanarak veri Fabrikalarını izleme](../../data-factory/monitor-using-azure-monitor.md) |
@@ -209,4 +209,3 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 * [Kaynak tanılama günlükleri için Stream **olay hub'ları**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Azure İzleyici REST API'sini kullanarak kaynak tanılama ayarlarını değiştirme](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Log Analytics ile Azure depolama biriminden günlüklerini çözümleme](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-

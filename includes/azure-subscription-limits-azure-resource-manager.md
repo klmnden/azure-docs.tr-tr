@@ -9,15 +9,15 @@ ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146235"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188730"
 ---
 | Resource | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
-| [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına VM |25\.000<sup>1</sup> bölge başına. |Bölge başına 25.000. |
+| [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına VM |25.000<sup>1</sup> bölge başına. |Bölge başına 25.000. |
 | [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına toplam VM çekirdeği sayısı |20<sup>1</sup> bölge başına. | Desteğe başvurun. |
 | VM başına gibi Dv2 ve F serisi, çekirdek başına [abonelik](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> bölge başına. | Desteğe başvurun. |
 | [Diğer yöneticiler](../articles/billing-add-change-azure-subscription-administrator.md) abonelik başına |Sınırsız. |Sınırsız. |
@@ -33,7 +33,7 @@ ms.locfileid: "66146235"
 
 <sup>1</sup>varsayılan limitler ücretsiz deneme sürümü ve Kullandıkça Öde, gibi teklif kategori türüne ve Dv2, F ve g serisi göre değişir
 
-<sup>2</sup>sınırsız sayıda abonelik başına etiket uygulayabilirsiniz. Kaynak ya da kaynak grubu başına etiket sayısı 15 ile sınırlıdır. Resource Manager döndürür bir [benzersiz etiket adı ve değerlerinin listesini](/rest/api/resources/tags) aboneliği yalnızca gerektiğinde etiket sayısı 10.000 veya daha az. 10\.000 aştığında etikete göre bir kaynak yine de bulabilirsiniz.  
+<sup>2</sup>sınırsız sayıda abonelik başına etiket uygulayabilirsiniz. Kaynak ya da kaynak grubu başına etiket sayısı 15 ile sınırlıdır. Resource Manager döndürür bir [benzersiz etiket adı ve değerlerinin listesini](/rest/api/resources/tags) aboneliği yalnızca gerektiğinde etiket sayısı 10.000 veya daha az. 10.000 aştığında etikete göre bir kaynak yine de bulabilirsiniz.  
 
 <sup>3</sup>bu özellikler artık Azure kaynak grupları ve Resource Manager ile gerekli değildir.
 

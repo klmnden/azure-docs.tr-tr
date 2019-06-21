@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a6797c7bd0c6bd8ce8d3f51b42cb4c2b1338fd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 1eb5600a9793963a722967e1bbe702cf3b2f670e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65950458"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147107"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>SSS ve Azure kaynakları için yönetilen kimliklerle bilinen sorunlar
 
@@ -84,8 +84,8 @@ Hayır. Yönetilen kimlik şu anda çapraz directory senaryoları desteklemez.
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Kaynak üzerinde yönetilen kimlik için hangi Azure RBAC izinler gereklidir? 
 
-- Yönetilen kimlik sistem tarafından atanan: Kaynak üzerinde yazma izinleri. Örneğin: Microsoft.Compute/virtualMachines/write veya bu eylemi belirli yerleşik roller gibi kaynak dahil edileceğini [sanal makine Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Yönetilen kimlik, kullanıcı tarafından atanan: Kaynak üzerinde yazma izinleri. Örneğin: Microsoft.Compute/virtualMachines/write. Ek olarak [yönetilen kimlik işleci](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol ataması üzerinden yönetilen kimlik. 
+- Yönetilen kimlik sistem tarafından atanan: Kaynak üzerinde yazma izinleri. Sanal makineler için exampl için Microsoft.Compute/virtualMachines/write gerekir. Bu eylem kaynak gibi belirli yerleşik roller bulunmaktadır [sanal makine Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Yönetilen kimlik, kullanıcı tarafından atanan: Kaynak üzerinde yazma izinleri. Örneğin, sanal makineler için Microsoft.Compute/virtualMachines/write gerekir. Ek olarak [yönetilen kimlik işleci](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol ataması üzerinden yönetilen kimlik.
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Azure kaynaklarını uzantısı için yönetilen kimlikleri nasıl başlatmanız?
 Uzantı durursa, Windows ve Linux'ın, aşağıdaki cmdlet'i el ile yeniden başlatmak için kullanılabilir:

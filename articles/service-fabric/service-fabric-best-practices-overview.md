@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2019
+ms.date: 06/18/2019
 ms.author: pepogors
-ms.openlocfilehash: 051d6b1129724ce4e8a67bde4e56ebe61cd832f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fdbd3f15b11e4c3975ca29627d5984382bcf049
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65231376"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206796"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Azure Service Fabric uygulama ve küme için en iyi yöntemler
 
-Azure Service Fabric uygulama ve kümelerin başarılı bir şekilde yönetmek için üretim ortamınızın güvenilirliği iyileştirmek için almanızı öneririz işlemleri vardır; Lütfen bu belgede tanımlanan işlemlerini gerçekleştirmek ve birini bizim [Azure örnekleri Service Fabric kümesi şablonları](https://github.com/Azure-Samples/service-fabric-cluster-templates) üretim çözümünüzü tasarlama başlamak ya da bu uygulamaları eklemek, varolan bir şablonu değiştirmek için.
+Bu makalede, Azure Service Fabric uygulama ve kümelerin yönetiminde en iyi uygulamalar için bağlantılar sağlar. Üretim ortamınızın güvenilirliği iyileştirmek için bu yöntemleri uygulamanız önerilir. Birini [Service Fabric kümesi şablonları](https://github.com/Azure-Samples/service-fabric-cluster-templates) üretim çözümünüze tasarlamaya başlayabileceğiniz ya da bu yöntemler eklemek için mevcut kullanarak şablonunuzu güncelleştirin.
 
-## <a name="security"></a>Güvenlik 
+## <a name="security"></a>Güvenlik
 
 * [En iyi güvenlik uygulamaları](service-fabric-best-practices-security.md)
 
@@ -52,11 +52,11 @@ Azure Service Fabric uygulama ve kümelerin başarılı bir şekilde yönetmek i
 
 ## <a name="checklist"></a>Denetim listesi
 
-Yukarıdaki bölümlerde hepsini tamamladıktan sonra tüm üretim hazırlık listesindeki en iyi yöntemler tümleştirdiyseniz emin olun:
+Önceki bölümlerde önerilen yöntemler uyguladıktan sonra üretim hazırlık listesindeki tüm iyi entegre ettik emin olun:
 * [Azure Service Fabric üretim hazırlık denetim listesi](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Vm'leri veya Windows Server çalıştıran bilgisayarlarda bir küme oluşturun: [Windows Server için Service Fabric kümesi oluşturma](service-fabric-cluster-creation-for-windows-server.md)
 * Bir küme sanal makineleri veya Linux çalıştıran bilgisayarlara oluşturun: [Bir Linux kümesi oluşturma](service-fabric-cluster-creation-via-portal.md)
-* Sorun giderme: [Service Fabric sorun giderme kılavuzu](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
+* Service Fabric sorunlarını giderme: [Sorun giderme kılavuzları](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)

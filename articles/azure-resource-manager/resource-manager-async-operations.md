@@ -1,24 +1,18 @@
 ---
 title: Zaman uyumsuz işlemler - Azure Resource Manager durumu
 description: Azure'da zaman uyumsuz işlemleri izleme açıklar. Bu, uzun süre çalışan işlemin durumunu almak için kullandığınız değerleri gösterir.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 1b05ed50f08ddbf2eb5da8e08f5bf623596e1f9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56d55365a243a9e51e96985ee0035c43404f82f0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61061382"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206290"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Azure zaman uyumsuz işlemleri izleme
 Bazı Azure REST işlemlerini zaman uyumsuz olarak çalışır, çünkü işlem hızlı bir şekilde tamamlanamıyor. Bu makalede, yanıtta döndürülen değerleri arasında zaman uyumsuz işlemlerin durumunu izlemek açıklar.  

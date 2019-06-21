@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 06/09/2018
 ms.author: liydu
 ms.openlocfilehash: 783921009a1668647a238f1c344885ec807d5b8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66166952"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67189026"
 ---
 Azure IOT Hub ile çalışmaya başlama ve IOT DevKit kullanma diğer IOT senaryolarını keşfetmeye devam etmek için aşağıdakilere bakın:
 

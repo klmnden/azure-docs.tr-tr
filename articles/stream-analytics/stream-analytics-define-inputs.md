@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 1822bfe9f2d6d337db74ba94d43644b0b3567c71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfdebacb4de205fa42fe96ceb9970d2d109536e8
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455623"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296165"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics giriş olarak Stream veri
 
@@ -38,7 +38,7 @@ Kullanabileceğiniz [Azure portalında](stream-analytics-quick-create-portal.md)
 
 Azure Event Hubs yüksek oranda ölçeklenebilir sağlar yayımlama-abonelik olay ingestors. Bir olay hub'ı, böylece işleyebilir ve analiz veri uygulamanızın bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki saniye başına milyonlarca olayı toplayabilirsiniz. Birlikte, Event Hubs ve Stream Analytics bir uçtan uca çözüm için gerçek zamanlı analizler sağlar. Olay hub'ları sağlar, olayları Azure'da içine akış gerçek zamanlı olarak ve Stream Analytics işleri, gerçek zamanlı olayları işleyebilir. Örneğin, Event Hubs'a web tıklama, sensör okumaları veya çevrimiçi günlüğü olaylarını gönderebilir. Ardından, Event Hubs, gerçek zamanlı filtreleyerek, toplayarak ve bağıntı için giriş veri akışları olarak kullanmak için Stream Analytics işleri de oluşturabilirsiniz.
 
-`EventEnqueuedUtcTime` bir olay hub'ındaki bir olayın geliş zaman damgasını ve varsayılan Stream Analytics'e Event Hubs'dan gelen olayların zaman damgası. Veri yükü kullanmalısınız olayda bir zaman damgası kullanarak bir akış olarak işlenecek [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü.
+`EventEnqueuedUtcTime` bir olay hub'ındaki bir olayın geliş zaman damgasını ve varsayılan Stream Analytics'e Event Hubs'dan gelen olayların zaman damgası. Veri yükü kullanmalısınız olayda bir zaman damgası kullanarak bir akış olarak işlenecek [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) anahtar sözcüğü.
 
 ### <a name="event-hubs-consumer-groups"></a>Event hubs'ı tüketici grubu
 
@@ -86,7 +86,7 @@ FROM Input
 
 Azure IOT Hub, yüksek düzeyde ölçeklenebilir Yayımla-abone ol olay yutucu IOT senaryoları için iyileştirilmiş ' dir.
 
-Stream analytics'te bir IOT Hub'ından gelen olayların varsayılan zaman damgası olan IOT Hub olay geldiği zaman damgası olan `EventEnqueuedUtcTime`. Veri yükü kullanmalısınız olayda bir zaman damgası kullanarak bir akış olarak işlenecek [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü.
+Stream analytics'te bir IOT Hub'ından gelen olayların varsayılan zaman damgası olan IOT Hub olay geldiği zaman damgası olan `EventEnqueuedUtcTime`. Veri yükü kullanmalısınız olayda bir zaman damgası kullanarak bir akış olarak işlenecek [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) anahtar sözcüğü.
 
 ### <a name="iot-hub-consumer-groups"></a>IOT Hub tüketici grupları
 

@@ -4,15 +4,15 @@ description: Bu makalede, saklı yordamlar, tetikleyiciler ve kullanıcı tanım
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 40d120fe5fcc79721923d3493e74b5195ecc129c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965711"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165571"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler
 
@@ -75,7 +75,7 @@ JavaScript işlevleri getirilmiştir konusu [sağlanan aktarım hızı kapasites
 
 ## <a name="triggers"></a>Tetikleyiciler
 
-Bu bölümde, iki tür tetikleyiciyi açıklanmaktadır:
+Azure Cosmos DB, iki tür tetikleyiciyi destekler:
 
 ### <a name="pre-triggers"></a>Öncesi Tetikleyicileri
 
@@ -84,6 +84,9 @@ Azure Cosmos DB, bir Azure Cosmos DB öğe üzerinde bir işlemi gerçekleştire
 ### <a name="post-triggers"></a>Sonrası Tetikleyicileri
 
 Benzer şekilde ön tetikleyicileri, sonrası tetikleyicileri, ayrıca bir Azure Cosmos DB öğe üzerinde bir işlem ile ilişkili ve bunlar tüm giriş parametrelerini gerekmez. Çalışan *sonra* işleminin tamamlandığını ve istemciye gönderilen yanıt iletisi erişebilir. Örnekler için bkz [nasıl yazılacağını Tetikleyicileri](how-to-write-stored-procedures-triggers-udfs.md#triggers) makalesi.
+
+> [!NOTE]
+> Kayıtlı Tetikleyicileri olduğunda otomatik olarak çalıştırma ilgili işlemleri (oluşturma / silme / değiştirmek / güncelleştirme) gerçekleşir. Bu işlem yürütülürken özel olarak çağrılması gerekir. Daha fazla bilgi için bkz. [Tetikleyicileri çalıştırma](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) makalesi.
 
 ## <a id="udfs"></a>Kullanıcı tanımlı işlevler
 

@@ -1,26 +1,26 @@
 ---
-title: Azure PowerShell kullanarak Web uygulaması güvenlik duvarı özel kuralları yapılandırma
-description: Azure PowerShell kullanarak özel WAF kurallarını nasıl yapılandıracağınızı öğrenin
+title: Azure PowerShell kullanarak Web uygulaması güvenlik duvarı v2 özel kuralları yapılandırma
+description: Azure PowerShell kullanarak WAF v2 özel kuralları yapılandırma hakkında bilgi edinin
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/7/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f7215c4f35d36486b8dda483f34bc487cc16fc69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4d2fd7342e0efe95a1bc69e0dba77692053cf14
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743053"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164743"
 ---
-# <a name="configure-web-application-firewall-with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell kullanarak özel bir kural ile Web uygulaması güvenlik duvarı yapılandırma
+# <a name="configure-web-application-firewall-v2--with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell kullanarak özel bir kural ile Web uygulaması güvenlik duvarı v2 yapılandırın
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Özel kurallar, Web uygulaması Güvenlik Duvarı (WAF) üzerinden geçirir her istek için değerlendirilen kendi kurallar oluşturmanıza olanak sağlar. Bu kurallar, yönetilen kural kümelerini kuralları geri kalanı daha yüksek bir önceliğe basılı tutun. Özel kurallar bir eylem (izin vermek veya engellemek için), bir eşleşme koşulu ve tam özelleştirilmesine imkan tanımak üzere bir işleç var.
+Özel kurallar, Web uygulaması Güvenlik Duvarı (WAF) v2 geçirir her istek için değerlendirilen kendi kurallar oluşturmanıza olanak sağlar. Bu kurallar, yönetilen kural kümelerini kuralları geri kalanı daha yüksek bir önceliğe basılı tutun. Özel kurallar bir eylem (izin vermek veya engellemek için), bir eşleşme koşulu ve tam özelleştirilmesine imkan tanımak üzere bir işleç var.
 
-Bu makalede, bir Application Gateway WAF kullanan özel bir kural oluşturur. User-Agent istek üst bilgisi içeriyorsa, özel kural bloklarını trafiği *evilbot*.
+Bu makalede, özel bir kural kullanan bir Application Gateway WAF v2 oluşturur. User-Agent istek üst bilgisi içeriyorsa, özel kural bloklarını trafiği *evilbot*.
 
 Özel kural ile ilgili daha fazla örnek görmek için bkz: [özel bir web uygulaması güvenlik duvarı kurallarını oluşturma ve kullanma](create-custom-waf-rules.md)
 

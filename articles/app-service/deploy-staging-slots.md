@@ -13,21 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 06/18/2019
 ms.author: cephalin
-ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbf287aef2c1792033a198070da605014a7b6281
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955808"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272847"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service ortamlarında hazırlık ayarlama
 <a name="Overview"></a>
-
-> [!NOTE]
-> Bu nasıl yapılır kılavuzunda yeni bir önizleme Yönetim sayfasını kullanarak yuvalarını yönetmek nasıl gösterir. Mevcut Yönetim sayfasına kullanılan müşteriler mevcut yuva Yönetim sayfası olarak önce kullanmaya devam edebilirsiniz. 
->
 
 Web uygulaması, Linux ve mobil arka uç API uygulamasına web uygulamasına dağıtırken [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), varsayılan üretim yuvasına yerine ayrı bir dağıtım yuvası çalıştırıldığında dağıtabileceğiniz **standart**, **Premium**, veya **yalıtılmış** App Service planı katmanı. Dağıtım yuvaları kendi ana bilgisayar adları olan Canlı uygulamalardır. Uygulama içeriği ve yapılandırma öğelerinin, üretim yuvası dahil iki dağıtım yuvası arasında değişiklik yapılabilir. Uygulamanızı üretim dışı bir yuvaya dağıtmak için aşağıdaki faydaları vardır:
 
@@ -35,7 +31,7 @@ Web uygulaması, Linux ve mobil arka uç API uygulamasına web uygulamasına da�
 * Bir uygulamayı ilk kez bir yuvasına dağıtma ve üretime geçirmeden yuvası tüm örneklerini üretime takas önce warmed emin emin olur. Uygulamanızı dağıtırken bu kapalı kalma süresini ortadan kaldırır. Trafik yeniden yönlendirmesi sorunsuzdur ve değiştirme işlemleri nedeniyle istek bırakılır. Yapılandırarak bu iş akışının tamamı otomatikleştirilebilir [otomatik değiştirme](#Auto-Swap) değiştirme öncesi doğrulama değil gerekli olmadığında.
 * Bir değiştirme işleminden sonra yuvası ile önceden hazırlanmış uygulama artık önceki üretim uygulamasına sahiptir. Üretim yuvasına değişiklikler beklediğiniz gibi değilse, "son bilinen iyi sitenizi" hemen almak için aynı değiştirme gerçekleştirebileceğiniz geri.
 
-Her App Service planı katmanı farklı sayıda dağıtım yuvalarını destekler. Sayısının ölçeğini bulmak için uygulama katmanı destekleyen yuvası için bkz: [App Service limitleri](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Farklı bir katmana uygulamanızı ölçeklendirmek için hedef katmana uygulamanızı zaten kullanıyor yuva sayısı desteklemesi gerekir. Uygulamanızın beşten fazla yuva varsa, örneğin, aşağı için ölçeklendirilemez **standart** olduğundan, katman **standart** katman yalnızca beş dağıtım yuvalarını destekler.
+Her App Service planı katmanı farklı sayıda dağıtım yuvalarını destekler ve dağıtım yuvalarını kullanarak ek ücret yoktur. Sayısının ölçeğini bulmak için uygulama katmanı destekleyen yuvası için bkz: [App Service limitleri](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Farklı bir katmana uygulamanızı ölçeklendirmek için hedef katmana uygulamanızı zaten kullanıyor yuva sayısı desteklemesi gerekir. Uygulamanızın beşten fazla yuva varsa, örneğin, aşağı için ölçeklendirilemez **standart** olduğundan, katman **standart** katman yalnızca beş dağıtım yuvalarını destekler. 
 
 <a name="Add"></a>
 
@@ -44,7 +40,7 @@ Uygulama çalıştırmalıdır **standart**, **Premium**, veya **yalıtılmış*
 
 1. İçinde [Azure portalında](https://portal.azure.com/), uygulamanızın açın [kaynak sayfası](../azure-resource-manager/manage-resources-portal.md#manage-resources).
 
-2. Sol gezinti bölmesinde seçin **dağıtım yuvaları (Önizleme)** seçeneğini belirleyin, ardından tıklayın **yuva Ekle**.
+2. Sol gezinti bölmesinde seçin **dağıtım yuvalarını** seçeneğini belirleyin, ardından tıklayın **yuva Ekle**.
    
     ![Yeni bir dağıtım yuvası Ekle](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
@@ -58,7 +54,7 @@ Uygulama çalıştırmalıdır **standart**, **Premium**, veya **yalıtılmış*
    
     Tüm mevcut yuvasından yapılandırma kopyalayabilirsiniz. Uygulama ayarları, bağlantı dizeleri, dil framework sürümü, web yuvaları, HTTP sürümü ve platform bit genişliği kopyalanabilir ayarları içerir.
 
-4. Yuva eklendikten sonra tıklayın **kapatmak** iletişim kutusunu kapatmak için. Yeni yuva artık gösterilen **dağıtım yuvaları (Önizleme)** sayfası. Varsayılan olarak, **trafik %** 0 yeni bir yuva için üretim yuvasına yönlendirilen tüm müşteri trafiği ile ayarlanır.
+4. Yuva eklendikten sonra tıklayın **kapatmak** iletişim kutusunu kapatmak için. Yeni yuva artık gösterilen **dağıtım yuvalarını** sayfası. Varsayılan olarak, **trafik %** 0 yeni bir yuva için üretim yuvasına yönlendirilen tüm müşteri trafiği ile ayarlanır.
 
 5. Bu yuvanın kaynak sayfasını açmak için yeni dağıtım yuvasına tıklayın.
    
@@ -72,7 +68,36 @@ Başka bir yuvaya ayarlarından kopyalama olsa bile yeni dağıtım yuvası, iç
 
 <a name="AboutConfiguration"></a>
 
-## <a name="which-settings-are-swapped"></a>Hangi ayarların değiştirilir?
+## <a name="what-happens-during-swap"></a>Geçiş sırasında ne olur?
+
+[İşlem adımı takas](#swap-operation-steps)
+[hangi ayarların takas?](#which-settings-are-swapped)
+
+### <a name="swap-operation-steps"></a>Takas işlemi adımları
+
+App Service, (genellikle gelen hazırlama yuvasını üretim yuvasına) iki Yuvalar, hedef yuvadaki kesinti yaşamak değil emin olmak için şunları yapar:
+
+1. Aşağıdaki ayarlar (örneğin, üretim yuvası) hedef yuvadan kaynak yuvaya tüm örnekleri için geçerlidir: 
+    - [Yuva özel](#which-settings-are-swapped) uygulama ayarlarının ve bağlantı dizeleri, varsa.
+    - [Sürekli dağıtım](deploy-continuous-deployment.md) etkinleştirilirse ayarları.
+    - [App Service kimlik doğrulaması](overview-authentication-authorization.md) etkinleştirilirse ayarları.
+    Yukarıdaki durumların herhangi birinde tüm örnekleri yeniden başlatmak için kaynak yuvasındaki tetikler. Sırasında [Önizleme ile değiştirme](#Multi-Phase), bu yeri değiştirme işlemi duraklatıldı ve kaynak yuvaya hedef yuvanın ayarlarla düzgün çalıştığını doğrulamak için ilk aşama sonunu işaretler.
+
+1. Her örnek kendi yeniden tamamlamak için kaynak yuvasındaki bekleyin. Herhangi bir örneğine yeniden başlatılamazsa, değiştirme işlemi kaynak yuvaya yapılan tüm değişiklikler geri döner ve işlemi durdurur.
+
+1. Varsa [yerel önbellek](overview-local-cache.md) olan etkin bir HTTP isteği için uygulama kökü ("/") kaynak yuvaya her bir örneği üzerinde ve herhangi bir HTTP yanıt her örneği dönene kadar bekleyin yaparak yerel önbellek başlatma tetikleyin. Yerel önbellek başlatma başka bir yeniden başlatma her örneğinde neden olur.
+
+1. Varsa [otomatik takas](#Auto-Swap) ile etkin [özel Isınma](#custom-warm-up), tetikleyici [uygulama başlatma](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) yaparak uygulama kök ("/") kaynak her örneğinde bir HTTP isteği Yuva. Herhangi bir HTTP yanıt örneği döndürürse, warmed dikkate almıştır.
+
+    Hayır ise `applicationInitialization` olduğundan, belirtilen kaynak yuvaya her örneğinde uygulama kökü için bir HTTP isteği tetikler. Herhangi bir HTTP yanıt örneği döndürürse, warmed dikkate almıştır.
+
+1. Kaynak yuvaya tüm örneklerinde başarıyla warmed, iki iki yuvaları için yönlendirme kuralları geçerek Yuvalar. Bu adımdan sonra hedef yuvadaki (örneğin, üretim yuvası) kaynak yuvaya önceden warmed uygulama vardır.
+
+1. Artık kaynak yuvaya öncesi takas uygulama daha önce hedef yuvada verildiğine göre tüm ayarlarını uygulama ve örnekleri yeniden başlatılıyor aynı işlemi gerçekleştirin.
+
+Herhangi bir noktada değiştirme işlemi, kaynak yuva değiştirildi uygulama başlatma, tüm işler gerçekleştirilir. Kaynak yuvaya yüklenirken, hedef yuvadaki çevrimiçi kalır hazır ve warmed yeri değiştirme başarılı veya başarısız yukarı, ne olursa olsun. Bir hazırlama yuvasını üretim yuvasıyla takas etmek için üretim yuvasına her zaman hedef yuva olduğundan emin olun. Bu şekilde, üretim uygulamanızın değiştirme işlemi tarafından etkilenmez.
+
+### <a name="which-settings-are-swapped"></a>Hangi ayarların değiştirilir?
 Başka bir dağıtım yuvasından yapılandırma kopyaladığınızda, kopyalanan düzenlenebilir bir yapılandırmadır. Ayrıca, diğer yapılandırma öğeleri aynı yuva değiştirme işleminden sonra (Yuva belirli) kalır ancak bazı yapılandırma öğeleri (değil yuva belirli) arasında bir takas içeriği izleyin. Aşağıdaki listelerde, yuvaları takas olduğunda değiştirme ayarları gösterilir.
 
 **Olacağı ayarları**:
@@ -106,25 +131,23 @@ Başka bir dağıtım yuvasından yapılandırma kopyaladığınızda, kopyalana
 
 <!-- VNET and hybrid connections not yet sticky to slot -->
 
-(Takas değil) belirli yuvada için bir uygulama ayarı veya bağlantı dizesini yapılandırmak için gidin **uygulama ayarları** sayfasında bu yuva için ve ardından **yuva ayarı** kutusunun yapılandırma öğeleri yuvada. Yuva olarak belirli bir yapılandırma öğesi işaretleme, App Service swappable değil olduğunu bildirir. 
+(Takas değil) belirli yuvada için bir uygulama ayarı veya bağlantı dizesini yapılandırmak için gidin **yapılandırma** sayfasında bu yuva için eklemek veya bir ayarı düzenleyin ve ardından seçin **dağıtım yuvası ayarı**kutusu. Bu onay kutusunu seçerek, App Service ayarı swappable olmadığını söyler. 
 
 ![Yuva ayarı](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
 ## <a name="swap-two-slots"></a>İki Yuvalar 
-Uygulamanızın dağıtım yuvaları takas edebilirsiniz **dağıtım yuvaları (Önizleme)** sayfası. 
-
-Ayrıca gelen yuvaları takas edebilirsiniz **genel bakış** ve **dağıtım yuvalarını** sayfaları, ancak şu anda eski bir deneyim sunar. Bu kılavuz bize yeni kullanıcı arabiriminde kullanmayı gösterir **dağıtım yuvaları (Önizleme)** sayfası.
+Uygulamanızın dağıtım yuvaları takas edebilirsiniz **dağıtım yuvalarını** sayfası ve **genel bakış** sayfası. Yuva değiştirme ile ilgili teknik ayrıntılar için bkz. [değiştirme sırasında ne olur?](#what-happens-during-swap)
 
 > [!IMPORTANT]
-> Bir uygulamadan bir dağıtım yuvasını üretime taşır önce tüm ayarları takas hedef sağlamak üzere tam olarak istediğiniz şekilde yapılandırıldığından emin olun.
+> Bir uygulamadan bir dağıtım yuvasını üretime taşır önce üretim, hedef yuvadaki olduğundan ve tüm ayarlarını kaynak yuvaya üretimde sağlamak tam olarak istediğiniz şekilde yapılandırıldığından emin olun.
 > 
 > 
 
 Dağıtım yuvalarını değiştirmek için aşağıdaki adımları izleyin:
 
-1. Git, uygulamanızın **dağıtım yuvaları (Önizleme)** sayfasında ve tıklayın **takas**.
+1. Git, uygulamanızın **dağıtım yuvalarını** sayfasında ve tıklayın **takas**.
    
     ![Değiştirme düğmesi](./media/web-sites-staged-publishing/SwapButtonBar.png)
 
@@ -138,6 +161,8 @@ Dağıtım yuvalarını değiştirmek için aşağıdaki adımları izleyin:
 
 3. İşlemi tamamladığınızda, tıklayarak iletişim kutusunu kapatmak **kapatmak**.
 
+Bir sorun yaşarsanız bkz [sorun giderme takasları](#troubleshoot-swaps).
+
 <a name="Multi-Phase"></a>
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>(Birden çok aşamalı değiştirme) önizleme ile değiştirme
@@ -147,13 +172,9 @@ Dağıtım yuvalarını değiştirmek için aşağıdaki adımları izleyin:
 
 Takas gerçekleşmeden önce hedef yuva olarak üretime geçirmeden önce takas ayarlarla uygulama çalıştırmaları doğrulayın. Kaynak yuvaya de ayrıca görev açısından kritik uygulamalar için tercih edilir değiştirme tamamlanmadan önce warmed.
 
-Önizleme ile değiştirme gerçekleştirdiğinizde, takas başlattığınızda, App Service şunları yapar:
+Önizleme ile değiştirme gerçekleştirdiğinizde, App Service aynı gerçekleştirir [takas işlemi](#what-happens-during-swap) ancak, ilk adımdan sonra duraklatır. Ardından, takas tamamlamadan önce hazırlama yuvasına sonucuna doğrulayabilirsiniz. 
 
-- Hedef yuva yuvanın (üretim gibi) mevcut iş yüküne etkilenmez şekilde değişmeden kalmasını sağlar.
-- Yapılandırma öğelerini hedef yuvanın, uygulama ayarları ve yuva özel bağlantı dizeleri dahil olmak üzere kaynak yuvaya uygular.
-- Bu yapılandırma öğelerini kullanarak kaynak yuvaya üzerinde çalışan işlemleri yeniden başlatır. Kaynak yuvaya göz atabilir ve uygulama yapılandırma değişiklikleriyle çalıştırması bakın.
-
-Ayrı bir adım değiştirmeyi tamamlamak, App Service, hedef yuvadaki warmed yukarı kaynak yuvaya yanı sıra, hedef yuvadaki kaynak yuvaya taşır. Değiştirmeyi iptal ederseniz, App Service kaynak yuvaya kaynak yuvaya yapılandırma öğelerini yeniden uygular.
+Değiştirmeyi iptal ederseniz, App Service kaynak yuvaya kaynak yuvaya yapılandırma öğelerini yeniden uygular.
 
 Önizleme ile değiştirme için aşağıdaki adımları izleyin.
 
@@ -173,6 +194,8 @@ Ayrı bir adım değiştirmeyi tamamlamak, App Service, hedef yuvadaki warmed yu
 
 4. İşlemi tamamladığınızda, tıklayarak iletişim kutusunu kapatmak **kapatmak**.
 
+Bir sorun yaşarsanız bkz [sorun giderme takasları](#troubleshoot-swaps).
+
 Birden çok aşamalı değiştirme otomatikleştirmek için PowerShell ile otomatikleştirme bakın.
 
 <a name="Rollback"></a>
@@ -187,26 +210,28 @@ Hatalar (örneğin, üretim yuvası) hedef yuvada yuva değiştirme işleminden 
 > [!NOTE]
 > Linux üzerinde web apps'te otomatik değiştirme desteklenmez.
 
-Otomatik Takas için uygulamanın son müşterilere sürekli olarak sıfır hazırlıksız başlatma ve sıfır kapalı kalma süresi ile uygulamanızı dağıtmak için istediğiniz DevOps senaryolarını kolaylaştırır. Bir yuva autoswaps üretime kodunuzun her gönderdiğinizde bu yuvaya değiştiğinde, kaynak yuvaya warmed, sonra App Service uygulama otomatik olarak üretime taşır.
+Otomatik Takas için uygulamanın son müşterilere sürekli olarak sıfır hazırlıksız başlatma ve sıfır kapalı kalma süresi ile uygulamanızı dağıtmak için istediğiniz DevOps senaryolarını kolaylaştırır. Otomatik Takas etkinleştirildiğinde bir yuvadan üretim ortamına, kod değişikliklerinizi bu yuva, App Service otomatik olarak her itme yapışınızda [uygulamayı üretime taşır](#swap-operation-steps) kaynak yuvaya warmed, sonra.
 
    > [!NOTE]
-   > Otomatik değiştirme için üretim yuvasına yapılandırmadan önce otomatik test değiştirme üretim dışı hedef yuvadaki üzerinde önce göz önünde bulundurun.
+   > Otomatik Takas için üretim yuvasına yapılandırmadan önce bir üretim dışı hedef yuva üzerinde otomatik takas ilk test göz önünde bulundurun.
    > 
 
-Otomatik değiştirme yapılandırmak için aşağıdaki adımları izleyin:
+Otomatik Takas yapılandırmak için aşağıdaki adımları izleyin:
 
-1. Uygulamanızın kaynak sayfasına gidin. Seçin **dağıtım yuvaları (Önizleme)**  >  *\<istenen kaynak yuvaya >*  > **uygulama ayarları**.
+1. Uygulamanızın kaynak sayfasına gidin. Seçin **dağıtım yuvalarını** >  *\<istenen kaynak yuvaya >*  > **yapılandırma**  >  **Genel ayarlar**.
    
-2. İçinde **otomatik değiştirme**seçin **üzerinde**, istenen hedef yuvada seçip **otomatik takas yuvası**, tıklatıp **Kaydet** komut çubuğunda. 
+2. İçinde **etkin otomatik takas**seçin **üzerinde**, istenen hedef yuvada seçip **otomatik takas dağıtım yuvası**, tıklatıp **Kaydet** içinde Komut çubuğu. 
    
     ![](./media/web-sites-staged-publishing/AutoSwap02.png)
 
 3. Bir kod gönderimi kaynak yuvaya yürütün. Kısa bir süre sonra otomatik takas olur ve güncelleştirme sırasında hedef yuvanın URL'si yansıtılır.
 
+Bir sorun yaşarsanız bkz [sorun giderme takasları](#troubleshoot-swaps).
+
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up"></a>Özel Isınma
-Kullanırken [Auto-Swap](#Auto-Swap), bazı uygulamalar takas önce özel Isınma Eylemler gerekebilir. `applicationInitialization` Web.config yapılandırma öğesinde gerçekleştirilecek özel başlatma eylemleri belirtmenize olanak sağlar. Değiştirme işlemi bu özel Isınma hedef yuvasıyla değiştirmeden önce tamamlanmasını bekler. İşte bir örnek web.config parça.
+Kullanırken [Auto-Swap](#Auto-Swap), bazı uygulamalar takas önce özel Isınma Eylemler gerekebilir. `applicationInitialization` Web.config yapılandırma öğesinde gerçekleştirilecek özel başlatma eylemleri belirtmenize olanak sağlar. [Takas işlemi](#what-happens-during-swap) hedef yuvasıyla değiştirmeden önce tamamlamak bu özel Isınma bekler. İşte bir örnek web.config parça.
 
     <system.webServer>
         <applicationInitialization>
@@ -222,9 +247,11 @@ Bir veya daha fazlasını Isınma davranışını özelleştirebilirsiniz [uygul
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: Isınma için sitenizin ping yolu. Bu uygulama ayarının değeri olarak bir eğik çizgi ile başlayan bir özel yol belirterek ekleyin. Örneğin, `/statuscheck`. Varsayılan değer `/` şeklindedir. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Isınma işlemi için geçerli HTTP yanıt kodları. HTTP kodlarının virgülle ayrılmış bir listesi ile bu uygulama ayarı ekleyin. Örneğin: `200,202` . Döndürülen durum kodu listede değilse Isınma ve değiştirme işlemlerini durdurulur. Varsayılan olarak, tüm yanıt kodları geçerlidir.
 
+Bir sorun yaşarsanız bkz [sorun giderme takasları](#troubleshoot-swaps).
+
 ## <a name="monitor-swap"></a>İzleyici değiştirme
 
-Değiştirme işlemi, tamamlanması uzun sürerse, takas işlemi hakkında bilgi alabileceğiniz [etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Varsa [takas işlemi](#what-happens-during-swap) tamamlanması uzun zaman alıyor değiştirme işlemi hakkında bilgi alabilirsiniz [etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 Portalında, sol taraftaki gezinti bölmesinde, uygulamanızın kaynak sayfasını seçin **etkinlik günlüğü**.
 
@@ -238,7 +265,7 @@ Varsayılan olarak, tüm istemci isteklerini uygulamanın üretim URL'si (`http:
 
 Üretim trafiği otomatik olarak yönlendirmek için bu adımları izleyin:
 
-1. Uygulamanızın kaynak sayfasına gidin ve seçin **dağıtım yuvaları (Önizleme)** .
+1. Uygulamanızın kaynak sayfasına gidin ve seçin **dağıtım yuvalarını**.
 
 2. İçinde **trafik %** sütun yuvasının istediğiniz yönlendirmek istediğiniz yönlendirmek için toplam trafik miktarı temsil etmek için (0 ile 100 arasında) bir yüzde belirtin. **Kaydet**’e tıklayın.
 
@@ -272,7 +299,7 @@ Varsayılan olarak, yeni bir yuva yönlendirme kuralını verilen `0%`gri göste
 
 ## <a name="delete-slot"></a>Yuvasını Sil
 
-Uygulamanızın kaynak sayfasına gidin. Seçin **dağıtım yuvaları (Önizleme)**  >  *\<silmek için yuva >*  > **genel bakış**. Tıklayın **Sil** komut çubuğunda.  
+Uygulamanızın kaynak sayfasına gidin. Seçin **dağıtım yuvalarını** >  *\<silmek için yuva >*  > **genel bakış**. Tıklayın **Sil** komut çubuğunda.  
 
 ![Dağıtım yuvasını Sil](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -288,32 +315,32 @@ Azure PowerShell, Azure App Service'te dağıtım yuvalarını yönetmek için d
 
 Yükleme ve yapılandırma Azure PowerShell ve Azure PowerShell, Azure aboneliğiniz ile kimlik doğrulaması için bilgi [nasıl Microsoft Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).  
 
-- - -
+---
 ### <a name="create-web-app"></a>Web uygulaması oluşturma
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
-- - -
+---
 ### <a name="create-slot"></a>Yuva oluşturun
 ```powershell
 New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
-- - -
+---
 ### <a name="initiate-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>(Birden çok aşamalı değiştirme) önizleme ile değiştirme başlatmak ve kaynak yuva için hedef yuva yapılandırmasını Uygula
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
-- - -
+---
 ### <a name="cancel-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Swap (gözden geçirme ile değiştirme) bekleyen iptal etme ve kaynak yuva yapılandırması geri yükleme
 ```powershell
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
-- - -
+---
 ### <a name="swap-deployment-slots"></a>Dağıtım yuvalarını değiştirme
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
@@ -325,13 +352,13 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
-- - -
+---
 ### <a name="delete-slot"></a>Yuvasını Sil
 ```powershell
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-- - -
+---
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>
@@ -339,6 +366,35 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 ## <a name="automate-with-cli"></a>CLI ile otomatikleştirme
 
 İçin [Azure CLI](https://github.com/Azure/azure-cli) bkz: dağıtım yuvaları için komutları [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
+
+## <a name="troubleshoot-swaps"></a>Takasları sorunlarını giderme
+
+Herhangi bir hata sırasında oluşursa bir [yuvası takas](#what-happens-during-swap), günlüğe kaydedilir *D:\home\LogFiles\eventlog.xml*, uygulamaya özgü hata günlüğünün yanı sıra.
+
+Bazı yaygın takas hatalar şunlardır:
+
+- Uygulama kökü için bir HTTP isteği zaman aşımına uğradı. Değiştirme işlemi 5 kata kadar her HTTP isteği ve yeniden denemeler 90 saniye bekler. Tüm yeniden deneme aşımına uğrarsa, değiştirme işlemi iptal edildi.
+
+- Uygulama içeriği için yerel önbelleği belirtilen yerel disk kotasını aştığında yerel önbellek başlatma başarısız olabilir. Daha fazla bilgi için [yerel önbelleğe genel bakış](overview-local-cache.md).
+
+- Sırasında [özel Isınma](#custom-warm-up), dahili olarak (dış URL yoluyla olmadan) HTTP isteklerinin yapılma ve belirli URL ile başarısız kuralları yazabilirsiniz *Web.config*. Örneğin, Yönlendirme etki alanı adlarını veya HTTPS zorlama için kuralları, uygulama kodunu hiç ulaşmasını Isınma istekleri engelleyebilirsiniz. Bu sorunu geçici olarak çözmek için aşağıdaki iki koşul ekleyerek, yeniden yazma kuralları değiştirin:
+
+    ```xml
+    <conditions>
+      <add input="{WARMUP_REQUEST}" pattern="1" negate="true" />
+      <add input="{REMOTE_ADDR}" pattern="^100?\." negate="true" />
+      ...
+    </conditions>
+    ```
+- Özel Isınma, HTTP isteklerini hala URL yeniden yazma kuralları tarafından tutulabilir. Bu sorunu geçici olarak çözmek için aşağıdaki koşul ekleyerek, yeniden yazma kuralları değiştirin:
+
+    ```xml
+    <conditions>
+      <add input="{REMOTE_ADDR}" pattern="^100?\." negate="true" />
+      ...
+    </conditions>
+    ```
+- Bazı [IP kısıtlama kuralları](app-service-ip-restrictions.md) değiştirme işlemi, uygulamanız için HTTP istekleri göndermesini engelleyebilir. IPv4 adres aralıkları ile başlayan `10.` ve `100.` dağıtımınıza iç ve uygulamanıza bağlanmasına izin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Üretim dışı yuvaları erişimi engelle](app-service-ip-restrictions.md)

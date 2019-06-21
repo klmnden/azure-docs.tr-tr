@@ -4,20 +4,22 @@ description: Bir Azure Resource Manager şablonu, aboneliğinizdeki kaynaklar d�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e482bf99013b9bec9dfbf64c4e8ad5a8a43ff540
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65515392"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296318"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Azure portalında şablon için tek ve birden çok kaynak dışarı aktarma
 
 Azure Resource Manager şablonları oluşturmaya yardımcı olmak için var olan kaynaklardan bir şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablon JSON söz dizimi ve kaynaklarınızı dağıtma özelliklerini anlamanıza yardımcı olur. Gelecekteki dağıtımlar otomatikleştirmek için dışarı aktarılan şablonu ile başlayın ve senaryonuz için değiştirin.
 
 Resource Manager için bir şablonu dışarı aktarma için bir veya daha fazla kaynak seçmenizi sağlar. Tam olarak şablonda ihtiyacınız olan kaynakları üzerinde odaklanabilirsiniz.
+
+Bu makalede, portal üzerinden şablonlarını dışarı aktarma gösterilmektedir. Ayrıca [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), veya [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 
 ## <a name="choose-the-right-export-option"></a>Doğru dışa aktarma seçeneği seçin
 
@@ -114,7 +116,7 @@ Var olan kaynakları dağıtmak için kullanılan şablonu dışarı aktarabilir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Azure Resource Manager bilgi edinmek için [Azure Resource Manager'a genel bakış](./resource-group-overview.md).
+- Nasıl şablonlarıyla dışarı aktarıldığı öğretilir [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), veya [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 - Resource Manager şablon söz dizimi bilgi edinmek için [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](./resource-group-authoring-templates.md).
 - Şablonları geliştirme hakkında bilgi edinmek için [adım adım öğreticiler](/azure/azure-resource-manager/).
 - Azure Resource Manager Şablon Şemaları görüntülemek için bkz: [şablon başvurusu](/azure/templates/).

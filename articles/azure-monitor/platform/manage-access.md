@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22802950c68dc5a3cf0df8ee26ff38ccb937b551
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782811"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295512"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Günlük verilerini ve Azure İzleyici'de çalışma alanlarını yönetme
 Azure İzleyici depoları, temelde verileri ve yapılandırma bilgilerini içeren bir kapsayıcı ve Log Analytics çalışma alanında verilerini günlüğe kaydedebilirsiniz. Verileri günlüğe kaydetmek için erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevlerini gerçekleştirin. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
@@ -278,7 +278,7 @@ Bkz: [tablo başına erişim denetimini tanımlama](#table-level-rbac) üstünde
 ## <a name="table-level-rbac"></a>Tablo düzeyi RBAC
 **Tablo düzeyi RBAC** , diğer izinlere ek olarak bir Log Analytics çalışma alanında verilerine daha ayrıntılı bir denetim sağlamanıza olanak verir. Bu denetim, yalnızca belirli bir kullanıcı kümesine erişilebilir olan belirli veri türlerini tanımlamanızı sağlar.
 
-Tablo erişim denetimi ile uygulama [Azure özel roller](../../role-based-access-control/custom-roles.md) vermek veya erişimini belirli [tabloları](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) çalışma. Bu roller çalışma alanlarıyla çalışma merkezli ya da kaynak odaklı uygulanır [erişim denetimi modları](#access-control-mode) kullanıcının bakılmaksızın [erişim modu](#access-modes).
+Tablo erişim denetimi ile uygulama [Azure özel roller](../../role-based-access-control/custom-roles.md) vermek veya erişimini belirli [tabloları](../log-query/logs-structure.md) çalışma. Bu roller çalışma alanlarıyla çalışma merkezli ya da kaynak odaklı uygulanır [erişim denetimi modları](#access-control-mode) kullanıcının bakılmaksızın [erişim modu](#access-modes).
 
 Oluşturma bir [özel rol](../../role-based-access-control/custom-roles.md) erişim tablosu için erişim denetimi tanımlamak için aşağıdaki eylemler ile.
 

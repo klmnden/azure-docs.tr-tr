@@ -7,16 +7,18 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137868"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274422"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Büyük bir Azure kaynak veri kümeleri ile çalışma
 
 Azure kaynak grafiği ile çalışma ve Azure ortamınızda kaynakların hakkında bilgi almak için tasarlanmıştır. Kaynak Grafiği, bu verileri hızlanma hatta binlerce kayıt sorgulanırken hale getirir. Kaynak Grafiği, bu büyük veri kümeleriyle çalışmak için birkaç seçenek vardır.
+
+Yüksek sıklıkta sorgular ile çalışma hakkında yönergeler için bkz [yönergeler için daraltılmış istekler](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Veri kümesi sonucu boyutu
 
@@ -84,6 +86,6 @@ Bir örnek için bkz. [sonraki sayfa sorgu](/rest/api/azureresourcegraph/resourc
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kullanımda dili bakın [başlangıç sorguları](../samples/starter.md)
-- Bkz: Gelişmiş kullanır [Gelişmiş sorgular](../samples/advanced.md)
-- [Kaynakları keşfetmeyi](explore-resources.md) öğrenin
+- Kullanımda dili bakın [başlangıç sorguları](../samples/starter.md).
+- Bkz: Gelişmiş kullanır [Gelişmiş sorgular](../samples/advanced.md).
+- Öğrenme [kaynakları keşfedin](explore-resources.md).

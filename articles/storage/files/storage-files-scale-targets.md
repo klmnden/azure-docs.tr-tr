@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e2f7b52ca3cb8a4d472b353e844bdad3aa1b0c1
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078157"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150482"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure dosyaları ölçeklenebilirlik ve performans hedefleri
 
@@ -45,7 +45,13 @@ Premium dosya paylaşımları için dikkate alınması gereken sınırlamalar ü
 Premium dosya paylaşımları olarak adlandırılan bir özel depolama hesabında sağlanan **dosya (Önizleme) deposundan**. Bu hesap, standart dosya paylaşımları için kullanılan depolama hesabından biraz farklı ölçek hedefi vardır. Depolama hesabı ölçek hedefleri için tablosuna başvuran [Azure depolama hesabı ölçek hedefleri](#azure-storage-account-scale-targets) bölümü.
 
 > [!IMPORTANT]
-> Depolama hesabı sınırları, tüm paylaşımlar için geçerlidir. Kadar ölçeklendirme en yüksek depolama hesapları için yalnızca depolama hesabı başına yalnızca bir paylaşım ise ulaşılabilir eşittir.
+> Depolama hesabı sınırları, tüm paylaşımlar için geçerlidir. Kadar ölçeklendirme en yüksek dosya deposundan hesapları için yalnızca dosya deposundan hesap başına yalnızca bir paylaşım ise ulaşılabilir eşittir.
+
+### <a name="file-share-and-file-scale-targets"></a>Dosya Paylaşımı ve dosya ölçek hedefleri
+
+> [!NOTE]
+> Standart dosya paylaşımları 5 TiB daha büyük önizleme aşamasındadır ve belirli sınırlamaları vardır.
+> Bir liste kısıtlamaları ve bu daha büyük bir dosya paylaşımı boyutları Önizleme ekleme için bkz [standart dosya paylaşımları](storage-files-planning.md#standard-file-shares) Planlama Kılavuzu'nun bölümü.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

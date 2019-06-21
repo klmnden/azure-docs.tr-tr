@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: fe163fc2370e884bed58bfffe5baffa5642b6d90
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799116"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147992"
 ---
 # <a name="public-ip-address-prefix"></a>Genel IP adresi ön eki
 
 Ayrılmış IP adresleri azure'da genel uç noktalarınız için genel bir IP adresi ön eki var. Azure aboneliğinize kaç belirttiğiniz üzerinde temel adres bitişik aralığını ayırır. Ortak adres bilmiyorsanız bkz [genel IP adresleri.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 
-Genel IP adresleri, her bir Azure bölgesinde adresi havuzundan atanır. Yapabilecekleriniz [indirme](https://www.microsoft.com/download/details.aspx?id=56519) Azure kullanan her bir bölge için aralıklarının listesi. Örneğin, 40.121.0.0/16 Azure kullanan Doğu ABD bölgesinde 100'den fazla aralıkları biridir. 40\.121.0.1 - kullanılabilir adresleri aralığı içeren 40.121.255.254.
+Genel IP adresleri, her bir Azure bölgesinde adresi havuzundan atanır. Yapabilecekleriniz [indirme](https://www.microsoft.com/download/details.aspx?id=56519) Azure kullanan her bir bölge için aralıklarının listesi. Örneğin, 40.121.0.0/16 Azure kullanan Doğu ABD bölgesinde 100'den fazla aralıkları biridir. 40.121.0.1 - kullanılabilir adresleri aralığı içeren 40.121.255.254.
 
 Genel bir IP adresi ön eki bir Azure bölgesi ve abonelikte bir ad belirterek oluşturun ve ön ek dahil etmek istediğiniz kaç adresi. 28 genel bir IP adresi ön eki oluşturursanız, örneğin, Azure 16 adresleri, aralıkları birinden sizin için ayırır. Aralığın oluşturana kadar Azure atar aralığı bilmiyorsanız, ancak bitişik adresleridir. Genel IP adresi ön eklerini bir ücreti vardır. Ayrıntılar için bkz [genel IP adresi fiyatlandırması](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Neden bir genel IP adresi ön eki oluşturulsun mu?
 
-Genel IP adresi kaynağı oluşturduğunuzda, Azure atayın kullanılabilir bir genel IP adresi herhangi bir bölgede kullanılan aralık. Azure adresini atar sonra adresi ne olduğunu bilmeniz, ancak Azure adresini atar kadar hangi adresi atanabilir bilmiyorum. Bu, örneğin, siz veya iş ortaklarınızla, belirli IP adreslerine izin veren güvenlik duvarı kuralları ayarla sorunlara neden olabilir. Her zaman bir kaynak için yeni bir ortak IP adresi atamak için güvenlik duvarı kuralı eklenecek adresine sahiptir. Kaynaklarınıza ait genel bir IP adres öneklerini adresleri atadığınızda, güvenlik duvarı kuralları adreslerden birini atadığınız her zaman çok çeşitli Kural eklenemiyor çünkü güncelleştirilmesi gerekmez.
+Genel IP adresi kaynağı oluşturduğunuzda, Azure bölgesinde kullanılan aralıklardan herhangi biriyle gelen kullanılabilir bir genel IP adresi atar. Azure adresini atar sonra adresi ne olduğunu bilmeniz, ancak Azure adresini atar kadar hangi adresi atanabilir bilmiyorum. Bu, örneğin, siz veya iş ortaklarınızla, belirli IP adreslerine izin veren güvenlik duvarı kuralları ayarla sorunlara neden olabilir. Her zaman bir kaynak için yeni bir ortak IP adresi atamak için güvenlik duvarı kuralı eklenecek adresine sahiptir. Kaynaklarınıza ait genel bir IP adres öneklerini adresleri atadığınızda, güvenlik duvarı kuralları adreslerden birini atadığınız her zaman çok çeşitli Kural eklenemiyor çünkü güncelleştirilmesi gerekmez.
 
 ## <a name="benefits"></a>Avantajlar
 

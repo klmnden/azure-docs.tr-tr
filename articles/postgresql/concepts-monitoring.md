@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: b7d69e0fe16f96b0e3886c3736f8b91d4c06b446
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/19/2019
+ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063746"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274296"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>İzleme ve - tek bir sunucu PostgreSQL için Azure veritabanı ayarlama
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. PostgreSQL için Azure veritabanı sunucunuzu davranışını bir anlayış sağlamak için çeşitli izleme seçenekleri sağlar.
@@ -38,6 +38,8 @@ Bu ölçümler, PostgreSQL için Azure veritabanı için kullanılabilir:
 |network_bytes_egress|Ağ Çıkışı|Bayt|Ağ çıkışı arasında etkin bağlantılar.|
 |network_bytes_ingress|Ağ Girişi|Bayt|Ağ içinde arasında etkin bağlantılar.|
 |backup_storage_used|Kullanılan yedekleme depolama alanı|Bayt|Kullanılan yedekleme depolama alanı miktarı.|
+|pg_replica_log_delay_in_bytes|Yinelemeler boyunca en fazla gecikme|Bayt|Ana ve çoğu İzolasyonu çoğaltma arasındaki bayt cinsinden gecikme. Bu ölçüm yalnızca ana sunucu üzerinde kullanılabilir.|
+|pg_replica_log_delay_in_seconds|Çoğaltma gecikmesi|Saniye|Son işlem yeniden itibaren geçen süre. Bu ölçüm yalnızca çoğaltma sunucusu için kullanılabilir.|
 
 ## <a name="server-logs"></a>Sunucu günlükleri
 Sunucunuzda, günlüğe kaydetmeyi etkinleştirebilirsiniz. Bu günlükler Azure tanılama günlükleri aracılığıyla da kullanılabilir [Azure İzleyici günlükleri](../azure-monitor/log-query/log-query-overview.md), olay hub'ları ve depolama hesabı. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.

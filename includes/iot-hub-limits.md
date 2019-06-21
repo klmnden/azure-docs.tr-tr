@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238511"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188766"
 ---
 Aşağıdaki tabloda farklı hizmet katmanlarında S1, S2, S3 ve F1 ile ilişkili sınırlar listelenmektedir. Her birinin maliyeti hakkında bilgi için *birim* her katmanında bkz [Azure IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -66,7 +66,7 @@ Aşağıdaki kotalar aşıldığında IOT hub'ı istekleri kısıtlar.
 | Cihazdan buluta gönderim |6\.000/sn/birim (S3 için), 120/sn/birim (S2 için), 12/sn/birim (S1 için). <br/>En az 100/sn. |
 | Buluttan cihaza gönderim | (S1 ve S2 için için) 83.33/sec/Unit (5000/dk/birim) (S3 için), 1.67/sec/unit (100/dk/birim). |
 | Buluttan cihaza alım |(S1 ve S2 için için) 833.33/sec/Unit (50.000/dk/birim) (S3 için), 16.67/sec/unit (1000/dk/birim). |
-| Dosya karşıya yükleme işlemleri |83.33 dosya karşıya yükleme bildirimi/sn/birim (5000/dk/birim) (S3 için), 1,67 dosya karşıya yükleme bildirimler/sn/birim (100/dk/birim) (S1 ve S2 için). <br/> 10\.000 SAS URI'leri bir Azure depolama hesabı için tek seferde çıkarılabilir.<br/> Tek seferde 10 SAS URI’si/cihaz çıkarılabilir. |
+| Dosya karşıya yükleme işlemleri |83.33 dosya karşıya yükleme bildirimi/sn/birim (5000/dk/birim) (S3 için), 1,67 dosya karşıya yükleme bildirimler/sn/birim (100/dk/birim) (S1 ve S2 için). <br/> 10.000 SAS URI'leri bir Azure depolama hesabı için tek seferde çıkarılabilir.<br/> Tek seferde 10 SAS URI’si/cihaz çıkarılabilir. |
 | Doğrudan yöntemler | 24 MB/sn/birim (S3 için), 480 KB/sn/birim (S2 için), 160 KB/sn/birim (S1 için).<br/> 8 KB'lık azaltma ölçüm boyutuna göre. |
 | Cihaz ikizi okumaları | 500/sn/birim (S3 için), en fazla 100/sn veya 10/sn/birim (S2 için), 100/sn (S1 için) |
 | Cihaz ikizi güncelleştirmeleri | 250/sn/birim (S3 için), en fazla 50/sn veya 5/sn/birim (S2 için), 50/sn (S1 için) |

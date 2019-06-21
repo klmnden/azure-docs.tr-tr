@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/16/2019
 ms.author: juliako
-ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0abc3eec380cccae2672d0e9aa4a3a4c7199362f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556217"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295670"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
@@ -31,7 +31,7 @@ Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağ�
 - Alabilmek için etkinleştirmek, Media Services bileşenleri Önizleme, paket, kayıt, şifrelemek ve müşterilerinize veya başkalarına dağıtım için bir CDN için Canlı etkinlik yayını.
 
 Bu makalede, bir genel bakış ve Media Services ve ilgili diğer makalelere bağlantılar ile canlı akış rehberlik sağlar.
-
+ 
 > [!NOTE]
 > Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](media-services-apis-overview.md#sdks) birini kullanın.
 
@@ -49,27 +49,27 @@ Dinamik filtreleme izler, biçimleri, bit hızlarına dönüştürme ve oyuncula
 
 ## <a name="live-event-types"></a>Canlı olay türleri
 
-Canlı bir olay iki türden biri olabilir: doğrudan ve canlı kodlama. Media Services v3 sürümünde canlı akış hakkında daha fazla ayrıntı için bkz [Canlı olayları ve canlı çıkışları](live-events-outputs-concept.md).
+[Canlı Etkinlikler](https://docs.microsoft.com/rest/api/media/liveevents) sırasında canlı video akışları alınır ve işlenir. Canlı bir olay iki türden biri olabilir: doğrudan ve canlı kodlama. Media Services v3 sürümünde canlı akış hakkında daha fazla ayrıntı için bkz [Canlı olayları ve canlı çıkışları](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Geçiş
 
 ![doğrudan geçiş](./media/live-streaming/pass-through.svg)
 
-Geçişli **Canlı Etkinlik** seçeneğini kullandığınızda şirket içi gerçek zamanlı kodlayıcı ile çoklu bit hızına sahip video akışı oluşturup katılım akışı olarak Canlı Etkinliğe (RTMP veya bölünmüş MP4 protokolünü kullanarak) gönderirsiniz. Daha sonra Canlı Etkinlik, gelen video akışlarını üzerinde herhangi bir işlem yapmadan iletir. Bu tür bir doğrudan canlı olay uzun süre çalışan Canlı etkinlikler için optimize edilmiştir veya 24 x 365 doğrusal canlı akış. 
+Doğrudan kullanırken **canlı olay**, Çoklu bit hızı video akışı oluşturmak ve katkı Canlı (RTMP ya da parçalı MP4 giriş protokolü kullanılarak) olay için akışı göndermek için şirket içi Canlı Kodlayıcı dayanır. Canlı olay ardından gelen video akışları herhangi başka bir kodlama dönüştürme olmadan dinamik Paketleyici (akış uç noktası) üzerinden taşır. Bu tür bir doğrudan canlı olay uzun süre çalışan Canlı etkinlikler için optimize edilmiştir veya 24 x 365 doğrusal canlı akış. 
 
 ### <a name="live-encoding"></a>Live encoding  
 
 ![gerçek zamanlı kodlama](./media/live-streaming/live-encoding.svg)
 
-Media Services ile gerçek zamanlı kodlama özelliğini kullandığınızda şirket içi gerçek zamanlı kodlayıcınızı Canlı Etkinliğe katılım akışı olarak tek bit hızına sahip video gönderecek şekilde (RTMP veya Bölünmüş Mp4 protokolünü kullanarak) yapılandırmanız gerekir. Canlı Etkinlik, gelen tek bit hızına sahip video akışını [birden çok bit hızına sahip video akışı](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) olarak kodlayarak MPEG-DASH, HLS ve Kesintisiz Akış gibi protokoller aracılığıyla cihazlarda kayıttan yürütmek üzere hazır hale getirir. 
+Bulut ile Media Services encoding kullanıldığında, tek bit hızlı video katkı göndermek için şirket içi Canlı Kodlayıcı yapılandırırsınız akış (en fazla toplam 32Mbps) canlı olay (RTMP ya da parçalı MP4 giriş protokolünü kullanarak). Canlı olay yürütülebilecek gelen tek bit hızlı akış içine [Çoklu bit hızı video akışları](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) teslim artırmak için çeşitli çözünürlükte ve endüstri standardı protokoller üzerinden kayıttan yürütme cihazlara teslim için kullanılabilir hale getirir MPEG-DASH, Apple HTTP canlı akış (HLS) ve Microsoft kesintisiz akış gibi. 
 
 ## <a name="live-streaming-workflow"></a>Canlı akış iş akışı
 
 Media Services v3 canlı akış iş akışı anlamak için ilk gözden geçirme için sahip ve aşağıdaki kavramları anlama: 
 
-- [Akış API uç noktaları](streaming-endpoint-concept.md)
-- [Canlı olayları ve canlı çıkışları API](live-events-outputs-concept.md)
-- [Akış bulucuları API'si](streaming-locators-concept.md)
+- [Akış Uç Noktaları](streaming-endpoint-concept.md)
+- [Canlı Etkinlikler ve Canlı Çıkışlar](live-events-outputs-concept.md)
+- [Akış Bulucular](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Genel adımlar
 
@@ -79,7 +79,7 @@ Media Services v3 canlı akış iş akışı anlamak için ilk gözden geçirme 
 4. Önizleme URL'sini ve aslında kodlayıcıdan giriş alındığını doğrulamak için kullanın.
 5. Yeni bir **varlık** nesne.
 6. Oluşturma bir **Canlı çıkış** oluşturduğunuz varlık adını kullanın.<br/>**Canlı çıkış** akışa arşiv **varlık**.
-7. Oluşturma bir **akış Bulucu** yerleşik ile **akış ilke** türleri.<br/>İçeriğinizi şifrelemek istiyorsanız, gözden [içerik korumaya genel bakış](content-protection-overview.md).
+7. Oluşturma bir **akış Bulucu** ile [yerleşik akış ilke türleri](streaming-policy-concept.md)
 8. Yolları listesini **akış Bulucu** kullanılacak URL'leri geri almak için (Bu belirleyici).
 9. Konak adı için alma **akış uç noktası** gelen akış istediğiniz (kaynak).
 10. Ana bilgisayar adı tam URL'sini almak için 9. adım 8. adımdaki URL'yi birleştirin.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f0fc3722ee440b6f50b86f916afef7ddc5876eef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41d544fd23d258393cc83ea09371332655223581
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693405"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203936"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>OPC İkizi modülü ve bağımlılıkları sıfırdan dağıtma
 
@@ -200,52 +200,6 @@ Azure portalı üzerinden modülleri Azure IOT Edge ağ geçidi cihazına dağı
    ```
 
    Cihaz kimliği parametresi büyük/küçük harf duyarlıdır. ![az IOT hub kimlik modülü liste çıkışı](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
-
-## <a name="run-and-debug-locally"></a>Çalıştırma ve yerel olarak hata ayıklama
-
-İçin sorun giderme ve hata ayıklama Edge modüllerini kullanarak yerel olarak çalıştırmak yararlıdır; [IOT Edge geliştirme simülatör](https://github.com/Azure/iotedgehubdev).  Bir yerel geliştirme deneyimi, oluşturma, geliştirme, test, çalışan ve Azure IOT Edge modülleri üretimde kullanılan aynı BITS/kod kullanımına ve çözümler hata ayıklama için simülatör ile sağlar.
-
-### <a name="prerequisites"></a>Önkoşullar
-
-1. OPC İkizi dağıtma [bağımlılıkları](howto-opc-twin-deploy-dependencies.md).
-
-2. Yükleme [Docker CE (18.02.0+)](https://www.docker.com/community-edition) üzerinde [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) veya [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
-
-3. Yükleme [Docker Compose (1.20.0+)](https://docs.docker.com/compose/install/#install-compose) (için yalnızca gerekli **Linux**. Compose Windows/macOS Docker CE yüklemesine bir zaten dahil)
-
-4. Yükleme [Python (2.7 / 3.5+) ve Pip](https://www.python.org/)
-
-5. Aşağıdaki komut terminalinizdeki çalıştırarak iotedgehubdev yükleyin
-
-   ```bash
-   pip install --upgrade iotedgehubdev
-   ```
-
-> [!NOTE]
-> Yükleme `iotedgehubdev` için **kök** Linus/macos'ta (*kullanmayın '--kullanıcı ' seçeneğinde 'pip install' komutu*).
-> Bunlar aynı bağlantı noktalarını gerektirdiğinden iotedgehubdev ile aynı makinede çalışan hiçbir Azure IOT Edge çalışma zamanı olduğundan emin olun.
-
-### <a name="quickstart"></a>Hızlı Başlangıç
-
-1. Yönergelerini izleyin [Azure portalında bir Edge cihazı oluşturma](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).  Edge cihaz bağlantı dizesini kopyalayın.
-
-2. Edge bağlantı dizesini kullanarak simülatör'ü ayarlayın.
-
-    ```bash
-    iotedgehubdev setup -c <edge-device-connection-string>
-    ```
-
-3. Kopyalama bildirime yukarıda bir `deployment.json` dosya aynı klasörde yer alan.  Simülatör'ü kullanarak dağıtımı Başlat
-
-    ```bash
-    iotedgehubdev start -d deployment.json
-    ```
-
-4. Simülatör'ü kullanarak Durdur
-
-   ```bash
-   iotedgehubdev stop
-   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

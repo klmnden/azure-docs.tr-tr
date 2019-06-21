@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: c26aef777df3ef5c7df6575b8d939a329740a97e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d3a09ee83d4a1f05781c885eaa708e6e024b7f97
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64719806"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Sorun giderme Ağ İzleyicisi ile VPN ağ geçitlerini izleme
@@ -54,31 +54,31 @@ Bu senaryoya başlamadan önce aşağıdaki ön koşullar olması gerekir:
 
 Bu örnek yapılandırmanın ilk adımı, runbook oluşturmaktır. Bu örnek, bir farklı çalıştır hesabı kullanır. Farklı çalıştırma hesapları hakkında bilgi edinmek için [Azure farklı çalıştır hesabıyla Runbook kimlik doğrulaması](../automation/automation-create-runas-account.md)
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1\. Adım
 
 Azure Otomasyonu'nda gidin [Azure portalında](https://portal.azure.com) tıklatıp **runbook'ları**
 
 ![Otomasyon hesabına genel bakış][1]
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2\. Adım
 
 Tıklayın **runbook Ekle** runbook oluşturma işlemini başlatmak için.
 
 ![runbook'ları dikey penceresi][2]
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>3\. Adım
 
 Altında **hızlı Oluştur**, tıklayın **yeni bir runbook oluşturmak** runbook oluşturmak için.
 
 ![bir runbook dikey penceresi ekleme][3]
 
-### <a name="step-4"></a>4. Adım
+### <a name="step-4"></a>4\. Adım
 
 Bu adımda, biz runbook bir ad verin, çağrıldığı örnek içinde **Get-VPNGatewayStatus**. Bunu, runbook'a açıklayıcı bir ad vermek önemli ve önerilen standart PowerShell adlandırma standartlarını takip eden bir ad verin. Bu örnek için runbook türü **PowerShell**, grafik, PowerShell iş akışı, diğer seçenekler şunlardır: ve grafik PowerShell iş akışı.
 
 ![runbook dikey penceresini][4]
 
-### <a name="step-5"></a>5. Adım
+### <a name="step-5"></a>5\. Adım
 
 Runbook oluşturulur, bu adımda, örnek için gerekli tüm kodlar aşağıdaki kod örneği sağlar. İçeren kod öğeleri \<değer\> aboneliğinizde değerlerle değiştirilmesi gerekebilir.
 
@@ -144,25 +144,25 @@ else
     }
 ```
 
-### <a name="step-6"></a>6. Adım
+### <a name="step-6"></a>6\. Adım
 
 Runbook kaydedildikten sonra runbook başlangıcını otomatikleştirmek için bir zamanlama bağlanmalıdır. İşlemi başlatmak için tıklatın **zamanlama**.
 
-![6. Adım][6]
+![6\. Adım][6]
 
 ## <a name="link-a-schedule-to-the-runbook"></a>Runbook'a bir zamanlama Bağla
 
 Yeni bir zamanlama oluşturulmalıdır. Tıklayın **bir zamanlamayı runbook'a bağlamak**.
 
-![7. Adım][7]
+![7\. Adım][7]
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1\. Adım
 
 Üzerinde **zamanlama** dikey penceresinde tıklayın **yeni bir zamanlama oluşturun**
 
-![8. Adım][8]
+![8\. Adım][8]
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2\. Adım
 
 Üzerinde **yeni zamanlama** zamanlama bilgileri dikey penceresini doldurun. Aşağıdaki listede ayarlanabilen değerler şunlardır:
 
@@ -176,9 +176,9 @@ Yeni bir zamanlama oluşturulmalıdır. Tıklayın **bir zamanlamayı runbook'a 
 > [!NOTE]
 > (Diğer bir deyişle, 15, 30 saat sonra 45 dakika) farklı aralıklarla saatte daha sık çalıştırmasına runbook ihtiyacınız varsa birden çok zamanlama oluşturulmalıdır
 
-![9. Adım][9]
+![9\. Adım][9]
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>3\. Adım
 
 Zamanlamayı runbook'a kaydetmek için Kaydet'e tıklayın.
 

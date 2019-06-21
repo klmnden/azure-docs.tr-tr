@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 83a65be50a3cec9cea47682ab5e207bd4ad9e984
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 3bcdb667ee649b9bbf32ad33e74e876cdd2b5cbf
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072569"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144187"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Sunucuları istenen duruma göre yapılandırma ve kaymaları yönetme
 
@@ -154,7 +154,7 @@ Düğümü hizmetten kaldırmak isterseniz, Azure portal'ı veya Az cmdlet'lerin
 > [!NOTE]
 > Düğüm artık hizmetine bağlanıyor şekilde hizmetinden yalnızca bir düğümün kaydı yerel Configuration Manager ayarlarını ayarlar.
 > Bu düğüme uygulanmış yapılandırmasını etkilemez.
-> Geçerli yapılandırmayı kaldırmak üzere kullanımı [PowerShell](https://docs.microsoft.com/en-us/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) veya (Linux düğümleri için tek seçenek budur) yerel yapılandırma dosyasını silin.
+> Geçerli yapılandırmayı kaldırmak üzere kullanımı [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) veya (Linux düğümleri için tek seçenek budur) yerel yapılandırma dosyasını silin.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -165,7 +165,7 @@ Açılır düğümün görünümüne tıklayın **Unregister**.
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell kullanarak Azure Otomasyonu durumu Configuration hizmetinden bir düğüm kaydını kaldırmak için cmdlet belgelerini izleyin [Unregister-AzAutomationDscNode](https://docs.microsoft.com/en-us/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
+PowerShell kullanarak Azure Otomasyonu durumu Configuration hizmetinden bir düğüm kaydını kaldırmak için cmdlet belgelerini izleyin [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

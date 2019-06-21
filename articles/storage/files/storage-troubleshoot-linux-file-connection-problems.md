@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9c08cd52bba6391660bc5f28e5db2dbec1126951
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118722"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295064"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux'ta Azure dosyaları sorunlarını giderme
 
@@ -191,6 +191,40 @@ Depolama hesabı kullanıcı dosyalarını kopyalamak için kullanın:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
+
+## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Bağlanamadığını ya da bir Azure dosya paylaşımını bağlama
+
+### <a name="cause"></a>Nedeni
+
+Bu sorunun sık karşılaşılan nedenleri şunlardır:
+
+- Uyumsuz bir Linux dağıtımı istemcisi kullanıyorsunuz. Bir Azure dosya paylaşımına bağlanmak için aşağıdaki Linux dağıtımlarını kullanmanızı öneririz:
+
+    |   | SMB 2.1 <br>(Aynı Azure bölgesindeki VM'ler üzerinde başlatmalar) | SMB 3.0 <br>(Şirket içinde ve bölgeler arası başlatmalar) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+- CIFS hizmet programları (CIFS-utils) istemcide yüklü değil.
+- En düşük SMB/CIFS sürüm 2.1, istemcide yüklü değil.
+- SMB 3.0 şifreleme istemcide desteklenmiyor. SMB 3.0 şifreleme 16,4 Ubuntu ve SUSE 12.3 ve sonraki sürümleri ile birlikte sonraki sürümlerinde kullanılabilir. Diğer dağıtımları çekirdek 4.11 ve sonraki sürümleri gerektirir.
+- Desteklenmeyen TCP bağlantı noktası 445, bir depolama hesabına bağlanmak çalışıyorsunuz.
+- Bir Azure dosya paylaşımı için bir Azure VM'den bağlanmaya çalıştığınız ve VM, depolama hesabıyla aynı bölgede değil.
+- Varsa [güvenli aktarım gerekli]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) ayarı, depolama hesabında etkinleştirildiğinde, Azure dosyaları SMB 3.0 şifreleme ile kullanan bağlantılar sağlayacaktır.
+
+### <a name="solution"></a>Çözüm
+
+Sorunu gidermek için [Azure dosyaları Linux'ta bağlama hataları için sorun giderme aracı](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Bu aracı:
+
+* Ortam çalıştıran istemci doğrulamaya yardımcı olur.
+* Azure dosyaları için erişim hataya neden uyumlu istemci yapılandırmasında algılar.
+* Kendi kendine düzeltme üzerinde normatif bir Rehber sağlar.
+* Tanılama izlemeleri toplanır.
+
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: erişemiyor '&lt;yolu&gt;': Giriş/Çıkış hatası
 

@@ -8,20 +8,20 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255271"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296509"
 ---
-# <a name="get-started-with-azure-monitor-log-analytics"></a>Azure İzleyici Log Analytics ile çalışmaya başlama
+# <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure İzleyici'de Log Analytics ile çalışmaya başlama
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Bu öğreticide, Azure İzleyici Log Analytics Azure portalında Azure İzleyici günlük sorguları yazma için nasıl kullanılacağını öğreneceksiniz. Size nasıl yardımcı olacak için:
+Bu öğreticide, Log Analytics Azure portalında Azure İzleyici günlük sorguları yazma için nasıl kullanılacağını öğreneceksiniz. Size nasıl yardımcı olacak için:
 
-- Basit Sorgu yazma
+- Basit bir sorgu yazmak için log Analytics'i kullanma
 - Verilerinizin şemasını anlama
 - Filtre, sıralama ve Grup sonuçları
 - Bir zaman aralığı uygulayın
@@ -29,13 +29,22 @@ Bu öğreticide, Azure İzleyici Log Analytics Azure portalında Azure İzleyici
 - Kaydet ve sorguları
 - Verme ve sorguları paylaşma
 
+Günlük sorgu yazmakla ilgili bir öğretici için bkz [Azure İzleyici'de günlük sorguları kullanmaya başlama](get-started-queries.md).<br>
+Günlük sorguları hakkında daha fazla bilgi için bkz. [günlüğüne genel bakış, Azure İzleyicisi'nde sorgular](log-query-overview.md).
 
 ## <a name="meet-log-analytics"></a>Log Analytics'e karşılamak
 Log Analytics, yazma ve Azure İzleyici günlük sorguları yürütmek için kullanılan web bir araçtır. Seçerek açın **günlükleri** Azure İzleyici menüsünde. Yeni bir boş sorgu ile başlar.
 
 ![Giriş sayfası](media/get-started-portal/homepage.png)
 
+## <a name="firewall-requirements"></a>Güvenlik duvarı gereksinimleri
+Log Analytics'i kullanmak için tarayıcınızı aşağıdaki adreslerine erişim gerektirir. Tarayıcınız Azure portalında bir güvenlik duvarı üzerinden erişiyorsanız, bu adresleri erişimi etkinleştirmeniz gerekir.
 
+| URI | IP | Bağlantı Noktaları |
+|:---|:---|:---|
+| portal.loganalytics.io | Dinamik | 80,443 |
+| api.loganalytics.io | Dinamik | 80,443 |
+| docs.loganalytics.io | Dinamik | 80,443 |
 
 ## <a name="basic-queries"></a>Temel sorgular
 Sorgular, arama terimleri, eğilimleri belirlemenize, biçimlerini çözümleme ve verilerinizi temel alan birçok öngörüden sağlamak için kullanılabilir. Temel bir sorgu başlatın:
@@ -44,9 +53,9 @@ Sorgular, arama terimleri, eğilimleri belirlemenize, biçimlerini çözümleme 
 Event | search "error"
 ```
 
-Bu sorgu arar _olay_ herhangi bir özelliği "error" terimini içeren kayıtlar için tablo.
+Bu sorgu arar _olay_ terimini içeren kayıtlar için tablo _hata_ herhangi bir özelliği olarak.
 
-Sorgular, bir tablo adı ile başlatabilir veya **arama** komutu. Yukarıdaki örnekte tablo adı ile başlayan _olay_, sorgunun kapsamını tanımlar. Aşağıdaki komutun girdi olarak ilk çıktısını hizmet için çizgi (|) karakter komutları ayırır. Herhangi bir sayıda komutları için tek bir sorgu ekleyebilirsiniz.
+Sorgular, bir tablo adı ile başlatabilir veya [arama](/kusto/query/searchoperator) komutu. Yukarıdaki örnekte tablo adı ile başlayan _olay_, olay tablonun tüm kayıtları alır. Aşağıdaki komutun girdi olarak ilk çıktısını hizmet için çizgi (|) karakter komutları ayırır. Herhangi bir sayıda komutları için tek bir sorgu ekleyebilirsiniz.
 
 Aynı sorgu yazmak için başka bir yolu şu şekilde olur:
 
@@ -54,18 +63,18 @@ Aynı sorgu yazmak için başka bir yolu şu şekilde olur:
 search in (Event) "error"
 ```
 
-Bu örnekte, **arama** kapsamı _olay_ tablo ve bu tablodaki tüm kayıtları "error" terimini arayan aranır.
+Bu örnekte, **arama** kapsamı _olay_ tablo ve bu tablodaki tüm kayıtları için kullanım dönemi aranır _hata_.
 
 ## <a name="running-a-query"></a>Bir sorgu çalıştırma
 Tıklayarak bir sorgu çalıştırın **çalıştırma** düğme veya tuşlarına basarak **Shift + Enter**. Çalıştırılacak kod ve döndürülen verileri belirleyen aşağıdaki ayrıntıları göz önünde bulundurun:
 
-- Satır sonları: Tek bir kesme sorgunuzu daha anlaşılır hale getirir. Birden çok satır sonları ayrı sorgulara bölün.
+- Satır sonları: Tek bir kesme sorgunuzu daha kolay okunabilir hale getirir. Birden çok satır sonları ayrı sorgulara bölün.
 - İmleç: İmlecinizi sorgusunda çalıştırmak üzere bir yere yerleştirin. Geçerli sorgu boş bir satır bulunana kadar kodu olarak kabul edilir.
 - Zaman aralığı - bir zaman aralığı _son 24 saat_ varsayılan olarak ayarlanır. Farklı bir aralık kullanmak için Saat Seçici kullanın veya açık bir zaman Ekle sorgunuz için Aralık filtresi.
 
 
 ## <a name="understand-the-schema"></a>Şemayı anlama
-Şema, görsel olarak mantıksal bir kategori altında gruplandırılmış bir tablo koleksiyonudur. Çeşitli kategorileri izleme çözümleri şunlardır. _LogManagement_ kategorisi, Windows ve Syslog olayları, performans verilerini ve istemci sinyal gibi sık kullanılan verileri içerir.
+Şema, görsel olarak mantıksal bir kategori altında gruplandırılmış bir tablo koleksiyonudur. Çeşitli kategorileri izleme çözümleri şunlardır. _LogManagement_ kategorisi, Windows ve Syslog olayları, performans verilerini ve aracı sinyal gibi sık kullanılan verileri içerir.
 
 ![Şema](media/get-started-portal/schema.png)
 
@@ -181,7 +190,7 @@ Sorgu Gezgini simgesine sağ üst alandır. Bu, tüm kaydedilmiş sorgular kateg
 Log Analytics'i birkaç verme yöntemleri destekler:
 
 - Excel: Sonuçları CSV dosyası olarak kaydedin.
-- Power BI: Sonuçları power BI dışarı aktarın. Bkz: [alma Azure İzleyici günlük verilerini Power bı'a](../../azure-monitor/platform/powerbi.md) Ayrıntılar için.
+- Power BI: Sonuçları Power BI'a aktarın. Bkz: [alma Azure İzleyici günlük verilerini Power bı'a](../../azure-monitor/platform/powerbi.md) Ayrıntılar için.
 - Bir bağlantıyı Paylaş: Sorgu, ardından gönderilen ve aynı çalışma alanına erişimi olan diğer kullanıcılar tarafından yürütülen bir bağlantı olarak paylaşılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar

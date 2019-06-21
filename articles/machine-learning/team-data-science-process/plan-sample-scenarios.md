@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 130ab6ee8e59b157d1fbdd8769f14814445dea18
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429780"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202752"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning’de gelişmiş analiz senaryoları
 Bu makalede örnek veri kaynakları ve tarafından işlenebilen hedef senaryoları özetlenmektedir [Team Data Science işlem (TDSP)](overview.md). TDSP ekiplerin akıllı uygulamalar oluşturmaya birlikte çalışması sistematik bir yaklaşım sağlar. Burada sunulan senaryoları veri özelliklerine, kaynak konumları ve hedef Azure depolarında bağlıdır veri işleme iş akışı içinde kullanılabilir seçenekler gösterilmektedir.
@@ -239,7 +239,7 @@ Tüm SQL Server VM'nize SQL Server veritabanında çoğaltmak için bir veritaba
 1. Basit Azure Machine Learning deneme akış karşıya yüklenen veri kümesi ile başlatılıyor.
 
 ## <a name="decisiontree"></a>Senaryo seçimi için karar ağacı
-- - -
+---
 Aşağıdaki diyagramda, yukarıda açıklanan senaryoları ve Gelişmiş analitik işlemi ve listelenen senaryolar için aldığınız yapılan teknoloji seçimleri özetler. Veri işleme, keşfetme, özellik Mühendisliği ve örnekleme sürebilir unutmayın, bir veya daha fazla kaynakta, Ara, / ortam--yöntemi ve/veya hedef ortamlara – içinde yerleştirin ve gerektiğinde çalıştırmalarınızı devam edebilirsiniz. Diyagram yalnızca bazı olası akışlar çizim görev yapar ve kapsamlı bir numaralandırma sağlamaz.
 
 ![DS işlem kılavuzu senaryolar][8]

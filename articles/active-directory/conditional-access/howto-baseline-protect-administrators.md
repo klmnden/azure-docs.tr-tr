@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f8b7f281ad5ed8424110696544ffdb49e50ce59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2ffd2949c2540265539a743cb41d8070d7ba2a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112434"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204627"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>Temel ilke: Yöneticiler için MFA gerektirme
 
@@ -71,6 +71,9 @@ Bu ilkeyi etkinleştirmek ve yöneticileriniz korumak için:
 1. Ayarlama **ilkesini etkinleştir** için **ilkeyi hemen kullan**.
 1. Herhangi bir kullanıcı özel tıklayarak Ekle **kullanıcılar** > **dışlanan kullanıcılar seçin** ve hariç tutulması gerektiğini kullanıcıları seçme. Tıklayın **seçin** ardından **Bitti**.
 1. Tıklayın **Kaydet**.
+
+> [!WARNING]
+> Bir seçenek oluştu **ilke gelecekte otomatik olarak etkinleştir** bu ilkesinin ne zaman önizlemede. Ani kullanıcı etkisini en aza indirmek için bu seçeneği kaldırdık. Kullanılabilir olduğunda bu seçeneği işaretlediyseniz **ilke kullanmayın** otomatik olarak artık seçili. Bunlar bu temel ilke kullanmak istiyorsanız, bunu etkinleştirmek için yukarıdaki adımları bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

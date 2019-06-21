@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-pawal
-ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58ff566ebb83ed6163637aa3899a925ed06242a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387507"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269208"
 ---
 # <a name="translator-text-api-v30"></a>Translator metin çevirisi API'si v3.0
 
@@ -154,6 +154,7 @@ Standart hata yanıtı ile ad/değer çifti adlı bir JSON nesnesidir `error`. A
 | 400075| Dil eşleştirme ve kategori birleşimi geçerli değil.|
 | 400077| En fazla istek boyutu aşıldı. Görünüm [istek sınırlarını](../request-limits.md).|
 | 400079| Gelen ve dil arasında çeviri için istenen özel sistem yok.|
+| 400080| Harf çevirisi dil veya betik için desteklenmiyor.|
 | 401000| Kimlik bilgileri eksik veya geçersiz olduğu için istek yetkili değil.|
 | 401015| "Konuşma tanıma API'si için sağlanan kimlik bilgileri değildir. Bu istek metin API'si için kimlik bilgilerini gerektirir. "Lütfen Translator Text API aboneliği kullanın."|
 | 403000| İşleme izin verilmiyor.|

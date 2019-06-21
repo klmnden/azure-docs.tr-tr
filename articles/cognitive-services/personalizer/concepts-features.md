@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: ebe7f9307fcfa39d6cb133203a4c17243ad390c5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b2054aa963991ffa2d92aabf1ce896031f2d87fc
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027141"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296056"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Eylemler ve bağlamı hakkında bilgi özellikleridir
 
@@ -40,6 +40,12 @@ Personalizer olarak açıklamayı amaçlamamaktadır, sınırlamaz veya düzeltm
 ## <a name="supported-feature-types"></a>Desteklenen özellik türleri
 
 Personalizer dize, sayısal ve boolean türleri özelliklerini destekler.
+
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Özellik türü seçimi Personalizer Machine Learning'de nasıl etkiler?
+
+* **Dizeleri**: Dize türleri için her bir anahtar ve değer birleşimi yeni ağırlıkları Personalizer machine learning modeli oluşturur. 
+* **Sayısal**: Sayı orantılı olarak kişiselleştirme sonucu etkiler, sayısal değerleri kullanmanız gerekir. Bu çok bağımlı bir senaryodur. Basitleştirilmiş örnekte örneğin ne zaman bir perakende kişiselleştirme deneyimi NumberOfPetsOwned iki kez veya thrice olarak 1 evcil hayvan sahip kişiselleştirme sonucu etkilemek için 2 veya 3 Evcil Hayvanlar kişilerle isteyebileceğinizden sayısal özelliğini olabilir. Dizeler ve özellik kalite genellikle aralıkları kullanılarak geliştirilebilir gibi sayısal birimlerde temel alır, ancak burada anlamı yaş, sıcaklık veya kişi Height - gibi doğrusal - olmayan özellikler en iyi kodlanır. Örneğin, yaş "Yaş" kodlanmış: "0-5", "Yaş": "6-10", vs.
+* **Boole** gibi bunlar hiç gönderilen yüklediniz, "false" Yasası değeriyle gönderilen değerler.
 
 Mevcut olmayan özellikleri istekten atlanmış olabilir. Gönderme özellikleri null bir değerle kaçının, çünkü, varolan olarak ve "null" değerini içeren modeli eğitimindeki işlenir.
 
@@ -156,7 +162,7 @@ Personalizer'ın makine öğrenimi algoritması, tutarlı özellik kümesi vard�
 
 Derece API'sine gönderdiğiniz Eylemler ne kişiselleştirmek çalışıyorsunuz bağlıdır.
 
-İşte bazı örnekler:
+Bazı örnekler şunlardır:
 
 |Amaç|Eylem|
 |--|--|

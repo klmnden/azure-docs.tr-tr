@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70cb7f53032dca2b0fedbf4581b88aea07960515
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234297"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294879"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk şifrelemesi önkoşulları (önceki sürüm)
 
@@ -28,26 +28,61 @@ Ele alınan desteklenen senaryolar için Azure Iaas sanal makinelerinde Azure Di
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_OSs"></a> Desteklenen işletim sistemleri
-Azure Disk şifrelemesi, aşağıdaki işletim sistemlerinde desteklenir:
+## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
-- Windows Server sürümleri: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016.
-  - Windows Server 2008 R2 için .NET Framework 4.5, azure'daki şifreleme etkinleştirmeden önce yüklü olması gerekir. Windows Update ile isteğe bağlı bir güncelleştirme Windows Server 2008 R2 x64 tabanlı sistemler için Microsoft .NET Framework 4.5.2'yi yükleme ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+### <a name="windows"></a>Windows
+
+- Windows Server sürümleri: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Sunucu Çekirdeği ve Windows Server 2016 Server core.
+Windows Server 2008 R2 için .NET Framework 4.5, azure'daki şifreleme etkinleştirmeden önce yüklü olması gerekir. Windows Update'ten isteğe bağlı bir güncelleştirme Windows Server 2008 R2 x64 tabanlı sistemleri (KB2901983) için Microsoft .NET Framework 4.5.2 ile yükleyin.
+- VM'de bdehdcfg bileşeni yüklendikten sonra Windows Server 2012 R2 Core ve Windows Server 2016 Core, Azure Disk Şifrelemesi tarafından desteklenir.
 - Windows istemci sürümleri: Windows 8 istemcisi ve Windows 10 istemcisi.
-- Azure Disk şifrelemesi yalnızca Windows'da desteklenmektedir belirli Azure Galerisi'nde Linux sunucusu dağıtımları ve sürümleri dayalıdır. Şu anda desteklenen sürümlerin listesi için başvurmak [Azure Disk şifrelemesi hakkında SSS](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
+
+### <a name="linux"></a>Linux 
+
+Azure Disk şifrelemesi, bir alt kümesi üzerinde desteklenir [Azure destekli Linux dağıtımları](../virtual-machines/linux/endorsed-distros.md), kendisini tüm Linux sunucusu olası dağıtımların bir alt kümesidir.
+
+![Azure Disk şifrelemesi desteği Venn diyagramı Linux sunucusu dağıtımları](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Azure tarafından onaylanan değil Linux sunucusu dağıtımı, Azure Disk şifrelemesi desteklemez ve içeriğiyle onaylanan, Azure Disk şifrelemesi yalnızca aşağıdaki dağıtımları ve sürümleri destekler:
+
+| Linux dağıtım | Sürüm | Desteklenen şifreleme için birim türü|
+| --- | --- |--- |
+| Ubuntu | 18.04| İşletim sistemi ve veri diski |
+| Ubuntu | 16.04| İşletim sistemi ve veri diski |
+| Ubuntu | 14.04.5</br>[Azure ile 4.15 veya üzeri için güncelleştirilmiş çekirdek ayarlanmış](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | İşletim sistemi ve veri diski |
+| RHEL | 7.6 | İşletim sistemi ve veri diski (aşağıdaki nota bakın) |
+| RHEL | 7.5 | İşletim sistemi ve veri diski (aşağıdaki nota bakın) |
+| RHEL | 7.4 | İşletim sistemi ve veri diski (aşağıdaki nota bakın) |
+| RHEL | 7.3 | İşletim sistemi ve veri diski (aşağıdaki nota bakın) |
+| RHEL | 7.2 | İşletim sistemi ve veri diski (aşağıdaki nota bakın) |
+| RHEL | 6.8 | Veri diski (aşağıdaki nota bakın) |
+| RHEL | 6.7 | Veri diski (aşağıdaki nota bakın) |
+| CentOS | 7.6 | İşletim sistemi ve veri diski |
+| CentOS | 7.5 | İşletim sistemi ve veri diski |
+| CentOS | 7.4 | İşletim sistemi ve veri diski |
+| CentOS | 7.3 | İşletim sistemi ve veri diski |
+| CentOS | 7.2n | İşletim sistemi ve veri diski |
+| CentOS | 6.8 | Veri diski |
+| openSUSE | 42.3 | Veri diski |
+| SLES | 12-SP4 | Veri diski |
+| SLES | 12-SP3 | Veri diski |
+
+> [!NOTE]
+> Yeni ADE uygulamayı RHEL işletim sistemi ve veri diski RHEL7 Kullandıkça Öde görüntüleri için desteklenir. ADE RHEL Getir Your-kendi-abonelik (BYOS) görüntüler için şu anda desteklenmiyor. Bkz: [Linux için Azure Disk şifrelemesi](azure-security-disk-encryption-linux.md) daha fazla bilgi için.
+
 - Azure Disk şifrelemesi, anahtar kasası ve VM'lerin aynı Azure bölgesindeki ve abonelikte bulunmasını gerektirir. Kaynaklarını ayrı bölge içinde yapılandırma Azure Disk şifreleme özelliği etkinleştirilirken bir hata neden olur.
 
-## <a name="bkmk_LinuxPrereq"></a> Linux Iaas sanal makineleri için ek Önkoşullar 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Linux Iaas sanal makineleri için ek Önkoşullar 
 
-- Linux için Azure Disk şifrelemesi, 7 GB işletim sistemi disk şifrelemeyi etkinleştirmek için VM üzerindeki RAM gerektirir [desteklenen resimler](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). İşletim sistemi disk şifreleme işlemi tamamlandıktan sonra VM ile daha az bellek çalıştırmak için yapılandırılabilir.
+- Azure Disk şifrelemesi dm-crypt gerektirir ve sistem üzerinde olmasını vfat modülleri sunar. Anahtar birimin okuma ve sonraki yeniden başlatmalar disklerde kilidini açmak için gereken anahtar alma sistemin varsayılan görüntüden vfat devre dışı bırakma veya kaldırma engeller. Sistemden vfat modülü kaldırmak sistem sağlamlaştırma adımlarının Azure Disk şifrelemesi ile uyumlu değildir. 
 - Şifreleme etkinleştirilmeden önce şifrelenmiş veri diskleri düzgün /etc/fstab içinde listelenmesi gerekir. Kalıcı blok cihaz adı bu giriş için "/ dev/sdX" biçimindeki adlarını sırasında özellikle şifreleme uygulandıktan sonra yeniden başlatmaları arasında aynı disk ile ilişkilendirilmesi dayanan olamaz cihazı olarak kullanın. Bu davranışı hakkında daha fazla ayrıntı için bkz: [Linux VM cihaz adı değişikliklerle ilgili sorunları giderme](../virtual-machines/linux/troubleshoot-device-names-problems.md)
-- /Etc/fstab ayarlarını, bağlama için düzgün şekilde yapılandırıldığından emin olun. Bu ayarları yapılandırmak için bağlama - bir komut çalıştırın veya VM'yi yeniden başlatın ve bu şekilde onarılmasının tetikleyin. Bu işlem tamamlandıktan sonra istenen sürücü yine de bağlandığını doğrulamak için lsblk komutunun çıkışını kontrol edin. 
-  - Azure Disk şifrelemesi, /etc/fstab dosya sürücü şifreleme etkinleştirilmeden önce düzgün bağlarsanız değil, düzgün bir şekilde bağlamak mümkün olmayacaktır.
+- /Etc/fstab ayarlarını, bağlama için düzgün şekilde yapılandırıldığından emin olun. Bu ayarları yapılandırmak için bağlama - bir komut çalıştırın veya VM'yi yeniden başlatın ve bu şekilde onarılmasının tetikleyin. Bu işlem tamamlandıktan sonra sürücüyü yine de bağlandığını doğrulamak için lsblk komutunun çıkışını kontrol edin. 
+  - Azure Disk şifrelemesi, /etc/fstab dosya sürücünün doğru şifreleme etkinleştirilmeden önce değil bağlarsanız, düzgün bir şekilde bağlamak mümkün olmayacaktır.
   - Azure Disk şifreleme işlemi /etc/fstab dışında ve kendi yapılandırma dosyasına bağlama bilgilerini şifreleme işleminin bir parçası olarak taşınır. Tamamlandıktan sonra veri Sürücü Şifrelemesi /etc/fstab eksik giriş görmek için alarmed çekinmeyin.
-  -  Yeniden başlatıldıktan sonra yeni şifrelenmiş diskler bağlamak Azure Disk şifrelemesi işlemi için saat sürer. Bunlar hemen yeniden başlatmanın ardından kullanılabilir olmaz. İşlemi başlatmak, kilidini açmak ve ardından erişmek diğer işlemler için kullanılabilir önce şifrelenmiş sürücüleri bağlamak için zaman gerekir. Bu işlem, sistem özelliklerine bağlı olarak yeniden başlatma işleminden sonra birden fazla işlem birkaç dakika sürebilir.
+  - Şifreleme, başlangıç önce durdurduğunuzdan emin olun tüm hizmetleri ve yazma işlemleri veri diskleri bağlanmış ve böylece bunlar otomatik olarak yeniden başlatma sonrası yeniden başlatma, bunları devre dışı bırakın. Bu dosyaları şifreleme hataya neden olan, yeniden bağlamak için şifreleme yordamı önleme, bu bölümlerdeki açık tutun. 
+  - Yeniden başlatıldıktan sonra yeni şifrelenmiş diskler bağlamak Azure Disk şifrelemesi işlemi için saat sürer. Bunlar yeniden başlatmanın ardından hemen kullanılabilir olmaz. İşlemi başlatmak, kilidini açmak ve ardından erişmek diğer işlemler için kullanılabilir olan önce şifrelenmiş sürücüleri bağlamak için zaman gerekir. Bu işlem, sistem özelliklerine bağlı olarak yeniden başlatma işleminden sonra birden fazla işlem birkaç dakika sürebilir.
 
-Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kullanılan komutlar örneği bulunabilir [197 205 bu betik dosyasının satırları](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L197-L205). 
-
+Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kullanılan komutlar örneği bulunabilir [244 248 bu betik dosyasının satırları](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
 
 ## <a name="bkmk_GPO"></a> Ağ ve Grup İlkesi
 

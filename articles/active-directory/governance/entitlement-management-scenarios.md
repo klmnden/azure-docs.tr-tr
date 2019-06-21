@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27d54d51a16f4ed94f24f9afa005c63b22778cf9
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473167"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190359"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Yaygın senaryoları Azure AD hak yönetimi (Önizleme)
 
@@ -124,4 +124,4 @@ Kuruluşunuz için hak yönetimini yapılandırmadan birkaç yolu vardır. Ancak
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Öğretici: İlk erişim paketinizi oluşturmak](entitlement-management-access-package-first.md)
-- [Var olan bir erişim paketini düzenleme ve yönetme](entitlement-management-access-package-edit.md)
+- [Görevler için temsilci seçme](entitlement-management-delegate.md)

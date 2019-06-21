@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 3f93318dedb8a4667d32bcc97eb6a697ccebfcc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d4e49b4f7c1aa244b59ef17716c90369a0d3339
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122571"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273385"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>VM'ler (Önizleme) genel bakış için Azure İzleyicisi'ni etkinleştirme
 
@@ -42,10 +42,10 @@ VM'ler için Azure İzleyici, bir Log Analytics çalışma alanı şu bölgelerd
 - Batı Orta ABD
 - Batı ABD 2<sup>1</sup>
 - Doğu ABD
-- Kanada orta<sup>1</sup>
-- UK Güney<sup>1</sup>
+- Orta Kanada
+- Birleşik Krallık Güney
 - Batı Avrupa
-- Güneydoğu Asya<sup>1</sup>
+- Güneydoğu Asya
 
 <sup>1</sup> VM'ler için bu bölgede şu anda Azure İzleyici'nın sistem durumu özelliğini desteklemiyor.
 
@@ -90,6 +90,10 @@ Aşağıdaki tabloda sanal makineler için Azure İzleyici destekleyen Windows v
 |Debian 8, 9.4 sürümünden | X<sup>1</sup> | | X |
 
 <sup>1</sup> VM'ler için Azure İzleyici performans özelliği yalnızca Azure İzleyici'deki kullanılabilir. Doğrudan Azure VM'nin sol bölmeden kullanılamaz.
+
+>[!NOTE]
+>VM'ler için Azure İzleyici'nın sistem durumu özelliğini desteklemediği [iç içe sanallaştırma](../../virtual-machines/windows/nested-virtualization.md) Azure VM'deki.
+>
 
 >[!NOTE]
 >Linux işletim sisteminde:

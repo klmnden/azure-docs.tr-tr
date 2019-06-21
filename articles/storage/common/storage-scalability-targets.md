@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: a61c2577f79f32f97fe2ef10a2ac67fdbbc1feda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 932d250d6685a1b905e4a03a0118d8c8f1f26418
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073754"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151239"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Depolama hesapları için Azure depolama ölçeklenebilirlik ve performans hedefleri
 
@@ -45,6 +45,9 @@ Azure dosyaları ve Azure dosya eşitleme için ölçek ve performans hedefleri 
 
 > [!IMPORTANT]
 > Depolama hesabı sınırları, tüm paylaşımlar için geçerlidir. Kadar ölçeklendirme en yüksek depolama hesapları için yalnızca depolama hesabı başına yalnızca bir paylaşım ise ulaşılabilir eşittir.
+>
+> Standart dosya paylaşımları 5 TiB daha büyük önizleme aşamasındadır ve belirli sınırlamaları vardır.
+> Bir liste kısıtlamaları ve bu daha büyük bir dosya paylaşımı boyutları Önizleme ekleme için bkz [standart dosya paylaşımları](../files/storage-files-planning.md#standard-file-shares) bölümü Azure dosyaları Planlama Kılavuzu.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
