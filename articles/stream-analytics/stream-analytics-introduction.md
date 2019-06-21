@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 05/16/2019
-ms.openlocfilehash: f607c1e79262efdbec79677fa7f16863b7a9d160
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: f45247e652220bdf9f35a15e2059f5f6c06e96d5
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393979"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294816"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure Akış Analizi Nedir?
 
@@ -67,7 +67,7 @@ Ek işlevler tanımlayıp çağırarak sorgu dilinin yapabileceklerini artırabi
 
 Azure Stream Analytics, Azure üzerinde tam olarak yönetilen bir sunucusuz (PaaS) tekliftir. İşlerinizi çalıştırmak için kümeleri yönetme ya da herhangi bir donanım sağlamanız gerekmez. Azure Stream Analytics, bulutta karmaşık işlem kümeleri ayarlama ve alma işi çalıştırmak için gereken ayar performansını önemli işinizi tam olarak yönetir. Azure Event Hubs'a ve Azure IOT Hub ile tümleştirme, iş başına bağlı cihazlar, tıklama dizileri, dahil etmek ve günlük dosyaları için kaynaklar, çeşitli kaynaklardan gelen, saniyede milyonlarca olayı içe alacak şekilde sağlar. Olay hub'larının bölümleme özelliğini kullanarak hesaplamaları mantıksal adımlara, her daha da fazla olanağı ile ölçeklenebilirliği artırmak için.
 
-## <a name="run-in-the-cloud-on-in-the-intelligent-edge"></a>Akıllı bir ucu bulut üzerinde çalıştığı
+## <a name="run-in-the-cloud-or-on-the-intelligent-edge"></a>Akıllı uç veya bulutta çalıştırın
 
 Azure Stream Analytics, bulutta büyük ölçekli analiz çalıştırabilir veya son derece düşük gecikme süresi analiz için IOT Edge üzerinde çalıştırın. Azure Stream Analytics akış işleme için karma mimari gerçekten oluşturmak üzere geliştiricilere etkinleştirme hem buluttaki hem de edge, aynı sorgu dili kullanır.
 

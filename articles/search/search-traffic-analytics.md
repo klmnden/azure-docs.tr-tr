@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b15ae30151b22509a78b9a39d258991363a05e5b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749623"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295434"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>Azure Search'te arama trafiği analizi uygulayın
 Arama trafiği analizi, arama hizmetiniz için bir geri bildirim döngüsü uygulamak için kullanılan bir desendir. Bu düzen, gerekli verileri ve Application Insights, birden çok platform hizmetleri izlemek için endüstri lideri kullanarak toplamak nasıl açıklar.
@@ -79,7 +79,7 @@ Diğer diller ve platformlar için tamamına bakın [listesi](https://docs.micro
 
     // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-    var client = new SearchIndexClient(<ServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+    var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
     var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
     var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
     IEnumerable<string> headerValues;
@@ -98,7 +98,7 @@ Diğer diller ve platformlar için tamamına bakın [listesi](https://docs.micro
 
 Bir kullanıcı tarafından bir arama talebi her zaman, olarak Application Insights ile özel bir olay aşağıdaki şemaya sahip bir arama olayının oturum açmanız:
 
-**ServiceName**: arama hizmeti adı (dize) **SearchId**: arama sorgusu benzersiz tanıtıcısı (GUID) (arama yanıtta gelirse) **IndexName**: olacak şekilde arama hizmeti dizini (dize) Sorgulanan **QueryTerms**: (dize) arama terimleri kullanıcı tarafından girilen **ResultCount**: döndürülen belge (int) sayısı (gelen arama yanıtta)  **ScoringProfile**: varsa, kullanılan Puanlama profili adı (dize)
+**SearchServiceName**: arama hizmeti adı (dize) **SearchId**: arama sorgusu benzersiz tanıtıcısı (GUID) (arama yanıtta gelirse) **IndexName**: arama hizmeti dizinine (dize) sorgulanabilir **QueryTerms**: (dize) arama terimleri kullanıcı tarafından girilen **ResultCount**: döndürülen belge (int) sayısı (gelen arama yanıtta)  **ScoringProfile**: varsa, kullanılan Puanlama profili adı (dize)
 
 > [!NOTE]
 > İstek sayısı $count ekleyerek oluşturulan kullanıcı sorguları arama sorgunuz için true =. Daha fazla bilgi [burada](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)

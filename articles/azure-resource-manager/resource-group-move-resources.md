@@ -4,14 +4,14 @@ description: Kaynakları yeni kaynak grubuna veya aboneliğe taşıma için Azur
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cc2f3b1ee657706dba237c86552b1780bc9dd34
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083532"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295438"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -89,14 +89,14 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Machine Learning - Machine Learning Studio web hizmetleri aynı abonelikte ancak farklı bir abonelikte bir kaynak grubuna taşındı. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
 * Yönetilen diskler - yönetilen diskler kullanılabilirlik alanlarında, farklı bir aboneliğe taşınamaz
 * Media Services
-* İzleyici - değil emin olmak için yeni abonelik taşıma yapma aşan [abonelik kotaları](../azure-subscription-service-limits.md#monitor-limits)
+* İzleyici - değil emin olmak için yeni abonelik taşıma yapma aşan [abonelik kotaları](../azure-subscription-service-limits.md#azure-monitor-limits)
 * Notification Hubs
 * Operasyonel İçgörüler
 * Operations Management
 * Portalı panoları
 * Power BI - hem Power BI Embedded ve Power BI çalışma alanı koleksiyonu
 * Genel IP - temel SKU ortak IP'sine taşınabilir. Standart SKU ortak IP'sine taşınamaz.
-* Kurtarma Hizmetleri kasası - kaydolun bir [Önizleme](#recovery-services-limitations).
+* Kurtarma Hizmetleri kasası - bkz [sınırlamaları](#recovery-services-limitations).
 * Azure’da SAP HANA
 * Scheduler
 * Arama - tek bir işlemde farklı bölgelerdeki birden çok arama kaynaklar taşınamıyor. Bunun yerine, bunları ayrı işlemlerde taşıyın.
@@ -104,7 +104,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
-* Depolama - depolama hesapları farklı bölgelerde, aynı işlem içinde taşınamaz. Bunun yerine, her bölge için ayrı işlem kullanın.
+* Depolama
 * Depolama alanı (Klasik) - [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
 * Depolama eşitleme hizmeti
 * Stream Analytics - Stream Analytics işleri çalıştırırken buna taşınamaz durumu.

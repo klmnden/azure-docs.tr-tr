@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 06/12/2019
-ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116198"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275475"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL veritabanı sunucusuz (Önizleme)
 
@@ -253,6 +253,8 @@ Kullanıcı kaynak havuzuna iç veritabanı sunucusuz veya sağlanan işlem katm
 
 ### <a name="metrics"></a>Ölçümler
 
+Ölçümleri, uygulama paketini ve kullanıcı havuzu, sunucusuz bir veritabanının kaynak kullanımını izlemek için aşağıdaki tabloda listelenmiştir:
+
 |Varlık|Ölçüm|Açıklama|Birimler|
 |---|---|---|---|
 |Uygulama paketi|app_cpu_percent|Uygulama için izin verilen en yüksek Vcore göre uygulama tarafından kullanılan çekirdek yüzdesi.|Yüzde|
@@ -263,10 +265,6 @@ Kullanıcı kaynak havuzuna iç veritabanı sunucusuz veya sağlanan işlem katm
 |Kullanıcı havuzu|log_IO_percent|Günlük yüzdesi, kullanıcı iş yükü için en büyük günlük MB/sn göre kullanıcı iş yükü tarafından kullanılan MB/sn izin.|Yüzde|
 |Kullanıcı havuzu|workers_percent|Kullanıcı iş yüküne göre kullanıcı iş yükü için izin verilen en fazla çalışan tarafından kullanılan çalışan yüzdesi.|Yüzde|
 |Kullanıcı havuzu|sessions_percent|Kullanıcı iş yükü için izin verilen maksimum oturum göre kullanıcı iş yükü tarafından kullanılan oturumları yüzdesi.|Yüzde|
-____
-
-> [!NOTE]
-> Azure portalında ölçümleri altında tek bir veritabanı için veritabanı bölmesinde kullanılabilir **izleme**.
 
 ### <a name="pause-and-resume-status"></a>Duraklatma ve sürdürme durumu
 

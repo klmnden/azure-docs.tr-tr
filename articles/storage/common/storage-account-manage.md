@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66bdc4bd1e17347419a6eccd7c9532db17b33001
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61484284"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303488"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Azure portalında depolama hesabı ayarlarını yönetme
 
@@ -20,16 +20,13 @@ ms.locfileid: "61484284"
 
 ## <a name="access-control"></a>Erişim denetimi
 
-Azure depolama, Blob Depolama ve kuyruk depolama ile rol tabanlı erişim denetimi (RBAC) için Azure Active Directory ile kimlik doğrulaması destekler. Azure AD ile kimlik doğrulaması hakkında daha fazla bilgi için bkz. [kimlik doğrulama erişim Azure blobları ve Azure Active Directory'yi kullanarak sıralar](storage-auth-aad.md).
+Azure depolama, Blob Depolama ve kuyruk depolama ile rol tabanlı erişim denetimi (RBAC) için Azure Active Directory ile yetkilendirme destekler. Azure AD ile yetkilendirme hakkında daha fazla bilgi için bkz: [erişimi yetkilendirin Azure blobları ve Azure Active Directory'yi kullanarak sıralar](storage-auth-aad.md).
 
 **Erişim denetimi** ayarları Azure portalında kullanıcıları, grupları, hizmet sorumluları ve yönetilen kimlikleri için RBAC rolleri atamak için basit bir yol sunar. RBAC rollerini atama hakkında daha fazla bilgi için bkz. [RBAC ile blob ve kuyruk verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
 
-> [!NOTE]
-> Kullanıcılar veya uygulamalar Azure AD kimlik bilgilerini kullanarak kimlik doğrulaması yetkilendirme başka bir yolla üstün güvenlik ve kullanım kolaylığı sağlar. Paylaşılan anahtar yetkilendirme uygulamalarınızı kullanmaya devam ederken, Azure AD kullanarak kodunuzu ile hesap erişim anahtarını depolamak için gereken bozar. Depolama hesabınızdaki kaynaklara ayrıntılı erişim vermek için paylaşılan erişim imzaları (SAS) kullanmaya devam edebilirsiniz, ancak Azure AD'ye SAS belirteçlerini yönetin veya güvenliği aşılmış bir SAS iptal etme hakkında endişelenmenize gerek kalmadan benzer özellikleri sunar. 
-
 ## <a name="tags"></a>Tags
 
-Azure depolama, özelleştirilmiş bir taksonomi kullanarak Azure kaynaklarınızı düzenlemek için Azure Resource Manager etiketleri destekler. Böylece bunları mantıksal bir şekilde aboneliğinizde gruplandırabilirsiniz, depolama hesaplarınıza etiketler ekleyebilirsiniz. 
+Azure depolama, özelleştirilmiş bir taksonomi kullanarak Azure kaynaklarınızı düzenlemek için Azure Resource Manager etiketleri destekler. Böylece bunları mantıksal bir şekilde aboneliğinizde gruplandırabilirsiniz, depolama hesaplarınıza etiketler ekleyebilirsiniz.
 
 Depolama hesapları için bir etiket adı 128 karakterle sınırlıdır ve etiket değeri 256 karakterle sınırlıdır.
 
@@ -41,24 +38,18 @@ Bir depolama hesabı oluşturduğunuzda, Azure, iki adet 512 bit depolama hesab�
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-### <a name="view-and-copy-access-keys"></a>Erişim anahtarlarını görüntüleme ve kopyalama
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
-Depolama hesabınızın kimlik bilgilerini görüntülemek için:
+### <a name="view-account-keys-and-connection-string"></a>Hesap anahtarları ve bağlantı dizesini görüntüle
 
-1. [Azure portalına](https://portal.azure.com) gidin.
-2. Depolama hesabınızı bulun.
-3. Depolama hesabına genel bakışın **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Hesap erişim anahtarlarınız ve her bir anahtar için tam bağlantı dizesi görüntülenir.
-4. **key1** bölümünde **Anahtar** değerini bulun ve **Kopyala** düğmesine tıklayarak hesap anahtarını kopyalayın.
-5. Alternatif olarak, tüm bağlantı dizesini kopyalayabilirsiniz. **key1** bölümünde **Bağlantı dizesi** değerini bulun ve **Kopyala** düğmesine tıklayarak bağlantı dizesini kopyalayın.
-
-    ![Azure portalında erişim anahtarlarını görüntüleme gösteren ekran görüntüsü](media/storage-manage-account/portal-connection-string.png)
+[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
 ### <a name="regenerate-access-keys"></a>Erişim anahtarlarını yeniden oluştur
 
 Microsoft, düzenli aralıklarla depolama hesabınızın korunmasına yardımcı olmak için erişim anahtarlarınızı yeniden önerir. Böylece, anahtarlarınızın döndürebilirsiniz iki erişim tuşu atanır. Anahtarlarınızı döndürürken, uygulamanızın Azure depolama erişimi süreç boyunca tutar emin olun. 
 
 > [!WARNING]
-> Erişim tuşlarınızı yeniden oluşturmak, herhangi bir uygulama veya depolama hesabı anahtarı bağımlı olan Azure hizmetleri etkileyebilir. Depolama hesabına erişmek için hesap anahtarı kullanan tüm istemciler, media services, bulut, masaüstü ve mobil uygulamalar ve Azure depolama için grafik kullanıcı arabirimi uygulamalar aşağıdaki gibi yeni anahtarı kullanacak şekilde güncelleştirilmelidir [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/). 
+> Erişim tuşlarınızı yeniden oluşturmak, herhangi bir uygulama veya depolama hesabı anahtarı bağımlı olan Azure hizmetleri etkileyebilir. Depolama hesabına erişmek için hesap anahtarı kullanan tüm istemciler, media services, bulut, masaüstü ve mobil uygulamalar ve Azure depolama için grafik kullanıcı arabirimi uygulamalar aşağıdaki gibi yeni anahtarı kullanacak şekilde güncelleştirilmelidir [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/).
 
 Bu işlem, depolama hesabı anahtarlarını döndürmek için izleyin:
 
@@ -74,6 +65,7 @@ Bir depolama hesabı oluşturduktan sonra yapılandırmasını değiştirebilirs
 Depolama hesap yapılandırmasını değiştirme eklenen maliyetlerini neden olabilir. Daha fazla ayrıntı için [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfası.
 
 ## <a name="delete-a-storage-account"></a>Bir depolama hesabını silme
+
 Artık kullanmadığınız bir depolama hesabını kaldırmak için [Azure portal](https://portal.azure.com)’da depolama hesabına gidin ve **Sil**’e tıklayın. Depolama hesabı silindiğinde, hesaptaki tüm veriler dahil olmak üzere tüm hesap silinir.
 
 > [!WARNING]

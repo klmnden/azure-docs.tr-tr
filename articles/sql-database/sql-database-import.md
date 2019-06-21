@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 98b316f8a9c1c8ceba91870af4ff67b1aa854a9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 0b92fb9c9bf022adce4cc0dd3e58ce8e476ed5b7
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785331"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303500"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Hızlı Başlangıç: BACPAC dosyasını Azure SQL veritabanında bir veritabanı için içeri aktarma
 
@@ -35,6 +35,9 @@ Bir SQL Server veritabanını Azure SQL veritabanı'nı kullanarak bir veritaban
 > [!NOTE]
 > [Yönetilen örnek](sql-database-managed-instance.md) bir veritabanını Azure portalını kullanarak BACPAC dosyasından bir örneği veritabanına geçirme şu anda desteklemiyor. Yönetilen örneğine almak için SQL Server Management Studio veya SQLPackage kullanın.
 
+> [!NOTE]
+> Portal veya Powershell gönderilen içeri/dışarı aktarma isteklerini işleme makineler bacpac dosyasının yanı sıra veri katmanı uygulaması çerçevesi (DacFX) tarafından oluşturulan geçici dosyaları depolamak gerekir. Gerekli disk alanı önemli ölçüde aynı boyutu ile veritabanları arasında farklılık gösterir ve en fazla veritabanı boyutu 3 kez alabilir. İçeri/dışarı aktarma isteği yalnızca çalışan makineler 450 GB'a yerel disk alanına sahip. Sonuç olarak, bazı istekler "Yeterli alanı yok diskte" hatasıyla başarısız olabilir. Bu durumda, sqlpackage.exe yeterli yerel disk alanı olan bir makinede çalıştırmak için bir çözüm olabilir. 150 GB'nin üzerindeki veritabanlarını içeri aktarma/dışa aktarırken kullanın [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) bu sorunu önlemek için.
+ 
 1. Azure portalını kullanarak yeni tek veritabanına BACPAC dosyasından içeri aktarmak için uygun veritabanı sunucu sayfasına açın ve ardından, araç çubuğunda **veritabanını içeri aktar**.  
 
    ![Veritabanı import1](./media/sql-database-import/import1.png)
@@ -44,7 +47,7 @@ Bir SQL Server veritabanını Azure SQL veritabanı'nı kullanarak bir veritaban
 
    ![Veritabanı import2](./media/sql-database-import/import2.png)
 
-4. **Tamam**'ı tıklatın.
+4. **Tamam** düğmesine tıklayın.
 
 5. Veritabanı sunucusu sayfasında, bir içeri aktarmanın ilerleme durumunu izlemek için ve altında **ayarları**seçin **içeri/dışarı aktarma geçmişi**. Başarılı olduğunda, içeri aktarma sahip bir **tamamlandı** durumu.
 
@@ -81,6 +84,8 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > [Yönetilen örnek](sql-database-managed-instance.md) bir örneği veritabanına Azure PowerShell kullanarak BACPAC dosyasından bir veritabanı geçişi şu anda desteklemiyor. Yönetilen örneğine almak için SQL Server Management Studio veya SQLPackage kullanın.
 
+> [!NOTE]
+> Portal veya Powershell gönderilen içeri/dışarı aktarma isteklerini işleme makineler bacpac dosyasının yanı sıra veri katmanı uygulaması çerçevesi (DacFX) tarafından oluşturulan geçici dosyaları depolamak gerekir. Gerekli disk alanı önemli ölçüde aynı boyutu ile veritabanları arasında farklılık gösterir ve en fazla veritabanı boyutu 3 kez alabilir. İçeri/dışarı aktarma isteği yalnızca çalışan makineler 450 GB'a yerel disk alanına sahip. Sonuç olarak, bazı istekler "Yeterli alanı yok diskte" hatasıyla başarısız olabilir. Bu durumda, sqlpackage.exe yeterli yerel disk alanı olan bir makinede çalıştırmak için bir çözüm olabilir. 150 GB'nin üzerindeki veritabanlarını içeri aktarma/dışa aktarırken kullanın [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) bu sorunu önlemek için.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

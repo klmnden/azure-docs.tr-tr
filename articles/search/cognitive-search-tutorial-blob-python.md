@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: 75ff1f7a37522c295bff10fe22bbb995fea65d52
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 50a252ff93f7e2cc6e5c6100c6bce850e9e96baf
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276044"
+ms.locfileid: "67295631"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python eğitmen: Bir Azure Search dizini oluşturma ardışık düzen Bilişsel hizmetler API'lerini çağırma
 
@@ -465,73 +465,7 @@ Sonuçları şu örneğe benzemelidir. Ekran yalnızca yanıtın bir parçası g
 Ek alanlar için işlemi tekrarlayın: içeriği, languageCode, keyPhrases ve bu alıştırmada kuruluşlar. Virgülle ayrılmış bir liste kullanarak `$select` aracılığıyla birden fazla alan döndürebilirsiniz.
 
 Sorgu dizesinin karmaşıklık ve uzunluğuna bağlı olarak GET veya POST dizesini kullanabilirsiniz. Daha fazla bilgi için bkz. [REST API kullanarak sorgu](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-
-<a name="access-enriched-document"></a>
-
-## <a name="accessing-the-enriched-document"></a>Zenginleştirilmiş belgeye erişme
-
-Bilişsel arama, zenginleştirilmiş belgenin yapısını görmenizi sağlar. Zenginleştirilmiş belgeler, zenginleştirme sırasında oluşturulan geçici yapılardır ve işlem tamamlandığında silinir.
-
-Dizin oluşturma sırasında oluşturulan zenginleştirilmiş belgenin anlık görüntüsünü yakalamak için dizininize `enriched` adlı bir alan ekleyin. Dizin oluşturucu, otomatik olarak alana, o belgenin tüm zenginleştirmelerinin dize gösteriminin dökümünü alır.
-
-`enriched` alanı, JSON’da bellek içi zenginleştirilmiş belgenin mantıksal gösterimi olan bir dize içerir.  Ancak alan değeri geçerli bir JSON belgesidir. Tırnak işaretleri Atlanan değiştirmek ihtiyacınız olacak şekilde `\"` ile `"` JSON belgesi olarak görüntülemek için biçimlendirilmiş.  
-
-İfadelerin değerlendirildiği içeriğin mantıksal şeklini anlamanıza yardımcı olması için `enriched` alanı yalnızca hata ayıklama için tasarlanmıştır. Beceri kümenizi anlamak ve hatasını ayıklamak için bu faydalı bir araç olabilir.
-
-Zenginleştirilmiş bir belgenin içeriğini yakalamak için önceki alıştırmada yineleyin ve dahil `enriched` dizin oluştururken alan.
-
-> [!Tip]
-> Bu adımları tekrarlayarak önce veri kaynağı, dizin, dizin oluşturucu ve yeni oluşturduğunuz beceri kümesi silmeniz gerekir. Daha fazla bilgi için [sıfırlama ve yeniden](#reset).
-
-```python
-# Create index with enriched field
-index_payload = {
-    "name": index_name,
-    "fields": [
-      {
-        "name": "id",
-        "type": "Edm.String",
-        "key": "true",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false",
-        "sortable": "true"
-      },
-      {
-        "name": "content",
-        "type": "Edm.String",
-        "sortable": "false",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "languageCode",
-        "type": "Edm.String",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "keyPhrases",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "organizations",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "sortable": "false",
-        "filterable": "false",
-        "facetable": "false"
-      }
-   ]
-}
-```
-
-<a name="reset"></a>
+Bunu <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Sıfırlama ve yeniden çalıştırma
 

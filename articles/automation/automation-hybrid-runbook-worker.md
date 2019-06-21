@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1453f5282d9e3a48e5ca5d734258d70e44424a5a
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198462"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296220"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Veri merkezinde veya bulutta kaynaklarında karma Runbook çalışanı kullanarak otomatik hale getirin.
 
@@ -46,6 +46,7 @@ Yükleme ve yapılandırma Windows karma Runbook çalışanı için iki yöntem 
 
 Gözden geçirme [ağınızı planlama bilgileri](#network-planning) bir karma Runbook çalışanı dağıtıma başlamadan önce. Çalışan başarıyla dağıtıldıktan sonra gözden [bir karma Runbook çalışanı üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md) şirket içi veri merkezinizde veya diğer bulut ortamı işlemlerini otomatikleştirmek için runbook'larınızı yapılandırma hakkında bilgi edinmek için.
 
+Bilgisayar çözüm ve karma Runbook çalışanı grup üyeliği için aynı hesabı kullandığınız sürece Otomasyon gruplarını desteklemek için Otomasyon hesabınızdaki bir karma Runbook çalışanı grubuna eklenebilir. Bu işlev Karma Runbook Çalışanının 7.2.12024.0 sürümüne eklenmiştir.
 ## <a name="remove-a-hybrid-runbook-worker"></a>Karma Runbook çalışanı Kaldır
 
 Bir veya daha fazla karma Runbook çalışanları gruptan kaldırdığınızda veya grup gereksinimlerinize bağlı olarak kaldırabilirsiniz. Karma Runbook çalışanı şirket içi bir bilgisayardan kaldırmak için aşağıdaki adımları kullanın:

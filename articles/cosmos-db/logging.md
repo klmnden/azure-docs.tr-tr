@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 67a6eec938a4a18455e4063925e21e26fe362f76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0a5c9fc5cac441a6680f9f72e3223ace95399f3
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243480"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296555"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB'de tanılama günlüğüne kaydetme 
 
@@ -54,7 +54,7 @@ Etkinlik günlüklerini (Denetim düzlemi işlemleri) doğası gereği daha zeng
 
 ### <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 
-Azure tanılama günlükleri, kaynak tarafından gönderilir ve bu kaynağın işlemiyle ilgili zengin, sık sık veri sağlar. Bu günlüklerin içeriği kaynak türüne göre değişir. Kaynak tanılama günlükleri de konuk işletim sistemi düzeyinde tanılama günlüklerinden farklıdır. Bir sanal makine veya diğer desteklenen içinde çalışan bir aracısı tarafından toplanan konuk işletim sistemi tanılama günlükleri kaynak türü. Kaynak düzeyinde tanılama günlükleri, Azure platformu hiçbir aracı ve yakalama kaynağa özgü verileri gerektirir. Konuk işletim sistemi düzeyinde tanılama günlükleri, işletim sistemi ve bir sanal makinede çalışan uygulamaların verilerini yakalayın.
+Azure tanılama günlükleri, kaynak tarafından gönderilir ve bu kaynağın işlemiyle ilgili zengin, sık sık veri sağlar. Bu günlükler, istek başına yakalanır. Bu günlüklerin içeriği kaynak türüne göre değişir. Kaynak tanılama günlükleri de konuk işletim sistemi düzeyinde tanılama günlüklerinden farklıdır. Bir sanal makine veya diğer desteklenen içinde çalışan bir aracısı tarafından toplanan konuk işletim sistemi tanılama günlükleri kaynak türü. Kaynak düzeyinde tanılama günlükleri, Azure platformu hiçbir aracı ve yakalama kaynağa özgü verileri gerektirir. Konuk işletim sistemi düzeyinde tanılama günlükleri, işletim sistemi ve bir sanal makinede çalışan uygulamaların verilerini yakalayın.
 
 ![Depolama, Event Hubs veya Azure İzleyici günlüklerine tanılama günlüğüne kaydetme](./media/logging/azure-cosmos-db-logging-overview.png)
 
@@ -68,26 +68,47 @@ Azure tanılama günlükleri, kaynak tarafından gönderilir ve bu kaynağın i�
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Azure portalında oturum açın
 
-Tanılama günlük kaydını etkinleştirmek için aşağıdaki kaynaklara sahip olmalıdır:
+Azure portalında tanılama günlük kaydını etkinleştirmek için aşağıdaki adımları kullanın:
 
-* Bir var olan Azure Cosmos DB hesabı, veritabanı ve kapsayıcı. Bu kaynakları oluşturma ile ilgili yönergeler için bkz: [Azure portalını kullanarak bir veritabanı hesabı oluşturma](create-sql-api-dotnet.md#create-account), [Azure CLI örnekleri](cli-samples.md), veya [PowerShell örnekleri](powershell-samples.md).
+1. [Azure portal](https://portal.azure.com) oturum açın. 
 
-Azure portalında tanılama günlük kaydını etkinleştirmek için aşağıdaki adımları uygulayın:
-
-1. İçinde [Azure portalında](https://portal.azure.com), uygulamanızı Azure Cosmos DB hesabı, seçin **tanılama günlükleri** sol gezinti ve ardından **tanılamayı Aç**.
+1. Azure Cosmos hesabınıza gidin. Açık **tanılama ayarları** bölmesinde tıklayın ve ardından **tanılama ayarı ekleme** seçeneği.
 
     ![Azure portalında Azure Cosmos DB için tanılama günlük kaydını açma](./media/logging/turn-on-portal-logging.png)
 
-2. İçinde **tanılama ayarları** sayfasında, aşağıdaki adımları uygulayın: 
+1. İçinde **tanılama ayarları** sayfasında, aşağıdaki ayrıntılarla formu doldurun: 
 
     * **Ad**: Oluşturmak günlükleri için bir ad girin.
 
-    * **Bir depolama hesabında arşivle**: Bu seçeneği kullanmak için bağlanmak için mevcut bir depolama hesabı gerekir. Portalda yeni bir depolama hesabı oluşturmak için bkz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md) ve Azure Resource Manager, genel amaçlı hesap oluşturmak için yönergeleri izleyin. Bu sayfaya portalındaki depolama hesabınızı seçin, ardından döndürür. Bu, yeni oluşturulan depolama hesapları, aşağı açılan menüsünün görünmesi birkaç dakika sürebilir.
-    * **Olay hub'ına Stream**: Bu seçeneği kullanmak için bağlanmak için mevcut bir Event Hubs ad alanı ve olay hub'gerekir. Bir Event Hubs ad alanı oluşturmak için bkz [Azure portalını kullanarak bir Event Hubs ad alanı ve olay hub'ı oluşturma](../event-hubs/event-hubs-create.md). Ardından, portaldaki Event Hubs ad alanı ve ilke adı seçmek için bu sayfaya dönün.
-    * **Log Analytics'e gönderme**: Bu seçeneği kullanmak için mevcut bir çalışma kullanabilir veya yeni bir Log Analytics çalışma alanı için adımları izleyerek oluşturabilirsiniz [yeni bir çalışma alanı oluşturma](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) portalında. Azure İzleyici günlüklerine, günlükleri görüntüleme hakkında daha fazla bilgi için bkz: görünümü Azure İzleyici günlüklerine kaydeder.
-    * **Oturum DataPlaneRequests**: Temel alınan Azure Cosmos DB dağıtılmış platformu SQL, grafik, MongoDB, Cassandra ve tablo API'si hesapları için arka uç isteklerini günlüğe kaydetmek için bu seçeneği belirleyin. Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.
-    * **Oturum MongoRequests**: MongoDB için Azure Cosmos DB API'si ile yapılandırılan Cosmos hesaplar sunulması için Azure Cosmos DB ön uç kullanıcı tarafından başlatılan istek oturumu için bu seçeneği belirleyin. Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.
-    * **Ölçüm istekleri**: Ayrıntılı verileri depolamak için bu seçeneği [Azure ölçümleri](../azure-monitor/platform/metrics-supported.md). Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.
+    * Günlükleri şu hizmetlere depolayabilir:
+
+      * **Bir depolama hesabında arşivle**: Bu seçeneği kullanmak için bağlanmak için mevcut bir depolama hesabı gerekir. Portalda yeni bir depolama hesabı oluşturmak için bkz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md) makalesi. Ardından, portalda depolama hesabınızı seçin Azure Cosmos Db tanılama ayarları bölmesinde geri dönün. Bu, yeni oluşturulan depolama hesapları, aşağı açılan menüsünün görünmesi birkaç dakika sürebilir.
+
+      * **Olay hub'ına Stream**: Bu seçeneği kullanmak için bağlanmak için mevcut bir Event Hubs ad alanı ve olay hub'gerekir. Bir Event Hubs ad alanı oluşturmak için bkz [Azure portalını kullanarak bir Event Hubs ad alanı ve olay hub'ı oluşturma](../event-hubs/event-hubs-create.md). Ardından, olay hub'ı ad alanı ve ilke adı seçmek için Portalı'nda bu sayfaya dönün.
+
+      * **Log Analytics'e gönderme**: Bu seçeneği kullanmak için mevcut bir çalışma kullanabilir veya yeni bir Log Analytics çalışma alanı için adımları izleyerek oluşturabilirsiniz [yeni bir çalışma alanı oluşturma](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) portalında. 
+
+   * Aşağıdaki veriler günlüğe kaydedebilirsiniz:
+
+      * **DataPlaneRequests**: Azure Cosmos DB'de SQL, grafik, MongoDB, Cassandra ve tablo API'si hesapları içeren tüm API için arka uç isteklerini günlüğe kaydetmek için bu seçeneği belirleyin. Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir. Aşağıdaki JSON verilerini bir örnek çıktı DataPlaneRequests kullanarak oturum ayrıntılarının ' dir. Dikkat edilecek önemli özellikleri şunlardır: Requestcharge, statusCode, clientIPaddress ve PartitionID:
+
+       ```
+       { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
+       ```
+
+      * **MongoRequests**: MongoDB için Azure Cosmos DB API için isteklere hizmet için ön uç kullanıcı tarafından başlatılan istek oturumu için bu seçeneği belirleyin. MongoDB istekleri DataPlaneRequests yanı sıra MongoRequests görünür. Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir. Aşağıdaki JSON verilerini bir örnek çıktı MongoRequests kullanarak oturum ayrıntılarının ' dir. Dikkat edilecek önemli özellikleri şunlardır: Requestcharge, işlem kodu:
+
+       ```
+       { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
+       ```
+
+      * **QueryRuntimeStatistics**: Yürütülen sorgu metni yazmak için bu seçeneği seçin.  Aşağıdaki JSON verilerini bir örnek çıktı QueryRuntimeStatistics kullanarak oturum ayrıntıları verilmiştir:
+
+       ```
+       { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
+       ```
+
+      * **Ölçüm istekleri**: Ayrıntılı verileri depolamak için bu seçeneği [Azure ölçümleri](../azure-monitor/platform/metrics-supported.md). Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.
 
 3. **Kaydet**’i seçin.
 

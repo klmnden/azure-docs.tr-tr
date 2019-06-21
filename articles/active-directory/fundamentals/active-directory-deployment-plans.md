@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5c761cad49ad42bd592b1fd8105052b39ef1177
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f59cae87af5f29d900159639798f9cd031f3d765
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110447"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302380"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory dağıtım planları
 Azure Active Directory (AD) özelliklerini dağıtma konusunda ayrıntılı bir rehbere mi ihtiyacınız var? Aşağıdaki dağıtım planları yaygın Azure AD özelliklerinin başarıyla kullanıma alınması için gerekli olan iş değeri, planlama noktaları, tasarım ve operasyon yordamlarını anlatmaktadır. 
@@ -60,7 +60,7 @@ Rolleri aşağıdakileri içerebilir.
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|Azure Multi-Factor Authentication (MFA) Microsoft'un iki adımlı doğrulama çözümüdür. Yönetici onaylı kimlik doğrulama yöntemlerini kullanan Azure MFA, oturum açma sürecini karmaşık hale getirmeden verilerinize ve uygulamalarınıza erişimin güvenli hale getirilmesine yardımcı olur.|
 |[Koşullu erişim](https://aka.ms/deploymentplans/ca)|Koşullu erişimle erişebilecek koşullara göre bulut uygulamalarınız için otomatik erişim denetimi kararları uygulayabilirsiniz.|
 |[Self servis parola sıfırlama](https://aka.ms/SSPRDPDownload)|Self servis parola sıfırlama, kullanıcılarınızın istediği yerden ve istediği zaman yönetici müdahalesi olmadan parolalarını sıfırlamasına yardımcı olur.|
-|[Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)|Azure AD Privileged Identity Management (PIM) Azure AD genelinde ayrıcalıklı yönetici rollerini yönetmenize yardımcı olan Azure kaynaklarını ve diğer Microsoft Çevrimiçi Hizmetler. PIM tam zamanında erişim isteği onay iş akışları ve tamamen tümleşik erişim incelemeleri belirleyebilmeniz, ortaya çıkarın ve ayrıcalıklı rollerin gerçek zamanlı kötü amaçlı etkinlikleri engellemek gibi çözümler sağlar.|
+|[Privileged Identity Management](https://aka.ms/deploymentplans/pim)|Azure AD Privileged Identity Management (PIM) Azure AD genelinde ayrıcalıklı yönetici rollerini yönetmenize yardımcı olan Azure kaynaklarını ve diğer Microsoft Çevrimiçi Hizmetler. PIM tam zamanında erişim isteği onay iş akışları ve tamamen tümleşik erişim incelemeleri belirleyebilmeniz, ortaya çıkarın ve ayrıcalıklı rollerin gerçek zamanlı kötü amaçlı etkinlikleri engellemek gibi çözümler sağlar.|
 |[Çoklu oturum açma](https://aka.ms/SSODPDownload)|Çoklu oturum açma, bir kez oturum açarak ve tek bir kullanıcı hesabı kullanarak işinizi yapmak için gerekli tüm uygulamalara ve kaynaklara erişmenize yardımcı olur. Oturum açtıktan sonra Microsoft Office'ten SalesForce ve Box uygulamalarına yeniden kimlik doğrulamasından (parola yazma gibi) geçmeden erişebilirsiniz.|
 |[Sorunsuz çoklu oturum açma](https://aka.ms/SeamlessSSODPDownload)|Azure Active Directory Sorunsuz Çoklu Oturum Açma (Azure AD Sorunsuz SSO) özelliği, kurumsal ağınıza bağlı kuruluş cihazlarını kullanan kullanıcıların otomatik olarak oturum açmasını sağlar. Bu özelliği açtığınızda kullanıcılarınızın Azure AD oturumu açmak için parolalarını ve hatta kullanıcı adlarını yazmalarına gerek kalmaz. Bu özellik kullanıcılarınızın şirket içi ek bileşenlere ihtiyaç duymadan bulut tabanlı uygulamalarınıza kolayca erişmesini sağlar.|
 |[Erişim Paneli](https://aka.ms/AccessPanelDPDownload)|Kullanıcılarınızın bulmak ve tüm uygulamalara erişmek için basit bir hub'ı sunar. Yeni uygulamalar ve gruplar için erişim isteme imkanını gibi Self Servis özellikler ile daha üretken olmalarını sağlamak veya diğerleri adına bu kaynaklara erişimi yönetin.|

@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Apache Spark, Azure HDInsight ile Azure Event hubs verilerini işleme '
-description: Azure HDInsight, Apache Spark Azure Event Hubs'a bağlanın ve akış verilerini işleme.
+description: Öğretici - Azure HDInsight, Apache Spark Azure Event Hubs'a bağlanma ve akış verilerini işleme.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: bf6a728f66f5eeaf5983ecd50d65326a59cc3267
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c8c99d976f416d0c1d07fb3a266d37ecd6235fdb
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066189"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295364"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Öğretici: HDInsight Azure Event Hubs ve Apache Spark'ı kullanarak tweetleri işleyin
 

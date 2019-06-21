@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13eb1a8fcea2f74cda5921a51b8c2e8816be975f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60237991"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303703"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Azure İzleyici'de Log Analytics çalışma alanına Stream Azure tanılama günlükleri
 
-**[Azure tanılama günlükleri](diagnostic-logs-overview.md)**  portal, PowerShell cmdlet'leri veya Azure CLI kullanarak Azure İzleyici'de bir Log Analytics çalışma alanına neredeyse gerçek zamanlı akış.
+**[Azure tanılama günlükleri](diagnostic-logs-overview.md)**  portalı, PowerShell cmdlet'leri veya Azure CLI kullanarak Azure İzleyici'de bir Log Analytics çalışma alanına neredeyse gerçek zamanlı akış.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-in-a-log-analytics-workspace"></a>Log Analytics çalışma alanında günlükleri Tanılama ile yapabilecekleriniz
 
@@ -60,7 +60,7 @@ Log Analytics çalışma ayarı yapılandıran kullanıcının her iki abonelik 
 
 4. **Kaydet**’e tıklayın.
 
-Birkaç dakika sonra yeni ayar, bu kaynak için ayarların listesi görüntülenir ve tanılama günlükleri, yeni olay verilerini oluşturulan hemen sonra bu çalışma alanına aktarılır. Beş dakika arasında bir olay olduğunda yayılır ve Log Analytics'te görüntülendiğinde olabileceğini unutmayın.
+Birkaç dakika sonra yeni ayar, bu kaynak için ayarların listesi görüntülenir ve tanılama günlükleri, yeni olay verilerini oluşturulan hemen sonra bu çalışma alanına aktarılır. 15 dakika arasında bir olay olduğunda yayılır ve Log Analytics'te görüntülendiğinde olabilir.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet'leri
 
@@ -99,37 +99,81 @@ Tanılama günlüğüne olarak geçirilen JSON dizisi sözlükleri ekleyerek ek 
 
 Azure İzleyicisi portalındaki günlükleri dikey penceresinde, günlük yönetimi çözümü AzureDiagnostics tablonun altında bir parçası olarak tanılama günlükleri sorgulayabilir. Ayrıca [Azure kaynakları için çeşitli izleme çözümleri](../../azure-monitor/insights/solutions.md) günlük verileri anında Öngörüler Azure İzleyici ile gönderdiğiniz almak için yükleyebilirsiniz.
 
+## <a name="azure-diagnostics-vs-resource-specific"></a>Azure tanılama ve kaynağa özgü  
+Log Analytics hedef Azure tanılama yapılandırması etkinleştirildikten sonra verileri çalışma alanınızda gösterir iki farklı yolu vardır:  
+- **Azure tanılama** -bugün Azure hizmetlerinin büyük bölümü tarafından kullanılan eski yöntem budur. Bu modda, tüm veriler herhangi bir tanılama ayarı belirli bir çalışma alanına işaret içinde sona erecek _AzureDiagnostics_ tablo. 
+<br><br>Pek çok kaynak aynı tabloya veri göndermek için (_AzureDiagnostics_), bu tablonun şeması şemaları toplanmakta olan tüm farklı veri türleri Süper kümesidir. Örneğin, aşağıdaki veri türleri koleksiyonu için tanılama ayarları oluşturduysanız, tümü aynı çalışma alanına gönderilen:
+    - Denetim günlükleri, kaynak (A, B ve C sütunlardan oluşan bir şemaya sahip) 1  
+    - Kaynak (D, E ve F sütunlardan oluşan bir şemaya sahip) 2 hata günlükleri  
+    - Veri akış günlüklerini kaynak 3 (sütunları G, H ve ben oluşan bir şemaya sahip)  
+
+    AzureDiagnostics tabloda bazı örnek verilerle şu şekilde görünür:  
+
+    | ResourceProvider | Kategori | A | B | C | D | E | F | G | H | I |
+    | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+    | Microsoft.Resource1 | AuditLogs | x1 | Y1 | z1 |
+    | Microsoft.Resource2 | Günlüklerini | | | | q1 | W1 | e1 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | J1 | K1 | L1|
+    | Microsoft.Resource2 | Günlüklerini | | | | q2 | w2 | E2 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | J3 | K3 | L3|
+    | Microsoft.Resource1 | AuditLogs | x5 | Y5 | z5 |
+    | ... |
+
+- **Kaynağa özgü** -bu modda, tanılama ayarları yapılandırmada seçilen her kategori başına tek tek tablolar seçilen çalışma alanı oluşturulur. Bu yeni yöntem tamamen açık ayrımı nettir bulmak istediğiniz bulmak çok daha kolay getirir: her kategori için bir tablo. Ayrıca, dinamik türleri için kendi destek avantajları sağlar. Bu mod belirli Azure kaynak türlerini, örneğin zaten görebilirsiniz [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) veya [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) günlükleri. Sonuç olarak, kaynağa özgü moda geçirmek için her veri türü bekliyoruz. 
+
+    Yukarıdaki örnekte, bu üç tabloda oluşturulan neden olur: 
+    - Tablo _AuditLogs_ gibi:
+
+        | ResourceProvider | Kategori | A | B | C |
+        | -- | -- | -- | -- | -- |
+        | Microsoft.Resource1 | AuditLogs | x1 | Y1 | z1 |
+        | Microsoft.Resource1 | AuditLogs | x5 | Y5 | z5 |
+        | ... |
+
+    - Tablo _günlüklerini_ gibi:  
+
+        | ResourceProvider | Kategori | D | E | F |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource2 | Günlüklerini | q1 | W1 | e1 |
+        | Microsoft.Resource2 | Günlüklerini | q2 | w2 | E2 |
+        | ... |
+
+    - Tablo _DataFlowLogs_ gibi:  
+
+        | ResourceProvider | Kategori | G | H | I |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource3 | DataFlowLogs | J1 | K1 | L1|
+        | Microsoft.Resource3 | DataFlowLogs | J3 | K3 | L3|
+        | ... |
+
+    Kaynağa özgü modu kullanmanın diğer avantajları arasında hem alımı gecikme süresi hem de sorgu süreleri, şemalar ve bunların yapısı, belirli bir tablo ve daha fazlası RBAC hakları olanağı bulunmasını performansı içerir.
+
+### <a name="selecting-azure-diagnostic-vs-resource-specific-mode"></a>Azure tanılama vs kaynağa özgü modu seçme
+Çoğu Azure kaynakları için Azure Tanılama veya kaynağa özgü modunu kullanıp kullanmayacağınızı etkinleştirebileceğinizi değil; veri kaynağı kullanmak için seçilmiş bir yöntem aracılığıyla otomatik olarak akar. Lütfen veri modu kullanılırsa Ayrıntılar için Log Analytics'e göndermek için etkinleştirdikten kaynak tarafından sağlanan belgelere bakın. 
+
+Önceki bölümde belirtildiği gibi sonuç olarak tüm hizmetler Azure kullanımda kaynağa özgü modu sağlamak için Azure İzleyici hedefi durumdur. Bu geçişi kolaylaştırmak ve veri parçası olarak bunu, bazı Azure Hizmetleri ekleme Log analytics'e modu bir seçimle sağlayacaksa kayıp olduğundan emin olmak için:  
+   ![Tanılama ayarları modu Seçici](media/diagnostic-logs-stream-log-store/diagnostic-settings-mode-selector.png)
+
+Biz **kesin** yol aşağı zor olabilecek geçişleri önlemek için herhangi yeni tanılama ayarlarını kullan kaynak merkezli modu oluşturulan, önerilir.  
+
+Belirli bir Azure kaynak tarafından etkinleştirildikten sonra mevcut tanılama ayarları için geriye dönük olarak Azure Tanılama ' kaynağa özgü moda mümkün olacaktır. Daha önce alınan verileriniz kullanılabilir olmaya devam edecek _AzureDiagnostics_ çalışma alanında, bekletme ayarında yapılandırılan out yaş, ancak herhangi bir yeni veri adanmış tabloya gönderilecek kadar tablo. Tüm sorgular, bunun anlamı olan eski verilerin yaymasına izin ve yeni (eski verileri tam olarak yaş kadar), [birleşim](https://docs.microsoft.com/azure/kusto/query/unionoperator) sorgularınızı işlecinde, iki veri kümeleri birleştirmek için gerekecektir.
+
+Yeni Azure haberleri, üzerinde kaynağa özgü modunda destek günlükleri Hizmetleri için lütfen Ara [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/) blogu!
+
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Sınırlama bilinen: AzureDiagnostics sütun sınırı
-Veri türleri gönderilen tüm aynı tabloya birçok kaynağa göndermek için (_AzureDiagnostics_), bu tablonun şeması şemaları toplanmakta olan tüm farklı veri türleri Süper kümesidir. Örneğin, aşağıdaki veri türleri koleksiyonu için tanılama ayarları oluşturduysanız, tümü aynı çalışma alanına gönderilen:
-- Denetim günlükleri, kaynak (A, B ve C sütunlardan oluşan bir şemaya sahip) 1  
-- Kaynak (D, E ve F sütunlardan oluşan bir şemaya sahip) 2 hata günlükleri  
-- Veri akış günlüklerini kaynak 3 (sütunları G, H ve ben oluşan bir şemaya sahip)  
- 
-AzureDiagnostics tabloda bazı örnek verilerle şu şekilde görünür:  
- 
-| ResourceProvider | Kategori | A | B | C | D | E | F | G | H | I |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft.Resource1 | AuditLogs | x1 | Y1 | z1 |
-| Microsoft.Resource2 | Günlüklerini | | | | q1 | W1 | e1 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | J1 | K1 | L1|
-| Microsoft.Resource2 | Günlüklerini | | | | q2 | w2 | E2 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | J3 | K3 | L3|
-| Microsoft.Resource1 | AuditLogs | x5 | Y5 | z5 |
-| ... |
- 
-500'den fazla sütun olmaması herhangi belirli Azure günlüğü tablosu açık bir sınırı yoktur. Bu sınıra ulaşıldıktan sonra ilk 500 dışında herhangi bir sütun ile verileri içeren herhangi bir satır alma zamanında bırakılır. AzureDiagnostics belirli açık olması için bu sınır etkilenen tablodur. Bu genellikle ya da çok çeşitli veri kaynaklarından gönderilir çünkü aynı çalışma alanına veya birkaç çok ayrıntılı veri kaynakları aynı çalışma alanına gönderilen olur. 
- 
+500'den fazla sütun olmaması herhangi belirli Azure günlüğü tablosu açık bir sınırı yoktur. Bu sınıra ulaşıldıktan sonra ilk 500 dışında herhangi bir sütun ile verileri içeren herhangi bir satır alma zamanında bırakılır. AzureDiagnostics belirli açık olması için bu sınır etkilenen tablodur. Bu genellikle ya da çok çeşitli veri kaynaklarından gönderilir çünkü aynı çalışma alanına veya birden fazla ayrıntılı veri kaynakları aynı çalışma alanına gönderilen olur. 
+
 #### <a name="azure-data-factory"></a>Azure Data Factory  
-Azure Data Factory, çok ayrıntılı günlükleri, birtakım nedeniyle bu sınırı tarafından etkilenmiş özellikle bilinen bir kaynaktır. Özellikle:  
+Azure Data Factory, çok ayrıntılı günlükleri, birtakım nedeniyle bu sınırı tarafından etkilenmiş özellikle bilinen bir kaynaktır. Özellikle, kaynağa özgü önce yapılandırılmış tüm tanılama ayarları için modu etkin veya açıkça A'ya ters uyumluluk açısından kaynağa özgü modunu kullanın:  
 - *Herhangi bir etkinlik, işlem hattındaki karşı tanımlanan kullanıcı parametreleri*: etkinliklere karşı her benzersiz olarak adlandırılmış kullanıcı parametresi için oluşturulan yeni bir sütun olur. 
-- *Etkinlik giriş ve çıkışları*: Bu etkinliğin etkinlik değişir ve ayrıntılı doğasını nedeniyle, büyük bir miktarını oluşturur. 
+- *Etkinlik giriş ve çıkışları*: Bu etkinliğin etkinlik değişir ve ayrıntılı doğasını nedeniyle çok sayıda sütun oluştur. 
  
-Olarak daha geniş geçici çözüm teklifleri ile aşağıdaki, bu günlükler, çalışma alanlarında toplanmakta olan diğer günlük türlerini etkileyen olasılığını en aza indirmek için kendi çalışma alanına ADF günlükleri yalıtmak için önerilir. Günlükler Azure Data Factory için kullanılabilir olan en kısa sürede seçkin isteriz.
+Olarak daha geniş geçici çözüm teklifleri ile aşağıdaki, kaynağa özgü modu olabildiğince çabuk kullanmak için günlüklerinizi geçirmek için önerilir. Hemen bunu bulamıyorsanız, geçiş, çalışma alanlarında toplanmakta olan diğer günlük türlerini etkileyen Bu günlükleri olasılığını en aza indirmek için kendi çalışma alanına ADF günlükleri yalıtmak için alternatiftir. 
  
 #### <a name="workarounds"></a>Geçici Çözümler
-500-sütun sınırını tanımlandı kadar kısa vadede, ayrıntılı veri türleri limitini aştıktan olasılığını azaltmak için ayrı çalışma alanları halinde ayırmak önerilir.
+Kısa terimi kadar tüm Azure Hizmetleri kaynağa özgü modunda, herhangi bir hizmeti için etkin değil ancak kaynağa özgü modunu destekleyen, azaltmak için ayrıntılı veri türleri farklı çalışma alanları halinde bu hizmetler tarafından yayımlanan ayırmak için önerilir limitini aştıktan olanağı.  
  
-Uzun vadeli, Azure tanılama uzağa birleşik, seyrek bir şema her veri türü başına tek tek tablolar taşınmasını; dinamik türler için destek ile eşlendiğinde, bu Azure tanılama mekanizma aracılığıyla Azure günlüklerine gelen veri kullanılabilirliğini önemli ölçüde artırır. Zaten bu seçim Azure kaynak türlerini, örneğin gördüğünüz [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) veya [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) günlükleri. Lütfen Azure üzerinde bu seçkin günlükleri destekleyen yeni kaynak türleri hakkında daha fazla haber arayın [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/) blogu!
+Uzun vadeli, Azure tanılama kaynağa özgü modunu destekleyen tüm Azure hizmetleri taşıma olacaktır. Taşıma olabildiğince çabuk tarafından bu 500 sütun sınırlaması etkilenmesine olasılığını azaltmak için bu moda öneririz.  
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

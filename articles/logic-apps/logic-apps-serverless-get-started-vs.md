@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/25/2019
-ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: e51a3f9971006a0b50cec1abdc5e955d06c23466
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467442"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295843"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Azure Logic Apps ve Azure işlevleri - Visual Studio ile ilk sunucusuz uygulamanızı oluşturun
 
@@ -34,7 +34,6 @@ Visual Studio'da sunucusuz bir uygulama oluşturmak için bu öğeler gerekir:
 
     > [!IMPORTANT]
     > Visual Studio 2019 veya 2017'yi yüklediğinizde, seçtiğinizden emin olun **Azure geliştirme** iş yükü.
-    > Visual Studio 2019 için Cloud Explorer Azure portalında mantıksal Uygulama Tasarımcısı açabilirsiniz, ancak henüz ekli mantıksal Uygulama Tasarımcısı açılamıyor.
 
   * [.NET için Microsoft Azure SDK (2.9.1 veya sonrası)](https://azure.microsoft.com/downloads/). 
   [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet) hakkında daha fazla bilgi edinin.
@@ -128,6 +127,9 @@ Visual Studio'da Logic Apps Tasarımcısı ile mantıksal uygulamanızı açabil
 
    ![Logic Apps Tasarımcısı'nda "azuredeploy.json" açın](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
+   > [!TIP]
+   > Bu komut Visual Studio 2019 yoksa, Visual Studio için en son güncelleştirmelere sahip olduğunu denetleyin.
+
 1. Sonra **mantıksal uygulama özellikleri** kutusu görünür ve zaten altında seçili değilse **abonelik**, Azure aboneliğinizi seçin. Altında **kaynak grubu**, çözümünüzün dağıtıldığı konum ve kaynak grubu seçin ve ardından **Tamam**.
 
    ![Mantıksal uygulama özellikleri](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
@@ -153,6 +155,9 @@ Yine de zaten Azure'da dağıtılan mantıksal uygulamalar için düzenleme, yö
 1. Altında **tüm abonelikleri**, istediğiniz yönetmek ve logic apps ile ilişkili Azure aboneliği seçin **Uygula**.
 
 1. Altında **Logic Apps**, mantıksal uygulamanızı seçin. Bu uygulamanın kısayol menüsünden seçin **Logic App Düzenleyicisi ile açın**.
+
+   > [!TIP]
+   > Bu komut Visual Studio 2019 yoksa, Visual Studio için en son güncelleştirmelere sahip olduğunu denetleyin.
 
 Kaynak grubu projenize zaten yayımlanan bir mantıksal uygulama şimdi yükleyebilirsiniz. Bu nedenle Azure portalında bir mantıksal uygulama başlatıldı olsa da, yine de içeri aktarabilir ve bu uygulamayı Visual Studio'da yönetme. Daha fazla bilgi için [Visual Studio ile mantıksal uygulamaları yönetme](../logic-apps/manage-logic-apps-with-visual-studio.md).
 

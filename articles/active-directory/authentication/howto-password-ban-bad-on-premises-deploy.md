@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c22c9c202e6de3b31b99803dce4a07d38287a92
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 134ab2a5f0b1b1569cdf4747f5bbe3f895ba4e8f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057293"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293026"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD parola korumasını dağıtma
 
@@ -145,7 +145,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
    > Bu cmdlet, belirli bir Azure kiracısı için çalıştırılan ilk kez tamamlanmadan önce fark edilebilir bir gecikme olabilir. Bir hata bildirdi sürece bu gecikmenin endişelenmeyin.
 
 1. Orman kaydedin.
-   * Şirket içi Active Directory ormanını kullanarak Azure ile iletişim kurmak için gerekli kimlik bilgileriyle başlatmalıdır `Register-AzureADPasswordProtectionForest` PowerShell cmdlet'i. Cmdlet, Azure kiracınızın genel yönetici kimlik bilgileri gerektirir. Ayrıca, orman kök etki alanında şirket içi Active Directory etki alanı yöneticisi ayrıcalıkları gerektirir. Bu adım, orman bir kez çalıştırın.
+   * Şirket içi Active Directory ormanını kullanarak Azure ile iletişim kurmak için gerekli kimlik bilgileriyle başlatmalıdır `Register-AzureADPasswordProtectionForest` PowerShell cmdlet'i. Cmdlet, Azure kiracınızın genel yönetici kimlik bilgileri gerektirir. Ayrıca, şirket içi Active Directory kuruluş yöneticisi ayrıcalıkları gerektirir. Bu adım, orman bir kez çalıştırın.
 
       `Register-AzureADPasswordProtectionForest` Cmdlet aşağıdaki üç kimlik doğrulama modlarını destekler.
 
@@ -219,7 +219,7 @@ Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabil
 
    Her iki durumda da değiştirin `http://yourhttpproxy.com:8080` belirli HTTP proxy sunucunuzun bağlantı noktası ve adresi.
 
-   HTTP proxy yapılandırılmışsa, bize bir yetkilendirme ilkesi parola koruması için proxy hizmeti barındıran makinenin Active Directory bilgisayar hesabına erişim sağlamanız gerekir.
+   HTTP Ara sunucunuz bir yetkilendirme ilkesi kullanmak için yapılandırılmışsa, parola koruması için proxy hizmeti barındıran makinenin Active Directory bilgisayar hesabına erişim vermeniz gerekir.
 
    Durdur ve oluşturma veya güncelleştirme sonra proxy hizmetini yeniden başlatmanız önerilir *AzureADPasswordProtectionProxy.exe.config* dosya.
 

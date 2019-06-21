@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 4b5b1f24fb22ff0922c362bd9911ad5c42236ee6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 05d20e75cf8f0c84936ff4e5dfa42d60678f6ffc
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051723"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295341"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux) için Azure Disk şifrelemesi
 
@@ -34,7 +34,7 @@ Azure Disk şifrelemesi yararlanır dm-crypt alt tam disk şifreleme sağlamak i
 
 ### <a name="operating-system"></a>İşletim sistemi
 
-Azure Disk şifrelemesi, şu anda select dağıtımları ve sürümlerinde desteklenir.  Bkz: [Azure Disk şifrelemesi hakkında SSS](../../security/azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) desteklenen Linux dağıtımları listesi.
+Azure Disk şifrelemesi, şu anda select dağıtımları ve sürümlerinde desteklenir.  Bkz: [Azure Disk şifrelemesi desteklenen işletim sistemleri: Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux) desteklenen Linux dağıtımları listesi.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 

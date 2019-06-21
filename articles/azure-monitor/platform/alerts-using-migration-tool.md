@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c8aa00d069ae54584d8e828dab35c22048f1876
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015633"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295537"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Uyarı kurallarınızı Klasik geçirmek için gönüllü bir geçiş aracını kullanma
 
@@ -38,7 +38,7 @@ Geçiş işlemi, yeni, eşdeğer uyarı kuralları için Klasik uyarı kurallar�
 
 - Daha fazla özellik destekledikleri için hem bildirim yükü biçimi ve API'ler oluşturmak ve yeni uyarı kuralları yönetmek için Klasik uyarı kuralları olanlardan farklıdır. [Geçiş için hazırlama öğrenin](alerts-prepare-migration.md).
 
-- Bazı Klasik uyarı kuralları aracı kullanılarak geçirilemez. [Hangi kuralları geçirilemez ve bunlarla yapmanız gerekenler bilgi](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated).
+- Bazı Klasik uyarı kuralları aracı kullanılarak geçirilemez. [Hangi kuralları geçirilemez ve bunlarla yapmanız gerekenler bilgi](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
 
     > [!NOTE]
     > Geçiş işlemi, uyarı kurallarınızı Klasik değerlendirmesi etkilemez. Bunlar, çalıştırmak ve geçiş ve yeni uyarı kuralları etkili kadar uyarıları göndermek devam edeceğiz.

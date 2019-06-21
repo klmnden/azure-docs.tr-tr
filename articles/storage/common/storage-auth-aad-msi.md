@@ -1,6 +1,6 @@
 ---
-title: Azure kaynakları - Azure depolama BLOB'ları ve kuyrukları yönetilen kimliklerle için erişimi kimlik doğrulaması | Microsoft Docs
-description: Azure Blob ve kuyruk depolama, Azure kaynakları için yönetilen kimliklerle Azure Active Directory kimlik doğrulamasını destekler. Azure kaynakları için yönetilen kimlikleri, Azure sanal makineleri, işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan erişim BLOB'lar ve Kuyruklar için kimlik doğrulaması için kullanabilirsiniz.
+title: Azure kaynakları - Azure depolama BLOB'ları ve kuyrukları ile Azure Active Directory ve yönetilen kimlikleri erişim yetkisi verme
+description: Azure kaynakları için Azure Active Directory ve yönetilen kimlikleri ile kaynaklara erişimi yetkilendirme azure Blob ve kuyruk depolama desteği. Azure kaynakları için yönetilen kimlikleri, Azure sanal makineleri, işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan BLOB'lar ve Kuyruklar erişim yetkisi vermek için kullanabilirsiniz.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,14 +9,14 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23e1171a8757d021b8c6d38f90bdbf720014045f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787971"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303426"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure kaynakları için erişim BLOB'lar ve Kuyruklar ile Azure Active Directory ve yönetilen kimlikleri için kimlik doğrulaması
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure kaynakları için BLOB'ları ve kuyrukları ile Azure Active Directory ve yönetilen kimlikleri erişim yetkisi verme
 
 Azure Blob ve kuyruk depolama ile Azure Active Directory (Azure AD) kimlik doğrulaması desteği [kimliklerini Azure kaynakları için yönetilen](../../active-directory/managed-identities-azure-resources/overview.md). Kimlikler Azure kaynaklarına erişimini BLOB yetkilendirebilirsiniz için ve Azure sanal makineleri (VM'ler), işlev uygulamaları, sanal makine ölçek kümeleri ve diğer Hizmetleri çalışan uygulamalardan Azure AD kimlik bilgilerini kullanarak kuyruk verileri yönetilen. Azure AD kimlik doğrulaması ile birlikte Azure kaynakları için yönetilen kimlik kullanarak, bulut uygulamalarınız ile kimlik bilgilerini depolama önleyebilirsiniz.  
 

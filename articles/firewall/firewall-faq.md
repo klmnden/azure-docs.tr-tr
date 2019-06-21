@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 6/21/2019
 ms.author: victorh
-ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 933b4167f25db5a01cf1160f5e781a1fe31afc6b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384668"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304591"
 ---
 # <a name="azure-firewall-faq"></a>Azure güvenlik duvarı ile ilgili SSS
 
@@ -76,7 +76,6 @@ Azure Güvenlik Duvarı hizmeti, ağ güvenlik grubu işlevselliğini tamamlar. 
 
 Azure güvenlik duvarı, NIC düzeyinde Nsg'ler (görüntülenemez) ile platform koruması da dahil olmak üzere birden çok koruma katmanları ile yönetilen bir hizmettir.  Alt ağ düzeyindeki Nsg'leri Azure güvenlik duvarı alt ağda gerekmez ve hizmet kesintisine neden olmadan emin olmak için devre dışı bırakılır.
 
-
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>My hizmet uç noktaları ile Azure Güvenlik Duvarı'nı nasıl ayarlayabilirim?
 
 PaaS hizmetlerine güvenli erişim için hizmet uç noktaları önerilir. Azure güvenlik duvarı alt ağdaki hizmet uç noktalarının etkinleştirilmesi ve bağlı uç sanal ağlarında devre dışı bırakmak isteyebilirsiniz. Bu şekilde özellikleri--Hizmeti uç nokta güvenliği ve tüm trafik için Merkezi günlük yararlanır.
@@ -123,6 +122,10 @@ Evet, hub sanal ağında iki uç sanal ağ arasında yönlendirme ve filtreleme 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Azure güvenlik duvarı İleri yapabilirsiniz ve aynı sanal ağdaki veya eşlenmiş sanal ağlardaki alt ağlar arasındaki ağ trafiğini filtreleme?
 
 Evet. Ancak, aynı sanal ağda alt ağlar arasındaki trafiği yönlendirmek için Udr'leri yapılandırma, ek bir ilgi gerektirir. Hedef öneki UDR için yeterli olduğundan sanal ağ adres aralığı kullanırken, bu da Azure güvenlik duvarı örneği ile aynı alt ağda başka bir makineye bir makineden tüm trafiği yönlendirir. Bunu önlemek için bir sonraki atlama türü ile UDR alt ağ için bir rota içerecek. **VNET**. Bu yolları yönetmek sıkıcı ve hataya açık olabilir. İç ağ kesimleme için önerilen yöntem, Udr gerektirmeyen ağ güvenlik grupları kullanmaktır.
+
+## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>Azure güvenlik duvarı özel ağlar arasında giden SNAT mu?
+
+Azure güvenlik duvarı, hedef IP adresi başına özel bir IP aralığı olduğunda SNAT değil [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Kuruluşunuz özel ağlar için genel bir IP adres aralığını kullanıyorsa, Azure güvenlik duvarı SNATs AzureFirewallSubnet içinde trafiğinin bir güvenlik duvarı özel IP adresleri.
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Bir sanal ağ desteklenen Gerecine tünel oluşturma ve zincirleme zorlanır?
 

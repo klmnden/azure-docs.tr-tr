@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: da8d1000ebe2695dbc95d475027722962a3305d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9293dc8be4fb50a657093090b0e6d76de5b5d31
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65555888"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303530"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -80,7 +80,7 @@ V3 API v2 API'si ile ilgili aşağıdaki özellik boşluklarına sahiptir. Boşl
 
 * [Premium Kodlayıcı](../previous/media-services-premium-workflow-encoder-formats.md) ve eski [medya analizi işlemcileri](../previous/media-services-analytics-overview.md) (Azure medya Hizmetleri Dizin Oluşturucu 2 Önizleme, Face Redactor, vb.) v3 erişilebilir değildir.<br/>Media Indexer 1 veya 2 Önizleme geçirmek isteyen müşteriler, hemen v3 API'SİNDE önceden AudioAnalyzer kullanabilirsiniz.  Bu yeni hazır eski Media Indexer 1'den daha fazla özellik ya da 2 içerir. 
 * Çoğu [özelliklerinin Media Encoder Standard v2'de Gelişmiş](../previous/media-services-advanced-encoding-with-mes.md) API'ler şu anda v3 sürümünde kullanılabilir değildir gibi:
-    * (İsteğe bağlı ve canlı senaryoları için) kırpma
+  
     * Varlıkları birleştirme
     * Yer paylaşımları
     * Kırpma

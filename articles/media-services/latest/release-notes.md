@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa4e37e3b360727feb998ef5e9ca9b776c4b0e53
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688657"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303940"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları
 
@@ -33,6 +33,19 @@ ms.locfileid: "66688657"
 > Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. Kullanım [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, desteklenen Sdk'lardan birini veya.
 
 Daha fazla bilgi için [Media Services v2'den v3 taşımak için geçiş kılavuzunu](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="june-2019"></a>Haziran 2019
+
+### <a name="video-subclipping"></a>Video klip
+
+Artık kesme veya bir video kullanarak kodlama, alt klip bir [iş](https://docs.microsoft.com/rest/api/media/jobs). 
+
+Bu işlev ile çalışır [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms) kullanarak oluşturulan [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) hazır veya [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) hazır. 
+
+Örneklere bakın:
+
+* [Alt klip .NET ile video](subclip-video-dotnet-howto.md)
+* [Alt klip REST ile bir video](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>Mayıs 2019
 

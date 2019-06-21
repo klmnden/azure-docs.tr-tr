@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: f54da6e350b2cf9027b6e9e02ace2a90e292e1ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 364c1b0583b3ed22abe0466d0330b5f2ec9b3af6
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472351"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303866"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -735,7 +735,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**direction** | yok | Ayarlanmalıdır `in`. Özel durumlar belirtilmiştir [kullanım](#input---usage) bölümü. |
 |**name** | yok | İşlev kodunu blob temsil eden değişken adı.|
 |**Yolu** |**BlobPath** | Blob yolu. |
-|**bağlantı** |**bağlantı**| İçeren bir uygulama ayarı adı [depolama bağlantı dizesi](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) Bu bağlama için kullanılacak. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**bağlantı** |**bağlantı**| İçeren bir uygulama ayarı adı [depolama bağlantı dizesi](../storage/common/storage-configure-connection-string.md) Bu bağlama için kullanılacak. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |yok | **Erişim** | Okuma yazma ya da olup olmadığını gösterir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

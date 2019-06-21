@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c067b6e238fab2970e5e40f0660a5c7555a8f2e
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949834"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302221"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Büyük veri kümeleri Azure Search dizinleme
 
@@ -54,7 +54,7 @@ Dizin Oluşturucu ile zamanlama gibi bilişsel arama ardışık düzeninde gör�
 
 Tasarım gereği, genellikle bir sonraki zamanlanmış aralıkta devam etmeden önce tamamlanmasını bir işlemle dizin oluşturma başlatıldığında belirli aralıklarla zamanlanmış. Ancak, işleme aralığı içinde tamamlanmazsa, dizin oluşturucu (süre bitti çalıştığından) durdurur. Sonraki aralıkta nerede oluştuğunu, son kapalı, sistem tutma ile kaldığı işleme sürdürür izleyin. 
 
-Dizin yüklemelerini birkaç gün genişleme için pratik anlamda, 24 saatlik zaman çizelgesinde dizin oluşturucu koyabilirsiniz. Sürdürür sonraki 24 saat döngüsü için dizin oluştururken en son bilinen iyi belgeyi yeniden başlatır. Bu şekilde, bir dizin oluşturucu, bir dizi tüm işlenmemiş belgeleri işlenene kadar bir gün üzerinden yolu bir belge biriktirme listesi ile çalışabilir. Bu yaklaşımı hakkında daha fazla bilgi için bkz: [Azure Blob depolamada büyük veri kümelerini dizin](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Genel zamanlamaları ayarlama hakkında daha fazla bilgi için bkz. [dizin oluşturucu REST API oluşturma](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax).
+Dizin yüklemelerini birkaç gün genişleme için pratik anlamda, 24 saatlik zaman çizelgesinde dizin oluşturucu koyabilirsiniz. Sürdürür sonraki 24 saat döngüsü için dizin oluştururken en son bilinen iyi belgeyi yeniden başlatır. Bu şekilde, bir dizin oluşturucu, bir dizi tüm işlenmemiş belgeleri işlenene kadar bir gün üzerinden yolu bir belge biriktirme listesi ile çalışabilir. Bu yaklaşımı hakkında daha fazla bilgi için bkz: [Azure Blob depolamada büyük veri kümelerini dizin](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Genel zamanlamaları ayarlama hakkında daha fazla bilgi için bkz [dizin oluşturucu REST API oluşturma](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) veya [dizin oluşturucular için Azure Search zamanlama](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 

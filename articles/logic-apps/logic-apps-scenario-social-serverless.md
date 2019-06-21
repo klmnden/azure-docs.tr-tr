@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29d56e64f118fe36fb4905dca20d9fba2f210665
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464427"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295919"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps ve Azure işlevleri ile akış müşteri öngörüleri panosu oluşturma
 
@@ -99,8 +99,8 @@ Visual Studio veya Azure portalında, önceki görünüme geçmişleri çalışt
 
 * Visual Studio Cloud Explorer'ı açın. Mantıksal uygulamanızı bulun, uygulamanın kısayol menüsünü açın. Seçin **açık çalıştırma geçmişini**.
 
-  > [!NOTE]
-  > Visual Studio 2019'için Cloud Explorer Azure portalında mantıksal Uygulama Tasarımcısı'nı açın, ancak henüz ekli mantıksal Uygulama Tasarımcısı açılamıyor veya çalıştırma geçmişi.
+  > [!TIP]
+  > Bu komut Visual Studio 2019 yoksa, Visual Studio için en son güncelleştirmelere sahip olduğunu denetleyin.
 
 * Azure portalında mantıksal uygulamanızı bulun. Mantıksal uygulama menüsünde, **genel bakış**. 
 

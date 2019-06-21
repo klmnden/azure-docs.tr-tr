@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7121bfceb177a7dc06d1c2a65b7c3edfca1d8c31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 64252f42f5b3690e8ba6d929e27f7f41b649922e
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063647"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302300"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell"></a>Hızlı Başlangıç: PowerShell kullanarak Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67063647"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Bu makalede size bir Azure Search sorgulama oluşturma ve yükleme işleminde size [dizin](search-what-is-an-index.md) PowerShell kullanarak ve [Azure arama hizmeti REST API'lerini](https://docs.microsoft.com/rest/api/searchservice/). Dizin tanımını ve aranabilir içeriği doğru biçimlendirilmiş JSON içeriği istek gövdesinde sağlanır.
+Bu makalede PowerShell kullanarak Azure Search dizini sorgulama oluşturma ve yükleme sürecinde yardımcı olur ve [Azure Search REST API'lerini](https://docs.microsoft.com/rest/api/searchservice/). Bu makalede, PowerShell komutlarını interatively çalıştırmak açıklanmaktadır. Alternatif olarak, tamamlanmış bir betik çalıştırabilir. Bir kopyasını indirmek için Git [azure arama powershell örnekleri](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) depo.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun ve [Azure Search hizmetine kaydolun](search-create-service-portal.md).
 
@@ -374,23 +374,23 @@ Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri dene
 
 ```powershell
 # Query example 1
-# Search the entire index for the terms 'hotels' and 'wifi'
-# Return only the HotelName and HotelId fields
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=hotels wifi&$count=true&$select=HotelName,HotelId'
+# Search the entire index for the terms 'restaurant' and 'wifi'
+# Return only the HotelName, Description, and Tags fields
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
 # Apply a filter to the index to find hotels rated 4 or highter
-# Returns the HotelId and Description. Two documents match.
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
+# Returns the HotelName and Rating. Two documents match.
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 
 # Query example 3
-# Take the top two results, and show only HotelId,HotelName,Description in the results
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
+# Take the top two results, and show only HotelName and Category in the results
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelName,Category'
 
 # Query example 4
-# Sort by a specific field (`lastRenovationDate`) in descending order
+# Sort by a specific field (Address/City) in ascending order
 
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
 ## <a name="clean-up"></a>Temizleme 
 
@@ -406,21 +406,7 @@ Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Fransız açıklamaları dizine eklemeyi deneyin. Aşağıdaki örnek, Fransızca dizeler içerir ve ek arama işlemleri gösterilmektedir. MergeOrUpload oluşturmak veya var olan alanları eklemek için kullanın. Aşağıdaki dizeleri UTF-8 olarak kodlanmış olması gerekir.
+Bu hızlı başlangıçta, Azure Search içerik erişmek ve oluşturmak için temel iş akışı aracılığıyla adım için PowerShell kullanılır. Azure veri kaynağından dizin oluşturma gibi daha gelişmiş senaryoları geçmeden aklınızda kavramlarla öneririz;
 
-```json
-{
-    "value": [
-        {
-            "@search.action": "mergeOrUpload",
-            "hotelId": "1",
-            "description_fr": "Meilleur hôtel en ville"
-        },
-        {
-            "@search.action": "merge",
-            "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville"
-        }
-    ]
-}
-```
+> [!div class="nextstepaction"]
+> [REST Öğreticisi: Dizin ve yarı yapılandırılmış verileri (JSON blobları) Azure Search'te arama](search-semi-structured-data.md)

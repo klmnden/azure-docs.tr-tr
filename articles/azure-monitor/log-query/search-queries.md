@@ -13,20 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560837"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295568"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure İzleyici günlüklerinde arama sorguları
-
-> [!NOTE]
-> Tamamlamanız gereken [Azure İzleyici günlük sorguları kullanmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 Azure İzleyici günlük sorguları bir tablo adı veya bir arama komutunu ile başlayabilirsiniz. Bu öğretici, arama tabanlı sorgular kapsar. Her yöntemin avantajları vardır.
 
 Tablo tabanlı sorgular, sorgu kapsamı tarafından başlatın ve bu nedenle arama sorguları daha etkili olma eğilimindedir. Arama sorguları, küçük, daha iyi bir seçenek için belirli bir değer sütunları veya tabloları arasında ararken yaptığına yapılandırılmış ' dir. **Arama** tüm tablolar, belirtilen değere veya bir tablodaki tüm sütunları tarayabilirsiniz. İşlenen veri miktarı bu sorgular daha uzun sürebilir ve çok büyük sonuç kümelerini döndürme olasılığı neden olduğu devasa, olabilir.

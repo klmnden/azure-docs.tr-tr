@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: efa4cc070f47174634c8dc67b37f10bc3d112d08
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410265"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293200"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı'nda PostgreSQL uzantıları
 PostgreSQL Uzantıları'nı kullanarak veritabanını genişletmek olanağı sağlar. Birden çok ilişkili SQL nesneleri birlikte yüklenen ya da tek bir komutla veritabanından kaldırıldı tek bir pakette paketleme için uzantılar sağlar. Yerleşik özellikler gibi veritabanında yüklenen sonra uzantıları çalışabilir. PostgreSQL uzantıları hakkında daha fazla bilgi için bkz. [paketleme ilgili nesneleri uzantı](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -73,6 +73,7 @@ Aşağıdaki tablolar, şu anda PostgreSQL için Azure veritabanı tarafından d
 > | **Uzantı** | **Açıklama** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL yordam dili yüklenebilir. |
+> | [plv8](https://plv8.github.io/) | Bir Javascript dil uzantısı kullanılabilir saklı yordamlar, Tetikleyiciler, vb. için PostgreSQL için. |
 
 ### <a name="miscellaneous-extensions"></a>Diğer uzantılar
 
@@ -124,7 +125,7 @@ TimescaleDB PostgreSQL için bir uzantısı olarak paketlenmiş bir zaman serisi
 [TimescaleDB hakkında daha fazla bilgi](https://docs.timescale.com/latest), tescilli ticari markasıdır [ölçeği, Inc.](https://www.timescale.com/)
 
 ### <a name="installing-timescaledb"></a>TimescaleDB yükleme
-TimescaleDB yüklemek için sunucunun paylaşılan önyükleme kitaplıkları dahil etmek gerekir. Bir değişiklik Postgres'ın paylaşılan önyükleme kitaplıkları gerektiren bir **sunucu yeniden** etkili olması için.
+TimescaleDB yüklemek için sunucunun paylaşılan önyükleme kitaplıkları dahil etmek gerekir. Postgres'ın bir değişiklik `shared_preload_libraries` parametresi gerektiren bir **sunucunun yeniden başlatılmasını** etkili olması için. Parametreleri kullanarak değiştirebileceğiniz [Azure portalında](howto-configure-server-parameters-using-portal.md) veya [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 > [!NOTE]
 > TimescaleDB 9.6 ve 10 PostgreSQL sürümleri için Azure veritabanı üzerinde etkinleştirilebilir
@@ -137,10 +138,7 @@ Kullanarak [Azure portalında](https://portal.azure.com/):
 
 3. Arama `shared_preload_libraries` parametresi.
 
-4. Aşağıdaki değeri olarak yapıştırın. `shared_preload_libraries`
-   ```
-   timescaledb
-   ```
+4. Seçin **TimescaleDB**.
 
 5. Seçin **Kaydet** değişikliklerinizi korumak için. Değişiklikleri kaydettikten sonra bir bildirim alırsınız. 
 
@@ -158,4 +156,4 @@ Artık bir TimescaleDB hypertable oluşturabilirsiniz [sıfırdan](https://docs.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kullanmak için bize bildirin istediğiniz uzantı görmüyorsanız. Var olan istekleri için oy verin veya yeni bir geri bildirim isteklerini oluşturup bizim [müşteri geri bildirim Forumu](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+Kullanmak için bize bildirin istediğiniz uzantı görmüyorsanız. Var olan istekleri için oy verin ya da yeni geri bildirim isteklerini oluşturma bizim [geri bildirim Forumu](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

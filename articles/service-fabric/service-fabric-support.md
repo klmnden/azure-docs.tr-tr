@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 667ee6a49238c1ecaabec631cb72804b0c4b2323
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545070"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304249"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric destek seçenekleri
 
@@ -43,7 +43,7 @@ Daha fazla bilgi:
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Üretim sorun bildirin veya tek başına Service Fabric kümeleri için Ücretli destek isteği
 
-Service Fabric kümenizdeki sorunları dağıtılan şirket içi raporlama veya diğer bulutlarda bir profesyonel destek bileti açmak [Microsoft destek portalı](https://support.microsoft.com/oas/default.aspx?prid=16146).
+Service Fabric kümenizdeki sorunları dağıtılan şirket içi raporlama veya diğer bulutlarda bir profesyonel destek bileti açmak [Microsoft destek portalı](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Daha fazla bilgi:
 
@@ -60,11 +60,11 @@ Azure Service Fabric sorunların rapor [Service Fabric sorunların git deposu](h
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow ve MSDN Forumları
 
-[StackOverflow üzerinde Service Fabric etiketi] [ stackoverflow] ve [MSDN Forumu Service Fabric] [ msdn-forum] sorular hakkında nasıl sormak için kullanılan en iyi olan Platform çalışır ve belirli görevlerle nasıl yapabilirsiniz.
+[StackOverflow üzerinde Service Fabric etiketi][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] olan en iyi platform nasıl çalıştığını ve belirli görevlerle nasıl gerçekleştirebileceğiniz hakkında sorular sormak için kullanılır.
 
 ### <a name="azure-feedback-forum"></a>Azure geri bildirim Forumu
 
-[Azure Service Fabric için geri bildirim Forumu] [ uservoice-forum] sahip olduğunuz ürün için size en popüler isteklerini gözden geçirirken büyük özellik fikirleri, uzun vadeli planlama bizim Orta parçası olan göndermek için en iyi yerdir. Topluluk içinde önerilerinizi desteği rally etmenizi öneririz.
+[Azure Service Fabric için geri bildirim Forumu][uservoice-forum] sahip olduğunuz ürün için size en popüler isteklerini gözden geçirirken büyük özellik fikirleri, uzun vadeli planlama bizim Orta parçası olan göndermek için en iyi yerdir. Topluluk içinde önerilerinizi desteği rally etmenizi öneririz.
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric Önizleme sürümleri üretim kullanımı için desteklenmeyen-
 

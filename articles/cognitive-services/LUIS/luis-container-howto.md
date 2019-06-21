@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 06/11/2019
+ms.topic: conceptual
+ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 68ff6a156e0d159816b184452f1f945cbce65216
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fff876de41e0069573b73779a16ebf06a3dd58c8
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052033"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295263"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -281,9 +281,9 @@ Sorgu parametrelerini yapılandırma nasıl ve ne sorgu yanıtına döndürülü
 |--|--|--|
 |`q`|string|Kullanıcının utterance.|
 |`timezoneOffset`|number|TimezoneOffset sağlar [saat dilimini değiştirme](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) önceden oluşturulmuş varlık datetimeV2 tarafından kullanılır.|
-|`verbose`|boole|Tüm amaçlar ve ayarlandığında puanlarını döndürür true. Yalnızca üst hedefini döndüren varsayılan false değeridir.|
-|`staging`|boole|Ortam sonuçları, hazırlama alanından döndürür sorgu ayarlamak true. |
-|`log`|boole|Sorgular, daha sonra için kullanılabilir günlükleri [etkin olarak öğrenmeye](luis-how-to-review-endpoint-utterances.md). Varsayılan değer True'dur.|
+|`verbose`|boolean|Tüm amaçlar ve ayarlandığında puanlarını döndürür true. Yalnızca üst hedefini döndüren varsayılan false değeridir.|
+|`staging`|boolean|Ortam sonuçları, hazırlama alanından döndürür sorgu ayarlamak true. |
+|`log`|boolean|Sorgular, daha sonra için kullanılabilir günlükleri [etkin olarak öğrenmeye](luis-how-to-review-endpoint-utterances.md). Varsayılan değer True'dur.|
 
 ### <a name="query-published-app"></a>Sorgu yayımlanan uygulama
 
