@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: wolfma
-ms.openlocfilehash: 2bfe111cbe1e352c16c9cbdd6d2ecc999bbe444f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4092cfb11fc37b9a4d145c3a2994138e5ae6dbf
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003003"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331903"
 ---
 # <a name="about-the-speech-sdk"></a>Konuşma SDK hakkında
 
-Konuşma Yazılım Geliştirme Seti (SDK), konuşma özellikli yazılım geliştirmeyi kolaylaştıran konuşma Hizmetleri işleve, uygulamaları erişmenizi sağlar. Şu anda, SDK'ları erişmeyi **konuşma metin**, **metin okuma**, **konuşma çevirisi**, ve **niyeti tanıma**. Desteklenen platformlar ve özellikleri hakkında genel bir bakış belgelerine bulunabilir [giriş sayfası](https://aka.ms/csspeech).
+Konuşma Yazılım Geliştirme Seti (SDK), konuşma özellikli yazılım geliştirmeyi kolaylaştıran konuşma Hizmetleri işleve, uygulamaları erişmenizi sağlar. Şu anda, SDK'ları erişmeyi **konuşma metin**, **metin okuma**, **konuşma çevirisi**, **niyeti tanıma**, ve **Bot Framework'ün doğrudan satır konuşma kanal**. Desteklenen platformlar ve özellikleri hakkında genel bir bakış belgelerine bulunabilir [giriş sayfası](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

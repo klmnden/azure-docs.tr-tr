@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-pawal
-ms.openlocfilehash: f58ff566ebb83ed6163637aa3899a925ed06242a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4133cec401723ab103b0b3bfff62eee21b653e2b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269208"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331820"
 ---
 # <a name="translator-text-api-v30"></a>Translator metin çevirisi API'si v3.0
 
@@ -31,20 +31,20 @@ Translator metin çevirisi API'si 3 sürümünü modern bir JSON tabanlı Web AP
 
 ## <a name="base-urls"></a>Temel URL
 
-Microsoft Translator, birden çok veri merkezi konumlarını dışında sunulur. 6'da şu anda bulunan [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator, birden çok veri merkezi konumlarını dışında sunulur. 6'da şu anda bulunan [Azure coğrafyaları](https://azure.microsoft.com/global-infrastructure/regions):
 
 * **Americas:** Batı ABD 2 ve Batı Orta ABD 
 * **Asya Pasifik:** Güneydoğu Asya ve Kore Güney
 * **Avrupa:** Kuzey Avrupa ve Batı Avrupa
 
-Microsoft Translator metin çevirisi API'si için isteğin geldiği için en yakın veri merkezi tarafından işlenen çoğu durumda isteklerdir. Veri merkezinde hata oluşması halinde, istek bölgenin dışında yönlendirilebilir.
+Microsoft Translator metin çevirisi API'si için isteğin geldiği için en yakın veri merkezi tarafından işlenen çoğu durumda isteklerdir. Veri merkezinde hata oluşması halinde, istek dışında her Azure coğrafyası yönlendirilebilir.
 
-Belirli bir veri merkezi tarafından işlenmek üzere istek zorlamak için istenen bölge uç noktası için API isteğinde genel uç noktası değiştirin:
+Belirli bir Azure coğrafi işlenmek üzere istek zorlamak için istenen bölge uç noktası için API isteğinde genel uç noktası değiştirin:
 
-|Açıklama|Bölge|Temel URL|
+|Açıklama|Her Azure Coğrafyası|Temel URL|
 |:--|:--|:--|
-|Azure|Genel|  api.cognitive.microsofttranslator.com|
-|Azure|Kuzey Amerika|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Global (Bölgesel olmayan)|   api.cognitive.microsofttranslator.com|
+|Azure|Amerika Birleşik Devletleri|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Avrupa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asya Pasifik|    api-apc.cognitive.microsofttranslator.com|
 

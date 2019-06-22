@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b405c643f642a8b3f950848fe8cba65207cb5cb3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 04c7663073a710fe39017b01edd0623a837d6354
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271432"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331797"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve Python ile REST API kullanarak form verileri ayıklayın
 
@@ -47,12 +47,13 @@ Form tanıyıcı kaynağınızı dağıtımı tamamlandığında bulun ve seçim
 
 ## <a name="train-a-form-recognizer-model"></a>Bir Form tanıyıcı modeli eğitme
 
-İlk olarak, bir Azure depolama blobu eğitim veri kümesi gerekir. En az beş örnek form (PDF belgeleri ve/veya görüntüleri), ana girdi verisi olarak aynı türü/yapısı olmalıdır. Ya da tek bir boş formda doldurulmuş iki formlarla kullanabilirsiniz. "Boş" sözcüğünü içerecek şekilde formun boş dosya adı gerekiyor
+İlk olarak, bir Azure depolama blob kapsayıcısındaki eğitim veri kümesi gerekir. En az beş örnek form (PDF belgeleri ve/veya görüntüleri), ana girdi verisi olarak aynı türü/yapısı olmalıdır. Ya da tek bir boş formda doldurulmuş iki formlarla kullanabilirsiniz. "Boş" sözcüğünü içerecek şekilde formun boş dosya adı gerekiyor
 
 Azure blob kapsayıcınızdaki belgeleri kullanarak bir Form tanıyıcı modeli eğitmek için çağrı **eğitme** python aşağıdaki kodu çalıştırarak API. Kod çalıştırmadan önce şu değişiklikleri yapın:
 
 1. Değiştirin `<Endpoint>` Form tanıyıcı kaynak abonelik anahtarlarınızın aldığınız burada bir Azure bölgesinde uç nokta URL'si ile.
-1. Değiştirin `<SAS URL>` eğitim verilerin konumu URL'sini imzası (SAS) bir Azure Blob Depolama kapsayıcısına paylaşılan erişim.  
+1. Değiştirin `<SAS URL>` Azure Blob Depolama kapsayıcısı paylaşılan erişim imzası (SAS) URL'si. Bu almak için Microsoft Azure Depolama Gezgini'ni açın, kapsayıcınızın sağ tıklatın ve seçin **Get paylaşılan erişim imzası**. Sonraki iletişim kutusunda'a tıklayın ve değeri kopyalayın **URL** bölümü. Form olması gereken: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Değiştirin `<file type>` dosya türüne sahip. Desteklenen türler: `application/pdf`, `image/jpeg`, `image/png`.
 1. Değiştirin `<Subscription key>` önceki adımda kopyaladığınız abonelik anahtarı.
     ```python
     ########### Python Form Recognizer Train #############
@@ -63,7 +64,7 @@ Azure blob kapsayıcınızdaki belgeleri kullanarak bir Form tanıyıcı modeli 
     source = r"<SAS URL>"
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
+        'Content-Type': '<file type>',
         'Ocp-Apim-Subscription-Key': '<Subscription Key>',
     }
     url = base_url + "/train" 
@@ -83,59 +84,40 @@ Size gönderilecektir bir `200 (Success)` bu JSON çıkışını Yanıtla:
 
 ```json
 {
-  "parameters": {
-    "Endpoint": "{Endpoint}",
-    "Content-Type": "application/json",
-    "Ocp-Apim-Subscription-Key": "{API key}",
-    "body": {},
-    "trainRequest": {
-      "source": "/input/data",
-      "sourceFilter": {
-        "prefix": "",
-        "includeSubFolders": false
-      }
+  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
+  "trainingDocuments": [
+    {
+      "documentName": "Invoice_1.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_2.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_3.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_4.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_5.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
     }
-  },
-  "responses": {
-    "200": {
-      "body": {
-        "modelId": "ad1901b6-ddaa-4249-8938-3f03f65cc893",
-        "trainingDocuments": [
-          {
-            "documentName": "0.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "1.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "2.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "3.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "4.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          }
-        ],
-        "errors": []
-      }
-    }
-  }
+  ],
+  "errors": []
 }
 ```
 
@@ -148,7 +130,7 @@ Ardından, bir belge çözümleyin ve anahtar-değer çiftleri ve tabloları bur
 1. Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınız ile elde ettiğiniz uç noktası ile. Form tanıyıcı kaynağınızda bulabilirsiniz **genel bakış** sekmesi.
 1. Değiştirin `<path to your form>` ile formunuzu (örneğin, C:\temp\file.pdf) dosyasının yolu.
 1. Değiştirin `<modelID>` önceki bölümde aldığınız model kimliği.
-1. Değiştirin `<file type>` dosya türüne sahip. Desteklenen türler: pdf, görüntü/jpeg, görüntü/png.
+1. Değiştirin `<file type>` dosya türüne sahip. Desteklenen türler: `application/pdf`, `image/jpeg`, `image/png`.
 1. `<subscription key>` değerini abonelik anahtarınızla değiştirin.
 
     ```python
@@ -161,7 +143,7 @@ Ardından, bir belge çözümleyin ve anahtar-değer çiftleri ve tabloları bur
     model_id = "<modelID>"
     headers = {
         # Request headers
-        'Content-Type': 'application/<file type>',
+        'Content-Type': '<file type>',
         'Ocp-Apim-Subscription-Key': '<subscription key>',
     }
 

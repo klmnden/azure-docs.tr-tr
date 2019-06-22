@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b5f3b77e3af719d0e3b37ac196b1691ce659e5e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3f3b74452ff1f866b0285eee962ab3678b151a30
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271443"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331841"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve REST API ile cURL kullanarak form verileri ayıklayın
 
@@ -52,7 +52,7 @@ Form tanıyıcı kaynağınızı dağıtımı tamamlandığında bulun ve seçim
 Azure blob kapsayıcınızdaki belgeleri kullanarak bir Form tanıyıcı modeli eğitmek için çağrı **eğitme** aşağıdaki cURL komutu çalıştırarak API. Komutu çalıştırmadan önce şu değişiklikleri yapın:
 
 1. Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınızı aldığınız uç noktası ile. Form tanıyıcı kaynağınızda bulabilirsiniz **genel bakış** sekmesi.
-1. Değiştirin `<SAS URL>` eğitim verilerin konumu URL'sini imzası (SAS) bir Azure Blob Depolama kapsayıcısına paylaşılan erişim. (SAS-URL 'Paylaşılan erişim imzası' tıklayarak depolama hesabı ve 'SAS oluşturma ve bağlantı dizesini' ayarları menüsü altında alın. Bu, Blob hizmeti SAS URL'si gösterir. Sonra .net containername ekleyerek bu URL'yi ayarlama / ve önce? sv URL'de örn =:.blob.core.windows.net/ < name_of_your_container > /? sv =... Kullanılacak SAS URL'si budur.)
+1. Değiştirin `<SAS URL>` Azure Blob Depolama kapsayıcısı paylaşılan erişim imzası (SAS) URL'si. Bu almak için Microsoft Azure Depolama Gezgini'ni açın, kapsayıcınızın sağ tıklatın ve seçin **Get paylaşılan erişim imzası**. Sonraki iletişim kutusunda'a tıklayın ve değeri kopyalayın **URL** bölümü. Form olması gereken: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Değiştirin `<subscription key>` önceki adımda kopyaladığınız abonelik anahtarı.
 
 ```bash
@@ -63,59 +63,40 @@ Size gönderilecektir bir `200 (Success)` aşağıdaki JSON çıkışını Yanı
 
 ```json
 {
-  "parameters": {
-    "Endpoint": "{Endpoint}",
-    "Content-Type": "application/json",
-    "Ocp-Apim-Subscription-Key": "{API key}",
-    "body": {},
-    "trainRequest": {
-      "source": "/input/data",
-      "sourceFilter": {
-        "prefix": "",
-        "includeSubFolders": false
-      }
+  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
+  "trainingDocuments": [
+    {
+      "documentName": "Invoice_1.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_2.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_3.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_4.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_5.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
     }
-  },
-  "responses": {
-    "200": {
-      "body": {
-        "modelId": "ad1901b6-ddaa-4249-8938-3f03f65cc893",
-        "trainingDocuments": [
-          {
-            "documentName": "0.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "1.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "2.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "3.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "4.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          }
-        ],
-        "errors": []
-      }
-    }
-  }
+  ],
+  "errors": []
 }
 ```
 
@@ -128,12 +109,12 @@ Ardından, bir belge çözümleyin ve anahtar-değer çiftleri ve tabloları bur
 1. Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınızı aldığınız uç noktası ile. Form tanıyıcı kaynağınızda bulabilirsiniz **genel bakış** sekmesi.
 1. Değiştirin `<modelID>` önceki bölümde aldığınız model kimliği.
 1. Değiştirin `<path to your form>` ile formunuzu (örneğin, C:\temp\file.pdf) dosyasının yolu.
-1. Değiştirin `<file type>` dosya türüne sahip. Desteklenen türler: pdf, görüntü/jpeg, görüntü/png.
+1. Değiştirin `<file type>` dosya türüne sahip. Desteklenen türler: `application/pdf`, `image/jpeg`, `image/png`.
 1. `<subscription key>` değerini abonelik anahtarınızla değiştirin.
 
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Yanıtı inceleme

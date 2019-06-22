@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: deborahc
 ms.author: dech
-ms.date: 05/20/2019
-ms.openlocfilehash: 9e7342ebcbcf536b26e6cf7fb89e3cf58666d24f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/21/2019
+ms.openlocfilehash: d7d9d62525161e6871cafd65cf5cd2c403cf0579
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953967"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331766"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos öykünücüsünü kullanma
 
@@ -413,6 +413,57 @@ Veri Gezgini’ni açmak için tarayıcınızda aşağıdaki URL’ye gidin. Yuk
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
+## Mac veya Linux üzerinde çalışıyor<a id="mac"></a>
+
+Şu anda Cosmos öykünücüsü'nü yalnızca Windows üzerinde çalıştırılabilir. Öykünücü, Mac veya Linux çalıştıran bir Windows sanal makine çalıştırabilirsiniz kullanıcılar Parallels veya VirtualBox gibi bir hiper yönetici barındırılan. Bu etkinleştirme adımları aşağıda verilmiştir.
+
+Windows VM içinde aşağıdaki komutu çalıştırın ve IPv4 adresini not edin.
+
+```cmd
+ipconfig.exe
+```
+
+Uygulamanız DocumentClient nesnesinin URI tarafından döndürülen IPv4 adresini kullanmak için değiştirmeniz gerekir. `ipconfig.exe`. Sonraki adım CA doğrulama DocumentClient nesneyi diziden oluşturulurken çalışmaktır. Bunun için DocumentClient oluşturucusuna bir HttpClientHandler sağlamak için ihtiyacınız olacak hangi ServerCertificateCustomValidationCallback için kendi uygulamasına sahip değil.
+
+Kod aşağıdaki gibi görünmelidir örneği aşağıdadır.
+
+```csharp
+using System;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+using System.Net.Http;
+
+namespace emulator
+{
+    class Program
+    {
+        static async void Main(string[] args)
+        {
+            string strEndpoint = "https://10.135.16.197:8081/";  //IPv4 address from ipconfig.exe
+            string strKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+
+            //Work around the CA validation
+            var httpHandler = new HttpClientHandler()
+            {
+                ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+            };
+
+            //Pass http handler to document client
+            using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+            {
+                Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "myDatabase" });
+                Console.WriteLine($"Created Database: id - {database.Id} and selfLink - {database.SelfLink}");
+            }
+        }
+    }
+}
+```
+
+Son olarak, gelen Windows VM içinde aşağıdaki seçenekleri kullanarak komut satırından Cosmos öykünücüyü başlatın.
+
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

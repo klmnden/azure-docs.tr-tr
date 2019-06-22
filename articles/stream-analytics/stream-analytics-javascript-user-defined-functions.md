@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479550"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329373"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Öğretici: Azure Stream Analytics JavaScript kullanıcı tanımlı işlevleri
  
@@ -120,6 +120,8 @@ Nesne | Kayıt
 Dizi | Dizi
 Null, Tanımsız | NULL
 Başka bir tür (örneğin, bir işlev veya hata) | Desteklenmiyor (çalışma zamanı hatası ile sonuçlanır)
+
+JavaScript dil büyük/küçük harfe duyarlıdır ve JavaScript kodu nesne alanları büyük küçük harfleri büyük/küçük harf gelen veri alanlarının eşleşmesi gerekir. Uyumluluk düzeyi 1.0 ile işleri küçük harfli olması için SQL SELECT deyiminden alanlarını dönüştürmek unutmayın. Uyumluluk düzeyi altında 1.1 ve üzeri, aynı büyük küçük harfleri SQL sorgusunda belirtilen SELECT deyimi alanları olacaktır.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 JavaScript çalışma zamanı hataları önemli kabul edilir ve Etkinlik günlüğünde öne çıkarılır. Günlüğü almak için Azure portalında işinize gidin ve **Etkinlik günlüğü**’nü seçin.

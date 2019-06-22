@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163051"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330547"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Öğretici: 2. Kısım - yönlendirilmiş iletileri görüntüleyin
 
@@ -30,11 +30,11 @@ Bu ileti yönlendirme için kurallar şunlardır; Bunlar bu öğreticinin 1 ayar
 |------|------|
 |level="storage" |Azure Depolama'ya yazın.|
 |level="critical" |Service Bus kuyruğuna yazın. Mantıksal Uygulama iletiyi kuyruktan alır ve Office 365 kullanarak iletiyi e-postayla gönderir.|
-|varsayılan |Power BI'ı kullanarak bu verileri görüntüleyin.|
+|default |Power BI'ı kullanarak bu verileri görüntüleyin.|
 
 Şimdi iletileri hub'ına ileti göndermek için bir uygulamayı çalıştırmayı yönlendirilir ve yönlendirme eylemini bkz kaynakları oluşturun.
 
-## <a name="create-a-logic-app"></a>Mantıksal Uygulama Oluştur  
+## <a name="create-a-logic-app"></a>Mantıksal Uygulama oluşturma  
 
 Service Bus kuyruğu kritik olarak belirlenmiş iletileri almak için kullanılacaktır. Service Bus kuyruğunu izlemek ve kuyruğa ileti eklendiğinde bir e-posta göndermek için bir Mantıksal uygulama ayarlayın.
 
@@ -126,7 +126,7 @@ Verileri Power BI görselleştirmesinde görmek için, önce bir Stream Analytic
 
    **Uç nokta**: Seçin **Mesajlaşma**. (İşlem İzleme'yi seçerseniz, gönderdiğiniz veriler yerine IoT hub'ı hakkındaki telemetri verilerini alırsınız.) 
 
-   **Paylaşılan erişim ilkesi adı**: Seçin **iothubowner**. Paylaşılan Erişim İlkesi Anahtarı'nı portal sizin için doldurur.
+   **Paylaşılan erişim ilkesi adı**: Seçin **hizmet**. Paylaşılan Erişim İlkesi Anahtarı'nı portal sizin için doldurur.
 
    **Tüketici grubu**: Bu öğreticinin 1 adımda ayarladığınız tüketici grubu seçin. Bu öğreticide **contosoconsumers** kullanılır.
    
