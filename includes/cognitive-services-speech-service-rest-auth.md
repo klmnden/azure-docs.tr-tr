@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5f06ca04b0b6ea48ebb49952df71cb02946777fa
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188658"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333395"
 ---
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
@@ -26,8 +26,7 @@ Kullanırken `Ocp-Apim-Subscription-Key` üst bilgi, yalnızca abonelik anahtar�
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-Kullanırken `Authorization: Bearer` üst bilgi, işiniz için istekte bulunmak için gereken `issueToken` uç noktası. Bu istekte 10 dakika için geçerli olan bir erişim belirteci için abonelik anahtarınızı exchange. Sonraki birkaç bölümde bir belirteç almak, bir belirteç kullanın ve bir belirteç yenileme öğreneceksiniz.
-
+Kullanırken `Authorization: Bearer` üst bilgi, işiniz için istekte bulunmak için gereken `issueToken` uç noktası. Bu istekte 10 dakika için geçerli olan bir erişim belirteci için abonelik anahtarınızı exchange. Sonraki birkaç bölümde bir belirteç almak ve bir belirteç öğreneceksiniz.
 
 ### <a name="how-to-get-an-access-token"></a>Bir erişim belirteci alma
 
