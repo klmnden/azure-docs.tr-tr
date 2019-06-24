@@ -53,10 +53,10 @@ Bazı isteğe bağlıdır, ancak bu üst düzey öğeleri Tetikleyiciler vardır
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
 | <*trigger-name*> | String | Tetikleyici adı | 
-| <*trigger-type*> | String | Örneğin "Http" veya "ApiConnection" tetikleyici türü | 
+| <*Tetikleyici türü*> | String | Örneğin "Http" veya "ApiConnection" tetikleyici türü | 
 | <*trigger-inputs*> | JSON nesnesi | Tetikleyicinin davranışını tanımlayan girişleri | 
-| <*time-unit*> | String | Tetikleyici ne sıklıkta açıklayan zaman birimi: "Saniye", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
+| <*zaman birimi*> | String | Tetikleyici ne sıklıkta açıklayan zaman birimi: "Saniye", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*sayı, zaman birimi*> | Integer | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
 |||| 
 
 *İsteğe bağlı*
@@ -79,8 +79,8 @@ Farklı bir arabirim ve tetikleyicinin davranışını belirleyen girişlerin he
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Denetler veya *yoklamalar* herhangi bir uç nokta. Bu uç nokta "202" zaman uyumsuz desen kullanma ya da bir dizi dönerek belirli tetikleyici sözleşmeye uymalıdır. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Mantıksal uygulamanız için çağrılabilen bir uç nokta oluşturur ancak kaydetmek veya kaydını silmek için belirtilen URL çağırır. |
-| [**Recurrence**](#recurrence-trigger) | Tanımlanan bir zamanlamaya göre ateşlenir. Gelecekteki bir tarih ve saat bu tetikleme adımını için ayarlayabilirsiniz. Sıklığı temel alarak, süreleri de belirtebilirsiniz ve iş akışınızı çalıştırmak için gün. | 
-| [**Request**](#request-trigger)  | Mantıksal uygulamanız için çağrılabilen bir uç noktası oluşturur ve "elle" tetikleyici olarak da bilinen olduğu. Örneğin, [çağrı, tetikleyici veya iç içe iş akışları HTTP uç noktaları ile](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**Yinelenme**](#recurrence-trigger) | Tanımlanan bir zamanlamaya göre ateşlenir. Gelecekteki bir tarih ve saat bu tetikleme adımını için ayarlayabilirsiniz. Sıklığı temel alarak, süreleri de belirtebilirsiniz ve iş akışınızı çalıştırmak için gün. | 
+| [**İstek**](#request-trigger)  | Mantıksal uygulamanız için çağrılabilen bir uç noktası oluşturur ve "elle" tetikleyici olarak da bilinen olduğu. Örneğin, [çağrı, tetikleyici veya iç içe iş akışları HTTP uç noktaları ile](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
 ### <a name="managed-api-triggers"></a>Yönetilen API Tetikleyicileri
@@ -149,7 +149,7 @@ Bu tetikleyiciyi denetler veya *yoklamalar* kullanarak bir uç nokta [Microsoft 
 | <*max-runs*> | Integer | Varsayılan olarak, iş akışı örnekleri aynı anda veya paralel kadar çalıştırmak [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Yeni bir ayarlayarak bu sınırı değiştirmek için <*sayısı*> değeri için bkz: [değişiklik tetikleyici eşzamanlılık](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | İş akışınızı en fazla örnek sayısını çalışırken, değiştirebileceğiniz dayalı `runtimeConfiguration.concurrency.runs` özelliği, tüm yeni çalıştırmaları isimlerine bu kuyruğa [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varsayılan sınırı değiştirmek için bkz [değişiklik bekleme çalıştırmaları sınırlamak](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | Dizi döndüren tetikleyicileri, bu ifade oluşturmak ve her dizi öğesi için bir iş akışı örneği çalıştırmak yerine, bir "for each" döngüsü kullanın kullanılması için bir dizi başvuruyor. <p>Örneğin, bu ifade, tetikleyici gövde içeriği içinde döndürülen dizideki bir öğeyi temsil eder: `@triggerbody()?['value']` |
-| <*işlem seçeneği*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). |
+| <*operation-option*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). |
 ||||
 
 *Çıkışlar*
@@ -239,7 +239,7 @@ Bu tetikleyiciyi kullanarak bir abonelik isteği bir uç noktaya gönderen bir [
 | <*max-runs*> | Integer | Varsayılan olarak, iş akışı örnekleri aynı anda veya paralel kadar çalıştırmak [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Yeni bir ayarlayarak bu sınırı değiştirmek için <*sayısı*> değeri için bkz: [değişiklik tetikleyici eşzamanlılık](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | İş akışınızı en fazla örnek sayısını çalışırken, değiştirebileceğiniz dayalı `runtimeConfiguration.concurrency.runs` özelliği, tüm yeni çalıştırmaları isimlerine bu kuyruğa [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varsayılan sınırı değiştirmek için bkz [değişiklik bekleme çalıştırmaları sınırlamak](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | Dizi döndüren tetikleyicileri, bu ifade oluşturmak ve her dizi öğesi için bir iş akışı örneği çalıştırmak yerine, bir "for each" döngüsü kullanın kullanılması için bir dizi başvuruyor. <p>Örneğin, bu ifade, tetikleyici gövde içeriği içinde döndürülen dizideki bir öğeyi temsil eder: `@triggerbody()?['value']` |
-| <*işlem seçeneği*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
+| <*operation-option*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
 |||| 
 
 *Örnek*
@@ -322,7 +322,7 @@ Bu tetikleyiciyi veya belirtilen yinelenme zamanlamasına göre belirtilen uç n
  <*Sorgu parametreleri*> | JSON nesnesi | İstekle birlikte içerecek şekilde tüm sorgu parametreleri <p>Örneğin, `"queries": { "api-version": "2018-01-01" }` nesnesi ekler `?api-version=2018-01-01` isteği. | 
 | <*max-runs*> | Integer | Varsayılan olarak, iş akışı örnekleri aynı anda veya paralel kadar çalıştırmak [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Yeni bir ayarlayarak bu sınırı değiştirmek için <*sayısı*> değeri için bkz: [değişiklik tetikleyici eşzamanlılık](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | İş akışınızı en fazla örnek sayısını çalışırken, değiştirebileceğiniz dayalı `runtimeConfiguration.concurrency.runs` özelliği, tüm yeni çalıştırmaları isimlerine bu kuyruğa [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varsayılan sınırı değiştirmek için bkz [değişiklik bekleme çalıştırmaları sınırlamak](#change-waiting-runs). | 
-| <*işlem seçeneği*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
+| <*operation-option*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
 |||| 
 
 *Çıkışlar*
@@ -417,7 +417,7 @@ Gibi bazı değerler <*yöntem türü*>, her ikisi için de kullanılabilir `"su
 | <*yeniden deneme davranışı*> | JSON nesnesi | 408, 429 ve 5XX durum kodu ve tüm bağlantı özel durumları aralıklı hatalar için yeniden deneme davranışı özelleştirir. Daha fazla bilgi için [yeniden deneme ilkeleri](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*max-runs*> | Integer | Varsayılan olarak, tüm iş akışı örnekleri aynı anda veya paralel kadar çalıştırmak [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Yeni bir ayarlayarak bu sınırı değiştirmek için <*sayısı*> değeri için bkz: [değişiklik tetikleyici eşzamanlılık](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | İş akışınızı en fazla örnek sayısını çalışırken, değiştirebileceğiniz dayalı `runtimeConfiguration.concurrency.runs` özelliği, tüm yeni çalıştırmaları isimlerine bu kuyruğa [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varsayılan sınırı değiştirmek için bkz [değişiklik bekleme çalıştırmaları sınırlamak](#change-waiting-runs). | 
-| <*işlem seçeneği*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
+| <*operation-option*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
 |||| 
 
 *Çıkışlar* 
@@ -511,7 +511,7 @@ Bu tetikleyiciyi belirtilen yinelenme zamanlamaya göre çalışan ve düzenli a
 | weekDays | Dize veya dize dizisi | İçin "Week" belirtirseniz `frequency`, iş akışını çalıştırmak istediğinizde, virgülle ayırarak bir veya daha fazla gün belirtebilirsiniz: "Pazartesi", "Salı", "Çarşamba", "Thursday", "Friday", "Cumartesi" ve "Sunday" | 
 | <*max-runs*> | Integer | Varsayılan olarak, tüm iş akışı örnekleri aynı anda veya paralel kadar çalıştırmak [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Yeni bir ayarlayarak bu sınırı değiştirmek için <*sayısı*> değeri için bkz: [değişiklik tetikleyici eşzamanlılık](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | İş akışınızı en fazla örnek sayısını çalışırken, değiştirebileceğiniz dayalı `runtimeConfiguration.concurrency.runs` özelliği, tüm yeni çalıştırmaları isimlerine bu kuyruğa [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varsayılan sınırı değiştirmek için bkz [değişiklik bekleme çalıştırmaları sınırlamak](#change-waiting-runs). | 
-| <*işlem seçeneği*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
+| <*operation-option*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
 |||| 
 
 *Örnek 1*
@@ -615,10 +615,10 @@ Bu tetikleyiciyi çağırmak için kullanmalısınız `listCallbackUrl` açıkla
 |-------|------|-------------| 
 | <*yöntem türü*> | String | Mantıksal uygulamanızı çağırmak için gelen istekleri kullanmalıdır yöntemi: "GET", "PUT", "POST", "DÜZELTME EKİ", "SİL" |
 | <*göreli yol-için-kabul edildi-parametresi*> | String | Uç noktasının URL'sini kabul edebilen parametresi için göreli yolu | 
-| <*gerekli özellikleri*> | Dizi | Değer gerektiren bir veya daha fazla özellikleri | 
+| <*gerekli özellikleri*> | Array | Değer gerektiren bir veya daha fazla özellikleri | 
 | <*max-runs*> | Integer | Varsayılan olarak, tüm iş akışı örnekleri aynı anda veya paralel kadar çalıştırmak [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Yeni bir ayarlayarak bu sınırı değiştirmek için <*sayısı*> değeri için bkz: [değişiklik tetikleyici eşzamanlılık](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | İş akışınızı en fazla örnek sayısını çalışırken, değiştirebileceğiniz dayalı `runtimeConfiguration.concurrency.runs` özelliği, tüm yeni çalıştırmaları isimlerine bu kuyruğa [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varsayılan sınırı değiştirmek için bkz [değişiklik bekleme çalıştırmaları sınırlamak](#change-waiting-runs). | 
-| <*işlem seçeneği*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
+| <*operation-option*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
 |||| 
 
 *Örnek*
@@ -790,8 +790,8 @@ Bazı isteğe bağlı olsa bu üst düzey öğe eylemleri vardır:
 | Değer | Tür | Açıklama | 
 |-------|------|-------------|
 | <*yeniden deneme davranışı*> | JSON nesnesi | 408, 429 ve 5XX durum kodu ve tüm bağlantı özel durumları aralıklı hatalar için yeniden deneme davranışı özelleştirir. Yeniden deneme ilkeleri daha fazla bilgi için bkz. | 
-| <*çalışma zamanı yapılandırma seçenekleri*> | JSON nesnesi | Bazı eylemler için eylem davranışı çalışma zamanında ayarlayarak değiştirebileceğiniz `runtimeConfiguration` özellikleri. Daha fazla bilgi için [çalışma zamanı yapılandırma ayarlarını](#runtime-config-options). | 
-| <*işlem seçeneği*> | String | Bazı eylemler için ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
+| <*runtime-config-options*> | JSON nesnesi | Bazı eylemler için eylem davranışı çalışma zamanında ayarlayarak değiştirebileceğiniz `runtimeConfiguration` özellikleri. Daha fazla bilgi için [çalışma zamanı yapılandırma ayarlarını](#runtime-config-options). | 
+| <*operation-option*> | String | Bazı eylemler için ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
 |||| 
 
 ## <a name="action-types-list"></a>Eylem türleri listesi
@@ -1274,7 +1274,7 @@ Bu eylem, bir dizideki tüm öğeler bir dize oluşturur ve bu öğeleri belirti
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*Dizi*> | Dizi | Dizi veya kaynak öğeleri sağlayan bir ifade. Bir ifade belirtirseniz, bu ifade çift tırnak içine alın. | 
+| <*Dizi*> | Array | Dizi veya kaynak öğeleri sağlayan bir ifade. Bir ifade belirtirseniz, bu ifade çift tırnak içine alın. | 
 | <*Sınırlayıcı*> | Tek bir karakter dizesi | Her dize öğesinde ayıran karakter | 
 |||| 
 
@@ -1420,7 +1420,7 @@ Bu eylem, bir koşul veya filtre temel başka bir dizideki öğelerden bir dizi 
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*Dizi*> | Dizi | Dizi veya kaynak öğeleri sağlayan bir ifade. Bir ifade belirtirseniz, bu ifade çift tırnak içine alın. |
+| <*Dizi*> | Array | Dizi veya kaynak öğeleri sağlayan bir ifade. Bir ifade belirtirseniz, bu ifade çift tırnak içine alın. |
 | <*koşul veya filtre*> | String | Kaynak dizideki öğeleri filtreleme için kullanılan koşul <p>**Not**: Hiçbir değer koşulu karşılayan, eylem boş bir dizi oluşturur. |
 |||| 
 
@@ -1536,7 +1536,7 @@ Bu eylem, belirtilen haritasına dayalı olarak başka bir diziden öğeleri dö
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*Dizi*> | Dizi | Dizi veya kaynak öğeleri sağlayan bir ifade. Bir ifade çift tırnak içine emin olun. <p>**Not**: Kaynak dizi boşsa, boş bir dizi eylem oluşturur. | 
+| <*Dizi*> | Array | Dizi veya kaynak öğeleri sağlayan bir ifade. Bir ifade çift tırnak içine emin olun. <p>**Not**: Kaynak dizi boşsa, boş bir dizi eylem oluşturur. | 
 | <*anahtar adı*> | String | Sonuç atanan özellik adı <*ifadesi*> <p>Çıkış dizi içindeki tüm nesneler üzerinde yeni bir özellik eklemek için belirtin bir <*anahtar adı*> Bu özellik için bir <*ifade*> özellik değeri için. <p>Dizi içindeki tüm nesneler bir özelliği kaldırmak için Atla <*anahtar adı*> Bu özellik için. | 
 | <*İfade*> | String | Kaynak dizideki öğeyi dönüştüren ve sonuca atar ifade <*anahtar adı*> | 
 |||| 
@@ -1635,7 +1635,7 @@ Bu eylem, bir diziyi bir CSV veya HTML tablosu oluşturur. JSON nesnesi içeren 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
 | < CSV *veya* HTML >| String | Oluşturmak istediğiniz tablo biçimi | 
-| <*Dizi*> | Dizi | Dizi veya tablo için kaynak öğeleri sağlayan ifade <p>**Not**: Eylem, kaynak diziden boşsa, boş bir tablo oluşturur. | 
+| <*Dizi*> | Array | Dizi veya tablo için kaynak öğeleri sağlayan ifade <p>**Not**: Eylem, kaynak diziden boşsa, boş bir tablo oluşturur. | 
 |||| 
 
 *İsteğe bağlı*
@@ -1891,7 +1891,7 @@ Logic Apps altyapısı çağırmak için bu nedenle, tetikleyici erişebildiğin
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
 | <*iç içe mantıksal--adı*> | String | Aramak istediğiniz mantıksal uygulamanın adı | 
-| <*Tetikleyici adı*> | String | İç içe geçmiş mantıksal uygulamayı çağırmak istediğinizde Tetikleyici adı | 
+| <*trigger-name*> | String | İç içe geçmiş mantıksal uygulamayı çağırmak istediğinizde Tetikleyici adı | 
 | <*Azure abonelik kimliği*> | String | İç içe geçmiş mantıksal uygulamayı Azure abonelik kimliği |
 | <*Azure kaynak grubu*> | String | İç içe geçmiş mantıksal uygulamayı Azure kaynak grubu adı |
 | <*iç içe mantıksal--adı*> | String | Aramak istediğiniz mantıksal uygulamanın adı |
@@ -1977,7 +1977,7 @@ Döngü Bu eylem, bir dizi aracılığıyla yinelenir ve dizideki tüm eylemleri
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
 | <*Sayısı*> | Integer | Varsayılan olarak, yineleme aynı anda veya paralel kadar Çalıştır "for each" döngüsü [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Yeni bir ayarlayarak bu sınırı değiştirmek için <*sayısı*> değeri için bkz: ["for each" döngüsü değiştirme eşzamanlılık](#change-for-each-concurrency). | 
-| <*işlem seçeneği*> | String | Paralel yapmak yerine, sırasıyla, bir "for each" döngüsü çalıştırmak için ya da ayarlayın <*işlem seçeneği*> için `Sequential` veya <*sayısı*> için `1`, ikisini birden belirtmeyin. Daha fazla bilgi için bkz [Çalıştır "for each" döngüsü sırayla](#sequential-for-each). | 
+| <*operation-option*> | String | Paralel yapmak yerine, sırasıyla, bir "for each" döngüsü çalıştırmak için ya da ayarlayın <*işlem seçeneği*> için `Sequential` veya <*sayısı*> için `1`, ikisini birden belirtmeyin. Daha fazla bilgi için bkz [Çalıştır "for each" döngüsü sırayla](#sequential-for-each). | 
 |||| 
 
 *Örnek*

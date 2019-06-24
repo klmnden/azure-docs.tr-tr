@@ -8,20 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: a3469e4f7fe1c234a6df694d7bdd6d9e2c46407a
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c5f7b0b739e9311e2527e63db7279d2075f0f1ff
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204884"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341275"
 ---
 # <a name="what-is-text-to-speech"></a>Metin okuma nedir?
 
 Azure konuşma Services'dan metin okuma, uygulamalar, Araçlar veya cihazları doğal insan benzeri Sentezlenen konuşmaya metni dönüştürmek sağlayan bir hizmettir. Standart ve sinir ses arasından seçin veya kendi özel sesli benzersiz ürün veya marka oluşturun. 75'ten fazla standart sesleri 45'den fazla dil ve yerel ayar kullanılabilir ve 5 sinir sesleri 4 dil ve yerel ayarlar kullanılabilir. Tam bir listesi için bkz [desteklenen diller](language-support.md#text-to-speech).
 
 Metin okuma teknolojisi, içerik oluşturucuların kullanıcılarının ile farklı yöntemle etkileşim kurmasına imkan tanır. Metin okuma, kullanımı içeriklerle etkileşim için bir seçenek ile kullanıcılara sağlayarak erişilebilirlik artırabilir. Metin okuma, kullanıcı bir görsel engelliler, bir öğrenme engelli veya sürüş Gezinti bilgilerini gerektiriyor olsun, var olan bir deneyim artırabilir. Metin okuma da bir değerli ses robotlar ve sanal Yardımcıları eklentisidir.
+
+
+Konuşma sentezi işaretleme dili (SSML'yi), bir XML-tabanlı işaretleme dili yararlanarak metin okuma hizmeti kullanan geliştiriciler nasıl giriş metni belirtebilirsiniz Sentezlenen konuşmaya dönüştürülür. SSML'yi ile aralık, Söyleniş, oranı, birim ve daha fazlası gibi ayarlayabilirsiniz. Daha fazla bilgiler için bkz. [SSML'yi](#speech-synthesis-markup-language-ssml).
 
 ### <a name="standard-voices"></a>Standart sesler
 

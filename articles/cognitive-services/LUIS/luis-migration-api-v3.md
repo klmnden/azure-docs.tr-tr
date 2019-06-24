@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb4cf119195b3be23dc8f2cb98bd019769583473
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123878"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341847"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Önizleme: API sürümüne geçirme 3.x LUIS uygulamalar için
 
@@ -54,11 +54,14 @@ V3 yanıt nesnesi değişiklikleri içeren [önceden oluşturulmuş varlıklarla
 
 V3 API farklı bir sorgu dizesi parametresi içeriyor.
 
-|Parametre adı|Tür|Version|Amaç|
-|--|--|--|--|
-|`query`|string|Yalnızca v3|**V2'de**, tahmin için utterance bulunduğu `q` parametresi. <br><br>**V3 içinde**, işlevselliği geçirilen `query` parametresi.|
-|`show-all-intents`|boole|Yalnızca v3|Tüm hedefleri içinde karşılık gelen puanı döndürür **prediction.intents** nesne. Hedefleri, bir üst nesneleri olarak döndürülür `intents` nesne. Bu amaç bir dizide bulunacak gerek kalmadan programlı erişim sağlar: `prediction.intents.give`. V2'de, bunları bir dizide döndürülmedi. |
-|`verbose`|boole|V2 VE V3|**V2'de**, true, tahmin edilen tüm hedefleri kümesine döndürüldü. Tahmin edilen tüm hedefleri gerekiyorsa, V3 param kullanın `show-all-intents`.<br><br>**V3 içinde**, bu parametre varlık meta verileri varlık öngörü ayrıntılarını yalnızca sağlar.  |
+|Parametre adı|Tür|Version|Varsayılan|Amaç|
+|--|--|--|--|--|
+|`log`|boolean|V2 VE V3|false|Günlük dosyasında Query Store.| 
+|`query`|string|Yalnızca v3|Gereklidir - varsayılan GET isteği|**V2'de**, tahmin için utterance bulunduğu `q` parametresi. <br><br>**V3 içinde**, işlevselliği geçirilen `query` parametresi.|
+|`show-all-intents`|boolean|Yalnızca v3|false|Tüm hedefleri içinde karşılık gelen puanı döndürür **prediction.intents** nesne. Hedefleri, bir üst nesneleri olarak döndürülür `intents` nesne. Bu amaç bir dizide bulunacak gerek kalmadan programlı erişim sağlar: `prediction.intents.give`. V2'de, bunları bir dizide döndürülmedi. |
+|`verbose`|boolean|V2 VE V3|false|**V2'de**, true, tahmin edilen tüm hedefleri kümesine döndürüldü. Tahmin edilen tüm hedefleri gerekiyorsa, V3 param kullanın `show-all-intents`.<br><br>**V3 içinde**, bu parametre varlık meta verileri varlık öngörü ayrıntılarını yalnızca sağlar.  |
+
+
 
 <!--
 |`multiple-segments`|boolean|V3 only|Break utterance into segments and predict each segment for intents and entities.|
@@ -71,12 +74,23 @@ V3 API farklı bir sorgu dizesi parametresi içeriyor.
 {
     "query":"your utterance here",
     "options":{
-        "timezoneOffset": "-8:00"
+        "datetimeReference": "2019-05-05T12:00:00",
+        "overridePredictions": true
     },
     "externalEntities":[],
     "dynamicLists":[]
 }
 ```
+
+|Özellik|Tür|Version|Varsayılan|Amaç|
+|--|--|--|--|--|
+|`dynamicLists`|array|Yalnızca v3|Gerekli değildir.|[Dinamik listeler](#dynamic-lists-passed-in-at-prediction-time) LUIS uygulaması içinde zaten mevcut bir eğitilen ve yayımlanan listesi varlık genişletme olanak sağlar.|
+|`externalEntities`|array|Yalnızca v3|Gerekli değildir.|[Dış varlıklar](#external-entities-passed-in-at-prediction-time) LUIS uygulamanızı tanımlayın ve var olan varlıkları için özellikler olarak kullanılan çalışma zamanı sırasında varlıklar olanağı sağlayacak. |
+|`options.datetimeReference`|string|Yalnızca v3|Varsayılan yok|Belirlemek için kullanılan [datetimeV2 uzaklığı](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity).|
+|`options.overridePredictions`|boolean|Yalnızca v3|false|Belirtir kullanıcının [(ile aynı ada sahip mevcut varlık) Dış varlık](#override-existing-model-predictions) kullanılır veya var olan varlık modeli tahmin için kullanılır. |
+|`query`|string|Yalnızca v3|Gereklidir.|**V2'de**, tahmin için utterance bulunduğu `q` parametresi. <br><br>**V3 içinde**, işlevselliği geçirilen `query` parametresi.|
+
+
 
 ## <a name="response-changes"></a>Yanıt değişiklikleri
 
@@ -275,6 +289,67 @@ Sohbet Robotu içine ileri kullanıcı utterance daha belirsiz bir terim kullan�
 
 İstekte tanımlandığından tahmini yanıt tüm diğer varlıklarla tahmin edilen, bu dış varlık içeriyor.  
 
+### <a name="override-existing-model-predictions"></a>Var olan model tahminlerini geçersiz kıl
+
+`overridePredictions` Seçenekleri özelliği, kullanıcı, çakışan bir dış varlığı ile aynı ada sahip bir tahmin edilen varlık gönderirse, LUIS geçirilen bir varlık veya model içinde mevcut varlık seçer belirtir. 
+
+Örneğin, sorgu düşünün `today I'm free`. LUIS algılar `today` şu yanıtı ile bir datetimeV2 olarak:
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+Kullanıcının Dış varlık gönderirse:
+
+```JSON
+{
+    "entityName": "datetimeV2",
+    "startIndex": 0,
+    "entityLength": 5,
+    "resolution": {
+        "date": "2019-06-21"
+    }
+}
+```
+
+Varsa `overridePredictions` ayarlanır `false`, LUIS, Dış varlık gönderilmedi gibi bir yanıt döndürür. 
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+Varsa `overridePredictions` ayarlanır `true`, LUIS içeren bir yanıt döndürür:
+
+```JSON
+"datetimeV2": [
+    {
+        "date": "2019-06-21"
+    }
+]
+```
+
+
+
 #### <a name="resolution"></a>Çözüm
 
 _İsteğe bağlı_ `resolution` özelliği döndürür dış bir varlıkla ilişkilendirilen meta verilerin geçirin ve ardından alacak olanak tanıyan tahmin yanıt geriye yanıtta. 
@@ -287,6 +362,7 @@ _İsteğe bağlı_ `resolution` özelliği döndürür dış bir varlıkla iliş
 * {"text": "value"}
 * 12345 
 * ["a", "b", "c"]
+
 
 
 ## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Tahmin zaman geçirilen dinamik listeler

@@ -80,7 +80,7 @@ Bir çıkış tanımı için genel yapısı şu şekildedir:
 |-----------|----------|------|-------------|
 | <*key-name*> | Evet | String | Anahtar adı çıkışı için dönüş değeri |
 | <*key-type*> | Evet | int, float, string, securestring, bool, array, JSON nesnesi | Çıkış döndürülen değerin türü |
-| <*key-value*> | Evet | Aynı <*key-type*> | Çıkış dönüş değeri |
+| <*anahtar-değer*> | Evet | Aynı <*anahtar türü*> | Çıkış dönüş değeri |
 |||||
 
 Bir iş akışından işlemin çıktısını almak için mantıksal uygulamanızın çalıştırma geçmişi ve Azure portalında ayrıntılarını gözden geçirebilir veya [iş akışı REST API](https://docs.microsoft.com/rest/api/logic/workflows). Böylece panolar oluşturabilir, çıkış harici sistemlere, örneğin, Power BI geçirebilirsiniz.

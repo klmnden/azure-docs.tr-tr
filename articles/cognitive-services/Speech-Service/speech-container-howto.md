@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 54cd90b55375425d966c73d625a57014432a31a3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0fe30bc6bdd1bba03df349305d8846e78063bd26
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274999"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342204"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Yükleme ve konuşma hizmeti kapsayıcıları çalıştırma
 
@@ -249,13 +249,15 @@ var config = SpeechConfig.FromEndpoint(
 Bu Azure bulut başlatma çağrısı kullanarak değiştirme
 
 ```python
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+speech_config = speechsdk.SpeechConfig(
+    subscription=speech_key, region=service_region)
 ```
 
 Bu çağrı, kapsayıcı uç noktasını kullanarak:
 
 ```python
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
+speech_config = speechsdk.SpeechConfig(
+    subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
 ```
 
 ### <a name="text-to-speech"></a>Metin okuma

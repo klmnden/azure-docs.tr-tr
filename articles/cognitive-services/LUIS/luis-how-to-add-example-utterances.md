@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c7476a82df75d8ba653a2a8e6c0f9f557b53c42
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072847"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341867"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Bir varlık için örnek Konuşma ekleme 
 
 Örnek konuşma metin kullanıcı sorularınız ya da komutları örnekleridir. Language Understanding (LUIS) öğretmeyi eklemeniz gerekir [örnek konuşma](luis-concept-utterance.md) için bir [hedefi](luis-concept-intent.md).
 
-Genellikle, bir örnek utterance bir amaç için ilk olarak ekleyin ve varlıkları ve etiket konuşma niyetini sayfada oluşturup. Varlıkları ilk yerine oluşturacak olup [varlık Ekle](luis-how-to-add-entities.md).
+Genellikle, bir örnek utterance bir amaç için öncelikle eklemeniz ve ardından varlıkları oluşturun ve konuşma niyetini sayfasında etiket. Varlıkları ilk yerine oluşturacak olup [varlık Ekle](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Örnek konuşma varlıklarda işaretleme
 

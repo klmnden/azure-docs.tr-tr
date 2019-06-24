@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: concept
+ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: b2054aa963991ffa2d92aabf1ce896031f2d87fc
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296056"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340881"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Eylemler ve bağlamı hakkında bilgi özellikleridir
 
@@ -29,7 +29,7 @@ Personalizer kullanan **özellikleri**, hakkında bilgi olan **geçerli bağlam*
 * _İçeriği_ video olması gibi bir `Documentary`, `Movie`, veya bir `TV Series`, veya bir perakende öğesi mağazada kullanıma sunulan olup olmadığı.
 * _Geçerli_ haftanın günü gibi olduğu süreyi dönem.
 
-Personalizer olarak açıklamayı amaçlamamaktadır, sınırlamaz veya düzeltme eylemleri ve bağlam için gönderebilirsiniz hangi özellikler:
+Personalizer belgenizdeki değil, sınırlandıracak ya da düzeltme eylemleri ve bağlam için gönderebilirsiniz hangi özellikler:
 
 * Bunlara sahip değilseniz, bazı özellikler için diğer ve bazı eylemler için gönderebilirsiniz. Örneğin, TV dizisi filmler yoksa öznitelikleri olabilir.
 * Yalnızca bazı kez kullanılabilen bazı özellikler olabilir. Örneğin, bir mobil uygulama bir web sayfasında daha fazla bilgi sağlayabilir. 
@@ -70,12 +70,15 @@ Geçerli JSON anahtarlarını oldukları sürece kendi kurallarına özellik ad 
 
 Aşağıdaki json'da `user`, `state`, ve `device` özellik adları.
 
+JSON nesneleri, iç içe geçmiş JSON nesneleri ve basit özellik değerlerini içerebilir. Yalnızca sayılar dizi öğeleri, bir dizi dahil edilebilir. 
+
 ```JSON
 {
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "name":"Doug",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -121,7 +124,7 @@ Daha büyük ve daha fazla veya daha az yoğun yapmak için bunları düzenleyer
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Özellik kümeleri ortaya çıkabilecek bilgilerle genişletin
 
-Ayrıca, zaten sahip olduğunuz bilgilerinden türetilen keşfedilmemiş özniteliklerin düşünerek daha fazla özellik elde edebilirsiniz. Örneğin, kurgusal film listesi kişiselleştirmeyi olası, kullanıcıların farklı bir davranış hafta sonu vs haftanın günü çözüleceği nedir? "Hafta" veya "iş günü" özniteliği için zaman genişletilemiyor. İlgiyi belirli film türleri kültürel Ulusal tatilleri yönlendiriyor? Örneğin, "Cadılar Bayramı" özniteliği ilgili olduğu yerde yararlı olur. Rainy hava durumu, tercih ettiğiniz bir filmi üzerinde önemli bir etkisi çoğu kişi için döndürmüş olabilir mi? Zaman ve yerde, hava durumu hizmetine bilgi ve bunu ek bir özellik olarak ekleyebilirsiniz sağlayabilir. 
+Ayrıca, zaten sahip olduğunuz bilgilerinden türetilen keşfedilmemiş özniteliklerin düşünerek daha fazla özellik elde edebilirsiniz. Örneğin, bir kurgusal film listesi kişiselleştirmeyi, olası, bir hafta sonu vs haftanın günü, kullanıcıların farklı bir davranış verilmesini sağlar nedir? "Hafta" veya "iş günü" özniteliği için zaman genişletilemiyor. İlgiyi belirli film türleri kültürel Ulusal tatilleri yönlendiriyor? Örneğin, "Cadılar Bayramı" özniteliği ilgili olduğu yerde yararlı olur. Rainy hava durumu, tercih ettiğiniz bir filmi üzerinde önemli bir etkisi çoğu kişi için döndürmüş olabilir mi? Zaman ve yerde, hava durumu hizmetine bilgi ve bunu ek bir özellik olarak ekleyebilirsiniz sağlayabilir. 
 
 #### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Özellik kümeleri yapay zeka ve bilişsel hizmetler ile genişletin
 
@@ -196,6 +199,8 @@ Bazı durumlarda, yalnızca iş mantığınıza daha sonra bir sonuç ise belirl
 
 Derece çağrılırken, aralarından seçim yapabileceğiniz birden fazla eylem gönderir:
 
+JSON nesneleri, iç içe geçmiş JSON nesneleri ve basit özellik değerlerini içerebilir. Yalnızca sayılar dizi öğeleri, bir dizi dahil edilebilir. 
+
 ```json
 {
     "actions": [
@@ -204,7 +209,8 @@ Derece çağrılırken, aralarından seçim yapabileceğiniz birden fazla eylem 
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
@@ -217,7 +223,8 @@ Derece çağrılırken, aralarından seçim yapabileceğiniz birden fazla eylem 
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
@@ -229,7 +236,8 @@ Derece çağrılırken, aralarından seçim yapabileceğiniz birden fazla eylem 
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
@@ -244,7 +252,8 @@ Derece çağrılırken, aralarından seçim yapabileceğiniz birden fazla eylem 
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
@@ -271,6 +280,8 @@ Uygulamanızın bağlamı hakkında bilgi yüklemek için ilgili veritabanları,
 
 Bağlam derece API'ye gönderilen bir JSON nesnesi olarak ifade edilir:
 
+JSON nesneleri, iç içe geçmiş JSON nesneleri ve basit özellik değerlerini içerebilir. Yalnızca sayılar dizi öğeleri, bir dizi dahil edilebilir. 
+
 ```JSON
 {
     "contextFeatures": [
@@ -288,7 +299,9 @@ Bağlam derece API'ye gönderilen bir JSON nesnesi olarak ifade edilir:
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]

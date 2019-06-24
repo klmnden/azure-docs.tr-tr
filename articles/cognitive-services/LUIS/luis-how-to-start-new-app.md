@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9d650a17ddfac6461341e50c4693e4522d9628b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8b0cebf4ba47f875caacfcfbf89b84551b41333
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148190"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341851"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS portalda yeni bir LUIS uygulaması oluşturma
 Çeşitli şekillerde LUIS uygulaması oluşturmak için vardır. Bir LUIS uygulaması oluşturabileceğiniz [LUIS](https://www.luis.ai) portal ya da yazma LUIS aracılığıyla [API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -65,7 +65,7 @@ ms.locfileid: "65148190"
 
 Olası hatalar şunlardır: 
 
-* Bu ada sahip bir uygulama zaten var. Uygulamayı yeniden içeri aktarın ve ayarlama **isteğe bağlı adı** yeni bir ad. 
+* Bu ada sahip bir uygulama zaten var. Bunu düzeltmek için uygulamayı yeniden içeri aktarın ve ayarlama **isteğe bağlı adı** yeni bir ad. 
 
 ## <a name="export-app-for-backup"></a>Yedekleme için uygulamayı dışarı aktarma
 
