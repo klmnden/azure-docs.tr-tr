@@ -78,9 +78,9 @@ Bir çıkış tanımı için genel yapısı şu şekildedir:
 
 | Öznitelik | Gerekli | Tür | Açıklama |
 |-----------|----------|------|-------------|
-| <*anahtar adı*> | Evet | String | Anahtar adı çıkışı için dönüş değeri |
-| <*anahtar türü*> | Evet | int, kayan noktalı sayı, dize, securestring, bool, dizi, JSON nesnesi | Çıkış döndürülen değerin türü |
-| <*anahtar-değer*> | Evet | Aynı <*anahtar türü*> | Çıkış dönüş değeri |
+| <*key-name*> | Evet | String | Anahtar adı çıkışı için dönüş değeri |
+| <*key-type*> | Evet | int, float, string, securestring, bool, array, JSON nesnesi | Çıkış döndürülen değerin türü |
+| <*key-value*> | Evet | Aynı <*key-type*> | Çıkış dönüş değeri |
 |||||
 
 Bir iş akışından işlemin çıktısını almak için mantıksal uygulamanızın çalıştırma geçmişi ve Azure portalında ayrıntılarını gözden geçirebilir veya [iş akışı REST API](https://docs.microsoft.com/rest/api/logic/workflows). Böylece panolar oluşturabilir, çıkış harici sistemlere, örneğin, Power BI geçirebilirsiniz.
@@ -110,9 +110,9 @@ Bir parametre tanımında genel yapısı şu şekildedir:
 
 | Öznitelik | Gerekli | Tür | Açıklama |
 |-----------|----------|------|-------------|
-| <*parametre türü*> | Evet | int, kayan noktalı sayı, dize, securestring, bool, dizi, JSON nesnesi, secureobject <p><p>**Not**: Tüm parolalar, anahtarlar ve gizli dizileri için kullanmak `securestring` ve `secureobject` çünkü `GET` işlemi, bu tür döndürmez. Parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [mantıksal uygulamanızı güvenli hale getirme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Parametresinin türü |
-| <*Varsayılan parametre değerleri*> | Evet | Aynı `type` | İş akışı örneğini oluşturduğunda hiçbir değer belirtilmemişse varsayılan parametre değeri |
-| <*dizi-ile-izin verilen-parametre-değerleri*> | Hayır | Dizi | Bir dizi parametre kabul edebilen değerlerle |
+| <*parameter-type*> | Evet | int, float, string, securestring, bool, array, JSON nesnesi, secureobject <p><p>**Not**: Tüm parolalar, anahtarlar ve gizli dizileri için kullanmak `securestring` ve `secureobject` çünkü `GET` işlemi, bu tür döndürmez. Parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [mantıksal uygulamanızı güvenli hale getirme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Parametresinin türü |
+| <*default-parameter-value*> | Evet | Aynı `type` | İş akışı örneğini oluşturduğunda hiçbir değer belirtilmemişse varsayılan parametre değeri |
+| <*array-with-permitted-parameter-values*> | Hayır | Array | Bir dizi parametre kabul edebilen değerlerle |
 | `metadata` | Hayır | JSON nesnesi | Diğer parametre ayrıntıları, örneğin, ad veya mantıksal uygulama, akış veya Visual Studio veya diğer araçları tarafından kullanılan tasarım zamanı veri için okunabilir bir açıklaması |
 ||||
 
@@ -145,11 +145,11 @@ Bir parametre tanımında genel yapısı şu şekildedir:
 
 | Öznitelik | Gerekli | Tür | Açıklama |
 |-----------|----------|------|-------------|
-| <*statik sonucu tanımı adı*> | Evet | String | Bir eylem tanımı aracılığıyla başvurabilirsiniz bir statik sonucu tanımı adı bir `runtimeConfiguration.staticResult` nesne. Daha fazla bilgi için [çalışma zamanı yapılandırma ayarlarını](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>İstediğiniz herhangi bir benzersiz ad kullanabilirsiniz. Varsayılan olarak, bu benzersiz bir ad gerekirse artırılır bir sayı ile eklenir. |
-| <*Çıkış öznitelikleri-ve-değerleri-döndürülen*> | Evet | Değişir | Bu öznitelikler için gereksinimleri farklı koşullara göre farklılık gösterir. Örneğin, `status` olduğu `Succeeded`, `outputs` öznitelik içeren öznitelikler ve değerler olarak sahte çıkışları eylem tarafından döndürülen. Varsa `status` olduğu `Failed`, `outputs` özniteliği içeren `errors` bir veya daha fazla hata ile dizisi özniteliği `message` hata bilgilerini sahip nesneleri. |
-| <*Üstbilgi değerleri*> | Hayır | JSON | Eylem tarafından döndürülen herhangi bir üstbilgi değeri |
-| <*durum kodunu döndürdü*> | Evet | String | Eylem tarafından döndürülen durum kodu |
-| <*Eylem durumu*> | Evet | String | Örneğin, eylemin durumu `Succeeded` veya `Failed` |
+| <*static-result-definition-name*> | Evet | String | Bir eylem tanımı aracılığıyla başvurabilirsiniz bir statik sonucu tanımı adı bir `runtimeConfiguration.staticResult` nesne. Daha fazla bilgi için [çalışma zamanı yapılandırma ayarlarını](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>İstediğiniz herhangi bir benzersiz ad kullanabilirsiniz. Varsayılan olarak, bu benzersiz bir ad gerekirse artırılır bir sayı ile eklenir. |
+| <*output-attributes-and-values-returned*> | Evet | Varies | Bu öznitelikler için gereksinimleri farklı koşullara göre farklılık gösterir. Örneğin, `status` olduğu `Succeeded`, `outputs` öznitelik içeren öznitelikler ve değerler olarak sahte çıkışları eylem tarafından döndürülen. Varsa `status` olduğu `Failed`, `outputs` özniteliği içeren `errors` bir veya daha fazla hata ile dizisi özniteliği `message` hata bilgilerini sahip nesneleri. |
+| <*header-values*> | Hayır | JSON | Eylem tarafından döndürülen herhangi bir üstbilgi değeri |
+| <*status-code-returned*> | Evet | String | Eylem tarafından döndürülen durum kodu |
+| <*action-status*> | Evet | String | Örneğin, eylemin durumu `Succeeded` veya `Failed` |
 |||||
 
 Örneğin, bu HTTP eylemi tanımı'ndaki `runtimeConfiguration.staticResult.name` başvuruları öznitelik `HTTP0` içinde `staticResults` eylemi için sahte çıkışları tanımlandığı özniteliği. `runtimeConfiguration.staticResult.staticResultOptions` Özniteliği belirtir statik sonucu ayarının olduğunu `Enabled` HTTP eylemi.
