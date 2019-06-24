@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: c71d76539a4486527d2c8954c62db82a52ca3a4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8086e67753821cd6dd87192835b8a2180014db17
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056806"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338622"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Hızlı Başlangıç: Dönüştürme metin okuma Python kullanma
 
@@ -37,7 +37,9 @@ Bu hızlı başlangıç şunları gerektirir:
 Favori IDE ortamınızda veya düzenleyicide yeni bir Python projesi oluşturun. Ardından bu kod parçacığını projenizde `tts.py` adlı bir dosyaya kopyalayın.
 
 ```python
-import os, requests, time
+import os
+import requests
+import time
 from xml.etree import ElementTree
 ```
 
@@ -51,8 +53,10 @@ Bu modüller, metin okuma API çağrısı bir zaman damgasına sahip bir dosya k
 Sonraki birkaç bölümde yetkilendirmeyi ele alırken, metin okuma API'si çağırmayı ve yanıt doğrulamak için yöntem oluşturacaksınız. Bu örnek xenapp'i bazı kod Python ile çalışır ekleyerek başlayalım 2.7.x ve 3.x.
 
 ```python
-try: input = raw_input
-except NameError: pass
+try:
+    input = raw_input
+except NameError:
+    pass
 ```
 
 Ardından, bir sınıf oluşturalım. Biz bizim belirteç değişimi ve metin okuma API'si Çağırma yöntemlerini nerede giriyorum budur.
@@ -120,7 +124,8 @@ def save_audio(self):
     xml_body.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-us')
     voice = ElementTree.SubElement(xml_body, 'voice')
     voice.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-US')
-    voice.set('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+    voice.set(
+        'name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
     voice.text = self.tts
     body = ElementTree.tostring(xml_body)
 
@@ -128,9 +133,11 @@ def save_audio(self):
     if response.status_code == 200:
         with open('sample-' + self.timestr + '.wav', 'wb') as audio:
             audio.write(response.content)
-            print("\nStatus code: " + str(response.status_code) + "\nYour TTS is ready for playback.\n")
+            print("\nStatus code: " + str(response.status_code) +
+                  "\nYour TTS is ready for playback.\n")
     else:
-        print("\nStatus code: " + str(response.status_code) + "\nSomething went wrong. Check your subscription key and headers.\n")
+        print("\nStatus code: " + str(response.status_code) +
+              "\nSomething went wrong. Check your subscription key and headers.\n")
 ```
 
 ## <a name="put-it-all-together"></a>Hepsini bir araya getirin

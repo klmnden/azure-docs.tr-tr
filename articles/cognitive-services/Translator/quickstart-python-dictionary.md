@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: ef72e7f5a4974a9da96d03dc74bc7a8b01ff4d10
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 0a204238e86e23a10d698b1b8b0a465c6cbb75da
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515093"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340980"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Hızlı Başlangıç: Python kullanarak iki dilli sözlük ile sözcük arayın
 
@@ -36,7 +36,10 @@ Sık kullandığınız IDE veya düzenleyiciyi kullanarak yeni Python projesi ol
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -74,7 +77,7 @@ Translator metin çevirisi genel uç noktası olarak ayarlandığından `base_ur
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/dictionary/lookup?api-version=3.0'
-params = '&from=en&to=es';
+params = '&from=en&to=es'
 constructed_url = base_url + path + params
 ```
 
@@ -115,7 +118,8 @@ response = request.json()
 Son adım sonuçları yazdırmaktır. Bu kod parçacığı anahtarları sıralayarak, girintiyi ayarlayarak ve öğe ve anahtar ayırıcıları bildirerek sonuçların daha iyi görünmesini sağlar.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Hepsini bir araya getirin

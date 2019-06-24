@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 60c7e6b32f60d6f42d706489c41dbeea4af0d15d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596098"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342130"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API hesabı verileri yönetmek için bir .NET konsol uygulaması oluşturma
 
@@ -40,7 +40,7 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 > - JSON belgeleri oluşturma
 > - Sorgu koleksiyonu
 > - Bir JSON belgesi güncelleştir
-> - Belge sil
+> - Bir belgeyi silme
 > - Veritabanını silme
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -68,7 +68,7 @@ Bu öğreticiyi tamamlamak veya yalnızca kod örneklerini istediğiniz zaman yo
 1. İçinde *App.config* dosyası, güncelleştirme `EndpointUrl` ve `PrimaryKey` değerleri açıklandığı [Azure Cosmos DB hesabına bağlanma](#Connect) bölümü.
 1. Seçin **hata ayıklama** > **hata ayıklama olmadan Başlat** veya basın **Ctrl**+**F5** oluşturun ve uygulamayı çalıştırın.
 
-## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturun
+## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturma
 
 Azure portalında bir Azure Cosmos DB hesabı oluşturmak için bu yönergeleri izleyin. Kullanılacak bir Azure Cosmos DB hesabı zaten varsa atlayın [Visual Studio çözümünü ayarlamak](#SetupVS). 
 
@@ -78,7 +78,7 @@ Azure portalında bir Azure Cosmos DB hesabı oluşturmak için bu yönergeleri 
 
 1. Visual Studio 2017'de seçin **dosya** > **yeni** > **proje**.
    
-1. İçinde **yeni proje** iletişim kutusunda **Visual C#**   >  **konsol uygulaması (.NET Framework)**, projenizi adlandırın *AzureCosmosDBApp* ve ardından **Tamam**.
+1. İçinde **yeni proje** iletişim kutusunda **Visual C#**   >  **konsol uygulaması (.NET Framework)** , projenizi adlandırın *AzureCosmosDBApp* ve ardından **Tamam**.
    
    ![Yeni Proje penceresinin ekran görüntüsü](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
    
@@ -450,7 +450,7 @@ Aşağıdaki diyagram, Azure Cosmos DB SQL sorgusu söz dizimi koleksiyonunda ç
 
 ![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan sorgunun kapsamını ve anlamını gösteren diyagram](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-[FROM](how-to-sql-query.md#FromClause) Azure Cosmos DB sorguları zaten tek bir koleksiyon kapsamında olduğundan SQL sorgusunda anahtar sözcüğü isteğe bağlıdır. Takas edebilirsiniz `FROM Families f` ile `FROM root r`, veya seçtiğiniz diğer herhangi bir değişken adı. Azure Cosmos DB, Infer `Families`, `root`, veya seçtiğiniz değişken adı geçerli koleksiyonla ifade eder.
+[FROM](sql-query-from.md) Azure Cosmos DB sorguları zaten tek bir koleksiyon kapsamında olduğundan SQL sorgusunda anahtar sözcüğü isteğe bağlıdır. Takas edebilirsiniz `FROM Families f` ile `FROM root r`, veya seçtiğiniz diğer herhangi bir değişken adı. Azure Cosmos DB, Infer `Families`, `root`, veya seçtiğiniz değişken adı geçerli koleksiyonla ifade eder.
 
 ## <a id="ReplaceDocument"></a>Bir JSON belgesi güncelleştir
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 4750937ee7ef6230ed4635d739a102a501b19a30
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002999"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341808"
 ---
 # <a name="what-are-the-speech-services"></a>Konuşma Tanıma Hizmetleri nelerdir?
 
@@ -32,7 +32,7 @@ Bu özellikler Azure konuşma Hizmetleri ' hale getirir. Bağlantıları, her ö
 | | [Batch Transkripsiyon](batch-transcription.md) | Batch transkripsiyonu, zaman uyumsuz metne dönüştürme konuşma transkripsiyonu büyük hacimdeki verileri sağlar. Bu özelleştirme ve model Yönetimi aynı uç noktasını kullanan bir REST tabanlı hizmetidir. | Hayır | [Evet](https://westus.cris.ai/swagger/ui/index) |
 | | [Konuşma tanıma](conversation-transcription-service.md) | Gerçek zamanlı konuşma tanıma, konuşmacı tanıma ve diarization sağlar. Yüz yüze toplantılar konuşmacıları ayırt olanağı fotoğrafını için idealdir. | Evet | Hayır |
 | | [Özel konuşma modelleri oluşturma](#customize-your-speech-experience) | Konuşma metin tanıma ve benzersiz bir ortamda transkripsiyonu için kullanıyorsanız, oluşturabilir ve adresi ortam gürültü veya sektöre özel sözlük özel akustik ve dil telaffuz modellerini eğitin. | Hayır | [Evet](https://westus.cris.ai/swagger/ui/index) |
-| [Metin okuma](text-to-speech.md) | Metin Okuma | Metin okuma, giriş metni İnsan benzeri Sentezlenen konuşmaya dönüştürür. Standart seslerle ve sinir kişilerden daha fazlasını seçin (bkz [dil desteği](language-support.md)). | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Metin okuma](text-to-speech.md) | Metin okuma | Metin okuma, İnsan benzeri Sentezlenen konuşma kullanarak metin girişi dönüştürür [konuşma sentezi işaretleme dili (SSML'yi)](text-to-speech.md#speech-synthesis-markup-language-ssml). Standart seslerle ve sinir kişilerden daha fazlasını seçin (bkz [dil desteği](language-support.md)). | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Özel ses oluşturma](#customize-your-speech-experience) | Özel ses tipi markanız veya ürün için benzersiz oluşturun. | Hayır | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Konuşma Çevirisi](speech-translation.md) | Konuşma çevirisi | Konuşma çevirisi, konuşma, uygulamalar, Araçlar ve cihazlar için gerçek zamanlı, çoklu dil çevirisi sağlar. Konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için bu hizmeti kullanın. | [Evet](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Hayır |
 | [Ses öncelikli sanal Yardımcıları](voice-first-virtual-assistants.md) | Ses öncelikli sanal Yardımcıları | Azure konuşma Hizmetleri kullanarak özel sanal Yardımcıları, geliştiricilere uygulamalarını ve deneyimler için doğal olarak, İnsan benzeri damıtarak konuşma bağlamında kullanılabilen arabirimlerini oluşturma olanağı sunun. Bot Framework'ün doğrudan satır konuşma kanal, ses, sesli etkileşim düşük gecikme süresi ve yüksek güvenilirlikle kullanıma sağlayan uyumlu bir bot için Eşgüdümlü, düzenlenmiş giriş noktası sunarak bu özelliklerini geliştirir. | [Evet](voice-first-virtual-assistants.md) | Hayır |

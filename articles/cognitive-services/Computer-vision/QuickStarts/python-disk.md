@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9227685dc99a4fe84cdefa0953e51aff29df5c06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feba14f3557ac5d09c0455b02a9df64872f632c1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401434"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342069"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme REST API ve Python kullanarak yerel bir resmi çözümleme
 
@@ -33,7 +33,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 - Örneği yerel olarak çalıştırmak istiyorsanız [Python](https://www.python.org/downloads/) yüklenmiş olmalıdır.
 - Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Ücretsiz bir deneme anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) görüntü işleme için abone ve anahtarınızı alın.
 - Aşağıdaki Python paketleri yüklü olması gerekir. Kullanabileceğiniz [pip](https://packaging.python.org/tutorials/installing-packages/) Python paketlerini yükleyin.
-    - istek
+    - istekler
     - [matplotlib](https://matplotlib.org/)
     - [pillow](https://python-pillow.org/)
 
@@ -53,7 +53,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -78,9 +78,9 @@ image_path = "C:/Documents/ImageToAnalyze.jpg"
 
 # Read the image into a byte array
 image_data = open(image_path, "rb").read()
-headers    = {'Ocp-Apim-Subscription-Key': subscription_key,
-              'Content-Type': 'application/octet-stream'}
-params     = {'visualFeatures': 'Categories,Description,Color'}
+headers = {'Ocp-Apim-Subscription-Key': subscription_key,
+           'Content-Type': 'application/octet-stream'}
+params = {'visualFeatures': 'Categories,Description,Color'}
 response = requests.post(
     analyze_url, headers=headers, params=params, data=image_data)
 response.raise_for_status()

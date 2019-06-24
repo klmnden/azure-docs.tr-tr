@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 714c2be7265a41a7791ce39bfaa1bdc12fa58cac
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60426886"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340759"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs'ı kullanarak evrensel Windows platformu uygulamaları için bildirimler gönderin
 
@@ -29,7 +29,7 @@ ms.locfileid: "60426886"
 Bu öğreticide, bir Evrensel Windows Platformu (UWP) uygulamasına anında iletme bildirimleri göndermek için bir bildirim hub’ı oluşturursunuz. Windows Anında Bildirim Hizmeti’ni (WNS) kullanarak anında iletme bildirimleri alan boş bir Windows Mağazası uygulaması oluşturursunuz. Ardından, uygulamanızı çalıştıran tüm cihazlara anında iletme bildirimleri için bildirim hub'ı kullanın.
 
 > [!NOTE]
-> Bu öğreticinin tamamlanan kodunu [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal)'da bulabilirsiniz.
+> Bu öğreticinin tamamlanan kodunu [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/UwpSample)'da bulabilirsiniz.
 
 Aşağıdaki adımları uygulayın:
 
@@ -77,7 +77,7 @@ UWP uygulamalarına anında iletme bildirimleri göndermek için uygulamanızı 
 
 ### <a name="configure-wns-settings-for-the-hub"></a>Hub için WNS ayarlarını yapılandırma
 
-1. İçinde **bildirim ayarları** kategorisi, select **Windows (WNS)**.
+1. İçinde **bildirim ayarları** kategorisi, select **Windows (WNS)** .
 2. Önceki bölümde not ettiğiniz **Paket SID'si** ve **Güvenlik Anahtarı** değerlerini girin.
 3. Araç çubuğunda **Kaydet** seçeneğine tıklayın.
 
@@ -100,7 +100,7 @@ Bildirim hub'ınız WNS ile birlikte çalışacak şekilde yapılandırıldı. U
 3. **Hedef** ve **en düşük** platform sürümleri için varsayılan değerleri kabul edin ve **Tamam**’ı seçin.
 4. Çözüm Gezgini'nde, Windows Mağazası uygulama projesine sağ tıklayın, **Mağaza**'yı ve ardından **Uygulamayı Mağaza ile ilişkilendir**'i seçin. **Uygulamanızı Windows Mağazası ile ilişkilendirin** sihirbazı görüntülenir.
 5. Sihirbazda Microsoft hesabınızla oturum açın.
-6. 2. adımda kaydettiğiniz uygulamayı seçin, **İleri**'yi ve ardından **İlişkilendir**'i seçin. Bunu yaptığınızda uygulama bildirimine gerekli Windows Mağazası kayıt bilgileri eklenir.
+6. 2\. adımda kaydettiğiniz uygulamayı seçin, **İleri**'yi ve ardından **İlişkilendir**'i seçin. Bunu yaptığınızda uygulama bildirimine gerekli Windows Mağazası kayıt bilgileri eklenir.
 7. Visual Studio'da çözüme sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'i seçin. **NuGet Paketlerini Yönet** penceresi açılır.
 8. Arama kutusuna **WindowsAzure.Messaging.Managed** yazın, **Yükle**'yi seçin ve kullanım koşullarını kabul edin.
 

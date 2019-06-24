@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3d262a33ecbc35ada278019ee0998486bc92efe
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4b2304e170f9ddc14a5c1fa71a8822d083955106
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130203"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341529"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Azure App Service'te bir Python ve PostgreSQL uygulaması oluşturma
 
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
 > * Azure’da PostgreSQL veritabanı oluşturma
 > * Python uygulamasını PostgreSQL’e bağlama
-> * Uygulamayı Azure’da dağıtma
+> * Uygulamayı Azure'a dağıtma
 > * Tanılama günlüklerini görüntüleme
 > * Uygulamayı Azure portalında yönetme
 
@@ -286,7 +286,8 @@ Bu adımda, Postgres’e bağlı Python uygulamasını Azure App Service'e dağ�
 Django doğrular `HTTP_HOST` üst bilgisinde gelen istekler. Django uygulamanız App Service'te çalışmaya uygulamasının tam etki alanı adı izin verilen konakları eklemeniz gerekir. Açık _azuresite/settings.py_ ve bulma `ALLOWED_HOSTS` ayarı. Çizginin değiştirin:
 
 ```python
-ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
+ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net',
+                 '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
 Ardından, Django desteklemiyor [üretimde statik dosyaları sunma](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), bu nedenle bu el ile etkinleştirmeniz gerekir. Bu öğretici için kullandığınız [WhiteNoise](https://whitenoise.evans.io/en/stable/). WhiteNoise paket zaten yer aldığı _requirements.txt_. Django kullanmak için yapılandırmanız yeterlidir. 
@@ -417,7 +418,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
 > * Azure’da PostgreSQL veritabanı oluşturma
 > * Python uygulamasını PostgreSQL’e bağlama
-> * Uygulamayı Azure’da dağıtma
+> * Uygulamayı Azure'a dağıtma
 > * Tanılama günlüklerini görüntüleme
 > * Uygulamayı Azure portalında yönetme
 

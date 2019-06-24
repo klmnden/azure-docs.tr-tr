@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: fe2ab3952b68243f7e95ebf754a42e58006f012b
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 81b2ed578e1731c1848e05a986f27c044c976e7b
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514726"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340952"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Python kullanarak desteklenen dillerin listesini almak için kullanın
 
@@ -33,7 +33,10 @@ Favori IDE ortamınızda veya düzenleyicide yeni bir Python projesi oluşturun.
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -81,7 +84,8 @@ response = request.json()
 Son adım sonuçları yazdırmaktır. Bu kod parçacığı anahtarları sıralayarak, girintiyi ayarlayarak ve öğe ve anahtar ayırıcıları bildirerek sonuçların daha iyi görünmesini sağlar.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Hepsini bir araya getirin
