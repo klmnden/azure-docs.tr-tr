@@ -212,7 +212,7 @@
 - name: Başvuru
   items:
     - name: Şablon başvurusu
-      href: subtoc/toc.yml
+      href: /azure/templates/
     - name: Şablon işlevleri
       items:
         - name: Tüm işlevler
