@@ -52,21 +52,21 @@ Bazı isteğe bağlıdır, ancak bu üst düzey öğeleri Tetikleyiciler vardır
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*Tetikleyici adı*> | String | Tetikleyici adı | 
-| <*Tetikleyici türü*> | String | Örneğin "Http" veya "ApiConnection" tetikleyici türü | 
-| <*Tetikleyici giriş*> | JSON nesnesi | Tetikleyicinin davranışını tanımlayan girişleri | 
-| <*zaman birimi*> | String | Tetikleyici ne sıklıkta açıklayan zaman birimi: "Saniye", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*sayı, zaman birimi*> | Integer | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
+| <*trigger-name*> | String | Tetikleyici adı | 
+| <*trigger-type*> | String | Örneğin "Http" veya "ApiConnection" tetikleyici türü | 
+| <*trigger-inputs*> | JSON nesnesi | Tetikleyicinin davranışını tanımlayan girişleri | 
+| <*time-unit*> | String | Tetikleyici ne sıklıkta açıklayan zaman birimi: "Saniye", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*number-of-time-units*> | Integer | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
 |||| 
 
 *İsteğe bağlı*
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*koşullar ile dizi*> | Dizi | Bir veya daha fazla bilgi içeren bir dizi [koşullar](#trigger-conditions) iş akışı çalıştırılıp çalıştırılmayacağını belirleyen. Tetikleyiciler için kullanılabilir. | 
-| <*çalışma zamanı yapılandırma seçenekleri*> | JSON nesnesi | Ayarlayarak tetikleyici çalışma zamanı davranışı değiştirebilirsiniz `runtimeConfiguration` özellikleri. Daha fazla bilgi için [çalışma zamanı yapılandırma ayarlarını](#runtime-config-options). | 
+| <*array-with-conditions*> | Array | Bir veya daha fazla bilgi içeren bir dizi [koşullar](#trigger-conditions) iş akışı çalıştırılıp çalıştırılmayacağını belirleyen. Tetikleyiciler için kullanılabilir. | 
+| <*runtime-config-options*> | JSON nesnesi | Ayarlayarak tetikleyici çalışma zamanı davranışı değiştirebilirsiniz `runtimeConfiguration` özellikleri. Daha fazla bilgi için [çalışma zamanı yapılandırma ayarlarını](#runtime-config-options). | 
 | <*splitOn-expression*> | String | Bir dizi döndürür tetikleyiciler, bir ifade belirtebilirsiniz, [ayırır veya *debatches* ](#split-on-debatch) işleme için birden çok iş akışı örneği içinde öğeleri dizisi. | 
-| <*işlem seçeneği*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
+| <*operation-option*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
 |||| 
 
 ## <a name="trigger-types-list"></a>Tetikleyici türleri listesi
@@ -79,8 +79,8 @@ Farklı bir arabirim ve tetikleyicinin davranışını belirleyen girişlerin he
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Denetler veya *yoklamalar* herhangi bir uç nokta. Bu uç nokta "202" zaman uyumsuz desen kullanma ya da bir dizi dönerek belirli tetikleyici sözleşmeye uymalıdır. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Mantıksal uygulamanız için çağrılabilen bir uç nokta oluşturur ancak kaydetmek veya kaydını silmek için belirtilen URL çağırır. |
-| [**Yinelenme**](#recurrence-trigger) | Tanımlanan bir zamanlamaya göre ateşlenir. Gelecekteki bir tarih ve saat bu tetikleme adımını için ayarlayabilirsiniz. Sıklığı temel alarak, süreleri de belirtebilirsiniz ve iş akışınızı çalıştırmak için gün. | 
-| [**İstek**](#request-trigger)  | Mantıksal uygulamanız için çağrılabilen bir uç noktası oluşturur ve "elle" tetikleyici olarak da bilinen olduğu. Örneğin, [çağrı, tetikleyici veya iç içe iş akışları HTTP uç noktaları ile](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**Recurrence**](#recurrence-trigger) | Tanımlanan bir zamanlamaya göre ateşlenir. Gelecekteki bir tarih ve saat bu tetikleme adımını için ayarlayabilirsiniz. Sıklığı temel alarak, süreleri de belirtebilirsiniz ve iş akışınızı çalıştırmak için gün. | 
+| [**Request**](#request-trigger)  | Mantıksal uygulamanız için çağrılabilen bir uç noktası oluşturur ve "elle" tetikleyici olarak da bilinen olduğu. Örneğin, [çağrı, tetikleyici veya iç içe iş akışları HTTP uç noktaları ile](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
 ### <a name="managed-api-triggers"></a>Yönetilen API Tetikleyicileri
