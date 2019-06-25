@@ -200,7 +200,7 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Çıkışlar | Dizi | İş çıkışları alır.|
+| outputs | Array | İş çıkışları alır.|
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
 
@@ -316,11 +316,11 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Streamıd | string | Bağlantı ve akış tanımlayıcısı. Alma URL'si bu kimliği eklemek için Kodlayıcı veya müşteri sorumludur. |  
-| IngestUrl | string | Canlı etkinliği tarafından sağlanan URL alın. |  
-| EncoderIp | string | Kodlayıcı IP'si. |
-| EncoderPort | string | Gelen bu akış nereden geldiğini bir kodlayıcının bağlantı noktası. |
-| ResultCode | string | Bunun nedeni bağlantı reddedildi. Sonuç kodları, aşağıdaki tabloda listelenmiştir. |
+| streamıd | string | Bağlantı ve akış tanımlayıcısı. Alma URL'si bu kimliği eklemek için Kodlayıcı veya müşteri sorumludur. |  
+| ingestUrl | string | Canlı etkinliği tarafından sağlanan URL alın. |  
+| encoderIp | string | Kodlayıcı IP'si. |
+| encoderPort | string | Gelen bu akış nereden geldiğini bir kodlayıcının bağlantı noktası. |
+| resultCode | string | Bunun nedeni bağlantı reddedildi. Sonuç kodları, aşağıdaki tabloda listelenmiştir. |
 
 Sonuç kodları şunlardır:
 
@@ -363,10 +363,10 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Streamıd | string | Bağlantı ve akış tanımlayıcısı. Kodlayıcı veya müşteri bu kimliği alma URL'si sağlamaktan sorumludur. |
-| IngestUrl | string | Canlı etkinliği tarafından sağlanan URL alın. |
-| EncoderIp | string | Kodlayıcı IP'si. |
-| EncoderPort | string | Gelen bu akış nereden geldiğini bir kodlayıcının bağlantı noktası. |
+| streamıd | string | Bağlantı ve akış tanımlayıcısı. Kodlayıcı veya müşteri bu kimliği alma URL'si sağlamaktan sorumludur. |
+| ingestUrl | string | Canlı etkinliği tarafından sağlanan URL alın. |
+| encoderIp | string | Kodlayıcı IP'si. |
+| encoderPort | string | Gelen bu akış nereden geldiğini bir kodlayıcının bağlantı noktası. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -397,11 +397,11 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Streamıd | string | Bağlantı ve akış tanımlayıcısı. Alma URL'si bu kimliği eklemek için Kodlayıcı veya müşteri sorumludur. |  
-| IngestUrl | string | Canlı etkinliği tarafından sağlanan URL alın. |  
-| EncoderIp | string | Kodlayıcı IP'si. |
-| EncoderPort | string | Gelen bu akış nereden geldiğini bir kodlayıcının bağlantı noktası. |
-| ResultCode | string | Kesme Kodlayıcı nedeni. Normal bağlantıyı kes olabilir veya bir hata oluştu. Sonuç kodları, aşağıdaki tabloda listelenmiştir. |
+| streamıd | string | Bağlantı ve akış tanımlayıcısı. Alma URL'si bu kimliği eklemek için Kodlayıcı veya müşteri sorumludur. |  
+| ingestUrl | string | Canlı etkinliği tarafından sağlanan URL alın. |  
+| encoderIp | string | Kodlayıcı IP'si. |
+| encoderPort | string | Gelen bu akış nereden geldiğini bir kodlayıcının bağlantı noktası. |
+| resultCode | string | Kesme Kodlayıcı nedeni. Normal bağlantıyı kes olabilir veya bir hata oluştu. Sonuç kodları, aşağıdaki tabloda listelenmiştir. |
 
 Hata sonuç kodları şunlardır:
 
@@ -454,12 +454,12 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| TrackType | string | İzleme türü (Ses / Video). |
-| TrackName | string | İzleme adı. |
-| Bit hızı | integer | İzleme hızı. |
+| trackType | string | İzleme türü (Ses / Video). |
+| trackName | string | İzleme adı. |
+| bitrate | integer | İzleme hızı. |
 | timestamp | string | Bırakılan veri öbeğin zaman damgası. |
-| Zaman Çizelgesi | string | Zaman damgası ölçeğini. |
-| ResultCode | string | Verileri öbek açılan açıklaması. **FragmentDrop_OverlapTimestamp** veya **FragmentDrop_NonIncreasingTimestamp**. |
+| timescale | string | Zaman damgası ölçeğini. |
+| resultCode | string | Verileri öbek açılan açıklaması. **FragmentDrop_OverlapTimestamp** veya **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -494,14 +494,14 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| TrackType | string | İzleme türü (Ses / Video). |
-| TrackName | string | İzleme adı (ya da sunucu Kodlayıcı tarafından veya, RTMP olması durumunda, oluşturur sağlanan *TrackType_Bitrate* biçimi). |
-| Bit hızı | integer | İzleme hızı. |
-| IngestUrl | string | Canlı etkinliği tarafından sağlanan URL alın. |
-| EncoderIp | string  | Kodlayıcı IP'si. |
-| EncoderPort | string | Gelen bu akış nereden geldiğini bir kodlayıcının bağlantı noktası. |
+| trackType | string | İzleme türü (Ses / Video). |
+| trackName | string | İzleme adı (ya da sunucu Kodlayıcı tarafından veya, RTMP olması durumunda, oluşturur sağlanan *TrackType_Bitrate* biçimi). |
+| bitrate | integer | İzleme hızı. |
+| ingestUrl | string | Canlı etkinliği tarafından sağlanan URL alın. |
+| encoderIp | string  | Kodlayıcı IP'si. |
+| encoderPort | string | Gelen bu akış nereden geldiğini bir kodlayıcının bağlantı noktası. |
 | timestamp | string | Alınan verileri öbek ilk zaman damgası. |
-| Zaman Çizelgesi | string | Ölçeği, zaman damgası gösterilir. |
+| timescale | string | Ölçeği, zaman damgası gösterilir. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -533,12 +533,12 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| MinLastTimestamp | string | Son zaman damgaları tüm parçalar (ses veya video) arasında en az. |
-| TypeOfTrackWithMinLastTimestamp | string | En düşük son zaman damgası ile izleme (ses veya video) türü. |
-| MaxLastTimestamp | string | Tüm parçaları (ses veya video) arasında tüm zaman damgaları en fazla. |
-| TypeOfTrackWithMaxLastTimestamp | string | En son zaman damgası ile izleme (ses veya video) türü. |
-| TimescaleOfMinLastTimestamp| string | "MinLastTimestamp" temsil edilen bir zaman ölçeğine göre alır.|
-| TimescaleOfMaxLastTimestamp| string | "MaxLastTimestamp" temsil edilen bir zaman ölçeğine göre alır.|
+| minLastTimestamp | string | Son zaman damgaları tüm parçalar (ses veya video) arasında en az. |
+| typeOfTrackWithMinLastTimestamp | string | En düşük son zaman damgası ile izleme (ses veya video) türü. |
+| maxLastTimestamp | string | Tüm parçaları (ses veya video) arasında tüm zaman damgaları en fazla. |
+| typeOfTrackWithMaxLastTimestamp | string | En son zaman damgası ile izleme (ses veya video) türü. |
+| timescaleOfMinLastTimestamp| string | "MinLastTimestamp" temsil edilen bir zaman ölçeğine göre alır.|
+| timescaleOfMaxLastTimestamp| string | "MaxLastTimestamp" temsil edilen bir zaman ölçeğine göre alır.|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
@@ -569,11 +569,11 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| FirstTimestamp | string | Zaman damgası türü video izler/kalite düzeylerinden birini alındı. |
-| FirstDuration | string | İlk zaman damgası ile verileri öbek süresi. |
-| SecondTimestamp | string  | Zaman damgası, bazı diğer izleme/kalite düzeyini video türü alındı. |
-| SecondDuration | string | İkinci zaman damgası ile verileri öbek süresi. |
-| Zaman Çizelgesi | string | Zaman damgaları ve süresi ölçeğini.|
+| firstTimestamp | string | Zaman damgası türü video izler/kalite düzeylerinden birini alındı. |
+| firstDuration | string | İlk zaman damgası ile verileri öbek süresi. |
+| secondTimestamp | string  | Zaman damgası, bazı diğer izleme/kalite düzeyini video türü alındı. |
+| secondDuration | string | İkinci zaman damgası ile verileri öbek süresi. |
+| timescale | string | Zaman damgaları ve süresi ölçeğini.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -611,18 +611,18 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| TrackType | string | İzleme türü (Ses / Video). |
-| TrackName | string | İzleme adı (ya da sunucu Kodlayıcı tarafından veya, RTMP olması durumunda, oluşturur sağlanan *TrackType_Bitrate* biçimi). |
-| Bit hızı | integer | İzleme hızı. |
-| IncomingBitrate | integer | Kodlayıcıdan gelen veri öbekleri göre hesaplanan hızı. |
-| LastTimestamp | string | Son 20 saniye cinsinden bir parçası için alınan son zaman damgası. |
-| Zaman Çizelgesi | string | Ölçeği zaman damgaları cinsinden ifade edilir. |
-| OverlapCount | integer | Veri öbeği sayısı son 20 saniye cinsinden zaman damgaları çakışan. |
-| DiscontinuityCount | integer | Son 20 saniye içinde gözlemlenen discontinuities sayısı. |
-| NonIncreasingCount | integer | Geçmişteki zaman damgalı veri öbeği sayısı son 20 saniye içinde alınmadı. |
-| UnexpectedBitrate | bool | Son 20 saniye cinsinden izin verilenden fazla sınırı tarafından beklenen ve gerçek bit hızlarına dönüştürme farklıysa. True ise ve yalnızca, incomingBitrate olan > = 2 * bit hızı veya incomingBitrate < = hızı/2 veya IncomingBitrate = 0. |
+| trackType | string | İzleme türü (Ses / Video). |
+| trackName | string | İzleme adı (ya da sunucu Kodlayıcı tarafından veya, RTMP olması durumunda, oluşturur sağlanan *TrackType_Bitrate* biçimi). |
+| bitrate | integer | İzleme hızı. |
+| incomingBitrate | integer | Kodlayıcıdan gelen veri öbekleri göre hesaplanan hızı. |
+| lastTimestamp | string | Son 20 saniye cinsinden bir parçası için alınan son zaman damgası. |
+| timescale | string | Ölçeği zaman damgaları cinsinden ifade edilir. |
+| overlapCount | integer | Veri öbeği sayısı son 20 saniye cinsinden zaman damgaları çakışan. |
+| discontinuityCount | integer | Son 20 saniye içinde gözlemlenen discontinuities sayısı. |
+| nonIncreasingCount | integer | Geçmişteki zaman damgalı veri öbeği sayısı son 20 saniye içinde alınmadı. |
+| unexpectedBitrate | bool | Son 20 saniye cinsinden izin verilenden fazla sınırı tarafından beklenen ve gerçek bit hızlarına dönüştürme farklıysa. True ise ve yalnızca, incomingBitrate olan > = 2 * bit hızı veya incomingBitrate < = hızı/2 veya IncomingBitrate = 0. |
 | state | string | Canlı etkinlik durumu. |
-| İyi durumda | bool | Belirtir olup olmadığını alma sayıları ve bayrakları göre kötü durumda. Sağlıklı true ise, overlapCount 0 = & & discontinuityCount 0 = & & nonIncreasingCount 0 = & & unexpectedBitrate = false. |
+| healthy | bool | Belirtir olup olmadığını alma sayıları ve bayrakları göre kötü durumda. Sağlıklı true ise, overlapCount 0 = & & discontinuityCount 0 = & & nonIncreasingCount 0 = & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -655,13 +655,13 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| TrackType | string | İzleme türü (Ses / Video). |
-| TrackName | string | İzleme adı (ya da sunucu Kodlayıcı tarafından veya, RTMP olması durumunda, oluşturur sağlanan *TrackType_Bitrate* biçimi). |
-| Bit hızı | integer | İzleme hızı. |
-| PreviousTimestamp | string | Önceki parça zaman damgası. |
-| NewTimestamp | string | Zaman damgası geçerli parça. |
+| trackType | string | İzleme türü (Ses / Video). |
+| trackName | string | İzleme adı (ya da sunucu Kodlayıcı tarafından veya, RTMP olması durumunda, oluşturur sağlanan *TrackType_Bitrate* biçimi). |
+| bitrate | integer | İzleme hızı. |
+| previousTimestamp | string | Önceki parça zaman damgası. |
+| newTimestamp | string | Zaman damgası geçerli parça. |
 | discontinuityGap | string | Yukarıdaki iki zaman damgaları arasındaki boşluk. |
-| Zaman Çizelgesi | string | Hangi zaman damgası hem süreksizlik boşluk ölçeğinde temsil edilir. |
+| timescale | string | Hangi zaman damgası hem süreksizlik boşluk ölçeğinde temsil edilir. |
 
 ### <a name="common-event-properties"></a>Ortak olay özellikleri
 
