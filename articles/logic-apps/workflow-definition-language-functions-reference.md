@@ -84,16 +84,16 @@ Dize işlevleri yalnızca dizeler üzerinde çalışır.
 | --------------- | ---- |
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | İki veya daha fazla dizeleri birleştirmek ve birleştirilmiş dizeyi döndürür. |
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Bir dizeyi, belirtilen alt dizeyle bitip bitmediğini kontrol edin. |
-| [GUID](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Bir dize olarak bir genel benzersiz tanıtıcısı (GUID) oluşturur. |
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Bir dize olarak bir genel benzersiz tanıtıcısı (GUID) oluşturur. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Bir alt dizenin başlangıç konumunu döndürür. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Bir dizenin son a geçişi için başlangıç konumunu döndürür. |
-| [Değiştir](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Belirtilen dizenin bir alt dizenin yerini ve güncelleştirilmiş dizeyi döndür. |
+| [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Belirtilen dizenin bir alt dizenin yerini ve güncelleştirilmiş dizeyi döndür. |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Belirtilen sınırlayıcı karakter özgün dizedeki göre daha büyük bir dizeden virgülle ayrılmış bir alt dizeler, içeren bir dizi döndürür. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Bir dizeyi belirli bir alt dizesi ile başlayıp başlamadığını kontrol edin. |
-| [alt dize](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Belirtilen konumundan başlayan bir dizeden karakterleri döndürür. |
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Belirtilen konumundan başlayan bir dizeden karakterleri döndürür. |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Küçük harf biçiminde bir dize döndürür. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Büyük harf biçiminde bir dize döndürür. |
-| [Kırpma](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Bir dizeden öndeki ve sondaki boşlukları kaldırın ve güncelleştirilmiş bir dize döndürür. |
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Bir dizeden öndeki ve sondaki boşlukları kaldırın ve güncelleştirilmiş bir dize döndürür. |
 |||
 
 <a name="collection-functions"></a>
@@ -104,17 +104,17 @@ Koleksiyonlar, genellikle dizi, dizeleri ve sözlükleri ile bazen çalışmak i
 
 | Toplama işlevi | Görev |
 | ------------------- | ---- |
-| [içerir](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Bir koleksiyon için belirli bir öğe olup olmadığını denetleyin. |
-| [boş](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Bir koleksiyonun boş olup olmadığını denetleyin. |
-| [ilk](../logic-apps/workflow-definition-language-functions-reference.md#first) | Bir koleksiyondaki ilk öğeyi döndürür. |
-| [kesişimi](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Sahip bir koleksiyonun dönüş *yalnızca* belirtilen koleksiyonlarla arasında ortak öğeleri. |
-| [Öğesi](../logic-apps/workflow-definition-language-functions-reference.md#item) | Bir dizi üzerindeki bir yinelenen eylemi olduğu zaman içinde eylemin geçerli yineleme sırasında dizideki geçerli öğeyi döndürür. |
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Bir koleksiyon için belirli bir öğe olup olmadığını denetleyin. |
+| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Bir koleksiyonun boş olup olmadığını denetleyin. |
+| [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Bir koleksiyondaki ilk öğeyi döndürür. |
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Sahip bir koleksiyonun dönüş *yalnızca* belirtilen koleksiyonlarla arasında ortak öğeleri. |
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Bir dizi üzerindeki bir yinelenen eylemi olduğu zaman içinde eylemin geçerli yineleme sırasında dizideki geçerli öğeyi döndürür. |
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | İçeren bir dize döndürecek *tüm* bir dizi, öğeleri belirtilen karakteriyle ayrılmış. |
-| [Son](../logic-apps/workflow-definition-language-functions-reference.md#last) | Bir koleksiyondaki son öğeyi döndürür. |
-| [Uzunluğu](../logic-apps/workflow-definition-language-functions-reference.md#length) | Bir dize ya da dizideki öğe sayısını döndürür. |
-| [Atla](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Bir koleksiyonun önünden öğeleri kaldırıp dönüş *diğer tüm* öğeleri. |
-| [sınav zamanı](../logic-apps/workflow-definition-language-functions-reference.md#take) | Bir koleksiyonun önünden öğelerini döndürür. |
-| [birleşim](../logic-apps/workflow-definition-language-functions-reference.md#union) | Sahip bir koleksiyonun dönüş *tüm* belirtilen koleksiyonlarla öğelerinden. |
+| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Bir koleksiyondaki son öğeyi döndürür. |
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Bir dize ya da dizideki öğe sayısını döndürür. |
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Bir koleksiyonun önünden öğeleri kaldırıp dönüş *diğer tüm* öğeleri. |
+| [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Bir koleksiyonun önünden öğelerini döndürür. |
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Sahip bir koleksiyonun dönüş *tüm* belirtilen koleksiyonlarla öğelerinden. |
 |||
 
 <a name="comparison-functions"></a>
@@ -126,15 +126,15 @@ Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/w
 
 | Mantıksal bir karşılaştırma işlevi | Görev |
 | --------------------------- | ---- |
-| [ve](../logic-apps/workflow-definition-language-functions-reference.md#and) | Tüm ifadelerin doğru olup olmadığını denetleyin. |
-| [eşittir](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Her iki değer eşit olup olmadığını denetleyin. |
-| [daha büyük](../logic-apps/workflow-definition-language-functions-reference.md#greater) | İlk değer ikinci değerden büyük olup olmadığını denetleyin. |
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Tüm ifadelerin doğru olup olmadığını denetleyin. |
+| [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Her iki değer eşit olup olmadığını denetleyin. |
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | İlk değer ikinci değerden büyük olup olmadığını denetleyin. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | İlk değer ikinci değerine eşit veya daha büyük olup olmadığını denetleyin. |
-| [Eğer](../logic-apps/workflow-definition-language-functions-reference.md#if) | İfadenin true veya false olup olmadığını denetleyin. Sonuca bağlı, belirli bir değeri döndürme. |
-| [daha az](../logic-apps/workflow-definition-language-functions-reference.md#less) | İkinci değer ilk değer olup değerinden denetleyin. |
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | İfadenin true veya false olup olmadığını denetleyin. Sonuca bağlı, belirli bir değeri döndürme. |
+| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | İkinci değer ilk değer olup değerinden denetleyin. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | İlk değer ya da ikinci değer eşit olup olmadığını denetleyin. |
-| [değil](../logic-apps/workflow-definition-language-functions-reference.md#not) | Bir ifadenin false olup olmadığını denetleyin. |
-| [veya](../logic-apps/workflow-definition-language-functions-reference.md#or) | En az bir ifadenin doğru olup olmadığını denetleyin. |
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Bir ifadenin false olup olmadığını denetleyin. |
+| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | En az bir ifadenin doğru olup olmadığını denetleyin. |
 |||
 
 <a name="conversion-functions"></a>
