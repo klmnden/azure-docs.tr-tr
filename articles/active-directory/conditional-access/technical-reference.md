@@ -119,8 +119,8 @@ Bu ayar tüm tarayıcılarla çalışır. Ancak, bir cihaz uyumlu gereksinim gib
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
 | Windows 7              | Internet Explorer, Chrome                     |
-| iOS                    | Safari, Microsoft Edge, Intune yönetilen tarayıcı |
-| Android                | Chrome, Microsoft Edge, Intune yönetilen tarayıcı |
+| iOS                    | Safari, Microsoft Edge, Intune Managed Browser |
+| Android                | Chrome, Microsoft Edge, Intune Managed Browser |
 | Windows Phone          | Microsoft Edge, Internet Explorer             |
 | Windows Server 2016    | Microsoft Edge, Internet Explorer             |
 | Windows Server 2016    | Chrome                                        |
@@ -141,18 +141,18 @@ Bu uzantı Chrome tarayıcısına otomatik olarak dağıtmak için aşağıdaki 
 |    |    |
 | --- | --- |
 | `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Ad | 1 |
-| Tür | REG_SZ (String) |
-| Veriler | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
+| Name | 1 |
+| Type | REG_SZ (String) |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarını oluşturun:
 
 |    |    |
 | --- | --- |
 | `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Ad | 1 |
-| Tür | REG_SZ (String) |
-| Veriler | {"deseni": "https://device.login.microsoftonline.com","filter": {"ISSUER": {"CN =": "MS-Kuruluş-erişim"}}} |
+| Name | 1 |
+| Type | REG_SZ (String) |
+| Data | {"deseni": "https://device.login.microsoftonline.com","filter": {"ISSUER": {"CN =": "MS-Kuruluş-erişim"}}} |
 
 Bu tarayıcılar, cihaz kimlik doğrulaması, cihazın tanımlanması ve bir ilke karşı doğrulandı izin verme desteklemez. Tarayıcı özel modda çalışıyorsa cihaz denetimi başarısız olur.
 
