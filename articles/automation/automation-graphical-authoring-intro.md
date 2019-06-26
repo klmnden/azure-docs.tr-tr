@@ -142,7 +142,7 @@ Yeniden deneme koşulu, etkinlik yeniden deneme işlemleri ile ilgili bilgilere 
 | Özellik | Açıklama |
 |:--- |:--- |
 | NumberOfAttempts |Etkinliği çalıştırmak kez sayısı. |
-| Çıktı |Son çalıştırma etkinliğin çıkışı. |
+| Output |Son çalıştırma etkinliğin çıkışı. |
 | TotalDuration |Zaman aşımına etkinliği ilk kez başlatıldığından beri geçen. |
 | StartedAt |UTC biçiminde etkinliğin saat önce başlatıldı. |
 
@@ -324,11 +324,11 @@ Her giriş parametresi, aşağıdaki tabloda özellikleri tarafından tanımlan�
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Ad |Parametrenin benzersiz adı. Bu, yalnızca alfa sayısal karakterler içerebilir ve boşluk içeremez. |
-| Açıklama |Giriş parametresi için isteğe bağlı bir açıklama. |
-| Tür |Veri türü için parametre değeri bekleniyor. Azure portalında uygun bir denetim için her parametresinin veri türü için giriş isterken sağlar. |
-| Zorunlu |Parametresi için bir değer sağlanmalıdır olup olmadığını belirtir. Tanımlanan varsayılan değeri olmayan zorunlu her parametre için bir değer belirtmezseniz, runbook başlatılamıyor. |
-| Varsayılan Değer |Bir sağlanmazsa, parametresi için hangi değerin kullanıldığını belirtir. Bu Null ya da belirli bir değer olabilir. |
+| Name |Parametrenin benzersiz adı. Bu, yalnızca alfa sayısal karakterler içerebilir ve boşluk içeremez. |
+| Description |Giriş parametresi için isteğe bağlı bir açıklama. |
+| Type |Veri türü için parametre değeri bekleniyor. Azure portalında uygun bir denetim için her parametresinin veri türü için giriş isterken sağlar. |
+| Mandatory |Parametresi için bir değer sağlanmalıdır olup olmadığını belirtir. Tanımlanan varsayılan değeri olmayan zorunlu her parametre için bir değer belirtmezseniz, runbook başlatılamıyor. |
+| Default Value |Bir sağlanmazsa, parametresi için hangi değerin kullanıldığını belirtir. Bu Null ya da belirli bir değer olabilir. |
 
 ### <a name="runbook-output"></a>Runbook çıkışı
 
