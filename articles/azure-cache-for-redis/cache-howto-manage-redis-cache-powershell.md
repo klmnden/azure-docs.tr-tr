@@ -127,17 +127,17 @@ Aşağıdaki tabloda, özellikleri ve oluşturma ve yönetme, Azure önbelleği 
 
 | Parametre | Açıklama | Varsayılan |
 | --- | --- | --- |
-| Ad |Önbellek adı | |
+| Name |Önbellek adı | |
 | Location |Önbellek konumu | |
 | ResourceGroupName |Önbellek oluşturulacağı kaynak grubu adı | |
-| Boyut |Önbellek boyutu. Geçerli değerler şunlardır: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
+| Size |Önbellek boyutu. Geçerli değerler şunlardır: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Premium önbellek kümeleme özellikli oluştururken oluşturmak için parça sayısı. Geçerli değerler şunlardır: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Önbelleğinin SKU belirtir. Geçerli değerler şunlardır: Temel, Standart, Premium |Standart |
 | RedisConfiguration |Redis yapılandırma ayarlarını belirtir. Her ayar hakkında daha fazla bilgi için aşağıdakilere bakın [RedisConfiguration özellikleri](#redisconfiguration-properties) tablo. | |
 | EnableNonSslPort |SSL olmayan bağlantı noktasının etkinleştirilip etkinleştirilmeyeceğini gösterir. |False |
 | MaxMemoryPolicy |Bu parametre kullanım - RedisConfiguration kullanın. | |
 | StaticIP |Bir vnet'teki önbelleğinizi barındırırken, benzersiz bir IP adresi alt ağ için önbellek belirtir. Sağlanmazsa, bir, alt ağdan seçilir. | |
-| Alt ağ |Bir vnet'teki önbelleğinizi barındırırken, önbellek dağıtacağınız bir alt ağ adını belirtir. | |
+| Subnet |Bir vnet'teki önbelleğinizi barındırırken, önbellek dağıtacağınız bir alt ağ adını belirtir. | |
 | VirtualNetwork |Bir vnet'teki önbelleğinizi barındırırken, önbellek dağıtacağınız sanal ağın kaynak Kimliğini belirtir. | |
 | KeyType |Erişim anahtarlarını yenilenirken yeniden oluşturmak için hangi erişim anahtarını belirtir. Geçerli değerler şunlardır: Birincil, ikincil | |
 
