@@ -70,9 +70,9 @@ Aşağıdaki tabloda, bir parametre özniteliklerini açıklar.
 
 | Öznitelik | Açıklama |
 |:--- |:--- |
-| türü |Parametresi için veri türü. Kullanıcı için görüntülenen giriş denetiminin veri türüne bağlıdır.<br><br>bool - açılan kutusu<br>dize - metin kutusu<br>int - metin kutusu<br>SecureString - parola alanı<br> |
+| type |Parametresi için veri türü. Kullanıcı için görüntülenen giriş denetiminin veri türüne bağlıdır.<br><br>bool - açılan kutusu<br>dize - metin kutusu<br>int - metin kutusu<br>SecureString - parola alanı<br> |
 | category |Kategori parametresi isteğe bağlı.  Aynı kategoride parametreleri birlikte gruplandırılır. |
-| Denetimi |Dize parametreleri için ek işlevsellik sağlar.<br><br>DateTime - Datetime denetimi görüntülenir.<br>GUID - GUID değeri otomatik olarak oluşturulur ve parametre görüntülenmez. |
+| control |Dize parametreleri için ek işlevsellik sağlar.<br><br>DateTime - Datetime denetimi görüntülenir.<br>GUID - GUID değeri otomatik olarak oluşturulur ve parametre görüntülenmez. |
 | description |Parametresi için isteğe bağlı bir açıklama.  Bir parametrenin yanındaki bilgi balonunda görüntülenir. |
 
 ### <a name="standard-parameters"></a>Standart Parametreler
@@ -87,8 +87,8 @@ Aşağıdaki tabloda, tüm yönetim çözümleri için standart parametreler lis
 |:--- |:--- |:--- |
 | accountName |string |Azure Otomasyon hesabı adı. |
 | pricingTier |string |Log Analytics çalışma alanı hem de Azure Otomasyon hesabı fiyatlandırma katmanı. |
-| RegionID |string |Azure Otomasyonu hesabı bölgesi. |
-| SolutionName |string |Çözüm adı.  Çözümünüzü hızlı başlangıç şablonları aracılığıyla dağıtıyorsanız, bunun yerine bir belirtmesini gerektiren bir dize tanımlayabilirsiniz böylece daha sonra solutionName parametre olarak tanımlamanız gerekir. |
+| regionId |string |Azure Otomasyonu hesabı bölgesi. |
+| solutionName |string |Çözüm adı.  Çözümünüzü hızlı başlangıç şablonları aracılığıyla dağıtıyorsanız, bunun yerine bir belirtmesini gerektiren bir dize tanımlayabilirsiniz böylece daha sonra solutionName parametre olarak tanımlamanız gerekir. |
 | workspaceName |string |Log Analytics çalışma alanı adı. |
 | workspaceRegionId |string |Log Analytics çalışma alanı bölgesi. |
 
@@ -226,7 +226,7 @@ Yukarıdaki örnekte, bir runbook, zamanlama ve görünümü ile çözüm içind
 |:--- |:--- |
 | name |Çözüm adı. |
 | version |Yazar tarafından belirlendiği şekilde bu çözümün sürümü. |
-| Ürün |Çözüm tanımlamak için benzersiz bir dize. |
+| product |Çözüm tanımlamak için benzersiz bir dize. |
 | publisher |Çözümün yayımcısı. |
 
 
