@@ -79,8 +79,8 @@ Kayıtlı bir aramayı her bir özellik aşağıdaki tabloda açıklanmıştır.
 | Özellik | Açıklama |
 |:--- |:--- |
 | category | Kayıtlı arama için kategori.  Konsolunda birlikte gruplanır, böylece aynı çözüm içindeki tüm kayıtlı aramalar genellikle tek bir kategori paylaşın. |
-| DisplayName | Portalı'nda kayıtlı arama için görüntülenecek ad. |
-| sorgu | Çalıştırılacak sorgu. |
+| displayName | Portalı'nda kayıtlı arama için görüntülenecek ad. |
+| query | Çalıştırılacak sorgu. |
 
 > [!NOTE]
 > JSON olarak yorumlanabilecek karakterler içeriyorsa, kaçış karakterleri sorguda kullanmanız gerekebilir. Örneğin, sorgunuz varsa **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** , çözüm dosyasındaki yazılmalıdır **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"** .
@@ -125,7 +125,7 @@ Zamanlama kaynakların özellikleri aşağıdaki tabloda açıklanmıştır.
 |:--|:--|:--|
 | enabled       | Evet | Oluşturulduğunda uyarının etkinleştirilip etkinleştirilmeyeceğini belirtir. |
 | interval      | Evet | Ne sıklıkla sorgu dakikalar içinde çalışır. |
-| QueryTimeSpan | Evet | Sürenin sonuçları değerlendirileceği üzerinden dakika cinsinden uzunluğu. |
+| queryTimeSpan | Evet | Sürenin sonuçları değerlendirileceği üzerinden dakika cinsinden uzunluğu. |
 
 Böylece zamanlama önce oluşturulan zamanlama kaynak kayıtlı arama üzerinde bağlı olmalıdır.
 > [!NOTE]
@@ -176,10 +176,10 @@ Uyarı eylemi kaynakların özellikleri aşağıdaki tablolarda açıklanmışt�
 
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
-| Tür | Evet | Eylem türü.  Bu **uyarı** uyarı eylemleri için. |
-| Ad | Evet | Uyarı görünen adı.  Bu uyarı kuralı için konsolunda görüntülenen addır. |
-| Açıklama | Hayır | Uyarının isteğe bağlı bir açıklama. |
-| Severity | Evet | Önem derecesi uyarı kaydını aşağıdaki değerleri:<br><br> **Kritik**<br>**Uyarı**<br>**Bilgilendirme**
+| type | Evet | Eylem türü.  Bu **uyarı** uyarı eylemleri için. |
+| name | Evet | Uyarı görünen adı.  Bu uyarı kuralı için konsolunda görüntülenen addır. |
+| description | Hayır | Uyarının isteğe bağlı bir açıklama. |
+| severity | Evet | Önem derecesi uyarı kaydını aşağıdaki değerleri:<br><br> **Kritik**<br>**Uyarı**<br>**Bilgilendirme**
 
 
 #### <a name="threshold"></a>Eşik
