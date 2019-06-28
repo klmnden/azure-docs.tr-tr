@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: dfdfb9e38f16d0077175587933b0800b87cc1931
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727041"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144123"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data factory'de bir Azure işlev etkinliği
 
@@ -64,6 +64,10 @@ Azure işlevleri zaman aşımına açmamasından 230 saniye sonra `functionTimeo
 
 Dayanıklı işlevler hakkında daha fazla bilgi [bu makalede](../azure-functions/durable/durable-functions-overview.md). Dayanıklı gibi farklı bir URI ile bir yanıt döndürür işlevi çağırmak için bir Azure işlevi faaliyet ayarlayabilirsiniz [Bu örnek](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Çünkü `statusQueryGetUri` işlevi sırasında HTTP durum 202 çalıştığından, bir Web etkinliği kullanarak işlev durumunu yoklamak döndürür. Bir Web etkinliği ile yalnızca ayarlama `url` alan kümesine `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Dayanıklı işlevi tamamlandığında, bu işlevin çıktısı Web etkinliğinin çıkış olacaktır.
 
+
+## <a name="sample"></a>Örnek
+
+Tar dosyasının içeriği ayıklamak için bir Azure işlevi kullanan bir Data Factory örneği bulabilirsiniz [burada](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: c7f4b6d8aa614a460772fb7af11f9b83dc3fc979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 4a3ab9094080ab257a885bb7a745fc83948327c2
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800808"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331691"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Otomatik-zaman serisi tahmin modeli eğitme
 
@@ -26,6 +26,14 @@ Bu makalede, otomatik machine learning Azure Machine Learning hizmeti kullanarak
 * Zaman serisi verileri ile Öngörüler çalıştırma
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
+
+Otomatik ML teknikleri ve yaklaşımları birleştirin ve bir önerilen, yüksek kaliteli zaman tahmin serisi almak için kullanabilirsiniz. Otomatik bir zaman serisi deneme çok değişkenli regresyon problemi kabul edilir. Son zaman serisi değerleri "diğer adaylarının birlikte üzerine regressor için ek boyutlar olacak özetlenmiş". 
+
+Klasik zaman serisi yöntemlerinden farklı olarak, bu yaklaşım, birden çok bağlam değişkenleri ve bunların birbirleriyle eğitim sırasında doğal olarak ekleme avantajı vardır. Gerçek tahmin uygulamalarında Çoklu faktörlerle tahmin etkileyebilir. Örneğin, satışları tahmin, geçmiş eğilimleri, döviz kuru ve fiyat tüm etkileşimleri ortaklaşa satış sonucu sürücü. Başka bir avantajı, tahmin için tüm son yeniliklerini regresyon modelleri, hemen geçerli olur.
+
+Yapabilecekleriniz [yapılandırma](#config) geleceğe ne tahmini (tahmin horizon) gecikmelere ve daha fazlasını yanı sıra genişletmelidir. Otomatik ML veri kümesi ve tahmin horizons içindeki tüm öğeler için tek, ancak genellikle dahili olarak dallandırılmış bir model öğrenir. Daha fazla veri modelini parametreleri tahmin etmek bu nedenle kullanılabilir ve Genelleştirme görünmeyen dizilerine mümkün hale gelir. 
+
+Eğitim verileri ayıklanan özellikleri, kritik bir rol oynar. Ve otomatik ML standart önceden işleme adımları gerçekleştirir ve dönemsel etkileri yakalamak ve Tahmine dayalı doğruluğu en üst düzeye çıkarmak için ek zaman serisi özellikleri oluşturur. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -69,6 +77,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > Gelecekteki değerleri tahmini bir model eğitim, tüm hedeflenen Ufkunuzu için Öngörüler çalıştırırken eğitim kullanılan özellikler kullanılabilir emin olun. Örneğin, bir talep tahmin oluştururken, bir özellik için geçerli hisse senedi fiyatı da dahil olmak üzere yüksek düzeyde eğitim doğruluğunu artırabilir. Ancak, uzun bir horizon ile tahmini yapmak istiyorsanız, gelecekteki zaman serisi noktalarına karşılık gelen gelecekteki stok değerleri doğru şekilde tahmin mümkün olmayabilir ve model doğruluğundan düşebilir.
 
+<a name="config"></a>
 ## <a name="configure-and-run-experiment"></a>Denemeyi çalıştırma ve yapılandırma
 
 Otomatik makine öğrenimi, görevler tahmin için zaman serisi verileri ön işleme ve tahmini adımlarını kullanır. Aşağıdaki önceden işleme adımları yürütülecek:
@@ -85,7 +94,7 @@ Otomatik makine öğrenimi, görevler tahmin için zaman serisi verileri ön iş
 |-------|-------|-------|
 |`time_column_name`|Zaman serisi oluşturmak ve sıklığının çıkarımını yapma için kullanılan giriş veri datetime sütunu belirtmek için kullanılır.|✓|
 |`grain_column_names`|Giriş verilerinde serisine grupları tanımlama adları. Dilimi tanımlanmamışsa, veri kümesi bir zaman serisi olduğu varsayılır.||
-|`max_horizon`|Maksimum zaman serisi sıklık birimi tahmin horizon istenen.|✓|
+|`max_horizon`|En çok istenen tahmin gelecekte zaman serisi sıklık birimleri cinsinden tanımlar. Birimleri, eğitim verileri, örn. aylık, haftalık zaman aralığına forecaster kullanıma tahmin temel alır.|✓|
 |`target_lags`|*n* İleri lag dönemlerine hedef model eğitiminin önce değer.||
 |`target_rolling_window_size`|*n* geçmiş dönemlerini tahmin edilen değerler oluşturmak için kullanılacak < = Eğitim kümesi boyutu. Atlanırsa, *n* tam eğitim boyutu ayarlanır.||
 

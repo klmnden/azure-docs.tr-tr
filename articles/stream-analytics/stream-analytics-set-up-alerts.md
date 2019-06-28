@@ -3,17 +3,17 @@ title: Azure Stream Analytics işleri için uyarıları izleme işlevini ayarlam
 description: Bu makalede, izleme ve Azure Stream Analytics işleri için uyarılar ayarlamak için Azure portalını kullanmayı açıklar.
 services: stream-analytics
 author: jseb225
-ms.author: jeanb
+ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 09a5c77c770f7709b90d4959da5be9134b0f0ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/21/2019
+ms.openlocfilehash: 26e8e004f917b1c138bc27389cac1cc52672f3d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077675"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329867"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyarıları ayarlama
 
@@ -22,6 +22,7 @@ ms.locfileid: "67077675"
 Portal üzerinden işlem günlükleri verilerden ölçümlere ilişkin kurallar tanımlayabilirsiniz yanı [program aracılığıyla](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Azure portalında uyarıları ayarlama
+### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Bir işi beklenmedik bir şekilde durduruluyor olduğunda uyarı alın
 
 Aşağıdaki örnek, işinizi başarısız durumda girdiğinde için uyarıları ayarlama gösterilmektedir. Bu uyarı, tüm işler için önerilir.
 

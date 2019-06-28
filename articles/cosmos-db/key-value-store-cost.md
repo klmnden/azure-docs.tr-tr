@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a3b4886bc175311e9a0e61f3dfb99b1fe7e1a679
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 757366f1d1f94d11438be4df0772ce1155f71cee
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236755"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310582"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB anahtar değeri deposu – maliyeti genel bakış
 
 Azure Cosmos DB, yüksek oranda kullanılabilir ve büyük ölçekli uygulamaları kolayca oluşturmak için bir Global olarak dağıtılmış çok modelli veritabanı hizmetidir. Varsayılan olarak, Azure Cosmos DB otomatik olarak bu, verimli bir şekilde alan tüm verilerin dizinini oluşturur. Bu hızlı ve tutarlı sağlar [SQL](how-to-sql-query.md) (ve [JavaScript](stored-procedures-triggers-udfs.md)) her türlü veri çubuğunda sorgular. 
 
-Bu makalede, Azure Cosmos DB maliyetini basit yazmak için açıklar ve bir anahtar/değer deposu olarak kullanıldığında, okuma işlemleri. Yazma ekler, değiştirir, siler ve belgelerin upsert eder işlemler içerir. % 99,99 oranında garanti etme yanı sıra tek bölgeli tüm hesaplar ve çok bölgeli tüm hesaplar tutarlılıkla ve % 99,999 kullanılabilirlik SLA'sı tüm çoklu bölge veritabanı hesapları Azure Cosmos DB teklif garanti okunabilirlik < 10 MS'den az gecikme okur ve < 15 ms gecikme süresi (dizinlenmiş) için sırasıyla 99. yüzdebirlik dilimde yazar. 
+Bu makalede, Azure Cosmos DB maliyetini basit yazmak için açıklar ve bir anahtar/değer deposu olarak kullanıldığında, okuma işlemleri. Yazma ekler, değiştirir, siler ve belgelerin upsert eder işlemler içerir. % 99,99 oranında garanti etme yanı sıra tek bölgeli tüm hesaplar ve çok bölgeli tüm hesaplar tutarlılıkla ve % 99,999 kullanılabilirlik SLA'sı tüm çoklu bölge veritabanı hesapları Azure Cosmos DB teklif garanti okunabilirlik < 10 MS'den az gecikme okur ve (dizinlenmiş için) sırasıyla 99. yüzdebirlik dilimde yazar. 
 
 ## <a name="why-we-use-request-units-rus"></a>İstek birimi (RU) neden kullanıyoruz
 

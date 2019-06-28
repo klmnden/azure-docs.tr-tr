@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 1c81f5748d1e3edff4902eb462b9beea78acd8bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951680"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357341"
 ---
 # <a name="automated-backups"></a>Otomatik yedeklemeler
 
@@ -32,7 +32,7 @@ SQL veritabanı oluşturmak için SQL Server teknolojisini kullanan [tam yedekle
 Bu yedeklemeler için kullanabilirsiniz:
 
 - **Varolan bir veritabanını bir-belirli bir noktaya için geçmişte geri** Azure portalı, Azure PowerShell, Azure CLI veya REST API'sini kullanarak Bekletme dönemi içinde. Bu işlem, tek veritabanı ve elastik havuzlar, özgün veritabanı ile aynı sunucuda yeni bir veritabanı oluşturur. Yönetilen örneği'nde, bu işlem veritabanı veya aynı veya farklı yönetilen örneği aynı abonelik altında bir kopyasını oluşturabilirsiniz.
-  - **[Yedekleme Bekletme dönemi değiştirme](#how-to-change-the-pitr-backup-retention-period)**  arasında yedekleme ilkenizi yapılandırmak için 35 gün.
+  - **[Yedekleme Bekletme dönemi değiştirme](#how-to-change-the-pitr-backup-retention-period)**  yedekleme ilkenizi yapılandırmak için 7 ila 35 gün arasında.
   - **Değiştirme uzun süreli saklama ilkesini 10 yıla** tek veritabanı ve elastik havuzlar kullanarak [Azure portalında](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) veya [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
 - **Silinen bir veritabanını silinmiş durumuna geri** veya Bekletme dönemi içinde dilediğiniz zaman. Silinen veritabanını aynı mantıksal sunucu ya da özgün veritabanının oluşturulduğu yönetilen örneği yalnızca geri yüklenebilir.
 - **Bir veritabanını başka bir coğrafi bölgeye geri**. Coğrafi geri yükleme, sunucunuz ve veritabanınıza erişemediğinde coğrafi olağanüstü durumdan kurtarmanıza olanak tanır. Dünyanın her yerinden herhangi bir mevcut sunucusu içinde yeni bir veritabanı oluşturur.

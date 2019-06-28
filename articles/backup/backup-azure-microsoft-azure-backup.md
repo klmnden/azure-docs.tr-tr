@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43793f1cc105bda7a50371f8fffd4ff787f6e300
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098871"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204431"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Yükleme ve Azure Backup sunucusu yükseltme
 > [!div class="op_single_selector"]
@@ -42,19 +42,18 @@ Azure Backup sunucusu iş yükü yedekleme işlevselliğinin Data Protection Man
 Azure Backup sunucusu kullanmaya başlamak ve çalıştırmak doğrultusunda ilk adımı bir Windows Server'ı ayarlamaktır. Sunucunuz, Azure'da veya şirket içinde olabilir.
 
 ### <a name="using-a-server-in-azure"></a>Azure'da bir sunucu kullanarak
-Azure Backup sunucusu çalıştıran bir sunucu seçerken, bir galeri görüntüsü ile Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter veya Windows Server 2019 Datacenter Başlat önerilir. Makale [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), hiçbir zaman Azure önce kullanmış olsanız için önerilen sanal makine azure'da kullanmaya başlama bir öğretici sağlar. Sanal makinede (VM) sunucusu için önerilen en düşük gereksinimleri olmalıdır: Standart a2 iki çekirdek ve 3,5 GB RAM.
+Azure Backup sunucusu çalıştıran bir sunucu seçerken, bir galeri görüntüsü ile Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter veya Windows Server 2019 Datacenter Başlat önerilir. Makale [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), hiçbir zaman Azure önce kullanmış olsanız için önerilen sanal makine azure'da kullanmaya başlama bir öğretici sağlar. Sanal makinede (VM) sunucusu için önerilen en düşük gereksinimleri olmalıdır: İşler için standart_a4_v2 dört çekirdek ve 8 GB RAM.
 
 Azure Backup sunucusu iş yüklerini koruma birçok küçük farklar vardır. Makale [bir Azure sanal makinesi olarak DPM yükleme](https://technet.microsoft.com/library/jj852163.aspx), yardımcı olur, bu küçük farklar açıklanmaktadır. Makine dağıtmadan önce tamamen bu makaleyi okuyun.
 
 ### <a name="using-an-on-premises-server"></a>Bir şirket içi sunucusu kullanma
-Azure'da taban sunucusu çalıştırmak istemiyorsanız, Hyper-V VM, VMware VM veya fiziksel bir konak sunucunun çalıştırabilirsiniz. Sunucu donanımı için önerilen en düşük gereksinimler, iki çekirdek ve 4 GB RAM verilmiştir. Aşağıdaki tabloda listelenen desteklenen işletim sistemleri:
+Azure'da taban sunucusu çalıştırmak istemiyorsanız, Hyper-V VM, VMware VM veya fiziksel bir konak sunucunun çalıştırabilirsiniz. Sunucu donanımı için önerilen en düşük gereksinimler, iki çekirdek ve 8 GB RAM verilmiştir. Aşağıdaki tabloda listelenen desteklenen işletim sistemleri:
 
 | İşletim sistemi | Platform | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials (MABS V3 ve üzeri) |
 | Windows Server 2016 ve en son Sp'ler |64 bit |Standard, Datacenter, Essentials (MABS V2 ve üzeri) |
 | Windows Server 2012 R2 ve en son SP'ler |64 bit |Standard, Datacenter, Foundation |
-| Windows Server 2012 ve en son SP'ler |64 bit |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 ve en son SP'ler |64 bit |Standard, Workgroup |
 | Windows Storage Server 2012 ve en son SP'ler |64 bit |Standard, Workgroup |
 
@@ -142,7 +141,7 @@ Depolama çoğaltma ayarını düzenlemek için:
 Tüm dosyaları indirdikten sonra tıklayın **MicrosoftAzureBackupInstaller.exe**. Bu başlatır **Microsoft Azure Backup Kurulum Sihirbazı'nı** Kurulum dosyaları sizin belirttiğiniz bir konuma ayıklayın. Sihirbaza devam edin ve tıklayarak **ayıklamak** ayıklama işlemi başlatmak için düğme.
 
 > [!WARNING]
-> Kurulum dosyalarını ayıklamak için en az 4GB boş alan gerekir.
+> Kurulum dosyalarını ayıklamak için en az 4 GB boş alan gerekir.
 >
 >
 
@@ -206,7 +205,7 @@ Ayıklama işlemi tamamlandı, yeni ayıklanan başlatmak için bu kutuyu işare
 
     Sonraki adım, Microsoft Azure kurtarma Hizmetleri Aracısı yapılandırmaktır. Yapılandırmanın parçası, Kurtarma Hizmetleri kasası için makine kaydedilemiyor, kasa kimlik bilgilerini sağlamanız gerekir. Ayrıca, şirket içi ve Azure arasında gönderilen verilerin şifreleme/şifre çözme için bir parola sağlar. Otomatik olarak bir parola oluşturabilir veya kendi en az 16 karakter parolayı girin. Aracıyı yapılandırılana kadar sihirbazıyla devam edin.
 
-    ![Azure yedekleme Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    ![Azure Backup sunucusu PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Microsoft Azure Backup sunucusunun kaydı başarıyla tamamlandıktan sonra Genel Kurulum Sihirbazı'nı SQL Server ve Azure Backup sunucusu bileşenlerinin yapılandırma ve yükleme devam eder. Azure Backup sunucusu bileşenleri SQL Server bileşeni yüklemesi tamamlandıktan sonra yüklenir.
 
     ![Azure Backup Sunucusu](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
@@ -262,7 +261,7 @@ MABS, depolama korurken yeni bir sunucuya taşımanız gerekiyorsa adımlar şun
 9. DPMDB'yi SQL geri yükleme
 10. Microsoft Azure Backup'a yeni server CD'sinde yönetici komut satırından konumu ve bin klasörüne yükleyin
 
-    Örnek yol: C:\Windows\System32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
+    Örnek yol: C:\Windows\System32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
 11. Azure yedekleme, çalıştırma DPMSYNC-SYNC
 
@@ -271,7 +270,7 @@ MABS, depolama korurken yeni bir sunucuya taşımanız gerekiyorsa adımlar şun
 ## <a name="network-connectivity"></a>Ağ bağlantısı
 Azure Backup sunucusu başarıyla çalışmak ürün için Azure Backup hizmeti bağlantısı gerektirir. Makineyi azure'a bağlantısı olup olmadığını doğrulamak için kullanın ```Get-DPMCloudConnection``` Azure Backup sunucusu PowerShell konsolundaki cmdlet'i. Bu cmdlet'in çıktısı TRUE ise bağlantı var. daha sonra başka hiçbir bağlantısı yoktur.
 
-Aynı zamanda, Azure aboneliğiniz iyi durumda olması gerekir. Aboneliğinizin durumunu bulmak ve yönetmek için oturum [abonelik portalı](https://account.windowsazure.com/Subscriptions).
+Aynı zamanda, Azure aboneliğiniz iyi durumda olması gerekir. Aboneliğinizin durumunu bulmak ve yönetmek için oturum açın [abonelik portalı](https://account.windowsazure.com/Subscriptions).
 
 Azure bağlantı ve Azure aboneliğinin durumu öğrendikten sonra sunulan yedekleme/geri yükleme işlevselliği üzerindeki etkisini öğrenmek için aşağıdaki tabloyu kullanabilirsiniz.
 
@@ -285,7 +284,7 @@ Azure bağlantı ve Azure aboneliğinin durumu öğrendikten sonra sunulan yedek
 | Kayıp bağlantı > 15 gün |Sağlaması kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Bağlantı kaybından kurtarma
-Bir güvenlik duvarı veya Azure'a erişimi engelleyen bir proxy varsa, güvenlik duvarı/proxy profilinde aşağıdaki etki alanı adreslerini beyaz listeye gerekir:
+Bir güvenlik duvarı veya Azure'a erişimi engelleyen bir proxy varsa, aşağıdaki etki alanı adresler güvenlik duvarı/proxy profilinde izin vermeniz gerekir:
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
@@ -307,7 +306,7 @@ MABS yükseltmek için aşağıdaki yordamları kullanın.
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>V3 için MABS V2'den yükseltme
 
 > [!NOTE]
-> 
+>
 > MABS V2 MABS V3 yüklemek için bir önkoşul olmamasına. Ancak, MABS V3 yalnızca MABS V2'den yükseltme yapabilirsiniz.
 
 MABS yükseltmek için aşağıdaki adımları kullanın:
@@ -317,15 +316,15 @@ MABS yükseltmek için aşağıdaki adımları kullanın:
 2. Sunucunuzu yükseltin. Adımları benzer [yükleme](#install-and-upgrade-azure-backup-server). Ancak, SQL ayarları için SQL örneğinizin SQL 2017'ye yükseltmek veya kendi SQL server 2017 kullanmak için bir seçenek alırsınız.
 
    > [!NOTE]
-   > 
+   >
    > SQL örneğinizin yükseltiliyor, mevcut SQL Raporlama örneği kaldırılır ve bu nedenle MABS yeniden yükseltme girişimi başarısız olur ancak çıkmayın.
 
    Dikkat edilecek önemli noktalar:
 
    > [!IMPORTANT]
-   > 
+   >
    >  SQL 2017 yükseltmesinin bir parçası olarak SQL şifreleme anahtarlarını yedeklemeniz ve Raporlama Hizmetleri kaldırın. SQL server yükseltmesi sonrasında raporlama service(14.0.6827.4788) yüklü & şifreleme anahtarı geri yüklenir.
-   > 
+   >
    > SQL 2017 elle yapılandırırken başvurmak *SQL 2017 ile SSRS yapılandırma* bölümü altında yükleme yönergeleri.
 
 3. Korumalı sunuculardaki koruma aracılarını güncelleştirin.
@@ -333,7 +332,7 @@ MABS yükseltmek için aşağıdaki adımları kullanın:
 5. Artık verilerinizi korumaya başlayabilir. Korurken, Modern yedekleme depolama alanı için yükseltme yapıyorsanız, yedeklemeleri depolamak ve denetlemek için sağlanan alanı altında istediğiniz birimleri de seçebilirsiniz. [Daha fazla bilgi edinin](backup-mabs-add-storage.md).
 
 > [!NOTE]
-> 
+>
 > MABS V1'den V2'ye yükseltiyorsanız, işletim sisteminizi Windows Server 2016 veya Windows Server 2012 R2 olduğundan emin olun. System Center 2016 veri koruma Yöneticisi'ni Modern yedekleme depolama alanı gibi yeni özelliklerden yararlanmak için Windows Server 2016'da yedekleme sunucusu V2 yüklemeniz gerekir. Yükseltme veya yedekleme sunucusu V2'ı yüklemeden önce okumanız [yükleme önkoşulları](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) MABS için geçerlidir.
 
 ## <a name="troubleshooting"></a>Sorun giderme

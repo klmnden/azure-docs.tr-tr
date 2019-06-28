@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b0b637bdbab8f85c87d28473dda8f2e8f8a086e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427145"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312071"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory'deki tümleştirme çalışma zamanı
 Integration Runtime (IR), Azure Data Factory tarafından farklı ağ ortamlarında aşağıdaki veri tümleştirme özelliklerini sunmak için kullanılan işlem altyapısıdır:
@@ -40,7 +40,7 @@ Aşağıdaki tabloda tümleştirme çalışma zamanı türlerinin her birinin su
 
 IR türü | Ortak ağ | Özel ağ
 ------- | -------------- | ---------------
-Azure | Veri akışı<br/>Veri taşıma<br/>Etkinlik dağıtma | &nbsp;
+Azure | Veri Akışı<br/>Veri taşıma<br/>Etkinlik dağıtma | &nbsp;
 Kendinden konak | Veri taşıma<br/>Etkinlik dağıtma | Veri taşıma<br/>Etkinlik dağıtma
 Azure-SSIS | SSIS paketi yürütme | SSIS paketi yürütme
 
@@ -74,7 +74,7 @@ Azure IR oluşturma ve yapılandırma hakkında bilgi almak için nasıl yapıl�
 Kendinden konak IR şu özelliklere sahiptir:
 
 - Bulut veri depoları ve özel ağdaki veri deposu arasında kopyalama etkinliği çalıştırma.
-- Şirket içi veya Azure sanal ağ bilgi işlem kaynaklarının karşı şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği (BYOC Getir bilgisayarınızı kendi kümesi), HDInsight Pig etkinliği (BYOC), HDInsight MapReduce etkinliği (BYOC), HDInsight Spark etkinliği (BYOC), HDInsight Streaming etkinliği (BYOC), Machine Learning Batch Execution etkinliği, Machine Learning Kaynak etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .NET özel etkinliği, arama etkinliği ve Get Metadata etkinliği güncelleştirin.
+- Şirket içi veya Azure sanal ağ bilgi işlem kaynaklarının karşı şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği (BYOC Getir bilgisayarınızı kendi kümesi), HDInsight Pig etkinliği (BYOC), HDInsight MapReduce etkinliği (BYOC), HDInsight Spark etkinliği (BYOC), HDInsight Streaming etkinliği (BYOC), Machine Learning Batch Execution etkinliği, Machine Learning Kaynak etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, özel etkinlik (Azure Batch çalışır), arama etkinliği ve Get Metadata etkinliği güncelleştirin.
 
 > [!NOTE] 
 > SAP Hana ve MySQL gibi kendi sürücünü getir düzenine sahip veri depolarını desteklemek için kendinden konak tümleştirme çalışma zamanını kullanın.  Daha fazla bilgi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

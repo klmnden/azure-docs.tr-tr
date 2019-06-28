@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 6/6/2019
 ms.author: tomfitz
-ms.openlocfilehash: 314b28edbd5770186d96fb2a2b203f26ff27bda0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ab8fbd8fa0453ca6c89f3e7ad91bea95b0b9096
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752359"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331999"
 ---
 # <a name="move-operation-support-for-resources"></a>İşlem desteği kaynakları Taşı
 Bu makalede, bir Azure kaynak türü taşıma işlemini destekleyip desteklemediğini listelenmektedir. Bir kaynak türü taşıma işlemi desteklemesine rağmen kaynak taşınmasını engellemek koşulları olabilir. Taşıma işlemlerini etkileyen koşullar hakkında daha fazla ayrıntı için bkz: [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](resource-group-move-resources.md).
@@ -564,8 +564,8 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 | expressroutecrossconnections | Hayır | Hayır |
 | expressroutegateways | Hayır | Hayır |
 | expressrouteports | Hayır | Hayır |
-| frontdoors | Evet | Evet |
-| frontdoorwebapplicationfirewallpolicies | Evet | Evet |
+| frontdoors | Hayır | Hayır |
+| frontdoorwebapplicationfirewallpolicies | Hayır | Hayır |
 | sonraki | Evet | Evet |
 | localnetworkgateways | Evet | Evet |
 | natgateways | Evet | Evet |

@@ -1,227 +1,289 @@
 ---
 title: Visual Studio Azure kaynak grubu projeleri dağıtma & Oluştur
 description: Bir Azure kaynak grubu projesi oluşturma ve kaynakları Azure'a dağıtmak için Visual Studio'yu kullanın.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: multiple
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/21/2019
+ms.topic: quickstart
+ms.date: 06/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4b54a1c234eb2211884fede1c059e4c20cda137e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8677d906375853bdde5c192c86dacc7479f2e31e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053284"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311132"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio aracılığıyla Azure kaynak grupları oluşturma ve dağıtma
 
-Visual Studio ile altyapınızı ve kodlarınızı Azure’a dağıtan bir proje oluşturabilirsiniz. Örneğin, uygulamanızın web ana bilgisayarını, web sitesini ve veritabanını tanımlayabilir ve kodlarını ve altyapısını dağıtabilirsiniz. Visual Studio genelde karşılaşılan senaryoların dağıtılması için birçok farklı başlangıç şablonu sağlar. Bu makalede bir web uygulaması ve SQL Veritabanı dağıtacaksınız.  
+Visual Studio ile altyapınızı ve kodlarınızı Azure’a dağıtan bir proje oluşturabilirsiniz. Örneğin, web ana bilgisayarı, web sitesi ve web sitesi için kod da dağıtabilirsiniz. Visual Studio genelde karşılaşılan senaryoların dağıtılması için birçok farklı başlangıç şablonu sağlar. Bu makalede, bir web uygulaması dağıtın.  
 
-Bu makalede nasıl kullanılacağını gösterir [Visual Studio 2017 veya üstü yüklü ASP.NET iş yükleri ve Azure geliştirme](/dotnet/azure/dotnet-tools). Visual Studio 2015 Güncelleştirme 2 ve .NET 2.9 için Microsoft Azure SDK veya Azure SDK 2.9 ile Visual Studio 2013 kullanıyorsanız, deneyiminiz büyük ölçüde aynıdır.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Bu makalede nasıl kullanılacağını gösterir [Visual Studio 2019 veya üzeri yüklü ASP.NET iş yükleri ve Azure geliştirme](/visualstudio/install/install-visual-studio?view=vs-2019). Visual Studio 2017'yi kullanıyorsanız, deneyiminiz büyük ölçüde aynıdır.
 
 ## <a name="create-azure-resource-group-project"></a>Azure Kaynak Grubu projesi oluşturma
 
-Bu bölümde, bir **Web uygulaması + SQL** şablonu ile Azure Kaynak Grubu projesi oluşturacaksınız.
+Bu bölümde, bir Azure kaynak grubu projesi ile oluşturduğunuz bir **Web uygulaması** şablonu.
 
-1. Visual Studio’da **Dosya**, **Yeni Proje**’yi ve **C#** veya **Visual Basic**’i seçin (bu projeler yalnızca JSON ve PowerShell içeriğine sahip olduğundan hangi dili seçtiğiniz sonraki aşamaları etkilemez). Daha sonra **Bulut** ve **Azure Kaynak Grubu** projesini seçin.
-   
-    ![Bulut Dağıtım Projesi](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Azure Resource Manager’da dağıtmak istediğiniz şablonu seçin. Dağıtmak istediğiniz proje türüne bağlı olarak çok sayıda farklı seçeneğiniz olduğunu unutmayın. Bu makale için **Web uygulaması + SQL** şablonunu seçin.
-   
+1. Visual Studio'da **dosya**, **yeni**, ve **proje**. Seçin **Azure kaynak grubu** proje şablonu ve **sonraki**.
+
+    ![Proje oluşturma](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
+
+1. Projenize bir ad verin. Ayarları, büyük olasılıkla bir sakınca yoktur, ancak bunları yapmak için gözden diğer varsayılan ortamınız için çalışırlar. İşiniz bittiğinde **Oluştur**’u seçin.
+
+    ![Proje oluşturma](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/name-project.png)
+
+1. Azure Resource Manager’da dağıtmak istediğiniz şablonu seçin. Dağıtmak istediğiniz proje türüne bağlı olarak çok sayıda farklı seçeneğiniz olduğunu unutmayın. Bu makalede seçin **Web uygulaması** şablon ve **Tamam**.
+
     ![Şablon seçme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
-   
+
     Seçtiğiniz şablon sadece başlangıçtır; senaryonuzun gereksinimlerini karşılamak üzere kaynak ekleyebilir ve kaldırabilirsiniz.
-   
-   > [!NOTE]
-   > Visual Studio, çevrimiçi kullanılabilir şablonların listesini alır. Liste değişebilir.
-   > 
-   > 
-   
-    Visual Studio, web uygulaması ve SQL Database için bir kaynak grubu dağıtım projesi oluşturur.
-3. Oluşturduğunuz öğeleri görmek için dağıtım projesindeki düğümlere bakın.
-   
+
+1. Visual Studio, web uygulaması için bir kaynak grubu dağıtım projesi oluşturur. Projeniz için dosyaları görmek için dağıtım projesindeki düğümlere bakın.
+
     ![düğümleri gösterme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
-   
-    Bu örnek için Web uygulaması + SQL şablonunu seçtiğiniz için aşağıdaki dosyaları göreceksiniz: 
-   
+
+    Web uygulaması şablonunu seçtiğiniz olduğundan aşağıdaki dosyaları göreceksiniz:
+
    | Dosya adı | Açıklama |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |Azure Resource Manager’da dağıtılacak PowerShell komutlarını çalıştıran PowerShell betiği.<br />**Not** Visual Studio, şablonunuzu dağıtmak için bu PowerShell betiğini kullanır. Bu betikte yaptığınız tüm değişiklikler Visual Studio’daki dağıtımı da etkiler, bu nedenle dikkatli olun. |
-   | WebSiteSQLDatabase.json |Azure’da dağıtmak istediğiniz altyapıyı tanımlayan Resource Manager şablonu ve dağıtım sırasında sağlayabileceğiniz parametreler. Resource Manager’ın kaynakları doğru sırayla dağıtmasını sağlamak için kaynaklarınız arasındaki bağımlılıkları da tanımlar. |
-   | WebSiteSQLDatabase.parameters.json |Şablon tarafından gereken değerleri içeren bir parametre dosyası. Her bir dağıtımı özelleştirmek için parametre değerlerini geçirirsiniz. |
-   
+   | Deploy-AzureResourceGroup.ps1 |Azure Resource Manager’da dağıtılacak PowerShell komutlarını çalıştıran PowerShell betiği. Visual Studio, şablonunuzu dağıtmak için bu PowerShell Betiği kullanır. |
+   | WebSite.json |Azure’da dağıtmak istediğiniz altyapıyı tanımlayan Resource Manager şablonu ve dağıtım sırasında sağlayabileceğiniz parametreler. Resource Manager’ın kaynakları doğru sırayla dağıtmasını sağlamak için kaynaklarınız arasındaki bağımlılıkları da tanımlar. |
+   | WebSite.parameters.json |Şablon tarafından gereken değerleri içeren bir parametre dosyası. Her bir dağıtımı özelleştirmek için parametre değerlerini geçirirsiniz. |
+
     Tüm kaynak grubu dağıtım projeleri bu temel dosyaları içerir. Diğer projeler diğer işlevleri desteklemek için ek dosyalar içerebilir.
 
-## <a name="customize-the-resource-manager-template"></a>Resource Manager şablonunu özelleştirme
-Dağıtmak istediğiniz kaynakları tanımlayan JSON şablonlarını değiştirerek dağıtım projesini özelleştirebilirsiniz. JSON, JavaScript Nesne Gösterimi anlamına gelir ve birlikte çalışması kolay bir sıralanmış veri biçimidir. JSON dosyaları dosyaların üst kısmında başvurduğunuz şemayı kullanır. Şemayı anlamak istiyorsanız indirip analiz edebilirsiniz. Şema, hangi öğelerin geçerli olduğunu, alan türlerini ve biçimlerini ve bir özelliğin olası değerlerini tanımlar. Resource Manager şablonu bileşenleri hakkında daha fazla bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
+## <a name="customize-resource-manager-template"></a>Resource Manager şablonunu özelleştirme
 
-Şablonunuzda çalışmak için **WebSiteSQLDatabase.json** dosyasını açın.
+Bir dağıtım projesi, dağıtmak istediğiniz kaynakları tanımlayan Resource Manager şablonunu değiştirerek özelleştirebilirsiniz. Resource Manager şablonu bileşenleri hakkında daha fazla bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 
-Visual Studio düzenleyicisi, Resource Manager şablonu düzenleme konusunda size yardımcı olan araçlar sağlar. **JSON Ana Hattı** penceresi, şablonunuzda tanımlanan bileşenleri görmenizi kolaylaştırır.
+1. Şablonunuzda çalışmak için açın **WebSite.json**.
 
-![JSON ana hattını göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-json-outline.png)
+1. Visual Studio düzenleyicisi, Resource Manager şablonu düzenleme konusunda size yardımcı olan araçlar sağlar. **JSON Ana Hattı** penceresi, şablonunuzda tanımlanan bileşenleri görmenizi kolaylaştırır.
 
-Ana hattaki herhangi bir bileşeni seçtiğinizde, şablonun ilgili parçasına gidersiniz ve ilgili JSON vurgulanır.
+   ![JSON ana hattı Göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-json-outline.png)
 
-![JSON’a gitme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/navigate-json.png)
+1. Şablon kısmına gitmek için anahat içinde bir öğe seçin.
 
-JSON Ana Hattı penceresinin üst tarafında bulunan **Kaynak Ekle** düğmesini seçerek veya **kaynaklar**’a sağ tıklayıp **Yeni Kaynak Ekle**’yi seçerek yeni kaynak ekleyebilirsiniz.
+   ![JSON'a gitme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/navigate-json.png)
 
-![kaynak ekle](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
+1. JSON Ana Hattı penceresinin üst tarafında bulunan **Kaynak Ekle** düğmesini seçerek veya **kaynaklar**’a sağ tıklayıp **Yeni Kaynak Ekle**’yi seçerek yeni kaynak ekleyebilirsiniz.
 
-Bu öğreticide, **Depolama Hesabı**’nı seçin ve bir ad verin. 11 karakterden uzun olmayan ve yalnızca sayı ile küçük harf içeren bir ad belirtin.
+   ![Kaynak ekle](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-![depolama ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
+1. Seçin **depolama hesabı** ve bir ad verin. 11 karakterden uzun olmayan ve yalnızca sayı ile küçük harf içeren bir ad belirtin.
 
-Yalnızca kaynak eklenmediğini, aynı zamanda depolama hesabı türü için bir parametre ve depolama hesabı adı bir değişken eklendiğini unutmayın.
+   ![Depolama ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
-![ana hattı göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
+1. Yalnızca kaynak eklenmediğini, aynı zamanda depolama hesabı türü için bir parametre ve depolama hesabı adı bir değişken eklendiğini unutmayın.
 
-**storageType** parametresi izin verilen türler ve varsayılan tür ile önceden tanımlanmıştır. Bu değerleri bırakabilir veya senaryonuz için düzenleyebilirsiniz. Bu şablon aracılığıyla herkesin **Premium_LRS** depolama hesabı dağıtmasını istemiyorsanız izin verilen türlerden bunu kaldırın. 
+   ![Ana hattı Göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-```json
-"storageType": {
-  "type": "string",
-  "defaultValue": "Standard_LRS",
-  "allowedValues": [
-    "Standard_LRS",
-    "Standard_ZRS",
-    "Standard_GRS",
-    "Standard_RAGRS"
-  ]
-}
+1. Depolama hesabı türü parametresi izin verilen türler ve varsayılan tür ile önceden tanımlanmış olmalıdır. Bu değerleri bırakabilir veya senaryonuz için düzenleyebilirsiniz. Bu şablon aracılığıyla herkesin **Premium_LRS** depolama hesabı dağıtmasını istemiyorsanız izin verilen türlerden bunu kaldırın.
+
+   ```json
+   "demoaccountType": {
+     "type": "string",
+     "defaultValue": "Standard_LRS",
+     "allowedValues": [
+       "Standard_LRS",
+       "Standard_ZRS",
+       "Standard_GRS",
+       "Standard_RAGRS"
+     ]
+   }
+   ```
+
+1. Visual Studio, şablonu düzenlerken kullanılabilir özelliklerini anlamanıza yardımcı olması için IntelliSense de sağlar. Örneğin, App Service planınızın özelliklerini düzenlemek için **HostingPlan** kaynağına gidin ve **resources** için bir değer ekleyin. IntelliSense’in kullanılabilir değerleri gösterdiğini ve bu değerler için bir açıklama sunduğunu unutmayın.
+
+   ![IntelliSense'i Göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
+
+   Ayarlayabileceğiniz **numberOfWorkers** 1 ve dosyayı kaydedin.
+
+   ```json
+   "properties": {
+     "name": "[parameters('hostingPlanName')]",
+     "numberOfWorkers": 1
+   }
+   ```
+
+1. Açık **WebSite.parameters.json** dosya. Parametre dosyasını, dağıtım sırasında dağıtılan kaynak özelleştirme değerleri geçirmek için kullanın. Barındırma planı bir ad verin ve dosyayı kaydedin.
+
+   ```json
+   {
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "hostingPlanName": {
+         "value": "demoHostPlan"
+       }
+     }
+   }
+   ```
+
+## <a name="deploy-project-to-azure"></a>Projeyi Azure'a dağıtma
+
+Şimdi bir kaynak grubu için projenizi dağıtmaya hazırsınız.
+
+Varsayılan olarak, AzureRM modülünü projedeki PowerShell Betiği (AzureResourceGroup.ps1 dağıtma) kullanır. Yine de AzureRM Modülü yüklü ve kullanmaya devam etmek istiyorsanız, bu varsayılan komut dosyasını kullanabilirsiniz. Bu betik ile çözümünüzü dağıtmak için Visual Studio arabirimini kullanabilirsiniz.
+
+Ancak, yeni Project.json'dan packagereference'a varsa [Az modül](/powershell/azure/new-azureps-module-az), projenize yeni bir betik eklemeniz gerekir. Az modül kullanan bir komut dosyası eklemek için Kopyala [Dağıt AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) komut dosyası ve projenize ekleyin. Bu betik, dağıtım için kullanmak için bunu bir PowerShell Konsolu yerine Visual Studio'nun dağıtım arabirimini kullanarak çalıştırmanız gerekir.
+
+Bu makalede her iki yaklaşım gösterilmektedir. Bu makalede AzureRM modülü betik olarak varsayılan betik ve Az modül betik olarak yeni betik ifade eder.
+
+### <a name="az-module-script"></a>Az modül betiği
+
+Az modül betiği için bir PowerShell konsolu açın ve çalıştırın:
+
+```powershell
+.\Deploy-AzTemplate.ps1 -ArtifactStagingDirectory . -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json
 ```
 
-Visual Studio, şablonu düzenlerken kullanılabilir özelliklerini anlamanıza yardımcı olması için IntelliSense de sağlar. Örneğin, App Service planınızın özelliklerini düzenlemek için **HostingPlan** kaynağına gidin ve **resources** için bir değer ekleyin. IntelliSense’in kullanılabilir değerleri gösterdiğini ve bu değerler için bir açıklama sunduğunu unutmayın.
+### <a name="azurerm-module-script"></a>AzureRM modülü betiği
 
-![IntelliSense’i göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
-
-**numberOfWorkers** değerini 1 olarak ayarlayabilirsiniz.
-
-```json
-"properties": {
-  "name": "[parameters('hostingPlanName')]",
-  "numberOfWorkers": 1
-}
-```
-
-## <a name="deploy-the-resource-group-project-to-azure"></a>Azure’da Kaynak Grubu projesi dağıtma
-Artık, projenizi dağıtmaya hazırsınız. Bir Azure Kaynak Grubu projesi dağıttığınızda, bunu bir Azure kaynak grubuna dağıtırsınız. Kaynak grubu, ortak bir yaşam döngüsünü paylaşan kaynakların mantıksal bir gruplandırmasıdır.
+AzureRM modülü betik için Visual Studio kullanın:
 
 1. Dağıtım proje düğümünün kısayol menüsünde **Dağıt** > **Yeni** seçeneklerini belirleyin.
-   
-    ![Dağıt, Yeni Dağıtım menü öğesi](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
-   
-    **Kaynak Grubuna Dağıt** iletişim kutusu görüntülenir.
-   
-    ![Kaynak Grubuna Dağıt İletişim Kutusu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
-2. **Kaynak Grubu** açılır kutusunda, mevcut bir kaynak grubu seçin veya yeni bir tane oluşturun. Bir kaynak grubu oluşturmak için **Kaynak Grubu** açılır kutusunu açın **Yeni Oluştur** seçeneğini belirleyin.
-   
-    ![Kaynak Grubuna Dağıt İletişim Kutusu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
-   
-    **Kaynak Grubu Oluştur** iletişim kutusu görüntülenir. Grubunuz için bir ad ve konum girin ve **Oluştur** düğmesini seçin.
-   
-    ![Kaynak Grubu Oluştur İletişim Kutusu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
-3. **Parametreleri Düzenle** düğmesini seçerek dağıtım parametrelerini düzenleyin.
-   
-    ![Parametreleri Düzenle düğmesi](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
-4. Boş parametreler için değerleri belirtin ve **Kaydet** düğmesini seçin. **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** ve **databaseName** boş parametrelerdir.
-   
-    **hostingPlanName**, oluşturulacak [App Service planı](../app-service/overview-hosting-plans.md) için bir ad belirtir. 
-   
-    **administratorLogin**, SQL Server yöneticisinin kullanıcı adını belirtir. **sa** veya **admin** gibi yaygın yönetici adlarını kullanmayın. 
-   
-    **administratorLoginPassword**, SQL Server yöneticisi için bir parola belirtir. **Parolaları parametre dosyasına düz metin olarak kaydet** seçeneği güvenli değildir; bu nedenle bu seçeneği belirlemeyin. Parola düz metin olarak kaydedilmediğinden dağıtım sırasında bu parolayı yeniden belirtmeniz gerekecektir. 
-   
-    **databaseName**, oluşturulacak veritabanı için bir ad belirtir. 
-   
-    ![Parametreleri Düzenle İletişim Kutusu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
-5. Projeyi Azure’da dağıtmak için **Dağıt** düğmesini seçin. Visual Studio örneğinin dışında bir PowerShell konsolu açılır. İstendiğinde PowerShell konsolunda SQL Server yönetici parolasını girin. **PowerShell konsolunuz, diğer öğelerin arkasına gizlenmiş veya görev çubuğunda simge haline getirilmiş olabilir.** Bu konsolu arayın ve parolayı belirtmek için seçin.
-   
-   > [!NOTE]
-   > Visual Studio, Azure PowerShell cmdlet'lerini yüklemenizi isteyebilir. İstenirse, bunları yükleyin. Kaynak gruplarını başarıyla dağıtmak için Azure PowerShell modülleri ihtiyacınız vardır. PowerShell betiğini projesinde yeni işe yaramazsa [Az Azure PowerShell Modülü](/powershell/azure/new-azureps-module-az). 
-   >
-   > Daha fazla bilgi için [yüklemek ve Azure PowerShell modülleri Yapılandır](/powershell/azure/install-Az-ps).
-   > 
-   > 
-6. Dağıtım birkaç dakika sürebilir. **Çıktı** pencerelerinde dağıtımın durumunu görürsünüz. Dağıtım tamamlandığında son ileti aşağıdakine benzer bir ifadeyle dağıtımın başarılı olduğunu belirtir:
-   
-        ... 
-        18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
-7. Bir tarayıcıda [Azure portal](https://portal.azure.com/)’ı açın ve hesabınızda oturum açın. Kaynak grubunu görmek için **Kaynak grupları**’nu ve dağıttığınız kaynak grubunu seçin.
-   
-    ![grup seçme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
-8. Dağıtılan tüm kaynakları görürsünüz. Depolama hesabı adının, ilgili kaynağı eklerken belirttiğiniz adla tam olarak aynı olmadığına dikkat edin. Depolama hesabı benzersiz olmalıdır. Şablon benzer bir ad belirtmek üzere belirttiğiniz ada otomatik olarak bir karakter dizesi ekler. 
-   
-    ![kaynakları göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
-9. Değişiklik yapar ve projenizi yeniden dağıtmak isterseniz, Azure kaynak grubu projesinin kısayol menüsünden mevcut kaynak grubunu seçin. Kısayol menüsünde, **Dağıt**’ı ve ardından dağıttığınız kaynak grubunu seçin.
-   
-    ![Dağıtılan Azure kaynak grubu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
-## <a name="deploy-code-with-your-infrastructure"></a>Altyapınızla kodları dağıtma
-Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıtılan gerçek bir kod yoktur. Bu makalede bir web uygulaması ve SQL Database tablolarını dağıtım sırasında nasıl dağıtacağınız gösterilir. Bir web uygulaması yerine bir Sanal Makine dağıtıyorsanız, dağıtımının bir parçası olarak bazı kodlar çalıştırmak isteyebilirsiniz. Bir web uygulaması için kod dağıtma veya Sanal Makine kurma işlemi neredeyse aynıdır.
+    ![Yeni dağıtım menü öğesi](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
+
+1. **Kaynak Grubuna Dağıt** iletişim kutusu görüntülenir. **Kaynak Grubu** açılır kutusunda, mevcut bir kaynak grubu seçin veya yeni bir tane oluşturun. **Dağıt**'ı seçin.
+
+    ![Kaynak grubu iletişim kutusu için dağıtma](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
+
+1. **Çıktı** pencerelerinde dağıtımın durumunu görürsünüz. Dağıtım tamamlandığında son ileti aşağıdakine benzer bir ifadeyle dağıtımın başarılı olduğunu belirtir:
+
+   ```output
+   18:00:58 - Successfully deployed template 'website.json' to resource group 'ExampleAppDeploy'.
+   ```
+
+## <a name="view-deployed-resources"></a>Dağıtılan kaynakları görüntüle
+
+Şimdi sonuçlarını denetleyin.
+
+1. Bir tarayıcıda [Azure portal](https://portal.azure.com/)’ı açın ve hesabınızda oturum açın. Kaynak grubunu görmek için **Kaynak grupları**’nu ve dağıttığınız kaynak grubunu seçin.
+
+1. Dağıtılan tüm kaynakları görürsünüz. Depolama hesabı adının, ilgili kaynağı eklerken belirttiğiniz adla tam olarak aynı olmadığına dikkat edin. Depolama hesabı benzersiz olmalıdır. Şablon, benzersiz bir ad oluşturmak için belirttiğiniz ada otomatik olarak bir karakter dizesi ekler.
+
+    ![Kaynakları Göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
+
+## <a name="add-code-to-project"></a>Proje için kod ekleyin
+
+Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıtılan gerçek bir kod yoktur.
 
 1. Visual Studio çözümünüze bir proje ekleyin. Çözüme sağ tıklayın ve **Ekle** > **Yeni Proje** öğesini seçin.
-   
-    ![proje ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
-2. Bir **ASP.NET Web Uygulaması** oluşturun. 
-   
-    ![web uygulaması ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
-3. **MVC** öğesini seçin.
-   
-    ![MVC’yi seçme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
-4. Visual Studio web uygulamanızı oluşturduktan sonra her iki projeyi de çözümde görürsünüz.
-   
-    ![projeleri göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
-5. Bundan böyle kaynak grubu projenizin yeni projeyi tanıdığından emin olmanız gerekir. Kaynak grubu projenize (AzureResourceGroup1) geri dönün. **Başvurular**’a sağ tıklayın ve **Başvuru Ekle**’yi seçin.
-   
-    ![başvuru ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
-6. Oluşturduğunuz web uygulaması projesini seçin.
-   
-    ![başvuru ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
-   
-    Bir başvuru ekleyerek, web uygulama projesini kaynak grubu projesine bağlar ve otomatik olarak üç anahtar özellik ayarlamış olursunuz. Bu özellikleri başvurunun **Özellikler** penceresinde görürsünüz.
-   
-      ![başvuruya bakma](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
-   
-    Özellikler şunlardır:
-   
-   * **Ek Özellikler**, Azure Depolama’ya gönderilen web dağıtımı paketini hazırlama konumunu içerir. Klasörü (ExampleApp) ve dosyayı (package.zip) not edin. Uygulamayı dağıtırken parametre olarak ileteceğiniz için bu değerleri bilmeniz gerekir. 
-   * **Dosya Yolu Ekle** paketin oluşturulduğu yerin yolunu içerir. **Hedefleri Ekle** dağıtımın yürüttüğü komutu içerir. 
-   * **Build;Package** varsayılan değeri, dağıtımın bir web dağıtımı paketi (package.zip) oluşturmasını sağlar.  
-     
-     Dağıtım paketi oluşturmak için gereken bilgileri özelliklerden elde ettiği için bir yayımlama profili gerekmez.
-7. WebSiteSQLDatabase.json dosyasına geri dönüp şablona bir kaynak ekleyin.
-   
-    ![kaynak ekle](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
-8. Bu kez **Web Apps için Web Dağıtımı**’nı seçin. 
-   
-    ![web dağıtımı ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
-9. Kaynak grubu projenizi kaynak grubuna yeniden dağıtın. Bu defa, bazı yeni parametre bulunur. **_artifactsLocation** veya **_artifactsLocationSasToken** değerleri Visual Studio tarafından otomatik olarak oluşturulduğundan, bunlar için değer girmeniz gerekmez. Ancak, klasör ve dosya adını, dağıtım paketini içeren yola ayarlamanız gerekir (aşağıdaki görüntüde **ExampleAppPackageFolder** ve **ExampleAppPackageFileName** olarak gösterilmiştir). Daha önce başvuru özelliklerinde gördüğünüz değerleri belirtin (**ExampleApp** ve **package.zip**).
-   
-    ![web dağıtımı ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
-   
-    Bu kaynak grubu ile dağıtılmış bir **Yapıt depolama hesabı** seçin.
-10. Dağıtım tamamlandıktan sonra portalda web uygulamanızı seçin. Yeni siteye göz atmak için URL’yi seçin.
-    
-     ![siteye göz atma](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
-11. Varsayılan ASP.NET uygulamasını başarıyla dağıttığınızdan emin olun.
-    
-     ![dağıtılmış uygulamayı gösterme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
-## <a name="add-an-operations-dashboard-to-your-deployment"></a>Dağıtımınıza bir işlem panosu ekleme
+    ![Proje ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. Ekleme bir **ASP.NET Core Web uygulaması**.
+
+    ![Web uygulaması Ekle](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
+
+1. Web uygulamanıza bir ad verin ve seçin **Oluştur**.
+
+    ![Web uygulaması adı](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/name-web-app.png)
+
+1. Seçin **Web uygulaması** ve **oluşturma**.
+
+    ![Web uygulaması seçin](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project-type.png)
+
+1. Visual Studio web uygulamanızı oluşturduktan sonra her iki projeyi de çözümde görürsünüz.
+
+    ![projeleri göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. Bundan böyle kaynak grubu projenizin yeni projeyi tanıdığından emin olmanız gerekir. Kaynak grubu projenize (ExampleAppDeploy) geri dönün. **Başvurular**’a sağ tıklayın ve **Başvuru Ekle**’yi seçin.
+
+    ![Başvuru ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. Oluşturduğunuz web uygulaması projesini seçin.
+
+   ![Başvuru ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
+
+   Bir başvuru ekleyerek, web uygulama projesini kaynak grubu projesine bağlar ve otomatik olarak bazı özelliklerini ayarlar. Bu özellikleri başvurunun **Özellikler** penceresinde görürsünüz. **Dosya Yolu Ekle** paketin oluşturulduğu yerin yolunu içerir. Klasörü (ExampleApp) ve dosyayı (package.zip) not edin. Uygulamayı dağıtırken parametre olarak ileteceğiniz için bu değerleri bilmeniz gerekir.
+
+   ![başvurusuna bakın](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
+
+1. Şablonunuza (WebSite.json) geri dönün ve şablona bir kaynak ekleyin.
+
+    ![Kaynak ekle](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. Bu kez **Web Apps için Web Dağıtımı**’nı seçin. 
+
+    ![Web ekleme dağıtma](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
+
+   Şablonunuzu kaydedin.
+
+1. Şablonunuza bazı yeni parametre yok. Bunlar, önceki adımda eklendi. Değer sağlamanız gerekmez **_artifactsLocation** veya **_artifactsLocationSasToken** çünkü bu değerleri otomatik olarak oluşturulur. Ancak, klasör ve dosya adını dağıtım paketini içeren yola ayarlamanız gerekir. Bu parametre adları ile bitemez **PackageFolder** ve **PackageFileName**. Adın ilk kısmı eklediğiniz Web dağıtımı kaynak adıdır. Bu makalede, bunlar adlı **ExampleAppPackageFolder** ve **ExampleAppPackageFileName**. 
+
+   Açık **Website.parameters.json** ve başvuru özelliklerinde gördüğünüz değerleri bu parametrelerin ayarlayın. Ayarlama **ExampleAppPackageFolder** klasörün adı. Ayarlama **ExampleAppPackageFileName** ZIP dosyasının adı.
+
+   ```json
+   {
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "hostingPlanName": {
+         "value": "demoHostPlan"
+       },
+       "ExampleAppPackageFolder": {
+         "value": "ExampleApp"
+       },
+       "ExampleAppPackageFileName": {
+         "value": "package.zip"
+       }
+     }
+   }
+   ```
+
+## <a name="deploy-code-with-infrastructure"></a>Altyapı ile kod dağıtma
+
+Proje kodunu eklenmiş olduğunuzdan, dağıtımınız bu kez biraz farklıdır. Dağıtım sırasında Resource Manager'ın erişebileceği bir yere projeniz için yapıtları hazırlama. Yapıtlar bir depolama hesabı için hazırlanmıştır.
+
+### <a name="az-module-script"></a>Az modül betiği
+
+Bir küçük değişiklik Az modül betiği kullanıyorsanız, şablonunuza yapmanıza gerek yoktur. Bu betik bir eğik çizgi yapıtları konumuna ekler, ancak şablonunuzu bu eğik çizgi gerekmiyor. WebSite.json açın ve MSDeploy uzantısının özelliklerini bulun. Adlı bir özellik olan **packageUri**. Yapıtları konumu ve paket klasörünü arasında eğik çizgi kaldırın.
+
+Gibi görünmelidir:
+
+```json
+"packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
+```
+
+Bildirim yok önceki örnekte hiçbir `'/',` arasında **parameters('_artifactsLocation')** ve **parameters('ExampleAppPackageFolder')** .
+
+Projeyi yeniden derleyin. Proje derleme dağıtmak için gereken dosyaları hazırlama klasörüne eklenen emin olur.
+
+Artık, bir PowerShell konsolu açın ve çalıştırın:
+
+```powershell
+.\Deploy-AzTemplate.ps1 -ArtifactStagingDirectory .\bin\Debug\staging\ExampleAppDeploy -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json -UploadArtifacts -StorageAccountName <storage-account-name>
+```
+
+### <a name="azurerm-module-script"></a>AzureRM modülü betiği
+
+AzureRM modülü betik için Visual Studio kullanın:
+
+1. Yeniden dağıtmak için seçin **Dağıt**ve daha önce dağıttığınız kaynak grubunu.
+
+    ![Proje yeniden dağıtma](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
+
+1. Bu kaynak grubu için Dağıtılmış depolama hesabını seçin **Yapıt depolama hesabı**.
+
+   ![Web yeniden dağıtma](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy-web-app.png)
+
+## <a name="view-web-app"></a>Görünüm web uygulaması
+
+1. Dağıtım tamamlandıktan sonra portalda web uygulamanızı seçin. Yeni siteye göz atmak için URL’yi seçin.
+
+   ![Site Gözat](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. Varsayılan ASP.NET uygulamasını başarıyla dağıttığınızdan emin olun.
+
+   ![Dağıtılmış uygulamayı gösterme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+
+## <a name="add-operations-dashboard"></a>İşlem Panosu ekleme
+
 Yalnızca Visual Studio arabirimi aracılığıyla kullanılabilir olan kaynaklarla sınırlı olmazsınız. Şablonunuza özel bir kaynak ekleyerek dağıtımınızı özelleştirebilirsiniz. Kaynak eklemeyi göstermek için dağıttığınız kaynağı yönetmek üzere bir işlem panosu eklersiniz.
 
-1. WebsiteSqlDeploy.json dosyasını açın ve depolama hesabı kaynağından sonra, kaynaklar bölümünün kapanış `]` işaretinden önce aşağıdaki JSON kodunu ekleyin.
+1. WebSite.json dosyasını açın ve sonra depolama hesabı kaynağı ancak kapatmadan önce aşağıdaki JSON ekleyin `]` Kaynaklar bölümünün.
 
    ```json
     ,{
@@ -300,15 +362,27 @@ Yalnızca Visual Studio arabirimi aracılığıyla kullanılabilir olan kaynakla
     }
    ```
 
-2. Kaynak grubunuzu yeniden dağıtın. Azure portaldaki panonuza bakın ve paylaşılan panonun seçenek listenize eklenmiş olduğuna dikkat edin.
+1. Projenizi yeniden dağıtın.
+
+1. Dağıtım tamamlandıktan sonra portalda panonuzu görüntüleyin. Seçin **Pano** ve, dağıtılmış bir tanesini seçin.
 
    ![Özel Pano](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
 
-3. Panoyu seçin.
+1. Özelleştirilmiş Pano görürsünüz.
 
    ![Özel Pano](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
 RBAC gruplarını kullanarak panoya erişimi yönetebilirsiniz. Ayrıca dağıtıldıktan sonra panonun görünümünü özelleştirebilirsiniz. Ancak kaynak grubunuza yeniden dağıttığınızda pano şablonunuzdaki varsayılan durumuna sıfırlanır. Pano oluşturma hakkında daha fazla bilgi için bkz. [Program aracılığıyla Azure Panoları oluşturma](../azure-portal/azure-portal-dashboards-create-programmatically.md).
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığınız kaynakları temizleyin.
+
+1. Azure portalından seçin **kaynak grupları** sol menüden.
+
+1. Kaynak grubu adını seçin.
+
+1. Üstteki menüden **Kaynak grubunu sil**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
